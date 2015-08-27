@@ -62,3 +62,7 @@ https://github.com/timeraider4u/xtext-predicates
 ### Predicate hoisting (and why hoisting is not allowed over actions):
 http://www.antlr.org/papers/LL-star/predicate-hoisting.pdf
 
+### My question in the corresponding Google Group:
+Is it possible to enforce predicate hoisting over actions?
+
+https://groups.google.com/forum/#!topic/antlr-discussion/UrZEt-uaMVA

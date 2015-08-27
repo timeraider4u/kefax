@@ -33,6 +33,9 @@ http://wrice.blogspot.co.at/2013/12/antlr-grammar-for-cc-preprocessor.html
 http://www.eclipse.org/Xtext/documentation/
 http://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.xtext.doc
 
+### Can XText parse General-purpose languages (like C)?
+http://stackoverflow.com/questions/5632262/can-xtext-be-used-for-parsing-general-purpose-programming-languages
+
 ### XText warning/error messages explained:
 http://www.euclideanspace.com/software/development/eclipse/xtext/grammar/debuging/index.htm
 

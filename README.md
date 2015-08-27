@@ -46,6 +46,7 @@ https://www.eclipse.org/forums/index.php/t/640630/
 http://meri-stuff.blogspot.co.at/2012/12/antlr-semantic-predicates.html
 
 ### Semantic predicates in XText - not supported yet:
+http://stackoverflow.com/questions/13717565/xtext-solving-ambiguity-without-semantic-predicates
 https://www.eclipse.org/forums/index.php/t/169313/
 https://www.eclipse.org/forums/index.php/t/202846/
 https://www.eclipse.org/forums/index.php/t/441096/

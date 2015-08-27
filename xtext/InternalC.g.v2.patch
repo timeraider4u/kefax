@@ -1,0 +1,75 @@
+--- InternalC.g.v1	2015-08-27 05:00:21.000000000 +0200
++++ InternalC.g.v2	2015-08-27 05:03:38.000000000 +0200
+@@ -382,16 +382,16 @@
+     }
+     @after { leaveRule(); }:
+ ((
+-    {
++    /*{
+         $current = forceCreateModelElement(
+             grammarAccess.getDeclarationSpecifiersAccess().getDeclarationSpecifiersAction_0(),
+             $current);
+-    }
++    }*/
+ )(
+ (
+-		{ 
++		/*{ 
+ 	        newCompositeNode(grammarAccess.getDeclarationSpecifiersAccess().getSpecifiersDeclarationSpecifierParserRuleCall_1_0()); 
+-	    }
++	    }*/
+ 		lv_specifiers_1_0=ruledeclarationSpecifier		{
+ 	        if ($current==null) {
+ 	            $current = createModelElementForParent(grammarAccess.getDeclarationSpecifiersRule());
+@@ -427,11 +427,11 @@
+     }
+     @after { leaveRule(); }:
+ ((
+-    {
++    /*{
+         $current = forceCreateModelElement(
+             grammarAccess.getDeclarationSpecifierAccess().getDeclarationSpecifierAction_0(),
+             $current);
+-    }
++    }*/
+ )((
+ (
+ 		{ 
+@@ -453,9 +453,9 @@
+ )
+     |(
+ (
+-		{ 
++		/*{ 
+ 	        newCompositeNode(grammarAccess.getDeclarationSpecifierAccess().getDeclarationSpecifierTypeSpecifierParserRuleCall_1_1_0()); 
+-	    }
++	    }*/
+ 		lv_declarationSpecifier_2_0=ruletypeSpecifier		{
+ 	        if ($current==null) {
+ 	            $current = createModelElementForParent(grammarAccess.getDeclarationSpecifierRule());
+@@ -667,11 +667,11 @@
+     }
+     @after { leaveRule(); }:
+ ((
+-    {
++    /*{
+         $current = forceCreateModelElement(
+             grammarAccess.getTypeSpecifierAccess().getTypeSpecifierAction_0(),
+             $current);
+-    }
++    }*/
+ )(this_VOID_1=RULE_VOID
+     { 
+     newLeafNode(this_VOID_1, grammarAccess.getTypeSpecifierAccess().getVOIDTerminalRuleCall_1_0()); 
+@@ -744,9 +744,9 @@
+ 
+     |(
+ (
+-		{ 
++		/*{ 
+ 	        newCompositeNode(grammarAccess.getTypeSpecifierAccess().getNameTypedefNameParserRuleCall_1_14_0()); 
+-	    }
++	    }*/
+ 		lv_name_15_0=ruletypedefName		{
+ 	        if ($current==null) {
+ 	            $current = createModelElementForParent(grammarAccess.getTypeSpecifierRule());

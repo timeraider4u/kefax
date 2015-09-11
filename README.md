@@ -66,3 +66,7 @@ http://www.antlr.org/papers/LL-star/predicate-hoisting.pdf
 Is it possible to enforce predicate hoisting over actions?
 
 https://groups.google.com/forum/#!topic/antlr-discussion/UrZEt-uaMVA
+
+
+### Currently working on: Force hoisting predicates over actions:
+See ./instructions.txt

@@ -1,0 +1,19 @@
+01a.) git clone https://github.com/antlr/antlr3
+01b.) git clone https://github.com/timeraider4u/antlr3.git
+02.) Open Eclipse Mars
+03.) Install M2E from http://www.eclipse.org/m2e/m2e-downloads.html
+04.) Install ANTLR3 Maven connector from https://repo1.maven.org/maven2/.m2e/connectors/m2eclipse-antlr/0.15.0/N/0.15.0.201405281449/
+05.) Restart Eclipse
+06.) Import Existing Maven project (browse to folder from 1.) and then only select tool-sub-project)
+07.) Right-click on project->Run-as->Maven-build->Run
+08.) Wait for build to finish
+09.) Open file TestSemanticPredicates.java in src/test/java/org.antlr.test
+10.) Inspect methods "testLL_1_Pred", "testIgnoresPredsHiddenByActions" and "testIgnoresPredsHiddenByActionsOneAlt"
+11.) Run JUnit tests in this file
+12.) Test testForceHoistingOverActions will fail!
+
+
+More information:
+- hasPredicateBlockedByAction in ./tool/target/classes/org/antlr/tool/templates/messages/languages/en.stg
+- ./tool/src/main/java/org/antlr/analysis/NFAToDFAConverter.java: dfa.hasPredicateBlockedByAction = true;
+

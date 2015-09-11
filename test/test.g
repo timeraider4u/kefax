@@ -1,15 +1,17 @@
 grammar test;
 
+options {forceHoisting=true;}
+
 test: (foobar)+;
 
 foobar: 
 	{;/*do nothing relevant*/}
-	({; /*do another irrelevant stuff*/;} foo 
+	({doSomething(); /*do another irrelevant stuff*/;} foo 
 	| bar
 	)
 ;
 
-foo: {true/*stupidPredicate*/}? MY;
+foo: {isValid()/*stupidPredicate*/}? MY;
 bar: MY;
 
 MY: 'my';

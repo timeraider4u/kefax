@@ -11,9 +11,13 @@
 10.) Inspect methods "testLL_1_Pred", "testIgnoresPredsHiddenByActions" and "testIgnoresPredsHiddenByActionsOneAlt"
 11.) Run JUnit tests in this file
 12.) Test testForceHoistingOverActions will fail!
-
+13.) Re-run this test
 
 More information:
 - hasPredicateBlockedByAction in ./tool/target/classes/org/antlr/tool/templates/messages/languages/en.stg
 - ./tool/src/main/java/org/antlr/analysis/NFAToDFAConverter.java: dfa.hasPredicateBlockedByAction = true;
 
+- Grammar->member field "options"!
+- ILLEGAL_OPTION in ./tool/target/classes/org/antlr/tool/templates/messages/languages/en.stg
+
+- /antlr/src/main/java/org/antlr/analysis/NFAToDFAConverter.java: dfa.hasPredicateBlockedByAction = true;

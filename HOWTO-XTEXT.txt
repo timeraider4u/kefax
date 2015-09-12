@@ -12,3 +12,9 @@
 11.) ant -f xtext-build.ant
 12.) cd ~/buckminster-builds/xtext/buildroot/buckminster.workspace/output/org.eclipse.xtext.build_2.9.0-eclipse.feature/zips/
 13.) ls
+14.) 
+
+--------------------------------------------------------------------------------
+
+
+

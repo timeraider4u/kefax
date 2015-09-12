@@ -20,4 +20,4 @@ More information:
 - Grammar->member field "options"!
 - ILLEGAL_OPTION in ./tool/target/classes/org/antlr/tool/templates/messages/languages/en.stg
 
-- /antlr/src/main/java/org/antlr/analysis/NFAToDFAConverter.java: dfa.hasPredicateBlockedByAction = true;
+- /antlr/src/main/java/org/antlr/analysis/NFAToDFAConverter.java: dfa.hasPredicateBlockedByAction = true; 

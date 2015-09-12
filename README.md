@@ -69,4 +69,6 @@ https://groups.google.com/forum/#!topic/antlr-discussion/UrZEt-uaMVA
 
 
 ### Currently working on: Force hoisting predicates over actions:
-See ./instructions.txt
+See https://github.com/antlr/antlr3/pull/177
+See ./HOWTO-ANTLR.txt
+See ./HOWTO-XTEXT.txt

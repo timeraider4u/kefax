@@ -1,0 +1,7 @@
+01a.) git clone https://github.com/eclipse/xtext.git
+01b.) git clone https://github.com/timeraider4u/xtext.git
+02.) cd xtext
+03.) 
+
+/home/harry/buckminster-builds/xtext/buildroot/buckminster.workspace/output/org.eclipse.xtext.build_2.9.0-eclipse.feature/zips/
+ 

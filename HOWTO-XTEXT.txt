@@ -1,7 +1,14 @@
 01a.) git clone https://github.com/eclipse/xtext.git
 01b.) git clone https://github.com/timeraider4u/xtext.git
-02.) cd xtext
-03.) 
-
-/home/harry/buckminster-builds/xtext/buildroot/buckminster.workspace/output/org.eclipse.xtext.build_2.9.0-eclipse.feature/zips/
- 
+02.) rm ~/buckminster*; rm ~/director
+03.) cd xtext
+04.) git tag -l
+05.) git checkout -b tag/v2.8.4
+06.) git status
+07.) git remote -v
+08.) cd releng/org.eclipse.xtext.releng/releng/ant/
+09.) ant -f xtext-build.ant
+10.) Go and drink some tea/coffee
+11.) ant -f xtext-build.ant
+12.) cd ~/buckminster-builds/xtext/buildroot/buckminster.workspace/output/org.eclipse.xtext.build_2.9.0-eclipse.feature/zips/
+13.) ls

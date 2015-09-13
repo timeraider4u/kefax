@@ -1,0 +1,13 @@
+git branch newbranch
+git reset --hard HEAD~3 # Go back 3 commits. You *will* lose uncommitted work.*1
+git checkout newbranch
+
+https://github.com/edx/edx-platform/wiki/How-to-Rebase-a-Pull-Request
+http://blog.steveklabnik.com/posts/2012-11-08-how-to-squash-commits-in-a-github-pull-request
+
+git rebase -i upstream/master
+
+git push origin omgpull -f
+
+http://eli.thegreenplace.net/2014/02/19/squashing-github-pull-requests-into-a-single-commit
+

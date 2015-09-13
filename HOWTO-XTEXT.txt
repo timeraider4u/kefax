@@ -16,5 +16,11 @@
 15.) Install Xtext/Xtext Complete SDK
 --------------------------------------------------------------------------------
 
+comment out line #36 in xtext/org.eclipse.xtext.generator/src/org/eclipse/xtext/generator/parseTreeConstructor/ParseTreeConstructor.xpt
+	-> // @SuppressWarnings("all") // not needed with newer ANTLR3 versions (see ANTLRv3 changelog)
+comment out line #48 in xtext/org.eclipse.xtext.generator/src/org/eclipse/xtext/generator/StandaloneSetup.xpt
+	-> // @SuppressWarnings("all") // not needed with newer ANTLR3 versions (see ANTLRv3 changelog)
+	
+	
 file in xtext/plugins/org.eclipse.xtext/src/org/eclipse/xtext/xtext.xtext seems to be grammar description
 

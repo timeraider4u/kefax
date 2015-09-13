@@ -12,9 +12,9 @@
 11.) ant -f xtext-build.ant
 12.) cd ~/buckminster-builds/xtext/buildroot/buckminster.workspace/output/org.eclipse.xtext.build_2.9.0-eclipse.feature/zips/
 13.) ls
-14.) 
-
+14.) Use as update-site the jar-file in ~/buckminster-builds/xtext/buildroot/buckminster.workspace/output/org.eclipse.xtext.build_2.9.0-eclipse.feature/zips/tmf-xtext-Update.zip
+15.) Install Xtext/Xtext Complete SDK
 --------------------------------------------------------------------------------
 
-
+file in xtext/plugins/org.eclipse.xtext/src/org/eclipse/xtext/xtext.xtext seems to be grammar description
 

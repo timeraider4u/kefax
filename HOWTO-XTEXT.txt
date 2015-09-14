@@ -16,8 +16,19 @@
 14.) Unzip
 15.) Start org.eclipse.oomph.setup.installer.product-linux.gtk.x86_64/oomph
 16.) Skip questionary
-17.) Select Eclipse IDE for Contributors
-18.) Select Xtext/Core
+17.) Select Eclipse.org/Eclipse IDE for Eclipes Committers on product page
+18.) Select Xtext/Core on Project page (double-click on it)
+19.) Specify variables on Variables page
+		- Installation location rule: Installed in the specified absolute path
+		- Root install folder: ~/Apps/eclipse-mars-xtext/
+		- Installation folder: ~/Apps/eclipse-mars-xtext/
+		- Workspace location rule: Located in the specified absolute path
+		- Workspace location: ~/workspace/workspace-xtextbuild
+		- Git clone location rule: Located in the specified absolute path
+		- Target platform: Mars
+		- JRE1.6 location: JRE7 location
+		- Github repository: HTTPS-readonly-anonymous or enter https://github.com/timeraider4u/xtext.git 
+		- JRE1.7 location: /opt/icedtea-bin-7.2.5.5/
 19.) Click Finish
 20.) Wait for Eclipse IDE to finish start-up preparation
 21.) ...

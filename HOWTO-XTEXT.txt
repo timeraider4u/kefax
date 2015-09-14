@@ -39,7 +39,10 @@
 23.) Wait for build to finish
 24.) 
 --------------------------------------------------------------------------------
-
+https://bugs.eclipse.org/bugs/show_bug.cgi?id=276954
+and
+https://bugs.eclipse.org/bugs/show_bug.cgi?id=428088
+--------------------------------------------------------------------------------
 09.) Download http://central.maven.org/maven2/org/apache/maven/plugins/maven-compiler-plugin/3.3/maven-compiler-plugin-3.3.jar
 10.) mvn org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file  -Dfile=~/Downloads/maven-compiler-plugin-3.3.jar
 

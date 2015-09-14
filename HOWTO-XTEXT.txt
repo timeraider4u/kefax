@@ -2,7 +2,7 @@
 01b.) git clone https://github.com/timeraider4u/xtext.git
 02.) rm ~/buckminster*; rm ~/director
 03.) cd xtext
-[04.) find . -type f -exec sed -i "s/org.eclipse.pde.api.tools.apiAnalysisBuilder//g" . {} \;]
+04.) find . -type f -exec sed -i "s/org.eclipse.pde.api.tools.apiAnalysisBuilder//g" {} \;
 05.) git tag -l
 06.) git checkout -b tag/v2.8.4
 07.) git status

@@ -7,14 +7,16 @@
 06.) git checkout -b tag/v2.8.4
 07.) git status
 08.) git remote -v
-09.) cd releng/org.eclipse.xtext.releng/releng/ant/
-10.) ant -f xtext-build.ant
-12.) Go and drink some tea/coffee
+09.) Download http://central.maven.org/maven2/org/apache/maven/plugins/maven-compiler-plugin/3.3/maven-compiler-plugin-3.3.jar
+10.) mvn org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file  -Dfile=~/Downloads/maven-compiler-plugin-3.3.jar
+11.) cd releng/org.eclipse.xtext.releng/releng/ant/
 12.) ant -f xtext-build.ant
-13.) cd ~/buckminster-builds/xtext/buildroot/buckminster.workspace/output/org.eclipse.xtext.build_2.9.0-eclipse.feature/zips/
-14.) ls
-15.) Use as update-site the jar-file in ~/buckminster-builds/xtext/buildroot/buckminster.workspace/output/org.eclipse.xtext.build_2.9.0-eclipse.feature/zips/tmf-xtext-Update.zip
-16.) Install Xtext/Xtext Complete SDK
+13.) Go and drink some tea/coffee
+14.) ant -f xtext-build.ant
+15.) cd ~/buckminster-builds/xtext/buildroot/buckminster.workspace/output/org.eclipse.xtext.build_2.9.0-eclipse.feature/zips/
+16.) ls
+17.) Use as update-site the jar-file in ~/buckminster-builds/xtext/buildroot/buckminster.workspace/output/org.eclipse.xtext.build_2.9.0-eclipse.feature/zips/tmf-xtext-Update.zip
+18.) Install Xtext/Xtext Complete SDK
 --------------------------------------------------------------------------------
 
 comment out line #36 in xtext/org.eclipse.xtext.generator/src/org/eclipse/xtext/generator/parseTreeConstructor/ParseTreeConstructor.xpt

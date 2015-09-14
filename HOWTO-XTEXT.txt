@@ -7,12 +7,25 @@
 06.) git checkout -b tag/v2.8.4
 07.) git status
 08.) git remote -v
+09.) cd releng/org.eclipse.xtext.releng/releng/ant/
+10.) ant -f xtext-build.ant
+11.) Go and drink some tea/coffee
+12.) ant -f xtext-build.ant
+
+13.) Download http://mirror.onet.pl/pub/mirrors/eclipse//oomph/drops/release/1.0.0/products/org.eclipse.oomph.setup.installer.product-linux.gtk.x86_64.zip
+14.) Unzip
+15.) Start org.eclipse.oomph.setup.installer.product-linux.gtk.x86_64/oomph
+16.) Skip questionary
+17.) Select Eclipse IDE for Contributors
+18.) Select Xtext/Core
+19.) Click Finish
+20.) Wait for Eclipse IDE to finish start-up preparation
+21.) ...
+
+
 09.) Download http://central.maven.org/maven2/org/apache/maven/plugins/maven-compiler-plugin/3.3/maven-compiler-plugin-3.3.jar
 10.) mvn org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file  -Dfile=~/Downloads/maven-compiler-plugin-3.3.jar
-11.) cd releng/org.eclipse.xtext.releng/releng/ant/
-12.) ant -f xtext-build.ant
-13.) Go and drink some tea/coffee
-14.) ant -f xtext-build.ant
+
 15.) cd ~/buckminster-builds/xtext/buildroot/buckminster.workspace/output/org.eclipse.xtext.build_2.9.0-eclipse.feature/zips/
 16.) ls
 17.) Use as update-site the jar-file in ~/buckminster-builds/xtext/buildroot/buckminster.workspace/output/org.eclipse.xtext.build_2.9.0-eclipse.feature/zips/tmf-xtext-Update.zip

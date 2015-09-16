@@ -39,6 +39,9 @@
 23.) Wait for build to finish
 24.) 
 --------------------------------------------------------------------------------
+see: https://github.com/eclipse/xtext/commit/db1b29b2f209fb81890473236bdff6a83561fc3f
+
+
 https://bugs.eclipse.org/bugs/show_bug.cgi?id=276954
 and
 https://bugs.eclipse.org/bugs/show_bug.cgi?id=428088

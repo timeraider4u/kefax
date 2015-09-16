@@ -45,8 +45,10 @@ see: https://github.com/eclipse/xtext/commit/db1b29b2f209fb81890473236bdff6a8356
 https://bugs.eclipse.org/bugs/show_bug.cgi?id=276954
 and
 https://bugs.eclipse.org/bugs/show_bug.cgi?id=428088
-and
-https://bugs.eclipse.org/bugs/show_bug.cgi?id=477617
+
+My bug reports:
+- https://bugs.eclipse.org/bugs/show_bug.cgi?id=477617
+- https://bugs.eclipse.org/bugs/show_bug.cgi?id=477623
 --------------------------------------------------------------------------------
 09.) Download http://central.maven.org/maven2/org/apache/maven/plugins/maven-compiler-plugin/3.3/maven-compiler-plugin-3.3.jar
 10.) mvn org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file  -Dfile=~/Downloads/maven-compiler-plugin-3.3.jar

@@ -1,0 +1,12 @@
+--- plugins/org.eclipse.xtext.xtext.ui/src-gen/org/eclipse/xtext/ui/contentassist/antlr/internal/InternalXtextLexer.java
++++ plugins/org.eclipse.xtext.xtext.ui/src-gen/org/eclipse/xtext/ui/contentassist/antlr/internal/InternalXtextLexer.java
+@@ -10,6 +10,9 @@ import java.util.Stack;
+ import java.util.List;
+ import java.util.ArrayList;
+ 
++/**
++ * @since 2.9
++ */
+ public class InternalXtextLexer extends Lexer {
+     public static final int RULE_ID=4;
+     public static final int T__29=29;

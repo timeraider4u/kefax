@@ -1,0 +1,12 @@
+--- plugins/org.eclipse.xtext/emf-gen/org/eclipse/xtext/impl/XtextFactoryImpl.java
++++ plugins/org.eclipse.xtext/emf-gen/org/eclipse/xtext/impl/XtextFactoryImpl.java
+@@ -17,6 +17,9 @@ import org.eclipse.xtext.*;
+  * An implementation of the model <b>Factory</b>.
+  * <!-- end-user-doc -->
+  * @generated
++ * @noextend This class is not intended to be subclassed by clients.
++ * @noinstantiate This class is not intended to be instantiated by clients.
++ * @noreference This class is not intended to be referenced by clients.
+  */
+ public class XtextFactoryImpl extends EFactoryImpl implements XtextFactory {
+ 	/**

@@ -1,0 +1,11 @@
+--- plugins/org.eclipse.xtext.xtext.ui/src-gen/org/eclipse/xtext/ui/contentassist/antlr/internal/InternalXtextParser.java
++++ plugins/org.eclipse.xtext.xtext.ui/src-gen/org/eclipse/xtext/ui/contentassist/antlr/internal/InternalXtextParser.java
+@@ -19,5 +19,8 @@ import java.util.Stack;
+ import java.util.List;
+ import java.util.ArrayList;
+ 
++/**
++ * @since 2.9
++ */
+ public class InternalXtextParser extends AbstractInternalContentAssistParser {
+     public static final String[] tokenNames = new String[] { 

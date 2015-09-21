@@ -1,0 +1,12 @@
+--- plugins/org.eclipse.xtext/src-gen/org/eclipse/xtext/parser/antlr/internal/InternalXtextParser.java
++++ plugins/org.eclipse.xtext/src-gen/org/eclipse/xtext/parser/antlr/internal/InternalXtextParser.java
+@@ -18,5 +18,8 @@ import java.util.Stack;
+ import java.util.List;
+ import java.util.ArrayList;
+ 
++/**
++ * @since 2.9
++ */
+ public class InternalXtextParser extends AbstractInternalAntlrParser {
+     public static final String[] tokenNames = new String[] {
+ 

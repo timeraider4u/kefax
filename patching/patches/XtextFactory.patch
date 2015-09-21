@@ -1,0 +1,18 @@
+--- a/plugins/org.eclipse.xtext/emf-gen/org/eclipse/xtext/XtextFactory.java
++++ b/plugins/org.eclipse.xtext/emf-gen/org/eclipse/xtext/XtextFactory.java
+@@ -11,6 +11,8 @@ import org.eclipse.emf.ecore.EFactory;
+  * <!-- end-user-doc -->
+  * @see org.eclipse.xtext.XtextPackage
+  * @generated
++ * @noextend This interface is not intended to be extended by clients.
++ * @noimplement This interface is not intended to be implemented by clients.
+  */
+ public interface XtextFactory extends EFactory {
+ 	/**
+@@ -351,6 +353,7 @@ public interface XtextFactory extends EFactory {
+ 	 * <!-- end-user-doc -->
+ 	 * @return a new object of class '<em>Init After Actions</em>'.
+ 	 * @generated
++	 * @since 3.0
+ 	 */
+ 	InitAfterActions createInitAfterActions();

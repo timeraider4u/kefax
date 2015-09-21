@@ -1,0 +1,67 @@
+grammar org.xtext.example.mydsl1.MyDsl with org.eclipse.xtext.common.Terminals
+hidden(WS)
+
+generate myDsl "http://www.xtext.org/example/mydsl1/MyDsl"
+
+Model:
+	{Model}
+	greetings+=Greeting+;
+	
+Greeting
+	returns Greeting
+	initRuleAction  { System.out.println("Greeting - initRuleAction"); } 
+	afterRuleAction{ System.out.println("Greeting - afterRuleaction"); }
+	:
+	
+	{Greeting}
+	
+	'Hello' name=ID '!'
+	preAction{ { System.out.println("preAction-Hello"); } }
+	postAction{ { System.out.println("postAction-Hello"); } }
+	
+	test=Test
+	Pre?
+	
+	reset=Reset?
+	
+	inc+=Inc*
+	
+	dynamic=Dynamic?
+;
+
+Test initRuleAction { System.out.println("test-in"); }:
+	'Test' name=ID
+		preAction{ { System.out.println("preAction-Test"); } }
+		postAction{ { System.out.println("postAction-Test"); }}
+;
+
+Pre:
+	'pre'
+		preAction{ { System.out.println("pre"); } }
+		postAction{ { System.out.println("post"); } }
+;
+
+Reset:
+	reset='reset' postAction{ { org.xtext.example.mydsl1.TestScope.reset();}}
+;
+
+Inc:
+	(inc='inc' 
+		postAction{ { org.xtext.example.mydsl1.TestScope.inc(); }}
+	)
+;
+
+Dynamic:
+	type=TypeA |
+	type=TypeB // preAction{ { TestScope.isValid(); }? }
+;
+
+TypeA:
+	type='type' postAction{ { System.out.println("TypeA"); } }
+;
+
+TypeB:
+	type='type'
+	preAction{ { org.xtext.example.mydsl1.TestScope.isValid() }? }
+	postAction{ { System.out.println("TypeB"); }}
+;

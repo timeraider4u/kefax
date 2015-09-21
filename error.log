@@ -1,0 +1,33 @@
+0    INFO  StandaloneSetup    - Registering platform uri '/home/harry/workspace/workspace-xtext/xtext-timeraider'
+[Fatal Error] :1:1: Content is not allowed in prolog.
+666  WARN  StandaloneSetup    - Couldn't read /home/harry/workspace/workspace-xtext/xtext-timeraider/maven/org.eclipse.xtend.maven.android.archetype/src/main/resources/archetype-resources/.project
+842  INFO  GenModelHelper     - Registered GenModel 'http://www.eclipse.org/2008/Xtext' from 'platform:/resource/org.eclipse.xtext/org/eclipse/xtext/Xtext.genmodel'
+checkDatatypeRules!
+checkDatatypeRules!
+rule='org.eclipse.xtext.impl.ParserRuleImpl@44da7b76 (name: GrammarID) (definesHiddenTokens: false, fragment: false, wildcard: false, initAfterActions: org.eclipse.xtext.impl.InitAfterActionsImpl@2e04aeeb (initAction: null, afterAction: null))'
+true
+false
+rule='org.eclipse.xtext.impl.ParserRuleImpl@795edab8 (name: ActionCall) (definesHiddenTokens: false, fragment: false, wildcard: false, initAfterActions: org.eclipse.xtext.impl.InitAfterActionsImpl@5ebe0222 (initAction: null, afterAction: null))'
+true
+false
+rule='org.eclipse.xtext.impl.ParserRuleImpl@59c9a28a (name: RuleID) (definesHiddenTokens: false, fragment: false, wildcard: false, initAfterActions: org.eclipse.xtext.impl.InitAfterActionsImpl@51d1d995 (initAction: null, afterAction: null))'
+true
+false
+rule='org.eclipse.xtext.impl.ParserRuleImpl@44ce4013 (name: ValidID) (definesHiddenTokens: false, fragment: false, wildcard: false, initAfterActions: org.eclipse.xtext.impl.InitAfterActionsImpl@5deeb245 (initAction: null, afterAction: null))'
+true
+false
+
+
+GrammarID returns ecore::EString:
+  ValidID ('.' ValidID)*;
+
+ActionCall returns ecore::EString:
+  ValidID ('.' ValidID)* ('(' STRING? ')')? ';';
+
+RuleID returns ecore::EString:
+  ValidID ('::' ValidID)*
+;
+
+ValidID returns ecore::EString:
+  ID | 'true' | 'false'
+;

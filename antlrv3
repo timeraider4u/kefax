@@ -1,0 +1,6 @@
+#!/bin/bash
+# ANTLR3
+#export CLASSPATH="/home/harry/Apps/antlr-3.5.2-complete-no-st3.jar:$CLASSPATH"
+export CLASSPATH="/home/harry/workspace/libs/antlr/antlr-3.5.3-SNAPSHOT.jar:$CLASSPATH"
+java -cp ${CLASSPATH} org.antlr.Tool ${1} #&& \
+#javac *.java

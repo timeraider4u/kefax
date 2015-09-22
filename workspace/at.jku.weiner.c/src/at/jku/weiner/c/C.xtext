@@ -1,0 +1,773 @@
+/*
+ [The "BSD licence"]
+ Copyright (c) 2013 Sam Harwell
+ Copyright (c) 2015 https://github.com/timeraider4u
+ All rights reserved.
+
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ 1. Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+ 2. Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+ 3. The name of the author may not be used to endorse or promote products
+    derived from this software without specific prior written permission.
+
+ THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+ IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+ OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+ INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+ NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+grammar at.jku.weiner.c.C /*with org.eclipse.xtext.common.Terminals*/
+hidden(LINEDIRECTIVE,LINE_COMMENT,BLOCK_COMMENT,NEWLINE,WHITESPACE,PRAGMADIRECTIVE)
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+generate c "http://www.jku.at/weiner/c/C"
+
+/*** parser ***/
+
+Model: {Model} (unit+=TranslationUnit)? EOF_TERMINAL?;
+
+TranslationUnit 
+	initRuleAction{ at.jku.weiner.c.Scope.createNewScope("TranslationUnit"); } 
+	afterRuleAction{ at.jku.weiner.c.Scope.removeScope(); }:
+	
+	(external+=ExternalDeclaration)+
+;
+
+ExternalDeclaration:
+	//{ExternalDeclaration}
+	//(=>functionDefinition=functionDefinition)
+ //   |   
+ 		{ExternalDeclaration} declaration=Declaration
+    | {ExternalDeclaration} SEMI // stray ;
+;
+
+/*
+primaryExpression returns expression: 
+	{primaryExpression}
+	(id=IDENTIFIER
+    //|   const=CONSTANT
+    //|   string+=STRINGLITERAL+
+    //|   LEFTPAREN expr=expression RIGHTPAREN
+    //|   genericSelection=genericSelection
+   // |   '__extension__'? LEFTPAREN compoundStmt=compoundStatement RIGHTPAREN // Blocks (GCC extension)
+    //|   '__builtin_va_arg' LEFTPAREN expr=unaryExpression COMMA typeName=typeName RIGHTPAREN
+    //|   '__builtin_offsetof' LEFTPAREN typeName=typeName COMMA expr=unaryExpression RIGHTPAREN
+    )
+;
+
+genericSelection: GENERIC LEFTPAREN assignmentExpression COMMA genericAssocList=genericAssocList RIGHTPAREN;
+
+genericAssocList: genericAssociation (COMMA genericAssociation+=genericAssociation)*;
+
+genericAssociation:
+	(typeName | DEFAULT) COLON
+	(assignmentExpression=assignmentExpression)
+;
+
+postfixExpression returns expression:
+	(primaryExpression
+	|   ('__extension__' LEFTPAREN typeName RIGHTPAREN LEFTBRACE initializerList=initializerList) 
+			(COMMA? RIGHTBRACE)
+    )
+    (LEFTBRACKET expr+=expression RIGHTBRACKET
+    | LEFTPAREN argumentExpressionList+=argumentExpressionList? RIGHTPAREN
+    | DOT IDENTIFIER
+    | ARROW IDENTIFIER
+    | PLUSPLUS
+    | MINUSMINUS
+    )*
+;
+
+argumentExpressionList: assignmentExpression (COMMA expr+=assignmentExpression)*;
+
+unaryExpression returns expression:
+	{unaryExpression} 
+	
+	(PLUSPLUS | MINUSMINUS | SIZEOF)*
+	
+	(postfixexpr=postfixExpression
+	|   SIZEOF LEFTPAREN typeName=typeName RIGHTPAREN
+    |   ALIGNOF LEFTPAREN typeName=typeName RIGHTPAREN
+    |   ANDAND IDENTIFIER // GCC extension address of label
+    |   unaryOperator castExpr=castExpression
+    )
+	
+    //|   PLUSPLUS unaryExpr=unaryExpression
+    //|   MINUSMINUS unaryExpr=unaryExpression
+    //|   SIZEOF unaryExpr=unaryExpression
+    
+    
+;
+
+unaryOperator: AND | STAR | PLUS | MINUS | TILDE | NOT;
+
+castExpression returns expression:
+	unaryExpression
+    |   LEFTPAREN typeName RIGHTPAREN castExpr=castExpression
+    |   '__extension__' LEFTPAREN typeName RIGHTPAREN castExpr=castExpression
+;
+
+multiplicativeExpression returns expression:
+	castExpression
+	((STAR|DIV|MOD)
+		expr+=castExpression
+    )
+;
+
+additiveExpression returns expression:
+  multiplicativeExpression
+  ((PLUS| MINUS)
+  	expr+=multiplicativeExpression
+  )
+;
+
+shiftExpression returns expression:
+	additiveExpression 
+	((LEFTSHIFT| RIGHTSHIFT)
+		expr+=additiveExpression
+    )*
+;
+
+relationalExpression returns expression:
+	shiftExpression
+    ((LESS|GREATER|LESSEQUAL|GREATEREQUAL)
+    	expr += shiftExpression
+    )*
+;
+
+equalityExpression returns expression:
+	relationalExpression
+	((EQUAL |   NOTEQUAL) expr+=relationalExpression)*
+;
+
+andExpression returns expression: equalityExpression (AND expr+=equalityExpression)*;
+
+exclusiveOrExpression returns expression: andExpression (CARET expr+=andExpression)*;
+
+inclusiveOrExpression returns expression: exclusiveOrExpression (OR expr+=exclusiveOrExpression)*;
+
+logicalAndExpression returns expression: inclusiveOrExpression (ANDAND expr+=inclusiveOrExpression)*;
+
+logicalOrExpression returns expression:
+	logicalAndExpression (OROR expr+=logicalAndExpression)*
+;
+
+conditionalExpression returns expression:
+	logicalOrExpression (QUESTION expr+=expression COLON conditionaExpr+=conditionalExpression)?
+;
+
+assignmentExpression returns expression:
+	conditionalExpression
+    |   unaryExpression assignmentOperator assignmentExpr+=assignmentExpression
+;
+
+assignmentOperator: 
+	ASSIGN
+	| STARASSIGN
+	| DIVASSIGN
+	| MODASSIGN
+	| PLUSASSIGN
+	| MINUSASSIGN
+	| LEFTSHIFTASSIGN
+	| RIGHTSHIFTASSIGN
+	| ANDASSIGN
+	| XORASSIGN
+	| ORASSIGN
+;
+
+expression: assignmentExpression (COMMA assignmentExpr+=assignmentExpression)*;
+
+constantExpression returns expression: conditionalExpression;
+*/
+
+//
+// ambiguity:
+// 1.)declarationSpecifiers->declarationSpecifier->typeSpecifier->typedefName->IDENTIFIER
+// 2.)initDeclaratorList->initDeclarator->declarator->directDeclarator->IDENTIFIER
+Declaration:
+	specifiers=DeclarationSpecifiers (initDeclaratorList+=InitDeclaratorList)? SEMI
+    //|   staticAssertDeclaration
+;
+
+DeclarationSpecifiers: {DeclarationSpecifiers} 
+	(
+		specifiers+=DeclarationSpecifier
+	)+
+;
+
+DeclarationSpecifier: 
+	{DeclarationSpecifier}
+	(declarationSpecifier+=StorageClassSpecifier
+    |   declarationSpecifier+=TypeSpecifier
+    |   declarationSpecifier+=TypeQualifier
+    //|   declarationSpecifier+=functionSpecifier
+    //|   declarationSpecifier+=alignmentSpecifier
+    )
+;
+
+InitDeclaratorList: initDeclarator=InitDeclarator
+	(COMMA initDeclarator2+=InitDeclarator)*
+;
+
+InitDeclarator: declarator=Declarator;// (ASSIGN initializer=initializer)?;
+
+StorageClassSpecifier:
+	{StorageClassSpecifier}
+	( 
+	TYPEDEF postAction{{ at.jku.weiner.c.Scope.setTypedef(true); }}
+    |   EXTERN
+    |   STATIC
+    |   THREADLOCAL
+    |   AUTO
+    |   REGISTER
+    )
+;
+
+TypeSpecifier:
+	{TypeSpecifier}
+	(
+	VOID
+    |   CHAR
+    |   SHORT
+    |   INT
+    |   LONG
+    |   FLOAT
+    |   DOUBLE
+    |   SIGNED
+    |   UNSIGNED
+    |   BOOL
+    |   COMPLEX
+    |   '__m128'
+    |   '__m128d'
+    |   '__m128i'
+    
+   // |   '__extension__' LEFTPAREN ('__m128' | '__m128d' | '__m128i') RIGHTPAREN
+  //  |   specifier=atomicTypeSpecifier
+   // |   specifier=structOrUnionSpecifier
+   // |   specifier=enumSpecifier
+    |  name=TypedefName
+   // |   '__typeof__' LEFTPAREN constExrp=constantExpression RIGHTPAREN // GCC extension
+    )
+;
+
+/*structOrUnionSpecifier returns declarationSpecifier:
+	{structOrUnionSpecifier}
+	(structOrUnion IDENTIFIER? LEFTBRACE structDeclList=structDeclarationList RIGHTBRACE
+    |   structOrUnion IDENTIFIER
+    )
+;
+
+structOrUnion: STRUCT
+    |   UNION
+;
+
+structDeclarationList: (structDeclaration+=structDeclaration)+
+;
+
+structDeclaration:
+	specifierQualifierList (structDeclarationList+=structDeclaratorList)? SEMI
+    |   staticAssertDeclaration
+;
+
+specifierQualifierList:
+	{specifierQualifierList} 
+	(typeSpecifier+=typeSpecifier | typeQualifier+=typeQualifier)+
+	//(specQualifierList+=specifierQualifierList?)
+;
+
+structDeclaratorList: structDeclarator=structDeclarator (COMMA structDeclarator2+=structDeclarator)*;
+
+structDeclarator: declarator=declarator (COLON constExpr+=constantExpression)?
+	| (COLON constExpr+=constantExpression)
+;
+
+enumSpecifier returns declarationSpecifier:
+	{enumSpecifier} 
+	(   
+		(ENUM IDENTIFIER? LEFTBRACE enumList=enumeratorList) (RIGHTBRACE | COMMA RIGHTBRACE)
+    |   ENUM IDENTIFIER
+    )
+;
+
+enumeratorList: enumerator
+    (COMMA enumerator+=enumerator)*
+;
+
+enumerator:
+	{enumerator} 
+	enumerationCONSTANT
+    (ASSIGN constExpr=constantExpression)?
+;
+
+enumerationCONSTANT: IDENTIFIER;
+
+atomicTypeSpecifier returns declarationSpecifier:
+	ATOMIC LEFTPAREN typeName RIGHTPAREN
+;
+*/
+TypeQualifier:
+	{TypeQualifier} 
+	( 
+	CONST
+    |   RESTRICT
+    |   VOLATILE
+    |   ATOMIC
+    )
+;
+
+/*
+functionSpecifier:
+	{functionSpecifier} 
+	(
+		(INLINE
+    	|   NORETURN
+    	|   '__inline__' // GCC extension
+    	|   '__stdcall'
+    	)
+    	|   gccAttributeSpecifier=gccAttributeSpecifier
+    	|   '__declspec' LEFTPAREN IDENTIFIER RIGHTPAREN
+    )
+;
+
+alignmentSpecifier: ALIGNAS LEFTPAREN (typeName | constantExpression) RIGHTPAREN;
+*/
+Declarator: /*pointer?*/ (declarator=DirectDeclarator); //(gccDeclExt+=gccDeclaratorExtension)*;
+
+DirectDeclarator:
+	{DirectDeclarator}
+	(id=ID postAction{ {
+		//TODO: fixme - replace String ID with ID-variable!!! 
+		at.jku.weiner.c.Scope.addTypedefIfIsTypedef( "ID" ) ;
+	} }
+		| LEFTPAREN declarator=Declarator RIGHTPAREN
+	)
+	/* 
+    (LEFTBRACKET STATIC (typeQualifierList+=typeQualifierList)? (assignExpr+=assignmentExpression)? RIGHTBRACKET
+    |   LEFTBRACKET  (typeQualifierList+=typeQualifierList)? (assignExpr+=assignmentExpression) RIGHTBRACKET
+    |   LEFTBRACKET (typeQualifierList+=typeQualifierList) STATIC (assignExpr+=assignmentExpression) RIGHTBRACKET
+    |   LEFTBRACKET (typeQualifierList+=typeQualifierList)? STAR RIGHTBRACKET
+    |   lastSuffix+=directDeclaratorLastSuffix
+    )*
+    */
+;
+
+/*
+directDeclaratorLastSuffix:
+	{directDeclaratorLastSuffix}
+	LEFTPAREN 
+		(parameterTypeList+=parameterTypeList | identifierList=identifierList?)
+	RIGHTPAREN
+;
+
+
+gccDeclaratorExtension:
+	{gccDeclaratorExtension} '__asm' LEFTPAREN STRINGLITERAL+ RIGHTPAREN
+    | {gccDeclaratorExtension} gccAttributeSpecifier=gccAttributeSpecifier
+;
+
+
+gccAttributeSpecifier: '__attribute__' LEFTPAREN LEFTPAREN list=gccAttributeList RIGHTPAREN RIGHTPAREN;
+gccAttributeList: gcAttribute=gccAttribute (COMMA gccAttribute+=gccAttribute)*;
+    //|   // empty;
+
+// enter gccAttribute and nestedParenthesesBlock here
+gccAttribute: {gccAttribute} (ANYOTHER)
+	// relaxed def for "identifier or reserved word"
+        (LEFTPAREN list=argumentExpressionList? RIGHTPAREN)?
+    // |   //empty
+;
+
+//nestedParenthesesBlock: (   NOPAREN
+//        |   LEFTPAREN nestedParenthesesBlock RIGHTPAREN
+//        )*
+//;
+
+pointer: {pointer} ((STAR | CARET) typeQualifierList+=typeQualifierList?)*
+    //|   {pointer} CARET typeQualifierList=typeQualifierList? pointer=pointer?// Blocks language extension
+;
+
+typeQualifierList: {typeQualifierList} (typeQualifier+=typeQualifier)+;
+
+parameterTypeList: parameterList
+    (COMMA ELLIPSIS)?
+;
+
+parameterList: parameterDeclaration (COMMA parameterDeclaration+=parameterDeclaration)*;
+
+parameterDeclaration: declarationSpecifiers 
+		((declarator+=declarator)
+    		|   (abstractDeclator+=abstractDeclarator)
+    	)*
+;
+
+identifierList: IDENTIFIER (COMMA IDENTIFIER)*;
+
+typeName: specifierQualifierList (abstractDeclarator+=abstractDeclarator)?;
+
+abstractDeclarator: 
+	pointer (directAbstractDeclarator=directAbstractDeclarator)? (gccDeclExtAbstract+=gccDeclaratorExtension)*
+    | (directAbstractDeclarator=directAbstractDeclarator) (gccDeclExtAbstract+=gccDeclaratorExtension)*
+;
+
+directAbstractDeclarator returns abstractDeclarator:
+	{directAbstractDeclarator}
+	(LEFTPAREN declarator=abstractDeclarator RIGHTPAREN (gccDeclExt+=gccDeclaratorExtension)*
+    |   abstractDeclaratorSuffix+=abstractDeclaratorSuffix)
+    
+    (abstractDeclaratorSuffix+=abstractDeclaratorSuffix)*
+;
+
+abstractDeclaratorSuffix: {abstractDeclaratorSuffix}
+	(LEFTBRACKET typeQualifierList=typeQualifierList? (assignmentExpr+=assignmentExpression)? RIGHTBRACKET
+    |   LEFTBRACKET STATIC typeQualifierList=typeQualifierList? (assignmentExpr+=assignmentExpression) RIGHTBRACKET
+    |   LEFTBRACKET typeQualifierListOrig=typeQualifierList STATIC assignmentExpr+=assignmentExpression RIGHTBRACKET
+    |   LEFTBRACKET STAR RIGHTBRACKET
+    |   LEFTPAREN parameterTypeList=parameterTypeList? RIGHTPAREN (gccDeclExt+=gccDeclaratorExtension)*
+    )
+;
+*/
+
+TypedefName: id=ID preAction{ { at.jku.weiner.c.Scope.isTypeName(input) }? }
+;
+
+//typedefName: typeName=[declarator];
+/*
+initializer:
+	assignmentExpression
+    |   LEFTBRACE initializerList COMMA? RIGHTBRACE
+;
+
+initializerList: designation? (initializer=initializer)
+	(COMMA (designation+=designation)? (initializerMore+=initializer))*
+;
+
+designation: designatorList ASSIGN;
+
+designatorList: designator (designator+=designator)*;
+
+designator: {designator} LEFTBRACKET expr=constantExpression RIGHTBRACKET
+    |   {designator} DOT IDENTIFIER
+;
+
+staticAssertDeclaration: STATICASSERT LEFTPAREN constantExpression COMMA STRINGLITERAL+ RIGHTPAREN SEMI;
+
+statement: {statement}
+	(
+	stmt=labeledStatement
+    |   stmt=compoundStatement
+    |   stmt=expressionStatement
+    |   stmt=selectionStatement
+    |   stmt=iterationStatement
+    |   stmt=jumpStatement
+    |   ('__asm' | '__asm__') (VOLATILE | '__volatile__') 
+    		LEFTPAREN (expr+=logicalOrExpression (COMMA logicalExpr+=logicalOrExpression)*)? 
+    		(COLON (expr+=logicalOrExpression (COMMA logicalExpr+=logicalOrExpression)*)?)* RIGHTPAREN SEMI
+   	)
+;
+
+labeledStatement returns statement:
+	IDENTIFIER COLON statement
+    |   CASE constantExpression COLON statement=statement
+    |   DEFAULT COLON statement
+;
+
+compoundStatement returns statement:
+	{compoundStatement}
+	LEFTBRACE
+	    (blockList+=blockList)?
+	RIGHTBRACE
+;
+
+blockList:
+	(declaration+=declaration | statement+=statement)+
+;
+
+expressionStatement: {expressionStatement} 
+	SEMI
+	| expression+=expression SEMI
+;
+
+selectionStatement:
+	IF LEFTPAREN expression RIGHTPAREN statement=statement
+	(=>ELSE elseStatement+=statement)?
+    |   SWITCH LEFTPAREN expression RIGHTPAREN statement=statement
+;
+
+iterationStatement: WHILE LEFTPAREN expression RIGHTPAREN statement=statement
+    |   DO statement WHILE LEFTPAREN whileexpression=expression RIGHTPAREN SEMI
+    |   FOR LEFTPAREN expression? SEMI expression? SEMI expression? RIGHTPAREN statement
+    |   FOR LEFTPAREN declaration (forexpression+=expression)? SEMI expression? RIGHTPAREN statement=statement
+;
+
+jumpStatement:
+	{jumpStatement} GOTO IDENTIFIER SEMI //(can be reached over GOTO unaryExpression)
+	|
+       {jumpStatement} CONTINUE SEMI
+    |   {jumpStatement} BREAK SEMI
+    |   {jumpStatement} RETURN expr=expression? SEMI
+    // |   {jumpStatement} GOTO expr=unaryExpression SEMI // GCC extension
+;
+
+
+functionDefinition: 
+	declarationSpecifiers? 
+	(declarator=declarator) 
+	(declList+=declarationList)?
+	(compoundStmt=compoundStatement)
+;
+
+declarationList: 
+	(declaration+=declaration)+
+;
+*/
+
+
+/*** lexer ***/
+terminal UNDERSCORE: '_';
+
+terminal AUTO : 'auto';
+terminal BREAK : 'break';
+terminal CASE : 'case';
+terminal CHAR : 'char';
+terminal CONST : 'const';
+terminal CONTINUE : 'continue';
+terminal DEFAULT : 'default';
+terminal DO : 'do';
+terminal DOUBLE : 'double';
+terminal ELSE : 'else';
+terminal ENUM : 'enum';
+terminal EXTERN : 'extern';
+terminal FLOAT : 'float';
+terminal FOR : 'for';
+terminal GOTO : 'goto';
+terminal IF : 'if';
+terminal INLINE : 'inline';
+terminal INT : 'int';
+terminal LONG : 'long';
+terminal REGISTER : 'register';
+terminal RESTRICT : 'restrict';
+terminal RETURN : 'return';
+terminal SHORT : 'short';
+terminal SIGNED : 'signed';
+terminal SIZEOF : 'sizeof';
+terminal STATIC : 'static';
+terminal STRUCT : 'struct';
+terminal SWITCH : 'switch';
+terminal TYPEDEF : 'typedef';
+terminal UNION : 'union';
+terminal UNSIGNED : 'unsigned';
+terminal VOID : 'void';
+terminal VOLATILE : 'volatile';
+terminal WHILE : 'while';
+
+terminal ALIGNAS : '_Alignas';
+terminal ALIGNOF : '_Alignof';
+terminal ASM: 'asm';
+terminal ATOMIC : '_Atomic';
+terminal BOOL : '_Bool';
+terminal COMPLEX : '_Complex';
+terminal GENERIC : '_Generic';
+terminal IMAGINARY : '_Imaginary';
+terminal NORETURN : '_Noreturn';
+terminal STATICASSERT : '_Static_assert';
+terminal THREADLOCAL : '_Thread_local';
+terminal PRAGMA: 'pragma';
+
+terminal LEFTPAREN: '(';
+terminal RIGHTPAREN: ')';
+terminal LEFTBRACKET: '[';
+terminal RIGHTBRACKET: ']';
+terminal LEFTBRACE: '{';
+terminal RIGHTBRACE: '}';
+terminal LESS: '<';
+terminal LESSEQUAL: LESS ASSIGN;
+terminal GREATER: '>';
+terminal GREATEREQUAL: GREATER ASSIGN;
+terminal LEFTSHIFT: LESS LESS;
+terminal RIGHTSHIFT: GREATER GREATER;
+
+terminal PLUS: '+';
+terminal PLUSPLUS: PLUS PLUS;
+terminal MINUS: '-';
+terminal MINUSMINUS: MINUS MINUS;
+terminal STAR: '*';
+terminal DIV: '/';
+terminal MOD: '%';
+
+terminal AND: '&';
+terminal ANDAND: AND AND;
+terminal OR: '|';
+terminal OROR: OR OR;
+terminal CARET: '^';
+terminal NOT: '!';
+terminal TILDE: '~';
+
+terminal QUESTION: '?';
+terminal COLON: ':';
+terminal SEMI: ';';
+terminal COMMA: ',';
+terminal ASSIGN: '=';
+
+terminal STARASSIGN: STAR ASSIGN;
+terminal DIVASSIGN: DIV ASSIGN;
+terminal MODASSIGN: MOD ASSIGN;
+terminal PLUSASSIGN: PLUS ASSIGN;
+terminal MINUSASSIGN: MINUS ASSIGN;
+terminal LEFTSHIFTASSIGN: LEFTSHIFT ASSIGN;
+//'>>='
+terminal RIGHTSHIFTASSIGN:RIGHTSHIFT ASSIGN;
+terminal ANDASSIGN: AND ASSIGN;
+terminal XORASSIGN: CARET ASSIGN;
+terminal ORASSIGN: OR ASSIGN;
+
+terminal EQUAL: ASSIGN ASSIGN;
+terminal NOTEQUAL: NOT ASSIGN;
+
+terminal ARROW: MINUS GREATER;
+terminal DOT: '.';
+terminal ELLIPSIS: DOT DOT DOT;
+
+terminal ZERO: '0';
+
+terminal fragment IDENTIFIER:
+	IDENTIFIERNONDIGIT
+        (   IDENTIFIERNONDIGIT
+        |   DIGIT
+        )*
+;
+terminal fragment IDENTIFIERNONDIGIT:
+	NONDIGIT
+    |   UNIVERSALCHARACTERNAME
+    //|   // other implementation-defined characters...
+;
+terminal fragment NONDIGIT: ('a' .. 'z' | 'A' .. 'Z'); // [a-zA-Z_];
+terminal fragment DIGIT: '0' .. '9'; //[0-9];
+terminal fragment UNIVERSALCHARACTERNAME:
+	'\\u' HEXQUAD
+    |   '\\U' HEXQUAD HEXQUAD
+;
+terminal fragment HEXQUAD: HEXADECIMALDIGIT HEXADECIMALDIGIT HEXADECIMALDIGIT HEXADECIMALDIGIT;
+terminal CONSTANT: INTEGERCONSTANT
+    |   FLOATINGCONSTANT
+    //|   EnumerationCONSTANT
+    |   CHARACTERCONSTANT
+;
+terminal fragment INTEGERCONSTANT:
+	DECIMALCONSTANT INTEGERSUFFIX?
+    |   OCTALCONSTANT INTEGERSUFFIX?
+    |   HEXADECIMALCONSTANT INTEGERSUFFIX?
+;
+terminal fragment DECIMALCONSTANT: NONZERODIGIT DIGIT*;
+terminal fragment OCTALCONSTANT: '0' OCTALDIGIT*;
+terminal fragment HEXADECIMALCONSTANT: HEXADECIMALPREFIX HEXADECIMALDIGIT+;
+terminal fragment HEXADECIMALPREFIX: '0' ('x' | 'X'); // [xX];
+terminal fragment NONZERODIGIT: '1' .. '9'; //[1-9];
+terminal fragment OCTALDIGIT: ('0' .. '7'); //[0-7];
+terminal fragment HEXADECIMALDIGIT: ('0'..'9' | 'a' .. 'f' | 'A' .. 'F'); // [0-9a-fA-F];
+terminal fragment INTEGERSUFFIX:
+	UNSIGNEDSUFFIX LONGSUFFIX?
+    |   UNSIGNEDSUFFIX LONGLONGSUFFIX
+    |   LONGSUFFIX UNSIGNEDSUFFIX?
+    |   LONGLONGSUFFIX UNSIGNEDSUFFIX?
+;
+terminal fragment UNSIGNEDSUFFIX: 'u' | 'U'; //[uU];
+terminal fragment LONGSUFFIX: 'l' | 'L'; //[lL];
+terminal fragment LONGLONGSUFFIX: 'll' | 'LL';
+terminal fragment FLOATINGCONSTANT:
+	DECIMALFLOATINGCONSTANT
+    |   HEXADECIMALFLOATINGCONSTANT
+;
+terminal fragment DECIMALFLOATINGCONSTANT:
+	FRACTIONALCONSTANT EXPONENTPART? FLOATINGSUFFIX?
+    |   DIGITSEQUENCE EXPONENTPART FLOATINGSUFFIX?
+;
+terminal fragment HEXADECIMALFLOATINGCONSTANT:
+	HEXADECIMALPREFIX HEXADECIMALFRACTIONALCONSTANT BINARYEXPONENTPART FLOATINGSUFFIX?
+    |   HEXADECIMALPREFIX HEXADECIMALDIGITSEQUENCE BINARYEXPONENTPART FLOATINGSUFFIX?
+;
+terminal fragment FRACTIONALCONSTANT: 
+	DIGITSEQUENCE? DOT DIGITSEQUENCE
+    |   DIGITSEQUENCE DOT
+;
+terminal fragment EXPONENTPART:
+	'e' SIGN? DIGITSEQUENCE
+    |   'E' SIGN? DIGITSEQUENCE
+;
+terminal fragment SIGN: PLUS | MINUS;
+terminal fragment DIGITSEQUENCE: DIGIT+;
+terminal fragment HEXADECIMALFRACTIONALCONSTANT:
+	HEXADECIMALDIGITSEQUENCE? DOT HEXADECIMALDIGITSEQUENCE
+    |   HEXADECIMALDIGITSEQUENCE DOT
+;
+terminal fragment BINARYEXPONENTPART: 
+	'p' SIGN? DIGITSEQUENCE
+    |   'P' SIGN? DIGITSEQUENCE
+;
+terminal fragment HEXADECIMALDIGITSEQUENCE: HEXADECIMALDIGIT+;
+terminal fragment FLOATINGSUFFIX: 'f' | 'l' | 'F' | 'L';
+terminal fragment CHARACTERCONSTANT: 
+	SINGLEQUOTE CCHARSEQUENCE SINGLEQUOTE
+    |   'L\'' CCHARSEQUENCE SINGLEQUOTE
+    |   'u\'' CCHARSEQUENCE SINGLEQUOTE
+    |   'U\'' CCHARSEQUENCE SINGLEQUOTE
+;
+terminal fragment CCHARSEQUENCE: CCHAR+;
+terminal fragment CCHAR: //~['\\\r\n]
+	!(BACKSLASH | NEWLINE)
+    |   ESCAPESEQUENCE
+;
+terminal fragment ESCAPESEQUENCE: SIMPLEESCAPESEQUENCE
+	|   OCTALESCAPESEQUENCE
+	|   HEXADECIMALESCAPESEQUENCE
+	|   UNIVERSALCHARACTERNAME
+;
+terminal fragment SIMPLEESCAPESEQUENCE: 
+	BACKSLASH //['"?abfnrtv\\]
+	(SINGLEQUOTE | DOUBLEQUOTE | 'a' | 'b' | 'f' | 'n' | 'r' | 't' | 'v' | QUESTION | BACKSLASH)
+;
+terminal fragment OCTALESCAPESEQUENCE: BACKSLASH OCTALDIGIT
+    |   BACKSLASH OCTALDIGIT OCTALDIGIT
+    |   BACKSLASH OCTALDIGIT OCTALDIGIT OCTALDIGIT
+;
+
+terminal fragment HEXADECIMALESCAPESEQUENCE: '\\x' HEXADECIMALDIGIT+;
+
+terminal STRINGLITERAL: ENCODINGPREFIX? '"' SCHARSEQUENCE? '"';
+
+terminal fragment ENCODINGPREFIX: 'u8'
+    |   'u'
+    |   'U'
+    |   'L'
+;
+terminal fragment SCHARSEQUENCE: SCHAR+;
+terminal fragment SCHAR: 
+	! ('\n' | '\r'| BACKSLASH | DOUBLEQUOTE) //~["\\\r\n]
+	|   ESCAPESEQUENCE
+;
+terminal SINGLEQUOTE: '\'';
+terminal DOUBLEQUOTE: '"';
+terminal BACKSLASH: '\\';
+terminal LINEDIRECTIVE: 
+	'#' WHITESPACE? DECIMALCONSTANT WHITESPACE? STRINGLITERAL (!NEWLINE)*;
+terminal PRAGMADIRECTIVE: '#' WHITESPACE? PRAGMA WHITESPACE (!NEWLINE)*;
+terminal WHITESPACE: (' ' | '\t')+;
+terminal BLOCK_COMMENT: '/*' -> '*/';
+terminal LINE_COMMENT: '//' (!NEWLINE)*;
+terminal NEWLINE: ('\r'|'\n');
+terminal EOF_TERMINAL: EOF;
+
+terminal ANYOTHER: !(COMMA | LEFTPAREN | RIGHTPAREN);
+//terminal NOPAREN: !(LEFTPAREN | RIGHTPAREN);
+terminal ID: IDENTIFIER;

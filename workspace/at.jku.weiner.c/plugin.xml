@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated C -->
+      <package
+            uri="http://www.jku.at/weiner/c/C"
+            class="at.jku.weiner.c.c.CPackage"
+            genModel="model/generated/C.genmodel"/>
+   </extension>
+
+</plugin>

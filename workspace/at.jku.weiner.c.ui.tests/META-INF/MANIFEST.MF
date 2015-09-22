@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: at.jku.weiner.c.ui.tests
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: at.jku.weiner.c.ui.tests; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: at.jku.weiner.c.ui,
+ org.eclipse.xtext.junit4,
+ org.eclipse.xtext.xbase.junit,
+ org.eclipse.ui.workbench;resolution:=optional,
+ org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: at.jku.weiner.c.ui.tests
+Import-Package: org.junit.runners;version="4.5.0",
+ org.junit.runners.model;version="4.5.0",
+ org.hamcrest.core,
+ org.junit.runner.manipulation;version="4.5.0",
+ org.junit.runner.notification;version="4.5.0",
+ org.junit;version="4.5.0",
+ org.junit.runner;version="4.5.0"

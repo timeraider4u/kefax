@@ -196,8 +196,9 @@ constantExpression returns expression: conditionalExpression;
 // ambiguity:
 // 1.)declarationSpecifiers->declarationSpecifier->typeSpecifier->typedefName->IDENTIFIER
 // 2.)initDeclaratorList->initDeclarator->declarator->directDeclarator->IDENTIFIER
-Declaration:
-	specifiers=DeclarationSpecifiers (initDeclaratorList+=InitDeclaratorList)? SEMI
+Declaration initRuleAction{ at.jku.weiner.c.Scope.setTypedef(false); }:
+	specifiers=DeclarationSpecifiers 
+		(initDeclaratorList+=InitDeclaratorList)? SEMI
     //|   staticAssertDeclaration
 ;
 

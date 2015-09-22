@@ -944,7 +944,7 @@ ruletypedefName returns [EObject current=null]
     }
     @after { leaveRule(); }:
     
-    {isTypeName(input.LT(1).getText())}?
+    {this.isTypeName(input.LT(1).getText())}?
 (
 (
 		lv_id_0_0=RULE_ID

@@ -59,15 +59,19 @@ import java.util.HashSet;
 	}
 	
 	public static void main(String[] args) throws Exception {
-		CLexer lex = new CLexer(new ANTLRFileStream(args[0]));
-		CommonTokenStream tokens = new CommonTokenStream(lex);
-		CParser parser = new CParser(tokens);
+		try {
+			CLexer lex = new CLexer(new ANTLRFileStream(args[0]));
+			CommonTokenStream tokens = new CommonTokenStream(lex);
+			CParser parser = new CParser(tokens);
 		
-		//acquire parse result
-		CParser.translation_unit_return ret = parser.translation_unit();
-		CommonTree ast = (CommonTree) ret.tree;
-		// printTree(ast);
-		ast.toString();
+			//acquire parse result
+			CParser.translation_unit_return ret = parser.translation_unit();
+			CommonTree ast = (CommonTree) ret.tree;
+			// printTree(ast);
+			System.out.println(ast.toString());
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
     }
 }
 

@@ -7,4 +7,5 @@ echo ""
 echo ""
 java -cp ${CP} CParser test.c
 
+rm *.java
 rm *.class

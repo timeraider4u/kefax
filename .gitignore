@@ -1,5 +1,3 @@
 .directory
-bin/
-src-gen/
-xtend-gen/
 *~
+.*~

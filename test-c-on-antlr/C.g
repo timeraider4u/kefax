@@ -37,7 +37,7 @@ options {
     k=2;
     output = AST;
     ASTLabelType = CommonTree;
-    forceHoisting=true
+    forceHoisting=true;
 }
 
 scope Symbols {

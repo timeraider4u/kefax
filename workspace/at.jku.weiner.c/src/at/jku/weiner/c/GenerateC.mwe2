@@ -88,6 +88,8 @@ Workflow {
 				fragment = parser.antlr.XtextAntlrGeneratorFragment auto-inject {
 					options = { 
 						forceHoisting = true
+						memoize=true
+    					kAsString="2"
 					}
 				}
 			}
@@ -158,6 +160,8 @@ Workflow {
 				fragment = parser.antlr.XtextAntlrUiGeneratorFragment auto-inject {
 					options = { 
 						forceHoisting = true
+						memoize=true
+    					kAsString="2"
 					}
 				}
 			}

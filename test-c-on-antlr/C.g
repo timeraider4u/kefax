@@ -37,7 +37,11 @@ options {
     k=2;
     output = AST;
     ASTLabelType = CommonTree;
-    forceHoisting=true;
+    /* force hoisting not needed as we do not
+     * have actions in between semantic predicates
+     * and the start of the rules (as in Xtext)
+     */
+    // forceHoisting=true;
 }
 
 scope Symbols {

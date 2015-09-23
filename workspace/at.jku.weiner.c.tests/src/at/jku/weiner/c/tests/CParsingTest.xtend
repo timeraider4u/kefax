@@ -21,10 +21,44 @@ class CParsingTest{
 
 	@Test 
 	def void loadModel() {
+		val result = parseHelper.parse(''';''')
+		Assert.assertNotNull(result)
+		Assert.assertNotNull(result.unit);
+		Assert.assertEquals(1, result.unit.size);
+		var unit = result.unit.get(0);
+		Assert.assertNotNull(unit);
+		Assert.assertNotNull(unit.external);
+		Assert.assertEquals(1, unit.external.size);
+	}
+
+	@Test 
+	def void loadModel2() {
 		val result = parseHelper.parse('''
-			Hello Xtext!
+			;
+			;;
 		''')
 		Assert.assertNotNull(result)
+		Assert.assertNotNull(result.unit);
+		Assert.assertEquals(1, result.unit.size);
+		var unit = result.unit.get(0);
+		Assert.assertNotNull(unit);
+		Assert.assertNotNull(unit.external);
+		Assert.assertEquals(3, unit.external.size);
+	}
+
+	@Test 
+	def void loadModel3() {
+		val result = parseHelper.parse('''
+			int i;
+			int i = 0;
+		''')
+		Assert.assertNotNull(result)
+		Assert.assertNotNull(result.unit);
+		Assert.assertEquals(1, result.unit.size);
+		var unit = result.unit.get(0);
+		Assert.assertNotNull(unit);
+		Assert.assertNotNull(unit.external);
+		Assert.assertEquals(2, unit.external.size);
 	}
 
 }

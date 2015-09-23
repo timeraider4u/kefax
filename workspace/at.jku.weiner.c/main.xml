@@ -1,13 +1,14 @@
 <project name="MyProject" default="start" basedir=".">
 	<target name="start" >
 		
-		<java classname="org.antlr.works.IDE">
+		<java classname="at.jku.weiner.c.Main">
 			<classpath>
 				<path location="${java.class.path}"/>
+				<path location="/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c/bin/"/>
 				<path location="/usr/share/antlrworks/lib/antlrworks.jar"/>
 				<path location="/usr/share/antlr-3/lib/antlr3.jar"/>
 				<path location="/usr/share/jgoodies-forms/lib/forms.jar"/>
-				<path location="/usr/share/jgoodies-forms/lib/forms.jar"/>
+				<path location="/home/adalgrim/weiner/Private/eclipse/plugins/"/>
 
 				<path location="/home/adalgrim/weiner/Private/eclipse/plugins/org.eclipse.emf.edit.source_2.11.0.v20150601-0402.jar"/>
 				<path location="/home/adalgrim/weiner/Private/eclipse/plugins/org.eclipse.core.filebuffers.source_3.5.500.v20140723-1040.jar"/>
@@ -1412,11 +1413,7 @@
 				<path location="/home/adalgrim/weiner/Private/eclipse/plugins/org.eclipse.gmf.runtime.emf.ui.properties_1.7.0.201506060219.jar"/>
 
 			</classpath>
-			<!--
-			<arg value="/c"/>
-			<arg value="ant.bat"/>
-			<arg value="-p"/>
-			-->
+		
 		  </java>
 	</target>
 </project>

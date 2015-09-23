@@ -1,0 +1,11 @@
+<project name="MyProject" default="start" basedir=".">
+	<target name="start" >
+		<exec executable="antlrworks">
+			<!--
+			<arg value="/c"/>
+			<arg value="ant.bat"/>
+			<arg value="-p"/>
+			-->
+		  </exec>
+	</target>
+</project>

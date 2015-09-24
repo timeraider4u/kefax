@@ -1,0 +1,13 @@
+<project name="MyProject" default="runAntlrWorks" basedir=".">
+	<target name="generateClassPath" >
+		<exec executable="/bin/bash">
+			<arg value="./getAllJarFiles.sh"/>
+		</exec>
+		
+	</target>
+	<target name="runAntlrWorks" depends="generateClassPath">
+		<exec executable="/bin/bash">
+			<arg value="./start-antlrworks.sh"/>
+		</exec>
+	</target>
+</project>

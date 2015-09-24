@@ -1,7 +1,7 @@
 #!/bin/bash
 MYPWD=$(pwd)
 OUT="./start-antlrworks.sh"
-PLUGINS="/tmp/jars/"
+PLUGINS="/tmp/jars"
 
 echo "" > ${OUT}
 
@@ -12,11 +12,11 @@ echo 'CLASSPATH="${CLASSPATH}:/usr/share/jgoodies-forms/lib/forms.jar"' >> ${OUT
 
 echo -n 'CLASSPATH="${CLASSPATH}:' >> ${OUT}
 echo -n "${PLUGINS}" >> ${OUT} 
-echo -n '/"' >> ${OUT}
+echo    '/"' >> ${OUT}
 
 echo -n 'CLASSPATH="${CLASSPATH}:' >> ${OUT}
 echo -n "${PLUGINS}" >> ${OUT} 
-echo -n '/*"' >> ${OUT}
+echo    '/*"' >> ${OUT}
 
 
 #for FILE in $(find ${PLUGINS} -name "*.jar"); do
@@ -32,6 +32,9 @@ echo -n '/*"' >> ${OUT}
 #done
 
 echo 'export CLASSPATH="${CLASSPATH}:../bin/:."' >> ${OUT}
+
+echo 'cd ../bin/' >> ${OUT}
+
 
 #echo 'java -cp ${CLASSPATH}:. org.antlr.works.IDE' >> ${OUT}
 echo 'java org.antlr.works.IDE' >> ${OUT}

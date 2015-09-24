@@ -1,4 +1,4 @@
-CP="/home/adalgrim/weiner/Private/workspace/libs/antlr/antlr-3.5.3-SNAPSHOT.jar:."
+CP="../antlr-generator-3.5.3-patch.jar:."
 antlrv3 C.g &&\
 javac -cp ${CP} *.java && \
 echo ""

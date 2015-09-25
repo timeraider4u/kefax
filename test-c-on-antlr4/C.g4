@@ -29,6 +29,10 @@
 /** C 2011 grammar built from the C11 Spec */
 grammar C;
 
+@parser::members {
+	private final Scope typeDefScope = new Scope();
+}
+
 primaryExpression
     :   Identifier
     |   Constant
@@ -175,6 +179,7 @@ constantExpression
     ;
 
 declaration
+	@init { typeDefScope.setTypedef(false); }
     :   declarationSpecifiers initDeclaratorList? ';'
     |   staticAssertDeclaration
     ;
@@ -206,7 +211,8 @@ initDeclarator
     ;
 
 storageClassSpecifier
-    :   'typedef'
+    :   'typedef' 
+				{ typeDefScope.setTypedef(true); }
     |   'extern'
     |   'static'
     |   '_Thread_local'
@@ -323,6 +329,9 @@ declarator
 
 directDeclarator
     :   Identifier
+			{ if (typeDefScope.isTypedef()) {
+						typeDefScope.addTypedef($Identifier.text);
+			} }
     |   '(' declarator ')'
     |   directDeclarator '[' typeQualifierList? assignmentExpression? ']'
     |   directDeclarator '[' 'static' typeQualifierList? assignmentExpression ']'
@@ -414,7 +423,9 @@ directAbstractDeclarator
     ;
 
 typedefName
-    :   Identifier
+    : 
+		{typeDefScope.isTypeName(_input.LT(1).getText())}?
+		Identifier
     ;
 
 initializer
@@ -505,7 +516,9 @@ compilationUnit
     ;
 
 translationUnit
-    :   externalDeclaration
+	@init { typeDefScope.createNewScope("translationUnit"); }
+	@after { typeDefScope.removeScope(); }:
+        externalDeclaration
     |   translationUnit externalDeclaration
     ;
 

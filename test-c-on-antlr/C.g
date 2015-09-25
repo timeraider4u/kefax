@@ -44,81 +44,15 @@ options {
     // forceHoisting=true;
 }
 
-scope Symbols {
-	Set types; // only track types in order to get parser working
-}
-
-@header {
-import java.util.Set;
-import java.util.HashSet;
-}
-
 @members {
-	boolean isTypeName(String name) {
-		for (int i = Symbols_stack.size()-1; i>=0; i--) {
-			Symbols_scope scope = (Symbols_scope)Symbols_stack.get(i);
-			if ( scope.types.contains(name) ) {
-				return true;
-			}
-		}
-		return false;
-	}
-	
-	// static final TreeAdaptor adaptor = 
-	
-	public static void main(String[] args) throws Exception {
-		try {
-			CLexer lex = new CLexer(new ANTLRFileStream(args[0]));
-			CommonTokenStream tokens = new CommonTokenStream(lex);
-			CParser parser = new CParser(tokens);
-					
-			//acquire parse result
-			parser.setTreeAdaptor(
-				new CommonTreeAdaptor() {
-					public Object create(Token payload) {
-						return new CommonTree(payload);
-					}
-				}
-			);
-			CParser.translation_unit_return ret = parser.translation_unit();
-			CommonTree ast = (CommonTree) ret.getTree();
-			
-			System.out.println(ast.toString());
-			System.out.println(ast.toStringTree());
-			System.out.println("");
-			System.out.println("");
-			System.out.println("");
-			printTree(ast, 0);
-			
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		}
-    }
-    
-    public static void printTree(CommonTree t, int indent) {
-		if ( t != null ) {
-			StringBuffer sb = new StringBuffer(indent);
-		
-			if (t.getParent() == null){
-				String text = t.getText(); //.toString();
-				System.out.println(sb.toString() + text);	
-			}
-			for ( int i = 0; i < indent; i++ )
-				sb = sb.append("   ");
-			for ( int i = 0; i < t.getChildCount(); i++ ) {
-				System.out.println(sb.toString() + t.getChild(i).toString());
-				printTree((CommonTree)t.getChild(i), indent+1);
-			}
-		}
-	}
+	private final Scope typeDefScope = new Scope();
 }
 
 translation_unit
-scope Symbols; // entire file is a scope
-@init {
-  $Symbols::types = new HashSet();
-}
-	: external_declaration+
+	@init { typeDefScope.createNewScope("translationUnit"); }
+	@after { typeDefScope.removeScope(); }:
+
+	external_declaration+
 	;
 
 /** Either a function definition or any other kind of C decl/def.
@@ -142,10 +76,6 @@ options {k=1;}
 	;
 
 function_definition
-scope Symbols; // put parameters and locals into same scope for now
-@init {
-  $Symbols::types = new HashSet();
-}
 	:	declaration_specifiers? declarator
 		(	declaration+ compound_statement	// K&R style
 		|	compound_statement				// ANSI style
@@ -153,13 +83,10 @@ scope Symbols; // put parameters and locals into same scope for now
 	;
 
 declaration
-scope {
-  boolean isTypedef;
-}
 @init {
-  $declaration::isTypedef = false;
+	typeDefScope.setTypedef(false);
 }
-	: 'typedef' declaration_specifiers? {$declaration::isTypedef=true;}
+	: 'typedef' declaration_specifiers? { typeDefScope.setTypedef(true); }
 	  init_declarator_list ';' // special case, looking for typedef	
 	| declaration_specifiers init_declarator_list? ';'
 	;
@@ -202,16 +129,11 @@ type_specifier
 	;
 
 type_id
-    :   {isTypeName(input.LT(1).getText())}? IDENTIFIER
-//    	{System.out.println($IDENTIFIER.text+" is a type");}
+    :   { typeDefScope.isTypeName(input.LT(1).getText())}? IDENTIFIER
     ;
 
 struct_or_union_specifier
 options {k=3;}
-scope Symbols; // structs are scopes
-@init {
-  $Symbols::types = new HashSet();
-}
 	: struct_or_union IDENTIFIER? '{' struct_declaration_list '}'
 	| struct_or_union IDENTIFIER
 	;
@@ -270,10 +192,9 @@ declarator
 direct_declarator
 	:   (	IDENTIFIER
 			{
-			if ($declaration.size()>0&&$declaration::isTypedef) {
-				$Symbols::types.add($IDENTIFIER.text);
-				System.out.println("define type "+$IDENTIFIER.text);
-			}
+				if (typeDefScope.isTypedef()) {
+					typeDefScope.addTypedef($IDENTIFIER.text);
+				}
 			}
 		|	'(' declarator ')'
 		)
@@ -489,10 +410,6 @@ labeled_statement
 	;
 
 compound_statement
-scope Symbols; // blocks have a scope of symbols
-@init {
-  $Symbols::types = new HashSet();
-}
 	: '{' declaration* statement_list? '}'
 	;
 

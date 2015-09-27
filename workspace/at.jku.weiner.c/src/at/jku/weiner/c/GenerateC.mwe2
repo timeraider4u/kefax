@@ -87,6 +87,7 @@ Workflow {
 			fragment = adapter.FragmentAdapter {
 				fragment = parser.antlr.XtextAntlrGeneratorFragment auto-inject {
 					options = { 
+						backtrack = true
 						forceHoisting = true
 						memoize=true
     					kAsString="2"
@@ -159,6 +160,7 @@ Workflow {
 			fragment = adapter.FragmentAdapter {
 				fragment = parser.antlr.XtextAntlrUiGeneratorFragment auto-inject {
 					options = { 
+						backtrack = true
 						forceHoisting = true
 						memoize=true
     					kAsString="2"

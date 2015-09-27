@@ -36,22 +36,342 @@ generate c "http://www.jku.at/weiner/c/C"
 
 /*** parser ***/
 
-Model: {Model} (unit+=TranslationUnit)? EOF_TERMINAL?;
+//Model: {Model} (unit+=TranslationUnit)? EOF_TERMINAL;
 
 TranslationUnit 
-	initRuleAction{ at.jku.weiner.c.Scope.createNewScope("TranslationUnit"); } 
-	afterRuleAction{ at.jku.weiner.c.Scope.removeScope(); }:
+	initRuleAction{
+		System.out.println("TranslationUnit.enter()"); 
+		//at.jku.weiner.c.Scope.createNewScope("TranslationUnit");
+	}
+	//} 
+	afterRuleAction{
+		System.out.println("TranslationUnit.leave()"); 
+		// at.jku.weiner.c.Scope.removeScope();
+	}:
+	{TranslationUnit}
 	
 	(external+=ExternalDeclaration)+
 ;
 
-ExternalDeclaration:
-	//{ExternalDeclaration}
+ExternalDeclaration
+	initRuleAction{ System.out.println("ExternalDeclaration.enter()"); }
+	afterRuleAction{ System.out.println("ExternalDeclaration.leave()"); }
+	:
+	{ExternalDeclaration}
+	
 	//(=>functionDefinition=functionDefinition)
  //   |   
- 		{ExternalDeclaration} declaration=Declaration
-    | {ExternalDeclaration} SEMI // stray ;
+ 		declaration=Declaration
+   // | {ExternalDeclaration} semi=SEMI // stray ;
 ;
+
+//
+// ambiguity:
+// 1.)declarationSpecifiers->declarationSpecifier->typeSpecifier->typedefName->IDENTIFIER
+// 2.)initDeclaratorList->initDeclarator->declarator->directDeclarator->IDENTIFIER
+Declaration
+	initRuleAction{
+		System.out.println("Declaration.enter()"); 
+		//at.jku.weiner.c.Scope.setTypedef(false);
+	}
+	afterRuleAction{
+		System.out.println("Declaration.leave()");
+	}:
+	{Declaration}
+		
+	// special case, looking for typedef
+	(KW_TYPEDEF (specifiers=DeclarationSpecifiers)? 
+		postAction{{ at.jku.weiner.c.Scope.setTypedef(true); }}
+		initDeclaratorList+=InitDeclaratorList semi=SEMI) 
+	|
+	(
+	specifiers=DeclarationSpecifiers 
+		(initDeclaratorList+=InitDeclaratorList)? 
+		semi=SEMI postAction{ { System.out.println("Semicolon found!"); } }
+	)
+    //|   staticAssertDeclaration
+;
+
+
+DeclarationSpecifiers
+	initRuleAction{ System.out.println("DeclarationSpecifiers.enter()"); }
+	afterRuleAction{ System.out.println("DeclarationSpecifiers.leave()"); }:
+	{DeclarationSpecifiers}
+	 
+	(declarationSpecifier+=StorageClassSpecifier
+    |   declarationSpecifier+=TypeSpecifier
+    |   declarationSpecifier+=TypeQualifier
+    //|   declarationSpecifier+=functionSpecifier
+    //|   declarationSpecifier+=alignmentSpecifier
+    )+
+;
+
+InitDeclaratorList
+	initRuleAction{ System.out.println("InitDeclaratorList.enter()"); }
+	afterRuleAction{ System.out.println("InitDeclaratorList.leave()"); }:
+	{InitDeclaratorList}
+	
+	initDeclarator+=InitDeclarator
+	(COMMA initDeclarator2+=InitDeclarator)*
+;
+
+InitDeclarator
+	initRuleAction{ System.out.println("InitDeclarator.enter()"); }
+	afterRuleAction{ System.out.println("InitDeclarator.leave()"); }:
+	{InitDeclarator}
+	
+	declarator=Declarator// (ASSIGN initializer=initializer)?;
+;
+
+StorageClassSpecifier
+	initRuleAction{ System.out.println("StorageClassSpecifier.enter()"); }
+	afterRuleAction{ System.out.println("StorageClassSpecifier.leave()"); }:
+	{StorageClassSpecifier}
+	
+	( 
+	// class=TYPEDEF postAction{{ at.jku.weiner.c.Scope.setTypedef(true); }}
+    //|
+       class=KW_EXTERN
+    |   class=KW_STATIC
+    |   class=KW_THREADLOCAL
+    |   class=KW_AUTO
+    |   class=KW_REGISTER
+    )
+;
+
+TypeSpecifier
+	initRuleAction{ System.out.println("TypeSpecifier.enter()"); }
+	afterRuleAction{ System.out.println("TypeSpecifier.leave()"); }
+:
+	{TypeSpecifier}
+	
+	name=KW_VOID
+    |   name=KW_CHAR
+    |   name=KW_SHORT
+    |   name=KW_INT postAction{ { System.out.println("found INT!"); }}
+    |   name=KW_LONG
+    |   name=KW_FLOAT
+    |   name=KW_DOUBLE
+    |   name=KW_SIGNED
+    |   name=KW_UNSIGNED
+    |   name=KW_BOOL
+    |   name=KW_COMPLEX
+    |   name='__m128'
+    |   name='__m128d'
+    |   name='__m128i'
+    
+   // |   '__extension__' LEFTPAREN ('__m128' | '__m128d' | '__m128i') RIGHTPAREN
+  //  |   specifier=atomicTypeSpecifier
+   // |   specifier=structOrUnionSpecifier
+   // |   specifier=enumSpecifier
+    //|  name=TypedefName
+   // |   '__typeof__' LEFTPAREN constExrp=constantExpression RIGHTPAREN // GCC extension
+    
+;
+
+TypedefName: id=ID preAction{ { at.jku.weiner.c.Scope.isTypeName(input) }? };
+
+//typedefName: typeName=[declarator];
+
+/*structOrUnionSpecifier returns declarationSpecifier:
+	{structOrUnionSpecifier}
+	(structOrUnion IDENTIFIER? LEFTBRACE structDeclList=structDeclarationList RIGHTBRACE
+    |   structOrUnion IDENTIFIER
+    )
+;
+
+structOrUnion: STRUCT
+    |   UNION
+;
+
+structDeclarationList: (structDeclaration+=structDeclaration)+
+;
+
+structDeclaration:
+	specifierQualifierList (structDeclarationList+=structDeclaratorList)? SEMI
+    |   staticAssertDeclaration
+;
+
+specifierQualifierList:
+	{specifierQualifierList} 
+	(typeSpecifier+=typeSpecifier | typeQualifier+=typeQualifier)+
+	//(specQualifierList+=specifierQualifierList?)
+;
+
+structDeclaratorList: structDeclarator=structDeclarator (COMMA structDeclarator2+=structDeclarator)*;
+
+structDeclarator: declarator=declarator (COLON constExpr+=constantExpression)?
+	| (COLON constExpr+=constantExpression)
+;
+
+enumSpecifier returns declarationSpecifier:
+	{enumSpecifier} 
+	(   
+		(ENUM IDENTIFIER? LEFTBRACE enumList=enumeratorList) (RIGHTBRACE | COMMA RIGHTBRACE)
+    |   ENUM IDENTIFIER
+    )
+;
+
+enumeratorList: enumerator
+    (COMMA enumerator+=enumerator)*
+;
+
+enumerator:
+	{enumerator} 
+	enumerationCONSTANT
+    (ASSIGN constExpr=constantExpression)?
+;
+
+enumerationCONSTANT: IDENTIFIER;
+
+atomicTypeSpecifier returns declarationSpecifier:
+	ATOMIC LEFTPAREN typeName RIGHTPAREN
+;
+*/
+TypeQualifier:
+	{TypeQualifier} 
+	( 
+	type=KW_CONST
+    |   type=KW_RESTRICT
+    |   type=KW_VOLATILE
+    |   type=KW_ATOMIC
+    )
+;
+
+/*
+functionSpecifier:
+	{functionSpecifier} 
+	(
+		(INLINE
+    	|   NORETURN
+    	|   '__inline__' // GCC extension
+    	|   '__stdcall'
+    	)
+    	|   gccAttributeSpecifier=gccAttributeSpecifier
+    	|   '__declspec' LEFTPAREN IDENTIFIER RIGHTPAREN
+    )
+;
+
+alignmentSpecifier: ALIGNAS LEFTPAREN (typeName | constantExpression) RIGHTPAREN;
+*/
+Declarator
+	initRuleAction{ System.out.println("Declarator.enter()"); }
+	afterRuleAction{ System.out.println("Declarator.leave()"); }:
+	{Declarator}
+	
+	/*pointer?*/ (declarator=DirectDeclarator); //(gccDeclExt+=gccDeclaratorExtension)*;
+
+DirectDeclarator
+	initRuleAction{ System.out.println("DirectDeclarator.enter()"); }
+	afterRuleAction{ System.out.println("DirectDeclarator.leave()"); }:
+	{DirectDeclarator}
+	
+	(id=ID 
+		postAction{ {
+			System.out.println("found ID!");
+			//TODO: fixme - replace String ID with ID-variable!!! 
+			//at.jku.weiner.c.Scope.addTypedefIfIsTypedef( "ID" ) ;
+		} }
+	| LEFTPAREN declarator=Declarator RIGHTPAREN
+	)
+	/* 
+    (LEFTBRACKET STATIC (typeQualifierList+=typeQualifierList)? (assignExpr+=assignmentExpression)? RIGHTBRACKET
+    |   LEFTBRACKET  (typeQualifierList+=typeQualifierList)? (assignExpr+=assignmentExpression) RIGHTBRACKET
+    |   LEFTBRACKET (typeQualifierList+=typeQualifierList) STATIC (assignExpr+=assignmentExpression) RIGHTBRACKET
+    |   LEFTBRACKET (typeQualifierList+=typeQualifierList)? STAR RIGHTBRACKET
+    |   lastSuffix+=directDeclaratorLastSuffix
+    )*
+    */
+;
+
+/*
+directDeclaratorLastSuffix:
+	{directDeclaratorLastSuffix}
+	LEFTPAREN 
+		(parameterTypeList+=parameterTypeList | identifierList=identifierList?)
+	RIGHTPAREN
+;
+
+
+gccDeclaratorExtension:
+	{gccDeclaratorExtension} '__asm' LEFTPAREN STRINGLITERAL+ RIGHTPAREN
+    | {gccDeclaratorExtension} gccAttributeSpecifier=gccAttributeSpecifier
+;
+
+
+gccAttributeSpecifier: '__attribute__' LEFTPAREN LEFTPAREN list=gccAttributeList RIGHTPAREN RIGHTPAREN;
+gccAttributeList: gcAttribute=gccAttribute (COMMA gccAttribute+=gccAttribute)*;
+    //|   // empty;
+
+// enter gccAttribute and nestedParenthesesBlock here
+gccAttribute: {gccAttribute} (ANYOTHER)
+	// relaxed def for "identifier or reserved word"
+        (LEFTPAREN list=argumentExpressionList? RIGHTPAREN)?
+    // |   //empty
+;
+
+//nestedParenthesesBlock: (   NOPAREN
+//        |   LEFTPAREN nestedParenthesesBlock RIGHTPAREN
+//        )*
+//;
+
+pointer: {pointer} ((STAR | CARET) typeQualifierList+=typeQualifierList?)*
+    //|   {pointer} CARET typeQualifierList=typeQualifierList? pointer=pointer?// Blocks language extension
+;
+
+typeQualifierList: {typeQualifierList} (typeQualifier+=typeQualifier)+;
+
+parameterTypeList: parameterList
+    (COMMA ELLIPSIS)?
+;
+
+parameterList: parameterDeclaration (COMMA parameterDeclaration+=parameterDeclaration)*;
+
+parameterDeclaration: declarationSpecifiers 
+		((declarator+=declarator)
+    		|   (abstractDeclator+=abstractDeclarator)
+    	)*
+;
+
+identifierList: IDENTIFIER (COMMA IDENTIFIER)*;
+
+typeName: specifierQualifierList (abstractDeclarator+=abstractDeclarator)?;
+
+abstractDeclarator: 
+	pointer (directAbstractDeclarator=directAbstractDeclarator)? (gccDeclExtAbstract+=gccDeclaratorExtension)*
+    | (directAbstractDeclarator=directAbstractDeclarator) (gccDeclExtAbstract+=gccDeclaratorExtension)*
+;
+
+directAbstractDeclarator returns abstractDeclarator:
+	{directAbstractDeclarator}
+	(LEFTPAREN declarator=abstractDeclarator RIGHTPAREN (gccDeclExt+=gccDeclaratorExtension)*
+    |   abstractDeclaratorSuffix+=abstractDeclaratorSuffix)
+    
+    (abstractDeclaratorSuffix+=abstractDeclaratorSuffix)*
+;
+
+abstractDeclaratorSuffix: {abstractDeclaratorSuffix}
+	(LEFTBRACKET typeQualifierList=typeQualifierList? (assignmentExpr+=assignmentExpression)? RIGHTBRACKET
+    |   LEFTBRACKET STATIC typeQualifierList=typeQualifierList? (assignmentExpr+=assignmentExpression) RIGHTBRACKET
+    |   LEFTBRACKET typeQualifierListOrig=typeQualifierList STATIC assignmentExpr+=assignmentExpression RIGHTBRACKET
+    |   LEFTBRACKET STAR RIGHTBRACKET
+    |   LEFTPAREN parameterTypeList=parameterTypeList? RIGHTPAREN (gccDeclExt+=gccDeclaratorExtension)*
+    )
+;
+*/
+
+/*
+initializer:
+	assignmentExpression
+    |   LEFTBRACE initializerList COMMA? RIGHTBRACE
+;
+
+initializerList: designation? (initializer=initializer)
+	(COMMA (designation+=designation)? (initializerMore+=initializer))*
+;
+*/
+
+/*** Expressions ***/
 
 /*
 primaryExpression returns expression: 
@@ -192,278 +512,9 @@ expression: assignmentExpression (COMMA assignmentExpr+=assignmentExpression)*;
 constantExpression returns expression: conditionalExpression;
 */
 
-//
-// ambiguity:
-// 1.)declarationSpecifiers->declarationSpecifier->typeSpecifier->typedefName->IDENTIFIER
-// 2.)initDeclaratorList->initDeclarator->declarator->directDeclarator->IDENTIFIER
-Declaration initRuleAction{ at.jku.weiner.c.Scope.setTypedef(false); }:
-	specifiers=DeclarationSpecifiers 
-		(initDeclaratorList+=InitDeclaratorList)? SEMI
-    //|   staticAssertDeclaration
-;
-
-DeclarationSpecifiers: {DeclarationSpecifiers} 
-	(
-		specifiers+=DeclarationSpecifier
-	)+
-;
-
-DeclarationSpecifier: 
-	{DeclarationSpecifier}
-	(declarationSpecifier+=StorageClassSpecifier
-    |   declarationSpecifier+=TypeSpecifier
-    |   declarationSpecifier+=TypeQualifier
-    //|   declarationSpecifier+=functionSpecifier
-    //|   declarationSpecifier+=alignmentSpecifier
-    )
-;
-
-InitDeclaratorList: initDeclarator=InitDeclarator
-	(COMMA initDeclarator2+=InitDeclarator)*
-;
-
-InitDeclarator: declarator=Declarator;// (ASSIGN initializer=initializer)?;
-
-StorageClassSpecifier:
-	{StorageClassSpecifier}
-	( 
-	TYPEDEF postAction{{ at.jku.weiner.c.Scope.setTypedef(true); }}
-    |   EXTERN
-    |   STATIC
-    |   THREADLOCAL
-    |   AUTO
-    |   REGISTER
-    )
-;
-
-TypeSpecifier:
-	{TypeSpecifier}
-	(
-	VOID
-    |   CHAR
-    |   SHORT
-    |   INT
-    |   LONG
-    |   FLOAT
-    |   DOUBLE
-    |   SIGNED
-    |   UNSIGNED
-    |   BOOL
-    |   COMPLEX
-    |   '__m128'
-    |   '__m128d'
-    |   '__m128i'
-    
-   // |   '__extension__' LEFTPAREN ('__m128' | '__m128d' | '__m128i') RIGHTPAREN
-  //  |   specifier=atomicTypeSpecifier
-   // |   specifier=structOrUnionSpecifier
-   // |   specifier=enumSpecifier
-    |  name=TypedefName
-   // |   '__typeof__' LEFTPAREN constExrp=constantExpression RIGHTPAREN // GCC extension
-    )
-;
-
-/*structOrUnionSpecifier returns declarationSpecifier:
-	{structOrUnionSpecifier}
-	(structOrUnion IDENTIFIER? LEFTBRACE structDeclList=structDeclarationList RIGHTBRACE
-    |   structOrUnion IDENTIFIER
-    )
-;
-
-structOrUnion: STRUCT
-    |   UNION
-;
-
-structDeclarationList: (structDeclaration+=structDeclaration)+
-;
-
-structDeclaration:
-	specifierQualifierList (structDeclarationList+=structDeclaratorList)? SEMI
-    |   staticAssertDeclaration
-;
-
-specifierQualifierList:
-	{specifierQualifierList} 
-	(typeSpecifier+=typeSpecifier | typeQualifier+=typeQualifier)+
-	//(specQualifierList+=specifierQualifierList?)
-;
-
-structDeclaratorList: structDeclarator=structDeclarator (COMMA structDeclarator2+=structDeclarator)*;
-
-structDeclarator: declarator=declarator (COLON constExpr+=constantExpression)?
-	| (COLON constExpr+=constantExpression)
-;
-
-enumSpecifier returns declarationSpecifier:
-	{enumSpecifier} 
-	(   
-		(ENUM IDENTIFIER? LEFTBRACE enumList=enumeratorList) (RIGHTBRACE | COMMA RIGHTBRACE)
-    |   ENUM IDENTIFIER
-    )
-;
-
-enumeratorList: enumerator
-    (COMMA enumerator+=enumerator)*
-;
-
-enumerator:
-	{enumerator} 
-	enumerationCONSTANT
-    (ASSIGN constExpr=constantExpression)?
-;
-
-enumerationCONSTANT: IDENTIFIER;
-
-atomicTypeSpecifier returns declarationSpecifier:
-	ATOMIC LEFTPAREN typeName RIGHTPAREN
-;
-*/
-TypeQualifier:
-	{TypeQualifier} 
-	( 
-	CONST
-    |   RESTRICT
-    |   VOLATILE
-    |   ATOMIC
-    )
-;
+/*** Statements */
 
 /*
-functionSpecifier:
-	{functionSpecifier} 
-	(
-		(INLINE
-    	|   NORETURN
-    	|   '__inline__' // GCC extension
-    	|   '__stdcall'
-    	)
-    	|   gccAttributeSpecifier=gccAttributeSpecifier
-    	|   '__declspec' LEFTPAREN IDENTIFIER RIGHTPAREN
-    )
-;
-
-alignmentSpecifier: ALIGNAS LEFTPAREN (typeName | constantExpression) RIGHTPAREN;
-*/
-Declarator: /*pointer?*/ (declarator=DirectDeclarator); //(gccDeclExt+=gccDeclaratorExtension)*;
-
-DirectDeclarator:
-	{DirectDeclarator}
-	(id=ID postAction{ {
-		//TODO: fixme - replace String ID with ID-variable!!! 
-		at.jku.weiner.c.Scope.addTypedefIfIsTypedef( "ID" ) ;
-	} }
-		| LEFTPAREN declarator=Declarator RIGHTPAREN
-	)
-	/* 
-    (LEFTBRACKET STATIC (typeQualifierList+=typeQualifierList)? (assignExpr+=assignmentExpression)? RIGHTBRACKET
-    |   LEFTBRACKET  (typeQualifierList+=typeQualifierList)? (assignExpr+=assignmentExpression) RIGHTBRACKET
-    |   LEFTBRACKET (typeQualifierList+=typeQualifierList) STATIC (assignExpr+=assignmentExpression) RIGHTBRACKET
-    |   LEFTBRACKET (typeQualifierList+=typeQualifierList)? STAR RIGHTBRACKET
-    |   lastSuffix+=directDeclaratorLastSuffix
-    )*
-    */
-;
-
-/*
-directDeclaratorLastSuffix:
-	{directDeclaratorLastSuffix}
-	LEFTPAREN 
-		(parameterTypeList+=parameterTypeList | identifierList=identifierList?)
-	RIGHTPAREN
-;
-
-
-gccDeclaratorExtension:
-	{gccDeclaratorExtension} '__asm' LEFTPAREN STRINGLITERAL+ RIGHTPAREN
-    | {gccDeclaratorExtension} gccAttributeSpecifier=gccAttributeSpecifier
-;
-
-
-gccAttributeSpecifier: '__attribute__' LEFTPAREN LEFTPAREN list=gccAttributeList RIGHTPAREN RIGHTPAREN;
-gccAttributeList: gcAttribute=gccAttribute (COMMA gccAttribute+=gccAttribute)*;
-    //|   // empty;
-
-// enter gccAttribute and nestedParenthesesBlock here
-gccAttribute: {gccAttribute} (ANYOTHER)
-	// relaxed def for "identifier or reserved word"
-        (LEFTPAREN list=argumentExpressionList? RIGHTPAREN)?
-    // |   //empty
-;
-
-//nestedParenthesesBlock: (   NOPAREN
-//        |   LEFTPAREN nestedParenthesesBlock RIGHTPAREN
-//        )*
-//;
-
-pointer: {pointer} ((STAR | CARET) typeQualifierList+=typeQualifierList?)*
-    //|   {pointer} CARET typeQualifierList=typeQualifierList? pointer=pointer?// Blocks language extension
-;
-
-typeQualifierList: {typeQualifierList} (typeQualifier+=typeQualifier)+;
-
-parameterTypeList: parameterList
-    (COMMA ELLIPSIS)?
-;
-
-parameterList: parameterDeclaration (COMMA parameterDeclaration+=parameterDeclaration)*;
-
-parameterDeclaration: declarationSpecifiers 
-		((declarator+=declarator)
-    		|   (abstractDeclator+=abstractDeclarator)
-    	)*
-;
-
-identifierList: IDENTIFIER (COMMA IDENTIFIER)*;
-
-typeName: specifierQualifierList (abstractDeclarator+=abstractDeclarator)?;
-
-abstractDeclarator: 
-	pointer (directAbstractDeclarator=directAbstractDeclarator)? (gccDeclExtAbstract+=gccDeclaratorExtension)*
-    | (directAbstractDeclarator=directAbstractDeclarator) (gccDeclExtAbstract+=gccDeclaratorExtension)*
-;
-
-directAbstractDeclarator returns abstractDeclarator:
-	{directAbstractDeclarator}
-	(LEFTPAREN declarator=abstractDeclarator RIGHTPAREN (gccDeclExt+=gccDeclaratorExtension)*
-    |   abstractDeclaratorSuffix+=abstractDeclaratorSuffix)
-    
-    (abstractDeclaratorSuffix+=abstractDeclaratorSuffix)*
-;
-
-abstractDeclaratorSuffix: {abstractDeclaratorSuffix}
-	(LEFTBRACKET typeQualifierList=typeQualifierList? (assignmentExpr+=assignmentExpression)? RIGHTBRACKET
-    |   LEFTBRACKET STATIC typeQualifierList=typeQualifierList? (assignmentExpr+=assignmentExpression) RIGHTBRACKET
-    |   LEFTBRACKET typeQualifierListOrig=typeQualifierList STATIC assignmentExpr+=assignmentExpression RIGHTBRACKET
-    |   LEFTBRACKET STAR RIGHTBRACKET
-    |   LEFTPAREN parameterTypeList=parameterTypeList? RIGHTPAREN (gccDeclExt+=gccDeclaratorExtension)*
-    )
-;
-*/
-
-TypedefName: id=ID preAction{ { at.jku.weiner.c.Scope.isTypeName(input) }? }
-;
-
-//typedefName: typeName=[declarator];
-/*
-initializer:
-	assignmentExpression
-    |   LEFTBRACE initializerList COMMA? RIGHTBRACE
-;
-
-initializerList: designation? (initializer=initializer)
-	(COMMA (designation+=designation)? (initializerMore+=initializer))*
-;
-
-designation: designatorList ASSIGN;
-
-designatorList: designator (designator+=designator)*;
-
-designator: {designator} LEFTBRACKET expr=constantExpression RIGHTBRACKET
-    |   {designator} DOT IDENTIFIER
-;
-
-staticAssertDeclaration: STATICASSERT LEFTPAREN constantExpression COMMA STRINGLITERAL+ RIGHTPAREN SEMI;
-
 statement: {statement}
 	(
 	stmt=labeledStatement
@@ -522,6 +573,16 @@ jumpStatement:
 ;
 
 
+designation: designatorList ASSIGN;
+
+designatorList: designator (designator+=designator)*;
+
+designator: {designator} LEFTBRACKET expr=constantExpression RIGHTBRACKET
+    |   {designator} DOT IDENTIFIER
+;
+
+staticAssertDeclaration: STATICASSERT LEFTPAREN constantExpression COMMA STRINGLITERAL+ RIGHTPAREN SEMI;
+
 functionDefinition: 
 	declarationSpecifiers? 
 	(declarator=declarator) 
@@ -536,55 +597,56 @@ declarationList:
 
 
 /*** lexer ***/
-terminal UNDERSCORE: '_';
+/*** start with keywords ;-) */
+terminal KW_UNDERSCORE: '_';
 
-terminal AUTO : 'auto';
-terminal BREAK : 'break';
-terminal CASE : 'case';
-terminal CHAR : 'char';
-terminal CONST : 'const';
-terminal CONTINUE : 'continue';
-terminal DEFAULT : 'default';
-terminal DO : 'do';
-terminal DOUBLE : 'double';
-terminal ELSE : 'else';
-terminal ENUM : 'enum';
-terminal EXTERN : 'extern';
-terminal FLOAT : 'float';
-terminal FOR : 'for';
-terminal GOTO : 'goto';
-terminal IF : 'if';
-terminal INLINE : 'inline';
-terminal INT : 'int';
-terminal LONG : 'long';
-terminal REGISTER : 'register';
-terminal RESTRICT : 'restrict';
-terminal RETURN : 'return';
-terminal SHORT : 'short';
-terminal SIGNED : 'signed';
-terminal SIZEOF : 'sizeof';
-terminal STATIC : 'static';
-terminal STRUCT : 'struct';
-terminal SWITCH : 'switch';
-terminal TYPEDEF : 'typedef';
-terminal UNION : 'union';
-terminal UNSIGNED : 'unsigned';
-terminal VOID : 'void';
-terminal VOLATILE : 'volatile';
-terminal WHILE : 'while';
+terminal KW_AUTO : 'auto';
+terminal KW_BREAK : 'break';
+terminal KW_CASE : 'case';
+terminal KW_CHAR : 'char';
+terminal KW_CONST : 'const';
+terminal KW_CONTINUE : 'continue';
+terminal KW_DEFAULT : 'default';
+terminal KW_DO : 'do';
+terminal KW_DOUBLE : 'double';
+terminal KW_ELSE : 'else';
+terminal KW_ENUM : 'enum';
+terminal KW_EXTERN : 'extern';
+terminal KW_FLOAT : 'float';
+terminal KW_FOR : 'for';
+terminal KW_GOTO : 'goto';
+terminal KW_IF : 'if';
+terminal KW_INLINE : 'inline';
+terminal KW_INT : 'int';
+terminal KW_LONG : 'long';
+terminal KW_REGISTER : 'register';
+terminal KW_RESTRICT : 'restrict';
+terminal KW_RETURN : 'return';
+terminal KW_SHORT : 'short';
+terminal KW_SIGNED : 'signed';
+terminal KW_SIZEOF : 'sizeof';
+terminal KW_STATIC : 'static';
+terminal KW_STRUCT : 'struct';
+terminal KW_SWITCH : 'switch';
+terminal KW_TYPEDEF : 'typedef';
+terminal KW_UNION : 'union';
+terminal KW_UNSIGNED : 'unsigned';
+terminal KW_VOID : 'void';
+terminal KW_VOLATILE : 'volatile';
+terminal KW_WHILE : 'while';
 
-terminal ALIGNAS : '_Alignas';
-terminal ALIGNOF : '_Alignof';
-terminal ASM: 'asm';
-terminal ATOMIC : '_Atomic';
-terminal BOOL : '_Bool';
-terminal COMPLEX : '_Complex';
-terminal GENERIC : '_Generic';
-terminal IMAGINARY : '_Imaginary';
-terminal NORETURN : '_Noreturn';
-terminal STATICASSERT : '_Static_assert';
-terminal THREADLOCAL : '_Thread_local';
-terminal PRAGMA: 'pragma';
+terminal KW_ALIGNAS : '_Alignas';
+terminal KW_ALIGNOF : '_Alignof';
+terminal KW_ASM: 'asm';
+terminal KW_ATOMIC : '_Atomic';
+terminal KW_BOOL : '_Bool';
+terminal KW_COMPLEX : '_Complex';
+terminal KW_GENERIC : '_Generic';
+terminal KW_IMAGINARY : '_Imaginary';
+terminal KW_NORETURN : '_Noreturn';
+terminal KW_STATICASSERT : '_Static_assert';
+terminal KW_THREADLOCAL : '_Thread_local';
+terminal KW_PRAGMA: 'pragma';
 
 terminal LEFTPAREN: '(';
 terminal RIGHTPAREN: ')';
@@ -762,13 +824,13 @@ terminal DOUBLEQUOTE: '"';
 terminal BACKSLASH: '\\';
 terminal LINEDIRECTIVE: 
 	'#' WHITESPACE? DECIMALCONSTANT WHITESPACE? STRINGLITERAL (!NEWLINE)*;
-terminal PRAGMADIRECTIVE: '#' WHITESPACE? PRAGMA WHITESPACE (!NEWLINE)*;
+terminal PRAGMADIRECTIVE: '#' WHITESPACE? KW_PRAGMA WHITESPACE (!NEWLINE)*;
 terminal WHITESPACE: (' ' | '\t')+;
 terminal BLOCK_COMMENT: '/*' -> '*/';
 terminal LINE_COMMENT: '//' (!NEWLINE)*;
 terminal NEWLINE: ('\r'|'\n');
 terminal EOF_TERMINAL: EOF;
 
-terminal ANYOTHER: !(COMMA | LEFTPAREN | RIGHTPAREN);
+//terminal ANYOTHER: !(COMMA | LEFTPAREN | RIGHTPAREN);
 //terminal NOPAREN: !(LEFTPAREN | RIGHTPAREN);
 terminal ID: IDENTIFIER;

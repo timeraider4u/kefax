@@ -7,9 +7,6 @@
     editorPluginID="at.jku.weiner.c.editor" runtimeVersion="2.11" usedGenPackages="platform:/resource/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore">
   <genPackages prefix="C" basePackage="at.jku.weiner.c" disposableProviderFactory="true"
       fileExtensions="c" ecorePackage="C.ecore#/">
-    <genClasses ecoreClass="C.ecore#//Model">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//Model/unit"/>
-    </genClasses>
     <genClasses ecoreClass="C.ecore#//TranslationUnit">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//TranslationUnit/external"/>
     </genClasses>
@@ -19,12 +16,10 @@
     <genClasses ecoreClass="C.ecore#//Declaration">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//Declaration/specifiers"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//Declaration/initDeclaratorList"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//Declaration/semi"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//DeclarationSpecifiers">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//DeclarationSpecifiers/specifiers"/>
-    </genClasses>
-    <genClasses ecoreClass="C.ecore#//DeclarationSpecifier">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//DeclarationSpecifier/declarationSpecifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//DeclarationSpecifiers/declarationSpecifier"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//InitDeclaratorList">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//InitDeclaratorList/initDeclarator"/>
@@ -33,20 +28,24 @@
     <genClasses ecoreClass="C.ecore#//InitDeclarator">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//InitDeclarator/declarator"/>
     </genClasses>
-    <genClasses ecoreClass="C.ecore#//StorageClassSpecifier"/>
-    <genClasses ecoreClass="C.ecore#//TypeSpecifier">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//TypeSpecifier/name"/>
+    <genClasses ecoreClass="C.ecore#//StorageClassSpecifier">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//StorageClassSpecifier/class"/>
     </genClasses>
-    <genClasses ecoreClass="C.ecore#//TypeQualifier"/>
+    <genClasses ecoreClass="C.ecore#//TypeSpecifier">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//TypeSpecifier/name"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//TypedefName">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//TypedefName/id"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//TypeQualifier">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//TypeQualifier/type"/>
+    </genClasses>
     <genClasses ecoreClass="C.ecore#//Declarator">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//Declarator/declarator"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//DirectDeclarator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//DirectDeclarator/id"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//DirectDeclarator/declarator"/>
-    </genClasses>
-    <genClasses ecoreClass="C.ecore#//TypedefName">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//TypedefName/id"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

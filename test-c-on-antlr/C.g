@@ -70,7 +70,7 @@ translation_unit
  *  I'll have to optimize that in the future.
  */
 external_declaration
-options {k=1;}
+// options {k=1;}
 	: ( declaration_specifiers? declarator declaration* '{' )=> function_definition
 	| declaration
 	;

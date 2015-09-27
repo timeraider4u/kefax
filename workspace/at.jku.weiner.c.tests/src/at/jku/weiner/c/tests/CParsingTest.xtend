@@ -3,7 +3,6 @@
  */
 package at.jku.weiner.c.tests
 
-import at.jku.weiner.c.c.Model
 import com.google.inject.Inject
 import org.eclipse.xtext.junit4.InjectWith
 import org.eclipse.xtext.junit4.XtextRunner
@@ -11,54 +10,50 @@ import org.eclipse.xtext.junit4.util.ParseHelper
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.eclipse.xtext.junit4.validation.ValidationTestHelper
+import org.junit.Ignore
+import at.jku.weiner.c.c.TranslationUnit
+import at.jku.weiner.c.c.TypeSpecifier
 
 @RunWith(XtextRunner)
 @InjectWith(CInjectorProvider)
+
 class CParsingTest{
 
-	@Inject
-	ParseHelper<Model> parseHelper;
+	@Inject extension ParseHelper<TranslationUnit> parseHelper;
+	@Inject extension ValidationTestHelper;
+
+	
 
 	@Test 
-	def void loadModel() {
-		val result = parseHelper.parse(''';''')
-		Assert.assertNotNull(result)
-		Assert.assertNotNull(result.unit);
-		Assert.assertEquals(1, result.unit.size);
-		var unit = result.unit.get(0);
-		Assert.assertNotNull(unit);
-		Assert.assertNotNull(unit.external);
-		Assert.assertEquals(1, unit.external.size);
-	}
-
-	@Test 
-	def void loadModel2() {
-		val result = parseHelper.parse('''
-			;
-			;;
-		''')
-		Assert.assertNotNull(result)
-		Assert.assertNotNull(result.unit);
-		Assert.assertEquals(1, result.unit.size);
-		var unit = result.unit.get(0);
-		Assert.assertNotNull(unit);
-		Assert.assertNotNull(unit.external);
-		Assert.assertEquals(3, unit.external.size);
-	}
-
-	@Test 
-	def void loadModel3() {
-		val result = parseHelper.parse('''
+	def void test3() {
+		System.out.println("");
+		System.out.println("loadModel3()");
+		val text = '''
 			int i;
-			int i = 0;
-		''')
+			int j;
+		''';
+		
+		val result = parseHelper.parse(text);
 		Assert.assertNotNull(result)
-		Assert.assertNotNull(result.unit);
-		Assert.assertEquals(1, result.unit.size);
-		var unit = result.unit.get(0);
-		Assert.assertNotNull(unit);
-		Assert.assertNotNull(unit.external);
-		Assert.assertEquals(2, unit.external.size);
+		val i = result.external.get(0).declaration.initDeclaratorList.get(0).initDeclarator.get(0).declarator.declarator.id;
+		Assert.assertEquals("i", i);
+		
+		val spec = result.external.get(0).declaration.specifiers.declarationSpecifier.get(0);
+		val type = spec as TypeSpecifier;
+		Assert.assertEquals("int", type.name);
+		
+		parseHelper.parse(text).assertNoErrors();
+		text.parse.assertNoErrors();
+		Assert.assertNotNull(result)
+		//Assert.assertNotNull(result.unit);
+		//Assert.assertEquals(1, result.unit.size);
+		//var unit = result.unit.get(0);
+		//Assert.assertNotNull(unit);
+		//Assert.assertNotNull(unit.external);
+		//Assert.assertEquals(2, unit.external.size);
+		Assert.assertNotNull(result.external);
+		Assert.assertEquals(2, result.external.size);
 	}
-
+	
 }

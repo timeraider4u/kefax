@@ -11,21 +11,23 @@ Require-Bundle: org.eclipse.xtext,
  org.eclipse.emf.ecore,
  org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional,
  org.eclipse.xtext.util,
- org.antlr.runtime,
  org.eclipse.xtend.lib,
  org.eclipse.emf.common,
  org.eclipse.xtext.common.types,
- org.eclipse.xtext.xbase.lib
+ org.eclipse.xtext.xbase.lib,
+ org.antlr.runtime_3.1.b1;bundle-version="3.1.0",
+ org.antlr.runtime
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: at.jku.weiner.c.c.impl,
- at.jku.weiner.c.generator,
- at.jku.weiner.c,
- at.jku.weiner.c.c.util,
- at.jku.weiner.c.serializer,
- at.jku.weiner.c.parser.antlr,
- at.jku.weiner.c.services,
- at.jku.weiner.c.validation,
- at.jku.weiner.c.parser.antlr.internal,
+Export-Package: at.jku.weiner.c,
  at.jku.weiner.c.c,
- at.jku.weiner.c.scoping
+ at.jku.weiner.c.c.impl,
+ at.jku.weiner.c.c.util,
+ at.jku.weiner.c.generator,
+ at.jku.weiner.c.parser.antlr,
+ at.jku.weiner.c.parser.antlr.internal,
+ at.jku.weiner.c.scoping,
+ at.jku.weiner.c.serializer,
+ at.jku.weiner.c.services,
+ at.jku.weiner.c.validation
 Import-Package: org.apache.log4j
+Bundle-ClassPath: .

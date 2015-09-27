@@ -1,4 +1,4 @@
-package at.jku.isse.ecco.kefax.c.parser.antlr.internal;
+//package at.jku.isse.ecco.kefax.c.parser.antlr.internal;
 
 import java.util.Set;
 import java.util.HashSet;

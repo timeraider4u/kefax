@@ -24,7 +24,7 @@ public class MyGenerator {
 		this.builder = new StringBuilder();
 	}
 
-	public String generate(final XtextTest xtext) {
+	public String generateForJava(final XtextTest xtext) {
 		this.xtext = xtext;
 		this.prefix();
 		final Element rootElem = xtext.getRoot();
@@ -104,7 +104,7 @@ public class MyGenerator {
 		this.builder.append(");");
 	}
 
-	public String getFileName() {
+	public String getFileNameForJava() {
 		// System.out.println("pkgName='" + this.pkgName + "'");
 		return this.pkgName.replace(".", "/") + "/" + this.uri.lastSegment()
 				+ ".java";

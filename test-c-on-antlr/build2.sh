@@ -10,8 +10,8 @@ echo "" && \
 java -cp ${CP} Main2 test.c && \
 java -cp ${CP} Main2 test2.c
 #CP2="../libs/antlr-4.5.1-complete.jar:." && \
-#cat test.c | java -cp ${CP} org.antlr.v4.runtime.misc.TestRig C2 translation_unit -gui
-cat test2.c | java -cp ${CP} org.antlr.v4.runtime.misc.TestRig C2 translation_unit -gui
+cat test.c | java -cp ${CP} org.antlr.v4.runtime.misc.TestRig C2 translation_unit -gui
+#cat test2.c | java -cp ${CP} org.antlr.v4.runtime.misc.TestRig C2 translation_unit -gui
 
 
 find . -name "*.java" -not -name "Scope.java" -not -name "Main.java" -not -name "Main2.java" -exec rm {} \;

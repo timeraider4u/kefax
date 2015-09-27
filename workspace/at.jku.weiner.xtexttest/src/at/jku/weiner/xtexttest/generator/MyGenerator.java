@@ -5,15 +5,22 @@ import org.eclipse.emf.common.util.EList;
 import at.jku.weiner.xtexttest.xtextTest.Element;
 import at.jku.weiner.xtexttest.xtextTest.Inner;
 import at.jku.weiner.xtexttest.xtextTest.XtextTest;
+import org.eclipse.emf.common.util.URI;
 
 public class MyGenerator {
 
+	private final URI uri;
 	private final StringBuilder builder;
 	private XtextTest xtext;
 	private String pkgName;
 	private String langName;
 
-	public MyGenerator() {
+	public MyGenerator(final URI uri) {
+		this.uri = uri;
+		// System.out.println("uri='" + this.uri + "'");
+		// System.out.println("uri-path='" + this.uri.path() + "'");
+		// System.out.println("uri-device='" + uri.devicePath() + "'");
+		// System.out.println("uri-segment='" + uri.lastSegment() + "'");
 		this.builder = new StringBuilder();
 	}
 
@@ -95,6 +102,12 @@ public class MyGenerator {
 		this.builder.append("\t\tAssert.assertNotNull(");
 		this.builder.append(varName);
 		this.builder.append(");");
+	}
+
+	public String getFileName() {
+		// System.out.println("pkgName='" + this.pkgName + "'");
+		return this.pkgName.replace(".", "/") + "/" + this.uri.lastSegment()
+				+ ".java";
 	}
 
 }

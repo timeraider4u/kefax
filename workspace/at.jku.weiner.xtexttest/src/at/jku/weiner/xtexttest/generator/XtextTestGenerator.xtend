@@ -16,15 +16,12 @@ import at.jku.weiner.xtexttest.xtextTest.XtextTest
 class XtextTestGenerator implements IGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
-		val generator = new MyGenerator();
-		fsa.generateFile('XtextTest.java',
-			generator.generate( 
-			resource.allContents.filter(typeof(XtextTest)).head)
-//			resource.allContents
-//				.filter(typeof(Greeting))
-//				.map[name]
-//				.join(', '))
-		);
+		val uri = resource.URI;
+		val generator = new MyGenerator(uri);
+		val output = generator.generate( 
+			resource.allContents.filter(typeof(XtextTest)).head);
+		val fileName = generator.getFileName();
+		fsa.generateFile(fileName, output);
 	}
 
 }

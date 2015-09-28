@@ -4,7 +4,9 @@ import org.eclipse.emf.common.util.EList;
 
 import at.jku.weiner.xtexttest.xtextTest.Element;
 import at.jku.weiner.xtexttest.xtextTest.Inner;
+import at.jku.weiner.xtexttest.xtextTest.Input;
 import at.jku.weiner.xtexttest.xtextTest.XtextTest;
+
 import org.eclipse.emf.common.util.URI;
 
 public class MyGenerator {
@@ -40,17 +42,12 @@ public class MyGenerator {
 		this.builder.append("package ");
 		this.builder.append(this.pkgName);
 		this.builder.append(".tests;\n\n");
-		this.builder.append("import org.junit.Assert;\n\n");
+		this.builder.append("import org.junit.Assert;\n");
+		this.builder.append("import LexerAndParserTest;\n");
+		this.builder.append("\n");
 		this.iterateImports(rootElem);
 		this.builder.append("\n");
-		this.builder.append("public class XtextTest {\n\n");
-		this.builder.append("\tpublic static void check(");
-		final String name = this.getName(rootElem);
-		final String varName = this.getVarName(rootElem);
-		this.builder.append(name);
-		this.builder.append(" ");
-		this.builder.append(varName);
-		this.builder.append("){\n");
+		this.prefixTokensTest(rootElem);
 	}
 
 	private void iterateImports(final Element elem) {
@@ -80,6 +77,33 @@ public class MyGenerator {
 		for (final Element elem : list) {
 			this.iterateImports(elem);
 		}
+	}
+
+	private void prefixTokensTest(final Element rootElem) {
+		this.builder.append("public class XtextTest {\n\n");
+		this.builder.append("\t@Inject LexerAndParserTest test;\n");
+		this.builder.append("\n");
+		this.builder.append("\tpublic static void check(");
+		final String name = this.getName(rootElem);
+		final String varName = this.getVarName(rootElem);
+		this.builder.append(name);
+		this.builder.append(" ");
+		this.builder.append(varName);
+		this.builder.append("){\n");
+		this.builder.append("\t\tfinal String text=\"");
+		final String input = this.getInputString();
+		this.builder.append(input);
+		this.builder.append("\";\n");
+	}
+
+	private String getInputString() {
+		final Input input = this.xtext.getInput();
+		final String text = input.getText();
+		if (text != null) {
+			return text;
+		}
+		final String fileName = input.getFile();
+		return fileName;
 	}
 
 	private void postfix() {

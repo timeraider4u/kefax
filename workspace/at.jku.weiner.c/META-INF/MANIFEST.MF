@@ -15,7 +15,6 @@ Require-Bundle: org.eclipse.xtext,
  org.eclipse.emf.common,
  org.eclipse.xtext.common.types,
  org.eclipse.xtext.xbase.lib,
- org.antlr.runtime_3.1.b1;bundle-version="3.1.0",
  org.antlr.runtime
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: at.jku.weiner.c,

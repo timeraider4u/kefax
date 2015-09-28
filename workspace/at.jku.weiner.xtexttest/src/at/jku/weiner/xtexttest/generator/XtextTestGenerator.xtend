@@ -17,9 +17,17 @@ class XtextTestGenerator implements IGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
 		val uri = resource.URI;
-		val generator = new MyGenerator(uri);
-		val dsl = resource.allContents.filter(typeof(XtextTest)).head; 
-		val outputForJava = generator.generateForJava(dsl);
+		val dsl = resource.allContents.filter(typeof(XtextTest)).head;
+		val generator = new MyGenerator(uri, dsl);		
+		
+		val shouldGenerateDataFile = generator.shouldGenerateTextSourceDataFile();
+		if (shouldGenerateDataFile) {
+			val outputForDataFile = generator.generateForDataFile();
+			val fileNameForDataFile = generator.getFileNameForTextSource();
+			fsa.generateFile(fileNameForDataFile, outputForDataFile);
+		}
+		
+		val outputForJava = generator.generateForJava();
 		val fileNameForJava = generator.getFileNameForJava();
 		fsa.generateFile(fileNameForJava, outputForJava);
 	}

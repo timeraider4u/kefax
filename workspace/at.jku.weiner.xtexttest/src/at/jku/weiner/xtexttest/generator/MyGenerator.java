@@ -97,9 +97,9 @@ public class MyGenerator {
 		this.builder.append("import org.eclipse.emf.common.util.EList;\n");
 		this.builder.append("import org.eclipse.xtext.junit4.InjectWith;\n");
 		this.builder
-		.append("import org.eclipse.xtext.junit4.util.ParseHelper;\n");
+				.append("import org.eclipse.xtext.junit4.util.ParseHelper;\n");
 		this.builder
-				.append("import org.eclipse.xtext.junit4.validation.ValidationTestHelper;\n");
+		.append("import org.eclipse.xtext.junit4.validation.ValidationTestHelper;\n");
 		this.builder.append("import org.eclipse.xtext.junit4.XtextRunner;\n");
 		this.builder.append("import org.junit.Assert;\n");
 		this.builder.append("import org.junit.Test;\n");
@@ -161,7 +161,7 @@ public class MyGenerator {
 		this.builder.append(this.getName(this.rootElement));
 		this.builder.append("> parseHelper;\n");
 		this.builder
-				.append("\t@Inject\n\tprivate ValidationTestHelper valHelper;\n");
+		.append("\t@Inject\n\tprivate ValidationTestHelper valHelper;\n");
 		this.builder.append("\t@Inject\n\tLexerAndParserTest testHelper;\n");
 		this.builder.append("\t\n");
 		this.builder.append("\tprivate String getSourceText()\n");
@@ -199,7 +199,7 @@ public class MyGenerator {
 		this.builder.append("testHelper.getTokens(text);\n");
 		this.builder.append("\t\ttestHelper.outputTokens(text);\n");
 		this.builder
-				.append("\t\t//testHelper.checkTokenisation(text, expected);\n");
+		.append("\t\t//testHelper.checkTokenisation(text, expected);\n");
 
 		// end of method
 		this.builder.append("\t}\n");
@@ -244,6 +244,9 @@ public class MyGenerator {
 		this.builder.append("\t\tAssert.assertNotNull(");
 		this.builder.append(varName);
 		this.builder.append(");\n");
+
+		final EList<Inner> inner = element.getInner();
+
 	}
 
 }

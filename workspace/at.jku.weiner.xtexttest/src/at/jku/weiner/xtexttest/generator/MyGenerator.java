@@ -8,6 +8,7 @@ import org.eclipse.emf.common.util.URI;
 import at.jku.weiner.xtexttest.xtextTest.Element;
 import at.jku.weiner.xtexttest.xtextTest.Inner;
 import at.jku.weiner.xtexttest.xtextTest.Input;
+import at.jku.weiner.xtexttest.xtextTest.Tokens;
 import at.jku.weiner.xtexttest.xtextTest.XtextTest;
 
 public class MyGenerator {
@@ -91,6 +92,9 @@ public class MyGenerator {
 		this.builder.append("import java.nio.file.Files;\n");
 		this.builder.append("import java.nio.file.Path;\n");
 		this.builder.append("import java.nio.file.Paths;\n");
+		this.builder.append("import java.util.List;\n");
+		this.builder.append("import org.antlr.runtime.Token;\n");
+		this.builder.append("import org.eclipse.emf.common.util.EList;\n");
 		this.builder.append("import org.eclipse.xtext.junit4.InjectWith;\n");
 		this.builder
 		.append("import org.eclipse.xtext.junit4.util.ParseHelper;\n");
@@ -158,7 +162,7 @@ public class MyGenerator {
 		this.builder.append("> parseHelper;\n");
 		this.builder
 				.append("\t@Inject\n\tprivate ValidationTestHelper valHelper;\n");
-		// this.builder.append("\t@Inject\n\tLexerAndParserTest test;\n");
+		this.builder.append("\t@Inject\n\tLexerAndParserTest testHelper;\n");
 		this.builder.append("\t\n");
 		this.builder.append("\tprivate String getSourceText()\n");
 		this.builder.append("\tthrows Exception{\n");
@@ -173,11 +177,31 @@ public class MyGenerator {
 	}
 
 	private void tokensTest() {
+		final Tokens tokens = this.xtext.getTokens();
+		if (tokens == null) {
+			return;
+		}
 		this.builder.append("\t@Test\n");
 		this.builder.append("\tpublic void checkLexerTokens()\n");
 		this.builder.append("\tthrows Exception{\n");
 		this.builder.append("\t\tfinal String text = this.getSourceText();\n");
 		this.builder.append("\t\tSystem.out.println(text);\n");
+		this.builder.append("\t\tfinal String[] expected = new String[] {\n");
+		final EList<String> tokenList = tokens.getTokens();
+		for (int i = 0; i < tokenList.size(); i++) {
+			final String token = tokenList.get(i);
+			this.builder.append("\t\t\t\"RULE_");
+			this.builder.append(token);
+			this.builder.append("\",\n");
+		}
+		this.builder.append("\t\t};\n");
+		this.builder.append("\t\t//final List<Token> actual = ");
+		this.builder.append("testHelper.getTokens(text);\n");
+		this.builder.append("\t\ttestHelper.outputTokens(text);\n");
+		this.builder
+				.append("\t\t//testHelper.checkTokenisation(text, expected);\n");
+
+		// end of method
 		this.builder.append("\t}\n");
 		this.builder.append("\t\n");
 	}

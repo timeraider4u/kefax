@@ -19,6 +19,7 @@ public class MyGenerator {
 	private final String langName;
 	private final String sourceFile;
 	private final Input input;
+	private final Element rootElement;
 
 	public MyGenerator(final URI uri, final XtextTest xtext) throws IOException {
 		this.uri = uri;
@@ -32,11 +33,12 @@ public class MyGenerator {
 		this.langName = this.xtext.getLang();
 		this.input = this.xtext.getInput();
 		this.sourceFile = this.getSourceFile();
+		this.rootElement = this.xtext.getRoot();
 	}
 
 	private String getSourceFile() {
 		if (this.shouldGenerateTextSourceDataFile()) {
-			return this.pkgName.replace(".", "/") + "/"
+			return this.pkgName.replace(".", "/") + "/tests/"
 					+ this.uri.lastSegment().replace(".xtexttest", "") + ".dat";
 		}
 		return this.input.getFile();
@@ -61,7 +63,7 @@ public class MyGenerator {
 	}
 
 	public String getFileNameForJava() {
-		return this.pkgName.replace(".", "/") + "/"
+		return this.pkgName.replace(".", "/") + "/tests/"
 				+ this.getJavaClassFileName() + ".java";
 	}
 
@@ -70,17 +72,16 @@ public class MyGenerator {
 	}
 
 	public String generateForJava() {
-		final Element rootElem = this.xtext.getRoot();
-		this.header(rootElem);
+		this.header();
 		this.prefixClass();
-		this.tokensTest(rootElem);
-		this.prefixParserResult(rootElem);
-		this.generateForElement(rootElem);
+		this.tokensTest();
+		this.prefixParserResult();
+		this.generateForElement(this.rootElement);
 		this.postfix();
 		return this.builder.toString();
 	}
 
-	private void header(final Element rootElem) {
+	private void header() {
 		final String first = this.langName.substring(0, 1).toUpperCase();
 		final String tail = this.langName.substring(1);
 		this.builder.append("package ");
@@ -88,8 +89,11 @@ public class MyGenerator {
 		this.builder.append(".tests;\n\n");
 		this.builder.append("import com.google.inject.Inject;\n");
 		this.builder.append("import java.nio.file.Files;\n");
+		this.builder.append("import java.nio.file.Path;\n");
 		this.builder.append("import java.nio.file.Paths;\n");
 		this.builder.append("import org.eclipse.xtext.junit4.InjectWith;\n");
+		this.builder
+				.append("import org.eclipse.xtext.junit4.util.ParseHelper;\n");
 		this.builder.append("import org.eclipse.xtext.junit4.XtextRunner;\n");
 		this.builder.append("import org.junit.Assert;\n");
 		this.builder.append("import org.junit.Test;\n");
@@ -104,7 +108,7 @@ public class MyGenerator {
 		this.builder.append(this.pkgName);
 		this.builder.append(".tests.LexerAndParserTest;\n");
 		this.builder.append("\n");
-		this.iterateImports(rootElem);
+		this.iterateImports(this.rootElement);
 		this.builder.append("\n");
 		this.builder.append("@SuppressWarnings(\"unused\")\n");
 		this.builder.append("@RunWith(XtextRunner.class)\n");
@@ -112,54 +116,6 @@ public class MyGenerator {
 		this.builder.append(first);
 		this.builder.append(tail);
 		this.builder.append("InjectorProvider.class)\n");
-	}
-
-	private void prefixClass() {
-		this.builder.append("public class ");
-		this.builder.append(this.getJavaClassFileName());
-		this.builder.append(" {\n\n");
-		// this.builder.append("\t@Inject LexerAndParserTest test;\n");
-		this.builder.append("\t\n");
-		this.builder.append("\tprivate String getSourceText()\n");
-		this.builder.append("\tthrows Exception{\n");
-		this.builder.append("\t\tString content = new String(");
-		this.builder.append("Files.readAllBytes(Paths.get(\"");
-		this.builder.append(this.getFileNameForTextSource());
-		this.builder.append("\")));\n");
-		this.builder.append("\t\treturn content;\n");
-		this.builder.append("\t}\n");
-		this.builder.append("\t\n");
-	}
-
-	private void tokensTest(final Element rootElem) {
-		this.builder.append("\t@Test\n");
-		this.builder.append("\tpublic void checkLexerTokens(");
-		final String name = this.getName(rootElem);
-		final String varName = this.getVarName(rootElem);
-		this.builder.append(name);
-		this.builder.append(" ");
-		this.builder.append(varName);
-		this.builder.append(")\n");
-		this.builder.append("\tthrows Exception{\n");
-		this.builder.append("\t\tfinal String text=getSourceText();\n");
-		this.builder.append("\t\tSystem.out.println(text);\n");
-		this.builder.append("\t}\n");
-		this.builder.append("\t\n");
-	}
-
-	private void prefixParserResult(final Element rootElem) {
-		this.builder.append("\t@Test\n");
-		this.builder.append("\tpublic void checkParserResult(");
-		final String name = this.getName(rootElem);
-		final String varName = this.getVarName(rootElem);
-		this.builder.append(name);
-		this.builder.append(" ");
-		this.builder.append(varName);
-		this.builder.append(")\n");
-		this.builder.append("\tthrows Exception{\n");
-		this.builder.append("\n");
-		this.builder.append("\t\tfinal String text=getSourceText();\n");
-		this.builder.append("\t\n");
 	}
 
 	private void iterateImports(final Element elem) {
@@ -189,6 +145,51 @@ public class MyGenerator {
 		for (final Element elem : list) {
 			this.iterateImports(elem);
 		}
+	}
+
+	private void prefixClass() {
+		this.builder.append("public class ");
+		this.builder.append(this.getJavaClassFileName());
+		this.builder.append(" {\n\n");
+		this.builder.append("\t@Inject\n\tParseHelper<");
+		this.builder.append(this.getName(this.rootElement));
+		this.builder.append("> parseHelper;\n");
+		// this.builder.append("\t@Inject\n\tLexerAndParserTest test;\n");
+		this.builder.append("\t\n");
+		this.builder.append("\tprivate String getSourceText()\n");
+		this.builder.append("\tthrows Exception{\n");
+		this.builder.append("\tfinal Path path = Paths.get(\"src-gen/");
+		this.builder.append(this.getFileNameForTextSource());
+		this.builder.append("\");\n");
+		this.builder.append("\t\tfinal String content = new String(");
+		this.builder.append("Files.readAllBytes(path));\n");
+		this.builder.append("\t\treturn content;\n");
+		this.builder.append("\t}\n");
+		this.builder.append("\t\n");
+	}
+
+	private void tokensTest() {
+		this.builder.append("\t@Test\n");
+		this.builder.append("\tpublic void checkLexerTokens()\n");
+		this.builder.append("\tthrows Exception{\n");
+		this.builder.append("\t\tfinal String text=getSourceText();\n");
+		this.builder.append("\t\tSystem.out.println(text);\n");
+		this.builder.append("\t}\n");
+		this.builder.append("\t\n");
+	}
+
+	private void prefixParserResult() {
+		this.builder.append("\t@Test\n");
+		this.builder.append("\tpublic void checkParserResult()\n");
+		this.builder.append("\tthrows Exception{\n");
+		this.builder.append("\n");
+		this.builder.append("\t\tfinal String text=getSourceText();\n");
+		this.builder.append("\t\tfinal ");
+		this.builder.append(this.getName(this.rootElement));
+		this.builder.append(" ");
+		this.builder.append(this.getVarName(this.rootElement));
+		this.builder.append(" = this.parseHelper.parse(text);\n");
+		this.builder.append("\t\n");
 	}
 
 	private void postfix() {

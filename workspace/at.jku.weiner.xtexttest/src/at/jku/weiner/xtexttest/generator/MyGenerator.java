@@ -93,7 +93,9 @@ public class MyGenerator {
 		this.builder.append("import java.nio.file.Paths;\n");
 		this.builder.append("import org.eclipse.xtext.junit4.InjectWith;\n");
 		this.builder
-				.append("import org.eclipse.xtext.junit4.util.ParseHelper;\n");
+		.append("import org.eclipse.xtext.junit4.util.ParseHelper;\n");
+		this.builder
+				.append("import org.eclipse.xtext.junit4.validation.ValidationTestHelper;\n");
 		this.builder.append("import org.eclipse.xtext.junit4.XtextRunner;\n");
 		this.builder.append("import org.junit.Assert;\n");
 		this.builder.append("import org.junit.Test;\n");
@@ -151,9 +153,11 @@ public class MyGenerator {
 		this.builder.append("public class ");
 		this.builder.append(this.getJavaClassFileName());
 		this.builder.append(" {\n\n");
-		this.builder.append("\t@Inject\n\tParseHelper<");
+		this.builder.append("\t@Inject\n\tprivate ParseHelper<");
 		this.builder.append(this.getName(this.rootElement));
 		this.builder.append("> parseHelper;\n");
+		this.builder
+				.append("\t@Inject\n\tprivate ValidationTestHelper valHelper;\n");
 		// this.builder.append("\t@Inject\n\tLexerAndParserTest test;\n");
 		this.builder.append("\t\n");
 		this.builder.append("\tprivate String getSourceText()\n");
@@ -172,7 +176,7 @@ public class MyGenerator {
 		this.builder.append("\t@Test\n");
 		this.builder.append("\tpublic void checkLexerTokens()\n");
 		this.builder.append("\tthrows Exception{\n");
-		this.builder.append("\t\tfinal String text=getSourceText();\n");
+		this.builder.append("\t\tfinal String text = this.getSourceText();\n");
 		this.builder.append("\t\tSystem.out.println(text);\n");
 		this.builder.append("\t}\n");
 		this.builder.append("\t\n");
@@ -183,13 +187,16 @@ public class MyGenerator {
 		this.builder.append("\tpublic void checkParserResult()\n");
 		this.builder.append("\tthrows Exception{\n");
 		this.builder.append("\n");
-		this.builder.append("\t\tfinal String text=getSourceText();\n");
+		this.builder.append("\t\tfinal String text = this.getSourceText();\n");
 		this.builder.append("\t\tfinal ");
 		this.builder.append(this.getName(this.rootElement));
 		this.builder.append(" ");
 		this.builder.append(this.getVarName(this.rootElement));
 		this.builder.append(" = this.parseHelper.parse(text);\n");
 		this.builder.append("\t\n");
+		this.builder.append("\t\tthis.valHelper.assertNoErrors(");
+		this.builder.append(this.getVarName(this.rootElement));
+		this.builder.append(");\n");
 	}
 
 	private void postfix() {

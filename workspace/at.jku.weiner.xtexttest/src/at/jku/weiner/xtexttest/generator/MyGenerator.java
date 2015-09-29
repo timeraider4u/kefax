@@ -287,12 +287,26 @@ public class MyGenerator {
 			final String paramName = inner.getParameter();
 			if (inner.getAssign() != null) {
 				this.handleSingleAssign(varName, paramName, inner.getAssign());
+			} else if (inner.getAssignList() != null) {
+				this.handleListAssign(varName, paramName, inner.getAssignList());
+			} else {
+				this.handleValueAssign(varName, paramName, inner.getValue());
 			}
 		}
 	}
 
 	private void handleSingleAssign(final String varName,
 			final String paramName, final Element assign) {
+		this.builder.append("");
+	}
+
+	private void handleListAssign(final String varName, final String paramName,
+			final EList<Element> assignList) {
+		this.builder.append("");
+	}
+
+	private void handleValueAssign(final String varName,
+			final String paramName, final String value) {
 		this.builder.append("");
 	}
 

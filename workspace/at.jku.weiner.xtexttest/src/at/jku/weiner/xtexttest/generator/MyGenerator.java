@@ -291,7 +291,8 @@ public class MyGenerator {
 			if (inner.getAssign() != null) {
 				this.handleSingleAssign(varName, paramName, inner.getAssign(),
 						indention);
-			} else if (inner.getAssignList() != null) {
+			} else if ((inner.getAssignList() != null)
+					&& (!inner.getAssignList().isEmpty())) {
 				this.handleListAssign(varName, paramName,
 						inner.getAssignList(), indention);
 			} else {
@@ -314,9 +315,6 @@ public class MyGenerator {
 
 	private void handleListAssign(final String varName, final String paramName,
 			final EList<Element> assignList, final int indention) {
-		if (assignList.isEmpty()) {
-			return;
-		}
 		final String type = assignList.get(0).getName();
 		this.builder.append("\t\tfinal EList<");
 		this.builder.append(type);
@@ -353,7 +351,7 @@ public class MyGenerator {
 
 	private void handleValueAssign(final String varName,
 			final String paramName, final String value) {
-		this.builder.append("\t\tAssert.equals(\"");
+		this.builder.append("\t\tAssert.assertEquals(\"");
 		this.builder.append(value);
 		this.builder.append("\", ");
 		this.builder.append(varName);

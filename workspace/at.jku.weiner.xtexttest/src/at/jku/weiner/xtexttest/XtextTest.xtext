@@ -51,7 +51,7 @@ Inner:
 	parameter=IDENTIFIER
 	(ASSIGNASSINGLE assign=Element
 	|
-	ASSIGNASLIST assign=Element (COMMA assign2+=Element)*
+	ASSIGNASLIST assignList+=Element (COMMA assignList+=Element)*
 	|
 	ASSIGNASSTRING value=STRING
 	) 

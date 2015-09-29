@@ -103,6 +103,7 @@ public class MyGenerator {
 		this.builder.append("import java.util.List;\n");
 		this.builder.append("import org.antlr.runtime.Token;\n");
 		this.builder.append("import org.eclipse.emf.common.util.EList;\n");
+		this.builder.append("import org.eclipse.emf.ecore.EObject;\n");
 		this.builder.append("import org.eclipse.xtext.junit4.");
 		this.builder.append("InjectWith;\n");
 		this.builder.append("import org.eclipse.xtext.junit4.");
@@ -329,9 +330,7 @@ public class MyGenerator {
 			final EList<Element> assignList) {
 		final String type = assignList.get(0).getName();
 		final String listName = this.getListName(paramName);
-		this.builder.append("\t\tfinal EList<");
-		this.builder.append(type);
-		this.builder.append("> ");
+		this.builder.append("\t\tfinal EList<? extends EObject> ");
 		this.builder.append(listName);
 		this.builder.append(" = ");
 		this.builder.append(varName);
@@ -354,7 +353,9 @@ public class MyGenerator {
 			this.builder.append(type);
 			this.builder.append(" ");
 			this.builder.append(tmpName);
-			this.builder.append(" = ");
+			this.builder.append(" = (");
+			this.builder.append(type);
+			this.builder.append(")");
 			this.builder.append(listName);
 			this.builder.append(".get(");
 			this.builder.append(i);

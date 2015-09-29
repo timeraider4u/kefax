@@ -106,7 +106,7 @@ public class MyGenerator {
 		this.builder.append("import org.eclipse.xtext.junit4.");
 		this.builder.append("XtextRunner;\n");
 		this.builder
-				.append("import org.eclipse.xtext.parser.antlr.ITokenDefProvider;\n");
+		.append("import org.eclipse.xtext.parser.antlr.ITokenDefProvider;\n");
 		this.builder.append("import org.junit.Assert;\n");
 		this.builder.append("import org.junit.After;\n");
 		this.builder.append("import org.junit.Before;\n");
@@ -232,7 +232,7 @@ public class MyGenerator {
 		this.builder.append("testHelper.getTokens(text);\n");
 		this.builder.append("\t\t//testHelper.outputTokens(text);\n");
 		this.builder
-		.append("\t\ttestHelper.checkTokenisation(text, expected);\n");
+				.append("\t\ttestHelper.checkTokenisation(text, expected);\n");
 
 		// end of method
 		this.builder.append("\t}\n");
@@ -279,7 +279,12 @@ public class MyGenerator {
 		this.builder.append(");\n");
 
 		final EList<Inner> inner = element.getInner();
+		if (inner == null) {
+			return;
+		}
+		for (int i = 0; i < inner.size(); i++) {
 
+		}
 	}
 
 }

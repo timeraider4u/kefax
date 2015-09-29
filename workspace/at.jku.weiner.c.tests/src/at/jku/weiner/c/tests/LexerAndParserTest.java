@@ -7,34 +7,32 @@ import java.util.List;
 
 import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CharStream;
-import org.antlr.runtime.Parser;
 import org.antlr.runtime.Token;
 import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.junit4.AbstractXtextTests;
 import org.eclipse.xtext.parser.IParseResult;
+import org.eclipse.xtext.parser.antlr.AbstractAntlrParser;
 import org.eclipse.xtext.parser.antlr.ITokenDefProvider;
 import org.eclipse.xtext.parser.antlr.Lexer;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream;
 import org.junit.Assert;
 
-import at.jku.weiner.c.parser.antlr.CParser;
-import at.jku.weiner.c.parser.antlr.internal.InternalCLexer;
-
-import com.google.inject.Inject;
-
 public class LexerAndParserTest extends AbstractXtextTests {
 
-	@Inject
-	private InternalCLexer lexer;
-
-	@Inject
-	private ITokenDefProvider tokenDefProvider;
-
-	@Inject
-	private CParser parser;
+	private final Lexer lexer;
+	private final AbstractAntlrParser parser;
+	private final ITokenDefProvider tokenDefProvider;
 
 	private boolean debugTokenStream = false;
+
+	public LexerAndParserTest(final Lexer lexer,
+			final AbstractAntlrParser parser,
+			final ITokenDefProvider tokenDefProvider) {
+		this.lexer = lexer;
+		this.parser = parser;
+		this.tokenDefProvider = tokenDefProvider;
+	}
 
 	public boolean isDebugTokenStream() {
 		return this.debugTokenStream;
@@ -52,7 +50,7 @@ public class LexerAndParserTest extends AbstractXtextTests {
 		this.lexer.setCharStream(stream);
 		final XtextTokenStream tokenStream = new XtextTokenStream(this.lexer,
 				this.tokenDefProvider);
-		this.parser.setInitialHiddenTokens(tokenStream);
+		// this.parser.setInitialHiddenTokens(tokenStream);
 		@SuppressWarnings("unchecked")
 		final List<Token> tokens = tokenStream.getTokens();
 		return tokens;

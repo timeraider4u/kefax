@@ -21,6 +21,7 @@ public class MyGenerator {
 	private final String sourceFile;
 	private final Input input;
 	private final Element rootElement;
+	private final String myDsl;
 
 	public MyGenerator(final URI uri, final XtextTest xtext) throws IOException {
 		this.uri = uri;
@@ -35,6 +36,9 @@ public class MyGenerator {
 		this.input = this.xtext.getInput();
 		this.sourceFile = this.getSourceFile();
 		this.rootElement = this.xtext.getRoot();
+		final String first = this.langName.substring(0, 1).toUpperCase();
+		final String tail = this.langName.substring(1);
+		this.myDsl = first + tail;
 	}
 
 	private String getSourceFile() {
@@ -83,8 +87,6 @@ public class MyGenerator {
 	}
 
 	private void header() {
-		final String first = this.langName.substring(0, 1).toUpperCase();
-		final String tail = this.langName.substring(1);
 		this.builder.append("package ");
 		this.builder.append(this.pkgName);
 		this.builder.append(".tests;\n\n");
@@ -95,21 +97,36 @@ public class MyGenerator {
 		this.builder.append("import java.util.List;\n");
 		this.builder.append("import org.antlr.runtime.Token;\n");
 		this.builder.append("import org.eclipse.emf.common.util.EList;\n");
-		this.builder.append("import org.eclipse.xtext.junit4.InjectWith;\n");
+		this.builder.append("import org.eclipse.xtext.junit4.");
+		this.builder.append("InjectWith;\n");
+		this.builder.append("import org.eclipse.xtext.junit4.");
+		this.builder.append("util.ParseHelper;\n");
+		this.builder.append("import org.eclipse.xtext.junit4.");
+		this.builder.append("validation.ValidationTestHelper;\n");
+		this.builder.append("import org.eclipse.xtext.junit4.");
+		this.builder.append("XtextRunner;\n");
 		this.builder
-				.append("import org.eclipse.xtext.junit4.util.ParseHelper;\n");
-		this.builder
-		.append("import org.eclipse.xtext.junit4.validation.ValidationTestHelper;\n");
-		this.builder.append("import org.eclipse.xtext.junit4.XtextRunner;\n");
+				.append("import org.eclipse.xtext.parser.antlr.ITokenDefProvider;\n");
 		this.builder.append("import org.junit.Assert;\n");
+		this.builder.append("import org.junit.After;\n");
+		this.builder.append("import org.junit.Before;\n");
 		this.builder.append("import org.junit.Test;\n");
 		this.builder.append("import org.junit.runner.RunWith;\n");
 		this.builder.append("import ");
 		this.builder.append(this.pkgName);
 		this.builder.append(".tests.");
-		this.builder.append(first);
-		this.builder.append(tail);
+		this.builder.append(this.myDsl);
 		this.builder.append("InjectorProvider;\n");
+		this.builder.append("import ");
+		this.builder.append(this.pkgName);
+		this.builder.append(".parser.antlr.");
+		this.builder.append(this.myDsl);
+		this.builder.append("Parser;\n");
+		this.builder.append("import ");
+		this.builder.append(this.pkgName);
+		this.builder.append(".parser.antlr.internal.Internal");
+		this.builder.append(this.myDsl);
+		this.builder.append("Lexer;\n");
 		this.builder.append("import ");
 		this.builder.append(this.pkgName);
 		this.builder.append(".tests.LexerAndParserTest;\n");
@@ -119,8 +136,7 @@ public class MyGenerator {
 		this.builder.append("@SuppressWarnings(\"unused\")\n");
 		this.builder.append("@RunWith(XtextRunner.class)\n");
 		this.builder.append("@InjectWith(");
-		this.builder.append(first);
-		this.builder.append(tail);
+		this.builder.append(this.myDsl);
 		this.builder.append("InjectorProvider.class)\n");
 	}
 
@@ -157,12 +173,29 @@ public class MyGenerator {
 		this.builder.append("public class ");
 		this.builder.append(this.getJavaClassFileName());
 		this.builder.append(" {\n\n");
-		this.builder.append("\t@Inject\n\tprivate ParseHelper<");
+		this.builder.append("\t@Inject\n");
+		this.builder.append("\tprivate ParseHelper<");
 		this.builder.append(this.getName(this.rootElement));
 		this.builder.append("> parseHelper;\n");
-		this.builder
-		.append("\t@Inject\n\tprivate ValidationTestHelper valHelper;\n");
-		this.builder.append("\t@Inject\n\tLexerAndParserTest testHelper;\n");
+		this.builder.append("\t@Inject\n");
+		this.builder.append("\tprivate ValidationTestHelper valHelper;\n");
+		this.builder.append("\t@Inject\n\tprivate Internal");
+		this.builder.append(this.myDsl);
+		this.builder.append("Lexer lexer;\n");
+		this.builder.append("\t@Inject\n\tprivate ");
+		this.builder.append(this.myDsl);
+		this.builder.append("Parser parser;\n");
+		this.builder.append("\t@Inject\n");
+		this.builder.append("\tprivate ITokenDefProvider tokenDefProvider;\n");
+		this.builder.append("\t\n");
+		// this.builder.append("\t@Inject\n\tLexerAndParserTest testHelper;\n");
+		this.builder.append("\tprivate LexerAndParserTest testHelper;\n");
+		this.builder.append("\t\n");
+		this.builder.append("\t@Before\n\tpublic void initialize(){\n");
+		this.builder.append("\t\tthis.testHelper = ");
+		this.builder.append("new LexerAndParserTest(");
+		this.builder.append("lexer, parser, tokenDefProvider);\n");
+		this.builder.append("\t}\n");
 		this.builder.append("\t\n");
 		this.builder.append("\tprivate String getSourceText()\n");
 		this.builder.append("\tthrows Exception{\n");
@@ -185,7 +218,7 @@ public class MyGenerator {
 		this.builder.append("\tpublic void checkLexerTokens()\n");
 		this.builder.append("\tthrows Exception{\n");
 		this.builder.append("\t\tfinal String text = this.getSourceText();\n");
-		this.builder.append("\t\tSystem.out.println(text);\n");
+		this.builder.append("\t\t//System.out.println(text);\n");
 		this.builder.append("\t\tfinal String[] expected = new String[] {\n");
 		final EList<String> tokenList = tokens.getTokens();
 		for (int i = 0; i < tokenList.size(); i++) {
@@ -197,9 +230,9 @@ public class MyGenerator {
 		this.builder.append("\t\t};\n");
 		this.builder.append("\t\t//final List<Token> actual = ");
 		this.builder.append("testHelper.getTokens(text);\n");
-		this.builder.append("\t\ttestHelper.outputTokens(text);\n");
+		this.builder.append("\t\t//testHelper.outputTokens(text);\n");
 		this.builder
-		.append("\t\t//testHelper.checkTokenisation(text, expected);\n");
+		.append("\t\ttestHelper.checkTokenisation(text, expected);\n");
 
 		// end of method
 		this.builder.append("\t}\n");

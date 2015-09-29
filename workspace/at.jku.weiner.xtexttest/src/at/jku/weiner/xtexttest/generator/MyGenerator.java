@@ -81,7 +81,7 @@ public class MyGenerator {
 		this.prefixClass();
 		this.tokensTest();
 		this.prefixParserResult();
-		this.generateForElement(this.rootElement);
+		this.generateForElement(this.rootElement, 0, 0);
 		this.postfix();
 		return this.builder.toString();
 	}
@@ -106,7 +106,7 @@ public class MyGenerator {
 		this.builder.append("import org.eclipse.xtext.junit4.");
 		this.builder.append("XtextRunner;\n");
 		this.builder
-				.append("import org.eclipse.xtext.parser.antlr.ITokenDefProvider;\n");
+		.append("import org.eclipse.xtext.parser.antlr.ITokenDefProvider;\n");
 		this.builder.append("import org.junit.Assert;\n");
 		this.builder.append("import org.junit.After;\n");
 		this.builder.append("import org.junit.Before;\n");
@@ -232,7 +232,7 @@ public class MyGenerator {
 		this.builder.append("testHelper.getTokens(text);\n");
 		this.builder.append("\t\t//testHelper.outputTokens(text);\n");
 		this.builder
-		.append("\t\ttestHelper.checkTokenisation(text, expected);\n");
+				.append("\t\ttestHelper.checkTokenisation(text, expected);\n");
 
 		// end of method
 		this.builder.append("\t}\n");
@@ -248,11 +248,11 @@ public class MyGenerator {
 		this.builder.append("\t\tfinal ");
 		this.builder.append(this.getName(this.rootElement));
 		this.builder.append(" ");
-		this.builder.append(this.getVarName(this.rootElement));
+		this.builder.append(this.getVarName(this.rootElement, 0, 0));
 		this.builder.append(" = this.parseHelper.parse(text);\n");
 		this.builder.append("\t\n");
 		this.builder.append("\t\tthis.valHelper.assertNoErrors(");
-		this.builder.append(this.getVarName(this.rootElement));
+		this.builder.append(this.getVarName(this.rootElement, 0, 0));
 		this.builder.append(");\n");
 	}
 
@@ -266,14 +266,16 @@ public class MyGenerator {
 		return name;
 	}
 
-	private String getVarName(final Element element) {
+	private String getVarName(final Element element, final int indention,
+			final int position) {
 		final String name = this.getName(element);
-		final String varName = name + "Var";
+		final String varName = name + "_" + indention + "_" + position + "Var";
 		return varName;
 	}
 
-	private void generateForElement(final Element element) {
-		final String varName = this.getVarName(element);
+	private void generateForElement(final Element element, final int indention,
+			final int position) {
+		final String varName = this.getVarName(element, indention, position);
 		this.builder.append("\t\tAssert.assertNotNull(");
 		this.builder.append(varName);
 		this.builder.append(");\n");
@@ -284,30 +286,80 @@ public class MyGenerator {
 		}
 		for (int i = 0; i < innerList.size(); i++) {
 			Inner inner = innerList.get(i);
-			final String paramName = inner.getParameter();
+			String paramName = this.getParamName(inner);
+
 			if (inner.getAssign() != null) {
-				this.handleSingleAssign(varName, paramName, inner.getAssign());
+				this.handleSingleAssign(varName, paramName, inner.getAssign(),
+						indention);
 			} else if (inner.getAssignList() != null) {
-				this.handleListAssign(varName, paramName, inner.getAssignList());
+				this.handleListAssign(varName, paramName,
+						inner.getAssignList(), indention);
 			} else {
 				this.handleValueAssign(varName, paramName, inner.getValue());
 			}
 		}
 	}
 
+	private String getParamName(final Inner inner) {
+		final String paramName = inner.getParameter();
+		final String first = paramName.substring(0, 1).toUpperCase();
+		final String tail = paramName.substring(1);
+		return first + tail;
+	}
+
 	private void handleSingleAssign(final String varName,
-			final String paramName, final Element assign) {
+			final String paramName, final Element assign, final int indention) {
 		this.builder.append("");
 	}
 
 	private void handleListAssign(final String varName, final String paramName,
-			final EList<Element> assignList) {
-		this.builder.append("");
+			final EList<Element> assignList, final int indention) {
+		if (assignList.isEmpty()) {
+			return;
+		}
+		final String type = assignList.get(0).getName();
+		this.builder.append("\t\tfinal EList<");
+		this.builder.append(type);
+		this.builder.append("> ");
+		this.builder.append(paramName);
+		this.builder.append(" = ");
+		this.builder.append(varName);
+		this.builder.append(".get");
+		this.builder.append(paramName);
+		this.builder.append("();\n");
+		this.builder.append("\t\tAssert.assertNotNull(");
+		this.builder.append(paramName);
+		this.builder.append(");\n");
+		this.builder.append("\t\tAssert.assertEquals(");
+		this.builder.append(assignList.size());
+		this.builder.append(", ");
+		this.builder.append(paramName);
+		this.builder.append(".size());\n");
+		for (int i = 0; i < assignList.size(); i++) {
+			final Element element = assignList.get(i);
+			final String tmpName = this.getVarName(element, indention + 1, i);
+			this.builder.append("\t\tfinal ");
+			this.builder.append(type);
+			this.builder.append(" ");
+			this.builder.append(tmpName);
+			this.builder.append(" = ");
+			this.builder.append(paramName);
+			this.builder.append(".get(");
+			this.builder.append(i);
+			this.builder.append(");\n");
+			this.generateForElement(element, indention + 1, i);
+		}
 	}
 
 	private void handleValueAssign(final String varName,
 			final String paramName, final String value) {
-		this.builder.append("");
+		this.builder.append("\t\tAssert.equals(\"");
+		this.builder.append(value);
+		this.builder.append("\", ");
+		this.builder.append(varName);
+		this.builder.append(".get");
+		this.builder.append(paramName);
+		this.builder.append("());\n");
 	}
 
 }

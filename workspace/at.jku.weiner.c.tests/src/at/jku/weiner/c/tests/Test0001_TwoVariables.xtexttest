@@ -1,8 +1,7 @@
 package at.jku.weiner.c
 language c
 //----------------------------------------------------------------------
-source text="int i;
-int j;"
+source file="res/Test0001_TwoVariables.c"
 //----------------------------------------------------------------------
 lexer-tokens
 KW_INT WHITESPACE ID SEMI NEWLINE

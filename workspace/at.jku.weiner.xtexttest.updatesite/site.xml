@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/at.jku.weiner.xtexttest.feature_1.0.0.201509301318.jar" id="at.jku.weiner.xtexttest.feature" version="1.0.0.201509301318">
+      <category name="at.jku.weiner.xtexttest"/>
+   </feature>
+   <category-def name="at.jku.weiner.xtexttest" label="XtextTest"/>
+</site>

@@ -113,7 +113,7 @@ public class MyGenerator {
 		this.builder.append("import org.eclipse.xtext.junit4.");
 		this.builder.append("XtextRunner;\n");
 		this.builder
-				.append("import org.eclipse.xtext.parser.antlr.ITokenDefProvider;\n");
+		.append("import org.eclipse.xtext.parser.antlr.ITokenDefProvider;\n");
 		this.builder.append("import org.junit.Assert;\n");
 		this.builder.append("import org.junit.After;\n");
 		this.builder.append("import org.junit.Before;\n");
@@ -206,7 +206,10 @@ public class MyGenerator {
 		this.builder.append("\t\n");
 		this.builder.append("\tprivate String getSourceText()\n");
 		this.builder.append("\tthrows Exception{\n");
-		this.builder.append("\t\tfinal Path path = Paths.get(\"src-gen/");
+		this.builder.append("\t\tfinal Path path = Paths.get(\"");
+		if (this.shouldGenerateTextSourceDataFile()) {
+			this.builder.append("src-gen/");
+		}
 		this.builder.append(this.getFileNameForTextSource());
 		this.builder.append("\");\n");
 		this.builder.append("\t\tfinal String content = new String(");
@@ -239,7 +242,7 @@ public class MyGenerator {
 		this.builder.append("testHelper.getTokens(text);\n");
 		this.builder.append("\t\t//testHelper.outputTokens(text);\n");
 		this.builder
-		.append("\t\ttestHelper.checkTokenisation(text, expected);\n");
+				.append("\t\ttestHelper.checkTokenisation(text, expected);\n");
 
 		// end of method
 		this.builder.append("\t}\n");

@@ -1,4 +1,4 @@
-grammar test;
+grammar test1;
 
 options {forceHoisting=true;}
 

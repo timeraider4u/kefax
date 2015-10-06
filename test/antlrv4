@@ -1,30 +1,34 @@
 #!/bin/bash
 # ANTLR4
+
+# Switch between the two tests and see the difference!
+# ANTLRv4 does not support hoisting of predicates over actions!!!
+TEST="1"
+#TEST="2"
+GRAMMARFILE="test${TEST}.g"
+
 export CLASSPATH="/home/harry/workspace/libs/antlr/antlr-4.5.1-complete.jar:$CLASSPATH"
-java -cp ${CLASSPATH} org.antlr.v4.Tool test.g #&& \
+java -cp ${CLASSPATH} org.antlr.v4.Tool ${GRAMMARFILE} #&& \
 javac -cp ${CLASSPATH} *.java
 #echo "Enter input text (end with STRG+D)"
 EXP1="(test (foobar (bar my)))"
-OUT1=$(echo -n "my" | java -cp ${CLASSPATH} org.antlr.v4.gui.TestRig test test -tree)
+OUT1=$(echo -n "my" | java -cp ${CLASSPATH} org.antlr.v4.gui.TestRig test${TEST} test -tree)
 if [ "${OUT1}" != "${EXP1}" ]; then
 	echo "Expected1='${EXP1}' but was '${OUT1}'"
 	exit 1
 fi
-
 EXP2="(test (foobar (bar my)) (foobar (bar my)))"
-OUT2=$(echo -n "mymy" | java -cp ${CLASSPATH} org.antlr.v4.gui.TestRig test test -tree)
+OUT2=$(echo -n "mymy" | java -cp ${CLASSPATH} org.antlr.v4.gui.TestRig test${TEST} test -tree)
 if [ "${OUT2}" != "${EXP2}" ]; then
 	echo "Expected2='${EXP2}' but was '${OUT2}'"
 	exit 1
 fi
-
 EXP3="(test (foobar (bar my)) (foobar (bar my)) (foobar (foo my)))"
-OUT3=$(echo -n "mymymy" | java -cp ${CLASSPATH} org.antlr.v4.gui.TestRig test test -tree)
+OUT3=$(echo -n "mymymy" | java -cp ${CLASSPATH} org.antlr.v4.gui.TestRig test${TEST} test -tree)
 if [ "${OUT3}" != "${EXP3}" ]; then
 	echo "Expected3='${EXP3}' but was '${OUT3}'"
 	exit 1
 fi
-
 rm -r *.java
 rm -r *.class
 rm -r *.tokens

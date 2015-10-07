@@ -46,7 +46,8 @@ TranslationUnit
 	afterRuleAction{
 		//System.out.println("TranslationUnit.leave()"); 
 		at.jku.weiner.c.Scope.removeScope();
-	}:
+	}
+	:
 	{TranslationUnit}
 	
 	(external+=ExternalDeclaration)+
@@ -163,7 +164,7 @@ TypeSpecifier
   //  |   specifier=atomicTypeSpecifier
    // |   specifier=structOrUnionSpecifier
    // |   specifier=enumSpecifier
-    //|  name=TypedefName
+    |  type=TypedefName
    // |   '__typeof__' LEFTPAREN constExrp=constantExpression RIGHTPAREN // GCC extension
     
 ;

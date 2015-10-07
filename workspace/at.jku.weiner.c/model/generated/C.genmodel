@@ -37,6 +37,7 @@
     </genClasses>
     <genClasses ecoreClass="C.ecore#//TypeSpecifier">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//TypeSpecifier/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//TypeSpecifier/type"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//TypedefName">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//TypedefName/id"/>

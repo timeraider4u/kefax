@@ -1,0 +1,20 @@
+package at.jku.weiner.c
+language c
+//----------------------------------------------------------------------
+source file="res/Test0001_Semicolons.c"
+//----------------------------------------------------------------------
+lexer-tokens
+SEMI NEWLINE
+SEMI SEMI NEWLINE 
+//----------------------------------------------------------------------
+(Model unit+=
+	(TranslationUnit 
+		external+=
+		(ExternalDeclaration 
+		),
+		(ExternalDeclaration
+		),
+		(ExternalDeclaration
+		)
+	)
+)

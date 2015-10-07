@@ -36,17 +36,16 @@ generate c "http://www.jku.at/weiner/c/C"
 
 /*** parser ***/
 
-//Model: {Model} (unit+=TranslationUnit)? EOF_TERMINAL;
+Model: {Model} (unit+=TranslationUnit)?;
 
 TranslationUnit 
 	initRuleAction{
-		System.out.println("TranslationUnit.enter()"); 
-		//at.jku.weiner.c.Scope.createNewScope("TranslationUnit");
-	}
-	//} 
+		//System.out.println("TranslationUnit.enter()"); 
+		at.jku.weiner.c.Scope.createNewScope("TranslationUnit");
+	} 
 	afterRuleAction{
-		System.out.println("TranslationUnit.leave()"); 
-		// at.jku.weiner.c.Scope.removeScope();
+		//System.out.println("TranslationUnit.leave()"); 
+		at.jku.weiner.c.Scope.removeScope();
 	}:
 	{TranslationUnit}
 	
@@ -62,7 +61,7 @@ ExternalDeclaration
 	//(=>functionDefinition=functionDefinition)
  //   |   
  		declaration=Declaration
-   // | {ExternalDeclaration} semi=SEMI // stray ;
+    | {ExternalDeclaration} semi=SEMI // stray
 ;
 
 //
@@ -829,7 +828,7 @@ terminal WHITESPACE: (' ' | '\t')+;
 terminal BLOCK_COMMENT: '/*' -> '*/';
 terminal LINE_COMMENT: '//' (!NEWLINE)*;
 terminal NEWLINE: ('\r'|'\n');
-terminal EOF_TERMINAL: EOF;
+//terminal EOF_TERMINAL: EOF;
 
 //terminal ANYOTHER: !(COMMA | LEFTPAREN | RIGHTPAREN);
 //terminal NOPAREN: !(LEFTPAREN | RIGHTPAREN);

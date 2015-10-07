@@ -7,11 +7,15 @@
     editorPluginID="at.jku.weiner.c.editor" runtimeVersion="2.11" usedGenPackages="platform:/resource/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore">
   <genPackages prefix="C" basePackage="at.jku.weiner.c" disposableProviderFactory="true"
       fileExtensions="c" ecorePackage="C.ecore#/">
+    <genClasses ecoreClass="C.ecore#//Model">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//Model/unit"/>
+    </genClasses>
     <genClasses ecoreClass="C.ecore#//TranslationUnit">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//TranslationUnit/external"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//ExternalDeclaration">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//ExternalDeclaration/declaration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//ExternalDeclaration/semi"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//Declaration">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//Declaration/specifiers"/>

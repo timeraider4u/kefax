@@ -38,6 +38,7 @@ Workflow {
 	}
 	component = DirectoryCleaner {
 		directory = "${projectPath}.tests/src-gen"
+		exclude = "Test0001_TwoVariables.java"
 	}
 	component = DirectoryCleaner {
 		directory = "${projectPath}.ui.tests/src-gen"

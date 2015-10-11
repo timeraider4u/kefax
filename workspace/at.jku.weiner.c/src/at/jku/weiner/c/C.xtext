@@ -53,17 +53,17 @@ TranslationUnit
 
 ExternalDeclaration
 	initRuleAction{
-		System.out.println("ExternalDeclaration-enter");
+		at.jku.weiner.c.Log.log("ExternalDeclaration-enter");
 	} 
 	afterRuleAction{
-		System.out.println("ExternalDeclaration-leave");
+		at.jku.weiner.c.Log.log("ExternalDeclaration-leave");
 	}
 	:
 	{ExternalDeclaration}
 	
 	//(=>functionDefinition=functionDefinition)
  //   |   
- 		declaration=Declaration
+ 		declaration=Declaration semi=SEMI
     | {ExternalDeclaration} semi=SEMI // stray
 ;
 
@@ -76,24 +76,23 @@ Declaration
 		at.jku.weiner.c.Scope.setTypedef(false);
 	}
 	afterRuleAction{
-		System.out.println("Declaration-leave");
+		at.jku.weiner.c.Log.log("Declaration-leave");
 	}
 	:
 	{Declaration}
 	(
 	specifiers=DeclarationSpecifiers 
 		(initDeclaratorList+=InitDeclaratorList)? 
-		semi=SEMI
 	)
     //|   staticAssertDeclaration
 ;
 
 DeclarationSpecifiers
 initRuleAction{
-	System.out.println("DeclarationSpecifiers-enter");
+	at.jku.weiner.c.Log.log("DeclarationSpecifiers-enter");
 	} 
 	afterRuleAction{
-		System.out.println("DeclarationSpecifiers-leave");
+		at.jku.weiner.c.Log.log("DeclarationSpecifiers-leave");
 	}
 	:
 	{DeclarationSpecifiers}
@@ -108,10 +107,10 @@ initRuleAction{
 
 InitDeclaratorList
 	initRuleAction{
-		System.out.println("InitDeclaratorList-enter");
+		at.jku.weiner.c.Log.log("InitDeclaratorList-enter");
 	} 
 	afterRuleAction{
-		System.out.println("InitDeclaratorList-leave");
+		at.jku.weiner.c.Log.log("InitDeclaratorList-leave");
 	}
 	:
 	{InitDeclaratorList}
@@ -122,10 +121,10 @@ InitDeclaratorList
 
 InitDeclarator
 	initRuleAction{
-		System.out.println("InitDeclarator-enter");
+		at.jku.weiner.c.Log.log("InitDeclarator-enter");
 	} 
 	afterRuleAction{
-		System.out.println("InitDeclarator-leave");
+		at.jku.weiner.c.Log.log("InitDeclarator-leave");
 	}
 	:
 	{InitDeclarator}
@@ -135,10 +134,10 @@ InitDeclarator
 
 StorageClassSpecifier
 	initRuleAction{
-		System.out.println("StorageClassSpecifier-enter");
+		at.jku.weiner.c.Log.log("StorageClassSpecifier-enter");
 	} 
 	afterRuleAction{
-		System.out.println("StorageClassSpecifier-leave");
+		at.jku.weiner.c.Log.log("StorageClassSpecifier-leave");
 	}
 	:
 	{StorageClassSpecifier}
@@ -154,10 +153,10 @@ StorageClassSpecifier
 
 TypeSpecifier
 	initRuleAction{
-		System.out.println("TypeSpecifier-enter");
+		at.jku.weiner.c.Log.log("TypeSpecifier-enter");
 	} 
 	afterRuleAction{
-		System.out.println("TypeSpecifier-leave");
+		at.jku.weiner.c.Log.log("TypeSpecifier-leave");
 	}
 	:
 	{TypeSpecifier}
@@ -165,10 +164,10 @@ TypeSpecifier
 	name=KW_VOID
     |   name=KW_CHAR
     |   name=KW_SHORT
-    |   name=KW_INT postAction{ { System.out.println("found kw_int"); } }
+    |   name=KW_INT postAction{ { at.jku.weiner.c.Log.log("found kw_int"); } }
     |   name=KW_LONG
     |   name=KW_FLOAT
-    |   name=KW_DOUBLE postAction{ { System.out.println("found kw_double"); } }
+    |   name=KW_DOUBLE postAction{ { at.jku.weiner.c.Log.log("found kw_double"); } }
     |   name=KW_SIGNED
     |   name=KW_UNSIGNED
     |   name=KW_BOOL
@@ -188,10 +187,10 @@ TypeSpecifier
 
 TypedefName
 	initRuleAction{
-		System.out.println("TypedefName-enter");
+		at.jku.weiner.c.Log.log("TypedefName-enter");
 	} 
 	afterRuleAction{
-		System.out.println("TypedefName-leave");
+		at.jku.weiner.c.Log.log("TypedefName-leave");
 	}
 	:
 	id=ID
@@ -255,10 +254,10 @@ atomicTypeSpecifier returns declarationSpecifier:
 */
 TypeQualifier
 	initRuleAction{
-		System.out.println("TypeQualifier-enter");
+		at.jku.weiner.c.Log.log("TypeQualifier-enter");
 	} 
 	afterRuleAction{
-		System.out.println("TypeQualifier-leave");
+		at.jku.weiner.c.Log.log("TypeQualifier-leave");
 	}
 	:
 	{TypeQualifier} 
@@ -287,10 +286,10 @@ alignmentSpecifier: ALIGNAS LEFTPAREN (typeName | constantExpression) RIGHTPAREN
 */
 Declarator
 	initRuleAction{
-		System.out.println("Declarator-enter");
+		at.jku.weiner.c.Log.log("Declarator-enter");
 	} 
 	afterRuleAction{
-		System.out.println("Declarator-leave");
+		at.jku.weiner.c.Log.log("Declarator-leave");
 	}
 	:
 	{Declarator}
@@ -299,10 +298,10 @@ Declarator
 
 DirectDeclarator
 	initRuleAction{
-		System.out.println("DirectDeclarator-enter");
+		at.jku.weiner.c.Log.log("DirectDeclarator-enter");
 	} 
 	afterRuleAction{
-		System.out.println("DirectDeclarator-leave");
+		at.jku.weiner.c.Log.log("DirectDeclarator-leave");
 	}
 	:
 	{DirectDeclarator}

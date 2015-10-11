@@ -11,10 +11,13 @@ SEMI SEMI NEWLINE
 	(TranslationUnit 
 		external+=
 		(ExternalDeclaration 
+			semi++";"
 		),
 		(ExternalDeclaration
+			semi++";"
 		),
 		(ExternalDeclaration
+			semi++";"
 		)
 	)
 )

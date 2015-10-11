@@ -331,7 +331,6 @@ public class MyGenerator {
 
 	private void handleListAssign(final String varName, final String paramName,
 			final EList<Element> assignList) {
-		final String type = assignList.get(0).getName();
 		final String listName = this.getListName(paramName);
 		this.builder.append("\t\tfinal EList<? extends EObject> ");
 		this.builder.append(listName);
@@ -350,6 +349,7 @@ public class MyGenerator {
 		this.builder.append(".size());\n");
 		for (int i = 0; i < assignList.size(); i++) {
 			final Element element = assignList.get(i);
+			final String type = element.getName();
 			this.elementCount = this.elementCount + 1;
 			final String tmpName = this.getVarName(element);
 			this.builder.append("\t\tfinal ");

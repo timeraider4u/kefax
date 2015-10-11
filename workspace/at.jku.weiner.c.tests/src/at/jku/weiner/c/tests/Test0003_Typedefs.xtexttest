@@ -1,0 +1,72 @@
+package at.jku.weiner.c
+language c
+//----------------------------------------------------------------------
+source file="res/Test0003_Typedefs.c"
+//----------------------------------------------------------------------
+lexer-tokens
+KW_INT WHITESPACE ID SEMI NEWLINE
+KW_TYPEDEF WHITESPACE KW_INT WHITESPACE ID SEMI NEWLINE
+KW_INT WHITESPACE ID SEMI NEWLINE
+ID WHITESPACE ID SEMI NEWLINE
+KW_TYPEDEF WHITESPACE KW_DOUBLE WHITESPACE ID SEMI NEWLINE
+ID WHITESPACE ID SEMI NEWLINE
+ID WHITESPACE ID SEMI NEWLINE
+ID WHITESPACE ID SEMI NEWLINE
+KW_INT WHITESPACE ID SEMI NEWLINE
+//----------------------------------------------------------------------
+(Model unit+=
+	(TranslationUnit 
+		external+=
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"int"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"i"
+							)
+						)
+					)
+				)
+			)
+		),
+		(ExternalDeclaration
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"int"
+					)
+				)
+				,
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"j"
+							)
+						)
+					)
+				)
+			)
+		)
+	)
+)

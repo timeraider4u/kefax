@@ -41,6 +41,7 @@ Workflow {
 		exclude = "Test0000_Empty.java"
 		exclude = "Test0001_Semicolons.java"
 		exclude = "Test0002_TwoVariables.java"
+		exclude = "Test0003_Typedefs.java"
 	}
 	component = DirectoryCleaner {
 		directory = "${projectPath}.ui.tests/src-gen"

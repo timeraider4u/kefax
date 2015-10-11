@@ -52,6 +52,12 @@ TranslationUnit
 ;
 
 ExternalDeclaration
+	initRuleAction{
+		System.out.println("ExternalDeclaration-enter");
+	} 
+	afterRuleAction{
+		System.out.println("ExternalDeclaration-leave");
+	}
 	:
 	{ExternalDeclaration}
 	
@@ -69,14 +75,11 @@ Declaration
 	initRuleAction{
 		at.jku.weiner.c.Scope.setTypedef(false);
 	}
+	afterRuleAction{
+		System.out.println("Declaration-leave");
+	}
 	:
 	{Declaration}
-		
-	// special case, looking for typedef
-	(KW_TYPEDEF (specifiers=DeclarationSpecifiers)? 
-		postAction{{ at.jku.weiner.c.Scope.setTypedef(true); }}
-		initDeclaratorList+=InitDeclaratorList semi=SEMI) 
-	|
 	(
 	specifiers=DeclarationSpecifiers 
 		(initDeclaratorList+=InitDeclaratorList)? 
@@ -85,8 +88,26 @@ Declaration
     //|   staticAssertDeclaration
 ;
 
+DeclarationSpecifiers
+initRuleAction{
+	System.out.println("DeclarationSpecifiers-enter");
+	} 
+	afterRuleAction{
+		System.out.println("DeclarationSpecifiers-leave");
+	}
+	:
+	{DeclarationSpecifiers}
+	(specifiers+=DeclarationSpecifier)+
+;
 
-DeclarationSpecifiers:
+DeclarationSpecifier
+	initRuleAction{
+		System.out.println("DeclarationSpecifier-enter");
+	} 
+	afterRuleAction{
+		System.out.println("DeclarationSpecifier-leave");
+	}
+	:
 	{DeclarationSpecifiers}
 	 
 	(declarationSpecifier+=StorageClassSpecifier
@@ -94,25 +115,48 @@ DeclarationSpecifiers:
     |   declarationSpecifier+=TypeQualifier
     //|   declarationSpecifier+=functionSpecifier
     //|   declarationSpecifier+=alignmentSpecifier
-    )+
+    )
 ;
 
-InitDeclaratorList:
+InitDeclaratorList
+	initRuleAction{
+		System.out.println("InitDeclaratorList-enter");
+	} 
+	afterRuleAction{
+		System.out.println("InitDeclaratorList-leave");
+	}
+	:
 	{InitDeclaratorList}
 	
 	initDeclarator+=InitDeclarator
 	(COMMA initDeclarator2+=InitDeclarator)*
 ;
 
-InitDeclarator:
+InitDeclarator
+	initRuleAction{
+		System.out.println("InitDeclarator-enter");
+	} 
+	afterRuleAction{
+		System.out.println("InitDeclarator-leave");
+	}
+	:
 	{InitDeclarator}
 	
 	declarator=Declarator// (ASSIGN initializer=initializer)?;
 ;
 
-StorageClassSpecifier:
+StorageClassSpecifier
+	initRuleAction{
+		System.out.println("StorageClassSpecifier-enter");
+	} 
+	afterRuleAction{
+		System.out.println("StorageClassSpecifier-leave");
+	}
+	:
 	{StorageClassSpecifier}
-	(	class=KW_EXTERN
+	(	class=KW_TYPEDEF
+		postAction{{ at.jku.weiner.c.Scope.setTypedef(true);  }}
+	|	class=KW_EXTERN
     |   class=KW_STATIC
     |   class=KW_THREADLOCAL
     |   class=KW_AUTO
@@ -120,16 +164,23 @@ StorageClassSpecifier:
     )
 ;
 
-TypeSpecifier:
+TypeSpecifier
+	initRuleAction{
+		System.out.println("TypeSpecifier-enter");
+	} 
+	afterRuleAction{
+		System.out.println("TypeSpecifier-leave");
+	}
+	:
 	{TypeSpecifier}
 	
 	name=KW_VOID
     |   name=KW_CHAR
     |   name=KW_SHORT
-    |   name=KW_INT
+    |   name=KW_INT postAction{ { System.out.println("found kw_int"); } }
     |   name=KW_LONG
     |   name=KW_FLOAT
-    |   name=KW_DOUBLE
+    |   name=KW_DOUBLE postAction{ { System.out.println("found kw_double"); } }
     |   name=KW_SIGNED
     |   name=KW_UNSIGNED
     |   name=KW_BOOL
@@ -147,7 +198,16 @@ TypeSpecifier:
     
 ;
 
-TypedefName: id=ID preAction{ { at.jku.weiner.c.Scope.isTypeName(input) }? };
+TypedefName
+	initRuleAction{
+		System.out.println("TypedefName-enter");
+	} 
+	afterRuleAction{
+		System.out.println("TypedefName-leave");
+	}
+	:
+	id=ID preAction{ { at.jku.weiner.c.Scope.isTypeName(input.LT(1).getText()) }? }
+;
 
 /*structOrUnionSpecifier returns declarationSpecifier:
 	{structOrUnionSpecifier}
@@ -204,7 +264,14 @@ atomicTypeSpecifier returns declarationSpecifier:
 	ATOMIC LEFTPAREN typeName RIGHTPAREN
 ;
 */
-TypeQualifier:
+TypeQualifier
+	initRuleAction{
+		System.out.println("TypeQualifier-enter");
+	} 
+	afterRuleAction{
+		System.out.println("TypeQualifier-leave");
+	}
+	:
 	{TypeQualifier} 
 	(	type=KW_CONST
     |   type=KW_RESTRICT
@@ -229,17 +296,32 @@ functionSpecifier:
 
 alignmentSpecifier: ALIGNAS LEFTPAREN (typeName | constantExpression) RIGHTPAREN;
 */
-Declarator:
+Declarator
+	initRuleAction{
+		System.out.println("Declarator-enter");
+	} 
+	afterRuleAction{
+		System.out.println("Declarator-leave");
+	}
+	:
 	{Declarator}
 	
 	/*pointer?*/ (declarator=DirectDeclarator); //(gccDeclExt+=gccDeclaratorExtension)*;
 
-DirectDeclarator:
+DirectDeclarator
+	initRuleAction{
+		System.out.println("DirectDeclarator-enter");
+	} 
+	afterRuleAction{
+		System.out.println("DirectDeclarator-leave");
+	}
+	:
 	{DirectDeclarator}
 	
 	(id=ID 
+		preAction{ { at.jku.weiner.c.Scope.setTemp(input.get(0).getText()); } }
 		postAction{ {
-			at.jku.weiner.c.Scope.addTypedefIfIsTypedef( input.get(0).getText()) ;
+			at.jku.weiner.c.Scope.addTypedefIfIsTypedef() ;
 		} }
 	| LEFTPAREN declarator=Declarator RIGHTPAREN
 	)

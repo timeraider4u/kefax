@@ -23,8 +23,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//Declaration/semi"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//DeclarationSpecifiers">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//DeclarationSpecifiers/specifiers"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//DeclarationSpecifiers/declarationSpecifier"/>
     </genClasses>
+    <genClasses ecoreClass="C.ecore#//DeclarationSpecifier"/>
     <genClasses ecoreClass="C.ecore#//InitDeclaratorList">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//InitDeclaratorList/initDeclarator"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//InitDeclaratorList/initDeclarator2"/>

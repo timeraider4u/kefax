@@ -25,7 +25,8 @@ public final class Scope {
 	}
 
 	public static final boolean isTypeName(final String name) {
-		System.out.println("searching for typeName='" + name + "', scopeSize='" + Scope.scope.size() + "'");
+		System.out.println("searching for typeName='" + name + "', scopeSize='"
+				+ Scope.scope.size() + "'");
 		if (Scope.currScope.types.contains(name)) {
 			System.out.println("found in currScope!");
 			return true;
@@ -33,11 +34,14 @@ public final class Scope {
 		for (int i = 0; i < Scope.scope.size(); i++) {
 			final Symbols symbols = Scope.scope.get(i);
 			if (symbols.types.contains(name)) {
-				System.out.println("found in scope='" + symbols.scopeName + "'");
+				System.out
+						.println("found in scope='" + symbols.scopeName + "'");
 				return true;
 			}
-			System.out.println("no type found in scope='" + symbols.scopeName + "'");
+			System.out.println("no type found in scope='" + symbols.scopeName
+					+ "'");
 		}
+		System.out.println("isTypeName='false'");
 		return false;
 	}
 
@@ -62,7 +66,8 @@ public final class Scope {
 	}
 
 	protected static final void addTypedef(final String name) {
-		System.out.println("define in currScope='" + Scope.currScope.scopeName + "' newType='" + name + "'");
+		System.out.println("define in currScope='" + Scope.currScope.scopeName
+				+ "' newType='" + name + "'");
 		Scope.currScope.types.add(name);
 	}
 
@@ -77,11 +82,23 @@ public final class Scope {
 	}
 
 	public static final void addTypedefIfIsTypedef(final String name) {
+		System.out.println("addTypedefIfIsTypedef('" + name + "')");
 		if (Scope.isTypedef()) {
 			Scope.addTypedef(name);
 		}
 	}
 
 	protected static boolean isTypedefValue = false;
+
+	protected static String temp = "";
+
+	public static final void setTemp(final String newTemp) {
+		System.out.println("setTemp='" + newTemp + "'");
+		Scope.temp = newTemp;
+	}
+
+	public static final void addTypedefIfIsTypedef() {
+		Scope.addTypedefIfIsTypedef(Scope.temp);
+	}
 
 }

@@ -37,7 +37,7 @@ options {
 }
 
 @lexer::header {
-package at.jku.isse.ecco.kefax.c.parser.antlr.internal;
+package at.jku.weiner.c.parser.antlr.internal;
 
 // Hack: Use our own Lexer superclass by means of import. 
 // Currently there is no other way to specify the superclass for the lexer.
@@ -45,7 +45,7 @@ import org.eclipse.xtext.parser.antlr.Lexer;
 }
 
 @parser::header {
-package at.jku.isse.ecco.kefax.c.parser.antlr.internal; 
+package at.jku.weiner.c.parser.antlr.internal; 
 
 import org.eclipse.xtext.*;
 import org.eclipse.xtext.parser.*;
@@ -56,7 +56,7 @@ import org.eclipse.xtext.parser.antlr.AbstractInternalAntlrParser;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream.HiddenTokens;
 import org.eclipse.xtext.parser.antlr.AntlrDatatypeRuleToken;
-import at.jku.isse.ecco.kefax.c.services.CGrammarAccess;
+import at.jku.weiner.c.services.CGrammarAccess;
 }
 
 @parser::members {

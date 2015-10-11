@@ -1,7 +1,7 @@
 /*
  [The "BSD licence"]
  Copyright (c) 2013 Sam Harwell
- Copyright (c) 2015 https://github.com/timeraider4u
+ Copyright (c) 2015 Harald Weiner
  All rights reserved.
 
  Redistribution and use in source and binary forms, with or without
@@ -40,11 +40,9 @@ Model: {Model} (unit+=TranslationUnit)?;
 
 TranslationUnit 
 	initRuleAction{
-		//System.out.println("TranslationUnit.enter()"); 
 		at.jku.weiner.c.Scope.createNewScope("TranslationUnit");
 	} 
 	afterRuleAction{
-		//System.out.println("TranslationUnit.leave()"); 
 		at.jku.weiner.c.Scope.removeScope();
 	}
 	:
@@ -54,8 +52,6 @@ TranslationUnit
 ;
 
 ExternalDeclaration
-	initRuleAction{ System.out.println("ExternalDeclaration.enter()"); }
-	afterRuleAction{ System.out.println("ExternalDeclaration.leave()"); }
 	:
 	{ExternalDeclaration}
 	
@@ -71,12 +67,9 @@ ExternalDeclaration
 // 2.)initDeclaratorList->initDeclarator->declarator->directDeclarator->IDENTIFIER
 Declaration
 	initRuleAction{
-		System.out.println("Declaration.enter()"); 
-		//at.jku.weiner.c.Scope.setTypedef(false);
+		at.jku.weiner.c.Scope.setTypedef(false);
 	}
-	afterRuleAction{
-		System.out.println("Declaration.leave()");
-	}:
+	:
 	{Declaration}
 		
 	// special case, looking for typedef
@@ -87,15 +80,13 @@ Declaration
 	(
 	specifiers=DeclarationSpecifiers 
 		(initDeclaratorList+=InitDeclaratorList)? 
-		semi=SEMI postAction{ { System.out.println("Semicolon found!"); } }
+		semi=SEMI
 	)
     //|   staticAssertDeclaration
 ;
 
 
-DeclarationSpecifiers
-	initRuleAction{ System.out.println("DeclarationSpecifiers.enter()"); }
-	afterRuleAction{ System.out.println("DeclarationSpecifiers.leave()"); }:
+DeclarationSpecifiers:
 	{DeclarationSpecifiers}
 	 
 	(declarationSpecifier+=StorageClassSpecifier
@@ -106,32 +97,22 @@ DeclarationSpecifiers
     )+
 ;
 
-InitDeclaratorList
-	initRuleAction{ System.out.println("InitDeclaratorList.enter()"); }
-	afterRuleAction{ System.out.println("InitDeclaratorList.leave()"); }:
+InitDeclaratorList:
 	{InitDeclaratorList}
 	
 	initDeclarator+=InitDeclarator
 	(COMMA initDeclarator2+=InitDeclarator)*
 ;
 
-InitDeclarator
-	initRuleAction{ System.out.println("InitDeclarator.enter()"); }
-	afterRuleAction{ System.out.println("InitDeclarator.leave()"); }:
+InitDeclarator:
 	{InitDeclarator}
 	
 	declarator=Declarator// (ASSIGN initializer=initializer)?;
 ;
 
-StorageClassSpecifier
-	initRuleAction{ System.out.println("StorageClassSpecifier.enter()"); }
-	afterRuleAction{ System.out.println("StorageClassSpecifier.leave()"); }:
+StorageClassSpecifier:
 	{StorageClassSpecifier}
-	
-	( 
-	// class=TYPEDEF postAction{{ at.jku.weiner.c.Scope.setTypedef(true); }}
-    //|
-       class=KW_EXTERN
+	(	class=KW_EXTERN
     |   class=KW_STATIC
     |   class=KW_THREADLOCAL
     |   class=KW_AUTO
@@ -139,16 +120,13 @@ StorageClassSpecifier
     )
 ;
 
-TypeSpecifier
-	initRuleAction{ System.out.println("TypeSpecifier.enter()"); }
-	afterRuleAction{ System.out.println("TypeSpecifier.leave()"); }
-:
+TypeSpecifier:
 	{TypeSpecifier}
 	
 	name=KW_VOID
     |   name=KW_CHAR
     |   name=KW_SHORT
-    |   name=KW_INT postAction{ { System.out.println("found INT!"); }}
+    |   name=KW_INT
     |   name=KW_LONG
     |   name=KW_FLOAT
     |   name=KW_DOUBLE
@@ -170,8 +148,6 @@ TypeSpecifier
 ;
 
 TypedefName: id=ID preAction{ { at.jku.weiner.c.Scope.isTypeName(input) }? };
-
-//typedefName: typeName=[declarator];
 
 /*structOrUnionSpecifier returns declarationSpecifier:
 	{structOrUnionSpecifier}
@@ -230,8 +206,7 @@ atomicTypeSpecifier returns declarationSpecifier:
 */
 TypeQualifier:
 	{TypeQualifier} 
-	( 
-	type=KW_CONST
+	(	type=KW_CONST
     |   type=KW_RESTRICT
     |   type=KW_VOLATILE
     |   type=KW_ATOMIC
@@ -254,23 +229,17 @@ functionSpecifier:
 
 alignmentSpecifier: ALIGNAS LEFTPAREN (typeName | constantExpression) RIGHTPAREN;
 */
-Declarator
-	initRuleAction{ System.out.println("Declarator.enter()"); }
-	afterRuleAction{ System.out.println("Declarator.leave()"); }:
+Declarator:
 	{Declarator}
 	
 	/*pointer?*/ (declarator=DirectDeclarator); //(gccDeclExt+=gccDeclaratorExtension)*;
 
-DirectDeclarator
-	initRuleAction{ System.out.println("DirectDeclarator.enter()"); }
-	afterRuleAction{ System.out.println("DirectDeclarator.leave()"); }:
+DirectDeclarator:
 	{DirectDeclarator}
 	
 	(id=ID 
 		postAction{ {
-			System.out.println("found ID!");
-			//TODO: fixme - replace String ID with ID-variable!!! 
-			//at.jku.weiner.c.Scope.addTypedefIfIsTypedef( "ID" ) ;
+			at.jku.weiner.c.Scope.addTypedefIfIsTypedef( ID ) ;
 		} }
 	| LEFTPAREN declarator=Declarator RIGHTPAREN
 	)

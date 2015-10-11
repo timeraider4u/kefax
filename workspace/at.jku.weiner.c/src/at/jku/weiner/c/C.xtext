@@ -143,7 +143,7 @@ StorageClassSpecifier
 	:
 	{StorageClassSpecifier}
 	(	class=KW_TYPEDEF
-			// postAction{{ at.jku.weiner.c.Scope.setTypedef(true);  }}
+			postAction{{ at.jku.weiner.c.Scope.setTypedef(true);  }}
 	|	class=KW_EXTERN
     |   class=KW_STATIC
     |   class=KW_THREADLOCAL
@@ -181,7 +181,7 @@ TypeSpecifier
   //  |   specifier=atomicTypeSpecifier
    // |   specifier=structOrUnionSpecifier
    // |   specifier=enumSpecifier
-   // |  type=TypedefName
+    |  type=TypedefName
    // |   '__typeof__' LEFTPAREN constExrp=constantExpression RIGHTPAREN // GCC extension
     
 ;
@@ -308,10 +308,10 @@ DirectDeclarator
 	{DirectDeclarator}
 	
 	(id=ID 
-		/*preAction{ { at.jku.weiner.c.Scope.setTemp(input.get(0).getText()); } }
+		preAction{ { at.jku.weiner.c.Scope.setTemp(input.get(0).getText()); } }
 		postAction{ {
 			at.jku.weiner.c.Scope.addTypedefIfIsTypedef() ;
-		} }*/
+		} }
 	| LEFTPAREN declarator=Declarator RIGHTPAREN
 	)
 	/* 

@@ -97,25 +97,13 @@ initRuleAction{
 	}
 	:
 	{DeclarationSpecifiers}
-	(specifiers+=DeclarationSpecifier)+
-;
-
-DeclarationSpecifier
-	initRuleAction{
-		System.out.println("DeclarationSpecifier-enter");
-	} 
-	afterRuleAction{
-		System.out.println("DeclarationSpecifier-leave");
-	}
-	:
-	{DeclarationSpecifiers}
 	 
 	(declarationSpecifier+=StorageClassSpecifier
     |   declarationSpecifier+=TypeSpecifier
     |   declarationSpecifier+=TypeQualifier
     //|   declarationSpecifier+=functionSpecifier
     //|   declarationSpecifier+=alignmentSpecifier
-    )
+    )+
 ;
 
 InitDeclaratorList
@@ -155,7 +143,7 @@ StorageClassSpecifier
 	:
 	{StorageClassSpecifier}
 	(	class=KW_TYPEDEF
-		postAction{{ at.jku.weiner.c.Scope.setTypedef(true);  }}
+			// postAction{{ at.jku.weiner.c.Scope.setTypedef(true);  }}
 	|	class=KW_EXTERN
     |   class=KW_STATIC
     |   class=KW_THREADLOCAL
@@ -193,7 +181,7 @@ TypeSpecifier
   //  |   specifier=atomicTypeSpecifier
    // |   specifier=structOrUnionSpecifier
    // |   specifier=enumSpecifier
-    |  type=TypedefName
+   // |  type=TypedefName
    // |   '__typeof__' LEFTPAREN constExrp=constantExpression RIGHTPAREN // GCC extension
     
 ;
@@ -206,7 +194,8 @@ TypedefName
 		System.out.println("TypedefName-leave");
 	}
 	:
-	id=ID preAction{ { at.jku.weiner.c.Scope.isTypeName(input.LT(1).getText()) }? }
+	id=ID
+		// preAction{ { at.jku.weiner.c.Scope.isTypeName(input.LT(1).getText()) }? }
 ;
 
 /*structOrUnionSpecifier returns declarationSpecifier:
@@ -319,10 +308,10 @@ DirectDeclarator
 	{DirectDeclarator}
 	
 	(id=ID 
-		preAction{ { at.jku.weiner.c.Scope.setTemp(input.get(0).getText()); } }
+		/*preAction{ { at.jku.weiner.c.Scope.setTemp(input.get(0).getText()); } }
 		postAction{ {
 			at.jku.weiner.c.Scope.addTypedefIfIsTypedef() ;
-		} }
+		} }*/
 	| LEFTPAREN declarator=Declarator RIGHTPAREN
 	)
 	/* 

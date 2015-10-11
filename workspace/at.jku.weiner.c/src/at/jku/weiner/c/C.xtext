@@ -307,10 +307,12 @@ DirectDeclarator
 	:
 	{DirectDeclarator}
 	
-	(id=ID 
-		preAction{ { at.jku.weiner.c.Scope.setTemp(input.get(0).getText()); } }
+	(id=ID
+		preAction{ {
+			at.jku.weiner.c.Scope.setTemp(input);
+		} }
 		postAction{ {
-			at.jku.weiner.c.Scope.addTypedefIfIsTypedef() ;
+			at.jku.weiner.c.Scope.addTypedefIfIsTypedef();
 		} }
 	| LEFTPAREN declarator=Declarator RIGHTPAREN
 	)

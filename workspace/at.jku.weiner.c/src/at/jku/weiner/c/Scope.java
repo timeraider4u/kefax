@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.Stack;
 
+import org.antlr.runtime.Token;
 import org.antlr.runtime.TokenStream;
 
 public final class Scope {
@@ -92,7 +93,14 @@ public final class Scope {
 
 	protected static String temp = "";
 
-	public static final void setTemp(final String newTemp) {
+	public static final void setTemp(final TokenStream stream) {
+		System.out.println("Token.LT(0)='" + stream.LT(0) + "'");
+		System.out.println("Token.LT(1)='" + stream.LT(1).getText() + "'");
+		System.out.println("Token.LT(2)='" + stream.LT(2).getText() + "'");
+		Scope.setTemp(stream.LT(1).getText());
+	}
+
+	protected static final void setTemp(final String newTemp) {
 		System.out.println("setTemp='" + newTemp + "'");
 		Scope.temp = newTemp;
 	}
@@ -101,4 +109,12 @@ public final class Scope {
 		Scope.addTypedefIfIsTypedef(Scope.temp);
 	}
 
+	public static final void debug(final TokenStream stream) {
+		/*
+		 * for (int i = 0; i < stream.size(); i++) { final Token token =
+		 * stream.get(i); final String tokenText = token.getText();
+		 * System.out.println("i='" + i + "', token='" + tokenText + "'"); }
+		 */
+
+	}
 }

@@ -195,7 +195,7 @@ TypedefName
 	}
 	:
 	id=ID
-		// preAction{ { at.jku.weiner.c.Scope.isTypeName(input.LT(1).getText()) }? }
+		preAction{ { at.jku.weiner.c.Scope.isTypeName(input.LT(1).getText()) }? }
 ;
 
 /*structOrUnionSpecifier returns declarationSpecifier:

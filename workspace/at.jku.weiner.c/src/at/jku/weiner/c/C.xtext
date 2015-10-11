@@ -239,7 +239,7 @@ DirectDeclarator:
 	
 	(id=ID 
 		postAction{ {
-			at.jku.weiner.c.Scope.addTypedefIfIsTypedef( ID ) ;
+			at.jku.weiner.c.Scope.addTypedefIfIsTypedef( input.get(0).getText()) ;
 		} }
 	| LEFTPAREN declarator=Declarator RIGHTPAREN
 	)

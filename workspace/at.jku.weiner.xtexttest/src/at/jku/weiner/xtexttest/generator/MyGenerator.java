@@ -12,6 +12,7 @@ import at.jku.weiner.xtexttest.xtextTest.Tokens;
 import at.jku.weiner.xtexttest.xtextTest.XtextTest;
 
 public class MyGenerator {
+	private static final String PKG_PREFIX = "xtexttests";
 
 	private final URI uri;
 	private final StringBuilder builder;
@@ -48,7 +49,8 @@ public class MyGenerator {
 
 	private String getSourceFile() {
 		if (this.shouldGenerateTextSourceDataFile()) {
-			return this.pkgName.replace(".", "/") + "/tests/"
+			return this.pkgName.replace(".", "/") + "/"
+					+ MyGenerator.PKG_PREFIX + "/"
 					+ this.uri.lastSegment().replace(".xtexttest", "") + ".dat";
 		}
 		return this.input.getFile();
@@ -73,8 +75,8 @@ public class MyGenerator {
 	}
 
 	public String getFileNameForJava() {
-		return this.pkgName.replace(".", "/") + "/tests/"
-				+ this.getJavaClassFileName() + ".java";
+		return this.pkgName.replace(".", "/") + "/" + MyGenerator.PKG_PREFIX
+				+ "/" + this.getJavaClassFileName() + ".java";
 	}
 
 	private String getJavaClassFileName() {
@@ -95,7 +97,9 @@ public class MyGenerator {
 	private void header() {
 		this.builder.append("package ");
 		this.builder.append(this.pkgName);
-		this.builder.append(".tests;\n\n");
+		this.builder.append(".");
+		this.builder.append(MyGenerator.PKG_PREFIX);
+		this.builder.append(";\n\n");
 		this.builder.append("import com.google.inject.Inject;\n");
 		this.builder.append("import java.nio.file.Files;\n");
 		this.builder.append("import java.nio.file.Path;\n");
@@ -113,7 +117,7 @@ public class MyGenerator {
 		this.builder.append("import org.eclipse.xtext.junit4.");
 		this.builder.append("XtextRunner;\n");
 		this.builder
-		.append("import org.eclipse.xtext.parser.antlr.ITokenDefProvider;\n");
+				.append("import org.eclipse.xtext.parser.antlr.ITokenDefProvider;\n");
 		this.builder.append("import org.junit.Assert;\n");
 		this.builder.append("import org.junit.After;\n");
 		this.builder.append("import org.junit.Before;\n");
@@ -242,7 +246,7 @@ public class MyGenerator {
 		this.builder.append("testHelper.getTokens(text);\n");
 		this.builder.append("\t\t//testHelper.outputTokens(text);\n");
 		this.builder
-				.append("\t\ttestHelper.checkTokenisation(text, expected);\n");
+		.append("\t\ttestHelper.checkTokenisation(text, expected);\n");
 
 		// end of method
 		this.builder.append("\t}\n");

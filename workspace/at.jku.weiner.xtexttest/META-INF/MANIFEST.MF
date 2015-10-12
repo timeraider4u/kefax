@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: at.jku.weiner.xtexttest
-Bundle-Vendor: My Company
-Bundle-Version: 0.1
+Bundle-Vendor: Harald Weiner
+Bundle-Version: 0.1.1
 Bundle-SymbolicName: at.jku.weiner.xtexttest; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.xtext,

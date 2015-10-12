@@ -38,10 +38,7 @@ Workflow {
 	}
 	component = DirectoryCleaner {
 		directory = "${projectPath}.tests/src-gen"
-		exclude = "Test0000_Empty.java"
-		exclude = "Test0001_Semicolons.java"
-		exclude = "Test0002_TwoVariables.java"
-		exclude = "Test0003_Typedefs.java"
+		exclude = "xtexttests"
 	}
 	component = DirectoryCleaner {
 		directory = "${projectPath}.ui.tests/src-gen"
@@ -184,5 +181,11 @@ Workflow {
 
 			
 		}
+	}
+	
+	component = DirectoryCleaner {
+		directory = "${projectPath}.tests/src"
+		exclude = "xtexttests"
+		exclude = "LexerAndParserTest.java"
 	}
 }

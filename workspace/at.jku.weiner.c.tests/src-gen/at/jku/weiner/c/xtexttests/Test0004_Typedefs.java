@@ -176,7 +176,7 @@ public class Test0004_Typedefs {
 		final DirectDeclarator DirectDeclarator_10_Var = (DirectDeclarator)Declarator_9_Var.getDeclarator();
 		Assert.assertNotNull(DirectDeclarator_10_Var);
 		Assert.assertEquals("NUMBER1", DirectDeclarator_10_Var.getId());
-		Assert.assertEquals(";", ExternalDeclaration_2_Var.getSemi());
+		Assert.assertEquals(";", Declaration_3_Var.getSemi());
 		final ExternalDeclaration ExternalDeclaration_11_Var = (ExternalDeclaration)External_1_list.get(1);
 		Assert.assertNotNull(ExternalDeclaration_11_Var);
 		final Declaration Declaration_12_Var = (Declaration)ExternalDeclaration_11_Var.getDeclaration();
@@ -209,7 +209,7 @@ public class Test0004_Typedefs {
 		final DirectDeclarator DirectDeclarator_20_Var = (DirectDeclarator)Declarator_19_Var.getDeclarator();
 		Assert.assertNotNull(DirectDeclarator_20_Var);
 		Assert.assertEquals("NUMBER2", DirectDeclarator_20_Var.getId());
-		Assert.assertEquals(";", ExternalDeclaration_11_Var.getSemi());
+		Assert.assertEquals(";", Declaration_12_Var.getSemi());
 		final ExternalDeclaration ExternalDeclaration_21_Var = (ExternalDeclaration)External_1_list.get(2);
 		Assert.assertNotNull(ExternalDeclaration_21_Var);
 		final Declaration Declaration_22_Var = (Declaration)ExternalDeclaration_21_Var.getDeclaration();
@@ -239,7 +239,7 @@ public class Test0004_Typedefs {
 		final DirectDeclarator DirectDeclarator_29_Var = (DirectDeclarator)Declarator_28_Var.getDeclarator();
 		Assert.assertNotNull(DirectDeclarator_29_Var);
 		Assert.assertEquals("a", DirectDeclarator_29_Var.getId());
-		Assert.assertEquals(";", ExternalDeclaration_21_Var.getSemi());
+		Assert.assertEquals(";", Declaration_22_Var.getSemi());
 		final ExternalDeclaration ExternalDeclaration_30_Var = (ExternalDeclaration)External_1_list.get(3);
 		Assert.assertNotNull(ExternalDeclaration_30_Var);
 		final Declaration Declaration_31_Var = (Declaration)ExternalDeclaration_30_Var.getDeclaration();
@@ -269,7 +269,7 @@ public class Test0004_Typedefs {
 		final DirectDeclarator DirectDeclarator_38_Var = (DirectDeclarator)Declarator_37_Var.getDeclarator();
 		Assert.assertNotNull(DirectDeclarator_38_Var);
 		Assert.assertEquals("b", DirectDeclarator_38_Var.getId());
-		Assert.assertEquals(";", ExternalDeclaration_30_Var.getSemi());
+		Assert.assertEquals(";", Declaration_31_Var.getSemi());
 	}
 
 

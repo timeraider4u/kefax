@@ -32,9 +32,9 @@ KW_INT WHITESPACE ID SEMI
 							)
 						)
 					)
-				)
-			),
-			semi++";"
+				),
+				semi++";"
+			)
 		),
 		(ExternalDeclaration
 			declaration=
@@ -59,9 +59,10 @@ KW_INT WHITESPACE ID SEMI
 							)
 						)
 					)
-				)
-			),
-			semi++";"
+				),
+				semi++";"
+			)
+			
 		)
 	)
 )

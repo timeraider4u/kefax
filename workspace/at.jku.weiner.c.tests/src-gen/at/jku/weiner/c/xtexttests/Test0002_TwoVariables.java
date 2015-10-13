@@ -137,7 +137,7 @@ public class Test0002_TwoVariables {
 		final DirectDeclarator DirectDeclarator_9_Var = (DirectDeclarator)Declarator_8_Var.getDeclarator();
 		Assert.assertNotNull(DirectDeclarator_9_Var);
 		Assert.assertEquals("i", DirectDeclarator_9_Var.getId());
-		Assert.assertEquals(";", ExternalDeclaration_2_Var.getSemi());
+		Assert.assertEquals(";", Declaration_3_Var.getSemi());
 		final ExternalDeclaration ExternalDeclaration_10_Var = (ExternalDeclaration)External_1_list.get(1);
 		Assert.assertNotNull(ExternalDeclaration_10_Var);
 		final Declaration Declaration_11_Var = (Declaration)ExternalDeclaration_10_Var.getDeclaration();
@@ -165,7 +165,7 @@ public class Test0002_TwoVariables {
 		final DirectDeclarator DirectDeclarator_17_Var = (DirectDeclarator)Declarator_16_Var.getDeclarator();
 		Assert.assertNotNull(DirectDeclarator_17_Var);
 		Assert.assertEquals("j", DirectDeclarator_17_Var.getId());
-		Assert.assertEquals(";", ExternalDeclaration_10_Var.getSemi());
+		Assert.assertEquals(";", Declaration_11_Var.getSemi());
 	}
 
 

@@ -14,6 +14,7 @@ KW_CHAR COMMA WHITESPACE
 KW_FLOAT COMMA WHITESPACE
 KW_INT
 RIGHTPAREN SEMI NEWLINE
+LINE_COMMENT NEWLINE
 //----------------------------------------------------------------------
 (Model unit+=
 	(TranslationUnit 
@@ -102,9 +103,9 @@ RIGHTPAREN SEMI NEWLINE
 							)
 						)
 					)
-				)
-			),
-			semi++";"
+				),
+				semi++";"
+			)
 		),
 		// void do2(int, int, int);
 		(ExternalDeclaration 
@@ -169,9 +170,9 @@ RIGHTPAREN SEMI NEWLINE
 							)
 						)
 					)
-				)
-			),
-			semi++";"
+				),
+				semi++";"
+			)
 		)
 		
 	)

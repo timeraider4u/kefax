@@ -69,7 +69,7 @@ ExternalDeclaration
 			functionDefinition=Functiondefinition
 			RIGHTBRACE
 		)
-	|	declaration=Declaration semi=SEMI
+	|	declaration=Declaration
     |	semi=SEMI
     )
 ;
@@ -108,10 +108,11 @@ Declaration
 	:
 	{Declaration}
 	(
-	specifiers=DeclarationSpecifiers 
+		specifiers=DeclarationSpecifiers 
 		(initDeclaratorList+=InitDeclaratorList)? 
-	)
+		semi=SEMI
     //|   staticAssertDeclaration
+    )
 ;
 
 DeclarationSpecifiers

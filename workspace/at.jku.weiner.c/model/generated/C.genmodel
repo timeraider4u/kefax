@@ -30,6 +30,7 @@
     <genClasses ecoreClass="C.ecore#//Declaration">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//Declaration/specifiers"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//Declaration/initDeclaratorList"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//Declaration/semi"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//DeclarationSpecifiers">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//DeclarationSpecifiers/declarationSpecifier"/>

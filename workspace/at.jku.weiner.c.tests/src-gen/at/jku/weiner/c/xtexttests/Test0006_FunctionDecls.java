@@ -144,6 +144,8 @@ public class Test0006_FunctionDecls {
 			"RULE_RIGHTPAREN",
 			"RULE_SEMI",
 			"RULE_NEWLINE",
+			"RULE_LINE_COMMENT",
+			"RULE_NEWLINE",
 		};
 		//final List<Token> actual = testHelper.getTokens(text);
 		//testHelper.outputTokens(text);
@@ -256,7 +258,7 @@ public class Test0006_FunctionDecls {
 		final DirectDeclarator DirectDeclarator_28_Var = (DirectDeclarator)Declarator_27_Var.getDeclarator();
 		Assert.assertNotNull(DirectDeclarator_28_Var);
 		Assert.assertEquals("i", DirectDeclarator_28_Var.getId());
-		Assert.assertEquals(";", ExternalDeclaration_2_Var.getSemi());
+		Assert.assertEquals(";", Declaration_3_Var.getSemi());
 		final ExternalDeclaration ExternalDeclaration_29_Var = (ExternalDeclaration)External_1_list.get(1);
 		Assert.assertNotNull(ExternalDeclaration_29_Var);
 		final Declaration Declaration_30_Var = (Declaration)ExternalDeclaration_29_Var.getDeclaration();
@@ -331,7 +333,7 @@ public class Test0006_FunctionDecls {
 		final TypeSpecifier TypeSpecifier_49_Var = (TypeSpecifier)DeclarationSpecifier_48_list.get(0);
 		Assert.assertNotNull(TypeSpecifier_49_Var);
 		Assert.assertEquals("int", TypeSpecifier_49_Var.getName());
-		Assert.assertEquals(";", ExternalDeclaration_29_Var.getSemi());
+		Assert.assertEquals(";", Declaration_30_Var.getSemi());
 	}
 
 

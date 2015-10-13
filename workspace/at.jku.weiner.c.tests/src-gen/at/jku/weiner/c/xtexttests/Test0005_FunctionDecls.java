@@ -204,7 +204,7 @@ public class Test0005_FunctionDecls {
 		Assert.assertNotNull(DeclaratorSuffix_10_Var);
 		final DirectDeclaratorLastSuffix DirectDeclaratorLastSuffix_11_Var = (DirectDeclaratorLastSuffix)DeclaratorSuffix_10_Var.getLastSuffix();
 		Assert.assertNotNull(DirectDeclaratorLastSuffix_11_Var);
-		Assert.assertEquals(";", ExternalDeclaration_2_Var.getSemi());
+		Assert.assertEquals(";", Declaration_3_Var.getSemi());
 		final ExternalDeclaration ExternalDeclaration_12_Var = (ExternalDeclaration)External_1_list.get(1);
 		Assert.assertNotNull(ExternalDeclaration_12_Var);
 		final Declaration Declaration_13_Var = (Declaration)ExternalDeclaration_12_Var.getDeclaration();
@@ -239,7 +239,7 @@ public class Test0005_FunctionDecls {
 		Assert.assertNotNull(DeclaratorSuffix_20_Var);
 		final DirectDeclaratorLastSuffix DirectDeclaratorLastSuffix_21_Var = (DirectDeclaratorLastSuffix)DeclaratorSuffix_20_Var.getLastSuffix();
 		Assert.assertNotNull(DirectDeclaratorLastSuffix_21_Var);
-		Assert.assertEquals(";", ExternalDeclaration_12_Var.getSemi());
+		Assert.assertEquals(";", Declaration_13_Var.getSemi());
 		final ExternalDeclaration ExternalDeclaration_22_Var = (ExternalDeclaration)External_1_list.get(2);
 		Assert.assertNotNull(ExternalDeclaration_22_Var);
 		final Declaration Declaration_23_Var = (Declaration)ExternalDeclaration_22_Var.getDeclaration();
@@ -274,7 +274,7 @@ public class Test0005_FunctionDecls {
 		Assert.assertNotNull(DeclaratorSuffix_30_Var);
 		final DirectDeclaratorLastSuffix DirectDeclaratorLastSuffix_31_Var = (DirectDeclaratorLastSuffix)DeclaratorSuffix_30_Var.getLastSuffix();
 		Assert.assertNotNull(DirectDeclaratorLastSuffix_31_Var);
-		Assert.assertEquals(";", ExternalDeclaration_22_Var.getSemi());
+		Assert.assertEquals(";", Declaration_23_Var.getSemi());
 		final ExternalDeclaration ExternalDeclaration_32_Var = (ExternalDeclaration)External_1_list.get(3);
 		Assert.assertNotNull(ExternalDeclaration_32_Var);
 		final Declaration Declaration_33_Var = (Declaration)ExternalDeclaration_32_Var.getDeclaration();
@@ -309,7 +309,7 @@ public class Test0005_FunctionDecls {
 		Assert.assertNotNull(DeclaratorSuffix_40_Var);
 		final DirectDeclaratorLastSuffix DirectDeclaratorLastSuffix_41_Var = (DirectDeclaratorLastSuffix)DeclaratorSuffix_40_Var.getLastSuffix();
 		Assert.assertNotNull(DirectDeclaratorLastSuffix_41_Var);
-		Assert.assertEquals(";", ExternalDeclaration_32_Var.getSemi());
+		Assert.assertEquals(";", Declaration_33_Var.getSemi());
 		final ExternalDeclaration ExternalDeclaration_42_Var = (ExternalDeclaration)External_1_list.get(4);
 		Assert.assertNotNull(ExternalDeclaration_42_Var);
 		final Declaration Declaration_43_Var = (Declaration)ExternalDeclaration_42_Var.getDeclaration();
@@ -344,7 +344,7 @@ public class Test0005_FunctionDecls {
 		Assert.assertNotNull(DeclaratorSuffix_50_Var);
 		final DirectDeclaratorLastSuffix DirectDeclaratorLastSuffix_51_Var = (DirectDeclaratorLastSuffix)DeclaratorSuffix_50_Var.getLastSuffix();
 		Assert.assertNotNull(DirectDeclaratorLastSuffix_51_Var);
-		Assert.assertEquals(";", ExternalDeclaration_42_Var.getSemi());
+		Assert.assertEquals(";", Declaration_43_Var.getSemi());
 	}
 
 

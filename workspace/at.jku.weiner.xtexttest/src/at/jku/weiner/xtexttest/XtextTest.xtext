@@ -41,7 +41,7 @@ Element:
 		name=IDENTIFIER
 		(
 			(inner+=Inner)
-			(COMMA inner+=Inner)?
+			(COMMA inner+=Inner)*
 		)?
 	RIGHTPAREN
 ;

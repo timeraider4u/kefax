@@ -38,9 +38,9 @@ ID WHITESPACE ID SEMI NEWLINE
 							)
 						)
 					)
-				)
-			),
-			semi++";"
+				),
+				semi++";"
+			)
 		),
 		// typedef NUMBER1 NUMBER2;
 		(ExternalDeclaration 
@@ -71,9 +71,9 @@ ID WHITESPACE ID SEMI NEWLINE
 							)
 						)
 					)
-				)
-			),
-			semi++";"
+				),
+				semi++";"
+			)
 		),
 		// NUMBER1 a;
 		(ExternalDeclaration
@@ -102,9 +102,9 @@ ID WHITESPACE ID SEMI NEWLINE
 							)
 						)
 					)
-				)
-			),
-			semi++";"
+				),
+				semi++";"
+			)
 		),
 		// NUMBER2 b;
 		(ExternalDeclaration
@@ -133,9 +133,9 @@ ID WHITESPACE ID SEMI NEWLINE
 							)
 						)
 					)
-				)
-			),
-			semi++";"
+				),
+				semi++";"
+			)
 		)
 		
 		

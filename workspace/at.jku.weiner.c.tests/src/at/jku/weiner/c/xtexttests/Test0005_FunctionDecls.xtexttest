@@ -43,9 +43,9 @@ KW_VOID WHITESPACE ID LEFTPAREN  RIGHTPAREN SEMI NEWLINE
 							)
 						)
 					)
-				)
-			),
-			semi++";"
+				),
+				semi++";"
+			)
 		),
 		// double do3();
 		(ExternalDeclaration 
@@ -77,9 +77,9 @@ KW_VOID WHITESPACE ID LEFTPAREN  RIGHTPAREN SEMI NEWLINE
 							)
 						)
 					)
-				)
-			),
-			semi++";"
+				),
+				semi++";"
+			)
 		),
 		// float do4();
 		(ExternalDeclaration 
@@ -111,9 +111,9 @@ KW_VOID WHITESPACE ID LEFTPAREN  RIGHTPAREN SEMI NEWLINE
 							)
 						)
 					)
-				)
-			),
-			semi++";"
+				),
+				semi++";"
+			)
 		),
 		// int do5();
 		(ExternalDeclaration 
@@ -145,9 +145,9 @@ KW_VOID WHITESPACE ID LEFTPAREN  RIGHTPAREN SEMI NEWLINE
 							)
 						)
 					)
-				)
-			),
-			semi++";"
+				),
+				semi++";"
+			)
 		),
 		// void do6();
 		(ExternalDeclaration 
@@ -179,9 +179,9 @@ KW_VOID WHITESPACE ID LEFTPAREN  RIGHTPAREN SEMI NEWLINE
 							)
 						)
 					)
-				)
-			),
-			semi++";"
+				),
+				semi++";"
+			)
 		)
 		
 	)

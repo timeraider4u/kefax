@@ -40,9 +40,9 @@ KW_INT WHITESPACE ID SEMI NEWLINE
 							)
 						)
 					)
-				)
-			),
-			semi++";"
+				),
+				semi++";"
+			)
 		),
 		// typedef int NUMBER1
 		(ExternalDeclaration 
@@ -70,9 +70,9 @@ KW_INT WHITESPACE ID SEMI NEWLINE
 							)
 						)
 					)
-				)
-			),
-			semi++";"
+				),
+				semi++";"
+			)
 		),
 		// int b;
 		(ExternalDeclaration
@@ -98,9 +98,9 @@ KW_INT WHITESPACE ID SEMI NEWLINE
 							)
 						)
 					)
-				)
-			),
-			semi++";"
+				),
+				semi++";"
+			)
 		),
 		// NUMBER1 c;
 		(ExternalDeclaration
@@ -129,9 +129,9 @@ KW_INT WHITESPACE ID SEMI NEWLINE
 							)
 						)
 					)
-				)
-			),
-			semi++";"
+				),
+				semi++";"
+			)
 		),
 		// typedef double NUMBER2;
 		(ExternalDeclaration 
@@ -159,9 +159,9 @@ KW_INT WHITESPACE ID SEMI NEWLINE
 							)
 						)
 					)
-				)
-			),
-			semi++";"
+				),
+				semi++";"
+			)
 		),
 		// NUMBER2 d;
 		(ExternalDeclaration
@@ -190,9 +190,9 @@ KW_INT WHITESPACE ID SEMI NEWLINE
 							)
 						)
 					)
-				)
-			),
-			semi++";"
+				),
+				semi++";"
+			)
 		),
 		// NUMBER1 e;
 		(ExternalDeclaration
@@ -221,9 +221,9 @@ KW_INT WHITESPACE ID SEMI NEWLINE
 							)
 						)
 					)
-				)
-			),
-			semi++";"
+				),
+				semi++";"
+			)
 		),
 		// NUMBER2 f;
 		(ExternalDeclaration
@@ -252,9 +252,9 @@ KW_INT WHITESPACE ID SEMI NEWLINE
 							)
 						)
 					)
-				)
-			),
-			semi++";"
+				),
+				semi++";"
+			)
 		),
 		// int g;
 		(ExternalDeclaration 
@@ -279,9 +279,9 @@ KW_INT WHITESPACE ID SEMI NEWLINE
 							)
 						)
 					)
-				)
-			),
-			semi++";"
+				),
+				semi++";"
+			)
 		)
 		
 	)

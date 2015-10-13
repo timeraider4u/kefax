@@ -23,6 +23,7 @@
     </genClasses>
     <genClasses ecoreClass="C.ecore#//DeclarationSpecifiers">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//DeclarationSpecifiers/declarationSpecifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//DeclarationSpecifiers/declarator"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//InitDeclaratorList">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//InitDeclaratorList/initDeclarator"/>
@@ -50,6 +51,22 @@
     <genClasses ecoreClass="C.ecore#//DirectDeclarator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//DirectDeclarator/id"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//DirectDeclarator/declarator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//DirectDeclarator/declaratorSuffix"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//DeclaratorSuffix">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//DeclaratorSuffix/lastSuffix"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//DirectDeclaratorLastSuffix">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//DirectDeclaratorLastSuffix/parameterTypeList"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//DirectDeclaratorLastSuffix/identifierList"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//ParameterTypeList"/>
+    <genClasses ecoreClass="C.ecore#//ParameterList"/>
+    <genClasses ecoreClass="C.ecore#//ParameterDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//ParameterDeclaration/parameterDeclaration"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//IdentifierList">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//IdentifierList/id"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

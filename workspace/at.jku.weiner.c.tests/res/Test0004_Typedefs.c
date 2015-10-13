@@ -1,0 +1,4 @@
+typedef int NUMBER1;
+typedef NUMBER1 NUMBER2;
+NUMBER1 a;
+NUMBER2 b;

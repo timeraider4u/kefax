@@ -216,12 +216,15 @@ structDeclaration:
     |   staticAssertDeclaration
 ;
 
-specifierQualifierList:
-	{specifierQualifierList} 
-	(typeSpecifier+=typeSpecifier | typeQualifier+=typeQualifier)+
+
+
+SpecifierQualifierList:
+	{SpecifierQualifierList} 
+	(typeSpecifier+=TypeSpecifier | typeQualifier+=TypeQualifier)+
 	//(specQualifierList+=specifierQualifierList?)
 ;
 
+/*
 structDeclaratorList: structDeclarator=structDeclarator (COMMA structDeclarator2+=structDeclarator)*;
 
 structDeclarator: declarator=declarator (COLON constExpr+=constantExpression)?
@@ -252,6 +255,7 @@ atomicTypeSpecifier returns declarationSpecifier:
 	ATOMIC LEFTPAREN typeName RIGHTPAREN
 ;
 */
+
 TypeQualifier
 	initRuleAction{
 		at.jku.weiner.c.Log.log("TypeQualifier-enter");
@@ -284,6 +288,7 @@ functionSpecifier:
 
 alignmentSpecifier: ALIGNAS LEFTPAREN (typeName | constantExpression) RIGHTPAREN;
 */
+
 Declarator
 	initRuleAction{
 		at.jku.weiner.c.Log.log("Declarator-enter");
@@ -315,25 +320,34 @@ DirectDeclarator
 		} }
 	| LEFTPAREN declarator=Declarator RIGHTPAREN
 	)
-	/* 
-    (LEFTBRACKET STATIC (typeQualifierList+=typeQualifierList)? (assignExpr+=assignmentExpression)? RIGHTBRACKET
+	
+	(declaratorSuffix+=DeclaratorSuffix)*	
+;
+
+DeclaratorSuffix:
+	{DeclaratorSuffix}
+	(
+    /*LEFTBRACKET STATIC (typeQualifierList+=typeQualifierList)? (assignExpr+=assignmentExpression)? RIGHTBRACKET
     |   LEFTBRACKET  (typeQualifierList+=typeQualifierList)? (assignExpr+=assignmentExpression) RIGHTBRACKET
     |   LEFTBRACKET (typeQualifierList+=typeQualifierList) STATIC (assignExpr+=assignmentExpression) RIGHTBRACKET
     |   LEFTBRACKET (typeQualifierList+=typeQualifierList)? STAR RIGHTBRACKET
-    |   lastSuffix+=directDeclaratorLastSuffix
-    )*
-    */
+    |*/	lastSuffix=DirectDeclaratorLastSuffix
+    )
 ;
 
-/*
-directDeclaratorLastSuffix:
-	{directDeclaratorLastSuffix}
-	LEFTPAREN 
-		(parameterTypeList+=parameterTypeList | identifierList=identifierList?)
+
+DirectDeclaratorLastSuffix:
+	{DirectDeclaratorLastSuffix}
+	 LEFTPAREN
+		(
+			(parameterTypeList+=ParameterTypeList)
+			|
+			(identifierList=IdentifierList)?
+		)
 	RIGHTPAREN
 ;
 
-
+/*
 gccDeclaratorExtension:
 	{gccDeclaratorExtension} '__asm' LEFTPAREN STRINGLITERAL+ RIGHTPAREN
     | {gccDeclaratorExtension} gccAttributeSpecifier=gccAttributeSpecifier
@@ -361,36 +375,51 @@ pointer: {pointer} ((STAR | CARET) typeQualifierList+=typeQualifierList?)*
 ;
 
 typeQualifierList: {typeQualifierList} (typeQualifier+=typeQualifier)+;
-
-parameterTypeList: parameterList
-    (COMMA ELLIPSIS)?
+*/
+ParameterTypeList:
+	ParameterList
+	(COMMA ELLIPSIS)?
 ;
 
-parameterList: parameterDeclaration (COMMA parameterDeclaration+=parameterDeclaration)*;
+ParameterList: ParameterDeclaration (COMMA parameterDeclaration+=ParameterDeclaration)*;
 
-parameterDeclaration: declarationSpecifiers 
-		((declarator+=declarator)
-    		|   (abstractDeclator+=abstractDeclarator)
+ParameterDeclaration:
+	DeclarationSpecifiers 
+		(	declarator+=Declarator
+    	//	|
+    	//	abstractDeclator+=AbstractDeclarator
     	)*
 ;
 
-identifierList: IDENTIFIER (COMMA IDENTIFIER)*;
+IdentifierList: id+=ID (COMMA id+=ID)*;
 
-typeName: specifierQualifierList (abstractDeclarator+=abstractDeclarator)?;
+//TypeName: SpecifierQualifierList (abstractDeclarator+=AbstractDeclarator)?;
 
-abstractDeclarator: 
-	pointer (directAbstractDeclarator=directAbstractDeclarator)? (gccDeclExtAbstract+=gccDeclaratorExtension)*
-    | (directAbstractDeclarator=directAbstractDeclarator) (gccDeclExtAbstract+=gccDeclaratorExtension)*
+/*
+AbstractDeclarator:
+	{AbstractDeclarator} 
+	//pointer
+	//(directAbstractDeclarator=DirectAbstractDeclarator)?
+	//(gccDeclExtAbstract+=gccDeclaratorExtension)*
+    //| 
+    (directAbstractDeclarator=DirectAbstractDeclarator)
+    //(gccDeclExtAbstract+=gccDeclaratorExtension)*
 ;
+*/
 
-directAbstractDeclarator returns abstractDeclarator:
-	{directAbstractDeclarator}
-	(LEFTPAREN declarator=abstractDeclarator RIGHTPAREN (gccDeclExt+=gccDeclaratorExtension)*
-    |   abstractDeclaratorSuffix+=abstractDeclaratorSuffix)
+/*
+DirectAbstractDeclarator returns AbstractDeclarator:
+	{DirectAbstractDeclarator}
+	(LEFTPAREN declarator=AbstractDeclarator RIGHTPAREN
+		//(gccDeclExt+=gccDeclaratorExtension)*
+    |   abstractDeclaratorSuffix+=AbstractDeclaratorSuffix
+    )
     
-    (abstractDeclaratorSuffix+=abstractDeclaratorSuffix)*
+    //(abstractDeclaratorSuffix+=abstractDeclaratorSuffix)*
 ;
+*/
 
+/*
 abstractDeclaratorSuffix: {abstractDeclaratorSuffix}
 	(LEFTBRACKET typeQualifierList=typeQualifierList? (assignmentExpr+=assignmentExpression)? RIGHTBRACKET
     |   LEFTBRACKET STATIC typeQualifierList=typeQualifierList? (assignmentExpr+=assignmentExpression) RIGHTBRACKET
@@ -399,6 +428,7 @@ abstractDeclaratorSuffix: {abstractDeclaratorSuffix}
     |   LEFTPAREN parameterTypeList=parameterTypeList? RIGHTPAREN (gccDeclExt+=gccDeclaratorExtension)*
     )
 ;
+/*
 */
 
 /*

@@ -20,10 +20,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="initDeclaratorList" upperBound="-1"
         eType="#//InitDeclaratorList" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DeclarationSpecifiers">
+  <eClassifiers xsi:type="ecore:EClass" name="DeclarationSpecifiers" eSuperTypes="#//ParameterDeclaration">
     <eStructuralFeatures xsi:type="ecore:EReference" name="declarationSpecifier" upperBound="-1"
         eType="ecore:EClass platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="declarator" upperBound="-1"
+        eType="#//Declarator" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InitDeclaratorList">
     <eStructuralFeatures xsi:type="ecore:EReference" name="initDeclarator" upperBound="-1"
@@ -57,5 +59,27 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="declarator" eType="#//Declarator"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="declaratorSuffix" upperBound="-1"
+        eType="#//DeclaratorSuffix" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DeclaratorSuffix">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lastSuffix" eType="#//DirectDeclaratorLastSuffix"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DirectDeclaratorLastSuffix">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameterTypeList" upperBound="-1"
+        eType="#//ParameterTypeList" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="identifierList" eType="#//IdentifierList"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ParameterTypeList"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ParameterList" eSuperTypes="#//ParameterTypeList"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ParameterDeclaration" eSuperTypes="#//ParameterList">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameterDeclaration" upperBound="-1"
+        eType="#//ParameterDeclaration" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IdentifierList">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" unique="false" upperBound="-1"
+        eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

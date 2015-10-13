@@ -11,10 +11,27 @@ RIGHTBRACE NEWLINE
 	(TranslationUnit 
 		external+=
 		(ExternalDeclaration 
+			functiondefHead=
+			(FunctiondefHead
+				funDeclSpecifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"void"
+					)
+				),
+				funDeclarator=
+				(Declarator
+					declarator=
+					(DirectDeclarator
+						id++"do1"
+					)
+				)
+			),
 			functionDefinition=
 			(Functiondefinition
 				body=
-				(CompoundStatement
+				(BodyStatement
 					
 				)
 			)

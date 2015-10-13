@@ -14,6 +14,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//TranslationUnit/external"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//ExternalDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//ExternalDeclaration/functiondefHead"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//ExternalDeclaration/functionDefinition"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//ExternalDeclaration/declaration"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//ExternalDeclaration/semi"/>
@@ -86,8 +87,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//BlockList/declaration"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//BlockList/statement"/>
     </genClasses>
-    <genClasses ecoreClass="C.ecore#//CompoundStatement">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//CompoundStatement/blockList"/>
+    <genClasses ecoreClass="C.ecore#//BodyStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//BodyStatement/blockList"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

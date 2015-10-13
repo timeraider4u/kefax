@@ -26,8 +26,13 @@ import at.jku.weiner.c.xtexttests.LexerAndParserTest;
 import at.jku.weiner.c.c.Model;
 import at.jku.weiner.c.c.TranslationUnit;
 import at.jku.weiner.c.c.ExternalDeclaration;
+import at.jku.weiner.c.c.FunctiondefHead;
+import at.jku.weiner.c.c.DeclarationSpecifiers;
+import at.jku.weiner.c.c.TypeSpecifier;
+import at.jku.weiner.c.c.Declarator;
+import at.jku.weiner.c.c.DirectDeclarator;
 import at.jku.weiner.c.c.Functiondefinition;
-import at.jku.weiner.c.c.CompoundStatement;
+import at.jku.weiner.c.c.BodyStatement;
 
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
@@ -100,10 +105,25 @@ public class Test0006_FunctionDef {
 		Assert.assertEquals(1, External_1_list.size());
 		final ExternalDeclaration ExternalDeclaration_2_Var = (ExternalDeclaration)External_1_list.get(0);
 		Assert.assertNotNull(ExternalDeclaration_2_Var);
-		final Functiondefinition Functiondefinition_3_Var = (Functiondefinition)ExternalDeclaration_2_Var.getFunctionDefinition();
-		Assert.assertNotNull(Functiondefinition_3_Var);
-		final CompoundStatement CompoundStatement_4_Var = (CompoundStatement)Functiondefinition_3_Var.getBody();
-		Assert.assertNotNull(CompoundStatement_4_Var);
+		final FunctiondefHead FunctiondefHead_3_Var = (FunctiondefHead)ExternalDeclaration_2_Var.getFunctiondefHead();
+		Assert.assertNotNull(FunctiondefHead_3_Var);
+		final DeclarationSpecifiers DeclarationSpecifiers_4_Var = (DeclarationSpecifiers)FunctiondefHead_3_Var.getFunDeclSpecifiers();
+		Assert.assertNotNull(DeclarationSpecifiers_4_Var);
+		final EList<? extends EObject> DeclarationSpecifier_4_list = DeclarationSpecifiers_4_Var.getDeclarationSpecifier();
+		Assert.assertNotNull(DeclarationSpecifier_4_list);
+		Assert.assertEquals(1, DeclarationSpecifier_4_list.size());
+		final TypeSpecifier TypeSpecifier_5_Var = (TypeSpecifier)DeclarationSpecifier_4_list.get(0);
+		Assert.assertNotNull(TypeSpecifier_5_Var);
+		Assert.assertEquals("void", TypeSpecifier_5_Var.getName());
+		final Declarator Declarator_6_Var = (Declarator)FunctiondefHead_3_Var.getFunDeclarator();
+		Assert.assertNotNull(Declarator_6_Var);
+		final DirectDeclarator DirectDeclarator_7_Var = (DirectDeclarator)Declarator_6_Var.getDeclarator();
+		Assert.assertNotNull(DirectDeclarator_7_Var);
+		Assert.assertEquals("do1", DirectDeclarator_7_Var.getId());
+		final Functiondefinition Functiondefinition_8_Var = (Functiondefinition)ExternalDeclaration_2_Var.getFunctionDefinition();
+		Assert.assertNotNull(Functiondefinition_8_Var);
+		final BodyStatement BodyStatement_9_Var = (BodyStatement)Functiondefinition_8_Var.getBody();
+		Assert.assertNotNull(BodyStatement_9_Var);
 	}
 
 

@@ -61,8 +61,13 @@ ExternalDeclaration
 	:
 	{ExternalDeclaration}
 	(
-		((=>'fun' LEFTBRACE)
-		functionDefinition=Functiondefinition
+		(
+			(=>
+				functiondefHead=FunctiondefHead 
+				LEFTBRACE
+			)
+			functionDefinition=Functiondefinition
+			RIGHTBRACE
 		)
 	|	declaration=Declaration semi=SEMI
     |	semi=SEMI
@@ -85,8 +90,7 @@ Functiondefinition
 	}
 	:
 	{Functiondefinition}
-	// head=FunctiondefHead
-	body=CompoundStatement
+	body=BodyStatement
 ;
 
 
@@ -635,10 +639,14 @@ labeledStatement returns statement:
 */
 
 CompoundStatement returns Statement:
-	{CompoundStatement}
 	LEFTBRACE
-		(blockList+=BlockList)?
+		BodyStatement
 	RIGHTBRACE
+;
+
+BodyStatement returns Statement:
+	{BodyStatement}
+	(blockList+=BlockList)?
 ;
 
 BlockList:

@@ -37,7 +37,7 @@ import at.jku.weiner.c.c.BodyStatement;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(CInjectorProvider.class)
-public class Test0006_FunctionDef {
+public class Test0008_FunctionDef {
 
 	@Inject
 	private ParseHelper<Model> parseHelper;
@@ -59,7 +59,7 @@ public class Test0006_FunctionDef {
 	
 	private String getSourceText()
 	throws Exception{
-		final Path path = Paths.get("res/Test0006_FunctionDef.c");
+		final Path path = Paths.get("res/Test0008_FunctionDef.c");
 		final String content = new String(Files.readAllBytes(path));
 		return content;
 	}

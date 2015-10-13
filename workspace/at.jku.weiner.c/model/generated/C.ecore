@@ -86,16 +86,19 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="identifierList" eType="#//IdentifierList"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ParameterTypeList"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ParameterList" eSuperTypes="#//ParameterTypeList">
+  <eClassifiers xsi:type="ecore:EClass" name="ParameterTypeList">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="list" eType="#//ParameterList"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ParameterList">
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameterDeclaration" upperBound="-1"
         eType="#//ParameterDeclaration" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ParameterDeclaration">
     <eStructuralFeatures xsi:type="ecore:EReference" name="declSpecifiers" eType="#//DeclarationSpecifiers"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="declarator" upperBound="-1"
-        eType="#//Declarator" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="declarator" eType="#//Declarator"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IdentifierList">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" unique="false" upperBound="-1"
@@ -110,6 +113,10 @@
         eType="#//Declaration" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="statement" upperBound="-1"
         eType="#//Statement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CompoundStatement" eSuperTypes="#//Statement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//Statement"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BodyStatement" eSuperTypes="#//Statement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="blockList" upperBound="-1"

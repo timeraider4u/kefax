@@ -69,7 +69,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//DirectDeclaratorLastSuffix/parameterTypeList"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//DirectDeclaratorLastSuffix/identifierList"/>
     </genClasses>
-    <genClasses ecoreClass="C.ecore#//ParameterTypeList"/>
+    <genClasses ecoreClass="C.ecore#//ParameterTypeList">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//ParameterTypeList/list"/>
+    </genClasses>
     <genClasses ecoreClass="C.ecore#//ParameterList">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//ParameterList/parameterDeclaration"/>
     </genClasses>
@@ -86,6 +88,9 @@
     <genClasses ecoreClass="C.ecore#//BlockList">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//BlockList/declaration"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//BlockList/statement"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//CompoundStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//CompoundStatement/body"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//BodyStatement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//BodyStatement/blockList"/>

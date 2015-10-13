@@ -220,6 +220,7 @@ TypedefName
 		at.jku.weiner.c.Log.log("TypedefName-leave");
 	}
 	:
+	{TypedefName}
 	id=ID
 		preAction{ { at.jku.weiner.c.Scope.isTypeName(input.LT(1).getText()) }? }
 ;
@@ -404,25 +405,30 @@ pointer: {pointer} ((STAR | CARET) typeQualifierList+=typeQualifierList?)*
 typeQualifierList: {typeQualifierList} (typeQualifier+=typeQualifier)+;
 */
 ParameterTypeList:
-	ParameterList
+	{ParameterTypeList}
+	list=ParameterList
 	(COMMA ELLIPSIS)?
 ;
 
-ParameterList: 
+ParameterList:
+	{ParameterList} 
 	parameterDeclaration+=ParameterDeclaration
 	(COMMA parameterDeclaration+=ParameterDeclaration)*
 ;
 
 ParameterDeclaration:
 	{ParameterDeclaration}
-	declSpecifiers=DeclarationSpecifiers 
-	(	declarator+=Declarator
+	declSpecifiers=DeclarationSpecifiers
+	(declarator=Declarator
 		//	|
-		//	abstractDeclator+=AbstractDeclarator
-	)*
+		//	(abstractDeclator=AbstractDeclarator)
+	)?
 ;
 
-IdentifierList: id+=ID (COMMA id+=ID)*;
+IdentifierList:
+	{IdentifierList} 
+	id+=ID (COMMA id+=ID)*
+;
 
 //TypeName: SpecifierQualifierList (abstractDeclarator+=AbstractDeclarator)?;
 
@@ -639,8 +645,9 @@ labeledStatement returns statement:
 */
 
 CompoundStatement returns Statement:
+	{CompoundStatement}
 	LEFTBRACE
-		BodyStatement
+		body=BodyStatement
 	RIGHTBRACE
 ;
 
@@ -650,6 +657,7 @@ BodyStatement returns Statement:
 ;
 
 BlockList:
+	{BlockList}
 	(declaration+=Declaration | statement+=Statement)+
 ;
 /*

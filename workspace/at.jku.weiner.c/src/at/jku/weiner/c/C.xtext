@@ -386,9 +386,9 @@ ParameterList: ParameterDeclaration (COMMA parameterDeclaration+=ParameterDeclar
 ParameterDeclaration:
 	DeclarationSpecifiers 
 		(	declarator+=Declarator
-    	//	|
-    	//	abstractDeclator+=AbstractDeclarator
-    	)*
+		//	|
+		//	abstractDeclator+=AbstractDeclarator
+		)*
 ;
 
 IdentifierList: id+=ID (COMMA id+=ID)*;
@@ -428,7 +428,6 @@ abstractDeclaratorSuffix: {abstractDeclaratorSuffix}
     |   LEFTPAREN parameterTypeList=parameterTypeList? RIGHTPAREN (gccDeclExt+=gccDeclaratorExtension)*
     )
 ;
-/*
 */
 
 /*

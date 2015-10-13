@@ -81,7 +81,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//ParameterDeclaration/declarator"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//IdentifierList">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//IdentifierList/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//IdentifierList/id"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//MyIdentifier">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//MyIdentifier/id"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//Statement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//Statement/stmt"/>

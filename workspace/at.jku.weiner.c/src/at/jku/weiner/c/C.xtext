@@ -428,7 +428,12 @@ ParameterDeclaration:
 
 IdentifierList:
 	{IdentifierList} 
-	id+=ID (COMMA id+=ID)*
+	id+=MyIdentifier (COMMA id+=MyIdentifier)*
+;
+
+MyIdentifier:
+	{MyIdentifier}
+	id=ID
 ;
 
 //TypeName: SpecifierQualifierList (abstractDeclarator+=AbstractDeclarator)?;

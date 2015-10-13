@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="feature_export" name="build">
 	<target name="feature_export">
-		<pde.exportFeatures destination="output" exportSource="true" exportSourceBundle="true" exportType="zip" features="at.jku.weiner.xtexttest.feature" filename="at.jku.weiner.xtexttest.feature.zip" qualifier="201509301308" useJARFormat="true"/>
+		<pde.exportFeatures destination="../at.jku.weiner.xtexttest.updatesite" exportSource="false" exportType="directory" features="at.jku.weiner.xtexttest.feature" qualifier="201510120229" useJARFormat="true"/>
 	</target>
 </project>

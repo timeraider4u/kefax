@@ -117,7 +117,7 @@ public class MyGenerator {
 		this.builder.append("import org.eclipse.xtext.junit4.");
 		this.builder.append("XtextRunner;\n");
 		this.builder
-		.append("import org.eclipse.xtext.parser.antlr.ITokenDefProvider;\n");
+				.append("import org.eclipse.xtext.parser.antlr.ITokenDefProvider;\n");
 		this.builder.append("import org.junit.Assert;\n");
 		this.builder.append("import org.junit.After;\n");
 		this.builder.append("import org.junit.Before;\n");
@@ -248,7 +248,7 @@ public class MyGenerator {
 		this.builder.append("testHelper.getTokens(text);\n");
 		this.builder.append("\t\t//testHelper.outputTokens(text);\n");
 		this.builder
-				.append("\t\ttestHelper.checkTokenisation(text, expected);\n");
+		.append("\t\ttestHelper.checkTokenisation(text, expected);\n");
 
 		// end of method
 		this.builder.append("\t}\n");
@@ -327,7 +327,9 @@ public class MyGenerator {
 		this.builder.append(type);
 		this.builder.append(" ");
 		this.builder.append(tmpName);
-		this.builder.append(" = ");
+		this.builder.append(" = (");
+		this.builder.append(type);
+		this.builder.append(")");
 		this.builder.append(varName);
 		this.builder.append(".get");
 		this.builder.append(paramName);

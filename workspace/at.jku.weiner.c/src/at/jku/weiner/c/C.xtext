@@ -60,12 +60,35 @@ ExternalDeclaration
 	}
 	:
 	{ExternalDeclaration}
-	
-	//(=>functionDefinition=functionDefinition)
- //   |   
- 		declaration=Declaration semi=SEMI
-    | {ExternalDeclaration} semi=SEMI // stray
+	(
+		((=>'fun' LEFTBRACE)
+		functionDefinition=Functiondefinition
+		)
+	|	declaration=Declaration semi=SEMI
+    |	semi=SEMI
+    )
 ;
+
+FunctiondefHead:
+	{FunctiondefHead}
+	(funDeclSpecifiers=DeclarationSpecifiers)? 
+	funDeclarator=Declarator
+	(funDeclaration+=Declaration)*
+;
+
+Functiondefinition
+	initRuleAction{
+		at.jku.weiner.c.Scope.createNewScope("FunctionDefinition");
+	} 
+	afterRuleAction{
+		at.jku.weiner.c.Scope.removeScope();
+	}
+	:
+	{Functiondefinition}
+	// head=FunctiondefHead
+	body=CompoundStatement
+;
+
 
 //
 // ambiguity:
@@ -381,14 +404,18 @@ ParameterTypeList:
 	(COMMA ELLIPSIS)?
 ;
 
-ParameterList: ParameterDeclaration (COMMA parameterDeclaration+=ParameterDeclaration)*;
+ParameterList: 
+	parameterDeclaration+=ParameterDeclaration
+	(COMMA parameterDeclaration+=ParameterDeclaration)*
+;
 
 ParameterDeclaration:
-	DeclarationSpecifiers 
-		(	declarator+=Declarator
+	{ParameterDeclaration}
+	declSpecifiers=DeclarationSpecifiers 
+	(	declarator+=Declarator
 		//	|
 		//	abstractDeclator+=AbstractDeclarator
-		)*
+	)*
 ;
 
 IdentifierList: id+=ID (COMMA id+=ID)*;
@@ -583,39 +610,41 @@ constantExpression returns expression: conditionalExpression;
 */
 
 /*** Statements */
-
-/*
-statement: {statement}
+Statement:
+	{Statement}
 	(
-	stmt=labeledStatement
-    |   stmt=compoundStatement
-    |   stmt=expressionStatement
+	//stmt=labeledStatement
+    //|
+    	stmt=CompoundStatement
+/*    |   stmt=expressionStatement
     |   stmt=selectionStatement
     |   stmt=iterationStatement
     |   stmt=jumpStatement
     |   ('__asm' | '__asm__') (VOLATILE | '__volatile__') 
     		LEFTPAREN (expr+=logicalOrExpression (COMMA logicalExpr+=logicalOrExpression)*)? 
     		(COLON (expr+=logicalOrExpression (COMMA logicalExpr+=logicalOrExpression)*)?)* RIGHTPAREN SEMI
+ */
    	)
 ;
-
+/*
 labeledStatement returns statement:
 	IDENTIFIER COLON statement
     |   CASE constantExpression COLON statement=statement
     |   DEFAULT COLON statement
 ;
+*/
 
-compoundStatement returns statement:
-	{compoundStatement}
+CompoundStatement returns Statement:
+	{CompoundStatement}
 	LEFTBRACE
-	    (blockList+=blockList)?
+		(blockList+=BlockList)?
 	RIGHTBRACE
 ;
 
-blockList:
-	(declaration+=declaration | statement+=statement)+
+BlockList:
+	(declaration+=Declaration | statement+=Statement)+
 ;
-
+/*
 expressionStatement: {expressionStatement} 
 	SEMI
 	| expression+=expression SEMI

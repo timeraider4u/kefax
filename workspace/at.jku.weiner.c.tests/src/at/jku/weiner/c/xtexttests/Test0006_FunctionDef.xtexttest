@@ -1,0 +1,24 @@
+package at.jku.weiner.c
+language c
+//----------------------------------------------------------------------
+source file="res/Test0006_FunctionDef.c"
+//----------------------------------------------------------------------
+lexer-tokens
+KW_VOID WHITESPACE ID LEFTPAREN RIGHTPAREN WHITESPACE LEFTBRACE NEWLINE
+RIGHTBRACE NEWLINE
+//----------------------------------------------------------------------
+(Model unit+=
+	(TranslationUnit 
+		external+=
+		(ExternalDeclaration 
+			functionDefinition=
+			(Functiondefinition
+				body=
+				(CompoundStatement
+					
+				)
+			)
+		)
+		
+	)
+)

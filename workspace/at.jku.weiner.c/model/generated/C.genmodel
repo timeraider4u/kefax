@@ -14,8 +14,17 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//TranslationUnit/external"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//ExternalDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//ExternalDeclaration/functionDefinition"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//ExternalDeclaration/declaration"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//ExternalDeclaration/semi"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//FunctiondefHead">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//FunctiondefHead/funDeclSpecifiers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//FunctiondefHead/funDeclarator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//FunctiondefHead/funDeclaration"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//Functiondefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//Functiondefinition/body"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//Declaration">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//Declaration/specifiers"/>
@@ -23,7 +32,6 @@
     </genClasses>
     <genClasses ecoreClass="C.ecore#//DeclarationSpecifiers">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//DeclarationSpecifiers/declarationSpecifier"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//DeclarationSpecifiers/declarator"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//InitDeclaratorList">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//InitDeclaratorList/initDeclarator"/>
@@ -61,12 +69,25 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//DirectDeclaratorLastSuffix/identifierList"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//ParameterTypeList"/>
-    <genClasses ecoreClass="C.ecore#//ParameterList"/>
+    <genClasses ecoreClass="C.ecore#//ParameterList">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//ParameterList/parameterDeclaration"/>
+    </genClasses>
     <genClasses ecoreClass="C.ecore#//ParameterDeclaration">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//ParameterDeclaration/parameterDeclaration"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//ParameterDeclaration/declSpecifiers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//ParameterDeclaration/declarator"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//IdentifierList">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//IdentifierList/id"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//Statement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//Statement/stmt"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//BlockList">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//BlockList/declaration"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//BlockList/statement"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//CompoundStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//CompoundStatement/blockList"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

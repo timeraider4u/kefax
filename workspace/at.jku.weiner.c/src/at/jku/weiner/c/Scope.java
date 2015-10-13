@@ -35,8 +35,7 @@ public final class Scope {
 		for (int i = 0; i < Scope.scope.size(); i++) {
 			final Symbols symbols = Scope.scope.get(i);
 			if (symbols.types.contains(name)) {
-				System.out
-				.println("found in scope='" + symbols.scopeName + "'");
+				Log.log("found in scope='" + symbols.scopeName + "'");
 				return true;
 			}
 			Log.log("no type found in scope='" + symbols.scopeName + "'");
@@ -53,6 +52,7 @@ public final class Scope {
 		}
 		Scope.currScope = symbols;
 		Scope.setTypedef(false);
+		Log.log("Scope.size()='" + Scope.scope.size() + "'");
 	}
 
 	public static final void removeScope() {
@@ -63,6 +63,7 @@ public final class Scope {
 			Scope.currScope = Scope.scope.pop();
 		}
 		Scope.setTypedef(false);
+		Log.log("Scope.size()='" + Scope.scope.size() + "'");
 	}
 
 	protected static final void addTypedef(final String name) {

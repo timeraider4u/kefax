@@ -632,8 +632,8 @@ Statement:
 	//stmt=labeledStatement
     //|
     	stmt=CompoundStatement
-/*    |   stmt=expressionStatement
-    |   stmt=selectionStatement
+    |   stmt=ExpressionStatement
+/*    |   stmt=selectionStatement
     |   stmt=iterationStatement
     |   stmt=jumpStatement
     |   ('__asm' | '__asm__') (VOLATILE | '__volatile__') 
@@ -666,12 +666,14 @@ BlockList:
 	{BlockList}
 	(declaration+=Declaration | statement+=Statement)+
 ;
-/*
-expressionStatement: {expressionStatement} 
-	SEMI
-	| expression+=expression SEMI
+
+ExpressionStatement:
+	{ExpressionStatement} 
+	semi=SEMI
+	//| expression+=expression SEMI
 ;
 
+/*
 selectionStatement:
 	IF LEFTPAREN expression RIGHTPAREN statement=statement
 	(=>ELSE elseStatement+=statement)?

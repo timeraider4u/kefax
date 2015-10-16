@@ -37,8 +37,8 @@ Workflow {
 		directory = "${projectPath}.ui/src-gen"
 	}
 	component = DirectoryCleaner {
-		directory = "${projectPath}.tests/src-gen"
-		exclude = "xtexttests"
+		directory = "${projectPath}.tests/src-gen/at/jku/weiner/c/tests"
+		// exclude = "xtexttests"
 	}
 	component = DirectoryCleaner {
 		directory = "${projectPath}.ui.tests/src-gen"

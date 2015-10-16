@@ -93,6 +93,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//BlockList/declaration"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//BlockList/statement"/>
     </genClasses>
+    <genClasses ecoreClass="C.ecore#//ExpressionStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//ExpressionStatement/semi"/>
+    </genClasses>
     <genClasses ecoreClass="C.ecore#//CompoundStatement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//CompoundStatement/body"/>
     </genClasses>

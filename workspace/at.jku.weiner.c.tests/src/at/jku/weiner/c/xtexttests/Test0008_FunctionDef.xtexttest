@@ -30,7 +30,7 @@ RIGHTBRACE NEWLINE
 		external+=
 		(ExternalDeclaration 
 			functiondefHead=
-			(FunctiondefHead
+			(FunctionDefHead
 				funDeclSpecifiers=
 				(DeclarationSpecifiers
 					declarationSpecifier+=
@@ -110,14 +110,14 @@ RIGHTBRACE NEWLINE
 		),
 		(ExternalDeclaration
 			functionDefinition=
-			(Functiondefinition
+			(FunctionDefinition
 				body=
 				(BodyStatement
 					
 				)
 			),
 			functiondefHead=
-			(FunctiondefHead
+			(FunctionDefHead
 				funDeclSpecifiers=
 				(DeclarationSpecifiers
 					declarationSpecifier+=
@@ -220,7 +220,7 @@ RIGHTBRACE NEWLINE
 				)
 			),
 			functionDefinition=
-			(Functiondefinition
+			(FunctionDefinition
 				body=
 				(BodyStatement
 					

@@ -10,15 +10,15 @@
         eType="#//ExternalDeclaration" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExternalDeclaration">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="functiondefHead" eType="#//FunctiondefHead"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="functiondefHead" eType="#//FunctionDefHead"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="functionDefinition" eType="#//Functiondefinition"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="functionDefinition" eType="#//FunctionDefinition"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="declaration" eType="#//Declaration"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="semi" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FunctiondefHead">
+  <eClassifiers xsi:type="ecore:EClass" name="FunctionDefHead">
     <eStructuralFeatures xsi:type="ecore:EReference" name="funDeclSpecifiers" eType="#//DeclarationSpecifiers"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="funDeclarator" eType="#//Declarator"
@@ -26,7 +26,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="funDeclaration" upperBound="-1"
         eType="#//Declaration" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Functiondefinition">
+  <eClassifiers xsi:type="ecore:EClass" name="FunctionDefinition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//Statement"
         containment="true"/>
   </eClassifiers>

@@ -63,10 +63,10 @@ ExternalDeclaration
 	(
 		(
 			(=>
-				functiondefHead=FunctiondefHead 
+				functiondefHead=FunctionDefHead 
 				LEFTBRACE
 			)
-			functionDefinition=Functiondefinition
+			functionDefinition=FunctionDefinition
 			RIGHTBRACE
 		)
 	|	declaration=Declaration
@@ -74,14 +74,14 @@ ExternalDeclaration
     )
 ;
 
-FunctiondefHead:
-	{FunctiondefHead}
+FunctionDefHead:
+	{FunctionDefHead}
 	(funDeclSpecifiers=DeclarationSpecifiers)? 
 	funDeclarator=Declarator
 	(funDeclaration+=Declaration)*
 ;
 
-Functiondefinition
+FunctionDefinition
 	initRuleAction{
 		at.jku.weiner.c.Scope.createNewScope("FunctionDefinition");
 	} 
@@ -89,7 +89,7 @@ Functiondefinition
 		at.jku.weiner.c.Scope.removeScope();
 	}
 	:
-	{Functiondefinition}
+	{FunctionDefinition}
 	body=BodyStatement
 ;
 
@@ -705,13 +705,6 @@ designator: {designator} LEFTBRACKET expr=constantExpression RIGHTBRACKET
 ;
 
 staticAssertDeclaration: STATICASSERT LEFTPAREN constantExpression COMMA STRINGLITERAL+ RIGHTPAREN SEMI;
-
-functionDefinition: 
-	declarationSpecifiers? 
-	(declarator=declarator) 
-	(declList+=declarationList)?
-	(compoundStmt=compoundStatement)
-;
 
 declarationList: 
 	(declaration+=declaration)+

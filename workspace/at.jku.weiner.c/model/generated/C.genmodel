@@ -19,13 +19,13 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//ExternalDeclaration/declaration"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//ExternalDeclaration/semi"/>
     </genClasses>
-    <genClasses ecoreClass="C.ecore#//FunctiondefHead">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//FunctiondefHead/funDeclSpecifiers"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//FunctiondefHead/funDeclarator"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//FunctiondefHead/funDeclaration"/>
+    <genClasses ecoreClass="C.ecore#//FunctionDefHead">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//FunctionDefHead/funDeclSpecifiers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//FunctionDefHead/funDeclarator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//FunctionDefHead/funDeclaration"/>
     </genClasses>
-    <genClasses ecoreClass="C.ecore#//Functiondefinition">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//Functiondefinition/body"/>
+    <genClasses ecoreClass="C.ecore#//FunctionDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//FunctionDefinition/body"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//Declaration">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//Declaration/specifiers"/>

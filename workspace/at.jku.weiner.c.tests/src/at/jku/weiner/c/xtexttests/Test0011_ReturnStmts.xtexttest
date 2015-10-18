@@ -30,6 +30,45 @@ RIGHTBRACE NEWLINE
 				(DeclarationSpecifiers
 					declarationSpecifier+=
 					(TypeSpecifier
+						name++"char"
+					)
+				),
+				funDeclarator=
+				(Declarator
+					declarator=
+					(DirectDeclarator
+						id++"doSomething1"
+					)
+				)
+			),
+			functionDefinition=
+			(FunctionDefinition
+				body=
+				(BodyStatement
+					blockList+=
+					(BlockList
+						statement+=
+						(Statement
+							stmt=
+							(JumpStatement
+								expr=
+								(Expression
+									
+								), // end expression
+								semi++";"
+							)// end jump statement
+						)//end statement
+					)
+				)
+			)
+		), // end external declaration
+		(ExternalDeclaration 
+			functiondefHead=
+			(FunctionDefHead
+				funDeclSpecifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
 						name++"void"
 					)
 				),
@@ -51,13 +90,134 @@ RIGHTBRACE NEWLINE
 						(Statement
 							stmt=
 							(JumpStatement
+								expr=
+								(Expression
+									
+								), // end expression
 								semi++";"
-							)
-						)
+							)// end jump statement
+						)//end statement
 					)
 				)
 			)
-		)
+		),// end external declaration
+		(ExternalDeclaration 
+			functiondefHead=
+			(FunctionDefHead
+				funDeclSpecifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"void"
+					)
+				),
+				funDeclarator=
+				(Declarator
+					declarator=
+					(DirectDeclarator
+						id++"doSomething"
+					)
+				)
+			),
+			functionDefinition=
+			(FunctionDefinition
+				body=
+				(BodyStatement
+					blockList+=
+					(BlockList
+						statement+=
+						(Statement
+							stmt=
+							(JumpStatement
+								expr=
+								(Expression
+									
+								), // end expression
+								semi++";"
+							)// end jump statement
+						)//end statement
+					)
+				)
+			)
+		),// end external declaration
+		(ExternalDeclaration 
+			functiondefHead=
+			(FunctionDefHead
+				funDeclSpecifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"void"
+					)
+				),
+				funDeclarator=
+				(Declarator
+					declarator=
+					(DirectDeclarator
+						id++"doSomething"
+					)
+				)
+			),
+			functionDefinition=
+			(FunctionDefinition
+				body=
+				(BodyStatement
+					blockList+=
+					(BlockList
+						statement+=
+						(Statement
+							stmt=
+							(JumpStatement
+								expr=
+								(Expression
+									
+								), // end expression
+								semi++";"
+							)// end jump statement
+						)//end statement
+					)
+				)
+			)
+		),// end external declaration
+		(ExternalDeclaration 
+			functiondefHead=
+			(FunctionDefHead
+				funDeclSpecifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"void"
+					)
+				),
+				funDeclarator=
+				(Declarator
+					declarator=
+					(DirectDeclarator
+						id++"doSomething"
+					)
+				)
+			),
+			functionDefinition=
+			(FunctionDefinition
+				body=
+				(BodyStatement
+					blockList+=
+					(BlockList
+						statement+=
+						(Statement
+							stmt=
+							(JumpStatement
+								expr=
+								(Expression
+									
+								), // end expression
+								semi++";"
+							)// end jump statement
+						)//end statement
+					)
+				)
+			)
+		)// end external declaration
 		
 	)
 )

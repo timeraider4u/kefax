@@ -11,7 +11,7 @@ double doSomething3() {
 }
 
 float doSomething4() {
-	return 0x011;
+	return 0x01A;
 }
 
 void doSomething5() {

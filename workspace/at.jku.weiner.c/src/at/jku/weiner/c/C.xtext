@@ -526,7 +526,7 @@ BlockList:
 
 ExpressionStatement:
 	{ExpressionStatement} 
-	(expression += Expression)? 
+	(expression = Expression)? 
 	semi=SEMI
 ;
 
@@ -572,7 +572,7 @@ declarationList:
 
 
 PrimaryExpression returns Expression:
-	{PrimaryExpression} 
+	{PrimaryExpression}
 	(id=ID
 	|   const=Constant
 	//|   string+=STRING_LITERAL+
@@ -655,17 +655,17 @@ CastExpression returns Expression:
 MultiplicativeExpression returns Expression:
 	{MultiplicativeExpression}
 	expr+=CastExpression
-	((op=STAR|op=DIV|op=MOD)
+	((op+=STAR|op+=DIV|op+=MOD)
 		expr+=CastExpression
-	)
+	)*
 ;
 
 AdditiveExpression returns Expression:
 	{AdditiveExpression}
 	expr+=MultiplicativeExpression
-	((op=PLUS| op=MINUS)
+	((op+=PLUS| op+=MINUS)
 		expr+=MultiplicativeExpression
-	)
+	)*
 ;
 
 ShiftExpression returns Expression:
@@ -732,11 +732,12 @@ AssignmentExpression returns Expression:
 	{AssignmentExpression}
 	(
 		expr=ConditionalExpression
-	|
+	/*|
 		(expr=UnaryExpression
 		op=AssignmentOperator
 		assignmentExpr+=AssignmentExpression
 		)
+	*/
 	)
 ;
 
@@ -757,8 +758,8 @@ AssignmentOperator:
 
 Expression:
 	{Expression}
-	expr+=AssignmentExpression
-	(COMMA expr+=AssignmentExpression)*
+	exprExpr+=AssignmentExpression
+	(COMMA exprExpr+=AssignmentExpression)*
 ;
 
 /*ConstantExpression returns Expression:

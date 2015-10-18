@@ -575,7 +575,7 @@ PrimaryExpression returns Expression:
 	{PrimaryExpression} 
 	(id=ID
 	|   const=Constant
-	|   string+=STRING_LITERAL+
+	//|   string+=STRING_LITERAL+
 	|   LEFTPAREN expr=Expression RIGHTPAREN
 	//|   genericSelection=genericSelection
 	// |   '__extension__'? LEFTPAREN compoundStmt=compoundStatement RIGHTPAREN // Blocks (GCC extension)
@@ -731,10 +731,12 @@ ConditionalExpression returns Expression:
 AssignmentExpression returns Expression:
 	{AssignmentExpression}
 	(
-	expr=ConditionalExpression
-	|   expr=UnaryExpression
+		expr=ConditionalExpression
+	|
+		(expr=UnaryExpression
 		op=AssignmentOperator
 		assignmentExpr+=AssignmentExpression
+		)
 	)
 ;
 
@@ -884,128 +886,6 @@ terminal ZERO: '0';
 terminal SINGLEQUOTE: '\'';
 terminal DOUBLEQUOTE: '"';
 terminal BACKSLASH: '\\';
-
-/*
-terminal fragment IDENTIFIER:
-	IDENTIFIERNONDIGIT
-		(   IDENTIFIERNONDIGIT
-		|   DIGIT
-		)*
-;
-terminal fragment IDENTIFIERNONDIGIT:
-	NONDIGIT
-	|   UNIVERSALCHARACTERNAME
-	//|   // other implementation-defined characters...
-;
-terminal fragment NONDIGIT: ('a' .. 'z' | 'A' .. 'Z'); // [a-zA-Z_];
-terminal fragment DIGIT: '0' .. '9'; //[0-9];
-terminal fragment UNIVERSALCHARACTERNAME:
-	'\\u' HEXQUAD
-	|   '\\U' HEXQUAD HEXQUAD
-;
-terminal fragment HEXQUAD: HEXADECIMALDIGIT HEXADECIMALDIGIT HEXADECIMALDIGIT HEXADECIMALDIGIT;
-terminal CONSTANT: INTEGERCONSTANT
-	|   FLOATINGCONSTANT
-	//|   ENUMERATIONCONSTANT // commented out because of ANTLR error during generation!
-	|   CHARACTERCONSTANT
-;
-
-// commented out because of ANTLR error during generation!
-//terminal fragment ENUMERATIONCONSTANT: IDENTIFIER;
-
-terminal fragment INTEGERCONSTANT:
-	DECIMALCONSTANT INTEGERSUFFIX?
-	|   OCTALCONSTANT INTEGERSUFFIX?
-	|   HEXADECIMALCONSTANT INTEGERSUFFIX?
-;
-terminal fragment DECIMALCONSTANT: NONZERODIGIT DIGIT*;
-terminal fragment OCTALCONSTANT: '0' OCTALDIGIT*;
-terminal fragment HEXADECIMALCONSTANT: HEXADECIMALPREFIX HEXADECIMALDIGIT+;
-terminal fragment HEXADECIMALPREFIX: '0' ('x' | 'X'); // [xX];
-terminal fragment NONZERODIGIT: '1' .. '9'; //[1-9];
-terminal fragment OCTALDIGIT: ('0' .. '7'); //[0-7];
-terminal fragment HEXADECIMALDIGIT: ('0'..'9' | 'a' .. 'f' | 'A' .. 'F'); // [0-9a-fA-F];
-terminal fragment INTEGERSUFFIX:
-	UNSIGNEDSUFFIX LONGSUFFIX?
-	|   UNSIGNEDSUFFIX LONGLONGSUFFIX
-	|   LONGSUFFIX UNSIGNEDSUFFIX?
-	|   LONGLONGSUFFIX UNSIGNEDSUFFIX?
-;
-terminal fragment UNSIGNEDSUFFIX: 'u' | 'U'; //[uU];
-terminal fragment LONGSUFFIX: 'l' | 'L'; //[lL];
-terminal fragment LONGLONGSUFFIX: 'll' | 'LL';
-terminal fragment FLOATINGCONSTANT:
-	DECIMALFLOATINGCONSTANT
-	|   HEXADECIMALFLOATINGCONSTANT
-;
-terminal fragment DECIMALFLOATINGCONSTANT:
-	FRACTIONALCONSTANT EXPONENTPART? FLOATINGSUFFIX?
-	|   DIGITSEQUENCE EXPONENTPART FLOATINGSUFFIX?
-;
-terminal fragment HEXADECIMALFLOATINGCONSTANT:
-	HEXADECIMALPREFIX HEXADECIMALFRACTIONALCONSTANT BINARYEXPONENTPART FLOATINGSUFFIX?
-	|   HEXADECIMALPREFIX HEXADECIMALDIGITSEQUENCE BINARYEXPONENTPART FLOATINGSUFFIX?
-;
-terminal fragment FRACTIONALCONSTANT: 
-	DIGITSEQUENCE? DOT DIGITSEQUENCE
-	|   DIGITSEQUENCE DOT
-;
-terminal fragment EXPONENTPART:
-	'e' SIGN? DIGITSEQUENCE
-	|   'E' SIGN? DIGITSEQUENCE
-;
-terminal fragment SIGN: PLUS | MINUS;
-terminal fragment DIGITSEQUENCE: DIGIT+;
-terminal fragment HEXADECIMALFRACTIONALCONSTANT:
-	HEXADECIMALDIGITSEQUENCE? DOT HEXADECIMALDIGITSEQUENCE
-	|   HEXADECIMALDIGITSEQUENCE DOT
-;
-terminal fragment BINARYEXPONENTPART: 
-	'p' SIGN? DIGITSEQUENCE
-	|   'P' SIGN? DIGITSEQUENCE
-;
-terminal fragment HEXADECIMALDIGITSEQUENCE: HEXADECIMALDIGIT+;
-terminal fragment FLOATINGSUFFIX: 'f' | 'l' | 'F' | 'L';
-terminal fragment CHARACTERCONSTANT: 
-	SINGLEQUOTE CCHARSEQUENCE SINGLEQUOTE
-	|   'L\'' CCHARSEQUENCE SINGLEQUOTE
-	|   'u\'' CCHARSEQUENCE SINGLEQUOTE
-	|   'U\'' CCHARSEQUENCE SINGLEQUOTE
-;
-terminal fragment CCHARSEQUENCE: CCHAR+;
-terminal fragment CCHAR: //~['\\\r\n]
-	!(BACKSLASH | NEWLINE)
-	|   ESCAPESEQUENCE
-;
-terminal fragment ESCAPESEQUENCE: SIMPLEESCAPESEQUENCE
-	|   OCTALESCAPESEQUENCE
-	|   HEXADECIMALESCAPESEQUENCE
-	|   UNIVERSALCHARACTERNAME
-;
-terminal fragment SIMPLEESCAPESEQUENCE: 
-	BACKSLASH //['"?abfnrtv\\]
-	(SINGLEQUOTE | DOUBLEQUOTE | 'a' | 'b' | 'f' | 'n' | 'r' | 't' | 'v' | QUESTION | BACKSLASH)
-;
-terminal fragment OCTALESCAPESEQUENCE: BACKSLASH OCTALDIGIT
-	|   BACKSLASH OCTALDIGIT OCTALDIGIT
-	|   BACKSLASH OCTALDIGIT OCTALDIGIT OCTALDIGIT
-;
-
-terminal fragment HEXADECIMALESCAPESEQUENCE: '\\x' HEXADECIMALDIGIT+;
-
-terminal STRINGLITERAL: ENCODINGPREFIX? '"' SCHARSEQUENCE? '"';
-
-terminal fragment ENCODINGPREFIX: 'u8'
-	|   'u'
-	|   'U'
-	|   'L'
-;
-terminal fragment SCHARSEQUENCE: SCHAR+;
-terminal fragment SCHAR: 
-	! ('\n' | '\r'| BACKSLASH | DOUBLEQUOTE) //~["\\\r\n]
-	|   ESCAPESEQUENCE
-;
-*/
 
 terminal ID: IDENTIFIER;
 terminal fragment IDENTIFIER:

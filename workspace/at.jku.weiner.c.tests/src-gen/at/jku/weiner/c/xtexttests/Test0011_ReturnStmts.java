@@ -40,7 +40,7 @@ import at.jku.weiner.c.c.ExpressionStatement;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(CInjectorProvider.class)
-public class Test0010_ReturnStmts {
+public class Test0011_ReturnStmts {
 
 	@Inject
 	private ParseHelper<Model> parseHelper;
@@ -62,7 +62,7 @@ public class Test0010_ReturnStmts {
 	
 	private String getSourceText()
 	throws Exception{
-		final Path path = Paths.get("res/Test0010_ReturnStmts.c");
+		final Path path = Paths.get("res/Test0011_ReturnStmts.c");
 		final String content = new String(Files.readAllBytes(path));
 		return content;
 	}

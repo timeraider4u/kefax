@@ -157,7 +157,8 @@ InitDeclarator
 	:
 	{InitDeclarator}
 	
-	declarator=Declarator// (ASSIGN initializer=initializer)?;
+	declarator=Declarator
+	(ASSIGN initializer=Initializer)?
 ;
 
 StorageClassSpecifier
@@ -471,12 +472,13 @@ abstractDeclaratorSuffix: {abstractDeclaratorSuffix}
 ;
 */
 
-/*
-initializer:
-	assignmentExpression
-	|	LEFTBRACE initializerList COMMA? RIGHTBRACE
+
+Initializer:
+	expr=AssignmentExpression
+	//|	LEFTBRACE initializerList COMMA? RIGHTBRACE
 ;
 
+/*
 initializerList: designation? (initializer=initializer)
 	(COMMA (designation+=designation)? (initializerMore+=initializer))*
 ;
@@ -886,7 +888,7 @@ terminal ARROW: MINUS GREATER;
 terminal DOT: '.';
 terminal ELLIPSIS: DOT DOT DOT;
 
-terminal ZERO: '0';
+//terminal ZERO: '0';
 terminal SINGLEQUOTE: '\'';
 terminal DOUBLEQUOTE: '"';
 terminal BACKSLASH: '\\';

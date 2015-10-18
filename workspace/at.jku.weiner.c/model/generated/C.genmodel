@@ -41,6 +41,7 @@
     </genClasses>
     <genClasses ecoreClass="C.ecore#//InitDeclarator">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//InitDeclarator/declarator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//InitDeclarator/initializer"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//StorageClassSpecifier">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//StorageClassSpecifier/class"/>
@@ -85,6 +86,9 @@
     </genClasses>
     <genClasses ecoreClass="C.ecore#//MyIdentifier">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//MyIdentifier/id"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//Initializer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//Initializer/expr"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//Statement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//Statement/stmt"/>

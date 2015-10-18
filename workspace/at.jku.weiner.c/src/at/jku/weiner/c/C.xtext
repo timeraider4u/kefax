@@ -609,9 +609,9 @@ AssignmentOperator:
 
 ConditionalExpression returns Expression:
 	{ConditionalExpression}
-	expr+=LogicalOrExpression
-	(QUESTION expr+=Expression COLON
-		conditionaExpr+=ConditionalExpression
+	expr=LogicalOrExpression
+	(QUESTION qExpr=Expression COLON
+		cExpr=ConditionalExpression
 	)?
 ;
 

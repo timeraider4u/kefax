@@ -129,7 +129,8 @@
     </genClasses>
     <genClasses ecoreClass="C.ecore#//ConditionalExpression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//ConditionalExpression/expr"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//ConditionalExpression/conditionaExpr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//ConditionalExpression/qExpr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//ConditionalExpression/cExpr"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//LogicalOrExpression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//LogicalOrExpression/expr"/>

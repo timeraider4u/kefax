@@ -184,10 +184,7 @@ public class Test0010_SimpleExpr {
 		Assert.assertNotNull(AssignmentExpression_14_Var);
 		final ConditionalExpression ConditionalExpression_15_Var = (ConditionalExpression)AssignmentExpression_14_Var.getExpr();
 		Assert.assertNotNull(ConditionalExpression_15_Var);
-		final EList<? extends EObject> Expr_15_list = ConditionalExpression_15_Var.getExpr();
-		Assert.assertNotNull(Expr_15_list);
-		Assert.assertEquals(1, Expr_15_list.size());
-		final LogicalOrExpression LogicalOrExpression_16_Var = (LogicalOrExpression)Expr_15_list.get(0);
+		final LogicalOrExpression LogicalOrExpression_16_Var = (LogicalOrExpression)ConditionalExpression_15_Var.getExpr();
 		Assert.assertNotNull(LogicalOrExpression_16_Var);
 		final EList<? extends EObject> Expr_16_list = LogicalOrExpression_16_Var.getExpr();
 		Assert.assertNotNull(Expr_16_list);

@@ -341,10 +341,7 @@ public class Test0011_ReturnStmts {
 		Assert.assertNotNull(AssignmentExpression_14_Var);
 		final ConditionalExpression ConditionalExpression_15_Var = (ConditionalExpression)AssignmentExpression_14_Var.getExpr();
 		Assert.assertNotNull(ConditionalExpression_15_Var);
-		final EList<? extends EObject> Expr_15_list = ConditionalExpression_15_Var.getExpr();
-		Assert.assertNotNull(Expr_15_list);
-		Assert.assertEquals(1, Expr_15_list.size());
-		final LogicalOrExpression LogicalOrExpression_16_Var = (LogicalOrExpression)Expr_15_list.get(0);
+		final LogicalOrExpression LogicalOrExpression_16_Var = (LogicalOrExpression)ConditionalExpression_15_Var.getExpr();
 		Assert.assertNotNull(LogicalOrExpression_16_Var);
 		final EList<? extends EObject> Expr_16_list = LogicalOrExpression_16_Var.getExpr();
 		Assert.assertNotNull(Expr_16_list);
@@ -451,10 +448,7 @@ public class Test0011_ReturnStmts {
 		Assert.assertNotNull(AssignmentExpression_43_Var);
 		final ConditionalExpression ConditionalExpression_44_Var = (ConditionalExpression)AssignmentExpression_43_Var.getExpr();
 		Assert.assertNotNull(ConditionalExpression_44_Var);
-		final EList<? extends EObject> Expr_44_list = ConditionalExpression_44_Var.getExpr();
-		Assert.assertNotNull(Expr_44_list);
-		Assert.assertEquals(1, Expr_44_list.size());
-		final LogicalOrExpression LogicalOrExpression_45_Var = (LogicalOrExpression)Expr_44_list.get(0);
+		final LogicalOrExpression LogicalOrExpression_45_Var = (LogicalOrExpression)ConditionalExpression_44_Var.getExpr();
 		Assert.assertNotNull(LogicalOrExpression_45_Var);
 		final EList<? extends EObject> Expr_45_list = LogicalOrExpression_45_Var.getExpr();
 		Assert.assertNotNull(Expr_45_list);
@@ -568,10 +562,7 @@ public class Test0011_ReturnStmts {
 		Assert.assertNotNull(AssignmentExpression_75_Var);
 		final ConditionalExpression ConditionalExpression_76_Var = (ConditionalExpression)AssignmentExpression_75_Var.getExpr();
 		Assert.assertNotNull(ConditionalExpression_76_Var);
-		final EList<? extends EObject> Expr_76_list = ConditionalExpression_76_Var.getExpr();
-		Assert.assertNotNull(Expr_76_list);
-		Assert.assertEquals(1, Expr_76_list.size());
-		final LogicalOrExpression LogicalOrExpression_77_Var = (LogicalOrExpression)Expr_76_list.get(0);
+		final LogicalOrExpression LogicalOrExpression_77_Var = (LogicalOrExpression)ConditionalExpression_76_Var.getExpr();
 		Assert.assertNotNull(LogicalOrExpression_77_Var);
 		final EList<? extends EObject> Expr_77_list = LogicalOrExpression_77_Var.getExpr();
 		Assert.assertNotNull(Expr_77_list);
@@ -678,10 +669,7 @@ public class Test0011_ReturnStmts {
 		Assert.assertNotNull(AssignmentExpression_104_Var);
 		final ConditionalExpression ConditionalExpression_105_Var = (ConditionalExpression)AssignmentExpression_104_Var.getExpr();
 		Assert.assertNotNull(ConditionalExpression_105_Var);
-		final EList<? extends EObject> Expr_105_list = ConditionalExpression_105_Var.getExpr();
-		Assert.assertNotNull(Expr_105_list);
-		Assert.assertEquals(1, Expr_105_list.size());
-		final LogicalOrExpression LogicalOrExpression_106_Var = (LogicalOrExpression)Expr_105_list.get(0);
+		final LogicalOrExpression LogicalOrExpression_106_Var = (LogicalOrExpression)ConditionalExpression_105_Var.getExpr();
 		Assert.assertNotNull(LogicalOrExpression_106_Var);
 		final EList<? extends EObject> Expr_106_list = LogicalOrExpression_106_Var.getExpr();
 		Assert.assertNotNull(Expr_106_list);

@@ -57,7 +57,7 @@ RIGHTBRACE NEWLINE
 									(AssignmentExpression
 										expr=
 										(ConditionalExpression
-											expr+=
+											expr=
 											(LogicalOrExpression
 												expr+=
 												(LogicalAndExpression
@@ -147,7 +147,7 @@ RIGHTBRACE NEWLINE
 									(AssignmentExpression
 										expr=
 										(ConditionalExpression
-											expr+=
+											expr=
 											(LogicalOrExpression
 												expr+=
 												(LogicalAndExpression
@@ -247,7 +247,7 @@ RIGHTBRACE NEWLINE
 									(AssignmentExpression
 										expr=
 										(ConditionalExpression
-											expr+=
+											expr=
 											(LogicalOrExpression
 												expr+=
 												(LogicalAndExpression
@@ -337,7 +337,7 @@ RIGHTBRACE NEWLINE
 									(AssignmentExpression
 										expr=
 										(ConditionalExpression
-											expr+=
+											expr=
 											(LogicalOrExpression
 												expr+=
 												(LogicalAndExpression

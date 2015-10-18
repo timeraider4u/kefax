@@ -107,6 +107,8 @@ public class MyGenerator {
 		this.builder.append("import java.util.List;\n");
 		this.builder.append("import org.antlr.runtime.Token;\n");
 		this.builder.append("import org.eclipse.emf.common.util.EList;\n");
+		this.builder
+				.append("import org.eclipse.emf.ecore.util.EDataTypeEList;\n");
 		this.builder.append("import org.eclipse.emf.ecore.EObject;\n");
 		this.builder.append("import org.eclipse.xtext.junit4.");
 		this.builder.append("InjectWith;\n");
@@ -117,7 +119,7 @@ public class MyGenerator {
 		this.builder.append("import org.eclipse.xtext.junit4.");
 		this.builder.append("XtextRunner;\n");
 		this.builder
-				.append("import org.eclipse.xtext.parser.antlr.ITokenDefProvider;\n");
+		.append("import org.eclipse.xtext.parser.antlr.ITokenDefProvider;\n");
 		this.builder.append("import org.junit.Assert;\n");
 		this.builder.append("import org.junit.After;\n");
 		this.builder.append("import org.junit.Before;\n");
@@ -248,7 +250,7 @@ public class MyGenerator {
 		this.builder.append("testHelper.getTokens(text);\n");
 		this.builder.append("\t\t//testHelper.outputTokens(text);\n");
 		this.builder
-		.append("\t\ttestHelper.checkTokenisation(text, expected);\n");
+				.append("\t\ttestHelper.checkTokenisation(text, expected);\n");
 
 		// end of method
 		this.builder.append("\t}\n");
@@ -307,6 +309,10 @@ public class MyGenerator {
 			} else if ((inner.getAssignList() != null)
 					&& (!inner.getAssignList().isEmpty())) {
 				this.handleListAssign(varName, paramName, inner.getAssignList());
+			} else if ((inner.getAssignAsData() != null)
+					&& (!inner.getAssignAsData().isEmpty())) {
+				this.handleDataListAssign(varName, paramName,
+						inner.getAssignAsData());
 			} else {
 				this.handleValueAssign(varName, paramName, inner.getValue());
 			}
@@ -390,4 +396,14 @@ public class MyGenerator {
 		this.builder.append("());\n");
 	}
 
+	private void handleDataListAssign(final String varName,
+			final String paramName, final String assignAsData) {
+		this.builder.append("\t\tAssert.assertEquals(\"");
+		this.builder.append(assignAsData);
+		this.builder.append("\", ");
+		this.builder.append(varName);
+		this.builder.append(".get");
+		this.builder.append(paramName);
+		this.builder.append("().toString());\n");
+	}
 }

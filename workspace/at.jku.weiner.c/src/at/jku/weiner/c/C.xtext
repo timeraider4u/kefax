@@ -621,7 +621,7 @@ UnaryExpression returns Expression:
 	//(PLUSPLUS | MINUSMINUS | SIZEOF)*
 	
 	(
-		postfixexpr=PostfixExpression
+		expr=PostfixExpression
 	//|   SIZEOF LEFTPAREN typeName=typeName RIGHTPAREN
 	//|   ALIGNOF LEFTPAREN typeName=typeName RIGHTPAREN
 	|   ANDAND ID // GCC extension address of label

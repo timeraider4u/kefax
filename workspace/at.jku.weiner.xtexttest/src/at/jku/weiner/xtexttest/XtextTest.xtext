@@ -54,7 +54,9 @@ Inner:
 	ASSIGNASLIST assignList+=Element (COMMA assignList+=Element)*
 	|
 	ASSIGNASSTRING value=STRING
-	) 
+	|
+	ASSIGNASDATALIST assignAsData=STRING
+	)
 ;
 
 terminal PACKAGE: 'package';
@@ -69,5 +71,6 @@ terminal RIGHTPAREN: ')';
 terminal ASSIGNASSINGLE: '=';
 terminal ASSIGNASLIST: '+=';
 terminal ASSIGNASSTRING: '++';
+terminal ASSIGNASDATALIST: '+*';
 terminal COMMA: ',';
 terminal IDENTIFIER: ID;

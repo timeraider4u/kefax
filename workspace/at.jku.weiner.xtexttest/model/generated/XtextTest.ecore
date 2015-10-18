@@ -32,5 +32,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="assignList" upperBound="-1"
         eType="#//Element" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="assignAsData" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

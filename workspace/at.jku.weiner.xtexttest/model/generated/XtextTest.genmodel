@@ -30,6 +30,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XtextTest.ecore#//Inner/assign"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XtextTest.ecore#//Inner/assignList"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//Inner/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//Inner/assignAsData"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

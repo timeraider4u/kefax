@@ -324,9 +324,11 @@ Declarator
 		at.jku.weiner.c.Log.log("Declarator-leave");
 	}
 	:
-	{Declarator}
-	
-	/*pointer?*/ (declarator=DirectDeclarator); //(gccDeclExt+=gccDeclaratorExtension)*;
+	{Declarator}	
+	/*pointer?*/
+	(declarator=DirectDeclarator)
+	//(gccDeclExt+=gccDeclaratorExtension)*
+;
 
 DirectDeclarator
 	initRuleAction{
@@ -337,7 +339,6 @@ DirectDeclarator
 	}
 	:
 	{DirectDeclarator}
-	
 	(id=ID
 		preAction{ {
 			at.jku.weiner.c.Scope.setTemp(input);
@@ -347,7 +348,6 @@ DirectDeclarator
 		} }
 	| LEFTPAREN declarator=Declarator RIGHTPAREN
 	)
-	
 	(declaratorSuffix+=DeclaratorSuffix)*	
 ;
 
@@ -492,7 +492,8 @@ Statement:
 	|   stmt=ExpressionStatement
 /*	|   stmt=selectionStatement
 	|   stmt=iterationStatement
-	|   stmt=jumpStatement
+	*/
+	| stmt=JumpStatement /*
 	|   ('__asm' | '__asm__') (VOLATILE | '__volatile__') 
 			LEFTPAREN (expr+=logicalOrExpression (COMMA logicalExpr+=logicalOrExpression)*)? 
 			(COLON (expr+=logicalOrExpression (COMMA logicalExpr+=logicalOrExpression)*)?)* RIGHTPAREN SEMI
@@ -541,18 +542,21 @@ iterationStatement: WHILE LEFTPAREN expression RIGHTPAREN statement=statement
 	|   DO statement WHILE LEFTPAREN whileexpression=expression RIGHTPAREN SEMI
 	|   FOR LEFTPAREN expression? SEMI expression? SEMI expression? RIGHTPAREN statement
 	|   FOR LEFTPAREN declaration (forexpression+=expression)? SEMI expression? RIGHTPAREN statement=statement
+;*/
+
+JumpStatement:
+	{JumpStatement}
+	(
+	//GOTO IDENTIFIER SEMI //(can be reached over GOTO unaryExpression)
+	//|	CONTINUE SEMI
+	//|	BREAK SEMI
+	//|
+	KW_RETURN expr=Expression? semi=SEMI
+	//|	GOTO expr=unaryExpression SEMI // GCC extension
+	)
 ;
 
-jumpStatement:
-	{jumpStatement} GOTO IDENTIFIER SEMI //(can be reached over GOTO unaryExpression)
-	|
-	   {jumpStatement} CONTINUE SEMI
-	|   {jumpStatement} BREAK SEMI
-	|   {jumpStatement} RETURN expr=expression? SEMI
-	// |   {jumpStatement} GOTO expr=unaryExpression SEMI // GCC extension
-;
-
-
+/*
 designation: designatorList ASSIGN;
 
 designatorList: designator (designator+=designator)*;
@@ -569,163 +573,10 @@ declarationList:
 */
 
 /*** Expressions ***/
-
-
-PrimaryExpression returns Expression:
-	{PrimaryExpression}
-	(id=ID
-	|   const=Constant
-	//|   string+=STRING_LITERAL+
-	|   LEFTPAREN expr=Expression RIGHTPAREN
-	//|   genericSelection=genericSelection
-	// |   '__extension__'? LEFTPAREN compoundStmt=compoundStatement RIGHTPAREN // Blocks (GCC extension)
-	//|   '__builtin_va_arg' LEFTPAREN expr=unaryExpression COMMA typeName=typeName RIGHTPAREN
-	//|   '__builtin_offsetof' LEFTPAREN typeName=typeName COMMA expr=unaryExpression RIGHTPAREN
-	)
-;
-
-/*
-genericSelection: GENERIC LEFTPAREN assignmentExpression COMMA genericAssocList=genericAssocList RIGHTPAREN;
-
-genericAssocList: genericAssociation (COMMA genericAssociation+=genericAssociation)*;
-
-genericAssociation:
-	(typeName | DEFAULT) COLON
-	(assignmentExpression=assignmentExpression)
-;
-*/
-
-PostfixExpression returns Expression:
-	{PostfixExpression}
-	(expr+=PrimaryExpression
-	/*|   ('__extension__' LEFTPAREN typeName RIGHTPAREN LEFTBRACE initializerList=initializerList) 
-			(COMMA? RIGHTBRACE)
-	)
-	(LEFTBRACKET expr+=expression RIGHTBRACKET
-	| LEFTPAREN argumentExpressionList+=argumentExpressionList? RIGHTPAREN
-	| DOT IDENTIFIER
-	| ARROW IDENTIFIER
-	| PLUSPLUS
-	| MINUSMINUS
-	*/
-	)*
-;
-
-/*
-argumentExpressionList: assignmentExpression (COMMA expr+=assignmentExpression)*;
-*/
-
-UnaryExpression returns Expression:
-	{UnaryExpression}
-	
-	//(PLUSPLUS | MINUSMINUS | SIZEOF)*
-	
-	(
-		expr=PostfixExpression
-	//|   SIZEOF LEFTPAREN typeName=typeName RIGHTPAREN
-	//|   ALIGNOF LEFTPAREN typeName=typeName RIGHTPAREN
-	|   ANDAND ID // GCC extension address of label
-	|   op=UnaryOperator castExpr=CastExpression
-	)
-	
-	//|   PLUSPLUS unaryExpr=unaryExpression
-	//|   MINUSMINUS unaryExpr=unaryExpression
-	//|   SIZEOF unaryExpr=unaryExpression
-	  
-;
-
-UnaryOperator:
-		op=AND
-	|	op=STAR
-	|	op=PLUS 
-	|	op=MINUS 
-	|	op=TILDE
-	|	op=NOT
-;
-
-CastExpression returns Expression:
-	{CastExpression}
-	(
-	expr=UnaryExpression
-	|   LEFTPAREN type=TypedefName RIGHTPAREN castExpr=CastExpression
-	|   '__extension__' LEFTPAREN type=TypedefName RIGHTPAREN castExpr=CastExpression
-	)
-;
-
-MultiplicativeExpression returns Expression:
-	{MultiplicativeExpression}
-	expr+=CastExpression
-	((op+=STAR|op+=DIV|op+=MOD)
-		expr+=CastExpression
-	)*
-;
-
-AdditiveExpression returns Expression:
-	{AdditiveExpression}
-	expr+=MultiplicativeExpression
-	((op+=PLUS| op+=MINUS)
-		expr+=MultiplicativeExpression
-	)*
-;
-
-ShiftExpression returns Expression:
-	{ShiftExpression}
-	expr+=AdditiveExpression
-	((op+=LEFTSHIFT| op+=RIGHTSHIFT)
-		expr+=AdditiveExpression
-	)*
-;
-
-RelationalExpression returns Expression:
-	{RelationalExpression}
-	expr+=ShiftExpression
-	((op+=LESS|op+=GREATER|op+=LESSEQUAL|op+=GREATEREQUAL)
-		expr += ShiftExpression
-	)*
-;
-
-EqualityExpression returns Expression:
-	{EqualityExpression}
-	expr+=RelationalExpression
-	((op+=EQUAL | op+=NOTEQUAL) expr+=RelationalExpression)*
-;
-
-AndExpression returns Expression:
-	{AndExpression}
-	expr+=EqualityExpression
-	(AND expr+=EqualityExpression)*
-;
-
-ExclusiveOrExpression returns Expression:
-	{ExclusiveOrExpression}
-	expr+=AndExpression
-	(CARET expr+=AndExpression)*
-;
-
-InclusiveOrExpression returns Expression:
-	{InclusiveOrExpression}
-	expr+=ExclusiveOrExpression
-	(OR expr+=ExclusiveOrExpression)*
-;
-
-LogicalAndExpression returns Expression:
-	{LogicalAndExpression}
-	expr+=InclusiveOrExpression
-	(ANDAND expr+=InclusiveOrExpression)*
-;
-
-LogicalOrExpression returns Expression:
-	{LogicalOrExpression}
-	expr+=LogicalAndExpression
-	(OROR expr+=LogicalAndExpression)*
-;
-
-ConditionalExpression returns Expression:
-	{ConditionalExpression}
-	expr+=LogicalOrExpression
-	(QUESTION expr+=Expression COLON
-		conditionaExpr+=ConditionalExpression
-	)?
+Expression:
+	{Expression}
+	exprExpr+=AssignmentExpression
+	(COMMA exprExpr+=AssignmentExpression)*
 ;
 
 AssignmentExpression returns Expression:
@@ -756,16 +607,147 @@ AssignmentOperator:
 	| 	op=ORASSIGN
 ;
 
-Expression:
-	{Expression}
-	exprExpr+=AssignmentExpression
-	(COMMA exprExpr+=AssignmentExpression)*
+ConditionalExpression returns Expression:
+	{ConditionalExpression}
+	expr+=LogicalOrExpression
+	(QUESTION expr+=Expression COLON
+		conditionaExpr+=ConditionalExpression
+	)?
 ;
 
-/*ConstantExpression returns Expression:
-	{ConstantExpression}
-	expr=ConditionalExpression
-;*/
+LogicalOrExpression returns Expression:
+	{LogicalOrExpression}
+	expr+=LogicalAndExpression
+	(OROR expr+=LogicalAndExpression)*
+;
+
+LogicalAndExpression returns Expression:
+	{LogicalAndExpression}
+	expr+=InclusiveOrExpression
+	(ANDAND expr+=InclusiveOrExpression)*
+;
+
+InclusiveOrExpression returns Expression:
+	{InclusiveOrExpression}
+	expr+=ExclusiveOrExpression
+	(OR expr+=ExclusiveOrExpression)*
+;
+
+ExclusiveOrExpression returns Expression:
+	{ExclusiveOrExpression}
+	expr+=AndExpression
+	(CARET expr+=AndExpression)*
+;
+
+AndExpression returns Expression:
+	{AndExpression}
+	expr+=EqualityExpression
+	(AND expr+=EqualityExpression)*
+;
+
+EqualityExpression returns Expression:
+	{EqualityExpression}
+	expr+=RelationalExpression
+	((op+=EQUAL | op+=NOTEQUAL) expr+=RelationalExpression)*
+;
+
+RelationalExpression returns Expression:
+	{RelationalExpression}
+	expr+=ShiftExpression
+	((op+=LESS|op+=GREATER|op+=LESSEQUAL|op+=GREATEREQUAL)
+		expr += ShiftExpression
+	)*
+;
+
+ShiftExpression returns Expression:
+	{ShiftExpression}
+	expr+=AdditiveExpression
+	((op+=LEFTSHIFT| op+=RIGHTSHIFT)
+		expr+=AdditiveExpression
+	)*
+;
+
+AdditiveExpression returns Expression:
+	{AdditiveExpression}
+	expr+=MultiplicativeExpression
+	((op+=PLUS| op+=MINUS)
+		expr+=MultiplicativeExpression
+	)*
+;
+
+MultiplicativeExpression returns Expression:
+	{MultiplicativeExpression}
+	expr+=CastExpression
+	((op+=STAR|op+=DIV|op+=MOD)
+		expr+=CastExpression
+	)*
+;
+
+CastExpression returns Expression:
+	{CastExpression}
+	(
+	expr=UnaryExpression
+	//|   LEFTPAREN type=TypeName RIGHTPAREN castExpr=CastExpression
+	//|   '__extension__' LEFTPAREN type=TypeName RIGHTPAREN castExpr=CastExpression
+	)
+;
+
+UnaryExpression returns Expression:
+	{UnaryExpression}	
+	//(PLUSPLUS | MINUSMINUS | SIZEOF)*
+	(
+		expr=PostfixExpression
+	//|   SIZEOF LEFTPAREN typeName=typeName RIGHTPAREN
+	//|   ALIGNOF LEFTPAREN typeName=typeName RIGHTPAREN
+	|   ANDAND ID // GCC extension address of label
+	|   op=UnaryOperator castExpr=CastExpression
+	)
+	//|   PLUSPLUS unaryExpr=unaryExpression
+	//|   MINUSMINUS unaryExpr=unaryExpression
+	//|   SIZEOF unaryExpr=unaryExpression 
+;
+
+UnaryOperator:
+		op=AND
+	|	op=STAR
+	|	op=PLUS 
+	|	op=MINUS 
+	|	op=TILDE
+	|	op=NOT
+;
+
+PostfixExpression returns Expression:
+	{PostfixExpression}
+	(expr+=PrimaryExpression
+	/*|   ('__extension__' LEFTPAREN typeName RIGHTPAREN LEFTBRACE initializerList=initializerList) 
+			(COMMA? RIGHTBRACE)
+	)
+	(LEFTBRACKET expr+=expression RIGHTBRACKET
+	| LEFTPAREN argumentExpressionList+=argumentExpressionList? RIGHTPAREN
+	| DOT IDENTIFIER
+	| ARROW IDENTIFIER
+	| PLUSPLUS
+	| MINUSMINUS
+	*/
+	)*
+;
+
+/*
+argumentExpressionList: assignmentExpression (COMMA expr+=assignmentExpression)*;
+*/
+
+PrimaryExpression returns Expression:
+	{PrimaryExpression}
+	(id=ID
+	|   const=Constant
+	//|   string+=STRING_LITERAL+
+	|   LEFTPAREN expr=Expression RIGHTPAREN
+	//|   genericSelection=genericSelection
+	// |   '__extension__'? LEFTPAREN compoundStmt=compoundStatement RIGHTPAREN // Blocks (GCC extension)
+	//|   '__builtin_va_arg' LEFTPAREN expr=unaryExpression COMMA typeName=typeName RIGHTPAREN
+	//|   '__builtin_offsetof' LEFTPAREN typeName=typeName COMMA expr=unaryExpression RIGHTPAREN
+	)
+;
 
 Constant:
 	{Constant}
@@ -776,6 +758,24 @@ Constant:
 	|	str=STRING_LITERAL
 	|   float=FLOAT_LITERAL
 ;
+
+/*** UNKNOWN!!! ***/
+
+/*
+genericSelection: GENERIC LEFTPAREN assignmentExpression COMMA genericAssocList=genericAssocList RIGHTPAREN;
+
+genericAssocList: genericAssociation (COMMA genericAssociation+=genericAssociation)*;
+
+genericAssociation:
+	(typeName | DEFAULT) COLON
+	(assignmentExpression=assignmentExpression)
+;
+*/
+
+/*ConstantExpression returns Expression:
+	{ConstantExpression}
+	expr=ConditionalExpression
+;*/
 
 /*** lexer ***/
 /*** start with keywords ;-) */

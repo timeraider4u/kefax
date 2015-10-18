@@ -50,7 +50,7 @@ RIGHTBRACE NEWLINE
 						statement+=
 						(Statement
 							stmt=
-							(ExpressionStatement
+							(JumpStatement
 								semi++";"
 							)
 						)

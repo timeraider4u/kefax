@@ -7,6 +7,7 @@ import java.nio.file.Paths;
 import java.util.List;
 import org.antlr.runtime.Token;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.junit4.InjectWith;
 import org.eclipse.xtext.junit4.util.ParseHelper;
@@ -35,7 +36,7 @@ import at.jku.weiner.c.c.FunctionDefinition;
 import at.jku.weiner.c.c.BodyStatement;
 import at.jku.weiner.c.c.BlockList;
 import at.jku.weiner.c.c.Statement;
-import at.jku.weiner.c.c.ExpressionStatement;
+import at.jku.weiner.c.c.JumpStatement;
 
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
@@ -210,9 +211,9 @@ public class Test0011_ReturnStmts {
 		Assert.assertEquals(1, Statement_10_list.size());
 		final Statement Statement_11_Var = (Statement)Statement_10_list.get(0);
 		Assert.assertNotNull(Statement_11_Var);
-		final ExpressionStatement ExpressionStatement_12_Var = (ExpressionStatement)Statement_11_Var.getStmt();
-		Assert.assertNotNull(ExpressionStatement_12_Var);
-		Assert.assertEquals(";", ExpressionStatement_12_Var.getSemi());
+		final JumpStatement JumpStatement_12_Var = (JumpStatement)Statement_11_Var.getStmt();
+		Assert.assertNotNull(JumpStatement_12_Var);
+		Assert.assertEquals(";", JumpStatement_12_Var.getSemi());
 	}
 
 

@@ -53,7 +53,58 @@ RIGHTBRACE NEWLINE
 							(JumpStatement
 								expr=
 								(Expression
-									
+									exprExpr+=
+									(AssignmentExpression
+										expr=
+										(ConditionalExpression
+											expr+=
+											(LogicalOrExpression
+												expr+=
+												(LogicalAndExpression
+													expr+=
+													(InclusiveOrExpression
+														expr+=
+														(ExclusiveOrExpression
+															expr+=
+															(AndExpression
+																expr+=
+																(EqualityExpression
+																	expr+=
+																	(RelationalExpression
+																		expr+=
+																		(ShiftExpression
+																			expr+=
+																			(AdditiveExpression
+																				expr+=
+																				(MultiplicativeExpression
+																					expr+=
+																					(CastExpression
+																						expr=
+																						(UnaryExpression
+																							expr=
+																							(PostfixExpression
+																								expr+=
+																								(PrimaryExpression
+																									const=
+																									(Constant
+																										ch++"'a'"
+																									)
+																								)
+																							)
+																						)
+																					)
+																				)
+																			)
+																		)
+																	)
+																)
+															)
+														)
+													)
+												)
+											)
+										)
+									)
 								), // end expression
 								semi++";"
 							)// end jump statement
@@ -69,14 +120,14 @@ RIGHTBRACE NEWLINE
 				(DeclarationSpecifiers
 					declarationSpecifier+=
 					(TypeSpecifier
-						name++"void"
+						name++"int"
 					)
 				),
 				funDeclarator=
 				(Declarator
 					declarator=
 					(DirectDeclarator
-						id++"doSomething"
+						id++"doSomething2"
 					)
 				)
 			),
@@ -92,7 +143,248 @@ RIGHTBRACE NEWLINE
 							(JumpStatement
 								expr=
 								(Expression
-									
+									exprExpr+=
+									(AssignmentExpression
+										expr=
+										(ConditionalExpression
+											expr+=
+											(LogicalOrExpression
+												expr+=
+												(LogicalAndExpression
+													expr+=
+													(InclusiveOrExpression
+														expr+=
+														(ExclusiveOrExpression
+															expr+=
+															(AndExpression
+																expr+=
+																(EqualityExpression
+																	expr+=
+																	(RelationalExpression
+																		expr+=
+																		(ShiftExpression
+																			expr+=
+																			(AdditiveExpression
+																				expr+=
+																				(MultiplicativeExpression
+																					expr+=
+																					(CastExpression
+																						expr=
+																						(UnaryExpression
+																							expr=
+																							(CastExpression
+																								expr=
+																								(UnaryExpression
+																									expr=
+																									(PostfixExpression
+																										expr+=
+																										(PrimaryExpression
+																											const=
+																											(Constant
+																												dec++"1"
+																											)
+																										)
+																									)
+																								)
+																							), // end cast expression
+																							op=
+																							(UnaryOperator
+																								op++"-"
+																							)
+																						)
+																					)
+																				)
+																			)
+																		)
+																	)
+																)
+															)
+														)
+													)
+												)
+											)
+										)
+									)
+								), // end expression
+								semi++";"
+							)// end jump statement
+						)//end statement
+					)
+				)
+			)
+		),// end external declaration
+		(ExternalDeclaration 
+			functiondefHead=
+			(FunctionDefHead
+				funDeclSpecifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"double"
+					)
+				),
+				funDeclarator=
+				(Declarator
+					declarator=
+					(DirectDeclarator
+						id++"doSomething3"
+					)
+				)
+			),
+			functionDefinition=
+			(FunctionDefinition
+				body=
+				(BodyStatement
+					blockList+=
+					(BlockList
+						statement+=
+						(Statement
+							stmt=
+							(JumpStatement
+								expr=
+								(Expression
+									exprExpr+=
+									(AssignmentExpression
+										expr=
+										(ConditionalExpression
+											expr+=
+											(LogicalOrExpression
+												expr+=
+												(LogicalAndExpression
+													expr+=
+													(InclusiveOrExpression
+														expr+=
+														(ExclusiveOrExpression
+															expr+=
+															(AndExpression
+																expr+=
+																(EqualityExpression
+																	expr+=
+																	(RelationalExpression
+																		expr+=
+																		(ShiftExpression
+																			expr+=
+																			(AdditiveExpression
+																				expr+=
+																				(MultiplicativeExpression
+																					expr+=
+																					(CastExpression
+																						expr=
+																						(UnaryExpression
+																							expr=
+																							(PostfixExpression
+																								expr+=
+																								(PrimaryExpression
+																									const=
+																									(Constant
+																										float++"0.8"
+																									)
+																								)
+																							)
+																						)
+																					)
+																				)
+																			)
+																		)
+																	)
+																)
+															)
+														)
+													)
+												)
+											)
+										)
+									)
+								), // end expression
+								semi++";"
+							)// end jump statement
+						)//end statement
+					)
+				)
+			)
+		),// end external declaration
+		(ExternalDeclaration 
+			functiondefHead=
+			(FunctionDefHead
+				funDeclSpecifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"float"
+					)
+				),
+				funDeclarator=
+				(Declarator
+					declarator=
+					(DirectDeclarator
+						id++"doSomething4"
+					)
+				)
+			),
+			functionDefinition=
+			(FunctionDefinition
+				body=
+				(BodyStatement
+					blockList+=
+					(BlockList
+						statement+=
+						(Statement
+							stmt=
+							(JumpStatement
+								expr=
+								(Expression
+									exprExpr+=
+									(AssignmentExpression
+										expr=
+										(ConditionalExpression
+											expr+=
+											(LogicalOrExpression
+												expr+=
+												(LogicalAndExpression
+													expr+=
+													(InclusiveOrExpression
+														expr+=
+														(ExclusiveOrExpression
+															expr+=
+															(AndExpression
+																expr+=
+																(EqualityExpression
+																	expr+=
+																	(RelationalExpression
+																		expr+=
+																		(ShiftExpression
+																			expr+=
+																			(AdditiveExpression
+																				expr+=
+																				(MultiplicativeExpression
+																					expr+=
+																					(CastExpression
+																						expr=
+																						(UnaryExpression
+																							expr=
+																							(PostfixExpression
+																								expr+=
+																								(PrimaryExpression
+																									const=
+																									(Constant
+																										hex++"0x01A"
+																									)
+																								)
+																							)
+																						)
+																					)
+																				)
+																			)
+																		)
+																	)
+																)
+															)
+														)
+													)
+												)
+											)
+										)
+									)
 								), // end expression
 								semi++";"
 							)// end jump statement
@@ -115,7 +407,7 @@ RIGHTBRACE NEWLINE
 				(Declarator
 					declarator=
 					(DirectDeclarator
-						id++"doSomething"
+						id++"doSomething5"
 					)
 				)
 			),
@@ -129,88 +421,7 @@ RIGHTBRACE NEWLINE
 						(Statement
 							stmt=
 							(JumpStatement
-								expr=
-								(Expression
-									
-								), // end expression
-								semi++";"
-							)// end jump statement
-						)//end statement
-					)
-				)
-			)
-		),// end external declaration
-		(ExternalDeclaration 
-			functiondefHead=
-			(FunctionDefHead
-				funDeclSpecifiers=
-				(DeclarationSpecifiers
-					declarationSpecifier+=
-					(TypeSpecifier
-						name++"void"
-					)
-				),
-				funDeclarator=
-				(Declarator
-					declarator=
-					(DirectDeclarator
-						id++"doSomething"
-					)
-				)
-			),
-			functionDefinition=
-			(FunctionDefinition
-				body=
-				(BodyStatement
-					blockList+=
-					(BlockList
-						statement+=
-						(Statement
-							stmt=
-							(JumpStatement
-								expr=
-								(Expression
-									
-								), // end expression
-								semi++";"
-							)// end jump statement
-						)//end statement
-					)
-				)
-			)
-		),// end external declaration
-		(ExternalDeclaration 
-			functiondefHead=
-			(FunctionDefHead
-				funDeclSpecifiers=
-				(DeclarationSpecifiers
-					declarationSpecifier+=
-					(TypeSpecifier
-						name++"void"
-					)
-				),
-				funDeclarator=
-				(Declarator
-					declarator=
-					(DirectDeclarator
-						id++"doSomething"
-					)
-				)
-			),
-			functionDefinition=
-			(FunctionDefinition
-				body=
-				(BodyStatement
-					blockList+=
-					(BlockList
-						statement+=
-						(Statement
-							stmt=
-							(JumpStatement
-								expr=
-								(Expression
-									
-								), // end expression
+								// no expression
 								semi++";"
 							)// end jump statement
 						)//end statement

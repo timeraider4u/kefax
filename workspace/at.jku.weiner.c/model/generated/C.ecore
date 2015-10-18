@@ -223,8 +223,6 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="op" eType="#//UnaryOperator"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="castExpr" eType="#//Expression"
-        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PostfixExpression" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expr" upperBound="-1" eType="#//Expression"

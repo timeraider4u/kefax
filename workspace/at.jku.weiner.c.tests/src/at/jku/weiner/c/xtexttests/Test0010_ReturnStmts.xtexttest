@@ -1,0 +1,63 @@
+package at.jku.weiner.c
+language c
+//----------------------------------------------------------------------
+source file="res/Test0010_ReturnStmts.c"
+//----------------------------------------------------------------------
+lexer-tokens
+KW_CHAR WHITESPACE ID LEFTPAREN RIGHTPAREN WHITESPACE LEFTBRACE NEWLINE
+WHITESPACE KW_RETURN WHITESPACE CHAR_LITERAL SEMI NEWLINE
+RIGHTBRACE NEWLINE NEWLINE
+KW_INT WHITESPACE ID LEFTPAREN RIGHTPAREN WHITESPACE LEFTBRACE NEWLINE
+WHITESPACE KW_RETURN WHITESPACE MINUS DECIMAL_LITERAL SEMI NEWLINE
+RIGHTBRACE NEWLINE NEWLINE
+KW_DOUBLE WHITESPACE ID LEFTPAREN RIGHTPAREN WHITESPACE LEFTBRACE NEWLINE
+WHITESPACE KW_RETURN WHITESPACE FLOAT_LITERAL SEMI NEWLINE
+RIGHTBRACE NEWLINE NEWLINE
+KW_FLOAT WHITESPACE ID LEFTPAREN RIGHTPAREN WHITESPACE LEFTBRACE NEWLINE
+WHITESPACE KW_RETURN WHITESPACE HEX_LITERAL SEMI NEWLINE
+RIGHTBRACE NEWLINE NEWLINE
+KW_VOID WHITESPACE ID LEFTPAREN RIGHTPAREN WHITESPACE LEFTBRACE NEWLINE
+WHITESPACE KW_RETURN SEMI NEWLINE
+RIGHTBRACE NEWLINE
+//----------------------------------------------------------------------
+(Model unit+=
+	(TranslationUnit 
+		external+=
+		(ExternalDeclaration 
+			functiondefHead=
+			(FunctionDefHead
+				funDeclSpecifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"void"
+					)
+				),
+				funDeclarator=
+				(Declarator
+					declarator=
+					(DirectDeclarator
+						id++"doSomething"
+					)
+				)
+			),
+			functionDefinition=
+			(FunctionDefinition
+				body=
+				(BodyStatement
+					blockList+=
+					(BlockList
+						statement+=
+						(Statement
+							stmt=
+							(ExpressionStatement
+								semi++";"
+							)
+						)
+					)
+				)
+			)
+		)
+		
+	)
+)

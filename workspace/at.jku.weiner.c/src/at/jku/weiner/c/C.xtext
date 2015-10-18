@@ -8,12 +8,12 @@
  modification, are permitted provided that the following conditions
  are met:
  1. Redistributions of source code must retain the above copyright
-    notice, this list of conditions and the following disclaimer.
+	notice, this list of conditions and the following disclaimer.
  2. Redistributions in binary form must reproduce the above copyright
-    notice, this list of conditions and the following disclaimer in the
-    documentation and/or other materials provided with the distribution.
+	notice, this list of conditions and the following disclaimer in the
+	documentation and/or other materials provided with the distribution.
  3. The name of the author may not be used to endorse or promote products
-    derived from this software without specific prior written permission.
+	derived from this software without specific prior written permission.
 
  THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
  IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
@@ -70,8 +70,8 @@ ExternalDeclaration
 			RIGHTBRACE
 		)
 	|	declaration=Declaration
-    |	semi=SEMI
-    )
+	|	semi=SEMI
+	)
 ;
 
 FunctionDefHead:
@@ -111,8 +111,8 @@ Declaration
 		specifiers=DeclarationSpecifiers 
 		(initDeclaratorList+=InitDeclaratorList)? 
 		semi=SEMI
-    //|   staticAssertDeclaration
-    )
+	//|   staticAssertDeclaration
+	)
 ;
 
 DeclarationSpecifiers
@@ -126,11 +126,11 @@ initRuleAction{
 	{DeclarationSpecifiers}
 	 
 	(declarationSpecifier+=StorageClassSpecifier
-    |   declarationSpecifier+=TypeSpecifier
-    |   declarationSpecifier+=TypeQualifier
-    //|   declarationSpecifier+=functionSpecifier
-    //|   declarationSpecifier+=alignmentSpecifier
-    )+
+	|   declarationSpecifier+=TypeSpecifier
+	|   declarationSpecifier+=TypeQualifier
+	//|   declarationSpecifier+=functionSpecifier
+	//|   declarationSpecifier+=alignmentSpecifier
+	)+
 ;
 
 InitDeclaratorList
@@ -172,11 +172,11 @@ StorageClassSpecifier
 	(	class=KW_TYPEDEF
 			postAction{{ at.jku.weiner.c.Scope.setTypedef(true);  }}
 	|	class=KW_EXTERN
-    |   class=KW_STATIC
-    |   class=KW_THREADLOCAL
-    |   class=KW_AUTO
-    |   class=KW_REGISTER
-    )
+	|   class=KW_STATIC
+	|   class=KW_THREADLOCAL
+	|   class=KW_AUTO
+	|   class=KW_REGISTER
+	)
 ;
 
 TypeSpecifier
@@ -190,27 +190,27 @@ TypeSpecifier
 	{TypeSpecifier}
 	
 	name=KW_VOID
-    |   name=KW_CHAR
-    |   name=KW_SHORT
-    |   name=KW_INT postAction{ { at.jku.weiner.c.Log.log("found kw_int"); } }
-    |   name=KW_LONG
-    |   name=KW_FLOAT
-    |   name=KW_DOUBLE postAction{ { at.jku.weiner.c.Log.log("found kw_double"); } }
-    |   name=KW_SIGNED
-    |   name=KW_UNSIGNED
-    |   name=KW_BOOL
-    |   name=KW_COMPLEX
-    |   name='__m128'
-    |   name='__m128d'
-    |   name='__m128i'
-    
+	|   name=KW_CHAR
+	|   name=KW_SHORT
+	|   name=KW_INT postAction{ { at.jku.weiner.c.Log.log("found kw_int"); } }
+	|   name=KW_LONG
+	|   name=KW_FLOAT
+	|   name=KW_DOUBLE postAction{ { at.jku.weiner.c.Log.log("found kw_double"); } }
+	|   name=KW_SIGNED
+	|   name=KW_UNSIGNED
+	|   name=KW_BOOL
+	|   name=KW_COMPLEX
+	|   name='__m128'
+	|   name='__m128d'
+	|   name='__m128i'
+	
    // |   '__extension__' LEFTPAREN ('__m128' | '__m128d' | '__m128i') RIGHTPAREN
   //  |   specifier=atomicTypeSpecifier
    // |   specifier=structOrUnionSpecifier
    // |   specifier=enumSpecifier
-    |  type=TypedefName
+	|  type=TypedefName
    // |   '__typeof__' LEFTPAREN constExrp=constantExpression RIGHTPAREN // GCC extension
-    
+	
 ;
 
 TypedefName
@@ -229,12 +229,12 @@ TypedefName
 /*structOrUnionSpecifier returns declarationSpecifier:
 	{structOrUnionSpecifier}
 	(structOrUnion IDENTIFIER? LEFTBRACE structDeclList=structDeclarationList RIGHTBRACE
-    |   structOrUnion IDENTIFIER
-    )
+	|   structOrUnion IDENTIFIER
+	)
 ;
 
 structOrUnion: STRUCT
-    |   UNION
+	|   UNION
 ;
 
 structDeclarationList: (structDeclaration+=structDeclaration)+
@@ -242,7 +242,7 @@ structDeclarationList: (structDeclaration+=structDeclaration)+
 
 structDeclaration:
 	specifierQualifierList (structDeclarationList+=structDeclaratorList)? SEMI
-    |   staticAssertDeclaration
+	|   staticAssertDeclaration
 ;
 
 
@@ -264,21 +264,19 @@ enumSpecifier returns declarationSpecifier:
 	{enumSpecifier} 
 	(   
 		(ENUM IDENTIFIER? LEFTBRACE enumList=enumeratorList) (RIGHTBRACE | COMMA RIGHTBRACE)
-    |   ENUM IDENTIFIER
-    )
+	|   ENUM IDENTIFIER
+	)
 ;
 
 enumeratorList: enumerator
-    (COMMA enumerator+=enumerator)*
+	(COMMA enumerator+=enumerator)*
 ;
 
 enumerator:
 	{enumerator} 
 	enumerationCONSTANT
-    (ASSIGN constExpr=constantExpression)?
+	(ASSIGN constExpr=constantExpression)?
 ;
-
-enumerationCONSTANT: IDENTIFIER;
 
 atomicTypeSpecifier returns declarationSpecifier:
 	ATOMIC LEFTPAREN typeName RIGHTPAREN
@@ -295,10 +293,10 @@ TypeQualifier
 	:
 	{TypeQualifier} 
 	(	type=KW_CONST
-    |   type=KW_RESTRICT
-    |   type=KW_VOLATILE
-    |   type=KW_ATOMIC
-    )
+	|   type=KW_RESTRICT
+	|   type=KW_VOLATILE
+	|   type=KW_ATOMIC
+	)
 ;
 
 /*
@@ -306,13 +304,13 @@ functionSpecifier:
 	{functionSpecifier} 
 	(
 		(INLINE
-    	|   NORETURN
-    	|   '__inline__' // GCC extension
-    	|   '__stdcall'
-    	)
-    	|   gccAttributeSpecifier=gccAttributeSpecifier
-    	|   '__declspec' LEFTPAREN IDENTIFIER RIGHTPAREN
-    )
+		|   NORETURN
+		|   '__inline__' // GCC extension
+		|   '__stdcall'
+		)
+		|   gccAttributeSpecifier=gccAttributeSpecifier
+		|   '__declspec' LEFTPAREN IDENTIFIER RIGHTPAREN
+	)
 ;
 
 alignmentSpecifier: ALIGNAS LEFTPAREN (typeName | constantExpression) RIGHTPAREN;
@@ -356,12 +354,12 @@ DirectDeclarator
 DeclaratorSuffix:
 	{DeclaratorSuffix}
 	(
-    /*LEFTBRACKET STATIC (typeQualifierList+=typeQualifierList)? (assignExpr+=assignmentExpression)? RIGHTBRACKET
-    |   LEFTBRACKET  (typeQualifierList+=typeQualifierList)? (assignExpr+=assignmentExpression) RIGHTBRACKET
-    |   LEFTBRACKET (typeQualifierList+=typeQualifierList) STATIC (assignExpr+=assignmentExpression) RIGHTBRACKET
-    |   LEFTBRACKET (typeQualifierList+=typeQualifierList)? STAR RIGHTBRACKET
-    |*/	lastSuffix=DirectDeclaratorLastSuffix
-    )
+	/*LEFTBRACKET STATIC (typeQualifierList+=typeQualifierList)? (assignExpr+=assignmentExpression)? RIGHTBRACKET
+	|   LEFTBRACKET  (typeQualifierList+=typeQualifierList)? (assignExpr+=assignmentExpression) RIGHTBRACKET
+	|   LEFTBRACKET (typeQualifierList+=typeQualifierList) STATIC (assignExpr+=assignmentExpression) RIGHTBRACKET
+	|   LEFTBRACKET (typeQualifierList+=typeQualifierList)? STAR RIGHTBRACKET
+	|*/	lastSuffix=DirectDeclaratorLastSuffix
+	)
 ;
 
 
@@ -379,28 +377,28 @@ DirectDeclaratorLastSuffix:
 /*
 gccDeclaratorExtension:
 	{gccDeclaratorExtension} '__asm' LEFTPAREN STRINGLITERAL+ RIGHTPAREN
-    | {gccDeclaratorExtension} gccAttributeSpecifier=gccAttributeSpecifier
+	| {gccDeclaratorExtension} gccAttributeSpecifier=gccAttributeSpecifier
 ;
 
 
 gccAttributeSpecifier: '__attribute__' LEFTPAREN LEFTPAREN list=gccAttributeList RIGHTPAREN RIGHTPAREN;
 gccAttributeList: gcAttribute=gccAttribute (COMMA gccAttribute+=gccAttribute)*;
-    //|   // empty;
+	//|   // empty;
 
 // enter gccAttribute and nestedParenthesesBlock here
 gccAttribute: {gccAttribute} (ANYOTHER)
 	// relaxed def for "identifier or reserved word"
-        (LEFTPAREN list=argumentExpressionList? RIGHTPAREN)?
-    // |   //empty
+		(LEFTPAREN list=argumentExpressionList? RIGHTPAREN)?
+	// |   //empty
 ;
 
 //nestedParenthesesBlock: (   NOPAREN
-//        |   LEFTPAREN nestedParenthesesBlock RIGHTPAREN
-//        )*
+//		|   LEFTPAREN nestedParenthesesBlock RIGHTPAREN
+//		)*
 //;
 
 pointer: {pointer} ((STAR | CARET) typeQualifierList+=typeQualifierList?)*
-    //|   {pointer} CARET typeQualifierList=typeQualifierList? pointer=pointer?// Blocks language extension
+	//|   {pointer} CARET typeQualifierList=typeQualifierList? pointer=pointer?// Blocks language extension
 ;
 
 typeQualifierList: {typeQualifierList} (typeQualifier+=typeQualifier)+;
@@ -444,9 +442,9 @@ AbstractDeclarator:
 	//pointer
 	//(directAbstractDeclarator=DirectAbstractDeclarator)?
 	//(gccDeclExtAbstract+=gccDeclaratorExtension)*
-    //| 
-    (directAbstractDeclarator=DirectAbstractDeclarator)
-    //(gccDeclExtAbstract+=gccDeclaratorExtension)*
+	//| 
+	(directAbstractDeclarator=DirectAbstractDeclarator)
+	//(gccDeclExtAbstract+=gccDeclaratorExtension)*
 ;
 */
 
@@ -455,28 +453,28 @@ DirectAbstractDeclarator returns AbstractDeclarator:
 	{DirectAbstractDeclarator}
 	(LEFTPAREN declarator=AbstractDeclarator RIGHTPAREN
 		//(gccDeclExt+=gccDeclaratorExtension)*
-    |   abstractDeclaratorSuffix+=AbstractDeclaratorSuffix
-    )
-    
-    //(abstractDeclaratorSuffix+=abstractDeclaratorSuffix)*
+	|   abstractDeclaratorSuffix+=AbstractDeclaratorSuffix
+	)
+	
+	//(abstractDeclaratorSuffix+=abstractDeclaratorSuffix)*
 ;
 */
 
 /*
 abstractDeclaratorSuffix: {abstractDeclaratorSuffix}
 	(LEFTBRACKET typeQualifierList=typeQualifierList? (assignmentExpr+=assignmentExpression)? RIGHTBRACKET
-    |   LEFTBRACKET STATIC typeQualifierList=typeQualifierList? (assignmentExpr+=assignmentExpression) RIGHTBRACKET
-    |   LEFTBRACKET typeQualifierListOrig=typeQualifierList STATIC assignmentExpr+=assignmentExpression RIGHTBRACKET
-    |   LEFTBRACKET STAR RIGHTBRACKET
-    |   LEFTPAREN parameterTypeList=parameterTypeList? RIGHTPAREN (gccDeclExt+=gccDeclaratorExtension)*
-    )
+	|   LEFTBRACKET STATIC typeQualifierList=typeQualifierList? (assignmentExpr+=assignmentExpression) RIGHTBRACKET
+	|   LEFTBRACKET typeQualifierListOrig=typeQualifierList STATIC assignmentExpr+=assignmentExpression RIGHTBRACKET
+	|   LEFTBRACKET STAR RIGHTBRACKET
+	|   LEFTPAREN parameterTypeList=parameterTypeList? RIGHTPAREN (gccDeclExt+=gccDeclaratorExtension)*
+	)
 ;
 */
 
 /*
 initializer:
 	assignmentExpression
-    |   LEFTBRACE initializerList COMMA? RIGHTBRACE
+	|   LEFTBRACE initializerList COMMA? RIGHTBRACE
 ;
 
 initializerList: designation? (initializer=initializer)
@@ -484,169 +482,28 @@ initializerList: designation? (initializer=initializer)
 ;
 */
 
-/*** Expressions ***/
-
-/*
-primaryExpression returns expression: 
-	{primaryExpression}
-	(id=IDENTIFIER
-    //|   const=CONSTANT
-    //|   string+=STRINGLITERAL+
-    //|   LEFTPAREN expr=expression RIGHTPAREN
-    //|   genericSelection=genericSelection
-   // |   '__extension__'? LEFTPAREN compoundStmt=compoundStatement RIGHTPAREN // Blocks (GCC extension)
-    //|   '__builtin_va_arg' LEFTPAREN expr=unaryExpression COMMA typeName=typeName RIGHTPAREN
-    //|   '__builtin_offsetof' LEFTPAREN typeName=typeName COMMA expr=unaryExpression RIGHTPAREN
-    )
-;
-
-genericSelection: GENERIC LEFTPAREN assignmentExpression COMMA genericAssocList=genericAssocList RIGHTPAREN;
-
-genericAssocList: genericAssociation (COMMA genericAssociation+=genericAssociation)*;
-
-genericAssociation:
-	(typeName | DEFAULT) COLON
-	(assignmentExpression=assignmentExpression)
-;
-
-postfixExpression returns expression:
-	(primaryExpression
-	|   ('__extension__' LEFTPAREN typeName RIGHTPAREN LEFTBRACE initializerList=initializerList) 
-			(COMMA? RIGHTBRACE)
-    )
-    (LEFTBRACKET expr+=expression RIGHTBRACKET
-    | LEFTPAREN argumentExpressionList+=argumentExpressionList? RIGHTPAREN
-    | DOT IDENTIFIER
-    | ARROW IDENTIFIER
-    | PLUSPLUS
-    | MINUSMINUS
-    )*
-;
-
-argumentExpressionList: assignmentExpression (COMMA expr+=assignmentExpression)*;
-
-unaryExpression returns expression:
-	{unaryExpression} 
-	
-	(PLUSPLUS | MINUSMINUS | SIZEOF)*
-	
-	(postfixexpr=postfixExpression
-	|   SIZEOF LEFTPAREN typeName=typeName RIGHTPAREN
-    |   ALIGNOF LEFTPAREN typeName=typeName RIGHTPAREN
-    |   ANDAND IDENTIFIER // GCC extension address of label
-    |   unaryOperator castExpr=castExpression
-    )
-	
-    //|   PLUSPLUS unaryExpr=unaryExpression
-    //|   MINUSMINUS unaryExpr=unaryExpression
-    //|   SIZEOF unaryExpr=unaryExpression
-    
-    
-;
-
-unaryOperator: AND | STAR | PLUS | MINUS | TILDE | NOT;
-
-castExpression returns expression:
-	unaryExpression
-    |   LEFTPAREN typeName RIGHTPAREN castExpr=castExpression
-    |   '__extension__' LEFTPAREN typeName RIGHTPAREN castExpr=castExpression
-;
-
-multiplicativeExpression returns expression:
-	castExpression
-	((STAR|DIV|MOD)
-		expr+=castExpression
-    )
-;
-
-additiveExpression returns expression:
-  multiplicativeExpression
-  ((PLUS| MINUS)
-  	expr+=multiplicativeExpression
-  )
-;
-
-shiftExpression returns expression:
-	additiveExpression 
-	((LEFTSHIFT| RIGHTSHIFT)
-		expr+=additiveExpression
-    )*
-;
-
-relationalExpression returns expression:
-	shiftExpression
-    ((LESS|GREATER|LESSEQUAL|GREATEREQUAL)
-    	expr += shiftExpression
-    )*
-;
-
-equalityExpression returns expression:
-	relationalExpression
-	((EQUAL |   NOTEQUAL) expr+=relationalExpression)*
-;
-
-andExpression returns expression: equalityExpression (AND expr+=equalityExpression)*;
-
-exclusiveOrExpression returns expression: andExpression (CARET expr+=andExpression)*;
-
-inclusiveOrExpression returns expression: exclusiveOrExpression (OR expr+=exclusiveOrExpression)*;
-
-logicalAndExpression returns expression: inclusiveOrExpression (ANDAND expr+=inclusiveOrExpression)*;
-
-logicalOrExpression returns expression:
-	logicalAndExpression (OROR expr+=logicalAndExpression)*
-;
-
-conditionalExpression returns expression:
-	logicalOrExpression (QUESTION expr+=expression COLON conditionaExpr+=conditionalExpression)?
-;
-
-assignmentExpression returns expression:
-	conditionalExpression
-    |   unaryExpression assignmentOperator assignmentExpr+=assignmentExpression
-;
-
-assignmentOperator: 
-	ASSIGN
-	| STARASSIGN
-	| DIVASSIGN
-	| MODASSIGN
-	| PLUSASSIGN
-	| MINUSASSIGN
-	| LEFTSHIFTASSIGN
-	| RIGHTSHIFTASSIGN
-	| ANDASSIGN
-	| XORASSIGN
-	| ORASSIGN
-;
-
-expression: assignmentExpression (COMMA assignmentExpr+=assignmentExpression)*;
-
-constantExpression returns expression: conditionalExpression;
-*/
-
 /*** Statements */
 Statement:
 	{Statement}
 	(
 	//stmt=labeledStatement
-    //|
-    	stmt=CompoundStatement
-    |   stmt=ExpressionStatement
-/*    |   stmt=selectionStatement
-    |   stmt=iterationStatement
-    |   stmt=jumpStatement
-    |   ('__asm' | '__asm__') (VOLATILE | '__volatile__') 
-    		LEFTPAREN (expr+=logicalOrExpression (COMMA logicalExpr+=logicalOrExpression)*)? 
-    		(COLON (expr+=logicalOrExpression (COMMA logicalExpr+=logicalOrExpression)*)?)* RIGHTPAREN SEMI
+	//|
+		stmt=CompoundStatement
+	|   stmt=ExpressionStatement
+/*	|   stmt=selectionStatement
+	|   stmt=iterationStatement
+	|   stmt=jumpStatement
+	|   ('__asm' | '__asm__') (VOLATILE | '__volatile__') 
+			LEFTPAREN (expr+=logicalOrExpression (COMMA logicalExpr+=logicalOrExpression)*)? 
+			(COLON (expr+=logicalOrExpression (COMMA logicalExpr+=logicalOrExpression)*)?)* RIGHTPAREN SEMI
  */
    	)
 ;
 /*
 labeledStatement returns statement:
 	IDENTIFIER COLON statement
-    |   CASE constantExpression COLON statement=statement
-    |   DEFAULT COLON statement
+	|   CASE constantExpression COLON statement=statement
+	|   DEFAULT COLON statement
 ;
 */
 
@@ -669,30 +526,30 @@ BlockList:
 
 ExpressionStatement:
 	{ExpressionStatement} 
+	(expression += Expression)? 
 	semi=SEMI
-	//| expression+=expression SEMI
 ;
 
 /*
 selectionStatement:
 	IF LEFTPAREN expression RIGHTPAREN statement=statement
 	(=>ELSE elseStatement+=statement)?
-    |   SWITCH LEFTPAREN expression RIGHTPAREN statement=statement
+	|   SWITCH LEFTPAREN expression RIGHTPAREN statement=statement
 ;
 
 iterationStatement: WHILE LEFTPAREN expression RIGHTPAREN statement=statement
-    |   DO statement WHILE LEFTPAREN whileexpression=expression RIGHTPAREN SEMI
-    |   FOR LEFTPAREN expression? SEMI expression? SEMI expression? RIGHTPAREN statement
-    |   FOR LEFTPAREN declaration (forexpression+=expression)? SEMI expression? RIGHTPAREN statement=statement
+	|   DO statement WHILE LEFTPAREN whileexpression=expression RIGHTPAREN SEMI
+	|   FOR LEFTPAREN expression? SEMI expression? SEMI expression? RIGHTPAREN statement
+	|   FOR LEFTPAREN declaration (forexpression+=expression)? SEMI expression? RIGHTPAREN statement=statement
 ;
 
 jumpStatement:
 	{jumpStatement} GOTO IDENTIFIER SEMI //(can be reached over GOTO unaryExpression)
 	|
-       {jumpStatement} CONTINUE SEMI
-    |   {jumpStatement} BREAK SEMI
-    |   {jumpStatement} RETURN expr=expression? SEMI
-    // |   {jumpStatement} GOTO expr=unaryExpression SEMI // GCC extension
+	   {jumpStatement} CONTINUE SEMI
+	|   {jumpStatement} BREAK SEMI
+	|   {jumpStatement} RETURN expr=expression? SEMI
+	// |   {jumpStatement} GOTO expr=unaryExpression SEMI // GCC extension
 ;
 
 
@@ -701,7 +558,7 @@ designation: designatorList ASSIGN;
 designatorList: designator (designator+=designator)*;
 
 designator: {designator} LEFTBRACKET expr=constantExpression RIGHTBRACKET
-    |   {designator} DOT IDENTIFIER
+	|   {designator} DOT IDENTIFIER
 ;
 
 staticAssertDeclaration: STATICASSERT LEFTPAREN constantExpression COMMA STRINGLITERAL+ RIGHTPAREN SEMI;
@@ -711,6 +568,211 @@ declarationList:
 ;
 */
 
+/*** Expressions ***/
+
+
+PrimaryExpression returns Expression:
+	{PrimaryExpression} 
+	(id=ID
+	|   const=Constant
+	|   string+=STRING_LITERAL+
+	|   LEFTPAREN expr=Expression RIGHTPAREN
+	//|   genericSelection=genericSelection
+	// |   '__extension__'? LEFTPAREN compoundStmt=compoundStatement RIGHTPAREN // Blocks (GCC extension)
+	//|   '__builtin_va_arg' LEFTPAREN expr=unaryExpression COMMA typeName=typeName RIGHTPAREN
+	//|   '__builtin_offsetof' LEFTPAREN typeName=typeName COMMA expr=unaryExpression RIGHTPAREN
+	)
+;
+
+/*
+genericSelection: GENERIC LEFTPAREN assignmentExpression COMMA genericAssocList=genericAssocList RIGHTPAREN;
+
+genericAssocList: genericAssociation (COMMA genericAssociation+=genericAssociation)*;
+
+genericAssociation:
+	(typeName | DEFAULT) COLON
+	(assignmentExpression=assignmentExpression)
+;
+*/
+
+PostfixExpression returns Expression:
+	{PostfixExpression}
+	(expr+=PrimaryExpression
+	/*|   ('__extension__' LEFTPAREN typeName RIGHTPAREN LEFTBRACE initializerList=initializerList) 
+			(COMMA? RIGHTBRACE)
+	)
+	(LEFTBRACKET expr+=expression RIGHTBRACKET
+	| LEFTPAREN argumentExpressionList+=argumentExpressionList? RIGHTPAREN
+	| DOT IDENTIFIER
+	| ARROW IDENTIFIER
+	| PLUSPLUS
+	| MINUSMINUS
+	*/
+	)*
+;
+
+/*
+argumentExpressionList: assignmentExpression (COMMA expr+=assignmentExpression)*;
+*/
+
+UnaryExpression returns Expression:
+	{UnaryExpression}
+	
+	//(PLUSPLUS | MINUSMINUS | SIZEOF)*
+	
+	(
+		postfixexpr=PostfixExpression
+	//|   SIZEOF LEFTPAREN typeName=typeName RIGHTPAREN
+	//|   ALIGNOF LEFTPAREN typeName=typeName RIGHTPAREN
+	|   ANDAND ID // GCC extension address of label
+	|   op=UnaryOperator castExpr=CastExpression
+	)
+	
+	//|   PLUSPLUS unaryExpr=unaryExpression
+	//|   MINUSMINUS unaryExpr=unaryExpression
+	//|   SIZEOF unaryExpr=unaryExpression
+	  
+;
+
+UnaryOperator:
+		op=AND
+	|	op=STAR
+	|	op=PLUS 
+	|	op=MINUS 
+	|	op=TILDE
+	|	op=NOT
+;
+
+CastExpression returns Expression:
+	{CastExpression}
+	(
+	expr=UnaryExpression
+	|   LEFTPAREN type=TypedefName RIGHTPAREN castExpr=CastExpression
+	|   '__extension__' LEFTPAREN type=TypedefName RIGHTPAREN castExpr=CastExpression
+	)
+;
+
+MultiplicativeExpression returns Expression:
+	{MultiplicativeExpression}
+	expr+=CastExpression
+	((op=STAR|op=DIV|op=MOD)
+		expr+=CastExpression
+	)
+;
+
+AdditiveExpression returns Expression:
+	{AdditiveExpression}
+	expr+=MultiplicativeExpression
+	((op=PLUS| op=MINUS)
+		expr+=MultiplicativeExpression
+	)
+;
+
+ShiftExpression returns Expression:
+	{ShiftExpression}
+	expr+=AdditiveExpression
+	((op+=LEFTSHIFT| op+=RIGHTSHIFT)
+		expr+=AdditiveExpression
+	)*
+;
+
+RelationalExpression returns Expression:
+	{RelationalExpression}
+	expr+=ShiftExpression
+	((op+=LESS|op+=GREATER|op+=LESSEQUAL|op+=GREATEREQUAL)
+		expr += ShiftExpression
+	)*
+;
+
+EqualityExpression returns Expression:
+	{EqualityExpression}
+	expr+=RelationalExpression
+	((op+=EQUAL | op+=NOTEQUAL) expr+=RelationalExpression)*
+;
+
+AndExpression returns Expression:
+	{AndExpression}
+	expr+=EqualityExpression
+	(AND expr+=EqualityExpression)*
+;
+
+ExclusiveOrExpression returns Expression:
+	{ExclusiveOrExpression}
+	expr+=AndExpression
+	(CARET expr+=AndExpression)*
+;
+
+InclusiveOrExpression returns Expression:
+	{InclusiveOrExpression}
+	expr+=ExclusiveOrExpression
+	(OR expr+=ExclusiveOrExpression)*
+;
+
+LogicalAndExpression returns Expression:
+	{LogicalAndExpression}
+	expr+=InclusiveOrExpression
+	(ANDAND expr+=InclusiveOrExpression)*
+;
+
+LogicalOrExpression returns Expression:
+	{LogicalOrExpression}
+	expr+=LogicalAndExpression
+	(OROR expr+=LogicalAndExpression)*
+;
+
+ConditionalExpression returns Expression:
+	{ConditionalExpression}
+	expr+=LogicalOrExpression
+	(QUESTION expr+=Expression COLON
+		conditionaExpr+=ConditionalExpression
+	)?
+;
+
+AssignmentExpression returns Expression:
+	{AssignmentExpression}
+	(
+	expr=ConditionalExpression
+	|   expr=UnaryExpression
+		op=AssignmentOperator
+		assignmentExpr+=AssignmentExpression
+	)
+;
+
+AssignmentOperator:
+	{AssignmentOperator}
+		op=ASSIGN
+	| 	op=STARASSIGN
+	| 	op=DIVASSIGN
+	| 	op=MODASSIGN
+	| 	op=PLUSASSIGN
+	| 	op=MINUSASSIGN
+	| 	op=LEFTSHIFTASSIGN
+	| 	op=RIGHTSHIFTASSIGN
+	| 	op=ANDASSIGN
+	| 	op=XORASSIGN
+	| 	op=ORASSIGN
+;
+
+Expression:
+	{Expression}
+	expr+=AssignmentExpression
+	(COMMA expr+=AssignmentExpression)*
+;
+
+/*ConstantExpression returns Expression:
+	{ConstantExpression}
+	expr=ConditionalExpression
+;*/
+
+Constant:
+	{Constant}
+		hex=HEX_LITERAL
+	|   oct=OCTAL_LITERAL
+	|   dec=DECIMAL_LITERAL
+	|	ch=CHAR_LITERAL
+	|	str=STRING_LITERAL
+	|   float=FLOAT_LITERAL
+;
 
 /*** lexer ***/
 /*** start with keywords ;-) */
@@ -819,34 +881,42 @@ terminal DOT: '.';
 terminal ELLIPSIS: DOT DOT DOT;
 
 terminal ZERO: '0';
+terminal SINGLEQUOTE: '\'';
+terminal DOUBLEQUOTE: '"';
+terminal BACKSLASH: '\\';
 
+/*
 terminal fragment IDENTIFIER:
 	IDENTIFIERNONDIGIT
-        (   IDENTIFIERNONDIGIT
-        |   DIGIT
-        )*
+		(   IDENTIFIERNONDIGIT
+		|   DIGIT
+		)*
 ;
 terminal fragment IDENTIFIERNONDIGIT:
 	NONDIGIT
-    |   UNIVERSALCHARACTERNAME
-    //|   // other implementation-defined characters...
+	|   UNIVERSALCHARACTERNAME
+	//|   // other implementation-defined characters...
 ;
 terminal fragment NONDIGIT: ('a' .. 'z' | 'A' .. 'Z'); // [a-zA-Z_];
 terminal fragment DIGIT: '0' .. '9'; //[0-9];
 terminal fragment UNIVERSALCHARACTERNAME:
 	'\\u' HEXQUAD
-    |   '\\U' HEXQUAD HEXQUAD
+	|   '\\U' HEXQUAD HEXQUAD
 ;
 terminal fragment HEXQUAD: HEXADECIMALDIGIT HEXADECIMALDIGIT HEXADECIMALDIGIT HEXADECIMALDIGIT;
 terminal CONSTANT: INTEGERCONSTANT
-    |   FLOATINGCONSTANT
-    //|   EnumerationCONSTANT
-    |   CHARACTERCONSTANT
+	|   FLOATINGCONSTANT
+	//|   ENUMERATIONCONSTANT // commented out because of ANTLR error during generation!
+	|   CHARACTERCONSTANT
 ;
+
+// commented out because of ANTLR error during generation!
+//terminal fragment ENUMERATIONCONSTANT: IDENTIFIER;
+
 terminal fragment INTEGERCONSTANT:
 	DECIMALCONSTANT INTEGERSUFFIX?
-    |   OCTALCONSTANT INTEGERSUFFIX?
-    |   HEXADECIMALCONSTANT INTEGERSUFFIX?
+	|   OCTALCONSTANT INTEGERSUFFIX?
+	|   HEXADECIMALCONSTANT INTEGERSUFFIX?
 ;
 terminal fragment DECIMALCONSTANT: NONZERODIGIT DIGIT*;
 terminal fragment OCTALCONSTANT: '0' OCTALDIGIT*;
@@ -857,55 +927,55 @@ terminal fragment OCTALDIGIT: ('0' .. '7'); //[0-7];
 terminal fragment HEXADECIMALDIGIT: ('0'..'9' | 'a' .. 'f' | 'A' .. 'F'); // [0-9a-fA-F];
 terminal fragment INTEGERSUFFIX:
 	UNSIGNEDSUFFIX LONGSUFFIX?
-    |   UNSIGNEDSUFFIX LONGLONGSUFFIX
-    |   LONGSUFFIX UNSIGNEDSUFFIX?
-    |   LONGLONGSUFFIX UNSIGNEDSUFFIX?
+	|   UNSIGNEDSUFFIX LONGLONGSUFFIX
+	|   LONGSUFFIX UNSIGNEDSUFFIX?
+	|   LONGLONGSUFFIX UNSIGNEDSUFFIX?
 ;
 terminal fragment UNSIGNEDSUFFIX: 'u' | 'U'; //[uU];
 terminal fragment LONGSUFFIX: 'l' | 'L'; //[lL];
 terminal fragment LONGLONGSUFFIX: 'll' | 'LL';
 terminal fragment FLOATINGCONSTANT:
 	DECIMALFLOATINGCONSTANT
-    |   HEXADECIMALFLOATINGCONSTANT
+	|   HEXADECIMALFLOATINGCONSTANT
 ;
 terminal fragment DECIMALFLOATINGCONSTANT:
 	FRACTIONALCONSTANT EXPONENTPART? FLOATINGSUFFIX?
-    |   DIGITSEQUENCE EXPONENTPART FLOATINGSUFFIX?
+	|   DIGITSEQUENCE EXPONENTPART FLOATINGSUFFIX?
 ;
 terminal fragment HEXADECIMALFLOATINGCONSTANT:
 	HEXADECIMALPREFIX HEXADECIMALFRACTIONALCONSTANT BINARYEXPONENTPART FLOATINGSUFFIX?
-    |   HEXADECIMALPREFIX HEXADECIMALDIGITSEQUENCE BINARYEXPONENTPART FLOATINGSUFFIX?
+	|   HEXADECIMALPREFIX HEXADECIMALDIGITSEQUENCE BINARYEXPONENTPART FLOATINGSUFFIX?
 ;
 terminal fragment FRACTIONALCONSTANT: 
 	DIGITSEQUENCE? DOT DIGITSEQUENCE
-    |   DIGITSEQUENCE DOT
+	|   DIGITSEQUENCE DOT
 ;
 terminal fragment EXPONENTPART:
 	'e' SIGN? DIGITSEQUENCE
-    |   'E' SIGN? DIGITSEQUENCE
+	|   'E' SIGN? DIGITSEQUENCE
 ;
 terminal fragment SIGN: PLUS | MINUS;
 terminal fragment DIGITSEQUENCE: DIGIT+;
 terminal fragment HEXADECIMALFRACTIONALCONSTANT:
 	HEXADECIMALDIGITSEQUENCE? DOT HEXADECIMALDIGITSEQUENCE
-    |   HEXADECIMALDIGITSEQUENCE DOT
+	|   HEXADECIMALDIGITSEQUENCE DOT
 ;
 terminal fragment BINARYEXPONENTPART: 
 	'p' SIGN? DIGITSEQUENCE
-    |   'P' SIGN? DIGITSEQUENCE
+	|   'P' SIGN? DIGITSEQUENCE
 ;
 terminal fragment HEXADECIMALDIGITSEQUENCE: HEXADECIMALDIGIT+;
 terminal fragment FLOATINGSUFFIX: 'f' | 'l' | 'F' | 'L';
 terminal fragment CHARACTERCONSTANT: 
 	SINGLEQUOTE CCHARSEQUENCE SINGLEQUOTE
-    |   'L\'' CCHARSEQUENCE SINGLEQUOTE
-    |   'u\'' CCHARSEQUENCE SINGLEQUOTE
-    |   'U\'' CCHARSEQUENCE SINGLEQUOTE
+	|   'L\'' CCHARSEQUENCE SINGLEQUOTE
+	|   'u\'' CCHARSEQUENCE SINGLEQUOTE
+	|   'U\'' CCHARSEQUENCE SINGLEQUOTE
 ;
 terminal fragment CCHARSEQUENCE: CCHAR+;
 terminal fragment CCHAR: //~['\\\r\n]
 	!(BACKSLASH | NEWLINE)
-    |   ESCAPESEQUENCE
+	|   ESCAPESEQUENCE
 ;
 terminal fragment ESCAPESEQUENCE: SIMPLEESCAPESEQUENCE
 	|   OCTALESCAPESEQUENCE
@@ -917,8 +987,8 @@ terminal fragment SIMPLEESCAPESEQUENCE:
 	(SINGLEQUOTE | DOUBLEQUOTE | 'a' | 'b' | 'f' | 'n' | 'r' | 't' | 'v' | QUESTION | BACKSLASH)
 ;
 terminal fragment OCTALESCAPESEQUENCE: BACKSLASH OCTALDIGIT
-    |   BACKSLASH OCTALDIGIT OCTALDIGIT
-    |   BACKSLASH OCTALDIGIT OCTALDIGIT OCTALDIGIT
+	|   BACKSLASH OCTALDIGIT OCTALDIGIT
+	|   BACKSLASH OCTALDIGIT OCTALDIGIT OCTALDIGIT
 ;
 
 terminal fragment HEXADECIMALESCAPESEQUENCE: '\\x' HEXADECIMALDIGIT+;
@@ -926,20 +996,80 @@ terminal fragment HEXADECIMALESCAPESEQUENCE: '\\x' HEXADECIMALDIGIT+;
 terminal STRINGLITERAL: ENCODINGPREFIX? '"' SCHARSEQUENCE? '"';
 
 terminal fragment ENCODINGPREFIX: 'u8'
-    |   'u'
-    |   'U'
-    |   'L'
+	|   'u'
+	|   'U'
+	|   'L'
 ;
 terminal fragment SCHARSEQUENCE: SCHAR+;
 terminal fragment SCHAR: 
 	! ('\n' | '\r'| BACKSLASH | DOUBLEQUOTE) //~["\\\r\n]
 	|   ESCAPESEQUENCE
 ;
-terminal SINGLEQUOTE: '\'';
-terminal DOUBLEQUOTE: '"';
-terminal BACKSLASH: '\\';
+*/
+
+terminal ID: IDENTIFIER;
+terminal fragment IDENTIFIER:
+	LETTER (LETTER|'0'..'9')*
+;
+	
+terminal fragment LETTER:
+	'$'
+	|	'A'..'Z'
+	|	'a'..'z'
+	|	'_'
+;
+
+terminal CHAR_LITERAL:
+	'\'' ( ESCAPE_SEQUENCE | !('\''|'\\') ) '\''
+;
+
+terminal STRING_LITERAL:
+	'"' ( ESCAPE_SEQUENCE | !('\\'|'"') )* '"'
+;
+
+terminal HEX_LITERAL: '0' ('x'|'X') HEX_DIGIT+ INTEGER_TYPE_SUFFIX? ;
+
+terminal DECIMAL_LITERAL: ('0' | '1'..'9' '0'..'9'*) INTEGER_TYPE_SUFFIX? ;
+
+terminal OCTAL_LITERAL: '0' ('0'..'7')+ INTEGER_TYPE_SUFFIX? ;
+
+terminal fragment HEX_DIGIT: ('0'..'9'|'a'..'f'|'A'..'F');
+
+terminal fragment INTEGER_TYPE_SUFFIX:
+	('u'|'U')? ('l'|'L')
+	|	('u'|'U')  ('l'|'L')?
+;
+
+terminal FLOAT_LITERAL:
+	('0'..'9')+ '.' ('0'..'9')* EXPONENT? FLOAT_TYPE_SUFFIX?
+	|   '.' ('0'..'9')+ EXPONENT? FLOAT_TYPE_SUFFIX?
+	|   ('0'..'9')+ EXPONENT FLOAT_TYPE_SUFFIX?
+	|   ('0'..'9')+ EXPONENT? FLOAT_TYPE_SUFFIX
+;
+
+terminal fragment EXPONENT:
+	('e'|'E') ('+'|'-')? ('0'..'9')+
+;
+
+terminal fragment FLOAT_TYPE_SUFFIX: ('f'|'F'|'d'|'D') ;
+
+terminal fragment ESCAPE_SEQUENCE:
+	'\\' ('b'|'t'|'n'|'f'|'r'|'\"'|'\''|'\\')
+	|   OCTAL_ESCAPE
+;
+
+terminal fragment OCTAL_ESCAPE:
+	'\\' ('0'..'3') ('0'..'7') ('0'..'7')
+	|   '\\' ('0'..'7') ('0'..'7')
+	|   '\\' ('0'..'7')
+;
+
+terminal fragment UNICODE_ESCAPE:
+	'\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
+;
+
 terminal LINEDIRECTIVE: 
-	'#' WHITESPACE? DECIMALCONSTANT WHITESPACE? STRINGLITERAL (!NEWLINE)*;
+	'#' WHITESPACE? DECIMAL_LITERAL WHITESPACE? STRING_LITERAL (!NEWLINE)*;
 terminal PRAGMADIRECTIVE: '#' WHITESPACE? KW_PRAGMA WHITESPACE (!NEWLINE)*;
 terminal WHITESPACE: (' ' | '\t')+;
 terminal BLOCK_COMMENT: '/*' -> '*/';
@@ -949,4 +1079,3 @@ terminal NEWLINE: ('\r'|'\n');
 
 //terminal ANYOTHER: !(COMMA | LEFTPAREN | RIGHTPAREN);
 //terminal NOPAREN: !(LEFTPAREN | RIGHTPAREN);
-terminal ID: IDENTIFIER;

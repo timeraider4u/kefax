@@ -94,13 +94,73 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//BlockList/statement"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//ExpressionStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//ExpressionStatement/expression"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//ExpressionStatement/semi"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//Expression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//Expression/expr"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//UnaryOperator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//UnaryOperator/op"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//AssignmentOperator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//AssignmentOperator/op"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//Constant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//Constant/hex"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//Constant/oct"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//Constant/dec"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//Constant/ch"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//Constant/str"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//Constant/float"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//CompoundStatement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//CompoundStatement/body"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//BodyStatement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//BodyStatement/blockList"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//PrimaryExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//PrimaryExpression/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//PrimaryExpression/const"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//PrimaryExpression/string"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//PostfixExpression"/>
+    <genClasses ecoreClass="C.ecore#//UnaryExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//UnaryExpression/postfixexpr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//UnaryExpression/op"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//UnaryExpression/castExpr"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//CastExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//CastExpression/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//CastExpression/castExpr"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//MultiplicativeExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//MultiplicativeExpression/op"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//AdditiveExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//AdditiveExpression/op"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//ShiftExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//ShiftExpression/op"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//RelationalExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//RelationalExpression/op"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//EqualityExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//EqualityExpression/op"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//AndExpression"/>
+    <genClasses ecoreClass="C.ecore#//ExclusiveOrExpression"/>
+    <genClasses ecoreClass="C.ecore#//InclusiveOrExpression"/>
+    <genClasses ecoreClass="C.ecore#//LogicalAndExpression"/>
+    <genClasses ecoreClass="C.ecore#//LogicalOrExpression"/>
+    <genClasses ecoreClass="C.ecore#//ConditionalExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//ConditionalExpression/conditionaExpr"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//AssignmentExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//AssignmentExpression/op"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//AssignmentExpression/assignmentExpr"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

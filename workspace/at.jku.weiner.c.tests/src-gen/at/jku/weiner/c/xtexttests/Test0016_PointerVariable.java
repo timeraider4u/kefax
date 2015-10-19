@@ -35,8 +35,8 @@ import at.jku.weiner.c.c.InitDeclarator;
 import at.jku.weiner.c.c.Declarator;
 import at.jku.weiner.c.c.DirectDeclarator;
 import at.jku.weiner.c.c.Pointer;
-import at.jku.weiner.c.c.TypeQualiferList;
-import at.jku.weiner.c.c.TypeQualifer;
+import at.jku.weiner.c.c.TypeQualifierList;
+import at.jku.weiner.c.c.TypeQualifier;
 import at.jku.weiner.c.c.ExternalDeclaration;
 import at.jku.weiner.c.c.Declaration;
 import at.jku.weiner.c.c.DeclarationSpecifiers;
@@ -46,8 +46,8 @@ import at.jku.weiner.c.c.InitDeclarator;
 import at.jku.weiner.c.c.Declarator;
 import at.jku.weiner.c.c.DirectDeclarator;
 import at.jku.weiner.c.c.Pointer;
-import at.jku.weiner.c.c.TypeQualiferList;
-import at.jku.weiner.c.c.TypeQualifer;
+import at.jku.weiner.c.c.TypeQualifierList;
+import at.jku.weiner.c.c.TypeQualifier;
 
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
@@ -158,14 +158,14 @@ public class Test0016_PointerVariable {
 		final EList<? extends EObject> TypeQualifierList_10_list = Pointer_10_Var.getTypeQualifierList();
 		Assert.assertNotNull(TypeQualifierList_10_list);
 		Assert.assertEquals(1, TypeQualifierList_10_list.size());
-		final TypeQualiferList TypeQualiferList_11_Var = (TypeQualiferList)TypeQualifierList_10_list.get(0);
-		Assert.assertNotNull(TypeQualiferList_11_Var);
-		final EList<? extends EObject> TypeQualifier_11_list = TypeQualiferList_11_Var.getTypeQualifier();
+		final TypeQualifierList TypeQualifierList_11_Var = (TypeQualifierList)TypeQualifierList_10_list.get(0);
+		Assert.assertNotNull(TypeQualifierList_11_Var);
+		final EList<? extends EObject> TypeQualifier_11_list = TypeQualifierList_11_Var.getTypeQualifier();
 		Assert.assertNotNull(TypeQualifier_11_list);
 		Assert.assertEquals(1, TypeQualifier_11_list.size());
-		final TypeQualifer TypeQualifer_12_Var = (TypeQualifer)TypeQualifier_11_list.get(0);
-		Assert.assertNotNull(TypeQualifer_12_Var);
-		Assert.assertEquals("const", TypeQualifer_12_Var.getType());
+		final TypeQualifier TypeQualifier_12_Var = (TypeQualifier)TypeQualifier_11_list.get(0);
+		Assert.assertNotNull(TypeQualifier_12_Var);
+		Assert.assertEquals("const", TypeQualifier_12_Var.getType());
 		Assert.assertEquals(";", Declaration_3_Var.getSemi());
 		final ExternalDeclaration ExternalDeclaration_13_Var = (ExternalDeclaration)External_1_list.get(1);
 		Assert.assertNotNull(ExternalDeclaration_13_Var);
@@ -200,14 +200,14 @@ public class Test0016_PointerVariable {
 		final EList<? extends EObject> TypeQualifierList_21_list = Pointer_21_Var.getTypeQualifierList();
 		Assert.assertNotNull(TypeQualifierList_21_list);
 		Assert.assertEquals(1, TypeQualifierList_21_list.size());
-		final TypeQualiferList TypeQualiferList_22_Var = (TypeQualiferList)TypeQualifierList_21_list.get(0);
-		Assert.assertNotNull(TypeQualiferList_22_Var);
-		final EList<? extends EObject> TypeQualifier_22_list = TypeQualiferList_22_Var.getTypeQualifier();
+		final TypeQualifierList TypeQualifierList_22_Var = (TypeQualifierList)TypeQualifierList_21_list.get(0);
+		Assert.assertNotNull(TypeQualifierList_22_Var);
+		final EList<? extends EObject> TypeQualifier_22_list = TypeQualifierList_22_Var.getTypeQualifier();
 		Assert.assertNotNull(TypeQualifier_22_list);
 		Assert.assertEquals(1, TypeQualifier_22_list.size());
-		final TypeQualifer TypeQualifer_23_Var = (TypeQualifer)TypeQualifier_22_list.get(0);
-		Assert.assertNotNull(TypeQualifer_23_Var);
-		Assert.assertEquals("const", TypeQualifer_23_Var.getType());
+		final TypeQualifier TypeQualifier_23_Var = (TypeQualifier)TypeQualifier_22_list.get(0);
+		Assert.assertNotNull(TypeQualifier_23_Var);
+		Assert.assertEquals("const", TypeQualifier_23_Var.getType());
 		Assert.assertEquals(";", Declaration_14_Var.getSemi());
 	}
 

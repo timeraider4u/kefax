@@ -4629,7 +4629,7 @@ public class InternalCLexer extends Lexer {
 		}
 	}
 
-	protected static class DFA25 extends DFA {
+	protected class DFA25 extends DFA {
 
 		public DFA25(BaseRecognizer recognizer) {
 			this.recognizer = recognizer;
@@ -4647,6 +4647,7 @@ public class InternalCLexer extends Lexer {
 			return "6036:22: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( RULE_EXPONENT )? ( RULE_FLOAT_TYPE_SUFFIX )? | '.' ( '0' .. '9' )+ ( RULE_EXPONENT )? ( RULE_FLOAT_TYPE_SUFFIX )? | ( '0' .. '9' )+ RULE_EXPONENT ( RULE_FLOAT_TYPE_SUFFIX )? | ( '0' .. '9' )+ ( RULE_EXPONENT )? RULE_FLOAT_TYPE_SUFFIX )";
 		}
 	}
+
 
 	static final String DFA38_eotS =
 		"\1\uffff\1\73\17\54\6\uffff\1\126\1\131\1\134\1\137\1\143\1\147\1\151\1\153\1\156\1\161\1\163\5\uffff\1\165\1\uffff\1\171\1\173\2\uffff\2\176\3\uffff\11\54\1\uffff\7\54\1\u0096\6\54\1\u009d\13\54\2\uffff\1\u00b0\2\uffff\1\u00b2\43\uffff\1\u00b4\1\176\3\uffff\13\54\1\u00c0\6\54\1\uffff\4\54\1\u00cc\1\54\1\uffff\1\54\1\u00cf\20\54\5\uffff\12\54\1\u00ea\1\uffff\1\54\1\u00ec\1\u00ed\4\54\1\u00f2\1\u00f3\2\54\1\uffff\1\u00f6\1\54\1\uffff\1\u00f8\14\54\1\u0105\5\54\1\u010b\6\54\1\uffff\1\u0112\2\uffff\1\u0113\3\54\2\uffff\1\54\1\u0118\1\uffff\1\54\1\uffff\3\54\1\u011d\6\54\1\u0124\1\54\1\uffff\1\54\1\u0127\1\u012a\2\54\1\uffff\6\54\2\uffff\2\54\1\u0136\1\u0137\1\uffff\1\u0138\2\54\1\u013b\1\uffff\1\u013c\1\u013d\1\u013e\1\u013f\1\u0140\1\54\1\uffff\2\54\1\uffff\1\u0144\1\u0145\1\uffff\2\54\1\u0148\7\54\1\u0150\3\uffff\2\54\6\uffff\1\u0153\2\54\2\uffff\1\u0156\1\u0157\1\uffff\1\u0158\1\u0159\4\54\1\u015e\1\uffff\1\u015f\1\u0160\1\uffff\1\u0161\1\u0162\4\uffff\1\54\1\u0164\2\54\5\uffff\1\u0167\1\uffff\2\54\1\uffff\5\54\1\u016f\1\u0170\2\uffff";
@@ -5067,29 +5068,47 @@ public class InternalCLexer extends Lexer {
 		}
 		@Override
 		public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
-			IntStream input = _input;
 			int _s = s;
 			switch ( s ) {
 					case 0 : 
-						int LA38_41 = input.LA(1);
-						s = -1;
-						if ( ((LA38_41 >= '\u0000' && LA38_41 <= '&')||(LA38_41 >= '(' && LA38_41 <= '\uFFFF')) ) {s = 122;}
-						else s = 121;
-						if ( s>=0 ) return s;
-						break;
+						s = specialState0(s, input);
+						if (s >= 0) return s;
+							break;
+
 					case 1 : 
-						int LA38_42 = input.LA(1);
-						s = -1;
-						if ( ((LA38_42 >= '\u0000' && LA38_42 <= '\uFFFF')) ) {s = 124;}
-						else s = 123;
-						if ( s>=0 ) return s;
-						break;
+						s = specialState1(s, input);
+						if (s >= 0) return s;
+							break;
+
 			}
 			NoViableAltException nvae =
 				new NoViableAltException(getDescription(), 38, _s, input);
 			error(nvae);
 			throw nvae;
 		}
+			private int specialState0(int s, IntStream _input) {
+				IntStream input = _input;
+				int LA38_41 = input.LA(1);
+				s = -1;
+				if ( ((LA38_41 >= '\u0000' && LA38_41 <= '&')||(LA38_41 >= '(' && LA38_41 <= '\uFFFF')) ) {s = 122;}
+				else s = 121;
+				//if ( s>=0 ) return s;
+				//break;
+				return s;
+			}
+
+			private int specialState1(int s, IntStream _input) {
+				IntStream input = _input;
+				int LA38_42 = input.LA(1);
+				s = -1;
+				if ( ((LA38_42 >= '\u0000' && LA38_42 <= '\uFFFF')) ) {s = 124;}
+				else s = 123;
+				//if ( s>=0 ) return s;
+				//break;
+				return s;
+			}
+
 	}
+
 
 }

@@ -11,12 +11,12 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.c.AssignmentExpression#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.AssignmentExpression#getOp <em>Op</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.AssignmentExpression#getAssignmentExpr <em>Assignment Expr</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.c.c.CPackage#getAssignmentExpression()
  * @model

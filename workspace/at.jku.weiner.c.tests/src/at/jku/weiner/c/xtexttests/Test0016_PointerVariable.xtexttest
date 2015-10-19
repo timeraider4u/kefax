@@ -34,9 +34,9 @@ KW_DOUBLE WHITESPACE STAR WHITESPACE STAR ID SEMI NEWLINE
 							(Pointer
 								star+*"[**]",
 								typeQualifierList+=
-								(TypeQualiferList
+								(TypeQualifierList
 									typeQualifier+=
-									(TypeQualifer
+									(TypeQualifier
 										type++"const"
 									)
 								)
@@ -72,9 +72,9 @@ KW_DOUBLE WHITESPACE STAR WHITESPACE STAR ID SEMI NEWLINE
 							(Pointer
 								star+*"[**]",
 								typeQualifierList+=
-								(TypeQualiferList
+								(TypeQualifierList
 									typeQualifier+=
-									(TypeQualifer
+									(TypeQualifier
 										type++"const"
 									)
 								)

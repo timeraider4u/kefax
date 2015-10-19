@@ -53,6 +53,10 @@
     <genClasses ecoreClass="C.ecore#//TypedefName">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//TypedefName/id"/>
     </genClasses>
+    <genClasses ecoreClass="C.ecore#//SpecifierQualifierList">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//SpecifierQualifierList/typeSpecifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//SpecifierQualifierList/typeQualifier"/>
+    </genClasses>
     <genClasses ecoreClass="C.ecore#//TypeQualifier">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//TypeQualifier/type"/>
     </genClasses>
@@ -86,6 +90,9 @@
     </genClasses>
     <genClasses ecoreClass="C.ecore#//MyIdentifier">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//MyIdentifier/id"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//TypeName">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//TypeName/list"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//Initializer">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//Initializer/expr"/>
@@ -175,6 +182,7 @@
     </genClasses>
     <genClasses ecoreClass="C.ecore#//CastExpression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//CastExpression/expr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//CastExpression/type"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//UnaryExpression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//UnaryExpression/expr"/>

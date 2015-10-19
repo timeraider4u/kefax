@@ -45,9 +45,11 @@ import at.jku.weiner.c.c.PostfixExpression;
 import at.jku.weiner.c.c.PrimaryExpression;
 import at.jku.weiner.c.c.RelationalExpression;
 import at.jku.weiner.c.c.ShiftExpression;
+import at.jku.weiner.c.c.SpecifierQualifierList;
 import at.jku.weiner.c.c.Statement;
 import at.jku.weiner.c.c.StorageClassSpecifier;
 import at.jku.weiner.c.c.TranslationUnit;
+import at.jku.weiner.c.c.TypeName;
 import at.jku.weiner.c.c.TypeQualifier;
 import at.jku.weiner.c.c.TypeSpecifier;
 import at.jku.weiner.c.c.TypedefName;
@@ -200,6 +202,9 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case CPackage.SHIFT_EXPRESSION:
 				sequence_ShiftExpression(context, (ShiftExpression) semanticObject); 
 				return; 
+			case CPackage.SPECIFIER_QUALIFIER_LIST:
+				sequence_SpecifierQualifierList(context, (SpecifierQualifierList) semanticObject); 
+				return; 
 			case CPackage.STATEMENT:
 				sequence_Statement(context, (Statement) semanticObject); 
 				return; 
@@ -208,6 +213,9 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case CPackage.TRANSLATION_UNIT:
 				sequence_TranslationUnit(context, (TranslationUnit) semanticObject); 
+				return; 
+			case CPackage.TYPE_NAME:
+				sequence_TypeName(context, (TypeName) semanticObject); 
 				return; 
 			case CPackage.TYPE_QUALIFIER:
 				sequence_TypeQualifier(context, (TypeQualifier) semanticObject); 
@@ -291,7 +299,7 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     expr=UnaryExpression
+	 *     (expr=UnaryExpression | (type=TypeName expr=CastExpression))
 	 */
 	protected void sequence_CastExpression(EObject context, CastExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -648,6 +656,15 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     (typeSpecifier+=TypeSpecifier | typeQualifier+=TypeQualifier)+
+	 */
+	protected void sequence_SpecifierQualifierList(EObject context, SpecifierQualifierList semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (stmt=CompoundStatement | stmt=ExpressionStatement | stmt=JumpStatement)
 	 */
 	protected void sequence_Statement(EObject context, Statement semanticObject) {
@@ -677,6 +694,22 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_TranslationUnit(EObject context, TranslationUnit semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     list=SpecifierQualifierList
+	 */
+	protected void sequence_TypeName(EObject context, TypeName semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, CPackage.Literals.TYPE_NAME__LIST) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CPackage.Literals.TYPE_NAME__LIST));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getTypeNameAccess().getListSpecifierQualifierListParserRuleCall_1_0(), semanticObject.getList());
+		feeder.finish();
 	}
 	
 	

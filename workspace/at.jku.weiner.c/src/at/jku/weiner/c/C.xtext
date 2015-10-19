@@ -245,14 +245,14 @@ structDeclaration:
 	specifierQualifierList (structDeclarationList+=structDeclaratorList)? SEMI
 	|	staticAssertDeclaration
 ;
-
+*/
 
 
 SpecifierQualifierList:
 	{SpecifierQualifierList} 
 	(typeSpecifier+=TypeSpecifier | typeQualifier+=TypeQualifier)+
-	//(specQualifierList+=specifierQualifierList?)
 ;
+
 
 /*
 structDeclaratorList: structDeclarator=structDeclarator (COMMA structDeclarator2+=structDeclarator)*;
@@ -397,13 +397,17 @@ gccAttribute: {gccAttribute} (ANYOTHER)
 //		|	LEFTPAREN nestedParenthesesBlock RIGHTPAREN
 //		)*
 //;
+*/
 
+/*
 pointer: {pointer} ((STAR | CARET) typeQualifierList+=typeQualifierList?)*
 	//|	{pointer} CARET typeQualifierList=typeQualifierList? pointer=pointer?// Blocks language extension
-;
+;*/
 
+/*
 typeQualifierList: {typeQualifierList} (typeQualifier+=typeQualifier)+;
 */
+
 ParameterTypeList:
 	{ParameterTypeList}
 	list=ParameterList
@@ -435,7 +439,11 @@ MyIdentifier:
 	id=ID
 ;
 
-//TypeName: SpecifierQualifierList (abstractDeclarator+=AbstractDeclarator)?;
+TypeName:
+	{TypeName}
+	list=SpecifierQualifierList 
+	//(abstractDeclarator+=AbstractDeclarator)?;
+;
 
 /*
 AbstractDeclarator:
@@ -539,7 +547,9 @@ selectionStatement:
 	(=>ELSE elseStatement+=statement)?
 	|	SWITCH LEFTPAREN expression RIGHTPAREN statement=statement
 ;
-
+* 
+*/
+/*
 iterationStatement: WHILE LEFTPAREN expression RIGHTPAREN statement=statement
 	|	DO statement WHILE LEFTPAREN whileexpression=expression RIGHTPAREN SEMI
 	|	FOR LEFTPAREN expression? SEMI expression? SEMI expression? RIGHTPAREN statement
@@ -558,17 +568,18 @@ JumpStatement:
 	)
 ;
 
+//designation: designatorList ASSIGN;
+
+//designatorList: designator (designator+=designator)*;
 /*
-designation: designatorList ASSIGN;
-
-designatorList: designator (designator+=designator)*;
-
 designator: {designator} LEFTBRACKET expr=constantExpression RIGHTBRACKET
 	|	{designator} DOT IDENTIFIER
 ;
+*/
 
-staticAssertDeclaration: STATICASSERT LEFTPAREN constantExpression COMMA STRINGLITERAL+ RIGHTPAREN SEMI;
+//staticAssertDeclaration: STATICASSERT LEFTPAREN constantExpression COMMA STRINGLITERAL+ RIGHTPAREN SEMI;
 
+/*
 declarationList: 
 	(declaration+=declaration)+
 ;
@@ -688,7 +699,7 @@ CastExpression returns Expression:
 	{CastExpression}
 	(
 	expr=UnaryExpression
-	//|	LEFTPAREN type=TypeName RIGHTPAREN castExpr=CastExpression
+	|	LEFTPAREN type=TypeName RIGHTPAREN expr=CastExpression
 	//|	'__extension__' LEFTPAREN type=TypeName RIGHTPAREN castExpr=CastExpression
 	)
 ;
@@ -765,11 +776,11 @@ Constant:
 
 /*** UNKNOWN!!! ***/
 
+//genericSelection: GENERIC LEFTPAREN assignmentExpression COMMA genericAssocList=genericAssocList RIGHTPAREN;
+
+//genericAssocList: genericAssociation (COMMA genericAssociation+=genericAssociation)*;
+
 /*
-genericSelection: GENERIC LEFTPAREN assignmentExpression COMMA genericAssocList=genericAssocList RIGHTPAREN;
-
-genericAssocList: genericAssociation (COMMA genericAssociation+=genericAssociation)*;
-
 genericAssociation:
 	(typeName | DEFAULT) COLON
 	(assignmentExpression=assignmentExpression)
@@ -874,7 +885,6 @@ terminal MODASSIGN: MOD ASSIGN;
 terminal PLUSASSIGN: PLUS ASSIGN;
 terminal MINUSASSIGN: MINUS ASSIGN;
 terminal LEFTSHIFTASSIGN: LEFTSHIFT ASSIGN;
-//'>>='
 terminal RIGHTSHIFTASSIGN:RIGHTSHIFT ASSIGN;
 terminal ANDASSIGN: AND ASSIGN;
 terminal XORASSIGN: CARET ASSIGN;

@@ -663,19 +663,15 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getIdIDTerminalRuleCall_1_0() { return cIdIDTerminalRuleCall_1_0; }
 	}
-	public class TypeQualifierElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.TypeQualifier");
+	public class SpecifierQualifierListElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.SpecifierQualifierList");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cTypeQualifierAction_0 = (Action)cGroup.eContents().get(0);
+		private final Action cSpecifierQualifierListAction_0 = (Action)cGroup.eContents().get(0);
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final Assignment cTypeAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
-		private final RuleCall cTypeKW_CONSTTerminalRuleCall_1_0_0 = (RuleCall)cTypeAssignment_1_0.eContents().get(0);
-		private final Assignment cTypeAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
-		private final RuleCall cTypeKW_RESTRICTTerminalRuleCall_1_1_0 = (RuleCall)cTypeAssignment_1_1.eContents().get(0);
-		private final Assignment cTypeAssignment_1_2 = (Assignment)cAlternatives_1.eContents().get(2);
-		private final RuleCall cTypeKW_VOLATILETerminalRuleCall_1_2_0 = (RuleCall)cTypeAssignment_1_2.eContents().get(0);
-		private final Assignment cTypeAssignment_1_3 = (Assignment)cAlternatives_1.eContents().get(3);
-		private final RuleCall cTypeKW_ATOMICTerminalRuleCall_1_3_0 = (RuleCall)cTypeAssignment_1_3.eContents().get(0);
+		private final Assignment cTypeSpecifierAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
+		private final RuleCall cTypeSpecifierTypeSpecifierParserRuleCall_1_0_0 = (RuleCall)cTypeSpecifierAssignment_1_0.eContents().get(0);
+		private final Assignment cTypeQualifierAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
+		private final RuleCall cTypeQualifierTypeQualifierParserRuleCall_1_1_0 = (RuleCall)cTypeQualifierAssignment_1_1.eContents().get(0);
 		
 		/// *structOrUnionSpecifier returns declarationSpecifier:
 		//	{structOrUnionSpecifier}
@@ -695,15 +691,45 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		//	specifierQualifierList (structDeclarationList+=structDeclaratorList)? SEMI
 		//	|	staticAssertDeclaration
 		//;
-		//
-		//
-		//
-		//SpecifierQualifierList:
-		//	{SpecifierQualifierList} 
-		//	(typeSpecifier+=TypeSpecifier | typeQualifier+=TypeQualifier)+
-		//	//(specQualifierList+=specifierQualifierList?)
-		//;
-		//
+		// * / SpecifierQualifierList:
+		//	{SpecifierQualifierList} (typeSpecifier+=TypeSpecifier | typeQualifier+=TypeQualifier)+;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{SpecifierQualifierList} (typeSpecifier+=TypeSpecifier | typeQualifier+=TypeQualifier)+
+		public Group getGroup() { return cGroup; }
+		
+		//{SpecifierQualifierList}
+		public Action getSpecifierQualifierListAction_0() { return cSpecifierQualifierListAction_0; }
+		
+		//(typeSpecifier+=TypeSpecifier | typeQualifier+=TypeQualifier)+
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		
+		//typeSpecifier+=TypeSpecifier
+		public Assignment getTypeSpecifierAssignment_1_0() { return cTypeSpecifierAssignment_1_0; }
+		
+		//TypeSpecifier
+		public RuleCall getTypeSpecifierTypeSpecifierParserRuleCall_1_0_0() { return cTypeSpecifierTypeSpecifierParserRuleCall_1_0_0; }
+		
+		//typeQualifier+=TypeQualifier
+		public Assignment getTypeQualifierAssignment_1_1() { return cTypeQualifierAssignment_1_1; }
+		
+		//TypeQualifier
+		public RuleCall getTypeQualifierTypeQualifierParserRuleCall_1_1_0() { return cTypeQualifierTypeQualifierParserRuleCall_1_1_0; }
+	}
+	public class TypeQualifierElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.TypeQualifier");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cTypeQualifierAction_0 = (Action)cGroup.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Assignment cTypeAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
+		private final RuleCall cTypeKW_CONSTTerminalRuleCall_1_0_0 = (RuleCall)cTypeAssignment_1_0.eContents().get(0);
+		private final Assignment cTypeAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
+		private final RuleCall cTypeKW_RESTRICTTerminalRuleCall_1_1_0 = (RuleCall)cTypeAssignment_1_1.eContents().get(0);
+		private final Assignment cTypeAssignment_1_2 = (Assignment)cAlternatives_1.eContents().get(2);
+		private final RuleCall cTypeKW_VOLATILETerminalRuleCall_1_2_0 = (RuleCall)cTypeAssignment_1_2.eContents().get(0);
+		private final Assignment cTypeAssignment_1_3 = (Assignment)cAlternatives_1.eContents().get(3);
+		private final RuleCall cTypeKW_ATOMICTerminalRuleCall_1_3_0 = (RuleCall)cTypeAssignment_1_3.eContents().get(0);
+		
 		/// *
 		//structDeclaratorList: structDeclarator=structDeclarator (COMMA structDeclarator2+=structDeclarator)*;
 		//
@@ -975,11 +1001,10 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		////		|	LEFTPAREN nestedParenthesesBlock RIGHTPAREN
 		////		)*
 		////;
-		//
+		// * / / *
 		//pointer: {pointer} ((STAR | CARET) typeQualifierList+=typeQualifierList?)*
 		//	//|	{pointer} CARET typeQualifierList=typeQualifierList? pointer=pointer?// Blocks language extension
-		//;
-		//
+		//;* / / *
 		//typeQualifierList: {typeQualifierList} (typeQualifier+=typeQualifier)+;
 		// * / ParameterTypeList:
 		//	{ParameterTypeList} list=ParameterList (COMMA ELLIPSIS)?;
@@ -1146,12 +1171,36 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getIdIDTerminalRuleCall_1_0() { return cIdIDTerminalRuleCall_1_0; }
 	}
+	public class TypeNameElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.TypeName");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cTypeNameAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cListAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cListSpecifierQualifierListParserRuleCall_1_0 = (RuleCall)cListAssignment_1.eContents().get(0);
+		
+		//TypeName:
+		//	{TypeName} list=SpecifierQualifierList
+		//	//(abstractDeclarator+=AbstractDeclarator)?;
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{TypeName} list=SpecifierQualifierList
+		public Group getGroup() { return cGroup; }
+		
+		//{TypeName}
+		public Action getTypeNameAction_0() { return cTypeNameAction_0; }
+		
+		//list=SpecifierQualifierList
+		public Assignment getListAssignment_1() { return cListAssignment_1; }
+		
+		//SpecifierQualifierList
+		public RuleCall getListSpecifierQualifierListParserRuleCall_1_0() { return cListSpecifierQualifierListParserRuleCall_1_0; }
+	}
 	public class InitializerElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.Initializer");
 		private final Assignment cExprAssignment = (Assignment)rule.eContents().get(1);
 		private final RuleCall cExprAssignmentExpressionParserRuleCall_0 = (RuleCall)cExprAssignment.eContents().get(0);
 		
-		////TypeName: SpecifierQualifierList (abstractDeclarator+=AbstractDeclarator)?;
 		/// *
 		//AbstractDeclarator:
 		//	{AbstractDeclarator} 
@@ -1409,7 +1458,8 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		//	(=>ELSE elseStatement+=statement)?
 		//	|	SWITCH LEFTPAREN expression RIGHTPAREN statement=statement
 		//;
-		//
+		// * 
+		// * / / *
 		//iterationStatement: WHILE LEFTPAREN expression RIGHTPAREN statement=statement
 		//	|	DO statement WHILE LEFTPAREN whileexpression=expression RIGHTPAREN SEMI
 		//	|	FOR LEFTPAREN expression? SEMI expression? SEMI expression? RIGHTPAREN statement
@@ -1461,17 +1511,14 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cExprExprAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final RuleCall cExprExprAssignmentExpressionParserRuleCall_2_1_0 = (RuleCall)cExprExprAssignment_2_1.eContents().get(0);
 		
+		////designation: designatorList ASSIGN;
+		////designatorList: designator (designator+=designator)*;
 		/// *
-		//designation: designatorList ASSIGN;
-		//
-		//designatorList: designator (designator+=designator)*;
-		//
 		//designator: {designator} LEFTBRACKET expr=constantExpression RIGHTBRACKET
 		//	|	{designator} DOT IDENTIFIER
 		//;
-		//
-		//staticAssertDeclaration: STATICASSERT LEFTPAREN constantExpression COMMA STRINGLITERAL+ RIGHTPAREN SEMI;
-		//
+		// * / //staticAssertDeclaration: STATICASSERT LEFTPAREN constantExpression COMMA STRINGLITERAL+ RIGHTPAREN SEMI;
+		/// *
 		//declarationList: 
 		//	(declaration+=declaration)+
 		//;
@@ -2232,24 +2279,61 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.CastExpression");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cCastExpressionAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cExprAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cExprUnaryExpressionParserRuleCall_1_0 = (RuleCall)cExprAssignment_1.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Assignment cExprAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
+		private final RuleCall cExprUnaryExpressionParserRuleCall_1_0_0 = (RuleCall)cExprAssignment_1_0.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
+		private final RuleCall cLEFTPARENTerminalRuleCall_1_1_0 = (RuleCall)cGroup_1_1.eContents().get(0);
+		private final Assignment cTypeAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
+		private final RuleCall cTypeTypeNameParserRuleCall_1_1_1_0 = (RuleCall)cTypeAssignment_1_1_1.eContents().get(0);
+		private final RuleCall cRIGHTPARENTerminalRuleCall_1_1_2 = (RuleCall)cGroup_1_1.eContents().get(2);
+		private final Assignment cExprAssignment_1_1_3 = (Assignment)cGroup_1_1.eContents().get(3);
+		private final RuleCall cExprCastExpressionParserRuleCall_1_1_3_0 = (RuleCall)cExprAssignment_1_1_3.eContents().get(0);
 		
 		//CastExpression Expression:
-		//	{CastExpression} expr=UnaryExpression
+		//	{CastExpression} (expr=UnaryExpression
+		//	| LEFTPAREN type=TypeName RIGHTPAREN expr=CastExpression
+		//	//|	'__extension__' LEFTPAREN type=TypeName RIGHTPAREN castExpr=CastExpression
+		//)
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{CastExpression} expr=UnaryExpression
+		//{CastExpression} (expr=UnaryExpression | LEFTPAREN type=TypeName RIGHTPAREN expr=CastExpression //|	'__extension__' LEFTPAREN type=TypeName RIGHTPAREN castExpr=CastExpression
+		//)
 		public Group getGroup() { return cGroup; }
 		
 		//{CastExpression}
 		public Action getCastExpressionAction_0() { return cCastExpressionAction_0; }
 		
+		//(expr=UnaryExpression | LEFTPAREN type=TypeName RIGHTPAREN expr=CastExpression //|	'__extension__' LEFTPAREN type=TypeName RIGHTPAREN castExpr=CastExpression
+		//)
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		
 		//expr=UnaryExpression
-		public Assignment getExprAssignment_1() { return cExprAssignment_1; }
+		public Assignment getExprAssignment_1_0() { return cExprAssignment_1_0; }
 		
 		//UnaryExpression
-		public RuleCall getExprUnaryExpressionParserRuleCall_1_0() { return cExprUnaryExpressionParserRuleCall_1_0; }
+		public RuleCall getExprUnaryExpressionParserRuleCall_1_0_0() { return cExprUnaryExpressionParserRuleCall_1_0_0; }
+		
+		//LEFTPAREN type=TypeName RIGHTPAREN expr=CastExpression
+		public Group getGroup_1_1() { return cGroup_1_1; }
+		
+		//LEFTPAREN
+		public RuleCall getLEFTPARENTerminalRuleCall_1_1_0() { return cLEFTPARENTerminalRuleCall_1_1_0; }
+		
+		//type=TypeName
+		public Assignment getTypeAssignment_1_1_1() { return cTypeAssignment_1_1_1; }
+		
+		//TypeName
+		public RuleCall getTypeTypeNameParserRuleCall_1_1_1_0() { return cTypeTypeNameParserRuleCall_1_1_1_0; }
+		
+		//RIGHTPAREN
+		public RuleCall getRIGHTPARENTerminalRuleCall_1_1_2() { return cRIGHTPARENTerminalRuleCall_1_1_2; }
+		
+		//expr=CastExpression
+		public Assignment getExprAssignment_1_1_3() { return cExprAssignment_1_1_3; }
+		
+		//CastExpression
+		public RuleCall getExprCastExpressionParserRuleCall_1_1_3_0() { return cExprCastExpressionParserRuleCall_1_1_3_0; }
 	}
 	public class UnaryExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.UnaryExpression");
@@ -2569,6 +2653,7 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	private final StorageClassSpecifierElements pStorageClassSpecifier;
 	private final TypeSpecifierElements pTypeSpecifier;
 	private final TypedefNameElements pTypedefName;
+	private final SpecifierQualifierListElements pSpecifierQualifierList;
 	private final TypeQualifierElements pTypeQualifier;
 	private final DeclaratorElements pDeclarator;
 	private final DirectDeclaratorElements pDirectDeclarator;
@@ -2579,6 +2664,7 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	private final ParameterDeclarationElements pParameterDeclaration;
 	private final IdentifierListElements pIdentifierList;
 	private final MyIdentifierElements pMyIdentifier;
+	private final TypeNameElements pTypeName;
 	private final InitializerElements pInitializer;
 	private final StatementElements pStatement;
 	private final CompoundStatementElements pCompoundStatement;
@@ -2742,6 +2828,7 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		this.pStorageClassSpecifier = new StorageClassSpecifierElements();
 		this.pTypeSpecifier = new TypeSpecifierElements();
 		this.pTypedefName = new TypedefNameElements();
+		this.pSpecifierQualifierList = new SpecifierQualifierListElements();
 		this.pTypeQualifier = new TypeQualifierElements();
 		this.pDeclarator = new DeclaratorElements();
 		this.pDirectDeclarator = new DirectDeclaratorElements();
@@ -2752,6 +2839,7 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		this.pParameterDeclaration = new ParameterDeclarationElements();
 		this.pIdentifierList = new IdentifierListElements();
 		this.pMyIdentifier = new MyIdentifierElements();
+		this.pTypeName = new TypeNameElements();
 		this.pInitializer = new InitializerElements();
 		this.pStatement = new StatementElements();
 		this.pCompoundStatement = new CompoundStatementElements();
@@ -3114,15 +3202,16 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	//	specifierQualifierList (structDeclarationList+=structDeclaratorList)? SEMI
 	//	|	staticAssertDeclaration
 	//;
-	//
-	//
-	//
-	//SpecifierQualifierList:
-	//	{SpecifierQualifierList} 
-	//	(typeSpecifier+=TypeSpecifier | typeQualifier+=TypeQualifier)+
-	//	//(specQualifierList+=specifierQualifierList?)
-	//;
-	//
+	// * / SpecifierQualifierList:
+	//	{SpecifierQualifierList} (typeSpecifier+=TypeSpecifier | typeQualifier+=TypeQualifier)+;
+	public SpecifierQualifierListElements getSpecifierQualifierListAccess() {
+		return pSpecifierQualifierList;
+	}
+	
+	public ParserRule getSpecifierQualifierListRule() {
+		return getSpecifierQualifierListAccess().getRule();
+	}
+	
 	/// *
 	//structDeclaratorList: structDeclarator=structDeclarator (COMMA structDeclarator2+=structDeclarator)*;
 	//
@@ -3248,11 +3337,10 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	////		|	LEFTPAREN nestedParenthesesBlock RIGHTPAREN
 	////		)*
 	////;
-	//
+	// * / / *
 	//pointer: {pointer} ((STAR | CARET) typeQualifierList+=typeQualifierList?)*
 	//	//|	{pointer} CARET typeQualifierList=typeQualifierList? pointer=pointer?// Blocks language extension
-	//;
-	//
+	//;* / / *
 	//typeQualifierList: {typeQualifierList} (typeQualifier+=typeQualifier)+;
 	// * / ParameterTypeList:
 	//	{ParameterTypeList} list=ParameterList (COMMA ELLIPSIS)?;
@@ -3308,7 +3396,18 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		return getMyIdentifierAccess().getRule();
 	}
 	
-	////TypeName: SpecifierQualifierList (abstractDeclarator+=AbstractDeclarator)?;
+	//TypeName:
+	//	{TypeName} list=SpecifierQualifierList
+	//	//(abstractDeclarator+=AbstractDeclarator)?;
+	//;
+	public TypeNameElements getTypeNameAccess() {
+		return pTypeName;
+	}
+	
+	public ParserRule getTypeNameRule() {
+		return getTypeNameAccess().getRule();
+	}
+	
 	/// *
 	//AbstractDeclarator:
 	//	{AbstractDeclarator} 
@@ -3428,7 +3527,8 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	//	(=>ELSE elseStatement+=statement)?
 	//	|	SWITCH LEFTPAREN expression RIGHTPAREN statement=statement
 	//;
-	//
+	// * 
+	// * / / *
 	//iterationStatement: WHILE LEFTPAREN expression RIGHTPAREN statement=statement
 	//	|	DO statement WHILE LEFTPAREN whileexpression=expression RIGHTPAREN SEMI
 	//	|	FOR LEFTPAREN expression? SEMI expression? SEMI expression? RIGHTPAREN statement
@@ -3445,17 +3545,14 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		return getJumpStatementAccess().getRule();
 	}
 	
+	////designation: designatorList ASSIGN;
+	////designatorList: designator (designator+=designator)*;
 	/// *
-	//designation: designatorList ASSIGN;
-	//
-	//designatorList: designator (designator+=designator)*;
-	//
 	//designator: {designator} LEFTBRACKET expr=constantExpression RIGHTBRACKET
 	//	|	{designator} DOT IDENTIFIER
 	//;
-	//
-	//staticAssertDeclaration: STATICASSERT LEFTPAREN constantExpression COMMA STRINGLITERAL+ RIGHTPAREN SEMI;
-	//
+	// * / //staticAssertDeclaration: STATICASSERT LEFTPAREN constantExpression COMMA STRINGLITERAL+ RIGHTPAREN SEMI;
+	/// *
 	//declarationList: 
 	//	(declaration+=declaration)+
 	//;
@@ -3615,7 +3712,10 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//CastExpression Expression:
-	//	{CastExpression} expr=UnaryExpression
+	//	{CastExpression} (expr=UnaryExpression
+	//	| LEFTPAREN type=TypeName RIGHTPAREN expr=CastExpression
+	//	//|	'__extension__' LEFTPAREN type=TypeName RIGHTPAREN castExpr=CastExpression
+	//)
 	public CastExpressionElements getCastExpressionAccess() {
 		return pCastExpression;
 	}

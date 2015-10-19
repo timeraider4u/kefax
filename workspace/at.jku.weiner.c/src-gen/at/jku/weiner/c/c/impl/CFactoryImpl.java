@@ -76,6 +76,7 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
       case CPackage.STORAGE_CLASS_SPECIFIER: return createStorageClassSpecifier();
       case CPackage.TYPE_SPECIFIER: return createTypeSpecifier();
       case CPackage.TYPEDEF_NAME: return createTypedefName();
+      case CPackage.SPECIFIER_QUALIFIER_LIST: return createSpecifierQualifierList();
       case CPackage.TYPE_QUALIFIER: return createTypeQualifier();
       case CPackage.DECLARATOR: return createDeclarator();
       case CPackage.DIRECT_DECLARATOR: return createDirectDeclarator();
@@ -86,6 +87,7 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
       case CPackage.PARAMETER_DECLARATION: return createParameterDeclaration();
       case CPackage.IDENTIFIER_LIST: return createIdentifierList();
       case CPackage.MY_IDENTIFIER: return createMyIdentifier();
+      case CPackage.TYPE_NAME: return createTypeName();
       case CPackage.INITIALIZER: return createInitializer();
       case CPackage.STATEMENT: return createStatement();
       case CPackage.BLOCK_LIST: return createBlockList();
@@ -255,6 +257,17 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public SpecifierQualifierList createSpecifierQualifierList()
+  {
+    SpecifierQualifierListImpl specifierQualifierList = new SpecifierQualifierListImpl();
+    return specifierQualifierList;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public TypeQualifier createTypeQualifier()
   {
     TypeQualifierImpl typeQualifier = new TypeQualifierImpl();
@@ -358,6 +371,17 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
   {
     MyIdentifierImpl myIdentifier = new MyIdentifierImpl();
     return myIdentifier;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TypeName createTypeName()
+  {
+    TypeNameImpl typeName = new TypeNameImpl();
+    return typeName;
   }
 
   /**

@@ -135,6 +135,11 @@ public class CAdapterFactory extends AdapterFactoryImpl
         return createTypedefNameAdapter();
       }
       @Override
+      public Adapter caseSpecifierQualifierList(SpecifierQualifierList object)
+      {
+        return createSpecifierQualifierListAdapter();
+      }
+      @Override
       public Adapter caseTypeQualifier(TypeQualifier object)
       {
         return createTypeQualifierAdapter();
@@ -183,6 +188,11 @@ public class CAdapterFactory extends AdapterFactoryImpl
       public Adapter caseMyIdentifier(MyIdentifier object)
       {
         return createMyIdentifierAdapter();
+      }
+      @Override
+      public Adapter caseTypeName(TypeName object)
+      {
+        return createTypeNameAdapter();
       }
       @Override
       public Adapter caseInitializer(Initializer object)
@@ -522,6 +532,21 @@ public class CAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.SpecifierQualifierList <em>Specifier Qualifier List</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.c.SpecifierQualifierList
+   * @generated
+   */
+  public Adapter createSpecifierQualifierListAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.TypeQualifier <em>Type Qualifier</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -667,6 +692,21 @@ public class CAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMyIdentifierAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.TypeName <em>Type Name</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.c.TypeName
+   * @generated
+   */
+  public Adapter createTypeNameAdapter()
   {
     return null;
   }

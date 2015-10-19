@@ -12,6 +12,7 @@ package at.jku.weiner.c.c;
  * The following features are supported:
  * <ul>
  *   <li>{@link at.jku.weiner.c.c.CastExpression#getExpr <em>Expr</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.CastExpression#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -46,5 +47,31 @@ public interface CastExpression extends Expression
    * @generated
    */
   void setExpr(Expression value);
+
+  /**
+   * Returns the value of the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Type</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Type</em>' containment reference.
+   * @see #setType(TypeName)
+   * @see at.jku.weiner.c.c.CPackage#getCastExpression_Type()
+   * @model containment="true"
+   * @generated
+   */
+  TypeName getType();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.c.CastExpression#getType <em>Type</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Type</em>' containment reference.
+   * @see #getType()
+   * @generated
+   */
+  void setType(TypeName value);
 
 } // CastExpression

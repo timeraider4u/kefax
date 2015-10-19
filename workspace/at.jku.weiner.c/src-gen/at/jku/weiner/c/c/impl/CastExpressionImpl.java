@@ -5,6 +5,7 @@ package at.jku.weiner.c.c.impl;
 import at.jku.weiner.c.c.CPackage;
 import at.jku.weiner.c.c.CastExpression;
 import at.jku.weiner.c.c.Expression;
+import at.jku.weiner.c.c.TypeName;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -22,6 +23,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link at.jku.weiner.c.c.impl.CastExpressionImpl#getExpr <em>Expr</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.impl.CastExpressionImpl#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -38,6 +40,16 @@ public class CastExpressionImpl extends ExpressionImpl implements CastExpression
    * @ordered
    */
   protected Expression expr;
+
+  /**
+   * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getType()
+   * @generated
+   * @ordered
+   */
+  protected TypeName type;
 
   /**
    * <!-- begin-user-doc -->
@@ -113,6 +125,54 @@ public class CastExpressionImpl extends ExpressionImpl implements CastExpression
    * <!-- end-user-doc -->
    * @generated
    */
+  public TypeName getType()
+  {
+    return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetType(TypeName newType, NotificationChain msgs)
+  {
+    TypeName oldType = type;
+    type = newType;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CPackage.CAST_EXPRESSION__TYPE, oldType, newType);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setType(TypeName newType)
+  {
+    if (newType != type)
+    {
+      NotificationChain msgs = null;
+      if (type != null)
+        msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CPackage.CAST_EXPRESSION__TYPE, null, msgs);
+      if (newType != null)
+        msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CPackage.CAST_EXPRESSION__TYPE, null, msgs);
+      msgs = basicSetType(newType, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CPackage.CAST_EXPRESSION__TYPE, newType, newType));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -120,6 +180,8 @@ public class CastExpressionImpl extends ExpressionImpl implements CastExpression
     {
       case CPackage.CAST_EXPRESSION__EXPR:
         return basicSetExpr(null, msgs);
+      case CPackage.CAST_EXPRESSION__TYPE:
+        return basicSetType(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -136,6 +198,8 @@ public class CastExpressionImpl extends ExpressionImpl implements CastExpression
     {
       case CPackage.CAST_EXPRESSION__EXPR:
         return getExpr();
+      case CPackage.CAST_EXPRESSION__TYPE:
+        return getType();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -152,6 +216,9 @@ public class CastExpressionImpl extends ExpressionImpl implements CastExpression
     {
       case CPackage.CAST_EXPRESSION__EXPR:
         setExpr((Expression)newValue);
+        return;
+      case CPackage.CAST_EXPRESSION__TYPE:
+        setType((TypeName)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -170,6 +237,9 @@ public class CastExpressionImpl extends ExpressionImpl implements CastExpression
       case CPackage.CAST_EXPRESSION__EXPR:
         setExpr((Expression)null);
         return;
+      case CPackage.CAST_EXPRESSION__TYPE:
+        setType((TypeName)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -186,6 +256,8 @@ public class CastExpressionImpl extends ExpressionImpl implements CastExpression
     {
       case CPackage.CAST_EXPRESSION__EXPR:
         return expr != null;
+      case CPackage.CAST_EXPRESSION__TYPE:
+        return type != null;
     }
     return super.eIsSet(featureID);
   }

@@ -131,6 +131,15 @@ public interface CFactory extends EFactory
   TypedefName createTypedefName();
 
   /**
+   * Returns a new object of class '<em>Specifier Qualifier List</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Specifier Qualifier List</em>'.
+   * @generated
+   */
+  SpecifierQualifierList createSpecifierQualifierList();
+
+  /**
    * Returns a new object of class '<em>Type Qualifier</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -219,6 +228,15 @@ public interface CFactory extends EFactory
    * @generated
    */
   MyIdentifier createMyIdentifier();
+
+  /**
+   * Returns a new object of class '<em>Type Name</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Type Name</em>'.
+   * @generated
+   */
+  TypeName createTypeName();
 
   /**
    * Returns a new object of class '<em>Initializer</em>'.

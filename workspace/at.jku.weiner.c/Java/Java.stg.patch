@@ -1,0 +1,61 @@
+--- Java.stg.old	2015-10-19 18:43:24.414923656 +0200
++++ Java.stg.new	2015-10-19 18:31:34.121953363 +0200
+@@ -1014,21 +1014,15 @@
+     }
+     <@errorMethod()>
+ <if(dfa.specialStateSTs)>
+-    public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
+-        <if(LEXER)>
+-        IntStream input = _input;
+-        <endif>
+-        <if(PARSER)>
+-        TokenStream input = (TokenStream)_input;
+-        <endif>
+-        <if(TREE_PARSER)>
+-        TreeNodeStream input = (TreeNodeStream)_input;
+-        <endif>
+-    	int _s = s;
++    public int specialStateTransition(int s, IntStream input) throws NoViableAltException {
++        int _s = s;
+         switch ( s ) {
+         <dfa.specialStateSTs:{state |
+         case <i0> : <! compressed special state numbers 0..n-1 !>
+-            <state>}; separator="\n">
++            s = specialState<i0>(s, input);
++            if (s >= 0) return s;
++            break;
++        }; separator="\n">
+         }
+ <if(backtracking)>
+         if (state.backtracking>0) {state.failed=true; return -1;}<\n>
+@@ -1038,6 +1032,20 @@
+         error(nvae);
+         throw nvae;
+     }<\n>
++<dfa.specialStateSTs:{state |
++    private int specialState<i0>(int s, IntStream _input) {
++        <if(LEXER)>
++        IntStream input = _input;
++        <endif>
++        <if(PARSER)>
++        TokenStream input = (TokenStream)_input;
++        <endif>
++        <if(TREE_PARSER)>
++        TreeNodeStream input = (TreeNodeStream)_input;
++        <endif>
++        <state>
++    }
++}; separator="\n">
+ <endif>
+ }<\n>
+ >>
+@@ -1056,8 +1064,7 @@
+ <if(semPredState)> <! return input cursor to state before we rewound !>
+ input.seek(index<decisionNumber>_<stateNumber>);<\n>
+ <endif>
+-if ( s>=0 ) return s;
+-break;
++return s;
+ >>
+ 
+ /** Just like a fixed DFA edge, test the lookahead and indicate what

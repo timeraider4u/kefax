@@ -803,8 +803,10 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.Declarator");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cDeclaratorAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cDeclaratorAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cDeclaratorDirectDeclaratorParserRuleCall_1_0 = (RuleCall)cDeclaratorAssignment_1.eContents().get(0);
+		private final Assignment cPointerAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cPointerPointerParserRuleCall_1_0 = (RuleCall)cPointerAssignment_1.eContents().get(0);
+		private final Assignment cDeclaratorAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cDeclaratorDirectDeclaratorParserRuleCall_2_0 = (RuleCall)cDeclaratorAssignment_2.eContents().get(0);
 		
 		/// *
 		//functionSpecifier:
@@ -823,20 +825,27 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		//alignmentSpecifier: ALIGNAS LEFTPAREN (typeName | constantExpression) RIGHTPAREN;
 		// * / Declarator initRuleAction { at.jku.weiner.c.Log.log("Declarator-enter"); } afterRuleAction {
 		//at.jku.weiner.c.Log.log("Declarator-leave"); }:
-		//	{Declarator} declarator=DirectDeclarator;
+		//	{Declarator} pointer=Pointer?
+		//	declarator=DirectDeclarator;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Declarator} declarator=DirectDeclarator
+		//{Declarator} pointer=Pointer? declarator=DirectDeclarator
 		public Group getGroup() { return cGroup; }
 		
 		//{Declarator}
 		public Action getDeclaratorAction_0() { return cDeclaratorAction_0; }
 		
-		/// *pointer?* / declarator=DirectDeclarator
-		public Assignment getDeclaratorAssignment_1() { return cDeclaratorAssignment_1; }
+		//pointer=Pointer?
+		public Assignment getPointerAssignment_1() { return cPointerAssignment_1; }
+		
+		//Pointer
+		public RuleCall getPointerPointerParserRuleCall_1_0() { return cPointerPointerParserRuleCall_1_0; }
+		
+		//declarator=DirectDeclarator
+		public Assignment getDeclaratorAssignment_2() { return cDeclaratorAssignment_2; }
 		
 		//DirectDeclarator
-		public RuleCall getDeclaratorDirectDeclaratorParserRuleCall_1_0() { return cDeclaratorDirectDeclaratorParserRuleCall_1_0; }
+		public RuleCall getDeclaratorDirectDeclaratorParserRuleCall_2_0() { return cDeclaratorDirectDeclaratorParserRuleCall_2_0; }
 	}
 	public class DirectDeclaratorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.DirectDeclarator");
@@ -969,15 +978,18 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		//RIGHTPAREN
 		public RuleCall getRIGHTPARENTerminalRuleCall_3() { return cRIGHTPARENTerminalRuleCall_3; }
 	}
-	public class ParameterTypeListElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.ParameterTypeList");
+	public class PointerElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.Pointer");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cParameterTypeListAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cListAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cListParameterListParserRuleCall_1_0 = (RuleCall)cListAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final RuleCall cCOMMATerminalRuleCall_2_0 = (RuleCall)cGroup_2.eContents().get(0);
-		private final RuleCall cELLIPSISTerminalRuleCall_2_1 = (RuleCall)cGroup_2.eContents().get(1);
+		private final Action cPointerAction_0 = (Action)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Alternatives cAlternatives_1_0 = (Alternatives)cGroup_1.eContents().get(0);
+		private final Assignment cStarAssignment_1_0_0 = (Assignment)cAlternatives_1_0.eContents().get(0);
+		private final RuleCall cStarSTARTerminalRuleCall_1_0_0_0 = (RuleCall)cStarAssignment_1_0_0.eContents().get(0);
+		private final Assignment cCaretAssignment_1_0_1 = (Assignment)cAlternatives_1_0.eContents().get(1);
+		private final RuleCall cCaretCARETTerminalRuleCall_1_0_1_0 = (RuleCall)cCaretAssignment_1_0_1.eContents().get(0);
+		private final Assignment cTypeQualifierListAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cTypeQualifierListTypeQualifierListParserRuleCall_1_1_0 = (RuleCall)cTypeQualifierListAssignment_1_1.eContents().get(0);
 		
 		/// *
 		//gccDeclaratorExtension:
@@ -1001,12 +1013,76 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		////		|	LEFTPAREN nestedParenthesesBlock RIGHTPAREN
 		////		)*
 		////;
-		// * / / *
-		//pointer: {pointer} ((STAR | CARET) typeQualifierList+=typeQualifierList?)*
+		// * / Pointer:
+		//	{Pointer} ((star+=STAR | caret+=CARET) typeQualifierList+=TypeQualifierList?)*
 		//	//|	{pointer} CARET typeQualifierList=typeQualifierList? pointer=pointer?// Blocks language extension
-		//;* / / *
-		//typeQualifierList: {typeQualifierList} (typeQualifier+=typeQualifier)+;
-		// * / ParameterTypeList:
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{Pointer} ((star+=STAR | caret+=CARET) typeQualifierList+=TypeQualifierList?)*
+		public Group getGroup() { return cGroup; }
+		
+		//{Pointer}
+		public Action getPointerAction_0() { return cPointerAction_0; }
+		
+		//((star+=STAR | caret+=CARET) typeQualifierList+=TypeQualifierList?)*
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//(star+=STAR | caret+=CARET)
+		public Alternatives getAlternatives_1_0() { return cAlternatives_1_0; }
+		
+		//star+=STAR
+		public Assignment getStarAssignment_1_0_0() { return cStarAssignment_1_0_0; }
+		
+		//STAR
+		public RuleCall getStarSTARTerminalRuleCall_1_0_0_0() { return cStarSTARTerminalRuleCall_1_0_0_0; }
+		
+		//caret+=CARET
+		public Assignment getCaretAssignment_1_0_1() { return cCaretAssignment_1_0_1; }
+		
+		//CARET
+		public RuleCall getCaretCARETTerminalRuleCall_1_0_1_0() { return cCaretCARETTerminalRuleCall_1_0_1_0; }
+		
+		//typeQualifierList+=TypeQualifierList?
+		public Assignment getTypeQualifierListAssignment_1_1() { return cTypeQualifierListAssignment_1_1; }
+		
+		//TypeQualifierList
+		public RuleCall getTypeQualifierListTypeQualifierListParserRuleCall_1_1_0() { return cTypeQualifierListTypeQualifierListParserRuleCall_1_1_0; }
+	}
+	public class TypeQualifierListElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.TypeQualifierList");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cTypeQualifierListAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cTypeQualifierAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cTypeQualifierTypeQualifierParserRuleCall_1_0 = (RuleCall)cTypeQualifierAssignment_1.eContents().get(0);
+		
+		//TypeQualifierList:
+		//	{TypeQualifierList} typeQualifier+=TypeQualifier+;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{TypeQualifierList} typeQualifier+=TypeQualifier+
+		public Group getGroup() { return cGroup; }
+		
+		//{TypeQualifierList}
+		public Action getTypeQualifierListAction_0() { return cTypeQualifierListAction_0; }
+		
+		//typeQualifier+=TypeQualifier+
+		public Assignment getTypeQualifierAssignment_1() { return cTypeQualifierAssignment_1; }
+		
+		//TypeQualifier
+		public RuleCall getTypeQualifierTypeQualifierParserRuleCall_1_0() { return cTypeQualifierTypeQualifierParserRuleCall_1_0; }
+	}
+	public class ParameterTypeListElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.ParameterTypeList");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cParameterTypeListAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cListAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cListParameterListParserRuleCall_1_0 = (RuleCall)cListAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final RuleCall cCOMMATerminalRuleCall_2_0 = (RuleCall)cGroup_2.eContents().get(0);
+		private final RuleCall cELLIPSISTerminalRuleCall_2_1 = (RuleCall)cGroup_2.eContents().get(1);
+		
+		//ParameterTypeList:
 		//	{ParameterTypeList} list=ParameterList (COMMA ELLIPSIS)?;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -2659,6 +2735,8 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	private final DirectDeclaratorElements pDirectDeclarator;
 	private final DeclaratorSuffixElements pDeclaratorSuffix;
 	private final DirectDeclaratorLastSuffixElements pDirectDeclaratorLastSuffix;
+	private final PointerElements pPointer;
+	private final TypeQualifierListElements pTypeQualifierList;
 	private final ParameterTypeListElements pParameterTypeList;
 	private final ParameterListElements pParameterList;
 	private final ParameterDeclarationElements pParameterDeclaration;
@@ -2834,6 +2912,8 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		this.pDirectDeclarator = new DirectDeclaratorElements();
 		this.pDeclaratorSuffix = new DeclaratorSuffixElements();
 		this.pDirectDeclaratorLastSuffix = new DirectDeclaratorLastSuffixElements();
+		this.pPointer = new PointerElements();
+		this.pTypeQualifierList = new TypeQualifierListElements();
 		this.pParameterTypeList = new ParameterTypeListElements();
 		this.pParameterList = new ParameterListElements();
 		this.pParameterDeclaration = new ParameterDeclarationElements();
@@ -3271,7 +3351,8 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	//alignmentSpecifier: ALIGNAS LEFTPAREN (typeName | constantExpression) RIGHTPAREN;
 	// * / Declarator initRuleAction { at.jku.weiner.c.Log.log("Declarator-enter"); } afterRuleAction {
 	//at.jku.weiner.c.Log.log("Declarator-leave"); }:
-	//	{Declarator} declarator=DirectDeclarator;
+	//	{Declarator} pointer=Pointer?
+	//	declarator=DirectDeclarator;
 	public DeclaratorElements getDeclaratorAccess() {
 		return pDeclarator;
 	}
@@ -3337,12 +3418,29 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	////		|	LEFTPAREN nestedParenthesesBlock RIGHTPAREN
 	////		)*
 	////;
-	// * / / *
-	//pointer: {pointer} ((STAR | CARET) typeQualifierList+=typeQualifierList?)*
+	// * / Pointer:
+	//	{Pointer} ((star+=STAR | caret+=CARET) typeQualifierList+=TypeQualifierList?)*
 	//	//|	{pointer} CARET typeQualifierList=typeQualifierList? pointer=pointer?// Blocks language extension
-	//;* / / *
-	//typeQualifierList: {typeQualifierList} (typeQualifier+=typeQualifier)+;
-	// * / ParameterTypeList:
+	//;
+	public PointerElements getPointerAccess() {
+		return pPointer;
+	}
+	
+	public ParserRule getPointerRule() {
+		return getPointerAccess().getRule();
+	}
+	
+	//TypeQualifierList:
+	//	{TypeQualifierList} typeQualifier+=TypeQualifier+;
+	public TypeQualifierListElements getTypeQualifierListAccess() {
+		return pTypeQualifierList;
+	}
+	
+	public ParserRule getTypeQualifierListRule() {
+		return getTypeQualifierListAccess().getRule();
+	}
+	
+	//ParameterTypeList:
 	//	{ParameterTypeList} list=ParameterList (COMMA ELLIPSIS)?;
 	public ParameterTypeListElements getParameterTypeListAccess() {
 		return pParameterTypeList;

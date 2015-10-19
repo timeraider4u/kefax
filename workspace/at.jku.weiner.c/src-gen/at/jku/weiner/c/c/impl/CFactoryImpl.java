@@ -82,6 +82,8 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
       case CPackage.DIRECT_DECLARATOR: return createDirectDeclarator();
       case CPackage.DECLARATOR_SUFFIX: return createDeclaratorSuffix();
       case CPackage.DIRECT_DECLARATOR_LAST_SUFFIX: return createDirectDeclaratorLastSuffix();
+      case CPackage.POINTER: return createPointer();
+      case CPackage.TYPE_QUALIFIER_LIST: return createTypeQualifierList();
       case CPackage.PARAMETER_TYPE_LIST: return createParameterTypeList();
       case CPackage.PARAMETER_LIST: return createParameterList();
       case CPackage.PARAMETER_DECLARATION: return createParameterDeclaration();
@@ -316,6 +318,28 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
   {
     DirectDeclaratorLastSuffixImpl directDeclaratorLastSuffix = new DirectDeclaratorLastSuffixImpl();
     return directDeclaratorLastSuffix;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Pointer createPointer()
+  {
+    PointerImpl pointer = new PointerImpl();
+    return pointer;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TypeQualifierList createTypeQualifierList()
+  {
+    TypeQualifierListImpl typeQualifierList = new TypeQualifierListImpl();
+    return typeQualifierList;
   }
 
   /**

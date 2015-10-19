@@ -1759,16 +1759,37 @@ ruleDeclarator returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getDeclaratorAccess().getDeclaratorDirectDeclaratorParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getDeclaratorAccess().getPointerPointerParserRuleCall_1_0()); 
 	    }
-		lv_declarator_1_0=ruleDirectDeclarator		{
+		lv_pointer_1_0=rulePointer		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getDeclaratorRule());
+	        }
+       		set(
+       			$current, 
+       			"pointer",
+        		lv_pointer_1_0, 
+        		"at.jku.weiner.c.C.Pointer");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)?
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getDeclaratorAccess().getDeclaratorDirectDeclaratorParserRuleCall_2_0()); 
+	    }
+		lv_declarator_2_0=ruleDirectDeclarator		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getDeclaratorRule());
 	        }
        		set(
        			$current, 
        			"declarator",
-        		lv_declarator_1_0, 
+        		lv_declarator_2_0, 
         		"at.jku.weiner.c.C.DirectDeclarator");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -2059,6 +2080,175 @@ this_RIGHTPAREN_4=RULE_RIGHTPAREN
     newLeafNode(this_RIGHTPAREN_4, grammarAccess.getDirectDeclaratorLastSuffixAccess().getRIGHTPARENTerminalRuleCall_3()); 
     }
 
+
+)
+
+
+;
+
+
+
+
+
+// Entry rule entryRulePointer
+entryRulePointer returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getPointerRule()); }
+	 iv_rulePointer=rulePointer 
+	 { $current=$iv_rulePointer.current; } 
+	 EOF 
+;
+
+// Rule Pointer
+rulePointer returns [EObject current=null] 
+    @init { enterRule();
+   		
+    }
+    @after { leaveRule();
+    		
+     }:
+
+(
+(
+	{ 
+	  /* */ 
+	}
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getPointerAccess().getPointerAction_0(),
+            $current);
+    }
+)
+
+
+(
+(
+(
+(
+		lv_star_1_0=RULE_STAR
+		{
+			newLeafNode(lv_star_1_0, grammarAccess.getPointerAccess().getStarSTARTerminalRuleCall_1_0_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getPointerRule());
+	        }
+       		addWithLastConsumed(
+       			$current, 
+       			"star",
+        		lv_star_1_0, 
+        		"at.jku.weiner.c.C.STAR");
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		lv_caret_2_0=RULE_CARET
+		{
+			newLeafNode(lv_caret_2_0, grammarAccess.getPointerAccess().getCaretCARETTerminalRuleCall_1_0_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getPointerRule());
+	        }
+       		addWithLastConsumed(
+       			$current, 
+       			"caret",
+        		lv_caret_2_0, 
+        		"at.jku.weiner.c.C.CARET");
+	    }
+
+)
+)
+
+)
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getPointerAccess().getTypeQualifierListTypeQualifierListParserRuleCall_1_1_0()); 
+	    }
+		lv_typeQualifierList_3_0=ruleTypeQualifierList		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getPointerRule());
+	        }
+       		add(
+       			$current, 
+       			"typeQualifierList",
+        		lv_typeQualifierList_3_0, 
+        		"at.jku.weiner.c.C.TypeQualifierList");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)?
+
+)*
+
+)
+
+
+;
+
+
+
+
+
+// Entry rule entryRuleTypeQualifierList
+entryRuleTypeQualifierList returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getTypeQualifierListRule()); }
+	 iv_ruleTypeQualifierList=ruleTypeQualifierList 
+	 { $current=$iv_ruleTypeQualifierList.current; } 
+	 EOF 
+;
+
+// Rule TypeQualifierList
+ruleTypeQualifierList returns [EObject current=null] 
+    @init { enterRule();
+   		
+    }
+    @after { leaveRule();
+    		
+     }:
+
+(
+(
+	{ 
+	  /* */ 
+	}
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getTypeQualifierListAccess().getTypeQualifierListAction_0(),
+            $current);
+    }
+)
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getTypeQualifierListAccess().getTypeQualifierTypeQualifierParserRuleCall_1_0()); 
+	    }
+		lv_typeQualifier_1_0=ruleTypeQualifier		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getTypeQualifierListRule());
+	        }
+       		add(
+       			$current, 
+       			"typeQualifier",
+        		lv_typeQualifier_1_0, 
+        		"at.jku.weiner.c.C.TypeQualifier");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)+
 
 )
 

@@ -198,6 +198,20 @@ public class CSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case CPackage.POINTER:
+      {
+        Pointer pointer = (Pointer)theEObject;
+        T result = casePointer(pointer);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CPackage.TYPE_QUALIFIER_LIST:
+      {
+        TypeQualifierList typeQualifierList = (TypeQualifierList)theEObject;
+        T result = caseTypeQualifierList(typeQualifierList);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case CPackage.PARAMETER_TYPE_LIST:
       {
         ParameterTypeList parameterTypeList = (ParameterTypeList)theEObject;
@@ -735,6 +749,38 @@ public class CSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDirectDeclaratorLastSuffix(DirectDeclaratorLastSuffix object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Pointer</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Pointer</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePointer(Pointer object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Type Qualifier List</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Type Qualifier List</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTypeQualifierList(TypeQualifierList object)
   {
     return null;
   }

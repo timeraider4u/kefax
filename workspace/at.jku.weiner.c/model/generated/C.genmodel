@@ -61,6 +61,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//TypeQualifier/type"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//Declarator">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//Declarator/pointer"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//Declarator/declarator"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//DirectDeclarator">
@@ -74,6 +75,14 @@
     <genClasses ecoreClass="C.ecore#//DirectDeclaratorLastSuffix">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//DirectDeclaratorLastSuffix/parameterTypeList"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//DirectDeclaratorLastSuffix/identifierList"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//Pointer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//Pointer/star"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//Pointer/caret"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//Pointer/typeQualifierList"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//TypeQualifierList">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//TypeQualifierList/typeQualifier"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//ParameterTypeList">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//ParameterTypeList/list"/>

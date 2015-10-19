@@ -165,6 +165,16 @@ public class CAdapterFactory extends AdapterFactoryImpl
         return createDirectDeclaratorLastSuffixAdapter();
       }
       @Override
+      public Adapter casePointer(Pointer object)
+      {
+        return createPointerAdapter();
+      }
+      @Override
+      public Adapter caseTypeQualifierList(TypeQualifierList object)
+      {
+        return createTypeQualifierListAdapter();
+      }
+      @Override
       public Adapter caseParameterTypeList(ParameterTypeList object)
       {
         return createParameterTypeListAdapter();
@@ -617,6 +627,36 @@ public class CAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDirectDeclaratorLastSuffixAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.Pointer <em>Pointer</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.c.Pointer
+   * @generated
+   */
+  public Adapter createPointerAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.TypeQualifierList <em>Type Qualifier List</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.c.TypeQualifierList
+   * @generated
+   */
+  public Adapter createTypeQualifierListAdapter()
   {
     return null;
   }

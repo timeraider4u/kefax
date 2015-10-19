@@ -5,6 +5,7 @@ package at.jku.weiner.c.c.impl;
 import at.jku.weiner.c.c.CPackage;
 import at.jku.weiner.c.c.Declarator;
 import at.jku.weiner.c.c.DirectDeclarator;
+import at.jku.weiner.c.c.Pointer;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -22,6 +23,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link at.jku.weiner.c.c.impl.DeclaratorImpl#getPointer <em>Pointer</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.DeclaratorImpl#getDeclarator <em>Declarator</em>}</li>
  * </ul>
  * </p>
@@ -30,6 +32,16 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class DeclaratorImpl extends MinimalEObjectImpl.Container implements Declarator
 {
+  /**
+   * The cached value of the '{@link #getPointer() <em>Pointer</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPointer()
+   * @generated
+   * @ordered
+   */
+  protected Pointer pointer;
+
   /**
    * The cached value of the '{@link #getDeclarator() <em>Declarator</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -59,6 +71,54 @@ public class DeclaratorImpl extends MinimalEObjectImpl.Container implements Decl
   protected EClass eStaticClass()
   {
     return CPackage.Literals.DECLARATOR;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Pointer getPointer()
+  {
+    return pointer;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetPointer(Pointer newPointer, NotificationChain msgs)
+  {
+    Pointer oldPointer = pointer;
+    pointer = newPointer;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CPackage.DECLARATOR__POINTER, oldPointer, newPointer);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPointer(Pointer newPointer)
+  {
+    if (newPointer != pointer)
+    {
+      NotificationChain msgs = null;
+      if (pointer != null)
+        msgs = ((InternalEObject)pointer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CPackage.DECLARATOR__POINTER, null, msgs);
+      if (newPointer != null)
+        msgs = ((InternalEObject)newPointer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CPackage.DECLARATOR__POINTER, null, msgs);
+      msgs = basicSetPointer(newPointer, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CPackage.DECLARATOR__POINTER, newPointer, newPointer));
   }
 
   /**
@@ -119,6 +179,8 @@ public class DeclaratorImpl extends MinimalEObjectImpl.Container implements Decl
   {
     switch (featureID)
     {
+      case CPackage.DECLARATOR__POINTER:
+        return basicSetPointer(null, msgs);
       case CPackage.DECLARATOR__DECLARATOR:
         return basicSetDeclarator(null, msgs);
     }
@@ -135,6 +197,8 @@ public class DeclaratorImpl extends MinimalEObjectImpl.Container implements Decl
   {
     switch (featureID)
     {
+      case CPackage.DECLARATOR__POINTER:
+        return getPointer();
       case CPackage.DECLARATOR__DECLARATOR:
         return getDeclarator();
     }
@@ -151,6 +215,9 @@ public class DeclaratorImpl extends MinimalEObjectImpl.Container implements Decl
   {
     switch (featureID)
     {
+      case CPackage.DECLARATOR__POINTER:
+        setPointer((Pointer)newValue);
+        return;
       case CPackage.DECLARATOR__DECLARATOR:
         setDeclarator((DirectDeclarator)newValue);
         return;
@@ -168,6 +235,9 @@ public class DeclaratorImpl extends MinimalEObjectImpl.Container implements Decl
   {
     switch (featureID)
     {
+      case CPackage.DECLARATOR__POINTER:
+        setPointer((Pointer)null);
+        return;
       case CPackage.DECLARATOR__DECLARATOR:
         setDeclarator((DirectDeclarator)null);
         return;
@@ -185,6 +255,8 @@ public class DeclaratorImpl extends MinimalEObjectImpl.Container implements Decl
   {
     switch (featureID)
     {
+      case CPackage.DECLARATOR__POINTER:
+        return pointer != null;
       case CPackage.DECLARATOR__DECLARATOR:
         return declarator != null;
     }

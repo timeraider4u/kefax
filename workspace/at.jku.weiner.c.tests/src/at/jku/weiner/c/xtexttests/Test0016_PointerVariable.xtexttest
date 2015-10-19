@@ -1,0 +1,90 @@
+package at.jku.weiner.c
+language c
+//----------------------------------------------------------------------
+source file="res/Test0016_PointerVariable.c"
+//----------------------------------------------------------------------
+lexer-tokens
+KW_INT WHITESPACE STAR WHITESPACE KW_CONST WHITESPACE ID SEMI NEWLINE
+KW_DOUBLE WHITESPACE STAR WHITESPACE STAR ID SEMI NEWLINE
+//----------------------------------------------------------------------
+(Model unit+=
+	(TranslationUnit 
+		external+=
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"int"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"i"
+							),
+							pointer=
+							(Pointer
+								star+*"[**]",
+								typeQualifierList+=
+								(TypeQualiferList
+									typeQualifier+=
+									(TypeQualifer
+										type++"const"
+									)
+								)
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+		),
+		(ExternalDeclaration
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"int"
+					)
+				)
+				,
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"j"
+							),
+							pointer=
+							(Pointer
+								star+*"[**]",
+								typeQualifierList+=
+								(TypeQualiferList
+									typeQualifier+=
+									(TypeQualifer
+										type++"const"
+									)
+								)
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+			
+		)
+	)
+)

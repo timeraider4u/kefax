@@ -41,6 +41,7 @@ import at.jku.weiner.c.c.MyIdentifier;
 import at.jku.weiner.c.c.ParameterDeclaration;
 import at.jku.weiner.c.c.ParameterList;
 import at.jku.weiner.c.c.ParameterTypeList;
+import at.jku.weiner.c.c.Pointer;
 import at.jku.weiner.c.c.PostfixExpression;
 import at.jku.weiner.c.c.PrimaryExpression;
 import at.jku.weiner.c.c.RelationalExpression;
@@ -51,6 +52,7 @@ import at.jku.weiner.c.c.StorageClassSpecifier;
 import at.jku.weiner.c.c.TranslationUnit;
 import at.jku.weiner.c.c.TypeName;
 import at.jku.weiner.c.c.TypeQualifier;
+import at.jku.weiner.c.c.TypeQualifierList;
 import at.jku.weiner.c.c.TypeSpecifier;
 import at.jku.weiner.c.c.TypedefName;
 import at.jku.weiner.c.c.UnaryExpression;
@@ -197,6 +199,20 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * @generated
    */
   private EClass directDeclaratorLastSuffixEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass pointerEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass typeQualifierListEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -900,9 +916,19 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDeclarator_Declarator()
+  public EReference getDeclarator_Pointer()
   {
     return (EReference)declaratorEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDeclarator_Declarator()
+  {
+    return (EReference)declaratorEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -993,6 +1019,66 @@ public class CPackageImpl extends EPackageImpl implements CPackage
   public EReference getDirectDeclaratorLastSuffix_IdentifierList()
   {
     return (EReference)directDeclaratorLastSuffixEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPointer()
+  {
+    return pointerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPointer_Star()
+  {
+    return (EAttribute)pointerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPointer_Caret()
+  {
+    return (EAttribute)pointerEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPointer_TypeQualifierList()
+  {
+    return (EReference)pointerEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getTypeQualifierList()
+  {
+    return typeQualifierListEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTypeQualifierList_TypeQualifier()
+  {
+    return (EReference)typeQualifierListEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1959,6 +2045,7 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     createEAttribute(typeQualifierEClass, TYPE_QUALIFIER__TYPE);
 
     declaratorEClass = createEClass(DECLARATOR);
+    createEReference(declaratorEClass, DECLARATOR__POINTER);
     createEReference(declaratorEClass, DECLARATOR__DECLARATOR);
 
     directDeclaratorEClass = createEClass(DIRECT_DECLARATOR);
@@ -1972,6 +2059,14 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     directDeclaratorLastSuffixEClass = createEClass(DIRECT_DECLARATOR_LAST_SUFFIX);
     createEReference(directDeclaratorLastSuffixEClass, DIRECT_DECLARATOR_LAST_SUFFIX__PARAMETER_TYPE_LIST);
     createEReference(directDeclaratorLastSuffixEClass, DIRECT_DECLARATOR_LAST_SUFFIX__IDENTIFIER_LIST);
+
+    pointerEClass = createEClass(POINTER);
+    createEAttribute(pointerEClass, POINTER__STAR);
+    createEAttribute(pointerEClass, POINTER__CARET);
+    createEReference(pointerEClass, POINTER__TYPE_QUALIFIER_LIST);
+
+    typeQualifierListEClass = createEClass(TYPE_QUALIFIER_LIST);
+    createEReference(typeQualifierListEClass, TYPE_QUALIFIER_LIST__TYPE_QUALIFIER);
 
     parameterTypeListEClass = createEClass(PARAMETER_TYPE_LIST);
     createEReference(parameterTypeListEClass, PARAMETER_TYPE_LIST__LIST);
@@ -2201,6 +2296,7 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     initEAttribute(getTypeQualifier_Type(), theEcorePackage.getEString(), "type", null, 0, 1, TypeQualifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(declaratorEClass, Declarator.class, "Declarator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDeclarator_Pointer(), this.getPointer(), null, "pointer", null, 0, 1, Declarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDeclarator_Declarator(), this.getDirectDeclarator(), null, "declarator", null, 0, 1, Declarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(directDeclaratorEClass, DirectDeclarator.class, "DirectDeclarator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2214,6 +2310,14 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     initEClass(directDeclaratorLastSuffixEClass, DirectDeclaratorLastSuffix.class, "DirectDeclaratorLastSuffix", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDirectDeclaratorLastSuffix_ParameterTypeList(), this.getParameterTypeList(), null, "parameterTypeList", null, 0, -1, DirectDeclaratorLastSuffix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDirectDeclaratorLastSuffix_IdentifierList(), this.getIdentifierList(), null, "identifierList", null, 0, 1, DirectDeclaratorLastSuffix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(pointerEClass, Pointer.class, "Pointer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPointer_Star(), theEcorePackage.getEString(), "star", null, 0, -1, Pointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPointer_Caret(), theEcorePackage.getEString(), "caret", null, 0, -1, Pointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPointer_TypeQualifierList(), this.getTypeQualifierList(), null, "typeQualifierList", null, 0, -1, Pointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(typeQualifierListEClass, TypeQualifierList.class, "TypeQualifierList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTypeQualifierList_TypeQualifier(), this.getTypeQualifier(), null, "typeQualifier", null, 0, -1, TypeQualifierList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(parameterTypeListEClass, ParameterTypeList.class, "ParameterTypeList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getParameterTypeList_List(), this.getParameterList(), null, "list", null, 0, 1, ParameterTypeList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

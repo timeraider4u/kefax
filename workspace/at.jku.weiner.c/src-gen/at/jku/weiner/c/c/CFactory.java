@@ -185,6 +185,24 @@ public interface CFactory extends EFactory
   DirectDeclaratorLastSuffix createDirectDeclaratorLastSuffix();
 
   /**
+   * Returns a new object of class '<em>Pointer</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Pointer</em>'.
+   * @generated
+   */
+  Pointer createPointer();
+
+  /**
+   * Returns a new object of class '<em>Type Qualifier List</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Type Qualifier List</em>'.
+   * @generated
+   */
+  TypeQualifierList createTypeQualifierList();
+
+  /**
    * Returns a new object of class '<em>Parameter Type List</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

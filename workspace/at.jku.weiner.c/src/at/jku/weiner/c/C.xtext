@@ -326,7 +326,7 @@ Declarator
 	}
 	:
 	{Declarator}	
-	/*pointer?*/
+	(pointer=Pointer)?
 	(declarator=DirectDeclarator)
 	//(gccDeclExt+=gccDeclaratorExtension)*
 ;
@@ -399,14 +399,16 @@ gccAttribute: {gccAttribute} (ANYOTHER)
 //;
 */
 
-/*
-pointer: {pointer} ((STAR | CARET) typeQualifierList+=typeQualifierList?)*
-	//|	{pointer} CARET typeQualifierList=typeQualifierList? pointer=pointer?// Blocks language extension
-;*/
 
-/*
-typeQualifierList: {typeQualifierList} (typeQualifier+=typeQualifier)+;
-*/
+Pointer:
+	{Pointer} 
+	(
+		((star+=STAR | caret+=CARET) typeQualifierList+=TypeQualifierList?)*
+		//|	{pointer} CARET typeQualifierList=typeQualifierList? pointer=pointer?// Blocks language extension
+	)
+;
+
+TypeQualifierList: {TypeQualifierList} (typeQualifier+=TypeQualifier)+;
 
 ParameterTypeList:
 	{ParameterTypeList}

@@ -1225,13 +1225,31 @@ public interface CPackage extends EPackage
   int ASSIGNMENT_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Op</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSIGNMENT_EXPRESSION__OP = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Assignment Expr</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSIGNMENT_EXPRESSION__ASSIGNMENT_EXPR = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
    * The number of structural features of the '<em>Assignment Expression</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ASSIGNMENT_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+  int ASSIGNMENT_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.c.impl.ConditionalExpressionImpl <em>Conditional Expression</em>}' class.
@@ -2836,6 +2854,28 @@ public interface CPackage extends EPackage
   EReference getAssignmentExpression_Expr();
 
   /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.c.AssignmentExpression#getOp <em>Op</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Op</em>'.
+   * @see at.jku.weiner.c.c.AssignmentExpression#getOp()
+   * @see #getAssignmentExpression()
+   * @generated
+   */
+  EReference getAssignmentExpression_Op();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.c.AssignmentExpression#getAssignmentExpr <em>Assignment Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Assignment Expr</em>'.
+   * @see at.jku.weiner.c.c.AssignmentExpression#getAssignmentExpr()
+   * @see #getAssignmentExpression()
+   * @generated
+   */
+  EReference getAssignmentExpression_AssignmentExpr();
+
+  /**
    * Returns the meta object for class '{@link at.jku.weiner.c.c.ConditionalExpression <em>Conditional Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4070,6 +4110,22 @@ public interface CPackage extends EPackage
      * @generated
      */
     EReference ASSIGNMENT_EXPRESSION__EXPR = eINSTANCE.getAssignmentExpression_Expr();
+
+    /**
+     * The meta object literal for the '<em><b>Op</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ASSIGNMENT_EXPRESSION__OP = eINSTANCE.getAssignmentExpression_Op();
+
+    /**
+     * The meta object literal for the '<em><b>Assignment Expr</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ASSIGNMENT_EXPRESSION__ASSIGNMENT_EXPR = eINSTANCE.getAssignmentExpression_AssignmentExpr();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.c.impl.ConditionalExpressionImpl <em>Conditional Expression</em>}' class.

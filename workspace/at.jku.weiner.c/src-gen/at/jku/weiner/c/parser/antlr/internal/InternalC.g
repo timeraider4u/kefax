@@ -3051,8 +3051,9 @@ ruleAssignmentExpression returns [EObject current=null]
 
 (
 (
+(
 		{ 
-	        newCompositeNode(grammarAccess.getAssignmentExpressionAccess().getExprConditionalExpressionParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getAssignmentExpressionAccess().getExprConditionalExpressionParserRuleCall_1_0_0()); 
 	    }
 		lv_expr_1_0=ruleConditionalExpression		{
 	        if ($current==null) {
@@ -3069,12 +3070,362 @@ ruleAssignmentExpression returns [EObject current=null]
 )
 )
 
+
+    |
+(
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getAssignmentExpressionAccess().getExprUnaryExpressionParserRuleCall_1_1_0_0()); 
+	    }
+		lv_expr_2_0=ruleUnaryExpression		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getAssignmentExpressionRule());
+	        }
+       		set(
+       			$current, 
+       			"expr",
+        		lv_expr_2_0, 
+        		"at.jku.weiner.c.C.UnaryExpression");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getAssignmentExpressionAccess().getOpAssignmentOperatorParserRuleCall_1_1_1_0()); 
+	    }
+		lv_op_3_0=ruleAssignmentOperator		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getAssignmentExpressionRule());
+	        }
+       		set(
+       			$current, 
+       			"op",
+        		lv_op_3_0, 
+        		"at.jku.weiner.c.C.AssignmentOperator");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getAssignmentExpressionAccess().getAssignmentExprAssignmentExpressionParserRuleCall_1_1_2_0()); 
+	    }
+		lv_assignmentExpr_4_0=ruleAssignmentExpression		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getAssignmentExpressionRule());
+	        }
+       		add(
+       			$current, 
+       			"assignmentExpr",
+        		lv_assignmentExpr_4_0, 
+        		"at.jku.weiner.c.C.AssignmentExpression");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+)
+
+)
+
 )
 
 
 ;
 
 
+
+
+
+// Entry rule entryRuleAssignmentOperator
+entryRuleAssignmentOperator returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getAssignmentOperatorRule()); }
+	 iv_ruleAssignmentOperator=ruleAssignmentOperator 
+	 { $current=$iv_ruleAssignmentOperator.current; } 
+	 EOF 
+;
+
+// Rule AssignmentOperator
+ruleAssignmentOperator returns [EObject current=null] 
+    @init { enterRule();
+   		
+    }
+    @after { leaveRule();
+    		
+     }:
+
+(
+(
+(
+	{ 
+	  /* */ 
+	}
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getAssignmentOperatorAccess().getAssignmentOperatorAction_0_0(),
+            $current);
+    }
+)
+
+
+(
+(
+		lv_op_1_0=RULE_ASSIGN
+		{
+			newLeafNode(lv_op_1_0, grammarAccess.getAssignmentOperatorAccess().getOpASSIGNTerminalRuleCall_0_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getAssignmentOperatorRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"op",
+        		lv_op_1_0, 
+        		"at.jku.weiner.c.C.ASSIGN");
+	    }
+
+)
+)
+
+)
+
+
+    |
+(
+(
+		lv_op_2_0=RULE_STARASSIGN
+		{
+			newLeafNode(lv_op_2_0, grammarAccess.getAssignmentOperatorAccess().getOpSTARASSIGNTerminalRuleCall_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getAssignmentOperatorRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"op",
+        		lv_op_2_0, 
+        		"at.jku.weiner.c.C.STARASSIGN");
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		lv_op_3_0=RULE_DIVASSIGN
+		{
+			newLeafNode(lv_op_3_0, grammarAccess.getAssignmentOperatorAccess().getOpDIVASSIGNTerminalRuleCall_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getAssignmentOperatorRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"op",
+        		lv_op_3_0, 
+        		"at.jku.weiner.c.C.DIVASSIGN");
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		lv_op_4_0=RULE_MODASSIGN
+		{
+			newLeafNode(lv_op_4_0, grammarAccess.getAssignmentOperatorAccess().getOpMODASSIGNTerminalRuleCall_3_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getAssignmentOperatorRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"op",
+        		lv_op_4_0, 
+        		"at.jku.weiner.c.C.MODASSIGN");
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		lv_op_5_0=RULE_PLUSASSIGN
+		{
+			newLeafNode(lv_op_5_0, grammarAccess.getAssignmentOperatorAccess().getOpPLUSASSIGNTerminalRuleCall_4_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getAssignmentOperatorRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"op",
+        		lv_op_5_0, 
+        		"at.jku.weiner.c.C.PLUSASSIGN");
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		lv_op_6_0=RULE_MINUSASSIGN
+		{
+			newLeafNode(lv_op_6_0, grammarAccess.getAssignmentOperatorAccess().getOpMINUSASSIGNTerminalRuleCall_5_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getAssignmentOperatorRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"op",
+        		lv_op_6_0, 
+        		"at.jku.weiner.c.C.MINUSASSIGN");
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		lv_op_7_0=RULE_LEFTSHIFTASSIGN
+		{
+			newLeafNode(lv_op_7_0, grammarAccess.getAssignmentOperatorAccess().getOpLEFTSHIFTASSIGNTerminalRuleCall_6_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getAssignmentOperatorRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"op",
+        		lv_op_7_0, 
+        		"at.jku.weiner.c.C.LEFTSHIFTASSIGN");
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		lv_op_8_0=RULE_RIGHTSHIFTASSIGN
+		{
+			newLeafNode(lv_op_8_0, grammarAccess.getAssignmentOperatorAccess().getOpRIGHTSHIFTASSIGNTerminalRuleCall_7_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getAssignmentOperatorRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"op",
+        		lv_op_8_0, 
+        		"at.jku.weiner.c.C.RIGHTSHIFTASSIGN");
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		lv_op_9_0=RULE_ANDASSIGN
+		{
+			newLeafNode(lv_op_9_0, grammarAccess.getAssignmentOperatorAccess().getOpANDASSIGNTerminalRuleCall_8_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getAssignmentOperatorRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"op",
+        		lv_op_9_0, 
+        		"at.jku.weiner.c.C.ANDASSIGN");
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		lv_op_10_0=RULE_XORASSIGN
+		{
+			newLeafNode(lv_op_10_0, grammarAccess.getAssignmentOperatorAccess().getOpXORASSIGNTerminalRuleCall_9_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getAssignmentOperatorRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"op",
+        		lv_op_10_0, 
+        		"at.jku.weiner.c.C.XORASSIGN");
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		lv_op_11_0=RULE_ORASSIGN
+		{
+			newLeafNode(lv_op_11_0, grammarAccess.getAssignmentOperatorAccess().getOpORASSIGNTerminalRuleCall_10_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getAssignmentOperatorRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"op",
+        		lv_op_11_0, 
+        		"at.jku.weiner.c.C.ORASSIGN");
+	    }
+
+)
+)
+
+)
+
+
+;
 
 
 

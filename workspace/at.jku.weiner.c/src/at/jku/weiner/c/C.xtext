@@ -585,12 +585,11 @@ AssignmentExpression returns Expression:
 	{AssignmentExpression}
 	(
 		expr=ConditionalExpression
-	/*|
+	|
 		(expr=UnaryExpression
 		op=AssignmentOperator
 		assignmentExpr+=AssignmentExpression
 		)
-	*/
 	)
 ;
 

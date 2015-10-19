@@ -1507,24 +1507,60 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.AssignmentExpression");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cAssignmentExpressionAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cExprAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cExprConditionalExpressionParserRuleCall_1_0 = (RuleCall)cExprAssignment_1.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Assignment cExprAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
+		private final RuleCall cExprConditionalExpressionParserRuleCall_1_0_0 = (RuleCall)cExprAssignment_1_0.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
+		private final Assignment cExprAssignment_1_1_0 = (Assignment)cGroup_1_1.eContents().get(0);
+		private final RuleCall cExprUnaryExpressionParserRuleCall_1_1_0_0 = (RuleCall)cExprAssignment_1_1_0.eContents().get(0);
+		private final Assignment cOpAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
+		private final RuleCall cOpAssignmentOperatorParserRuleCall_1_1_1_0 = (RuleCall)cOpAssignment_1_1_1.eContents().get(0);
+		private final Assignment cAssignmentExprAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
+		private final RuleCall cAssignmentExprAssignmentExpressionParserRuleCall_1_1_2_0 = (RuleCall)cAssignmentExprAssignment_1_1_2.eContents().get(0);
 		
 		//AssignmentExpression Expression:
-		//	{AssignmentExpression} expr=ConditionalExpression
+		//	{AssignmentExpression} (expr=ConditionalExpression
+		//	| expr=UnaryExpression
+		//	op=AssignmentOperator
+		//	assignmentExpr+=AssignmentExpression)
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{AssignmentExpression} expr=ConditionalExpression
+		//{AssignmentExpression} (expr=ConditionalExpression | expr=UnaryExpression op=AssignmentOperator
+		//assignmentExpr+=AssignmentExpression)
 		public Group getGroup() { return cGroup; }
 		
 		//{AssignmentExpression}
 		public Action getAssignmentExpressionAction_0() { return cAssignmentExpressionAction_0; }
 		
+		//(expr=ConditionalExpression | expr=UnaryExpression op=AssignmentOperator assignmentExpr+=AssignmentExpression)
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		
 		//expr=ConditionalExpression
-		public Assignment getExprAssignment_1() { return cExprAssignment_1; }
+		public Assignment getExprAssignment_1_0() { return cExprAssignment_1_0; }
 		
 		//ConditionalExpression
-		public RuleCall getExprConditionalExpressionParserRuleCall_1_0() { return cExprConditionalExpressionParserRuleCall_1_0; }
+		public RuleCall getExprConditionalExpressionParserRuleCall_1_0_0() { return cExprConditionalExpressionParserRuleCall_1_0_0; }
+		
+		//expr=UnaryExpression op=AssignmentOperator assignmentExpr+=AssignmentExpression
+		public Group getGroup_1_1() { return cGroup_1_1; }
+		
+		//expr=UnaryExpression
+		public Assignment getExprAssignment_1_1_0() { return cExprAssignment_1_1_0; }
+		
+		//UnaryExpression
+		public RuleCall getExprUnaryExpressionParserRuleCall_1_1_0_0() { return cExprUnaryExpressionParserRuleCall_1_1_0_0; }
+		
+		//op=AssignmentOperator
+		public Assignment getOpAssignment_1_1_1() { return cOpAssignment_1_1_1; }
+		
+		//AssignmentOperator
+		public RuleCall getOpAssignmentOperatorParserRuleCall_1_1_1_0() { return cOpAssignmentOperatorParserRuleCall_1_1_1_0; }
+		
+		//assignmentExpr+=AssignmentExpression
+		public Assignment getAssignmentExprAssignment_1_1_2() { return cAssignmentExprAssignment_1_1_2; }
+		
+		//AssignmentExpression
+		public RuleCall getAssignmentExprAssignmentExpressionParserRuleCall_1_1_2_0() { return cAssignmentExprAssignmentExpressionParserRuleCall_1_1_2_0; }
 	}
 	public class AssignmentOperatorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.AssignmentOperator");
@@ -3434,7 +3470,10 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//AssignmentExpression Expression:
-	//	{AssignmentExpression} expr=ConditionalExpression
+	//	{AssignmentExpression} (expr=ConditionalExpression
+	//	| expr=UnaryExpression
+	//	op=AssignmentOperator
+	//	assignmentExpr+=AssignmentExpression)
 	public AssignmentExpressionElements getAssignmentExpressionAccess() {
 		return pAssignmentExpression;
 	}

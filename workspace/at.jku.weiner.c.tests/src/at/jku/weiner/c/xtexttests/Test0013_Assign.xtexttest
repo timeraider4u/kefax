@@ -84,7 +84,7 @@ SEMI NEWLINE
 										)
 									)
 								)
-							)
+							) // end assignment expression
 						)
 					)
 				),

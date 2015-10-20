@@ -1694,7 +1694,8 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.Lvalue");
 		private final RuleCall cUnaryExpressionParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
-		//Lvalue Expression:
+		//Lvalue Expression initRuleAction { at.jku.weiner.c.Log.error("Lvalue-enter"); } afterRuleAction {
+		//at.jku.weiner.c.Log.error("Lvalue-leave"); }:
 		//	UnaryExpression
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -2443,7 +2444,8 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cExprAssignment_1_2_1 = (Assignment)cGroup_1_2.eContents().get(1);
 		private final RuleCall cExprCastExpressionParserRuleCall_1_2_1_0 = (RuleCall)cExprAssignment_1_2_1.eContents().get(0);
 		
-		//UnaryExpression Expression:
+		//UnaryExpression Expression initRuleAction { at.jku.weiner.c.Log.error("UnaryExpression-enter"); } afterRuleAction {
+		//at.jku.weiner.c.Log.error("UnaryExpression-leave"); }:
 		//	{UnaryExpression} (expr=PostfixExpression
 		//	//|	SIZEOF LEFTPAREN typeName=typeName RIGHTPAREN
 		//	//|	ALIGNOF LEFTPAREN typeName=typeName RIGHTPAREN
@@ -2573,7 +2575,8 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cArrayExprExpressionParserRuleCall_1_1_1_0 = (RuleCall)cArrayExprAssignment_1_1_1.eContents().get(0);
 		private final RuleCall cRIGHTBRACKETTerminalRuleCall_1_1_2 = (RuleCall)cGroup_1_1.eContents().get(2);
 		
-		//PostfixExpression Expression:
+		//PostfixExpression Expression initRuleAction { at.jku.weiner.c.Log.error("PostfixExpression-enter"); } afterRuleAction {
+		//at.jku.weiner.c.Log.error("PostfixExpression-leave"); }:
 		//	{PostfixExpression} (expr+=PrimaryExpression (LEFTBRACKET arrayExpr+=Expression RIGHTBRACKET
 		//	/ *| LEFTPAREN argumentExpressionList+=argumentExpressionList? RIGHTPAREN
 		//		| DOT IDENTIFIER
@@ -2645,7 +2648,8 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		
 		/// *
 		//argumentExpressionList: assignmentExpression (COMMA expr+=assignmentExpression)*;
-		// * / PrimaryExpression Expression:
+		// * / PrimaryExpression Expression initRuleAction { at.jku.weiner.c.Log.error("PrimaryExpression-enter"); } afterRuleAction
+		//{ at.jku.weiner.c.Log.error("PrimaryExpression-leave"); }:
 		//	{PrimaryExpression} (id=ID
 		//	| const=Constant
 		//	//|	string+=STRING_LITERAL+
@@ -3745,7 +3749,8 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		return getAssignmentExpressionAccess().getRule();
 	}
 	
-	//Lvalue Expression:
+	//Lvalue Expression initRuleAction { at.jku.weiner.c.Log.error("Lvalue-enter"); } afterRuleAction {
+	//at.jku.weiner.c.Log.error("Lvalue-leave"); }:
 	//	UnaryExpression
 	public LvalueElements getLvalueAccess() {
 		return pLvalue;
@@ -3900,7 +3905,8 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		return getCastExpressionAccess().getRule();
 	}
 	
-	//UnaryExpression Expression:
+	//UnaryExpression Expression initRuleAction { at.jku.weiner.c.Log.error("UnaryExpression-enter"); } afterRuleAction {
+	//at.jku.weiner.c.Log.error("UnaryExpression-leave"); }:
 	//	{UnaryExpression} (expr=PostfixExpression
 	//	//|	SIZEOF LEFTPAREN typeName=typeName RIGHTPAREN
 	//	//|	ALIGNOF LEFTPAREN typeName=typeName RIGHTPAREN
@@ -3929,7 +3935,8 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		return getUnaryOperatorAccess().getRule();
 	}
 	
-	//PostfixExpression Expression:
+	//PostfixExpression Expression initRuleAction { at.jku.weiner.c.Log.error("PostfixExpression-enter"); } afterRuleAction {
+	//at.jku.weiner.c.Log.error("PostfixExpression-leave"); }:
 	//	{PostfixExpression} (expr+=PrimaryExpression (LEFTBRACKET arrayExpr+=Expression RIGHTBRACKET
 	//	/ *| LEFTPAREN argumentExpressionList+=argumentExpressionList? RIGHTPAREN
 	//		| DOT IDENTIFIER
@@ -3947,7 +3954,8 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	
 	/// *
 	//argumentExpressionList: assignmentExpression (COMMA expr+=assignmentExpression)*;
-	// * / PrimaryExpression Expression:
+	// * / PrimaryExpression Expression initRuleAction { at.jku.weiner.c.Log.error("PrimaryExpression-enter"); } afterRuleAction
+	//{ at.jku.weiner.c.Log.error("PrimaryExpression-leave"); }:
 	//	{PrimaryExpression} (id=ID
 	//	| const=Constant
 	//	//|	string+=STRING_LITERAL+

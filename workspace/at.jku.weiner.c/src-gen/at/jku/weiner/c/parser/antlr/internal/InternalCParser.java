@@ -7416,7 +7416,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject this_UnaryExpression_0 =null;
 
 		 enterRule();
-		   		
+		   		at.jku.weiner.c.Log.error("Lvalue-enter");
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 72) ) { return current; }
@@ -7441,7 +7441,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		at.jku.weiner.c.Log.error("Lvalue-leave");
 			     }
 		}
 		 
@@ -10868,7 +10868,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_expr_5_0 =null;
 
 		 enterRule();
-		   		
+		   		at.jku.weiner.c.Log.error("UnaryExpression-enter");
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 100) ) { return current; }
@@ -11054,7 +11054,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		at.jku.weiner.c.Log.error("UnaryExpression-leave");
 			     }
 		}
 		 
@@ -11434,7 +11434,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_arrayExpr_3_0 =null;
 
 		 enterRule();
-		   		
+		   		at.jku.weiner.c.Log.error("PostfixExpression-enter");
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 104) ) { return current; }
@@ -11553,7 +11553,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		at.jku.weiner.c.Log.error("PostfixExpression-leave");
 			     }
 		}
 		 
@@ -11629,7 +11629,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_expr_4_0 =null;
 
 		 enterRule();
-		   		
+		   		at.jku.weiner.c.Log.error("PrimaryExpression-enter");
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 106) ) { return current; }
@@ -11799,7 +11799,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		at.jku.weiner.c.Log.error("PrimaryExpression-leave");
 			     }
 		}
 		 

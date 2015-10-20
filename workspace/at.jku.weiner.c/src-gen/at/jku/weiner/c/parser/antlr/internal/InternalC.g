@@ -3495,10 +3495,10 @@ entryRuleLvalue returns [EObject current=null]
 // Rule Lvalue
 ruleLvalue returns [EObject current=null] 
     @init { enterRule();
-   		
+   		at.jku.weiner.c.Log.error("Lvalue-enter");
     }
     @after { leaveRule();
-    		
+    		at.jku.weiner.c.Log.error("Lvalue-leave");
      }:
 
 
@@ -5230,10 +5230,10 @@ entryRuleUnaryExpression returns [EObject current=null]
 // Rule UnaryExpression
 ruleUnaryExpression returns [EObject current=null] 
     @init { enterRule();
-   		
+   		at.jku.weiner.c.Log.error("UnaryExpression-enter");
     }
     @after { leaveRule();
-    		
+    		at.jku.weiner.c.Log.error("UnaryExpression-leave");
      }:
 
 (
@@ -5515,10 +5515,10 @@ entryRulePostfixExpression returns [EObject current=null]
 // Rule PostfixExpression
 rulePostfixExpression returns [EObject current=null] 
     @init { enterRule();
-   		
+   		at.jku.weiner.c.Log.error("PostfixExpression-enter");
     }
     @after { leaveRule();
-    		
+    		at.jku.weiner.c.Log.error("PostfixExpression-leave");
      }:
 
 (
@@ -5616,10 +5616,10 @@ entryRulePrimaryExpression returns [EObject current=null]
 // Rule PrimaryExpression
 rulePrimaryExpression returns [EObject current=null] 
     @init { enterRule();
-   		
+   		at.jku.weiner.c.Log.error("PrimaryExpression-enter");
     }
     @after { leaveRule();
-    		
+    		at.jku.weiner.c.Log.error("PrimaryExpression-leave");
      }:
 
 (

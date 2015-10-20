@@ -621,7 +621,10 @@ AssignmentExpression returns Expression
 	)
 ;
 
-Lvalue returns Expression:
+Lvalue returns Expression
+	initRuleAction { at.jku.weiner.c.Log.error("Lvalue-enter"); }
+	afterRuleAction { at.jku.weiner.c.Log.error("Lvalue-leave"); }
+	:
 	UnaryExpression
 ;
 
@@ -725,7 +728,10 @@ CastExpression returns Expression:
 	)
 ;
 
-UnaryExpression returns Expression:
+UnaryExpression returns Expression
+	initRuleAction { at.jku.weiner.c.Log.error("UnaryExpression-enter"); }
+	afterRuleAction { at.jku.weiner.c.Log.error("UnaryExpression-leave"); }
+	:
 	{UnaryExpression}	
 	//(PLUSPLUS | MINUSMINUS | SIZEOF)*
 	(
@@ -749,7 +755,10 @@ UnaryOperator:
 	|	op=NOT
 ;
 
-PostfixExpression returns Expression:
+PostfixExpression returns Expression
+	initRuleAction { at.jku.weiner.c.Log.error("PostfixExpression-enter"); }
+	afterRuleAction { at.jku.weiner.c.Log.error("PostfixExpression-leave"); }
+	:
 	{PostfixExpression}
 	(expr+=PrimaryExpression
 	/*	(
@@ -775,7 +784,10 @@ PostfixExpression returns Expression:
 argumentExpressionList: assignmentExpression (COMMA expr+=assignmentExpression)*;
 */
 
-PrimaryExpression returns Expression:
+PrimaryExpression returns Expression
+	initRuleAction { at.jku.weiner.c.Log.error("PrimaryExpression-enter"); }
+	afterRuleAction { at.jku.weiner.c.Log.error("PrimaryExpression-leave"); }
+	:
 	{PrimaryExpression}
 	(id=ID
 	|	const=Constant

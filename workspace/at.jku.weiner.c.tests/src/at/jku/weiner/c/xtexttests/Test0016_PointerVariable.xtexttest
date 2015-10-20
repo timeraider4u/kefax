@@ -4,8 +4,8 @@ language c
 source file="res/Test0016_PointerVariable.c"
 //----------------------------------------------------------------------
 lexer-tokens
-KW_INT WHITESPACE STAR WHITESPACE KW_CONST WHITESPACE ID SEMI NEWLINE
-KW_DOUBLE WHITESPACE STAR WHITESPACE STAR ID SEMI NEWLINE
+KW_FLOAT WHITESPACE STAR WHITESPACE KW_CONST WHITESPACE ID SEMI NEWLINE
+KW_DOUBLE WHITESPACE STAR WHITESPACE STAR WHITESPACE ID SEMI NEWLINE
 //----------------------------------------------------------------------
 (Model unit+=
 	(TranslationUnit 
@@ -17,7 +17,7 @@ KW_DOUBLE WHITESPACE STAR WHITESPACE STAR ID SEMI NEWLINE
 				(DeclarationSpecifiers
 					declarationSpecifier+=
 					(TypeSpecifier
-						name++"int"
+						name++"float"
 					)
 				),
 				initDeclaratorList+=
@@ -28,11 +28,11 @@ KW_DOUBLE WHITESPACE STAR WHITESPACE STAR ID SEMI NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"i"
+								id++"a"
 							),
 							pointer=
 							(Pointer
-								star+*"[**]",
+								star+*"[*]",
 								typeQualifierList+=
 								(TypeQualifierList
 									typeQualifier+=
@@ -54,7 +54,7 @@ KW_DOUBLE WHITESPACE STAR WHITESPACE STAR ID SEMI NEWLINE
 				(DeclarationSpecifiers
 					declarationSpecifier+=
 					(TypeSpecifier
-						name++"int"
+						name++"double"
 					)
 				)
 				,
@@ -66,18 +66,11 @@ KW_DOUBLE WHITESPACE STAR WHITESPACE STAR ID SEMI NEWLINE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"j"
+								id++"b"
 							),
 							pointer=
 							(Pointer
-								star+*"[**]",
-								typeQualifierList+=
-								(TypeQualifierList
-									typeQualifier+=
-									(TypeQualifier
-										type++"const"
-									)
-								)
+								star+*"[*, *]"
 							)
 						)
 					)

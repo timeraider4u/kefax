@@ -46,8 +46,6 @@ import at.jku.weiner.c.c.InitDeclarator;
 import at.jku.weiner.c.c.Declarator;
 import at.jku.weiner.c.c.DirectDeclarator;
 import at.jku.weiner.c.c.Pointer;
-import at.jku.weiner.c.c.TypeQualifierList;
-import at.jku.weiner.c.c.TypeQualifier;
 
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
@@ -85,7 +83,7 @@ public class Test0016_PointerVariable {
 		final String text = this.getSourceText();
 		//System.out.println(text);
 		final String[] expected = new String[] {
-			"RULE_KW_INT",
+			"RULE_KW_FLOAT",
 			"RULE_WHITESPACE",
 			"RULE_STAR",
 			"RULE_WHITESPACE",
@@ -99,6 +97,7 @@ public class Test0016_PointerVariable {
 			"RULE_STAR",
 			"RULE_WHITESPACE",
 			"RULE_STAR",
+			"RULE_WHITESPACE",
 			"RULE_ID",
 			"RULE_SEMI",
 			"RULE_NEWLINE",
@@ -136,7 +135,7 @@ public class Test0016_PointerVariable {
 		Assert.assertEquals(1, DeclarationSpecifier_4_list.size());
 		final TypeSpecifier TypeSpecifier_5_Var = (TypeSpecifier)DeclarationSpecifier_4_list.get(0);
 		Assert.assertNotNull(TypeSpecifier_5_Var);
-		Assert.assertEquals("int", TypeSpecifier_5_Var.getName());
+		Assert.assertEquals("float", TypeSpecifier_5_Var.getName());
 		final EList<? extends EObject> InitDeclaratorList_5_list = Declaration_3_Var.getInitDeclaratorList();
 		Assert.assertNotNull(InitDeclaratorList_5_list);
 		Assert.assertEquals(1, InitDeclaratorList_5_list.size());
@@ -151,10 +150,10 @@ public class Test0016_PointerVariable {
 		Assert.assertNotNull(Declarator_8_Var);
 		final DirectDeclarator DirectDeclarator_9_Var = (DirectDeclarator)Declarator_8_Var.getDeclarator();
 		Assert.assertNotNull(DirectDeclarator_9_Var);
-		Assert.assertEquals("i", DirectDeclarator_9_Var.getId());
+		Assert.assertEquals("a", DirectDeclarator_9_Var.getId());
 		final Pointer Pointer_10_Var = (Pointer)Declarator_8_Var.getPointer();
 		Assert.assertNotNull(Pointer_10_Var);
-		Assert.assertEquals("[**]", Pointer_10_Var.getStar().toString());
+		Assert.assertEquals("[*]", Pointer_10_Var.getStar().toString());
 		final EList<? extends EObject> TypeQualifierList_10_list = Pointer_10_Var.getTypeQualifierList();
 		Assert.assertNotNull(TypeQualifierList_10_list);
 		Assert.assertEquals(1, TypeQualifierList_10_list.size());
@@ -178,7 +177,7 @@ public class Test0016_PointerVariable {
 		Assert.assertEquals(1, DeclarationSpecifier_15_list.size());
 		final TypeSpecifier TypeSpecifier_16_Var = (TypeSpecifier)DeclarationSpecifier_15_list.get(0);
 		Assert.assertNotNull(TypeSpecifier_16_Var);
-		Assert.assertEquals("int", TypeSpecifier_16_Var.getName());
+		Assert.assertEquals("double", TypeSpecifier_16_Var.getName());
 		final EList<? extends EObject> InitDeclaratorList_16_list = Declaration_14_Var.getInitDeclaratorList();
 		Assert.assertNotNull(InitDeclaratorList_16_list);
 		Assert.assertEquals(1, InitDeclaratorList_16_list.size());
@@ -193,21 +192,10 @@ public class Test0016_PointerVariable {
 		Assert.assertNotNull(Declarator_19_Var);
 		final DirectDeclarator DirectDeclarator_20_Var = (DirectDeclarator)Declarator_19_Var.getDeclarator();
 		Assert.assertNotNull(DirectDeclarator_20_Var);
-		Assert.assertEquals("j", DirectDeclarator_20_Var.getId());
+		Assert.assertEquals("b", DirectDeclarator_20_Var.getId());
 		final Pointer Pointer_21_Var = (Pointer)Declarator_19_Var.getPointer();
 		Assert.assertNotNull(Pointer_21_Var);
-		Assert.assertEquals("[**]", Pointer_21_Var.getStar().toString());
-		final EList<? extends EObject> TypeQualifierList_21_list = Pointer_21_Var.getTypeQualifierList();
-		Assert.assertNotNull(TypeQualifierList_21_list);
-		Assert.assertEquals(1, TypeQualifierList_21_list.size());
-		final TypeQualifierList TypeQualifierList_22_Var = (TypeQualifierList)TypeQualifierList_21_list.get(0);
-		Assert.assertNotNull(TypeQualifierList_22_Var);
-		final EList<? extends EObject> TypeQualifier_22_list = TypeQualifierList_22_Var.getTypeQualifier();
-		Assert.assertNotNull(TypeQualifier_22_list);
-		Assert.assertEquals(1, TypeQualifier_22_list.size());
-		final TypeQualifier TypeQualifier_23_Var = (TypeQualifier)TypeQualifier_22_list.get(0);
-		Assert.assertNotNull(TypeQualifier_23_Var);
-		Assert.assertEquals("const", TypeQualifier_23_Var.getType());
+		Assert.assertEquals("[*, *]", Pointer_21_Var.getStar().toString());
 		Assert.assertEquals(";", Declaration_14_Var.getSemi());
 	}
 

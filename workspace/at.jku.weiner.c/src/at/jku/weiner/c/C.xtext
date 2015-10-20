@@ -643,7 +643,10 @@ AssignmentOperator:
 	| 	op=ORASSIGN
 ;
 
-ConditionalExpression returns Expression:
+ConditionalExpression returns Expression
+	initRuleAction { at.jku.weiner.c.Log.error("ConditionalExpression-enter"); }
+	afterRuleAction { at.jku.weiner.c.Log.error("ConditionalExpression-leave"); }
+	:
 	{ConditionalExpression}
 	expr=LogicalOrExpression
 	(QUESTION qExpr=Expression COLON

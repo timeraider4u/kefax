@@ -3817,10 +3817,10 @@ entryRuleConditionalExpression returns [EObject current=null]
 // Rule ConditionalExpression
 ruleConditionalExpression returns [EObject current=null] 
     @init { enterRule();
-   		
+   		at.jku.weiner.c.Log.error("ConditionalExpression-enter");
     }
     @after { leaveRule();
-    		
+    		at.jku.weiner.c.Log.error("ConditionalExpression-leave");
      }:
 
 (

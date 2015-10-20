@@ -8015,7 +8015,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_cExpr_5_0 =null;
 
 		 enterRule();
-		   		
+		   		at.jku.weiner.c.Log.error("ConditionalExpression-enter");
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 76) ) { return current; }
@@ -8151,7 +8151,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		at.jku.weiner.c.Log.error("ConditionalExpression-leave");
 			     }
 		}
 		 

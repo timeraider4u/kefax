@@ -1834,7 +1834,8 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cCExprAssignment_2_3 = (Assignment)cGroup_2.eContents().get(3);
 		private final RuleCall cCExprConditionalExpressionParserRuleCall_2_3_0 = (RuleCall)cCExprAssignment_2_3.eContents().get(0);
 		
-		//ConditionalExpression Expression:
+		//ConditionalExpression Expression initRuleAction { at.jku.weiner.c.Log.error("ConditionalExpression-enter"); }
+		//afterRuleAction { at.jku.weiner.c.Log.error("ConditionalExpression-leave"); }:
 		//	{ConditionalExpression} expr=LogicalOrExpression (QUESTION qExpr=Expression COLON
 		//	cExpr=ConditionalExpression)?
 		@Override public ParserRule getRule() { return rule; }
@@ -3780,7 +3781,8 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		return getAssignmentOperatorAccess().getRule();
 	}
 	
-	//ConditionalExpression Expression:
+	//ConditionalExpression Expression initRuleAction { at.jku.weiner.c.Log.error("ConditionalExpression-enter"); }
+	//afterRuleAction { at.jku.weiner.c.Log.error("ConditionalExpression-leave"); }:
 	//	{ConditionalExpression} expr=LogicalOrExpression (QUESTION qExpr=Expression COLON
 	//	cExpr=ConditionalExpression)?
 	public ConditionalExpressionElements getConditionalExpressionAccess() {

@@ -1,7 +1,7 @@
 package at.jku.weiner.c
 language c
 //----------------------------------------------------------------------
-source file="res/Test0016_PointerInFunctionDecl.c"
+source file="res/Test0017_PointerInFunctionDecl.c"
 //----------------------------------------------------------------------
 lexer-tokens
 KW_VOID WHITESPACE ID LEFTPAREN
@@ -46,38 +46,6 @@ RIGHTPAREN SEMI NEWLINE
 													(DeclarationSpecifiers
 														declarationSpecifier+=
 														(TypeSpecifier
-															name++"char"
-														)
-													),
-													declarator=
-													(Declarator
-														declarator=
-														(DirectDeclarator
-															id++"c"
-														)
-													)
-												),
-												(ParameterDeclaration
-													declSpecifiers=
-													(DeclarationSpecifiers
-														declarationSpecifier+=
-														(TypeSpecifier
-															name++"float"
-														)
-													),
-													declarator=
-													(Declarator
-														declarator=
-														(DirectDeclarator
-															id++"f"
-														)
-													)
-												),
-												(ParameterDeclaration
-													declSpecifiers=
-													(DeclarationSpecifiers
-														declarationSpecifier+=
-														(TypeSpecifier
 															name++"int"
 														)
 													),
@@ -85,50 +53,14 @@ RIGHTPAREN SEMI NEWLINE
 													(Declarator
 														declarator=
 														(DirectDeclarator
-															id++"i"
+															id++"argc"
+														),
+														pointer=
+														(Pointer 
+															star+*"[*]"
 														)
 													)
-												)
-											)
-										)
-									)
-								)
-							)
-						)
-					)
-				),
-				semi++";"
-			)
-		),
-		// void do2(int, int, int);
-		(ExternalDeclaration 
-			declaration=
-			(Declaration
-				specifiers=
-				(DeclarationSpecifiers
-					declarationSpecifier+=
-					(TypeSpecifier
-						name++"void"
-					)
-				),
-				initDeclaratorList+=
-				(InitDeclaratorList
-					initDeclarator+=
-					(InitDeclarator
-						declarator=
-						(Declarator
-							declarator=
-							(DirectDeclarator
-								id++"do2",
-								declaratorSuffix+=
-								(DeclaratorSuffix
-									lastSuffix=
-									(DirectDeclaratorLastSuffix
-										parameterTypeList+=
-										(ParameterTypeList
-											list=
-											(ParameterList
-												parameterDeclaration+=
+												),
 												(ParameterDeclaration
 													declSpecifiers=
 													(DeclarationSpecifiers
@@ -136,23 +68,16 @@ RIGHTPAREN SEMI NEWLINE
 														(TypeSpecifier
 															name++"char"
 														)
-													)
-												),
-												(ParameterDeclaration
-													declSpecifiers=
-													(DeclarationSpecifiers
-														declarationSpecifier+=
-														(TypeSpecifier
-															name++"float"
-														)
-													)
-												),
-												(ParameterDeclaration
-													declSpecifiers=
-													(DeclarationSpecifiers
-														declarationSpecifier+=
-														(TypeSpecifier
-															name++"int"
+													),
+													declarator=
+													(Declarator
+														declarator=
+														(DirectDeclarator
+															id++"argv"
+														),
+														pointer=
+														(Pointer 
+															star+*"[*, *]"
 														)
 													)
 												)

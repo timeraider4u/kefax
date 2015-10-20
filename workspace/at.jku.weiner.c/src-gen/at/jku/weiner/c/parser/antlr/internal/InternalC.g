@@ -3387,10 +3387,11 @@ ruleAssignmentExpression returns [EObject current=null]
 (
 (
 (
+(
 		{ 
-	        newCompositeNode(grammarAccess.getAssignmentExpressionAccess().getExprConditionalExpressionParserRuleCall_1_0_0()); 
+	        newCompositeNode(grammarAccess.getAssignmentExpressionAccess().getExprLvalueParserRuleCall_1_0_0_0()); 
 	    }
-		lv_expr_1_0=ruleConditionalExpression		{
+		lv_expr_1_0=ruleLvalue		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getAssignmentExpressionRule());
 	        }
@@ -3398,29 +3399,6 @@ ruleAssignmentExpression returns [EObject current=null]
        			$current, 
        			"expr",
         		lv_expr_1_0, 
-        		"at.jku.weiner.c.C.ConditionalExpression");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)
-
-
-    |
-(
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getAssignmentExpressionAccess().getExprLvalueParserRuleCall_1_1_0_0()); 
-	    }
-		lv_expr_2_0=ruleLvalue		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getAssignmentExpressionRule());
-	        }
-       		set(
-       			$current, 
-       			"expr",
-        		lv_expr_2_0, 
         		"at.jku.weiner.c.C.Lvalue");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -3432,16 +3410,16 @@ ruleAssignmentExpression returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getAssignmentExpressionAccess().getOpAssignmentOperatorParserRuleCall_1_1_1_0()); 
+	        newCompositeNode(grammarAccess.getAssignmentExpressionAccess().getOpAssignmentOperatorParserRuleCall_1_0_1_0()); 
 	    }
-		lv_op_3_0=ruleAssignmentOperator		{
+		lv_op_2_0=ruleAssignmentOperator		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getAssignmentExpressionRule());
 	        }
        		set(
        			$current, 
        			"op",
-        		lv_op_3_0, 
+        		lv_op_2_0, 
         		"at.jku.weiner.c.C.AssignmentOperator");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -3453,16 +3431,16 @@ ruleAssignmentExpression returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getAssignmentExpressionAccess().getAssignmentExprAssignmentExpressionParserRuleCall_1_1_2_0()); 
+	        newCompositeNode(grammarAccess.getAssignmentExpressionAccess().getAssignmentExprAssignmentExpressionParserRuleCall_1_0_2_0()); 
 	    }
-		lv_assignmentExpr_4_0=ruleAssignmentExpression		{
+		lv_assignmentExpr_3_0=ruleAssignmentExpression		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getAssignmentExpressionRule());
 	        }
-       		add(
+       		set(
        			$current, 
        			"assignmentExpr",
-        		lv_assignmentExpr_4_0, 
+        		lv_assignmentExpr_3_0, 
         		"at.jku.weiner.c.C.AssignmentExpression");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -3470,6 +3448,28 @@ ruleAssignmentExpression returns [EObject current=null]
 )
 )
 
+)
+
+
+    |
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getAssignmentExpressionAccess().getExprConditionalExpressionParserRuleCall_1_1_0()); 
+	    }
+		lv_expr_4_0=ruleConditionalExpression		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getAssignmentExpressionRule());
+	        }
+       		set(
+       			$current, 
+       			"expr",
+        		lv_expr_4_0, 
+        		"at.jku.weiner.c.C.ConditionalExpression");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
 )
 
 )
@@ -5892,6 +5892,28 @@ ruleConstant returns [EObject current=null]
 )
 )
 
+
+    |
+(
+(
+		lv_bin_7_0=RULE_BIN_LITERAL
+		{
+			newLeafNode(lv_bin_7_0, grammarAccess.getConstantAccess().getBinBIN_LITERALTerminalRuleCall_6_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getConstantRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"bin",
+        		lv_bin_7_0, 
+        		"at.jku.weiner.c.C.BIN_LITERAL");
+	    }
+
+)
+)
+
 )
 
 
@@ -6108,6 +6130,8 @@ RULE_HEX_LITERAL : '0' ('x'|'X') RULE_HEX_DIGIT+ RULE_INTEGER_TYPE_SUFFIX?;
 RULE_DECIMAL_LITERAL : ('0'|'1'..'9' ('0'..'9')*) RULE_INTEGER_TYPE_SUFFIX?;
 
 RULE_OCTAL_LITERAL : '0' ('0'..'7')+ RULE_INTEGER_TYPE_SUFFIX?;
+
+RULE_BIN_LITERAL : ('0b'|'0B') ('0'..'1')+;
 
 fragment RULE_HEX_DIGIT : ('0'..'9'|'a'..'f'|'A'..'F');
 

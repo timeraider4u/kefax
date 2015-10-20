@@ -26,11 +26,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.c.impl.InitDeclaratorListImpl#getInitDeclarator <em>Init Declarator</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.InitDeclaratorListImpl#getInitDeclarator2 <em>Init Declarator2</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -7,20 +7,13 @@ import at.jku.weiner.c.c.AssignmentOperator;
 import at.jku.weiner.c.c.CPackage;
 import at.jku.weiner.c.c.Expression;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,12 +21,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.c.impl.AssignmentExpressionImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.AssignmentExpressionImpl#getOp <em>Op</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.AssignmentExpressionImpl#getAssignmentExpr <em>Assignment Expr</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -60,14 +53,14 @@ public class AssignmentExpressionImpl extends ExpressionImpl implements Assignme
   protected AssignmentOperator op;
 
   /**
-   * The cached value of the '{@link #getAssignmentExpr() <em>Assignment Expr</em>}' containment reference list.
+   * The cached value of the '{@link #getAssignmentExpr() <em>Assignment Expr</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getAssignmentExpr()
    * @generated
    * @ordered
    */
-  protected EList<Expression> assignmentExpr;
+  protected Expression assignmentExpr;
 
   /**
    * <!-- begin-user-doc -->
@@ -191,13 +184,47 @@ public class AssignmentExpressionImpl extends ExpressionImpl implements Assignme
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Expression> getAssignmentExpr()
+  public Expression getAssignmentExpr()
   {
-    if (assignmentExpr == null)
-    {
-      assignmentExpr = new EObjectContainmentEList<Expression>(Expression.class, this, CPackage.ASSIGNMENT_EXPRESSION__ASSIGNMENT_EXPR);
-    }
     return assignmentExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetAssignmentExpr(Expression newAssignmentExpr, NotificationChain msgs)
+  {
+    Expression oldAssignmentExpr = assignmentExpr;
+    assignmentExpr = newAssignmentExpr;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CPackage.ASSIGNMENT_EXPRESSION__ASSIGNMENT_EXPR, oldAssignmentExpr, newAssignmentExpr);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAssignmentExpr(Expression newAssignmentExpr)
+  {
+    if (newAssignmentExpr != assignmentExpr)
+    {
+      NotificationChain msgs = null;
+      if (assignmentExpr != null)
+        msgs = ((InternalEObject)assignmentExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CPackage.ASSIGNMENT_EXPRESSION__ASSIGNMENT_EXPR, null, msgs);
+      if (newAssignmentExpr != null)
+        msgs = ((InternalEObject)newAssignmentExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CPackage.ASSIGNMENT_EXPRESSION__ASSIGNMENT_EXPR, null, msgs);
+      msgs = basicSetAssignmentExpr(newAssignmentExpr, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CPackage.ASSIGNMENT_EXPRESSION__ASSIGNMENT_EXPR, newAssignmentExpr, newAssignmentExpr));
   }
 
   /**
@@ -215,7 +242,7 @@ public class AssignmentExpressionImpl extends ExpressionImpl implements Assignme
       case CPackage.ASSIGNMENT_EXPRESSION__OP:
         return basicSetOp(null, msgs);
       case CPackage.ASSIGNMENT_EXPRESSION__ASSIGNMENT_EXPR:
-        return ((InternalEList<?>)getAssignmentExpr()).basicRemove(otherEnd, msgs);
+        return basicSetAssignmentExpr(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -245,7 +272,6 @@ public class AssignmentExpressionImpl extends ExpressionImpl implements Assignme
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -258,8 +284,7 @@ public class AssignmentExpressionImpl extends ExpressionImpl implements Assignme
         setOp((AssignmentOperator)newValue);
         return;
       case CPackage.ASSIGNMENT_EXPRESSION__ASSIGNMENT_EXPR:
-        getAssignmentExpr().clear();
-        getAssignmentExpr().addAll((Collection<? extends Expression>)newValue);
+        setAssignmentExpr((Expression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -282,7 +307,7 @@ public class AssignmentExpressionImpl extends ExpressionImpl implements Assignme
         setOp((AssignmentOperator)null);
         return;
       case CPackage.ASSIGNMENT_EXPRESSION__ASSIGNMENT_EXPR:
-        getAssignmentExpr().clear();
+        setAssignmentExpr((Expression)null);
         return;
     }
     super.eUnset(featureID);
@@ -303,7 +328,7 @@ public class AssignmentExpressionImpl extends ExpressionImpl implements Assignme
       case CPackage.ASSIGNMENT_EXPRESSION__OP:
         return op != null;
       case CPackage.ASSIGNMENT_EXPRESSION__ASSIGNMENT_EXPR:
-        return assignmentExpr != null && !assignmentExpr.isEmpty();
+        return assignmentExpr != null;
     }
     return super.eIsSet(featureID);
   }

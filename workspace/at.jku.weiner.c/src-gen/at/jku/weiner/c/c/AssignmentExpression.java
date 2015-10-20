@@ -2,7 +2,6 @@
  */
 package at.jku.weiner.c.c;
 
-import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -11,12 +10,12 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.c.AssignmentExpression#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.AssignmentExpression#getOp <em>Op</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.AssignmentExpression#getAssignmentExpr <em>Assignment Expr</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.c.c.CPackage#getAssignmentExpression()
  * @model
@@ -77,19 +76,29 @@ public interface AssignmentExpression extends Expression
   void setOp(AssignmentOperator value);
 
   /**
-   * Returns the value of the '<em><b>Assignment Expr</b></em>' containment reference list.
-   * The list contents are of type {@link at.jku.weiner.c.c.Expression}.
+   * Returns the value of the '<em><b>Assignment Expr</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Assignment Expr</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Assignment Expr</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Assignment Expr</em>' containment reference list.
+   * @return the value of the '<em>Assignment Expr</em>' containment reference.
+   * @see #setAssignmentExpr(Expression)
    * @see at.jku.weiner.c.c.CPackage#getAssignmentExpression_AssignmentExpr()
    * @model containment="true"
    * @generated
    */
-  EList<Expression> getAssignmentExpr();
+  Expression getAssignmentExpr();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.c.AssignmentExpression#getAssignmentExpr <em>Assignment Expr</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Assignment Expr</em>' containment reference.
+   * @see #getAssignmentExpr()
+   * @generated
+   */
+  void setAssignmentExpr(Expression value);
 
 } // AssignmentExpression

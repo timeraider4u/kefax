@@ -27,11 +27,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.c.impl.SpecifierQualifierListImpl#getTypeSpecifier <em>Type Specifier</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.SpecifierQualifierListImpl#getTypeQualifier <em>Type Qualifier</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

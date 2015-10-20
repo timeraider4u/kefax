@@ -483,10 +483,7 @@ public class Test0014_AssignExpr {
 		final AssignmentOperator AssignmentOperator_68_Var = (AssignmentOperator)AssignmentExpression_64_Var.getOp();
 		Assert.assertNotNull(AssignmentOperator_68_Var);
 		Assert.assertEquals("=", AssignmentOperator_68_Var.getOp());
-		final EList<? extends EObject> AssignmentExpr_68_list = AssignmentExpression_64_Var.getAssignmentExpr();
-		Assert.assertNotNull(AssignmentExpr_68_list);
-		Assert.assertEquals(1, AssignmentExpr_68_list.size());
-		final AssignmentExpression AssignmentExpression_69_Var = (AssignmentExpression)AssignmentExpr_68_list.get(0);
+		final AssignmentExpression AssignmentExpression_69_Var = (AssignmentExpression)AssignmentExpression_64_Var.getAssignmentExpr();
 		Assert.assertNotNull(AssignmentExpression_69_Var);
 		final ConditionalExpression ConditionalExpression_70_Var = (ConditionalExpression)AssignmentExpression_69_Var.getExpr();
 		Assert.assertNotNull(ConditionalExpression_70_Var);
@@ -569,10 +566,7 @@ public class Test0014_AssignExpr {
 		final AssignmentOperator AssignmentOperator_90_Var = (AssignmentOperator)AssignmentExpression_86_Var.getOp();
 		Assert.assertNotNull(AssignmentOperator_90_Var);
 		Assert.assertEquals("=", AssignmentOperator_90_Var.getOp());
-		final EList<? extends EObject> AssignmentExpr_90_list = AssignmentExpression_86_Var.getAssignmentExpr();
-		Assert.assertNotNull(AssignmentExpr_90_list);
-		Assert.assertEquals(1, AssignmentExpr_90_list.size());
-		final AssignmentExpression AssignmentExpression_91_Var = (AssignmentExpression)AssignmentExpr_90_list.get(0);
+		final AssignmentExpression AssignmentExpression_91_Var = (AssignmentExpression)AssignmentExpression_86_Var.getAssignmentExpr();
 		Assert.assertNotNull(AssignmentExpression_91_Var);
 		final ConditionalExpression ConditionalExpression_92_Var = (ConditionalExpression)AssignmentExpression_91_Var.getExpr();
 		Assert.assertNotNull(ConditionalExpression_92_Var);

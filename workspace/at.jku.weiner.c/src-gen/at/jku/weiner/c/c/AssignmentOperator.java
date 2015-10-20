@@ -11,10 +11,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.c.AssignmentOperator#getOp <em>Op</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.c.c.CPackage#getAssignmentOperator()
  * @model

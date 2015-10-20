@@ -13,10 +13,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.c.IdentifierList#getId <em>Id</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.c.c.CPackage#getIdentifierList()
  * @model

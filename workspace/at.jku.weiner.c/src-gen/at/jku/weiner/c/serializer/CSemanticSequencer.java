@@ -264,7 +264,7 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (expr=ConditionalExpression | (expr=Lvalue op=AssignmentOperator assignmentExpr+=AssignmentExpression))
+	 *     ((expr=Lvalue op=AssignmentOperator assignmentExpr=AssignmentExpression) | expr=ConditionalExpression)
 	 */
 	protected void sequence_AssignmentExpression(EObject context, AssignmentExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

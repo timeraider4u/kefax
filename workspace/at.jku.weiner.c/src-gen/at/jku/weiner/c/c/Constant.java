@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.c.Constant#getHex <em>Hex</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.Constant#getOct <em>Oct</em>}</li>
@@ -18,8 +19,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link at.jku.weiner.c.c.Constant#getCh <em>Ch</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.Constant#getStr <em>Str</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.Constant#getFloat <em>Float</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.Constant#getBin <em>Bin</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.c.c.CPackage#getConstant()
  * @model
@@ -182,5 +183,31 @@ public interface Constant extends EObject
    * @generated
    */
   void setFloat(String value);
+
+  /**
+   * Returns the value of the '<em><b>Bin</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Bin</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Bin</em>' attribute.
+   * @see #setBin(String)
+   * @see at.jku.weiner.c.c.CPackage#getConstant_Bin()
+   * @model
+   * @generated
+   */
+  String getBin();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.c.Constant#getBin <em>Bin</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Bin</em>' attribute.
+   * @see #getBin()
+   * @generated
+   */
+  void setBin(String value);
 
 } // Constant

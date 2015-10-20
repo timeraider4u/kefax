@@ -1262,13 +1262,22 @@ public interface CPackage extends EPackage
   int CONSTANT__FLOAT = 5;
 
   /**
+   * The feature id for the '<em><b>Bin</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONSTANT__BIN = 6;
+
+  /**
    * The number of structural features of the '<em>Constant</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONSTANT_FEATURE_COUNT = 6;
+  int CONSTANT_FEATURE_COUNT = 7;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.c.impl.CompoundStatementImpl <em>Compound Statement</em>}' class.
@@ -1382,7 +1391,7 @@ public interface CPackage extends EPackage
   int ASSIGNMENT_EXPRESSION__OP = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Assignment Expr</b></em>' containment reference list.
+   * The feature id for the '<em><b>Assignment Expr</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -3085,6 +3094,17 @@ public interface CPackage extends EPackage
   EAttribute getConstant_Float();
 
   /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.c.Constant#getBin <em>Bin</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Bin</em>'.
+   * @see at.jku.weiner.c.c.Constant#getBin()
+   * @see #getConstant()
+   * @generated
+   */
+  EAttribute getConstant_Bin();
+
+  /**
    * Returns the meta object for class '{@link at.jku.weiner.c.c.CompoundStatement <em>Compound Statement</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3159,10 +3179,10 @@ public interface CPackage extends EPackage
   EReference getAssignmentExpression_Op();
 
   /**
-   * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.c.AssignmentExpression#getAssignmentExpr <em>Assignment Expr</em>}'.
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.c.AssignmentExpression#getAssignmentExpr <em>Assignment Expr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Assignment Expr</em>'.
+   * @return the meta object for the containment reference '<em>Assignment Expr</em>'.
    * @see at.jku.weiner.c.c.AssignmentExpression#getAssignmentExpr()
    * @see #getAssignmentExpression()
    * @generated
@@ -4478,6 +4498,14 @@ public interface CPackage extends EPackage
     EAttribute CONSTANT__FLOAT = eINSTANCE.getConstant_Float();
 
     /**
+     * The meta object literal for the '<em><b>Bin</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONSTANT__BIN = eINSTANCE.getConstant_Bin();
+
+    /**
      * The meta object literal for the '{@link at.jku.weiner.c.c.impl.CompoundStatementImpl <em>Compound Statement</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4540,7 +4568,7 @@ public interface CPackage extends EPackage
     EReference ASSIGNMENT_EXPRESSION__OP = eINSTANCE.getAssignmentExpression_Op();
 
     /**
-     * The meta object literal for the '<em><b>Assignment Expr</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Assignment Expr</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated

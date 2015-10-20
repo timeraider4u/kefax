@@ -1635,60 +1635,62 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cAssignmentExpressionAction_0 = (Action)cGroup.eContents().get(0);
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final Assignment cExprAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
-		private final RuleCall cExprConditionalExpressionParserRuleCall_1_0_0 = (RuleCall)cExprAssignment_1_0.eContents().get(0);
-		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
-		private final Assignment cExprAssignment_1_1_0 = (Assignment)cGroup_1_1.eContents().get(0);
-		private final RuleCall cExprLvalueParserRuleCall_1_1_0_0 = (RuleCall)cExprAssignment_1_1_0.eContents().get(0);
-		private final Assignment cOpAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
-		private final RuleCall cOpAssignmentOperatorParserRuleCall_1_1_1_0 = (RuleCall)cOpAssignment_1_1_1.eContents().get(0);
-		private final Assignment cAssignmentExprAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
-		private final RuleCall cAssignmentExprAssignmentExpressionParserRuleCall_1_1_2_0 = (RuleCall)cAssignmentExprAssignment_1_1_2.eContents().get(0);
+		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
+		private final Assignment cExprAssignment_1_0_0 = (Assignment)cGroup_1_0.eContents().get(0);
+		private final RuleCall cExprLvalueParserRuleCall_1_0_0_0 = (RuleCall)cExprAssignment_1_0_0.eContents().get(0);
+		private final Assignment cOpAssignment_1_0_1 = (Assignment)cGroup_1_0.eContents().get(1);
+		private final RuleCall cOpAssignmentOperatorParserRuleCall_1_0_1_0 = (RuleCall)cOpAssignment_1_0_1.eContents().get(0);
+		private final Assignment cAssignmentExprAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
+		private final RuleCall cAssignmentExprAssignmentExpressionParserRuleCall_1_0_2_0 = (RuleCall)cAssignmentExprAssignment_1_0_2.eContents().get(0);
+		private final Assignment cExprAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
+		private final RuleCall cExprConditionalExpressionParserRuleCall_1_1_0 = (RuleCall)cExprAssignment_1_1.eContents().get(0);
 		
 		//AssignmentExpression Expression initRuleAction { at.jku.weiner.c.Log.error("AssignmentExpression-enter"); }
 		//afterRuleAction { at.jku.weiner.c.Log.error("AssignmentExpression-leave"); }:
-		//	{AssignmentExpression} (expr=ConditionalExpression
-		//	| expr=Lvalue
+		//	{AssignmentExpression} (expr=Lvalue
 		//	op=AssignmentOperator
-		//	assignmentExpr+=AssignmentExpression)
+		//	assignmentExpr=AssignmentExpression
+		//	| expr=ConditionalExpression)
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{AssignmentExpression} (expr=ConditionalExpression | expr=Lvalue op=AssignmentOperator
-		//assignmentExpr+=AssignmentExpression)
+		//{AssignmentExpression} (expr=Lvalue op=AssignmentOperator assignmentExpr=AssignmentExpression |
+		//expr=ConditionalExpression)
 		public Group getGroup() { return cGroup; }
 		
 		//{AssignmentExpression}
 		public Action getAssignmentExpressionAction_0() { return cAssignmentExpressionAction_0; }
 		
-		//(expr=ConditionalExpression | expr=Lvalue op=AssignmentOperator assignmentExpr+=AssignmentExpression)
+		//(expr=Lvalue op=AssignmentOperator assignmentExpr=AssignmentExpression | expr=ConditionalExpression)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		//expr=ConditionalExpression
-		public Assignment getExprAssignment_1_0() { return cExprAssignment_1_0; }
-		
-		//ConditionalExpression
-		public RuleCall getExprConditionalExpressionParserRuleCall_1_0_0() { return cExprConditionalExpressionParserRuleCall_1_0_0; }
-		
-		//expr=Lvalue op=AssignmentOperator assignmentExpr+=AssignmentExpression
-		public Group getGroup_1_1() { return cGroup_1_1; }
+		//// yes, the order of these rules
+		//// makes A DIFFERENCE!!!
+		//expr=Lvalue op=AssignmentOperator assignmentExpr=AssignmentExpression
+		public Group getGroup_1_0() { return cGroup_1_0; }
 		
 		//expr=Lvalue
-		public Assignment getExprAssignment_1_1_0() { return cExprAssignment_1_1_0; }
+		public Assignment getExprAssignment_1_0_0() { return cExprAssignment_1_0_0; }
 		
 		//Lvalue
-		public RuleCall getExprLvalueParserRuleCall_1_1_0_0() { return cExprLvalueParserRuleCall_1_1_0_0; }
+		public RuleCall getExprLvalueParserRuleCall_1_0_0_0() { return cExprLvalueParserRuleCall_1_0_0_0; }
 		
 		//op=AssignmentOperator
-		public Assignment getOpAssignment_1_1_1() { return cOpAssignment_1_1_1; }
+		public Assignment getOpAssignment_1_0_1() { return cOpAssignment_1_0_1; }
 		
 		//AssignmentOperator
-		public RuleCall getOpAssignmentOperatorParserRuleCall_1_1_1_0() { return cOpAssignmentOperatorParserRuleCall_1_1_1_0; }
+		public RuleCall getOpAssignmentOperatorParserRuleCall_1_0_1_0() { return cOpAssignmentOperatorParserRuleCall_1_0_1_0; }
 		
-		//assignmentExpr+=AssignmentExpression
-		public Assignment getAssignmentExprAssignment_1_1_2() { return cAssignmentExprAssignment_1_1_2; }
+		//assignmentExpr=AssignmentExpression
+		public Assignment getAssignmentExprAssignment_1_0_2() { return cAssignmentExprAssignment_1_0_2; }
 		
 		//AssignmentExpression
-		public RuleCall getAssignmentExprAssignmentExpressionParserRuleCall_1_1_2_0() { return cAssignmentExprAssignmentExpressionParserRuleCall_1_1_2_0; }
+		public RuleCall getAssignmentExprAssignmentExpressionParserRuleCall_1_0_2_0() { return cAssignmentExprAssignmentExpressionParserRuleCall_1_0_2_0; }
+		
+		//expr=ConditionalExpression
+		public Assignment getExprAssignment_1_1() { return cExprAssignment_1_1; }
+		
+		//ConditionalExpression
+		public RuleCall getExprConditionalExpressionParserRuleCall_1_1_0() { return cExprConditionalExpressionParserRuleCall_1_1_0; }
 	}
 	public class LvalueElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.Lvalue");
@@ -2725,6 +2727,8 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cStrSTRING_LITERALTerminalRuleCall_4_0 = (RuleCall)cStrAssignment_4.eContents().get(0);
 		private final Assignment cFloatAssignment_5 = (Assignment)cAlternatives.eContents().get(5);
 		private final RuleCall cFloatFLOAT_LITERALTerminalRuleCall_5_0 = (RuleCall)cFloatAssignment_5.eContents().get(0);
+		private final Assignment cBinAssignment_6 = (Assignment)cAlternatives.eContents().get(6);
+		private final RuleCall cBinBIN_LITERALTerminalRuleCall_6_0 = (RuleCall)cBinAssignment_6.eContents().get(0);
 		
 		//Constant:
 		//	{Constant} hex=HEX_LITERAL
@@ -2732,11 +2736,12 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		//	| dec=DECIMAL_LITERAL
 		//	| ch=CHAR_LITERAL
 		//	| str=STRING_LITERAL
-		//	| float=FLOAT_LITERAL;
+		//	| float=FLOAT_LITERAL
+		//	| bin=BIN_LITERAL;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Constant} hex=HEX_LITERAL | oct=OCTAL_LITERAL | dec=DECIMAL_LITERAL | ch=CHAR_LITERAL | str=STRING_LITERAL |
-		//float=FLOAT_LITERAL
+		//float=FLOAT_LITERAL | bin=BIN_LITERAL
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//{Constant} hex=HEX_LITERAL
@@ -2780,6 +2785,12 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//FLOAT_LITERAL
 		public RuleCall getFloatFLOAT_LITERALTerminalRuleCall_5_0() { return cFloatFLOAT_LITERALTerminalRuleCall_5_0; }
+		
+		//bin=BIN_LITERAL
+		public Assignment getBinAssignment_6() { return cBinAssignment_6; }
+		
+		//BIN_LITERAL
+		public RuleCall getBinBIN_LITERALTerminalRuleCall_6_0() { return cBinBIN_LITERALTerminalRuleCall_6_0; }
 	}
 	
 	
@@ -2941,6 +2952,7 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tHEX_LITERAL;
 	private final TerminalRule tDECIMAL_LITERAL;
 	private final TerminalRule tOCTAL_LITERAL;
+	private final TerminalRule tBIN_LITERAL;
 	private final TerminalRule tHEX_DIGIT;
 	private final TerminalRule tINTEGER_TYPE_SUFFIX;
 	private final TerminalRule tFLOAT_LITERAL;
@@ -3119,6 +3131,7 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		this.tHEX_LITERAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.HEX_LITERAL");
 		this.tDECIMAL_LITERAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.DECIMAL_LITERAL");
 		this.tOCTAL_LITERAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.OCTAL_LITERAL");
+		this.tBIN_LITERAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.BIN_LITERAL");
 		this.tHEX_DIGIT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.HEX_DIGIT");
 		this.tINTEGER_TYPE_SUFFIX = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.INTEGER_TYPE_SUFFIX");
 		this.tFLOAT_LITERAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.FLOAT_LITERAL");
@@ -3738,10 +3751,10 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//AssignmentExpression Expression initRuleAction { at.jku.weiner.c.Log.error("AssignmentExpression-enter"); }
 	//afterRuleAction { at.jku.weiner.c.Log.error("AssignmentExpression-leave"); }:
-	//	{AssignmentExpression} (expr=ConditionalExpression
-	//	| expr=Lvalue
+	//	{AssignmentExpression} (expr=Lvalue
 	//	op=AssignmentOperator
-	//	assignmentExpr+=AssignmentExpression)
+	//	assignmentExpr=AssignmentExpression
+	//	| expr=ConditionalExpression)
 	public AssignmentExpressionElements getAssignmentExpressionAccess() {
 		return pAssignmentExpression;
 	}
@@ -3981,7 +3994,8 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	//	| dec=DECIMAL_LITERAL
 	//	| ch=CHAR_LITERAL
 	//	| str=STRING_LITERAL
-	//	| float=FLOAT_LITERAL;
+	//	| float=FLOAT_LITERAL
+	//	| bin=BIN_LITERAL;
 	public ConstantElements getConstantAccess() {
 		return pConstant;
 	}
@@ -4615,6 +4629,12 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	//	'0' '0'..'7'+ INTEGER_TYPE_SUFFIX?;
 	public TerminalRule getOCTAL_LITERALRule() {
 		return tOCTAL_LITERAL;
+	}
+	
+	//terminal BIN_LITERAL:
+	//	('0b' | '0B') '0'..'1'+;
+	public TerminalRule getBIN_LITERALRule() {
+		return tBIN_LITERAL;
 	}
 	
 	//terminal fragment HEX_DIGIT:

@@ -219,7 +219,7 @@ RIGHTBRACE NEWLINE
 										(AssignmentOperator
 											op++"="
 										),
-										assignmentExpr+=
+										assignmentExpr=
 										(AssignmentExpression
 											expr=
 											(ConditionalExpression
@@ -289,7 +289,7 @@ RIGHTBRACE NEWLINE
 										(AssignmentOperator
 											op++"="
 										),
-										assignmentExpr+=
+										assignmentExpr=
 										(AssignmentExpression
 											expr=
 											(ConditionalExpression

@@ -21,11 +21,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.c.impl.ExpressionStatementImpl#getExpression <em>Expression</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.ExpressionStatementImpl#getSemi <em>Semi</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

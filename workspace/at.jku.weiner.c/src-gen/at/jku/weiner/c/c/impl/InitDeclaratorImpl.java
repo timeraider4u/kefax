@@ -22,11 +22,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.c.impl.InitDeclaratorImpl#getDeclarator <em>Declarator</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.InitDeclaratorImpl#getInitializer <em>Initializer</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

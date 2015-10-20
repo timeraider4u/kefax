@@ -5497,8 +5497,9 @@ rulePostfixExpression returns [EObject current=null]
 
 (
 (
+(
 		{ 
-	        newCompositeNode(grammarAccess.getPostfixExpressionAccess().getExprPrimaryExpressionParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getPostfixExpressionAccess().getExprPrimaryExpressionParserRuleCall_1_0_0()); 
 	    }
 		lv_expr_1_0=rulePrimaryExpression		{
 	        if ($current==null) {
@@ -5513,6 +5514,46 @@ rulePostfixExpression returns [EObject current=null]
 	    }
 
 )
+)
+
+
+(
+this_LEFTBRACKET_2=RULE_LEFTBRACKET
+    { 
+    newLeafNode(this_LEFTBRACKET_2, grammarAccess.getPostfixExpressionAccess().getLEFTBRACKETTerminalRuleCall_1_1_0()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getPostfixExpressionAccess().getArrayExprExpressionParserRuleCall_1_1_1_0()); 
+	    }
+		lv_arrayExpr_3_0=ruleExpression		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getPostfixExpressionRule());
+	        }
+       		add(
+       			$current, 
+       			"arrayExpr",
+        		lv_arrayExpr_3_0, 
+        		"at.jku.weiner.c.C.Expression");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+this_RIGHTBRACKET_4=RULE_RIGHTBRACKET
+    { 
+    newLeafNode(this_RIGHTBRACKET_4, grammarAccess.getPostfixExpressionAccess().getRIGHTBRACKETTerminalRuleCall_1_1_2()); 
+    }
+
+
+)*
+
 )
 
 )

@@ -29,12 +29,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.c.impl.DirectDeclaratorImpl#getId <em>Id</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.DirectDeclaratorImpl#getDeclarator <em>Declarator</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.DirectDeclaratorImpl#getDeclaratorSuffix <em>Declarator Suffix</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

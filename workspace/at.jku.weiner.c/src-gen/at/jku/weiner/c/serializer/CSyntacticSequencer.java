@@ -51,6 +51,8 @@ public class CSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getKW_RETURNToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getLEFTBRACERule())
 			return getLEFTBRACEToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getLEFTBRACKETRule())
+			return getLEFTBRACKETToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getLEFTPARENRule())
 			return getLEFTPARENToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getORRule())
@@ -61,6 +63,8 @@ public class CSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getQUESTIONToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getRIGHTBRACERule())
 			return getRIGHTBRACEToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getRIGHTBRACKETRule())
+			return getRIGHTBRACKETToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getRIGHTPARENRule())
 			return getRIGHTPARENToken(semanticObject, ruleCall, node);
 		return "";
@@ -157,6 +161,15 @@ public class CSyntacticSequencer extends AbstractSyntacticSequencer {
 	}
 	
 	/**
+	 * terminal LEFTBRACKET: '[';
+	 */
+	protected String getLEFTBRACKETToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "[";
+	}
+	
+	/**
 	 * terminal LEFTPAREN: '(';
 	 */
 	protected String getLEFTPARENToken(EObject semanticObject, RuleCall ruleCall, INode node) {
@@ -199,6 +212,15 @@ public class CSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return "}";
+	}
+	
+	/**
+	 * terminal RIGHTBRACKET: ']';
+	 */
+	protected String getRIGHTBRACKETToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "]";
 	}
 	
 	/**

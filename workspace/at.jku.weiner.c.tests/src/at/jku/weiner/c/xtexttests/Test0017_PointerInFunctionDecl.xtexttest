@@ -12,7 +12,6 @@ RIGHTPAREN SEMI NEWLINE
 (Model unit+=
 	(TranslationUnit 
 		external+=
-		// int do1(int a, int b, int c);
 		(ExternalDeclaration 
 			declaration=
 			(Declaration

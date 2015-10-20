@@ -11,11 +11,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.c.ExpressionStatement#getExpression <em>Expression</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.ExpressionStatement#getSemi <em>Semi</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.c.CPackage#getExpressionStatement()
  * @model

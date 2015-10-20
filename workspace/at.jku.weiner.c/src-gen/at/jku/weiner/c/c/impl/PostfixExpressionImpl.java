@@ -24,10 +24,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.c.impl.PostfixExpressionImpl#getExpr <em>Expr</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.impl.PostfixExpressionImpl#getArrayExpr <em>Array Expr</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -42,6 +43,16 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
    * @ordered
    */
   protected EList<Expression> expr;
+
+  /**
+   * The cached value of the '{@link #getArrayExpr() <em>Array Expr</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getArrayExpr()
+   * @generated
+   * @ordered
+   */
+  protected EList<Expression> arrayExpr;
 
   /**
    * <!-- begin-user-doc -->
@@ -83,6 +94,20 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Expression> getArrayExpr()
+  {
+    if (arrayExpr == null)
+    {
+      arrayExpr = new EObjectContainmentEList<Expression>(Expression.class, this, CPackage.POSTFIX_EXPRESSION__ARRAY_EXPR);
+    }
+    return arrayExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -90,6 +115,8 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
     {
       case CPackage.POSTFIX_EXPRESSION__EXPR:
         return ((InternalEList<?>)getExpr()).basicRemove(otherEnd, msgs);
+      case CPackage.POSTFIX_EXPRESSION__ARRAY_EXPR:
+        return ((InternalEList<?>)getArrayExpr()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -106,6 +133,8 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
     {
       case CPackage.POSTFIX_EXPRESSION__EXPR:
         return getExpr();
+      case CPackage.POSTFIX_EXPRESSION__ARRAY_EXPR:
+        return getArrayExpr();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -125,6 +154,10 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
         getExpr().clear();
         getExpr().addAll((Collection<? extends Expression>)newValue);
         return;
+      case CPackage.POSTFIX_EXPRESSION__ARRAY_EXPR:
+        getArrayExpr().clear();
+        getArrayExpr().addAll((Collection<? extends Expression>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -142,6 +175,9 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
       case CPackage.POSTFIX_EXPRESSION__EXPR:
         getExpr().clear();
         return;
+      case CPackage.POSTFIX_EXPRESSION__ARRAY_EXPR:
+        getArrayExpr().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -158,6 +194,8 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
     {
       case CPackage.POSTFIX_EXPRESSION__EXPR:
         return expr != null && !expr.isEmpty();
+      case CPackage.POSTFIX_EXPRESSION__ARRAY_EXPR:
+        return arrayExpr != null && !arrayExpr.isEmpty();
     }
     return super.eIsSet(featureID);
   }

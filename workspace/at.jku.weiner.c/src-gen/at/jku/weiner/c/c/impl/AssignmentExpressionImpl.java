@@ -28,12 +28,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.c.impl.AssignmentExpressionImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.AssignmentExpressionImpl#getOp <em>Op</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.AssignmentExpressionImpl#getAssignmentExpr <em>Assignment Expr</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

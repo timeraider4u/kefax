@@ -9,79 +9,110 @@ KW_INT WHITESPACE ID COMMA WHITESPACE
 KW_CHAR WHITESPACE STAR STAR WHITESPACE ID COMMA WHITESPACE
 KW_FLOAT WHITESPACE ID COMMA WHITESPACE
 KW_INT WHITESPACE ID
-RIGHTPAREN SEMI NEWLINE
+RIGHTPAREN WHITESPACE LEFTBRACE NEWLINE
+WHITESPACE LINE_COMMENT NEWLINE
+WHITESPACE ID //LEFTBRACKET DECIMAL_LITERAL RIGHTBRACKET
+WHITESPACE
+ASSIGN WHITESPACE ID LEFTBRACKET ID RIGHTBRACKET WHITESPACE
+PLUS WHITESPACE DECIMAL_LITERAL SEMI NEWLINE
+RIGHTBRACE NEWLINE
 //----------------------------------------------------------------------
 (Model unit+=
 	(TranslationUnit 
 		external+=
-		// int do1(int a, int b, int c);
 		(ExternalDeclaration 
-			declaration=
-			(Declaration
-				specifiers=
+			functiondefHead=
+			(FunctionDefHead
+				funDeclSpecifiers=
 				(DeclarationSpecifiers
 					declarationSpecifier+=
 					(TypeSpecifier
-						name++"void"
+						name++"voids"
 					)
 				),
-				initDeclaratorList+=
-				(InitDeclaratorList
-					initDeclarator+=
-					(InitDeclarator
-						declarator=
-						(Declarator
-							declarator=
-							(DirectDeclarator
-								id++"do1",
-								declaratorSuffix+=
-								(DeclaratorSuffix
-									lastSuffix=
-									(DirectDeclaratorLastSuffix
-										parameterTypeList+=
-										(ParameterTypeList
-											list=
-											(ParameterList
-												parameterDeclaration+=
-												(ParameterDeclaration
-													declSpecifiers=
-													(DeclarationSpecifiers
-														declarationSpecifier+=
-														(TypeSpecifier
-															name++"int"
-														)
-													),
-													declarator=
-													(Declarator
-														declarator=
-														(DirectDeclarator
-															id++"argc"
-														),
-														pointer=
-														(Pointer 
-															star+*"[*]"
-														)
-													)
+				funDeclarator=
+				(Declarator
+					declarator=
+					(DirectDeclarator
+						id++"do12",
+						declaratorSuffix+=
+						(DeclaratorSuffix
+							lastSuffix=
+							(DirectDeclaratorLastSuffix
+								parameterTypeList+=
+								(ParameterTypeList
+									list=
+									(ParameterList
+										parameterDeclaration+=
+										(ParameterDeclaration
+											declSpecifiers=
+											(DeclarationSpecifiers
+												declarationSpecifier+=
+												(TypeSpecifier
+													name++"intInt"
+												)
+											),
+											declarator=
+											(Declarator
+												declarator=
+												(DirectDeclarator
+													id++"argC"
 												),
-												(ParameterDeclaration
-													declSpecifiers=
-													(DeclarationSpecifiers
-														declarationSpecifier+=
-														(TypeSpecifier
-															name++"char"
-														)
-													),
-													declarator=
-													(Declarator
-														declarator=
-														(DirectDeclarator
-															id++"argv"
-														),
-														pointer=
-														(Pointer 
-															star+*"[*, *]"
-														)
-													)
+												pointer=
+												(Pointer 
+													star+*"[*^]"
+												)
+											)
+										),
+										(ParameterDeclaration
+											declSpecifiers=
+											(DeclarationSpecifiers
+												declarationSpecifier+=
+												(TypeSpecifier
+													name++"charChar"
+												)
+											),
+											declarator=
+											(Declarator
+												declarator=
+												(DirectDeclarator
+													id++"argV"
+												),
+												pointer=
+												(Pointer 
+													star+*"[*,^ *]"
+												)
+											)
+										),
+										(ParameterDeclaration
+											declSpecifiers=
+											(DeclarationSpecifiers
+												declarationSpecifier+=
+												(TypeSpecifier
+													name++"floatFloat"
+												)
+											),
+											declarator=
+											(Declarator
+												declarator=
+												(DirectDeclarator
+													id++"F"
+												)
+											)
+										),
+										(ParameterDeclaration
+											declSpecifiers=
+											(DeclarationSpecifiers
+												declarationSpecifier+=
+												(TypeSpecifier
+													name++"intInt"
+												)
+											),
+											declarator=
+											(Declarator
+												declarator=
+												(DirectDeclarator
+													id++"I"
 												)
 											)
 										)
@@ -90,10 +121,234 @@ RIGHTPAREN SEMI NEWLINE
 							)
 						)
 					)
-				),
-				semi++";"
-			)
-		)
+				)
+			), // end functionDefHead
+			functionDefinition=
+			(FunctionDefinition
+				body=
+				(BodyStatement
+					blockList+=
+					(BlockList
+						statement+=
+						(Statement
+							stmt=
+							(ExpressionStatement
+								expression=
+								(Expression
+									exprExpr+=
+									(AssignmentExpression
+										expr=
+										(UnaryExpression
+											expr=
+											(PostfixExpression
+												expr+=
+												(PrimaryExpression
+													const=
+													(Constant
+														dec++"1"
+													)
+												),
+												// [0]
+												arrayExpr+=
+												(Expression
+													exprExpr+=
+													(AssignmentExpression
+														expr=
+														(ConditionalExpression
+															expr=
+															(LogicalOrExpression
+																expr+=
+																(LogicalAndExpression
+																	expr+=
+																	(InclusiveOrExpression
+																		expr+=
+																		(ExclusiveOrExpression
+																			expr+=
+																			(AndExpression
+																				expr+=
+																				(EqualityExpression
+																					expr+=
+																					(RelationalExpression
+																						expr+=
+																						(ShiftExpression
+																							expr+=
+																							(AdditiveExpression
+																								expr+=
+																								(MultiplicativeExpression
+																									expr+=
+																									(CastExpression
+																										expr=
+																										(UnaryExpression
+																											expr=
+																											(PostfixExpression
+																												expr+=
+																												(PrimaryExpression
+																													const=
+																													(Constant
+																														dec++"2"
+																													)
+																												)
+																											)
+																										)
+																									)
+																								)
+																							)
+																						)
+																					)
+																					
+																				)
+																			)
+																		)
+																	)
+																)
+															)
+														)
+													)
+												) //end expression
+											) // end postfix expression
+										), // end unary expression
+										op=
+										(AssignmentOperator
+											op++"*="
+										),
+										assignmentExpr=
+										(AssignmentExpression
+											expr=
+											(ConditionalExpression
+												expr=
+												(LogicalOrExpression
+													expr+=
+													(LogicalAndExpression
+														expr+=
+														(InclusiveOrExpression
+															expr+=
+															(ExclusiveOrExpression
+																expr+=
+																(AndExpression
+																	expr+=
+																	(EqualityExpression
+																		expr+=
+																		(RelationalExpression
+																			expr+=
+																			(ShiftExpression
+																				expr+=
+																				(AdditiveExpression
+																					expr+=
+																					(MultiplicativeExpression
+																						expr+=
+																						(CastExpression
+																							expr=
+																							(UnaryExpression
+																								expr=
+																								(PostfixExpression
+																									expr+=
+																									(PrimaryExpression
+																										const=
+																										(Constant
+																											dec++"1"
+																										)
+																									),
+																									// [i]
+																									arrayExpr+=
+																									(Expression
+																										exprExpr+=
+																										(AssignmentExpression
+																											expr=
+																											(ConditionalExpression
+																												expr=
+																												(LogicalOrExpression
+																													expr+=
+																													(LogicalAndExpression
+																														expr+=
+																														(InclusiveOrExpression
+																															expr+=
+																															(ExclusiveOrExpression
+																																expr+=
+																																(AndExpression
+																																	expr+=
+																																	(EqualityExpression
+																																		expr+=
+																																		(RelationalExpression
+																																			expr+=
+																																			(ShiftExpression
+																																				expr+=
+																																				(AdditiveExpression
+																																					expr+=
+																																					(MultiplicativeExpression
+																																						expr+=
+																																						(CastExpression
+																																							expr=
+																																							(UnaryExpression
+																																								expr=
+																																								(PostfixExpression
+																																									expr+=
+																																									(PrimaryExpression
+																																										const=
+																																										(Constant
+																																											dec++"2"
+																																										)
+																																									)
+																																								)
+																																							)
+																																						)
+																																					)
+																																				)
+																																			)
+																																		)
+																																		
+																																	)
+																																)
+																															)
+																														)
+																													)
+																												)
+																											)
+																										)
+																									) //end expression
+																								)
+																							)
+																						)
+																					),
+																					(MultiplicativeExpression
+																						expr+=
+																						(CastExpression
+																							expr=
+																							(UnaryExpression
+																								expr=
+																								(PostfixExpression
+																									expr+=
+																									(PrimaryExpression
+																										const=
+																										(Constant
+																											dec++"2"
+																										)
+																									)
+																								)
+																							)
+																						)																					
+																					),
+																					op+*"[-]"
+																				)
+																			)
+																		)
+																		
+																	)
+																)
+															)
+														)
+													)
+												)
+											) // end conditional expression
+										) // end assignment expression
+									) // end assignment expression
+								) // end expression
+							) // end expression statement
+						) // end statement
+					) // end block list
+				) // end body statement
+			), // end function definition
+			semi++";"
+		) // end external declaration
 		
 	)
 )

@@ -10,12 +10,12 @@ package at.jku.weiner.c.c;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.c.ConditionalExpression#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.ConditionalExpression#getQExpr <em>QExpr</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.ConditionalExpression#getCExpr <em>CExpr</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.c.CPackage#getConditionalExpression()
  * @model

@@ -737,15 +737,18 @@ PostfixExpression returns Expression:
 	|	('__extension__' LEFTPAREN typeName RIGHTPAREN LEFTBRACE initializerList=initializerList) 
 			(COMMA? RIGHTBRACE)
 	)
-	(LEFTBRACKET expr+=expression RIGHTBRACKET
-	| LEFTPAREN argumentExpressionList+=argumentExpressionList? RIGHTPAREN
-	| DOT IDENTIFIER
-	| ARROW IDENTIFIER
-	| PLUSPLUS
-	| MINUSMINUS
-	
-	)*
 	*/
+	
+	(
+		LEFTBRACKET arrayExpr+=Expression RIGHTBRACKET
+		/*| LEFTPAREN argumentExpressionList+=argumentExpressionList? RIGHTPAREN
+		| DOT IDENTIFIER
+		| ARROW IDENTIFIER
+		| PLUSPLUS
+		| MINUSMINUS
+	*/
+	)*
+	
 	)
 ;
 

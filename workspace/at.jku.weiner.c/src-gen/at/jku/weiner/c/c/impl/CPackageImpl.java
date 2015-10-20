@@ -1926,6 +1926,16 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getPostfixExpression_ArrayExpr()
+  {
+    return (EReference)postfixExpressionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getPrimaryExpression()
   {
     return primaryExpressionEClass;
@@ -2183,6 +2193,7 @@ public class CPackageImpl extends EPackageImpl implements CPackage
 
     postfixExpressionEClass = createEClass(POSTFIX_EXPRESSION);
     createEReference(postfixExpressionEClass, POSTFIX_EXPRESSION__EXPR);
+    createEReference(postfixExpressionEClass, POSTFIX_EXPRESSION__ARRAY_EXPR);
 
     primaryExpressionEClass = createEClass(PRIMARY_EXPRESSION);
     createEAttribute(primaryExpressionEClass, PRIMARY_EXPRESSION__ID);
@@ -2434,6 +2445,7 @@ public class CPackageImpl extends EPackageImpl implements CPackage
 
     initEClass(postfixExpressionEClass, PostfixExpression.class, "PostfixExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getPostfixExpression_Expr(), this.getExpression(), null, "expr", null, 0, -1, PostfixExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPostfixExpression_ArrayExpr(), this.getExpression(), null, "arrayExpr", null, 0, -1, PostfixExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(primaryExpressionEClass, PrimaryExpression.class, "PrimaryExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPrimaryExpression_Id(), theEcorePackage.getEString(), "id", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -2548,24 +2548,69 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.PostfixExpression");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cPostfixExpressionAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cExprAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cExprPrimaryExpressionParserRuleCall_1_0 = (RuleCall)cExprAssignment_1.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Assignment cExprAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final RuleCall cExprPrimaryExpressionParserRuleCall_1_0_0 = (RuleCall)cExprAssignment_1_0.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cGroup_1.eContents().get(1);
+		private final RuleCall cLEFTBRACKETTerminalRuleCall_1_1_0 = (RuleCall)cGroup_1_1.eContents().get(0);
+		private final Assignment cArrayExprAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
+		private final RuleCall cArrayExprExpressionParserRuleCall_1_1_1_0 = (RuleCall)cArrayExprAssignment_1_1_1.eContents().get(0);
+		private final RuleCall cRIGHTBRACKETTerminalRuleCall_1_1_2 = (RuleCall)cGroup_1_1.eContents().get(2);
 		
 		//PostfixExpression Expression:
-		//	{PostfixExpression} expr+=PrimaryExpression
+		//	{PostfixExpression} (expr+=PrimaryExpression (LEFTBRACKET arrayExpr+=Expression RIGHTBRACKET
+		//	/ *| LEFTPAREN argumentExpressionList+=argumentExpressionList? RIGHTPAREN
+		//	| DOT IDENTIFIER
+		//	| ARROW IDENTIFIER
+		//	| PLUSPLUS
+		//	| MINUSMINUS
+		//	* /)*)
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{PostfixExpression} expr+=PrimaryExpression
+		//{PostfixExpression} (expr+=PrimaryExpression (LEFTBRACKET arrayExpr+=Expression RIGHTBRACKET / *| LEFTPAREN argumentExpressionList+=argumentExpressionList? RIGHTPAREN
+		//	| DOT IDENTIFIER
+		//	| ARROW IDENTIFIER
+		//	| PLUSPLUS
+		//	| MINUSMINUS
+		//	* /)*)
 		public Group getGroup() { return cGroup; }
 		
 		//{PostfixExpression}
 		public Action getPostfixExpressionAction_0() { return cPostfixExpressionAction_0; }
 		
+		//(expr+=PrimaryExpression (LEFTBRACKET arrayExpr+=Expression RIGHTBRACKET / *| LEFTPAREN argumentExpressionList+=argumentExpressionList? RIGHTPAREN
+		//	| DOT IDENTIFIER
+		//	| ARROW IDENTIFIER
+		//	| PLUSPLUS
+		//	| MINUSMINUS
+		//	* /)*)
+		public Group getGroup_1() { return cGroup_1; }
+		
 		//expr+=PrimaryExpression
-		public Assignment getExprAssignment_1() { return cExprAssignment_1; }
+		public Assignment getExprAssignment_1_0() { return cExprAssignment_1_0; }
 		
 		//PrimaryExpression
-		public RuleCall getExprPrimaryExpressionParserRuleCall_1_0() { return cExprPrimaryExpressionParserRuleCall_1_0; }
+		public RuleCall getExprPrimaryExpressionParserRuleCall_1_0_0() { return cExprPrimaryExpressionParserRuleCall_1_0_0; }
+		
+		//(LEFTBRACKET arrayExpr+=Expression RIGHTBRACKET / *| LEFTPAREN argumentExpressionList+=argumentExpressionList? RIGHTPAREN
+		//	| DOT IDENTIFIER
+		//	| ARROW IDENTIFIER
+		//	| PLUSPLUS
+		//	| MINUSMINUS
+		//	* /)*
+		public Group getGroup_1_1() { return cGroup_1_1; }
+		
+		//LEFTBRACKET
+		public RuleCall getLEFTBRACKETTerminalRuleCall_1_1_0() { return cLEFTBRACKETTerminalRuleCall_1_1_0; }
+		
+		//arrayExpr+=Expression
+		public Assignment getArrayExprAssignment_1_1_1() { return cArrayExprAssignment_1_1_1; }
+		
+		//Expression
+		public RuleCall getArrayExprExpressionParserRuleCall_1_1_1_0() { return cArrayExprExpressionParserRuleCall_1_1_1_0; }
+		
+		//RIGHTBRACKET
+		public RuleCall getRIGHTBRACKETTerminalRuleCall_1_1_2() { return cRIGHTBRACKETTerminalRuleCall_1_1_2; }
 	}
 	public class PrimaryExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.PrimaryExpression");
@@ -3852,7 +3897,13 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//PostfixExpression Expression:
-	//	{PostfixExpression} expr+=PrimaryExpression
+	//	{PostfixExpression} (expr+=PrimaryExpression (LEFTBRACKET arrayExpr+=Expression RIGHTBRACKET
+	//	/ *| LEFTPAREN argumentExpressionList+=argumentExpressionList? RIGHTPAREN
+	//	| DOT IDENTIFIER
+	//	| ARROW IDENTIFIER
+	//	| PLUSPLUS
+	//	| MINUSMINUS
+	//	* /)*)
 	public PostfixExpressionElements getPostfixExpressionAccess() {
 		return pPostfixExpression;
 	}

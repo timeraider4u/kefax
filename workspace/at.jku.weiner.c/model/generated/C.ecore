@@ -265,6 +265,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="PostfixExpression" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expr" upperBound="-1" eType="#//Expression"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arrayExpr" upperBound="-1"
+        eType="#//Expression" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PrimaryExpression" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>

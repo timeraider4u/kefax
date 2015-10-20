@@ -1990,13 +1990,22 @@ public interface CPackage extends EPackage
   int POSTFIX_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Array Expr</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POSTFIX_EXPRESSION__ARRAY_EXPR = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
    * The number of structural features of the '<em>Postfix Expression</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int POSTFIX_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+  int POSTFIX_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.c.impl.PrimaryExpressionImpl <em>Primary Expression</em>}' class.
@@ -3554,6 +3563,17 @@ public interface CPackage extends EPackage
   EReference getPostfixExpression_Expr();
 
   /**
+   * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.c.PostfixExpression#getArrayExpr <em>Array Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Array Expr</em>'.
+   * @see at.jku.weiner.c.c.PostfixExpression#getArrayExpr()
+   * @see #getPostfixExpression()
+   * @generated
+   */
+  EReference getPostfixExpression_ArrayExpr();
+
+  /**
    * Returns the meta object for class '{@link at.jku.weiner.c.c.PrimaryExpression <em>Primary Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4850,6 +4870,14 @@ public interface CPackage extends EPackage
      * @generated
      */
     EReference POSTFIX_EXPRESSION__EXPR = eINSTANCE.getPostfixExpression_Expr();
+
+    /**
+     * The meta object literal for the '<em><b>Array Expr</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference POSTFIX_EXPRESSION__ARRAY_EXPR = eINSTANCE.getPostfixExpression_ArrayExpr();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.c.impl.PrimaryExpressionImpl <em>Primary Expression</em>}' class.

@@ -11,10 +11,11 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.c.PostfixExpression#getExpr <em>Expr</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.PostfixExpression#getArrayExpr <em>Array Expr</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.c.CPackage#getPostfixExpression()
  * @model
@@ -37,5 +38,21 @@ public interface PostfixExpression extends Expression
    * @generated
    */
   EList<Expression> getExpr();
+
+  /**
+   * Returns the value of the '<em><b>Array Expr</b></em>' containment reference list.
+   * The list contents are of type {@link at.jku.weiner.c.c.Expression}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Array Expr</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Array Expr</em>' containment reference list.
+   * @see at.jku.weiner.c.c.CPackage#getPostfixExpression_ArrayExpr()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Expression> getArrayExpr();
 
 } // PostfixExpression

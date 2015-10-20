@@ -8,7 +8,8 @@ echo "" && \
 echo "" && \
 echo "" && \
 java -cp ${CP} Main ../tests/test.c && \
-java -cp ${CP} Main ../tests/test2.c
+java -cp ${CP} Main ../tests/test2.c && \
+java -cp ${CP} Main ../tests/test5.c
 #CP2="../libs/antlr-4.5.1-complete.jar:." && \
 #cat test2.c | java -cp ${CP2} org.antlr.v4.runtime.misc.TestRig C translation_unit -gui
 

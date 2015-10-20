@@ -527,17 +527,26 @@ CompoundStatement returns Statement:
 	RIGHTBRACE
 ;
 
-BodyStatement returns Statement:
+BodyStatement returns Statement
+	initRuleAction { at.jku.weiner.c.Log.log("BodyStatement-enter"); }
+	afterRuleAction { at.jku.weiner.c.Log.log("BodyStatement-leave"); }
+	:
 	{BodyStatement}
 	(blockList+=BlockList)?
 ;
 
-BlockList:
+BlockList
+	initRuleAction { at.jku.weiner.c.Log.log("BlockList-enter"); }
+	afterRuleAction { at.jku.weiner.c.Log.log("BlockList-enter"); }
+	:
 	{BlockList}
 	(declaration+=Declaration | statement+=Statement)+
 ;
 
-ExpressionStatement:
+ExpressionStatement
+	initRuleAction { at.jku.weiner.c.Log.log("ExpressionStatement-enter"); }
+	afterRuleAction { at.jku.weiner.c.Log.log("ExpressionStatement-enter"); }
+	:
 	{ExpressionStatement} 
 	(expression = Expression)? 
 	semi=SEMI
@@ -588,22 +597,32 @@ declarationList:
 */
 
 /*** Expressions ***/
-Expression:
+Expression
+	initRuleAction { at.jku.weiner.c.Log.error("Expression-enter"); }
+	afterRuleAction { at.jku.weiner.c.Log.error("Expression-enter"); }
+	:
 	{Expression}
 	exprExpr+=AssignmentExpression
 	(COMMA exprExpr+=AssignmentExpression)*
 ;
 
-AssignmentExpression returns Expression:
+AssignmentExpression returns Expression
+	initRuleAction { at.jku.weiner.c.Log.error("AssignmentExpression-enter"); }
+	afterRuleAction { at.jku.weiner.c.Log.error("AssignmentExpression-enter"); }
+	:
 	{AssignmentExpression}
 	(
 		expr=ConditionalExpression
 	|
-		(expr=UnaryExpression
+		(expr=Lvalue
 		op=AssignmentOperator
 		assignmentExpr+=AssignmentExpression
 		)
 	)
+;
+
+Lvalue returns Expression:
+	UnaryExpression
 ;
 
 AssignmentOperator:

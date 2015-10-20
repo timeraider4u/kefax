@@ -1434,7 +1434,8 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cBlockListAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cBlockListBlockListParserRuleCall_1_0 = (RuleCall)cBlockListAssignment_1.eContents().get(0);
 		
-		//BodyStatement Statement:
+		//BodyStatement Statement initRuleAction { at.jku.weiner.c.Log.log("BodyStatement-enter"); } afterRuleAction {
+		//at.jku.weiner.c.Log.log("BodyStatement-leave"); }:
 		//	{BodyStatement} blockList+=BlockList?
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -1460,7 +1461,8 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cStatementAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
 		private final RuleCall cStatementStatementParserRuleCall_1_1_0 = (RuleCall)cStatementAssignment_1_1.eContents().get(0);
 		
-		//BlockList:
+		//BlockList initRuleAction { at.jku.weiner.c.Log.log("BlockList-enter"); } afterRuleAction {
+		//at.jku.weiner.c.Log.log("BlockList-enter"); }:
 		//	{BlockList} (declaration+=Declaration | statement+=Statement)+;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -1494,7 +1496,8 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cSemiAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cSemiSEMITerminalRuleCall_2_0 = (RuleCall)cSemiAssignment_2.eContents().get(0);
 		
-		//ExpressionStatement:
+		//ExpressionStatement initRuleAction { at.jku.weiner.c.Log.log("ExpressionStatement-enter"); } afterRuleAction {
+		//at.jku.weiner.c.Log.log("ExpressionStatement-enter"); }:
 		//	{ExpressionStatement} expression=Expression?
 		//	semi=SEMI;
 		@Override public ParserRule getRule() { return rule; }
@@ -1598,7 +1601,8 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		//declarationList: 
 		//	(declaration+=declaration)+
 		//;
-		// * / / *** Expressions *** / Expression:
+		// * / / *** Expressions *** / Expression initRuleAction { at.jku.weiner.c.Log.error("Expression-enter"); } afterRuleAction {
+		//at.jku.weiner.c.Log.error("Expression-leave"); }:
 		//	{Expression} exprExpr+=AssignmentExpression (COMMA exprExpr+=AssignmentExpression)*;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -1635,27 +1639,28 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cExprConditionalExpressionParserRuleCall_1_0_0 = (RuleCall)cExprAssignment_1_0.eContents().get(0);
 		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
 		private final Assignment cExprAssignment_1_1_0 = (Assignment)cGroup_1_1.eContents().get(0);
-		private final RuleCall cExprUnaryExpressionParserRuleCall_1_1_0_0 = (RuleCall)cExprAssignment_1_1_0.eContents().get(0);
+		private final RuleCall cExprLvalueParserRuleCall_1_1_0_0 = (RuleCall)cExprAssignment_1_1_0.eContents().get(0);
 		private final Assignment cOpAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
 		private final RuleCall cOpAssignmentOperatorParserRuleCall_1_1_1_0 = (RuleCall)cOpAssignment_1_1_1.eContents().get(0);
 		private final Assignment cAssignmentExprAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
 		private final RuleCall cAssignmentExprAssignmentExpressionParserRuleCall_1_1_2_0 = (RuleCall)cAssignmentExprAssignment_1_1_2.eContents().get(0);
 		
-		//AssignmentExpression Expression:
+		//AssignmentExpression Expression initRuleAction { at.jku.weiner.c.Log.error("AssignmentExpression-enter"); }
+		//afterRuleAction { at.jku.weiner.c.Log.error("AssignmentExpression-leave"); }:
 		//	{AssignmentExpression} (expr=ConditionalExpression
-		//	| expr=UnaryExpression
+		//	| expr=Lvalue
 		//	op=AssignmentOperator
 		//	assignmentExpr+=AssignmentExpression)
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{AssignmentExpression} (expr=ConditionalExpression | expr=UnaryExpression op=AssignmentOperator
+		//{AssignmentExpression} (expr=ConditionalExpression | expr=Lvalue op=AssignmentOperator
 		//assignmentExpr+=AssignmentExpression)
 		public Group getGroup() { return cGroup; }
 		
 		//{AssignmentExpression}
 		public Action getAssignmentExpressionAction_0() { return cAssignmentExpressionAction_0; }
 		
-		//(expr=ConditionalExpression | expr=UnaryExpression op=AssignmentOperator assignmentExpr+=AssignmentExpression)
+		//(expr=ConditionalExpression | expr=Lvalue op=AssignmentOperator assignmentExpr+=AssignmentExpression)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
 		//expr=ConditionalExpression
@@ -1664,14 +1669,14 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		//ConditionalExpression
 		public RuleCall getExprConditionalExpressionParserRuleCall_1_0_0() { return cExprConditionalExpressionParserRuleCall_1_0_0; }
 		
-		//expr=UnaryExpression op=AssignmentOperator assignmentExpr+=AssignmentExpression
+		//expr=Lvalue op=AssignmentOperator assignmentExpr+=AssignmentExpression
 		public Group getGroup_1_1() { return cGroup_1_1; }
 		
-		//expr=UnaryExpression
+		//expr=Lvalue
 		public Assignment getExprAssignment_1_1_0() { return cExprAssignment_1_1_0; }
 		
-		//UnaryExpression
-		public RuleCall getExprUnaryExpressionParserRuleCall_1_1_0_0() { return cExprUnaryExpressionParserRuleCall_1_1_0_0; }
+		//Lvalue
+		public RuleCall getExprLvalueParserRuleCall_1_1_0_0() { return cExprLvalueParserRuleCall_1_1_0_0; }
 		
 		//op=AssignmentOperator
 		public Assignment getOpAssignment_1_1_1() { return cOpAssignment_1_1_1; }
@@ -1684,6 +1689,17 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//AssignmentExpression
 		public RuleCall getAssignmentExprAssignmentExpressionParserRuleCall_1_1_2_0() { return cAssignmentExprAssignmentExpressionParserRuleCall_1_1_2_0; }
+	}
+	public class LvalueElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.Lvalue");
+		private final RuleCall cUnaryExpressionParserRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		//Lvalue Expression:
+		//	UnaryExpression
+		@Override public ParserRule getRule() { return rule; }
+		
+		//UnaryExpression
+		public RuleCall getUnaryExpressionParserRuleCall() { return cUnaryExpressionParserRuleCall; }
 	}
 	public class AssignmentOperatorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.AssignmentOperator");
@@ -2560,18 +2576,18 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		//PostfixExpression Expression:
 		//	{PostfixExpression} (expr+=PrimaryExpression (LEFTBRACKET arrayExpr+=Expression RIGHTBRACKET
 		//	/ *| LEFTPAREN argumentExpressionList+=argumentExpressionList? RIGHTPAREN
-		//	| DOT IDENTIFIER
-		//	| ARROW IDENTIFIER
-		//	| PLUSPLUS
-		//	| MINUSMINUS
+		//		| DOT IDENTIFIER
+		//		| ARROW IDENTIFIER
+		//		| PLUSPLUS
+		//		| MINUSMINUS
 		//	* /)*)
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{PostfixExpression} (expr+=PrimaryExpression (LEFTBRACKET arrayExpr+=Expression RIGHTBRACKET / *| LEFTPAREN argumentExpressionList+=argumentExpressionList? RIGHTPAREN
-		//	| DOT IDENTIFIER
-		//	| ARROW IDENTIFIER
-		//	| PLUSPLUS
-		//	| MINUSMINUS
+		//		| DOT IDENTIFIER
+		//		| ARROW IDENTIFIER
+		//		| PLUSPLUS
+		//		| MINUSMINUS
 		//	* /)*)
 		public Group getGroup() { return cGroup; }
 		
@@ -2579,10 +2595,10 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		public Action getPostfixExpressionAction_0() { return cPostfixExpressionAction_0; }
 		
 		//(expr+=PrimaryExpression (LEFTBRACKET arrayExpr+=Expression RIGHTBRACKET / *| LEFTPAREN argumentExpressionList+=argumentExpressionList? RIGHTPAREN
-		//	| DOT IDENTIFIER
-		//	| ARROW IDENTIFIER
-		//	| PLUSPLUS
-		//	| MINUSMINUS
+		//		| DOT IDENTIFIER
+		//		| ARROW IDENTIFIER
+		//		| PLUSPLUS
+		//		| MINUSMINUS
 		//	* /)*)
 		public Group getGroup_1() { return cGroup_1; }
 		
@@ -2593,10 +2609,10 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getExprPrimaryExpressionParserRuleCall_1_0_0() { return cExprPrimaryExpressionParserRuleCall_1_0_0; }
 		
 		//(LEFTBRACKET arrayExpr+=Expression RIGHTBRACKET / *| LEFTPAREN argumentExpressionList+=argumentExpressionList? RIGHTPAREN
-		//	| DOT IDENTIFIER
-		//	| ARROW IDENTIFIER
-		//	| PLUSPLUS
-		//	| MINUSMINUS
+		//		| DOT IDENTIFIER
+		//		| ARROW IDENTIFIER
+		//		| PLUSPLUS
+		//		| MINUSMINUS
 		//	* /)*
 		public Group getGroup_1_1() { return cGroup_1_1; }
 		
@@ -2797,6 +2813,7 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	private final JumpStatementElements pJumpStatement;
 	private final ExpressionElements pExpression;
 	private final AssignmentExpressionElements pAssignmentExpression;
+	private final LvalueElements pLvalue;
 	private final AssignmentOperatorElements pAssignmentOperator;
 	private final ConditionalExpressionElements pConditionalExpression;
 	private final LogicalOrExpressionElements pLogicalOrExpression;
@@ -2974,6 +2991,7 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		this.pJumpStatement = new JumpStatementElements();
 		this.pExpression = new ExpressionElements();
 		this.pAssignmentExpression = new AssignmentExpressionElements();
+		this.pLvalue = new LvalueElements();
 		this.pAssignmentOperator = new AssignmentOperatorElements();
 		this.pConditionalExpression = new ConditionalExpressionElements();
 		this.pLogicalOrExpression = new LogicalOrExpressionElements();
@@ -3633,7 +3651,8 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		return getCompoundStatementAccess().getRule();
 	}
 	
-	//BodyStatement Statement:
+	//BodyStatement Statement initRuleAction { at.jku.weiner.c.Log.log("BodyStatement-enter"); } afterRuleAction {
+	//at.jku.weiner.c.Log.log("BodyStatement-leave"); }:
 	//	{BodyStatement} blockList+=BlockList?
 	public BodyStatementElements getBodyStatementAccess() {
 		return pBodyStatement;
@@ -3643,7 +3662,8 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		return getBodyStatementAccess().getRule();
 	}
 	
-	//BlockList:
+	//BlockList initRuleAction { at.jku.weiner.c.Log.log("BlockList-enter"); } afterRuleAction {
+	//at.jku.weiner.c.Log.log("BlockList-enter"); }:
 	//	{BlockList} (declaration+=Declaration | statement+=Statement)+;
 	public BlockListElements getBlockListAccess() {
 		return pBlockList;
@@ -3653,7 +3673,8 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		return getBlockListAccess().getRule();
 	}
 	
-	//ExpressionStatement:
+	//ExpressionStatement initRuleAction { at.jku.weiner.c.Log.log("ExpressionStatement-enter"); } afterRuleAction {
+	//at.jku.weiner.c.Log.log("ExpressionStatement-enter"); }:
 	//	{ExpressionStatement} expression=Expression?
 	//	semi=SEMI;
 	public ExpressionStatementElements getExpressionStatementAccess() {
@@ -3699,7 +3720,8 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	//declarationList: 
 	//	(declaration+=declaration)+
 	//;
-	// * / / *** Expressions *** / Expression:
+	// * / / *** Expressions *** / Expression initRuleAction { at.jku.weiner.c.Log.error("Expression-enter"); } afterRuleAction {
+	//at.jku.weiner.c.Log.error("Expression-leave"); }:
 	//	{Expression} exprExpr+=AssignmentExpression (COMMA exprExpr+=AssignmentExpression)*;
 	public ExpressionElements getExpressionAccess() {
 		return pExpression;
@@ -3709,9 +3731,10 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		return getExpressionAccess().getRule();
 	}
 	
-	//AssignmentExpression Expression:
+	//AssignmentExpression Expression initRuleAction { at.jku.weiner.c.Log.error("AssignmentExpression-enter"); }
+	//afterRuleAction { at.jku.weiner.c.Log.error("AssignmentExpression-leave"); }:
 	//	{AssignmentExpression} (expr=ConditionalExpression
-	//	| expr=UnaryExpression
+	//	| expr=Lvalue
 	//	op=AssignmentOperator
 	//	assignmentExpr+=AssignmentExpression)
 	public AssignmentExpressionElements getAssignmentExpressionAccess() {
@@ -3720,6 +3743,16 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getAssignmentExpressionRule() {
 		return getAssignmentExpressionAccess().getRule();
+	}
+	
+	//Lvalue Expression:
+	//	UnaryExpression
+	public LvalueElements getLvalueAccess() {
+		return pLvalue;
+	}
+	
+	public ParserRule getLvalueRule() {
+		return getLvalueAccess().getRule();
 	}
 	
 	//AssignmentOperator:
@@ -3899,10 +3932,10 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	//PostfixExpression Expression:
 	//	{PostfixExpression} (expr+=PrimaryExpression (LEFTBRACKET arrayExpr+=Expression RIGHTBRACKET
 	//	/ *| LEFTPAREN argumentExpressionList+=argumentExpressionList? RIGHTPAREN
-	//	| DOT IDENTIFIER
-	//	| ARROW IDENTIFIER
-	//	| PLUSPLUS
-	//	| MINUSMINUS
+	//		| DOT IDENTIFIER
+	//		| ARROW IDENTIFIER
+	//		| PLUSPLUS
+	//		| MINUSMINUS
 	//	* /)*)
 	public PostfixExpressionElements getPostfixExpressionAccess() {
 		return pPostfixExpression;

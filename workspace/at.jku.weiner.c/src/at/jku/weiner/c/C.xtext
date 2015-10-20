@@ -599,7 +599,7 @@ declarationList:
 /*** Expressions ***/
 Expression
 	initRuleAction { at.jku.weiner.c.Log.error("Expression-enter"); }
-	afterRuleAction { at.jku.weiner.c.Log.error("Expression-enter"); }
+	afterRuleAction { at.jku.weiner.c.Log.error("Expression-leave"); }
 	:
 	{Expression}
 	exprExpr+=AssignmentExpression
@@ -608,7 +608,7 @@ Expression
 
 AssignmentExpression returns Expression
 	initRuleAction { at.jku.weiner.c.Log.error("AssignmentExpression-enter"); }
-	afterRuleAction { at.jku.weiner.c.Log.error("AssignmentExpression-enter"); }
+	afterRuleAction { at.jku.weiner.c.Log.error("AssignmentExpression-leave"); }
 	:
 	{AssignmentExpression}
 	(

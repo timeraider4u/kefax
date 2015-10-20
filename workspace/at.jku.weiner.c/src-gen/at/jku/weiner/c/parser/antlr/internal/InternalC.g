@@ -2957,10 +2957,10 @@ entryRuleBodyStatement returns [EObject current=null]
 // Rule BodyStatement
 ruleBodyStatement returns [EObject current=null] 
     @init { enterRule();
-   		
+   		at.jku.weiner.c.Log.log("BodyStatement-enter");
     }
     @after { leaveRule();
-    		
+    		at.jku.weiner.c.Log.log("BodyStatement-leave");
      }:
 
 (
@@ -3017,10 +3017,10 @@ entryRuleBlockList returns [EObject current=null]
 // Rule BlockList
 ruleBlockList returns [EObject current=null] 
     @init { enterRule();
-   		
+   		at.jku.weiner.c.Log.log("BlockList-enter");
     }
     @after { leaveRule();
-    		
+    		at.jku.weiner.c.Log.log("BlockList-enter");
      }:
 
 (
@@ -3102,10 +3102,10 @@ entryRuleExpressionStatement returns [EObject current=null]
 // Rule ExpressionStatement
 ruleExpressionStatement returns [EObject current=null] 
     @init { enterRule();
-   		
+   		at.jku.weiner.c.Log.log("ExpressionStatement-enter");
     }
     @after { leaveRule();
-    		
+    		at.jku.weiner.c.Log.log("ExpressionStatement-enter");
      }:
 
 (
@@ -3274,10 +3274,10 @@ entryRuleExpression returns [EObject current=null]
 // Rule Expression
 ruleExpression returns [EObject current=null] 
     @init { enterRule();
-   		
+   		at.jku.weiner.c.Log.error("Expression-enter");
     }
     @after { leaveRule();
-    		
+    		at.jku.weiner.c.Log.error("Expression-leave");
      }:
 
 (
@@ -3365,10 +3365,10 @@ entryRuleAssignmentExpression returns [EObject current=null]
 // Rule AssignmentExpression
 ruleAssignmentExpression returns [EObject current=null] 
     @init { enterRule();
-   		
+   		at.jku.weiner.c.Log.error("AssignmentExpression-enter");
     }
     @after { leaveRule();
-    		
+    		at.jku.weiner.c.Log.error("AssignmentExpression-leave");
      }:
 
 (
@@ -3411,9 +3411,9 @@ ruleAssignmentExpression returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getAssignmentExpressionAccess().getExprUnaryExpressionParserRuleCall_1_1_0_0()); 
+	        newCompositeNode(grammarAccess.getAssignmentExpressionAccess().getExprLvalueParserRuleCall_1_1_0_0()); 
 	    }
-		lv_expr_2_0=ruleUnaryExpression		{
+		lv_expr_2_0=ruleLvalue		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getAssignmentExpressionRule());
 	        }
@@ -3421,7 +3421,7 @@ ruleAssignmentExpression returns [EObject current=null]
        			$current, 
        			"expr",
         		lv_expr_2_0, 
-        		"at.jku.weiner.c.C.UnaryExpression");
+        		"at.jku.weiner.c.C.Lvalue");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3475,6 +3475,45 @@ ruleAssignmentExpression returns [EObject current=null]
 )
 
 )
+
+
+;
+
+
+
+
+
+// Entry rule entryRuleLvalue
+entryRuleLvalue returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getLvalueRule()); }
+	 iv_ruleLvalue=ruleLvalue 
+	 { $current=$iv_ruleLvalue.current; } 
+	 EOF 
+;
+
+// Rule Lvalue
+ruleLvalue returns [EObject current=null] 
+    @init { enterRule();
+   		
+    }
+    @after { leaveRule();
+    		
+     }:
+
+
+	{ 
+	  /* */ 
+	}
+    { 
+        newCompositeNode(grammarAccess.getLvalueAccess().getUnaryExpressionParserRuleCall()); 
+    }
+    this_UnaryExpression_0=ruleUnaryExpression
+    { 
+        $current = $this_UnaryExpression_0.current; 
+        afterParserOrEnumRuleCall();
+    }
+
 
 
 ;

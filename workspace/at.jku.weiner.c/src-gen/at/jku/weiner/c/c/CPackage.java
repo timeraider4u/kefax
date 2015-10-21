@@ -1464,13 +1464,31 @@ public interface CPackage extends EPackage
   int SELECTION_STATEMENT__ELSE_STATEMENT = STATEMENT_FEATURE_COUNT + 4;
 
   /**
+   * The feature id for the '<em><b>Switch</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SELECTION_STATEMENT__SWITCH = STATEMENT_FEATURE_COUNT + 5;
+
+  /**
+   * The feature id for the '<em><b>Switch Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SELECTION_STATEMENT__SWITCH_STATEMENT = STATEMENT_FEATURE_COUNT + 6;
+
+  /**
    * The number of structural features of the '<em>Selection Statement</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SELECTION_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 5;
+  int SELECTION_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 7;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.c.impl.IterationStatementImpl <em>Iteration Statement</em>}' class.
@@ -3516,6 +3534,28 @@ public interface CPackage extends EPackage
   EReference getSelectionStatement_ElseStatement();
 
   /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.c.SelectionStatement#getSwitch <em>Switch</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Switch</em>'.
+   * @see at.jku.weiner.c.c.SelectionStatement#getSwitch()
+   * @see #getSelectionStatement()
+   * @generated
+   */
+  EAttribute getSelectionStatement_Switch();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.c.SelectionStatement#getSwitchStatement <em>Switch Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Switch Statement</em>'.
+   * @see at.jku.weiner.c.c.SelectionStatement#getSwitchStatement()
+   * @see #getSelectionStatement()
+   * @generated
+   */
+  EReference getSelectionStatement_SwitchStatement();
+
+  /**
    * Returns the meta object for class '{@link at.jku.weiner.c.c.IterationStatement <em>Iteration Statement</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5129,6 +5169,22 @@ public interface CPackage extends EPackage
      * @generated
      */
     EReference SELECTION_STATEMENT__ELSE_STATEMENT = eINSTANCE.getSelectionStatement_ElseStatement();
+
+    /**
+     * The meta object literal for the '<em><b>Switch</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SELECTION_STATEMENT__SWITCH = eINSTANCE.getSelectionStatement_Switch();
+
+    /**
+     * The meta object literal for the '<em><b>Switch Statement</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SELECTION_STATEMENT__SWITCH_STATEMENT = eINSTANCE.getSelectionStatement_SwitchStatement();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.c.impl.IterationStatementImpl <em>Iteration Statement</em>}' class.

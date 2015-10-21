@@ -3377,9 +3377,10 @@ ruleSelectionStatement returns [EObject current=null]
 (
 (
 (
+(
 		lv_if_1_0=RULE_KW_IF
 		{
-			newLeafNode(lv_if_1_0, grammarAccess.getSelectionStatementAccess().getIfKW_IFTerminalRuleCall_1_0_0()); 
+			newLeafNode(lv_if_1_0, grammarAccess.getSelectionStatementAccess().getIfKW_IFTerminalRuleCall_1_0_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -3398,7 +3399,7 @@ ruleSelectionStatement returns [EObject current=null]
 
 this_LEFTPAREN_2=RULE_LEFTPAREN
     { 
-    newLeafNode(this_LEFTPAREN_2, grammarAccess.getSelectionStatementAccess().getLEFTPARENTerminalRuleCall_1_1()); 
+    newLeafNode(this_LEFTPAREN_2, grammarAccess.getSelectionStatementAccess().getLEFTPARENTerminalRuleCall_1_0_1()); 
     }
 
 
@@ -3406,7 +3407,7 @@ this_LEFTPAREN_2=RULE_LEFTPAREN
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSelectionStatementAccess().getExprExpressionParserRuleCall_1_2_0()); 
+	        newCompositeNode(grammarAccess.getSelectionStatementAccess().getExprExpressionParserRuleCall_1_0_2_0()); 
 	    }
 		lv_expr_3_0=ruleExpression		{
 	        if ($current==null) {
@@ -3426,7 +3427,7 @@ this_LEFTPAREN_2=RULE_LEFTPAREN
 
 this_RIGHTPAREN_4=RULE_RIGHTPAREN
     { 
-    newLeafNode(this_RIGHTPAREN_4, grammarAccess.getSelectionStatementAccess().getRIGHTPARENTerminalRuleCall_1_3()); 
+    newLeafNode(this_RIGHTPAREN_4, grammarAccess.getSelectionStatementAccess().getRIGHTPARENTerminalRuleCall_1_0_3()); 
     }
 
 
@@ -3434,7 +3435,7 @@ this_RIGHTPAREN_4=RULE_RIGHTPAREN
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSelectionStatementAccess().getIfStatementStatementParserRuleCall_1_4_0()); 
+	        newCompositeNode(grammarAccess.getSelectionStatementAccess().getIfStatementStatementParserRuleCall_1_0_4_0()); 
 	    }
 		lv_ifStatement_5_0=ruleStatement		{
 	        if ($current==null) {
@@ -3462,7 +3463,7 @@ RULE_KW_ELSE
 (
 		lv_else_6_0=RULE_KW_ELSE
 		{
-			newLeafNode(lv_else_6_0, grammarAccess.getSelectionStatementAccess().getElseKW_ELSETerminalRuleCall_1_5_0_0()); 
+			newLeafNode(lv_else_6_0, grammarAccess.getSelectionStatementAccess().getElseKW_ELSETerminalRuleCall_1_0_5_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -3482,7 +3483,7 @@ RULE_KW_ELSE
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSelectionStatementAccess().getElseStatementStatementParserRuleCall_1_5_1_0()); 
+	        newCompositeNode(grammarAccess.getSelectionStatementAccess().getElseStatementStatementParserRuleCall_1_0_5_1_0()); 
 	    }
 		lv_elseStatement_7_0=ruleStatement		{
 	        if ($current==null) {
@@ -3500,6 +3501,89 @@ RULE_KW_ELSE
 )
 
 )?
+
+)
+
+
+    |
+(
+(
+(
+		lv_switch_8_0=RULE_KW_SWITCH
+		{
+			newLeafNode(lv_switch_8_0, grammarAccess.getSelectionStatementAccess().getSwitchKW_SWITCHTerminalRuleCall_1_1_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getSelectionStatementRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"switch",
+        		lv_switch_8_0, 
+        		"at.jku.weiner.c.C.KW_SWITCH");
+	    }
+
+)
+)
+
+
+this_LEFTPAREN_9=RULE_LEFTPAREN
+    { 
+    newLeafNode(this_LEFTPAREN_9, grammarAccess.getSelectionStatementAccess().getLEFTPARENTerminalRuleCall_1_1_1()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getSelectionStatementAccess().getExprExpressionParserRuleCall_1_1_2_0()); 
+	    }
+		lv_expr_10_0=ruleExpression		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getSelectionStatementRule());
+	        }
+       		set(
+       			$current, 
+       			"expr",
+        		lv_expr_10_0, 
+        		"at.jku.weiner.c.C.Expression");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+this_RIGHTPAREN_11=RULE_RIGHTPAREN
+    { 
+    newLeafNode(this_RIGHTPAREN_11, grammarAccess.getSelectionStatementAccess().getRIGHTPARENTerminalRuleCall_1_1_3()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getSelectionStatementAccess().getSwitchStatementStatementParserRuleCall_1_1_4_0()); 
+	    }
+		lv_switchStatement_12_0=ruleStatement		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getSelectionStatementRule());
+	        }
+       		set(
+       			$current, 
+       			"switchStatement",
+        		lv_switchStatement_12_0, 
+        		"at.jku.weiner.c.C.Statement");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+)
 
 )
 

@@ -1638,6 +1638,26 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getSelectionStatement_Switch()
+  {
+    return (EAttribute)selectionStatementEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSelectionStatement_SwitchStatement()
+  {
+    return (EReference)selectionStatementEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getIterationStatement()
   {
     return iterationStatementEClass;
@@ -2410,6 +2430,8 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     createEReference(selectionStatementEClass, SELECTION_STATEMENT__IF_STATEMENT);
     createEAttribute(selectionStatementEClass, SELECTION_STATEMENT__ELSE);
     createEReference(selectionStatementEClass, SELECTION_STATEMENT__ELSE_STATEMENT);
+    createEAttribute(selectionStatementEClass, SELECTION_STATEMENT__SWITCH);
+    createEReference(selectionStatementEClass, SELECTION_STATEMENT__SWITCH_STATEMENT);
 
     iterationStatementEClass = createEClass(ITERATION_STATEMENT);
     createEAttribute(iterationStatementEClass, ITERATION_STATEMENT__WHILE);
@@ -2694,6 +2716,8 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     initEReference(getSelectionStatement_IfStatement(), this.getStatement(), null, "ifStatement", null, 0, 1, SelectionStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getSelectionStatement_Else(), theEcorePackage.getEString(), "else", null, 0, 1, SelectionStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSelectionStatement_ElseStatement(), this.getStatement(), null, "elseStatement", null, 0, 1, SelectionStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSelectionStatement_Switch(), theEcorePackage.getEString(), "switch", null, 0, 1, SelectionStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSelectionStatement_SwitchStatement(), this.getStatement(), null, "switchStatement", null, 0, 1, SelectionStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(iterationStatementEClass, IterationStatement.class, "IterationStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getIterationStatement_While(), theEcorePackage.getEString(), "while", null, 0, 1, IterationStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

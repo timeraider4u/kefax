@@ -90,7 +90,7 @@ RIGHTBRACE NEWLINE
 						(Statement
 							stmt=
 							(SelectionStatement
-								if++"if",
+								switch++"switch",
 								expr=
 								(Expression
 									exprExpr+=
@@ -111,7 +111,6 @@ RIGHTBRACE NEWLINE
 																(EqualityExpression
 																	expr+=
 																	(RelationalExpression
-																		op+*"[>]",
 																		expr+=
 																		(ShiftExpression
 																			expr+=
@@ -133,7 +132,55 @@ RIGHTBRACE NEWLINE
 																					)
 																				)
 																			)
-																		),
+																		)
+																	)
+																)
+															)
+														)
+													)
+												)
+											)
+										)
+									)
+								), // end expression
+								switchStatement=
+								(Statement
+									stmt=
+									(CompoundStatement
+										body=
+										(BodyStatement
+											
+										
+										)
+									) // end compound statement of switch
+								) // switch
+							)// end selection statement
+						),//end of switch statement
+						// return ...;
+						(Statement
+							stmt=
+							(JumpStatement
+								expr=
+								(Expression
+									exprExpr+=
+									(AssignmentExpression
+										expr=
+										(ConditionalExpression
+											expr=
+											(LogicalOrExpression
+												expr+=
+												(LogicalAndExpression
+													expr+=
+													(InclusiveOrExpression
+														expr+=
+														(ExclusiveOrExpression
+															expr+=
+															(AndExpression
+																expr+=
+																(EqualityExpression
+																	expr+=
+																	(RelationalExpression
+																		expr+=
 																		(ShiftExpression
 																			expr+=
 																			(AdditiveExpression
@@ -149,7 +196,7 @@ RIGHTBRACE NEWLINE
 																								(PrimaryExpression
 																									const=
 																									(Constant
-																										dec++"0"
+																										dec++"1"
 																									)
 																								)
 																							)
@@ -168,309 +215,9 @@ RIGHTBRACE NEWLINE
 										)
 									)
 								), // end expression
-								ifStatement=
-								(Statement
-									stmt=
-									(JumpStatement
-										expr=
-										(Expression
-											exprExpr+=
-											(AssignmentExpression
-												expr=
-												(ConditionalExpression
-													expr=
-													(LogicalOrExpression
-														expr+=
-														(LogicalAndExpression
-															expr+=
-															(InclusiveOrExpression
-																expr+=
-																(ExclusiveOrExpression
-																	expr+=
-																	(AndExpression
-																		expr+=
-																		(EqualityExpression
-																			expr+=
-																			(RelationalExpression
-																				expr+=
-																				(ShiftExpression
-																					expr+=
-																					(AdditiveExpression
-																						expr+=
-																						(MultiplicativeExpression
-																							expr+=
-																							(CastExpression
-																								expr=
-																								(UnaryExpression
-																									expr=
-																									(PostfixExpression
-																										expr+=
-																										(PrimaryExpression
-																											const=
-																											(Constant
-																												dec++"0"
-																											)
-																										)
-																									)
-																								)
-																							)
-																						)
-																					)
-																				)
-																			)
-																		)
-																	)
-																)
-															)
-														)
-													)
-												)
-											)
-										), // end expression
-										return++"return",
-										semi++";"
-									)// end jump statement
-								), // end ifStatement=Statement
-								// else if ...
-								elseStatement=
-								(Statement
-									stmt=
-									(SelectionStatement
-										if++"if",
-										expr=
-										(Expression
-											exprExpr+=
-											(AssignmentExpression
-												expr=
-												(ConditionalExpression
-													expr=
-													(LogicalOrExpression
-														expr+=
-														(LogicalAndExpression
-															expr+=
-															(InclusiveOrExpression
-																expr+=
-																(ExclusiveOrExpression
-																	expr+=
-																	(AndExpression
-																		expr+=
-																		(EqualityExpression
-																			op+*"[==]",
-																			expr+=
-																			(RelationalExpression
-																				expr+=
-																				(ShiftExpression
-																					expr+=
-																					(AdditiveExpression
-																						expr+=
-																						(MultiplicativeExpression
-																							expr+=
-																							(CastExpression
-																								expr=
-																								(UnaryExpression
-																									expr=
-																									(PostfixExpression
-																										expr+=
-																										(PrimaryExpression
-																											id++"argc"
-																										)
-																									)
-																								)
-																							)
-																						)
-																					)
-																				)
-																			),
-																			(RelationalExpression
-																				expr+=
-																				(ShiftExpression
-																					expr+=
-																					(AdditiveExpression
-																						expr+=
-																						(MultiplicativeExpression
-																							expr+=
-																							(CastExpression
-																								expr=
-																								(UnaryExpression
-																									expr=
-																									(PostfixExpression
-																										expr+=
-																										(PrimaryExpression
-																											const=
-																											(Constant
-																												dec++"1"	
-																											)
-																										)
-																									)
-																								)
-																							)
-																						)
-																					)
-																				)
-																			)
-																		)
-																	)
-																)
-															)
-														)
-													)
-												)
-											)
-										), // end expression
-										else++"else",
-										ifStatement=
-										(Statement
-											stmt=
-											(CompoundStatement
-												body=
-												(BodyStatement
-													blockList+=
-													(BlockList
-														statement+=
-														(Statement
-															stmt=
-															(JumpStatement
-																expr=
-																(Expression
-																	exprExpr+=
-																	(AssignmentExpression
-																		expr=
-																		(ConditionalExpression
-																			expr=
-																			(LogicalOrExpression
-																				expr+=
-																				(LogicalAndExpression
-																					expr+=
-																					(InclusiveOrExpression
-																						expr+=
-																						(ExclusiveOrExpression
-																							expr+=
-																							(AndExpression
-																								expr+=
-																								(EqualityExpression
-																									expr+=
-																									(RelationalExpression
-																										expr+=
-																										(ShiftExpression
-																											expr+=
-																											(AdditiveExpression
-																												expr+=
-																												(MultiplicativeExpression
-																													expr+=
-																													(CastExpression
-																														expr=
-																														(UnaryExpression
-																															expr=
-																															(PostfixExpression
-																																expr+=
-																																(PrimaryExpression
-																																	const=
-																																	(Constant
-																																		dec++"1"
-																																	)
-																																)
-																															)
-																														)
-																													)
-																												)
-																											)
-																										)
-																									)
-																								)
-																							)
-																						)
-																					)
-																				)
-																			)
-																		)
-																	)
-																), // end expression
-																return++"return",
-																semi++";"
-															)// end jump statement
-														)
-													)
-												)
-											) // end compound statement
-										), // end ifStatement=Statement
-										elseStatement=
-										(Statement
-											stmt=
-											(CompoundStatement
-												body=
-												(BodyStatement
-													blockList+=
-													(BlockList
-														statement+=
-														(Statement
-															stmt=
-															(JumpStatement
-																expr=
-																(Expression
-																	exprExpr+=
-																	(AssignmentExpression
-																		expr=
-																		(ConditionalExpression
-																			expr=
-																			(LogicalOrExpression
-																				expr+=
-																				(LogicalAndExpression
-																					expr+=
-																					(InclusiveOrExpression
-																						expr+=
-																						(ExclusiveOrExpression
-																							expr+=
-																							(AndExpression
-																								expr+=
-																								(EqualityExpression
-																									expr+=
-																									(RelationalExpression
-																										expr+=
-																										(ShiftExpression
-																											expr+=
-																											(AdditiveExpression
-																												expr+=
-																												(MultiplicativeExpression
-																													expr+=
-																													(CastExpression
-																														expr=
-																														(UnaryExpression
-																															expr=
-																															(PostfixExpression
-																																expr+=
-																																(PrimaryExpression
-																																	const=
-																																	(Constant
-																																		dec++"2"
-																																	)
-																																)
-																															)
-																														)
-																													)
-																												)
-																											)
-																										)
-																									)
-																								)
-																							)
-																						)
-																					)
-																				)
-																			)
-																		)
-																	)
-																), // end expression
-																return++"return",
-																semi++";"
-															)// end jump statement
-														)
-													)
-												)
-											) // end compound statement
-										) // end elseStatement=Statement
-									) // selection statement
-								) // elseStatement=Statement
-							)// end selection statement
+								return++"return",
+								semi++";"
+							)// end jump statement
 						)//end statement
 					)
 				)

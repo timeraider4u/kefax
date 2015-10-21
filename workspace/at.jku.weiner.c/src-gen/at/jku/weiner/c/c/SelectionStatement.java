@@ -16,6 +16,8 @@ package at.jku.weiner.c.c;
  *   <li>{@link at.jku.weiner.c.c.SelectionStatement#getIfStatement <em>If Statement</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.SelectionStatement#getElse <em>Else</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.SelectionStatement#getElseStatement <em>Else Statement</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.SelectionStatement#getSwitch <em>Switch</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.SelectionStatement#getSwitchStatement <em>Switch Statement</em>}</li>
  * </ul>
  * </p>
  *
@@ -154,5 +156,57 @@ public interface SelectionStatement extends Statement
    * @generated
    */
   void setElseStatement(Statement value);
+
+  /**
+   * Returns the value of the '<em><b>Switch</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Switch</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Switch</em>' attribute.
+   * @see #setSwitch(String)
+   * @see at.jku.weiner.c.c.CPackage#getSelectionStatement_Switch()
+   * @model
+   * @generated
+   */
+  String getSwitch();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.c.SelectionStatement#getSwitch <em>Switch</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Switch</em>' attribute.
+   * @see #getSwitch()
+   * @generated
+   */
+  void setSwitch(String value);
+
+  /**
+   * Returns the value of the '<em><b>Switch Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Switch Statement</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Switch Statement</em>' containment reference.
+   * @see #setSwitchStatement(Statement)
+   * @see at.jku.weiner.c.c.CPackage#getSelectionStatement_SwitchStatement()
+   * @model containment="true"
+   * @generated
+   */
+  Statement getSwitchStatement();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.c.SelectionStatement#getSwitchStatement <em>Switch Statement</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Switch Statement</em>' containment reference.
+   * @see #getSwitchStatement()
+   * @generated
+   */
+  void setSwitchStatement(Statement value);
 
 } // SelectionStatement

@@ -154,6 +154,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//SelectionStatement/ifStatement"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//SelectionStatement/else"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//SelectionStatement/elseStatement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//SelectionStatement/switch"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//SelectionStatement/switchStatement"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//IterationStatement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//IterationStatement/while"/>

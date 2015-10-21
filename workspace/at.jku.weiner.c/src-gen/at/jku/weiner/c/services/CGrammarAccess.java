@@ -1597,78 +1597,116 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.SelectionStatement");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cSelectionStatementAction_0 = (Action)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Assignment cIfAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
-		private final RuleCall cIfKW_IFTerminalRuleCall_1_0_0 = (RuleCall)cIfAssignment_1_0.eContents().get(0);
-		private final RuleCall cLEFTPARENTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
-		private final Assignment cExprAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cExprExpressionParserRuleCall_1_2_0 = (RuleCall)cExprAssignment_1_2.eContents().get(0);
-		private final RuleCall cRIGHTPARENTerminalRuleCall_1_3 = (RuleCall)cGroup_1.eContents().get(3);
-		private final Assignment cIfStatementAssignment_1_4 = (Assignment)cGroup_1.eContents().get(4);
-		private final RuleCall cIfStatementStatementParserRuleCall_1_4_0 = (RuleCall)cIfStatementAssignment_1_4.eContents().get(0);
-		private final Group cGroup_1_5 = (Group)cGroup_1.eContents().get(5);
-		private final Assignment cElseAssignment_1_5_0 = (Assignment)cGroup_1_5.eContents().get(0);
-		private final RuleCall cElseKW_ELSETerminalRuleCall_1_5_0_0 = (RuleCall)cElseAssignment_1_5_0.eContents().get(0);
-		private final Assignment cElseStatementAssignment_1_5_1 = (Assignment)cGroup_1_5.eContents().get(1);
-		private final RuleCall cElseStatementStatementParserRuleCall_1_5_1_0 = (RuleCall)cElseStatementAssignment_1_5_1.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
+		private final Assignment cIfAssignment_1_0_0 = (Assignment)cGroup_1_0.eContents().get(0);
+		private final RuleCall cIfKW_IFTerminalRuleCall_1_0_0_0 = (RuleCall)cIfAssignment_1_0_0.eContents().get(0);
+		private final RuleCall cLEFTPARENTerminalRuleCall_1_0_1 = (RuleCall)cGroup_1_0.eContents().get(1);
+		private final Assignment cExprAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
+		private final RuleCall cExprExpressionParserRuleCall_1_0_2_0 = (RuleCall)cExprAssignment_1_0_2.eContents().get(0);
+		private final RuleCall cRIGHTPARENTerminalRuleCall_1_0_3 = (RuleCall)cGroup_1_0.eContents().get(3);
+		private final Assignment cIfStatementAssignment_1_0_4 = (Assignment)cGroup_1_0.eContents().get(4);
+		private final RuleCall cIfStatementStatementParserRuleCall_1_0_4_0 = (RuleCall)cIfStatementAssignment_1_0_4.eContents().get(0);
+		private final Group cGroup_1_0_5 = (Group)cGroup_1_0.eContents().get(5);
+		private final Assignment cElseAssignment_1_0_5_0 = (Assignment)cGroup_1_0_5.eContents().get(0);
+		private final RuleCall cElseKW_ELSETerminalRuleCall_1_0_5_0_0 = (RuleCall)cElseAssignment_1_0_5_0.eContents().get(0);
+		private final Assignment cElseStatementAssignment_1_0_5_1 = (Assignment)cGroup_1_0_5.eContents().get(1);
+		private final RuleCall cElseStatementStatementParserRuleCall_1_0_5_1_0 = (RuleCall)cElseStatementAssignment_1_0_5_1.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
+		private final Assignment cSwitchAssignment_1_1_0 = (Assignment)cGroup_1_1.eContents().get(0);
+		private final RuleCall cSwitchKW_SWITCHTerminalRuleCall_1_1_0_0 = (RuleCall)cSwitchAssignment_1_1_0.eContents().get(0);
+		private final RuleCall cLEFTPARENTerminalRuleCall_1_1_1 = (RuleCall)cGroup_1_1.eContents().get(1);
+		private final Assignment cExprAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
+		private final RuleCall cExprExpressionParserRuleCall_1_1_2_0 = (RuleCall)cExprAssignment_1_1_2.eContents().get(0);
+		private final RuleCall cRIGHTPARENTerminalRuleCall_1_1_3 = (RuleCall)cGroup_1_1.eContents().get(3);
+		private final Assignment cSwitchStatementAssignment_1_1_4 = (Assignment)cGroup_1_1.eContents().get(4);
+		private final RuleCall cSwitchStatementStatementParserRuleCall_1_1_4_0 = (RuleCall)cSwitchStatementAssignment_1_1_4.eContents().get(0);
 		
 		//SelectionStatement Statement:
 		//	{SelectionStatement} (if=KW_IF LEFTPAREN expr=Expression RIGHTPAREN ifStatement=Statement (=> else=KW_ELSE
 		//	elseStatement=Statement)?
-		//	//|	SWITCH LEFTPAREN expression RIGHTPAREN statement=statement
-		//)
+		//	| switch=KW_SWITCH LEFTPAREN expr=Expression RIGHTPAREN switchStatement=Statement)
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{SelectionStatement} (if=KW_IF LEFTPAREN expr=Expression RIGHTPAREN ifStatement=Statement (=> else=KW_ELSE
-		//elseStatement=Statement)? //|	SWITCH LEFTPAREN expression RIGHTPAREN statement=statement
-		//)
+		//elseStatement=Statement)? | switch=KW_SWITCH LEFTPAREN expr=Expression RIGHTPAREN switchStatement=Statement)
 		public Group getGroup() { return cGroup; }
 		
 		//{SelectionStatement}
 		public Action getSelectionStatementAction_0() { return cSelectionStatementAction_0; }
 		
-		//(if=KW_IF LEFTPAREN expr=Expression RIGHTPAREN ifStatement=Statement (=> else=KW_ELSE elseStatement=Statement)? //|	SWITCH LEFTPAREN expression RIGHTPAREN statement=statement
-		//)
-		public Group getGroup_1() { return cGroup_1; }
+		//(if=KW_IF LEFTPAREN expr=Expression RIGHTPAREN ifStatement=Statement (=> else=KW_ELSE elseStatement=Statement)? |
+		//switch=KW_SWITCH LEFTPAREN expr=Expression RIGHTPAREN switchStatement=Statement)
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		
+		//if=KW_IF LEFTPAREN expr=Expression RIGHTPAREN ifStatement=Statement (=> else=KW_ELSE elseStatement=Statement)?
+		public Group getGroup_1_0() { return cGroup_1_0; }
 		
 		//if=KW_IF
-		public Assignment getIfAssignment_1_0() { return cIfAssignment_1_0; }
+		public Assignment getIfAssignment_1_0_0() { return cIfAssignment_1_0_0; }
 		
 		//KW_IF
-		public RuleCall getIfKW_IFTerminalRuleCall_1_0_0() { return cIfKW_IFTerminalRuleCall_1_0_0; }
+		public RuleCall getIfKW_IFTerminalRuleCall_1_0_0_0() { return cIfKW_IFTerminalRuleCall_1_0_0_0; }
 		
 		//LEFTPAREN
-		public RuleCall getLEFTPARENTerminalRuleCall_1_1() { return cLEFTPARENTerminalRuleCall_1_1; }
+		public RuleCall getLEFTPARENTerminalRuleCall_1_0_1() { return cLEFTPARENTerminalRuleCall_1_0_1; }
 		
 		//expr=Expression
-		public Assignment getExprAssignment_1_2() { return cExprAssignment_1_2; }
+		public Assignment getExprAssignment_1_0_2() { return cExprAssignment_1_0_2; }
 		
 		//Expression
-		public RuleCall getExprExpressionParserRuleCall_1_2_0() { return cExprExpressionParserRuleCall_1_2_0; }
+		public RuleCall getExprExpressionParserRuleCall_1_0_2_0() { return cExprExpressionParserRuleCall_1_0_2_0; }
 		
 		//RIGHTPAREN
-		public RuleCall getRIGHTPARENTerminalRuleCall_1_3() { return cRIGHTPARENTerminalRuleCall_1_3; }
+		public RuleCall getRIGHTPARENTerminalRuleCall_1_0_3() { return cRIGHTPARENTerminalRuleCall_1_0_3; }
 		
 		//ifStatement=Statement
-		public Assignment getIfStatementAssignment_1_4() { return cIfStatementAssignment_1_4; }
+		public Assignment getIfStatementAssignment_1_0_4() { return cIfStatementAssignment_1_0_4; }
 		
 		//Statement
-		public RuleCall getIfStatementStatementParserRuleCall_1_4_0() { return cIfStatementStatementParserRuleCall_1_4_0; }
+		public RuleCall getIfStatementStatementParserRuleCall_1_0_4_0() { return cIfStatementStatementParserRuleCall_1_0_4_0; }
 		
 		//(=> else=KW_ELSE elseStatement=Statement)?
-		public Group getGroup_1_5() { return cGroup_1_5; }
+		public Group getGroup_1_0_5() { return cGroup_1_0_5; }
 		
 		//=> else=KW_ELSE
-		public Assignment getElseAssignment_1_5_0() { return cElseAssignment_1_5_0; }
+		public Assignment getElseAssignment_1_0_5_0() { return cElseAssignment_1_0_5_0; }
 		
 		//KW_ELSE
-		public RuleCall getElseKW_ELSETerminalRuleCall_1_5_0_0() { return cElseKW_ELSETerminalRuleCall_1_5_0_0; }
+		public RuleCall getElseKW_ELSETerminalRuleCall_1_0_5_0_0() { return cElseKW_ELSETerminalRuleCall_1_0_5_0_0; }
 		
 		//elseStatement=Statement
-		public Assignment getElseStatementAssignment_1_5_1() { return cElseStatementAssignment_1_5_1; }
+		public Assignment getElseStatementAssignment_1_0_5_1() { return cElseStatementAssignment_1_0_5_1; }
 		
 		//Statement
-		public RuleCall getElseStatementStatementParserRuleCall_1_5_1_0() { return cElseStatementStatementParserRuleCall_1_5_1_0; }
+		public RuleCall getElseStatementStatementParserRuleCall_1_0_5_1_0() { return cElseStatementStatementParserRuleCall_1_0_5_1_0; }
+		
+		//switch=KW_SWITCH LEFTPAREN expr=Expression RIGHTPAREN switchStatement=Statement
+		public Group getGroup_1_1() { return cGroup_1_1; }
+		
+		//switch=KW_SWITCH
+		public Assignment getSwitchAssignment_1_1_0() { return cSwitchAssignment_1_1_0; }
+		
+		//KW_SWITCH
+		public RuleCall getSwitchKW_SWITCHTerminalRuleCall_1_1_0_0() { return cSwitchKW_SWITCHTerminalRuleCall_1_1_0_0; }
+		
+		//LEFTPAREN
+		public RuleCall getLEFTPARENTerminalRuleCall_1_1_1() { return cLEFTPARENTerminalRuleCall_1_1_1; }
+		
+		//expr=Expression
+		public Assignment getExprAssignment_1_1_2() { return cExprAssignment_1_1_2; }
+		
+		//Expression
+		public RuleCall getExprExpressionParserRuleCall_1_1_2_0() { return cExprExpressionParserRuleCall_1_1_2_0; }
+		
+		//RIGHTPAREN
+		public RuleCall getRIGHTPARENTerminalRuleCall_1_1_3() { return cRIGHTPARENTerminalRuleCall_1_1_3; }
+		
+		//switchStatement=Statement
+		public Assignment getSwitchStatementAssignment_1_1_4() { return cSwitchStatementAssignment_1_1_4; }
+		
+		//Statement
+		public RuleCall getSwitchStatementStatementParserRuleCall_1_1_4_0() { return cSwitchStatementStatementParserRuleCall_1_1_4_0; }
 	}
 	public class IterationStatementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.IterationStatement");
@@ -4089,8 +4127,7 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	//SelectionStatement Statement:
 	//	{SelectionStatement} (if=KW_IF LEFTPAREN expr=Expression RIGHTPAREN ifStatement=Statement (=> else=KW_ELSE
 	//	elseStatement=Statement)?
-	//	//|	SWITCH LEFTPAREN expression RIGHTPAREN statement=statement
-	//)
+	//	| switch=KW_SWITCH LEFTPAREN expr=Expression RIGHTPAREN switchStatement=Statement)
 	public SelectionStatementElements getSelectionStatementAccess() {
 		return pSelectionStatement;
 	}

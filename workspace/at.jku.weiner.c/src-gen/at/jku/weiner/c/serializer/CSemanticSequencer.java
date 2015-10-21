@@ -716,7 +716,10 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (if=KW_IF expr=Expression ifStatement=Statement (else=KW_ELSE elseStatement=Statement)?)
+	 *     (
+	 *         (if=KW_IF expr=Expression ifStatement=Statement (else=KW_ELSE elseStatement=Statement)?) | 
+	 *         (switch=KW_SWITCH expr=Expression switchStatement=Statement)
+	 *     )
 	 */
 	protected void sequence_SelectionStatement(EObject context, SelectionStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

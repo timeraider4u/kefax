@@ -27,6 +27,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link at.jku.weiner.c.c.impl.SelectionStatementImpl#getIfStatement <em>If Statement</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.SelectionStatementImpl#getElse <em>Else</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.SelectionStatementImpl#getElseStatement <em>Else Statement</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.impl.SelectionStatementImpl#getSwitch <em>Switch</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.impl.SelectionStatementImpl#getSwitchStatement <em>Switch Statement</em>}</li>
  * </ul>
  * </p>
  *
@@ -103,6 +105,36 @@ public class SelectionStatementImpl extends StatementImpl implements SelectionSt
    * @ordered
    */
   protected Statement elseStatement;
+
+  /**
+   * The default value of the '{@link #getSwitch() <em>Switch</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSwitch()
+   * @generated
+   * @ordered
+   */
+  protected static final String SWITCH_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getSwitch() <em>Switch</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSwitch()
+   * @generated
+   * @ordered
+   */
+  protected String switch_ = SWITCH_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getSwitchStatement() <em>Switch Statement</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSwitchStatement()
+   * @generated
+   * @ordered
+   */
+  protected Statement switchStatement;
 
   /**
    * <!-- begin-user-doc -->
@@ -320,6 +352,77 @@ public class SelectionStatementImpl extends StatementImpl implements SelectionSt
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getSwitch()
+  {
+    return switch_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSwitch(String newSwitch)
+  {
+    String oldSwitch = switch_;
+    switch_ = newSwitch;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CPackage.SELECTION_STATEMENT__SWITCH, oldSwitch, switch_));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Statement getSwitchStatement()
+  {
+    return switchStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetSwitchStatement(Statement newSwitchStatement, NotificationChain msgs)
+  {
+    Statement oldSwitchStatement = switchStatement;
+    switchStatement = newSwitchStatement;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CPackage.SELECTION_STATEMENT__SWITCH_STATEMENT, oldSwitchStatement, newSwitchStatement);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSwitchStatement(Statement newSwitchStatement)
+  {
+    if (newSwitchStatement != switchStatement)
+    {
+      NotificationChain msgs = null;
+      if (switchStatement != null)
+        msgs = ((InternalEObject)switchStatement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CPackage.SELECTION_STATEMENT__SWITCH_STATEMENT, null, msgs);
+      if (newSwitchStatement != null)
+        msgs = ((InternalEObject)newSwitchStatement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CPackage.SELECTION_STATEMENT__SWITCH_STATEMENT, null, msgs);
+      msgs = basicSetSwitchStatement(newSwitchStatement, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CPackage.SELECTION_STATEMENT__SWITCH_STATEMENT, newSwitchStatement, newSwitchStatement));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -331,6 +434,8 @@ public class SelectionStatementImpl extends StatementImpl implements SelectionSt
         return basicSetIfStatement(null, msgs);
       case CPackage.SELECTION_STATEMENT__ELSE_STATEMENT:
         return basicSetElseStatement(null, msgs);
+      case CPackage.SELECTION_STATEMENT__SWITCH_STATEMENT:
+        return basicSetSwitchStatement(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -355,6 +460,10 @@ public class SelectionStatementImpl extends StatementImpl implements SelectionSt
         return getElse();
       case CPackage.SELECTION_STATEMENT__ELSE_STATEMENT:
         return getElseStatement();
+      case CPackage.SELECTION_STATEMENT__SWITCH:
+        return getSwitch();
+      case CPackage.SELECTION_STATEMENT__SWITCH_STATEMENT:
+        return getSwitchStatement();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -383,6 +492,12 @@ public class SelectionStatementImpl extends StatementImpl implements SelectionSt
         return;
       case CPackage.SELECTION_STATEMENT__ELSE_STATEMENT:
         setElseStatement((Statement)newValue);
+        return;
+      case CPackage.SELECTION_STATEMENT__SWITCH:
+        setSwitch((String)newValue);
+        return;
+      case CPackage.SELECTION_STATEMENT__SWITCH_STATEMENT:
+        setSwitchStatement((Statement)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -413,6 +528,12 @@ public class SelectionStatementImpl extends StatementImpl implements SelectionSt
       case CPackage.SELECTION_STATEMENT__ELSE_STATEMENT:
         setElseStatement((Statement)null);
         return;
+      case CPackage.SELECTION_STATEMENT__SWITCH:
+        setSwitch(SWITCH_EDEFAULT);
+        return;
+      case CPackage.SELECTION_STATEMENT__SWITCH_STATEMENT:
+        setSwitchStatement((Statement)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -437,6 +558,10 @@ public class SelectionStatementImpl extends StatementImpl implements SelectionSt
         return ELSE_EDEFAULT == null ? else_ != null : !ELSE_EDEFAULT.equals(else_);
       case CPackage.SELECTION_STATEMENT__ELSE_STATEMENT:
         return elseStatement != null;
+      case CPackage.SELECTION_STATEMENT__SWITCH:
+        return SWITCH_EDEFAULT == null ? switch_ != null : !SWITCH_EDEFAULT.equals(switch_);
+      case CPackage.SELECTION_STATEMENT__SWITCH_STATEMENT:
+        return switchStatement != null;
     }
     return super.eIsSet(featureID);
   }
@@ -456,6 +581,8 @@ public class SelectionStatementImpl extends StatementImpl implements SelectionSt
     result.append(if_);
     result.append(", else: ");
     result.append(else_);
+    result.append(", switch: ");
+    result.append(switch_);
     result.append(')');
     return result.toString();
   }

@@ -1,0 +1,54 @@
+package at.jku.weiner.c
+language c
+//----------------------------------------------------------------------
+source file="res/Test0026_Block.c"
+//----------------------------------------------------------------------
+lexer-tokens
+KW_VOID WHITESPACE ID LEFTPAREN RIGHTPAREN WHITESPACE LEFTBRACE NEWLINE
+	WHITESPACE LEFTBRACE NEWLINE
+	WHITESPACE RIGHTBRACE NEWLINE
+RIGHTBRACE NEWLINE
+//----------------------------------------------------------------------
+(Model unit+=
+	(TranslationUnit 
+		external+=
+		(ExternalDeclaration 
+			functiondefHead=
+			(FunctionDefHead
+				funDeclSpecifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"void"
+					)
+				),
+				funDeclarator=
+				(Declarator
+					declarator=
+					(DirectDeclarator
+						id++"my"
+					)
+				)
+			),
+			functionDefinition=
+			(FunctionDefinition
+				body=
+				(BodyStatement
+					blockList+=
+					(BlockList
+						statement+=
+						(Statement
+							stmt=
+							(CompoundStatement
+								body=
+								(BodyStatement
+									
+								)
+							) // end compound statement
+						) // end statement
+					) // end block list
+				) // end body statement
+			)
+		) // end external declaration
+	)
+)

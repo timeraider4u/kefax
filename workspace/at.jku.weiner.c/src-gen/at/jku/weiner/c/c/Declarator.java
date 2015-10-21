@@ -11,11 +11,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.c.Declarator#getPointer <em>Pointer</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.Declarator#getDeclarator <em>Declarator</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.c.CPackage#getDeclarator()
  * @model

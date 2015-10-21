@@ -15,7 +15,7 @@ public class CParser extends org.eclipse.xtext.parser.antlr.AbstractAntlrParser 
 	
 	@Override
 	protected void setInitialHiddenTokens(XtextTokenStream tokenStream) {
-		tokenStream.setInitialHiddenTokens("RULE_LINEDIRECTIVE", "RULE_LINE_COMMENT", "RULE_BLOCK_COMMENT", "RULE_NEWLINE", "RULE_WHITESPACE", "RULE_PRAGMADIRECTIVE");
+		tokenStream.setInitialHiddenTokens("RULE_LINEDIRECTIVE", "RULE_LINE_COMMENT", "RULE_BLOCK_COMMENT", "RULE_NEWLINE", "RULE_WHITESPACE");
 	}
 	
 	@Override

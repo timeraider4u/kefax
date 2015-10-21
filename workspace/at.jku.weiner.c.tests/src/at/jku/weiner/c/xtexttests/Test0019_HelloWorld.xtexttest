@@ -1,0 +1,104 @@
+package at.jku.weiner.c
+language c
+//----------------------------------------------------------------------
+source file="res/Test0019_HelloWorld.c"
+//----------------------------------------------------------------------
+lexer-tokens
+LINEDIRECTIVE NEWLINE
+KW_INT WHITESPACE ID LEFTPAREN
+KW_INT WHITESPACE ID COMMA WHITESPACE
+KW_CHAR WHITESPACE STAR STAR WHITESPACE ID
+RIGHTPAREN WHITESPACE LEFTBRACE NEWLINE
+WHITESPACE ID LEFTPAREN STRING_LITERAL RIGHTPAREN SEMI NEWLINE
+WHITESPACE KW_RETURN WHITESPACE DECIMAL_LITERAL SEMI NEWLINE
+RIGHTBRACE NEWLINE
+//----------------------------------------------------------------------
+(Model unit+=
+	(TranslationUnit 
+		external+=
+		(ExternalDeclaration 
+			functiondefHead=
+			(FunctionDefHead
+				funDeclSpecifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"void"
+					)
+				),
+				funDeclarator=
+				(Declarator
+					declarator=
+					(DirectDeclarator
+						id++"do1",
+						declaratorSuffix+=
+						(DeclaratorSuffix
+							lastSuffix=
+							(DirectDeclaratorLastSuffix
+								parameterTypeList+=
+								(ParameterTypeList
+									list=
+									(ParameterList
+										parameterDeclaration+=
+										(ParameterDeclaration
+											declSpecifiers=
+											(DeclarationSpecifiers
+												declarationSpecifier+=
+												(TypeSpecifier
+													name++"char"
+												)
+											),
+											declarator=
+											(Declarator
+												declarator=
+												(DirectDeclarator
+													id++"c"
+												)
+											)
+										),
+										(ParameterDeclaration
+											declSpecifiers=
+											(DeclarationSpecifiers
+												declarationSpecifier+=
+												(TypeSpecifier
+													name++"float"
+												)
+											),
+											declarator=
+											(Declarator
+												declarator=
+												(DirectDeclarator
+													id++"f"
+												),
+												pointer=
+												(Pointer 
+													star+*"[^, *]"
+												)
+											)
+										) 
+									) // end parameter list
+								)
+							)
+						) // DeclaratorSuffix
+					)
+				)
+			),
+			functionDefinition=
+			(FunctionDefinition
+				body=
+				(BodyStatement
+					blockList+=
+					(BlockList
+						statement+=
+						(Statement
+							
+						), // end first statement
+						(Statement
+							
+						) // end second statement
+					) // end block list
+				) // end body statement
+			)
+		) // end external declaration
+	)
+)

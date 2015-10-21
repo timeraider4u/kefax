@@ -13,12 +13,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.c.Pointer#getStar <em>Star</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.Pointer#getCaret <em>Caret</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.Pointer#getTypeQualifierList <em>Type Qualifier List</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.c.CPackage#getPointer()
  * @model

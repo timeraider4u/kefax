@@ -2962,7 +2962,6 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tOCTAL_ESCAPE;
 	private final TerminalRule tUNICODE_ESCAPE;
 	private final TerminalRule tLINEDIRECTIVE;
-	private final TerminalRule tPRAGMADIRECTIVE;
 	private final TerminalRule tWHITESPACE;
 	private final TerminalRule tBLOCK_COMMENT;
 	private final TerminalRule tLINE_COMMENT;
@@ -3141,7 +3140,6 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		this.tOCTAL_ESCAPE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.OCTAL_ESCAPE");
 		this.tUNICODE_ESCAPE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.UNICODE_ESCAPE");
 		this.tLINEDIRECTIVE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.LINEDIRECTIVE");
-		this.tPRAGMADIRECTIVE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.PRAGMADIRECTIVE");
 		this.tWHITESPACE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.WHITESPACE");
 		this.tBLOCK_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.BLOCK_COMMENT");
 		this.tLINE_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.LINE_COMMENT");
@@ -4689,15 +4687,9 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal LINEDIRECTIVE:
-	//	'#' WHITESPACE? DECIMAL_LITERAL WHITESPACE? STRING_LITERAL !NEWLINE*;
+	//	'#' !NEWLINE*;
 	public TerminalRule getLINEDIRECTIVERule() {
 		return tLINEDIRECTIVE;
-	}
-	
-	//terminal PRAGMADIRECTIVE:
-	//	'#' WHITESPACE? KW_PRAGMA WHITESPACE !NEWLINE*;
-	public TerminalRule getPRAGMADIRECTIVERule() {
-		return tPRAGMADIRECTIVE;
 	}
 	
 	//terminal WHITESPACE:

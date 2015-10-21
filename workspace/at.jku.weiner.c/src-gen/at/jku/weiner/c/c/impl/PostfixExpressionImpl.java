@@ -24,11 +24,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.c.impl.PostfixExpressionImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.PostfixExpressionImpl#getArrayExpr <em>Array Expr</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

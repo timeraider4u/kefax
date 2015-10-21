@@ -405,6 +405,7 @@ public class Test0011_ReturnStmts {
 		final Constant Constant_30_Var = (Constant)PrimaryExpression_29_Var.getConst();
 		Assert.assertNotNull(Constant_30_Var);
 		Assert.assertEquals("'a'", Constant_30_Var.getCh());
+		Assert.assertEquals("return", JumpStatement_12_Var.getReturn());
 		Assert.assertEquals(";", JumpStatement_12_Var.getSemi());
 		final ExternalDeclaration ExternalDeclaration_31_Var = (ExternalDeclaration)External_1_list.get(1);
 		Assert.assertNotNull(ExternalDeclaration_31_Var);
@@ -519,6 +520,7 @@ public class Test0011_ReturnStmts {
 		final UnaryOperator UnaryOperator_62_Var = (UnaryOperator)UnaryExpression_56_Var.getOp();
 		Assert.assertNotNull(UnaryOperator_62_Var);
 		Assert.assertEquals("-", UnaryOperator_62_Var.getOp());
+		Assert.assertEquals("return", JumpStatement_41_Var.getReturn());
 		Assert.assertEquals(";", JumpStatement_41_Var.getSemi());
 		final ExternalDeclaration ExternalDeclaration_63_Var = (ExternalDeclaration)External_1_list.get(2);
 		Assert.assertNotNull(ExternalDeclaration_63_Var);
@@ -626,6 +628,7 @@ public class Test0011_ReturnStmts {
 		final Constant Constant_91_Var = (Constant)PrimaryExpression_90_Var.getConst();
 		Assert.assertNotNull(Constant_91_Var);
 		Assert.assertEquals("0.8", Constant_91_Var.getFloat());
+		Assert.assertEquals("return", JumpStatement_73_Var.getReturn());
 		Assert.assertEquals(";", JumpStatement_73_Var.getSemi());
 		final ExternalDeclaration ExternalDeclaration_92_Var = (ExternalDeclaration)External_1_list.get(3);
 		Assert.assertNotNull(ExternalDeclaration_92_Var);
@@ -733,6 +736,7 @@ public class Test0011_ReturnStmts {
 		final Constant Constant_120_Var = (Constant)PrimaryExpression_119_Var.getConst();
 		Assert.assertNotNull(Constant_120_Var);
 		Assert.assertEquals("0x01A", Constant_120_Var.getHex());
+		Assert.assertEquals("return", JumpStatement_102_Var.getReturn());
 		Assert.assertEquals(";", JumpStatement_102_Var.getSemi());
 		final ExternalDeclaration ExternalDeclaration_121_Var = (ExternalDeclaration)External_1_list.get(4);
 		Assert.assertNotNull(ExternalDeclaration_121_Var);
@@ -767,6 +771,7 @@ public class Test0011_ReturnStmts {
 		Assert.assertNotNull(Statement_130_Var);
 		final JumpStatement JumpStatement_131_Var = (JumpStatement)Statement_130_Var.getStmt();
 		Assert.assertNotNull(JumpStatement_131_Var);
+		Assert.assertEquals("return", JumpStatement_131_Var.getReturn());
 		Assert.assertEquals(";", JumpStatement_131_Var.getSemi());
 	}
 

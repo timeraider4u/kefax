@@ -574,7 +574,7 @@ JumpStatement:
 	//|	CONTINUE SEMI
 	//|	BREAK SEMI
 	//|
-	KW_RETURN expr=Expression? semi=SEMI
+	return=KW_RETURN expr=Expression? semi=SEMI
 	//|	GOTO expr=unaryExpression SEMI // GCC extension
 	)
 ;
@@ -774,8 +774,8 @@ PostfixExpression returns Expression
 	
 	(
 		LEFTBRACKET arrayExpr+=Expression RIGHTBRACKET
-		/*| LEFTPAREN argumentExpressionList+=argumentExpressionList? RIGHTPAREN
-		| DOT IDENTIFIER
+		| LEFTPAREN argumentExpressionList+=ArgumentExpressionList? RIGHTPAREN
+		/*| DOT IDENTIFIER
 		| ARROW IDENTIFIER
 		| PLUSPLUS
 		| MINUSMINUS
@@ -785,9 +785,7 @@ PostfixExpression returns Expression
 	)
 ;
 
-/*
-argumentExpressionList: assignmentExpression (COMMA expr+=assignmentExpression)*;
-*/
+ArgumentExpressionList: expr+=AssignmentExpression (COMMA expr+=AssignmentExpression)*;
 
 PrimaryExpression returns Expression
 	initRuleAction { at.jku.weiner.c.Log.error("PrimaryExpression-enter"); }

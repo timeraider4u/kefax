@@ -2,6 +2,7 @@
  */
 package at.jku.weiner.c.c.impl;
 
+import at.jku.weiner.c.c.ArgumentExpressionList;
 import at.jku.weiner.c.c.CPackage;
 import at.jku.weiner.c.c.Expression;
 import at.jku.weiner.c.c.PostfixExpression;
@@ -27,6 +28,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link at.jku.weiner.c.c.impl.PostfixExpressionImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.PostfixExpressionImpl#getArrayExpr <em>Array Expr</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.impl.PostfixExpressionImpl#getArgumentExpressionList <em>Argument Expression List</em>}</li>
  * </ul>
  * </p>
  *
@@ -53,6 +55,16 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
    * @ordered
    */
   protected EList<Expression> arrayExpr;
+
+  /**
+   * The cached value of the '{@link #getArgumentExpressionList() <em>Argument Expression List</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getArgumentExpressionList()
+   * @generated
+   * @ordered
+   */
+  protected EList<ArgumentExpressionList> argumentExpressionList;
 
   /**
    * <!-- begin-user-doc -->
@@ -108,6 +120,20 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<ArgumentExpressionList> getArgumentExpressionList()
+  {
+    if (argumentExpressionList == null)
+    {
+      argumentExpressionList = new EObjectContainmentEList<ArgumentExpressionList>(ArgumentExpressionList.class, this, CPackage.POSTFIX_EXPRESSION__ARGUMENT_EXPRESSION_LIST);
+    }
+    return argumentExpressionList;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -117,6 +143,8 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
         return ((InternalEList<?>)getExpr()).basicRemove(otherEnd, msgs);
       case CPackage.POSTFIX_EXPRESSION__ARRAY_EXPR:
         return ((InternalEList<?>)getArrayExpr()).basicRemove(otherEnd, msgs);
+      case CPackage.POSTFIX_EXPRESSION__ARGUMENT_EXPRESSION_LIST:
+        return ((InternalEList<?>)getArgumentExpressionList()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -135,6 +163,8 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
         return getExpr();
       case CPackage.POSTFIX_EXPRESSION__ARRAY_EXPR:
         return getArrayExpr();
+      case CPackage.POSTFIX_EXPRESSION__ARGUMENT_EXPRESSION_LIST:
+        return getArgumentExpressionList();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -158,6 +188,10 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
         getArrayExpr().clear();
         getArrayExpr().addAll((Collection<? extends Expression>)newValue);
         return;
+      case CPackage.POSTFIX_EXPRESSION__ARGUMENT_EXPRESSION_LIST:
+        getArgumentExpressionList().clear();
+        getArgumentExpressionList().addAll((Collection<? extends ArgumentExpressionList>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -178,6 +212,9 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
       case CPackage.POSTFIX_EXPRESSION__ARRAY_EXPR:
         getArrayExpr().clear();
         return;
+      case CPackage.POSTFIX_EXPRESSION__ARGUMENT_EXPRESSION_LIST:
+        getArgumentExpressionList().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -196,6 +233,8 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
         return expr != null && !expr.isEmpty();
       case CPackage.POSTFIX_EXPRESSION__ARRAY_EXPR:
         return arrayExpr != null && !arrayExpr.isEmpty();
+      case CPackage.POSTFIX_EXPRESSION__ARGUMENT_EXPRESSION_LIST:
+        return argumentExpressionList != null && !argumentExpressionList.isEmpty();
     }
     return super.eIsSet(featureID);
   }

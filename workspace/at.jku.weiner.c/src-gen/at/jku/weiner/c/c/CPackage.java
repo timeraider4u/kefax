@@ -1087,13 +1087,22 @@ public interface CPackage extends EPackage
   int JUMP_STATEMENT = 30;
 
   /**
+   * The feature id for the '<em><b>Return</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JUMP_STATEMENT__RETURN = 0;
+
+  /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int JUMP_STATEMENT__EXPR = 0;
+  int JUMP_STATEMENT__EXPR = 1;
 
   /**
    * The feature id for the '<em><b>Semi</b></em>' attribute.
@@ -1102,7 +1111,7 @@ public interface CPackage extends EPackage
    * @generated
    * @ordered
    */
-  int JUMP_STATEMENT__SEMI = 1;
+  int JUMP_STATEMENT__SEMI = 2;
 
   /**
    * The number of structural features of the '<em>Jump Statement</em>' class.
@@ -1111,7 +1120,7 @@ public interface CPackage extends EPackage
    * @generated
    * @ordered
    */
-  int JUMP_STATEMENT_FEATURE_COUNT = 2;
+  int JUMP_STATEMENT_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.c.impl.ExpressionImpl <em>Expression</em>}' class.
@@ -1198,6 +1207,34 @@ public interface CPackage extends EPackage
   int UNARY_OPERATOR_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link at.jku.weiner.c.c.impl.ArgumentExpressionListImpl <em>Argument Expression List</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.c.c.impl.ArgumentExpressionListImpl
+   * @see at.jku.weiner.c.c.impl.CPackageImpl#getArgumentExpressionList()
+   * @generated
+   */
+  int ARGUMENT_EXPRESSION_LIST = 34;
+
+  /**
+   * The feature id for the '<em><b>Expr</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARGUMENT_EXPRESSION_LIST__EXPR = 0;
+
+  /**
+   * The number of structural features of the '<em>Argument Expression List</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARGUMENT_EXPRESSION_LIST_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link at.jku.weiner.c.c.impl.ConstantImpl <em>Constant</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1205,7 +1242,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getConstant()
    * @generated
    */
-  int CONSTANT = 34;
+  int CONSTANT = 35;
 
   /**
    * The feature id for the '<em><b>Hex</b></em>' attribute.
@@ -1287,7 +1324,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getCompoundStatement()
    * @generated
    */
-  int COMPOUND_STATEMENT = 35;
+  int COMPOUND_STATEMENT = 36;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -1324,7 +1361,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getBodyStatement()
    * @generated
    */
-  int BODY_STATEMENT = 36;
+  int BODY_STATEMENT = 37;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -1361,7 +1398,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getAssignmentExpression()
    * @generated
    */
-  int ASSIGNMENT_EXPRESSION = 37;
+  int ASSIGNMENT_EXPRESSION = 38;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -1416,7 +1453,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getConditionalExpression()
    * @generated
    */
-  int CONDITIONAL_EXPRESSION = 38;
+  int CONDITIONAL_EXPRESSION = 39;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -1471,7 +1508,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getLogicalOrExpression()
    * @generated
    */
-  int LOGICAL_OR_EXPRESSION = 39;
+  int LOGICAL_OR_EXPRESSION = 40;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -1508,7 +1545,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getLogicalAndExpression()
    * @generated
    */
-  int LOGICAL_AND_EXPRESSION = 40;
+  int LOGICAL_AND_EXPRESSION = 41;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -1545,7 +1582,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getInclusiveOrExpression()
    * @generated
    */
-  int INCLUSIVE_OR_EXPRESSION = 41;
+  int INCLUSIVE_OR_EXPRESSION = 42;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -1582,7 +1619,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getExclusiveOrExpression()
    * @generated
    */
-  int EXCLUSIVE_OR_EXPRESSION = 42;
+  int EXCLUSIVE_OR_EXPRESSION = 43;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -1619,7 +1656,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getAndExpression()
    * @generated
    */
-  int AND_EXPRESSION = 43;
+  int AND_EXPRESSION = 44;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -1656,7 +1693,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getEqualityExpression()
    * @generated
    */
-  int EQUALITY_EXPRESSION = 44;
+  int EQUALITY_EXPRESSION = 45;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -1702,7 +1739,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getRelationalExpression()
    * @generated
    */
-  int RELATIONAL_EXPRESSION = 45;
+  int RELATIONAL_EXPRESSION = 46;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -1748,7 +1785,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getShiftExpression()
    * @generated
    */
-  int SHIFT_EXPRESSION = 46;
+  int SHIFT_EXPRESSION = 47;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -1794,7 +1831,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getAdditiveExpression()
    * @generated
    */
-  int ADDITIVE_EXPRESSION = 47;
+  int ADDITIVE_EXPRESSION = 48;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -1840,7 +1877,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getMultiplicativeExpression()
    * @generated
    */
-  int MULTIPLICATIVE_EXPRESSION = 48;
+  int MULTIPLICATIVE_EXPRESSION = 49;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -1886,7 +1923,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getCastExpression()
    * @generated
    */
-  int CAST_EXPRESSION = 49;
+  int CAST_EXPRESSION = 50;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -1932,7 +1969,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getUnaryExpression()
    * @generated
    */
-  int UNARY_EXPRESSION = 50;
+  int UNARY_EXPRESSION = 51;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -1978,7 +2015,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getPostfixExpression()
    * @generated
    */
-  int POSTFIX_EXPRESSION = 51;
+  int POSTFIX_EXPRESSION = 52;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2008,13 +2045,22 @@ public interface CPackage extends EPackage
   int POSTFIX_EXPRESSION__ARRAY_EXPR = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
+   * The feature id for the '<em><b>Argument Expression List</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POSTFIX_EXPRESSION__ARGUMENT_EXPRESSION_LIST = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
    * The number of structural features of the '<em>Postfix Expression</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int POSTFIX_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+  int POSTFIX_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.c.impl.PrimaryExpressionImpl <em>Primary Expression</em>}' class.
@@ -2024,7 +2070,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getPrimaryExpression()
    * @generated
    */
-  int PRIMARY_EXPRESSION = 52;
+  int PRIMARY_EXPRESSION = 53;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2933,6 +2979,17 @@ public interface CPackage extends EPackage
   EClass getJumpStatement();
 
   /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.c.JumpStatement#getReturn <em>Return</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Return</em>'.
+   * @see at.jku.weiner.c.c.JumpStatement#getReturn()
+   * @see #getJumpStatement()
+   * @generated
+   */
+  EAttribute getJumpStatement_Return();
+
+  /**
    * Returns the meta object for the containment reference '{@link at.jku.weiner.c.c.JumpStatement#getExpr <em>Expr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3016,6 +3073,27 @@ public interface CPackage extends EPackage
    * @generated
    */
   EAttribute getUnaryOperator_Op();
+
+  /**
+   * Returns the meta object for class '{@link at.jku.weiner.c.c.ArgumentExpressionList <em>Argument Expression List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Argument Expression List</em>'.
+   * @see at.jku.weiner.c.c.ArgumentExpressionList
+   * @generated
+   */
+  EClass getArgumentExpressionList();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.c.ArgumentExpressionList#getExpr <em>Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Expr</em>'.
+   * @see at.jku.weiner.c.c.ArgumentExpressionList#getExpr()
+   * @see #getArgumentExpressionList()
+   * @generated
+   */
+  EReference getArgumentExpressionList_Expr();
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.c.c.Constant <em>Constant</em>}'.
@@ -3592,6 +3670,17 @@ public interface CPackage extends EPackage
    * @generated
    */
   EReference getPostfixExpression_ArrayExpr();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.c.PostfixExpression#getArgumentExpressionList <em>Argument Expression List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Argument Expression List</em>'.
+   * @see at.jku.weiner.c.c.PostfixExpression#getArgumentExpressionList()
+   * @see #getPostfixExpression()
+   * @generated
+   */
+  EReference getPostfixExpression_ArgumentExpressionList();
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.c.c.PrimaryExpression <em>Primary Expression</em>}'.
@@ -4370,6 +4459,14 @@ public interface CPackage extends EPackage
     EClass JUMP_STATEMENT = eINSTANCE.getJumpStatement();
 
     /**
+     * The meta object literal for the '<em><b>Return</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute JUMP_STATEMENT__RETURN = eINSTANCE.getJumpStatement_Return();
+
+    /**
      * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4438,6 +4535,24 @@ public interface CPackage extends EPackage
      * @generated
      */
     EAttribute UNARY_OPERATOR__OP = eINSTANCE.getUnaryOperator_Op();
+
+    /**
+     * The meta object literal for the '{@link at.jku.weiner.c.c.impl.ArgumentExpressionListImpl <em>Argument Expression List</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.c.c.impl.ArgumentExpressionListImpl
+     * @see at.jku.weiner.c.c.impl.CPackageImpl#getArgumentExpressionList()
+     * @generated
+     */
+    EClass ARGUMENT_EXPRESSION_LIST = eINSTANCE.getArgumentExpressionList();
+
+    /**
+     * The meta object literal for the '<em><b>Expr</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARGUMENT_EXPRESSION_LIST__EXPR = eINSTANCE.getArgumentExpressionList_Expr();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.c.impl.ConstantImpl <em>Constant</em>}' class.
@@ -4906,6 +5021,14 @@ public interface CPackage extends EPackage
      * @generated
      */
     EReference POSTFIX_EXPRESSION__ARRAY_EXPR = eINSTANCE.getPostfixExpression_ArrayExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Argument Expression List</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference POSTFIX_EXPRESSION__ARGUMENT_EXPRESSION_LIST = eINSTANCE.getPostfixExpression_ArgumentExpressionList();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.c.impl.PrimaryExpressionImpl <em>Primary Expression</em>}' class.

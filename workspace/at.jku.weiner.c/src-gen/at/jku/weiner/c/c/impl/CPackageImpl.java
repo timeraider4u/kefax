@@ -4,6 +4,7 @@ package at.jku.weiner.c.c.impl;
 
 import at.jku.weiner.c.c.AdditiveExpression;
 import at.jku.weiner.c.c.AndExpression;
+import at.jku.weiner.c.c.ArgumentExpressionList;
 import at.jku.weiner.c.c.AssignmentExpression;
 import at.jku.weiner.c.c.AssignmentOperator;
 import at.jku.weiner.c.c.BlockList;
@@ -311,6 +312,13 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * @generated
    */
   private EClass unaryOperatorEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass argumentExpressionListEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1326,9 +1334,19 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getJumpStatement_Return()
+  {
+    return (EAttribute)jumpStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getJumpStatement_Expr()
   {
-    return (EReference)jumpStatementEClass.getEStructuralFeatures().get(0);
+    return (EReference)jumpStatementEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1338,7 +1356,7 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    */
   public EAttribute getJumpStatement_Semi()
   {
-    return (EAttribute)jumpStatementEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)jumpStatementEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1399,6 +1417,26 @@ public class CPackageImpl extends EPackageImpl implements CPackage
   public EAttribute getUnaryOperator_Op()
   {
     return (EAttribute)unaryOperatorEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getArgumentExpressionList()
+  {
+    return argumentExpressionListEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getArgumentExpressionList_Expr()
+  {
+    return (EReference)argumentExpressionListEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1946,6 +1984,16 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getPostfixExpression_ArgumentExpressionList()
+  {
+    return (EReference)postfixExpressionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getPrimaryExpression()
   {
     return primaryExpressionEClass;
@@ -2122,6 +2170,7 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     createEAttribute(expressionStatementEClass, EXPRESSION_STATEMENT__SEMI);
 
     jumpStatementEClass = createEClass(JUMP_STATEMENT);
+    createEAttribute(jumpStatementEClass, JUMP_STATEMENT__RETURN);
     createEReference(jumpStatementEClass, JUMP_STATEMENT__EXPR);
     createEAttribute(jumpStatementEClass, JUMP_STATEMENT__SEMI);
 
@@ -2133,6 +2182,9 @@ public class CPackageImpl extends EPackageImpl implements CPackage
 
     unaryOperatorEClass = createEClass(UNARY_OPERATOR);
     createEAttribute(unaryOperatorEClass, UNARY_OPERATOR__OP);
+
+    argumentExpressionListEClass = createEClass(ARGUMENT_EXPRESSION_LIST);
+    createEReference(argumentExpressionListEClass, ARGUMENT_EXPRESSION_LIST__EXPR);
 
     constantEClass = createEClass(CONSTANT);
     createEAttribute(constantEClass, CONSTANT__HEX);
@@ -2205,6 +2257,7 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     postfixExpressionEClass = createEClass(POSTFIX_EXPRESSION);
     createEReference(postfixExpressionEClass, POSTFIX_EXPRESSION__EXPR);
     createEReference(postfixExpressionEClass, POSTFIX_EXPRESSION__ARRAY_EXPR);
+    createEReference(postfixExpressionEClass, POSTFIX_EXPRESSION__ARGUMENT_EXPRESSION_LIST);
 
     primaryExpressionEClass = createEClass(PRIMARY_EXPRESSION);
     createEAttribute(primaryExpressionEClass, PRIMARY_EXPRESSION__ID);
@@ -2375,6 +2428,7 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     initEAttribute(getExpressionStatement_Semi(), theEcorePackage.getEString(), "semi", null, 0, 1, ExpressionStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(jumpStatementEClass, JumpStatement.class, "JumpStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getJumpStatement_Return(), theEcorePackage.getEString(), "return", null, 0, 1, JumpStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getJumpStatement_Expr(), this.getExpression(), null, "expr", null, 0, 1, JumpStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getJumpStatement_Semi(), theEcorePackage.getEString(), "semi", null, 0, 1, JumpStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -2386,6 +2440,9 @@ public class CPackageImpl extends EPackageImpl implements CPackage
 
     initEClass(unaryOperatorEClass, UnaryOperator.class, "UnaryOperator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getUnaryOperator_Op(), theEcorePackage.getEString(), "op", null, 0, 1, UnaryOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(argumentExpressionListEClass, ArgumentExpressionList.class, "ArgumentExpressionList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getArgumentExpressionList_Expr(), this.getExpression(), null, "expr", null, 0, -1, ArgumentExpressionList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(constantEClass, Constant.class, "Constant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getConstant_Hex(), theEcorePackage.getEString(), "hex", null, 0, 1, Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2458,6 +2515,7 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     initEClass(postfixExpressionEClass, PostfixExpression.class, "PostfixExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getPostfixExpression_Expr(), this.getExpression(), null, "expr", null, 0, -1, PostfixExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPostfixExpression_ArrayExpr(), this.getExpression(), null, "arrayExpr", null, 0, -1, PostfixExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPostfixExpression_ArgumentExpressionList(), this.getArgumentExpressionList(), null, "argumentExpressionList", null, 0, -1, PostfixExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(primaryExpressionEClass, PrimaryExpression.class, "PrimaryExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPrimaryExpression_Id(), theEcorePackage.getEString(), "id", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link at.jku.weiner.c.c.impl.JumpStatementImpl#getReturn <em>Return</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.JumpStatementImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.JumpStatementImpl#getSemi <em>Semi</em>}</li>
  * </ul>
@@ -31,6 +32,26 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class JumpStatementImpl extends MinimalEObjectImpl.Container implements JumpStatement
 {
+  /**
+   * The default value of the '{@link #getReturn() <em>Return</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getReturn()
+   * @generated
+   * @ordered
+   */
+  protected static final String RETURN_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getReturn() <em>Return</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getReturn()
+   * @generated
+   * @ordered
+   */
+  protected String return_ = RETURN_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -80,6 +101,29 @@ public class JumpStatementImpl extends MinimalEObjectImpl.Container implements J
   protected EClass eStaticClass()
   {
     return CPackage.Literals.JUMP_STATEMENT;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getReturn()
+  {
+    return return_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setReturn(String newReturn)
+  {
+    String oldReturn = return_;
+    return_ = newReturn;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CPackage.JUMP_STATEMENT__RETURN, oldReturn, return_));
   }
 
   /**
@@ -179,6 +223,8 @@ public class JumpStatementImpl extends MinimalEObjectImpl.Container implements J
   {
     switch (featureID)
     {
+      case CPackage.JUMP_STATEMENT__RETURN:
+        return getReturn();
       case CPackage.JUMP_STATEMENT__EXPR:
         return getExpr();
       case CPackage.JUMP_STATEMENT__SEMI:
@@ -197,6 +243,9 @@ public class JumpStatementImpl extends MinimalEObjectImpl.Container implements J
   {
     switch (featureID)
     {
+      case CPackage.JUMP_STATEMENT__RETURN:
+        setReturn((String)newValue);
+        return;
       case CPackage.JUMP_STATEMENT__EXPR:
         setExpr((Expression)newValue);
         return;
@@ -217,6 +266,9 @@ public class JumpStatementImpl extends MinimalEObjectImpl.Container implements J
   {
     switch (featureID)
     {
+      case CPackage.JUMP_STATEMENT__RETURN:
+        setReturn(RETURN_EDEFAULT);
+        return;
       case CPackage.JUMP_STATEMENT__EXPR:
         setExpr((Expression)null);
         return;
@@ -237,6 +289,8 @@ public class JumpStatementImpl extends MinimalEObjectImpl.Container implements J
   {
     switch (featureID)
     {
+      case CPackage.JUMP_STATEMENT__RETURN:
+        return RETURN_EDEFAULT == null ? return_ != null : !RETURN_EDEFAULT.equals(return_);
       case CPackage.JUMP_STATEMENT__EXPR:
         return expr != null;
       case CPackage.JUMP_STATEMENT__SEMI:
@@ -256,7 +310,9 @@ public class JumpStatementImpl extends MinimalEObjectImpl.Container implements J
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (semi: ");
+    result.append(" (return: ");
+    result.append(return_);
+    result.append(", semi: ");
     result.append(semi);
     result.append(')');
     return result.toString();

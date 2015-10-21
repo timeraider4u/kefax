@@ -3203,11 +3203,25 @@ ruleJumpStatement returns [EObject current=null]
 
 
 (
-this_KW_RETURN_1=RULE_KW_RETURN
-    { 
-    newLeafNode(this_KW_RETURN_1, grammarAccess.getJumpStatementAccess().getKW_RETURNTerminalRuleCall_1_0()); 
-    }
+(
+(
+		lv_return_1_0=RULE_KW_RETURN
+		{
+			newLeafNode(lv_return_1_0, grammarAccess.getJumpStatementAccess().getReturnKW_RETURNTerminalRuleCall_1_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getJumpStatementRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"return",
+        		lv_return_1_0, 
+        		"at.jku.weiner.c.C.KW_RETURN");
+	    }
 
+)
+)
 
 
 (
@@ -5557,9 +5571,10 @@ rulePostfixExpression returns [EObject current=null]
 
 
 (
+(
 this_LEFTBRACKET_2=RULE_LEFTBRACKET
     { 
-    newLeafNode(this_LEFTBRACKET_2, grammarAccess.getPostfixExpressionAccess().getLEFTBRACKETTerminalRuleCall_1_1_0()); 
+    newLeafNode(this_LEFTBRACKET_2, grammarAccess.getPostfixExpressionAccess().getLEFTBRACKETTerminalRuleCall_1_1_0_0()); 
     }
 
 
@@ -5567,7 +5582,7 @@ this_LEFTBRACKET_2=RULE_LEFTBRACKET
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getPostfixExpressionAccess().getArrayExprExpressionParserRuleCall_1_1_1_0()); 
+	        newCompositeNode(grammarAccess.getPostfixExpressionAccess().getArrayExprExpressionParserRuleCall_1_1_0_1_0()); 
 	    }
 		lv_arrayExpr_3_0=ruleExpression		{
 	        if ($current==null) {
@@ -5587,13 +5602,133 @@ this_LEFTBRACKET_2=RULE_LEFTBRACKET
 
 this_RIGHTBRACKET_4=RULE_RIGHTBRACKET
     { 
-    newLeafNode(this_RIGHTBRACKET_4, grammarAccess.getPostfixExpressionAccess().getRIGHTBRACKETTerminalRuleCall_1_1_2()); 
+    newLeafNode(this_RIGHTBRACKET_4, grammarAccess.getPostfixExpressionAccess().getRIGHTBRACKETTerminalRuleCall_1_1_0_2()); 
     }
 
+
+)
+
+
+    |
+(
+this_LEFTPAREN_5=RULE_LEFTPAREN
+    { 
+    newLeafNode(this_LEFTPAREN_5, grammarAccess.getPostfixExpressionAccess().getLEFTPARENTerminalRuleCall_1_1_1_0()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getPostfixExpressionAccess().getArgumentExpressionListArgumentExpressionListParserRuleCall_1_1_1_1_0()); 
+	    }
+		lv_argumentExpressionList_6_0=ruleArgumentExpressionList		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getPostfixExpressionRule());
+	        }
+       		add(
+       			$current, 
+       			"argumentExpressionList",
+        		lv_argumentExpressionList_6_0, 
+        		"at.jku.weiner.c.C.ArgumentExpressionList");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)?
+
+
+this_RIGHTPAREN_7=RULE_RIGHTPAREN
+    { 
+    newLeafNode(this_RIGHTPAREN_7, grammarAccess.getPostfixExpressionAccess().getRIGHTPARENTerminalRuleCall_1_1_1_2()); 
+    }
+
+
+)
 
 )*
 
 )
+
+)
+
+
+;
+
+
+
+
+
+// Entry rule entryRuleArgumentExpressionList
+entryRuleArgumentExpressionList returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getArgumentExpressionListRule()); }
+	 iv_ruleArgumentExpressionList=ruleArgumentExpressionList 
+	 { $current=$iv_ruleArgumentExpressionList.current; } 
+	 EOF 
+;
+
+// Rule ArgumentExpressionList
+ruleArgumentExpressionList returns [EObject current=null] 
+    @init { enterRule();
+   		
+    }
+    @after { leaveRule();
+    		
+     }:
+
+(
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getArgumentExpressionListAccess().getExprAssignmentExpressionParserRuleCall_0_0()); 
+	    }
+		lv_expr_0_0=ruleAssignmentExpression		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getArgumentExpressionListRule());
+	        }
+       		add(
+       			$current, 
+       			"expr",
+        		lv_expr_0_0, 
+        		"at.jku.weiner.c.C.AssignmentExpression");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+(
+this_COMMA_1=RULE_COMMA
+    { 
+    newLeafNode(this_COMMA_1, grammarAccess.getArgumentExpressionListAccess().getCOMMATerminalRuleCall_1_0()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getArgumentExpressionListAccess().getExprAssignmentExpressionParserRuleCall_1_1_0()); 
+	    }
+		lv_expr_2_0=ruleAssignmentExpression		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getArgumentExpressionListRule());
+	        }
+       		add(
+       			$current, 
+       			"expr",
+        		lv_expr_2_0, 
+        		"at.jku.weiner.c.C.AssignmentExpression");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+)*
 
 )
 

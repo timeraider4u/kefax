@@ -98,6 +98,7 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
       case CPackage.EXPRESSION: return createExpression();
       case CPackage.ASSIGNMENT_OPERATOR: return createAssignmentOperator();
       case CPackage.UNARY_OPERATOR: return createUnaryOperator();
+      case CPackage.ARGUMENT_EXPRESSION_LIST: return createArgumentExpressionList();
       case CPackage.CONSTANT: return createConstant();
       case CPackage.COMPOUND_STATEMENT: return createCompoundStatement();
       case CPackage.BODY_STATEMENT: return createBodyStatement();
@@ -494,6 +495,17 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
   {
     UnaryOperatorImpl unaryOperator = new UnaryOperatorImpl();
     return unaryOperator;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ArgumentExpressionList createArgumentExpressionList()
+  {
+    ArgumentExpressionListImpl argumentExpressionList = new ArgumentExpressionListImpl();
+    return argumentExpressionList;
   }
 
   /**

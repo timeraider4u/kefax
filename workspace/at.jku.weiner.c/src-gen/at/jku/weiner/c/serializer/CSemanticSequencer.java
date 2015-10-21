@@ -5,6 +5,7 @@ package at.jku.weiner.c.serializer;
 
 import at.jku.weiner.c.c.AdditiveExpression;
 import at.jku.weiner.c.c.AndExpression;
+import at.jku.weiner.c.c.ArgumentExpressionList;
 import at.jku.weiner.c.c.AssignmentExpression;
 import at.jku.weiner.c.c.AssignmentOperator;
 import at.jku.weiner.c.c.BlockList;
@@ -86,6 +87,9 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case CPackage.AND_EXPRESSION:
 				sequence_AndExpression(context, (AndExpression) semanticObject); 
+				return; 
+			case CPackage.ARGUMENT_EXPRESSION_LIST:
+				sequence_ArgumentExpressionList(context, (ArgumentExpressionList) semanticObject); 
 				return; 
 			case CPackage.ASSIGNMENT_EXPRESSION:
 				sequence_AssignmentExpression(context, (AssignmentExpression) semanticObject); 
@@ -258,6 +262,15 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (expr+=EqualityExpression expr+=EqualityExpression*)
 	 */
 	protected void sequence_AndExpression(EObject context, AndExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (expr+=AssignmentExpression expr+=AssignmentExpression*)
+	 */
+	protected void sequence_ArgumentExpressionList(EObject context, ArgumentExpressionList semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -526,7 +539,7 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (expr=Expression? semi=SEMI)
+	 *     (return=KW_RETURN expr=Expression? semi=SEMI)
 	 */
 	protected void sequence_JumpStatement(EObject context, JumpStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -630,7 +643,7 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (expr+=PrimaryExpression arrayExpr+=Expression*)
+	 *     (expr+=PrimaryExpression (arrayExpr+=Expression | argumentExpressionList+=ArgumentExpressionList?)*)
 	 */
 	protected void sequence_PostfixExpression(EObject context, PostfixExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

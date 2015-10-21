@@ -329,6 +329,15 @@ public interface CFactory extends EFactory
   UnaryOperator createUnaryOperator();
 
   /**
+   * Returns a new object of class '<em>Argument Expression List</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Argument Expression List</em>'.
+   * @generated
+   */
+  ArgumentExpressionList createArgumentExpressionList();
+
+  /**
    * Returns a new object of class '<em>Constant</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

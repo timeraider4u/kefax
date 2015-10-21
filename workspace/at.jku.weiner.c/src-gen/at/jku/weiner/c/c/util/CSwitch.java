@@ -310,6 +310,13 @@ public class CSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case CPackage.ARGUMENT_EXPRESSION_LIST:
+      {
+        ArgumentExpressionList argumentExpressionList = (ArgumentExpressionList)theEObject;
+        T result = caseArgumentExpressionList(argumentExpressionList);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case CPackage.CONSTANT:
       {
         Constant constant = (Constant)theEObject;
@@ -1005,6 +1012,22 @@ public class CSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseUnaryOperator(UnaryOperator object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Argument Expression List</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Argument Expression List</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseArgumentExpressionList(ArgumentExpressionList object)
   {
     return null;
   }

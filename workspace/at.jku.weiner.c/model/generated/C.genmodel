@@ -118,6 +118,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//ExpressionStatement/semi"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//JumpStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//JumpStatement/return"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//JumpStatement/expr"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//JumpStatement/semi"/>
     </genClasses>
@@ -129,6 +130,9 @@
     </genClasses>
     <genClasses ecoreClass="C.ecore#//UnaryOperator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//UnaryOperator/op"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//ArgumentExpressionList">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//ArgumentExpressionList/expr"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//Constant">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//Constant/hex"/>
@@ -201,6 +205,7 @@
     <genClasses ecoreClass="C.ecore#//PostfixExpression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//PostfixExpression/expr"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//PostfixExpression/arrayExpr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//PostfixExpression/argumentExpressionList"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//PrimaryExpression">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//PrimaryExpression/id"/>

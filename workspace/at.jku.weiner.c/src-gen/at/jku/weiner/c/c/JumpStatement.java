@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link at.jku.weiner.c.c.JumpStatement#getReturn <em>Return</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.JumpStatement#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.JumpStatement#getSemi <em>Semi</em>}</li>
  * </ul>
@@ -23,6 +24,32 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface JumpStatement extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Return</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Return</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Return</em>' attribute.
+   * @see #setReturn(String)
+   * @see at.jku.weiner.c.c.CPackage#getJumpStatement_Return()
+   * @model
+   * @generated
+   */
+  String getReturn();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.c.JumpStatement#getReturn <em>Return</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Return</em>' attribute.
+   * @see #getReturn()
+   * @generated
+   */
+  void setReturn(String value);
+
   /**
    * Returns the value of the '<em><b>Expr</b></em>' containment reference.
    * <!-- begin-user-doc -->

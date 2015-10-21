@@ -245,6 +245,11 @@ public class CAdapterFactory extends AdapterFactoryImpl
         return createUnaryOperatorAdapter();
       }
       @Override
+      public Adapter caseArgumentExpressionList(ArgumentExpressionList object)
+      {
+        return createArgumentExpressionListAdapter();
+      }
+      @Override
       public Adapter caseConstant(Constant object)
       {
         return createConstantAdapter();
@@ -867,6 +872,21 @@ public class CAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createUnaryOperatorAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.ArgumentExpressionList <em>Argument Expression List</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.c.ArgumentExpressionList
+   * @generated
+   */
+  public Adapter createArgumentExpressionListAdapter()
   {
     return null;
   }

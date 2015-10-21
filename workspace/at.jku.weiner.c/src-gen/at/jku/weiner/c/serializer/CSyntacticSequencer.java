@@ -53,6 +53,8 @@ public class CSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getELLIPSISToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getIDRule())
 			return getIDToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getKW_WHILERule())
+			return getKW_WHILEToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getLEFTBRACERule())
 			return getLEFTBRACEToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getLEFTBRACKETRule())
@@ -144,6 +146,15 @@ public class CSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return "$";
+	}
+	
+	/**
+	 * terminal KW_WHILE : 'while';
+	 */
+	protected String getKW_WHILEToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "while";
 	}
 	
 	/**

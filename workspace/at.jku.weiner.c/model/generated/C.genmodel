@@ -159,6 +159,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//IterationStatement/while"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//IterationStatement/expr"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//IterationStatement/statement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//IterationStatement/do"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//IterationStatement/semi"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//JumpStatement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//JumpStatement/return"/>

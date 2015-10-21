@@ -14,6 +14,8 @@ package at.jku.weiner.c.c;
  *   <li>{@link at.jku.weiner.c.c.IterationStatement#getWhile <em>While</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.IterationStatement#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.IterationStatement#getStatement <em>Statement</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.IterationStatement#getDo <em>Do</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.IterationStatement#getSemi <em>Semi</em>}</li>
  * </ul>
  * </p>
  *
@@ -100,5 +102,57 @@ public interface IterationStatement extends Statement
    * @generated
    */
   void setStatement(Statement value);
+
+  /**
+   * Returns the value of the '<em><b>Do</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Do</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Do</em>' attribute.
+   * @see #setDo(String)
+   * @see at.jku.weiner.c.c.CPackage#getIterationStatement_Do()
+   * @model
+   * @generated
+   */
+  String getDo();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.c.IterationStatement#getDo <em>Do</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Do</em>' attribute.
+   * @see #getDo()
+   * @generated
+   */
+  void setDo(String value);
+
+  /**
+   * Returns the value of the '<em><b>Semi</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Semi</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Semi</em>' attribute.
+   * @see #setSemi(String)
+   * @see at.jku.weiner.c.c.CPackage#getIterationStatement_Semi()
+   * @model
+   * @generated
+   */
+  String getSemi();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.c.IterationStatement#getSemi <em>Semi</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Semi</em>' attribute.
+   * @see #getSemi()
+   * @generated
+   */
+  void setSemi(String value);
 
 } // IterationStatement

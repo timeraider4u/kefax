@@ -1678,6 +1678,26 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getIterationStatement_Do()
+  {
+    return (EAttribute)iterationStatementEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getIterationStatement_Semi()
+  {
+    return (EAttribute)iterationStatementEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getJumpStatement()
   {
     return jumpStatementEClass;
@@ -2395,6 +2415,8 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     createEAttribute(iterationStatementEClass, ITERATION_STATEMENT__WHILE);
     createEReference(iterationStatementEClass, ITERATION_STATEMENT__EXPR);
     createEReference(iterationStatementEClass, ITERATION_STATEMENT__STATEMENT);
+    createEAttribute(iterationStatementEClass, ITERATION_STATEMENT__DO);
+    createEAttribute(iterationStatementEClass, ITERATION_STATEMENT__SEMI);
 
     jumpStatementEClass = createEClass(JUMP_STATEMENT);
     createEAttribute(jumpStatementEClass, JUMP_STATEMENT__RETURN);
@@ -2677,6 +2699,8 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     initEAttribute(getIterationStatement_While(), theEcorePackage.getEString(), "while", null, 0, 1, IterationStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getIterationStatement_Expr(), this.getExpression(), null, "expr", null, 0, 1, IterationStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getIterationStatement_Statement(), this.getStatement(), null, "statement", null, 0, 1, IterationStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getIterationStatement_Do(), theEcorePackage.getEString(), "do", null, 0, 1, IterationStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getIterationStatement_Semi(), theEcorePackage.getEString(), "semi", null, 0, 1, IterationStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(jumpStatementEClass, JumpStatement.class, "JumpStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getJumpStatement_Return(), theEcorePackage.getEString(), "return", null, 0, 1, JumpStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

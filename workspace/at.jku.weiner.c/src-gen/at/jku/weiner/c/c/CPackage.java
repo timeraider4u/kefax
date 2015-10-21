@@ -1519,13 +1519,31 @@ public interface CPackage extends EPackage
   int ITERATION_STATEMENT__STATEMENT = STATEMENT_FEATURE_COUNT + 2;
 
   /**
+   * The feature id for the '<em><b>Do</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ITERATION_STATEMENT__DO = STATEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Semi</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ITERATION_STATEMENT__SEMI = STATEMENT_FEATURE_COUNT + 4;
+
+  /**
    * The number of structural features of the '<em>Iteration Statement</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ITERATION_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
+  int ITERATION_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.c.impl.JumpStatementImpl <em>Jump Statement</em>}' class.
@@ -3541,6 +3559,28 @@ public interface CPackage extends EPackage
   EReference getIterationStatement_Statement();
 
   /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.c.IterationStatement#getDo <em>Do</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Do</em>'.
+   * @see at.jku.weiner.c.c.IterationStatement#getDo()
+   * @see #getIterationStatement()
+   * @generated
+   */
+  EAttribute getIterationStatement_Do();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.c.IterationStatement#getSemi <em>Semi</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Semi</em>'.
+   * @see at.jku.weiner.c.c.IterationStatement#getSemi()
+   * @see #getIterationStatement()
+   * @generated
+   */
+  EAttribute getIterationStatement_Semi();
+
+  /**
    * Returns the meta object for class '{@link at.jku.weiner.c.c.JumpStatement <em>Jump Statement</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5123,6 +5163,22 @@ public interface CPackage extends EPackage
      * @generated
      */
     EReference ITERATION_STATEMENT__STATEMENT = eINSTANCE.getIterationStatement_Statement();
+
+    /**
+     * The meta object literal for the '<em><b>Do</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ITERATION_STATEMENT__DO = eINSTANCE.getIterationStatement_Do();
+
+    /**
+     * The meta object literal for the '<em><b>Semi</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ITERATION_STATEMENT__SEMI = eINSTANCE.getIterationStatement_Semi();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.c.impl.JumpStatementImpl <em>Jump Statement</em>}' class.

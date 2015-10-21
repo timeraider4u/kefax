@@ -450,13 +450,15 @@ TypeName:
 
 /*
 AbstractDeclarator:
-	{AbstractDeclarator} 
+	{AbstractDeclarator}
+	(
 	//pointer
 	//(directAbstractDeclarator=DirectAbstractDeclarator)?
 	//(gccDeclExtAbstract+=gccDeclaratorExtension)*
 	//| 
 	(directAbstractDeclarator=DirectAbstractDeclarator)
 	//(gccDeclExtAbstract+=gccDeclaratorExtension)*
+	)
 ;
 */
 
@@ -485,8 +487,11 @@ abstractDeclaratorSuffix: {abstractDeclaratorSuffix}
 
 
 Initializer:
+	{Initializer}
+	(
 	expr=AssignmentExpression
 	//|	LEFTBRACE initializerList COMMA? RIGHTBRACE
+	)
 ;
 
 /*
@@ -523,10 +528,13 @@ Statement:
 
 LabeledStatement returns Statement:
 	{LabeledStatement}
+	(
 	id=ID COLON lStmt=Statement
-/*/	|	CASE constantExpression COLON statement=statement
+	/*/	
+	|	CASE constantExpression COLON statement=statement
 	|	DEFAULT COLON statement
-*/
+	*/
+	)
 ;
 
 
@@ -557,18 +565,22 @@ ExpressionStatement returns Statement
 
 SelectionStatement returns Statement:
 	{SelectionStatement}
+	(
 	if=KW_IF LEFTPAREN expr=Expression RIGHTPAREN ifStatement=Statement
 	(=>else=KW_ELSE elseStatement=Statement)?
 	//|	SWITCH LEFTPAREN expression RIGHTPAREN statement=statement
+	)
 ;
 
 IterationStatement returns Statement:
 	{IterationStatement}
+	(
 		while=KW_WHILE LEFTPAREN expr=Expression RIGHTPAREN statement=Statement
-	/* |	DO statement WHILE LEFTPAREN whileexpression=expression RIGHTPAREN SEMI
-	|	FOR LEFTPAREN expression? SEMI expression? SEMI expression? RIGHTPAREN statement
+	|	do=KW_DO statement=Statement KW_WHILE LEFTPAREN expr=Expression RIGHTPAREN semi=SEMI
+	/*|	FOR LEFTPAREN expression? SEMI expression? SEMI expression? RIGHTPAREN statement
 	|	FOR LEFTPAREN declaration (forexpression+=expression)? SEMI expression? RIGHTPAREN statement=statement
 	*/
+	)
 ;
 
 JumpStatement returns Statement:
@@ -636,6 +648,7 @@ Lvalue returns Expression
 
 AssignmentOperator:
 	{AssignmentOperator}
+	(
 		op=ASSIGN
 	| 	op=STARASSIGN
 	| 	op=DIVASSIGN
@@ -647,6 +660,7 @@ AssignmentOperator:
 	| 	op=ANDASSIGN
 	| 	op=XORASSIGN
 	| 	op=ORASSIGN
+	)
 ;
 
 ConditionalExpression returns Expression
@@ -756,12 +770,15 @@ UnaryExpression returns Expression
 ;
 
 UnaryOperator:
+	{UnaryOperator}
+	(
 		op=AND
 	|	op=STAR
 	|	op=PLUS 
 	|	op=MINUS 
 	|	op=TILDE
 	|	op=NOT
+	)
 ;
 
 PostfixExpression returns Expression
@@ -809,6 +826,7 @@ PrimaryExpression returns Expression
 
 Constant:
 	{Constant}
+	(
 		hex=HEX_LITERAL
 	|	oct=OCTAL_LITERAL
 	|	dec=DECIMAL_LITERAL
@@ -816,6 +834,7 @@ Constant:
 	|	str=STRING_LITERAL
 	|	float=FLOAT_LITERAL
 	|	bin=BIN_LITERAL
+	)
 ;
 
 /*** UNKNOWN!!! ***/

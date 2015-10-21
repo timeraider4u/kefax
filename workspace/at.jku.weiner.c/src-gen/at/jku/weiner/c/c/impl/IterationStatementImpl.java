@@ -25,6 +25,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link at.jku.weiner.c.c.impl.IterationStatementImpl#getWhile <em>While</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.IterationStatementImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.IterationStatementImpl#getStatement <em>Statement</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.impl.IterationStatementImpl#getDo <em>Do</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.impl.IterationStatementImpl#getSemi <em>Semi</em>}</li>
  * </ul>
  * </p>
  *
@@ -71,6 +73,46 @@ public class IterationStatementImpl extends StatementImpl implements IterationSt
    * @ordered
    */
   protected Statement statement;
+
+  /**
+   * The default value of the '{@link #getDo() <em>Do</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDo()
+   * @generated
+   * @ordered
+   */
+  protected static final String DO_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getDo() <em>Do</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDo()
+   * @generated
+   * @ordered
+   */
+  protected String do_ = DO_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getSemi() <em>Semi</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSemi()
+   * @generated
+   * @ordered
+   */
+  protected static final String SEMI_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getSemi() <em>Semi</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSemi()
+   * @generated
+   * @ordered
+   */
+  protected String semi = SEMI_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -217,6 +259,52 @@ public class IterationStatementImpl extends StatementImpl implements IterationSt
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getDo()
+  {
+    return do_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDo(String newDo)
+  {
+    String oldDo = do_;
+    do_ = newDo;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CPackage.ITERATION_STATEMENT__DO, oldDo, do_));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getSemi()
+  {
+    return semi;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSemi(String newSemi)
+  {
+    String oldSemi = semi;
+    semi = newSemi;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CPackage.ITERATION_STATEMENT__SEMI, oldSemi, semi));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -246,6 +334,10 @@ public class IterationStatementImpl extends StatementImpl implements IterationSt
         return getExpr();
       case CPackage.ITERATION_STATEMENT__STATEMENT:
         return getStatement();
+      case CPackage.ITERATION_STATEMENT__DO:
+        return getDo();
+      case CPackage.ITERATION_STATEMENT__SEMI:
+        return getSemi();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -268,6 +360,12 @@ public class IterationStatementImpl extends StatementImpl implements IterationSt
         return;
       case CPackage.ITERATION_STATEMENT__STATEMENT:
         setStatement((Statement)newValue);
+        return;
+      case CPackage.ITERATION_STATEMENT__DO:
+        setDo((String)newValue);
+        return;
+      case CPackage.ITERATION_STATEMENT__SEMI:
+        setSemi((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -292,6 +390,12 @@ public class IterationStatementImpl extends StatementImpl implements IterationSt
       case CPackage.ITERATION_STATEMENT__STATEMENT:
         setStatement((Statement)null);
         return;
+      case CPackage.ITERATION_STATEMENT__DO:
+        setDo(DO_EDEFAULT);
+        return;
+      case CPackage.ITERATION_STATEMENT__SEMI:
+        setSemi(SEMI_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -312,6 +416,10 @@ public class IterationStatementImpl extends StatementImpl implements IterationSt
         return expr != null;
       case CPackage.ITERATION_STATEMENT__STATEMENT:
         return statement != null;
+      case CPackage.ITERATION_STATEMENT__DO:
+        return DO_EDEFAULT == null ? do_ != null : !DO_EDEFAULT.equals(do_);
+      case CPackage.ITERATION_STATEMENT__SEMI:
+        return SEMI_EDEFAULT == null ? semi != null : !SEMI_EDEFAULT.equals(semi);
     }
     return super.eIsSet(featureID);
   }
@@ -329,6 +437,10 @@ public class IterationStatementImpl extends StatementImpl implements IterationSt
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (while: ");
     result.append(while_);
+    result.append(", do: ");
+    result.append(do_);
+    result.append(", semi: ");
+    result.append(semi);
     result.append(')');
     return result.toString();
   }

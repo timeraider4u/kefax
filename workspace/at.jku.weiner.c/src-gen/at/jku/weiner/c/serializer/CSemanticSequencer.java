@@ -298,17 +298,22 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     op=ASSIGN
+	 *     (
+	 *         op=ASSIGN | 
+	 *         op=STARASSIGN | 
+	 *         op=DIVASSIGN | 
+	 *         op=MODASSIGN | 
+	 *         op=PLUSASSIGN | 
+	 *         op=MINUSASSIGN | 
+	 *         op=LEFTSHIFTASSIGN | 
+	 *         op=RIGHTSHIFTASSIGN | 
+	 *         op=ANDASSIGN | 
+	 *         op=XORASSIGN | 
+	 *         op=ORASSIGN
+	 *     )
 	 */
 	protected void sequence_AssignmentOperator(EObject context, AssignmentOperator semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, CPackage.Literals.ASSIGNMENT_OPERATOR__OP) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CPackage.Literals.ASSIGNMENT_OPERATOR__OP));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getAssignmentOperatorAccess().getOpASSIGNTerminalRuleCall_0_1_0(), semanticObject.getOp());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -359,7 +364,15 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     hex=HEX_LITERAL
+	 *     (
+	 *         hex=HEX_LITERAL | 
+	 *         oct=OCTAL_LITERAL | 
+	 *         dec=DECIMAL_LITERAL | 
+	 *         ch=CHAR_LITERAL | 
+	 *         str=STRING_LITERAL | 
+	 *         float=FLOAT_LITERAL | 
+	 *         bin=BIN_LITERAL
+	 *     )
 	 */
 	protected void sequence_Constant(EObject context, Constant semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -544,14 +557,14 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getInitializerAccess().getExprAssignmentExpressionParserRuleCall_0(), semanticObject.getExpr());
+		feeder.accept(grammarAccess.getInitializerAccess().getExprAssignmentExpressionParserRuleCall_1_0(), semanticObject.getExpr());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (while=KW_WHILE expr=Expression statement=Statement)
+	 *     ((while=KW_WHILE expr=Expression statement=Statement) | (do=KW_DO statement=Statement expr=Expression semi=SEMI))
 	 */
 	protected void sequence_IterationStatement(EObject context, IterationStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

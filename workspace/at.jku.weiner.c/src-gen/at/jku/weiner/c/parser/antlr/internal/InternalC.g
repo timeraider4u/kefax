@@ -6015,6 +6015,50 @@ this_RIGHTPAREN_7=RULE_RIGHTPAREN
 
 )
 
+
+    |
+(
+(
+		lv_plusplus_8_0=RULE_PLUSPLUS
+		{
+			newLeafNode(lv_plusplus_8_0, grammarAccess.getPostfixExpressionAccess().getPlusplusPLUSPLUSTerminalRuleCall_1_1_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getPostfixExpressionRule());
+	        }
+       		addWithLastConsumed(
+       			$current, 
+       			"plusplus",
+        		lv_plusplus_8_0, 
+        		"at.jku.weiner.c.C.PLUSPLUS");
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		lv_minusminus_9_0=RULE_MINUSMINUS
+		{
+			newLeafNode(lv_minusminus_9_0, grammarAccess.getPostfixExpressionAccess().getMinusminusMINUSMINUSTerminalRuleCall_1_1_3_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getPostfixExpressionRule());
+	        }
+       		addWithLastConsumed(
+       			$current, 
+       			"minusminus",
+        		lv_minusminus_9_0, 
+        		"at.jku.weiner.c.C.MINUSMINUS");
+	    }
+
+)
+)
+
 )*
 
 )

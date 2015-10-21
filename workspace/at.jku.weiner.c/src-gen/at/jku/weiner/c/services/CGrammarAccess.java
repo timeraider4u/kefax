@@ -2727,6 +2727,10 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cArgumentExpressionListAssignment_1_1_1_1 = (Assignment)cGroup_1_1_1.eContents().get(1);
 		private final RuleCall cArgumentExpressionListArgumentExpressionListParserRuleCall_1_1_1_1_0 = (RuleCall)cArgumentExpressionListAssignment_1_1_1_1.eContents().get(0);
 		private final RuleCall cRIGHTPARENTerminalRuleCall_1_1_1_2 = (RuleCall)cGroup_1_1_1.eContents().get(2);
+		private final Assignment cPlusplusAssignment_1_1_2 = (Assignment)cAlternatives_1_1.eContents().get(2);
+		private final RuleCall cPlusplusPLUSPLUSTerminalRuleCall_1_1_2_0 = (RuleCall)cPlusplusAssignment_1_1_2.eContents().get(0);
+		private final Assignment cMinusminusAssignment_1_1_3 = (Assignment)cAlternatives_1_1.eContents().get(3);
+		private final RuleCall cMinusminusMINUSMINUSTerminalRuleCall_1_1_3_0 = (RuleCall)cMinusminusAssignment_1_1_3.eContents().get(0);
 		
 		//PostfixExpression Expression initRuleAction { at.jku.weiner.c.Log.error("PostfixExpression-enter"); } afterRuleAction {
 		//at.jku.weiner.c.Log.error("PostfixExpression-leave"); }:
@@ -2734,17 +2738,15 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		//	| LEFTPAREN argumentExpressionList+=ArgumentExpressionList? RIGHTPAREN
 		//	/ *| DOT IDENTIFIER
 		//		| ARROW IDENTIFIER
-		//		| PLUSPLUS
-		//		| MINUSMINUS
-		//	* /)*)
+		//		* /
+		//	| plusplus+=PLUSPLUS
+		//	| minusminus+=MINUSMINUS)*)
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{PostfixExpression} (expr+=PrimaryExpression (LEFTBRACKET arrayExpr+=Expression RIGHTBRACKET | LEFTPAREN
 		//argumentExpressionList+=ArgumentExpressionList? RIGHTPAREN / *| DOT IDENTIFIER
 		//		| ARROW IDENTIFIER
-		//		| PLUSPLUS
-		//		| MINUSMINUS
-		//	* /)*)
+		//		* / | plusplus+=PLUSPLUS | minusminus+=MINUSMINUS)*)
 		public Group getGroup() { return cGroup; }
 		
 		//{PostfixExpression}
@@ -2753,9 +2755,7 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		//(expr+=PrimaryExpression (LEFTBRACKET arrayExpr+=Expression RIGHTBRACKET | LEFTPAREN
 		//argumentExpressionList+=ArgumentExpressionList? RIGHTPAREN / *| DOT IDENTIFIER
 		//		| ARROW IDENTIFIER
-		//		| PLUSPLUS
-		//		| MINUSMINUS
-		//	* /)*)
+		//		* / | plusplus+=PLUSPLUS | minusminus+=MINUSMINUS)*)
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//expr+=PrimaryExpression
@@ -2766,9 +2766,7 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//(LEFTBRACKET arrayExpr+=Expression RIGHTBRACKET | LEFTPAREN argumentExpressionList+=ArgumentExpressionList? RIGHTPAREN / *| DOT IDENTIFIER
 		//		| ARROW IDENTIFIER
-		//		| PLUSPLUS
-		//		| MINUSMINUS
-		//	* /)*
+		//		* / | plusplus+=PLUSPLUS | minusminus+=MINUSMINUS)*
 		public Alternatives getAlternatives_1_1() { return cAlternatives_1_1; }
 		
 		//LEFTBRACKET arrayExpr+=Expression RIGHTBRACKET
@@ -2800,6 +2798,18 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//RIGHTPAREN
 		public RuleCall getRIGHTPARENTerminalRuleCall_1_1_1_2() { return cRIGHTPARENTerminalRuleCall_1_1_1_2; }
+		
+		//plusplus+=PLUSPLUS
+		public Assignment getPlusplusAssignment_1_1_2() { return cPlusplusAssignment_1_1_2; }
+		
+		//PLUSPLUS
+		public RuleCall getPlusplusPLUSPLUSTerminalRuleCall_1_1_2_0() { return cPlusplusPLUSPLUSTerminalRuleCall_1_1_2_0; }
+		
+		//minusminus+=MINUSMINUS
+		public Assignment getMinusminusAssignment_1_1_3() { return cMinusminusAssignment_1_1_3; }
+		
+		//MINUSMINUS
+		public RuleCall getMinusminusMINUSMINUSTerminalRuleCall_1_1_3_0() { return cMinusminusMINUSMINUSTerminalRuleCall_1_1_3_0; }
 	}
 	public class ArgumentExpressionListElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.ArgumentExpressionList");
@@ -2855,7 +2865,7 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		//at.jku.weiner.c.Log.error("PrimaryExpression-leave"); }:
 		//	{PrimaryExpression} (id=ID
 		//	| const=Constant
-		//	//|	string+=STRING_LITERAL+
+		//	//|	string+=STRING_LITERAL+ // reachable over Constant!
 		//	| LEFTPAREN expr=Expression RIGHTPAREN
 		//	//|	genericSelection=genericSelection
 		//	// |	'__extension__'? LEFTPAREN compoundStmt=compoundStatement RIGHTPAREN // Blocks (GCC extension)
@@ -2864,7 +2874,7 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		//)
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{PrimaryExpression} (id=ID | const=Constant //|	string+=STRING_LITERAL+
+		//{PrimaryExpression} (id=ID | const=Constant //|	string+=STRING_LITERAL+ // reachable over Constant!
 		//| LEFTPAREN expr=Expression RIGHTPAREN //|	genericSelection=genericSelection
 		//// |	'__extension__'? LEFTPAREN compoundStmt=compoundStatement RIGHTPAREN // Blocks (GCC extension)
 		////|	'__builtin_va_arg' LEFTPAREN expr=unaryExpression COMMA typeName=typeName RIGHTPAREN
@@ -2875,7 +2885,7 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		//{PrimaryExpression}
 		public Action getPrimaryExpressionAction_0() { return cPrimaryExpressionAction_0; }
 		
-		//(id=ID | const=Constant //|	string+=STRING_LITERAL+
+		//(id=ID | const=Constant //|	string+=STRING_LITERAL+ // reachable over Constant!
 		//| LEFTPAREN expr=Expression RIGHTPAREN //|	genericSelection=genericSelection
 		//// |	'__extension__'? LEFTPAREN compoundStmt=compoundStatement RIGHTPAREN // Blocks (GCC extension)
 		////|	'__builtin_va_arg' LEFTPAREN expr=unaryExpression COMMA typeName=typeName RIGHTPAREN
@@ -4169,9 +4179,9 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	//	| LEFTPAREN argumentExpressionList+=ArgumentExpressionList? RIGHTPAREN
 	//	/ *| DOT IDENTIFIER
 	//		| ARROW IDENTIFIER
-	//		| PLUSPLUS
-	//		| MINUSMINUS
-	//	* /)*)
+	//		* /
+	//	| plusplus+=PLUSPLUS
+	//	| minusminus+=MINUSMINUS)*)
 	public PostfixExpressionElements getPostfixExpressionAccess() {
 		return pPostfixExpression;
 	}
@@ -4194,7 +4204,7 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	//at.jku.weiner.c.Log.error("PrimaryExpression-leave"); }:
 	//	{PrimaryExpression} (id=ID
 	//	| const=Constant
-	//	//|	string+=STRING_LITERAL+
+	//	//|	string+=STRING_LITERAL+ // reachable over Constant!
 	//	| LEFTPAREN expr=Expression RIGHTPAREN
 	//	//|	genericSelection=genericSelection
 	//	// |	'__extension__'? LEFTPAREN compoundStmt=compoundStatement RIGHTPAREN // Blocks (GCC extension)

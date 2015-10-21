@@ -660,7 +660,10 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (expr+=PrimaryExpression (arrayExpr+=Expression | argumentExpressionList+=ArgumentExpressionList?)*)
+	 *     (
+	 *         expr+=PrimaryExpression 
+	 *         (arrayExpr+=Expression | argumentExpressionList+=ArgumentExpressionList? | plusplus+=PLUSPLUS | minusminus+=MINUSMINUS)*
+	 *     )
 	 */
 	protected void sequence_PostfixExpression(EObject context, PostfixExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

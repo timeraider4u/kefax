@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -29,6 +30,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link at.jku.weiner.c.c.impl.PostfixExpressionImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.PostfixExpressionImpl#getArrayExpr <em>Array Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.PostfixExpressionImpl#getArgumentExpressionList <em>Argument Expression List</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.impl.PostfixExpressionImpl#getPlusplus <em>Plusplus</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.impl.PostfixExpressionImpl#getMinusminus <em>Minusminus</em>}</li>
  * </ul>
  * </p>
  *
@@ -65,6 +68,26 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
    * @ordered
    */
   protected EList<ArgumentExpressionList> argumentExpressionList;
+
+  /**
+   * The cached value of the '{@link #getPlusplus() <em>Plusplus</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPlusplus()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> plusplus;
+
+  /**
+   * The cached value of the '{@link #getMinusminus() <em>Minusminus</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMinusminus()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> minusminus;
 
   /**
    * <!-- begin-user-doc -->
@@ -134,6 +157,34 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<String> getPlusplus()
+  {
+    if (plusplus == null)
+    {
+      plusplus = new EDataTypeEList<String>(String.class, this, CPackage.POSTFIX_EXPRESSION__PLUSPLUS);
+    }
+    return plusplus;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<String> getMinusminus()
+  {
+    if (minusminus == null)
+    {
+      minusminus = new EDataTypeEList<String>(String.class, this, CPackage.POSTFIX_EXPRESSION__MINUSMINUS);
+    }
+    return minusminus;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -165,6 +216,10 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
         return getArrayExpr();
       case CPackage.POSTFIX_EXPRESSION__ARGUMENT_EXPRESSION_LIST:
         return getArgumentExpressionList();
+      case CPackage.POSTFIX_EXPRESSION__PLUSPLUS:
+        return getPlusplus();
+      case CPackage.POSTFIX_EXPRESSION__MINUSMINUS:
+        return getMinusminus();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -192,6 +247,14 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
         getArgumentExpressionList().clear();
         getArgumentExpressionList().addAll((Collection<? extends ArgumentExpressionList>)newValue);
         return;
+      case CPackage.POSTFIX_EXPRESSION__PLUSPLUS:
+        getPlusplus().clear();
+        getPlusplus().addAll((Collection<? extends String>)newValue);
+        return;
+      case CPackage.POSTFIX_EXPRESSION__MINUSMINUS:
+        getMinusminus().clear();
+        getMinusminus().addAll((Collection<? extends String>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -215,6 +278,12 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
       case CPackage.POSTFIX_EXPRESSION__ARGUMENT_EXPRESSION_LIST:
         getArgumentExpressionList().clear();
         return;
+      case CPackage.POSTFIX_EXPRESSION__PLUSPLUS:
+        getPlusplus().clear();
+        return;
+      case CPackage.POSTFIX_EXPRESSION__MINUSMINUS:
+        getMinusminus().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -235,8 +304,31 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
         return arrayExpr != null && !arrayExpr.isEmpty();
       case CPackage.POSTFIX_EXPRESSION__ARGUMENT_EXPRESSION_LIST:
         return argumentExpressionList != null && !argumentExpressionList.isEmpty();
+      case CPackage.POSTFIX_EXPRESSION__PLUSPLUS:
+        return plusplus != null && !plusplus.isEmpty();
+      case CPackage.POSTFIX_EXPRESSION__MINUSMINUS:
+        return minusminus != null && !minusminus.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (plusplus: ");
+    result.append(plusplus);
+    result.append(", minusminus: ");
+    result.append(minusminus);
+    result.append(')');
+    return result.toString();
   }
 
 } //PostfixExpressionImpl

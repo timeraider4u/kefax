@@ -15,6 +15,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link at.jku.weiner.c.c.PostfixExpression#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.PostfixExpression#getArrayExpr <em>Array Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.PostfixExpression#getArgumentExpressionList <em>Argument Expression List</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.PostfixExpression#getPlusplus <em>Plusplus</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.PostfixExpression#getMinusminus <em>Minusminus</em>}</li>
  * </ul>
  * </p>
  *
@@ -71,5 +73,37 @@ public interface PostfixExpression extends Expression
    * @generated
    */
   EList<ArgumentExpressionList> getArgumentExpressionList();
+
+  /**
+   * Returns the value of the '<em><b>Plusplus</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Plusplus</em>' attribute list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Plusplus</em>' attribute list.
+   * @see at.jku.weiner.c.c.CPackage#getPostfixExpression_Plusplus()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getPlusplus();
+
+  /**
+   * Returns the value of the '<em><b>Minusminus</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Minusminus</em>' attribute list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Minusminus</em>' attribute list.
+   * @see at.jku.weiner.c.c.CPackage#getPostfixExpression_Minusminus()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getMinusminus();
 
 } // PostfixExpression

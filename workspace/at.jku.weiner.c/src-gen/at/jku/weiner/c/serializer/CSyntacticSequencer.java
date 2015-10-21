@@ -263,10 +263,24 @@ public class CSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * This ambiguous syntax occurs at:
 	 *     argumentExpressionList+=ArgumentExpressionList RIGHTPAREN (ambiguity) (rule end)
 	 *     argumentExpressionList+=ArgumentExpressionList RIGHTPAREN (ambiguity) LEFTBRACKET arrayExpr+=Expression
+	 *     argumentExpressionList+=ArgumentExpressionList RIGHTPAREN (ambiguity) minusminus+=MINUSMINUS
+	 *     argumentExpressionList+=ArgumentExpressionList RIGHTPAREN (ambiguity) plusplus+=PLUSPLUS
 	 *     arrayExpr+=Expression RIGHTBRACKET (ambiguity) (rule end)
 	 *     arrayExpr+=Expression RIGHTBRACKET (ambiguity) LEFTBRACKET arrayExpr+=Expression
+	 *     arrayExpr+=Expression RIGHTBRACKET (ambiguity) minusminus+=MINUSMINUS
+	 *     arrayExpr+=Expression RIGHTBRACKET (ambiguity) plusplus+=PLUSPLUS
 	 *     expr+=PrimaryExpression (ambiguity) (rule end)
 	 *     expr+=PrimaryExpression (ambiguity) LEFTBRACKET arrayExpr+=Expression
+	 *     expr+=PrimaryExpression (ambiguity) minusminus+=MINUSMINUS
+	 *     expr+=PrimaryExpression (ambiguity) plusplus+=PLUSPLUS
+	 *     minusminus+=MINUSMINUS (ambiguity) (rule end)
+	 *     minusminus+=MINUSMINUS (ambiguity) LEFTBRACKET arrayExpr+=Expression
+	 *     minusminus+=MINUSMINUS (ambiguity) minusminus+=MINUSMINUS
+	 *     minusminus+=MINUSMINUS (ambiguity) plusplus+=PLUSPLUS
+	 *     plusplus+=PLUSPLUS (ambiguity) (rule end)
+	 *     plusplus+=PLUSPLUS (ambiguity) LEFTBRACKET arrayExpr+=Expression
+	 *     plusplus+=PLUSPLUS (ambiguity) minusminus+=MINUSMINUS
+	 *     plusplus+=PLUSPLUS (ambiguity) plusplus+=PLUSPLUS
 	 */
 	protected void emit_PostfixExpression___LEFTPARENTerminalRuleCall_1_1_1_0_RIGHTPARENTerminalRuleCall_1_1_1_2__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -279,6 +293,8 @@ public class CSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * This ambiguous syntax occurs at:
 	 *     arrayExpr+=Expression RIGHTBRACKET LEFTPAREN (ambiguity) argumentExpressionList+=ArgumentExpressionList
 	 *     expr+=PrimaryExpression LEFTPAREN (ambiguity) argumentExpressionList+=ArgumentExpressionList
+	 *     minusminus+=MINUSMINUS LEFTPAREN (ambiguity) argumentExpressionList+=ArgumentExpressionList
+	 *     plusplus+=PLUSPLUS LEFTPAREN (ambiguity) argumentExpressionList+=ArgumentExpressionList
 	 */
 	protected void emit_PostfixExpression___RIGHTPARENTerminalRuleCall_1_1_1_2_LEFTPARENTerminalRuleCall_1_1_1_0__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

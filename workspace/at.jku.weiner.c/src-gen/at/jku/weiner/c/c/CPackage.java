@@ -2191,13 +2191,31 @@ public interface CPackage extends EPackage
   int POSTFIX_EXPRESSION__ARGUMENT_EXPRESSION_LIST = EXPRESSION_FEATURE_COUNT + 2;
 
   /**
+   * The feature id for the '<em><b>Plusplus</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POSTFIX_EXPRESSION__PLUSPLUS = EXPRESSION_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Minusminus</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POSTFIX_EXPRESSION__MINUSMINUS = EXPRESSION_FEATURE_COUNT + 4;
+
+  /**
    * The number of structural features of the '<em>Postfix Expression</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int POSTFIX_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
+  int POSTFIX_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.c.impl.PrimaryExpressionImpl <em>Primary Expression</em>}' class.
@@ -3928,6 +3946,28 @@ public interface CPackage extends EPackage
   EReference getPostfixExpression_ArgumentExpressionList();
 
   /**
+   * Returns the meta object for the attribute list '{@link at.jku.weiner.c.c.PostfixExpression#getPlusplus <em>Plusplus</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Plusplus</em>'.
+   * @see at.jku.weiner.c.c.PostfixExpression#getPlusplus()
+   * @see #getPostfixExpression()
+   * @generated
+   */
+  EAttribute getPostfixExpression_Plusplus();
+
+  /**
+   * Returns the meta object for the attribute list '{@link at.jku.weiner.c.c.PostfixExpression#getMinusminus <em>Minusminus</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Minusminus</em>'.
+   * @see at.jku.weiner.c.c.PostfixExpression#getMinusminus()
+   * @see #getPostfixExpression()
+   * @generated
+   */
+  EAttribute getPostfixExpression_Minusminus();
+
+  /**
    * Returns the meta object for class '{@link at.jku.weiner.c.c.PrimaryExpression <em>Primary Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5358,6 +5398,22 @@ public interface CPackage extends EPackage
      * @generated
      */
     EReference POSTFIX_EXPRESSION__ARGUMENT_EXPRESSION_LIST = eINSTANCE.getPostfixExpression_ArgumentExpressionList();
+
+    /**
+     * The meta object literal for the '<em><b>Plusplus</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute POSTFIX_EXPRESSION__PLUSPLUS = eINSTANCE.getPostfixExpression_Plusplus();
+
+    /**
+     * The meta object literal for the '<em><b>Minusminus</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute POSTFIX_EXPRESSION__MINUSMINUS = eINSTANCE.getPostfixExpression_Minusminus();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.c.impl.PrimaryExpressionImpl <em>Primary Expression</em>}' class.

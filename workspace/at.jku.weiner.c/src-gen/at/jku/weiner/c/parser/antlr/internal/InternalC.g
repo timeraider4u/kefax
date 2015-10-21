@@ -2972,9 +2972,9 @@ ruleStatement returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getStatementAccess().getStmtJumpStatementParserRuleCall_1_4_0()); 
+	        newCompositeNode(grammarAccess.getStatementAccess().getStmtIterationStatementParserRuleCall_1_4_0()); 
 	    }
-		lv_stmt_5_0=ruleJumpStatement		{
+		lv_stmt_5_0=ruleIterationStatement		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getStatementRule());
 	        }
@@ -2982,6 +2982,28 @@ ruleStatement returns [EObject current=null]
        			$current, 
        			"stmt",
         		lv_stmt_5_0, 
+        		"at.jku.weiner.c.C.IterationStatement");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getStatementAccess().getStmtJumpStatementParserRuleCall_1_5_0()); 
+	    }
+		lv_stmt_6_0=ruleJumpStatement		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getStatementRule());
+	        }
+       		set(
+       			$current, 
+       			"stmt",
+        		lv_stmt_6_0, 
         		"at.jku.weiner.c.C.JumpStatement");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -3459,6 +3481,122 @@ RULE_KW_ELSE
 )
 
 )?
+
+)
+
+
+;
+
+
+
+
+
+// Entry rule entryRuleIterationStatement
+entryRuleIterationStatement returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getIterationStatementRule()); }
+	 iv_ruleIterationStatement=ruleIterationStatement 
+	 { $current=$iv_ruleIterationStatement.current; } 
+	 EOF 
+;
+
+// Rule IterationStatement
+ruleIterationStatement returns [EObject current=null] 
+    @init { enterRule();
+   		
+    }
+    @after { leaveRule();
+    		
+     }:
+
+(
+(
+	{ 
+	  /* */ 
+	}
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getIterationStatementAccess().getIterationStatementAction_0(),
+            $current);
+    }
+)
+
+
+(
+(
+		lv_while_1_0=RULE_KW_WHILE
+		{
+			newLeafNode(lv_while_1_0, grammarAccess.getIterationStatementAccess().getWhileKW_WHILETerminalRuleCall_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getIterationStatementRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"while",
+        		lv_while_1_0, 
+        		"at.jku.weiner.c.C.KW_WHILE");
+	    }
+
+)
+)
+
+
+this_LEFTPAREN_2=RULE_LEFTPAREN
+    { 
+    newLeafNode(this_LEFTPAREN_2, grammarAccess.getIterationStatementAccess().getLEFTPARENTerminalRuleCall_2()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getIterationStatementAccess().getExprExpressionParserRuleCall_3_0()); 
+	    }
+		lv_expr_3_0=ruleExpression		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getIterationStatementRule());
+	        }
+       		set(
+       			$current, 
+       			"expr",
+        		lv_expr_3_0, 
+        		"at.jku.weiner.c.C.Expression");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+this_RIGHTPAREN_4=RULE_RIGHTPAREN
+    { 
+    newLeafNode(this_RIGHTPAREN_4, grammarAccess.getIterationStatementAccess().getRIGHTPARENTerminalRuleCall_4()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getIterationStatementAccess().getStatementStatementParserRuleCall_5_0()); 
+	    }
+		lv_statement_5_0=ruleStatement		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getIterationStatementRule());
+	        }
+       		set(
+       			$current, 
+       			"statement",
+        		lv_statement_5_0, 
+        		"at.jku.weiner.c.C.Statement");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
 
 )
 

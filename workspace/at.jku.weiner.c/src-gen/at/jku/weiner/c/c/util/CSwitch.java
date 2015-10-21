@@ -275,13 +275,6 @@ public class CSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case CPackage.JUMP_STATEMENT:
-      {
-        JumpStatement jumpStatement = (JumpStatement)theEObject;
-        T result = caseJumpStatement(jumpStatement);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case CPackage.EXPRESSION:
       {
         Expression expression = (Expression)theEObject;
@@ -354,6 +347,22 @@ public class CSwitch<T> extends Switch<T>
         SelectionStatement selectionStatement = (SelectionStatement)theEObject;
         T result = caseSelectionStatement(selectionStatement);
         if (result == null) result = caseStatement(selectionStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CPackage.ITERATION_STATEMENT:
+      {
+        IterationStatement iterationStatement = (IterationStatement)theEObject;
+        T result = caseIterationStatement(iterationStatement);
+        if (result == null) result = caseStatement(iterationStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CPackage.JUMP_STATEMENT:
+      {
+        JumpStatement jumpStatement = (JumpStatement)theEObject;
+        T result = caseJumpStatement(jumpStatement);
+        if (result == null) result = caseStatement(jumpStatement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -954,22 +963,6 @@ public class CSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Jump Statement</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Jump Statement</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseJumpStatement(JumpStatement object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1125,6 +1118,38 @@ public class CSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSelectionStatement(SelectionStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Iteration Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Iteration Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseIterationStatement(IterationStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Jump Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Jump Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseJumpStatement(JumpStatement object)
   {
     return null;
   }

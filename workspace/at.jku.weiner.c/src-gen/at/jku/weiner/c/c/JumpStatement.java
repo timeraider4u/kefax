@@ -2,7 +2,6 @@
  */
 package at.jku.weiner.c.c;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface JumpStatement extends EObject
+public interface JumpStatement extends Statement
 {
   /**
    * Returns the value of the '<em><b>Return</b></em>' attribute.

@@ -9,7 +9,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -38,7 +37,7 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
    * @generated
    * @ordered
    */
-  protected EObject stmt;
+  protected Statement stmt;
 
   /**
    * <!-- begin-user-doc -->
@@ -66,7 +65,7 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
    * <!-- end-user-doc -->
    * @generated
    */
-  public EObject getStmt()
+  public Statement getStmt()
   {
     return stmt;
   }
@@ -76,9 +75,9 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetStmt(EObject newStmt, NotificationChain msgs)
+  public NotificationChain basicSetStmt(Statement newStmt, NotificationChain msgs)
   {
-    EObject oldStmt = stmt;
+    Statement oldStmt = stmt;
     stmt = newStmt;
     if (eNotificationRequired())
     {
@@ -93,7 +92,7 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setStmt(EObject newStmt)
+  public void setStmt(Statement newStmt)
   {
     if (newStmt != stmt)
     {
@@ -152,7 +151,7 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
     switch (featureID)
     {
       case CPackage.STATEMENT__STMT:
-        setStmt((EObject)newValue);
+        setStmt((Statement)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -169,7 +168,7 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
     switch (featureID)
     {
       case CPackage.STATEMENT__STMT:
-        setStmt((EObject)null);
+        setStmt((Statement)null);
         return;
     }
     super.eUnset(featureID);

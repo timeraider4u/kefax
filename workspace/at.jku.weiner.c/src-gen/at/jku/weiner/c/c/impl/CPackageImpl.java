@@ -33,6 +33,7 @@ import at.jku.weiner.c.c.InclusiveOrExpression;
 import at.jku.weiner.c.c.InitDeclarator;
 import at.jku.weiner.c.c.InitDeclaratorList;
 import at.jku.weiner.c.c.Initializer;
+import at.jku.weiner.c.c.IterationStatement;
 import at.jku.weiner.c.c.JumpStatement;
 import at.jku.weiner.c.c.LabeledStatement;
 import at.jku.weiner.c.c.LogicalAndExpression;
@@ -285,13 +286,6 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass jumpStatementEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass expressionEClass = null;
 
   /**
@@ -356,6 +350,20 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * @generated
    */
   private EClass selectionStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass iterationStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass jumpStatementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1310,56 +1318,6 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getJumpStatement()
-  {
-    return jumpStatementEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getJumpStatement_Return()
-  {
-    return (EAttribute)jumpStatementEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getJumpStatement_Expr()
-  {
-    return (EReference)jumpStatementEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getJumpStatement_Semi()
-  {
-    return (EAttribute)jumpStatementEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getJumpStatement_Goto()
-  {
-    return (EAttribute)jumpStatementEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getExpression()
   {
     return expressionEClass;
@@ -1673,6 +1631,96 @@ public class CPackageImpl extends EPackageImpl implements CPackage
   public EReference getSelectionStatement_ElseStatement()
   {
     return (EReference)selectionStatementEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getIterationStatement()
+  {
+    return iterationStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getIterationStatement_While()
+  {
+    return (EAttribute)iterationStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getIterationStatement_Expr()
+  {
+    return (EReference)iterationStatementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getIterationStatement_Statement()
+  {
+    return (EReference)iterationStatementEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getJumpStatement()
+  {
+    return jumpStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getJumpStatement_Return()
+  {
+    return (EAttribute)jumpStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getJumpStatement_Expr()
+  {
+    return (EReference)jumpStatementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getJumpStatement_Semi()
+  {
+    return (EAttribute)jumpStatementEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getJumpStatement_Goto()
+  {
+    return (EAttribute)jumpStatementEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -2301,12 +2349,6 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     statementEClass = createEClass(STATEMENT);
     createEReference(statementEClass, STATEMENT__STMT);
 
-    jumpStatementEClass = createEClass(JUMP_STATEMENT);
-    createEAttribute(jumpStatementEClass, JUMP_STATEMENT__RETURN);
-    createEReference(jumpStatementEClass, JUMP_STATEMENT__EXPR);
-    createEAttribute(jumpStatementEClass, JUMP_STATEMENT__SEMI);
-    createEAttribute(jumpStatementEClass, JUMP_STATEMENT__GOTO);
-
     expressionEClass = createEClass(EXPRESSION);
     createEReference(expressionEClass, EXPRESSION__EXPR_EXPR);
 
@@ -2348,6 +2390,17 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     createEReference(selectionStatementEClass, SELECTION_STATEMENT__IF_STATEMENT);
     createEAttribute(selectionStatementEClass, SELECTION_STATEMENT__ELSE);
     createEReference(selectionStatementEClass, SELECTION_STATEMENT__ELSE_STATEMENT);
+
+    iterationStatementEClass = createEClass(ITERATION_STATEMENT);
+    createEAttribute(iterationStatementEClass, ITERATION_STATEMENT__WHILE);
+    createEReference(iterationStatementEClass, ITERATION_STATEMENT__EXPR);
+    createEReference(iterationStatementEClass, ITERATION_STATEMENT__STATEMENT);
+
+    jumpStatementEClass = createEClass(JUMP_STATEMENT);
+    createEAttribute(jumpStatementEClass, JUMP_STATEMENT__RETURN);
+    createEReference(jumpStatementEClass, JUMP_STATEMENT__EXPR);
+    createEAttribute(jumpStatementEClass, JUMP_STATEMENT__SEMI);
+    createEAttribute(jumpStatementEClass, JUMP_STATEMENT__GOTO);
 
     assignmentExpressionEClass = createEClass(ASSIGNMENT_EXPRESSION);
     createEReference(assignmentExpressionEClass, ASSIGNMENT_EXPRESSION__EXPR);
@@ -2452,6 +2505,8 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     bodyStatementEClass.getESuperTypes().add(this.getStatement());
     expressionStatementEClass.getESuperTypes().add(this.getStatement());
     selectionStatementEClass.getESuperTypes().add(this.getStatement());
+    iterationStatementEClass.getESuperTypes().add(this.getStatement());
+    jumpStatementEClass.getESuperTypes().add(this.getStatement());
     assignmentExpressionEClass.getESuperTypes().add(this.getExpression());
     conditionalExpressionEClass.getESuperTypes().add(this.getExpression());
     logicalOrExpressionEClass.getESuperTypes().add(this.getExpression());
@@ -2574,13 +2629,7 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     initEReference(getBlockList_Statement(), this.getStatement(), null, "statement", null, 0, -1, BlockList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(statementEClass, Statement.class, "Statement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getStatement_Stmt(), theEcorePackage.getEObject(), null, "stmt", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(jumpStatementEClass, JumpStatement.class, "JumpStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getJumpStatement_Return(), theEcorePackage.getEString(), "return", null, 0, 1, JumpStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getJumpStatement_Expr(), this.getExpression(), null, "expr", null, 0, 1, JumpStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getJumpStatement_Semi(), theEcorePackage.getEString(), "semi", null, 0, 1, JumpStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getJumpStatement_Goto(), theEcorePackage.getEString(), "goto", null, 0, 1, JumpStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStatement_Stmt(), this.getStatement(), null, "stmt", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getExpression_ExprExpr(), this.getExpression(), null, "exprExpr", null, 0, -1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2623,6 +2672,17 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     initEReference(getSelectionStatement_IfStatement(), this.getStatement(), null, "ifStatement", null, 0, 1, SelectionStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getSelectionStatement_Else(), theEcorePackage.getEString(), "else", null, 0, 1, SelectionStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSelectionStatement_ElseStatement(), this.getStatement(), null, "elseStatement", null, 0, 1, SelectionStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(iterationStatementEClass, IterationStatement.class, "IterationStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getIterationStatement_While(), theEcorePackage.getEString(), "while", null, 0, 1, IterationStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIterationStatement_Expr(), this.getExpression(), null, "expr", null, 0, 1, IterationStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIterationStatement_Statement(), this.getStatement(), null, "statement", null, 0, 1, IterationStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(jumpStatementEClass, JumpStatement.class, "JumpStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getJumpStatement_Return(), theEcorePackage.getEString(), "return", null, 0, 1, JumpStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getJumpStatement_Expr(), this.getExpression(), null, "expr", null, 0, 1, JumpStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getJumpStatement_Semi(), theEcorePackage.getEString(), "semi", null, 0, 1, JumpStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getJumpStatement_Goto(), theEcorePackage.getEString(), "goto", null, 0, 1, JumpStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(assignmentExpressionEClass, AssignmentExpression.class, "AssignmentExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAssignmentExpression_Expr(), this.getExpression(), null, "expr", null, 0, 1, AssignmentExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

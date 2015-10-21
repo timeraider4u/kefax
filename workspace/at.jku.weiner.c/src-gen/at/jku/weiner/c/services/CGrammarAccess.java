@@ -753,8 +753,7 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		//	{enumerator} 
 		//	enumerationCONSTANT
 		//	(ASSIGN constExpr=constantExpression)?
-		//;
-		//
+		//;* / / *
 		//atomicTypeSpecifier returns declarationSpecifier:
 		//	ATOMIC LEFTPAREN typeName RIGHTPAREN
 		//;
@@ -1372,39 +1371,41 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cStmtAssignment_1_3 = (Assignment)cAlternatives_1.eContents().get(3);
 		private final RuleCall cStmtSelectionStatementParserRuleCall_1_3_0 = (RuleCall)cStmtAssignment_1_3.eContents().get(0);
 		private final Assignment cStmtAssignment_1_4 = (Assignment)cAlternatives_1.eContents().get(4);
-		private final RuleCall cStmtJumpStatementParserRuleCall_1_4_0 = (RuleCall)cStmtAssignment_1_4.eContents().get(0);
+		private final RuleCall cStmtIterationStatementParserRuleCall_1_4_0 = (RuleCall)cStmtAssignment_1_4.eContents().get(0);
+		private final Assignment cStmtAssignment_1_5 = (Assignment)cAlternatives_1.eContents().get(5);
+		private final RuleCall cStmtJumpStatementParserRuleCall_1_5_0 = (RuleCall)cStmtAssignment_1_5.eContents().get(0);
 		
 		//Statement:
 		//	{Statement} (stmt=LabeledStatement
 		//	| stmt=CompoundStatement
 		//	| stmt=ExpressionStatement
 		//	| stmt=SelectionStatement
-		//	/ *	|	stmt=iterationStatement
-		//	* /
-		//	| stmt=JumpStatement / *
+		//	| stmt=IterationStatement
+		//	| stmt=JumpStatement
+		//	/ *
 		//	|	('__asm' | '__asm__') (VOLATILE | '__volatile__') 
 		//			LEFTPAREN (expr+=logicalOrExpression (COMMA logicalExpr+=logicalOrExpression)*)? 
 		//			(COLON (expr+=logicalOrExpression (COMMA logicalExpr+=logicalOrExpression)*)?)* RIGHTPAREN SEMI
-		// * /);
+		// 	* /);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Statement} (stmt=LabeledStatement | stmt=CompoundStatement | stmt=ExpressionStatement | stmt=SelectionStatement / *	|	stmt=iterationStatement
-		//	* / | stmt=JumpStatement / *
+		//{Statement} (stmt=LabeledStatement | stmt=CompoundStatement | stmt=ExpressionStatement | stmt=SelectionStatement |
+		//stmt=IterationStatement | stmt=JumpStatement / *
 		//	|	('__asm' | '__asm__') (VOLATILE | '__volatile__') 
 		//			LEFTPAREN (expr+=logicalOrExpression (COMMA logicalExpr+=logicalOrExpression)*)? 
 		//			(COLON (expr+=logicalOrExpression (COMMA logicalExpr+=logicalOrExpression)*)?)* RIGHTPAREN SEMI
-		// * /)
+		// 	* /)
 		public Group getGroup() { return cGroup; }
 		
 		//{Statement}
 		public Action getStatementAction_0() { return cStatementAction_0; }
 		
-		//(stmt=LabeledStatement | stmt=CompoundStatement | stmt=ExpressionStatement | stmt=SelectionStatement / *	|	stmt=iterationStatement
-		//	* / | stmt=JumpStatement / *
+		//(stmt=LabeledStatement | stmt=CompoundStatement | stmt=ExpressionStatement | stmt=SelectionStatement |
+		//stmt=IterationStatement | stmt=JumpStatement / *
 		//	|	('__asm' | '__asm__') (VOLATILE | '__volatile__') 
 		//			LEFTPAREN (expr+=logicalOrExpression (COMMA logicalExpr+=logicalOrExpression)*)? 
 		//			(COLON (expr+=logicalOrExpression (COMMA logicalExpr+=logicalOrExpression)*)?)* RIGHTPAREN SEMI
-		// * /)
+		// 	* /)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
 		//stmt=LabeledStatement
@@ -1431,11 +1432,17 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		//SelectionStatement
 		public RuleCall getStmtSelectionStatementParserRuleCall_1_3_0() { return cStmtSelectionStatementParserRuleCall_1_3_0; }
 		
-		//stmt=JumpStatement
+		//stmt=IterationStatement
 		public Assignment getStmtAssignment_1_4() { return cStmtAssignment_1_4; }
 		
+		//IterationStatement
+		public RuleCall getStmtIterationStatementParserRuleCall_1_4_0() { return cStmtIterationStatementParserRuleCall_1_4_0; }
+		
+		//stmt=JumpStatement
+		public Assignment getStmtAssignment_1_5() { return cStmtAssignment_1_5; }
+		
 		//JumpStatement
-		public RuleCall getStmtJumpStatementParserRuleCall_1_4_0() { return cStmtJumpStatementParserRuleCall_1_4_0; }
+		public RuleCall getStmtJumpStatementParserRuleCall_1_5_0() { return cStmtJumpStatementParserRuleCall_1_5_0; }
 	}
 	public class LabeledStatementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.LabeledStatement");
@@ -1631,6 +1638,53 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		//Statement
 		public RuleCall getElseStatementStatementParserRuleCall_6_1_0() { return cElseStatementStatementParserRuleCall_6_1_0; }
 	}
+	public class IterationStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.IterationStatement");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cIterationStatementAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cWhileAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cWhileKW_WHILETerminalRuleCall_1_0 = (RuleCall)cWhileAssignment_1.eContents().get(0);
+		private final RuleCall cLEFTPARENTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cExprAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cExprExpressionParserRuleCall_3_0 = (RuleCall)cExprAssignment_3.eContents().get(0);
+		private final RuleCall cRIGHTPARENTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final Assignment cStatementAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cStatementStatementParserRuleCall_5_0 = (RuleCall)cStatementAssignment_5.eContents().get(0);
+		
+		//IterationStatement Statement:
+		//	{IterationStatement} while=KW_WHILE LEFTPAREN expr=Expression RIGHTPAREN statement=Statement
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{IterationStatement} while=KW_WHILE LEFTPAREN expr=Expression RIGHTPAREN statement=Statement
+		public Group getGroup() { return cGroup; }
+		
+		//{IterationStatement}
+		public Action getIterationStatementAction_0() { return cIterationStatementAction_0; }
+		
+		//while=KW_WHILE
+		public Assignment getWhileAssignment_1() { return cWhileAssignment_1; }
+		
+		//KW_WHILE
+		public RuleCall getWhileKW_WHILETerminalRuleCall_1_0() { return cWhileKW_WHILETerminalRuleCall_1_0; }
+		
+		//LEFTPAREN
+		public RuleCall getLEFTPARENTerminalRuleCall_2() { return cLEFTPARENTerminalRuleCall_2; }
+		
+		//expr=Expression
+		public Assignment getExprAssignment_3() { return cExprAssignment_3; }
+		
+		//Expression
+		public RuleCall getExprExpressionParserRuleCall_3_0() { return cExprExpressionParserRuleCall_3_0; }
+		
+		//RIGHTPAREN
+		public RuleCall getRIGHTPARENTerminalRuleCall_4() { return cRIGHTPARENTerminalRuleCall_4; }
+		
+		//statement=Statement
+		public Assignment getStatementAssignment_5() { return cStatementAssignment_5; }
+		
+		//Statement
+		public RuleCall getStatementStatementParserRuleCall_5_0() { return cStatementStatementParserRuleCall_5_0; }
+	}
 	public class JumpStatementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.JumpStatement");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -1651,15 +1705,10 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cSemiAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
 		private final RuleCall cSemiSEMITerminalRuleCall_1_1_2_0 = (RuleCall)cSemiAssignment_1_1_2.eContents().get(0);
 		
-		/// *
-		//iterationStatement: WHILE LEFTPAREN expression RIGHTPAREN statement=statement
-		//	|	DO statement WHILE LEFTPAREN whileexpression=expression RIGHTPAREN SEMI
-		//	|	FOR LEFTPAREN expression? SEMI expression? SEMI expression? RIGHTPAREN statement
-		//	|	FOR LEFTPAREN declaration (forexpression+=expression)? SEMI expression? RIGHTPAREN statement=statement
-		//;* / JumpStatement:
+		//JumpStatement Statement:
 		//	{JumpStatement} (return=KW_RETURN expr=Expression? semi=SEMI
 		//	| goto=KW_GOTO expr=UnaryExpression semi=SEMI // GCC extension
-		//);
+		//)
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{JumpStatement} (return=KW_RETURN expr=Expression? semi=SEMI | goto=KW_GOTO expr=UnaryExpression semi=SEMI // GCC extension
@@ -3038,6 +3087,7 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	private final BodyStatementElements pBodyStatement;
 	private final ExpressionStatementElements pExpressionStatement;
 	private final SelectionStatementElements pSelectionStatement;
+	private final IterationStatementElements pIterationStatement;
 	private final JumpStatementElements pJumpStatement;
 	private final ExpressionElements pExpression;
 	private final AssignmentExpressionElements pAssignmentExpression;
@@ -3219,6 +3269,7 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		this.pBodyStatement = new BodyStatementElements();
 		this.pExpressionStatement = new ExpressionStatementElements();
 		this.pSelectionStatement = new SelectionStatementElements();
+		this.pIterationStatement = new IterationStatementElements();
 		this.pJumpStatement = new JumpStatementElements();
 		this.pExpression = new ExpressionElements();
 		this.pAssignmentExpression = new AssignmentExpressionElements();
@@ -3610,8 +3661,7 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	//	{enumerator} 
 	//	enumerationCONSTANT
 	//	(ASSIGN constExpr=constantExpression)?
-	//;
-	//
+	//;* / / *
 	//atomicTypeSpecifier returns declarationSpecifier:
 	//	ATOMIC LEFTPAREN typeName RIGHTPAREN
 	//;
@@ -3862,13 +3912,13 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	//	| stmt=CompoundStatement
 	//	| stmt=ExpressionStatement
 	//	| stmt=SelectionStatement
-	//	/ *	|	stmt=iterationStatement
-	//	* /
-	//	| stmt=JumpStatement / *
+	//	| stmt=IterationStatement
+	//	| stmt=JumpStatement
+	//	/ *
 	//	|	('__asm' | '__asm__') (VOLATILE | '__volatile__') 
 	//			LEFTPAREN (expr+=logicalOrExpression (COMMA logicalExpr+=logicalOrExpression)*)? 
 	//			(COLON (expr+=logicalOrExpression (COMMA logicalExpr+=logicalOrExpression)*)?)* RIGHTPAREN SEMI
-	// * /);
+	// 	* /);
 	public StatementElements getStatementAccess() {
 		return pStatement;
 	}
@@ -3933,15 +3983,20 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		return getSelectionStatementAccess().getRule();
 	}
 	
-	/// *
-	//iterationStatement: WHILE LEFTPAREN expression RIGHTPAREN statement=statement
-	//	|	DO statement WHILE LEFTPAREN whileexpression=expression RIGHTPAREN SEMI
-	//	|	FOR LEFTPAREN expression? SEMI expression? SEMI expression? RIGHTPAREN statement
-	//	|	FOR LEFTPAREN declaration (forexpression+=expression)? SEMI expression? RIGHTPAREN statement=statement
-	//;* / JumpStatement:
+	//IterationStatement Statement:
+	//	{IterationStatement} while=KW_WHILE LEFTPAREN expr=Expression RIGHTPAREN statement=Statement
+	public IterationStatementElements getIterationStatementAccess() {
+		return pIterationStatement;
+	}
+	
+	public ParserRule getIterationStatementRule() {
+		return getIterationStatementAccess().getRule();
+	}
+	
+	//JumpStatement Statement:
 	//	{JumpStatement} (return=KW_RETURN expr=Expression? semi=SEMI
 	//	| goto=KW_GOTO expr=UnaryExpression semi=SEMI // GCC extension
-	//);
+	//)
 	public JumpStatementElements getJumpStatementAccess() {
 		return pJumpStatement;
 	}

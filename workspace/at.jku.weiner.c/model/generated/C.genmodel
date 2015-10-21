@@ -113,12 +113,6 @@
     <genClasses ecoreClass="C.ecore#//Statement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//Statement/stmt"/>
     </genClasses>
-    <genClasses ecoreClass="C.ecore#//JumpStatement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//JumpStatement/return"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//JumpStatement/expr"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//JumpStatement/semi"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//JumpStatement/goto"/>
-    </genClasses>
     <genClasses ecoreClass="C.ecore#//Expression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//Expression/exprExpr"/>
     </genClasses>
@@ -160,6 +154,17 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//SelectionStatement/ifStatement"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//SelectionStatement/else"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//SelectionStatement/elseStatement"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//IterationStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//IterationStatement/while"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//IterationStatement/expr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//IterationStatement/statement"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//JumpStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//JumpStatement/return"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//JumpStatement/expr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//JumpStatement/semi"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//JumpStatement/goto"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//AssignmentExpression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//AssignmentExpression/expr"/>

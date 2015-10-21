@@ -511,15 +511,14 @@ Statement:
 	|	stmt=CompoundStatement
 	|	stmt=ExpressionStatement
 	|	stmt=SelectionStatement
-/*	|	stmt=iterationStatement
-	*/
-	| stmt=JumpStatement 
+	|	stmt=IterationStatement
+	|	stmt=JumpStatement 
 	/*
 	|	('__asm' | '__asm__') (VOLATILE | '__volatile__') 
 			LEFTPAREN (expr+=logicalOrExpression (COMMA logicalExpr+=logicalOrExpression)*)? 
 			(COLON (expr+=logicalOrExpression (COMMA logicalExpr+=logicalOrExpression)*)?)* RIGHTPAREN SEMI
  	*/
-		)
+	)
 ;
 
 LabeledStatement returns Statement:
@@ -563,15 +562,16 @@ SelectionStatement returns Statement:
 	//|	SWITCH LEFTPAREN expression RIGHTPAREN statement=statement
 ;
 
-
-/*
-iterationStatement: WHILE LEFTPAREN expression RIGHTPAREN statement=statement
-	|	DO statement WHILE LEFTPAREN whileexpression=expression RIGHTPAREN SEMI
+IterationStatement returns Statement:
+	{IterationStatement}
+		while=KW_WHILE LEFTPAREN expr=Expression RIGHTPAREN statement=Statement
+	/* |	DO statement WHILE LEFTPAREN whileexpression=expression RIGHTPAREN SEMI
 	|	FOR LEFTPAREN expression? SEMI expression? SEMI expression? RIGHTPAREN statement
 	|	FOR LEFTPAREN declaration (forexpression+=expression)? SEMI expression? RIGHTPAREN statement=statement
-;*/
+	*/
+;
 
-JumpStatement:
+JumpStatement returns Statement:
 	{JumpStatement}
 	(
 	//GOTO IDENTIFIER SEMI //(can be reached over GOTO unaryExpression)

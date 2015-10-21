@@ -284,15 +284,6 @@ public interface CFactory extends EFactory
   Statement createStatement();
 
   /**
-   * Returns a new object of class '<em>Jump Statement</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Jump Statement</em>'.
-   * @generated
-   */
-  JumpStatement createJumpStatement();
-
-  /**
    * Returns a new object of class '<em>Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -381,6 +372,24 @@ public interface CFactory extends EFactory
    * @generated
    */
   SelectionStatement createSelectionStatement();
+
+  /**
+   * Returns a new object of class '<em>Iteration Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Iteration Statement</em>'.
+   * @generated
+   */
+  IterationStatement createIterationStatement();
+
+  /**
+   * Returns a new object of class '<em>Jump Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Jump Statement</em>'.
+   * @generated
+   */
+  JumpStatement createJumpStatement();
 
   /**
    * Returns a new object of class '<em>Assignment Expression</em>'.

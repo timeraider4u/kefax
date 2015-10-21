@@ -93,7 +93,6 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
       case CPackage.INITIALIZER: return createInitializer();
       case CPackage.BLOCK_LIST: return createBlockList();
       case CPackage.STATEMENT: return createStatement();
-      case CPackage.JUMP_STATEMENT: return createJumpStatement();
       case CPackage.EXPRESSION: return createExpression();
       case CPackage.ASSIGNMENT_OPERATOR: return createAssignmentOperator();
       case CPackage.UNARY_OPERATOR: return createUnaryOperator();
@@ -104,6 +103,8 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
       case CPackage.BODY_STATEMENT: return createBodyStatement();
       case CPackage.EXPRESSION_STATEMENT: return createExpressionStatement();
       case CPackage.SELECTION_STATEMENT: return createSelectionStatement();
+      case CPackage.ITERATION_STATEMENT: return createIterationStatement();
+      case CPackage.JUMP_STATEMENT: return createJumpStatement();
       case CPackage.ASSIGNMENT_EXPRESSION: return createAssignmentExpression();
       case CPackage.CONDITIONAL_EXPRESSION: return createConditionalExpression();
       case CPackage.LOGICAL_OR_EXPRESSION: return createLogicalOrExpression();
@@ -449,17 +450,6 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public JumpStatement createJumpStatement()
-  {
-    JumpStatementImpl jumpStatement = new JumpStatementImpl();
-    return jumpStatement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Expression createExpression()
   {
     ExpressionImpl expression = new ExpressionImpl();
@@ -563,6 +553,28 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
   {
     SelectionStatementImpl selectionStatement = new SelectionStatementImpl();
     return selectionStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public IterationStatement createIterationStatement()
+  {
+    IterationStatementImpl iterationStatement = new IterationStatementImpl();
+    return iterationStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public JumpStatement createJumpStatement()
+  {
+    JumpStatementImpl jumpStatement = new JumpStatementImpl();
+    return jumpStatement;
   }
 
   /**

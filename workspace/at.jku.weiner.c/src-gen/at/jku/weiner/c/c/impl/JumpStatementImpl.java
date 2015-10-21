@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,7 +30,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class JumpStatementImpl extends MinimalEObjectImpl.Container implements JumpStatement
+public class JumpStatementImpl extends StatementImpl implements JumpStatement
 {
   /**
    * The default value of the '{@link #getReturn() <em>Return</em>}' attribute.

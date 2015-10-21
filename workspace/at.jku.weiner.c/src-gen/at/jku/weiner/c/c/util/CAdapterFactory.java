@@ -220,11 +220,6 @@ public class CAdapterFactory extends AdapterFactoryImpl
         return createStatementAdapter();
       }
       @Override
-      public Adapter caseJumpStatement(JumpStatement object)
-      {
-        return createJumpStatementAdapter();
-      }
-      @Override
       public Adapter caseExpression(Expression object)
       {
         return createExpressionAdapter();
@@ -273,6 +268,16 @@ public class CAdapterFactory extends AdapterFactoryImpl
       public Adapter caseSelectionStatement(SelectionStatement object)
       {
         return createSelectionStatementAdapter();
+      }
+      @Override
+      public Adapter caseIterationStatement(IterationStatement object)
+      {
+        return createIterationStatementAdapter();
+      }
+      @Override
+      public Adapter caseJumpStatement(JumpStatement object)
+      {
+        return createJumpStatementAdapter();
       }
       @Override
       public Adapter caseAssignmentExpression(AssignmentExpression object)
@@ -812,21 +817,6 @@ public class CAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.JumpStatement <em>Jump Statement</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see at.jku.weiner.c.c.JumpStatement
-   * @generated
-   */
-  public Adapter createJumpStatementAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.Expression <em>Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -972,6 +962,36 @@ public class CAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createSelectionStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.IterationStatement <em>Iteration Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.c.IterationStatement
+   * @generated
+   */
+  public Adapter createIterationStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.JumpStatement <em>Jump Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.c.JumpStatement
+   * @generated
+   */
+  public Adapter createJumpStatementAdapter()
   {
     return null;
   }

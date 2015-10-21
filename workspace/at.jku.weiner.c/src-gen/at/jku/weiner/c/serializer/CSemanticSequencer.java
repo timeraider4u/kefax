@@ -33,6 +33,7 @@ import at.jku.weiner.c.c.InclusiveOrExpression;
 import at.jku.weiner.c.c.InitDeclarator;
 import at.jku.weiner.c.c.InitDeclaratorList;
 import at.jku.weiner.c.c.Initializer;
+import at.jku.weiner.c.c.IterationStatement;
 import at.jku.weiner.c.c.JumpStatement;
 import at.jku.weiner.c.c.LabeledStatement;
 import at.jku.weiner.c.c.LogicalAndExpression;
@@ -170,6 +171,9 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case CPackage.INITIALIZER:
 				sequence_Initializer(context, (Initializer) semanticObject); 
+				return; 
+			case CPackage.ITERATION_STATEMENT:
+				sequence_IterationStatement(context, (IterationStatement) semanticObject); 
 				return; 
 			case CPackage.JUMP_STATEMENT:
 				sequence_JumpStatement(context, (JumpStatement) semanticObject); 
@@ -547,6 +551,15 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     (while=KW_WHILE expr=Expression statement=Statement)
+	 */
+	protected void sequence_IterationStatement(EObject context, IterationStatement semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     ((return=KW_RETURN expr=Expression? semi=SEMI) | (goto=KW_GOTO expr=UnaryExpression semi=SEMI))
 	 */
 	protected void sequence_JumpStatement(EObject context, JumpStatement semanticObject) {
@@ -717,7 +730,14 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (stmt=LabeledStatement | stmt=CompoundStatement | stmt=ExpressionStatement | stmt=SelectionStatement | stmt=JumpStatement)
+	 *     (
+	 *         stmt=LabeledStatement | 
+	 *         stmt=CompoundStatement | 
+	 *         stmt=ExpressionStatement | 
+	 *         stmt=SelectionStatement | 
+	 *         stmt=IterationStatement | 
+	 *         stmt=JumpStatement
+	 *     )
 	 */
 	protected void sequence_Statement(EObject context, Statement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

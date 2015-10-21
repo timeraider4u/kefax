@@ -31,12 +31,12 @@ public interface Statement extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Stmt</em>' containment reference.
-   * @see #setStmt(EObject)
+   * @see #setStmt(Statement)
    * @see at.jku.weiner.c.c.CPackage#getStatement_Stmt()
    * @model containment="true"
    * @generated
    */
-  EObject getStmt();
+  Statement getStmt();
 
   /**
    * Sets the value of the '{@link at.jku.weiner.c.c.Statement#getStmt <em>Stmt</em>}' containment reference.
@@ -46,6 +46,6 @@ public interface Statement extends EObject
    * @see #getStmt()
    * @generated
    */
-  void setStmt(EObject value);
+  void setStmt(Statement value);
 
 } // Statement

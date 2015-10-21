@@ -38,6 +38,10 @@ import at.jku.weiner.c.c.BlockList;
 import at.jku.weiner.c.c.Statement;
 import at.jku.weiner.c.c.CompoundStatement;
 import at.jku.weiner.c.c.BodyStatement;
+import at.jku.weiner.c.c.BlockList;
+import at.jku.weiner.c.c.Statement;
+import at.jku.weiner.c.c.CompoundStatement;
+import at.jku.weiner.c.c.BodyStatement;
 
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
@@ -85,6 +89,12 @@ public class Test0026_Block {
 			"RULE_NEWLINE",
 			"RULE_WHITESPACE",
 			"RULE_LEFTBRACE",
+			"RULE_NEWLINE",
+			"RULE_WHITESPACE",
+			"RULE_LEFTBRACE",
+			"RULE_NEWLINE",
+			"RULE_WHITESPACE",
+			"RULE_RIGHTBRACE",
 			"RULE_NEWLINE",
 			"RULE_WHITESPACE",
 			"RULE_RIGHTBRACE",
@@ -149,6 +159,20 @@ public class Test0026_Block {
 		Assert.assertNotNull(CompoundStatement_12_Var);
 		final BodyStatement BodyStatement_13_Var = (BodyStatement)CompoundStatement_12_Var.getBody();
 		Assert.assertNotNull(BodyStatement_13_Var);
+		final EList<? extends EObject> BlockList_13_list = BodyStatement_13_Var.getBlockList();
+		Assert.assertNotNull(BlockList_13_list);
+		Assert.assertEquals(1, BlockList_13_list.size());
+		final BlockList BlockList_14_Var = (BlockList)BlockList_13_list.get(0);
+		Assert.assertNotNull(BlockList_14_Var);
+		final EList<? extends EObject> Statement_14_list = BlockList_14_Var.getStatement();
+		Assert.assertNotNull(Statement_14_list);
+		Assert.assertEquals(1, Statement_14_list.size());
+		final Statement Statement_15_Var = (Statement)Statement_14_list.get(0);
+		Assert.assertNotNull(Statement_15_Var);
+		final CompoundStatement CompoundStatement_16_Var = (CompoundStatement)Statement_15_Var.getStmt();
+		Assert.assertNotNull(CompoundStatement_16_Var);
+		final BodyStatement BodyStatement_17_Var = (BodyStatement)CompoundStatement_16_Var.getBody();
+		Assert.assertNotNull(BodyStatement_17_Var);
 	}
 
 

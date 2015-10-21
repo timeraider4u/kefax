@@ -6,6 +6,8 @@ source file="res/Test0026_Block.c"
 lexer-tokens
 KW_VOID WHITESPACE ID LEFTPAREN RIGHTPAREN WHITESPACE LEFTBRACE NEWLINE
 	WHITESPACE LEFTBRACE NEWLINE
+		WHITESPACE LEFTBRACE NEWLINE
+		WHITESPACE RIGHTBRACE NEWLINE
 	WHITESPACE RIGHTBRACE NEWLINE
 RIGHTBRACE NEWLINE
 //----------------------------------------------------------------------
@@ -42,7 +44,19 @@ RIGHTBRACE NEWLINE
 							(CompoundStatement
 								body=
 								(BodyStatement
-									
+									blockList+=
+									(BlockList
+										statement+=
+										(Statement
+											stmt=
+											(CompoundStatement
+												body=
+												(BodyStatement
+													
+												)
+											) // end compound statement
+										)
+									)
 								)
 							) // end compound statement
 						) // end statement

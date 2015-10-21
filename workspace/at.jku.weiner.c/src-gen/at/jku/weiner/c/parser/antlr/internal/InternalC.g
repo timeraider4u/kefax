@@ -2764,6 +2764,91 @@ ruleInitializer returns [EObject current=null]
 
 
 
+// Entry rule entryRuleBlockList
+entryRuleBlockList returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getBlockListRule()); }
+	 iv_ruleBlockList=ruleBlockList 
+	 { $current=$iv_ruleBlockList.current; } 
+	 EOF 
+;
+
+// Rule BlockList
+ruleBlockList returns [EObject current=null] 
+    @init { enterRule();
+   		at.jku.weiner.c.Log.log("BlockList-enter");
+    }
+    @after { leaveRule();
+    		at.jku.weiner.c.Log.log("BlockList-enter");
+     }:
+
+(
+(
+	{ 
+	  /* */ 
+	}
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getBlockListAccess().getBlockListAction_0(),
+            $current);
+    }
+)
+
+
+(
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getBlockListAccess().getDeclarationDeclarationParserRuleCall_1_0_0()); 
+	    }
+		lv_declaration_1_0=ruleDeclaration		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getBlockListRule());
+	        }
+       		add(
+       			$current, 
+       			"declaration",
+        		lv_declaration_1_0, 
+        		"at.jku.weiner.c.C.Declaration");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getBlockListAccess().getStatementStatementParserRuleCall_1_1_0()); 
+	    }
+		lv_statement_2_0=ruleStatement		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getBlockListRule());
+	        }
+       		add(
+       			$current, 
+       			"statement",
+        		lv_statement_2_0, 
+        		"at.jku.weiner.c.C.Statement");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+)+
+
+)
+
+
+;
+
+
+
+
+
 // Entry rule entryRuleStatement
 entryRuleStatement returns [EObject current=null] 
 	:
@@ -2865,9 +2950,9 @@ ruleStatement returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getStatementAccess().getStmtJumpStatementParserRuleCall_1_3_0()); 
+	        newCompositeNode(grammarAccess.getStatementAccess().getStmtSelectionStatementParserRuleCall_1_3_0()); 
 	    }
-		lv_stmt_4_0=ruleJumpStatement		{
+		lv_stmt_4_0=ruleSelectionStatement		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getStatementRule());
 	        }
@@ -2875,6 +2960,28 @@ ruleStatement returns [EObject current=null]
        			$current, 
        			"stmt",
         		lv_stmt_4_0, 
+        		"at.jku.weiner.c.C.SelectionStatement");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getStatementAccess().getStmtJumpStatementParserRuleCall_1_4_0()); 
+	    }
+		lv_stmt_5_0=ruleJumpStatement		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getStatementRule());
+	        }
+       		set(
+       			$current, 
+       			"stmt",
+        		lv_stmt_5_0, 
         		"at.jku.weiner.c.C.JumpStatement");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -3115,91 +3222,6 @@ ruleBodyStatement returns [EObject current=null]
 
 
 
-// Entry rule entryRuleBlockList
-entryRuleBlockList returns [EObject current=null] 
-	:
-	{ newCompositeNode(grammarAccess.getBlockListRule()); }
-	 iv_ruleBlockList=ruleBlockList 
-	 { $current=$iv_ruleBlockList.current; } 
-	 EOF 
-;
-
-// Rule BlockList
-ruleBlockList returns [EObject current=null] 
-    @init { enterRule();
-   		at.jku.weiner.c.Log.log("BlockList-enter");
-    }
-    @after { leaveRule();
-    		at.jku.weiner.c.Log.log("BlockList-enter");
-     }:
-
-(
-(
-	{ 
-	  /* */ 
-	}
-    {
-        $current = forceCreateModelElement(
-            grammarAccess.getBlockListAccess().getBlockListAction_0(),
-            $current);
-    }
-)
-
-
-(
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getBlockListAccess().getDeclarationDeclarationParserRuleCall_1_0_0()); 
-	    }
-		lv_declaration_1_0=ruleDeclaration		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getBlockListRule());
-	        }
-       		add(
-       			$current, 
-       			"declaration",
-        		lv_declaration_1_0, 
-        		"at.jku.weiner.c.C.Declaration");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)
-
-
-    |
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getBlockListAccess().getStatementStatementParserRuleCall_1_1_0()); 
-	    }
-		lv_statement_2_0=ruleStatement		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getBlockListRule());
-	        }
-       		add(
-       			$current, 
-       			"statement",
-        		lv_statement_2_0, 
-        		"at.jku.weiner.c.C.Statement");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)
-
-)+
-
-)
-
-
-;
-
-
-
-
-
 // Entry rule entryRuleExpressionStatement
 entryRuleExpressionStatement returns [EObject current=null] 
 	:
@@ -3271,6 +3293,172 @@ ruleExpressionStatement returns [EObject current=null]
 
 )
 )
+
+)
+
+
+;
+
+
+
+
+
+// Entry rule entryRuleSelectionStatement
+entryRuleSelectionStatement returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getSelectionStatementRule()); }
+	 iv_ruleSelectionStatement=ruleSelectionStatement 
+	 { $current=$iv_ruleSelectionStatement.current; } 
+	 EOF 
+;
+
+// Rule SelectionStatement
+ruleSelectionStatement returns [EObject current=null] 
+    @init { enterRule();
+   		
+    }
+    @after { leaveRule();
+    		
+     }:
+
+(
+(
+	{ 
+	  /* */ 
+	}
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getSelectionStatementAccess().getSelectionStatementAction_0(),
+            $current);
+    }
+)
+
+
+(
+(
+		lv_if_1_0=RULE_KW_IF
+		{
+			newLeafNode(lv_if_1_0, grammarAccess.getSelectionStatementAccess().getIfKW_IFTerminalRuleCall_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getSelectionStatementRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"if",
+        		lv_if_1_0, 
+        		"at.jku.weiner.c.C.KW_IF");
+	    }
+
+)
+)
+
+
+this_LEFTPAREN_2=RULE_LEFTPAREN
+    { 
+    newLeafNode(this_LEFTPAREN_2, grammarAccess.getSelectionStatementAccess().getLEFTPARENTerminalRuleCall_2()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getSelectionStatementAccess().getExprExpressionParserRuleCall_3_0()); 
+	    }
+		lv_expr_3_0=ruleExpression		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getSelectionStatementRule());
+	        }
+       		set(
+       			$current, 
+       			"expr",
+        		lv_expr_3_0, 
+        		"at.jku.weiner.c.C.Expression");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+this_RIGHTPAREN_4=RULE_RIGHTPAREN
+    { 
+    newLeafNode(this_RIGHTPAREN_4, grammarAccess.getSelectionStatementAccess().getRIGHTPARENTerminalRuleCall_4()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getSelectionStatementAccess().getIfStatementStatementParserRuleCall_5_0()); 
+	    }
+		lv_ifStatement_5_0=ruleStatement		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getSelectionStatementRule());
+	        }
+       		set(
+       			$current, 
+       			"ifStatement",
+        		lv_ifStatement_5_0, 
+        		"at.jku.weiner.c.C.Statement");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+(
+((
+(
+RULE_KW_ELSE
+
+)
+)=>
+(
+		lv_else_6_0=RULE_KW_ELSE
+		{
+			newLeafNode(lv_else_6_0, grammarAccess.getSelectionStatementAccess().getElseKW_ELSETerminalRuleCall_6_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getSelectionStatementRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"else",
+        		lv_else_6_0, 
+        		"at.jku.weiner.c.C.KW_ELSE");
+	    }
+
+)
+)
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getSelectionStatementAccess().getElseStatementStatementParserRuleCall_6_1_0()); 
+	    }
+		lv_elseStatement_7_0=ruleStatement		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getSelectionStatementRule());
+	        }
+       		set(
+       			$current, 
+       			"elseStatement",
+        		lv_elseStatement_7_0, 
+        		"at.jku.weiner.c.C.Statement");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+)?
 
 )
 

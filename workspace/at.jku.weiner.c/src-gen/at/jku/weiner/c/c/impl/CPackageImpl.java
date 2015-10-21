@@ -47,6 +47,7 @@ import at.jku.weiner.c.c.Pointer;
 import at.jku.weiner.c.c.PostfixExpression;
 import at.jku.weiner.c.c.PrimaryExpression;
 import at.jku.weiner.c.c.RelationalExpression;
+import at.jku.weiner.c.c.SelectionStatement;
 import at.jku.weiner.c.c.ShiftExpression;
 import at.jku.weiner.c.c.SpecifierQualifierList;
 import at.jku.weiner.c.c.Statement;
@@ -270,13 +271,6 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass statementEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass blockListEClass = null;
 
   /**
@@ -284,7 +278,7 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass expressionStatementEClass = null;
+  private EClass statementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -348,6 +342,20 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * @generated
    */
   private EClass bodyStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass expressionStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass selectionStatementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1252,26 +1260,6 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getStatement()
-  {
-    return statementEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getStatement_Stmt()
-  {
-    return (EReference)statementEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getBlockList()
   {
     return blockListEClass;
@@ -1302,9 +1290,9 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getExpressionStatement()
+  public EClass getStatement()
   {
-    return expressionStatementEClass;
+    return statementEClass;
   }
 
   /**
@@ -1312,19 +1300,9 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getExpressionStatement_Expression()
+  public EReference getStatement_Stmt()
   {
-    return (EReference)expressionStatementEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getExpressionStatement_Semi()
-  {
-    return (EAttribute)expressionStatementEClass.getEStructuralFeatures().get(1);
+    return (EReference)statementEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1605,6 +1583,96 @@ public class CPackageImpl extends EPackageImpl implements CPackage
   public EReference getBodyStatement_BlockList()
   {
     return (EReference)bodyStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getExpressionStatement()
+  {
+    return expressionStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getExpressionStatement_Expression()
+  {
+    return (EReference)expressionStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getExpressionStatement_Semi()
+  {
+    return (EAttribute)expressionStatementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getSelectionStatement()
+  {
+    return selectionStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getSelectionStatement_If()
+  {
+    return (EAttribute)selectionStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSelectionStatement_Expr()
+  {
+    return (EReference)selectionStatementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSelectionStatement_IfStatement()
+  {
+    return (EReference)selectionStatementEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getSelectionStatement_Else()
+  {
+    return (EAttribute)selectionStatementEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSelectionStatement_ElseStatement()
+  {
+    return (EReference)selectionStatementEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -2206,16 +2274,12 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     initializerEClass = createEClass(INITIALIZER);
     createEReference(initializerEClass, INITIALIZER__EXPR);
 
-    statementEClass = createEClass(STATEMENT);
-    createEReference(statementEClass, STATEMENT__STMT);
-
     blockListEClass = createEClass(BLOCK_LIST);
     createEReference(blockListEClass, BLOCK_LIST__DECLARATION);
     createEReference(blockListEClass, BLOCK_LIST__STATEMENT);
 
-    expressionStatementEClass = createEClass(EXPRESSION_STATEMENT);
-    createEReference(expressionStatementEClass, EXPRESSION_STATEMENT__EXPRESSION);
-    createEAttribute(expressionStatementEClass, EXPRESSION_STATEMENT__SEMI);
+    statementEClass = createEClass(STATEMENT);
+    createEReference(statementEClass, STATEMENT__STMT);
 
     jumpStatementEClass = createEClass(JUMP_STATEMENT);
     createEAttribute(jumpStatementEClass, JUMP_STATEMENT__RETURN);
@@ -2253,6 +2317,17 @@ public class CPackageImpl extends EPackageImpl implements CPackage
 
     bodyStatementEClass = createEClass(BODY_STATEMENT);
     createEReference(bodyStatementEClass, BODY_STATEMENT__BLOCK_LIST);
+
+    expressionStatementEClass = createEClass(EXPRESSION_STATEMENT);
+    createEReference(expressionStatementEClass, EXPRESSION_STATEMENT__EXPRESSION);
+    createEAttribute(expressionStatementEClass, EXPRESSION_STATEMENT__SEMI);
+
+    selectionStatementEClass = createEClass(SELECTION_STATEMENT);
+    createEAttribute(selectionStatementEClass, SELECTION_STATEMENT__IF);
+    createEReference(selectionStatementEClass, SELECTION_STATEMENT__EXPR);
+    createEReference(selectionStatementEClass, SELECTION_STATEMENT__IF_STATEMENT);
+    createEAttribute(selectionStatementEClass, SELECTION_STATEMENT__ELSE);
+    createEReference(selectionStatementEClass, SELECTION_STATEMENT__ELSE_STATEMENT);
 
     assignmentExpressionEClass = createEClass(ASSIGNMENT_EXPRESSION);
     createEReference(assignmentExpressionEClass, ASSIGNMENT_EXPRESSION__EXPR);
@@ -2353,6 +2428,8 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     labeledStatementEClass.getESuperTypes().add(this.getStatement());
     compoundStatementEClass.getESuperTypes().add(this.getStatement());
     bodyStatementEClass.getESuperTypes().add(this.getStatement());
+    expressionStatementEClass.getESuperTypes().add(this.getStatement());
+    selectionStatementEClass.getESuperTypes().add(this.getStatement());
     assignmentExpressionEClass.getESuperTypes().add(this.getExpression());
     conditionalExpressionEClass.getESuperTypes().add(this.getExpression());
     logicalOrExpressionEClass.getESuperTypes().add(this.getExpression());
@@ -2470,16 +2547,12 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     initEClass(initializerEClass, Initializer.class, "Initializer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getInitializer_Expr(), this.getExpression(), null, "expr", null, 0, 1, Initializer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(statementEClass, Statement.class, "Statement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getStatement_Stmt(), theEcorePackage.getEObject(), null, "stmt", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
     initEClass(blockListEClass, BlockList.class, "BlockList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getBlockList_Declaration(), this.getDeclaration(), null, "declaration", null, 0, -1, BlockList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBlockList_Statement(), this.getStatement(), null, "statement", null, 0, -1, BlockList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(expressionStatementEClass, ExpressionStatement.class, "ExpressionStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getExpressionStatement_Expression(), this.getExpression(), null, "expression", null, 0, 1, ExpressionStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getExpressionStatement_Semi(), theEcorePackage.getEString(), "semi", null, 0, 1, ExpressionStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(statementEClass, Statement.class, "Statement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getStatement_Stmt(), theEcorePackage.getEObject(), null, "stmt", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(jumpStatementEClass, JumpStatement.class, "JumpStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getJumpStatement_Return(), theEcorePackage.getEString(), "return", null, 0, 1, JumpStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2517,6 +2590,17 @@ public class CPackageImpl extends EPackageImpl implements CPackage
 
     initEClass(bodyStatementEClass, BodyStatement.class, "BodyStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getBodyStatement_BlockList(), this.getBlockList(), null, "blockList", null, 0, -1, BodyStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(expressionStatementEClass, ExpressionStatement.class, "ExpressionStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getExpressionStatement_Expression(), this.getExpression(), null, "expression", null, 0, 1, ExpressionStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getExpressionStatement_Semi(), theEcorePackage.getEString(), "semi", null, 0, 1, ExpressionStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(selectionStatementEClass, SelectionStatement.class, "SelectionStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSelectionStatement_If(), theEcorePackage.getEString(), "if", null, 0, 1, SelectionStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSelectionStatement_Expr(), this.getExpression(), null, "expr", null, 0, 1, SelectionStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSelectionStatement_IfStatement(), this.getStatement(), null, "ifStatement", null, 0, 1, SelectionStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSelectionStatement_Else(), theEcorePackage.getEString(), "else", null, 0, 1, SelectionStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSelectionStatement_ElseStatement(), this.getStatement(), null, "elseStatement", null, 0, 1, SelectionStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(assignmentExpressionEClass, AssignmentExpression.class, "AssignmentExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAssignmentExpression_Expr(), this.getExpression(), null, "expr", null, 0, 1, AssignmentExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

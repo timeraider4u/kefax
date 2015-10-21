@@ -495,14 +495,22 @@ initializerList: designation? (initializer=initializer)
 */
 
 /*** Statements */
+BlockList
+	initRuleAction { at.jku.weiner.c.Log.log("BlockList-enter"); }
+	afterRuleAction { at.jku.weiner.c.Log.log("BlockList-enter"); }
+	:
+	{BlockList}
+	(declaration+=Declaration | statement+=Statement)+
+;
+
 Statement:
 	{Statement}
 	(
 		stmt=LabeledStatement
 	|	stmt=CompoundStatement
 	|	stmt=ExpressionStatement
-/*	|	stmt=selectionStatement
-	|	stmt=iterationStatement
+	|	stmt=SelectionStatement
+/*	|	stmt=iterationStatement
 	*/
 	| stmt=JumpStatement /*
 	|	('__asm' | '__asm__') (VOLATILE | '__volatile__') 
@@ -536,15 +544,7 @@ BodyStatement returns Statement
 	(blockList+=BlockList)?
 ;
 
-BlockList
-	initRuleAction { at.jku.weiner.c.Log.log("BlockList-enter"); }
-	afterRuleAction { at.jku.weiner.c.Log.log("BlockList-enter"); }
-	:
-	{BlockList}
-	(declaration+=Declaration | statement+=Statement)+
-;
-
-ExpressionStatement
+ExpressionStatement returns Statement
 	initRuleAction { at.jku.weiner.c.Log.log("ExpressionStatement-enter"); }
 	afterRuleAction { at.jku.weiner.c.Log.log("ExpressionStatement-enter"); }
 	:
@@ -553,14 +553,15 @@ ExpressionStatement
 	semi=SEMI
 ;
 
-/*
-selectionStatement:
-	IF LEFTPAREN expression RIGHTPAREN statement=statement
-	(=>ELSE elseStatement+=statement)?
-	|	SWITCH LEFTPAREN expression RIGHTPAREN statement=statement
+
+SelectionStatement returns Statement:
+	{SelectionStatement}
+	if=KW_IF LEFTPAREN expr=Expression RIGHTPAREN ifStatement=Statement
+	(=>else=KW_ELSE elseStatement=Statement)?
+	//|	SWITCH LEFTPAREN expression RIGHTPAREN statement=statement
 ;
-* 
-*/
+
+
 /*
 iterationStatement: WHILE LEFTPAREN expression RIGHTPAREN statement=statement
 	|	DO statement WHILE LEFTPAREN whileexpression=expression RIGHTPAREN SEMI

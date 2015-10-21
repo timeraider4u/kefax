@@ -47,6 +47,7 @@ import at.jku.weiner.c.c.Pointer;
 import at.jku.weiner.c.c.PostfixExpression;
 import at.jku.weiner.c.c.PrimaryExpression;
 import at.jku.weiner.c.c.RelationalExpression;
+import at.jku.weiner.c.c.SelectionStatement;
 import at.jku.weiner.c.c.ShiftExpression;
 import at.jku.weiner.c.c.SpecifierQualifierList;
 import at.jku.weiner.c.c.Statement;
@@ -211,6 +212,9 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case CPackage.RELATIONAL_EXPRESSION:
 				sequence_RelationalExpression(context, (RelationalExpression) semanticObject); 
+				return; 
+			case CPackage.SELECTION_STATEMENT:
+				sequence_SelectionStatement(context, (SelectionStatement) semanticObject); 
 				return; 
 			case CPackage.SHIFT_EXPRESSION:
 				sequence_ShiftExpression(context, (ShiftExpression) semanticObject); 
@@ -683,6 +687,15 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     (if=KW_IF expr=Expression ifStatement=Statement (else=KW_ELSE elseStatement=Statement)?)
+	 */
+	protected void sequence_SelectionStatement(EObject context, SelectionStatement semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (expr+=AdditiveExpression ((op+=LEFTSHIFT | op+=RIGHTSHIFT) expr+=AdditiveExpression)*)
 	 */
 	protected void sequence_ShiftExpression(EObject context, ShiftExpression semanticObject) {
@@ -701,7 +714,7 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (stmt=LabeledStatement | stmt=CompoundStatement | stmt=ExpressionStatement | stmt=JumpStatement)
+	 *     (stmt=LabeledStatement | stmt=CompoundStatement | stmt=ExpressionStatement | stmt=SelectionStatement | stmt=JumpStatement)
 	 */
 	protected void sequence_Statement(EObject context, Statement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

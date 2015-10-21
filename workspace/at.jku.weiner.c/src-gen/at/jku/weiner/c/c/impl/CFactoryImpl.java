@@ -91,9 +91,8 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
       case CPackage.MY_IDENTIFIER: return createMyIdentifier();
       case CPackage.TYPE_NAME: return createTypeName();
       case CPackage.INITIALIZER: return createInitializer();
-      case CPackage.STATEMENT: return createStatement();
       case CPackage.BLOCK_LIST: return createBlockList();
-      case CPackage.EXPRESSION_STATEMENT: return createExpressionStatement();
+      case CPackage.STATEMENT: return createStatement();
       case CPackage.JUMP_STATEMENT: return createJumpStatement();
       case CPackage.EXPRESSION: return createExpression();
       case CPackage.ASSIGNMENT_OPERATOR: return createAssignmentOperator();
@@ -103,6 +102,8 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
       case CPackage.LABELED_STATEMENT: return createLabeledStatement();
       case CPackage.COMPOUND_STATEMENT: return createCompoundStatement();
       case CPackage.BODY_STATEMENT: return createBodyStatement();
+      case CPackage.EXPRESSION_STATEMENT: return createExpressionStatement();
+      case CPackage.SELECTION_STATEMENT: return createSelectionStatement();
       case CPackage.ASSIGNMENT_EXPRESSION: return createAssignmentExpression();
       case CPackage.CONDITIONAL_EXPRESSION: return createConditionalExpression();
       case CPackage.LOGICAL_OR_EXPRESSION: return createLogicalOrExpression();
@@ -426,17 +427,6 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Statement createStatement()
-  {
-    StatementImpl statement = new StatementImpl();
-    return statement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public BlockList createBlockList()
   {
     BlockListImpl blockList = new BlockListImpl();
@@ -448,10 +438,10 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public ExpressionStatement createExpressionStatement()
+  public Statement createStatement()
   {
-    ExpressionStatementImpl expressionStatement = new ExpressionStatementImpl();
-    return expressionStatement;
+    StatementImpl statement = new StatementImpl();
+    return statement;
   }
 
   /**
@@ -551,6 +541,28 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
   {
     BodyStatementImpl bodyStatement = new BodyStatementImpl();
     return bodyStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ExpressionStatement createExpressionStatement()
+  {
+    ExpressionStatementImpl expressionStatement = new ExpressionStatementImpl();
+    return expressionStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SelectionStatement createSelectionStatement()
+  {
+    SelectionStatementImpl selectionStatement = new SelectionStatementImpl();
+    return selectionStatement;
   }
 
   /**

@@ -210,19 +210,14 @@ public class CAdapterFactory extends AdapterFactoryImpl
         return createInitializerAdapter();
       }
       @Override
-      public Adapter caseStatement(Statement object)
-      {
-        return createStatementAdapter();
-      }
-      @Override
       public Adapter caseBlockList(BlockList object)
       {
         return createBlockListAdapter();
       }
       @Override
-      public Adapter caseExpressionStatement(ExpressionStatement object)
+      public Adapter caseStatement(Statement object)
       {
-        return createExpressionStatementAdapter();
+        return createStatementAdapter();
       }
       @Override
       public Adapter caseJumpStatement(JumpStatement object)
@@ -268,6 +263,16 @@ public class CAdapterFactory extends AdapterFactoryImpl
       public Adapter caseBodyStatement(BodyStatement object)
       {
         return createBodyStatementAdapter();
+      }
+      @Override
+      public Adapter caseExpressionStatement(ExpressionStatement object)
+      {
+        return createExpressionStatementAdapter();
+      }
+      @Override
+      public Adapter caseSelectionStatement(SelectionStatement object)
+      {
+        return createSelectionStatementAdapter();
       }
       @Override
       public Adapter caseAssignmentExpression(AssignmentExpression object)
@@ -777,21 +782,6 @@ public class CAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.Statement <em>Statement</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see at.jku.weiner.c.c.Statement
-   * @generated
-   */
-  public Adapter createStatementAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.BlockList <em>Block List</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -807,16 +797,16 @@ public class CAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.ExpressionStatement <em>Expression Statement</em>}'.
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.Statement <em>Statement</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see at.jku.weiner.c.c.ExpressionStatement
+   * @see at.jku.weiner.c.c.Statement
    * @generated
    */
-  public Adapter createExpressionStatementAdapter()
+  public Adapter createStatementAdapter()
   {
     return null;
   }
@@ -952,6 +942,36 @@ public class CAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createBodyStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.ExpressionStatement <em>Expression Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.c.ExpressionStatement
+   * @generated
+   */
+  public Adapter createExpressionStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.SelectionStatement <em>Selection Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.c.SelectionStatement
+   * @generated
+   */
+  public Adapter createSelectionStatementAdapter()
   {
     return null;
   }

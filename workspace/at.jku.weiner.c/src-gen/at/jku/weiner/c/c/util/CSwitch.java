@@ -261,13 +261,6 @@ public class CSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case CPackage.STATEMENT:
-      {
-        Statement statement = (Statement)theEObject;
-        T result = caseStatement(statement);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case CPackage.BLOCK_LIST:
       {
         BlockList blockList = (BlockList)theEObject;
@@ -275,10 +268,10 @@ public class CSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case CPackage.EXPRESSION_STATEMENT:
+      case CPackage.STATEMENT:
       {
-        ExpressionStatement expressionStatement = (ExpressionStatement)theEObject;
-        T result = caseExpressionStatement(expressionStatement);
+        Statement statement = (Statement)theEObject;
+        T result = caseStatement(statement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -345,6 +338,22 @@ public class CSwitch<T> extends Switch<T>
         BodyStatement bodyStatement = (BodyStatement)theEObject;
         T result = caseBodyStatement(bodyStatement);
         if (result == null) result = caseStatement(bodyStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CPackage.EXPRESSION_STATEMENT:
+      {
+        ExpressionStatement expressionStatement = (ExpressionStatement)theEObject;
+        T result = caseExpressionStatement(expressionStatement);
+        if (result == null) result = caseStatement(expressionStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CPackage.SELECTION_STATEMENT:
+      {
+        SelectionStatement selectionStatement = (SelectionStatement)theEObject;
+        T result = caseSelectionStatement(selectionStatement);
+        if (result == null) result = caseStatement(selectionStatement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -913,22 +922,6 @@ public class CSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Statement</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Statement</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseStatement(Statement object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Block List</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -945,17 +938,17 @@ public class CSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Expression Statement</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Statement</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Expression Statement</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Statement</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseExpressionStatement(ExpressionStatement object)
+  public T caseStatement(Statement object)
   {
     return null;
   }
@@ -1100,6 +1093,38 @@ public class CSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseBodyStatement(BodyStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Expression Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Expression Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExpressionStatement(ExpressionStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Selection Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Selection Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSelectionStatement(SelectionStatement object)
   {
     return null;
   }

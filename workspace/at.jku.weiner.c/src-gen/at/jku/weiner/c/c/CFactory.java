@@ -266,15 +266,6 @@ public interface CFactory extends EFactory
   Initializer createInitializer();
 
   /**
-   * Returns a new object of class '<em>Statement</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Statement</em>'.
-   * @generated
-   */
-  Statement createStatement();
-
-  /**
    * Returns a new object of class '<em>Block List</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -284,13 +275,13 @@ public interface CFactory extends EFactory
   BlockList createBlockList();
 
   /**
-   * Returns a new object of class '<em>Expression Statement</em>'.
+   * Returns a new object of class '<em>Statement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Expression Statement</em>'.
+   * @return a new object of class '<em>Statement</em>'.
    * @generated
    */
-  ExpressionStatement createExpressionStatement();
+  Statement createStatement();
 
   /**
    * Returns a new object of class '<em>Jump Statement</em>'.
@@ -372,6 +363,24 @@ public interface CFactory extends EFactory
    * @generated
    */
   BodyStatement createBodyStatement();
+
+  /**
+   * Returns a new object of class '<em>Expression Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Expression Statement</em>'.
+   * @generated
+   */
+  ExpressionStatement createExpressionStatement();
+
+  /**
+   * Returns a new object of class '<em>Selection Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Selection Statement</em>'.
+   * @generated
+   */
+  SelectionStatement createSelectionStatement();
 
   /**
    * Returns a new object of class '<em>Assignment Expression</em>'.

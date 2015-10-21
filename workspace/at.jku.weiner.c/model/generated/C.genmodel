@@ -106,16 +106,12 @@
     <genClasses ecoreClass="C.ecore#//Initializer">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//Initializer/expr"/>
     </genClasses>
-    <genClasses ecoreClass="C.ecore#//Statement">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//Statement/stmt"/>
-    </genClasses>
     <genClasses ecoreClass="C.ecore#//BlockList">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//BlockList/declaration"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//BlockList/statement"/>
     </genClasses>
-    <genClasses ecoreClass="C.ecore#//ExpressionStatement">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//ExpressionStatement/expression"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//ExpressionStatement/semi"/>
+    <genClasses ecoreClass="C.ecore#//Statement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//Statement/stmt"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//JumpStatement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//JumpStatement/return"/>
@@ -153,6 +149,17 @@
     </genClasses>
     <genClasses ecoreClass="C.ecore#//BodyStatement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//BodyStatement/blockList"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//ExpressionStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//ExpressionStatement/expression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//ExpressionStatement/semi"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//SelectionStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//SelectionStatement/if"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//SelectionStatement/expr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//SelectionStatement/ifStatement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//SelectionStatement/else"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//SelectionStatement/elseStatement"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//AssignmentExpression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//AssignmentExpression/expr"/>

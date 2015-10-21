@@ -12,11 +12,13 @@ WHITESPACE LEFTBRACE NEWLINE
 	
 	WHITESPACE BLOCK_COMMENT NEWLINE
 	
-	//WHITESPACE KW_ELSE WHITESPACE KW_IF WHITESPACE LEFTPAREN ID 
-	//WHITESPACE EQUAL WHITESPACE DECIMAL_LITERAL RIGHTPAREN 
-	//WHITESPACE LEFTBRACE NEWLINE
-	//WHITESPACE KW_RETURN WHITESPACE DECIMAL_LITERAL SEMI NEWLINE
-	//WHITESPACE RIGHTBRACE NEWLINE	  
+	WHITESPACE KW_ELSE WHITESPACE KW_IF WHITESPACE LEFTPAREN ID 
+	WHITESPACE EQUAL WHITESPACE DECIMAL_LITERAL RIGHTPAREN 
+	WHITESPACE LEFTBRACE NEWLINE
+	WHITESPACE KW_RETURN WHITESPACE DECIMAL_LITERAL SEMI NEWLINE
+	WHITESPACE RIGHTBRACE NEWLINE
+	
+	WHITESPACE BLOCK_COMMENT NEWLINE	  
 	
 	WHITESPACE KW_ELSE WHITESPACE LEFTBRACE NEWLINE
 	WHITESPACE KW_RETURN WHITESPACE DECIMAL_LITERAL SEMI NEWLINE
@@ -62,7 +64,7 @@ RIGHTBRACE NEWLINE
 											(Declarator
 												declarator=
 												(DirectDeclarator
-													id++"argv"
+													id++"argc"
 												)
 											)
 										)
@@ -82,7 +84,8 @@ RIGHTBRACE NEWLINE
 						statement+=
 						(Statement
 							stmt=
-							(JumpStatement
+							(SelectionStatement
+								if++"if",
 								expr=
 								(Expression
 									exprExpr+=
@@ -103,7 +106,29 @@ RIGHTBRACE NEWLINE
 																(EqualityExpression
 																	expr+=
 																	(RelationalExpression
+																		op+*"[>]",
 																		expr+=
+																		(ShiftExpression
+																			expr+=
+																			(AdditiveExpression
+																				expr+=
+																				(MultiplicativeExpression
+																					expr+=
+																					(CastExpression
+																						expr=
+																						(UnaryExpression
+																							expr=
+																							(PostfixExpression
+																								expr+=
+																								(PrimaryExpression
+																									id++"argc"
+																								)
+																							)
+																						)
+																					)
+																				)
+																			)
+																		),
 																		(ShiftExpression
 																			expr+=
 																			(AdditiveExpression
@@ -119,7 +144,7 @@ RIGHTBRACE NEWLINE
 																								(PrimaryExpression
 																									const=
 																									(Constant
-																										ch++"'a'"
+																										dec++"0"
 																									)
 																								)
 																							)
@@ -138,73 +163,37 @@ RIGHTBRACE NEWLINE
 										)
 									)
 								), // end expression
-								return++"return",
-								semi++";"
-							)// end jump statement
-						)//end statement
-					)
-				)
-			)
-		), // end external declaration
-		(ExternalDeclaration 
-			functiondefHead=
-			(FunctionDefHead
-				funDeclSpecifiers=
-				(DeclarationSpecifiers
-					declarationSpecifier+=
-					(TypeSpecifier
-						name++"int"
-					)
-				),
-				funDeclarator=
-				(Declarator
-					declarator=
-					(DirectDeclarator
-						id++"doSomething2"
-					)
-				)
-			),
-			functionDefinition=
-			(FunctionDefinition
-				body=
-				(BodyStatement
-					blockList+=
-					(BlockList
-						statement+=
-						(Statement
-							stmt=
-							(JumpStatement
-								expr=
-								(Expression
-									exprExpr+=
-									(AssignmentExpression
+								ifStatement=
+								(Statement
+									stmt=
+									(JumpStatement
 										expr=
-										(ConditionalExpression
-											expr=
-											(LogicalOrExpression
-												expr+=
-												(LogicalAndExpression
-													expr+=
-													(InclusiveOrExpression
+										(Expression
+											exprExpr+=
+											(AssignmentExpression
+												expr=
+												(ConditionalExpression
+													expr=
+													(LogicalOrExpression
 														expr+=
-														(ExclusiveOrExpression
+														(LogicalAndExpression
 															expr+=
-															(AndExpression
+															(InclusiveOrExpression
 																expr+=
-																(EqualityExpression
+																(ExclusiveOrExpression
 																	expr+=
-																	(RelationalExpression
+																	(AndExpression
 																		expr+=
-																		(ShiftExpression
+																		(EqualityExpression
 																			expr+=
-																			(AdditiveExpression
+																			(RelationalExpression
 																				expr+=
-																				(MultiplicativeExpression
+																				(ShiftExpression
 																					expr+=
-																					(CastExpression
-																						expr=
-																						(UnaryExpression
-																							expr=
+																					(AdditiveExpression
+																						expr+=
+																						(MultiplicativeExpression
+																							expr+=
 																							(CastExpression
 																								expr=
 																								(UnaryExpression
@@ -214,15 +203,11 @@ RIGHTBRACE NEWLINE
 																										(PrimaryExpression
 																											const=
 																											(Constant
-																												dec++"1"
+																												dec++"0"
 																											)
 																										)
 																									)
 																								)
-																							), // end cast expression
-																							op=
-																							(UnaryOperator
-																								op++"-"
 																							)
 																						)
 																					)
@@ -236,82 +221,81 @@ RIGHTBRACE NEWLINE
 													)
 												)
 											)
-										)
-									)
-								), // end expression
-								return++"return",
-								semi++";"
-							)// end jump statement
-						)//end statement
-					)
-				)
-			)
-		),// end external declaration
-		(ExternalDeclaration 
-			functiondefHead=
-			(FunctionDefHead
-				funDeclSpecifiers=
-				(DeclarationSpecifiers
-					declarationSpecifier+=
-					(TypeSpecifier
-						name++"double"
-					)
-				),
-				funDeclarator=
-				(Declarator
-					declarator=
-					(DirectDeclarator
-						id++"doSomething3"
-					)
-				)
-			),
-			functionDefinition=
-			(FunctionDefinition
-				body=
-				(BodyStatement
-					blockList+=
-					(BlockList
-						statement+=
-						(Statement
-							stmt=
-							(JumpStatement
-								expr=
-								(Expression
-									exprExpr+=
-									(AssignmentExpression
+										), // end expression
+										return++"return",
+										semi++";"
+									)// end jump statement
+								), // end ifStatement=Statement
+								// else if ...
+								elseStatement=
+								(Statement
+									stmt=
+									(SelectionStatement
+										if++"if",
 										expr=
-										(ConditionalExpression
-											expr=
-											(LogicalOrExpression
-												expr+=
-												(LogicalAndExpression
-													expr+=
-													(InclusiveOrExpression
+										(Expression
+											exprExpr+=
+											(AssignmentExpression
+												expr=
+												(ConditionalExpression
+													expr=
+													(LogicalOrExpression
 														expr+=
-														(ExclusiveOrExpression
+														(LogicalAndExpression
 															expr+=
-															(AndExpression
+															(InclusiveOrExpression
 																expr+=
-																(EqualityExpression
+																(ExclusiveOrExpression
 																	expr+=
-																	(RelationalExpression
+																	(AndExpression
 																		expr+=
-																		(ShiftExpression
+																		(EqualityExpression
+																			op+*"[==]",
 																			expr+=
-																			(AdditiveExpression
+																			(RelationalExpression
 																				expr+=
-																				(MultiplicativeExpression
+																				(ShiftExpression
 																					expr+=
-																					(CastExpression
-																						expr=
-																						(UnaryExpression
-																							expr=
-																							(PostfixExpression
-																								expr+=
-																								(PrimaryExpression
-																									const=
-																									(Constant
-																										float++"0.8"
+																					(AdditiveExpression
+																						expr+=
+																						(MultiplicativeExpression
+																							expr+=
+																							(CastExpression
+																								expr=
+																								(UnaryExpression
+																									expr=
+																									(PostfixExpression
+																										expr+=
+																										(PrimaryExpression
+																											id++"argc"
+																										)
+																									)
+																								)
+																							)
+																						)
+																					)
+																				)
+																			),
+																			(RelationalExpression
+																				expr+=
+																				(ShiftExpression
+																					expr+=
+																					(AdditiveExpression
+																						expr+=
+																						(MultiplicativeExpression
+																							expr+=
+																							(CastExpression
+																								expr=
+																								(UnaryExpression
+																									expr=
+																									(PostfixExpression
+																										expr+=
+																										(PrimaryExpression
+																											const=
+																											(Constant
+																												dec++"1"	
+																											)
+																										)
 																									)
 																								)
 																							)
@@ -327,82 +311,65 @@ RIGHTBRACE NEWLINE
 													)
 												)
 											)
-										)
-									)
-								), // end expression
-								return++"return",
-								semi++";"
-							)// end jump statement
-						)//end statement
-					)
-				)
-			)
-		),// end external declaration
-		(ExternalDeclaration 
-			functiondefHead=
-			(FunctionDefHead
-				funDeclSpecifiers=
-				(DeclarationSpecifiers
-					declarationSpecifier+=
-					(TypeSpecifier
-						name++"float"
-					)
-				),
-				funDeclarator=
-				(Declarator
-					declarator=
-					(DirectDeclarator
-						id++"doSomething4"
-					)
-				)
-			),
-			functionDefinition=
-			(FunctionDefinition
-				body=
-				(BodyStatement
-					blockList+=
-					(BlockList
-						statement+=
-						(Statement
-							stmt=
-							(JumpStatement
-								expr=
-								(Expression
-									exprExpr+=
-									(AssignmentExpression
-										expr=
-										(ConditionalExpression
-											expr=
-											(LogicalOrExpression
-												expr+=
-												(LogicalAndExpression
-													expr+=
-													(InclusiveOrExpression
-														expr+=
-														(ExclusiveOrExpression
-															expr+=
-															(AndExpression
-																expr+=
-																(EqualityExpression
-																	expr+=
-																	(RelationalExpression
-																		expr+=
-																		(ShiftExpression
-																			expr+=
-																			(AdditiveExpression
+										), // end expression
+										else++"else",
+										ifStatement=
+										(Statement
+											stmt=
+											(CompoundStatement
+												body=
+												(BodyStatement
+													blockList+=
+													(BlockList
+														statement+=
+														(Statement
+															stmt=
+															(JumpStatement
+																expr=
+																(Expression
+																	exprExpr+=
+																	(AssignmentExpression
+																		expr=
+																		(ConditionalExpression
+																			expr=
+																			(LogicalOrExpression
 																				expr+=
-																				(MultiplicativeExpression
+																				(LogicalAndExpression
 																					expr+=
-																					(CastExpression
-																						expr=
-																						(UnaryExpression
-																							expr=
-																							(PostfixExpression
+																					(InclusiveOrExpression
+																						expr+=
+																						(ExclusiveOrExpression
+																							expr+=
+																							(AndExpression
 																								expr+=
-																								(PrimaryExpression
-																									const=
-																									(Constant
-																										hex++"0x01A"
+																								(EqualityExpression
+																									expr+=
+																									(RelationalExpression
+																										expr+=
+																										(ShiftExpression
+																											expr+=
+																											(AdditiveExpression
+																												expr+=
+																												(MultiplicativeExpression
+																													expr+=
+																													(CastExpression
+																														expr=
+																														(UnaryExpression
+																															expr=
+																															(PostfixExpression
+																																expr+=
+																																(PrimaryExpression
+																																	const=
+																																	(Constant
+																																		dec++"1"
+																																	)
+																																)
+																															)
+																														)
+																													)
+																												)
+																											)
+																										)
 																									)
 																								)
 																							)
@@ -412,60 +379,97 @@ RIGHTBRACE NEWLINE
 																			)
 																		)
 																	)
-																)
-															)
+																), // end expression
+																return++"return",
+																semi++";"
+															)// end jump statement
 														)
 													)
 												)
-											)
-										)
-									)
-								), // end expression
-								return++"return",
-								semi++";"
-							)// end jump statement
+											) // end compound statement
+										), // end ifStatement=Statement
+										elseStatement=
+										(Statement
+											stmt=
+											(CompoundStatement
+												body=
+												(BodyStatement
+													blockList+=
+													(BlockList
+														statement+=
+														(Statement
+															stmt=
+															(JumpStatement
+																expr=
+																(Expression
+																	exprExpr+=
+																	(AssignmentExpression
+																		expr=
+																		(ConditionalExpression
+																			expr=
+																			(LogicalOrExpression
+																				expr+=
+																				(LogicalAndExpression
+																					expr+=
+																					(InclusiveOrExpression
+																						expr+=
+																						(ExclusiveOrExpression
+																							expr+=
+																							(AndExpression
+																								expr+=
+																								(EqualityExpression
+																									expr+=
+																									(RelationalExpression
+																										expr+=
+																										(ShiftExpression
+																											expr+=
+																											(AdditiveExpression
+																												expr+=
+																												(MultiplicativeExpression
+																													expr+=
+																													(CastExpression
+																														expr=
+																														(UnaryExpression
+																															expr=
+																															(PostfixExpression
+																																expr+=
+																																(PrimaryExpression
+																																	const=
+																																	(Constant
+																																		dec++"2"
+																																	)
+																																)
+																															)
+																														)
+																													)
+																												)
+																											)
+																										)
+																									)
+																								)
+																							)
+																						)
+																					)
+																				)
+																			)
+																		)
+																	)
+																), // end expression
+																return++"return",
+																semi++";"
+															)// end jump statement
+														)
+													)
+												)
+											) // end compound statement
+										) // end elseStatement=Statement
+									) // selection statement
+								) // elseStatement=Statement
+							)// end selection statement
 						)//end statement
 					)
 				)
 			)
-		),// end external declaration
-		(ExternalDeclaration 
-			functiondefHead=
-			(FunctionDefHead
-				funDeclSpecifiers=
-				(DeclarationSpecifiers
-					declarationSpecifier+=
-					(TypeSpecifier
-						name++"void"
-					)
-				),
-				funDeclarator=
-				(Declarator
-					declarator=
-					(DirectDeclarator
-						id++"doSomething5"
-					)
-				)
-			),
-			functionDefinition=
-			(FunctionDefinition
-				body=
-				(BodyStatement
-					blockList+=
-					(BlockList
-						statement+=
-						(Statement
-							stmt=
-							(JumpStatement
-								// no expression
-								return++"return",
-								semi++";"
-							)// end jump statement
-						)//end statement
-					)
-				)
-			)
-		)// end external declaration
-		
+		)// end external declaration		
 	)
 )

@@ -513,11 +513,12 @@ Statement:
 	|	stmt=SelectionStatement
 /*	|	stmt=iterationStatement
 	*/
-	| stmt=JumpStatement /*
+	| stmt=JumpStatement 
+	/*
 	|	('__asm' | '__asm__') (VOLATILE | '__volatile__') 
 			LEFTPAREN (expr+=logicalOrExpression (COMMA logicalExpr+=logicalOrExpression)*)? 
 			(COLON (expr+=logicalOrExpression (COMMA logicalExpr+=logicalOrExpression)*)?)* RIGHTPAREN SEMI
- */
+ 	*/
 		)
 ;
 

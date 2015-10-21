@@ -1114,13 +1114,22 @@ public interface CPackage extends EPackage
   int JUMP_STATEMENT__SEMI = 2;
 
   /**
+   * The feature id for the '<em><b>Goto</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JUMP_STATEMENT__GOTO = 3;
+
+  /**
    * The number of structural features of the '<em>Jump Statement</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int JUMP_STATEMENT_FEATURE_COUNT = 3;
+  int JUMP_STATEMENT_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.c.impl.ExpressionImpl <em>Expression</em>}' class.
@@ -1317,6 +1326,52 @@ public interface CPackage extends EPackage
   int CONSTANT_FEATURE_COUNT = 7;
 
   /**
+   * The meta object id for the '{@link at.jku.weiner.c.c.impl.LabeledStatementImpl <em>Labeled Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.c.c.impl.LabeledStatementImpl
+   * @see at.jku.weiner.c.c.impl.CPackageImpl#getLabeledStatement()
+   * @generated
+   */
+  int LABELED_STATEMENT = 36;
+
+  /**
+   * The feature id for the '<em><b>Stmt</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LABELED_STATEMENT__STMT = STATEMENT__STMT;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LABELED_STATEMENT__ID = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>LStmt</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LABELED_STATEMENT__LSTMT = STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Labeled Statement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LABELED_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
+
+  /**
    * The meta object id for the '{@link at.jku.weiner.c.c.impl.CompoundStatementImpl <em>Compound Statement</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1324,7 +1379,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getCompoundStatement()
    * @generated
    */
-  int COMPOUND_STATEMENT = 36;
+  int COMPOUND_STATEMENT = 37;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -1361,7 +1416,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getBodyStatement()
    * @generated
    */
-  int BODY_STATEMENT = 37;
+  int BODY_STATEMENT = 38;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -1398,7 +1453,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getAssignmentExpression()
    * @generated
    */
-  int ASSIGNMENT_EXPRESSION = 38;
+  int ASSIGNMENT_EXPRESSION = 39;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -1453,7 +1508,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getConditionalExpression()
    * @generated
    */
-  int CONDITIONAL_EXPRESSION = 39;
+  int CONDITIONAL_EXPRESSION = 40;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -1508,7 +1563,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getLogicalOrExpression()
    * @generated
    */
-  int LOGICAL_OR_EXPRESSION = 40;
+  int LOGICAL_OR_EXPRESSION = 41;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -1545,7 +1600,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getLogicalAndExpression()
    * @generated
    */
-  int LOGICAL_AND_EXPRESSION = 41;
+  int LOGICAL_AND_EXPRESSION = 42;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -1582,7 +1637,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getInclusiveOrExpression()
    * @generated
    */
-  int INCLUSIVE_OR_EXPRESSION = 42;
+  int INCLUSIVE_OR_EXPRESSION = 43;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -1619,7 +1674,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getExclusiveOrExpression()
    * @generated
    */
-  int EXCLUSIVE_OR_EXPRESSION = 43;
+  int EXCLUSIVE_OR_EXPRESSION = 44;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -1656,7 +1711,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getAndExpression()
    * @generated
    */
-  int AND_EXPRESSION = 44;
+  int AND_EXPRESSION = 45;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -1693,7 +1748,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getEqualityExpression()
    * @generated
    */
-  int EQUALITY_EXPRESSION = 45;
+  int EQUALITY_EXPRESSION = 46;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -1739,7 +1794,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getRelationalExpression()
    * @generated
    */
-  int RELATIONAL_EXPRESSION = 46;
+  int RELATIONAL_EXPRESSION = 47;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -1785,7 +1840,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getShiftExpression()
    * @generated
    */
-  int SHIFT_EXPRESSION = 47;
+  int SHIFT_EXPRESSION = 48;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -1831,7 +1886,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getAdditiveExpression()
    * @generated
    */
-  int ADDITIVE_EXPRESSION = 48;
+  int ADDITIVE_EXPRESSION = 49;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -1877,7 +1932,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getMultiplicativeExpression()
    * @generated
    */
-  int MULTIPLICATIVE_EXPRESSION = 49;
+  int MULTIPLICATIVE_EXPRESSION = 50;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -1923,7 +1978,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getCastExpression()
    * @generated
    */
-  int CAST_EXPRESSION = 50;
+  int CAST_EXPRESSION = 51;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -1969,7 +2024,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getUnaryExpression()
    * @generated
    */
-  int UNARY_EXPRESSION = 51;
+  int UNARY_EXPRESSION = 52;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2015,7 +2070,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getPostfixExpression()
    * @generated
    */
-  int POSTFIX_EXPRESSION = 52;
+  int POSTFIX_EXPRESSION = 53;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2070,7 +2125,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getPrimaryExpression()
    * @generated
    */
-  int PRIMARY_EXPRESSION = 53;
+  int PRIMARY_EXPRESSION = 54;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -3012,6 +3067,17 @@ public interface CPackage extends EPackage
   EAttribute getJumpStatement_Semi();
 
   /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.c.JumpStatement#getGoto <em>Goto</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Goto</em>'.
+   * @see at.jku.weiner.c.c.JumpStatement#getGoto()
+   * @see #getJumpStatement()
+   * @generated
+   */
+  EAttribute getJumpStatement_Goto();
+
+  /**
    * Returns the meta object for class '{@link at.jku.weiner.c.c.Expression <em>Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3181,6 +3247,38 @@ public interface CPackage extends EPackage
    * @generated
    */
   EAttribute getConstant_Bin();
+
+  /**
+   * Returns the meta object for class '{@link at.jku.weiner.c.c.LabeledStatement <em>Labeled Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Labeled Statement</em>'.
+   * @see at.jku.weiner.c.c.LabeledStatement
+   * @generated
+   */
+  EClass getLabeledStatement();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.c.LabeledStatement#getId <em>Id</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Id</em>'.
+   * @see at.jku.weiner.c.c.LabeledStatement#getId()
+   * @see #getLabeledStatement()
+   * @generated
+   */
+  EAttribute getLabeledStatement_Id();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.c.LabeledStatement#getLStmt <em>LStmt</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>LStmt</em>'.
+   * @see at.jku.weiner.c.c.LabeledStatement#getLStmt()
+   * @see #getLabeledStatement()
+   * @generated
+   */
+  EReference getLabeledStatement_LStmt();
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.c.c.CompoundStatement <em>Compound Statement</em>}'.
@@ -4483,6 +4581,14 @@ public interface CPackage extends EPackage
     EAttribute JUMP_STATEMENT__SEMI = eINSTANCE.getJumpStatement_Semi();
 
     /**
+     * The meta object literal for the '<em><b>Goto</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute JUMP_STATEMENT__GOTO = eINSTANCE.getJumpStatement_Goto();
+
+    /**
      * The meta object literal for the '{@link at.jku.weiner.c.c.impl.ExpressionImpl <em>Expression</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4619,6 +4725,32 @@ public interface CPackage extends EPackage
      * @generated
      */
     EAttribute CONSTANT__BIN = eINSTANCE.getConstant_Bin();
+
+    /**
+     * The meta object literal for the '{@link at.jku.weiner.c.c.impl.LabeledStatementImpl <em>Labeled Statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.c.c.impl.LabeledStatementImpl
+     * @see at.jku.weiner.c.c.impl.CPackageImpl#getLabeledStatement()
+     * @generated
+     */
+    EClass LABELED_STATEMENT = eINSTANCE.getLabeledStatement();
+
+    /**
+     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LABELED_STATEMENT__ID = eINSTANCE.getLabeledStatement_Id();
+
+    /**
+     * The meta object literal for the '<em><b>LStmt</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LABELED_STATEMENT__LSTMT = eINSTANCE.getLabeledStatement_LStmt();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.c.impl.CompoundStatementImpl <em>Compound Statement</em>}' class.

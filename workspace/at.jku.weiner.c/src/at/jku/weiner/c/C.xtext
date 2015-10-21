@@ -498,9 +498,8 @@ initializerList: designation? (initializer=initializer)
 Statement:
 	{Statement}
 	(
-	//stmt=labeledStatement
-	//|
-		stmt=CompoundStatement
+		stmt=LabeledStatement
+	|	stmt=CompoundStatement
 	|	stmt=ExpressionStatement
 /*	|	stmt=selectionStatement
 	|	stmt=iterationStatement
@@ -512,13 +511,15 @@ Statement:
  */
 		)
 ;
-/*
-labeledStatement returns statement:
-	IDENTIFIER COLON statement
-	|	CASE constantExpression COLON statement=statement
+
+LabeledStatement returns Statement:
+	{LabeledStatement}
+	id=ID COLON lStmt=Statement
+/*/	|	CASE constantExpression COLON statement=statement
 	|	DEFAULT COLON statement
-;
 */
+;
+
 
 CompoundStatement returns Statement:
 	{CompoundStatement}
@@ -574,8 +575,8 @@ JumpStatement:
 	//|	CONTINUE SEMI
 	//|	BREAK SEMI
 	//|
-	return=KW_RETURN expr=Expression? semi=SEMI
-	//|	GOTO expr=unaryExpression SEMI // GCC extension
+		return=KW_RETURN expr=Expression? semi=SEMI
+	|	goto=KW_GOTO expr=UnaryExpression semi=SEMI // GCC extension
 	)
 ;
 

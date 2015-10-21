@@ -100,6 +100,7 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
       case CPackage.UNARY_OPERATOR: return createUnaryOperator();
       case CPackage.ARGUMENT_EXPRESSION_LIST: return createArgumentExpressionList();
       case CPackage.CONSTANT: return createConstant();
+      case CPackage.LABELED_STATEMENT: return createLabeledStatement();
       case CPackage.COMPOUND_STATEMENT: return createCompoundStatement();
       case CPackage.BODY_STATEMENT: return createBodyStatement();
       case CPackage.ASSIGNMENT_EXPRESSION: return createAssignmentExpression();
@@ -517,6 +518,17 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
   {
     ConstantImpl constant = new ConstantImpl();
     return constant;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LabeledStatement createLabeledStatement()
+  {
+    LabeledStatementImpl labeledStatement = new LabeledStatementImpl();
+    return labeledStatement;
   }
 
   /**

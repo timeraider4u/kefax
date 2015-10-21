@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link at.jku.weiner.c.c.JumpStatement#getReturn <em>Return</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.JumpStatement#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.JumpStatement#getSemi <em>Semi</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.JumpStatement#getGoto <em>Goto</em>}</li>
  * </ul>
  * </p>
  *
@@ -101,5 +102,31 @@ public interface JumpStatement extends EObject
    * @generated
    */
   void setSemi(String value);
+
+  /**
+   * Returns the value of the '<em><b>Goto</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Goto</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Goto</em>' attribute.
+   * @see #setGoto(String)
+   * @see at.jku.weiner.c.c.CPackage#getJumpStatement_Goto()
+   * @model
+   * @generated
+   */
+  String getGoto();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.c.JumpStatement#getGoto <em>Goto</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Goto</em>' attribute.
+   * @see #getGoto()
+   * @generated
+   */
+  void setGoto(String value);
 
 } // JumpStatement

@@ -347,6 +347,15 @@ public interface CFactory extends EFactory
   Constant createConstant();
 
   /**
+   * Returns a new object of class '<em>Labeled Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Labeled Statement</em>'.
+   * @generated
+   */
+  LabeledStatement createLabeledStatement();
+
+  /**
    * Returns a new object of class '<em>Compound Statement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

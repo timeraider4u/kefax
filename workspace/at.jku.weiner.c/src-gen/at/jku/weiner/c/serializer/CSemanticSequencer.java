@@ -34,6 +34,7 @@ import at.jku.weiner.c.c.InitDeclarator;
 import at.jku.weiner.c.c.InitDeclaratorList;
 import at.jku.weiner.c.c.Initializer;
 import at.jku.weiner.c.c.JumpStatement;
+import at.jku.weiner.c.c.LabeledStatement;
 import at.jku.weiner.c.c.LogicalAndExpression;
 import at.jku.weiner.c.c.LogicalOrExpression;
 import at.jku.weiner.c.c.Model;
@@ -171,6 +172,9 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case CPackage.JUMP_STATEMENT:
 				sequence_JumpStatement(context, (JumpStatement) semanticObject); 
+				return; 
+			case CPackage.LABELED_STATEMENT:
+				sequence_LabeledStatement(context, (LabeledStatement) semanticObject); 
 				return; 
 			case CPackage.LOGICAL_AND_EXPRESSION:
 				sequence_LogicalAndExpression(context, (LogicalAndExpression) semanticObject); 
@@ -539,9 +543,18 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (return=KW_RETURN expr=Expression? semi=SEMI)
+	 *     ((return=KW_RETURN expr=Expression? semi=SEMI) | (goto=KW_GOTO expr=UnaryExpression semi=SEMI))
 	 */
 	protected void sequence_JumpStatement(EObject context, JumpStatement semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (id=ID lStmt=Statement)
+	 */
+	protected void sequence_LabeledStatement(EObject context, LabeledStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -688,7 +701,7 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (stmt=CompoundStatement | stmt=ExpressionStatement | stmt=JumpStatement)
+	 *     (stmt=LabeledStatement | stmt=CompoundStatement | stmt=ExpressionStatement | stmt=JumpStatement)
 	 */
 	protected void sequence_Statement(EObject context, Statement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

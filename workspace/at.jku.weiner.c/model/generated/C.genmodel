@@ -121,6 +121,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//JumpStatement/return"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//JumpStatement/expr"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//JumpStatement/semi"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//JumpStatement/goto"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//Expression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//Expression/exprExpr"/>
@@ -142,6 +143,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//Constant/str"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//Constant/float"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//Constant/bin"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//LabeledStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//LabeledStatement/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//LabeledStatement/lStmt"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//CompoundStatement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//CompoundStatement/body"/>

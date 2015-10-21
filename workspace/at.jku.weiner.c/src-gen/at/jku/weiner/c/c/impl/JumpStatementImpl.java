@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link at.jku.weiner.c.c.impl.JumpStatementImpl#getReturn <em>Return</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.JumpStatementImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.JumpStatementImpl#getSemi <em>Semi</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.impl.JumpStatementImpl#getGoto <em>Goto</em>}</li>
  * </ul>
  * </p>
  *
@@ -81,6 +82,26 @@ public class JumpStatementImpl extends MinimalEObjectImpl.Container implements J
    * @ordered
    */
   protected String semi = SEMI_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getGoto() <em>Goto</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getGoto()
+   * @generated
+   * @ordered
+   */
+  protected static final String GOTO_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getGoto() <em>Goto</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getGoto()
+   * @generated
+   * @ordered
+   */
+  protected String goto_ = GOTO_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -202,6 +223,29 @@ public class JumpStatementImpl extends MinimalEObjectImpl.Container implements J
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getGoto()
+  {
+    return goto_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setGoto(String newGoto)
+  {
+    String oldGoto = goto_;
+    goto_ = newGoto;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CPackage.JUMP_STATEMENT__GOTO, oldGoto, goto_));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -229,6 +273,8 @@ public class JumpStatementImpl extends MinimalEObjectImpl.Container implements J
         return getExpr();
       case CPackage.JUMP_STATEMENT__SEMI:
         return getSemi();
+      case CPackage.JUMP_STATEMENT__GOTO:
+        return getGoto();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -251,6 +297,9 @@ public class JumpStatementImpl extends MinimalEObjectImpl.Container implements J
         return;
       case CPackage.JUMP_STATEMENT__SEMI:
         setSemi((String)newValue);
+        return;
+      case CPackage.JUMP_STATEMENT__GOTO:
+        setGoto((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -275,6 +324,9 @@ public class JumpStatementImpl extends MinimalEObjectImpl.Container implements J
       case CPackage.JUMP_STATEMENT__SEMI:
         setSemi(SEMI_EDEFAULT);
         return;
+      case CPackage.JUMP_STATEMENT__GOTO:
+        setGoto(GOTO_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -295,6 +347,8 @@ public class JumpStatementImpl extends MinimalEObjectImpl.Container implements J
         return expr != null;
       case CPackage.JUMP_STATEMENT__SEMI:
         return SEMI_EDEFAULT == null ? semi != null : !SEMI_EDEFAULT.equals(semi);
+      case CPackage.JUMP_STATEMENT__GOTO:
+        return GOTO_EDEFAULT == null ? goto_ != null : !GOTO_EDEFAULT.equals(goto_);
     }
     return super.eIsSet(featureID);
   }
@@ -314,6 +368,8 @@ public class JumpStatementImpl extends MinimalEObjectImpl.Container implements J
     result.append(return_);
     result.append(", semi: ");
     result.append(semi);
+    result.append(", goto: ");
+    result.append(goto_);
     result.append(')');
     return result.toString();
   }

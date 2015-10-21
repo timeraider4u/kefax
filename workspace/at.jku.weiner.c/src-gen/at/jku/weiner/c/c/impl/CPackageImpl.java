@@ -34,6 +34,7 @@ import at.jku.weiner.c.c.InitDeclarator;
 import at.jku.weiner.c.c.InitDeclaratorList;
 import at.jku.weiner.c.c.Initializer;
 import at.jku.weiner.c.c.JumpStatement;
+import at.jku.weiner.c.c.LabeledStatement;
 import at.jku.weiner.c.c.LogicalAndExpression;
 import at.jku.weiner.c.c.LogicalOrExpression;
 import at.jku.weiner.c.c.Model;
@@ -326,6 +327,13 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * @generated
    */
   private EClass constantEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass labeledStatementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1364,6 +1372,16 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getJumpStatement_Goto()
+  {
+    return (EAttribute)jumpStatementEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getExpression()
   {
     return expressionEClass;
@@ -1517,6 +1535,36 @@ public class CPackageImpl extends EPackageImpl implements CPackage
   public EAttribute getConstant_Bin()
   {
     return (EAttribute)constantEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getLabeledStatement()
+  {
+    return labeledStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getLabeledStatement_Id()
+  {
+    return (EAttribute)labeledStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLabeledStatement_LStmt()
+  {
+    return (EReference)labeledStatementEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2173,6 +2221,7 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     createEAttribute(jumpStatementEClass, JUMP_STATEMENT__RETURN);
     createEReference(jumpStatementEClass, JUMP_STATEMENT__EXPR);
     createEAttribute(jumpStatementEClass, JUMP_STATEMENT__SEMI);
+    createEAttribute(jumpStatementEClass, JUMP_STATEMENT__GOTO);
 
     expressionEClass = createEClass(EXPRESSION);
     createEReference(expressionEClass, EXPRESSION__EXPR_EXPR);
@@ -2194,6 +2243,10 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     createEAttribute(constantEClass, CONSTANT__STR);
     createEAttribute(constantEClass, CONSTANT__FLOAT);
     createEAttribute(constantEClass, CONSTANT__BIN);
+
+    labeledStatementEClass = createEClass(LABELED_STATEMENT);
+    createEAttribute(labeledStatementEClass, LABELED_STATEMENT__ID);
+    createEReference(labeledStatementEClass, LABELED_STATEMENT__LSTMT);
 
     compoundStatementEClass = createEClass(COMPOUND_STATEMENT);
     createEReference(compoundStatementEClass, COMPOUND_STATEMENT__BODY);
@@ -2297,6 +2350,7 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    labeledStatementEClass.getESuperTypes().add(this.getStatement());
     compoundStatementEClass.getESuperTypes().add(this.getStatement());
     bodyStatementEClass.getESuperTypes().add(this.getStatement());
     assignmentExpressionEClass.getESuperTypes().add(this.getExpression());
@@ -2431,6 +2485,7 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     initEAttribute(getJumpStatement_Return(), theEcorePackage.getEString(), "return", null, 0, 1, JumpStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getJumpStatement_Expr(), this.getExpression(), null, "expr", null, 0, 1, JumpStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getJumpStatement_Semi(), theEcorePackage.getEString(), "semi", null, 0, 1, JumpStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getJumpStatement_Goto(), theEcorePackage.getEString(), "goto", null, 0, 1, JumpStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getExpression_ExprExpr(), this.getExpression(), null, "exprExpr", null, 0, -1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2452,6 +2507,10 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     initEAttribute(getConstant_Str(), theEcorePackage.getEString(), "str", null, 0, 1, Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getConstant_Float(), theEcorePackage.getEString(), "float", null, 0, 1, Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getConstant_Bin(), theEcorePackage.getEString(), "bin", null, 0, 1, Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(labeledStatementEClass, LabeledStatement.class, "LabeledStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getLabeledStatement_Id(), theEcorePackage.getEString(), "id", null, 0, 1, LabeledStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLabeledStatement_LStmt(), this.getStatement(), null, "lStmt", null, 0, 1, LabeledStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(compoundStatementEClass, CompoundStatement.class, "CompoundStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getCompoundStatement_Body(), this.getStatement(), null, "body", null, 0, 1, CompoundStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -255,6 +255,11 @@ public class CAdapterFactory extends AdapterFactoryImpl
         return createConstantAdapter();
       }
       @Override
+      public Adapter caseLabeledStatement(LabeledStatement object)
+      {
+        return createLabeledStatementAdapter();
+      }
+      @Override
       public Adapter caseCompoundStatement(CompoundStatement object)
       {
         return createCompoundStatementAdapter();
@@ -902,6 +907,21 @@ public class CAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createConstantAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.LabeledStatement <em>Labeled Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.c.LabeledStatement
+   * @generated
+   */
+  public Adapter createLabeledStatementAdapter()
   {
     return null;
   }

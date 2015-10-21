@@ -277,8 +277,9 @@ enumerator:
 	{enumerator} 
 	enumerationCONSTANT
 	(ASSIGN constExpr=constantExpression)?
-;
+;*/
 
+/*
 atomicTypeSpecifier returns declarationSpecifier:
 	ATOMIC LEFTPAREN typeName RIGHTPAREN
 ;

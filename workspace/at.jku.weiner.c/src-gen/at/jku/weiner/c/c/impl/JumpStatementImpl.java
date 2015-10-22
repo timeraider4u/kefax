@@ -22,8 +22,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link at.jku.weiner.c.c.impl.JumpStatementImpl#getBreak <em>Break</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.impl.JumpStatementImpl#getContinue <em>Continue</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.JumpStatementImpl#getSemi <em>Semi</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.impl.JumpStatementImpl#getBreak <em>Break</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.JumpStatementImpl#getReturn <em>Return</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.JumpStatementImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.JumpStatementImpl#getGoto <em>Goto</em>}</li>
@@ -34,24 +35,24 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public class JumpStatementImpl extends StatementImpl implements JumpStatement
 {
   /**
-   * The default value of the '{@link #getBreak() <em>Break</em>}' attribute.
+   * The default value of the '{@link #getContinue() <em>Continue</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getBreak()
+   * @see #getContinue()
    * @generated
    * @ordered
    */
-  protected static final String BREAK_EDEFAULT = null;
+  protected static final String CONTINUE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getBreak() <em>Break</em>}' attribute.
+   * The cached value of the '{@link #getContinue() <em>Continue</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getBreak()
+   * @see #getContinue()
    * @generated
    * @ordered
    */
-  protected String break_ = BREAK_EDEFAULT;
+  protected String continue_ = CONTINUE_EDEFAULT;
 
   /**
    * The default value of the '{@link #getSemi() <em>Semi</em>}' attribute.
@@ -72,6 +73,26 @@ public class JumpStatementImpl extends StatementImpl implements JumpStatement
    * @ordered
    */
   protected String semi = SEMI_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getBreak() <em>Break</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBreak()
+   * @generated
+   * @ordered
+   */
+  protected static final String BREAK_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getBreak() <em>Break</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBreak()
+   * @generated
+   * @ordered
+   */
+  protected String break_ = BREAK_EDEFAULT;
 
   /**
    * The default value of the '{@link #getReturn() <em>Return</em>}' attribute.
@@ -149,9 +170,9 @@ public class JumpStatementImpl extends StatementImpl implements JumpStatement
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getBreak()
+  public String getContinue()
   {
-    return break_;
+    return continue_;
   }
 
   /**
@@ -159,12 +180,12 @@ public class JumpStatementImpl extends StatementImpl implements JumpStatement
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setBreak(String newBreak)
+  public void setContinue(String newContinue)
   {
-    String oldBreak = break_;
-    break_ = newBreak;
+    String oldContinue = continue_;
+    continue_ = newContinue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, CPackage.JUMP_STATEMENT__BREAK, oldBreak, break_));
+      eNotify(new ENotificationImpl(this, Notification.SET, CPackage.JUMP_STATEMENT__CONTINUE, oldContinue, continue_));
   }
 
   /**
@@ -188,6 +209,29 @@ public class JumpStatementImpl extends StatementImpl implements JumpStatement
     semi = newSemi;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, CPackage.JUMP_STATEMENT__SEMI, oldSemi, semi));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getBreak()
+  {
+    return break_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setBreak(String newBreak)
+  {
+    String oldBreak = break_;
+    break_ = newBreak;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CPackage.JUMP_STATEMENT__BREAK, oldBreak, break_));
   }
 
   /**
@@ -310,10 +354,12 @@ public class JumpStatementImpl extends StatementImpl implements JumpStatement
   {
     switch (featureID)
     {
-      case CPackage.JUMP_STATEMENT__BREAK:
-        return getBreak();
+      case CPackage.JUMP_STATEMENT__CONTINUE:
+        return getContinue();
       case CPackage.JUMP_STATEMENT__SEMI:
         return getSemi();
+      case CPackage.JUMP_STATEMENT__BREAK:
+        return getBreak();
       case CPackage.JUMP_STATEMENT__RETURN:
         return getReturn();
       case CPackage.JUMP_STATEMENT__EXPR:
@@ -334,11 +380,14 @@ public class JumpStatementImpl extends StatementImpl implements JumpStatement
   {
     switch (featureID)
     {
-      case CPackage.JUMP_STATEMENT__BREAK:
-        setBreak((String)newValue);
+      case CPackage.JUMP_STATEMENT__CONTINUE:
+        setContinue((String)newValue);
         return;
       case CPackage.JUMP_STATEMENT__SEMI:
         setSemi((String)newValue);
+        return;
+      case CPackage.JUMP_STATEMENT__BREAK:
+        setBreak((String)newValue);
         return;
       case CPackage.JUMP_STATEMENT__RETURN:
         setReturn((String)newValue);
@@ -363,11 +412,14 @@ public class JumpStatementImpl extends StatementImpl implements JumpStatement
   {
     switch (featureID)
     {
-      case CPackage.JUMP_STATEMENT__BREAK:
-        setBreak(BREAK_EDEFAULT);
+      case CPackage.JUMP_STATEMENT__CONTINUE:
+        setContinue(CONTINUE_EDEFAULT);
         return;
       case CPackage.JUMP_STATEMENT__SEMI:
         setSemi(SEMI_EDEFAULT);
+        return;
+      case CPackage.JUMP_STATEMENT__BREAK:
+        setBreak(BREAK_EDEFAULT);
         return;
       case CPackage.JUMP_STATEMENT__RETURN:
         setReturn(RETURN_EDEFAULT);
@@ -392,10 +444,12 @@ public class JumpStatementImpl extends StatementImpl implements JumpStatement
   {
     switch (featureID)
     {
-      case CPackage.JUMP_STATEMENT__BREAK:
-        return BREAK_EDEFAULT == null ? break_ != null : !BREAK_EDEFAULT.equals(break_);
+      case CPackage.JUMP_STATEMENT__CONTINUE:
+        return CONTINUE_EDEFAULT == null ? continue_ != null : !CONTINUE_EDEFAULT.equals(continue_);
       case CPackage.JUMP_STATEMENT__SEMI:
         return SEMI_EDEFAULT == null ? semi != null : !SEMI_EDEFAULT.equals(semi);
+      case CPackage.JUMP_STATEMENT__BREAK:
+        return BREAK_EDEFAULT == null ? break_ != null : !BREAK_EDEFAULT.equals(break_);
       case CPackage.JUMP_STATEMENT__RETURN:
         return RETURN_EDEFAULT == null ? return_ != null : !RETURN_EDEFAULT.equals(return_);
       case CPackage.JUMP_STATEMENT__EXPR:
@@ -417,10 +471,12 @@ public class JumpStatementImpl extends StatementImpl implements JumpStatement
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (break: ");
-    result.append(break_);
+    result.append(" (continue: ");
+    result.append(continue_);
     result.append(", semi: ");
     result.append(semi);
+    result.append(", break: ");
+    result.append(break_);
     result.append(", return: ");
     result.append(return_);
     result.append(", goto: ");

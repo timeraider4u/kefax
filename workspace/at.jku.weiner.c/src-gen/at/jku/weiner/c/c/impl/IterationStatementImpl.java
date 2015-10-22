@@ -3,6 +3,7 @@
 package at.jku.weiner.c.c.impl;
 
 import at.jku.weiner.c.c.CPackage;
+import at.jku.weiner.c.c.Declaration;
 import at.jku.weiner.c.c.Expression;
 import at.jku.weiner.c.c.IterationStatement;
 import at.jku.weiner.c.c.Statement;
@@ -31,6 +32,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link at.jku.weiner.c.c.impl.IterationStatementImpl#getFor <em>For</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.IterationStatementImpl#getInitExpr <em>Init Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.IterationStatementImpl#getIncExpr <em>Inc Expr</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.impl.IterationStatementImpl#getInitDecl <em>Init Decl</em>}</li>
  * </ul>
  *
  * @generated
@@ -156,6 +158,16 @@ public class IterationStatementImpl extends StatementImpl implements IterationSt
    * @ordered
    */
   protected Expression incExpr;
+
+  /**
+   * The cached value of the '{@link #getInitDecl() <em>Init Decl</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getInitDecl()
+   * @generated
+   * @ordered
+   */
+  protected Declaration initDecl;
 
   /**
    * <!-- begin-user-doc -->
@@ -467,6 +479,54 @@ public class IterationStatementImpl extends StatementImpl implements IterationSt
    * <!-- end-user-doc -->
    * @generated
    */
+  public Declaration getInitDecl()
+  {
+    return initDecl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetInitDecl(Declaration newInitDecl, NotificationChain msgs)
+  {
+    Declaration oldInitDecl = initDecl;
+    initDecl = newInitDecl;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CPackage.ITERATION_STATEMENT__INIT_DECL, oldInitDecl, newInitDecl);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setInitDecl(Declaration newInitDecl)
+  {
+    if (newInitDecl != initDecl)
+    {
+      NotificationChain msgs = null;
+      if (initDecl != null)
+        msgs = ((InternalEObject)initDecl).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CPackage.ITERATION_STATEMENT__INIT_DECL, null, msgs);
+      if (newInitDecl != null)
+        msgs = ((InternalEObject)newInitDecl).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CPackage.ITERATION_STATEMENT__INIT_DECL, null, msgs);
+      msgs = basicSetInitDecl(newInitDecl, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CPackage.ITERATION_STATEMENT__INIT_DECL, newInitDecl, newInitDecl));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -480,6 +540,8 @@ public class IterationStatementImpl extends StatementImpl implements IterationSt
         return basicSetInitExpr(null, msgs);
       case CPackage.ITERATION_STATEMENT__INC_EXPR:
         return basicSetIncExpr(null, msgs);
+      case CPackage.ITERATION_STATEMENT__INIT_DECL:
+        return basicSetInitDecl(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -510,6 +572,8 @@ public class IterationStatementImpl extends StatementImpl implements IterationSt
         return getInitExpr();
       case CPackage.ITERATION_STATEMENT__INC_EXPR:
         return getIncExpr();
+      case CPackage.ITERATION_STATEMENT__INIT_DECL:
+        return getInitDecl();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -547,6 +611,9 @@ public class IterationStatementImpl extends StatementImpl implements IterationSt
         return;
       case CPackage.ITERATION_STATEMENT__INC_EXPR:
         setIncExpr((Expression)newValue);
+        return;
+      case CPackage.ITERATION_STATEMENT__INIT_DECL:
+        setInitDecl((Declaration)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -586,6 +653,9 @@ public class IterationStatementImpl extends StatementImpl implements IterationSt
       case CPackage.ITERATION_STATEMENT__INC_EXPR:
         setIncExpr((Expression)null);
         return;
+      case CPackage.ITERATION_STATEMENT__INIT_DECL:
+        setInitDecl((Declaration)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -616,6 +686,8 @@ public class IterationStatementImpl extends StatementImpl implements IterationSt
         return initExpr != null;
       case CPackage.ITERATION_STATEMENT__INC_EXPR:
         return incExpr != null;
+      case CPackage.ITERATION_STATEMENT__INIT_DECL:
+        return initDecl != null;
     }
     return super.eIsSet(featureID);
   }

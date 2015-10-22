@@ -169,10 +169,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//IterationStatement/for"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//IterationStatement/initExpr"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//IterationStatement/incExpr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//IterationStatement/initDecl"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//JumpStatement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//JumpStatement/break"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//JumpStatement/continue"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//JumpStatement/semi"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//JumpStatement/break"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//JumpStatement/return"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//JumpStatement/expr"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//JumpStatement/goto"/>

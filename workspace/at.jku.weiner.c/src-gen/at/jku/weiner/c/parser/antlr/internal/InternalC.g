@@ -4083,6 +4083,136 @@ this_RIGHTPAREN_20=RULE_RIGHTPAREN
 
 )
 
+
+    |
+(
+(
+(
+		lv_for_22_0=RULE_KW_FOR
+		{
+			newLeafNode(lv_for_22_0, grammarAccess.getIterationStatementAccess().getForKW_FORTerminalRuleCall_1_3_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getIterationStatementRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"for",
+        		lv_for_22_0, 
+        		"at.jku.weiner.c.C.KW_FOR");
+	    }
+
+)
+)
+
+
+this_LEFTPAREN_23=RULE_LEFTPAREN
+    { 
+    newLeafNode(this_LEFTPAREN_23, grammarAccess.getIterationStatementAccess().getLEFTPARENTerminalRuleCall_1_3_1()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getIterationStatementAccess().getInitDeclDeclarationParserRuleCall_1_3_2_0()); 
+	    }
+		lv_initDecl_24_0=ruleDeclaration		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getIterationStatementRule());
+	        }
+       		set(
+       			$current, 
+       			"initDecl",
+        		lv_initDecl_24_0, 
+        		"at.jku.weiner.c.C.Declaration");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getIterationStatementAccess().getExprExpressionParserRuleCall_1_3_3_0()); 
+	    }
+		lv_expr_25_0=ruleExpression		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getIterationStatementRule());
+	        }
+       		set(
+       			$current, 
+       			"expr",
+        		lv_expr_25_0, 
+        		"at.jku.weiner.c.C.Expression");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)?
+
+
+this_SEMI_26=RULE_SEMI
+    { 
+    newLeafNode(this_SEMI_26, grammarAccess.getIterationStatementAccess().getSEMITerminalRuleCall_1_3_4()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getIterationStatementAccess().getIncExprExpressionParserRuleCall_1_3_5_0()); 
+	    }
+		lv_incExpr_27_0=ruleExpression		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getIterationStatementRule());
+	        }
+       		set(
+       			$current, 
+       			"incExpr",
+        		lv_incExpr_27_0, 
+        		"at.jku.weiner.c.C.Expression");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)?
+
+
+this_RIGHTPAREN_28=RULE_RIGHTPAREN
+    { 
+    newLeafNode(this_RIGHTPAREN_28, grammarAccess.getIterationStatementAccess().getRIGHTPARENTerminalRuleCall_1_3_6()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getIterationStatementAccess().getStatementStatementParserRuleCall_1_3_7_0()); 
+	    }
+		lv_statement_29_0=ruleStatement		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getIterationStatementRule());
+	        }
+       		set(
+       			$current, 
+       			"statement",
+        		lv_statement_29_0, 
+        		"at.jku.weiner.c.C.Statement");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+)
+
 )
 
 )
@@ -4129,9 +4259,9 @@ ruleJumpStatement returns [EObject current=null]
 (
 (
 (
-		lv_break_1_0=RULE_KW_BREAK
+		lv_continue_1_0=RULE_KW_CONTINUE
 		{
-			newLeafNode(lv_break_1_0, grammarAccess.getJumpStatementAccess().getBreakKW_BREAKTerminalRuleCall_1_0_0_0()); 
+			newLeafNode(lv_continue_1_0, grammarAccess.getJumpStatementAccess().getContinueKW_CONTINUETerminalRuleCall_1_0_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -4139,9 +4269,9 @@ ruleJumpStatement returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"break",
-        		lv_break_1_0, 
-        		"at.jku.weiner.c.C.KW_BREAK");
+       			"continue",
+        		lv_continue_1_0, 
+        		"at.jku.weiner.c.C.KW_CONTINUE");
 	    }
 
 )
@@ -4175,9 +4305,9 @@ ruleJumpStatement returns [EObject current=null]
 (
 (
 (
-		lv_return_3_0=RULE_KW_RETURN
+		lv_break_3_0=RULE_KW_BREAK
 		{
-			newLeafNode(lv_return_3_0, grammarAccess.getJumpStatementAccess().getReturnKW_RETURNTerminalRuleCall_1_1_0_0()); 
+			newLeafNode(lv_break_3_0, grammarAccess.getJumpStatementAccess().getBreakKW_BREAKTerminalRuleCall_1_1_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -4185,9 +4315,9 @@ ruleJumpStatement returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"return",
-        		lv_return_3_0, 
-        		"at.jku.weiner.c.C.KW_RETURN");
+       			"break",
+        		lv_break_3_0, 
+        		"at.jku.weiner.c.C.KW_BREAK");
 	    }
 
 )
@@ -4196,30 +4326,9 @@ ruleJumpStatement returns [EObject current=null]
 
 (
 (
-		{ 
-	        newCompositeNode(grammarAccess.getJumpStatementAccess().getExprExpressionParserRuleCall_1_1_1_0()); 
-	    }
-		lv_expr_4_0=ruleExpression		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getJumpStatementRule());
-	        }
-       		set(
-       			$current, 
-       			"expr",
-        		lv_expr_4_0, 
-        		"at.jku.weiner.c.C.Expression");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)?
-
-
-(
-(
-		lv_semi_5_0=RULE_SEMI
+		lv_semi_4_0=RULE_SEMI
 		{
-			newLeafNode(lv_semi_5_0, grammarAccess.getJumpStatementAccess().getSemiSEMITerminalRuleCall_1_1_2_0()); 
+			newLeafNode(lv_semi_4_0, grammarAccess.getJumpStatementAccess().getSemiSEMITerminalRuleCall_1_1_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -4228,7 +4337,7 @@ ruleJumpStatement returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"semi",
-        		lv_semi_5_0, 
+        		lv_semi_4_0, 
         		"at.jku.weiner.c.C.SEMI");
 	    }
 
@@ -4242,9 +4351,76 @@ ruleJumpStatement returns [EObject current=null]
 (
 (
 (
-		lv_goto_6_0=RULE_KW_GOTO
+		lv_return_5_0=RULE_KW_RETURN
 		{
-			newLeafNode(lv_goto_6_0, grammarAccess.getJumpStatementAccess().getGotoKW_GOTOTerminalRuleCall_1_2_0_0()); 
+			newLeafNode(lv_return_5_0, grammarAccess.getJumpStatementAccess().getReturnKW_RETURNTerminalRuleCall_1_2_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getJumpStatementRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"return",
+        		lv_return_5_0, 
+        		"at.jku.weiner.c.C.KW_RETURN");
+	    }
+
+)
+)
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getJumpStatementAccess().getExprExpressionParserRuleCall_1_2_1_0()); 
+	    }
+		lv_expr_6_0=ruleExpression		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getJumpStatementRule());
+	        }
+       		set(
+       			$current, 
+       			"expr",
+        		lv_expr_6_0, 
+        		"at.jku.weiner.c.C.Expression");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)?
+
+
+(
+(
+		lv_semi_7_0=RULE_SEMI
+		{
+			newLeafNode(lv_semi_7_0, grammarAccess.getJumpStatementAccess().getSemiSEMITerminalRuleCall_1_2_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getJumpStatementRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"semi",
+        		lv_semi_7_0, 
+        		"at.jku.weiner.c.C.SEMI");
+	    }
+
+)
+)
+
+)
+
+
+    |
+(
+(
+(
+		lv_goto_8_0=RULE_KW_GOTO
+		{
+			newLeafNode(lv_goto_8_0, grammarAccess.getJumpStatementAccess().getGotoKW_GOTOTerminalRuleCall_1_3_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -4253,7 +4429,7 @@ ruleJumpStatement returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"goto",
-        		lv_goto_6_0, 
+        		lv_goto_8_0, 
         		"at.jku.weiner.c.C.KW_GOTO");
 	    }
 
@@ -4264,16 +4440,16 @@ ruleJumpStatement returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getJumpStatementAccess().getExprUnaryExpressionParserRuleCall_1_2_1_0()); 
+	        newCompositeNode(grammarAccess.getJumpStatementAccess().getExprUnaryExpressionParserRuleCall_1_3_1_0()); 
 	    }
-		lv_expr_7_0=ruleUnaryExpression		{
+		lv_expr_9_0=ruleUnaryExpression		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getJumpStatementRule());
 	        }
        		set(
        			$current, 
        			"expr",
-        		lv_expr_7_0, 
+        		lv_expr_9_0, 
         		"at.jku.weiner.c.C.UnaryExpression");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -4284,9 +4460,9 @@ ruleJumpStatement returns [EObject current=null]
 
 (
 (
-		lv_semi_8_0=RULE_SEMI
+		lv_semi_10_0=RULE_SEMI
 		{
-			newLeafNode(lv_semi_8_0, grammarAccess.getJumpStatementAccess().getSemiSEMITerminalRuleCall_1_2_2_0()); 
+			newLeafNode(lv_semi_10_0, grammarAccess.getJumpStatementAccess().getSemiSEMITerminalRuleCall_1_3_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -4295,7 +4471,7 @@ ruleJumpStatement returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"semi",
-        		lv_semi_8_0, 
+        		lv_semi_10_0, 
         		"at.jku.weiner.c.C.SEMI");
 	    }
 

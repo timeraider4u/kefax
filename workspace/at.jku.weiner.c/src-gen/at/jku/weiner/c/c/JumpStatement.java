@@ -12,8 +12,9 @@ package at.jku.weiner.c.c;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link at.jku.weiner.c.c.JumpStatement#getBreak <em>Break</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.JumpStatement#getContinue <em>Continue</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.JumpStatement#getSemi <em>Semi</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.JumpStatement#getBreak <em>Break</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.JumpStatement#getReturn <em>Return</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.JumpStatement#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.JumpStatement#getGoto <em>Goto</em>}</li>
@@ -26,30 +27,30 @@ package at.jku.weiner.c.c;
 public interface JumpStatement extends Statement
 {
   /**
-   * Returns the value of the '<em><b>Break</b></em>' attribute.
+   * Returns the value of the '<em><b>Continue</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Break</em>' attribute isn't clear,
+   * If the meaning of the '<em>Continue</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Break</em>' attribute.
-   * @see #setBreak(String)
-   * @see at.jku.weiner.c.c.CPackage#getJumpStatement_Break()
+   * @return the value of the '<em>Continue</em>' attribute.
+   * @see #setContinue(String)
+   * @see at.jku.weiner.c.c.CPackage#getJumpStatement_Continue()
    * @model
    * @generated
    */
-  String getBreak();
+  String getContinue();
 
   /**
-   * Sets the value of the '{@link at.jku.weiner.c.c.JumpStatement#getBreak <em>Break</em>}' attribute.
+   * Sets the value of the '{@link at.jku.weiner.c.c.JumpStatement#getContinue <em>Continue</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Break</em>' attribute.
-   * @see #getBreak()
+   * @param value the new value of the '<em>Continue</em>' attribute.
+   * @see #getContinue()
    * @generated
    */
-  void setBreak(String value);
+  void setContinue(String value);
 
   /**
    * Returns the value of the '<em><b>Semi</b></em>' attribute.
@@ -76,6 +77,32 @@ public interface JumpStatement extends Statement
    * @generated
    */
   void setSemi(String value);
+
+  /**
+   * Returns the value of the '<em><b>Break</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Break</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Break</em>' attribute.
+   * @see #setBreak(String)
+   * @see at.jku.weiner.c.c.CPackage#getJumpStatement_Break()
+   * @model
+   * @generated
+   */
+  String getBreak();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.c.JumpStatement#getBreak <em>Break</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Break</em>' attribute.
+   * @see #getBreak()
+   * @generated
+   */
+  void setBreak(String value);
 
   /**
    * Returns the value of the '<em><b>Return</b></em>' attribute.

@@ -578,8 +578,8 @@ IterationStatement returns Statement:
 	|	do=KW_DO statement=Statement KW_WHILE LEFTPAREN expr=Expression RIGHTPAREN semi=SEMI
 	|	for=KW_FOR LEFTPAREN initExpr=Expression? SEMI expr=Expression? SEMI incExpr=Expression? 
 			RIGHTPAREN statement=Statement
-	/*|	FOR LEFTPAREN declaration (forexpression+=expression)? SEMI expression? RIGHTPAREN statement=statement
-	*/
+	|	for=KW_FOR LEFTPAREN initDecl=Declaration (expr=Expression)? SEMI incExpr=Expression? 
+			RIGHTPAREN statement=Statement
 	)
 ;
 
@@ -587,9 +587,9 @@ JumpStatement returns Statement:
 	{JumpStatement}
 	(
 	//GOTO IDENTIFIER SEMI //(can be reached over GOTO unaryExpression)
-	//|	CONTINUE SEMI
 	//|	
-	break=KW_BREAK semi=SEMI
+		continue=KW_CONTINUE semi=SEMI
+	|	break=KW_BREAK semi=SEMI
 	|	return=KW_RETURN expr=Expression? semi=SEMI
 	|	goto=KW_GOTO expr=UnaryExpression semi=SEMI // GCC extension
 	)

@@ -580,7 +580,8 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (
 	 *         (while=KW_WHILE expr=Expression statement=Statement) | 
 	 *         (do=KW_DO statement=Statement expr=Expression semi=SEMI) | 
-	 *         (for=KW_FOR initExpr=Expression? expr=Expression? incExpr=Expression? statement=Statement)
+	 *         (for=KW_FOR initExpr=Expression? expr=Expression? incExpr=Expression? statement=Statement) | 
+	 *         (for=KW_FOR initDecl=Declaration expr=Expression? incExpr=Expression? statement=Statement)
 	 *     )
 	 */
 	protected void sequence_IterationStatement(EObject context, IterationStatement semanticObject) {
@@ -590,7 +591,12 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     ((break=KW_BREAK semi=SEMI) | (return=KW_RETURN expr=Expression? semi=SEMI) | (goto=KW_GOTO expr=UnaryExpression semi=SEMI))
+	 *     (
+	 *         (continue=KW_CONTINUE semi=SEMI) | 
+	 *         (break=KW_BREAK semi=SEMI) | 
+	 *         (return=KW_RETURN expr=Expression? semi=SEMI) | 
+	 *         (goto=KW_GOTO expr=UnaryExpression semi=SEMI)
+	 *     )
 	 */
 	protected void sequence_JumpStatement(EObject context, JumpStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

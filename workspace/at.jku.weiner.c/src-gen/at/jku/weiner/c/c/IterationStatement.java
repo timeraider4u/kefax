@@ -20,6 +20,7 @@ package at.jku.weiner.c.c;
  *   <li>{@link at.jku.weiner.c.c.IterationStatement#getFor <em>For</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.IterationStatement#getInitExpr <em>Init Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.IterationStatement#getIncExpr <em>Inc Expr</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.IterationStatement#getInitDecl <em>Init Decl</em>}</li>
  * </ul>
  *
  * @see at.jku.weiner.c.c.CPackage#getIterationStatement()
@@ -235,5 +236,31 @@ public interface IterationStatement extends Statement
    * @generated
    */
   void setIncExpr(Expression value);
+
+  /**
+   * Returns the value of the '<em><b>Init Decl</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Init Decl</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Init Decl</em>' containment reference.
+   * @see #setInitDecl(Declaration)
+   * @see at.jku.weiner.c.c.CPackage#getIterationStatement_InitDecl()
+   * @model containment="true"
+   * @generated
+   */
+  Declaration getInitDecl();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.c.IterationStatement#getInitDecl <em>Init Decl</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Init Decl</em>' containment reference.
+   * @see #getInitDecl()
+   * @generated
+   */
+  void setInitDecl(Declaration value);
 
 } // IterationStatement

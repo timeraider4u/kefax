@@ -576,8 +576,9 @@ IterationStatement returns Statement:
 	(
 		while=KW_WHILE LEFTPAREN expr=Expression RIGHTPAREN statement=Statement
 	|	do=KW_DO statement=Statement KW_WHILE LEFTPAREN expr=Expression RIGHTPAREN semi=SEMI
-	/*|	FOR LEFTPAREN expression? SEMI expression? SEMI expression? RIGHTPAREN statement
-	|	FOR LEFTPAREN declaration (forexpression+=expression)? SEMI expression? RIGHTPAREN statement=statement
+	|	for=KW_FOR LEFTPAREN initExpr=Expression? SEMI expr=Expression? SEMI incExpr=Expression? 
+			RIGHTPAREN statement=Statement
+	/*|	FOR LEFTPAREN declaration (forexpression+=expression)? SEMI expression? RIGHTPAREN statement=statement
 	*/
 	)
 ;

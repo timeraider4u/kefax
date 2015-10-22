@@ -21,14 +21,17 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.c.impl.IterationStatementImpl#getWhile <em>While</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.IterationStatementImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.IterationStatementImpl#getStatement <em>Statement</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.IterationStatementImpl#getDo <em>Do</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.IterationStatementImpl#getSemi <em>Semi</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.impl.IterationStatementImpl#getFor <em>For</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.impl.IterationStatementImpl#getInitExpr <em>Init Expr</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.impl.IterationStatementImpl#getIncExpr <em>Inc Expr</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -113,6 +116,46 @@ public class IterationStatementImpl extends StatementImpl implements IterationSt
    * @ordered
    */
   protected String semi = SEMI_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getFor() <em>For</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFor()
+   * @generated
+   * @ordered
+   */
+  protected static final String FOR_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getFor() <em>For</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFor()
+   * @generated
+   * @ordered
+   */
+  protected String for_ = FOR_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getInitExpr() <em>Init Expr</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getInitExpr()
+   * @generated
+   * @ordered
+   */
+  protected Expression initExpr;
+
+  /**
+   * The cached value of the '{@link #getIncExpr() <em>Inc Expr</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getIncExpr()
+   * @generated
+   * @ordered
+   */
+  protected Expression incExpr;
 
   /**
    * <!-- begin-user-doc -->
@@ -305,6 +348,125 @@ public class IterationStatementImpl extends StatementImpl implements IterationSt
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getFor()
+  {
+    return for_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setFor(String newFor)
+  {
+    String oldFor = for_;
+    for_ = newFor;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CPackage.ITERATION_STATEMENT__FOR, oldFor, for_));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Expression getInitExpr()
+  {
+    return initExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetInitExpr(Expression newInitExpr, NotificationChain msgs)
+  {
+    Expression oldInitExpr = initExpr;
+    initExpr = newInitExpr;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CPackage.ITERATION_STATEMENT__INIT_EXPR, oldInitExpr, newInitExpr);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setInitExpr(Expression newInitExpr)
+  {
+    if (newInitExpr != initExpr)
+    {
+      NotificationChain msgs = null;
+      if (initExpr != null)
+        msgs = ((InternalEObject)initExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CPackage.ITERATION_STATEMENT__INIT_EXPR, null, msgs);
+      if (newInitExpr != null)
+        msgs = ((InternalEObject)newInitExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CPackage.ITERATION_STATEMENT__INIT_EXPR, null, msgs);
+      msgs = basicSetInitExpr(newInitExpr, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CPackage.ITERATION_STATEMENT__INIT_EXPR, newInitExpr, newInitExpr));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Expression getIncExpr()
+  {
+    return incExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetIncExpr(Expression newIncExpr, NotificationChain msgs)
+  {
+    Expression oldIncExpr = incExpr;
+    incExpr = newIncExpr;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CPackage.ITERATION_STATEMENT__INC_EXPR, oldIncExpr, newIncExpr);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIncExpr(Expression newIncExpr)
+  {
+    if (newIncExpr != incExpr)
+    {
+      NotificationChain msgs = null;
+      if (incExpr != null)
+        msgs = ((InternalEObject)incExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CPackage.ITERATION_STATEMENT__INC_EXPR, null, msgs);
+      if (newIncExpr != null)
+        msgs = ((InternalEObject)newIncExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CPackage.ITERATION_STATEMENT__INC_EXPR, null, msgs);
+      msgs = basicSetIncExpr(newIncExpr, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CPackage.ITERATION_STATEMENT__INC_EXPR, newIncExpr, newIncExpr));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -314,6 +476,10 @@ public class IterationStatementImpl extends StatementImpl implements IterationSt
         return basicSetExpr(null, msgs);
       case CPackage.ITERATION_STATEMENT__STATEMENT:
         return basicSetStatement(null, msgs);
+      case CPackage.ITERATION_STATEMENT__INIT_EXPR:
+        return basicSetInitExpr(null, msgs);
+      case CPackage.ITERATION_STATEMENT__INC_EXPR:
+        return basicSetIncExpr(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -338,6 +504,12 @@ public class IterationStatementImpl extends StatementImpl implements IterationSt
         return getDo();
       case CPackage.ITERATION_STATEMENT__SEMI:
         return getSemi();
+      case CPackage.ITERATION_STATEMENT__FOR:
+        return getFor();
+      case CPackage.ITERATION_STATEMENT__INIT_EXPR:
+        return getInitExpr();
+      case CPackage.ITERATION_STATEMENT__INC_EXPR:
+        return getIncExpr();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -366,6 +538,15 @@ public class IterationStatementImpl extends StatementImpl implements IterationSt
         return;
       case CPackage.ITERATION_STATEMENT__SEMI:
         setSemi((String)newValue);
+        return;
+      case CPackage.ITERATION_STATEMENT__FOR:
+        setFor((String)newValue);
+        return;
+      case CPackage.ITERATION_STATEMENT__INIT_EXPR:
+        setInitExpr((Expression)newValue);
+        return;
+      case CPackage.ITERATION_STATEMENT__INC_EXPR:
+        setIncExpr((Expression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -396,6 +577,15 @@ public class IterationStatementImpl extends StatementImpl implements IterationSt
       case CPackage.ITERATION_STATEMENT__SEMI:
         setSemi(SEMI_EDEFAULT);
         return;
+      case CPackage.ITERATION_STATEMENT__FOR:
+        setFor(FOR_EDEFAULT);
+        return;
+      case CPackage.ITERATION_STATEMENT__INIT_EXPR:
+        setInitExpr((Expression)null);
+        return;
+      case CPackage.ITERATION_STATEMENT__INC_EXPR:
+        setIncExpr((Expression)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -420,6 +610,12 @@ public class IterationStatementImpl extends StatementImpl implements IterationSt
         return DO_EDEFAULT == null ? do_ != null : !DO_EDEFAULT.equals(do_);
       case CPackage.ITERATION_STATEMENT__SEMI:
         return SEMI_EDEFAULT == null ? semi != null : !SEMI_EDEFAULT.equals(semi);
+      case CPackage.ITERATION_STATEMENT__FOR:
+        return FOR_EDEFAULT == null ? for_ != null : !FOR_EDEFAULT.equals(for_);
+      case CPackage.ITERATION_STATEMENT__INIT_EXPR:
+        return initExpr != null;
+      case CPackage.ITERATION_STATEMENT__INC_EXPR:
+        return incExpr != null;
     }
     return super.eIsSet(featureID);
   }
@@ -441,6 +637,8 @@ public class IterationStatementImpl extends StatementImpl implements IterationSt
     result.append(do_);
     result.append(", semi: ");
     result.append(semi);
+    result.append(", for: ");
+    result.append(for_);
     result.append(')');
     return result.toString();
   }

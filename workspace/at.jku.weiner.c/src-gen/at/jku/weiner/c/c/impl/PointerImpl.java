@@ -27,12 +27,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.c.impl.PointerImpl#getStar <em>Star</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.PointerImpl#getCaret <em>Caret</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.PointerImpl#getTypeQualifierList <em>Type Qualifier List</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

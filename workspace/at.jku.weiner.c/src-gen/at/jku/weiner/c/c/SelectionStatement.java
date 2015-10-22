@@ -10,6 +10,7 @@ package at.jku.weiner.c.c;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.c.SelectionStatement#getIf <em>If</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.SelectionStatement#getExpr <em>Expr</em>}</li>
@@ -19,7 +20,6 @@ package at.jku.weiner.c.c;
  *   <li>{@link at.jku.weiner.c.c.SelectionStatement#getSwitch <em>Switch</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.SelectionStatement#getSwitchStatement <em>Switch Statement</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.c.c.CPackage#getSelectionStatement()
  * @model

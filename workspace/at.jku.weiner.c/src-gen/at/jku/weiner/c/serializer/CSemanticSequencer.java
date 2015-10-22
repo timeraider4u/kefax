@@ -577,7 +577,11 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     ((while=KW_WHILE expr=Expression statement=Statement) | (do=KW_DO statement=Statement expr=Expression semi=SEMI))
+	 *     (
+	 *         (while=KW_WHILE expr=Expression statement=Statement) | 
+	 *         (do=KW_DO statement=Statement expr=Expression semi=SEMI) | 
+	 *         (for=KW_FOR initExpr=Expression? expr=Expression? incExpr=Expression? statement=Statement)
+	 *     )
 	 */
 	protected void sequence_IterationStatement(EObject context, IterationStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

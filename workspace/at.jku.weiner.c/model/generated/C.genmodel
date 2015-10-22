@@ -4,7 +4,7 @@
     editorDirectory="/at.jku.weiner.c.editor/src" modelPluginID="at.jku.weiner.c"
     forceOverwrite="true" modelName="C" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="6.0" copyrightFields="false" editPluginID="at.jku.weiner.c.edit"
-    editorPluginID="at.jku.weiner.c.editor" runtimeVersion="2.10" usedGenPackages="platform:/resource/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore">
+    editorPluginID="at.jku.weiner.c.editor" runtimeVersion="2.11" usedGenPackages="platform:/resource/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore">
   <genPackages prefix="C" basePackage="at.jku.weiner.c" disposableProviderFactory="true"
       fileExtensions="c" ecorePackage="C.ecore#/">
     <genClasses ecoreClass="C.ecore#//Model">
@@ -166,6 +166,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//IterationStatement/statement"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//IterationStatement/do"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//IterationStatement/semi"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//IterationStatement/for"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//IterationStatement/initExpr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//IterationStatement/incExpr"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//JumpStatement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//JumpStatement/break"/>

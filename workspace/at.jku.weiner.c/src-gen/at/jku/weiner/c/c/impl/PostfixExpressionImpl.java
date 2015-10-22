@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.c.impl.PostfixExpressionImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.PostfixExpressionImpl#getArrayExpr <em>Array Expr</em>}</li>
@@ -33,7 +34,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link at.jku.weiner.c.c.impl.PostfixExpressionImpl#getPlusplus <em>Plusplus</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.PostfixExpressionImpl#getMinusminus <em>Minusminus</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

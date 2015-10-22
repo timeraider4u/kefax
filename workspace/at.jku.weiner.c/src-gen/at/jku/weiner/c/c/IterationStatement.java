@@ -10,14 +10,17 @@ package at.jku.weiner.c.c;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.c.IterationStatement#getWhile <em>While</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.IterationStatement#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.IterationStatement#getStatement <em>Statement</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.IterationStatement#getDo <em>Do</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.IterationStatement#getSemi <em>Semi</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.IterationStatement#getFor <em>For</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.IterationStatement#getInitExpr <em>Init Expr</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.IterationStatement#getIncExpr <em>Inc Expr</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.c.c.CPackage#getIterationStatement()
  * @model
@@ -154,5 +157,83 @@ public interface IterationStatement extends Statement
    * @generated
    */
   void setSemi(String value);
+
+  /**
+   * Returns the value of the '<em><b>For</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>For</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>For</em>' attribute.
+   * @see #setFor(String)
+   * @see at.jku.weiner.c.c.CPackage#getIterationStatement_For()
+   * @model
+   * @generated
+   */
+  String getFor();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.c.IterationStatement#getFor <em>For</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>For</em>' attribute.
+   * @see #getFor()
+   * @generated
+   */
+  void setFor(String value);
+
+  /**
+   * Returns the value of the '<em><b>Init Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Init Expr</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Init Expr</em>' containment reference.
+   * @see #setInitExpr(Expression)
+   * @see at.jku.weiner.c.c.CPackage#getIterationStatement_InitExpr()
+   * @model containment="true"
+   * @generated
+   */
+  Expression getInitExpr();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.c.IterationStatement#getInitExpr <em>Init Expr</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Init Expr</em>' containment reference.
+   * @see #getInitExpr()
+   * @generated
+   */
+  void setInitExpr(Expression value);
+
+  /**
+   * Returns the value of the '<em><b>Inc Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Inc Expr</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Inc Expr</em>' containment reference.
+   * @see #setIncExpr(Expression)
+   * @see at.jku.weiner.c.c.CPackage#getIterationStatement_IncExpr()
+   * @model containment="true"
+   * @generated
+   */
+  Expression getIncExpr();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.c.IterationStatement#getIncExpr <em>Inc Expr</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Inc Expr</em>' containment reference.
+   * @see #getIncExpr()
+   * @generated
+   */
+  void setIncExpr(Expression value);
 
 } // IterationStatement

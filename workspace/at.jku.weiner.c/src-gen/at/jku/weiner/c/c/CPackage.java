@@ -1582,13 +1582,40 @@ public interface CPackage extends EPackage
   int ITERATION_STATEMENT__SEMI = STATEMENT_FEATURE_COUNT + 4;
 
   /**
+   * The feature id for the '<em><b>For</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ITERATION_STATEMENT__FOR = STATEMENT_FEATURE_COUNT + 5;
+
+  /**
+   * The feature id for the '<em><b>Init Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ITERATION_STATEMENT__INIT_EXPR = STATEMENT_FEATURE_COUNT + 6;
+
+  /**
+   * The feature id for the '<em><b>Inc Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ITERATION_STATEMENT__INC_EXPR = STATEMENT_FEATURE_COUNT + 7;
+
+  /**
    * The number of structural features of the '<em>Iteration Statement</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ITERATION_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 5;
+  int ITERATION_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 8;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.c.impl.JumpStatementImpl <em>Jump Statement</em>}' class.
@@ -3727,6 +3754,39 @@ public interface CPackage extends EPackage
   EAttribute getIterationStatement_Semi();
 
   /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.c.IterationStatement#getFor <em>For</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>For</em>'.
+   * @see at.jku.weiner.c.c.IterationStatement#getFor()
+   * @see #getIterationStatement()
+   * @generated
+   */
+  EAttribute getIterationStatement_For();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.c.IterationStatement#getInitExpr <em>Init Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Init Expr</em>'.
+   * @see at.jku.weiner.c.c.IterationStatement#getInitExpr()
+   * @see #getIterationStatement()
+   * @generated
+   */
+  EReference getIterationStatement_InitExpr();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.c.IterationStatement#getIncExpr <em>Inc Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Inc Expr</em>'.
+   * @see at.jku.weiner.c.c.IterationStatement#getIncExpr()
+   * @see #getIterationStatement()
+   * @generated
+   */
+  EReference getIterationStatement_IncExpr();
+
+  /**
    * Returns the meta object for class '{@link at.jku.weiner.c.c.JumpStatement <em>Jump Statement</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5397,6 +5457,30 @@ public interface CPackage extends EPackage
      * @generated
      */
     EAttribute ITERATION_STATEMENT__SEMI = eINSTANCE.getIterationStatement_Semi();
+
+    /**
+     * The meta object literal for the '<em><b>For</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ITERATION_STATEMENT__FOR = eINSTANCE.getIterationStatement_For();
+
+    /**
+     * The meta object literal for the '<em><b>Init Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ITERATION_STATEMENT__INIT_EXPR = eINSTANCE.getIterationStatement_InitExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Inc Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ITERATION_STATEMENT__INC_EXPR = eINSTANCE.getIterationStatement_IncExpr();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.c.impl.JumpStatementImpl <em>Jump Statement</em>}' class.

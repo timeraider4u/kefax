@@ -3946,6 +3946,143 @@ this_RIGHTPAREN_11=RULE_RIGHTPAREN
 
 )
 
+
+    |
+(
+(
+(
+		lv_for_13_0=RULE_KW_FOR
+		{
+			newLeafNode(lv_for_13_0, grammarAccess.getIterationStatementAccess().getForKW_FORTerminalRuleCall_1_2_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getIterationStatementRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"for",
+        		lv_for_13_0, 
+        		"at.jku.weiner.c.C.KW_FOR");
+	    }
+
+)
+)
+
+
+this_LEFTPAREN_14=RULE_LEFTPAREN
+    { 
+    newLeafNode(this_LEFTPAREN_14, grammarAccess.getIterationStatementAccess().getLEFTPARENTerminalRuleCall_1_2_1()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getIterationStatementAccess().getInitExprExpressionParserRuleCall_1_2_2_0()); 
+	    }
+		lv_initExpr_15_0=ruleExpression		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getIterationStatementRule());
+	        }
+       		set(
+       			$current, 
+       			"initExpr",
+        		lv_initExpr_15_0, 
+        		"at.jku.weiner.c.C.Expression");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)?
+
+
+this_SEMI_16=RULE_SEMI
+    { 
+    newLeafNode(this_SEMI_16, grammarAccess.getIterationStatementAccess().getSEMITerminalRuleCall_1_2_3()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getIterationStatementAccess().getExprExpressionParserRuleCall_1_2_4_0()); 
+	    }
+		lv_expr_17_0=ruleExpression		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getIterationStatementRule());
+	        }
+       		set(
+       			$current, 
+       			"expr",
+        		lv_expr_17_0, 
+        		"at.jku.weiner.c.C.Expression");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)?
+
+
+this_SEMI_18=RULE_SEMI
+    { 
+    newLeafNode(this_SEMI_18, grammarAccess.getIterationStatementAccess().getSEMITerminalRuleCall_1_2_5()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getIterationStatementAccess().getIncExprExpressionParserRuleCall_1_2_6_0()); 
+	    }
+		lv_incExpr_19_0=ruleExpression		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getIterationStatementRule());
+	        }
+       		set(
+       			$current, 
+       			"incExpr",
+        		lv_incExpr_19_0, 
+        		"at.jku.weiner.c.C.Expression");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)?
+
+
+this_RIGHTPAREN_20=RULE_RIGHTPAREN
+    { 
+    newLeafNode(this_RIGHTPAREN_20, grammarAccess.getIterationStatementAccess().getRIGHTPARENTerminalRuleCall_1_2_7()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getIterationStatementAccess().getStatementStatementParserRuleCall_1_2_8_0()); 
+	    }
+		lv_statement_21_0=ruleStatement		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getIterationStatementRule());
+	        }
+       		set(
+       			$current, 
+       			"statement",
+        		lv_statement_21_0, 
+        		"at.jku.weiner.c.C.Statement");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+)
+
 )
 
 )

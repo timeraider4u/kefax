@@ -74,7 +74,82 @@ RIGHTBRACE NEWLINE
 						(Statement
 							stmt=
 							(IterationStatement
-								while++"while",
+								for++"for",
+								// num = 0
+								initExpr=
+								(Expression
+									exprExpr+=
+									(AssignmentExpression
+										op=
+										(AssignmentOperator
+											op++"="
+										),
+										expr=
+										(UnaryExpression
+											expr=
+											(PostfixExpression
+												expr+=
+												(PrimaryExpression
+													id++"num"
+												)
+											)
+										
+										), // end unary expression
+										assignmentExpr=
+										(AssignmentExpression
+											expr=
+											(ConditionalExpression
+												expr=
+												(LogicalOrExpression
+													expr+=
+													(LogicalAndExpression
+														expr+=
+														(InclusiveOrExpression
+															expr+=
+															(ExclusiveOrExpression
+																expr+=
+																(AndExpression
+																	expr+=
+																	(EqualityExpression
+																		expr+=
+																		(RelationalExpression
+																			expr+=
+																			(ShiftExpression
+																				expr+=
+																				(AdditiveExpression
+																					expr+=
+																					(MultiplicativeExpression
+																						expr+=
+																						(CastExpression
+																							expr=
+																							(UnaryExpression
+																								expr=
+																								(PostfixExpression
+																									expr+=
+																									(PrimaryExpression
+																										const=
+																										(Constant
+																											dec++"0"
+																										)
+																									)
+																								)
+																							)
+																						)
+																					)
+																				)
+																			)
+																		)
+																	)
+																)
+															)
+														)
+													)
+												)
+											) // end conditional expression
+										) // end assignment expression
+									) // end assignment expression
+								), // end init expression
+								// num < 5
 								expr=
 								(Expression
 									exprExpr+=
@@ -95,7 +170,7 @@ RIGHTBRACE NEWLINE
 																(EqualityExpression
 																	expr+=
 																	(RelationalExpression
-																		op+*"[>]",
+																		op+*"[<]",
 																		expr+=
 																		(ShiftExpression
 																			expr+=
@@ -133,7 +208,7 @@ RIGHTBRACE NEWLINE
 																								(PrimaryExpression
 																									const=
 																									(Constant
-																										dec++"0"
+																										dec++"5"
 																									)
 																								)
 																							)
@@ -143,7 +218,6 @@ RIGHTBRACE NEWLINE
 																			)
 																		)
 																	)
-																	
 																)
 															)
 														)
@@ -152,7 +226,61 @@ RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								), // end expression
+								), // end loop criteria expression
+								// num++
+								incExpr=
+								(Expression
+									exprExpr+=
+									(AssignmentExpression
+										expr=
+										(ConditionalExpression
+											expr=
+											(LogicalOrExpression
+												expr+=
+												(LogicalAndExpression
+													expr+=
+													(InclusiveOrExpression
+														expr+=
+														(ExclusiveOrExpression
+															expr+=
+															(AndExpression
+																expr+=
+																(EqualityExpression
+																	expr+=
+																	(RelationalExpression
+																		expr+=
+																		(ShiftExpression
+																			expr+=
+																			(AdditiveExpression
+																				expr+=
+																				(MultiplicativeExpression
+																					expr+=
+																					(CastExpression
+																						expr=
+																						(UnaryExpression
+																							expr=
+																							(PostfixExpression
+																								expr+=
+																								(PrimaryExpression
+																									id++"num"
+																								),
+																								plusplus+*"[++]"
+																							)
+																						)
+																					)
+																				)
+																			)
+																		)
+																	)
+																)
+															)
+														)
+													)
+												)
+											)
+										)
+									)
+								), // end increment expression
 								statement=
 								(Statement
 									stmt=
@@ -222,6 +350,12 @@ RIGHTBRACE NEWLINE
 														), // end expression
 														semi++";"
 													) // end expression statement
+												),
+												(Statement
+													stmt=
+													(JumpStatement
+														break++"break"
+													)
 												)
 											)
 										)

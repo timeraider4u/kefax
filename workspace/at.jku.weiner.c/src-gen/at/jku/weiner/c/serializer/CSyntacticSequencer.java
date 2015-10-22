@@ -73,6 +73,8 @@ public class CSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getRIGHTBRACKETToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getRIGHTPARENRule())
 			return getRIGHTPARENToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getSEMIRule())
+			return getSEMIToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
@@ -236,6 +238,15 @@ public class CSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return ")";
+	}
+	
+	/**
+	 * terminal SEMI: ';';
+	 */
+	protected String getSEMIToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return ";";
 	}
 	
 	@Override

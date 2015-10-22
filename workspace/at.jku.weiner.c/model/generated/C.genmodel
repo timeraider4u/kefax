@@ -137,6 +137,8 @@
     <genClasses ecoreClass="C.ecore#//LabeledStatement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//LabeledStatement/id"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//LabeledStatement/lStmt"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//LabeledStatement/case"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//LabeledStatement/expr"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//LabeledStatement/default"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//CompoundStatement">
@@ -166,9 +168,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//IterationStatement/semi"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//JumpStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//JumpStatement/break"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//JumpStatement/semi"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//JumpStatement/return"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//JumpStatement/expr"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//JumpStatement/semi"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//JumpStatement/goto"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//AssignmentExpression">
@@ -235,6 +238,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//PrimaryExpression/id"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//PrimaryExpression/const"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//PrimaryExpression/expr"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//ConstantExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//ConstantExpression/expr"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

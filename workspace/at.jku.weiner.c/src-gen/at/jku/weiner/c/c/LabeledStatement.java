@@ -13,6 +13,8 @@ package at.jku.weiner.c.c;
  * <ul>
  *   <li>{@link at.jku.weiner.c.c.LabeledStatement#getId <em>Id</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.LabeledStatement#getLStmt <em>LStmt</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.LabeledStatement#getCase <em>Case</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.LabeledStatement#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.LabeledStatement#getDefault <em>Default</em>}</li>
  * </ul>
  * </p>
@@ -74,6 +76,58 @@ public interface LabeledStatement extends Statement
    * @generated
    */
   void setLStmt(Statement value);
+
+  /**
+   * Returns the value of the '<em><b>Case</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Case</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Case</em>' attribute.
+   * @see #setCase(String)
+   * @see at.jku.weiner.c.c.CPackage#getLabeledStatement_Case()
+   * @model
+   * @generated
+   */
+  String getCase();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.c.LabeledStatement#getCase <em>Case</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Case</em>' attribute.
+   * @see #getCase()
+   * @generated
+   */
+  void setCase(String value);
+
+  /**
+   * Returns the value of the '<em><b>Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Expr</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Expr</em>' containment reference.
+   * @see #setExpr(Expression)
+   * @see at.jku.weiner.c.c.CPackage#getLabeledStatement_Expr()
+   * @model containment="true"
+   * @generated
+   */
+  Expression getExpr();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.c.LabeledStatement#getExpr <em>Expr</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Expr</em>' containment reference.
+   * @see #getExpr()
+   * @generated
+   */
+  void setExpr(Expression value);
 
   /**
    * Returns the value of the '<em><b>Default</b></em>' attribute.

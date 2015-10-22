@@ -3,6 +3,7 @@
 package at.jku.weiner.c.c.impl;
 
 import at.jku.weiner.c.c.CPackage;
+import at.jku.weiner.c.c.Expression;
 import at.jku.weiner.c.c.LabeledStatement;
 import at.jku.weiner.c.c.Statement;
 
@@ -23,6 +24,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link at.jku.weiner.c.c.impl.LabeledStatementImpl#getId <em>Id</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.LabeledStatementImpl#getLStmt <em>LStmt</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.impl.LabeledStatementImpl#getCase <em>Case</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.impl.LabeledStatementImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.LabeledStatementImpl#getDefault <em>Default</em>}</li>
  * </ul>
  * </p>
@@ -60,6 +63,36 @@ public class LabeledStatementImpl extends StatementImpl implements LabeledStatem
    * @ordered
    */
   protected Statement lStmt;
+
+  /**
+   * The default value of the '{@link #getCase() <em>Case</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCase()
+   * @generated
+   * @ordered
+   */
+  protected static final String CASE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getCase() <em>Case</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCase()
+   * @generated
+   * @ordered
+   */
+  protected String case_ = CASE_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExpr()
+   * @generated
+   * @ordered
+   */
+  protected Expression expr;
 
   /**
    * The default value of the '{@link #getDefault() <em>Default</em>}' attribute.
@@ -178,6 +211,77 @@ public class LabeledStatementImpl extends StatementImpl implements LabeledStatem
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getCase()
+  {
+    return case_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setCase(String newCase)
+  {
+    String oldCase = case_;
+    case_ = newCase;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CPackage.LABELED_STATEMENT__CASE, oldCase, case_));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Expression getExpr()
+  {
+    return expr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetExpr(Expression newExpr, NotificationChain msgs)
+  {
+    Expression oldExpr = expr;
+    expr = newExpr;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CPackage.LABELED_STATEMENT__EXPR, oldExpr, newExpr);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExpr(Expression newExpr)
+  {
+    if (newExpr != expr)
+    {
+      NotificationChain msgs = null;
+      if (expr != null)
+        msgs = ((InternalEObject)expr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CPackage.LABELED_STATEMENT__EXPR, null, msgs);
+      if (newExpr != null)
+        msgs = ((InternalEObject)newExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CPackage.LABELED_STATEMENT__EXPR, null, msgs);
+      msgs = basicSetExpr(newExpr, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CPackage.LABELED_STATEMENT__EXPR, newExpr, newExpr));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getDefault()
   {
     return default_;
@@ -208,6 +312,8 @@ public class LabeledStatementImpl extends StatementImpl implements LabeledStatem
     {
       case CPackage.LABELED_STATEMENT__LSTMT:
         return basicSetLStmt(null, msgs);
+      case CPackage.LABELED_STATEMENT__EXPR:
+        return basicSetExpr(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -226,6 +332,10 @@ public class LabeledStatementImpl extends StatementImpl implements LabeledStatem
         return getId();
       case CPackage.LABELED_STATEMENT__LSTMT:
         return getLStmt();
+      case CPackage.LABELED_STATEMENT__CASE:
+        return getCase();
+      case CPackage.LABELED_STATEMENT__EXPR:
+        return getExpr();
       case CPackage.LABELED_STATEMENT__DEFAULT:
         return getDefault();
     }
@@ -247,6 +357,12 @@ public class LabeledStatementImpl extends StatementImpl implements LabeledStatem
         return;
       case CPackage.LABELED_STATEMENT__LSTMT:
         setLStmt((Statement)newValue);
+        return;
+      case CPackage.LABELED_STATEMENT__CASE:
+        setCase((String)newValue);
+        return;
+      case CPackage.LABELED_STATEMENT__EXPR:
+        setExpr((Expression)newValue);
         return;
       case CPackage.LABELED_STATEMENT__DEFAULT:
         setDefault((String)newValue);
@@ -271,6 +387,12 @@ public class LabeledStatementImpl extends StatementImpl implements LabeledStatem
       case CPackage.LABELED_STATEMENT__LSTMT:
         setLStmt((Statement)null);
         return;
+      case CPackage.LABELED_STATEMENT__CASE:
+        setCase(CASE_EDEFAULT);
+        return;
+      case CPackage.LABELED_STATEMENT__EXPR:
+        setExpr((Expression)null);
+        return;
       case CPackage.LABELED_STATEMENT__DEFAULT:
         setDefault(DEFAULT_EDEFAULT);
         return;
@@ -292,6 +414,10 @@ public class LabeledStatementImpl extends StatementImpl implements LabeledStatem
         return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
       case CPackage.LABELED_STATEMENT__LSTMT:
         return lStmt != null;
+      case CPackage.LABELED_STATEMENT__CASE:
+        return CASE_EDEFAULT == null ? case_ != null : !CASE_EDEFAULT.equals(case_);
+      case CPackage.LABELED_STATEMENT__EXPR:
+        return expr != null;
       case CPackage.LABELED_STATEMENT__DEFAULT:
         return DEFAULT_EDEFAULT == null ? default_ != null : !DEFAULT_EDEFAULT.equals(default_);
     }
@@ -311,6 +437,8 @@ public class LabeledStatementImpl extends StatementImpl implements LabeledStatem
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (id: ");
     result.append(id);
+    result.append(", case: ");
+    result.append(case_);
     result.append(", default: ");
     result.append(default_);
     result.append(')');

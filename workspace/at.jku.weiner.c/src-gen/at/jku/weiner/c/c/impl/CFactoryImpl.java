@@ -121,6 +121,7 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
       case CPackage.UNARY_EXPRESSION: return createUnaryExpression();
       case CPackage.POSTFIX_EXPRESSION: return createPostfixExpression();
       case CPackage.PRIMARY_EXPRESSION: return createPrimaryExpression();
+      case CPackage.CONSTANT_EXPRESSION: return createConstantExpression();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -751,6 +752,17 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
   {
     PrimaryExpressionImpl primaryExpression = new PrimaryExpressionImpl();
     return primaryExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ConstantExpression createConstantExpression()
+  {
+    ConstantExpressionImpl constantExpression = new ConstantExpressionImpl();
+    return constantExpression;
   }
 
   /**

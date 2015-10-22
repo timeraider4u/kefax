@@ -1271,13 +1271,31 @@ public interface CPackage extends EPackage
   int LABELED_STATEMENT__LSTMT = STATEMENT_FEATURE_COUNT + 1;
 
   /**
+   * The feature id for the '<em><b>Case</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LABELED_STATEMENT__CASE = STATEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LABELED_STATEMENT__EXPR = STATEMENT_FEATURE_COUNT + 3;
+
+  /**
    * The feature id for the '<em><b>Default</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LABELED_STATEMENT__DEFAULT = STATEMENT_FEATURE_COUNT + 2;
+  int LABELED_STATEMENT__DEFAULT = STATEMENT_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>Labeled Statement</em>' class.
@@ -1286,7 +1304,7 @@ public interface CPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LABELED_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
+  int LABELED_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.c.impl.CompoundStatementImpl <em>Compound Statement</em>}' class.
@@ -1592,22 +1610,13 @@ public interface CPackage extends EPackage
   int JUMP_STATEMENT__STMT = STATEMENT__STMT;
 
   /**
-   * The feature id for the '<em><b>Return</b></em>' attribute.
+   * The feature id for the '<em><b>Break</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int JUMP_STATEMENT__RETURN = STATEMENT_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Expr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int JUMP_STATEMENT__EXPR = STATEMENT_FEATURE_COUNT + 1;
+  int JUMP_STATEMENT__BREAK = STATEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Semi</b></em>' attribute.
@@ -1616,7 +1625,25 @@ public interface CPackage extends EPackage
    * @generated
    * @ordered
    */
-  int JUMP_STATEMENT__SEMI = STATEMENT_FEATURE_COUNT + 2;
+  int JUMP_STATEMENT__SEMI = STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Return</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JUMP_STATEMENT__RETURN = STATEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JUMP_STATEMENT__EXPR = STATEMENT_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Goto</b></em>' attribute.
@@ -1625,7 +1652,7 @@ public interface CPackage extends EPackage
    * @generated
    * @ordered
    */
-  int JUMP_STATEMENT__GOTO = STATEMENT_FEATURE_COUNT + 3;
+  int JUMP_STATEMENT__GOTO = STATEMENT_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>Jump Statement</em>' class.
@@ -1634,7 +1661,7 @@ public interface CPackage extends EPackage
    * @generated
    * @ordered
    */
-  int JUMP_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 4;
+  int JUMP_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.c.impl.AssignmentExpressionImpl <em>Assignment Expression</em>}' class.
@@ -2380,6 +2407,43 @@ public interface CPackage extends EPackage
    * @ordered
    */
   int PRIMARY_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link at.jku.weiner.c.c.impl.ConstantExpressionImpl <em>Constant Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.c.c.impl.ConstantExpressionImpl
+   * @see at.jku.weiner.c.c.impl.CPackageImpl#getConstantExpression()
+   * @generated
+   */
+  int CONSTANT_EXPRESSION = 57;
+
+  /**
+   * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONSTANT_EXPRESSION__EXPR_EXPR = EXPRESSION__EXPR_EXPR;
+
+  /**
+   * The feature id for the '<em><b>Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONSTANT_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Constant Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONSTANT_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
 
   /**
@@ -3404,6 +3468,28 @@ public interface CPackage extends EPackage
   EReference getLabeledStatement_LStmt();
 
   /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.c.LabeledStatement#getCase <em>Case</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Case</em>'.
+   * @see at.jku.weiner.c.c.LabeledStatement#getCase()
+   * @see #getLabeledStatement()
+   * @generated
+   */
+  EAttribute getLabeledStatement_Case();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.c.LabeledStatement#getExpr <em>Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expr</em>'.
+   * @see at.jku.weiner.c.c.LabeledStatement#getExpr()
+   * @see #getLabeledStatement()
+   * @generated
+   */
+  EReference getLabeledStatement_Expr();
+
+  /**
    * Returns the meta object for the attribute '{@link at.jku.weiner.c.c.LabeledStatement#getDefault <em>Default</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3651,6 +3737,28 @@ public interface CPackage extends EPackage
   EClass getJumpStatement();
 
   /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.c.JumpStatement#getBreak <em>Break</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Break</em>'.
+   * @see at.jku.weiner.c.c.JumpStatement#getBreak()
+   * @see #getJumpStatement()
+   * @generated
+   */
+  EAttribute getJumpStatement_Break();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.c.JumpStatement#getSemi <em>Semi</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Semi</em>'.
+   * @see at.jku.weiner.c.c.JumpStatement#getSemi()
+   * @see #getJumpStatement()
+   * @generated
+   */
+  EAttribute getJumpStatement_Semi();
+
+  /**
    * Returns the meta object for the attribute '{@link at.jku.weiner.c.c.JumpStatement#getReturn <em>Return</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3671,17 +3779,6 @@ public interface CPackage extends EPackage
    * @generated
    */
   EReference getJumpStatement_Expr();
-
-  /**
-   * Returns the meta object for the attribute '{@link at.jku.weiner.c.c.JumpStatement#getSemi <em>Semi</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Semi</em>'.
-   * @see at.jku.weiner.c.c.JumpStatement#getSemi()
-   * @see #getJumpStatement()
-   * @generated
-   */
-  EAttribute getJumpStatement_Semi();
 
   /**
    * Returns the meta object for the attribute '{@link at.jku.weiner.c.c.JumpStatement#getGoto <em>Goto</em>}'.
@@ -4216,6 +4313,27 @@ public interface CPackage extends EPackage
    * @generated
    */
   EReference getPrimaryExpression_Expr();
+
+  /**
+   * Returns the meta object for class '{@link at.jku.weiner.c.c.ConstantExpression <em>Constant Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Constant Expression</em>'.
+   * @see at.jku.weiner.c.c.ConstantExpression
+   * @generated
+   */
+  EClass getConstantExpression();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.c.ConstantExpression#getExpr <em>Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expr</em>'.
+   * @see at.jku.weiner.c.c.ConstantExpression#getExpr()
+   * @see #getConstantExpression()
+   * @generated
+   */
+  EReference getConstantExpression_Expr();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -5079,6 +5197,22 @@ public interface CPackage extends EPackage
     EReference LABELED_STATEMENT__LSTMT = eINSTANCE.getLabeledStatement_LStmt();
 
     /**
+     * The meta object literal for the '<em><b>Case</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LABELED_STATEMENT__CASE = eINSTANCE.getLabeledStatement_Case();
+
+    /**
+     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LABELED_STATEMENT__EXPR = eINSTANCE.getLabeledStatement_Expr();
+
+    /**
      * The meta object literal for the '<em><b>Default</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5275,6 +5409,22 @@ public interface CPackage extends EPackage
     EClass JUMP_STATEMENT = eINSTANCE.getJumpStatement();
 
     /**
+     * The meta object literal for the '<em><b>Break</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute JUMP_STATEMENT__BREAK = eINSTANCE.getJumpStatement_Break();
+
+    /**
+     * The meta object literal for the '<em><b>Semi</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute JUMP_STATEMENT__SEMI = eINSTANCE.getJumpStatement_Semi();
+
+    /**
      * The meta object literal for the '<em><b>Return</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5289,14 +5439,6 @@ public interface CPackage extends EPackage
      * @generated
      */
     EReference JUMP_STATEMENT__EXPR = eINSTANCE.getJumpStatement_Expr();
-
-    /**
-     * The meta object literal for the '<em><b>Semi</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute JUMP_STATEMENT__SEMI = eINSTANCE.getJumpStatement_Semi();
 
     /**
      * The meta object literal for the '<em><b>Goto</b></em>' attribute feature.
@@ -5729,6 +5871,24 @@ public interface CPackage extends EPackage
      * @generated
      */
     EReference PRIMARY_EXPRESSION__EXPR = eINSTANCE.getPrimaryExpression_Expr();
+
+    /**
+     * The meta object literal for the '{@link at.jku.weiner.c.c.impl.ConstantExpressionImpl <em>Constant Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.c.c.impl.ConstantExpressionImpl
+     * @see at.jku.weiner.c.c.impl.CPackageImpl#getConstantExpression()
+     * @generated
+     */
+    EClass CONSTANT_EXPRESSION = eINSTANCE.getConstantExpression();
+
+    /**
+     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONSTANT_EXPRESSION__EXPR = eINSTANCE.getConstantExpression_Expr();
 
   }
 

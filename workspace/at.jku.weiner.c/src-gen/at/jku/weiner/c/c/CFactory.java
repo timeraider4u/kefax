@@ -536,6 +536,15 @@ public interface CFactory extends EFactory
   PrimaryExpression createPrimaryExpression();
 
   /**
+   * Returns a new object of class '<em>Constant Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Constant Expression</em>'.
+   * @generated
+   */
+  ConstantExpression createConstantExpression();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

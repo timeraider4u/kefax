@@ -529,11 +529,8 @@ Statement:
 LabeledStatement returns Statement:
 	{LabeledStatement}
 	(
-	id=ID COLON lStmt=Statement
-	/*/	
-	|	CASE constantExpression COLON statement=statement
-	* 
-	*/
+	id=ID COLON lStmt=Statement	
+	|	case=KW_CASE expr=ConstantExpression COLON lStmt=Statement
 	|	default=KW_DEFAULT COLON lStmt=Statement
 	)
 ;
@@ -588,9 +585,9 @@ JumpStatement returns Statement:
 	(
 	//GOTO IDENTIFIER SEMI //(can be reached over GOTO unaryExpression)
 	//|	CONTINUE SEMI
-	//|	BREAK SEMI
-	//|
-		return=KW_RETURN expr=Expression? semi=SEMI
+	//|	
+	break=KW_BREAK semi=SEMI
+	|	return=KW_RETURN expr=Expression? semi=SEMI
 	|	goto=KW_GOTO expr=UnaryExpression semi=SEMI // GCC extension
 	)
 ;
@@ -837,6 +834,11 @@ Constant:
 	)
 ;
 
+ConstantExpression returns Expression:
+	{ConstantExpression}
+	expr=ConditionalExpression
+;
+
 /*** UNKNOWN!!! ***/
 
 //genericSelection: GENERIC LEFTPAREN assignmentExpression COMMA genericAssocList=genericAssocList RIGHTPAREN;
@@ -849,11 +851,6 @@ genericAssociation:
 	(assignmentExpression=assignmentExpression)
 ;
 */
-
-/*ConstantExpression returns Expression:
-	{ConstantExpression}
-	expr=ConditionalExpression
-;*/
 
 /*** lexer ***/
 /*** start with keywords ;-) */

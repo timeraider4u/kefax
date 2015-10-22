@@ -15,6 +15,7 @@ import at.jku.weiner.c.c.CastExpression;
 import at.jku.weiner.c.c.CompoundStatement;
 import at.jku.weiner.c.c.ConditionalExpression;
 import at.jku.weiner.c.c.Constant;
+import at.jku.weiner.c.c.ConstantExpression;
 import at.jku.weiner.c.c.Declaration;
 import at.jku.weiner.c.c.DeclarationSpecifiers;
 import at.jku.weiner.c.c.Declarator;
@@ -117,6 +118,9 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case CPackage.CONSTANT:
 				sequence_Constant(context, (Constant) semanticObject); 
+				return; 
+			case CPackage.CONSTANT_EXPRESSION:
+				sequence_ConstantExpression(context, (ConstantExpression) semanticObject); 
 				return; 
 			case CPackage.DECLARATION:
 				sequence_Declaration(context, (Declaration) semanticObject); 
@@ -364,6 +368,15 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     expr=ConditionalExpression
+	 */
+	protected void sequence_ConstantExpression(EObject context, ConstantExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (
 	 *         hex=HEX_LITERAL | 
 	 *         oct=OCTAL_LITERAL | 
@@ -573,7 +586,7 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     ((return=KW_RETURN expr=Expression? semi=SEMI) | (goto=KW_GOTO expr=UnaryExpression semi=SEMI))
+	 *     ((break=KW_BREAK semi=SEMI) | (return=KW_RETURN expr=Expression? semi=SEMI) | (goto=KW_GOTO expr=UnaryExpression semi=SEMI))
 	 */
 	protected void sequence_JumpStatement(EObject context, JumpStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -582,7 +595,7 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     ((id=ID lStmt=Statement) | (default=KW_DEFAULT lStmt=Statement))
+	 *     ((id=ID lStmt=Statement) | (case=KW_CASE expr=ConstantExpression lStmt=Statement) | (default=KW_DEFAULT lStmt=Statement))
 	 */
 	protected void sequence_LabeledStatement(EObject context, LabeledStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

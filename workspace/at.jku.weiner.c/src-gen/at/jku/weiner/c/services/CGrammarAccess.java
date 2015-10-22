@@ -1466,34 +1466,35 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cLStmtAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
 		private final RuleCall cLStmtStatementParserRuleCall_1_0_2_0 = (RuleCall)cLStmtAssignment_1_0_2.eContents().get(0);
 		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
-		private final Assignment cDefaultAssignment_1_1_0 = (Assignment)cGroup_1_1.eContents().get(0);
-		private final RuleCall cDefaultKW_DEFAULTTerminalRuleCall_1_1_0_0 = (RuleCall)cDefaultAssignment_1_1_0.eContents().get(0);
-		private final RuleCall cCOLONTerminalRuleCall_1_1_1 = (RuleCall)cGroup_1_1.eContents().get(1);
-		private final Assignment cLStmtAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
-		private final RuleCall cLStmtStatementParserRuleCall_1_1_2_0 = (RuleCall)cLStmtAssignment_1_1_2.eContents().get(0);
+		private final Assignment cCaseAssignment_1_1_0 = (Assignment)cGroup_1_1.eContents().get(0);
+		private final RuleCall cCaseKW_CASETerminalRuleCall_1_1_0_0 = (RuleCall)cCaseAssignment_1_1_0.eContents().get(0);
+		private final Assignment cExprAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
+		private final RuleCall cExprConstantExpressionParserRuleCall_1_1_1_0 = (RuleCall)cExprAssignment_1_1_1.eContents().get(0);
+		private final RuleCall cCOLONTerminalRuleCall_1_1_2 = (RuleCall)cGroup_1_1.eContents().get(2);
+		private final Assignment cLStmtAssignment_1_1_3 = (Assignment)cGroup_1_1.eContents().get(3);
+		private final RuleCall cLStmtStatementParserRuleCall_1_1_3_0 = (RuleCall)cLStmtAssignment_1_1_3.eContents().get(0);
+		private final Group cGroup_1_2 = (Group)cAlternatives_1.eContents().get(2);
+		private final Assignment cDefaultAssignment_1_2_0 = (Assignment)cGroup_1_2.eContents().get(0);
+		private final RuleCall cDefaultKW_DEFAULTTerminalRuleCall_1_2_0_0 = (RuleCall)cDefaultAssignment_1_2_0.eContents().get(0);
+		private final RuleCall cCOLONTerminalRuleCall_1_2_1 = (RuleCall)cGroup_1_2.eContents().get(1);
+		private final Assignment cLStmtAssignment_1_2_2 = (Assignment)cGroup_1_2.eContents().get(2);
+		private final RuleCall cLStmtStatementParserRuleCall_1_2_2_0 = (RuleCall)cLStmtAssignment_1_2_2.eContents().get(0);
 		
 		//LabeledStatement Statement:
 		//	{LabeledStatement} (id=ID COLON lStmt=Statement
-		//	/ * /	
-		//	|	CASE constantExpression COLON statement=statement
-		//	* 
-		//	* /
+		//	| case=KW_CASE expr=ConstantExpression COLON lStmt=Statement
 		//	| default=KW_DEFAULT COLON lStmt=Statement)
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{LabeledStatement} (id=ID COLON lStmt=Statement / * /	
-		//	|	CASE constantExpression COLON statement=statement
-		//	* 
-		//	* / | default=KW_DEFAULT COLON lStmt=Statement)
+		//{LabeledStatement} (id=ID COLON lStmt=Statement | case=KW_CASE expr=ConstantExpression COLON lStmt=Statement |
+		//default=KW_DEFAULT COLON lStmt=Statement)
 		public Group getGroup() { return cGroup; }
 		
 		//{LabeledStatement}
 		public Action getLabeledStatementAction_0() { return cLabeledStatementAction_0; }
 		
-		//(id=ID COLON lStmt=Statement / * /	
-		//	|	CASE constantExpression COLON statement=statement
-		//	* 
-		//	* / | default=KW_DEFAULT COLON lStmt=Statement)
+		//(id=ID COLON lStmt=Statement | case=KW_CASE expr=ConstantExpression COLON lStmt=Statement | default=KW_DEFAULT COLON
+		//lStmt=Statement)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
 		//id=ID COLON lStmt=Statement
@@ -1514,23 +1515,47 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		//Statement
 		public RuleCall getLStmtStatementParserRuleCall_1_0_2_0() { return cLStmtStatementParserRuleCall_1_0_2_0; }
 		
-		//default=KW_DEFAULT COLON lStmt=Statement
+		//case=KW_CASE expr=ConstantExpression COLON lStmt=Statement
 		public Group getGroup_1_1() { return cGroup_1_1; }
 		
-		//default=KW_DEFAULT
-		public Assignment getDefaultAssignment_1_1_0() { return cDefaultAssignment_1_1_0; }
+		//case=KW_CASE
+		public Assignment getCaseAssignment_1_1_0() { return cCaseAssignment_1_1_0; }
 		
-		//KW_DEFAULT
-		public RuleCall getDefaultKW_DEFAULTTerminalRuleCall_1_1_0_0() { return cDefaultKW_DEFAULTTerminalRuleCall_1_1_0_0; }
+		//KW_CASE
+		public RuleCall getCaseKW_CASETerminalRuleCall_1_1_0_0() { return cCaseKW_CASETerminalRuleCall_1_1_0_0; }
+		
+		//expr=ConstantExpression
+		public Assignment getExprAssignment_1_1_1() { return cExprAssignment_1_1_1; }
+		
+		//ConstantExpression
+		public RuleCall getExprConstantExpressionParserRuleCall_1_1_1_0() { return cExprConstantExpressionParserRuleCall_1_1_1_0; }
 		
 		//COLON
-		public RuleCall getCOLONTerminalRuleCall_1_1_1() { return cCOLONTerminalRuleCall_1_1_1; }
+		public RuleCall getCOLONTerminalRuleCall_1_1_2() { return cCOLONTerminalRuleCall_1_1_2; }
 		
 		//lStmt=Statement
-		public Assignment getLStmtAssignment_1_1_2() { return cLStmtAssignment_1_1_2; }
+		public Assignment getLStmtAssignment_1_1_3() { return cLStmtAssignment_1_1_3; }
 		
 		//Statement
-		public RuleCall getLStmtStatementParserRuleCall_1_1_2_0() { return cLStmtStatementParserRuleCall_1_1_2_0; }
+		public RuleCall getLStmtStatementParserRuleCall_1_1_3_0() { return cLStmtStatementParserRuleCall_1_1_3_0; }
+		
+		//default=KW_DEFAULT COLON lStmt=Statement
+		public Group getGroup_1_2() { return cGroup_1_2; }
+		
+		//default=KW_DEFAULT
+		public Assignment getDefaultAssignment_1_2_0() { return cDefaultAssignment_1_2_0; }
+		
+		//KW_DEFAULT
+		public RuleCall getDefaultKW_DEFAULTTerminalRuleCall_1_2_0_0() { return cDefaultKW_DEFAULTTerminalRuleCall_1_2_0_0; }
+		
+		//COLON
+		public RuleCall getCOLONTerminalRuleCall_1_2_1() { return cCOLONTerminalRuleCall_1_2_1; }
+		
+		//lStmt=Statement
+		public Assignment getLStmtAssignment_1_2_2() { return cLStmtAssignment_1_2_2; }
+		
+		//Statement
+		public RuleCall getLStmtStatementParserRuleCall_1_2_2_0() { return cLStmtStatementParserRuleCall_1_2_2_0; }
 	}
 	public class CompoundStatementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.CompoundStatement");
@@ -1856,86 +1881,106 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cJumpStatementAction_0 = (Action)cGroup.eContents().get(0);
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
 		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
-		private final Assignment cReturnAssignment_1_0_0 = (Assignment)cGroup_1_0.eContents().get(0);
-		private final RuleCall cReturnKW_RETURNTerminalRuleCall_1_0_0_0 = (RuleCall)cReturnAssignment_1_0_0.eContents().get(0);
-		private final Assignment cExprAssignment_1_0_1 = (Assignment)cGroup_1_0.eContents().get(1);
-		private final RuleCall cExprExpressionParserRuleCall_1_0_1_0 = (RuleCall)cExprAssignment_1_0_1.eContents().get(0);
-		private final Assignment cSemiAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
-		private final RuleCall cSemiSEMITerminalRuleCall_1_0_2_0 = (RuleCall)cSemiAssignment_1_0_2.eContents().get(0);
+		private final Assignment cBreakAssignment_1_0_0 = (Assignment)cGroup_1_0.eContents().get(0);
+		private final RuleCall cBreakKW_BREAKTerminalRuleCall_1_0_0_0 = (RuleCall)cBreakAssignment_1_0_0.eContents().get(0);
+		private final Assignment cSemiAssignment_1_0_1 = (Assignment)cGroup_1_0.eContents().get(1);
+		private final RuleCall cSemiSEMITerminalRuleCall_1_0_1_0 = (RuleCall)cSemiAssignment_1_0_1.eContents().get(0);
 		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
-		private final Assignment cGotoAssignment_1_1_0 = (Assignment)cGroup_1_1.eContents().get(0);
-		private final RuleCall cGotoKW_GOTOTerminalRuleCall_1_1_0_0 = (RuleCall)cGotoAssignment_1_1_0.eContents().get(0);
+		private final Assignment cReturnAssignment_1_1_0 = (Assignment)cGroup_1_1.eContents().get(0);
+		private final RuleCall cReturnKW_RETURNTerminalRuleCall_1_1_0_0 = (RuleCall)cReturnAssignment_1_1_0.eContents().get(0);
 		private final Assignment cExprAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
-		private final RuleCall cExprUnaryExpressionParserRuleCall_1_1_1_0 = (RuleCall)cExprAssignment_1_1_1.eContents().get(0);
+		private final RuleCall cExprExpressionParserRuleCall_1_1_1_0 = (RuleCall)cExprAssignment_1_1_1.eContents().get(0);
 		private final Assignment cSemiAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
 		private final RuleCall cSemiSEMITerminalRuleCall_1_1_2_0 = (RuleCall)cSemiAssignment_1_1_2.eContents().get(0);
+		private final Group cGroup_1_2 = (Group)cAlternatives_1.eContents().get(2);
+		private final Assignment cGotoAssignment_1_2_0 = (Assignment)cGroup_1_2.eContents().get(0);
+		private final RuleCall cGotoKW_GOTOTerminalRuleCall_1_2_0_0 = (RuleCall)cGotoAssignment_1_2_0.eContents().get(0);
+		private final Assignment cExprAssignment_1_2_1 = (Assignment)cGroup_1_2.eContents().get(1);
+		private final RuleCall cExprUnaryExpressionParserRuleCall_1_2_1_0 = (RuleCall)cExprAssignment_1_2_1.eContents().get(0);
+		private final Assignment cSemiAssignment_1_2_2 = (Assignment)cGroup_1_2.eContents().get(2);
+		private final RuleCall cSemiSEMITerminalRuleCall_1_2_2_0 = (RuleCall)cSemiAssignment_1_2_2.eContents().get(0);
 		
 		//JumpStatement Statement:
-		//	{JumpStatement} (return=KW_RETURN expr=Expression? semi=SEMI
+		//	{JumpStatement} (break=KW_BREAK semi=SEMI
+		//	| return=KW_RETURN expr=Expression? semi=SEMI
 		//	| goto=KW_GOTO expr=UnaryExpression semi=SEMI // GCC extension
 		//)
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{JumpStatement} (return=KW_RETURN expr=Expression? semi=SEMI | goto=KW_GOTO expr=UnaryExpression semi=SEMI // GCC extension
+		//{JumpStatement} (break=KW_BREAK semi=SEMI | return=KW_RETURN expr=Expression? semi=SEMI | goto=KW_GOTO
+		//expr=UnaryExpression semi=SEMI // GCC extension
 		//)
 		public Group getGroup() { return cGroup; }
 		
 		//{JumpStatement}
 		public Action getJumpStatementAction_0() { return cJumpStatementAction_0; }
 		
-		//(return=KW_RETURN expr=Expression? semi=SEMI | goto=KW_GOTO expr=UnaryExpression semi=SEMI // GCC extension
+		//(break=KW_BREAK semi=SEMI | return=KW_RETURN expr=Expression? semi=SEMI | goto=KW_GOTO expr=UnaryExpression semi=SEMI // GCC extension
 		//)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
 		////GOTO IDENTIFIER SEMI //(can be reached over GOTO unaryExpression)
 		////|	CONTINUE SEMI
-		////|	BREAK SEMI
-		////|
-		//return=KW_RETURN expr=Expression? semi=SEMI
+		////|	
+		//break=KW_BREAK semi=SEMI
 		public Group getGroup_1_0() { return cGroup_1_0; }
 		
 		////GOTO IDENTIFIER SEMI //(can be reached over GOTO unaryExpression)
 		////|	CONTINUE SEMI
-		////|	BREAK SEMI
-		////|
-		//return=KW_RETURN
-		public Assignment getReturnAssignment_1_0_0() { return cReturnAssignment_1_0_0; }
+		////|	
+		//break=KW_BREAK
+		public Assignment getBreakAssignment_1_0_0() { return cBreakAssignment_1_0_0; }
 		
-		//KW_RETURN
-		public RuleCall getReturnKW_RETURNTerminalRuleCall_1_0_0_0() { return cReturnKW_RETURNTerminalRuleCall_1_0_0_0; }
-		
-		//expr=Expression?
-		public Assignment getExprAssignment_1_0_1() { return cExprAssignment_1_0_1; }
-		
-		//Expression
-		public RuleCall getExprExpressionParserRuleCall_1_0_1_0() { return cExprExpressionParserRuleCall_1_0_1_0; }
+		//KW_BREAK
+		public RuleCall getBreakKW_BREAKTerminalRuleCall_1_0_0_0() { return cBreakKW_BREAKTerminalRuleCall_1_0_0_0; }
 		
 		//semi=SEMI
-		public Assignment getSemiAssignment_1_0_2() { return cSemiAssignment_1_0_2; }
+		public Assignment getSemiAssignment_1_0_1() { return cSemiAssignment_1_0_1; }
 		
 		//SEMI
-		public RuleCall getSemiSEMITerminalRuleCall_1_0_2_0() { return cSemiSEMITerminalRuleCall_1_0_2_0; }
+		public RuleCall getSemiSEMITerminalRuleCall_1_0_1_0() { return cSemiSEMITerminalRuleCall_1_0_1_0; }
 		
-		//goto=KW_GOTO expr=UnaryExpression semi=SEMI
+		//return=KW_RETURN expr=Expression? semi=SEMI
 		public Group getGroup_1_1() { return cGroup_1_1; }
 		
-		//goto=KW_GOTO
-		public Assignment getGotoAssignment_1_1_0() { return cGotoAssignment_1_1_0; }
+		//return=KW_RETURN
+		public Assignment getReturnAssignment_1_1_0() { return cReturnAssignment_1_1_0; }
 		
-		//KW_GOTO
-		public RuleCall getGotoKW_GOTOTerminalRuleCall_1_1_0_0() { return cGotoKW_GOTOTerminalRuleCall_1_1_0_0; }
+		//KW_RETURN
+		public RuleCall getReturnKW_RETURNTerminalRuleCall_1_1_0_0() { return cReturnKW_RETURNTerminalRuleCall_1_1_0_0; }
 		
-		//expr=UnaryExpression
+		//expr=Expression?
 		public Assignment getExprAssignment_1_1_1() { return cExprAssignment_1_1_1; }
 		
-		//UnaryExpression
-		public RuleCall getExprUnaryExpressionParserRuleCall_1_1_1_0() { return cExprUnaryExpressionParserRuleCall_1_1_1_0; }
+		//Expression
+		public RuleCall getExprExpressionParserRuleCall_1_1_1_0() { return cExprExpressionParserRuleCall_1_1_1_0; }
 		
 		//semi=SEMI
 		public Assignment getSemiAssignment_1_1_2() { return cSemiAssignment_1_1_2; }
 		
 		//SEMI
 		public RuleCall getSemiSEMITerminalRuleCall_1_1_2_0() { return cSemiSEMITerminalRuleCall_1_1_2_0; }
+		
+		//goto=KW_GOTO expr=UnaryExpression semi=SEMI
+		public Group getGroup_1_2() { return cGroup_1_2; }
+		
+		//goto=KW_GOTO
+		public Assignment getGotoAssignment_1_2_0() { return cGotoAssignment_1_2_0; }
+		
+		//KW_GOTO
+		public RuleCall getGotoKW_GOTOTerminalRuleCall_1_2_0_0() { return cGotoKW_GOTOTerminalRuleCall_1_2_0_0; }
+		
+		//expr=UnaryExpression
+		public Assignment getExprAssignment_1_2_1() { return cExprAssignment_1_2_1; }
+		
+		//UnaryExpression
+		public RuleCall getExprUnaryExpressionParserRuleCall_1_2_1_0() { return cExprUnaryExpressionParserRuleCall_1_2_1_0; }
+		
+		//semi=SEMI
+		public Assignment getSemiAssignment_1_2_2() { return cSemiAssignment_1_2_2; }
+		
+		//SEMI
+		public RuleCall getSemiSEMITerminalRuleCall_1_2_2_0() { return cSemiSEMITerminalRuleCall_1_2_2_0; }
 	}
 	public class ExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.Expression");
@@ -3226,6 +3271,29 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		//BIN_LITERAL
 		public RuleCall getBinBIN_LITERALTerminalRuleCall_1_6_0() { return cBinBIN_LITERALTerminalRuleCall_1_6_0; }
 	}
+	public class ConstantExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.ConstantExpression");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cConstantExpressionAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cExprAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cExprConditionalExpressionParserRuleCall_1_0 = (RuleCall)cExprAssignment_1.eContents().get(0);
+		
+		//ConstantExpression Expression:
+		//	{ConstantExpression} expr=ConditionalExpression
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{ConstantExpression} expr=ConditionalExpression
+		public Group getGroup() { return cGroup; }
+		
+		//{ConstantExpression}
+		public Action getConstantExpressionAction_0() { return cConstantExpressionAction_0; }
+		
+		//expr=ConditionalExpression
+		public Assignment getExprAssignment_1() { return cExprAssignment_1; }
+		
+		//ConditionalExpression
+		public RuleCall getExprConditionalExpressionParserRuleCall_1_0() { return cExprConditionalExpressionParserRuleCall_1_0; }
+	}
 	
 	
 	private final ModelElements pModel;
@@ -3286,6 +3354,7 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	private final ArgumentExpressionListElements pArgumentExpressionList;
 	private final PrimaryExpressionElements pPrimaryExpression;
 	private final ConstantElements pConstant;
+	private final ConstantExpressionElements pConstantExpression;
 	private final TerminalRule tKW_UNDERSCORE;
 	private final TerminalRule tKW_AUTO;
 	private final TerminalRule tKW_BREAK;
@@ -3468,6 +3537,7 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		this.pArgumentExpressionList = new ArgumentExpressionListElements();
 		this.pPrimaryExpression = new PrimaryExpressionElements();
 		this.pConstant = new ConstantElements();
+		this.pConstantExpression = new ConstantExpressionElements();
 		this.tKW_UNDERSCORE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.KW_UNDERSCORE");
 		this.tKW_AUTO = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.KW_AUTO");
 		this.tKW_BREAK = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.KW_BREAK");
@@ -4106,10 +4176,7 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//LabeledStatement Statement:
 	//	{LabeledStatement} (id=ID COLON lStmt=Statement
-	//	/ * /	
-	//	|	CASE constantExpression COLON statement=statement
-	//	* 
-	//	* /
+	//	| case=KW_CASE expr=ConstantExpression COLON lStmt=Statement
 	//	| default=KW_DEFAULT COLON lStmt=Statement)
 	public LabeledStatementElements getLabeledStatementAccess() {
 		return pLabeledStatement;
@@ -4181,7 +4248,8 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//JumpStatement Statement:
-	//	{JumpStatement} (return=KW_RETURN expr=Expression? semi=SEMI
+	//	{JumpStatement} (break=KW_BREAK semi=SEMI
+	//	| return=KW_RETURN expr=Expression? semi=SEMI
 	//	| goto=KW_GOTO expr=UnaryExpression semi=SEMI // GCC extension
 	//)
 	public JumpStatementElements getJumpStatementAccess() {
@@ -4475,6 +4543,16 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getConstantRule() {
 		return getConstantAccess().getRule();
+	}
+	
+	//ConstantExpression Expression:
+	//	{ConstantExpression} expr=ConditionalExpression
+	public ConstantExpressionElements getConstantExpressionAccess() {
+		return pConstantExpression;
+	}
+	
+	public ParserRule getConstantExpressionRule() {
+		return getConstantExpressionAccess().getRule();
 	}
 	
 	//terminal KW_UNDERSCORE:

@@ -137,6 +137,7 @@
     <genClasses ecoreClass="C.ecore#//LabeledStatement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//LabeledStatement/id"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//LabeledStatement/lStmt"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//LabeledStatement/default"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//CompoundStatement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//CompoundStatement/body"/>

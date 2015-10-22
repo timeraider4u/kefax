@@ -23,9 +23,9 @@ WHITESPACE LEFTBRACE NEWLINE
 		
 		//WHITESPACE BLOCK_COMMENT NEWLINE	  
 		
-		//WHITESPACE KW_ELSE WHITESPACE LEFTBRACE NEWLINE
-		//WHITESPACE KW_RETURN WHITESPACE DECIMAL_LITERAL SEMI NEWLINE
-		//WHITESPACE RIGHTBRACE NEWLINE
+		WHITESPACE KW_DEFAULT COLON WHITESPACE LEFTBRACE NEWLINE
+		WHITESPACE KW_RETURN WHITESPACE DECIMAL_LITERAL SEMI NEWLINE
+		WHITESPACE RIGHTBRACE NEWLINE
 	WHITESPACE RIGHTBRACE NEWLINE
 	WHITESPACE KW_RETURN WHITESPACE DECIMAL_LITERAL SEMI NEWLINE
 RIGHTBRACE NEWLINE
@@ -149,7 +149,92 @@ RIGHTBRACE NEWLINE
 									(CompoundStatement
 										body=
 										(BodyStatement
-											
+											blockList+=
+											(BlockList
+												statement+=
+												(Statement
+													stmt=	
+													(LabeledStatement
+														default++"default",
+														lStmt=
+														(Statement
+															stmt=
+															(CompoundStatement
+																body=
+																(BodyStatement
+																	blockList+=
+																	(BlockList
+																		statement+=
+																		(Statement
+																			stmt=	
+																			(JumpStatement
+																				return++"return",
+																				expr=
+																				(Expression
+																					exprExpr+=
+																					(AssignmentExpression
+																						expr=
+																						(ConditionalExpression
+																							expr=
+																							(LogicalOrExpression
+																								expr+=
+																								(LogicalAndExpression
+																									expr+=
+																									(InclusiveOrExpression
+																										expr+=
+																										(ExclusiveOrExpression
+																											expr+=
+																											(AndExpression
+																												expr+=
+																												(EqualityExpression
+																													expr+=
+																													(RelationalExpression
+																														expr+=
+																														(ShiftExpression
+																															expr+=
+																															(AdditiveExpression
+																																expr+=
+																																(MultiplicativeExpression
+																																	expr+=
+																																	(CastExpression
+																																		expr=
+																																		(UnaryExpression
+																																			expr=
+																																			(PostfixExpression
+																																				expr+=
+																																				(PrimaryExpression
+																																					const=
+																																					(Constant
+																																						dec++"2"	
+																																					)
+																																				)
+																																			)
+																																		)
+																																	)
+																																)
+																															)
+																														)
+																													)
+																													
+																												)
+																											)
+																										)
+																									)
+																								)
+																							)
+																						)
+																					)
+																				), // end expression
+																				semi++";"
+																			) // end jump statement
+																		)
+																	)
+																)
+															)
+														)
+													) // end labeled statement
+												) // end statement
+											)
 										
 										)
 									) // end compound statement of switch

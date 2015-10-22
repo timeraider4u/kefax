@@ -532,8 +532,9 @@ LabeledStatement returns Statement:
 	id=ID COLON lStmt=Statement
 	/*/	
 	|	CASE constantExpression COLON statement=statement
-	|	DEFAULT COLON statement
+	* 
 	*/
+	|	default=KW_DEFAULT COLON lStmt=Statement
 	)
 ;
 

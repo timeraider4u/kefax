@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link at.jku.weiner.c.c.impl.LabeledStatementImpl#getId <em>Id</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.LabeledStatementImpl#getLStmt <em>LStmt</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.impl.LabeledStatementImpl#getDefault <em>Default</em>}</li>
  * </ul>
  * </p>
  *
@@ -59,6 +60,26 @@ public class LabeledStatementImpl extends StatementImpl implements LabeledStatem
    * @ordered
    */
   protected Statement lStmt;
+
+  /**
+   * The default value of the '{@link #getDefault() <em>Default</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDefault()
+   * @generated
+   * @ordered
+   */
+  protected static final String DEFAULT_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getDefault() <em>Default</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDefault()
+   * @generated
+   * @ordered
+   */
+  protected String default_ = DEFAULT_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -157,6 +178,29 @@ public class LabeledStatementImpl extends StatementImpl implements LabeledStatem
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getDefault()
+  {
+    return default_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDefault(String newDefault)
+  {
+    String oldDefault = default_;
+    default_ = newDefault;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CPackage.LABELED_STATEMENT__DEFAULT, oldDefault, default_));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -182,6 +226,8 @@ public class LabeledStatementImpl extends StatementImpl implements LabeledStatem
         return getId();
       case CPackage.LABELED_STATEMENT__LSTMT:
         return getLStmt();
+      case CPackage.LABELED_STATEMENT__DEFAULT:
+        return getDefault();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -201,6 +247,9 @@ public class LabeledStatementImpl extends StatementImpl implements LabeledStatem
         return;
       case CPackage.LABELED_STATEMENT__LSTMT:
         setLStmt((Statement)newValue);
+        return;
+      case CPackage.LABELED_STATEMENT__DEFAULT:
+        setDefault((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -222,6 +271,9 @@ public class LabeledStatementImpl extends StatementImpl implements LabeledStatem
       case CPackage.LABELED_STATEMENT__LSTMT:
         setLStmt((Statement)null);
         return;
+      case CPackage.LABELED_STATEMENT__DEFAULT:
+        setDefault(DEFAULT_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -240,6 +292,8 @@ public class LabeledStatementImpl extends StatementImpl implements LabeledStatem
         return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
       case CPackage.LABELED_STATEMENT__LSTMT:
         return lStmt != null;
+      case CPackage.LABELED_STATEMENT__DEFAULT:
+        return DEFAULT_EDEFAULT == null ? default_ != null : !DEFAULT_EDEFAULT.equals(default_);
     }
     return super.eIsSet(featureID);
   }
@@ -257,6 +311,8 @@ public class LabeledStatementImpl extends StatementImpl implements LabeledStatem
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (id: ");
     result.append(id);
+    result.append(", default: ");
+    result.append(default_);
     result.append(')');
     return result.toString();
   }

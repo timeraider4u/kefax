@@ -1458,25 +1458,33 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.LabeledStatement");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cLabeledStatementAction_0 = (Action)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Assignment cIdAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
-		private final RuleCall cIdIDTerminalRuleCall_1_0_0 = (RuleCall)cIdAssignment_1_0.eContents().get(0);
-		private final RuleCall cCOLONTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
-		private final Assignment cLStmtAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cLStmtStatementParserRuleCall_1_2_0 = (RuleCall)cLStmtAssignment_1_2.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
+		private final Assignment cIdAssignment_1_0_0 = (Assignment)cGroup_1_0.eContents().get(0);
+		private final RuleCall cIdIDTerminalRuleCall_1_0_0_0 = (RuleCall)cIdAssignment_1_0_0.eContents().get(0);
+		private final RuleCall cCOLONTerminalRuleCall_1_0_1 = (RuleCall)cGroup_1_0.eContents().get(1);
+		private final Assignment cLStmtAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
+		private final RuleCall cLStmtStatementParserRuleCall_1_0_2_0 = (RuleCall)cLStmtAssignment_1_0_2.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
+		private final Assignment cDefaultAssignment_1_1_0 = (Assignment)cGroup_1_1.eContents().get(0);
+		private final RuleCall cDefaultKW_DEFAULTTerminalRuleCall_1_1_0_0 = (RuleCall)cDefaultAssignment_1_1_0.eContents().get(0);
+		private final RuleCall cCOLONTerminalRuleCall_1_1_1 = (RuleCall)cGroup_1_1.eContents().get(1);
+		private final Assignment cLStmtAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
+		private final RuleCall cLStmtStatementParserRuleCall_1_1_2_0 = (RuleCall)cLStmtAssignment_1_1_2.eContents().get(0);
 		
 		//LabeledStatement Statement:
 		//	{LabeledStatement} (id=ID COLON lStmt=Statement
 		//	/ * /	
 		//	|	CASE constantExpression COLON statement=statement
-		//	|	DEFAULT COLON statement
-		//	* /)
+		//	* 
+		//	* /
+		//	| default=KW_DEFAULT COLON lStmt=Statement)
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{LabeledStatement} (id=ID COLON lStmt=Statement / * /	
 		//	|	CASE constantExpression COLON statement=statement
-		//	|	DEFAULT COLON statement
-		//	* /)
+		//	* 
+		//	* / | default=KW_DEFAULT COLON lStmt=Statement)
 		public Group getGroup() { return cGroup; }
 		
 		//{LabeledStatement}
@@ -1484,24 +1492,45 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//(id=ID COLON lStmt=Statement / * /	
 		//	|	CASE constantExpression COLON statement=statement
-		//	|	DEFAULT COLON statement
-		//	* /)
-		public Group getGroup_1() { return cGroup_1; }
+		//	* 
+		//	* / | default=KW_DEFAULT COLON lStmt=Statement)
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		
+		//id=ID COLON lStmt=Statement
+		public Group getGroup_1_0() { return cGroup_1_0; }
 		
 		//id=ID
-		public Assignment getIdAssignment_1_0() { return cIdAssignment_1_0; }
+		public Assignment getIdAssignment_1_0_0() { return cIdAssignment_1_0_0; }
 		
 		//ID
-		public RuleCall getIdIDTerminalRuleCall_1_0_0() { return cIdIDTerminalRuleCall_1_0_0; }
+		public RuleCall getIdIDTerminalRuleCall_1_0_0_0() { return cIdIDTerminalRuleCall_1_0_0_0; }
 		
 		//COLON
-		public RuleCall getCOLONTerminalRuleCall_1_1() { return cCOLONTerminalRuleCall_1_1; }
+		public RuleCall getCOLONTerminalRuleCall_1_0_1() { return cCOLONTerminalRuleCall_1_0_1; }
 		
 		//lStmt=Statement
-		public Assignment getLStmtAssignment_1_2() { return cLStmtAssignment_1_2; }
+		public Assignment getLStmtAssignment_1_0_2() { return cLStmtAssignment_1_0_2; }
 		
 		//Statement
-		public RuleCall getLStmtStatementParserRuleCall_1_2_0() { return cLStmtStatementParserRuleCall_1_2_0; }
+		public RuleCall getLStmtStatementParserRuleCall_1_0_2_0() { return cLStmtStatementParserRuleCall_1_0_2_0; }
+		
+		//default=KW_DEFAULT COLON lStmt=Statement
+		public Group getGroup_1_1() { return cGroup_1_1; }
+		
+		//default=KW_DEFAULT
+		public Assignment getDefaultAssignment_1_1_0() { return cDefaultAssignment_1_1_0; }
+		
+		//KW_DEFAULT
+		public RuleCall getDefaultKW_DEFAULTTerminalRuleCall_1_1_0_0() { return cDefaultKW_DEFAULTTerminalRuleCall_1_1_0_0; }
+		
+		//COLON
+		public RuleCall getCOLONTerminalRuleCall_1_1_1() { return cCOLONTerminalRuleCall_1_1_1; }
+		
+		//lStmt=Statement
+		public Assignment getLStmtAssignment_1_1_2() { return cLStmtAssignment_1_1_2; }
+		
+		//Statement
+		public RuleCall getLStmtStatementParserRuleCall_1_1_2_0() { return cLStmtStatementParserRuleCall_1_1_2_0; }
 	}
 	public class CompoundStatementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.CompoundStatement");
@@ -4079,8 +4108,9 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	//	{LabeledStatement} (id=ID COLON lStmt=Statement
 	//	/ * /	
 	//	|	CASE constantExpression COLON statement=statement
-	//	|	DEFAULT COLON statement
-	//	* /)
+	//	* 
+	//	* /
+	//	| default=KW_DEFAULT COLON lStmt=Statement)
 	public LabeledStatementElements getLabeledStatementAccess() {
 		return pLabeledStatement;
 	}

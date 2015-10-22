@@ -3071,9 +3071,10 @@ ruleLabeledStatement returns [EObject current=null]
 (
 (
 (
+(
 		lv_id_1_0=RULE_ID
 		{
-			newLeafNode(lv_id_1_0, grammarAccess.getLabeledStatementAccess().getIdIDTerminalRuleCall_1_0_0()); 
+			newLeafNode(lv_id_1_0, grammarAccess.getLabeledStatementAccess().getIdIDTerminalRuleCall_1_0_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -3092,7 +3093,7 @@ ruleLabeledStatement returns [EObject current=null]
 
 this_COLON_2=RULE_COLON
     { 
-    newLeafNode(this_COLON_2, grammarAccess.getLabeledStatementAccess().getCOLONTerminalRuleCall_1_1()); 
+    newLeafNode(this_COLON_2, grammarAccess.getLabeledStatementAccess().getCOLONTerminalRuleCall_1_0_1()); 
     }
 
 
@@ -3100,7 +3101,7 @@ this_COLON_2=RULE_COLON
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getLabeledStatementAccess().getLStmtStatementParserRuleCall_1_2_0()); 
+	        newCompositeNode(grammarAccess.getLabeledStatementAccess().getLStmtStatementParserRuleCall_1_0_2_0()); 
 	    }
 		lv_lStmt_3_0=ruleStatement		{
 	        if ($current==null) {
@@ -3115,6 +3116,61 @@ this_COLON_2=RULE_COLON
 	    }
 
 )
+)
+
+)
+
+
+    |
+(
+(
+(
+		lv_default_4_0=RULE_KW_DEFAULT
+		{
+			newLeafNode(lv_default_4_0, grammarAccess.getLabeledStatementAccess().getDefaultKW_DEFAULTTerminalRuleCall_1_1_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getLabeledStatementRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"default",
+        		lv_default_4_0, 
+        		"at.jku.weiner.c.C.KW_DEFAULT");
+	    }
+
+)
+)
+
+
+this_COLON_5=RULE_COLON
+    { 
+    newLeafNode(this_COLON_5, grammarAccess.getLabeledStatementAccess().getCOLONTerminalRuleCall_1_1_1()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getLabeledStatementAccess().getLStmtStatementParserRuleCall_1_1_2_0()); 
+	    }
+		lv_lStmt_6_0=ruleStatement		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getLabeledStatementRule());
+	        }
+       		set(
+       			$current, 
+       			"lStmt",
+        		lv_lStmt_6_0, 
+        		"at.jku.weiner.c.C.Statement");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
 )
 
 )

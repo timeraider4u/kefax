@@ -5,9 +5,10 @@ int doSomething(int argc) {
 		case 1: {
 			break;
 			}
+		*/
 		default: {
 			return 2;
-		}*/
+		}
 	}
 	return 1;
 }

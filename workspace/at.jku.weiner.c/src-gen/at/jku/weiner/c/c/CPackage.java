@@ -1271,13 +1271,22 @@ public interface CPackage extends EPackage
   int LABELED_STATEMENT__LSTMT = STATEMENT_FEATURE_COUNT + 1;
 
   /**
+   * The feature id for the '<em><b>Default</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LABELED_STATEMENT__DEFAULT = STATEMENT_FEATURE_COUNT + 2;
+
+  /**
    * The number of structural features of the '<em>Labeled Statement</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LABELED_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
+  int LABELED_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.c.impl.CompoundStatementImpl <em>Compound Statement</em>}' class.
@@ -3395,6 +3404,17 @@ public interface CPackage extends EPackage
   EReference getLabeledStatement_LStmt();
 
   /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.c.LabeledStatement#getDefault <em>Default</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Default</em>'.
+   * @see at.jku.weiner.c.c.LabeledStatement#getDefault()
+   * @see #getLabeledStatement()
+   * @generated
+   */
+  EAttribute getLabeledStatement_Default();
+
+  /**
    * Returns the meta object for class '{@link at.jku.weiner.c.c.CompoundStatement <em>Compound Statement</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5057,6 +5077,14 @@ public interface CPackage extends EPackage
      * @generated
      */
     EReference LABELED_STATEMENT__LSTMT = eINSTANCE.getLabeledStatement_LStmt();
+
+    /**
+     * The meta object literal for the '<em><b>Default</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LABELED_STATEMENT__DEFAULT = eINSTANCE.getLabeledStatement_Default();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.c.impl.CompoundStatementImpl <em>Compound Statement</em>}' class.

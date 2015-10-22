@@ -582,7 +582,7 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (id=ID lStmt=Statement)
+	 *     ((id=ID lStmt=Statement) | (default=KW_DEFAULT lStmt=Statement))
 	 */
 	protected void sequence_LabeledStatement(EObject context, LabeledStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -260,7 +260,9 @@ structDeclaratorList: structDeclarator=structDeclarator (COMMA structDeclarator2
 structDeclarator: declarator=declarator (COLON constExpr+=constantExpression)?
 	| (COLON constExpr+=constantExpression)
 ;
+*/
 
+/*
 enumSpecifier returns declarationSpecifier:
 	{enumSpecifier} 
 	(	

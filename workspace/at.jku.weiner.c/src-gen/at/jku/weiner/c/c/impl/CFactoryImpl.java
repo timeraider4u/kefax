@@ -105,6 +105,7 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
       case CPackage.SELECTION_STATEMENT: return createSelectionStatement();
       case CPackage.ITERATION_STATEMENT: return createIterationStatement();
       case CPackage.JUMP_STATEMENT: return createJumpStatement();
+      case CPackage.ASM_STATEMENT: return createAsmStatement();
       case CPackage.ASSIGNMENT_EXPRESSION: return createAssignmentExpression();
       case CPackage.CONDITIONAL_EXPRESSION: return createConditionalExpression();
       case CPackage.LOGICAL_OR_EXPRESSION: return createLogicalOrExpression();
@@ -576,6 +577,17 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
   {
     JumpStatementImpl jumpStatement = new JumpStatementImpl();
     return jumpStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AsmStatement createAsmStatement()
+  {
+    AsmStatementImpl asmStatement = new AsmStatementImpl();
+    return asmStatement;
   }
 
   /**

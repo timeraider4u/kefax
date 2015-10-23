@@ -392,6 +392,15 @@ public interface CFactory extends EFactory
   JumpStatement createJumpStatement();
 
   /**
+   * Returns a new object of class '<em>Asm Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Asm Statement</em>'.
+   * @generated
+   */
+  AsmStatement createAsmStatement();
+
+  /**
    * Returns a new object of class '<em>Assignment Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

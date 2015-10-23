@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link at.jku.weiner.c.c.StorageClassSpecifier#getClass_ <em>Class</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.StorageClassSpecifier#getName <em>Name</em>}</li>
  * </ul>
  *
  * @see at.jku.weiner.c.c.CPackage#getStorageClassSpecifier()
@@ -23,29 +23,29 @@ import org.eclipse.emf.ecore.EObject;
 public interface StorageClassSpecifier extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Class</b></em>' attribute.
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Class</em>' attribute isn't clear,
+   * If the meaning of the '<em>Name</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Class</em>' attribute.
-   * @see #setClass(String)
-   * @see at.jku.weiner.c.c.CPackage#getStorageClassSpecifier_Class()
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see at.jku.weiner.c.c.CPackage#getStorageClassSpecifier_Name()
    * @model
    * @generated
    */
-  String getClass_();
+  String getName();
 
   /**
-   * Sets the value of the '{@link at.jku.weiner.c.c.StorageClassSpecifier#getClass_ <em>Class</em>}' attribute.
+   * Sets the value of the '{@link at.jku.weiner.c.c.StorageClassSpecifier#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Class</em>' attribute.
-   * @see #getClass_()
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
    * @generated
    */
-  void setClass(String value);
+  void setName(String value);
 
 } // StorageClassSpecifier

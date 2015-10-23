@@ -6,6 +6,7 @@ package at.jku.weiner.c.serializer;
 import at.jku.weiner.c.c.AdditiveExpression;
 import at.jku.weiner.c.c.AndExpression;
 import at.jku.weiner.c.c.ArgumentExpressionList;
+import at.jku.weiner.c.c.AsmStatement;
 import at.jku.weiner.c.c.AssignmentExpression;
 import at.jku.weiner.c.c.AssignmentOperator;
 import at.jku.weiner.c.c.BlockList;
@@ -94,6 +95,9 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case CPackage.ARGUMENT_EXPRESSION_LIST:
 				sequence_ArgumentExpressionList(context, (ArgumentExpressionList) semanticObject); 
+				return; 
+			case CPackage.ASM_STATEMENT:
+				sequence_AsmStatement(context, (AsmStatement) semanticObject); 
 				return; 
 			case CPackage.ASSIGNMENT_EXPRESSION:
 				sequence_AssignmentExpression(context, (AssignmentExpression) semanticObject); 
@@ -287,6 +291,15 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (expr+=AssignmentExpression expr+=AssignmentExpression*)
 	 */
 	protected void sequence_ArgumentExpressionList(EObject context, ArgumentExpressionList semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     {AsmStatement}
+	 */
+	protected void sequence_AsmStatement(EObject context, AsmStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -786,12 +799,12 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
-	 *         class=KW_TYPEDEF | 
-	 *         class=KW_EXTERN | 
-	 *         class=KW_STATIC | 
-	 *         class=KW_THREADLOCAL | 
-	 *         class=KW_AUTO | 
-	 *         class=KW_REGISTER
+	 *         name=KW_TYPEDEF | 
+	 *         name=KW_EXTERN | 
+	 *         name=KW_STATIC | 
+	 *         name=KW_THREADLOCAL | 
+	 *         name=KW_AUTO | 
+	 *         name=KW_REGISTER
 	 *     )
 	 */
 	protected void sequence_StorageClassSpecifier(EObject context, StorageClassSpecifier semanticObject) {

@@ -366,6 +366,14 @@ public class CSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case CPackage.ASM_STATEMENT:
+      {
+        AsmStatement asmStatement = (AsmStatement)theEObject;
+        T result = caseAsmStatement(asmStatement);
+        if (result == null) result = caseStatement(asmStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case CPackage.ASSIGNMENT_EXPRESSION:
       {
         AssignmentExpression assignmentExpression = (AssignmentExpression)theEObject;
@@ -1158,6 +1166,22 @@ public class CSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseJumpStatement(JumpStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Asm Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Asm Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAsmStatement(AsmStatement object)
   {
     return null;
   }

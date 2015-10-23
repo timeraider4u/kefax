@@ -52,7 +52,7 @@ KW_INT WHITESPACE ID SEMI NEWLINE
 				(DeclarationSpecifiers
 					declarationSpecifier+=
 					(StorageClassSpecifier
-						class_++"typedef"
+						name++"typedef"
 					),
 					(TypeSpecifier
 						name++"int"
@@ -141,7 +141,7 @@ KW_INT WHITESPACE ID SEMI NEWLINE
 				(DeclarationSpecifiers
 					declarationSpecifier+=
 					(StorageClassSpecifier
-						class_++"typedef"
+						name++"typedef"
 					),
 					(TypeSpecifier
 						name++"double"

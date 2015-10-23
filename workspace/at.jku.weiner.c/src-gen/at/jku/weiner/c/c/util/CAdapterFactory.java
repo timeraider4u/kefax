@@ -280,6 +280,11 @@ public class CAdapterFactory extends AdapterFactoryImpl
         return createJumpStatementAdapter();
       }
       @Override
+      public Adapter caseAsmStatement(AsmStatement object)
+      {
+        return createAsmStatementAdapter();
+      }
+      @Override
       public Adapter caseAssignmentExpression(AssignmentExpression object)
       {
         return createAssignmentExpressionAdapter();
@@ -997,6 +1002,21 @@ public class CAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createJumpStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.AsmStatement <em>Asm Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.c.AsmStatement
+   * @generated
+   */
+  public Adapter createAsmStatementAdapter()
   {
     return null;
   }

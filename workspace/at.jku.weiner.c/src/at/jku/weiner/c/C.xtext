@@ -170,13 +170,13 @@ StorageClassSpecifier
 	}
 	:
 	{StorageClassSpecifier}
-	(	class=KW_TYPEDEF
+	(	name=KW_TYPEDEF
 			postAction{{ at.jku.weiner.c.Scope.setTypedef(true);  }}
-	|	class=KW_EXTERN
-	|	class=KW_STATIC
-	|	class=KW_THREADLOCAL
-	|	class=KW_AUTO
-	|	class=KW_REGISTER
+	|	name=KW_EXTERN
+	|	name=KW_STATIC
+	|	name=KW_THREADLOCAL
+	|	name=KW_AUTO
+	|	name=KW_REGISTER
 	)
 ;
 
@@ -519,12 +519,8 @@ Statement:
 	|	stmt=ExpressionStatement
 	|	stmt=SelectionStatement
 	|	stmt=IterationStatement
-	|	stmt=JumpStatement 
-	/*
-	|	('__asm' | '__asm__') (VOLATILE | '__volatile__') 
-			LEFTPAREN (expr+=logicalOrExpression (COMMA logicalExpr+=logicalOrExpression)*)? 
-			(COLON (expr+=logicalOrExpression (COMMA logicalExpr+=logicalOrExpression)*)?)* RIGHTPAREN SEMI
- 	*/
+	|	stmt=JumpStatement
+	//|	stmt=AsmStatement
 	)
 ;
 
@@ -586,13 +582,21 @@ IterationStatement returns Statement:
 JumpStatement returns Statement:
 	{JumpStatement}
 	(
-	//GOTO IDENTIFIER SEMI //(can be reached over GOTO unaryExpression)
-	//|	
 		continue=KW_CONTINUE semi=SEMI
 	|	break=KW_BREAK semi=SEMI
 	|	return=KW_RETURN expr=Expression? semi=SEMI
 	|	goto=KW_GOTO expr=UnaryExpression semi=SEMI // GCC extension
+	//|	KW_GOTO id=ID semi=SEMI //(can be reached over GOTO unaryExpression)
 	)
+;
+
+AsmStatement returns Statement:
+	{AsmStatement}
+	/*
+	|	('__asm' | '__asm__') (VOLATILE | '__volatile__') 
+			LEFTPAREN (expr+=logicalOrExpression (COMMA logicalExpr+=logicalOrExpression)*)? 
+			(COLON (expr+=logicalOrExpression (COMMA logicalExpr+=logicalOrExpression)*)?)* RIGHTPAREN SEMI
+ 	*/
 ;
 
 //designation: designatorList ASSIGN;
@@ -978,11 +982,11 @@ terminal fragment LETTER:
 ;
 
 terminal CHAR_LITERAL:
-	'\'' ( ESCAPE_SEQUENCE | !('\''|'\\') ) '\''
+	SINGLEQUOTE ( ESCAPE_SEQUENCE | !(SINGLEQUOTE|BACKSLASH) ) SINGLEQUOTE
 ;
 
 terminal STRING_LITERAL:
-	'"' ( ESCAPE_SEQUENCE | !('\\'|'"') )* '"'
+	DOUBLEQUOTE ( ESCAPE_SEQUENCE | !(BACKSLASH|DOUBLEQUOTE) )* DOUBLEQUOTE
 ;
 
 terminal HEX_LITERAL: '0' ('x'|'X') HEX_DIGIT+ INTEGER_TYPE_SUFFIX? ;
@@ -1014,18 +1018,18 @@ terminal fragment EXPONENT:
 terminal fragment FLOAT_TYPE_SUFFIX: ('f'|'F'|'d'|'D') ;
 
 terminal fragment ESCAPE_SEQUENCE:
-	'\\' ('b'|'t'|'n'|'f'|'r'|'\"'|'\''|'\\')
+	BACKSLASH ('b'|'t'|'n'|'f'|'r'|'\"'|SINGLEQUOTE|BACKSLASH)
 	|	OCTAL_ESCAPE
 ;
 
 terminal fragment OCTAL_ESCAPE:
-	'\\' ('0'..'3') ('0'..'7') ('0'..'7')
-	|	'\\' ('0'..'7') ('0'..'7')
-	|	'\\' ('0'..'7')
+	BACKSLASH ('0'..'3') ('0'..'7') ('0'..'7')
+	|	BACKSLASH ('0'..'7') ('0'..'7')
+	|	BACKSLASH ('0'..'7')
 ;
 
 terminal fragment UNICODE_ESCAPE:
-	'\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
+	BACKSLASH 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
 ;
 
 terminal LINEDIRECTIVE: '#' (!NEWLINE)*;

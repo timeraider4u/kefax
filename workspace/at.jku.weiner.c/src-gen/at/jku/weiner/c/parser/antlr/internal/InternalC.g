@@ -937,9 +937,9 @@ ruleStorageClassSpecifier returns [EObject current=null]
 (
 (
 (
-		lv_class_1_0=RULE_KW_TYPEDEF
+		lv_name_1_0=RULE_KW_TYPEDEF
 		{
-			newLeafNode(lv_class_1_0, grammarAccess.getStorageClassSpecifierAccess().getClassKW_TYPEDEFTerminalRuleCall_1_0_0()); 
+			newLeafNode(lv_name_1_0, grammarAccess.getStorageClassSpecifierAccess().getNameKW_TYPEDEFTerminalRuleCall_1_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -947,8 +947,8 @@ ruleStorageClassSpecifier returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"class",
-        		lv_class_1_0, 
+       			"name",
+        		lv_name_1_0, 
         		"at.jku.weiner.c.C.KW_TYPEDEF");
 	    }
 
@@ -960,9 +960,9 @@ ruleStorageClassSpecifier returns [EObject current=null]
     |
 (
 (
-		lv_class_2_0=RULE_KW_EXTERN
+		lv_name_2_0=RULE_KW_EXTERN
 		{
-			newLeafNode(lv_class_2_0, grammarAccess.getStorageClassSpecifierAccess().getClassKW_EXTERNTerminalRuleCall_1_1_0()); 
+			newLeafNode(lv_name_2_0, grammarAccess.getStorageClassSpecifierAccess().getNameKW_EXTERNTerminalRuleCall_1_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -970,8 +970,8 @@ ruleStorageClassSpecifier returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"class",
-        		lv_class_2_0, 
+       			"name",
+        		lv_name_2_0, 
         		"at.jku.weiner.c.C.KW_EXTERN");
 	    }
 
@@ -982,9 +982,9 @@ ruleStorageClassSpecifier returns [EObject current=null]
     |
 (
 (
-		lv_class_3_0=RULE_KW_STATIC
+		lv_name_3_0=RULE_KW_STATIC
 		{
-			newLeafNode(lv_class_3_0, grammarAccess.getStorageClassSpecifierAccess().getClassKW_STATICTerminalRuleCall_1_2_0()); 
+			newLeafNode(lv_name_3_0, grammarAccess.getStorageClassSpecifierAccess().getNameKW_STATICTerminalRuleCall_1_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -992,8 +992,8 @@ ruleStorageClassSpecifier returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"class",
-        		lv_class_3_0, 
+       			"name",
+        		lv_name_3_0, 
         		"at.jku.weiner.c.C.KW_STATIC");
 	    }
 
@@ -1004,9 +1004,9 @@ ruleStorageClassSpecifier returns [EObject current=null]
     |
 (
 (
-		lv_class_4_0=RULE_KW_THREADLOCAL
+		lv_name_4_0=RULE_KW_THREADLOCAL
 		{
-			newLeafNode(lv_class_4_0, grammarAccess.getStorageClassSpecifierAccess().getClassKW_THREADLOCALTerminalRuleCall_1_3_0()); 
+			newLeafNode(lv_name_4_0, grammarAccess.getStorageClassSpecifierAccess().getNameKW_THREADLOCALTerminalRuleCall_1_3_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1014,8 +1014,8 @@ ruleStorageClassSpecifier returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"class",
-        		lv_class_4_0, 
+       			"name",
+        		lv_name_4_0, 
         		"at.jku.weiner.c.C.KW_THREADLOCAL");
 	    }
 
@@ -1026,9 +1026,9 @@ ruleStorageClassSpecifier returns [EObject current=null]
     |
 (
 (
-		lv_class_5_0=RULE_KW_AUTO
+		lv_name_5_0=RULE_KW_AUTO
 		{
-			newLeafNode(lv_class_5_0, grammarAccess.getStorageClassSpecifierAccess().getClassKW_AUTOTerminalRuleCall_1_4_0()); 
+			newLeafNode(lv_name_5_0, grammarAccess.getStorageClassSpecifierAccess().getNameKW_AUTOTerminalRuleCall_1_4_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1036,8 +1036,8 @@ ruleStorageClassSpecifier returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"class",
-        		lv_class_5_0, 
+       			"name",
+        		lv_name_5_0, 
         		"at.jku.weiner.c.C.KW_AUTO");
 	    }
 
@@ -1048,9 +1048,9 @@ ruleStorageClassSpecifier returns [EObject current=null]
     |
 (
 (
-		lv_class_6_0=RULE_KW_REGISTER
+		lv_name_6_0=RULE_KW_REGISTER
 		{
-			newLeafNode(lv_class_6_0, grammarAccess.getStorageClassSpecifierAccess().getClassKW_REGISTERTerminalRuleCall_1_5_0()); 
+			newLeafNode(lv_name_6_0, grammarAccess.getStorageClassSpecifierAccess().getNameKW_REGISTERTerminalRuleCall_1_5_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1058,8 +1058,8 @@ ruleStorageClassSpecifier returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"class",
-        		lv_class_6_0, 
+       			"name",
+        		lv_name_6_0, 
         		"at.jku.weiner.c.C.KW_REGISTER");
 	    }
 
@@ -4491,6 +4491,8 @@ ruleJumpStatement returns [EObject current=null]
 
 
 
+
+
 // Entry rule entryRuleExpression
 entryRuleExpression returns [EObject current=null] 
 	:
@@ -7578,11 +7580,11 @@ fragment RULE_DOT : '.';
 
 RULE_ELLIPSIS : RULE_DOT RULE_DOT RULE_DOT;
 
-RULE_SINGLEQUOTE : '\'';
+fragment RULE_SINGLEQUOTE : '\'';
 
-RULE_DOUBLEQUOTE : '"';
+fragment RULE_DOUBLEQUOTE : '"';
 
-RULE_BACKSLASH : '\\';
+fragment RULE_BACKSLASH : '\\';
 
 RULE_ID : RULE_IDENTIFIER;
 
@@ -7590,9 +7592,9 @@ fragment RULE_IDENTIFIER : RULE_LETTER (RULE_LETTER|'0'..'9')*;
 
 fragment RULE_LETTER : ('$'|'A'..'Z'|'a'..'z'|'_');
 
-RULE_CHAR_LITERAL : '\'' (RULE_ESCAPE_SEQUENCE|~(('\''|'\\'))) '\'';
+RULE_CHAR_LITERAL : RULE_SINGLEQUOTE (RULE_ESCAPE_SEQUENCE|~((RULE_SINGLEQUOTE|RULE_BACKSLASH))) RULE_SINGLEQUOTE;
 
-RULE_STRING_LITERAL : '"' (RULE_ESCAPE_SEQUENCE|~(('\\'|'"')))* '"';
+RULE_STRING_LITERAL : RULE_DOUBLEQUOTE (RULE_ESCAPE_SEQUENCE|~((RULE_BACKSLASH|RULE_DOUBLEQUOTE)))* RULE_DOUBLEQUOTE;
 
 RULE_HEX_LITERAL : '0' ('x'|'X') RULE_HEX_DIGIT+ RULE_INTEGER_TYPE_SUFFIX?;
 
@@ -7612,11 +7614,11 @@ fragment RULE_EXPONENT : ('e'|'E') ('+'|'-')? ('0'..'9')+;
 
 fragment RULE_FLOAT_TYPE_SUFFIX : ('f'|'F'|'d'|'D');
 
-fragment RULE_ESCAPE_SEQUENCE : ('\\' ('b'|'t'|'n'|'f'|'r'|'"'|'\''|'\\')|RULE_OCTAL_ESCAPE);
+fragment RULE_ESCAPE_SEQUENCE : (RULE_BACKSLASH ('b'|'t'|'n'|'f'|'r'|'"'|RULE_SINGLEQUOTE|RULE_BACKSLASH)|RULE_OCTAL_ESCAPE);
 
-fragment RULE_OCTAL_ESCAPE : ('\\' '0'..'3' '0'..'7' '0'..'7'|'\\' '0'..'7' '0'..'7'|'\\' '0'..'7');
+fragment RULE_OCTAL_ESCAPE : (RULE_BACKSLASH '0'..'3' '0'..'7' '0'..'7'|RULE_BACKSLASH '0'..'7' '0'..'7'|RULE_BACKSLASH '0'..'7');
 
-fragment RULE_UNICODE_ESCAPE : '\\' 'u' RULE_HEX_DIGIT RULE_HEX_DIGIT RULE_HEX_DIGIT RULE_HEX_DIGIT;
+fragment RULE_UNICODE_ESCAPE : RULE_BACKSLASH 'u' RULE_HEX_DIGIT RULE_HEX_DIGIT RULE_HEX_DIGIT RULE_HEX_DIGIT;
 
 RULE_LINEDIRECTIVE : '#' ~(RULE_NEWLINE)*;
 

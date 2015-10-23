@@ -403,75 +403,75 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cStorageClassSpecifierAction_0 = (Action)cGroup.eContents().get(0);
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final Assignment cClassAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
-		private final RuleCall cClassKW_TYPEDEFTerminalRuleCall_1_0_0 = (RuleCall)cClassAssignment_1_0.eContents().get(0);
-		private final Assignment cClassAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
-		private final RuleCall cClassKW_EXTERNTerminalRuleCall_1_1_0 = (RuleCall)cClassAssignment_1_1.eContents().get(0);
-		private final Assignment cClassAssignment_1_2 = (Assignment)cAlternatives_1.eContents().get(2);
-		private final RuleCall cClassKW_STATICTerminalRuleCall_1_2_0 = (RuleCall)cClassAssignment_1_2.eContents().get(0);
-		private final Assignment cClassAssignment_1_3 = (Assignment)cAlternatives_1.eContents().get(3);
-		private final RuleCall cClassKW_THREADLOCALTerminalRuleCall_1_3_0 = (RuleCall)cClassAssignment_1_3.eContents().get(0);
-		private final Assignment cClassAssignment_1_4 = (Assignment)cAlternatives_1.eContents().get(4);
-		private final RuleCall cClassKW_AUTOTerminalRuleCall_1_4_0 = (RuleCall)cClassAssignment_1_4.eContents().get(0);
-		private final Assignment cClassAssignment_1_5 = (Assignment)cAlternatives_1.eContents().get(5);
-		private final RuleCall cClassKW_REGISTERTerminalRuleCall_1_5_0 = (RuleCall)cClassAssignment_1_5.eContents().get(0);
+		private final Assignment cNameAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
+		private final RuleCall cNameKW_TYPEDEFTerminalRuleCall_1_0_0 = (RuleCall)cNameAssignment_1_0.eContents().get(0);
+		private final Assignment cNameAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
+		private final RuleCall cNameKW_EXTERNTerminalRuleCall_1_1_0 = (RuleCall)cNameAssignment_1_1.eContents().get(0);
+		private final Assignment cNameAssignment_1_2 = (Assignment)cAlternatives_1.eContents().get(2);
+		private final RuleCall cNameKW_STATICTerminalRuleCall_1_2_0 = (RuleCall)cNameAssignment_1_2.eContents().get(0);
+		private final Assignment cNameAssignment_1_3 = (Assignment)cAlternatives_1.eContents().get(3);
+		private final RuleCall cNameKW_THREADLOCALTerminalRuleCall_1_3_0 = (RuleCall)cNameAssignment_1_3.eContents().get(0);
+		private final Assignment cNameAssignment_1_4 = (Assignment)cAlternatives_1.eContents().get(4);
+		private final RuleCall cNameKW_AUTOTerminalRuleCall_1_4_0 = (RuleCall)cNameAssignment_1_4.eContents().get(0);
+		private final Assignment cNameAssignment_1_5 = (Assignment)cAlternatives_1.eContents().get(5);
+		private final RuleCall cNameKW_REGISTERTerminalRuleCall_1_5_0 = (RuleCall)cNameAssignment_1_5.eContents().get(0);
 		
 		//StorageClassSpecifier initRuleAction { at.jku.weiner.c.Log.log("StorageClassSpecifier-enter"); } afterRuleAction {
 		//at.jku.weiner.c.Log.log("StorageClassSpecifier-leave"); }:
-		//	{StorageClassSpecifier} (class=KW_TYPEDEF
-		//	postAction{ { at.jku.weiner.c.Scope.setTypedef(true); } } | class=KW_EXTERN
-		//	| class=KW_STATIC
-		//	| class=KW_THREADLOCAL
-		//	| class=KW_AUTO
-		//	| class=KW_REGISTER);
+		//	{StorageClassSpecifier} (name=KW_TYPEDEF
+		//	postAction{ { at.jku.weiner.c.Scope.setTypedef(true); } } | name=KW_EXTERN
+		//	| name=KW_STATIC
+		//	| name=KW_THREADLOCAL
+		//	| name=KW_AUTO
+		//	| name=KW_REGISTER);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{StorageClassSpecifier} (class=KW_TYPEDEF postAction{ { at.jku.weiner.c.Scope.setTypedef(true); } } | class=KW_EXTERN |
-		//class=KW_STATIC | class=KW_THREADLOCAL | class=KW_AUTO | class=KW_REGISTER)
+		//{StorageClassSpecifier} (name=KW_TYPEDEF postAction{ { at.jku.weiner.c.Scope.setTypedef(true); } } | name=KW_EXTERN |
+		//name=KW_STATIC | name=KW_THREADLOCAL | name=KW_AUTO | name=KW_REGISTER)
 		public Group getGroup() { return cGroup; }
 		
 		//{StorageClassSpecifier}
 		public Action getStorageClassSpecifierAction_0() { return cStorageClassSpecifierAction_0; }
 		
-		//(class=KW_TYPEDEF postAction{ { at.jku.weiner.c.Scope.setTypedef(true); } } | class=KW_EXTERN | class=KW_STATIC |
-		//class=KW_THREADLOCAL | class=KW_AUTO | class=KW_REGISTER)
+		//(name=KW_TYPEDEF postAction{ { at.jku.weiner.c.Scope.setTypedef(true); } } | name=KW_EXTERN | name=KW_STATIC |
+		//name=KW_THREADLOCAL | name=KW_AUTO | name=KW_REGISTER)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		//class=KW_TYPEDEF postAction{ { at.jku.weiner.c.Scope.setTypedef(true); } }
-		public Assignment getClassAssignment_1_0() { return cClassAssignment_1_0; }
+		//name=KW_TYPEDEF postAction{ { at.jku.weiner.c.Scope.setTypedef(true); } }
+		public Assignment getNameAssignment_1_0() { return cNameAssignment_1_0; }
 		
 		//KW_TYPEDEF
-		public RuleCall getClassKW_TYPEDEFTerminalRuleCall_1_0_0() { return cClassKW_TYPEDEFTerminalRuleCall_1_0_0; }
+		public RuleCall getNameKW_TYPEDEFTerminalRuleCall_1_0_0() { return cNameKW_TYPEDEFTerminalRuleCall_1_0_0; }
 		
-		//class=KW_EXTERN
-		public Assignment getClassAssignment_1_1() { return cClassAssignment_1_1; }
+		//name=KW_EXTERN
+		public Assignment getNameAssignment_1_1() { return cNameAssignment_1_1; }
 		
 		//KW_EXTERN
-		public RuleCall getClassKW_EXTERNTerminalRuleCall_1_1_0() { return cClassKW_EXTERNTerminalRuleCall_1_1_0; }
+		public RuleCall getNameKW_EXTERNTerminalRuleCall_1_1_0() { return cNameKW_EXTERNTerminalRuleCall_1_1_0; }
 		
-		//class=KW_STATIC
-		public Assignment getClassAssignment_1_2() { return cClassAssignment_1_2; }
+		//name=KW_STATIC
+		public Assignment getNameAssignment_1_2() { return cNameAssignment_1_2; }
 		
 		//KW_STATIC
-		public RuleCall getClassKW_STATICTerminalRuleCall_1_2_0() { return cClassKW_STATICTerminalRuleCall_1_2_0; }
+		public RuleCall getNameKW_STATICTerminalRuleCall_1_2_0() { return cNameKW_STATICTerminalRuleCall_1_2_0; }
 		
-		//class=KW_THREADLOCAL
-		public Assignment getClassAssignment_1_3() { return cClassAssignment_1_3; }
+		//name=KW_THREADLOCAL
+		public Assignment getNameAssignment_1_3() { return cNameAssignment_1_3; }
 		
 		//KW_THREADLOCAL
-		public RuleCall getClassKW_THREADLOCALTerminalRuleCall_1_3_0() { return cClassKW_THREADLOCALTerminalRuleCall_1_3_0; }
+		public RuleCall getNameKW_THREADLOCALTerminalRuleCall_1_3_0() { return cNameKW_THREADLOCALTerminalRuleCall_1_3_0; }
 		
-		//class=KW_AUTO
-		public Assignment getClassAssignment_1_4() { return cClassAssignment_1_4; }
+		//name=KW_AUTO
+		public Assignment getNameAssignment_1_4() { return cNameAssignment_1_4; }
 		
 		//KW_AUTO
-		public RuleCall getClassKW_AUTOTerminalRuleCall_1_4_0() { return cClassKW_AUTOTerminalRuleCall_1_4_0; }
+		public RuleCall getNameKW_AUTOTerminalRuleCall_1_4_0() { return cNameKW_AUTOTerminalRuleCall_1_4_0; }
 		
-		//class=KW_REGISTER
-		public Assignment getClassAssignment_1_5() { return cClassAssignment_1_5; }
+		//name=KW_REGISTER
+		public Assignment getNameAssignment_1_5() { return cNameAssignment_1_5; }
 		
 		//KW_REGISTER
-		public RuleCall getClassKW_REGISTERTerminalRuleCall_1_5_0() { return cClassKW_REGISTERTerminalRuleCall_1_5_0; }
+		public RuleCall getNameKW_REGISTERTerminalRuleCall_1_5_0() { return cNameKW_REGISTERTerminalRuleCall_1_5_0; }
 	}
 	public class TypeSpecifierElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.TypeSpecifier");
@@ -1392,30 +1392,21 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		//	| stmt=SelectionStatement
 		//	| stmt=IterationStatement
 		//	| stmt=JumpStatement
-		//	/ *
-		//	|	('__asm' | '__asm__') (VOLATILE | '__volatile__') 
-		//			LEFTPAREN (expr+=logicalOrExpression (COMMA logicalExpr+=logicalOrExpression)*)? 
-		//			(COLON (expr+=logicalOrExpression (COMMA logicalExpr+=logicalOrExpression)*)?)* RIGHTPAREN SEMI
-		// 	* /);
+		//	//|	stmt=AsmStatement
+		//);
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Statement} (stmt=LabeledStatement | stmt=CompoundStatement | stmt=ExpressionStatement | stmt=SelectionStatement |
-		//stmt=IterationStatement | stmt=JumpStatement / *
-		//	|	('__asm' | '__asm__') (VOLATILE | '__volatile__') 
-		//			LEFTPAREN (expr+=logicalOrExpression (COMMA logicalExpr+=logicalOrExpression)*)? 
-		//			(COLON (expr+=logicalOrExpression (COMMA logicalExpr+=logicalOrExpression)*)?)* RIGHTPAREN SEMI
-		// 	* /)
+		//stmt=IterationStatement | stmt=JumpStatement //|	stmt=AsmStatement
+		//)
 		public Group getGroup() { return cGroup; }
 		
 		//{Statement}
 		public Action getStatementAction_0() { return cStatementAction_0; }
 		
 		//(stmt=LabeledStatement | stmt=CompoundStatement | stmt=ExpressionStatement | stmt=SelectionStatement |
-		//stmt=IterationStatement | stmt=JumpStatement / *
-		//	|	('__asm' | '__asm__') (VOLATILE | '__volatile__') 
-		//			LEFTPAREN (expr+=logicalOrExpression (COMMA logicalExpr+=logicalOrExpression)*)? 
-		//			(COLON (expr+=logicalOrExpression (COMMA logicalExpr+=logicalOrExpression)*)?)* RIGHTPAREN SEMI
-		// 	* /)
+		//stmt=IterationStatement | stmt=JumpStatement //|	stmt=AsmStatement
+		//)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
 		//stmt=LabeledStatement
@@ -2027,11 +2018,13 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		//	| break=KW_BREAK semi=SEMI
 		//	| return=KW_RETURN expr=Expression? semi=SEMI
 		//	| goto=KW_GOTO expr=UnaryExpression semi=SEMI // GCC extension
+		//	//|	KW_GOTO id=ID semi=SEMI //(can be reached over GOTO unaryExpression)
 		//)
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{JumpStatement} (continue=KW_CONTINUE semi=SEMI | break=KW_BREAK semi=SEMI | return=KW_RETURN expr=Expression? semi=SEMI
 		//| goto=KW_GOTO expr=UnaryExpression semi=SEMI // GCC extension
+		////|	KW_GOTO id=ID semi=SEMI //(can be reached over GOTO unaryExpression)
 		//)
 		public Group getGroup() { return cGroup; }
 		
@@ -2040,16 +2033,13 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//(continue=KW_CONTINUE semi=SEMI | break=KW_BREAK semi=SEMI | return=KW_RETURN expr=Expression? semi=SEMI | goto=KW_GOTO
 		//expr=UnaryExpression semi=SEMI // GCC extension
+		////|	KW_GOTO id=ID semi=SEMI //(can be reached over GOTO unaryExpression)
 		//)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		////GOTO IDENTIFIER SEMI //(can be reached over GOTO unaryExpression)
-		////|	
 		//continue=KW_CONTINUE semi=SEMI
 		public Group getGroup_1_0() { return cGroup_1_0; }
 		
-		////GOTO IDENTIFIER SEMI //(can be reached over GOTO unaryExpression)
-		////|	
 		//continue=KW_CONTINUE
 		public Assignment getContinueAssignment_1_0_0() { return cContinueAssignment_1_0_0; }
 		
@@ -2118,6 +2108,17 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//SEMI
 		public RuleCall getSemiSEMITerminalRuleCall_1_3_2_0() { return cSemiSEMITerminalRuleCall_1_3_2_0; }
+	}
+	public class AsmStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.AsmStatement");
+		private final Action cAsmStatementAction = (Action)rule.eContents().get(1);
+		
+		//AsmStatement Statement:
+		//	{AsmStatement}
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{AsmStatement}
+		public Action getAsmStatementAction() { return cAsmStatementAction; }
 	}
 	public class ExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.Expression");
@@ -3469,6 +3470,7 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	private final SelectionStatementElements pSelectionStatement;
 	private final IterationStatementElements pIterationStatement;
 	private final JumpStatementElements pJumpStatement;
+	private final AsmStatementElements pAsmStatement;
 	private final ExpressionElements pExpression;
 	private final AssignmentExpressionElements pAssignmentExpression;
 	private final LvalueElements pLvalue;
@@ -3652,6 +3654,7 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		this.pSelectionStatement = new SelectionStatementElements();
 		this.pIterationStatement = new IterationStatementElements();
 		this.pJumpStatement = new JumpStatementElements();
+		this.pAsmStatement = new AsmStatementElements();
 		this.pExpression = new ExpressionElements();
 		this.pAssignmentExpression = new AssignmentExpressionElements();
 		this.pLvalue = new LvalueElements();
@@ -3937,12 +3940,12 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//StorageClassSpecifier initRuleAction { at.jku.weiner.c.Log.log("StorageClassSpecifier-enter"); } afterRuleAction {
 	//at.jku.weiner.c.Log.log("StorageClassSpecifier-leave"); }:
-	//	{StorageClassSpecifier} (class=KW_TYPEDEF
-	//	postAction{ { at.jku.weiner.c.Scope.setTypedef(true); } } | class=KW_EXTERN
-	//	| class=KW_STATIC
-	//	| class=KW_THREADLOCAL
-	//	| class=KW_AUTO
-	//	| class=KW_REGISTER);
+	//	{StorageClassSpecifier} (name=KW_TYPEDEF
+	//	postAction{ { at.jku.weiner.c.Scope.setTypedef(true); } } | name=KW_EXTERN
+	//	| name=KW_STATIC
+	//	| name=KW_THREADLOCAL
+	//	| name=KW_AUTO
+	//	| name=KW_REGISTER);
 	public StorageClassSpecifierElements getStorageClassSpecifierAccess() {
 		return pStorageClassSpecifier;
 	}
@@ -4298,11 +4301,8 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	//	| stmt=SelectionStatement
 	//	| stmt=IterationStatement
 	//	| stmt=JumpStatement
-	//	/ *
-	//	|	('__asm' | '__asm__') (VOLATILE | '__volatile__') 
-	//			LEFTPAREN (expr+=logicalOrExpression (COMMA logicalExpr+=logicalOrExpression)*)? 
-	//			(COLON (expr+=logicalOrExpression (COMMA logicalExpr+=logicalOrExpression)*)?)* RIGHTPAREN SEMI
-	// 	* /);
+	//	//|	stmt=AsmStatement
+	//);
 	public StatementElements getStatementAccess() {
 		return pStatement;
 	}
@@ -4390,6 +4390,7 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	//	| break=KW_BREAK semi=SEMI
 	//	| return=KW_RETURN expr=Expression? semi=SEMI
 	//	| goto=KW_GOTO expr=UnaryExpression semi=SEMI // GCC extension
+	//	//|	KW_GOTO id=ID semi=SEMI //(can be reached over GOTO unaryExpression)
 	//)
 	public JumpStatementElements getJumpStatementAccess() {
 		return pJumpStatement;
@@ -4397,6 +4398,16 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getJumpStatementRule() {
 		return getJumpStatementAccess().getRule();
+	}
+	
+	//AsmStatement Statement:
+	//	{AsmStatement}
+	public AsmStatementElements getAsmStatementAccess() {
+		return pAsmStatement;
+	}
+	
+	public ParserRule getAsmStatementRule() {
+		return getAsmStatementAccess().getRule();
 	}
 	
 	////designation: designatorList ASSIGN;
@@ -5292,13 +5303,13 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal CHAR_LITERAL:
-	//	'\'' (ESCAPE_SEQUENCE | !('\'' | '\\')) '\'';
+	//	SINGLEQUOTE (ESCAPE_SEQUENCE | !(SINGLEQUOTE | BACKSLASH)) SINGLEQUOTE;
 	public TerminalRule getCHAR_LITERALRule() {
 		return tCHAR_LITERAL;
 	}
 	
 	//terminal STRING_LITERAL:
-	//	'"' (ESCAPE_SEQUENCE | !('\\' | '"'))* '"';
+	//	DOUBLEQUOTE (ESCAPE_SEQUENCE | !(BACKSLASH | DOUBLEQUOTE))* DOUBLEQUOTE;
 	public TerminalRule getSTRING_LITERALRule() {
 		return tSTRING_LITERAL;
 	}
@@ -5361,19 +5372,19 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal fragment ESCAPE_SEQUENCE:
-	//	'\\' ('b' | 't' | 'n' | 'f' | 'r' | '\"' | '\'' | '\\') | OCTAL_ESCAPE;
+	//	BACKSLASH ('b' | 't' | 'n' | 'f' | 'r' | '\"' | SINGLEQUOTE | BACKSLASH) | OCTAL_ESCAPE;
 	public TerminalRule getESCAPE_SEQUENCERule() {
 		return tESCAPE_SEQUENCE;
 	}
 	
 	//terminal fragment OCTAL_ESCAPE:
-	//	'\\' '0'..'3' '0'..'7' '0'..'7' | '\\' '0'..'7' '0'..'7' | '\\' '0'..'7';
+	//	BACKSLASH '0'..'3' '0'..'7' '0'..'7' | BACKSLASH '0'..'7' '0'..'7' | BACKSLASH '0'..'7';
 	public TerminalRule getOCTAL_ESCAPERule() {
 		return tOCTAL_ESCAPE;
 	}
 	
 	//terminal fragment UNICODE_ESCAPE:
-	//	'\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT;
+	//	BACKSLASH 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT;
 	public TerminalRule getUNICODE_ESCAPERule() {
 		return tUNICODE_ESCAPE;
 	}

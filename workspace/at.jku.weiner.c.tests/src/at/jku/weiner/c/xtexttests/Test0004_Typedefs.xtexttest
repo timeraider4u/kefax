@@ -20,7 +20,7 @@ ID WHITESPACE ID SEMI NEWLINE
 				(DeclarationSpecifiers
 					declarationSpecifier+=
 					(StorageClassSpecifier
-						class_++"typedef"
+						name++"typedef"
 					),
 					(TypeSpecifier
 						name++"int"
@@ -50,7 +50,7 @@ ID WHITESPACE ID SEMI NEWLINE
 				(DeclarationSpecifiers
 					declarationSpecifier+=
 					(StorageClassSpecifier
-						class_++"typedef"
+						name++"typedef"
 					),
 					(TypeSpecifier
 						type=

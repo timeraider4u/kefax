@@ -5,6 +5,7 @@ package at.jku.weiner.c.c.impl;
 import at.jku.weiner.c.c.AdditiveExpression;
 import at.jku.weiner.c.c.AndExpression;
 import at.jku.weiner.c.c.ArgumentExpressionList;
+import at.jku.weiner.c.c.AsmStatement;
 import at.jku.weiner.c.c.AssignmentExpression;
 import at.jku.weiner.c.c.AssignmentOperator;
 import at.jku.weiner.c.c.BlockList;
@@ -365,6 +366,13 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * @generated
    */
   private EClass jumpStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass asmStatementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -836,7 +844,7 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getStorageClassSpecifier_Class()
+  public EAttribute getStorageClassSpecifier_Name()
   {
     return (EAttribute)storageClassSpecifierEClass.getEStructuralFeatures().get(0);
   }
@@ -1866,6 +1874,16 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getAsmStatement()
+  {
+    return asmStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getAssignmentExpression()
   {
     return assignmentExpressionEClass;
@@ -2438,7 +2456,7 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     createEReference(initDeclaratorEClass, INIT_DECLARATOR__INITIALIZER);
 
     storageClassSpecifierEClass = createEClass(STORAGE_CLASS_SPECIFIER);
-    createEAttribute(storageClassSpecifierEClass, STORAGE_CLASS_SPECIFIER__CLASS);
+    createEAttribute(storageClassSpecifierEClass, STORAGE_CLASS_SPECIFIER__NAME);
 
     typeSpecifierEClass = createEClass(TYPE_SPECIFIER);
     createEAttribute(typeSpecifierEClass, TYPE_SPECIFIER__NAME);
@@ -2573,6 +2591,8 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     createEReference(jumpStatementEClass, JUMP_STATEMENT__EXPR);
     createEAttribute(jumpStatementEClass, JUMP_STATEMENT__GOTO);
 
+    asmStatementEClass = createEClass(ASM_STATEMENT);
+
     assignmentExpressionEClass = createEClass(ASSIGNMENT_EXPRESSION);
     createEReference(assignmentExpressionEClass, ASSIGNMENT_EXPRESSION__EXPR);
     createEReference(assignmentExpressionEClass, ASSIGNMENT_EXPRESSION__OP);
@@ -2681,6 +2701,7 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     selectionStatementEClass.getESuperTypes().add(this.getStatement());
     iterationStatementEClass.getESuperTypes().add(this.getStatement());
     jumpStatementEClass.getESuperTypes().add(this.getStatement());
+    asmStatementEClass.getESuperTypes().add(this.getStatement());
     assignmentExpressionEClass.getESuperTypes().add(this.getExpression());
     conditionalExpressionEClass.getESuperTypes().add(this.getExpression());
     logicalOrExpressionEClass.getESuperTypes().add(this.getExpression());
@@ -2737,7 +2758,7 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     initEReference(getInitDeclarator_Initializer(), this.getInitializer(), null, "initializer", null, 0, 1, InitDeclarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(storageClassSpecifierEClass, StorageClassSpecifier.class, "StorageClassSpecifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getStorageClassSpecifier_Class(), theEcorePackage.getEString(), "class", null, 0, 1, StorageClassSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getStorageClassSpecifier_Name(), theEcorePackage.getEString(), "name", null, 0, 1, StorageClassSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeSpecifierEClass, TypeSpecifier.class, "TypeSpecifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTypeSpecifier_Name(), theEcorePackage.getEString(), "name", null, 0, 1, TypeSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2871,6 +2892,8 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     initEAttribute(getJumpStatement_Return(), theEcorePackage.getEString(), "return", null, 0, 1, JumpStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getJumpStatement_Expr(), this.getExpression(), null, "expr", null, 0, 1, JumpStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getJumpStatement_Goto(), theEcorePackage.getEString(), "goto", null, 0, 1, JumpStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(asmStatementEClass, AsmStatement.class, "AsmStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(assignmentExpressionEClass, AssignmentExpression.class, "AssignmentExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAssignmentExpression_Expr(), this.getExpression(), null, "expr", null, 0, 1, AssignmentExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link at.jku.weiner.c.c.impl.StorageClassSpecifierImpl#getClass_ <em>Class</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.impl.StorageClassSpecifierImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -28,24 +28,24 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class StorageClassSpecifierImpl extends MinimalEObjectImpl.Container implements StorageClassSpecifier
 {
   /**
-   * The default value of the '{@link #getClass_() <em>Class</em>}' attribute.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getClass_()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String CLASS_EDEFAULT = null;
+  protected static final String NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getClass_() <em>Class</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getClass_()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected String class_ = CLASS_EDEFAULT;
+  protected String name = NAME_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -73,9 +73,9 @@ public class StorageClassSpecifierImpl extends MinimalEObjectImpl.Container impl
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getClass_()
+  public String getName()
   {
-    return class_;
+    return name;
   }
 
   /**
@@ -83,12 +83,12 @@ public class StorageClassSpecifierImpl extends MinimalEObjectImpl.Container impl
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setClass(String newClass)
+  public void setName(String newName)
   {
-    String oldClass = class_;
-    class_ = newClass;
+    String oldName = name;
+    name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, CPackage.STORAGE_CLASS_SPECIFIER__CLASS, oldClass, class_));
+      eNotify(new ENotificationImpl(this, Notification.SET, CPackage.STORAGE_CLASS_SPECIFIER__NAME, oldName, name));
   }
 
   /**
@@ -101,8 +101,8 @@ public class StorageClassSpecifierImpl extends MinimalEObjectImpl.Container impl
   {
     switch (featureID)
     {
-      case CPackage.STORAGE_CLASS_SPECIFIER__CLASS:
-        return getClass_();
+      case CPackage.STORAGE_CLASS_SPECIFIER__NAME:
+        return getName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -117,8 +117,8 @@ public class StorageClassSpecifierImpl extends MinimalEObjectImpl.Container impl
   {
     switch (featureID)
     {
-      case CPackage.STORAGE_CLASS_SPECIFIER__CLASS:
-        setClass((String)newValue);
+      case CPackage.STORAGE_CLASS_SPECIFIER__NAME:
+        setName((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -134,8 +134,8 @@ public class StorageClassSpecifierImpl extends MinimalEObjectImpl.Container impl
   {
     switch (featureID)
     {
-      case CPackage.STORAGE_CLASS_SPECIFIER__CLASS:
-        setClass(CLASS_EDEFAULT);
+      case CPackage.STORAGE_CLASS_SPECIFIER__NAME:
+        setName(NAME_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -151,8 +151,8 @@ public class StorageClassSpecifierImpl extends MinimalEObjectImpl.Container impl
   {
     switch (featureID)
     {
-      case CPackage.STORAGE_CLASS_SPECIFIER__CLASS:
-        return CLASS_EDEFAULT == null ? class_ != null : !CLASS_EDEFAULT.equals(class_);
+      case CPackage.STORAGE_CLASS_SPECIFIER__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
   }
@@ -168,8 +168,8 @@ public class StorageClassSpecifierImpl extends MinimalEObjectImpl.Container impl
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (class: ");
-    result.append(class_);
+    result.append(" (name: ");
+    result.append(name);
     result.append(')');
     return result.toString();
   }

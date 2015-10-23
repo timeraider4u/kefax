@@ -7,6 +7,7 @@ import java.nio.file.Paths;
 import java.util.List;
 import org.antlr.runtime.Token;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.junit4.InjectWith;
 import org.eclipse.xtext.junit4.util.ParseHelper;
@@ -157,7 +158,7 @@ public class Test0004_Typedefs {
 		Assert.assertEquals(2, DeclarationSpecifier_4_list.size());
 		final StorageClassSpecifier StorageClassSpecifier_5_Var = (StorageClassSpecifier)DeclarationSpecifier_4_list.get(0);
 		Assert.assertNotNull(StorageClassSpecifier_5_Var);
-		Assert.assertEquals("typedef", StorageClassSpecifier_5_Var.getClass_());
+		Assert.assertEquals("typedef", StorageClassSpecifier_5_Var.getName());
 		final TypeSpecifier TypeSpecifier_6_Var = (TypeSpecifier)DeclarationSpecifier_4_list.get(1);
 		Assert.assertNotNull(TypeSpecifier_6_Var);
 		Assert.assertEquals("int", TypeSpecifier_6_Var.getName());
@@ -188,7 +189,7 @@ public class Test0004_Typedefs {
 		Assert.assertEquals(2, DeclarationSpecifier_13_list.size());
 		final StorageClassSpecifier StorageClassSpecifier_14_Var = (StorageClassSpecifier)DeclarationSpecifier_13_list.get(0);
 		Assert.assertNotNull(StorageClassSpecifier_14_Var);
-		Assert.assertEquals("typedef", StorageClassSpecifier_14_Var.getClass_());
+		Assert.assertEquals("typedef", StorageClassSpecifier_14_Var.getName());
 		final TypeSpecifier TypeSpecifier_15_Var = (TypeSpecifier)DeclarationSpecifier_13_list.get(1);
 		Assert.assertNotNull(TypeSpecifier_15_Var);
 		final TypedefName TypedefName_16_Var = (TypedefName)TypeSpecifier_15_Var.getType();

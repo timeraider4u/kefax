@@ -180,6 +180,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//JumpStatement/goto"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//AsmStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//AsmStatement/volatile"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//AsmStatement/expr"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//AsmStatement/semi"/>
     </genClasses>

@@ -24,7 +24,6 @@ public class CSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected CGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_AsmStatement_COLONTerminalRuleCall_4_0_q;
 	protected AbstractElementAlias match_AsmStatement_KW_ASM1TerminalRuleCall_1_0_or_KW_ASM2TerminalRuleCall_1_1;
-	protected AbstractElementAlias match_AsmStatement_KW_VOLATILE2TerminalRuleCall_2_1_or_KW_VOLATILETerminalRuleCall_2_0;
 	protected AbstractElementAlias match_ParameterTypeList___COMMATerminalRuleCall_2_0_ELLIPSISTerminalRuleCall_2_1__q;
 	protected AbstractElementAlias match_PostfixExpression___LEFTPARENTerminalRuleCall_1_1_1_0_RIGHTPARENTerminalRuleCall_1_1_1_2__a;
 	protected AbstractElementAlias match_PostfixExpression___RIGHTPARENTerminalRuleCall_1_1_1_2_LEFTPARENTerminalRuleCall_1_1_1_0__a;
@@ -35,7 +34,6 @@ public class CSyntacticSequencer extends AbstractSyntacticSequencer {
 		grammarAccess = (CGrammarAccess) access;
 		match_AsmStatement_COLONTerminalRuleCall_4_0_q = new TokenAlias(false, true, grammarAccess.getAsmStatementAccess().getCOLONTerminalRuleCall_4_0());
 		match_AsmStatement_KW_ASM1TerminalRuleCall_1_0_or_KW_ASM2TerminalRuleCall_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getAsmStatementAccess().getKW_ASM1TerminalRuleCall_1_0()), new TokenAlias(false, false, grammarAccess.getAsmStatementAccess().getKW_ASM2TerminalRuleCall_1_1()));
-		match_AsmStatement_KW_VOLATILE2TerminalRuleCall_2_1_or_KW_VOLATILETerminalRuleCall_2_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getAsmStatementAccess().getKW_VOLATILE2TerminalRuleCall_2_1()), new TokenAlias(false, false, grammarAccess.getAsmStatementAccess().getKW_VOLATILETerminalRuleCall_2_0()));
 		match_ParameterTypeList___COMMATerminalRuleCall_2_0_ELLIPSISTerminalRuleCall_2_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getParameterTypeListAccess().getCOMMATerminalRuleCall_2_0()), new TokenAlias(false, false, grammarAccess.getParameterTypeListAccess().getELLIPSISTerminalRuleCall_2_1()));
 		match_PostfixExpression___LEFTPARENTerminalRuleCall_1_1_1_0_RIGHTPARENTerminalRuleCall_1_1_1_2__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getPostfixExpressionAccess().getLEFTPARENTerminalRuleCall_1_1_1_0()), new TokenAlias(false, false, grammarAccess.getPostfixExpressionAccess().getRIGHTPARENTerminalRuleCall_1_1_1_2()));
 		match_PostfixExpression___RIGHTPARENTerminalRuleCall_1_1_1_2_LEFTPARENTerminalRuleCall_1_1_1_0__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getPostfixExpressionAccess().getRIGHTPARENTerminalRuleCall_1_1_1_2()), new TokenAlias(false, false, grammarAccess.getPostfixExpressionAccess().getLEFTPARENTerminalRuleCall_1_1_1_0()));
@@ -64,10 +62,6 @@ public class CSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getKW_ASM1Token(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getKW_ASM2Rule())
 			return getKW_ASM2Token(semanticObject, ruleCall, node);
-		else if(ruleCall.getRule() == grammarAccess.getKW_VOLATILERule())
-			return getKW_VOLATILEToken(semanticObject, ruleCall, node);
-		else if(ruleCall.getRule() == grammarAccess.getKW_VOLATILE2Rule())
-			return getKW_VOLATILE2Token(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getKW_WHILERule())
 			return getKW_WHILEToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getLEFTBRACERule())
@@ -184,24 +178,6 @@ public class CSyntacticSequencer extends AbstractSyntacticSequencer {
 	}
 	
 	/**
-	 * terminal KW_VOLATILE : 'volatile';
-	 */
-	protected String getKW_VOLATILEToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "volatile";
-	}
-	
-	/**
-	 * terminal KW_VOLATILE2: KW_UNDERSCORE KW_UNDERSCORE KW_VOLATILE KW_UNDERSCORE KW_UNDERSCORE ;
-	 */
-	protected String getKW_VOLATILE2Token(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "_volatile";
-	}
-	
-	/**
 	 * terminal KW_WHILE : 'while';
 	 */
 	protected String getKW_WHILEToken(EObject semanticObject, RuleCall ruleCall, INode node) {
@@ -310,8 +286,6 @@ public class CSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_AsmStatement_COLONTerminalRuleCall_4_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_AsmStatement_KW_ASM1TerminalRuleCall_1_0_or_KW_ASM2TerminalRuleCall_1_1.equals(syntax))
 				emit_AsmStatement_KW_ASM1TerminalRuleCall_1_0_or_KW_ASM2TerminalRuleCall_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_AsmStatement_KW_VOLATILE2TerminalRuleCall_2_1_or_KW_VOLATILETerminalRuleCall_2_0.equals(syntax))
-				emit_AsmStatement_KW_VOLATILE2TerminalRuleCall_2_1_or_KW_VOLATILETerminalRuleCall_2_0(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_ParameterTypeList___COMMATerminalRuleCall_2_0_ELLIPSISTerminalRuleCall_2_1__q.equals(syntax))
 				emit_ParameterTypeList___COMMATerminalRuleCall_2_0_ELLIPSISTerminalRuleCall_2_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_PostfixExpression___LEFTPARENTerminalRuleCall_1_1_1_0_RIGHTPARENTerminalRuleCall_1_1_1_2__a.equals(syntax))
@@ -329,8 +303,10 @@ public class CSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     COLON?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) (KW_ASM1 | KW_ASM2) (KW_VOLATILE | KW_VOLATILE2) LEFTPAREN (ambiguity) expr+=LogicalOrExpression
+	 *     (rule start) (KW_ASM1 | KW_ASM2) LEFTPAREN (ambiguity) expr+=LogicalOrExpression
 	 *     expr+=LogicalOrExpression (ambiguity) expr+=LogicalOrExpression
+	 *     volatile=KW_VOLATILE LEFTPAREN (ambiguity) expr+=LogicalOrExpression
+	 *     volatile=KW_VOLATILE2 LEFTPAREN (ambiguity) expr+=LogicalOrExpression
 	 */
 	protected void emit_AsmStatement_COLONTerminalRuleCall_4_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -341,22 +317,11 @@ public class CSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     KW_ASM1 | KW_ASM2
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) (KW_VOLATILE | KW_VOLATILE2) LEFTPAREN COLON? expr+=LogicalOrExpression
-	 *     (rule start) (ambiguity) (KW_VOLATILE | KW_VOLATILE2) LEFTPAREN RIGHTPAREN semi=SEMI
+	 *     (rule start) (ambiguity) LEFTPAREN COLON? expr+=LogicalOrExpression
+	 *     (rule start) (ambiguity) volatile=KW_VOLATILE
+	 *     (rule start) (ambiguity) volatile=KW_VOLATILE2
 	 */
 	protected void emit_AsmStatement_KW_ASM1TerminalRuleCall_1_0_or_KW_ASM2TerminalRuleCall_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     KW_VOLATILE | KW_VOLATILE2
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (KW_ASM1 | KW_ASM2) (ambiguity) LEFTPAREN COLON? expr+=LogicalOrExpression
-	 *     (rule start) (KW_ASM1 | KW_ASM2) (ambiguity) LEFTPAREN RIGHTPAREN semi=SEMI
-	 */
-	protected void emit_AsmStatement_KW_VOLATILE2TerminalRuleCall_2_1_or_KW_VOLATILETerminalRuleCall_2_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

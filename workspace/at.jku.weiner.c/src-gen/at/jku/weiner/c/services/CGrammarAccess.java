@@ -2122,30 +2122,31 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cKW_ASM1TerminalRuleCall_1_0 = (RuleCall)cAlternatives_1.eContents().get(0);
 		private final RuleCall cKW_ASM2TerminalRuleCall_1_1 = (RuleCall)cAlternatives_1.eContents().get(1);
 		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
-		private final RuleCall cKW_VOLATILETerminalRuleCall_2_0 = (RuleCall)cAlternatives_2.eContents().get(0);
-		private final RuleCall cKW_VOLATILE2TerminalRuleCall_2_1 = (RuleCall)cAlternatives_2.eContents().get(1);
+		private final Assignment cVolatileAssignment_2_0 = (Assignment)cAlternatives_2.eContents().get(0);
+		private final RuleCall cVolatileKW_VOLATILETerminalRuleCall_2_0_0 = (RuleCall)cVolatileAssignment_2_0.eContents().get(0);
+		private final Assignment cVolatileAssignment_2_1 = (Assignment)cAlternatives_2.eContents().get(1);
+		private final RuleCall cVolatileKW_VOLATILE2TerminalRuleCall_2_1_0 = (RuleCall)cVolatileAssignment_2_1.eContents().get(0);
 		private final RuleCall cLEFTPARENTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final RuleCall cCOLONTerminalRuleCall_4_0 = (RuleCall)cGroup_4.eContents().get(0);
-		private final Group cGroup_4_1 = (Group)cGroup_4.eContents().get(1);
-		private final Assignment cExprAssignment_4_1_0 = (Assignment)cGroup_4_1.eContents().get(0);
-		private final RuleCall cExprLogicalOrExpressionParserRuleCall_4_1_0_0 = (RuleCall)cExprAssignment_4_1_0.eContents().get(0);
-		private final Group cGroup_4_1_1 = (Group)cGroup_4_1.eContents().get(1);
-		private final RuleCall cCOMMATerminalRuleCall_4_1_1_0 = (RuleCall)cGroup_4_1_1.eContents().get(0);
-		private final Assignment cExprAssignment_4_1_1_1 = (Assignment)cGroup_4_1_1.eContents().get(1);
-		private final RuleCall cExprLogicalOrExpressionParserRuleCall_4_1_1_1_0 = (RuleCall)cExprAssignment_4_1_1_1.eContents().get(0);
+		private final Assignment cExprAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cExprLogicalOrExpressionParserRuleCall_4_1_0 = (RuleCall)cExprAssignment_4_1.eContents().get(0);
+		private final Group cGroup_4_2 = (Group)cGroup_4.eContents().get(2);
+		private final RuleCall cCOMMATerminalRuleCall_4_2_0 = (RuleCall)cGroup_4_2.eContents().get(0);
+		private final Assignment cExprAssignment_4_2_1 = (Assignment)cGroup_4_2.eContents().get(1);
+		private final RuleCall cExprLogicalOrExpressionParserRuleCall_4_2_1_0 = (RuleCall)cExprAssignment_4_2_1.eContents().get(0);
 		private final RuleCall cRIGHTPARENTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
 		private final Assignment cSemiAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cSemiSEMITerminalRuleCall_6_0 = (RuleCall)cSemiAssignment_6.eContents().get(0);
 		
 		//AsmStatement Statement:
-		//	{AsmStatement} (KW_ASM1 | KW_ASM2) (KW_VOLATILE | KW_VOLATILE2) LEFTPAREN (COLON? (expr+=LogicalOrExpression (COMMA
-		//	expr+=LogicalOrExpression)*))*
+		//	{AsmStatement} (KW_ASM1 | KW_ASM2) (volatile=KW_VOLATILE | volatile=KW_VOLATILE2)?
+		//	LEFTPAREN (COLON? expr+=LogicalOrExpression (COMMA expr+=LogicalOrExpression)*)+
 		//	RIGHTPAREN semi=SEMI
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{AsmStatement} (KW_ASM1 | KW_ASM2) (KW_VOLATILE | KW_VOLATILE2) LEFTPAREN (COLON? (expr+=LogicalOrExpression (COMMA
-		//expr+=LogicalOrExpression)*))* RIGHTPAREN semi=SEMI
+		//{AsmStatement} (KW_ASM1 | KW_ASM2) (volatile=KW_VOLATILE | volatile=KW_VOLATILE2)? LEFTPAREN (COLON?
+		//expr+=LogicalOrExpression (COMMA expr+=LogicalOrExpression)*)+ RIGHTPAREN semi=SEMI
 		public Group getGroup() { return cGroup; }
 		
 		//{AsmStatement}
@@ -2160,44 +2161,47 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		//KW_ASM2
 		public RuleCall getKW_ASM2TerminalRuleCall_1_1() { return cKW_ASM2TerminalRuleCall_1_1; }
 		
-		//(KW_VOLATILE | KW_VOLATILE2)
+		//(volatile=KW_VOLATILE | volatile=KW_VOLATILE2)?
 		public Alternatives getAlternatives_2() { return cAlternatives_2; }
 		
+		//volatile=KW_VOLATILE
+		public Assignment getVolatileAssignment_2_0() { return cVolatileAssignment_2_0; }
+		
 		//KW_VOLATILE
-		public RuleCall getKW_VOLATILETerminalRuleCall_2_0() { return cKW_VOLATILETerminalRuleCall_2_0; }
+		public RuleCall getVolatileKW_VOLATILETerminalRuleCall_2_0_0() { return cVolatileKW_VOLATILETerminalRuleCall_2_0_0; }
+		
+		//volatile=KW_VOLATILE2
+		public Assignment getVolatileAssignment_2_1() { return cVolatileAssignment_2_1; }
 		
 		//KW_VOLATILE2
-		public RuleCall getKW_VOLATILE2TerminalRuleCall_2_1() { return cKW_VOLATILE2TerminalRuleCall_2_1; }
+		public RuleCall getVolatileKW_VOLATILE2TerminalRuleCall_2_1_0() { return cVolatileKW_VOLATILE2TerminalRuleCall_2_1_0; }
 		
 		//LEFTPAREN
 		public RuleCall getLEFTPARENTerminalRuleCall_3() { return cLEFTPARENTerminalRuleCall_3; }
 		
-		//(COLON? (expr+=LogicalOrExpression (COMMA expr+=LogicalOrExpression)*))*
+		//(COLON? expr+=LogicalOrExpression (COMMA expr+=LogicalOrExpression)*)+
 		public Group getGroup_4() { return cGroup_4; }
 		
 		//COLON?
 		public RuleCall getCOLONTerminalRuleCall_4_0() { return cCOLONTerminalRuleCall_4_0; }
 		
-		//(expr+=LogicalOrExpression (COMMA expr+=LogicalOrExpression)*)
-		public Group getGroup_4_1() { return cGroup_4_1; }
-		
 		//expr+=LogicalOrExpression
-		public Assignment getExprAssignment_4_1_0() { return cExprAssignment_4_1_0; }
+		public Assignment getExprAssignment_4_1() { return cExprAssignment_4_1; }
 		
 		//LogicalOrExpression
-		public RuleCall getExprLogicalOrExpressionParserRuleCall_4_1_0_0() { return cExprLogicalOrExpressionParserRuleCall_4_1_0_0; }
+		public RuleCall getExprLogicalOrExpressionParserRuleCall_4_1_0() { return cExprLogicalOrExpressionParserRuleCall_4_1_0; }
 		
 		//(COMMA expr+=LogicalOrExpression)*
-		public Group getGroup_4_1_1() { return cGroup_4_1_1; }
+		public Group getGroup_4_2() { return cGroup_4_2; }
 		
 		//COMMA
-		public RuleCall getCOMMATerminalRuleCall_4_1_1_0() { return cCOMMATerminalRuleCall_4_1_1_0; }
+		public RuleCall getCOMMATerminalRuleCall_4_2_0() { return cCOMMATerminalRuleCall_4_2_0; }
 		
 		//expr+=LogicalOrExpression
-		public Assignment getExprAssignment_4_1_1_1() { return cExprAssignment_4_1_1_1; }
+		public Assignment getExprAssignment_4_2_1() { return cExprAssignment_4_2_1; }
 		
 		//LogicalOrExpression
-		public RuleCall getExprLogicalOrExpressionParserRuleCall_4_1_1_1_0() { return cExprLogicalOrExpressionParserRuleCall_4_1_1_1_0; }
+		public RuleCall getExprLogicalOrExpressionParserRuleCall_4_2_1_0() { return cExprLogicalOrExpressionParserRuleCall_4_2_1_0; }
 		
 		//RIGHTPAREN
 		public RuleCall getRIGHTPARENTerminalRuleCall_5() { return cRIGHTPARENTerminalRuleCall_5; }
@@ -4492,8 +4496,8 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//AsmStatement Statement:
-	//	{AsmStatement} (KW_ASM1 | KW_ASM2) (KW_VOLATILE | KW_VOLATILE2) LEFTPAREN (COLON? (expr+=LogicalOrExpression (COMMA
-	//	expr+=LogicalOrExpression)*))*
+	//	{AsmStatement} (KW_ASM1 | KW_ASM2) (volatile=KW_VOLATILE | volatile=KW_VOLATILE2)?
+	//	LEFTPAREN (COLON? expr+=LogicalOrExpression (COMMA expr+=LogicalOrExpression)*)+
 	//	RIGHTPAREN semi=SEMI
 	public AsmStatementElements getAsmStatementAccess() {
 		return pAsmStatement;

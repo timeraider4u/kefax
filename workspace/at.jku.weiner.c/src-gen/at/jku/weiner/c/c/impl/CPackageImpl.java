@@ -1884,9 +1884,19 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getAsmStatement_Volatile()
+  {
+    return (EAttribute)asmStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getAsmStatement_Expr()
   {
-    return (EReference)asmStatementEClass.getEStructuralFeatures().get(0);
+    return (EReference)asmStatementEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1896,7 +1906,7 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    */
   public EAttribute getAsmStatement_Semi()
   {
-    return (EAttribute)asmStatementEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)asmStatementEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -2612,6 +2622,7 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     createEAttribute(jumpStatementEClass, JUMP_STATEMENT__GOTO);
 
     asmStatementEClass = createEClass(ASM_STATEMENT);
+    createEAttribute(asmStatementEClass, ASM_STATEMENT__VOLATILE);
     createEReference(asmStatementEClass, ASM_STATEMENT__EXPR);
     createEAttribute(asmStatementEClass, ASM_STATEMENT__SEMI);
 
@@ -2916,6 +2927,7 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     initEAttribute(getJumpStatement_Goto(), theEcorePackage.getEString(), "goto", null, 0, 1, JumpStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(asmStatementEClass, AsmStatement.class, "AsmStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getAsmStatement_Volatile(), theEcorePackage.getEString(), "volatile", null, 0, 1, AsmStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAsmStatement_Expr(), this.getExpression(), null, "expr", null, 0, -1, AsmStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAsmStatement_Semi(), theEcorePackage.getEString(), "semi", null, 0, 1, AsmStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

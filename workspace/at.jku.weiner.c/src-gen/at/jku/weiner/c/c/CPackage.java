@@ -1728,13 +1728,22 @@ public interface CPackage extends EPackage
   int ASM_STATEMENT__STMT = STATEMENT__STMT;
 
   /**
+   * The feature id for the '<em><b>Volatile</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASM_STATEMENT__VOLATILE = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ASM_STATEMENT__EXPR = STATEMENT_FEATURE_COUNT + 0;
+  int ASM_STATEMENT__EXPR = STATEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Semi</b></em>' attribute.
@@ -1743,7 +1752,7 @@ public interface CPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASM_STATEMENT__SEMI = STATEMENT_FEATURE_COUNT + 1;
+  int ASM_STATEMENT__SEMI = STATEMENT_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Asm Statement</em>' class.
@@ -1752,7 +1761,7 @@ public interface CPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASM_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
+  int ASM_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.c.impl.AssignmentExpressionImpl <em>Assignment Expression</em>}' class.
@@ -3948,6 +3957,17 @@ public interface CPackage extends EPackage
   EClass getAsmStatement();
 
   /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.c.AsmStatement#getVolatile <em>Volatile</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Volatile</em>'.
+   * @see at.jku.weiner.c.c.AsmStatement#getVolatile()
+   * @see #getAsmStatement()
+   * @generated
+   */
+  EAttribute getAsmStatement_Volatile();
+
+  /**
    * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.c.AsmStatement#getExpr <em>Expr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5675,6 +5695,14 @@ public interface CPackage extends EPackage
      * @generated
      */
     EClass ASM_STATEMENT = eINSTANCE.getAsmStatement();
+
+    /**
+     * The meta object literal for the '<em><b>Volatile</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ASM_STATEMENT__VOLATILE = eINSTANCE.getAsmStatement_Volatile();
 
     /**
      * The meta object literal for the '<em><b>Expr</b></em>' containment reference list feature.

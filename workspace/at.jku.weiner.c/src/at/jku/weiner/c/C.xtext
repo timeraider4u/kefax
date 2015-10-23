@@ -592,11 +592,13 @@ JumpStatement returns Statement:
 AsmStatement returns Statement:
 	{AsmStatement}
 	(KW_ASM1 | KW_ASM2) 
-	(KW_VOLATILE | KW_VOLATILE2) 
+	(volatile=KW_VOLATILE | volatile=KW_VOLATILE2)? 
 		LEFTPAREN
 			(
-				(COLON? (expr+=LogicalOrExpression (COMMA expr+=LogicalOrExpression)*))
-			)*
+				(COLON? expr+=LogicalOrExpression 
+					(COMMA expr+=LogicalOrExpression)*
+				)
+			)+
 		RIGHTPAREN semi=SEMI
 ;
 

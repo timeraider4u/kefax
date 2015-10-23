@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link at.jku.weiner.c.c.impl.AsmStatementImpl#getVolatile <em>Volatile</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.AsmStatementImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.AsmStatementImpl#getSemi <em>Semi</em>}</li>
  * </ul>
@@ -37,6 +38,26 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class AsmStatementImpl extends StatementImpl implements AsmStatement
 {
+  /**
+   * The default value of the '{@link #getVolatile() <em>Volatile</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVolatile()
+   * @generated
+   * @ordered
+   */
+  protected static final String VOLATILE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getVolatile() <em>Volatile</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVolatile()
+   * @generated
+   * @ordered
+   */
+  protected String volatile_ = VOLATILE_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -86,6 +107,29 @@ public class AsmStatementImpl extends StatementImpl implements AsmStatement
   protected EClass eStaticClass()
   {
     return CPackage.Literals.ASM_STATEMENT;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getVolatile()
+  {
+    return volatile_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setVolatile(String newVolatile)
+  {
+    String oldVolatile = volatile_;
+    volatile_ = newVolatile;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CPackage.ASM_STATEMENT__VOLATILE, oldVolatile, volatile_));
   }
 
   /**
@@ -151,6 +195,8 @@ public class AsmStatementImpl extends StatementImpl implements AsmStatement
   {
     switch (featureID)
     {
+      case CPackage.ASM_STATEMENT__VOLATILE:
+        return getVolatile();
       case CPackage.ASM_STATEMENT__EXPR:
         return getExpr();
       case CPackage.ASM_STATEMENT__SEMI:
@@ -170,6 +216,9 @@ public class AsmStatementImpl extends StatementImpl implements AsmStatement
   {
     switch (featureID)
     {
+      case CPackage.ASM_STATEMENT__VOLATILE:
+        setVolatile((String)newValue);
+        return;
       case CPackage.ASM_STATEMENT__EXPR:
         getExpr().clear();
         getExpr().addAll((Collection<? extends Expression>)newValue);
@@ -191,6 +240,9 @@ public class AsmStatementImpl extends StatementImpl implements AsmStatement
   {
     switch (featureID)
     {
+      case CPackage.ASM_STATEMENT__VOLATILE:
+        setVolatile(VOLATILE_EDEFAULT);
+        return;
       case CPackage.ASM_STATEMENT__EXPR:
         getExpr().clear();
         return;
@@ -211,6 +263,8 @@ public class AsmStatementImpl extends StatementImpl implements AsmStatement
   {
     switch (featureID)
     {
+      case CPackage.ASM_STATEMENT__VOLATILE:
+        return VOLATILE_EDEFAULT == null ? volatile_ != null : !VOLATILE_EDEFAULT.equals(volatile_);
       case CPackage.ASM_STATEMENT__EXPR:
         return expr != null && !expr.isEmpty();
       case CPackage.ASM_STATEMENT__SEMI:
@@ -230,7 +284,9 @@ public class AsmStatementImpl extends StatementImpl implements AsmStatement
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (semi: ");
+    result.append(" (volatile: ");
+    result.append(volatile_);
+    result.append(", semi: ");
     result.append(semi);
     result.append(')');
     return result.toString();

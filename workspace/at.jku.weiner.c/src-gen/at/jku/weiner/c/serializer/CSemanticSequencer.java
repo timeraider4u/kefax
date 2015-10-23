@@ -297,7 +297,7 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     ((expr+=LogicalOrExpression expr+=LogicalOrExpression*)* semi=SEMI)
+	 *     ((volatile=KW_VOLATILE | volatile=KW_VOLATILE2)? (expr+=LogicalOrExpression expr+=LogicalOrExpression*)+ semi=SEMI)
 	 */
 	protected void sequence_AsmStatement(EObject context, AsmStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

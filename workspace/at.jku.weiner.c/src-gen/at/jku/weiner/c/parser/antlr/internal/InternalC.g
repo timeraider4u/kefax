@@ -4563,21 +4563,49 @@ this_KW_ASM2_2=RULE_KW_ASM2
 
 
 (
-this_KW_VOLATILE_3=RULE_KW_VOLATILE
-    { 
-    newLeafNode(this_KW_VOLATILE_3, grammarAccess.getAsmStatementAccess().getKW_VOLATILETerminalRuleCall_2_0()); 
-    }
+(
+(
+		lv_volatile_3_0=RULE_KW_VOLATILE
+		{
+			newLeafNode(lv_volatile_3_0, grammarAccess.getAsmStatementAccess().getVolatileKW_VOLATILETerminalRuleCall_2_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getAsmStatementRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"volatile",
+        		lv_volatile_3_0, 
+        		"at.jku.weiner.c.C.KW_VOLATILE");
+	    }
 
+)
+)
 
 
     |
-this_KW_VOLATILE2_4=RULE_KW_VOLATILE2
-    { 
-    newLeafNode(this_KW_VOLATILE2_4, grammarAccess.getAsmStatementAccess().getKW_VOLATILE2TerminalRuleCall_2_1()); 
-    }
-
+(
+(
+		lv_volatile_4_0=RULE_KW_VOLATILE2
+		{
+			newLeafNode(lv_volatile_4_0, grammarAccess.getAsmStatementAccess().getVolatileKW_VOLATILE2TerminalRuleCall_2_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getAsmStatementRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"volatile",
+        		lv_volatile_4_0, 
+        		"at.jku.weiner.c.C.KW_VOLATILE2");
+	    }
 
 )
+)
+
+)?
 
 
 this_LEFTPAREN_5=RULE_LEFTPAREN
@@ -4597,9 +4625,8 @@ this_LEFTPAREN_5=RULE_LEFTPAREN
 
 (
 (
-(
 		{ 
-	        newCompositeNode(grammarAccess.getAsmStatementAccess().getExprLogicalOrExpressionParserRuleCall_4_1_0_0()); 
+	        newCompositeNode(grammarAccess.getAsmStatementAccess().getExprLogicalOrExpressionParserRuleCall_4_1_0()); 
 	    }
 		lv_expr_7_0=ruleLogicalOrExpression		{
 	        if ($current==null) {
@@ -4620,7 +4647,7 @@ this_LEFTPAREN_5=RULE_LEFTPAREN
 (
 this_COMMA_8=RULE_COMMA
     { 
-    newLeafNode(this_COMMA_8, grammarAccess.getAsmStatementAccess().getCOMMATerminalRuleCall_4_1_1_0()); 
+    newLeafNode(this_COMMA_8, grammarAccess.getAsmStatementAccess().getCOMMATerminalRuleCall_4_2_0()); 
     }
 
 
@@ -4628,7 +4655,7 @@ this_COMMA_8=RULE_COMMA
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getAsmStatementAccess().getExprLogicalOrExpressionParserRuleCall_4_1_1_1_0()); 
+	        newCompositeNode(grammarAccess.getAsmStatementAccess().getExprLogicalOrExpressionParserRuleCall_4_2_1_0()); 
 	    }
 		lv_expr_9_0=ruleLogicalOrExpression		{
 	        if ($current==null) {
@@ -4647,9 +4674,7 @@ this_COMMA_8=RULE_COMMA
 
 )*
 
-)
-
-)*
+)+
 
 
 this_RIGHTPAREN_10=RULE_RIGHTPAREN

@@ -6,13 +6,13 @@ source file="res/Test0029_Assembler.c"
 lexer-tokens
 BLOCK_COMMENT NEWLINE
 KW_EXTERN WHITESPACE KW_INT WHITESPACE ID SEMI NEWLINE
-//NEWLINE
-//KW_INT WHITESPACE ID LEFTPAREN
-//	KW_INT WHITESPACE ID COMMA WHITESPACE
-//	KW_INT WHITESPACE STAR ID COMMA WHITESPACE
-//	KW_INT WHITESPACE ID
-//RIGHTPAREN NEWLINE
-//LEFTBRACE NEWLINE
+NEWLINE
+KW_INT WHITESPACE ID LEFTPAREN
+	KW_INT WHITESPACE ID COMMA WHITESPACE
+	KW_INT WHITESPACE STAR ID COMMA WHITESPACE
+	KW_INT WHITESPACE ID
+RIGHTPAREN NEWLINE
+LEFTBRACE NEWLINE
 //	WHITESPACE KW_INT WHITESPACE ID SEMI NEWLINE
 //	WHITESPACE KW_UNDERSCORE KW_UNDERSCORE KW_ASM KW_UNDERSCORE KW_UNDERSCORE
 //	WHITESPACE KW_VOLATILE LEFTPAREN NEWLINE
@@ -48,7 +48,7 @@ KW_EXTERN WHITESPACE KW_INT WHITESPACE ID SEMI NEWLINE
 //			MINUS DECIMAL_LITERAL SEMI NEWLINE
 //	WHITESPACE RIGHTBRACE NEWLINE
 //	WHITESPACE KW_RETURN WHITESPACE ID SEMI NEWLINE
-//RIGHTBRACE NEWLINE	
+RIGHTBRACE NEWLINE	
 //----------------------------------------------------------------------
 (Model unit+=
 	(TranslationUnit 
@@ -81,7 +81,99 @@ KW_EXTERN WHITESPACE KW_INT WHITESPACE ID SEMI NEWLINE
 				),
 				semi++";"
 			)
-		) // end external declaration (extern int errno;)
-		
+		), // end external declaration (extern int errno;)
+		(ExternalDeclaration 
+			functiondefHead=
+			(FunctionDefHead
+				funDeclSpecifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"int"
+					)
+				),
+				funDeclarator=
+				(Declarator
+					declarator=
+					(DirectDeclarator
+						id++"funcname",
+						declaratorSuffix+=
+						(DeclaratorSuffix
+							lastSuffix=
+							(DirectDeclaratorLastSuffix
+								parameterTypeList+=
+								(ParameterTypeList
+									list=
+									(ParameterList
+										parameterDeclaration+=
+										(ParameterDeclaration
+											declSpecifiers=
+											(DeclarationSpecifiers
+												declarationSpecifier+=
+												(TypeSpecifier
+													name++"int"
+												)
+											),
+											declarator=
+											(Declarator
+												declarator=
+												(DirectDeclarator
+													id++"arg1"
+												)
+											)
+										),
+										(ParameterDeclaration
+											declSpecifiers=
+											(DeclarationSpecifiers
+												declarationSpecifier+=
+												(TypeSpecifier
+													name++"int"
+												)
+											),
+											declarator=
+											(Declarator
+												declarator=
+												(DirectDeclarator
+													id++"arg2"
+												),
+												pointer=
+												(Pointer 
+													star+*"[*]"
+												)
+											)
+										),
+										(ParameterDeclaration
+											declSpecifiers=
+											(DeclarationSpecifiers
+												declarationSpecifier+=
+												(TypeSpecifier
+													name++"int"
+												)
+											),
+											declarator=
+											(Declarator
+												declarator=
+												(DirectDeclarator
+													id++"arg3"
+												)
+											)
+										)
+									) // end parameter list
+								)
+							)
+						) // DeclaratorSuffix
+					)
+				)
+			),
+			functionDefinition=
+			(FunctionDefinition
+				body=
+				(BodyStatement
+					
+				)
+				
+			) // end function definition
+			
+		) // end external declaration of function
 	)
 )

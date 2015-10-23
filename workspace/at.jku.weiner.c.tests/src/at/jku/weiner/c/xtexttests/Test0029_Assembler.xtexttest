@@ -35,18 +35,18 @@ LEFTBRACE NEWLINE
 //		WHITESPACE COLON WHITESPACE STRING_LITERAL 
 //			WHITESPACE LEFTPAREN ID RIGHTPAREN SEMI
 //			WHITESPACE BLOCK_COMMENT NEWLINE
-//	WHITESPACE BLOCK_COMMENT NEWLINE
-//	WHITESPACE KW_IF WHITESPACE LEFTPAREN
-//		MINUS DECIMAL_LITERAL WHITESPACE 
-//		LESS ASSIGN WHITESPACE ID WHITESPACE
-//		ANDAND WHITESPACE ID WHITESPACE LESS
-//		WHITESPACE DECIMAL_LITERAL 
-//	RIGHTPAREN WHITESPACE LEFTBRACE
-//		WHITESPACE ID WHITESPACE ASSIGN WHITESPACE
-//			MINUS ID SEMI NEWLINE
-//		WHITESPACE ID WHITESPACE ASSIGN WHITESPACE
-//			MINUS DECIMAL_LITERAL SEMI NEWLINE
-//	WHITESPACE RIGHTBRACE NEWLINE
+	WHITESPACE BLOCK_COMMENT NEWLINE
+	WHITESPACE KW_IF WHITESPACE LEFTPAREN
+		MINUS DECIMAL_LITERAL WHITESPACE 
+		LESSEQUAL WHITESPACE ID WHITESPACE
+		ANDAND WHITESPACE ID WHITESPACE LESS
+		WHITESPACE DECIMAL_LITERAL 
+	RIGHTPAREN WHITESPACE LEFTBRACE NEWLINE
+		WHITESPACE ID WHITESPACE ASSIGN WHITESPACE
+			MINUS ID SEMI NEWLINE
+		WHITESPACE ID WHITESPACE ASSIGN WHITESPACE
+			MINUS DECIMAL_LITERAL SEMI NEWLINE
+	WHITESPACE RIGHTBRACE NEWLINE
 	WHITESPACE KW_RETURN WHITESPACE ID SEMI NEWLINE
 RIGHTBRACE NEWLINE	
 //----------------------------------------------------------------------
@@ -196,6 +196,356 @@ RIGHTBRACE NEWLINE
 							semi++";"
 						), // end declaration
 						statement+=
+						// if (...) { }
+						(Statement
+							stmt=
+							(SelectionStatement
+								if++"if",
+								expr=
+								(Expression
+									exprExpr+=
+									(AssignmentExpression
+										expr=
+										(ConditionalExpression
+											expr=
+											(LogicalOrExpression
+												expr+=
+												(LogicalAndExpression
+													expr+=
+													(InclusiveOrExpression
+														expr+=
+														(ExclusiveOrExpression
+															expr+=
+															(AndExpression
+																expr+=
+																(EqualityExpression
+																	expr+=
+																	(RelationalExpression
+																		op+*"[<=]",
+																		expr+=
+																		(ShiftExpression
+																			expr+=
+																			(AdditiveExpression
+																				expr+=
+																				(MultiplicativeExpression
+																					expr+=
+																					(CastExpression
+																						expr=
+																						(UnaryExpression
+																							expr=
+																							(CastExpression
+																								expr=
+																								(UnaryExpression
+																									expr=
+																								
+																									(PostfixExpression
+																										expr+=
+																										(PrimaryExpression
+																											const=
+																											(Constant
+																												dec++"125"
+																											)
+																										)
+																									)
+																								
+																								)
+																							),
+																							op=
+																							(UnaryOperator
+																								op++"-"
+																							)
+																						)
+																					)
+																				)
+																			)
+																		),
+																		(ShiftExpression
+																			expr+=
+																			(AdditiveExpression
+																				expr+=
+																				(MultiplicativeExpression
+																					expr+=
+																					(CastExpression
+																						expr=
+																						(UnaryExpression
+																							expr=
+																							(PostfixExpression
+																								expr+=
+																								(PrimaryExpression
+																									id++"res"
+																								)
+																							)
+																						)
+																					)
+																				)
+																			)
+																		)
+																	)
+																)
+															)
+														)
+													), // end inclusive or expression
+													(InclusiveOrExpression
+														expr+=
+														(ExclusiveOrExpression
+															expr+=
+															(AndExpression
+																expr+=
+																(EqualityExpression
+																	expr+=
+																	(RelationalExpression
+																		op+*"[<]",
+																		expr+=
+																		(ShiftExpression
+																			expr+=
+																			(AdditiveExpression
+																				expr+=
+																				(MultiplicativeExpression
+																					expr+=
+																					(CastExpression
+																						expr=
+																						(UnaryExpression
+																							expr=
+																							(PostfixExpression
+																								expr+=
+																								(PrimaryExpression
+																									id++"res"
+																								)
+																							)
+																						)
+																					)
+																				)
+																			)
+																		),
+																		(ShiftExpression
+																			expr+=
+																			(AdditiveExpression
+																				expr+=
+																				(MultiplicativeExpression
+																					expr+=
+																					(CastExpression
+																						expr=
+																						(UnaryExpression
+																							expr=
+																							(PostfixExpression
+																								expr+=
+																								(PrimaryExpression
+																									const=
+																									(Constant
+																										dec++"0"
+																									)
+																								)
+																							)
+																						)
+																					)
+																				)
+																			)
+																		)
+																	)
+																)
+															)
+														)
+													) // end inclusive or expression
+												) // end logical and expression
+											)
+										)
+									)
+								), // end expression
+								ifStatement=
+								(Statement
+									stmt=
+									(CompoundStatement
+										body=
+										(BodyStatement
+											blockList+=
+											(BlockList
+												statement+=
+												// errno = -res;
+												(Statement
+													stmt=
+													(ExpressionStatement
+														expression=
+														(Expression
+															exprExpr+=
+															(AssignmentExpression
+																expr=
+																(UnaryExpression
+																	expr=
+																	(PostfixExpression
+																		expr+=
+																		(PrimaryExpression
+																			id++"errno"
+																		)
+																	)
+																), // end unary expression
+																op=
+																(AssignmentOperator
+																	op++"="
+																),
+																assignmentExpr=
+																(AssignmentExpression
+																	expr=
+																	(ConditionalExpression
+																		expr=
+																		(LogicalOrExpression
+																			expr+=
+																			(LogicalAndExpression
+																				expr+=
+																				(InclusiveOrExpression
+																					expr+=
+																					(ExclusiveOrExpression
+																						expr+=
+																						(AndExpression
+																							expr+=
+																							(EqualityExpression
+																								expr+=
+																								(RelationalExpression
+																									expr+=
+																									(ShiftExpression
+																										expr+=
+																										(AdditiveExpression
+																											expr+=
+																											(MultiplicativeExpression
+																												expr+=
+																												(CastExpression
+																													expr=
+																													(UnaryExpression
+																														op=
+																														(UnaryOperator
+																															op++"-"
+																														),
+																														expr=
+																														(CastExpression
+																															expr=
+																															(UnaryExpression
+																																expr=
+																																(PostfixExpression
+																																	expr+=
+																																	(PrimaryExpression
+																																		id++"res"
+																																	)
+																																)
+																															
+																															)
+																														)
+																													)
+																												)
+																											)
+																										)
+																									)
+																								)
+																								
+																							)
+																						)
+																					)
+																				)
+																			)
+																		)
+																	) // end conditional expression
+																) // end assignment expression
+															) // end assignment expression
+															
+														)//end expression
+													)
+												), // end statement (errno = ...)
+												// res = -1;
+												(Statement
+													stmt=
+													(ExpressionStatement
+														expression=
+														(Expression
+															exprExpr+=
+															(AssignmentExpression
+																expr=
+																(UnaryExpression
+																	expr=
+																	(PostfixExpression
+																		expr+=
+																		(PrimaryExpression
+																			id++"res"
+																		)
+																	)
+																), // end unary expression
+																op=
+																(AssignmentOperator
+																	op++"="
+																),
+																assignmentExpr=
+																(AssignmentExpression
+																	expr=
+																	(ConditionalExpression
+																		expr=
+																		(LogicalOrExpression
+																			expr+=
+																			(LogicalAndExpression
+																				expr+=
+																				(InclusiveOrExpression
+																					expr+=
+																					(ExclusiveOrExpression
+																						expr+=
+																						(AndExpression
+																							expr+=
+																							(EqualityExpression
+																								expr+=
+																								(RelationalExpression
+																									expr+=
+																									(ShiftExpression
+																										expr+=
+																										(AdditiveExpression
+																											expr+=
+																											(MultiplicativeExpression
+																												expr+=
+																												(CastExpression
+																													expr=
+																													(UnaryExpression
+																														op=
+																														(UnaryOperator
+																															op++"-"
+																														),
+																														expr=
+																														(CastExpression
+																															expr=
+																															(UnaryExpression
+																																expr=
+																																(PostfixExpression
+																																	expr+=
+																																	(PrimaryExpression
+																																		const=
+																																		(Constant
+																																			dec++"1"
+																																		)
+																																	)
+																																)
+																															
+																															)
+																														)
+																													)
+																												)
+																											)
+																										)
+																									)
+																								)
+																								
+																							)
+																						)
+																					)
+																				)
+																			)
+																		)
+																	) // end conditional expression
+																) // end assignment expression
+															) // end assignment expression
+															
+														)//end expression
+													)
+												) // end statement (res = ...)
+											)
+										)
+									) // end compound statement
+								) // end ifStatement=Statement
+							) // end SelectionStatement
+						), // end Statement
+						// return res;
 						(Statement
 							stmt=
 							(JumpStatement

@@ -6,4 +6,6 @@ extern int errno;
 
 int funcname(int arg1, int *arg2, int arg3)
 {
+	int res;
+	return res;
 }

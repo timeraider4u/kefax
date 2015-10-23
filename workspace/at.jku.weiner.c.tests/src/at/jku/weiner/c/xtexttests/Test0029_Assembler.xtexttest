@@ -13,7 +13,7 @@ KW_INT WHITESPACE ID LEFTPAREN
 	KW_INT WHITESPACE ID
 RIGHTPAREN NEWLINE
 LEFTBRACE NEWLINE
-//	WHITESPACE KW_INT WHITESPACE ID SEMI NEWLINE
+	WHITESPACE KW_INT WHITESPACE ID SEMI NEWLINE
 //	WHITESPACE KW_UNDERSCORE KW_UNDERSCORE KW_ASM KW_UNDERSCORE KW_UNDERSCORE
 //	WHITESPACE KW_VOLATILE LEFTPAREN NEWLINE
 //		WHITESPACE STRING_LITERAL WHITESPACE BLOCK_COMMENT NEWLINE
@@ -47,7 +47,7 @@ LEFTBRACE NEWLINE
 //		WHITESPACE ID WHITESPACE ASSIGN WHITESPACE
 //			MINUS DECIMAL_LITERAL SEMI NEWLINE
 //	WHITESPACE RIGHTBRACE NEWLINE
-//	WHITESPACE KW_RETURN WHITESPACE ID SEMI NEWLINE
+	WHITESPACE KW_RETURN WHITESPACE ID SEMI NEWLINE
 RIGHTBRACE NEWLINE	
 //----------------------------------------------------------------------
 (Model unit+=
@@ -169,11 +169,95 @@ RIGHTBRACE NEWLINE
 			(FunctionDefinition
 				body=
 				(BodyStatement
-					
-				)
-				
-			) // end function definition
-			
+					blockList+=
+					(BlockList
+						declaration+=
+						(Declaration
+							specifiers=
+							(DeclarationSpecifiers
+								declarationSpecifier+=
+								(TypeSpecifier
+									name++"int"
+								)
+							),
+							initDeclaratorList+=
+							(InitDeclaratorList
+								initDeclarator+=
+								(InitDeclarator
+									declarator=
+									(Declarator
+										declarator=
+										(DirectDeclarator
+											id++"res"
+										)
+									)
+								)
+							),
+							semi++";"
+						), // end declaration
+						statement+=
+						(Statement
+							stmt=
+							(JumpStatement
+								expr=
+								(Expression
+									exprExpr+=
+									(AssignmentExpression
+										expr=
+										(ConditionalExpression
+											expr=
+											(LogicalOrExpression
+												expr+=
+												(LogicalAndExpression
+													expr+=
+													(InclusiveOrExpression
+														expr+=
+														(ExclusiveOrExpression
+															expr+=
+															(AndExpression
+																expr+=
+																(EqualityExpression
+																	expr+=
+																	(RelationalExpression
+																		expr+=
+																		(ShiftExpression
+																			expr+=
+																			(AdditiveExpression
+																				expr+=
+																				(MultiplicativeExpression
+																					expr+=
+																					(CastExpression
+																						expr=
+																						(UnaryExpression
+																							expr=
+																							(PostfixExpression
+																								expr+=
+																								(PrimaryExpression
+																									id++"res"
+																								)
+																							)
+																						)
+																					)
+																				)
+																			)
+																		)
+																	)
+																)
+															)
+														)
+													)
+												)
+											)
+										)
+									)
+								), // end expression
+							return++"return",
+							semi++";"
+							) // end jump statement
+						) // end statement
+					) // end block list
+				) // end body statement
+			) // end function definition			
 		) // end external declaration of function
 	)
 )

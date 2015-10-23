@@ -297,7 +297,7 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     {AsmStatement}
+	 *     ((expr+=LogicalOrExpression expr+=LogicalOrExpression*)* semi=SEMI)
 	 */
 	protected void sequence_AsmStatement(EObject context, AsmStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -788,7 +788,8 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         stmt=ExpressionStatement | 
 	 *         stmt=SelectionStatement | 
 	 *         stmt=IterationStatement | 
-	 *         stmt=JumpStatement
+	 *         stmt=JumpStatement | 
+	 *         stmt=AsmStatement
 	 *     )
 	 */
 	protected void sequence_Statement(EObject context, Statement semanticObject) {

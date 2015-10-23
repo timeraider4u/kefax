@@ -520,14 +520,14 @@ Statement:
 	|	stmt=SelectionStatement
 	|	stmt=IterationStatement
 	|	stmt=JumpStatement
-	//|	stmt=AsmStatement
+	|	stmt=AsmStatement
 	)
 ;
 
 LabeledStatement returns Statement:
 	{LabeledStatement}
 	(
-	id=ID COLON lStmt=Statement	
+		id=ID COLON lStmt=Statement	
 	|	case=KW_CASE expr=ConstantExpression COLON lStmt=Statement
 	|	default=KW_DEFAULT COLON lStmt=Statement
 	)
@@ -556,7 +556,6 @@ ExpressionStatement returns Statement
 	(expression = Expression)? 
 	semi=SEMI
 ;
-
 
 SelectionStatement returns Statement:
 	{SelectionStatement}
@@ -592,11 +591,13 @@ JumpStatement returns Statement:
 
 AsmStatement returns Statement:
 	{AsmStatement}
-	/*
-	|	('__asm' | '__asm__') (VOLATILE | '__volatile__') 
-			LEFTPAREN (expr+=logicalOrExpression (COMMA logicalExpr+=logicalOrExpression)*)? 
-			(COLON (expr+=logicalOrExpression (COMMA logicalExpr+=logicalOrExpression)*)?)* RIGHTPAREN SEMI
- 	*/
+	(KW_ASM1 | KW_ASM2) 
+	(KW_VOLATILE | KW_VOLATILE2) 
+		LEFTPAREN
+			(
+				(COLON? (expr+=LogicalOrExpression (COMMA expr+=LogicalOrExpression)*))
+			)*
+		RIGHTPAREN semi=SEMI
 ;
 
 //designation: designatorList ASSIGN;
@@ -900,7 +901,8 @@ terminal KW_WHILE : 'while';
 
 terminal KW_ALIGNAS : '_Alignas';
 terminal KW_ALIGNOF : '_Alignof';
-terminal KW_ASM: 'asm';
+terminal KW_ASM1: KW_UNDERSCORE KW_UNDERSCORE 'asm';
+terminal KW_ASM2: KW_ASM1 KW_UNDERSCORE KW_UNDERSCORE;
 terminal KW_ATOMIC : '_Atomic';
 terminal KW_BOOL : '_Bool';
 terminal KW_COMPLEX : '_Complex';
@@ -910,6 +912,7 @@ terminal KW_NORETURN : '_Noreturn';
 terminal KW_STATICASSERT : '_Static_assert';
 terminal KW_THREADLOCAL : '_Thread_local';
 terminal KW_PRAGMA: 'pragma';
+terminal KW_VOLATILE2: KW_UNDERSCORE KW_UNDERSCORE KW_VOLATILE KW_UNDERSCORE KW_UNDERSCORE ;
 
 terminal LEFTPAREN: '(';
 terminal RIGHTPAREN: ')';
@@ -978,7 +981,7 @@ terminal fragment LETTER:
 	'$'
 	|	'A'..'Z'
 	|	'a'..'z'
-	|	'_'
+	|	KW_UNDERSCORE
 ;
 
 terminal CHAR_LITERAL:

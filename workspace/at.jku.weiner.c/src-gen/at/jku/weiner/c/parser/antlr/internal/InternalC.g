@@ -3026,6 +3026,28 @@ ruleStatement returns [EObject current=null]
 )
 )
 
+
+    |
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getStatementAccess().getStmtAsmStatementParserRuleCall_1_6_0()); 
+	    }
+		lv_stmt_7_0=ruleAsmStatement		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getStatementRule());
+	        }
+       		set(
+       			$current, 
+       			"stmt",
+        		lv_stmt_7_0, 
+        		"at.jku.weiner.c.C.AsmStatement");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
 )
 
 )
@@ -4488,6 +4510,179 @@ ruleJumpStatement returns [EObject current=null]
 ;
 
 
+
+
+
+// Entry rule entryRuleAsmStatement
+entryRuleAsmStatement returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getAsmStatementRule()); }
+	 iv_ruleAsmStatement=ruleAsmStatement 
+	 { $current=$iv_ruleAsmStatement.current; } 
+	 EOF 
+;
+
+// Rule AsmStatement
+ruleAsmStatement returns [EObject current=null] 
+    @init { enterRule();
+   		
+    }
+    @after { leaveRule();
+    		
+     }:
+
+(
+(
+	{ 
+	  /* */ 
+	}
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getAsmStatementAccess().getAsmStatementAction_0(),
+            $current);
+    }
+)
+
+
+(
+this_KW_ASM1_1=RULE_KW_ASM1
+    { 
+    newLeafNode(this_KW_ASM1_1, grammarAccess.getAsmStatementAccess().getKW_ASM1TerminalRuleCall_1_0()); 
+    }
+
+
+
+    |
+this_KW_ASM2_2=RULE_KW_ASM2
+    { 
+    newLeafNode(this_KW_ASM2_2, grammarAccess.getAsmStatementAccess().getKW_ASM2TerminalRuleCall_1_1()); 
+    }
+
+
+)
+
+
+(
+this_KW_VOLATILE_3=RULE_KW_VOLATILE
+    { 
+    newLeafNode(this_KW_VOLATILE_3, grammarAccess.getAsmStatementAccess().getKW_VOLATILETerminalRuleCall_2_0()); 
+    }
+
+
+
+    |
+this_KW_VOLATILE2_4=RULE_KW_VOLATILE2
+    { 
+    newLeafNode(this_KW_VOLATILE2_4, grammarAccess.getAsmStatementAccess().getKW_VOLATILE2TerminalRuleCall_2_1()); 
+    }
+
+
+)
+
+
+this_LEFTPAREN_5=RULE_LEFTPAREN
+    { 
+    newLeafNode(this_LEFTPAREN_5, grammarAccess.getAsmStatementAccess().getLEFTPARENTerminalRuleCall_3()); 
+    }
+
+
+
+(
+(this_COLON_6=RULE_COLON
+    { 
+    newLeafNode(this_COLON_6, grammarAccess.getAsmStatementAccess().getCOLONTerminalRuleCall_4_0()); 
+    }
+)?
+
+
+(
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getAsmStatementAccess().getExprLogicalOrExpressionParserRuleCall_4_1_0_0()); 
+	    }
+		lv_expr_7_0=ruleLogicalOrExpression		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getAsmStatementRule());
+	        }
+       		add(
+       			$current, 
+       			"expr",
+        		lv_expr_7_0, 
+        		"at.jku.weiner.c.C.LogicalOrExpression");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+(
+this_COMMA_8=RULE_COMMA
+    { 
+    newLeafNode(this_COMMA_8, grammarAccess.getAsmStatementAccess().getCOMMATerminalRuleCall_4_1_1_0()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getAsmStatementAccess().getExprLogicalOrExpressionParserRuleCall_4_1_1_1_0()); 
+	    }
+		lv_expr_9_0=ruleLogicalOrExpression		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getAsmStatementRule());
+	        }
+       		add(
+       			$current, 
+       			"expr",
+        		lv_expr_9_0, 
+        		"at.jku.weiner.c.C.LogicalOrExpression");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+)*
+
+)
+
+)*
+
+
+this_RIGHTPAREN_10=RULE_RIGHTPAREN
+    { 
+    newLeafNode(this_RIGHTPAREN_10, grammarAccess.getAsmStatementAccess().getRIGHTPARENTerminalRuleCall_5()); 
+    }
+
+
+
+(
+(
+		lv_semi_11_0=RULE_SEMI
+		{
+			newLeafNode(lv_semi_11_0, grammarAccess.getAsmStatementAccess().getSemiSEMITerminalRuleCall_6_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getAsmStatementRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"semi",
+        		lv_semi_11_0, 
+        		"at.jku.weiner.c.C.SEMI");
+	    }
+
+)
+)
+
+)
+
+
+;
 
 
 
@@ -7394,7 +7589,7 @@ ruleConstantExpression returns [EObject current=null]
 
 
 
-RULE_KW_UNDERSCORE : '_';
+fragment RULE_KW_UNDERSCORE : '_';
 
 RULE_KW_AUTO : 'auto';
 
@@ -7468,7 +7663,9 @@ RULE_KW_ALIGNAS : '_Alignas';
 
 RULE_KW_ALIGNOF : '_Alignof';
 
-RULE_KW_ASM : 'asm';
+RULE_KW_ASM1 : RULE_KW_UNDERSCORE RULE_KW_UNDERSCORE 'asm';
+
+RULE_KW_ASM2 : RULE_KW_ASM1 RULE_KW_UNDERSCORE RULE_KW_UNDERSCORE;
 
 RULE_KW_ATOMIC : '_Atomic';
 
@@ -7487,6 +7684,8 @@ RULE_KW_STATICASSERT : '_Static_assert';
 RULE_KW_THREADLOCAL : '_Thread_local';
 
 RULE_KW_PRAGMA : 'pragma';
+
+RULE_KW_VOLATILE2 : RULE_KW_UNDERSCORE RULE_KW_UNDERSCORE RULE_KW_VOLATILE RULE_KW_UNDERSCORE RULE_KW_UNDERSCORE;
 
 RULE_LEFTPAREN : '(';
 
@@ -7590,7 +7789,7 @@ RULE_ID : RULE_IDENTIFIER;
 
 fragment RULE_IDENTIFIER : RULE_LETTER (RULE_LETTER|'0'..'9')*;
 
-fragment RULE_LETTER : ('$'|'A'..'Z'|'a'..'z'|'_');
+fragment RULE_LETTER : ('$'|'A'..'Z'|'a'..'z'|RULE_KW_UNDERSCORE);
 
 RULE_CHAR_LITERAL : RULE_SINGLEQUOTE (RULE_ESCAPE_SEQUENCE|~((RULE_SINGLEQUOTE|RULE_BACKSLASH))) RULE_SINGLEQUOTE;
 

@@ -1728,13 +1728,31 @@ public interface CPackage extends EPackage
   int ASM_STATEMENT__STMT = STATEMENT__STMT;
 
   /**
+   * The feature id for the '<em><b>Expr</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASM_STATEMENT__EXPR = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Semi</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASM_STATEMENT__SEMI = STATEMENT_FEATURE_COUNT + 1;
+
+  /**
    * The number of structural features of the '<em>Asm Statement</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ASM_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 0;
+  int ASM_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.c.impl.AssignmentExpressionImpl <em>Assignment Expression</em>}' class.
@@ -3930,6 +3948,28 @@ public interface CPackage extends EPackage
   EClass getAsmStatement();
 
   /**
+   * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.c.AsmStatement#getExpr <em>Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Expr</em>'.
+   * @see at.jku.weiner.c.c.AsmStatement#getExpr()
+   * @see #getAsmStatement()
+   * @generated
+   */
+  EReference getAsmStatement_Expr();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.c.AsmStatement#getSemi <em>Semi</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Semi</em>'.
+   * @see at.jku.weiner.c.c.AsmStatement#getSemi()
+   * @see #getAsmStatement()
+   * @generated
+   */
+  EAttribute getAsmStatement_Semi();
+
+  /**
    * Returns the meta object for class '{@link at.jku.weiner.c.c.AssignmentExpression <em>Assignment Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5635,6 +5675,22 @@ public interface CPackage extends EPackage
      * @generated
      */
     EClass ASM_STATEMENT = eINSTANCE.getAsmStatement();
+
+    /**
+     * The meta object literal for the '<em><b>Expr</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ASM_STATEMENT__EXPR = eINSTANCE.getAsmStatement_Expr();
+
+    /**
+     * The meta object literal for the '<em><b>Semi</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ASM_STATEMENT__SEMI = eINSTANCE.getAsmStatement_Semi();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.c.impl.AssignmentExpressionImpl <em>Assignment Expression</em>}' class.

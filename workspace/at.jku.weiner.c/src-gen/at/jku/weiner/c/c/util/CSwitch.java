@@ -163,6 +163,27 @@ public class CSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case CPackage.DECLARATION_SPECIFIER:
+      {
+        DeclarationSpecifier declarationSpecifier = (DeclarationSpecifier)theEObject;
+        T result = caseDeclarationSpecifier(declarationSpecifier);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CPackage.ENUMERATOR_LIST:
+      {
+        EnumeratorList enumeratorList = (EnumeratorList)theEObject;
+        T result = caseEnumeratorList(enumeratorList);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CPackage.ENUMERATOR:
+      {
+        Enumerator enumerator = (Enumerator)theEObject;
+        T result = caseEnumerator(enumerator);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case CPackage.TYPE_QUALIFIER:
       {
         TypeQualifier typeQualifier = (TypeQualifier)theEObject;
@@ -307,6 +328,14 @@ public class CSwitch<T> extends Switch<T>
       {
         Constant constant = (Constant)theEObject;
         T result = caseConstant(constant);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CPackage.ENUM_SPECIFIER:
+      {
+        EnumSpecifier enumSpecifier = (EnumSpecifier)theEObject;
+        T result = caseEnumSpecifier(enumSpecifier);
+        if (result == null) result = caseDeclarationSpecifier(enumSpecifier);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -723,6 +752,54 @@ public class CSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Declaration Specifier</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Declaration Specifier</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDeclarationSpecifier(DeclarationSpecifier object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Enumerator List</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Enumerator List</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEnumeratorList(EnumeratorList object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Enumerator</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Enumerator</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEnumerator(Enumerator object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Type Qualifier</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1054,6 +1131,22 @@ public class CSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseConstant(Constant object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Enum Specifier</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Enum Specifier</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEnumSpecifier(EnumSpecifier object)
   {
     return null;
   }

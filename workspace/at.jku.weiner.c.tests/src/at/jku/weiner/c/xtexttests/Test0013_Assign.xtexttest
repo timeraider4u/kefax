@@ -85,7 +85,7 @@ SEMI NEWLINE
 									)
 								)
 							) // end assignment expression
-						)
+						) // end initializer
 					)
 				),
 				semi++";"

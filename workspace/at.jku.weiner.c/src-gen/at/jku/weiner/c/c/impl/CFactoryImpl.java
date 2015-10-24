@@ -77,6 +77,9 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
       case CPackage.TYPE_SPECIFIER: return createTypeSpecifier();
       case CPackage.TYPEDEF_NAME: return createTypedefName();
       case CPackage.SPECIFIER_QUALIFIER_LIST: return createSpecifierQualifierList();
+      case CPackage.DECLARATION_SPECIFIER: return createDeclarationSpecifier();
+      case CPackage.ENUMERATOR_LIST: return createEnumeratorList();
+      case CPackage.ENUMERATOR: return createEnumerator();
       case CPackage.TYPE_QUALIFIER: return createTypeQualifier();
       case CPackage.DECLARATOR: return createDeclarator();
       case CPackage.DIRECT_DECLARATOR: return createDirectDeclarator();
@@ -98,6 +101,7 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
       case CPackage.UNARY_OPERATOR: return createUnaryOperator();
       case CPackage.ARGUMENT_EXPRESSION_LIST: return createArgumentExpressionList();
       case CPackage.CONSTANT: return createConstant();
+      case CPackage.ENUM_SPECIFIER: return createEnumSpecifier();
       case CPackage.LABELED_STATEMENT: return createLabeledStatement();
       case CPackage.COMPOUND_STATEMENT: return createCompoundStatement();
       case CPackage.BODY_STATEMENT: return createBodyStatement();
@@ -269,6 +273,39 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
   {
     SpecifierQualifierListImpl specifierQualifierList = new SpecifierQualifierListImpl();
     return specifierQualifierList;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DeclarationSpecifier createDeclarationSpecifier()
+  {
+    DeclarationSpecifierImpl declarationSpecifier = new DeclarationSpecifierImpl();
+    return declarationSpecifier;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EnumeratorList createEnumeratorList()
+  {
+    EnumeratorListImpl enumeratorList = new EnumeratorListImpl();
+    return enumeratorList;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Enumerator createEnumerator()
+  {
+    EnumeratorImpl enumerator = new EnumeratorImpl();
+    return enumerator;
   }
 
   /**
@@ -500,6 +537,17 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
   {
     ConstantImpl constant = new ConstantImpl();
     return constant;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EnumSpecifier createEnumSpecifier()
+  {
+    EnumSpecifierImpl enumSpecifier = new EnumSpecifierImpl();
+    return enumSpecifier;
   }
 
   /**

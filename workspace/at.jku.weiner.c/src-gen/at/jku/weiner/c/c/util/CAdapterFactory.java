@@ -140,6 +140,21 @@ public class CAdapterFactory extends AdapterFactoryImpl
         return createSpecifierQualifierListAdapter();
       }
       @Override
+      public Adapter caseDeclarationSpecifier(DeclarationSpecifier object)
+      {
+        return createDeclarationSpecifierAdapter();
+      }
+      @Override
+      public Adapter caseEnumeratorList(EnumeratorList object)
+      {
+        return createEnumeratorListAdapter();
+      }
+      @Override
+      public Adapter caseEnumerator(Enumerator object)
+      {
+        return createEnumeratorAdapter();
+      }
+      @Override
       public Adapter caseTypeQualifier(TypeQualifier object)
       {
         return createTypeQualifierAdapter();
@@ -243,6 +258,11 @@ public class CAdapterFactory extends AdapterFactoryImpl
       public Adapter caseConstant(Constant object)
       {
         return createConstantAdapter();
+      }
+      @Override
+      public Adapter caseEnumSpecifier(EnumSpecifier object)
+      {
+        return createEnumSpecifierAdapter();
       }
       @Override
       public Adapter caseLabeledStatement(LabeledStatement object)
@@ -587,6 +607,51 @@ public class CAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.DeclarationSpecifier <em>Declaration Specifier</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.c.DeclarationSpecifier
+   * @generated
+   */
+  public Adapter createDeclarationSpecifierAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.EnumeratorList <em>Enumerator List</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.c.EnumeratorList
+   * @generated
+   */
+  public Adapter createEnumeratorListAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.Enumerator <em>Enumerator</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.c.Enumerator
+   * @generated
+   */
+  public Adapter createEnumeratorAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.TypeQualifier <em>Type Qualifier</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -897,6 +962,21 @@ public class CAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createConstantAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.EnumSpecifier <em>Enum Specifier</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.c.EnumSpecifier
+   * @generated
+   */
+  public Adapter createEnumSpecifierAdapter()
   {
     return null;
   }

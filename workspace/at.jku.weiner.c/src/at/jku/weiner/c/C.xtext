@@ -144,7 +144,7 @@ InitDeclaratorList
 	{InitDeclaratorList}
 	
 	initDeclarator+=InitDeclarator
-	(COMMA initDeclarator2+=InitDeclarator)*
+	(COMMA initDeclarator+=InitDeclarator)*
 ;
 
 InitDeclarator
@@ -208,8 +208,8 @@ TypeSpecifier
 	// |	'__extension__' LEFTPAREN ('__m128' | '__m128d' | '__m128i') RIGHTPAREN
   //  |	specifier=atomicTypeSpecifier
 	// |	specifier=structOrUnionSpecifier
-	// |	specifier=enumSpecifier
-	|  type=TypedefName
+	|	specifier=EnumSpecifier
+	|	type=TypedefName
 	// |	'__typeof__' LEFTPAREN constExrp=constantExpression RIGHTPAREN // GCC extension
 	
 ;
@@ -262,24 +262,26 @@ structDeclarator: declarator=declarator (COLON constExpr+=constantExpression)?
 ;
 */
 
-/*
-enumSpecifier returns declarationSpecifier:
-	{enumSpecifier} 
+
+EnumSpecifier returns DeclarationSpecifier:
+	{EnumSpecifier} 
 	(	
-		(ENUM IDENTIFIER? LEFTBRACE enumList=enumeratorList) (RIGHTBRACE | COMMA RIGHTBRACE)
-	|	ENUM IDENTIFIER
+		KW_ENUM
+		(	LEFTBRACE enumList=EnumeratorList RIGHTBRACE
+		|	id=ID (LEFTBRACE enumList=EnumeratorList RIGHTBRACE)?
+		)
 	)
 ;
 
-enumeratorList: enumerator
-	(COMMA enumerator+=enumerator)*
+EnumeratorList: enumerator+=Enumerator
+	(COMMA enumerator+=Enumerator)*
 ;
 
-enumerator:
-	{enumerator} 
-	enumerationCONSTANT
-	(ASSIGN constExpr=constantExpression)?
-;*/
+Enumerator:
+	{Enumerator} 
+	id=ID
+	(ASSIGN expr=ConstantExpression)?
+;
 
 /*
 atomicTypeSpecifier returns declarationSpecifier:

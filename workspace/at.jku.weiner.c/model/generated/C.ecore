@@ -45,8 +45,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="InitDeclaratorList">
     <eStructuralFeatures xsi:type="ecore:EReference" name="initDeclarator" upperBound="-1"
         eType="#//InitDeclarator" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="initDeclarator2" upperBound="-1"
-        eType="#//InitDeclarator" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InitDeclarator">
     <eStructuralFeatures xsi:type="ecore:EReference" name="declarator" eType="#//Declarator"
@@ -59,6 +57,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypeSpecifier">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="specifier" eType="#//DeclarationSpecifier"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//TypedefName"
         containment="true"/>
   </eClassifiers>
@@ -70,6 +70,16 @@
         eType="#//TypeSpecifier" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="typeQualifier" upperBound="-1"
         eType="#//TypeQualifier" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DeclarationSpecifier"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EnumeratorList">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="enumerator" upperBound="-1"
+        eType="#//Enumerator" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Enumerator">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expression"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypeQualifier">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
@@ -170,6 +180,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="str" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="float" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="bin" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EnumSpecifier" eSuperTypes="#//DeclarationSpecifier">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="enumList" eType="#//EnumeratorList"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LabeledStatement" eSuperTypes="#//Statement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>

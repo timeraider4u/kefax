@@ -62,6 +62,8 @@ public class CSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getKW_ASM1Token(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getKW_ASM2Rule())
 			return getKW_ASM2Token(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getKW_ENUMRule())
+			return getKW_ENUMToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getKW_WHILERule())
 			return getKW_WHILEToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getLEFTBRACERule())
@@ -175,6 +177,15 @@ public class CSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return "_asm";
+	}
+	
+	/**
+	 * terminal KW_ENUM : 'enum';
+	 */
+	protected String getKW_ENUMToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "enum";
 	}
 	
 	/**

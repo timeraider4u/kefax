@@ -326,15 +326,15 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cInitDeclaratorInitDeclaratorParserRuleCall_1_0 = (RuleCall)cInitDeclaratorAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final RuleCall cCOMMATerminalRuleCall_2_0 = (RuleCall)cGroup_2.eContents().get(0);
-		private final Assignment cInitDeclarator2Assignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cInitDeclarator2InitDeclaratorParserRuleCall_2_1_0 = (RuleCall)cInitDeclarator2Assignment_2_1.eContents().get(0);
+		private final Assignment cInitDeclaratorAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cInitDeclaratorInitDeclaratorParserRuleCall_2_1_0 = (RuleCall)cInitDeclaratorAssignment_2_1.eContents().get(0);
 		
 		//InitDeclaratorList initRuleAction { at.jku.weiner.c.Log.log("InitDeclaratorList-enter"); } afterRuleAction {
 		//at.jku.weiner.c.Log.log("InitDeclaratorList-leave"); }:
-		//	{InitDeclaratorList} initDeclarator+=InitDeclarator (COMMA initDeclarator2+=InitDeclarator)*;
+		//	{InitDeclaratorList} initDeclarator+=InitDeclarator (COMMA initDeclarator+=InitDeclarator)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{InitDeclaratorList} initDeclarator+=InitDeclarator (COMMA initDeclarator2+=InitDeclarator)*
+		//{InitDeclaratorList} initDeclarator+=InitDeclarator (COMMA initDeclarator+=InitDeclarator)*
 		public Group getGroup() { return cGroup; }
 		
 		//{InitDeclaratorList}
@@ -346,17 +346,17 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		//InitDeclarator
 		public RuleCall getInitDeclaratorInitDeclaratorParserRuleCall_1_0() { return cInitDeclaratorInitDeclaratorParserRuleCall_1_0; }
 		
-		//(COMMA initDeclarator2+=InitDeclarator)*
+		//(COMMA initDeclarator+=InitDeclarator)*
 		public Group getGroup_2() { return cGroup_2; }
 		
 		//COMMA
 		public RuleCall getCOMMATerminalRuleCall_2_0() { return cCOMMATerminalRuleCall_2_0; }
 		
-		//initDeclarator2+=InitDeclarator
-		public Assignment getInitDeclarator2Assignment_2_1() { return cInitDeclarator2Assignment_2_1; }
+		//initDeclarator+=InitDeclarator
+		public Assignment getInitDeclaratorAssignment_2_1() { return cInitDeclaratorAssignment_2_1; }
 		
 		//InitDeclarator
-		public RuleCall getInitDeclarator2InitDeclaratorParserRuleCall_2_1_0() { return cInitDeclarator2InitDeclaratorParserRuleCall_2_1_0; }
+		public RuleCall getInitDeclaratorInitDeclaratorParserRuleCall_2_1_0() { return cInitDeclaratorInitDeclaratorParserRuleCall_2_1_0; }
 	}
 	public class InitDeclaratorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.InitDeclarator");
@@ -506,8 +506,10 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cName__m128dKeyword_12_0 = (Keyword)cNameAssignment_12.eContents().get(0);
 		private final Assignment cNameAssignment_13 = (Assignment)cAlternatives.eContents().get(13);
 		private final Keyword cName__m128iKeyword_13_0 = (Keyword)cNameAssignment_13.eContents().get(0);
-		private final Assignment cTypeAssignment_14 = (Assignment)cAlternatives.eContents().get(14);
-		private final RuleCall cTypeTypedefNameParserRuleCall_14_0 = (RuleCall)cTypeAssignment_14.eContents().get(0);
+		private final Assignment cSpecifierAssignment_14 = (Assignment)cAlternatives.eContents().get(14);
+		private final RuleCall cSpecifierEnumSpecifierParserRuleCall_14_0 = (RuleCall)cSpecifierAssignment_14.eContents().get(0);
+		private final Assignment cTypeAssignment_15 = (Assignment)cAlternatives.eContents().get(15);
+		private final RuleCall cTypeTypedefNameParserRuleCall_15_0 = (RuleCall)cTypeAssignment_15.eContents().get(0);
 		
 		//TypeSpecifier initRuleAction { at.jku.weiner.c.Log.log("TypeSpecifier-enter"); } afterRuleAction {
 		//at.jku.weiner.c.Log.log("TypeSpecifier-leave"); }:
@@ -526,7 +528,7 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		//	// |	'__extension__' LEFTPAREN ('__m128' | '__m128d' | '__m128i') RIGHTPAREN
 		//	//  |	specifier=atomicTypeSpecifier
 		//	// |	specifier=structOrUnionSpecifier
-		//	// |	specifier=enumSpecifier
+		//	| specifier=EnumSpecifier
 		//	| type=TypedefName
 		//	// |	'__typeof__' LEFTPAREN constExrp=constantExpression RIGHTPAREN // GCC extension
 		//;
@@ -538,8 +540,7 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		//name='__m128' | name='__m128d' | name='__m128i' // |	'__extension__' LEFTPAREN ('__m128' | '__m128d' | '__m128i') RIGHTPAREN
 		////  |	specifier=atomicTypeSpecifier
 		//// |	specifier=structOrUnionSpecifier
-		//// |	specifier=enumSpecifier
-		//| type=TypedefName
+		//| specifier=EnumSpecifier | type=TypedefName
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//{TypeSpecifier} name=KW_VOID
@@ -632,11 +633,17 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		//'__m128i'
 		public Keyword getName__m128iKeyword_13_0() { return cName__m128iKeyword_13_0; }
 		
+		//specifier=EnumSpecifier
+		public Assignment getSpecifierAssignment_14() { return cSpecifierAssignment_14; }
+		
+		//EnumSpecifier
+		public RuleCall getSpecifierEnumSpecifierParserRuleCall_14_0() { return cSpecifierEnumSpecifierParserRuleCall_14_0; }
+		
 		//type=TypedefName
-		public Assignment getTypeAssignment_14() { return cTypeAssignment_14; }
+		public Assignment getTypeAssignment_15() { return cTypeAssignment_15; }
 		
 		//TypedefName
-		public RuleCall getTypeTypedefNameParserRuleCall_14_0() { return cTypeTypedefNameParserRuleCall_14_0; }
+		public RuleCall getTypeTypedefNameParserRuleCall_15_0() { return cTypeTypedefNameParserRuleCall_15_0; }
 	}
 	public class TypedefNameElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.TypedefName");
@@ -716,6 +723,167 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		//TypeQualifier
 		public RuleCall getTypeQualifierTypeQualifierParserRuleCall_1_1_0() { return cTypeQualifierTypeQualifierParserRuleCall_1_1_0; }
 	}
+	public class EnumSpecifierElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.EnumSpecifier");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cEnumSpecifierAction_0 = (Action)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final RuleCall cKW_ENUMTerminalRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
+		private final Alternatives cAlternatives_1_1 = (Alternatives)cGroup_1.eContents().get(1);
+		private final Group cGroup_1_1_0 = (Group)cAlternatives_1_1.eContents().get(0);
+		private final RuleCall cLEFTBRACETerminalRuleCall_1_1_0_0 = (RuleCall)cGroup_1_1_0.eContents().get(0);
+		private final Assignment cEnumListAssignment_1_1_0_1 = (Assignment)cGroup_1_1_0.eContents().get(1);
+		private final RuleCall cEnumListEnumeratorListParserRuleCall_1_1_0_1_0 = (RuleCall)cEnumListAssignment_1_1_0_1.eContents().get(0);
+		private final RuleCall cRIGHTBRACETerminalRuleCall_1_1_0_2 = (RuleCall)cGroup_1_1_0.eContents().get(2);
+		private final Group cGroup_1_1_1 = (Group)cAlternatives_1_1.eContents().get(1);
+		private final Assignment cIdAssignment_1_1_1_0 = (Assignment)cGroup_1_1_1.eContents().get(0);
+		private final RuleCall cIdIDTerminalRuleCall_1_1_1_0_0 = (RuleCall)cIdAssignment_1_1_1_0.eContents().get(0);
+		private final Group cGroup_1_1_1_1 = (Group)cGroup_1_1_1.eContents().get(1);
+		private final RuleCall cLEFTBRACETerminalRuleCall_1_1_1_1_0 = (RuleCall)cGroup_1_1_1_1.eContents().get(0);
+		private final Assignment cEnumListAssignment_1_1_1_1_1 = (Assignment)cGroup_1_1_1_1.eContents().get(1);
+		private final RuleCall cEnumListEnumeratorListParserRuleCall_1_1_1_1_1_0 = (RuleCall)cEnumListAssignment_1_1_1_1_1.eContents().get(0);
+		private final RuleCall cRIGHTBRACETerminalRuleCall_1_1_1_1_2 = (RuleCall)cGroup_1_1_1_1.eContents().get(2);
+		
+		/// *
+		//structDeclaratorList: structDeclarator=structDeclarator (COMMA structDeclarator2+=structDeclarator)*;
+		//
+		//structDeclarator: declarator=declarator (COLON constExpr+=constantExpression)?
+		//	| (COLON constExpr+=constantExpression)
+		//;
+		// * / EnumSpecifier DeclarationSpecifier:
+		//	{EnumSpecifier} (KW_ENUM (LEFTBRACE enumList=EnumeratorList RIGHTBRACE
+		//	| id=ID (LEFTBRACE enumList=EnumeratorList RIGHTBRACE)?))
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{EnumSpecifier} (KW_ENUM (LEFTBRACE enumList=EnumeratorList RIGHTBRACE | id=ID (LEFTBRACE enumList=EnumeratorList
+		//RIGHTBRACE)?))
+		public Group getGroup() { return cGroup; }
+		
+		//{EnumSpecifier}
+		public Action getEnumSpecifierAction_0() { return cEnumSpecifierAction_0; }
+		
+		//(KW_ENUM (LEFTBRACE enumList=EnumeratorList RIGHTBRACE | id=ID (LEFTBRACE enumList=EnumeratorList RIGHTBRACE)?))
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//KW_ENUM
+		public RuleCall getKW_ENUMTerminalRuleCall_1_0() { return cKW_ENUMTerminalRuleCall_1_0; }
+		
+		//(LEFTBRACE enumList=EnumeratorList RIGHTBRACE | id=ID (LEFTBRACE enumList=EnumeratorList RIGHTBRACE)?)
+		public Alternatives getAlternatives_1_1() { return cAlternatives_1_1; }
+		
+		//LEFTBRACE enumList=EnumeratorList RIGHTBRACE
+		public Group getGroup_1_1_0() { return cGroup_1_1_0; }
+		
+		//LEFTBRACE
+		public RuleCall getLEFTBRACETerminalRuleCall_1_1_0_0() { return cLEFTBRACETerminalRuleCall_1_1_0_0; }
+		
+		//enumList=EnumeratorList
+		public Assignment getEnumListAssignment_1_1_0_1() { return cEnumListAssignment_1_1_0_1; }
+		
+		//EnumeratorList
+		public RuleCall getEnumListEnumeratorListParserRuleCall_1_1_0_1_0() { return cEnumListEnumeratorListParserRuleCall_1_1_0_1_0; }
+		
+		//RIGHTBRACE
+		public RuleCall getRIGHTBRACETerminalRuleCall_1_1_0_2() { return cRIGHTBRACETerminalRuleCall_1_1_0_2; }
+		
+		//id=ID (LEFTBRACE enumList=EnumeratorList RIGHTBRACE)?
+		public Group getGroup_1_1_1() { return cGroup_1_1_1; }
+		
+		//id=ID
+		public Assignment getIdAssignment_1_1_1_0() { return cIdAssignment_1_1_1_0; }
+		
+		//ID
+		public RuleCall getIdIDTerminalRuleCall_1_1_1_0_0() { return cIdIDTerminalRuleCall_1_1_1_0_0; }
+		
+		//(LEFTBRACE enumList=EnumeratorList RIGHTBRACE)?
+		public Group getGroup_1_1_1_1() { return cGroup_1_1_1_1; }
+		
+		//LEFTBRACE
+		public RuleCall getLEFTBRACETerminalRuleCall_1_1_1_1_0() { return cLEFTBRACETerminalRuleCall_1_1_1_1_0; }
+		
+		//enumList=EnumeratorList
+		public Assignment getEnumListAssignment_1_1_1_1_1() { return cEnumListAssignment_1_1_1_1_1; }
+		
+		//EnumeratorList
+		public RuleCall getEnumListEnumeratorListParserRuleCall_1_1_1_1_1_0() { return cEnumListEnumeratorListParserRuleCall_1_1_1_1_1_0; }
+		
+		//RIGHTBRACE
+		public RuleCall getRIGHTBRACETerminalRuleCall_1_1_1_1_2() { return cRIGHTBRACETerminalRuleCall_1_1_1_1_2; }
+	}
+	public class EnumeratorListElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.EnumeratorList");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cEnumeratorAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cEnumeratorEnumeratorParserRuleCall_0_0 = (RuleCall)cEnumeratorAssignment_0.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final RuleCall cCOMMATerminalRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
+		private final Assignment cEnumeratorAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cEnumeratorEnumeratorParserRuleCall_1_1_0 = (RuleCall)cEnumeratorAssignment_1_1.eContents().get(0);
+		
+		//EnumeratorList:
+		//	enumerator+=Enumerator (COMMA enumerator+=Enumerator)*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//enumerator+=Enumerator (COMMA enumerator+=Enumerator)*
+		public Group getGroup() { return cGroup; }
+		
+		//enumerator+=Enumerator
+		public Assignment getEnumeratorAssignment_0() { return cEnumeratorAssignment_0; }
+		
+		//Enumerator
+		public RuleCall getEnumeratorEnumeratorParserRuleCall_0_0() { return cEnumeratorEnumeratorParserRuleCall_0_0; }
+		
+		//(COMMA enumerator+=Enumerator)*
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//COMMA
+		public RuleCall getCOMMATerminalRuleCall_1_0() { return cCOMMATerminalRuleCall_1_0; }
+		
+		//enumerator+=Enumerator
+		public Assignment getEnumeratorAssignment_1_1() { return cEnumeratorAssignment_1_1; }
+		
+		//Enumerator
+		public RuleCall getEnumeratorEnumeratorParserRuleCall_1_1_0() { return cEnumeratorEnumeratorParserRuleCall_1_1_0; }
+	}
+	public class EnumeratorElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.Enumerator");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cEnumeratorAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cIdIDTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final RuleCall cASSIGNTerminalRuleCall_2_0 = (RuleCall)cGroup_2.eContents().get(0);
+		private final Assignment cExprAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cExprConstantExpressionParserRuleCall_2_1_0 = (RuleCall)cExprAssignment_2_1.eContents().get(0);
+		
+		//Enumerator:
+		//	{Enumerator} id=ID (ASSIGN expr=ConstantExpression)?;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{Enumerator} id=ID (ASSIGN expr=ConstantExpression)?
+		public Group getGroup() { return cGroup; }
+		
+		//{Enumerator}
+		public Action getEnumeratorAction_0() { return cEnumeratorAction_0; }
+		
+		//id=ID
+		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
+		
+		//ID
+		public RuleCall getIdIDTerminalRuleCall_1_0() { return cIdIDTerminalRuleCall_1_0; }
+		
+		//(ASSIGN expr=ConstantExpression)?
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//ASSIGN
+		public RuleCall getASSIGNTerminalRuleCall_2_0() { return cASSIGNTerminalRuleCall_2_0; }
+		
+		//expr=ConstantExpression
+		public Assignment getExprAssignment_2_1() { return cExprAssignment_2_1; }
+		
+		//ConstantExpression
+		public RuleCall getExprConstantExpressionParserRuleCall_2_1_0() { return cExprConstantExpressionParserRuleCall_2_1_0; }
+	}
 	public class TypeQualifierElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.TypeQualifier");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -731,29 +899,6 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cTypeKW_ATOMICTerminalRuleCall_1_3_0 = (RuleCall)cTypeAssignment_1_3.eContents().get(0);
 		
 		/// *
-		//structDeclaratorList: structDeclarator=structDeclarator (COMMA structDeclarator2+=structDeclarator)*;
-		//
-		//structDeclarator: declarator=declarator (COLON constExpr+=constantExpression)?
-		//	| (COLON constExpr+=constantExpression)
-		//;
-		// * / / *
-		//enumSpecifier returns declarationSpecifier:
-		//	{enumSpecifier} 
-		//	(	
-		//		(ENUM IDENTIFIER? LEFTBRACE enumList=enumeratorList) (RIGHTBRACE | COMMA RIGHTBRACE)
-		//	|	ENUM IDENTIFIER
-		//	)
-		//;
-		//
-		//enumeratorList: enumerator
-		//	(COMMA enumerator+=enumerator)*
-		//;
-		//
-		//enumerator:
-		//	{enumerator} 
-		//	enumerationCONSTANT
-		//	(ASSIGN constExpr=constantExpression)?
-		//;* / / *
 		//atomicTypeSpecifier returns declarationSpecifier:
 		//	ATOMIC LEFTPAREN typeName RIGHTPAREN
 		//;
@@ -3539,6 +3684,9 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	private final TypeSpecifierElements pTypeSpecifier;
 	private final TypedefNameElements pTypedefName;
 	private final SpecifierQualifierListElements pSpecifierQualifierList;
+	private final EnumSpecifierElements pEnumSpecifier;
+	private final EnumeratorListElements pEnumeratorList;
+	private final EnumeratorElements pEnumerator;
 	private final TypeQualifierElements pTypeQualifier;
 	private final DeclaratorElements pDeclarator;
 	private final DirectDeclaratorElements pDirectDeclarator;
@@ -3725,6 +3873,9 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		this.pTypeSpecifier = new TypeSpecifierElements();
 		this.pTypedefName = new TypedefNameElements();
 		this.pSpecifierQualifierList = new SpecifierQualifierListElements();
+		this.pEnumSpecifier = new EnumSpecifierElements();
+		this.pEnumeratorList = new EnumeratorListElements();
+		this.pEnumerator = new EnumeratorElements();
 		this.pTypeQualifier = new TypeQualifierElements();
 		this.pDeclarator = new DeclaratorElements();
 		this.pDirectDeclarator = new DirectDeclaratorElements();
@@ -4014,7 +4165,7 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//InitDeclaratorList initRuleAction { at.jku.weiner.c.Log.log("InitDeclaratorList-enter"); } afterRuleAction {
 	//at.jku.weiner.c.Log.log("InitDeclaratorList-leave"); }:
-	//	{InitDeclaratorList} initDeclarator+=InitDeclarator (COMMA initDeclarator2+=InitDeclarator)*;
+	//	{InitDeclaratorList} initDeclarator+=InitDeclarator (COMMA initDeclarator+=InitDeclarator)*;
 	public InitDeclaratorListElements getInitDeclaratorListAccess() {
 		return pInitDeclaratorList;
 	}
@@ -4067,7 +4218,7 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	//	// |	'__extension__' LEFTPAREN ('__m128' | '__m128d' | '__m128i') RIGHTPAREN
 	//	//  |	specifier=atomicTypeSpecifier
 	//	// |	specifier=structOrUnionSpecifier
-	//	// |	specifier=enumSpecifier
+	//	| specifier=EnumSpecifier
 	//	| type=TypedefName
 	//	// |	'__typeof__' LEFTPAREN constExrp=constantExpression RIGHTPAREN // GCC extension
 	//;
@@ -4125,24 +4276,38 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	//structDeclarator: declarator=declarator (COLON constExpr+=constantExpression)?
 	//	| (COLON constExpr+=constantExpression)
 	//;
-	// * / / *
-	//enumSpecifier returns declarationSpecifier:
-	//	{enumSpecifier} 
-	//	(	
-	//		(ENUM IDENTIFIER? LEFTBRACE enumList=enumeratorList) (RIGHTBRACE | COMMA RIGHTBRACE)
-	//	|	ENUM IDENTIFIER
-	//	)
-	//;
-	//
-	//enumeratorList: enumerator
-	//	(COMMA enumerator+=enumerator)*
-	//;
-	//
-	//enumerator:
-	//	{enumerator} 
-	//	enumerationCONSTANT
-	//	(ASSIGN constExpr=constantExpression)?
-	//;* / / *
+	// * / EnumSpecifier DeclarationSpecifier:
+	//	{EnumSpecifier} (KW_ENUM (LEFTBRACE enumList=EnumeratorList RIGHTBRACE
+	//	| id=ID (LEFTBRACE enumList=EnumeratorList RIGHTBRACE)?))
+	public EnumSpecifierElements getEnumSpecifierAccess() {
+		return pEnumSpecifier;
+	}
+	
+	public ParserRule getEnumSpecifierRule() {
+		return getEnumSpecifierAccess().getRule();
+	}
+	
+	//EnumeratorList:
+	//	enumerator+=Enumerator (COMMA enumerator+=Enumerator)*;
+	public EnumeratorListElements getEnumeratorListAccess() {
+		return pEnumeratorList;
+	}
+	
+	public ParserRule getEnumeratorListRule() {
+		return getEnumeratorListAccess().getRule();
+	}
+	
+	//Enumerator:
+	//	{Enumerator} id=ID (ASSIGN expr=ConstantExpression)?;
+	public EnumeratorElements getEnumeratorAccess() {
+		return pEnumerator;
+	}
+	
+	public ParserRule getEnumeratorRule() {
+		return getEnumeratorAccess().getRule();
+	}
+	
+	/// *
 	//atomicTypeSpecifier returns declarationSpecifier:
 	//	ATOMIC LEFTPAREN typeName RIGHTPAREN
 	//;

@@ -3,8 +3,8 @@
 package at.jku.weiner.c.c.impl;
 
 import at.jku.weiner.c.c.CPackage;
-import at.jku.weiner.c.c.InitDeclarator;
-import at.jku.weiner.c.c.InitDeclaratorList;
+import at.jku.weiner.c.c.Enumerator;
+import at.jku.weiner.c.c.EnumeratorList;
 
 import java.util.Collection;
 
@@ -22,35 +22,35 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Init Declarator List</b></em>'.
+ * An implementation of the model object '<em><b>Enumerator List</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link at.jku.weiner.c.c.impl.InitDeclaratorListImpl#getInitDeclarator <em>Init Declarator</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.impl.EnumeratorListImpl#getEnumerator <em>Enumerator</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class InitDeclaratorListImpl extends MinimalEObjectImpl.Container implements InitDeclaratorList
+public class EnumeratorListImpl extends MinimalEObjectImpl.Container implements EnumeratorList
 {
   /**
-   * The cached value of the '{@link #getInitDeclarator() <em>Init Declarator</em>}' containment reference list.
+   * The cached value of the '{@link #getEnumerator() <em>Enumerator</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getInitDeclarator()
+   * @see #getEnumerator()
    * @generated
    * @ordered
    */
-  protected EList<InitDeclarator> initDeclarator;
+  protected EList<Enumerator> enumerator;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected InitDeclaratorListImpl()
+  protected EnumeratorListImpl()
   {
     super();
   }
@@ -63,7 +63,7 @@ public class InitDeclaratorListImpl extends MinimalEObjectImpl.Container impleme
   @Override
   protected EClass eStaticClass()
   {
-    return CPackage.Literals.INIT_DECLARATOR_LIST;
+    return CPackage.Literals.ENUMERATOR_LIST;
   }
 
   /**
@@ -71,13 +71,13 @@ public class InitDeclaratorListImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<InitDeclarator> getInitDeclarator()
+  public EList<Enumerator> getEnumerator()
   {
-    if (initDeclarator == null)
+    if (enumerator == null)
     {
-      initDeclarator = new EObjectContainmentEList<InitDeclarator>(InitDeclarator.class, this, CPackage.INIT_DECLARATOR_LIST__INIT_DECLARATOR);
+      enumerator = new EObjectContainmentEList<Enumerator>(Enumerator.class, this, CPackage.ENUMERATOR_LIST__ENUMERATOR);
     }
-    return initDeclarator;
+    return enumerator;
   }
 
   /**
@@ -90,8 +90,8 @@ public class InitDeclaratorListImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case CPackage.INIT_DECLARATOR_LIST__INIT_DECLARATOR:
-        return ((InternalEList<?>)getInitDeclarator()).basicRemove(otherEnd, msgs);
+      case CPackage.ENUMERATOR_LIST__ENUMERATOR:
+        return ((InternalEList<?>)getEnumerator()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -106,8 +106,8 @@ public class InitDeclaratorListImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case CPackage.INIT_DECLARATOR_LIST__INIT_DECLARATOR:
-        return getInitDeclarator();
+      case CPackage.ENUMERATOR_LIST__ENUMERATOR:
+        return getEnumerator();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -123,9 +123,9 @@ public class InitDeclaratorListImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case CPackage.INIT_DECLARATOR_LIST__INIT_DECLARATOR:
-        getInitDeclarator().clear();
-        getInitDeclarator().addAll((Collection<? extends InitDeclarator>)newValue);
+      case CPackage.ENUMERATOR_LIST__ENUMERATOR:
+        getEnumerator().clear();
+        getEnumerator().addAll((Collection<? extends Enumerator>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -141,8 +141,8 @@ public class InitDeclaratorListImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case CPackage.INIT_DECLARATOR_LIST__INIT_DECLARATOR:
-        getInitDeclarator().clear();
+      case CPackage.ENUMERATOR_LIST__ENUMERATOR:
+        getEnumerator().clear();
         return;
     }
     super.eUnset(featureID);
@@ -158,10 +158,10 @@ public class InitDeclaratorListImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case CPackage.INIT_DECLARATOR_LIST__INIT_DECLARATOR:
-        return initDeclarator != null && !initDeclarator.isEmpty();
+      case CPackage.ENUMERATOR_LIST__ENUMERATOR:
+        return enumerator != null && !enumerator.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //InitDeclaratorListImpl
+} //EnumeratorListImpl

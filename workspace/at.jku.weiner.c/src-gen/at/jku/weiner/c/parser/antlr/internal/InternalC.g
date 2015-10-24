@@ -784,16 +784,16 @@ this_COMMA_2=RULE_COMMA
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getInitDeclaratorListAccess().getInitDeclarator2InitDeclaratorParserRuleCall_2_1_0()); 
+	        newCompositeNode(grammarAccess.getInitDeclaratorListAccess().getInitDeclaratorInitDeclaratorParserRuleCall_2_1_0()); 
 	    }
-		lv_initDeclarator2_3_0=ruleInitDeclarator		{
+		lv_initDeclarator_3_0=ruleInitDeclarator		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getInitDeclaratorListRule());
 	        }
        		add(
        			$current, 
-       			"initDeclarator2",
-        		lv_initDeclarator2_3_0, 
+       			"initDeclarator",
+        		lv_initDeclarator_3_0, 
         		"at.jku.weiner.c.C.InitDeclarator");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -1424,16 +1424,38 @@ ruleTypeSpecifier returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getTypeSpecifierAccess().getTypeTypedefNameParserRuleCall_14_0()); 
+	        newCompositeNode(grammarAccess.getTypeSpecifierAccess().getSpecifierEnumSpecifierParserRuleCall_14_0()); 
 	    }
-		lv_type_15_0=ruleTypedefName		{
+		lv_specifier_15_0=ruleEnumSpecifier		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getTypeSpecifierRule());
+	        }
+       		set(
+       			$current, 
+       			"specifier",
+        		lv_specifier_15_0, 
+        		"at.jku.weiner.c.C.EnumSpecifier");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getTypeSpecifierAccess().getTypeTypedefNameParserRuleCall_15_0()); 
+	    }
+		lv_type_16_0=ruleTypedefName		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getTypeSpecifierRule());
 	        }
        		set(
        			$current, 
        			"type",
-        		lv_type_15_0, 
+        		lv_type_16_0, 
         		"at.jku.weiner.c.C.TypedefName");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -1586,6 +1608,329 @@ ruleSpecifierQualifierList returns [EObject current=null]
 )
 
 )+
+
+)
+
+
+;
+
+
+
+
+
+// Entry rule entryRuleEnumSpecifier
+entryRuleEnumSpecifier returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getEnumSpecifierRule()); }
+	 iv_ruleEnumSpecifier=ruleEnumSpecifier 
+	 { $current=$iv_ruleEnumSpecifier.current; } 
+	 EOF 
+;
+
+// Rule EnumSpecifier
+ruleEnumSpecifier returns [EObject current=null] 
+    @init { enterRule();
+   		
+    }
+    @after { leaveRule();
+    		
+     }:
+
+(
+(
+	{ 
+	  /* */ 
+	}
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getEnumSpecifierAccess().getEnumSpecifierAction_0(),
+            $current);
+    }
+)
+
+
+(
+this_KW_ENUM_1=RULE_KW_ENUM
+    { 
+    newLeafNode(this_KW_ENUM_1, grammarAccess.getEnumSpecifierAccess().getKW_ENUMTerminalRuleCall_1_0()); 
+    }
+
+
+
+(
+(
+this_LEFTBRACE_2=RULE_LEFTBRACE
+    { 
+    newLeafNode(this_LEFTBRACE_2, grammarAccess.getEnumSpecifierAccess().getLEFTBRACETerminalRuleCall_1_1_0_0()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getEnumSpecifierAccess().getEnumListEnumeratorListParserRuleCall_1_1_0_1_0()); 
+	    }
+		lv_enumList_3_0=ruleEnumeratorList		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getEnumSpecifierRule());
+	        }
+       		set(
+       			$current, 
+       			"enumList",
+        		lv_enumList_3_0, 
+        		"at.jku.weiner.c.C.EnumeratorList");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+this_RIGHTBRACE_4=RULE_RIGHTBRACE
+    { 
+    newLeafNode(this_RIGHTBRACE_4, grammarAccess.getEnumSpecifierAccess().getRIGHTBRACETerminalRuleCall_1_1_0_2()); 
+    }
+
+
+)
+
+
+    |
+(
+(
+(
+		lv_id_5_0=RULE_ID
+		{
+			newLeafNode(lv_id_5_0, grammarAccess.getEnumSpecifierAccess().getIdIDTerminalRuleCall_1_1_1_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getEnumSpecifierRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"id",
+        		lv_id_5_0, 
+        		"at.jku.weiner.c.C.ID");
+	    }
+
+)
+)
+
+
+(
+this_LEFTBRACE_6=RULE_LEFTBRACE
+    { 
+    newLeafNode(this_LEFTBRACE_6, grammarAccess.getEnumSpecifierAccess().getLEFTBRACETerminalRuleCall_1_1_1_1_0()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getEnumSpecifierAccess().getEnumListEnumeratorListParserRuleCall_1_1_1_1_1_0()); 
+	    }
+		lv_enumList_7_0=ruleEnumeratorList		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getEnumSpecifierRule());
+	        }
+       		set(
+       			$current, 
+       			"enumList",
+        		lv_enumList_7_0, 
+        		"at.jku.weiner.c.C.EnumeratorList");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+this_RIGHTBRACE_8=RULE_RIGHTBRACE
+    { 
+    newLeafNode(this_RIGHTBRACE_8, grammarAccess.getEnumSpecifierAccess().getRIGHTBRACETerminalRuleCall_1_1_1_1_2()); 
+    }
+
+
+)?
+
+)
+
+)
+
+)
+
+)
+
+
+;
+
+
+
+
+
+// Entry rule entryRuleEnumeratorList
+entryRuleEnumeratorList returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getEnumeratorListRule()); }
+	 iv_ruleEnumeratorList=ruleEnumeratorList 
+	 { $current=$iv_ruleEnumeratorList.current; } 
+	 EOF 
+;
+
+// Rule EnumeratorList
+ruleEnumeratorList returns [EObject current=null] 
+    @init { enterRule();
+   		
+    }
+    @after { leaveRule();
+    		
+     }:
+
+(
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getEnumeratorListAccess().getEnumeratorEnumeratorParserRuleCall_0_0()); 
+	    }
+		lv_enumerator_0_0=ruleEnumerator		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getEnumeratorListRule());
+	        }
+       		add(
+       			$current, 
+       			"enumerator",
+        		lv_enumerator_0_0, 
+        		"at.jku.weiner.c.C.Enumerator");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+(
+this_COMMA_1=RULE_COMMA
+    { 
+    newLeafNode(this_COMMA_1, grammarAccess.getEnumeratorListAccess().getCOMMATerminalRuleCall_1_0()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getEnumeratorListAccess().getEnumeratorEnumeratorParserRuleCall_1_1_0()); 
+	    }
+		lv_enumerator_2_0=ruleEnumerator		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getEnumeratorListRule());
+	        }
+       		add(
+       			$current, 
+       			"enumerator",
+        		lv_enumerator_2_0, 
+        		"at.jku.weiner.c.C.Enumerator");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+)*
+
+)
+
+
+;
+
+
+
+
+
+// Entry rule entryRuleEnumerator
+entryRuleEnumerator returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getEnumeratorRule()); }
+	 iv_ruleEnumerator=ruleEnumerator 
+	 { $current=$iv_ruleEnumerator.current; } 
+	 EOF 
+;
+
+// Rule Enumerator
+ruleEnumerator returns [EObject current=null] 
+    @init { enterRule();
+   		
+    }
+    @after { leaveRule();
+    		
+     }:
+
+(
+(
+	{ 
+	  /* */ 
+	}
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getEnumeratorAccess().getEnumeratorAction_0(),
+            $current);
+    }
+)
+
+
+(
+(
+		lv_id_1_0=RULE_ID
+		{
+			newLeafNode(lv_id_1_0, grammarAccess.getEnumeratorAccess().getIdIDTerminalRuleCall_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getEnumeratorRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"id",
+        		lv_id_1_0, 
+        		"at.jku.weiner.c.C.ID");
+	    }
+
+)
+)
+
+
+(
+this_ASSIGN_2=RULE_ASSIGN
+    { 
+    newLeafNode(this_ASSIGN_2, grammarAccess.getEnumeratorAccess().getASSIGNTerminalRuleCall_2_0()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getEnumeratorAccess().getExprConstantExpressionParserRuleCall_2_1_0()); 
+	    }
+		lv_expr_3_0=ruleConstantExpression		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getEnumeratorRule());
+	        }
+       		set(
+       			$current, 
+       			"expr",
+        		lv_expr_3_0, 
+        		"at.jku.weiner.c.C.ConstantExpression");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+)?
 
 )
 

@@ -23,6 +23,9 @@ import at.jku.weiner.c.c.Declarator;
 import at.jku.weiner.c.c.DeclaratorSuffix;
 import at.jku.weiner.c.c.DirectDeclarator;
 import at.jku.weiner.c.c.DirectDeclaratorLastSuffix;
+import at.jku.weiner.c.c.EnumSpecifier;
+import at.jku.weiner.c.c.Enumerator;
+import at.jku.weiner.c.c.EnumeratorList;
 import at.jku.weiner.c.c.EqualityExpression;
 import at.jku.weiner.c.c.ExclusiveOrExpression;
 import at.jku.weiner.c.c.Expression;
@@ -143,6 +146,15 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case CPackage.DIRECT_DECLARATOR_LAST_SUFFIX:
 				sequence_DirectDeclaratorLastSuffix(context, (DirectDeclaratorLastSuffix) semanticObject); 
+				return; 
+			case CPackage.ENUM_SPECIFIER:
+				sequence_EnumSpecifier(context, (EnumSpecifier) semanticObject); 
+				return; 
+			case CPackage.ENUMERATOR:
+				sequence_Enumerator(context, (Enumerator) semanticObject); 
+				return; 
+			case CPackage.ENUMERATOR_LIST:
+				sequence_EnumeratorList(context, (EnumeratorList) semanticObject); 
 				return; 
 			case CPackage.EQUALITY_EXPRESSION:
 				sequence_EqualityExpression(context, (EqualityExpression) semanticObject); 
@@ -468,6 +480,33 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     (enumList=EnumeratorList | (id=ID enumList=EnumeratorList?))
+	 */
+	protected void sequence_EnumSpecifier(EObject context, EnumSpecifier semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (enumerator+=Enumerator enumerator+=Enumerator*)
+	 */
+	protected void sequence_EnumeratorList(EObject context, EnumeratorList semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (id=ID expr=ConstantExpression?)
+	 */
+	protected void sequence_Enumerator(EObject context, Enumerator semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (expr+=RelationalExpression ((op+=EQUAL | op+=NOTEQUAL) expr+=RelationalExpression)*)
 	 */
 	protected void sequence_EqualityExpression(EObject context, EqualityExpression semanticObject) {
@@ -556,7 +595,7 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (initDeclarator+=InitDeclarator initDeclarator2+=InitDeclarator*)
+	 *     (initDeclarator+=InitDeclarator initDeclarator+=InitDeclarator*)
 	 */
 	protected void sequence_InitDeclaratorList(EObject context, InitDeclaratorList semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -140,6 +140,33 @@ public interface CFactory extends EFactory
   SpecifierQualifierList createSpecifierQualifierList();
 
   /**
+   * Returns a new object of class '<em>Declaration Specifier</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Declaration Specifier</em>'.
+   * @generated
+   */
+  DeclarationSpecifier createDeclarationSpecifier();
+
+  /**
+   * Returns a new object of class '<em>Enumerator List</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Enumerator List</em>'.
+   * @generated
+   */
+  EnumeratorList createEnumeratorList();
+
+  /**
+   * Returns a new object of class '<em>Enumerator</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Enumerator</em>'.
+   * @generated
+   */
+  Enumerator createEnumerator();
+
+  /**
    * Returns a new object of class '<em>Type Qualifier</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -327,6 +354,15 @@ public interface CFactory extends EFactory
    * @generated
    */
   Constant createConstant();
+
+  /**
+   * Returns a new object of class '<em>Enum Specifier</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Enum Specifier</em>'.
+   * @generated
+   */
+  EnumSpecifier createEnumSpecifier();
 
   /**
    * Returns a new object of class '<em>Labeled Statement</em>'.

@@ -10,6 +10,13 @@ KW_INT WHITESPACE ID LEFTPAREN RIGHTPAREN WHITESPACE LEFTBRACE NEWLINE
 	KW_INT RIGHTPAREN SEMI NEWLINE
 RIGHTBRACE NEWLINE
 
+NEWLINE
+
+KW_LONG WHITESPACE KW_UNSIGNED WHITESPACE ID LEFTPAREN RIGHTPAREN WHITESPACE
+LEFTBRACE NEWLINE
+	WHITESPACE KW_RETURN WHITESPACE LEFTPAREN KW_UNSIGNED WHITESPACE
+	KW_LONG RIGHTPAREN KW_SIZEOF LEFTPAREN KW_INT RIGHTPAREN SEMI NEWLINE
+RIGHTBRACE NEWLINE
 //----------------------------------------------------------------------
 (Model unit+=
 	(TranslationUnit 
@@ -105,6 +112,118 @@ RIGHTBRACE NEWLINE
 					)
 				)
 			)
-		)// end external declaration		
+		),// end external declaration
+		// ... sizeOfInt2() ...
+		(ExternalDeclaration 
+			functiondefHead=
+			(FunctionDefHead
+				funDeclSpecifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"long"
+					),
+					(TypeSpecifier
+						name++"unsigned"
+					)
+				),
+				funDeclarator=
+				(Declarator
+					declarator=
+					(DirectDeclarator
+						id++"sizeOfInt2"
+					)
+				)
+			),
+			functionDefinition=
+			(FunctionDefinition
+				body=
+				(BodyStatement
+					blockList+=
+					(BlockList
+						statement+=
+						(Statement
+							stmt=
+							(JumpStatement
+								expr=
+								(Expression
+									exprExpr+=
+									(AssignmentExpression
+										expr=
+										(ConditionalExpression
+											expr=
+											(LogicalOrExpression
+												expr+=
+												(LogicalAndExpression
+													expr+=
+													(InclusiveOrExpression
+														expr+=
+														(ExclusiveOrExpression
+															expr+=
+															(AndExpression
+																expr+=
+																(EqualityExpression
+																	expr+=
+																	(RelationalExpression
+																		expr+=
+																		(ShiftExpression
+																			expr+=
+																			(AdditiveExpression
+																				expr+=
+																				(MultiplicativeExpression
+																					expr+=
+																					(CastExpression
+																						type=
+																						(TypeName
+																							list=
+																							(SpecifierQualifierList
+																								typeSpecifier+=
+																								(TypeSpecifier
+																									name++"unsigned"
+																								),
+																								(TypeSpecifier
+																									name++"long"
+																								)
+																							)
+																						),
+																						expr=
+																						(CastExpression
+																							expr=
+																							(UnaryExpression
+																								sizeOf++"sizeof",
+																								typeName=
+																								(TypeName
+																									list=
+																									(SpecifierQualifierList
+																										typeSpecifier+=
+																										(TypeSpecifier
+																											name++"int"
+																										)
+																									)
+																								)
+																							)
+																						)
+																					)
+																				)
+																			)
+																		)
+																	)
+																)
+															)
+														)
+													)
+												)
+											)
+										)
+									)
+								), // end expression
+								return++"return",
+								semi++";"
+							)// end jump statement
+						)//end statement
+					)
+				)
+			)
+		)// end external declaration				
 	)
 )

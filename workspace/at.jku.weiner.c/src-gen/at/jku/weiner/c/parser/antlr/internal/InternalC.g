@@ -7048,17 +7048,63 @@ ruleUnaryExpression returns [EObject current=null]
 (
 (
 (
-		{ 
-	        newCompositeNode(grammarAccess.getUnaryExpressionAccess().getExprPostfixExpressionParserRuleCall_1_0_0()); 
+		lv_plusplus_1_0=RULE_PLUSPLUS
+		{
+			newLeafNode(lv_plusplus_1_0, grammarAccess.getUnaryExpressionAccess().getPlusplusPLUSPLUSTerminalRuleCall_1_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUnaryExpressionRule());
+	        }
+       		addWithLastConsumed(
+       			$current, 
+       			"plusplus",
+        		lv_plusplus_1_0, 
+        		"at.jku.weiner.c.C.PLUSPLUS");
 	    }
-		lv_expr_1_0=rulePostfixExpression		{
+
+)
+)
+
+
+    |
+(
+(
+		lv_minusminus_2_0=RULE_MINUSMINUS
+		{
+			newLeafNode(lv_minusminus_2_0, grammarAccess.getUnaryExpressionAccess().getMinusminusMINUSMINUSTerminalRuleCall_1_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUnaryExpressionRule());
+	        }
+       		addWithLastConsumed(
+       			$current, 
+       			"minusminus",
+        		lv_minusminus_2_0, 
+        		"at.jku.weiner.c.C.MINUSMINUS");
+	    }
+
+)
+)
+
+)*
+
+
+(
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUnaryExpressionAccess().getExprPostfixExpressionParserRuleCall_2_0_0()); 
+	    }
+		lv_expr_3_0=rulePostfixExpression		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUnaryExpressionRule());
 	        }
        		set(
        			$current, 
        			"expr",
-        		lv_expr_1_0, 
+        		lv_expr_3_0, 
         		"at.jku.weiner.c.C.PostfixExpression");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -7069,16 +7115,16 @@ ruleUnaryExpression returns [EObject current=null]
 
     |
 (
-this_ANDAND_2=RULE_ANDAND
+this_ANDAND_4=RULE_ANDAND
     { 
-    newLeafNode(this_ANDAND_2, grammarAccess.getUnaryExpressionAccess().getANDANDTerminalRuleCall_1_1_0()); 
+    newLeafNode(this_ANDAND_4, grammarAccess.getUnaryExpressionAccess().getANDANDTerminalRuleCall_2_1_0()); 
     }
 
 
 
-this_ID_3=RULE_ID
+this_ID_5=RULE_ID
     { 
-    newLeafNode(this_ID_3, grammarAccess.getUnaryExpressionAccess().getIDTerminalRuleCall_1_1_1()); 
+    newLeafNode(this_ID_5, grammarAccess.getUnaryExpressionAccess().getIDTerminalRuleCall_2_1_1()); 
     }
 
 
@@ -7090,16 +7136,16 @@ this_ID_3=RULE_ID
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUnaryExpressionAccess().getOpUnaryOperatorParserRuleCall_1_2_0_0()); 
+	        newCompositeNode(grammarAccess.getUnaryExpressionAccess().getOpUnaryOperatorParserRuleCall_2_2_0_0()); 
 	    }
-		lv_op_4_0=ruleUnaryOperator		{
+		lv_op_6_0=ruleUnaryOperator		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUnaryExpressionRule());
 	        }
        		set(
        			$current, 
        			"op",
-        		lv_op_4_0, 
+        		lv_op_6_0, 
         		"at.jku.weiner.c.C.UnaryOperator");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -7111,16 +7157,16 @@ this_ID_3=RULE_ID
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUnaryExpressionAccess().getExprCastExpressionParserRuleCall_1_2_1_0()); 
+	        newCompositeNode(grammarAccess.getUnaryExpressionAccess().getExprCastExpressionParserRuleCall_2_2_1_0()); 
 	    }
-		lv_expr_5_0=ruleCastExpression		{
+		lv_expr_7_0=ruleCastExpression		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUnaryExpressionRule());
 	        }
        		set(
        			$current, 
        			"expr",
-        		lv_expr_5_0, 
+        		lv_expr_7_0, 
         		"at.jku.weiner.c.C.CastExpression");
 	        afterParserOrEnumRuleCall();
 	    }

@@ -1,3 +1,4 @@
 int a(int num) {
-	return num++;
+	num++;
+	return ++num;
 }

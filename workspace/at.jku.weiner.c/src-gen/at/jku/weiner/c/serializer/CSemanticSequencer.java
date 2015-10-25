@@ -922,7 +922,7 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     ((expr=PostfixExpression | (op=UnaryOperator expr=CastExpression))?)
+	 *     ((plusplus+=PLUSPLUS | minusminus+=MINUSMINUS)* (expr=PostfixExpression | (op=UnaryOperator expr=CastExpression))?)
 	 */
 	protected void sequence_UnaryExpression(EObject context, UnaryExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

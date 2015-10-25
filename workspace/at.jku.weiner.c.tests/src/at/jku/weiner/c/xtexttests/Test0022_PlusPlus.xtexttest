@@ -6,7 +6,8 @@ source file="res/Test0022_PlusPlus.c"
 lexer-tokens
 KW_INT WHITESPACE ID LEFTPAREN
 KW_INT WHITESPACE ID RIGHTPAREN WHITESPACE LEFTBRACE NEWLINE
-	WHITESPACE KW_RETURN WHITESPACE ID PLUSPLUS SEMI NEWLINE
+	WHITESPACE ID PLUSPLUS SEMI NEWLINE
+	WHITESPACE KW_RETURN WHITESPACE PLUSPLUS ID SEMI NEWLINE
 RIGHTBRACE NEWLINE
 //----------------------------------------------------------------------
 (Model unit+=
@@ -68,9 +69,8 @@ RIGHTBRACE NEWLINE
 						statement+=
 						(Statement
 							stmt=
-							(JumpStatement
-								return++"return",
-								expr=
+							(ExpressionStatement
+								expression=
 								(Expression
 									exprExpr+=
 									(AssignmentExpression
@@ -109,6 +109,67 @@ RIGHTBRACE NEWLINE
 																								plusplus+*"[++]",
 																								minusminus+*"[]"
 																							)
+																						)
+																					)
+																				)
+																			)
+																		)
+																	)
+																)
+															)
+														)
+													)
+												)
+											)
+										)
+									)
+								), // end expression
+								semi++";"
+							) // end expression statement
+						), // end statement
+						(Statement
+							stmt=
+							(JumpStatement
+								return++"return",
+								expr=
+								(Expression
+									exprExpr+=
+									(AssignmentExpression
+										expr=
+										(ConditionalExpression
+											expr=
+											(LogicalOrExpression
+												expr+=
+												(LogicalAndExpression
+													expr+=
+													(InclusiveOrExpression
+														expr+=
+														(ExclusiveOrExpression
+															expr+=
+															(AndExpression
+																expr+=
+																(EqualityExpression
+																	expr+=
+																	(RelationalExpression
+																		expr+=
+																		(ShiftExpression
+																			expr+=
+																			(AdditiveExpression
+																				expr+=
+																				(MultiplicativeExpression
+																					expr+=
+																					(CastExpression
+																						expr=
+																						(UnaryExpression
+																							expr=
+																							(PostfixExpression
+																								expr+=
+																								(PrimaryExpression
+																									id++"num"
+																								)
+																							),
+																							plusplus+*"[++]",
+																							minusminus+*"[]"
 																						)
 																					)
 																				)

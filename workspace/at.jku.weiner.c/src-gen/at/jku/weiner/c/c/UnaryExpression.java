@@ -2,6 +2,7 @@
  */
 package at.jku.weiner.c.c;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,6 +13,8 @@ package at.jku.weiner.c.c;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link at.jku.weiner.c.c.UnaryExpression#getPlusplus <em>Plusplus</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.UnaryExpression#getMinusminus <em>Minusminus</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.UnaryExpression#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.UnaryExpression#getOp <em>Op</em>}</li>
  * </ul>
@@ -22,6 +25,38 @@ package at.jku.weiner.c.c;
  */
 public interface UnaryExpression extends Expression
 {
+  /**
+   * Returns the value of the '<em><b>Plusplus</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Plusplus</em>' attribute list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Plusplus</em>' attribute list.
+   * @see at.jku.weiner.c.c.CPackage#getUnaryExpression_Plusplus()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getPlusplus();
+
+  /**
+   * Returns the value of the '<em><b>Minusminus</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Minusminus</em>' attribute list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Minusminus</em>' attribute list.
+   * @see at.jku.weiner.c.c.CPackage#getUnaryExpression_Minusminus()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getMinusminus();
+
   /**
    * Returns the value of the '<em><b>Expr</b></em>' containment reference.
    * <!-- begin-user-doc -->

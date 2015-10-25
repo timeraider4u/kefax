@@ -765,7 +765,9 @@ UnaryExpression returns Expression
 	afterRuleAction { at.jku.weiner.c.Log.error("UnaryExpression-leave"); }
 	:
 	{UnaryExpression}	
-	//(PLUSPLUS | MINUSMINUS | SIZEOF)*
+	(plusplus+=PLUSPLUS | minusminus+=MINUSMINUS 
+		//| KW_SIZEOF
+	)*
 	(
 		expr=PostfixExpression
 	//|	SIZEOF LEFTPAREN typeName=typeName RIGHTPAREN

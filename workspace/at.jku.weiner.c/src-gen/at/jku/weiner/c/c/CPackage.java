@@ -2475,13 +2475,31 @@ public interface CPackage extends EPackage
   int UNARY_EXPRESSION__EXPR_EXPR = EXPRESSION__EXPR_EXPR;
 
   /**
+   * The feature id for the '<em><b>Plusplus</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNARY_EXPRESSION__PLUSPLUS = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Minusminus</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNARY_EXPRESSION__MINUSMINUS = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int UNARY_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 0;
+  int UNARY_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Op</b></em>' containment reference.
@@ -2490,7 +2508,7 @@ public interface CPackage extends EPackage
    * @generated
    * @ordered
    */
-  int UNARY_EXPRESSION__OP = EXPRESSION_FEATURE_COUNT + 1;
+  int UNARY_EXPRESSION__OP = EXPRESSION_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>Unary Expression</em>' class.
@@ -2499,7 +2517,7 @@ public interface CPackage extends EPackage
    * @generated
    * @ordered
    */
-  int UNARY_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+  int UNARY_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.c.impl.PostfixExpressionImpl <em>Postfix Expression</em>}' class.
@@ -4599,6 +4617,28 @@ public interface CPackage extends EPackage
   EClass getUnaryExpression();
 
   /**
+   * Returns the meta object for the attribute list '{@link at.jku.weiner.c.c.UnaryExpression#getPlusplus <em>Plusplus</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Plusplus</em>'.
+   * @see at.jku.weiner.c.c.UnaryExpression#getPlusplus()
+   * @see #getUnaryExpression()
+   * @generated
+   */
+  EAttribute getUnaryExpression_Plusplus();
+
+  /**
+   * Returns the meta object for the attribute list '{@link at.jku.weiner.c.c.UnaryExpression#getMinusminus <em>Minusminus</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Minusminus</em>'.
+   * @see at.jku.weiner.c.c.UnaryExpression#getMinusminus()
+   * @see #getUnaryExpression()
+   * @generated
+   */
+  EAttribute getUnaryExpression_Minusminus();
+
+  /**
    * Returns the meta object for the containment reference '{@link at.jku.weiner.c.c.UnaryExpression#getExpr <em>Expr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6339,6 +6379,22 @@ public interface CPackage extends EPackage
      * @generated
      */
     EClass UNARY_EXPRESSION = eINSTANCE.getUnaryExpression();
+
+    /**
+     * The meta object literal for the '<em><b>Plusplus</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute UNARY_EXPRESSION__PLUSPLUS = eINSTANCE.getUnaryExpression_Plusplus();
+
+    /**
+     * The meta object literal for the '<em><b>Minusminus</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute UNARY_EXPRESSION__MINUSMINUS = eINSTANCE.getUnaryExpression_Minusminus();
 
     /**
      * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.

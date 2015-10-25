@@ -3223,28 +3223,34 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cExprAssignment_2_0 = (Assignment)cAlternatives_2.eContents().get(0);
 		private final RuleCall cExprPostfixExpressionParserRuleCall_2_0_0 = (RuleCall)cExprAssignment_2_0.eContents().get(0);
 		private final Group cGroup_2_1 = (Group)cAlternatives_2.eContents().get(1);
-		private final RuleCall cANDANDTerminalRuleCall_2_1_0 = (RuleCall)cGroup_2_1.eContents().get(0);
-		private final RuleCall cIDTerminalRuleCall_2_1_1 = (RuleCall)cGroup_2_1.eContents().get(1);
+		private final Assignment cSizeOfAssignment_2_1_0 = (Assignment)cGroup_2_1.eContents().get(0);
+		private final RuleCall cSizeOfKW_SIZEOFTerminalRuleCall_2_1_0_0 = (RuleCall)cSizeOfAssignment_2_1_0.eContents().get(0);
+		private final RuleCall cLEFTPARENTerminalRuleCall_2_1_1 = (RuleCall)cGroup_2_1.eContents().get(1);
+		private final Assignment cTypeNameAssignment_2_1_2 = (Assignment)cGroup_2_1.eContents().get(2);
+		private final RuleCall cTypeNameTypeNameParserRuleCall_2_1_2_0 = (RuleCall)cTypeNameAssignment_2_1_2.eContents().get(0);
+		private final RuleCall cRIGHTPARENTerminalRuleCall_2_1_3 = (RuleCall)cGroup_2_1.eContents().get(3);
 		private final Group cGroup_2_2 = (Group)cAlternatives_2.eContents().get(2);
-		private final Assignment cOpAssignment_2_2_0 = (Assignment)cGroup_2_2.eContents().get(0);
-		private final RuleCall cOpUnaryOperatorParserRuleCall_2_2_0_0 = (RuleCall)cOpAssignment_2_2_0.eContents().get(0);
-		private final Assignment cExprAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
-		private final RuleCall cExprCastExpressionParserRuleCall_2_2_1_0 = (RuleCall)cExprAssignment_2_2_1.eContents().get(0);
+		private final RuleCall cANDANDTerminalRuleCall_2_2_0 = (RuleCall)cGroup_2_2.eContents().get(0);
+		private final RuleCall cIDTerminalRuleCall_2_2_1 = (RuleCall)cGroup_2_2.eContents().get(1);
+		private final Group cGroup_2_3 = (Group)cAlternatives_2.eContents().get(3);
+		private final Assignment cOpAssignment_2_3_0 = (Assignment)cGroup_2_3.eContents().get(0);
+		private final RuleCall cOpUnaryOperatorParserRuleCall_2_3_0_0 = (RuleCall)cOpAssignment_2_3_0.eContents().get(0);
+		private final Assignment cExprAssignment_2_3_1 = (Assignment)cGroup_2_3.eContents().get(1);
+		private final RuleCall cExprCastExpressionParserRuleCall_2_3_1_0 = (RuleCall)cExprAssignment_2_3_1.eContents().get(0);
 		
 		//UnaryExpression Expression initRuleAction { at.jku.weiner.c.Log.error("UnaryExpression-enter"); } afterRuleAction {
 		//at.jku.weiner.c.Log.error("UnaryExpression-leave"); }:
 		//	{UnaryExpression} (plusplus+=PLUSPLUS | minusminus+=MINUSMINUS
 		//	//| KW_SIZEOF
 		//)* (expr=PostfixExpression
-		//	//|	SIZEOF LEFTPAREN typeName=typeName RIGHTPAREN
+		//	| sizeOf=KW_SIZEOF LEFTPAREN typeName=TypeName RIGHTPAREN
 		//	//|	ALIGNOF LEFTPAREN typeName=typeName RIGHTPAREN
 		//	| ANDAND ID // GCC extension address of label
 		//	| op=UnaryOperator expr=CastExpression)
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{UnaryExpression} (plusplus+=PLUSPLUS | minusminus+=MINUSMINUS //| KW_SIZEOF
-		//)* (expr=PostfixExpression //|	SIZEOF LEFTPAREN typeName=typeName RIGHTPAREN
-		////|	ALIGNOF LEFTPAREN typeName=typeName RIGHTPAREN
+		//)* (expr=PostfixExpression | sizeOf=KW_SIZEOF LEFTPAREN typeName=TypeName RIGHTPAREN //|	ALIGNOF LEFTPAREN typeName=typeName RIGHTPAREN
 		//| ANDAND ID // GCC extension address of label
 		//| op=UnaryOperator expr=CastExpression)
 		public Group getGroup() { return cGroup; }
@@ -3268,8 +3274,7 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		//MINUSMINUS
 		public RuleCall getMinusminusMINUSMINUSTerminalRuleCall_1_1_0() { return cMinusminusMINUSMINUSTerminalRuleCall_1_1_0; }
 		
-		//(expr=PostfixExpression //|	SIZEOF LEFTPAREN typeName=typeName RIGHTPAREN
-		////|	ALIGNOF LEFTPAREN typeName=typeName RIGHTPAREN
+		//(expr=PostfixExpression | sizeOf=KW_SIZEOF LEFTPAREN typeName=TypeName RIGHTPAREN //|	ALIGNOF LEFTPAREN typeName=typeName RIGHTPAREN
 		//| ANDAND ID // GCC extension address of label
 		//| op=UnaryOperator expr=CastExpression)
 		public Alternatives getAlternatives_2() { return cAlternatives_2; }
@@ -3280,29 +3285,50 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		//PostfixExpression
 		public RuleCall getExprPostfixExpressionParserRuleCall_2_0_0() { return cExprPostfixExpressionParserRuleCall_2_0_0; }
 		
-		//ANDAND ID
+		//sizeOf=KW_SIZEOF LEFTPAREN typeName=TypeName RIGHTPAREN
 		public Group getGroup_2_1() { return cGroup_2_1; }
 		
-		//ANDAND
-		public RuleCall getANDANDTerminalRuleCall_2_1_0() { return cANDANDTerminalRuleCall_2_1_0; }
+		//sizeOf=KW_SIZEOF
+		public Assignment getSizeOfAssignment_2_1_0() { return cSizeOfAssignment_2_1_0; }
 		
-		//ID
-		public RuleCall getIDTerminalRuleCall_2_1_1() { return cIDTerminalRuleCall_2_1_1; }
+		//KW_SIZEOF
+		public RuleCall getSizeOfKW_SIZEOFTerminalRuleCall_2_1_0_0() { return cSizeOfKW_SIZEOFTerminalRuleCall_2_1_0_0; }
 		
-		//op=UnaryOperator expr=CastExpression
+		//LEFTPAREN
+		public RuleCall getLEFTPARENTerminalRuleCall_2_1_1() { return cLEFTPARENTerminalRuleCall_2_1_1; }
+		
+		//typeName=TypeName
+		public Assignment getTypeNameAssignment_2_1_2() { return cTypeNameAssignment_2_1_2; }
+		
+		//TypeName
+		public RuleCall getTypeNameTypeNameParserRuleCall_2_1_2_0() { return cTypeNameTypeNameParserRuleCall_2_1_2_0; }
+		
+		//RIGHTPAREN
+		public RuleCall getRIGHTPARENTerminalRuleCall_2_1_3() { return cRIGHTPARENTerminalRuleCall_2_1_3; }
+		
+		//ANDAND ID
 		public Group getGroup_2_2() { return cGroup_2_2; }
 		
+		//ANDAND
+		public RuleCall getANDANDTerminalRuleCall_2_2_0() { return cANDANDTerminalRuleCall_2_2_0; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_2_2_1() { return cIDTerminalRuleCall_2_2_1; }
+		
+		//op=UnaryOperator expr=CastExpression
+		public Group getGroup_2_3() { return cGroup_2_3; }
+		
 		//op=UnaryOperator
-		public Assignment getOpAssignment_2_2_0() { return cOpAssignment_2_2_0; }
+		public Assignment getOpAssignment_2_3_0() { return cOpAssignment_2_3_0; }
 		
 		//UnaryOperator
-		public RuleCall getOpUnaryOperatorParserRuleCall_2_2_0_0() { return cOpUnaryOperatorParserRuleCall_2_2_0_0; }
+		public RuleCall getOpUnaryOperatorParserRuleCall_2_3_0_0() { return cOpUnaryOperatorParserRuleCall_2_3_0_0; }
 		
 		//expr=CastExpression
-		public Assignment getExprAssignment_2_2_1() { return cExprAssignment_2_2_1; }
+		public Assignment getExprAssignment_2_3_1() { return cExprAssignment_2_3_1; }
 		
 		//CastExpression
-		public RuleCall getExprCastExpressionParserRuleCall_2_2_1_0() { return cExprCastExpressionParserRuleCall_2_2_1_0; }
+		public RuleCall getExprCastExpressionParserRuleCall_2_3_1_0() { return cExprCastExpressionParserRuleCall_2_3_1_0; }
 	}
 	public class UnaryOperatorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.UnaryOperator");
@@ -4894,7 +4920,7 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	//	{UnaryExpression} (plusplus+=PLUSPLUS | minusminus+=MINUSMINUS
 	//	//| KW_SIZEOF
 	//)* (expr=PostfixExpression
-	//	//|	SIZEOF LEFTPAREN typeName=typeName RIGHTPAREN
+	//	| sizeOf=KW_SIZEOF LEFTPAREN typeName=TypeName RIGHTPAREN
 	//	//|	ALIGNOF LEFTPAREN typeName=typeName RIGHTPAREN
 	//	| ANDAND ID // GCC extension address of label
 	//	| op=UnaryOperator expr=CastExpression)

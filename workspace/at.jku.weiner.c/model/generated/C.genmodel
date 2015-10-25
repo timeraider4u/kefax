@@ -249,6 +249,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//UnaryExpression/plusplus"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//UnaryExpression/minusminus"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//UnaryExpression/expr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//UnaryExpression/sizeOf"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//UnaryExpression/typeName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//UnaryExpression/op"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//PostfixExpression">

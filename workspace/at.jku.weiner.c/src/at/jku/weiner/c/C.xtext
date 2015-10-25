@@ -211,7 +211,6 @@ TypeSpecifier
 	|	specifier=EnumSpecifier
 	|	type=TypedefName
 	// |	'__typeof__' LEFTPAREN constExrp=constantExpression RIGHTPAREN // GCC extension
-	
 ;
 
 TypedefName
@@ -770,7 +769,7 @@ UnaryExpression returns Expression
 	)*
 	(
 		expr=PostfixExpression
-	//|	SIZEOF LEFTPAREN typeName=typeName RIGHTPAREN
+	|	sizeOf=KW_SIZEOF LEFTPAREN typeName=TypeName RIGHTPAREN
 	//|	ALIGNOF LEFTPAREN typeName=typeName RIGHTPAREN
 	|	ANDAND ID // GCC extension address of label
 	|	op=UnaryOperator expr=CastExpression

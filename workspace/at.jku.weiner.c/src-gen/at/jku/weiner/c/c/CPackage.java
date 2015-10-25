@@ -2502,13 +2502,31 @@ public interface CPackage extends EPackage
   int UNARY_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 2;
 
   /**
+   * The feature id for the '<em><b>Size Of</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNARY_EXPRESSION__SIZE_OF = EXPRESSION_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Type Name</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNARY_EXPRESSION__TYPE_NAME = EXPRESSION_FEATURE_COUNT + 4;
+
+  /**
    * The feature id for the '<em><b>Op</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int UNARY_EXPRESSION__OP = EXPRESSION_FEATURE_COUNT + 3;
+  int UNARY_EXPRESSION__OP = EXPRESSION_FEATURE_COUNT + 5;
 
   /**
    * The number of structural features of the '<em>Unary Expression</em>' class.
@@ -2517,7 +2535,7 @@ public interface CPackage extends EPackage
    * @generated
    * @ordered
    */
-  int UNARY_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 4;
+  int UNARY_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 6;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.c.impl.PostfixExpressionImpl <em>Postfix Expression</em>}' class.
@@ -4650,6 +4668,28 @@ public interface CPackage extends EPackage
   EReference getUnaryExpression_Expr();
 
   /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.c.UnaryExpression#getSizeOf <em>Size Of</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Size Of</em>'.
+   * @see at.jku.weiner.c.c.UnaryExpression#getSizeOf()
+   * @see #getUnaryExpression()
+   * @generated
+   */
+  EAttribute getUnaryExpression_SizeOf();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.c.UnaryExpression#getTypeName <em>Type Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type Name</em>'.
+   * @see at.jku.weiner.c.c.UnaryExpression#getTypeName()
+   * @see #getUnaryExpression()
+   * @generated
+   */
+  EReference getUnaryExpression_TypeName();
+
+  /**
    * Returns the meta object for the containment reference '{@link at.jku.weiner.c.c.UnaryExpression#getOp <em>Op</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6403,6 +6443,22 @@ public interface CPackage extends EPackage
      * @generated
      */
     EReference UNARY_EXPRESSION__EXPR = eINSTANCE.getUnaryExpression_Expr();
+
+    /**
+     * The meta object literal for the '<em><b>Size Of</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute UNARY_EXPRESSION__SIZE_OF = eINSTANCE.getUnaryExpression_SizeOf();
+
+    /**
+     * The meta object literal for the '<em><b>Type Name</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UNARY_EXPRESSION__TYPE_NAME = eINSTANCE.getUnaryExpression_TypeName();
 
     /**
      * The meta object literal for the '<em><b>Op</b></em>' containment reference feature.

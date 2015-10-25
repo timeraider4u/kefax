@@ -4,6 +4,7 @@ package at.jku.weiner.c.c.impl;
 
 import at.jku.weiner.c.c.CPackage;
 import at.jku.weiner.c.c.Expression;
+import at.jku.weiner.c.c.TypeName;
 import at.jku.weiner.c.c.UnaryExpression;
 import at.jku.weiner.c.c.UnaryOperator;
 
@@ -32,6 +33,8 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  *   <li>{@link at.jku.weiner.c.c.impl.UnaryExpressionImpl#getPlusplus <em>Plusplus</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.UnaryExpressionImpl#getMinusminus <em>Minusminus</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.UnaryExpressionImpl#getExpr <em>Expr</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.impl.UnaryExpressionImpl#getSizeOf <em>Size Of</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.impl.UnaryExpressionImpl#getTypeName <em>Type Name</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.UnaryExpressionImpl#getOp <em>Op</em>}</li>
  * </ul>
  *
@@ -68,6 +71,36 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
    * @ordered
    */
   protected Expression expr;
+
+  /**
+   * The default value of the '{@link #getSizeOf() <em>Size Of</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSizeOf()
+   * @generated
+   * @ordered
+   */
+  protected static final String SIZE_OF_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getSizeOf() <em>Size Of</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSizeOf()
+   * @generated
+   * @ordered
+   */
+  protected String sizeOf = SIZE_OF_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getTypeName() <em>Type Name</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTypeName()
+   * @generated
+   * @ordered
+   */
+  protected TypeName typeName;
 
   /**
    * The cached value of the '{@link #getOp() <em>Op</em>}' containment reference.
@@ -181,6 +214,77 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getSizeOf()
+  {
+    return sizeOf;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSizeOf(String newSizeOf)
+  {
+    String oldSizeOf = sizeOf;
+    sizeOf = newSizeOf;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CPackage.UNARY_EXPRESSION__SIZE_OF, oldSizeOf, sizeOf));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TypeName getTypeName()
+  {
+    return typeName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetTypeName(TypeName newTypeName, NotificationChain msgs)
+  {
+    TypeName oldTypeName = typeName;
+    typeName = newTypeName;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CPackage.UNARY_EXPRESSION__TYPE_NAME, oldTypeName, newTypeName);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTypeName(TypeName newTypeName)
+  {
+    if (newTypeName != typeName)
+    {
+      NotificationChain msgs = null;
+      if (typeName != null)
+        msgs = ((InternalEObject)typeName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CPackage.UNARY_EXPRESSION__TYPE_NAME, null, msgs);
+      if (newTypeName != null)
+        msgs = ((InternalEObject)newTypeName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CPackage.UNARY_EXPRESSION__TYPE_NAME, null, msgs);
+      msgs = basicSetTypeName(newTypeName, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CPackage.UNARY_EXPRESSION__TYPE_NAME, newTypeName, newTypeName));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public UnaryOperator getOp()
   {
     return op;
@@ -236,6 +340,8 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
     {
       case CPackage.UNARY_EXPRESSION__EXPR:
         return basicSetExpr(null, msgs);
+      case CPackage.UNARY_EXPRESSION__TYPE_NAME:
+        return basicSetTypeName(null, msgs);
       case CPackage.UNARY_EXPRESSION__OP:
         return basicSetOp(null, msgs);
     }
@@ -258,6 +364,10 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
         return getMinusminus();
       case CPackage.UNARY_EXPRESSION__EXPR:
         return getExpr();
+      case CPackage.UNARY_EXPRESSION__SIZE_OF:
+        return getSizeOf();
+      case CPackage.UNARY_EXPRESSION__TYPE_NAME:
+        return getTypeName();
       case CPackage.UNARY_EXPRESSION__OP:
         return getOp();
     }
@@ -286,6 +396,12 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
       case CPackage.UNARY_EXPRESSION__EXPR:
         setExpr((Expression)newValue);
         return;
+      case CPackage.UNARY_EXPRESSION__SIZE_OF:
+        setSizeOf((String)newValue);
+        return;
+      case CPackage.UNARY_EXPRESSION__TYPE_NAME:
+        setTypeName((TypeName)newValue);
+        return;
       case CPackage.UNARY_EXPRESSION__OP:
         setOp((UnaryOperator)newValue);
         return;
@@ -312,6 +428,12 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
       case CPackage.UNARY_EXPRESSION__EXPR:
         setExpr((Expression)null);
         return;
+      case CPackage.UNARY_EXPRESSION__SIZE_OF:
+        setSizeOf(SIZE_OF_EDEFAULT);
+        return;
+      case CPackage.UNARY_EXPRESSION__TYPE_NAME:
+        setTypeName((TypeName)null);
+        return;
       case CPackage.UNARY_EXPRESSION__OP:
         setOp((UnaryOperator)null);
         return;
@@ -335,6 +457,10 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
         return minusminus != null && !minusminus.isEmpty();
       case CPackage.UNARY_EXPRESSION__EXPR:
         return expr != null;
+      case CPackage.UNARY_EXPRESSION__SIZE_OF:
+        return SIZE_OF_EDEFAULT == null ? sizeOf != null : !SIZE_OF_EDEFAULT.equals(sizeOf);
+      case CPackage.UNARY_EXPRESSION__TYPE_NAME:
+        return typeName != null;
       case CPackage.UNARY_EXPRESSION__OP:
         return op != null;
     }
@@ -356,6 +482,8 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
     result.append(plusplus);
     result.append(", minusminus: ");
     result.append(minusminus);
+    result.append(", sizeOf: ");
+    result.append(sizeOf);
     result.append(')');
     return result.toString();
   }

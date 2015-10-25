@@ -16,6 +16,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link at.jku.weiner.c.c.UnaryExpression#getPlusplus <em>Plusplus</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.UnaryExpression#getMinusminus <em>Minusminus</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.UnaryExpression#getExpr <em>Expr</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.UnaryExpression#getSizeOf <em>Size Of</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.UnaryExpression#getTypeName <em>Type Name</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.UnaryExpression#getOp <em>Op</em>}</li>
  * </ul>
  *
@@ -82,6 +84,58 @@ public interface UnaryExpression extends Expression
    * @generated
    */
   void setExpr(Expression value);
+
+  /**
+   * Returns the value of the '<em><b>Size Of</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Size Of</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Size Of</em>' attribute.
+   * @see #setSizeOf(String)
+   * @see at.jku.weiner.c.c.CPackage#getUnaryExpression_SizeOf()
+   * @model
+   * @generated
+   */
+  String getSizeOf();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.c.UnaryExpression#getSizeOf <em>Size Of</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Size Of</em>' attribute.
+   * @see #getSizeOf()
+   * @generated
+   */
+  void setSizeOf(String value);
+
+  /**
+   * Returns the value of the '<em><b>Type Name</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Type Name</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Type Name</em>' containment reference.
+   * @see #setTypeName(TypeName)
+   * @see at.jku.weiner.c.c.CPackage#getUnaryExpression_TypeName()
+   * @model containment="true"
+   * @generated
+   */
+  TypeName getTypeName();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.c.UnaryExpression#getTypeName <em>Type Name</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Type Name</em>' containment reference.
+   * @see #getTypeName()
+   * @generated
+   */
+  void setTypeName(TypeName value);
 
   /**
    * Returns the value of the '<em><b>Op</b></em>' containment reference.

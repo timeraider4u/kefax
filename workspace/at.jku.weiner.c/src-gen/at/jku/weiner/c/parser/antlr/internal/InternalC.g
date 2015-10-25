@@ -7115,16 +7115,76 @@ ruleUnaryExpression returns [EObject current=null]
 
     |
 (
-this_ANDAND_4=RULE_ANDAND
+(
+(
+		lv_sizeOf_4_0=RULE_KW_SIZEOF
+		{
+			newLeafNode(lv_sizeOf_4_0, grammarAccess.getUnaryExpressionAccess().getSizeOfKW_SIZEOFTerminalRuleCall_2_1_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUnaryExpressionRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"sizeOf",
+        		lv_sizeOf_4_0, 
+        		"at.jku.weiner.c.C.KW_SIZEOF");
+	    }
+
+)
+)
+
+
+this_LEFTPAREN_5=RULE_LEFTPAREN
     { 
-    newLeafNode(this_ANDAND_4, grammarAccess.getUnaryExpressionAccess().getANDANDTerminalRuleCall_2_1_0()); 
+    newLeafNode(this_LEFTPAREN_5, grammarAccess.getUnaryExpressionAccess().getLEFTPARENTerminalRuleCall_2_1_1()); 
     }
 
 
 
-this_ID_5=RULE_ID
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUnaryExpressionAccess().getTypeNameTypeNameParserRuleCall_2_1_2_0()); 
+	    }
+		lv_typeName_6_0=ruleTypeName		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUnaryExpressionRule());
+	        }
+       		set(
+       			$current, 
+       			"typeName",
+        		lv_typeName_6_0, 
+        		"at.jku.weiner.c.C.TypeName");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+this_RIGHTPAREN_7=RULE_RIGHTPAREN
     { 
-    newLeafNode(this_ID_5, grammarAccess.getUnaryExpressionAccess().getIDTerminalRuleCall_2_1_1()); 
+    newLeafNode(this_RIGHTPAREN_7, grammarAccess.getUnaryExpressionAccess().getRIGHTPARENTerminalRuleCall_2_1_3()); 
+    }
+
+
+)
+
+
+    |
+(
+this_ANDAND_8=RULE_ANDAND
+    { 
+    newLeafNode(this_ANDAND_8, grammarAccess.getUnaryExpressionAccess().getANDANDTerminalRuleCall_2_2_0()); 
+    }
+
+
+
+this_ID_9=RULE_ID
+    { 
+    newLeafNode(this_ID_9, grammarAccess.getUnaryExpressionAccess().getIDTerminalRuleCall_2_2_1()); 
     }
 
 
@@ -7136,16 +7196,16 @@ this_ID_5=RULE_ID
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUnaryExpressionAccess().getOpUnaryOperatorParserRuleCall_2_2_0_0()); 
+	        newCompositeNode(grammarAccess.getUnaryExpressionAccess().getOpUnaryOperatorParserRuleCall_2_3_0_0()); 
 	    }
-		lv_op_6_0=ruleUnaryOperator		{
+		lv_op_10_0=ruleUnaryOperator		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUnaryExpressionRule());
 	        }
        		set(
        			$current, 
        			"op",
-        		lv_op_6_0, 
+        		lv_op_10_0, 
         		"at.jku.weiner.c.C.UnaryOperator");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -7157,16 +7217,16 @@ this_ID_5=RULE_ID
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUnaryExpressionAccess().getExprCastExpressionParserRuleCall_2_2_1_0()); 
+	        newCompositeNode(grammarAccess.getUnaryExpressionAccess().getExprCastExpressionParserRuleCall_2_3_1_0()); 
 	    }
-		lv_expr_7_0=ruleCastExpression		{
+		lv_expr_11_0=ruleCastExpression		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUnaryExpressionRule());
 	        }
        		set(
        			$current, 
        			"expr",
-        		lv_expr_7_0, 
+        		lv_expr_11_0, 
         		"at.jku.weiner.c.C.CastExpression");
 	        afterParserOrEnumRuleCall();
 	    }

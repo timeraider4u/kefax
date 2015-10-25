@@ -128,7 +128,7 @@ initRuleAction{
 	(declarationSpecifier+=StorageClassSpecifier
 	|	declarationSpecifier+=TypeSpecifier
 	|	declarationSpecifier+=TypeQualifier
-	//|	declarationSpecifier+=functionSpecifier
+	|	declarationSpecifier+=FunctionSpecifier
 	//|	declarationSpecifier+=alignmentSpecifier
 	)+
 ;
@@ -304,20 +304,20 @@ TypeQualifier
 	)
 ;
 
-/*
-functionSpecifier:
-	{functionSpecifier} 
+FunctionSpecifier:
+	{FunctionSpecifier} 
 	(
-		(INLINE
-		|	NORETURN
-		|	'__inline__' // GCC extension
-		|	'__stdcall'
+		(	name=KW_INLINE
+		|	name=KW_NORETURN
+		//|	'__inline__' // GCC extension
+		//|	'__stdcall'
 		)
-		|	gccAttributeSpecifier=gccAttributeSpecifier
-		|	'__declspec' LEFTPAREN IDENTIFIER RIGHTPAREN
+		//|	gccAttributeSpecifier=gccAttributeSpecifier
+		//|	'__declspec' LEFTPAREN IDENTIFIER RIGHTPAREN
 	)
 ;
 
+/*
 alignmentSpecifier: ALIGNAS LEFTPAREN (typeName | constantExpression) RIGHTPAREN;
 */
 

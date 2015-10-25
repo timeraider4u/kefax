@@ -33,6 +33,7 @@ import at.jku.weiner.c.c.ExpressionStatement;
 import at.jku.weiner.c.c.ExternalDeclaration;
 import at.jku.weiner.c.c.FunctionDefHead;
 import at.jku.weiner.c.c.FunctionDefinition;
+import at.jku.weiner.c.c.FunctionSpecifier;
 import at.jku.weiner.c.c.IdentifierList;
 import at.jku.weiner.c.c.InclusiveOrExpression;
 import at.jku.weiner.c.c.InitDeclarator;
@@ -176,6 +177,9 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case CPackage.FUNCTION_DEFINITION:
 				sequence_FunctionDefinition(context, (FunctionDefinition) semanticObject); 
+				return; 
+			case CPackage.FUNCTION_SPECIFIER:
+				sequence_FunctionSpecifier(context, (FunctionSpecifier) semanticObject); 
 				return; 
 			case CPackage.IDENTIFIER_LIST:
 				sequence_IdentifierList(context, (IdentifierList) semanticObject); 
@@ -419,7 +423,12 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (declarationSpecifier+=StorageClassSpecifier | declarationSpecifier+=TypeSpecifier | declarationSpecifier+=TypeQualifier)+
+	 *     (
+	 *         declarationSpecifier+=StorageClassSpecifier | 
+	 *         declarationSpecifier+=TypeSpecifier | 
+	 *         declarationSpecifier+=TypeQualifier | 
+	 *         declarationSpecifier+=FunctionSpecifier
+	 *     )+
 	 */
 	protected void sequence_DeclarationSpecifiers(EObject context, DeclarationSpecifiers semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -572,6 +581,15 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getFunctionDefinitionAccess().getBodyBodyStatementParserRuleCall_1_0(), semanticObject.getBody());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=KW_INLINE | name=KW_NORETURN)
+	 */
+	protected void sequence_FunctionSpecifier(EObject context, FunctionSpecifier semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

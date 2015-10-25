@@ -275,28 +275,29 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cDeclarationSpecifierTypeSpecifierParserRuleCall_1_1_0 = (RuleCall)cDeclarationSpecifierAssignment_1_1.eContents().get(0);
 		private final Assignment cDeclarationSpecifierAssignment_1_2 = (Assignment)cAlternatives_1.eContents().get(2);
 		private final RuleCall cDeclarationSpecifierTypeQualifierParserRuleCall_1_2_0 = (RuleCall)cDeclarationSpecifierAssignment_1_2.eContents().get(0);
+		private final Assignment cDeclarationSpecifierAssignment_1_3 = (Assignment)cAlternatives_1.eContents().get(3);
+		private final RuleCall cDeclarationSpecifierFunctionSpecifierParserRuleCall_1_3_0 = (RuleCall)cDeclarationSpecifierAssignment_1_3.eContents().get(0);
 		
 		//DeclarationSpecifiers initRuleAction { at.jku.weiner.c.Log.log("DeclarationSpecifiers-enter"); } afterRuleAction {
 		//at.jku.weiner.c.Log.log("DeclarationSpecifiers-leave"); }:
 		//	{DeclarationSpecifiers} (declarationSpecifier+=StorageClassSpecifier
 		//	| declarationSpecifier+=TypeSpecifier
 		//	| declarationSpecifier+=TypeQualifier
-		//	//|	declarationSpecifier+=functionSpecifier
+		//	| declarationSpecifier+=FunctionSpecifier
 		//	//|	declarationSpecifier+=alignmentSpecifier
 		//)+;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{DeclarationSpecifiers} (declarationSpecifier+=StorageClassSpecifier | declarationSpecifier+=TypeSpecifier |
-		//declarationSpecifier+=TypeQualifier //|	declarationSpecifier+=functionSpecifier
-		////|	declarationSpecifier+=alignmentSpecifier
+		//declarationSpecifier+=TypeQualifier | declarationSpecifier+=FunctionSpecifier //|	declarationSpecifier+=alignmentSpecifier
 		//)+
 		public Group getGroup() { return cGroup; }
 		
 		//{DeclarationSpecifiers}
 		public Action getDeclarationSpecifiersAction_0() { return cDeclarationSpecifiersAction_0; }
 		
-		//(declarationSpecifier+=StorageClassSpecifier | declarationSpecifier+=TypeSpecifier | declarationSpecifier+=TypeQualifier //|	declarationSpecifier+=functionSpecifier
-		////|	declarationSpecifier+=alignmentSpecifier
+		//(declarationSpecifier+=StorageClassSpecifier | declarationSpecifier+=TypeSpecifier | declarationSpecifier+=TypeQualifier
+		//| declarationSpecifier+=FunctionSpecifier //|	declarationSpecifier+=alignmentSpecifier
 		//)+
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
@@ -317,6 +318,12 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//TypeQualifier
 		public RuleCall getDeclarationSpecifierTypeQualifierParserRuleCall_1_2_0() { return cDeclarationSpecifierTypeQualifierParserRuleCall_1_2_0; }
+		
+		//declarationSpecifier+=FunctionSpecifier
+		public Assignment getDeclarationSpecifierAssignment_1_3() { return cDeclarationSpecifierAssignment_1_3; }
+		
+		//FunctionSpecifier
+		public RuleCall getDeclarationSpecifierFunctionSpecifierParserRuleCall_1_3_0() { return cDeclarationSpecifierFunctionSpecifierParserRuleCall_1_3_0; }
 	}
 	public class InitDeclaratorListElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.InitDeclaratorList");
@@ -943,6 +950,49 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		//KW_ATOMIC
 		public RuleCall getTypeKW_ATOMICTerminalRuleCall_1_3_0() { return cTypeKW_ATOMICTerminalRuleCall_1_3_0; }
 	}
+	public class FunctionSpecifierElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.FunctionSpecifier");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cFunctionSpecifierAction_0 = (Action)cGroup.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
+		private final RuleCall cNameKW_INLINETerminalRuleCall_1_0_0 = (RuleCall)cNameAssignment_1_0.eContents().get(0);
+		private final Assignment cNameAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
+		private final RuleCall cNameKW_NORETURNTerminalRuleCall_1_1_0 = (RuleCall)cNameAssignment_1_1.eContents().get(0);
+		
+		//FunctionSpecifier:
+		//	{FunctionSpecifier} (name=KW_INLINE
+		//	| name=KW_NORETURN
+		//	//|	'__inline__' // GCC extension
+		//	//|	'__stdcall'
+		//);
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{FunctionSpecifier} (name=KW_INLINE | name=KW_NORETURN //|	'__inline__' // GCC extension
+		////|	'__stdcall'
+		//)
+		public Group getGroup() { return cGroup; }
+		
+		//{FunctionSpecifier}
+		public Action getFunctionSpecifierAction_0() { return cFunctionSpecifierAction_0; }
+		
+		//(name=KW_INLINE | name=KW_NORETURN //|	'__inline__' // GCC extension
+		////|	'__stdcall'
+		//)
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		
+		//name=KW_INLINE
+		public Assignment getNameAssignment_1_0() { return cNameAssignment_1_0; }
+		
+		//KW_INLINE
+		public RuleCall getNameKW_INLINETerminalRuleCall_1_0_0() { return cNameKW_INLINETerminalRuleCall_1_0_0; }
+		
+		//name=KW_NORETURN
+		public Assignment getNameAssignment_1_1() { return cNameAssignment_1_1; }
+		
+		//KW_NORETURN
+		public RuleCall getNameKW_NORETURNTerminalRuleCall_1_1_0() { return cNameKW_NORETURNTerminalRuleCall_1_1_0; }
+	}
 	public class DeclaratorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.Declarator");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -953,19 +1003,6 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cDeclaratorDirectDeclaratorParserRuleCall_2_0 = (RuleCall)cDeclaratorAssignment_2.eContents().get(0);
 		
 		/// *
-		//functionSpecifier:
-		//	{functionSpecifier} 
-		//	(
-		//		(INLINE
-		//		|	NORETURN
-		//		|	'__inline__' // GCC extension
-		//		|	'__stdcall'
-		//		)
-		//		|	gccAttributeSpecifier=gccAttributeSpecifier
-		//		|	'__declspec' LEFTPAREN IDENTIFIER RIGHTPAREN
-		//	)
-		//;
-		//
 		//alignmentSpecifier: ALIGNAS LEFTPAREN (typeName | constantExpression) RIGHTPAREN;
 		// * / Declarator initRuleAction { at.jku.weiner.c.Log.log("Declarator-enter"); } afterRuleAction {
 		//at.jku.weiner.c.Log.log("Declarator-leave"); }:
@@ -3738,6 +3775,7 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	private final EnumeratorListElements pEnumeratorList;
 	private final EnumeratorElements pEnumerator;
 	private final TypeQualifierElements pTypeQualifier;
+	private final FunctionSpecifierElements pFunctionSpecifier;
 	private final DeclaratorElements pDeclarator;
 	private final DirectDeclaratorElements pDirectDeclarator;
 	private final DeclaratorSuffixElements pDeclaratorSuffix;
@@ -3927,6 +3965,7 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		this.pEnumeratorList = new EnumeratorListElements();
 		this.pEnumerator = new EnumeratorElements();
 		this.pTypeQualifier = new TypeQualifierElements();
+		this.pFunctionSpecifier = new FunctionSpecifierElements();
 		this.pDeclarator = new DeclaratorElements();
 		this.pDirectDeclarator = new DirectDeclaratorElements();
 		this.pDeclaratorSuffix = new DeclaratorSuffixElements();
@@ -4202,7 +4241,7 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	//	{DeclarationSpecifiers} (declarationSpecifier+=StorageClassSpecifier
 	//	| declarationSpecifier+=TypeSpecifier
 	//	| declarationSpecifier+=TypeQualifier
-	//	//|	declarationSpecifier+=functionSpecifier
+	//	| declarationSpecifier+=FunctionSpecifier
 	//	//|	declarationSpecifier+=alignmentSpecifier
 	//)+;
 	public DeclarationSpecifiersElements getDeclarationSpecifiersAccess() {
@@ -4375,20 +4414,21 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		return getTypeQualifierAccess().getRule();
 	}
 	
+	//FunctionSpecifier:
+	//	{FunctionSpecifier} (name=KW_INLINE
+	//	| name=KW_NORETURN
+	//	//|	'__inline__' // GCC extension
+	//	//|	'__stdcall'
+	//);
+	public FunctionSpecifierElements getFunctionSpecifierAccess() {
+		return pFunctionSpecifier;
+	}
+	
+	public ParserRule getFunctionSpecifierRule() {
+		return getFunctionSpecifierAccess().getRule();
+	}
+	
 	/// *
-	//functionSpecifier:
-	//	{functionSpecifier} 
-	//	(
-	//		(INLINE
-	//		|	NORETURN
-	//		|	'__inline__' // GCC extension
-	//		|	'__stdcall'
-	//		)
-	//		|	gccAttributeSpecifier=gccAttributeSpecifier
-	//		|	'__declspec' LEFTPAREN IDENTIFIER RIGHTPAREN
-	//	)
-	//;
-	//
 	//alignmentSpecifier: ALIGNAS LEFTPAREN (typeName | constantExpression) RIGHTPAREN;
 	// * / Declarator initRuleAction { at.jku.weiner.c.Log.log("Declarator-enter"); } afterRuleAction {
 	//at.jku.weiner.c.Log.log("Declarator-leave"); }:

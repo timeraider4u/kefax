@@ -160,6 +160,11 @@ public class CAdapterFactory extends AdapterFactoryImpl
         return createTypeQualifierAdapter();
       }
       @Override
+      public Adapter caseFunctionSpecifier(FunctionSpecifier object)
+      {
+        return createFunctionSpecifierAdapter();
+      }
+      @Override
       public Adapter caseDeclarator(Declarator object)
       {
         return createDeclaratorAdapter();
@@ -662,6 +667,21 @@ public class CAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createTypeQualifierAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.FunctionSpecifier <em>Function Specifier</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.c.FunctionSpecifier
+   * @generated
+   */
+  public Adapter createFunctionSpecifierAdapter()
   {
     return null;
   }

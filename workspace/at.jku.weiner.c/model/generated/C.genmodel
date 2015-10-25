@@ -68,6 +68,9 @@
     <genClasses ecoreClass="C.ecore#//TypeQualifier">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//TypeQualifier/type"/>
     </genClasses>
+    <genClasses ecoreClass="C.ecore#//FunctionSpecifier">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//FunctionSpecifier/name"/>
+    </genClasses>
     <genClasses ecoreClass="C.ecore#//Declarator">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//Declarator/pointer"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//Declarator/declarator"/>

@@ -176,6 +176,15 @@ public interface CFactory extends EFactory
   TypeQualifier createTypeQualifier();
 
   /**
+   * Returns a new object of class '<em>Function Specifier</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Function Specifier</em>'.
+   * @generated
+   */
+  FunctionSpecifier createFunctionSpecifier();
+
+  /**
    * Returns a new object of class '<em>Declarator</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

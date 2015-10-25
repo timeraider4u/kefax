@@ -1,0 +1,51 @@
+package at.jku.weiner.c
+language c
+//----------------------------------------------------------------------
+source file="res/Test0033_StaticInline.c"
+//----------------------------------------------------------------------
+lexer-tokens
+KW_STATIC WHITESPACE KW_INLINE WHITESPACE KW_VOID WHITESPACE ID
+LEFTPAREN 
+RIGHTPAREN
+WHITESPACE LEFTBRACE NEWLINE
+	NEWLINE
+RIGHTBRACE NEWLINE
+//----------------------------------------------------------------------
+(Model unit+=
+	(TranslationUnit 
+		external+=
+		(ExternalDeclaration 
+			functiondefHead=
+			(FunctionDefHead
+				funDeclSpecifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(StorageClassSpecifier
+						name++"static"
+					),
+					(FunctionSpecifier
+						name++"inline"
+					),
+					(TypeSpecifier
+						name++"void"
+					)
+				),
+				funDeclarator=
+				(Declarator
+					declarator=
+					(DirectDeclarator
+						id++"doSomething"
+					)
+				)
+			),
+			functionDefinition=
+			(FunctionDefinition
+				body=
+				(BodyStatement
+					
+				)
+			)
+		)
+		
+	)
+)

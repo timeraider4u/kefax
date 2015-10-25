@@ -81,6 +81,7 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
       case CPackage.ENUMERATOR_LIST: return createEnumeratorList();
       case CPackage.ENUMERATOR: return createEnumerator();
       case CPackage.TYPE_QUALIFIER: return createTypeQualifier();
+      case CPackage.FUNCTION_SPECIFIER: return createFunctionSpecifier();
       case CPackage.DECLARATOR: return createDeclarator();
       case CPackage.DIRECT_DECLARATOR: return createDirectDeclarator();
       case CPackage.DECLARATOR_SUFFIX: return createDeclaratorSuffix();
@@ -317,6 +318,17 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
   {
     TypeQualifierImpl typeQualifier = new TypeQualifierImpl();
     return typeQualifier;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FunctionSpecifier createFunctionSpecifier()
+  {
+    FunctionSpecifierImpl functionSpecifier = new FunctionSpecifierImpl();
+    return functionSpecifier;
   }
 
   /**

@@ -710,6 +710,28 @@ ruleDeclarationSpecifiers returns [EObject current=null]
 )
 )
 
+
+    |
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getDeclarationSpecifiersAccess().getDeclarationSpecifierFunctionSpecifierParserRuleCall_1_3_0()); 
+	    }
+		lv_declarationSpecifier_4_0=ruleFunctionSpecifier		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getDeclarationSpecifiersRule());
+	        }
+       		add(
+       			$current, 
+       			"declarationSpecifier",
+        		lv_declarationSpecifier_4_0, 
+        		"at.jku.weiner.c.C.FunctionSpecifier");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
 )+
 
 )
@@ -2054,6 +2076,91 @@ ruleTypeQualifier returns [EObject current=null]
        			"type",
         		lv_type_4_0, 
         		"at.jku.weiner.c.C.KW_ATOMIC");
+	    }
+
+)
+)
+
+)
+
+)
+
+
+;
+
+
+
+
+
+// Entry rule entryRuleFunctionSpecifier
+entryRuleFunctionSpecifier returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getFunctionSpecifierRule()); }
+	 iv_ruleFunctionSpecifier=ruleFunctionSpecifier 
+	 { $current=$iv_ruleFunctionSpecifier.current; } 
+	 EOF 
+;
+
+// Rule FunctionSpecifier
+ruleFunctionSpecifier returns [EObject current=null] 
+    @init { enterRule();
+   		
+    }
+    @after { leaveRule();
+    		
+     }:
+
+(
+(
+	{ 
+	  /* */ 
+	}
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getFunctionSpecifierAccess().getFunctionSpecifierAction_0(),
+            $current);
+    }
+)
+
+
+(
+(
+(
+		lv_name_1_0=RULE_KW_INLINE
+		{
+			newLeafNode(lv_name_1_0, grammarAccess.getFunctionSpecifierAccess().getNameKW_INLINETerminalRuleCall_1_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getFunctionSpecifierRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_1_0, 
+        		"at.jku.weiner.c.C.KW_INLINE");
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		lv_name_2_0=RULE_KW_NORETURN
+		{
+			newLeafNode(lv_name_2_0, grammarAccess.getFunctionSpecifierAccess().getNameKW_NORETURNTerminalRuleCall_1_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getFunctionSpecifierRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_2_0, 
+        		"at.jku.weiner.c.C.KW_NORETURN");
 	    }
 
 )

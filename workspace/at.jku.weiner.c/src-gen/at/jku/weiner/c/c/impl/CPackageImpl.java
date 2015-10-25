@@ -34,6 +34,7 @@ import at.jku.weiner.c.c.ExpressionStatement;
 import at.jku.weiner.c.c.ExternalDeclaration;
 import at.jku.weiner.c.c.FunctionDefHead;
 import at.jku.weiner.c.c.FunctionDefinition;
+import at.jku.weiner.c.c.FunctionSpecifier;
 import at.jku.weiner.c.c.IdentifierList;
 import at.jku.weiner.c.c.InclusiveOrExpression;
 import at.jku.weiner.c.c.InitDeclarator;
@@ -202,6 +203,13 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * @generated
    */
   private EClass typeQualifierEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass functionSpecifierEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1039,6 +1047,26 @@ public class CPackageImpl extends EPackageImpl implements CPackage
   public EAttribute getTypeQualifier_Type()
   {
     return (EAttribute)typeQualifierEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getFunctionSpecifier()
+  {
+    return functionSpecifierEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFunctionSpecifier_Name()
+  {
+    return (EAttribute)functionSpecifierEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2673,6 +2701,9 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     typeQualifierEClass = createEClass(TYPE_QUALIFIER);
     createEAttribute(typeQualifierEClass, TYPE_QUALIFIER__TYPE);
 
+    functionSpecifierEClass = createEClass(FUNCTION_SPECIFIER);
+    createEAttribute(functionSpecifierEClass, FUNCTION_SPECIFIER__NAME);
+
     declaratorEClass = createEClass(DECLARATOR);
     createEReference(declaratorEClass, DECLARATOR__POINTER);
     createEReference(declaratorEClass, DECLARATOR__DECLARATOR);
@@ -2995,6 +3026,9 @@ public class CPackageImpl extends EPackageImpl implements CPackage
 
     initEClass(typeQualifierEClass, TypeQualifier.class, "TypeQualifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTypeQualifier_Type(), theEcorePackage.getEString(), "type", null, 0, 1, TypeQualifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(functionSpecifierEClass, FunctionSpecifier.class, "FunctionSpecifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getFunctionSpecifier_Name(), theEcorePackage.getEString(), "name", null, 0, 1, FunctionSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(declaratorEClass, Declarator.class, "Declarator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDeclarator_Pointer(), this.getPointer(), null, "pointer", null, 0, 1, Declarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

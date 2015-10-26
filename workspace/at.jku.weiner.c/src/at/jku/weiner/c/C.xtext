@@ -355,14 +355,16 @@ DirectDeclarator
 DeclaratorSuffix:
 	{DeclaratorSuffix}
 	(
-	/*LEFTBRACKET STATIC (typeQualifierList+=typeQualifierList)? (assignExpr+=assignmentExpression)? RIGHTBRACKET
-	|	LEFTBRACKET  (typeQualifierList+=typeQualifierList)? (assignExpr+=assignmentExpression) RIGHTBRACKET
-	|	LEFTBRACKET (typeQualifierList+=typeQualifierList) STATIC (assignExpr+=assignmentExpression) RIGHTBRACKET
-	|	LEFTBRACKET (typeQualifierList+=typeQualifierList)? STAR RIGHTBRACKET
-	|*/	lastSuffix=DirectDeclaratorLastSuffix
+		LEFTBRACKET static=KW_STATIC (typeQualifierList=TypeQualifierList)?
+			(expr=AssignmentExpression)? RIGHTBRACKET
+	|	LEFTBRACKET  (typeQualifierList=TypeQualifierList)?
+			(expr=AssignmentExpression) RIGHTBRACKET
+	|	LEFTBRACKET (typeQualifierList=TypeQualifierList) static=KW_STATIC
+			(expr=AssignmentExpression) RIGHTBRACKET
+	|	LEFTBRACKET (typeQualifierList=TypeQualifierList)? star=STAR RIGHTBRACKET
+	|	lastSuffix=DirectDeclaratorLastSuffix
 	)
 ;
-
 
 DirectDeclaratorLastSuffix:
 	{DirectDeclaratorLastSuffix}
@@ -488,16 +490,21 @@ abstractDeclaratorSuffix: {abstractDeclaratorSuffix}
 Initializer:
 	{Initializer}
 	(
-	expr=AssignmentExpression
-	//|	LEFTBRACE initializerList COMMA? RIGHTBRACE
+		expr=AssignmentExpression
+	|	LEFTBRACE list=InitializerList COMMA? RIGHTBRACE
 	)
 ;
 
-/*
-initializerList: designation? (initializer=initializer)
-	(COMMA (designation+=designation)? (initializerMore+=initializer))*
+InitializerList:
+	{InitializerList}
+	//designation+=Designation?
+	(initializer+=Initializer)
+	(COMMA 
+		//(designation+=Designation)?
+		(initializer+=Initializer)
+	)*
 ;
-*/
+
 
 /*** Statements */
 BlockList

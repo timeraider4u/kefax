@@ -40,6 +40,7 @@ import at.jku.weiner.c.c.InclusiveOrExpression;
 import at.jku.weiner.c.c.InitDeclarator;
 import at.jku.weiner.c.c.InitDeclaratorList;
 import at.jku.weiner.c.c.Initializer;
+import at.jku.weiner.c.c.InitializerList;
 import at.jku.weiner.c.c.IterationStatement;
 import at.jku.weiner.c.c.JumpStatement;
 import at.jku.weiner.c.c.LabeledStatement;
@@ -342,6 +343,13 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * @generated
    */
   private EClass initializerEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass initializerListEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1332,9 +1340,49 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getDeclaratorSuffix_Static()
+  {
+    return (EAttribute)declaratorSuffixEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDeclaratorSuffix_TypeQualifierList()
+  {
+    return (EReference)declaratorSuffixEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDeclaratorSuffix_Expr()
+  {
+    return (EReference)declaratorSuffixEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDeclaratorSuffix_Star()
+  {
+    return (EAttribute)declaratorSuffixEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getDeclaratorSuffix_LastSuffix()
   {
-    return (EReference)declaratorSuffixEClass.getEStructuralFeatures().get(0);
+    return (EReference)declaratorSuffixEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -1575,6 +1623,36 @@ public class CPackageImpl extends EPackageImpl implements CPackage
   public EReference getInitializer_Expr()
   {
     return (EReference)initializerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getInitializer_List()
+  {
+    return (EReference)initializerEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getInitializerList()
+  {
+    return initializerListEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getInitializerList_Initializer()
+  {
+    return (EReference)initializerListEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2970,6 +3048,10 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     createEReference(directDeclaratorEClass, DIRECT_DECLARATOR__DECLARATOR_SUFFIX);
 
     declaratorSuffixEClass = createEClass(DECLARATOR_SUFFIX);
+    createEAttribute(declaratorSuffixEClass, DECLARATOR_SUFFIX__STATIC);
+    createEReference(declaratorSuffixEClass, DECLARATOR_SUFFIX__TYPE_QUALIFIER_LIST);
+    createEReference(declaratorSuffixEClass, DECLARATOR_SUFFIX__EXPR);
+    createEAttribute(declaratorSuffixEClass, DECLARATOR_SUFFIX__STAR);
     createEReference(declaratorSuffixEClass, DECLARATOR_SUFFIX__LAST_SUFFIX);
 
     directDeclaratorLastSuffixEClass = createEClass(DIRECT_DECLARATOR_LAST_SUFFIX);
@@ -3005,6 +3087,10 @@ public class CPackageImpl extends EPackageImpl implements CPackage
 
     initializerEClass = createEClass(INITIALIZER);
     createEReference(initializerEClass, INITIALIZER__EXPR);
+    createEReference(initializerEClass, INITIALIZER__LIST);
+
+    initializerListEClass = createEClass(INITIALIZER_LIST);
+    createEReference(initializerListEClass, INITIALIZER_LIST__INITIALIZER);
 
     blockListEClass = createEClass(BLOCK_LIST);
     createEReference(blockListEClass, BLOCK_LIST__DECLARATION);
@@ -3322,6 +3408,10 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     initEReference(getDirectDeclarator_DeclaratorSuffix(), this.getDeclaratorSuffix(), null, "declaratorSuffix", null, 0, -1, DirectDeclarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(declaratorSuffixEClass, DeclaratorSuffix.class, "DeclaratorSuffix", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDeclaratorSuffix_Static(), theEcorePackage.getEString(), "static", null, 0, 1, DeclaratorSuffix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDeclaratorSuffix_TypeQualifierList(), this.getTypeQualifierList(), null, "typeQualifierList", null, 0, 1, DeclaratorSuffix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDeclaratorSuffix_Expr(), this.getExpression(), null, "expr", null, 0, 1, DeclaratorSuffix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDeclaratorSuffix_Star(), theEcorePackage.getEString(), "star", null, 0, 1, DeclaratorSuffix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDeclaratorSuffix_LastSuffix(), this.getDirectDeclaratorLastSuffix(), null, "lastSuffix", null, 0, 1, DeclaratorSuffix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(directDeclaratorLastSuffixEClass, DirectDeclaratorLastSuffix.class, "DirectDeclaratorLastSuffix", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3357,6 +3447,10 @@ public class CPackageImpl extends EPackageImpl implements CPackage
 
     initEClass(initializerEClass, Initializer.class, "Initializer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getInitializer_Expr(), this.getExpression(), null, "expr", null, 0, 1, Initializer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getInitializer_List(), this.getInitializerList(), null, "list", null, 0, 1, Initializer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(initializerListEClass, InitializerList.class, "InitializerList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getInitializerList_Initializer(), this.getInitializer(), null, "initializer", null, 0, -1, InitializerList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(blockListEClass, BlockList.class, "BlockList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getBlockList_Declaration(), this.getDeclaration(), null, "declaration", null, 0, -1, BlockList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

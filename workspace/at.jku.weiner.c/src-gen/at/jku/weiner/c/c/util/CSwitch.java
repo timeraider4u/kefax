@@ -324,6 +324,13 @@ public class CSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case CPackage.INITIALIZER_LIST:
+      {
+        InitializerList initializerList = (InitializerList)theEObject;
+        T result = caseInitializerList(initializerList);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case CPackage.BLOCK_LIST:
       {
         BlockList blockList = (BlockList)theEObject;
@@ -1165,6 +1172,22 @@ public class CSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseInitializer(Initializer object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Initializer List</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Initializer List</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInitializerList(InitializerList object)
   {
     return null;
   }

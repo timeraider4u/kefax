@@ -100,6 +100,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//DirectDeclarator/declaratorSuffix"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//DeclaratorSuffix">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//DeclaratorSuffix/static"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//DeclaratorSuffix/typeQualifierList"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//DeclaratorSuffix/expr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//DeclaratorSuffix/star"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//DeclaratorSuffix/lastSuffix"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//DirectDeclaratorLastSuffix">
@@ -135,6 +139,10 @@
     </genClasses>
     <genClasses ecoreClass="C.ecore#//Initializer">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//Initializer/expr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//Initializer/list"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//InitializerList">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//InitializerList/initializer"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//BlockList">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//BlockList/declaration"/>

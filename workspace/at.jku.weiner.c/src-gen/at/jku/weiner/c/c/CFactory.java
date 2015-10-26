@@ -347,6 +347,15 @@ public interface CFactory extends EFactory
   Initializer createInitializer();
 
   /**
+   * Returns a new object of class '<em>Initializer List</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Initializer List</em>'.
+   * @generated
+   */
+  InitializerList createInitializerList();
+
+  /**
    * Returns a new object of class '<em>Block List</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

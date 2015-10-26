@@ -100,6 +100,7 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
       case CPackage.MY_IDENTIFIER: return createMyIdentifier();
       case CPackage.TYPE_NAME: return createTypeName();
       case CPackage.INITIALIZER: return createInitializer();
+      case CPackage.INITIALIZER_LIST: return createInitializerList();
       case CPackage.BLOCK_LIST: return createBlockList();
       case CPackage.STATEMENT: return createStatement();
       case CPackage.EXPRESSION: return createExpression();
@@ -533,6 +534,17 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
   {
     InitializerImpl initializer = new InitializerImpl();
     return initializer;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public InitializerList createInitializerList()
+  {
+    InitializerListImpl initializerList = new InitializerListImpl();
+    return initializerList;
   }
 
   /**

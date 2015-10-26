@@ -39,6 +39,7 @@ import at.jku.weiner.c.c.InclusiveOrExpression;
 import at.jku.weiner.c.c.InitDeclarator;
 import at.jku.weiner.c.c.InitDeclaratorList;
 import at.jku.weiner.c.c.Initializer;
+import at.jku.weiner.c.c.InitializerList;
 import at.jku.weiner.c.c.IterationStatement;
 import at.jku.weiner.c.c.JumpStatement;
 import at.jku.weiner.c.c.LabeledStatement;
@@ -201,6 +202,9 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case CPackage.INITIALIZER:
 				sequence_Initializer(context, (Initializer) semanticObject); 
+				return; 
+			case CPackage.INITIALIZER_LIST:
+				sequence_InitializerList(context, (InitializerList) semanticObject); 
 				return; 
 			case CPackage.ITERATION_STATEMENT:
 				sequence_IterationStatement(context, (IterationStatement) semanticObject); 
@@ -470,17 +474,16 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     lastSuffix=DirectDeclaratorLastSuffix
+	 *     (
+	 *         (static=KW_STATIC typeQualifierList=TypeQualifierList? expr=AssignmentExpression?) | 
+	 *         (typeQualifierList=TypeQualifierList? expr=AssignmentExpression) | 
+	 *         (typeQualifierList=TypeQualifierList static=KW_STATIC expr=AssignmentExpression) | 
+	 *         (typeQualifierList=TypeQualifierList? star=STAR) | 
+	 *         lastSuffix=DirectDeclaratorLastSuffix
+	 *     )
 	 */
 	protected void sequence_DeclaratorSuffix(EObject context, DeclaratorSuffix semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, CPackage.Literals.DECLARATOR_SUFFIX__LAST_SUFFIX) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CPackage.Literals.DECLARATOR_SUFFIX__LAST_SUFFIX));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getDeclaratorSuffixAccess().getLastSuffixDirectDeclaratorLastSuffixParserRuleCall_1_0(), semanticObject.getLastSuffix());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -655,17 +658,19 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     expr=AssignmentExpression
+	 *     (initializer+=Initializer initializer+=Initializer*)
+	 */
+	protected void sequence_InitializerList(EObject context, InitializerList semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (expr=AssignmentExpression | list=InitializerList)
 	 */
 	protected void sequence_Initializer(EObject context, Initializer semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, CPackage.Literals.INITIALIZER__EXPR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CPackage.Literals.INITIALIZER__EXPR));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getInitializerAccess().getExprAssignmentExpressionParserRuleCall_1_0(), semanticObject.getExpr());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

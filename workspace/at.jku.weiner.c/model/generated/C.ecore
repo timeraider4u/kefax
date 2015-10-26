@@ -126,6 +126,12 @@
         eType="#//DeclaratorSuffix" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DeclaratorSuffix">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="static" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeQualifierList" eType="#//TypeQualifierList"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="star" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="lastSuffix" eType="#//DirectDeclaratorLastSuffix"
         containment="true"/>
   </eClassifiers>
@@ -175,6 +181,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="Initializer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expression"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="list" eType="#//InitializerList"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InitializerList">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="initializer" upperBound="-1"
+        eType="#//Initializer" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BlockList">
     <eStructuralFeatures xsi:type="ecore:EReference" name="declaration" upperBound="-1"

@@ -24,6 +24,7 @@ public class CSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected CGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_AsmStatement_COLONTerminalRuleCall_4_0_q;
 	protected AbstractElementAlias match_AsmStatement_KW_ASM1TerminalRuleCall_1_0_or_KW_ASM2TerminalRuleCall_1_1;
+	protected AbstractElementAlias match_Initializer_COMMATerminalRuleCall_1_1_2_q;
 	protected AbstractElementAlias match_ParameterTypeList___COMMATerminalRuleCall_2_0_ELLIPSISTerminalRuleCall_2_1__q;
 	protected AbstractElementAlias match_PostfixExpression___LEFTPARENTerminalRuleCall_1_1_1_0_RIGHTPARENTerminalRuleCall_1_1_1_2__a;
 	protected AbstractElementAlias match_PostfixExpression___RIGHTPARENTerminalRuleCall_1_1_1_2_LEFTPARENTerminalRuleCall_1_1_1_0__a;
@@ -34,6 +35,7 @@ public class CSyntacticSequencer extends AbstractSyntacticSequencer {
 		grammarAccess = (CGrammarAccess) access;
 		match_AsmStatement_COLONTerminalRuleCall_4_0_q = new TokenAlias(false, true, grammarAccess.getAsmStatementAccess().getCOLONTerminalRuleCall_4_0());
 		match_AsmStatement_KW_ASM1TerminalRuleCall_1_0_or_KW_ASM2TerminalRuleCall_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getAsmStatementAccess().getKW_ASM1TerminalRuleCall_1_0()), new TokenAlias(false, false, grammarAccess.getAsmStatementAccess().getKW_ASM2TerminalRuleCall_1_1()));
+		match_Initializer_COMMATerminalRuleCall_1_1_2_q = new TokenAlias(false, true, grammarAccess.getInitializerAccess().getCOMMATerminalRuleCall_1_1_2());
 		match_ParameterTypeList___COMMATerminalRuleCall_2_0_ELLIPSISTerminalRuleCall_2_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getParameterTypeListAccess().getCOMMATerminalRuleCall_2_0()), new TokenAlias(false, false, grammarAccess.getParameterTypeListAccess().getELLIPSISTerminalRuleCall_2_1()));
 		match_PostfixExpression___LEFTPARENTerminalRuleCall_1_1_1_0_RIGHTPARENTerminalRuleCall_1_1_1_2__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getPostfixExpressionAccess().getLEFTPARENTerminalRuleCall_1_1_1_0()), new TokenAlias(false, false, grammarAccess.getPostfixExpressionAccess().getRIGHTPARENTerminalRuleCall_1_1_1_2()));
 		match_PostfixExpression___RIGHTPARENTerminalRuleCall_1_1_1_2_LEFTPARENTerminalRuleCall_1_1_1_0__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getPostfixExpressionAccess().getRIGHTPARENTerminalRuleCall_1_1_1_2()), new TokenAlias(false, false, grammarAccess.getPostfixExpressionAccess().getLEFTPARENTerminalRuleCall_1_1_1_0()));
@@ -286,6 +288,8 @@ public class CSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_AsmStatement_COLONTerminalRuleCall_4_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_AsmStatement_KW_ASM1TerminalRuleCall_1_0_or_KW_ASM2TerminalRuleCall_1_1.equals(syntax))
 				emit_AsmStatement_KW_ASM1TerminalRuleCall_1_0_or_KW_ASM2TerminalRuleCall_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_Initializer_COMMATerminalRuleCall_1_1_2_q.equals(syntax))
+				emit_Initializer_COMMATerminalRuleCall_1_1_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_ParameterTypeList___COMMATerminalRuleCall_2_0_ELLIPSISTerminalRuleCall_2_1__q.equals(syntax))
 				emit_ParameterTypeList___COMMATerminalRuleCall_2_0_ELLIPSISTerminalRuleCall_2_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_PostfixExpression___LEFTPARENTerminalRuleCall_1_1_1_0_RIGHTPARENTerminalRuleCall_1_1_1_2__a.equals(syntax))
@@ -322,6 +326,17 @@ public class CSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) volatile=KW_VOLATILE2
 	 */
 	protected void emit_AsmStatement_KW_ASM1TerminalRuleCall_1_0_or_KW_ASM2TerminalRuleCall_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     COMMA?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     list=InitializerList (ambiguity) RIGHTBRACE (rule end)
+	 */
+	protected void emit_Initializer_COMMATerminalRuleCall_1_1_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

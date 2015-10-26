@@ -131,6 +131,42 @@ public interface CFactory extends EFactory
   TypedefName createTypedefName();
 
   /**
+   * Returns a new object of class '<em>Declaration Specifier</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Declaration Specifier</em>'.
+   * @generated
+   */
+  DeclarationSpecifier createDeclarationSpecifier();
+
+  /**
+   * Returns a new object of class '<em>Struct Or Union</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Struct Or Union</em>'.
+   * @generated
+   */
+  StructOrUnion createStructOrUnion();
+
+  /**
+   * Returns a new object of class '<em>Struct Declaration List</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Struct Declaration List</em>'.
+   * @generated
+   */
+  StructDeclarationList createStructDeclarationList();
+
+  /**
+   * Returns a new object of class '<em>Struct Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Struct Declaration</em>'.
+   * @generated
+   */
+  StructDeclaration createStructDeclaration();
+
+  /**
    * Returns a new object of class '<em>Specifier Qualifier List</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -140,13 +176,22 @@ public interface CFactory extends EFactory
   SpecifierQualifierList createSpecifierQualifierList();
 
   /**
-   * Returns a new object of class '<em>Declaration Specifier</em>'.
+   * Returns a new object of class '<em>Struct Declarator List</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Declaration Specifier</em>'.
+   * @return a new object of class '<em>Struct Declarator List</em>'.
    * @generated
    */
-  DeclarationSpecifier createDeclarationSpecifier();
+  StructDeclaratorList createStructDeclaratorList();
+
+  /**
+   * Returns a new object of class '<em>Struct Declarator</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Struct Declarator</em>'.
+   * @generated
+   */
+  StructDeclarator createStructDeclarator();
 
   /**
    * Returns a new object of class '<em>Enumerator List</em>'.
@@ -363,6 +408,15 @@ public interface CFactory extends EFactory
    * @generated
    */
   Constant createConstant();
+
+  /**
+   * Returns a new object of class '<em>Struct Or Union Specifier</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Struct Or Union Specifier</em>'.
+   * @generated
+   */
+  StructOrUnionSpecifier createStructOrUnionSpecifier();
 
   /**
    * Returns a new object of class '<em>Enum Specifier</em>'.

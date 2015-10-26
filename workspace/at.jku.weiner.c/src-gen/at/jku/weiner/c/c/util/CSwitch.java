@@ -156,6 +156,34 @@ public class CSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case CPackage.DECLARATION_SPECIFIER:
+      {
+        DeclarationSpecifier declarationSpecifier = (DeclarationSpecifier)theEObject;
+        T result = caseDeclarationSpecifier(declarationSpecifier);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CPackage.STRUCT_OR_UNION:
+      {
+        StructOrUnion structOrUnion = (StructOrUnion)theEObject;
+        T result = caseStructOrUnion(structOrUnion);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CPackage.STRUCT_DECLARATION_LIST:
+      {
+        StructDeclarationList structDeclarationList = (StructDeclarationList)theEObject;
+        T result = caseStructDeclarationList(structDeclarationList);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CPackage.STRUCT_DECLARATION:
+      {
+        StructDeclaration structDeclaration = (StructDeclaration)theEObject;
+        T result = caseStructDeclaration(structDeclaration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case CPackage.SPECIFIER_QUALIFIER_LIST:
       {
         SpecifierQualifierList specifierQualifierList = (SpecifierQualifierList)theEObject;
@@ -163,10 +191,17 @@ public class CSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case CPackage.DECLARATION_SPECIFIER:
+      case CPackage.STRUCT_DECLARATOR_LIST:
       {
-        DeclarationSpecifier declarationSpecifier = (DeclarationSpecifier)theEObject;
-        T result = caseDeclarationSpecifier(declarationSpecifier);
+        StructDeclaratorList structDeclaratorList = (StructDeclaratorList)theEObject;
+        T result = caseStructDeclaratorList(structDeclaratorList);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CPackage.STRUCT_DECLARATOR:
+      {
+        StructDeclarator structDeclarator = (StructDeclarator)theEObject;
+        T result = caseStructDeclarator(structDeclarator);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -335,6 +370,14 @@ public class CSwitch<T> extends Switch<T>
       {
         Constant constant = (Constant)theEObject;
         T result = caseConstant(constant);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CPackage.STRUCT_OR_UNION_SPECIFIER:
+      {
+        StructOrUnionSpecifier structOrUnionSpecifier = (StructOrUnionSpecifier)theEObject;
+        T result = caseStructOrUnionSpecifier(structOrUnionSpecifier);
+        if (result == null) result = caseDeclarationSpecifier(structOrUnionSpecifier);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -743,6 +786,70 @@ public class CSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Declaration Specifier</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Declaration Specifier</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDeclarationSpecifier(DeclarationSpecifier object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Struct Or Union</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Struct Or Union</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStructOrUnion(StructOrUnion object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Struct Declaration List</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Struct Declaration List</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStructDeclarationList(StructDeclarationList object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Struct Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Struct Declaration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStructDeclaration(StructDeclaration object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Specifier Qualifier List</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -759,17 +866,33 @@ public class CSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Declaration Specifier</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Struct Declarator List</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Declaration Specifier</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Struct Declarator List</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseDeclarationSpecifier(DeclarationSpecifier object)
+  public T caseStructDeclaratorList(StructDeclaratorList object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Struct Declarator</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Struct Declarator</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStructDeclarator(StructDeclarator object)
   {
     return null;
   }
@@ -1154,6 +1277,22 @@ public class CSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseConstant(Constant object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Struct Or Union Specifier</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Struct Or Union Specifier</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStructOrUnionSpecifier(StructOrUnionSpecifier object)
   {
     return null;
   }

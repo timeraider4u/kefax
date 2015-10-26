@@ -1,7 +1,14 @@
 #include <stdio.h>
 
+union num {
+	char numChar;
+	float numFloat;
+};
+
+union num number;
+
 int main(void) {
-	// unsigned long size = (unsigned long)sizeof(number);
+	unsigned long size = (unsigned long)sizeof(number);
 	printf("sizeof(number)=%lu\n", size);
 	printf("sizeof(number.numChar)=%lu\n", sizeof(number.numChar));
 	printf("sizeof(float)=%lu\n", sizeof(float));

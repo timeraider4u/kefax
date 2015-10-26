@@ -53,11 +53,30 @@
     <genClasses ecoreClass="C.ecore#//TypedefName">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//TypedefName/id"/>
     </genClasses>
+    <genClasses ecoreClass="C.ecore#//DeclarationSpecifier">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//DeclarationSpecifier/id"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//StructOrUnion">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//StructOrUnion/name"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//StructDeclarationList">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//StructDeclarationList/structDeclaration"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//StructDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//StructDeclaration/list"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//StructDeclaration/structDeclarationList"/>
+    </genClasses>
     <genClasses ecoreClass="C.ecore#//SpecifierQualifierList">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//SpecifierQualifierList/typeSpecifier"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//SpecifierQualifierList/typeQualifier"/>
     </genClasses>
-    <genClasses ecoreClass="C.ecore#//DeclarationSpecifier"/>
+    <genClasses ecoreClass="C.ecore#//StructDeclaratorList">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//StructDeclaratorList/structDeclarator"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//StructDeclarator">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//StructDeclarator/declarator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//StructDeclarator/constExpr"/>
+    </genClasses>
     <genClasses ecoreClass="C.ecore#//EnumeratorList">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//EnumeratorList/enumerator"/>
     </genClasses>
@@ -145,9 +164,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//Constant/float"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//Constant/bin"/>
     </genClasses>
+    <genClasses ecoreClass="C.ecore#//StructOrUnionSpecifier">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//StructOrUnionSpecifier/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//StructOrUnionSpecifier/structDeclList"/>
+    </genClasses>
     <genClasses ecoreClass="C.ecore#//EnumSpecifier">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//EnumSpecifier/enumList"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//EnumSpecifier/id"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//LabeledStatement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//LabeledStatement/id"/>

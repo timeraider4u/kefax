@@ -59,6 +59,12 @@ import at.jku.weiner.c.c.ShiftExpression;
 import at.jku.weiner.c.c.SpecifierQualifierList;
 import at.jku.weiner.c.c.Statement;
 import at.jku.weiner.c.c.StorageClassSpecifier;
+import at.jku.weiner.c.c.StructDeclaration;
+import at.jku.weiner.c.c.StructDeclarationList;
+import at.jku.weiner.c.c.StructDeclarator;
+import at.jku.weiner.c.c.StructDeclaratorList;
+import at.jku.weiner.c.c.StructOrUnion;
+import at.jku.weiner.c.c.StructOrUnionSpecifier;
 import at.jku.weiner.c.c.TranslationUnit;
 import at.jku.weiner.c.c.TypeName;
 import at.jku.weiner.c.c.TypeQualifier;
@@ -255,6 +261,24 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case CPackage.STORAGE_CLASS_SPECIFIER:
 				sequence_StorageClassSpecifier(context, (StorageClassSpecifier) semanticObject); 
+				return; 
+			case CPackage.STRUCT_DECLARATION:
+				sequence_StructDeclaration(context, (StructDeclaration) semanticObject); 
+				return; 
+			case CPackage.STRUCT_DECLARATION_LIST:
+				sequence_StructDeclarationList(context, (StructDeclarationList) semanticObject); 
+				return; 
+			case CPackage.STRUCT_DECLARATOR:
+				sequence_StructDeclarator(context, (StructDeclarator) semanticObject); 
+				return; 
+			case CPackage.STRUCT_DECLARATOR_LIST:
+				sequence_StructDeclaratorList(context, (StructDeclaratorList) semanticObject); 
+				return; 
+			case CPackage.STRUCT_OR_UNION:
+				sequence_StructOrUnion(context, (StructOrUnion) semanticObject); 
+				return; 
+			case CPackage.STRUCT_OR_UNION_SPECIFIER:
+				sequence_StructOrUnionSpecifier(context, (StructOrUnionSpecifier) semanticObject); 
 				return; 
 			case CPackage.TRANSLATION_UNIT:
 				sequence_TranslationUnit(context, (TranslationUnit) semanticObject); 
@@ -867,6 +891,67 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_StorageClassSpecifier(EObject context, StorageClassSpecifier semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     structDeclaration+=StructDeclaration+
+	 */
+	protected void sequence_StructDeclarationList(EObject context, StructDeclarationList semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (list=SpecifierQualifierList structDeclarationList=StructDeclaratorList?)
+	 */
+	protected void sequence_StructDeclaration(EObject context, StructDeclaration semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (structDeclarator+=StructDeclarator structDeclarator+=StructDeclarator*)
+	 */
+	protected void sequence_StructDeclaratorList(EObject context, StructDeclaratorList semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     ((declarator=Declarator constExpr+=ConstantExpression?) | constExpr+=ConstantExpression)
+	 */
+	protected void sequence_StructDeclarator(EObject context, StructDeclarator semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (type=StructOrUnion ((id=ID structDeclList=StructDeclarationList) | id=ID))
+	 */
+	protected void sequence_StructOrUnionSpecifier(EObject context, StructOrUnionSpecifier semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     name=KW_STRUCT
+	 */
+	protected void sequence_StructOrUnion(EObject context, StructOrUnion semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, CPackage.Literals.STRUCT_OR_UNION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CPackage.Literals.STRUCT_OR_UNION__NAME));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getStructOrUnionAccess().getNameKW_STRUCTTerminalRuleCall_0_1_0(), semanticObject.getName());
+		feeder.finish();
 	}
 	
 	

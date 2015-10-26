@@ -7,9 +7,19 @@ lexer-tokens
 LINEDIRECTIVE NEWLINE
 NEWLINE
 
+KW_UNION WHITESPACE ID WHITESPACE LEFTBRACE NEWLINE
+	WHITESPACE KW_CHAR WHITESPACE ID SEMI NEWLINE
+	WHITESPACE KW_FLOAT WHITESPACE ID SEMI NEWLINE 
+RIGHTBRACE SEMI NEWLINE
+NEWLINE
+KW_UNION WHITESPACE ID WHITESPACE ID SEMI NEWLINE
+NEWLINE
+
 KW_INT WHITESPACE ID LEFTPAREN KW_VOID RIGHTPAREN WHITESPACE LEFTBRACE NEWLINE
 	// unsigned long size = (unsigned long)sizeof(number);
-	WHITESPACE LINE_COMMENT NEWLINE
+	WHITESPACE KW_UNSIGNED WHITESPACE KW_LONG WHITESPACE ID WHITESPACE ASSIGN
+		WHITESPACE LEFTPAREN KW_UNSIGNED WHITESPACE KW_LONG RIGHTPAREN
+		KW_SIZEOF LEFTPAREN ID RIGHTPAREN SEMI NEWLINE
 	// printf(s)
 	WHITESPACE ID LEFTPAREN STRING_LITERAL COMMA WHITESPACE ID RIGHTPAREN SEMI NEWLINE
 	WHITESPACE ID LEFTPAREN STRING_LITERAL COMMA WHITESPACE 
@@ -35,6 +45,109 @@ RIGHTBRACE NEWLINE
 (Model unit+=
 	(TranslationUnit 
 		external+=
+		// union num { ... };
+		(ExternalDeclaration
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						specifier=
+						(StructOrUnionSpecifier
+							type=
+							(StructOrUnion
+								name++"union"
+							),
+							id++"num",
+							structDeclList=
+							(StructDeclarationList
+								structDeclaration+=
+								// char numChar
+								(StructDeclaration
+									list=
+									(SpecifierQualifierList
+										typeSpecifier+=
+										(TypeSpecifier
+											name++"char"
+										)
+									),
+									structDeclarationList=
+									(StructDeclaratorList
+										structDeclarator+=
+										(StructDeclarator
+											declarator=
+											(Declarator
+												declarator=
+												(DirectDeclarator
+													id++"numChar"
+												)
+											)
+										)
+									)
+								),
+								// float numFloat
+								(StructDeclaration
+									list=
+									(SpecifierQualifierList
+										typeSpecifier+=
+										(TypeSpecifier
+											name++"float"
+										)
+									),
+									structDeclarationList=
+									(StructDeclaratorList
+										structDeclarator+=
+										(StructDeclarator
+											declarator=
+											(Declarator
+												declarator=
+												(DirectDeclarator
+													id++"numFloat"
+												)
+											)
+										)
+									)
+								)
+							)
+						)
+					)
+				)
+			)
+		),
+		// union num number;
+		(ExternalDeclaration
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						specifier=
+						(StructOrUnionSpecifier
+							type=
+							(StructOrUnion
+								name++"union"
+							),
+							id++"num"
+						)
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"number"
+							)
+						)
+					)
+				)
+			)
+		),
 		// int main(...)
 		(ExternalDeclaration 
 			functiondefHead=
@@ -82,6 +195,156 @@ RIGHTBRACE NEWLINE
 				(BodyStatement
 					blockList+=
 					(BlockList
+						declaration+=
+						// unsigned long size = ...
+						(Declaration
+							specifiers=
+							(DeclarationSpecifiers
+								declarationSpecifier+=
+								(TypeSpecifier
+									name++"unsigned"
+								),
+								(TypeSpecifier
+									name++"long"
+								)
+							),
+							initDeclaratorList+=
+							(InitDeclaratorList
+								initDeclarator+=
+								(InitDeclarator
+									declarator=
+									(Declarator
+										declarator=
+										(DirectDeclarator
+											id++"size"
+										)
+									),
+									initializer=
+									(Initializer
+										expr=
+										(AssignmentExpression
+											expr=
+											(ConditionalExpression
+												expr=
+												(LogicalOrExpression
+													expr+=
+													(LogicalAndExpression
+														expr+=
+														(InclusiveOrExpression
+															expr+=
+															(ExclusiveOrExpression
+																expr+=
+																(AndExpression
+																	expr+=
+																	(EqualityExpression
+																		expr+=
+																		(RelationalExpression
+																			expr+=
+																			(ShiftExpression
+																				expr+=
+																				(AdditiveExpression
+																					expr+=
+																					(MultiplicativeExpression
+																						expr+=
+																						(CastExpression
+																							type=
+																							(TypeName
+																								list=
+																								(SpecifierQualifierList
+																									typeSpecifier+=
+																									(TypeSpecifier
+																										name++"unsigned"
+																									),
+																									(TypeSpecifier
+																										name++"long"
+																									)
+																								)
+																							),
+																							expr=
+																							(CastExpression
+																								expr=
+																								(UnaryExpression
+																									sizeOf++"sizeof",
+																									expr=
+																									(UnaryExpression
+																										expr=
+																										(PostfixExpression
+																											expr+=
+																											(PrimaryExpression
+																												expr=
+																												(Expression
+																													exprExpr+=
+																													(AssignmentExpression
+																														expr=
+																														(ConditionalExpression
+																															expr=
+																															(LogicalOrExpression
+																																expr+=
+																																(LogicalAndExpression
+																																	expr+=
+																																	(InclusiveOrExpression
+																																		expr+=
+																																		(ExclusiveOrExpression
+																																			expr+=
+																																			(AndExpression
+																																				expr+=
+																																				(EqualityExpression
+																																					expr+=
+																																					(RelationalExpression
+																																						expr+=
+																																						(ShiftExpression
+																																							expr+=
+																																							(AdditiveExpression
+																																								expr+=
+																																								(MultiplicativeExpression
+																																									expr+=
+																																									(CastExpression
+																																										expr=
+																																										(UnaryExpression
+																																											expr=
+																																											(PostfixExpression
+																																												expr+=
+																																												(PrimaryExpression
+																																													id++"number"
+																																												) 
+																																											) 
+																																										)
+																																									)
+																																								)
+																																							)
+																																						)
+																																					)	
+																																				) 
+																																			)
+																																		)
+																																	)
+																																)
+																															)
+																														)
+																													)
+																												)
+																											)
+																										)
+																									)
+																								)
+																							)
+																						)
+																					)
+																				)
+																			)
+																		)
+																	)
+																)
+															)
+														)
+													)
+												)
+											)
+										) // end assignment expression
+									)
+								)
+							)
+						), // end declaration (unsigned long size = ...)
 						statement+=
 						// printf(..., size);
 						(Statement

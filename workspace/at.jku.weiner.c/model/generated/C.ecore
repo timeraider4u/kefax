@@ -65,13 +65,38 @@
   <eClassifiers xsi:type="ecore:EClass" name="TypedefName">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DeclarationSpecifier">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StructOrUnion">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StructDeclarationList">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="structDeclaration" upperBound="-1"
+        eType="#//StructDeclaration" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StructDeclaration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="list" eType="#//SpecifierQualifierList"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="structDeclarationList"
+        eType="#//StructDeclaratorList" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SpecifierQualifierList">
     <eStructuralFeatures xsi:type="ecore:EReference" name="typeSpecifier" upperBound="-1"
         eType="#//TypeSpecifier" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="typeQualifier" upperBound="-1"
         eType="#//TypeQualifier" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DeclarationSpecifier"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StructDeclaratorList">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="structDeclarator" upperBound="-1"
+        eType="#//StructDeclarator" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StructDeclarator">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="declarator" eType="#//Declarator"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constExpr" upperBound="-1"
+        eType="#//Expression" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnumeratorList">
     <eStructuralFeatures xsi:type="ecore:EReference" name="enumerator" upperBound="-1"
         eType="#//Enumerator" containment="true"/>
@@ -184,10 +209,15 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="float" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="bin" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StructOrUnionSpecifier" eSuperTypes="#//DeclarationSpecifier">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//StructOrUnion"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="structDeclList" eType="#//StructDeclarationList"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnumSpecifier" eSuperTypes="#//DeclarationSpecifier">
     <eStructuralFeatures xsi:type="ecore:EReference" name="enumList" eType="#//EnumeratorList"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LabeledStatement" eSuperTypes="#//Statement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>

@@ -60,6 +60,12 @@ import at.jku.weiner.c.c.ShiftExpression;
 import at.jku.weiner.c.c.SpecifierQualifierList;
 import at.jku.weiner.c.c.Statement;
 import at.jku.weiner.c.c.StorageClassSpecifier;
+import at.jku.weiner.c.c.StructDeclaration;
+import at.jku.weiner.c.c.StructDeclarationList;
+import at.jku.weiner.c.c.StructDeclarator;
+import at.jku.weiner.c.c.StructDeclaratorList;
+import at.jku.weiner.c.c.StructOrUnion;
+import at.jku.weiner.c.c.StructOrUnionSpecifier;
 import at.jku.weiner.c.c.TranslationUnit;
 import at.jku.weiner.c.c.TypeName;
 import at.jku.weiner.c.c.TypeQualifier;
@@ -174,6 +180,34 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass declarationSpecifierEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass structOrUnionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass structDeclarationListEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass structDeclarationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass specifierQualifierListEClass = null;
 
   /**
@@ -181,7 +215,14 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass declarationSpecifierEClass = null;
+  private EClass structDeclaratorListEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass structDeclaratorEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -350,6 +391,13 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * @generated
    */
   private EClass constantEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass structOrUnionSpecifierEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -944,6 +992,96 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getDeclarationSpecifier()
+  {
+    return declarationSpecifierEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDeclarationSpecifier_Id()
+  {
+    return (EAttribute)declarationSpecifierEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getStructOrUnion()
+  {
+    return structOrUnionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getStructOrUnion_Name()
+  {
+    return (EAttribute)structOrUnionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getStructDeclarationList()
+  {
+    return structDeclarationListEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getStructDeclarationList_StructDeclaration()
+  {
+    return (EReference)structDeclarationListEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getStructDeclaration()
+  {
+    return structDeclarationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getStructDeclaration_List()
+  {
+    return (EReference)structDeclarationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getStructDeclaration_StructDeclarationList()
+  {
+    return (EReference)structDeclarationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getSpecifierQualifierList()
   {
     return specifierQualifierListEClass;
@@ -974,9 +1112,49 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getDeclarationSpecifier()
+  public EClass getStructDeclaratorList()
   {
-    return declarationSpecifierEClass;
+    return structDeclaratorListEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getStructDeclaratorList_StructDeclarator()
+  {
+    return (EReference)structDeclaratorListEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getStructDeclarator()
+  {
+    return structDeclaratorEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getStructDeclarator_Declarator()
+  {
+    return (EReference)structDeclaratorEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getStructDeclarator_ConstExpr()
+  {
+    return (EReference)structDeclaratorEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1614,6 +1792,36 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getStructOrUnionSpecifier()
+  {
+    return structOrUnionSpecifierEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getStructOrUnionSpecifier_Type()
+  {
+    return (EReference)structOrUnionSpecifierEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getStructOrUnionSpecifier_StructDeclList()
+  {
+    return (EReference)structOrUnionSpecifierEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getEnumSpecifier()
   {
     return enumSpecifierEClass;
@@ -1627,16 +1835,6 @@ public class CPackageImpl extends EPackageImpl implements CPackage
   public EReference getEnumSpecifier_EnumList()
   {
     return (EReference)enumSpecifierEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getEnumSpecifier_Id()
-  {
-    return (EAttribute)enumSpecifierEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2725,11 +2923,29 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     typedefNameEClass = createEClass(TYPEDEF_NAME);
     createEAttribute(typedefNameEClass, TYPEDEF_NAME__ID);
 
+    declarationSpecifierEClass = createEClass(DECLARATION_SPECIFIER);
+    createEAttribute(declarationSpecifierEClass, DECLARATION_SPECIFIER__ID);
+
+    structOrUnionEClass = createEClass(STRUCT_OR_UNION);
+    createEAttribute(structOrUnionEClass, STRUCT_OR_UNION__NAME);
+
+    structDeclarationListEClass = createEClass(STRUCT_DECLARATION_LIST);
+    createEReference(structDeclarationListEClass, STRUCT_DECLARATION_LIST__STRUCT_DECLARATION);
+
+    structDeclarationEClass = createEClass(STRUCT_DECLARATION);
+    createEReference(structDeclarationEClass, STRUCT_DECLARATION__LIST);
+    createEReference(structDeclarationEClass, STRUCT_DECLARATION__STRUCT_DECLARATION_LIST);
+
     specifierQualifierListEClass = createEClass(SPECIFIER_QUALIFIER_LIST);
     createEReference(specifierQualifierListEClass, SPECIFIER_QUALIFIER_LIST__TYPE_SPECIFIER);
     createEReference(specifierQualifierListEClass, SPECIFIER_QUALIFIER_LIST__TYPE_QUALIFIER);
 
-    declarationSpecifierEClass = createEClass(DECLARATION_SPECIFIER);
+    structDeclaratorListEClass = createEClass(STRUCT_DECLARATOR_LIST);
+    createEReference(structDeclaratorListEClass, STRUCT_DECLARATOR_LIST__STRUCT_DECLARATOR);
+
+    structDeclaratorEClass = createEClass(STRUCT_DECLARATOR);
+    createEReference(structDeclaratorEClass, STRUCT_DECLARATOR__DECLARATOR);
+    createEReference(structDeclaratorEClass, STRUCT_DECLARATOR__CONST_EXPR);
 
     enumeratorListEClass = createEClass(ENUMERATOR_LIST);
     createEReference(enumeratorListEClass, ENUMERATOR_LIST__ENUMERATOR);
@@ -2818,9 +3034,12 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     createEAttribute(constantEClass, CONSTANT__FLOAT);
     createEAttribute(constantEClass, CONSTANT__BIN);
 
+    structOrUnionSpecifierEClass = createEClass(STRUCT_OR_UNION_SPECIFIER);
+    createEReference(structOrUnionSpecifierEClass, STRUCT_OR_UNION_SPECIFIER__TYPE);
+    createEReference(structOrUnionSpecifierEClass, STRUCT_OR_UNION_SPECIFIER__STRUCT_DECL_LIST);
+
     enumSpecifierEClass = createEClass(ENUM_SPECIFIER);
     createEReference(enumSpecifierEClass, ENUM_SPECIFIER__ENUM_LIST);
-    createEAttribute(enumSpecifierEClass, ENUM_SPECIFIER__ID);
 
     labeledStatementEClass = createEClass(LABELED_STATEMENT);
     createEAttribute(labeledStatementEClass, LABELED_STATEMENT__ID);
@@ -2981,6 +3200,7 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    structOrUnionSpecifierEClass.getESuperTypes().add(this.getDeclarationSpecifier());
     enumSpecifierEClass.getESuperTypes().add(this.getDeclarationSpecifier());
     labeledStatementEClass.getESuperTypes().add(this.getStatement());
     compoundStatementEClass.getESuperTypes().add(this.getStatement());
@@ -3055,11 +3275,29 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     initEClass(typedefNameEClass, TypedefName.class, "TypedefName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTypedefName_Id(), theEcorePackage.getEString(), "id", null, 0, 1, TypedefName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(declarationSpecifierEClass, DeclarationSpecifier.class, "DeclarationSpecifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDeclarationSpecifier_Id(), theEcorePackage.getEString(), "id", null, 0, 1, DeclarationSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(structOrUnionEClass, StructOrUnion.class, "StructOrUnion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getStructOrUnion_Name(), theEcorePackage.getEString(), "name", null, 0, 1, StructOrUnion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(structDeclarationListEClass, StructDeclarationList.class, "StructDeclarationList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getStructDeclarationList_StructDeclaration(), this.getStructDeclaration(), null, "structDeclaration", null, 0, -1, StructDeclarationList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(structDeclarationEClass, StructDeclaration.class, "StructDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getStructDeclaration_List(), this.getSpecifierQualifierList(), null, "list", null, 0, 1, StructDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStructDeclaration_StructDeclarationList(), this.getStructDeclaratorList(), null, "structDeclarationList", null, 0, 1, StructDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(specifierQualifierListEClass, SpecifierQualifierList.class, "SpecifierQualifierList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSpecifierQualifierList_TypeSpecifier(), this.getTypeSpecifier(), null, "typeSpecifier", null, 0, -1, SpecifierQualifierList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSpecifierQualifierList_TypeQualifier(), this.getTypeQualifier(), null, "typeQualifier", null, 0, -1, SpecifierQualifierList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(declarationSpecifierEClass, DeclarationSpecifier.class, "DeclarationSpecifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(structDeclaratorListEClass, StructDeclaratorList.class, "StructDeclaratorList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getStructDeclaratorList_StructDeclarator(), this.getStructDeclarator(), null, "structDeclarator", null, 0, -1, StructDeclaratorList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(structDeclaratorEClass, StructDeclarator.class, "StructDeclarator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getStructDeclarator_Declarator(), this.getDeclarator(), null, "declarator", null, 0, 1, StructDeclarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStructDeclarator_ConstExpr(), this.getExpression(), null, "constExpr", null, 0, -1, StructDeclarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(enumeratorListEClass, EnumeratorList.class, "EnumeratorList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getEnumeratorList_Enumerator(), this.getEnumerator(), null, "enumerator", null, 0, -1, EnumeratorList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3148,9 +3386,12 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     initEAttribute(getConstant_Float(), theEcorePackage.getEString(), "float", null, 0, 1, Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getConstant_Bin(), theEcorePackage.getEString(), "bin", null, 0, 1, Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(structOrUnionSpecifierEClass, StructOrUnionSpecifier.class, "StructOrUnionSpecifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getStructOrUnionSpecifier_Type(), this.getStructOrUnion(), null, "type", null, 0, 1, StructOrUnionSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStructOrUnionSpecifier_StructDeclList(), this.getStructDeclarationList(), null, "structDeclList", null, 0, 1, StructOrUnionSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(enumSpecifierEClass, EnumSpecifier.class, "EnumSpecifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getEnumSpecifier_EnumList(), this.getEnumeratorList(), null, "enumList", null, 0, 1, EnumSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getEnumSpecifier_Id(), theEcorePackage.getEString(), "id", null, 0, 1, EnumSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(labeledStatementEClass, LabeledStatement.class, "LabeledStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getLabeledStatement_Id(), theEcorePackage.getEString(), "id", null, 0, 1, LabeledStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

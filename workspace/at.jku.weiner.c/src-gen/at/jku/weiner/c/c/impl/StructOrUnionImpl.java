@@ -3,7 +3,7 @@
 package at.jku.weiner.c.c.impl;
 
 import at.jku.weiner.c.c.CPackage;
-import at.jku.weiner.c.c.DeclarationSpecifier;
+import at.jku.weiner.c.c.StructOrUnion;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -14,45 +14,45 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Declaration Specifier</b></em>'.
+ * An implementation of the model object '<em><b>Struct Or Union</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link at.jku.weiner.c.c.impl.DeclarationSpecifierImpl#getId <em>Id</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.impl.StructOrUnionImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DeclarationSpecifierImpl extends MinimalEObjectImpl.Container implements DeclarationSpecifier
+public class StructOrUnionImpl extends MinimalEObjectImpl.Container implements StructOrUnion
 {
   /**
-   * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getId()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String ID_EDEFAULT = null;
+  protected static final String NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getId()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected String id = ID_EDEFAULT;
+  protected String name = NAME_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected DeclarationSpecifierImpl()
+  protected StructOrUnionImpl()
   {
     super();
   }
@@ -65,7 +65,7 @@ public class DeclarationSpecifierImpl extends MinimalEObjectImpl.Container imple
   @Override
   protected EClass eStaticClass()
   {
-    return CPackage.Literals.DECLARATION_SPECIFIER;
+    return CPackage.Literals.STRUCT_OR_UNION;
   }
 
   /**
@@ -73,9 +73,9 @@ public class DeclarationSpecifierImpl extends MinimalEObjectImpl.Container imple
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getId()
+  public String getName()
   {
-    return id;
+    return name;
   }
 
   /**
@@ -83,12 +83,12 @@ public class DeclarationSpecifierImpl extends MinimalEObjectImpl.Container imple
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setId(String newId)
+  public void setName(String newName)
   {
-    String oldId = id;
-    id = newId;
+    String oldName = name;
+    name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, CPackage.DECLARATION_SPECIFIER__ID, oldId, id));
+      eNotify(new ENotificationImpl(this, Notification.SET, CPackage.STRUCT_OR_UNION__NAME, oldName, name));
   }
 
   /**
@@ -101,8 +101,8 @@ public class DeclarationSpecifierImpl extends MinimalEObjectImpl.Container imple
   {
     switch (featureID)
     {
-      case CPackage.DECLARATION_SPECIFIER__ID:
-        return getId();
+      case CPackage.STRUCT_OR_UNION__NAME:
+        return getName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -117,8 +117,8 @@ public class DeclarationSpecifierImpl extends MinimalEObjectImpl.Container imple
   {
     switch (featureID)
     {
-      case CPackage.DECLARATION_SPECIFIER__ID:
-        setId((String)newValue);
+      case CPackage.STRUCT_OR_UNION__NAME:
+        setName((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -134,8 +134,8 @@ public class DeclarationSpecifierImpl extends MinimalEObjectImpl.Container imple
   {
     switch (featureID)
     {
-      case CPackage.DECLARATION_SPECIFIER__ID:
-        setId(ID_EDEFAULT);
+      case CPackage.STRUCT_OR_UNION__NAME:
+        setName(NAME_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -151,8 +151,8 @@ public class DeclarationSpecifierImpl extends MinimalEObjectImpl.Container imple
   {
     switch (featureID)
     {
-      case CPackage.DECLARATION_SPECIFIER__ID:
-        return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+      case CPackage.STRUCT_OR_UNION__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
   }
@@ -168,10 +168,10 @@ public class DeclarationSpecifierImpl extends MinimalEObjectImpl.Container imple
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (id: ");
-    result.append(id);
+    result.append(" (name: ");
+    result.append(name);
     result.append(')');
     return result.toString();
   }
 
-} //DeclarationSpecifierImpl
+} //StructOrUnionImpl

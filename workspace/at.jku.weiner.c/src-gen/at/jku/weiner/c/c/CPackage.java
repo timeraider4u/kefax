@@ -483,6 +483,127 @@ public interface CPackage extends EPackage
   int TYPEDEF_NAME_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link at.jku.weiner.c.c.impl.DeclarationSpecifierImpl <em>Declaration Specifier</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.c.c.impl.DeclarationSpecifierImpl
+   * @see at.jku.weiner.c.c.impl.CPackageImpl#getDeclarationSpecifier()
+   * @generated
+   */
+  int DECLARATION_SPECIFIER = 12;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DECLARATION_SPECIFIER__ID = 0;
+
+  /**
+   * The number of structural features of the '<em>Declaration Specifier</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DECLARATION_SPECIFIER_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link at.jku.weiner.c.c.impl.StructOrUnionImpl <em>Struct Or Union</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.c.c.impl.StructOrUnionImpl
+   * @see at.jku.weiner.c.c.impl.CPackageImpl#getStructOrUnion()
+   * @generated
+   */
+  int STRUCT_OR_UNION = 13;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRUCT_OR_UNION__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Struct Or Union</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRUCT_OR_UNION_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link at.jku.weiner.c.c.impl.StructDeclarationListImpl <em>Struct Declaration List</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.c.c.impl.StructDeclarationListImpl
+   * @see at.jku.weiner.c.c.impl.CPackageImpl#getStructDeclarationList()
+   * @generated
+   */
+  int STRUCT_DECLARATION_LIST = 14;
+
+  /**
+   * The feature id for the '<em><b>Struct Declaration</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRUCT_DECLARATION_LIST__STRUCT_DECLARATION = 0;
+
+  /**
+   * The number of structural features of the '<em>Struct Declaration List</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRUCT_DECLARATION_LIST_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link at.jku.weiner.c.c.impl.StructDeclarationImpl <em>Struct Declaration</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.c.c.impl.StructDeclarationImpl
+   * @see at.jku.weiner.c.c.impl.CPackageImpl#getStructDeclaration()
+   * @generated
+   */
+  int STRUCT_DECLARATION = 15;
+
+  /**
+   * The feature id for the '<em><b>List</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRUCT_DECLARATION__LIST = 0;
+
+  /**
+   * The feature id for the '<em><b>Struct Declaration List</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRUCT_DECLARATION__STRUCT_DECLARATION_LIST = 1;
+
+  /**
+   * The number of structural features of the '<em>Struct Declaration</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRUCT_DECLARATION_FEATURE_COUNT = 2;
+
+  /**
    * The meta object id for the '{@link at.jku.weiner.c.c.impl.SpecifierQualifierListImpl <em>Specifier Qualifier List</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -490,7 +611,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getSpecifierQualifierList()
    * @generated
    */
-  int SPECIFIER_QUALIFIER_LIST = 12;
+  int SPECIFIER_QUALIFIER_LIST = 16;
 
   /**
    * The feature id for the '<em><b>Type Specifier</b></em>' containment reference list.
@@ -520,23 +641,69 @@ public interface CPackage extends EPackage
   int SPECIFIER_QUALIFIER_LIST_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link at.jku.weiner.c.c.impl.DeclarationSpecifierImpl <em>Declaration Specifier</em>}' class.
+   * The meta object id for the '{@link at.jku.weiner.c.c.impl.StructDeclaratorListImpl <em>Struct Declarator List</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see at.jku.weiner.c.c.impl.DeclarationSpecifierImpl
-   * @see at.jku.weiner.c.c.impl.CPackageImpl#getDeclarationSpecifier()
+   * @see at.jku.weiner.c.c.impl.StructDeclaratorListImpl
+   * @see at.jku.weiner.c.c.impl.CPackageImpl#getStructDeclaratorList()
    * @generated
    */
-  int DECLARATION_SPECIFIER = 13;
+  int STRUCT_DECLARATOR_LIST = 17;
 
   /**
-   * The number of structural features of the '<em>Declaration Specifier</em>' class.
+   * The feature id for the '<em><b>Struct Declarator</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DECLARATION_SPECIFIER_FEATURE_COUNT = 0;
+  int STRUCT_DECLARATOR_LIST__STRUCT_DECLARATOR = 0;
+
+  /**
+   * The number of structural features of the '<em>Struct Declarator List</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRUCT_DECLARATOR_LIST_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link at.jku.weiner.c.c.impl.StructDeclaratorImpl <em>Struct Declarator</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.c.c.impl.StructDeclaratorImpl
+   * @see at.jku.weiner.c.c.impl.CPackageImpl#getStructDeclarator()
+   * @generated
+   */
+  int STRUCT_DECLARATOR = 18;
+
+  /**
+   * The feature id for the '<em><b>Declarator</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRUCT_DECLARATOR__DECLARATOR = 0;
+
+  /**
+   * The feature id for the '<em><b>Const Expr</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRUCT_DECLARATOR__CONST_EXPR = 1;
+
+  /**
+   * The number of structural features of the '<em>Struct Declarator</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRUCT_DECLARATOR_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.c.impl.EnumeratorListImpl <em>Enumerator List</em>}' class.
@@ -546,7 +713,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getEnumeratorList()
    * @generated
    */
-  int ENUMERATOR_LIST = 14;
+  int ENUMERATOR_LIST = 19;
 
   /**
    * The feature id for the '<em><b>Enumerator</b></em>' containment reference list.
@@ -574,7 +741,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getEnumerator()
    * @generated
    */
-  int ENUMERATOR = 15;
+  int ENUMERATOR = 20;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -611,7 +778,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getTypeQualifier()
    * @generated
    */
-  int TYPE_QUALIFIER = 16;
+  int TYPE_QUALIFIER = 21;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -639,7 +806,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getFunctionSpecifier()
    * @generated
    */
-  int FUNCTION_SPECIFIER = 17;
+  int FUNCTION_SPECIFIER = 22;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -667,7 +834,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getDeclarator()
    * @generated
    */
-  int DECLARATOR = 18;
+  int DECLARATOR = 23;
 
   /**
    * The feature id for the '<em><b>Pointer</b></em>' containment reference.
@@ -704,7 +871,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getDirectDeclarator()
    * @generated
    */
-  int DIRECT_DECLARATOR = 19;
+  int DIRECT_DECLARATOR = 24;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -750,7 +917,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getDeclaratorSuffix()
    * @generated
    */
-  int DECLARATOR_SUFFIX = 20;
+  int DECLARATOR_SUFFIX = 25;
 
   /**
    * The feature id for the '<em><b>Last Suffix</b></em>' containment reference.
@@ -778,7 +945,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getDirectDeclaratorLastSuffix()
    * @generated
    */
-  int DIRECT_DECLARATOR_LAST_SUFFIX = 21;
+  int DIRECT_DECLARATOR_LAST_SUFFIX = 26;
 
   /**
    * The feature id for the '<em><b>Parameter Type List</b></em>' containment reference list.
@@ -815,7 +982,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getPointer()
    * @generated
    */
-  int POINTER = 22;
+  int POINTER = 27;
 
   /**
    * The feature id for the '<em><b>Star</b></em>' attribute list.
@@ -861,7 +1028,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getTypeQualifierList()
    * @generated
    */
-  int TYPE_QUALIFIER_LIST = 23;
+  int TYPE_QUALIFIER_LIST = 28;
 
   /**
    * The feature id for the '<em><b>Type Qualifier</b></em>' containment reference list.
@@ -889,7 +1056,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getParameterTypeList()
    * @generated
    */
-  int PARAMETER_TYPE_LIST = 24;
+  int PARAMETER_TYPE_LIST = 29;
 
   /**
    * The feature id for the '<em><b>List</b></em>' containment reference.
@@ -917,7 +1084,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getParameterList()
    * @generated
    */
-  int PARAMETER_LIST = 25;
+  int PARAMETER_LIST = 30;
 
   /**
    * The feature id for the '<em><b>Parameter Declaration</b></em>' containment reference list.
@@ -945,7 +1112,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getParameterDeclaration()
    * @generated
    */
-  int PARAMETER_DECLARATION = 26;
+  int PARAMETER_DECLARATION = 31;
 
   /**
    * The feature id for the '<em><b>Decl Specifiers</b></em>' containment reference.
@@ -982,7 +1149,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getIdentifierList()
    * @generated
    */
-  int IDENTIFIER_LIST = 27;
+  int IDENTIFIER_LIST = 32;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' containment reference list.
@@ -1010,7 +1177,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getMyIdentifier()
    * @generated
    */
-  int MY_IDENTIFIER = 28;
+  int MY_IDENTIFIER = 33;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1038,7 +1205,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getTypeName()
    * @generated
    */
-  int TYPE_NAME = 29;
+  int TYPE_NAME = 34;
 
   /**
    * The feature id for the '<em><b>List</b></em>' containment reference.
@@ -1066,7 +1233,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getInitializer()
    * @generated
    */
-  int INITIALIZER = 30;
+  int INITIALIZER = 35;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -1094,7 +1261,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getBlockList()
    * @generated
    */
-  int BLOCK_LIST = 31;
+  int BLOCK_LIST = 36;
 
   /**
    * The feature id for the '<em><b>Declaration</b></em>' containment reference list.
@@ -1131,7 +1298,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getStatement()
    * @generated
    */
-  int STATEMENT = 32;
+  int STATEMENT = 37;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -1159,7 +1326,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 33;
+  int EXPRESSION = 38;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -1187,7 +1354,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getAssignmentOperator()
    * @generated
    */
-  int ASSIGNMENT_OPERATOR = 34;
+  int ASSIGNMENT_OPERATOR = 39;
 
   /**
    * The feature id for the '<em><b>Op</b></em>' attribute.
@@ -1215,7 +1382,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getUnaryOperator()
    * @generated
    */
-  int UNARY_OPERATOR = 35;
+  int UNARY_OPERATOR = 40;
 
   /**
    * The feature id for the '<em><b>Op</b></em>' attribute.
@@ -1243,7 +1410,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getArgumentExpressionList()
    * @generated
    */
-  int ARGUMENT_EXPRESSION_LIST = 36;
+  int ARGUMENT_EXPRESSION_LIST = 41;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference list.
@@ -1271,7 +1438,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getConstant()
    * @generated
    */
-  int CONSTANT = 37;
+  int CONSTANT = 42;
 
   /**
    * The feature id for the '<em><b>Hex</b></em>' attribute.
@@ -1346,6 +1513,52 @@ public interface CPackage extends EPackage
   int CONSTANT_FEATURE_COUNT = 7;
 
   /**
+   * The meta object id for the '{@link at.jku.weiner.c.c.impl.StructOrUnionSpecifierImpl <em>Struct Or Union Specifier</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.c.c.impl.StructOrUnionSpecifierImpl
+   * @see at.jku.weiner.c.c.impl.CPackageImpl#getStructOrUnionSpecifier()
+   * @generated
+   */
+  int STRUCT_OR_UNION_SPECIFIER = 43;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRUCT_OR_UNION_SPECIFIER__ID = DECLARATION_SPECIFIER__ID;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRUCT_OR_UNION_SPECIFIER__TYPE = DECLARATION_SPECIFIER_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Struct Decl List</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRUCT_OR_UNION_SPECIFIER__STRUCT_DECL_LIST = DECLARATION_SPECIFIER_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Struct Or Union Specifier</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRUCT_OR_UNION_SPECIFIER_FEATURE_COUNT = DECLARATION_SPECIFIER_FEATURE_COUNT + 2;
+
+  /**
    * The meta object id for the '{@link at.jku.weiner.c.c.impl.EnumSpecifierImpl <em>Enum Specifier</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1353,7 +1566,16 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getEnumSpecifier()
    * @generated
    */
-  int ENUM_SPECIFIER = 38;
+  int ENUM_SPECIFIER = 44;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENUM_SPECIFIER__ID = DECLARATION_SPECIFIER__ID;
 
   /**
    * The feature id for the '<em><b>Enum List</b></em>' containment reference.
@@ -1365,22 +1587,13 @@ public interface CPackage extends EPackage
   int ENUM_SPECIFIER__ENUM_LIST = DECLARATION_SPECIFIER_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ENUM_SPECIFIER__ID = DECLARATION_SPECIFIER_FEATURE_COUNT + 1;
-
-  /**
    * The number of structural features of the '<em>Enum Specifier</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ENUM_SPECIFIER_FEATURE_COUNT = DECLARATION_SPECIFIER_FEATURE_COUNT + 2;
+  int ENUM_SPECIFIER_FEATURE_COUNT = DECLARATION_SPECIFIER_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.c.impl.LabeledStatementImpl <em>Labeled Statement</em>}' class.
@@ -1390,7 +1603,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getLabeledStatement()
    * @generated
    */
-  int LABELED_STATEMENT = 39;
+  int LABELED_STATEMENT = 45;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -1463,7 +1676,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getCompoundStatement()
    * @generated
    */
-  int COMPOUND_STATEMENT = 40;
+  int COMPOUND_STATEMENT = 46;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -1500,7 +1713,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getBodyStatement()
    * @generated
    */
-  int BODY_STATEMENT = 41;
+  int BODY_STATEMENT = 47;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -1537,7 +1750,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getExpressionStatement()
    * @generated
    */
-  int EXPRESSION_STATEMENT = 42;
+  int EXPRESSION_STATEMENT = 48;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -1583,7 +1796,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getSelectionStatement()
    * @generated
    */
-  int SELECTION_STATEMENT = 43;
+  int SELECTION_STATEMENT = 49;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -1674,7 +1887,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getIterationStatement()
    * @generated
    */
-  int ITERATION_STATEMENT = 44;
+  int ITERATION_STATEMENT = 50;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -1783,7 +1996,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getJumpStatement()
    * @generated
    */
-  int JUMP_STATEMENT = 45;
+  int JUMP_STATEMENT = 51;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -1865,7 +2078,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getAsmStatement()
    * @generated
    */
-  int ASM_STATEMENT = 46;
+  int ASM_STATEMENT = 52;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -1920,7 +2133,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getAssignmentExpression()
    * @generated
    */
-  int ASSIGNMENT_EXPRESSION = 47;
+  int ASSIGNMENT_EXPRESSION = 53;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -1975,7 +2188,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getConditionalExpression()
    * @generated
    */
-  int CONDITIONAL_EXPRESSION = 48;
+  int CONDITIONAL_EXPRESSION = 54;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2030,7 +2243,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getLogicalOrExpression()
    * @generated
    */
-  int LOGICAL_OR_EXPRESSION = 49;
+  int LOGICAL_OR_EXPRESSION = 55;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2067,7 +2280,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getLogicalAndExpression()
    * @generated
    */
-  int LOGICAL_AND_EXPRESSION = 50;
+  int LOGICAL_AND_EXPRESSION = 56;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2104,7 +2317,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getInclusiveOrExpression()
    * @generated
    */
-  int INCLUSIVE_OR_EXPRESSION = 51;
+  int INCLUSIVE_OR_EXPRESSION = 57;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2141,7 +2354,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getExclusiveOrExpression()
    * @generated
    */
-  int EXCLUSIVE_OR_EXPRESSION = 52;
+  int EXCLUSIVE_OR_EXPRESSION = 58;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2178,7 +2391,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getAndExpression()
    * @generated
    */
-  int AND_EXPRESSION = 53;
+  int AND_EXPRESSION = 59;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2215,7 +2428,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getEqualityExpression()
    * @generated
    */
-  int EQUALITY_EXPRESSION = 54;
+  int EQUALITY_EXPRESSION = 60;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2261,7 +2474,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getRelationalExpression()
    * @generated
    */
-  int RELATIONAL_EXPRESSION = 55;
+  int RELATIONAL_EXPRESSION = 61;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2307,7 +2520,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getShiftExpression()
    * @generated
    */
-  int SHIFT_EXPRESSION = 56;
+  int SHIFT_EXPRESSION = 62;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2353,7 +2566,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getAdditiveExpression()
    * @generated
    */
-  int ADDITIVE_EXPRESSION = 57;
+  int ADDITIVE_EXPRESSION = 63;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2399,7 +2612,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getMultiplicativeExpression()
    * @generated
    */
-  int MULTIPLICATIVE_EXPRESSION = 58;
+  int MULTIPLICATIVE_EXPRESSION = 64;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2445,7 +2658,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getCastExpression()
    * @generated
    */
-  int CAST_EXPRESSION = 59;
+  int CAST_EXPRESSION = 65;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2491,7 +2704,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getUnaryExpression()
    * @generated
    */
-  int UNARY_EXPRESSION = 60;
+  int UNARY_EXPRESSION = 66;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2591,7 +2804,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getPostfixExpression()
    * @generated
    */
-  int POSTFIX_EXPRESSION = 61;
+  int POSTFIX_EXPRESSION = 67;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2682,7 +2895,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getPrimaryExpression()
    * @generated
    */
-  int PRIMARY_EXPRESSION = 62;
+  int PRIMARY_EXPRESSION = 68;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2737,7 +2950,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getConstantExpression()
    * @generated
    */
-  int CONSTANT_EXPRESSION = 63;
+  int CONSTANT_EXPRESSION = 69;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -3130,6 +3343,101 @@ public interface CPackage extends EPackage
   EAttribute getTypedefName_Id();
 
   /**
+   * Returns the meta object for class '{@link at.jku.weiner.c.c.DeclarationSpecifier <em>Declaration Specifier</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Declaration Specifier</em>'.
+   * @see at.jku.weiner.c.c.DeclarationSpecifier
+   * @generated
+   */
+  EClass getDeclarationSpecifier();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.c.DeclarationSpecifier#getId <em>Id</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Id</em>'.
+   * @see at.jku.weiner.c.c.DeclarationSpecifier#getId()
+   * @see #getDeclarationSpecifier()
+   * @generated
+   */
+  EAttribute getDeclarationSpecifier_Id();
+
+  /**
+   * Returns the meta object for class '{@link at.jku.weiner.c.c.StructOrUnion <em>Struct Or Union</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Struct Or Union</em>'.
+   * @see at.jku.weiner.c.c.StructOrUnion
+   * @generated
+   */
+  EClass getStructOrUnion();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.c.StructOrUnion#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see at.jku.weiner.c.c.StructOrUnion#getName()
+   * @see #getStructOrUnion()
+   * @generated
+   */
+  EAttribute getStructOrUnion_Name();
+
+  /**
+   * Returns the meta object for class '{@link at.jku.weiner.c.c.StructDeclarationList <em>Struct Declaration List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Struct Declaration List</em>'.
+   * @see at.jku.weiner.c.c.StructDeclarationList
+   * @generated
+   */
+  EClass getStructDeclarationList();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.c.StructDeclarationList#getStructDeclaration <em>Struct Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Struct Declaration</em>'.
+   * @see at.jku.weiner.c.c.StructDeclarationList#getStructDeclaration()
+   * @see #getStructDeclarationList()
+   * @generated
+   */
+  EReference getStructDeclarationList_StructDeclaration();
+
+  /**
+   * Returns the meta object for class '{@link at.jku.weiner.c.c.StructDeclaration <em>Struct Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Struct Declaration</em>'.
+   * @see at.jku.weiner.c.c.StructDeclaration
+   * @generated
+   */
+  EClass getStructDeclaration();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.c.StructDeclaration#getList <em>List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>List</em>'.
+   * @see at.jku.weiner.c.c.StructDeclaration#getList()
+   * @see #getStructDeclaration()
+   * @generated
+   */
+  EReference getStructDeclaration_List();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.c.StructDeclaration#getStructDeclarationList <em>Struct Declaration List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Struct Declaration List</em>'.
+   * @see at.jku.weiner.c.c.StructDeclaration#getStructDeclarationList()
+   * @see #getStructDeclaration()
+   * @generated
+   */
+  EReference getStructDeclaration_StructDeclarationList();
+
+  /**
    * Returns the meta object for class '{@link at.jku.weiner.c.c.SpecifierQualifierList <em>Specifier Qualifier List</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3162,14 +3470,57 @@ public interface CPackage extends EPackage
   EReference getSpecifierQualifierList_TypeQualifier();
 
   /**
-   * Returns the meta object for class '{@link at.jku.weiner.c.c.DeclarationSpecifier <em>Declaration Specifier</em>}'.
+   * Returns the meta object for class '{@link at.jku.weiner.c.c.StructDeclaratorList <em>Struct Declarator List</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Declaration Specifier</em>'.
-   * @see at.jku.weiner.c.c.DeclarationSpecifier
+   * @return the meta object for class '<em>Struct Declarator List</em>'.
+   * @see at.jku.weiner.c.c.StructDeclaratorList
    * @generated
    */
-  EClass getDeclarationSpecifier();
+  EClass getStructDeclaratorList();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.c.StructDeclaratorList#getStructDeclarator <em>Struct Declarator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Struct Declarator</em>'.
+   * @see at.jku.weiner.c.c.StructDeclaratorList#getStructDeclarator()
+   * @see #getStructDeclaratorList()
+   * @generated
+   */
+  EReference getStructDeclaratorList_StructDeclarator();
+
+  /**
+   * Returns the meta object for class '{@link at.jku.weiner.c.c.StructDeclarator <em>Struct Declarator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Struct Declarator</em>'.
+   * @see at.jku.weiner.c.c.StructDeclarator
+   * @generated
+   */
+  EClass getStructDeclarator();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.c.StructDeclarator#getDeclarator <em>Declarator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Declarator</em>'.
+   * @see at.jku.weiner.c.c.StructDeclarator#getDeclarator()
+   * @see #getStructDeclarator()
+   * @generated
+   */
+  EReference getStructDeclarator_Declarator();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.c.StructDeclarator#getConstExpr <em>Const Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Const Expr</em>'.
+   * @see at.jku.weiner.c.c.StructDeclarator#getConstExpr()
+   * @see #getStructDeclarator()
+   * @generated
+   */
+  EReference getStructDeclarator_ConstExpr();
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.c.c.EnumeratorList <em>Enumerator List</em>}'.
@@ -3841,6 +4192,38 @@ public interface CPackage extends EPackage
   EAttribute getConstant_Bin();
 
   /**
+   * Returns the meta object for class '{@link at.jku.weiner.c.c.StructOrUnionSpecifier <em>Struct Or Union Specifier</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Struct Or Union Specifier</em>'.
+   * @see at.jku.weiner.c.c.StructOrUnionSpecifier
+   * @generated
+   */
+  EClass getStructOrUnionSpecifier();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.c.StructOrUnionSpecifier#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see at.jku.weiner.c.c.StructOrUnionSpecifier#getType()
+   * @see #getStructOrUnionSpecifier()
+   * @generated
+   */
+  EReference getStructOrUnionSpecifier_Type();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.c.StructOrUnionSpecifier#getStructDeclList <em>Struct Decl List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Struct Decl List</em>'.
+   * @see at.jku.weiner.c.c.StructOrUnionSpecifier#getStructDeclList()
+   * @see #getStructOrUnionSpecifier()
+   * @generated
+   */
+  EReference getStructOrUnionSpecifier_StructDeclList();
+
+  /**
    * Returns the meta object for class '{@link at.jku.weiner.c.c.EnumSpecifier <em>Enum Specifier</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3860,17 +4243,6 @@ public interface CPackage extends EPackage
    * @generated
    */
   EReference getEnumSpecifier_EnumList();
-
-  /**
-   * Returns the meta object for the attribute '{@link at.jku.weiner.c.c.EnumSpecifier#getId <em>Id</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Id</em>'.
-   * @see at.jku.weiner.c.c.EnumSpecifier#getId()
-   * @see #getEnumSpecifier()
-   * @generated
-   */
-  EAttribute getEnumSpecifier_Id();
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.c.c.LabeledStatement <em>Labeled Statement</em>}'.
@@ -5278,6 +5650,86 @@ public interface CPackage extends EPackage
     EAttribute TYPEDEF_NAME__ID = eINSTANCE.getTypedefName_Id();
 
     /**
+     * The meta object literal for the '{@link at.jku.weiner.c.c.impl.DeclarationSpecifierImpl <em>Declaration Specifier</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.c.c.impl.DeclarationSpecifierImpl
+     * @see at.jku.weiner.c.c.impl.CPackageImpl#getDeclarationSpecifier()
+     * @generated
+     */
+    EClass DECLARATION_SPECIFIER = eINSTANCE.getDeclarationSpecifier();
+
+    /**
+     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DECLARATION_SPECIFIER__ID = eINSTANCE.getDeclarationSpecifier_Id();
+
+    /**
+     * The meta object literal for the '{@link at.jku.weiner.c.c.impl.StructOrUnionImpl <em>Struct Or Union</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.c.c.impl.StructOrUnionImpl
+     * @see at.jku.weiner.c.c.impl.CPackageImpl#getStructOrUnion()
+     * @generated
+     */
+    EClass STRUCT_OR_UNION = eINSTANCE.getStructOrUnion();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STRUCT_OR_UNION__NAME = eINSTANCE.getStructOrUnion_Name();
+
+    /**
+     * The meta object literal for the '{@link at.jku.weiner.c.c.impl.StructDeclarationListImpl <em>Struct Declaration List</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.c.c.impl.StructDeclarationListImpl
+     * @see at.jku.weiner.c.c.impl.CPackageImpl#getStructDeclarationList()
+     * @generated
+     */
+    EClass STRUCT_DECLARATION_LIST = eINSTANCE.getStructDeclarationList();
+
+    /**
+     * The meta object literal for the '<em><b>Struct Declaration</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STRUCT_DECLARATION_LIST__STRUCT_DECLARATION = eINSTANCE.getStructDeclarationList_StructDeclaration();
+
+    /**
+     * The meta object literal for the '{@link at.jku.weiner.c.c.impl.StructDeclarationImpl <em>Struct Declaration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.c.c.impl.StructDeclarationImpl
+     * @see at.jku.weiner.c.c.impl.CPackageImpl#getStructDeclaration()
+     * @generated
+     */
+    EClass STRUCT_DECLARATION = eINSTANCE.getStructDeclaration();
+
+    /**
+     * The meta object literal for the '<em><b>List</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STRUCT_DECLARATION__LIST = eINSTANCE.getStructDeclaration_List();
+
+    /**
+     * The meta object literal for the '<em><b>Struct Declaration List</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STRUCT_DECLARATION__STRUCT_DECLARATION_LIST = eINSTANCE.getStructDeclaration_StructDeclarationList();
+
+    /**
      * The meta object literal for the '{@link at.jku.weiner.c.c.impl.SpecifierQualifierListImpl <em>Specifier Qualifier List</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5304,14 +5756,48 @@ public interface CPackage extends EPackage
     EReference SPECIFIER_QUALIFIER_LIST__TYPE_QUALIFIER = eINSTANCE.getSpecifierQualifierList_TypeQualifier();
 
     /**
-     * The meta object literal for the '{@link at.jku.weiner.c.c.impl.DeclarationSpecifierImpl <em>Declaration Specifier</em>}' class.
+     * The meta object literal for the '{@link at.jku.weiner.c.c.impl.StructDeclaratorListImpl <em>Struct Declarator List</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see at.jku.weiner.c.c.impl.DeclarationSpecifierImpl
-     * @see at.jku.weiner.c.c.impl.CPackageImpl#getDeclarationSpecifier()
+     * @see at.jku.weiner.c.c.impl.StructDeclaratorListImpl
+     * @see at.jku.weiner.c.c.impl.CPackageImpl#getStructDeclaratorList()
      * @generated
      */
-    EClass DECLARATION_SPECIFIER = eINSTANCE.getDeclarationSpecifier();
+    EClass STRUCT_DECLARATOR_LIST = eINSTANCE.getStructDeclaratorList();
+
+    /**
+     * The meta object literal for the '<em><b>Struct Declarator</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STRUCT_DECLARATOR_LIST__STRUCT_DECLARATOR = eINSTANCE.getStructDeclaratorList_StructDeclarator();
+
+    /**
+     * The meta object literal for the '{@link at.jku.weiner.c.c.impl.StructDeclaratorImpl <em>Struct Declarator</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.c.c.impl.StructDeclaratorImpl
+     * @see at.jku.weiner.c.c.impl.CPackageImpl#getStructDeclarator()
+     * @generated
+     */
+    EClass STRUCT_DECLARATOR = eINSTANCE.getStructDeclarator();
+
+    /**
+     * The meta object literal for the '<em><b>Declarator</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STRUCT_DECLARATOR__DECLARATOR = eINSTANCE.getStructDeclarator_Declarator();
+
+    /**
+     * The meta object literal for the '<em><b>Const Expr</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STRUCT_DECLARATOR__CONST_EXPR = eINSTANCE.getStructDeclarator_ConstExpr();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.c.impl.EnumeratorListImpl <em>Enumerator List</em>}' class.
@@ -5866,6 +6352,32 @@ public interface CPackage extends EPackage
     EAttribute CONSTANT__BIN = eINSTANCE.getConstant_Bin();
 
     /**
+     * The meta object literal for the '{@link at.jku.weiner.c.c.impl.StructOrUnionSpecifierImpl <em>Struct Or Union Specifier</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.c.c.impl.StructOrUnionSpecifierImpl
+     * @see at.jku.weiner.c.c.impl.CPackageImpl#getStructOrUnionSpecifier()
+     * @generated
+     */
+    EClass STRUCT_OR_UNION_SPECIFIER = eINSTANCE.getStructOrUnionSpecifier();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STRUCT_OR_UNION_SPECIFIER__TYPE = eINSTANCE.getStructOrUnionSpecifier_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Struct Decl List</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STRUCT_OR_UNION_SPECIFIER__STRUCT_DECL_LIST = eINSTANCE.getStructOrUnionSpecifier_StructDeclList();
+
+    /**
      * The meta object literal for the '{@link at.jku.weiner.c.c.impl.EnumSpecifierImpl <em>Enum Specifier</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5882,14 +6394,6 @@ public interface CPackage extends EPackage
      * @generated
      */
     EReference ENUM_SPECIFIER__ENUM_LIST = eINSTANCE.getEnumSpecifier_EnumList();
-
-    /**
-     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ENUM_SPECIFIER__ID = eINSTANCE.getEnumSpecifier_Id();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.c.impl.LabeledStatementImpl <em>Labeled Statement</em>}' class.

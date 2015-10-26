@@ -207,7 +207,7 @@ TypeSpecifier
 	
 	// |	'__extension__' LEFTPAREN ('__m128' | '__m128d' | '__m128i') RIGHTPAREN
   //  |	specifier=atomicTypeSpecifier
-	// |	specifier=structOrUnionSpecifier
+	|	specifier=StructOrUnionSpecifier
 	|	specifier=EnumSpecifier
 	|	type=TypedefName
 	// |	'__typeof__' LEFTPAREN constExrp=constantExpression RIGHTPAREN // GCC extension
@@ -226,41 +226,37 @@ TypedefName
 		preAction{ { at.jku.weiner.c.Scope.isTypeName(input.LT(1).getText()) }? }
 ;
 
-/*structOrUnionSpecifier returns declarationSpecifier:
-	{structOrUnionSpecifier}
-	(structOrUnion IDENTIFIER? LEFTBRACE structDeclList=structDeclarationList RIGHTBRACE
-	|	structOrUnion IDENTIFIER
+StructOrUnionSpecifier returns DeclarationSpecifier:
+	{StructOrUnionSpecifier}
+	type=StructOrUnion
+	(	id=ID LEFTBRACE structDeclList=StructDeclarationList RIGHTBRACE
+	|	id=ID
 	)
 ;
 
-structOrUnion: STRUCT
-	|	UNION
+StructOrUnion:
+	{StructOrUnion}
+		name=KW_STRUCT
+	|	name=KW_UNION
 ;
 
-structDeclarationList: (structDeclaration+=structDeclaration)+
-;
+StructDeclarationList: (structDeclaration+=StructDeclaration)+;
 
-structDeclaration:
-	specifierQualifierList (structDeclarationList+=structDeclaratorList)? SEMI
-	|	staticAssertDeclaration
+StructDeclaration:
+	list=SpecifierQualifierList (structDeclarationList=StructDeclaratorList)? SEMI
+	//|	staticAssertDeclaration
 ;
-*/
-
 
 SpecifierQualifierList:
 	{SpecifierQualifierList} 
 	(typeSpecifier+=TypeSpecifier | typeQualifier+=TypeQualifier)+
 ;
 
+StructDeclaratorList: structDeclarator+=StructDeclarator (COMMA structDeclarator+=StructDeclarator)*;
 
-/*
-structDeclaratorList: structDeclarator=structDeclarator (COMMA structDeclarator2+=structDeclarator)*;
-
-structDeclarator: declarator=declarator (COLON constExpr+=constantExpression)?
-	| (COLON constExpr+=constantExpression)
+StructDeclarator: declarator=Declarator (COLON constExpr+=ConstantExpression)?
+	| (COLON constExpr+=ConstantExpression)
 ;
-*/
-
 
 EnumSpecifier returns DeclarationSpecifier:
 	{EnumSpecifier} 

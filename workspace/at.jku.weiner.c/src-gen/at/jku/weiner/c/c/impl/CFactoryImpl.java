@@ -76,8 +76,13 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
       case CPackage.STORAGE_CLASS_SPECIFIER: return createStorageClassSpecifier();
       case CPackage.TYPE_SPECIFIER: return createTypeSpecifier();
       case CPackage.TYPEDEF_NAME: return createTypedefName();
-      case CPackage.SPECIFIER_QUALIFIER_LIST: return createSpecifierQualifierList();
       case CPackage.DECLARATION_SPECIFIER: return createDeclarationSpecifier();
+      case CPackage.STRUCT_OR_UNION: return createStructOrUnion();
+      case CPackage.STRUCT_DECLARATION_LIST: return createStructDeclarationList();
+      case CPackage.STRUCT_DECLARATION: return createStructDeclaration();
+      case CPackage.SPECIFIER_QUALIFIER_LIST: return createSpecifierQualifierList();
+      case CPackage.STRUCT_DECLARATOR_LIST: return createStructDeclaratorList();
+      case CPackage.STRUCT_DECLARATOR: return createStructDeclarator();
       case CPackage.ENUMERATOR_LIST: return createEnumeratorList();
       case CPackage.ENUMERATOR: return createEnumerator();
       case CPackage.TYPE_QUALIFIER: return createTypeQualifier();
@@ -102,6 +107,7 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
       case CPackage.UNARY_OPERATOR: return createUnaryOperator();
       case CPackage.ARGUMENT_EXPRESSION_LIST: return createArgumentExpressionList();
       case CPackage.CONSTANT: return createConstant();
+      case CPackage.STRUCT_OR_UNION_SPECIFIER: return createStructOrUnionSpecifier();
       case CPackage.ENUM_SPECIFIER: return createEnumSpecifier();
       case CPackage.LABELED_STATEMENT: return createLabeledStatement();
       case CPackage.COMPOUND_STATEMENT: return createCompoundStatement();
@@ -270,6 +276,50 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public DeclarationSpecifier createDeclarationSpecifier()
+  {
+    DeclarationSpecifierImpl declarationSpecifier = new DeclarationSpecifierImpl();
+    return declarationSpecifier;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public StructOrUnion createStructOrUnion()
+  {
+    StructOrUnionImpl structOrUnion = new StructOrUnionImpl();
+    return structOrUnion;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public StructDeclarationList createStructDeclarationList()
+  {
+    StructDeclarationListImpl structDeclarationList = new StructDeclarationListImpl();
+    return structDeclarationList;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public StructDeclaration createStructDeclaration()
+  {
+    StructDeclarationImpl structDeclaration = new StructDeclarationImpl();
+    return structDeclaration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public SpecifierQualifierList createSpecifierQualifierList()
   {
     SpecifierQualifierListImpl specifierQualifierList = new SpecifierQualifierListImpl();
@@ -281,10 +331,21 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public DeclarationSpecifier createDeclarationSpecifier()
+  public StructDeclaratorList createStructDeclaratorList()
   {
-    DeclarationSpecifierImpl declarationSpecifier = new DeclarationSpecifierImpl();
-    return declarationSpecifier;
+    StructDeclaratorListImpl structDeclaratorList = new StructDeclaratorListImpl();
+    return structDeclaratorList;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public StructDeclarator createStructDeclarator()
+  {
+    StructDeclaratorImpl structDeclarator = new StructDeclaratorImpl();
+    return structDeclarator;
   }
 
   /**
@@ -549,6 +610,17 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
   {
     ConstantImpl constant = new ConstantImpl();
     return constant;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public StructOrUnionSpecifier createStructOrUnionSpecifier()
+  {
+    StructOrUnionSpecifierImpl structOrUnionSpecifier = new StructOrUnionSpecifierImpl();
+    return structOrUnionSpecifier;
   }
 
   /**

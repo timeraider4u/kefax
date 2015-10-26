@@ -135,14 +135,39 @@ public class CAdapterFactory extends AdapterFactoryImpl
         return createTypedefNameAdapter();
       }
       @Override
+      public Adapter caseDeclarationSpecifier(DeclarationSpecifier object)
+      {
+        return createDeclarationSpecifierAdapter();
+      }
+      @Override
+      public Adapter caseStructOrUnion(StructOrUnion object)
+      {
+        return createStructOrUnionAdapter();
+      }
+      @Override
+      public Adapter caseStructDeclarationList(StructDeclarationList object)
+      {
+        return createStructDeclarationListAdapter();
+      }
+      @Override
+      public Adapter caseStructDeclaration(StructDeclaration object)
+      {
+        return createStructDeclarationAdapter();
+      }
+      @Override
       public Adapter caseSpecifierQualifierList(SpecifierQualifierList object)
       {
         return createSpecifierQualifierListAdapter();
       }
       @Override
-      public Adapter caseDeclarationSpecifier(DeclarationSpecifier object)
+      public Adapter caseStructDeclaratorList(StructDeclaratorList object)
       {
-        return createDeclarationSpecifierAdapter();
+        return createStructDeclaratorListAdapter();
+      }
+      @Override
+      public Adapter caseStructDeclarator(StructDeclarator object)
+      {
+        return createStructDeclaratorAdapter();
       }
       @Override
       public Adapter caseEnumeratorList(EnumeratorList object)
@@ -263,6 +288,11 @@ public class CAdapterFactory extends AdapterFactoryImpl
       public Adapter caseConstant(Constant object)
       {
         return createConstantAdapter();
+      }
+      @Override
+      public Adapter caseStructOrUnionSpecifier(StructOrUnionSpecifier object)
+      {
+        return createStructOrUnionSpecifierAdapter();
       }
       @Override
       public Adapter caseEnumSpecifier(EnumSpecifier object)
@@ -597,6 +627,66 @@ public class CAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.DeclarationSpecifier <em>Declaration Specifier</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.c.DeclarationSpecifier
+   * @generated
+   */
+  public Adapter createDeclarationSpecifierAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.StructOrUnion <em>Struct Or Union</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.c.StructOrUnion
+   * @generated
+   */
+  public Adapter createStructOrUnionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.StructDeclarationList <em>Struct Declaration List</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.c.StructDeclarationList
+   * @generated
+   */
+  public Adapter createStructDeclarationListAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.StructDeclaration <em>Struct Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.c.StructDeclaration
+   * @generated
+   */
+  public Adapter createStructDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.SpecifierQualifierList <em>Specifier Qualifier List</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -612,16 +702,31 @@ public class CAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.DeclarationSpecifier <em>Declaration Specifier</em>}'.
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.StructDeclaratorList <em>Struct Declarator List</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see at.jku.weiner.c.c.DeclarationSpecifier
+   * @see at.jku.weiner.c.c.StructDeclaratorList
    * @generated
    */
-  public Adapter createDeclarationSpecifierAdapter()
+  public Adapter createStructDeclaratorListAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.StructDeclarator <em>Struct Declarator</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.c.StructDeclarator
+   * @generated
+   */
+  public Adapter createStructDeclaratorAdapter()
   {
     return null;
   }
@@ -982,6 +1087,21 @@ public class CAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createConstantAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.StructOrUnionSpecifier <em>Struct Or Union Specifier</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.c.StructOrUnionSpecifier
+   * @generated
+   */
+  public Adapter createStructOrUnionSpecifierAdapter()
   {
     return null;
   }

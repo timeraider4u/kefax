@@ -260,6 +260,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//PostfixExpression/expr"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//PostfixExpression/arrayExpr"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//PostfixExpression/argumentExpressionList"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//PostfixExpression/dot"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//PostfixExpression/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//PostfixExpression/plusplus"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//PostfixExpression/minusminus"/>
     </genClasses>

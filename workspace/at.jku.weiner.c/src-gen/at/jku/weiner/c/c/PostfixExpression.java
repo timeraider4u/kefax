@@ -16,6 +16,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link at.jku.weiner.c.c.PostfixExpression#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.PostfixExpression#getArrayExpr <em>Array Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.PostfixExpression#getArgumentExpressionList <em>Argument Expression List</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.PostfixExpression#getDot <em>Dot</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.PostfixExpression#getId <em>Id</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.PostfixExpression#getPlusplus <em>Plusplus</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.PostfixExpression#getMinusminus <em>Minusminus</em>}</li>
  * </ul>
@@ -73,6 +75,38 @@ public interface PostfixExpression extends Expression
    * @generated
    */
   EList<ArgumentExpressionList> getArgumentExpressionList();
+
+  /**
+   * Returns the value of the '<em><b>Dot</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Dot</em>' attribute list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Dot</em>' attribute list.
+   * @see at.jku.weiner.c.c.CPackage#getPostfixExpression_Dot()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getDot();
+
+  /**
+   * Returns the value of the '<em><b>Id</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Id</em>' attribute list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Id</em>' attribute list.
+   * @see at.jku.weiner.c.c.CPackage#getPostfixExpression_Id()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getId();
 
   /**
    * Returns the value of the '<em><b>Plusplus</b></em>' attribute list.

@@ -806,8 +806,8 @@ PostfixExpression returns Expression
 	(
 		LEFTBRACKET arrayExpr+=Expression RIGHTBRACKET
 		| LEFTPAREN argumentExpressionList+=ArgumentExpressionList? RIGHTPAREN
-		/*| DOT IDENTIFIER
-		| ARROW IDENTIFIER
+		| dot+=DOT id+=ID
+		/*| ARROW IDENTIFIER
 		*/
 		| plusplus+=PLUSPLUS
 		| minusminus+=MINUSMINUS
@@ -981,7 +981,7 @@ terminal ID: IDENTIFIER;
 terminal fragment IDENTIFIER:
 	LETTER (LETTER|'0'..'9')*
 ;
-	
+
 terminal fragment LETTER:
 	'$'
 	|	'A'..'Z'
@@ -1013,8 +1013,8 @@ terminal fragment INTEGER_TYPE_SUFFIX:
 ;
 
 terminal FLOAT_LITERAL:
-	('0'..'9')+ '.' ('0'..'9')* EXPONENT? FLOAT_TYPE_SUFFIX?
-	|	'.' ('0'..'9')+ EXPONENT? FLOAT_TYPE_SUFFIX?
+	('0'..'9')+ DOT ('0'..'9')* EXPONENT? FLOAT_TYPE_SUFFIX?
+	|	DOT ('0'..'9')+ EXPONENT? FLOAT_TYPE_SUFFIX?
 	|	('0'..'9')+ EXPONENT FLOAT_TYPE_SUFFIX?
 	|	('0'..'9')+ EXPONENT? FLOAT_TYPE_SUFFIX
 ;

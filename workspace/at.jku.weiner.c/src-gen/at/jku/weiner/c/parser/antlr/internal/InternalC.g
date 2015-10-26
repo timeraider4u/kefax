@@ -7661,9 +7661,55 @@ this_RIGHTPAREN_7=RULE_RIGHTPAREN
     |
 (
 (
-		lv_plusplus_8_0=RULE_PLUSPLUS
+(
+		lv_dot_8_0=RULE_DOT
 		{
-			newLeafNode(lv_plusplus_8_0, grammarAccess.getPostfixExpressionAccess().getPlusplusPLUSPLUSTerminalRuleCall_1_1_2_0()); 
+			newLeafNode(lv_dot_8_0, grammarAccess.getPostfixExpressionAccess().getDotDOTTerminalRuleCall_1_1_2_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getPostfixExpressionRule());
+	        }
+       		addWithLastConsumed(
+       			$current, 
+       			"dot",
+        		lv_dot_8_0, 
+        		"at.jku.weiner.c.C.DOT");
+	    }
+
+)
+)
+
+
+(
+(
+		lv_id_9_0=RULE_ID
+		{
+			newLeafNode(lv_id_9_0, grammarAccess.getPostfixExpressionAccess().getIdIDTerminalRuleCall_1_1_2_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getPostfixExpressionRule());
+	        }
+       		addWithLastConsumed(
+       			$current, 
+       			"id",
+        		lv_id_9_0, 
+        		"at.jku.weiner.c.C.ID");
+	    }
+
+)
+)
+
+)
+
+
+    |
+(
+(
+		lv_plusplus_10_0=RULE_PLUSPLUS
+		{
+			newLeafNode(lv_plusplus_10_0, grammarAccess.getPostfixExpressionAccess().getPlusplusPLUSPLUSTerminalRuleCall_1_1_3_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -7672,7 +7718,7 @@ this_RIGHTPAREN_7=RULE_RIGHTPAREN
        		addWithLastConsumed(
        			$current, 
        			"plusplus",
-        		lv_plusplus_8_0, 
+        		lv_plusplus_10_0, 
         		"at.jku.weiner.c.C.PLUSPLUS");
 	    }
 
@@ -7683,9 +7729,9 @@ this_RIGHTPAREN_7=RULE_RIGHTPAREN
     |
 (
 (
-		lv_minusminus_9_0=RULE_MINUSMINUS
+		lv_minusminus_11_0=RULE_MINUSMINUS
 		{
-			newLeafNode(lv_minusminus_9_0, grammarAccess.getPostfixExpressionAccess().getMinusminusMINUSMINUSTerminalRuleCall_1_1_3_0()); 
+			newLeafNode(lv_minusminus_11_0, grammarAccess.getPostfixExpressionAccess().getMinusminusMINUSMINUSTerminalRuleCall_1_1_4_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -7694,7 +7740,7 @@ this_RIGHTPAREN_7=RULE_RIGHTPAREN
        		addWithLastConsumed(
        			$current, 
        			"minusminus",
-        		lv_minusminus_9_0, 
+        		lv_minusminus_11_0, 
         		"at.jku.weiner.c.C.MINUSMINUS");
 	    }
 
@@ -8358,7 +8404,7 @@ RULE_NOTEQUAL : RULE_NOT RULE_ASSIGN;
 
 RULE_ARROW : RULE_MINUS RULE_GREATER;
 
-fragment RULE_DOT : '.';
+RULE_DOT : '.';
 
 RULE_ELLIPSIS : RULE_DOT RULE_DOT RULE_DOT;
 
@@ -8390,7 +8436,7 @@ fragment RULE_HEX_DIGIT : ('0'..'9'|'a'..'f'|'A'..'F');
 
 fragment RULE_INTEGER_TYPE_SUFFIX : (('u'|'U')? ('l'|'L')|('u'|'U') ('l'|'L')?);
 
-RULE_FLOAT_LITERAL : (('0'..'9')+ '.' ('0'..'9')* RULE_EXPONENT? RULE_FLOAT_TYPE_SUFFIX?|'.' ('0'..'9')+ RULE_EXPONENT? RULE_FLOAT_TYPE_SUFFIX?|('0'..'9')+ RULE_EXPONENT RULE_FLOAT_TYPE_SUFFIX?|('0'..'9')+ RULE_EXPONENT? RULE_FLOAT_TYPE_SUFFIX);
+RULE_FLOAT_LITERAL : (('0'..'9')+ RULE_DOT ('0'..'9')* RULE_EXPONENT? RULE_FLOAT_TYPE_SUFFIX?|RULE_DOT ('0'..'9')+ RULE_EXPONENT? RULE_FLOAT_TYPE_SUFFIX?|('0'..'9')+ RULE_EXPONENT RULE_FLOAT_TYPE_SUFFIX?|('0'..'9')+ RULE_EXPONENT? RULE_FLOAT_TYPE_SUFFIX);
 
 fragment RULE_EXPONENT : ('e'|'E') ('+'|'-')? ('0'..'9')+;
 

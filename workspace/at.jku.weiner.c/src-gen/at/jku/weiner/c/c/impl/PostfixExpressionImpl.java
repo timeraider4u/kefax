@@ -31,6 +31,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link at.jku.weiner.c.c.impl.PostfixExpressionImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.PostfixExpressionImpl#getArrayExpr <em>Array Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.PostfixExpressionImpl#getArgumentExpressionList <em>Argument Expression List</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.impl.PostfixExpressionImpl#getDot <em>Dot</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.impl.PostfixExpressionImpl#getId <em>Id</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.PostfixExpressionImpl#getPlusplus <em>Plusplus</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.PostfixExpressionImpl#getMinusminus <em>Minusminus</em>}</li>
  * </ul>
@@ -68,6 +70,26 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
    * @ordered
    */
   protected EList<ArgumentExpressionList> argumentExpressionList;
+
+  /**
+   * The cached value of the '{@link #getDot() <em>Dot</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDot()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> dot;
+
+  /**
+   * The cached value of the '{@link #getId() <em>Id</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getId()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> id;
 
   /**
    * The cached value of the '{@link #getPlusplus() <em>Plusplus</em>}' attribute list.
@@ -157,6 +179,34 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<String> getDot()
+  {
+    if (dot == null)
+    {
+      dot = new EDataTypeEList<String>(String.class, this, CPackage.POSTFIX_EXPRESSION__DOT);
+    }
+    return dot;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<String> getId()
+  {
+    if (id == null)
+    {
+      id = new EDataTypeEList<String>(String.class, this, CPackage.POSTFIX_EXPRESSION__ID);
+    }
+    return id;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<String> getPlusplus()
   {
     if (plusplus == null)
@@ -216,6 +266,10 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
         return getArrayExpr();
       case CPackage.POSTFIX_EXPRESSION__ARGUMENT_EXPRESSION_LIST:
         return getArgumentExpressionList();
+      case CPackage.POSTFIX_EXPRESSION__DOT:
+        return getDot();
+      case CPackage.POSTFIX_EXPRESSION__ID:
+        return getId();
       case CPackage.POSTFIX_EXPRESSION__PLUSPLUS:
         return getPlusplus();
       case CPackage.POSTFIX_EXPRESSION__MINUSMINUS:
@@ -246,6 +300,14 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
       case CPackage.POSTFIX_EXPRESSION__ARGUMENT_EXPRESSION_LIST:
         getArgumentExpressionList().clear();
         getArgumentExpressionList().addAll((Collection<? extends ArgumentExpressionList>)newValue);
+        return;
+      case CPackage.POSTFIX_EXPRESSION__DOT:
+        getDot().clear();
+        getDot().addAll((Collection<? extends String>)newValue);
+        return;
+      case CPackage.POSTFIX_EXPRESSION__ID:
+        getId().clear();
+        getId().addAll((Collection<? extends String>)newValue);
         return;
       case CPackage.POSTFIX_EXPRESSION__PLUSPLUS:
         getPlusplus().clear();
@@ -278,6 +340,12 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
       case CPackage.POSTFIX_EXPRESSION__ARGUMENT_EXPRESSION_LIST:
         getArgumentExpressionList().clear();
         return;
+      case CPackage.POSTFIX_EXPRESSION__DOT:
+        getDot().clear();
+        return;
+      case CPackage.POSTFIX_EXPRESSION__ID:
+        getId().clear();
+        return;
       case CPackage.POSTFIX_EXPRESSION__PLUSPLUS:
         getPlusplus().clear();
         return;
@@ -304,6 +372,10 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
         return arrayExpr != null && !arrayExpr.isEmpty();
       case CPackage.POSTFIX_EXPRESSION__ARGUMENT_EXPRESSION_LIST:
         return argumentExpressionList != null && !argumentExpressionList.isEmpty();
+      case CPackage.POSTFIX_EXPRESSION__DOT:
+        return dot != null && !dot.isEmpty();
+      case CPackage.POSTFIX_EXPRESSION__ID:
+        return id != null && !id.isEmpty();
       case CPackage.POSTFIX_EXPRESSION__PLUSPLUS:
         return plusplus != null && !plusplus.isEmpty();
       case CPackage.POSTFIX_EXPRESSION__MINUSMINUS:
@@ -323,7 +395,11 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (plusplus: ");
+    result.append(" (dot: ");
+    result.append(dot);
+    result.append(", id: ");
+    result.append(id);
+    result.append(", plusplus: ");
     result.append(plusplus);
     result.append(", minusminus: ");
     result.append(minusminus);

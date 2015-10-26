@@ -2503,49 +2503,31 @@ public interface CPackage extends EPackage
   int UNARY_EXPRESSION__EXPR_EXPR = EXPRESSION__EXPR_EXPR;
 
   /**
-   * The feature id for the '<em><b>Plusplus</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UNARY_EXPRESSION__PLUSPLUS = EXPRESSION_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Minusminus</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UNARY_EXPRESSION__MINUSMINUS = EXPRESSION_FEATURE_COUNT + 1;
-
-  /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int UNARY_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 2;
+  int UNARY_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Size Of</b></em>' attribute.
+   * The feature id for the '<em><b>Plusplus</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int UNARY_EXPRESSION__SIZE_OF = EXPRESSION_FEATURE_COUNT + 3;
+  int UNARY_EXPRESSION__PLUSPLUS = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Type Name</b></em>' containment reference.
+   * The feature id for the '<em><b>Minusminus</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int UNARY_EXPRESSION__TYPE_NAME = EXPRESSION_FEATURE_COUNT + 4;
+  int UNARY_EXPRESSION__MINUSMINUS = EXPRESSION_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Op</b></em>' containment reference.
@@ -2554,7 +2536,43 @@ public interface CPackage extends EPackage
    * @generated
    * @ordered
    */
-  int UNARY_EXPRESSION__OP = EXPRESSION_FEATURE_COUNT + 5;
+  int UNARY_EXPRESSION__OP = EXPRESSION_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Size Of</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNARY_EXPRESSION__SIZE_OF = EXPRESSION_FEATURE_COUNT + 4;
+
+  /**
+   * The feature id for the '<em><b>Type Name</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNARY_EXPRESSION__TYPE_NAME = EXPRESSION_FEATURE_COUNT + 5;
+
+  /**
+   * The feature id for the '<em><b>Andand</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNARY_EXPRESSION__ANDAND = EXPRESSION_FEATURE_COUNT + 6;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNARY_EXPRESSION__ID = EXPRESSION_FEATURE_COUNT + 7;
 
   /**
    * The number of structural features of the '<em>Unary Expression</em>' class.
@@ -2563,7 +2581,7 @@ public interface CPackage extends EPackage
    * @generated
    * @ordered
    */
-  int UNARY_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 6;
+  int UNARY_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 8;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.c.impl.PostfixExpressionImpl <em>Postfix Expression</em>}' class.
@@ -4702,28 +4720,6 @@ public interface CPackage extends EPackage
   EClass getUnaryExpression();
 
   /**
-   * Returns the meta object for the attribute list '{@link at.jku.weiner.c.c.UnaryExpression#getPlusplus <em>Plusplus</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Plusplus</em>'.
-   * @see at.jku.weiner.c.c.UnaryExpression#getPlusplus()
-   * @see #getUnaryExpression()
-   * @generated
-   */
-  EAttribute getUnaryExpression_Plusplus();
-
-  /**
-   * Returns the meta object for the attribute list '{@link at.jku.weiner.c.c.UnaryExpression#getMinusminus <em>Minusminus</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Minusminus</em>'.
-   * @see at.jku.weiner.c.c.UnaryExpression#getMinusminus()
-   * @see #getUnaryExpression()
-   * @generated
-   */
-  EAttribute getUnaryExpression_Minusminus();
-
-  /**
    * Returns the meta object for the containment reference '{@link at.jku.weiner.c.c.UnaryExpression#getExpr <em>Expr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4733,6 +4729,39 @@ public interface CPackage extends EPackage
    * @generated
    */
   EReference getUnaryExpression_Expr();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.c.UnaryExpression#getPlusplus <em>Plusplus</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Plusplus</em>'.
+   * @see at.jku.weiner.c.c.UnaryExpression#getPlusplus()
+   * @see #getUnaryExpression()
+   * @generated
+   */
+  EAttribute getUnaryExpression_Plusplus();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.c.UnaryExpression#getMinusminus <em>Minusminus</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Minusminus</em>'.
+   * @see at.jku.weiner.c.c.UnaryExpression#getMinusminus()
+   * @see #getUnaryExpression()
+   * @generated
+   */
+  EAttribute getUnaryExpression_Minusminus();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.c.UnaryExpression#getOp <em>Op</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Op</em>'.
+   * @see at.jku.weiner.c.c.UnaryExpression#getOp()
+   * @see #getUnaryExpression()
+   * @generated
+   */
+  EReference getUnaryExpression_Op();
 
   /**
    * Returns the meta object for the attribute '{@link at.jku.weiner.c.c.UnaryExpression#getSizeOf <em>Size Of</em>}'.
@@ -4757,15 +4786,26 @@ public interface CPackage extends EPackage
   EReference getUnaryExpression_TypeName();
 
   /**
-   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.c.UnaryExpression#getOp <em>Op</em>}'.
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.c.UnaryExpression#getAndand <em>Andand</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Op</em>'.
-   * @see at.jku.weiner.c.c.UnaryExpression#getOp()
+   * @return the meta object for the attribute '<em>Andand</em>'.
+   * @see at.jku.weiner.c.c.UnaryExpression#getAndand()
    * @see #getUnaryExpression()
    * @generated
    */
-  EReference getUnaryExpression_Op();
+  EAttribute getUnaryExpression_Andand();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.c.UnaryExpression#getId <em>Id</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Id</em>'.
+   * @see at.jku.weiner.c.c.UnaryExpression#getId()
+   * @see #getUnaryExpression()
+   * @generated
+   */
+  EAttribute getUnaryExpression_Id();
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.c.c.PostfixExpression <em>Postfix Expression</em>}'.
@@ -6528,7 +6568,15 @@ public interface CPackage extends EPackage
     EClass UNARY_EXPRESSION = eINSTANCE.getUnaryExpression();
 
     /**
-     * The meta object literal for the '<em><b>Plusplus</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UNARY_EXPRESSION__EXPR = eINSTANCE.getUnaryExpression_Expr();
+
+    /**
+     * The meta object literal for the '<em><b>Plusplus</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -6536,7 +6584,7 @@ public interface CPackage extends EPackage
     EAttribute UNARY_EXPRESSION__PLUSPLUS = eINSTANCE.getUnaryExpression_Plusplus();
 
     /**
-     * The meta object literal for the '<em><b>Minusminus</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Minusminus</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -6544,12 +6592,12 @@ public interface CPackage extends EPackage
     EAttribute UNARY_EXPRESSION__MINUSMINUS = eINSTANCE.getUnaryExpression_Minusminus();
 
     /**
-     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Op</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference UNARY_EXPRESSION__EXPR = eINSTANCE.getUnaryExpression_Expr();
+    EReference UNARY_EXPRESSION__OP = eINSTANCE.getUnaryExpression_Op();
 
     /**
      * The meta object literal for the '<em><b>Size Of</b></em>' attribute feature.
@@ -6568,12 +6616,20 @@ public interface CPackage extends EPackage
     EReference UNARY_EXPRESSION__TYPE_NAME = eINSTANCE.getUnaryExpression_TypeName();
 
     /**
-     * The meta object literal for the '<em><b>Op</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Andand</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference UNARY_EXPRESSION__OP = eINSTANCE.getUnaryExpression_Op();
+    EAttribute UNARY_EXPRESSION__ANDAND = eINSTANCE.getUnaryExpression_Andand();
+
+    /**
+     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute UNARY_EXPRESSION__ID = eINSTANCE.getUnaryExpression_Id();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.c.impl.PostfixExpressionImpl <em>Postfix Expression</em>}' class.

@@ -7155,63 +7155,17 @@ ruleUnaryExpression returns [EObject current=null]
 (
 (
 (
-		lv_plusplus_1_0=RULE_PLUSPLUS
-		{
-			newLeafNode(lv_plusplus_1_0, grammarAccess.getUnaryExpressionAccess().getPlusplusPLUSPLUSTerminalRuleCall_1_0_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getUnaryExpressionRule());
-	        }
-       		addWithLastConsumed(
-       			$current, 
-       			"plusplus",
-        		lv_plusplus_1_0, 
-        		"at.jku.weiner.c.C.PLUSPLUS");
-	    }
-
-)
-)
-
-
-    |
-(
-(
-		lv_minusminus_2_0=RULE_MINUSMINUS
-		{
-			newLeafNode(lv_minusminus_2_0, grammarAccess.getUnaryExpressionAccess().getMinusminusMINUSMINUSTerminalRuleCall_1_1_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getUnaryExpressionRule());
-	        }
-       		addWithLastConsumed(
-       			$current, 
-       			"minusminus",
-        		lv_minusminus_2_0, 
-        		"at.jku.weiner.c.C.MINUSMINUS");
-	    }
-
-)
-)
-
-)*
-
-
-(
-(
-(
 		{ 
-	        newCompositeNode(grammarAccess.getUnaryExpressionAccess().getExprPostfixExpressionParserRuleCall_2_0_0()); 
+	        newCompositeNode(grammarAccess.getUnaryExpressionAccess().getExprPostfixExpressionParserRuleCall_1_0_0()); 
 	    }
-		lv_expr_3_0=rulePostfixExpression		{
+		lv_expr_1_0=rulePostfixExpression		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUnaryExpressionRule());
 	        }
        		set(
        			$current, 
        			"expr",
-        		lv_expr_3_0, 
+        		lv_expr_1_0, 
         		"at.jku.weiner.c.C.PostfixExpression");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -7224,9 +7178,9 @@ ruleUnaryExpression returns [EObject current=null]
 (
 (
 (
-		lv_sizeOf_4_0=RULE_KW_SIZEOF
+		lv_plusplus_2_0=RULE_PLUSPLUS
 		{
-			newLeafNode(lv_sizeOf_4_0, grammarAccess.getUnaryExpressionAccess().getSizeOfKW_SIZEOFTerminalRuleCall_2_1_0_0()); 
+			newLeafNode(lv_plusplus_2_0, grammarAccess.getUnaryExpressionAccess().getPlusplusPLUSPLUSTerminalRuleCall_1_1_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -7234,66 +7188,80 @@ ruleUnaryExpression returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"sizeOf",
-        		lv_sizeOf_4_0, 
-        		"at.jku.weiner.c.C.KW_SIZEOF");
+       			"plusplus",
+        		lv_plusplus_2_0, 
+        		"at.jku.weiner.c.C.PLUSPLUS");
 	    }
 
 )
 )
-
-
-this_LEFTPAREN_5=RULE_LEFTPAREN
-    { 
-    newLeafNode(this_LEFTPAREN_5, grammarAccess.getUnaryExpressionAccess().getLEFTPARENTerminalRuleCall_2_1_1()); 
-    }
-
 
 
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUnaryExpressionAccess().getTypeNameTypeNameParserRuleCall_2_1_2_0()); 
+	        newCompositeNode(grammarAccess.getUnaryExpressionAccess().getExprUnaryExpressionParserRuleCall_1_1_1_0()); 
 	    }
-		lv_typeName_6_0=ruleTypeName		{
+		lv_expr_3_0=ruleUnaryExpression		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUnaryExpressionRule());
 	        }
        		set(
        			$current, 
-       			"typeName",
-        		lv_typeName_6_0, 
-        		"at.jku.weiner.c.C.TypeName");
+       			"expr",
+        		lv_expr_3_0, 
+        		"at.jku.weiner.c.C.UnaryExpression");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
 )
 
-
-this_RIGHTPAREN_7=RULE_RIGHTPAREN
-    { 
-    newLeafNode(this_RIGHTPAREN_7, grammarAccess.getUnaryExpressionAccess().getRIGHTPARENTerminalRuleCall_2_1_3()); 
-    }
-
-
 )
 
 
     |
 (
-this_ANDAND_8=RULE_ANDAND
-    { 
-    newLeafNode(this_ANDAND_8, grammarAccess.getUnaryExpressionAccess().getANDANDTerminalRuleCall_2_2_0()); 
-    }
+(
+(
+		lv_minusminus_4_0=RULE_MINUSMINUS
+		{
+			newLeafNode(lv_minusminus_4_0, grammarAccess.getUnaryExpressionAccess().getMinusminusMINUSMINUSTerminalRuleCall_1_2_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUnaryExpressionRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"minusminus",
+        		lv_minusminus_4_0, 
+        		"at.jku.weiner.c.C.MINUSMINUS");
+	    }
+
+)
+)
 
 
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUnaryExpressionAccess().getExprUnaryExpressionParserRuleCall_1_2_1_0()); 
+	    }
+		lv_expr_5_0=ruleUnaryExpression		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUnaryExpressionRule());
+	        }
+       		set(
+       			$current, 
+       			"expr",
+        		lv_expr_5_0, 
+        		"at.jku.weiner.c.C.UnaryExpression");
+	        afterParserOrEnumRuleCall();
+	    }
 
-this_ID_9=RULE_ID
-    { 
-    newLeafNode(this_ID_9, grammarAccess.getUnaryExpressionAccess().getIDTerminalRuleCall_2_2_1()); 
-    }
-
+)
+)
 
 )
 
@@ -7303,16 +7271,16 @@ this_ID_9=RULE_ID
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUnaryExpressionAccess().getOpUnaryOperatorParserRuleCall_2_3_0_0()); 
+	        newCompositeNode(grammarAccess.getUnaryExpressionAccess().getOpUnaryOperatorParserRuleCall_1_3_0_0()); 
 	    }
-		lv_op_10_0=ruleUnaryOperator		{
+		lv_op_6_0=ruleUnaryOperator		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUnaryExpressionRule());
 	        }
        		set(
        			$current, 
        			"op",
-        		lv_op_10_0, 
+        		lv_op_6_0, 
         		"at.jku.weiner.c.C.UnaryOperator");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -7324,18 +7292,170 @@ this_ID_9=RULE_ID
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUnaryExpressionAccess().getExprCastExpressionParserRuleCall_2_3_1_0()); 
+	        newCompositeNode(grammarAccess.getUnaryExpressionAccess().getExprCastExpressionParserRuleCall_1_3_1_0()); 
 	    }
-		lv_expr_11_0=ruleCastExpression		{
+		lv_expr_7_0=ruleCastExpression		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getUnaryExpressionRule());
 	        }
        		set(
        			$current, 
        			"expr",
-        		lv_expr_11_0, 
+        		lv_expr_7_0, 
         		"at.jku.weiner.c.C.CastExpression");
 	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+)
+
+
+    |
+(
+(
+(
+		lv_sizeOf_8_0=RULE_KW_SIZEOF
+		{
+			newLeafNode(lv_sizeOf_8_0, grammarAccess.getUnaryExpressionAccess().getSizeOfKW_SIZEOFTerminalRuleCall_1_4_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUnaryExpressionRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"sizeOf",
+        		lv_sizeOf_8_0, 
+        		"at.jku.weiner.c.C.KW_SIZEOF");
+	    }
+
+)
+)
+
+
+this_LEFTPAREN_9=RULE_LEFTPAREN
+    { 
+    newLeafNode(this_LEFTPAREN_9, grammarAccess.getUnaryExpressionAccess().getLEFTPARENTerminalRuleCall_1_4_1()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUnaryExpressionAccess().getTypeNameTypeNameParserRuleCall_1_4_2_0()); 
+	    }
+		lv_typeName_10_0=ruleTypeName		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUnaryExpressionRule());
+	        }
+       		set(
+       			$current, 
+       			"typeName",
+        		lv_typeName_10_0, 
+        		"at.jku.weiner.c.C.TypeName");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+this_RIGHTPAREN_11=RULE_RIGHTPAREN
+    { 
+    newLeafNode(this_RIGHTPAREN_11, grammarAccess.getUnaryExpressionAccess().getRIGHTPARENTerminalRuleCall_1_4_3()); 
+    }
+
+
+)
+
+
+    |
+(
+(
+(
+		lv_sizeOf_12_0=RULE_KW_SIZEOF
+		{
+			newLeafNode(lv_sizeOf_12_0, grammarAccess.getUnaryExpressionAccess().getSizeOfKW_SIZEOFTerminalRuleCall_1_5_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUnaryExpressionRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"sizeOf",
+        		lv_sizeOf_12_0, 
+        		"at.jku.weiner.c.C.KW_SIZEOF");
+	    }
+
+)
+)
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUnaryExpressionAccess().getExprUnaryExpressionParserRuleCall_1_5_1_0()); 
+	    }
+		lv_expr_13_0=ruleUnaryExpression		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUnaryExpressionRule());
+	        }
+       		set(
+       			$current, 
+       			"expr",
+        		lv_expr_13_0, 
+        		"at.jku.weiner.c.C.UnaryExpression");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+)
+
+
+    |
+(
+(
+(
+		lv_andand_14_0=RULE_ANDAND
+		{
+			newLeafNode(lv_andand_14_0, grammarAccess.getUnaryExpressionAccess().getAndandANDANDTerminalRuleCall_1_6_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUnaryExpressionRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"andand",
+        		lv_andand_14_0, 
+        		"at.jku.weiner.c.C.ANDAND");
+	    }
+
+)
+)
+
+
+(
+(
+		lv_id_15_0=RULE_ID
+		{
+			newLeafNode(lv_id_15_0, grammarAccess.getUnaryExpressionAccess().getIdIDTerminalRuleCall_1_6_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUnaryExpressionRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"id",
+        		lv_id_15_0, 
+        		"at.jku.weiner.c.C.ID");
 	    }
 
 )

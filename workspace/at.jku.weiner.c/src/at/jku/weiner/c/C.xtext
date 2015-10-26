@@ -764,19 +764,16 @@ UnaryExpression returns Expression
 	afterRuleAction { at.jku.weiner.c.Log.error("UnaryExpression-leave"); }
 	:
 	{UnaryExpression}	
-	(plusplus+=PLUSPLUS | minusminus+=MINUSMINUS 
-		//| KW_SIZEOF
-	)*
 	(
 		expr=PostfixExpression
-	|	sizeOf=KW_SIZEOF LEFTPAREN typeName=TypeName RIGHTPAREN
-	//|	ALIGNOF LEFTPAREN typeName=typeName RIGHTPAREN
-	|	ANDAND ID // GCC extension address of label
+	|	plusplus=PLUSPLUS expr=UnaryExpression
+	|	minusminus=MINUSMINUS expr=UnaryExpression
 	|	op=UnaryOperator expr=CastExpression
+	|	sizeOf=KW_SIZEOF LEFTPAREN typeName=TypeName RIGHTPAREN
+	|	sizeOf=KW_SIZEOF expr=UnaryExpression 
+	//|	ALIGNOF LEFTPAREN typeName=typeName RIGHTPAREN
+	|	andand=ANDAND id=ID // GCC extension address of label
 	)
-	//|	PLUSPLUS unaryExpr=unaryExpression
-	//|	MINUSMINUS unaryExpr=unaryExpression
-	//|	SIZEOF unaryExpr=unaryExpression 
 ;
 
 UnaryOperator:

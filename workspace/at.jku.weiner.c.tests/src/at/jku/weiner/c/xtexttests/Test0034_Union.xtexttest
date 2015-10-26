@@ -12,19 +12,19 @@ KW_INT WHITESPACE ID LEFTPAREN KW_VOID RIGHTPAREN WHITESPACE LEFTBRACE NEWLINE
 	WHITESPACE LINE_COMMENT NEWLINE
 	// printf(s)
 	WHITESPACE ID LEFTPAREN STRING_LITERAL COMMA WHITESPACE ID RIGHTPAREN SEMI NEWLINE
-	WHITESPACE LINE_COMMENT NEWLINE
-	//WHITESPACE ID LEFTPAREN STRING_LITERAL COMMA WHITESPACE 
-	//	KW_SIZEOF LEFTPAREN ID DOT ID RIGHTPAREN RIGHTPAREN SEMI NEWLINE
+	WHITESPACE ID LEFTPAREN STRING_LITERAL COMMA WHITESPACE 
+		KW_SIZEOF LEFTPAREN ID DOT ID RIGHTPAREN RIGHTPAREN SEMI NEWLINE
 	WHITESPACE ID LEFTPAREN STRING_LITERAL COMMA WHITESPACE 
 		KW_SIZEOF LEFTPAREN KW_FLOAT RIGHTPAREN RIGHTPAREN SEMI NEWLINE
 	// number.numChar = 65;
-	WHITESPACE LINE_COMMENT NEWLINE
+	//WHITESPACE LINE_COMMENT NEWLINE
+	WHITESPACE ID DOT ID WHITESPACE ASSIGN WHITESPACE DECIMAL_LITERAL SEMI NEWLINE
 	// printf(s)
 	WHITESPACE ID LEFTPAREN STRING_LITERAL COMMA WHITESPACE ID DOT ID RIGHTPAREN SEMI NEWLINE
 	WHITESPACE ID LEFTPAREN STRING_LITERAL COMMA WHITESPACE ID DOT ID RIGHTPAREN SEMI NEWLINE
 	WHITESPACE ID LEFTPAREN STRING_LITERAL COMMA WHITESPACE ID DOT ID RIGHTPAREN SEMI NEWLINE
 	// number.numFloat = 0.56789;
-	WHITESPACE LINE_COMMENT NEWLINE
+	WHITESPACE ID DOT ID WHITESPACE ASSIGN WHITESPACE FLOAT_LITERAL SEMI NEWLINE
 	// printf(s)
 	WHITESPACE ID LEFTPAREN STRING_LITERAL COMMA WHITESPACE ID DOT ID RIGHTPAREN SEMI NEWLINE
 	WHITESPACE ID LEFTPAREN STRING_LITERAL COMMA WHITESPACE ID DOT ID RIGHTPAREN SEMI NEWLINE
@@ -209,6 +209,227 @@ RIGHTBRACE NEWLINE
 																																								expr+=
 																																								(PrimaryExpression
 																																									id++"size"
+																																								) // end primary expression
+																																							)
+																																						)
+																																					)
+																																				)
+																																			)
+																																		)
+																																	)
+																																)
+																															)
+																														)
+																													)
+																												)
+																											)
+																										)
+																									) // end assignment expression
+																								)
+																							)
+																						)
+																					)
+																				)
+																			)
+																		)
+																	)
+																	
+																)
+															)
+														)
+													)
+												)
+											)
+										)
+									)
+								), // end expression
+								semi++";"
+							) // end expression statement
+						), // end statement
+						// printf(..., sizeof(number.numChar);
+						(Statement
+							stmt=
+							(ExpressionStatement
+								expression=
+								(Expression
+									exprExpr+=
+									(AssignmentExpression
+										expr=
+										(ConditionalExpression
+											expr=
+											(LogicalOrExpression
+												expr+=
+												(LogicalAndExpression
+													expr+=
+													(InclusiveOrExpression
+														expr+=
+														(ExclusiveOrExpression
+															expr+=
+															(AndExpression
+																expr+=
+																(EqualityExpression
+																	expr+=
+																	(RelationalExpression
+																		expr+=
+																		(ShiftExpression
+																			expr+=
+																			(AdditiveExpression
+																				expr+=
+																				(MultiplicativeExpression
+																					expr+=
+																					(CastExpression
+																						expr=
+																						(UnaryExpression
+																							expr=
+																							(PostfixExpression
+																								expr+=
+																								(PrimaryExpression
+																									id++"printf"
+																								),
+																								argumentExpressionList+=
+																								(ArgumentExpressionList
+																									expr+=
+																									(AssignmentExpression
+																										expr=
+																										(ConditionalExpression
+																											expr=
+																											(LogicalOrExpression
+																												expr+=
+																												(LogicalAndExpression
+																													expr+=
+																													(InclusiveOrExpression
+																														expr+=
+																														(ExclusiveOrExpression
+																															expr+=
+																															(AndExpression
+																																expr+=
+																																(EqualityExpression
+																																	expr+=
+																																	(RelationalExpression
+																																		expr+=
+																																		(ShiftExpression
+																																			expr+=
+																																			(AdditiveExpression
+																																				expr+=
+																																				(MultiplicativeExpression
+																																					expr+=
+																																					(CastExpression
+																																						expr=
+																																						(UnaryExpression
+																																							expr=
+																																							(PostfixExpression
+																																								expr+=
+																																								(PrimaryExpression
+																																									const=
+																																									(Constant
+																																										str++"\\\"sizeof(number.numChar)=%lu\\\\n\\\""
+																																									)
+																																								)
+																																							)
+																																						)
+																																					)
+																																				)
+																																			)
+																																		)
+																																	)
+																																)
+																															)
+																														)
+																													)
+																												)
+																											)
+																										)
+																									), // end assignment expression
+																									(AssignmentExpression
+																										expr=
+																										(ConditionalExpression
+																											expr=
+																											(LogicalOrExpression
+																												expr+=
+																												(LogicalAndExpression
+																													expr+=
+																													(InclusiveOrExpression
+																														expr+=
+																														(ExclusiveOrExpression
+																															expr+=
+																															(AndExpression
+																																expr+=
+																																(EqualityExpression
+																																	expr+=
+																																	(RelationalExpression
+																																		expr+=
+																																		(ShiftExpression
+																																			expr+=
+																																			(AdditiveExpression
+																																				expr+=
+																																				(MultiplicativeExpression
+																																					expr+=
+																																					(CastExpression
+																																						expr=
+																																						(UnaryExpression
+																																							sizeOf++"sizeof",
+																																							expr=
+																																							(UnaryExpression
+																																								expr=
+																																								(PostfixExpression
+																																									expr+=
+																																									(PrimaryExpression
+																																										// (...)
+																																										expr=
+																																										(Expression
+																																											exprExpr+=
+																																											(AssignmentExpression
+																																												expr=
+																																												(ConditionalExpression
+																																													expr=
+																																													(LogicalOrExpression
+																																														expr+=
+																																														(LogicalAndExpression
+																																															expr+=
+																																															(InclusiveOrExpression
+																																																expr+=
+																																																(ExclusiveOrExpression
+																																																	expr+=
+																																																	(AndExpression
+																																																		expr+=
+																																																		(EqualityExpression
+																																																			expr+=
+																																																			(RelationalExpression
+																																																				expr+=
+																																																				(ShiftExpression
+																																																					expr+=
+																																																					(AdditiveExpression
+																																																						expr+=
+																																																						(MultiplicativeExpression
+																																																							expr+=
+																																																							(CastExpression
+																																																								expr=
+																																																								(UnaryExpression
+																																																									expr=
+																																																									(PostfixExpression
+																																																										expr+=
+																																																										(PrimaryExpression
+																																																											id++"number"
+																																																										),
+																																																										dot+*"[.]",
+																																																										id+*"[numChar]"
+																																																									)
+																																																								)	
+																																																							)
+																																																						)
+																																																					)
+																																																				)
+																																																			)
+																																																		)
+																																																	)
+																																																)
+																																															)
+																																														)
+																																													)
+																																												)
+																																											)
+																																										) 
+																																									) // end primary expression
 																																								)
 																																							)
 																																						)
@@ -412,6 +633,88 @@ RIGHTBRACE NEWLINE
 								), // end expression
 								semi++";"
 							) // end expression statement
+						), // end statement
+						// number.numChar = 65;
+						(Statement
+							stmt=
+							(ExpressionStatement
+								expression=
+								(Expression
+									exprExpr+=
+									(AssignmentExpression
+										expr=
+										(UnaryExpression
+											expr=
+											(PostfixExpression
+												expr+=
+												(PrimaryExpression
+													id++"number"
+												),
+												dot+*"[.]",
+												id+*"[numChar]"
+											)
+										), // end unary expression
+										op=
+										(AssignmentOperator
+											op++"="
+										),
+										assignmentExpr=
+										(AssignmentExpression
+											expr=
+											(ConditionalExpression
+												expr=
+												(LogicalOrExpression
+													expr+=
+													(LogicalAndExpression
+														expr+=
+														(InclusiveOrExpression
+															expr+=
+															(ExclusiveOrExpression
+																expr+=
+																(AndExpression
+																	expr+=
+																	(EqualityExpression
+																		expr+=
+																		(RelationalExpression
+																			expr+=
+																			(ShiftExpression
+																				expr+=
+																				(AdditiveExpression
+																					expr+=
+																					(MultiplicativeExpression
+																						expr+=
+																						(CastExpression
+																							expr=
+																							(UnaryExpression
+																								expr=
+																								(PostfixExpression
+																									expr+=
+																									(PrimaryExpression
+																										const=
+																										(Constant
+																											dec++"65"
+																										)
+																									)
+																								)
+																							)
+																						)
+																					)
+																				)
+																			)
+																		)
+																		
+																	)
+																)
+															)
+														)
+													)
+												)
+											) // end conditional expression
+										) // end assignment expression
+									) // end assignment expression
+								),//end expression
+								semi++";"
+							)
 						), // end statement
 						// printf(..., number.numFloat);
 						(Statement
@@ -908,9 +1211,88 @@ RIGHTBRACE NEWLINE
 								semi++";"
 							) // end expression statement
 						), // end statement
-						
 						// number.numFloat = 0.56789;
-						
+						(Statement
+							stmt=
+							(ExpressionStatement
+								expression=
+								(Expression
+									exprExpr+=
+									(AssignmentExpression
+										expr=
+										(UnaryExpression
+											expr=
+											(PostfixExpression
+												expr+=
+												(PrimaryExpression
+													id++"number"
+												),
+												dot+*"[.]",
+												id+*"[numFloat]"
+											)
+										), // end unary expression
+										op=
+										(AssignmentOperator
+											op++"="
+										),
+										assignmentExpr=
+										(AssignmentExpression
+											expr=
+											(ConditionalExpression
+												expr=
+												(LogicalOrExpression
+													expr+=
+													(LogicalAndExpression
+														expr+=
+														(InclusiveOrExpression
+															expr+=
+															(ExclusiveOrExpression
+																expr+=
+																(AndExpression
+																	expr+=
+																	(EqualityExpression
+																		expr+=
+																		(RelationalExpression
+																			expr+=
+																			(ShiftExpression
+																				expr+=
+																				(AdditiveExpression
+																					expr+=
+																					(MultiplicativeExpression
+																						expr+=
+																						(CastExpression
+																							expr=
+																							(UnaryExpression
+																								expr=
+																								(PostfixExpression
+																									expr+=
+																									(PrimaryExpression
+																										const=
+																										(Constant
+																											float++"0.56789"
+																										)
+																									)
+																								)
+																							)
+																						)
+																					)
+																				)
+																			)
+																		)
+																		
+																	)
+																)
+															)
+														)
+													)
+												)
+											) // end conditional expression
+										) // end assignment expression
+									) // end assignment expression
+								),//end expression
+								semi++";"
+							)
+						), // end statement
 						// printf(..., number.numFloat);
 						(Statement
 							stmt=
@@ -1063,7 +1445,6 @@ RIGHTBRACE NEWLINE
 																			)
 																		)
 																	)
-																	
 																)
 															)
 														)

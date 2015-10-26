@@ -8,19 +8,13 @@ import at.jku.weiner.c.c.TypeName;
 import at.jku.weiner.c.c.UnaryExpression;
 import at.jku.weiner.c.c.UnaryOperator;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,38 +24,20 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link at.jku.weiner.c.c.impl.UnaryExpressionImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.UnaryExpressionImpl#getPlusplus <em>Plusplus</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.UnaryExpressionImpl#getMinusminus <em>Minusminus</em>}</li>
- *   <li>{@link at.jku.weiner.c.c.impl.UnaryExpressionImpl#getExpr <em>Expr</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.impl.UnaryExpressionImpl#getOp <em>Op</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.UnaryExpressionImpl#getSizeOf <em>Size Of</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.UnaryExpressionImpl#getTypeName <em>Type Name</em>}</li>
- *   <li>{@link at.jku.weiner.c.c.impl.UnaryExpressionImpl#getOp <em>Op</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.impl.UnaryExpressionImpl#getAndand <em>Andand</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.impl.UnaryExpressionImpl#getId <em>Id</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpression
 {
-  /**
-   * The cached value of the '{@link #getPlusplus() <em>Plusplus</em>}' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPlusplus()
-   * @generated
-   * @ordered
-   */
-  protected EList<String> plusplus;
-
-  /**
-   * The cached value of the '{@link #getMinusminus() <em>Minusminus</em>}' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getMinusminus()
-   * @generated
-   * @ordered
-   */
-  protected EList<String> minusminus;
-
   /**
    * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -71,6 +47,56 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
    * @ordered
    */
   protected Expression expr;
+
+  /**
+   * The default value of the '{@link #getPlusplus() <em>Plusplus</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPlusplus()
+   * @generated
+   * @ordered
+   */
+  protected static final String PLUSPLUS_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getPlusplus() <em>Plusplus</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPlusplus()
+   * @generated
+   * @ordered
+   */
+  protected String plusplus = PLUSPLUS_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getMinusminus() <em>Minusminus</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMinusminus()
+   * @generated
+   * @ordered
+   */
+  protected static final String MINUSMINUS_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getMinusminus() <em>Minusminus</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMinusminus()
+   * @generated
+   * @ordered
+   */
+  protected String minusminus = MINUSMINUS_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getOp() <em>Op</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOp()
+   * @generated
+   * @ordered
+   */
+  protected UnaryOperator op;
 
   /**
    * The default value of the '{@link #getSizeOf() <em>Size Of</em>}' attribute.
@@ -103,14 +129,44 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
   protected TypeName typeName;
 
   /**
-   * The cached value of the '{@link #getOp() <em>Op</em>}' containment reference.
+   * The default value of the '{@link #getAndand() <em>Andand</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getOp()
+   * @see #getAndand()
    * @generated
    * @ordered
    */
-  protected UnaryOperator op;
+  protected static final String ANDAND_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getAndand() <em>Andand</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAndand()
+   * @generated
+   * @ordered
+   */
+  protected String andand = ANDAND_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getId()
+   * @generated
+   * @ordered
+   */
+  protected static final String ID_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getId()
+   * @generated
+   * @ordered
+   */
+  protected String id = ID_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -131,34 +187,6 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
   protected EClass eStaticClass()
   {
     return CPackage.Literals.UNARY_EXPRESSION;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<String> getPlusplus()
-  {
-    if (plusplus == null)
-    {
-      plusplus = new EDataTypeEList<String>(String.class, this, CPackage.UNARY_EXPRESSION__PLUSPLUS);
-    }
-    return plusplus;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<String> getMinusminus()
-  {
-    if (minusminus == null)
-    {
-      minusminus = new EDataTypeEList<String>(String.class, this, CPackage.UNARY_EXPRESSION__MINUSMINUS);
-    }
-    return minusminus;
   }
 
   /**
@@ -207,6 +235,100 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
     }
     else if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, CPackage.UNARY_EXPRESSION__EXPR, newExpr, newExpr));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getPlusplus()
+  {
+    return plusplus;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPlusplus(String newPlusplus)
+  {
+    String oldPlusplus = plusplus;
+    plusplus = newPlusplus;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CPackage.UNARY_EXPRESSION__PLUSPLUS, oldPlusplus, plusplus));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getMinusminus()
+  {
+    return minusminus;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setMinusminus(String newMinusminus)
+  {
+    String oldMinusminus = minusminus;
+    minusminus = newMinusminus;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CPackage.UNARY_EXPRESSION__MINUSMINUS, oldMinusminus, minusminus));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public UnaryOperator getOp()
+  {
+    return op;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetOp(UnaryOperator newOp, NotificationChain msgs)
+  {
+    UnaryOperator oldOp = op;
+    op = newOp;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CPackage.UNARY_EXPRESSION__OP, oldOp, newOp);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setOp(UnaryOperator newOp)
+  {
+    if (newOp != op)
+    {
+      NotificationChain msgs = null;
+      if (op != null)
+        msgs = ((InternalEObject)op).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CPackage.UNARY_EXPRESSION__OP, null, msgs);
+      if (newOp != null)
+        msgs = ((InternalEObject)newOp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CPackage.UNARY_EXPRESSION__OP, null, msgs);
+      msgs = basicSetOp(newOp, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CPackage.UNARY_EXPRESSION__OP, newOp, newOp));
   }
 
   /**
@@ -285,9 +407,9 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
    * <!-- end-user-doc -->
    * @generated
    */
-  public UnaryOperator getOp()
+  public String getAndand()
   {
-    return op;
+    return andand;
   }
 
   /**
@@ -295,16 +417,12 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetOp(UnaryOperator newOp, NotificationChain msgs)
+  public void setAndand(String newAndand)
   {
-    UnaryOperator oldOp = op;
-    op = newOp;
+    String oldAndand = andand;
+    andand = newAndand;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CPackage.UNARY_EXPRESSION__OP, oldOp, newOp);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
+      eNotify(new ENotificationImpl(this, Notification.SET, CPackage.UNARY_EXPRESSION__ANDAND, oldAndand, andand));
   }
 
   /**
@@ -312,20 +430,22 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setOp(UnaryOperator newOp)
+  public String getId()
   {
-    if (newOp != op)
-    {
-      NotificationChain msgs = null;
-      if (op != null)
-        msgs = ((InternalEObject)op).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CPackage.UNARY_EXPRESSION__OP, null, msgs);
-      if (newOp != null)
-        msgs = ((InternalEObject)newOp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CPackage.UNARY_EXPRESSION__OP, null, msgs);
-      msgs = basicSetOp(newOp, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, CPackage.UNARY_EXPRESSION__OP, newOp, newOp));
+    return id;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setId(String newId)
+  {
+    String oldId = id;
+    id = newId;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CPackage.UNARY_EXPRESSION__ID, oldId, id));
   }
 
   /**
@@ -340,10 +460,10 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
     {
       case CPackage.UNARY_EXPRESSION__EXPR:
         return basicSetExpr(null, msgs);
-      case CPackage.UNARY_EXPRESSION__TYPE_NAME:
-        return basicSetTypeName(null, msgs);
       case CPackage.UNARY_EXPRESSION__OP:
         return basicSetOp(null, msgs);
+      case CPackage.UNARY_EXPRESSION__TYPE_NAME:
+        return basicSetTypeName(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -358,18 +478,22 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
   {
     switch (featureID)
     {
+      case CPackage.UNARY_EXPRESSION__EXPR:
+        return getExpr();
       case CPackage.UNARY_EXPRESSION__PLUSPLUS:
         return getPlusplus();
       case CPackage.UNARY_EXPRESSION__MINUSMINUS:
         return getMinusminus();
-      case CPackage.UNARY_EXPRESSION__EXPR:
-        return getExpr();
+      case CPackage.UNARY_EXPRESSION__OP:
+        return getOp();
       case CPackage.UNARY_EXPRESSION__SIZE_OF:
         return getSizeOf();
       case CPackage.UNARY_EXPRESSION__TYPE_NAME:
         return getTypeName();
-      case CPackage.UNARY_EXPRESSION__OP:
-        return getOp();
+      case CPackage.UNARY_EXPRESSION__ANDAND:
+        return getAndand();
+      case CPackage.UNARY_EXPRESSION__ID:
+        return getId();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -379,22 +503,22 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case CPackage.UNARY_EXPRESSION__PLUSPLUS:
-        getPlusplus().clear();
-        getPlusplus().addAll((Collection<? extends String>)newValue);
-        return;
-      case CPackage.UNARY_EXPRESSION__MINUSMINUS:
-        getMinusminus().clear();
-        getMinusminus().addAll((Collection<? extends String>)newValue);
-        return;
       case CPackage.UNARY_EXPRESSION__EXPR:
         setExpr((Expression)newValue);
+        return;
+      case CPackage.UNARY_EXPRESSION__PLUSPLUS:
+        setPlusplus((String)newValue);
+        return;
+      case CPackage.UNARY_EXPRESSION__MINUSMINUS:
+        setMinusminus((String)newValue);
+        return;
+      case CPackage.UNARY_EXPRESSION__OP:
+        setOp((UnaryOperator)newValue);
         return;
       case CPackage.UNARY_EXPRESSION__SIZE_OF:
         setSizeOf((String)newValue);
@@ -402,8 +526,11 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
       case CPackage.UNARY_EXPRESSION__TYPE_NAME:
         setTypeName((TypeName)newValue);
         return;
-      case CPackage.UNARY_EXPRESSION__OP:
-        setOp((UnaryOperator)newValue);
+      case CPackage.UNARY_EXPRESSION__ANDAND:
+        setAndand((String)newValue);
+        return;
+      case CPackage.UNARY_EXPRESSION__ID:
+        setId((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -419,14 +546,17 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
   {
     switch (featureID)
     {
-      case CPackage.UNARY_EXPRESSION__PLUSPLUS:
-        getPlusplus().clear();
-        return;
-      case CPackage.UNARY_EXPRESSION__MINUSMINUS:
-        getMinusminus().clear();
-        return;
       case CPackage.UNARY_EXPRESSION__EXPR:
         setExpr((Expression)null);
+        return;
+      case CPackage.UNARY_EXPRESSION__PLUSPLUS:
+        setPlusplus(PLUSPLUS_EDEFAULT);
+        return;
+      case CPackage.UNARY_EXPRESSION__MINUSMINUS:
+        setMinusminus(MINUSMINUS_EDEFAULT);
+        return;
+      case CPackage.UNARY_EXPRESSION__OP:
+        setOp((UnaryOperator)null);
         return;
       case CPackage.UNARY_EXPRESSION__SIZE_OF:
         setSizeOf(SIZE_OF_EDEFAULT);
@@ -434,8 +564,11 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
       case CPackage.UNARY_EXPRESSION__TYPE_NAME:
         setTypeName((TypeName)null);
         return;
-      case CPackage.UNARY_EXPRESSION__OP:
-        setOp((UnaryOperator)null);
+      case CPackage.UNARY_EXPRESSION__ANDAND:
+        setAndand(ANDAND_EDEFAULT);
+        return;
+      case CPackage.UNARY_EXPRESSION__ID:
+        setId(ID_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -451,18 +584,22 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
   {
     switch (featureID)
     {
-      case CPackage.UNARY_EXPRESSION__PLUSPLUS:
-        return plusplus != null && !plusplus.isEmpty();
-      case CPackage.UNARY_EXPRESSION__MINUSMINUS:
-        return minusminus != null && !minusminus.isEmpty();
       case CPackage.UNARY_EXPRESSION__EXPR:
         return expr != null;
+      case CPackage.UNARY_EXPRESSION__PLUSPLUS:
+        return PLUSPLUS_EDEFAULT == null ? plusplus != null : !PLUSPLUS_EDEFAULT.equals(plusplus);
+      case CPackage.UNARY_EXPRESSION__MINUSMINUS:
+        return MINUSMINUS_EDEFAULT == null ? minusminus != null : !MINUSMINUS_EDEFAULT.equals(minusminus);
+      case CPackage.UNARY_EXPRESSION__OP:
+        return op != null;
       case CPackage.UNARY_EXPRESSION__SIZE_OF:
         return SIZE_OF_EDEFAULT == null ? sizeOf != null : !SIZE_OF_EDEFAULT.equals(sizeOf);
       case CPackage.UNARY_EXPRESSION__TYPE_NAME:
         return typeName != null;
-      case CPackage.UNARY_EXPRESSION__OP:
-        return op != null;
+      case CPackage.UNARY_EXPRESSION__ANDAND:
+        return ANDAND_EDEFAULT == null ? andand != null : !ANDAND_EDEFAULT.equals(andand);
+      case CPackage.UNARY_EXPRESSION__ID:
+        return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
     }
     return super.eIsSet(featureID);
   }
@@ -484,6 +621,10 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
     result.append(minusminus);
     result.append(", sizeOf: ");
     result.append(sizeOf);
+    result.append(", andand: ");
+    result.append(andand);
+    result.append(", id: ");
+    result.append(id);
     result.append(')');
     return result.toString();
   }

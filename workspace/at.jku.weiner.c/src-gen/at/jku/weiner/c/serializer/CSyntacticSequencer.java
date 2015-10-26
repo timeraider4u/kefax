@@ -56,8 +56,6 @@ public class CSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getCOMMAToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getELLIPSISRule())
 			return getELLIPSISToken(semanticObject, ruleCall, node);
-		else if(ruleCall.getRule() == grammarAccess.getIDRule())
-			return getIDToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getKW_ASM1Rule())
 			return getKW_ASM1Token(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getKW_ASM2Rule())
@@ -150,15 +148,6 @@ public class CSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return ".";
-	}
-	
-	/**
-	 * terminal ID: IDENTIFIER;
-	 */
-	protected String getIDToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "$";
 	}
 	
 	/**

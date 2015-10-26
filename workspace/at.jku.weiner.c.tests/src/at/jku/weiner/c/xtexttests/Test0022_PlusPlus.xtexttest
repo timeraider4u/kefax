@@ -162,14 +162,16 @@ RIGHTBRACE NEWLINE
 																						expr=
 																						(UnaryExpression
 																							expr=
-																							(PostfixExpression
-																								expr+=
-																								(PrimaryExpression
-																									id++"num"
+																							(UnaryExpression
+																								expr=
+																								(PostfixExpression
+																									expr+=
+																									(PrimaryExpression
+																										id++"num"
+																									)
 																								)
 																							),
-																							plusplus+*"[++]",
-																							minusminus+*"[]"
+																							plusplus++"++"
 																						)
 																					)
 																				)

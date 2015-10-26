@@ -2,7 +2,6 @@
  */
 package at.jku.weiner.c.c;
 
-import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,12 +12,14 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link at.jku.weiner.c.c.UnaryExpression#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.UnaryExpression#getPlusplus <em>Plusplus</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.UnaryExpression#getMinusminus <em>Minusminus</em>}</li>
- *   <li>{@link at.jku.weiner.c.c.UnaryExpression#getExpr <em>Expr</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.UnaryExpression#getOp <em>Op</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.UnaryExpression#getSizeOf <em>Size Of</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.UnaryExpression#getTypeName <em>Type Name</em>}</li>
- *   <li>{@link at.jku.weiner.c.c.UnaryExpression#getOp <em>Op</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.UnaryExpression#getAndand <em>Andand</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.UnaryExpression#getId <em>Id</em>}</li>
  * </ul>
  *
  * @see at.jku.weiner.c.c.CPackage#getUnaryExpression()
@@ -27,38 +28,6 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface UnaryExpression extends Expression
 {
-  /**
-   * Returns the value of the '<em><b>Plusplus</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Plusplus</em>' attribute list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Plusplus</em>' attribute list.
-   * @see at.jku.weiner.c.c.CPackage#getUnaryExpression_Plusplus()
-   * @model unique="false"
-   * @generated
-   */
-  EList<String> getPlusplus();
-
-  /**
-   * Returns the value of the '<em><b>Minusminus</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Minusminus</em>' attribute list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Minusminus</em>' attribute list.
-   * @see at.jku.weiner.c.c.CPackage#getUnaryExpression_Minusminus()
-   * @model unique="false"
-   * @generated
-   */
-  EList<String> getMinusminus();
-
   /**
    * Returns the value of the '<em><b>Expr</b></em>' containment reference.
    * <!-- begin-user-doc -->
@@ -84,6 +53,84 @@ public interface UnaryExpression extends Expression
    * @generated
    */
   void setExpr(Expression value);
+
+  /**
+   * Returns the value of the '<em><b>Plusplus</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Plusplus</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Plusplus</em>' attribute.
+   * @see #setPlusplus(String)
+   * @see at.jku.weiner.c.c.CPackage#getUnaryExpression_Plusplus()
+   * @model
+   * @generated
+   */
+  String getPlusplus();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.c.UnaryExpression#getPlusplus <em>Plusplus</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Plusplus</em>' attribute.
+   * @see #getPlusplus()
+   * @generated
+   */
+  void setPlusplus(String value);
+
+  /**
+   * Returns the value of the '<em><b>Minusminus</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Minusminus</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Minusminus</em>' attribute.
+   * @see #setMinusminus(String)
+   * @see at.jku.weiner.c.c.CPackage#getUnaryExpression_Minusminus()
+   * @model
+   * @generated
+   */
+  String getMinusminus();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.c.UnaryExpression#getMinusminus <em>Minusminus</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Minusminus</em>' attribute.
+   * @see #getMinusminus()
+   * @generated
+   */
+  void setMinusminus(String value);
+
+  /**
+   * Returns the value of the '<em><b>Op</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Op</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Op</em>' containment reference.
+   * @see #setOp(UnaryOperator)
+   * @see at.jku.weiner.c.c.CPackage#getUnaryExpression_Op()
+   * @model containment="true"
+   * @generated
+   */
+  UnaryOperator getOp();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.c.UnaryExpression#getOp <em>Op</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Op</em>' containment reference.
+   * @see #getOp()
+   * @generated
+   */
+  void setOp(UnaryOperator value);
 
   /**
    * Returns the value of the '<em><b>Size Of</b></em>' attribute.
@@ -138,29 +185,55 @@ public interface UnaryExpression extends Expression
   void setTypeName(TypeName value);
 
   /**
-   * Returns the value of the '<em><b>Op</b></em>' containment reference.
+   * Returns the value of the '<em><b>Andand</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Op</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Andand</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Op</em>' containment reference.
-   * @see #setOp(UnaryOperator)
-   * @see at.jku.weiner.c.c.CPackage#getUnaryExpression_Op()
-   * @model containment="true"
+   * @return the value of the '<em>Andand</em>' attribute.
+   * @see #setAndand(String)
+   * @see at.jku.weiner.c.c.CPackage#getUnaryExpression_Andand()
+   * @model
    * @generated
    */
-  UnaryOperator getOp();
+  String getAndand();
 
   /**
-   * Sets the value of the '{@link at.jku.weiner.c.c.UnaryExpression#getOp <em>Op</em>}' containment reference.
+   * Sets the value of the '{@link at.jku.weiner.c.c.UnaryExpression#getAndand <em>Andand</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Op</em>' containment reference.
-   * @see #getOp()
+   * @param value the new value of the '<em>Andand</em>' attribute.
+   * @see #getAndand()
    * @generated
    */
-  void setOp(UnaryOperator value);
+  void setAndand(String value);
+
+  /**
+   * Returns the value of the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Id</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Id</em>' attribute.
+   * @see #setId(String)
+   * @see at.jku.weiner.c.c.CPackage#getUnaryExpression_Id()
+   * @model
+   * @generated
+   */
+  String getId();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.c.UnaryExpression#getId <em>Id</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Id</em>' attribute.
+   * @see #getId()
+   * @generated
+   */
+  void setId(String value);
 
 } // UnaryExpression

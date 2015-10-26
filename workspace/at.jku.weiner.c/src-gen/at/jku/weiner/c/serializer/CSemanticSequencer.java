@@ -941,8 +941,13 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
-	 *         (plusplus+=PLUSPLUS | minusminus+=MINUSMINUS)* 
-	 *         (expr=PostfixExpression | (sizeOf=KW_SIZEOF typeName=TypeName) | (op=UnaryOperator expr=CastExpression))?
+	 *         expr=PostfixExpression | 
+	 *         (plusplus=PLUSPLUS expr=UnaryExpression) | 
+	 *         (minusminus=MINUSMINUS expr=UnaryExpression) | 
+	 *         (op=UnaryOperator expr=CastExpression) | 
+	 *         (sizeOf=KW_SIZEOF typeName=TypeName) | 
+	 *         (sizeOf=KW_SIZEOF expr=UnaryExpression) | 
+	 *         (andand=ANDAND id=ID)
 	 *     )
 	 */
 	protected void sequence_UnaryExpression(EObject context, UnaryExpression semanticObject) {

@@ -80,6 +80,7 @@ import at.jku.weiner.c.c.AdditiveExpression;
 import at.jku.weiner.c.c.MultiplicativeExpression;
 import at.jku.weiner.c.c.CastExpression;
 import at.jku.weiner.c.c.UnaryExpression;
+import at.jku.weiner.c.c.UnaryExpression;
 import at.jku.weiner.c.c.PostfixExpression;
 import at.jku.weiner.c.c.PrimaryExpression;
 
@@ -374,16 +375,17 @@ public class Test0022_PlusPlus {
 		Assert.assertNotNull(CastExpression_54_Var);
 		final UnaryExpression UnaryExpression_55_Var = (UnaryExpression)CastExpression_54_Var.getExpr();
 		Assert.assertNotNull(UnaryExpression_55_Var);
-		final PostfixExpression PostfixExpression_56_Var = (PostfixExpression)UnaryExpression_55_Var.getExpr();
-		Assert.assertNotNull(PostfixExpression_56_Var);
-		final EList<? extends EObject> Expr_56_list = PostfixExpression_56_Var.getExpr();
-		Assert.assertNotNull(Expr_56_list);
-		Assert.assertEquals(1, Expr_56_list.size());
-		final PrimaryExpression PrimaryExpression_57_Var = (PrimaryExpression)Expr_56_list.get(0);
-		Assert.assertNotNull(PrimaryExpression_57_Var);
-		Assert.assertEquals("num", PrimaryExpression_57_Var.getId());
-		Assert.assertEquals("[++]", UnaryExpression_55_Var.getPlusplus().toString());
-		Assert.assertEquals("[]", UnaryExpression_55_Var.getMinusminus().toString());
+		final UnaryExpression UnaryExpression_56_Var = (UnaryExpression)UnaryExpression_55_Var.getExpr();
+		Assert.assertNotNull(UnaryExpression_56_Var);
+		final PostfixExpression PostfixExpression_57_Var = (PostfixExpression)UnaryExpression_56_Var.getExpr();
+		Assert.assertNotNull(PostfixExpression_57_Var);
+		final EList<? extends EObject> Expr_57_list = PostfixExpression_57_Var.getExpr();
+		Assert.assertNotNull(Expr_57_list);
+		Assert.assertEquals(1, Expr_57_list.size());
+		final PrimaryExpression PrimaryExpression_58_Var = (PrimaryExpression)Expr_57_list.get(0);
+		Assert.assertNotNull(PrimaryExpression_58_Var);
+		Assert.assertEquals("num", PrimaryExpression_58_Var.getId());
+		Assert.assertEquals("++", UnaryExpression_55_Var.getPlusplus());
 		Assert.assertEquals(";", JumpStatement_40_Var.getSemi());
 	}
 

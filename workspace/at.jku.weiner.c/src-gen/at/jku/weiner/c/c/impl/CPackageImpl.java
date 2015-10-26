@@ -2434,9 +2434,9 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getUnaryExpression_Plusplus()
+  public EReference getUnaryExpression_Expr()
   {
-    return (EAttribute)unaryExpressionEClass.getEStructuralFeatures().get(0);
+    return (EReference)unaryExpressionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2444,7 +2444,7 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getUnaryExpression_Minusminus()
+  public EAttribute getUnaryExpression_Plusplus()
   {
     return (EAttribute)unaryExpressionEClass.getEStructuralFeatures().get(1);
   }
@@ -2454,29 +2454,9 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getUnaryExpression_Expr()
+  public EAttribute getUnaryExpression_Minusminus()
   {
-    return (EReference)unaryExpressionEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getUnaryExpression_SizeOf()
-  {
-    return (EAttribute)unaryExpressionEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getUnaryExpression_TypeName()
-  {
-    return (EReference)unaryExpressionEClass.getEStructuralFeatures().get(4);
+    return (EAttribute)unaryExpressionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -2486,7 +2466,47 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    */
   public EReference getUnaryExpression_Op()
   {
+    return (EReference)unaryExpressionEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getUnaryExpression_SizeOf()
+  {
+    return (EAttribute)unaryExpressionEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getUnaryExpression_TypeName()
+  {
     return (EReference)unaryExpressionEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getUnaryExpression_Andand()
+  {
+    return (EAttribute)unaryExpressionEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getUnaryExpression_Id()
+  {
+    return (EAttribute)unaryExpressionEClass.getEStructuralFeatures().get(7);
   }
 
   /**
@@ -2902,12 +2922,14 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     createEReference(castExpressionEClass, CAST_EXPRESSION__TYPE);
 
     unaryExpressionEClass = createEClass(UNARY_EXPRESSION);
+    createEReference(unaryExpressionEClass, UNARY_EXPRESSION__EXPR);
     createEAttribute(unaryExpressionEClass, UNARY_EXPRESSION__PLUSPLUS);
     createEAttribute(unaryExpressionEClass, UNARY_EXPRESSION__MINUSMINUS);
-    createEReference(unaryExpressionEClass, UNARY_EXPRESSION__EXPR);
+    createEReference(unaryExpressionEClass, UNARY_EXPRESSION__OP);
     createEAttribute(unaryExpressionEClass, UNARY_EXPRESSION__SIZE_OF);
     createEReference(unaryExpressionEClass, UNARY_EXPRESSION__TYPE_NAME);
-    createEReference(unaryExpressionEClass, UNARY_EXPRESSION__OP);
+    createEAttribute(unaryExpressionEClass, UNARY_EXPRESSION__ANDAND);
+    createEAttribute(unaryExpressionEClass, UNARY_EXPRESSION__ID);
 
     postfixExpressionEClass = createEClass(POSTFIX_EXPRESSION);
     createEReference(postfixExpressionEClass, POSTFIX_EXPRESSION__EXPR);
@@ -3230,12 +3252,14 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     initEReference(getCastExpression_Type(), this.getTypeName(), null, "type", null, 0, 1, CastExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(unaryExpressionEClass, UnaryExpression.class, "UnaryExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getUnaryExpression_Plusplus(), theEcorePackage.getEString(), "plusplus", null, 0, -1, UnaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getUnaryExpression_Minusminus(), theEcorePackage.getEString(), "minusminus", null, 0, -1, UnaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getUnaryExpression_Expr(), this.getExpression(), null, "expr", null, 0, 1, UnaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getUnaryExpression_Plusplus(), theEcorePackage.getEString(), "plusplus", null, 0, 1, UnaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getUnaryExpression_Minusminus(), theEcorePackage.getEString(), "minusminus", null, 0, 1, UnaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUnaryExpression_Op(), this.getUnaryOperator(), null, "op", null, 0, 1, UnaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getUnaryExpression_SizeOf(), theEcorePackage.getEString(), "sizeOf", null, 0, 1, UnaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getUnaryExpression_TypeName(), this.getTypeName(), null, "typeName", null, 0, 1, UnaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getUnaryExpression_Op(), this.getUnaryOperator(), null, "op", null, 0, 1, UnaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getUnaryExpression_Andand(), theEcorePackage.getEString(), "andand", null, 0, 1, UnaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getUnaryExpression_Id(), theEcorePackage.getEString(), "id", null, 0, 1, UnaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(postfixExpressionEClass, PostfixExpression.class, "PostfixExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getPostfixExpression_Expr(), this.getExpression(), null, "expr", null, 0, -1, PostfixExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -278,7 +278,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_unit_1_0 =null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 2) ) { return current; }
@@ -345,7 +345,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -417,7 +417,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_external_1_0 =null;
 
 		 enterRule();
-		   		at.jku.weiner.c.Scope.createNewScope("TranslationUnit");
+		   		if ( state.backtracking==0 ) {at.jku.weiner.c.Scope.createNewScope("TranslationUnit");}
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 4) ) { return current; }
@@ -495,7 +495,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		at.jku.weiner.c.Scope.removeScope();
+			    		at.jku.weiner.c.Scope.removeScope(0);
 			     }
 		}
 		 
@@ -572,7 +572,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_declaration_5_0 =null;
 
 		 enterRule();
-		   		at.jku.weiner.c.Log.log("ExternalDeclaration-enter");
+		   		if ( state.backtracking==0 ) {at.jku.weiner.c.Log.log("ExternalDeclaration-enter");}
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 6) ) { return current; }
@@ -823,7 +823,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_funDeclaration_3_0 =null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 8) ) { return current; }
@@ -959,7 +959,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -1031,7 +1031,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_body_1_0 =null;
 
 		 enterRule();
-		   		at.jku.weiner.c.Scope.createNewScope("FunctionDefinition");
+		   		if ( state.backtracking==0 ) {at.jku.weiner.c.Scope.createNewScope("FunctionDefinition");}
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 10) ) { return current; }
@@ -1162,7 +1162,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_initDeclaratorList_2_0 =null;
 
 		 enterRule();
-		   		at.jku.weiner.c.Scope.setTypedef(false);
+		   		if ( state.backtracking==0 ) {at.jku.weiner.c.Scope.setTypedef(false);}
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 12) ) { return current; }
@@ -1361,7 +1361,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_declarationSpecifier_4_0 =null;
 
 		 enterRule();
-		   		at.jku.weiner.c.Log.log("DeclarationSpecifiers-enter");
+		   		if ( state.backtracking==0 ) {at.jku.weiner.c.Log.log("DeclarationSpecifiers-enter");}
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 14) ) { return current; }
@@ -1613,7 +1613,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_initDeclarator_3_0 =null;
 
 		 enterRule();
-		   		at.jku.weiner.c.Log.log("InitDeclaratorList-enter");
+		   		if ( state.backtracking==0 ) {at.jku.weiner.c.Log.log("InitDeclaratorList-enter");}
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 16) ) { return current; }
@@ -1797,7 +1797,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_initializer_3_0 =null;
 
 		 enterRule();
-		   		at.jku.weiner.c.Log.log("InitDeclarator-enter");
+		   		if ( state.backtracking==0 ) {at.jku.weiner.c.Log.log("InitDeclarator-enter");}
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 18) ) { return current; }
@@ -1978,7 +1978,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		Token lv_name_6_0=null;
 
 		 enterRule();
-		   		at.jku.weiner.c.Log.log("StorageClassSpecifier-enter");
+		   		if ( state.backtracking==0 ) {at.jku.weiner.c.Log.log("StorageClassSpecifier-enter");}
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 20) ) { return current; }
@@ -2313,7 +2313,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_type_17_0 =null;
 
 		 enterRule();
-		   		at.jku.weiner.c.Log.log("TypeSpecifier-enter");
+		   		if ( state.backtracking==0 ) {at.jku.weiner.c.Log.log("TypeSpecifier-enter");}
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 22) ) { return current; }
@@ -3008,7 +3008,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		Token lv_id_1_0=null;
 
 		 enterRule();
-		   		at.jku.weiner.c.Log.log("TypedefName-enter");
+		   		if ( state.backtracking==0 ) {at.jku.weiner.c.Log.log("TypedefName-enter");}
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 24) ) { return current; }
@@ -3142,7 +3142,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_structDeclList_4_0 =null;
 
 		 enterRule();
-		   		
+		   		if ( state.backtracking==0 ) {at.jku.weiner.c.Scope.createNewScope("StructOrUnion");}
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 26) ) { return current; }
@@ -3336,7 +3336,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		at.jku.weiner.c.Scope.removeScope();
 			     }
 		}
 		 
@@ -3409,7 +3409,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		Token lv_name_2_0=null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 28) ) { return current; }
@@ -3517,7 +3517,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -3589,7 +3589,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_structDeclaration_0_0 =null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 30) ) { return current; }
@@ -3649,7 +3649,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -3723,7 +3723,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_structDeclarationList_1_0 =null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 32) ) { return current; }
@@ -3809,7 +3809,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -3882,7 +3882,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_typeQualifier_2_0 =null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 34) ) { return current; }
@@ -3994,7 +3994,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -4068,7 +4068,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_structDeclarator_2_0 =null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 36) ) { return current; }
@@ -4165,7 +4165,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -4241,7 +4241,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_constExpr_4_0 =null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 38) ) { return current; }
@@ -4400,7 +4400,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -4479,7 +4479,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_enumList_7_0 =null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 40) ) { return current; }
@@ -4669,7 +4669,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -4743,7 +4743,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_enumerator_2_0 =null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 42) ) { return current; }
@@ -4840,7 +4840,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -4914,7 +4914,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_expr_3_0 =null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 44) ) { return current; }
@@ -5014,7 +5014,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -5089,7 +5089,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		Token lv_type_4_0=null;
 
 		 enterRule();
-		   		at.jku.weiner.c.Log.log("TypeQualifier-enter");
+		   		if ( state.backtracking==0 ) {at.jku.weiner.c.Log.log("TypeQualifier-enter");}
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 46) ) { return current; }
@@ -5340,7 +5340,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		Token lv_name_2_0=null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 48) ) { return current; }
@@ -5448,7 +5448,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -5521,7 +5521,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_declarator_2_0 =null;
 
 		 enterRule();
-		   		at.jku.weiner.c.Log.log("Declarator-enter");
+		   		if ( state.backtracking==0 ) {at.jku.weiner.c.Log.log("Declarator-enter");}
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 50) ) { return current; }
@@ -5712,7 +5712,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_declaratorSuffix_5_0 =null;
 
 		 enterRule();
-		   		at.jku.weiner.c.Log.log("DirectDeclarator-enter");
+		   		if ( state.backtracking==0 ) {at.jku.weiner.c.Log.log("DirectDeclarator-enter");}
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 52) ) { return current; }
@@ -5973,7 +5973,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_lastSuffix_19_0 =null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 54) ) { return current; }
@@ -6622,7 +6622,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -6697,7 +6697,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_identifierList_3_0 =null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 56) ) { return current; }
@@ -6817,7 +6817,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -6891,7 +6891,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_typeQualifierList_3_0 =null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 58) ) { return current; }
@@ -7058,7 +7058,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -7130,7 +7130,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_typeQualifier_1_0 =null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 60) ) { return current; }
@@ -7208,7 +7208,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -7282,7 +7282,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_list_1_0 =null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 62) ) { return current; }
@@ -7362,7 +7362,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -7436,7 +7436,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_parameterDeclaration_3_0 =null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 64) ) { return current; }
@@ -7550,7 +7550,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -7623,7 +7623,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_declarator_2_0 =null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 66) ) { return current; }
@@ -7718,7 +7718,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -7792,7 +7792,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_id_3_0 =null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 68) ) { return current; }
@@ -7902,7 +7902,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -7974,7 +7974,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		Token lv_id_1_0=null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 70) ) { return current; }
@@ -8027,7 +8027,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -8099,7 +8099,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_list_1_0 =null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 72) ) { return current; }
@@ -8156,7 +8156,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -8232,7 +8232,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_list_3_0 =null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 74) ) { return current; }
@@ -8380,7 +8380,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -8454,7 +8454,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_initializer_3_0 =null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 76) ) { return current; }
@@ -8568,7 +8568,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -8641,7 +8641,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_statement_2_0 =null;
 
 		 enterRule();
-		   		at.jku.weiner.c.Log.log("BlockList-enter");
+		   		if ( state.backtracking==0 ) {at.jku.weiner.c.Log.log("BlockList-enter");}
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 78) ) { return current; }
@@ -8831,7 +8831,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_stmt_7_0 =null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 80) ) { return current; }
@@ -9098,7 +9098,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -9179,7 +9179,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_lStmt_10_0 =null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 82) ) { return current; }
@@ -9462,7 +9462,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -9536,7 +9536,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_body_2_0 =null;
 
 		 enterRule();
-		   		
+		   		if ( state.backtracking==0 ) {at.jku.weiner.c.Scope.createNewScope("CompoundStatement");}
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 84) ) { return current; }
@@ -9601,7 +9601,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		at.jku.weiner.c.Scope.removeScope();
 			     }
 		}
 		 
@@ -9673,7 +9673,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_blockList_1_0 =null;
 
 		 enterRule();
-		   		at.jku.weiner.c.Log.log("BodyStatement-enter");
+		   		if ( state.backtracking==0 ) {at.jku.weiner.c.Log.log("BodyStatement-enter");}
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 86) ) { return current; }
@@ -9810,7 +9810,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_expression_1_0 =null;
 
 		 enterRule();
-		   		at.jku.weiner.c.Log.log("ExpressionStatement-enter");
+		   		if ( state.backtracking==0 ) {at.jku.weiner.c.Log.log("ExpressionStatement-enter");}
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 88) ) { return current; }
@@ -9984,7 +9984,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_switchStatement_12_0 =null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 90) ) { return current; }
@@ -10294,7 +10294,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -10394,7 +10394,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_statement_29_0 =null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 92) ) { return current; }
@@ -11069,7 +11069,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -11150,7 +11150,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_expr_9_0 =null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 94) ) { return current; }
@@ -11510,7 +11510,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -11592,7 +11592,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_expr_9_0 =null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 96) ) { return current; }
@@ -11889,7 +11889,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -11963,7 +11963,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_exprExpr_3_0 =null;
 
 		 enterRule();
-		   		at.jku.weiner.c.Log.error("Expression-enter");
+		   		if ( state.backtracking==0 ) {at.jku.weiner.c.Log.error("Expression-enter");}
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 98) ) { return current; }
@@ -12148,7 +12148,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_expr_4_0 =null;
 
 		 enterRule();
-		   		at.jku.weiner.c.Log.error("AssignmentExpression-enter");
+		   		if ( state.backtracking==0 ) {at.jku.weiner.c.Log.error("AssignmentExpression-enter");}
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 100) ) { return current; }
@@ -12383,7 +12383,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject this_UnaryExpression_0 =null;
 
 		 enterRule();
-		   		at.jku.weiner.c.Log.error("Lvalue-enter");
+		   		if ( state.backtracking==0 ) {at.jku.weiner.c.Log.error("Lvalue-enter");}
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 102) ) { return current; }
@@ -12490,7 +12490,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		Token lv_op_11_0=null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 104) ) { return current; }
@@ -12906,7 +12906,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -12982,7 +12982,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_cExpr_5_0 =null;
 
 		 enterRule();
-		   		at.jku.weiner.c.Log.error("ConditionalExpression-enter");
+		   		if ( state.backtracking==0 ) {at.jku.weiner.c.Log.error("ConditionalExpression-enter");}
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 106) ) { return current; }
@@ -13192,7 +13192,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_expr_3_0 =null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 108) ) { return current; }
@@ -13302,7 +13302,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -13376,7 +13376,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_expr_3_0 =null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 110) ) { return current; }
@@ -13497,7 +13497,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -13571,7 +13571,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_expr_3_0 =null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 112) ) { return current; }
@@ -13681,7 +13681,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -13755,7 +13755,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_expr_3_0 =null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 114) ) { return current; }
@@ -13865,7 +13865,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -13939,7 +13939,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_expr_3_0 =null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 116) ) { return current; }
@@ -14221,7 +14221,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -14296,7 +14296,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_expr_4_0 =null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 118) ) { return current; }
@@ -14481,7 +14481,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -14558,7 +14558,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_expr_6_0 =null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 120) ) { return current; }
@@ -14813,7 +14813,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -14888,7 +14888,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_expr_4_0 =null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 122) ) { return current; }
@@ -15073,7 +15073,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -15148,7 +15148,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_expr_4_0 =null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 124) ) { return current; }
@@ -15329,7 +15329,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -15405,7 +15405,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_expr_5_0 =null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 126) ) { return current; }
@@ -15622,7 +15622,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -15698,7 +15698,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_expr_5_0 =null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 128) ) { return current; }
@@ -15841,7 +15841,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -15927,7 +15927,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_expr_13_0 =null;
 
 		 enterRule();
-		   		at.jku.weiner.c.Log.error("UnaryExpression-enter");
+		   		if ( state.backtracking==0 ) {at.jku.weiner.c.Log.error("UnaryExpression-enter");}
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 130) ) { return current; }
@@ -16544,7 +16544,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		Token lv_op_6_0=null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 132) ) { return current; }
@@ -16790,7 +16790,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -16872,7 +16872,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_argumentExpressionList_6_0 =null;
 
 		 enterRule();
-		   		at.jku.weiner.c.Log.error("PostfixExpression-enter");
+		   		if ( state.backtracking==0 ) {at.jku.weiner.c.Log.error("PostfixExpression-enter");}
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 134) ) { return current; }
@@ -17238,7 +17238,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_expr_2_0 =null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 136) ) { return current; }
@@ -17335,7 +17335,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -17411,7 +17411,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_expr_4_0 =null;
 
 		 enterRule();
-		   		at.jku.weiner.c.Log.error("PrimaryExpression-enter");
+		   		if ( state.backtracking==0 ) {at.jku.weiner.c.Log.error("PrimaryExpression-enter");}
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 138) ) { return current; }
@@ -17660,7 +17660,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		Token lv_bin_7_0=null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 140) ) { return current; }
@@ -17940,7 +17940,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 
@@ -18012,7 +18012,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 		EObject lv_expr_1_0 =null;
 
 		 enterRule();
-		   		
+		   		/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 142) ) { return current; }
@@ -18069,7 +18069,7 @@ public class InternalCParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		
+			    		/*no after found*/
 			     }
 		}
 		 

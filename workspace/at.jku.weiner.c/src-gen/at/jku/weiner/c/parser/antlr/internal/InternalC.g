@@ -87,10 +87,10 @@ entryRuleModel returns [EObject current=null]
 // Rule Model
 ruleModel returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -147,10 +147,10 @@ entryRuleTranslationUnit returns [EObject current=null]
 // Rule TranslationUnit
 ruleTranslationUnit returns [EObject current=null] 
     @init { enterRule();
-   		at.jku.weiner.c.Scope.createNewScope("TranslationUnit");
+   		if ( state.backtracking==0 ) {at.jku.weiner.c.Scope.createNewScope("TranslationUnit");}
     }
     @after { leaveRule();
-    		at.jku.weiner.c.Scope.removeScope();
+    		at.jku.weiner.c.Scope.removeScope(0);
      }:
 
 (
@@ -207,7 +207,7 @@ entryRuleExternalDeclaration returns [EObject current=null]
 // Rule ExternalDeclaration
 ruleExternalDeclaration returns [EObject current=null] 
     @init { enterRule();
-   		at.jku.weiner.c.Log.log("ExternalDeclaration-enter");
+   		if ( state.backtracking==0 ) {at.jku.weiner.c.Log.log("ExternalDeclaration-enter");}
     }
     @after { leaveRule();
     		at.jku.weiner.c.Log.log("ExternalDeclaration-leave");
@@ -359,10 +359,10 @@ entryRuleFunctionDefHead returns [EObject current=null]
 // Rule FunctionDefHead
 ruleFunctionDefHead returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -461,7 +461,7 @@ entryRuleFunctionDefinition returns [EObject current=null]
 // Rule FunctionDefinition
 ruleFunctionDefinition returns [EObject current=null] 
     @init { enterRule();
-   		at.jku.weiner.c.Scope.createNewScope("FunctionDefinition");
+   		if ( state.backtracking==0 ) {at.jku.weiner.c.Scope.createNewScope("FunctionDefinition");}
     }
     @after { leaveRule();
     		at.jku.weiner.c.Scope.removeScope();
@@ -521,7 +521,7 @@ entryRuleDeclaration returns [EObject current=null]
 // Rule Declaration
 ruleDeclaration returns [EObject current=null] 
     @init { enterRule();
-   		at.jku.weiner.c.Scope.setTypedef(false);
+   		if ( state.backtracking==0 ) {at.jku.weiner.c.Scope.setTypedef(false);}
     }
     @after { leaveRule();
     		at.jku.weiner.c.Log.log("Declaration-leave");
@@ -626,7 +626,7 @@ entryRuleDeclarationSpecifiers returns [EObject current=null]
 // Rule DeclarationSpecifiers
 ruleDeclarationSpecifiers returns [EObject current=null] 
     @init { enterRule();
-   		at.jku.weiner.c.Log.log("DeclarationSpecifiers-enter");
+   		if ( state.backtracking==0 ) {at.jku.weiner.c.Log.log("DeclarationSpecifiers-enter");}
     }
     @after { leaveRule();
     		at.jku.weiner.c.Log.log("DeclarationSpecifiers-leave");
@@ -755,7 +755,7 @@ entryRuleInitDeclaratorList returns [EObject current=null]
 // Rule InitDeclaratorList
 ruleInitDeclaratorList returns [EObject current=null] 
     @init { enterRule();
-   		at.jku.weiner.c.Log.log("InitDeclaratorList-enter");
+   		if ( state.backtracking==0 ) {at.jku.weiner.c.Log.log("InitDeclaratorList-enter");}
     }
     @after { leaveRule();
     		at.jku.weiner.c.Log.log("InitDeclaratorList-leave");
@@ -846,7 +846,7 @@ entryRuleInitDeclarator returns [EObject current=null]
 // Rule InitDeclarator
 ruleInitDeclarator returns [EObject current=null] 
     @init { enterRule();
-   		at.jku.weiner.c.Log.log("InitDeclarator-enter");
+   		if ( state.backtracking==0 ) {at.jku.weiner.c.Log.log("InitDeclarator-enter");}
     }
     @after { leaveRule();
     		at.jku.weiner.c.Log.log("InitDeclarator-leave");
@@ -937,7 +937,7 @@ entryRuleStorageClassSpecifier returns [EObject current=null]
 // Rule StorageClassSpecifier
 ruleStorageClassSpecifier returns [EObject current=null] 
     @init { enterRule();
-   		at.jku.weiner.c.Log.log("StorageClassSpecifier-enter");
+   		if ( state.backtracking==0 ) {at.jku.weiner.c.Log.log("StorageClassSpecifier-enter");}
     }
     @after { leaveRule();
     		at.jku.weiner.c.Log.log("StorageClassSpecifier-leave");
@@ -1111,7 +1111,7 @@ entryRuleTypeSpecifier returns [EObject current=null]
 // Rule TypeSpecifier
 ruleTypeSpecifier returns [EObject current=null] 
     @init { enterRule();
-   		at.jku.weiner.c.Log.log("TypeSpecifier-enter");
+   		if ( state.backtracking==0 ) {at.jku.weiner.c.Log.log("TypeSpecifier-enter");}
     }
     @after { leaveRule();
     		at.jku.weiner.c.Log.log("TypeSpecifier-leave");
@@ -1528,7 +1528,7 @@ entryRuleTypedefName returns [EObject current=null]
 // Rule TypedefName
 ruleTypedefName returns [EObject current=null] 
     @init { enterRule();
-   		at.jku.weiner.c.Log.log("TypedefName-enter");
+   		if ( state.backtracking==0 ) {at.jku.weiner.c.Log.log("TypedefName-enter");}
     }
     @after { leaveRule();
     		at.jku.weiner.c.Log.log("TypedefName-leave");
@@ -1589,10 +1589,10 @@ entryRuleStructOrUnionSpecifier returns [EObject current=null]
 // Rule StructOrUnionSpecifier
 ruleStructOrUnionSpecifier returns [EObject current=null] 
     @init { enterRule();
-   		
+   		if ( state.backtracking==0 ) {at.jku.weiner.c.Scope.createNewScope("StructOrUnion");}
     }
     @after { leaveRule();
-    		
+    		at.jku.weiner.c.Scope.removeScope();
      }:
 
 (
@@ -1733,10 +1733,10 @@ entryRuleStructOrUnion returns [EObject current=null]
 // Rule StructOrUnion
 ruleStructOrUnion returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -1818,10 +1818,10 @@ entryRuleStructDeclarationList returns [EObject current=null]
 // Rule StructDeclarationList
 ruleStructDeclarationList returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -1863,10 +1863,10 @@ entryRuleStructDeclaration returns [EObject current=null]
 // Rule StructDeclaration
 ruleStructDeclaration returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -1939,10 +1939,10 @@ entryRuleSpecifierQualifierList returns [EObject current=null]
 // Rule SpecifierQualifierList
 ruleSpecifierQualifierList returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -2024,10 +2024,10 @@ entryRuleStructDeclaratorList returns [EObject current=null]
 // Rule StructDeclaratorList
 ruleStructDeclaratorList returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -2103,10 +2103,10 @@ entryRuleStructDeclarator returns [EObject current=null]
 // Rule StructDeclarator
 ruleStructDeclarator returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -2217,10 +2217,10 @@ entryRuleEnumSpecifier returns [EObject current=null]
 // Rule EnumSpecifier
 ruleEnumSpecifier returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -2370,10 +2370,10 @@ entryRuleEnumeratorList returns [EObject current=null]
 // Rule EnumeratorList
 ruleEnumeratorList returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -2449,10 +2449,10 @@ entryRuleEnumerator returns [EObject current=null]
 // Rule Enumerator
 ruleEnumerator returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -2540,7 +2540,7 @@ entryRuleTypeQualifier returns [EObject current=null]
 // Rule TypeQualifier
 ruleTypeQualifier returns [EObject current=null] 
     @init { enterRule();
-   		at.jku.weiner.c.Log.log("TypeQualifier-enter");
+   		if ( state.backtracking==0 ) {at.jku.weiner.c.Log.log("TypeQualifier-enter");}
     }
     @after { leaveRule();
     		at.jku.weiner.c.Log.log("TypeQualifier-leave");
@@ -2669,10 +2669,10 @@ entryRuleFunctionSpecifier returns [EObject current=null]
 // Rule FunctionSpecifier
 ruleFunctionSpecifier returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -2754,7 +2754,7 @@ entryRuleDeclarator returns [EObject current=null]
 // Rule Declarator
 ruleDeclarator returns [EObject current=null] 
     @init { enterRule();
-   		at.jku.weiner.c.Log.log("Declarator-enter");
+   		if ( state.backtracking==0 ) {at.jku.weiner.c.Log.log("Declarator-enter");}
     }
     @after { leaveRule();
     		at.jku.weiner.c.Log.log("Declarator-leave");
@@ -2835,7 +2835,7 @@ entryRuleDirectDeclarator returns [EObject current=null]
 // Rule DirectDeclarator
 ruleDirectDeclarator returns [EObject current=null] 
     @init { enterRule();
-   		at.jku.weiner.c.Log.log("DirectDeclarator-enter");
+   		if ( state.backtracking==0 ) {at.jku.weiner.c.Log.log("DirectDeclarator-enter");}
     }
     @after { leaveRule();
     		at.jku.weiner.c.Log.log("DirectDeclarator-leave");
@@ -2960,10 +2960,10 @@ entryRuleDeclaratorSuffix returns [EObject current=null]
 // Rule DeclaratorSuffix
 ruleDeclaratorSuffix returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -3305,10 +3305,10 @@ entryRuleDirectDeclaratorLastSuffix returns [EObject current=null]
 // Rule DirectDeclaratorLastSuffix
 ruleDirectDeclaratorLastSuffix returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -3404,10 +3404,10 @@ entryRulePointer returns [EObject current=null]
 // Rule Pointer
 rulePointer returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -3513,10 +3513,10 @@ entryRuleTypeQualifierList returns [EObject current=null]
 // Rule TypeQualifierList
 ruleTypeQualifierList returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -3573,10 +3573,10 @@ entryRuleParameterTypeList returns [EObject current=null]
 // Rule ParameterTypeList
 ruleParameterTypeList returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -3650,10 +3650,10 @@ entryRuleParameterList returns [EObject current=null]
 // Rule ParameterList
 ruleParameterList returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -3741,10 +3741,10 @@ entryRuleParameterDeclaration returns [EObject current=null]
 // Rule ParameterDeclaration
 ruleParameterDeclaration returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -3822,10 +3822,10 @@ entryRuleIdentifierList returns [EObject current=null]
 // Rule IdentifierList
 ruleIdentifierList returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -3913,10 +3913,10 @@ entryRuleMyIdentifier returns [EObject current=null]
 // Rule MyIdentifier
 ruleMyIdentifier returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -3973,10 +3973,10 @@ entryRuleTypeName returns [EObject current=null]
 // Rule TypeName
 ruleTypeName returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -4033,10 +4033,10 @@ entryRuleInitializer returns [EObject current=null]
 // Rule Initializer
 ruleInitializer returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -4142,10 +4142,10 @@ entryRuleInitializerList returns [EObject current=null]
 // Rule InitializerList
 ruleInitializerList returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -4233,7 +4233,7 @@ entryRuleBlockList returns [EObject current=null]
 // Rule BlockList
 ruleBlockList returns [EObject current=null] 
     @init { enterRule();
-   		at.jku.weiner.c.Log.log("BlockList-enter");
+   		if ( state.backtracking==0 ) {at.jku.weiner.c.Log.log("BlockList-enter");}
     }
     @after { leaveRule();
     		at.jku.weiner.c.Log.log("BlockList-enter");
@@ -4318,10 +4318,10 @@ entryRuleStatement returns [EObject current=null]
 // Rule Statement
 ruleStatement returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -4513,10 +4513,10 @@ entryRuleLabeledStatement returns [EObject current=null]
 // Rule LabeledStatement
 ruleLabeledStatement returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -4734,10 +4734,10 @@ entryRuleCompoundStatement returns [EObject current=null]
 // Rule CompoundStatement
 ruleCompoundStatement returns [EObject current=null] 
     @init { enterRule();
-   		
+   		if ( state.backtracking==0 ) {at.jku.weiner.c.Scope.createNewScope("CompoundStatement");}
     }
     @after { leaveRule();
-    		
+    		at.jku.weiner.c.Scope.removeScope();
      }:
 
 (
@@ -4808,7 +4808,7 @@ entryRuleBodyStatement returns [EObject current=null]
 // Rule BodyStatement
 ruleBodyStatement returns [EObject current=null] 
     @init { enterRule();
-   		at.jku.weiner.c.Log.log("BodyStatement-enter");
+   		if ( state.backtracking==0 ) {at.jku.weiner.c.Log.log("BodyStatement-enter");}
     }
     @after { leaveRule();
     		at.jku.weiner.c.Log.log("BodyStatement-leave");
@@ -4868,7 +4868,7 @@ entryRuleExpressionStatement returns [EObject current=null]
 // Rule ExpressionStatement
 ruleExpressionStatement returns [EObject current=null] 
     @init { enterRule();
-   		at.jku.weiner.c.Log.log("ExpressionStatement-enter");
+   		if ( state.backtracking==0 ) {at.jku.weiner.c.Log.log("ExpressionStatement-enter");}
     }
     @after { leaveRule();
     		at.jku.weiner.c.Log.log("ExpressionStatement-enter");
@@ -4949,10 +4949,10 @@ entryRuleSelectionStatement returns [EObject current=null]
 // Rule SelectionStatement
 ruleSelectionStatement returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -5202,10 +5202,10 @@ entryRuleIterationStatement returns [EObject current=null]
 // Rule IterationStatement
 ruleIterationStatement returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -5700,10 +5700,10 @@ entryRuleJumpStatement returns [EObject current=null]
 // Rule JumpStatement
 ruleJumpStatement returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -5967,10 +5967,10 @@ entryRuleAsmStatement returns [EObject current=null]
 // Rule AsmStatement
 ruleAsmStatement returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -6167,7 +6167,7 @@ entryRuleExpression returns [EObject current=null]
 // Rule Expression
 ruleExpression returns [EObject current=null] 
     @init { enterRule();
-   		at.jku.weiner.c.Log.error("Expression-enter");
+   		if ( state.backtracking==0 ) {at.jku.weiner.c.Log.error("Expression-enter");}
     }
     @after { leaveRule();
     		at.jku.weiner.c.Log.error("Expression-leave");
@@ -6258,7 +6258,7 @@ entryRuleAssignmentExpression returns [EObject current=null]
 // Rule AssignmentExpression
 ruleAssignmentExpression returns [EObject current=null] 
     @init { enterRule();
-   		at.jku.weiner.c.Log.error("AssignmentExpression-enter");
+   		if ( state.backtracking==0 ) {at.jku.weiner.c.Log.error("AssignmentExpression-enter");}
     }
     @after { leaveRule();
     		at.jku.weiner.c.Log.error("AssignmentExpression-leave");
@@ -6388,7 +6388,7 @@ entryRuleLvalue returns [EObject current=null]
 // Rule Lvalue
 ruleLvalue returns [EObject current=null] 
     @init { enterRule();
-   		at.jku.weiner.c.Log.error("Lvalue-enter");
+   		if ( state.backtracking==0 ) {at.jku.weiner.c.Log.error("Lvalue-enter");}
     }
     @after { leaveRule();
     		at.jku.weiner.c.Log.error("Lvalue-leave");
@@ -6427,10 +6427,10 @@ entryRuleAssignmentOperator returns [EObject current=null]
 // Rule AssignmentOperator
 ruleAssignmentOperator returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -6710,7 +6710,7 @@ entryRuleConditionalExpression returns [EObject current=null]
 // Rule ConditionalExpression
 ruleConditionalExpression returns [EObject current=null] 
     @init { enterRule();
-   		at.jku.weiner.c.Log.error("ConditionalExpression-enter");
+   		if ( state.backtracking==0 ) {at.jku.weiner.c.Log.error("ConditionalExpression-enter");}
     }
     @after { leaveRule();
     		at.jku.weiner.c.Log.error("ConditionalExpression-leave");
@@ -6829,10 +6829,10 @@ entryRuleLogicalOrExpression returns [EObject current=null]
 // Rule LogicalOrExpression
 ruleLogicalOrExpression returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -6920,10 +6920,10 @@ entryRuleLogicalAndExpression returns [EObject current=null]
 // Rule LogicalAndExpression
 ruleLogicalAndExpression returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -7011,10 +7011,10 @@ entryRuleInclusiveOrExpression returns [EObject current=null]
 // Rule InclusiveOrExpression
 ruleInclusiveOrExpression returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -7102,10 +7102,10 @@ entryRuleExclusiveOrExpression returns [EObject current=null]
 // Rule ExclusiveOrExpression
 ruleExclusiveOrExpression returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -7193,10 +7193,10 @@ entryRuleAndExpression returns [EObject current=null]
 // Rule AndExpression
 ruleAndExpression returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -7284,10 +7284,10 @@ entryRuleEqualityExpression returns [EObject current=null]
 // Rule EqualityExpression
 ruleEqualityExpression returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -7414,10 +7414,10 @@ entryRuleRelationalExpression returns [EObject current=null]
 // Rule RelationalExpression
 ruleRelationalExpression returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -7588,10 +7588,10 @@ entryRuleShiftExpression returns [EObject current=null]
 // Rule ShiftExpression
 ruleShiftExpression returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -7718,10 +7718,10 @@ entryRuleAdditiveExpression returns [EObject current=null]
 // Rule AdditiveExpression
 ruleAdditiveExpression returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -7848,10 +7848,10 @@ entryRuleMultiplicativeExpression returns [EObject current=null]
 // Rule MultiplicativeExpression
 ruleMultiplicativeExpression returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -8000,10 +8000,10 @@ entryRuleCastExpression returns [EObject current=null]
 // Rule CastExpression
 ruleCastExpression returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -8123,7 +8123,7 @@ entryRuleUnaryExpression returns [EObject current=null]
 // Rule UnaryExpression
 ruleUnaryExpression returns [EObject current=null] 
     @init { enterRule();
-   		at.jku.weiner.c.Log.error("UnaryExpression-enter");
+   		if ( state.backtracking==0 ) {at.jku.weiner.c.Log.error("UnaryExpression-enter");}
     }
     @after { leaveRule();
     		at.jku.weiner.c.Log.error("UnaryExpression-leave");
@@ -8476,10 +8476,10 @@ entryRuleUnaryOperator returns [EObject current=null]
 // Rule UnaryOperator
 ruleUnaryOperator returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -8649,7 +8649,7 @@ entryRulePostfixExpression returns [EObject current=null]
 // Rule PostfixExpression
 rulePostfixExpression returns [EObject current=null] 
     @init { enterRule();
-   		at.jku.weiner.c.Log.error("PostfixExpression-enter");
+   		if ( state.backtracking==0 ) {at.jku.weiner.c.Log.error("PostfixExpression-enter");}
     }
     @after { leaveRule();
     		at.jku.weiner.c.Log.error("PostfixExpression-leave");
@@ -8882,10 +8882,10 @@ entryRuleArgumentExpressionList returns [EObject current=null]
 // Rule ArgumentExpressionList
 ruleArgumentExpressionList returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -8961,7 +8961,7 @@ entryRulePrimaryExpression returns [EObject current=null]
 // Rule PrimaryExpression
 rulePrimaryExpression returns [EObject current=null] 
     @init { enterRule();
-   		at.jku.weiner.c.Log.error("PrimaryExpression-enter");
+   		if ( state.backtracking==0 ) {at.jku.weiner.c.Log.error("PrimaryExpression-enter");}
     }
     @after { leaveRule();
     		at.jku.weiner.c.Log.error("PrimaryExpression-leave");
@@ -9085,10 +9085,10 @@ entryRuleConstant returns [EObject current=null]
 // Rule Constant
 ruleConstant returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (
@@ -9280,10 +9280,10 @@ entryRuleConstantExpression returns [EObject current=null]
 // Rule ConstantExpression
 ruleConstantExpression returns [EObject current=null] 
     @init { enterRule();
-   		
+   		/*no init found*/
     }
     @after { leaveRule();
-    		
+    		/*no after found*/
      }:
 
 (

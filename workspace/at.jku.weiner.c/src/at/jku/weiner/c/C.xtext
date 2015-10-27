@@ -41,9 +41,9 @@ Model: {Model} (unit+=TranslationUnit)?;
 TranslationUnit 
 	initRuleAction{
 		at.jku.weiner.c.Scope.createNewScope("TranslationUnit");
-	} 
+	}
 	afterRuleAction{
-		at.jku.weiner.c.Scope.removeScope();
+		at.jku.weiner.c.Scope.removeScope(0);
 	}
 	:
 	{TranslationUnit}
@@ -226,7 +226,15 @@ TypedefName
 		preAction{ { at.jku.weiner.c.Scope.isTypeName(input.LT(1).getText()) }? }
 ;
 
-StructOrUnionSpecifier returns DeclarationSpecifier:
+StructOrUnionSpecifier returns DeclarationSpecifier
+	// structs are scopes
+	initRuleAction {
+		at.jku.weiner.c.Scope.createNewScope("StructOrUnion");
+	}
+	afterRuleAction {
+		at.jku.weiner.c.Scope.removeScope();
+	}
+	:
 	{StructOrUnionSpecifier}
 	type=StructOrUnion
 	(	id=ID LEFTBRACE structDeclList=StructDeclarationList RIGHTBRACE
@@ -537,7 +545,14 @@ LabeledStatement returns Statement:
 	)
 ;
 
-CompoundStatement returns Statement:
+CompoundStatement returns Statement
+	initRuleAction {
+		at.jku.weiner.c.Scope.createNewScope("CompoundStatement");
+	}
+	afterRuleAction {
+		at.jku.weiner.c.Scope.removeScope();
+	}
+	:
 	{CompoundStatement}
 	LEFTBRACE
 		body=BodyStatement

@@ -12,6 +12,8 @@ public final class Scope {
 	private static final class Symbols {
 		public final String scopeName;
 		public final Set<String> types = new HashSet<String>();
+		public boolean isTypeDefValue = false;
+		public String temp = null;
 
 		public Symbols(final String scopeName) {
 			this.scopeName = scopeName;
@@ -19,7 +21,8 @@ public final class Scope {
 	}
 
 	protected static final Stack<Symbols> scope = new Stack<Symbols>();
-	protected static Symbols currScope = null;
+
+	// protected static Symbols currScope = null;
 
 	public static final boolean isTypeName(final TokenStream input) {
 		return Scope.isTypeName(input.LT(1).getText());
@@ -28,10 +31,6 @@ public final class Scope {
 	public static final boolean isTypeName(final String name) {
 		Log.log("searching for typeName='" + name + "', scopeSize='"
 				+ Scope.scope.size() + "'");
-		if (Scope.currScope.types.contains(name)) {
-			Log.log("found in currScope!");
-			return true;
-		}
 		for (int i = 0; i < Scope.scope.size(); i++) {
 			final Symbols symbols = Scope.scope.get(i);
 			if (symbols.types.contains(name)) {
@@ -47,39 +46,39 @@ public final class Scope {
 	public static final void createNewScope(final String scopeName) {
 		Log.log("createNewScope='" + scopeName + "'");
 		final Symbols symbols = new Symbols(scopeName);
-		if (Scope.currScope != null) {
-			Scope.scope.push(Scope.currScope);
-		}
-		Scope.currScope = symbols;
-		Scope.setTypedef(false);
+		Scope.scope.push(symbols);
 		Log.log("Scope.size()='" + Scope.scope.size() + "'");
 	}
 
 	public static final void removeScope() {
-		Log.log("removeScope='" + Scope.currScope.scopeName + "'");
-		if (Scope.scope.isEmpty()) {
-			Scope.currScope = null;
-		} else {
-			Scope.currScope = Scope.scope.pop();
-		}
-		Scope.setTypedef(false);
+		Log.log("removeScope='" + Scope.scope.peek().scopeName + "'");
+		Scope.scope.pop();
+		// Scope.setTypedef(false);
 		Log.log("Scope.size()='" + Scope.scope.size() + "'");
 	}
 
+	public static final void removeScope(final int expectedSize) {
+		Scope.removeScope();
+		if (expectedSize != Scope.scope.size()) {
+			throw new RuntimeException("expected size='" + expectedSize
+					+ "', but was '" + Scope.scope.size() + "'!");
+		}
+	}
+
 	protected static final void addTypedef(final String name) {
-		Log.log("define in currScope='" + Scope.currScope.scopeName
+		Log.log("define in currScope='" + Scope.scope.peek().scopeName
 				+ "' newType='" + name + "'");
-		Scope.currScope.types.add(name);
+		Scope.scope.peek().types.add(name);
 	}
 
 	public static final void setTypedef(final boolean newTypeDef) {
 		Log.log("setTypedef='" + newTypeDef + "'");
-		Scope.isTypedefValue = newTypeDef;
+		Scope.scope.peek().isTypeDefValue = newTypeDef;
 	}
 
 	protected static final boolean isTypedef() {
-		Log.log("isTypeDef='" + Scope.isTypedefValue + "'");
-		return Scope.isTypedefValue;
+		Log.log("isTypeDef='" + Scope.scope.peek().isTypeDefValue + "'");
+		return Scope.scope.peek().isTypeDefValue;
 	}
 
 	public static final void addTypedefIfIsTypedef(final String name) {
@@ -89,9 +88,9 @@ public final class Scope {
 		}
 	}
 
-	protected static boolean isTypedefValue = false;
+	// protected static boolean isTypedefValue = false;
 
-	protected static String temp = "";
+	// protected static String temp = "";
 
 	public static final void setTemp(final TokenStream stream) {
 		Log.log("Token.LT(0)='" + stream.LT(0) + "'");
@@ -102,11 +101,11 @@ public final class Scope {
 
 	protected static final void setTemp(final String newTemp) {
 		Log.log("setTemp='" + newTemp + "'");
-		Scope.temp = newTemp;
+		Scope.scope.peek().temp = newTemp;
 	}
 
 	public static final void addTypedefIfIsTypedef() {
-		Scope.addTypedefIfIsTypedef(Scope.temp);
+		Scope.addTypedefIfIsTypedef(Scope.scope.peek().temp);
 	}
 
 	public static final void debug(final TokenStream stream) {

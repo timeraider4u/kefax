@@ -54,7 +54,7 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cExternalExternalDeclarationParserRuleCall_1_0 = (RuleCall)cExternalAssignment_1.eContents().get(0);
 		
 		//TranslationUnit initRuleAction { at.jku.weiner.c.Scope.createNewScope("TranslationUnit"); } afterRuleAction {
-		//at.jku.weiner.c.Scope.removeScope(); }:
+		//at.jku.weiner.c.Scope.removeScope(0); }:
 		//	{TranslationUnit} external+=ExternalDeclaration+;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -701,7 +701,8 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cIdAssignment_2_1 = (Assignment)cAlternatives_2.eContents().get(1);
 		private final RuleCall cIdIDTerminalRuleCall_2_1_0 = (RuleCall)cIdAssignment_2_1.eContents().get(0);
 		
-		//StructOrUnionSpecifier DeclarationSpecifier:
+		//StructOrUnionSpecifier DeclarationSpecifier initRuleAction { at.jku.weiner.c.Scope.createNewScope("StructOrUnion"); }
+		//afterRuleAction { at.jku.weiner.c.Scope.removeScope(); }:
 		//	{StructOrUnionSpecifier} type=StructOrUnion (id=ID LEFTBRACE structDeclList=StructDeclarationList RIGHTBRACE
 		//	| id=ID)
 		@Override public ParserRule getRule() { return rule; }
@@ -2179,7 +2180,8 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cBodyBodyStatementParserRuleCall_2_0 = (RuleCall)cBodyAssignment_2.eContents().get(0);
 		private final RuleCall cRIGHTBRACETerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
 		
-		//CompoundStatement Statement:
+		//CompoundStatement Statement initRuleAction { at.jku.weiner.c.Scope.createNewScope("CompoundStatement"); }
+		//afterRuleAction { at.jku.weiner.c.Scope.removeScope(); }:
 		//	{CompoundStatement} LEFTBRACE
 		//	body=BodyStatement
 		//	RIGHTBRACE
@@ -4687,7 +4689,7 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//TranslationUnit initRuleAction { at.jku.weiner.c.Scope.createNewScope("TranslationUnit"); } afterRuleAction {
-	//at.jku.weiner.c.Scope.removeScope(); }:
+	//at.jku.weiner.c.Scope.removeScope(0); }:
 	//	{TranslationUnit} external+=ExternalDeclaration+;
 	public TranslationUnitElements getTranslationUnitAccess() {
 		return pTranslationUnit;
@@ -4850,7 +4852,8 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		return getTypedefNameAccess().getRule();
 	}
 	
-	//StructOrUnionSpecifier DeclarationSpecifier:
+	//StructOrUnionSpecifier DeclarationSpecifier initRuleAction { at.jku.weiner.c.Scope.createNewScope("StructOrUnion"); }
+	//afterRuleAction { at.jku.weiner.c.Scope.removeScope(); }:
 	//	{StructOrUnionSpecifier} type=StructOrUnion (id=ID LEFTBRACE structDeclList=StructDeclarationList RIGHTBRACE
 	//	| id=ID)
 	public StructOrUnionSpecifierElements getStructOrUnionSpecifierAccess() {
@@ -5247,7 +5250,8 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		return getLabeledStatementAccess().getRule();
 	}
 	
-	//CompoundStatement Statement:
+	//CompoundStatement Statement initRuleAction { at.jku.weiner.c.Scope.createNewScope("CompoundStatement"); }
+	//afterRuleAction { at.jku.weiner.c.Scope.removeScope(); }:
 	//	{CompoundStatement} LEFTBRACE
 	//	body=BodyStatement
 	//	RIGHTBRACE

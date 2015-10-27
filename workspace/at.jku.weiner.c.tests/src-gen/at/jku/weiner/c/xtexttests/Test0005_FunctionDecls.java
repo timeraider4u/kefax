@@ -7,6 +7,7 @@ import java.nio.file.Paths;
 import java.util.List;
 import org.antlr.runtime.Token;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.junit4.InjectWith;
 import org.eclipse.xtext.junit4.util.ParseHelper;

@@ -33,20 +33,22 @@ NEWLINE
 // int main(...) { ... }
 KW_INT WHITESPACE ID LEFTPAREN KW_VOID RIGHTPAREN WHITESPACE LEFTBRACE NEWLINE
 	// employee * newEmployee = ...;
-	WHITESPACE LINE_COMMENT NEWLINE
+	WHITESPACE ID WHITESPACE STAR WHITESPACE ID WHITESPACE ASSIGN
+		WHITESPACE ID LEFTPAREN KW_SIZEOF LEFTPAREN ID RIGHTPAREN
+		RIGHTPAREN SEMI NEWLINE
 	// if (...) { ... }
 	WHITESPACE KW_IF WHITESPACE LEFTPAREN ID WHITESPACE EQUAL WHITESPACE ID
 	RIGHTPAREN WHITESPACE LEFTBRACE NEWLINE
 		WHITESPACE ID LEFTPAREN STRING_LITERAL RIGHTPAREN SEMI NEWLINE
 		WHITESPACE KW_RETURN WHITESPACE MINUS DECIMAL_LITERAL SEMI NEWLINE
 	WHITESPACE RIGHTBRACE NEWLINE
-	
+	// print(...);
 	WHITESPACE ID LEFTPAREN AND ID RIGHTPAREN SEMI NEWLINE
 	WHITESPACE ID LEFTPAREN AND ID RIGHTPAREN SEMI NEWLINE
-	
+	// set-up newEmployee
 	WHITESPACE LINE_COMMENT NEWLINE
 	WHITESPACE LINE_COMMENT NEWLINE
-	
+	// print(newEmployee); free(newEmployee);
 	WHITESPACE ID LEFTPAREN ID RIGHTPAREN SEMI NEWLINE	
 	WHITESPACE ID LEFTPAREN ID RIGHTPAREN SEMI NEWLINE
 	// return
@@ -833,6 +835,150 @@ RIGHTBRACE NEWLINE
 				(BodyStatement
 					blockList+=
 					(BlockList
+						declaration+=
+						// employee * newEmployee = ...;
+						(Declaration
+							specifiers=
+							(DeclarationSpecifiers
+								declarationSpecifier+=
+								(TypeSpecifier
+									type=
+									(TypedefName
+										id++"employee"
+									)
+								)
+							), // end declarationSpecifiers
+							initDeclaratorList+=
+							(InitDeclaratorList
+								initDeclarator+=
+								(InitDeclarator
+									declarator=
+									(Declarator
+										pointer=
+										(Pointer
+											star+*"[*]"
+										), // end pointer
+										declarator=
+										(DirectDeclarator
+											id++"newEmployee"
+										)
+									), // end declarator
+									initializer=
+									(Initializer
+										expr=
+										// malloc(sizeof(employee));
+										(AssignmentExpression
+											expr=
+											(ConditionalExpression
+												expr=
+												(LogicalOrExpression
+													expr+=
+													(LogicalAndExpression
+														expr+=
+														(InclusiveOrExpression
+															expr+=
+															(ExclusiveOrExpression
+																expr+=
+																(AndExpression
+																	expr+=
+																	(EqualityExpression
+																		expr+=
+																		(RelationalExpression
+																			expr+=
+																			(ShiftExpression
+																				expr+=
+																				(AdditiveExpression
+																					expr+=
+																					(MultiplicativeExpression
+																						expr+=
+																						(CastExpression
+																							expr=
+																							(UnaryExpression
+																								expr=
+																								(PostfixExpression
+																									expr+=
+																									(PrimaryExpression
+																										id++"malloc"
+																									),
+																									argumentExpressionList+=
+																									(ArgumentExpressionList
+																										expr+=
+																										(AssignmentExpression
+																											expr=
+																											(ConditionalExpression
+																												expr=
+																												(LogicalOrExpression
+																													expr+=
+																													(LogicalAndExpression
+																														expr+=
+																														(InclusiveOrExpression
+																															expr+=
+																															(ExclusiveOrExpression
+																																expr+=
+																																(AndExpression
+																																	expr+=
+																																	(EqualityExpression
+																																		expr+=
+																																		(RelationalExpression
+																																			expr+=
+																																			(ShiftExpression
+																																				expr+=
+																																				(AdditiveExpression
+																																					expr+=
+																																					(MultiplicativeExpression
+																																						expr+=
+																																						(CastExpression
+																																							expr=
+																																							(UnaryExpression
+																																								sizeOf++"sizeof",
+																																								typeName=
+																																								(TypeName
+																																									list=
+																																									(SpecifierQualifierList
+																																										typeSpecifier+=
+																																										(TypeSpecifier
+																																											type=
+																																											(TypedefName
+																																												id++"employee"
+																																											)
+																																										)
+																																									)
+																																								)
+																																							)
+																																						)
+																																					)
+																																				)
+																																			)
+																																		)
+																																	)
+																																)
+																															)
+																														)
+																													)
+																												)
+																											)
+																										) // end assignment expression
+																										
+																									)
+																								)
+																							)
+																						)
+																					)
+																				)
+																			)
+																		)
+																	)
+																)
+															)
+														)
+													)
+												)
+											)
+										)
+									) // end initializer
+								)
+							)
+						),
 						statement+=
 						// if (...) { ... }
 						(Statement

@@ -16,7 +16,7 @@ void print(employee *emp) {
 }
 
 int main(void) {
-	// employee * newEmployee = malloc(sizeof(employee));
+	employee * newEmployee = malloc(sizeof(employee));
 	if (newEmployee == NULL) {
 		printf("Could not reserve space for new employee!\n");
 		return -1;

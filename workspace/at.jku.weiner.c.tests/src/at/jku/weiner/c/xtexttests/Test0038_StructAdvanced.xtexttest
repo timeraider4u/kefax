@@ -26,7 +26,8 @@ KW_VOID WHITESPACE ID LEFTPAREN ID WHITESPACE STAR ID RIGHTPAREN WHITESPACE
 LEFTBRACE NEWLINE
 	WHITESPACE ID LEFTPAREN STRING_LITERAL COMMA WHITESPACE
 		LEFTPAREN STAR ID RIGHTPAREN DOT ID RIGHTPAREN SEMI NEWLINE
-	WHITESPACE LINE_COMMENT NEWLINE
+	WHITESPACE ID LEFTPAREN STRING_LITERAL COMMA WHITESPACE 
+		ID ARROW ID RIGHTPAREN SEMI NEWLINE
 RIGHTBRACE NEWLINE
 NEWLINE
 
@@ -46,8 +47,9 @@ KW_INT WHITESPACE ID LEFTPAREN KW_VOID RIGHTPAREN WHITESPACE LEFTBRACE NEWLINE
 	WHITESPACE ID LEFTPAREN AND ID RIGHTPAREN SEMI NEWLINE
 	WHITESPACE ID LEFTPAREN AND ID RIGHTPAREN SEMI NEWLINE
 	// set-up newEmployee
-	WHITESPACE LINE_COMMENT NEWLINE
-	WHITESPACE LINE_COMMENT NEWLINE
+	WHITESPACE ID ARROW ID WHITESPACE ASSIGN WHITESPACE HEX_LITERAL SEMI NEWLINE
+	WHITESPACE ID LEFTPAREN ID ARROW ID COMMA WHITESPACE 
+		STRING_LITERAL RIGHTPAREN SEMI NEWLINE
 	// print(newEmployee); free(newEmployee);
 	WHITESPACE ID LEFTPAREN ID RIGHTPAREN SEMI NEWLINE	
 	WHITESPACE ID LEFTPAREN ID RIGHTPAREN SEMI NEWLINE
@@ -748,6 +750,172 @@ RIGHTBRACE NEWLINE
 																																								), // end primary expression
 																																								dot+*"[.]",
 																																								id+*"[id]"
+																																							)
+																																						)
+																																					)
+																																				)
+																																			)
+																																		)
+																																	)
+																																)
+																															)
+																														)
+																													)
+																												)
+																											)
+																										)
+																									) // end assignment expression
+																								)
+																							)
+																						)
+																					)
+																				)
+																			)
+																		)
+																	)
+																	
+																)
+															)
+														)
+													)
+												)
+											)
+										)
+									)
+								), // end expression
+								semi++";"
+							) // end expression statement
+						), // end statement
+						// printf(..., emp->name);
+						(Statement
+							stmt=
+							(ExpressionStatement
+								expression=
+								(Expression
+									exprExpr+=
+									(AssignmentExpression
+										expr=
+										(ConditionalExpression
+											expr=
+											(LogicalOrExpression
+												expr+=
+												(LogicalAndExpression
+													expr+=
+													(InclusiveOrExpression
+														expr+=
+														(ExclusiveOrExpression
+															expr+=
+															(AndExpression
+																expr+=
+																(EqualityExpression
+																	expr+=
+																	(RelationalExpression
+																		expr+=
+																		(ShiftExpression
+																			expr+=
+																			(AdditiveExpression
+																				expr+=
+																				(MultiplicativeExpression
+																					expr+=
+																					(CastExpression
+																						expr=
+																						(UnaryExpression
+																							expr=
+																							(PostfixExpression
+																								expr+=
+																								(PrimaryExpression
+																									id++"printf"
+																								),
+																								argumentExpressionList+=
+																								(ArgumentExpressionList
+																									expr+=
+																									(AssignmentExpression
+																										expr=
+																										(ConditionalExpression
+																											expr=
+																											(LogicalOrExpression
+																												expr+=
+																												(LogicalAndExpression
+																													expr+=
+																													(InclusiveOrExpression
+																														expr+=
+																														(ExclusiveOrExpression
+																															expr+=
+																															(AndExpression
+																																expr+=
+																																(EqualityExpression
+																																	expr+=
+																																	(RelationalExpression
+																																		expr+=
+																																		(ShiftExpression
+																																			expr+=
+																																			(AdditiveExpression
+																																				expr+=
+																																				(MultiplicativeExpression
+																																					expr+=
+																																					(CastExpression
+																																						expr=
+																																						(UnaryExpression
+																																							expr=
+																																							(PostfixExpression
+																																								expr+=
+																																								(PrimaryExpression
+																																									const=
+																																									(Constant
+																																										str++"\\\"employee->name=%s\\\\n\\\""
+																																									)
+																																								)
+																																							)
+																																						)
+																																					)
+																																				)
+																																			)
+																																		)
+																																	)
+																																)
+																															)
+																														)
+																													)
+																												)
+																											)
+																										)
+																									), // end assignment expression
+																									(AssignmentExpression
+																										expr=
+																										(ConditionalExpression
+																											expr=
+																											(LogicalOrExpression
+																												expr+=
+																												(LogicalAndExpression
+																													expr+=
+																													(InclusiveOrExpression
+																														expr+=
+																														(ExclusiveOrExpression
+																															expr+=
+																															(AndExpression
+																																expr+=
+																																(EqualityExpression
+																																	expr+=
+																																	(RelationalExpression
+																																		expr+=
+																																		(ShiftExpression
+																																			expr+=
+																																			(AdditiveExpression
+																																				expr+=
+																																				(MultiplicativeExpression
+																																					expr+=
+																																					(CastExpression
+																																						expr=
+																																						(UnaryExpression
+																																							expr=
+																																							(PostfixExpression
+																																								expr+=
+																																								(PrimaryExpression
+																																									id++"emp"
+																																								),
+																																								dot+*"[]",
+																																								arrow+*"[->]",
+																																								id+*"[name]"
 																																							)
 																																						)
 																																					)
@@ -1509,6 +1677,252 @@ RIGHTBRACE NEWLINE
 								semi++";"
 							) // end expression statement
 						),
+						// newEmployee->id = ...;
+						(Statement
+							stmt=
+							(ExpressionStatement
+								expression=
+								(Expression
+									exprExpr+=
+									(AssignmentExpression
+										expr=
+										(UnaryExpression
+											expr=
+											(PostfixExpression
+												expr+=
+												(PrimaryExpression
+													id++"newEmployee"
+												),
+												arrow+*"[->]",
+												id+*"[id]"
+											)
+										), // end unary expression
+										op=
+										(AssignmentOperator
+											op++"="
+										),
+										assignmentExpr=
+										(AssignmentExpression
+											expr=
+											(ConditionalExpression
+												expr=
+												(LogicalOrExpression
+													expr+=
+													(LogicalAndExpression
+														expr+=
+														(InclusiveOrExpression
+															expr+=
+															(ExclusiveOrExpression
+																expr+=
+																(AndExpression
+																	expr+=
+																	(EqualityExpression
+																		expr+=
+																		(RelationalExpression
+																			expr+=
+																			(ShiftExpression
+																				expr+=
+																				(AdditiveExpression
+																					expr+=
+																					(MultiplicativeExpression
+																						expr+=
+																						(CastExpression
+																							expr=
+																							(UnaryExpression
+																								expr=
+																								(PostfixExpression
+																									expr+=
+																									(PrimaryExpression
+																										const=
+																										(Constant
+																											hex++"0x009"
+																										)
+																									)
+																								)
+																							)
+																						)
+																					)
+																				)
+																			)
+																		)
+																		
+																	)
+																)
+															)
+														)
+													)
+												)
+											) // end conditional expression
+										) // end assignment expression
+									) // end assignment expression
+								),//end expression
+								semi++";"
+							)
+						), // end statement
+						// strcpy(..., ...);
+						(Statement
+							stmt=
+							(ExpressionStatement
+								expression=
+								(Expression
+									exprExpr+=
+									(AssignmentExpression
+										expr=
+										(ConditionalExpression
+											expr=
+											(LogicalOrExpression
+												expr+=
+												(LogicalAndExpression
+													expr+=
+													(InclusiveOrExpression
+														expr+=
+														(ExclusiveOrExpression
+															expr+=
+															(AndExpression
+																expr+=
+																(EqualityExpression
+																	expr+=
+																	(RelationalExpression
+																		expr+=
+																		(ShiftExpression
+																			expr+=
+																			(AdditiveExpression
+																				expr+=
+																				(MultiplicativeExpression
+																					expr+=
+																					(CastExpression
+																						expr=
+																						(UnaryExpression
+																							expr=
+																							(PostfixExpression
+																								expr+=
+																								(PrimaryExpression
+																									id++"strcpy"
+																								),
+																								argumentExpressionList+=
+																								(ArgumentExpressionList
+																									expr+=
+																									(AssignmentExpression
+																										expr=
+																										(ConditionalExpression
+																											expr=
+																											(LogicalOrExpression
+																												expr+=
+																												(LogicalAndExpression
+																													expr+=
+																													(InclusiveOrExpression
+																														expr+=
+																														(ExclusiveOrExpression
+																															expr+=
+																															(AndExpression
+																																expr+=
+																																(EqualityExpression
+																																	expr+=
+																																	(RelationalExpression
+																																		expr+=
+																																		(ShiftExpression
+																																			expr+=
+																																			(AdditiveExpression
+																																				expr+=
+																																				(MultiplicativeExpression
+																																					expr+=
+																																					(CastExpression
+																																						expr=
+																																						(UnaryExpression
+																																							expr=
+																																							(PostfixExpression
+																																								expr+=
+																																								(PrimaryExpression
+																																									id++"newEmployee"
+																																								),
+																																								arrow+*"[->]",
+																																								id+*"[name]"
+																																							)
+																																						)
+																																					)
+																																				)
+																																			)
+																																		)
+																																	)
+																																)
+																															)
+																														)
+																													)
+																												)
+																											)
+																										)
+																									), // end assignment expression
+																									(AssignmentExpression
+																										expr=
+																										(ConditionalExpression
+																											expr=
+																											(LogicalOrExpression
+																												expr+=
+																												(LogicalAndExpression
+																													expr+=
+																													(InclusiveOrExpression
+																														expr+=
+																														(ExclusiveOrExpression
+																															expr+=
+																															(AndExpression
+																																expr+=
+																																(EqualityExpression
+																																	expr+=
+																																	(RelationalExpression
+																																		expr+=
+																																		(ShiftExpression
+																																			expr+=
+																																			(AdditiveExpression
+																																				expr+=
+																																				(MultiplicativeExpression
+																																					expr+=
+																																					(CastExpression
+																																						expr=
+																																						(UnaryExpression
+																																							expr=
+																																							(PostfixExpression
+																																								expr+=
+																																								(PrimaryExpression
+																																									const=
+																																									(Constant
+																																										str++"\\\"Billy The Kid\\\""
+																																									)
+																																								)
+																																							)
+																																						)
+																																					)
+																																				)
+																																			)
+																																		)
+																																	)
+																																)
+																															)
+																														)
+																													)
+																												)
+																											)
+																										)
+																									) // end assignment expression
+																								)
+																							)
+																						)
+																					)
+																				)
+																			)
+																		)
+																	)
+																)
+															)
+														)
+													)
+												)
+											)
+										)
+									)
+								), // end expression
+								semi++";"
+							) // end expression statement
+						), // end statement
 						// print(newEmployee);
 						(Statement
 							stmt=

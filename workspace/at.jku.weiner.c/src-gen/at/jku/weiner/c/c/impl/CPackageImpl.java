@@ -2850,7 +2850,7 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getPostfixExpression_Plusplus()
+  public EAttribute getPostfixExpression_Arrow()
   {
     return (EAttribute)postfixExpressionEClass.getEStructuralFeatures().get(5);
   }
@@ -2860,9 +2860,19 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getPostfixExpression_Minusminus()
+  public EAttribute getPostfixExpression_Plusplus()
   {
     return (EAttribute)postfixExpressionEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPostfixExpression_Minusminus()
+  {
+    return (EAttribute)postfixExpressionEClass.getEStructuralFeatures().get(7);
   }
 
   /**
@@ -3242,6 +3252,7 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     createEReference(postfixExpressionEClass, POSTFIX_EXPRESSION__ARGUMENT_EXPRESSION_LIST);
     createEAttribute(postfixExpressionEClass, POSTFIX_EXPRESSION__DOT);
     createEAttribute(postfixExpressionEClass, POSTFIX_EXPRESSION__ID);
+    createEAttribute(postfixExpressionEClass, POSTFIX_EXPRESSION__ARROW);
     createEAttribute(postfixExpressionEClass, POSTFIX_EXPRESSION__PLUSPLUS);
     createEAttribute(postfixExpressionEClass, POSTFIX_EXPRESSION__MINUSMINUS);
 
@@ -3602,6 +3613,7 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     initEReference(getPostfixExpression_ArgumentExpressionList(), this.getArgumentExpressionList(), null, "argumentExpressionList", null, 0, -1, PostfixExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getPostfixExpression_Dot(), theEcorePackage.getEString(), "dot", null, 0, -1, PostfixExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getPostfixExpression_Id(), theEcorePackage.getEString(), "id", null, 0, -1, PostfixExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPostfixExpression_Arrow(), theEcorePackage.getEString(), "arrow", null, 0, -1, PostfixExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getPostfixExpression_Plusplus(), theEcorePackage.getEString(), "plusplus", null, 0, -1, PostfixExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getPostfixExpression_Minusminus(), theEcorePackage.getEString(), "minusminus", null, 0, -1, PostfixExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

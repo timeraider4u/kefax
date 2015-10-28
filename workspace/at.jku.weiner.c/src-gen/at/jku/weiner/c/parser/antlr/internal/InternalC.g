@@ -8817,9 +8817,55 @@ this_RIGHTPAREN_7=RULE_RIGHTPAREN
     |
 (
 (
-		lv_plusplus_10_0=RULE_PLUSPLUS
+(
+		lv_arrow_10_0=RULE_ARROW
 		{
-			newLeafNode(lv_plusplus_10_0, grammarAccess.getPostfixExpressionAccess().getPlusplusPLUSPLUSTerminalRuleCall_1_1_3_0()); 
+			newLeafNode(lv_arrow_10_0, grammarAccess.getPostfixExpressionAccess().getArrowARROWTerminalRuleCall_1_1_3_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getPostfixExpressionRule());
+	        }
+       		addWithLastConsumed(
+       			$current, 
+       			"arrow",
+        		lv_arrow_10_0, 
+        		"at.jku.weiner.c.C.ARROW");
+	    }
+
+)
+)
+
+
+(
+(
+		lv_id_11_0=RULE_ID
+		{
+			newLeafNode(lv_id_11_0, grammarAccess.getPostfixExpressionAccess().getIdIDTerminalRuleCall_1_1_3_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getPostfixExpressionRule());
+	        }
+       		addWithLastConsumed(
+       			$current, 
+       			"id",
+        		lv_id_11_0, 
+        		"at.jku.weiner.c.C.ID");
+	    }
+
+)
+)
+
+)
+
+
+    |
+(
+(
+		lv_plusplus_12_0=RULE_PLUSPLUS
+		{
+			newLeafNode(lv_plusplus_12_0, grammarAccess.getPostfixExpressionAccess().getPlusplusPLUSPLUSTerminalRuleCall_1_1_4_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -8828,7 +8874,7 @@ this_RIGHTPAREN_7=RULE_RIGHTPAREN
        		addWithLastConsumed(
        			$current, 
        			"plusplus",
-        		lv_plusplus_10_0, 
+        		lv_plusplus_12_0, 
         		"at.jku.weiner.c.C.PLUSPLUS");
 	    }
 
@@ -8839,9 +8885,9 @@ this_RIGHTPAREN_7=RULE_RIGHTPAREN
     |
 (
 (
-		lv_minusminus_11_0=RULE_MINUSMINUS
+		lv_minusminus_13_0=RULE_MINUSMINUS
 		{
-			newLeafNode(lv_minusminus_11_0, grammarAccess.getPostfixExpressionAccess().getMinusminusMINUSMINUSTerminalRuleCall_1_1_4_0()); 
+			newLeafNode(lv_minusminus_13_0, grammarAccess.getPostfixExpressionAccess().getMinusminusMINUSMINUSTerminalRuleCall_1_1_5_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -8850,7 +8896,7 @@ this_RIGHTPAREN_7=RULE_RIGHTPAREN
        		addWithLastConsumed(
        			$current, 
        			"minusminus",
-        		lv_minusminus_11_0, 
+        		lv_minusminus_13_0, 
         		"at.jku.weiner.c.C.MINUSMINUS");
 	    }
 

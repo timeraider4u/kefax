@@ -18,6 +18,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link at.jku.weiner.c.c.PostfixExpression#getArgumentExpressionList <em>Argument Expression List</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.PostfixExpression#getDot <em>Dot</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.PostfixExpression#getId <em>Id</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.PostfixExpression#getArrow <em>Arrow</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.PostfixExpression#getPlusplus <em>Plusplus</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.PostfixExpression#getMinusminus <em>Minusminus</em>}</li>
  * </ul>
@@ -107,6 +108,22 @@ public interface PostfixExpression extends Expression
    * @generated
    */
   EList<String> getId();
+
+  /**
+   * Returns the value of the '<em><b>Arrow</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Arrow</em>' attribute list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Arrow</em>' attribute list.
+   * @see at.jku.weiner.c.c.CPackage#getPostfixExpression_Arrow()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getArrow();
 
   /**
    * Returns the value of the '<em><b>Plusplus</b></em>' attribute list.

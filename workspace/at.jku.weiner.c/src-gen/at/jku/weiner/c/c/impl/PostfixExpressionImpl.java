@@ -33,6 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link at.jku.weiner.c.c.impl.PostfixExpressionImpl#getArgumentExpressionList <em>Argument Expression List</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.PostfixExpressionImpl#getDot <em>Dot</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.PostfixExpressionImpl#getId <em>Id</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.impl.PostfixExpressionImpl#getArrow <em>Arrow</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.PostfixExpressionImpl#getPlusplus <em>Plusplus</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.PostfixExpressionImpl#getMinusminus <em>Minusminus</em>}</li>
  * </ul>
@@ -90,6 +91,16 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
    * @ordered
    */
   protected EList<String> id;
+
+  /**
+   * The cached value of the '{@link #getArrow() <em>Arrow</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getArrow()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> arrow;
 
   /**
    * The cached value of the '{@link #getPlusplus() <em>Plusplus</em>}' attribute list.
@@ -207,6 +218,20 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<String> getArrow()
+  {
+    if (arrow == null)
+    {
+      arrow = new EDataTypeEList<String>(String.class, this, CPackage.POSTFIX_EXPRESSION__ARROW);
+    }
+    return arrow;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<String> getPlusplus()
   {
     if (plusplus == null)
@@ -270,6 +295,8 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
         return getDot();
       case CPackage.POSTFIX_EXPRESSION__ID:
         return getId();
+      case CPackage.POSTFIX_EXPRESSION__ARROW:
+        return getArrow();
       case CPackage.POSTFIX_EXPRESSION__PLUSPLUS:
         return getPlusplus();
       case CPackage.POSTFIX_EXPRESSION__MINUSMINUS:
@@ -309,6 +336,10 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
         getId().clear();
         getId().addAll((Collection<? extends String>)newValue);
         return;
+      case CPackage.POSTFIX_EXPRESSION__ARROW:
+        getArrow().clear();
+        getArrow().addAll((Collection<? extends String>)newValue);
+        return;
       case CPackage.POSTFIX_EXPRESSION__PLUSPLUS:
         getPlusplus().clear();
         getPlusplus().addAll((Collection<? extends String>)newValue);
@@ -346,6 +377,9 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
       case CPackage.POSTFIX_EXPRESSION__ID:
         getId().clear();
         return;
+      case CPackage.POSTFIX_EXPRESSION__ARROW:
+        getArrow().clear();
+        return;
       case CPackage.POSTFIX_EXPRESSION__PLUSPLUS:
         getPlusplus().clear();
         return;
@@ -376,6 +410,8 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
         return dot != null && !dot.isEmpty();
       case CPackage.POSTFIX_EXPRESSION__ID:
         return id != null && !id.isEmpty();
+      case CPackage.POSTFIX_EXPRESSION__ARROW:
+        return arrow != null && !arrow.isEmpty();
       case CPackage.POSTFIX_EXPRESSION__PLUSPLUS:
         return plusplus != null && !plusplus.isEmpty();
       case CPackage.POSTFIX_EXPRESSION__MINUSMINUS:
@@ -399,6 +435,8 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
     result.append(dot);
     result.append(", id: ");
     result.append(id);
+    result.append(", arrow: ");
+    result.append(arrow);
     result.append(", plusplus: ");
     result.append(plusplus);
     result.append(", minusminus: ");

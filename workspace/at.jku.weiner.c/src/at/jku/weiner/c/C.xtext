@@ -822,8 +822,7 @@ PostfixExpression returns Expression
 		LEFTBRACKET arrayExpr+=Expression RIGHTBRACKET
 		| LEFTPAREN argumentExpressionList+=ArgumentExpressionList? RIGHTPAREN
 		| dot+=DOT id+=ID
-		/*| ARROW IDENTIFIER
-		*/
+		| arrow+=ARROW id+=ID
 		| plusplus+=PLUSPLUS
 		| minusminus+=MINUSMINUS
 	)*

@@ -358,31 +358,37 @@ public class CSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * This ambiguous syntax occurs at:
 	 *     argumentExpressionList+=ArgumentExpressionList RIGHTPAREN (ambiguity) (rule end)
 	 *     argumentExpressionList+=ArgumentExpressionList RIGHTPAREN (ambiguity) LEFTBRACKET arrayExpr+=Expression
+	 *     argumentExpressionList+=ArgumentExpressionList RIGHTPAREN (ambiguity) arrow+=ARROW
 	 *     argumentExpressionList+=ArgumentExpressionList RIGHTPAREN (ambiguity) dot+=DOT
 	 *     argumentExpressionList+=ArgumentExpressionList RIGHTPAREN (ambiguity) minusminus+=MINUSMINUS
 	 *     argumentExpressionList+=ArgumentExpressionList RIGHTPAREN (ambiguity) plusplus+=PLUSPLUS
 	 *     arrayExpr+=Expression RIGHTBRACKET (ambiguity) (rule end)
 	 *     arrayExpr+=Expression RIGHTBRACKET (ambiguity) LEFTBRACKET arrayExpr+=Expression
+	 *     arrayExpr+=Expression RIGHTBRACKET (ambiguity) arrow+=ARROW
 	 *     arrayExpr+=Expression RIGHTBRACKET (ambiguity) dot+=DOT
 	 *     arrayExpr+=Expression RIGHTBRACKET (ambiguity) minusminus+=MINUSMINUS
 	 *     arrayExpr+=Expression RIGHTBRACKET (ambiguity) plusplus+=PLUSPLUS
 	 *     expr+=PrimaryExpression (ambiguity) (rule end)
 	 *     expr+=PrimaryExpression (ambiguity) LEFTBRACKET arrayExpr+=Expression
+	 *     expr+=PrimaryExpression (ambiguity) arrow+=ARROW
 	 *     expr+=PrimaryExpression (ambiguity) dot+=DOT
 	 *     expr+=PrimaryExpression (ambiguity) minusminus+=MINUSMINUS
 	 *     expr+=PrimaryExpression (ambiguity) plusplus+=PLUSPLUS
 	 *     id+=ID (ambiguity) (rule end)
 	 *     id+=ID (ambiguity) LEFTBRACKET arrayExpr+=Expression
+	 *     id+=ID (ambiguity) arrow+=ARROW
 	 *     id+=ID (ambiguity) dot+=DOT
 	 *     id+=ID (ambiguity) minusminus+=MINUSMINUS
 	 *     id+=ID (ambiguity) plusplus+=PLUSPLUS
 	 *     minusminus+=MINUSMINUS (ambiguity) (rule end)
 	 *     minusminus+=MINUSMINUS (ambiguity) LEFTBRACKET arrayExpr+=Expression
+	 *     minusminus+=MINUSMINUS (ambiguity) arrow+=ARROW
 	 *     minusminus+=MINUSMINUS (ambiguity) dot+=DOT
 	 *     minusminus+=MINUSMINUS (ambiguity) minusminus+=MINUSMINUS
 	 *     minusminus+=MINUSMINUS (ambiguity) plusplus+=PLUSPLUS
 	 *     plusplus+=PLUSPLUS (ambiguity) (rule end)
 	 *     plusplus+=PLUSPLUS (ambiguity) LEFTBRACKET arrayExpr+=Expression
+	 *     plusplus+=PLUSPLUS (ambiguity) arrow+=ARROW
 	 *     plusplus+=PLUSPLUS (ambiguity) dot+=DOT
 	 *     plusplus+=PLUSPLUS (ambiguity) minusminus+=MINUSMINUS
 	 *     plusplus+=PLUSPLUS (ambiguity) plusplus+=PLUSPLUS

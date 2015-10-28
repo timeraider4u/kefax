@@ -12,7 +12,7 @@ employee phil = {0x008, "Phil Morrison"};
 
 void print(employee *emp) {
 	printf("(*employee).id=%d\n", (*emp).id);
-	// printf("employee->name=%s\n", emp->name);
+	printf("employee->name=%s\n", emp->name);
 }
 
 int main(void) {
@@ -23,8 +23,8 @@ int main(void) {
 	}
 	print(&joe);
 	print(&phil);
-	// newEmployee->id = 0x009;
-	// strcpy(newEmployee->name, "Billy The Kid");
+	newEmployee->id = 0x009;
+	strcpy(newEmployee->name, "Billy The Kid");
 	print(newEmployee);
 	free(newEmployee);
 	return 0;

@@ -3951,33 +3951,37 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cDotDOTTerminalRuleCall_1_1_2_0_0 = (RuleCall)cDotAssignment_1_1_2_0.eContents().get(0);
 		private final Assignment cIdAssignment_1_1_2_1 = (Assignment)cGroup_1_1_2.eContents().get(1);
 		private final RuleCall cIdIDTerminalRuleCall_1_1_2_1_0 = (RuleCall)cIdAssignment_1_1_2_1.eContents().get(0);
-		private final Assignment cPlusplusAssignment_1_1_3 = (Assignment)cAlternatives_1_1.eContents().get(3);
-		private final RuleCall cPlusplusPLUSPLUSTerminalRuleCall_1_1_3_0 = (RuleCall)cPlusplusAssignment_1_1_3.eContents().get(0);
-		private final Assignment cMinusminusAssignment_1_1_4 = (Assignment)cAlternatives_1_1.eContents().get(4);
-		private final RuleCall cMinusminusMINUSMINUSTerminalRuleCall_1_1_4_0 = (RuleCall)cMinusminusAssignment_1_1_4.eContents().get(0);
+		private final Group cGroup_1_1_3 = (Group)cAlternatives_1_1.eContents().get(3);
+		private final Assignment cArrowAssignment_1_1_3_0 = (Assignment)cGroup_1_1_3.eContents().get(0);
+		private final RuleCall cArrowARROWTerminalRuleCall_1_1_3_0_0 = (RuleCall)cArrowAssignment_1_1_3_0.eContents().get(0);
+		private final Assignment cIdAssignment_1_1_3_1 = (Assignment)cGroup_1_1_3.eContents().get(1);
+		private final RuleCall cIdIDTerminalRuleCall_1_1_3_1_0 = (RuleCall)cIdAssignment_1_1_3_1.eContents().get(0);
+		private final Assignment cPlusplusAssignment_1_1_4 = (Assignment)cAlternatives_1_1.eContents().get(4);
+		private final RuleCall cPlusplusPLUSPLUSTerminalRuleCall_1_1_4_0 = (RuleCall)cPlusplusAssignment_1_1_4.eContents().get(0);
+		private final Assignment cMinusminusAssignment_1_1_5 = (Assignment)cAlternatives_1_1.eContents().get(5);
+		private final RuleCall cMinusminusMINUSMINUSTerminalRuleCall_1_1_5_0 = (RuleCall)cMinusminusAssignment_1_1_5.eContents().get(0);
 		
 		//PostfixExpression Expression initRuleAction { at.jku.weiner.c.Log.error("PostfixExpression-enter"); } afterRuleAction {
 		//at.jku.weiner.c.Log.error("PostfixExpression-leave"); }:
 		//	{PostfixExpression} (expr+=PrimaryExpression (LEFTBRACKET arrayExpr+=Expression RIGHTBRACKET
 		//	| LEFTPAREN argumentExpressionList+=ArgumentExpressionList? RIGHTPAREN
 		//	| dot+=DOT id+=ID
-		//	/ *| ARROW IDENTIFIER
-		//		* /
+		//	| arrow+=ARROW id+=ID
 		//	| plusplus+=PLUSPLUS
 		//	| minusminus+=MINUSMINUS)*)
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{PostfixExpression} (expr+=PrimaryExpression (LEFTBRACKET arrayExpr+=Expression RIGHTBRACKET | LEFTPAREN
-		//argumentExpressionList+=ArgumentExpressionList? RIGHTPAREN | dot+=DOT id+=ID / *| ARROW IDENTIFIER
-		//		* / | plusplus+=PLUSPLUS | minusminus+=MINUSMINUS)*)
+		//argumentExpressionList+=ArgumentExpressionList? RIGHTPAREN | dot+=DOT id+=ID | arrow+=ARROW id+=ID | plusplus+=PLUSPLUS
+		//| minusminus+=MINUSMINUS)*)
 		public Group getGroup() { return cGroup; }
 		
 		//{PostfixExpression}
 		public Action getPostfixExpressionAction_0() { return cPostfixExpressionAction_0; }
 		
 		//(expr+=PrimaryExpression (LEFTBRACKET arrayExpr+=Expression RIGHTBRACKET | LEFTPAREN
-		//argumentExpressionList+=ArgumentExpressionList? RIGHTPAREN | dot+=DOT id+=ID / *| ARROW IDENTIFIER
-		//		* / | plusplus+=PLUSPLUS | minusminus+=MINUSMINUS)*)
+		//argumentExpressionList+=ArgumentExpressionList? RIGHTPAREN | dot+=DOT id+=ID | arrow+=ARROW id+=ID | plusplus+=PLUSPLUS
+		//| minusminus+=MINUSMINUS)*)
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//expr+=PrimaryExpression
@@ -3987,8 +3991,7 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getExprPrimaryExpressionParserRuleCall_1_0_0() { return cExprPrimaryExpressionParserRuleCall_1_0_0; }
 		
 		//(LEFTBRACKET arrayExpr+=Expression RIGHTBRACKET | LEFTPAREN argumentExpressionList+=ArgumentExpressionList? RIGHTPAREN |
-		//dot+=DOT id+=ID / *| ARROW IDENTIFIER
-		//		* / | plusplus+=PLUSPLUS | minusminus+=MINUSMINUS)*
+		//dot+=DOT id+=ID | arrow+=ARROW id+=ID | plusplus+=PLUSPLUS | minusminus+=MINUSMINUS)*
 		public Alternatives getAlternatives_1_1() { return cAlternatives_1_1; }
 		
 		//LEFTBRACKET arrayExpr+=Expression RIGHTBRACKET
@@ -4036,17 +4039,32 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getIdIDTerminalRuleCall_1_1_2_1_0() { return cIdIDTerminalRuleCall_1_1_2_1_0; }
 		
+		//arrow+=ARROW id+=ID
+		public Group getGroup_1_1_3() { return cGroup_1_1_3; }
+		
+		//arrow+=ARROW
+		public Assignment getArrowAssignment_1_1_3_0() { return cArrowAssignment_1_1_3_0; }
+		
+		//ARROW
+		public RuleCall getArrowARROWTerminalRuleCall_1_1_3_0_0() { return cArrowARROWTerminalRuleCall_1_1_3_0_0; }
+		
+		//id+=ID
+		public Assignment getIdAssignment_1_1_3_1() { return cIdAssignment_1_1_3_1; }
+		
+		//ID
+		public RuleCall getIdIDTerminalRuleCall_1_1_3_1_0() { return cIdIDTerminalRuleCall_1_1_3_1_0; }
+		
 		//plusplus+=PLUSPLUS
-		public Assignment getPlusplusAssignment_1_1_3() { return cPlusplusAssignment_1_1_3; }
+		public Assignment getPlusplusAssignment_1_1_4() { return cPlusplusAssignment_1_1_4; }
 		
 		//PLUSPLUS
-		public RuleCall getPlusplusPLUSPLUSTerminalRuleCall_1_1_3_0() { return cPlusplusPLUSPLUSTerminalRuleCall_1_1_3_0; }
+		public RuleCall getPlusplusPLUSPLUSTerminalRuleCall_1_1_4_0() { return cPlusplusPLUSPLUSTerminalRuleCall_1_1_4_0; }
 		
 		//minusminus+=MINUSMINUS
-		public Assignment getMinusminusAssignment_1_1_4() { return cMinusminusAssignment_1_1_4; }
+		public Assignment getMinusminusAssignment_1_1_5() { return cMinusminusAssignment_1_1_5; }
 		
 		//MINUSMINUS
-		public RuleCall getMinusminusMINUSMINUSTerminalRuleCall_1_1_4_0() { return cMinusminusMINUSMINUSTerminalRuleCall_1_1_4_0; }
+		public RuleCall getMinusminusMINUSMINUSTerminalRuleCall_1_1_5_0() { return cMinusminusMINUSMINUSTerminalRuleCall_1_1_5_0; }
 	}
 	public class ArgumentExpressionListElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.ArgumentExpressionList");
@@ -5572,8 +5590,7 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	//	{PostfixExpression} (expr+=PrimaryExpression (LEFTBRACKET arrayExpr+=Expression RIGHTBRACKET
 	//	| LEFTPAREN argumentExpressionList+=ArgumentExpressionList? RIGHTPAREN
 	//	| dot+=DOT id+=ID
-	//	/ *| ARROW IDENTIFIER
-	//		* /
+	//	| arrow+=ARROW id+=ID
 	//	| plusplus+=PLUSPLUS
 	//	| minusminus+=MINUSMINUS)*)
 	public PostfixExpressionElements getPostfixExpressionAccess() {

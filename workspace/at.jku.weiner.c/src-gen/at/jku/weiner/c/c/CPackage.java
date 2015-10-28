@@ -2934,13 +2934,22 @@ public interface CPackage extends EPackage
   int POSTFIX_EXPRESSION__ID = EXPRESSION_FEATURE_COUNT + 4;
 
   /**
+   * The feature id for the '<em><b>Arrow</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POSTFIX_EXPRESSION__ARROW = EXPRESSION_FEATURE_COUNT + 5;
+
+  /**
    * The feature id for the '<em><b>Plusplus</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int POSTFIX_EXPRESSION__PLUSPLUS = EXPRESSION_FEATURE_COUNT + 5;
+  int POSTFIX_EXPRESSION__PLUSPLUS = EXPRESSION_FEATURE_COUNT + 6;
 
   /**
    * The feature id for the '<em><b>Minusminus</b></em>' attribute list.
@@ -2949,7 +2958,7 @@ public interface CPackage extends EPackage
    * @generated
    * @ordered
    */
-  int POSTFIX_EXPRESSION__MINUSMINUS = EXPRESSION_FEATURE_COUNT + 6;
+  int POSTFIX_EXPRESSION__MINUSMINUS = EXPRESSION_FEATURE_COUNT + 7;
 
   /**
    * The number of structural features of the '<em>Postfix Expression</em>' class.
@@ -2958,7 +2967,7 @@ public interface CPackage extends EPackage
    * @generated
    * @ordered
    */
-  int POSTFIX_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 7;
+  int POSTFIX_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 8;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.c.impl.PrimaryExpressionImpl <em>Primary Expression</em>}' class.
@@ -5394,6 +5403,17 @@ public interface CPackage extends EPackage
   EAttribute getPostfixExpression_Id();
 
   /**
+   * Returns the meta object for the attribute list '{@link at.jku.weiner.c.c.PostfixExpression#getArrow <em>Arrow</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Arrow</em>'.
+   * @see at.jku.weiner.c.c.PostfixExpression#getArrow()
+   * @see #getPostfixExpression()
+   * @generated
+   */
+  EAttribute getPostfixExpression_Arrow();
+
+  /**
    * Returns the meta object for the attribute list '{@link at.jku.weiner.c.c.PostfixExpression#getPlusplus <em>Plusplus</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7391,6 +7411,14 @@ public interface CPackage extends EPackage
      * @generated
      */
     EAttribute POSTFIX_EXPRESSION__ID = eINSTANCE.getPostfixExpression_Id();
+
+    /**
+     * The meta object literal for the '<em><b>Arrow</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute POSTFIX_EXPRESSION__ARROW = eINSTANCE.getPostfixExpression_Arrow();
 
     /**
      * The meta object literal for the '<em><b>Plusplus</b></em>' attribute list feature.

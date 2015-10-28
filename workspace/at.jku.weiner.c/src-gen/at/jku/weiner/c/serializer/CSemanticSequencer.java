@@ -810,7 +810,14 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         expr+=PrimaryExpression 
-	 *         (arrayExpr+=Expression | argumentExpressionList+=ArgumentExpressionList? | (dot+=DOT id+=ID) | plusplus+=PLUSPLUS | minusminus+=MINUSMINUS)*
+	 *         (
+	 *             arrayExpr+=Expression | 
+	 *             argumentExpressionList+=ArgumentExpressionList? | 
+	 *             (dot+=DOT id+=ID) | 
+	 *             (arrow+=ARROW id+=ID) | 
+	 *             plusplus+=PLUSPLUS | 
+	 *             minusminus+=MINUSMINUS
+	 *         )*
 	 *     )
 	 */
 	protected void sequence_PostfixExpression(EObject context, PostfixExpression semanticObject) {

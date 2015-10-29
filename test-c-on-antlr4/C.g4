@@ -29,10 +29,6 @@
 /** C 2011 grammar built from the C11 Spec */
 grammar C;
 
-@parser::members {
-	private final Scope typeDefScope = new Scope();
-}
-
 primaryExpression
     :   Identifier
     |   Constant
@@ -179,7 +175,6 @@ constantExpression
     ;
 
 declaration
-	@init { typeDefScope.setTypedef(false); }
     :   declarationSpecifiers initDeclaratorList? ';'
     |   staticAssertDeclaration
     ;
@@ -211,8 +206,7 @@ initDeclarator
     ;
 
 storageClassSpecifier
-    :   'typedef' 
-				{ typeDefScope.setTypedef(true); }
+    :   'typedef'
     |   'extern'
     |   'static'
     |   '_Thread_local'
@@ -329,9 +323,6 @@ declarator
 
 directDeclarator
     :   Identifier
-			{ if (typeDefScope.isTypedef()) {
-						typeDefScope.addTypedef($Identifier.text);
-			} }
     |   '(' declarator ')'
     |   directDeclarator '[' typeQualifierList? assignmentExpression? ']'
     |   directDeclarator '[' 'static' typeQualifierList? assignmentExpression ']'
@@ -423,9 +414,7 @@ directAbstractDeclarator
     ;
 
 typedefName
-    : 
-		{typeDefScope.isTypeName(_input.LT(1).getText())}?
-		Identifier
+    :   Identifier
     ;
 
 initializer
@@ -516,9 +505,7 @@ compilationUnit
     ;
 
 translationUnit
-	@init { typeDefScope.createNewScope("translationUnit"); }
-	@after { typeDefScope.removeScope(); }:
-        externalDeclaration
+    :   externalDeclaration
     |   translationUnit externalDeclaration
     ;
 
@@ -685,7 +672,13 @@ IntegerConstant
     :   DecimalConstant IntegerSuffix?
     |   OctalConstant IntegerSuffix?
     |   HexadecimalConstant IntegerSuffix?
+    |	BinaryConstant
     ;
+
+fragment
+BinaryConstant
+	:	'0' [bB] [0-1]+
+	;
 
 fragment
 DecimalConstant

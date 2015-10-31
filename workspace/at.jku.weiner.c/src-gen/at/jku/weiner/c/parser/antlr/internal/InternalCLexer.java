@@ -3634,22 +3634,32 @@ public class InternalCLexer extends Lexer {
 		try {
 			int _type = RULE_LINEDIRECTIVE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// InternalC.g:9736:20: ( '#' (~ ( RULE_NEWLINE ) )* )
-			// InternalC.g:9736:22: '#' (~ ( RULE_NEWLINE ) )*
+			// InternalC.g:9736:20: ( '#' (~ ( RULE_NEWLINE ) | RULE_BACKSLASH RULE_NEWLINE )* )
+			// InternalC.g:9736:22: '#' (~ ( RULE_NEWLINE ) | RULE_BACKSLASH RULE_NEWLINE )*
 			{
 			match('#'); 
-			// InternalC.g:9736:26: (~ ( RULE_NEWLINE ) )*
+			// InternalC.g:9736:26: (~ ( RULE_NEWLINE ) | RULE_BACKSLASH RULE_NEWLINE )*
 			loop32:
 			while (true) {
-				int alt32=2;
+				int alt32=3;
 				int LA32_0 = input.LA(1);
-				if ( ((LA32_0 >= '\u0000' && LA32_0 <= '\t')||(LA32_0 >= '\u000B' && LA32_0 <= '\f')||(LA32_0 >= '\u000E' && LA32_0 <= '\uFFFF')) ) {
+				if ( (LA32_0=='\\') ) {
+					int LA32_2 = input.LA(2);
+					if ( (LA32_2=='\n'||LA32_2=='\r') ) {
+						alt32=2;
+					}
+					else {
+						alt32=1;
+					}
+
+				}
+				else if ( ((LA32_0 >= '\u0000' && LA32_0 <= '\t')||(LA32_0 >= '\u000B' && LA32_0 <= '\f')||(LA32_0 >= '\u000E' && LA32_0 <= '[')||(LA32_0 >= ']' && LA32_0 <= '\uFFFF')) ) {
 					alt32=1;
 				}
 
 				switch (alt32) {
 				case 1 :
-					// InternalC.g:
+					// InternalC.g:9736:27: ~ ( RULE_NEWLINE )
 					{
 					if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '\t')||(input.LA(1) >= '\u000B' && input.LA(1) <= '\f')||(input.LA(1) >= '\u000E' && input.LA(1) <= '\uFFFF') ) {
 						input.consume();
@@ -3659,6 +3669,15 @@ public class InternalCLexer extends Lexer {
 						recover(mse);
 						throw mse;
 					}
+					}
+					break;
+				case 2 :
+					// InternalC.g:9736:43: RULE_BACKSLASH RULE_NEWLINE
+					{
+					mRULE_BACKSLASH(); 
+
+					mRULE_NEWLINE(); 
+
 					}
 					break;
 

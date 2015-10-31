@@ -1075,7 +1075,7 @@ terminal fragment UNICODE_ESCAPE:
 	BACKSLASH 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
 ;
 
-terminal LINEDIRECTIVE: '#' (!NEWLINE)*;
+terminal LINEDIRECTIVE: '#' (!NEWLINE | BACKSLASH NEWLINE)*;
 terminal WHITESPACE: (' ' | '\t')+;
 terminal BLOCK_COMMENT: '/*' -> '*/';
 terminal LINE_COMMENT: '//' (!NEWLINE)*;

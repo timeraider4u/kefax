@@ -1,0 +1,42 @@
+package at.jku.weiner.c
+language c
+//----------------------------------------------------------------------
+source file="res/Test0041_MultipleLinesPreprocessorDirective.c"
+//----------------------------------------------------------------------
+lexer-tokens
+LINEDIRECTIVE NEWLINE
+NEWLINE
+KW_INT WHITESPACE ID SEMI NEWLINE
+//----------------------------------------------------------------------
+(Model
+	unit+=
+	(TranslationUnit 
+		external+=
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"int"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"i"
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+		)
+	)
+)

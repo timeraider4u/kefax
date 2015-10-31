@@ -6440,7 +6440,7 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal LINEDIRECTIVE:
-	//	'#' !NEWLINE*;
+	//	'#' (!NEWLINE | BACKSLASH NEWLINE)*;
 	public TerminalRule getLINEDIRECTIVERule() {
 		return tLINEDIRECTIVE;
 	}

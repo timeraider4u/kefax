@@ -70,6 +70,7 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
       case CPackage.FUNCTION_DEF_HEAD: return createFunctionDefHead();
       case CPackage.FUNCTION_DEFINITION: return createFunctionDefinition();
       case CPackage.DECLARATION: return createDeclaration();
+      case CPackage.FUNCTION_DECLARATION_SPECIFIERS: return createFunctionDeclarationSpecifiers();
       case CPackage.DECLARATION_SPECIFIERS: return createDeclarationSpecifiers();
       case CPackage.INIT_DECLARATOR_LIST: return createInitDeclaratorList();
       case CPackage.INIT_DECLARATOR: return createInitDeclarator();
@@ -204,6 +205,17 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
   {
     DeclarationImpl declaration = new DeclarationImpl();
     return declaration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FunctionDeclarationSpecifiers createFunctionDeclarationSpecifiers()
+  {
+    FunctionDeclarationSpecifiersImpl functionDeclarationSpecifiers = new FunctionDeclarationSpecifiersImpl();
+    return functionDeclarationSpecifiers;
   }
 
   /**

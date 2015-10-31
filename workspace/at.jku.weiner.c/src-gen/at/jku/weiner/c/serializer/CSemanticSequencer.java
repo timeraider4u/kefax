@@ -31,6 +31,7 @@ import at.jku.weiner.c.c.ExclusiveOrExpression;
 import at.jku.weiner.c.c.Expression;
 import at.jku.weiner.c.c.ExpressionStatement;
 import at.jku.weiner.c.c.ExternalDeclaration;
+import at.jku.weiner.c.c.FunctionDeclarationSpecifiers;
 import at.jku.weiner.c.c.FunctionDefHead;
 import at.jku.weiner.c.c.FunctionDefinition;
 import at.jku.weiner.c.c.FunctionSpecifier;
@@ -178,6 +179,9 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case CPackage.EXTERNAL_DECLARATION:
 				sequence_ExternalDeclaration(context, (ExternalDeclaration) semanticObject); 
+				return; 
+			case CPackage.FUNCTION_DECLARATION_SPECIFIERS:
+				sequence_FunctionDeclarationSpecifiers(context, (FunctionDeclarationSpecifiers) semanticObject); 
 				return; 
 			case CPackage.FUNCTION_DEF_HEAD:
 				sequence_FunctionDefHead(context, (FunctionDefHead) semanticObject); 
@@ -455,7 +459,7 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         declarationSpecifier+=StorageClassSpecifier | 
 	 *         declarationSpecifier+=TypeSpecifier | 
 	 *         declarationSpecifier+=TypeQualifier | 
-	 *         declarationSpecifier+=FunctionSpecifier
+	 *         declarationSpecifier+=StructOrUnionSpecifier
 	 *     )+
 	 */
 	protected void sequence_DeclarationSpecifiers(EObject context, DeclarationSpecifiers semanticObject) {
@@ -588,7 +592,21 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (funDeclSpecifiers=DeclarationSpecifiers? funDeclarator=Declarator funDeclaration+=Declaration*)
+	 *     (
+	 *         declarationSpecifier+=StorageClassSpecifier | 
+	 *         declarationSpecifier+=TypeSpecifier | 
+	 *         declarationSpecifier+=TypeQualifier | 
+	 *         declarationSpecifier+=FunctionSpecifier
+	 *     )+
+	 */
+	protected void sequence_FunctionDeclarationSpecifiers(EObject context, FunctionDeclarationSpecifiers semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (funDeclSpecifiers=FunctionDeclarationSpecifiers? funDeclarator=Declarator funDeclaration+=Declaration*)
 	 */
 	protected void sequence_FunctionDefHead(EObject context, FunctionDefHead semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -866,7 +884,7 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (typeSpecifier+=TypeSpecifier | typeQualifier+=TypeQualifier)+
+	 *     (typeSpecifier+=TypeSpecifier | typeQualifier+=TypeQualifier | structOrUnionSpecifier+=StructOrUnionSpecifier)+
 	 */
 	protected void sequence_SpecifierQualifierList(EObject context, SpecifierQualifierList semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -944,7 +962,7 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (type=StructOrUnion ((id=ID structDeclList=StructDeclarationList) | id=ID))
+	 *     (type=StructOrUnion ((id=ID? structDeclList=StructDeclarationList) | id=ID))
 	 */
 	protected void sequence_StructOrUnionSpecifier(EObject context, StructOrUnionSpecifier semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

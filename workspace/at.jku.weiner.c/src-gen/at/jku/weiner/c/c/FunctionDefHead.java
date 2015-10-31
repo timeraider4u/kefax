@@ -35,12 +35,12 @@ public interface FunctionDefHead extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Fun Decl Specifiers</em>' containment reference.
-   * @see #setFunDeclSpecifiers(DeclarationSpecifiers)
+   * @see #setFunDeclSpecifiers(FunctionDeclarationSpecifiers)
    * @see at.jku.weiner.c.c.CPackage#getFunctionDefHead_FunDeclSpecifiers()
    * @model containment="true"
    * @generated
    */
-  DeclarationSpecifiers getFunDeclSpecifiers();
+  FunctionDeclarationSpecifiers getFunDeclSpecifiers();
 
   /**
    * Sets the value of the '{@link at.jku.weiner.c.c.FunctionDefHead#getFunDeclSpecifiers <em>Fun Decl Specifiers</em>}' containment reference.
@@ -50,7 +50,7 @@ public interface FunctionDefHead extends EObject
    * @see #getFunDeclSpecifiers()
    * @generated
    */
-  void setFunDeclSpecifiers(DeclarationSpecifiers value);
+  void setFunDeclSpecifiers(FunctionDeclarationSpecifiers value);
 
   /**
    * Returns the value of the '<em><b>Fun Declarator</b></em>' containment reference.

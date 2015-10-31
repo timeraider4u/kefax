@@ -49,96 +49,93 @@ RIGHTBRACE NEWLINE
 				specifiers=
 				(DeclarationSpecifiers
 					declarationSpecifier+=
-					(TypeSpecifier
-						specifier=
-						(StructOrUnionSpecifier
-							type=
-							(StructOrUnion
-								name++"struct"
-							),
-							id++"employee",
-							structDeclList=
-							(StructDeclarationList
-								structDeclaration+=
-								// int id
-								(StructDeclaration
-									list=
-									(SpecifierQualifierList
-										typeSpecifier+=
-										(TypeSpecifier
-											name++"int"
-										)
-									),
-									structDeclarationList=
-									(StructDeclaratorList
-										structDeclarator+=
-										(StructDeclarator
+					(StructOrUnionSpecifier
+						type=
+						(StructOrUnion
+							name++"struct"
+						),
+						id++"employee",
+						structDeclList=
+						(StructDeclarationList
+							structDeclaration+=
+							// int id
+							(StructDeclaration
+								list=
+								(SpecifierQualifierList
+									typeSpecifier+=
+									(TypeSpecifier
+										name++"int"
+									)
+								),
+								structDeclarationList=
+								(StructDeclaratorList
+									structDeclarator+=
+									(StructDeclarator
+										declarator=
+										(Declarator
 											declarator=
-											(Declarator
-												declarator=
-												(DirectDeclarator
-													id++"id"
-												)
+											(DirectDeclarator
+												id++"id"
 											)
 										)
 									)
+								)
+							),
+							// char name [...]
+							(StructDeclaration
+								list=
+								(SpecifierQualifierList
+									typeSpecifier+=
+									(TypeSpecifier
+										name++"char"
+									)
 								),
-								// char name [...]
-								(StructDeclaration
-									list=
-									(SpecifierQualifierList
-										typeSpecifier+=
-										(TypeSpecifier
-											name++"char"
-										)
-									),
-									structDeclarationList=
-									(StructDeclaratorList
-										structDeclarator+=
-										(StructDeclarator
+								structDeclarationList=
+								(StructDeclaratorList
+									structDeclarator+=
+									(StructDeclarator
+										declarator=
+										(Declarator
 											declarator=
-											(Declarator
-												declarator=
-												(DirectDeclarator
-													id++"name",
-													declaratorSuffix+=
-													(DeclaratorSuffix
+											(DirectDeclarator
+												id++"name",
+												declaratorSuffix+=
+												(DeclaratorSuffix
+													expr=
+													(AssignmentExpression
 														expr=
-														(AssignmentExpression
+														(ConditionalExpression
 															expr=
-															(ConditionalExpression
-																expr=
-																(LogicalOrExpression
+															(LogicalOrExpression
+																expr+=
+																(LogicalAndExpression
 																	expr+=
-																	(LogicalAndExpression
+																	(InclusiveOrExpression
 																		expr+=
-																		(InclusiveOrExpression
+																		(ExclusiveOrExpression
 																			expr+=
-																			(ExclusiveOrExpression
+																			(AndExpression
 																				expr+=
-																				(AndExpression
+																				(EqualityExpression
 																					expr+=
-																					(EqualityExpression
+																					(RelationalExpression
 																						expr+=
-																						(RelationalExpression
+																						(ShiftExpression
 																							expr+=
-																							(ShiftExpression
+																							(AdditiveExpression
 																								expr+=
-																								(AdditiveExpression
+																								(MultiplicativeExpression
 																									expr+=
-																									(MultiplicativeExpression
-																										expr+=
-																										(CastExpression
+																									(CastExpression
+																										expr=
+																										(UnaryExpression
 																											expr=
-																											(UnaryExpression
-																												expr=
-																												(PostfixExpression
-																													expr+=
-																													(PrimaryExpression
-																														const=
-																														(Constant
-																															dec++"250"
-																														)
+																											(PostfixExpression
+																												expr+=
+																												(PrimaryExpression
+																													const=
+																													(Constant
+																														dec++"250"
 																													)
 																												)
 																											)
@@ -154,8 +151,8 @@ RIGHTBRACE NEWLINE
 																	)
 																)
 															)
-														) // end assignment expression
-													)
+														)
+													) // end assignment expression
 												)
 											)
 										)
@@ -164,6 +161,7 @@ RIGHTBRACE NEWLINE
 							)
 						)
 					)
+					
 				), // end declaration specifiers
 				initDeclaratorList+=
 				(InitDeclaratorList
@@ -187,16 +185,13 @@ RIGHTBRACE NEWLINE
 				specifiers=
 				(DeclarationSpecifiers
 					declarationSpecifier+=
-					(TypeSpecifier
-						specifier=
-						(StructOrUnionSpecifier
-							type=
-							(StructOrUnion
-								name++"struct"
-							),
-							id++"employee"
-							
-						)
+					(StructOrUnionSpecifier
+						type=
+						(StructOrUnion
+							name++"struct"
+						),
+						id++"employee"
+						
 					)
 				), // end declaration specifiers
 				initDeclaratorList+=
@@ -335,7 +330,7 @@ RIGHTBRACE NEWLINE
 			functiondefHead=
 			(FunctionDefHead
 				funDeclSpecifiers=
-				(DeclarationSpecifiers
+				(FunctionDeclarationSpecifiers
 					declarationSpecifier+=
 					(TypeSpecifier
 						name++"int"

@@ -20,11 +20,15 @@ import at.jku.weiner.c.c.Declarator
 import at.jku.weiner.c.c.DeclaratorSuffix
 import at.jku.weiner.c.c.DirectDeclarator
 import at.jku.weiner.c.c.DirectDeclaratorLastSuffix
+import at.jku.weiner.c.c.EnumSpecifier
+import at.jku.weiner.c.c.Enumerator
+import at.jku.weiner.c.c.EnumeratorList
 import at.jku.weiner.c.c.EqualityExpression
 import at.jku.weiner.c.c.ExclusiveOrExpression
 import at.jku.weiner.c.c.Expression
 import at.jku.weiner.c.c.ExpressionStatement
 import at.jku.weiner.c.c.ExternalDeclaration
+import at.jku.weiner.c.c.FunctionDeclarationSpecifiers
 import at.jku.weiner.c.c.FunctionDefHead
 import at.jku.weiner.c.c.FunctionDefinition
 import at.jku.weiner.c.c.IdentifierList
@@ -32,6 +36,7 @@ import at.jku.weiner.c.c.InclusiveOrExpression
 import at.jku.weiner.c.c.InitDeclarator
 import at.jku.weiner.c.c.InitDeclaratorList
 import at.jku.weiner.c.c.Initializer
+import at.jku.weiner.c.c.InitializerList
 import at.jku.weiner.c.c.IterationStatement
 import at.jku.weiner.c.c.JumpStatement
 import at.jku.weiner.c.c.LabeledStatement
@@ -51,6 +56,11 @@ import at.jku.weiner.c.c.SelectionStatement
 import at.jku.weiner.c.c.ShiftExpression
 import at.jku.weiner.c.c.SpecifierQualifierList
 import at.jku.weiner.c.c.Statement
+import at.jku.weiner.c.c.StructDeclaration
+import at.jku.weiner.c.c.StructDeclarationList
+import at.jku.weiner.c.c.StructDeclarator
+import at.jku.weiner.c.c.StructDeclaratorList
+import at.jku.weiner.c.c.StructOrUnionSpecifier
 import at.jku.weiner.c.c.TranslationUnit
 import at.jku.weiner.c.c.TypeName
 import at.jku.weiner.c.c.TypeQualifier
@@ -110,6 +120,13 @@ class CFormatter extends AbstractFormatter2 {
 		}
 	}
 
+	def dispatch void format(FunctionDeclarationSpecifiers functionDeclarationSpecifiers, extension IFormattableDocument document) {
+		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+		for (EObject declarationSpecifier : functionDeclarationSpecifiers.getDeclarationSpecifier()) {
+			format(declarationSpecifier, document);
+		}
+	}
+
 	def dispatch void format(DeclarationSpecifiers declarationSpecifiers, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
 		for (EObject declarationSpecifier : declarationSpecifiers.getDeclarationSpecifier()) {
@@ -132,7 +149,27 @@ class CFormatter extends AbstractFormatter2 {
 
 	def dispatch void format(TypeSpecifier typeSpecifier, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+		format(typeSpecifier.getSpecifier(), document);
 		format(typeSpecifier.getType(), document);
+	}
+
+	def dispatch void format(StructOrUnionSpecifier structOrUnionSpecifier, extension IFormattableDocument document) {
+		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+		format(structOrUnionSpecifier.getType(), document);
+		format(structOrUnionSpecifier.getStructDeclList(), document);
+	}
+
+	def dispatch void format(StructDeclarationList structDeclarationList, extension IFormattableDocument document) {
+		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+		for (StructDeclaration structDeclaration : structDeclarationList.getStructDeclaration()) {
+			format(structDeclaration, document);
+		}
+	}
+
+	def dispatch void format(StructDeclaration structDeclaration, extension IFormattableDocument document) {
+		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+		format(structDeclaration.getList(), document);
+		format(structDeclaration.getStructDeclarationList(), document);
 	}
 
 	def dispatch void format(SpecifierQualifierList specifierQualifierList, extension IFormattableDocument document) {
@@ -143,6 +180,38 @@ class CFormatter extends AbstractFormatter2 {
 		for (TypeQualifier typeQualifier : specifierQualifierList.getTypeQualifier()) {
 			format(typeQualifier, document);
 		}
+	}
+
+	def dispatch void format(StructDeclaratorList structDeclaratorList, extension IFormattableDocument document) {
+		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+		for (StructDeclarator structDeclarator : structDeclaratorList.getStructDeclarator()) {
+			format(structDeclarator, document);
+		}
+	}
+
+	def dispatch void format(StructDeclarator structDeclarator, extension IFormattableDocument document) {
+		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+		format(structDeclarator.getDeclarator(), document);
+		for (Expression constExpr : structDeclarator.getConstExpr()) {
+			format(constExpr, document);
+		}
+	}
+
+	def dispatch void format(EnumSpecifier enumSpecifier, extension IFormattableDocument document) {
+		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+		format(enumSpecifier.getEnumList(), document);
+	}
+
+	def dispatch void format(EnumeratorList enumeratorList, extension IFormattableDocument document) {
+		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+		for (Enumerator enumerator : enumeratorList.getEnumerator()) {
+			format(enumerator, document);
+		}
+	}
+
+	def dispatch void format(Enumerator enumerator, extension IFormattableDocument document) {
+		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+		format(enumerator.getExpr(), document);
 	}
 
 	def dispatch void format(Declarator declarator, extension IFormattableDocument document) {
@@ -161,6 +230,8 @@ class CFormatter extends AbstractFormatter2 {
 
 	def dispatch void format(DeclaratorSuffix declaratorSuffix, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+		format(declaratorSuffix.getTypeQualifierList(), document);
+		format(declaratorSuffix.getExpr(), document);
 		format(declaratorSuffix.getLastSuffix(), document);
 	}
 
@@ -219,6 +290,14 @@ class CFormatter extends AbstractFormatter2 {
 	def dispatch void format(Initializer initializer, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
 		format(initializer.getExpr(), document);
+		format(initializer.getList(), document);
+	}
+
+	def dispatch void format(InitializerList initializerList, extension IFormattableDocument document) {
+		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+		for (Initializer initializer : initializerList.getInitializer()) {
+			format(initializer, document);
+		}
 	}
 
 	def dispatch void format(BlockList blockList, extension IFormattableDocument document) {
@@ -389,6 +468,7 @@ class CFormatter extends AbstractFormatter2 {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
 		format(unaryExpression.getExpr(), document);
 		format(unaryExpression.getOp(), document);
+		format(unaryExpression.getTypeName(), document);
 	}
 
 	def dispatch void format(PostfixExpression postfixExpression, extension IFormattableDocument document) {

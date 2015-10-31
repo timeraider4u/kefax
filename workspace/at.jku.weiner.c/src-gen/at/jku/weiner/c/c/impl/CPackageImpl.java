@@ -32,6 +32,7 @@ import at.jku.weiner.c.c.ExclusiveOrExpression;
 import at.jku.weiner.c.c.Expression;
 import at.jku.weiner.c.c.ExpressionStatement;
 import at.jku.weiner.c.c.ExternalDeclaration;
+import at.jku.weiner.c.c.FunctionDeclarationSpecifiers;
 import at.jku.weiner.c.c.FunctionDefHead;
 import at.jku.weiner.c.c.FunctionDefinition;
 import at.jku.weiner.c.c.FunctionSpecifier;
@@ -133,6 +134,13 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * @generated
    */
   private EClass declarationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass functionDeclarationSpecifiersEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -850,6 +858,26 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getFunctionDeclarationSpecifiers()
+  {
+    return functionDeclarationSpecifiersEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getFunctionDeclarationSpecifiers_DeclarationSpecifier()
+  {
+    return (EReference)functionDeclarationSpecifiersEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getDeclarationSpecifiers()
   {
     return declarationSpecifiersEClass;
@@ -1113,6 +1141,16 @@ public class CPackageImpl extends EPackageImpl implements CPackage
   public EReference getSpecifierQualifierList_TypeQualifier()
   {
     return (EReference)specifierQualifierListEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSpecifierQualifierList_StructOrUnionSpecifier()
+  {
+    return (EReference)specifierQualifierListEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -2990,6 +3028,9 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     createEReference(declarationEClass, DECLARATION__INIT_DECLARATOR_LIST);
     createEAttribute(declarationEClass, DECLARATION__SEMI);
 
+    functionDeclarationSpecifiersEClass = createEClass(FUNCTION_DECLARATION_SPECIFIERS);
+    createEReference(functionDeclarationSpecifiersEClass, FUNCTION_DECLARATION_SPECIFIERS__DECLARATION_SPECIFIER);
+
     declarationSpecifiersEClass = createEClass(DECLARATION_SPECIFIERS);
     createEReference(declarationSpecifiersEClass, DECLARATION_SPECIFIERS__DECLARATION_SPECIFIER);
 
@@ -3027,6 +3068,7 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     specifierQualifierListEClass = createEClass(SPECIFIER_QUALIFIER_LIST);
     createEReference(specifierQualifierListEClass, SPECIFIER_QUALIFIER_LIST__TYPE_SPECIFIER);
     createEReference(specifierQualifierListEClass, SPECIFIER_QUALIFIER_LIST__TYPE_QUALIFIER);
+    createEReference(specifierQualifierListEClass, SPECIFIER_QUALIFIER_LIST__STRUCT_OR_UNION_SPECIFIER);
 
     structDeclaratorListEClass = createEClass(STRUCT_DECLARATOR_LIST);
     createEReference(structDeclaratorListEClass, STRUCT_DECLARATOR_LIST__STRUCT_DECLARATOR);
@@ -3339,7 +3381,7 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     initEAttribute(getExternalDeclaration_Semi(), theEcorePackage.getEString(), "semi", null, 0, 1, ExternalDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(functionDefHeadEClass, FunctionDefHead.class, "FunctionDefHead", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getFunctionDefHead_FunDeclSpecifiers(), this.getDeclarationSpecifiers(), null, "funDeclSpecifiers", null, 0, 1, FunctionDefHead.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunctionDefHead_FunDeclSpecifiers(), this.getFunctionDeclarationSpecifiers(), null, "funDeclSpecifiers", null, 0, 1, FunctionDefHead.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFunctionDefHead_FunDeclarator(), this.getDeclarator(), null, "funDeclarator", null, 0, 1, FunctionDefHead.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFunctionDefHead_FunDeclaration(), this.getDeclaration(), null, "funDeclaration", null, 0, -1, FunctionDefHead.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -3350,6 +3392,9 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     initEReference(getDeclaration_Specifiers(), this.getDeclarationSpecifiers(), null, "specifiers", null, 0, 1, Declaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDeclaration_InitDeclaratorList(), this.getInitDeclaratorList(), null, "initDeclaratorList", null, 0, -1, Declaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getDeclaration_Semi(), theEcorePackage.getEString(), "semi", null, 0, 1, Declaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(functionDeclarationSpecifiersEClass, FunctionDeclarationSpecifiers.class, "FunctionDeclarationSpecifiers", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFunctionDeclarationSpecifiers_DeclarationSpecifier(), theEcorePackage.getEObject(), null, "declarationSpecifier", null, 0, -1, FunctionDeclarationSpecifiers.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(declarationSpecifiersEClass, DeclarationSpecifiers.class, "DeclarationSpecifiers", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDeclarationSpecifiers_DeclarationSpecifier(), theEcorePackage.getEObject(), null, "declarationSpecifier", null, 0, -1, DeclarationSpecifiers.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3388,6 +3433,7 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     initEClass(specifierQualifierListEClass, SpecifierQualifierList.class, "SpecifierQualifierList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSpecifierQualifierList_TypeSpecifier(), this.getTypeSpecifier(), null, "typeSpecifier", null, 0, -1, SpecifierQualifierList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSpecifierQualifierList_TypeQualifier(), this.getTypeQualifier(), null, "typeQualifier", null, 0, -1, SpecifierQualifierList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSpecifierQualifierList_StructOrUnionSpecifier(), this.getDeclarationSpecifier(), null, "structOrUnionSpecifier", null, 0, -1, SpecifierQualifierList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(structDeclaratorListEClass, StructDeclaratorList.class, "StructDeclaratorList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getStructDeclaratorList_StructDeclarator(), this.getStructDeclarator(), null, "structDeclarator", null, 0, -1, StructDeclaratorList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

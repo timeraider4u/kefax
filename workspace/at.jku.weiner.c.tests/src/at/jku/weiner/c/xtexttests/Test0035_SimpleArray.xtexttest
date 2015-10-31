@@ -173,7 +173,7 @@ RIGHTBRACE NEWLINE
 			functiondefHead=
 			(FunctionDefHead
 				funDeclSpecifiers=
-				(DeclarationSpecifiers
+				(FunctionDeclarationSpecifiers
 					declarationSpecifier+=
 					(TypeSpecifier
 						name++"int"

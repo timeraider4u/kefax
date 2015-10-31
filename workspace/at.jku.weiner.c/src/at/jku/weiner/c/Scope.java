@@ -60,8 +60,10 @@ public final class Scope {
 	public static final void removeScope(final int expectedSize) {
 		Scope.removeScope();
 		if (expectedSize != Scope.scope.size()) {
+			final int actualSize = Scope.scope.size();
+			Scope.scope.clear();
 			throw new RuntimeException("expected size='" + expectedSize
-					+ "', but was '" + Scope.scope.size() + "'!");
+					+ "', but was '" + actualSize + "'!");
 		}
 	}
 

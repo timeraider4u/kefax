@@ -6,7 +6,7 @@
     complianceLevel="6.0" copyrightFields="false" editPluginID="at.jku.weiner.c.edit"
     editorPluginID="at.jku.weiner.c.editor" runtimeVersion="2.11" usedGenPackages="platform:/resource/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore">
   <genPackages prefix="C" basePackage="at.jku.weiner.c" disposableProviderFactory="true"
-      fileExtensions="c" ecorePackage="C.ecore#/">
+      fileExtensions="c,h" ecorePackage="C.ecore#/">
     <genClasses ecoreClass="C.ecore#//Model">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//Model/unit"/>
     </genClasses>
@@ -31,6 +31,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//Declaration/specifiers"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//Declaration/initDeclaratorList"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//Declaration/semi"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//FunctionDeclarationSpecifiers">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//FunctionDeclarationSpecifiers/declarationSpecifier"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//DeclarationSpecifiers">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//DeclarationSpecifiers/declarationSpecifier"/>
@@ -69,6 +72,7 @@
     <genClasses ecoreClass="C.ecore#//SpecifierQualifierList">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//SpecifierQualifierList/typeSpecifier"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//SpecifierQualifierList/typeQualifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//SpecifierQualifierList/structOrUnionSpecifier"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//StructDeclaratorList">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//StructDeclaratorList/structDeclarator"/>

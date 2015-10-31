@@ -114,6 +114,13 @@ public class CSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case CPackage.FUNCTION_DECLARATION_SPECIFIERS:
+      {
+        FunctionDeclarationSpecifiers functionDeclarationSpecifiers = (FunctionDeclarationSpecifiers)theEObject;
+        T result = caseFunctionDeclarationSpecifiers(functionDeclarationSpecifiers);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case CPackage.DECLARATION_SPECIFIERS:
       {
         DeclarationSpecifiers declarationSpecifiers = (DeclarationSpecifiers)theEObject;
@@ -692,6 +699,22 @@ public class CSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDeclaration(Declaration object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Function Declaration Specifiers</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Function Declaration Specifiers</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFunctionDeclarationSpecifiers(FunctionDeclarationSpecifiers object)
   {
     return null;
   }

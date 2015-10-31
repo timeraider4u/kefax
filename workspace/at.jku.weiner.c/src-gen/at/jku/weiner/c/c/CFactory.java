@@ -77,6 +77,15 @@ public interface CFactory extends EFactory
   Declaration createDeclaration();
 
   /**
+   * Returns a new object of class '<em>Function Declaration Specifiers</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Function Declaration Specifiers</em>'.
+   * @generated
+   */
+  FunctionDeclarationSpecifiers createFunctionDeclarationSpecifiers();
+
+  /**
    * Returns a new object of class '<em>Declaration Specifiers</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -19,7 +19,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="semi" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FunctionDefHead">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="funDeclSpecifiers" eType="#//DeclarationSpecifiers"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="funDeclSpecifiers" eType="#//FunctionDeclarationSpecifiers"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="funDeclarator" eType="#//Declarator"
         containment="true"/>
@@ -36,6 +36,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="initDeclaratorList" upperBound="-1"
         eType="#//InitDeclaratorList" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="semi" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FunctionDeclarationSpecifiers">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="declarationSpecifier" upperBound="-1"
+        eType="ecore:EClass platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DeclarationSpecifiers">
     <eStructuralFeatures xsi:type="ecore:EReference" name="declarationSpecifier" upperBound="-1"
@@ -86,6 +91,8 @@
         eType="#//TypeSpecifier" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="typeQualifier" upperBound="-1"
         eType="#//TypeQualifier" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="structOrUnionSpecifier"
+        upperBound="-1" eType="#//DeclarationSpecifier" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StructDeclaratorList">
     <eStructuralFeatures xsi:type="ecore:EReference" name="structDeclarator" upperBound="-1"

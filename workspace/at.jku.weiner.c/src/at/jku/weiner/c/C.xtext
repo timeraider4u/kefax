@@ -76,7 +76,7 @@ ExternalDeclaration
 
 FunctionDefHead:
 	{FunctionDefHead}
-	(funDeclSpecifiers=DeclarationSpecifiers)? 
+	(funDeclSpecifiers=FunctionDeclarationSpecifiers)? 
 	funDeclarator=Declarator
 	(funDeclaration+=Declaration)*
 ;
@@ -115,6 +115,24 @@ Declaration
 	)
 ;
 
+FunctionDeclarationSpecifiers
+initRuleAction{
+	at.jku.weiner.c.Log.log("DeclarationSpecifiers-enter");
+	} 
+	afterRuleAction{
+		at.jku.weiner.c.Log.log("DeclarationSpecifiers-leave");
+	}
+	:
+	{FunctionDeclarationSpecifiers}
+	 
+	(declarationSpecifier+=StorageClassSpecifier
+	|	declarationSpecifier+=TypeSpecifier
+	|	declarationSpecifier+=TypeQualifier
+	|	declarationSpecifier+=FunctionSpecifier
+	//|	declarationSpecifier+=alignmentSpecifier
+	)+
+;
+
 DeclarationSpecifiers
 initRuleAction{
 	at.jku.weiner.c.Log.log("DeclarationSpecifiers-enter");
@@ -128,7 +146,8 @@ initRuleAction{
 	(declarationSpecifier+=StorageClassSpecifier
 	|	declarationSpecifier+=TypeSpecifier
 	|	declarationSpecifier+=TypeQualifier
-	|	declarationSpecifier+=FunctionSpecifier
+	|	declarationSpecifier+=StructOrUnionSpecifier
+	//|	declarationSpecifier+=FunctionSpecifier
 	//|	declarationSpecifier+=alignmentSpecifier
 	)+
 ;
@@ -207,7 +226,7 @@ TypeSpecifier
 	
 	// |	'__extension__' LEFTPAREN ('__m128' | '__m128d' | '__m128i') RIGHTPAREN
   //  |	specifier=atomicTypeSpecifier
-	|	specifier=StructOrUnionSpecifier
+	//|	specifier=StructOrUnionSpecifier
 	|	specifier=EnumSpecifier
 	|	type=TypedefName
 	// |	'__typeof__' LEFTPAREN constExrp=constantExpression RIGHTPAREN // GCC extension
@@ -237,7 +256,7 @@ StructOrUnionSpecifier returns DeclarationSpecifier
 	:
 	{StructOrUnionSpecifier}
 	type=StructOrUnion
-	(	id=ID LEFTBRACE structDeclList=StructDeclarationList RIGHTBRACE
+	(	(id=ID)? LEFTBRACE structDeclList=StructDeclarationList RIGHTBRACE
 	|	id=ID
 	)
 ;
@@ -257,7 +276,9 @@ StructDeclaration:
 
 SpecifierQualifierList:
 	{SpecifierQualifierList} 
-	(typeSpecifier+=TypeSpecifier | typeQualifier+=TypeQualifier)+
+	(typeSpecifier+=TypeSpecifier | typeQualifier+=TypeQualifier| 
+		structOrUnionSpecifier+=StructOrUnionSpecifier
+	)+
 ;
 
 StructDeclaratorList: structDeclarator+=StructDeclarator (COMMA structDeclarator+=StructDeclarator)*;

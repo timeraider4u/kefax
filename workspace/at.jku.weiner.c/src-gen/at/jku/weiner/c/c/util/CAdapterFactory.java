@@ -105,6 +105,11 @@ public class CAdapterFactory extends AdapterFactoryImpl
         return createDeclarationAdapter();
       }
       @Override
+      public Adapter caseFunctionDeclarationSpecifiers(FunctionDeclarationSpecifiers object)
+      {
+        return createFunctionDeclarationSpecifiersAdapter();
+      }
+      @Override
       public Adapter caseDeclarationSpecifiers(DeclarationSpecifiers object)
       {
         return createDeclarationSpecifiersAdapter();
@@ -537,6 +542,21 @@ public class CAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.FunctionDeclarationSpecifiers <em>Function Declaration Specifiers</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.c.FunctionDeclarationSpecifiers
+   * @generated
+   */
+  public Adapter createFunctionDeclarationSpecifiersAdapter()
   {
     return null;
   }

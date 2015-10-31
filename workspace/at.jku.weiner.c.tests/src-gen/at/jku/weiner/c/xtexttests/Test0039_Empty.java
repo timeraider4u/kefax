@@ -27,18 +27,20 @@ import at.jku.weiner.c.xtexttests.LexerAndParserTest;
 import at.jku.weiner.c.c.Model;
 import at.jku.weiner.c.c.TranslationUnit;
 import at.jku.weiner.c.c.ExternalDeclaration;
-import at.jku.weiner.c.c.FunctionDefHead;
-import at.jku.weiner.c.c.FunctionDeclarationSpecifiers;
+import at.jku.weiner.c.c.Declaration;
+import at.jku.weiner.c.c.DeclarationSpecifiers;
 import at.jku.weiner.c.c.TypeSpecifier;
+import at.jku.weiner.c.c.InitDeclaratorList;
+import at.jku.weiner.c.c.InitDeclarator;
 import at.jku.weiner.c.c.Declarator;
 import at.jku.weiner.c.c.DirectDeclarator;
-import at.jku.weiner.c.c.FunctionDefinition;
-import at.jku.weiner.c.c.BodyStatement;
+import at.jku.weiner.c.c.DeclaratorSuffix;
+import at.jku.weiner.c.c.DirectDeclaratorLastSuffix;
 
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(CInjectorProvider.class)
-public class Test0007_FunctionDef {
+public class Test0039_Empty {
 
 	@Inject
 	private ParseHelper<Model> parseHelper;
@@ -60,7 +62,7 @@ public class Test0007_FunctionDef {
 	
 	private String getSourceText()
 	throws Exception{
-		final Path path = Paths.get("res/Test0007_FunctionDef.c");
+		final Path path = Paths.get("res/Test0039_Empty.h");
 		final String content = new String(Files.readAllBytes(path));
 		return content;
 	}
@@ -76,10 +78,7 @@ public class Test0007_FunctionDef {
 			"RULE_ID",
 			"RULE_LEFTPAREN",
 			"RULE_RIGHTPAREN",
-			"RULE_WHITESPACE",
-			"RULE_LEFTBRACE",
-			"RULE_NEWLINE",
-			"RULE_RIGHTBRACE",
+			"RULE_SEMI",
 			"RULE_NEWLINE",
 		};
 		//final List<Token> actual = testHelper.getTokens(text);
@@ -106,25 +105,39 @@ public class Test0007_FunctionDef {
 		Assert.assertEquals(1, External_1_list.size());
 		final ExternalDeclaration ExternalDeclaration_2_Var = (ExternalDeclaration)External_1_list.get(0);
 		Assert.assertNotNull(ExternalDeclaration_2_Var);
-		final FunctionDefHead FunctionDefHead_3_Var = (FunctionDefHead)ExternalDeclaration_2_Var.getFunctiondefHead();
-		Assert.assertNotNull(FunctionDefHead_3_Var);
-		final FunctionDeclarationSpecifiers FunctionDeclarationSpecifiers_4_Var = (FunctionDeclarationSpecifiers)FunctionDefHead_3_Var.getFunDeclSpecifiers();
-		Assert.assertNotNull(FunctionDeclarationSpecifiers_4_Var);
-		final EList<? extends EObject> DeclarationSpecifier_4_list = FunctionDeclarationSpecifiers_4_Var.getDeclarationSpecifier();
+		final Declaration Declaration_3_Var = (Declaration)ExternalDeclaration_2_Var.getDeclaration();
+		Assert.assertNotNull(Declaration_3_Var);
+		final DeclarationSpecifiers DeclarationSpecifiers_4_Var = (DeclarationSpecifiers)Declaration_3_Var.getSpecifiers();
+		Assert.assertNotNull(DeclarationSpecifiers_4_Var);
+		final EList<? extends EObject> DeclarationSpecifier_4_list = DeclarationSpecifiers_4_Var.getDeclarationSpecifier();
 		Assert.assertNotNull(DeclarationSpecifier_4_list);
 		Assert.assertEquals(1, DeclarationSpecifier_4_list.size());
 		final TypeSpecifier TypeSpecifier_5_Var = (TypeSpecifier)DeclarationSpecifier_4_list.get(0);
 		Assert.assertNotNull(TypeSpecifier_5_Var);
 		Assert.assertEquals("void", TypeSpecifier_5_Var.getName());
-		final Declarator Declarator_6_Var = (Declarator)FunctionDefHead_3_Var.getFunDeclarator();
-		Assert.assertNotNull(Declarator_6_Var);
-		final DirectDeclarator DirectDeclarator_7_Var = (DirectDeclarator)Declarator_6_Var.getDeclarator();
-		Assert.assertNotNull(DirectDeclarator_7_Var);
-		Assert.assertEquals("do1", DirectDeclarator_7_Var.getId());
-		final FunctionDefinition FunctionDefinition_8_Var = (FunctionDefinition)ExternalDeclaration_2_Var.getFunctionDefinition();
-		Assert.assertNotNull(FunctionDefinition_8_Var);
-		final BodyStatement BodyStatement_9_Var = (BodyStatement)FunctionDefinition_8_Var.getBody();
-		Assert.assertNotNull(BodyStatement_9_Var);
+		final EList<? extends EObject> InitDeclaratorList_5_list = Declaration_3_Var.getInitDeclaratorList();
+		Assert.assertNotNull(InitDeclaratorList_5_list);
+		Assert.assertEquals(1, InitDeclaratorList_5_list.size());
+		final InitDeclaratorList InitDeclaratorList_6_Var = (InitDeclaratorList)InitDeclaratorList_5_list.get(0);
+		Assert.assertNotNull(InitDeclaratorList_6_Var);
+		final EList<? extends EObject> InitDeclarator_6_list = InitDeclaratorList_6_Var.getInitDeclarator();
+		Assert.assertNotNull(InitDeclarator_6_list);
+		Assert.assertEquals(1, InitDeclarator_6_list.size());
+		final InitDeclarator InitDeclarator_7_Var = (InitDeclarator)InitDeclarator_6_list.get(0);
+		Assert.assertNotNull(InitDeclarator_7_Var);
+		final Declarator Declarator_8_Var = (Declarator)InitDeclarator_7_Var.getDeclarator();
+		Assert.assertNotNull(Declarator_8_Var);
+		final DirectDeclarator DirectDeclarator_9_Var = (DirectDeclarator)Declarator_8_Var.getDeclarator();
+		Assert.assertNotNull(DirectDeclarator_9_Var);
+		Assert.assertEquals("doSomething", DirectDeclarator_9_Var.getId());
+		final EList<? extends EObject> DeclaratorSuffix_9_list = DirectDeclarator_9_Var.getDeclaratorSuffix();
+		Assert.assertNotNull(DeclaratorSuffix_9_list);
+		Assert.assertEquals(1, DeclaratorSuffix_9_list.size());
+		final DeclaratorSuffix DeclaratorSuffix_10_Var = (DeclaratorSuffix)DeclaratorSuffix_9_list.get(0);
+		Assert.assertNotNull(DeclaratorSuffix_10_Var);
+		final DirectDeclaratorLastSuffix DirectDeclaratorLastSuffix_11_Var = (DirectDeclaratorLastSuffix)DeclaratorSuffix_10_Var.getLastSuffix();
+		Assert.assertNotNull(DirectDeclaratorLastSuffix_11_Var);
+		Assert.assertEquals(";", Declaration_3_Var.getSemi());
 	}
 
 

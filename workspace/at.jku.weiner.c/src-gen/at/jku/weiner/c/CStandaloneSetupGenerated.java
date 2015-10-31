@@ -54,6 +54,9 @@ public class CStandaloneSetupGenerated implements ISetup {
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("c", resourceFactory);
 		org.eclipse.xtext.resource.IResourceServiceProvider.Registry.INSTANCE.getExtensionToFactoryMap().put("c", serviceProvider);
 		
+		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("h", resourceFactory);
+		org.eclipse.xtext.resource.IResourceServiceProvider.Registry.INSTANCE.getExtensionToFactoryMap().put("h", serviceProvider);
+		
 		
 	}
 }

@@ -8,7 +8,7 @@
 			class="at.jku.weiner.c.ui.CExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
 			contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
 			default="true"
-			extensions="c"
+			extensions="c,h"
 			id="at.jku.weiner.c.C"
 			name=" Editor">
 		</editor>
@@ -222,6 +222,20 @@
 	    </resourceServiceProvider>
 	</extension>
 	
+	<extension
+		point="org.eclipse.emf.ecore.extension_parser">
+		<parser
+			class="at.jku.weiner.c.ui.CExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
+			type="h">
+		</parser>
+	</extension>
+	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
+	    <resourceServiceProvider
+	        class="at.jku.weiner.c.ui.CExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
+	        uriExtension="h">
+	    </resourceServiceProvider>
+	</extension>
+	
 	
 	<!-- marker definitions for at.jku.weiner.c.C -->
 	<extension
@@ -248,7 +262,7 @@
 	<extension point="org.eclipse.xtext.builder.participant">
 		<participant
 			class="at.jku.weiner.c.ui.CExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant"
-			fileExtensions="c">
+			fileExtensions="c,h">
 		</participant>
 	</extension>
 	<extension point="org.eclipse.ui.preferencePages">
@@ -396,25 +410,30 @@
 	<extension point="org.eclipse.compare.contentViewers">
 	<viewer id="at.jku.weiner.c.C.compare.contentViewers"
 	        class="at.jku.weiner.c.ui.CExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-	        extensions="c">
+	        extensions="c,h">
 	</viewer>
 	</extension>
 	<extension point="org.eclipse.compare.contentMergeViewers">
 	<viewer id="at.jku.weiner.c.C.compare.contentMergeViewers"
 	        class="at.jku.weiner.c.ui.CExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-	        extensions="c" label="C Compare">
+	        extensions="c,h" label="C Compare">
 	 </viewer>
 	</extension>
 	<extension point="org.eclipse.ui.editors.documentProviders">
 	<provider id="at.jku.weiner.c.C.editors.documentProviders"
 	        class="at.jku.weiner.c.ui.CExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
-	        extensions="c">
+	        extensions="c,h">
 	</provider>
 	</extension>
 	<extension point="org.eclipse.team.core.fileTypes">
 	
 	<fileTypes
 	        extension="c"
+	        type="text">
+	</fileTypes>
+	
+	<fileTypes
+	        extension="h"
 	        type="text">
 	</fileTypes>
 	

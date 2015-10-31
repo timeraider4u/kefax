@@ -27,7 +27,7 @@ RIGHTBRACE NEWLINE
 			functiondefHead=
 			(FunctionDefHead
 				funDeclSpecifiers=
-				(DeclarationSpecifiers
+				(FunctionDeclarationSpecifiers
 					declarationSpecifier+=
 					(TypeSpecifier
 						name++"char"
@@ -118,7 +118,7 @@ RIGHTBRACE NEWLINE
 			functiondefHead=
 			(FunctionDefHead
 				funDeclSpecifiers=
-				(DeclarationSpecifiers
+				(FunctionDeclarationSpecifiers
 					declarationSpecifier+=
 					(TypeSpecifier
 						name++"int"
@@ -219,7 +219,7 @@ RIGHTBRACE NEWLINE
 			functiondefHead=
 			(FunctionDefHead
 				funDeclSpecifiers=
-				(DeclarationSpecifiers
+				(FunctionDeclarationSpecifiers
 					declarationSpecifier+=
 					(TypeSpecifier
 						name++"double"
@@ -310,7 +310,7 @@ RIGHTBRACE NEWLINE
 			functiondefHead=
 			(FunctionDefHead
 				funDeclSpecifiers=
-				(DeclarationSpecifiers
+				(FunctionDeclarationSpecifiers
 					declarationSpecifier+=
 					(TypeSpecifier
 						name++"float"
@@ -401,7 +401,7 @@ RIGHTBRACE NEWLINE
 			functiondefHead=
 			(FunctionDefHead
 				funDeclSpecifiers=
-				(DeclarationSpecifiers
+				(FunctionDeclarationSpecifiers
 					declarationSpecifier+=
 					(TypeSpecifier
 						name++"void"

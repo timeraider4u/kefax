@@ -4,8 +4,8 @@ package at.jku.weiner.c.c.impl;
 
 import at.jku.weiner.c.c.CPackage;
 import at.jku.weiner.c.c.Declaration;
-import at.jku.weiner.c.c.DeclarationSpecifiers;
 import at.jku.weiner.c.c.Declarator;
+import at.jku.weiner.c.c.FunctionDeclarationSpecifiers;
 import at.jku.weiner.c.c.FunctionDefHead;
 
 import java.util.Collection;
@@ -49,7 +49,7 @@ public class FunctionDefHeadImpl extends MinimalEObjectImpl.Container implements
    * @generated
    * @ordered
    */
-  protected DeclarationSpecifiers funDeclSpecifiers;
+  protected FunctionDeclarationSpecifiers funDeclSpecifiers;
 
   /**
    * The cached value of the '{@link #getFunDeclarator() <em>Fun Declarator</em>}' containment reference.
@@ -97,7 +97,7 @@ public class FunctionDefHeadImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public DeclarationSpecifiers getFunDeclSpecifiers()
+  public FunctionDeclarationSpecifiers getFunDeclSpecifiers()
   {
     return funDeclSpecifiers;
   }
@@ -107,9 +107,9 @@ public class FunctionDefHeadImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetFunDeclSpecifiers(DeclarationSpecifiers newFunDeclSpecifiers, NotificationChain msgs)
+  public NotificationChain basicSetFunDeclSpecifiers(FunctionDeclarationSpecifiers newFunDeclSpecifiers, NotificationChain msgs)
   {
-    DeclarationSpecifiers oldFunDeclSpecifiers = funDeclSpecifiers;
+    FunctionDeclarationSpecifiers oldFunDeclSpecifiers = funDeclSpecifiers;
     funDeclSpecifiers = newFunDeclSpecifiers;
     if (eNotificationRequired())
     {
@@ -124,7 +124,7 @@ public class FunctionDefHeadImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setFunDeclSpecifiers(DeclarationSpecifiers newFunDeclSpecifiers)
+  public void setFunDeclSpecifiers(FunctionDeclarationSpecifiers newFunDeclSpecifiers)
   {
     if (newFunDeclSpecifiers != funDeclSpecifiers)
     {
@@ -254,7 +254,7 @@ public class FunctionDefHeadImpl extends MinimalEObjectImpl.Container implements
     switch (featureID)
     {
       case CPackage.FUNCTION_DEF_HEAD__FUN_DECL_SPECIFIERS:
-        setFunDeclSpecifiers((DeclarationSpecifiers)newValue);
+        setFunDeclSpecifiers((FunctionDeclarationSpecifiers)newValue);
         return;
       case CPackage.FUNCTION_DEF_HEAD__FUN_DECLARATOR:
         setFunDeclarator((Declarator)newValue);
@@ -278,7 +278,7 @@ public class FunctionDefHeadImpl extends MinimalEObjectImpl.Container implements
     switch (featureID)
     {
       case CPackage.FUNCTION_DEF_HEAD__FUN_DECL_SPECIFIERS:
-        setFunDeclSpecifiers((DeclarationSpecifiers)null);
+        setFunDeclSpecifiers((FunctionDeclarationSpecifiers)null);
         return;
       case CPackage.FUNCTION_DEF_HEAD__FUN_DECLARATOR:
         setFunDeclarator((Declarator)null);

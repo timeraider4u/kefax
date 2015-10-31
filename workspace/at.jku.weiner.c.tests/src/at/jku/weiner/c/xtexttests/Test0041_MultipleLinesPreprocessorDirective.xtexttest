@@ -6,7 +6,7 @@ source file="res/Test0041_MultipleLinesPreprocessorDirective.c"
 lexer-tokens
 LINEDIRECTIVE NEWLINE
 NEWLINE
-KW_INT WHITESPACE ID SEMI NEWLINE
+KW_INT WHITESPACE ID WHITESPACE ASSIGN WHITESPACE ID SEMI NEWLINE
 //----------------------------------------------------------------------
 (Model
 	unit+=
@@ -32,7 +32,59 @@ KW_INT WHITESPACE ID SEMI NEWLINE
 							(DirectDeclarator
 								id++"i"
 							)
-						)
+						),
+						initializer=
+						(Initializer
+							expr=
+							(AssignmentExpression
+								expr=
+								(ConditionalExpression
+									expr=
+									(LogicalOrExpression
+										expr+=
+										(LogicalAndExpression
+											expr+=
+											(InclusiveOrExpression
+												expr+=
+												(ExclusiveOrExpression
+													expr+=
+													(AndExpression
+														expr+=
+														(EqualityExpression
+															expr+=
+															(RelationalExpression
+																expr+=
+																(ShiftExpression
+																	expr+=
+																	(AdditiveExpression
+																		expr+=
+																		(MultiplicativeExpression
+																			expr+=
+																			(CastExpression
+																				expr=
+																				(UnaryExpression
+																					expr=
+																					(PostfixExpression
+																						expr+=
+																						(PrimaryExpression
+																							id++"MYDEF"
+																						)
+																					)
+																				)
+																			)
+																		)
+																	)
+																)
+															)
+														)
+													)
+												)
+											)
+										)
+									)
+								)
+							) // end assignment expression
+						) // end initializer
 					)
 				),
 				semi++";"

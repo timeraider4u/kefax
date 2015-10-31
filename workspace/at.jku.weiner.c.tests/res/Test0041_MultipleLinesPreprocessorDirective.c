@@ -1,5 +1,5 @@
 #define \
 	MYDEF \
-	something
+	0
 
-int i;
+int i = MYDEF;

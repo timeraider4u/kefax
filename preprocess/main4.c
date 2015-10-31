@@ -1,6 +1,6 @@
-/*
- * leads to error during compilation!!!
-*/
+#define MYDEF
+#define OTHERDEF
+
 #include "bar.h"
 
 #include <stdio.h>

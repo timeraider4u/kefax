@@ -1,3 +1,6 @@
+/*
+ * leads to error during compilation!!!
+*/
 #define MYDEF
 #include "bar.h"
 

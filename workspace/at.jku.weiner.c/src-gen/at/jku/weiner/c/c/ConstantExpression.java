@@ -10,10 +10,10 @@ package at.jku.weiner.c.c;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.c.ConstantExpression#getExpr <em>Expr</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.c.CPackage#getConstantExpression()
  * @model

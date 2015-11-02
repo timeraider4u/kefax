@@ -27,12 +27,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.c.impl.AsmStatementImpl#getVolatile <em>Volatile</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.AsmStatementImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.AsmStatementImpl#getSemi <em>Semi</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

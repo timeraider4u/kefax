@@ -6,6 +6,9 @@ package at.jku.weiner.c.generator
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
 import org.eclipse.xtext.generator.IGenerator
+import at.jku.weiner.c.c.Model
+import com.google.inject.Inject
+import org.eclipse.xtext.naming.IQualifiedNameProvider
 
 /**
  * Generates code from your model files on save.
@@ -13,13 +16,13 @@ import org.eclipse.xtext.generator.IGenerator
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class CGenerator implements IGenerator {
-
-	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(typeof(Greeting))
-//				.map[name]
-//				.join(', '))
+	
+	override void doGenerate(Resource input, IFileSystemAccess fsa) {
+		fsa.generateFile('greetings.txt', 'People to greet: ' + 
+			input.allContents
+				.filter(typeof(Model))
+				.map[unit]
+				.join(', '))
 	}
 
 }

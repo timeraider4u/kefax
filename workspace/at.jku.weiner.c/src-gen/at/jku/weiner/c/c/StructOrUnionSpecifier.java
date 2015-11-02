@@ -10,11 +10,11 @@ package at.jku.weiner.c.c;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.c.StructOrUnionSpecifier#getType <em>Type</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.StructOrUnionSpecifier#getStructDeclList <em>Struct Decl List</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.c.CPackage#getStructOrUnionSpecifier()
  * @model

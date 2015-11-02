@@ -10,7 +10,6 @@ package at.jku.weiner.c.c;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.c.IterationStatement#getWhile <em>While</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.IterationStatement#getExpr <em>Expr</em>}</li>
@@ -22,6 +21,7 @@ package at.jku.weiner.c.c;
  *   <li>{@link at.jku.weiner.c.c.IterationStatement#getIncExpr <em>Inc Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.IterationStatement#getInitDecl <em>Init Decl</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.c.CPackage#getIterationStatement()
  * @model

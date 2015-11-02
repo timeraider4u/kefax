@@ -23,13 +23,13 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.c.impl.ExternalDeclarationImpl#getFunctiondefHead <em>Functiondef Head</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.ExternalDeclarationImpl#getFunctionDefinition <em>Function Definition</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.ExternalDeclarationImpl#getDeclaration <em>Declaration</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.ExternalDeclarationImpl#getSemi <em>Semi</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

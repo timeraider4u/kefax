@@ -30,12 +30,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.c.impl.FunctionDefHeadImpl#getFunDeclSpecifiers <em>Fun Decl Specifiers</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.FunctionDefHeadImpl#getFunDeclarator <em>Fun Declarator</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.FunctionDefHeadImpl#getFunDeclaration <em>Fun Declaration</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

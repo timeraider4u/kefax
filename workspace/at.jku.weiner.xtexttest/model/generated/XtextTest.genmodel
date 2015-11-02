@@ -4,7 +4,7 @@
     editorDirectory="/at.jku.weiner.xtexttest.editor/src" modelPluginID="at.jku.weiner.xtexttest"
     forceOverwrite="true" modelName="XtextTest" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="6.0" copyrightFields="false" editPluginID="at.jku.weiner.xtexttest.edit"
-    editorPluginID="at.jku.weiner.xtexttest.editor" runtimeVersion="2.11">
+    editorPluginID="at.jku.weiner.xtexttest.editor" runtimeVersion="2.10">
   <genPackages prefix="XtextTest" basePackage="at.jku.weiner.xtexttest" disposableProviderFactory="true"
       fileExtensions="xtexttest" ecorePackage="XtextTest.ecore#/">
     <genClasses ecoreClass="XtextTest.ecore#//XtextTest">
@@ -13,6 +13,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XtextTest.ecore#//XtextTest/input"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XtextTest.ecore#//XtextTest/tokens"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XtextTest.ecore#//XtextTest/root"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XtextTest.ecore#//XtextTest/output"/>
     </genClasses>
     <genClasses ecoreClass="XtextTest.ecore#//Input">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//Input/text"/>
@@ -31,6 +32,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XtextTest.ecore#//Inner/assignList"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//Inner/value"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//Inner/assignAsData"/>
+    </genClasses>
+    <genClasses ecoreClass="XtextTest.ecore#//Generator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//Generator/output"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//Generator/expected"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

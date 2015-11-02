@@ -1,0 +1,9 @@
+grammar at.jku.weiner.cpreprocess.CPreprocess with org.eclipse.xtext.common.Terminals
+
+generate cPreprocess "http://www.jku.at/weiner/cpreprocess/CPreprocess"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';

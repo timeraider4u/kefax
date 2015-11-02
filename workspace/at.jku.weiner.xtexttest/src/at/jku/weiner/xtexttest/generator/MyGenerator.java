@@ -6,6 +6,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 
 import at.jku.weiner.xtexttest.xtextTest.Element;
+import at.jku.weiner.xtexttest.xtextTest.Generator;
 import at.jku.weiner.xtexttest.xtextTest.Inner;
 import at.jku.weiner.xtexttest.xtextTest.Input;
 import at.jku.weiner.xtexttest.xtextTest.Tokens;
@@ -24,6 +25,7 @@ public class MyGenerator {
 	private final Element rootElement;
 	private final String myDsl;
 	private int elementCount;
+	private final Generator output;
 
 	public MyGenerator(final URI uri, final XtextTest xtext) throws IOException {
 		this.uri = uri;
@@ -38,6 +40,7 @@ public class MyGenerator {
 		this.input = this.xtext.getInput();
 		this.sourceFile = this.getSourceFile();
 		this.rootElement = this.xtext.getRoot();
+		this.output = xtext.getOutput();
 		this.myDsl = MyGenerator.firstCharToUpperCase(this.langName);
 	}
 
@@ -91,6 +94,8 @@ public class MyGenerator {
 		this.prefixParserResult();
 		this.generateForElement(this.rootElement);
 		this.postfix();
+		this.testGenerator();
+		this.postfixClass();
 		return this.builder.toString();
 	}
 
@@ -101,15 +106,26 @@ public class MyGenerator {
 		this.builder.append(MyGenerator.PKG_PREFIX);
 		this.builder.append(";\n\n");
 		this.builder.append("import com.google.inject.Inject;\n");
+		this.builder.append("import com.google.inject.Provider;\n");
 		this.builder.append("import java.nio.file.Files;\n");
 		this.builder.append("import java.nio.file.Path;\n");
 		this.builder.append("import java.nio.file.Paths;\n");
 		this.builder.append("import java.util.List;\n");
 		this.builder.append("import org.antlr.runtime.Token;\n");
 		this.builder.append("import org.eclipse.emf.common.util.EList;\n");
+		this.builder.append("import org.eclipse.emf.common.util.URI;\n");
+		this.builder
+				.append("import org.eclipse.emf.ecore.resource.Resource;\n");
+		this.builder
+				.append("import org.eclipse.emf.ecore.resource.ResourceSet;\n");
 		this.builder
 				.append("import org.eclipse.emf.ecore.util.EDataTypeEList;\n");
 		this.builder.append("import org.eclipse.emf.ecore.EObject;\n");
+		this.builder
+				.append("import org.eclipse.xtext.generator.IFileSystemAccess;\n");
+		this.builder.append("import org.eclipse.xtext.generator.IGenerator;\n");
+		this.builder
+				.append("import org.eclipse.xtext.generator.JavaIoFileSystemAccess;\n");
 		this.builder.append("import org.eclipse.xtext.junit4.");
 		this.builder.append("InjectWith;\n");
 		this.builder.append("import org.eclipse.xtext.junit4.");
@@ -118,6 +134,11 @@ public class MyGenerator {
 		this.builder.append("validation.ValidationTestHelper;\n");
 		this.builder.append("import org.eclipse.xtext.junit4.");
 		this.builder.append("XtextRunner;\n");
+		this.builder.append("import org.eclipse.xtext.util.CancelIndicator;\n");
+		this.builder.append("import org.eclipse.xtext.validation.CheckMode;\n");
+		this.builder
+				.append("import org.eclipse.xtext.validation.IResourceValidator;\n");
+		this.builder.append("import org.eclipse.xtext.validation.Issue;\n");
 		this.builder
 		.append("import org.eclipse.xtext.parser.antlr.ITokenDefProvider;\n");
 		this.builder.append("import org.junit.Assert;\n");
@@ -206,19 +227,30 @@ public class MyGenerator {
 		// this.builder.append("\t@Inject\n\tLexerAndParserTest testHelper;\n");
 		this.builder.append("\tprivate LexerAndParserTest testHelper;\n");
 		this.builder.append("\t\n");
+		this.builder.append("\t@Inject\n");
+		this.builder.append("\tprivate IGenerator generator;\n");
+		this.builder.append("\t@Inject\n");
+		this.builder
+				.append("\tprivate Provider<ResourceSet> resourceSetProvider;\n");
+		this.builder.append("\t@Inject\n");
+		this.builder.append("\tprivate IResourceValidator validator;\n");
+		this.builder.append("\t@Inject\n");
+		this.builder
+				.append("\tprivate JavaIoFileSystemAccess fileAccessSystem;\n");
+
+		this.builder.append("\t\n");
 		this.builder.append("\t@Before\n\tpublic void initialize(){\n");
 		this.builder.append("\t\tthis.testHelper = ");
 		this.builder.append("new LexerAndParserTest(");
 		this.builder.append("lexer, parser, tokenDefProvider);\n");
 		this.builder.append("\t}\n");
 		this.builder.append("\t\n");
-		this.builder.append("\tprivate String getSourceText()\n");
+		this.builder.append("\tprivate String getTextFromFile(");
+		this.builder.append("final String fileName)\n");
 		this.builder.append("\tthrows Exception{\n");
 		this.builder.append("\t\tfinal Path path = Paths.get(\"");
-		if (this.shouldGenerateTextSourceDataFile()) {
-			this.builder.append("src-gen/");
-		}
-		this.builder.append(this.getFileNameForTextSource());
+		this.builder.append("fileName");
+		// this.builder.append(this.getFileNameForTextSource());
 		this.builder.append("\");\n");
 		this.builder.append("\t\tfinal String content = new String(");
 		this.builder.append("Files.readAllBytes(path));\n");
@@ -235,7 +267,12 @@ public class MyGenerator {
 		this.builder.append("\t@Test\n");
 		this.builder.append("\tpublic void checkLexerTokens()\n");
 		this.builder.append("\tthrows Exception{\n");
-		this.builder.append("\t\tfinal String text = this.getSourceText();\n");
+		this.builder.append("\t\tfinal String text = this.getTextFromFile(\"");
+		if (this.shouldGenerateTextSourceDataFile()) {
+			this.builder.append("src-gen/");
+		}
+		this.builder.append(this.getFileNameForTextSource());
+		this.builder.append("\");\n");
 		this.builder.append("\t\t//System.out.println(text);\n");
 		this.builder.append("\t\tfinal String[] expected = new String[] {\n");
 		final EList<String> tokenList = tokens.getTokens();
@@ -262,7 +299,12 @@ public class MyGenerator {
 		this.builder.append("\tpublic void checkParserResult()\n");
 		this.builder.append("\tthrows Exception{\n");
 		this.builder.append("\n");
-		this.builder.append("\t\tfinal String text = this.getSourceText();\n");
+		this.builder.append("\t\tfinal String text = this.getTextFromFile(\"");
+		if (this.shouldGenerateTextSourceDataFile()) {
+			this.builder.append("src-gen/");
+		}
+		this.builder.append(this.getFileNameForTextSource());
+		this.builder.append("\");\n");
 		this.builder.append("\t\tfinal ");
 		this.builder.append(this.getName(this.rootElement));
 		this.builder.append(" ");
@@ -276,7 +318,62 @@ public class MyGenerator {
 
 	private void postfix() {
 		this.builder.append("\t}\n");
+		this.builder.append("\t\n");
+	}
+
+	private void postfixClass() {
 		this.builder.append("\n\n}\n");
+	}
+
+	private void testGenerator() {
+		if (this.output == null) {
+			return;
+		}
+		this.builder.append("\t@Test\n");
+		this.builder.append("\tpublic void testGenerator()");
+		this.builder.append(" throws Exception {\n");
+		this.builder.append("\t\t// load the resource\n");
+		this.builder
+				.append("\t\tResourceSet set = this.resourceSetProvider.get();\n");
+		this.builder.append("\t\tResource resource = set\n");
+		this.builder.append("\t\t\t.getResource(\n");
+		this.builder.append("\t\t\tURI.createURI(\"");
+		if (this.shouldGenerateTextSourceDataFile()) {
+			this.builder.append("src-gen/");
+		}
+		this.builder.append(this.getFileNameForTextSource());
+		this.builder.append("\"), true);\n");
+		this.builder.append("\t\t// validate the resource\n");
+		this.builder
+		.append("\t\tList<Issue> list = this.validator.validate(resource, CheckMode.ALL,\n");
+		this.builder.append("\t\tCancelIndicator.NullImpl);\n");
+		this.builder.append("\t\tAssert.assertTrue(list.isEmpty());\n");
+		this.builder.append("\t\t\n");
+		this.builder.append("// configure and start the generator\n");
+		this.builder.append("this.fileAccessSystem.setOutputPath(\"");
+		String outPath = "";
+		final String outFName = this.output.getOutput();
+		final int lastIndex = this.output.getOutput().lastIndexOf("/");
+		if (lastIndex >= 0) {
+			outPath = this.output.getOutput().substring(0, lastIndex);
+		}
+		this.builder.append(outPath);
+		this.builder.append("\");\n");
+		this.builder
+		.append("\t\tthis.generator.doGenerate(resource, this.fileAccessSystem);\n");
+		this.builder.append("\t\t\n");
+		this.builder
+				.append("\t\tfinal String actual = this.getTextFromFile(\"");
+		this.builder.append(outFName);
+		this.builder.append("\");\n");
+		this.builder
+				.append("\t\tfinal String expected = this.getTextFromFile(\"");
+		this.builder.append(this.output.getExpected());
+		this.builder.append("\");\n");
+		this.builder.append("\t\tAssert.assertEquals(expected, actual);\n");
+		this.builder
+		.append("\t\t// System.out.println(\"Code generation finished.\");\n");
+		this.builder.append("\t}\n");
 	}
 
 	private String getName(final Element element) {

@@ -21,11 +21,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.c.impl.StructOrUnionSpecifierImpl#getType <em>Type</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.StructOrUnionSpecifierImpl#getStructDeclList <em>Struct Decl List</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

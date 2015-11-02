@@ -23,7 +23,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.c.impl.DeclaratorSuffixImpl#getStatic <em>Static</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.DeclaratorSuffixImpl#getTypeQualifierList <em>Type Qualifier List</em>}</li>
@@ -31,6 +30,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link at.jku.weiner.c.c.impl.DeclaratorSuffixImpl#getStar <em>Star</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.DeclaratorSuffixImpl#getLastSuffix <em>Last Suffix</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

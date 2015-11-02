@@ -11,12 +11,12 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.c.AsmStatement#getVolatile <em>Volatile</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.AsmStatement#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.AsmStatement#getSemi <em>Semi</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.c.CPackage#getAsmStatement()
  * @model

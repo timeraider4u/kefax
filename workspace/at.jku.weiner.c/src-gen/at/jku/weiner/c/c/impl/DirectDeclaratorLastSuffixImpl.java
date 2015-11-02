@@ -29,11 +29,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.c.impl.DirectDeclaratorLastSuffixImpl#getParameterTypeList <em>Parameter Type List</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.DirectDeclaratorLastSuffixImpl#getIdentifierList <em>Identifier List</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

@@ -10,12 +10,12 @@ package at.jku.weiner.c.c;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.c.PrimaryExpression#getId <em>Id</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.PrimaryExpression#getConst <em>Const</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.PrimaryExpression#getExpr <em>Expr</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.c.CPackage#getPrimaryExpression()
  * @model

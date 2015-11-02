@@ -115,17 +115,17 @@ public class MyGenerator {
 		this.builder.append("import org.eclipse.emf.common.util.EList;\n");
 		this.builder.append("import org.eclipse.emf.common.util.URI;\n");
 		this.builder
-				.append("import org.eclipse.emf.ecore.resource.Resource;\n");
+		.append("import org.eclipse.emf.ecore.resource.Resource;\n");
 		this.builder
-				.append("import org.eclipse.emf.ecore.resource.ResourceSet;\n");
+		.append("import org.eclipse.emf.ecore.resource.ResourceSet;\n");
 		this.builder
-				.append("import org.eclipse.emf.ecore.util.EDataTypeEList;\n");
+		.append("import org.eclipse.emf.ecore.util.EDataTypeEList;\n");
 		this.builder.append("import org.eclipse.emf.ecore.EObject;\n");
 		this.builder
-				.append("import org.eclipse.xtext.generator.IFileSystemAccess;\n");
+		.append("import org.eclipse.xtext.generator.IFileSystemAccess;\n");
 		this.builder.append("import org.eclipse.xtext.generator.IGenerator;\n");
 		this.builder
-				.append("import org.eclipse.xtext.generator.JavaIoFileSystemAccess;\n");
+		.append("import org.eclipse.xtext.generator.JavaIoFileSystemAccess;\n");
 		this.builder.append("import org.eclipse.xtext.junit4.");
 		this.builder.append("InjectWith;\n");
 		this.builder.append("import org.eclipse.xtext.junit4.");
@@ -137,10 +137,10 @@ public class MyGenerator {
 		this.builder.append("import org.eclipse.xtext.util.CancelIndicator;\n");
 		this.builder.append("import org.eclipse.xtext.validation.CheckMode;\n");
 		this.builder
-				.append("import org.eclipse.xtext.validation.IResourceValidator;\n");
+		.append("import org.eclipse.xtext.validation.IResourceValidator;\n");
 		this.builder.append("import org.eclipse.xtext.validation.Issue;\n");
 		this.builder
-		.append("import org.eclipse.xtext.parser.antlr.ITokenDefProvider;\n");
+				.append("import org.eclipse.xtext.parser.antlr.ITokenDefProvider;\n");
 		this.builder.append("import org.junit.Assert;\n");
 		this.builder.append("import org.junit.After;\n");
 		this.builder.append("import org.junit.Before;\n");
@@ -231,12 +231,12 @@ public class MyGenerator {
 		this.builder.append("\tprivate IGenerator generator;\n");
 		this.builder.append("\t@Inject\n");
 		this.builder
-				.append("\tprivate Provider<ResourceSet> resourceSetProvider;\n");
+		.append("\tprivate Provider<ResourceSet> resourceSetProvider;\n");
 		this.builder.append("\t@Inject\n");
 		this.builder.append("\tprivate IResourceValidator validator;\n");
 		this.builder.append("\t@Inject\n");
 		this.builder
-				.append("\tprivate JavaIoFileSystemAccess fileAccessSystem;\n");
+		.append("\tprivate JavaIoFileSystemAccess fileAccessSystem;\n");
 
 		this.builder.append("\t\n");
 		this.builder.append("\t@Before\n\tpublic void initialize(){\n");
@@ -248,10 +248,7 @@ public class MyGenerator {
 		this.builder.append("\tprivate String getTextFromFile(");
 		this.builder.append("final String fileName)\n");
 		this.builder.append("\tthrows Exception{\n");
-		this.builder.append("\t\tfinal Path path = Paths.get(\"");
-		this.builder.append("fileName");
-		// this.builder.append(this.getFileNameForTextSource());
-		this.builder.append("\");\n");
+		this.builder.append("\t\tfinal Path path = Paths.get(fileName);\n");
 		this.builder.append("\t\tfinal String content = new String(");
 		this.builder.append("Files.readAllBytes(path));\n");
 		this.builder.append("\t\treturn content;\n");
@@ -287,7 +284,7 @@ public class MyGenerator {
 		this.builder.append("testHelper.getTokens(text);\n");
 		this.builder.append("\t\t//testHelper.outputTokens(text);\n");
 		this.builder
-				.append("\t\ttestHelper.checkTokenisation(text, expected);\n");
+		.append("\t\ttestHelper.checkTokenisation(text, expected);\n");
 
 		// end of method
 		this.builder.append("\t}\n");
@@ -334,7 +331,7 @@ public class MyGenerator {
 		this.builder.append(" throws Exception {\n");
 		this.builder.append("\t\t// load the resource\n");
 		this.builder
-				.append("\t\tResourceSet set = this.resourceSetProvider.get();\n");
+		.append("\t\tResourceSet set = this.resourceSetProvider.get();\n");
 		this.builder.append("\t\tResource resource = set\n");
 		this.builder.append("\t\t\t.getResource(\n");
 		this.builder.append("\t\t\tURI.createURI(\"");
@@ -345,12 +342,12 @@ public class MyGenerator {
 		this.builder.append("\"), true);\n");
 		this.builder.append("\t\t// validate the resource\n");
 		this.builder
-		.append("\t\tList<Issue> list = this.validator.validate(resource, CheckMode.ALL,\n");
+				.append("\t\tList<Issue> list = this.validator.validate(resource, CheckMode.ALL,\n");
 		this.builder.append("\t\tCancelIndicator.NullImpl);\n");
 		this.builder.append("\t\tAssert.assertTrue(list.isEmpty());\n");
 		this.builder.append("\t\t\n");
-		this.builder.append("// configure and start the generator\n");
-		this.builder.append("this.fileAccessSystem.setOutputPath(\"");
+		this.builder.append("\t\t// configure and start the generator\n");
+		this.builder.append("\t\tthis.fileAccessSystem.setOutputPath(\"");
 		String outPath = "";
 		final String outFName = this.output.getOutput();
 		final int lastIndex = this.output.getOutput().lastIndexOf("/");
@@ -360,19 +357,19 @@ public class MyGenerator {
 		this.builder.append(outPath);
 		this.builder.append("\");\n");
 		this.builder
-		.append("\t\tthis.generator.doGenerate(resource, this.fileAccessSystem);\n");
+				.append("\t\tthis.generator.doGenerate(resource, this.fileAccessSystem);\n");
 		this.builder.append("\t\t\n");
 		this.builder
-				.append("\t\tfinal String actual = this.getTextFromFile(\"");
+		.append("\t\tfinal String actual = this.getTextFromFile(\"");
 		this.builder.append(outFName);
 		this.builder.append("\");\n");
 		this.builder
-				.append("\t\tfinal String expected = this.getTextFromFile(\"");
+		.append("\t\tfinal String expected = this.getTextFromFile(\"");
 		this.builder.append(this.output.getExpected());
 		this.builder.append("\");\n");
 		this.builder.append("\t\tAssert.assertEquals(expected, actual);\n");
 		this.builder
-		.append("\t\t// System.out.println(\"Code generation finished.\");\n");
+				.append("\t\t// System.out.println(\"Code generation finished.\");\n");
 		this.builder.append("\t}\n");
 	}
 

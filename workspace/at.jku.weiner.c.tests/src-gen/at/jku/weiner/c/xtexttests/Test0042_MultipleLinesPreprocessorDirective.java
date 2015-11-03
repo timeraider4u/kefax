@@ -253,8 +253,8 @@ public class Test0042_MultipleLinesPreprocessorDirective {
 		CancelIndicator.NullImpl);
 		Assert.assertTrue(list.isEmpty());
 		
-// configure and start the generator
-this.fileAccessSystem.setOutputPath("bin");
+		// configure and start the generator
+		this.fileAccessSystem.setOutputPath("bin");
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		
 		final String actual = this.getTextFromFile("bin/greetings.txt");

@@ -98,7 +98,7 @@ public class Test0002_TwoVariables {
 	
 	private String preprocess(final String string) {
 		final String lines = string.replaceAll("\n", " ").trim();
-		final String multi = lines.replaceAll("\\s{2,}", "").trim();
+		final String multi = lines.replaceAll("\\s{2,}", " ").trim();
 		final String sign = multi.replaceAll("\\s+([^a-zA-Z0-9_])", "$1")
 				.trim();
 		final String sign2 = sign.replaceAll("([^a-zA-Z0-9_])\\s+", "$1")

@@ -80,10 +80,11 @@ class CGenerator implements IGenerator {
 		«IF spec.specifier != null»
 		«ELSE»
 		«IF spec.type != null»
+			«spec.type.id»
+		«ELSE»
+			«spec.name»
 		«ENDIF»
 		«ENDIF»
-		
-		«spec.name»
 	'''
 	
 	def String outputFor(InitDeclaratorList list) '''

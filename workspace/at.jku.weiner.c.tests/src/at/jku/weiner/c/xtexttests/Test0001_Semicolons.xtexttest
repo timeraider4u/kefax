@@ -5,7 +5,7 @@ source file="res/Test0001_Semicolons.c"
 //----------------------------------------------------------------------
 lexer-tokens
 SEMI NEWLINE
-SEMI SEMI NEWLINE 
+SEMI SEMI NEWLINE
 //----------------------------------------------------------------------
 (Model unit+=
 	(TranslationUnit 

@@ -2,8 +2,7 @@
 <feature
       id="at.jku.weiner.xtexttest.feature"
       label="at.jku.weiner.xtexttest"
-      version="0.1.11"
-      provider-name="Harald Weiner">
+      version="1.0.0.qualifier">
 
    <description url="http://www.example.com/description">
       [Enter Feature Description here.]

@@ -1,18 +1,29 @@
 package at.jku.weiner.c.xtexttests;
 
 import com.google.inject.Inject;
+import com.google.inject.Provider;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import org.antlr.runtime.Token;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.generator.IFileSystemAccess;
+import org.eclipse.xtext.generator.IGenerator;
+import org.eclipse.xtext.generator.JavaIoFileSystemAccess;
 import org.eclipse.xtext.junit4.InjectWith;
 import org.eclipse.xtext.junit4.util.ParseHelper;
 import org.eclipse.xtext.junit4.validation.ValidationTestHelper;
 import org.eclipse.xtext.junit4.XtextRunner;
+import org.eclipse.xtext.util.CancelIndicator;
+import org.eclipse.xtext.validation.CheckMode;
+import org.eclipse.xtext.validation.IResourceValidator;
+import org.eclipse.xtext.validation.Issue;
 import org.eclipse.xtext.parser.antlr.ITokenDefProvider;
 import org.junit.Assert;
 import org.junit.After;
@@ -102,14 +113,23 @@ public class Test0022_PlusPlus {
 	
 	private LexerAndParserTest testHelper;
 	
+	@Inject
+	private IGenerator generator;
+	@Inject
+	private Provider<ResourceSet> resourceSetProvider;
+	@Inject
+	private IResourceValidator validator;
+	@Inject
+	private JavaIoFileSystemAccess fileAccessSystem;
+	
 	@Before
 	public void initialize(){
 		this.testHelper = new LexerAndParserTest(lexer, parser, tokenDefProvider);
 	}
 	
-	private String getSourceText()
+	private String getTextFromFile(final String fileName)
 	throws Exception{
-		final Path path = Paths.get("res/Test0022_PlusPlus.c");
+		final Path path = Paths.get(fileName);
 		final String content = new String(Files.readAllBytes(path));
 		return content;
 	}
@@ -117,7 +137,7 @@ public class Test0022_PlusPlus {
 	@Test
 	public void checkLexerTokens()
 	throws Exception{
-		final String text = this.getSourceText();
+		final String text = this.getTextFromFile("res/Test0022_PlusPlus.c");
 		//System.out.println(text);
 		final String[] expected = new String[] {
 			"RULE_KW_INT",
@@ -155,7 +175,7 @@ public class Test0022_PlusPlus {
 	public void checkParserResult()
 	throws Exception{
 
-		final String text = this.getSourceText();
+		final String text = this.getTextFromFile("res/Test0022_PlusPlus.c");
 		final Model Model_0_Var = this.parseHelper.parse(text);
 	
 		this.valHelper.assertNoErrors(Model_0_Var);
@@ -388,6 +408,7 @@ public class Test0022_PlusPlus {
 		Assert.assertEquals("++", UnaryExpression_55_Var.getPlusplus());
 		Assert.assertEquals(";", JumpStatement_40_Var.getSemi());
 	}
+	
 
 
 }

@@ -11,6 +11,19 @@ import org.eclipse.xtext.junit4.util.ParseHelper
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
+import java.nio.file.Paths
+import java.nio.file.Files
+import org.eclipse.xtext.generator.IGenerator
+import com.google.inject.Provider
+import org.eclipse.xtext.validation.IResourceValidator
+import org.eclipse.xtext.generator.JavaIoFileSystemAccess
+import org.eclipse.emf.ecore.resource.ResourceSet
+import org.eclipse.emf.common.util.URI
+import org.eclipse.emf.ecore.resource.Resource
+import java.util.List
+import org.eclipse.xtext.validation.Issue
+import org.eclipse.xtext.validation.CheckMode
+import org.eclipse.xtext.util.CancelIndicator
 
 @RunWith(XtextRunner)
 @InjectWith(XtextTestInjectorProvider)
@@ -18,13 +31,41 @@ class XtextTestParsingTest{
 
 	@Inject
 	ParseHelper<XtextTest> parseHelper;
+	@Inject
+			private IGenerator generator;
+			@Inject
+			private Provider<ResourceSet> resourceSetProvider;
+			@Inject
+			private IResourceValidator validator;
+			@Inject
+			private JavaIoFileSystemAccess fileAccessSystem;
+	
+	def String getTextFromFile(String fileName)
+	throws Exception{
+		val path = Paths.get(fileName);
+		val content = new String(Files.readAllBytes(path));
+		return content;
+	}
 
 	@Test 
 	def void loadModel() {
-		val result = parseHelper.parse('''
-			Hello Xtext!
-		''')
-		Assert.assertNotNull(result)
+		val file = "res/Test0042_MultipleLinesPreprocessorDirective.xtexttest";
+		val input = getTextFromFile(file);
+		val result = parseHelper.parse(input);
+		Assert.assertNotNull(result);
+		val ResourceSet set = this.resourceSetProvider.get();
+		val URI uri = URI.createURI(file);
+		val Resource resource = set.getResource(uri, true);
+			// validate the resource
+		val	List<Issue> list = this.validator.validate(resource, 
+				CheckMode.ALL,CancelIndicator.NullImpl);
+		Assert.assertTrue(list.isEmpty());
+		// configure and start the generator
+		fileAccessSystem.setOutputPath("bin");
+		this.generator.doGenerate(resource, this.fileAccessSystem);
+		val String actual = this.getTextFromFile("bin/Test0042_MultipleLinesPreprocessorDirective.xtexttest");
+		Assert.assertNotNull(actual);
 	}
 
 }
+

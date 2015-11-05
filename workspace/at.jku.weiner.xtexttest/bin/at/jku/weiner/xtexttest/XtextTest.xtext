@@ -63,7 +63,11 @@ Inner:
 Generator:
 	{Generator}
 	(OUTPUT FILE ASSIGNASSINGLE output=STRING)
-	(EXPECTED FILE ASSIGNASSINGLE expected=STRING)
+	(EXPECTED FILE 
+		((ASSIGNASSINGLE expected=STRING)
+			| isSameAsInputFile?=ISSAMEASINPUTFILE
+		)
+	)
 ;
 
 terminal PACKAGE: 'package';
@@ -75,6 +79,7 @@ terminal FILE: 'file';
 terminal LEXER: 'lexer-tokens';
 terminal OUTPUT: 'output';
 terminal EXPECTED: 'expected';
+terminal ISSAMEASINPUTFILE: 'isSameAsInputFile';
 terminal LEFTPAREN: '(';
 terminal RIGHTPAREN: ')';
 terminal ASSIGNASSINGLE: '=';

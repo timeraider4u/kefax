@@ -929,9 +929,11 @@ this_FILE_6=RULE_FILE
 
 
 
+(
+(
 this_ASSIGNASSINGLE_7=RULE_ASSIGNASSINGLE
     { 
-    newLeafNode(this_ASSIGNASSINGLE_7, grammarAccess.getGeneratorAccess().getASSIGNASSINGLETerminalRuleCall_2_2()); 
+    newLeafNode(this_ASSIGNASSINGLE_7, grammarAccess.getGeneratorAccess().getASSIGNASSINGLETerminalRuleCall_2_2_0_0()); 
     }
 
 
@@ -940,7 +942,7 @@ this_ASSIGNASSINGLE_7=RULE_ASSIGNASSINGLE
 (
 		lv_expected_8_0=RULE_STRING
 		{
-			newLeafNode(lv_expected_8_0, grammarAccess.getGeneratorAccess().getExpectedSTRINGTerminalRuleCall_2_3_0()); 
+			newLeafNode(lv_expected_8_0, grammarAccess.getGeneratorAccess().getExpectedSTRINGTerminalRuleCall_2_2_0_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -954,6 +956,32 @@ this_ASSIGNASSINGLE_7=RULE_ASSIGNASSINGLE
 	    }
 
 )
+)
+
+)
+
+
+    |
+(
+(
+		lv_isSameAsInputFile_9_0=RULE_ISSAMEASINPUTFILE
+		{
+			newLeafNode(lv_isSameAsInputFile_9_0, grammarAccess.getGeneratorAccess().getIsSameAsInputFileISSAMEASINPUTFILETerminalRuleCall_2_2_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getGeneratorRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"isSameAsInputFile",
+        		true, 
+        		"at.jku.weiner.xtexttest.XtextTest.ISSAMEASINPUTFILE");
+	    }
+
+)
+)
+
 )
 
 )
@@ -984,6 +1012,8 @@ RULE_LEXER : 'lexer-tokens';
 RULE_OUTPUT : 'output';
 
 RULE_EXPECTED : 'expected';
+
+RULE_ISSAMEASINPUTFILE : 'isSameAsInputFile';
 
 RULE_LEFTPAREN : '(';
 

@@ -36,7 +36,7 @@ generate c "http://www.jku.at/weiner/c/C"
 
 /*** parser ***/
 
-Model: {Model} (unit+=TranslationUnit)?;
+Model: {Model} (unit+=TranslationUnit);
 
 TranslationUnit 
 	initRuleAction{
@@ -48,7 +48,7 @@ TranslationUnit
 	:
 	{TranslationUnit}
 	
-	(external+=ExternalDeclaration)+
+	(external+=ExternalDeclaration)*
 ;
 
 ExternalDeclaration

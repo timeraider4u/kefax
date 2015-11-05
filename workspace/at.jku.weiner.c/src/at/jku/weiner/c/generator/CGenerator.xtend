@@ -7,8 +7,19 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
 import org.eclipse.xtext.generator.IGenerator
 import at.jku.weiner.c.c.Model
-import com.google.inject.Inject
-import org.eclipse.xtext.naming.IQualifiedNameProvider
+import at.jku.weiner.c.c.TranslationUnit
+import at.jku.weiner.c.c.ExternalDeclaration
+import at.jku.weiner.c.c.Declaration
+import at.jku.weiner.c.c.DeclarationSpecifier
+import at.jku.weiner.c.c.DeclarationSpecifiers
+import at.jku.weiner.c.c.StorageClassSpecifier
+import at.jku.weiner.c.c.TypeSpecifier
+import at.jku.weiner.c.c.TypeQualifier
+import at.jku.weiner.c.c.StructOrUnionSpecifier
+import at.jku.weiner.c.c.InitDeclaratorList
+import at.jku.weiner.c.c.InitDeclarator
+import at.jku.weiner.c.c.DirectDeclarator
+import at.jku.weiner.c.c.Declarator
 
 /**
  * Generates code from your model files on save.
@@ -18,11 +29,79 @@ import org.eclipse.xtext.naming.IQualifiedNameProvider
 class CGenerator implements IGenerator {
 	
 	override void doGenerate(Resource input, IFileSystemAccess fsa) {
-		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-			input.allContents
-				.filter(typeof(Model))
-				.map[unit]
-				.join(', '))
+		val model = input.allContents.filter(typeof(Model)).head;
+		val unit = model.unit.head;
+		val output = output(unit);
+		fsa.generateFile('greetings.txt', output);
 	}
 
+	def String output(TranslationUnit unit) '''
+		«FOR e : unit.external»
+			«output(e)»
+		«ENDFOR»
+	'''
+	
+	def String output(ExternalDeclaration dec) '''
+		«outputFor(dec.declaration)»
+		«IF dec.semi != null»
+			«dec.semi»
+		«ENDIF»
+	'''
+	
+	def String outputFor(Declaration dec) '''
+		«IF dec != null»
+			«outputFor(dec.specifiers)»
+			«FOR list : dec.initDeclaratorList»
+				«outputFor(list)»
+			«ENDFOR»
+			«IF dec.semi != null»
+				«dec.semi»
+			«ENDIF»
+		«ENDIF»
+	'''
+	
+	def String outputFor(DeclarationSpecifiers spec) '''
+		«FOR s : spec.declarationSpecifier»
+			«IF s instanceof StorageClassSpecifier»
+			«outputFor(s)»
+			«ELSE»
+			«IF s instanceof TypeSpecifier»
+			«outputFor(s)»
+			«ENDIF»
+			«ENDIF»
+		«ENDFOR»
+	'''
+	
+	def String outputFor(StorageClassSpecifier spec) '''
+		«spec.name»
+	'''
+	
+	def String outputFor(TypeSpecifier spec) '''
+		«IF spec.specifier != null»
+		«ELSE»
+		«IF spec.type != null»
+		«ENDIF»
+		«ENDIF»
+		
+		«spec.name»
+	'''
+	
+	def String outputFor(InitDeclaratorList list) '''
+		«FOR initDeclarator : list.initDeclarator»
+			«outputFor(initDeclarator)»
+		«ENDFOR»
+	'''
+	
+	def String outputFor(InitDeclarator decl) '''
+		«outputFor(decl.declarator)»
+	'''
+	
+	def String outputFor(Declarator decl) '''
+		«outputFor(decl.declarator)»
+	'''
+	
+	def String outputFor(DirectDeclarator decl) '''
+		«decl.id»
+	'''
 }
+

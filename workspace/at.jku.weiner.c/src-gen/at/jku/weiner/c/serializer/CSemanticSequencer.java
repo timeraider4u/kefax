@@ -749,7 +749,7 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (unit+=TranslationUnit?)
+	 *     unit+=TranslationUnit
 	 */
 	protected void sequence_Model(EObject context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -987,7 +987,7 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     external+=ExternalDeclaration+
+	 *     (external+=ExternalDeclaration*)
 	 */
 	protected void sequence_TranslationUnit(EObject context, TranslationUnit semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

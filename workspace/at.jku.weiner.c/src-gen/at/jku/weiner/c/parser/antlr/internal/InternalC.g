@@ -124,7 +124,7 @@ ruleModel returns [EObject current=null]
 	    }
 
 )
-)?
+)
 
 )
 
@@ -184,7 +184,7 @@ ruleTranslationUnit returns [EObject current=null]
 	    }
 
 )
-)+
+)*
 
 )
 

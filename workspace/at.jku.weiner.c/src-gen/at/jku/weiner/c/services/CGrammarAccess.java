@@ -31,16 +31,16 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cUnitTranslationUnitParserRuleCall_1_0 = (RuleCall)cUnitAssignment_1.eContents().get(0);
 		
 		/// *** parser *** / Model:
-		//	{Model} unit+=TranslationUnit?;
+		//	{Model} unit+=TranslationUnit;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Model} unit+=TranslationUnit?
+		//{Model} unit+=TranslationUnit
 		public Group getGroup() { return cGroup; }
 		
 		//{Model}
 		public Action getModelAction_0() { return cModelAction_0; }
 		
-		//unit+=TranslationUnit?
+		//unit+=TranslationUnit
 		public Assignment getUnitAssignment_1() { return cUnitAssignment_1; }
 		
 		//TranslationUnit
@@ -55,16 +55,16 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//TranslationUnit initRuleAction { at.jku.weiner.c.Scope.createNewScope("TranslationUnit"); } afterRuleAction {
 		//at.jku.weiner.c.Scope.removeScope(0); }:
-		//	{TranslationUnit} external+=ExternalDeclaration+;
+		//	{TranslationUnit} external+=ExternalDeclaration*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{TranslationUnit} external+=ExternalDeclaration+
+		//{TranslationUnit} external+=ExternalDeclaration*
 		public Group getGroup() { return cGroup; }
 		
 		//{TranslationUnit}
 		public Action getTranslationUnitAction_0() { return cTranslationUnitAction_0; }
 		
-		//external+=ExternalDeclaration+
+		//external+=ExternalDeclaration*
 		public Assignment getExternalAssignment_1() { return cExternalAssignment_1; }
 		
 		//ExternalDeclaration
@@ -4766,7 +4766,7 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	/// *** parser *** / Model:
-	//	{Model} unit+=TranslationUnit?;
+	//	{Model} unit+=TranslationUnit;
 	public ModelElements getModelAccess() {
 		return pModel;
 	}
@@ -4777,7 +4777,7 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//TranslationUnit initRuleAction { at.jku.weiner.c.Scope.createNewScope("TranslationUnit"); } afterRuleAction {
 	//at.jku.weiner.c.Scope.removeScope(0); }:
-	//	{TranslationUnit} external+=ExternalDeclaration+;
+	//	{TranslationUnit} external+=ExternalDeclaration*;
 	public TranslationUnitElements getTranslationUnitAccess() {
 		return pTranslationUnit;
 	}

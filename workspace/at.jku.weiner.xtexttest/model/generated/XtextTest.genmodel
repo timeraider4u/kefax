@@ -36,6 +36,7 @@
     <genClasses ecoreClass="XtextTest.ecore#//Generator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//Generator/output"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//Generator/expected"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//Generator/isSameAsInputFile"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

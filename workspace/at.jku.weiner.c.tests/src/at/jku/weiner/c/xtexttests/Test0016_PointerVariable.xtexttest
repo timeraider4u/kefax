@@ -81,3 +81,6 @@ KW_DOUBLE WHITESPACE STAR WHITESPACE STAR WHITESPACE ID SEMI NEWLINE
 		)
 	)
 )
+//----------------------------------------------------------------------
+output file="bin/greetings.txt"
+expected file isSameAsInputFile

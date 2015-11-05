@@ -46,3 +46,6 @@ KW_VOID WHITESPACE ID LEFTPAREN  RIGHTPAREN SEMI NEWLINE
 		
 	)
 )
+//----------------------------------------------------------------------
+output file="bin/greetings.txt"
+expected file isSameAsInputFile

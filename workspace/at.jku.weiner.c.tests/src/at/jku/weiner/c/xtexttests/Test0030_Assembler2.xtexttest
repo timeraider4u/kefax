@@ -815,3 +815,6 @@ RIGHTBRACE NEWLINE
 		) // end external declaration of function
 	)
 )
+//----------------------------------------------------------------------
+output file="bin/greetings.txt"
+expected file isSameAsInputFile

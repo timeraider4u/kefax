@@ -92,3 +92,6 @@ KW_INT WHITESPACE ID WHITESPACE ASSIGN WHITESPACE ID SEMI NEWLINE
 		)
 	)
 )
+//----------------------------------------------------------------------
+output file="bin/greetings.txt"
+expected file isSameAsInputFile

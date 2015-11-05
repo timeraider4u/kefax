@@ -177,3 +177,7 @@ LINE_COMMENT NEWLINE
 		
 	)
 )
+//----------------------------------------------------------------------
+output file="bin/greetings.txt"
+expected file isSameAsInputFile
+

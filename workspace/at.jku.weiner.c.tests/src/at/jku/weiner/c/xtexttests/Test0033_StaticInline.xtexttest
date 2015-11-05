@@ -49,3 +49,6 @@ RIGHTBRACE NEWLINE
 		
 	)
 )
+//----------------------------------------------------------------------
+output file="bin/greetings.txt"
+expected file isSameAsInputFile

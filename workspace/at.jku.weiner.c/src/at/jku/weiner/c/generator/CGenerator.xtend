@@ -20,6 +20,16 @@ import at.jku.weiner.c.c.InitDeclaratorList
 import at.jku.weiner.c.c.InitDeclarator
 import at.jku.weiner.c.c.DirectDeclarator
 import at.jku.weiner.c.c.Declarator
+import at.jku.weiner.c.c.FunctionDefHead
+import at.jku.weiner.c.c.FunctionDeclarationSpecifiers
+import at.jku.weiner.c.c.FunctionDefinition
+import at.jku.weiner.c.c.Statement
+import at.jku.weiner.c.c.DeclaratorSuffix
+import at.jku.weiner.c.c.DirectDeclaratorLastSuffix
+import at.jku.weiner.c.c.IdentifierList
+import at.jku.weiner.c.c.ParameterTypeList
+import at.jku.weiner.c.c.ParameterList
+import at.jku.weiner.c.c.ParameterDeclaration
 
 /**
  * Generates code from your model files on save.
@@ -31,21 +41,54 @@ class CGenerator implements IGenerator {
 	override void doGenerate(Resource input, IFileSystemAccess fsa) {
 		val model = input.allContents.filter(typeof(Model)).head;
 		val unit = model.unit.head;
-		val output = output(unit);
+		val output = outputFor(unit);
 		fsa.generateFile('greetings.txt', output);
 	}
 
-	def String output(TranslationUnit unit) '''
+	def String outputFor(TranslationUnit unit) '''
 		«FOR e : unit.external»
-			«output(e)»
+			«outputFor(e)»
 		«ENDFOR»
 	'''
 	
-	def String output(ExternalDeclaration dec) '''
+	def String outputFor(ExternalDeclaration dec) '''
+		«IF dec.functiondefHead != null»
+			«outputFor(dec.functiondefHead)» {
+				«outputFor(dec.functionDefinition)»
+			}
+		«ENDIF»
 		«outputFor(dec.declaration)»
 		«IF dec.semi != null»
 			«dec.semi»
 		«ENDIF»
+	'''
+	
+	def String outputFor(FunctionDefHead dec) '''
+		«IF dec.funDeclSpecifiers != null»
+			«outputFor(dec.funDeclSpecifiers)»
+		«ENDIF»
+		«outputFor(dec.funDeclarator)»
+		«FOR f : dec.funDeclaration»
+			«outputFor(f)»
+		«ENDFOR»
+	'''
+	
+	def String outputFor(FunctionDeclarationSpecifiers spec) '''
+		«FOR s : spec.declarationSpecifier»
+			«IF s instanceof StorageClassSpecifier»
+			«outputFor(s)»
+			«ENDIF»
+			«IF s instanceof TypeSpecifier»
+			«outputFor(s)»
+			«ENDIF»
+			«IF s instanceof TypeQualifier»
+			«outputFor(s)»
+			«ENDIF»
+		«ENDFOR»
+	'''
+	
+	def String outputFor(FunctionDefinition obj) '''
+		«outputFor(obj.body)»
 	'''
 	
 	def String outputFor(Declaration dec) '''
@@ -64,16 +107,22 @@ class CGenerator implements IGenerator {
 		«FOR s : spec.declarationSpecifier»
 			«IF s instanceof StorageClassSpecifier»
 			«outputFor(s)»
-			«ELSE»
+			«ENDIF»
 			«IF s instanceof TypeSpecifier»
 			«outputFor(s)»
 			«ENDIF»
+			«IF s instanceof TypeQualifier»
+			«outputFor(s)»
 			«ENDIF»
 		«ENDFOR»
 	'''
 	
 	def String outputFor(StorageClassSpecifier spec) '''
 		«spec.name»
+	'''
+	
+	def String outputFor(TypeQualifier spec) '''
+		«spec.type»
 	'''
 	
 	def String outputFor(TypeSpecifier spec) '''
@@ -102,7 +151,59 @@ class CGenerator implements IGenerator {
 	'''
 	
 	def String outputFor(DirectDeclarator decl) '''
+		«IF decl.id != null»
 		«decl.id»
+		«ELSE»
+		(«outputFor(decl.declarator)»)
+		«ENDIF»
+		«FOR d : decl.declaratorSuffix»
+			«outputFor(d)»
+		«ENDFOR»
 	'''
+	
+	def String outputFor(DeclaratorSuffix obj) '''
+		«IF obj.lastSuffix != null»
+			«outputFor(obj.lastSuffix)»
+		«ENDIF»
+	'''
+	
+	def String outputFor(DirectDeclaratorLastSuffix obj) '''
+		(
+		«IF obj.parameterTypeList != null»
+			«FOR l : obj.parameterTypeList»
+				«outputFor(l)»
+			«ENDFOR»
+		«ELSE»
+			«outputFor(obj.identifierList)»
+		«ENDIF»
+		)
+	'''
+	
+	def String outputFor(ParameterTypeList obj) '''
+		«outputFor(obj.list)»
+	''' 
+	
+	def String outputFor(ParameterList obj) '''
+		«FOR p : obj.parameterDeclaration»
+			«outputFor(p)»
+		«ENDFOR»
+	'''
+	
+	def String outputFor(ParameterDeclaration obj) '''
+		«outputFor(obj.declSpecifiers)»
+		«IF obj.declarator != null»
+			«outputFor(obj.declarator)»
+		«ENDIF»
+	''' 
+	
+	def String outputFor(IdentifierList obj) '''
+		«FOR i : obj.id»
+			«i.id»
+		«ENDFOR»
+	''' 
+	
+	def String outputFor(Statement obj) '''
+		
+	''' 
 }
 

@@ -1,1 +1,0 @@
-People to greet: [at.jku.weiner.c.c.impl.TranslationUnitImpl@775f6c9f]

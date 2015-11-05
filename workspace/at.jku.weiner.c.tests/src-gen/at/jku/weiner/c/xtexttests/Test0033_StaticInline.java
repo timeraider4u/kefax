@@ -91,7 +91,9 @@ public class Test0033_StaticInline {
 	}
 	
 	private String preprocess(final String string) {
-		final String lines = string.replaceAll("\n", " ").trim();
+		final String lineComment = string.replaceAll("//.*\n", " ");
+		final String blockComment = lineComment.replaceAll("/\\*.*\\*/", " ");
+		final String lines = blockComment.replaceAll("\n", " ").trim();
 		final String multi = lines.replaceAll("\\s{2,}", " ").trim();
 		final String sign = multi.replaceAll("\\s+([^a-zA-Z0-9_])", "$1")
 				.trim();

@@ -3,6 +3,8 @@ package at.jku.weiner.c.xtexttests;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -387,6 +389,19 @@ public class Test0013_Assign {
 		
 		// configure and start the generator
 		this.fileAccessSystem.setOutputPath("bin");
+		final Class<?> clazz = this.generator.getClass();
+		try {
+			final Method method = clazz.getMethod("setFileName",
+					String.class);
+			if (method != null) {
+				method.invoke(this.generator, "greetings.txt");
+			}
+		} catch (NoSuchMethodException | SecurityException
+			| IllegalAccessException | IllegalArgumentException
+			| InvocationTargetException e) {
+			// do nothing
+			// System.out.println("do nothing!");
+		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/greetings.txt");
 		final String expected = this.getTextFromFile(

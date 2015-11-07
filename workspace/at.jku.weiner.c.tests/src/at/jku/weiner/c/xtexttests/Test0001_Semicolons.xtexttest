@@ -22,5 +22,5 @@ SEMI SEMI NEWLINE
 	)
 )
 //----------------------------------------------------------------------
-output file="bin/greetings.txt"
+output file="bin/Test0001_Semicolons.c"
 expected file isSameAsInputFile

@@ -30,6 +30,7 @@ import at.jku.weiner.c.c.IdentifierList
 import at.jku.weiner.c.c.ParameterTypeList
 import at.jku.weiner.c.c.ParameterList
 import at.jku.weiner.c.c.ParameterDeclaration
+import org.eclipse.xtend.lib.annotations.Accessors
 
 /**
  * Generates code from your model files on save.
@@ -38,11 +39,13 @@ import at.jku.weiner.c.c.ParameterDeclaration
  */
 class CGenerator implements IGenerator {
 	
+	@Accessors String fileName = 'greetings.txt';
+	
 	override void doGenerate(Resource input, IFileSystemAccess fsa) {
 		val model = input.allContents.filter(typeof(Model)).head;
 		val unit = model.unit.head;
 		val output = outputFor(unit);
-		fsa.generateFile('greetings.txt', output);
+		fsa.generateFile(fileName, output);
 	}
 
 	def String outputFor(TranslationUnit unit) '''
@@ -173,18 +176,22 @@ class CGenerator implements IGenerator {
 			«FOR l : obj.parameterTypeList»
 				«outputFor(l)»
 			«ENDFOR»
-		«ELSE»
+		«ENDIF»
+		«IF obj.identifierList != null»
 			«outputFor(obj.identifierList)»
 		«ENDIF»
 		)
 	'''
 	
 	def String outputFor(ParameterTypeList obj) '''
+	«IF obj != null»
 		«outputFor(obj.list)»
+	«ENDIF»
 	''' 
 	
 	def String outputFor(ParameterList obj) '''
 		«FOR p : obj.parameterDeclaration»
+			«IF obj.parameterDeclaration.indexOf(p) > 0», «ENDIF»
 			«outputFor(p)»
 		«ENDFOR»
 	'''
@@ -198,6 +205,7 @@ class CGenerator implements IGenerator {
 	
 	def String outputFor(IdentifierList obj) '''
 		«FOR i : obj.id»
+			«IF obj.id.indexOf(i) > 0», «ENDIF»
 			«i.id»
 		«ENDFOR»
 	''' 

@@ -67,5 +67,5 @@ KW_INT WHITESPACE ID SEMI
 	)
 )
 //----------------------------------------------------------------------
-output file="bin/greetings.txt"
+output file="bin/Test0002_TwoVariables.c"
 expected file isSameAsInputFile

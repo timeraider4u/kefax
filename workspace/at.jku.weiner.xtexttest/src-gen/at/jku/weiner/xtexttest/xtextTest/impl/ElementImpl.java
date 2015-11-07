@@ -28,11 +28,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.ElementImpl#getName <em>Name</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.ElementImpl#getInner <em>Inner</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -18,12 +18,12 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.GeneratorImpl#getOutput <em>Output</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.GeneratorImpl#getExpected <em>Expected</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.GeneratorImpl#isIsSameAsInputFile <em>Is Same As Input File</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

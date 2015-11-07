@@ -178,6 +178,6 @@ LINE_COMMENT NEWLINE
 	)
 )
 //----------------------------------------------------------------------
-output file="bin/greetings.txt"
+output file="bin/Test0006_FunctionDecls.c"
 expected file isSameAsInputFile
 

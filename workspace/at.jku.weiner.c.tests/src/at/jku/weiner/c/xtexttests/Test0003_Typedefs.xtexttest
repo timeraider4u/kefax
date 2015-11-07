@@ -287,5 +287,5 @@ KW_INT WHITESPACE ID SEMI NEWLINE
 	)
 )
 //----------------------------------------------------------------------
-output file="bin/greetings.txt"
+output file="bin/Test0003_Typedefs.c"
 expected file isSameAsInputFile

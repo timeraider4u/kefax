@@ -3,6 +3,8 @@ package at.jku.weiner.c.xtexttests;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -488,8 +490,21 @@ public class Test0004_Typedefs {
 		
 		// configure and start the generator
 		this.fileAccessSystem.setOutputPath("bin");
+		final Class<?> clazz = this.generator.getClass();
+		try {
+			final Method method = clazz.getMethod("setFileName",
+					String.class);
+			if (method != null) {
+				method.invoke(this.generator, "Test0004_Typedefs.c");
+			}
+		} catch (NoSuchMethodException | SecurityException
+			| IllegalAccessException | IllegalArgumentException
+			| InvocationTargetException e) {
+			// do nothing
+			// System.out.println("do nothing!");
+		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
-		final String actual = this.getTextFromFile("bin/greetings.txt");
+		final String actual = this.getTextFromFile("bin/Test0004_Typedefs.c");
 		final String expected = this.getTextFromFile(
 			"res/Test0004_Typedefs.c"
 			);

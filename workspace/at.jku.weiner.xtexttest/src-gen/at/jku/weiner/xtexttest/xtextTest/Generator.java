@@ -11,12 +11,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.Generator#getOutput <em>Output</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.Generator#getExpected <em>Expected</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.Generator#isIsSameAsInputFile <em>Is Same As Input File</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.xtexttest.xtextTest.XtextTestPackage#getGenerator()
  * @model

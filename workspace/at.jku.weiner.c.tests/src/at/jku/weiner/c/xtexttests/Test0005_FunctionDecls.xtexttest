@@ -187,6 +187,6 @@ KW_VOID WHITESPACE ID LEFTPAREN  RIGHTPAREN SEMI NEWLINE
 	)
 )
 //----------------------------------------------------------------------
-output file="bin/greetings.txt"
+output file="bin/Test0005_FunctionDecls.c"
 expected file isSameAsInputFile
 

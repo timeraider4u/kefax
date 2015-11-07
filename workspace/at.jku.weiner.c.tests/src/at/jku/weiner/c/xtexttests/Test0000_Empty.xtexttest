@@ -8,5 +8,5 @@ source file="res/Test0000_Empty.c"
 	
 )
 //----------------------------------------------------------------------
-output file="bin/greetings.txt"
+output file="bin/Test0000_Empty.c"
 expected file isSameAsInputFile

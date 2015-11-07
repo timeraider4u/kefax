@@ -84,6 +84,8 @@ class XtextTestGenerator implements IGenerator {
 		import com.google.inject.Inject;
 		import com.google.inject.Provider;
 		
+		import java.lang.reflect.InvocationTargetException;
+		import java.lang.reflect.Method;
 		import java.nio.file.Files;
 		import java.nio.file.Path;
 		import java.nio.file.Paths;
@@ -315,6 +317,7 @@ class XtextTestGenerator implements IGenerator {
 			
 			// configure and start the generator
 			this.fileAccessSystem.setOutputPath("«getOutputPath()»");
+			«setFileNameForGeneratorOutputFile()»
 			this.generator.doGenerate(resource, this.fileAccessSystem);
 			final String actual = this.getTextFromFile("«test.output.getOutput()»");
 			final String expected = this.getTextFromFile(
@@ -330,11 +333,36 @@ class XtextTestGenerator implements IGenerator {
 		«ENDIF»
 	'''
 	
+	def setFileNameForGeneratorOutputFile() '''
+		final Class<?> clazz = this.generator.getClass();
+		try {
+			final Method method = clazz.getMethod("setFileName",
+					String.class);
+			if (method != null) {
+				method.invoke(this.generator, "«getOutputFileName()»");
+			}
+		} catch (NoSuchMethodException | SecurityException
+			| IllegalAccessException | IllegalArgumentException
+			| InvocationTargetException e) {
+			// do nothing
+			// System.out.println("do nothing!");
+		}
+	'''
+	
 	def getOutputPath() {
 		val output = test.output.getOutput();
 		val int lastIndex = output.lastIndexOf("/");
 		if (lastIndex >= 0) {
 			return output.substring(0, lastIndex);
+		}
+		return "";
+	}
+	
+	def getOutputFileName() {
+		val output = test.output.getOutput();
+		val int lastIndex = output.lastIndexOf("/");
+		if (lastIndex >= 0) {
+			return output.substring(lastIndex + 1);
 		}
 		return "";
 	}

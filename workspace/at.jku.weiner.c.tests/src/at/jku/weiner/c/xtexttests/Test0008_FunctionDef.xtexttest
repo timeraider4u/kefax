@@ -231,5 +231,5 @@ RIGHTBRACE NEWLINE
 	)
 )
 //----------------------------------------------------------------------
-output file="bin/greetings.txt"
+output file="bin/Test0008_FunctionDef.c"
 expected file isSameAsInputFile

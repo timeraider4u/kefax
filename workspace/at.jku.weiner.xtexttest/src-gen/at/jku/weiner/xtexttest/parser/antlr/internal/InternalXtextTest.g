@@ -986,6 +986,151 @@ this_ASSIGNASSINGLE_7=RULE_ASSIGNASSINGLE
 
 )
 
+
+(
+this_PATTERNS_10=RULE_PATTERNS
+    { 
+    newLeafNode(this_PATTERNS_10, grammarAccess.getGeneratorAccess().getPATTERNSTerminalRuleCall_3_0()); 
+    }
+
+
+
+(
+this_FILE_11=RULE_FILE
+    { 
+    newLeafNode(this_FILE_11, grammarAccess.getGeneratorAccess().getFILETerminalRuleCall_3_1_0()); 
+    }
+
+
+
+this_ASSIGNASSINGLE_12=RULE_ASSIGNASSINGLE
+    { 
+    newLeafNode(this_ASSIGNASSINGLE_12, grammarAccess.getGeneratorAccess().getASSIGNASSINGLETerminalRuleCall_3_1_1()); 
+    }
+
+
+
+(
+(
+		lv_patternFile_13_0=RULE_STRING
+		{
+			newLeafNode(lv_patternFile_13_0, grammarAccess.getGeneratorAccess().getPatternFileSTRINGTerminalRuleCall_3_1_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getGeneratorRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"patternFile",
+        		lv_patternFile_13_0, 
+        		"org.eclipse.xtext.common.Terminals.STRING");
+	    }
+
+)
+)
+
+)?
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getGeneratorAccess().getReplacePatternsReplacePatternsParserRuleCall_3_2_0()); 
+	    }
+		lv_replacePatterns_14_0=ruleReplacePatterns		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getGeneratorRule());
+	        }
+       		add(
+       			$current, 
+       			"replacePatterns",
+        		lv_replacePatterns_14_0, 
+        		"at.jku.weiner.xtexttest.XtextTest.ReplacePatterns");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*
+
+)?
+
+)
+
+
+;
+
+
+
+
+
+// Entry rule entryRuleReplacePatterns
+entryRuleReplacePatterns returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getReplacePatternsRule()); }
+	 iv_ruleReplacePatterns=ruleReplacePatterns 
+	 { $current=$iv_ruleReplacePatterns.current; } 
+	 EOF 
+;
+
+// Rule ReplacePatterns
+ruleReplacePatterns returns [EObject current=null] 
+    @init { enterRule();
+   		/*no init found*/
+    }
+    @after { leaveRule();
+    		/*no after found*/
+     }:
+
+(
+(
+(
+		lv_regex_0_0=RULE_STRING
+		{
+			newLeafNode(lv_regex_0_0, grammarAccess.getReplacePatternsAccess().getRegexSTRINGTerminalRuleCall_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getReplacePatternsRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"regex",
+        		lv_regex_0_0, 
+        		"org.eclipse.xtext.common.Terminals.STRING");
+	    }
+
+)
+)
+
+
+this_ASSIGNASSINGLE_1=RULE_ASSIGNASSINGLE
+    { 
+    newLeafNode(this_ASSIGNASSINGLE_1, grammarAccess.getReplacePatternsAccess().getASSIGNASSINGLETerminalRuleCall_1()); 
+    }
+
+
+
+(
+(
+		lv_replace_2_0=RULE_STRING
+		{
+			newLeafNode(lv_replace_2_0, grammarAccess.getReplacePatternsAccess().getReplaceSTRINGTerminalRuleCall_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getReplacePatternsRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"replace",
+        		lv_replace_2_0, 
+        		"org.eclipse.xtext.common.Terminals.STRING");
+	    }
+
+)
+)
+
 )
 
 
@@ -1014,6 +1159,8 @@ RULE_OUTPUT : 'output';
 RULE_EXPECTED : 'expected';
 
 RULE_ISSAMEASINPUTFILE : 'isSameAsInputFile';
+
+RULE_PATTERNS : 'replacePatterns';
 
 RULE_LEFTPAREN : '(';
 

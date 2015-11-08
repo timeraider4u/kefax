@@ -114,6 +114,13 @@ public class XtextTestSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case XtextTestPackage.REPLACE_PATTERNS:
+      {
+        ReplacePatterns replacePatterns = (ReplacePatterns)theEObject;
+        T result = caseReplacePatterns(replacePatterns);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -210,6 +217,22 @@ public class XtextTestSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseGenerator(Generator object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Replace Patterns</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Replace Patterns</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseReplacePatterns(ReplacePatterns object)
   {
     return null;
   }

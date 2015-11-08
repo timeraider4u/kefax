@@ -7,6 +7,7 @@ import at.jku.weiner.xtexttest.xtextTest.Element;
 import at.jku.weiner.xtexttest.xtextTest.Generator;
 import at.jku.weiner.xtexttest.xtextTest.Inner;
 import at.jku.weiner.xtexttest.xtextTest.Input;
+import at.jku.weiner.xtexttest.xtextTest.ReplacePatterns;
 import at.jku.weiner.xtexttest.xtextTest.Tokens;
 import at.jku.weiner.xtexttest.xtextTest.XtextTest;
 import com.google.common.base.Objects;
@@ -398,46 +399,6 @@ public class XtextTestGenerator implements IGenerator {
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("return content;");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("}");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("private String preprocess(final String string) {");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("final String lineComment = string.replaceAll(\"//.*\\n\", \" \");");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("final String blockComment = lineComment.replaceAll(\"/\\\\*.*\\\\*/\", \" \");");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("final String lines = blockComment.replaceAll(\"\\n\", \" \").trim();");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("final String multi = lines.replaceAll(\"\\\\s{2,}\", \" \").trim();");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("final String sign = multi.replaceAll(\"\\\\s+([^a-zA-Z0-9_])\", \"$1\")");
-    _builder.newLine();
-    _builder.append("\t\t\t\t");
-    _builder.append(".trim();");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("final String sign2 = sign.replaceAll(\"([^a-zA-Z0-9_])\\\\s+\", \"$1\")");
-    _builder.newLine();
-    _builder.append("\t\t\t\t");
-    _builder.append(".trim();");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("// System.out.println(sign2);");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("return sign2;");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("}");
@@ -892,6 +853,10 @@ public class XtextTestGenerator implements IGenerator {
         _builder.newLine();
         _builder.append("}");
         _builder.newLine();
+        _builder.newLine();
+        String _outputForPreprocess = this.outputForPreprocess();
+        _builder.append(_outputForPreprocess, "");
+        _builder.newLineIfNotEmpty();
       }
     }
     return _builder;
@@ -958,5 +923,151 @@ public class XtextTestGenerator implements IGenerator {
       return output.substring((lastIndex + 1));
     }
     return "";
+  }
+  
+  public String outputForPreprocess() {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("private String preprocess(String string) throws Exception {");
+    _builder.newLine();
+    {
+      Generator _output = this.test.getOutput();
+      String _patternFile = _output.getPatternFile();
+      boolean _notEquals = (!Objects.equal(_patternFile, null));
+      if (_notEquals) {
+        _builder.append("\t");
+        _builder.append("string = preprocessForFile(string);");
+        _builder.newLine();
+      }
+    }
+    {
+      Generator _output_1 = this.test.getOutput();
+      EList<ReplacePatterns> _replacePatterns = _output_1.getReplacePatterns();
+      boolean _notEquals_1 = (!Objects.equal(_replacePatterns, null));
+      if (_notEquals_1) {
+        _builder.append("\t");
+        _builder.append("string = preprocessForPatterns(string);");
+        _builder.newLine();
+      }
+    }
+    _builder.append("\t");
+    _builder.append("return string;");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
+    {
+      Generator _output_2 = this.test.getOutput();
+      String _patternFile_1 = _output_2.getPatternFile();
+      boolean _notEquals_2 = (!Objects.equal(_patternFile_1, null));
+      if (_notEquals_2) {
+        _builder.append("private String preprocessForFile(String string) throws Exception {");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("final String content = this.getTextFromFile(\"");
+        Generator _output_3 = this.test.getOutput();
+        String _patternFile_2 = _output_3.getPatternFile();
+        _builder.append(_patternFile_2, "\t");
+        _builder.append("\");");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("final String[] lines = content.split(\"\\n\");");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("if (lines == null) {");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("return string;");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("}");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("for (String line : lines) {");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("final String[] myLine = line.split(\"=\");");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("if (myLine == null || myLine.length != 2) {");
+        _builder.newLine();
+        _builder.append("\t\t\t");
+        _builder.append("continue;");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("}");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("final String regex = myLine[0].replace(\"\\\"\", \"\").replace(\"\\\\\\\\\", \"\\\\\");");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("final String replace = myLine[1].replace(\"\\\"\", \"\").replace(\"\\\\\\\\\", \"\\\\\");");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("string = string.replaceAll(regex, replace);");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("}");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("return string;");
+        _builder.newLine();
+        _builder.append("}");
+        _builder.newLine();
+      }
+    }
+    _builder.newLine();
+    {
+      Generator _output_4 = this.test.getOutput();
+      EList<ReplacePatterns> _replacePatterns_1 = _output_4.getReplacePatterns();
+      boolean _notEquals_3 = (!Objects.equal(_replacePatterns_1, null));
+      if (_notEquals_3) {
+        _builder.append("private String preprocessForPatterns(String string) {");
+        _builder.newLine();
+        {
+          Generator _output_5 = this.test.getOutput();
+          EList<ReplacePatterns> _replacePatterns_2 = _output_5.getReplacePatterns();
+          for(final ReplacePatterns r : _replacePatterns_2) {
+            _builder.append("\t");
+            _builder.append("string = string.replaceAll(");
+            _builder.newLine();
+            _builder.append("\t");
+            _builder.append("\t");
+            _builder.append("\"");
+            String _regex = r.getRegex();
+            String _replacement = this.replacement(_regex);
+            _builder.append(_replacement, "\t\t");
+            _builder.append("\",");
+            _builder.newLineIfNotEmpty();
+            _builder.append("\t");
+            _builder.append("\t");
+            _builder.append("\"");
+            String _replace = r.getReplace();
+            String _replacement_1 = this.replacement(_replace);
+            _builder.append(_replacement_1, "\t\t");
+            _builder.append("\"");
+            _builder.newLineIfNotEmpty();
+            _builder.append("\t");
+            _builder.append(");");
+            _builder.newLine();
+          }
+        }
+        _builder.append("\t");
+        _builder.append("return string;");
+        _builder.newLine();
+        _builder.append("}");
+        _builder.newLine();
+      }
+    }
+    return _builder.toString();
+  }
+  
+  public String replacement(final String string) {
+    final String string2 = string.replace("\n", "\\n");
+    final String string3 = string2.replace("\t", "\\t");
+    final String string4 = string3.replace("\r", "\\r");
+    final String string5 = string4.replace("\'", "\\\'");
+    final String string6 = string5.replace("\\", "\\\\");
+    final String string7 = string6.replace("\"", "\\\"");
+    return string7;
   }
 }

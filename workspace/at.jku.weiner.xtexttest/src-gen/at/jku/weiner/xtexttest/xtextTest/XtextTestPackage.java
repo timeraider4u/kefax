@@ -333,13 +333,68 @@ public interface XtextTestPackage extends EPackage
   int GENERATOR__IS_SAME_AS_INPUT_FILE = 2;
 
   /**
+   * The feature id for the '<em><b>Pattern File</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GENERATOR__PATTERN_FILE = 3;
+
+  /**
+   * The feature id for the '<em><b>Replace Patterns</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GENERATOR__REPLACE_PATTERNS = 4;
+
+  /**
    * The number of structural features of the '<em>Generator</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int GENERATOR_FEATURE_COUNT = 3;
+  int GENERATOR_FEATURE_COUNT = 5;
+
+  /**
+   * The meta object id for the '{@link at.jku.weiner.xtexttest.xtextTest.impl.ReplacePatternsImpl <em>Replace Patterns</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.xtexttest.xtextTest.impl.ReplacePatternsImpl
+   * @see at.jku.weiner.xtexttest.xtextTest.impl.XtextTestPackageImpl#getReplacePatterns()
+   * @generated
+   */
+  int REPLACE_PATTERNS = 6;
+
+  /**
+   * The feature id for the '<em><b>Regex</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REPLACE_PATTERNS__REGEX = 0;
+
+  /**
+   * The feature id for the '<em><b>Replace</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REPLACE_PATTERNS__REPLACE = 1;
+
+  /**
+   * The number of structural features of the '<em>Replace Patterns</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REPLACE_PATTERNS_FEATURE_COUNT = 2;
 
 
   /**
@@ -612,6 +667,60 @@ public interface XtextTestPackage extends EPackage
   EAttribute getGenerator_IsSameAsInputFile();
 
   /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.xtexttest.xtextTest.Generator#getPatternFile <em>Pattern File</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Pattern File</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.Generator#getPatternFile()
+   * @see #getGenerator()
+   * @generated
+   */
+  EAttribute getGenerator_PatternFile();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link at.jku.weiner.xtexttest.xtextTest.Generator#getReplacePatterns <em>Replace Patterns</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Replace Patterns</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.Generator#getReplacePatterns()
+   * @see #getGenerator()
+   * @generated
+   */
+  EReference getGenerator_ReplacePatterns();
+
+  /**
+   * Returns the meta object for class '{@link at.jku.weiner.xtexttest.xtextTest.ReplacePatterns <em>Replace Patterns</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Replace Patterns</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.ReplacePatterns
+   * @generated
+   */
+  EClass getReplacePatterns();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.xtexttest.xtextTest.ReplacePatterns#getRegex <em>Regex</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Regex</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.ReplacePatterns#getRegex()
+   * @see #getReplacePatterns()
+   * @generated
+   */
+  EAttribute getReplacePatterns_Regex();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.xtexttest.xtextTest.ReplacePatterns#getReplace <em>Replace</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Replace</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.ReplacePatterns#getReplace()
+   * @see #getReplacePatterns()
+   * @generated
+   */
+  EAttribute getReplacePatterns_Replace();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -845,6 +954,48 @@ public interface XtextTestPackage extends EPackage
      * @generated
      */
     EAttribute GENERATOR__IS_SAME_AS_INPUT_FILE = eINSTANCE.getGenerator_IsSameAsInputFile();
+
+    /**
+     * The meta object literal for the '<em><b>Pattern File</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute GENERATOR__PATTERN_FILE = eINSTANCE.getGenerator_PatternFile();
+
+    /**
+     * The meta object literal for the '<em><b>Replace Patterns</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference GENERATOR__REPLACE_PATTERNS = eINSTANCE.getGenerator_ReplacePatterns();
+
+    /**
+     * The meta object literal for the '{@link at.jku.weiner.xtexttest.xtextTest.impl.ReplacePatternsImpl <em>Replace Patterns</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.xtexttest.xtextTest.impl.ReplacePatternsImpl
+     * @see at.jku.weiner.xtexttest.xtextTest.impl.XtextTestPackageImpl#getReplacePatterns()
+     * @generated
+     */
+    EClass REPLACE_PATTERNS = eINSTANCE.getReplacePatterns();
+
+    /**
+     * The meta object literal for the '<em><b>Regex</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute REPLACE_PATTERNS__REGEX = eINSTANCE.getReplacePatterns_Regex();
+
+    /**
+     * The meta object literal for the '<em><b>Replace</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute REPLACE_PATTERNS__REPLACE = eINSTANCE.getReplacePatterns_Replace();
 
   }
 

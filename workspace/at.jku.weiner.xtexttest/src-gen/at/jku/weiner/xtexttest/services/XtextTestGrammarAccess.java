@@ -422,14 +422,25 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cExpectedSTRINGTerminalRuleCall_2_2_0_1_0 = (RuleCall)cExpectedAssignment_2_2_0_1.eContents().get(0);
 		private final Assignment cIsSameAsInputFileAssignment_2_2_1 = (Assignment)cAlternatives_2_2.eContents().get(1);
 		private final RuleCall cIsSameAsInputFileISSAMEASINPUTFILETerminalRuleCall_2_2_1_0 = (RuleCall)cIsSameAsInputFileAssignment_2_2_1.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final RuleCall cPATTERNSTerminalRuleCall_3_0 = (RuleCall)cGroup_3.eContents().get(0);
+		private final Group cGroup_3_1 = (Group)cGroup_3.eContents().get(1);
+		private final RuleCall cFILETerminalRuleCall_3_1_0 = (RuleCall)cGroup_3_1.eContents().get(0);
+		private final RuleCall cASSIGNASSINGLETerminalRuleCall_3_1_1 = (RuleCall)cGroup_3_1.eContents().get(1);
+		private final Assignment cPatternFileAssignment_3_1_2 = (Assignment)cGroup_3_1.eContents().get(2);
+		private final RuleCall cPatternFileSTRINGTerminalRuleCall_3_1_2_0 = (RuleCall)cPatternFileAssignment_3_1_2.eContents().get(0);
+		private final Assignment cReplacePatternsAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
+		private final RuleCall cReplacePatternsReplacePatternsParserRuleCall_3_2_0 = (RuleCall)cReplacePatternsAssignment_3_2.eContents().get(0);
 		
 		//Generator:
 		//	{Generator} (OUTPUT FILE ASSIGNASSINGLE output=STRING) (EXPECTED FILE (ASSIGNASSINGLE expected=STRING |
-		//	isSameAsInputFile?=ISSAMEASINPUTFILE));
+		//	isSameAsInputFile?=ISSAMEASINPUTFILE)) (PATTERNS (FILE ASSIGNASSINGLE patternFile=STRING)?
+		//	replacePatterns+=ReplacePatterns*)?;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Generator} (OUTPUT FILE ASSIGNASSINGLE output=STRING) (EXPECTED FILE (ASSIGNASSINGLE expected=STRING |
-		//isSameAsInputFile?=ISSAMEASINPUTFILE))
+		//isSameAsInputFile?=ISSAMEASINPUTFILE)) (PATTERNS (FILE ASSIGNASSINGLE patternFile=STRING)?
+		//replacePatterns+=ReplacePatterns*)?
 		public Group getGroup() { return cGroup; }
 		
 		//{Generator}
@@ -482,6 +493,64 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//ISSAMEASINPUTFILE
 		public RuleCall getIsSameAsInputFileISSAMEASINPUTFILETerminalRuleCall_2_2_1_0() { return cIsSameAsInputFileISSAMEASINPUTFILETerminalRuleCall_2_2_1_0; }
+		
+		//(PATTERNS (FILE ASSIGNASSINGLE patternFile=STRING)? replacePatterns+=ReplacePatterns*)?
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//PATTERNS
+		public RuleCall getPATTERNSTerminalRuleCall_3_0() { return cPATTERNSTerminalRuleCall_3_0; }
+		
+		//(FILE ASSIGNASSINGLE patternFile=STRING)?
+		public Group getGroup_3_1() { return cGroup_3_1; }
+		
+		//FILE
+		public RuleCall getFILETerminalRuleCall_3_1_0() { return cFILETerminalRuleCall_3_1_0; }
+		
+		//ASSIGNASSINGLE
+		public RuleCall getASSIGNASSINGLETerminalRuleCall_3_1_1() { return cASSIGNASSINGLETerminalRuleCall_3_1_1; }
+		
+		//patternFile=STRING
+		public Assignment getPatternFileAssignment_3_1_2() { return cPatternFileAssignment_3_1_2; }
+		
+		//STRING
+		public RuleCall getPatternFileSTRINGTerminalRuleCall_3_1_2_0() { return cPatternFileSTRINGTerminalRuleCall_3_1_2_0; }
+		
+		//replacePatterns+=ReplacePatterns*
+		public Assignment getReplacePatternsAssignment_3_2() { return cReplacePatternsAssignment_3_2; }
+		
+		//ReplacePatterns
+		public RuleCall getReplacePatternsReplacePatternsParserRuleCall_3_2_0() { return cReplacePatternsReplacePatternsParserRuleCall_3_2_0; }
+	}
+	public class ReplacePatternsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.ReplacePatterns");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cRegexAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cRegexSTRINGTerminalRuleCall_0_0 = (RuleCall)cRegexAssignment_0.eContents().get(0);
+		private final RuleCall cASSIGNASSINGLETerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cReplaceAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cReplaceSTRINGTerminalRuleCall_2_0 = (RuleCall)cReplaceAssignment_2.eContents().get(0);
+		
+		//ReplacePatterns:
+		//	regex=STRING ASSIGNASSINGLE replace=STRING;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//regex=STRING ASSIGNASSINGLE replace=STRING
+		public Group getGroup() { return cGroup; }
+		
+		//regex=STRING
+		public Assignment getRegexAssignment_0() { return cRegexAssignment_0; }
+		
+		//STRING
+		public RuleCall getRegexSTRINGTerminalRuleCall_0_0() { return cRegexSTRINGTerminalRuleCall_0_0; }
+		
+		//ASSIGNASSINGLE
+		public RuleCall getASSIGNASSINGLETerminalRuleCall_1() { return cASSIGNASSINGLETerminalRuleCall_1; }
+		
+		//replace=STRING
+		public Assignment getReplaceAssignment_2() { return cReplaceAssignment_2; }
+		
+		//STRING
+		public RuleCall getReplaceSTRINGTerminalRuleCall_2_0() { return cReplaceSTRINGTerminalRuleCall_2_0; }
 	}
 	
 	
@@ -493,6 +562,7 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	private final ElementElements pElement;
 	private final InnerElements pInner;
 	private final GeneratorElements pGenerator;
+	private final ReplacePatternsElements pReplacePatterns;
 	private final TerminalRule tPACKAGE;
 	private final TerminalRule tLANGUAGE;
 	private final TerminalRule tPOINT;
@@ -503,6 +573,7 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tOUTPUT;
 	private final TerminalRule tEXPECTED;
 	private final TerminalRule tISSAMEASINPUTFILE;
+	private final TerminalRule tPATTERNS;
 	private final TerminalRule tLEFTPAREN;
 	private final TerminalRule tRIGHTPAREN;
 	private final TerminalRule tASSIGNASSINGLE;
@@ -529,6 +600,7 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		this.pElement = new ElementElements();
 		this.pInner = new InnerElements();
 		this.pGenerator = new GeneratorElements();
+		this.pReplacePatterns = new ReplacePatternsElements();
 		this.tPACKAGE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.PACKAGE");
 		this.tLANGUAGE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.LANGUAGE");
 		this.tPOINT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.POINT");
@@ -539,6 +611,7 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		this.tOUTPUT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.OUTPUT");
 		this.tEXPECTED = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.EXPECTED");
 		this.tISSAMEASINPUTFILE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.ISSAMEASINPUTFILE");
+		this.tPATTERNS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.PATTERNS");
 		this.tLEFTPAREN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.LEFTPAREN");
 		this.tRIGHTPAREN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.RIGHTPAREN");
 		this.tASSIGNASSINGLE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.ASSIGNASSINGLE");
@@ -660,13 +733,24 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Generator:
 	//	{Generator} (OUTPUT FILE ASSIGNASSINGLE output=STRING) (EXPECTED FILE (ASSIGNASSINGLE expected=STRING |
-	//	isSameAsInputFile?=ISSAMEASINPUTFILE));
+	//	isSameAsInputFile?=ISSAMEASINPUTFILE)) (PATTERNS (FILE ASSIGNASSINGLE patternFile=STRING)?
+	//	replacePatterns+=ReplacePatterns*)?;
 	public GeneratorElements getGeneratorAccess() {
 		return pGenerator;
 	}
 	
 	public ParserRule getGeneratorRule() {
 		return getGeneratorAccess().getRule();
+	}
+	
+	//ReplacePatterns:
+	//	regex=STRING ASSIGNASSINGLE replace=STRING;
+	public ReplacePatternsElements getReplacePatternsAccess() {
+		return pReplacePatterns;
+	}
+	
+	public ParserRule getReplacePatternsRule() {
+		return getReplacePatternsAccess().getRule();
 	}
 	
 	//terminal PACKAGE:
@@ -727,6 +811,12 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	//	'isSameAsInputFile';
 	public TerminalRule getISSAMEASINPUTFILERule() {
 		return tISSAMEASINPUTFILE;
+	}
+	
+	//terminal PATTERNS:
+	//	'replacePatterns';
+	public TerminalRule getPATTERNSRule() {
+		return tPATTERNS;
 	}
 	
 	//terminal LEFTPAREN:

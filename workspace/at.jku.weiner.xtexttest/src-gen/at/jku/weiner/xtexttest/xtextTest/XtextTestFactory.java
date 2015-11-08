@@ -77,6 +77,15 @@ public interface XtextTestFactory extends EFactory
   Generator createGenerator();
 
   /**
+   * Returns a new object of class '<em>Replace Patterns</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Replace Patterns</em>'.
+   * @generated
+   */
+  ReplacePatterns createReplacePatterns();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -10,7 +10,6 @@ import at.jku.weiner.c.c.Model
 import at.jku.weiner.c.c.TranslationUnit
 import at.jku.weiner.c.c.ExternalDeclaration
 import at.jku.weiner.c.c.Declaration
-import at.jku.weiner.c.c.DeclarationSpecifier
 import at.jku.weiner.c.c.DeclarationSpecifiers
 import at.jku.weiner.c.c.StorageClassSpecifier
 import at.jku.weiner.c.c.TypeSpecifier
@@ -68,6 +67,8 @@ import at.jku.weiner.c.c.StructDeclaration
 import at.jku.weiner.c.c.StructDeclarator
 import at.jku.weiner.c.c.StructDeclaratorList
 import at.jku.weiner.c.c.ArgumentExpressionList
+import at.jku.weiner.c.c.Pointer
+import at.jku.weiner.c.c.TypeQualifierList
 
 /**
  * Generates code from your model files on save.
@@ -223,6 +224,7 @@ class CGenerator implements IGenerator {
 	'''
 	
 	def String outputFor(Declarator decl) '''
+		«IF decl.pointer != null»«outputFor(decl.pointer)»«ENDIF»
 		«outputFor(decl.declarator)»
 	'''
 	
@@ -256,11 +258,23 @@ class CGenerator implements IGenerator {
 		)
 	'''
 	
+	def String outputFor(Pointer obj) '''
+		«FOR s: obj.star»«s»«ENDFOR»
+		«FOR c: obj.caret»«c»«ENDFOR»
+		«FOR t: obj.typeQualifierList»«outputFor(t)»«ENDFOR»
+	'''
+	
+	def String outputFor(TypeQualifierList l) '''
+		«FOR t : l.typeQualifier»
+			«outputFor(t)»
+		«ENDFOR»
+	'''
+	
 	def String outputFor(ParameterTypeList obj) '''
 	«IF obj != null»
 		«outputFor(obj.list)»
 	«ENDIF»
-	''' 
+	'''
 	
 	def String outputFor(ParameterList obj) '''
 		«FOR p : obj.parameterDeclaration»
@@ -327,11 +341,48 @@ class CGenerator implements IGenerator {
 	'''
 	
 	def String outputForSelectionStatement(SelectionStatement obj) '''
-	
+		«IF obj.getIf() != null»
+			if («outputFor(obj.expr)»)
+			«outputFor(obj.stmt)»
+			«IF obj.getElse() != null»
+				else «outputFor(obj.elseStatement)»
+			«ENDIF»
+		«ENDIF»
+		«IF obj.getSwitch() != null»
+			switch («outputFor(obj.expr)»)
+			«outputFor(obj.switchStatement)»
+		«ENDIF»
 	'''
 	
 	def String outputForIterationStatement(IterationStatement obj) '''
-	
+		«IF obj.getWhile() != null»
+			while («outputFor(obj.expr)»)
+			«outputFor(obj.stmt)»
+		«ENDIF»
+		«IF obj.getDo() != null»
+			do
+				«outputFor(obj.statement)»
+			while («outputFor(obj.expr)»);
+		«ENDIF»
+		«IF obj.getFor() != null»
+			for (
+				«IF obj.initExpr != null»
+					«outputFor(obj.initExpr)»
+					;
+				«ENDIF»
+				«IF obj.initDecl != null»
+					«outputFor(obj.initDecl)»
+				«ENDIF»
+				«IF obj.expr != null»
+					«outputFor(obj.expr)»
+				«ENDIF»
+				;
+				«IF obj.incExpr != null»
+					«outputFor(obj.incExpr)»
+				«ENDIF»
+			)
+			«outputFor(obj.statement)»
+		«ENDIF»
 	'''
 	
 	def String outputForJumpStatement(JumpStatement obj) '''
@@ -510,6 +561,18 @@ class CGenerator implements IGenerator {
 			«ENDFOR»
 			)
 		«ENDIF»
+		«FOR d : obj.dot»
+			«d»«obj.id.get(obj.dot.indexOf(d))»
+		«ENDFOR»
+		«FOR a : obj.arrow»
+			«a»«obj.id.get(obj.dot.indexOf(a))»
+		«ENDFOR»
+		«FOR p : obj.plusplus»
+			«p»
+		«ENDFOR»
+		«FOR m : obj.minusminus»
+			«m»
+		«ENDFOR»
 	'''
 	
 	def String outputFor(ArgumentExpressionList obj) '''

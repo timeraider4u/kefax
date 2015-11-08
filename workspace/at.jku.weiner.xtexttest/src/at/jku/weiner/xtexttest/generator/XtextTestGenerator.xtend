@@ -177,20 +177,6 @@ class XtextTestGenerator implements IGenerator {
 				return content;
 			}
 			
-			private String preprocess(final String string) {
-				final String lineComment = string.replaceAll("//.*\n", " ");
-				final String blockComment = lineComment.replaceAll("/\\*.*\\*/", " ");
-				final String lines = blockComment.replaceAll("\n", " ").trim();
-				final String multi = lines.replaceAll("\\s{2,}", " ").trim();
-				final String sign = multi.replaceAll("\\s+([^a-zA-Z0-9_])", "$1")
-						.trim();
-				final String sign2 = sign.replaceAll("([^a-zA-Z0-9_])\\s+", "$1")
-						.trim();
-			
-				// System.out.println(sign2);
-				return sign2;
-			}
-			
 			«tokensJUnitTest»
 			
 			«parserJUnitTest»
@@ -330,6 +316,8 @@ class XtextTestGenerator implements IGenerator {
 			Assert.assertEquals(preprocess(expected), preprocess(actual));
 			// System.out.println("Code generation finished.");
 		}
+		
+		«outputForPreprocess»
 		«ENDIF»
 	'''
 	
@@ -365,5 +353,59 @@ class XtextTestGenerator implements IGenerator {
 			return output.substring(lastIndex + 1);
 		}
 		return "";
+	}
+	
+	def String outputForPreprocess() '''
+		private String preprocess(String string) throws Exception {
+			«IF test.output.patternFile != null»
+				string = preprocessForFile(string);
+			«ENDIF»
+			«IF test.output.replacePatterns != null»
+				string = preprocessForPatterns(string);
+			«ENDIF»
+			return string;
+		}
+		
+		«IF test.output.patternFile != null»
+		private String preprocessForFile(String string) throws Exception {
+			final String content = this.getTextFromFile("«test.output.patternFile»");
+			final String[] lines = content.split("\n");
+			if (lines == null) {
+				return string;
+			}
+			for (String line : lines) {
+				final String[] myLine = line.split("=");
+				if (myLine == null || myLine.length != 2) {
+					continue;
+				}
+				final String regex = myLine[0].replace("\"", "").replace("\\\\", "\\");
+				final String replace = myLine[1].replace("\"", "").replace("\\\\", "\\");
+				string = string.replaceAll(regex, replace);
+			}
+			return string;
+		}
+		«ENDIF»
+		
+		«IF test.output.replacePatterns != null»
+		private String preprocessForPatterns(String string) {
+			«FOR r: test.output.replacePatterns»
+				string = string.replaceAll(
+					"«replacement(r.regex)»",
+					"«replacement(r.replace)»"
+				);
+			«ENDFOR»
+			return string;
+		}
+		«ENDIF»
+	'''
+	
+	def String replacement(String string) {
+		val string2 = string.replace('\n', "\\n");
+		val string3 = string2.replace('\t', "\\t");
+		val string4 = string3.replace('\r', "\\r");
+		val string5 = string4.replace('\'', "\\'");
+		val string6 = string5.replace('\\', "\\\\");
+		val string7 = string6.replace('\"', "\\\"");
+		return string7;
 	}
 }

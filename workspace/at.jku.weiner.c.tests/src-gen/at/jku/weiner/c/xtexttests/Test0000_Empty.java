@@ -11,14 +11,12 @@ import java.nio.file.Paths;
 import java.util.List;
 
 import org.antlr.runtime.Token;
-
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.xtext.generator.IFileSystemAccess;
 import org.eclipse.xtext.generator.IGenerator;
 import org.eclipse.xtext.generator.JavaIoFileSystemAccess;
@@ -31,18 +29,18 @@ import org.eclipse.xtext.validation.CheckMode;
 import org.eclipse.xtext.validation.IResourceValidator;
 import org.eclipse.xtext.validation.Issue;
 import org.eclipse.xtext.parser.antlr.ITokenDefProvider;
-
 import org.junit.Assert;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
 import at.jku.weiner.c.tests.CInjectorProvider;
 import at.jku.weiner.c.parser.antlr.CParser;
 import at.jku.weiner.c.parser.antlr.internal.InternalCLexer;
 import at.jku.weiner.c.xtexttests.LexerAndParserTest;
-
 import at.jku.weiner.c.c.Model;
+
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(CInjectorProvider.class)
@@ -57,7 +55,7 @@ public class Test0000_Empty {
 	private CParser parser;
 	@Inject
 	private ITokenDefProvider tokenDefProvider;
-	//@Inject
+	// @Inject
 	private LexerAndParserTest testHelper;
 	@Inject
 	private IGenerator generator;
@@ -67,85 +65,91 @@ public class Test0000_Empty {
 	private IResourceValidator validator;
 	@Inject
 	private JavaIoFileSystemAccess fileAccessSystem;
-	
+
 	@Before
-	public void initialize(){
-		this.testHelper = new LexerAndParserTest(lexer, 
-			parser, tokenDefProvider);
+	public void initialize() {
+		this.testHelper = new LexerAndParserTest(this.lexer, this.parser,
+				this.tokenDefProvider);
 	}
-	
-	private String getTextFromFile(final String fileName)
-	throws Exception{
+
+	private String getTextFromFile(final String fileName) throws Exception {
 		final Path path = Paths.get(fileName);
 		final String content = new String(Files.readAllBytes(path));
 		return content;
 	}
-	
-	private String preprocess(final String string) {
-		final String lineComment = string.replaceAll("//.*\n", " ");
-		final String blockComment = lineComment.replaceAll("/\\*.*\\*/", " ");
-		final String lines = blockComment.replaceAll("\n", " ").trim();
-		final String multi = lines.replaceAll("\\s{2,}", " ").trim();
-		final String sign = multi.replaceAll("\\s+([^a-zA-Z0-9_])", "$1")
-				.trim();
-		final String sign2 = sign.replaceAll("([^a-zA-Z0-9_])\\s+", "$1")
-				.trim();
-	
-		// System.out.println(sign2);
-		return sign2;
-	}
-	
-	
+
 	@Test
 	public void checkParserResult() throws Exception {
-		final String text = this.getTextFromFile(
-			"res/Test0000_Empty.c");
-		final Model Model_0_Var
-		  = 
-			this.parseHelper.parse(text);
-		this.valHelper.assertNoErrors(Model_0_Var
-		);
-		
-		Assert.assertNotNull(Model_0_Var
-		);
+		final String text = this.getTextFromFile("res/Test0000_Empty.c");
+		final Model Model_0_Var = this.parseHelper.parse(text);
+		this.valHelper.assertNoErrors(Model_0_Var);
+
+		Assert.assertNotNull(Model_0_Var);
 	}
-	
+
 	@Test
 	public void testGenerator() throws Exception {
 		// load the resource
-		ResourceSet set = this.resourceSetProvider.get();
-		URI uri = URI.createURI(
-			"res/Test0000_Empty.c");
-		Resource resource = set.getResource(uri, true);
+		final ResourceSet set = this.resourceSetProvider.get();
+		final URI uri = URI.createURI("res/Test0000_Empty.c");
+		final Resource resource = set.getResource(uri, true);
 		// validate the resource
-		List<Issue> list = this.validator.validate(resource, 
-			CheckMode.ALL,CancelIndicator.NullImpl);
+		final List<Issue> list = this.validator.validate(resource,
+				CheckMode.ALL, CancelIndicator.NullImpl);
 		Assert.assertTrue(list.isEmpty());
-		
+
 		// configure and start the generator
 		this.fileAccessSystem.setOutputPath("bin");
 		final Class<?> clazz = this.generator.getClass();
 		try {
-			final Method method = clazz.getMethod("setFileName",
-					String.class);
+			final Method method = clazz.getMethod("setFileName", String.class);
 			if (method != null) {
 				method.invoke(this.generator, "Test0000_Empty.c");
 			}
 		} catch (NoSuchMethodException | SecurityException
-			| IllegalAccessException | IllegalArgumentException
-			| InvocationTargetException e) {
+				| IllegalAccessException | IllegalArgumentException
+				| InvocationTargetException e) {
 			// do nothing
 			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0000_Empty.c");
-		final String expected = this.getTextFromFile(
-			"res/Test0000_Empty.c"
-			);
-		Assert.assertEquals(preprocess(expected), preprocess(actual));
+		final String expected = this.getTextFromFile("res/Test0000_Empty.c");
+		Assert.assertEquals(this.preprocess(expected), this.preprocess(actual));
 		// System.out.println("Code generation finished.");
 	}
-	
+
+	private String preprocess(String string) {
+		string = this.preprocessForPatterns(string);
+		return string;
+	}
+
+	private String preprocessForFile(String string) throws Exception {
+		final String content = this.getTextFromFile("");
+		final String[] lines = content.split("\n");
+		if (lines == null) {
+			return string;
+		}
+		for (final String line : lines) {
+			final String[] myLine = line.split("=");
+			if ((myLine == null) || (myLine.length != 2)) {
+				continue;
+			}
+			final String regex = myLine[0];
+			final String replace = myLine[1];
+			string = string.replaceAll(regex, replace);
+		}
+		return string;
+	}
+
+	private String preprocessForPatterns(String string) {
+		string = string.replaceAll("r.regex", "r.replace");
+		string = string.replaceAll("r.regex", "r.replace");
+		string = string.replaceAll("r.regex", "r.replace");
+		string = string.replaceAll("r.regex", "r.replace");
+		string = string.replaceAll("r.regex", "r.replace");
+		string = string.replaceAll("r.regex", "r.replace");
+		return string;
+	}
+
 }
-
-

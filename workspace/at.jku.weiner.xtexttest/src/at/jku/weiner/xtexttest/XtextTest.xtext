@@ -68,6 +68,14 @@ Generator:
 			| isSameAsInputFile?=ISSAMEASINPUTFILE
 		)
 	)
+	(PATTERNS
+		(FILE ASSIGNASSINGLE patternFile=STRING)?
+		(replacePatterns+=ReplacePatterns)*
+	)?
+;
+
+ReplacePatterns:
+	regex=STRING ASSIGNASSINGLE replace=STRING
 ;
 
 terminal PACKAGE: 'package';
@@ -80,6 +88,7 @@ terminal LEXER: 'lexer-tokens';
 terminal OUTPUT: 'output';
 terminal EXPECTED: 'expected';
 terminal ISSAMEASINPUTFILE: 'isSameAsInputFile';
+terminal PATTERNS: 'replacePatterns';
 terminal LEFTPAREN: '(';
 terminal RIGHTPAREN: ')';
 terminal ASSIGNASSINGLE: '=';

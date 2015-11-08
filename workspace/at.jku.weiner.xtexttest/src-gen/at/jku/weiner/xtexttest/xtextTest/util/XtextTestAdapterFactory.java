@@ -105,6 +105,11 @@ public class XtextTestAdapterFactory extends AdapterFactoryImpl
         return createGeneratorAdapter();
       }
       @Override
+      public Adapter caseReplacePatterns(ReplacePatterns object)
+      {
+        return createReplacePatternsAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -212,6 +217,21 @@ public class XtextTestAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createGeneratorAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.xtexttest.xtextTest.ReplacePatterns <em>Replace Patterns</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.xtexttest.xtextTest.ReplacePatterns
+   * @generated
+   */
+  public Adapter createReplacePatternsAdapter()
   {
     return null;
   }

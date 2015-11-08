@@ -46,6 +46,7 @@ import at.jku.weiner.c.c.MyIdentifier;
 import at.jku.weiner.c.c.ParameterDeclaration;
 import at.jku.weiner.c.c.ParameterList;
 import at.jku.weiner.c.c.ParameterTypeList;
+import at.jku.weiner.c.c.Pointer;
 import at.jku.weiner.c.c.PostfixExpression;
 import at.jku.weiner.c.c.PrimaryExpression;
 import at.jku.weiner.c.c.RelationalExpression;
@@ -63,6 +64,7 @@ import at.jku.weiner.c.c.StructOrUnionSpecifier;
 import at.jku.weiner.c.c.TranslationUnit;
 import at.jku.weiner.c.c.TypeName;
 import at.jku.weiner.c.c.TypeQualifier;
+import at.jku.weiner.c.c.TypeQualifierList;
 import at.jku.weiner.c.c.TypeSpecifier;
 import at.jku.weiner.c.c.TypedefName;
 import at.jku.weiner.c.c.UnaryExpression;
@@ -468,9 +470,19 @@ public class CGenerator implements IGenerator {
   
   public String outputFor(final Declarator decl) {
     StringConcatenation _builder = new StringConcatenation();
+    {
+      Pointer _pointer = decl.getPointer();
+      boolean _notEquals = (!Objects.equal(_pointer, null));
+      if (_notEquals) {
+        Pointer _pointer_1 = decl.getPointer();
+        String _outputFor = this.outputFor(_pointer_1);
+        _builder.append(_outputFor, "");
+      }
+    }
+    _builder.newLineIfNotEmpty();
     DirectDeclarator _declarator = decl.getDeclarator();
-    String _outputFor = this.outputFor(_declarator);
-    _builder.append(_outputFor, "");
+    String _outputFor_1 = this.outputFor(_declarator);
+    _builder.append(_outputFor_1, "");
     _builder.newLineIfNotEmpty();
     return _builder.toString();
   }
@@ -549,6 +561,46 @@ public class CGenerator implements IGenerator {
     }
     _builder.append(")");
     _builder.newLine();
+    return _builder.toString();
+  }
+  
+  public String outputFor(final Pointer obj) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<String> _star = obj.getStar();
+      for(final String s : _star) {
+        _builder.append(s, "");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    {
+      EList<String> _caret = obj.getCaret();
+      for(final String c : _caret) {
+        _builder.append(c, "");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    {
+      EList<TypeQualifierList> _typeQualifierList = obj.getTypeQualifierList();
+      for(final TypeQualifierList t : _typeQualifierList) {
+        String _outputFor = this.outputFor(t);
+        _builder.append(_outputFor, "");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
+  public String outputFor(final TypeQualifierList l) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<TypeQualifier> _typeQualifier = l.getTypeQualifier();
+      for(final TypeQualifier t : _typeQualifier) {
+        String _outputFor = this.outputFor(t);
+        _builder.append(_outputFor, "");
+        _builder.newLineIfNotEmpty();
+      }
+    }
     return _builder.toString();
   }
   
@@ -809,15 +861,153 @@ public class CGenerator implements IGenerator {
   
   public String outputForSelectionStatement(final SelectionStatement obj) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("\t");
-    _builder.newLine();
+    {
+      String _if = obj.getIf();
+      boolean _notEquals = (!Objects.equal(_if, null));
+      if (_notEquals) {
+        _builder.append("if (");
+        Expression _expr = obj.getExpr();
+        String _outputFor = this.outputFor(_expr);
+        _builder.append(_outputFor, "");
+        _builder.append(")");
+        _builder.newLineIfNotEmpty();
+        Statement _stmt = obj.getStmt();
+        String _outputFor_1 = this.outputFor(_stmt);
+        _builder.append(_outputFor_1, "");
+        _builder.newLineIfNotEmpty();
+        {
+          String _else = obj.getElse();
+          boolean _notEquals_1 = (!Objects.equal(_else, null));
+          if (_notEquals_1) {
+            _builder.append("else ");
+            Statement _elseStatement = obj.getElseStatement();
+            String _outputFor_2 = this.outputFor(_elseStatement);
+            _builder.append(_outputFor_2, "");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+      }
+    }
+    {
+      String _switch = obj.getSwitch();
+      boolean _notEquals_2 = (!Objects.equal(_switch, null));
+      if (_notEquals_2) {
+        _builder.append("switch (");
+        Expression _expr_1 = obj.getExpr();
+        String _outputFor_3 = this.outputFor(_expr_1);
+        _builder.append(_outputFor_3, "");
+        _builder.append(")");
+        _builder.newLineIfNotEmpty();
+        Statement _switchStatement = obj.getSwitchStatement();
+        String _outputFor_4 = this.outputFor(_switchStatement);
+        _builder.append(_outputFor_4, "");
+        _builder.newLineIfNotEmpty();
+      }
+    }
     return _builder.toString();
   }
   
   public String outputForIterationStatement(final IterationStatement obj) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("\t");
-    _builder.newLine();
+    {
+      String _while = obj.getWhile();
+      boolean _notEquals = (!Objects.equal(_while, null));
+      if (_notEquals) {
+        _builder.append("while (");
+        Expression _expr = obj.getExpr();
+        String _outputFor = this.outputFor(_expr);
+        _builder.append(_outputFor, "");
+        _builder.append(")");
+        _builder.newLineIfNotEmpty();
+        Statement _stmt = obj.getStmt();
+        String _outputFor_1 = this.outputFor(_stmt);
+        _builder.append(_outputFor_1, "");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      String _do = obj.getDo();
+      boolean _notEquals_1 = (!Objects.equal(_do, null));
+      if (_notEquals_1) {
+        _builder.append("do");
+        _builder.newLine();
+        _builder.append("\t");
+        Statement _statement = obj.getStatement();
+        String _outputFor_2 = this.outputFor(_statement);
+        _builder.append(_outputFor_2, "\t");
+        _builder.newLineIfNotEmpty();
+        _builder.append("while (");
+        Expression _expr_1 = obj.getExpr();
+        String _outputFor_3 = this.outputFor(_expr_1);
+        _builder.append(_outputFor_3, "");
+        _builder.append(");");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      String _for = obj.getFor();
+      boolean _notEquals_2 = (!Objects.equal(_for, null));
+      if (_notEquals_2) {
+        _builder.append("for (");
+        _builder.newLine();
+        {
+          Expression _initExpr = obj.getInitExpr();
+          boolean _notEquals_3 = (!Objects.equal(_initExpr, null));
+          if (_notEquals_3) {
+            _builder.append("\t");
+            Expression _initExpr_1 = obj.getInitExpr();
+            String _outputFor_4 = this.outputFor(_initExpr_1);
+            _builder.append(_outputFor_4, "\t");
+            _builder.newLineIfNotEmpty();
+            _builder.append("\t");
+            _builder.append(";");
+            _builder.newLine();
+          }
+        }
+        {
+          Declaration _initDecl = obj.getInitDecl();
+          boolean _notEquals_4 = (!Objects.equal(_initDecl, null));
+          if (_notEquals_4) {
+            _builder.append("\t");
+            Declaration _initDecl_1 = obj.getInitDecl();
+            String _outputFor_5 = this.outputFor(_initDecl_1);
+            _builder.append(_outputFor_5, "\t");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        {
+          Expression _expr_2 = obj.getExpr();
+          boolean _notEquals_5 = (!Objects.equal(_expr_2, null));
+          if (_notEquals_5) {
+            _builder.append("\t");
+            Expression _expr_3 = obj.getExpr();
+            String _outputFor_6 = this.outputFor(_expr_3);
+            _builder.append(_outputFor_6, "\t");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        _builder.append("\t");
+        _builder.append(";");
+        _builder.newLine();
+        {
+          Expression _incExpr = obj.getIncExpr();
+          boolean _notEquals_6 = (!Objects.equal(_incExpr, null));
+          if (_notEquals_6) {
+            _builder.append("\t");
+            Expression _incExpr_1 = obj.getIncExpr();
+            String _outputFor_7 = this.outputFor(_incExpr_1);
+            _builder.append(_outputFor_7, "\t");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        _builder.append(")");
+        _builder.newLine();
+        Statement _statement_1 = obj.getStatement();
+        String _outputFor_8 = this.outputFor(_statement_1);
+        _builder.append(_outputFor_8, "");
+        _builder.newLineIfNotEmpty();
+      }
+    }
     return _builder.toString();
   }
   
@@ -1430,6 +1620,44 @@ public class CGenerator implements IGenerator {
         }
         _builder.append(")");
         _builder.newLine();
+      }
+    }
+    {
+      EList<String> _dot = obj.getDot();
+      for(final String d : _dot) {
+        _builder.append(d, "");
+        EList<String> _id = obj.getId();
+        EList<String> _dot_1 = obj.getDot();
+        int _indexOf = _dot_1.indexOf(d);
+        String _get = _id.get(_indexOf);
+        _builder.append(_get, "");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      EList<String> _arrow = obj.getArrow();
+      for(final String a : _arrow) {
+        _builder.append(a, "");
+        EList<String> _id_1 = obj.getId();
+        EList<String> _dot_2 = obj.getDot();
+        int _indexOf_1 = _dot_2.indexOf(a);
+        String _get_1 = _id_1.get(_indexOf_1);
+        _builder.append(_get_1, "");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      EList<String> _plusplus = obj.getPlusplus();
+      for(final String p : _plusplus) {
+        _builder.append(p, "");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      EList<String> _minusminus = obj.getMinusminus();
+      for(final String m : _minusminus) {
+        _builder.append(m, "");
+        _builder.newLineIfNotEmpty();
       }
     }
     return _builder.toString();

@@ -11,6 +11,8 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
+import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 
@@ -18,10 +20,12 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class XtextTestSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected XtextTestGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_Generator_PATTERNSTerminalRuleCall_3_0_q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (XtextTestGrammarAccess) access;
+		match_Generator_PATTERNSTerminalRuleCall_3_0_q = new TokenAlias(false, true, grammarAccess.getGeneratorAccess().getPATTERNSTerminalRuleCall_3_0());
 	}
 	
 	@Override
@@ -52,6 +56,8 @@ public class XtextTestSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getOUTPUTToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getPACKAGERule())
 			return getPACKAGEToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getPATTERNSRule())
+			return getPATTERNSToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getRIGHTPARENRule())
 			return getRIGHTPARENToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getSOURCERule())
@@ -179,6 +185,15 @@ public class XtextTestSyntacticSequencer extends AbstractSyntacticSequencer {
 	}
 	
 	/**
+	 * terminal PATTERNS: 'replacePatterns';
+	 */
+	protected String getPATTERNSToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "replacePatterns";
+	}
+	
+	/**
 	 * terminal RIGHTPAREN: ')';
 	 */
 	protected String getRIGHTPARENToken(EObject semanticObject, RuleCall ruleCall, INode node) {
@@ -211,8 +226,22 @@ public class XtextTestSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			acceptNodes(getLastNavigableState(), syntaxNodes);
+			if(match_Generator_PATTERNSTerminalRuleCall_3_0_q.equals(syntax))
+				emit_Generator_PATTERNSTerminalRuleCall_3_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
+	/**
+	 * Ambiguous syntax:
+	 *     PATTERNS?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     expected=STRING (ambiguity) (rule end)
+	 *     isSameAsInputFile?=ISSAMEASINPUTFILE (ambiguity) (rule end)
+	 */
+	protected void emit_Generator_PATTERNSTerminalRuleCall_3_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 }

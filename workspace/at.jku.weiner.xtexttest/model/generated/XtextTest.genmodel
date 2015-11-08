@@ -37,6 +37,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//Generator/output"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//Generator/expected"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//Generator/isSameAsInputFile"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//Generator/patternFile"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XtextTest.ecore#//Generator/replacePatterns"/>
+    </genClasses>
+    <genClasses ecoreClass="XtextTest.ecore#//ReplacePatterns">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//ReplacePatterns/regex"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//ReplacePatterns/replace"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

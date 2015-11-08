@@ -2066,5 +2066,5 @@ RIGHTBRACE NEWLINE
 	)
 )
 //----------------------------------------------------------------------
-output file="bin/greetings.txt"
+output file="bin/Test0031_Enums.c"
 expected file isSameAsInputFile

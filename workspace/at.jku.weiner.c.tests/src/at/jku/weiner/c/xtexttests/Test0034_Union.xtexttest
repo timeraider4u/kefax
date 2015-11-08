@@ -1950,5 +1950,5 @@ RIGHTBRACE NEWLINE
 	)
 )
 //----------------------------------------------------------------------
-output file="bin/greetings.txt"
+output file="bin/Test0034_Union.c"
 expected file isSameAsInputFile

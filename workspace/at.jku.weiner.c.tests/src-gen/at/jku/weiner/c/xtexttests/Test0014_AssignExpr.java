@@ -1139,7 +1139,7 @@ public class Test0014_AssignExpr {
 			final Method method = clazz.getMethod("setFileName",
 					String.class);
 			if (method != null) {
-				method.invoke(this.generator, "greetings.txt");
+				method.invoke(this.generator, "Test0014_AssignExpr.c");
 			}
 		} catch (NoSuchMethodException | SecurityException
 			| IllegalAccessException | IllegalArgumentException
@@ -1148,7 +1148,7 @@ public class Test0014_AssignExpr {
 			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
-		final String actual = this.getTextFromFile("bin/greetings.txt");
+		final String actual = this.getTextFromFile("bin/Test0014_AssignExpr.c");
 		final String expected = this.getTextFromFile(
 			"res/Test0014_AssignExpr.c"
 			);

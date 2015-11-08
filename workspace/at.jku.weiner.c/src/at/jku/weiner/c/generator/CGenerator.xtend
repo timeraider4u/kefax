@@ -31,6 +31,43 @@ import at.jku.weiner.c.c.ParameterTypeList
 import at.jku.weiner.c.c.ParameterList
 import at.jku.weiner.c.c.ParameterDeclaration
 import org.eclipse.xtend.lib.annotations.Accessors
+import at.jku.weiner.c.c.LabeledStatement
+import at.jku.weiner.c.c.CompoundStatement
+import at.jku.weiner.c.c.BodyStatement
+import at.jku.weiner.c.c.ExpressionStatement
+import at.jku.weiner.c.c.SelectionStatement
+import at.jku.weiner.c.c.IterationStatement
+import at.jku.weiner.c.c.JumpStatement
+import at.jku.weiner.c.c.AsmStatement
+import at.jku.weiner.c.c.Expression
+import at.jku.weiner.c.c.AssignmentExpression
+import at.jku.weiner.c.c.AssignmentOperator
+import at.jku.weiner.c.c.ConditionalExpression
+import at.jku.weiner.c.c.LogicalOrExpression
+import at.jku.weiner.c.c.LogicalAndExpression
+import at.jku.weiner.c.c.InclusiveOrExpression
+import at.jku.weiner.c.c.ExclusiveOrExpression
+import at.jku.weiner.c.c.AndExpression
+import at.jku.weiner.c.c.EqualityExpression
+import at.jku.weiner.c.c.RelationalExpression
+import at.jku.weiner.c.c.ShiftExpression
+import at.jku.weiner.c.c.AdditiveExpression
+import at.jku.weiner.c.c.MultiplicativeExpression
+import at.jku.weiner.c.c.CastExpression
+import at.jku.weiner.c.c.UnaryExpression
+import at.jku.weiner.c.c.UnaryOperator
+import at.jku.weiner.c.c.PostfixExpression
+import at.jku.weiner.c.c.PrimaryExpression
+import at.jku.weiner.c.c.Constant
+import at.jku.weiner.c.c.ConstantExpression
+import at.jku.weiner.c.c.BlockList
+import at.jku.weiner.c.c.TypeName
+import at.jku.weiner.c.c.SpecifierQualifierList
+import at.jku.weiner.c.c.StructDeclarationList
+import at.jku.weiner.c.c.StructDeclaration
+import at.jku.weiner.c.c.StructDeclarator
+import at.jku.weiner.c.c.StructDeclaratorList
+import at.jku.weiner.c.c.ArgumentExpressionList
 
 /**
  * Generates code from your model files on save.
@@ -139,6 +176,42 @@ class CGenerator implements IGenerator {
 		«ENDIF»
 	'''
 	
+	def String outputFor(StructOrUnionSpecifier obj) '''
+		«obj.type.name» «IF obj.id != null»«obj.id»«ENDIF»
+		«IF obj.structDeclList != null»{«outputFor(obj.structDeclList)»}«ENDIF»
+	'''
+	
+	def String outputFor(StructDeclarationList obj) '''
+		«FOR s: obj.structDeclaration»
+			«outputFor(s)»
+		«ENDFOR»
+	'''
+	
+	def String outputFor(StructDeclaration obj) '''
+		«outputFor(obj.list)»
+		«IF obj.structDeclarationList != null»«outputFor(obj.structDeclarationList)»«ENDIF»;
+	'''
+	
+	def String outputFor(StructDeclaratorList obj) '''
+		«FOR p : obj.structDeclarator»
+			«IF obj.structDeclarator.indexOf(p) > 0», «ENDIF»
+			«outputFor(p)»
+		«ENDFOR»
+	''' 
+	
+	def String outputFor(StructDeclarator obj) '''
+		«IF obj.declarator != null»«outputFor(obj.declarator)»«ENDIF»
+		«IF obj.constExpr != null»:
+		«FOR e: obj.constExpr»
+			«outputForConstantExpression(convertToConstantExpression(e))»
+		«ENDFOR»
+		«ENDIF»
+	'''
+	
+	def ConstantExpression convertToConstantExpression(Expression e) {
+		return e as ConstantExpression;
+	}
+	
 	def String outputFor(InitDeclaratorList list) '''
 		«FOR initDeclarator : list.initDeclarator»
 			«outputFor(initDeclarator)»
@@ -211,7 +284,259 @@ class CGenerator implements IGenerator {
 	''' 
 	
 	def String outputFor(Statement obj) '''
-		
-	''' 
+		«IF obj.stmt != null»«outputFor(obj.stmt)»«ENDIF»
+		«IF obj instanceof LabeledStatement»«outputForLabeledStatement(obj)»«ENDIF»
+		«IF obj instanceof CompoundStatement»«outputForCompoundStatement(obj)»«ENDIF»
+		«IF obj instanceof BodyStatement»«outputForBodyStatement(obj)»«ENDIF»
+		«IF obj instanceof ExpressionStatement»«outputForExpressionStatement(obj)»«ENDIF»
+		«IF obj instanceof SelectionStatement»«outputForSelectionStatement(obj)»«ENDIF»
+		«IF obj instanceof IterationStatement»«outputForIterationStatement(obj)»«ENDIF»
+		«IF obj instanceof JumpStatement»«outputForJumpStatement(obj)»«ENDIF»
+		«IF obj instanceof AsmStatement»«outputForAsmStatement(obj)»«ENDIF»
+	'''
+	
+	def String outputForLabeledStatement(LabeledStatement obj) '''
+		«IF obj.id != null»«obj.id»:«outputFor(obj.LStmt)»«ENDIF»
+		«IF obj.getCase() != null»case «obj.expr»:«outputFor(obj.LStmt)»«ENDIF»
+		«IF obj.getDefault() != null»default: «outputFor(obj.LStmt)»«ENDIF»
+	'''
+	
+	def String outputForCompoundStatement(CompoundStatement obj) '''
+		{
+			«outputFor(obj.body)»
+		}
+	'''
+	
+	def String outputForBodyStatement(BodyStatement obj) '''
+		«FOR l : obj.blockList»
+			«outputFor(l)»
+		«ENDFOR»
+	'''
+	
+	def String outputFor(BlockList obj) '''
+		«FOR d : obj.declaration»
+			«outputFor(d)»
+		«ENDFOR»
+		«FOR s : obj.statement»
+			«outputFor(s)»
+		«ENDFOR»
+	'''
+	
+	def String outputForExpressionStatement(ExpressionStatement obj) '''
+		«IF obj.expression != null»«outputFor(obj.expression)»«ENDIF»;
+	'''
+	
+	def String outputForSelectionStatement(SelectionStatement obj) '''
+	
+	'''
+	
+	def String outputForIterationStatement(IterationStatement obj) '''
+	
+	'''
+	
+	def String outputForJumpStatement(JumpStatement obj) '''
+		«IF obj.continue != null»continue;«ENDIF»
+		«IF obj.break != null»break;«ENDIF»
+		«IF obj.getReturn() != null»return «IF obj.expr != null»«outputFor(obj.expr)»«ENDIF» ;«ENDIF»
+		«IF obj.goto != null»goto«outputFor(obj.expr)»;«ENDIF»
+	'''
+	
+	def String outputForAsmStatement(AsmStatement obj) '''
+	
+	'''
+	
+	def String outputFor(Expression obj) '''
+		«FOR e : obj.exprExpr»
+			«IF obj.exprExpr.indexOf(e) > 0», «ENDIF»
+			«outputForAssignmentExpression(e as AssignmentExpression)»
+		«ENDFOR»
+	'''
+	
+	def String outputForAssignmentExpression(AssignmentExpression obj) '''
+		«IF obj.op != null»
+			«outputForUnaryExpression(obj.expr as UnaryExpression)»
+			«outputFor(obj.op)»
+			«IF obj.assignmentExpr != null»
+				«outputForAssignmentExpression(obj.assignmentExpr as AssignmentExpression)»
+			«ENDIF»
+		«ELSE»
+			«outputForConditionalExpression(obj.expr as ConditionalExpression)»
+		«ENDIF»
+	'''
+	
+	def String outputFor(AssignmentOperator obj) '''
+		«obj.op»
+	'''
+	
+	def String outputForConditionalExpression(ConditionalExpression obj) '''
+		«outputForLogicalOrExpression(obj.expr as LogicalOrExpression)»
+		«IF obj.QExpr != null»
+			?«outputFor(obj.QExpr)»:
+			«outputForConditionalExpression(obj.CExpr as ConditionalExpression)»
+		«ENDIF»
+	'''
+	
+	def String outputForLogicalOrExpression(LogicalOrExpression obj) '''
+		«FOR e : obj.expr»
+			«IF obj.expr.indexOf(e) > 0»||«ENDIF»
+			«outputForLogicalAndExpression(e as LogicalAndExpression)»
+		«ENDFOR»
+	'''
+	
+	def String outputForLogicalAndExpression(LogicalAndExpression obj) '''
+		«FOR e : obj.expr»
+			«IF obj.expr.indexOf(e) > 0»&&«ENDIF»
+			«outputForInclusiveOrExpression(e as InclusiveOrExpression)»
+		«ENDFOR»
+	'''
+	
+	def String outputForInclusiveOrExpression(InclusiveOrExpression obj) '''
+		«FOR e : obj.expr»
+			«IF obj.expr.indexOf(e) > 0»|«ENDIF»
+			«outputForExclusiveOrExpression(e as ExclusiveOrExpression)»
+		«ENDFOR»
+	'''
+	
+	def String outputForExclusiveOrExpression(ExclusiveOrExpression obj) '''
+		«FOR e : obj.expr»
+			«IF obj.expr.indexOf(e) > 0»^«ENDIF»
+			«outputForAndExpression(e as AndExpression)»
+		«ENDFOR»
+	'''
+	
+	def String outputForAndExpression(AndExpression obj) '''
+		«FOR e : obj.expr»
+			«IF obj.expr.indexOf(e) > 0»&«ENDIF»
+			«outputForEqualityExpression(e as EqualityExpression)»
+		«ENDFOR»
+	'''
+	
+	def String outputForEqualityExpression(EqualityExpression obj) '''
+		«FOR e : obj.expr»
+			«IF obj.expr.indexOf(e) > 0»«obj.op.get(obj.expr.indexOf(e)-1)»«ENDIF»
+			«outputForRelationalExpression(e as RelationalExpression)»
+		«ENDFOR»
+	'''
+	
+	def String outputForRelationalExpression(RelationalExpression obj) '''
+		«FOR e : obj.expr»
+			«IF obj.expr.indexOf(e) > 0»«obj.op.get(obj.expr.indexOf(e)-1)»«ENDIF»
+			«outputForShiftExpression(e as ShiftExpression)»
+		«ENDFOR»
+	'''
+	
+	def String outputForShiftExpression(ShiftExpression obj) '''
+		«FOR e : obj.expr»
+			«IF obj.expr.indexOf(e) > 0»«obj.op.get(obj.expr.indexOf(e)-1)»«ENDIF»
+			«outputForAdditiveExpression(e as AdditiveExpression)»
+		«ENDFOR»
+	'''
+	
+	def String outputForAdditiveExpression(AdditiveExpression obj) '''
+		«FOR e : obj.expr»
+			«IF obj.expr.indexOf(e) > 0»«obj.op.get(obj.expr.indexOf(e)-1)»«ENDIF»
+			«outputForMultiplicativeExpression(e as MultiplicativeExpression)»
+		«ENDFOR»
+	'''
+	
+	def String outputForMultiplicativeExpression(MultiplicativeExpression obj) '''
+		«FOR e : obj.expr»
+			«IF obj.expr.indexOf(e) > 0»«obj.op.get(obj.expr.indexOf(e)-1)»«ENDIF»
+			«outputForCastExpression(e as CastExpression)»
+		«ENDFOR»
+	'''
+	
+	def String outputForCastExpression(CastExpression obj) '''
+		«IF obj.type != null»
+			(«outputFor(obj.type)»)
+			«outputForCastExpression(obj.expr as CastExpression)»
+		«ELSE»
+			«outputForUnaryExpression(obj.expr as UnaryExpression)»
+		«ENDIF»
+	'''
+	
+	def String outputFor(TypeName obj) '''
+		«outputFor(obj.list)»
+	'''
+	
+	def String outputFor(SpecifierQualifierList obj) '''
+		«FOR x : obj.typeSpecifier»
+			«outputFor(x)»
+		«ENDFOR»
+		«FOR x : obj.typeQualifier»
+			«outputFor(x)»
+		«ENDFOR»
+		«FOR x : obj.structOrUnionSpecifier»
+			«»
+		«ENDFOR»
+	'''
+	
+	def String outputForUnaryExpression(UnaryExpression obj) '''
+		«IF obj.plusplus != null»«obj.plusplus»«outputForUnaryExpression(obj.expr as UnaryExpression)»
+		«ENDIF»
+		«IF obj.minusminus != null»«obj.minusminus»«outputForUnaryExpression(obj.expr as UnaryExpression)»
+		«ENDIF»
+		«IF obj.sizeOf != null»«obj.sizeOf»
+			«IF obj.typeName != null»(«outputFor(obj.typeName)»)
+			«ELSE»«outputForUnaryExpression(obj.expr as UnaryExpression)»
+			«ENDIF»
+		«ENDIF»
+		«IF obj.op != null»«outputFor(obj.op)»«outputForCastExpression(obj.expr as CastExpression)»
+		«ENDIF»
+		«IF obj.expr instanceof PostfixExpression»«outputForPostfixExpression(obj.expr as PostfixExpression)»
+		«ENDIF»
+		«IF obj.andand != null»«obj.andand»«obj.id»
+		«ENDIF»
+	'''
+	
+	def String outputFor(UnaryOperator obj) '''
+		«obj.op»
+	'''
+	
+	def String outputForPostfixExpression(PostfixExpression obj) '''
+		«FOR e : obj.expr»
+			«outputForPrimaryExpression(e as PrimaryExpression)»
+		«ENDFOR»
+		«IF obj.arrayExpr.size > 0» [
+			«FOR e: obj.arrayExpr»
+				«outputFor(e)»
+			«ENDFOR»
+			]
+		«ENDIF»
+		«IF obj.argumentExpressionList != null && obj.argumentExpressionList.size > 0»
+			(
+			«FOR l : obj.argumentExpressionList»
+				«outputFor(l)»
+			«ENDFOR»
+			)
+		«ENDIF»
+	'''
+	
+	def String outputFor(ArgumentExpressionList obj) '''
+		«FOR e : obj.expr»
+			«IF obj.expr.indexOf(e) > 0»,«ENDIF»
+			«outputForAssignmentExpression(e as AssignmentExpression)»
+		«ENDFOR»
+	'''
+	
+	def String outputForPrimaryExpression(PrimaryExpression obj) '''
+		«IF obj.id != null»«obj.id»«ENDIF»
+		«IF obj.const != null»«outputFor(obj.const)»«ENDIF»
+		«IF obj.expr != null»(«outputFor(obj.expr)»)«ENDIF»
+	'''
+	
+	def String outputFor(Constant obj) '''
+		«IF obj.hex != null»«obj.hex»«ENDIF»
+		«IF obj.oct != null»«obj.oct»«ENDIF»
+		«IF obj.dec != null»«obj.dec»«ENDIF»
+		«IF obj.ch != null»«obj.ch»«ENDIF»
+		«IF obj.str != null»«obj.str»«ENDIF»
+		«IF obj.float != null»«obj.float»«ENDIF»
+		«IF obj.bin != null»«obj.bin»«ENDIF»
+	'''
+	
+	def String outputForConstantExpression(ConstantExpression obj) '''
+		«outputFor(obj.expr)»
+	'''
 }
 

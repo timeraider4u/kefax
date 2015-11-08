@@ -50,5 +50,5 @@ RIGHTBRACE NEWLINE
 	)
 )
 //----------------------------------------------------------------------
-output file="bin/greetings.txt"
+output file="bin/Test0033_StaticInline.c"
 expected file isSameAsInputFile

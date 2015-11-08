@@ -1244,6 +1244,6 @@ RIGHTBRACE NEWLINE
 	)
 )
 //----------------------------------------------------------------------
-output file="bin/greetings.txt"
+output file="bin/Test0012_ExprHell.c"
 expected file isSameAsInputFile
 

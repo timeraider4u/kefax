@@ -3725,7 +3725,7 @@ public class Test0012_ExprHell {
 			final Method method = clazz.getMethod("setFileName",
 					String.class);
 			if (method != null) {
-				method.invoke(this.generator, "greetings.txt");
+				method.invoke(this.generator, "Test0012_ExprHell.c");
 			}
 		} catch (NoSuchMethodException | SecurityException
 			| IllegalAccessException | IllegalArgumentException
@@ -3734,7 +3734,7 @@ public class Test0012_ExprHell {
 			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
-		final String actual = this.getTextFromFile("bin/greetings.txt");
+		final String actual = this.getTextFromFile("bin/Test0012_ExprHell.c");
 		final String expected = this.getTextFromFile(
 			"res/Test0012_ExprHell.c"
 			);

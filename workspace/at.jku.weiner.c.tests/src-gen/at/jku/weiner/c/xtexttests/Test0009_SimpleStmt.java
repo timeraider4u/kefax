@@ -258,7 +258,7 @@ public class Test0009_SimpleStmt {
 			final Method method = clazz.getMethod("setFileName",
 					String.class);
 			if (method != null) {
-				method.invoke(this.generator, "greetings.txt");
+				method.invoke(this.generator, "Test0009_SimpleStmt.c");
 			}
 		} catch (NoSuchMethodException | SecurityException
 			| IllegalAccessException | IllegalArgumentException
@@ -267,7 +267,7 @@ public class Test0009_SimpleStmt {
 			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
-		final String actual = this.getTextFromFile("bin/greetings.txt");
+		final String actual = this.getTextFromFile("bin/Test0009_SimpleStmt.c");
 		final String expected = this.getTextFromFile(
 			"res/Test0009_SimpleStmt.c"
 			);

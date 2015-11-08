@@ -474,5 +474,5 @@ RIGHTBRACE NEWLINE
 	)
 )
 //----------------------------------------------------------------------
-output file="bin/greetings.txt"
+output file="bin/Test0021_IfElse.c"
 expected file isSameAsInputFile

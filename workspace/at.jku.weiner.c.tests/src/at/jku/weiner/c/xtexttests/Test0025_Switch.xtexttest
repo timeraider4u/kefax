@@ -508,5 +508,5 @@ RIGHTBRACE NEWLINE
 	)
 )
 //----------------------------------------------------------------------
-output file="bin/greetings.txt"
+output file="bin/Test0025_Switch.c"
 expected file isSameAsInputFile

@@ -438,6 +438,6 @@ RIGHTBRACE NEWLINE
 	)
 )
 //----------------------------------------------------------------------
-output file="bin/greetings.txt"
+output file="bin/Test0011_ReturnStmts.c"
 expected file isSameAsInputFile
 

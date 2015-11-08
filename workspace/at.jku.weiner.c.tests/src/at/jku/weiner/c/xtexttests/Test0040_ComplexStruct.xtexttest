@@ -205,5 +205,5 @@ RIGHTBRACE SEMI NEWLINE
 	)
 )
 //----------------------------------------------------------------------
-output file="bin/greetings.txt"
+output file="bin/Test0040_ComplexStruct.c"
 expected file isSameAsInputFile

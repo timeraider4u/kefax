@@ -47,5 +47,5 @@ KW_VOID WHITESPACE ID LEFTPAREN  RIGHTPAREN SEMI NEWLINE
 	)
 )
 //----------------------------------------------------------------------
-output file="bin/greetings.txt"
+output file="bin/Test0039_Empty.c"
 expected file isSameAsInputFile

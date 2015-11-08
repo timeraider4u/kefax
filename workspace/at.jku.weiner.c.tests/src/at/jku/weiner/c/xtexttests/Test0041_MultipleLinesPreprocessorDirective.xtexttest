@@ -93,5 +93,5 @@ KW_INT WHITESPACE ID WHITESPACE ASSIGN WHITESPACE ID SEMI NEWLINE
 	)
 )
 //----------------------------------------------------------------------
-output file="bin/greetings.txt"
+output file="bin/Test0041_MultipleLinesPreprocessorDirective.c"
 expected file isSameAsInputFile

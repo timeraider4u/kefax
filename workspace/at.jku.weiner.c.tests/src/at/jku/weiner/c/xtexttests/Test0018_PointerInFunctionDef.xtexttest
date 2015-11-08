@@ -398,5 +398,5 @@ RIGHTBRACE NEWLINE
 	)
 )
 //----------------------------------------------------------------------
-output file="bin/greetings.txt"
+output file="bin/Test0018_PointerInFunctionDef.c"
 expected file isSameAsInputFile

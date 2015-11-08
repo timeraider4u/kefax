@@ -95,5 +95,5 @@ RIGHTPAREN SEMI NEWLINE
 	)
 )
 //----------------------------------------------------------------------
-output file="bin/greetings.txt"
+output file="bin/Test0017_PointerInFunctionDecl.c"
 expected file isSameAsInputFile

@@ -306,7 +306,7 @@ public class Test0026_Block {
 			final Method method = clazz.getMethod("setFileName",
 					String.class);
 			if (method != null) {
-				method.invoke(this.generator, "greetings.txt");
+				method.invoke(this.generator, "Test0026_Block.c");
 			}
 		} catch (NoSuchMethodException | SecurityException
 			| IllegalAccessException | IllegalArgumentException
@@ -315,7 +315,7 @@ public class Test0026_Block {
 			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
-		final String actual = this.getTextFromFile("bin/greetings.txt");
+		final String actual = this.getTextFromFile("bin/Test0026_Block.c");
 		final String expected = this.getTextFromFile(
 			"res/Test0026_Block.c"
 			);

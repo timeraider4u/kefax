@@ -82,5 +82,5 @@ KW_DOUBLE WHITESPACE STAR WHITESPACE STAR WHITESPACE ID SEMI NEWLINE
 	)
 )
 //----------------------------------------------------------------------
-output file="bin/greetings.txt"
+output file="bin/Test0016_PointerVariable.c"
 expected file isSameAsInputFile

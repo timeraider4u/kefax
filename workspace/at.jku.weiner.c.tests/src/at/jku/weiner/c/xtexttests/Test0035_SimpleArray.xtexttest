@@ -1070,5 +1070,5 @@ RIGHTBRACE NEWLINE
 	)
 )
 //----------------------------------------------------------------------
-output file="bin/greetings.txt"
+output file="bin/Test0035_SimpleArray.c"
 expected file isSameAsInputFile

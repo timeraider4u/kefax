@@ -94,5 +94,5 @@ SEMI NEWLINE
 	)
 )
 //----------------------------------------------------------------------
-output file="bin/greetings.txt"
+output file="bin/Test0013_Assign.c"
 expected file isSameAsInputFile

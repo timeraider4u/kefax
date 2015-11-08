@@ -315,5 +315,5 @@ RIGHTBRACE NEWLINE
 	)
 )
 //----------------------------------------------------------------------
-output file="bin/greetings.txt"
+output file="bin/Test0028_ForWithDec.c"
 expected file isSameAsInputFile

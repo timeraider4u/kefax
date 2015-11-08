@@ -871,8 +871,8 @@ public class CGenerator implements IGenerator {
         _builder.append(_outputFor, "");
         _builder.append(")");
         _builder.newLineIfNotEmpty();
-        Statement _stmt = obj.getStmt();
-        String _outputFor_1 = this.outputFor(_stmt);
+        Statement _ifStatement = obj.getIfStatement();
+        String _outputFor_1 = this.outputFor(_ifStatement);
         _builder.append(_outputFor_1, "");
         _builder.newLineIfNotEmpty();
         {
@@ -919,8 +919,8 @@ public class CGenerator implements IGenerator {
         _builder.append(_outputFor, "");
         _builder.append(")");
         _builder.newLineIfNotEmpty();
-        Statement _stmt = obj.getStmt();
-        String _outputFor_1 = this.outputFor(_stmt);
+        Statement _statement = obj.getStatement();
+        String _outputFor_1 = this.outputFor(_statement);
         _builder.append(_outputFor_1, "");
         _builder.newLineIfNotEmpty();
       }
@@ -932,8 +932,8 @@ public class CGenerator implements IGenerator {
         _builder.append("do");
         _builder.newLine();
         _builder.append("\t");
-        Statement _statement = obj.getStatement();
-        String _outputFor_2 = this.outputFor(_statement);
+        Statement _statement_1 = obj.getStatement();
+        String _outputFor_2 = this.outputFor(_statement_1);
         _builder.append(_outputFor_2, "\t");
         _builder.newLineIfNotEmpty();
         _builder.append("while (");
@@ -1002,8 +1002,8 @@ public class CGenerator implements IGenerator {
         }
         _builder.append(")");
         _builder.newLine();
-        Statement _statement_1 = obj.getStatement();
-        String _outputFor_8 = this.outputFor(_statement_1);
+        Statement _statement_2 = obj.getStatement();
+        String _outputFor_8 = this.outputFor(_statement_2);
         _builder.append(_outputFor_8, "");
         _builder.newLineIfNotEmpty();
       }

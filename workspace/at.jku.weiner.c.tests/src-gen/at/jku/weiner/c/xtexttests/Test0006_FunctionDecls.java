@@ -130,20 +130,6 @@ public class Test0006_FunctionDecls {
 		return content;
 	}
 	
-	private String preprocess(final String string) {
-		final String lineComment = string.replaceAll("//.*\n", " ");
-		final String blockComment = lineComment.replaceAll("/\\*.*\\*/", " ");
-		final String lines = blockComment.replaceAll("\n", " ").trim();
-		final String multi = lines.replaceAll("\\s{2,}", " ").trim();
-		final String sign = multi.replaceAll("\\s+([^a-zA-Z0-9_])", "$1")
-				.trim();
-		final String sign2 = sign.replaceAll("([^a-zA-Z0-9_])\\s+", "$1")
-				.trim();
-	
-		// System.out.println(sign2);
-		return sign2;
-	}
-	
 	@Test
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
@@ -619,6 +605,34 @@ public class Test0006_FunctionDecls {
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
 		// System.out.println("Code generation finished.");
+	}
+	
+	private String preprocess(String string) throws Exception {
+		string = preprocessForFile(string);
+		string = preprocessForPatterns(string);
+		return string;
+	}
+	
+	private String preprocessForFile(String string) throws Exception {
+		final String content = this.getTextFromFile("res/Patterns.txt");
+		final String[] lines = content.split("\n");
+		if (lines == null) {
+			return string;
+		}
+		for (String line : lines) {
+			final String[] myLine = line.split("=");
+			if (myLine == null || myLine.length != 2) {
+				continue;
+			}
+			final String regex = myLine[0].replace("\"", "").replace("\\\\", "\\");
+			final String replace = myLine[1].replace("\"", "").replace("\\\\", "\\");
+			string = string.replaceAll(regex, replace);
+		}
+		return string;
+	}
+	
+	private String preprocessForPatterns(String string) {
+		return string;
 	}
 	
 }

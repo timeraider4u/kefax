@@ -343,7 +343,7 @@ class CGenerator implements IGenerator {
 	def String outputForSelectionStatement(SelectionStatement obj) '''
 		«IF obj.getIf() != null»
 			if («outputFor(obj.expr)»)
-			«outputFor(obj.stmt)»
+			«outputFor(obj.ifStatement)»
 			«IF obj.getElse() != null»
 				else «outputFor(obj.elseStatement)»
 			«ENDIF»
@@ -357,7 +357,7 @@ class CGenerator implements IGenerator {
 	def String outputForIterationStatement(IterationStatement obj) '''
 		«IF obj.getWhile() != null»
 			while («outputFor(obj.expr)»)
-			«outputFor(obj.stmt)»
+			«outputFor(obj.statement)»
 		«ENDIF»
 		«IF obj.getDo() != null»
 			do

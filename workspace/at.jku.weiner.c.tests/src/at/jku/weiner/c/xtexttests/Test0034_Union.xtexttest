@@ -1119,7 +1119,7 @@ RIGHTBRACE NEWLINE
 																																									),
 																																									suffix+=
 																																									(PostfixExpressionSuffixDot
-																																										id++"[numChar]"
+																																										id++"numChar"
 																																									)
 																																								)
 																																							)
@@ -1289,7 +1289,7 @@ RIGHTBRACE NEWLINE
 																																									),
 																																									suffix+=
 																																									(PostfixExpressionSuffixDot
-																																										id++"[numChar]"
+																																										id++"numChar"
 																																									)
 																																								)
 																																							)
@@ -1459,7 +1459,7 @@ RIGHTBRACE NEWLINE
 																																									),
 																																									suffix+=
 																																									(PostfixExpressionSuffixDot
-																																										id+*"[numFloat]"
+																																										id++"numFloat"
 																																									)
 																																								)
 																																							)
@@ -1516,7 +1516,7 @@ RIGHTBRACE NEWLINE
 												),
 												suffix+=
 												(PostfixExpressionSuffixDot
-													id++"[numFloat]"
+													id++"numFloat"
 												)
 											)
 										), // end unary expression
@@ -1713,7 +1713,7 @@ RIGHTBRACE NEWLINE
 																																									),
 																																									suffix+=
 																																									(PostfixExpressionSuffixDot
-																																										id++"[numChar]"
+																																										id++"numChar"
 																																									)
 																																								)
 																																							)
@@ -1882,7 +1882,7 @@ RIGHTBRACE NEWLINE
 																																									),
 																																									suffix+=
 																																									(PostfixExpressionSuffixDot
-																																										id++"[numFloat]"
+																																										id++"numFloat"
 																																									)
 																																								)
 																																							)

@@ -2862,8 +2862,8 @@ public class Test0038_StructAdvanced {
 		 = (PostfixExpressionSuffixDot)Suffix_232_list.get(0);
 		Assert.assertNotNull(PostfixExpressionSuffixDot_233_Var
 		);
-		Assert.assertEquals("[id]", PostfixExpressionSuffixDot_233_Var
-		.getId().toString());
+		Assert.assertEquals("id", PostfixExpressionSuffixDot_233_Var
+		.getId());
 		Assert.assertEquals(";", ExpressionStatement_160_Var
 		.getSemi());
 		//233
@@ -5709,8 +5709,8 @@ public class Test0038_StructAdvanced {
 		 = (PostfixExpressionSuffixArrow)Suffix_585_list.get(0);
 		Assert.assertNotNull(PostfixExpressionSuffixArrow_586_Var
 		);
-		Assert.assertEquals("[name]", PostfixExpressionSuffixArrow_586_Var
-		.getId().toString());
+		Assert.assertEquals("name", PostfixExpressionSuffixArrow_586_Var
+		.getId());
 		//586
 		final AssignmentExpression AssignmentExpression_587_Var
 		 = (AssignmentExpression)Expr_569_list.get(1);

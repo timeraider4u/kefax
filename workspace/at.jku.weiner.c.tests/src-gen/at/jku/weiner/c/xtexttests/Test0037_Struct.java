@@ -2350,8 +2350,8 @@ public class Test0037_Struct {
 		 = (PostfixExpressionSuffixDot)Suffix_178_list.get(0);
 		Assert.assertNotNull(PostfixExpressionSuffixDot_179_Var
 		);
-		Assert.assertEquals("[id]", PostfixExpressionSuffixDot_179_Var
-		.getId().toString());
+		Assert.assertEquals("id", PostfixExpressionSuffixDot_179_Var
+		.getId());
 		Assert.assertEquals(";", ExpressionStatement_108_Var
 		.getSemi());
 		//179
@@ -2945,7 +2945,7 @@ public class Test0037_Struct {
 		 = (PostfixExpressionSuffixDot)Suffix_251_list.get(0);
 		Assert.assertNotNull(PostfixExpressionSuffixDot_252_Var
 		);
-		Assert.assertEquals("[name]", PostfixExpressionSuffixDot_252_Var
+		Assert.assertEquals("name", PostfixExpressionSuffixDot_252_Var
 		.getId());
 		Assert.assertEquals(";", ExpressionStatement_181_Var
 		.getSemi());
@@ -3591,7 +3591,7 @@ public class Test0037_Struct {
 		 = (PostfixExpressionSuffixDot)Suffix_331_list.get(0);
 		Assert.assertNotNull(PostfixExpressionSuffixDot_332_Var
 		);
-		Assert.assertEquals("[id]", PostfixExpressionSuffixDot_332_Var
+		Assert.assertEquals("id", PostfixExpressionSuffixDot_332_Var
 		.getId());
 		//332
 		final AssignmentOperator AssignmentOperator_333_Var
@@ -4049,7 +4049,7 @@ public class Test0037_Struct {
 		 = (PostfixExpressionSuffixDot)Suffix_387_list.get(0);
 		Assert.assertNotNull(PostfixExpressionSuffixDot_388_Var
 		);
-		Assert.assertEquals("[name]", PostfixExpressionSuffixDot_388_Var
+		Assert.assertEquals("name", PostfixExpressionSuffixDot_388_Var
 		.getId());
 		//388
 		final AssignmentExpression AssignmentExpression_389_Var
@@ -4634,7 +4634,7 @@ public class Test0037_Struct {
 		 = (PostfixExpressionSuffixDot)Suffix_459_list.get(0);
 		Assert.assertNotNull(PostfixExpressionSuffixDot_460_Var
 		);
-		Assert.assertEquals("[id]", PostfixExpressionSuffixDot_460_Var
+		Assert.assertEquals("id", PostfixExpressionSuffixDot_460_Var
 		.getId());
 		Assert.assertEquals(";", ExpressionStatement_407_Var
 		.getSemi());
@@ -5083,7 +5083,7 @@ public class Test0037_Struct {
 		 = (PostfixExpressionSuffixDot)Suffix_514_list.get(0);
 		Assert.assertNotNull(PostfixExpressionSuffixDot_515_Var
 		);
-		Assert.assertEquals("[name]", PostfixExpressionSuffixDot_515_Var
+		Assert.assertEquals("name", PostfixExpressionSuffixDot_515_Var
 		.getId());
 		Assert.assertEquals(";", ExpressionStatement_462_Var
 		.getSemi());
@@ -5532,7 +5532,7 @@ public class Test0037_Struct {
 		 = (PostfixExpressionSuffixDot)Suffix_569_list.get(0);
 		Assert.assertNotNull(PostfixExpressionSuffixDot_570_Var
 		);
-		Assert.assertEquals("[id]", PostfixExpressionSuffixDot_570_Var
+		Assert.assertEquals("id", PostfixExpressionSuffixDot_570_Var
 		.getId());
 		Assert.assertEquals(";", ExpressionStatement_517_Var
 		.getSemi());
@@ -5981,7 +5981,7 @@ public class Test0037_Struct {
 		 = (PostfixExpressionSuffixDot)Suffix_624_list.get(0);
 		Assert.assertNotNull(PostfixExpressionSuffixDot_625_Var
 		);
-		Assert.assertEquals("[name]", PostfixExpressionSuffixDot_625_Var
+		Assert.assertEquals("name", PostfixExpressionSuffixDot_625_Var
 		.getId());
 		Assert.assertEquals(";", ExpressionStatement_572_Var
 		.getSemi());

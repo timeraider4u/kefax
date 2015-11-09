@@ -747,7 +747,7 @@ RIGHTBRACE NEWLINE
 																																									), // end primary expression
 																																									suffix+=
 																																									(PostfixExpressionSuffixDot
-																																										id+*"[id]"
+																																										id++"id"
 																																									)
 																																								)
 																																							)
@@ -1856,7 +1856,7 @@ RIGHTBRACE NEWLINE
 																																									),
 																																									suffix+=
 																																									(PostfixExpressionSuffixArrow
-																																										id+*"[name]"
+																																										id++"name"
 																																									)
 																																								)
 																																							)

@@ -3783,7 +3783,7 @@ public class Test0034_Union {
 		 = (PostfixExpressionSuffixDot)Suffix_356_list.get(0);
 		Assert.assertNotNull(PostfixExpressionSuffixDot_357_Var
 		);
-		Assert.assertEquals("[numChar]", PostfixExpressionSuffixDot_357_Var
+		Assert.assertEquals("numChar", PostfixExpressionSuffixDot_357_Var
 		.getId());
 		Assert.assertEquals(";", ExpressionStatement_304_Var
 		.getSemi());
@@ -4232,7 +4232,7 @@ public class Test0034_Union {
 		 = (PostfixExpressionSuffixDot)Suffix_411_list.get(0);
 		Assert.assertNotNull(PostfixExpressionSuffixDot_412_Var
 		);
-		Assert.assertEquals("[numChar]", PostfixExpressionSuffixDot_412_Var
+		Assert.assertEquals("numChar", PostfixExpressionSuffixDot_412_Var
 		.getId());
 		Assert.assertEquals(";", ExpressionStatement_359_Var
 		.getSemi());
@@ -4681,8 +4681,8 @@ public class Test0034_Union {
 		 = (PostfixExpressionSuffixDot)Suffix_466_list.get(0);
 		Assert.assertNotNull(PostfixExpressionSuffixDot_467_Var
 		);
-		Assert.assertEquals("[numFloat]", PostfixExpressionSuffixDot_467_Var
-		.getId().toString());
+		Assert.assertEquals("numFloat", PostfixExpressionSuffixDot_467_Var
+		.getId());
 		Assert.assertEquals(";", ExpressionStatement_414_Var
 		.getSemi());
 		//467
@@ -4743,7 +4743,7 @@ public class Test0034_Union {
 		 = (PostfixExpressionSuffixDot)Suffix_474_list.get(0);
 		Assert.assertNotNull(PostfixExpressionSuffixDot_475_Var
 		);
-		Assert.assertEquals("[numFloat]", PostfixExpressionSuffixDot_475_Var
+		Assert.assertEquals("numFloat", PostfixExpressionSuffixDot_475_Var
 		.getId());
 		//475
 		final AssignmentOperator AssignmentOperator_476_Var
@@ -5337,7 +5337,7 @@ public class Test0034_Union {
 		 = (PostfixExpressionSuffixDot)Suffix_547_list.get(0);
 		Assert.assertNotNull(PostfixExpressionSuffixDot_548_Var
 		);
-		Assert.assertEquals("[numChar]", PostfixExpressionSuffixDot_548_Var
+		Assert.assertEquals("numChar", PostfixExpressionSuffixDot_548_Var
 		.getId());
 		Assert.assertEquals(";", ExpressionStatement_495_Var
 		.getSemi());
@@ -5786,7 +5786,7 @@ public class Test0034_Union {
 		 = (PostfixExpressionSuffixDot)Suffix_602_list.get(0);
 		Assert.assertNotNull(PostfixExpressionSuffixDot_603_Var
 		);
-		Assert.assertEquals("[numFloat]", PostfixExpressionSuffixDot_603_Var
+		Assert.assertEquals("numFloat", PostfixExpressionSuffixDot_603_Var
 		.getId());
 		Assert.assertEquals(";", ExpressionStatement_550_Var
 		.getSemi());

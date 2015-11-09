@@ -544,7 +544,7 @@ RIGHTBRACE NEWLINE
 																																																											),
 																																																											suffix+=
 																																																											(PostfixExpressionSuffixDot
-																																																												id+*"[id]"
+																																																												id++"id"
 																																																											)
 																																																										)
 																																																									)	
@@ -770,7 +770,7 @@ RIGHTBRACE NEWLINE
 																																																											),
 																																																											suffix+=
 																																																											(PostfixExpressionSuffixDot
-																																																												id++"[name]"
+																																																												id++"name"
 																																																											)
 																																																										)
 																																																									)	
@@ -1069,7 +1069,7 @@ RIGHTBRACE NEWLINE
 												),
 												suffix+=
 												(PostfixExpressionSuffixDot
-													id++"[id]"
+													id++"id"
 												)
 											)
 										), // end unary expression
@@ -1215,7 +1215,7 @@ RIGHTBRACE NEWLINE
 																																									),
 																																									suffix+=
 																																									(PostfixExpressionSuffixDot
-																																										id++"[name]"
+																																										id++"name"
 																																									)
 																																								)
 																																							)
@@ -1436,7 +1436,7 @@ RIGHTBRACE NEWLINE
 																																									),
 																																									suffix+=
 																																									(PostfixExpressionSuffixDot
-																																										id++"[id]"
+																																										id++"id"
 																																									)
 																																								)
 																																							)
@@ -1606,7 +1606,7 @@ RIGHTBRACE NEWLINE
 																																									),
 																																									suffix+=
 																																									(PostfixExpressionSuffixDot
-																																										id++"[name]"
+																																										id++"name"
 																																									)
 																																								)
 																																							)
@@ -1776,7 +1776,7 @@ RIGHTBRACE NEWLINE
 																																									),
 																																									suffix+=
 																																									(PostfixExpressionSuffixDot
-																																										id++"[id]"
+																																										id++"id"
 																																									)
 																																								)
 																																							)
@@ -1946,7 +1946,7 @@ RIGHTBRACE NEWLINE
 																																									),
 																																									suffix+=
 																																									(PostfixExpressionSuffixDot
-																																										id++"[name]"
+																																										id++"name"
 																																									)
 																																								)
 																																							)

@@ -142,7 +142,7 @@ public class Test0001_Semicolons {
 		 = (Code)Lines_1_list.get(1);
 		Assert.assertNotNull(Code_3_Var
 		);
-		Assert.assertEquals(";;", Code_3_Var
+		Assert.assertEquals(";\\;\\\\;", Code_3_Var
 		.getCode());
 		//3
 		final NewLineLine NewLineLine_4_Var

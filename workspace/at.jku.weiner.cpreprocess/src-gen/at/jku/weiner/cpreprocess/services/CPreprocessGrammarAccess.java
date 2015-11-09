@@ -318,7 +318,7 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		return tHASH;
 	}
 	
-	//terminal BACKSLASH:
+	//terminal fragment BACKSLASH:
 	//	'\\';
 	public TerminalRule getBACKSLASHRule() {
 		return tBACKSLASH;

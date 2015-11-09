@@ -74,7 +74,7 @@ Code returns SourceCodeLine:
 
 // lexer tokens
 terminal HASH: '#';
-terminal BACKSLASH: '\\';
+terminal fragment BACKSLASH: '\\';
 
 terminal WHITESPACE: (' ' | '\t' | BACKSLASH NEWLINE)+;
 terminal NEWLINE: ('\r'|'\n');

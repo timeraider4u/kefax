@@ -19,7 +19,7 @@ lexer-tokens
 			code++";"
 		),
 		(Code
-			code++";;"
+			code++";\\\\;\\\\\\\\;"
 		),
 		(NewLineLine
 			

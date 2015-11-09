@@ -124,7 +124,7 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     ((lines+=NewLineLine | lines+=Code)*)
+	 *     ((lines+=PreprocessorDirectives | lines+=NewLineLine | lines+=Code)*)
 	 */
 	protected void sequence_TranslationUnit(EObject context, TranslationUnit semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

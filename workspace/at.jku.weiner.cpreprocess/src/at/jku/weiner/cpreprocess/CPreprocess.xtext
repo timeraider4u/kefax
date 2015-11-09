@@ -39,8 +39,8 @@ Model:
 	
 TranslationUnit:
 	{TranslationUnit}
-	(	//	lines+=PreprocessorDirectives
-		//|
+	(	lines+=PreprocessorDirectives
+		|
 		lines+=NewLineLine
 		|	
 		lines+=Code
@@ -76,6 +76,6 @@ Code returns SourceCodeLine:
 terminal HASH: '#';
 terminal fragment BACKSLASH: '\\';
 
-terminal WHITESPACE: (' ' | '\t' | BACKSLASH NEWLINE)+;
+terminal WHITESPACE: (BACKSLASH NEWLINE)+;
 terminal NEWLINE: ('\r'|'\n');
 terminal MYCODE: !(HASH | NEWLINE) (!NEWLINE)*;

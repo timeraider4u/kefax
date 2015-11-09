@@ -6,6 +6,12 @@ package at.jku.weiner.cpreprocess.generator
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
 import org.eclipse.xtext.generator.IGenerator
+import org.eclipse.xtend.lib.annotations.Accessors
+import at.jku.weiner.cpreprocess.cPreprocess.TranslationUnit
+import at.jku.weiner.cpreprocess.cPreprocess.Model
+import at.jku.weiner.cpreprocess.cPreprocess.PreprocessorDirectives
+import at.jku.weiner.cpreprocess.cPreprocess.NewLineLine
+import at.jku.weiner.cpreprocess.cPreprocess.Code
 
 /**
  * Generates code from your model files on save.
@@ -14,12 +20,37 @@ import org.eclipse.xtext.generator.IGenerator
  */
 class CPreprocessGenerator implements IGenerator {
 
-	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(typeof(Greeting))
-//				.map[name]
-//				.join(', '))
+	@Accessors String fileName = 'greetings.txt';
+	
+	override void doGenerate(Resource input, IFileSystemAccess fsa) {
+		val model = input.allContents.filter(typeof(Model)).head;
+		val unit = model.units.head;
+		val output = outputFor(unit);
+		fsa.generateFile(fileName, output);
 	}
 
+	def String outputFor(TranslationUnit unit) '''
+		«FOR l : unit.lines»
+			«IF l instanceof PreprocessorDirectives»
+				«outputFor(l as PreprocessorDirectives)»
+			«ENDIF»
+			«IF l instanceof NewLineLine»
+				«outputFor(l as NewLineLine)»
+			«ENDIF»
+			«IF l instanceof Code»
+				«outputFor(l as Code)»
+			«ENDIF»
+		«ENDFOR»
+	'''
+
+	def String outputFor(PreprocessorDirectives obj) '''
+	'''
+	
+	def String outputFor(NewLineLine obj) '''
+
+	'''
+	
+	def String outputFor(Code obj) '''
+		«obj.code»
+	'''
 }

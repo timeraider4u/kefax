@@ -106,6 +106,51 @@ public class Test0000_Empty {
 		);
 	}
 	
+	@Test
+	public void testGenerator() throws Exception {
+		// load the resource
+		ResourceSet set = this.resourceSetProvider.get();
+		URI uri = URI.createURI(
+			"res/Test0000_Empty.c");
+		Resource resource = set.getResource(uri, true);
+		// validate the resource
+		List<Issue> list = this.validator.validate(resource, 
+			CheckMode.ALL,CancelIndicator.NullImpl);
+		Assert.assertTrue(list.isEmpty());
+		
+		// configure and start the generator
+		this.fileAccessSystem.setOutputPath("bin");
+		final Class<?> clazz = this.generator.getClass();
+		try {
+			final Method method = clazz.getMethod("setFileName",
+					String.class);
+			if (method != null) {
+				method.invoke(this.generator, "Test0000_Empty.c.i");
+			}
+		} catch (NoSuchMethodException | SecurityException
+			| IllegalAccessException | IllegalArgumentException
+			| InvocationTargetException e) {
+			// do nothing
+			// System.out.println("do nothing!");
+		}
+		this.generator.doGenerate(resource, this.fileAccessSystem);
+		final String actual = this.getTextFromFile("bin/Test0000_Empty.c.i");
+		final String expected = this.getTextFromFile(
+			"res/Test0000_Empty.c"
+			);
+		Assert.assertEquals(preprocess(expected), preprocess(actual));
+		// System.out.println("Code generation finished.");
+	}
+	
+	private String preprocess(String string) throws Exception {
+		string = preprocessForPatterns(string);
+		return string;
+	}
+	
+	
+	private String preprocessForPatterns(String string) {
+		return string;
+	}
 	
 }
 

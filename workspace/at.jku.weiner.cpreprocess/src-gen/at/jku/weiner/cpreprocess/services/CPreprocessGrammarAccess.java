@@ -52,37 +52,44 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cTranslationUnitAction_0 = (Action)cGroup.eContents().get(0);
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
 		private final Assignment cLinesAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
-		private final RuleCall cLinesNewLineLineParserRuleCall_1_0_0 = (RuleCall)cLinesAssignment_1_0.eContents().get(0);
+		private final RuleCall cLinesPreprocessorDirectivesParserRuleCall_1_0_0 = (RuleCall)cLinesAssignment_1_0.eContents().get(0);
 		private final Assignment cLinesAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
-		private final RuleCall cLinesCodeParserRuleCall_1_1_0 = (RuleCall)cLinesAssignment_1_1.eContents().get(0);
+		private final RuleCall cLinesNewLineLineParserRuleCall_1_1_0 = (RuleCall)cLinesAssignment_1_1.eContents().get(0);
+		private final Assignment cLinesAssignment_1_2 = (Assignment)cAlternatives_1.eContents().get(2);
+		private final RuleCall cLinesCodeParserRuleCall_1_2_0 = (RuleCall)cLinesAssignment_1_2.eContents().get(0);
 		
 		//TranslationUnit:
-		//	{TranslationUnit} (lines+=NewLineLine
+		//	{TranslationUnit} (lines+=PreprocessorDirectives
+		//	| lines+=NewLineLine
 		//	| lines+=Code)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{TranslationUnit} (lines+=NewLineLine | lines+=Code)*
+		//{TranslationUnit} (lines+=PreprocessorDirectives | lines+=NewLineLine | lines+=Code)*
 		public Group getGroup() { return cGroup; }
 		
 		//{TranslationUnit}
 		public Action getTranslationUnitAction_0() { return cTranslationUnitAction_0; }
 		
-		//(lines+=NewLineLine | lines+=Code)*
+		//(lines+=PreprocessorDirectives | lines+=NewLineLine | lines+=Code)*
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		////	lines+=PreprocessorDirectives
-		////|
-		//lines+=NewLineLine
+		//lines+=PreprocessorDirectives
 		public Assignment getLinesAssignment_1_0() { return cLinesAssignment_1_0; }
 		
-		//NewLineLine
-		public RuleCall getLinesNewLineLineParserRuleCall_1_0_0() { return cLinesNewLineLineParserRuleCall_1_0_0; }
+		//PreprocessorDirectives
+		public RuleCall getLinesPreprocessorDirectivesParserRuleCall_1_0_0() { return cLinesPreprocessorDirectivesParserRuleCall_1_0_0; }
 		
-		//lines+=Code
+		//lines+=NewLineLine
 		public Assignment getLinesAssignment_1_1() { return cLinesAssignment_1_1; }
 		
+		//NewLineLine
+		public RuleCall getLinesNewLineLineParserRuleCall_1_1_0() { return cLinesNewLineLineParserRuleCall_1_1_0; }
+		
+		//lines+=Code
+		public Assignment getLinesAssignment_1_2() { return cLinesAssignment_1_2; }
+		
 		//Code
-		public RuleCall getLinesCodeParserRuleCall_1_1_0() { return cLinesCodeParserRuleCall_1_1_0; }
+		public RuleCall getLinesCodeParserRuleCall_1_2_0() { return cLinesCodeParserRuleCall_1_2_0; }
 	}
 	public class PreprocessorDirectivesElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.PreprocessorDirectives");
@@ -258,7 +265,8 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//TranslationUnit:
-	//	{TranslationUnit} (lines+=NewLineLine
+	//	{TranslationUnit} (lines+=PreprocessorDirectives
+	//	| lines+=NewLineLine
 	//	| lines+=Code)*;
 	public TranslationUnitElements getTranslationUnitAccess() {
 		return pTranslationUnit;
@@ -325,7 +333,7 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal WHITESPACE:
-	//	' ' | '\t' | BACKSLASH NEWLINE+;
+	//	BACKSLASH NEWLINE+;
 	public TerminalRule getWHITESPACERule() {
 		return tWHITESPACE;
 	}

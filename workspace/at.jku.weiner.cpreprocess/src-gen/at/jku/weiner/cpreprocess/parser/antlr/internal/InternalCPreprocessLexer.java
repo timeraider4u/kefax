@@ -11,11 +11,11 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class InternalCPreprocessLexer extends Lexer {
-    public static final int RULE_NEWLINE=4;
+    public static final int RULE_NEWLINE=5;
     public static final int RULE_BACKSLASH=7;
-    public static final int RULE_HASH=6;
+    public static final int RULE_HASH=4;
     public static final int RULE_WHITESPACE=8;
-    public static final int RULE_MYCODE=5;
+    public static final int RULE_MYCODE=6;
     public static final int EOF=-1;
     public static final int T__9=9;
 
@@ -58,8 +58,8 @@ public class InternalCPreprocessLexer extends Lexer {
         try {
             int _type = RULE_HASH;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCPreprocess.g:379:11: ( '#' )
-            // InternalCPreprocess.g:379:13: '#'
+            // InternalCPreprocess.g:470:11: ( '#' )
+            // InternalCPreprocess.g:470:13: '#'
             {
             match('#'); 
 
@@ -76,8 +76,8 @@ public class InternalCPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_BACKSLASH"
     public final void mRULE_BACKSLASH() throws RecognitionException {
         try {
-            // InternalCPreprocess.g:381:25: ( '\\\\' )
-            // InternalCPreprocess.g:381:27: '\\\\'
+            // InternalCPreprocess.g:472:25: ( '\\\\' )
+            // InternalCPreprocess.g:472:27: '\\\\'
             {
             match('\\'); 
 
@@ -94,50 +94,24 @@ public class InternalCPreprocessLexer extends Lexer {
         try {
             int _type = RULE_WHITESPACE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCPreprocess.g:383:17: ( ( ' ' | '\\t' | RULE_BACKSLASH RULE_NEWLINE )+ )
-            // InternalCPreprocess.g:383:19: ( ' ' | '\\t' | RULE_BACKSLASH RULE_NEWLINE )+
+            // InternalCPreprocess.g:474:17: ( ( RULE_BACKSLASH RULE_NEWLINE )+ )
+            // InternalCPreprocess.g:474:19: ( RULE_BACKSLASH RULE_NEWLINE )+
             {
-            // InternalCPreprocess.g:383:19: ( ' ' | '\\t' | RULE_BACKSLASH RULE_NEWLINE )+
+            // InternalCPreprocess.g:474:19: ( RULE_BACKSLASH RULE_NEWLINE )+
             int cnt1=0;
             loop1:
             do {
-                int alt1=4;
-                switch ( input.LA(1) ) {
-                case ' ':
-                    {
-                    alt1=1;
-                    }
-                    break;
-                case '\t':
-                    {
-                    alt1=2;
-                    }
-                    break;
-                case '\\':
-                    {
-                    alt1=3;
-                    }
-                    break;
+                int alt1=2;
+                int LA1_0 = input.LA(1);
 
+                if ( (LA1_0=='\\') ) {
+                    alt1=1;
                 }
+
 
                 switch (alt1) {
             	case 1 :
-            	    // InternalCPreprocess.g:383:20: ' '
-            	    {
-            	    match(' '); 
-
-            	    }
-            	    break;
-            	case 2 :
-            	    // InternalCPreprocess.g:383:24: '\\t'
-            	    {
-            	    match('\t'); 
-
-            	    }
-            	    break;
-            	case 3 :
-            	    // InternalCPreprocess.g:383:29: RULE_BACKSLASH RULE_NEWLINE
+            	    // InternalCPreprocess.g:474:20: RULE_BACKSLASH RULE_NEWLINE
             	    {
             	    mRULE_BACKSLASH(); 
             	    mRULE_NEWLINE(); 
@@ -170,8 +144,8 @@ public class InternalCPreprocessLexer extends Lexer {
         try {
             int _type = RULE_NEWLINE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCPreprocess.g:385:14: ( ( '\\r' | '\\n' ) )
-            // InternalCPreprocess.g:385:16: ( '\\r' | '\\n' )
+            // InternalCPreprocess.g:476:14: ( ( '\\r' | '\\n' ) )
+            // InternalCPreprocess.g:476:16: ( '\\r' | '\\n' )
             {
             if ( input.LA(1)=='\n'||input.LA(1)=='\r' ) {
                 input.consume();
@@ -198,8 +172,8 @@ public class InternalCPreprocessLexer extends Lexer {
         try {
             int _type = RULE_MYCODE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCPreprocess.g:387:13: (~ ( ( RULE_HASH | RULE_NEWLINE ) ) (~ ( RULE_NEWLINE ) )* )
-            // InternalCPreprocess.g:387:15: ~ ( ( RULE_HASH | RULE_NEWLINE ) ) (~ ( RULE_NEWLINE ) )*
+            // InternalCPreprocess.g:478:13: (~ ( ( RULE_HASH | RULE_NEWLINE ) ) (~ ( RULE_NEWLINE ) )* )
+            // InternalCPreprocess.g:478:15: ~ ( ( RULE_HASH | RULE_NEWLINE ) ) (~ ( RULE_NEWLINE ) )*
             {
             if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\"')||(input.LA(1)>='$' && input.LA(1)<='\uFFFF') ) {
                 input.consume();
@@ -210,7 +184,7 @@ public class InternalCPreprocessLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalCPreprocess.g:387:43: (~ ( RULE_NEWLINE ) )*
+            // InternalCPreprocess.g:478:43: (~ ( RULE_NEWLINE ) )*
             loop2:
             do {
                 int alt2=2;
@@ -223,7 +197,7 @@ public class InternalCPreprocessLexer extends Lexer {
 
                 switch (alt2) {
             	case 1 :
-            	    // InternalCPreprocess.g:387:43: ~ ( RULE_NEWLINE )
+            	    // InternalCPreprocess.g:478:43: ~ ( RULE_NEWLINE )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -302,36 +276,31 @@ public class InternalCPreprocessLexer extends Lexer {
 
     protected DFA3 dfa3 = new DFA3(this);
     static final String DFA3_eotS =
-        "\1\uffff\1\7\1\uffff\2\11\1\7\2\uffff\1\7\1\uffff\2\11\5\7\1\22\1\uffff";
+        "\1\uffff\1\5\1\uffff\1\5\2\uffff\1\5\1\uffff\4\5\1\15\1\uffff";
     static final String DFA3_eofS =
-        "\23\uffff";
+        "\16\uffff";
     static final String DFA3_minS =
-        "\1\0\1\156\1\uffff\2\0\1\12\2\uffff\1\143\1\uffff\2\0\1\12\1\154\1\165\1\144\1\145\1\0\1\uffff";
+        "\1\0\1\156\1\uffff\1\12\2\uffff\1\143\1\uffff\1\154\1\165\1\144\1\145\1\0\1\uffff";
     static final String DFA3_maxS =
-        "\1\uffff\1\156\1\uffff\2\uffff\1\15\2\uffff\1\143\1\uffff\2\uffff\1\15\1\154\1\165\1\144\1\145\1\uffff\1\uffff";
+        "\1\uffff\1\156\1\uffff\1\15\2\uffff\1\143\1\uffff\1\154\1\165\1\144\1\145\1\uffff\1\uffff";
     static final String DFA3_acceptS =
-        "\2\uffff\1\2\3\uffff\1\4\1\5\1\uffff\1\3\10\uffff\1\1";
+        "\2\uffff\1\2\1\uffff\1\4\1\5\1\uffff\1\3\5\uffff\1\1";
     static final String DFA3_specialS =
-        "\1\4\2\uffff\1\3\1\5\5\uffff\1\1\1\2\5\uffff\1\0\1\uffff}>";
+        "\1\1\13\uffff\1\0\1\uffff}>";
     static final String[] DFA3_transitionS = {
-            "\11\7\1\4\1\6\2\7\1\6\22\7\1\3\2\7\1\2\70\7\1\5\14\7\1\1\uff96\7",
+            "\12\5\1\4\2\5\1\4\25\5\1\2\70\5\1\3\14\5\1\1\uff96\5",
+            "\1\6",
+            "",
+            "\1\7\2\uffff\1\7",
+            "",
+            "",
             "\1\10",
             "",
-            "\11\7\1\13\1\uffff\2\7\1\uffff\22\7\1\12\73\7\1\14\uffa3\7",
-            "\11\7\1\13\1\uffff\2\7\1\uffff\22\7\1\12\73\7\1\14\uffa3\7",
-            "\1\11\2\uffff\1\11",
-            "",
-            "",
-            "\1\15",
-            "",
-            "\11\7\1\13\1\uffff\2\7\1\uffff\22\7\1\12\73\7\1\14\uffa3\7",
-            "\11\7\1\13\1\uffff\2\7\1\uffff\22\7\1\12\73\7\1\14\uffa3\7",
-            "\1\11\2\uffff\1\11",
-            "\1\16",
-            "\1\17",
-            "\1\20",
-            "\1\21",
-            "\12\7\1\uffff\2\7\1\uffff\ufff2\7",
+            "\1\11",
+            "\1\12",
+            "\1\13",
+            "\1\14",
+            "\12\5\1\uffff\2\5\1\uffff\ufff2\5",
             ""
     };
 
@@ -372,64 +341,16 @@ public class InternalCPreprocessLexer extends Lexer {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA3_17 = input.LA(1);
+                        int LA3_12 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA3_17>='\u0000' && LA3_17<='\t')||(LA3_17>='\u000B' && LA3_17<='\f')||(LA3_17>='\u000E' && LA3_17<='\uFFFF')) ) {s = 7;}
+                        if ( ((LA3_12>='\u0000' && LA3_12<='\t')||(LA3_12>='\u000B' && LA3_12<='\f')||(LA3_12>='\u000E' && LA3_12<='\uFFFF')) ) {s = 5;}
 
-                        else s = 18;
+                        else s = 13;
 
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
-                        int LA3_10 = input.LA(1);
-
-                        s = -1;
-                        if ( (LA3_10==' ') ) {s = 10;}
-
-                        else if ( (LA3_10=='\t') ) {s = 11;}
-
-                        else if ( (LA3_10=='\\') ) {s = 12;}
-
-                        else if ( ((LA3_10>='\u0000' && LA3_10<='\b')||(LA3_10>='\u000B' && LA3_10<='\f')||(LA3_10>='\u000E' && LA3_10<='\u001F')||(LA3_10>='!' && LA3_10<='[')||(LA3_10>=']' && LA3_10<='\uFFFF')) ) {s = 7;}
-
-                        else s = 9;
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
-                        int LA3_11 = input.LA(1);
-
-                        s = -1;
-                        if ( (LA3_11==' ') ) {s = 10;}
-
-                        else if ( (LA3_11=='\t') ) {s = 11;}
-
-                        else if ( (LA3_11=='\\') ) {s = 12;}
-
-                        else if ( ((LA3_11>='\u0000' && LA3_11<='\b')||(LA3_11>='\u000B' && LA3_11<='\f')||(LA3_11>='\u000E' && LA3_11<='\u001F')||(LA3_11>='!' && LA3_11<='[')||(LA3_11>=']' && LA3_11<='\uFFFF')) ) {s = 7;}
-
-                        else s = 9;
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 3 : 
-                        int LA3_3 = input.LA(1);
-
-                        s = -1;
-                        if ( (LA3_3==' ') ) {s = 10;}
-
-                        else if ( (LA3_3=='\t') ) {s = 11;}
-
-                        else if ( (LA3_3=='\\') ) {s = 12;}
-
-                        else if ( ((LA3_3>='\u0000' && LA3_3<='\b')||(LA3_3>='\u000B' && LA3_3<='\f')||(LA3_3>='\u000E' && LA3_3<='\u001F')||(LA3_3>='!' && LA3_3<='[')||(LA3_3>=']' && LA3_3<='\uFFFF')) ) {s = 7;}
-
-                        else s = 9;
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 4 : 
                         int LA3_0 = input.LA(1);
 
                         s = -1;
@@ -437,31 +358,11 @@ public class InternalCPreprocessLexer extends Lexer {
 
                         else if ( (LA3_0=='#') ) {s = 2;}
 
-                        else if ( (LA3_0==' ') ) {s = 3;}
+                        else if ( (LA3_0=='\\') ) {s = 3;}
 
-                        else if ( (LA3_0=='\t') ) {s = 4;}
+                        else if ( (LA3_0=='\n'||LA3_0=='\r') ) {s = 4;}
 
-                        else if ( (LA3_0=='\\') ) {s = 5;}
-
-                        else if ( (LA3_0=='\n'||LA3_0=='\r') ) {s = 6;}
-
-                        else if ( ((LA3_0>='\u0000' && LA3_0<='\b')||(LA3_0>='\u000B' && LA3_0<='\f')||(LA3_0>='\u000E' && LA3_0<='\u001F')||(LA3_0>='!' && LA3_0<='\"')||(LA3_0>='$' && LA3_0<='[')||(LA3_0>=']' && LA3_0<='h')||(LA3_0>='j' && LA3_0<='\uFFFF')) ) {s = 7;}
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 5 : 
-                        int LA3_4 = input.LA(1);
-
-                        s = -1;
-                        if ( (LA3_4==' ') ) {s = 10;}
-
-                        else if ( (LA3_4=='\t') ) {s = 11;}
-
-                        else if ( (LA3_4=='\\') ) {s = 12;}
-
-                        else if ( ((LA3_4>='\u0000' && LA3_4<='\b')||(LA3_4>='\u000B' && LA3_4<='\f')||(LA3_4>='\u000E' && LA3_4<='\u001F')||(LA3_4>='!' && LA3_4<='[')||(LA3_4>=']' && LA3_4<='\uFFFF')) ) {s = 7;}
-
-                        else s = 9;
+                        else if ( ((LA3_0>='\u0000' && LA3_0<='\t')||(LA3_0>='\u000B' && LA3_0<='\f')||(LA3_0>='\u000E' && LA3_0<='\"')||(LA3_0>='$' && LA3_0<='[')||(LA3_0>=']' && LA3_0<='h')||(LA3_0>='j' && LA3_0<='\uFFFF')) ) {s = 5;}
 
                         if ( s>=0 ) return s;
                         break;

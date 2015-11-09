@@ -10,10 +10,10 @@ package at.jku.weiner.cpreprocess.cPreprocess;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.cpreprocess.cPreprocess.PreprocessorDirectives#getDirective <em>Directive</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.cpreprocess.cPreprocess.CPreprocessPackage#getPreprocessorDirectives()
  * @model

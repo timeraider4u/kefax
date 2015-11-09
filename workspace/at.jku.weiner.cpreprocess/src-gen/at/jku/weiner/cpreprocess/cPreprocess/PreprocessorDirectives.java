@@ -2,6 +2,7 @@
  */
 package at.jku.weiner.cpreprocess.cPreprocess;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,12 +31,12 @@ public interface PreprocessorDirectives extends SourceCodeLine
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Directive</em>' containment reference.
-   * @see #setDirective(IncludeDirective)
+   * @see #setDirective(EObject)
    * @see at.jku.weiner.cpreprocess.cPreprocess.CPreprocessPackage#getPreprocessorDirectives_Directive()
    * @model containment="true"
    * @generated
    */
-  IncludeDirective getDirective();
+  EObject getDirective();
 
   /**
    * Sets the value of the '{@link at.jku.weiner.cpreprocess.cPreprocess.PreprocessorDirectives#getDirective <em>Directive</em>}' containment reference.
@@ -45,6 +46,6 @@ public interface PreprocessorDirectives extends SourceCodeLine
    * @see #getDirective()
    * @generated
    */
-  void setDirective(IncludeDirective value);
+  void setDirective(EObject value);
 
 } // PreprocessorDirectives

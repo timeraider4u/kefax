@@ -253,26 +253,20 @@ rulePreprocessorDirectives returns [EObject current=null]
 )
 
 
-this_HASH_1=RULE_HASH
-    { 
-    newLeafNode(this_HASH_1, grammarAccess.getPreprocessorDirectivesAccess().getHASHTerminalRuleCall_1()); 
-    }
-
-
-
+(
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveIncludeDirectiveParserRuleCall_2_0()); 
+	        newCompositeNode(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveIncludeDirectiveParserRuleCall_1_0_0()); 
 	    }
-		lv_directive_2_0=ruleIncludeDirective		{
+		lv_directive_1_0=ruleIncludeDirective		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getPreprocessorDirectivesRule());
 	        }
        		set(
        			$current, 
        			"directive",
-        		lv_directive_2_0, 
+        		lv_directive_1_0, 
         		"at.jku.weiner.cpreprocess.CPreprocess.IncludeDirective");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -281,9 +275,99 @@ this_HASH_1=RULE_HASH
 )
 
 
-this_NEWLINE_3=RULE_NEWLINE
+    |
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveDefineDirectiveParserRuleCall_1_1_0()); 
+	    }
+		lv_directive_2_0=ruleDefineDirective		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getPreprocessorDirectivesRule());
+	        }
+       		set(
+       			$current, 
+       			"directive",
+        		lv_directive_2_0, 
+        		"at.jku.weiner.cpreprocess.CPreprocess.DefineDirective");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveUnDefineDirectiveParserRuleCall_1_2_0()); 
+	    }
+		lv_directive_3_0=ruleUnDefineDirective		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getPreprocessorDirectivesRule());
+	        }
+       		set(
+       			$current, 
+       			"directive",
+        		lv_directive_3_0, 
+        		"at.jku.weiner.cpreprocess.CPreprocess.UnDefineDirective");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveErrorDirectiveParserRuleCall_1_3_0()); 
+	    }
+		lv_directive_4_0=ruleErrorDirective		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getPreprocessorDirectivesRule());
+	        }
+       		set(
+       			$current, 
+       			"directive",
+        		lv_directive_4_0, 
+        		"at.jku.weiner.cpreprocess.CPreprocess.ErrorDirective");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getPreprocessorDirectivesAccess().getDirectivePragmaDirectiveParserRuleCall_1_4_0()); 
+	    }
+		lv_directive_5_0=rulePragmaDirective		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getPreprocessorDirectivesRule());
+	        }
+       		set(
+       			$current, 
+       			"directive",
+        		lv_directive_5_0, 
+        		"at.jku.weiner.cpreprocess.CPreprocess.PragmaDirective");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+)
+
+
+this_NEWLINE_6=RULE_NEWLINE
     { 
-    newLeafNode(this_NEWLINE_3, grammarAccess.getPreprocessorDirectivesAccess().getNEWLINETerminalRuleCall_3()); 
+    newLeafNode(this_NEWLINE_6, grammarAccess.getPreprocessorDirectivesAccess().getNEWLINETerminalRuleCall_2()); 
     }
 
 
@@ -324,18 +408,18 @@ ruleIncludeDirective returns [EObject current=null]
 )
 
 
-	otherlv_1='include' 
-    {
-    	newLeafNode(otherlv_1, grammarAccess.getIncludeDirectiveAccess().getIncludeKeyword_1());
+this_INCLUDE_1=RULE_INCLUDE
+    { 
+    newLeafNode(this_INCLUDE_1, grammarAccess.getIncludeDirectiveAccess().getINCLUDETerminalRuleCall_1()); 
     }
 
 
 
 (
 (
-		lv_string_2_0=RULE_NEWLINE
+		lv_string_2_0=RULE_MYCODE
 		{
-			newLeafNode(lv_string_2_0, grammarAccess.getIncludeDirectiveAccess().getStringNEWLINETerminalRuleCall_2_0()); 
+			newLeafNode(lv_string_2_0, grammarAccess.getIncludeDirectiveAccess().getStringMYCODETerminalRuleCall_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -345,11 +429,204 @@ ruleIncludeDirective returns [EObject current=null]
        			$current, 
        			"string",
         		lv_string_2_0, 
-        		"at.jku.weiner.cpreprocess.CPreprocess.NEWLINE");
+        		"at.jku.weiner.cpreprocess.CPreprocess.MYCODE");
 	    }
 
 )
 )
+
+)
+
+
+;
+
+
+
+
+
+// Entry rule entryRuleDefineDirective
+entryRuleDefineDirective returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getDefineDirectiveRule()); }
+	 iv_ruleDefineDirective=ruleDefineDirective 
+	 { $current=$iv_ruleDefineDirective.current; } 
+	 EOF 
+;
+
+// Rule DefineDirective
+ruleDefineDirective returns [EObject current=null] 
+    @init { enterRule();
+   		/*no init found*/
+    }
+    @after { leaveRule();
+    		/*no after found*/
+     }:
+
+(
+(
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getDefineDirectiveAccess().getDefineDirectiveAction_0(),
+            $current);
+    }
+)
+
+
+this_DEFINE_1=RULE_DEFINE
+    { 
+    newLeafNode(this_DEFINE_1, grammarAccess.getDefineDirectiveAccess().getDEFINETerminalRuleCall_1()); 
+    }
+
+
+)
+
+
+;
+
+
+
+
+
+// Entry rule entryRuleUnDefineDirective
+entryRuleUnDefineDirective returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getUnDefineDirectiveRule()); }
+	 iv_ruleUnDefineDirective=ruleUnDefineDirective 
+	 { $current=$iv_ruleUnDefineDirective.current; } 
+	 EOF 
+;
+
+// Rule UnDefineDirective
+ruleUnDefineDirective returns [EObject current=null] 
+    @init { enterRule();
+   		/*no init found*/
+    }
+    @after { leaveRule();
+    		/*no after found*/
+     }:
+
+(
+(
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getUnDefineDirectiveAccess().getUnDefineDirectiveAction_0(),
+            $current);
+    }
+)
+
+
+this_UNDEF_1=RULE_UNDEF
+    { 
+    newLeafNode(this_UNDEF_1, grammarAccess.getUnDefineDirectiveAccess().getUNDEFTerminalRuleCall_1()); 
+    }
+
+
+)
+
+
+;
+
+
+
+
+
+// Entry rule entryRuleErrorDirective
+entryRuleErrorDirective returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getErrorDirectiveRule()); }
+	 iv_ruleErrorDirective=ruleErrorDirective 
+	 { $current=$iv_ruleErrorDirective.current; } 
+	 EOF 
+;
+
+// Rule ErrorDirective
+ruleErrorDirective returns [EObject current=null] 
+    @init { enterRule();
+   		/*no init found*/
+    }
+    @after { leaveRule();
+    		/*no after found*/
+     }:
+
+(
+(
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getErrorDirectiveAccess().getErrorDirectiveAction_0(),
+            $current);
+    }
+)
+
+
+this_ERROR_1=RULE_ERROR
+    { 
+    newLeafNode(this_ERROR_1, grammarAccess.getErrorDirectiveAccess().getERRORTerminalRuleCall_1()); 
+    }
+
+
+
+(
+(
+		lv_msg_2_0=RULE_MYCODE
+		{
+			newLeafNode(lv_msg_2_0, grammarAccess.getErrorDirectiveAccess().getMsgMYCODETerminalRuleCall_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getErrorDirectiveRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"msg",
+        		lv_msg_2_0, 
+        		"at.jku.weiner.cpreprocess.CPreprocess.MYCODE");
+	    }
+
+)
+)
+
+)
+
+
+;
+
+
+
+
+
+// Entry rule entryRulePragmaDirective
+entryRulePragmaDirective returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getPragmaDirectiveRule()); }
+	 iv_rulePragmaDirective=rulePragmaDirective 
+	 { $current=$iv_rulePragmaDirective.current; } 
+	 EOF 
+;
+
+// Rule PragmaDirective
+rulePragmaDirective returns [EObject current=null] 
+    @init { enterRule();
+   		/*no init found*/
+    }
+    @after { leaveRule();
+    		/*no after found*/
+     }:
+
+(
+(
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getPragmaDirectiveAccess().getPragmaDirectiveAction_0(),
+            $current);
+    }
+)
+
+
+this_PRAGMA_1=RULE_PRAGMA
+    { 
+    newLeafNode(this_PRAGMA_1, grammarAccess.getPragmaDirectiveAccess().getPRAGMATerminalRuleCall_1()); 
+    }
+
 
 )
 
@@ -467,13 +744,25 @@ this_NEWLINE_2=RULE_NEWLINE
 
 
 
-RULE_HASH : '#';
+RULE_NEWLINE : ('\r'|'\n');
 
 fragment RULE_BACKSLASH : '\\';
 
-RULE_WHITESPACE : (RULE_BACKSLASH RULE_NEWLINE)+;
+fragment RULE_LINEBREAK : (RULE_BACKSLASH RULE_NEWLINE)+;
 
-RULE_NEWLINE : ('\r'|'\n');
+fragment RULE_WS : (' '|'\t'|RULE_LINEBREAK);
+
+fragment RULE_HASH : '#';
+
+RULE_DEFINE : RULE_HASH RULE_WS* 'define' RULE_WS*;
+
+RULE_UNDEF : RULE_HASH RULE_WS* 'undef' RULE_WS*;
+
+RULE_INCLUDE : RULE_HASH RULE_WS* 'include' RULE_WS*;
+
+RULE_ERROR : RULE_HASH RULE_WS* 'error' RULE_WS*;
+
+RULE_PRAGMA : RULE_HASH RULE_WS* 'pragma' RULE_WS*;
 
 RULE_MYCODE : ~((RULE_HASH|RULE_NEWLINE)) ~(RULE_NEWLINE)*;
 

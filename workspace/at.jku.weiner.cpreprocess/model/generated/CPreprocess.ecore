@@ -14,8 +14,14 @@
   <eClassifiers xsi:type="ecore:EClass" name="IncludeDirective">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="string" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DefineDirective"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UnDefineDirective"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ErrorDirective">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="msg" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PragmaDirective"/>
   <eClassifiers xsi:type="ecore:EClass" name="PreprocessorDirectives" eSuperTypes="#//SourceCodeLine">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="directive" eType="#//IncludeDirective"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="directive" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NewLineLine" eSuperTypes="#//SourceCodeLine"/>

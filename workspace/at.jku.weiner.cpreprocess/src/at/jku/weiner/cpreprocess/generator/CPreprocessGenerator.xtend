@@ -12,6 +12,11 @@ import at.jku.weiner.cpreprocess.cPreprocess.Model
 import at.jku.weiner.cpreprocess.cPreprocess.PreprocessorDirectives
 import at.jku.weiner.cpreprocess.cPreprocess.NewLineLine
 import at.jku.weiner.cpreprocess.cPreprocess.Code
+import at.jku.weiner.cpreprocess.cPreprocess.IncludeDirective
+import at.jku.weiner.cpreprocess.cPreprocess.DefineDirective
+import at.jku.weiner.cpreprocess.cPreprocess.UnDefineDirective
+import at.jku.weiner.cpreprocess.cPreprocess.ErrorDirective
+import at.jku.weiner.cpreprocess.cPreprocess.PragmaDirective
 
 /**
  * Generates code from your model files on save.
@@ -44,6 +49,36 @@ class CPreprocessGenerator implements IGenerator {
 	'''
 
 	def String outputFor(PreprocessorDirectives obj) '''
+		«IF obj.directive instanceof IncludeDirective»
+			«outputFor(obj.directive as IncludeDirective)»
+		«ENDIF»
+		«IF obj.directive instanceof DefineDirective»
+			«outputFor(obj.directive as DefineDirective)»
+		«ENDIF»
+		«IF obj.directive instanceof UnDefineDirective»
+			«outputFor(obj.directive as UnDefineDirective)»
+		«ENDIF»
+		«IF obj.directive instanceof ErrorDirective»
+			«outputFor(obj.directive as ErrorDirective)»
+		«ENDIF»
+		«IF obj.directive instanceof PragmaDirective»
+			«outputFor(obj.directive as PragmaDirective)»
+		«ENDIF»
+	'''
+	
+	def String outputFor(IncludeDirective obj) '''
+	'''
+	
+	def String outputFor(DefineDirective obj) '''
+	'''
+	
+	def String outputFor(UnDefineDirective obj) '''
+	'''
+	
+	def String outputFor(ErrorDirective obj) '''
+	'''
+	
+	def String outputFor(PragmaDirective obj) '''
 	'''
 	
 	def String outputFor(NewLineLine obj) '''

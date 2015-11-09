@@ -17,6 +17,12 @@
     <genClasses ecoreClass="CPreprocess.ecore#//IncludeDirective">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CPreprocess.ecore#//IncludeDirective/string"/>
     </genClasses>
+    <genClasses ecoreClass="CPreprocess.ecore#//DefineDirective"/>
+    <genClasses ecoreClass="CPreprocess.ecore#//UnDefineDirective"/>
+    <genClasses ecoreClass="CPreprocess.ecore#//ErrorDirective">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CPreprocess.ecore#//ErrorDirective/msg"/>
+    </genClasses>
+    <genClasses ecoreClass="CPreprocess.ecore#//PragmaDirective"/>
     <genClasses ecoreClass="CPreprocess.ecore#//PreprocessorDirectives">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CPreprocess.ecore#//PreprocessorDirectives/directive"/>
     </genClasses>

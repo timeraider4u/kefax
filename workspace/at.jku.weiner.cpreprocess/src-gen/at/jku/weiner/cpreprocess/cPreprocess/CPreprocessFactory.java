@@ -59,6 +59,42 @@ public interface CPreprocessFactory extends EFactory
   IncludeDirective createIncludeDirective();
 
   /**
+   * Returns a new object of class '<em>Define Directive</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Define Directive</em>'.
+   * @generated
+   */
+  DefineDirective createDefineDirective();
+
+  /**
+   * Returns a new object of class '<em>Un Define Directive</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Un Define Directive</em>'.
+   * @generated
+   */
+  UnDefineDirective createUnDefineDirective();
+
+  /**
+   * Returns a new object of class '<em>Error Directive</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Error Directive</em>'.
+   * @generated
+   */
+  ErrorDirective createErrorDirective();
+
+  /**
+   * Returns a new object of class '<em>Pragma Directive</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Pragma Directive</em>'.
+   * @generated
+   */
+  PragmaDirective createPragmaDirective();
+
+  /**
    * Returns a new object of class '<em>Preprocessor Directives</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

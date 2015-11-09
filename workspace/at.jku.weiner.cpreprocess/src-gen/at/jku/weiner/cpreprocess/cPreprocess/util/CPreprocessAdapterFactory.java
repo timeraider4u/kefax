@@ -95,6 +95,26 @@ public class CPreprocessAdapterFactory extends AdapterFactoryImpl
         return createIncludeDirectiveAdapter();
       }
       @Override
+      public Adapter caseDefineDirective(DefineDirective object)
+      {
+        return createDefineDirectiveAdapter();
+      }
+      @Override
+      public Adapter caseUnDefineDirective(UnDefineDirective object)
+      {
+        return createUnDefineDirectiveAdapter();
+      }
+      @Override
+      public Adapter caseErrorDirective(ErrorDirective object)
+      {
+        return createErrorDirectiveAdapter();
+      }
+      @Override
+      public Adapter casePragmaDirective(PragmaDirective object)
+      {
+        return createPragmaDirectiveAdapter();
+      }
+      @Override
       public Adapter casePreprocessorDirectives(PreprocessorDirectives object)
       {
         return createPreprocessorDirectivesAdapter();
@@ -187,6 +207,66 @@ public class CPreprocessAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createIncludeDirectiveAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.cpreprocess.cPreprocess.DefineDirective <em>Define Directive</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.cpreprocess.cPreprocess.DefineDirective
+   * @generated
+   */
+  public Adapter createDefineDirectiveAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.cpreprocess.cPreprocess.UnDefineDirective <em>Un Define Directive</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.cpreprocess.cPreprocess.UnDefineDirective
+   * @generated
+   */
+  public Adapter createUnDefineDirectiveAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.cpreprocess.cPreprocess.ErrorDirective <em>Error Directive</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.cpreprocess.cPreprocess.ErrorDirective
+   * @generated
+   */
+  public Adapter createErrorDirectiveAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.cpreprocess.cPreprocess.PragmaDirective <em>Pragma Directive</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.cpreprocess.cPreprocess.PragmaDirective
+   * @generated
+   */
+  public Adapter createPragmaDirectiveAdapter()
   {
     return null;
   }

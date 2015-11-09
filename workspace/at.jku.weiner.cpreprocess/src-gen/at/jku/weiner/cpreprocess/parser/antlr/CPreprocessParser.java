@@ -15,7 +15,7 @@ public class CPreprocessParser extends org.eclipse.xtext.parser.antlr.AbstractAn
 	
 	@Override
 	protected void setInitialHiddenTokens(XtextTokenStream tokenStream) {
-		tokenStream.setInitialHiddenTokens("RULE_WHITESPACE");
+		tokenStream.setInitialHiddenTokens();
 	}
 	
 	@Override

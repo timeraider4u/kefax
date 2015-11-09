@@ -100,6 +100,34 @@ public class CPreprocessSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case CPreprocessPackage.DEFINE_DIRECTIVE:
+      {
+        DefineDirective defineDirective = (DefineDirective)theEObject;
+        T result = caseDefineDirective(defineDirective);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CPreprocessPackage.UN_DEFINE_DIRECTIVE:
+      {
+        UnDefineDirective unDefineDirective = (UnDefineDirective)theEObject;
+        T result = caseUnDefineDirective(unDefineDirective);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CPreprocessPackage.ERROR_DIRECTIVE:
+      {
+        ErrorDirective errorDirective = (ErrorDirective)theEObject;
+        T result = caseErrorDirective(errorDirective);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CPreprocessPackage.PRAGMA_DIRECTIVE:
+      {
+        PragmaDirective pragmaDirective = (PragmaDirective)theEObject;
+        T result = casePragmaDirective(pragmaDirective);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case CPreprocessPackage.PREPROCESSOR_DIRECTIVES:
       {
         PreprocessorDirectives preprocessorDirectives = (PreprocessorDirectives)theEObject;
@@ -188,6 +216,70 @@ public class CPreprocessSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseIncludeDirective(IncludeDirective object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Define Directive</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Define Directive</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDefineDirective(DefineDirective object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Un Define Directive</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Un Define Directive</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUnDefineDirective(UnDefineDirective object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Error Directive</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Error Directive</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseErrorDirective(ErrorDirective object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Pragma Directive</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Pragma Directive</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePragmaDirective(PragmaDirective object)
   {
     return null;
   }

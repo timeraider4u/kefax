@@ -68,6 +68,10 @@ public class CPreprocessFactoryImpl extends EFactoryImpl implements CPreprocessF
       case CPreprocessPackage.TRANSLATION_UNIT: return createTranslationUnit();
       case CPreprocessPackage.SOURCE_CODE_LINE: return createSourceCodeLine();
       case CPreprocessPackage.INCLUDE_DIRECTIVE: return createIncludeDirective();
+      case CPreprocessPackage.DEFINE_DIRECTIVE: return createDefineDirective();
+      case CPreprocessPackage.UN_DEFINE_DIRECTIVE: return createUnDefineDirective();
+      case CPreprocessPackage.ERROR_DIRECTIVE: return createErrorDirective();
+      case CPreprocessPackage.PRAGMA_DIRECTIVE: return createPragmaDirective();
       case CPreprocessPackage.PREPROCESSOR_DIRECTIVES: return createPreprocessorDirectives();
       case CPreprocessPackage.NEW_LINE_LINE: return createNewLineLine();
       case CPreprocessPackage.CODE: return createCode();
@@ -118,6 +122,50 @@ public class CPreprocessFactoryImpl extends EFactoryImpl implements CPreprocessF
   {
     IncludeDirectiveImpl includeDirective = new IncludeDirectiveImpl();
     return includeDirective;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DefineDirective createDefineDirective()
+  {
+    DefineDirectiveImpl defineDirective = new DefineDirectiveImpl();
+    return defineDirective;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public UnDefineDirective createUnDefineDirective()
+  {
+    UnDefineDirectiveImpl unDefineDirective = new UnDefineDirectiveImpl();
+    return unDefineDirective;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ErrorDirective createErrorDirective()
+  {
+    ErrorDirectiveImpl errorDirective = new ErrorDirectiveImpl();
+    return errorDirective;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PragmaDirective createPragmaDirective()
+  {
+    PragmaDirectiveImpl pragmaDirective = new PragmaDirectiveImpl();
+    return pragmaDirective;
   }
 
   /**

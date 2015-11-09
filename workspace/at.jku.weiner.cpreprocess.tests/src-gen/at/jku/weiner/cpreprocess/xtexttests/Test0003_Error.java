@@ -44,14 +44,12 @@ import at.jku.weiner.cpreprocess.xtexttests.LexerAndParserTest;
 
 import at.jku.weiner.cpreprocess.cPreprocess.Model;
 import at.jku.weiner.cpreprocess.cPreprocess.TranslationUnit;
-import at.jku.weiner.cpreprocess.cPreprocess.Code;
-import at.jku.weiner.cpreprocess.cPreprocess.Code;
-import at.jku.weiner.cpreprocess.cPreprocess.Code;
-import at.jku.weiner.cpreprocess.cPreprocess.NewLineLine;
+import at.jku.weiner.cpreprocess.cPreprocess.PreprocessorDirectives;
+import at.jku.weiner.cpreprocess.cPreprocess.ErrorDirective;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(CPreprocessInjectorProvider.class)
-public class Test0002_Code {
+public class Test0003_Error {
 	@Inject
 	private ParseHelper<Model> parseHelper;
 	@Inject
@@ -89,15 +87,11 @@ public class Test0002_Code {
 	@Test
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
-			"res/Test0002_Code.c");
+			"res/Test0003_Error.h");
 			//System.out.println(text);
 			final String[] expected = new String[] {
+				"RULE_ERROR", 
 				"RULE_MYCODE", 
-				"RULE_NEWLINE", 
-				"RULE_MYCODE", 
-				"RULE_NEWLINE", 
-				"RULE_MYCODE", 
-				"RULE_NEWLINE", 
 				"RULE_NEWLINE", 
 				};
 			//final List<Token> actual = testHelper.getTokens(text);
@@ -108,7 +102,7 @@ public class Test0002_Code {
 	@Test
 	public void checkParserResult() throws Exception {
 		final String text = this.getTextFromFile(
-			"res/Test0002_Code.c");
+			"res/Test0003_Error.h");
 		final Model Model_0_Var
 		  = 
 			this.parseHelper.parse(text);
@@ -129,33 +123,20 @@ public class Test0002_Code {
 		final EList<? extends EObject> Lines_1_list = TranslationUnit_1_Var
 		.getLines();
 		Assert.assertNotNull(Lines_1_list);
-		Assert.assertEquals(4, Lines_1_list.size());
+		Assert.assertEquals(1, Lines_1_list.size());
 		//1
-		final Code Code_2_Var
-		 = (Code)Lines_1_list.get(0);
-		Assert.assertNotNull(Code_2_Var
+		final PreprocessorDirectives PreprocessorDirectives_2_Var
+		 = (PreprocessorDirectives)Lines_1_list.get(0);
+		Assert.assertNotNull(PreprocessorDirectives_2_Var
 		);
-		Assert.assertEquals("int main(void) {", Code_2_Var
-		.getCode());
 		//2
-		final Code Code_3_Var
-		 = (Code)Lines_1_list.get(1);
-		Assert.assertNotNull(Code_3_Var
+		final ErrorDirective ErrorDirective_3_Var
+		 = (ErrorDirective)PreprocessorDirectives_2_Var
+		.getDirective();
+		Assert.assertNotNull(ErrorDirective_3_Var
 		);
-		Assert.assertEquals("	return 0;", Code_3_Var
-		.getCode());
-		//3
-		final Code Code_4_Var
-		 = (Code)Lines_1_list.get(2);
-		Assert.assertNotNull(Code_4_Var
-		);
-		Assert.assertEquals("}", Code_4_Var
-		.getCode());
-		//4
-		final NewLineLine NewLineLine_5_Var
-		 = (NewLineLine)Lines_1_list.get(3);
-		Assert.assertNotNull(NewLineLine_5_Var
-		);
+		Assert.assertEquals("\"error message!\"", ErrorDirective_3_Var
+		.getMsg());
 	}
 	
 	@Test
@@ -163,7 +144,7 @@ public class Test0002_Code {
 		// load the resource
 		ResourceSet set = this.resourceSetProvider.get();
 		URI uri = URI.createURI(
-			"res/Test0002_Code.c");
+			"res/Test0003_Error.h");
 		Resource resource = set.getResource(uri, true);
 		// validate the resource
 		List<Issue> list = this.validator.validate(resource, 
@@ -177,7 +158,7 @@ public class Test0002_Code {
 			final Method method = clazz.getMethod("setFileName",
 					String.class);
 			if (method != null) {
-				method.invoke(this.generator, "Test0002_Code.c.i");
+				method.invoke(this.generator, "Test0003_Error.h.i");
 			}
 		} catch (NoSuchMethodException | SecurityException
 			| IllegalAccessException | IllegalArgumentException
@@ -186,9 +167,9 @@ public class Test0002_Code {
 			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
-		final String actual = this.getTextFromFile("bin/Test0002_Code.c.i");
+		final String actual = this.getTextFromFile("bin/Test0003_Error.h.i");
 		final String expected = this.getTextFromFile(
-			"res/Test0002_Code.c"
+			"res/Test0003_Error.h"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
 		// System.out.println("Code generation finished.");

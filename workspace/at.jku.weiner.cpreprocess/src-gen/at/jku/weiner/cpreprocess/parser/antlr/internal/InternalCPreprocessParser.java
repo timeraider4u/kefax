@@ -20,15 +20,20 @@ import java.util.ArrayList;
 
 public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_HASH", "RULE_NEWLINE", "RULE_MYCODE", "RULE_BACKSLASH", "RULE_WHITESPACE", "'include'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NEWLINE", "RULE_INCLUDE", "RULE_MYCODE", "RULE_DEFINE", "RULE_UNDEF", "RULE_ERROR", "RULE_PRAGMA", "RULE_BACKSLASH", "RULE_LINEBREAK", "RULE_WS", "RULE_HASH"
     };
-    public static final int RULE_NEWLINE=5;
-    public static final int RULE_BACKSLASH=7;
-    public static final int RULE_HASH=4;
-    public static final int RULE_WHITESPACE=8;
+    public static final int RULE_PRAGMA=10;
+    public static final int RULE_NEWLINE=4;
+    public static final int RULE_LINEBREAK=12;
+    public static final int RULE_DEFINE=7;
+    public static final int RULE_ERROR=9;
+    public static final int RULE_INCLUDE=5;
+    public static final int RULE_BACKSLASH=11;
+    public static final int RULE_HASH=14;
     public static final int RULE_MYCODE=6;
+    public static final int RULE_UNDEF=8;
+    public static final int RULE_WS=13;
     public static final int EOF=-1;
-    public static final int T__9=9;
 
     // delegates
     // delegators
@@ -260,7 +265,11 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
             do {
                 int alt1=4;
                 switch ( input.LA(1) ) {
-                case RULE_HASH:
+                case RULE_INCLUDE:
+                case RULE_DEFINE:
+                case RULE_UNDEF:
+                case RULE_ERROR:
+                case RULE_PRAGMA:
                     {
                     alt1=1;
                     }
@@ -455,24 +464,31 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePreprocessorDirectives"
-    // InternalCPreprocess.g:238:1: rulePreprocessorDirectives returns [EObject current=null] : ( () this_HASH_1= RULE_HASH ( (lv_directive_2_0= ruleIncludeDirective ) ) this_NEWLINE_3= RULE_NEWLINE ) ;
+    // InternalCPreprocess.g:238:1: rulePreprocessorDirectives returns [EObject current=null] : ( () ( ( (lv_directive_1_0= ruleIncludeDirective ) ) | ( (lv_directive_2_0= ruleDefineDirective ) ) | ( (lv_directive_3_0= ruleUnDefineDirective ) ) | ( (lv_directive_4_0= ruleErrorDirective ) ) | ( (lv_directive_5_0= rulePragmaDirective ) ) ) this_NEWLINE_6= RULE_NEWLINE ) ;
     public final EObject rulePreprocessorDirectives() throws RecognitionException {
         EObject current = null;
 
-        Token this_HASH_1=null;
-        Token this_NEWLINE_3=null;
+        Token this_NEWLINE_6=null;
+        EObject lv_directive_1_0 = null;
+
         EObject lv_directive_2_0 = null;
+
+        EObject lv_directive_3_0 = null;
+
+        EObject lv_directive_4_0 = null;
+
+        EObject lv_directive_5_0 = null;
 
 
          enterRule();
            		/*no init found*/
             
         try {
-            // InternalCPreprocess.g:244:7: ( ( () this_HASH_1= RULE_HASH ( (lv_directive_2_0= ruleIncludeDirective ) ) this_NEWLINE_3= RULE_NEWLINE ) )
-            // InternalCPreprocess.g:246:1: ( () this_HASH_1= RULE_HASH ( (lv_directive_2_0= ruleIncludeDirective ) ) this_NEWLINE_3= RULE_NEWLINE )
+            // InternalCPreprocess.g:244:7: ( ( () ( ( (lv_directive_1_0= ruleIncludeDirective ) ) | ( (lv_directive_2_0= ruleDefineDirective ) ) | ( (lv_directive_3_0= ruleUnDefineDirective ) ) | ( (lv_directive_4_0= ruleErrorDirective ) ) | ( (lv_directive_5_0= rulePragmaDirective ) ) ) this_NEWLINE_6= RULE_NEWLINE ) )
+            // InternalCPreprocess.g:246:1: ( () ( ( (lv_directive_1_0= ruleIncludeDirective ) ) | ( (lv_directive_2_0= ruleDefineDirective ) ) | ( (lv_directive_3_0= ruleUnDefineDirective ) ) | ( (lv_directive_4_0= ruleErrorDirective ) ) | ( (lv_directive_5_0= rulePragmaDirective ) ) ) this_NEWLINE_6= RULE_NEWLINE )
             {
-            // InternalCPreprocess.g:246:1: ( () this_HASH_1= RULE_HASH ( (lv_directive_2_0= ruleIncludeDirective ) ) this_NEWLINE_3= RULE_NEWLINE )
-            // InternalCPreprocess.g:247:1: () this_HASH_1= RULE_HASH ( (lv_directive_2_0= ruleIncludeDirective ) ) this_NEWLINE_3= RULE_NEWLINE
+            // InternalCPreprocess.g:246:1: ( () ( ( (lv_directive_1_0= ruleIncludeDirective ) ) | ( (lv_directive_2_0= ruleDefineDirective ) ) | ( (lv_directive_3_0= ruleUnDefineDirective ) ) | ( (lv_directive_4_0= ruleErrorDirective ) ) | ( (lv_directive_5_0= rulePragmaDirective ) ) ) this_NEWLINE_6= RULE_NEWLINE )
+            // InternalCPreprocess.g:247:1: () ( ( (lv_directive_1_0= ruleIncludeDirective ) ) | ( (lv_directive_2_0= ruleDefineDirective ) ) | ( (lv_directive_3_0= ruleUnDefineDirective ) ) | ( (lv_directive_4_0= ruleErrorDirective ) ) | ( (lv_directive_5_0= rulePragmaDirective ) ) ) this_NEWLINE_6= RULE_NEWLINE
             {
             // InternalCPreprocess.g:247:1: ()
             // InternalCPreprocess.g:248:5: 
@@ -485,44 +501,233 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
 
             }
 
-            this_HASH_1=(Token)match(input,RULE_HASH,FOLLOW_4); 
-             
-                newLeafNode(this_HASH_1, grammarAccess.getPreprocessorDirectivesAccess().getHASHTerminalRuleCall_1()); 
-                
-            // InternalCPreprocess.g:263:1: ( (lv_directive_2_0= ruleIncludeDirective ) )
-            // InternalCPreprocess.g:264:1: (lv_directive_2_0= ruleIncludeDirective )
-            {
-            // InternalCPreprocess.g:264:1: (lv_directive_2_0= ruleIncludeDirective )
-            // InternalCPreprocess.g:265:3: lv_directive_2_0= ruleIncludeDirective
-            {
-             
-            	        newCompositeNode(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveIncludeDirectiveParserRuleCall_2_0()); 
-            	    
-            pushFollow(FOLLOW_5);
-            lv_directive_2_0=ruleIncludeDirective();
+            // InternalCPreprocess.g:256:1: ( ( (lv_directive_1_0= ruleIncludeDirective ) ) | ( (lv_directive_2_0= ruleDefineDirective ) ) | ( (lv_directive_3_0= ruleUnDefineDirective ) ) | ( (lv_directive_4_0= ruleErrorDirective ) ) | ( (lv_directive_5_0= rulePragmaDirective ) ) )
+            int alt2=5;
+            switch ( input.LA(1) ) {
+            case RULE_INCLUDE:
+                {
+                alt2=1;
+                }
+                break;
+            case RULE_DEFINE:
+                {
+                alt2=2;
+                }
+                break;
+            case RULE_UNDEF:
+                {
+                alt2=3;
+                }
+                break;
+            case RULE_ERROR:
+                {
+                alt2=4;
+                }
+                break;
+            case RULE_PRAGMA:
+                {
+                alt2=5;
+                }
+                break;
+            default:
+                NoViableAltException nvae =
+                    new NoViableAltException("", 2, 0, input);
 
-            state._fsp--;
+                throw nvae;
+            }
+
+            switch (alt2) {
+                case 1 :
+                    // InternalCPreprocess.g:257:1: ( (lv_directive_1_0= ruleIncludeDirective ) )
+                    {
+                    // InternalCPreprocess.g:257:1: ( (lv_directive_1_0= ruleIncludeDirective ) )
+                    // InternalCPreprocess.g:258:1: (lv_directive_1_0= ruleIncludeDirective )
+                    {
+                    // InternalCPreprocess.g:258:1: (lv_directive_1_0= ruleIncludeDirective )
+                    // InternalCPreprocess.g:259:3: lv_directive_1_0= ruleIncludeDirective
+                    {
+                     
+                    	        newCompositeNode(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveIncludeDirectiveParserRuleCall_1_0_0()); 
+                    	    
+                    pushFollow(FOLLOW_4);
+                    lv_directive_1_0=ruleIncludeDirective();
+
+                    state._fsp--;
 
 
-            	        if (current==null) {
-            	            current = createModelElementForParent(grammarAccess.getPreprocessorDirectivesRule());
-            	        }
-                   		set(
-                   			current, 
-                   			"directive",
-                    		lv_directive_2_0, 
-                    		"at.jku.weiner.cpreprocess.CPreprocess.IncludeDirective");
-            	        afterParserOrEnumRuleCall();
-            	    
+                    	        if (current==null) {
+                    	            current = createModelElementForParent(grammarAccess.getPreprocessorDirectivesRule());
+                    	        }
+                           		set(
+                           			current, 
+                           			"directive",
+                            		lv_directive_1_0, 
+                            		"at.jku.weiner.cpreprocess.CPreprocess.IncludeDirective");
+                    	        afterParserOrEnumRuleCall();
+                    	    
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalCPreprocess.g:279:1: ( (lv_directive_2_0= ruleDefineDirective ) )
+                    {
+                    // InternalCPreprocess.g:279:1: ( (lv_directive_2_0= ruleDefineDirective ) )
+                    // InternalCPreprocess.g:280:1: (lv_directive_2_0= ruleDefineDirective )
+                    {
+                    // InternalCPreprocess.g:280:1: (lv_directive_2_0= ruleDefineDirective )
+                    // InternalCPreprocess.g:281:3: lv_directive_2_0= ruleDefineDirective
+                    {
+                     
+                    	        newCompositeNode(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveDefineDirectiveParserRuleCall_1_1_0()); 
+                    	    
+                    pushFollow(FOLLOW_4);
+                    lv_directive_2_0=ruleDefineDirective();
+
+                    state._fsp--;
+
+
+                    	        if (current==null) {
+                    	            current = createModelElementForParent(grammarAccess.getPreprocessorDirectivesRule());
+                    	        }
+                           		set(
+                           			current, 
+                           			"directive",
+                            		lv_directive_2_0, 
+                            		"at.jku.weiner.cpreprocess.CPreprocess.DefineDirective");
+                    	        afterParserOrEnumRuleCall();
+                    	    
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+                case 3 :
+                    // InternalCPreprocess.g:301:1: ( (lv_directive_3_0= ruleUnDefineDirective ) )
+                    {
+                    // InternalCPreprocess.g:301:1: ( (lv_directive_3_0= ruleUnDefineDirective ) )
+                    // InternalCPreprocess.g:302:1: (lv_directive_3_0= ruleUnDefineDirective )
+                    {
+                    // InternalCPreprocess.g:302:1: (lv_directive_3_0= ruleUnDefineDirective )
+                    // InternalCPreprocess.g:303:3: lv_directive_3_0= ruleUnDefineDirective
+                    {
+                     
+                    	        newCompositeNode(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveUnDefineDirectiveParserRuleCall_1_2_0()); 
+                    	    
+                    pushFollow(FOLLOW_4);
+                    lv_directive_3_0=ruleUnDefineDirective();
+
+                    state._fsp--;
+
+
+                    	        if (current==null) {
+                    	            current = createModelElementForParent(grammarAccess.getPreprocessorDirectivesRule());
+                    	        }
+                           		set(
+                           			current, 
+                           			"directive",
+                            		lv_directive_3_0, 
+                            		"at.jku.weiner.cpreprocess.CPreprocess.UnDefineDirective");
+                    	        afterParserOrEnumRuleCall();
+                    	    
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+                case 4 :
+                    // InternalCPreprocess.g:323:1: ( (lv_directive_4_0= ruleErrorDirective ) )
+                    {
+                    // InternalCPreprocess.g:323:1: ( (lv_directive_4_0= ruleErrorDirective ) )
+                    // InternalCPreprocess.g:324:1: (lv_directive_4_0= ruleErrorDirective )
+                    {
+                    // InternalCPreprocess.g:324:1: (lv_directive_4_0= ruleErrorDirective )
+                    // InternalCPreprocess.g:325:3: lv_directive_4_0= ruleErrorDirective
+                    {
+                     
+                    	        newCompositeNode(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveErrorDirectiveParserRuleCall_1_3_0()); 
+                    	    
+                    pushFollow(FOLLOW_4);
+                    lv_directive_4_0=ruleErrorDirective();
+
+                    state._fsp--;
+
+
+                    	        if (current==null) {
+                    	            current = createModelElementForParent(grammarAccess.getPreprocessorDirectivesRule());
+                    	        }
+                           		set(
+                           			current, 
+                           			"directive",
+                            		lv_directive_4_0, 
+                            		"at.jku.weiner.cpreprocess.CPreprocess.ErrorDirective");
+                    	        afterParserOrEnumRuleCall();
+                    	    
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+                case 5 :
+                    // InternalCPreprocess.g:345:1: ( (lv_directive_5_0= rulePragmaDirective ) )
+                    {
+                    // InternalCPreprocess.g:345:1: ( (lv_directive_5_0= rulePragmaDirective ) )
+                    // InternalCPreprocess.g:346:1: (lv_directive_5_0= rulePragmaDirective )
+                    {
+                    // InternalCPreprocess.g:346:1: (lv_directive_5_0= rulePragmaDirective )
+                    // InternalCPreprocess.g:347:3: lv_directive_5_0= rulePragmaDirective
+                    {
+                     
+                    	        newCompositeNode(grammarAccess.getPreprocessorDirectivesAccess().getDirectivePragmaDirectiveParserRuleCall_1_4_0()); 
+                    	    
+                    pushFollow(FOLLOW_4);
+                    lv_directive_5_0=rulePragmaDirective();
+
+                    state._fsp--;
+
+
+                    	        if (current==null) {
+                    	            current = createModelElementForParent(grammarAccess.getPreprocessorDirectivesRule());
+                    	        }
+                           		set(
+                           			current, 
+                           			"directive",
+                            		lv_directive_5_0, 
+                            		"at.jku.weiner.cpreprocess.CPreprocess.PragmaDirective");
+                    	        afterParserOrEnumRuleCall();
+                    	    
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
 
             }
 
-
-            }
-
-            this_NEWLINE_3=(Token)match(input,RULE_NEWLINE,FOLLOW_2); 
+            this_NEWLINE_6=(Token)match(input,RULE_NEWLINE,FOLLOW_2); 
              
-                newLeafNode(this_NEWLINE_3, grammarAccess.getPreprocessorDirectivesAccess().getNEWLINETerminalRuleCall_3()); 
+                newLeafNode(this_NEWLINE_6, grammarAccess.getPreprocessorDirectivesAccess().getNEWLINETerminalRuleCall_2()); 
                 
 
             }
@@ -547,7 +752,7 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleIncludeDirective"
-    // InternalCPreprocess.g:300:1: entryRuleIncludeDirective returns [EObject current=null] : iv_ruleIncludeDirective= ruleIncludeDirective EOF ;
+    // InternalCPreprocess.g:384:1: entryRuleIncludeDirective returns [EObject current=null] : iv_ruleIncludeDirective= ruleIncludeDirective EOF ;
     public final EObject entryRuleIncludeDirective() throws RecognitionException {
         EObject current = null;
 
@@ -555,8 +760,8 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalCPreprocess.g:301:2: (iv_ruleIncludeDirective= ruleIncludeDirective EOF )
-            // InternalCPreprocess.g:302:2: iv_ruleIncludeDirective= ruleIncludeDirective EOF
+            // InternalCPreprocess.g:385:2: (iv_ruleIncludeDirective= ruleIncludeDirective EOF )
+            // InternalCPreprocess.g:386:2: iv_ruleIncludeDirective= ruleIncludeDirective EOF
             {
              newCompositeNode(grammarAccess.getIncludeDirectiveRule()); 
             pushFollow(FOLLOW_1);
@@ -583,25 +788,25 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleIncludeDirective"
-    // InternalCPreprocess.g:309:1: ruleIncludeDirective returns [EObject current=null] : ( () otherlv_1= 'include' ( (lv_string_2_0= RULE_NEWLINE ) ) ) ;
+    // InternalCPreprocess.g:393:1: ruleIncludeDirective returns [EObject current=null] : ( () this_INCLUDE_1= RULE_INCLUDE ( (lv_string_2_0= RULE_MYCODE ) ) ) ;
     public final EObject ruleIncludeDirective() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_1=null;
+        Token this_INCLUDE_1=null;
         Token lv_string_2_0=null;
 
          enterRule();
            		/*no init found*/
             
         try {
-            // InternalCPreprocess.g:315:7: ( ( () otherlv_1= 'include' ( (lv_string_2_0= RULE_NEWLINE ) ) ) )
-            // InternalCPreprocess.g:317:1: ( () otherlv_1= 'include' ( (lv_string_2_0= RULE_NEWLINE ) ) )
+            // InternalCPreprocess.g:399:7: ( ( () this_INCLUDE_1= RULE_INCLUDE ( (lv_string_2_0= RULE_MYCODE ) ) ) )
+            // InternalCPreprocess.g:401:1: ( () this_INCLUDE_1= RULE_INCLUDE ( (lv_string_2_0= RULE_MYCODE ) ) )
             {
-            // InternalCPreprocess.g:317:1: ( () otherlv_1= 'include' ( (lv_string_2_0= RULE_NEWLINE ) ) )
-            // InternalCPreprocess.g:318:1: () otherlv_1= 'include' ( (lv_string_2_0= RULE_NEWLINE ) )
+            // InternalCPreprocess.g:401:1: ( () this_INCLUDE_1= RULE_INCLUDE ( (lv_string_2_0= RULE_MYCODE ) ) )
+            // InternalCPreprocess.g:402:1: () this_INCLUDE_1= RULE_INCLUDE ( (lv_string_2_0= RULE_MYCODE ) )
             {
-            // InternalCPreprocess.g:318:1: ()
-            // InternalCPreprocess.g:319:5: 
+            // InternalCPreprocess.g:402:1: ()
+            // InternalCPreprocess.g:403:5: 
             {
 
                     current = forceCreateModelElement(
@@ -611,19 +816,19 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,9,FOLLOW_5); 
-
-                	newLeafNode(otherlv_1, grammarAccess.getIncludeDirectiveAccess().getIncludeKeyword_1());
+            this_INCLUDE_1=(Token)match(input,RULE_INCLUDE,FOLLOW_5); 
+             
+                newLeafNode(this_INCLUDE_1, grammarAccess.getIncludeDirectiveAccess().getINCLUDETerminalRuleCall_1()); 
                 
-            // InternalCPreprocess.g:334:1: ( (lv_string_2_0= RULE_NEWLINE ) )
-            // InternalCPreprocess.g:335:1: (lv_string_2_0= RULE_NEWLINE )
+            // InternalCPreprocess.g:418:1: ( (lv_string_2_0= RULE_MYCODE ) )
+            // InternalCPreprocess.g:419:1: (lv_string_2_0= RULE_MYCODE )
             {
-            // InternalCPreprocess.g:335:1: (lv_string_2_0= RULE_NEWLINE )
-            // InternalCPreprocess.g:336:3: lv_string_2_0= RULE_NEWLINE
+            // InternalCPreprocess.g:419:1: (lv_string_2_0= RULE_MYCODE )
+            // InternalCPreprocess.g:420:3: lv_string_2_0= RULE_MYCODE
             {
-            lv_string_2_0=(Token)match(input,RULE_NEWLINE,FOLLOW_2); 
+            lv_string_2_0=(Token)match(input,RULE_MYCODE,FOLLOW_2); 
 
-            			newLeafNode(lv_string_2_0, grammarAccess.getIncludeDirectiveAccess().getStringNEWLINETerminalRuleCall_2_0()); 
+            			newLeafNode(lv_string_2_0, grammarAccess.getIncludeDirectiveAccess().getStringMYCODETerminalRuleCall_2_0()); 
             		
 
             	        if (current==null) {
@@ -633,7 +838,7 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
                    			current, 
                    			"string",
                     		lv_string_2_0, 
-                    		"at.jku.weiner.cpreprocess.CPreprocess.NEWLINE");
+                    		"at.jku.weiner.cpreprocess.CPreprocess.MYCODE");
             	    
 
             }
@@ -663,8 +868,395 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleIncludeDirective"
 
 
+    // $ANTLR start "entryRuleDefineDirective"
+    // InternalCPreprocess.g:448:1: entryRuleDefineDirective returns [EObject current=null] : iv_ruleDefineDirective= ruleDefineDirective EOF ;
+    public final EObject entryRuleDefineDirective() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleDefineDirective = null;
+
+
+        try {
+            // InternalCPreprocess.g:449:2: (iv_ruleDefineDirective= ruleDefineDirective EOF )
+            // InternalCPreprocess.g:450:2: iv_ruleDefineDirective= ruleDefineDirective EOF
+            {
+             newCompositeNode(grammarAccess.getDefineDirectiveRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleDefineDirective=ruleDefineDirective();
+
+            state._fsp--;
+
+             current =iv_ruleDefineDirective; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleDefineDirective"
+
+
+    // $ANTLR start "ruleDefineDirective"
+    // InternalCPreprocess.g:457:1: ruleDefineDirective returns [EObject current=null] : ( () this_DEFINE_1= RULE_DEFINE ) ;
+    public final EObject ruleDefineDirective() throws RecognitionException {
+        EObject current = null;
+
+        Token this_DEFINE_1=null;
+
+         enterRule();
+           		/*no init found*/
+            
+        try {
+            // InternalCPreprocess.g:463:7: ( ( () this_DEFINE_1= RULE_DEFINE ) )
+            // InternalCPreprocess.g:465:1: ( () this_DEFINE_1= RULE_DEFINE )
+            {
+            // InternalCPreprocess.g:465:1: ( () this_DEFINE_1= RULE_DEFINE )
+            // InternalCPreprocess.g:466:1: () this_DEFINE_1= RULE_DEFINE
+            {
+            // InternalCPreprocess.g:466:1: ()
+            // InternalCPreprocess.g:467:5: 
+            {
+
+                    current = forceCreateModelElement(
+                        grammarAccess.getDefineDirectiveAccess().getDefineDirectiveAction_0(),
+                        current);
+                
+
+            }
+
+            this_DEFINE_1=(Token)match(input,RULE_DEFINE,FOLLOW_2); 
+             
+                newLeafNode(this_DEFINE_1, grammarAccess.getDefineDirectiveAccess().getDEFINETerminalRuleCall_1()); 
+                
+
+            }
+
+
+            }
+
+             leaveRule();
+                		/*no after found*/
+                 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleDefineDirective"
+
+
+    // $ANTLR start "entryRuleUnDefineDirective"
+    // InternalCPreprocess.g:491:1: entryRuleUnDefineDirective returns [EObject current=null] : iv_ruleUnDefineDirective= ruleUnDefineDirective EOF ;
+    public final EObject entryRuleUnDefineDirective() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleUnDefineDirective = null;
+
+
+        try {
+            // InternalCPreprocess.g:492:2: (iv_ruleUnDefineDirective= ruleUnDefineDirective EOF )
+            // InternalCPreprocess.g:493:2: iv_ruleUnDefineDirective= ruleUnDefineDirective EOF
+            {
+             newCompositeNode(grammarAccess.getUnDefineDirectiveRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleUnDefineDirective=ruleUnDefineDirective();
+
+            state._fsp--;
+
+             current =iv_ruleUnDefineDirective; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleUnDefineDirective"
+
+
+    // $ANTLR start "ruleUnDefineDirective"
+    // InternalCPreprocess.g:500:1: ruleUnDefineDirective returns [EObject current=null] : ( () this_UNDEF_1= RULE_UNDEF ) ;
+    public final EObject ruleUnDefineDirective() throws RecognitionException {
+        EObject current = null;
+
+        Token this_UNDEF_1=null;
+
+         enterRule();
+           		/*no init found*/
+            
+        try {
+            // InternalCPreprocess.g:506:7: ( ( () this_UNDEF_1= RULE_UNDEF ) )
+            // InternalCPreprocess.g:508:1: ( () this_UNDEF_1= RULE_UNDEF )
+            {
+            // InternalCPreprocess.g:508:1: ( () this_UNDEF_1= RULE_UNDEF )
+            // InternalCPreprocess.g:509:1: () this_UNDEF_1= RULE_UNDEF
+            {
+            // InternalCPreprocess.g:509:1: ()
+            // InternalCPreprocess.g:510:5: 
+            {
+
+                    current = forceCreateModelElement(
+                        grammarAccess.getUnDefineDirectiveAccess().getUnDefineDirectiveAction_0(),
+                        current);
+                
+
+            }
+
+            this_UNDEF_1=(Token)match(input,RULE_UNDEF,FOLLOW_2); 
+             
+                newLeafNode(this_UNDEF_1, grammarAccess.getUnDefineDirectiveAccess().getUNDEFTerminalRuleCall_1()); 
+                
+
+            }
+
+
+            }
+
+             leaveRule();
+                		/*no after found*/
+                 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleUnDefineDirective"
+
+
+    // $ANTLR start "entryRuleErrorDirective"
+    // InternalCPreprocess.g:534:1: entryRuleErrorDirective returns [EObject current=null] : iv_ruleErrorDirective= ruleErrorDirective EOF ;
+    public final EObject entryRuleErrorDirective() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleErrorDirective = null;
+
+
+        try {
+            // InternalCPreprocess.g:535:2: (iv_ruleErrorDirective= ruleErrorDirective EOF )
+            // InternalCPreprocess.g:536:2: iv_ruleErrorDirective= ruleErrorDirective EOF
+            {
+             newCompositeNode(grammarAccess.getErrorDirectiveRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleErrorDirective=ruleErrorDirective();
+
+            state._fsp--;
+
+             current =iv_ruleErrorDirective; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleErrorDirective"
+
+
+    // $ANTLR start "ruleErrorDirective"
+    // InternalCPreprocess.g:543:1: ruleErrorDirective returns [EObject current=null] : ( () this_ERROR_1= RULE_ERROR ( (lv_msg_2_0= RULE_MYCODE ) ) ) ;
+    public final EObject ruleErrorDirective() throws RecognitionException {
+        EObject current = null;
+
+        Token this_ERROR_1=null;
+        Token lv_msg_2_0=null;
+
+         enterRule();
+           		/*no init found*/
+            
+        try {
+            // InternalCPreprocess.g:549:7: ( ( () this_ERROR_1= RULE_ERROR ( (lv_msg_2_0= RULE_MYCODE ) ) ) )
+            // InternalCPreprocess.g:551:1: ( () this_ERROR_1= RULE_ERROR ( (lv_msg_2_0= RULE_MYCODE ) ) )
+            {
+            // InternalCPreprocess.g:551:1: ( () this_ERROR_1= RULE_ERROR ( (lv_msg_2_0= RULE_MYCODE ) ) )
+            // InternalCPreprocess.g:552:1: () this_ERROR_1= RULE_ERROR ( (lv_msg_2_0= RULE_MYCODE ) )
+            {
+            // InternalCPreprocess.g:552:1: ()
+            // InternalCPreprocess.g:553:5: 
+            {
+
+                    current = forceCreateModelElement(
+                        grammarAccess.getErrorDirectiveAccess().getErrorDirectiveAction_0(),
+                        current);
+                
+
+            }
+
+            this_ERROR_1=(Token)match(input,RULE_ERROR,FOLLOW_5); 
+             
+                newLeafNode(this_ERROR_1, grammarAccess.getErrorDirectiveAccess().getERRORTerminalRuleCall_1()); 
+                
+            // InternalCPreprocess.g:568:1: ( (lv_msg_2_0= RULE_MYCODE ) )
+            // InternalCPreprocess.g:569:1: (lv_msg_2_0= RULE_MYCODE )
+            {
+            // InternalCPreprocess.g:569:1: (lv_msg_2_0= RULE_MYCODE )
+            // InternalCPreprocess.g:570:3: lv_msg_2_0= RULE_MYCODE
+            {
+            lv_msg_2_0=(Token)match(input,RULE_MYCODE,FOLLOW_2); 
+
+            			newLeafNode(lv_msg_2_0, grammarAccess.getErrorDirectiveAccess().getMsgMYCODETerminalRuleCall_2_0()); 
+            		
+
+            	        if (current==null) {
+            	            current = createModelElement(grammarAccess.getErrorDirectiveRule());
+            	        }
+                   		setWithLastConsumed(
+                   			current, 
+                   			"msg",
+                    		lv_msg_2_0, 
+                    		"at.jku.weiner.cpreprocess.CPreprocess.MYCODE");
+            	    
+
+            }
+
+
+            }
+
+
+            }
+
+
+            }
+
+             leaveRule();
+                		/*no after found*/
+                 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleErrorDirective"
+
+
+    // $ANTLR start "entryRulePragmaDirective"
+    // InternalCPreprocess.g:598:1: entryRulePragmaDirective returns [EObject current=null] : iv_rulePragmaDirective= rulePragmaDirective EOF ;
+    public final EObject entryRulePragmaDirective() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_rulePragmaDirective = null;
+
+
+        try {
+            // InternalCPreprocess.g:599:2: (iv_rulePragmaDirective= rulePragmaDirective EOF )
+            // InternalCPreprocess.g:600:2: iv_rulePragmaDirective= rulePragmaDirective EOF
+            {
+             newCompositeNode(grammarAccess.getPragmaDirectiveRule()); 
+            pushFollow(FOLLOW_1);
+            iv_rulePragmaDirective=rulePragmaDirective();
+
+            state._fsp--;
+
+             current =iv_rulePragmaDirective; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRulePragmaDirective"
+
+
+    // $ANTLR start "rulePragmaDirective"
+    // InternalCPreprocess.g:607:1: rulePragmaDirective returns [EObject current=null] : ( () this_PRAGMA_1= RULE_PRAGMA ) ;
+    public final EObject rulePragmaDirective() throws RecognitionException {
+        EObject current = null;
+
+        Token this_PRAGMA_1=null;
+
+         enterRule();
+           		/*no init found*/
+            
+        try {
+            // InternalCPreprocess.g:613:7: ( ( () this_PRAGMA_1= RULE_PRAGMA ) )
+            // InternalCPreprocess.g:615:1: ( () this_PRAGMA_1= RULE_PRAGMA )
+            {
+            // InternalCPreprocess.g:615:1: ( () this_PRAGMA_1= RULE_PRAGMA )
+            // InternalCPreprocess.g:616:1: () this_PRAGMA_1= RULE_PRAGMA
+            {
+            // InternalCPreprocess.g:616:1: ()
+            // InternalCPreprocess.g:617:5: 
+            {
+
+                    current = forceCreateModelElement(
+                        grammarAccess.getPragmaDirectiveAccess().getPragmaDirectiveAction_0(),
+                        current);
+                
+
+            }
+
+            this_PRAGMA_1=(Token)match(input,RULE_PRAGMA,FOLLOW_2); 
+             
+                newLeafNode(this_PRAGMA_1, grammarAccess.getPragmaDirectiveAccess().getPRAGMATerminalRuleCall_1()); 
+                
+
+            }
+
+
+            }
+
+             leaveRule();
+                		/*no after found*/
+                 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "rulePragmaDirective"
+
+
     // $ANTLR start "entryRuleNewLineLine"
-    // InternalCPreprocess.g:364:1: entryRuleNewLineLine returns [EObject current=null] : iv_ruleNewLineLine= ruleNewLineLine EOF ;
+    // InternalCPreprocess.g:641:1: entryRuleNewLineLine returns [EObject current=null] : iv_ruleNewLineLine= ruleNewLineLine EOF ;
     public final EObject entryRuleNewLineLine() throws RecognitionException {
         EObject current = null;
 
@@ -672,8 +1264,8 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalCPreprocess.g:365:2: (iv_ruleNewLineLine= ruleNewLineLine EOF )
-            // InternalCPreprocess.g:366:2: iv_ruleNewLineLine= ruleNewLineLine EOF
+            // InternalCPreprocess.g:642:2: (iv_ruleNewLineLine= ruleNewLineLine EOF )
+            // InternalCPreprocess.g:643:2: iv_ruleNewLineLine= ruleNewLineLine EOF
             {
              newCompositeNode(grammarAccess.getNewLineLineRule()); 
             pushFollow(FOLLOW_1);
@@ -700,7 +1292,7 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNewLineLine"
-    // InternalCPreprocess.g:373:1: ruleNewLineLine returns [EObject current=null] : ( () this_NEWLINE_1= RULE_NEWLINE ) ;
+    // InternalCPreprocess.g:650:1: ruleNewLineLine returns [EObject current=null] : ( () this_NEWLINE_1= RULE_NEWLINE ) ;
     public final EObject ruleNewLineLine() throws RecognitionException {
         EObject current = null;
 
@@ -710,14 +1302,14 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
            		/*no init found*/
             
         try {
-            // InternalCPreprocess.g:379:7: ( ( () this_NEWLINE_1= RULE_NEWLINE ) )
-            // InternalCPreprocess.g:381:1: ( () this_NEWLINE_1= RULE_NEWLINE )
+            // InternalCPreprocess.g:656:7: ( ( () this_NEWLINE_1= RULE_NEWLINE ) )
+            // InternalCPreprocess.g:658:1: ( () this_NEWLINE_1= RULE_NEWLINE )
             {
-            // InternalCPreprocess.g:381:1: ( () this_NEWLINE_1= RULE_NEWLINE )
-            // InternalCPreprocess.g:382:1: () this_NEWLINE_1= RULE_NEWLINE
+            // InternalCPreprocess.g:658:1: ( () this_NEWLINE_1= RULE_NEWLINE )
+            // InternalCPreprocess.g:659:1: () this_NEWLINE_1= RULE_NEWLINE
             {
-            // InternalCPreprocess.g:382:1: ()
-            // InternalCPreprocess.g:383:5: 
+            // InternalCPreprocess.g:659:1: ()
+            // InternalCPreprocess.g:660:5: 
             {
 
                     current = forceCreateModelElement(
@@ -754,7 +1346,7 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleCode"
-    // InternalCPreprocess.g:407:1: entryRuleCode returns [EObject current=null] : iv_ruleCode= ruleCode EOF ;
+    // InternalCPreprocess.g:684:1: entryRuleCode returns [EObject current=null] : iv_ruleCode= ruleCode EOF ;
     public final EObject entryRuleCode() throws RecognitionException {
         EObject current = null;
 
@@ -762,8 +1354,8 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalCPreprocess.g:408:2: (iv_ruleCode= ruleCode EOF )
-            // InternalCPreprocess.g:409:2: iv_ruleCode= ruleCode EOF
+            // InternalCPreprocess.g:685:2: (iv_ruleCode= ruleCode EOF )
+            // InternalCPreprocess.g:686:2: iv_ruleCode= ruleCode EOF
             {
              newCompositeNode(grammarAccess.getCodeRule()); 
             pushFollow(FOLLOW_1);
@@ -790,7 +1382,7 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCode"
-    // InternalCPreprocess.g:416:1: ruleCode returns [EObject current=null] : ( () ( (lv_code_1_0= RULE_MYCODE ) ) this_NEWLINE_2= RULE_NEWLINE ) ;
+    // InternalCPreprocess.g:693:1: ruleCode returns [EObject current=null] : ( () ( (lv_code_1_0= RULE_MYCODE ) ) this_NEWLINE_2= RULE_NEWLINE ) ;
     public final EObject ruleCode() throws RecognitionException {
         EObject current = null;
 
@@ -801,14 +1393,14 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
            		/*no init found*/
             
         try {
-            // InternalCPreprocess.g:422:7: ( ( () ( (lv_code_1_0= RULE_MYCODE ) ) this_NEWLINE_2= RULE_NEWLINE ) )
-            // InternalCPreprocess.g:424:1: ( () ( (lv_code_1_0= RULE_MYCODE ) ) this_NEWLINE_2= RULE_NEWLINE )
+            // InternalCPreprocess.g:699:7: ( ( () ( (lv_code_1_0= RULE_MYCODE ) ) this_NEWLINE_2= RULE_NEWLINE ) )
+            // InternalCPreprocess.g:701:1: ( () ( (lv_code_1_0= RULE_MYCODE ) ) this_NEWLINE_2= RULE_NEWLINE )
             {
-            // InternalCPreprocess.g:424:1: ( () ( (lv_code_1_0= RULE_MYCODE ) ) this_NEWLINE_2= RULE_NEWLINE )
-            // InternalCPreprocess.g:425:1: () ( (lv_code_1_0= RULE_MYCODE ) ) this_NEWLINE_2= RULE_NEWLINE
+            // InternalCPreprocess.g:701:1: ( () ( (lv_code_1_0= RULE_MYCODE ) ) this_NEWLINE_2= RULE_NEWLINE )
+            // InternalCPreprocess.g:702:1: () ( (lv_code_1_0= RULE_MYCODE ) ) this_NEWLINE_2= RULE_NEWLINE
             {
-            // InternalCPreprocess.g:425:1: ()
-            // InternalCPreprocess.g:426:5: 
+            // InternalCPreprocess.g:702:1: ()
+            // InternalCPreprocess.g:703:5: 
             {
 
                     current = forceCreateModelElement(
@@ -818,13 +1410,13 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalCPreprocess.g:434:1: ( (lv_code_1_0= RULE_MYCODE ) )
-            // InternalCPreprocess.g:435:1: (lv_code_1_0= RULE_MYCODE )
+            // InternalCPreprocess.g:711:1: ( (lv_code_1_0= RULE_MYCODE ) )
+            // InternalCPreprocess.g:712:1: (lv_code_1_0= RULE_MYCODE )
             {
-            // InternalCPreprocess.g:435:1: (lv_code_1_0= RULE_MYCODE )
-            // InternalCPreprocess.g:436:3: lv_code_1_0= RULE_MYCODE
+            // InternalCPreprocess.g:712:1: (lv_code_1_0= RULE_MYCODE )
+            // InternalCPreprocess.g:713:3: lv_code_1_0= RULE_MYCODE
             {
-            lv_code_1_0=(Token)match(input,RULE_MYCODE,FOLLOW_5); 
+            lv_code_1_0=(Token)match(input,RULE_MYCODE,FOLLOW_4); 
 
             			newLeafNode(lv_code_1_0, grammarAccess.getCodeAccess().getCodeMYCODETerminalRuleCall_1_0()); 
             		
@@ -876,8 +1468,8 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000072L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000200L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x00000000000007F2L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000040L});
 
 }

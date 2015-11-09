@@ -26,20 +26,46 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if(ruleCall.getRule() == grammarAccess.getHASHRule())
-			return getHASHToken(semanticObject, ruleCall, node);
+		if(ruleCall.getRule() == grammarAccess.getDEFINERule())
+			return getDEFINEToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getERRORRule())
+			return getERRORToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getINCLUDERule())
+			return getINCLUDEToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getNEWLINERule())
 			return getNEWLINEToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getPRAGMARule())
+			return getPRAGMAToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getUNDEFRule())
+			return getUNDEFToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
 	/**
-	 * terminal HASH: '#';
+	 * terminal DEFINE:	HASH WS* 'define' WS*;
 	 */
-	protected String getHASHToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+	protected String getDEFINEToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
-		return "#";
+		return "#define";
+	}
+	
+	/**
+	 * terminal ERROR:		HASH WS* 'error' WS*;
+	 */
+	protected String getERRORToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "#error";
+	}
+	
+	/**
+	 * terminal INCLUDE:	HASH WS* 'include' WS*;
+	 */
+	protected String getINCLUDEToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "#include";
 	}
 	
 	/**
@@ -49,6 +75,24 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return "\r";
+	}
+	
+	/**
+	 * terminal PRAGMA:	HASH WS* 'pragma' WS*;
+	 */
+	protected String getPRAGMAToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "#pragma";
+	}
+	
+	/**
+	 * terminal UNDEF:		HASH WS* 'undef' WS*;
+	 */
+	protected String getUNDEFToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "#undef";
 	}
 	
 	@Override

@@ -3,13 +3,13 @@
 package at.jku.weiner.cpreprocess.cPreprocess.impl;
 
 import at.jku.weiner.cpreprocess.cPreprocess.CPreprocessPackage;
-import at.jku.weiner.cpreprocess.cPreprocess.IncludeDirective;
 import at.jku.weiner.cpreprocess.cPreprocess.PreprocessorDirectives;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -37,7 +37,7 @@ public class PreprocessorDirectivesImpl extends SourceCodeLineImpl implements Pr
    * @generated
    * @ordered
    */
-  protected IncludeDirective directive;
+  protected EObject directive;
 
   /**
    * <!-- begin-user-doc -->
@@ -65,7 +65,7 @@ public class PreprocessorDirectivesImpl extends SourceCodeLineImpl implements Pr
    * <!-- end-user-doc -->
    * @generated
    */
-  public IncludeDirective getDirective()
+  public EObject getDirective()
   {
     return directive;
   }
@@ -75,9 +75,9 @@ public class PreprocessorDirectivesImpl extends SourceCodeLineImpl implements Pr
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetDirective(IncludeDirective newDirective, NotificationChain msgs)
+  public NotificationChain basicSetDirective(EObject newDirective, NotificationChain msgs)
   {
-    IncludeDirective oldDirective = directive;
+    EObject oldDirective = directive;
     directive = newDirective;
     if (eNotificationRequired())
     {
@@ -92,7 +92,7 @@ public class PreprocessorDirectivesImpl extends SourceCodeLineImpl implements Pr
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDirective(IncludeDirective newDirective)
+  public void setDirective(EObject newDirective)
   {
     if (newDirective != directive)
     {
@@ -151,7 +151,7 @@ public class PreprocessorDirectivesImpl extends SourceCodeLineImpl implements Pr
     switch (featureID)
     {
       case CPreprocessPackage.PREPROCESSOR_DIRECTIVES__DIRECTIVE:
-        setDirective((IncludeDirective)newValue);
+        setDirective((EObject)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -168,7 +168,7 @@ public class PreprocessorDirectivesImpl extends SourceCodeLineImpl implements Pr
     switch (featureID)
     {
       case CPreprocessPackage.PREPROCESSOR_DIRECTIVES__DIRECTIVE:
-        setDirective((IncludeDirective)null);
+        setDirective((EObject)null);
         return;
     }
     super.eUnset(featureID);

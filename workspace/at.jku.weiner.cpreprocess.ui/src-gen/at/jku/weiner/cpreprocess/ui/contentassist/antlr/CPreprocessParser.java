@@ -38,18 +38,28 @@ public class CPreprocessParser extends AbstractContentAssistParser {
 				private static final long serialVersionUID = 1L;
 				{
 					put(grammarAccess.getTranslationUnitAccess().getAlternatives_1(), "rule__TranslationUnit__Alternatives_1");
+					put(grammarAccess.getPreprocessorDirectivesAccess().getAlternatives_1(), "rule__PreprocessorDirectives__Alternatives_1");
 					put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
 					put(grammarAccess.getTranslationUnitAccess().getGroup(), "rule__TranslationUnit__Group__0");
 					put(grammarAccess.getPreprocessorDirectivesAccess().getGroup(), "rule__PreprocessorDirectives__Group__0");
 					put(grammarAccess.getIncludeDirectiveAccess().getGroup(), "rule__IncludeDirective__Group__0");
+					put(grammarAccess.getDefineDirectiveAccess().getGroup(), "rule__DefineDirective__Group__0");
+					put(grammarAccess.getUnDefineDirectiveAccess().getGroup(), "rule__UnDefineDirective__Group__0");
+					put(grammarAccess.getErrorDirectiveAccess().getGroup(), "rule__ErrorDirective__Group__0");
+					put(grammarAccess.getPragmaDirectiveAccess().getGroup(), "rule__PragmaDirective__Group__0");
 					put(grammarAccess.getNewLineLineAccess().getGroup(), "rule__NewLineLine__Group__0");
 					put(grammarAccess.getCodeAccess().getGroup(), "rule__Code__Group__0");
 					put(grammarAccess.getModelAccess().getUnitsAssignment_1(), "rule__Model__UnitsAssignment_1");
 					put(grammarAccess.getTranslationUnitAccess().getLinesAssignment_1_0(), "rule__TranslationUnit__LinesAssignment_1_0");
 					put(grammarAccess.getTranslationUnitAccess().getLinesAssignment_1_1(), "rule__TranslationUnit__LinesAssignment_1_1");
 					put(grammarAccess.getTranslationUnitAccess().getLinesAssignment_1_2(), "rule__TranslationUnit__LinesAssignment_1_2");
-					put(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveAssignment_2(), "rule__PreprocessorDirectives__DirectiveAssignment_2");
+					put(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveAssignment_1_0(), "rule__PreprocessorDirectives__DirectiveAssignment_1_0");
+					put(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveAssignment_1_1(), "rule__PreprocessorDirectives__DirectiveAssignment_1_1");
+					put(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveAssignment_1_2(), "rule__PreprocessorDirectives__DirectiveAssignment_1_2");
+					put(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveAssignment_1_3(), "rule__PreprocessorDirectives__DirectiveAssignment_1_3");
+					put(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveAssignment_1_4(), "rule__PreprocessorDirectives__DirectiveAssignment_1_4");
 					put(grammarAccess.getIncludeDirectiveAccess().getStringAssignment_2(), "rule__IncludeDirective__StringAssignment_2");
+					put(grammarAccess.getErrorDirectiveAccess().getMsgAssignment_2(), "rule__ErrorDirective__MsgAssignment_2");
 					put(grammarAccess.getCodeAccess().getCodeAssignment_1(), "rule__Code__CodeAssignment_1");
 				}
 			};
@@ -70,7 +80,7 @@ public class CPreprocessParser extends AbstractContentAssistParser {
 	
 	@Override
 	protected String[] getInitialHiddenTokens() {
-		return new String[] { "RULE_WHITESPACE" };
+		return new String[] {  };
 	}
 	
 	public CPreprocessGrammarAccess getGrammarAccess() {

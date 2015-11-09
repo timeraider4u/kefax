@@ -27,7 +27,7 @@
  THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 grammar at.jku.weiner.cpreprocess.CPreprocess // with org.eclipse.xtext.common.Terminals
-hidden(WHITESPACE)
+//hidden(LINEBREAK)
 
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
@@ -49,16 +49,40 @@ TranslationUnit:
 
 PreprocessorDirectives returns SourceCodeLine:
 	{PreprocessorDirectives}
-	HASH
+	// HASH
 	(
-		directive=IncludeDirective
+			directive=IncludeDirective
+		|	directive=DefineDirective
+		|	directive=UnDefineDirective
+		|	directive=ErrorDirective
+		|	directive=PragmaDirective
 	)
 	NEWLINE
 ;
 
 IncludeDirective:
 	{IncludeDirective}
-	'include' string=NEWLINE
+	INCLUDE string=MYCODE
+;
+
+DefineDirective:
+	{DefineDirective}
+	DEFINE 
+;
+
+UnDefineDirective:
+	{UnDefineDirective}
+	UNDEF
+;
+
+ErrorDirective:
+	{ErrorDirective}
+	ERROR msg=MYCODE
+;
+
+PragmaDirective:
+	{PragmaDirective}
+	PRAGMA
 ;
 
 NewLineLine returns SourceCodeLine:
@@ -73,9 +97,19 @@ Code returns SourceCodeLine:
 ;
 
 // lexer tokens
-terminal HASH: '#';
-terminal fragment BACKSLASH: '\\';
-
-terminal WHITESPACE: (BACKSLASH NEWLINE)+;
 terminal NEWLINE: ('\r'|'\n');
-terminal MYCODE: !(HASH | NEWLINE) (!NEWLINE)*;
+terminal fragment BACKSLASH: '\\';
+terminal fragment LINEBREAK: (BACKSLASH NEWLINE)+;
+terminal WS: (' ' | '\t' | LINEBREAK);
+terminal fragment HASH: '#';
+terminal DEFINE:	HASH WS* 'define' WS*;
+terminal UNDEF:		HASH WS* 'undef' WS*;
+terminal INCLUDE:	HASH WS* 'include' WS*;
+terminal ERROR:		HASH WS* 'error' WS*;
+terminal PRAGMA:	HASH WS* 'pragma' WS*;
+
+
+terminal MYCODE:
+	!(HASH | NEWLINE)
+	(!NEWLINE)*
+;

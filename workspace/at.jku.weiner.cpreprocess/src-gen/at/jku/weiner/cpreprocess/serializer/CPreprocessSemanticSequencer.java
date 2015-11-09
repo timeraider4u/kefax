@@ -5,11 +5,15 @@ package at.jku.weiner.cpreprocess.serializer;
 
 import at.jku.weiner.cpreprocess.cPreprocess.CPreprocessPackage;
 import at.jku.weiner.cpreprocess.cPreprocess.Code;
+import at.jku.weiner.cpreprocess.cPreprocess.DefineDirective;
+import at.jku.weiner.cpreprocess.cPreprocess.ErrorDirective;
 import at.jku.weiner.cpreprocess.cPreprocess.IncludeDirective;
 import at.jku.weiner.cpreprocess.cPreprocess.Model;
 import at.jku.weiner.cpreprocess.cPreprocess.NewLineLine;
+import at.jku.weiner.cpreprocess.cPreprocess.PragmaDirective;
 import at.jku.weiner.cpreprocess.cPreprocess.PreprocessorDirectives;
 import at.jku.weiner.cpreprocess.cPreprocess.TranslationUnit;
+import at.jku.weiner.cpreprocess.cPreprocess.UnDefineDirective;
 import at.jku.weiner.cpreprocess.services.CPreprocessGrammarAccess;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
@@ -37,6 +41,12 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 			case CPreprocessPackage.CODE:
 				sequence_Code(context, (Code) semanticObject); 
 				return; 
+			case CPreprocessPackage.DEFINE_DIRECTIVE:
+				sequence_DefineDirective(context, (DefineDirective) semanticObject); 
+				return; 
+			case CPreprocessPackage.ERROR_DIRECTIVE:
+				sequence_ErrorDirective(context, (ErrorDirective) semanticObject); 
+				return; 
 			case CPreprocessPackage.INCLUDE_DIRECTIVE:
 				sequence_IncludeDirective(context, (IncludeDirective) semanticObject); 
 				return; 
@@ -46,11 +56,17 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 			case CPreprocessPackage.NEW_LINE_LINE:
 				sequence_NewLineLine(context, (NewLineLine) semanticObject); 
 				return; 
+			case CPreprocessPackage.PRAGMA_DIRECTIVE:
+				sequence_PragmaDirective(context, (PragmaDirective) semanticObject); 
+				return; 
 			case CPreprocessPackage.PREPROCESSOR_DIRECTIVES:
 				sequence_PreprocessorDirectives(context, (PreprocessorDirectives) semanticObject); 
 				return; 
 			case CPreprocessPackage.TRANSLATION_UNIT:
 				sequence_TranslationUnit(context, (TranslationUnit) semanticObject); 
+				return; 
+			case CPreprocessPackage.UN_DEFINE_DIRECTIVE:
+				sequence_UnDefineDirective(context, (UnDefineDirective) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
@@ -74,7 +90,32 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     string=NEWLINE
+	 *     {DefineDirective}
+	 */
+	protected void sequence_DefineDirective(EObject context, DefineDirective semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     msg=MYCODE
+	 */
+	protected void sequence_ErrorDirective(EObject context, ErrorDirective semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, CPreprocessPackage.Literals.ERROR_DIRECTIVE__MSG) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CPreprocessPackage.Literals.ERROR_DIRECTIVE__MSG));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getErrorDirectiveAccess().getMsgMYCODETerminalRuleCall_2_0(), semanticObject.getMsg());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     string=MYCODE
 	 */
 	protected void sequence_IncludeDirective(EObject context, IncludeDirective semanticObject) {
 		if(errorAcceptor != null) {
@@ -83,7 +124,7 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getIncludeDirectiveAccess().getStringNEWLINETerminalRuleCall_2_0(), semanticObject.getString());
+		feeder.accept(grammarAccess.getIncludeDirectiveAccess().getStringMYCODETerminalRuleCall_2_0(), semanticObject.getString());
 		feeder.finish();
 	}
 	
@@ -108,17 +149,19 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     directive=IncludeDirective
+	 *     {PragmaDirective}
+	 */
+	protected void sequence_PragmaDirective(EObject context, PragmaDirective semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (directive=IncludeDirective | directive=DefineDirective | directive=UnDefineDirective | directive=ErrorDirective | directive=PragmaDirective)
 	 */
 	protected void sequence_PreprocessorDirectives(EObject context, PreprocessorDirectives semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, CPreprocessPackage.Literals.PREPROCESSOR_DIRECTIVES__DIRECTIVE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CPreprocessPackage.Literals.PREPROCESSOR_DIRECTIVES__DIRECTIVE));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveIncludeDirectiveParserRuleCall_2_0(), semanticObject.getDirective());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -127,6 +170,15 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     ((lines+=PreprocessorDirectives | lines+=NewLineLine | lines+=Code)*)
 	 */
 	protected void sequence_TranslationUnit(EObject context, TranslationUnit semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     {UnDefineDirective}
+	 */
+	protected void sequence_UnDefineDirective(EObject context, UnDefineDirective semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 }

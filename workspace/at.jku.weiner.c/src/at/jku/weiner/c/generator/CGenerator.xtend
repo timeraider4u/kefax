@@ -69,6 +69,14 @@ import at.jku.weiner.c.c.StructDeclaratorList
 import at.jku.weiner.c.c.ArgumentExpressionList
 import at.jku.weiner.c.c.Pointer
 import at.jku.weiner.c.c.TypeQualifierList
+import at.jku.weiner.c.c.Initializer
+import at.jku.weiner.c.c.InitializerList
+import at.jku.weiner.c.c.AsmLineWithColon
+import at.jku.weiner.c.c.AsmLineWithComma
+import at.jku.weiner.c.c.FunctionSpecifier
+import at.jku.weiner.c.c.EnumSpecifier
+import at.jku.weiner.c.c.EnumeratorList
+import at.jku.weiner.c.c.Enumerator
 
 /**
  * Generates code from your model files on save.
@@ -125,6 +133,9 @@ class CGenerator implements IGenerator {
 			«IF s instanceof TypeQualifier»
 			«outputFor(s)»
 			«ENDIF»
+			«IF s instanceof FunctionSpecifier»
+			«outputFor(s)»
+			«ENDIF»
 		«ENDFOR»
 	'''
 	
@@ -155,6 +166,9 @@ class CGenerator implements IGenerator {
 			«IF s instanceof TypeQualifier»
 			«outputFor(s)»
 			«ENDIF»
+			«IF s instanceof StructOrUnionSpecifier»
+			«outputFor(s)»
+			«ENDIF»
 		«ENDFOR»
 	'''
 	
@@ -166,14 +180,21 @@ class CGenerator implements IGenerator {
 		«spec.type»
 	'''
 	
+	def String outputFor(FunctionSpecifier spec) '''
+		«spec.name»
+	'''
+	
 	def String outputFor(TypeSpecifier spec) '''
 		«IF spec.specifier != null»
-		«ELSE»
+			«IF spec.specifier instanceof EnumSpecifier»
+				«outputFor(spec.specifier as EnumSpecifier)»
+			«ENDIF»
+		«ENDIF»
 		«IF spec.type != null»
 			«spec.type.id»
-		«ELSE»
-			«spec.name»
 		«ENDIF»
+		«IF spec.name != null»
+			«spec.name»
 		«ENDIF»
 	'''
 	
@@ -202,25 +223,49 @@ class CGenerator implements IGenerator {
 	
 	def String outputFor(StructDeclarator obj) '''
 		«IF obj.declarator != null»«outputFor(obj.declarator)»«ENDIF»
-		«IF obj.constExpr != null»:
+		«IF obj.constExpr != null && obj.constExpr.size > 0»:
 		«FOR e: obj.constExpr»
-			«outputForConstantExpression(convertToConstantExpression(e))»
+			«outputForConstantExpression(e as ConstantExpression)»
 		«ENDFOR»
 		«ENDIF»
 	'''
 	
-	def ConstantExpression convertToConstantExpression(Expression e) {
-		return e as ConstantExpression;
-	}
+	def String outputFor(EnumSpecifier obj) '''
+		enum «IF obj.id != null»«obj.id»«ENDIF»
+		«IF obj.enumList != null»
+			{
+				«outputFor(obj.enumList)»
+			}
+		«ENDIF»
+	'''
+	
+	def String outputFor(EnumeratorList obj) '''
+		«FOR e : obj.enumerator»
+			«IF obj.enumerator.indexOf(e) > 0», «ENDIF»
+			«outputFor(e)»
+		«ENDFOR»
+	'''
+	
+	def String outputFor(Enumerator obj) '''
+		«obj.id»
+		«IF obj.expr != null»
+			=
+			«outputForConstantExpression(obj.expr as ConstantExpression)»
+		«ENDIF»
+	'''
 	
 	def String outputFor(InitDeclaratorList list) '''
 		«FOR initDeclarator : list.initDeclarator»
+			«IF list.initDeclarator.indexOf(initDeclarator) > 0», «ENDIF»
 			«outputFor(initDeclarator)»
 		«ENDFOR»
 	'''
 	
 	def String outputFor(InitDeclarator decl) '''
 		«outputFor(decl.declarator)»
+		«IF decl.initializer != null»
+			= «outputFor(decl.initializer)»
+		«ENDIF»
 	'''
 	
 	def String outputFor(Declarator decl) '''
@@ -242,6 +287,15 @@ class CGenerator implements IGenerator {
 	def String outputFor(DeclaratorSuffix obj) '''
 		«IF obj.lastSuffix != null»
 			«outputFor(obj.lastSuffix)»
+		«ELSE»
+			[
+			«IF obj.typeQualifierList != null»
+				«outputFor(obj.typeQualifierList)»
+			«ENDIF»
+			«IF obj.expr != null»
+				«outputForAssignmentExpression(obj.expr as AssignmentExpression)»
+			«ENDIF»
+			]
 		«ENDIF»
 	'''
 	
@@ -295,7 +349,23 @@ class CGenerator implements IGenerator {
 			«IF obj.id.indexOf(i) > 0», «ENDIF»
 			«i.id»
 		«ENDFOR»
-	''' 
+	'''
+	
+	def String outputFor(Initializer obj) '''
+		«IF obj.expr != null»
+			«outputForAssignmentExpression(obj.expr as AssignmentExpression)»
+		«ENDIF»
+		«IF obj.list != null»
+			{	«outputFor(obj.list)» }
+		«ENDIF»
+	'''
+	
+	def String outputFor(InitializerList obj) '''
+		«FOR i : obj.initializer»
+			«IF obj.initializer.indexOf(i) > 0», «ENDIF»
+			«outputFor(i)»
+		«ENDFOR»
+	'''
 	
 	def String outputFor(Statement obj) '''
 		«IF obj.stmt != null»«outputFor(obj.stmt)»«ENDIF»
@@ -311,7 +381,7 @@ class CGenerator implements IGenerator {
 	
 	def String outputForLabeledStatement(LabeledStatement obj) '''
 		«IF obj.id != null»«obj.id»:«outputFor(obj.LStmt)»«ENDIF»
-		«IF obj.getCase() != null»case «obj.expr»:«outputFor(obj.LStmt)»«ENDIF»
+		«IF obj.getCase() != null»case «outputForConstantExpression(obj.expr as ConstantExpression)»:«outputFor(obj.LStmt)»«ENDIF»
 		«IF obj.getDefault() != null»default: «outputFor(obj.LStmt)»«ENDIF»
 	'''
 	
@@ -389,11 +459,33 @@ class CGenerator implements IGenerator {
 		«IF obj.continue != null»continue;«ENDIF»
 		«IF obj.break != null»break;«ENDIF»
 		«IF obj.getReturn() != null»return «IF obj.expr != null»«outputFor(obj.expr)»«ENDIF» ;«ENDIF»
-		«IF obj.goto != null»goto«outputFor(obj.expr)»;«ENDIF»
+		«IF obj.goto != null»goto «outputForUnaryExpression(obj.expr as UnaryExpression)»;«ENDIF»
 	'''
 	
 	def String outputForAsmStatement(AsmStatement obj) '''
+		«obj.asm» 
+		«IF obj.volatile != null»
+			«obj.volatile» 
+		«ENDIF»
+		(
+			«FOR l: obj.asmLine»
+				«IF l instanceof AsmLineWithColon»
+					«outputFor(l as AsmLineWithColon)»
+				«ELSE»
+					«outputFor(l as AsmLineWithComma)»
+				«ENDIF»
+			«ENDFOR»
+		);
+	'''
 	
+	def String outputFor(AsmLineWithColon obj) '''
+		«IF obj.colon»: «ENDIF»
+		«outputForLogicalOrExpression(obj.expr as LogicalOrExpression)»
+	'''
+	
+	def String outputFor(AsmLineWithComma obj) '''
+		,
+		«outputForLogicalOrExpression(obj.expr as LogicalOrExpression)»
 	'''
 	
 	def String outputFor(Expression obj) '''
@@ -512,13 +604,13 @@ class CGenerator implements IGenerator {
 	
 	def String outputFor(SpecifierQualifierList obj) '''
 		«FOR x : obj.typeSpecifier»
-			«outputFor(x)»
+			«outputFor(x as TypeSpecifier)»
 		«ENDFOR»
 		«FOR x : obj.typeQualifier»
-			«outputFor(x)»
+			«outputFor(x as TypeQualifier)»
 		«ENDFOR»
 		«FOR x : obj.structOrUnionSpecifier»
-			«»
+			«outputFor(x as StructOrUnionSpecifier)»
 		«ENDFOR»
 	'''
 	
@@ -599,7 +691,7 @@ class CGenerator implements IGenerator {
 	'''
 	
 	def String outputForConstantExpression(ConstantExpression obj) '''
-		«outputFor(obj.expr)»
+		«outputForConditionalExpression(obj.expr as ConditionalExpression)»
 	'''
 }
 

@@ -275,6 +275,11 @@ public class CAdapterFactory extends AdapterFactoryImpl
         return createStatementAdapter();
       }
       @Override
+      public Adapter caseAsmLine(AsmLine object)
+      {
+        return createAsmLineAdapter();
+      }
+      @Override
       public Adapter caseExpression(Expression object)
       {
         return createExpressionAdapter();
@@ -348,6 +353,16 @@ public class CAdapterFactory extends AdapterFactoryImpl
       public Adapter caseAsmStatement(AsmStatement object)
       {
         return createAsmStatementAdapter();
+      }
+      @Override
+      public Adapter caseAsmLineWithColon(AsmLineWithColon object)
+      {
+        return createAsmLineWithColonAdapter();
+      }
+      @Override
+      public Adapter caseAsmLineWithComma(AsmLineWithComma object)
+      {
+        return createAsmLineWithCommaAdapter();
       }
       @Override
       public Adapter caseAssignmentExpression(AssignmentExpression object)
@@ -1057,6 +1072,21 @@ public class CAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.AsmLine <em>Asm Line</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.c.AsmLine
+   * @generated
+   */
+  public Adapter createAsmLineAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.Expression <em>Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1277,6 +1307,36 @@ public class CAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createAsmStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.AsmLineWithColon <em>Asm Line With Colon</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.c.AsmLineWithColon
+   * @generated
+   */
+  public Adapter createAsmLineWithColonAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.AsmLineWithComma <em>Asm Line With Comma</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.c.AsmLineWithComma
+   * @generated
+   */
+  public Adapter createAsmLineWithCommaAdapter()
   {
     return null;
   }

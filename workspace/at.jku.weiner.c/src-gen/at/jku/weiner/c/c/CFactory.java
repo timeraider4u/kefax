@@ -383,6 +383,15 @@ public interface CFactory extends EFactory
   Statement createStatement();
 
   /**
+   * Returns a new object of class '<em>Asm Line</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Asm Line</em>'.
+   * @generated
+   */
+  AsmLine createAsmLine();
+
+  /**
    * Returns a new object of class '<em>Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -516,6 +525,24 @@ public interface CFactory extends EFactory
    * @generated
    */
   AsmStatement createAsmStatement();
+
+  /**
+   * Returns a new object of class '<em>Asm Line With Colon</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Asm Line With Colon</em>'.
+   * @generated
+   */
+  AsmLineWithColon createAsmLineWithColon();
+
+  /**
+   * Returns a new object of class '<em>Asm Line With Comma</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Asm Line With Comma</em>'.
+   * @generated
+   */
+  AsmLineWithComma createAsmLineWithComma();
 
   /**
    * Returns a new object of class '<em>Assignment Expression</em>'.

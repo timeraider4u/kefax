@@ -6,6 +6,9 @@ package at.jku.weiner.c.generator;
 import at.jku.weiner.c.c.AdditiveExpression;
 import at.jku.weiner.c.c.AndExpression;
 import at.jku.weiner.c.c.ArgumentExpressionList;
+import at.jku.weiner.c.c.AsmLine;
+import at.jku.weiner.c.c.AsmLineWithColon;
+import at.jku.weiner.c.c.AsmLineWithComma;
 import at.jku.weiner.c.c.AsmStatement;
 import at.jku.weiner.c.c.AssignmentExpression;
 import at.jku.weiner.c.c.AssignmentOperator;
@@ -23,6 +26,9 @@ import at.jku.weiner.c.c.Declarator;
 import at.jku.weiner.c.c.DeclaratorSuffix;
 import at.jku.weiner.c.c.DirectDeclarator;
 import at.jku.weiner.c.c.DirectDeclaratorLastSuffix;
+import at.jku.weiner.c.c.EnumSpecifier;
+import at.jku.weiner.c.c.Enumerator;
+import at.jku.weiner.c.c.EnumeratorList;
 import at.jku.weiner.c.c.EqualityExpression;
 import at.jku.weiner.c.c.ExclusiveOrExpression;
 import at.jku.weiner.c.c.Expression;
@@ -31,10 +37,13 @@ import at.jku.weiner.c.c.ExternalDeclaration;
 import at.jku.weiner.c.c.FunctionDeclarationSpecifiers;
 import at.jku.weiner.c.c.FunctionDefHead;
 import at.jku.weiner.c.c.FunctionDefinition;
+import at.jku.weiner.c.c.FunctionSpecifier;
 import at.jku.weiner.c.c.IdentifierList;
 import at.jku.weiner.c.c.InclusiveOrExpression;
 import at.jku.weiner.c.c.InitDeclarator;
 import at.jku.weiner.c.c.InitDeclaratorList;
+import at.jku.weiner.c.c.Initializer;
+import at.jku.weiner.c.c.InitializerList;
 import at.jku.weiner.c.c.IterationStatement;
 import at.jku.weiner.c.c.JumpStatement;
 import at.jku.weiner.c.c.LabeledStatement;
@@ -207,6 +216,13 @@ public class CGenerator implements IGenerator {
             _builder.newLineIfNotEmpty();
           }
         }
+        {
+          if ((s instanceof FunctionSpecifier)) {
+            String _outputFor_3 = this.outputFor(((FunctionSpecifier)s));
+            _builder.append(_outputFor_3, "");
+            _builder.newLineIfNotEmpty();
+          }
+        }
       }
     }
     return _builder.toString();
@@ -278,6 +294,13 @@ public class CGenerator implements IGenerator {
             _builder.newLineIfNotEmpty();
           }
         }
+        {
+          if ((s instanceof StructOrUnionSpecifier)) {
+            String _outputFor_3 = this.outputFor(((StructOrUnionSpecifier)s));
+            _builder.append(_outputFor_3, "");
+            _builder.newLineIfNotEmpty();
+          }
+        }
       }
     }
     return _builder.toString();
@@ -299,27 +322,48 @@ public class CGenerator implements IGenerator {
     return _builder.toString();
   }
   
+  public String outputFor(final FunctionSpecifier spec) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = spec.getName();
+    _builder.append(_name, "");
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
   public String outputFor(final TypeSpecifier spec) {
     StringConcatenation _builder = new StringConcatenation();
     {
       DeclarationSpecifier _specifier = spec.getSpecifier();
       boolean _notEquals = (!Objects.equal(_specifier, null));
       if (_notEquals) {
-      } else {
         {
-          TypedefName _type = spec.getType();
-          boolean _notEquals_1 = (!Objects.equal(_type, null));
-          if (_notEquals_1) {
-            TypedefName _type_1 = spec.getType();
-            String _id = _type_1.getId();
-            _builder.append(_id, "");
-            _builder.newLineIfNotEmpty();
-          } else {
-            String _name = spec.getName();
-            _builder.append(_name, "");
+          DeclarationSpecifier _specifier_1 = spec.getSpecifier();
+          if ((_specifier_1 instanceof EnumSpecifier)) {
+            DeclarationSpecifier _specifier_2 = spec.getSpecifier();
+            String _outputFor = this.outputFor(((EnumSpecifier) _specifier_2));
+            _builder.append(_outputFor, "");
             _builder.newLineIfNotEmpty();
           }
         }
+      }
+    }
+    {
+      TypedefName _type = spec.getType();
+      boolean _notEquals_1 = (!Objects.equal(_type, null));
+      if (_notEquals_1) {
+        TypedefName _type_1 = spec.getType();
+        String _id = _type_1.getId();
+        _builder.append(_id, "");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      String _name = spec.getName();
+      boolean _notEquals_2 = (!Objects.equal(_name, null));
+      if (_notEquals_2) {
+        String _name_1 = spec.getName();
+        _builder.append(_name_1, "");
+        _builder.newLineIfNotEmpty();
       }
     }
     return _builder.toString();
@@ -423,16 +467,24 @@ public class CGenerator implements IGenerator {
     }
     _builder.newLineIfNotEmpty();
     {
+      boolean _and = false;
       EList<Expression> _constExpr = obj.getConstExpr();
       boolean _notEquals_1 = (!Objects.equal(_constExpr, null));
-      if (_notEquals_1) {
+      if (!_notEquals_1) {
+        _and = false;
+      } else {
+        EList<Expression> _constExpr_1 = obj.getConstExpr();
+        int _size = _constExpr_1.size();
+        boolean _greaterThan = (_size > 0);
+        _and = _greaterThan;
+      }
+      if (_and) {
         _builder.append(":");
         _builder.newLineIfNotEmpty();
         {
-          EList<Expression> _constExpr_1 = obj.getConstExpr();
-          for(final Expression e : _constExpr_1) {
-            ConstantExpression _convertToConstantExpression = this.convertToConstantExpression(e);
-            String _outputForConstantExpression = this.outputForConstantExpression(_convertToConstantExpression);
+          EList<Expression> _constExpr_2 = obj.getConstExpr();
+          for(final Expression e : _constExpr_2) {
+            String _outputForConstantExpression = this.outputForConstantExpression(((ConstantExpression) e));
             _builder.append(_outputForConstantExpression, "");
             _builder.newLineIfNotEmpty();
           }
@@ -442,8 +494,76 @@ public class CGenerator implements IGenerator {
     return _builder.toString();
   }
   
-  public ConstantExpression convertToConstantExpression(final Expression e) {
-    return ((ConstantExpression) e);
+  public String outputFor(final EnumSpecifier obj) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("enum ");
+    {
+      String _id = obj.getId();
+      boolean _notEquals = (!Objects.equal(_id, null));
+      if (_notEquals) {
+        String _id_1 = obj.getId();
+        _builder.append(_id_1, "");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    {
+      EnumeratorList _enumList = obj.getEnumList();
+      boolean _notEquals_1 = (!Objects.equal(_enumList, null));
+      if (_notEquals_1) {
+        _builder.append("{");
+        _builder.newLine();
+        _builder.append("\t");
+        EnumeratorList _enumList_1 = obj.getEnumList();
+        String _outputFor = this.outputFor(_enumList_1);
+        _builder.append(_outputFor, "\t");
+        _builder.newLineIfNotEmpty();
+        _builder.append("}");
+        _builder.newLine();
+      }
+    }
+    return _builder.toString();
+  }
+  
+  public String outputFor(final EnumeratorList obj) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<Enumerator> _enumerator = obj.getEnumerator();
+      for(final Enumerator e : _enumerator) {
+        {
+          EList<Enumerator> _enumerator_1 = obj.getEnumerator();
+          int _indexOf = _enumerator_1.indexOf(e);
+          boolean _greaterThan = (_indexOf > 0);
+          if (_greaterThan) {
+            _builder.append(", ");
+          }
+        }
+        _builder.newLineIfNotEmpty();
+        String _outputFor = this.outputFor(e);
+        _builder.append(_outputFor, "");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder.toString();
+  }
+  
+  public String outputFor(final Enumerator obj) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _id = obj.getId();
+    _builder.append(_id, "");
+    _builder.newLineIfNotEmpty();
+    {
+      Expression _expr = obj.getExpr();
+      boolean _notEquals = (!Objects.equal(_expr, null));
+      if (_notEquals) {
+        _builder.append("=");
+        _builder.newLine();
+        Expression _expr_1 = obj.getExpr();
+        String _outputForConstantExpression = this.outputForConstantExpression(((ConstantExpression) _expr_1));
+        _builder.append(_outputForConstantExpression, "");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder.toString();
   }
   
   public String outputFor(final InitDeclaratorList list) {
@@ -451,6 +571,15 @@ public class CGenerator implements IGenerator {
     {
       EList<InitDeclarator> _initDeclarator = list.getInitDeclarator();
       for(final InitDeclarator initDeclarator : _initDeclarator) {
+        {
+          EList<InitDeclarator> _initDeclarator_1 = list.getInitDeclarator();
+          int _indexOf = _initDeclarator_1.indexOf(initDeclarator);
+          boolean _greaterThan = (_indexOf > 0);
+          if (_greaterThan) {
+            _builder.append(", ");
+          }
+        }
+        _builder.newLineIfNotEmpty();
         String _outputFor = this.outputFor(initDeclarator);
         _builder.append(_outputFor, "");
         _builder.newLineIfNotEmpty();
@@ -465,6 +594,17 @@ public class CGenerator implements IGenerator {
     String _outputFor = this.outputFor(_declarator);
     _builder.append(_outputFor, "");
     _builder.newLineIfNotEmpty();
+    {
+      Initializer _initializer = decl.getInitializer();
+      boolean _notEquals = (!Objects.equal(_initializer, null));
+      if (_notEquals) {
+        _builder.append("= ");
+        Initializer _initializer_1 = decl.getInitializer();
+        String _outputFor_1 = this.outputFor(_initializer_1);
+        _builder.append(_outputFor_1, "");
+        _builder.newLineIfNotEmpty();
+      }
+    }
     return _builder.toString();
   }
   
@@ -526,6 +666,31 @@ public class CGenerator implements IGenerator {
         String _outputFor = this.outputFor(_lastSuffix_1);
         _builder.append(_outputFor, "");
         _builder.newLineIfNotEmpty();
+      } else {
+        _builder.append("[");
+        _builder.newLine();
+        {
+          TypeQualifierList _typeQualifierList = obj.getTypeQualifierList();
+          boolean _notEquals_1 = (!Objects.equal(_typeQualifierList, null));
+          if (_notEquals_1) {
+            TypeQualifierList _typeQualifierList_1 = obj.getTypeQualifierList();
+            String _outputFor_1 = this.outputFor(_typeQualifierList_1);
+            _builder.append(_outputFor_1, "");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        {
+          Expression _expr = obj.getExpr();
+          boolean _notEquals_2 = (!Objects.equal(_expr, null));
+          if (_notEquals_2) {
+            Expression _expr_1 = obj.getExpr();
+            String _outputForAssignmentExpression = this.outputForAssignmentExpression(((AssignmentExpression) _expr_1));
+            _builder.append(_outputForAssignmentExpression, "");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        _builder.append("]");
+        _builder.newLine();
       }
     }
     return _builder.toString();
@@ -681,6 +846,55 @@ public class CGenerator implements IGenerator {
     return _builder.toString();
   }
   
+  public String outputFor(final Initializer obj) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      Expression _expr = obj.getExpr();
+      boolean _notEquals = (!Objects.equal(_expr, null));
+      if (_notEquals) {
+        Expression _expr_1 = obj.getExpr();
+        String _outputForAssignmentExpression = this.outputForAssignmentExpression(((AssignmentExpression) _expr_1));
+        _builder.append(_outputForAssignmentExpression, "");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      InitializerList _list = obj.getList();
+      boolean _notEquals_1 = (!Objects.equal(_list, null));
+      if (_notEquals_1) {
+        _builder.append("{\t");
+        InitializerList _list_1 = obj.getList();
+        String _outputFor = this.outputFor(_list_1);
+        _builder.append(_outputFor, "");
+        _builder.append(" }");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder.toString();
+  }
+  
+  public String outputFor(final InitializerList obj) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<Initializer> _initializer = obj.getInitializer();
+      for(final Initializer i : _initializer) {
+        {
+          EList<Initializer> _initializer_1 = obj.getInitializer();
+          int _indexOf = _initializer_1.indexOf(i);
+          boolean _greaterThan = (_indexOf > 0);
+          if (_greaterThan) {
+            _builder.append(", ");
+          }
+        }
+        _builder.newLineIfNotEmpty();
+        String _outputFor = this.outputFor(i);
+        _builder.append(_outputFor, "");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder.toString();
+  }
+  
   public String outputFor(final Statement obj) {
     StringConcatenation _builder = new StringConcatenation();
     {
@@ -773,7 +987,8 @@ public class CGenerator implements IGenerator {
       if (_notEquals_1) {
         _builder.append("case ");
         Expression _expr = obj.getExpr();
-        _builder.append(_expr, "");
+        String _outputForConstantExpression = this.outputForConstantExpression(((ConstantExpression) _expr));
+        _builder.append(_outputForConstantExpression, "");
         _builder.append(":");
         Statement _lStmt_1 = obj.getLStmt();
         String _outputFor_1 = this.outputFor(_lStmt_1);
@@ -1051,10 +1266,10 @@ public class CGenerator implements IGenerator {
       String _goto = obj.getGoto();
       boolean _notEquals_4 = (!Objects.equal(_goto, null));
       if (_notEquals_4) {
-        _builder.append("goto");
+        _builder.append("goto ");
         Expression _expr_2 = obj.getExpr();
-        String _outputFor_1 = this.outputFor(_expr_2);
-        _builder.append(_outputFor_1, "");
+        String _outputForUnaryExpression = this.outputForUnaryExpression(((UnaryExpression) _expr_2));
+        _builder.append(_outputForUnaryExpression, "");
         _builder.append(";");
       }
     }
@@ -1064,8 +1279,69 @@ public class CGenerator implements IGenerator {
   
   public String outputForAsmStatement(final AsmStatement obj) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("\t");
+    String _asm = obj.getAsm();
+    _builder.append(_asm, "");
+    _builder.append(" ");
+    _builder.newLineIfNotEmpty();
+    {
+      String _volatile = obj.getVolatile();
+      boolean _notEquals = (!Objects.equal(_volatile, null));
+      if (_notEquals) {
+        String _volatile_1 = obj.getVolatile();
+        _builder.append(_volatile_1, "");
+        _builder.append(" ");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("(");
     _builder.newLine();
+    {
+      EList<AsmLine> _asmLine = obj.getAsmLine();
+      for(final AsmLine l : _asmLine) {
+        {
+          if ((l instanceof AsmLineWithColon)) {
+            _builder.append("\t");
+            String _outputFor = this.outputFor(((AsmLineWithColon) l));
+            _builder.append(_outputFor, "\t");
+            _builder.newLineIfNotEmpty();
+          } else {
+            _builder.append("\t");
+            String _outputFor_1 = this.outputFor(((AsmLineWithComma) l));
+            _builder.append(_outputFor_1, "\t");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+      }
+    }
+    _builder.append(");");
+    _builder.newLine();
+    return _builder.toString();
+  }
+  
+  public String outputFor(final AsmLineWithColon obj) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      boolean _isColon = obj.isColon();
+      if (_isColon) {
+        _builder.append(": ");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    Expression _expr = obj.getExpr();
+    String _outputForLogicalOrExpression = this.outputForLogicalOrExpression(((LogicalOrExpression) _expr));
+    _builder.append(_outputForLogicalOrExpression, "");
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
+  public String outputFor(final AsmLineWithComma obj) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append(",");
+    _builder.newLine();
+    Expression _expr = obj.getExpr();
+    String _outputForLogicalOrExpression = this.outputForLogicalOrExpression(((LogicalOrExpression) _expr));
+    _builder.append(_outputForLogicalOrExpression, "");
+    _builder.newLineIfNotEmpty();
     return _builder.toString();
   }
   
@@ -1443,7 +1719,7 @@ public class CGenerator implements IGenerator {
     {
       EList<TypeSpecifier> _typeSpecifier = obj.getTypeSpecifier();
       for(final TypeSpecifier x : _typeSpecifier) {
-        String _outputFor = this.outputFor(x);
+        String _outputFor = this.outputFor(((TypeSpecifier) x));
         _builder.append(_outputFor, "");
         _builder.newLineIfNotEmpty();
       }
@@ -1451,7 +1727,7 @@ public class CGenerator implements IGenerator {
     {
       EList<TypeQualifier> _typeQualifier = obj.getTypeQualifier();
       for(final TypeQualifier x_1 : _typeQualifier) {
-        String _outputFor_1 = this.outputFor(x_1);
+        String _outputFor_1 = this.outputFor(((TypeQualifier) x_1));
         _builder.append(_outputFor_1, "");
         _builder.newLineIfNotEmpty();
       }
@@ -1459,8 +1735,9 @@ public class CGenerator implements IGenerator {
     {
       EList<DeclarationSpecifier> _structOrUnionSpecifier = obj.getStructOrUnionSpecifier();
       for(final DeclarationSpecifier x_2 : _structOrUnionSpecifier) {
-        _builder.append("\t");
-        _builder.newLine();
+        String _outputFor_2 = this.outputFor(((StructOrUnionSpecifier) x_2));
+        _builder.append(_outputFor_2, "");
+        _builder.newLineIfNotEmpty();
       }
     }
     return _builder.toString();
@@ -1792,8 +2069,8 @@ public class CGenerator implements IGenerator {
   public String outputForConstantExpression(final ConstantExpression obj) {
     StringConcatenation _builder = new StringConcatenation();
     Expression _expr = obj.getExpr();
-    String _outputFor = this.outputFor(_expr);
-    _builder.append(_outputFor, "");
+    String _outputForConditionalExpression = this.outputForConditionalExpression(((ConditionalExpression) _expr));
+    _builder.append(_outputForConditionalExpression, "");
     _builder.newLineIfNotEmpty();
     return _builder.toString();
   }

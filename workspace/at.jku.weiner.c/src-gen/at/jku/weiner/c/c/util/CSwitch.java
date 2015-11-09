@@ -352,6 +352,13 @@ public class CSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case CPackage.ASM_LINE:
+      {
+        AsmLine asmLine = (AsmLine)theEObject;
+        T result = caseAsmLine(asmLine);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case CPackage.EXPRESSION:
       {
         Expression expression = (Expression)theEObject;
@@ -464,6 +471,22 @@ public class CSwitch<T> extends Switch<T>
         AsmStatement asmStatement = (AsmStatement)theEObject;
         T result = caseAsmStatement(asmStatement);
         if (result == null) result = caseStatement(asmStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CPackage.ASM_LINE_WITH_COLON:
+      {
+        AsmLineWithColon asmLineWithColon = (AsmLineWithColon)theEObject;
+        T result = caseAsmLineWithColon(asmLineWithColon);
+        if (result == null) result = caseAsmLine(asmLineWithColon);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CPackage.ASM_LINE_WITH_COMMA:
+      {
+        AsmLineWithComma asmLineWithComma = (AsmLineWithComma)theEObject;
+        T result = caseAsmLineWithComma(asmLineWithComma);
+        if (result == null) result = caseAsmLine(asmLineWithComma);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1248,6 +1271,22 @@ public class CSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Asm Line</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Asm Line</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAsmLine(AsmLine object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1483,6 +1522,38 @@ public class CSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseAsmStatement(AsmStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Asm Line With Colon</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Asm Line With Colon</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAsmLineWithColon(AsmLineWithColon object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Asm Line With Comma</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Asm Line With Comma</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAsmLineWithComma(AsmLineWithComma object)
   {
     return null;
   }

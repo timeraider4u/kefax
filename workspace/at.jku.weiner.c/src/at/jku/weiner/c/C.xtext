@@ -631,15 +631,27 @@ JumpStatement returns Statement:
 
 AsmStatement returns Statement:
 	{AsmStatement}
-	(KW_ASM1 | KW_ASM2) 
+	(asm=KW_ASM1 | asm=KW_ASM2) 
 	(volatile=KW_VOLATILE | volatile=KW_VOLATILE2)? 
 		LEFTPAREN
 			(
-				(COLON? expr+=LogicalOrExpression 
-					(COMMA expr+=LogicalOrExpression)*
-				)
+				//(COLON? expr+=LogicalOrExpression 
+				//	(COMMA expr+=LogicalOrExpression)*
+				//)
+				asmLine+=AsmLineWithColon
+				(asmLine+=AsmLineWithComma)*
 			)+
 		RIGHTPAREN semi=SEMI
+;
+
+AsmLineWithColon returns AsmLine:
+	{AsmLineWithColon}
+	colon?=COLON? expr=LogicalOrExpression
+;
+
+AsmLineWithComma returns AsmLine:
+	{AsmLineWithComma}
+	COMMA expr=LogicalOrExpression
 ;
 
 //designation: designatorList ASSIGN;

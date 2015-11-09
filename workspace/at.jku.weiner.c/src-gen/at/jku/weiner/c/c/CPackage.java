@@ -1429,6 +1429,34 @@ public interface CPackage extends EPackage
   int STATEMENT_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link at.jku.weiner.c.c.impl.AsmLineImpl <em>Asm Line</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.c.c.impl.AsmLineImpl
+   * @see at.jku.weiner.c.c.impl.CPackageImpl#getAsmLine()
+   * @generated
+   */
+  int ASM_LINE = 40;
+
+  /**
+   * The feature id for the '<em><b>Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASM_LINE__EXPR = 0;
+
+  /**
+   * The number of structural features of the '<em>Asm Line</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASM_LINE_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link at.jku.weiner.c.c.impl.ExpressionImpl <em>Expression</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1436,7 +1464,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 40;
+  int EXPRESSION = 41;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -1464,7 +1492,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getAssignmentOperator()
    * @generated
    */
-  int ASSIGNMENT_OPERATOR = 41;
+  int ASSIGNMENT_OPERATOR = 42;
 
   /**
    * The feature id for the '<em><b>Op</b></em>' attribute.
@@ -1492,7 +1520,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getUnaryOperator()
    * @generated
    */
-  int UNARY_OPERATOR = 42;
+  int UNARY_OPERATOR = 43;
 
   /**
    * The feature id for the '<em><b>Op</b></em>' attribute.
@@ -1520,7 +1548,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getArgumentExpressionList()
    * @generated
    */
-  int ARGUMENT_EXPRESSION_LIST = 43;
+  int ARGUMENT_EXPRESSION_LIST = 44;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference list.
@@ -1548,7 +1576,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getConstant()
    * @generated
    */
-  int CONSTANT = 44;
+  int CONSTANT = 45;
 
   /**
    * The feature id for the '<em><b>Hex</b></em>' attribute.
@@ -1630,7 +1658,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getStructOrUnionSpecifier()
    * @generated
    */
-  int STRUCT_OR_UNION_SPECIFIER = 45;
+  int STRUCT_OR_UNION_SPECIFIER = 46;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1676,7 +1704,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getEnumSpecifier()
    * @generated
    */
-  int ENUM_SPECIFIER = 46;
+  int ENUM_SPECIFIER = 47;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1713,7 +1741,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getLabeledStatement()
    * @generated
    */
-  int LABELED_STATEMENT = 47;
+  int LABELED_STATEMENT = 48;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -1786,7 +1814,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getCompoundStatement()
    * @generated
    */
-  int COMPOUND_STATEMENT = 48;
+  int COMPOUND_STATEMENT = 49;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -1823,7 +1851,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getBodyStatement()
    * @generated
    */
-  int BODY_STATEMENT = 49;
+  int BODY_STATEMENT = 50;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -1860,7 +1888,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getExpressionStatement()
    * @generated
    */
-  int EXPRESSION_STATEMENT = 50;
+  int EXPRESSION_STATEMENT = 51;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -1906,7 +1934,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getSelectionStatement()
    * @generated
    */
-  int SELECTION_STATEMENT = 51;
+  int SELECTION_STATEMENT = 52;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -1997,7 +2025,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getIterationStatement()
    * @generated
    */
-  int ITERATION_STATEMENT = 52;
+  int ITERATION_STATEMENT = 53;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -2106,7 +2134,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getJumpStatement()
    * @generated
    */
-  int JUMP_STATEMENT = 53;
+  int JUMP_STATEMENT = 54;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -2188,7 +2216,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getAsmStatement()
    * @generated
    */
-  int ASM_STATEMENT = 54;
+  int ASM_STATEMENT = 55;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -2200,22 +2228,31 @@ public interface CPackage extends EPackage
   int ASM_STATEMENT__STMT = STATEMENT__STMT;
 
   /**
+   * The feature id for the '<em><b>Asm</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASM_STATEMENT__ASM = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
    * The feature id for the '<em><b>Volatile</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ASM_STATEMENT__VOLATILE = STATEMENT_FEATURE_COUNT + 0;
+  int ASM_STATEMENT__VOLATILE = STATEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Expr</b></em>' containment reference list.
+   * The feature id for the '<em><b>Asm Line</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ASM_STATEMENT__EXPR = STATEMENT_FEATURE_COUNT + 1;
+  int ASM_STATEMENT__ASM_LINE = STATEMENT_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Semi</b></em>' attribute.
@@ -2224,7 +2261,7 @@ public interface CPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASM_STATEMENT__SEMI = STATEMENT_FEATURE_COUNT + 2;
+  int ASM_STATEMENT__SEMI = STATEMENT_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>Asm Statement</em>' class.
@@ -2233,7 +2270,72 @@ public interface CPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASM_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
+  int ASM_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 4;
+
+  /**
+   * The meta object id for the '{@link at.jku.weiner.c.c.impl.AsmLineWithColonImpl <em>Asm Line With Colon</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.c.c.impl.AsmLineWithColonImpl
+   * @see at.jku.weiner.c.c.impl.CPackageImpl#getAsmLineWithColon()
+   * @generated
+   */
+  int ASM_LINE_WITH_COLON = 56;
+
+  /**
+   * The feature id for the '<em><b>Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASM_LINE_WITH_COLON__EXPR = ASM_LINE__EXPR;
+
+  /**
+   * The feature id for the '<em><b>Colon</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASM_LINE_WITH_COLON__COLON = ASM_LINE_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Asm Line With Colon</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASM_LINE_WITH_COLON_FEATURE_COUNT = ASM_LINE_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link at.jku.weiner.c.c.impl.AsmLineWithCommaImpl <em>Asm Line With Comma</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.c.c.impl.AsmLineWithCommaImpl
+   * @see at.jku.weiner.c.c.impl.CPackageImpl#getAsmLineWithComma()
+   * @generated
+   */
+  int ASM_LINE_WITH_COMMA = 57;
+
+  /**
+   * The feature id for the '<em><b>Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASM_LINE_WITH_COMMA__EXPR = ASM_LINE__EXPR;
+
+  /**
+   * The number of structural features of the '<em>Asm Line With Comma</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASM_LINE_WITH_COMMA_FEATURE_COUNT = ASM_LINE_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.c.impl.AssignmentExpressionImpl <em>Assignment Expression</em>}' class.
@@ -2243,7 +2345,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getAssignmentExpression()
    * @generated
    */
-  int ASSIGNMENT_EXPRESSION = 55;
+  int ASSIGNMENT_EXPRESSION = 58;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2298,7 +2400,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getConditionalExpression()
    * @generated
    */
-  int CONDITIONAL_EXPRESSION = 56;
+  int CONDITIONAL_EXPRESSION = 59;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2353,7 +2455,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getLogicalOrExpression()
    * @generated
    */
-  int LOGICAL_OR_EXPRESSION = 57;
+  int LOGICAL_OR_EXPRESSION = 60;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2390,7 +2492,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getLogicalAndExpression()
    * @generated
    */
-  int LOGICAL_AND_EXPRESSION = 58;
+  int LOGICAL_AND_EXPRESSION = 61;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2427,7 +2529,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getInclusiveOrExpression()
    * @generated
    */
-  int INCLUSIVE_OR_EXPRESSION = 59;
+  int INCLUSIVE_OR_EXPRESSION = 62;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2464,7 +2566,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getExclusiveOrExpression()
    * @generated
    */
-  int EXCLUSIVE_OR_EXPRESSION = 60;
+  int EXCLUSIVE_OR_EXPRESSION = 63;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2501,7 +2603,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getAndExpression()
    * @generated
    */
-  int AND_EXPRESSION = 61;
+  int AND_EXPRESSION = 64;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2538,7 +2640,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getEqualityExpression()
    * @generated
    */
-  int EQUALITY_EXPRESSION = 62;
+  int EQUALITY_EXPRESSION = 65;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2584,7 +2686,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getRelationalExpression()
    * @generated
    */
-  int RELATIONAL_EXPRESSION = 63;
+  int RELATIONAL_EXPRESSION = 66;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2630,7 +2732,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getShiftExpression()
    * @generated
    */
-  int SHIFT_EXPRESSION = 64;
+  int SHIFT_EXPRESSION = 67;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2676,7 +2778,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getAdditiveExpression()
    * @generated
    */
-  int ADDITIVE_EXPRESSION = 65;
+  int ADDITIVE_EXPRESSION = 68;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2722,7 +2824,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getMultiplicativeExpression()
    * @generated
    */
-  int MULTIPLICATIVE_EXPRESSION = 66;
+  int MULTIPLICATIVE_EXPRESSION = 69;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2768,7 +2870,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getCastExpression()
    * @generated
    */
-  int CAST_EXPRESSION = 67;
+  int CAST_EXPRESSION = 70;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2814,7 +2916,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getUnaryExpression()
    * @generated
    */
-  int UNARY_EXPRESSION = 68;
+  int UNARY_EXPRESSION = 71;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2914,7 +3016,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getPostfixExpression()
    * @generated
    */
-  int POSTFIX_EXPRESSION = 69;
+  int POSTFIX_EXPRESSION = 72;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -3014,7 +3116,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getPrimaryExpression()
    * @generated
    */
-  int PRIMARY_EXPRESSION = 70;
+  int PRIMARY_EXPRESSION = 73;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -3069,7 +3171,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getConstantExpression()
    * @generated
    */
-  int CONSTANT_EXPRESSION = 71;
+  int CONSTANT_EXPRESSION = 74;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -4248,6 +4350,27 @@ public interface CPackage extends EPackage
   EReference getStatement_Stmt();
 
   /**
+   * Returns the meta object for class '{@link at.jku.weiner.c.c.AsmLine <em>Asm Line</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Asm Line</em>'.
+   * @see at.jku.weiner.c.c.AsmLine
+   * @generated
+   */
+  EClass getAsmLine();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.c.AsmLine#getExpr <em>Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expr</em>'.
+   * @see at.jku.weiner.c.c.AsmLine#getExpr()
+   * @see #getAsmLine()
+   * @generated
+   */
+  EReference getAsmLine_Expr();
+
+  /**
    * Returns the meta object for class '{@link at.jku.weiner.c.c.Expression <em>Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4893,6 +5016,17 @@ public interface CPackage extends EPackage
   EClass getAsmStatement();
 
   /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.c.AsmStatement#getAsm <em>Asm</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Asm</em>'.
+   * @see at.jku.weiner.c.c.AsmStatement#getAsm()
+   * @see #getAsmStatement()
+   * @generated
+   */
+  EAttribute getAsmStatement_Asm();
+
+  /**
    * Returns the meta object for the attribute '{@link at.jku.weiner.c.c.AsmStatement#getVolatile <em>Volatile</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4904,15 +5038,15 @@ public interface CPackage extends EPackage
   EAttribute getAsmStatement_Volatile();
 
   /**
-   * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.c.AsmStatement#getExpr <em>Expr</em>}'.
+   * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.c.AsmStatement#getAsmLine <em>Asm Line</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Expr</em>'.
-   * @see at.jku.weiner.c.c.AsmStatement#getExpr()
+   * @return the meta object for the containment reference list '<em>Asm Line</em>'.
+   * @see at.jku.weiner.c.c.AsmStatement#getAsmLine()
    * @see #getAsmStatement()
    * @generated
    */
-  EReference getAsmStatement_Expr();
+  EReference getAsmStatement_AsmLine();
 
   /**
    * Returns the meta object for the attribute '{@link at.jku.weiner.c.c.AsmStatement#getSemi <em>Semi</em>}'.
@@ -4924,6 +5058,37 @@ public interface CPackage extends EPackage
    * @generated
    */
   EAttribute getAsmStatement_Semi();
+
+  /**
+   * Returns the meta object for class '{@link at.jku.weiner.c.c.AsmLineWithColon <em>Asm Line With Colon</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Asm Line With Colon</em>'.
+   * @see at.jku.weiner.c.c.AsmLineWithColon
+   * @generated
+   */
+  EClass getAsmLineWithColon();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.c.AsmLineWithColon#isColon <em>Colon</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Colon</em>'.
+   * @see at.jku.weiner.c.c.AsmLineWithColon#isColon()
+   * @see #getAsmLineWithColon()
+   * @generated
+   */
+  EAttribute getAsmLineWithColon_Colon();
+
+  /**
+   * Returns the meta object for class '{@link at.jku.weiner.c.c.AsmLineWithComma <em>Asm Line With Comma</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Asm Line With Comma</em>'.
+   * @see at.jku.weiner.c.c.AsmLineWithComma
+   * @generated
+   */
+  EClass getAsmLineWithComma();
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.c.c.AssignmentExpression <em>Assignment Expression</em>}'.
@@ -6536,6 +6701,24 @@ public interface CPackage extends EPackage
     EReference STATEMENT__STMT = eINSTANCE.getStatement_Stmt();
 
     /**
+     * The meta object literal for the '{@link at.jku.weiner.c.c.impl.AsmLineImpl <em>Asm Line</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.c.c.impl.AsmLineImpl
+     * @see at.jku.weiner.c.c.impl.CPackageImpl#getAsmLine()
+     * @generated
+     */
+    EClass ASM_LINE = eINSTANCE.getAsmLine();
+
+    /**
+     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ASM_LINE__EXPR = eINSTANCE.getAsmLine_Expr();
+
+    /**
      * The meta object literal for the '{@link at.jku.weiner.c.c.impl.ExpressionImpl <em>Expression</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7046,6 +7229,14 @@ public interface CPackage extends EPackage
     EClass ASM_STATEMENT = eINSTANCE.getAsmStatement();
 
     /**
+     * The meta object literal for the '<em><b>Asm</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ASM_STATEMENT__ASM = eINSTANCE.getAsmStatement_Asm();
+
+    /**
      * The meta object literal for the '<em><b>Volatile</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7054,12 +7245,12 @@ public interface CPackage extends EPackage
     EAttribute ASM_STATEMENT__VOLATILE = eINSTANCE.getAsmStatement_Volatile();
 
     /**
-     * The meta object literal for the '<em><b>Expr</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Asm Line</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ASM_STATEMENT__EXPR = eINSTANCE.getAsmStatement_Expr();
+    EReference ASM_STATEMENT__ASM_LINE = eINSTANCE.getAsmStatement_AsmLine();
 
     /**
      * The meta object literal for the '<em><b>Semi</b></em>' attribute feature.
@@ -7068,6 +7259,34 @@ public interface CPackage extends EPackage
      * @generated
      */
     EAttribute ASM_STATEMENT__SEMI = eINSTANCE.getAsmStatement_Semi();
+
+    /**
+     * The meta object literal for the '{@link at.jku.weiner.c.c.impl.AsmLineWithColonImpl <em>Asm Line With Colon</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.c.c.impl.AsmLineWithColonImpl
+     * @see at.jku.weiner.c.c.impl.CPackageImpl#getAsmLineWithColon()
+     * @generated
+     */
+    EClass ASM_LINE_WITH_COLON = eINSTANCE.getAsmLineWithColon();
+
+    /**
+     * The meta object literal for the '<em><b>Colon</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ASM_LINE_WITH_COLON__COLON = eINSTANCE.getAsmLineWithColon_Colon();
+
+    /**
+     * The meta object literal for the '{@link at.jku.weiner.c.c.impl.AsmLineWithCommaImpl <em>Asm Line With Comma</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.c.c.impl.AsmLineWithCommaImpl
+     * @see at.jku.weiner.c.c.impl.CPackageImpl#getAsmLineWithComma()
+     * @generated
+     */
+    EClass ASM_LINE_WITH_COMMA = eINSTANCE.getAsmLineWithComma();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.c.impl.AssignmentExpressionImpl <em>Assignment Expression</em>}' class.

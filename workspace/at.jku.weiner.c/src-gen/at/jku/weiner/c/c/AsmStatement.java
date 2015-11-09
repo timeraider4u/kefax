@@ -12,8 +12,9 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link at.jku.weiner.c.c.AsmStatement#getAsm <em>Asm</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.AsmStatement#getVolatile <em>Volatile</em>}</li>
- *   <li>{@link at.jku.weiner.c.c.AsmStatement#getExpr <em>Expr</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.AsmStatement#getAsmLine <em>Asm Line</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.AsmStatement#getSemi <em>Semi</em>}</li>
  * </ul>
  * </p>
@@ -24,6 +25,32 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface AsmStatement extends Statement
 {
+  /**
+   * Returns the value of the '<em><b>Asm</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Asm</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Asm</em>' attribute.
+   * @see #setAsm(String)
+   * @see at.jku.weiner.c.c.CPackage#getAsmStatement_Asm()
+   * @model
+   * @generated
+   */
+  String getAsm();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.c.AsmStatement#getAsm <em>Asm</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Asm</em>' attribute.
+   * @see #getAsm()
+   * @generated
+   */
+  void setAsm(String value);
+
   /**
    * Returns the value of the '<em><b>Volatile</b></em>' attribute.
    * <!-- begin-user-doc -->
@@ -51,20 +78,20 @@ public interface AsmStatement extends Statement
   void setVolatile(String value);
 
   /**
-   * Returns the value of the '<em><b>Expr</b></em>' containment reference list.
-   * The list contents are of type {@link at.jku.weiner.c.c.Expression}.
+   * Returns the value of the '<em><b>Asm Line</b></em>' containment reference list.
+   * The list contents are of type {@link at.jku.weiner.c.c.AsmLine}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Expr</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Asm Line</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Expr</em>' containment reference list.
-   * @see at.jku.weiner.c.c.CPackage#getAsmStatement_Expr()
+   * @return the value of the '<em>Asm Line</em>' containment reference list.
+   * @see at.jku.weiner.c.c.CPackage#getAsmStatement_AsmLine()
    * @model containment="true"
    * @generated
    */
-  EList<Expression> getExpr();
+  EList<AsmLine> getAsmLine();
 
   /**
    * Returns the value of the '<em><b>Semi</b></em>' attribute.

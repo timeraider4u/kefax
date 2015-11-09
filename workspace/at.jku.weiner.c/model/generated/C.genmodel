@@ -155,6 +155,9 @@
     <genClasses ecoreClass="C.ecore#//Statement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//Statement/stmt"/>
     </genClasses>
+    <genClasses ecoreClass="C.ecore#//AsmLine">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//AsmLine/expr"/>
+    </genClasses>
     <genClasses ecoreClass="C.ecore#//Expression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//Expression/exprExpr"/>
     </genClasses>
@@ -229,10 +232,15 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//JumpStatement/goto"/>
     </genClasses>
     <genClasses ecoreClass="C.ecore#//AsmStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//AsmStatement/asm"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//AsmStatement/volatile"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//AsmStatement/expr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//AsmStatement/asmLine"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//AsmStatement/semi"/>
     </genClasses>
+    <genClasses ecoreClass="C.ecore#//AsmLineWithColon">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//AsmLineWithColon/colon"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//AsmLineWithComma"/>
     <genClasses ecoreClass="C.ecore#//AssignmentExpression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//AssignmentExpression/expr"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//AssignmentExpression/op"/>

@@ -201,137 +201,42 @@ RIGHTBRACE NEWLINE
 						(Statement
 							stmt=
 							(AsmStatement
-								expr+=
-								// "int $0x80"
-								(LogicalOrExpression
-									expr+=
-									(LogicalAndExpression
+								asmLine+=
+								(AsmLineWithColon
+									expr=
+									// "int $0x80"
+									(LogicalOrExpression
 										expr+=
-										(InclusiveOrExpression
+										(LogicalAndExpression
 											expr+=
-											(ExclusiveOrExpression
+											(InclusiveOrExpression
 												expr+=
-												(AndExpression
+												(ExclusiveOrExpression
 													expr+=
-													(EqualityExpression
+													(AndExpression
 														expr+=
-														(RelationalExpression
+														(EqualityExpression
 															expr+=
-															(ShiftExpression
+															(RelationalExpression
 																expr+=
-																(AdditiveExpression
+																(ShiftExpression
 																	expr+=
-																	(MultiplicativeExpression
+																	(AdditiveExpression
 																		expr+=
-																		(CastExpression
-																			expr=
-																			(UnaryExpression
+																		(MultiplicativeExpression
+																			expr+=
+																			(CastExpression
 																				expr=
-																				(PostfixExpression
-																					expr+=
-																					(PrimaryExpression
-																						const=
-																						(Constant
-																							str++"\\\"int $0x80\\\""
-																						)
-																					)
-																				)
-																			)
-																		)
-																	)
-																)
-															)
-														)
-													)
-												)
-											)
-										)
-									)
-								), // end LogicalOrExpression
-								// : "=a" (res),
-								(LogicalOrExpression
-									expr+=
-									(LogicalAndExpression
-										expr+=
-										(InclusiveOrExpression
-											expr+=
-											(ExclusiveOrExpression
-												expr+=
-												(AndExpression
-													expr+=
-													(EqualityExpression
-														expr+=
-														(RelationalExpression
-															expr+=
-															(ShiftExpression
-																expr+=
-																(AdditiveExpression
-																	expr+=
-																	(MultiplicativeExpression
-																		expr+=
-																		(CastExpression
-																			expr=
-																			(UnaryExpression
-																				expr=
-																				(PostfixExpression
-																					expr+=
-																					(PrimaryExpression
-																						const=
-																						(Constant
-																							str++"\\\"=a\\\""
-																						)
-																					),
-																					argumentExpressionList+=
-																					(ArgumentExpressionList
+																				(UnaryExpression
+																					expr=
+																					(PostfixExpression
 																						expr+=
-																						(AssignmentExpression
-																							expr=
-																							(ConditionalExpression
-																								expr=
-																								(LogicalOrExpression
-																									expr+=
-																									(LogicalAndExpression
-																										expr+=
-																										(InclusiveOrExpression
-																											expr+=
-																											(ExclusiveOrExpression
-																												expr+=
-																												(AndExpression
-																													expr+=
-																													(EqualityExpression
-																														expr+=
-																														(RelationalExpression
-																															expr+=
-																															(ShiftExpression
-																																expr+=
-																																(AdditiveExpression
-																																	expr+=
-																																	(MultiplicativeExpression
-																																		expr+=
-																																		(CastExpression
-																																			expr=
-																																			(UnaryExpression
-																																				expr=
-																																				(PostfixExpression
-																																					expr+=
-																																					(PrimaryExpression
-																																						id++"res"
-																																					)
-																																				)
-																																			)
-																																		)
-																																	)
-																																)
-																															)
-																														)
-																													)
-																												)
-																											)
-																										)
-																									)
-																								) // end LogicalOrExpression
+																						(PrimaryExpression
+																							const=
+																							(Constant
+																								str++"\\\"int $0x80\\\""
 																							)
-																						) // end assignment expression
+																						)
 																					)
 																				)
 																			)
@@ -344,372 +249,78 @@ RIGHTBRACE NEWLINE
 												)
 											)
 										)
-									)
-								), // end LogicalOrExpression
-								// : "+b" (arg1),
-								(LogicalOrExpression
-									expr+=
-									(LogicalAndExpression
+									) // end LogicalOrExpression
+								), // end AsmLineWithColon
+								(AsmLineWithColon
+									expr=
+									// : "=a" (res),
+									(LogicalOrExpression
 										expr+=
-										(InclusiveOrExpression
+										(LogicalAndExpression
 											expr+=
-											(ExclusiveOrExpression
+											(InclusiveOrExpression
 												expr+=
-												(AndExpression
+												(ExclusiveOrExpression
 													expr+=
-													(EqualityExpression
+													(AndExpression
 														expr+=
-														(RelationalExpression
+														(EqualityExpression
 															expr+=
-															(ShiftExpression
+															(RelationalExpression
 																expr+=
-																(AdditiveExpression
+																(ShiftExpression
 																	expr+=
-																	(MultiplicativeExpression
+																	(AdditiveExpression
 																		expr+=
-																		(CastExpression
-																			expr=
-																			(UnaryExpression
+																		(MultiplicativeExpression
+																			expr+=
+																			(CastExpression
 																				expr=
-																				(PostfixExpression
-																					expr+=
-																					(PrimaryExpression
-																						const=
-																						(Constant
-																							str++"\\\"+b\\\""
-																						)
-																					),
-																					argumentExpressionList+=
-																					(ArgumentExpressionList
+																				(UnaryExpression
+																					expr=
+																					(PostfixExpression
 																						expr+=
-																						(AssignmentExpression
-																							expr=
-																							(ConditionalExpression
-																								expr=
-																								(LogicalOrExpression
-																									expr+=
-																									(LogicalAndExpression
-																										expr+=
-																										(InclusiveOrExpression
-																											expr+=
-																											(ExclusiveOrExpression
-																												expr+=
-																												(AndExpression
-																													expr+=
-																													(EqualityExpression
-																														expr+=
-																														(RelationalExpression
-																															expr+=
-																															(ShiftExpression
-																																expr+=
-																																(AdditiveExpression
-																																	expr+=
-																																	(MultiplicativeExpression
-																																		expr+=
-																																		(CastExpression
-																																			expr=
-																																			(UnaryExpression
-																																				expr=
-																																				(PostfixExpression
-																																					expr+=
-																																					(PrimaryExpression
-																																						id++"arg1"
-																																					)
-																																				)
-																																			)
-																																		)
-																																	)
-																																)
-																															)
-																														)
-																													)
-																												)
-																											)
-																										)
-																									)
-																								) // end LogicalOrExpression
+																						(PrimaryExpression
+																							const=
+																							(Constant
+																								str++"\\\"=a\\\""
 																							)
-																						) // end assignment expression
-																					)
-																				)
-																			)
-																		)
-																	)
-																)
-															)
-														)
-													)
-												)
-											)
-										)
-									)
-								), // end LogicalOrExpression
-								// : "+c" (arg2),
-								(LogicalOrExpression
-									expr+=
-									(LogicalAndExpression
-										expr+=
-										(InclusiveOrExpression
-											expr+=
-											(ExclusiveOrExpression
-												expr+=
-												(AndExpression
-													expr+=
-													(EqualityExpression
-														expr+=
-														(RelationalExpression
-															expr+=
-															(ShiftExpression
-																expr+=
-																(AdditiveExpression
-																	expr+=
-																	(MultiplicativeExpression
-																		expr+=
-																		(CastExpression
-																			expr=
-																			(UnaryExpression
-																				expr=
-																				(PostfixExpression
-																					expr+=
-																					(PrimaryExpression
-																						const=
-																						(Constant
-																							str++"\\\"+c\\\""
-																						)
-																					),
-																					argumentExpressionList+=
-																					(ArgumentExpressionList
-																						expr+=
-																						(AssignmentExpression
-																							expr=
-																							(ConditionalExpression
+																						),
+																						argumentExpressionList+=
+																						(ArgumentExpressionList
+																							expr+=
+																							(AssignmentExpression
 																								expr=
-																								(LogicalOrExpression
-																									expr+=
-																									(LogicalAndExpression
+																								(ConditionalExpression
+																									expr=
+																									(LogicalOrExpression
 																										expr+=
-																										(InclusiveOrExpression
+																										(LogicalAndExpression
 																											expr+=
-																											(ExclusiveOrExpression
+																											(InclusiveOrExpression
 																												expr+=
-																												(AndExpression
+																												(ExclusiveOrExpression
 																													expr+=
-																													(EqualityExpression
+																													(AndExpression
 																														expr+=
-																														(RelationalExpression
+																														(EqualityExpression
 																															expr+=
-																															(ShiftExpression
+																															(RelationalExpression
 																																expr+=
-																																(AdditiveExpression
+																																(ShiftExpression
 																																	expr+=
-																																	(MultiplicativeExpression
+																																	(AdditiveExpression
 																																		expr+=
-																																		(CastExpression
-																																			expr=
-																																			(UnaryExpression
+																																		(MultiplicativeExpression
+																																			expr+=
+																																			(CastExpression
 																																				expr=
-																																				(PostfixExpression
-																																					expr+=
-																																					(PrimaryExpression
-																																						id++"arg2"
-																																					)
-																																				)
-																																			)
-																																		)
-																																	)
-																																)
-																															)
-																														)
-																													)
-																												)
-																											)
-																										)
-																									)
-																								) // end LogicalOrExpression
-																							)
-																						) // end assignment expression
-																					)
-																				)
-																			)
-																		)
-																	)
-																)
-															)
-														)
-													)
-												)
-											)
-										)
-									)
-								), // end LogicalOrExpression
-								// : "+d" (arg3),
-								(LogicalOrExpression
-									expr+=
-									(LogicalAndExpression
-										expr+=
-										(InclusiveOrExpression
-											expr+=
-											(ExclusiveOrExpression
-												expr+=
-												(AndExpression
-													expr+=
-													(EqualityExpression
-														expr+=
-														(RelationalExpression
-															expr+=
-															(ShiftExpression
-																expr+=
-																(AdditiveExpression
-																	expr+=
-																	(MultiplicativeExpression
-																		expr+=
-																		(CastExpression
-																			expr=
-																			(UnaryExpression
-																				expr=
-																				(PostfixExpression
-																					expr+=
-																					(PrimaryExpression
-																						const=
-																						(Constant
-																							str++"\\\"+d\\\""
-																						)
-																					),
-																					argumentExpressionList+=
-																					(ArgumentExpressionList
-																						expr+=
-																						(AssignmentExpression
-																							expr=
-																							(ConditionalExpression
-																								expr=
-																								(LogicalOrExpression
-																									expr+=
-																									(LogicalAndExpression
-																										expr+=
-																										(InclusiveOrExpression
-																											expr+=
-																											(ExclusiveOrExpression
-																												expr+=
-																												(AndExpression
-																													expr+=
-																													(EqualityExpression
-																														expr+=
-																														(RelationalExpression
-																															expr+=
-																															(ShiftExpression
-																																expr+=
-																																(AdditiveExpression
-																																	expr+=
-																																	(MultiplicativeExpression
-																																		expr+=
-																																		(CastExpression
-																																			expr=
-																																			(UnaryExpression
-																																				expr=
-																																				(PostfixExpression
-																																					expr+=
-																																					(PrimaryExpression
-																																						id++"arg3"
-																																					)
-																																				)
-																																			)
-																																		)
-																																	)
-																																)
-																															)
-																														)
-																													)
-																												)
-																											)
-																										)
-																									)
-																								) // end LogicalOrExpression
-																							)
-																						) // end assignment expression
-																					)
-																				)
-																			)
-																		)
-																	)
-																)
-															)
-														)
-													)
-												)
-											)
-										)
-									)
-								), // end LogicalOrExpression
-								// : "a" (128),
-								(LogicalOrExpression
-									expr+=
-									(LogicalAndExpression
-										expr+=
-										(InclusiveOrExpression
-											expr+=
-											(ExclusiveOrExpression
-												expr+=
-												(AndExpression
-													expr+=
-													(EqualityExpression
-														expr+=
-														(RelationalExpression
-															expr+=
-															(ShiftExpression
-																expr+=
-																(AdditiveExpression
-																	expr+=
-																	(MultiplicativeExpression
-																		expr+=
-																		(CastExpression
-																			expr=
-																			(UnaryExpression
-																				expr=
-																				(PostfixExpression
-																					expr+=
-																					(PrimaryExpression
-																						const=
-																						(Constant
-																							str++"\\\"a\\\""
-																						)
-																					),
-																					argumentExpressionList+=
-																					(ArgumentExpressionList
-																						expr+=
-																						(AssignmentExpression
-																							expr=
-																							(ConditionalExpression
-																								expr=
-																								(LogicalOrExpression
-																									expr+=
-																									(LogicalAndExpression
-																										expr+=
-																										(InclusiveOrExpression
-																											expr+=
-																											(ExclusiveOrExpression
-																												expr+=
-																												(AndExpression
-																													expr+=
-																													(EqualityExpression
-																														expr+=
-																														(RelationalExpression
-																															expr+=
-																															(ShiftExpression
-																																expr+=
-																																(AdditiveExpression
-																																	expr+=
-																																	(MultiplicativeExpression
-																																		expr+=
-																																		(CastExpression
-																																			expr=
-																																			(UnaryExpression
-																																				expr=
-																																				(PostfixExpression
-																																					expr+=
-																																					(PrimaryExpression
-																																						const=
-																																						(Constant
-																																							dec++"128"
+																																				(UnaryExpression
+																																					expr=
+																																					(PostfixExpression
+																																						expr+=
+																																						(PrimaryExpression
+																																							id++"res"
 																																						)
 																																					)
 																																				)
@@ -723,55 +334,110 @@ RIGHTBRACE NEWLINE
 																												)
 																											)
 																										)
-																									)
-																								) // end LogicalOrExpression
+																									) // end LogicalOrExpression
+																								)
+																							) // end assignment expression
+																						)
+																					)
+																				)
+																			)
+																		)
+																	)
+																)
+															)
+														)
+													)
+												)
+											)
+										)
+									) // end LogicalOrExpression
+								),
+								(AsmLineWithComma
+									expr=
+									// "+b" (arg1),
+									(LogicalOrExpression
+										expr+=
+										(LogicalAndExpression
+											expr+=
+											(InclusiveOrExpression
+												expr+=
+												(ExclusiveOrExpression
+													expr+=
+													(AndExpression
+														expr+=
+														(EqualityExpression
+															expr+=
+															(RelationalExpression
+																expr+=
+																(ShiftExpression
+																	expr+=
+																	(AdditiveExpression
+																		expr+=
+																		(MultiplicativeExpression
+																			expr+=
+																			(CastExpression
+																				expr=
+																				(UnaryExpression
+																					expr=
+																					(PostfixExpression
+																						expr+=
+																						(PrimaryExpression
+																							const=
+																							(Constant
+																								str++"\\\"+b\\\""
 																							)
-																						) // end assignment expression
-																					)
-																				)
-																			)
-																		)
-																	)
-																)
-															)
-														)
-													)
-												)
-											)
-										)
-									)
-								), // end LogicalOrExpression
-								// "memory"
-								(LogicalOrExpression
-									expr+=
-									(LogicalAndExpression
-										expr+=
-										(InclusiveOrExpression
-											expr+=
-											(ExclusiveOrExpression
-												expr+=
-												(AndExpression
-													expr+=
-													(EqualityExpression
-														expr+=
-														(RelationalExpression
-															expr+=
-															(ShiftExpression
-																expr+=
-																(AdditiveExpression
-																	expr+=
-																	(MultiplicativeExpression
-																		expr+=
-																		(CastExpression
-																			expr=
-																			(UnaryExpression
-																				expr=
-																				(PostfixExpression
-																					expr+=
-																					(PrimaryExpression
-																						const=
-																						(Constant
-																							str++"\\\"memory\\\""
+																						),
+																						argumentExpressionList+=
+																						(ArgumentExpressionList
+																							expr+=
+																							(AssignmentExpression
+																								expr=
+																								(ConditionalExpression
+																									expr=
+																									(LogicalOrExpression
+																										expr+=
+																										(LogicalAndExpression
+																											expr+=
+																											(InclusiveOrExpression
+																												expr+=
+																												(ExclusiveOrExpression
+																													expr+=
+																													(AndExpression
+																														expr+=
+																														(EqualityExpression
+																															expr+=
+																															(RelationalExpression
+																																expr+=
+																																(ShiftExpression
+																																	expr+=
+																																	(AdditiveExpression
+																																		expr+=
+																																		(MultiplicativeExpression
+																																			expr+=
+																																			(CastExpression
+																																				expr=
+																																				(UnaryExpression
+																																					expr=
+																																					(PostfixExpression
+																																						expr+=
+																																						(PrimaryExpression
+																																							id++"arg1"
+																																						)
+																																					)
+																																				)
+																																			)
+																																		)
+																																	)
+																																)
+																															)
+																														)
+																													)
+																												)
+																											)
+																										)
+																									) // end LogicalOrExpression
+																								)
+																							) // end assignment expression
 																						)
 																					)
 																				)
@@ -785,39 +451,94 @@ RIGHTBRACE NEWLINE
 												)
 											)
 										)
-									)
-								), // end LogicalOrExpression
-								// "cc"
-								(LogicalOrExpression
-									expr+=
-									(LogicalAndExpression
+									) // end LogicalOrExpression
+								),
+								(AsmLineWithComma
+									expr=
+									// "+c" (arg2),
+									(LogicalOrExpression
 										expr+=
-										(InclusiveOrExpression
+										(LogicalAndExpression
 											expr+=
-											(ExclusiveOrExpression
+											(InclusiveOrExpression
 												expr+=
-												(AndExpression
+												(ExclusiveOrExpression
 													expr+=
-													(EqualityExpression
+													(AndExpression
 														expr+=
-														(RelationalExpression
+														(EqualityExpression
 															expr+=
-															(ShiftExpression
+															(RelationalExpression
 																expr+=
-																(AdditiveExpression
+																(ShiftExpression
 																	expr+=
-																	(MultiplicativeExpression
+																	(AdditiveExpression
 																		expr+=
-																		(CastExpression
-																			expr=
-																			(UnaryExpression
+																		(MultiplicativeExpression
+																			expr+=
+																			(CastExpression
 																				expr=
-																				(PostfixExpression
-																					expr+=
-																					(PrimaryExpression
-																						const=
-																						(Constant
-																							str++"\\\"cc\\\""
+																				(UnaryExpression
+																					expr=
+																					(PostfixExpression
+																						expr+=
+																						(PrimaryExpression
+																							const=
+																							(Constant
+																								str++"\\\"+c\\\""
+																							)
+																						),
+																						argumentExpressionList+=
+																						(ArgumentExpressionList
+																							expr+=
+																							(AssignmentExpression
+																								expr=
+																								(ConditionalExpression
+																									expr=
+																									(LogicalOrExpression
+																										expr+=
+																										(LogicalAndExpression
+																											expr+=
+																											(InclusiveOrExpression
+																												expr+=
+																												(ExclusiveOrExpression
+																													expr+=
+																													(AndExpression
+																														expr+=
+																														(EqualityExpression
+																															expr+=
+																															(RelationalExpression
+																																expr+=
+																																(ShiftExpression
+																																	expr+=
+																																	(AdditiveExpression
+																																		expr+=
+																																		(MultiplicativeExpression
+																																			expr+=
+																																			(CastExpression
+																																				expr=
+																																				(UnaryExpression
+																																					expr=
+																																					(PostfixExpression
+																																						expr+=
+																																						(PrimaryExpression
+																																							id++"arg2"
+																																						)
+																																					)
+																																				)
+																																			)
+																																		)
+																																	)
+																																)
+																															)
+																														)
+																													)
+																												)
+																											)
+																										)
+																									) // end LogicalOrExpression
+																								)
+																							) // end assignment expression
 																						)
 																					)
 																				)
@@ -831,8 +552,311 @@ RIGHTBRACE NEWLINE
 												)
 											)
 										)
-									)
-								), // end LogicalOrExpression
+									) // end LogicalOrExpression
+								),
+								(AsmLineWithComma
+									expr=
+									// "+d" (arg3),
+									(LogicalOrExpression
+										expr+=
+										(LogicalAndExpression
+											expr+=
+											(InclusiveOrExpression
+												expr+=
+												(ExclusiveOrExpression
+													expr+=
+													(AndExpression
+														expr+=
+														(EqualityExpression
+															expr+=
+															(RelationalExpression
+																expr+=
+																(ShiftExpression
+																	expr+=
+																	(AdditiveExpression
+																		expr+=
+																		(MultiplicativeExpression
+																			expr+=
+																			(CastExpression
+																				expr=
+																				(UnaryExpression
+																					expr=
+																					(PostfixExpression
+																						expr+=
+																						(PrimaryExpression
+																							const=
+																							(Constant
+																								str++"\\\"+d\\\""
+																							)
+																						),
+																						argumentExpressionList+=
+																						(ArgumentExpressionList
+																							expr+=
+																							(AssignmentExpression
+																								expr=
+																								(ConditionalExpression
+																									expr=
+																									(LogicalOrExpression
+																										expr+=
+																										(LogicalAndExpression
+																											expr+=
+																											(InclusiveOrExpression
+																												expr+=
+																												(ExclusiveOrExpression
+																													expr+=
+																													(AndExpression
+																														expr+=
+																														(EqualityExpression
+																															expr+=
+																															(RelationalExpression
+																																expr+=
+																																(ShiftExpression
+																																	expr+=
+																																	(AdditiveExpression
+																																		expr+=
+																																		(MultiplicativeExpression
+																																			expr+=
+																																			(CastExpression
+																																				expr=
+																																				(UnaryExpression
+																																					expr=
+																																					(PostfixExpression
+																																						expr+=
+																																						(PrimaryExpression
+																																							id++"arg3"
+																																						)
+																																					)
+																																				)
+																																			)
+																																		)
+																																	)
+																																)
+																															)
+																														)
+																													)
+																												)
+																											)
+																										)
+																									) // end LogicalOrExpression
+																								)
+																							) // end assignment expression
+																						)
+																					)
+																				)
+																			)
+																		)
+																	)
+																)
+															)
+														)
+													)
+												)
+											)
+										)
+									) // end LogicalOrExpression
+								),
+								(AsmLineWithColon
+									expr=
+									// : "a" (128)
+									(LogicalOrExpression
+										expr+=
+										(LogicalAndExpression
+											expr+=
+											(InclusiveOrExpression
+												expr+=
+												(ExclusiveOrExpression
+													expr+=
+													(AndExpression
+														expr+=
+														(EqualityExpression
+															expr+=
+															(RelationalExpression
+																expr+=
+																(ShiftExpression
+																	expr+=
+																	(AdditiveExpression
+																		expr+=
+																		(MultiplicativeExpression
+																			expr+=
+																			(CastExpression
+																				expr=
+																				(UnaryExpression
+																					expr=
+																					(PostfixExpression
+																						expr+=
+																						(PrimaryExpression
+																							const=
+																							(Constant
+																								str++"\\\"a\\\""
+																							)
+																						),
+																						argumentExpressionList+=
+																						(ArgumentExpressionList
+																							expr+=
+																							(AssignmentExpression
+																								expr=
+																								(ConditionalExpression
+																									expr=
+																									(LogicalOrExpression
+																										expr+=
+																										(LogicalAndExpression
+																											expr+=
+																											(InclusiveOrExpression
+																												expr+=
+																												(ExclusiveOrExpression
+																													expr+=
+																													(AndExpression
+																														expr+=
+																														(EqualityExpression
+																															expr+=
+																															(RelationalExpression
+																																expr+=
+																																(ShiftExpression
+																																	expr+=
+																																	(AdditiveExpression
+																																		expr+=
+																																		(MultiplicativeExpression
+																																			expr+=
+																																			(CastExpression
+																																				expr=
+																																				(UnaryExpression
+																																					expr=
+																																					(PostfixExpression
+																																						expr+=
+																																						(PrimaryExpression
+																																							const=
+																																							(Constant
+																																								dec++"128"
+																																							)
+																																						)
+																																					)
+																																				)
+																																			)
+																																		)
+																																	)
+																																)
+																															)
+																														)
+																													)
+																												)
+																											)
+																										)
+																									) // end LogicalOrExpression
+																								)
+																							) // end assignment expression
+																						)
+																					)
+																				)
+																			)
+																		)
+																	)
+																)
+															)
+														)
+													)
+												)
+											)
+										)
+									) // end LogicalOrExpression
+								),
+								(AsmLine
+									expr=
+									// : "memory",
+									(LogicalOrExpression
+										expr+=
+										(LogicalAndExpression
+											expr+=
+											(InclusiveOrExpression
+												expr+=
+												(ExclusiveOrExpression
+													expr+=
+													(AndExpression
+														expr+=
+														(EqualityExpression
+															expr+=
+															(RelationalExpression
+																expr+=
+																(ShiftExpression
+																	expr+=
+																	(AdditiveExpression
+																		expr+=
+																		(MultiplicativeExpression
+																			expr+=
+																			(CastExpression
+																				expr=
+																				(UnaryExpression
+																					expr=
+																					(PostfixExpression
+																						expr+=
+																						(PrimaryExpression
+																							const=
+																							(Constant
+																								str++"\\\"memory\\\""
+																							)
+																						)
+																					)
+																				)
+																			)
+																		)
+																	)
+																)
+															)
+														)
+													)
+												)
+											)
+										)
+									) // end LogicalOrExpression
+								),
+								(AsmLineWithComma
+									expr=
+									// "cc"
+									(LogicalOrExpression
+										expr+=
+										(LogicalAndExpression
+											expr+=
+											(InclusiveOrExpression
+												expr+=
+												(ExclusiveOrExpression
+													expr+=
+													(AndExpression
+														expr+=
+														(EqualityExpression
+															expr+=
+															(RelationalExpression
+																expr+=
+																(ShiftExpression
+																	expr+=
+																	(AdditiveExpression
+																		expr+=
+																		(MultiplicativeExpression
+																			expr+=
+																			(CastExpression
+																				expr=
+																				(UnaryExpression
+																					expr=
+																					(PostfixExpression
+																						expr+=
+																						(PrimaryExpression
+																							const=
+																							(Constant
+																								str++"\\\"cc\\\""
+																							)
+																						)
+																					)
+																				)
+																			)
+																		)
+																	)
+																)
+															)
+														)
+													)
+												)
+											)
+										)
+									) // end LogicalOrExpression
+								),
 								semi++";"
 							) // end AsmStatement
 						),

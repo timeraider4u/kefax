@@ -2805,8 +2805,10 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cAsmStatementAction_0 = (Action)cGroup.eContents().get(0);
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final RuleCall cKW_ASM1TerminalRuleCall_1_0 = (RuleCall)cAlternatives_1.eContents().get(0);
-		private final RuleCall cKW_ASM2TerminalRuleCall_1_1 = (RuleCall)cAlternatives_1.eContents().get(1);
+		private final Assignment cAsmAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
+		private final RuleCall cAsmKW_ASM1TerminalRuleCall_1_0_0 = (RuleCall)cAsmAssignment_1_0.eContents().get(0);
+		private final Assignment cAsmAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
+		private final RuleCall cAsmKW_ASM2TerminalRuleCall_1_1_0 = (RuleCall)cAsmAssignment_1_1.eContents().get(0);
 		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
 		private final Assignment cVolatileAssignment_2_0 = (Assignment)cAlternatives_2.eContents().get(0);
 		private final RuleCall cVolatileKW_VOLATILETerminalRuleCall_2_0_0 = (RuleCall)cVolatileAssignment_2_0.eContents().get(0);
@@ -2814,38 +2816,42 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cVolatileKW_VOLATILE2TerminalRuleCall_2_1_0 = (RuleCall)cVolatileAssignment_2_1.eContents().get(0);
 		private final RuleCall cLEFTPARENTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final RuleCall cCOLONTerminalRuleCall_4_0 = (RuleCall)cGroup_4.eContents().get(0);
-		private final Assignment cExprAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cExprLogicalOrExpressionParserRuleCall_4_1_0 = (RuleCall)cExprAssignment_4_1.eContents().get(0);
-		private final Group cGroup_4_2 = (Group)cGroup_4.eContents().get(2);
-		private final RuleCall cCOMMATerminalRuleCall_4_2_0 = (RuleCall)cGroup_4_2.eContents().get(0);
-		private final Assignment cExprAssignment_4_2_1 = (Assignment)cGroup_4_2.eContents().get(1);
-		private final RuleCall cExprLogicalOrExpressionParserRuleCall_4_2_1_0 = (RuleCall)cExprAssignment_4_2_1.eContents().get(0);
+		private final Assignment cAsmLineAssignment_4_0 = (Assignment)cGroup_4.eContents().get(0);
+		private final RuleCall cAsmLineAsmLineWithColonParserRuleCall_4_0_0 = (RuleCall)cAsmLineAssignment_4_0.eContents().get(0);
+		private final Assignment cAsmLineAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cAsmLineAsmLineWithCommaParserRuleCall_4_1_0 = (RuleCall)cAsmLineAssignment_4_1.eContents().get(0);
 		private final RuleCall cRIGHTPARENTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
 		private final Assignment cSemiAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cSemiSEMITerminalRuleCall_6_0 = (RuleCall)cSemiAssignment_6.eContents().get(0);
 		
 		//AsmStatement Statement:
-		//	{AsmStatement} (KW_ASM1 | KW_ASM2) (volatile=KW_VOLATILE | volatile=KW_VOLATILE2)?
-		//	LEFTPAREN (COLON? expr+=LogicalOrExpression (COMMA expr+=LogicalOrExpression)*)+
+		//	{AsmStatement} (asm=KW_ASM1 | asm=KW_ASM2) (volatile=KW_VOLATILE | volatile=KW_VOLATILE2)?
+		//	LEFTPAREN (asmLine+=AsmLineWithColon
+		//	asmLine+=AsmLineWithComma*)+
 		//	RIGHTPAREN semi=SEMI
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{AsmStatement} (KW_ASM1 | KW_ASM2) (volatile=KW_VOLATILE | volatile=KW_VOLATILE2)? LEFTPAREN (COLON?
-		//expr+=LogicalOrExpression (COMMA expr+=LogicalOrExpression)*)+ RIGHTPAREN semi=SEMI
+		//{AsmStatement} (asm=KW_ASM1 | asm=KW_ASM2) (volatile=KW_VOLATILE | volatile=KW_VOLATILE2)? LEFTPAREN
+		//(asmLine+=AsmLineWithColon asmLine+=AsmLineWithComma*)+ RIGHTPAREN semi=SEMI
 		public Group getGroup() { return cGroup; }
 		
 		//{AsmStatement}
 		public Action getAsmStatementAction_0() { return cAsmStatementAction_0; }
 		
-		//(KW_ASM1 | KW_ASM2)
+		//(asm=KW_ASM1 | asm=KW_ASM2)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
+		//asm=KW_ASM1
+		public Assignment getAsmAssignment_1_0() { return cAsmAssignment_1_0; }
+		
 		//KW_ASM1
-		public RuleCall getKW_ASM1TerminalRuleCall_1_0() { return cKW_ASM1TerminalRuleCall_1_0; }
+		public RuleCall getAsmKW_ASM1TerminalRuleCall_1_0_0() { return cAsmKW_ASM1TerminalRuleCall_1_0_0; }
+		
+		//asm=KW_ASM2
+		public Assignment getAsmAssignment_1_1() { return cAsmAssignment_1_1; }
 		
 		//KW_ASM2
-		public RuleCall getKW_ASM2TerminalRuleCall_1_1() { return cKW_ASM2TerminalRuleCall_1_1; }
+		public RuleCall getAsmKW_ASM2TerminalRuleCall_1_1_0() { return cAsmKW_ASM2TerminalRuleCall_1_1_0; }
 		
 		//(volatile=KW_VOLATILE | volatile=KW_VOLATILE2)?
 		public Alternatives getAlternatives_2() { return cAlternatives_2; }
@@ -2865,29 +2871,23 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		//LEFTPAREN
 		public RuleCall getLEFTPARENTerminalRuleCall_3() { return cLEFTPARENTerminalRuleCall_3; }
 		
-		//(COLON? expr+=LogicalOrExpression (COMMA expr+=LogicalOrExpression)*)+
+		//(asmLine+=AsmLineWithColon asmLine+=AsmLineWithComma*)+
 		public Group getGroup_4() { return cGroup_4; }
 		
-		//COLON?
-		public RuleCall getCOLONTerminalRuleCall_4_0() { return cCOLONTerminalRuleCall_4_0; }
+		////(COLON? expr+=LogicalOrExpression 
+		////	(COMMA expr+=LogicalOrExpression)*
+		////)
+		//asmLine+=AsmLineWithColon
+		public Assignment getAsmLineAssignment_4_0() { return cAsmLineAssignment_4_0; }
 		
-		//expr+=LogicalOrExpression
-		public Assignment getExprAssignment_4_1() { return cExprAssignment_4_1; }
+		//AsmLineWithColon
+		public RuleCall getAsmLineAsmLineWithColonParserRuleCall_4_0_0() { return cAsmLineAsmLineWithColonParserRuleCall_4_0_0; }
 		
-		//LogicalOrExpression
-		public RuleCall getExprLogicalOrExpressionParserRuleCall_4_1_0() { return cExprLogicalOrExpressionParserRuleCall_4_1_0; }
+		//asmLine+=AsmLineWithComma*
+		public Assignment getAsmLineAssignment_4_1() { return cAsmLineAssignment_4_1; }
 		
-		//(COMMA expr+=LogicalOrExpression)*
-		public Group getGroup_4_2() { return cGroup_4_2; }
-		
-		//COMMA
-		public RuleCall getCOMMATerminalRuleCall_4_2_0() { return cCOMMATerminalRuleCall_4_2_0; }
-		
-		//expr+=LogicalOrExpression
-		public Assignment getExprAssignment_4_2_1() { return cExprAssignment_4_2_1; }
-		
-		//LogicalOrExpression
-		public RuleCall getExprLogicalOrExpressionParserRuleCall_4_2_1_0() { return cExprLogicalOrExpressionParserRuleCall_4_2_1_0; }
+		//AsmLineWithComma
+		public RuleCall getAsmLineAsmLineWithCommaParserRuleCall_4_1_0() { return cAsmLineAsmLineWithCommaParserRuleCall_4_1_0; }
 		
 		//RIGHTPAREN
 		public RuleCall getRIGHTPARENTerminalRuleCall_5() { return cRIGHTPARENTerminalRuleCall_5; }
@@ -2897,6 +2897,64 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//SEMI
 		public RuleCall getSemiSEMITerminalRuleCall_6_0() { return cSemiSEMITerminalRuleCall_6_0; }
+	}
+	public class AsmLineWithColonElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.AsmLineWithColon");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cAsmLineWithColonAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cColonAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cColonCOLONTerminalRuleCall_1_0 = (RuleCall)cColonAssignment_1.eContents().get(0);
+		private final Assignment cExprAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cExprLogicalOrExpressionParserRuleCall_2_0 = (RuleCall)cExprAssignment_2.eContents().get(0);
+		
+		//AsmLineWithColon AsmLine:
+		//	{AsmLineWithColon} colon?=COLON? expr=LogicalOrExpression
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{AsmLineWithColon} colon?=COLON? expr=LogicalOrExpression
+		public Group getGroup() { return cGroup; }
+		
+		//{AsmLineWithColon}
+		public Action getAsmLineWithColonAction_0() { return cAsmLineWithColonAction_0; }
+		
+		//colon?=COLON?
+		public Assignment getColonAssignment_1() { return cColonAssignment_1; }
+		
+		//COLON
+		public RuleCall getColonCOLONTerminalRuleCall_1_0() { return cColonCOLONTerminalRuleCall_1_0; }
+		
+		//expr=LogicalOrExpression
+		public Assignment getExprAssignment_2() { return cExprAssignment_2; }
+		
+		//LogicalOrExpression
+		public RuleCall getExprLogicalOrExpressionParserRuleCall_2_0() { return cExprLogicalOrExpressionParserRuleCall_2_0; }
+	}
+	public class AsmLineWithCommaElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.AsmLineWithComma");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cAsmLineWithCommaAction_0 = (Action)cGroup.eContents().get(0);
+		private final RuleCall cCOMMATerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cExprAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cExprLogicalOrExpressionParserRuleCall_2_0 = (RuleCall)cExprAssignment_2.eContents().get(0);
+		
+		//AsmLineWithComma AsmLine:
+		//	{AsmLineWithComma} COMMA expr=LogicalOrExpression
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{AsmLineWithComma} COMMA expr=LogicalOrExpression
+		public Group getGroup() { return cGroup; }
+		
+		//{AsmLineWithComma}
+		public Action getAsmLineWithCommaAction_0() { return cAsmLineWithCommaAction_0; }
+		
+		//COMMA
+		public RuleCall getCOMMATerminalRuleCall_1() { return cCOMMATerminalRuleCall_1; }
+		
+		//expr=LogicalOrExpression
+		public Assignment getExprAssignment_2() { return cExprAssignment_2; }
+		
+		//LogicalOrExpression
+		public RuleCall getExprLogicalOrExpressionParserRuleCall_2_0() { return cExprLogicalOrExpressionParserRuleCall_2_0; }
 	}
 	public class ExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.Expression");
@@ -4399,6 +4457,8 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	private final IterationStatementElements pIterationStatement;
 	private final JumpStatementElements pJumpStatement;
 	private final AsmStatementElements pAsmStatement;
+	private final AsmLineWithColonElements pAsmLineWithColon;
+	private final AsmLineWithCommaElements pAsmLineWithComma;
 	private final ExpressionElements pExpression;
 	private final AssignmentExpressionElements pAssignmentExpression;
 	private final LvalueElements pLvalue;
@@ -4597,6 +4657,8 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		this.pIterationStatement = new IterationStatementElements();
 		this.pJumpStatement = new JumpStatementElements();
 		this.pAsmStatement = new AsmStatementElements();
+		this.pAsmLineWithColon = new AsmLineWithColonElements();
+		this.pAsmLineWithComma = new AsmLineWithCommaElements();
 		this.pExpression = new ExpressionElements();
 		this.pAssignmentExpression = new AssignmentExpressionElements();
 		this.pLvalue = new LvalueElements();
@@ -5434,8 +5496,9 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//AsmStatement Statement:
-	//	{AsmStatement} (KW_ASM1 | KW_ASM2) (volatile=KW_VOLATILE | volatile=KW_VOLATILE2)?
-	//	LEFTPAREN (COLON? expr+=LogicalOrExpression (COMMA expr+=LogicalOrExpression)*)+
+	//	{AsmStatement} (asm=KW_ASM1 | asm=KW_ASM2) (volatile=KW_VOLATILE | volatile=KW_VOLATILE2)?
+	//	LEFTPAREN (asmLine+=AsmLineWithColon
+	//	asmLine+=AsmLineWithComma*)+
 	//	RIGHTPAREN semi=SEMI
 	public AsmStatementElements getAsmStatementAccess() {
 		return pAsmStatement;
@@ -5443,6 +5506,26 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getAsmStatementRule() {
 		return getAsmStatementAccess().getRule();
+	}
+	
+	//AsmLineWithColon AsmLine:
+	//	{AsmLineWithColon} colon?=COLON? expr=LogicalOrExpression
+	public AsmLineWithColonElements getAsmLineWithColonAccess() {
+		return pAsmLineWithColon;
+	}
+	
+	public ParserRule getAsmLineWithColonRule() {
+		return getAsmLineWithColonAccess().getRule();
+	}
+	
+	//AsmLineWithComma AsmLine:
+	//	{AsmLineWithComma} COMMA expr=LogicalOrExpression
+	public AsmLineWithCommaElements getAsmLineWithCommaAccess() {
+		return pAsmLineWithComma;
+	}
+	
+	public ParserRule getAsmLineWithCommaRule() {
+		return getAsmLineWithCommaAccess().getRule();
 	}
 	
 	////designation: designatorList ASSIGN;

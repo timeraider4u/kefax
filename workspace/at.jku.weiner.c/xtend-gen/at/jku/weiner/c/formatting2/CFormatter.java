@@ -6,6 +6,7 @@ package at.jku.weiner.c.formatting2;
 import at.jku.weiner.c.c.AdditiveExpression;
 import at.jku.weiner.c.c.AndExpression;
 import at.jku.weiner.c.c.ArgumentExpressionList;
+import at.jku.weiner.c.c.AsmLine;
 import at.jku.weiner.c.c.AsmStatement;
 import at.jku.weiner.c.c.AssignmentExpression;
 import at.jku.weiner.c.c.AssignmentOperator;
@@ -201,6 +202,10 @@ public class CFormatter extends AbstractFormatter2 {
     EList<TypeQualifier> _typeQualifier = specifierQualifierList.getTypeQualifier();
     for (final TypeQualifier typeQualifier : _typeQualifier) {
       this.format(typeQualifier, document);
+    }
+    EList<DeclarationSpecifier> _structOrUnionSpecifier = specifierQualifierList.getStructOrUnionSpecifier();
+    for (final DeclarationSpecifier structOrUnionSpecifier : _structOrUnionSpecifier) {
+      this.format(structOrUnionSpecifier, document);
     }
   }
   
@@ -400,10 +405,15 @@ public class CFormatter extends AbstractFormatter2 {
   }
   
   protected void _format(final AsmStatement asmStatement, @Extension final IFormattableDocument document) {
-    EList<Expression> _expr = asmStatement.getExpr();
-    for (final Expression expr : _expr) {
-      this.format(expr, document);
+    EList<AsmLine> _asmLine = asmStatement.getAsmLine();
+    for (final AsmLine asmLine : _asmLine) {
+      this.format(asmLine, document);
     }
+  }
+  
+  protected void _format(final AsmLine asmLine, @Extension final IFormattableDocument document) {
+    Expression _expr = asmLine.getExpr();
+    this.format(_expr, document);
   }
   
   protected void _format(final Expression expression, @Extension final IFormattableDocument document) {
@@ -638,6 +648,9 @@ public class CFormatter extends AbstractFormatter2 {
       return;
     } else if (additiveExpression instanceof ArgumentExpressionList) {
       _format((ArgumentExpressionList)additiveExpression, document);
+      return;
+    } else if (additiveExpression instanceof AsmLine) {
+      _format((AsmLine)additiveExpression, document);
       return;
     } else if (additiveExpression instanceof BlockList) {
       _format((BlockList)additiveExpression, document);

@@ -164,7 +164,8 @@ public class CParser extends AbstractContentAssistParser {
 					put(grammarAccess.getJumpStatementAccess().getGroup_1_3(), "rule__JumpStatement__Group_1_3__0");
 					put(grammarAccess.getAsmStatementAccess().getGroup(), "rule__AsmStatement__Group__0");
 					put(grammarAccess.getAsmStatementAccess().getGroup_4(), "rule__AsmStatement__Group_4__0");
-					put(grammarAccess.getAsmStatementAccess().getGroup_4_2(), "rule__AsmStatement__Group_4_2__0");
+					put(grammarAccess.getAsmLineWithColonAccess().getGroup(), "rule__AsmLineWithColon__Group__0");
+					put(grammarAccess.getAsmLineWithCommaAccess().getGroup(), "rule__AsmLineWithComma__Group__0");
 					put(grammarAccess.getExpressionAccess().getGroup(), "rule__Expression__Group__0");
 					put(grammarAccess.getExpressionAccess().getGroup_2(), "rule__Expression__Group_2__0");
 					put(grammarAccess.getAssignmentExpressionAccess().getGroup(), "rule__AssignmentExpression__Group__0");
@@ -382,11 +383,16 @@ public class CParser extends AbstractContentAssistParser {
 					put(grammarAccess.getJumpStatementAccess().getGotoAssignment_1_3_0(), "rule__JumpStatement__GotoAssignment_1_3_0");
 					put(grammarAccess.getJumpStatementAccess().getExprAssignment_1_3_1(), "rule__JumpStatement__ExprAssignment_1_3_1");
 					put(grammarAccess.getJumpStatementAccess().getSemiAssignment_1_3_2(), "rule__JumpStatement__SemiAssignment_1_3_2");
+					put(grammarAccess.getAsmStatementAccess().getAsmAssignment_1_0(), "rule__AsmStatement__AsmAssignment_1_0");
+					put(grammarAccess.getAsmStatementAccess().getAsmAssignment_1_1(), "rule__AsmStatement__AsmAssignment_1_1");
 					put(grammarAccess.getAsmStatementAccess().getVolatileAssignment_2_0(), "rule__AsmStatement__VolatileAssignment_2_0");
 					put(grammarAccess.getAsmStatementAccess().getVolatileAssignment_2_1(), "rule__AsmStatement__VolatileAssignment_2_1");
-					put(grammarAccess.getAsmStatementAccess().getExprAssignment_4_1(), "rule__AsmStatement__ExprAssignment_4_1");
-					put(grammarAccess.getAsmStatementAccess().getExprAssignment_4_2_1(), "rule__AsmStatement__ExprAssignment_4_2_1");
+					put(grammarAccess.getAsmStatementAccess().getAsmLineAssignment_4_0(), "rule__AsmStatement__AsmLineAssignment_4_0");
+					put(grammarAccess.getAsmStatementAccess().getAsmLineAssignment_4_1(), "rule__AsmStatement__AsmLineAssignment_4_1");
 					put(grammarAccess.getAsmStatementAccess().getSemiAssignment_6(), "rule__AsmStatement__SemiAssignment_6");
+					put(grammarAccess.getAsmLineWithColonAccess().getColonAssignment_1(), "rule__AsmLineWithColon__ColonAssignment_1");
+					put(grammarAccess.getAsmLineWithColonAccess().getExprAssignment_2(), "rule__AsmLineWithColon__ExprAssignment_2");
+					put(grammarAccess.getAsmLineWithCommaAccess().getExprAssignment_2(), "rule__AsmLineWithComma__ExprAssignment_2");
 					put(grammarAccess.getExpressionAccess().getExprExprAssignment_1(), "rule__Expression__ExprExprAssignment_1");
 					put(grammarAccess.getExpressionAccess().getExprExprAssignment_2_1(), "rule__Expression__ExprExprAssignment_2_1");
 					put(grammarAccess.getAssignmentExpressionAccess().getExprAssignment_1_0_0(), "rule__AssignmentExpression__ExprAssignment_1_0_0");

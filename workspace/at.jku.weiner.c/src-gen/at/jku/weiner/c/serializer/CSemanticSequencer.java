@@ -6,6 +6,8 @@ package at.jku.weiner.c.serializer;
 import at.jku.weiner.c.c.AdditiveExpression;
 import at.jku.weiner.c.c.AndExpression;
 import at.jku.weiner.c.c.ArgumentExpressionList;
+import at.jku.weiner.c.c.AsmLineWithColon;
+import at.jku.weiner.c.c.AsmLineWithComma;
 import at.jku.weiner.c.c.AsmStatement;
 import at.jku.weiner.c.c.AssignmentExpression;
 import at.jku.weiner.c.c.AssignmentOperator;
@@ -107,6 +109,12 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case CPackage.ARGUMENT_EXPRESSION_LIST:
 				sequence_ArgumentExpressionList(context, (ArgumentExpressionList) semanticObject); 
+				return; 
+			case CPackage.ASM_LINE_WITH_COLON:
+				sequence_AsmLineWithColon(context, (AsmLineWithColon) semanticObject); 
+				return; 
+			case CPackage.ASM_LINE_WITH_COMMA:
+				sequence_AsmLineWithComma(context, (AsmLineWithComma) semanticObject); 
 				return; 
 			case CPackage.ASM_STATEMENT:
 				sequence_AsmStatement(context, (AsmStatement) semanticObject); 
@@ -345,7 +353,32 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     ((volatile=KW_VOLATILE | volatile=KW_VOLATILE2)? (expr+=LogicalOrExpression expr+=LogicalOrExpression*)+ semi=SEMI)
+	 *     (colon?=COLON? expr=LogicalOrExpression)
+	 */
+	protected void sequence_AsmLineWithColon(EObject context, AsmLineWithColon semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     expr=LogicalOrExpression
+	 */
+	protected void sequence_AsmLineWithComma(EObject context, AsmLineWithComma semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, CPackage.Literals.ASM_LINE__EXPR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CPackage.Literals.ASM_LINE__EXPR));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getAsmLineWithCommaAccess().getExprLogicalOrExpressionParserRuleCall_2_0(), semanticObject.getExpr());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     ((asm=KW_ASM1 | asm=KW_ASM2) (volatile=KW_VOLATILE | volatile=KW_VOLATILE2)? (asmLine+=AsmLineWithColon asmLine+=AsmLineWithComma*)+ semi=SEMI)
 	 */
 	protected void sequence_AsmStatement(EObject context, AsmStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

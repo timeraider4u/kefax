@@ -104,6 +104,7 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
       case CPackage.INITIALIZER_LIST: return createInitializerList();
       case CPackage.BLOCK_LIST: return createBlockList();
       case CPackage.STATEMENT: return createStatement();
+      case CPackage.ASM_LINE: return createAsmLine();
       case CPackage.EXPRESSION: return createExpression();
       case CPackage.ASSIGNMENT_OPERATOR: return createAssignmentOperator();
       case CPackage.UNARY_OPERATOR: return createUnaryOperator();
@@ -119,6 +120,8 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
       case CPackage.ITERATION_STATEMENT: return createIterationStatement();
       case CPackage.JUMP_STATEMENT: return createJumpStatement();
       case CPackage.ASM_STATEMENT: return createAsmStatement();
+      case CPackage.ASM_LINE_WITH_COLON: return createAsmLineWithColon();
+      case CPackage.ASM_LINE_WITH_COMMA: return createAsmLineWithComma();
       case CPackage.ASSIGNMENT_EXPRESSION: return createAssignmentExpression();
       case CPackage.CONDITIONAL_EXPRESSION: return createConditionalExpression();
       case CPackage.LOGICAL_OR_EXPRESSION: return createLogicalOrExpression();
@@ -586,6 +589,17 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public AsmLine createAsmLine()
+  {
+    AsmLineImpl asmLine = new AsmLineImpl();
+    return asmLine;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Expression createExpression()
   {
     ExpressionImpl expression = new ExpressionImpl();
@@ -744,6 +758,28 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
   {
     AsmStatementImpl asmStatement = new AsmStatementImpl();
     return asmStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AsmLineWithColon createAsmLineWithColon()
+  {
+    AsmLineWithColonImpl asmLineWithColon = new AsmLineWithColonImpl();
+    return asmLineWithColon;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AsmLineWithComma createAsmLineWithComma()
+  {
+    AsmLineWithCommaImpl asmLineWithComma = new AsmLineWithCommaImpl();
+    return asmLineWithComma;
   }
 
   /**

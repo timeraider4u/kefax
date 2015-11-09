@@ -2,9 +2,9 @@
  */
 package at.jku.weiner.c.c.impl;
 
+import at.jku.weiner.c.c.AsmLine;
 import at.jku.weiner.c.c.AsmStatement;
 import at.jku.weiner.c.c.CPackage;
-import at.jku.weiner.c.c.Expression;
 
 import java.util.Collection;
 
@@ -28,8 +28,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link at.jku.weiner.c.c.impl.AsmStatementImpl#getAsm <em>Asm</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.AsmStatementImpl#getVolatile <em>Volatile</em>}</li>
- *   <li>{@link at.jku.weiner.c.c.impl.AsmStatementImpl#getExpr <em>Expr</em>}</li>
+ *   <li>{@link at.jku.weiner.c.c.impl.AsmStatementImpl#getAsmLine <em>Asm Line</em>}</li>
  *   <li>{@link at.jku.weiner.c.c.impl.AsmStatementImpl#getSemi <em>Semi</em>}</li>
  * </ul>
  * </p>
@@ -38,6 +39,26 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class AsmStatementImpl extends StatementImpl implements AsmStatement
 {
+  /**
+   * The default value of the '{@link #getAsm() <em>Asm</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAsm()
+   * @generated
+   * @ordered
+   */
+  protected static final String ASM_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getAsm() <em>Asm</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAsm()
+   * @generated
+   * @ordered
+   */
+  protected String asm = ASM_EDEFAULT;
+
   /**
    * The default value of the '{@link #getVolatile() <em>Volatile</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -59,14 +80,14 @@ public class AsmStatementImpl extends StatementImpl implements AsmStatement
   protected String volatile_ = VOLATILE_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference list.
+   * The cached value of the '{@link #getAsmLine() <em>Asm Line</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getExpr()
+   * @see #getAsmLine()
    * @generated
    * @ordered
    */
-  protected EList<Expression> expr;
+  protected EList<AsmLine> asmLine;
 
   /**
    * The default value of the '{@link #getSemi() <em>Semi</em>}' attribute.
@@ -114,6 +135,29 @@ public class AsmStatementImpl extends StatementImpl implements AsmStatement
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getAsm()
+  {
+    return asm;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAsm(String newAsm)
+  {
+    String oldAsm = asm;
+    asm = newAsm;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CPackage.ASM_STATEMENT__ASM, oldAsm, asm));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getVolatile()
   {
     return volatile_;
@@ -137,13 +181,13 @@ public class AsmStatementImpl extends StatementImpl implements AsmStatement
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Expression> getExpr()
+  public EList<AsmLine> getAsmLine()
   {
-    if (expr == null)
+    if (asmLine == null)
     {
-      expr = new EObjectContainmentEList<Expression>(Expression.class, this, CPackage.ASM_STATEMENT__EXPR);
+      asmLine = new EObjectContainmentEList<AsmLine>(AsmLine.class, this, CPackage.ASM_STATEMENT__ASM_LINE);
     }
-    return expr;
+    return asmLine;
   }
 
   /**
@@ -179,8 +223,8 @@ public class AsmStatementImpl extends StatementImpl implements AsmStatement
   {
     switch (featureID)
     {
-      case CPackage.ASM_STATEMENT__EXPR:
-        return ((InternalEList<?>)getExpr()).basicRemove(otherEnd, msgs);
+      case CPackage.ASM_STATEMENT__ASM_LINE:
+        return ((InternalEList<?>)getAsmLine()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -195,10 +239,12 @@ public class AsmStatementImpl extends StatementImpl implements AsmStatement
   {
     switch (featureID)
     {
+      case CPackage.ASM_STATEMENT__ASM:
+        return getAsm();
       case CPackage.ASM_STATEMENT__VOLATILE:
         return getVolatile();
-      case CPackage.ASM_STATEMENT__EXPR:
-        return getExpr();
+      case CPackage.ASM_STATEMENT__ASM_LINE:
+        return getAsmLine();
       case CPackage.ASM_STATEMENT__SEMI:
         return getSemi();
     }
@@ -216,12 +262,15 @@ public class AsmStatementImpl extends StatementImpl implements AsmStatement
   {
     switch (featureID)
     {
+      case CPackage.ASM_STATEMENT__ASM:
+        setAsm((String)newValue);
+        return;
       case CPackage.ASM_STATEMENT__VOLATILE:
         setVolatile((String)newValue);
         return;
-      case CPackage.ASM_STATEMENT__EXPR:
-        getExpr().clear();
-        getExpr().addAll((Collection<? extends Expression>)newValue);
+      case CPackage.ASM_STATEMENT__ASM_LINE:
+        getAsmLine().clear();
+        getAsmLine().addAll((Collection<? extends AsmLine>)newValue);
         return;
       case CPackage.ASM_STATEMENT__SEMI:
         setSemi((String)newValue);
@@ -240,11 +289,14 @@ public class AsmStatementImpl extends StatementImpl implements AsmStatement
   {
     switch (featureID)
     {
+      case CPackage.ASM_STATEMENT__ASM:
+        setAsm(ASM_EDEFAULT);
+        return;
       case CPackage.ASM_STATEMENT__VOLATILE:
         setVolatile(VOLATILE_EDEFAULT);
         return;
-      case CPackage.ASM_STATEMENT__EXPR:
-        getExpr().clear();
+      case CPackage.ASM_STATEMENT__ASM_LINE:
+        getAsmLine().clear();
         return;
       case CPackage.ASM_STATEMENT__SEMI:
         setSemi(SEMI_EDEFAULT);
@@ -263,10 +315,12 @@ public class AsmStatementImpl extends StatementImpl implements AsmStatement
   {
     switch (featureID)
     {
+      case CPackage.ASM_STATEMENT__ASM:
+        return ASM_EDEFAULT == null ? asm != null : !ASM_EDEFAULT.equals(asm);
       case CPackage.ASM_STATEMENT__VOLATILE:
         return VOLATILE_EDEFAULT == null ? volatile_ != null : !VOLATILE_EDEFAULT.equals(volatile_);
-      case CPackage.ASM_STATEMENT__EXPR:
-        return expr != null && !expr.isEmpty();
+      case CPackage.ASM_STATEMENT__ASM_LINE:
+        return asmLine != null && !asmLine.isEmpty();
       case CPackage.ASM_STATEMENT__SEMI:
         return SEMI_EDEFAULT == null ? semi != null : !SEMI_EDEFAULT.equals(semi);
     }
@@ -284,7 +338,9 @@ public class AsmStatementImpl extends StatementImpl implements AsmStatement
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (volatile: ");
+    result.append(" (asm: ");
+    result.append(asm);
+    result.append(", volatile: ");
     result.append(volatile_);
     result.append(", semi: ");
     result.append(semi);

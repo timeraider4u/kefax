@@ -5,6 +5,9 @@ package at.jku.weiner.c.c.impl;
 import at.jku.weiner.c.c.AdditiveExpression;
 import at.jku.weiner.c.c.AndExpression;
 import at.jku.weiner.c.c.ArgumentExpressionList;
+import at.jku.weiner.c.c.AsmLine;
+import at.jku.weiner.c.c.AsmLineWithColon;
+import at.jku.weiner.c.c.AsmLineWithComma;
 import at.jku.weiner.c.c.AsmStatement;
 import at.jku.weiner.c.c.AssignmentExpression;
 import at.jku.weiner.c.c.AssignmentOperator;
@@ -378,6 +381,13 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass asmLineEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass expressionEClass = null;
 
   /**
@@ -477,6 +487,20 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * @generated
    */
   private EClass asmStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass asmLineWithColonEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass asmLineWithCommaEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1748,6 +1772,26 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getAsmLine()
+  {
+    return asmLineEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAsmLine_Expr()
+  {
+    return (EReference)asmLineEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getExpression()
   {
     return expressionEClass;
@@ -2348,7 +2392,7 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAsmStatement_Volatile()
+  public EAttribute getAsmStatement_Asm()
   {
     return (EAttribute)asmStatementEClass.getEStructuralFeatures().get(0);
   }
@@ -2358,9 +2402,19 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAsmStatement_Expr()
+  public EAttribute getAsmStatement_Volatile()
   {
-    return (EReference)asmStatementEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)asmStatementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAsmStatement_AsmLine()
+  {
+    return (EReference)asmStatementEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -2370,7 +2424,37 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    */
   public EAttribute getAsmStatement_Semi()
   {
-    return (EAttribute)asmStatementEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)asmStatementEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getAsmLineWithColon()
+  {
+    return asmLineWithColonEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAsmLineWithColon_Colon()
+  {
+    return (EAttribute)asmLineWithColonEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getAsmLineWithComma()
+  {
+    return asmLineWithCommaEClass;
   }
 
   /**
@@ -3151,6 +3235,9 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     statementEClass = createEClass(STATEMENT);
     createEReference(statementEClass, STATEMENT__STMT);
 
+    asmLineEClass = createEClass(ASM_LINE);
+    createEReference(asmLineEClass, ASM_LINE__EXPR);
+
     expressionEClass = createEClass(EXPRESSION);
     createEReference(expressionEClass, EXPRESSION__EXPR_EXPR);
 
@@ -3225,9 +3312,15 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     createEAttribute(jumpStatementEClass, JUMP_STATEMENT__GOTO);
 
     asmStatementEClass = createEClass(ASM_STATEMENT);
+    createEAttribute(asmStatementEClass, ASM_STATEMENT__ASM);
     createEAttribute(asmStatementEClass, ASM_STATEMENT__VOLATILE);
-    createEReference(asmStatementEClass, ASM_STATEMENT__EXPR);
+    createEReference(asmStatementEClass, ASM_STATEMENT__ASM_LINE);
     createEAttribute(asmStatementEClass, ASM_STATEMENT__SEMI);
+
+    asmLineWithColonEClass = createEClass(ASM_LINE_WITH_COLON);
+    createEAttribute(asmLineWithColonEClass, ASM_LINE_WITH_COLON__COLON);
+
+    asmLineWithCommaEClass = createEClass(ASM_LINE_WITH_COMMA);
 
     assignmentExpressionEClass = createEClass(ASSIGNMENT_EXPRESSION);
     createEReference(assignmentExpressionEClass, ASSIGNMENT_EXPRESSION__EXPR);
@@ -3349,6 +3442,8 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     iterationStatementEClass.getESuperTypes().add(this.getStatement());
     jumpStatementEClass.getESuperTypes().add(this.getStatement());
     asmStatementEClass.getESuperTypes().add(this.getStatement());
+    asmLineWithColonEClass.getESuperTypes().add(this.getAsmLine());
+    asmLineWithCommaEClass.getESuperTypes().add(this.getAsmLine());
     assignmentExpressionEClass.getESuperTypes().add(this.getExpression());
     conditionalExpressionEClass.getESuperTypes().add(this.getExpression());
     logicalOrExpressionEClass.getESuperTypes().add(this.getExpression());
@@ -3516,6 +3611,9 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     initEClass(statementEClass, Statement.class, "Statement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getStatement_Stmt(), this.getStatement(), null, "stmt", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(asmLineEClass, AsmLine.class, "AsmLine", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAsmLine_Expr(), this.getExpression(), null, "expr", null, 0, 1, AsmLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getExpression_ExprExpr(), this.getExpression(), null, "exprExpr", null, 0, -1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -3590,9 +3688,15 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     initEAttribute(getJumpStatement_Goto(), theEcorePackage.getEString(), "goto", null, 0, 1, JumpStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(asmStatementEClass, AsmStatement.class, "AsmStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getAsmStatement_Asm(), theEcorePackage.getEString(), "asm", null, 0, 1, AsmStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAsmStatement_Volatile(), theEcorePackage.getEString(), "volatile", null, 0, 1, AsmStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAsmStatement_Expr(), this.getExpression(), null, "expr", null, 0, -1, AsmStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAsmStatement_AsmLine(), this.getAsmLine(), null, "asmLine", null, 0, -1, AsmStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAsmStatement_Semi(), theEcorePackage.getEString(), "semi", null, 0, 1, AsmStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(asmLineWithColonEClass, AsmLineWithColon.class, "AsmLineWithColon", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getAsmLineWithColon_Colon(), theEcorePackage.getEBoolean(), "colon", null, 0, 1, AsmLineWithColon.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(asmLineWithCommaEClass, AsmLineWithComma.class, "AsmLineWithComma", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(assignmentExpressionEClass, AssignmentExpression.class, "AssignmentExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAssignmentExpression_Expr(), this.getExpression(), null, "expr", null, 0, 1, AssignmentExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -7,5 +7,25 @@ Bundle-SymbolicName: at.jku.weiner.cpreprocess; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.xtext,
  org.eclipse.xtext.xbase,
- org.eclipse.equinox.common;bundle-version="3.5.0"
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.emf.ecore,
+ org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional,
+ org.eclipse.xtext.util,
+ org.antlr.runtime,
+ org.eclipse.xtend.lib,
+ org.eclipse.emf.common,
+ org.eclipse.xtext.common.types,
+ org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: at.jku.weiner.cpreprocess.scoping,
+ at.jku.weiner.cpreprocess.serializer,
+ at.jku.weiner.cpreprocess.generator,
+ at.jku.weiner.cpreprocess.services,
+ at.jku.weiner.cpreprocess.cPreprocess,
+ at.jku.weiner.cpreprocess.validation,
+ at.jku.weiner.cpreprocess.cPreprocess.impl,
+ at.jku.weiner.cpreprocess.parser.antlr.internal,
+ at.jku.weiner.cpreprocess,
+ at.jku.weiner.cpreprocess.cPreprocess.util,
+ at.jku.weiner.cpreprocess.parser.antlr
+Import-Package: org.apache.log4j

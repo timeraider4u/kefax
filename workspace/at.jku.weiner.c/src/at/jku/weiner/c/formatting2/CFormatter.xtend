@@ -7,6 +7,8 @@ import at.jku.weiner.c.c.AdditiveExpression
 import at.jku.weiner.c.c.AndExpression
 import at.jku.weiner.c.c.ArgumentExpressionList
 import at.jku.weiner.c.c.AsmLine
+import at.jku.weiner.c.c.AsmLineWithColon
+import at.jku.weiner.c.c.AsmLineWithComma
 import at.jku.weiner.c.c.AsmStatement
 import at.jku.weiner.c.c.AssignmentExpression
 import at.jku.weiner.c.c.BlockList
@@ -52,6 +54,9 @@ import at.jku.weiner.c.c.ParameterList
 import at.jku.weiner.c.c.ParameterTypeList
 import at.jku.weiner.c.c.Pointer
 import at.jku.weiner.c.c.PostfixExpression
+import at.jku.weiner.c.c.PostfixExpressionSuffix
+import at.jku.weiner.c.c.PostfixExpressionSuffixArgument
+import at.jku.weiner.c.c.PostfixExpressionSuffixArray
 import at.jku.weiner.c.c.PrimaryExpression
 import at.jku.weiner.c.c.RelationalExpression
 import at.jku.weiner.c.c.SelectionStatement
@@ -372,9 +377,14 @@ class CFormatter extends AbstractFormatter2 {
 		}
 	}
 
-	def dispatch void format(AsmLine asmLine, extension IFormattableDocument document) {
+	def dispatch void format(AsmLineWithColon asmLineWithColon, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		format(asmLine.getExpr(), document);
+		format(asmLineWithColon.getExpr(), document);
+	}
+
+	def dispatch void format(AsmLineWithComma asmLineWithComma, extension IFormattableDocument document) {
+		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+		format(asmLineWithComma.getExpr(), document);
 	}
 
 	def dispatch void format(Expression expression, extension IFormattableDocument document) {
@@ -486,12 +496,19 @@ class CFormatter extends AbstractFormatter2 {
 		for (Expression expr : postfixExpression.getExpr()) {
 			format(expr, document);
 		}
-		for (Expression arrayExpr : postfixExpression.getArrayExpr()) {
-			format(arrayExpr, document);
+		for (PostfixExpressionSuffix suffix : postfixExpression.getSuffix()) {
+			format(suffix, document);
 		}
-		for (ArgumentExpressionList argumentExpressionList : postfixExpression.getArgumentExpressionList()) {
-			format(argumentExpressionList, document);
-		}
+	}
+
+	def dispatch void format(PostfixExpressionSuffixArray postfixExpressionSuffixArray, extension IFormattableDocument document) {
+		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+		format(postfixExpressionSuffixArray.getArrayExpr(), document);
+	}
+
+	def dispatch void format(PostfixExpressionSuffixArgument postfixExpressionSuffixArgument, extension IFormattableDocument document) {
+		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+		format(postfixExpressionSuffixArgument.getArgumentExpressionList(), document);
 	}
 
 	def dispatch void format(ArgumentExpressionList argumentExpressionList, extension IFormattableDocument document) {

@@ -131,6 +131,7 @@ import at.jku.weiner.c.c.CastExpression;
 import at.jku.weiner.c.c.UnaryExpression;
 import at.jku.weiner.c.c.PostfixExpression;
 import at.jku.weiner.c.c.PrimaryExpression;
+import at.jku.weiner.c.c.PostfixExpressionSuffixPlusPlus;
 import at.jku.weiner.c.c.Statement;
 import at.jku.weiner.c.c.CompoundStatement;
 import at.jku.weiner.c.c.BodyStatement;
@@ -949,51 +950,58 @@ public class Test0028_ForWithDec {
 		);
 		Assert.assertEquals("i", PrimaryExpression_88_Var
 		.getId());
-		Assert.assertEquals("[++]", PostfixExpression_87_Var
-		.getPlusplus().toString());
+		final EList<? extends EObject> Suffix_88_list = PostfixExpression_87_Var
+		.getSuffix();
+		Assert.assertNotNull(Suffix_88_list);
+		Assert.assertEquals(1, Suffix_88_list.size());
 		//88
-		final Statement Statement_89_Var
-		 = (Statement)IterationStatement_21_Var
-		.getStatement();
-		Assert.assertNotNull(Statement_89_Var
+		final PostfixExpressionSuffixPlusPlus PostfixExpressionSuffixPlusPlus_89_Var
+		 = (PostfixExpressionSuffixPlusPlus)Suffix_88_list.get(0);
+		Assert.assertNotNull(PostfixExpressionSuffixPlusPlus_89_Var
 		);
 		//89
-		final CompoundStatement CompoundStatement_90_Var
-		 = (CompoundStatement)Statement_89_Var
-		.getStmt();
-		Assert.assertNotNull(CompoundStatement_90_Var
+		final Statement Statement_90_Var
+		 = (Statement)IterationStatement_21_Var
+		.getStatement();
+		Assert.assertNotNull(Statement_90_Var
 		);
 		//90
-		final BodyStatement BodyStatement_91_Var
-		 = (BodyStatement)CompoundStatement_90_Var
-		.getBody();
-		Assert.assertNotNull(BodyStatement_91_Var
-		);
-		final EList<? extends EObject> BlockList_91_list = BodyStatement_91_Var
-		.getBlockList();
-		Assert.assertNotNull(BlockList_91_list);
-		Assert.assertEquals(1, BlockList_91_list.size());
-		//91
-		final BlockList BlockList_92_Var
-		 = (BlockList)BlockList_91_list.get(0);
-		Assert.assertNotNull(BlockList_92_Var
-		);
-		final EList<? extends EObject> Statement_92_list = BlockList_92_Var
-		.getStatement();
-		Assert.assertNotNull(Statement_92_list);
-		Assert.assertEquals(1, Statement_92_list.size());
-		//92
-		final Statement Statement_93_Var
-		 = (Statement)Statement_92_list.get(0);
-		Assert.assertNotNull(Statement_93_Var
-		);
-		//93
-		final JumpStatement JumpStatement_94_Var
-		 = (JumpStatement)Statement_93_Var
+		final CompoundStatement CompoundStatement_91_Var
+		 = (CompoundStatement)Statement_90_Var
 		.getStmt();
-		Assert.assertNotNull(JumpStatement_94_Var
+		Assert.assertNotNull(CompoundStatement_91_Var
 		);
-		Assert.assertEquals("continue", JumpStatement_94_Var
+		//91
+		final BodyStatement BodyStatement_92_Var
+		 = (BodyStatement)CompoundStatement_91_Var
+		.getBody();
+		Assert.assertNotNull(BodyStatement_92_Var
+		);
+		final EList<? extends EObject> BlockList_92_list = BodyStatement_92_Var
+		.getBlockList();
+		Assert.assertNotNull(BlockList_92_list);
+		Assert.assertEquals(1, BlockList_92_list.size());
+		//92
+		final BlockList BlockList_93_Var
+		 = (BlockList)BlockList_92_list.get(0);
+		Assert.assertNotNull(BlockList_93_Var
+		);
+		final EList<? extends EObject> Statement_93_list = BlockList_93_Var
+		.getStatement();
+		Assert.assertNotNull(Statement_93_list);
+		Assert.assertEquals(1, Statement_93_list.size());
+		//93
+		final Statement Statement_94_Var
+		 = (Statement)Statement_93_list.get(0);
+		Assert.assertNotNull(Statement_94_Var
+		);
+		//94
+		final JumpStatement JumpStatement_95_Var
+		 = (JumpStatement)Statement_94_Var
+		.getStmt();
+		Assert.assertNotNull(JumpStatement_95_Var
+		);
+		Assert.assertEquals("continue", JumpStatement_95_Var
 		.getContinue());
 	}
 	

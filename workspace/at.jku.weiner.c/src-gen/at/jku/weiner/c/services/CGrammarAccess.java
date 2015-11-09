@@ -4061,52 +4061,40 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cExprAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
 		private final RuleCall cExprPrimaryExpressionParserRuleCall_1_0_0 = (RuleCall)cExprAssignment_1_0.eContents().get(0);
 		private final Alternatives cAlternatives_1_1 = (Alternatives)cGroup_1.eContents().get(1);
-		private final Group cGroup_1_1_0 = (Group)cAlternatives_1_1.eContents().get(0);
-		private final RuleCall cLEFTBRACKETTerminalRuleCall_1_1_0_0 = (RuleCall)cGroup_1_1_0.eContents().get(0);
-		private final Assignment cArrayExprAssignment_1_1_0_1 = (Assignment)cGroup_1_1_0.eContents().get(1);
-		private final RuleCall cArrayExprExpressionParserRuleCall_1_1_0_1_0 = (RuleCall)cArrayExprAssignment_1_1_0_1.eContents().get(0);
-		private final RuleCall cRIGHTBRACKETTerminalRuleCall_1_1_0_2 = (RuleCall)cGroup_1_1_0.eContents().get(2);
-		private final Group cGroup_1_1_1 = (Group)cAlternatives_1_1.eContents().get(1);
-		private final RuleCall cLEFTPARENTerminalRuleCall_1_1_1_0 = (RuleCall)cGroup_1_1_1.eContents().get(0);
-		private final Assignment cArgumentExpressionListAssignment_1_1_1_1 = (Assignment)cGroup_1_1_1.eContents().get(1);
-		private final RuleCall cArgumentExpressionListArgumentExpressionListParserRuleCall_1_1_1_1_0 = (RuleCall)cArgumentExpressionListAssignment_1_1_1_1.eContents().get(0);
-		private final RuleCall cRIGHTPARENTerminalRuleCall_1_1_1_2 = (RuleCall)cGroup_1_1_1.eContents().get(2);
-		private final Group cGroup_1_1_2 = (Group)cAlternatives_1_1.eContents().get(2);
-		private final Assignment cDotAssignment_1_1_2_0 = (Assignment)cGroup_1_1_2.eContents().get(0);
-		private final RuleCall cDotDOTTerminalRuleCall_1_1_2_0_0 = (RuleCall)cDotAssignment_1_1_2_0.eContents().get(0);
-		private final Assignment cIdAssignment_1_1_2_1 = (Assignment)cGroup_1_1_2.eContents().get(1);
-		private final RuleCall cIdIDTerminalRuleCall_1_1_2_1_0 = (RuleCall)cIdAssignment_1_1_2_1.eContents().get(0);
-		private final Group cGroup_1_1_3 = (Group)cAlternatives_1_1.eContents().get(3);
-		private final Assignment cArrowAssignment_1_1_3_0 = (Assignment)cGroup_1_1_3.eContents().get(0);
-		private final RuleCall cArrowARROWTerminalRuleCall_1_1_3_0_0 = (RuleCall)cArrowAssignment_1_1_3_0.eContents().get(0);
-		private final Assignment cIdAssignment_1_1_3_1 = (Assignment)cGroup_1_1_3.eContents().get(1);
-		private final RuleCall cIdIDTerminalRuleCall_1_1_3_1_0 = (RuleCall)cIdAssignment_1_1_3_1.eContents().get(0);
-		private final Assignment cPlusplusAssignment_1_1_4 = (Assignment)cAlternatives_1_1.eContents().get(4);
-		private final RuleCall cPlusplusPLUSPLUSTerminalRuleCall_1_1_4_0 = (RuleCall)cPlusplusAssignment_1_1_4.eContents().get(0);
-		private final Assignment cMinusminusAssignment_1_1_5 = (Assignment)cAlternatives_1_1.eContents().get(5);
-		private final RuleCall cMinusminusMINUSMINUSTerminalRuleCall_1_1_5_0 = (RuleCall)cMinusminusAssignment_1_1_5.eContents().get(0);
+		private final Assignment cSuffixAssignment_1_1_0 = (Assignment)cAlternatives_1_1.eContents().get(0);
+		private final RuleCall cSuffixPostfixExpressionSuffixArrayParserRuleCall_1_1_0_0 = (RuleCall)cSuffixAssignment_1_1_0.eContents().get(0);
+		private final Assignment cSuffixAssignment_1_1_1 = (Assignment)cAlternatives_1_1.eContents().get(1);
+		private final RuleCall cSuffixPostfixExpressionSuffixArgumentParserRuleCall_1_1_1_0 = (RuleCall)cSuffixAssignment_1_1_1.eContents().get(0);
+		private final Assignment cSuffixAssignment_1_1_2 = (Assignment)cAlternatives_1_1.eContents().get(2);
+		private final RuleCall cSuffixPostfixExpressionSuffixDotParserRuleCall_1_1_2_0 = (RuleCall)cSuffixAssignment_1_1_2.eContents().get(0);
+		private final Assignment cSuffixAssignment_1_1_3 = (Assignment)cAlternatives_1_1.eContents().get(3);
+		private final RuleCall cSuffixPostfixExpressionSuffixArrowParserRuleCall_1_1_3_0 = (RuleCall)cSuffixAssignment_1_1_3.eContents().get(0);
+		private final Assignment cSuffixAssignment_1_1_4 = (Assignment)cAlternatives_1_1.eContents().get(4);
+		private final RuleCall cSuffixPostfixExpressionSuffixPlusPlusParserRuleCall_1_1_4_0 = (RuleCall)cSuffixAssignment_1_1_4.eContents().get(0);
+		private final Assignment cSuffixAssignment_1_1_5 = (Assignment)cAlternatives_1_1.eContents().get(5);
+		private final RuleCall cSuffixPostfixExpressionSuffixMinusMinusParserRuleCall_1_1_5_0 = (RuleCall)cSuffixAssignment_1_1_5.eContents().get(0);
 		
 		//PostfixExpression Expression initRuleAction { at.jku.weiner.c.Log.error("PostfixExpression-enter"); } afterRuleAction {
 		//at.jku.weiner.c.Log.error("PostfixExpression-leave"); }:
-		//	{PostfixExpression} (expr+=PrimaryExpression (LEFTBRACKET arrayExpr+=Expression RIGHTBRACKET
-		//	| LEFTPAREN argumentExpressionList+=ArgumentExpressionList? RIGHTPAREN
-		//	| dot+=DOT id+=ID
-		//	| arrow+=ARROW id+=ID
-		//	| plusplus+=PLUSPLUS
-		//	| minusminus+=MINUSMINUS)*)
+		//	{PostfixExpression} (expr+=PrimaryExpression (suffix+=PostfixExpressionSuffixArray
+		//	| suffix+=PostfixExpressionSuffixArgument
+		//	| suffix+=PostfixExpressionSuffixDot
+		//	| suffix+=PostfixExpressionSuffixArrow
+		//	| suffix+=PostfixExpressionSuffixPlusPlus
+		//	| suffix+=PostfixExpressionSuffixMinusMinus)*)
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{PostfixExpression} (expr+=PrimaryExpression (LEFTBRACKET arrayExpr+=Expression RIGHTBRACKET | LEFTPAREN
-		//argumentExpressionList+=ArgumentExpressionList? RIGHTPAREN | dot+=DOT id+=ID | arrow+=ARROW id+=ID | plusplus+=PLUSPLUS
-		//| minusminus+=MINUSMINUS)*)
+		//{PostfixExpression} (expr+=PrimaryExpression (suffix+=PostfixExpressionSuffixArray |
+		//suffix+=PostfixExpressionSuffixArgument | suffix+=PostfixExpressionSuffixDot | suffix+=PostfixExpressionSuffixArrow |
+		//suffix+=PostfixExpressionSuffixPlusPlus | suffix+=PostfixExpressionSuffixMinusMinus)*)
 		public Group getGroup() { return cGroup; }
 		
 		//{PostfixExpression}
 		public Action getPostfixExpressionAction_0() { return cPostfixExpressionAction_0; }
 		
-		//(expr+=PrimaryExpression (LEFTBRACKET arrayExpr+=Expression RIGHTBRACKET | LEFTPAREN
-		//argumentExpressionList+=ArgumentExpressionList? RIGHTPAREN | dot+=DOT id+=ID | arrow+=ARROW id+=ID | plusplus+=PLUSPLUS
-		//| minusminus+=MINUSMINUS)*)
+		//(expr+=PrimaryExpression (suffix+=PostfixExpressionSuffixArray | suffix+=PostfixExpressionSuffixArgument |
+		//suffix+=PostfixExpressionSuffixDot | suffix+=PostfixExpressionSuffixArrow | suffix+=PostfixExpressionSuffixPlusPlus |
+		//suffix+=PostfixExpressionSuffixMinusMinus)*)
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//expr+=PrimaryExpression
@@ -4115,81 +4103,200 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		//PrimaryExpression
 		public RuleCall getExprPrimaryExpressionParserRuleCall_1_0_0() { return cExprPrimaryExpressionParserRuleCall_1_0_0; }
 		
-		//(LEFTBRACKET arrayExpr+=Expression RIGHTBRACKET | LEFTPAREN argumentExpressionList+=ArgumentExpressionList? RIGHTPAREN |
-		//dot+=DOT id+=ID | arrow+=ARROW id+=ID | plusplus+=PLUSPLUS | minusminus+=MINUSMINUS)*
+		//(suffix+=PostfixExpressionSuffixArray | suffix+=PostfixExpressionSuffixArgument | suffix+=PostfixExpressionSuffixDot |
+		//suffix+=PostfixExpressionSuffixArrow | suffix+=PostfixExpressionSuffixPlusPlus |
+		//suffix+=PostfixExpressionSuffixMinusMinus)*
 		public Alternatives getAlternatives_1_1() { return cAlternatives_1_1; }
 		
-		//LEFTBRACKET arrayExpr+=Expression RIGHTBRACKET
-		public Group getGroup_1_1_0() { return cGroup_1_1_0; }
+		//suffix+=PostfixExpressionSuffixArray
+		public Assignment getSuffixAssignment_1_1_0() { return cSuffixAssignment_1_1_0; }
+		
+		//PostfixExpressionSuffixArray
+		public RuleCall getSuffixPostfixExpressionSuffixArrayParserRuleCall_1_1_0_0() { return cSuffixPostfixExpressionSuffixArrayParserRuleCall_1_1_0_0; }
+		
+		//suffix+=PostfixExpressionSuffixArgument
+		public Assignment getSuffixAssignment_1_1_1() { return cSuffixAssignment_1_1_1; }
+		
+		//PostfixExpressionSuffixArgument
+		public RuleCall getSuffixPostfixExpressionSuffixArgumentParserRuleCall_1_1_1_0() { return cSuffixPostfixExpressionSuffixArgumentParserRuleCall_1_1_1_0; }
+		
+		//suffix+=PostfixExpressionSuffixDot
+		public Assignment getSuffixAssignment_1_1_2() { return cSuffixAssignment_1_1_2; }
+		
+		//PostfixExpressionSuffixDot
+		public RuleCall getSuffixPostfixExpressionSuffixDotParserRuleCall_1_1_2_0() { return cSuffixPostfixExpressionSuffixDotParserRuleCall_1_1_2_0; }
+		
+		//suffix+=PostfixExpressionSuffixArrow
+		public Assignment getSuffixAssignment_1_1_3() { return cSuffixAssignment_1_1_3; }
+		
+		//PostfixExpressionSuffixArrow
+		public RuleCall getSuffixPostfixExpressionSuffixArrowParserRuleCall_1_1_3_0() { return cSuffixPostfixExpressionSuffixArrowParserRuleCall_1_1_3_0; }
+		
+		//suffix+=PostfixExpressionSuffixPlusPlus
+		public Assignment getSuffixAssignment_1_1_4() { return cSuffixAssignment_1_1_4; }
+		
+		//PostfixExpressionSuffixPlusPlus
+		public RuleCall getSuffixPostfixExpressionSuffixPlusPlusParserRuleCall_1_1_4_0() { return cSuffixPostfixExpressionSuffixPlusPlusParserRuleCall_1_1_4_0; }
+		
+		//suffix+=PostfixExpressionSuffixMinusMinus
+		public Assignment getSuffixAssignment_1_1_5() { return cSuffixAssignment_1_1_5; }
+		
+		//PostfixExpressionSuffixMinusMinus
+		public RuleCall getSuffixPostfixExpressionSuffixMinusMinusParserRuleCall_1_1_5_0() { return cSuffixPostfixExpressionSuffixMinusMinusParserRuleCall_1_1_5_0; }
+	}
+	public class PostfixExpressionSuffixArrayElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.PostfixExpressionSuffixArray");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cPostfixExpressionSuffixArrayAction_0 = (Action)cGroup.eContents().get(0);
+		private final RuleCall cLEFTBRACKETTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cArrayExprAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cArrayExprExpressionParserRuleCall_2_0 = (RuleCall)cArrayExprAssignment_2.eContents().get(0);
+		private final RuleCall cRIGHTBRACKETTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		
+		//PostfixExpressionSuffixArray PostfixExpressionSuffix:
+		//	{PostfixExpressionSuffixArray} LEFTBRACKET arrayExpr=Expression RIGHTBRACKET
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{PostfixExpressionSuffixArray} LEFTBRACKET arrayExpr=Expression RIGHTBRACKET
+		public Group getGroup() { return cGroup; }
+		
+		//{PostfixExpressionSuffixArray}
+		public Action getPostfixExpressionSuffixArrayAction_0() { return cPostfixExpressionSuffixArrayAction_0; }
 		
 		//LEFTBRACKET
-		public RuleCall getLEFTBRACKETTerminalRuleCall_1_1_0_0() { return cLEFTBRACKETTerminalRuleCall_1_1_0_0; }
+		public RuleCall getLEFTBRACKETTerminalRuleCall_1() { return cLEFTBRACKETTerminalRuleCall_1; }
 		
-		//arrayExpr+=Expression
-		public Assignment getArrayExprAssignment_1_1_0_1() { return cArrayExprAssignment_1_1_0_1; }
+		//arrayExpr=Expression
+		public Assignment getArrayExprAssignment_2() { return cArrayExprAssignment_2; }
 		
 		//Expression
-		public RuleCall getArrayExprExpressionParserRuleCall_1_1_0_1_0() { return cArrayExprExpressionParserRuleCall_1_1_0_1_0; }
+		public RuleCall getArrayExprExpressionParserRuleCall_2_0() { return cArrayExprExpressionParserRuleCall_2_0; }
 		
 		//RIGHTBRACKET
-		public RuleCall getRIGHTBRACKETTerminalRuleCall_1_1_0_2() { return cRIGHTBRACKETTerminalRuleCall_1_1_0_2; }
+		public RuleCall getRIGHTBRACKETTerminalRuleCall_3() { return cRIGHTBRACKETTerminalRuleCall_3; }
+	}
+	public class PostfixExpressionSuffixArgumentElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.PostfixExpressionSuffixArgument");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cPostfixExpressionSuffixArgumentAction_0 = (Action)cGroup.eContents().get(0);
+		private final RuleCall cLEFTPARENTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cArgumentExpressionListAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cArgumentExpressionListArgumentExpressionListParserRuleCall_2_0 = (RuleCall)cArgumentExpressionListAssignment_2.eContents().get(0);
+		private final RuleCall cRIGHTPARENTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
 		
-		//LEFTPAREN argumentExpressionList+=ArgumentExpressionList? RIGHTPAREN
-		public Group getGroup_1_1_1() { return cGroup_1_1_1; }
+		//PostfixExpressionSuffixArgument PostfixExpressionSuffix:
+		//	{PostfixExpressionSuffixArgument} LEFTPAREN argumentExpressionList=ArgumentExpressionList? RIGHTPAREN
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{PostfixExpressionSuffixArgument} LEFTPAREN argumentExpressionList=ArgumentExpressionList? RIGHTPAREN
+		public Group getGroup() { return cGroup; }
+		
+		//{PostfixExpressionSuffixArgument}
+		public Action getPostfixExpressionSuffixArgumentAction_0() { return cPostfixExpressionSuffixArgumentAction_0; }
 		
 		//LEFTPAREN
-		public RuleCall getLEFTPARENTerminalRuleCall_1_1_1_0() { return cLEFTPARENTerminalRuleCall_1_1_1_0; }
+		public RuleCall getLEFTPARENTerminalRuleCall_1() { return cLEFTPARENTerminalRuleCall_1; }
 		
-		//argumentExpressionList+=ArgumentExpressionList?
-		public Assignment getArgumentExpressionListAssignment_1_1_1_1() { return cArgumentExpressionListAssignment_1_1_1_1; }
+		//argumentExpressionList=ArgumentExpressionList?
+		public Assignment getArgumentExpressionListAssignment_2() { return cArgumentExpressionListAssignment_2; }
 		
 		//ArgumentExpressionList
-		public RuleCall getArgumentExpressionListArgumentExpressionListParserRuleCall_1_1_1_1_0() { return cArgumentExpressionListArgumentExpressionListParserRuleCall_1_1_1_1_0; }
+		public RuleCall getArgumentExpressionListArgumentExpressionListParserRuleCall_2_0() { return cArgumentExpressionListArgumentExpressionListParserRuleCall_2_0; }
 		
 		//RIGHTPAREN
-		public RuleCall getRIGHTPARENTerminalRuleCall_1_1_1_2() { return cRIGHTPARENTerminalRuleCall_1_1_1_2; }
+		public RuleCall getRIGHTPARENTerminalRuleCall_3() { return cRIGHTPARENTerminalRuleCall_3; }
+	}
+	public class PostfixExpressionSuffixDotElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.PostfixExpressionSuffixDot");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cPostfixExpressionSuffixDotAction_0 = (Action)cGroup.eContents().get(0);
+		private final RuleCall cDOTTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cIdAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cIdIDTerminalRuleCall_2_0 = (RuleCall)cIdAssignment_2.eContents().get(0);
 		
-		//dot+=DOT id+=ID
-		public Group getGroup_1_1_2() { return cGroup_1_1_2; }
+		//PostfixExpressionSuffixDot PostfixExpressionSuffix:
+		//	{PostfixExpressionSuffixDot} DOT id=ID
+		@Override public ParserRule getRule() { return rule; }
 		
-		//dot+=DOT
-		public Assignment getDotAssignment_1_1_2_0() { return cDotAssignment_1_1_2_0; }
+		//{PostfixExpressionSuffixDot} DOT id=ID
+		public Group getGroup() { return cGroup; }
+		
+		//{PostfixExpressionSuffixDot}
+		public Action getPostfixExpressionSuffixDotAction_0() { return cPostfixExpressionSuffixDotAction_0; }
 		
 		//DOT
-		public RuleCall getDotDOTTerminalRuleCall_1_1_2_0_0() { return cDotDOTTerminalRuleCall_1_1_2_0_0; }
+		public RuleCall getDOTTerminalRuleCall_1() { return cDOTTerminalRuleCall_1; }
 		
-		//id+=ID
-		public Assignment getIdAssignment_1_1_2_1() { return cIdAssignment_1_1_2_1; }
+		//id=ID
+		public Assignment getIdAssignment_2() { return cIdAssignment_2; }
 		
 		//ID
-		public RuleCall getIdIDTerminalRuleCall_1_1_2_1_0() { return cIdIDTerminalRuleCall_1_1_2_1_0; }
+		public RuleCall getIdIDTerminalRuleCall_2_0() { return cIdIDTerminalRuleCall_2_0; }
+	}
+	public class PostfixExpressionSuffixArrowElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.PostfixExpressionSuffixArrow");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cPostfixExpressionSuffixArrowAction_0 = (Action)cGroup.eContents().get(0);
+		private final RuleCall cARROWTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cIdAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cIdIDTerminalRuleCall_2_0 = (RuleCall)cIdAssignment_2.eContents().get(0);
 		
-		//arrow+=ARROW id+=ID
-		public Group getGroup_1_1_3() { return cGroup_1_1_3; }
+		//PostfixExpressionSuffixArrow PostfixExpressionSuffix:
+		//	{PostfixExpressionSuffixArrow} ARROW id=ID
+		@Override public ParserRule getRule() { return rule; }
 		
-		//arrow+=ARROW
-		public Assignment getArrowAssignment_1_1_3_0() { return cArrowAssignment_1_1_3_0; }
+		//{PostfixExpressionSuffixArrow} ARROW id=ID
+		public Group getGroup() { return cGroup; }
+		
+		//{PostfixExpressionSuffixArrow}
+		public Action getPostfixExpressionSuffixArrowAction_0() { return cPostfixExpressionSuffixArrowAction_0; }
 		
 		//ARROW
-		public RuleCall getArrowARROWTerminalRuleCall_1_1_3_0_0() { return cArrowARROWTerminalRuleCall_1_1_3_0_0; }
+		public RuleCall getARROWTerminalRuleCall_1() { return cARROWTerminalRuleCall_1; }
 		
-		//id+=ID
-		public Assignment getIdAssignment_1_1_3_1() { return cIdAssignment_1_1_3_1; }
+		//id=ID
+		public Assignment getIdAssignment_2() { return cIdAssignment_2; }
 		
 		//ID
-		public RuleCall getIdIDTerminalRuleCall_1_1_3_1_0() { return cIdIDTerminalRuleCall_1_1_3_1_0; }
+		public RuleCall getIdIDTerminalRuleCall_2_0() { return cIdIDTerminalRuleCall_2_0; }
+	}
+	public class PostfixExpressionSuffixPlusPlusElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.PostfixExpressionSuffixPlusPlus");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cPostfixExpressionSuffixPlusPlusAction_0 = (Action)cGroup.eContents().get(0);
+		private final RuleCall cPLUSPLUSTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		
-		//plusplus+=PLUSPLUS
-		public Assignment getPlusplusAssignment_1_1_4() { return cPlusplusAssignment_1_1_4; }
+		//PostfixExpressionSuffixPlusPlus PostfixExpressionSuffix:
+		//	{PostfixExpressionSuffixPlusPlus} PLUSPLUS
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{PostfixExpressionSuffixPlusPlus} PLUSPLUS
+		public Group getGroup() { return cGroup; }
+		
+		//{PostfixExpressionSuffixPlusPlus}
+		public Action getPostfixExpressionSuffixPlusPlusAction_0() { return cPostfixExpressionSuffixPlusPlusAction_0; }
 		
 		//PLUSPLUS
-		public RuleCall getPlusplusPLUSPLUSTerminalRuleCall_1_1_4_0() { return cPlusplusPLUSPLUSTerminalRuleCall_1_1_4_0; }
+		public RuleCall getPLUSPLUSTerminalRuleCall_1() { return cPLUSPLUSTerminalRuleCall_1; }
+	}
+	public class PostfixExpressionSuffixMinusMinusElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.PostfixExpressionSuffixMinusMinus");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cPostfixExpressionSuffixMinusMinusAction_0 = (Action)cGroup.eContents().get(0);
+		private final RuleCall cMINUSMINUSTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		
-		//minusminus+=MINUSMINUS
-		public Assignment getMinusminusAssignment_1_1_5() { return cMinusminusAssignment_1_1_5; }
+		//PostfixExpressionSuffixMinusMinus PostfixExpressionSuffix:
+		//	{PostfixExpressionSuffixMinusMinus} MINUSMINUS
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{PostfixExpressionSuffixMinusMinus} MINUSMINUS
+		public Group getGroup() { return cGroup; }
+		
+		//{PostfixExpressionSuffixMinusMinus}
+		public Action getPostfixExpressionSuffixMinusMinusAction_0() { return cPostfixExpressionSuffixMinusMinusAction_0; }
 		
 		//MINUSMINUS
-		public RuleCall getMinusminusMINUSMINUSTerminalRuleCall_1_1_5_0() { return cMinusminusMINUSMINUSTerminalRuleCall_1_1_5_0; }
+		public RuleCall getMINUSMINUSTerminalRuleCall_1() { return cMINUSMINUSTerminalRuleCall_1; }
 	}
 	public class ArgumentExpressionListElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.C.ArgumentExpressionList");
@@ -4478,6 +4585,12 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	private final UnaryExpressionElements pUnaryExpression;
 	private final UnaryOperatorElements pUnaryOperator;
 	private final PostfixExpressionElements pPostfixExpression;
+	private final PostfixExpressionSuffixArrayElements pPostfixExpressionSuffixArray;
+	private final PostfixExpressionSuffixArgumentElements pPostfixExpressionSuffixArgument;
+	private final PostfixExpressionSuffixDotElements pPostfixExpressionSuffixDot;
+	private final PostfixExpressionSuffixArrowElements pPostfixExpressionSuffixArrow;
+	private final PostfixExpressionSuffixPlusPlusElements pPostfixExpressionSuffixPlusPlus;
+	private final PostfixExpressionSuffixMinusMinusElements pPostfixExpressionSuffixMinusMinus;
 	private final ArgumentExpressionListElements pArgumentExpressionList;
 	private final PrimaryExpressionElements pPrimaryExpression;
 	private final ConstantElements pConstant;
@@ -4678,6 +4791,12 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 		this.pUnaryExpression = new UnaryExpressionElements();
 		this.pUnaryOperator = new UnaryOperatorElements();
 		this.pPostfixExpression = new PostfixExpressionElements();
+		this.pPostfixExpressionSuffixArray = new PostfixExpressionSuffixArrayElements();
+		this.pPostfixExpressionSuffixArgument = new PostfixExpressionSuffixArgumentElements();
+		this.pPostfixExpressionSuffixDot = new PostfixExpressionSuffixDotElements();
+		this.pPostfixExpressionSuffixArrow = new PostfixExpressionSuffixArrowElements();
+		this.pPostfixExpressionSuffixPlusPlus = new PostfixExpressionSuffixPlusPlusElements();
+		this.pPostfixExpressionSuffixMinusMinus = new PostfixExpressionSuffixMinusMinusElements();
 		this.pArgumentExpressionList = new ArgumentExpressionListElements();
 		this.pPrimaryExpression = new PrimaryExpressionElements();
 		this.pConstant = new ConstantElements();
@@ -5757,18 +5876,78 @@ public class CGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//PostfixExpression Expression initRuleAction { at.jku.weiner.c.Log.error("PostfixExpression-enter"); } afterRuleAction {
 	//at.jku.weiner.c.Log.error("PostfixExpression-leave"); }:
-	//	{PostfixExpression} (expr+=PrimaryExpression (LEFTBRACKET arrayExpr+=Expression RIGHTBRACKET
-	//	| LEFTPAREN argumentExpressionList+=ArgumentExpressionList? RIGHTPAREN
-	//	| dot+=DOT id+=ID
-	//	| arrow+=ARROW id+=ID
-	//	| plusplus+=PLUSPLUS
-	//	| minusminus+=MINUSMINUS)*)
+	//	{PostfixExpression} (expr+=PrimaryExpression (suffix+=PostfixExpressionSuffixArray
+	//	| suffix+=PostfixExpressionSuffixArgument
+	//	| suffix+=PostfixExpressionSuffixDot
+	//	| suffix+=PostfixExpressionSuffixArrow
+	//	| suffix+=PostfixExpressionSuffixPlusPlus
+	//	| suffix+=PostfixExpressionSuffixMinusMinus)*)
 	public PostfixExpressionElements getPostfixExpressionAccess() {
 		return pPostfixExpression;
 	}
 	
 	public ParserRule getPostfixExpressionRule() {
 		return getPostfixExpressionAccess().getRule();
+	}
+	
+	//PostfixExpressionSuffixArray PostfixExpressionSuffix:
+	//	{PostfixExpressionSuffixArray} LEFTBRACKET arrayExpr=Expression RIGHTBRACKET
+	public PostfixExpressionSuffixArrayElements getPostfixExpressionSuffixArrayAccess() {
+		return pPostfixExpressionSuffixArray;
+	}
+	
+	public ParserRule getPostfixExpressionSuffixArrayRule() {
+		return getPostfixExpressionSuffixArrayAccess().getRule();
+	}
+	
+	//PostfixExpressionSuffixArgument PostfixExpressionSuffix:
+	//	{PostfixExpressionSuffixArgument} LEFTPAREN argumentExpressionList=ArgumentExpressionList? RIGHTPAREN
+	public PostfixExpressionSuffixArgumentElements getPostfixExpressionSuffixArgumentAccess() {
+		return pPostfixExpressionSuffixArgument;
+	}
+	
+	public ParserRule getPostfixExpressionSuffixArgumentRule() {
+		return getPostfixExpressionSuffixArgumentAccess().getRule();
+	}
+	
+	//PostfixExpressionSuffixDot PostfixExpressionSuffix:
+	//	{PostfixExpressionSuffixDot} DOT id=ID
+	public PostfixExpressionSuffixDotElements getPostfixExpressionSuffixDotAccess() {
+		return pPostfixExpressionSuffixDot;
+	}
+	
+	public ParserRule getPostfixExpressionSuffixDotRule() {
+		return getPostfixExpressionSuffixDotAccess().getRule();
+	}
+	
+	//PostfixExpressionSuffixArrow PostfixExpressionSuffix:
+	//	{PostfixExpressionSuffixArrow} ARROW id=ID
+	public PostfixExpressionSuffixArrowElements getPostfixExpressionSuffixArrowAccess() {
+		return pPostfixExpressionSuffixArrow;
+	}
+	
+	public ParserRule getPostfixExpressionSuffixArrowRule() {
+		return getPostfixExpressionSuffixArrowAccess().getRule();
+	}
+	
+	//PostfixExpressionSuffixPlusPlus PostfixExpressionSuffix:
+	//	{PostfixExpressionSuffixPlusPlus} PLUSPLUS
+	public PostfixExpressionSuffixPlusPlusElements getPostfixExpressionSuffixPlusPlusAccess() {
+		return pPostfixExpressionSuffixPlusPlus;
+	}
+	
+	public ParserRule getPostfixExpressionSuffixPlusPlusRule() {
+		return getPostfixExpressionSuffixPlusPlusAccess().getRule();
+	}
+	
+	//PostfixExpressionSuffixMinusMinus PostfixExpressionSuffix:
+	//	{PostfixExpressionSuffixMinusMinus} MINUSMINUS
+	public PostfixExpressionSuffixMinusMinusElements getPostfixExpressionSuffixMinusMinusAccess() {
+		return pPostfixExpressionSuffixMinusMinus;
+	}
+	
+	public ParserRule getPostfixExpressionSuffixMinusMinusRule() {
+		return getPostfixExpressionSuffixMinusMinusAccess().getRule();
 	}
 	
 	//ArgumentExpressionList:

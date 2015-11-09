@@ -112,6 +112,7 @@ import at.jku.weiner.c.c.CastExpression;
 import at.jku.weiner.c.c.UnaryExpression;
 import at.jku.weiner.c.c.PostfixExpression;
 import at.jku.weiner.c.c.PrimaryExpression;
+import at.jku.weiner.c.c.PostfixExpressionSuffixMinusMinus;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(CInjectorProvider.class)
@@ -756,10 +757,15 @@ public class Test0023_While {
 		);
 		Assert.assertEquals("num", PrimaryExpression_69_Var
 		.getId());
-		Assert.assertEquals("[]", PostfixExpression_68_Var
-		.getPlusplus().toString());
-		Assert.assertEquals("[--]", PostfixExpression_68_Var
-		.getMinusminus().toString());
+		final EList<? extends EObject> Suffix_69_list = PostfixExpression_68_Var
+		.getSuffix();
+		Assert.assertNotNull(Suffix_69_list);
+		Assert.assertEquals(1, Suffix_69_list.size());
+		//69
+		final PostfixExpressionSuffixMinusMinus PostfixExpressionSuffixMinusMinus_70_Var
+		 = (PostfixExpressionSuffixMinusMinus)Suffix_69_list.get(0);
+		Assert.assertNotNull(PostfixExpressionSuffixMinusMinus_70_Var
+		);
 		Assert.assertEquals(";", ExpressionStatement_52_Var
 		.getSemi());
 	}

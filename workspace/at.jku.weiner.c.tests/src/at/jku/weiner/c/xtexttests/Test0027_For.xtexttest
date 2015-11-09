@@ -266,7 +266,10 @@ RIGHTBRACE NEWLINE
 																								(PrimaryExpression
 																									id++"num"
 																								),
-																								plusplus+*"[++]"
+																								suffix+=
+																								(PostfixExpressionSuffixPlusPlus
+																									
+																								)
 																							)
 																						)
 																					)
@@ -331,8 +334,10 @@ RIGHTBRACE NEWLINE
 																														(PrimaryExpression
 																															id++"num"
 																														),
-																														plusplus+*"[]",
-																														minusminus+*"[--]"
+																														suffix+=
+																														(PostfixExpressionSuffixMinusMinus
+																															
+																														)
 																													)
 																												)
 																											)

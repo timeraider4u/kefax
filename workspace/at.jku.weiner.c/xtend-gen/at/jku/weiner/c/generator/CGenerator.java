@@ -57,6 +57,13 @@ import at.jku.weiner.c.c.ParameterList;
 import at.jku.weiner.c.c.ParameterTypeList;
 import at.jku.weiner.c.c.Pointer;
 import at.jku.weiner.c.c.PostfixExpression;
+import at.jku.weiner.c.c.PostfixExpressionSuffix;
+import at.jku.weiner.c.c.PostfixExpressionSuffixArgument;
+import at.jku.weiner.c.c.PostfixExpressionSuffixArray;
+import at.jku.weiner.c.c.PostfixExpressionSuffixArrow;
+import at.jku.weiner.c.c.PostfixExpressionSuffixDot;
+import at.jku.weiner.c.c.PostfixExpressionSuffixMinusMinus;
+import at.jku.weiner.c.c.PostfixExpressionSuffixPlusPlus;
 import at.jku.weiner.c.c.PrimaryExpression;
 import at.jku.weiner.c.c.RelationalExpression;
 import at.jku.weiner.c.c.SelectionStatement;
@@ -1852,91 +1859,106 @@ public class CGenerator implements IGenerator {
       }
     }
     {
-      EList<Expression> _arrayExpr = obj.getArrayExpr();
-      int _size = _arrayExpr.size();
-      boolean _greaterThan = (_size > 0);
-      if (_greaterThan) {
-        _builder.append(" [");
-        _builder.newLineIfNotEmpty();
+      EList<PostfixExpressionSuffix> _suffix = obj.getSuffix();
+      for(final PostfixExpressionSuffix s : _suffix) {
         {
-          EList<Expression> _arrayExpr_1 = obj.getArrayExpr();
-          for(final Expression e_1 : _arrayExpr_1) {
-            _builder.append("\t");
-            String _outputFor = this.outputFor(e_1);
-            _builder.append(_outputFor, "\t");
+          if ((s instanceof PostfixExpressionSuffixArray)) {
+            String _outputFor = this.outputFor(((PostfixExpressionSuffixArray) s));
+            _builder.append(_outputFor, "");
             _builder.newLineIfNotEmpty();
           }
         }
-        _builder.append("\t");
-        _builder.append("]");
-        _builder.newLine();
-      }
-    }
-    {
-      boolean _and = false;
-      EList<ArgumentExpressionList> _argumentExpressionList = obj.getArgumentExpressionList();
-      boolean _notEquals = (!Objects.equal(_argumentExpressionList, null));
-      if (!_notEquals) {
-        _and = false;
-      } else {
-        EList<ArgumentExpressionList> _argumentExpressionList_1 = obj.getArgumentExpressionList();
-        int _size_1 = _argumentExpressionList_1.size();
-        boolean _greaterThan_1 = (_size_1 > 0);
-        _and = _greaterThan_1;
-      }
-      if (_and) {
-        _builder.append("(");
-        _builder.newLine();
         {
-          EList<ArgumentExpressionList> _argumentExpressionList_2 = obj.getArgumentExpressionList();
-          for(final ArgumentExpressionList l : _argumentExpressionList_2) {
-            String _outputFor_1 = this.outputFor(l);
+          if ((s instanceof PostfixExpressionSuffixArgument)) {
+            String _outputFor_1 = this.outputFor(((PostfixExpressionSuffixArgument) s));
             _builder.append(_outputFor_1, "");
             _builder.newLineIfNotEmpty();
           }
         }
-        _builder.append(")");
-        _builder.newLine();
+        {
+          if ((s instanceof PostfixExpressionSuffixDot)) {
+            String _outputFor_2 = this.outputFor(((PostfixExpressionSuffixDot) s));
+            _builder.append(_outputFor_2, "");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        {
+          if ((s instanceof PostfixExpressionSuffixArrow)) {
+            String _outputFor_3 = this.outputFor(((PostfixExpressionSuffixArrow) s));
+            _builder.append(_outputFor_3, "");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        {
+          if ((s instanceof PostfixExpressionSuffixPlusPlus)) {
+            String _outputFor_4 = this.outputFor(((PostfixExpressionSuffixPlusPlus) s));
+            _builder.append(_outputFor_4, "");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        {
+          if ((s instanceof PostfixExpressionSuffixMinusMinus)) {
+            String _outputFor_5 = this.outputFor(((PostfixExpressionSuffixMinusMinus) s));
+            _builder.append(_outputFor_5, "");
+            _builder.newLineIfNotEmpty();
+          }
+        }
       }
     }
-    {
-      EList<String> _dot = obj.getDot();
-      for(final String d : _dot) {
-        _builder.append(d, "");
-        EList<String> _id = obj.getId();
-        EList<String> _dot_1 = obj.getDot();
-        int _indexOf = _dot_1.indexOf(d);
-        String _get = _id.get(_indexOf);
-        _builder.append(_get, "");
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    {
-      EList<String> _arrow = obj.getArrow();
-      for(final String a : _arrow) {
-        _builder.append(a, "");
-        EList<String> _id_1 = obj.getId();
-        EList<String> _dot_2 = obj.getDot();
-        int _indexOf_1 = _dot_2.indexOf(a);
-        String _get_1 = _id_1.get(_indexOf_1);
-        _builder.append(_get_1, "");
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    {
-      EList<String> _plusplus = obj.getPlusplus();
-      for(final String p : _plusplus) {
-        _builder.append(p, "");
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    {
-      EList<String> _minusminus = obj.getMinusminus();
-      for(final String m : _minusminus) {
-        _builder.append(m, "");
-        _builder.newLineIfNotEmpty();
-      }
-    }
+    return _builder.toString();
+  }
+  
+  public String outputFor(final PostfixExpressionSuffixArray obj) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("[");
+    Expression _arrayExpr = obj.getArrayExpr();
+    String _outputFor = this.outputFor(_arrayExpr);
+    _builder.append(_outputFor, "");
+    _builder.append("]");
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
+  public String outputFor(final PostfixExpressionSuffixArgument obj) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("(");
+    ArgumentExpressionList _argumentExpressionList = obj.getArgumentExpressionList();
+    String _outputFor = this.outputFor(_argumentExpressionList);
+    _builder.append(_outputFor, "");
+    _builder.append(")");
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
+  public String outputFor(final PostfixExpressionSuffixDot obj) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append(".");
+    String _id = obj.getId();
+    _builder.append(_id, "");
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
+  public String outputFor(final PostfixExpressionSuffixArrow obj) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("->");
+    String _id = obj.getId();
+    _builder.append(_id, "");
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
+  public String outputFor(final PostfixExpressionSuffixPlusPlus obj) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("++");
+    _builder.newLine();
+    return _builder.toString();
+  }
+  
+  public String outputFor(final PostfixExpressionSuffixMinusMinus obj) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("--");
+    _builder.newLine();
     return _builder.toString();
   }
   

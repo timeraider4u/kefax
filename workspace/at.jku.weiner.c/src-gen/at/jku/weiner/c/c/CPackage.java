@@ -1541,6 +1541,25 @@ public interface CPackage extends EPackage
   int UNARY_OPERATOR_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link at.jku.weiner.c.c.impl.PostfixExpressionSuffixImpl <em>Postfix Expression Suffix</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.c.c.impl.PostfixExpressionSuffixImpl
+   * @see at.jku.weiner.c.c.impl.CPackageImpl#getPostfixExpressionSuffix()
+   * @generated
+   */
+  int POSTFIX_EXPRESSION_SUFFIX = 44;
+
+  /**
+   * The number of structural features of the '<em>Postfix Expression Suffix</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POSTFIX_EXPRESSION_SUFFIX_FEATURE_COUNT = 0;
+
+  /**
    * The meta object id for the '{@link at.jku.weiner.c.c.impl.ArgumentExpressionListImpl <em>Argument Expression List</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1548,7 +1567,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getArgumentExpressionList()
    * @generated
    */
-  int ARGUMENT_EXPRESSION_LIST = 44;
+  int ARGUMENT_EXPRESSION_LIST = 45;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference list.
@@ -1576,7 +1595,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getConstant()
    * @generated
    */
-  int CONSTANT = 45;
+  int CONSTANT = 46;
 
   /**
    * The feature id for the '<em><b>Hex</b></em>' attribute.
@@ -1658,7 +1677,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getStructOrUnionSpecifier()
    * @generated
    */
-  int STRUCT_OR_UNION_SPECIFIER = 46;
+  int STRUCT_OR_UNION_SPECIFIER = 47;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1704,7 +1723,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getEnumSpecifier()
    * @generated
    */
-  int ENUM_SPECIFIER = 47;
+  int ENUM_SPECIFIER = 48;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1741,7 +1760,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getLabeledStatement()
    * @generated
    */
-  int LABELED_STATEMENT = 48;
+  int LABELED_STATEMENT = 49;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -1814,7 +1833,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getCompoundStatement()
    * @generated
    */
-  int COMPOUND_STATEMENT = 49;
+  int COMPOUND_STATEMENT = 50;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -1851,7 +1870,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getBodyStatement()
    * @generated
    */
-  int BODY_STATEMENT = 50;
+  int BODY_STATEMENT = 51;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -1888,7 +1907,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getExpressionStatement()
    * @generated
    */
-  int EXPRESSION_STATEMENT = 51;
+  int EXPRESSION_STATEMENT = 52;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -1934,7 +1953,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getSelectionStatement()
    * @generated
    */
-  int SELECTION_STATEMENT = 52;
+  int SELECTION_STATEMENT = 53;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -2025,7 +2044,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getIterationStatement()
    * @generated
    */
-  int ITERATION_STATEMENT = 53;
+  int ITERATION_STATEMENT = 54;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -2134,7 +2153,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getJumpStatement()
    * @generated
    */
-  int JUMP_STATEMENT = 54;
+  int JUMP_STATEMENT = 55;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -2216,7 +2235,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getAsmStatement()
    * @generated
    */
-  int ASM_STATEMENT = 55;
+  int ASM_STATEMENT = 56;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -2280,7 +2299,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getAsmLineWithColon()
    * @generated
    */
-  int ASM_LINE_WITH_COLON = 56;
+  int ASM_LINE_WITH_COLON = 57;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -2317,7 +2336,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getAsmLineWithComma()
    * @generated
    */
-  int ASM_LINE_WITH_COMMA = 57;
+  int ASM_LINE_WITH_COMMA = 58;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -2345,7 +2364,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getAssignmentExpression()
    * @generated
    */
-  int ASSIGNMENT_EXPRESSION = 58;
+  int ASSIGNMENT_EXPRESSION = 59;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2400,7 +2419,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getConditionalExpression()
    * @generated
    */
-  int CONDITIONAL_EXPRESSION = 59;
+  int CONDITIONAL_EXPRESSION = 60;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2455,7 +2474,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getLogicalOrExpression()
    * @generated
    */
-  int LOGICAL_OR_EXPRESSION = 60;
+  int LOGICAL_OR_EXPRESSION = 61;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2492,7 +2511,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getLogicalAndExpression()
    * @generated
    */
-  int LOGICAL_AND_EXPRESSION = 61;
+  int LOGICAL_AND_EXPRESSION = 62;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2529,7 +2548,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getInclusiveOrExpression()
    * @generated
    */
-  int INCLUSIVE_OR_EXPRESSION = 62;
+  int INCLUSIVE_OR_EXPRESSION = 63;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2566,7 +2585,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getExclusiveOrExpression()
    * @generated
    */
-  int EXCLUSIVE_OR_EXPRESSION = 63;
+  int EXCLUSIVE_OR_EXPRESSION = 64;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2603,7 +2622,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getAndExpression()
    * @generated
    */
-  int AND_EXPRESSION = 64;
+  int AND_EXPRESSION = 65;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2640,7 +2659,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getEqualityExpression()
    * @generated
    */
-  int EQUALITY_EXPRESSION = 65;
+  int EQUALITY_EXPRESSION = 66;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2686,7 +2705,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getRelationalExpression()
    * @generated
    */
-  int RELATIONAL_EXPRESSION = 66;
+  int RELATIONAL_EXPRESSION = 67;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2732,7 +2751,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getShiftExpression()
    * @generated
    */
-  int SHIFT_EXPRESSION = 67;
+  int SHIFT_EXPRESSION = 68;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2778,7 +2797,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getAdditiveExpression()
    * @generated
    */
-  int ADDITIVE_EXPRESSION = 68;
+  int ADDITIVE_EXPRESSION = 69;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2824,7 +2843,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getMultiplicativeExpression()
    * @generated
    */
-  int MULTIPLICATIVE_EXPRESSION = 69;
+  int MULTIPLICATIVE_EXPRESSION = 70;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2870,7 +2889,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getCastExpression()
    * @generated
    */
-  int CAST_EXPRESSION = 70;
+  int CAST_EXPRESSION = 71;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2916,7 +2935,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getUnaryExpression()
    * @generated
    */
-  int UNARY_EXPRESSION = 71;
+  int UNARY_EXPRESSION = 72;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -3016,7 +3035,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getPostfixExpression()
    * @generated
    */
-  int POSTFIX_EXPRESSION = 72;
+  int POSTFIX_EXPRESSION = 73;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -3037,67 +3056,13 @@ public interface CPackage extends EPackage
   int POSTFIX_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Array Expr</b></em>' containment reference list.
+   * The feature id for the '<em><b>Suffix</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int POSTFIX_EXPRESSION__ARRAY_EXPR = EXPRESSION_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Argument Expression List</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int POSTFIX_EXPRESSION__ARGUMENT_EXPRESSION_LIST = EXPRESSION_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Dot</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int POSTFIX_EXPRESSION__DOT = EXPRESSION_FEATURE_COUNT + 3;
-
-  /**
-   * The feature id for the '<em><b>Id</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int POSTFIX_EXPRESSION__ID = EXPRESSION_FEATURE_COUNT + 4;
-
-  /**
-   * The feature id for the '<em><b>Arrow</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int POSTFIX_EXPRESSION__ARROW = EXPRESSION_FEATURE_COUNT + 5;
-
-  /**
-   * The feature id for the '<em><b>Plusplus</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int POSTFIX_EXPRESSION__PLUSPLUS = EXPRESSION_FEATURE_COUNT + 6;
-
-  /**
-   * The feature id for the '<em><b>Minusminus</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int POSTFIX_EXPRESSION__MINUSMINUS = EXPRESSION_FEATURE_COUNT + 7;
+  int POSTFIX_EXPRESSION__SUFFIX = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Postfix Expression</em>' class.
@@ -3106,7 +3071,157 @@ public interface CPackage extends EPackage
    * @generated
    * @ordered
    */
-  int POSTFIX_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 8;
+  int POSTFIX_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link at.jku.weiner.c.c.impl.PostfixExpressionSuffixArrayImpl <em>Postfix Expression Suffix Array</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.c.c.impl.PostfixExpressionSuffixArrayImpl
+   * @see at.jku.weiner.c.c.impl.CPackageImpl#getPostfixExpressionSuffixArray()
+   * @generated
+   */
+  int POSTFIX_EXPRESSION_SUFFIX_ARRAY = 74;
+
+  /**
+   * The feature id for the '<em><b>Array Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POSTFIX_EXPRESSION_SUFFIX_ARRAY__ARRAY_EXPR = POSTFIX_EXPRESSION_SUFFIX_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Postfix Expression Suffix Array</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POSTFIX_EXPRESSION_SUFFIX_ARRAY_FEATURE_COUNT = POSTFIX_EXPRESSION_SUFFIX_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link at.jku.weiner.c.c.impl.PostfixExpressionSuffixArgumentImpl <em>Postfix Expression Suffix Argument</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.c.c.impl.PostfixExpressionSuffixArgumentImpl
+   * @see at.jku.weiner.c.c.impl.CPackageImpl#getPostfixExpressionSuffixArgument()
+   * @generated
+   */
+  int POSTFIX_EXPRESSION_SUFFIX_ARGUMENT = 75;
+
+  /**
+   * The feature id for the '<em><b>Argument Expression List</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POSTFIX_EXPRESSION_SUFFIX_ARGUMENT__ARGUMENT_EXPRESSION_LIST = POSTFIX_EXPRESSION_SUFFIX_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Postfix Expression Suffix Argument</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POSTFIX_EXPRESSION_SUFFIX_ARGUMENT_FEATURE_COUNT = POSTFIX_EXPRESSION_SUFFIX_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link at.jku.weiner.c.c.impl.PostfixExpressionSuffixDotImpl <em>Postfix Expression Suffix Dot</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.c.c.impl.PostfixExpressionSuffixDotImpl
+   * @see at.jku.weiner.c.c.impl.CPackageImpl#getPostfixExpressionSuffixDot()
+   * @generated
+   */
+  int POSTFIX_EXPRESSION_SUFFIX_DOT = 76;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POSTFIX_EXPRESSION_SUFFIX_DOT__ID = POSTFIX_EXPRESSION_SUFFIX_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Postfix Expression Suffix Dot</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POSTFIX_EXPRESSION_SUFFIX_DOT_FEATURE_COUNT = POSTFIX_EXPRESSION_SUFFIX_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link at.jku.weiner.c.c.impl.PostfixExpressionSuffixArrowImpl <em>Postfix Expression Suffix Arrow</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.c.c.impl.PostfixExpressionSuffixArrowImpl
+   * @see at.jku.weiner.c.c.impl.CPackageImpl#getPostfixExpressionSuffixArrow()
+   * @generated
+   */
+  int POSTFIX_EXPRESSION_SUFFIX_ARROW = 77;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POSTFIX_EXPRESSION_SUFFIX_ARROW__ID = POSTFIX_EXPRESSION_SUFFIX_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Postfix Expression Suffix Arrow</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POSTFIX_EXPRESSION_SUFFIX_ARROW_FEATURE_COUNT = POSTFIX_EXPRESSION_SUFFIX_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link at.jku.weiner.c.c.impl.PostfixExpressionSuffixPlusPlusImpl <em>Postfix Expression Suffix Plus Plus</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.c.c.impl.PostfixExpressionSuffixPlusPlusImpl
+   * @see at.jku.weiner.c.c.impl.CPackageImpl#getPostfixExpressionSuffixPlusPlus()
+   * @generated
+   */
+  int POSTFIX_EXPRESSION_SUFFIX_PLUS_PLUS = 78;
+
+  /**
+   * The number of structural features of the '<em>Postfix Expression Suffix Plus Plus</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POSTFIX_EXPRESSION_SUFFIX_PLUS_PLUS_FEATURE_COUNT = POSTFIX_EXPRESSION_SUFFIX_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link at.jku.weiner.c.c.impl.PostfixExpressionSuffixMinusMinusImpl <em>Postfix Expression Suffix Minus Minus</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.c.c.impl.PostfixExpressionSuffixMinusMinusImpl
+   * @see at.jku.weiner.c.c.impl.CPackageImpl#getPostfixExpressionSuffixMinusMinus()
+   * @generated
+   */
+  int POSTFIX_EXPRESSION_SUFFIX_MINUS_MINUS = 79;
+
+  /**
+   * The number of structural features of the '<em>Postfix Expression Suffix Minus Minus</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POSTFIX_EXPRESSION_SUFFIX_MINUS_MINUS_FEATURE_COUNT = POSTFIX_EXPRESSION_SUFFIX_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.c.impl.PrimaryExpressionImpl <em>Primary Expression</em>}' class.
@@ -3116,7 +3231,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getPrimaryExpression()
    * @generated
    */
-  int PRIMARY_EXPRESSION = 73;
+  int PRIMARY_EXPRESSION = 80;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -3171,7 +3286,7 @@ public interface CPackage extends EPackage
    * @see at.jku.weiner.c.c.impl.CPackageImpl#getConstantExpression()
    * @generated
    */
-  int CONSTANT_EXPRESSION = 74;
+  int CONSTANT_EXPRESSION = 81;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -4434,6 +4549,16 @@ public interface CPackage extends EPackage
   EAttribute getUnaryOperator_Op();
 
   /**
+   * Returns the meta object for class '{@link at.jku.weiner.c.c.PostfixExpressionSuffix <em>Postfix Expression Suffix</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Postfix Expression Suffix</em>'.
+   * @see at.jku.weiner.c.c.PostfixExpressionSuffix
+   * @generated
+   */
+  EClass getPostfixExpressionSuffix();
+
+  /**
    * Returns the meta object for class '{@link at.jku.weiner.c.c.ArgumentExpressionList <em>Argument Expression List</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5593,81 +5718,119 @@ public interface CPackage extends EPackage
   EReference getPostfixExpression_Expr();
 
   /**
-   * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.c.PostfixExpression#getArrayExpr <em>Array Expr</em>}'.
+   * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.c.PostfixExpression#getSuffix <em>Suffix</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Array Expr</em>'.
-   * @see at.jku.weiner.c.c.PostfixExpression#getArrayExpr()
+   * @return the meta object for the containment reference list '<em>Suffix</em>'.
+   * @see at.jku.weiner.c.c.PostfixExpression#getSuffix()
    * @see #getPostfixExpression()
    * @generated
    */
-  EReference getPostfixExpression_ArrayExpr();
+  EReference getPostfixExpression_Suffix();
 
   /**
-   * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.c.PostfixExpression#getArgumentExpressionList <em>Argument Expression List</em>}'.
+   * Returns the meta object for class '{@link at.jku.weiner.c.c.PostfixExpressionSuffixArray <em>Postfix Expression Suffix Array</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Argument Expression List</em>'.
-   * @see at.jku.weiner.c.c.PostfixExpression#getArgumentExpressionList()
-   * @see #getPostfixExpression()
+   * @return the meta object for class '<em>Postfix Expression Suffix Array</em>'.
+   * @see at.jku.weiner.c.c.PostfixExpressionSuffixArray
    * @generated
    */
-  EReference getPostfixExpression_ArgumentExpressionList();
+  EClass getPostfixExpressionSuffixArray();
 
   /**
-   * Returns the meta object for the attribute list '{@link at.jku.weiner.c.c.PostfixExpression#getDot <em>Dot</em>}'.
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.c.PostfixExpressionSuffixArray#getArrayExpr <em>Array Expr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Dot</em>'.
-   * @see at.jku.weiner.c.c.PostfixExpression#getDot()
-   * @see #getPostfixExpression()
+   * @return the meta object for the containment reference '<em>Array Expr</em>'.
+   * @see at.jku.weiner.c.c.PostfixExpressionSuffixArray#getArrayExpr()
+   * @see #getPostfixExpressionSuffixArray()
    * @generated
    */
-  EAttribute getPostfixExpression_Dot();
+  EReference getPostfixExpressionSuffixArray_ArrayExpr();
 
   /**
-   * Returns the meta object for the attribute list '{@link at.jku.weiner.c.c.PostfixExpression#getId <em>Id</em>}'.
+   * Returns the meta object for class '{@link at.jku.weiner.c.c.PostfixExpressionSuffixArgument <em>Postfix Expression Suffix Argument</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Id</em>'.
-   * @see at.jku.weiner.c.c.PostfixExpression#getId()
-   * @see #getPostfixExpression()
+   * @return the meta object for class '<em>Postfix Expression Suffix Argument</em>'.
+   * @see at.jku.weiner.c.c.PostfixExpressionSuffixArgument
    * @generated
    */
-  EAttribute getPostfixExpression_Id();
+  EClass getPostfixExpressionSuffixArgument();
 
   /**
-   * Returns the meta object for the attribute list '{@link at.jku.weiner.c.c.PostfixExpression#getArrow <em>Arrow</em>}'.
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.c.PostfixExpressionSuffixArgument#getArgumentExpressionList <em>Argument Expression List</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Arrow</em>'.
-   * @see at.jku.weiner.c.c.PostfixExpression#getArrow()
-   * @see #getPostfixExpression()
+   * @return the meta object for the containment reference '<em>Argument Expression List</em>'.
+   * @see at.jku.weiner.c.c.PostfixExpressionSuffixArgument#getArgumentExpressionList()
+   * @see #getPostfixExpressionSuffixArgument()
    * @generated
    */
-  EAttribute getPostfixExpression_Arrow();
+  EReference getPostfixExpressionSuffixArgument_ArgumentExpressionList();
 
   /**
-   * Returns the meta object for the attribute list '{@link at.jku.weiner.c.c.PostfixExpression#getPlusplus <em>Plusplus</em>}'.
+   * Returns the meta object for class '{@link at.jku.weiner.c.c.PostfixExpressionSuffixDot <em>Postfix Expression Suffix Dot</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Plusplus</em>'.
-   * @see at.jku.weiner.c.c.PostfixExpression#getPlusplus()
-   * @see #getPostfixExpression()
+   * @return the meta object for class '<em>Postfix Expression Suffix Dot</em>'.
+   * @see at.jku.weiner.c.c.PostfixExpressionSuffixDot
    * @generated
    */
-  EAttribute getPostfixExpression_Plusplus();
+  EClass getPostfixExpressionSuffixDot();
 
   /**
-   * Returns the meta object for the attribute list '{@link at.jku.weiner.c.c.PostfixExpression#getMinusminus <em>Minusminus</em>}'.
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.c.PostfixExpressionSuffixDot#getId <em>Id</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Minusminus</em>'.
-   * @see at.jku.weiner.c.c.PostfixExpression#getMinusminus()
-   * @see #getPostfixExpression()
+   * @return the meta object for the attribute '<em>Id</em>'.
+   * @see at.jku.weiner.c.c.PostfixExpressionSuffixDot#getId()
+   * @see #getPostfixExpressionSuffixDot()
    * @generated
    */
-  EAttribute getPostfixExpression_Minusminus();
+  EAttribute getPostfixExpressionSuffixDot_Id();
+
+  /**
+   * Returns the meta object for class '{@link at.jku.weiner.c.c.PostfixExpressionSuffixArrow <em>Postfix Expression Suffix Arrow</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Postfix Expression Suffix Arrow</em>'.
+   * @see at.jku.weiner.c.c.PostfixExpressionSuffixArrow
+   * @generated
+   */
+  EClass getPostfixExpressionSuffixArrow();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.c.PostfixExpressionSuffixArrow#getId <em>Id</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Id</em>'.
+   * @see at.jku.weiner.c.c.PostfixExpressionSuffixArrow#getId()
+   * @see #getPostfixExpressionSuffixArrow()
+   * @generated
+   */
+  EAttribute getPostfixExpressionSuffixArrow_Id();
+
+  /**
+   * Returns the meta object for class '{@link at.jku.weiner.c.c.PostfixExpressionSuffixPlusPlus <em>Postfix Expression Suffix Plus Plus</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Postfix Expression Suffix Plus Plus</em>'.
+   * @see at.jku.weiner.c.c.PostfixExpressionSuffixPlusPlus
+   * @generated
+   */
+  EClass getPostfixExpressionSuffixPlusPlus();
+
+  /**
+   * Returns the meta object for class '{@link at.jku.weiner.c.c.PostfixExpressionSuffixMinusMinus <em>Postfix Expression Suffix Minus Minus</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Postfix Expression Suffix Minus Minus</em>'.
+   * @see at.jku.weiner.c.c.PostfixExpressionSuffixMinusMinus
+   * @generated
+   */
+  EClass getPostfixExpressionSuffixMinusMinus();
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.c.c.PrimaryExpression <em>Primary Expression</em>}'.
@@ -6773,6 +6936,16 @@ public interface CPackage extends EPackage
     EAttribute UNARY_OPERATOR__OP = eINSTANCE.getUnaryOperator_Op();
 
     /**
+     * The meta object literal for the '{@link at.jku.weiner.c.c.impl.PostfixExpressionSuffixImpl <em>Postfix Expression Suffix</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.c.c.impl.PostfixExpressionSuffixImpl
+     * @see at.jku.weiner.c.c.impl.CPackageImpl#getPostfixExpressionSuffix()
+     * @generated
+     */
+    EClass POSTFIX_EXPRESSION_SUFFIX = eINSTANCE.getPostfixExpressionSuffix();
+
+    /**
      * The meta object literal for the '{@link at.jku.weiner.c.c.impl.ArgumentExpressionListImpl <em>Argument Expression List</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7695,60 +7868,104 @@ public interface CPackage extends EPackage
     EReference POSTFIX_EXPRESSION__EXPR = eINSTANCE.getPostfixExpression_Expr();
 
     /**
-     * The meta object literal for the '<em><b>Array Expr</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Suffix</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference POSTFIX_EXPRESSION__ARRAY_EXPR = eINSTANCE.getPostfixExpression_ArrayExpr();
+    EReference POSTFIX_EXPRESSION__SUFFIX = eINSTANCE.getPostfixExpression_Suffix();
 
     /**
-     * The meta object literal for the '<em><b>Argument Expression List</b></em>' containment reference list feature.
+     * The meta object literal for the '{@link at.jku.weiner.c.c.impl.PostfixExpressionSuffixArrayImpl <em>Postfix Expression Suffix Array</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see at.jku.weiner.c.c.impl.PostfixExpressionSuffixArrayImpl
+     * @see at.jku.weiner.c.c.impl.CPackageImpl#getPostfixExpressionSuffixArray()
      * @generated
      */
-    EReference POSTFIX_EXPRESSION__ARGUMENT_EXPRESSION_LIST = eINSTANCE.getPostfixExpression_ArgumentExpressionList();
+    EClass POSTFIX_EXPRESSION_SUFFIX_ARRAY = eINSTANCE.getPostfixExpressionSuffixArray();
 
     /**
-     * The meta object literal for the '<em><b>Dot</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Array Expr</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute POSTFIX_EXPRESSION__DOT = eINSTANCE.getPostfixExpression_Dot();
+    EReference POSTFIX_EXPRESSION_SUFFIX_ARRAY__ARRAY_EXPR = eINSTANCE.getPostfixExpressionSuffixArray_ArrayExpr();
 
     /**
-     * The meta object literal for the '<em><b>Id</b></em>' attribute list feature.
+     * The meta object literal for the '{@link at.jku.weiner.c.c.impl.PostfixExpressionSuffixArgumentImpl <em>Postfix Expression Suffix Argument</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see at.jku.weiner.c.c.impl.PostfixExpressionSuffixArgumentImpl
+     * @see at.jku.weiner.c.c.impl.CPackageImpl#getPostfixExpressionSuffixArgument()
      * @generated
      */
-    EAttribute POSTFIX_EXPRESSION__ID = eINSTANCE.getPostfixExpression_Id();
+    EClass POSTFIX_EXPRESSION_SUFFIX_ARGUMENT = eINSTANCE.getPostfixExpressionSuffixArgument();
 
     /**
-     * The meta object literal for the '<em><b>Arrow</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Argument Expression List</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute POSTFIX_EXPRESSION__ARROW = eINSTANCE.getPostfixExpression_Arrow();
+    EReference POSTFIX_EXPRESSION_SUFFIX_ARGUMENT__ARGUMENT_EXPRESSION_LIST = eINSTANCE.getPostfixExpressionSuffixArgument_ArgumentExpressionList();
 
     /**
-     * The meta object literal for the '<em><b>Plusplus</b></em>' attribute list feature.
+     * The meta object literal for the '{@link at.jku.weiner.c.c.impl.PostfixExpressionSuffixDotImpl <em>Postfix Expression Suffix Dot</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see at.jku.weiner.c.c.impl.PostfixExpressionSuffixDotImpl
+     * @see at.jku.weiner.c.c.impl.CPackageImpl#getPostfixExpressionSuffixDot()
      * @generated
      */
-    EAttribute POSTFIX_EXPRESSION__PLUSPLUS = eINSTANCE.getPostfixExpression_Plusplus();
+    EClass POSTFIX_EXPRESSION_SUFFIX_DOT = eINSTANCE.getPostfixExpressionSuffixDot();
 
     /**
-     * The meta object literal for the '<em><b>Minusminus</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute POSTFIX_EXPRESSION__MINUSMINUS = eINSTANCE.getPostfixExpression_Minusminus();
+    EAttribute POSTFIX_EXPRESSION_SUFFIX_DOT__ID = eINSTANCE.getPostfixExpressionSuffixDot_Id();
+
+    /**
+     * The meta object literal for the '{@link at.jku.weiner.c.c.impl.PostfixExpressionSuffixArrowImpl <em>Postfix Expression Suffix Arrow</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.c.c.impl.PostfixExpressionSuffixArrowImpl
+     * @see at.jku.weiner.c.c.impl.CPackageImpl#getPostfixExpressionSuffixArrow()
+     * @generated
+     */
+    EClass POSTFIX_EXPRESSION_SUFFIX_ARROW = eINSTANCE.getPostfixExpressionSuffixArrow();
+
+    /**
+     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute POSTFIX_EXPRESSION_SUFFIX_ARROW__ID = eINSTANCE.getPostfixExpressionSuffixArrow_Id();
+
+    /**
+     * The meta object literal for the '{@link at.jku.weiner.c.c.impl.PostfixExpressionSuffixPlusPlusImpl <em>Postfix Expression Suffix Plus Plus</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.c.c.impl.PostfixExpressionSuffixPlusPlusImpl
+     * @see at.jku.weiner.c.c.impl.CPackageImpl#getPostfixExpressionSuffixPlusPlus()
+     * @generated
+     */
+    EClass POSTFIX_EXPRESSION_SUFFIX_PLUS_PLUS = eINSTANCE.getPostfixExpressionSuffixPlusPlus();
+
+    /**
+     * The meta object literal for the '{@link at.jku.weiner.c.c.impl.PostfixExpressionSuffixMinusMinusImpl <em>Postfix Expression Suffix Minus Minus</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.c.c.impl.PostfixExpressionSuffixMinusMinusImpl
+     * @see at.jku.weiner.c.c.impl.CPackageImpl#getPostfixExpressionSuffixMinusMinus()
+     * @generated
+     */
+    EClass POSTFIX_EXPRESSION_SUFFIX_MINUS_MINUS = eINSTANCE.getPostfixExpressionSuffixMinusMinus();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.c.impl.PrimaryExpressionImpl <em>Primary Expression</em>}' class.

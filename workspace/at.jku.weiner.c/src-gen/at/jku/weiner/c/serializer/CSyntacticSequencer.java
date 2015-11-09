@@ -23,18 +23,12 @@ public class CSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected CGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_Initializer_COMMATerminalRuleCall_1_1_2_q;
 	protected AbstractElementAlias match_ParameterTypeList___COMMATerminalRuleCall_2_0_ELLIPSISTerminalRuleCall_2_1__q;
-	protected AbstractElementAlias match_PostfixExpression___LEFTPARENTerminalRuleCall_1_1_1_0_RIGHTPARENTerminalRuleCall_1_1_1_2__a;
-	protected AbstractElementAlias match_PostfixExpression___RIGHTPARENTerminalRuleCall_1_1_1_2_LEFTPARENTerminalRuleCall_1_1_1_0__a;
-	protected AbstractElementAlias match_PostfixExpression___RIGHTPARENTerminalRuleCall_1_1_1_2_LEFTPARENTerminalRuleCall_1_1_1_0__p;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (CGrammarAccess) access;
 		match_Initializer_COMMATerminalRuleCall_1_1_2_q = new TokenAlias(false, true, grammarAccess.getInitializerAccess().getCOMMATerminalRuleCall_1_1_2());
 		match_ParameterTypeList___COMMATerminalRuleCall_2_0_ELLIPSISTerminalRuleCall_2_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getParameterTypeListAccess().getCOMMATerminalRuleCall_2_0()), new TokenAlias(false, false, grammarAccess.getParameterTypeListAccess().getELLIPSISTerminalRuleCall_2_1()));
-		match_PostfixExpression___LEFTPARENTerminalRuleCall_1_1_1_0_RIGHTPARENTerminalRuleCall_1_1_1_2__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getPostfixExpressionAccess().getLEFTPARENTerminalRuleCall_1_1_1_0()), new TokenAlias(false, false, grammarAccess.getPostfixExpressionAccess().getRIGHTPARENTerminalRuleCall_1_1_1_2()));
-		match_PostfixExpression___RIGHTPARENTerminalRuleCall_1_1_1_2_LEFTPARENTerminalRuleCall_1_1_1_0__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getPostfixExpressionAccess().getRIGHTPARENTerminalRuleCall_1_1_1_2()), new TokenAlias(false, false, grammarAccess.getPostfixExpressionAccess().getLEFTPARENTerminalRuleCall_1_1_1_0()));
-		match_PostfixExpression___RIGHTPARENTerminalRuleCall_1_1_1_2_LEFTPARENTerminalRuleCall_1_1_1_0__p = new GroupAlias(true, false, new TokenAlias(false, false, grammarAccess.getPostfixExpressionAccess().getRIGHTPARENTerminalRuleCall_1_1_1_2()), new TokenAlias(false, false, grammarAccess.getPostfixExpressionAccess().getLEFTPARENTerminalRuleCall_1_1_1_0()));
 	}
 	
 	@Override
@@ -43,6 +37,8 @@ public class CSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getANDToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getANDANDRule())
 			return getANDANDToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getARROWRule())
+			return getARROWToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getASSIGNRule())
 			return getASSIGNToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getCARETRule())
@@ -51,6 +47,8 @@ public class CSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getCOLONToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getCOMMARule())
 			return getCOMMAToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getDOTRule())
+			return getDOTToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getELLIPSISRule())
 			return getELLIPSISToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getKW_ENUMRule())
@@ -63,10 +61,14 @@ public class CSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getLEFTBRACKETToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getLEFTPARENRule())
 			return getLEFTPARENToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getMINUSMINUSRule())
+			return getMINUSMINUSToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getORRule())
 			return getORToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getORORRule())
 			return getORORToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getPLUSPLUSRule())
+			return getPLUSPLUSToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getQUESTIONRule())
 			return getQUESTIONToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getRIGHTBRACERule())
@@ -96,6 +98,15 @@ public class CSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return "&";
+	}
+	
+	/**
+	 * terminal ARROW: MINUS GREATER;
+	 */
+	protected String getARROWToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "->";
 	}
 	
 	/**
@@ -132,6 +143,15 @@ public class CSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return ",";
+	}
+	
+	/**
+	 * terminal DOT: '.';
+	 */
+	protected String getDOTToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return ".";
 	}
 	
 	/**
@@ -189,6 +209,15 @@ public class CSyntacticSequencer extends AbstractSyntacticSequencer {
 	}
 	
 	/**
+	 * terminal MINUSMINUS: MINUS MINUS;
+	 */
+	protected String getMINUSMINUSToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "-";
+	}
+	
+	/**
 	 * terminal OR: '|';
 	 */
 	protected String getORToken(EObject semanticObject, RuleCall ruleCall, INode node) {
@@ -204,6 +233,15 @@ public class CSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return "|";
+	}
+	
+	/**
+	 * terminal PLUSPLUS: PLUS PLUS;
+	 */
+	protected String getPLUSPLUSToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "+";
 	}
 	
 	/**
@@ -261,12 +299,6 @@ public class CSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_Initializer_COMMATerminalRuleCall_1_1_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_ParameterTypeList___COMMATerminalRuleCall_2_0_ELLIPSISTerminalRuleCall_2_1__q.equals(syntax))
 				emit_ParameterTypeList___COMMATerminalRuleCall_2_0_ELLIPSISTerminalRuleCall_2_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_PostfixExpression___LEFTPARENTerminalRuleCall_1_1_1_0_RIGHTPARENTerminalRuleCall_1_1_1_2__a.equals(syntax))
-				emit_PostfixExpression___LEFTPARENTerminalRuleCall_1_1_1_0_RIGHTPARENTerminalRuleCall_1_1_1_2__a(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_PostfixExpression___RIGHTPARENTerminalRuleCall_1_1_1_2_LEFTPARENTerminalRuleCall_1_1_1_0__a.equals(syntax))
-				emit_PostfixExpression___RIGHTPARENTerminalRuleCall_1_1_1_2_LEFTPARENTerminalRuleCall_1_1_1_0__a(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_PostfixExpression___RIGHTPARENTerminalRuleCall_1_1_1_2_LEFTPARENTerminalRuleCall_1_1_1_0__p.equals(syntax))
-				emit_PostfixExpression___RIGHTPARENTerminalRuleCall_1_1_1_2_LEFTPARENTerminalRuleCall_1_1_1_0__p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -290,78 +322,6 @@ public class CSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     list=ParameterList (ambiguity) (rule end)
 	 */
 	protected void emit_ParameterTypeList___COMMATerminalRuleCall_2_0_ELLIPSISTerminalRuleCall_2_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     (LEFTPAREN RIGHTPAREN)*
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     argumentExpressionList+=ArgumentExpressionList RIGHTPAREN (ambiguity) (rule end)
-	 *     argumentExpressionList+=ArgumentExpressionList RIGHTPAREN (ambiguity) LEFTBRACKET arrayExpr+=Expression
-	 *     argumentExpressionList+=ArgumentExpressionList RIGHTPAREN (ambiguity) arrow+=ARROW
-	 *     argumentExpressionList+=ArgumentExpressionList RIGHTPAREN (ambiguity) dot+=DOT
-	 *     argumentExpressionList+=ArgumentExpressionList RIGHTPAREN (ambiguity) minusminus+=MINUSMINUS
-	 *     argumentExpressionList+=ArgumentExpressionList RIGHTPAREN (ambiguity) plusplus+=PLUSPLUS
-	 *     arrayExpr+=Expression RIGHTBRACKET (ambiguity) (rule end)
-	 *     arrayExpr+=Expression RIGHTBRACKET (ambiguity) LEFTBRACKET arrayExpr+=Expression
-	 *     arrayExpr+=Expression RIGHTBRACKET (ambiguity) arrow+=ARROW
-	 *     arrayExpr+=Expression RIGHTBRACKET (ambiguity) dot+=DOT
-	 *     arrayExpr+=Expression RIGHTBRACKET (ambiguity) minusminus+=MINUSMINUS
-	 *     arrayExpr+=Expression RIGHTBRACKET (ambiguity) plusplus+=PLUSPLUS
-	 *     expr+=PrimaryExpression (ambiguity) (rule end)
-	 *     expr+=PrimaryExpression (ambiguity) LEFTBRACKET arrayExpr+=Expression
-	 *     expr+=PrimaryExpression (ambiguity) arrow+=ARROW
-	 *     expr+=PrimaryExpression (ambiguity) dot+=DOT
-	 *     expr+=PrimaryExpression (ambiguity) minusminus+=MINUSMINUS
-	 *     expr+=PrimaryExpression (ambiguity) plusplus+=PLUSPLUS
-	 *     id+=ID (ambiguity) (rule end)
-	 *     id+=ID (ambiguity) LEFTBRACKET arrayExpr+=Expression
-	 *     id+=ID (ambiguity) arrow+=ARROW
-	 *     id+=ID (ambiguity) dot+=DOT
-	 *     id+=ID (ambiguity) minusminus+=MINUSMINUS
-	 *     id+=ID (ambiguity) plusplus+=PLUSPLUS
-	 *     minusminus+=MINUSMINUS (ambiguity) (rule end)
-	 *     minusminus+=MINUSMINUS (ambiguity) LEFTBRACKET arrayExpr+=Expression
-	 *     minusminus+=MINUSMINUS (ambiguity) arrow+=ARROW
-	 *     minusminus+=MINUSMINUS (ambiguity) dot+=DOT
-	 *     minusminus+=MINUSMINUS (ambiguity) minusminus+=MINUSMINUS
-	 *     minusminus+=MINUSMINUS (ambiguity) plusplus+=PLUSPLUS
-	 *     plusplus+=PLUSPLUS (ambiguity) (rule end)
-	 *     plusplus+=PLUSPLUS (ambiguity) LEFTBRACKET arrayExpr+=Expression
-	 *     plusplus+=PLUSPLUS (ambiguity) arrow+=ARROW
-	 *     plusplus+=PLUSPLUS (ambiguity) dot+=DOT
-	 *     plusplus+=PLUSPLUS (ambiguity) minusminus+=MINUSMINUS
-	 *     plusplus+=PLUSPLUS (ambiguity) plusplus+=PLUSPLUS
-	 */
-	protected void emit_PostfixExpression___LEFTPARENTerminalRuleCall_1_1_1_0_RIGHTPARENTerminalRuleCall_1_1_1_2__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     (RIGHTPAREN LEFTPAREN)*
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     arrayExpr+=Expression RIGHTBRACKET LEFTPAREN (ambiguity) argumentExpressionList+=ArgumentExpressionList
-	 *     expr+=PrimaryExpression LEFTPAREN (ambiguity) argumentExpressionList+=ArgumentExpressionList
-	 *     id+=ID LEFTPAREN (ambiguity) argumentExpressionList+=ArgumentExpressionList
-	 *     minusminus+=MINUSMINUS LEFTPAREN (ambiguity) argumentExpressionList+=ArgumentExpressionList
-	 *     plusplus+=PLUSPLUS LEFTPAREN (ambiguity) argumentExpressionList+=ArgumentExpressionList
-	 */
-	protected void emit_PostfixExpression___RIGHTPARENTerminalRuleCall_1_1_1_2_LEFTPARENTerminalRuleCall_1_1_1_0__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     (RIGHTPAREN LEFTPAREN)+
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     argumentExpressionList+=ArgumentExpressionList (ambiguity) argumentExpressionList+=ArgumentExpressionList
-	 */
-	protected void emit_PostfixExpression___RIGHTPARENTerminalRuleCall_1_1_1_2_LEFTPARENTerminalRuleCall_1_1_1_0__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

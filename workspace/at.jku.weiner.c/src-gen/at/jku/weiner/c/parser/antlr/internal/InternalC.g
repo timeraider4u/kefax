@@ -8980,27 +8980,19 @@ rulePostfixExpression returns [EObject current=null]
 
 (
 (
-this_LEFTBRACKET_2=RULE_LEFTBRACKET
-    { 
-    newLeafNode(this_LEFTBRACKET_2, grammarAccess.getPostfixExpressionAccess().getLEFTBRACKETTerminalRuleCall_1_1_0_0()); 
-    }
-
-
-
-(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getPostfixExpressionAccess().getArrayExprExpressionParserRuleCall_1_1_0_1_0()); 
+	        newCompositeNode(grammarAccess.getPostfixExpressionAccess().getSuffixPostfixExpressionSuffixArrayParserRuleCall_1_1_0_0()); 
 	    }
-		lv_arrayExpr_3_0=ruleExpression		{
+		lv_suffix_2_0=rulePostfixExpressionSuffixArray		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getPostfixExpressionRule());
 	        }
        		add(
        			$current, 
-       			"arrayExpr",
-        		lv_arrayExpr_3_0, 
-        		"at.jku.weiner.c.C.Expression");
+       			"suffix",
+        		lv_suffix_2_0, 
+        		"at.jku.weiner.c.C.PostfixExpressionSuffixArray");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -9008,162 +9000,44 @@ this_LEFTBRACKET_2=RULE_LEFTBRACKET
 )
 
 
-this_RIGHTBRACKET_4=RULE_RIGHTBRACKET
-    { 
-    newLeafNode(this_RIGHTBRACKET_4, grammarAccess.getPostfixExpressionAccess().getRIGHTBRACKETTerminalRuleCall_1_1_0_2()); 
-    }
-
-
-)
-
-
     |
-(
-this_LEFTPAREN_5=RULE_LEFTPAREN
-    { 
-    newLeafNode(this_LEFTPAREN_5, grammarAccess.getPostfixExpressionAccess().getLEFTPARENTerminalRuleCall_1_1_1_0()); 
-    }
-
-
-
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getPostfixExpressionAccess().getArgumentExpressionListArgumentExpressionListParserRuleCall_1_1_1_1_0()); 
+	        newCompositeNode(grammarAccess.getPostfixExpressionAccess().getSuffixPostfixExpressionSuffixArgumentParserRuleCall_1_1_1_0()); 
 	    }
-		lv_argumentExpressionList_6_0=ruleArgumentExpressionList		{
+		lv_suffix_3_0=rulePostfixExpressionSuffixArgument		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getPostfixExpressionRule());
 	        }
        		add(
        			$current, 
-       			"argumentExpressionList",
-        		lv_argumentExpressionList_6_0, 
-        		"at.jku.weiner.c.C.ArgumentExpressionList");
+       			"suffix",
+        		lv_suffix_3_0, 
+        		"at.jku.weiner.c.C.PostfixExpressionSuffixArgument");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)?
-
-
-this_RIGHTPAREN_7=RULE_RIGHTPAREN
-    { 
-    newLeafNode(this_RIGHTPAREN_7, grammarAccess.getPostfixExpressionAccess().getRIGHTPARENTerminalRuleCall_1_1_1_2()); 
-    }
-
-
 )
 
 
     |
 (
 (
-(
-		lv_dot_8_0=RULE_DOT
-		{
-			newLeafNode(lv_dot_8_0, grammarAccess.getPostfixExpressionAccess().getDotDOTTerminalRuleCall_1_1_2_0_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getPostfixExpressionRule());
-	        }
-       		addWithLastConsumed(
-       			$current, 
-       			"dot",
-        		lv_dot_8_0, 
-        		"at.jku.weiner.c.C.DOT");
+		{ 
+	        newCompositeNode(grammarAccess.getPostfixExpressionAccess().getSuffixPostfixExpressionSuffixDotParserRuleCall_1_1_2_0()); 
 	    }
-
-)
-)
-
-
-(
-(
-		lv_id_9_0=RULE_ID
-		{
-			newLeafNode(lv_id_9_0, grammarAccess.getPostfixExpressionAccess().getIdIDTerminalRuleCall_1_1_2_1_0()); 
-		}
-		{
+		lv_suffix_4_0=rulePostfixExpressionSuffixDot		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getPostfixExpressionRule());
+	            $current = createModelElementForParent(grammarAccess.getPostfixExpressionRule());
 	        }
-       		addWithLastConsumed(
+       		add(
        			$current, 
-       			"id",
-        		lv_id_9_0, 
-        		"at.jku.weiner.c.C.ID");
-	    }
-
-)
-)
-
-)
-
-
-    |
-(
-(
-(
-		lv_arrow_10_0=RULE_ARROW
-		{
-			newLeafNode(lv_arrow_10_0, grammarAccess.getPostfixExpressionAccess().getArrowARROWTerminalRuleCall_1_1_3_0_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getPostfixExpressionRule());
-	        }
-       		addWithLastConsumed(
-       			$current, 
-       			"arrow",
-        		lv_arrow_10_0, 
-        		"at.jku.weiner.c.C.ARROW");
-	    }
-
-)
-)
-
-
-(
-(
-		lv_id_11_0=RULE_ID
-		{
-			newLeafNode(lv_id_11_0, grammarAccess.getPostfixExpressionAccess().getIdIDTerminalRuleCall_1_1_3_1_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getPostfixExpressionRule());
-	        }
-       		addWithLastConsumed(
-       			$current, 
-       			"id",
-        		lv_id_11_0, 
-        		"at.jku.weiner.c.C.ID");
-	    }
-
-)
-)
-
-)
-
-
-    |
-(
-(
-		lv_plusplus_12_0=RULE_PLUSPLUS
-		{
-			newLeafNode(lv_plusplus_12_0, grammarAccess.getPostfixExpressionAccess().getPlusplusPLUSPLUSTerminalRuleCall_1_1_4_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getPostfixExpressionRule());
-	        }
-       		addWithLastConsumed(
-       			$current, 
-       			"plusplus",
-        		lv_plusplus_12_0, 
-        		"at.jku.weiner.c.C.PLUSPLUS");
+       			"suffix",
+        		lv_suffix_4_0, 
+        		"at.jku.weiner.c.C.PostfixExpressionSuffixDot");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
@@ -9173,19 +9047,63 @@ this_RIGHTPAREN_7=RULE_RIGHTPAREN
     |
 (
 (
-		lv_minusminus_13_0=RULE_MINUSMINUS
-		{
-			newLeafNode(lv_minusminus_13_0, grammarAccess.getPostfixExpressionAccess().getMinusminusMINUSMINUSTerminalRuleCall_1_1_5_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getPostfixExpressionAccess().getSuffixPostfixExpressionSuffixArrowParserRuleCall_1_1_3_0()); 
+	    }
+		lv_suffix_5_0=rulePostfixExpressionSuffixArrow		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getPostfixExpressionRule());
+	            $current = createModelElementForParent(grammarAccess.getPostfixExpressionRule());
 	        }
-       		addWithLastConsumed(
+       		add(
        			$current, 
-       			"minusminus",
-        		lv_minusminus_13_0, 
-        		"at.jku.weiner.c.C.MINUSMINUS");
+       			"suffix",
+        		lv_suffix_5_0, 
+        		"at.jku.weiner.c.C.PostfixExpressionSuffixArrow");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getPostfixExpressionAccess().getSuffixPostfixExpressionSuffixPlusPlusParserRuleCall_1_1_4_0()); 
+	    }
+		lv_suffix_6_0=rulePostfixExpressionSuffixPlusPlus		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getPostfixExpressionRule());
+	        }
+       		add(
+       			$current, 
+       			"suffix",
+        		lv_suffix_6_0, 
+        		"at.jku.weiner.c.C.PostfixExpressionSuffixPlusPlus");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getPostfixExpressionAccess().getSuffixPostfixExpressionSuffixMinusMinusParserRuleCall_1_1_5_0()); 
+	    }
+		lv_suffix_7_0=rulePostfixExpressionSuffixMinusMinus		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getPostfixExpressionRule());
+	        }
+       		add(
+       			$current, 
+       			"suffix",
+        		lv_suffix_7_0, 
+        		"at.jku.weiner.c.C.PostfixExpressionSuffixMinusMinus");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
@@ -9194,6 +9112,380 @@ this_RIGHTPAREN_7=RULE_RIGHTPAREN
 )*
 
 )
+
+)
+
+
+;
+
+
+
+
+
+// Entry rule entryRulePostfixExpressionSuffixArray
+entryRulePostfixExpressionSuffixArray returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getPostfixExpressionSuffixArrayRule()); }
+	 iv_rulePostfixExpressionSuffixArray=rulePostfixExpressionSuffixArray 
+	 { $current=$iv_rulePostfixExpressionSuffixArray.current; } 
+	 EOF 
+;
+
+// Rule PostfixExpressionSuffixArray
+rulePostfixExpressionSuffixArray returns [EObject current=null] 
+    @init { enterRule();
+   		/*no init found*/
+    }
+    @after { leaveRule();
+    		/*no after found*/
+     }:
+
+(
+(
+	{ 
+	  /* */ 
+	}
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getPostfixExpressionSuffixArrayAccess().getPostfixExpressionSuffixArrayAction_0(),
+            $current);
+    }
+)
+
+
+this_LEFTBRACKET_1=RULE_LEFTBRACKET
+    { 
+    newLeafNode(this_LEFTBRACKET_1, grammarAccess.getPostfixExpressionSuffixArrayAccess().getLEFTBRACKETTerminalRuleCall_1()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getPostfixExpressionSuffixArrayAccess().getArrayExprExpressionParserRuleCall_2_0()); 
+	    }
+		lv_arrayExpr_2_0=ruleExpression		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getPostfixExpressionSuffixArrayRule());
+	        }
+       		set(
+       			$current, 
+       			"arrayExpr",
+        		lv_arrayExpr_2_0, 
+        		"at.jku.weiner.c.C.Expression");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+this_RIGHTBRACKET_3=RULE_RIGHTBRACKET
+    { 
+    newLeafNode(this_RIGHTBRACKET_3, grammarAccess.getPostfixExpressionSuffixArrayAccess().getRIGHTBRACKETTerminalRuleCall_3()); 
+    }
+
+
+)
+
+
+;
+
+
+
+
+
+// Entry rule entryRulePostfixExpressionSuffixArgument
+entryRulePostfixExpressionSuffixArgument returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getPostfixExpressionSuffixArgumentRule()); }
+	 iv_rulePostfixExpressionSuffixArgument=rulePostfixExpressionSuffixArgument 
+	 { $current=$iv_rulePostfixExpressionSuffixArgument.current; } 
+	 EOF 
+;
+
+// Rule PostfixExpressionSuffixArgument
+rulePostfixExpressionSuffixArgument returns [EObject current=null] 
+    @init { enterRule();
+   		/*no init found*/
+    }
+    @after { leaveRule();
+    		/*no after found*/
+     }:
+
+(
+(
+	{ 
+	  /* */ 
+	}
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getPostfixExpressionSuffixArgumentAccess().getPostfixExpressionSuffixArgumentAction_0(),
+            $current);
+    }
+)
+
+
+this_LEFTPAREN_1=RULE_LEFTPAREN
+    { 
+    newLeafNode(this_LEFTPAREN_1, grammarAccess.getPostfixExpressionSuffixArgumentAccess().getLEFTPARENTerminalRuleCall_1()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getPostfixExpressionSuffixArgumentAccess().getArgumentExpressionListArgumentExpressionListParserRuleCall_2_0()); 
+	    }
+		lv_argumentExpressionList_2_0=ruleArgumentExpressionList		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getPostfixExpressionSuffixArgumentRule());
+	        }
+       		set(
+       			$current, 
+       			"argumentExpressionList",
+        		lv_argumentExpressionList_2_0, 
+        		"at.jku.weiner.c.C.ArgumentExpressionList");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)?
+
+
+this_RIGHTPAREN_3=RULE_RIGHTPAREN
+    { 
+    newLeafNode(this_RIGHTPAREN_3, grammarAccess.getPostfixExpressionSuffixArgumentAccess().getRIGHTPARENTerminalRuleCall_3()); 
+    }
+
+
+)
+
+
+;
+
+
+
+
+
+// Entry rule entryRulePostfixExpressionSuffixDot
+entryRulePostfixExpressionSuffixDot returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getPostfixExpressionSuffixDotRule()); }
+	 iv_rulePostfixExpressionSuffixDot=rulePostfixExpressionSuffixDot 
+	 { $current=$iv_rulePostfixExpressionSuffixDot.current; } 
+	 EOF 
+;
+
+// Rule PostfixExpressionSuffixDot
+rulePostfixExpressionSuffixDot returns [EObject current=null] 
+    @init { enterRule();
+   		/*no init found*/
+    }
+    @after { leaveRule();
+    		/*no after found*/
+     }:
+
+(
+(
+	{ 
+	  /* */ 
+	}
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getPostfixExpressionSuffixDotAccess().getPostfixExpressionSuffixDotAction_0(),
+            $current);
+    }
+)
+
+
+this_DOT_1=RULE_DOT
+    { 
+    newLeafNode(this_DOT_1, grammarAccess.getPostfixExpressionSuffixDotAccess().getDOTTerminalRuleCall_1()); 
+    }
+
+
+
+(
+(
+		lv_id_2_0=RULE_ID
+		{
+			newLeafNode(lv_id_2_0, grammarAccess.getPostfixExpressionSuffixDotAccess().getIdIDTerminalRuleCall_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getPostfixExpressionSuffixDotRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"id",
+        		lv_id_2_0, 
+        		"at.jku.weiner.c.C.ID");
+	    }
+
+)
+)
+
+)
+
+
+;
+
+
+
+
+
+// Entry rule entryRulePostfixExpressionSuffixArrow
+entryRulePostfixExpressionSuffixArrow returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getPostfixExpressionSuffixArrowRule()); }
+	 iv_rulePostfixExpressionSuffixArrow=rulePostfixExpressionSuffixArrow 
+	 { $current=$iv_rulePostfixExpressionSuffixArrow.current; } 
+	 EOF 
+;
+
+// Rule PostfixExpressionSuffixArrow
+rulePostfixExpressionSuffixArrow returns [EObject current=null] 
+    @init { enterRule();
+   		/*no init found*/
+    }
+    @after { leaveRule();
+    		/*no after found*/
+     }:
+
+(
+(
+	{ 
+	  /* */ 
+	}
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getPostfixExpressionSuffixArrowAccess().getPostfixExpressionSuffixArrowAction_0(),
+            $current);
+    }
+)
+
+
+this_ARROW_1=RULE_ARROW
+    { 
+    newLeafNode(this_ARROW_1, grammarAccess.getPostfixExpressionSuffixArrowAccess().getARROWTerminalRuleCall_1()); 
+    }
+
+
+
+(
+(
+		lv_id_2_0=RULE_ID
+		{
+			newLeafNode(lv_id_2_0, grammarAccess.getPostfixExpressionSuffixArrowAccess().getIdIDTerminalRuleCall_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getPostfixExpressionSuffixArrowRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"id",
+        		lv_id_2_0, 
+        		"at.jku.weiner.c.C.ID");
+	    }
+
+)
+)
+
+)
+
+
+;
+
+
+
+
+
+// Entry rule entryRulePostfixExpressionSuffixPlusPlus
+entryRulePostfixExpressionSuffixPlusPlus returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getPostfixExpressionSuffixPlusPlusRule()); }
+	 iv_rulePostfixExpressionSuffixPlusPlus=rulePostfixExpressionSuffixPlusPlus 
+	 { $current=$iv_rulePostfixExpressionSuffixPlusPlus.current; } 
+	 EOF 
+;
+
+// Rule PostfixExpressionSuffixPlusPlus
+rulePostfixExpressionSuffixPlusPlus returns [EObject current=null] 
+    @init { enterRule();
+   		/*no init found*/
+    }
+    @after { leaveRule();
+    		/*no after found*/
+     }:
+
+(
+(
+	{ 
+	  /* */ 
+	}
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getPostfixExpressionSuffixPlusPlusAccess().getPostfixExpressionSuffixPlusPlusAction_0(),
+            $current);
+    }
+)
+
+
+this_PLUSPLUS_1=RULE_PLUSPLUS
+    { 
+    newLeafNode(this_PLUSPLUS_1, grammarAccess.getPostfixExpressionSuffixPlusPlusAccess().getPLUSPLUSTerminalRuleCall_1()); 
+    }
+
+
+)
+
+
+;
+
+
+
+
+
+// Entry rule entryRulePostfixExpressionSuffixMinusMinus
+entryRulePostfixExpressionSuffixMinusMinus returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getPostfixExpressionSuffixMinusMinusRule()); }
+	 iv_rulePostfixExpressionSuffixMinusMinus=rulePostfixExpressionSuffixMinusMinus 
+	 { $current=$iv_rulePostfixExpressionSuffixMinusMinus.current; } 
+	 EOF 
+;
+
+// Rule PostfixExpressionSuffixMinusMinus
+rulePostfixExpressionSuffixMinusMinus returns [EObject current=null] 
+    @init { enterRule();
+   		/*no init found*/
+    }
+    @after { leaveRule();
+    		/*no after found*/
+     }:
+
+(
+(
+	{ 
+	  /* */ 
+	}
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getPostfixExpressionSuffixMinusMinusAccess().getPostfixExpressionSuffixMinusMinusAction_0(),
+            $current);
+    }
+)
+
+
+this_MINUSMINUS_1=RULE_MINUSMINUS
+    { 
+    newLeafNode(this_MINUSMINUS_1, grammarAccess.getPostfixExpressionSuffixMinusMinusAccess().getMINUSMINUSTerminalRuleCall_1()); 
+    }
+
 
 )
 

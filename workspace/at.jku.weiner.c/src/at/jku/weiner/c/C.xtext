@@ -852,15 +852,45 @@ PostfixExpression returns Expression
 	*/
 	
 	(
-		LEFTBRACKET arrayExpr+=Expression RIGHTBRACKET
-		| LEFTPAREN argumentExpressionList+=ArgumentExpressionList? RIGHTPAREN
-		| dot+=DOT id+=ID
-		| arrow+=ARROW id+=ID
-		| plusplus+=PLUSPLUS
-		| minusminus+=MINUSMINUS
+			suffix+=PostfixExpressionSuffixArray
+		|	suffix+=PostfixExpressionSuffixArgument
+		|	suffix+=PostfixExpressionSuffixDot
+		|	suffix+=PostfixExpressionSuffixArrow
+		|	suffix+=PostfixExpressionSuffixPlusPlus
+		|	suffix+=PostfixExpressionSuffixMinusMinus
 	)*
 	
 	)
+;
+
+PostfixExpressionSuffixArray returns PostfixExpressionSuffix:
+	{PostfixExpressionSuffixArray}
+	LEFTBRACKET arrayExpr=Expression RIGHTBRACKET
+;
+
+PostfixExpressionSuffixArgument returns PostfixExpressionSuffix:
+	{PostfixExpressionSuffixArgument}
+	LEFTPAREN (argumentExpressionList=ArgumentExpressionList)? RIGHTPAREN
+;
+
+PostfixExpressionSuffixDot returns PostfixExpressionSuffix:
+	{PostfixExpressionSuffixDot}
+	DOT id=ID
+;
+
+PostfixExpressionSuffixArrow returns PostfixExpressionSuffix:
+	{PostfixExpressionSuffixArrow}
+	ARROW id=ID
+;
+
+PostfixExpressionSuffixPlusPlus returns PostfixExpressionSuffix:
+	{PostfixExpressionSuffixPlusPlus}
+	PLUSPLUS
+;
+
+PostfixExpressionSuffixMinusMinus returns PostfixExpressionSuffix:
+	{PostfixExpressionSuffixMinusMinus}
+	MINUSMINUS
 ;
 
 ArgumentExpressionList: expr+=AssignmentExpression (COMMA expr+=AssignmentExpression)*;

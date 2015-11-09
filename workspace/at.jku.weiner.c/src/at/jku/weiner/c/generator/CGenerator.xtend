@@ -77,6 +77,12 @@ import at.jku.weiner.c.c.FunctionSpecifier
 import at.jku.weiner.c.c.EnumSpecifier
 import at.jku.weiner.c.c.EnumeratorList
 import at.jku.weiner.c.c.Enumerator
+import at.jku.weiner.c.c.PostfixExpressionSuffixArray
+import at.jku.weiner.c.c.PostfixExpressionSuffixArgument
+import at.jku.weiner.c.c.PostfixExpressionSuffixDot
+import at.jku.weiner.c.c.PostfixExpressionSuffixPlusPlus
+import at.jku.weiner.c.c.PostfixExpressionSuffixArrow
+import at.jku.weiner.c.c.PostfixExpressionSuffixMinusMinus
 
 /**
  * Generates code from your model files on save.
@@ -640,31 +646,50 @@ class CGenerator implements IGenerator {
 		«FOR e : obj.expr»
 			«outputForPrimaryExpression(e as PrimaryExpression)»
 		«ENDFOR»
-		«IF obj.arrayExpr.size > 0» [
-			«FOR e: obj.arrayExpr»
-				«outputFor(e)»
-			«ENDFOR»
-			]
-		«ENDIF»
-		«IF obj.argumentExpressionList != null && obj.argumentExpressionList.size > 0»
-			(
-			«FOR l : obj.argumentExpressionList»
-				«outputFor(l)»
-			«ENDFOR»
-			)
-		«ENDIF»
-		«FOR d : obj.dot»
-			«d»«obj.id.get(obj.dot.indexOf(d))»
+		«FOR s : obj.suffix»
+			«IF s instanceof PostfixExpressionSuffixArray»
+				«outputFor(s as PostfixExpressionSuffixArray)»
+			«ENDIF»
+			«IF s instanceof PostfixExpressionSuffixArgument»
+				«outputFor(s as PostfixExpressionSuffixArgument)»
+			«ENDIF»
+			«IF s instanceof PostfixExpressionSuffixDot»
+				«outputFor(s as PostfixExpressionSuffixDot)»
+			«ENDIF»
+			«IF s instanceof PostfixExpressionSuffixArrow»
+				«outputFor(s as PostfixExpressionSuffixArrow)»
+			«ENDIF»
+			«IF s instanceof PostfixExpressionSuffixPlusPlus»
+				«outputFor(s as PostfixExpressionSuffixPlusPlus)»
+			«ENDIF»
+			«IF s instanceof PostfixExpressionSuffixMinusMinus»
+				«outputFor(s as PostfixExpressionSuffixMinusMinus)»
+			«ENDIF»
 		«ENDFOR»
-		«FOR a : obj.arrow»
-			«a»«obj.id.get(obj.dot.indexOf(a))»
-		«ENDFOR»
-		«FOR p : obj.plusplus»
-			«p»
-		«ENDFOR»
-		«FOR m : obj.minusminus»
-			«m»
-		«ENDFOR»
+	'''
+	
+	def String outputFor(PostfixExpressionSuffixArray obj) '''
+		[«outputFor(obj.arrayExpr)»]
+	'''
+	
+	def String outputFor(PostfixExpressionSuffixArgument obj) '''
+		(«outputFor(obj.argumentExpressionList)»)
+	'''
+	
+	def String outputFor(PostfixExpressionSuffixDot obj) '''
+		.«obj.id»
+	'''
+	
+	def String outputFor(PostfixExpressionSuffixArrow obj) '''
+		->«obj.id»
+	'''
+	
+	def String outputFor(PostfixExpressionSuffixPlusPlus obj) '''
+		++
+	'''
+	
+	def String outputFor(PostfixExpressionSuffixMinusMinus obj) '''
+		--
 	'''
 	
 	def String outputFor(ArgumentExpressionList obj) '''

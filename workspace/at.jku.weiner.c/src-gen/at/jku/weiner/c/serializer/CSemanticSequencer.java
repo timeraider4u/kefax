@@ -56,6 +56,12 @@ import at.jku.weiner.c.c.ParameterList;
 import at.jku.weiner.c.c.ParameterTypeList;
 import at.jku.weiner.c.c.Pointer;
 import at.jku.weiner.c.c.PostfixExpression;
+import at.jku.weiner.c.c.PostfixExpressionSuffixArgument;
+import at.jku.weiner.c.c.PostfixExpressionSuffixArray;
+import at.jku.weiner.c.c.PostfixExpressionSuffixArrow;
+import at.jku.weiner.c.c.PostfixExpressionSuffixDot;
+import at.jku.weiner.c.c.PostfixExpressionSuffixMinusMinus;
+import at.jku.weiner.c.c.PostfixExpressionSuffixPlusPlus;
 import at.jku.weiner.c.c.PrimaryExpression;
 import at.jku.weiner.c.c.RelationalExpression;
 import at.jku.weiner.c.c.SelectionStatement;
@@ -256,6 +262,24 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case CPackage.POSTFIX_EXPRESSION:
 				sequence_PostfixExpression(context, (PostfixExpression) semanticObject); 
+				return; 
+			case CPackage.POSTFIX_EXPRESSION_SUFFIX_ARGUMENT:
+				sequence_PostfixExpressionSuffixArgument(context, (PostfixExpressionSuffixArgument) semanticObject); 
+				return; 
+			case CPackage.POSTFIX_EXPRESSION_SUFFIX_ARRAY:
+				sequence_PostfixExpressionSuffixArray(context, (PostfixExpressionSuffixArray) semanticObject); 
+				return; 
+			case CPackage.POSTFIX_EXPRESSION_SUFFIX_ARROW:
+				sequence_PostfixExpressionSuffixArrow(context, (PostfixExpressionSuffixArrow) semanticObject); 
+				return; 
+			case CPackage.POSTFIX_EXPRESSION_SUFFIX_DOT:
+				sequence_PostfixExpressionSuffixDot(context, (PostfixExpressionSuffixDot) semanticObject); 
+				return; 
+			case CPackage.POSTFIX_EXPRESSION_SUFFIX_MINUS_MINUS:
+				sequence_PostfixExpressionSuffixMinusMinus(context, (PostfixExpressionSuffixMinusMinus) semanticObject); 
+				return; 
+			case CPackage.POSTFIX_EXPRESSION_SUFFIX_PLUS_PLUS:
+				sequence_PostfixExpressionSuffixPlusPlus(context, (PostfixExpressionSuffixPlusPlus) semanticObject); 
 				return; 
 			case CPackage.PRIMARY_EXPRESSION:
 				sequence_PrimaryExpression(context, (PrimaryExpression) semanticObject); 
@@ -859,15 +883,90 @@ public class CSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     (argumentExpressionList=ArgumentExpressionList?)
+	 */
+	protected void sequence_PostfixExpressionSuffixArgument(EObject context, PostfixExpressionSuffixArgument semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     arrayExpr=Expression
+	 */
+	protected void sequence_PostfixExpressionSuffixArray(EObject context, PostfixExpressionSuffixArray semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, CPackage.Literals.POSTFIX_EXPRESSION_SUFFIX_ARRAY__ARRAY_EXPR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CPackage.Literals.POSTFIX_EXPRESSION_SUFFIX_ARRAY__ARRAY_EXPR));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getPostfixExpressionSuffixArrayAccess().getArrayExprExpressionParserRuleCall_2_0(), semanticObject.getArrayExpr());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     id=ID
+	 */
+	protected void sequence_PostfixExpressionSuffixArrow(EObject context, PostfixExpressionSuffixArrow semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, CPackage.Literals.POSTFIX_EXPRESSION_SUFFIX_ARROW__ID) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CPackage.Literals.POSTFIX_EXPRESSION_SUFFIX_ARROW__ID));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getPostfixExpressionSuffixArrowAccess().getIdIDTerminalRuleCall_2_0(), semanticObject.getId());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     id=ID
+	 */
+	protected void sequence_PostfixExpressionSuffixDot(EObject context, PostfixExpressionSuffixDot semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, CPackage.Literals.POSTFIX_EXPRESSION_SUFFIX_DOT__ID) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CPackage.Literals.POSTFIX_EXPRESSION_SUFFIX_DOT__ID));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getPostfixExpressionSuffixDotAccess().getIdIDTerminalRuleCall_2_0(), semanticObject.getId());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     {PostfixExpressionSuffixMinusMinus}
+	 */
+	protected void sequence_PostfixExpressionSuffixMinusMinus(EObject context, PostfixExpressionSuffixMinusMinus semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     {PostfixExpressionSuffixPlusPlus}
+	 */
+	protected void sequence_PostfixExpressionSuffixPlusPlus(EObject context, PostfixExpressionSuffixPlusPlus semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (
 	 *         expr+=PrimaryExpression 
 	 *         (
-	 *             arrayExpr+=Expression | 
-	 *             argumentExpressionList+=ArgumentExpressionList? | 
-	 *             (dot+=DOT id+=ID) | 
-	 *             (arrow+=ARROW id+=ID) | 
-	 *             plusplus+=PLUSPLUS | 
-	 *             minusminus+=MINUSMINUS
+	 *             suffix+=PostfixExpressionSuffixArray | 
+	 *             suffix+=PostfixExpressionSuffixArgument | 
+	 *             suffix+=PostfixExpressionSuffixDot | 
+	 *             suffix+=PostfixExpressionSuffixArrow | 
+	 *             suffix+=PostfixExpressionSuffixPlusPlus | 
+	 *             suffix+=PostfixExpressionSuffixMinusMinus
 	 *         )*
 	 *     )
 	 */

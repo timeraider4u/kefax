@@ -419,6 +419,15 @@ public interface CFactory extends EFactory
   UnaryOperator createUnaryOperator();
 
   /**
+   * Returns a new object of class '<em>Postfix Expression Suffix</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Postfix Expression Suffix</em>'.
+   * @generated
+   */
+  PostfixExpressionSuffix createPostfixExpressionSuffix();
+
+  /**
    * Returns a new object of class '<em>Argument Expression List</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -678,6 +687,60 @@ public interface CFactory extends EFactory
    * @generated
    */
   PostfixExpression createPostfixExpression();
+
+  /**
+   * Returns a new object of class '<em>Postfix Expression Suffix Array</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Postfix Expression Suffix Array</em>'.
+   * @generated
+   */
+  PostfixExpressionSuffixArray createPostfixExpressionSuffixArray();
+
+  /**
+   * Returns a new object of class '<em>Postfix Expression Suffix Argument</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Postfix Expression Suffix Argument</em>'.
+   * @generated
+   */
+  PostfixExpressionSuffixArgument createPostfixExpressionSuffixArgument();
+
+  /**
+   * Returns a new object of class '<em>Postfix Expression Suffix Dot</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Postfix Expression Suffix Dot</em>'.
+   * @generated
+   */
+  PostfixExpressionSuffixDot createPostfixExpressionSuffixDot();
+
+  /**
+   * Returns a new object of class '<em>Postfix Expression Suffix Arrow</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Postfix Expression Suffix Arrow</em>'.
+   * @generated
+   */
+  PostfixExpressionSuffixArrow createPostfixExpressionSuffixArrow();
+
+  /**
+   * Returns a new object of class '<em>Postfix Expression Suffix Plus Plus</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Postfix Expression Suffix Plus Plus</em>'.
+   * @generated
+   */
+  PostfixExpressionSuffixPlusPlus createPostfixExpressionSuffixPlusPlus();
+
+  /**
+   * Returns a new object of class '<em>Postfix Expression Suffix Minus Minus</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Postfix Expression Suffix Minus Minus</em>'.
+   * @generated
+   */
+  PostfixExpressionSuffixMinusMinus createPostfixExpressionSuffixMinusMinus();
 
   /**
    * Returns a new object of class '<em>Primary Expression</em>'.

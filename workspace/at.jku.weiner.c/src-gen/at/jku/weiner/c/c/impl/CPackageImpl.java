@@ -58,6 +58,13 @@ import at.jku.weiner.c.c.ParameterList;
 import at.jku.weiner.c.c.ParameterTypeList;
 import at.jku.weiner.c.c.Pointer;
 import at.jku.weiner.c.c.PostfixExpression;
+import at.jku.weiner.c.c.PostfixExpressionSuffix;
+import at.jku.weiner.c.c.PostfixExpressionSuffixArgument;
+import at.jku.weiner.c.c.PostfixExpressionSuffixArray;
+import at.jku.weiner.c.c.PostfixExpressionSuffixArrow;
+import at.jku.weiner.c.c.PostfixExpressionSuffixDot;
+import at.jku.weiner.c.c.PostfixExpressionSuffixMinusMinus;
+import at.jku.weiner.c.c.PostfixExpressionSuffixPlusPlus;
 import at.jku.weiner.c.c.PrimaryExpression;
 import at.jku.weiner.c.c.RelationalExpression;
 import at.jku.weiner.c.c.SelectionStatement;
@@ -409,6 +416,13 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass postfixExpressionSuffixEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass argumentExpressionListEClass = null;
 
   /**
@@ -606,6 +620,48 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * @generated
    */
   private EClass postfixExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass postfixExpressionSuffixArrayEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass postfixExpressionSuffixArgumentEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass postfixExpressionSuffixDotEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass postfixExpressionSuffixArrowEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass postfixExpressionSuffixPlusPlusEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass postfixExpressionSuffixMinusMinusEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1852,6 +1908,16 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getPostfixExpressionSuffix()
+  {
+    return postfixExpressionSuffixEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getArgumentExpressionList()
   {
     return argumentExpressionListEClass;
@@ -2932,7 +2998,7 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPostfixExpression_ArrayExpr()
+  public EReference getPostfixExpression_Suffix()
   {
     return (EReference)postfixExpressionEClass.getEStructuralFeatures().get(1);
   }
@@ -2942,9 +3008,9 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPostfixExpression_ArgumentExpressionList()
+  public EClass getPostfixExpressionSuffixArray()
   {
-    return (EReference)postfixExpressionEClass.getEStructuralFeatures().get(2);
+    return postfixExpressionSuffixArrayEClass;
   }
 
   /**
@@ -2952,9 +3018,9 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getPostfixExpression_Dot()
+  public EReference getPostfixExpressionSuffixArray_ArrayExpr()
   {
-    return (EAttribute)postfixExpressionEClass.getEStructuralFeatures().get(3);
+    return (EReference)postfixExpressionSuffixArrayEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2962,9 +3028,9 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getPostfixExpression_Id()
+  public EClass getPostfixExpressionSuffixArgument()
   {
-    return (EAttribute)postfixExpressionEClass.getEStructuralFeatures().get(4);
+    return postfixExpressionSuffixArgumentEClass;
   }
 
   /**
@@ -2972,9 +3038,9 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getPostfixExpression_Arrow()
+  public EReference getPostfixExpressionSuffixArgument_ArgumentExpressionList()
   {
-    return (EAttribute)postfixExpressionEClass.getEStructuralFeatures().get(5);
+    return (EReference)postfixExpressionSuffixArgumentEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2982,9 +3048,9 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getPostfixExpression_Plusplus()
+  public EClass getPostfixExpressionSuffixDot()
   {
-    return (EAttribute)postfixExpressionEClass.getEStructuralFeatures().get(6);
+    return postfixExpressionSuffixDotEClass;
   }
 
   /**
@@ -2992,9 +3058,49 @@ public class CPackageImpl extends EPackageImpl implements CPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getPostfixExpression_Minusminus()
+  public EAttribute getPostfixExpressionSuffixDot_Id()
   {
-    return (EAttribute)postfixExpressionEClass.getEStructuralFeatures().get(7);
+    return (EAttribute)postfixExpressionSuffixDotEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPostfixExpressionSuffixArrow()
+  {
+    return postfixExpressionSuffixArrowEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPostfixExpressionSuffixArrow_Id()
+  {
+    return (EAttribute)postfixExpressionSuffixArrowEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPostfixExpressionSuffixPlusPlus()
+  {
+    return postfixExpressionSuffixPlusPlusEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPostfixExpressionSuffixMinusMinus()
+  {
+    return postfixExpressionSuffixMinusMinusEClass;
   }
 
   /**
@@ -3247,6 +3353,8 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     unaryOperatorEClass = createEClass(UNARY_OPERATOR);
     createEAttribute(unaryOperatorEClass, UNARY_OPERATOR__OP);
 
+    postfixExpressionSuffixEClass = createEClass(POSTFIX_EXPRESSION_SUFFIX);
+
     argumentExpressionListEClass = createEClass(ARGUMENT_EXPRESSION_LIST);
     createEReference(argumentExpressionListEClass, ARGUMENT_EXPRESSION_LIST__EXPR);
 
@@ -3383,13 +3491,23 @@ public class CPackageImpl extends EPackageImpl implements CPackage
 
     postfixExpressionEClass = createEClass(POSTFIX_EXPRESSION);
     createEReference(postfixExpressionEClass, POSTFIX_EXPRESSION__EXPR);
-    createEReference(postfixExpressionEClass, POSTFIX_EXPRESSION__ARRAY_EXPR);
-    createEReference(postfixExpressionEClass, POSTFIX_EXPRESSION__ARGUMENT_EXPRESSION_LIST);
-    createEAttribute(postfixExpressionEClass, POSTFIX_EXPRESSION__DOT);
-    createEAttribute(postfixExpressionEClass, POSTFIX_EXPRESSION__ID);
-    createEAttribute(postfixExpressionEClass, POSTFIX_EXPRESSION__ARROW);
-    createEAttribute(postfixExpressionEClass, POSTFIX_EXPRESSION__PLUSPLUS);
-    createEAttribute(postfixExpressionEClass, POSTFIX_EXPRESSION__MINUSMINUS);
+    createEReference(postfixExpressionEClass, POSTFIX_EXPRESSION__SUFFIX);
+
+    postfixExpressionSuffixArrayEClass = createEClass(POSTFIX_EXPRESSION_SUFFIX_ARRAY);
+    createEReference(postfixExpressionSuffixArrayEClass, POSTFIX_EXPRESSION_SUFFIX_ARRAY__ARRAY_EXPR);
+
+    postfixExpressionSuffixArgumentEClass = createEClass(POSTFIX_EXPRESSION_SUFFIX_ARGUMENT);
+    createEReference(postfixExpressionSuffixArgumentEClass, POSTFIX_EXPRESSION_SUFFIX_ARGUMENT__ARGUMENT_EXPRESSION_LIST);
+
+    postfixExpressionSuffixDotEClass = createEClass(POSTFIX_EXPRESSION_SUFFIX_DOT);
+    createEAttribute(postfixExpressionSuffixDotEClass, POSTFIX_EXPRESSION_SUFFIX_DOT__ID);
+
+    postfixExpressionSuffixArrowEClass = createEClass(POSTFIX_EXPRESSION_SUFFIX_ARROW);
+    createEAttribute(postfixExpressionSuffixArrowEClass, POSTFIX_EXPRESSION_SUFFIX_ARROW__ID);
+
+    postfixExpressionSuffixPlusPlusEClass = createEClass(POSTFIX_EXPRESSION_SUFFIX_PLUS_PLUS);
+
+    postfixExpressionSuffixMinusMinusEClass = createEClass(POSTFIX_EXPRESSION_SUFFIX_MINUS_MINUS);
 
     primaryExpressionEClass = createEClass(PRIMARY_EXPRESSION);
     createEAttribute(primaryExpressionEClass, PRIMARY_EXPRESSION__ID);
@@ -3459,6 +3577,12 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     castExpressionEClass.getESuperTypes().add(this.getExpression());
     unaryExpressionEClass.getESuperTypes().add(this.getExpression());
     postfixExpressionEClass.getESuperTypes().add(this.getExpression());
+    postfixExpressionSuffixArrayEClass.getESuperTypes().add(this.getPostfixExpressionSuffix());
+    postfixExpressionSuffixArgumentEClass.getESuperTypes().add(this.getPostfixExpressionSuffix());
+    postfixExpressionSuffixDotEClass.getESuperTypes().add(this.getPostfixExpressionSuffix());
+    postfixExpressionSuffixArrowEClass.getESuperTypes().add(this.getPostfixExpressionSuffix());
+    postfixExpressionSuffixPlusPlusEClass.getESuperTypes().add(this.getPostfixExpressionSuffix());
+    postfixExpressionSuffixMinusMinusEClass.getESuperTypes().add(this.getPostfixExpressionSuffix());
     primaryExpressionEClass.getESuperTypes().add(this.getExpression());
     constantExpressionEClass.getESuperTypes().add(this.getExpression());
 
@@ -3623,6 +3747,8 @@ public class CPackageImpl extends EPackageImpl implements CPackage
     initEClass(unaryOperatorEClass, UnaryOperator.class, "UnaryOperator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getUnaryOperator_Op(), theEcorePackage.getEString(), "op", null, 0, 1, UnaryOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(postfixExpressionSuffixEClass, PostfixExpressionSuffix.class, "PostfixExpressionSuffix", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
     initEClass(argumentExpressionListEClass, ArgumentExpressionList.class, "ArgumentExpressionList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getArgumentExpressionList_Expr(), this.getExpression(), null, "expr", null, 0, -1, ArgumentExpressionList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -3759,13 +3885,23 @@ public class CPackageImpl extends EPackageImpl implements CPackage
 
     initEClass(postfixExpressionEClass, PostfixExpression.class, "PostfixExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getPostfixExpression_Expr(), this.getExpression(), null, "expr", null, 0, -1, PostfixExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPostfixExpression_ArrayExpr(), this.getExpression(), null, "arrayExpr", null, 0, -1, PostfixExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPostfixExpression_ArgumentExpressionList(), this.getArgumentExpressionList(), null, "argumentExpressionList", null, 0, -1, PostfixExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getPostfixExpression_Dot(), theEcorePackage.getEString(), "dot", null, 0, -1, PostfixExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getPostfixExpression_Id(), theEcorePackage.getEString(), "id", null, 0, -1, PostfixExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getPostfixExpression_Arrow(), theEcorePackage.getEString(), "arrow", null, 0, -1, PostfixExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getPostfixExpression_Plusplus(), theEcorePackage.getEString(), "plusplus", null, 0, -1, PostfixExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getPostfixExpression_Minusminus(), theEcorePackage.getEString(), "minusminus", null, 0, -1, PostfixExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPostfixExpression_Suffix(), this.getPostfixExpressionSuffix(), null, "suffix", null, 0, -1, PostfixExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(postfixExpressionSuffixArrayEClass, PostfixExpressionSuffixArray.class, "PostfixExpressionSuffixArray", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPostfixExpressionSuffixArray_ArrayExpr(), this.getExpression(), null, "arrayExpr", null, 0, 1, PostfixExpressionSuffixArray.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(postfixExpressionSuffixArgumentEClass, PostfixExpressionSuffixArgument.class, "PostfixExpressionSuffixArgument", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPostfixExpressionSuffixArgument_ArgumentExpressionList(), this.getArgumentExpressionList(), null, "argumentExpressionList", null, 0, 1, PostfixExpressionSuffixArgument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(postfixExpressionSuffixDotEClass, PostfixExpressionSuffixDot.class, "PostfixExpressionSuffixDot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPostfixExpressionSuffixDot_Id(), theEcorePackage.getEString(), "id", null, 0, 1, PostfixExpressionSuffixDot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(postfixExpressionSuffixArrowEClass, PostfixExpressionSuffixArrow.class, "PostfixExpressionSuffixArrow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPostfixExpressionSuffixArrow_Id(), theEcorePackage.getEString(), "id", null, 0, 1, PostfixExpressionSuffixArrow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(postfixExpressionSuffixPlusPlusEClass, PostfixExpressionSuffixPlusPlus.class, "PostfixExpressionSuffixPlusPlus", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(postfixExpressionSuffixMinusMinusEClass, PostfixExpressionSuffixMinusMinus.class, "PostfixExpressionSuffixMinusMinus", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(primaryExpressionEClass, PrimaryExpression.class, "PrimaryExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPrimaryExpression_Id(), theEcorePackage.getEString(), "id", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

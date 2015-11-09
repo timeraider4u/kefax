@@ -7,6 +7,8 @@ import at.jku.weiner.c.c.AdditiveExpression;
 import at.jku.weiner.c.c.AndExpression;
 import at.jku.weiner.c.c.ArgumentExpressionList;
 import at.jku.weiner.c.c.AsmLine;
+import at.jku.weiner.c.c.AsmLineWithColon;
+import at.jku.weiner.c.c.AsmLineWithComma;
 import at.jku.weiner.c.c.AsmStatement;
 import at.jku.weiner.c.c.AssignmentExpression;
 import at.jku.weiner.c.c.AssignmentOperator;
@@ -54,6 +56,9 @@ import at.jku.weiner.c.c.ParameterList;
 import at.jku.weiner.c.c.ParameterTypeList;
 import at.jku.weiner.c.c.Pointer;
 import at.jku.weiner.c.c.PostfixExpression;
+import at.jku.weiner.c.c.PostfixExpressionSuffix;
+import at.jku.weiner.c.c.PostfixExpressionSuffixArgument;
+import at.jku.weiner.c.c.PostfixExpressionSuffixArray;
 import at.jku.weiner.c.c.PrimaryExpression;
 import at.jku.weiner.c.c.RelationalExpression;
 import at.jku.weiner.c.c.SelectionStatement;
@@ -411,8 +416,13 @@ public class CFormatter extends AbstractFormatter2 {
     }
   }
   
-  protected void _format(final AsmLine asmLine, @Extension final IFormattableDocument document) {
-    Expression _expr = asmLine.getExpr();
+  protected void _format(final AsmLineWithColon asmLineWithColon, @Extension final IFormattableDocument document) {
+    Expression _expr = asmLineWithColon.getExpr();
+    this.format(_expr, document);
+  }
+  
+  protected void _format(final AsmLineWithComma asmLineWithComma, @Extension final IFormattableDocument document) {
+    Expression _expr = asmLineWithComma.getExpr();
     this.format(_expr, document);
   }
   
@@ -532,14 +542,20 @@ public class CFormatter extends AbstractFormatter2 {
     for (final Expression expr : _expr) {
       this.format(expr, document);
     }
-    EList<Expression> _arrayExpr = postfixExpression.getArrayExpr();
-    for (final Expression arrayExpr : _arrayExpr) {
-      this.format(arrayExpr, document);
+    EList<PostfixExpressionSuffix> _suffix = postfixExpression.getSuffix();
+    for (final PostfixExpressionSuffix suffix : _suffix) {
+      this.format(suffix, document);
     }
-    EList<ArgumentExpressionList> _argumentExpressionList = postfixExpression.getArgumentExpressionList();
-    for (final ArgumentExpressionList argumentExpressionList : _argumentExpressionList) {
-      this.format(argumentExpressionList, document);
-    }
+  }
+  
+  protected void _format(final PostfixExpressionSuffixArray postfixExpressionSuffixArray, @Extension final IFormattableDocument document) {
+    Expression _arrayExpr = postfixExpressionSuffixArray.getArrayExpr();
+    this.format(_arrayExpr, document);
+  }
+  
+  protected void _format(final PostfixExpressionSuffixArgument postfixExpressionSuffixArgument, @Extension final IFormattableDocument document) {
+    ArgumentExpressionList _argumentExpressionList = postfixExpressionSuffixArgument.getArgumentExpressionList();
+    this.format(_argumentExpressionList, document);
   }
   
   protected void _format(final ArgumentExpressionList argumentExpressionList, @Extension final IFormattableDocument document) {
@@ -570,6 +586,12 @@ public class CFormatter extends AbstractFormatter2 {
       return;
     } else if (additiveExpression instanceof AndExpression) {
       _format((AndExpression)additiveExpression, document);
+      return;
+    } else if (additiveExpression instanceof AsmLineWithColon) {
+      _format((AsmLineWithColon)additiveExpression, document);
+      return;
+    } else if (additiveExpression instanceof AsmLineWithComma) {
+      _format((AsmLineWithComma)additiveExpression, document);
       return;
     } else if (additiveExpression instanceof AsmStatement) {
       _format((AsmStatement)additiveExpression, document);
@@ -628,6 +650,12 @@ public class CFormatter extends AbstractFormatter2 {
     } else if (additiveExpression instanceof PostfixExpression) {
       _format((PostfixExpression)additiveExpression, document);
       return;
+    } else if (additiveExpression instanceof PostfixExpressionSuffixArgument) {
+      _format((PostfixExpressionSuffixArgument)additiveExpression, document);
+      return;
+    } else if (additiveExpression instanceof PostfixExpressionSuffixArray) {
+      _format((PostfixExpressionSuffixArray)additiveExpression, document);
+      return;
     } else if (additiveExpression instanceof PrimaryExpression) {
       _format((PrimaryExpression)additiveExpression, document);
       return;
@@ -648,9 +676,6 @@ public class CFormatter extends AbstractFormatter2 {
       return;
     } else if (additiveExpression instanceof ArgumentExpressionList) {
       _format((ArgumentExpressionList)additiveExpression, document);
-      return;
-    } else if (additiveExpression instanceof AsmLine) {
-      _format((AsmLine)additiveExpression, document);
       return;
     } else if (additiveExpression instanceof BlockList) {
       _format((BlockList)additiveExpression, document);

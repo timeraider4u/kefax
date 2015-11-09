@@ -272,7 +272,10 @@ RIGHTBRACE NEWLINE
 																								(PrimaryExpression
 																									id++"i"
 																								),
-																								plusplus+*"[++]"
+																								suffix+=
+																								(PostfixExpressionSuffixPlusPlus
+																									
+																								)
 																							)
 																						)
 																					)

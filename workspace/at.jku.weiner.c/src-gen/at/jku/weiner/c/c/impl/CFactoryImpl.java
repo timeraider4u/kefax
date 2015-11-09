@@ -108,6 +108,7 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
       case CPackage.EXPRESSION: return createExpression();
       case CPackage.ASSIGNMENT_OPERATOR: return createAssignmentOperator();
       case CPackage.UNARY_OPERATOR: return createUnaryOperator();
+      case CPackage.POSTFIX_EXPRESSION_SUFFIX: return createPostfixExpressionSuffix();
       case CPackage.ARGUMENT_EXPRESSION_LIST: return createArgumentExpressionList();
       case CPackage.CONSTANT: return createConstant();
       case CPackage.STRUCT_OR_UNION_SPECIFIER: return createStructOrUnionSpecifier();
@@ -137,6 +138,12 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
       case CPackage.CAST_EXPRESSION: return createCastExpression();
       case CPackage.UNARY_EXPRESSION: return createUnaryExpression();
       case CPackage.POSTFIX_EXPRESSION: return createPostfixExpression();
+      case CPackage.POSTFIX_EXPRESSION_SUFFIX_ARRAY: return createPostfixExpressionSuffixArray();
+      case CPackage.POSTFIX_EXPRESSION_SUFFIX_ARGUMENT: return createPostfixExpressionSuffixArgument();
+      case CPackage.POSTFIX_EXPRESSION_SUFFIX_DOT: return createPostfixExpressionSuffixDot();
+      case CPackage.POSTFIX_EXPRESSION_SUFFIX_ARROW: return createPostfixExpressionSuffixArrow();
+      case CPackage.POSTFIX_EXPRESSION_SUFFIX_PLUS_PLUS: return createPostfixExpressionSuffixPlusPlus();
+      case CPackage.POSTFIX_EXPRESSION_SUFFIX_MINUS_MINUS: return createPostfixExpressionSuffixMinusMinus();
       case CPackage.PRIMARY_EXPRESSION: return createPrimaryExpression();
       case CPackage.CONSTANT_EXPRESSION: return createConstantExpression();
       default:
@@ -633,6 +640,17 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public PostfixExpressionSuffix createPostfixExpressionSuffix()
+  {
+    PostfixExpressionSuffixImpl postfixExpressionSuffix = new PostfixExpressionSuffixImpl();
+    return postfixExpressionSuffix;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public ArgumentExpressionList createArgumentExpressionList()
   {
     ArgumentExpressionListImpl argumentExpressionList = new ArgumentExpressionListImpl();
@@ -945,6 +963,72 @@ public class CFactoryImpl extends EFactoryImpl implements CFactory
   {
     PostfixExpressionImpl postfixExpression = new PostfixExpressionImpl();
     return postfixExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PostfixExpressionSuffixArray createPostfixExpressionSuffixArray()
+  {
+    PostfixExpressionSuffixArrayImpl postfixExpressionSuffixArray = new PostfixExpressionSuffixArrayImpl();
+    return postfixExpressionSuffixArray;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PostfixExpressionSuffixArgument createPostfixExpressionSuffixArgument()
+  {
+    PostfixExpressionSuffixArgumentImpl postfixExpressionSuffixArgument = new PostfixExpressionSuffixArgumentImpl();
+    return postfixExpressionSuffixArgument;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PostfixExpressionSuffixDot createPostfixExpressionSuffixDot()
+  {
+    PostfixExpressionSuffixDotImpl postfixExpressionSuffixDot = new PostfixExpressionSuffixDotImpl();
+    return postfixExpressionSuffixDot;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PostfixExpressionSuffixArrow createPostfixExpressionSuffixArrow()
+  {
+    PostfixExpressionSuffixArrowImpl postfixExpressionSuffixArrow = new PostfixExpressionSuffixArrowImpl();
+    return postfixExpressionSuffixArrow;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PostfixExpressionSuffixPlusPlus createPostfixExpressionSuffixPlusPlus()
+  {
+    PostfixExpressionSuffixPlusPlusImpl postfixExpressionSuffixPlusPlus = new PostfixExpressionSuffixPlusPlusImpl();
+    return postfixExpressionSuffixPlusPlus;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PostfixExpressionSuffixMinusMinus createPostfixExpressionSuffixMinusMinus()
+  {
+    PostfixExpressionSuffixMinusMinusImpl postfixExpressionSuffixMinusMinus = new PostfixExpressionSuffixMinusMinusImpl();
+    return postfixExpressionSuffixMinusMinus;
   }
 
   /**

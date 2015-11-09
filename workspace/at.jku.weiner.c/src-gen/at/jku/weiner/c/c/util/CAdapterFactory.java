@@ -295,6 +295,11 @@ public class CAdapterFactory extends AdapterFactoryImpl
         return createUnaryOperatorAdapter();
       }
       @Override
+      public Adapter casePostfixExpressionSuffix(PostfixExpressionSuffix object)
+      {
+        return createPostfixExpressionSuffixAdapter();
+      }
+      @Override
       public Adapter caseArgumentExpressionList(ArgumentExpressionList object)
       {
         return createArgumentExpressionListAdapter();
@@ -438,6 +443,36 @@ public class CAdapterFactory extends AdapterFactoryImpl
       public Adapter casePostfixExpression(PostfixExpression object)
       {
         return createPostfixExpressionAdapter();
+      }
+      @Override
+      public Adapter casePostfixExpressionSuffixArray(PostfixExpressionSuffixArray object)
+      {
+        return createPostfixExpressionSuffixArrayAdapter();
+      }
+      @Override
+      public Adapter casePostfixExpressionSuffixArgument(PostfixExpressionSuffixArgument object)
+      {
+        return createPostfixExpressionSuffixArgumentAdapter();
+      }
+      @Override
+      public Adapter casePostfixExpressionSuffixDot(PostfixExpressionSuffixDot object)
+      {
+        return createPostfixExpressionSuffixDotAdapter();
+      }
+      @Override
+      public Adapter casePostfixExpressionSuffixArrow(PostfixExpressionSuffixArrow object)
+      {
+        return createPostfixExpressionSuffixArrowAdapter();
+      }
+      @Override
+      public Adapter casePostfixExpressionSuffixPlusPlus(PostfixExpressionSuffixPlusPlus object)
+      {
+        return createPostfixExpressionSuffixPlusPlusAdapter();
+      }
+      @Override
+      public Adapter casePostfixExpressionSuffixMinusMinus(PostfixExpressionSuffixMinusMinus object)
+      {
+        return createPostfixExpressionSuffixMinusMinusAdapter();
       }
       @Override
       public Adapter casePrimaryExpression(PrimaryExpression object)
@@ -1132,6 +1167,21 @@ public class CAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.PostfixExpressionSuffix <em>Postfix Expression Suffix</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.c.PostfixExpressionSuffix
+   * @generated
+   */
+  public Adapter createPostfixExpressionSuffixAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.ArgumentExpressionList <em>Argument Expression List</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1562,6 +1612,96 @@ public class CAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createPostfixExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.PostfixExpressionSuffixArray <em>Postfix Expression Suffix Array</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.c.PostfixExpressionSuffixArray
+   * @generated
+   */
+  public Adapter createPostfixExpressionSuffixArrayAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.PostfixExpressionSuffixArgument <em>Postfix Expression Suffix Argument</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.c.PostfixExpressionSuffixArgument
+   * @generated
+   */
+  public Adapter createPostfixExpressionSuffixArgumentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.PostfixExpressionSuffixDot <em>Postfix Expression Suffix Dot</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.c.PostfixExpressionSuffixDot
+   * @generated
+   */
+  public Adapter createPostfixExpressionSuffixDotAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.PostfixExpressionSuffixArrow <em>Postfix Expression Suffix Arrow</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.c.PostfixExpressionSuffixArrow
+   * @generated
+   */
+  public Adapter createPostfixExpressionSuffixArrowAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.PostfixExpressionSuffixPlusPlus <em>Postfix Expression Suffix Plus Plus</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.c.PostfixExpressionSuffixPlusPlus
+   * @generated
+   */
+  public Adapter createPostfixExpressionSuffixPlusPlusAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.c.PostfixExpressionSuffixMinusMinus <em>Postfix Expression Suffix Minus Minus</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.c.PostfixExpressionSuffixMinusMinus
+   * @generated
+   */
+  public Adapter createPostfixExpressionSuffixMinusMinusAdapter()
   {
     return null;
   }

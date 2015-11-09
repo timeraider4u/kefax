@@ -167,6 +167,7 @@
     <genClasses ecoreClass="C.ecore#//UnaryOperator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//UnaryOperator/op"/>
     </genClasses>
+    <genClasses ecoreClass="C.ecore#//PostfixExpressionSuffix"/>
     <genClasses ecoreClass="C.ecore#//ArgumentExpressionList">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//ArgumentExpressionList/expr"/>
     </genClasses>
@@ -302,14 +303,22 @@
     </genClasses>
     <genClasses ecoreClass="C.ecore#//PostfixExpression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//PostfixExpression/expr"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//PostfixExpression/arrayExpr"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//PostfixExpression/argumentExpressionList"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//PostfixExpression/dot"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//PostfixExpression/id"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//PostfixExpression/arrow"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//PostfixExpression/plusplus"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//PostfixExpression/minusminus"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//PostfixExpression/suffix"/>
     </genClasses>
+    <genClasses ecoreClass="C.ecore#//PostfixExpressionSuffixArray">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//PostfixExpressionSuffixArray/arrayExpr"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//PostfixExpressionSuffixArgument">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//PostfixExpressionSuffixArgument/argumentExpressionList"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//PostfixExpressionSuffixDot">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//PostfixExpressionSuffixDot/id"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//PostfixExpressionSuffixArrow">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//PostfixExpressionSuffixArrow/id"/>
+    </genClasses>
+    <genClasses ecoreClass="C.ecore#//PostfixExpressionSuffixPlusPlus"/>
+    <genClasses ecoreClass="C.ecore#//PostfixExpressionSuffixMinusMinus"/>
     <genClasses ecoreClass="C.ecore#//PrimaryExpression">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute C.ecore#//PrimaryExpression/id"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference C.ecore#//PrimaryExpression/const"/>

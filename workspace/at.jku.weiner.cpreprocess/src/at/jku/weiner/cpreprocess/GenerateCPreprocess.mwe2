@@ -84,6 +84,14 @@ Workflow {
 			fragment = adapter.FragmentAdapter {
 				fragment = parser.antlr.XtextAntlrGeneratorFragment auto-inject {}
 			}
+//			fragment = adapter.FragmentAdapter {
+//				fragment = org.eclipse.xtext.generator.parser.antlr.ex.rt.AntlrGeneratorFragment {
+//    				options = {
+//        				backtrack = false
+//        				backtrackLexer = false
+//    				}
+//				}
+//			}
 
 			// Xtend-based API for validation
 			fragment = adapter.FragmentAdapter {

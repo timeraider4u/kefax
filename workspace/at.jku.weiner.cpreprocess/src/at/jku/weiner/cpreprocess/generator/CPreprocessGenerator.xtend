@@ -86,6 +86,6 @@ class CPreprocessGenerator implements IGenerator {
 	'''
 	
 	def String outputFor(Code obj) '''
-		«obj.code»
+		«obj.code.toString()»
 	'''
 }

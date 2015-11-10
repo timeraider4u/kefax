@@ -170,13 +170,31 @@ public interface CPreprocessPackage extends EPackage
   int DEFINE_DIRECTIVE = 4;
 
   /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEFINE_DIRECTIVE__ID = 0;
+
+  /**
+   * The feature id for the '<em><b>String</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEFINE_DIRECTIVE__STRING = 1;
+
+  /**
    * The number of structural features of the '<em>Define Directive</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DEFINE_DIRECTIVE_FEATURE_COUNT = 0;
+  int DEFINE_DIRECTIVE_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.cpreprocess.cPreprocess.impl.UnDefineDirectiveImpl <em>Un Define Directive</em>}' class.
@@ -404,6 +422,28 @@ public interface CPreprocessPackage extends EPackage
   EClass getDefineDirective();
 
   /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.cpreprocess.cPreprocess.DefineDirective#getId <em>Id</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Id</em>'.
+   * @see at.jku.weiner.cpreprocess.cPreprocess.DefineDirective#getId()
+   * @see #getDefineDirective()
+   * @generated
+   */
+  EAttribute getDefineDirective_Id();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.cpreprocess.cPreprocess.DefineDirective#getString <em>String</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>String</em>'.
+   * @see at.jku.weiner.cpreprocess.cPreprocess.DefineDirective#getString()
+   * @see #getDefineDirective()
+   * @generated
+   */
+  EAttribute getDefineDirective_String();
+
+  /**
    * Returns the meta object for class '{@link at.jku.weiner.cpreprocess.cPreprocess.UnDefineDirective <em>Un Define Directive</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -592,6 +632,22 @@ public interface CPreprocessPackage extends EPackage
      * @generated
      */
     EClass DEFINE_DIRECTIVE = eINSTANCE.getDefineDirective();
+
+    /**
+     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DEFINE_DIRECTIVE__ID = eINSTANCE.getDefineDirective_Id();
+
+    /**
+     * The meta object literal for the '<em><b>String</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DEFINE_DIRECTIVE__STRING = eINSTANCE.getDefineDirective_String();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.cpreprocess.cPreprocess.impl.UnDefineDirectiveImpl <em>Un Define Directive</em>}' class.

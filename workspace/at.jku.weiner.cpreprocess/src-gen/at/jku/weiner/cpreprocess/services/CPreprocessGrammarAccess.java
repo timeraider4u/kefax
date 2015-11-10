@@ -191,12 +191,16 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cDefineDirectiveAction_0 = (Action)cGroup.eContents().get(0);
 		private final RuleCall cDEFINETerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cIdAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cIdIDTerminalRuleCall_2_0 = (RuleCall)cIdAssignment_2.eContents().get(0);
+		private final Assignment cStringAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cStringMYCODETerminalRuleCall_3_0 = (RuleCall)cStringAssignment_3.eContents().get(0);
 		
 		//DefineDirective:
-		//	{DefineDirective} DEFINE;
+		//	{DefineDirective} DEFINE id=ID string=MYCODE;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{DefineDirective} DEFINE
+		//{DefineDirective} DEFINE id=ID string=MYCODE
 		public Group getGroup() { return cGroup; }
 		
 		//{DefineDirective}
@@ -204,6 +208,18 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//DEFINE
 		public RuleCall getDEFINETerminalRuleCall_1() { return cDEFINETerminalRuleCall_1; }
+		
+		//id=ID
+		public Assignment getIdAssignment_2() { return cIdAssignment_2; }
+		
+		//ID
+		public RuleCall getIdIDTerminalRuleCall_2_0() { return cIdIDTerminalRuleCall_2_0; }
+		
+		//string=MYCODE
+		public Assignment getStringAssignment_3() { return cStringAssignment_3; }
+		
+		//MYCODE
+		public RuleCall getStringMYCODETerminalRuleCall_3_0() { return cStringMYCODETerminalRuleCall_3_0; }
 	}
 	public class UnDefineDirectiveElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.UnDefineDirective");
@@ -294,28 +310,47 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cCodeAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cCodeAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cCodeMYCODETerminalRuleCall_1_0 = (RuleCall)cCodeAssignment_1.eContents().get(0);
+		private final RuleCall cCodeMyCodeLineParserRuleCall_1_0 = (RuleCall)cCodeAssignment_1.eContents().get(0);
 		private final RuleCall cNEWLINETerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		
 		//Code SourceCodeLine:
-		//	{Code} code=MYCODE
+		//	{Code} code=MyCodeLine
 		//	NEWLINE
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Code} code=MYCODE NEWLINE
+		//{Code} code=MyCodeLine NEWLINE
 		public Group getGroup() { return cGroup; }
 		
 		//{Code}
 		public Action getCodeAction_0() { return cCodeAction_0; }
 		
-		//code=MYCODE
+		//code=MyCodeLine
 		public Assignment getCodeAssignment_1() { return cCodeAssignment_1; }
 		
-		//MYCODE
-		public RuleCall getCodeMYCODETerminalRuleCall_1_0() { return cCodeMYCODETerminalRuleCall_1_0; }
+		//MyCodeLine
+		public RuleCall getCodeMyCodeLineParserRuleCall_1_0() { return cCodeMyCodeLineParserRuleCall_1_0; }
 		
 		//NEWLINE
 		public RuleCall getNEWLINETerminalRuleCall_2() { return cNEWLINETerminalRuleCall_2; }
+	}
+	public class MyCodeLineElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.MyCodeLine");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cMYCODETerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cIDTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//MyCodeLine:
+		//	MYCODE | ID+;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//MYCODE | ID+
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//MYCODE
+		public RuleCall getMYCODETerminalRuleCall_0() { return cMYCODETerminalRuleCall_0; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_1() { return cIDTerminalRuleCall_1; }
 	}
 	
 	
@@ -329,6 +364,9 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	private final PragmaDirectiveElements pPragmaDirective;
 	private final NewLineLineElements pNewLineLine;
 	private final CodeElements pCode;
+	private final MyCodeLineElements pMyCodeLine;
+	private final TerminalRule tLINEFEED;
+	private final TerminalRule tCARRIAGERETURN;
 	private final TerminalRule tNEWLINE;
 	private final TerminalRule tBACKSLASH;
 	private final TerminalRule tLINEBREAK;
@@ -339,6 +377,10 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tINCLUDE;
 	private final TerminalRule tERROR;
 	private final TerminalRule tPRAGMA;
+	private final TerminalRule tID;
+	private final TerminalRule tIDENTIFIER;
+	private final TerminalRule tLETTER;
+	private final TerminalRule tNO_CODE_START;
 	private final TerminalRule tMYCODE;
 	
 	private final Grammar grammar;
@@ -356,6 +398,9 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		this.pPragmaDirective = new PragmaDirectiveElements();
 		this.pNewLineLine = new NewLineLineElements();
 		this.pCode = new CodeElements();
+		this.pMyCodeLine = new MyCodeLineElements();
+		this.tLINEFEED = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.LINEFEED");
+		this.tCARRIAGERETURN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.CARRIAGERETURN");
 		this.tNEWLINE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.NEWLINE");
 		this.tBACKSLASH = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.BACKSLASH");
 		this.tLINEBREAK = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.LINEBREAK");
@@ -366,6 +411,10 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		this.tINCLUDE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.INCLUDE");
 		this.tERROR = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.ERROR");
 		this.tPRAGMA = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.PRAGMA");
+		this.tID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.ID");
+		this.tIDENTIFIER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.IDENTIFIER");
+		this.tLETTER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.LETTER");
+		this.tNO_CODE_START = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.NO_CODE_START");
 		this.tMYCODE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.MYCODE");
 	}
 	
@@ -439,7 +488,7 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DefineDirective:
-	//	{DefineDirective} DEFINE;
+	//	{DefineDirective} DEFINE id=ID string=MYCODE;
 	public DefineDirectiveElements getDefineDirectiveAccess() {
 		return pDefineDirective;
 	}
@@ -489,7 +538,7 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Code SourceCodeLine:
-	//	{Code} code=MYCODE
+	//	{Code} code=MyCodeLine
 	//	NEWLINE
 	public CodeElements getCodeAccess() {
 		return pCode;
@@ -499,8 +548,30 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		return getCodeAccess().getRule();
 	}
 	
+	//MyCodeLine:
+	//	MYCODE | ID+;
+	public MyCodeLineElements getMyCodeLineAccess() {
+		return pMyCodeLine;
+	}
+	
+	public ParserRule getMyCodeLineRule() {
+		return getMyCodeLineAccess().getRule();
+	}
+	
+	//terminal fragment LINEFEED:
+	//	'\n';
+	public TerminalRule getLINEFEEDRule() {
+		return tLINEFEED;
+	}
+	
+	//terminal fragment CARRIAGERETURN:
+	//	'\r';
+	public TerminalRule getCARRIAGERETURNRule() {
+		return tCARRIAGERETURN;
+	}
+	
 	//terminal NEWLINE:
-	//	'\r' | '\n';
+	//	CARRIAGERETURN | LINEFEED;
 	public TerminalRule getNEWLINERule() {
 		return tNEWLINE;
 	}
@@ -530,37 +601,64 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal DEFINE:
-	//	HASH WS* 'define' WS*;
+	//	HASH WS* 'define' WS+;
 	public TerminalRule getDEFINERule() {
 		return tDEFINE;
 	}
 	
 	//terminal UNDEF:
-	//	HASH WS* 'undef' WS*;
+	//	HASH WS* 'undef' WS+;
 	public TerminalRule getUNDEFRule() {
 		return tUNDEF;
 	}
 	
 	//terminal INCLUDE:
-	//	HASH WS* 'include' WS*;
+	//	HASH WS* 'include' WS+;
 	public TerminalRule getINCLUDERule() {
 		return tINCLUDE;
 	}
 	
 	//terminal ERROR:
-	//	HASH WS* 'error' WS*;
+	//	HASH WS* 'error' WS+;
 	public TerminalRule getERRORRule() {
 		return tERROR;
 	}
 	
 	//terminal PRAGMA:
-	//	HASH WS* 'pragma' WS*;
+	//	HASH WS* 'pragma' WS+;
 	public TerminalRule getPRAGMARule() {
 		return tPRAGMA;
 	}
 	
+	//terminal ID:
+	//	IDENTIFIER;
+	public TerminalRule getIDRule() {
+		return tID;
+	}
+	
+	//terminal fragment IDENTIFIER:
+	//	LETTER (LETTER | '0'..'9')*;
+	public TerminalRule getIDENTIFIERRule() {
+		return tIDENTIFIER;
+	}
+	
+	//terminal fragment LETTER:
+	//	'$'
+	//	| 'A'..'Z'
+	//	| 'a'..'z'
+	//	| '_';
+	public TerminalRule getLETTERRule() {
+		return tLETTER;
+	}
+	
+	//terminal fragment NO_CODE_START:
+	//	NEWLINE | HASH;
+	public TerminalRule getNO_CODE_STARTRule() {
+		return tNO_CODE_START;
+	}
+	
 	//terminal MYCODE:
-	//	!(HASH | NEWLINE) !NEWLINE*;
+	//	!(HASH | CARRIAGERETURN | LINEFEED) !(CARRIAGERETURN | LINEFEED)*;
 	public TerminalRule getMYCODERule() {
 		return tMYCODE;
 	}

@@ -74,7 +74,7 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     code=MYCODE
+	 *     code=MyCodeLine
 	 */
 	protected void sequence_Code(EObject context, Code semanticObject) {
 		if(errorAcceptor != null) {
@@ -83,17 +83,27 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getCodeAccess().getCodeMYCODETerminalRuleCall_1_0(), semanticObject.getCode());
+		feeder.accept(grammarAccess.getCodeAccess().getCodeMyCodeLineParserRuleCall_1_0(), semanticObject.getCode());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     {DefineDirective}
+	 *     (id=ID string=MYCODE)
 	 */
 	protected void sequence_DefineDirective(EObject context, DefineDirective semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, CPreprocessPackage.Literals.DEFINE_DIRECTIVE__ID) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CPreprocessPackage.Literals.DEFINE_DIRECTIVE__ID));
+			if(transientValues.isValueTransient(semanticObject, CPreprocessPackage.Literals.DEFINE_DIRECTIVE__STRING) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CPreprocessPackage.Literals.DEFINE_DIRECTIVE__STRING));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getDefineDirectiveAccess().getIdIDTerminalRuleCall_2_0(), semanticObject.getId());
+		feeder.accept(grammarAccess.getDefineDirectiveAccess().getStringMYCODETerminalRuleCall_3_0(), semanticObject.getString());
+		feeder.finish();
 	}
 	
 	

@@ -67,7 +67,7 @@ IncludeDirective:
 
 DefineDirective:
 	{DefineDirective}
-	DEFINE 
+	DEFINE id=ID string=MYCODE
 ;
 
 UnDefineDirective:
@@ -92,24 +92,46 @@ NewLineLine returns SourceCodeLine:
 
 Code returns SourceCodeLine:
 	{Code}
-	code=MYCODE
+	code=MyCodeLine
 	NEWLINE
 ;
 
+MyCodeLine returns ecore::EString:
+	(MYCODE | ID)+
+;
+
+
 // lexer tokens
-terminal NEWLINE: ('\r'|'\n');
+terminal fragment LINEFEED: '\n';
+terminal fragment CARRIAGERETURN: '\r';
+terminal NEWLINE: (CARRIAGERETURN | LINEFEED);
 terminal fragment BACKSLASH: '\\';
 terminal fragment LINEBREAK: (BACKSLASH NEWLINE)+;
 terminal WS: (' ' | '\t' | LINEBREAK);
 terminal fragment HASH: '#';
-terminal DEFINE:	HASH WS* 'define' WS*;
-terminal UNDEF:		HASH WS* 'undef' WS*;
-terminal INCLUDE:	HASH WS* 'include' WS*;
-terminal ERROR:		HASH WS* 'error' WS*;
-terminal PRAGMA:	HASH WS* 'pragma' WS*;
+terminal DEFINE:	HASH WS* 'define' WS+;
+terminal UNDEF:		HASH WS* 'undef' WS+;
+terminal INCLUDE:	HASH WS* 'include' WS+;
+terminal ERROR:		HASH WS* 'error' WS+;
+terminal PRAGMA:	HASH WS* 'pragma' WS+;
 
+terminal ID: IDENTIFIER;
+terminal fragment IDENTIFIER:
+	LETTER (LETTER|'0'..'9')*
+;
+
+terminal fragment LETTER:
+	'$'
+	|	'A'..'Z'
+	|	'a'..'z'
+	|	'_'
+;
+
+terminal fragment NO_CODE_START:
+	NEWLINE | HASH
+;
 
 terminal MYCODE:
-	!(HASH | NEWLINE)
-	(!NEWLINE)*
+	!(HASH|CARRIAGERETURN|LINEFEED)
+	(!(CARRIAGERETURN|LINEFEED))*
 ;

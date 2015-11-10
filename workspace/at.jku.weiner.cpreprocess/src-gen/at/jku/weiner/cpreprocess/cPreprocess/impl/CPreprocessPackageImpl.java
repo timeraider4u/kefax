@@ -256,6 +256,26 @@ public class CPreprocessPackageImpl extends EPackageImpl implements CPreprocessP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getDefineDirective_Id()
+  {
+    return (EAttribute)defineDirectiveEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDefineDirective_String()
+  {
+    return (EAttribute)defineDirectiveEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getUnDefineDirective()
   {
     return unDefineDirectiveEClass;
@@ -383,6 +403,8 @@ public class CPreprocessPackageImpl extends EPackageImpl implements CPreprocessP
     createEAttribute(includeDirectiveEClass, INCLUDE_DIRECTIVE__STRING);
 
     defineDirectiveEClass = createEClass(DEFINE_DIRECTIVE);
+    createEAttribute(defineDirectiveEClass, DEFINE_DIRECTIVE__ID);
+    createEAttribute(defineDirectiveEClass, DEFINE_DIRECTIVE__STRING);
 
     unDefineDirectiveEClass = createEClass(UN_DEFINE_DIRECTIVE);
 
@@ -446,6 +468,8 @@ public class CPreprocessPackageImpl extends EPackageImpl implements CPreprocessP
     initEAttribute(getIncludeDirective_String(), ecorePackage.getEString(), "string", null, 0, 1, IncludeDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(defineDirectiveEClass, DefineDirective.class, "DefineDirective", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDefineDirective_Id(), ecorePackage.getEString(), "id", null, 0, 1, DefineDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDefineDirective_String(), ecorePackage.getEString(), "string", null, 0, 1, DefineDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(unDefineDirectiveEClass, UnDefineDirective.class, "UnDefineDirective", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

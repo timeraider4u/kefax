@@ -42,34 +42,34 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	}
 	
 	/**
-	 * terminal DEFINE:	HASH WS* 'define' WS*;
+	 * terminal DEFINE:	HASH WS* 'define' WS+;
 	 */
 	protected String getDEFINEToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
-		return "#define";
+		return "#define ";
 	}
 	
 	/**
-	 * terminal ERROR:		HASH WS* 'error' WS*;
+	 * terminal ERROR:		HASH WS* 'error' WS+;
 	 */
 	protected String getERRORToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
-		return "#error";
+		return "#error ";
 	}
 	
 	/**
-	 * terminal INCLUDE:	HASH WS* 'include' WS*;
+	 * terminal INCLUDE:	HASH WS* 'include' WS+;
 	 */
 	protected String getINCLUDEToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
-		return "#include";
+		return "#include ";
 	}
 	
 	/**
-	 * terminal NEWLINE: ('\r'|'\n');
+	 * terminal NEWLINE: (CARRIAGERETURN | LINEFEED);
 	 */
 	protected String getNEWLINEToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
@@ -78,21 +78,21 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	}
 	
 	/**
-	 * terminal PRAGMA:	HASH WS* 'pragma' WS*;
+	 * terminal PRAGMA:	HASH WS* 'pragma' WS+;
 	 */
 	protected String getPRAGMAToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
-		return "#pragma";
+		return "#pragma ";
 	}
 	
 	/**
-	 * terminal UNDEF:		HASH WS* 'undef' WS*;
+	 * terminal UNDEF:		HASH WS* 'undef' WS+;
 	 */
 	protected String getUNDEFToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
-		return "#undef";
+		return "#undef ";
 	}
 	
 	@Override

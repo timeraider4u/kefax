@@ -39,6 +39,7 @@ public class CPreprocessParser extends AbstractContentAssistParser {
 				{
 					put(grammarAccess.getTranslationUnitAccess().getAlternatives_1(), "rule__TranslationUnit__Alternatives_1");
 					put(grammarAccess.getPreprocessorDirectivesAccess().getAlternatives_1(), "rule__PreprocessorDirectives__Alternatives_1");
+					put(grammarAccess.getMyCodeLineAccess().getAlternatives(), "rule__MyCodeLine__Alternatives");
 					put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
 					put(grammarAccess.getTranslationUnitAccess().getGroup(), "rule__TranslationUnit__Group__0");
 					put(grammarAccess.getPreprocessorDirectivesAccess().getGroup(), "rule__PreprocessorDirectives__Group__0");
@@ -59,6 +60,8 @@ public class CPreprocessParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveAssignment_1_3(), "rule__PreprocessorDirectives__DirectiveAssignment_1_3");
 					put(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveAssignment_1_4(), "rule__PreprocessorDirectives__DirectiveAssignment_1_4");
 					put(grammarAccess.getIncludeDirectiveAccess().getStringAssignment_2(), "rule__IncludeDirective__StringAssignment_2");
+					put(grammarAccess.getDefineDirectiveAccess().getIdAssignment_2(), "rule__DefineDirective__IdAssignment_2");
+					put(grammarAccess.getDefineDirectiveAccess().getStringAssignment_3(), "rule__DefineDirective__StringAssignment_3");
 					put(grammarAccess.getErrorDirectiveAccess().getMsgAssignment_2(), "rule__ErrorDirective__MsgAssignment_2");
 					put(grammarAccess.getCodeAccess().getCodeAssignment_1(), "rule__Code__CodeAssignment_1");
 				}

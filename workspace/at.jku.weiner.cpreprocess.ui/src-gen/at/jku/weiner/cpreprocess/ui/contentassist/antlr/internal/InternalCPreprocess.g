@@ -397,6 +397,47 @@ finally {
 
 
 
+// Entry rule entryRuleMyCodeLine
+entryRuleMyCodeLine 
+:
+{ before(grammarAccess.getMyCodeLineRule()); }
+	 ruleMyCodeLine
+{ after(grammarAccess.getMyCodeLineRule()); } 
+	 EOF 
+;
+
+// Rule MyCodeLine
+ruleMyCodeLine
+    @init {
+		int stackSize = keepStackSize();
+		/*no init found*/
+    }
+	@after {
+    		/*no after found*/
+     }:
+
+(
+(
+{ before(grammarAccess.getMyCodeLineAccess().getAlternatives()); }
+(rule__MyCodeLine__Alternatives)
+{ after(grammarAccess.getMyCodeLineAccess().getAlternatives()); }
+)
+(
+{ before(grammarAccess.getMyCodeLineAccess().getAlternatives()); }
+(rule__MyCodeLine__Alternatives)*
+{ after(grammarAccess.getMyCodeLineAccess().getAlternatives()); }
+)
+)
+
+
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
 
 rule__TranslationUnit__Alternatives_1
     @init {
@@ -481,6 +522,34 @@ rule__PreprocessorDirectives__Alternatives_1
 { before(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveAssignment_1_4()); }
 (rule__PreprocessorDirectives__DirectiveAssignment_1_4)
 { after(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveAssignment_1_4()); }
+)
+
+
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__MyCodeLine__Alternatives
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+
+(
+{ before(grammarAccess.getMyCodeLineAccess().getMYCODETerminalRuleCall_0()); }
+	RULE_MYCODE
+{ after(grammarAccess.getMyCodeLineAccess().getMYCODETerminalRuleCall_0()); }
+)
+
+
+
+    |
+(
+{ before(grammarAccess.getMyCodeLineAccess().getIDTerminalRuleCall_1()); }
+	RULE_ID
+{ after(grammarAccess.getMyCodeLineAccess().getIDTerminalRuleCall_1()); }
 )
 
 
@@ -876,6 +945,7 @@ rule__DefineDirective__Group__1
     }
 :
 	rule__DefineDirective__Group__1__Impl
+	rule__DefineDirective__Group__2
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -899,6 +969,73 @@ rule__DefineDirective__Group__1__Impl
 finally {
 	restoreStackSize(stackSize);
 }
+
+
+rule__DefineDirective__Group__2
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__DefineDirective__Group__2__Impl
+	rule__DefineDirective__Group__3
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DefineDirective__Group__2__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+
+(
+{ before(grammarAccess.getDefineDirectiveAccess().getIdAssignment_2()); }
+(rule__DefineDirective__IdAssignment_2)
+{ after(grammarAccess.getDefineDirectiveAccess().getIdAssignment_2()); }
+)
+
+
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__DefineDirective__Group__3
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__DefineDirective__Group__3__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DefineDirective__Group__3__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+
+(
+{ before(grammarAccess.getDefineDirectiveAccess().getStringAssignment_3()); }
+(rule__DefineDirective__StringAssignment_3)
+{ after(grammarAccess.getDefineDirectiveAccess().getStringAssignment_3()); }
+)
+
+
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
+
 
 
 
@@ -1469,6 +1606,36 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+rule__DefineDirective__IdAssignment_2
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getDefineDirectiveAccess().getIdIDTerminalRuleCall_2_0()); }
+	RULE_ID{ after(grammarAccess.getDefineDirectiveAccess().getIdIDTerminalRuleCall_2_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DefineDirective__StringAssignment_3
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getDefineDirectiveAccess().getStringMYCODETerminalRuleCall_3_0()); }
+	RULE_MYCODE{ after(grammarAccess.getDefineDirectiveAccess().getStringMYCODETerminalRuleCall_3_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__ErrorDirective__MsgAssignment_2
     @init {
 		int stackSize = keepStackSize();
@@ -1490,8 +1657,8 @@ rule__Code__CodeAssignment_1
     }
 :
 (
-{ before(grammarAccess.getCodeAccess().getCodeMYCODETerminalRuleCall_1_0()); }
-	RULE_MYCODE{ after(grammarAccess.getCodeAccess().getCodeMYCODETerminalRuleCall_1_0()); }
+{ before(grammarAccess.getCodeAccess().getCodeMyCodeLineParserRuleCall_1_0()); }
+	ruleMyCodeLine{ after(grammarAccess.getCodeAccess().getCodeMyCodeLineParserRuleCall_1_0()); }
 )
 
 ;
@@ -1500,7 +1667,11 @@ finally {
 }
 
 
-RULE_NEWLINE : ('\r'|'\n');
+fragment RULE_LINEFEED : '\n';
+
+fragment RULE_CARRIAGERETURN : '\r';
+
+RULE_NEWLINE : (RULE_CARRIAGERETURN|RULE_LINEFEED);
 
 fragment RULE_BACKSLASH : '\\';
 
@@ -1510,16 +1681,24 @@ fragment RULE_WS : (' '|'\t'|RULE_LINEBREAK);
 
 fragment RULE_HASH : '#';
 
-RULE_DEFINE : RULE_HASH RULE_WS* 'define' RULE_WS*;
+RULE_DEFINE : RULE_HASH RULE_WS* 'define' RULE_WS+;
 
-RULE_UNDEF : RULE_HASH RULE_WS* 'undef' RULE_WS*;
+RULE_UNDEF : RULE_HASH RULE_WS* 'undef' RULE_WS+;
 
-RULE_INCLUDE : RULE_HASH RULE_WS* 'include' RULE_WS*;
+RULE_INCLUDE : RULE_HASH RULE_WS* 'include' RULE_WS+;
 
-RULE_ERROR : RULE_HASH RULE_WS* 'error' RULE_WS*;
+RULE_ERROR : RULE_HASH RULE_WS* 'error' RULE_WS+;
 
-RULE_PRAGMA : RULE_HASH RULE_WS* 'pragma' RULE_WS*;
+RULE_PRAGMA : RULE_HASH RULE_WS* 'pragma' RULE_WS+;
 
-RULE_MYCODE : ~((RULE_HASH|RULE_NEWLINE)) ~(RULE_NEWLINE)*;
+RULE_ID : RULE_IDENTIFIER;
+
+fragment RULE_IDENTIFIER : RULE_LETTER (RULE_LETTER|'0'..'9')*;
+
+fragment RULE_LETTER : ('$'|'A'..'Z'|'a'..'z'|'_');
+
+fragment RULE_NO_CODE_START : (RULE_NEWLINE|RULE_HASH);
+
+RULE_MYCODE : ~((RULE_HASH|RULE_CARRIAGERETURN|RULE_LINEFEED)) ~((RULE_CARRIAGERETURN|RULE_LINEFEED))*;
 
 

@@ -1,0 +1,42 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.cpreprocess
+language cPreprocess
+//----------------------------------------------------------------------
+source file="res/Test0004_SimpleDef.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	DEFINE ID MYCODE NEWLINE
+	DEFINE ID MYCODE NEWLINE
+	DEFINE ID MYCODE NEWLINE
+	NEWLINE
+	DEFINE ID MYCODE NEWLINE
+	NEWLINE
+	DEFINE ID MYCODE NEWLINE
+	NEWLINE
+	MYCODE NEWLINE
+	DEFINE ID MYCODE NEWLINE
+	NEWLINE
+	MYCODE NEWLINE
+	MYCODE NEWLINE
+	MYCODE NEWLINE
+	MYCODE NEWLINE
+//----------------------------------------------------------------------
+(Model
+	units+=
+	(TranslationUnit
+		lines+=
+		(PreprocessorDirectives
+			directive=
+			(ErrorDirective
+				msg++"\\\"error message!\\\""
+			)
+		)
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0004_SimpleDef.c.i"
+expected file="expected/Test0004_SimpleDef.c"
+replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

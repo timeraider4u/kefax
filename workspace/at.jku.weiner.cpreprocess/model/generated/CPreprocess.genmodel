@@ -4,7 +4,7 @@
     editorDirectory="/at.jku.weiner.cpreprocess.editor/src" modelPluginID="at.jku.weiner.cpreprocess"
     forceOverwrite="true" modelName="CPreprocess" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="6.0" copyrightFields="false" editPluginID="at.jku.weiner.cpreprocess.edit"
-    editorPluginID="at.jku.weiner.cpreprocess.editor" runtimeVersion="2.11">
+    editorPluginID="at.jku.weiner.cpreprocess.editor" runtimeVersion="2.10">
   <genPackages prefix="CPreprocess" basePackage="at.jku.weiner.cpreprocess" disposableProviderFactory="true"
       fileExtensions="c,h" ecorePackage="CPreprocess.ecore#/">
     <genClasses ecoreClass="CPreprocess.ecore#//Model">
@@ -17,7 +17,10 @@
     <genClasses ecoreClass="CPreprocess.ecore#//IncludeDirective">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CPreprocess.ecore#//IncludeDirective/string"/>
     </genClasses>
-    <genClasses ecoreClass="CPreprocess.ecore#//DefineDirective"/>
+    <genClasses ecoreClass="CPreprocess.ecore#//DefineDirective">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CPreprocess.ecore#//DefineDirective/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CPreprocess.ecore#//DefineDirective/string"/>
+    </genClasses>
     <genClasses ecoreClass="CPreprocess.ecore#//UnDefineDirective"/>
     <genClasses ecoreClass="CPreprocess.ecore#//ErrorDirective">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CPreprocess.ecore#//ErrorDirective/msg"/>

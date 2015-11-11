@@ -33,10 +33,6 @@ import at.jku.weiner.cpreprocess.services.CPreprocessGrammarAccess;
 
 }
 
-@lexer::members {
-	private boolean isPreLine = false;
-}
-
 @parser::members {
 
  	private CPreprocessGrammarAccess grammarAccess;
@@ -504,11 +500,18 @@ this_DEFINE_1=RULE_DEFINE
 )
 
 
+(this_WS_3=RULE_WS
+    { 
+    newLeafNode(this_WS_3, grammarAccess.getDefineDirectiveAccess().getWSTerminalRuleCall_3()); 
+    }
+)+
+
+
 (
 (
-		lv_string_3_0=RULE_MYCODE
+		lv_string_4_0=RULE_MYCODE
 		{
-			newLeafNode(lv_string_3_0, grammarAccess.getDefineDirectiveAccess().getStringMYCODETerminalRuleCall_3_0()); 
+			newLeafNode(lv_string_4_0, grammarAccess.getDefineDirectiveAccess().getStringMYCODETerminalRuleCall_4_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -517,7 +520,7 @@ this_DEFINE_1=RULE_DEFINE
        		setWithLastConsumed(
        			$current, 
        			"string",
-        		lv_string_3_0, 
+        		lv_string_4_0, 
         		"at.jku.weiner.cpreprocess.CPreprocess.MYCODE");
 	    }
 
@@ -830,27 +833,27 @@ fragment RULE_LINEFEED : '\n';
 
 fragment RULE_CARRIAGERETURN : '\r';
 
-RULE_NEWLINE : (RULE_CARRIAGERETURN|RULE_LINEFEED) { isPreLine = false; } ;
+RULE_NEWLINE : (RULE_CARRIAGERETURN|RULE_LINEFEED) { at.jku.weiner.cpreprocess.PreLine.setPreLine(false); } ;
 
 fragment RULE_BACKSLASH : '\\';
 
 fragment RULE_LINEBREAK : (RULE_BACKSLASH RULE_NEWLINE)+;
 
-fragment RULE_WS : (' '|'\t'|RULE_LINEBREAK);
+fragment RULE_WS : (' '|'\t'|RULE_LINEBREAK) { at.jku.weiner.cpreprocess.PreLine.setWhiteSpace(); } ;
 
 fragment RULE_HASH : '#';
 
-RULE_DEFINE : RULE_HASH RULE_WS* 'define' RULE_WS+ { isPreLine = true; };
+RULE_DEFINE : RULE_HASH RULE_WS* 'define' RULE_WS+ { at.jku.weiner.cpreprocess.PreLine.setPreLine(true); };
 
-RULE_UNDEF : RULE_HASH RULE_WS* 'undef' RULE_WS+ { isPreLine = true; };
+RULE_UNDEF : RULE_HASH RULE_WS* 'undef' RULE_WS+ { at.jku.weiner.cpreprocess.PreLine.setPreLine(true); };
 
-RULE_INCLUDE : RULE_HASH RULE_WS* 'include' RULE_WS+ { isPreLine = false; };
+RULE_INCLUDE : RULE_HASH RULE_WS* 'include' RULE_WS+ { at.jku.weiner.cpreprocess.PreLine.setPreLine(false); };
 
-RULE_ERROR : RULE_HASH RULE_WS* 'error' RULE_WS+ { isPreLine = false; };
+RULE_ERROR : RULE_HASH RULE_WS* 'error' RULE_WS+ { at.jku.weiner.cpreprocess.PreLine.setPreLine(false); };
 
-RULE_PRAGMA : RULE_HASH RULE_WS* 'pragma' RULE_WS+ { isPreLine = true; };
+RULE_PRAGMA : RULE_HASH RULE_WS* 'pragma' RULE_WS+ { at.jku.weiner.cpreprocess.PreLine.setPreLine(true); };
 
-RULE_ID : RULE_IDENTIFIER { isPreLine = false; } ;
+RULE_ID : RULE_IDENTIFIER { at.jku.weiner.cpreprocess.PreLine.setIdentifier(); } ;
 
 fragment RULE_IDENTIFIER : RULE_LETTER (RULE_LETTER|'0'..'9')*;
 
@@ -858,6 +861,5 @@ fragment RULE_LETTER : ('$'|'A'..'Z'|'a'..'z'|'_');
 
 fragment RULE_NO_CODE_START : (RULE_NEWLINE|RULE_HASH);
 
-RULE_MYCODE : { !isPreLine }?=> ~((RULE_HASH|RULE_CARRIAGERETURN|RULE_LINEFEED)) ~((RULE_CARRIAGERETURN|RULE_LINEFEED))*;
-
+RULE_MYCODE : { !at.jku.weiner.cpreprocess.PreLine.isPreLine() }?=> ~((RULE_HASH|RULE_CARRIAGERETURN|RULE_LINEFEED)) ~((RULE_CARRIAGERETURN|RULE_LINEFEED))*;
 

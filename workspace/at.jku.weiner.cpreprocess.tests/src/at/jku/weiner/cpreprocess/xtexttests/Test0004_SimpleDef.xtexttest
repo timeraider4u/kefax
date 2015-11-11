@@ -6,16 +6,16 @@ language cPreprocess
 source file="res/Test0004_SimpleDef.c"
 //----------------------------------------------------------------------
 lexer-tokens
-	DEFINE ID MYCODE NEWLINE
-	DEFINE ID MYCODE NEWLINE
-	DEFINE ID MYCODE NEWLINE
+	DEFINE ID WS MYCODE NEWLINE
+	DEFINE ID WS MYCODE NEWLINE
+	DEFINE ID WS MYCODE NEWLINE
 	NEWLINE
-	DEFINE ID MYCODE NEWLINE
+	DEFINE ID WS MYCODE NEWLINE
 	NEWLINE
-	DEFINE ID MYCODE NEWLINE
+	DEFINE ID WS MYCODE NEWLINE
 	NEWLINE
 	MYCODE NEWLINE
-	DEFINE ID MYCODE NEWLINE
+	DEFINE ID WS MYCODE NEWLINE
 	NEWLINE
 	MYCODE NEWLINE
 	MYCODE NEWLINE
@@ -28,9 +28,64 @@ lexer-tokens
 		lines+=
 		(PreprocessorDirectives
 			directive=
-			(ErrorDirective
-				msg++"\\\"error message!\\\""
+			(DefineDirective
+				id++"PI",
+				string++"3.1415926535897932"
 			)
+		),
+		(PreprocessorDirectives
+			directive=
+			(DefineDirective
+				id++"NAME",
+				string++"\\\"Nobody\\\""
+			)
+		),
+		(PreprocessorDirectives
+			directive=
+			(DefineDirective
+				id++"NUMBER",
+				string++"2"
+			)
+		),
+		(NewLineLine),
+		(PreprocessorDirectives
+			directive=
+			(DefineDirective
+				id++"X",
+				string++"NUMBER"
+			)
+		),
+		(NewLineLine),
+		(PreprocessorDirectives
+			directive=
+			(DefineDirective
+				id++"MAIN",
+				string++"int main(void)"
+			)
+		),
+		(NewLineLine),
+		(Code
+			code++"// nasty, but valid"
+		),
+		(PreprocessorDirectives
+			directive=
+			(DefineDirective
+				id++"long",
+				string++"int"
+			)
+		),
+		(NewLineLine),
+		(Code
+			code++"MAIN {"
+		),
+		(Code
+			code++"	long d = X - NUMBER;"
+		),
+		(Code
+			code++"	return d;"
+		),
+		(Code
+			code++"}"
 		)
 	)
 )

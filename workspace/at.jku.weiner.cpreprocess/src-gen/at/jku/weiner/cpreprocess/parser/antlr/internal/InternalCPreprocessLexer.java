@@ -1,4 +1,4 @@
-// $ANTLR 3.x InternalCPreprocess.g 2015-11-10 21:00:37
+// $ANTLR 3.x InternalCPreprocess.g 2015-11-10 21:32:20
 
 package at.jku.weiner.cpreprocess.parser.antlr.internal;
 
@@ -33,9 +33,6 @@ public class InternalCPreprocessLexer extends Lexer {
 	public static final int RULE_UNDEF=19;
 	public static final int RULE_WS=20;
 
-		private boolean isPreLine = false;
-
-
 	// delegates
 	// delegators
 	public Lexer[] getDelegates() {
@@ -54,8 +51,8 @@ public class InternalCPreprocessLexer extends Lexer {
 	// $ANTLR start "RULE_LINEFEED"
 	public final void mRULE_LINEFEED() throws RecognitionException {
 		try {
-			// InternalCPreprocess.g:829:24: ( '\\n' )
-			// InternalCPreprocess.g:829:26: '\\n'
+			// InternalCPreprocess.g:832:24: ( '\\n' )
+			// InternalCPreprocess.g:832:26: '\\n'
 			{
 			match('\n'); 
 			}
@@ -70,8 +67,8 @@ public class InternalCPreprocessLexer extends Lexer {
 	// $ANTLR start "RULE_CARRIAGERETURN"
 	public final void mRULE_CARRIAGERETURN() throws RecognitionException {
 		try {
-			// InternalCPreprocess.g:831:30: ( '\\r' )
-			// InternalCPreprocess.g:831:32: '\\r'
+			// InternalCPreprocess.g:834:30: ( '\\r' )
+			// InternalCPreprocess.g:834:32: '\\r'
 			{
 			match('\r'); 
 			}
@@ -88,8 +85,8 @@ public class InternalCPreprocessLexer extends Lexer {
 		try {
 			int _type = RULE_NEWLINE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// InternalCPreprocess.g:833:14: ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) )
-			// InternalCPreprocess.g:833:16: ( RULE_CARRIAGERETURN | RULE_LINEFEED )
+			// InternalCPreprocess.g:836:14: ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) )
+			// InternalCPreprocess.g:836:16: ( RULE_CARRIAGERETURN | RULE_LINEFEED )
 			{
 			if ( input.LA(1)=='\n'||input.LA(1)=='\r' ) {
 				input.consume();
@@ -99,7 +96,7 @@ public class InternalCPreprocessLexer extends Lexer {
 				recover(mse);
 				throw mse;
 			}
-			 isPreLine = false; 
+			 at.jku.weiner.cpreprocess.PreLine.setPreLine(false); 
 			}
 
 			state.type = _type;
@@ -114,8 +111,8 @@ public class InternalCPreprocessLexer extends Lexer {
 	// $ANTLR start "RULE_BACKSLASH"
 	public final void mRULE_BACKSLASH() throws RecognitionException {
 		try {
-			// InternalCPreprocess.g:835:25: ( '\\\\' )
-			// InternalCPreprocess.g:835:27: '\\\\'
+			// InternalCPreprocess.g:838:25: ( '\\\\' )
+			// InternalCPreprocess.g:838:27: '\\\\'
 			{
 			match('\\'); 
 			}
@@ -130,10 +127,10 @@ public class InternalCPreprocessLexer extends Lexer {
 	// $ANTLR start "RULE_LINEBREAK"
 	public final void mRULE_LINEBREAK() throws RecognitionException {
 		try {
-			// InternalCPreprocess.g:837:25: ( ( RULE_BACKSLASH RULE_NEWLINE )+ )
-			// InternalCPreprocess.g:837:27: ( RULE_BACKSLASH RULE_NEWLINE )+
+			// InternalCPreprocess.g:840:25: ( ( RULE_BACKSLASH RULE_NEWLINE )+ )
+			// InternalCPreprocess.g:840:27: ( RULE_BACKSLASH RULE_NEWLINE )+
 			{
-			// InternalCPreprocess.g:837:27: ( RULE_BACKSLASH RULE_NEWLINE )+
+			// InternalCPreprocess.g:840:27: ( RULE_BACKSLASH RULE_NEWLINE )+
 			int cnt1=0;
 			loop1:
 			while (true) {
@@ -145,7 +142,7 @@ public class InternalCPreprocessLexer extends Lexer {
 
 				switch (alt1) {
 				case 1 :
-					// InternalCPreprocess.g:837:28: RULE_BACKSLASH RULE_NEWLINE
+					// InternalCPreprocess.g:840:28: RULE_BACKSLASH RULE_NEWLINE
 					{
 					mRULE_BACKSLASH(); 
 
@@ -174,10 +171,10 @@ public class InternalCPreprocessLexer extends Lexer {
 	// $ANTLR start "RULE_WS"
 	public final void mRULE_WS() throws RecognitionException {
 		try {
-			// InternalCPreprocess.g:839:18: ( ( ' ' | '\\t' | RULE_LINEBREAK ) )
-			// InternalCPreprocess.g:839:20: ( ' ' | '\\t' | RULE_LINEBREAK )
+			// InternalCPreprocess.g:842:18: ( ( ' ' | '\\t' | RULE_LINEBREAK ) )
+			// InternalCPreprocess.g:842:20: ( ' ' | '\\t' | RULE_LINEBREAK )
 			{
-			// InternalCPreprocess.g:839:20: ( ' ' | '\\t' | RULE_LINEBREAK )
+			// InternalCPreprocess.g:842:20: ( ' ' | '\\t' | RULE_LINEBREAK )
 			int alt2=3;
 			switch ( input.LA(1) ) {
 			case ' ':
@@ -202,19 +199,19 @@ public class InternalCPreprocessLexer extends Lexer {
 			}
 			switch (alt2) {
 				case 1 :
-					// InternalCPreprocess.g:839:21: ' '
+					// InternalCPreprocess.g:842:21: ' '
 					{
 					match(' '); 
 					}
 					break;
 				case 2 :
-					// InternalCPreprocess.g:839:25: '\\t'
+					// InternalCPreprocess.g:842:25: '\\t'
 					{
 					match('\t'); 
 					}
 					break;
 				case 3 :
-					// InternalCPreprocess.g:839:30: RULE_LINEBREAK
+					// InternalCPreprocess.g:842:30: RULE_LINEBREAK
 					{
 					mRULE_LINEBREAK(); 
 
@@ -223,6 +220,7 @@ public class InternalCPreprocessLexer extends Lexer {
 
 			}
 
+			 at.jku.weiner.cpreprocess.PreLine.setWhiteSpace(); 
 			}
 
 		}
@@ -235,8 +233,8 @@ public class InternalCPreprocessLexer extends Lexer {
 	// $ANTLR start "RULE_HASH"
 	public final void mRULE_HASH() throws RecognitionException {
 		try {
-			// InternalCPreprocess.g:841:20: ( '#' )
-			// InternalCPreprocess.g:841:22: '#'
+			// InternalCPreprocess.g:844:20: ( '#' )
+			// InternalCPreprocess.g:844:22: '#'
 			{
 			match('#'); 
 			}
@@ -253,12 +251,12 @@ public class InternalCPreprocessLexer extends Lexer {
 		try {
 			int _type = RULE_DEFINE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// InternalCPreprocess.g:843:13: ( RULE_HASH ( RULE_WS )* 'define' ( RULE_WS )+ )
-			// InternalCPreprocess.g:843:15: RULE_HASH ( RULE_WS )* 'define' ( RULE_WS )+
+			// InternalCPreprocess.g:846:13: ( RULE_HASH ( RULE_WS )* 'define' ( RULE_WS )+ )
+			// InternalCPreprocess.g:846:15: RULE_HASH ( RULE_WS )* 'define' ( RULE_WS )+
 			{
 			mRULE_HASH(); 
 
-			// InternalCPreprocess.g:843:25: ( RULE_WS )*
+			// InternalCPreprocess.g:846:25: ( RULE_WS )*
 			loop3:
 			while (true) {
 				int alt3=2;
@@ -269,7 +267,7 @@ public class InternalCPreprocessLexer extends Lexer {
 
 				switch (alt3) {
 				case 1 :
-					// InternalCPreprocess.g:843:25: RULE_WS
+					// InternalCPreprocess.g:846:25: RULE_WS
 					{
 					mRULE_WS(); 
 
@@ -283,7 +281,7 @@ public class InternalCPreprocessLexer extends Lexer {
 
 			match("define"); 
 
-			// InternalCPreprocess.g:843:43: ( RULE_WS )+
+			// InternalCPreprocess.g:846:43: ( RULE_WS )+
 			int cnt4=0;
 			loop4:
 			while (true) {
@@ -295,7 +293,7 @@ public class InternalCPreprocessLexer extends Lexer {
 
 				switch (alt4) {
 				case 1 :
-					// InternalCPreprocess.g:843:43: RULE_WS
+					// InternalCPreprocess.g:846:43: RULE_WS
 					{
 					mRULE_WS(); 
 
@@ -310,7 +308,7 @@ public class InternalCPreprocessLexer extends Lexer {
 				cnt4++;
 			}
 
-			 isPreLine = true; 
+			 at.jku.weiner.cpreprocess.PreLine.setPreLine(true); 
 			}
 
 			state.type = _type;
@@ -327,12 +325,12 @@ public class InternalCPreprocessLexer extends Lexer {
 		try {
 			int _type = RULE_UNDEF;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// InternalCPreprocess.g:845:12: ( RULE_HASH ( RULE_WS )* 'undef' ( RULE_WS )+ )
-			// InternalCPreprocess.g:845:14: RULE_HASH ( RULE_WS )* 'undef' ( RULE_WS )+
+			// InternalCPreprocess.g:848:12: ( RULE_HASH ( RULE_WS )* 'undef' ( RULE_WS )+ )
+			// InternalCPreprocess.g:848:14: RULE_HASH ( RULE_WS )* 'undef' ( RULE_WS )+
 			{
 			mRULE_HASH(); 
 
-			// InternalCPreprocess.g:845:24: ( RULE_WS )*
+			// InternalCPreprocess.g:848:24: ( RULE_WS )*
 			loop5:
 			while (true) {
 				int alt5=2;
@@ -343,7 +341,7 @@ public class InternalCPreprocessLexer extends Lexer {
 
 				switch (alt5) {
 				case 1 :
-					// InternalCPreprocess.g:845:24: RULE_WS
+					// InternalCPreprocess.g:848:24: RULE_WS
 					{
 					mRULE_WS(); 
 
@@ -357,7 +355,7 @@ public class InternalCPreprocessLexer extends Lexer {
 
 			match("undef"); 
 
-			// InternalCPreprocess.g:845:41: ( RULE_WS )+
+			// InternalCPreprocess.g:848:41: ( RULE_WS )+
 			int cnt6=0;
 			loop6:
 			while (true) {
@@ -369,7 +367,7 @@ public class InternalCPreprocessLexer extends Lexer {
 
 				switch (alt6) {
 				case 1 :
-					// InternalCPreprocess.g:845:41: RULE_WS
+					// InternalCPreprocess.g:848:41: RULE_WS
 					{
 					mRULE_WS(); 
 
@@ -384,7 +382,7 @@ public class InternalCPreprocessLexer extends Lexer {
 				cnt6++;
 			}
 
-			 isPreLine = true; 
+			 at.jku.weiner.cpreprocess.PreLine.setPreLine(true); 
 			}
 
 			state.type = _type;
@@ -401,12 +399,12 @@ public class InternalCPreprocessLexer extends Lexer {
 		try {
 			int _type = RULE_INCLUDE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// InternalCPreprocess.g:847:14: ( RULE_HASH ( RULE_WS )* 'include' ( RULE_WS )+ )
-			// InternalCPreprocess.g:847:16: RULE_HASH ( RULE_WS )* 'include' ( RULE_WS )+
+			// InternalCPreprocess.g:850:14: ( RULE_HASH ( RULE_WS )* 'include' ( RULE_WS )+ )
+			// InternalCPreprocess.g:850:16: RULE_HASH ( RULE_WS )* 'include' ( RULE_WS )+
 			{
 			mRULE_HASH(); 
 
-			// InternalCPreprocess.g:847:26: ( RULE_WS )*
+			// InternalCPreprocess.g:850:26: ( RULE_WS )*
 			loop7:
 			while (true) {
 				int alt7=2;
@@ -417,7 +415,7 @@ public class InternalCPreprocessLexer extends Lexer {
 
 				switch (alt7) {
 				case 1 :
-					// InternalCPreprocess.g:847:26: RULE_WS
+					// InternalCPreprocess.g:850:26: RULE_WS
 					{
 					mRULE_WS(); 
 
@@ -431,7 +429,7 @@ public class InternalCPreprocessLexer extends Lexer {
 
 			match("include"); 
 
-			// InternalCPreprocess.g:847:45: ( RULE_WS )+
+			// InternalCPreprocess.g:850:45: ( RULE_WS )+
 			int cnt8=0;
 			loop8:
 			while (true) {
@@ -443,7 +441,7 @@ public class InternalCPreprocessLexer extends Lexer {
 
 				switch (alt8) {
 				case 1 :
-					// InternalCPreprocess.g:847:45: RULE_WS
+					// InternalCPreprocess.g:850:45: RULE_WS
 					{
 					mRULE_WS(); 
 
@@ -458,7 +456,7 @@ public class InternalCPreprocessLexer extends Lexer {
 				cnt8++;
 			}
 
-			 isPreLine = false; 
+			 at.jku.weiner.cpreprocess.PreLine.setPreLine(false); 
 			}
 
 			state.type = _type;
@@ -475,12 +473,12 @@ public class InternalCPreprocessLexer extends Lexer {
 		try {
 			int _type = RULE_ERROR;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// InternalCPreprocess.g:849:12: ( RULE_HASH ( RULE_WS )* 'error' ( RULE_WS )+ )
-			// InternalCPreprocess.g:849:14: RULE_HASH ( RULE_WS )* 'error' ( RULE_WS )+
+			// InternalCPreprocess.g:852:12: ( RULE_HASH ( RULE_WS )* 'error' ( RULE_WS )+ )
+			// InternalCPreprocess.g:852:14: RULE_HASH ( RULE_WS )* 'error' ( RULE_WS )+
 			{
 			mRULE_HASH(); 
 
-			// InternalCPreprocess.g:849:24: ( RULE_WS )*
+			// InternalCPreprocess.g:852:24: ( RULE_WS )*
 			loop9:
 			while (true) {
 				int alt9=2;
@@ -491,7 +489,7 @@ public class InternalCPreprocessLexer extends Lexer {
 
 				switch (alt9) {
 				case 1 :
-					// InternalCPreprocess.g:849:24: RULE_WS
+					// InternalCPreprocess.g:852:24: RULE_WS
 					{
 					mRULE_WS(); 
 
@@ -505,7 +503,7 @@ public class InternalCPreprocessLexer extends Lexer {
 
 			match("error"); 
 
-			// InternalCPreprocess.g:849:41: ( RULE_WS )+
+			// InternalCPreprocess.g:852:41: ( RULE_WS )+
 			int cnt10=0;
 			loop10:
 			while (true) {
@@ -517,7 +515,7 @@ public class InternalCPreprocessLexer extends Lexer {
 
 				switch (alt10) {
 				case 1 :
-					// InternalCPreprocess.g:849:41: RULE_WS
+					// InternalCPreprocess.g:852:41: RULE_WS
 					{
 					mRULE_WS(); 
 
@@ -532,7 +530,7 @@ public class InternalCPreprocessLexer extends Lexer {
 				cnt10++;
 			}
 
-			 isPreLine = false; 
+			 at.jku.weiner.cpreprocess.PreLine.setPreLine(false); 
 			}
 
 			state.type = _type;
@@ -549,12 +547,12 @@ public class InternalCPreprocessLexer extends Lexer {
 		try {
 			int _type = RULE_PRAGMA;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// InternalCPreprocess.g:851:13: ( RULE_HASH ( RULE_WS )* 'pragma' ( RULE_WS )+ )
-			// InternalCPreprocess.g:851:15: RULE_HASH ( RULE_WS )* 'pragma' ( RULE_WS )+
+			// InternalCPreprocess.g:854:13: ( RULE_HASH ( RULE_WS )* 'pragma' ( RULE_WS )+ )
+			// InternalCPreprocess.g:854:15: RULE_HASH ( RULE_WS )* 'pragma' ( RULE_WS )+
 			{
 			mRULE_HASH(); 
 
-			// InternalCPreprocess.g:851:25: ( RULE_WS )*
+			// InternalCPreprocess.g:854:25: ( RULE_WS )*
 			loop11:
 			while (true) {
 				int alt11=2;
@@ -565,7 +563,7 @@ public class InternalCPreprocessLexer extends Lexer {
 
 				switch (alt11) {
 				case 1 :
-					// InternalCPreprocess.g:851:25: RULE_WS
+					// InternalCPreprocess.g:854:25: RULE_WS
 					{
 					mRULE_WS(); 
 
@@ -579,7 +577,7 @@ public class InternalCPreprocessLexer extends Lexer {
 
 			match("pragma"); 
 
-			// InternalCPreprocess.g:851:43: ( RULE_WS )+
+			// InternalCPreprocess.g:854:43: ( RULE_WS )+
 			int cnt12=0;
 			loop12:
 			while (true) {
@@ -591,7 +589,7 @@ public class InternalCPreprocessLexer extends Lexer {
 
 				switch (alt12) {
 				case 1 :
-					// InternalCPreprocess.g:851:43: RULE_WS
+					// InternalCPreprocess.g:854:43: RULE_WS
 					{
 					mRULE_WS(); 
 
@@ -606,7 +604,7 @@ public class InternalCPreprocessLexer extends Lexer {
 				cnt12++;
 			}
 
-			 isPreLine = true; 
+			 at.jku.weiner.cpreprocess.PreLine.setPreLine(true); 
 			}
 
 			state.type = _type;
@@ -623,12 +621,12 @@ public class InternalCPreprocessLexer extends Lexer {
 		try {
 			int _type = RULE_ID;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// InternalCPreprocess.g:853:9: ( RULE_IDENTIFIER )
-			// InternalCPreprocess.g:853:11: RULE_IDENTIFIER
+			// InternalCPreprocess.g:856:9: ( RULE_IDENTIFIER )
+			// InternalCPreprocess.g:856:11: RULE_IDENTIFIER
 			{
 			mRULE_IDENTIFIER(); 
 
-			 isPreLine = false; 
+			 at.jku.weiner.cpreprocess.PreLine.setIdentifier(); 
 			}
 
 			state.type = _type;
@@ -643,12 +641,12 @@ public class InternalCPreprocessLexer extends Lexer {
 	// $ANTLR start "RULE_IDENTIFIER"
 	public final void mRULE_IDENTIFIER() throws RecognitionException {
 		try {
-			// InternalCPreprocess.g:855:26: ( RULE_LETTER ( RULE_LETTER | '0' .. '9' )* )
-			// InternalCPreprocess.g:855:28: RULE_LETTER ( RULE_LETTER | '0' .. '9' )*
+			// InternalCPreprocess.g:858:26: ( RULE_LETTER ( RULE_LETTER | '0' .. '9' )* )
+			// InternalCPreprocess.g:858:28: RULE_LETTER ( RULE_LETTER | '0' .. '9' )*
 			{
 			mRULE_LETTER(); 
 
-			// InternalCPreprocess.g:855:40: ( RULE_LETTER | '0' .. '9' )*
+			// InternalCPreprocess.g:858:40: ( RULE_LETTER | '0' .. '9' )*
 			loop13:
 			while (true) {
 				int alt13=2;
@@ -689,7 +687,7 @@ public class InternalCPreprocessLexer extends Lexer {
 	// $ANTLR start "RULE_LETTER"
 	public final void mRULE_LETTER() throws RecognitionException {
 		try {
-			// InternalCPreprocess.g:857:22: ( ( '$' | 'A' .. 'Z' | 'a' .. 'z' | '_' ) )
+			// InternalCPreprocess.g:860:22: ( ( '$' | 'A' .. 'Z' | 'a' .. 'z' | '_' ) )
 			// InternalCPreprocess.g:
 			{
 			if ( input.LA(1)=='$'||(input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
@@ -712,10 +710,10 @@ public class InternalCPreprocessLexer extends Lexer {
 	// $ANTLR start "RULE_NO_CODE_START"
 	public final void mRULE_NO_CODE_START() throws RecognitionException {
 		try {
-			// InternalCPreprocess.g:859:29: ( ( RULE_NEWLINE | RULE_HASH ) )
-			// InternalCPreprocess.g:859:31: ( RULE_NEWLINE | RULE_HASH )
+			// InternalCPreprocess.g:862:29: ( ( RULE_NEWLINE | RULE_HASH ) )
+			// InternalCPreprocess.g:862:31: ( RULE_NEWLINE | RULE_HASH )
 			{
-			// InternalCPreprocess.g:859:31: ( RULE_NEWLINE | RULE_HASH )
+			// InternalCPreprocess.g:862:31: ( RULE_NEWLINE | RULE_HASH )
 			int alt14=2;
 			int LA14_0 = input.LA(1);
 			if ( (LA14_0=='\n'||LA14_0=='\r') ) {
@@ -733,14 +731,14 @@ public class InternalCPreprocessLexer extends Lexer {
 
 			switch (alt14) {
 				case 1 :
-					// InternalCPreprocess.g:859:32: RULE_NEWLINE
+					// InternalCPreprocess.g:862:32: RULE_NEWLINE
 					{
 					mRULE_NEWLINE(); 
 
 					}
 					break;
 				case 2 :
-					// InternalCPreprocess.g:859:45: RULE_HASH
+					// InternalCPreprocess.g:862:45: RULE_HASH
 					{
 					mRULE_HASH(); 
 
@@ -763,11 +761,11 @@ public class InternalCPreprocessLexer extends Lexer {
 		try {
 			int _type = RULE_MYCODE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// InternalCPreprocess.g:861:13: ({...}? =>~ ( ( RULE_HASH | RULE_CARRIAGERETURN | RULE_LINEFEED ) ) (~ ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) ) )* )
-			// InternalCPreprocess.g:861:15: {...}? =>~ ( ( RULE_HASH | RULE_CARRIAGERETURN | RULE_LINEFEED ) ) (~ ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) ) )*
+			// InternalCPreprocess.g:864:13: ({...}? =>~ ( ( RULE_HASH | RULE_CARRIAGERETURN | RULE_LINEFEED ) ) (~ ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) ) )* )
+			// InternalCPreprocess.g:864:15: {...}? =>~ ( ( RULE_HASH | RULE_CARRIAGERETURN | RULE_LINEFEED ) ) (~ ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) ) )*
 			{
-			if ( !(( !isPreLine )) ) {
-				throw new FailedPredicateException(input, "RULE_MYCODE", " !isPreLine ");
+			if ( !(( !at.jku.weiner.cpreprocess.PreLine.isPreLine() )) ) {
+				throw new FailedPredicateException(input, "RULE_MYCODE", " !at.jku.weiner.cpreprocess.PreLine.isPreLine() ");
 			}
 			if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '\t')||(input.LA(1) >= '\u000B' && input.LA(1) <= '\f')||(input.LA(1) >= '\u000E' && input.LA(1) <= '\"')||(input.LA(1) >= '$' && input.LA(1) <= '\uFFFF') ) {
 				input.consume();
@@ -777,7 +775,7 @@ public class InternalCPreprocessLexer extends Lexer {
 				recover(mse);
 				throw mse;
 			}
-			// InternalCPreprocess.g:861:82: (~ ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) ) )*
+			// InternalCPreprocess.g:864:118: (~ ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) ) )*
 			loop15:
 			while (true) {
 				int alt15=2;
@@ -897,7 +895,7 @@ public class InternalCPreprocessLexer extends Lexer {
 	static final String DFA16_acceptS =
 		"\1\uffff\1\1\2\uffff\1\10\3\uffff\1\2\1\3\1\4\1\5\1\6\3\uffff\1\7\1\uffff";
 	static final String DFA16_specialS =
-		"\1\1\2\uffff\1\2\11\uffff\1\4\1\0\2\uffff\1\3}>";
+		"\1\1\2\uffff\1\0\11\uffff\1\4\1\2\2\uffff\1\3}>";
 	static final String[] DFA16_transitionS = {
 			"\12\4\1\1\2\4\1\1\25\4\1\2\1\3\34\4\32\3\4\4\1\3\1\4\32\3\uff85\4",
 			"",
@@ -995,16 +993,16 @@ public class InternalCPreprocessLexer extends Lexer {
 		}
 			private int specialState0(int s, IntStream _input) {
 				IntStream input = _input;
-				int LA16_14 = input.LA(1);
+				int LA16_3 = input.LA(1);
 				 
-				int index16_14 = input.index();
+				int index16_3 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (LA16_14=='$'||(LA16_14 >= '0' && LA16_14 <= '9')||(LA16_14 >= 'A' && LA16_14 <= 'Z')||LA16_14=='_'||(LA16_14 >= 'a' && LA16_14 <= 'z')) ) {s = 14;}
-				else if ( ((LA16_14 >= '\u0000' && LA16_14 <= '\t')||(LA16_14 >= '\u000B' && LA16_14 <= '\f')||(LA16_14 >= '\u000E' && LA16_14 <= '#')||(LA16_14 >= '%' && LA16_14 <= '/')||(LA16_14 >= ':' && LA16_14 <= '@')||(LA16_14 >= '[' && LA16_14 <= '^')||LA16_14=='`'||(LA16_14 >= '{' && LA16_14 <= '\uFFFF')) && (( !isPreLine ))) {s = 4;}
-				else s = 17;
+				if ( (LA16_3=='$'||(LA16_3 >= '0' && LA16_3 <= '9')||(LA16_3 >= 'A' && LA16_3 <= 'Z')||LA16_3=='_'||(LA16_3 >= 'a' && LA16_3 <= 'z')) ) {s = 14;}
+				else if ( ((LA16_3 >= '\u0000' && LA16_3 <= '\t')||(LA16_3 >= '\u000B' && LA16_3 <= '\f')||(LA16_3 >= '\u000E' && LA16_3 <= '#')||(LA16_3 >= '%' && LA16_3 <= '/')||(LA16_3 >= ':' && LA16_3 <= '@')||(LA16_3 >= '[' && LA16_3 <= '^')||LA16_3=='`'||(LA16_3 >= '{' && LA16_3 <= '\uFFFF')) && (( !at.jku.weiner.cpreprocess.PreLine.isPreLine() ))) {s = 4;}
+				else s = 13;
 				 
-				input.seek(index16_14);
+				input.seek(index16_3);
 				//if ( s>=0 ) return s;
 				//break;
 				return s;
@@ -1020,7 +1018,7 @@ public class InternalCPreprocessLexer extends Lexer {
 				if ( (LA16_0=='\n'||LA16_0=='\r') ) {s = 1;}
 				else if ( (LA16_0=='#') ) {s = 2;}
 				else if ( (LA16_0=='$'||(LA16_0 >= 'A' && LA16_0 <= 'Z')||LA16_0=='_'||(LA16_0 >= 'a' && LA16_0 <= 'z')) ) {s = 3;}
-				else if ( ((LA16_0 >= '\u0000' && LA16_0 <= '\t')||(LA16_0 >= '\u000B' && LA16_0 <= '\f')||(LA16_0 >= '\u000E' && LA16_0 <= '\"')||(LA16_0 >= '%' && LA16_0 <= '@')||(LA16_0 >= '[' && LA16_0 <= '^')||LA16_0=='`'||(LA16_0 >= '{' && LA16_0 <= '\uFFFF')) && (( !isPreLine ))) {s = 4;}
+				else if ( ((LA16_0 >= '\u0000' && LA16_0 <= '\t')||(LA16_0 >= '\u000B' && LA16_0 <= '\f')||(LA16_0 >= '\u000E' && LA16_0 <= '\"')||(LA16_0 >= '%' && LA16_0 <= '@')||(LA16_0 >= '[' && LA16_0 <= '^')||LA16_0=='`'||(LA16_0 >= '{' && LA16_0 <= '\uFFFF')) && (( !at.jku.weiner.cpreprocess.PreLine.isPreLine() ))) {s = 4;}
 				 
 				input.seek(index16_0);
 				//if ( s>=0 ) return s;
@@ -1030,16 +1028,16 @@ public class InternalCPreprocessLexer extends Lexer {
 
 			private int specialState2(int s, IntStream _input) {
 				IntStream input = _input;
-				int LA16_3 = input.LA(1);
+				int LA16_14 = input.LA(1);
 				 
-				int index16_3 = input.index();
+				int index16_14 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (LA16_3=='$'||(LA16_3 >= '0' && LA16_3 <= '9')||(LA16_3 >= 'A' && LA16_3 <= 'Z')||LA16_3=='_'||(LA16_3 >= 'a' && LA16_3 <= 'z')) ) {s = 14;}
-				else if ( ((LA16_3 >= '\u0000' && LA16_3 <= '\t')||(LA16_3 >= '\u000B' && LA16_3 <= '\f')||(LA16_3 >= '\u000E' && LA16_3 <= '#')||(LA16_3 >= '%' && LA16_3 <= '/')||(LA16_3 >= ':' && LA16_3 <= '@')||(LA16_3 >= '[' && LA16_3 <= '^')||LA16_3=='`'||(LA16_3 >= '{' && LA16_3 <= '\uFFFF')) && (( !isPreLine ))) {s = 4;}
-				else s = 13;
+				if ( (LA16_14=='$'||(LA16_14 >= '0' && LA16_14 <= '9')||(LA16_14 >= 'A' && LA16_14 <= 'Z')||LA16_14=='_'||(LA16_14 >= 'a' && LA16_14 <= 'z')) ) {s = 14;}
+				else if ( ((LA16_14 >= '\u0000' && LA16_14 <= '\t')||(LA16_14 >= '\u000B' && LA16_14 <= '\f')||(LA16_14 >= '\u000E' && LA16_14 <= '#')||(LA16_14 >= '%' && LA16_14 <= '/')||(LA16_14 >= ':' && LA16_14 <= '@')||(LA16_14 >= '[' && LA16_14 <= '^')||LA16_14=='`'||(LA16_14 >= '{' && LA16_14 <= '\uFFFF')) && (( !at.jku.weiner.cpreprocess.PreLine.isPreLine() ))) {s = 4;}
+				else s = 17;
 				 
-				input.seek(index16_3);
+				input.seek(index16_14);
 				//if ( s>=0 ) return s;
 				//break;
 				return s;
@@ -1052,8 +1050,8 @@ public class InternalCPreprocessLexer extends Lexer {
 				int index16_17 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (!((( !isPreLine )))) ) {s = 16;}
-				else if ( (( !isPreLine )) ) {s = 4;}
+				if ( (!((( !at.jku.weiner.cpreprocess.PreLine.isPreLine() )))) ) {s = 16;}
+				else if ( (( !at.jku.weiner.cpreprocess.PreLine.isPreLine() )) ) {s = 4;}
 				 
 				input.seek(index16_17);
 				//if ( s>=0 ) return s;
@@ -1068,8 +1066,8 @@ public class InternalCPreprocessLexer extends Lexer {
 				int index16_13 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (!((( !isPreLine )))) ) {s = 16;}
-				else if ( (( !isPreLine )) ) {s = 4;}
+				if ( (!((( !at.jku.weiner.cpreprocess.PreLine.isPreLine() )))) ) {s = 16;}
+				else if ( (( !at.jku.weiner.cpreprocess.PreLine.isPreLine() )) ) {s = 4;}
 				 
 				input.seek(index16_13);
 				//if ( s>=0 ) return s;

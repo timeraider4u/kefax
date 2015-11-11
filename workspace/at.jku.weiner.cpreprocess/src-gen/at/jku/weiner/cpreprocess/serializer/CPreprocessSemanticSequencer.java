@@ -102,7 +102,7 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getDefineDirectiveAccess().getIdIDTerminalRuleCall_2_0(), semanticObject.getId());
-		feeder.accept(grammarAccess.getDefineDirectiveAccess().getStringMYCODETerminalRuleCall_3_0(), semanticObject.getString());
+		feeder.accept(grammarAccess.getDefineDirectiveAccess().getStringMYCODETerminalRuleCall_4_0(), semanticObject.getString());
 		feeder.finish();
 	}
 	

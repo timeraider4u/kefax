@@ -11,6 +11,8 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
+import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 
@@ -18,10 +20,12 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected CPreprocessGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_DefineDirective_WSTerminalRuleCall_3_p;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (CPreprocessGrammarAccess) access;
+		match_DefineDirective_WSTerminalRuleCall_3_p = new TokenAlias(true, false, grammarAccess.getDefineDirectiveAccess().getWSTerminalRuleCall_3());
 	}
 	
 	@Override
@@ -38,6 +42,8 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getPRAGMAToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getUNDEFRule())
 			return getUNDEFToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getWSRule())
+			return getWSToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
@@ -95,14 +101,36 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 		return "#undef ";
 	}
 	
+	/**
+	 * terminal WS: (' ' | '\t' | LINEBREAK);
+	 */
+	protected String getWSToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return " ";
+	}
+	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {
 		if (transition.getAmbiguousSyntaxes().isEmpty()) return;
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			acceptNodes(getLastNavigableState(), syntaxNodes);
+			if(match_DefineDirective_WSTerminalRuleCall_3_p.equals(syntax))
+				emit_DefineDirective_WSTerminalRuleCall_3_p(semanticObject, getLastNavigableState(), syntaxNodes);
+			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
+	/**
+	 * Ambiguous syntax:
+	 *     WS+
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     id=ID (ambiguity) string=MYCODE
+	 */
+	protected void emit_DefineDirective_WSTerminalRuleCall_3_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 }

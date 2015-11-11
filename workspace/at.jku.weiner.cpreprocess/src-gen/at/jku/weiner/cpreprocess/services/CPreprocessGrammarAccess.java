@@ -193,14 +193,15 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cDEFINETerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		private final Assignment cIdAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cIdIDTerminalRuleCall_2_0 = (RuleCall)cIdAssignment_2.eContents().get(0);
-		private final Assignment cStringAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cStringMYCODETerminalRuleCall_3_0 = (RuleCall)cStringAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		private final Assignment cStringAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cStringMYCODETerminalRuleCall_4_0 = (RuleCall)cStringAssignment_4.eContents().get(0);
 		
 		//DefineDirective:
-		//	{DefineDirective} DEFINE id=ID string=MYCODE;
+		//	{DefineDirective} DEFINE id=ID WS+ string=MYCODE;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{DefineDirective} DEFINE id=ID string=MYCODE
+		//{DefineDirective} DEFINE id=ID WS+ string=MYCODE
 		public Group getGroup() { return cGroup; }
 		
 		//{DefineDirective}
@@ -215,11 +216,14 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getIdIDTerminalRuleCall_2_0() { return cIdIDTerminalRuleCall_2_0; }
 		
+		//WS+
+		public RuleCall getWSTerminalRuleCall_3() { return cWSTerminalRuleCall_3; }
+		
 		//string=MYCODE
-		public Assignment getStringAssignment_3() { return cStringAssignment_3; }
+		public Assignment getStringAssignment_4() { return cStringAssignment_4; }
 		
 		//MYCODE
-		public RuleCall getStringMYCODETerminalRuleCall_3_0() { return cStringMYCODETerminalRuleCall_3_0; }
+		public RuleCall getStringMYCODETerminalRuleCall_4_0() { return cStringMYCODETerminalRuleCall_4_0; }
 	}
 	public class UnDefineDirectiveElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.UnDefineDirective");
@@ -488,7 +492,7 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DefineDirective:
-	//	{DefineDirective} DEFINE id=ID string=MYCODE;
+	//	{DefineDirective} DEFINE id=ID WS+ string=MYCODE;
 	public DefineDirectiveElements getDefineDirectiveAccess() {
 		return pDefineDirective;
 	}

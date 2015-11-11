@@ -830,27 +830,27 @@ fragment RULE_LINEFEED : '\n';
 
 fragment RULE_CARRIAGERETURN : '\r';
 
-RULE_NEWLINE : (RULE_CARRIAGERETURN|RULE_LINEFEED) { isPreLine = false; } ;
+RULE_NEWLINE : (RULE_CARRIAGERETURN|RULE_LINEFEED) { at.jku.weiner.cpreprocess.PreLine.setPreLine(false); } ;
 
 fragment RULE_BACKSLASH : '\\';
 
 fragment RULE_LINEBREAK : (RULE_BACKSLASH RULE_NEWLINE)+;
 
-fragment RULE_WS : (' '|'\t'|RULE_LINEBREAK);
+fragment RULE_WS : (' '|'\t'|RULE_LINEBREAK) { at.jku.weiner.cpreprocess.PreLine.setWhiteSpace(); } ;
 
 fragment RULE_HASH : '#';
 
-RULE_DEFINE : RULE_HASH RULE_WS* 'define' RULE_WS+ { isPreLine = true; };
+RULE_DEFINE : RULE_HASH RULE_WS* 'define' RULE_WS+ { at.jku.weiner.cpreprocess.PreLine.setPreLine(true); };
 
-RULE_UNDEF : RULE_HASH RULE_WS* 'undef' RULE_WS+ { isPreLine = true; };
+RULE_UNDEF : RULE_HASH RULE_WS* 'undef' RULE_WS+ { at.jku.weiner.cpreprocess.PreLine.setPreLine(true); };
 
-RULE_INCLUDE : RULE_HASH RULE_WS* 'include' RULE_WS+ { isPreLine = false; };
+RULE_INCLUDE : RULE_HASH RULE_WS* 'include' RULE_WS+ { at.jku.weiner.cpreprocess.PreLine.setPreLine(false); };
 
-RULE_ERROR : RULE_HASH RULE_WS* 'error' RULE_WS+ { isPreLine = false; };
+RULE_ERROR : RULE_HASH RULE_WS* 'error' RULE_WS+ { at.jku.weiner.cpreprocess.PreLine.setPreLine(false); };
 
-RULE_PRAGMA : RULE_HASH RULE_WS* 'pragma' RULE_WS+ { isPreLine = true; };
+RULE_PRAGMA : RULE_HASH RULE_WS* 'pragma' RULE_WS+ { at.jku.weiner.cpreprocess.PreLine.setPreLine(true); };
 
-RULE_ID : RULE_IDENTIFIER { isPreLine = false; } ;
+RULE_ID : RULE_IDENTIFIER { at.jku.weiner.cpreprocess.PreLine.setIdentifier(); } ;
 
 fragment RULE_IDENTIFIER : RULE_LETTER (RULE_LETTER|'0'..'9')*;
 
@@ -858,6 +858,6 @@ fragment RULE_LETTER : ('$'|'A'..'Z'|'a'..'z'|'_');
 
 fragment RULE_NO_CODE_START : (RULE_NEWLINE|RULE_HASH);
 
-RULE_MYCODE : { !isPreLine }?=> ~((RULE_HASH|RULE_CARRIAGERETURN|RULE_LINEFEED)) ~((RULE_CARRIAGERETURN|RULE_LINEFEED))*;
+RULE_MYCODE : { !at.jku.weiner.cpreprocess.PreLine.isPreLine() }?=> ~((RULE_HASH|RULE_CARRIAGERETURN|RULE_LINEFEED)) ~((RULE_CARRIAGERETURN|RULE_LINEFEED))*;
 
 

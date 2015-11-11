@@ -1009,6 +1009,7 @@ rule__DefineDirective__Group__3
     }
 :
 	rule__DefineDirective__Group__3__Impl
+	rule__DefineDirective__Group__4
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -1021,9 +1022,16 @@ rule__DefineDirective__Group__3__Impl
 :
 
 (
-{ before(grammarAccess.getDefineDirectiveAccess().getStringAssignment_3()); }
-(rule__DefineDirective__StringAssignment_3)
-{ after(grammarAccess.getDefineDirectiveAccess().getStringAssignment_3()); }
+(
+{ before(grammarAccess.getDefineDirectiveAccess().getWSTerminalRuleCall_3()); }
+(	RULE_WS)
+{ after(grammarAccess.getDefineDirectiveAccess().getWSTerminalRuleCall_3()); }
+)
+(
+{ before(grammarAccess.getDefineDirectiveAccess().getWSTerminalRuleCall_3()); }
+(	RULE_WS)*
+{ after(grammarAccess.getDefineDirectiveAccess().getWSTerminalRuleCall_3()); }
+)
 )
 
 
@@ -1032,6 +1040,39 @@ rule__DefineDirective__Group__3__Impl
 finally {
 	restoreStackSize(stackSize);
 }
+
+
+rule__DefineDirective__Group__4
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__DefineDirective__Group__4__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DefineDirective__Group__4__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+
+(
+{ before(grammarAccess.getDefineDirectiveAccess().getStringAssignment_4()); }
+(rule__DefineDirective__StringAssignment_4)
+{ after(grammarAccess.getDefineDirectiveAccess().getStringAssignment_4()); }
+)
+
+
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
 
 
 
@@ -1621,14 +1662,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__DefineDirective__StringAssignment_3
+rule__DefineDirective__StringAssignment_4
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getDefineDirectiveAccess().getStringMYCODETerminalRuleCall_3_0()); }
-	RULE_MYCODE{ after(grammarAccess.getDefineDirectiveAccess().getStringMYCODETerminalRuleCall_3_0()); }
+{ before(grammarAccess.getDefineDirectiveAccess().getStringMYCODETerminalRuleCall_4_0()); }
+	RULE_MYCODE{ after(grammarAccess.getDefineDirectiveAccess().getStringMYCODETerminalRuleCall_4_0()); }
 )
 
 ;
@@ -1677,7 +1718,7 @@ fragment RULE_BACKSLASH : '\\';
 
 fragment RULE_LINEBREAK : (RULE_BACKSLASH RULE_NEWLINE)+;
 
-fragment RULE_WS : (' '|'\t'|RULE_LINEBREAK);
+RULE_WS : (' '|'\t'|RULE_LINEBREAK);
 
 fragment RULE_HASH : '#';
 

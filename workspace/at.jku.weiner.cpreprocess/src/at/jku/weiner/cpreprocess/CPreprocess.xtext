@@ -62,12 +62,12 @@ PreprocessorDirectives returns SourceCodeLine:
 
 IncludeDirective:
 	{IncludeDirective}
-	INCLUDE string=MYCODE
+	INCLUDE string=MyCodeLine
 ;
 
 DefineDirective:
 	{DefineDirective}
-	DEFINE id=ID string=MYCODE
+	DEFINE id=ID WS+ string=MyCodeLine
 ;
 
 UnDefineDirective:

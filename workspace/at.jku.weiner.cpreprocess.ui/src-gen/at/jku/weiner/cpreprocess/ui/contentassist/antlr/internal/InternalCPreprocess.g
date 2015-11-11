@@ -1009,7 +1009,6 @@ rule__DefineDirective__Group__3
     }
 :
 	rule__DefineDirective__Group__3__Impl
-	rule__DefineDirective__Group__4
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -1022,16 +1021,9 @@ rule__DefineDirective__Group__3__Impl
 :
 
 (
-(
-{ before(grammarAccess.getDefineDirectiveAccess().getWSTerminalRuleCall_3()); }
-(	RULE_WS)
-{ after(grammarAccess.getDefineDirectiveAccess().getWSTerminalRuleCall_3()); }
-)
-(
-{ before(grammarAccess.getDefineDirectiveAccess().getWSTerminalRuleCall_3()); }
-(	RULE_WS)*
-{ after(grammarAccess.getDefineDirectiveAccess().getWSTerminalRuleCall_3()); }
-)
+{ before(grammarAccess.getDefineDirectiveAccess().getStringAssignment_3()); }
+(rule__DefineDirective__StringAssignment_3)
+{ after(grammarAccess.getDefineDirectiveAccess().getStringAssignment_3()); }
 )
 
 
@@ -1040,39 +1032,6 @@ rule__DefineDirective__Group__3__Impl
 finally {
 	restoreStackSize(stackSize);
 }
-
-
-rule__DefineDirective__Group__4
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-	rule__DefineDirective__Group__4__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__DefineDirective__Group__4__Impl
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-
-(
-{ before(grammarAccess.getDefineDirectiveAccess().getStringAssignment_4()); }
-(rule__DefineDirective__StringAssignment_4)
-{ after(grammarAccess.getDefineDirectiveAccess().getStringAssignment_4()); }
-)
-
-
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
 
 
 
@@ -1638,8 +1597,8 @@ rule__IncludeDirective__StringAssignment_2
     }
 :
 (
-{ before(grammarAccess.getIncludeDirectiveAccess().getStringMYCODETerminalRuleCall_2_0()); }
-	RULE_MYCODE{ after(grammarAccess.getIncludeDirectiveAccess().getStringMYCODETerminalRuleCall_2_0()); }
+{ before(grammarAccess.getIncludeDirectiveAccess().getStringMyCodeLineParserRuleCall_2_0()); }
+	ruleMyCodeLine{ after(grammarAccess.getIncludeDirectiveAccess().getStringMyCodeLineParserRuleCall_2_0()); }
 )
 
 ;
@@ -1662,14 +1621,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__DefineDirective__StringAssignment_4
+rule__DefineDirective__StringAssignment_3
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getDefineDirectiveAccess().getStringMYCODETerminalRuleCall_4_0()); }
-	RULE_MYCODE{ after(grammarAccess.getDefineDirectiveAccess().getStringMYCODETerminalRuleCall_4_0()); }
+{ before(grammarAccess.getDefineDirectiveAccess().getStringMyCodeLineParserRuleCall_3_0()); }
+	ruleMyCodeLine{ after(grammarAccess.getDefineDirectiveAccess().getStringMyCodeLineParserRuleCall_3_0()); }
 )
 
 ;
@@ -1698,8 +1657,8 @@ rule__Code__CodeAssignment_1
     }
 :
 (
-{ before(grammarAccess.getCodeAccess().getCodeMyCodeLineParserRuleCall_1_0()); }
-	ruleMyCodeLine{ after(grammarAccess.getCodeAccess().getCodeMyCodeLineParserRuleCall_1_0()); }
+{ before(grammarAccess.getCodeAccess().getCodeMYCODETerminalRuleCall_1_0()); }
+	RULE_MYCODE{ after(grammarAccess.getCodeAccess().getCodeMYCODETerminalRuleCall_1_0()); }
 )
 
 ;
@@ -1718,7 +1677,7 @@ fragment RULE_BACKSLASH : '\\';
 
 fragment RULE_LINEBREAK : (RULE_BACKSLASH RULE_NEWLINE)+;
 
-RULE_WS : (' '|'\t'|RULE_LINEBREAK);
+fragment RULE_WS : (' '|'\t'|RULE_LINEBREAK);
 
 fragment RULE_HASH : '#';
 

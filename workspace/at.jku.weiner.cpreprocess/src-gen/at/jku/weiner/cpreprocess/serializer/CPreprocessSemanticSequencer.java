@@ -74,7 +74,7 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     code=MyCodeLine
+	 *     code=MYCODE
 	 */
 	protected void sequence_Code(EObject context, Code semanticObject) {
 		if(errorAcceptor != null) {
@@ -83,14 +83,14 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getCodeAccess().getCodeMyCodeLineParserRuleCall_1_0(), semanticObject.getCode());
+		feeder.accept(grammarAccess.getCodeAccess().getCodeMYCODETerminalRuleCall_1_0(), semanticObject.getCode());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (id=ID string=MYCODE)
+	 *     (id=ID string=MyCodeLine)
 	 */
 	protected void sequence_DefineDirective(EObject context, DefineDirective semanticObject) {
 		if(errorAcceptor != null) {
@@ -102,7 +102,7 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getDefineDirectiveAccess().getIdIDTerminalRuleCall_2_0(), semanticObject.getId());
-		feeder.accept(grammarAccess.getDefineDirectiveAccess().getStringMYCODETerminalRuleCall_4_0(), semanticObject.getString());
+		feeder.accept(grammarAccess.getDefineDirectiveAccess().getStringMyCodeLineParserRuleCall_3_0(), semanticObject.getString());
 		feeder.finish();
 	}
 	
@@ -125,7 +125,7 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     string=MYCODE
+	 *     string=MyCodeLine
 	 */
 	protected void sequence_IncludeDirective(EObject context, IncludeDirective semanticObject) {
 		if(errorAcceptor != null) {
@@ -134,7 +134,7 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getIncludeDirectiveAccess().getStringMYCODETerminalRuleCall_2_0(), semanticObject.getString());
+		feeder.accept(grammarAccess.getIncludeDirectiveAccess().getStringMyCodeLineParserRuleCall_2_0(), semanticObject.getString());
 		feeder.finish();
 	}
 	

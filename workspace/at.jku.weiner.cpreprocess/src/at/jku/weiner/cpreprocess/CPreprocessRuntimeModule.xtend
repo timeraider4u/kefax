@@ -3,9 +3,15 @@
  */
 package at.jku.weiner.cpreprocess
 
+import org.eclipse.xtext.conversion.IValueConverterService
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 class CPreprocessRuntimeModule extends AbstractCPreprocessRuntimeModule {
+	
+    override Class<? extends IValueConverterService> bindIValueConverterService() {
+        return MyCodeLineValueConverter;
+    }
+    
 }

@@ -67,7 +67,7 @@ IncludeDirective:
 
 DefineDirective:
 	{DefineDirective}
-	DEFINE id=ID WS+ string=MyCodeLine
+	DEFINE id=ID string=MyCodeLine
 ;
 
 UnDefineDirective:
@@ -92,7 +92,7 @@ NewLineLine returns SourceCodeLine:
 
 Code returns SourceCodeLine:
 	{Code}
-	code=MyCodeLine
+	code=MYCODE
 	NEWLINE
 ;
 

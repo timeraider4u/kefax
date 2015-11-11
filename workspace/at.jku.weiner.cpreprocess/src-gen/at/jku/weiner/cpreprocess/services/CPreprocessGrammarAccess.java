@@ -165,13 +165,13 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cIncludeDirectiveAction_0 = (Action)cGroup.eContents().get(0);
 		private final RuleCall cINCLUDETerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		private final Assignment cStringAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cStringMYCODETerminalRuleCall_2_0 = (RuleCall)cStringAssignment_2.eContents().get(0);
+		private final RuleCall cStringMyCodeLineParserRuleCall_2_0 = (RuleCall)cStringAssignment_2.eContents().get(0);
 		
 		//IncludeDirective:
-		//	{IncludeDirective} INCLUDE string=MYCODE;
+		//	{IncludeDirective} INCLUDE string=MyCodeLine;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{IncludeDirective} INCLUDE string=MYCODE
+		//{IncludeDirective} INCLUDE string=MyCodeLine
 		public Group getGroup() { return cGroup; }
 		
 		//{IncludeDirective}
@@ -180,11 +180,11 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//INCLUDE
 		public RuleCall getINCLUDETerminalRuleCall_1() { return cINCLUDETerminalRuleCall_1; }
 		
-		//string=MYCODE
+		//string=MyCodeLine
 		public Assignment getStringAssignment_2() { return cStringAssignment_2; }
 		
-		//MYCODE
-		public RuleCall getStringMYCODETerminalRuleCall_2_0() { return cStringMYCODETerminalRuleCall_2_0; }
+		//MyCodeLine
+		public RuleCall getStringMyCodeLineParserRuleCall_2_0() { return cStringMyCodeLineParserRuleCall_2_0; }
 	}
 	public class DefineDirectiveElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.DefineDirective");
@@ -193,15 +193,14 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cDEFINETerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		private final Assignment cIdAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cIdIDTerminalRuleCall_2_0 = (RuleCall)cIdAssignment_2.eContents().get(0);
-		private final RuleCall cWSTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
-		private final Assignment cStringAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cStringMYCODETerminalRuleCall_4_0 = (RuleCall)cStringAssignment_4.eContents().get(0);
+		private final Assignment cStringAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cStringMyCodeLineParserRuleCall_3_0 = (RuleCall)cStringAssignment_3.eContents().get(0);
 		
 		//DefineDirective:
-		//	{DefineDirective} DEFINE id=ID WS+ string=MYCODE;
+		//	{DefineDirective} DEFINE id=ID string=MyCodeLine;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{DefineDirective} DEFINE id=ID WS+ string=MYCODE
+		//{DefineDirective} DEFINE id=ID string=MyCodeLine
 		public Group getGroup() { return cGroup; }
 		
 		//{DefineDirective}
@@ -216,14 +215,11 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getIdIDTerminalRuleCall_2_0() { return cIdIDTerminalRuleCall_2_0; }
 		
-		//WS+
-		public RuleCall getWSTerminalRuleCall_3() { return cWSTerminalRuleCall_3; }
+		//string=MyCodeLine
+		public Assignment getStringAssignment_3() { return cStringAssignment_3; }
 		
-		//string=MYCODE
-		public Assignment getStringAssignment_4() { return cStringAssignment_4; }
-		
-		//MYCODE
-		public RuleCall getStringMYCODETerminalRuleCall_4_0() { return cStringMYCODETerminalRuleCall_4_0; }
+		//MyCodeLine
+		public RuleCall getStringMyCodeLineParserRuleCall_3_0() { return cStringMyCodeLineParserRuleCall_3_0; }
 	}
 	public class UnDefineDirectiveElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.UnDefineDirective");
@@ -314,25 +310,25 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cCodeAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cCodeAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cCodeMyCodeLineParserRuleCall_1_0 = (RuleCall)cCodeAssignment_1.eContents().get(0);
+		private final RuleCall cCodeMYCODETerminalRuleCall_1_0 = (RuleCall)cCodeAssignment_1.eContents().get(0);
 		private final RuleCall cNEWLINETerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		
 		//Code SourceCodeLine:
-		//	{Code} code=MyCodeLine
+		//	{Code} code=MYCODE
 		//	NEWLINE
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Code} code=MyCodeLine NEWLINE
+		//{Code} code=MYCODE NEWLINE
 		public Group getGroup() { return cGroup; }
 		
 		//{Code}
 		public Action getCodeAction_0() { return cCodeAction_0; }
 		
-		//code=MyCodeLine
+		//code=MYCODE
 		public Assignment getCodeAssignment_1() { return cCodeAssignment_1; }
 		
-		//MyCodeLine
-		public RuleCall getCodeMyCodeLineParserRuleCall_1_0() { return cCodeMyCodeLineParserRuleCall_1_0; }
+		//MYCODE
+		public RuleCall getCodeMYCODETerminalRuleCall_1_0() { return cCodeMYCODETerminalRuleCall_1_0; }
 		
 		//NEWLINE
 		public RuleCall getNEWLINETerminalRuleCall_2() { return cNEWLINETerminalRuleCall_2; }
@@ -482,7 +478,7 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//IncludeDirective:
-	//	{IncludeDirective} INCLUDE string=MYCODE;
+	//	{IncludeDirective} INCLUDE string=MyCodeLine;
 	public IncludeDirectiveElements getIncludeDirectiveAccess() {
 		return pIncludeDirective;
 	}
@@ -492,7 +488,7 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DefineDirective:
-	//	{DefineDirective} DEFINE id=ID WS+ string=MYCODE;
+	//	{DefineDirective} DEFINE id=ID string=MyCodeLine;
 	public DefineDirectiveElements getDefineDirectiveAccess() {
 		return pDefineDirective;
 	}
@@ -542,7 +538,7 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Code SourceCodeLine:
-	//	{Code} code=MyCodeLine
+	//	{Code} code=MYCODE
 	//	NEWLINE
 	public CodeElements getCodeAccess() {
 		return pCode;

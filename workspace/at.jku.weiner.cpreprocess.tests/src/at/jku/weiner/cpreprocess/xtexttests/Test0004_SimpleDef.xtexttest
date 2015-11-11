@@ -92,6 +92,6 @@ lexer-tokens
 //----------------------------------------------------------------------
 output file="bin/Test0004_SimpleDef.c.i"
 expected file="expected/Test0004_SimpleDef.c"
-replacePatterns file="res/Patterns.txt"
+//replacePatterns file="res/Patterns.txt"
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------

@@ -18,7 +18,6 @@ public class InternalCPreprocessLexer extends Lexer {
     public static final int RULE_HASH=17;
     public static final int RULE_IDENTIFIER=18;
     public static final int RULE_UNDEF=9;
-    public static final int RULE_NO_CODE_START=20;
     public static final int EOF=-1;
     public static final int RULE_LETTER=19;
     public static final int RULE_LINEBREAK=15;
@@ -724,37 +723,13 @@ public class InternalCPreprocessLexer extends Lexer {
     }
     // $ANTLR end "RULE_LETTER"
 
-    // $ANTLR start "RULE_NO_CODE_START"
-    public final void mRULE_NO_CODE_START() throws RecognitionException {
-        try {
-            // InternalCPreprocess.g:1700:29: ( ( RULE_NEWLINE | RULE_HASH ) )
-            // InternalCPreprocess.g:1700:31: ( RULE_NEWLINE | RULE_HASH )
-            {
-            if ( input.LA(1)=='\n'||input.LA(1)=='\r'||input.LA(1)=='#' ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-
-            }
-
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "RULE_NO_CODE_START"
-
     // $ANTLR start "RULE_MYCODE"
     public final void mRULE_MYCODE() throws RecognitionException {
         try {
             int _type = RULE_MYCODE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCPreprocess.g:1702:13: (~ ( ( RULE_HASH | RULE_CARRIAGERETURN | RULE_LINEFEED ) ) (~ ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) ) )* )
-            // InternalCPreprocess.g:1702:15: ~ ( ( RULE_HASH | RULE_CARRIAGERETURN | RULE_LINEFEED ) ) (~ ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) ) )*
+            // InternalCPreprocess.g:1700:13: (~ ( ( RULE_HASH | RULE_CARRIAGERETURN | RULE_LINEFEED ) ) (~ ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) ) )* )
+            // InternalCPreprocess.g:1700:15: ~ ( ( RULE_HASH | RULE_CARRIAGERETURN | RULE_LINEFEED ) ) (~ ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) ) )*
             {
             if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\"')||(input.LA(1)>='$' && input.LA(1)<='\uFFFF') ) {
                 input.consume();
@@ -765,7 +740,7 @@ public class InternalCPreprocessLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalCPreprocess.g:1702:64: (~ ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) ) )*
+            // InternalCPreprocess.g:1700:64: (~ ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) ) )*
             loop14:
             do {
                 int alt14=2;
@@ -778,7 +753,7 @@ public class InternalCPreprocessLexer extends Lexer {
 
                 switch (alt14) {
             	case 1 :
-            	    // InternalCPreprocess.g:1702:64: ~ ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) )
+            	    // InternalCPreprocess.g:1700:64: ~ ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -886,17 +861,17 @@ public class InternalCPreprocessLexer extends Lexer {
     static final String DFA15_maxS =
         "\1\uffff\1\uffff\1\165\1\uffff\1\uffff\2\165\1\15\6\uffff\1\uffff\1\165";
     static final String DFA15_acceptS =
-        "\1\uffff\1\1\2\uffff\1\10\3\uffff\1\5\1\2\1\4\1\6\1\3\1\7\2\uffff";
+        "\1\uffff\1\1\2\uffff\1\10\3\uffff\1\3\1\5\1\4\1\6\1\2\1\7\2\uffff";
     static final String DFA15_specialS =
-        "\1\1\2\uffff\1\0\12\uffff\1\2\1\uffff}>";
+        "\1\0\2\uffff\1\2\12\uffff\1\1\1\uffff}>";
     static final String[] DFA15_transitionS = {
             "\12\4\1\1\2\4\1\1\25\4\1\2\1\3\34\4\32\3\4\4\1\3\1\4\32\3\uff85\4",
             "",
-            "\1\6\26\uffff\1\5\73\uffff\1\7\7\uffff\1\11\1\10\3\uffff\1\12\6\uffff\1\13\4\uffff\1\14",
+            "\1\6\26\uffff\1\5\73\uffff\1\7\7\uffff\1\14\1\11\3\uffff\1\12\6\uffff\1\13\4\uffff\1\10",
             "\12\4\1\uffff\2\4\1\uffff\26\4\1\16\13\4\12\16\7\4\32\16\4\4\1\16\1\4\32\16\uff85\4",
             "",
-            "\1\6\26\uffff\1\5\73\uffff\1\7\7\uffff\1\11\1\10\3\uffff\1\12\6\uffff\1\13\4\uffff\1\14",
-            "\1\6\26\uffff\1\5\73\uffff\1\7\7\uffff\1\11\1\10\3\uffff\1\12\6\uffff\1\13\4\uffff\1\14",
+            "\1\6\26\uffff\1\5\73\uffff\1\7\7\uffff\1\14\1\11\3\uffff\1\12\6\uffff\1\13\4\uffff\1\10",
+            "\1\6\26\uffff\1\5\73\uffff\1\7\7\uffff\1\14\1\11\3\uffff\1\12\6\uffff\1\13\4\uffff\1\10",
             "\1\17\2\uffff\1\17",
             "",
             "",
@@ -905,7 +880,7 @@ public class InternalCPreprocessLexer extends Lexer {
             "",
             "",
             "\12\4\1\uffff\2\4\1\uffff\26\4\1\16\13\4\12\16\7\4\32\16\4\4\1\16\1\4\32\16\uff85\4",
-            "\1\6\26\uffff\1\5\73\uffff\1\7\7\uffff\1\11\1\10\3\uffff\1\12\6\uffff\1\13\4\uffff\1\14"
+            "\1\6\26\uffff\1\5\73\uffff\1\7\7\uffff\1\14\1\11\3\uffff\1\12\6\uffff\1\13\4\uffff\1\10"
     };
 
     static final short[] DFA15_eot = DFA.unpackEncodedString(DFA15_eotS);
@@ -945,18 +920,6 @@ public class InternalCPreprocessLexer extends Lexer {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA15_3 = input.LA(1);
-
-                        s = -1;
-                        if ( (LA15_3=='$'||(LA15_3>='0' && LA15_3<='9')||(LA15_3>='A' && LA15_3<='Z')||LA15_3=='_'||(LA15_3>='a' && LA15_3<='z')) ) {s = 14;}
-
-                        else if ( ((LA15_3>='\u0000' && LA15_3<='\t')||(LA15_3>='\u000B' && LA15_3<='\f')||(LA15_3>='\u000E' && LA15_3<='#')||(LA15_3>='%' && LA15_3<='/')||(LA15_3>=':' && LA15_3<='@')||(LA15_3>='[' && LA15_3<='^')||LA15_3=='`'||(LA15_3>='{' && LA15_3<='\uFFFF')) ) {s = 4;}
-
-                        else s = 13;
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
                         int LA15_0 = input.LA(1);
 
                         s = -1;
@@ -970,13 +933,25 @@ public class InternalCPreprocessLexer extends Lexer {
 
                         if ( s>=0 ) return s;
                         break;
-                    case 2 : 
+                    case 1 : 
                         int LA15_14 = input.LA(1);
 
                         s = -1;
                         if ( (LA15_14=='$'||(LA15_14>='0' && LA15_14<='9')||(LA15_14>='A' && LA15_14<='Z')||LA15_14=='_'||(LA15_14>='a' && LA15_14<='z')) ) {s = 14;}
 
                         else if ( ((LA15_14>='\u0000' && LA15_14<='\t')||(LA15_14>='\u000B' && LA15_14<='\f')||(LA15_14>='\u000E' && LA15_14<='#')||(LA15_14>='%' && LA15_14<='/')||(LA15_14>=':' && LA15_14<='@')||(LA15_14>='[' && LA15_14<='^')||LA15_14=='`'||(LA15_14>='{' && LA15_14<='\uFFFF')) ) {s = 4;}
+
+                        else s = 13;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
+                        int LA15_3 = input.LA(1);
+
+                        s = -1;
+                        if ( (LA15_3=='$'||(LA15_3>='0' && LA15_3<='9')||(LA15_3>='A' && LA15_3<='Z')||LA15_3=='_'||(LA15_3>='a' && LA15_3<='z')) ) {s = 14;}
+
+                        else if ( ((LA15_3>='\u0000' && LA15_3<='\t')||(LA15_3>='\u000B' && LA15_3<='\f')||(LA15_3>='\u000E' && LA15_3<='#')||(LA15_3>='%' && LA15_3<='/')||(LA15_3>=':' && LA15_3<='@')||(LA15_3>='[' && LA15_3<='^')||LA15_3=='`'||(LA15_3>='{' && LA15_3<='\uFFFF')) ) {s = 4;}
 
                         else s = 13;
 

@@ -33,10 +33,6 @@ import at.jku.weiner.cpreprocess.services.CPreprocessGrammarAccess;
 
 }
 
-@lexer::members {
-	private boolean isPreLine = false;
-}
-
 @parser::members {
 
  	private CPreprocessGrammarAccess grammarAccess;
@@ -421,19 +417,19 @@ this_INCLUDE_1=RULE_INCLUDE
 
 (
 (
-		lv_string_2_0=RULE_MYCODE
-		{
-			newLeafNode(lv_string_2_0, grammarAccess.getIncludeDirectiveAccess().getStringMYCODETerminalRuleCall_2_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getIncludeDirectiveAccess().getStringMyCodeLineParserRuleCall_2_0()); 
+	    }
+		lv_string_2_0=ruleMyCodeLine		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getIncludeDirectiveRule());
+	            $current = createModelElementForParent(grammarAccess.getIncludeDirectiveRule());
 	        }
-       		setWithLastConsumed(
+       		set(
        			$current, 
        			"string",
         		lv_string_2_0, 
-        		"at.jku.weiner.cpreprocess.CPreprocess.MYCODE");
+        		"at.jku.weiner.cpreprocess.CPreprocess.MyCodeLine");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
@@ -506,19 +502,19 @@ this_DEFINE_1=RULE_DEFINE
 
 (
 (
-		lv_string_3_0=RULE_MYCODE
-		{
-			newLeafNode(lv_string_3_0, grammarAccess.getDefineDirectiveAccess().getStringMYCODETerminalRuleCall_3_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getDefineDirectiveAccess().getStringMyCodeLineParserRuleCall_3_0()); 
+	    }
+		lv_string_3_0=ruleMyCodeLine		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getDefineDirectiveRule());
+	            $current = createModelElementForParent(grammarAccess.getDefineDirectiveRule());
 	        }
-       		setWithLastConsumed(
+       		set(
        			$current, 
        			"string",
         		lv_string_3_0, 
-        		"at.jku.weiner.cpreprocess.CPreprocess.MYCODE");
+        		"at.jku.weiner.cpreprocess.CPreprocess.MyCodeLine");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
@@ -756,19 +752,19 @@ ruleCode returns [EObject current=null]
 
 (
 (
-		{ 
-	        newCompositeNode(grammarAccess.getCodeAccess().getCodeMyCodeLineParserRuleCall_1_0()); 
-	    }
-		lv_code_1_0=ruleMyCodeLine		{
+		lv_code_1_0=RULE_MYCODE
+		{
+			newLeafNode(lv_code_1_0, grammarAccess.getCodeAccess().getCodeMYCODETerminalRuleCall_1_0()); 
+		}
+		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getCodeRule());
+	            $current = createModelElement(grammarAccess.getCodeRule());
 	        }
-       		set(
+       		setWithLastConsumed(
        			$current, 
        			"code",
         		lv_code_1_0, 
-        		"at.jku.weiner.cpreprocess.CPreprocess.MyCodeLine");
-	        afterParserOrEnumRuleCall();
+        		"at.jku.weiner.cpreprocess.CPreprocess.MYCODE");
 	    }
 
 )
@@ -836,7 +832,7 @@ fragment RULE_BACKSLASH : '\\';
 
 fragment RULE_LINEBREAK : (RULE_BACKSLASH RULE_NEWLINE)+;
 
-fragment RULE_WS : (' '|'\t'|RULE_LINEBREAK) { at.jku.weiner.cpreprocess.PreLine.setWhiteSpace(); } ;
+fragment RULE_WS : (' '|'\t'|RULE_LINEBREAK) ;
 
 fragment RULE_HASH : '#';
 
@@ -844,13 +840,13 @@ RULE_DEFINE : RULE_HASH RULE_WS* 'define' RULE_WS+ { at.jku.weiner.cpreprocess.P
 
 RULE_UNDEF : RULE_HASH RULE_WS* 'undef' RULE_WS+ { at.jku.weiner.cpreprocess.PreLine.setPreLine(true); };
 
-RULE_INCLUDE : RULE_HASH RULE_WS* 'include' RULE_WS+ { at.jku.weiner.cpreprocess.PreLine.setPreLine(false); };
+RULE_INCLUDE : RULE_HASH RULE_WS* 'include' RULE_WS+;
 
-RULE_ERROR : RULE_HASH RULE_WS* 'error' RULE_WS+ { at.jku.weiner.cpreprocess.PreLine.setPreLine(false); };
+RULE_ERROR : RULE_HASH RULE_WS* 'error' RULE_WS+;
 
 RULE_PRAGMA : RULE_HASH RULE_WS* 'pragma' RULE_WS+ { at.jku.weiner.cpreprocess.PreLine.setPreLine(true); };
 
-RULE_ID : RULE_IDENTIFIER { at.jku.weiner.cpreprocess.PreLine.setIdentifier(); } ;
+RULE_ID : RULE_IDENTIFIER { at.jku.weiner.cpreprocess.PreLine.setPreLine(false); };
 
 fragment RULE_IDENTIFIER : RULE_LETTER (RULE_LETTER|'0'..'9')*;
 

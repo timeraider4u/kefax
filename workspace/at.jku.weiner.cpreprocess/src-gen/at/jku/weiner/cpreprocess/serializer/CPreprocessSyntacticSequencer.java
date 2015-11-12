@@ -42,7 +42,11 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	}
 	
 	/**
-	 * terminal DEFINE:	HASH WS* 'define' WS+;
+	 * terminal DEFINE:	HASH WS* 'define' WS+
+	 * 	{ {
+	 * 		at.jku.weiner.cpreprocess.PreLine.setPreLine(true);
+	 * 	} }
+	 * ;
 	 */
 	protected String getDEFINEToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
@@ -69,7 +73,11 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	}
 	
 	/**
-	 * terminal NEWLINE: (CARRIAGERETURN | LINEFEED);
+	 * terminal NEWLINE: (CARRIAGERETURN | LINEFEED) 
+	 * 	{ { 
+	 * 		at.jku.weiner.cpreprocess.PreLine.setPreLine(false);
+	 * 	} }
+	 * ;
 	 */
 	protected String getNEWLINEToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
@@ -78,7 +86,11 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	}
 	
 	/**
-	 * terminal PRAGMA:	HASH WS* 'pragma' WS+;
+	 * terminal PRAGMA:	HASH WS* 'pragma' WS+
+	 * 	{ {
+	 * 		at.jku.weiner.cpreprocess.PreLine.setPreLine(true);
+	 * 	} }
+	 * ;
 	 */
 	protected String getPRAGMAToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
@@ -87,7 +99,11 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	}
 	
 	/**
-	 * terminal UNDEF:		HASH WS* 'undef' WS+;
+	 * terminal UNDEF:		HASH WS* 'undef' WS+
+	 * 	{ {
+	 * 		at.jku.weiner.cpreprocess.PreLine.setPreLine(true);
+	 * 	} }
+	 * ;
 	 */
 	protected String getUNDEFToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)

@@ -380,7 +380,6 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tID;
 	private final TerminalRule tIDENTIFIER;
 	private final TerminalRule tLETTER;
-	private final TerminalRule tNO_CODE_START;
 	private final TerminalRule tMYCODE;
 	
 	private final Grammar grammar;
@@ -414,7 +413,6 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		this.tID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.ID");
 		this.tIDENTIFIER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.IDENTIFIER");
 		this.tLETTER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.LETTER");
-		this.tNO_CODE_START = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.NO_CODE_START");
 		this.tMYCODE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.MYCODE");
 	}
 	
@@ -571,7 +569,8 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal NEWLINE:
-	//	CARRIAGERETURN | LINEFEED;
+	//	CARRIAGERETURN | LINEFEED { { at.jku.weiner.cpreprocess.PreLine.setPreLine(false);
+	//	} };
 	public TerminalRule getNEWLINERule() {
 		return tNEWLINE;
 	}
@@ -601,13 +600,17 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal DEFINE:
-	//	HASH WS* 'define' WS+;
+	//	HASH WS* 'define' WS+
+	//	{ { at.jku.weiner.cpreprocess.PreLine.setPreLine(true);
+	//	} };
 	public TerminalRule getDEFINERule() {
 		return tDEFINE;
 	}
 	
 	//terminal UNDEF:
-	//	HASH WS* 'undef' WS+;
+	//	HASH WS* 'undef' WS+
+	//	{ { at.jku.weiner.cpreprocess.PreLine.setPreLine(true);
+	//	} };
 	public TerminalRule getUNDEFRule() {
 		return tUNDEF;
 	}
@@ -625,13 +628,17 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal PRAGMA:
-	//	HASH WS* 'pragma' WS+;
+	//	HASH WS* 'pragma' WS+
+	//	{ { at.jku.weiner.cpreprocess.PreLine.setPreLine(true);
+	//	} };
 	public TerminalRule getPRAGMARule() {
 		return tPRAGMA;
 	}
 	
 	//terminal ID:
-	//	IDENTIFIER;
+	//	IDENTIFIER
+	//	{ { at.jku.weiner.cpreprocess.PreLine.setPreLine(false);
+	//	} };
 	public TerminalRule getIDRule() {
 		return tID;
 	}
@@ -651,14 +658,9 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		return tLETTER;
 	}
 	
-	//terminal fragment NO_CODE_START:
-	//	NEWLINE | HASH;
-	public TerminalRule getNO_CODE_STARTRule() {
-		return tNO_CODE_START;
-	}
-	
 	//terminal MYCODE:
-	//	!(HASH | CARRIAGERETURN | LINEFEED) !(CARRIAGERETURN | LINEFEED)*;
+	//	{ { at.jku.weiner.cpreprocess.PreLine.isPreLine(false);
+	//	} ? } !(HASH | CARRIAGERETURN | LINEFEED) !(CARRIAGERETURN | LINEFEED)*;
 	public TerminalRule getMYCODERule() {
 		return tMYCODE;
 	}

@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 public class InternalCPreprocessParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_MYCODE", "RULE_ID", "RULE_NEWLINE", "RULE_INCLUDE", "RULE_DEFINE", "RULE_UNDEF", "RULE_ERROR", "RULE_PRAGMA", "RULE_LINEFEED", "RULE_CARRIAGERETURN", "RULE_BACKSLASH", "RULE_LINEBREAK", "RULE_WS", "RULE_HASH", "RULE_IDENTIFIER", "RULE_LETTER", "RULE_NO_CODE_START"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_MYCODE", "RULE_ID", "RULE_NEWLINE", "RULE_INCLUDE", "RULE_DEFINE", "RULE_UNDEF", "RULE_ERROR", "RULE_PRAGMA", "RULE_LINEFEED", "RULE_CARRIAGERETURN", "RULE_BACKSLASH", "RULE_LINEBREAK", "RULE_WS", "RULE_HASH", "RULE_IDENTIFIER", "RULE_LETTER"
     };
     public static final int RULE_PRAGMA=11;
     public static final int RULE_ID=5;
@@ -30,7 +30,6 @@ public class InternalCPreprocessParser extends AbstractInternalContentAssistPars
     public static final int RULE_HASH=17;
     public static final int RULE_IDENTIFIER=18;
     public static final int RULE_UNDEF=9;
-    public static final int RULE_NO_CODE_START=20;
     public static final int EOF=-1;
     public static final int RULE_LETTER=19;
     public static final int RULE_LINEBREAK=15;

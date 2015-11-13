@@ -66,14 +66,17 @@ class CPreprocessGenerator implements IGenerator {
 		«ENDIF»
 	'''
 	
-	def String outputFor(IncludeDirective obj) '''
-	'''
+	def String outputFor(IncludeDirective obj) {
+		return "";
+	}
 	
-	def String outputFor(DefineDirective obj) '''
-	'''
+	def String outputFor(DefineDirective obj) {
+		return "";
+	}
 	
-	def String outputFor(UnDefineDirective obj) '''
-	'''
+	def String outputFor(UnDefineDirective obj) {
+		return "";
+	}
 	
 	def String outputFor(ErrorDirective obj) '''
 	'''
@@ -85,7 +88,9 @@ class CPreprocessGenerator implements IGenerator {
 
 	'''
 	
-	def String outputFor(Code obj) '''
-		«obj.code.toString()»
-	'''
+	def String outputFor(Code obj) {
+		val String code = obj.code.toString();
+		return code;
+	}
+	
 }

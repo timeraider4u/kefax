@@ -72,7 +72,7 @@ DefineDirective:
 
 UnDefineDirective:
 	{UnDefineDirective}
-	UNDEF
+	UNDEF id=ID
 ;
 
 ErrorDirective:

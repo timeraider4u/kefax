@@ -226,12 +226,14 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cUnDefineDirectiveAction_0 = (Action)cGroup.eContents().get(0);
 		private final RuleCall cUNDEFTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cIdAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cIdIDTerminalRuleCall_2_0 = (RuleCall)cIdAssignment_2.eContents().get(0);
 		
 		//UnDefineDirective:
-		//	{UnDefineDirective} UNDEF;
+		//	{UnDefineDirective} UNDEF id=ID;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{UnDefineDirective} UNDEF
+		//{UnDefineDirective} UNDEF id=ID
 		public Group getGroup() { return cGroup; }
 		
 		//{UnDefineDirective}
@@ -239,6 +241,12 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//UNDEF
 		public RuleCall getUNDEFTerminalRuleCall_1() { return cUNDEFTerminalRuleCall_1; }
+		
+		//id=ID
+		public Assignment getIdAssignment_2() { return cIdAssignment_2; }
+		
+		//ID
+		public RuleCall getIdIDTerminalRuleCall_2_0() { return cIdIDTerminalRuleCall_2_0; }
 	}
 	public class ErrorDirectiveElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.ErrorDirective");
@@ -496,7 +504,7 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//UnDefineDirective:
-	//	{UnDefineDirective} UNDEF;
+	//	{UnDefineDirective} UNDEF id=ID;
 	public UnDefineDirectiveElements getUnDefineDirectiveAccess() {
 		return pUnDefineDirective;
 	}

@@ -78,6 +78,7 @@ class CPreprocessGenerator implements IGenerator {
 	}
 	
 	def String outputFor(UnDefineDirective obj) {
+		DefinitionTable.remove(obj.id);
 		return "";
 	}
 	

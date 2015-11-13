@@ -1082,6 +1082,7 @@ rule__UnDefineDirective__Group__1
     }
 :
 	rule__UnDefineDirective__Group__1__Impl
+	rule__UnDefineDirective__Group__2
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -1105,6 +1106,39 @@ rule__UnDefineDirective__Group__1__Impl
 finally {
 	restoreStackSize(stackSize);
 }
+
+
+rule__UnDefineDirective__Group__2
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__UnDefineDirective__Group__2__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__UnDefineDirective__Group__2__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+
+(
+{ before(grammarAccess.getUnDefineDirectiveAccess().getIdAssignment_2()); }
+(rule__UnDefineDirective__IdAssignment_2)
+{ after(grammarAccess.getUnDefineDirectiveAccess().getIdAssignment_2()); }
+)
+
+
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
 
 
 
@@ -1629,6 +1663,21 @@ rule__DefineDirective__StringAssignment_3
 (
 { before(grammarAccess.getDefineDirectiveAccess().getStringMyCodeLineParserRuleCall_3_0()); }
 	ruleMyCodeLine{ after(grammarAccess.getDefineDirectiveAccess().getStringMyCodeLineParserRuleCall_3_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__UnDefineDirective__IdAssignment_2
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getUnDefineDirectiveAccess().getIdIDTerminalRuleCall_2_0()); }
+	RULE_ID{ after(grammarAccess.getUnDefineDirectiveAccess().getIdIDTerminalRuleCall_2_0()); }
 )
 
 ;

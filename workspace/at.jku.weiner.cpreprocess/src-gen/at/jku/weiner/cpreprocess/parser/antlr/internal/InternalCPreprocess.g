@@ -563,6 +563,27 @@ this_UNDEF_1=RULE_UNDEF
     }
 
 
+
+(
+(
+		lv_id_2_0=RULE_ID
+		{
+			newLeafNode(lv_id_2_0, grammarAccess.getUnDefineDirectiveAccess().getIdIDTerminalRuleCall_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUnDefineDirectiveRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"id",
+        		lv_id_2_0, 
+        		"at.jku.weiner.cpreprocess.CPreprocess.ID");
+	    }
+
+)
+)
+
 )
 
 

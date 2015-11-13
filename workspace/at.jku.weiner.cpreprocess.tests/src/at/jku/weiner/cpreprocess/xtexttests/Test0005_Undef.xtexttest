@@ -1,0 +1,78 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.cpreprocess
+language cPreprocess
+//----------------------------------------------------------------------
+source file="res/Test0005_Undef.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	MYCODE NEWLINE
+	DEFINE ID MYCODE NEWLINE
+	MYCODE NEWLINE
+	UNDEF ID NEWLINE
+	MYCODE NEWLINE
+	DEFINE ID MYCODE NEWLINE
+	UNDEF ID NEWLINE
+	MYCODE NEWLINE
+	UNDEF ID NEWLINE
+	MYCODE NEWLINE
+//----------------------------------------------------------------------
+(Model
+	units+=
+	(TranslationUnit
+		lines+=
+		(Code
+			code++"// nasty, but valid"
+		),
+		(PreprocessorDirectives
+			directive=
+			(DefineDirective
+				id++"int",
+				string++"double"
+			)
+		),
+		(Code
+			code++"int a = 2.5;"
+		),
+		(PreprocessorDirectives
+			directive=
+			(UnDefineDirective
+				id++"int"
+			)
+		),
+		(Code
+			code++"int b = 2;"
+		),
+		(PreprocessorDirectives
+			directive=
+			(DefineDirective
+				id++"int",
+				string++"long"
+			)
+		),
+		(PreprocessorDirectives
+			directive=
+			(UnDefineDirective
+				id++"int"
+			)
+		),
+		(Code
+			code++"int c = 2;"
+		),
+		(PreprocessorDirectives
+			directive=
+			(UnDefineDirective
+				id++"int"
+			)
+		),
+		(Code
+			code++"int d = 4;"
+		)
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0005_Undef.c.i"
+expected file="expected/Test0005_Undef.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

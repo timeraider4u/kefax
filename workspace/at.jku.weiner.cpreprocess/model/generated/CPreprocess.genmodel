@@ -21,7 +21,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CPreprocess.ecore#//DefineDirective/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CPreprocess.ecore#//DefineDirective/string"/>
     </genClasses>
-    <genClasses ecoreClass="CPreprocess.ecore#//UnDefineDirective"/>
+    <genClasses ecoreClass="CPreprocess.ecore#//UnDefineDirective">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CPreprocess.ecore#//UnDefineDirective/id"/>
+    </genClasses>
     <genClasses ecoreClass="CPreprocess.ecore#//ErrorDirective">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CPreprocess.ecore#//ErrorDirective/msg"/>
     </genClasses>

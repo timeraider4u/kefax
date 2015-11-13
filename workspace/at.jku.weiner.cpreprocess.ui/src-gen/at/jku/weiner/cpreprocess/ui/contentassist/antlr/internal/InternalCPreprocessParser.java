@@ -2576,17 +2576,22 @@ public class InternalCPreprocessParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__UnDefineDirective__Group__1"
-    // InternalCPreprocess.g:1079:1: rule__UnDefineDirective__Group__1 : rule__UnDefineDirective__Group__1__Impl ;
+    // InternalCPreprocess.g:1079:1: rule__UnDefineDirective__Group__1 : rule__UnDefineDirective__Group__1__Impl rule__UnDefineDirective__Group__2 ;
     public final void rule__UnDefineDirective__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalCPreprocess.g:1083:1: ( rule__UnDefineDirective__Group__1__Impl )
-            // InternalCPreprocess.g:1084:2: rule__UnDefineDirective__Group__1__Impl
+            // InternalCPreprocess.g:1083:1: ( rule__UnDefineDirective__Group__1__Impl rule__UnDefineDirective__Group__2 )
+            // InternalCPreprocess.g:1084:2: rule__UnDefineDirective__Group__1__Impl rule__UnDefineDirective__Group__2
             {
-            pushFollow(FOLLOW_2);
+            pushFollow(FOLLOW_11);
             rule__UnDefineDirective__Group__1__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__UnDefineDirective__Group__2();
 
             state._fsp--;
 
@@ -2609,17 +2614,17 @@ public class InternalCPreprocessParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__UnDefineDirective__Group__1__Impl"
-    // InternalCPreprocess.g:1090:1: rule__UnDefineDirective__Group__1__Impl : ( RULE_UNDEF ) ;
+    // InternalCPreprocess.g:1091:1: rule__UnDefineDirective__Group__1__Impl : ( RULE_UNDEF ) ;
     public final void rule__UnDefineDirective__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalCPreprocess.g:1094:1: ( ( RULE_UNDEF ) )
-            // InternalCPreprocess.g:1096:1: ( RULE_UNDEF )
+            // InternalCPreprocess.g:1095:1: ( ( RULE_UNDEF ) )
+            // InternalCPreprocess.g:1097:1: ( RULE_UNDEF )
             {
-            // InternalCPreprocess.g:1096:1: ( RULE_UNDEF )
-            // InternalCPreprocess.g:1097:1: RULE_UNDEF
+            // InternalCPreprocess.g:1097:1: ( RULE_UNDEF )
+            // InternalCPreprocess.g:1098:1: RULE_UNDEF
             {
              before(grammarAccess.getUnDefineDirectiveAccess().getUNDEFTerminalRuleCall_1()); 
             match(input,RULE_UNDEF,FOLLOW_2); 
@@ -2645,15 +2650,95 @@ public class InternalCPreprocessParser extends AbstractInternalContentAssistPars
     // $ANTLR end "rule__UnDefineDirective__Group__1__Impl"
 
 
+    // $ANTLR start "rule__UnDefineDirective__Group__2"
+    // InternalCPreprocess.g:1111:1: rule__UnDefineDirective__Group__2 : rule__UnDefineDirective__Group__2__Impl ;
+    public final void rule__UnDefineDirective__Group__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalCPreprocess.g:1115:1: ( rule__UnDefineDirective__Group__2__Impl )
+            // InternalCPreprocess.g:1116:2: rule__UnDefineDirective__Group__2__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__UnDefineDirective__Group__2__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__UnDefineDirective__Group__2"
+
+
+    // $ANTLR start "rule__UnDefineDirective__Group__2__Impl"
+    // InternalCPreprocess.g:1122:1: rule__UnDefineDirective__Group__2__Impl : ( ( rule__UnDefineDirective__IdAssignment_2 ) ) ;
+    public final void rule__UnDefineDirective__Group__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalCPreprocess.g:1126:1: ( ( ( rule__UnDefineDirective__IdAssignment_2 ) ) )
+            // InternalCPreprocess.g:1128:1: ( ( rule__UnDefineDirective__IdAssignment_2 ) )
+            {
+            // InternalCPreprocess.g:1128:1: ( ( rule__UnDefineDirective__IdAssignment_2 ) )
+            // InternalCPreprocess.g:1129:1: ( rule__UnDefineDirective__IdAssignment_2 )
+            {
+             before(grammarAccess.getUnDefineDirectiveAccess().getIdAssignment_2()); 
+            // InternalCPreprocess.g:1130:1: ( rule__UnDefineDirective__IdAssignment_2 )
+            // InternalCPreprocess.g:1130:2: rule__UnDefineDirective__IdAssignment_2
+            {
+            pushFollow(FOLLOW_2);
+            rule__UnDefineDirective__IdAssignment_2();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getUnDefineDirectiveAccess().getIdAssignment_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__UnDefineDirective__Group__2__Impl"
+
+
     // $ANTLR start "rule__ErrorDirective__Group__0"
-    // InternalCPreprocess.g:1114:1: rule__ErrorDirective__Group__0 : rule__ErrorDirective__Group__0__Impl rule__ErrorDirective__Group__1 ;
+    // InternalCPreprocess.g:1148:1: rule__ErrorDirective__Group__0 : rule__ErrorDirective__Group__0__Impl rule__ErrorDirective__Group__1 ;
     public final void rule__ErrorDirective__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalCPreprocess.g:1118:1: ( rule__ErrorDirective__Group__0__Impl rule__ErrorDirective__Group__1 )
-            // InternalCPreprocess.g:1119:2: rule__ErrorDirective__Group__0__Impl rule__ErrorDirective__Group__1
+            // InternalCPreprocess.g:1152:1: ( rule__ErrorDirective__Group__0__Impl rule__ErrorDirective__Group__1 )
+            // InternalCPreprocess.g:1153:2: rule__ErrorDirective__Group__0__Impl rule__ErrorDirective__Group__1
             {
             pushFollow(FOLLOW_13);
             rule__ErrorDirective__Group__0__Impl();
@@ -2684,21 +2769,21 @@ public class InternalCPreprocessParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ErrorDirective__Group__0__Impl"
-    // InternalCPreprocess.g:1126:1: rule__ErrorDirective__Group__0__Impl : ( () ) ;
+    // InternalCPreprocess.g:1160:1: rule__ErrorDirective__Group__0__Impl : ( () ) ;
     public final void rule__ErrorDirective__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalCPreprocess.g:1130:1: ( ( () ) )
-            // InternalCPreprocess.g:1132:1: ( () )
+            // InternalCPreprocess.g:1164:1: ( ( () ) )
+            // InternalCPreprocess.g:1166:1: ( () )
             {
-            // InternalCPreprocess.g:1132:1: ( () )
-            // InternalCPreprocess.g:1133:1: ()
+            // InternalCPreprocess.g:1166:1: ( () )
+            // InternalCPreprocess.g:1167:1: ()
             {
              before(grammarAccess.getErrorDirectiveAccess().getErrorDirectiveAction_0()); 
-            // InternalCPreprocess.g:1134:1: ()
-            // InternalCPreprocess.g:1136:1: 
+            // InternalCPreprocess.g:1168:1: ()
+            // InternalCPreprocess.g:1170:1: 
             {
             }
 
@@ -2721,14 +2806,14 @@ public class InternalCPreprocessParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ErrorDirective__Group__1"
-    // InternalCPreprocess.g:1148:1: rule__ErrorDirective__Group__1 : rule__ErrorDirective__Group__1__Impl rule__ErrorDirective__Group__2 ;
+    // InternalCPreprocess.g:1182:1: rule__ErrorDirective__Group__1 : rule__ErrorDirective__Group__1__Impl rule__ErrorDirective__Group__2 ;
     public final void rule__ErrorDirective__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalCPreprocess.g:1152:1: ( rule__ErrorDirective__Group__1__Impl rule__ErrorDirective__Group__2 )
-            // InternalCPreprocess.g:1153:2: rule__ErrorDirective__Group__1__Impl rule__ErrorDirective__Group__2
+            // InternalCPreprocess.g:1186:1: ( rule__ErrorDirective__Group__1__Impl rule__ErrorDirective__Group__2 )
+            // InternalCPreprocess.g:1187:2: rule__ErrorDirective__Group__1__Impl rule__ErrorDirective__Group__2
             {
             pushFollow(FOLLOW_14);
             rule__ErrorDirective__Group__1__Impl();
@@ -2759,17 +2844,17 @@ public class InternalCPreprocessParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ErrorDirective__Group__1__Impl"
-    // InternalCPreprocess.g:1160:1: rule__ErrorDirective__Group__1__Impl : ( RULE_ERROR ) ;
+    // InternalCPreprocess.g:1194:1: rule__ErrorDirective__Group__1__Impl : ( RULE_ERROR ) ;
     public final void rule__ErrorDirective__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalCPreprocess.g:1164:1: ( ( RULE_ERROR ) )
-            // InternalCPreprocess.g:1166:1: ( RULE_ERROR )
+            // InternalCPreprocess.g:1198:1: ( ( RULE_ERROR ) )
+            // InternalCPreprocess.g:1200:1: ( RULE_ERROR )
             {
-            // InternalCPreprocess.g:1166:1: ( RULE_ERROR )
-            // InternalCPreprocess.g:1167:1: RULE_ERROR
+            // InternalCPreprocess.g:1200:1: ( RULE_ERROR )
+            // InternalCPreprocess.g:1201:1: RULE_ERROR
             {
              before(grammarAccess.getErrorDirectiveAccess().getERRORTerminalRuleCall_1()); 
             match(input,RULE_ERROR,FOLLOW_2); 
@@ -2796,14 +2881,14 @@ public class InternalCPreprocessParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ErrorDirective__Group__2"
-    // InternalCPreprocess.g:1180:1: rule__ErrorDirective__Group__2 : rule__ErrorDirective__Group__2__Impl ;
+    // InternalCPreprocess.g:1214:1: rule__ErrorDirective__Group__2 : rule__ErrorDirective__Group__2__Impl ;
     public final void rule__ErrorDirective__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalCPreprocess.g:1184:1: ( rule__ErrorDirective__Group__2__Impl )
-            // InternalCPreprocess.g:1185:2: rule__ErrorDirective__Group__2__Impl
+            // InternalCPreprocess.g:1218:1: ( rule__ErrorDirective__Group__2__Impl )
+            // InternalCPreprocess.g:1219:2: rule__ErrorDirective__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ErrorDirective__Group__2__Impl();
@@ -2829,21 +2914,21 @@ public class InternalCPreprocessParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ErrorDirective__Group__2__Impl"
-    // InternalCPreprocess.g:1191:1: rule__ErrorDirective__Group__2__Impl : ( ( rule__ErrorDirective__MsgAssignment_2 ) ) ;
+    // InternalCPreprocess.g:1225:1: rule__ErrorDirective__Group__2__Impl : ( ( rule__ErrorDirective__MsgAssignment_2 ) ) ;
     public final void rule__ErrorDirective__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalCPreprocess.g:1195:1: ( ( ( rule__ErrorDirective__MsgAssignment_2 ) ) )
-            // InternalCPreprocess.g:1197:1: ( ( rule__ErrorDirective__MsgAssignment_2 ) )
+            // InternalCPreprocess.g:1229:1: ( ( ( rule__ErrorDirective__MsgAssignment_2 ) ) )
+            // InternalCPreprocess.g:1231:1: ( ( rule__ErrorDirective__MsgAssignment_2 ) )
             {
-            // InternalCPreprocess.g:1197:1: ( ( rule__ErrorDirective__MsgAssignment_2 ) )
-            // InternalCPreprocess.g:1198:1: ( rule__ErrorDirective__MsgAssignment_2 )
+            // InternalCPreprocess.g:1231:1: ( ( rule__ErrorDirective__MsgAssignment_2 ) )
+            // InternalCPreprocess.g:1232:1: ( rule__ErrorDirective__MsgAssignment_2 )
             {
              before(grammarAccess.getErrorDirectiveAccess().getMsgAssignment_2()); 
-            // InternalCPreprocess.g:1199:1: ( rule__ErrorDirective__MsgAssignment_2 )
-            // InternalCPreprocess.g:1199:2: rule__ErrorDirective__MsgAssignment_2
+            // InternalCPreprocess.g:1233:1: ( rule__ErrorDirective__MsgAssignment_2 )
+            // InternalCPreprocess.g:1233:2: rule__ErrorDirective__MsgAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__ErrorDirective__MsgAssignment_2();
@@ -2876,14 +2961,14 @@ public class InternalCPreprocessParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__PragmaDirective__Group__0"
-    // InternalCPreprocess.g:1217:1: rule__PragmaDirective__Group__0 : rule__PragmaDirective__Group__0__Impl rule__PragmaDirective__Group__1 ;
+    // InternalCPreprocess.g:1251:1: rule__PragmaDirective__Group__0 : rule__PragmaDirective__Group__0__Impl rule__PragmaDirective__Group__1 ;
     public final void rule__PragmaDirective__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalCPreprocess.g:1221:1: ( rule__PragmaDirective__Group__0__Impl rule__PragmaDirective__Group__1 )
-            // InternalCPreprocess.g:1222:2: rule__PragmaDirective__Group__0__Impl rule__PragmaDirective__Group__1
+            // InternalCPreprocess.g:1255:1: ( rule__PragmaDirective__Group__0__Impl rule__PragmaDirective__Group__1 )
+            // InternalCPreprocess.g:1256:2: rule__PragmaDirective__Group__0__Impl rule__PragmaDirective__Group__1
             {
             pushFollow(FOLLOW_6);
             rule__PragmaDirective__Group__0__Impl();
@@ -2914,21 +2999,21 @@ public class InternalCPreprocessParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__PragmaDirective__Group__0__Impl"
-    // InternalCPreprocess.g:1229:1: rule__PragmaDirective__Group__0__Impl : ( () ) ;
+    // InternalCPreprocess.g:1263:1: rule__PragmaDirective__Group__0__Impl : ( () ) ;
     public final void rule__PragmaDirective__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalCPreprocess.g:1233:1: ( ( () ) )
-            // InternalCPreprocess.g:1235:1: ( () )
+            // InternalCPreprocess.g:1267:1: ( ( () ) )
+            // InternalCPreprocess.g:1269:1: ( () )
             {
-            // InternalCPreprocess.g:1235:1: ( () )
-            // InternalCPreprocess.g:1236:1: ()
+            // InternalCPreprocess.g:1269:1: ( () )
+            // InternalCPreprocess.g:1270:1: ()
             {
              before(grammarAccess.getPragmaDirectiveAccess().getPragmaDirectiveAction_0()); 
-            // InternalCPreprocess.g:1237:1: ()
-            // InternalCPreprocess.g:1239:1: 
+            // InternalCPreprocess.g:1271:1: ()
+            // InternalCPreprocess.g:1273:1: 
             {
             }
 
@@ -2951,14 +3036,14 @@ public class InternalCPreprocessParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__PragmaDirective__Group__1"
-    // InternalCPreprocess.g:1251:1: rule__PragmaDirective__Group__1 : rule__PragmaDirective__Group__1__Impl ;
+    // InternalCPreprocess.g:1285:1: rule__PragmaDirective__Group__1 : rule__PragmaDirective__Group__1__Impl ;
     public final void rule__PragmaDirective__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalCPreprocess.g:1255:1: ( rule__PragmaDirective__Group__1__Impl )
-            // InternalCPreprocess.g:1256:2: rule__PragmaDirective__Group__1__Impl
+            // InternalCPreprocess.g:1289:1: ( rule__PragmaDirective__Group__1__Impl )
+            // InternalCPreprocess.g:1290:2: rule__PragmaDirective__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__PragmaDirective__Group__1__Impl();
@@ -2984,17 +3069,17 @@ public class InternalCPreprocessParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__PragmaDirective__Group__1__Impl"
-    // InternalCPreprocess.g:1262:1: rule__PragmaDirective__Group__1__Impl : ( RULE_PRAGMA ) ;
+    // InternalCPreprocess.g:1296:1: rule__PragmaDirective__Group__1__Impl : ( RULE_PRAGMA ) ;
     public final void rule__PragmaDirective__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalCPreprocess.g:1266:1: ( ( RULE_PRAGMA ) )
-            // InternalCPreprocess.g:1268:1: ( RULE_PRAGMA )
+            // InternalCPreprocess.g:1300:1: ( ( RULE_PRAGMA ) )
+            // InternalCPreprocess.g:1302:1: ( RULE_PRAGMA )
             {
-            // InternalCPreprocess.g:1268:1: ( RULE_PRAGMA )
-            // InternalCPreprocess.g:1269:1: RULE_PRAGMA
+            // InternalCPreprocess.g:1302:1: ( RULE_PRAGMA )
+            // InternalCPreprocess.g:1303:1: RULE_PRAGMA
             {
              before(grammarAccess.getPragmaDirectiveAccess().getPRAGMATerminalRuleCall_1()); 
             match(input,RULE_PRAGMA,FOLLOW_2); 
@@ -3021,14 +3106,14 @@ public class InternalCPreprocessParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__NewLineLine__Group__0"
-    // InternalCPreprocess.g:1286:1: rule__NewLineLine__Group__0 : rule__NewLineLine__Group__0__Impl rule__NewLineLine__Group__1 ;
+    // InternalCPreprocess.g:1320:1: rule__NewLineLine__Group__0 : rule__NewLineLine__Group__0__Impl rule__NewLineLine__Group__1 ;
     public final void rule__NewLineLine__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalCPreprocess.g:1290:1: ( rule__NewLineLine__Group__0__Impl rule__NewLineLine__Group__1 )
-            // InternalCPreprocess.g:1291:2: rule__NewLineLine__Group__0__Impl rule__NewLineLine__Group__1
+            // InternalCPreprocess.g:1324:1: ( rule__NewLineLine__Group__0__Impl rule__NewLineLine__Group__1 )
+            // InternalCPreprocess.g:1325:2: rule__NewLineLine__Group__0__Impl rule__NewLineLine__Group__1
             {
             pushFollow(FOLLOW_7);
             rule__NewLineLine__Group__0__Impl();
@@ -3059,21 +3144,21 @@ public class InternalCPreprocessParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__NewLineLine__Group__0__Impl"
-    // InternalCPreprocess.g:1298:1: rule__NewLineLine__Group__0__Impl : ( () ) ;
+    // InternalCPreprocess.g:1332:1: rule__NewLineLine__Group__0__Impl : ( () ) ;
     public final void rule__NewLineLine__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalCPreprocess.g:1302:1: ( ( () ) )
-            // InternalCPreprocess.g:1304:1: ( () )
+            // InternalCPreprocess.g:1336:1: ( ( () ) )
+            // InternalCPreprocess.g:1338:1: ( () )
             {
-            // InternalCPreprocess.g:1304:1: ( () )
-            // InternalCPreprocess.g:1305:1: ()
+            // InternalCPreprocess.g:1338:1: ( () )
+            // InternalCPreprocess.g:1339:1: ()
             {
              before(grammarAccess.getNewLineLineAccess().getNewLineLineAction_0()); 
-            // InternalCPreprocess.g:1306:1: ()
-            // InternalCPreprocess.g:1308:1: 
+            // InternalCPreprocess.g:1340:1: ()
+            // InternalCPreprocess.g:1342:1: 
             {
             }
 
@@ -3096,14 +3181,14 @@ public class InternalCPreprocessParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__NewLineLine__Group__1"
-    // InternalCPreprocess.g:1320:1: rule__NewLineLine__Group__1 : rule__NewLineLine__Group__1__Impl ;
+    // InternalCPreprocess.g:1354:1: rule__NewLineLine__Group__1 : rule__NewLineLine__Group__1__Impl ;
     public final void rule__NewLineLine__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalCPreprocess.g:1324:1: ( rule__NewLineLine__Group__1__Impl )
-            // InternalCPreprocess.g:1325:2: rule__NewLineLine__Group__1__Impl
+            // InternalCPreprocess.g:1358:1: ( rule__NewLineLine__Group__1__Impl )
+            // InternalCPreprocess.g:1359:2: rule__NewLineLine__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__NewLineLine__Group__1__Impl();
@@ -3129,17 +3214,17 @@ public class InternalCPreprocessParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__NewLineLine__Group__1__Impl"
-    // InternalCPreprocess.g:1331:1: rule__NewLineLine__Group__1__Impl : ( RULE_NEWLINE ) ;
+    // InternalCPreprocess.g:1365:1: rule__NewLineLine__Group__1__Impl : ( RULE_NEWLINE ) ;
     public final void rule__NewLineLine__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalCPreprocess.g:1335:1: ( ( RULE_NEWLINE ) )
-            // InternalCPreprocess.g:1337:1: ( RULE_NEWLINE )
+            // InternalCPreprocess.g:1369:1: ( ( RULE_NEWLINE ) )
+            // InternalCPreprocess.g:1371:1: ( RULE_NEWLINE )
             {
-            // InternalCPreprocess.g:1337:1: ( RULE_NEWLINE )
-            // InternalCPreprocess.g:1338:1: RULE_NEWLINE
+            // InternalCPreprocess.g:1371:1: ( RULE_NEWLINE )
+            // InternalCPreprocess.g:1372:1: RULE_NEWLINE
             {
              before(grammarAccess.getNewLineLineAccess().getNEWLINETerminalRuleCall_1()); 
             match(input,RULE_NEWLINE,FOLLOW_2); 
@@ -3166,14 +3251,14 @@ public class InternalCPreprocessParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Code__Group__0"
-    // InternalCPreprocess.g:1355:1: rule__Code__Group__0 : rule__Code__Group__0__Impl rule__Code__Group__1 ;
+    // InternalCPreprocess.g:1389:1: rule__Code__Group__0 : rule__Code__Group__0__Impl rule__Code__Group__1 ;
     public final void rule__Code__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalCPreprocess.g:1359:1: ( rule__Code__Group__0__Impl rule__Code__Group__1 )
-            // InternalCPreprocess.g:1360:2: rule__Code__Group__0__Impl rule__Code__Group__1
+            // InternalCPreprocess.g:1393:1: ( rule__Code__Group__0__Impl rule__Code__Group__1 )
+            // InternalCPreprocess.g:1394:2: rule__Code__Group__0__Impl rule__Code__Group__1
             {
             pushFollow(FOLLOW_4);
             rule__Code__Group__0__Impl();
@@ -3204,21 +3289,21 @@ public class InternalCPreprocessParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Code__Group__0__Impl"
-    // InternalCPreprocess.g:1367:1: rule__Code__Group__0__Impl : ( () ) ;
+    // InternalCPreprocess.g:1401:1: rule__Code__Group__0__Impl : ( () ) ;
     public final void rule__Code__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalCPreprocess.g:1371:1: ( ( () ) )
-            // InternalCPreprocess.g:1373:1: ( () )
+            // InternalCPreprocess.g:1405:1: ( ( () ) )
+            // InternalCPreprocess.g:1407:1: ( () )
             {
-            // InternalCPreprocess.g:1373:1: ( () )
-            // InternalCPreprocess.g:1374:1: ()
+            // InternalCPreprocess.g:1407:1: ( () )
+            // InternalCPreprocess.g:1408:1: ()
             {
              before(grammarAccess.getCodeAccess().getCodeAction_0()); 
-            // InternalCPreprocess.g:1375:1: ()
-            // InternalCPreprocess.g:1377:1: 
+            // InternalCPreprocess.g:1409:1: ()
+            // InternalCPreprocess.g:1411:1: 
             {
             }
 
@@ -3241,14 +3326,14 @@ public class InternalCPreprocessParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Code__Group__1"
-    // InternalCPreprocess.g:1389:1: rule__Code__Group__1 : rule__Code__Group__1__Impl rule__Code__Group__2 ;
+    // InternalCPreprocess.g:1423:1: rule__Code__Group__1 : rule__Code__Group__1__Impl rule__Code__Group__2 ;
     public final void rule__Code__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalCPreprocess.g:1393:1: ( rule__Code__Group__1__Impl rule__Code__Group__2 )
-            // InternalCPreprocess.g:1394:2: rule__Code__Group__1__Impl rule__Code__Group__2
+            // InternalCPreprocess.g:1427:1: ( rule__Code__Group__1__Impl rule__Code__Group__2 )
+            // InternalCPreprocess.g:1428:2: rule__Code__Group__1__Impl rule__Code__Group__2
             {
             pushFollow(FOLLOW_7);
             rule__Code__Group__1__Impl();
@@ -3279,21 +3364,21 @@ public class InternalCPreprocessParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Code__Group__1__Impl"
-    // InternalCPreprocess.g:1401:1: rule__Code__Group__1__Impl : ( ( rule__Code__CodeAssignment_1 ) ) ;
+    // InternalCPreprocess.g:1435:1: rule__Code__Group__1__Impl : ( ( rule__Code__CodeAssignment_1 ) ) ;
     public final void rule__Code__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalCPreprocess.g:1405:1: ( ( ( rule__Code__CodeAssignment_1 ) ) )
-            // InternalCPreprocess.g:1407:1: ( ( rule__Code__CodeAssignment_1 ) )
+            // InternalCPreprocess.g:1439:1: ( ( ( rule__Code__CodeAssignment_1 ) ) )
+            // InternalCPreprocess.g:1441:1: ( ( rule__Code__CodeAssignment_1 ) )
             {
-            // InternalCPreprocess.g:1407:1: ( ( rule__Code__CodeAssignment_1 ) )
-            // InternalCPreprocess.g:1408:1: ( rule__Code__CodeAssignment_1 )
+            // InternalCPreprocess.g:1441:1: ( ( rule__Code__CodeAssignment_1 ) )
+            // InternalCPreprocess.g:1442:1: ( rule__Code__CodeAssignment_1 )
             {
              before(grammarAccess.getCodeAccess().getCodeAssignment_1()); 
-            // InternalCPreprocess.g:1409:1: ( rule__Code__CodeAssignment_1 )
-            // InternalCPreprocess.g:1409:2: rule__Code__CodeAssignment_1
+            // InternalCPreprocess.g:1443:1: ( rule__Code__CodeAssignment_1 )
+            // InternalCPreprocess.g:1443:2: rule__Code__CodeAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Code__CodeAssignment_1();
@@ -3326,14 +3411,14 @@ public class InternalCPreprocessParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Code__Group__2"
-    // InternalCPreprocess.g:1421:1: rule__Code__Group__2 : rule__Code__Group__2__Impl ;
+    // InternalCPreprocess.g:1455:1: rule__Code__Group__2 : rule__Code__Group__2__Impl ;
     public final void rule__Code__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalCPreprocess.g:1425:1: ( rule__Code__Group__2__Impl )
-            // InternalCPreprocess.g:1426:2: rule__Code__Group__2__Impl
+            // InternalCPreprocess.g:1459:1: ( rule__Code__Group__2__Impl )
+            // InternalCPreprocess.g:1460:2: rule__Code__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Code__Group__2__Impl();
@@ -3359,17 +3444,17 @@ public class InternalCPreprocessParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Code__Group__2__Impl"
-    // InternalCPreprocess.g:1432:1: rule__Code__Group__2__Impl : ( RULE_NEWLINE ) ;
+    // InternalCPreprocess.g:1466:1: rule__Code__Group__2__Impl : ( RULE_NEWLINE ) ;
     public final void rule__Code__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalCPreprocess.g:1436:1: ( ( RULE_NEWLINE ) )
-            // InternalCPreprocess.g:1438:1: ( RULE_NEWLINE )
+            // InternalCPreprocess.g:1470:1: ( ( RULE_NEWLINE ) )
+            // InternalCPreprocess.g:1472:1: ( RULE_NEWLINE )
             {
-            // InternalCPreprocess.g:1438:1: ( RULE_NEWLINE )
-            // InternalCPreprocess.g:1439:1: RULE_NEWLINE
+            // InternalCPreprocess.g:1472:1: ( RULE_NEWLINE )
+            // InternalCPreprocess.g:1473:1: RULE_NEWLINE
             {
              before(grammarAccess.getCodeAccess().getNEWLINETerminalRuleCall_2()); 
             match(input,RULE_NEWLINE,FOLLOW_2); 
@@ -3396,17 +3481,17 @@ public class InternalCPreprocessParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Model__UnitsAssignment_1"
-    // InternalCPreprocess.g:1459:1: rule__Model__UnitsAssignment_1 : ( ruleTranslationUnit ) ;
+    // InternalCPreprocess.g:1493:1: rule__Model__UnitsAssignment_1 : ( ruleTranslationUnit ) ;
     public final void rule__Model__UnitsAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalCPreprocess.g:1463:1: ( ( ruleTranslationUnit ) )
-            // InternalCPreprocess.g:1464:1: ( ruleTranslationUnit )
+            // InternalCPreprocess.g:1497:1: ( ( ruleTranslationUnit ) )
+            // InternalCPreprocess.g:1498:1: ( ruleTranslationUnit )
             {
-            // InternalCPreprocess.g:1464:1: ( ruleTranslationUnit )
-            // InternalCPreprocess.g:1465:1: ruleTranslationUnit
+            // InternalCPreprocess.g:1498:1: ( ruleTranslationUnit )
+            // InternalCPreprocess.g:1499:1: ruleTranslationUnit
             {
              before(grammarAccess.getModelAccess().getUnitsTranslationUnitParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -3437,17 +3522,17 @@ public class InternalCPreprocessParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__TranslationUnit__LinesAssignment_1_0"
-    // InternalCPreprocess.g:1474:1: rule__TranslationUnit__LinesAssignment_1_0 : ( rulePreprocessorDirectives ) ;
+    // InternalCPreprocess.g:1508:1: rule__TranslationUnit__LinesAssignment_1_0 : ( rulePreprocessorDirectives ) ;
     public final void rule__TranslationUnit__LinesAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalCPreprocess.g:1478:1: ( ( rulePreprocessorDirectives ) )
-            // InternalCPreprocess.g:1479:1: ( rulePreprocessorDirectives )
+            // InternalCPreprocess.g:1512:1: ( ( rulePreprocessorDirectives ) )
+            // InternalCPreprocess.g:1513:1: ( rulePreprocessorDirectives )
             {
-            // InternalCPreprocess.g:1479:1: ( rulePreprocessorDirectives )
-            // InternalCPreprocess.g:1480:1: rulePreprocessorDirectives
+            // InternalCPreprocess.g:1513:1: ( rulePreprocessorDirectives )
+            // InternalCPreprocess.g:1514:1: rulePreprocessorDirectives
             {
              before(grammarAccess.getTranslationUnitAccess().getLinesPreprocessorDirectivesParserRuleCall_1_0_0()); 
             pushFollow(FOLLOW_2);
@@ -3478,17 +3563,17 @@ public class InternalCPreprocessParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__TranslationUnit__LinesAssignment_1_1"
-    // InternalCPreprocess.g:1489:1: rule__TranslationUnit__LinesAssignment_1_1 : ( ruleNewLineLine ) ;
+    // InternalCPreprocess.g:1523:1: rule__TranslationUnit__LinesAssignment_1_1 : ( ruleNewLineLine ) ;
     public final void rule__TranslationUnit__LinesAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalCPreprocess.g:1493:1: ( ( ruleNewLineLine ) )
-            // InternalCPreprocess.g:1494:1: ( ruleNewLineLine )
+            // InternalCPreprocess.g:1527:1: ( ( ruleNewLineLine ) )
+            // InternalCPreprocess.g:1528:1: ( ruleNewLineLine )
             {
-            // InternalCPreprocess.g:1494:1: ( ruleNewLineLine )
-            // InternalCPreprocess.g:1495:1: ruleNewLineLine
+            // InternalCPreprocess.g:1528:1: ( ruleNewLineLine )
+            // InternalCPreprocess.g:1529:1: ruleNewLineLine
             {
              before(grammarAccess.getTranslationUnitAccess().getLinesNewLineLineParserRuleCall_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -3519,17 +3604,17 @@ public class InternalCPreprocessParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__TranslationUnit__LinesAssignment_1_2"
-    // InternalCPreprocess.g:1504:1: rule__TranslationUnit__LinesAssignment_1_2 : ( ruleCode ) ;
+    // InternalCPreprocess.g:1538:1: rule__TranslationUnit__LinesAssignment_1_2 : ( ruleCode ) ;
     public final void rule__TranslationUnit__LinesAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalCPreprocess.g:1508:1: ( ( ruleCode ) )
-            // InternalCPreprocess.g:1509:1: ( ruleCode )
+            // InternalCPreprocess.g:1542:1: ( ( ruleCode ) )
+            // InternalCPreprocess.g:1543:1: ( ruleCode )
             {
-            // InternalCPreprocess.g:1509:1: ( ruleCode )
-            // InternalCPreprocess.g:1510:1: ruleCode
+            // InternalCPreprocess.g:1543:1: ( ruleCode )
+            // InternalCPreprocess.g:1544:1: ruleCode
             {
              before(grammarAccess.getTranslationUnitAccess().getLinesCodeParserRuleCall_1_2_0()); 
             pushFollow(FOLLOW_2);
@@ -3560,17 +3645,17 @@ public class InternalCPreprocessParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__PreprocessorDirectives__DirectiveAssignment_1_0"
-    // InternalCPreprocess.g:1519:1: rule__PreprocessorDirectives__DirectiveAssignment_1_0 : ( ruleIncludeDirective ) ;
+    // InternalCPreprocess.g:1553:1: rule__PreprocessorDirectives__DirectiveAssignment_1_0 : ( ruleIncludeDirective ) ;
     public final void rule__PreprocessorDirectives__DirectiveAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalCPreprocess.g:1523:1: ( ( ruleIncludeDirective ) )
-            // InternalCPreprocess.g:1524:1: ( ruleIncludeDirective )
+            // InternalCPreprocess.g:1557:1: ( ( ruleIncludeDirective ) )
+            // InternalCPreprocess.g:1558:1: ( ruleIncludeDirective )
             {
-            // InternalCPreprocess.g:1524:1: ( ruleIncludeDirective )
-            // InternalCPreprocess.g:1525:1: ruleIncludeDirective
+            // InternalCPreprocess.g:1558:1: ( ruleIncludeDirective )
+            // InternalCPreprocess.g:1559:1: ruleIncludeDirective
             {
              before(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveIncludeDirectiveParserRuleCall_1_0_0()); 
             pushFollow(FOLLOW_2);
@@ -3601,17 +3686,17 @@ public class InternalCPreprocessParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__PreprocessorDirectives__DirectiveAssignment_1_1"
-    // InternalCPreprocess.g:1534:1: rule__PreprocessorDirectives__DirectiveAssignment_1_1 : ( ruleDefineDirective ) ;
+    // InternalCPreprocess.g:1568:1: rule__PreprocessorDirectives__DirectiveAssignment_1_1 : ( ruleDefineDirective ) ;
     public final void rule__PreprocessorDirectives__DirectiveAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalCPreprocess.g:1538:1: ( ( ruleDefineDirective ) )
-            // InternalCPreprocess.g:1539:1: ( ruleDefineDirective )
+            // InternalCPreprocess.g:1572:1: ( ( ruleDefineDirective ) )
+            // InternalCPreprocess.g:1573:1: ( ruleDefineDirective )
             {
-            // InternalCPreprocess.g:1539:1: ( ruleDefineDirective )
-            // InternalCPreprocess.g:1540:1: ruleDefineDirective
+            // InternalCPreprocess.g:1573:1: ( ruleDefineDirective )
+            // InternalCPreprocess.g:1574:1: ruleDefineDirective
             {
              before(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveDefineDirectiveParserRuleCall_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -3642,17 +3727,17 @@ public class InternalCPreprocessParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__PreprocessorDirectives__DirectiveAssignment_1_2"
-    // InternalCPreprocess.g:1549:1: rule__PreprocessorDirectives__DirectiveAssignment_1_2 : ( ruleUnDefineDirective ) ;
+    // InternalCPreprocess.g:1583:1: rule__PreprocessorDirectives__DirectiveAssignment_1_2 : ( ruleUnDefineDirective ) ;
     public final void rule__PreprocessorDirectives__DirectiveAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalCPreprocess.g:1553:1: ( ( ruleUnDefineDirective ) )
-            // InternalCPreprocess.g:1554:1: ( ruleUnDefineDirective )
+            // InternalCPreprocess.g:1587:1: ( ( ruleUnDefineDirective ) )
+            // InternalCPreprocess.g:1588:1: ( ruleUnDefineDirective )
             {
-            // InternalCPreprocess.g:1554:1: ( ruleUnDefineDirective )
-            // InternalCPreprocess.g:1555:1: ruleUnDefineDirective
+            // InternalCPreprocess.g:1588:1: ( ruleUnDefineDirective )
+            // InternalCPreprocess.g:1589:1: ruleUnDefineDirective
             {
              before(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveUnDefineDirectiveParserRuleCall_1_2_0()); 
             pushFollow(FOLLOW_2);
@@ -3683,17 +3768,17 @@ public class InternalCPreprocessParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__PreprocessorDirectives__DirectiveAssignment_1_3"
-    // InternalCPreprocess.g:1564:1: rule__PreprocessorDirectives__DirectiveAssignment_1_3 : ( ruleErrorDirective ) ;
+    // InternalCPreprocess.g:1598:1: rule__PreprocessorDirectives__DirectiveAssignment_1_3 : ( ruleErrorDirective ) ;
     public final void rule__PreprocessorDirectives__DirectiveAssignment_1_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalCPreprocess.g:1568:1: ( ( ruleErrorDirective ) )
-            // InternalCPreprocess.g:1569:1: ( ruleErrorDirective )
+            // InternalCPreprocess.g:1602:1: ( ( ruleErrorDirective ) )
+            // InternalCPreprocess.g:1603:1: ( ruleErrorDirective )
             {
-            // InternalCPreprocess.g:1569:1: ( ruleErrorDirective )
-            // InternalCPreprocess.g:1570:1: ruleErrorDirective
+            // InternalCPreprocess.g:1603:1: ( ruleErrorDirective )
+            // InternalCPreprocess.g:1604:1: ruleErrorDirective
             {
              before(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveErrorDirectiveParserRuleCall_1_3_0()); 
             pushFollow(FOLLOW_2);
@@ -3724,17 +3809,17 @@ public class InternalCPreprocessParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__PreprocessorDirectives__DirectiveAssignment_1_4"
-    // InternalCPreprocess.g:1579:1: rule__PreprocessorDirectives__DirectiveAssignment_1_4 : ( rulePragmaDirective ) ;
+    // InternalCPreprocess.g:1613:1: rule__PreprocessorDirectives__DirectiveAssignment_1_4 : ( rulePragmaDirective ) ;
     public final void rule__PreprocessorDirectives__DirectiveAssignment_1_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalCPreprocess.g:1583:1: ( ( rulePragmaDirective ) )
-            // InternalCPreprocess.g:1584:1: ( rulePragmaDirective )
+            // InternalCPreprocess.g:1617:1: ( ( rulePragmaDirective ) )
+            // InternalCPreprocess.g:1618:1: ( rulePragmaDirective )
             {
-            // InternalCPreprocess.g:1584:1: ( rulePragmaDirective )
-            // InternalCPreprocess.g:1585:1: rulePragmaDirective
+            // InternalCPreprocess.g:1618:1: ( rulePragmaDirective )
+            // InternalCPreprocess.g:1619:1: rulePragmaDirective
             {
              before(grammarAccess.getPreprocessorDirectivesAccess().getDirectivePragmaDirectiveParserRuleCall_1_4_0()); 
             pushFollow(FOLLOW_2);
@@ -3765,17 +3850,17 @@ public class InternalCPreprocessParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__IncludeDirective__StringAssignment_2"
-    // InternalCPreprocess.g:1594:1: rule__IncludeDirective__StringAssignment_2 : ( ruleMyCodeLine ) ;
+    // InternalCPreprocess.g:1628:1: rule__IncludeDirective__StringAssignment_2 : ( ruleMyCodeLine ) ;
     public final void rule__IncludeDirective__StringAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalCPreprocess.g:1598:1: ( ( ruleMyCodeLine ) )
-            // InternalCPreprocess.g:1599:1: ( ruleMyCodeLine )
+            // InternalCPreprocess.g:1632:1: ( ( ruleMyCodeLine ) )
+            // InternalCPreprocess.g:1633:1: ( ruleMyCodeLine )
             {
-            // InternalCPreprocess.g:1599:1: ( ruleMyCodeLine )
-            // InternalCPreprocess.g:1600:1: ruleMyCodeLine
+            // InternalCPreprocess.g:1633:1: ( ruleMyCodeLine )
+            // InternalCPreprocess.g:1634:1: ruleMyCodeLine
             {
              before(grammarAccess.getIncludeDirectiveAccess().getStringMyCodeLineParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -3806,17 +3891,17 @@ public class InternalCPreprocessParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__DefineDirective__IdAssignment_2"
-    // InternalCPreprocess.g:1609:1: rule__DefineDirective__IdAssignment_2 : ( RULE_ID ) ;
+    // InternalCPreprocess.g:1643:1: rule__DefineDirective__IdAssignment_2 : ( RULE_ID ) ;
     public final void rule__DefineDirective__IdAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalCPreprocess.g:1613:1: ( ( RULE_ID ) )
-            // InternalCPreprocess.g:1614:1: ( RULE_ID )
+            // InternalCPreprocess.g:1647:1: ( ( RULE_ID ) )
+            // InternalCPreprocess.g:1648:1: ( RULE_ID )
             {
-            // InternalCPreprocess.g:1614:1: ( RULE_ID )
-            // InternalCPreprocess.g:1615:1: RULE_ID
+            // InternalCPreprocess.g:1648:1: ( RULE_ID )
+            // InternalCPreprocess.g:1649:1: RULE_ID
             {
              before(grammarAccess.getDefineDirectiveAccess().getIdIDTerminalRuleCall_2_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -3843,17 +3928,17 @@ public class InternalCPreprocessParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__DefineDirective__StringAssignment_3"
-    // InternalCPreprocess.g:1624:1: rule__DefineDirective__StringAssignment_3 : ( ruleMyCodeLine ) ;
+    // InternalCPreprocess.g:1658:1: rule__DefineDirective__StringAssignment_3 : ( ruleMyCodeLine ) ;
     public final void rule__DefineDirective__StringAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalCPreprocess.g:1628:1: ( ( ruleMyCodeLine ) )
-            // InternalCPreprocess.g:1629:1: ( ruleMyCodeLine )
+            // InternalCPreprocess.g:1662:1: ( ( ruleMyCodeLine ) )
+            // InternalCPreprocess.g:1663:1: ( ruleMyCodeLine )
             {
-            // InternalCPreprocess.g:1629:1: ( ruleMyCodeLine )
-            // InternalCPreprocess.g:1630:1: ruleMyCodeLine
+            // InternalCPreprocess.g:1663:1: ( ruleMyCodeLine )
+            // InternalCPreprocess.g:1664:1: ruleMyCodeLine
             {
              before(grammarAccess.getDefineDirectiveAccess().getStringMyCodeLineParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -3883,18 +3968,55 @@ public class InternalCPreprocessParser extends AbstractInternalContentAssistPars
     // $ANTLR end "rule__DefineDirective__StringAssignment_3"
 
 
+    // $ANTLR start "rule__UnDefineDirective__IdAssignment_2"
+    // InternalCPreprocess.g:1673:1: rule__UnDefineDirective__IdAssignment_2 : ( RULE_ID ) ;
+    public final void rule__UnDefineDirective__IdAssignment_2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalCPreprocess.g:1677:1: ( ( RULE_ID ) )
+            // InternalCPreprocess.g:1678:1: ( RULE_ID )
+            {
+            // InternalCPreprocess.g:1678:1: ( RULE_ID )
+            // InternalCPreprocess.g:1679:1: RULE_ID
+            {
+             before(grammarAccess.getUnDefineDirectiveAccess().getIdIDTerminalRuleCall_2_0()); 
+            match(input,RULE_ID,FOLLOW_2); 
+             after(grammarAccess.getUnDefineDirectiveAccess().getIdIDTerminalRuleCall_2_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__UnDefineDirective__IdAssignment_2"
+
+
     // $ANTLR start "rule__ErrorDirective__MsgAssignment_2"
-    // InternalCPreprocess.g:1639:1: rule__ErrorDirective__MsgAssignment_2 : ( RULE_MYCODE ) ;
+    // InternalCPreprocess.g:1688:1: rule__ErrorDirective__MsgAssignment_2 : ( RULE_MYCODE ) ;
     public final void rule__ErrorDirective__MsgAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalCPreprocess.g:1643:1: ( ( RULE_MYCODE ) )
-            // InternalCPreprocess.g:1644:1: ( RULE_MYCODE )
+            // InternalCPreprocess.g:1692:1: ( ( RULE_MYCODE ) )
+            // InternalCPreprocess.g:1693:1: ( RULE_MYCODE )
             {
-            // InternalCPreprocess.g:1644:1: ( RULE_MYCODE )
-            // InternalCPreprocess.g:1645:1: RULE_MYCODE
+            // InternalCPreprocess.g:1693:1: ( RULE_MYCODE )
+            // InternalCPreprocess.g:1694:1: RULE_MYCODE
             {
              before(grammarAccess.getErrorDirectiveAccess().getMsgMYCODETerminalRuleCall_2_0()); 
             match(input,RULE_MYCODE,FOLLOW_2); 
@@ -3921,17 +4043,17 @@ public class InternalCPreprocessParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Code__CodeAssignment_1"
-    // InternalCPreprocess.g:1654:1: rule__Code__CodeAssignment_1 : ( RULE_MYCODE ) ;
+    // InternalCPreprocess.g:1703:1: rule__Code__CodeAssignment_1 : ( RULE_MYCODE ) ;
     public final void rule__Code__CodeAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalCPreprocess.g:1658:1: ( ( RULE_MYCODE ) )
-            // InternalCPreprocess.g:1659:1: ( RULE_MYCODE )
+            // InternalCPreprocess.g:1707:1: ( ( RULE_MYCODE ) )
+            // InternalCPreprocess.g:1708:1: ( RULE_MYCODE )
             {
-            // InternalCPreprocess.g:1659:1: ( RULE_MYCODE )
-            // InternalCPreprocess.g:1660:1: RULE_MYCODE
+            // InternalCPreprocess.g:1708:1: ( RULE_MYCODE )
+            // InternalCPreprocess.g:1709:1: RULE_MYCODE
             {
              before(grammarAccess.getCodeAccess().getCodeMYCODETerminalRuleCall_1_0()); 
             match(input,RULE_MYCODE,FOLLOW_2); 

@@ -25,4 +25,11 @@ public final class DefinitionTable {
 		return code;
 	}
 
+	public static void remove(final String key) {
+		// final String key = DefinitionTable.resolve(id);
+		if (DefinitionTable.table.containsKey(key)) {
+			DefinitionTable.table.remove(key);
+		}
+	}
+
 }

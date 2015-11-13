@@ -45,8 +45,8 @@ public class InternalCPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_LINEFEED"
     public final void mRULE_LINEFEED() throws RecognitionException {
         try {
-            // InternalCPreprocess.g:1670:24: ( '\\n' )
-            // InternalCPreprocess.g:1670:26: '\\n'
+            // InternalCPreprocess.g:1719:24: ( '\\n' )
+            // InternalCPreprocess.g:1719:26: '\\n'
             {
             match('\n'); 
 
@@ -61,8 +61,8 @@ public class InternalCPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_CARRIAGERETURN"
     public final void mRULE_CARRIAGERETURN() throws RecognitionException {
         try {
-            // InternalCPreprocess.g:1672:30: ( '\\r' )
-            // InternalCPreprocess.g:1672:32: '\\r'
+            // InternalCPreprocess.g:1721:30: ( '\\r' )
+            // InternalCPreprocess.g:1721:32: '\\r'
             {
             match('\r'); 
 
@@ -79,8 +79,8 @@ public class InternalCPreprocessLexer extends Lexer {
         try {
             int _type = RULE_NEWLINE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCPreprocess.g:1674:14: ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) )
-            // InternalCPreprocess.g:1674:16: ( RULE_CARRIAGERETURN | RULE_LINEFEED )
+            // InternalCPreprocess.g:1723:14: ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) )
+            // InternalCPreprocess.g:1723:16: ( RULE_CARRIAGERETURN | RULE_LINEFEED )
             {
             if ( input.LA(1)=='\n'||input.LA(1)=='\r' ) {
                 input.consume();
@@ -106,8 +106,8 @@ public class InternalCPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_BACKSLASH"
     public final void mRULE_BACKSLASH() throws RecognitionException {
         try {
-            // InternalCPreprocess.g:1676:25: ( '\\\\' )
-            // InternalCPreprocess.g:1676:27: '\\\\'
+            // InternalCPreprocess.g:1725:25: ( '\\\\' )
+            // InternalCPreprocess.g:1725:27: '\\\\'
             {
             match('\\'); 
 
@@ -122,10 +122,10 @@ public class InternalCPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_LINEBREAK"
     public final void mRULE_LINEBREAK() throws RecognitionException {
         try {
-            // InternalCPreprocess.g:1678:25: ( ( RULE_BACKSLASH RULE_NEWLINE )+ )
-            // InternalCPreprocess.g:1678:27: ( RULE_BACKSLASH RULE_NEWLINE )+
+            // InternalCPreprocess.g:1727:25: ( ( RULE_BACKSLASH RULE_NEWLINE )+ )
+            // InternalCPreprocess.g:1727:27: ( RULE_BACKSLASH RULE_NEWLINE )+
             {
-            // InternalCPreprocess.g:1678:27: ( RULE_BACKSLASH RULE_NEWLINE )+
+            // InternalCPreprocess.g:1727:27: ( RULE_BACKSLASH RULE_NEWLINE )+
             int cnt1=0;
             loop1:
             do {
@@ -139,7 +139,7 @@ public class InternalCPreprocessLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // InternalCPreprocess.g:1678:28: RULE_BACKSLASH RULE_NEWLINE
+            	    // InternalCPreprocess.g:1727:28: RULE_BACKSLASH RULE_NEWLINE
             	    {
             	    mRULE_BACKSLASH(); 
             	    mRULE_NEWLINE(); 
@@ -168,10 +168,10 @@ public class InternalCPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_WS"
     public final void mRULE_WS() throws RecognitionException {
         try {
-            // InternalCPreprocess.g:1680:18: ( ( ' ' | '\\t' | RULE_LINEBREAK ) )
-            // InternalCPreprocess.g:1680:20: ( ' ' | '\\t' | RULE_LINEBREAK )
+            // InternalCPreprocess.g:1729:18: ( ( ' ' | '\\t' | RULE_LINEBREAK ) )
+            // InternalCPreprocess.g:1729:20: ( ' ' | '\\t' | RULE_LINEBREAK )
             {
-            // InternalCPreprocess.g:1680:20: ( ' ' | '\\t' | RULE_LINEBREAK )
+            // InternalCPreprocess.g:1729:20: ( ' ' | '\\t' | RULE_LINEBREAK )
             int alt2=3;
             switch ( input.LA(1) ) {
             case ' ':
@@ -198,21 +198,21 @@ public class InternalCPreprocessLexer extends Lexer {
 
             switch (alt2) {
                 case 1 :
-                    // InternalCPreprocess.g:1680:21: ' '
+                    // InternalCPreprocess.g:1729:21: ' '
                     {
                     match(' '); 
 
                     }
                     break;
                 case 2 :
-                    // InternalCPreprocess.g:1680:25: '\\t'
+                    // InternalCPreprocess.g:1729:25: '\\t'
                     {
                     match('\t'); 
 
                     }
                     break;
                 case 3 :
-                    // InternalCPreprocess.g:1680:30: RULE_LINEBREAK
+                    // InternalCPreprocess.g:1729:30: RULE_LINEBREAK
                     {
                     mRULE_LINEBREAK(); 
 
@@ -233,8 +233,8 @@ public class InternalCPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_HASH"
     public final void mRULE_HASH() throws RecognitionException {
         try {
-            // InternalCPreprocess.g:1682:20: ( '#' )
-            // InternalCPreprocess.g:1682:22: '#'
+            // InternalCPreprocess.g:1731:20: ( '#' )
+            // InternalCPreprocess.g:1731:22: '#'
             {
             match('#'); 
 
@@ -251,11 +251,11 @@ public class InternalCPreprocessLexer extends Lexer {
         try {
             int _type = RULE_DEFINE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCPreprocess.g:1684:13: ( RULE_HASH ( RULE_WS )* 'define' ( RULE_WS )+ )
-            // InternalCPreprocess.g:1684:15: RULE_HASH ( RULE_WS )* 'define' ( RULE_WS )+
+            // InternalCPreprocess.g:1733:13: ( RULE_HASH ( RULE_WS )* 'define' ( RULE_WS )+ )
+            // InternalCPreprocess.g:1733:15: RULE_HASH ( RULE_WS )* 'define' ( RULE_WS )+
             {
             mRULE_HASH(); 
-            // InternalCPreprocess.g:1684:25: ( RULE_WS )*
+            // InternalCPreprocess.g:1733:25: ( RULE_WS )*
             loop3:
             do {
                 int alt3=2;
@@ -268,7 +268,7 @@ public class InternalCPreprocessLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalCPreprocess.g:1684:25: RULE_WS
+            	    // InternalCPreprocess.g:1733:25: RULE_WS
             	    {
             	    mRULE_WS(); 
 
@@ -282,7 +282,7 @@ public class InternalCPreprocessLexer extends Lexer {
 
             match("define"); 
 
-            // InternalCPreprocess.g:1684:43: ( RULE_WS )+
+            // InternalCPreprocess.g:1733:43: ( RULE_WS )+
             int cnt4=0;
             loop4:
             do {
@@ -296,7 +296,7 @@ public class InternalCPreprocessLexer extends Lexer {
 
                 switch (alt4) {
             	case 1 :
-            	    // InternalCPreprocess.g:1684:43: RULE_WS
+            	    // InternalCPreprocess.g:1733:43: RULE_WS
             	    {
             	    mRULE_WS(); 
 
@@ -329,11 +329,11 @@ public class InternalCPreprocessLexer extends Lexer {
         try {
             int _type = RULE_UNDEF;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCPreprocess.g:1686:12: ( RULE_HASH ( RULE_WS )* 'undef' ( RULE_WS )+ )
-            // InternalCPreprocess.g:1686:14: RULE_HASH ( RULE_WS )* 'undef' ( RULE_WS )+
+            // InternalCPreprocess.g:1735:12: ( RULE_HASH ( RULE_WS )* 'undef' ( RULE_WS )+ )
+            // InternalCPreprocess.g:1735:14: RULE_HASH ( RULE_WS )* 'undef' ( RULE_WS )+
             {
             mRULE_HASH(); 
-            // InternalCPreprocess.g:1686:24: ( RULE_WS )*
+            // InternalCPreprocess.g:1735:24: ( RULE_WS )*
             loop5:
             do {
                 int alt5=2;
@@ -346,7 +346,7 @@ public class InternalCPreprocessLexer extends Lexer {
 
                 switch (alt5) {
             	case 1 :
-            	    // InternalCPreprocess.g:1686:24: RULE_WS
+            	    // InternalCPreprocess.g:1735:24: RULE_WS
             	    {
             	    mRULE_WS(); 
 
@@ -360,7 +360,7 @@ public class InternalCPreprocessLexer extends Lexer {
 
             match("undef"); 
 
-            // InternalCPreprocess.g:1686:41: ( RULE_WS )+
+            // InternalCPreprocess.g:1735:41: ( RULE_WS )+
             int cnt6=0;
             loop6:
             do {
@@ -374,7 +374,7 @@ public class InternalCPreprocessLexer extends Lexer {
 
                 switch (alt6) {
             	case 1 :
-            	    // InternalCPreprocess.g:1686:41: RULE_WS
+            	    // InternalCPreprocess.g:1735:41: RULE_WS
             	    {
             	    mRULE_WS(); 
 
@@ -407,11 +407,11 @@ public class InternalCPreprocessLexer extends Lexer {
         try {
             int _type = RULE_INCLUDE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCPreprocess.g:1688:14: ( RULE_HASH ( RULE_WS )* 'include' ( RULE_WS )+ )
-            // InternalCPreprocess.g:1688:16: RULE_HASH ( RULE_WS )* 'include' ( RULE_WS )+
+            // InternalCPreprocess.g:1737:14: ( RULE_HASH ( RULE_WS )* 'include' ( RULE_WS )+ )
+            // InternalCPreprocess.g:1737:16: RULE_HASH ( RULE_WS )* 'include' ( RULE_WS )+
             {
             mRULE_HASH(); 
-            // InternalCPreprocess.g:1688:26: ( RULE_WS )*
+            // InternalCPreprocess.g:1737:26: ( RULE_WS )*
             loop7:
             do {
                 int alt7=2;
@@ -424,7 +424,7 @@ public class InternalCPreprocessLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalCPreprocess.g:1688:26: RULE_WS
+            	    // InternalCPreprocess.g:1737:26: RULE_WS
             	    {
             	    mRULE_WS(); 
 
@@ -438,7 +438,7 @@ public class InternalCPreprocessLexer extends Lexer {
 
             match("include"); 
 
-            // InternalCPreprocess.g:1688:45: ( RULE_WS )+
+            // InternalCPreprocess.g:1737:45: ( RULE_WS )+
             int cnt8=0;
             loop8:
             do {
@@ -452,7 +452,7 @@ public class InternalCPreprocessLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalCPreprocess.g:1688:45: RULE_WS
+            	    // InternalCPreprocess.g:1737:45: RULE_WS
             	    {
             	    mRULE_WS(); 
 
@@ -484,11 +484,11 @@ public class InternalCPreprocessLexer extends Lexer {
         try {
             int _type = RULE_ERROR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCPreprocess.g:1690:12: ( RULE_HASH ( RULE_WS )* 'error' ( RULE_WS )+ )
-            // InternalCPreprocess.g:1690:14: RULE_HASH ( RULE_WS )* 'error' ( RULE_WS )+
+            // InternalCPreprocess.g:1739:12: ( RULE_HASH ( RULE_WS )* 'error' ( RULE_WS )+ )
+            // InternalCPreprocess.g:1739:14: RULE_HASH ( RULE_WS )* 'error' ( RULE_WS )+
             {
             mRULE_HASH(); 
-            // InternalCPreprocess.g:1690:24: ( RULE_WS )*
+            // InternalCPreprocess.g:1739:24: ( RULE_WS )*
             loop9:
             do {
                 int alt9=2;
@@ -501,7 +501,7 @@ public class InternalCPreprocessLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // InternalCPreprocess.g:1690:24: RULE_WS
+            	    // InternalCPreprocess.g:1739:24: RULE_WS
             	    {
             	    mRULE_WS(); 
 
@@ -515,7 +515,7 @@ public class InternalCPreprocessLexer extends Lexer {
 
             match("error"); 
 
-            // InternalCPreprocess.g:1690:41: ( RULE_WS )+
+            // InternalCPreprocess.g:1739:41: ( RULE_WS )+
             int cnt10=0;
             loop10:
             do {
@@ -529,7 +529,7 @@ public class InternalCPreprocessLexer extends Lexer {
 
                 switch (alt10) {
             	case 1 :
-            	    // InternalCPreprocess.g:1690:41: RULE_WS
+            	    // InternalCPreprocess.g:1739:41: RULE_WS
             	    {
             	    mRULE_WS(); 
 
@@ -561,11 +561,11 @@ public class InternalCPreprocessLexer extends Lexer {
         try {
             int _type = RULE_PRAGMA;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCPreprocess.g:1692:13: ( RULE_HASH ( RULE_WS )* 'pragma' ( RULE_WS )+ )
-            // InternalCPreprocess.g:1692:15: RULE_HASH ( RULE_WS )* 'pragma' ( RULE_WS )+
+            // InternalCPreprocess.g:1741:13: ( RULE_HASH ( RULE_WS )* 'pragma' ( RULE_WS )+ )
+            // InternalCPreprocess.g:1741:15: RULE_HASH ( RULE_WS )* 'pragma' ( RULE_WS )+
             {
             mRULE_HASH(); 
-            // InternalCPreprocess.g:1692:25: ( RULE_WS )*
+            // InternalCPreprocess.g:1741:25: ( RULE_WS )*
             loop11:
             do {
                 int alt11=2;
@@ -578,7 +578,7 @@ public class InternalCPreprocessLexer extends Lexer {
 
                 switch (alt11) {
             	case 1 :
-            	    // InternalCPreprocess.g:1692:25: RULE_WS
+            	    // InternalCPreprocess.g:1741:25: RULE_WS
             	    {
             	    mRULE_WS(); 
 
@@ -592,7 +592,7 @@ public class InternalCPreprocessLexer extends Lexer {
 
             match("pragma"); 
 
-            // InternalCPreprocess.g:1692:43: ( RULE_WS )+
+            // InternalCPreprocess.g:1741:43: ( RULE_WS )+
             int cnt12=0;
             loop12:
             do {
@@ -606,7 +606,7 @@ public class InternalCPreprocessLexer extends Lexer {
 
                 switch (alt12) {
             	case 1 :
-            	    // InternalCPreprocess.g:1692:43: RULE_WS
+            	    // InternalCPreprocess.g:1741:43: RULE_WS
             	    {
             	    mRULE_WS(); 
 
@@ -639,8 +639,8 @@ public class InternalCPreprocessLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCPreprocess.g:1694:9: ( RULE_IDENTIFIER )
-            // InternalCPreprocess.g:1694:11: RULE_IDENTIFIER
+            // InternalCPreprocess.g:1743:9: ( RULE_IDENTIFIER )
+            // InternalCPreprocess.g:1743:11: RULE_IDENTIFIER
             {
             mRULE_IDENTIFIER(); 
             at.jku.weiner.cpreprocess.PreLine.setPreLine(false);
@@ -658,11 +658,11 @@ public class InternalCPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_IDENTIFIER"
     public final void mRULE_IDENTIFIER() throws RecognitionException {
         try {
-            // InternalCPreprocess.g:1696:26: ( RULE_LETTER ( RULE_LETTER | '0' .. '9' )* )
-            // InternalCPreprocess.g:1696:28: RULE_LETTER ( RULE_LETTER | '0' .. '9' )*
+            // InternalCPreprocess.g:1745:26: ( RULE_LETTER ( RULE_LETTER | '0' .. '9' )* )
+            // InternalCPreprocess.g:1745:28: RULE_LETTER ( RULE_LETTER | '0' .. '9' )*
             {
             mRULE_LETTER(); 
-            // InternalCPreprocess.g:1696:40: ( RULE_LETTER | '0' .. '9' )*
+            // InternalCPreprocess.g:1745:40: ( RULE_LETTER | '0' .. '9' )*
             loop13:
             do {
                 int alt13=2;
@@ -707,8 +707,8 @@ public class InternalCPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_LETTER"
     public final void mRULE_LETTER() throws RecognitionException {
         try {
-            // InternalCPreprocess.g:1698:22: ( ( '$' | 'A' .. 'Z' | 'a' .. 'z' | '_' ) )
-            // InternalCPreprocess.g:1698:24: ( '$' | 'A' .. 'Z' | 'a' .. 'z' | '_' )
+            // InternalCPreprocess.g:1747:22: ( ( '$' | 'A' .. 'Z' | 'a' .. 'z' | '_' ) )
+            // InternalCPreprocess.g:1747:24: ( '$' | 'A' .. 'Z' | 'a' .. 'z' | '_' )
             {
             if ( input.LA(1)=='$'||(input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                 input.consume();
@@ -733,8 +733,8 @@ public class InternalCPreprocessLexer extends Lexer {
         try {
             int _type = RULE_MYCODE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCPreprocess.g:1700:13: ({...}? =>~ ( ( RULE_HASH | RULE_CARRIAGERETURN | RULE_LINEFEED ) ) (~ ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) ) )* )
-            // InternalCPreprocess.g:1700:15: {...}? =>~ ( ( RULE_HASH | RULE_CARRIAGERETURN | RULE_LINEFEED ) ) (~ ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) ) )*
+            // InternalCPreprocess.g:1749:13: ({...}? =>~ ( ( RULE_HASH | RULE_CARRIAGERETURN | RULE_LINEFEED ) ) (~ ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) ) )* )
+            // InternalCPreprocess.g:1749:15: {...}? =>~ ( ( RULE_HASH | RULE_CARRIAGERETURN | RULE_LINEFEED ) ) (~ ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) ) )*
             {
             if ( !((at.jku.weiner.cpreprocess.PreLine.isNotPreLine())) ) {
                 throw new FailedPredicateException(input, "RULE_MYCODE", "at.jku.weiner.cpreprocess.PreLine.isNotPreLine()");
@@ -748,7 +748,7 @@ public class InternalCPreprocessLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalCPreprocess.g:1700:118: (~ ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) ) )*
+            // InternalCPreprocess.g:1749:118: (~ ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) ) )*
             loop14:
             do {
                 int alt14=2;
@@ -761,7 +761,7 @@ public class InternalCPreprocessLexer extends Lexer {
 
                 switch (alt14) {
             	case 1 :
-            	    // InternalCPreprocess.g:1700:118: ~ ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) )
+            	    // InternalCPreprocess.g:1749:118: ~ ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();

@@ -286,6 +286,16 @@ public class CPreprocessPackageImpl extends EPackageImpl implements CPreprocessP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getUnDefineDirective_Id()
+  {
+    return (EAttribute)unDefineDirectiveEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getErrorDirective()
   {
     return errorDirectiveEClass;
@@ -407,6 +417,7 @@ public class CPreprocessPackageImpl extends EPackageImpl implements CPreprocessP
     createEAttribute(defineDirectiveEClass, DEFINE_DIRECTIVE__STRING);
 
     unDefineDirectiveEClass = createEClass(UN_DEFINE_DIRECTIVE);
+    createEAttribute(unDefineDirectiveEClass, UN_DEFINE_DIRECTIVE__ID);
 
     errorDirectiveEClass = createEClass(ERROR_DIRECTIVE);
     createEAttribute(errorDirectiveEClass, ERROR_DIRECTIVE__MSG);
@@ -472,6 +483,7 @@ public class CPreprocessPackageImpl extends EPackageImpl implements CPreprocessP
     initEAttribute(getDefineDirective_String(), ecorePackage.getEString(), "string", null, 0, 1, DefineDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(unDefineDirectiveEClass, UnDefineDirective.class, "UnDefineDirective", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getUnDefineDirective_Id(), ecorePackage.getEString(), "id", null, 0, 1, UnDefineDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(errorDirectiveEClass, ErrorDirective.class, "ErrorDirective", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getErrorDirective_Msg(), ecorePackage.getEString(), "msg", null, 0, 1, ErrorDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

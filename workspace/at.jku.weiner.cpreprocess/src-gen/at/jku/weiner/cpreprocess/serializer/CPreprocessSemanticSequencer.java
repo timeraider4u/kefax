@@ -186,9 +186,16 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     {UnDefineDirective}
+	 *     id=ID
 	 */
 	protected void sequence_UnDefineDirective(EObject context, UnDefineDirective semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, CPreprocessPackage.Literals.UN_DEFINE_DIRECTIVE__ID) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CPreprocessPackage.Literals.UN_DEFINE_DIRECTIVE__ID));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getUnDefineDirectiveAccess().getIdIDTerminalRuleCall_2_0(), semanticObject.getId());
+		feeder.finish();
 	}
 }

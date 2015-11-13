@@ -91,6 +91,7 @@ public class InternalCPreprocessLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
+            at.jku.weiner.cpreprocess.PreLine.setPreLine(false);
 
             }
 
@@ -311,6 +312,7 @@ public class InternalCPreprocessLexer extends Lexer {
                 cnt4++;
             } while (true);
 
+            at.jku.weiner.cpreprocess.PreLine.setPreLine(true);
 
             }
 
@@ -388,6 +390,7 @@ public class InternalCPreprocessLexer extends Lexer {
                 cnt6++;
             } while (true);
 
+            at.jku.weiner.cpreprocess.PreLine.setPreLine(true);
 
             }
 
@@ -619,6 +622,7 @@ public class InternalCPreprocessLexer extends Lexer {
                 cnt12++;
             } while (true);
 
+            at.jku.weiner.cpreprocess.PreLine.setPreLine(true);
 
             }
 
@@ -639,6 +643,7 @@ public class InternalCPreprocessLexer extends Lexer {
             // InternalCPreprocess.g:849:11: RULE_IDENTIFIER
             {
             mRULE_IDENTIFIER(); 
+            at.jku.weiner.cpreprocess.PreLine.setPreLine(false);
 
             }
 
@@ -728,9 +733,12 @@ public class InternalCPreprocessLexer extends Lexer {
         try {
             int _type = RULE_MYCODE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCPreprocess.g:855:13: (~ ( ( RULE_HASH | RULE_CARRIAGERETURN | RULE_LINEFEED ) ) (~ ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) ) )* )
-            // InternalCPreprocess.g:855:15: ~ ( ( RULE_HASH | RULE_CARRIAGERETURN | RULE_LINEFEED ) ) (~ ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) ) )*
+            // InternalCPreprocess.g:855:13: ({...}? =>~ ( ( RULE_HASH | RULE_CARRIAGERETURN | RULE_LINEFEED ) ) (~ ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) ) )* )
+            // InternalCPreprocess.g:855:15: {...}? =>~ ( ( RULE_HASH | RULE_CARRIAGERETURN | RULE_LINEFEED ) ) (~ ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) ) )*
             {
+            if ( !((at.jku.weiner.cpreprocess.PreLine.isNotPreLine())) ) {
+                throw new FailedPredicateException(input, "RULE_MYCODE", "at.jku.weiner.cpreprocess.PreLine.isNotPreLine()");
+            }
             if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\"')||(input.LA(1)>='$' && input.LA(1)<='\uFFFF') ) {
                 input.consume();
 
@@ -740,7 +748,7 @@ public class InternalCPreprocessLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalCPreprocess.g:855:64: (~ ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) ) )*
+            // InternalCPreprocess.g:855:118: (~ ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) ) )*
             loop14:
             do {
                 int alt14=2;
@@ -753,7 +761,7 @@ public class InternalCPreprocessLexer extends Lexer {
 
                 switch (alt14) {
             	case 1 :
-            	    // InternalCPreprocess.g:855:64: ~ ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) )
+            	    // InternalCPreprocess.g:855:118: ~ ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -853,34 +861,36 @@ public class InternalCPreprocessLexer extends Lexer {
 
     protected DFA15 dfa15 = new DFA15(this);
     static final String DFA15_eotS =
-        "\3\uffff\1\15\12\uffff\1\15\1\uffff";
+        "\3\uffff\1\16\11\uffff\1\20\4\uffff";
     static final String DFA15_eofS =
-        "\20\uffff";
+        "\22\uffff";
     static final String DFA15_minS =
-        "\1\0\1\uffff\1\11\1\0\1\uffff\2\11\1\12\6\uffff\1\0\1\11";
+        "\1\0\1\uffff\1\11\1\0\1\uffff\2\11\1\12\5\uffff\2\0\1\11\1\0\1\uffff";
     static final String DFA15_maxS =
-        "\1\uffff\1\uffff\1\165\1\uffff\1\uffff\2\165\1\15\6\uffff\1\uffff\1\165";
+        "\1\uffff\1\uffff\1\165\1\uffff\1\uffff\2\165\1\15\5\uffff\1\uffff\1\0\1\165\1\0\1\uffff";
     static final String DFA15_acceptS =
-        "\1\uffff\1\1\2\uffff\1\10\3\uffff\1\3\1\5\1\4\1\6\1\2\1\7\2\uffff";
+        "\1\uffff\1\1\2\uffff\1\10\3\uffff\1\4\1\6\1\3\1\5\1\2\4\uffff\1\7";
     static final String DFA15_specialS =
-        "\1\0\2\uffff\1\2\12\uffff\1\1\1\uffff}>";
+        "\1\2\2\uffff\1\4\11\uffff\1\3\1\1\1\uffff\1\0\1\uffff}>";
     static final String[] DFA15_transitionS = {
             "\12\4\1\1\2\4\1\1\25\4\1\2\1\3\34\4\32\3\4\4\1\3\1\4\32\3\uff85\4",
             "",
-            "\1\6\26\uffff\1\5\73\uffff\1\7\7\uffff\1\14\1\11\3\uffff\1\12\6\uffff\1\13\4\uffff\1\10",
-            "\12\4\1\uffff\2\4\1\uffff\26\4\1\16\13\4\12\16\7\4\32\16\4\4\1\16\1\4\32\16\uff85\4",
+            "\1\6\26\uffff\1\5\73\uffff\1\7\7\uffff\1\14\1\13\3\uffff\1\10\6\uffff\1\11\4\uffff\1\12",
+            "\12\4\1\uffff\2\4\1\uffff\26\4\1\15\13\4\12\15\7\4\32\15\4\4\1\15\1\4\32\15\uff85\4",
             "",
-            "\1\6\26\uffff\1\5\73\uffff\1\7\7\uffff\1\14\1\11\3\uffff\1\12\6\uffff\1\13\4\uffff\1\10",
-            "\1\6\26\uffff\1\5\73\uffff\1\7\7\uffff\1\14\1\11\3\uffff\1\12\6\uffff\1\13\4\uffff\1\10",
+            "\1\6\26\uffff\1\5\73\uffff\1\7\7\uffff\1\14\1\13\3\uffff\1\10\6\uffff\1\11\4\uffff\1\12",
+            "\1\6\26\uffff\1\5\73\uffff\1\7\7\uffff\1\14\1\13\3\uffff\1\10\6\uffff\1\11\4\uffff\1\12",
             "\1\17\2\uffff\1\17",
             "",
             "",
             "",
             "",
             "",
-            "",
-            "\12\4\1\uffff\2\4\1\uffff\26\4\1\16\13\4\12\16\7\4\32\16\4\4\1\16\1\4\32\16\uff85\4",
-            "\1\6\26\uffff\1\5\73\uffff\1\7\7\uffff\1\14\1\11\3\uffff\1\12\6\uffff\1\13\4\uffff\1\10"
+            "\12\4\1\uffff\2\4\1\uffff\26\4\1\15\13\4\12\15\7\4\32\15\4\4\1\15\1\4\32\15\uff85\4",
+            "\1\uffff",
+            "\1\6\26\uffff\1\5\73\uffff\1\7\7\uffff\1\14\1\13\3\uffff\1\10\6\uffff\1\11\4\uffff\1\12",
+            "\1\uffff",
+            ""
     };
 
     static final short[] DFA15_eot = DFA.unpackEncodedString(DFA15_eotS);
@@ -920,8 +930,41 @@ public class InternalCPreprocessLexer extends Lexer {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
+                        int LA15_16 = input.LA(1);
+
+                         
+                        int index15_16 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (!(((at.jku.weiner.cpreprocess.PreLine.isNotPreLine())))) ) {s = 17;}
+
+                        else if ( ((at.jku.weiner.cpreprocess.PreLine.isNotPreLine())) ) {s = 4;}
+
+                         
+                        input.seek(index15_16);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 1 : 
+                        int LA15_14 = input.LA(1);
+
+                         
+                        int index15_14 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (!(((at.jku.weiner.cpreprocess.PreLine.isNotPreLine())))) ) {s = 17;}
+
+                        else if ( ((at.jku.weiner.cpreprocess.PreLine.isNotPreLine())) ) {s = 4;}
+
+                         
+                        input.seek(index15_14);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
                         int LA15_0 = input.LA(1);
 
+                         
+                        int index15_0 = input.index();
+                        input.rewind();
                         s = -1;
                         if ( (LA15_0=='\n'||LA15_0=='\r') ) {s = 1;}
 
@@ -929,32 +972,44 @@ public class InternalCPreprocessLexer extends Lexer {
 
                         else if ( (LA15_0=='$'||(LA15_0>='A' && LA15_0<='Z')||LA15_0=='_'||(LA15_0>='a' && LA15_0<='z')) ) {s = 3;}
 
-                        else if ( ((LA15_0>='\u0000' && LA15_0<='\t')||(LA15_0>='\u000B' && LA15_0<='\f')||(LA15_0>='\u000E' && LA15_0<='\"')||(LA15_0>='%' && LA15_0<='@')||(LA15_0>='[' && LA15_0<='^')||LA15_0=='`'||(LA15_0>='{' && LA15_0<='\uFFFF')) ) {s = 4;}
+                        else if ( ((LA15_0>='\u0000' && LA15_0<='\t')||(LA15_0>='\u000B' && LA15_0<='\f')||(LA15_0>='\u000E' && LA15_0<='\"')||(LA15_0>='%' && LA15_0<='@')||(LA15_0>='[' && LA15_0<='^')||LA15_0=='`'||(LA15_0>='{' && LA15_0<='\uFFFF')) && ((at.jku.weiner.cpreprocess.PreLine.isNotPreLine()))) {s = 4;}
 
+                         
+                        input.seek(index15_0);
                         if ( s>=0 ) return s;
                         break;
-                    case 1 : 
-                        int LA15_14 = input.LA(1);
+                    case 3 : 
+                        int LA15_13 = input.LA(1);
 
+                         
+                        int index15_13 = input.index();
+                        input.rewind();
                         s = -1;
-                        if ( (LA15_14=='$'||(LA15_14>='0' && LA15_14<='9')||(LA15_14>='A' && LA15_14<='Z')||LA15_14=='_'||(LA15_14>='a' && LA15_14<='z')) ) {s = 14;}
+                        if ( (LA15_13=='$'||(LA15_13>='0' && LA15_13<='9')||(LA15_13>='A' && LA15_13<='Z')||LA15_13=='_'||(LA15_13>='a' && LA15_13<='z')) ) {s = 13;}
 
-                        else if ( ((LA15_14>='\u0000' && LA15_14<='\t')||(LA15_14>='\u000B' && LA15_14<='\f')||(LA15_14>='\u000E' && LA15_14<='#')||(LA15_14>='%' && LA15_14<='/')||(LA15_14>=':' && LA15_14<='@')||(LA15_14>='[' && LA15_14<='^')||LA15_14=='`'||(LA15_14>='{' && LA15_14<='\uFFFF')) ) {s = 4;}
+                        else if ( ((LA15_13>='\u0000' && LA15_13<='\t')||(LA15_13>='\u000B' && LA15_13<='\f')||(LA15_13>='\u000E' && LA15_13<='#')||(LA15_13>='%' && LA15_13<='/')||(LA15_13>=':' && LA15_13<='@')||(LA15_13>='[' && LA15_13<='^')||LA15_13=='`'||(LA15_13>='{' && LA15_13<='\uFFFF')) && ((at.jku.weiner.cpreprocess.PreLine.isNotPreLine()))) {s = 4;}
 
-                        else s = 13;
+                        else s = 16;
 
+                         
+                        input.seek(index15_13);
                         if ( s>=0 ) return s;
                         break;
-                    case 2 : 
+                    case 4 : 
                         int LA15_3 = input.LA(1);
 
+                         
+                        int index15_3 = input.index();
+                        input.rewind();
                         s = -1;
-                        if ( (LA15_3=='$'||(LA15_3>='0' && LA15_3<='9')||(LA15_3>='A' && LA15_3<='Z')||LA15_3=='_'||(LA15_3>='a' && LA15_3<='z')) ) {s = 14;}
+                        if ( (LA15_3=='$'||(LA15_3>='0' && LA15_3<='9')||(LA15_3>='A' && LA15_3<='Z')||LA15_3=='_'||(LA15_3>='a' && LA15_3<='z')) ) {s = 13;}
 
-                        else if ( ((LA15_3>='\u0000' && LA15_3<='\t')||(LA15_3>='\u000B' && LA15_3<='\f')||(LA15_3>='\u000E' && LA15_3<='#')||(LA15_3>='%' && LA15_3<='/')||(LA15_3>=':' && LA15_3<='@')||(LA15_3>='[' && LA15_3<='^')||LA15_3=='`'||(LA15_3>='{' && LA15_3<='\uFFFF')) ) {s = 4;}
+                        else if ( ((LA15_3>='\u0000' && LA15_3<='\t')||(LA15_3>='\u000B' && LA15_3<='\f')||(LA15_3>='\u000E' && LA15_3<='#')||(LA15_3>='%' && LA15_3<='/')||(LA15_3>=':' && LA15_3<='@')||(LA15_3>='[' && LA15_3<='^')||LA15_3=='`'||(LA15_3>='{' && LA15_3<='\uFFFF')) && ((at.jku.weiner.cpreprocess.PreLine.isNotPreLine()))) {s = 4;}
 
-                        else s = 13;
+                        else s = 14;
 
+                         
+                        input.seek(index15_3);
                         if ( s>=0 ) return s;
                         break;
             }

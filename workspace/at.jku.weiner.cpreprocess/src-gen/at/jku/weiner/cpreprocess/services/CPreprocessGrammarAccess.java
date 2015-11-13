@@ -659,7 +659,7 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal MYCODE:
-	//	{ { at.jku.weiner.cpreprocess.PreLine.isPreLine(false);
+	//	{ { at.jku.weiner.cpreprocess.PreLine.isNotPreLine()
 	//	} ? } !(HASH | CARRIAGERETURN | LINEFEED) !(CARRIAGERETURN | LINEFEED)*;
 	public TerminalRule getMYCODERule() {
 		return tMYCODE;

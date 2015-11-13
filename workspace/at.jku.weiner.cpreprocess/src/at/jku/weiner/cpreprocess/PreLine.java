@@ -8,6 +8,10 @@ public final class PreLine {
 		return PreLine.isPreLine;
 	}
 
+	public static boolean isNotPreLine() {
+		return !PreLine.isPreLine();
+	}
+
 	public static void setPreLine(final boolean isPreLine) {
 		PreLine.isPreLine = isPreLine;
 	}

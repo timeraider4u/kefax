@@ -17,6 +17,7 @@ import at.jku.weiner.cpreprocess.cPreprocess.DefineDirective
 import at.jku.weiner.cpreprocess.cPreprocess.UnDefineDirective
 import at.jku.weiner.cpreprocess.cPreprocess.ErrorDirective
 import at.jku.weiner.cpreprocess.cPreprocess.PragmaDirective
+import at.jku.weiner.cpreprocess.DefinitionTable
 
 /**
  * Generates code from your model files on save.
@@ -28,6 +29,7 @@ class CPreprocessGenerator implements IGenerator {
 	@Accessors String fileName = 'greetings.txt';
 	
 	override void doGenerate(Resource input, IFileSystemAccess fsa) {
+		DefinitionTable.reset();
 		val model = input.allContents.filter(typeof(Model)).head;
 		val unit = model.units.head;
 		val output = outputFor(unit);
@@ -71,6 +73,7 @@ class CPreprocessGenerator implements IGenerator {
 	}
 	
 	def String outputFor(DefineDirective obj) {
+		DefinitionTable.add(obj.id, obj.string);
 		return "";
 	}
 	
@@ -90,7 +93,8 @@ class CPreprocessGenerator implements IGenerator {
 	
 	def String outputFor(Code obj) {
 		val String code = obj.code.toString();
-		return code;
+		val String result = DefinitionTable.resolve(code);
+		return result;
 	}
 	
 }

@@ -17,7 +17,8 @@ import at.jku.weiner.cpreprocess.cPreprocess.DefineDirective
 import at.jku.weiner.cpreprocess.cPreprocess.UnDefineDirective
 import at.jku.weiner.cpreprocess.cPreprocess.ErrorDirective
 import at.jku.weiner.cpreprocess.cPreprocess.PragmaDirective
-import at.jku.weiner.cpreprocess.DefinitionTable
+import at.jku.weiner.cpreprocess.generator.DefinitionTable
+import org.eclipse.emf.ecore.resource.ResourceSet
 
 /**
  * Generates code from your model files on save.
@@ -28,12 +29,20 @@ class CPreprocessGenerator implements IGenerator {
 
 	@Accessors String fileName = 'greetings.txt';
 	
+	ResourceSet rs;
+	
 	override void doGenerate(Resource input, IFileSystemAccess fsa) {
+		rs = input.resourceSet;
 		DefinitionTable.reset();
-		val model = input.allContents.filter(typeof(Model)).head;
-		val unit = model.units.head;
-		val output = outputFor(unit);
+		val TranslationUnit unit = getUnitFor(input);
+		val String output = outputFor(unit);
 		fsa.generateFile(fileName, output);
+	}
+	
+	def TranslationUnit getUnitFor(Resource input) {
+		val Model model = input.allContents.filter(typeof(Model)).head;
+		val TranslationUnit unit = model.units.head;
+		return unit;
 	}
 
 	def String outputFor(TranslationUnit unit) '''
@@ -69,7 +78,11 @@ class CPreprocessGenerator implements IGenerator {
 	'''
 	
 	def String outputFor(IncludeDirective obj) {
-		return "";
+		val IncludeUtils includeUtils = new IncludeUtils(rs, obj.string);
+		val Resource res = includeUtils.getResource();
+		val TranslationUnit unit = this.getUnitFor(res);
+		val String output = outputFor(unit);
+		return output;
 	}
 	
 	def String outputFor(DefineDirective obj) {

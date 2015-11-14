@@ -1,4 +1,4 @@
-package at.jku.weiner.cpreprocess;
+package at.jku.weiner.cpreprocess.generator;
 
 import java.util.Map;
 import java.util.TreeMap;

@@ -72,6 +72,9 @@ Generator:
 		(FILE ASSIGNASSINGLE patternFile=STRING)?
 		(replacePatterns+=ReplacePatterns)*
 	)?
+	(EXPECTED EXCEPTIONS
+		exception=PackageID
+	)?
 ;
 
 ReplacePatterns:
@@ -89,6 +92,7 @@ terminal OUTPUT: 'output';
 terminal EXPECTED: 'expected';
 terminal ISSAMEASINPUTFILE: 'isSameAsInputFile';
 terminal PATTERNS: 'replacePatterns';
+terminal EXCEPTIONS: 'exceptions';
 terminal LEFTPAREN: '(';
 terminal RIGHTPAREN: ')';
 terminal ASSIGNASSINGLE: '=';

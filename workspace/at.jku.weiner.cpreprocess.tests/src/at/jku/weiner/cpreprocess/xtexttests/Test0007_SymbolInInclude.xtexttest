@@ -3,10 +3,9 @@
 package at.jku.weiner.cpreprocess
 language cPreprocess
 //----------------------------------------------------------------------
-source file="res/Test0006_SimpleInc.c"
+source file="res/Test0007_SymbolInInclude.h"
 //----------------------------------------------------------------------
 lexer-tokens
-	INCLUDE MYCODE NEWLINE
 	INCLUDE MYCODE NEWLINE
 //----------------------------------------------------------------------
 (Model
@@ -16,20 +15,15 @@ lexer-tokens
 		(PreprocessorDirectives
 			directive=
 			(IncludeDirective
-				string++"\\\"Test0000_Empty.c\\\""
-			)
-		),
-		(PreprocessorDirectives
-			directive=
-			(IncludeDirective
-				string++"\\\"Test0002_Code.c\\\""
+				string++"abc"
 			)
 		)
 	)
 )
 //----------------------------------------------------------------------
-output file="bin/Test0006_SimpleInc.c.i"
-expected file="expected/Test0006_SimpleInc.c"
+output file="bin/Test0007_SymbolInInclude.c.i"
+expected file isSameAsInputFile
+expected exceptions java.lang.IllegalArgumentException
 //replacePatterns file="res/Patterns.txt"
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------

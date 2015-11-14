@@ -62,6 +62,7 @@ public class XtextTestParser extends AbstractContentAssistParser {
 					put(grammarAccess.getGeneratorAccess().getGroup_2_2_0(), "rule__Generator__Group_2_2_0__0");
 					put(grammarAccess.getGeneratorAccess().getGroup_3(), "rule__Generator__Group_3__0");
 					put(grammarAccess.getGeneratorAccess().getGroup_3_1(), "rule__Generator__Group_3_1__0");
+					put(grammarAccess.getGeneratorAccess().getGroup_4(), "rule__Generator__Group_4__0");
 					put(grammarAccess.getReplacePatternsAccess().getGroup(), "rule__ReplacePatterns__Group__0");
 					put(grammarAccess.getXtextTestAccess().getPackageAssignment_2(), "rule__XtextTest__PackageAssignment_2");
 					put(grammarAccess.getXtextTestAccess().getLangAssignment_4(), "rule__XtextTest__LangAssignment_4");
@@ -86,6 +87,7 @@ public class XtextTestParser extends AbstractContentAssistParser {
 					put(grammarAccess.getGeneratorAccess().getIsSameAsInputFileAssignment_2_2_1(), "rule__Generator__IsSameAsInputFileAssignment_2_2_1");
 					put(grammarAccess.getGeneratorAccess().getPatternFileAssignment_3_1_2(), "rule__Generator__PatternFileAssignment_3_1_2");
 					put(grammarAccess.getGeneratorAccess().getReplacePatternsAssignment_3_2(), "rule__Generator__ReplacePatternsAssignment_3_2");
+					put(grammarAccess.getGeneratorAccess().getExceptionAssignment_4_2(), "rule__Generator__ExceptionAssignment_4_2");
 					put(grammarAccess.getReplacePatternsAccess().getRegexAssignment_0(), "rule__ReplacePatterns__RegexAssignment_0");
 					put(grammarAccess.getReplacePatternsAccess().getReplaceAssignment_2(), "rule__ReplacePatterns__ReplaceAssignment_2");
 				}

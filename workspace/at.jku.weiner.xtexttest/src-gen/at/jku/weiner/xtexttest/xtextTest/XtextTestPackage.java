@@ -351,13 +351,22 @@ public interface XtextTestPackage extends EPackage
   int GENERATOR__REPLACE_PATTERNS = 4;
 
   /**
+   * The feature id for the '<em><b>Exception</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GENERATOR__EXCEPTION = 5;
+
+  /**
    * The number of structural features of the '<em>Generator</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int GENERATOR_FEATURE_COUNT = 5;
+  int GENERATOR_FEATURE_COUNT = 6;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.xtexttest.xtextTest.impl.ReplacePatternsImpl <em>Replace Patterns</em>}' class.
@@ -689,6 +698,17 @@ public interface XtextTestPackage extends EPackage
   EReference getGenerator_ReplacePatterns();
 
   /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.xtexttest.xtextTest.Generator#getException <em>Exception</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Exception</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.Generator#getException()
+   * @see #getGenerator()
+   * @generated
+   */
+  EAttribute getGenerator_Exception();
+
+  /**
    * Returns the meta object for class '{@link at.jku.weiner.xtexttest.xtextTest.ReplacePatterns <em>Replace Patterns</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -970,6 +990,14 @@ public interface XtextTestPackage extends EPackage
      * @generated
      */
     EReference GENERATOR__REPLACE_PATTERNS = eINSTANCE.getGenerator_ReplacePatterns();
+
+    /**
+     * The meta object literal for the '<em><b>Exception</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute GENERATOR__EXCEPTION = eINSTANCE.getGenerator_Exception();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.xtexttest.xtextTest.impl.ReplacePatternsImpl <em>Replace Patterns</em>}' class.

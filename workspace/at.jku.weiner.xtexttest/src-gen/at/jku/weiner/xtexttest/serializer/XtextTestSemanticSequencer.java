@@ -71,7 +71,12 @@ public class XtextTestSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Constraint:
-	 *     (output=STRING (expected=STRING | isSameAsInputFile?=ISSAMEASINPUTFILE) (patternFile=STRING? replacePatterns+=ReplacePatterns*)?)
+	 *     (
+	 *         output=STRING 
+	 *         (expected=STRING | isSameAsInputFile?=ISSAMEASINPUTFILE) 
+	 *         (patternFile=STRING? replacePatterns+=ReplacePatterns*)? 
+	 *         exception=PackageID?
+	 *     )
 	 */
 	protected void sequence_Generator(EObject context, Generator semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

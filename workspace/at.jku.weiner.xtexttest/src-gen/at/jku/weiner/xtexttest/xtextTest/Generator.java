@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.Generator#isIsSameAsInputFile <em>Is Same As Input File</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.Generator#getPatternFile <em>Pattern File</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.Generator#getReplacePatterns <em>Replace Patterns</em>}</li>
+ *   <li>{@link at.jku.weiner.xtexttest.xtextTest.Generator#getException <em>Exception</em>}</li>
  * </ul>
  *
  * @see at.jku.weiner.xtexttest.xtextTest.XtextTestPackage#getGenerator()
@@ -147,5 +148,31 @@ public interface Generator extends EObject
    * @generated
    */
   EList<ReplacePatterns> getReplacePatterns();
+
+  /**
+   * Returns the value of the '<em><b>Exception</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Exception</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Exception</em>' attribute.
+   * @see #setException(String)
+   * @see at.jku.weiner.xtexttest.xtextTest.XtextTestPackage#getGenerator_Exception()
+   * @model
+   * @generated
+   */
+  String getException();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.xtexttest.xtextTest.Generator#getException <em>Exception</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Exception</em>' attribute.
+   * @see #getException()
+   * @generated
+   */
+  void setException(String value);
 
 } // Generator

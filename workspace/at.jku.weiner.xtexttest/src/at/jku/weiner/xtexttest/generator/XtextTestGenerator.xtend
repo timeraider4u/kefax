@@ -290,6 +290,9 @@ class XtextTestGenerator implements IGenerator {
 	def generatorJUnitTest() '''
 		«IF test.output != null»
 		@Test
+		«IF test.output.exception != null»
+		(expected = «test.output.exception».class)
+		«ENDIF»
 		public void testGenerator() throws Exception {
 			// load the resource
 			ResourceSet set = this.resourceSetProvider.get();

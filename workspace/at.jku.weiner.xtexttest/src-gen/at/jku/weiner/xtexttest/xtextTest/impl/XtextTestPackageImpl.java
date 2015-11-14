@@ -414,6 +414,16 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getGenerator_Exception()
+  {
+    return (EAttribute)generatorEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getReplacePatterns()
   {
     return replacePatternsEClass;
@@ -501,6 +511,7 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
     createEAttribute(generatorEClass, GENERATOR__IS_SAME_AS_INPUT_FILE);
     createEAttribute(generatorEClass, GENERATOR__PATTERN_FILE);
     createEReference(generatorEClass, GENERATOR__REPLACE_PATTERNS);
+    createEAttribute(generatorEClass, GENERATOR__EXCEPTION);
 
     replacePatternsEClass = createEClass(REPLACE_PATTERNS);
     createEAttribute(replacePatternsEClass, REPLACE_PATTERNS__REGEX);
@@ -570,6 +581,7 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
     initEAttribute(getGenerator_IsSameAsInputFile(), ecorePackage.getEBoolean(), "isSameAsInputFile", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getGenerator_PatternFile(), ecorePackage.getEString(), "patternFile", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getGenerator_ReplacePatterns(), this.getReplacePatterns(), null, "replacePatterns", null, 0, -1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getGenerator_Exception(), ecorePackage.getEString(), "exception", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(replacePatternsEClass, ReplacePatterns.class, "ReplacePatterns", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getReplacePatterns_Regex(), ecorePackage.getEString(), "regex", null, 0, 1, ReplacePatterns.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

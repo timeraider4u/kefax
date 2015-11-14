@@ -35,6 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.GeneratorImpl#isIsSameAsInputFile <em>Is Same As Input File</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.GeneratorImpl#getPatternFile <em>Pattern File</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.GeneratorImpl#getReplacePatterns <em>Replace Patterns</em>}</li>
+ *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.GeneratorImpl#getException <em>Exception</em>}</li>
  * </ul>
  *
  * @generated
@@ -130,6 +131,26 @@ public class GeneratorImpl extends MinimalEObjectImpl.Container implements Gener
    * @ordered
    */
   protected EList<ReplacePatterns> replacePatterns;
+
+  /**
+   * The default value of the '{@link #getException() <em>Exception</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getException()
+   * @generated
+   * @ordered
+   */
+  protected static final String EXCEPTION_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getException() <em>Exception</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getException()
+   * @generated
+   * @ordered
+   */
+  protected String exception = EXCEPTION_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -263,6 +284,29 @@ public class GeneratorImpl extends MinimalEObjectImpl.Container implements Gener
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getException()
+  {
+    return exception;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setException(String newException)
+  {
+    String oldException = exception;
+    exception = newException;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, XtextTestPackage.GENERATOR__EXCEPTION, oldException, exception));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -294,6 +338,8 @@ public class GeneratorImpl extends MinimalEObjectImpl.Container implements Gener
         return getPatternFile();
       case XtextTestPackage.GENERATOR__REPLACE_PATTERNS:
         return getReplacePatterns();
+      case XtextTestPackage.GENERATOR__EXCEPTION:
+        return getException();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -325,6 +371,9 @@ public class GeneratorImpl extends MinimalEObjectImpl.Container implements Gener
         getReplacePatterns().clear();
         getReplacePatterns().addAll((Collection<? extends ReplacePatterns>)newValue);
         return;
+      case XtextTestPackage.GENERATOR__EXCEPTION:
+        setException((String)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -354,6 +403,9 @@ public class GeneratorImpl extends MinimalEObjectImpl.Container implements Gener
       case XtextTestPackage.GENERATOR__REPLACE_PATTERNS:
         getReplacePatterns().clear();
         return;
+      case XtextTestPackage.GENERATOR__EXCEPTION:
+        setException(EXCEPTION_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -378,6 +430,8 @@ public class GeneratorImpl extends MinimalEObjectImpl.Container implements Gener
         return PATTERN_FILE_EDEFAULT == null ? patternFile != null : !PATTERN_FILE_EDEFAULT.equals(patternFile);
       case XtextTestPackage.GENERATOR__REPLACE_PATTERNS:
         return replacePatterns != null && !replacePatterns.isEmpty();
+      case XtextTestPackage.GENERATOR__EXCEPTION:
+        return EXCEPTION_EDEFAULT == null ? exception != null : !EXCEPTION_EDEFAULT.equals(exception);
     }
     return super.eIsSet(featureID);
   }
@@ -401,6 +455,8 @@ public class GeneratorImpl extends MinimalEObjectImpl.Container implements Gener
     result.append(isSameAsInputFile);
     result.append(", patternFile: ");
     result.append(patternFile);
+    result.append(", exception: ");
+    result.append(exception);
     result.append(')');
     return result.toString();
   }

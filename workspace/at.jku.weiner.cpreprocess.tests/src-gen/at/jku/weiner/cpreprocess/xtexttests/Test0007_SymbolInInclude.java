@@ -46,12 +46,10 @@ import at.jku.weiner.cpreprocess.cPreprocess.Model;
 import at.jku.weiner.cpreprocess.cPreprocess.TranslationUnit;
 import at.jku.weiner.cpreprocess.cPreprocess.PreprocessorDirectives;
 import at.jku.weiner.cpreprocess.cPreprocess.IncludeDirective;
-import at.jku.weiner.cpreprocess.cPreprocess.PreprocessorDirectives;
-import at.jku.weiner.cpreprocess.cPreprocess.IncludeDirective;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(CPreprocessInjectorProvider.class)
-public class Test0006_SimpleInc {
+public class Test0007_SymbolInInclude {
 	@Inject
 	private ParseHelper<Model> parseHelper;
 	@Inject
@@ -89,12 +87,9 @@ public class Test0006_SimpleInc {
 	@Test
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
-			"res/Test0006_SimpleInc.c");
+			"res/Test0007_SymbolInInclude.h");
 			//System.out.println(text);
 			final String[] expected = new String[] {
-				"RULE_INCLUDE", 
-				"RULE_MYCODE", 
-				"RULE_NEWLINE", 
 				"RULE_INCLUDE", 
 				"RULE_MYCODE", 
 				"RULE_NEWLINE", 
@@ -107,7 +102,7 @@ public class Test0006_SimpleInc {
 	@Test
 	public void checkParserResult() throws Exception {
 		final String text = this.getTextFromFile(
-			"res/Test0006_SimpleInc.c");
+			"res/Test0007_SymbolInInclude.h");
 		final Model Model_0_Var
 		  = 
 			this.parseHelper.parse(text);
@@ -128,7 +123,7 @@ public class Test0006_SimpleInc {
 		final EList<? extends EObject> Lines_1_list = TranslationUnit_1_Var
 		.getLines();
 		Assert.assertNotNull(Lines_1_list);
-		Assert.assertEquals(2, Lines_1_list.size());
+		Assert.assertEquals(1, Lines_1_list.size());
 		//1
 		final PreprocessorDirectives PreprocessorDirectives_2_Var
 		 = (PreprocessorDirectives)Lines_1_list.get(0);
@@ -140,29 +135,17 @@ public class Test0006_SimpleInc {
 		.getDirective();
 		Assert.assertNotNull(IncludeDirective_3_Var
 		);
-		Assert.assertEquals("\"Test0000_Empty.c\"", IncludeDirective_3_Var
-		.getString());
-		//3
-		final PreprocessorDirectives PreprocessorDirectives_4_Var
-		 = (PreprocessorDirectives)Lines_1_list.get(1);
-		Assert.assertNotNull(PreprocessorDirectives_4_Var
-		);
-		//4
-		final IncludeDirective IncludeDirective_5_Var
-		 = (IncludeDirective)PreprocessorDirectives_4_Var
-		.getDirective();
-		Assert.assertNotNull(IncludeDirective_5_Var
-		);
-		Assert.assertEquals("\"Test0002_Code.c\"", IncludeDirective_5_Var
+		Assert.assertEquals("abc", IncludeDirective_3_Var
 		.getString());
 	}
 	
 	@Test
+	(expected = java.lang.IllegalArgumentException.class)
 	public void testGenerator() throws Exception {
 		// load the resource
 		ResourceSet set = this.resourceSetProvider.get();
 		URI uri = URI.createURI(
-			"res/Test0006_SimpleInc.c");
+			"res/Test0007_SymbolInInclude.h");
 		Resource resource = set.getResource(uri, true);
 		// validate the resource
 		List<Issue> list = this.validator.validate(resource, 
@@ -176,7 +159,7 @@ public class Test0006_SimpleInc {
 			final Method method = clazz.getMethod("setFileName",
 					String.class);
 			if (method != null) {
-				method.invoke(this.generator, "Test0006_SimpleInc.c.i");
+				method.invoke(this.generator, "Test0007_SymbolInInclude.c.i");
 			}
 		} catch (NoSuchMethodException | SecurityException
 			| IllegalAccessException | IllegalArgumentException
@@ -185,9 +168,9 @@ public class Test0006_SimpleInc {
 			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
-		final String actual = this.getTextFromFile("bin/Test0006_SimpleInc.c.i");
+		final String actual = this.getTextFromFile("bin/Test0007_SymbolInInclude.c.i");
 		final String expected = this.getTextFromFile(
-			"expected/Test0006_SimpleInc.c"
+			"res/Test0007_SymbolInInclude.h"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
 		// System.out.println("Code generation finished.");

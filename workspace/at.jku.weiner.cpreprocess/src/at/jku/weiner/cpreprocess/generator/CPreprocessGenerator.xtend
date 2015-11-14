@@ -19,6 +19,7 @@ import at.jku.weiner.cpreprocess.cPreprocess.ErrorDirective
 import at.jku.weiner.cpreprocess.cPreprocess.PragmaDirective
 import at.jku.weiner.cpreprocess.generator.DefinitionTable
 import org.eclipse.emf.ecore.resource.ResourceSet
+import org.eclipse.emf.common.util.URI
 
 /**
  * Generates code from your model files on save.
@@ -28,11 +29,14 @@ import org.eclipse.emf.ecore.resource.ResourceSet
 class CPreprocessGenerator implements IGenerator {
 
 	@Accessors String fileName = 'greetings.txt';
+	@Accessors boolean legacyMode = true;
 	
 	ResourceSet rs;
+	URI uri;
 	
 	override void doGenerate(Resource input, IFileSystemAccess fsa) {
 		rs = input.resourceSet;
+		uri = input.URI;
 		DefinitionTable.reset();
 		val TranslationUnit unit = getUnitFor(input);
 		val String output = outputFor(unit);
@@ -78,7 +82,14 @@ class CPreprocessGenerator implements IGenerator {
 	'''
 	
 	def String outputFor(IncludeDirective obj) {
-		val IncludeUtils includeUtils = new IncludeUtils(rs, obj.string);
+		if (legacyMode) {
+			return outputForLegacyMode(obj);
+		}
+		return "";
+	}
+	
+	def String outputForLegacyMode(IncludeDirective obj) {
+		val IncludeUtils includeUtils = new IncludeUtils(rs, uri, obj.string);
 		val Resource res = includeUtils.getResource();
 		val TranslationUnit unit = this.getUnitFor(res);
 		val String output = outputFor(unit);

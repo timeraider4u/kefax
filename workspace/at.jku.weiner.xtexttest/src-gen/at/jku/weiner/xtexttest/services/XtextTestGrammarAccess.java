@@ -431,16 +431,22 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cPatternFileSTRINGTerminalRuleCall_3_1_2_0 = (RuleCall)cPatternFileAssignment_3_1_2.eContents().get(0);
 		private final Assignment cReplacePatternsAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
 		private final RuleCall cReplacePatternsReplacePatternsParserRuleCall_3_2_0 = (RuleCall)cReplacePatternsAssignment_3_2.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final RuleCall cEXPECTEDTerminalRuleCall_4_0 = (RuleCall)cGroup_4.eContents().get(0);
+		private final RuleCall cEXCEPTIONSTerminalRuleCall_4_1 = (RuleCall)cGroup_4.eContents().get(1);
+		private final Assignment cExceptionAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
+		private final RuleCall cExceptionPackageIDParserRuleCall_4_2_0 = (RuleCall)cExceptionAssignment_4_2.eContents().get(0);
 		
 		//Generator:
 		//	{Generator} (OUTPUT FILE ASSIGNASSINGLE output=STRING) (EXPECTED FILE (ASSIGNASSINGLE expected=STRING |
 		//	isSameAsInputFile?=ISSAMEASINPUTFILE)) (PATTERNS (FILE ASSIGNASSINGLE patternFile=STRING)?
-		//	replacePatterns+=ReplacePatterns*)?;
+		//	replacePatterns+=ReplacePatterns*)? (EXPECTED EXCEPTIONS
+		//	exception=PackageID)?;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Generator} (OUTPUT FILE ASSIGNASSINGLE output=STRING) (EXPECTED FILE (ASSIGNASSINGLE expected=STRING |
 		//isSameAsInputFile?=ISSAMEASINPUTFILE)) (PATTERNS (FILE ASSIGNASSINGLE patternFile=STRING)?
-		//replacePatterns+=ReplacePatterns*)?
+		//replacePatterns+=ReplacePatterns*)? (EXPECTED EXCEPTIONS exception=PackageID)?
 		public Group getGroup() { return cGroup; }
 		
 		//{Generator}
@@ -520,6 +526,21 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//ReplacePatterns
 		public RuleCall getReplacePatternsReplacePatternsParserRuleCall_3_2_0() { return cReplacePatternsReplacePatternsParserRuleCall_3_2_0; }
+		
+		//(EXPECTED EXCEPTIONS exception=PackageID)?
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//EXPECTED
+		public RuleCall getEXPECTEDTerminalRuleCall_4_0() { return cEXPECTEDTerminalRuleCall_4_0; }
+		
+		//EXCEPTIONS
+		public RuleCall getEXCEPTIONSTerminalRuleCall_4_1() { return cEXCEPTIONSTerminalRuleCall_4_1; }
+		
+		//exception=PackageID
+		public Assignment getExceptionAssignment_4_2() { return cExceptionAssignment_4_2; }
+		
+		//PackageID
+		public RuleCall getExceptionPackageIDParserRuleCall_4_2_0() { return cExceptionPackageIDParserRuleCall_4_2_0; }
 	}
 	public class ReplacePatternsElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.ReplacePatterns");
@@ -574,6 +595,7 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tEXPECTED;
 	private final TerminalRule tISSAMEASINPUTFILE;
 	private final TerminalRule tPATTERNS;
+	private final TerminalRule tEXCEPTIONS;
 	private final TerminalRule tLEFTPAREN;
 	private final TerminalRule tRIGHTPAREN;
 	private final TerminalRule tASSIGNASSINGLE;
@@ -612,6 +634,7 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		this.tEXPECTED = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.EXPECTED");
 		this.tISSAMEASINPUTFILE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.ISSAMEASINPUTFILE");
 		this.tPATTERNS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.PATTERNS");
+		this.tEXCEPTIONS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.EXCEPTIONS");
 		this.tLEFTPAREN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.LEFTPAREN");
 		this.tRIGHTPAREN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.RIGHTPAREN");
 		this.tASSIGNASSINGLE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.ASSIGNASSINGLE");
@@ -734,7 +757,8 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	//Generator:
 	//	{Generator} (OUTPUT FILE ASSIGNASSINGLE output=STRING) (EXPECTED FILE (ASSIGNASSINGLE expected=STRING |
 	//	isSameAsInputFile?=ISSAMEASINPUTFILE)) (PATTERNS (FILE ASSIGNASSINGLE patternFile=STRING)?
-	//	replacePatterns+=ReplacePatterns*)?;
+	//	replacePatterns+=ReplacePatterns*)? (EXPECTED EXCEPTIONS
+	//	exception=PackageID)?;
 	public GeneratorElements getGeneratorAccess() {
 		return pGenerator;
 	}
@@ -817,6 +841,12 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	//	'replacePatterns';
 	public TerminalRule getPATTERNSRule() {
 		return tPATTERNS;
+	}
+	
+	//terminal EXCEPTIONS:
+	//	'exceptions';
+	public TerminalRule getEXCEPTIONSRule() {
+		return tEXCEPTIONS;
 	}
 	
 	//terminal LEFTPAREN:

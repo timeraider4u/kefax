@@ -756,6 +756,19 @@ public class XtextTestGenerator implements IGenerator {
       if (_notEquals) {
         _builder.append("@Test");
         _builder.newLine();
+        {
+          Generator _output_1 = this.test.getOutput();
+          String _exception = _output_1.getException();
+          boolean _notEquals_1 = (!Objects.equal(_exception, null));
+          if (_notEquals_1) {
+            _builder.append("(expected = ");
+            Generator _output_2 = this.test.getOutput();
+            String _exception_1 = _output_2.getException();
+            _builder.append(_exception_1, "");
+            _builder.append(".class)");
+            _builder.newLineIfNotEmpty();
+          }
+        }
         _builder.append("public void testGenerator() throws Exception {");
         _builder.newLine();
         _builder.append("\t");
@@ -814,17 +827,17 @@ public class XtextTestGenerator implements IGenerator {
         _builder.newLine();
         _builder.append("\t");
         _builder.append("final String actual = this.getTextFromFile(\"");
-        Generator _output_1 = this.test.getOutput();
-        String _output_2 = _output_1.getOutput();
-        _builder.append(_output_2, "\t");
+        Generator _output_3 = this.test.getOutput();
+        String _output_4 = _output_3.getOutput();
+        _builder.append(_output_4, "\t");
         _builder.append("\");");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("final String expected = this.getTextFromFile(");
         _builder.newLine();
         {
-          Generator _output_3 = this.test.getOutput();
-          boolean _isIsSameAsInputFile = _output_3.isIsSameAsInputFile();
+          Generator _output_5 = this.test.getOutput();
+          boolean _isIsSameAsInputFile = _output_5.isIsSameAsInputFile();
           if (_isIsSameAsInputFile) {
             _builder.append("\t\t");
             _builder.append("\"");
@@ -835,8 +848,8 @@ public class XtextTestGenerator implements IGenerator {
           } else {
             _builder.append("\t\t");
             _builder.append("\"");
-            Generator _output_4 = this.test.getOutput();
-            String _expected = _output_4.getExpected();
+            Generator _output_6 = this.test.getOutput();
+            String _expected = _output_6.getExpected();
             _builder.append(_expected, "\t\t");
             _builder.append("\"");
             _builder.newLineIfNotEmpty();

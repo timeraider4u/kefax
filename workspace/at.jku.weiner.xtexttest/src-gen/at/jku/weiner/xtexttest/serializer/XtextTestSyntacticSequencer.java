@@ -40,6 +40,8 @@ public class XtextTestSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getASSIGNASSTRINGToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getCOMMARule())
 			return getCOMMAToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getEXCEPTIONSRule())
+			return getEXCEPTIONSToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getEXPECTEDRule())
 			return getEXPECTEDToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getFILERule())
@@ -110,6 +112,15 @@ public class XtextTestSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return ",";
+	}
+	
+	/**
+	 * terminal EXCEPTIONS: 'exceptions';
+	 */
+	protected String getEXCEPTIONSToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "exceptions";
 	}
 	
 	/**
@@ -238,7 +249,9 @@ public class XtextTestSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     expected=STRING (ambiguity) (rule end)
+	 *     expected=STRING (ambiguity) EXPECTED EXCEPTIONS exception=PackageID
 	 *     isSameAsInputFile?=ISSAMEASINPUTFILE (ambiguity) (rule end)
+	 *     isSameAsInputFile?=ISSAMEASINPUTFILE (ambiguity) EXPECTED EXCEPTIONS exception=PackageID
 	 */
 	protected void emit_Generator_PATTERNSTerminalRuleCall_3_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

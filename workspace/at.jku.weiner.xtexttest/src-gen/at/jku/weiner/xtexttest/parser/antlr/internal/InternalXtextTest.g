@@ -1055,6 +1055,44 @@ this_ASSIGNASSINGLE_12=RULE_ASSIGNASSINGLE
 
 )?
 
+
+(
+this_EXPECTED_15=RULE_EXPECTED
+    { 
+    newLeafNode(this_EXPECTED_15, grammarAccess.getGeneratorAccess().getEXPECTEDTerminalRuleCall_4_0()); 
+    }
+
+
+
+this_EXCEPTIONS_16=RULE_EXCEPTIONS
+    { 
+    newLeafNode(this_EXCEPTIONS_16, grammarAccess.getGeneratorAccess().getEXCEPTIONSTerminalRuleCall_4_1()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getGeneratorAccess().getExceptionPackageIDParserRuleCall_4_2_0()); 
+	    }
+		lv_exception_17_0=rulePackageID		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getGeneratorRule());
+	        }
+       		set(
+       			$current, 
+       			"exception",
+        		lv_exception_17_0, 
+        		"at.jku.weiner.xtexttest.XtextTest.PackageID");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+)?
+
 )
 
 
@@ -1161,6 +1199,8 @@ RULE_EXPECTED : 'expected';
 RULE_ISSAMEASINPUTFILE : 'isSameAsInputFile';
 
 RULE_PATTERNS : 'replacePatterns';
+
+RULE_EXCEPTIONS : 'exceptions';
 
 RULE_LEFTPAREN : '(';
 

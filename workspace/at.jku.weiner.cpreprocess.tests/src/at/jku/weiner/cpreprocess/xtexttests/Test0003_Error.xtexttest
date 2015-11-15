@@ -22,7 +22,7 @@ lexer-tokens
 )
 //----------------------------------------------------------------------
 output file="bin/Test0003_Error.h.i"
-expected file isSameAsInputFile
-replacePatterns file="res/Patterns.txt"
+expected file="expected/Test0003_Error.h"
+//replacePatterns file="res/Patterns.txt"
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------

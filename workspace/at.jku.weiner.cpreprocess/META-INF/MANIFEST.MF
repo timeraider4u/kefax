@@ -17,15 +17,16 @@ Require-Bundle: org.eclipse.xtext,
  org.eclipse.xtext.common.types,
  org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: at.jku.weiner.cpreprocess.scoping,
- at.jku.weiner.cpreprocess.serializer,
- at.jku.weiner.cpreprocess.generator,
- at.jku.weiner.cpreprocess.services,
+Export-Package: at.jku.weiner.cpreprocess,
  at.jku.weiner.cpreprocess.cPreprocess,
- at.jku.weiner.cpreprocess.validation,
  at.jku.weiner.cpreprocess.cPreprocess.impl,
- at.jku.weiner.cpreprocess.parser.antlr.internal,
- at.jku.weiner.cpreprocess,
  at.jku.weiner.cpreprocess.cPreprocess.util,
- at.jku.weiner.cpreprocess.parser.antlr
+ at.jku.weiner.cpreprocess.generator,
+ at.jku.weiner.cpreprocess.parser.antlr,
+ at.jku.weiner.cpreprocess.parser.antlr.internal,
+ at.jku.weiner.cpreprocess.scoping,
+ at.jku.weiner.cpreprocess.serializer,
+ at.jku.weiner.cpreprocess.services,
+ at.jku.weiner.cpreprocess.utils,
+ at.jku.weiner.cpreprocess.validation
 Import-Package: org.apache.log4j

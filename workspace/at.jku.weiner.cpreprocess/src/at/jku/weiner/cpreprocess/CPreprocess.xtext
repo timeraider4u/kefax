@@ -106,33 +106,35 @@ terminal fragment LINEFEED: '\n';
 terminal fragment CARRIAGERETURN: '\r';
 terminal NEWLINE: (CARRIAGERETURN | LINEFEED) 
 	{ { 
-		at.jku.weiner.cpreprocess.PreLine.setPreLine(false);
+		at.jku.weiner.cpreprocess.utils.PreLine.setNewLine();
 	} }
 ;
 terminal fragment BACKSLASH: '\\';
-terminal fragment LINEBREAK: (BACKSLASH NEWLINE)+;
-terminal WS: (' ' | '\t' | LINEBREAK);
+terminal fragment LINEBREAK: (BACKSLASH NEWLINE);
+terminal fragment SPACE: ' ';
+terminal fragment TAB: '\t';
+terminal WS: (SPACE | TAB | LINEBREAK);
 terminal fragment HASH: '#';
-terminal DEFINE:	HASH WS* 'define' WS+
+terminal DEFINE:	WS* HASH WS* 'define' WS+
 	{ {
-		at.jku.weiner.cpreprocess.PreLine.setPreLine(true);
+		at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(true);
 	} }
 ;
-terminal UNDEF:		HASH WS* 'undef' WS+
+terminal UNDEF:		WS* HASH WS* 'undef' WS+
 	{ {
-		at.jku.weiner.cpreprocess.PreLine.setPreLine(true);
+		at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(true);
 	} }
 ;
-terminal INCLUDE:	HASH WS* 'include' WS+;
-terminal ERROR:		HASH WS* 'error' WS+;
-terminal PRAGMA:	HASH WS* 'pragma' WS+
+terminal INCLUDE:	WS* HASH WS* 'include' WS+;
+terminal ERROR:		WS* HASH WS* 'error' WS+;
+terminal PRAGMA:	WS* HASH WS* 'pragma' WS+
 	{ {
-		at.jku.weiner.cpreprocess.PreLine.setPreLine(true);
+		at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(true);
 	} }
 ;
 terminal ID: IDENTIFIER
 	{ {
-		at.jku.weiner.cpreprocess.PreLine.setPreLine(false);
+		at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(false);
 	} }
 ;
 terminal fragment IDENTIFIER:
@@ -148,7 +150,7 @@ terminal fragment LETTER:
 
 terminal MYCODE:
 	{ {
-		at.jku.weiner.cpreprocess.PreLine.isNotPreLine()
+		at.jku.weiner.cpreprocess.utils.PreLine.checkIfIsCode(input)
 	} ? }
 	!(HASH|CARRIAGERETURN|LINEFEED)
 	(!(CARRIAGERETURN|LINEFEED))*

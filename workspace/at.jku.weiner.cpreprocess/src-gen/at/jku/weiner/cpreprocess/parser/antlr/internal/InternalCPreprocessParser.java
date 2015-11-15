@@ -20,24 +20,26 @@ import java.util.ArrayList;
 
 public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NEWLINE", "RULE_INCLUDE", "RULE_DEFINE", "RULE_ID", "RULE_UNDEF", "RULE_ERROR", "RULE_MYCODE", "RULE_PRAGMA", "RULE_LINEFEED", "RULE_CARRIAGERETURN", "RULE_BACKSLASH", "RULE_LINEBREAK", "RULE_WS", "RULE_HASH", "RULE_IDENTIFIER", "RULE_LETTER"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NEWLINE", "RULE_INCLUDE", "RULE_DEFINE", "RULE_ID", "RULE_UNDEF", "RULE_ERROR", "RULE_MYCODE", "RULE_PRAGMA", "RULE_LINEFEED", "RULE_CARRIAGERETURN", "RULE_BACKSLASH", "RULE_LINEBREAK", "RULE_SPACE", "RULE_TAB", "RULE_WS", "RULE_HASH", "RULE_IDENTIFIER", "RULE_LETTER"
     };
     public static final int RULE_PRAGMA=11;
     public static final int RULE_ID=7;
     public static final int RULE_NEWLINE=4;
     public static final int RULE_ERROR=9;
-    public static final int RULE_HASH=17;
-    public static final int RULE_IDENTIFIER=18;
+    public static final int RULE_IDENTIFIER=20;
+    public static final int RULE_HASH=19;
+    public static final int RULE_TAB=17;
     public static final int RULE_UNDEF=8;
     public static final int EOF=-1;
-    public static final int RULE_LETTER=19;
+    public static final int RULE_LETTER=21;
     public static final int RULE_LINEBREAK=15;
     public static final int RULE_DEFINE=6;
     public static final int RULE_CARRIAGERETURN=13;
     public static final int RULE_INCLUDE=5;
     public static final int RULE_BACKSLASH=14;
     public static final int RULE_MYCODE=10;
-    public static final int RULE_WS=16;
+    public static final int RULE_WS=18;
+    public static final int RULE_SPACE=16;
     public static final int RULE_LINEFEED=12;
 
     // delegates

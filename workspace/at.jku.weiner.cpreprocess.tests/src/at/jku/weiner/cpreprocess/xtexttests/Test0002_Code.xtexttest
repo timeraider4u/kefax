@@ -9,6 +9,7 @@ lexer-tokens
 	MYCODE NEWLINE
 	MYCODE NEWLINE
 	MYCODE NEWLINE
+	MYCODE NEWLINE
 	NEWLINE
 //----------------------------------------------------------------------
 (Model
@@ -19,11 +20,15 @@ lexer-tokens
 			code++"int main(void) {"
 		),
 		(Code
+			code++"	 	 	"
+		),
+		(Code
 			code++"	return 0;"
 		),
 		(Code
 			code++"}"
 		),
+		
 		(NewLineLine
 			
 		)
@@ -31,7 +36,7 @@ lexer-tokens
 )
 //----------------------------------------------------------------------
 output file="bin/Test0002_Code.c.i"
-expected file isSameAsInputFile
-replacePatterns file="res/Patterns.txt"
+expected file="expected/Test0002_Code.c"
+//replacePatterns file="res/Patterns.txt"
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------

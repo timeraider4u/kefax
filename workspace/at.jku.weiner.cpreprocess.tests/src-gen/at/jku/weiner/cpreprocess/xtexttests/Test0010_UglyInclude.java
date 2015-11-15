@@ -44,14 +44,17 @@ import at.jku.weiner.cpreprocess.xtexttests.LexerAndParserTest;
 
 import at.jku.weiner.cpreprocess.cPreprocess.Model;
 import at.jku.weiner.cpreprocess.cPreprocess.TranslationUnit;
+import at.jku.weiner.cpreprocess.cPreprocess.Code;
+import at.jku.weiner.cpreprocess.cPreprocess.Code;
 import at.jku.weiner.cpreprocess.cPreprocess.PreprocessorDirectives;
 import at.jku.weiner.cpreprocess.cPreprocess.IncludeDirective;
-import at.jku.weiner.cpreprocess.cPreprocess.PreprocessorDirectives;
-import at.jku.weiner.cpreprocess.cPreprocess.IncludeDirective;
+import at.jku.weiner.cpreprocess.cPreprocess.Code;
+import at.jku.weiner.cpreprocess.cPreprocess.Code;
+import at.jku.weiner.cpreprocess.cPreprocess.Code;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(CPreprocessInjectorProvider.class)
-public class Test0006_SimpleInc {
+public class Test0010_UglyInclude {
 	@Inject
 	private ParseHelper<Model> parseHelper;
 	@Inject
@@ -89,13 +92,20 @@ public class Test0006_SimpleInc {
 	@Test
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
-			"res/Test0006_SimpleInc.c");
+			"res/Test0010_UglyInclude.c");
 			//System.out.println(text);
 			final String[] expected = new String[] {
-				"RULE_INCLUDE", 
+				"RULE_MYCODE", 
+				"RULE_NEWLINE", 
 				"RULE_MYCODE", 
 				"RULE_NEWLINE", 
 				"RULE_INCLUDE", 
+				"RULE_MYCODE", 
+				"RULE_NEWLINE", 
+				"RULE_MYCODE", 
+				"RULE_NEWLINE", 
+				"RULE_MYCODE", 
+				"RULE_NEWLINE", 
 				"RULE_MYCODE", 
 				"RULE_NEWLINE", 
 				};
@@ -107,7 +117,7 @@ public class Test0006_SimpleInc {
 	@Test
 	public void checkParserResult() throws Exception {
 		final String text = this.getTextFromFile(
-			"res/Test0006_SimpleInc.c");
+			"res/Test0010_UglyInclude.c");
 		final Model Model_0_Var
 		  = 
 			this.parseHelper.parse(text);
@@ -128,23 +138,24 @@ public class Test0006_SimpleInc {
 		final EList<? extends EObject> Lines_1_list = TranslationUnit_1_Var
 		.getLines();
 		Assert.assertNotNull(Lines_1_list);
-		Assert.assertEquals(2, Lines_1_list.size());
+		Assert.assertEquals(6, Lines_1_list.size());
 		//1
-		final PreprocessorDirectives PreprocessorDirectives_2_Var
-		 = (PreprocessorDirectives)Lines_1_list.get(0);
-		Assert.assertNotNull(PreprocessorDirectives_2_Var
+		final Code Code_2_Var
+		 = (Code)Lines_1_list.get(0);
+		Assert.assertNotNull(Code_2_Var
 		);
+		Assert.assertEquals("int main(void) {", Code_2_Var
+		.getCode());
 		//2
-		final IncludeDirective IncludeDirective_3_Var
-		 = (IncludeDirective)PreprocessorDirectives_2_Var
-		.getDirective();
-		Assert.assertNotNull(IncludeDirective_3_Var
+		final Code Code_3_Var
+		 = (Code)Lines_1_list.get(1);
+		Assert.assertNotNull(Code_3_Var
 		);
-		Assert.assertEquals("\"Test0000_Empty.c\"", IncludeDirective_3_Var
-		.getString());
+		Assert.assertEquals("	if (1 > 0) {", Code_3_Var
+		.getCode());
 		//3
 		final PreprocessorDirectives PreprocessorDirectives_4_Var
-		 = (PreprocessorDirectives)Lines_1_list.get(1);
+		 = (PreprocessorDirectives)Lines_1_list.get(2);
 		Assert.assertNotNull(PreprocessorDirectives_4_Var
 		);
 		//4
@@ -153,8 +164,29 @@ public class Test0006_SimpleInc {
 		.getDirective();
 		Assert.assertNotNull(IncludeDirective_5_Var
 		);
-		Assert.assertEquals("\"Test0002_Code.c\"", IncludeDirective_5_Var
+		Assert.assertEquals("\"Test0010_UglyInclude.h\"", IncludeDirective_5_Var
 		.getString());
+		//5
+		final Code Code_6_Var
+		 = (Code)Lines_1_list.get(3);
+		Assert.assertNotNull(Code_6_Var
+		);
+		Assert.assertEquals("	}", Code_6_Var
+		.getCode());
+		//6
+		final Code Code_7_Var
+		 = (Code)Lines_1_list.get(4);
+		Assert.assertNotNull(Code_7_Var
+		);
+		Assert.assertEquals("	return -1;", Code_7_Var
+		.getCode());
+		//7
+		final Code Code_8_Var
+		 = (Code)Lines_1_list.get(5);
+		Assert.assertNotNull(Code_8_Var
+		);
+		Assert.assertEquals("}", Code_8_Var
+		.getCode());
 	}
 	
 	@Test
@@ -162,7 +194,7 @@ public class Test0006_SimpleInc {
 		// load the resource
 		ResourceSet set = this.resourceSetProvider.get();
 		URI uri = URI.createURI(
-			"res/Test0006_SimpleInc.c");
+			"res/Test0010_UglyInclude.c");
 		Resource resource = set.getResource(uri, true);
 		// validate the resource
 		List<Issue> list = this.validator.validate(resource, 
@@ -176,7 +208,7 @@ public class Test0006_SimpleInc {
 			final Method method = clazz.getMethod("setFileName",
 					String.class);
 			if (method != null) {
-				method.invoke(this.generator, "Test0006_SimpleInc.c.i");
+				method.invoke(this.generator, "Test0010_UglyInclude.c.i");
 			}
 		} catch (NoSuchMethodException | SecurityException
 			| IllegalAccessException | IllegalArgumentException
@@ -185,9 +217,9 @@ public class Test0006_SimpleInc {
 			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
-		final String actual = this.getTextFromFile("bin/Test0006_SimpleInc.c.i");
+		final String actual = this.getTextFromFile("bin/Test0010_UglyInclude.c.i");
 		final String expected = this.getTextFromFile(
-			"expected/Test0006_SimpleInc.c"
+			"expected/Test0010_UglyInclude.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
 		// System.out.println("Code generation finished.");

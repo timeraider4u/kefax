@@ -190,7 +190,7 @@ public class Test0008_SymbolDefineAndInclude {
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0008_SymbolDefineAndInclude.c.i");
 		final String expected = this.getTextFromFile(
-			"res/Test0002_Code.c"
+			"expected/Test0008_SymboleDefineAndInclude.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
 		// System.out.println("Code generation finished.");

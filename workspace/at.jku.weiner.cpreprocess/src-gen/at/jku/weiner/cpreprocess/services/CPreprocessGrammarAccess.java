@@ -378,6 +378,8 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tNEWLINE;
 	private final TerminalRule tBACKSLASH;
 	private final TerminalRule tLINEBREAK;
+	private final TerminalRule tSPACE;
+	private final TerminalRule tTAB;
 	private final TerminalRule tWS;
 	private final TerminalRule tHASH;
 	private final TerminalRule tDEFINE;
@@ -411,6 +413,8 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		this.tNEWLINE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.NEWLINE");
 		this.tBACKSLASH = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.BACKSLASH");
 		this.tLINEBREAK = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.LINEBREAK");
+		this.tSPACE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.SPACE");
+		this.tTAB = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.TAB");
 		this.tWS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.WS");
 		this.tHASH = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.HASH");
 		this.tDEFINE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.DEFINE");
@@ -577,7 +581,7 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal NEWLINE:
-	//	CARRIAGERETURN | LINEFEED { { at.jku.weiner.cpreprocess.PreLine.setPreLine(false);
+	//	CARRIAGERETURN | LINEFEED { { at.jku.weiner.cpreprocess.utils.PreLine.setNewLine();
 	//	} };
 	public TerminalRule getNEWLINERule() {
 		return tNEWLINE;
@@ -590,13 +594,25 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal fragment LINEBREAK:
-	//	BACKSLASH NEWLINE+;
+	//	BACKSLASH NEWLINE;
 	public TerminalRule getLINEBREAKRule() {
 		return tLINEBREAK;
 	}
 	
+	//terminal fragment SPACE:
+	//	' ';
+	public TerminalRule getSPACERule() {
+		return tSPACE;
+	}
+	
+	//terminal fragment TAB:
+	//	'\t';
+	public TerminalRule getTABRule() {
+		return tTAB;
+	}
+	
 	//terminal WS:
-	//	' ' | '\t' | LINEBREAK;
+	//	SPACE | TAB | LINEBREAK;
 	public TerminalRule getWSRule() {
 		return tWS;
 	}
@@ -608,36 +624,36 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal DEFINE:
-	//	HASH WS* 'define' WS+
-	//	{ { at.jku.weiner.cpreprocess.PreLine.setPreLine(true);
+	//	WS* HASH WS* 'define' WS+
+	//	{ { at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(true);
 	//	} };
 	public TerminalRule getDEFINERule() {
 		return tDEFINE;
 	}
 	
 	//terminal UNDEF:
-	//	HASH WS* 'undef' WS+
-	//	{ { at.jku.weiner.cpreprocess.PreLine.setPreLine(true);
+	//	WS* HASH WS* 'undef' WS+
+	//	{ { at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(true);
 	//	} };
 	public TerminalRule getUNDEFRule() {
 		return tUNDEF;
 	}
 	
 	//terminal INCLUDE:
-	//	HASH WS* 'include' WS+;
+	//	WS* HASH WS* 'include' WS+;
 	public TerminalRule getINCLUDERule() {
 		return tINCLUDE;
 	}
 	
 	//terminal ERROR:
-	//	HASH WS* 'error' WS+;
+	//	WS* HASH WS* 'error' WS+;
 	public TerminalRule getERRORRule() {
 		return tERROR;
 	}
 	
 	//terminal PRAGMA:
-	//	HASH WS* 'pragma' WS+
-	//	{ { at.jku.weiner.cpreprocess.PreLine.setPreLine(true);
+	//	WS* HASH WS* 'pragma' WS+
+	//	{ { at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(true);
 	//	} };
 	public TerminalRule getPRAGMARule() {
 		return tPRAGMA;
@@ -645,7 +661,7 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//terminal ID:
 	//	IDENTIFIER
-	//	{ { at.jku.weiner.cpreprocess.PreLine.setPreLine(false);
+	//	{ { at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(false);
 	//	} };
 	public TerminalRule getIDRule() {
 		return tID;
@@ -667,7 +683,7 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal MYCODE:
-	//	{ { at.jku.weiner.cpreprocess.PreLine.isNotPreLine()
+	//	{ { at.jku.weiner.cpreprocess.utils.PreLine.checkIfIsCode(input)
 	//	} ? } !(HASH | CARRIAGERETURN | LINEFEED) !(CARRIAGERETURN | LINEFEED)*;
 	public TerminalRule getMYCODERule() {
 		return tMYCODE;

@@ -1,4 +1,4 @@
-package at.jku.weiner.cpreprocess;
+package at.jku.weiner.cpreprocess.utils;
 
 import org.eclipse.xtext.common.services.DefaultTerminalConverters;
 import org.eclipse.xtext.conversion.IValueConverter;

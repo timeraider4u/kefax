@@ -47,6 +47,7 @@ import at.jku.weiner.cpreprocess.cPreprocess.TranslationUnit;
 import at.jku.weiner.cpreprocess.cPreprocess.Code;
 import at.jku.weiner.cpreprocess.cPreprocess.Code;
 import at.jku.weiner.cpreprocess.cPreprocess.Code;
+import at.jku.weiner.cpreprocess.cPreprocess.Code;
 import at.jku.weiner.cpreprocess.cPreprocess.NewLineLine;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
@@ -98,6 +99,8 @@ public class Test0002_Code {
 				"RULE_NEWLINE", 
 				"RULE_MYCODE", 
 				"RULE_NEWLINE", 
+				"RULE_MYCODE", 
+				"RULE_NEWLINE", 
 				"RULE_NEWLINE", 
 				};
 			//final List<Token> actual = testHelper.getTokens(text);
@@ -129,7 +132,7 @@ public class Test0002_Code {
 		final EList<? extends EObject> Lines_1_list = TranslationUnit_1_Var
 		.getLines();
 		Assert.assertNotNull(Lines_1_list);
-		Assert.assertEquals(4, Lines_1_list.size());
+		Assert.assertEquals(5, Lines_1_list.size());
 		//1
 		final Code Code_2_Var
 		 = (Code)Lines_1_list.get(0);
@@ -142,19 +145,26 @@ public class Test0002_Code {
 		 = (Code)Lines_1_list.get(1);
 		Assert.assertNotNull(Code_3_Var
 		);
-		Assert.assertEquals("	return 0;", Code_3_Var
+		Assert.assertEquals("	 	 	", Code_3_Var
 		.getCode());
 		//3
 		final Code Code_4_Var
 		 = (Code)Lines_1_list.get(2);
 		Assert.assertNotNull(Code_4_Var
 		);
-		Assert.assertEquals("}", Code_4_Var
+		Assert.assertEquals("	return 0;", Code_4_Var
 		.getCode());
 		//4
-		final NewLineLine NewLineLine_5_Var
-		 = (NewLineLine)Lines_1_list.get(3);
-		Assert.assertNotNull(NewLineLine_5_Var
+		final Code Code_5_Var
+		 = (Code)Lines_1_list.get(3);
+		Assert.assertNotNull(Code_5_Var
+		);
+		Assert.assertEquals("}", Code_5_Var
+		.getCode());
+		//5
+		final NewLineLine NewLineLine_6_Var
+		 = (NewLineLine)Lines_1_list.get(4);
+		Assert.assertNotNull(NewLineLine_6_Var
 		);
 	}
 	
@@ -188,35 +198,17 @@ public class Test0002_Code {
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0002_Code.c.i");
 		final String expected = this.getTextFromFile(
-			"res/Test0002_Code.c"
+			"expected/Test0002_Code.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
 		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {
-		string = preprocessForFile(string);
 		string = preprocessForPatterns(string);
 		return string;
 	}
 	
-	private String preprocessForFile(String string) throws Exception {
-		final String content = this.getTextFromFile("res/Patterns.txt");
-		final String[] lines = content.split("\n");
-		if (lines == null) {
-			return string;
-		}
-		for (String line : lines) {
-			final String[] myLine = line.split("=");
-			if (myLine == null || myLine.length != 2) {
-				continue;
-			}
-			final String regex = myLine[0].replace("\"", "").replace("\\\\", "\\");
-			final String replace = myLine[1].replace("\"", "").replace("\\\\", "\\");
-			string = string.replaceAll(regex, replace);
-		}
-		return string;
-	}
 	
 	private String preprocessForPatterns(String string) {
 		return string;

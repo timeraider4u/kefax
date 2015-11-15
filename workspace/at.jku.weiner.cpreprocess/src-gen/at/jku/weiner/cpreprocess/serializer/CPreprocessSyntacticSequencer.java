@@ -42,9 +42,9 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	}
 	
 	/**
-	 * terminal DEFINE:	HASH WS* 'define' WS+
+	 * terminal DEFINE:	WS* HASH WS* 'define' WS+
 	 * 	{ {
-	 * 		at.jku.weiner.cpreprocess.PreLine.setPreLine(true);
+	 * 		at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(true);
 	 * 	} }
 	 * ;
 	 */
@@ -55,7 +55,7 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	}
 	
 	/**
-	 * terminal ERROR:		HASH WS* 'error' WS+;
+	 * terminal ERROR:		WS* HASH WS* 'error' WS+;
 	 */
 	protected String getERRORToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
@@ -64,7 +64,7 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	}
 	
 	/**
-	 * terminal INCLUDE:	HASH WS* 'include' WS+;
+	 * terminal INCLUDE:	WS* HASH WS* 'include' WS+;
 	 */
 	protected String getINCLUDEToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
@@ -75,7 +75,7 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	/**
 	 * terminal NEWLINE: (CARRIAGERETURN | LINEFEED) 
 	 * 	{ { 
-	 * 		at.jku.weiner.cpreprocess.PreLine.setPreLine(false);
+	 * 		at.jku.weiner.cpreprocess.utils.PreLine.setNewLine();
 	 * 	} }
 	 * ;
 	 */
@@ -86,9 +86,9 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	}
 	
 	/**
-	 * terminal PRAGMA:	HASH WS* 'pragma' WS+
+	 * terminal PRAGMA:	WS* HASH WS* 'pragma' WS+
 	 * 	{ {
-	 * 		at.jku.weiner.cpreprocess.PreLine.setPreLine(true);
+	 * 		at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(true);
 	 * 	} }
 	 * ;
 	 */
@@ -99,9 +99,9 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	}
 	
 	/**
-	 * terminal UNDEF:		HASH WS* 'undef' WS+
+	 * terminal UNDEF:		WS* HASH WS* 'undef' WS+
 	 * 	{ {
-	 * 		at.jku.weiner.cpreprocess.PreLine.setPreLine(true);
+	 * 		at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(true);
 	 * 	} }
 	 * ;
 	 */

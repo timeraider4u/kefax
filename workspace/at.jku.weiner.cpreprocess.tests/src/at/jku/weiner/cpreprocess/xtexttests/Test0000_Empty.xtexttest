@@ -14,7 +14,7 @@ source file="res/Test0000_Empty.c"
 )
 //----------------------------------------------------------------------
 output file="bin/Test0000_Empty.c.i"
-expected file isSameAsInputFile
-replacePatterns file="res/Patterns.txt"
+expected file="expected/Test0000_Empty.c"
+//replacePatterns file="res/Patterns.txt"
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------

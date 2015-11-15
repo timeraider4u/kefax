@@ -169,35 +169,17 @@ public class Test0003_Error {
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0003_Error.h.i");
 		final String expected = this.getTextFromFile(
-			"res/Test0003_Error.h"
+			"expected/Test0003_Error.h"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
 		// System.out.println("Code generation finished.");
 	}
 	
 	private String preprocess(String string) throws Exception {
-		string = preprocessForFile(string);
 		string = preprocessForPatterns(string);
 		return string;
 	}
 	
-	private String preprocessForFile(String string) throws Exception {
-		final String content = this.getTextFromFile("res/Patterns.txt");
-		final String[] lines = content.split("\n");
-		if (lines == null) {
-			return string;
-		}
-		for (String line : lines) {
-			final String[] myLine = line.split("=");
-			if (myLine == null || myLine.length != 2) {
-				continue;
-			}
-			final String regex = myLine[0].replace("\"", "").replace("\\\\", "\\");
-			final String replace = myLine[1].replace("\"", "").replace("\\\\", "\\");
-			string = string.replaceAll(regex, replace);
-		}
-		return string;
-	}
 	
 	private String preprocessForPatterns(String string) {
 		return string;

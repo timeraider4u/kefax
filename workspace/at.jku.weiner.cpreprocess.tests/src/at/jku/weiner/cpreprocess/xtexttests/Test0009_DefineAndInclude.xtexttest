@@ -3,11 +3,18 @@
 package at.jku.weiner.cpreprocess
 language cPreprocess
 //----------------------------------------------------------------------
-source file="res/Test0006_SimpleInc.c"
+source file="res/Test0009_DefineAndInclude.c"
 //----------------------------------------------------------------------
 lexer-tokens
+	DEFINE ID MYCODE NEWLINE
+	DEFINE ID MYCODE NEWLINE
 	INCLUDE MYCODE NEWLINE
-	INCLUDE MYCODE NEWLINE
+	NEWLINE
+	MYCODE NEWLINE
+	NEWLINE
+	MYCODE NEWLINE
+	MYCODE NEWLINE
+	MYCODE NEWLINE
 //----------------------------------------------------------------------
 (Model
 	units+=
@@ -15,22 +22,43 @@ lexer-tokens
 		lines+=
 		(PreprocessorDirectives
 			directive=
-			(IncludeDirective
-				string++"\\\"Test0000_Empty.c\\\""
+			(DefineDirective
+				id++"INT",
+				string++"int"
+			)
+		),
+		(PreprocessorDirectives
+			directive=
+			(DefineDirective
+				id++"MAIN",
+				string++"main"
 			)
 		),
 		(PreprocessorDirectives
 			directive=
 			(IncludeDirective
-				string++"\\\"Test0002_Code.c\\\""
+				string++"\\\"Test0009_DefineAndInclude.h\\\""
 			)
+		),
+		(NewLineLine),
+		(Code
+			code++"DECLARATION;"
+		),
+		(NewLineLine),
+		(Code
+			code++"INT MAIN(void) {"
+		),
+		(Code
+			code++"	return x - 2 * Y;"
+		),
+		(Code
+			code++"}"
 		)
 	)
 )
 //----------------------------------------------------------------------
-output file="bin/Test0006_SimpleInc.c.i"
-//expected file="expected/Test0006_SimpleInc.c"
-expected file="res/Test0002_Code.c"
+output file="bin/Test0009_DefineAndInclude.c.i"
+expected file="expected/Test0009_DefineAndInclude.c"
 //replacePatterns file="res/Patterns.txt"
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------

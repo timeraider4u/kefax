@@ -3,10 +3,10 @@
 package at.jku.weiner.cpreprocess
 language cPreprocess
 //----------------------------------------------------------------------
-source file="res/Test0006_SimpleInc.c"
+source file="res/Test0008_SymbolDefineAndInclude.c"
 //----------------------------------------------------------------------
 lexer-tokens
-	INCLUDE MYCODE NEWLINE
+	DEFINE ID MYCODE NEWLINE
 	INCLUDE MYCODE NEWLINE
 //----------------------------------------------------------------------
 (Model
@@ -15,21 +15,21 @@ lexer-tokens
 		lines+=
 		(PreprocessorDirectives
 			directive=
-			(IncludeDirective
-				string++"\\\"Test0000_Empty.c\\\""
+			(DefineDirective
+				id++"abc",
+				string++"\\\"Test0002_Code.c\\\""
 			)
 		),
 		(PreprocessorDirectives
 			directive=
 			(IncludeDirective
-				string++"\\\"Test0002_Code.c\\\""
+				string++"\\\"Test0007_SymbolInInclude.h\\\""
 			)
 		)
 	)
 )
 //----------------------------------------------------------------------
-output file="bin/Test0006_SimpleInc.c.i"
-//expected file="expected/Test0006_SimpleInc.c"
+output file="bin/Test0008_SymbolDefineAndInclude.c.i"
 expected file="res/Test0002_Code.c"
 //replacePatterns file="res/Patterns.txt"
 //----------------------------------------------------------------------

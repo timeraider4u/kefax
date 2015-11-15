@@ -89,7 +89,8 @@ class CPreprocessGenerator implements IGenerator {
 	}
 	
 	def String outputForLegacyMode(IncludeDirective obj) {
-		val IncludeUtils includeUtils = new IncludeUtils(rs, uri, obj.string);
+		val String inc = DefinitionTable.resolve(obj.string);
+		val IncludeUtils includeUtils = new IncludeUtils(rs, uri, inc);
 		val Resource res = includeUtils.getResource();
 		val TranslationUnit unit = this.getUnitFor(res);
 		val String output = outputFor(unit);

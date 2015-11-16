@@ -49,19 +49,22 @@ class CPreprocessGenerator implements IGenerator {
 		return unit;
 	}
 
-	def String outputFor(TranslationUnit unit) '''
-		«FOR l : unit.lines»
-			«IF l instanceof PreprocessorDirectives»
-				«outputFor(l as PreprocessorDirectives)»
-			«ENDIF»
-			«IF l instanceof NewLineLine»
-				«outputFor(l as NewLineLine)»
-			«ENDIF»
-			«IF l instanceof Code»
-				«outputFor(l as Code)»
-			«ENDIF»
-		«ENDFOR»
-	'''
+	def String outputFor(TranslationUnit unit) {
+		val StringBuffer result = new StringBuffer("");		
+		for (l : unit.lines) {
+			if (l instanceof PreprocessorDirectives) {
+				result.append(outputFor(l as PreprocessorDirectives));
+			}
+			if (l instanceof NewLineLine) {
+				result.append(outputFor(l as NewLineLine));
+			}
+			if (l instanceof Code) {
+				result.append(outputFor(l as Code));
+				result.append("\n");
+			}
+		}
+		return result.toString();
+	}
 
 	def String outputFor(PreprocessorDirectives obj) '''
 		«IF obj.directive instanceof IncludeDirective»

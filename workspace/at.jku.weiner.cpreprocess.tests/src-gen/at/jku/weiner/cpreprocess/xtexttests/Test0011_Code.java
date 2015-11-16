@@ -47,11 +47,12 @@ import at.jku.weiner.cpreprocess.cPreprocess.TranslationUnit;
 import at.jku.weiner.cpreprocess.cPreprocess.Code;
 import at.jku.weiner.cpreprocess.cPreprocess.Code;
 import at.jku.weiner.cpreprocess.cPreprocess.Code;
+import at.jku.weiner.cpreprocess.cPreprocess.Code;
 import at.jku.weiner.cpreprocess.cPreprocess.NewLineLine;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(CPreprocessInjectorProvider.class)
-public class Test0002_Code {
+public class Test0011_Code {
 	@Inject
 	private ParseHelper<Model> parseHelper;
 	@Inject
@@ -89,9 +90,11 @@ public class Test0002_Code {
 	@Test
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
-			"res/Test0002_Code.c");
+			"res/Test0011_Code.c");
 			//System.out.println(text);
 			final String[] expected = new String[] {
+				"RULE_MYCODE", 
+				"RULE_NEWLINE", 
 				"RULE_MYCODE", 
 				"RULE_NEWLINE", 
 				"RULE_MYCODE", 
@@ -108,7 +111,7 @@ public class Test0002_Code {
 	@Test
 	public void checkParserResult() throws Exception {
 		final String text = this.getTextFromFile(
-			"res/Test0002_Code.c");
+			"res/Test0011_Code.c");
 		final Model Model_0_Var
 		  = 
 			this.parseHelper.parse(text);
@@ -129,7 +132,7 @@ public class Test0002_Code {
 		final EList<? extends EObject> Lines_1_list = TranslationUnit_1_Var
 		.getLines();
 		Assert.assertNotNull(Lines_1_list);
-		Assert.assertEquals(4, Lines_1_list.size());
+		Assert.assertEquals(5, Lines_1_list.size());
 		//1
 		final Code Code_2_Var
 		 = (Code)Lines_1_list.get(0);
@@ -142,19 +145,26 @@ public class Test0002_Code {
 		 = (Code)Lines_1_list.get(1);
 		Assert.assertNotNull(Code_3_Var
 		);
-		Assert.assertEquals("	return 0;", Code_3_Var
+		Assert.assertEquals("	 	 	", Code_3_Var
 		.getCode());
 		//3
 		final Code Code_4_Var
 		 = (Code)Lines_1_list.get(2);
 		Assert.assertNotNull(Code_4_Var
 		);
-		Assert.assertEquals("}", Code_4_Var
+		Assert.assertEquals("	return 0;", Code_4_Var
 		.getCode());
 		//4
-		final NewLineLine NewLineLine_5_Var
-		 = (NewLineLine)Lines_1_list.get(3);
-		Assert.assertNotNull(NewLineLine_5_Var
+		final Code Code_5_Var
+		 = (Code)Lines_1_list.get(3);
+		Assert.assertNotNull(Code_5_Var
+		);
+		Assert.assertEquals("}", Code_5_Var
+		.getCode());
+		//5
+		final NewLineLine NewLineLine_6_Var
+		 = (NewLineLine)Lines_1_list.get(4);
+		Assert.assertNotNull(NewLineLine_6_Var
 		);
 	}
 	
@@ -163,7 +173,7 @@ public class Test0002_Code {
 		// load the resource
 		ResourceSet set = this.resourceSetProvider.get();
 		URI uri = URI.createURI(
-			"res/Test0002_Code.c");
+			"res/Test0011_Code.c");
 		Resource resource = set.getResource(uri, true);
 		// validate the resource
 		List<Issue> list = this.validator.validate(resource, 
@@ -177,7 +187,7 @@ public class Test0002_Code {
 			final Method method = clazz.getMethod("setFileName",
 					String.class);
 			if (method != null) {
-				method.invoke(this.generator, "Test0002_Code.c.i");
+				method.invoke(this.generator, "Test0011_Code.c.i");
 			}
 		} catch (NoSuchMethodException | SecurityException
 			| IllegalAccessException | IllegalArgumentException
@@ -186,9 +196,9 @@ public class Test0002_Code {
 			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
-		final String actual = this.getTextFromFile("bin/Test0002_Code.c.i");
+		final String actual = this.getTextFromFile("bin/Test0011_Code.c.i");
 		final String expected = this.getTextFromFile(
-			"expected/Test0002_Code.c"
+			"expected/Test0011_Code.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
 		// System.out.println("Code generation finished.");

@@ -3,9 +3,10 @@
 package at.jku.weiner.cpreprocess
 language cPreprocess
 //----------------------------------------------------------------------
-source file="res/Test0002_Code.c"
+source file="res/Test0011_Code.c"
 //----------------------------------------------------------------------
 lexer-tokens
+	MYCODE NEWLINE
 	MYCODE NEWLINE
 	MYCODE NEWLINE
 	MYCODE NEWLINE
@@ -17,6 +18,9 @@ lexer-tokens
 		lines+=
 		(Code
 			code++"int main(void) {"
+		),
+		(Code
+			code++"	 	 	"
 		),
 		(Code
 			code++"	return 0;"
@@ -31,8 +35,8 @@ lexer-tokens
 	)
 )
 //----------------------------------------------------------------------
-output file="bin/Test0002_Code.c.i"
-expected file="expected/Test0002_Code.c"
+output file="bin/Test0011_Code.c.i"
+expected file="expected/Test0011_Code.c"
 //replacePatterns file="res/Patterns.txt"
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------

@@ -55,7 +55,11 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	}
 	
 	/**
-	 * terminal ERROR:		WS* HASH WS* 'error' WS+;
+	 * terminal ERROR:		WS* HASH WS* 'error' WS+ 
+	 * 	{ {
+	 * 		at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(false);
+	 * 	} }
+	 * ;
 	 */
 	protected String getERRORToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
@@ -64,7 +68,11 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	}
 	
 	/**
-	 * terminal INCLUDE:	WS* HASH WS* 'include' WS+;
+	 * terminal INCLUDE:	WS* HASH WS* 'include' WS+ 
+	 * 	{ {
+	 * 		at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(false);
+	 * 	} }
+	 * ;
 	 */
 	protected String getINCLUDEToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)

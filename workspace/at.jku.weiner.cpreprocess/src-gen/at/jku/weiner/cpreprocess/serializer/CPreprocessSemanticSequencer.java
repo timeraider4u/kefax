@@ -109,7 +109,7 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     msg=MYCODE
+	 *     msg=MyCodeLine
 	 */
 	protected void sequence_ErrorDirective(EObject context, ErrorDirective semanticObject) {
 		if(errorAcceptor != null) {
@@ -118,7 +118,7 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getErrorDirectiveAccess().getMsgMYCODETerminalRuleCall_2_0(), semanticObject.getMsg());
+		feeder.accept(grammarAccess.getErrorDirectiveAccess().getMsgMyCodeLineParserRuleCall_2_0(), semanticObject.getMsg());
 		feeder.finish();
 	}
 	

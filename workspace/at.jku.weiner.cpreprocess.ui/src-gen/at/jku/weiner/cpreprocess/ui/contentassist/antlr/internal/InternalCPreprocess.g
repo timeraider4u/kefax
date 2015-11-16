@@ -417,16 +417,9 @@ ruleMyCodeLine
      }:
 
 (
-(
-{ before(grammarAccess.getMyCodeLineAccess().getAlternatives()); }
-(rule__MyCodeLine__Alternatives)
-{ after(grammarAccess.getMyCodeLineAccess().getAlternatives()); }
-)
-(
-{ before(grammarAccess.getMyCodeLineAccess().getAlternatives()); }
-(rule__MyCodeLine__Alternatives)*
-{ after(grammarAccess.getMyCodeLineAccess().getAlternatives()); }
-)
+{ before(grammarAccess.getMyCodeLineAccess().getMYCODETerminalRuleCall()); }
+	RULE_MYCODE
+{ after(grammarAccess.getMyCodeLineAccess().getMYCODETerminalRuleCall()); }
 )
 
 
@@ -522,34 +515,6 @@ rule__PreprocessorDirectives__Alternatives_1
 { before(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveAssignment_1_4()); }
 (rule__PreprocessorDirectives__DirectiveAssignment_1_4)
 { after(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveAssignment_1_4()); }
-)
-
-
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__MyCodeLine__Alternatives
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-
-(
-{ before(grammarAccess.getMyCodeLineAccess().getMYCODETerminalRuleCall_0()); }
-	RULE_MYCODE
-{ after(grammarAccess.getMyCodeLineAccess().getMYCODETerminalRuleCall_0()); }
-)
-
-
-
-    |
-(
-{ before(grammarAccess.getMyCodeLineAccess().getIDTerminalRuleCall_1()); }
-	RULE_ID
-{ after(grammarAccess.getMyCodeLineAccess().getIDTerminalRuleCall_1()); }
 )
 
 
@@ -1691,8 +1656,8 @@ rule__ErrorDirective__MsgAssignment_2
     }
 :
 (
-{ before(grammarAccess.getErrorDirectiveAccess().getMsgMYCODETerminalRuleCall_2_0()); }
-	RULE_MYCODE{ after(grammarAccess.getErrorDirectiveAccess().getMsgMYCODETerminalRuleCall_2_0()); }
+{ before(grammarAccess.getErrorDirectiveAccess().getMsgMyCodeLineParserRuleCall_2_0()); }
+	ruleMyCodeLine{ after(grammarAccess.getErrorDirectiveAccess().getMsgMyCodeLineParserRuleCall_2_0()); }
 )
 
 ;
@@ -1738,9 +1703,9 @@ RULE_DEFINE : RULE_WS* RULE_HASH RULE_WS* 'define' RULE_WS+ {at.jku.weiner.cprep
 
 RULE_UNDEF : RULE_WS* RULE_HASH RULE_WS* 'undef' RULE_WS+ {at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(true);};
 
-RULE_INCLUDE : RULE_WS* RULE_HASH RULE_WS* 'include' RULE_WS+;
+RULE_INCLUDE : RULE_WS* RULE_HASH RULE_WS* 'include' RULE_WS+ {at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(false);};
 
-RULE_ERROR : RULE_WS* RULE_HASH RULE_WS* 'error' RULE_WS+;
+RULE_ERROR : RULE_WS* RULE_HASH RULE_WS* 'error' RULE_WS+ {at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(false);};
 
 RULE_PRAGMA : RULE_WS* RULE_HASH RULE_WS* 'pragma' RULE_WS+ {at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(true);};
 

@@ -254,13 +254,13 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cErrorDirectiveAction_0 = (Action)cGroup.eContents().get(0);
 		private final RuleCall cERRORTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		private final Assignment cMsgAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cMsgMYCODETerminalRuleCall_2_0 = (RuleCall)cMsgAssignment_2.eContents().get(0);
+		private final RuleCall cMsgMyCodeLineParserRuleCall_2_0 = (RuleCall)cMsgAssignment_2.eContents().get(0);
 		
 		//ErrorDirective:
-		//	{ErrorDirective} ERROR msg=MYCODE;
+		//	{ErrorDirective} ERROR msg=MyCodeLine;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{ErrorDirective} ERROR msg=MYCODE
+		//{ErrorDirective} ERROR msg=MyCodeLine
 		public Group getGroup() { return cGroup; }
 		
 		//{ErrorDirective}
@@ -269,11 +269,11 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//ERROR
 		public RuleCall getERRORTerminalRuleCall_1() { return cERRORTerminalRuleCall_1; }
 		
-		//msg=MYCODE
+		//msg=MyCodeLine
 		public Assignment getMsgAssignment_2() { return cMsgAssignment_2; }
 		
-		//MYCODE
-		public RuleCall getMsgMYCODETerminalRuleCall_2_0() { return cMsgMYCODETerminalRuleCall_2_0; }
+		//MyCodeLine
+		public RuleCall getMsgMyCodeLineParserRuleCall_2_0() { return cMsgMyCodeLineParserRuleCall_2_0; }
 	}
 	public class PragmaDirectiveElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.PragmaDirective");
@@ -343,22 +343,15 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class MyCodeLineElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.MyCodeLine");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cMYCODETerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cIDTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cMYCODETerminalRuleCall = (RuleCall)rule.eContents().get(1);
 		
+		//// we need it so that the value converter will get called!
 		//MyCodeLine:
-		//	MYCODE | ID+;
+		//	MYCODE;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//MYCODE | ID+
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
 		//MYCODE
-		public RuleCall getMYCODETerminalRuleCall_0() { return cMYCODETerminalRuleCall_0; }
-		
-		//ID
-		public RuleCall getIDTerminalRuleCall_1() { return cIDTerminalRuleCall_1; }
+		public RuleCall getMYCODETerminalRuleCall() { return cMYCODETerminalRuleCall; }
 	}
 	
 	
@@ -518,7 +511,7 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ErrorDirective:
-	//	{ErrorDirective} ERROR msg=MYCODE;
+	//	{ErrorDirective} ERROR msg=MyCodeLine;
 	public ErrorDirectiveElements getErrorDirectiveAccess() {
 		return pErrorDirective;
 	}
@@ -558,8 +551,9 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		return getCodeAccess().getRule();
 	}
 	
+	//// we need it so that the value converter will get called!
 	//MyCodeLine:
-	//	MYCODE | ID+;
+	//	MYCODE;
 	public MyCodeLineElements getMyCodeLineAccess() {
 		return pMyCodeLine;
 	}
@@ -640,13 +634,17 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal INCLUDE:
-	//	WS* HASH WS* 'include' WS+;
+	//	WS* HASH WS* 'include' WS+
+	//	{ { at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(false);
+	//	} };
 	public TerminalRule getINCLUDERule() {
 		return tINCLUDE;
 	}
 	
 	//terminal ERROR:
-	//	WS* HASH WS* 'error' WS+;
+	//	WS* HASH WS* 'error' WS+
+	//	{ { at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(false);
+	//	} };
 	public TerminalRule getERRORRule() {
 		return tERROR;
 	}

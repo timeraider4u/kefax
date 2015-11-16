@@ -2,6 +2,8 @@ package at.jku.weiner.cpreprocess.utils;
 
 import org.antlr.runtime.IntStream;
 
+import com.google.common.primitives.Chars;
+
 import at.jku.weiner.cpreprocess.parser.antlr.internal.InternalCPreprocessLexer;
 
 public final class PreLine {
@@ -38,10 +40,14 @@ public final class PreLine {
 		default:
 			int nextToken = -1;
 			for (int i = 1; ((nextToken = input.LA(i)) != InternalCPreprocessLexer.EOF); i++) {
+				// System.out.println("nextToken('" + nextToken + "'='"
+				// + Chars.checkedCast(nextToken) + "'");
 				switch (nextToken) {
-				case InternalCPreprocessLexer.RULE_WS:
+				case ' ':
 					continue;
-				case InternalCPreprocessLexer.RULE_HASH: {
+				case '\t':
+					continue;
+				case '#': {
 					PreLine.state = State.PreLine;
 					return false;
 				}

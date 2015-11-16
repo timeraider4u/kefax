@@ -630,19 +630,19 @@ this_ERROR_1=RULE_ERROR
 
 (
 (
-		lv_msg_2_0=RULE_MYCODE
-		{
-			newLeafNode(lv_msg_2_0, grammarAccess.getErrorDirectiveAccess().getMsgMYCODETerminalRuleCall_2_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getErrorDirectiveAccess().getMsgMyCodeLineParserRuleCall_2_0()); 
+	    }
+		lv_msg_2_0=ruleMyCodeLine		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getErrorDirectiveRule());
+	            $current = createModelElementForParent(grammarAccess.getErrorDirectiveRule());
 	        }
-       		setWithLastConsumed(
+       		set(
        			$current, 
        			"msg",
         		lv_msg_2_0, 
-        		"at.jku.weiner.cpreprocess.CPreprocess.MYCODE");
+        		"at.jku.weiner.cpreprocess.CPreprocess.MyCodeLine");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
@@ -821,22 +821,14 @@ ruleMyCodeLine returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToke
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(    this_MYCODE_0=RULE_MYCODE    {
+    this_MYCODE_0=RULE_MYCODE    {
 		$current.merge(this_MYCODE_0);
     }
 
     { 
-    newLeafNode(this_MYCODE_0, grammarAccess.getMyCodeLineAccess().getMYCODETerminalRuleCall_0()); 
+    newLeafNode(this_MYCODE_0, grammarAccess.getMyCodeLineAccess().getMYCODETerminalRuleCall()); 
     }
 
-    |    this_ID_1=RULE_ID    {
-		$current.merge(this_ID_1);
-    }
-
-    { 
-    newLeafNode(this_ID_1, grammarAccess.getMyCodeLineAccess().getIDTerminalRuleCall_1()); 
-    }
-)+
     ;
 
 
@@ -865,9 +857,9 @@ RULE_DEFINE : RULE_WS* RULE_HASH RULE_WS* 'define' RULE_WS+ {at.jku.weiner.cprep
 
 RULE_UNDEF : RULE_WS* RULE_HASH RULE_WS* 'undef' RULE_WS+ {at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(true);};
 
-RULE_INCLUDE : RULE_WS* RULE_HASH RULE_WS* 'include' RULE_WS+;
+RULE_INCLUDE : RULE_WS* RULE_HASH RULE_WS* 'include' RULE_WS+ {at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(false);};
 
-RULE_ERROR : RULE_WS* RULE_HASH RULE_WS* 'error' RULE_WS+;
+RULE_ERROR : RULE_WS* RULE_HASH RULE_WS* 'error' RULE_WS+ {at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(false);};
 
 RULE_PRAGMA : RULE_WS* RULE_HASH RULE_WS* 'pragma' RULE_WS+ {at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(true);};
 

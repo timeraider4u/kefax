@@ -77,7 +77,7 @@ UnDefineDirective:
 
 ErrorDirective:
 	{ErrorDirective}
-	ERROR msg=MYCODE
+	ERROR msg=MyCodeLine
 ;
 
 PragmaDirective:
@@ -96,8 +96,9 @@ Code returns SourceCodeLine:
 	NEWLINE
 ;
 
+// we need it so that the value converter will get called!
 MyCodeLine returns ecore::EString:
-	(MYCODE | ID)+
+	MYCODE
 ;
 
 
@@ -125,8 +126,16 @@ terminal UNDEF:		WS* HASH WS* 'undef' WS+
 		at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(true);
 	} }
 ;
-terminal INCLUDE:	WS* HASH WS* 'include' WS+;
-terminal ERROR:		WS* HASH WS* 'error' WS+;
+terminal INCLUDE:	WS* HASH WS* 'include' WS+ 
+	{ {
+		at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(false);
+	} }
+;
+terminal ERROR:		WS* HASH WS* 'error' WS+ 
+	{ {
+		at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(false);
+	} }
+;
 terminal PRAGMA:	WS* HASH WS* 'pragma' WS+
 	{ {
 		at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(true);

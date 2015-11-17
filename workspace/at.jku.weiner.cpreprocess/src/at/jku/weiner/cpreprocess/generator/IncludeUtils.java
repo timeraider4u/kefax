@@ -2,25 +2,10 @@ package at.jku.weiner.cpreprocess.generator;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.xtext.parser.ParseException;
-import org.eclipse.xtext.resource.IResourceServiceProvider;
-import org.eclipse.xtext.util.CancelIndicator;
-import org.eclipse.xtext.validation.CheckMode;
-import org.eclipse.xtext.validation.IResourceValidator;
-import org.eclipse.xtext.validation.Issue;
-
-import at.jku.weiner.cpreprocess.CPreprocessRuntimeModule;
-import at.jku.weiner.cpreprocess.validation.CPreprocessValidator;
-
-import com.google.inject.Guice;
-import com.google.inject.Inject;
-import com.google.inject.Injector;
-import com.google.inject.Provider;
 
 public final class IncludeUtils {
 

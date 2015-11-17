@@ -87,7 +87,7 @@ public class Test0013_RelativeInclude_Header {
 	@Test
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
-			"myinclude/printf.h");
+			"myinclude/include/printf.h");
 			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_MYCODE", 
@@ -103,7 +103,7 @@ public class Test0013_RelativeInclude_Header {
 	@Test
 	public void checkParserResult() throws Exception {
 		final String text = this.getTextFromFile(
-			"myinclude/printf.h");
+			"myinclude/include/printf.h");
 		final Model Model_0_Var
 		  = 
 			this.parseHelper.parse(text);
@@ -146,7 +146,7 @@ public class Test0013_RelativeInclude_Header {
 		// load the resource
 		ResourceSet set = this.resourceSetProvider.get();
 		URI uri = URI.createURI(
-			"myinclude/printf.h");
+			"myinclude/include/printf.h");
 		Resource resource = set.getResource(uri, true);
 		// validate the resource
 		List<Issue> list = this.validator.validate(resource, 
@@ -171,7 +171,7 @@ public class Test0013_RelativeInclude_Header {
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0013_RelativeInclude.h.i");
 		final String expected = this.getTextFromFile(
-			"myinclude/printf.h"
+			"myinclude/include/printf.h"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
 		// System.out.println("Code generation finished.");

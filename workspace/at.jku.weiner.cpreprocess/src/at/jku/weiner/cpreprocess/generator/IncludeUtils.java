@@ -2,10 +2,14 @@ package at.jku.weiner.cpreprocess.generator;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+
+import at.jku.weiner.cpreprocess.utils.IncludeDirs;
+import at.jku.weiner.cpreprocess.utils.MyPath;
 
 public final class IncludeUtils {
 
@@ -14,6 +18,7 @@ public final class IncludeUtils {
 	private final URI uri;
 
 	private final boolean isAbsoluteInclude;
+	private final String uriStr;
 
 	public IncludeUtils(final ResourceSet set, final URI uri,
 			final String fileName) {
@@ -21,6 +26,7 @@ public final class IncludeUtils {
 		this.isAbsoluteInclude = this.isAbsoluteFileName(fileName);
 		this.fileName = this.replace(fileName);
 		this.rs = set;
+		this.uriStr = this.uri.toFileString();
 	}
 
 	private boolean isAbsoluteFileName(final String fileName) {
@@ -61,18 +67,27 @@ public final class IncludeUtils {
 	}
 
 	private URI createAbsoluteURI() {
+		final MyPath pathInURI = new MyPath(this.fileName);
+		final List<String> includeDirs = IncludeDirs.getListCopy();
+		for (final String include : includeDirs) {
+			final MyPath pathInInclude = new MyPath(include);
+			if (pathInInclude.compareTo(pathInURI)) {
+				final String path = pathInInclude.combine(pathInURI);
+				return URI.createURI(path);
+			}
+		}
 		return null;
 	}
 
 	private URI createRelativeURI() {
-		final String uriStr = this.uri.toFileString();
 		// System.out.println(uriStr);
-		final int index = uriStr.lastIndexOf(File.separator);
+		final int index = this.uriStr.lastIndexOf(File.separator);
 		if (index <= 0) {
 			throw new IllegalArgumentException(
-					"not a valid relative include fileName='" + uriStr + "'");
+					"not a valid relative include fileName='" + this.uriStr
+					+ "'");
 		}
-		final String path = uriStr.substring(0, index);
+		final String path = this.uriStr.substring(0, index);
 		final String newFileName = path + File.separator + this.fileName;
 		// System.out.println(newFileName);
 		return URI.createURI(newFileName);

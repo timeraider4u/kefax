@@ -3,7 +3,7 @@
 package at.jku.weiner.cpreprocess
 language cPreprocess
 //----------------------------------------------------------------------
-source file="myinclude/printf.h"
+source file="myinclude/include/printf.h"
 //----------------------------------------------------------------------
 lexer-tokens
 	MYCODE NEWLINE

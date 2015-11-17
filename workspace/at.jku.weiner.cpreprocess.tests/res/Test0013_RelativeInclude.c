@@ -1,4 +1,4 @@
-#include "../myinclude/printf.h"
+#include "../myinclude/include/printf.h"
 
 int main(void) {
 	printf("Hello World!\n");

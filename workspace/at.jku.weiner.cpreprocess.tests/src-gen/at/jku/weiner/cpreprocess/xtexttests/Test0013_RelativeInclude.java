@@ -151,7 +151,7 @@ public class Test0013_RelativeInclude {
 		.getDirective();
 		Assert.assertNotNull(IncludeDirective_3_Var
 		);
-		Assert.assertEquals("\"../myinclude/printf.h\"", IncludeDirective_3_Var
+		Assert.assertEquals("\"../myinclude/include/printf.h\"", IncludeDirective_3_Var
 		.getString());
 		//3
 		final NewLineLine NewLineLine_4_Var

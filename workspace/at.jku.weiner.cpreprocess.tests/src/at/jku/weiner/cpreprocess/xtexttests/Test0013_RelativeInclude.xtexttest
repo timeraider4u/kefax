@@ -21,7 +21,7 @@ lexer-tokens
 		(PreprocessorDirectives
 			directive=
 			(IncludeDirective
-				string++"\\\"../myinclude/printf.h\\\""
+				string++"\\\"../myinclude/include/printf.h\\\""
 			)
 		),
 		(NewLineLine),

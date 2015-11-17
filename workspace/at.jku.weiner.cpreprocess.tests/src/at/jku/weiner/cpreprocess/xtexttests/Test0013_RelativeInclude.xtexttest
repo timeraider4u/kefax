@@ -1,0 +1,51 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.cpreprocess
+language cPreprocess
+//----------------------------------------------------------------------
+source file="res/Test0013_RelativeInclude.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	INCLUDE MYCODE NEWLINE
+	NEWLINE
+	MYCODE NEWLINE
+	MYCODE NEWLINE
+	MYCODE NEWLINE
+	MYCODE NEWLINE
+	NEWLINE
+//----------------------------------------------------------------------
+(Model
+	units+=
+	(TranslationUnit
+		lines+=
+		(PreprocessorDirectives
+			directive=
+			(IncludeDirective
+				string++"\\\"../myinclude/printf.h\\\""
+			)
+		),
+		(NewLineLine),
+		(Code
+			code++"int main(void) {"
+		),
+		(Code
+			code++"	printf(\\\"Hello World!\\\\n\\\");"
+		),
+		(Code
+			code++"	return 0;"
+		),
+		(Code
+			code++"}"
+		),
+		
+		(NewLineLine
+			
+		)
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0013_RelativeInclude.c.i"
+expected file="expected/Test0013_RelativeInclude.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

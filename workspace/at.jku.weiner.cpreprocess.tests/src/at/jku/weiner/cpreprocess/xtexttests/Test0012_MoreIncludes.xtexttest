@@ -1,0 +1,76 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.cpreprocess
+language cPreprocess
+//----------------------------------------------------------------------
+source file="res/Test0012_MoreIncludes.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	INCLUDE MYCODE NEWLINE
+	NEWLINE
+	MYCODE NEWLINE
+	MYCODE NEWLINE
+	INCLUDE MYCODE NEWLINE
+	INCLUDE MYCODE NEWLINE
+	NEWLINE
+	MYCODE NEWLINE
+	NEWLINE
+	INCLUDE MYCODE NEWLINE
+	NEWLINE
+	INCLUDE MYCODE NEWLINE
+//----------------------------------------------------------------------
+(Model
+	units+=
+	(TranslationUnit
+		lines+=
+		(PreprocessorDirectives
+			directive=
+			(IncludeDirective
+				string++"\\\"Test0000_Empty.c\\\""
+			)
+		),
+		(NewLineLine),
+		(Code
+			code++"// include \\\"Test0000_Empty.c\\\""
+		),
+		(Code
+			code++"// #include \\\"Test0000_Empty.c\\\""
+		),
+		(PreprocessorDirectives
+			directive=
+			(IncludeDirective
+				string++"\\\"Test0000_Empty.c\\\""
+			)
+		),
+		(PreprocessorDirectives
+			directive=
+			(IncludeDirective
+				string++"\\\"Test0000_Empty.c\\\""
+			)
+		),
+		(NewLineLine),
+		(Code
+			code++"/*#include \\\"Test0000_Empty.c\\\"*/"
+		),
+		(NewLineLine),
+		(PreprocessorDirectives
+			directive=
+			(IncludeDirective
+				string++"\\\"Test0000_Empty.c\\\""
+			)
+		),
+		(NewLineLine),
+		(PreprocessorDirectives
+			directive=
+			(IncludeDirective
+				string++"\\\"Test0002_Code.c\\\""
+			)
+		)
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0012_MoreIncludes.c.i"
+expected file="expected/Test0012_MoreIncludes.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

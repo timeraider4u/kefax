@@ -156,7 +156,7 @@ public class Test0015_AbsoluteInclude {
 		.getDirective();
 		Assert.assertNotNull(IncludeDirective_3_Var
 		);
-		Assert.assertEquals("<myinclude/include/printf.h>", IncludeDirective_3_Var
+		Assert.assertEquals("<include/printf.h>", IncludeDirective_3_Var
 		.getString());
 		//3
 		final NewLineLine NewLineLine_4_Var

@@ -67,13 +67,17 @@ public final class IncludeUtils {
 	}
 
 	private URI createAbsoluteURI() {
+		if (this.fileName.startsWith(File.separator)) {
+			return URI.createURI(this.fileName);
+		}
 		final MyPath pathInURI = new MyPath(this.fileName);
 		final List<String> includeDirs = IncludeDirs.getListCopy();
 		for (final String include : includeDirs) {
 			final MyPath pathInInclude = new MyPath(include);
-			if (pathInInclude.compareTo(pathInURI)) {
-				final String path = pathInInclude.combine(pathInURI);
-				return URI.createURI(path);
+			final String searchForFile = pathInInclude.combine(pathInURI);
+			final File file = new File(searchForFile);
+			if (file.exists() && file.canWrite()) {
+				return URI.createURI(searchForFile);
 			}
 		}
 		return null;

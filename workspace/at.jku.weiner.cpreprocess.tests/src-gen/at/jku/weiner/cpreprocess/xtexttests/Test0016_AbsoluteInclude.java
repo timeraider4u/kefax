@@ -55,7 +55,7 @@ import at.jku.weiner.cpreprocess.cPreprocess.NewLineLine;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(CPreprocessInjectorProvider.class)
-public class Test0014_AbsoluteInclude {
+public class Test0016_AbsoluteInclude {
 	@Inject
 	private ParseHelper<Model> parseHelper;
 	@Inject
@@ -81,7 +81,7 @@ public class Test0014_AbsoluteInclude {
 	public void initialize(){
 		this.testHelper = new LexerAndParserTest(lexer, 
 			parser, tokenDefProvider);
-		at.jku.weiner.cpreprocess.xtexttests.TestUtils.setUpTest0014();
+		at.jku.weiner.cpreprocess.xtexttests.TestUtils.setUpTest0016();
 	}
 	
 	@After
@@ -98,7 +98,7 @@ public class Test0014_AbsoluteInclude {
 	@Test
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
-			"res/Test0014_AbsoluteInclude.c");
+			"res/Test0016_AbsoluteInclude.c");
 			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_INCLUDE", 
@@ -123,7 +123,7 @@ public class Test0014_AbsoluteInclude {
 	@Test
 	public void checkParserResult() throws Exception {
 		final String text = this.getTextFromFile(
-			"res/Test0014_AbsoluteInclude.c");
+			"res/Test0016_AbsoluteInclude.c");
 		final Model Model_0_Var
 		  = 
 			this.parseHelper.parse(text);
@@ -156,7 +156,7 @@ public class Test0014_AbsoluteInclude {
 		.getDirective();
 		Assert.assertNotNull(IncludeDirective_3_Var
 		);
-		Assert.assertEquals("<include/printf.h>", IncludeDirective_3_Var
+		Assert.assertEquals("<printf.h>", IncludeDirective_3_Var
 		.getString());
 		//3
 		final NewLineLine NewLineLine_4_Var
@@ -203,7 +203,7 @@ public class Test0014_AbsoluteInclude {
 		// load the resource
 		ResourceSet set = this.resourceSetProvider.get();
 		URI uri = URI.createURI(
-			"res/Test0014_AbsoluteInclude.c");
+			"res/Test0016_AbsoluteInclude.c");
 		Resource resource = set.getResource(uri, true);
 		// validate the resource
 		List<Issue> list = this.validator.validate(resource, 
@@ -217,7 +217,7 @@ public class Test0014_AbsoluteInclude {
 			final Method method = clazz.getMethod("setFileName",
 					String.class);
 			if (method != null) {
-				method.invoke(this.generator, "Test0014_AbsoluteInclude.c.i");
+				method.invoke(this.generator, "Test0016_AbsoluteInclude.c.i");
 			}
 		} catch (NoSuchMethodException | SecurityException
 			| IllegalAccessException | IllegalArgumentException
@@ -226,7 +226,7 @@ public class Test0014_AbsoluteInclude {
 			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
-		final String actual = this.getTextFromFile("bin/Test0014_AbsoluteInclude.c.i");
+		final String actual = this.getTextFromFile("bin/Test0016_AbsoluteInclude.c.i");
 		final String expected = this.getTextFromFile(
 			"expected/Test0014_AbsoluteInclude.c"
 			);

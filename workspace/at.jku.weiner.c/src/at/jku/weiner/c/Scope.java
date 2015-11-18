@@ -22,6 +22,10 @@ public final class Scope {
 
 	protected static final Stack<Symbols> scope = new Stack<Symbols>();
 
+	public static int size() {
+		return Scope.scope.size();
+	}
+
 	// protected static Symbols currScope = null;
 
 	public static final boolean isTypeName(final TokenStream input) {

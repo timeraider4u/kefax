@@ -1,12 +1,12 @@
 package at.jku.weiner.c.xtexttests;
 
-import org.junit.Ignore;
-import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
-import org.junit.runners.Suite.SuiteClasses;
+import org.junit.Assert;
 
-@RunWith(Suite.class)
-@SuiteClasses({ Test0037_Struct.class, Test0038_StructAdvanced.class })
+import at.jku.weiner.c.Scope;
+
 public class TestSuite_Structs {
 
+	public static void testSize() {
+		Assert.assertEquals(0, Scope.size());
+	}
 }

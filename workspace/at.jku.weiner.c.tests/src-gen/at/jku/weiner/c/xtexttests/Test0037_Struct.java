@@ -717,10 +717,12 @@ public class Test0037_Struct {
 	public void initialize(){
 		this.testHelper = new LexerAndParserTest(lexer, 
 			parser, tokenDefProvider);
+		at.jku.weiner.c.xtexttests.TestSuite_Structs.testSize();
 	}
 	
 	@After
 	public void cleanUp() {
+		at.jku.weiner.c.xtexttests.TestSuite_Structs.testSize();
 	}
 	
 	private String getTextFromFile(final String fileName)

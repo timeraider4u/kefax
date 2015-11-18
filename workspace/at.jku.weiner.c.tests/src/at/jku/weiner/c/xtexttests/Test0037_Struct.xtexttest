@@ -2060,4 +2060,13 @@ output file="bin/Test0037_Struct.c"
 expected file isSameAsInputFile
 replacePatterns file="res/Patterns.txt"
 //----------------------------------------------------------------------
+before
+	class = at.jku.weiner.c.xtexttests.TestSuite_Structs
+	method = testSize
+	()
+after
+	class = at.jku.weiner.c.xtexttests.TestSuite_Structs
+	method = testSize
+	()
+//----------------------------------------------------------------------
 //----------------------------------------------------------------------

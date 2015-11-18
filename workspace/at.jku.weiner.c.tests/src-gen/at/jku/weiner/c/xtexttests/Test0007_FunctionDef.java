@@ -83,6 +83,10 @@ public class Test0007_FunctionDef {
 			parser, tokenDefProvider);
 	}
 	
+	@After
+	public void cleanUp() {
+	}
+	
 	private String getTextFromFile(final String fileName)
 	throws Exception{
 		final Path path = Paths.get(fileName);

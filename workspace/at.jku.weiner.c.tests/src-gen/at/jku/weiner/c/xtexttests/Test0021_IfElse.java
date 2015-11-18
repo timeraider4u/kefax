@@ -216,6 +216,10 @@ public class Test0021_IfElse {
 			parser, tokenDefProvider);
 	}
 	
+	@After
+	public void cleanUp() {
+	}
+	
 	private String getTextFromFile(final String fileName)
 	throws Exception{
 		final Path path = Paths.get(fileName);

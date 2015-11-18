@@ -99,6 +99,10 @@ public class Test0017_PointerInFunctionDecl {
 			parser, tokenDefProvider);
 	}
 	
+	@After
+	public void cleanUp() {
+	}
+	
 	private String getTextFromFile(final String fileName)
 	throws Exception{
 		final Path path = Paths.get(fileName);

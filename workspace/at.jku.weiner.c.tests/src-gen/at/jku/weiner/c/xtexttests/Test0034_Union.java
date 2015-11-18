@@ -697,6 +697,10 @@ public class Test0034_Union {
 			parser, tokenDefProvider);
 	}
 	
+	@After
+	public void cleanUp() {
+	}
+	
 	private String getTextFromFile(final String fileName)
 	throws Exception{
 		final Path path = Paths.get(fileName);

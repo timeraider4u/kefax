@@ -464,6 +464,10 @@ public class Test0012_ExprHell {
 			parser, tokenDefProvider);
 	}
 	
+	@After
+	public void cleanUp() {
+	}
+	
 	private String getTextFromFile(final String fileName)
 	throws Exception{
 		final Path path = Paths.get(fileName);

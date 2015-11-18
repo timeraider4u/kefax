@@ -14,6 +14,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XtextTest.ecore#//XtextTest/tokens"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XtextTest.ecore#//XtextTest/root"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XtextTest.ecore#//XtextTest/output"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XtextTest.ecore#//XtextTest/before"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XtextTest.ecore#//XtextTest/after"/>
     </genClasses>
     <genClasses ecoreClass="XtextTest.ecore#//Input">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//Input/text"/>
@@ -44,6 +46,14 @@
     <genClasses ecoreClass="XtextTest.ecore#//ReplacePatterns">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//ReplacePatterns/regex"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//ReplacePatterns/replace"/>
+    </genClasses>
+    <genClasses ecoreClass="XtextTest.ecore#//Before">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//Before/myclass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//Before/method"/>
+    </genClasses>
+    <genClasses ecoreClass="XtextTest.ecore#//After">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//After/myclass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//After/method"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -121,6 +121,20 @@ public class XtextTestSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case XtextTestPackage.BEFORE:
+      {
+        Before before = (Before)theEObject;
+        T result = caseBefore(before);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case XtextTestPackage.AFTER:
+      {
+        After after = (After)theEObject;
+        T result = caseAfter(after);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -233,6 +247,38 @@ public class XtextTestSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseReplacePatterns(ReplacePatterns object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Before</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Before</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBefore(Before object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>After</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>After</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAfter(After object)
   {
     return null;
   }

@@ -13,6 +13,10 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="output" eType="#//Generator"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="before" eType="#//Before"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="after" eType="#//After"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Input">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -48,5 +52,13 @@
   <eClassifiers xsi:type="ecore:EClass" name="ReplacePatterns">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="regex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="replace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Before">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="myclass" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="method" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="After">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="myclass" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="method" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

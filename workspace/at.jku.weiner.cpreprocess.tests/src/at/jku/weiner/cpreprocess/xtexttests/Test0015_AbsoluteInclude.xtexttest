@@ -44,13 +44,12 @@ lexer-tokens
 	)
 )
 //----------------------------------------------------------------------
-output file="bin/Test0014_AbsoluteInclude.c.i"
+output file="bin/Test0015_AbsoluteInclude.c.i"
 expected file="expected/Test0014_AbsoluteInclude.c"
 //replacePatterns file="res/Patterns.txt"
-//----------------------------------------------------------------------
 before
 	class= at.jku.weiner.cpreprocess.xtexttests.TestUtils
-	method=setUpTest0014
+	method=setUpTest0015
 	()
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------

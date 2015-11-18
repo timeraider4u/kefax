@@ -4,6 +4,8 @@
 package at.jku.weiner.xtexttest.serializer;
 
 import at.jku.weiner.xtexttest.services.XtextTestGrammarAccess;
+import at.jku.weiner.xtexttest.xtextTest.After;
+import at.jku.weiner.xtexttest.xtextTest.Before;
 import at.jku.weiner.xtexttest.xtextTest.Element;
 import at.jku.weiner.xtexttest.xtextTest.Generator;
 import at.jku.weiner.xtexttest.xtextTest.Inner;
@@ -35,6 +37,12 @@ public class XtextTestSemanticSequencer extends AbstractDelegatingSemanticSequen
 	@Override
 	public void createSequence(EObject context, EObject semanticObject) {
 		if(semanticObject.eClass().getEPackage() == XtextTestPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+			case XtextTestPackage.AFTER:
+				sequence_After(context, (After) semanticObject); 
+				return; 
+			case XtextTestPackage.BEFORE:
+				sequence_Before(context, (Before) semanticObject); 
+				return; 
 			case XtextTestPackage.ELEMENT:
 				sequence_Element(context, (Element) semanticObject); 
 				return; 
@@ -59,6 +67,44 @@ public class XtextTestSemanticSequencer extends AbstractDelegatingSemanticSequen
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * Constraint:
+	 *     (myclass=PackageID method=PackageID)
+	 */
+	protected void sequence_After(EObject context, After semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, XtextTestPackage.Literals.AFTER__MYCLASS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, XtextTestPackage.Literals.AFTER__MYCLASS));
+			if(transientValues.isValueTransient(semanticObject, XtextTestPackage.Literals.AFTER__METHOD) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, XtextTestPackage.Literals.AFTER__METHOD));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getAfterAccess().getMyclassPackageIDParserRuleCall_3_0(), semanticObject.getMyclass());
+		feeder.accept(grammarAccess.getAfterAccess().getMethodPackageIDParserRuleCall_6_0(), semanticObject.getMethod());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (myclass=PackageID method=PackageID)
+	 */
+	protected void sequence_Before(EObject context, Before semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, XtextTestPackage.Literals.BEFORE__MYCLASS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, XtextTestPackage.Literals.BEFORE__MYCLASS));
+			if(transientValues.isValueTransient(semanticObject, XtextTestPackage.Literals.BEFORE__METHOD) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, XtextTestPackage.Literals.BEFORE__METHOD));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getBeforeAccess().getMyclassPackageIDParserRuleCall_3_0(), semanticObject.getMyclass());
+		feeder.accept(grammarAccess.getBeforeAccess().getMethodPackageIDParserRuleCall_6_0(), semanticObject.getMethod());
+		feeder.finish();
+	}
+	
 	
 	/**
 	 * Constraint:
@@ -137,7 +183,9 @@ public class XtextTestSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *         input=Input 
 	 *         tokens=Tokens? 
 	 *         root=Element 
-	 *         output=Generator?
+	 *         output=Generator? 
+	 *         before=Before? 
+	 *         after=After?
 	 *     )
 	 */
 	protected void sequence_XtextTest(EObject context, XtextTest semanticObject) {

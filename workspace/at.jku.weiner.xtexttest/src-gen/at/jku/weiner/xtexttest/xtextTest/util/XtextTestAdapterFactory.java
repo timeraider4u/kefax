@@ -110,6 +110,16 @@ public class XtextTestAdapterFactory extends AdapterFactoryImpl
         return createReplacePatternsAdapter();
       }
       @Override
+      public Adapter caseBefore(Before object)
+      {
+        return createBeforeAdapter();
+      }
+      @Override
+      public Adapter caseAfter(After object)
+      {
+        return createAfterAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -232,6 +242,36 @@ public class XtextTestAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createReplacePatternsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.xtexttest.xtextTest.Before <em>Before</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.xtexttest.xtextTest.Before
+   * @generated
+   */
+  public Adapter createBeforeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.xtexttest.xtextTest.After <em>After</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.xtexttest.xtextTest.After
+   * @generated
+   */
+  public Adapter createAfterAdapter()
   {
     return null;
   }

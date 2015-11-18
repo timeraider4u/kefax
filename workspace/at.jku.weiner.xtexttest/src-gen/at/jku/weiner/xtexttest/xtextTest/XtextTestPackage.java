@@ -121,13 +121,31 @@ public interface XtextTestPackage extends EPackage
   int XTEXT_TEST__OUTPUT = 5;
 
   /**
+   * The feature id for the '<em><b>Before</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int XTEXT_TEST__BEFORE = 6;
+
+  /**
+   * The feature id for the '<em><b>After</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int XTEXT_TEST__AFTER = 7;
+
+  /**
    * The number of structural features of the '<em>Xtext Test</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int XTEXT_TEST_FEATURE_COUNT = 6;
+  int XTEXT_TEST_FEATURE_COUNT = 8;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.xtexttest.xtextTest.impl.InputImpl <em>Input</em>}' class.
@@ -405,6 +423,80 @@ public interface XtextTestPackage extends EPackage
    */
   int REPLACE_PATTERNS_FEATURE_COUNT = 2;
 
+  /**
+   * The meta object id for the '{@link at.jku.weiner.xtexttest.xtextTest.impl.BeforeImpl <em>Before</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.xtexttest.xtextTest.impl.BeforeImpl
+   * @see at.jku.weiner.xtexttest.xtextTest.impl.XtextTestPackageImpl#getBefore()
+   * @generated
+   */
+  int BEFORE = 7;
+
+  /**
+   * The feature id for the '<em><b>Myclass</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BEFORE__MYCLASS = 0;
+
+  /**
+   * The feature id for the '<em><b>Method</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BEFORE__METHOD = 1;
+
+  /**
+   * The number of structural features of the '<em>Before</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BEFORE_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link at.jku.weiner.xtexttest.xtextTest.impl.AfterImpl <em>After</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.xtexttest.xtextTest.impl.AfterImpl
+   * @see at.jku.weiner.xtexttest.xtextTest.impl.XtextTestPackageImpl#getAfter()
+   * @generated
+   */
+  int AFTER = 8;
+
+  /**
+   * The feature id for the '<em><b>Myclass</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AFTER__MYCLASS = 0;
+
+  /**
+   * The feature id for the '<em><b>Method</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AFTER__METHOD = 1;
+
+  /**
+   * The number of structural features of the '<em>After</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AFTER_FEATURE_COUNT = 2;
+
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.xtexttest.xtextTest.XtextTest <em>Xtext Test</em>}'.
@@ -481,6 +573,28 @@ public interface XtextTestPackage extends EPackage
    * @generated
    */
   EReference getXtextTest_Output();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.xtexttest.xtextTest.XtextTest#getBefore <em>Before</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Before</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.XtextTest#getBefore()
+   * @see #getXtextTest()
+   * @generated
+   */
+  EReference getXtextTest_Before();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.xtexttest.xtextTest.XtextTest#getAfter <em>After</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>After</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.XtextTest#getAfter()
+   * @see #getXtextTest()
+   * @generated
+   */
+  EReference getXtextTest_After();
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.xtexttest.xtextTest.Input <em>Input</em>}'.
@@ -741,6 +855,70 @@ public interface XtextTestPackage extends EPackage
   EAttribute getReplacePatterns_Replace();
 
   /**
+   * Returns the meta object for class '{@link at.jku.weiner.xtexttest.xtextTest.Before <em>Before</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Before</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.Before
+   * @generated
+   */
+  EClass getBefore();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.xtexttest.xtextTest.Before#getMyclass <em>Myclass</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Myclass</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.Before#getMyclass()
+   * @see #getBefore()
+   * @generated
+   */
+  EAttribute getBefore_Myclass();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.xtexttest.xtextTest.Before#getMethod <em>Method</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Method</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.Before#getMethod()
+   * @see #getBefore()
+   * @generated
+   */
+  EAttribute getBefore_Method();
+
+  /**
+   * Returns the meta object for class '{@link at.jku.weiner.xtexttest.xtextTest.After <em>After</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>After</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.After
+   * @generated
+   */
+  EClass getAfter();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.xtexttest.xtextTest.After#getMyclass <em>Myclass</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Myclass</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.After#getMyclass()
+   * @see #getAfter()
+   * @generated
+   */
+  EAttribute getAfter_Myclass();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.xtexttest.xtextTest.After#getMethod <em>Method</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Method</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.After#getMethod()
+   * @see #getAfter()
+   * @generated
+   */
+  EAttribute getAfter_Method();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -820,6 +998,22 @@ public interface XtextTestPackage extends EPackage
      * @generated
      */
     EReference XTEXT_TEST__OUTPUT = eINSTANCE.getXtextTest_Output();
+
+    /**
+     * The meta object literal for the '<em><b>Before</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference XTEXT_TEST__BEFORE = eINSTANCE.getXtextTest_Before();
+
+    /**
+     * The meta object literal for the '<em><b>After</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference XTEXT_TEST__AFTER = eINSTANCE.getXtextTest_After();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.xtexttest.xtextTest.impl.InputImpl <em>Input</em>}' class.
@@ -1024,6 +1218,58 @@ public interface XtextTestPackage extends EPackage
      * @generated
      */
     EAttribute REPLACE_PATTERNS__REPLACE = eINSTANCE.getReplacePatterns_Replace();
+
+    /**
+     * The meta object literal for the '{@link at.jku.weiner.xtexttest.xtextTest.impl.BeforeImpl <em>Before</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.xtexttest.xtextTest.impl.BeforeImpl
+     * @see at.jku.weiner.xtexttest.xtextTest.impl.XtextTestPackageImpl#getBefore()
+     * @generated
+     */
+    EClass BEFORE = eINSTANCE.getBefore();
+
+    /**
+     * The meta object literal for the '<em><b>Myclass</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BEFORE__MYCLASS = eINSTANCE.getBefore_Myclass();
+
+    /**
+     * The meta object literal for the '<em><b>Method</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BEFORE__METHOD = eINSTANCE.getBefore_Method();
+
+    /**
+     * The meta object literal for the '{@link at.jku.weiner.xtexttest.xtextTest.impl.AfterImpl <em>After</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.xtexttest.xtextTest.impl.AfterImpl
+     * @see at.jku.weiner.xtexttest.xtextTest.impl.XtextTestPackageImpl#getAfter()
+     * @generated
+     */
+    EClass AFTER = eINSTANCE.getAfter();
+
+    /**
+     * The meta object literal for the '<em><b>Myclass</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute AFTER__MYCLASS = eINSTANCE.getAfter_Myclass();
+
+    /**
+     * The meta object literal for the '<em><b>Method</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute AFTER__METHOD = eINSTANCE.getAfter_Method();
 
   }
 

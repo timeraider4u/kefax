@@ -86,6 +86,24 @@ public interface XtextTestFactory extends EFactory
   ReplacePatterns createReplacePatterns();
 
   /**
+   * Returns a new object of class '<em>Before</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Before</em>'.
+   * @generated
+   */
+  Before createBefore();
+
+  /**
+   * Returns a new object of class '<em>After</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>After</em>'.
+   * @generated
+   */
+  After createAfter();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

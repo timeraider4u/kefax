@@ -2,6 +2,8 @@
  */
 package at.jku.weiner.xtexttest.xtextTest.impl;
 
+import at.jku.weiner.xtexttest.xtextTest.After;
+import at.jku.weiner.xtexttest.xtextTest.Before;
 import at.jku.weiner.xtexttest.xtextTest.Element;
 import at.jku.weiner.xtexttest.xtextTest.Generator;
 import at.jku.weiner.xtexttest.xtextTest.Input;
@@ -32,6 +34,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.XtextTestImpl#getTokens <em>Tokens</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.XtextTestImpl#getRoot <em>Root</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.XtextTestImpl#getOutput <em>Output</em>}</li>
+ *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.XtextTestImpl#getBefore <em>Before</em>}</li>
+ *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.XtextTestImpl#getAfter <em>After</em>}</li>
  * </ul>
  *
  * @generated
@@ -117,6 +121,26 @@ public class XtextTestImpl extends MinimalEObjectImpl.Container implements Xtext
    * @ordered
    */
   protected Generator output;
+
+  /**
+   * The cached value of the '{@link #getBefore() <em>Before</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBefore()
+   * @generated
+   * @ordered
+   */
+  protected Before before;
+
+  /**
+   * The cached value of the '{@link #getAfter() <em>After</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAfter()
+   * @generated
+   * @ordered
+   */
+  protected After after;
 
   /**
    * <!-- begin-user-doc -->
@@ -382,6 +406,102 @@ public class XtextTestImpl extends MinimalEObjectImpl.Container implements Xtext
    * <!-- end-user-doc -->
    * @generated
    */
+  public Before getBefore()
+  {
+    return before;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetBefore(Before newBefore, NotificationChain msgs)
+  {
+    Before oldBefore = before;
+    before = newBefore;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, XtextTestPackage.XTEXT_TEST__BEFORE, oldBefore, newBefore);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setBefore(Before newBefore)
+  {
+    if (newBefore != before)
+    {
+      NotificationChain msgs = null;
+      if (before != null)
+        msgs = ((InternalEObject)before).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - XtextTestPackage.XTEXT_TEST__BEFORE, null, msgs);
+      if (newBefore != null)
+        msgs = ((InternalEObject)newBefore).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - XtextTestPackage.XTEXT_TEST__BEFORE, null, msgs);
+      msgs = basicSetBefore(newBefore, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, XtextTestPackage.XTEXT_TEST__BEFORE, newBefore, newBefore));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public After getAfter()
+  {
+    return after;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetAfter(After newAfter, NotificationChain msgs)
+  {
+    After oldAfter = after;
+    after = newAfter;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, XtextTestPackage.XTEXT_TEST__AFTER, oldAfter, newAfter);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAfter(After newAfter)
+  {
+    if (newAfter != after)
+    {
+      NotificationChain msgs = null;
+      if (after != null)
+        msgs = ((InternalEObject)after).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - XtextTestPackage.XTEXT_TEST__AFTER, null, msgs);
+      if (newAfter != null)
+        msgs = ((InternalEObject)newAfter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - XtextTestPackage.XTEXT_TEST__AFTER, null, msgs);
+      msgs = basicSetAfter(newAfter, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, XtextTestPackage.XTEXT_TEST__AFTER, newAfter, newAfter));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -395,6 +515,10 @@ public class XtextTestImpl extends MinimalEObjectImpl.Container implements Xtext
         return basicSetRoot(null, msgs);
       case XtextTestPackage.XTEXT_TEST__OUTPUT:
         return basicSetOutput(null, msgs);
+      case XtextTestPackage.XTEXT_TEST__BEFORE:
+        return basicSetBefore(null, msgs);
+      case XtextTestPackage.XTEXT_TEST__AFTER:
+        return basicSetAfter(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -421,6 +545,10 @@ public class XtextTestImpl extends MinimalEObjectImpl.Container implements Xtext
         return getRoot();
       case XtextTestPackage.XTEXT_TEST__OUTPUT:
         return getOutput();
+      case XtextTestPackage.XTEXT_TEST__BEFORE:
+        return getBefore();
+      case XtextTestPackage.XTEXT_TEST__AFTER:
+        return getAfter();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -452,6 +580,12 @@ public class XtextTestImpl extends MinimalEObjectImpl.Container implements Xtext
         return;
       case XtextTestPackage.XTEXT_TEST__OUTPUT:
         setOutput((Generator)newValue);
+        return;
+      case XtextTestPackage.XTEXT_TEST__BEFORE:
+        setBefore((Before)newValue);
+        return;
+      case XtextTestPackage.XTEXT_TEST__AFTER:
+        setAfter((After)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -485,6 +619,12 @@ public class XtextTestImpl extends MinimalEObjectImpl.Container implements Xtext
       case XtextTestPackage.XTEXT_TEST__OUTPUT:
         setOutput((Generator)null);
         return;
+      case XtextTestPackage.XTEXT_TEST__BEFORE:
+        setBefore((Before)null);
+        return;
+      case XtextTestPackage.XTEXT_TEST__AFTER:
+        setAfter((After)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -511,6 +651,10 @@ public class XtextTestImpl extends MinimalEObjectImpl.Container implements Xtext
         return root != null;
       case XtextTestPackage.XTEXT_TEST__OUTPUT:
         return output != null;
+      case XtextTestPackage.XTEXT_TEST__BEFORE:
+        return before != null;
+      case XtextTestPackage.XTEXT_TEST__AFTER:
+        return after != null;
     }
     return super.eIsSet(featureID);
   }

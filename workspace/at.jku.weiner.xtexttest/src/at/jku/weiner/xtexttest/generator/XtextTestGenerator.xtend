@@ -168,6 +168,16 @@ class XtextTestGenerator implements IGenerator {
 			public void initialize(){
 				this.testHelper = new LexerAndParserTest(lexer, 
 					parser, tokenDefProvider);
+				«IF this.test.before != null»
+					«this.test.before.myclass».«this.test.before.method»();
+				«ENDIF»
+			}
+			
+			@After
+			public void cleanUp() {
+				«IF this.test.after != null»
+					«this.test.after.myclass».«this.test.after.method»();
+				«ENDIF»
 			}
 			
 			private String getTextFromFile(final String fileName)

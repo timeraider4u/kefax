@@ -64,12 +64,16 @@ public class XtextTestParser extends AbstractContentAssistParser {
 					put(grammarAccess.getGeneratorAccess().getGroup_3_1(), "rule__Generator__Group_3_1__0");
 					put(grammarAccess.getGeneratorAccess().getGroup_4(), "rule__Generator__Group_4__0");
 					put(grammarAccess.getReplacePatternsAccess().getGroup(), "rule__ReplacePatterns__Group__0");
+					put(grammarAccess.getBeforeAccess().getGroup(), "rule__Before__Group__0");
+					put(grammarAccess.getAfterAccess().getGroup(), "rule__After__Group__0");
 					put(grammarAccess.getXtextTestAccess().getPackageAssignment_2(), "rule__XtextTest__PackageAssignment_2");
 					put(grammarAccess.getXtextTestAccess().getLangAssignment_4(), "rule__XtextTest__LangAssignment_4");
 					put(grammarAccess.getXtextTestAccess().getInputAssignment_5(), "rule__XtextTest__InputAssignment_5");
 					put(grammarAccess.getXtextTestAccess().getTokensAssignment_6(), "rule__XtextTest__TokensAssignment_6");
 					put(grammarAccess.getXtextTestAccess().getRootAssignment_7(), "rule__XtextTest__RootAssignment_7");
 					put(grammarAccess.getXtextTestAccess().getOutputAssignment_8(), "rule__XtextTest__OutputAssignment_8");
+					put(grammarAccess.getXtextTestAccess().getBeforeAssignment_9(), "rule__XtextTest__BeforeAssignment_9");
+					put(grammarAccess.getXtextTestAccess().getAfterAssignment_10(), "rule__XtextTest__AfterAssignment_10");
 					put(grammarAccess.getInputAccess().getTextAssignment_2_0_2(), "rule__Input__TextAssignment_2_0_2");
 					put(grammarAccess.getInputAccess().getFileAssignment_2_1_2(), "rule__Input__FileAssignment_2_1_2");
 					put(grammarAccess.getTokensAccess().getTokensAssignment_2(), "rule__Tokens__TokensAssignment_2");
@@ -90,6 +94,10 @@ public class XtextTestParser extends AbstractContentAssistParser {
 					put(grammarAccess.getGeneratorAccess().getExceptionAssignment_4_2(), "rule__Generator__ExceptionAssignment_4_2");
 					put(grammarAccess.getReplacePatternsAccess().getRegexAssignment_0(), "rule__ReplacePatterns__RegexAssignment_0");
 					put(grammarAccess.getReplacePatternsAccess().getReplaceAssignment_2(), "rule__ReplacePatterns__ReplaceAssignment_2");
+					put(grammarAccess.getBeforeAccess().getMyclassAssignment_3(), "rule__Before__MyclassAssignment_3");
+					put(grammarAccess.getBeforeAccess().getMethodAssignment_6(), "rule__Before__MethodAssignment_6");
+					put(grammarAccess.getAfterAccess().getMyclassAssignment_3(), "rule__After__MyclassAssignment_3");
+					put(grammarAccess.getAfterAccess().getMethodAssignment_6(), "rule__After__MethodAssignment_6");
 				}
 			};
 		}

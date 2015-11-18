@@ -12,6 +12,8 @@ XtextTest:
 	(tokens=Tokens)?
 	root=Element
 	(output=Generator)?
+	(before=Before)?
+	(after=After)?
 ;
 
 PackageID returns ecore::EString:
@@ -81,6 +83,18 @@ ReplacePatterns:
 	regex=STRING ASSIGNASSINGLE replace=STRING
 ;
 
+Before:
+	BEFORE_KW CLASS_KW ASSIGNASSINGLE myclass=PackageID
+	METHOD_KW ASSIGNASSINGLE method=PackageID 
+	LEFTPAREN RIGHTPAREN
+;
+
+After:
+	AFTER_KW CLASS_KW ASSIGNASSINGLE myclass=PackageID
+	METHOD_KW ASSIGNASSINGLE method=PackageID
+	LEFTPAREN RIGHTPAREN
+;
+
 terminal PACKAGE: 'package';
 terminal LANGUAGE: 'language';
 terminal POINT: '.';
@@ -93,6 +107,10 @@ terminal EXPECTED: 'expected';
 terminal ISSAMEASINPUTFILE: 'isSameAsInputFile';
 terminal PATTERNS: 'replacePatterns';
 terminal EXCEPTIONS: 'exceptions';
+terminal BEFORE_KW: 'before';
+terminal AFTER_KW: 'after';
+terminal CLASS_KW: 'class';
+terminal METHOD_KW: 'method';
 terminal LEFTPAREN: '(';
 terminal RIGHTPAREN: ')';
 terminal ASSIGNASSINGLE: '=';

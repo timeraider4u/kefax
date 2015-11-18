@@ -231,6 +231,48 @@ this_LANGUAGE_3=RULE_LANGUAGE
 )
 )?
 
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getXtextTestAccess().getBeforeBeforeParserRuleCall_9_0()); 
+	    }
+		lv_before_9_0=ruleBefore		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getXtextTestRule());
+	        }
+       		set(
+       			$current, 
+       			"before",
+        		lv_before_9_0, 
+        		"at.jku.weiner.xtexttest.XtextTest.Before");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)?
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getXtextTestAccess().getAfterAfterParserRuleCall_10_0()); 
+	    }
+		lv_after_10_0=ruleAfter		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getXtextTestRule());
+	        }
+       		set(
+       			$current, 
+       			"after",
+        		lv_after_10_0, 
+        		"at.jku.weiner.xtexttest.XtextTest.After");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)?
+
 )
 
 
@@ -1178,6 +1220,242 @@ this_ASSIGNASSINGLE_1=RULE_ASSIGNASSINGLE
 
 
 
+// Entry rule entryRuleBefore
+entryRuleBefore returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getBeforeRule()); }
+	 iv_ruleBefore=ruleBefore 
+	 { $current=$iv_ruleBefore.current; } 
+	 EOF 
+;
+
+// Rule Before
+ruleBefore returns [EObject current=null] 
+    @init { enterRule();
+   		/*no init found*/
+    }
+    @after { leaveRule();
+    		/*no after found*/
+     }:
+
+(
+this_BEFORE_KW_0=RULE_BEFORE_KW
+    { 
+    newLeafNode(this_BEFORE_KW_0, grammarAccess.getBeforeAccess().getBEFORE_KWTerminalRuleCall_0()); 
+    }
+
+
+
+this_CLASS_KW_1=RULE_CLASS_KW
+    { 
+    newLeafNode(this_CLASS_KW_1, grammarAccess.getBeforeAccess().getCLASS_KWTerminalRuleCall_1()); 
+    }
+
+
+
+this_ASSIGNASSINGLE_2=RULE_ASSIGNASSINGLE
+    { 
+    newLeafNode(this_ASSIGNASSINGLE_2, grammarAccess.getBeforeAccess().getASSIGNASSINGLETerminalRuleCall_2()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getBeforeAccess().getMyclassPackageIDParserRuleCall_3_0()); 
+	    }
+		lv_myclass_3_0=rulePackageID		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getBeforeRule());
+	        }
+       		set(
+       			$current, 
+       			"myclass",
+        		lv_myclass_3_0, 
+        		"at.jku.weiner.xtexttest.XtextTest.PackageID");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+this_METHOD_KW_4=RULE_METHOD_KW
+    { 
+    newLeafNode(this_METHOD_KW_4, grammarAccess.getBeforeAccess().getMETHOD_KWTerminalRuleCall_4()); 
+    }
+
+
+
+this_ASSIGNASSINGLE_5=RULE_ASSIGNASSINGLE
+    { 
+    newLeafNode(this_ASSIGNASSINGLE_5, grammarAccess.getBeforeAccess().getASSIGNASSINGLETerminalRuleCall_5()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getBeforeAccess().getMethodPackageIDParserRuleCall_6_0()); 
+	    }
+		lv_method_6_0=rulePackageID		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getBeforeRule());
+	        }
+       		set(
+       			$current, 
+       			"method",
+        		lv_method_6_0, 
+        		"at.jku.weiner.xtexttest.XtextTest.PackageID");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+this_LEFTPAREN_7=RULE_LEFTPAREN
+    { 
+    newLeafNode(this_LEFTPAREN_7, grammarAccess.getBeforeAccess().getLEFTPARENTerminalRuleCall_7()); 
+    }
+
+
+
+this_RIGHTPAREN_8=RULE_RIGHTPAREN
+    { 
+    newLeafNode(this_RIGHTPAREN_8, grammarAccess.getBeforeAccess().getRIGHTPARENTerminalRuleCall_8()); 
+    }
+
+
+)
+
+
+;
+
+
+
+
+
+// Entry rule entryRuleAfter
+entryRuleAfter returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getAfterRule()); }
+	 iv_ruleAfter=ruleAfter 
+	 { $current=$iv_ruleAfter.current; } 
+	 EOF 
+;
+
+// Rule After
+ruleAfter returns [EObject current=null] 
+    @init { enterRule();
+   		/*no init found*/
+    }
+    @after { leaveRule();
+    		/*no after found*/
+     }:
+
+(
+this_AFTER_KW_0=RULE_AFTER_KW
+    { 
+    newLeafNode(this_AFTER_KW_0, grammarAccess.getAfterAccess().getAFTER_KWTerminalRuleCall_0()); 
+    }
+
+
+
+this_CLASS_KW_1=RULE_CLASS_KW
+    { 
+    newLeafNode(this_CLASS_KW_1, grammarAccess.getAfterAccess().getCLASS_KWTerminalRuleCall_1()); 
+    }
+
+
+
+this_ASSIGNASSINGLE_2=RULE_ASSIGNASSINGLE
+    { 
+    newLeafNode(this_ASSIGNASSINGLE_2, grammarAccess.getAfterAccess().getASSIGNASSINGLETerminalRuleCall_2()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getAfterAccess().getMyclassPackageIDParserRuleCall_3_0()); 
+	    }
+		lv_myclass_3_0=rulePackageID		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getAfterRule());
+	        }
+       		set(
+       			$current, 
+       			"myclass",
+        		lv_myclass_3_0, 
+        		"at.jku.weiner.xtexttest.XtextTest.PackageID");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+this_METHOD_KW_4=RULE_METHOD_KW
+    { 
+    newLeafNode(this_METHOD_KW_4, grammarAccess.getAfterAccess().getMETHOD_KWTerminalRuleCall_4()); 
+    }
+
+
+
+this_ASSIGNASSINGLE_5=RULE_ASSIGNASSINGLE
+    { 
+    newLeafNode(this_ASSIGNASSINGLE_5, grammarAccess.getAfterAccess().getASSIGNASSINGLETerminalRuleCall_5()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getAfterAccess().getMethodPackageIDParserRuleCall_6_0()); 
+	    }
+		lv_method_6_0=rulePackageID		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getAfterRule());
+	        }
+       		set(
+       			$current, 
+       			"method",
+        		lv_method_6_0, 
+        		"at.jku.weiner.xtexttest.XtextTest.PackageID");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+this_LEFTPAREN_7=RULE_LEFTPAREN
+    { 
+    newLeafNode(this_LEFTPAREN_7, grammarAccess.getAfterAccess().getLEFTPARENTerminalRuleCall_7()); 
+    }
+
+
+
+this_RIGHTPAREN_8=RULE_RIGHTPAREN
+    { 
+    newLeafNode(this_RIGHTPAREN_8, grammarAccess.getAfterAccess().getRIGHTPARENTerminalRuleCall_8()); 
+    }
+
+
+)
+
+
+;
+
+
+
+
+
 RULE_PACKAGE : 'package';
 
 RULE_LANGUAGE : 'language';
@@ -1201,6 +1479,14 @@ RULE_ISSAMEASINPUTFILE : 'isSameAsInputFile';
 RULE_PATTERNS : 'replacePatterns';
 
 RULE_EXCEPTIONS : 'exceptions';
+
+RULE_BEFORE_KW : 'before';
+
+RULE_AFTER_KW : 'after';
+
+RULE_CLASS_KW : 'class';
+
+RULE_METHOD_KW : 'method';
 
 RULE_LEFTPAREN : '(';
 

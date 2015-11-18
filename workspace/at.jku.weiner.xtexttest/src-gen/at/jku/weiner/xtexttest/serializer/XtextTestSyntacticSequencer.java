@@ -30,7 +30,9 @@ public class XtextTestSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if(ruleCall.getRule() == grammarAccess.getASSIGNASDATALISTRule())
+		if(ruleCall.getRule() == grammarAccess.getAFTER_KWRule())
+			return getAFTER_KWToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getASSIGNASDATALISTRule())
 			return getASSIGNASDATALISTToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getASSIGNASLISTRule())
 			return getASSIGNASLISTToken(semanticObject, ruleCall, node);
@@ -38,6 +40,10 @@ public class XtextTestSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getASSIGNASSINGLEToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getASSIGNASSTRINGRule())
 			return getASSIGNASSTRINGToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getBEFORE_KWRule())
+			return getBEFORE_KWToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getCLASS_KWRule())
+			return getCLASS_KWToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getCOMMARule())
 			return getCOMMAToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getEXCEPTIONSRule())
@@ -54,6 +60,8 @@ public class XtextTestSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getLEFTPARENToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getLEXERRule())
 			return getLEXERToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getMETHOD_KWRule())
+			return getMETHOD_KWToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getOUTPUTRule())
 			return getOUTPUTToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getPACKAGERule())
@@ -67,6 +75,15 @@ public class XtextTestSyntacticSequencer extends AbstractSyntacticSequencer {
 		else if(ruleCall.getRule() == grammarAccess.getSRCTEXTRule())
 			return getSRCTEXTToken(semanticObject, ruleCall, node);
 		return "";
+	}
+	
+	/**
+	 * terminal AFTER_KW: 'after';
+	 */
+	protected String getAFTER_KWToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "after";
 	}
 	
 	/**
@@ -103,6 +120,24 @@ public class XtextTestSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return "++";
+	}
+	
+	/**
+	 * terminal BEFORE_KW: 'before';
+	 */
+	protected String getBEFORE_KWToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "before";
+	}
+	
+	/**
+	 * terminal CLASS_KW: 'class';
+	 */
+	protected String getCLASS_KWToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "class";
 	}
 	
 	/**
@@ -175,6 +210,15 @@ public class XtextTestSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return "lexer-tokens";
+	}
+	
+	/**
+	 * terminal METHOD_KW: 'method';
+	 */
+	protected String getMETHOD_KWToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "method";
 	}
 	
 	/**

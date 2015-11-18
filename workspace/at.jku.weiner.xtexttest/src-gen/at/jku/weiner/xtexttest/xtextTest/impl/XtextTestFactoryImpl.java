@@ -71,6 +71,8 @@ public class XtextTestFactoryImpl extends EFactoryImpl implements XtextTestFacto
       case XtextTestPackage.INNER: return createInner();
       case XtextTestPackage.GENERATOR: return createGenerator();
       case XtextTestPackage.REPLACE_PATTERNS: return createReplacePatterns();
+      case XtextTestPackage.BEFORE: return createBefore();
+      case XtextTestPackage.AFTER: return createAfter();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -151,6 +153,28 @@ public class XtextTestFactoryImpl extends EFactoryImpl implements XtextTestFacto
   {
     ReplacePatternsImpl replacePatterns = new ReplacePatternsImpl();
     return replacePatterns;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Before createBefore()
+  {
+    BeforeImpl before = new BeforeImpl();
+    return before;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public After createAfter()
+  {
+    AfterImpl after = new AfterImpl();
+    return after;
   }
 
   /**

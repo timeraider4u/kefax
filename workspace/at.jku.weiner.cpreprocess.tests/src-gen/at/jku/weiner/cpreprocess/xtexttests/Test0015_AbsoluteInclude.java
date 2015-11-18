@@ -55,7 +55,7 @@ import at.jku.weiner.cpreprocess.cPreprocess.NewLineLine;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(CPreprocessInjectorProvider.class)
-public class Test0014_AbsoluteInclude {
+public class Test0015_AbsoluteInclude {
 	@Inject
 	private ParseHelper<Model> parseHelper;
 	@Inject
@@ -81,7 +81,7 @@ public class Test0014_AbsoluteInclude {
 	public void initialize(){
 		this.testHelper = new LexerAndParserTest(lexer, 
 			parser, tokenDefProvider);
-		at.jku.weiner.cpreprocess.xtexttests.TestUtils.setUpTest0014();
+		at.jku.weiner.cpreprocess.xtexttests.TestUtils.setUpTest0015();
 	}
 	
 	@After
@@ -217,7 +217,7 @@ public class Test0014_AbsoluteInclude {
 			final Method method = clazz.getMethod("setFileName",
 					String.class);
 			if (method != null) {
-				method.invoke(this.generator, "Test0014_AbsoluteInclude.c.i");
+				method.invoke(this.generator, "Test0015_AbsoluteInclude.c.i");
 			}
 		} catch (NoSuchMethodException | SecurityException
 			| IllegalAccessException | IllegalArgumentException
@@ -226,7 +226,7 @@ public class Test0014_AbsoluteInclude {
 			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
-		final String actual = this.getTextFromFile("bin/Test0014_AbsoluteInclude.c.i");
+		final String actual = this.getTextFromFile("bin/Test0015_AbsoluteInclude.c.i");
 		final String expected = this.getTextFromFile(
 			"expected/Test0014_AbsoluteInclude.c"
 			);

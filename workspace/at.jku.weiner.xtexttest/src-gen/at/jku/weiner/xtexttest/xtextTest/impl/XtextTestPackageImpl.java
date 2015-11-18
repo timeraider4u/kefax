@@ -2,6 +2,8 @@
  */
 package at.jku.weiner.xtexttest.xtextTest.impl;
 
+import at.jku.weiner.xtexttest.xtextTest.After;
+import at.jku.weiner.xtexttest.xtextTest.Before;
 import at.jku.weiner.xtexttest.xtextTest.Element;
 import at.jku.weiner.xtexttest.xtextTest.Generator;
 import at.jku.weiner.xtexttest.xtextTest.Inner;
@@ -75,6 +77,20 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
    * @generated
    */
   private EClass replacePatternsEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass beforeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass afterEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -207,6 +223,26 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
   public EReference getXtextTest_Output()
   {
     return (EReference)xtextTestEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getXtextTest_Before()
+  {
+    return (EReference)xtextTestEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getXtextTest_After()
+  {
+    return (EReference)xtextTestEClass.getEStructuralFeatures().get(7);
   }
 
   /**
@@ -454,6 +490,66 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getBefore()
+  {
+    return beforeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getBefore_Myclass()
+  {
+    return (EAttribute)beforeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getBefore_Method()
+  {
+    return (EAttribute)beforeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getAfter()
+  {
+    return afterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAfter_Myclass()
+  {
+    return (EAttribute)afterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAfter_Method()
+  {
+    return (EAttribute)afterEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public XtextTestFactory getXtextTestFactory()
   {
     return (XtextTestFactory)getEFactoryInstance();
@@ -486,6 +582,8 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
     createEReference(xtextTestEClass, XTEXT_TEST__TOKENS);
     createEReference(xtextTestEClass, XTEXT_TEST__ROOT);
     createEReference(xtextTestEClass, XTEXT_TEST__OUTPUT);
+    createEReference(xtextTestEClass, XTEXT_TEST__BEFORE);
+    createEReference(xtextTestEClass, XTEXT_TEST__AFTER);
 
     inputEClass = createEClass(INPUT);
     createEAttribute(inputEClass, INPUT__TEXT);
@@ -516,6 +614,14 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
     replacePatternsEClass = createEClass(REPLACE_PATTERNS);
     createEAttribute(replacePatternsEClass, REPLACE_PATTERNS__REGEX);
     createEAttribute(replacePatternsEClass, REPLACE_PATTERNS__REPLACE);
+
+    beforeEClass = createEClass(BEFORE);
+    createEAttribute(beforeEClass, BEFORE__MYCLASS);
+    createEAttribute(beforeEClass, BEFORE__METHOD);
+
+    afterEClass = createEClass(AFTER);
+    createEAttribute(afterEClass, AFTER__MYCLASS);
+    createEAttribute(afterEClass, AFTER__METHOD);
   }
 
   /**
@@ -556,6 +662,8 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
     initEReference(getXtextTest_Tokens(), this.getTokens(), null, "tokens", null, 0, 1, XtextTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getXtextTest_Root(), this.getElement(), null, "root", null, 0, 1, XtextTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getXtextTest_Output(), this.getGenerator(), null, "output", null, 0, 1, XtextTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getXtextTest_Before(), this.getBefore(), null, "before", null, 0, 1, XtextTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getXtextTest_After(), this.getAfter(), null, "after", null, 0, 1, XtextTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(inputEClass, Input.class, "Input", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getInput_Text(), ecorePackage.getEString(), "text", null, 0, 1, Input.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -586,6 +694,14 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
     initEClass(replacePatternsEClass, ReplacePatterns.class, "ReplacePatterns", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getReplacePatterns_Regex(), ecorePackage.getEString(), "regex", null, 0, 1, ReplacePatterns.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getReplacePatterns_Replace(), ecorePackage.getEString(), "replace", null, 0, 1, ReplacePatterns.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(beforeEClass, Before.class, "Before", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getBefore_Myclass(), ecorePackage.getEString(), "myclass", null, 0, 1, Before.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBefore_Method(), ecorePackage.getEString(), "method", null, 0, 1, Before.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(afterEClass, After.class, "After", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getAfter_Myclass(), ecorePackage.getEString(), "myclass", null, 0, 1, After.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAfter_Method(), ecorePackage.getEString(), "method", null, 0, 1, After.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

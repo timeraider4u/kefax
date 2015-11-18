@@ -3,6 +3,8 @@
  */
 package at.jku.weiner.xtexttest.generator;
 
+import at.jku.weiner.xtexttest.xtextTest.After;
+import at.jku.weiner.xtexttest.xtextTest.Before;
 import at.jku.weiner.xtexttest.xtextTest.Element;
 import at.jku.weiner.xtexttest.xtextTest.Generator;
 import at.jku.weiner.xtexttest.xtextTest.Inner;
@@ -380,6 +382,49 @@ public class XtextTestGenerator implements IGenerator {
     _builder.append("\t\t\t");
     _builder.append("parser, tokenDefProvider);");
     _builder.newLine();
+    {
+      Before _before = this.test.getBefore();
+      boolean _notEquals = (!Objects.equal(_before, null));
+      if (_notEquals) {
+        _builder.append("\t\t");
+        Before _before_1 = this.test.getBefore();
+        String _myclass = _before_1.getMyclass();
+        _builder.append(_myclass, "\t\t");
+        _builder.append(".");
+        Before _before_2 = this.test.getBefore();
+        String _method = _before_2.getMethod();
+        _builder.append(_method, "\t\t");
+        _builder.append("();");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("@After");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public void cleanUp() {");
+    _builder.newLine();
+    {
+      After _after = this.test.getAfter();
+      boolean _notEquals_1 = (!Objects.equal(_after, null));
+      if (_notEquals_1) {
+        _builder.append("\t\t");
+        After _after_1 = this.test.getAfter();
+        String _myclass_1 = _after_1.getMyclass();
+        _builder.append(_myclass_1, "\t\t");
+        _builder.append(".");
+        After _after_2 = this.test.getAfter();
+        String _method_1 = _after_2.getMethod();
+        _builder.append(_method_1, "\t\t");
+        _builder.append("();");
+        _builder.newLineIfNotEmpty();
+      }
+    }
     _builder.append("\t");
     _builder.append("}");
     _builder.newLine();

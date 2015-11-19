@@ -419,4 +419,53 @@
 	</fileTypes>
 	
 	</extension>
+	
+	
+	<!-- see also https://christiandietrich.wordpress.com/2011/10/15/xtext-calling-the-generator-from-a-context-menu/ -->
+	
+	<extension point="org.eclipse.ui.handlers">
+		<handler
+			class="at.jku.weiner.xtexttest.ui.XtextTestExecutableExtensionFactory:at.jku.weiner.xtexttest.ui.handler.GenerationHandler"
+			commandId="at.jku.weiner.xtexttest.ui.handler.GenerationCommand">
+		</handler>
+  	</extension>
+  
+ 	<extension point="org.eclipse.ui.commands">
+ 		<command name="Generate Code for XtextTests"
+			id="at.jku.weiner.xtexttest.ui.handler.GenerationCommand">
+		</command>
+ 	</extension>
+  
+	<extension point="org.eclipse.ui.menus">
+		<menuContribution locationURI="popup:org.eclipse.jdt.ui.PackageExplorer">
+			<command commandId="at.jku.weiner.xtexttest.ui.handler.GenerationCommand"
+				style="push">
+				<visibleWhen checkEnabled="false">
+					<iterate>
+						<adapt type="org.eclipse.core.resources.IResource">
+							<test property="org.eclipse.core.resources.name" 
+							value="*.xtexttest"/>
+						</adapt>
+					</iterate>
+				</visibleWhen>
+			</command>
+ 		</menuContribution>
+ 	</extension>
+ 	
+ 	<extension point="org.eclipse.ui.menus">
+		<menuContribution locationURI="popup:org.eclipse.ui.navigator.ProjectExplorer#PopupMenu">
+			<command commandId="at.jku.weiner.xtexttest.ui.handler.GenerationCommand"
+				style="push">
+				<visibleWhen checkEnabled="false">
+					<iterate>
+						<adapt type="org.eclipse.core.resources.IResource">
+							<test property="org.eclipse.core.resources.name" 
+							value="*.xtexttest"/>
+						</adapt>
+					</iterate>
+				</visibleWhen>
+			</command>
+ 		</menuContribution>
+ 	</extension>
+	
 </plugin>

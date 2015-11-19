@@ -1,5 +1,7 @@
 package at.jku.weiner.xtexttest.ui.handler;
 
+import java.util.Iterator;
+
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
@@ -40,39 +42,46 @@ public class GenerationHandler extends AbstractHandler implements IHandler {
 
 	@Override
 	public Object execute(final ExecutionEvent event) throws ExecutionException {
-
 		// System.out.println("GenerationHandler.execute()");
-
+		Object result = null;
 		final ISelection selection = HandlerUtil.getCurrentSelection(event);
 		if (selection instanceof IStructuredSelection) {
 			final IStructuredSelection structuredSelection = (IStructuredSelection) selection;
-			final Object firstElement = structuredSelection.getFirstElement();
-			if (firstElement instanceof IFile) {
-				final IFile file = (IFile) firstElement;
-				final IProject project = file.getProject();
-				final IFolder srcGenFolder = project.getFolder("src-gen");
-				if (!srcGenFolder.exists()) {
-					try {
-						srcGenFolder.create(true, true,
-								new NullProgressMonitor());
-					} catch (final CoreException e) {
-						return null;
+			final Iterator<?> it = structuredSelection.iterator();
+			while (it.hasNext()) {
+				final Object element = it.next();
+				result = element;
+				if (element instanceof IFile) {
+					final IFile file = (IFile) element;
+					final IProject project = file.getProject();
+					final IFolder srcGenFolder = project.getFolder("src-gen");
+					if (!srcGenFolder.exists()) {
+						try {
+							srcGenFolder.create(true, true,
+									new NullProgressMonitor());
+						} catch (final CoreException e) {
+							return null;
+						}
 					}
+
+					final EclipseResourceFileSystemAccess fsa = this.fileAccessProvider
+							.get();
+					fsa.setOutputPath(srcGenFolder.getFullPath().toString());
+
+					System.out.println("file='" + file.getFullPath().toString()
+							+ "'");
+
+					final URI uri = URI.createPlatformResourceURI(file
+							.getFullPath().toString(), true);
+					final ResourceSet rs = this.resourceSetProvider
+							.get(project);
+					final Resource r = rs.getResource(uri, true);
+					this.generator.doGenerate(r, fsa);
+
 				}
-
-				final EclipseResourceFileSystemAccess fsa = this.fileAccessProvider
-						.get();
-				fsa.setOutputPath(srcGenFolder.getFullPath().toString());
-
-				final URI uri = URI.createPlatformResourceURI(file
-						.getFullPath().toString(), true);
-				final ResourceSet rs = this.resourceSetProvider.get(project);
-				final Resource r = rs.getResource(uri, true);
-				this.generator.doGenerate(r, fsa);
-
 			}
 		}
-		return null;
+		return result;
 	}
 
 	@Override

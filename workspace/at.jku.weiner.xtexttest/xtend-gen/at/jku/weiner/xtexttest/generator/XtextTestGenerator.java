@@ -54,6 +54,7 @@ public class XtextTestGenerator implements IGenerator {
   public void doGenerate(final Resource resource, final IFileSystemAccess fsa) {
     URI _uRI = resource.getURI();
     this.uri = _uRI;
+    System.out.println((("uri=\'" + this.uri) + "\'"));
     TreeIterator<EObject> _allContents = resource.getAllContents();
     Iterator<XtextTest> _filter = Iterators.<XtextTest>filter(_allContents, XtextTest.class);
     XtextTest _head = IteratorExtensions.<XtextTest>head(_filter);
@@ -69,27 +70,21 @@ public class XtextTestGenerator implements IGenerator {
     }
     this.elementCount = 0;
     final CharSequence outputForJava = this.outputJava();
-    boolean _or = false;
-    boolean _equals = Objects.equal(this.fileName, null);
-    if (_equals) {
-      _or = true;
-    } else {
-      boolean _isEmpty = this.fileName.isEmpty();
-      _or = _isEmpty;
-    }
-    if (_or) {
-      String _package = this.test.getPackage();
-      String _replace = _package.replace(".", "/");
-      String _plus = (_replace + "/");
-      String _plus_1 = (_plus + XtextTestGenerator.PKG_PREFIX);
-      String _plus_2 = (_plus_1 + "/");
-      String _javaClassFileName = this.getJavaClassFileName();
-      String _plus_3 = (_plus_2 + _javaClassFileName);
-      String _plus_4 = (_plus_3 + ".java");
-      this.setFileName(_plus_4);
-    }
+    String _package = this.test.getPackage();
+    String _replace = _package.replace(".", "/");
+    String _plus = (_replace + "/");
+    String _plus_1 = (_plus + XtextTestGenerator.PKG_PREFIX);
+    String _plus_2 = (_plus_1 + "/");
+    String _javaClassFileName = this.getJavaClassFileName();
+    String _plus_3 = (_plus_2 + _javaClassFileName);
+    String _plus_4 = (_plus_3 + ".java");
+    this.setFileName(_plus_4);
     String _fileName = this.getFileName();
-    fsa.generateFile(_fileName, outputForJava);
+    String _plus_5 = ("generate file=\'" + _fileName);
+    String _plus_6 = (_plus_5 + "\'");
+    System.out.println(_plus_6);
+    String _fileName_1 = this.getFileName();
+    fsa.generateFile(_fileName_1, outputForJava);
   }
   
   public String firstCharToUpperCase(final String text) {

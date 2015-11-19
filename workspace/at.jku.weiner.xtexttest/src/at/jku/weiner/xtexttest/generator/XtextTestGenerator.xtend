@@ -29,6 +29,7 @@ class XtextTestGenerator implements IGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
 		uri = resource.URI;
+		System.out.println("uri='" + uri + "'");
 		test = resource.allContents.filter(typeof(XtextTest)).head;
 		myDsl = firstCharToUpperCase(test.lang);
 		
@@ -40,10 +41,9 @@ class XtextTestGenerator implements IGenerator {
 		
 		elementCount = 0;
 		val outputForJava = outputJava();
-		if (fileName == null || fileName.isEmpty()) {
-			setFileName(test.package.replace(".", "/") + "/" + PKG_PREFIX
-				+ "/" + getJavaClassFileName() + ".java");
-		}
+		setFileName(test.package.replace(".", "/") + "/" + PKG_PREFIX
+			+ "/" + getJavaClassFileName() + ".java");
+		System.out.println("generate file='" + getFileName() + "'");
 		fsa.generateFile(getFileName(), outputForJava);
 	}
 	

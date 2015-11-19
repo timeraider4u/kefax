@@ -90,6 +90,11 @@ public class XtextTestAdapterFactory extends AdapterFactoryImpl
         return createTokensAdapter();
       }
       @Override
+      public Adapter caseMyTokens(MyTokens object)
+      {
+        return createMyTokensAdapter();
+      }
+      @Override
       public Adapter caseElement(Element object)
       {
         return createElementAdapter();
@@ -182,6 +187,21 @@ public class XtextTestAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createTokensAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.xtexttest.xtextTest.MyTokens <em>My Tokens</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.xtexttest.xtextTest.MyTokens
+   * @generated
+   */
+  public Adapter createMyTokensAdapter()
   {
     return null;
   }

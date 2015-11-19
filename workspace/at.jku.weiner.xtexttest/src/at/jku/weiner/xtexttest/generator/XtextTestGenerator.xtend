@@ -11,6 +11,7 @@ import org.eclipse.emf.common.util.URI
 import at.jku.weiner.xtexttest.xtextTest.Element
 import at.jku.weiner.xtexttest.xtextTest.Inner
 import org.eclipse.emf.common.util.EList
+import org.eclipse.xtend.lib.annotations.Accessors
 
 /**
  * Generates code from your model files on save.
@@ -23,6 +24,8 @@ class XtextTestGenerator implements IGenerator {
 	private XtextTest test;
 	private URI uri;
 	private String myDsl;
+	
+	@Accessors String fileName;
 
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
 		uri = resource.URI;
@@ -37,8 +40,11 @@ class XtextTestGenerator implements IGenerator {
 		
 		elementCount = 0;
 		val outputForJava = outputJava();
-		val fileNameForJava = getFileNameForJava();
-		fsa.generateFile(fileNameForJava, outputForJava);
+		if (fileName == null || fileName.isEmpty()) {
+			setFileName(test.package.replace(".", "/") + "/" + PKG_PREFIX
+				+ "/" + getJavaClassFileName() + ".java");
+		}
+		fsa.generateFile(getFileName(), outputForJava);
 	}
 	
 	def String firstCharToUpperCase(String text) {
@@ -61,11 +67,6 @@ class XtextTestGenerator implements IGenerator {
 	}
 	
 	def outputDataFile() '''«test.input.text»'''
-	
-	def getFileNameForJava() {
-		return test.package.replace(".", "/") + "/" + PKG_PREFIX
-				+ "/" + getJavaClassFileName() + ".java";
-	}
 	
 	def getJavaClassFileName() {
 		return uri.lastSegment().replace(".xtexttest", "");
@@ -120,7 +121,11 @@ class XtextTestGenerator implements IGenerator {
 		import org.junit.runner.RunWith;
 		import «test.package».tests.«myDsl»InjectorProvider;
 		import «test.package».parser.antlr.«myDsl»Parser;
+		«IF "true".equals(test.boolean)»
+		import «test.package».parser.antlr.lexer.Internal«myDsl»Lexer;
+		«ELSE»
 		import «test.package».parser.antlr.internal.Internal«myDsl»Lexer;
+		«ENDIF»
 		import «test.package».«PKG_PREFIX».LexerAndParserTest;
 		
 		«iterateImports(test.root)»
@@ -206,7 +211,12 @@ class XtextTestGenerator implements IGenerator {
 				//System.out.println(text);
 				final String[] expected = new String[] {
 					«FOR token: test.tokens.tokens»
-						"RULE_«token»", 
+						"RULE_«token.token»", 
+						«IF token.count > 1»
+						«FOR i : 2 .. token.count»
+						"RULE_«token.token»", 
+						«ENDFOR»
+						«ENDIF»
 					«ENDFOR»
 					};
 				//final List<Token> actual = testHelper.getTokens(text);

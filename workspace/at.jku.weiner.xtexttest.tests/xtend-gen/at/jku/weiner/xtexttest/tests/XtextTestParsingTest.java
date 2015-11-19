@@ -3,6 +3,7 @@
  */
 package at.jku.weiner.xtexttest.tests;
 
+import at.jku.weiner.xtexttest.generator.XtextTestGenerator;
 import at.jku.weiner.xtexttest.tests.XtextTestInjectorProvider;
 import at.jku.weiner.xtexttest.xtextTest.XtextTest;
 import com.google.inject.Inject;
@@ -11,10 +12,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.xtext.generator.IGenerator;
 import org.eclipse.xtext.generator.JavaIoFileSystemAccess;
 import org.eclipse.xtext.junit4.InjectWith;
 import org.eclipse.xtext.junit4.XtextRunner;
@@ -36,7 +38,7 @@ public class XtextTestParsingTest {
   private ParseHelper<XtextTest> parseHelper;
   
   @Inject
-  private IGenerator generator;
+  private XtextTestGenerator generator;
   
   @Inject
   private Provider<ResourceSet> resourceSetProvider;
@@ -46,6 +48,8 @@ public class XtextTestParsingTest {
   
   @Inject
   private JavaIoFileSystemAccess fileAccessSystem;
+  
+  private int wordCount = 0;
   
   public String getTextFromFile(final String fileName) throws Exception {
     final Path path = Paths.get(fileName);
@@ -57,7 +61,7 @@ public class XtextTestParsingTest {
   @Test
   public void loadModel() {
     try {
-      final String file = "res/Test0042_MultipleLinesPreprocessorDirective.xtexttest";
+      final String file = "res/Test0001_Semicolons.xtexttest";
       final String input = this.getTextFromFile(file);
       final XtextTest result = this.parseHelper.parse(input);
       Assert.assertNotNull(result);
@@ -69,9 +73,16 @@ public class XtextTestParsingTest {
       boolean _isEmpty = list.isEmpty();
       Assert.assertTrue(_isEmpty);
       this.fileAccessSystem.setOutputPath("bin");
+      this.generator.setFileName("Test0001_Semicolons.java");
       this.generator.doGenerate(resource, this.fileAccessSystem);
-      final String actual = this.getTextFromFile("bin/Test0042_MultipleLinesPreprocessorDirective.xtexttest");
+      final String actual = this.getTextFromFile("bin/Test0001_Semicolons.java");
       Assert.assertNotNull(actual);
+      final Pattern pattern = Pattern.compile("RULE_MYCODE");
+      final Matcher matcher = pattern.matcher(actual);
+      while (matcher.find()) {
+        this.wordCount++;
+      }
+      Assert.assertEquals(10, this.wordCount);
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

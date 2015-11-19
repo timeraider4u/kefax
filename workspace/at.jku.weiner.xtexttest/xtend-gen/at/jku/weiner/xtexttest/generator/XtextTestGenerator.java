@@ -9,6 +9,7 @@ import at.jku.weiner.xtexttest.xtextTest.Element;
 import at.jku.weiner.xtexttest.xtextTest.Generator;
 import at.jku.weiner.xtexttest.xtextTest.Inner;
 import at.jku.weiner.xtexttest.xtextTest.Input;
+import at.jku.weiner.xtexttest.xtextTest.MyTokens;
 import at.jku.weiner.xtexttest.xtextTest.ReplacePatterns;
 import at.jku.weiner.xtexttest.xtextTest.Tokens;
 import at.jku.weiner.xtexttest.xtextTest.XtextTest;
@@ -20,11 +21,14 @@ import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.IFileSystemAccess;
 import org.eclipse.xtext.generator.IGenerator;
 import org.eclipse.xtext.xbase.lib.ExclusiveRange;
+import org.eclipse.xtext.xbase.lib.IntegerRange;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import org.eclipse.xtext.xbase.lib.Pure;
 
 /**
  * Generates code from your model files on save.
@@ -42,6 +46,9 @@ public class XtextTestGenerator implements IGenerator {
   private URI uri;
   
   private String myDsl;
+  
+  @Accessors
+  private String fileName;
   
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess fsa) {
@@ -62,8 +69,27 @@ public class XtextTestGenerator implements IGenerator {
     }
     this.elementCount = 0;
     final CharSequence outputForJava = this.outputJava();
-    final String fileNameForJava = this.getFileNameForJava();
-    fsa.generateFile(fileNameForJava, outputForJava);
+    boolean _or = false;
+    boolean _equals = Objects.equal(this.fileName, null);
+    if (_equals) {
+      _or = true;
+    } else {
+      boolean _isEmpty = this.fileName.isEmpty();
+      _or = _isEmpty;
+    }
+    if (_or) {
+      String _package = this.test.getPackage();
+      String _replace = _package.replace(".", "/");
+      String _plus = (_replace + "/");
+      String _plus_1 = (_plus + XtextTestGenerator.PKG_PREFIX);
+      String _plus_2 = (_plus_1 + "/");
+      String _javaClassFileName = this.getJavaClassFileName();
+      String _plus_3 = (_plus_2 + _javaClassFileName);
+      String _plus_4 = (_plus_3 + ".java");
+      this.setFileName(_plus_4);
+    }
+    String _fileName = this.getFileName();
+    fsa.generateFile(_fileName, outputForJava);
   }
   
   public String firstCharToUpperCase(final String text) {
@@ -102,17 +128,6 @@ public class XtextTestGenerator implements IGenerator {
     String _text = _input.getText();
     _builder.append(_text, "");
     return _builder;
-  }
-  
-  public String getFileNameForJava() {
-    String _package = this.test.getPackage();
-    String _replace = _package.replace(".", "/");
-    String _plus = (_replace + "/");
-    String _plus_1 = (_plus + XtextTestGenerator.PKG_PREFIX);
-    String _plus_2 = (_plus_1 + "/");
-    String _javaClassFileName = this.getJavaClassFileName();
-    String _plus_3 = (_plus_2 + _javaClassFileName);
-    return (_plus_3 + ".java");
   }
   
   public String getJavaClassFileName() {
@@ -225,16 +240,30 @@ public class XtextTestGenerator implements IGenerator {
     _builder.append(this.myDsl, "");
     _builder.append("Parser;");
     _builder.newLineIfNotEmpty();
+    {
+      String _boolean = this.test.getBoolean();
+      boolean _equals = "true".equals(_boolean);
+      if (_equals) {
+        _builder.append("import ");
+        String _package_3 = this.test.getPackage();
+        _builder.append(_package_3, "");
+        _builder.append(".parser.antlr.lexer.Internal");
+        _builder.append(this.myDsl, "");
+        _builder.append("Lexer;");
+        _builder.newLineIfNotEmpty();
+      } else {
+        _builder.append("import ");
+        String _package_4 = this.test.getPackage();
+        _builder.append(_package_4, "");
+        _builder.append(".parser.antlr.internal.Internal");
+        _builder.append(this.myDsl, "");
+        _builder.append("Lexer;");
+        _builder.newLineIfNotEmpty();
+      }
+    }
     _builder.append("import ");
-    String _package_3 = this.test.getPackage();
-    _builder.append(_package_3, "");
-    _builder.append(".parser.antlr.internal.Internal");
-    _builder.append(this.myDsl, "");
-    _builder.append("Lexer;");
-    _builder.newLineIfNotEmpty();
-    _builder.append("import ");
-    String _package_4 = this.test.getPackage();
-    _builder.append(_package_4, "");
+    String _package_5 = this.test.getPackage();
+    _builder.append(_package_5, "");
     _builder.append(".");
     _builder.append(XtextTestGenerator.PKG_PREFIX, "");
     _builder.append(".LexerAndParserTest;");
@@ -507,13 +536,32 @@ public class XtextTestGenerator implements IGenerator {
         _builder.newLine();
         {
           Tokens _tokens_1 = this.test.getTokens();
-          EList<String> _tokens_2 = _tokens_1.getTokens();
-          for(final String token : _tokens_2) {
+          EList<MyTokens> _tokens_2 = _tokens_1.getTokens();
+          for(final MyTokens token : _tokens_2) {
             _builder.append("\t\t\t");
             _builder.append("\"RULE_");
-            _builder.append(token, "\t\t\t");
+            String _token = token.getToken();
+            _builder.append(_token, "\t\t\t");
             _builder.append("\", ");
             _builder.newLineIfNotEmpty();
+            {
+              int _count = token.getCount();
+              boolean _greaterThan = (_count > 1);
+              if (_greaterThan) {
+                {
+                  int _count_1 = token.getCount();
+                  IntegerRange _upTo = new IntegerRange(2, _count_1);
+                  for(final Integer i : _upTo) {
+                    _builder.append("\t\t\t");
+                    _builder.append("\"RULE_");
+                    String _token_1 = token.getToken();
+                    _builder.append(_token_1, "\t\t\t");
+                    _builder.append("\", ");
+                    _builder.newLineIfNotEmpty();
+                  }
+                }
+              }
+            }
           }
         }
         _builder.append("\t\t\t");
@@ -1127,5 +1175,14 @@ public class XtextTestGenerator implements IGenerator {
     final String string6 = string5.replace("\\", "\\\\");
     final String string7 = string6.replace("\"", "\\\"");
     return string7;
+  }
+  
+  @Pure
+  public String getFileName() {
+    return this.fileName;
+  }
+  
+  public void setFileName(final String fileName) {
+    this.fileName = fileName;
   }
 }

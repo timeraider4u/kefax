@@ -12,6 +12,7 @@ import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.Group;
+import org.eclipse.xtext.Keyword;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.TerminalRule;
@@ -33,22 +34,27 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cLANGUAGETerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
 		private final Assignment cLangAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cLangLangIDParserRuleCall_4_0 = (RuleCall)cLangAssignment_4.eContents().get(0);
-		private final Assignment cInputAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cInputInputParserRuleCall_5_0 = (RuleCall)cInputAssignment_5.eContents().get(0);
-		private final Assignment cTokensAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cTokensTokensParserRuleCall_6_0 = (RuleCall)cTokensAssignment_6.eContents().get(0);
-		private final Assignment cRootAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cRootElementParserRuleCall_7_0 = (RuleCall)cRootAssignment_7.eContents().get(0);
-		private final Assignment cOutputAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cOutputGeneratorParserRuleCall_8_0 = (RuleCall)cOutputAssignment_8.eContents().get(0);
-		private final Assignment cBeforeAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final RuleCall cBeforeBeforeParserRuleCall_9_0 = (RuleCall)cBeforeAssignment_9.eContents().get(0);
-		private final Assignment cAfterAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final RuleCall cAfterAfterParserRuleCall_10_0 = (RuleCall)cAfterAssignment_10.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final RuleCall cSPLITLEXERTerminalRuleCall_5_0 = (RuleCall)cGroup_5.eContents().get(0);
+		private final RuleCall cASSIGNASSINGLETerminalRuleCall_5_1 = (RuleCall)cGroup_5.eContents().get(1);
+		private final Assignment cBooleanAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
+		private final RuleCall cBooleanBooleanParserRuleCall_5_2_0 = (RuleCall)cBooleanAssignment_5_2.eContents().get(0);
+		private final Assignment cInputAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cInputInputParserRuleCall_6_0 = (RuleCall)cInputAssignment_6.eContents().get(0);
+		private final Assignment cTokensAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cTokensTokensParserRuleCall_7_0 = (RuleCall)cTokensAssignment_7.eContents().get(0);
+		private final Assignment cRootAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cRootElementParserRuleCall_8_0 = (RuleCall)cRootAssignment_8.eContents().get(0);
+		private final Assignment cOutputAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final RuleCall cOutputGeneratorParserRuleCall_9_0 = (RuleCall)cOutputAssignment_9.eContents().get(0);
+		private final Assignment cBeforeAssignment_10 = (Assignment)cGroup.eContents().get(10);
+		private final RuleCall cBeforeBeforeParserRuleCall_10_0 = (RuleCall)cBeforeAssignment_10.eContents().get(0);
+		private final Assignment cAfterAssignment_11 = (Assignment)cGroup.eContents().get(11);
+		private final RuleCall cAfterAfterParserRuleCall_11_0 = (RuleCall)cAfterAssignment_11.eContents().get(0);
 		
 		//XtextTest:
 		//	{XtextTest} PACKAGE package=PackageID
-		//	LANGUAGE lang=LangID
+		//	LANGUAGE lang=LangID (SPLITLEXER ASSIGNASSINGLE boolean=Boolean)?
 		//	input=Input
 		//	tokens=Tokens?
 		//	root=Element
@@ -57,8 +63,8 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		//	after=After?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{XtextTest} PACKAGE package=PackageID LANGUAGE lang=LangID input=Input tokens=Tokens? root=Element output=Generator?
-		//before=Before? after=After?
+		//{XtextTest} PACKAGE package=PackageID LANGUAGE lang=LangID (SPLITLEXER ASSIGNASSINGLE boolean=Boolean)? input=Input
+		//tokens=Tokens? root=Element output=Generator? before=Before? after=After?
 		public Group getGroup() { return cGroup; }
 		
 		//{XtextTest}
@@ -82,41 +88,75 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		//LangID
 		public RuleCall getLangLangIDParserRuleCall_4_0() { return cLangLangIDParserRuleCall_4_0; }
 		
+		//(SPLITLEXER ASSIGNASSINGLE boolean=Boolean)?
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//SPLITLEXER
+		public RuleCall getSPLITLEXERTerminalRuleCall_5_0() { return cSPLITLEXERTerminalRuleCall_5_0; }
+		
+		//ASSIGNASSINGLE
+		public RuleCall getASSIGNASSINGLETerminalRuleCall_5_1() { return cASSIGNASSINGLETerminalRuleCall_5_1; }
+		
+		//boolean=Boolean
+		public Assignment getBooleanAssignment_5_2() { return cBooleanAssignment_5_2; }
+		
+		//Boolean
+		public RuleCall getBooleanBooleanParserRuleCall_5_2_0() { return cBooleanBooleanParserRuleCall_5_2_0; }
+		
 		//input=Input
-		public Assignment getInputAssignment_5() { return cInputAssignment_5; }
+		public Assignment getInputAssignment_6() { return cInputAssignment_6; }
 		
 		//Input
-		public RuleCall getInputInputParserRuleCall_5_0() { return cInputInputParserRuleCall_5_0; }
+		public RuleCall getInputInputParserRuleCall_6_0() { return cInputInputParserRuleCall_6_0; }
 		
 		//tokens=Tokens?
-		public Assignment getTokensAssignment_6() { return cTokensAssignment_6; }
+		public Assignment getTokensAssignment_7() { return cTokensAssignment_7; }
 		
 		//Tokens
-		public RuleCall getTokensTokensParserRuleCall_6_0() { return cTokensTokensParserRuleCall_6_0; }
+		public RuleCall getTokensTokensParserRuleCall_7_0() { return cTokensTokensParserRuleCall_7_0; }
 		
 		//root=Element
-		public Assignment getRootAssignment_7() { return cRootAssignment_7; }
+		public Assignment getRootAssignment_8() { return cRootAssignment_8; }
 		
 		//Element
-		public RuleCall getRootElementParserRuleCall_7_0() { return cRootElementParserRuleCall_7_0; }
+		public RuleCall getRootElementParserRuleCall_8_0() { return cRootElementParserRuleCall_8_0; }
 		
 		//output=Generator?
-		public Assignment getOutputAssignment_8() { return cOutputAssignment_8; }
+		public Assignment getOutputAssignment_9() { return cOutputAssignment_9; }
 		
 		//Generator
-		public RuleCall getOutputGeneratorParserRuleCall_8_0() { return cOutputGeneratorParserRuleCall_8_0; }
+		public RuleCall getOutputGeneratorParserRuleCall_9_0() { return cOutputGeneratorParserRuleCall_9_0; }
 		
 		//before=Before?
-		public Assignment getBeforeAssignment_9() { return cBeforeAssignment_9; }
+		public Assignment getBeforeAssignment_10() { return cBeforeAssignment_10; }
 		
 		//Before
-		public RuleCall getBeforeBeforeParserRuleCall_9_0() { return cBeforeBeforeParserRuleCall_9_0; }
+		public RuleCall getBeforeBeforeParserRuleCall_10_0() { return cBeforeBeforeParserRuleCall_10_0; }
 		
 		//after=After?
-		public Assignment getAfterAssignment_10() { return cAfterAssignment_10; }
+		public Assignment getAfterAssignment_11() { return cAfterAssignment_11; }
 		
 		//After
-		public RuleCall getAfterAfterParserRuleCall_10_0() { return cAfterAfterParserRuleCall_10_0; }
+		public RuleCall getAfterAfterParserRuleCall_11_0() { return cAfterAfterParserRuleCall_11_0; }
+	}
+	public class BooleanElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.Boolean");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cTrueKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cFalseKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		
+		//Boolean:
+		//	'true' | 'false';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'true' | 'false'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'true'
+		public Keyword getTrueKeyword_0() { return cTrueKeyword_0; }
+		
+		//'false'
+		public Keyword getFalseKeyword_1() { return cFalseKeyword_1; }
 	}
 	public class PackageIDElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.PackageID");
@@ -226,14 +266,14 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cTokensAction_0 = (Action)cGroup.eContents().get(0);
 		private final RuleCall cLEXERTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		private final Assignment cTokensAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cTokensIDENTIFIERTerminalRuleCall_2_0 = (RuleCall)cTokensAssignment_2.eContents().get(0);
+		private final RuleCall cTokensMyTokensParserRuleCall_2_0 = (RuleCall)cTokensAssignment_2.eContents().get(0);
 		
 		//Tokens:
 		//	{Tokens} LEXER
-		//	tokens+=IDENTIFIER+;
+		//	tokens+=MyTokens+;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Tokens} LEXER tokens+=IDENTIFIER+
+		//{Tokens} LEXER tokens+=MyTokens+
 		public Group getGroup() { return cGroup; }
 		
 		//{Tokens}
@@ -242,11 +282,46 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		//LEXER
 		public RuleCall getLEXERTerminalRuleCall_1() { return cLEXERTerminalRuleCall_1; }
 		
-		//tokens+=IDENTIFIER+
+		//tokens+=MyTokens+
 		public Assignment getTokensAssignment_2() { return cTokensAssignment_2; }
 		
+		//MyTokens
+		public RuleCall getTokensMyTokensParserRuleCall_2_0() { return cTokensMyTokensParserRuleCall_2_0; }
+	}
+	public class MyTokensElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.MyTokens");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cTokenAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cTokenIDENTIFIERTerminalRuleCall_0_0 = (RuleCall)cTokenAssignment_0.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final RuleCall cASSIGNASDATALISTTerminalRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
+		private final Assignment cCountAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cCountINTTerminalRuleCall_1_1_0 = (RuleCall)cCountAssignment_1_1.eContents().get(0);
+		
+		//MyTokens:
+		//	token=IDENTIFIER (ASSIGNASDATALIST count=INT)?;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//token=IDENTIFIER (ASSIGNASDATALIST count=INT)?
+		public Group getGroup() { return cGroup; }
+		
+		//token=IDENTIFIER
+		public Assignment getTokenAssignment_0() { return cTokenAssignment_0; }
+		
 		//IDENTIFIER
-		public RuleCall getTokensIDENTIFIERTerminalRuleCall_2_0() { return cTokensIDENTIFIERTerminalRuleCall_2_0; }
+		public RuleCall getTokenIDENTIFIERTerminalRuleCall_0_0() { return cTokenIDENTIFIERTerminalRuleCall_0_0; }
+		
+		//(ASSIGNASDATALIST count=INT)?
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//ASSIGNASDATALIST
+		public RuleCall getASSIGNASDATALISTTerminalRuleCall_1_0() { return cASSIGNASDATALISTTerminalRuleCall_1_0; }
+		
+		//count=INT
+		public Assignment getCountAssignment_1_1() { return cCountAssignment_1_1; }
+		
+		//INT
+		public RuleCall getCountINTTerminalRuleCall_1_1_0() { return cCountINTTerminalRuleCall_1_1_0; }
 	}
 	public class ElementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.Element");
@@ -709,10 +784,12 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	
 	
 	private final XtextTestElements pXtextTest;
+	private final BooleanElements pBoolean;
 	private final PackageIDElements pPackageID;
 	private final LangIDElements pLangID;
 	private final InputElements pInput;
 	private final TokensElements pTokens;
+	private final MyTokensElements pMyTokens;
 	private final ElementElements pElement;
 	private final InnerElements pInner;
 	private final GeneratorElements pGenerator;
@@ -722,6 +799,7 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tPACKAGE;
 	private final TerminalRule tLANGUAGE;
 	private final TerminalRule tPOINT;
+	private final TerminalRule tSPLITLEXER;
 	private final TerminalRule tSOURCE;
 	private final TerminalRule tSRCTEXT;
 	private final TerminalRule tFILE;
@@ -754,10 +832,12 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pXtextTest = new XtextTestElements();
+		this.pBoolean = new BooleanElements();
 		this.pPackageID = new PackageIDElements();
 		this.pLangID = new LangIDElements();
 		this.pInput = new InputElements();
 		this.pTokens = new TokensElements();
+		this.pMyTokens = new MyTokensElements();
 		this.pElement = new ElementElements();
 		this.pInner = new InnerElements();
 		this.pGenerator = new GeneratorElements();
@@ -767,6 +847,7 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		this.tPACKAGE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.PACKAGE");
 		this.tLANGUAGE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.LANGUAGE");
 		this.tPOINT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.POINT");
+		this.tSPLITLEXER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.SPLITLEXER");
 		this.tSOURCE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.SOURCE");
 		this.tSRCTEXT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.SRCTEXT");
 		this.tFILE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.FILE");
@@ -819,7 +900,7 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//XtextTest:
 	//	{XtextTest} PACKAGE package=PackageID
-	//	LANGUAGE lang=LangID
+	//	LANGUAGE lang=LangID (SPLITLEXER ASSIGNASSINGLE boolean=Boolean)?
 	//	input=Input
 	//	tokens=Tokens?
 	//	root=Element
@@ -832,6 +913,16 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getXtextTestRule() {
 		return getXtextTestAccess().getRule();
+	}
+	
+	//Boolean:
+	//	'true' | 'false';
+	public BooleanElements getBooleanAccess() {
+		return pBoolean;
+	}
+	
+	public ParserRule getBooleanRule() {
+		return getBooleanAccess().getRule();
 	}
 	
 	//PackageID:
@@ -867,13 +958,23 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Tokens:
 	//	{Tokens} LEXER
-	//	tokens+=IDENTIFIER+;
+	//	tokens+=MyTokens+;
 	public TokensElements getTokensAccess() {
 		return pTokens;
 	}
 	
 	public ParserRule getTokensRule() {
 		return getTokensAccess().getRule();
+	}
+	
+	//MyTokens:
+	//	token=IDENTIFIER (ASSIGNASDATALIST count=INT)?;
+	public MyTokensElements getMyTokensAccess() {
+		return pMyTokens;
+	}
+	
+	public ParserRule getMyTokensRule() {
+		return getMyTokensAccess().getRule();
 	}
 	
 	//Element:
@@ -964,6 +1065,12 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	//	'.';
 	public TerminalRule getPOINTRule() {
 		return tPOINT;
+	}
+	
+	//terminal SPLITLEXER:
+	//	'split-lexer';
+	public TerminalRule getSPLITLEXERRule() {
+		return tSPLITLEXER;
 	}
 	
 	//terminal SOURCE:

@@ -67,6 +67,7 @@ public class XtextTestFactoryImpl extends EFactoryImpl implements XtextTestFacto
       case XtextTestPackage.XTEXT_TEST: return createXtextTest();
       case XtextTestPackage.INPUT: return createInput();
       case XtextTestPackage.TOKENS: return createTokens();
+      case XtextTestPackage.MY_TOKENS: return createMyTokens();
       case XtextTestPackage.ELEMENT: return createElement();
       case XtextTestPackage.INNER: return createInner();
       case XtextTestPackage.GENERATOR: return createGenerator();
@@ -109,6 +110,17 @@ public class XtextTestFactoryImpl extends EFactoryImpl implements XtextTestFacto
   {
     TokensImpl tokens = new TokensImpl();
     return tokens;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MyTokens createMyTokens()
+  {
+    MyTokensImpl myTokens = new MyTokensImpl();
+    return myTokens;
   }
 
   /**

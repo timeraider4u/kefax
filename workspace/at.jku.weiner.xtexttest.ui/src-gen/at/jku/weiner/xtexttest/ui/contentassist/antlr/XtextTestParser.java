@@ -37,16 +37,20 @@ public class XtextTestParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
+					put(grammarAccess.getBooleanAccess().getAlternatives(), "rule__Boolean__Alternatives");
 					put(grammarAccess.getInputAccess().getAlternatives_2(), "rule__Input__Alternatives_2");
 					put(grammarAccess.getInnerAccess().getAlternatives_2(), "rule__Inner__Alternatives_2");
 					put(grammarAccess.getGeneratorAccess().getAlternatives_2_2(), "rule__Generator__Alternatives_2_2");
 					put(grammarAccess.getXtextTestAccess().getGroup(), "rule__XtextTest__Group__0");
+					put(grammarAccess.getXtextTestAccess().getGroup_5(), "rule__XtextTest__Group_5__0");
 					put(grammarAccess.getPackageIDAccess().getGroup(), "rule__PackageID__Group__0");
 					put(grammarAccess.getPackageIDAccess().getGroup_1(), "rule__PackageID__Group_1__0");
 					put(grammarAccess.getInputAccess().getGroup(), "rule__Input__Group__0");
 					put(grammarAccess.getInputAccess().getGroup_2_0(), "rule__Input__Group_2_0__0");
 					put(grammarAccess.getInputAccess().getGroup_2_1(), "rule__Input__Group_2_1__0");
 					put(grammarAccess.getTokensAccess().getGroup(), "rule__Tokens__Group__0");
+					put(grammarAccess.getMyTokensAccess().getGroup(), "rule__MyTokens__Group__0");
+					put(grammarAccess.getMyTokensAccess().getGroup_1(), "rule__MyTokens__Group_1__0");
 					put(grammarAccess.getElementAccess().getGroup(), "rule__Element__Group__0");
 					put(grammarAccess.getElementAccess().getGroup_3(), "rule__Element__Group_3__0");
 					put(grammarAccess.getElementAccess().getGroup_3_1(), "rule__Element__Group_3_1__0");
@@ -68,15 +72,18 @@ public class XtextTestParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAfterAccess().getGroup(), "rule__After__Group__0");
 					put(grammarAccess.getXtextTestAccess().getPackageAssignment_2(), "rule__XtextTest__PackageAssignment_2");
 					put(grammarAccess.getXtextTestAccess().getLangAssignment_4(), "rule__XtextTest__LangAssignment_4");
-					put(grammarAccess.getXtextTestAccess().getInputAssignment_5(), "rule__XtextTest__InputAssignment_5");
-					put(grammarAccess.getXtextTestAccess().getTokensAssignment_6(), "rule__XtextTest__TokensAssignment_6");
-					put(grammarAccess.getXtextTestAccess().getRootAssignment_7(), "rule__XtextTest__RootAssignment_7");
-					put(grammarAccess.getXtextTestAccess().getOutputAssignment_8(), "rule__XtextTest__OutputAssignment_8");
-					put(grammarAccess.getXtextTestAccess().getBeforeAssignment_9(), "rule__XtextTest__BeforeAssignment_9");
-					put(grammarAccess.getXtextTestAccess().getAfterAssignment_10(), "rule__XtextTest__AfterAssignment_10");
+					put(grammarAccess.getXtextTestAccess().getBooleanAssignment_5_2(), "rule__XtextTest__BooleanAssignment_5_2");
+					put(grammarAccess.getXtextTestAccess().getInputAssignment_6(), "rule__XtextTest__InputAssignment_6");
+					put(grammarAccess.getXtextTestAccess().getTokensAssignment_7(), "rule__XtextTest__TokensAssignment_7");
+					put(grammarAccess.getXtextTestAccess().getRootAssignment_8(), "rule__XtextTest__RootAssignment_8");
+					put(grammarAccess.getXtextTestAccess().getOutputAssignment_9(), "rule__XtextTest__OutputAssignment_9");
+					put(grammarAccess.getXtextTestAccess().getBeforeAssignment_10(), "rule__XtextTest__BeforeAssignment_10");
+					put(grammarAccess.getXtextTestAccess().getAfterAssignment_11(), "rule__XtextTest__AfterAssignment_11");
 					put(grammarAccess.getInputAccess().getTextAssignment_2_0_2(), "rule__Input__TextAssignment_2_0_2");
 					put(grammarAccess.getInputAccess().getFileAssignment_2_1_2(), "rule__Input__FileAssignment_2_1_2");
 					put(grammarAccess.getTokensAccess().getTokensAssignment_2(), "rule__Tokens__TokensAssignment_2");
+					put(grammarAccess.getMyTokensAccess().getTokenAssignment_0(), "rule__MyTokens__TokenAssignment_0");
+					put(grammarAccess.getMyTokensAccess().getCountAssignment_1_1(), "rule__MyTokens__CountAssignment_1_1");
 					put(grammarAccess.getElementAccess().getNameAssignment_2(), "rule__Element__NameAssignment_2");
 					put(grammarAccess.getElementAccess().getInnerAssignment_3_0(), "rule__Element__InnerAssignment_3_0");
 					put(grammarAccess.getElementAccess().getInnerAssignment_3_1_1(), "rule__Element__InnerAssignment_3_1_1");

@@ -25,19 +25,19 @@ import org.eclipse.emf.ecore.EObject;
 public interface Tokens extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Tokens</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
+   * Returns the value of the '<em><b>Tokens</b></em>' containment reference list.
+   * The list contents are of type {@link at.jku.weiner.xtexttest.xtextTest.MyTokens}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Tokens</em>' attribute list isn't clear,
+   * If the meaning of the '<em>Tokens</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Tokens</em>' attribute list.
+   * @return the value of the '<em>Tokens</em>' containment reference list.
    * @see at.jku.weiner.xtexttest.xtextTest.XtextTestPackage#getTokens_Tokens()
-   * @model unique="false"
+   * @model containment="true"
    * @generated
    */
-  EList<String> getTokens();
+  EList<MyTokens> getTokens();
 
 } // Tokens

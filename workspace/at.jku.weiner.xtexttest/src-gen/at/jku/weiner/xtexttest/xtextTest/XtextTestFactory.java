@@ -50,6 +50,15 @@ public interface XtextTestFactory extends EFactory
   Tokens createTokens();
 
   /**
+   * Returns a new object of class '<em>My Tokens</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>My Tokens</em>'.
+   * @generated
+   */
+  MyTokens createMyTokens();
+
+  /**
    * Returns a new object of class '<em>Element</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

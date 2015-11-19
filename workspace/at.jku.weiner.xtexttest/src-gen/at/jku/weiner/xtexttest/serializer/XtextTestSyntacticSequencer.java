@@ -72,6 +72,8 @@ public class XtextTestSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getRIGHTPARENToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getSOURCERule())
 			return getSOURCEToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getSPLITLEXERRule())
+			return getSPLITLEXERToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getSRCTEXTRule())
 			return getSRCTEXTToken(semanticObject, ruleCall, node);
 		return "";
@@ -264,6 +266,15 @@ public class XtextTestSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return "source";
+	}
+	
+	/**
+	 * terminal SPLITLEXER: 'split-lexer';
+	 */
+	protected String getSPLITLEXERToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "split-lexer";
 	}
 	
 	/**

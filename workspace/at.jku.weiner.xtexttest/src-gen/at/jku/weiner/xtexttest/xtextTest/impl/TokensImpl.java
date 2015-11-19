@@ -2,18 +2,23 @@
  */
 package at.jku.weiner.xtexttest.xtextTest.impl;
 
+import at.jku.weiner.xtexttest.xtextTest.MyTokens;
 import at.jku.weiner.xtexttest.xtextTest.Tokens;
 import at.jku.weiner.xtexttest.xtextTest.XtextTestPackage;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,14 +36,14 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
 public class TokensImpl extends MinimalEObjectImpl.Container implements Tokens
 {
   /**
-   * The cached value of the '{@link #getTokens() <em>Tokens</em>}' attribute list.
+   * The cached value of the '{@link #getTokens() <em>Tokens</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getTokens()
    * @generated
    * @ordered
    */
-  protected EList<String> tokens;
+  protected EList<MyTokens> tokens;
 
   /**
    * <!-- begin-user-doc -->
@@ -66,13 +71,29 @@ public class TokensImpl extends MinimalEObjectImpl.Container implements Tokens
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<String> getTokens()
+  public EList<MyTokens> getTokens()
   {
     if (tokens == null)
     {
-      tokens = new EDataTypeEList<String>(String.class, this, XtextTestPackage.TOKENS__TOKENS);
+      tokens = new EObjectContainmentEList<MyTokens>(MyTokens.class, this, XtextTestPackage.TOKENS__TOKENS);
     }
     return tokens;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case XtextTestPackage.TOKENS__TOKENS:
+        return ((InternalEList<?>)getTokens()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -104,7 +125,7 @@ public class TokensImpl extends MinimalEObjectImpl.Container implements Tokens
     {
       case XtextTestPackage.TOKENS__TOKENS:
         getTokens().clear();
-        getTokens().addAll((Collection<? extends String>)newValue);
+        getTokens().addAll((Collection<? extends MyTokens>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -141,23 +162,6 @@ public class TokensImpl extends MinimalEObjectImpl.Container implements Tokens
         return tokens != null && !tokens.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (tokens: ");
-    result.append(tokens);
-    result.append(')');
-    return result.toString();
   }
 
 } //TokensImpl

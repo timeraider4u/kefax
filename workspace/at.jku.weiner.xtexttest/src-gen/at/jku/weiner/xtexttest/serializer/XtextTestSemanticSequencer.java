@@ -10,6 +10,7 @@ import at.jku.weiner.xtexttest.xtextTest.Element;
 import at.jku.weiner.xtexttest.xtextTest.Generator;
 import at.jku.weiner.xtexttest.xtextTest.Inner;
 import at.jku.weiner.xtexttest.xtextTest.Input;
+import at.jku.weiner.xtexttest.xtextTest.MyTokens;
 import at.jku.weiner.xtexttest.xtextTest.ReplacePatterns;
 import at.jku.weiner.xtexttest.xtextTest.Tokens;
 import at.jku.weiner.xtexttest.xtextTest.XtextTest;
@@ -54,6 +55,9 @@ public class XtextTestSemanticSequencer extends AbstractDelegatingSemanticSequen
 				return; 
 			case XtextTestPackage.INPUT:
 				sequence_Input(context, (Input) semanticObject); 
+				return; 
+			case XtextTestPackage.MY_TOKENS:
+				sequence_MyTokens(context, (MyTokens) semanticObject); 
 				return; 
 			case XtextTestPackage.REPLACE_PATTERNS:
 				sequence_ReplacePatterns(context, (ReplacePatterns) semanticObject); 
@@ -149,6 +153,15 @@ public class XtextTestSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Constraint:
+	 *     (token=IDENTIFIER count=INT?)
+	 */
+	protected void sequence_MyTokens(EObject context, MyTokens semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (regex=STRING replace=STRING)
 	 */
 	protected void sequence_ReplacePatterns(EObject context, ReplacePatterns semanticObject) {
@@ -168,7 +181,7 @@ public class XtextTestSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Constraint:
-	 *     tokens+=IDENTIFIER+
+	 *     tokens+=MyTokens+
 	 */
 	protected void sequence_Tokens(EObject context, Tokens semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -180,6 +193,7 @@ public class XtextTestSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     (
 	 *         package=PackageID 
 	 *         lang=LangID 
+	 *         boolean=Boolean? 
 	 *         input=Input 
 	 *         tokens=Tokens? 
 	 *         root=Element 

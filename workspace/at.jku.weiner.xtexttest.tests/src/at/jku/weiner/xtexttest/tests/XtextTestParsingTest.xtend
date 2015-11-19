@@ -13,7 +13,6 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import java.nio.file.Paths
 import java.nio.file.Files
-import org.eclipse.xtext.generator.IGenerator
 import com.google.inject.Provider
 import org.eclipse.xtext.validation.IResourceValidator
 import org.eclipse.xtext.generator.JavaIoFileSystemAccess
@@ -24,6 +23,9 @@ import java.util.List
 import org.eclipse.xtext.validation.Issue
 import org.eclipse.xtext.validation.CheckMode
 import org.eclipse.xtext.util.CancelIndicator
+import at.jku.weiner.xtexttest.generator.XtextTestGenerator
+import java.util.regex.Pattern
+import java.util.regex.Matcher
 
 @RunWith(XtextRunner)
 @InjectWith(XtextTestInjectorProvider)
@@ -32,13 +34,15 @@ class XtextTestParsingTest{
 	@Inject
 	ParseHelper<XtextTest> parseHelper;
 	@Inject
-			private IGenerator generator;
-			@Inject
-			private Provider<ResourceSet> resourceSetProvider;
-			@Inject
-			private IResourceValidator validator;
-			@Inject
-			private JavaIoFileSystemAccess fileAccessSystem;
+	private XtextTestGenerator generator;
+	@Inject
+	private Provider<ResourceSet> resourceSetProvider;
+	@Inject
+	private IResourceValidator validator;
+	@Inject
+	private JavaIoFileSystemAccess fileAccessSystem;
+	
+	int wordCount = 0;
 	
 	def String getTextFromFile(String fileName)
 	throws Exception{
@@ -49,7 +53,7 @@ class XtextTestParsingTest{
 
 	@Test 
 	def void loadModel() {
-		val file = "res/Test0042_MultipleLinesPreprocessorDirective.xtexttest";
+		val file = "res/Test0001_Semicolons.xtexttest";
 		val input = getTextFromFile(file);
 		val result = parseHelper.parse(input);
 		Assert.assertNotNull(result);
@@ -62,9 +66,16 @@ class XtextTestParsingTest{
 		Assert.assertTrue(list.isEmpty());
 		// configure and start the generator
 		fileAccessSystem.setOutputPath("bin");
+		this.generator.setFileName("Test0001_Semicolons.java");
 		this.generator.doGenerate(resource, this.fileAccessSystem);
-		val String actual = this.getTextFromFile("bin/Test0042_MultipleLinesPreprocessorDirective.xtexttest");
-		Assert.assertNotNull(actual);
+		val String actual = this.getTextFromFile("bin/Test0001_Semicolons.java");
+		Assert.assertNotNull(actual);		
+		val Pattern pattern = Pattern.compile("RULE_MYCODE");
+		val Matcher matcher = pattern.matcher(actual);
+		while (matcher.find()) {
+    		wordCount++;
+		}
+		Assert.assertEquals(10, wordCount);
 	}
 
 }

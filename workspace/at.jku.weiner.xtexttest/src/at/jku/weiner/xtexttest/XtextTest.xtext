@@ -8,12 +8,17 @@ XtextTest:
 	{XtextTest}
 	PACKAGE package=PackageID
 	LANGUAGE lang=LangID
+	(SPLITLEXER ASSIGNASSINGLE boolean=Boolean)?
 	input=Input
 	(tokens=Tokens)?
 	root=Element
 	(output=Generator)?
 	(before=Before)?
 	(after=After)?
+;
+
+Boolean:
+	'true' | 'false'
 ;
 
 PackageID returns ecore::EString:
@@ -35,7 +40,12 @@ Input:
 Tokens:
 	{Tokens}
 	LEXER
-	(tokens+=IDENTIFIER)+
+	(tokens+=MyTokens)+
+;
+
+MyTokens:
+	token=IDENTIFIER 
+	(ASSIGNASDATALIST count=INT)? 
 ;
 
 Element:
@@ -98,6 +108,7 @@ After:
 terminal PACKAGE: 'package';
 terminal LANGUAGE: 'language';
 terminal POINT: '.';
+terminal SPLITLEXER: 'split-lexer';
 terminal SOURCE: 'source';
 terminal SRCTEXT: 'text';
 terminal FILE: 'file';

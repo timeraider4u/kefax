@@ -85,13 +85,22 @@ public interface XtextTestPackage extends EPackage
   int XTEXT_TEST__LANG = 1;
 
   /**
+   * The feature id for the '<em><b>Boolean</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int XTEXT_TEST__BOOLEAN = 2;
+
+  /**
    * The feature id for the '<em><b>Input</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int XTEXT_TEST__INPUT = 2;
+  int XTEXT_TEST__INPUT = 3;
 
   /**
    * The feature id for the '<em><b>Tokens</b></em>' containment reference.
@@ -100,7 +109,7 @@ public interface XtextTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int XTEXT_TEST__TOKENS = 3;
+  int XTEXT_TEST__TOKENS = 4;
 
   /**
    * The feature id for the '<em><b>Root</b></em>' containment reference.
@@ -109,7 +118,7 @@ public interface XtextTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int XTEXT_TEST__ROOT = 4;
+  int XTEXT_TEST__ROOT = 5;
 
   /**
    * The feature id for the '<em><b>Output</b></em>' containment reference.
@@ -118,7 +127,7 @@ public interface XtextTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int XTEXT_TEST__OUTPUT = 5;
+  int XTEXT_TEST__OUTPUT = 6;
 
   /**
    * The feature id for the '<em><b>Before</b></em>' containment reference.
@@ -127,7 +136,7 @@ public interface XtextTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int XTEXT_TEST__BEFORE = 6;
+  int XTEXT_TEST__BEFORE = 7;
 
   /**
    * The feature id for the '<em><b>After</b></em>' containment reference.
@@ -136,7 +145,7 @@ public interface XtextTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int XTEXT_TEST__AFTER = 7;
+  int XTEXT_TEST__AFTER = 8;
 
   /**
    * The number of structural features of the '<em>Xtext Test</em>' class.
@@ -145,7 +154,7 @@ public interface XtextTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int XTEXT_TEST_FEATURE_COUNT = 8;
+  int XTEXT_TEST_FEATURE_COUNT = 9;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.xtexttest.xtextTest.impl.InputImpl <em>Input</em>}' class.
@@ -195,7 +204,7 @@ public interface XtextTestPackage extends EPackage
   int TOKENS = 2;
 
   /**
-   * The feature id for the '<em><b>Tokens</b></em>' attribute list.
+   * The feature id for the '<em><b>Tokens</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -213,6 +222,43 @@ public interface XtextTestPackage extends EPackage
   int TOKENS_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link at.jku.weiner.xtexttest.xtextTest.impl.MyTokensImpl <em>My Tokens</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.xtexttest.xtextTest.impl.MyTokensImpl
+   * @see at.jku.weiner.xtexttest.xtextTest.impl.XtextTestPackageImpl#getMyTokens()
+   * @generated
+   */
+  int MY_TOKENS = 3;
+
+  /**
+   * The feature id for the '<em><b>Token</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MY_TOKENS__TOKEN = 0;
+
+  /**
+   * The feature id for the '<em><b>Count</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MY_TOKENS__COUNT = 1;
+
+  /**
+   * The number of structural features of the '<em>My Tokens</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MY_TOKENS_FEATURE_COUNT = 2;
+
+  /**
    * The meta object id for the '{@link at.jku.weiner.xtexttest.xtextTest.impl.ElementImpl <em>Element</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -220,7 +266,7 @@ public interface XtextTestPackage extends EPackage
    * @see at.jku.weiner.xtexttest.xtextTest.impl.XtextTestPackageImpl#getElement()
    * @generated
    */
-  int ELEMENT = 3;
+  int ELEMENT = 4;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -257,7 +303,7 @@ public interface XtextTestPackage extends EPackage
    * @see at.jku.weiner.xtexttest.xtextTest.impl.XtextTestPackageImpl#getInner()
    * @generated
    */
-  int INNER = 4;
+  int INNER = 5;
 
   /**
    * The feature id for the '<em><b>Parameter</b></em>' attribute.
@@ -321,7 +367,7 @@ public interface XtextTestPackage extends EPackage
    * @see at.jku.weiner.xtexttest.xtextTest.impl.XtextTestPackageImpl#getGenerator()
    * @generated
    */
-  int GENERATOR = 5;
+  int GENERATOR = 6;
 
   /**
    * The feature id for the '<em><b>Output</b></em>' attribute.
@@ -394,7 +440,7 @@ public interface XtextTestPackage extends EPackage
    * @see at.jku.weiner.xtexttest.xtextTest.impl.XtextTestPackageImpl#getReplacePatterns()
    * @generated
    */
-  int REPLACE_PATTERNS = 6;
+  int REPLACE_PATTERNS = 7;
 
   /**
    * The feature id for the '<em><b>Regex</b></em>' attribute.
@@ -431,7 +477,7 @@ public interface XtextTestPackage extends EPackage
    * @see at.jku.weiner.xtexttest.xtextTest.impl.XtextTestPackageImpl#getBefore()
    * @generated
    */
-  int BEFORE = 7;
+  int BEFORE = 8;
 
   /**
    * The feature id for the '<em><b>Myclass</b></em>' attribute.
@@ -468,7 +514,7 @@ public interface XtextTestPackage extends EPackage
    * @see at.jku.weiner.xtexttest.xtextTest.impl.XtextTestPackageImpl#getAfter()
    * @generated
    */
-  int AFTER = 8;
+  int AFTER = 9;
 
   /**
    * The feature id for the '<em><b>Myclass</b></em>' attribute.
@@ -529,6 +575,17 @@ public interface XtextTestPackage extends EPackage
    * @generated
    */
   EAttribute getXtextTest_Lang();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.xtexttest.xtextTest.XtextTest#getBoolean <em>Boolean</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Boolean</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.XtextTest#getBoolean()
+   * @see #getXtextTest()
+   * @generated
+   */
+  EAttribute getXtextTest_Boolean();
 
   /**
    * Returns the meta object for the containment reference '{@link at.jku.weiner.xtexttest.xtextTest.XtextTest#getInput <em>Input</em>}'.
@@ -639,15 +696,47 @@ public interface XtextTestPackage extends EPackage
   EClass getTokens();
 
   /**
-   * Returns the meta object for the attribute list '{@link at.jku.weiner.xtexttest.xtextTest.Tokens#getTokens <em>Tokens</em>}'.
+   * Returns the meta object for the containment reference list '{@link at.jku.weiner.xtexttest.xtextTest.Tokens#getTokens <em>Tokens</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Tokens</em>'.
+   * @return the meta object for the containment reference list '<em>Tokens</em>'.
    * @see at.jku.weiner.xtexttest.xtextTest.Tokens#getTokens()
    * @see #getTokens()
    * @generated
    */
-  EAttribute getTokens_Tokens();
+  EReference getTokens_Tokens();
+
+  /**
+   * Returns the meta object for class '{@link at.jku.weiner.xtexttest.xtextTest.MyTokens <em>My Tokens</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>My Tokens</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.MyTokens
+   * @generated
+   */
+  EClass getMyTokens();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.xtexttest.xtextTest.MyTokens#getToken <em>Token</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Token</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.MyTokens#getToken()
+   * @see #getMyTokens()
+   * @generated
+   */
+  EAttribute getMyTokens_Token();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.xtexttest.xtextTest.MyTokens#getCount <em>Count</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Count</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.MyTokens#getCount()
+   * @see #getMyTokens()
+   * @generated
+   */
+  EAttribute getMyTokens_Count();
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.xtexttest.xtextTest.Element <em>Element</em>}'.
@@ -968,6 +1057,14 @@ public interface XtextTestPackage extends EPackage
     EAttribute XTEXT_TEST__LANG = eINSTANCE.getXtextTest_Lang();
 
     /**
+     * The meta object literal for the '<em><b>Boolean</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute XTEXT_TEST__BOOLEAN = eINSTANCE.getXtextTest_Boolean();
+
+    /**
      * The meta object literal for the '<em><b>Input</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1052,12 +1149,38 @@ public interface XtextTestPackage extends EPackage
     EClass TOKENS = eINSTANCE.getTokens();
 
     /**
-     * The meta object literal for the '<em><b>Tokens</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Tokens</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute TOKENS__TOKENS = eINSTANCE.getTokens_Tokens();
+    EReference TOKENS__TOKENS = eINSTANCE.getTokens_Tokens();
+
+    /**
+     * The meta object literal for the '{@link at.jku.weiner.xtexttest.xtextTest.impl.MyTokensImpl <em>My Tokens</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.xtexttest.xtextTest.impl.MyTokensImpl
+     * @see at.jku.weiner.xtexttest.xtextTest.impl.XtextTestPackageImpl#getMyTokens()
+     * @generated
+     */
+    EClass MY_TOKENS = eINSTANCE.getMyTokens();
+
+    /**
+     * The meta object literal for the '<em><b>Token</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MY_TOKENS__TOKEN = eINSTANCE.getMyTokens_Token();
+
+    /**
+     * The meta object literal for the '<em><b>Count</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MY_TOKENS__COUNT = eINSTANCE.getMyTokens_Count();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.xtexttest.xtextTest.impl.ElementImpl <em>Element</em>}' class.

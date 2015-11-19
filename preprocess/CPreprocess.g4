@@ -34,65 +34,174 @@ compilationUnit:
 	;
 
 translationUnit:
-	(	lineDirectives
-	|	cStuff
-	)
+	lines+
 	;
 
-cStuff:
-	(!Hash Newline)
+lines:
+		Hash lineDirectives
+	|	code
+	|	Newline
+	;
+
+code:
+	~Hash (~Newline)* Newline
 	;
 
 lineDirectives:
-	(	defineDirective
-	|	includeDirective
-	|	pragmaDirective
+	(	includeDirective 
+	|	defineDirective
+	|	unDefineDirective
+	|	errorDirective
+	//|	pragmaDirective
 	)
 	Newline
 	;
 
 defineDirective:
-	Hash Whitespace? Define Whitespace
+	Define Identifier replaceCode
+	;
+
+replaceCode:
+	//~Hash+
+	(	Rcode
+	|	String
+	|	AbsoluteFileName
+	|	Identifier
+	)+
 	;
 
 includeDirective:
-	Hash Whitespace? Include Whitespace fileName
+	Include (String | AbsoluteFileName | Identifier)
 	;
 
-fileName:
-	relativeFileName
-	| absoluteFileName
+unDefineDirective:
+	Undefine Identifier
 	;
 
-relativeFileName:
-	DoubleQuote CharacterConstant DoubleQuote
-	;
-
-absoluteFileName:
-	
+errorDirective:
+	Error String
 	;
 
 pragmaDirective:
-	Hash Whitespace? Pragma Whitespace
+	Pragma
 	;
 
 // lexer tokens
-Whitespace
-	:	[ \t]+
+Whitespace:
+		([ \t]
+		| Backslash Newline)+
 		-> skip
 	;
 
-Newline
-	:	(	CarriageReturn LineFeed?
+Newline:
+		CarriageReturn LineFeed?
 	|	LineFeed
-		)
-		-> skip
 	;
 
-Hash: '#';
-Include: 'include';
-Define: 'define';
-Pragma: 'pragma';
-DoubleQuote: '"';
-CarriageReturn: '\r';
-LineFeed: '\n';
+Hash:
+	'#'
+	;
+
+Include:
+	'include'
+	;
+
+Error:
+	'error'
+	;
+
+Undefine:
+	'undef'
+	;
+
+Define:
+	'define'
+	;
+
+Pragma:
+	'pragma'
+	;
+
+LineFeed:
+	'\n'
+	;
+
+CarriageReturn: 
+	'\r'
+	;
+
+Backslash: 
+	'\\'
+	;
+
+SingleQuote: 
+	'\''
+;
+
+DoubleQuote:
+	'"'
+	;
+
+Less: 
+	'<'
+	;
+
+Greater: 
+	'>'
+	;
+
+String:
+	DoubleQuote ( . )*? DoubleQuote
+	;
+
+AbsoluteFileName:
+	Less ( . )*? Greater
+	;
+
+Identifier:	
+	IdentifierNondigit
+		(	IdentifierNondigit
+		|	Digit
+		)*
+	;
+
+fragment
+IdentifierNondigit:
+		NondigitLetter
+	|	UniversalCharacterName
+	;
+
+fragment
+Digit:
+	[0-9]
+	;
+
+fragment
+NondigitLetter:
+	[a-zA-Z]
+	;
+
+fragment
+UniversalCharacterName:
+		'\\u' HexQuad
+	|	'\\U' HexQuad HexQuad
+	;
+
+fragment
+HexQuad:
+	HexadecimalDigit HexadecimalDigit HexadecimalDigit HexadecimalDigit
+    ;
+
+fragment 
+HexadecimalDigit:
+	[0-9a-fA-F]
+	;
+
+Rcode:
+	~[#\n\r]
+	;
+
+// this token is needed, as otherwise "code" will not work properly!
+Any:
+	.
+	;

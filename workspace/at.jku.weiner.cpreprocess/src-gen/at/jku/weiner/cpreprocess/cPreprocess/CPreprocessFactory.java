@@ -68,15 +68,6 @@ public interface CPreprocessFactory extends EFactory
   DefineDirective createDefineDirective();
 
   /**
-   * Returns a new object of class '<em>Un Define Directive</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Un Define Directive</em>'.
-   * @generated
-   */
-  UnDefineDirective createUnDefineDirective();
-
-  /**
    * Returns a new object of class '<em>Error Directive</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -84,6 +75,15 @@ public interface CPreprocessFactory extends EFactory
    * @generated
    */
   ErrorDirective createErrorDirective();
+
+  /**
+   * Returns a new object of class '<em>Un Define Directive</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Un Define Directive</em>'.
+   * @generated
+   */
+  UnDefineDirective createUnDefineDirective();
 
   /**
    * Returns a new object of class '<em>Pragma Directive</em>'.

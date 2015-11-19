@@ -3,10 +3,11 @@
 package at.jku.weiner.cpreprocess
 language cPreprocess
 //----------------------------------------------------------------------
+split-lexer=true
 source file="res/Test0007_SymbolInInclude.h"
 //----------------------------------------------------------------------
 lexer-tokens
-	INCLUDE MYCODE NEWLINE
+	HASH INCLUDE WS ID NEWLINE
 //----------------------------------------------------------------------
 (Model
 	units+=

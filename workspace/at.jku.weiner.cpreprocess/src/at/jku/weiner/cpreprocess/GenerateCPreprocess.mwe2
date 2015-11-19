@@ -82,7 +82,12 @@ Workflow {
 
 			// The antlr parser generator fragment.
 			fragment = adapter.FragmentAdapter {
-				fragment = parser.antlr.XtextAntlrGeneratorFragment auto-inject {}
+				//fragment = parser.antlr.XtextAntlrGeneratorFragment auto-inject {
+				fragment = org.eclipse.xtext.generator.parser.antlr.ex.rt.AntlrGeneratorFragment auto-inject {
+					options = {
+						backtrackLexer = true
+					}
+				}
 			}
 //			fragment = adapter.FragmentAdapter {
 //				fragment = org.eclipse.xtext.generator.parser.antlr.ex.rt.AntlrGeneratorFragment {
@@ -156,7 +161,8 @@ Workflow {
 			}
 			// generates a more lightweight Antlr parser and lexer tailored for content assist
 			fragment = adapter.FragmentAdapter {
-				fragment = parser.antlr.XtextAntlrUiGeneratorFragment auto-inject {}
+				fragment = parser.antlr.XtextAntlrUiGeneratorFragment auto-inject {
+				}
 			}
 			// provides the necessary bindings for java types integration
 			fragment = adapter.FragmentAdapter {
@@ -175,8 +181,9 @@ Workflow {
 	}
 	
 	component = DirectoryCleaner {
-		directory = "${projectPath}.tests/src"
+		directory = "${projectPath}.tests/src/at/jku/weiner/cpreprocess/tests"
 		exclude = "xtexttests"
+		exclude = ".keep"
 		exclude = "LexerAndParserTest.java"
 	}
 }

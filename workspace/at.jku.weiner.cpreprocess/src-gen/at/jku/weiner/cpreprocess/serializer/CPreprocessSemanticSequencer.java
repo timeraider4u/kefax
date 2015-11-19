@@ -74,7 +74,7 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     code=MYCODE
+	 *     code=MyCodeLineExtended
 	 */
 	protected void sequence_Code(EObject context, Code semanticObject) {
 		if(errorAcceptor != null) {
@@ -83,7 +83,7 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getCodeAccess().getCodeMYCODETerminalRuleCall_1_0(), semanticObject.getCode());
+		feeder.accept(grammarAccess.getCodeAccess().getCodeMyCodeLineExtendedParserRuleCall_1_0(), semanticObject.getCode());
 		feeder.finish();
 	}
 	
@@ -101,8 +101,8 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getDefineDirectiveAccess().getIdIDTerminalRuleCall_2_0(), semanticObject.getId());
-		feeder.accept(grammarAccess.getDefineDirectiveAccess().getStringMyCodeLineParserRuleCall_3_0(), semanticObject.getString());
+		feeder.accept(grammarAccess.getDefineDirectiveAccess().getIdIDTerminalRuleCall_3_0(), semanticObject.getId());
+		feeder.accept(grammarAccess.getDefineDirectiveAccess().getStringMyCodeLineParserRuleCall_5_0(), semanticObject.getString());
 		feeder.finish();
 	}
 	
@@ -118,7 +118,7 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getErrorDirectiveAccess().getMsgMyCodeLineParserRuleCall_2_0(), semanticObject.getMsg());
+		feeder.accept(grammarAccess.getErrorDirectiveAccess().getMsgMyCodeLineParserRuleCall_3_0(), semanticObject.getMsg());
 		feeder.finish();
 	}
 	
@@ -134,7 +134,7 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getIncludeDirectiveAccess().getStringMyCodeLineParserRuleCall_2_0(), semanticObject.getString());
+		feeder.accept(grammarAccess.getIncludeDirectiveAccess().getStringMyCodeLineParserRuleCall_3_0(), semanticObject.getString());
 		feeder.finish();
 	}
 	
@@ -168,7 +168,7 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (directive=IncludeDirective | directive=DefineDirective | directive=UnDefineDirective | directive=ErrorDirective | directive=PragmaDirective)
+	 *     (directive=IncludeDirective | directive=DefineDirective | directive=ErrorDirective | directive=UnDefineDirective | directive=PragmaDirective)
 	 */
 	protected void sequence_PreprocessorDirectives(EObject context, PreprocessorDirectives semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -195,7 +195,7 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getUnDefineDirectiveAccess().getIdIDTerminalRuleCall_2_0(), semanticObject.getId());
+		feeder.accept(grammarAccess.getUnDefineDirectiveAccess().getIdIDTerminalRuleCall_3_0(), semanticObject.getId());
 		feeder.finish();
 	}
 }

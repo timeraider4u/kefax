@@ -49,12 +49,12 @@ TranslationUnit:
 
 PreprocessorDirectives returns SourceCodeLine:
 	{PreprocessorDirectives}
-	// HASH
+	WS* HASH WS*
 	(
 			directive=IncludeDirective
 		|	directive=DefineDirective
-		|	directive=UnDefineDirective
 		|	directive=ErrorDirective
+		|	directive=UnDefineDirective
 		|	directive=PragmaDirective
 	)
 	NEWLINE
@@ -62,22 +62,22 @@ PreprocessorDirectives returns SourceCodeLine:
 
 IncludeDirective:
 	{IncludeDirective}
-	INCLUDE string=MyCodeLine
+	INCLUDE WS+ string=MyCodeLine
 ;
 
 DefineDirective:
 	{DefineDirective}
-	DEFINE id=ID string=MyCodeLine
-;
-
-UnDefineDirective:
-	{UnDefineDirective}
-	UNDEF id=ID
+	DEFINE WS+ id=ID WS* string=MyCodeLine
 ;
 
 ErrorDirective:
 	{ErrorDirective}
-	ERROR msg=MyCodeLine
+	ERROR WS+ msg=MyCodeLine
+;
+
+UnDefineDirective:
+	{UnDefineDirective}
+	UNDEF WS+ id=ID
 ;
 
 PragmaDirective:
@@ -92,75 +92,68 @@ NewLineLine returns SourceCodeLine:
 
 Code returns SourceCodeLine:
 	{Code}
-	code=MYCODE
+	code=MyCodeLineExtended
 	NEWLINE
 ;
 
-// we need it so that the value converter will get called!
+MyCode returns ecore::EString:
+	ID|SPECIAL|INCLUDE|DEFINE|ERROR|PRAGMA
+;
+
 MyCodeLine returns ecore::EString:
-	MYCODE
+	(MyCode|WS)+
+;
+
+MyCodeLineExtended returns ecore::EString:
+	WS* (MyCode (MyCodeLine|HASH)*)?
 ;
 
 
 // lexer tokens
+terminal HASH: '#';
+terminal INCLUDE: 'include';
+terminal DEFINE: 'define';
+terminal ERROR: 'error';
+terminal UNDEF: 'undef';
+terminal PRAGMA: 'pragma';
 terminal fragment LINEFEED: '\n';
 terminal fragment CARRIAGERETURN: '\r';
-terminal NEWLINE: (CARRIAGERETURN | LINEFEED) 
-	{ { 
-		at.jku.weiner.cpreprocess.utils.PreLine.setNewLine();
-	} }
-;
+terminal NEWLINE: (CARRIAGERETURN | LINEFEED) ;
 terminal fragment BACKSLASH: '\\';
 terminal fragment LINEBREAK: (BACKSLASH NEWLINE);
 terminal fragment SPACE: ' ';
 terminal fragment TAB: '\t';
 terminal WS: (SPACE | TAB | LINEBREAK);
-terminal fragment HASH: '#';
-terminal DEFINE:	WS* HASH WS* 'define' WS+
-	{ {
-		at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(true);
-	} }
-;
-terminal UNDEF:		WS* HASH WS* 'undef' WS+
-	{ {
-		at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(true);
-	} }
-;
-terminal INCLUDE:	WS* HASH WS* 'include' WS+ 
-	{ {
-		at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(false);
-	} }
-;
-terminal ERROR:		WS* HASH WS* 'error' WS+ 
-	{ {
-		at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(false);
-	} }
-;
-terminal PRAGMA:	WS* HASH WS* 'pragma' WS+
-	{ {
-		at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(true);
-	} }
-;
-terminal ID: IDENTIFIER
-	{ {
-		at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(false);
-	} }
-;
-terminal fragment IDENTIFIER:
-	LETTER (LETTER|'0'..'9')*
-;
 
-terminal fragment LETTER:
-	'$'
-	|	'A'..'Z'
-	|	'a'..'z'
-	|	'_'
+terminal ID:
+	ID_NONDIGIT
+		(	ID_NONDIGIT
+		|	DIGIT
+		)*
 ;
+terminal fragment ID_NONDIGIT:
+		NONDIGIT_LETTER
+	|	UNIVERSAL_CHARACTER
+;
+terminal fragment DIGIT: '0' .. '9';
+terminal fragment NONDIGIT_LETTER:
+		'a' .. 'z'
+	|	'A' .. 'Z'
+;
+terminal fragment
+UNIVERSAL_CHARACTER:
+		'\\u' HEX_QUAD
+	|	'\\U' HEX_QUAD HEX_QUAD
+	;
+terminal fragment HEX_QUAD:
+	HEXADECIMAL_DIGIT HEXADECIMAL_DIGIT
+	HEXADECIMAL_DIGIT HEXADECIMAL_DIGIT
+;
+terminal fragment 
+HEXADECIMAL_DIGIT:
+		'0' .. '9'
+	|	'a' .. 'f'
+	|	'A' .. 'F'
+	;
 
-terminal MYCODE:
-	{ {
-		at.jku.weiner.cpreprocess.utils.PreLine.checkIfIsCode(input)
-	} ? }
-	!(HASH|CARRIAGERETURN|LINEFEED)
-	(!(CARRIAGERETURN|LINEFEED))*
-;
+terminal SPECIAL: .;

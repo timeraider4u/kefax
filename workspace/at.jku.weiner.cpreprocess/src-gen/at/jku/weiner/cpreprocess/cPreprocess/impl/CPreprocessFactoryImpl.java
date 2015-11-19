@@ -69,8 +69,8 @@ public class CPreprocessFactoryImpl extends EFactoryImpl implements CPreprocessF
       case CPreprocessPackage.SOURCE_CODE_LINE: return createSourceCodeLine();
       case CPreprocessPackage.INCLUDE_DIRECTIVE: return createIncludeDirective();
       case CPreprocessPackage.DEFINE_DIRECTIVE: return createDefineDirective();
-      case CPreprocessPackage.UN_DEFINE_DIRECTIVE: return createUnDefineDirective();
       case CPreprocessPackage.ERROR_DIRECTIVE: return createErrorDirective();
+      case CPreprocessPackage.UN_DEFINE_DIRECTIVE: return createUnDefineDirective();
       case CPreprocessPackage.PRAGMA_DIRECTIVE: return createPragmaDirective();
       case CPreprocessPackage.PREPROCESSOR_DIRECTIVES: return createPreprocessorDirectives();
       case CPreprocessPackage.NEW_LINE_LINE: return createNewLineLine();
@@ -140,10 +140,10 @@ public class CPreprocessFactoryImpl extends EFactoryImpl implements CPreprocessF
    * <!-- end-user-doc -->
    * @generated
    */
-  public UnDefineDirective createUnDefineDirective()
+  public ErrorDirective createErrorDirective()
   {
-    UnDefineDirectiveImpl unDefineDirective = new UnDefineDirectiveImpl();
-    return unDefineDirective;
+    ErrorDirectiveImpl errorDirective = new ErrorDirectiveImpl();
+    return errorDirective;
   }
 
   /**
@@ -151,10 +151,10 @@ public class CPreprocessFactoryImpl extends EFactoryImpl implements CPreprocessF
    * <!-- end-user-doc -->
    * @generated
    */
-  public ErrorDirective createErrorDirective()
+  public UnDefineDirective createUnDefineDirective()
   {
-    ErrorDirectiveImpl errorDirective = new ErrorDirectiveImpl();
-    return errorDirective;
+    UnDefineDirectiveImpl unDefineDirective = new UnDefineDirectiveImpl();
+    return unDefineDirective;
   }
 
   /**

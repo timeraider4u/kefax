@@ -39,7 +39,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import at.jku.weiner.cpreprocess.tests.CPreprocessInjectorProvider;
 import at.jku.weiner.cpreprocess.parser.antlr.CPreprocessParser;
-import at.jku.weiner.cpreprocess.parser.antlr.internal.InternalCPreprocessLexer;
+import at.jku.weiner.cpreprocess.parser.antlr.lexer.InternalCPreprocessLexer;
 import at.jku.weiner.cpreprocess.xtexttests.LexerAndParserTest;
 
 import at.jku.weiner.cpreprocess.cPreprocess.Model;
@@ -73,6 +73,10 @@ public class Test0000_Empty {
 	public void initialize(){
 		this.testHelper = new LexerAndParserTest(lexer, 
 			parser, tokenDefProvider);
+	}
+	
+	@After
+	public void cleanUp() {
 	}
 	
 	private String getTextFromFile(final String fileName)

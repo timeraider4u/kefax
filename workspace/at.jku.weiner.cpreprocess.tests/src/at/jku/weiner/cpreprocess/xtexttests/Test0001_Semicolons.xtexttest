@@ -3,13 +3,14 @@
 package at.jku.weiner.cpreprocess
 language cPreprocess
 //----------------------------------------------------------------------
+split-lexer=true
 source file="res/Test0001_Semicolons.c"
 //----------------------------------------------------------------------
 lexer-tokens
-	MYCODE NEWLINE
-	MYCODE NEWLINE
+	SPECIAL NEWLINE
+	SPECIAL +*6 NEWLINE
 	NEWLINE
-	MYCODE NEWLINE
+	SPECIAL +*3 NEWLINE
 //----------------------------------------------------------------------
 (Model
 	units+=

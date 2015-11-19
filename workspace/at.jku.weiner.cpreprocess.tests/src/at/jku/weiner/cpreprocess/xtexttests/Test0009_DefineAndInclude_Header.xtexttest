@@ -3,15 +3,16 @@
 package at.jku.weiner.cpreprocess
 language cPreprocess
 //----------------------------------------------------------------------
+split-lexer=true
 source file="res/Test0009_DefineAndInclude.h"
 //----------------------------------------------------------------------
 lexer-tokens
-	DEFINE ID MYCODE NEWLINE
-	DEFINE ID MYCODE NEWLINE
-	DEFINE ID MYCODE NEWLINE
-	DEFINE ID MYCODE NEWLINE
-	MYCODE NEWLINE
-	MYCODE NEWLINE
+	HASH DEFINE WS ID WS ID NEWLINE
+	HASH DEFINE WS ID WS ID NEWLINE
+	HASH DEFINE WS ID WS ID WS ID WS SPECIAL WS SPECIAL NEWLINE
+	HASH DEFINE WS ID WS SPECIAL WS SPECIAL WS SPECIAL NEWLINE
+	SPECIAL +*2 WS ID NEWLINE
+	ID WS ID WS SPECIAL WS ID SPECIAL NEWLINE
 //----------------------------------------------------------------------
 (Model
 	units+=

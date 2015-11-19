@@ -11,25 +11,29 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class InternalCPreprocessLexer extends Lexer {
-    public static final int RULE_PRAGMA=10;
-    public static final int RULE_ID=11;
-    public static final int RULE_NEWLINE=5;
-    public static final int RULE_ERROR=9;
-    public static final int RULE_IDENTIFIER=20;
-    public static final int RULE_HASH=19;
-    public static final int RULE_TAB=17;
-    public static final int RULE_UNDEF=8;
+    public static final int RULE_PRAGMA=9;
+    public static final int RULE_ID=4;
+    public static final int RULE_NEWLINE=12;
+    public static final int RULE_ID_NONDIGIT=20;
+    public static final int RULE_NONDIGIT_LETTER=22;
+    public static final int RULE_ERROR=8;
+    public static final int RULE_HASH=11;
+    public static final int RULE_TAB=19;
+    public static final int RULE_UNDEF=13;
     public static final int EOF=-1;
-    public static final int RULE_LETTER=21;
-    public static final int RULE_LINEBREAK=15;
+    public static final int RULE_HEXADECIMAL_DIGIT=25;
+    public static final int RULE_LINEBREAK=17;
     public static final int RULE_DEFINE=7;
-    public static final int RULE_CARRIAGERETURN=13;
+    public static final int RULE_SPECIAL=5;
+    public static final int RULE_CARRIAGERETURN=15;
     public static final int RULE_INCLUDE=6;
-    public static final int RULE_BACKSLASH=14;
-    public static final int RULE_MYCODE=4;
-    public static final int RULE_WS=18;
-    public static final int RULE_SPACE=16;
-    public static final int RULE_LINEFEED=12;
+    public static final int RULE_BACKSLASH=16;
+    public static final int RULE_WS=10;
+    public static final int RULE_DIGIT=21;
+    public static final int RULE_SPACE=18;
+    public static final int RULE_UNIVERSAL_CHARACTER=23;
+    public static final int RULE_LINEFEED=14;
+    public static final int RULE_HEX_QUAD=24;
 
     // delegates
     // delegators
@@ -44,11 +48,136 @@ public class InternalCPreprocessLexer extends Lexer {
     }
     public String getGrammarFileName() { return "InternalCPreprocess.g"; }
 
+    // $ANTLR start "RULE_HASH"
+    public final void mRULE_HASH() throws RecognitionException {
+        try {
+            int _type = RULE_HASH;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalCPreprocess.g:2313:11: ( '#' )
+            // InternalCPreprocess.g:2313:13: '#'
+            {
+            match('#'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "RULE_HASH"
+
+    // $ANTLR start "RULE_INCLUDE"
+    public final void mRULE_INCLUDE() throws RecognitionException {
+        try {
+            int _type = RULE_INCLUDE;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalCPreprocess.g:2315:14: ( 'include' )
+            // InternalCPreprocess.g:2315:16: 'include'
+            {
+            match("include"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "RULE_INCLUDE"
+
+    // $ANTLR start "RULE_DEFINE"
+    public final void mRULE_DEFINE() throws RecognitionException {
+        try {
+            int _type = RULE_DEFINE;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalCPreprocess.g:2317:13: ( 'define' )
+            // InternalCPreprocess.g:2317:15: 'define'
+            {
+            match("define"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "RULE_DEFINE"
+
+    // $ANTLR start "RULE_ERROR"
+    public final void mRULE_ERROR() throws RecognitionException {
+        try {
+            int _type = RULE_ERROR;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalCPreprocess.g:2319:12: ( 'error' )
+            // InternalCPreprocess.g:2319:14: 'error'
+            {
+            match("error"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "RULE_ERROR"
+
+    // $ANTLR start "RULE_UNDEF"
+    public final void mRULE_UNDEF() throws RecognitionException {
+        try {
+            int _type = RULE_UNDEF;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalCPreprocess.g:2321:12: ( 'undef' )
+            // InternalCPreprocess.g:2321:14: 'undef'
+            {
+            match("undef"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "RULE_UNDEF"
+
+    // $ANTLR start "RULE_PRAGMA"
+    public final void mRULE_PRAGMA() throws RecognitionException {
+        try {
+            int _type = RULE_PRAGMA;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalCPreprocess.g:2323:13: ( 'pragma' )
+            // InternalCPreprocess.g:2323:15: 'pragma'
+            {
+            match("pragma"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "RULE_PRAGMA"
+
     // $ANTLR start "RULE_LINEFEED"
     public final void mRULE_LINEFEED() throws RecognitionException {
         try {
-            // InternalCPreprocess.g:1684:24: ( '\\n' )
-            // InternalCPreprocess.g:1684:26: '\\n'
+            // InternalCPreprocess.g:2325:24: ( '\\n' )
+            // InternalCPreprocess.g:2325:26: '\\n'
             {
             match('\n'); 
 
@@ -63,8 +192,8 @@ public class InternalCPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_CARRIAGERETURN"
     public final void mRULE_CARRIAGERETURN() throws RecognitionException {
         try {
-            // InternalCPreprocess.g:1686:30: ( '\\r' )
-            // InternalCPreprocess.g:1686:32: '\\r'
+            // InternalCPreprocess.g:2327:30: ( '\\r' )
+            // InternalCPreprocess.g:2327:32: '\\r'
             {
             match('\r'); 
 
@@ -81,8 +210,8 @@ public class InternalCPreprocessLexer extends Lexer {
         try {
             int _type = RULE_NEWLINE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCPreprocess.g:1688:14: ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) )
-            // InternalCPreprocess.g:1688:16: ( RULE_CARRIAGERETURN | RULE_LINEFEED )
+            // InternalCPreprocess.g:2329:14: ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) )
+            // InternalCPreprocess.g:2329:16: ( RULE_CARRIAGERETURN | RULE_LINEFEED )
             {
             if ( input.LA(1)=='\n'||input.LA(1)=='\r' ) {
                 input.consume();
@@ -93,7 +222,6 @@ public class InternalCPreprocessLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            at.jku.weiner.cpreprocess.utils.PreLine.setNewLine();
 
             }
 
@@ -108,8 +236,8 @@ public class InternalCPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_BACKSLASH"
     public final void mRULE_BACKSLASH() throws RecognitionException {
         try {
-            // InternalCPreprocess.g:1690:25: ( '\\\\' )
-            // InternalCPreprocess.g:1690:27: '\\\\'
+            // InternalCPreprocess.g:2331:25: ( '\\\\' )
+            // InternalCPreprocess.g:2331:27: '\\\\'
             {
             match('\\'); 
 
@@ -124,8 +252,8 @@ public class InternalCPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_LINEBREAK"
     public final void mRULE_LINEBREAK() throws RecognitionException {
         try {
-            // InternalCPreprocess.g:1692:25: ( RULE_BACKSLASH RULE_NEWLINE )
-            // InternalCPreprocess.g:1692:27: RULE_BACKSLASH RULE_NEWLINE
+            // InternalCPreprocess.g:2333:25: ( RULE_BACKSLASH RULE_NEWLINE )
+            // InternalCPreprocess.g:2333:27: RULE_BACKSLASH RULE_NEWLINE
             {
             mRULE_BACKSLASH(); 
             mRULE_NEWLINE(); 
@@ -141,8 +269,8 @@ public class InternalCPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_SPACE"
     public final void mRULE_SPACE() throws RecognitionException {
         try {
-            // InternalCPreprocess.g:1694:21: ( ' ' )
-            // InternalCPreprocess.g:1694:23: ' '
+            // InternalCPreprocess.g:2335:21: ( ' ' )
+            // InternalCPreprocess.g:2335:23: ' '
             {
             match(' '); 
 
@@ -157,8 +285,8 @@ public class InternalCPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_TAB"
     public final void mRULE_TAB() throws RecognitionException {
         try {
-            // InternalCPreprocess.g:1696:19: ( '\\t' )
-            // InternalCPreprocess.g:1696:21: '\\t'
+            // InternalCPreprocess.g:2337:19: ( '\\t' )
+            // InternalCPreprocess.g:2337:21: '\\t'
             {
             match('\t'); 
 
@@ -173,10 +301,12 @@ public class InternalCPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_WS"
     public final void mRULE_WS() throws RecognitionException {
         try {
-            // InternalCPreprocess.g:1698:18: ( ( RULE_SPACE | RULE_TAB | RULE_LINEBREAK ) )
-            // InternalCPreprocess.g:1698:20: ( RULE_SPACE | RULE_TAB | RULE_LINEBREAK )
+            int _type = RULE_WS;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalCPreprocess.g:2339:9: ( ( RULE_SPACE | RULE_TAB | RULE_LINEBREAK ) )
+            // InternalCPreprocess.g:2339:11: ( RULE_SPACE | RULE_TAB | RULE_LINEBREAK )
             {
-            // InternalCPreprocess.g:1698:20: ( RULE_SPACE | RULE_TAB | RULE_LINEBREAK )
+            // InternalCPreprocess.g:2339:11: ( RULE_SPACE | RULE_TAB | RULE_LINEBREAK )
             int alt1=3;
             switch ( input.LA(1) ) {
             case ' ':
@@ -203,21 +333,21 @@ public class InternalCPreprocessLexer extends Lexer {
 
             switch (alt1) {
                 case 1 :
-                    // InternalCPreprocess.g:1698:21: RULE_SPACE
+                    // InternalCPreprocess.g:2339:12: RULE_SPACE
                     {
                     mRULE_SPACE(); 
 
                     }
                     break;
                 case 2 :
-                    // InternalCPreprocess.g:1698:32: RULE_TAB
+                    // InternalCPreprocess.g:2339:23: RULE_TAB
                     {
                     mRULE_TAB(); 
 
                     }
                     break;
                 case 3 :
-                    // InternalCPreprocess.g:1698:41: RULE_LINEBREAK
+                    // InternalCPreprocess.g:2339:32: RULE_LINEBREAK
                     {
                     mRULE_LINEBREAK(); 
 
@@ -229,52 +359,49 @@ public class InternalCPreprocessLexer extends Lexer {
 
             }
 
+            state.type = _type;
+            state.channel = _channel;
         }
         finally {
         }
     }
     // $ANTLR end "RULE_WS"
 
-    // $ANTLR start "RULE_HASH"
-    public final void mRULE_HASH() throws RecognitionException {
+    // $ANTLR start "RULE_ID"
+    public final void mRULE_ID() throws RecognitionException {
         try {
-            // InternalCPreprocess.g:1700:20: ( '#' )
-            // InternalCPreprocess.g:1700:22: '#'
-            {
-            match('#'); 
-
-            }
-
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "RULE_HASH"
-
-    // $ANTLR start "RULE_DEFINE"
-    public final void mRULE_DEFINE() throws RecognitionException {
-        try {
-            int _type = RULE_DEFINE;
+            int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCPreprocess.g:1702:13: ( ( RULE_WS )* RULE_HASH ( RULE_WS )* 'define' ( RULE_WS )+ )
-            // InternalCPreprocess.g:1702:15: ( RULE_WS )* RULE_HASH ( RULE_WS )* 'define' ( RULE_WS )+
+            // InternalCPreprocess.g:2341:9: ( RULE_ID_NONDIGIT ( RULE_ID_NONDIGIT | RULE_DIGIT )* )
+            // InternalCPreprocess.g:2341:11: RULE_ID_NONDIGIT ( RULE_ID_NONDIGIT | RULE_DIGIT )*
             {
-            // InternalCPreprocess.g:1702:15: ( RULE_WS )*
+            mRULE_ID_NONDIGIT(); 
+            // InternalCPreprocess.g:2341:28: ( RULE_ID_NONDIGIT | RULE_DIGIT )*
             loop2:
             do {
-                int alt2=2;
+                int alt2=3;
                 int LA2_0 = input.LA(1);
 
-                if ( (LA2_0=='\t'||LA2_0==' '||LA2_0=='\\') ) {
+                if ( ((LA2_0>='A' && LA2_0<='Z')||LA2_0=='\\'||(LA2_0>='a' && LA2_0<='z')) ) {
                     alt2=1;
+                }
+                else if ( ((LA2_0>='0' && LA2_0<='9')) ) {
+                    alt2=2;
                 }
 
 
                 switch (alt2) {
             	case 1 :
-            	    // InternalCPreprocess.g:1702:15: RULE_WS
+            	    // InternalCPreprocess.g:2341:29: RULE_ID_NONDIGIT
             	    {
-            	    mRULE_WS(); 
+            	    mRULE_ID_NONDIGIT(); 
+
+            	    }
+            	    break;
+            	case 2 :
+            	    // InternalCPreprocess.g:2341:46: RULE_DIGIT
+            	    {
+            	    mRULE_DIGIT(); 
 
             	    }
             	    break;
@@ -284,498 +411,6 @@ public class InternalCPreprocessLexer extends Lexer {
                 }
             } while (true);
 
-            mRULE_HASH(); 
-            // InternalCPreprocess.g:1702:34: ( RULE_WS )*
-            loop3:
-            do {
-                int alt3=2;
-                int LA3_0 = input.LA(1);
-
-                if ( (LA3_0=='\t'||LA3_0==' '||LA3_0=='\\') ) {
-                    alt3=1;
-                }
-
-
-                switch (alt3) {
-            	case 1 :
-            	    // InternalCPreprocess.g:1702:34: RULE_WS
-            	    {
-            	    mRULE_WS(); 
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop3;
-                }
-            } while (true);
-
-            match("define"); 
-
-            // InternalCPreprocess.g:1702:52: ( RULE_WS )+
-            int cnt4=0;
-            loop4:
-            do {
-                int alt4=2;
-                int LA4_0 = input.LA(1);
-
-                if ( (LA4_0=='\t'||LA4_0==' '||LA4_0=='\\') ) {
-                    alt4=1;
-                }
-
-
-                switch (alt4) {
-            	case 1 :
-            	    // InternalCPreprocess.g:1702:52: RULE_WS
-            	    {
-            	    mRULE_WS(); 
-
-            	    }
-            	    break;
-
-            	default :
-            	    if ( cnt4 >= 1 ) break loop4;
-                        EarlyExitException eee =
-                            new EarlyExitException(4, input);
-                        throw eee;
-                }
-                cnt4++;
-            } while (true);
-
-            at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(true);
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "RULE_DEFINE"
-
-    // $ANTLR start "RULE_UNDEF"
-    public final void mRULE_UNDEF() throws RecognitionException {
-        try {
-            int _type = RULE_UNDEF;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCPreprocess.g:1704:12: ( ( RULE_WS )* RULE_HASH ( RULE_WS )* 'undef' ( RULE_WS )+ )
-            // InternalCPreprocess.g:1704:14: ( RULE_WS )* RULE_HASH ( RULE_WS )* 'undef' ( RULE_WS )+
-            {
-            // InternalCPreprocess.g:1704:14: ( RULE_WS )*
-            loop5:
-            do {
-                int alt5=2;
-                int LA5_0 = input.LA(1);
-
-                if ( (LA5_0=='\t'||LA5_0==' '||LA5_0=='\\') ) {
-                    alt5=1;
-                }
-
-
-                switch (alt5) {
-            	case 1 :
-            	    // InternalCPreprocess.g:1704:14: RULE_WS
-            	    {
-            	    mRULE_WS(); 
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop5;
-                }
-            } while (true);
-
-            mRULE_HASH(); 
-            // InternalCPreprocess.g:1704:33: ( RULE_WS )*
-            loop6:
-            do {
-                int alt6=2;
-                int LA6_0 = input.LA(1);
-
-                if ( (LA6_0=='\t'||LA6_0==' '||LA6_0=='\\') ) {
-                    alt6=1;
-                }
-
-
-                switch (alt6) {
-            	case 1 :
-            	    // InternalCPreprocess.g:1704:33: RULE_WS
-            	    {
-            	    mRULE_WS(); 
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop6;
-                }
-            } while (true);
-
-            match("undef"); 
-
-            // InternalCPreprocess.g:1704:50: ( RULE_WS )+
-            int cnt7=0;
-            loop7:
-            do {
-                int alt7=2;
-                int LA7_0 = input.LA(1);
-
-                if ( (LA7_0=='\t'||LA7_0==' '||LA7_0=='\\') ) {
-                    alt7=1;
-                }
-
-
-                switch (alt7) {
-            	case 1 :
-            	    // InternalCPreprocess.g:1704:50: RULE_WS
-            	    {
-            	    mRULE_WS(); 
-
-            	    }
-            	    break;
-
-            	default :
-            	    if ( cnt7 >= 1 ) break loop7;
-                        EarlyExitException eee =
-                            new EarlyExitException(7, input);
-                        throw eee;
-                }
-                cnt7++;
-            } while (true);
-
-            at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(true);
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "RULE_UNDEF"
-
-    // $ANTLR start "RULE_INCLUDE"
-    public final void mRULE_INCLUDE() throws RecognitionException {
-        try {
-            int _type = RULE_INCLUDE;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCPreprocess.g:1706:14: ( ( RULE_WS )* RULE_HASH ( RULE_WS )* 'include' ( RULE_WS )+ )
-            // InternalCPreprocess.g:1706:16: ( RULE_WS )* RULE_HASH ( RULE_WS )* 'include' ( RULE_WS )+
-            {
-            // InternalCPreprocess.g:1706:16: ( RULE_WS )*
-            loop8:
-            do {
-                int alt8=2;
-                int LA8_0 = input.LA(1);
-
-                if ( (LA8_0=='\t'||LA8_0==' '||LA8_0=='\\') ) {
-                    alt8=1;
-                }
-
-
-                switch (alt8) {
-            	case 1 :
-            	    // InternalCPreprocess.g:1706:16: RULE_WS
-            	    {
-            	    mRULE_WS(); 
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop8;
-                }
-            } while (true);
-
-            mRULE_HASH(); 
-            // InternalCPreprocess.g:1706:35: ( RULE_WS )*
-            loop9:
-            do {
-                int alt9=2;
-                int LA9_0 = input.LA(1);
-
-                if ( (LA9_0=='\t'||LA9_0==' '||LA9_0=='\\') ) {
-                    alt9=1;
-                }
-
-
-                switch (alt9) {
-            	case 1 :
-            	    // InternalCPreprocess.g:1706:35: RULE_WS
-            	    {
-            	    mRULE_WS(); 
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop9;
-                }
-            } while (true);
-
-            match("include"); 
-
-            // InternalCPreprocess.g:1706:54: ( RULE_WS )+
-            int cnt10=0;
-            loop10:
-            do {
-                int alt10=2;
-                int LA10_0 = input.LA(1);
-
-                if ( (LA10_0=='\t'||LA10_0==' '||LA10_0=='\\') ) {
-                    alt10=1;
-                }
-
-
-                switch (alt10) {
-            	case 1 :
-            	    // InternalCPreprocess.g:1706:54: RULE_WS
-            	    {
-            	    mRULE_WS(); 
-
-            	    }
-            	    break;
-
-            	default :
-            	    if ( cnt10 >= 1 ) break loop10;
-                        EarlyExitException eee =
-                            new EarlyExitException(10, input);
-                        throw eee;
-                }
-                cnt10++;
-            } while (true);
-
-            at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(false);
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "RULE_INCLUDE"
-
-    // $ANTLR start "RULE_ERROR"
-    public final void mRULE_ERROR() throws RecognitionException {
-        try {
-            int _type = RULE_ERROR;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCPreprocess.g:1708:12: ( ( RULE_WS )* RULE_HASH ( RULE_WS )* 'error' ( RULE_WS )+ )
-            // InternalCPreprocess.g:1708:14: ( RULE_WS )* RULE_HASH ( RULE_WS )* 'error' ( RULE_WS )+
-            {
-            // InternalCPreprocess.g:1708:14: ( RULE_WS )*
-            loop11:
-            do {
-                int alt11=2;
-                int LA11_0 = input.LA(1);
-
-                if ( (LA11_0=='\t'||LA11_0==' '||LA11_0=='\\') ) {
-                    alt11=1;
-                }
-
-
-                switch (alt11) {
-            	case 1 :
-            	    // InternalCPreprocess.g:1708:14: RULE_WS
-            	    {
-            	    mRULE_WS(); 
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop11;
-                }
-            } while (true);
-
-            mRULE_HASH(); 
-            // InternalCPreprocess.g:1708:33: ( RULE_WS )*
-            loop12:
-            do {
-                int alt12=2;
-                int LA12_0 = input.LA(1);
-
-                if ( (LA12_0=='\t'||LA12_0==' '||LA12_0=='\\') ) {
-                    alt12=1;
-                }
-
-
-                switch (alt12) {
-            	case 1 :
-            	    // InternalCPreprocess.g:1708:33: RULE_WS
-            	    {
-            	    mRULE_WS(); 
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop12;
-                }
-            } while (true);
-
-            match("error"); 
-
-            // InternalCPreprocess.g:1708:50: ( RULE_WS )+
-            int cnt13=0;
-            loop13:
-            do {
-                int alt13=2;
-                int LA13_0 = input.LA(1);
-
-                if ( (LA13_0=='\t'||LA13_0==' '||LA13_0=='\\') ) {
-                    alt13=1;
-                }
-
-
-                switch (alt13) {
-            	case 1 :
-            	    // InternalCPreprocess.g:1708:50: RULE_WS
-            	    {
-            	    mRULE_WS(); 
-
-            	    }
-            	    break;
-
-            	default :
-            	    if ( cnt13 >= 1 ) break loop13;
-                        EarlyExitException eee =
-                            new EarlyExitException(13, input);
-                        throw eee;
-                }
-                cnt13++;
-            } while (true);
-
-            at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(false);
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "RULE_ERROR"
-
-    // $ANTLR start "RULE_PRAGMA"
-    public final void mRULE_PRAGMA() throws RecognitionException {
-        try {
-            int _type = RULE_PRAGMA;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCPreprocess.g:1710:13: ( ( RULE_WS )* RULE_HASH ( RULE_WS )* 'pragma' ( RULE_WS )+ )
-            // InternalCPreprocess.g:1710:15: ( RULE_WS )* RULE_HASH ( RULE_WS )* 'pragma' ( RULE_WS )+
-            {
-            // InternalCPreprocess.g:1710:15: ( RULE_WS )*
-            loop14:
-            do {
-                int alt14=2;
-                int LA14_0 = input.LA(1);
-
-                if ( (LA14_0=='\t'||LA14_0==' '||LA14_0=='\\') ) {
-                    alt14=1;
-                }
-
-
-                switch (alt14) {
-            	case 1 :
-            	    // InternalCPreprocess.g:1710:15: RULE_WS
-            	    {
-            	    mRULE_WS(); 
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop14;
-                }
-            } while (true);
-
-            mRULE_HASH(); 
-            // InternalCPreprocess.g:1710:34: ( RULE_WS )*
-            loop15:
-            do {
-                int alt15=2;
-                int LA15_0 = input.LA(1);
-
-                if ( (LA15_0=='\t'||LA15_0==' '||LA15_0=='\\') ) {
-                    alt15=1;
-                }
-
-
-                switch (alt15) {
-            	case 1 :
-            	    // InternalCPreprocess.g:1710:34: RULE_WS
-            	    {
-            	    mRULE_WS(); 
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop15;
-                }
-            } while (true);
-
-            match("pragma"); 
-
-            // InternalCPreprocess.g:1710:52: ( RULE_WS )+
-            int cnt16=0;
-            loop16:
-            do {
-                int alt16=2;
-                int LA16_0 = input.LA(1);
-
-                if ( (LA16_0=='\t'||LA16_0==' '||LA16_0=='\\') ) {
-                    alt16=1;
-                }
-
-
-                switch (alt16) {
-            	case 1 :
-            	    // InternalCPreprocess.g:1710:52: RULE_WS
-            	    {
-            	    mRULE_WS(); 
-
-            	    }
-            	    break;
-
-            	default :
-            	    if ( cnt16 >= 1 ) break loop16;
-                        EarlyExitException eee =
-                            new EarlyExitException(16, input);
-                        throw eee;
-                }
-                cnt16++;
-            } while (true);
-
-            at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(true);
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "RULE_PRAGMA"
-
-    // $ANTLR start "RULE_ID"
-    public final void mRULE_ID() throws RecognitionException {
-        try {
-            int _type = RULE_ID;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCPreprocess.g:1712:9: ( RULE_IDENTIFIER )
-            // InternalCPreprocess.g:1712:11: RULE_IDENTIFIER
-            {
-            mRULE_IDENTIFIER(); 
-            at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(false);
 
             }
 
@@ -787,45 +422,45 @@ public class InternalCPreprocessLexer extends Lexer {
     }
     // $ANTLR end "RULE_ID"
 
-    // $ANTLR start "RULE_IDENTIFIER"
-    public final void mRULE_IDENTIFIER() throws RecognitionException {
+    // $ANTLR start "RULE_ID_NONDIGIT"
+    public final void mRULE_ID_NONDIGIT() throws RecognitionException {
         try {
-            // InternalCPreprocess.g:1714:26: ( RULE_LETTER ( RULE_LETTER | '0' .. '9' )* )
-            // InternalCPreprocess.g:1714:28: RULE_LETTER ( RULE_LETTER | '0' .. '9' )*
+            // InternalCPreprocess.g:2343:27: ( ( RULE_NONDIGIT_LETTER | RULE_UNIVERSAL_CHARACTER ) )
+            // InternalCPreprocess.g:2343:29: ( RULE_NONDIGIT_LETTER | RULE_UNIVERSAL_CHARACTER )
             {
-            mRULE_LETTER(); 
-            // InternalCPreprocess.g:1714:40: ( RULE_LETTER | '0' .. '9' )*
-            loop17:
-            do {
-                int alt17=2;
-                int LA17_0 = input.LA(1);
+            // InternalCPreprocess.g:2343:29: ( RULE_NONDIGIT_LETTER | RULE_UNIVERSAL_CHARACTER )
+            int alt3=2;
+            int LA3_0 = input.LA(1);
 
-                if ( (LA17_0=='$'||(LA17_0>='0' && LA17_0<='9')||(LA17_0>='A' && LA17_0<='Z')||LA17_0=='_'||(LA17_0>='a' && LA17_0<='z')) ) {
-                    alt17=1;
-                }
+            if ( ((LA3_0>='A' && LA3_0<='Z')||(LA3_0>='a' && LA3_0<='z')) ) {
+                alt3=1;
+            }
+            else if ( (LA3_0=='\\') ) {
+                alt3=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 3, 0, input);
 
+                throw nvae;
+            }
+            switch (alt3) {
+                case 1 :
+                    // InternalCPreprocess.g:2343:30: RULE_NONDIGIT_LETTER
+                    {
+                    mRULE_NONDIGIT_LETTER(); 
 
-                switch (alt17) {
-            	case 1 :
-            	    // InternalCPreprocess.g:
-            	    {
-            	    if ( input.LA(1)=='$'||(input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
-            	        input.consume();
+                    }
+                    break;
+                case 2 :
+                    // InternalCPreprocess.g:2343:51: RULE_UNIVERSAL_CHARACTER
+                    {
+                    mRULE_UNIVERSAL_CHARACTER(); 
 
-            	    }
-            	    else {
-            	        MismatchedSetException mse = new MismatchedSetException(null,input);
-            	        recover(mse);
-            	        throw mse;}
+                    }
+                    break;
 
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop17;
-                }
-            } while (true);
+            }
 
 
             }
@@ -834,15 +469,31 @@ public class InternalCPreprocessLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end "RULE_IDENTIFIER"
+    // $ANTLR end "RULE_ID_NONDIGIT"
 
-    // $ANTLR start "RULE_LETTER"
-    public final void mRULE_LETTER() throws RecognitionException {
+    // $ANTLR start "RULE_DIGIT"
+    public final void mRULE_DIGIT() throws RecognitionException {
         try {
-            // InternalCPreprocess.g:1716:22: ( ( '$' | 'A' .. 'Z' | 'a' .. 'z' | '_' ) )
-            // InternalCPreprocess.g:1716:24: ( '$' | 'A' .. 'Z' | 'a' .. 'z' | '_' )
+            // InternalCPreprocess.g:2345:21: ( '0' .. '9' )
+            // InternalCPreprocess.g:2345:23: '0' .. '9'
             {
-            if ( input.LA(1)=='$'||(input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
+            matchRange('0','9'); 
+
+            }
+
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "RULE_DIGIT"
+
+    // $ANTLR start "RULE_NONDIGIT_LETTER"
+    public final void mRULE_NONDIGIT_LETTER() throws RecognitionException {
+        try {
+            // InternalCPreprocess.g:2347:31: ( ( 'a' .. 'z' | 'A' .. 'Z' ) )
+            // InternalCPreprocess.g:2347:33: ( 'a' .. 'z' | 'A' .. 'Z' )
+            {
+            if ( (input.LA(1)>='A' && input.LA(1)<='Z')||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                 input.consume();
 
             }
@@ -858,61 +509,124 @@ public class InternalCPreprocessLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end "RULE_LETTER"
+    // $ANTLR end "RULE_NONDIGIT_LETTER"
 
-    // $ANTLR start "RULE_MYCODE"
-    public final void mRULE_MYCODE() throws RecognitionException {
+    // $ANTLR start "RULE_UNIVERSAL_CHARACTER"
+    public final void mRULE_UNIVERSAL_CHARACTER() throws RecognitionException {
         try {
-            int _type = RULE_MYCODE;
+            // InternalCPreprocess.g:2349:35: ( ( '\\\\u' RULE_HEX_QUAD | '\\\\U' RULE_HEX_QUAD RULE_HEX_QUAD ) )
+            // InternalCPreprocess.g:2349:37: ( '\\\\u' RULE_HEX_QUAD | '\\\\U' RULE_HEX_QUAD RULE_HEX_QUAD )
+            {
+            // InternalCPreprocess.g:2349:37: ( '\\\\u' RULE_HEX_QUAD | '\\\\U' RULE_HEX_QUAD RULE_HEX_QUAD )
+            int alt4=2;
+            int LA4_0 = input.LA(1);
+
+            if ( (LA4_0=='\\') ) {
+                int LA4_1 = input.LA(2);
+
+                if ( (LA4_1=='u') ) {
+                    alt4=1;
+                }
+                else if ( (LA4_1=='U') ) {
+                    alt4=2;
+                }
+                else {
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 4, 1, input);
+
+                    throw nvae;
+                }
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 4, 0, input);
+
+                throw nvae;
+            }
+            switch (alt4) {
+                case 1 :
+                    // InternalCPreprocess.g:2349:38: '\\\\u' RULE_HEX_QUAD
+                    {
+                    match("\\u"); 
+
+                    mRULE_HEX_QUAD(); 
+
+                    }
+                    break;
+                case 2 :
+                    // InternalCPreprocess.g:2349:58: '\\\\U' RULE_HEX_QUAD RULE_HEX_QUAD
+                    {
+                    match("\\U"); 
+
+                    mRULE_HEX_QUAD(); 
+                    mRULE_HEX_QUAD(); 
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "RULE_UNIVERSAL_CHARACTER"
+
+    // $ANTLR start "RULE_HEX_QUAD"
+    public final void mRULE_HEX_QUAD() throws RecognitionException {
+        try {
+            // InternalCPreprocess.g:2351:24: ( RULE_HEXADECIMAL_DIGIT RULE_HEXADECIMAL_DIGIT RULE_HEXADECIMAL_DIGIT RULE_HEXADECIMAL_DIGIT )
+            // InternalCPreprocess.g:2351:26: RULE_HEXADECIMAL_DIGIT RULE_HEXADECIMAL_DIGIT RULE_HEXADECIMAL_DIGIT RULE_HEXADECIMAL_DIGIT
+            {
+            mRULE_HEXADECIMAL_DIGIT(); 
+            mRULE_HEXADECIMAL_DIGIT(); 
+            mRULE_HEXADECIMAL_DIGIT(); 
+            mRULE_HEXADECIMAL_DIGIT(); 
+
+            }
+
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "RULE_HEX_QUAD"
+
+    // $ANTLR start "RULE_HEXADECIMAL_DIGIT"
+    public final void mRULE_HEXADECIMAL_DIGIT() throws RecognitionException {
+        try {
+            // InternalCPreprocess.g:2353:33: ( ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) )
+            // InternalCPreprocess.g:2353:35: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )
+            {
+            if ( (input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='F')||(input.LA(1)>='a' && input.LA(1)<='f') ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+
+            }
+
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "RULE_HEXADECIMAL_DIGIT"
+
+    // $ANTLR start "RULE_SPECIAL"
+    public final void mRULE_SPECIAL() throws RecognitionException {
+        try {
+            int _type = RULE_SPECIAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCPreprocess.g:1718:13: ({...}? =>~ ( ( RULE_HASH | RULE_CARRIAGERETURN | RULE_LINEFEED ) ) (~ ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) ) )* )
-            // InternalCPreprocess.g:1718:15: {...}? =>~ ( ( RULE_HASH | RULE_CARRIAGERETURN | RULE_LINEFEED ) ) (~ ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) ) )*
+            // InternalCPreprocess.g:2355:14: ( . )
+            // InternalCPreprocess.g:2355:16: .
             {
-            if ( !((at.jku.weiner.cpreprocess.utils.PreLine.checkIfIsCode(input))) ) {
-                throw new FailedPredicateException(input, "RULE_MYCODE", "at.jku.weiner.cpreprocess.utils.PreLine.checkIfIsCode(input)");
-            }
-            if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\"')||(input.LA(1)>='$' && input.LA(1)<='\uFFFF') ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse = new MismatchedSetException(null,input);
-                recover(mse);
-                throw mse;}
-
-            // InternalCPreprocess.g:1718:130: (~ ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) ) )*
-            loop18:
-            do {
-                int alt18=2;
-                int LA18_0 = input.LA(1);
-
-                if ( ((LA18_0>='\u0000' && LA18_0<='\t')||(LA18_0>='\u000B' && LA18_0<='\f')||(LA18_0>='\u000E' && LA18_0<='\uFFFF')) ) {
-                    alt18=1;
-                }
-
-
-                switch (alt18) {
-            	case 1 :
-            	    // InternalCPreprocess.g:1718:130: ~ ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) )
-            	    {
-            	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
-            	        input.consume();
-
-            	    }
-            	    else {
-            	        MismatchedSetException mse = new MismatchedSetException(null,input);
-            	        recover(mse);
-            	        throw mse;}
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop18;
-                }
-            } while (true);
-
+            matchAny(); 
 
             }
 
@@ -922,66 +636,80 @@ public class InternalCPreprocessLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end "RULE_MYCODE"
+    // $ANTLR end "RULE_SPECIAL"
 
     public void mTokens() throws RecognitionException {
-        // InternalCPreprocess.g:1:8: ( RULE_NEWLINE | RULE_DEFINE | RULE_UNDEF | RULE_INCLUDE | RULE_ERROR | RULE_PRAGMA | RULE_ID | RULE_MYCODE )
-        int alt19=8;
-        alt19 = dfa19.predict(input);
-        switch (alt19) {
+        // InternalCPreprocess.g:1:8: ( RULE_HASH | RULE_INCLUDE | RULE_DEFINE | RULE_ERROR | RULE_UNDEF | RULE_PRAGMA | RULE_NEWLINE | RULE_WS | RULE_ID | RULE_SPECIAL )
+        int alt5=10;
+        alt5 = dfa5.predict(input);
+        switch (alt5) {
             case 1 :
-                // InternalCPreprocess.g:1:10: RULE_NEWLINE
+                // InternalCPreprocess.g:1:10: RULE_HASH
                 {
-                mRULE_NEWLINE(); 
+                mRULE_HASH(); 
 
                 }
                 break;
             case 2 :
-                // InternalCPreprocess.g:1:23: RULE_DEFINE
-                {
-                mRULE_DEFINE(); 
-
-                }
-                break;
-            case 3 :
-                // InternalCPreprocess.g:1:35: RULE_UNDEF
-                {
-                mRULE_UNDEF(); 
-
-                }
-                break;
-            case 4 :
-                // InternalCPreprocess.g:1:46: RULE_INCLUDE
+                // InternalCPreprocess.g:1:20: RULE_INCLUDE
                 {
                 mRULE_INCLUDE(); 
 
                 }
                 break;
-            case 5 :
-                // InternalCPreprocess.g:1:59: RULE_ERROR
+            case 3 :
+                // InternalCPreprocess.g:1:33: RULE_DEFINE
+                {
+                mRULE_DEFINE(); 
+
+                }
+                break;
+            case 4 :
+                // InternalCPreprocess.g:1:45: RULE_ERROR
                 {
                 mRULE_ERROR(); 
 
                 }
                 break;
+            case 5 :
+                // InternalCPreprocess.g:1:56: RULE_UNDEF
+                {
+                mRULE_UNDEF(); 
+
+                }
+                break;
             case 6 :
-                // InternalCPreprocess.g:1:70: RULE_PRAGMA
+                // InternalCPreprocess.g:1:67: RULE_PRAGMA
                 {
                 mRULE_PRAGMA(); 
 
                 }
                 break;
             case 7 :
-                // InternalCPreprocess.g:1:82: RULE_ID
+                // InternalCPreprocess.g:1:79: RULE_NEWLINE
+                {
+                mRULE_NEWLINE(); 
+
+                }
+                break;
+            case 8 :
+                // InternalCPreprocess.g:1:92: RULE_WS
+                {
+                mRULE_WS(); 
+
+                }
+                break;
+            case 9 :
+                // InternalCPreprocess.g:1:100: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 8 :
-                // InternalCPreprocess.g:1:90: RULE_MYCODE
+            case 10 :
+                // InternalCPreprocess.g:1:108: RULE_SPECIAL
                 {
-                mRULE_MYCODE(); 
+                mRULE_SPECIAL(); 
 
                 }
                 break;
@@ -991,1342 +719,137 @@ public class InternalCPreprocessLexer extends Lexer {
     }
 
 
-    protected DFA19 dfa19 = new DFA19(this);
-    static final String DFA19_eotS =
-        "\2\uffff\3\7\1\uffff\1\26\1\uffff\4\7\11\uffff\1\43\1\uffff\10\7\6\uffff\24\7\1\102\1\103\2\7\1\107\1\110\3\7\2\uffff\1\115\1\116\1\7\2\uffff\1\117\1\120\2\7\4\uffff\1\124\1\125\1\7\2\uffff";
-    static final String DFA19_eofS =
-        "\126\uffff";
-    static final String DFA19_minS =
-        "\1\0\1\uffff\2\11\1\12\1\11\1\0\1\uffff\3\11\1\12\3\11\1\12\5\uffff\2\0\2\11\1\12\2\162\1\156\1\145\1\156\2\11\1\12\1\11\1\0\1\uffff\1\162\1\141\1\144\1\146\1\143\1\157\1\147\1\145\1\151\1\154\1\162\1\155\1\146\1\156\1\165\1\11\1\141\1\11\1\145\1\144\2\0\1\12\1\11\2\0\1\12\1\11\1\145\4\0\1\12\4\0\1\12\1\11\6\0\1\12\2\0";
-    static final String DFA19_maxS =
-        "\1\uffff\1\uffff\2\134\1\15\1\165\1\uffff\1\uffff\1\165\2\134\1\15\1\134\2\165\1\15\5\uffff\1\uffff\1\0\2\165\1\15\2\162\1\156\1\145\1\156\2\134\1\15\1\165\1\0\1\uffff\1\162\1\141\1\144\1\146\1\143\1\157\1\147\1\145\1\151\1\154\1\162\1\155\1\146\1\156\1\165\1\134\1\141\1\134\1\145\1\144\2\uffff\1\15\1\134\2\uffff\1\15\1\134\1\145\2\0\2\uffff\1\15\2\0\2\uffff\1\15\1\134\4\0\2\uffff\1\15\2\0";
-    static final String DFA19_acceptS =
-        "\1\uffff\1\1\5\uffff\1\10\10\uffff\1\5\1\6\1\3\1\2\1\4\17\uffff\1\7\61\uffff";
-    static final String DFA19_specialS =
-        "\1\65\1\uffff\1\12\1\71\1\66\1\uffff\1\54\1\uffff\1\13\1\57\1\22\1\10\11\uffff\1\15\1\46\1\72\1\42\1\11\1\21\1\2\1\60\1\103\1\35\4\uffff\1\47\1\uffff\1\20\1\0\1\61\1\100\1\33\1\16\1\4\1\62\1\101\1\27\1\14\1\3\1\55\1\76\1\30\1\56\1\7\1\73\1\77\1\24\1\43\1\6\1\70\1\34\1\17\1\32\1\74\1\63\1\26\1\53\1\52\1\31\1\23\1\64\1\41\1\40\1\25\1\1\1\5\1\75\1\45\1\44\1\37\1\36\1\104\1\67\1\102\1\51\1\50}>";
-    static final String[] DFA19_transitionS = {
-            "\11\7\1\3\1\1\2\7\1\1\22\7\1\2\2\7\1\5\1\6\34\7\32\6\1\7\1\4\2\7\1\6\1\7\32\6\uff85\7",
+    protected DFA5 dfa5 = new DFA5(this);
+    static final String DFA5_eotS =
+        "\2\uffff\5\17\3\uffff\1\14\3\uffff\1\17\1\uffff\4\17\2\uffff\14\17\1\47\1\50\2\17\1\53\2\uffff\1\54\1\55\3\uffff";
+    static final String DFA5_eofS =
+        "\56\uffff";
+    static final String DFA5_minS =
+        "\1\0\1\uffff\1\156\1\145\1\162\1\156\1\162\3\uffff\1\12\3\uffff\1\143\1\uffff\1\146\1\162\1\144\1\141\2\uffff\1\154\1\151\1\157\1\145\1\147\1\165\1\156\1\162\1\146\1\155\1\144\1\145\2\60\1\141\1\145\1\60\2\uffff\2\60\3\uffff";
+    static final String DFA5_maxS =
+        "\1\uffff\1\uffff\1\156\1\145\1\162\1\156\1\162\3\uffff\1\165\3\uffff\1\143\1\uffff\1\146\1\162\1\144\1\141\2\uffff\1\154\1\151\1\157\1\145\1\147\1\165\1\156\1\162\1\146\1\155\1\144\1\145\2\172\1\141\1\145\1\172\2\uffff\2\172\3\uffff";
+    static final String DFA5_acceptS =
+        "\1\uffff\1\1\5\uffff\1\7\2\10\1\uffff\1\11\1\12\1\1\1\uffff\1\11\4\uffff\1\7\1\10\21\uffff\1\4\1\5\2\uffff\1\3\1\6\1\2";
+    static final String DFA5_specialS =
+        "\1\0\55\uffff}>";
+    static final String[] DFA5_transitionS = {
+            "\11\14\1\11\1\7\2\14\1\7\22\14\1\10\2\14\1\1\35\14\32\13\1\14\1\12\4\14\3\13\1\3\1\4\3\13\1\2\6\13\1\6\4\13\1\5\5\13\uff85\14",
             "",
-            "\1\12\26\uffff\1\11\2\uffff\1\10\70\uffff\1\13",
-            "\1\12\26\uffff\1\11\2\uffff\1\10\70\uffff\1\13",
-            "\1\14\2\uffff\1\14",
-            "\1\16\26\uffff\1\15\73\uffff\1\17\7\uffff\1\23\1\20\3\uffff\1\24\6\uffff\1\21\4\uffff\1\22",
-            "\12\7\1\uffff\2\7\1\uffff\26\7\1\25\13\7\12\25\7\7\32\25\4\7\1\25\1\7\32\25\uff85\7",
-            "",
-            "\1\30\26\uffff\1\27\73\uffff\1\31\7\uffff\1\35\1\32\3\uffff\1\36\6\uffff\1\33\4\uffff\1\34",
-            "\1\12\26\uffff\1\11\2\uffff\1\10\70\uffff\1\13",
-            "\1\12\26\uffff\1\11\2\uffff\1\10\70\uffff\1\13",
-            "\1\14\2\uffff\1\14",
-            "\1\40\26\uffff\1\37\2\uffff\1\5\70\uffff\1\41",
-            "\1\16\26\uffff\1\15\73\uffff\1\17\7\uffff\1\23\1\20\3\uffff\1\24\6\uffff\1\21\4\uffff\1\22",
-            "\1\16\26\uffff\1\15\73\uffff\1\17\7\uffff\1\23\1\20\3\uffff\1\24\6\uffff\1\21\4\uffff\1\22",
-            "\1\42\2\uffff\1\42",
+            "\1\16",
+            "\1\20",
+            "\1\21",
+            "\1\22",
+            "\1\23",
             "",
             "",
             "",
+            "\1\25\2\uffff\1\25\107\uffff\1\17\37\uffff\1\17",
             "",
             "",
-            "\12\7\1\uffff\2\7\1\uffff\26\7\1\25\13\7\12\25\7\7\32\25\4\7\1\25\1\7\32\25\uff85\7",
-            "\1\uffff",
-            "\1\30\26\uffff\1\27\73\uffff\1\31\7\uffff\1\35\1\32\3\uffff\1\36\6\uffff\1\33\4\uffff\1\34",
-            "\1\30\26\uffff\1\27\73\uffff\1\31\7\uffff\1\35\1\32\3\uffff\1\36\6\uffff\1\33\4\uffff\1\34",
-            "\1\42\2\uffff\1\42",
+            "",
+            "\1\26",
+            "",
+            "\1\27",
+            "\1\30",
+            "\1\31",
+            "\1\32",
+            "",
+            "",
+            "\1\33",
+            "\1\34",
+            "\1\35",
+            "\1\36",
+            "\1\37",
+            "\1\40",
+            "\1\41",
+            "\1\42",
+            "\1\43",
+            "\1\44",
             "\1\45",
             "\1\46",
-            "\1\47",
-            "\1\50",
+            "\12\17\7\uffff\32\17\1\uffff\1\17\4\uffff\32\17",
+            "\12\17\7\uffff\32\17\1\uffff\1\17\4\uffff\32\17",
             "\1\51",
-            "\1\40\26\uffff\1\37\2\uffff\1\5\70\uffff\1\41",
-            "\1\40\26\uffff\1\37\2\uffff\1\5\70\uffff\1\41",
-            "\1\14\2\uffff\1\14",
-            "\1\16\26\uffff\1\15\73\uffff\1\17\7\uffff\1\23\1\20\3\uffff\1\24\6\uffff\1\21\4\uffff\1\22",
-            "\1\uffff",
-            "",
             "\1\52",
-            "\1\53",
-            "\1\54",
-            "\1\55",
-            "\1\56",
-            "\1\57",
-            "\1\60",
-            "\1\61",
-            "\1\62",
-            "\1\63",
-            "\1\64",
-            "\1\65",
-            "\1\66",
-            "\1\67",
-            "\1\70",
-            "\1\72\26\uffff\1\71\73\uffff\1\73",
-            "\1\74",
-            "\1\76\26\uffff\1\75\73\uffff\1\77",
-            "\1\100",
-            "\1\101",
-            "\11\7\1\72\1\uffff\2\7\1\uffff\22\7\1\71\73\7\1\73\uffa3\7",
-            "\11\7\1\72\1\uffff\2\7\1\uffff\22\7\1\71\73\7\1\73\uffa3\7",
-            "\1\20\2\uffff\1\20",
-            "\1\105\26\uffff\1\104\73\uffff\1\106",
-            "\11\7\1\76\1\uffff\2\7\1\uffff\22\7\1\75\73\7\1\77\uffa3\7",
-            "\11\7\1\76\1\uffff\2\7\1\uffff\22\7\1\75\73\7\1\77\uffa3\7",
-            "\1\22\2\uffff\1\22",
-            "\1\112\26\uffff\1\111\73\uffff\1\113",
-            "\1\114",
-            "\1\uffff",
-            "\1\uffff",
-            "\11\7\1\105\1\uffff\2\7\1\uffff\22\7\1\104\73\7\1\106\uffa3\7",
-            "\11\7\1\105\1\uffff\2\7\1\uffff\22\7\1\104\73\7\1\106\uffa3\7",
-            "\1\21\2\uffff\1\21",
-            "\1\uffff",
-            "\1\uffff",
-            "\11\7\1\112\1\uffff\2\7\1\uffff\22\7\1\111\73\7\1\113\uffa3\7",
-            "\11\7\1\112\1\uffff\2\7\1\uffff\22\7\1\111\73\7\1\113\uffa3\7",
-            "\1\23\2\uffff\1\23",
-            "\1\122\26\uffff\1\121\73\uffff\1\123",
-            "\1\uffff",
-            "\1\uffff",
-            "\1\uffff",
-            "\1\uffff",
-            "\11\7\1\122\1\uffff\2\7\1\uffff\22\7\1\121\73\7\1\123\uffa3\7",
-            "\11\7\1\122\1\uffff\2\7\1\uffff\22\7\1\121\73\7\1\123\uffa3\7",
-            "\1\24\2\uffff\1\24",
-            "\1\uffff",
-            "\1\uffff"
+            "\12\17\7\uffff\32\17\1\uffff\1\17\4\uffff\32\17",
+            "",
+            "",
+            "\12\17\7\uffff\32\17\1\uffff\1\17\4\uffff\32\17",
+            "\12\17\7\uffff\32\17\1\uffff\1\17\4\uffff\32\17",
+            "",
+            "",
+            ""
     };
 
-    static final short[] DFA19_eot = DFA.unpackEncodedString(DFA19_eotS);
-    static final short[] DFA19_eof = DFA.unpackEncodedString(DFA19_eofS);
-    static final char[] DFA19_min = DFA.unpackEncodedStringToUnsignedChars(DFA19_minS);
-    static final char[] DFA19_max = DFA.unpackEncodedStringToUnsignedChars(DFA19_maxS);
-    static final short[] DFA19_accept = DFA.unpackEncodedString(DFA19_acceptS);
-    static final short[] DFA19_special = DFA.unpackEncodedString(DFA19_specialS);
-    static final short[][] DFA19_transition;
+    static final short[] DFA5_eot = DFA.unpackEncodedString(DFA5_eotS);
+    static final short[] DFA5_eof = DFA.unpackEncodedString(DFA5_eofS);
+    static final char[] DFA5_min = DFA.unpackEncodedStringToUnsignedChars(DFA5_minS);
+    static final char[] DFA5_max = DFA.unpackEncodedStringToUnsignedChars(DFA5_maxS);
+    static final short[] DFA5_accept = DFA.unpackEncodedString(DFA5_acceptS);
+    static final short[] DFA5_special = DFA.unpackEncodedString(DFA5_specialS);
+    static final short[][] DFA5_transition;
 
     static {
-        int numStates = DFA19_transitionS.length;
-        DFA19_transition = new short[numStates][];
+        int numStates = DFA5_transitionS.length;
+        DFA5_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA19_transition[i] = DFA.unpackEncodedString(DFA19_transitionS[i]);
+            DFA5_transition[i] = DFA.unpackEncodedString(DFA5_transitionS[i]);
         }
     }
 
-    class DFA19 extends DFA {
+    class DFA5 extends DFA {
 
-        public DFA19(BaseRecognizer recognizer) {
+        public DFA5(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 19;
-            this.eot = DFA19_eot;
-            this.eof = DFA19_eof;
-            this.min = DFA19_min;
-            this.max = DFA19_max;
-            this.accept = DFA19_accept;
-            this.special = DFA19_special;
-            this.transition = DFA19_transition;
+            this.decisionNumber = 5;
+            this.eot = DFA5_eot;
+            this.eof = DFA5_eof;
+            this.min = DFA5_min;
+            this.max = DFA5_max;
+            this.accept = DFA5_accept;
+            this.special = DFA5_special;
+            this.transition = DFA5_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( RULE_NEWLINE | RULE_DEFINE | RULE_UNDEF | RULE_INCLUDE | RULE_ERROR | RULE_PRAGMA | RULE_ID | RULE_MYCODE );";
+            return "1:1: Tokens : ( RULE_HASH | RULE_INCLUDE | RULE_DEFINE | RULE_ERROR | RULE_UNDEF | RULE_PRAGMA | RULE_NEWLINE | RULE_WS | RULE_ID | RULE_SPECIAL );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA19_38 = input.LA(1);
+                        int LA5_0 = input.LA(1);
 
-                         
-                        int index19_38 = input.index();
-                        input.rewind();
                         s = -1;
-                        if ( (LA19_38=='a') ) {s = 43;}
+                        if ( (LA5_0=='#') ) {s = 1;}
 
-                        else s = 7;
+                        else if ( (LA5_0=='i') ) {s = 2;}
 
-                         
-                        input.seek(index19_38);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
-                        int LA19_74 = input.LA(1);
+                        else if ( (LA5_0=='d') ) {s = 3;}
 
-                         
-                        int index19_74 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_74==' ') ) {s = 73;}
-
-                        else if ( (LA19_74=='\t') ) {s = 74;}
-
-                        else if ( (LA19_74=='\\') ) {s = 75;}
-
-                        else if ( ((LA19_74>='\u0000' && LA19_74<='\b')||(LA19_74>='\u000B' && LA19_74<='\f')||(LA19_74>='\u000E' && LA19_74<='\u001F')||(LA19_74>='!' && LA19_74<='[')||(LA19_74>=']' && LA19_74<='\uFFFF')) && ((at.jku.weiner.cpreprocess.utils.PreLine.checkIfIsCode(input)))) {s = 7;}
-
-                        else s = 80;
-
-                         
-                        input.seek(index19_74);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
-                        int LA19_27 = input.LA(1);
-
-                         
-                        int index19_27 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_27=='r') ) {s = 38;}
-
-                        else s = 7;
-
-                         
-                        input.seek(index19_27);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 3 : 
-                        int LA19_48 = input.LA(1);
-
-                         
-                        int index19_48 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_48=='m') ) {s = 53;}
-
-                        else s = 7;
-
-                         
-                        input.seek(index19_48);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 4 : 
-                        int LA19_43 = input.LA(1);
-
-                         
-                        int index19_43 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_43=='g') ) {s = 48;}
-
-                        else s = 7;
-
-                         
-                        input.seek(index19_43);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 5 : 
-                        int LA19_75 = input.LA(1);
-
-                         
-                        int index19_75 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_75=='\n'||LA19_75=='\r') ) {s = 19;}
-
-                        else s = 7;
-
-                         
-                        input.seek(index19_75);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 6 : 
-                        int LA19_58 = input.LA(1);
-
-                         
-                        int index19_58 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_58==' ') ) {s = 57;}
-
-                        else if ( (LA19_58=='\t') ) {s = 58;}
-
-                        else if ( (LA19_58=='\\') ) {s = 59;}
-
-                        else if ( ((LA19_58>='\u0000' && LA19_58<='\b')||(LA19_58>='\u000B' && LA19_58<='\f')||(LA19_58>='\u000E' && LA19_58<='\u001F')||(LA19_58>='!' && LA19_58<='[')||(LA19_58>=']' && LA19_58<='\uFFFF')) && ((at.jku.weiner.cpreprocess.utils.PreLine.checkIfIsCode(input)))) {s = 7;}
-
-                        else s = 67;
-
-                         
-                        input.seek(index19_58);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 7 : 
-                        int LA19_53 = input.LA(1);
-
-                         
-                        int index19_53 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_53=='a') ) {s = 60;}
-
-                        else s = 7;
-
-                         
-                        input.seek(index19_53);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 8 : 
-                        int LA19_11 = input.LA(1);
-
-                         
-                        int index19_11 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_11=='\n'||LA19_11=='\r') ) {s = 12;}
-
-                        else s = 7;
-
-                         
-                        input.seek(index19_11);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 9 : 
-                        int LA19_25 = input.LA(1);
-
-                         
-                        int index19_25 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_25=='\n'||LA19_25=='\r') ) {s = 34;}
-
-                        else s = 7;
-
-                         
-                        input.seek(index19_25);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 10 : 
-                        int LA19_2 = input.LA(1);
-
-                         
-                        int index19_2 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_2=='#') ) {s = 8;}
-
-                        else if ( (LA19_2==' ') ) {s = 9;}
-
-                        else if ( (LA19_2=='\t') ) {s = 10;}
-
-                        else if ( (LA19_2=='\\') ) {s = 11;}
-
-                        else s = 7;
-
-                         
-                        input.seek(index19_2);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 11 : 
-                        int LA19_8 = input.LA(1);
-
-                         
-                        int index19_8 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_8==' ') ) {s = 23;}
-
-                        else if ( (LA19_8=='\t') ) {s = 24;}
-
-                        else if ( (LA19_8=='\\') ) {s = 25;}
-
-                        else if ( (LA19_8=='e') ) {s = 26;}
-
-                        else if ( (LA19_8=='p') ) {s = 27;}
-
-                        else if ( (LA19_8=='u') ) {s = 28;}
-
-                        else if ( (LA19_8=='d') ) {s = 29;}
-
-                        else if ( (LA19_8=='i') ) {s = 30;}
-
-                        else s = 7;
-
-                         
-                        input.seek(index19_8);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 12 : 
-                        int LA19_47 = input.LA(1);
-
-                         
-                        int index19_47 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_47=='r') ) {s = 52;}
-
-                        else s = 7;
-
-                         
-                        input.seek(index19_47);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 13 : 
-                        int LA19_21 = input.LA(1);
-
-                         
-                        int index19_21 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_21=='$'||(LA19_21>='0' && LA19_21<='9')||(LA19_21>='A' && LA19_21<='Z')||LA19_21=='_'||(LA19_21>='a' && LA19_21<='z')) ) {s = 21;}
-
-                        else if ( ((LA19_21>='\u0000' && LA19_21<='\t')||(LA19_21>='\u000B' && LA19_21<='\f')||(LA19_21>='\u000E' && LA19_21<='#')||(LA19_21>='%' && LA19_21<='/')||(LA19_21>=':' && LA19_21<='@')||(LA19_21>='[' && LA19_21<='^')||LA19_21=='`'||(LA19_21>='{' && LA19_21<='\uFFFF')) && ((at.jku.weiner.cpreprocess.utils.PreLine.checkIfIsCode(input)))) {s = 7;}
-
-                        else s = 35;
-
-                         
-                        input.seek(index19_21);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 14 : 
-                        int LA19_42 = input.LA(1);
-
-                         
-                        int index19_42 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_42=='o') ) {s = 47;}
-
-                        else s = 7;
-
-                         
-                        input.seek(index19_42);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 15 : 
-                        int LA19_61 = input.LA(1);
-
-                         
-                        int index19_61 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_61==' ') ) {s = 61;}
-
-                        else if ( (LA19_61=='\t') ) {s = 62;}
-
-                        else if ( (LA19_61=='\\') ) {s = 63;}
-
-                        else if ( ((LA19_61>='\u0000' && LA19_61<='\b')||(LA19_61>='\u000B' && LA19_61<='\f')||(LA19_61>='\u000E' && LA19_61<='\u001F')||(LA19_61>='!' && LA19_61<='[')||(LA19_61>=']' && LA19_61<='\uFFFF')) && ((at.jku.weiner.cpreprocess.utils.PreLine.checkIfIsCode(input)))) {s = 7;}
-
-                        else s = 71;
-
-                         
-                        input.seek(index19_61);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 16 : 
-                        int LA19_37 = input.LA(1);
-
-                         
-                        int index19_37 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_37=='r') ) {s = 42;}
-
-                        else s = 7;
-
-                         
-                        input.seek(index19_37);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 17 : 
-                        int LA19_26 = input.LA(1);
-
-                         
-                        int index19_26 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_26=='r') ) {s = 37;}
-
-                        else s = 7;
-
-                         
-                        input.seek(index19_26);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 18 : 
-                        int LA19_10 = input.LA(1);
-
-                         
-                        int index19_10 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_10=='#') ) {s = 8;}
-
-                        else if ( (LA19_10==' ') ) {s = 9;}
-
-                        else if ( (LA19_10=='\t') ) {s = 10;}
-
-                        else if ( (LA19_10=='\\') ) {s = 11;}
-
-                        else s = 7;
-
-                         
-                        input.seek(index19_10);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 19 : 
-                        int LA19_69 = input.LA(1);
-
-                         
-                        int index19_69 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_69==' ') ) {s = 68;}
-
-                        else if ( (LA19_69=='\t') ) {s = 69;}
-
-                        else if ( (LA19_69=='\\') ) {s = 70;}
-
-                        else if ( ((LA19_69>='\u0000' && LA19_69<='\b')||(LA19_69>='\u000B' && LA19_69<='\f')||(LA19_69>='\u000E' && LA19_69<='\u001F')||(LA19_69>='!' && LA19_69<='[')||(LA19_69>=']' && LA19_69<='\uFFFF')) && ((at.jku.weiner.cpreprocess.utils.PreLine.checkIfIsCode(input)))) {s = 7;}
-
-                        else s = 78;
-
-                         
-                        input.seek(index19_69);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 20 : 
-                        int LA19_56 = input.LA(1);
-
-                         
-                        int index19_56 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_56=='d') ) {s = 65;}
-
-                        else s = 7;
-
-                         
-                        input.seek(index19_56);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 21 : 
-                        int LA19_73 = input.LA(1);
-
-                         
-                        int index19_73 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_73==' ') ) {s = 73;}
-
-                        else if ( (LA19_73=='\t') ) {s = 74;}
-
-                        else if ( (LA19_73=='\\') ) {s = 75;}
-
-                        else if ( ((LA19_73>='\u0000' && LA19_73<='\b')||(LA19_73>='\u000B' && LA19_73<='\f')||(LA19_73>='\u000E' && LA19_73<='\u001F')||(LA19_73>='!' && LA19_73<='[')||(LA19_73>=']' && LA19_73<='\uFFFF')) && ((at.jku.weiner.cpreprocess.utils.PreLine.checkIfIsCode(input)))) {s = 7;}
-
-                        else s = 79;
-
-                         
-                        input.seek(index19_73);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 22 : 
-                        int LA19_65 = input.LA(1);
-
-                         
-                        int index19_65 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_65=='e') ) {s = 76;}
-
-                        else s = 7;
-
-                         
-                        input.seek(index19_65);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 23 : 
-                        int LA19_46 = input.LA(1);
-
-                         
-                        int index19_46 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_46=='l') ) {s = 51;}
-
-                        else s = 7;
-
-                         
-                        input.seek(index19_46);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 24 : 
-                        int LA19_51 = input.LA(1);
-
-                         
-                        int index19_51 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_51=='u') ) {s = 56;}
-
-                        else s = 7;
-
-                         
-                        input.seek(index19_51);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 25 : 
-                        int LA19_68 = input.LA(1);
-
-                         
-                        int index19_68 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_68==' ') ) {s = 68;}
-
-                        else if ( (LA19_68=='\t') ) {s = 69;}
-
-                        else if ( (LA19_68=='\\') ) {s = 70;}
-
-                        else if ( ((LA19_68>='\u0000' && LA19_68<='\b')||(LA19_68>='\u000B' && LA19_68<='\f')||(LA19_68>='\u000E' && LA19_68<='\u001F')||(LA19_68>='!' && LA19_68<='[')||(LA19_68>=']' && LA19_68<='\uFFFF')) && ((at.jku.weiner.cpreprocess.utils.PreLine.checkIfIsCode(input)))) {s = 7;}
-
-                        else s = 77;
-
-                         
-                        input.seek(index19_68);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 26 : 
-                        int LA19_62 = input.LA(1);
-
-                         
-                        int index19_62 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_62==' ') ) {s = 61;}
-
-                        else if ( (LA19_62=='\t') ) {s = 62;}
-
-                        else if ( (LA19_62=='\\') ) {s = 63;}
-
-                        else if ( ((LA19_62>='\u0000' && LA19_62<='\b')||(LA19_62>='\u000B' && LA19_62<='\f')||(LA19_62>='\u000E' && LA19_62<='\u001F')||(LA19_62>='!' && LA19_62<='[')||(LA19_62>=']' && LA19_62<='\uFFFF')) && ((at.jku.weiner.cpreprocess.utils.PreLine.checkIfIsCode(input)))) {s = 7;}
-
-                        else s = 72;
-
-                         
-                        input.seek(index19_62);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 27 : 
-                        int LA19_41 = input.LA(1);
-
-                         
-                        int index19_41 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_41=='c') ) {s = 46;}
-
-                        else s = 7;
-
-                         
-                        input.seek(index19_41);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 28 : 
-                        int LA19_60 = input.LA(1);
-
-                         
-                        int index19_60 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_60==' ') ) {s = 68;}
-
-                        else if ( (LA19_60=='\t') ) {s = 69;}
-
-                        else if ( (LA19_60=='\\') ) {s = 70;}
-
-                        else s = 7;
-
-                         
-                        input.seek(index19_60);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 29 : 
-                        int LA19_30 = input.LA(1);
-
-                         
-                        int index19_30 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_30=='n') ) {s = 41;}
-
-                        else s = 7;
-
-                         
-                        input.seek(index19_30);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 30 : 
-                        int LA19_80 = input.LA(1);
-
-                         
-                        int index19_80 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (!(((at.jku.weiner.cpreprocess.utils.PreLine.checkIfIsCode(input))))) ) {s = 19;}
-
-                        else if ( ((at.jku.weiner.cpreprocess.utils.PreLine.checkIfIsCode(input))) ) {s = 7;}
-
-                         
-                        input.seek(index19_80);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 31 : 
-                        int LA19_79 = input.LA(1);
-
-                         
-                        int index19_79 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (!(((at.jku.weiner.cpreprocess.utils.PreLine.checkIfIsCode(input))))) ) {s = 19;}
-
-                        else if ( ((at.jku.weiner.cpreprocess.utils.PreLine.checkIfIsCode(input))) ) {s = 7;}
-
-                         
-                        input.seek(index19_79);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 32 : 
-                        int LA19_72 = input.LA(1);
-
-                         
-                        int index19_72 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (!(((at.jku.weiner.cpreprocess.utils.PreLine.checkIfIsCode(input))))) ) {s = 18;}
-
-                        else if ( ((at.jku.weiner.cpreprocess.utils.PreLine.checkIfIsCode(input))) ) {s = 7;}
-
-                         
-                        input.seek(index19_72);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 33 : 
-                        int LA19_71 = input.LA(1);
-
-                         
-                        int index19_71 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (!(((at.jku.weiner.cpreprocess.utils.PreLine.checkIfIsCode(input))))) ) {s = 18;}
-
-                        else if ( ((at.jku.weiner.cpreprocess.utils.PreLine.checkIfIsCode(input))) ) {s = 7;}
-
-                         
-                        input.seek(index19_71);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 34 : 
-                        int LA19_24 = input.LA(1);
-
-                         
-                        int index19_24 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_24=='d') ) {s = 29;}
-
-                        else if ( (LA19_24==' ') ) {s = 23;}
+                        else if ( (LA5_0=='e') ) {s = 4;}
 
-                        else if ( (LA19_24=='\t') ) {s = 24;}
+                        else if ( (LA5_0=='u') ) {s = 5;}
 
-                        else if ( (LA19_24=='\\') ) {s = 25;}
+                        else if ( (LA5_0=='p') ) {s = 6;}
 
-                        else if ( (LA19_24=='u') ) {s = 28;}
+                        else if ( (LA5_0=='\n'||LA5_0=='\r') ) {s = 7;}
 
-                        else if ( (LA19_24=='p') ) {s = 27;}
-
-                        else if ( (LA19_24=='i') ) {s = 30;}
-
-                        else if ( (LA19_24=='e') ) {s = 26;}
-
-                        else s = 7;
-
-                         
-                        input.seek(index19_24);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 35 : 
-                        int LA19_57 = input.LA(1);
-
-                         
-                        int index19_57 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_57==' ') ) {s = 57;}
-
-                        else if ( (LA19_57=='\t') ) {s = 58;}
-
-                        else if ( (LA19_57=='\\') ) {s = 59;}
-
-                        else if ( ((LA19_57>='\u0000' && LA19_57<='\b')||(LA19_57>='\u000B' && LA19_57<='\f')||(LA19_57>='\u000E' && LA19_57<='\u001F')||(LA19_57>='!' && LA19_57<='[')||(LA19_57>=']' && LA19_57<='\uFFFF')) && ((at.jku.weiner.cpreprocess.utils.PreLine.checkIfIsCode(input)))) {s = 7;}
-
-                        else s = 66;
-
-                         
-                        input.seek(index19_57);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 36 : 
-                        int LA19_78 = input.LA(1);
-
-                         
-                        int index19_78 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (!(((at.jku.weiner.cpreprocess.utils.PreLine.checkIfIsCode(input))))) ) {s = 17;}
-
-                        else if ( ((at.jku.weiner.cpreprocess.utils.PreLine.checkIfIsCode(input))) ) {s = 7;}
-
-                         
-                        input.seek(index19_78);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 37 : 
-                        int LA19_77 = input.LA(1);
-
-                         
-                        int index19_77 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (!(((at.jku.weiner.cpreprocess.utils.PreLine.checkIfIsCode(input))))) ) {s = 17;}
-
-                        else if ( ((at.jku.weiner.cpreprocess.utils.PreLine.checkIfIsCode(input))) ) {s = 7;}
-
-                         
-                        input.seek(index19_77);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 38 : 
-                        int LA19_22 = input.LA(1);
-
-                         
-                        int index19_22 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (!(((at.jku.weiner.cpreprocess.utils.PreLine.checkIfIsCode(input))))) ) {s = 36;}
-
-                        else if ( ((at.jku.weiner.cpreprocess.utils.PreLine.checkIfIsCode(input))) ) {s = 7;}
-
-                         
-                        input.seek(index19_22);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 39 : 
-                        int LA19_35 = input.LA(1);
-
-                         
-                        int index19_35 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (!(((at.jku.weiner.cpreprocess.utils.PreLine.checkIfIsCode(input))))) ) {s = 36;}
-
-                        else if ( ((at.jku.weiner.cpreprocess.utils.PreLine.checkIfIsCode(input))) ) {s = 7;}
-
-                         
-                        input.seek(index19_35);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 40 : 
-                        int LA19_85 = input.LA(1);
-
-                         
-                        int index19_85 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (!(((at.jku.weiner.cpreprocess.utils.PreLine.checkIfIsCode(input))))) ) {s = 20;}
-
-                        else if ( ((at.jku.weiner.cpreprocess.utils.PreLine.checkIfIsCode(input))) ) {s = 7;}
-
-                         
-                        input.seek(index19_85);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 41 : 
-                        int LA19_84 = input.LA(1);
-
-                         
-                        int index19_84 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (!(((at.jku.weiner.cpreprocess.utils.PreLine.checkIfIsCode(input))))) ) {s = 20;}
-
-                        else if ( ((at.jku.weiner.cpreprocess.utils.PreLine.checkIfIsCode(input))) ) {s = 7;}
-
-                         
-                        input.seek(index19_84);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 42 : 
-                        int LA19_67 = input.LA(1);
-
-                         
-                        int index19_67 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (!(((at.jku.weiner.cpreprocess.utils.PreLine.checkIfIsCode(input))))) ) {s = 16;}
-
-                        else if ( ((at.jku.weiner.cpreprocess.utils.PreLine.checkIfIsCode(input))) ) {s = 7;}
-
-                         
-                        input.seek(index19_67);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 43 : 
-                        int LA19_66 = input.LA(1);
-
-                         
-                        int index19_66 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (!(((at.jku.weiner.cpreprocess.utils.PreLine.checkIfIsCode(input))))) ) {s = 16;}
-
-                        else if ( ((at.jku.weiner.cpreprocess.utils.PreLine.checkIfIsCode(input))) ) {s = 7;}
-
-                         
-                        input.seek(index19_66);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 44 : 
-                        int LA19_6 = input.LA(1);
-
-                         
-                        int index19_6 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_6=='$'||(LA19_6>='0' && LA19_6<='9')||(LA19_6>='A' && LA19_6<='Z')||LA19_6=='_'||(LA19_6>='a' && LA19_6<='z')) ) {s = 21;}
-
-                        else if ( ((LA19_6>='\u0000' && LA19_6<='\t')||(LA19_6>='\u000B' && LA19_6<='\f')||(LA19_6>='\u000E' && LA19_6<='#')||(LA19_6>='%' && LA19_6<='/')||(LA19_6>=':' && LA19_6<='@')||(LA19_6>='[' && LA19_6<='^')||LA19_6=='`'||(LA19_6>='{' && LA19_6<='\uFFFF')) && ((at.jku.weiner.cpreprocess.utils.PreLine.checkIfIsCode(input)))) {s = 7;}
-
-                        else s = 22;
-
-                         
-                        input.seek(index19_6);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 45 : 
-                        int LA19_49 = input.LA(1);
-
-                         
-                        int index19_49 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_49=='f') ) {s = 54;}
-
-                        else s = 7;
-
-                         
-                        input.seek(index19_49);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 46 : 
-                        int LA19_52 = input.LA(1);
-
-                         
-                        int index19_52 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_52==' ') ) {s = 57;}
-
-                        else if ( (LA19_52=='\t') ) {s = 58;}
-
-                        else if ( (LA19_52=='\\') ) {s = 59;}
-
-                        else s = 7;
-
-                         
-                        input.seek(index19_52);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 47 : 
-                        int LA19_9 = input.LA(1);
-
-                         
-                        int index19_9 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_9=='#') ) {s = 8;}
-
-                        else if ( (LA19_9==' ') ) {s = 9;}
-
-                        else if ( (LA19_9=='\t') ) {s = 10;}
-
-                        else if ( (LA19_9=='\\') ) {s = 11;}
-
-                        else s = 7;
-
-                         
-                        input.seek(index19_9);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 48 : 
-                        int LA19_28 = input.LA(1);
-
-                         
-                        int index19_28 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_28=='n') ) {s = 39;}
-
-                        else s = 7;
-
-                         
-                        input.seek(index19_28);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 49 : 
-                        int LA19_39 = input.LA(1);
-
-                         
-                        int index19_39 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_39=='d') ) {s = 44;}
-
-                        else s = 7;
-
-                         
-                        input.seek(index19_39);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 50 : 
-                        int LA19_44 = input.LA(1);
-
-                         
-                        int index19_44 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_44=='e') ) {s = 49;}
-
-                        else s = 7;
-
-                         
-                        input.seek(index19_44);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 51 : 
-                        int LA19_64 = input.LA(1);
-
-                         
-                        int index19_64 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_64==' ') ) {s = 73;}
-
-                        else if ( (LA19_64=='\t') ) {s = 74;}
-
-                        else if ( (LA19_64=='\\') ) {s = 75;}
-
-                        else s = 7;
-
-                         
-                        input.seek(index19_64);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 52 : 
-                        int LA19_70 = input.LA(1);
-
-                         
-                        int index19_70 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_70=='\n'||LA19_70=='\r') ) {s = 17;}
-
-                        else s = 7;
-
-                         
-                        input.seek(index19_70);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 53 : 
-                        int LA19_0 = input.LA(1);
-
-                         
-                        int index19_0 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_0=='\n'||LA19_0=='\r') ) {s = 1;}
-
-                        else if ( (LA19_0==' ') ) {s = 2;}
-
-                        else if ( (LA19_0=='\t') ) {s = 3;}
-
-                        else if ( (LA19_0=='\\') ) {s = 4;}
-
-                        else if ( (LA19_0=='#') ) {s = 5;}
-
-                        else if ( (LA19_0=='$'||(LA19_0>='A' && LA19_0<='Z')||LA19_0=='_'||(LA19_0>='a' && LA19_0<='z')) ) {s = 6;}
-
-                        else if ( ((LA19_0>='\u0000' && LA19_0<='\b')||(LA19_0>='\u000B' && LA19_0<='\f')||(LA19_0>='\u000E' && LA19_0<='\u001F')||(LA19_0>='!' && LA19_0<='\"')||(LA19_0>='%' && LA19_0<='@')||LA19_0=='['||(LA19_0>=']' && LA19_0<='^')||LA19_0=='`'||(LA19_0>='{' && LA19_0<='\uFFFF')) && ((at.jku.weiner.cpreprocess.utils.PreLine.checkIfIsCode(input)))) {s = 7;}
-
-                         
-                        input.seek(index19_0);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 54 : 
-                        int LA19_4 = input.LA(1);
-
-                         
-                        int index19_4 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_4=='\n'||LA19_4=='\r') ) {s = 12;}
-
-                        else s = 7;
-
-                         
-                        input.seek(index19_4);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 55 : 
-                        int LA19_82 = input.LA(1);
-
-                         
-                        int index19_82 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_82==' ') ) {s = 81;}
-
-                        else if ( (LA19_82=='\t') ) {s = 82;}
-
-                        else if ( (LA19_82=='\\') ) {s = 83;}
-
-                        else if ( ((LA19_82>='\u0000' && LA19_82<='\b')||(LA19_82>='\u000B' && LA19_82<='\f')||(LA19_82>='\u000E' && LA19_82<='\u001F')||(LA19_82>='!' && LA19_82<='[')||(LA19_82>=']' && LA19_82<='\uFFFF')) && ((at.jku.weiner.cpreprocess.utils.PreLine.checkIfIsCode(input)))) {s = 7;}
-
-                        else s = 85;
-
-                         
-                        input.seek(index19_82);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 56 : 
-                        int LA19_59 = input.LA(1);
-
-                         
-                        int index19_59 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_59=='\n'||LA19_59=='\r') ) {s = 16;}
-
-                        else s = 7;
-
-                         
-                        input.seek(index19_59);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 57 : 
-                        int LA19_3 = input.LA(1);
-
-                         
-                        int index19_3 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_3=='#') ) {s = 8;}
-
-                        else if ( (LA19_3==' ') ) {s = 9;}
-
-                        else if ( (LA19_3=='\t') ) {s = 10;}
-
-                        else if ( (LA19_3=='\\') ) {s = 11;}
-
-                        else s = 7;
-
-                         
-                        input.seek(index19_3);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 58 : 
-                        int LA19_23 = input.LA(1);
-
-                         
-                        int index19_23 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_23=='i') ) {s = 30;}
-
-                        else if ( (LA19_23==' ') ) {s = 23;}
-
-                        else if ( (LA19_23=='\t') ) {s = 24;}
-
-                        else if ( (LA19_23=='\\') ) {s = 25;}
-
-                        else if ( (LA19_23=='e') ) {s = 26;}
-
-                        else if ( (LA19_23=='p') ) {s = 27;}
-
-                        else if ( (LA19_23=='u') ) {s = 28;}
-
-                        else if ( (LA19_23=='d') ) {s = 29;}
-
-                        else s = 7;
-
-                         
-                        input.seek(index19_23);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 59 : 
-                        int LA19_54 = input.LA(1);
-
-                         
-                        int index19_54 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_54==' ') ) {s = 61;}
-
-                        else if ( (LA19_54=='\t') ) {s = 62;}
-
-                        else if ( (LA19_54=='\\') ) {s = 63;}
-
-                        else s = 7;
-
-                         
-                        input.seek(index19_54);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 60 : 
-                        int LA19_63 = input.LA(1);
-
-                         
-                        int index19_63 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_63=='\n'||LA19_63=='\r') ) {s = 18;}
-
-                        else s = 7;
-
-                         
-                        input.seek(index19_63);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 61 : 
-                        int LA19_76 = input.LA(1);
-
-                         
-                        int index19_76 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_76==' ') ) {s = 81;}
-
-                        else if ( (LA19_76=='\t') ) {s = 82;}
-
-                        else if ( (LA19_76=='\\') ) {s = 83;}
-
-                        else s = 7;
-
-                         
-                        input.seek(index19_76);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 62 : 
-                        int LA19_50 = input.LA(1);
-
-                         
-                        int index19_50 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_50=='n') ) {s = 55;}
-
-                        else s = 7;
-
-                         
-                        input.seek(index19_50);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 63 : 
-                        int LA19_55 = input.LA(1);
-
-                         
-                        int index19_55 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_55=='e') ) {s = 64;}
-
-                        else s = 7;
-
-                         
-                        input.seek(index19_55);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 64 : 
-                        int LA19_40 = input.LA(1);
-
-                         
-                        int index19_40 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_40=='f') ) {s = 45;}
-
-                        else s = 7;
-
-                         
-                        input.seek(index19_40);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 65 : 
-                        int LA19_45 = input.LA(1);
-
-                         
-                        int index19_45 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_45=='i') ) {s = 50;}
-
-                        else s = 7;
-
-                         
-                        input.seek(index19_45);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 66 : 
-                        int LA19_83 = input.LA(1);
-
-                         
-                        int index19_83 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_83=='\n'||LA19_83=='\r') ) {s = 20;}
-
-                        else s = 7;
-
-                         
-                        input.seek(index19_83);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 67 : 
-                        int LA19_29 = input.LA(1);
-
-                         
-                        int index19_29 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_29=='e') ) {s = 40;}
-
-                        else s = 7;
-
-                         
-                        input.seek(index19_29);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 68 : 
-                        int LA19_81 = input.LA(1);
-
-                         
-                        int index19_81 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA19_81==' ') ) {s = 81;}
+                        else if ( (LA5_0==' ') ) {s = 8;}
 
-                        else if ( (LA19_81=='\t') ) {s = 82;}
+                        else if ( (LA5_0=='\t') ) {s = 9;}
 
-                        else if ( (LA19_81=='\\') ) {s = 83;}
+                        else if ( (LA5_0=='\\') ) {s = 10;}
 
-                        else if ( ((LA19_81>='\u0000' && LA19_81<='\b')||(LA19_81>='\u000B' && LA19_81<='\f')||(LA19_81>='\u000E' && LA19_81<='\u001F')||(LA19_81>='!' && LA19_81<='[')||(LA19_81>=']' && LA19_81<='\uFFFF')) && ((at.jku.weiner.cpreprocess.utils.PreLine.checkIfIsCode(input)))) {s = 7;}
+                        else if ( ((LA5_0>='A' && LA5_0<='Z')||(LA5_0>='a' && LA5_0<='c')||(LA5_0>='f' && LA5_0<='h')||(LA5_0>='j' && LA5_0<='o')||(LA5_0>='q' && LA5_0<='t')||(LA5_0>='v' && LA5_0<='z')) ) {s = 11;}
 
-                        else s = 84;
+                        else if ( ((LA5_0>='\u0000' && LA5_0<='\b')||(LA5_0>='\u000B' && LA5_0<='\f')||(LA5_0>='\u000E' && LA5_0<='\u001F')||(LA5_0>='!' && LA5_0<='\"')||(LA5_0>='$' && LA5_0<='@')||LA5_0=='['||(LA5_0>=']' && LA5_0<='`')||(LA5_0>='{' && LA5_0<='\uFFFF')) ) {s = 12;}
 
-                         
-                        input.seek(index19_81);
                         if ( s>=0 ) return s;
                         break;
             }
             NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 19, _s, input);
+                new NoViableAltException(getDescription(), 5, _s, input);
             error(nvae);
             throw nvae;
         }

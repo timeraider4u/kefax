@@ -3,10 +3,11 @@
 package at.jku.weiner.cpreprocess
 language cPreprocess
 //----------------------------------------------------------------------
+split-lexer=true
 source file="res/Test0003_Error.h"
 //----------------------------------------------------------------------
 lexer-tokens
-	ERROR MYCODE NEWLINE
+	HASH ERROR WS SPECIAL ERROR WS ID SPECIAL +*2 NEWLINE
 //----------------------------------------------------------------------
 (Model
 	units+=

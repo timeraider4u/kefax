@@ -197,34 +197,6 @@ public interface CPreprocessPackage extends EPackage
   int DEFINE_DIRECTIVE_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link at.jku.weiner.cpreprocess.cPreprocess.impl.UnDefineDirectiveImpl <em>Un Define Directive</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see at.jku.weiner.cpreprocess.cPreprocess.impl.UnDefineDirectiveImpl
-   * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getUnDefineDirective()
-   * @generated
-   */
-  int UN_DEFINE_DIRECTIVE = 5;
-
-  /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UN_DEFINE_DIRECTIVE__ID = 0;
-
-  /**
-   * The number of structural features of the '<em>Un Define Directive</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UN_DEFINE_DIRECTIVE_FEATURE_COUNT = 1;
-
-  /**
    * The meta object id for the '{@link at.jku.weiner.cpreprocess.cPreprocess.impl.ErrorDirectiveImpl <em>Error Directive</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -232,7 +204,7 @@ public interface CPreprocessPackage extends EPackage
    * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getErrorDirective()
    * @generated
    */
-  int ERROR_DIRECTIVE = 6;
+  int ERROR_DIRECTIVE = 5;
 
   /**
    * The feature id for the '<em><b>Msg</b></em>' attribute.
@@ -251,6 +223,34 @@ public interface CPreprocessPackage extends EPackage
    * @ordered
    */
   int ERROR_DIRECTIVE_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link at.jku.weiner.cpreprocess.cPreprocess.impl.UnDefineDirectiveImpl <em>Un Define Directive</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.cpreprocess.cPreprocess.impl.UnDefineDirectiveImpl
+   * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getUnDefineDirective()
+   * @generated
+   */
+  int UN_DEFINE_DIRECTIVE = 6;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UN_DEFINE_DIRECTIVE__ID = 0;
+
+  /**
+   * The number of structural features of the '<em>Un Define Directive</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UN_DEFINE_DIRECTIVE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.cpreprocess.cPreprocess.impl.PragmaDirectiveImpl <em>Pragma Directive</em>}' class.
@@ -453,27 +453,6 @@ public interface CPreprocessPackage extends EPackage
   EAttribute getDefineDirective_String();
 
   /**
-   * Returns the meta object for class '{@link at.jku.weiner.cpreprocess.cPreprocess.UnDefineDirective <em>Un Define Directive</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Un Define Directive</em>'.
-   * @see at.jku.weiner.cpreprocess.cPreprocess.UnDefineDirective
-   * @generated
-   */
-  EClass getUnDefineDirective();
-
-  /**
-   * Returns the meta object for the attribute '{@link at.jku.weiner.cpreprocess.cPreprocess.UnDefineDirective#getId <em>Id</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Id</em>'.
-   * @see at.jku.weiner.cpreprocess.cPreprocess.UnDefineDirective#getId()
-   * @see #getUnDefineDirective()
-   * @generated
-   */
-  EAttribute getUnDefineDirective_Id();
-
-  /**
    * Returns the meta object for class '{@link at.jku.weiner.cpreprocess.cPreprocess.ErrorDirective <em>Error Directive</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -493,6 +472,27 @@ public interface CPreprocessPackage extends EPackage
    * @generated
    */
   EAttribute getErrorDirective_Msg();
+
+  /**
+   * Returns the meta object for class '{@link at.jku.weiner.cpreprocess.cPreprocess.UnDefineDirective <em>Un Define Directive</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Un Define Directive</em>'.
+   * @see at.jku.weiner.cpreprocess.cPreprocess.UnDefineDirective
+   * @generated
+   */
+  EClass getUnDefineDirective();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.cpreprocess.cPreprocess.UnDefineDirective#getId <em>Id</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Id</em>'.
+   * @see at.jku.weiner.cpreprocess.cPreprocess.UnDefineDirective#getId()
+   * @see #getUnDefineDirective()
+   * @generated
+   */
+  EAttribute getUnDefineDirective_Id();
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.cpreprocess.cPreprocess.PragmaDirective <em>Pragma Directive</em>}'.
@@ -670,24 +670,6 @@ public interface CPreprocessPackage extends EPackage
     EAttribute DEFINE_DIRECTIVE__STRING = eINSTANCE.getDefineDirective_String();
 
     /**
-     * The meta object literal for the '{@link at.jku.weiner.cpreprocess.cPreprocess.impl.UnDefineDirectiveImpl <em>Un Define Directive</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see at.jku.weiner.cpreprocess.cPreprocess.impl.UnDefineDirectiveImpl
-     * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getUnDefineDirective()
-     * @generated
-     */
-    EClass UN_DEFINE_DIRECTIVE = eINSTANCE.getUnDefineDirective();
-
-    /**
-     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute UN_DEFINE_DIRECTIVE__ID = eINSTANCE.getUnDefineDirective_Id();
-
-    /**
      * The meta object literal for the '{@link at.jku.weiner.cpreprocess.cPreprocess.impl.ErrorDirectiveImpl <em>Error Directive</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -704,6 +686,24 @@ public interface CPreprocessPackage extends EPackage
      * @generated
      */
     EAttribute ERROR_DIRECTIVE__MSG = eINSTANCE.getErrorDirective_Msg();
+
+    /**
+     * The meta object literal for the '{@link at.jku.weiner.cpreprocess.cPreprocess.impl.UnDefineDirectiveImpl <em>Un Define Directive</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.cpreprocess.cPreprocess.impl.UnDefineDirectiveImpl
+     * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getUnDefineDirective()
+     * @generated
+     */
+    EClass UN_DEFINE_DIRECTIVE = eINSTANCE.getUnDefineDirective();
+
+    /**
+     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute UN_DEFINE_DIRECTIVE__ID = eINSTANCE.getUnDefineDirective_Id();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.cpreprocess.cPreprocess.impl.PragmaDirectiveImpl <em>Pragma Directive</em>}' class.

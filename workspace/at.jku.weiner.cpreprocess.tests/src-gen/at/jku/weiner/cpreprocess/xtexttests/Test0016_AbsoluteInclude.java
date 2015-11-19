@@ -39,7 +39,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import at.jku.weiner.cpreprocess.tests.CPreprocessInjectorProvider;
 import at.jku.weiner.cpreprocess.parser.antlr.CPreprocessParser;
-import at.jku.weiner.cpreprocess.parser.antlr.internal.InternalCPreprocessLexer;
+import at.jku.weiner.cpreprocess.parser.antlr.lexer.InternalCPreprocessLexer;
 import at.jku.weiner.cpreprocess.xtexttests.LexerAndParserTest;
 
 import at.jku.weiner.cpreprocess.cPreprocess.Model;
@@ -101,17 +101,46 @@ public class Test0016_AbsoluteInclude {
 			"res/Test0016_AbsoluteInclude.c");
 			//System.out.println(text);
 			final String[] expected = new String[] {
+				"RULE_HASH", 
 				"RULE_INCLUDE", 
-				"RULE_MYCODE", 
+				"RULE_WS", 
+				"RULE_SPECIAL", 
+				"RULE_ID", 
+				"RULE_SPECIAL", 
+				"RULE_ID", 
+				"RULE_SPECIAL", 
 				"RULE_NEWLINE", 
 				"RULE_NEWLINE", 
-				"RULE_MYCODE", 
+				"RULE_ID", 
+				"RULE_WS", 
+				"RULE_ID", 
+				"RULE_SPECIAL", 
+				"RULE_ID", 
+				"RULE_SPECIAL", 
+				"RULE_WS", 
+				"RULE_SPECIAL", 
 				"RULE_NEWLINE", 
-				"RULE_MYCODE", 
+				"RULE_WS", 
+				"RULE_ID", 
+				"RULE_SPECIAL", 
+				"RULE_SPECIAL", 
+				"RULE_ID", 
+				"RULE_WS", 
+				"RULE_ID", 
+				"RULE_SPECIAL", 
+				"RULE_SPECIAL", 
+				"RULE_ID", 
+				"RULE_SPECIAL", 
+				"RULE_SPECIAL", 
+				"RULE_SPECIAL", 
 				"RULE_NEWLINE", 
-				"RULE_MYCODE", 
+				"RULE_WS", 
+				"RULE_ID", 
+				"RULE_WS", 
+				"RULE_SPECIAL", 
+				"RULE_SPECIAL", 
 				"RULE_NEWLINE", 
-				"RULE_MYCODE", 
+				"RULE_SPECIAL", 
 				"RULE_NEWLINE", 
 				"RULE_NEWLINE", 
 				};

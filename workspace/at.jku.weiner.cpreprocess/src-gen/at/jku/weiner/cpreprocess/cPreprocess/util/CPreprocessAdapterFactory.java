@@ -100,14 +100,14 @@ public class CPreprocessAdapterFactory extends AdapterFactoryImpl
         return createDefineDirectiveAdapter();
       }
       @Override
-      public Adapter caseUnDefineDirective(UnDefineDirective object)
-      {
-        return createUnDefineDirectiveAdapter();
-      }
-      @Override
       public Adapter caseErrorDirective(ErrorDirective object)
       {
         return createErrorDirectiveAdapter();
+      }
+      @Override
+      public Adapter caseUnDefineDirective(UnDefineDirective object)
+      {
+        return createUnDefineDirectiveAdapter();
       }
       @Override
       public Adapter casePragmaDirective(PragmaDirective object)
@@ -227,21 +227,6 @@ public class CPreprocessAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link at.jku.weiner.cpreprocess.cPreprocess.UnDefineDirective <em>Un Define Directive</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see at.jku.weiner.cpreprocess.cPreprocess.UnDefineDirective
-   * @generated
-   */
-  public Adapter createUnDefineDirectiveAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link at.jku.weiner.cpreprocess.cPreprocess.ErrorDirective <em>Error Directive</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -252,6 +237,21 @@ public class CPreprocessAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createErrorDirectiveAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.cpreprocess.cPreprocess.UnDefineDirective <em>Un Define Directive</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.cpreprocess.cPreprocess.UnDefineDirective
+   * @generated
+   */
+  public Adapter createUnDefineDirectiveAdapter()
   {
     return null;
   }

@@ -11,6 +11,6 @@ public class CPreprocessAntlrTokenFileProvider implements IAntlrTokenFileProvide
 	@Override
 	public InputStream getAntlrTokenFile() {
 		ClassLoader classLoader = getClass().getClassLoader();
-    	return classLoader.getResourceAsStream("at/jku/weiner/cpreprocess/parser/antlr/internal/InternalCPreprocess.tokens");
+    	return classLoader.getResourceAsStream("at/jku/weiner/cpreprocess/parser/antlr/internal/InternalCPreprocessParser.tokens");
 	}
 }

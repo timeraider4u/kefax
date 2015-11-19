@@ -3,11 +3,12 @@
 package at.jku.weiner.cpreprocess
 language cPreprocess
 //----------------------------------------------------------------------
+split-lexer=true
 source file="res/Test0006_SimpleInc.c"
 //----------------------------------------------------------------------
 lexer-tokens
-	INCLUDE MYCODE NEWLINE
-	INCLUDE MYCODE NEWLINE
+	HASH INCLUDE WS SPECIAL ID SPECIAL ID SPECIAL ID SPECIAL NEWLINE
+	HASH INCLUDE WS SPECIAL ID SPECIAL ID SPECIAL ID SPECIAL NEWLINE
 //----------------------------------------------------------------------
 (Model
 	units+=

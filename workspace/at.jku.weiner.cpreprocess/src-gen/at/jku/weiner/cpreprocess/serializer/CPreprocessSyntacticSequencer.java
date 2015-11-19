@@ -11,6 +11,8 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
+import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 
@@ -18,10 +20,24 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected CPreprocessGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_DefineDirective_WSTerminalRuleCall_2_p;
+	protected AbstractElementAlias match_DefineDirective_WSTerminalRuleCall_4_a;
+	protected AbstractElementAlias match_ErrorDirective_WSTerminalRuleCall_2_p;
+	protected AbstractElementAlias match_IncludeDirective_WSTerminalRuleCall_2_p;
+	protected AbstractElementAlias match_PreprocessorDirectives_WSTerminalRuleCall_1_a;
+	protected AbstractElementAlias match_PreprocessorDirectives_WSTerminalRuleCall_3_a;
+	protected AbstractElementAlias match_UnDefineDirective_WSTerminalRuleCall_2_p;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (CPreprocessGrammarAccess) access;
+		match_DefineDirective_WSTerminalRuleCall_2_p = new TokenAlias(true, false, grammarAccess.getDefineDirectiveAccess().getWSTerminalRuleCall_2());
+		match_DefineDirective_WSTerminalRuleCall_4_a = new TokenAlias(true, true, grammarAccess.getDefineDirectiveAccess().getWSTerminalRuleCall_4());
+		match_ErrorDirective_WSTerminalRuleCall_2_p = new TokenAlias(true, false, grammarAccess.getErrorDirectiveAccess().getWSTerminalRuleCall_2());
+		match_IncludeDirective_WSTerminalRuleCall_2_p = new TokenAlias(true, false, grammarAccess.getIncludeDirectiveAccess().getWSTerminalRuleCall_2());
+		match_PreprocessorDirectives_WSTerminalRuleCall_1_a = new TokenAlias(true, true, grammarAccess.getPreprocessorDirectivesAccess().getWSTerminalRuleCall_1());
+		match_PreprocessorDirectives_WSTerminalRuleCall_3_a = new TokenAlias(true, true, grammarAccess.getPreprocessorDirectivesAccess().getWSTerminalRuleCall_3());
+		match_UnDefineDirective_WSTerminalRuleCall_2_p = new TokenAlias(true, false, grammarAccess.getUnDefineDirectiveAccess().getWSTerminalRuleCall_2());
 	}
 	
 	@Override
@@ -30,6 +46,8 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getDEFINEToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getERRORRule())
 			return getERRORToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getHASHRule())
+			return getHASHToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getINCLUDERule())
 			return getINCLUDEToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getNEWLINERule())
@@ -38,54 +56,49 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getPRAGMAToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getUNDEFRule())
 			return getUNDEFToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getWSRule())
+			return getWSToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
 	/**
-	 * terminal DEFINE:	WS* HASH WS* 'define' WS+
-	 * 	{ {
-	 * 		at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(true);
-	 * 	} }
-	 * ;
+	 * terminal DEFINE: 'define';
 	 */
 	protected String getDEFINEToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
-		return "#define ";
+		return "define";
 	}
 	
 	/**
-	 * terminal ERROR:		WS* HASH WS* 'error' WS+ 
-	 * 	{ {
-	 * 		at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(false);
-	 * 	} }
-	 * ;
+	 * terminal ERROR: 'error';
 	 */
 	protected String getERRORToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
-		return "#error ";
+		return "error";
 	}
 	
 	/**
-	 * terminal INCLUDE:	WS* HASH WS* 'include' WS+ 
-	 * 	{ {
-	 * 		at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(false);
-	 * 	} }
-	 * ;
+	 * terminal HASH: '#';
+	 */
+	protected String getHASHToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "#";
+	}
+	
+	/**
+	 * terminal INCLUDE: 'include';
 	 */
 	protected String getINCLUDEToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
-		return "#include ";
+		return "include";
 	}
 	
 	/**
-	 * terminal NEWLINE: (CARRIAGERETURN | LINEFEED) 
-	 * 	{ { 
-	 * 		at.jku.weiner.cpreprocess.utils.PreLine.setNewLine();
-	 * 	} }
-	 * ;
+	 * terminal NEWLINE: (CARRIAGERETURN | LINEFEED) ;
 	 */
 	protected String getNEWLINEToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
@@ -94,29 +107,30 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	}
 	
 	/**
-	 * terminal PRAGMA:	WS* HASH WS* 'pragma' WS+
-	 * 	{ {
-	 * 		at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(true);
-	 * 	} }
-	 * ;
+	 * terminal PRAGMA: 'pragma';
 	 */
 	protected String getPRAGMAToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
-		return "#pragma ";
+		return "pragma";
 	}
 	
 	/**
-	 * terminal UNDEF:		WS* HASH WS* 'undef' WS+
-	 * 	{ {
-	 * 		at.jku.weiner.cpreprocess.utils.PreLine.setPreLine(true);
-	 * 	} }
-	 * ;
+	 * terminal UNDEF: 'undef';
 	 */
 	protected String getUNDEFToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
-		return "#undef ";
+		return "undef";
+	}
+	
+	/**
+	 * terminal WS: (SPACE | TAB | LINEBREAK);
+	 */
+	protected String getWSToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return " ";
 	}
 	
 	@Override
@@ -125,8 +139,107 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			acceptNodes(getLastNavigableState(), syntaxNodes);
+			if(match_DefineDirective_WSTerminalRuleCall_2_p.equals(syntax))
+				emit_DefineDirective_WSTerminalRuleCall_2_p(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_DefineDirective_WSTerminalRuleCall_4_a.equals(syntax))
+				emit_DefineDirective_WSTerminalRuleCall_4_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ErrorDirective_WSTerminalRuleCall_2_p.equals(syntax))
+				emit_ErrorDirective_WSTerminalRuleCall_2_p(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_IncludeDirective_WSTerminalRuleCall_2_p.equals(syntax))
+				emit_IncludeDirective_WSTerminalRuleCall_2_p(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_PreprocessorDirectives_WSTerminalRuleCall_1_a.equals(syntax))
+				emit_PreprocessorDirectives_WSTerminalRuleCall_1_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_PreprocessorDirectives_WSTerminalRuleCall_3_a.equals(syntax))
+				emit_PreprocessorDirectives_WSTerminalRuleCall_3_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_UnDefineDirective_WSTerminalRuleCall_2_p.equals(syntax))
+				emit_UnDefineDirective_WSTerminalRuleCall_2_p(semanticObject, getLastNavigableState(), syntaxNodes);
+			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
+	/**
+	 * Ambiguous syntax:
+	 *     WS+
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) DEFINE (ambiguity) id=ID
+	 */
+	protected void emit_DefineDirective_WSTerminalRuleCall_2_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     WS*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     id=ID (ambiguity) string=MyCodeLine
+	 */
+	protected void emit_DefineDirective_WSTerminalRuleCall_4_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     WS+
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) ERROR (ambiguity) msg=MyCodeLine
+	 */
+	protected void emit_ErrorDirective_WSTerminalRuleCall_2_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     WS+
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) INCLUDE (ambiguity) string=MyCodeLine
+	 */
+	protected void emit_IncludeDirective_WSTerminalRuleCall_2_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     WS*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) HASH WS* directive=DefineDirective
+	 *     (rule start) (ambiguity) HASH WS* directive=ErrorDirective
+	 *     (rule start) (ambiguity) HASH WS* directive=IncludeDirective
+	 *     (rule start) (ambiguity) HASH WS* directive=PragmaDirective
+	 *     (rule start) (ambiguity) HASH WS* directive=UnDefineDirective
+	 */
+	protected void emit_PreprocessorDirectives_WSTerminalRuleCall_1_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     WS*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) WS* HASH (ambiguity) directive=DefineDirective
+	 *     (rule start) WS* HASH (ambiguity) directive=ErrorDirective
+	 *     (rule start) WS* HASH (ambiguity) directive=IncludeDirective
+	 *     (rule start) WS* HASH (ambiguity) directive=PragmaDirective
+	 *     (rule start) WS* HASH (ambiguity) directive=UnDefineDirective
+	 */
+	protected void emit_PreprocessorDirectives_WSTerminalRuleCall_3_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     WS+
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) UNDEF (ambiguity) id=ID
+	 */
+	protected void emit_UnDefineDirective_WSTerminalRuleCall_2_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 }

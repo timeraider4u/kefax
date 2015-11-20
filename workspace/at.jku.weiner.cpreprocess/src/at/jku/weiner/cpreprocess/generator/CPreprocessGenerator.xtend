@@ -20,6 +20,8 @@ import at.jku.weiner.cpreprocess.cPreprocess.PragmaDirective
 import at.jku.weiner.cpreprocess.generator.DefinitionTable
 import org.eclipse.emf.ecore.resource.ResourceSet
 import org.eclipse.emf.common.util.URI
+import at.jku.weiner.cpreprocess.cPreprocess.GroupOpt
+import java.io.File
 
 /**
  * Generates code from your model files on save.
@@ -50,16 +52,21 @@ class CPreprocessGenerator implements IGenerator {
 	}
 
 	def String outputFor(TranslationUnit unit) {
-		val StringBuffer result = new StringBuffer("");		
-		for (l : unit.lines) {
-			if (l instanceof PreprocessorDirectives) {
-				result.append(outputFor(l as PreprocessorDirectives));
+		return outputFor(unit.group);
+	}
+	
+	def String outputFor(GroupOpt group) {
+		val StringBuffer result = new StringBuffer("");
+		for (obj : group.lines) {
+			if (obj instanceof PreprocessorDirectives) {
+				result.append(outputFor(obj as PreprocessorDirectives));
 			}
-			if (l instanceof NewLineLine) {
-				result.append(outputFor(l as NewLineLine));
+			if (obj instanceof NewLineLine) {
+				result.append(outputFor(obj as NewLineLine));
 			}
-			if (l instanceof Code) {
-				result.append(outputFor(l as Code));
+			if (obj instanceof Code) {
+				result.append(outputFor(obj as Code));
+				//result.append(File.separator);
 				result.append("\n");
 			}
 		}

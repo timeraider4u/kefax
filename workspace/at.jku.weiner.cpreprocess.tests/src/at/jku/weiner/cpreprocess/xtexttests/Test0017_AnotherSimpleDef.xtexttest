@@ -17,38 +17,42 @@ lexer-tokens
 (Model
 	units+=
 	(TranslationUnit
-		lines+=
-		(PreprocessorDirectives
-			directive=
-			(DefineDirective
-				id++"A01",
-				string++"a01"
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineDirective
+					id++"A01",
+					string++"a01"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineDirective
+					id++"BIG_NUMBER",
+					string++"5"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineDirective
+					id++"__INT__",
+					string++"int"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineDirective
+					id++"_NUMBER",
+					string++"15"
+				)
+			),
+			(NewLineLine),
+			(Code
+				code++"__INT__ A01 = BIG_NUMBER + _NUMBER;"
 			)
-		),
-		(PreprocessorDirectives
-			directive=
-			(DefineDirective
-				id++"BIG_NUMBER",
-				string++"5"
-			)
-		),
-		(PreprocessorDirectives
-			directive=
-			(DefineDirective
-				id++"__INT__",
-				string++"int"
-			)
-		),
-		(PreprocessorDirectives
-			directive=
-			(DefineDirective
-				id++"_NUMBER",
-				string++"15"
-			)
-		),
-		(NewLineLine),
-		(Code
-			code++"__INT__ A01 = BIG_NUMBER + _NUMBER;"
+			
 		)
 	)
 )

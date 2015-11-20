@@ -41,6 +41,15 @@ public interface CPreprocessFactory extends EFactory
   TranslationUnit createTranslationUnit();
 
   /**
+   * Returns a new object of class '<em>Group Opt</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Group Opt</em>'.
+   * @generated
+   */
+  GroupOpt createGroupOpt();
+
+  /**
    * Returns a new object of class '<em>Source Code Line</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -18,28 +18,32 @@ lexer-tokens
 (Model
 	units+=
 	(TranslationUnit
-		lines+=
-		(PreprocessorDirectives
-			directive=
-			(IncludeDirective
-				string++"<printf.h>"
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(IncludeDirective
+					string++"<printf.h>"
+				)
+			),
+			(NewLineLine),
+			(Code
+				code++"int main(void) {"
+			),
+			(Code
+				code++"	printf(\\\"Hello World!\\\\n\\\");"
+			),
+			(Code
+				code++"	return 0;"
+			),
+			(Code
+				code++"}"
+			),
+			
+			(NewLineLine
+				
 			)
-		),
-		(NewLineLine),
-		(Code
-			code++"int main(void) {"
-		),
-		(Code
-			code++"	printf(\\\"Hello World!\\\\n\\\");"
-		),
-		(Code
-			code++"	return 0;"
-		),
-		(Code
-			code++"}"
-		),
-		
-		(NewLineLine
 			
 		)
 	)

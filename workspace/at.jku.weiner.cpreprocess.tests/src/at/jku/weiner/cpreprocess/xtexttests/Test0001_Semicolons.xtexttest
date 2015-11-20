@@ -15,18 +15,21 @@ lexer-tokens
 (Model
 	units+=
 	(TranslationUnit
-		lines+=
-		(Code
-			code++";"
-		),
-		(Code
-			code++";\\\\;\\\\\\\\;"
-		),
-		(NewLineLine
-			
-		),
-		(Code
-			code++";;;"
+		group=
+		(GroupOpt
+			lines+=		
+			(Code
+				code++";"
+			),
+			(Code
+				code++";\\\\;\\\\\\\\;"
+			),
+			(NewLineLine
+				
+			),
+			(Code
+				code++";;;"
+			)
 		)
 	)
 )

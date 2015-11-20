@@ -12,12 +12,16 @@ lexer-tokens
 (Model
 	units+=
 	(TranslationUnit
-		lines+=
-		(PreprocessorDirectives
-			directive=
-			(IncludeDirective
-				string++"abc"
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(IncludeDirective
+					string++"abc"
+				)
 			)
+			
 		)
 	)
 )

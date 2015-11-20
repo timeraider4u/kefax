@@ -7,6 +7,7 @@ import at.jku.weiner.cpreprocess.cPreprocess.CPreprocessPackage;
 import at.jku.weiner.cpreprocess.cPreprocess.Code;
 import at.jku.weiner.cpreprocess.cPreprocess.DefineDirective;
 import at.jku.weiner.cpreprocess.cPreprocess.ErrorDirective;
+import at.jku.weiner.cpreprocess.cPreprocess.GroupOpt;
 import at.jku.weiner.cpreprocess.cPreprocess.IncludeDirective;
 import at.jku.weiner.cpreprocess.cPreprocess.Model;
 import at.jku.weiner.cpreprocess.cPreprocess.NewLineLine;
@@ -44,6 +45,13 @@ public class CPreprocessPackageImpl extends EPackageImpl implements CPreprocessP
    * @generated
    */
   private EClass translationUnitEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass groupOptEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -206,9 +214,29 @@ public class CPreprocessPackageImpl extends EPackageImpl implements CPreprocessP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getTranslationUnit_Lines()
+  public EReference getTranslationUnit_Group()
   {
     return (EReference)translationUnitEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getGroupOpt()
+  {
+    return groupOptEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getGroupOpt_Lines()
+  {
+    return (EReference)groupOptEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -405,7 +433,10 @@ public class CPreprocessPackageImpl extends EPackageImpl implements CPreprocessP
     createEReference(modelEClass, MODEL__UNITS);
 
     translationUnitEClass = createEClass(TRANSLATION_UNIT);
-    createEReference(translationUnitEClass, TRANSLATION_UNIT__LINES);
+    createEReference(translationUnitEClass, TRANSLATION_UNIT__GROUP);
+
+    groupOptEClass = createEClass(GROUP_OPT);
+    createEReference(groupOptEClass, GROUP_OPT__LINES);
 
     sourceCodeLineEClass = createEClass(SOURCE_CODE_LINE);
 
@@ -471,7 +502,10 @@ public class CPreprocessPackageImpl extends EPackageImpl implements CPreprocessP
     initEReference(getModel_Units(), this.getTranslationUnit(), null, "units", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(translationUnitEClass, TranslationUnit.class, "TranslationUnit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getTranslationUnit_Lines(), this.getSourceCodeLine(), null, "lines", null, 0, -1, TranslationUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTranslationUnit_Group(), this.getGroupOpt(), null, "group", null, 0, 1, TranslationUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(groupOptEClass, GroupOpt.class, "GroupOpt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getGroupOpt_Lines(), this.getSourceCodeLine(), null, "lines", null, 0, -1, GroupOpt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(sourceCodeLineEClass, SourceCodeLine.class, "SourceCodeLine", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

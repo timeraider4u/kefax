@@ -13,19 +13,23 @@ lexer-tokens
 (Model
 	units+=
 	(TranslationUnit
-		lines+=
-		(PreprocessorDirectives
-			directive=
-			(DefineDirective
-				id++"abc",
-				string++"\\\"Test0002_Code.c\\\""
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineDirective
+					id++"abc",
+					string++"\\\"Test0002_Code.c\\\""
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(IncludeDirective
+					string++"\\\"Test0007_SymbolInInclude.h\\\""
+				)
 			)
-		),
-		(PreprocessorDirectives
-			directive=
-			(IncludeDirective
-				string++"\\\"Test0007_SymbolInInclude.h\\\""
-			)
+			
 		)
 	)
 )

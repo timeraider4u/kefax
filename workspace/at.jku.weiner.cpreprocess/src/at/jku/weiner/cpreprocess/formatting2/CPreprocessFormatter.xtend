@@ -3,6 +3,7 @@
  */
 package at.jku.weiner.cpreprocess.formatting2
 
+import at.jku.weiner.cpreprocess.cPreprocess.GroupOpt
 import at.jku.weiner.cpreprocess.cPreprocess.Model
 import at.jku.weiner.cpreprocess.cPreprocess.PreprocessorDirectives
 import at.jku.weiner.cpreprocess.cPreprocess.SourceCodeLine
@@ -25,7 +26,12 @@ class CPreprocessFormatter extends AbstractFormatter2 {
 
 	def dispatch void format(TranslationUnit translationUnit, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		for (SourceCodeLine lines : translationUnit.getLines()) {
+		format(translationUnit.getGroup(), document);
+	}
+
+	def dispatch void format(GroupOpt groupOpt, extension IFormattableDocument document) {
+		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+		for (SourceCodeLine lines : groupOpt.getLines()) {
 			format(lines, document);
 		}
 	}

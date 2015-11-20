@@ -20,40 +20,44 @@ lexer-tokens
 (Model
 	units+=
 	(TranslationUnit
-		lines+=
-		(PreprocessorDirectives
-			directive=
-			(DefineDirective
-				id++"INT",
-				string++"int"
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineDirective
+					id++"INT",
+					string++"int"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineDirective
+					id++"MAIN",
+					string++"main"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(IncludeDirective
+					string++"\\\"Test0009_DefineAndInclude.h\\\""
+				)
+			),
+			(NewLineLine),
+			(Code
+				code++"DECLARATION;"
+			),
+			(NewLineLine),
+			(Code
+				code++"INT MAIN(void) {"
+			),
+			(Code
+				code++"	return x - 2 * Y;"
+			),
+			(Code
+				code++"}"
 			)
-		),
-		(PreprocessorDirectives
-			directive=
-			(DefineDirective
-				id++"MAIN",
-				string++"main"
-			)
-		),
-		(PreprocessorDirectives
-			directive=
-			(IncludeDirective
-				string++"\\\"Test0009_DefineAndInclude.h\\\""
-			)
-		),
-		(NewLineLine),
-		(Code
-			code++"DECLARATION;"
-		),
-		(NewLineLine),
-		(Code
-			code++"INT MAIN(void) {"
-		),
-		(Code
-			code++"	return x - 2 * Y;"
-		),
-		(Code
-			code++"}"
+			
 		)
 	)
 )

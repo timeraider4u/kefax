@@ -15,18 +15,22 @@ lexer-tokens
 (Model
 	units+=
 	(TranslationUnit
-		lines+=
-		(Code
-			code++"int main(void) {"
-		),
-		(Code
-			code++"	return 0;"
-		),
-		(Code
-			code++"}"
-		),
-		
-		(NewLineLine
+		group=
+		(GroupOpt
+			lines+=
+			(Code
+				code++"int main(void) {"
+			),
+			(Code
+				code++"	return 0;"
+			),
+			(Code
+				code++"}"
+			),
+			
+			(NewLineLine
+				
+			)
 			
 		)
 	)

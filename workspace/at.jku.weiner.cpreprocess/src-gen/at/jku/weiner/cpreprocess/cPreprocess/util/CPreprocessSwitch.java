@@ -86,6 +86,13 @@ public class CPreprocessSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case CPreprocessPackage.GROUP_OPT:
+      {
+        GroupOpt groupOpt = (GroupOpt)theEObject;
+        T result = caseGroupOpt(groupOpt);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case CPreprocessPackage.SOURCE_CODE_LINE:
       {
         SourceCodeLine sourceCodeLine = (SourceCodeLine)theEObject;
@@ -184,6 +191,22 @@ public class CPreprocessSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseTranslationUnit(TranslationUnit object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Group Opt</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Group Opt</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseGroupOpt(GroupOpt object)
   {
     return null;
   }

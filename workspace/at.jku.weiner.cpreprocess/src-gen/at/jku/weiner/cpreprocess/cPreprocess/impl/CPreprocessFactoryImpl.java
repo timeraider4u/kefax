@@ -66,6 +66,7 @@ public class CPreprocessFactoryImpl extends EFactoryImpl implements CPreprocessF
     {
       case CPreprocessPackage.MODEL: return createModel();
       case CPreprocessPackage.TRANSLATION_UNIT: return createTranslationUnit();
+      case CPreprocessPackage.GROUP_OPT: return createGroupOpt();
       case CPreprocessPackage.SOURCE_CODE_LINE: return createSourceCodeLine();
       case CPreprocessPackage.INCLUDE_DIRECTIVE: return createIncludeDirective();
       case CPreprocessPackage.DEFINE_DIRECTIVE: return createDefineDirective();
@@ -100,6 +101,17 @@ public class CPreprocessFactoryImpl extends EFactoryImpl implements CPreprocessF
   {
     TranslationUnitImpl translationUnit = new TranslationUnitImpl();
     return translationUnit;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public GroupOpt createGroupOpt()
+  {
+    GroupOptImpl groupOpt = new GroupOptImpl();
+    return groupOpt;
   }
 
   /**

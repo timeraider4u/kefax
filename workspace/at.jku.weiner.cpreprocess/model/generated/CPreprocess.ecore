@@ -7,6 +7,10 @@
         eType="#//TranslationUnit" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TranslationUnit">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="group" eType="#//GroupOpt"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GroupOpt">
     <eStructuralFeatures xsi:type="ecore:EReference" name="lines" upperBound="-1"
         eType="#//SourceCodeLine" containment="true"/>
   </eClassifiers>

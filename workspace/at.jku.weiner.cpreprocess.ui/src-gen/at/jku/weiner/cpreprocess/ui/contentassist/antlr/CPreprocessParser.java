@@ -37,7 +37,7 @@ public class CPreprocessParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
-					put(grammarAccess.getTranslationUnitAccess().getAlternatives_1(), "rule__TranslationUnit__Alternatives_1");
+					put(grammarAccess.getGroupOptAccess().getAlternatives_1(), "rule__GroupOpt__Alternatives_1");
 					put(grammarAccess.getPreprocessorDirectivesAccess().getAlternatives_4(), "rule__PreprocessorDirectives__Alternatives_4");
 					put(grammarAccess.getMyCodeAccess().getAlternatives(), "rule__MyCode__Alternatives");
 					put(grammarAccess.getMyDefineLineAccess().getAlternatives(), "rule__MyDefineLine__Alternatives");
@@ -45,6 +45,7 @@ public class CPreprocessParser extends AbstractContentAssistParser {
 					put(grammarAccess.getMyCodeLineExtendedAccess().getAlternatives_1_1(), "rule__MyCodeLineExtended__Alternatives_1_1");
 					put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
 					put(grammarAccess.getTranslationUnitAccess().getGroup(), "rule__TranslationUnit__Group__0");
+					put(grammarAccess.getGroupOptAccess().getGroup(), "rule__GroupOpt__Group__0");
 					put(grammarAccess.getPreprocessorDirectivesAccess().getGroup(), "rule__PreprocessorDirectives__Group__0");
 					put(grammarAccess.getIncludeDirectiveAccess().getGroup(), "rule__IncludeDirective__Group__0");
 					put(grammarAccess.getDefineDirectiveAccess().getGroup(), "rule__DefineDirective__Group__0");
@@ -56,9 +57,10 @@ public class CPreprocessParser extends AbstractContentAssistParser {
 					put(grammarAccess.getMyCodeLineExtendedAccess().getGroup(), "rule__MyCodeLineExtended__Group__0");
 					put(grammarAccess.getMyCodeLineExtendedAccess().getGroup_1(), "rule__MyCodeLineExtended__Group_1__0");
 					put(grammarAccess.getModelAccess().getUnitsAssignment_1(), "rule__Model__UnitsAssignment_1");
-					put(grammarAccess.getTranslationUnitAccess().getLinesAssignment_1_0(), "rule__TranslationUnit__LinesAssignment_1_0");
-					put(grammarAccess.getTranslationUnitAccess().getLinesAssignment_1_1(), "rule__TranslationUnit__LinesAssignment_1_1");
-					put(grammarAccess.getTranslationUnitAccess().getLinesAssignment_1_2(), "rule__TranslationUnit__LinesAssignment_1_2");
+					put(grammarAccess.getTranslationUnitAccess().getGroupAssignment_1(), "rule__TranslationUnit__GroupAssignment_1");
+					put(grammarAccess.getGroupOptAccess().getLinesAssignment_1_0(), "rule__GroupOpt__LinesAssignment_1_0");
+					put(grammarAccess.getGroupOptAccess().getLinesAssignment_1_1(), "rule__GroupOpt__LinesAssignment_1_1");
+					put(grammarAccess.getGroupOptAccess().getLinesAssignment_1_2(), "rule__GroupOpt__LinesAssignment_1_2");
 					put(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveAssignment_4_0(), "rule__PreprocessorDirectives__DirectiveAssignment_4_0");
 					put(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveAssignment_4_1(), "rule__PreprocessorDirectives__DirectiveAssignment_4_1");
 					put(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveAssignment_4_2(), "rule__PreprocessorDirectives__DirectiveAssignment_4_2");

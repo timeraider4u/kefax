@@ -13,16 +13,20 @@ lexer-tokens
 (Model
 	units+=
 	(TranslationUnit
-		lines+=
-		(PreprocessorDirectives
-			directive=
-			(DefineDirective
-				id++"EMPTY",
-				string++""
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineDirective
+					id++"EMPTY",
+					string++""
+				)
+			),
+			(Code
+				code++"EMPTY #include <file.h>"
 			)
-		),
-		(Code
-			code++"EMPTY #include <file.h>"
+			
 		)
 	)
 )

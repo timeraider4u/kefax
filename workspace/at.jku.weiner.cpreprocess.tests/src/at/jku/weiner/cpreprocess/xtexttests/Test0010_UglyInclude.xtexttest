@@ -17,27 +17,31 @@ lexer-tokens
 (Model
 	units+=
 	(TranslationUnit
-		lines+=
-		(Code
-			code++"int main(void) {"
-		),
-		(Code
-			code++"	if (1 > 0) {"
-		),
-		(PreprocessorDirectives
-			directive=
-			(IncludeDirective
-				string++"\\\"Test0010_UglyInclude.h\\\""
+		group=
+		(GroupOpt
+			lines+=
+			(Code
+				code++"int main(void) {"
+			),
+			(Code
+				code++"	if (1 > 0) {"
+			),
+			(PreprocessorDirectives
+				directive=
+				(IncludeDirective
+					string++"\\\"Test0010_UglyInclude.h\\\""
+				)
+			),
+			(Code
+				code++"	}"
+			),
+			(Code
+				code++"	return -1;"
+			),
+			(Code
+				code++"}"
 			)
-		),
-		(Code
-			code++"	}"
-		),
-		(Code
-			code++"	return -1;"
-		),
-		(Code
-			code++"}"
+			
 		)
 	)
 )

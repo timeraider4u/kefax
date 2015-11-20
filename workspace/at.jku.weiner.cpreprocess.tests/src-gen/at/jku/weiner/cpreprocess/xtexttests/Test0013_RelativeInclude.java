@@ -44,6 +44,7 @@ import at.jku.weiner.cpreprocess.xtexttests.LexerAndParserTest;
 
 import at.jku.weiner.cpreprocess.cPreprocess.Model;
 import at.jku.weiner.cpreprocess.cPreprocess.TranslationUnit;
+import at.jku.weiner.cpreprocess.cPreprocess.GroupOpt;
 import at.jku.weiner.cpreprocess.cPreprocess.PreprocessorDirectives;
 import at.jku.weiner.cpreprocess.cPreprocess.IncludeDirective;
 import at.jku.weiner.cpreprocess.cPreprocess.NewLineLine;
@@ -176,60 +177,66 @@ public class Test0013_RelativeInclude {
 		 = (TranslationUnit)Units_0_list.get(0);
 		Assert.assertNotNull(TranslationUnit_1_Var
 		);
-		final EList<? extends EObject> Lines_1_list = TranslationUnit_1_Var
-		.getLines();
-		Assert.assertNotNull(Lines_1_list);
-		Assert.assertEquals(7, Lines_1_list.size());
 		//1
-		final PreprocessorDirectives PreprocessorDirectives_2_Var
-		 = (PreprocessorDirectives)Lines_1_list.get(0);
-		Assert.assertNotNull(PreprocessorDirectives_2_Var
+		final GroupOpt GroupOpt_2_Var
+		 = (GroupOpt)TranslationUnit_1_Var
+		.getGroup();
+		Assert.assertNotNull(GroupOpt_2_Var
 		);
+		final EList<? extends EObject> Lines_2_list = GroupOpt_2_Var
+		.getLines();
+		Assert.assertNotNull(Lines_2_list);
+		Assert.assertEquals(7, Lines_2_list.size());
 		//2
-		final IncludeDirective IncludeDirective_3_Var
-		 = (IncludeDirective)PreprocessorDirectives_2_Var
-		.getDirective();
-		Assert.assertNotNull(IncludeDirective_3_Var
+		final PreprocessorDirectives PreprocessorDirectives_3_Var
+		 = (PreprocessorDirectives)Lines_2_list.get(0);
+		Assert.assertNotNull(PreprocessorDirectives_3_Var
 		);
-		Assert.assertEquals("\"../myinclude/include/printf.h\"", IncludeDirective_3_Var
-		.getString());
 		//3
-		final NewLineLine NewLineLine_4_Var
-		 = (NewLineLine)Lines_1_list.get(1);
-		Assert.assertNotNull(NewLineLine_4_Var
+		final IncludeDirective IncludeDirective_4_Var
+		 = (IncludeDirective)PreprocessorDirectives_3_Var
+		.getDirective();
+		Assert.assertNotNull(IncludeDirective_4_Var
 		);
+		Assert.assertEquals("\"../myinclude/include/printf.h\"", IncludeDirective_4_Var
+		.getString());
 		//4
-		final Code Code_5_Var
-		 = (Code)Lines_1_list.get(2);
-		Assert.assertNotNull(Code_5_Var
+		final NewLineLine NewLineLine_5_Var
+		 = (NewLineLine)Lines_2_list.get(1);
+		Assert.assertNotNull(NewLineLine_5_Var
 		);
-		Assert.assertEquals("int main(void) {", Code_5_Var
-		.getCode());
 		//5
 		final Code Code_6_Var
-		 = (Code)Lines_1_list.get(3);
+		 = (Code)Lines_2_list.get(2);
 		Assert.assertNotNull(Code_6_Var
 		);
-		Assert.assertEquals("	printf(\"Hello World!\\n\");", Code_6_Var
+		Assert.assertEquals("int main(void) {", Code_6_Var
 		.getCode());
 		//6
 		final Code Code_7_Var
-		 = (Code)Lines_1_list.get(4);
+		 = (Code)Lines_2_list.get(3);
 		Assert.assertNotNull(Code_7_Var
 		);
-		Assert.assertEquals("	return 0;", Code_7_Var
+		Assert.assertEquals("	printf(\"Hello World!\\n\");", Code_7_Var
 		.getCode());
 		//7
 		final Code Code_8_Var
-		 = (Code)Lines_1_list.get(5);
+		 = (Code)Lines_2_list.get(4);
 		Assert.assertNotNull(Code_8_Var
 		);
-		Assert.assertEquals("}", Code_8_Var
+		Assert.assertEquals("	return 0;", Code_8_Var
 		.getCode());
 		//8
-		final NewLineLine NewLineLine_9_Var
-		 = (NewLineLine)Lines_1_list.get(6);
-		Assert.assertNotNull(NewLineLine_9_Var
+		final Code Code_9_Var
+		 = (Code)Lines_2_list.get(5);
+		Assert.assertNotNull(Code_9_Var
+		);
+		Assert.assertEquals("}", Code_9_Var
+		.getCode());
+		//9
+		final NewLineLine NewLineLine_10_Var
+		 = (NewLineLine)Lines_2_list.get(6);
+		Assert.assertNotNull(NewLineLine_10_Var
 		);
 	}
 	

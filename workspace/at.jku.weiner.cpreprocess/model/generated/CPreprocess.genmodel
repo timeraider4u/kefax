@@ -11,7 +11,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CPreprocess.ecore#//Model/units"/>
     </genClasses>
     <genClasses ecoreClass="CPreprocess.ecore#//TranslationUnit">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CPreprocess.ecore#//TranslationUnit/lines"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CPreprocess.ecore#//TranslationUnit/group"/>
+    </genClasses>
+    <genClasses ecoreClass="CPreprocess.ecore#//GroupOpt">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CPreprocess.ecore#//GroupOpt/lines"/>
     </genClasses>
     <genClasses ecoreClass="CPreprocess.ecore#//SourceCodeLine"/>
     <genClasses ecoreClass="CPreprocess.ecore#//IncludeDirective">

@@ -26,67 +26,71 @@ lexer-tokens
 (Model
 	units+=
 	(TranslationUnit
-		lines+=
-		(PreprocessorDirectives
-			directive=
-			(DefineDirective
-				id++"PI",
-				string++"3.1415926535897932"
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineDirective
+					id++"PI",
+					string++"3.1415926535897932"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineDirective
+					id++"NAME",
+					string++"\\\"Nobody\\\""
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineDirective
+					id++"NUMBER",
+					string++"2"
+				)
+			),
+			(NewLineLine),
+			(PreprocessorDirectives
+				directive=
+				(DefineDirective
+					id++"X",
+					string++"NUMBER"
+				)
+			),
+			(NewLineLine),
+			(PreprocessorDirectives
+				directive=
+				(DefineDirective
+					id++"MAIN",
+					string++"int main(void)"
+				)
+			),
+			(NewLineLine),
+			(Code
+				code++"// nasty, but valid"
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineDirective
+					id++"long",
+					string++"int"
+				)
+			),
+			(NewLineLine),
+			(Code
+				code++"MAIN {"
+			),
+			(Code
+				code++"	long d = X - NUMBER;"
+			),
+			(Code
+				code++"	return d;"
+			),
+			(Code
+				code++"}"
 			)
-		),
-		(PreprocessorDirectives
-			directive=
-			(DefineDirective
-				id++"NAME",
-				string++"\\\"Nobody\\\""
-			)
-		),
-		(PreprocessorDirectives
-			directive=
-			(DefineDirective
-				id++"NUMBER",
-				string++"2"
-			)
-		),
-		(NewLineLine),
-		(PreprocessorDirectives
-			directive=
-			(DefineDirective
-				id++"X",
-				string++"NUMBER"
-			)
-		),
-		(NewLineLine),
-		(PreprocessorDirectives
-			directive=
-			(DefineDirective
-				id++"MAIN",
-				string++"int main(void)"
-			)
-		),
-		(NewLineLine),
-		(Code
-			code++"// nasty, but valid"
-		),
-		(PreprocessorDirectives
-			directive=
-			(DefineDirective
-				id++"long",
-				string++"int"
-			)
-		),
-		(NewLineLine),
-		(Code
-			code++"MAIN {"
-		),
-		(Code
-			code++"	long d = X - NUMBER;"
-		),
-		(Code
-			code++"	return d;"
-		),
-		(Code
-			code++"}"
+			
 		)
 	)
 )

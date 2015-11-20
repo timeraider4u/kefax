@@ -39,7 +39,13 @@ Model:
 	
 TranslationUnit:
 	{TranslationUnit}
-	(	lines+=PreprocessorDirectives
+	group=GroupOpt
+;
+
+GroupOpt:
+	{GroupOpt}
+	(
+		lines+=PreprocessorDirectives
 		|
 		lines+=NewLineLine
 		|	

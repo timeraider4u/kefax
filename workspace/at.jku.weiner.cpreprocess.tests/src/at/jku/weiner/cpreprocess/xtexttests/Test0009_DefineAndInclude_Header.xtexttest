@@ -17,40 +17,44 @@ lexer-tokens
 (Model
 	units+=
 	(TranslationUnit
-		lines+=
-		(PreprocessorDirectives
-			directive=
-			(DefineDirective
-				id++"X",
-				string++"x"
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineDirective
+					id++"X",
+					string++"x"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineDirective
+					id++"Y",
+					string++"y"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineDirective
+					id++"DECLARATION",
+					string++"INT X = 4"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineDirective
+					id++"Z",
+					string++"1 + 1"
+				)
+			),
+			(Code
+				code++"// declarations"
+			),
+			(Code
+				code++"int Y = Z;"
 			)
-		),
-		(PreprocessorDirectives
-			directive=
-			(DefineDirective
-				id++"Y",
-				string++"y"
-			)
-		),
-		(PreprocessorDirectives
-			directive=
-			(DefineDirective
-				id++"DECLARATION",
-				string++"INT X = 4"
-			)
-		),
-		(PreprocessorDirectives
-			directive=
-			(DefineDirective
-				id++"Z",
-				string++"1 + 1"
-			)
-		),
-		(Code
-			code++"// declarations"
-		),
-		(Code
-			code++"int Y = Z;"
+			
 		)
 	)
 )

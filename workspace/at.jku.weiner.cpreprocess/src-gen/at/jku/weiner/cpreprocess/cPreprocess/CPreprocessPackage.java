@@ -95,13 +95,13 @@ public interface CPreprocessPackage extends EPackage
   int TRANSLATION_UNIT = 1;
 
   /**
-   * The feature id for the '<em><b>Lines</b></em>' containment reference list.
+   * The feature id for the '<em><b>Group</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TRANSLATION_UNIT__LINES = 0;
+  int TRANSLATION_UNIT__GROUP = 0;
 
   /**
    * The number of structural features of the '<em>Translation Unit</em>' class.
@@ -113,6 +113,34 @@ public interface CPreprocessPackage extends EPackage
   int TRANSLATION_UNIT_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link at.jku.weiner.cpreprocess.cPreprocess.impl.GroupOptImpl <em>Group Opt</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.cpreprocess.cPreprocess.impl.GroupOptImpl
+   * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getGroupOpt()
+   * @generated
+   */
+  int GROUP_OPT = 2;
+
+  /**
+   * The feature id for the '<em><b>Lines</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GROUP_OPT__LINES = 0;
+
+  /**
+   * The number of structural features of the '<em>Group Opt</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GROUP_OPT_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link at.jku.weiner.cpreprocess.cPreprocess.impl.SourceCodeLineImpl <em>Source Code Line</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -120,7 +148,7 @@ public interface CPreprocessPackage extends EPackage
    * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getSourceCodeLine()
    * @generated
    */
-  int SOURCE_CODE_LINE = 2;
+  int SOURCE_CODE_LINE = 3;
 
   /**
    * The number of structural features of the '<em>Source Code Line</em>' class.
@@ -139,7 +167,7 @@ public interface CPreprocessPackage extends EPackage
    * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getIncludeDirective()
    * @generated
    */
-  int INCLUDE_DIRECTIVE = 3;
+  int INCLUDE_DIRECTIVE = 4;
 
   /**
    * The feature id for the '<em><b>String</b></em>' attribute.
@@ -167,7 +195,7 @@ public interface CPreprocessPackage extends EPackage
    * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getDefineDirective()
    * @generated
    */
-  int DEFINE_DIRECTIVE = 4;
+  int DEFINE_DIRECTIVE = 5;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -204,7 +232,7 @@ public interface CPreprocessPackage extends EPackage
    * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getErrorDirective()
    * @generated
    */
-  int ERROR_DIRECTIVE = 5;
+  int ERROR_DIRECTIVE = 6;
 
   /**
    * The feature id for the '<em><b>Msg</b></em>' attribute.
@@ -232,7 +260,7 @@ public interface CPreprocessPackage extends EPackage
    * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getUnDefineDirective()
    * @generated
    */
-  int UN_DEFINE_DIRECTIVE = 6;
+  int UN_DEFINE_DIRECTIVE = 7;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -260,7 +288,7 @@ public interface CPreprocessPackage extends EPackage
    * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getPragmaDirective()
    * @generated
    */
-  int PRAGMA_DIRECTIVE = 7;
+  int PRAGMA_DIRECTIVE = 8;
 
   /**
    * The number of structural features of the '<em>Pragma Directive</em>' class.
@@ -279,7 +307,7 @@ public interface CPreprocessPackage extends EPackage
    * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getPreprocessorDirectives()
    * @generated
    */
-  int PREPROCESSOR_DIRECTIVES = 8;
+  int PREPROCESSOR_DIRECTIVES = 9;
 
   /**
    * The feature id for the '<em><b>Directive</b></em>' containment reference.
@@ -307,7 +335,7 @@ public interface CPreprocessPackage extends EPackage
    * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getNewLineLine()
    * @generated
    */
-  int NEW_LINE_LINE = 9;
+  int NEW_LINE_LINE = 10;
 
   /**
    * The number of structural features of the '<em>New Line Line</em>' class.
@@ -326,7 +354,7 @@ public interface CPreprocessPackage extends EPackage
    * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getCode()
    * @generated
    */
-  int CODE = 10;
+  int CODE = 11;
 
   /**
    * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -379,15 +407,36 @@ public interface CPreprocessPackage extends EPackage
   EClass getTranslationUnit();
 
   /**
-   * Returns the meta object for the containment reference list '{@link at.jku.weiner.cpreprocess.cPreprocess.TranslationUnit#getLines <em>Lines</em>}'.
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.cpreprocess.cPreprocess.TranslationUnit#getGroup <em>Group</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Lines</em>'.
-   * @see at.jku.weiner.cpreprocess.cPreprocess.TranslationUnit#getLines()
+   * @return the meta object for the containment reference '<em>Group</em>'.
+   * @see at.jku.weiner.cpreprocess.cPreprocess.TranslationUnit#getGroup()
    * @see #getTranslationUnit()
    * @generated
    */
-  EReference getTranslationUnit_Lines();
+  EReference getTranslationUnit_Group();
+
+  /**
+   * Returns the meta object for class '{@link at.jku.weiner.cpreprocess.cPreprocess.GroupOpt <em>Group Opt</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Group Opt</em>'.
+   * @see at.jku.weiner.cpreprocess.cPreprocess.GroupOpt
+   * @generated
+   */
+  EClass getGroupOpt();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link at.jku.weiner.cpreprocess.cPreprocess.GroupOpt#getLines <em>Lines</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Lines</em>'.
+   * @see at.jku.weiner.cpreprocess.cPreprocess.GroupOpt#getLines()
+   * @see #getGroupOpt()
+   * @generated
+   */
+  EReference getGroupOpt_Lines();
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.cpreprocess.cPreprocess.SourceCodeLine <em>Source Code Line</em>}'.
@@ -608,12 +657,30 @@ public interface CPreprocessPackage extends EPackage
     EClass TRANSLATION_UNIT = eINSTANCE.getTranslationUnit();
 
     /**
+     * The meta object literal for the '<em><b>Group</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TRANSLATION_UNIT__GROUP = eINSTANCE.getTranslationUnit_Group();
+
+    /**
+     * The meta object literal for the '{@link at.jku.weiner.cpreprocess.cPreprocess.impl.GroupOptImpl <em>Group Opt</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.cpreprocess.cPreprocess.impl.GroupOptImpl
+     * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getGroupOpt()
+     * @generated
+     */
+    EClass GROUP_OPT = eINSTANCE.getGroupOpt();
+
+    /**
      * The meta object literal for the '<em><b>Lines</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference TRANSLATION_UNIT__LINES = eINSTANCE.getTranslationUnit_Lines();
+    EReference GROUP_OPT__LINES = eINSTANCE.getGroupOpt_Lines();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.cpreprocess.cPreprocess.impl.SourceCodeLineImpl <em>Source Code Line</em>}' class.

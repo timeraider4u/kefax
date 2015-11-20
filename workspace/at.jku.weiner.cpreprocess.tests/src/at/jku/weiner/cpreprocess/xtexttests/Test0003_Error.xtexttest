@@ -12,12 +12,16 @@ lexer-tokens
 (Model
 	units+=
 	(TranslationUnit
-		lines+=
-		(PreprocessorDirectives
-			directive=
-			(ErrorDirective
-				msg++"\\\"error message!\\\""
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(ErrorDirective
+					msg++"\\\"error message!\\\""
+				)
 			)
+			
 		)
 	)
 )

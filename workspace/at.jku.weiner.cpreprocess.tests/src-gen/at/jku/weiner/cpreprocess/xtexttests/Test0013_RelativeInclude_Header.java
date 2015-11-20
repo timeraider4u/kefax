@@ -44,6 +44,7 @@ import at.jku.weiner.cpreprocess.xtexttests.LexerAndParserTest;
 
 import at.jku.weiner.cpreprocess.cPreprocess.Model;
 import at.jku.weiner.cpreprocess.cPreprocess.TranslationUnit;
+import at.jku.weiner.cpreprocess.cPreprocess.GroupOpt;
 import at.jku.weiner.cpreprocess.cPreprocess.Code;
 import at.jku.weiner.cpreprocess.cPreprocess.Code;
 @SuppressWarnings("unused")
@@ -141,23 +142,29 @@ public class Test0013_RelativeInclude_Header {
 		 = (TranslationUnit)Units_0_list.get(0);
 		Assert.assertNotNull(TranslationUnit_1_Var
 		);
-		final EList<? extends EObject> Lines_1_list = TranslationUnit_1_Var
-		.getLines();
-		Assert.assertNotNull(Lines_1_list);
-		Assert.assertEquals(2, Lines_1_list.size());
 		//1
-		final Code Code_2_Var
-		 = (Code)Lines_1_list.get(0);
-		Assert.assertNotNull(Code_2_Var
+		final GroupOpt GroupOpt_2_Var
+		 = (GroupOpt)TranslationUnit_1_Var
+		.getGroup();
+		Assert.assertNotNull(GroupOpt_2_Var
 		);
-		Assert.assertEquals("// printf.h", Code_2_Var
-		.getCode());
+		final EList<? extends EObject> Lines_2_list = GroupOpt_2_Var
+		.getLines();
+		Assert.assertNotNull(Lines_2_list);
+		Assert.assertEquals(2, Lines_2_list.size());
 		//2
 		final Code Code_3_Var
-		 = (Code)Lines_1_list.get(1);
+		 = (Code)Lines_2_list.get(0);
 		Assert.assertNotNull(Code_3_Var
 		);
-		Assert.assertEquals("void printf(char ** argv);", Code_3_Var
+		Assert.assertEquals("// printf.h", Code_3_Var
+		.getCode());
+		//3
+		final Code Code_4_Var
+		 = (Code)Lines_2_list.get(1);
+		Assert.assertNotNull(Code_4_Var
+		);
+		Assert.assertEquals("void printf(char ** argv);", Code_4_Var
 		.getCode());
 	}
 	

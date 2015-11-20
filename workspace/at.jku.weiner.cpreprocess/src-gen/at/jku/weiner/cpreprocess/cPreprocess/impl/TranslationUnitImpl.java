@@ -3,22 +3,17 @@
 package at.jku.weiner.cpreprocess.cPreprocess.impl;
 
 import at.jku.weiner.cpreprocess.cPreprocess.CPreprocessPackage;
-import at.jku.weiner.cpreprocess.cPreprocess.SourceCodeLine;
+import at.jku.weiner.cpreprocess.cPreprocess.GroupOpt;
 import at.jku.weiner.cpreprocess.cPreprocess.TranslationUnit;
 
-import java.util.Collection;
-
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +23,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link at.jku.weiner.cpreprocess.cPreprocess.impl.TranslationUnitImpl#getLines <em>Lines</em>}</li>
+ *   <li>{@link at.jku.weiner.cpreprocess.cPreprocess.impl.TranslationUnitImpl#getGroup <em>Group</em>}</li>
  * </ul>
  *
  * @generated
@@ -36,14 +31,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class TranslationUnitImpl extends MinimalEObjectImpl.Container implements TranslationUnit
 {
   /**
-   * The cached value of the '{@link #getLines() <em>Lines</em>}' containment reference list.
+   * The cached value of the '{@link #getGroup() <em>Group</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getLines()
+   * @see #getGroup()
    * @generated
    * @ordered
    */
-  protected EList<SourceCodeLine> lines;
+  protected GroupOpt group;
 
   /**
    * <!-- begin-user-doc -->
@@ -71,13 +66,47 @@ public class TranslationUnitImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<SourceCodeLine> getLines()
+  public GroupOpt getGroup()
   {
-    if (lines == null)
+    return group;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetGroup(GroupOpt newGroup, NotificationChain msgs)
+  {
+    GroupOpt oldGroup = group;
+    group = newGroup;
+    if (eNotificationRequired())
     {
-      lines = new EObjectContainmentEList<SourceCodeLine>(SourceCodeLine.class, this, CPreprocessPackage.TRANSLATION_UNIT__LINES);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CPreprocessPackage.TRANSLATION_UNIT__GROUP, oldGroup, newGroup);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
-    return lines;
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setGroup(GroupOpt newGroup)
+  {
+    if (newGroup != group)
+    {
+      NotificationChain msgs = null;
+      if (group != null)
+        msgs = ((InternalEObject)group).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CPreprocessPackage.TRANSLATION_UNIT__GROUP, null, msgs);
+      if (newGroup != null)
+        msgs = ((InternalEObject)newGroup).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CPreprocessPackage.TRANSLATION_UNIT__GROUP, null, msgs);
+      msgs = basicSetGroup(newGroup, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CPreprocessPackage.TRANSLATION_UNIT__GROUP, newGroup, newGroup));
   }
 
   /**
@@ -90,8 +119,8 @@ public class TranslationUnitImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case CPreprocessPackage.TRANSLATION_UNIT__LINES:
-        return ((InternalEList<?>)getLines()).basicRemove(otherEnd, msgs);
+      case CPreprocessPackage.TRANSLATION_UNIT__GROUP:
+        return basicSetGroup(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -106,8 +135,8 @@ public class TranslationUnitImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case CPreprocessPackage.TRANSLATION_UNIT__LINES:
-        return getLines();
+      case CPreprocessPackage.TRANSLATION_UNIT__GROUP:
+        return getGroup();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -117,15 +146,13 @@ public class TranslationUnitImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case CPreprocessPackage.TRANSLATION_UNIT__LINES:
-        getLines().clear();
-        getLines().addAll((Collection<? extends SourceCodeLine>)newValue);
+      case CPreprocessPackage.TRANSLATION_UNIT__GROUP:
+        setGroup((GroupOpt)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -141,8 +168,8 @@ public class TranslationUnitImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case CPreprocessPackage.TRANSLATION_UNIT__LINES:
-        getLines().clear();
+      case CPreprocessPackage.TRANSLATION_UNIT__GROUP:
+        setGroup((GroupOpt)null);
         return;
     }
     super.eUnset(featureID);
@@ -158,8 +185,8 @@ public class TranslationUnitImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case CPreprocessPackage.TRANSLATION_UNIT__LINES:
-        return lines != null && !lines.isEmpty();
+      case CPreprocessPackage.TRANSLATION_UNIT__GROUP:
+        return group != null;
     }
     return super.eIsSet(featureID);
   }

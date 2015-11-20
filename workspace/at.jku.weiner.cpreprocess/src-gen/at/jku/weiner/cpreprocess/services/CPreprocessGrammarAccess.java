@@ -49,6 +49,29 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.TranslationUnit");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cTranslationUnitAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cGroupAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cGroupGroupOptParserRuleCall_1_0 = (RuleCall)cGroupAssignment_1.eContents().get(0);
+		
+		//TranslationUnit:
+		//	{TranslationUnit} group=GroupOpt;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{TranslationUnit} group=GroupOpt
+		public Group getGroup() { return cGroup; }
+		
+		//{TranslationUnit}
+		public Action getTranslationUnitAction_0() { return cTranslationUnitAction_0; }
+		
+		//group=GroupOpt
+		public Assignment getGroupAssignment_1() { return cGroupAssignment_1; }
+		
+		//GroupOpt
+		public RuleCall getGroupGroupOptParserRuleCall_1_0() { return cGroupGroupOptParserRuleCall_1_0; }
+	}
+	public class GroupOptElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.GroupOpt");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cGroupOptAction_0 = (Action)cGroup.eContents().get(0);
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
 		private final Assignment cLinesAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
 		private final RuleCall cLinesPreprocessorDirectivesParserRuleCall_1_0_0 = (RuleCall)cLinesAssignment_1_0.eContents().get(0);
@@ -57,17 +80,17 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cLinesAssignment_1_2 = (Assignment)cAlternatives_1.eContents().get(2);
 		private final RuleCall cLinesCodeParserRuleCall_1_2_0 = (RuleCall)cLinesAssignment_1_2.eContents().get(0);
 		
-		//TranslationUnit:
-		//	{TranslationUnit} (lines+=PreprocessorDirectives
+		//GroupOpt:
+		//	{GroupOpt} (lines+=PreprocessorDirectives
 		//	| lines+=NewLineLine
 		//	| lines+=Code)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{TranslationUnit} (lines+=PreprocessorDirectives | lines+=NewLineLine | lines+=Code)*
+		//{GroupOpt} (lines+=PreprocessorDirectives | lines+=NewLineLine | lines+=Code)*
 		public Group getGroup() { return cGroup; }
 		
-		//{TranslationUnit}
-		public Action getTranslationUnitAction_0() { return cTranslationUnitAction_0; }
+		//{GroupOpt}
+		public Action getGroupOptAction_0() { return cGroupOptAction_0; }
 		
 		//(lines+=PreprocessorDirectives | lines+=NewLineLine | lines+=Code)*
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
@@ -485,6 +508,7 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	
 	private final ModelElements pModel;
 	private final TranslationUnitElements pTranslationUnit;
+	private final GroupOptElements pGroupOpt;
 	private final PreprocessorDirectivesElements pPreprocessorDirectives;
 	private final IncludeDirectiveElements pIncludeDirective;
 	private final DefineDirectiveElements pDefineDirective;
@@ -527,6 +551,7 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.pModel = new ModelElements();
 		this.pTranslationUnit = new TranslationUnitElements();
+		this.pGroupOpt = new GroupOptElements();
 		this.pPreprocessorDirectives = new PreprocessorDirectivesElements();
 		this.pIncludeDirective = new IncludeDirectiveElements();
 		this.pDefineDirective = new DefineDirectiveElements();
@@ -597,15 +622,25 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//TranslationUnit:
-	//	{TranslationUnit} (lines+=PreprocessorDirectives
-	//	| lines+=NewLineLine
-	//	| lines+=Code)*;
+	//	{TranslationUnit} group=GroupOpt;
 	public TranslationUnitElements getTranslationUnitAccess() {
 		return pTranslationUnit;
 	}
 	
 	public ParserRule getTranslationUnitRule() {
 		return getTranslationUnitAccess().getRule();
+	}
+	
+	//GroupOpt:
+	//	{GroupOpt} (lines+=PreprocessorDirectives
+	//	| lines+=NewLineLine
+	//	| lines+=Code)*;
+	public GroupOptElements getGroupOptAccess() {
+		return pGroupOpt;
+	}
+	
+	public ParserRule getGroupOptRule() {
+		return getGroupOptAccess().getRule();
 	}
 	
 	//PreprocessorDirectives SourceCodeLine:

@@ -13,12 +13,16 @@ lexer-tokens
 (Model
 	units+=
 	(TranslationUnit
-		lines+=
-		(Code
-			code++"// printf.h"
-		),
-		(Code
-			code++"void printf(char ** argv);"
+		group=
+		(GroupOpt
+			lines+=
+			(Code
+				code++"// printf.h"
+			),
+			(Code
+				code++"void printf(char ** argv);"
+			)
+			
 		)
 	)
 )

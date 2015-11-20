@@ -21,53 +21,57 @@ lexer-tokens
 (Model
 	units+=
 	(TranslationUnit
-		lines+=
-		(Code
-			code++"// nasty, but valid"
-		),
-		(PreprocessorDirectives
-			directive=
-			(DefineDirective
-				id++"int",
-				string++"double"
+		group=
+		(GroupOpt
+			lines+=
+			(Code
+				code++"// nasty, but valid"
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineDirective
+					id++"int",
+					string++"double"
+				)
+			),
+			(Code
+				code++"int a = 2.5;"
+			),
+			(PreprocessorDirectives
+				directive=
+				(UnDefineDirective
+					id++"int"
+				)
+			),
+			(Code
+				code++"int b = 2;"
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineDirective
+					id++"int",
+					string++"long"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(UnDefineDirective
+					id++"int"
+				)
+			),
+			(Code
+				code++"int c = 2;"
+			),
+			(PreprocessorDirectives
+				directive=
+				(UnDefineDirective
+					id++"int"
+				)
+			),
+			(Code
+				code++"int d = 4;"
 			)
-		),
-		(Code
-			code++"int a = 2.5;"
-		),
-		(PreprocessorDirectives
-			directive=
-			(UnDefineDirective
-				id++"int"
-			)
-		),
-		(Code
-			code++"int b = 2;"
-		),
-		(PreprocessorDirectives
-			directive=
-			(DefineDirective
-				id++"int",
-				string++"long"
-			)
-		),
-		(PreprocessorDirectives
-			directive=
-			(UnDefineDirective
-				id++"int"
-			)
-		),
-		(Code
-			code++"int c = 2;"
-		),
-		(PreprocessorDirectives
-			directive=
-			(UnDefineDirective
-				id++"int"
-			)
-		),
-		(Code
-			code++"int d = 4;"
+			
 		)
 	)
 )

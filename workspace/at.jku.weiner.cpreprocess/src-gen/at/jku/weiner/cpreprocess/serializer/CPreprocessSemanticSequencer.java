@@ -7,6 +7,7 @@ import at.jku.weiner.cpreprocess.cPreprocess.CPreprocessPackage;
 import at.jku.weiner.cpreprocess.cPreprocess.Code;
 import at.jku.weiner.cpreprocess.cPreprocess.DefineDirective;
 import at.jku.weiner.cpreprocess.cPreprocess.ErrorDirective;
+import at.jku.weiner.cpreprocess.cPreprocess.GroupOpt;
 import at.jku.weiner.cpreprocess.cPreprocess.IncludeDirective;
 import at.jku.weiner.cpreprocess.cPreprocess.Model;
 import at.jku.weiner.cpreprocess.cPreprocess.NewLineLine;
@@ -46,6 +47,9 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 				return; 
 			case CPreprocessPackage.ERROR_DIRECTIVE:
 				sequence_ErrorDirective(context, (ErrorDirective) semanticObject); 
+				return; 
+			case CPreprocessPackage.GROUP_OPT:
+				sequence_GroupOpt(context, (GroupOpt) semanticObject); 
 				return; 
 			case CPreprocessPackage.INCLUDE_DIRECTIVE:
 				sequence_IncludeDirective(context, (IncludeDirective) semanticObject); 
@@ -125,6 +129,15 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
+	 *     ((lines+=PreprocessorDirectives | lines+=NewLineLine | lines+=Code)*)
+	 */
+	protected void sequence_GroupOpt(EObject context, GroupOpt semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     string=MyCodeLine
 	 */
 	protected void sequence_IncludeDirective(EObject context, IncludeDirective semanticObject) {
@@ -177,10 +190,17 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     ((lines+=PreprocessorDirectives | lines+=NewLineLine | lines+=Code)*)
+	 *     group=GroupOpt
 	 */
 	protected void sequence_TranslationUnit(EObject context, TranslationUnit semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, CPreprocessPackage.Literals.TRANSLATION_UNIT__GROUP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CPreprocessPackage.Literals.TRANSLATION_UNIT__GROUP));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getTranslationUnitAccess().getGroupGroupOptParserRuleCall_1_0(), semanticObject.getGroup());
+		feeder.finish();
 	}
 	
 	

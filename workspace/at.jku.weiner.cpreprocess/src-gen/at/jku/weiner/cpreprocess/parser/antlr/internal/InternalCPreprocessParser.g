@@ -122,14 +122,59 @@ ruleTranslationUnit returns [EObject current=null]
             grammarAccess.getTranslationUnitAccess().getTranslationUnitAction_0(),
             $current);
     }
+)(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getTranslationUnitAccess().getGroupGroupOptParserRuleCall_1_0()); 
+	    }
+		lv_group_1_0=ruleGroupOpt		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getTranslationUnitRule());
+	        }
+       		set(
+       			$current, 
+       			"group",
+        		lv_group_1_0, 
+        		"at.jku.weiner.cpreprocess.CPreprocess.GroupOpt");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))
+;
+
+
+
+
+
+// Entry rule entryRuleGroupOpt
+entryRuleGroupOpt returns [EObject current=null]
+	:
+	{ newCompositeNode(grammarAccess.getGroupOptRule()); }
+	 iv_ruleGroupOpt=ruleGroupOpt 
+	 { $current=$iv_ruleGroupOpt.current; } 
+	 EOF 
+;
+
+// Rule GroupOpt
+ruleGroupOpt returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getGroupOptAccess().getGroupOptAction_0(),
+            $current);
+    }
 )((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getTranslationUnitAccess().getLinesPreprocessorDirectivesParserRuleCall_1_0_0()); 
+	        newCompositeNode(grammarAccess.getGroupOptAccess().getLinesPreprocessorDirectivesParserRuleCall_1_0_0()); 
 	    }
 		lv_lines_1_0=rulePreprocessorDirectives		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getTranslationUnitRule());
+	            $current = createModelElementForParent(grammarAccess.getGroupOptRule());
 	        }
        		add(
        			$current, 
@@ -144,11 +189,11 @@ ruleTranslationUnit returns [EObject current=null]
     |(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getTranslationUnitAccess().getLinesNewLineLineParserRuleCall_1_1_0()); 
+	        newCompositeNode(grammarAccess.getGroupOptAccess().getLinesNewLineLineParserRuleCall_1_1_0()); 
 	    }
 		lv_lines_2_0=ruleNewLineLine		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getTranslationUnitRule());
+	            $current = createModelElementForParent(grammarAccess.getGroupOptRule());
 	        }
        		add(
        			$current, 
@@ -163,11 +208,11 @@ ruleTranslationUnit returns [EObject current=null]
     |(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getTranslationUnitAccess().getLinesCodeParserRuleCall_1_2_0()); 
+	        newCompositeNode(grammarAccess.getGroupOptAccess().getLinesCodeParserRuleCall_1_2_0()); 
 	    }
 		lv_lines_3_0=ruleCode		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getTranslationUnitRule());
+	            $current = createModelElementForParent(grammarAccess.getGroupOptRule());
 	        }
        		add(
        			$current, 

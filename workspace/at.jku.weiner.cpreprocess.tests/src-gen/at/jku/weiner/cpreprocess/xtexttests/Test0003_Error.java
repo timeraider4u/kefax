@@ -44,6 +44,7 @@ import at.jku.weiner.cpreprocess.xtexttests.LexerAndParserTest;
 
 import at.jku.weiner.cpreprocess.cPreprocess.Model;
 import at.jku.weiner.cpreprocess.cPreprocess.TranslationUnit;
+import at.jku.weiner.cpreprocess.cPreprocess.GroupOpt;
 import at.jku.weiner.cpreprocess.cPreprocess.PreprocessorDirectives;
 import at.jku.weiner.cpreprocess.cPreprocess.ErrorDirective;
 @SuppressWarnings("unused")
@@ -131,22 +132,28 @@ public class Test0003_Error {
 		 = (TranslationUnit)Units_0_list.get(0);
 		Assert.assertNotNull(TranslationUnit_1_Var
 		);
-		final EList<? extends EObject> Lines_1_list = TranslationUnit_1_Var
-		.getLines();
-		Assert.assertNotNull(Lines_1_list);
-		Assert.assertEquals(1, Lines_1_list.size());
 		//1
-		final PreprocessorDirectives PreprocessorDirectives_2_Var
-		 = (PreprocessorDirectives)Lines_1_list.get(0);
-		Assert.assertNotNull(PreprocessorDirectives_2_Var
+		final GroupOpt GroupOpt_2_Var
+		 = (GroupOpt)TranslationUnit_1_Var
+		.getGroup();
+		Assert.assertNotNull(GroupOpt_2_Var
 		);
+		final EList<? extends EObject> Lines_2_list = GroupOpt_2_Var
+		.getLines();
+		Assert.assertNotNull(Lines_2_list);
+		Assert.assertEquals(1, Lines_2_list.size());
 		//2
-		final ErrorDirective ErrorDirective_3_Var
-		 = (ErrorDirective)PreprocessorDirectives_2_Var
-		.getDirective();
-		Assert.assertNotNull(ErrorDirective_3_Var
+		final PreprocessorDirectives PreprocessorDirectives_3_Var
+		 = (PreprocessorDirectives)Lines_2_list.get(0);
+		Assert.assertNotNull(PreprocessorDirectives_3_Var
 		);
-		Assert.assertEquals("\"error message!\"", ErrorDirective_3_Var
+		//3
+		final ErrorDirective ErrorDirective_4_Var
+		 = (ErrorDirective)PreprocessorDirectives_3_Var
+		.getDirective();
+		Assert.assertNotNull(ErrorDirective_4_Var
+		);
+		Assert.assertEquals("\"error message!\"", ErrorDirective_4_Var
 		.getMsg());
 	}
 	

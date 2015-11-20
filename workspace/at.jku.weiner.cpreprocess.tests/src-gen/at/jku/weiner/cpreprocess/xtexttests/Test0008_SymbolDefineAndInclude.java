@@ -44,6 +44,7 @@ import at.jku.weiner.cpreprocess.xtexttests.LexerAndParserTest;
 
 import at.jku.weiner.cpreprocess.cPreprocess.Model;
 import at.jku.weiner.cpreprocess.cPreprocess.TranslationUnit;
+import at.jku.weiner.cpreprocess.cPreprocess.GroupOpt;
 import at.jku.weiner.cpreprocess.cPreprocess.PreprocessorDirectives;
 import at.jku.weiner.cpreprocess.cPreprocess.DefineDirective;
 import at.jku.weiner.cpreprocess.cPreprocess.PreprocessorDirectives;
@@ -143,37 +144,43 @@ public class Test0008_SymbolDefineAndInclude {
 		 = (TranslationUnit)Units_0_list.get(0);
 		Assert.assertNotNull(TranslationUnit_1_Var
 		);
-		final EList<? extends EObject> Lines_1_list = TranslationUnit_1_Var
-		.getLines();
-		Assert.assertNotNull(Lines_1_list);
-		Assert.assertEquals(2, Lines_1_list.size());
 		//1
-		final PreprocessorDirectives PreprocessorDirectives_2_Var
-		 = (PreprocessorDirectives)Lines_1_list.get(0);
-		Assert.assertNotNull(PreprocessorDirectives_2_Var
+		final GroupOpt GroupOpt_2_Var
+		 = (GroupOpt)TranslationUnit_1_Var
+		.getGroup();
+		Assert.assertNotNull(GroupOpt_2_Var
 		);
+		final EList<? extends EObject> Lines_2_list = GroupOpt_2_Var
+		.getLines();
+		Assert.assertNotNull(Lines_2_list);
+		Assert.assertEquals(2, Lines_2_list.size());
 		//2
-		final DefineDirective DefineDirective_3_Var
-		 = (DefineDirective)PreprocessorDirectives_2_Var
-		.getDirective();
-		Assert.assertNotNull(DefineDirective_3_Var
+		final PreprocessorDirectives PreprocessorDirectives_3_Var
+		 = (PreprocessorDirectives)Lines_2_list.get(0);
+		Assert.assertNotNull(PreprocessorDirectives_3_Var
 		);
-		Assert.assertEquals("abc", DefineDirective_3_Var
-		.getId());
-		Assert.assertEquals("\"Test0002_Code.c\"", DefineDirective_3_Var
-		.getString());
 		//3
-		final PreprocessorDirectives PreprocessorDirectives_4_Var
-		 = (PreprocessorDirectives)Lines_1_list.get(1);
-		Assert.assertNotNull(PreprocessorDirectives_4_Var
-		);
-		//4
-		final IncludeDirective IncludeDirective_5_Var
-		 = (IncludeDirective)PreprocessorDirectives_4_Var
+		final DefineDirective DefineDirective_4_Var
+		 = (DefineDirective)PreprocessorDirectives_3_Var
 		.getDirective();
-		Assert.assertNotNull(IncludeDirective_5_Var
+		Assert.assertNotNull(DefineDirective_4_Var
 		);
-		Assert.assertEquals("\"Test0007_SymbolInInclude.h\"", IncludeDirective_5_Var
+		Assert.assertEquals("abc", DefineDirective_4_Var
+		.getId());
+		Assert.assertEquals("\"Test0002_Code.c\"", DefineDirective_4_Var
+		.getString());
+		//4
+		final PreprocessorDirectives PreprocessorDirectives_5_Var
+		 = (PreprocessorDirectives)Lines_2_list.get(1);
+		Assert.assertNotNull(PreprocessorDirectives_5_Var
+		);
+		//5
+		final IncludeDirective IncludeDirective_6_Var
+		 = (IncludeDirective)PreprocessorDirectives_5_Var
+		.getDirective();
+		Assert.assertNotNull(IncludeDirective_6_Var
+		);
+		Assert.assertEquals("\"Test0007_SymbolInInclude.h\"", IncludeDirective_6_Var
 		.getString());
 	}
 	

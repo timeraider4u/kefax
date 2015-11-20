@@ -4,11 +4,15 @@ package at.jku.weiner.cpreprocess
 language cPreprocess
 //----------------------------------------------------------------------
 split-lexer=true
-source file="res/Test0008_SymbolDefineAndInclude.c"
+source file="res/Test0017_AnotherSimpleDef.c"
 //----------------------------------------------------------------------
 lexer-tokens
-	HASH DEFINE WS ID WS SPECIAL ID SPECIAL ID SPECIAL NEWLINE
-	HASH INCLUDE WS SPECIAL ID SPECIAL ID SPECIAL NEWLINE
+	HASH DEFINE WS ID WS ID NEWLINE
+	HASH DEFINE WS ID WS SPECIAL NEWLINE
+	HASH DEFINE WS ID WS ID NEWLINE
+	HASH DEFINE WS ID WS SPECIAL +*2 NEWLINE
+	NEWLINE
+	ID WS ID WS SPECIAL WS ID WS SPECIAL WS ID SPECIAL NEWLINE
 //----------------------------------------------------------------------
 (Model
 	units+=
@@ -17,21 +21,40 @@ lexer-tokens
 		(PreprocessorDirectives
 			directive=
 			(DefineDirective
-				id++"abc",
-				string++"\\\"Test0002_Code.c\\\""
+				id++"A01",
+				string++"a01"
 			)
 		),
 		(PreprocessorDirectives
 			directive=
-			(IncludeDirective
-				string++"\\\"Test0007_SymbolInInclude.h\\\""
+			(DefineDirective
+				id++"BIG_NUMBER",
+				string++"5"
 			)
+		),
+		(PreprocessorDirectives
+			directive=
+			(DefineDirective
+				id++"__INT__",
+				string++"int"
+			)
+		),
+		(PreprocessorDirectives
+			directive=
+			(DefineDirective
+				id++"_NUMBER",
+				string++"15"
+			)
+		),
+		(NewLineLine),
+		(Code
+			code++"__INT__ A01 = BIG_NUMBER + _NUMBER;"
 		)
 	)
 )
 //----------------------------------------------------------------------
-output file="bin/Test0008_SymbolDefineAndInclude.c.i"
-expected file="expected/Test0008_SymboleDefineAndInclude.c"
+output file="bin/Test0017_AnotherSimpleDef.c.i"
+expected file="expected/Test0017_AnotherSimpleDef.c"
 //replacePatterns file="res/Patterns.txt"
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------

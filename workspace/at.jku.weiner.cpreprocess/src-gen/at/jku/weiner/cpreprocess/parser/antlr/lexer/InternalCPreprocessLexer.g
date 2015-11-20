@@ -102,7 +102,7 @@ fragment RULE_ID_NONDIGIT : (RULE_NONDIGIT_LETTER|RULE_UNIVERSAL_CHARACTER);
 
 fragment RULE_DIGIT : '0'..'9';
 
-fragment RULE_NONDIGIT_LETTER : ('a'..'z'|'A'..'Z');
+fragment RULE_NONDIGIT_LETTER : ('a'..'z'|'A'..'Z'|'_');
 
 fragment RULE_UNIVERSAL_CHARACTER : ('\\u' RULE_HEX_QUAD|'\\U' RULE_HEX_QUAD RULE_HEX_QUAD);
 

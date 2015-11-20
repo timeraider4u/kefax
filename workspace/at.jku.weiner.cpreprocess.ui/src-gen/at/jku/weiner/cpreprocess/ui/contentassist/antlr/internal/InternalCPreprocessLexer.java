@@ -382,7 +382,7 @@ public class InternalCPreprocessLexer extends Lexer {
                 int alt2=3;
                 int LA2_0 = input.LA(1);
 
-                if ( ((LA2_0>='A' && LA2_0<='Z')||LA2_0=='\\'||(LA2_0>='a' && LA2_0<='z')) ) {
+                if ( ((LA2_0>='A' && LA2_0<='Z')||LA2_0=='\\'||LA2_0=='_'||(LA2_0>='a' && LA2_0<='z')) ) {
                     alt2=1;
                 }
                 else if ( ((LA2_0>='0' && LA2_0<='9')) ) {
@@ -432,7 +432,7 @@ public class InternalCPreprocessLexer extends Lexer {
             int alt3=2;
             int LA3_0 = input.LA(1);
 
-            if ( ((LA3_0>='A' && LA3_0<='Z')||(LA3_0>='a' && LA3_0<='z')) ) {
+            if ( ((LA3_0>='A' && LA3_0<='Z')||LA3_0=='_'||(LA3_0>='a' && LA3_0<='z')) ) {
                 alt3=1;
             }
             else if ( (LA3_0=='\\') ) {
@@ -490,10 +490,10 @@ public class InternalCPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_NONDIGIT_LETTER"
     public final void mRULE_NONDIGIT_LETTER() throws RecognitionException {
         try {
-            // InternalCPreprocess.g:2347:31: ( ( 'a' .. 'z' | 'A' .. 'Z' ) )
-            // InternalCPreprocess.g:2347:33: ( 'a' .. 'z' | 'A' .. 'Z' )
+            // InternalCPreprocess.g:2347:31: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) )
+            // InternalCPreprocess.g:2347:33: ( 'a' .. 'z' | 'A' .. 'Z' | '_' )
             {
-            if ( (input.LA(1)>='A' && input.LA(1)<='Z')||(input.LA(1)>='a' && input.LA(1)<='z') ) {
+            if ( (input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                 input.consume();
 
             }
@@ -733,7 +733,7 @@ public class InternalCPreprocessLexer extends Lexer {
     static final String DFA5_specialS =
         "\1\0\55\uffff}>";
     static final String[] DFA5_transitionS = {
-            "\11\14\1\11\1\7\2\14\1\7\22\14\1\10\2\14\1\1\35\14\32\13\1\14\1\12\4\14\3\13\1\3\1\4\3\13\1\2\6\13\1\6\4\13\1\5\5\13\uff85\14",
+            "\11\14\1\11\1\7\2\14\1\7\22\14\1\10\2\14\1\1\35\14\32\13\1\14\1\12\2\14\1\13\1\14\3\13\1\3\1\4\3\13\1\2\6\13\1\6\4\13\1\5\5\13\uff85\14",
             "",
             "\1\16",
             "\1\20",
@@ -767,15 +767,15 @@ public class InternalCPreprocessLexer extends Lexer {
             "\1\44",
             "\1\45",
             "\1\46",
-            "\12\17\7\uffff\32\17\1\uffff\1\17\4\uffff\32\17",
-            "\12\17\7\uffff\32\17\1\uffff\1\17\4\uffff\32\17",
+            "\12\17\7\uffff\32\17\1\uffff\1\17\2\uffff\1\17\1\uffff\32\17",
+            "\12\17\7\uffff\32\17\1\uffff\1\17\2\uffff\1\17\1\uffff\32\17",
             "\1\51",
             "\1\52",
-            "\12\17\7\uffff\32\17\1\uffff\1\17\4\uffff\32\17",
+            "\12\17\7\uffff\32\17\1\uffff\1\17\2\uffff\1\17\1\uffff\32\17",
             "",
             "",
-            "\12\17\7\uffff\32\17\1\uffff\1\17\4\uffff\32\17",
-            "\12\17\7\uffff\32\17\1\uffff\1\17\4\uffff\32\17",
+            "\12\17\7\uffff\32\17\1\uffff\1\17\2\uffff\1\17\1\uffff\32\17",
+            "\12\17\7\uffff\32\17\1\uffff\1\17\2\uffff\1\17\1\uffff\32\17",
             "",
             "",
             ""
@@ -841,9 +841,9 @@ public class InternalCPreprocessLexer extends Lexer {
 
                         else if ( (LA5_0=='\\') ) {s = 10;}
 
-                        else if ( ((LA5_0>='A' && LA5_0<='Z')||(LA5_0>='a' && LA5_0<='c')||(LA5_0>='f' && LA5_0<='h')||(LA5_0>='j' && LA5_0<='o')||(LA5_0>='q' && LA5_0<='t')||(LA5_0>='v' && LA5_0<='z')) ) {s = 11;}
+                        else if ( ((LA5_0>='A' && LA5_0<='Z')||LA5_0=='_'||(LA5_0>='a' && LA5_0<='c')||(LA5_0>='f' && LA5_0<='h')||(LA5_0>='j' && LA5_0<='o')||(LA5_0>='q' && LA5_0<='t')||(LA5_0>='v' && LA5_0<='z')) ) {s = 11;}
 
-                        else if ( ((LA5_0>='\u0000' && LA5_0<='\b')||(LA5_0>='\u000B' && LA5_0<='\f')||(LA5_0>='\u000E' && LA5_0<='\u001F')||(LA5_0>='!' && LA5_0<='\"')||(LA5_0>='$' && LA5_0<='@')||LA5_0=='['||(LA5_0>=']' && LA5_0<='`')||(LA5_0>='{' && LA5_0<='\uFFFF')) ) {s = 12;}
+                        else if ( ((LA5_0>='\u0000' && LA5_0<='\b')||(LA5_0>='\u000B' && LA5_0<='\f')||(LA5_0>='\u000E' && LA5_0<='\u001F')||(LA5_0>='!' && LA5_0<='\"')||(LA5_0>='$' && LA5_0<='@')||LA5_0=='['||(LA5_0>=']' && LA5_0<='^')||LA5_0=='`'||(LA5_0>='{' && LA5_0<='\uFFFF')) ) {s = 12;}
 
                         if ( s>=0 ) return s;
                         break;

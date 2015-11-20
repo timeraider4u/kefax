@@ -139,6 +139,7 @@ terminal fragment DIGIT: '0' .. '9';
 terminal fragment NONDIGIT_LETTER:
 		'a' .. 'z'
 	|	'A' .. 'Z'
+	|	'_'
 ;
 terminal fragment
 UNIVERSAL_CHARACTER:

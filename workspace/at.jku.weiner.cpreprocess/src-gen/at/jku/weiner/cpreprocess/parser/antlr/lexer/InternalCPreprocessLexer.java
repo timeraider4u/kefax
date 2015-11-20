@@ -56,7 +56,7 @@ public class InternalCPreprocessLexer extends Lexer {
     }
     public InternalCPreprocessLexer(CharStream input, RecognizerSharedState state) {
         super(input,state);
-        state.ruleMemo = new HashMap[54+1];
+        state.ruleMemo = new HashMap[55+1];
  
     }
     public String getGrammarFileName() { return "InternalCPreprocessLexer.g"; }
@@ -700,7 +700,7 @@ public class InternalCPreprocessLexer extends Lexer {
                 int alt3=3;
                 int LA3_0 = input.LA(1);
 
-                if ( ((LA3_0>='A' && LA3_0<='Z')||LA3_0=='\\'||(LA3_0>='a' && LA3_0<='z')) ) {
+                if ( ((LA3_0>='A' && LA3_0<='Z')||LA3_0=='\\'||LA3_0=='_'||(LA3_0>='a' && LA3_0<='z')) ) {
                     alt3=1;
                 }
                 else if ( ((LA3_0>='0' && LA3_0<='9')) ) {
@@ -751,7 +751,7 @@ public class InternalCPreprocessLexer extends Lexer {
             int alt4=2;
             int LA4_0 = input.LA(1);
 
-            if ( ((LA4_0>='A' && LA4_0<='Z')||(LA4_0>='a' && LA4_0<='z')) ) {
+            if ( ((LA4_0>='A' && LA4_0<='Z')||LA4_0=='_'||(LA4_0>='a' && LA4_0<='z')) ) {
                 alt4=1;
             }
             else if ( (LA4_0=='\\') ) {
@@ -816,10 +816,10 @@ public class InternalCPreprocessLexer extends Lexer {
         int RULE_NONDIGIT_LETTER_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 28) ) { return ; }
-            // InternalCPreprocessLexer.g:105:31: ( ( 'a' .. 'z' | 'A' .. 'Z' ) )
-            // InternalCPreprocessLexer.g:105:33: ( 'a' .. 'z' | 'A' .. 'Z' )
+            // InternalCPreprocessLexer.g:105:31: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) )
+            // InternalCPreprocessLexer.g:105:33: ( 'a' .. 'z' | 'A' .. 'Z' | '_' )
             {
-            if ( (input.LA(1)>='A' && input.LA(1)<='Z')||(input.LA(1)>='a' && input.LA(1)<='z') ) {
+            if ( (input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                 input.consume();
             state.failed=false;
             }
@@ -1271,9 +1271,9 @@ public class InternalCPreprocessLexer extends Lexer {
     static final String DFA1_acceptS =
         "\14\uffff\1\12\1\1\1\2\1\11\1\3\1\4\1\5\1\6\1\7\1\10\2\11\1\12\1\10";
     static final String DFA1_specialS =
-        "\1\11\1\10\1\2\1\0\1\12\1\6\1\3\1\1\1\7\1\13\1\5\1\4\16\uffff}>";
+        "\1\11\1\0\1\3\1\12\1\7\1\10\1\4\1\6\1\2\1\5\1\1\1\13\16\uffff}>";
     static final String[] DFA1_transitionS = {
-            "\11\14\1\11\1\7\2\14\1\7\22\14\1\10\2\14\1\1\35\14\32\13\1\14\1\12\4\14\3\13\1\3\1\4\3\13\1\2\6\13\1\6\4\13\1\5\5\13\uff85\14",
+            "\11\14\1\11\1\7\2\14\1\7\22\14\1\10\2\14\1\1\35\14\32\13\1\14\1\12\2\14\1\13\1\14\3\13\1\3\1\4\3\13\1\2\6\13\1\6\4\13\1\5\5\13\uff85\14",
             "\1\uffff",
             "\1\16",
             "\1\20",
@@ -1338,87 +1338,21 @@ public class InternalCPreprocessLexer extends Lexer {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA1_3 = input.LA(1);
+                        int LA1_1 = input.LA(1);
 
                          
-                        int index1_3 = input.index();
+                        int index1_1 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA1_3=='e') && (synpred3_InternalCPreprocessLexer())) {s = 16;}
-
-                        else if ( (synpred9_InternalCPreprocessLexer()) ) {s = 15;}
+                        if ( (synpred1_InternalCPreprocessLexer()) ) {s = 13;}
 
                         else if ( (synpred10_InternalCPreprocessLexer()) ) {s = 12;}
 
                          
-                        input.seek(index1_3);
+                        input.seek(index1_1);
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
-                        int LA1_7 = input.LA(1);
-
-                         
-                        int index1_7 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred7_InternalCPreprocessLexer()) ) {s = 20;}
-
-                        else if ( (synpred10_InternalCPreprocessLexer()) ) {s = 12;}
-
-                         
-                        input.seek(index1_7);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
-                        int LA1_2 = input.LA(1);
-
-                         
-                        int index1_2 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA1_2=='n') && (synpred2_InternalCPreprocessLexer())) {s = 14;}
-
-                        else if ( (synpred9_InternalCPreprocessLexer()) ) {s = 15;}
-
-                        else if ( (synpred10_InternalCPreprocessLexer()) ) {s = 12;}
-
-                         
-                        input.seek(index1_2);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 3 : 
-                        int LA1_6 = input.LA(1);
-
-                         
-                        int index1_6 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA1_6=='r') && (synpred6_InternalCPreprocessLexer())) {s = 19;}
-
-                        else if ( (synpred9_InternalCPreprocessLexer()) ) {s = 15;}
-
-                        else if ( (synpred10_InternalCPreprocessLexer()) ) {s = 12;}
-
-                         
-                        input.seek(index1_6);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 4 : 
-                        int LA1_11 = input.LA(1);
-
-                         
-                        int index1_11 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred9_InternalCPreprocessLexer()) ) {s = 23;}
-
-                        else if ( (synpred10_InternalCPreprocessLexer()) ) {s = 24;}
-
-                         
-                        input.seek(index1_11);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 5 : 
                         int LA1_10 = input.LA(1);
 
                          
@@ -1437,24 +1371,7 @@ public class InternalCPreprocessLexer extends Lexer {
                         input.seek(index1_10);
                         if ( s>=0 ) return s;
                         break;
-                    case 6 : 
-                        int LA1_5 = input.LA(1);
-
-                         
-                        int index1_5 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA1_5=='n') && (synpred5_InternalCPreprocessLexer())) {s = 18;}
-
-                        else if ( (synpred9_InternalCPreprocessLexer()) ) {s = 15;}
-
-                        else if ( (synpred10_InternalCPreprocessLexer()) ) {s = 12;}
-
-                         
-                        input.seek(index1_5);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 7 : 
+                    case 2 : 
                         int LA1_8 = input.LA(1);
 
                          
@@ -1469,19 +1386,102 @@ public class InternalCPreprocessLexer extends Lexer {
                         input.seek(index1_8);
                         if ( s>=0 ) return s;
                         break;
-                    case 8 : 
-                        int LA1_1 = input.LA(1);
+                    case 3 : 
+                        int LA1_2 = input.LA(1);
 
                          
-                        int index1_1 = input.index();
+                        int index1_2 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred1_InternalCPreprocessLexer()) ) {s = 13;}
+                        if ( (LA1_2=='n') && (synpred2_InternalCPreprocessLexer())) {s = 14;}
+
+                        else if ( (synpred9_InternalCPreprocessLexer()) ) {s = 15;}
 
                         else if ( (synpred10_InternalCPreprocessLexer()) ) {s = 12;}
 
                          
-                        input.seek(index1_1);
+                        input.seek(index1_2);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 4 : 
+                        int LA1_6 = input.LA(1);
+
+                         
+                        int index1_6 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (LA1_6=='r') && (synpred6_InternalCPreprocessLexer())) {s = 19;}
+
+                        else if ( (synpred9_InternalCPreprocessLexer()) ) {s = 15;}
+
+                        else if ( (synpred10_InternalCPreprocessLexer()) ) {s = 12;}
+
+                         
+                        input.seek(index1_6);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 5 : 
+                        int LA1_9 = input.LA(1);
+
+                         
+                        int index1_9 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred8_InternalCPreprocessLexer()) ) {s = 21;}
+
+                        else if ( (synpred10_InternalCPreprocessLexer()) ) {s = 12;}
+
+                         
+                        input.seek(index1_9);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 6 : 
+                        int LA1_7 = input.LA(1);
+
+                         
+                        int index1_7 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred7_InternalCPreprocessLexer()) ) {s = 20;}
+
+                        else if ( (synpred10_InternalCPreprocessLexer()) ) {s = 12;}
+
+                         
+                        input.seek(index1_7);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 7 : 
+                        int LA1_4 = input.LA(1);
+
+                         
+                        int index1_4 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (LA1_4=='r') && (synpred4_InternalCPreprocessLexer())) {s = 17;}
+
+                        else if ( (synpred9_InternalCPreprocessLexer()) ) {s = 15;}
+
+                        else if ( (synpred10_InternalCPreprocessLexer()) ) {s = 12;}
+
+                         
+                        input.seek(index1_4);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 8 : 
+                        int LA1_5 = input.LA(1);
+
+                         
+                        int index1_5 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (LA1_5=='n') && (synpred5_InternalCPreprocessLexer())) {s = 18;}
+
+                        else if ( (synpred9_InternalCPreprocessLexer()) ) {s = 15;}
+
+                        else if ( (synpred10_InternalCPreprocessLexer()) ) {s = 12;}
+
+                         
+                        input.seek(index1_5);
                         if ( s>=0 ) return s;
                         break;
                     case 9 : 
@@ -1511,44 +1511,44 @@ public class InternalCPreprocessLexer extends Lexer {
 
                         else if ( (LA1_0=='\\') ) {s = 10;}
 
-                        else if ( ((LA1_0>='A' && LA1_0<='Z')||(LA1_0>='a' && LA1_0<='c')||(LA1_0>='f' && LA1_0<='h')||(LA1_0>='j' && LA1_0<='o')||(LA1_0>='q' && LA1_0<='t')||(LA1_0>='v' && LA1_0<='z')) ) {s = 11;}
+                        else if ( ((LA1_0>='A' && LA1_0<='Z')||LA1_0=='_'||(LA1_0>='a' && LA1_0<='c')||(LA1_0>='f' && LA1_0<='h')||(LA1_0>='j' && LA1_0<='o')||(LA1_0>='q' && LA1_0<='t')||(LA1_0>='v' && LA1_0<='z')) ) {s = 11;}
 
-                        else if ( ((LA1_0>='\u0000' && LA1_0<='\b')||(LA1_0>='\u000B' && LA1_0<='\f')||(LA1_0>='\u000E' && LA1_0<='\u001F')||(LA1_0>='!' && LA1_0<='\"')||(LA1_0>='$' && LA1_0<='@')||LA1_0=='['||(LA1_0>=']' && LA1_0<='`')||(LA1_0>='{' && LA1_0<='\uFFFF')) && (synpred10_InternalCPreprocessLexer())) {s = 12;}
+                        else if ( ((LA1_0>='\u0000' && LA1_0<='\b')||(LA1_0>='\u000B' && LA1_0<='\f')||(LA1_0>='\u000E' && LA1_0<='\u001F')||(LA1_0>='!' && LA1_0<='\"')||(LA1_0>='$' && LA1_0<='@')||LA1_0=='['||(LA1_0>=']' && LA1_0<='^')||LA1_0=='`'||(LA1_0>='{' && LA1_0<='\uFFFF')) && (synpred10_InternalCPreprocessLexer())) {s = 12;}
 
                          
                         input.seek(index1_0);
                         if ( s>=0 ) return s;
                         break;
                     case 10 : 
-                        int LA1_4 = input.LA(1);
+                        int LA1_3 = input.LA(1);
 
                          
-                        int index1_4 = input.index();
+                        int index1_3 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA1_4=='r') && (synpred4_InternalCPreprocessLexer())) {s = 17;}
+                        if ( (LA1_3=='e') && (synpred3_InternalCPreprocessLexer())) {s = 16;}
 
                         else if ( (synpred9_InternalCPreprocessLexer()) ) {s = 15;}
 
                         else if ( (synpred10_InternalCPreprocessLexer()) ) {s = 12;}
 
                          
-                        input.seek(index1_4);
+                        input.seek(index1_3);
                         if ( s>=0 ) return s;
                         break;
                     case 11 : 
-                        int LA1_9 = input.LA(1);
+                        int LA1_11 = input.LA(1);
 
                          
-                        int index1_9 = input.index();
+                        int index1_11 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred8_InternalCPreprocessLexer()) ) {s = 21;}
+                        if ( (synpred9_InternalCPreprocessLexer()) ) {s = 23;}
 
-                        else if ( (synpred10_InternalCPreprocessLexer()) ) {s = 12;}
+                        else if ( (synpred10_InternalCPreprocessLexer()) ) {s = 24;}
 
                          
-                        input.seek(index1_9);
+                        input.seek(index1_11);
                         if ( s>=0 ) return s;
                         break;
             }

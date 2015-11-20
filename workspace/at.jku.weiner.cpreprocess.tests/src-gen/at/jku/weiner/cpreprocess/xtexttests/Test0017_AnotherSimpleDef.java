@@ -44,17 +44,20 @@ import at.jku.weiner.cpreprocess.xtexttests.LexerAndParserTest;
 
 import at.jku.weiner.cpreprocess.cPreprocess.Model;
 import at.jku.weiner.cpreprocess.cPreprocess.TranslationUnit;
-import at.jku.weiner.cpreprocess.cPreprocess.Code;
-import at.jku.weiner.cpreprocess.cPreprocess.Code;
 import at.jku.weiner.cpreprocess.cPreprocess.PreprocessorDirectives;
-import at.jku.weiner.cpreprocess.cPreprocess.IncludeDirective;
-import at.jku.weiner.cpreprocess.cPreprocess.Code;
-import at.jku.weiner.cpreprocess.cPreprocess.Code;
+import at.jku.weiner.cpreprocess.cPreprocess.DefineDirective;
+import at.jku.weiner.cpreprocess.cPreprocess.PreprocessorDirectives;
+import at.jku.weiner.cpreprocess.cPreprocess.DefineDirective;
+import at.jku.weiner.cpreprocess.cPreprocess.PreprocessorDirectives;
+import at.jku.weiner.cpreprocess.cPreprocess.DefineDirective;
+import at.jku.weiner.cpreprocess.cPreprocess.PreprocessorDirectives;
+import at.jku.weiner.cpreprocess.cPreprocess.DefineDirective;
+import at.jku.weiner.cpreprocess.cPreprocess.NewLineLine;
 import at.jku.weiner.cpreprocess.cPreprocess.Code;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(CPreprocessInjectorProvider.class)
-public class Test0010_UglyInclude {
+public class Test0017_AnotherSimpleDef {
 	@Inject
 	private ParseHelper<Model> parseHelper;
 	@Inject
@@ -96,52 +99,50 @@ public class Test0010_UglyInclude {
 	@Test
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
-			"res/Test0010_UglyInclude.c");
+			"res/Test0017_AnotherSimpleDef.c");
 			//System.out.println(text);
 			final String[] expected = new String[] {
-				"RULE_ID", 
-				"RULE_WS", 
-				"RULE_ID", 
-				"RULE_SPECIAL", 
-				"RULE_ID", 
-				"RULE_SPECIAL", 
-				"RULE_WS", 
-				"RULE_SPECIAL", 
-				"RULE_NEWLINE", 
-				"RULE_WS", 
-				"RULE_ID", 
-				"RULE_WS", 
-				"RULE_SPECIAL", 
-				"RULE_SPECIAL", 
-				"RULE_WS", 
-				"RULE_SPECIAL", 
-				"RULE_WS", 
-				"RULE_SPECIAL", 
-				"RULE_SPECIAL", 
-				"RULE_WS", 
-				"RULE_SPECIAL", 
-				"RULE_NEWLINE", 
-				"RULE_WS", 
-				"RULE_WS", 
 				"RULE_HASH", 
-				"RULE_INCLUDE", 
+				"RULE_DEFINE", 
 				"RULE_WS", 
-				"RULE_SPECIAL", 
 				"RULE_ID", 
-				"RULE_SPECIAL", 
-				"RULE_ID", 
-				"RULE_SPECIAL", 
-				"RULE_NEWLINE", 
 				"RULE_WS", 
-				"RULE_SPECIAL", 
+				"RULE_ID", 
 				"RULE_NEWLINE", 
+				"RULE_HASH", 
+				"RULE_DEFINE", 
 				"RULE_WS", 
 				"RULE_ID", 
 				"RULE_WS", 
 				"RULE_SPECIAL", 
+				"RULE_NEWLINE", 
+				"RULE_HASH", 
+				"RULE_DEFINE", 
+				"RULE_WS", 
+				"RULE_ID", 
+				"RULE_WS", 
+				"RULE_ID", 
+				"RULE_NEWLINE", 
+				"RULE_HASH", 
+				"RULE_DEFINE", 
+				"RULE_WS", 
+				"RULE_ID", 
+				"RULE_WS", 
 				"RULE_SPECIAL", 
 				"RULE_SPECIAL", 
 				"RULE_NEWLINE", 
+				"RULE_NEWLINE", 
+				"RULE_ID", 
+				"RULE_WS", 
+				"RULE_ID", 
+				"RULE_WS", 
+				"RULE_SPECIAL", 
+				"RULE_WS", 
+				"RULE_ID", 
+				"RULE_WS", 
+				"RULE_SPECIAL", 
+				"RULE_WS", 
+				"RULE_ID", 
 				"RULE_SPECIAL", 
 				"RULE_NEWLINE", 
 				};
@@ -153,7 +154,7 @@ public class Test0010_UglyInclude {
 	@Test
 	public void checkParserResult() throws Exception {
 		final String text = this.getTextFromFile(
-			"res/Test0010_UglyInclude.c");
+			"res/Test0017_AnotherSimpleDef.c");
 		final Model Model_0_Var
 		  = 
 			this.parseHelper.parse(text);
@@ -176,52 +177,76 @@ public class Test0010_UglyInclude {
 		Assert.assertNotNull(Lines_1_list);
 		Assert.assertEquals(6, Lines_1_list.size());
 		//1
-		final Code Code_2_Var
-		 = (Code)Lines_1_list.get(0);
-		Assert.assertNotNull(Code_2_Var
+		final PreprocessorDirectives PreprocessorDirectives_2_Var
+		 = (PreprocessorDirectives)Lines_1_list.get(0);
+		Assert.assertNotNull(PreprocessorDirectives_2_Var
 		);
-		Assert.assertEquals("int main(void) {", Code_2_Var
-		.getCode());
 		//2
-		final Code Code_3_Var
-		 = (Code)Lines_1_list.get(1);
-		Assert.assertNotNull(Code_3_Var
+		final DefineDirective DefineDirective_3_Var
+		 = (DefineDirective)PreprocessorDirectives_2_Var
+		.getDirective();
+		Assert.assertNotNull(DefineDirective_3_Var
 		);
-		Assert.assertEquals("	if (1 > 0) {", Code_3_Var
-		.getCode());
+		Assert.assertEquals("A01", DefineDirective_3_Var
+		.getId());
+		Assert.assertEquals("a01", DefineDirective_3_Var
+		.getString());
 		//3
 		final PreprocessorDirectives PreprocessorDirectives_4_Var
-		 = (PreprocessorDirectives)Lines_1_list.get(2);
+		 = (PreprocessorDirectives)Lines_1_list.get(1);
 		Assert.assertNotNull(PreprocessorDirectives_4_Var
 		);
 		//4
-		final IncludeDirective IncludeDirective_5_Var
-		 = (IncludeDirective)PreprocessorDirectives_4_Var
+		final DefineDirective DefineDirective_5_Var
+		 = (DefineDirective)PreprocessorDirectives_4_Var
 		.getDirective();
-		Assert.assertNotNull(IncludeDirective_5_Var
+		Assert.assertNotNull(DefineDirective_5_Var
 		);
-		Assert.assertEquals("\"Test0010_UglyInclude.h\"", IncludeDirective_5_Var
+		Assert.assertEquals("BIG_NUMBER", DefineDirective_5_Var
+		.getId());
+		Assert.assertEquals("5", DefineDirective_5_Var
 		.getString());
 		//5
-		final Code Code_6_Var
-		 = (Code)Lines_1_list.get(3);
-		Assert.assertNotNull(Code_6_Var
+		final PreprocessorDirectives PreprocessorDirectives_6_Var
+		 = (PreprocessorDirectives)Lines_1_list.get(2);
+		Assert.assertNotNull(PreprocessorDirectives_6_Var
 		);
-		Assert.assertEquals("	}", Code_6_Var
-		.getCode());
 		//6
-		final Code Code_7_Var
-		 = (Code)Lines_1_list.get(4);
-		Assert.assertNotNull(Code_7_Var
+		final DefineDirective DefineDirective_7_Var
+		 = (DefineDirective)PreprocessorDirectives_6_Var
+		.getDirective();
+		Assert.assertNotNull(DefineDirective_7_Var
 		);
-		Assert.assertEquals("	return -1;", Code_7_Var
-		.getCode());
+		Assert.assertEquals("__INT__", DefineDirective_7_Var
+		.getId());
+		Assert.assertEquals("int", DefineDirective_7_Var
+		.getString());
 		//7
-		final Code Code_8_Var
-		 = (Code)Lines_1_list.get(5);
-		Assert.assertNotNull(Code_8_Var
+		final PreprocessorDirectives PreprocessorDirectives_8_Var
+		 = (PreprocessorDirectives)Lines_1_list.get(3);
+		Assert.assertNotNull(PreprocessorDirectives_8_Var
 		);
-		Assert.assertEquals("}", Code_8_Var
+		//8
+		final DefineDirective DefineDirective_9_Var
+		 = (DefineDirective)PreprocessorDirectives_8_Var
+		.getDirective();
+		Assert.assertNotNull(DefineDirective_9_Var
+		);
+		Assert.assertEquals("_NUMBER", DefineDirective_9_Var
+		.getId());
+		Assert.assertEquals("15", DefineDirective_9_Var
+		.getString());
+		//9
+		final NewLineLine NewLineLine_10_Var
+		 = (NewLineLine)Lines_1_list.get(4);
+		Assert.assertNotNull(NewLineLine_10_Var
+		);
+		//10
+		final Code Code_11_Var
+		 = (Code)Lines_1_list.get(5);
+		Assert.assertNotNull(Code_11_Var
+		);
+		Assert.assertEquals("__INT__ A01 = BIG_NUMBER + _NUMBER;", Code_11_Var
 		.getCode());
 	}
 	
@@ -230,7 +255,7 @@ public class Test0010_UglyInclude {
 		// load the resource
 		ResourceSet set = this.resourceSetProvider.get();
 		URI uri = URI.createURI(
-			"res/Test0010_UglyInclude.c");
+			"res/Test0017_AnotherSimpleDef.c");
 		Resource resource = set.getResource(uri, true);
 		// validate the resource
 		List<Issue> list = this.validator.validate(resource, 
@@ -244,7 +269,7 @@ public class Test0010_UglyInclude {
 			final Method method = clazz.getMethod("setFileName",
 					String.class);
 			if (method != null) {
-				method.invoke(this.generator, "Test0010_UglyInclude.c.i");
+				method.invoke(this.generator, "Test0017_AnotherSimpleDef.c.i");
 			}
 		} catch (NoSuchMethodException | SecurityException
 			| IllegalAccessException | IllegalArgumentException
@@ -253,9 +278,9 @@ public class Test0010_UglyInclude {
 			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
-		final String actual = this.getTextFromFile("bin/Test0010_UglyInclude.c.i");
+		final String actual = this.getTextFromFile("bin/Test0017_AnotherSimpleDef.c.i");
 		final String expected = this.getTextFromFile(
-			"expected/Test0010_UglyInclude.c"
+			"expected/Test0017_AnotherSimpleDef.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
 		// System.out.println("Code generation finished.");

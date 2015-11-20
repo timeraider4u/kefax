@@ -808,7 +808,8 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//terminal fragment NONDIGIT_LETTER:
 	//	'a'..'z'
-	//	| 'A'..'Z';
+	//	| 'A'..'Z'
+	//	| '_';
 	public TerminalRule getNONDIGIT_LETTERRule() {
 		return tNONDIGIT_LETTER;
 	}

@@ -126,8 +126,6 @@ public class Test0009_DefineAndInclude {
 				"RULE_SPECIAL", 
 				"RULE_ID", 
 				"RULE_SPECIAL", 
-				"RULE_ID", 
-				"RULE_SPECIAL", 
 				"RULE_NEWLINE", 
 				"RULE_NEWLINE", 
 				"RULE_ID", 

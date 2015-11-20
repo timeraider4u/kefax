@@ -21,7 +21,6 @@ import at.jku.weiner.cpreprocess.generator.DefinitionTable
 import org.eclipse.emf.ecore.resource.ResourceSet
 import org.eclipse.emf.common.util.URI
 import at.jku.weiner.cpreprocess.cPreprocess.GroupOpt
-import java.io.File
 
 /**
  * Generates code from your model files on save.

@@ -247,9 +247,43 @@ ruleDefineDirective
      }:
 
 (
-{ before(grammarAccess.getDefineDirectiveAccess().getGroup()); }
-(rule__DefineDirective__Group__0)
-{ after(grammarAccess.getDefineDirectiveAccess().getGroup()); }
+{ before(grammarAccess.getDefineDirectiveAccess().getDefineObjectMacroParserRuleCall()); }
+	ruleDefineObjectMacro
+{ after(grammarAccess.getDefineDirectiveAccess().getDefineObjectMacroParserRuleCall()); }
+)
+
+
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
+// Entry rule entryRuleDefineObjectMacro
+entryRuleDefineObjectMacro 
+:
+{ before(grammarAccess.getDefineObjectMacroRule()); }
+	 ruleDefineObjectMacro
+{ after(grammarAccess.getDefineObjectMacroRule()); } 
+	 EOF 
+;
+
+// Rule DefineObjectMacro
+ruleDefineObjectMacro
+    @init {
+		int stackSize = keepStackSize();
+		/*no init found*/
+    }
+	@after {
+    		/*no after found*/
+     }:
+
+(
+{ before(grammarAccess.getDefineObjectMacroAccess().getGroup()); }
+(rule__DefineObjectMacro__Group__0)
+{ after(grammarAccess.getDefineObjectMacroAccess().getGroup()); }
 )
 
 
@@ -1373,30 +1407,30 @@ finally {
 
 
 
-rule__DefineDirective__Group__0
+rule__DefineObjectMacro__Group__0
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__DefineDirective__Group__0__Impl
-	rule__DefineDirective__Group__1
+	rule__DefineObjectMacro__Group__0__Impl
+	rule__DefineObjectMacro__Group__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__DefineDirective__Group__0__Impl
+rule__DefineObjectMacro__Group__0__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 
 (
-{ before(grammarAccess.getDefineDirectiveAccess().getDefineDirectiveAction_0()); }
+{ before(grammarAccess.getDefineObjectMacroAccess().getDefineDirectiveAction_0()); }
 (
 
 )
-{ after(grammarAccess.getDefineDirectiveAccess().getDefineDirectiveAction_0()); }
+{ after(grammarAccess.getDefineObjectMacroAccess().getDefineDirectiveAction_0()); }
 )
 
 
@@ -1407,28 +1441,28 @@ finally {
 }
 
 
-rule__DefineDirective__Group__1
+rule__DefineObjectMacro__Group__1
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__DefineDirective__Group__1__Impl
-	rule__DefineDirective__Group__2
+	rule__DefineObjectMacro__Group__1__Impl
+	rule__DefineObjectMacro__Group__2
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__DefineDirective__Group__1__Impl
+rule__DefineObjectMacro__Group__1__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 
 (
-{ before(grammarAccess.getDefineDirectiveAccess().getDEFINETerminalRuleCall_1()); }
+{ before(grammarAccess.getDefineObjectMacroAccess().getDEFINETerminalRuleCall_1()); }
 	RULE_DEFINE
-{ after(grammarAccess.getDefineDirectiveAccess().getDEFINETerminalRuleCall_1()); }
+{ after(grammarAccess.getDefineObjectMacroAccess().getDEFINETerminalRuleCall_1()); }
 )
 
 
@@ -1439,19 +1473,19 @@ finally {
 }
 
 
-rule__DefineDirective__Group__2
+rule__DefineObjectMacro__Group__2
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__DefineDirective__Group__2__Impl
-	rule__DefineDirective__Group__3
+	rule__DefineObjectMacro__Group__2__Impl
+	rule__DefineObjectMacro__Group__3
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__DefineDirective__Group__2__Impl
+rule__DefineObjectMacro__Group__2__Impl
     @init {
 		int stackSize = keepStackSize();
     }
@@ -1459,14 +1493,14 @@ rule__DefineDirective__Group__2__Impl
 
 (
 (
-{ before(grammarAccess.getDefineDirectiveAccess().getWSTerminalRuleCall_2()); }
+{ before(grammarAccess.getDefineObjectMacroAccess().getWSTerminalRuleCall_2()); }
 (	RULE_WS)
-{ after(grammarAccess.getDefineDirectiveAccess().getWSTerminalRuleCall_2()); }
+{ after(grammarAccess.getDefineObjectMacroAccess().getWSTerminalRuleCall_2()); }
 )
 (
-{ before(grammarAccess.getDefineDirectiveAccess().getWSTerminalRuleCall_2()); }
+{ before(grammarAccess.getDefineObjectMacroAccess().getWSTerminalRuleCall_2()); }
 (	RULE_WS)*
-{ after(grammarAccess.getDefineDirectiveAccess().getWSTerminalRuleCall_2()); }
+{ after(grammarAccess.getDefineObjectMacroAccess().getWSTerminalRuleCall_2()); }
 )
 )
 
@@ -1478,28 +1512,28 @@ finally {
 }
 
 
-rule__DefineDirective__Group__3
+rule__DefineObjectMacro__Group__3
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__DefineDirective__Group__3__Impl
-	rule__DefineDirective__Group__4
+	rule__DefineObjectMacro__Group__3__Impl
+	rule__DefineObjectMacro__Group__4
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__DefineDirective__Group__3__Impl
+rule__DefineObjectMacro__Group__3__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 
 (
-{ before(grammarAccess.getDefineDirectiveAccess().getIdAssignment_3()); }
-(rule__DefineDirective__IdAssignment_3)
-{ after(grammarAccess.getDefineDirectiveAccess().getIdAssignment_3()); }
+{ before(grammarAccess.getDefineObjectMacroAccess().getIdAssignment_3()); }
+(rule__DefineObjectMacro__IdAssignment_3)
+{ after(grammarAccess.getDefineObjectMacroAccess().getIdAssignment_3()); }
 )
 
 
@@ -1510,28 +1544,28 @@ finally {
 }
 
 
-rule__DefineDirective__Group__4
+rule__DefineObjectMacro__Group__4
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__DefineDirective__Group__4__Impl
-	rule__DefineDirective__Group__5
+	rule__DefineObjectMacro__Group__4__Impl
+	rule__DefineObjectMacro__Group__5
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__DefineDirective__Group__4__Impl
+rule__DefineObjectMacro__Group__4__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 
 (
-{ before(grammarAccess.getDefineDirectiveAccess().getWSTerminalRuleCall_4()); }
+{ before(grammarAccess.getDefineObjectMacroAccess().getWSTerminalRuleCall_4()); }
 (	RULE_WS)*
-{ after(grammarAccess.getDefineDirectiveAccess().getWSTerminalRuleCall_4()); }
+{ after(grammarAccess.getDefineObjectMacroAccess().getWSTerminalRuleCall_4()); }
 )
 
 
@@ -1542,27 +1576,27 @@ finally {
 }
 
 
-rule__DefineDirective__Group__5
+rule__DefineObjectMacro__Group__5
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__DefineDirective__Group__5__Impl
+	rule__DefineObjectMacro__Group__5__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__DefineDirective__Group__5__Impl
+rule__DefineObjectMacro__Group__5__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 
 (
-{ before(grammarAccess.getDefineDirectiveAccess().getStringAssignment_5()); }
-(rule__DefineDirective__StringAssignment_5)
-{ after(grammarAccess.getDefineDirectiveAccess().getStringAssignment_5()); }
+{ before(grammarAccess.getDefineObjectMacroAccess().getStringAssignment_5()); }
+(rule__DefineObjectMacro__StringAssignment_5)
+{ after(grammarAccess.getDefineObjectMacroAccess().getStringAssignment_5()); }
 )
 
 
@@ -2414,14 +2448,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__DefineDirective__IdAssignment_3
+rule__DefineObjectMacro__IdAssignment_3
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getDefineDirectiveAccess().getIdIDTerminalRuleCall_3_0()); }
-	RULE_ID{ after(grammarAccess.getDefineDirectiveAccess().getIdIDTerminalRuleCall_3_0()); }
+{ before(grammarAccess.getDefineObjectMacroAccess().getIdIDTerminalRuleCall_3_0()); }
+	RULE_ID{ after(grammarAccess.getDefineObjectMacroAccess().getIdIDTerminalRuleCall_3_0()); }
 )
 
 ;
@@ -2429,14 +2463,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__DefineDirective__StringAssignment_5
+rule__DefineObjectMacro__StringAssignment_5
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getDefineDirectiveAccess().getStringMyDefineLineParserRuleCall_5_0()); }
-	ruleMyDefineLine{ after(grammarAccess.getDefineDirectiveAccess().getStringMyDefineLineParserRuleCall_5_0()); }
+{ before(grammarAccess.getDefineObjectMacroAccess().getStringMyDefineLineParserRuleCall_5_0()); }
+	ruleMyDefineLine{ after(grammarAccess.getDefineObjectMacroAccess().getStringMyDefineLineParserRuleCall_5_0()); }
 )
 
 ;

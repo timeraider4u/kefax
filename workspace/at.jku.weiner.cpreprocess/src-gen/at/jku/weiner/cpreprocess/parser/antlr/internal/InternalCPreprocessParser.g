@@ -434,29 +434,59 @@ ruleDefineDirective returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
+
+    { 
+        newCompositeNode(grammarAccess.getDefineDirectiveAccess().getDefineObjectMacroParserRuleCall()); 
+    }
+    this_DefineObjectMacro_0=ruleDefineObjectMacro
+    {
+        $current = $this_DefineObjectMacro_0.current;
+        afterParserOrEnumRuleCall();
+    }
+
+;
+
+
+
+
+
+// Entry rule entryRuleDefineObjectMacro
+entryRuleDefineObjectMacro returns [EObject current=null]
+	:
+	{ newCompositeNode(grammarAccess.getDefineObjectMacroRule()); }
+	 iv_ruleDefineObjectMacro=ruleDefineObjectMacro 
+	 { $current=$iv_ruleDefineObjectMacro.current; } 
+	 EOF 
+;
+
+// Rule DefineObjectMacro
+ruleDefineObjectMacro returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
 ((
     {
         $current = forceCreateModelElement(
-            grammarAccess.getDefineDirectiveAccess().getDefineDirectiveAction_0(),
+            grammarAccess.getDefineObjectMacroAccess().getDefineDirectiveAction_0(),
             $current);
     }
 )this_DEFINE_1=RULE_DEFINE
     { 
-    newLeafNode(this_DEFINE_1, grammarAccess.getDefineDirectiveAccess().getDEFINETerminalRuleCall_1()); 
+    newLeafNode(this_DEFINE_1, grammarAccess.getDefineObjectMacroAccess().getDEFINETerminalRuleCall_1()); 
     }
 (this_WS_2=RULE_WS
     { 
-    newLeafNode(this_WS_2, grammarAccess.getDefineDirectiveAccess().getWSTerminalRuleCall_2()); 
+    newLeafNode(this_WS_2, grammarAccess.getDefineObjectMacroAccess().getWSTerminalRuleCall_2()); 
     }
 )+(
 (
 		lv_id_3_0=RULE_ID
 		{
-			newLeafNode(lv_id_3_0, grammarAccess.getDefineDirectiveAccess().getIdIDTerminalRuleCall_3_0()); 
+			newLeafNode(lv_id_3_0, grammarAccess.getDefineObjectMacroAccess().getIdIDTerminalRuleCall_3_0()); 
 		}
 		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getDefineDirectiveRule());
+	            $current = createModelElement(grammarAccess.getDefineObjectMacroRule());
 	        }
        		setWithLastConsumed(
        			$current, 
@@ -468,16 +498,16 @@ ruleDefineDirective returns [EObject current=null]
 )
 )(this_WS_4=RULE_WS
     { 
-    newLeafNode(this_WS_4, grammarAccess.getDefineDirectiveAccess().getWSTerminalRuleCall_4()); 
+    newLeafNode(this_WS_4, grammarAccess.getDefineObjectMacroAccess().getWSTerminalRuleCall_4()); 
     }
 )*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getDefineDirectiveAccess().getStringMyDefineLineParserRuleCall_5_0()); 
+	        newCompositeNode(grammarAccess.getDefineObjectMacroAccess().getStringMyDefineLineParserRuleCall_5_0()); 
 	    }
 		lv_string_5_0=ruleMyDefineLine		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getDefineDirectiveRule());
+	            $current = createModelElementForParent(grammarAccess.getDefineObjectMacroRule());
 	        }
        		set(
        			$current, 

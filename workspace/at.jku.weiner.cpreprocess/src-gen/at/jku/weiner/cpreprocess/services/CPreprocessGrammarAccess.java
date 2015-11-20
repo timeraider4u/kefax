@@ -227,6 +227,17 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class DefineDirectiveElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.DefineDirective");
+		private final RuleCall cDefineObjectMacroParserRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		//DefineDirective:
+		//	DefineObjectMacro;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//DefineObjectMacro
+		public RuleCall getDefineObjectMacroParserRuleCall() { return cDefineObjectMacroParserRuleCall; }
+	}
+	public class DefineObjectMacroElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.DefineObjectMacro");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cDefineDirectiveAction_0 = (Action)cGroup.eContents().get(0);
 		private final RuleCall cDEFINETerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
@@ -237,8 +248,8 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cStringAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cStringMyDefineLineParserRuleCall_5_0 = (RuleCall)cStringAssignment_5.eContents().get(0);
 		
-		//DefineDirective:
-		//	{DefineDirective} DEFINE WS+ id=ID WS* string=MyDefineLine;
+		//DefineObjectMacro DefineDirective:
+		//	{DefineDirective} DEFINE WS+ id=ID WS* string=MyDefineLine
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{DefineDirective} DEFINE WS+ id=ID WS* string=MyDefineLine
@@ -512,6 +523,7 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	private final PreprocessorDirectivesElements pPreprocessorDirectives;
 	private final IncludeDirectiveElements pIncludeDirective;
 	private final DefineDirectiveElements pDefineDirective;
+	private final DefineObjectMacroElements pDefineObjectMacro;
 	private final ErrorDirectiveElements pErrorDirective;
 	private final UnDefineDirectiveElements pUnDefineDirective;
 	private final PragmaDirectiveElements pPragmaDirective;
@@ -555,6 +567,7 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		this.pPreprocessorDirectives = new PreprocessorDirectivesElements();
 		this.pIncludeDirective = new IncludeDirectiveElements();
 		this.pDefineDirective = new DefineDirectiveElements();
+		this.pDefineObjectMacro = new DefineObjectMacroElements();
 		this.pErrorDirective = new ErrorDirectiveElements();
 		this.pUnDefineDirective = new UnDefineDirectiveElements();
 		this.pPragmaDirective = new PragmaDirectiveElements();
@@ -668,13 +681,23 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DefineDirective:
-	//	{DefineDirective} DEFINE WS+ id=ID WS* string=MyDefineLine;
+	//	DefineObjectMacro;
 	public DefineDirectiveElements getDefineDirectiveAccess() {
 		return pDefineDirective;
 	}
 	
 	public ParserRule getDefineDirectiveRule() {
 		return getDefineDirectiveAccess().getRule();
+	}
+	
+	//DefineObjectMacro DefineDirective:
+	//	{DefineDirective} DEFINE WS+ id=ID WS* string=MyDefineLine
+	public DefineObjectMacroElements getDefineObjectMacroAccess() {
+		return pDefineObjectMacro;
+	}
+	
+	public ParserRule getDefineObjectMacroRule() {
+		return getDefineObjectMacroAccess().getRule();
 	}
 	
 	//ErrorDirective:

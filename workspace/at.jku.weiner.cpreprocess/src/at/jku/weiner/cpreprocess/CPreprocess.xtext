@@ -72,6 +72,10 @@ IncludeDirective:
 ;
 
 DefineDirective:
+	DefineObjectMacro
+;
+
+DefineObjectMacro returns DefineDirective:
 	{DefineDirective}
 	DEFINE WS+ id=ID WS* string=MyDefineLine
 ;

@@ -20,8 +20,8 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected CPreprocessGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_DefineDirective_WSTerminalRuleCall_2_p;
-	protected AbstractElementAlias match_DefineDirective_WSTerminalRuleCall_4_a;
+	protected AbstractElementAlias match_DefineObjectMacro_WSTerminalRuleCall_2_p;
+	protected AbstractElementAlias match_DefineObjectMacro_WSTerminalRuleCall_4_a;
 	protected AbstractElementAlias match_ErrorDirective_WSTerminalRuleCall_2_p;
 	protected AbstractElementAlias match_IncludeDirective_WSTerminalRuleCall_2_p;
 	protected AbstractElementAlias match_PreprocessorDirectives_WSTerminalRuleCall_1_a;
@@ -31,8 +31,8 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (CPreprocessGrammarAccess) access;
-		match_DefineDirective_WSTerminalRuleCall_2_p = new TokenAlias(true, false, grammarAccess.getDefineDirectiveAccess().getWSTerminalRuleCall_2());
-		match_DefineDirective_WSTerminalRuleCall_4_a = new TokenAlias(true, true, grammarAccess.getDefineDirectiveAccess().getWSTerminalRuleCall_4());
+		match_DefineObjectMacro_WSTerminalRuleCall_2_p = new TokenAlias(true, false, grammarAccess.getDefineObjectMacroAccess().getWSTerminalRuleCall_2());
+		match_DefineObjectMacro_WSTerminalRuleCall_4_a = new TokenAlias(true, true, grammarAccess.getDefineObjectMacroAccess().getWSTerminalRuleCall_4());
 		match_ErrorDirective_WSTerminalRuleCall_2_p = new TokenAlias(true, false, grammarAccess.getErrorDirectiveAccess().getWSTerminalRuleCall_2());
 		match_IncludeDirective_WSTerminalRuleCall_2_p = new TokenAlias(true, false, grammarAccess.getIncludeDirectiveAccess().getWSTerminalRuleCall_2());
 		match_PreprocessorDirectives_WSTerminalRuleCall_1_a = new TokenAlias(true, true, grammarAccess.getPreprocessorDirectivesAccess().getWSTerminalRuleCall_1());
@@ -139,10 +139,10 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if(match_DefineDirective_WSTerminalRuleCall_2_p.equals(syntax))
-				emit_DefineDirective_WSTerminalRuleCall_2_p(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_DefineDirective_WSTerminalRuleCall_4_a.equals(syntax))
-				emit_DefineDirective_WSTerminalRuleCall_4_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			if(match_DefineObjectMacro_WSTerminalRuleCall_2_p.equals(syntax))
+				emit_DefineObjectMacro_WSTerminalRuleCall_2_p(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_DefineObjectMacro_WSTerminalRuleCall_4_a.equals(syntax))
+				emit_DefineObjectMacro_WSTerminalRuleCall_4_a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_ErrorDirective_WSTerminalRuleCall_2_p.equals(syntax))
 				emit_ErrorDirective_WSTerminalRuleCall_2_p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_IncludeDirective_WSTerminalRuleCall_2_p.equals(syntax))
@@ -164,7 +164,7 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) DEFINE (ambiguity) id=ID
 	 */
-	protected void emit_DefineDirective_WSTerminalRuleCall_2_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_DefineObjectMacro_WSTerminalRuleCall_2_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -175,7 +175,7 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * This ambiguous syntax occurs at:
 	 *     id=ID (ambiguity) string=MyDefineLine
 	 */
-	protected void emit_DefineDirective_WSTerminalRuleCall_4_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_DefineObjectMacro_WSTerminalRuleCall_4_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

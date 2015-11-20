@@ -43,7 +43,7 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 				sequence_Code(context, (Code) semanticObject); 
 				return; 
 			case CPreprocessPackage.DEFINE_DIRECTIVE:
-				sequence_DefineDirective(context, (DefineDirective) semanticObject); 
+				sequence_DefineObjectMacro(context, (DefineDirective) semanticObject); 
 				return; 
 			case CPreprocessPackage.ERROR_DIRECTIVE:
 				sequence_ErrorDirective(context, (ErrorDirective) semanticObject); 
@@ -96,7 +96,7 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 * Constraint:
 	 *     (id=ID string=MyDefineLine)
 	 */
-	protected void sequence_DefineDirective(EObject context, DefineDirective semanticObject) {
+	protected void sequence_DefineObjectMacro(EObject context, DefineDirective semanticObject) {
 		if(errorAcceptor != null) {
 			if(transientValues.isValueTransient(semanticObject, CPreprocessPackage.Literals.DEFINE_DIRECTIVE__ID) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CPreprocessPackage.Literals.DEFINE_DIRECTIVE__ID));
@@ -105,8 +105,8 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getDefineDirectiveAccess().getIdIDTerminalRuleCall_3_0(), semanticObject.getId());
-		feeder.accept(grammarAccess.getDefineDirectiveAccess().getStringMyDefineLineParserRuleCall_5_0(), semanticObject.getString());
+		feeder.accept(grammarAccess.getDefineObjectMacroAccess().getIdIDTerminalRuleCall_3_0(), semanticObject.getId());
+		feeder.accept(grammarAccess.getDefineObjectMacroAccess().getStringMyDefineLineParserRuleCall_5_0(), semanticObject.getString());
 		feeder.finish();
 	}
 	

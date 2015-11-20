@@ -67,7 +67,7 @@ IncludeDirective:
 
 DefineDirective:
 	{DefineDirective}
-	DEFINE WS+ id=ID WS* string=MyCodeLine
+	DEFINE WS+ id=ID WS* string=MyDefineLine
 ;
 
 ErrorDirective:
@@ -98,6 +98,10 @@ Code returns SourceCodeLine:
 
 MyCode returns ecore::EString:
 	ID|SPECIAL|INCLUDE|DEFINE|ERROR|PRAGMA
+;
+
+MyDefineLine returns ecore::EString:
+	(MyCode|WS)*
 ;
 
 MyCodeLine returns ecore::EString:

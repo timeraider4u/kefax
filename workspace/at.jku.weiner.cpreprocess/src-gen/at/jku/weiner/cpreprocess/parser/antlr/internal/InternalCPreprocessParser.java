@@ -986,7 +986,7 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDefineDirective"
-    // InternalCPreprocessParser.g:388:1: ruleDefineDirective returns [EObject current=null] : ( () this_DEFINE_1= RULE_DEFINE (this_WS_2= RULE_WS )+ ( (lv_id_3_0= RULE_ID ) ) (this_WS_4= RULE_WS )* ( (lv_string_5_0= ruleMyCodeLine ) ) ) ;
+    // InternalCPreprocessParser.g:388:1: ruleDefineDirective returns [EObject current=null] : ( () this_DEFINE_1= RULE_DEFINE (this_WS_2= RULE_WS )+ ( (lv_id_3_0= RULE_ID ) ) (this_WS_4= RULE_WS )* ( (lv_string_5_0= ruleMyDefineLine ) ) ) ;
     public final EObject ruleDefineDirective() throws RecognitionException {
         EObject current = null;
 
@@ -1000,11 +1000,11 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // InternalCPreprocessParser.g:391:28: ( ( () this_DEFINE_1= RULE_DEFINE (this_WS_2= RULE_WS )+ ( (lv_id_3_0= RULE_ID ) ) (this_WS_4= RULE_WS )* ( (lv_string_5_0= ruleMyCodeLine ) ) ) )
-            // InternalCPreprocessParser.g:392:1: ( () this_DEFINE_1= RULE_DEFINE (this_WS_2= RULE_WS )+ ( (lv_id_3_0= RULE_ID ) ) (this_WS_4= RULE_WS )* ( (lv_string_5_0= ruleMyCodeLine ) ) )
+            // InternalCPreprocessParser.g:391:28: ( ( () this_DEFINE_1= RULE_DEFINE (this_WS_2= RULE_WS )+ ( (lv_id_3_0= RULE_ID ) ) (this_WS_4= RULE_WS )* ( (lv_string_5_0= ruleMyDefineLine ) ) ) )
+            // InternalCPreprocessParser.g:392:1: ( () this_DEFINE_1= RULE_DEFINE (this_WS_2= RULE_WS )+ ( (lv_id_3_0= RULE_ID ) ) (this_WS_4= RULE_WS )* ( (lv_string_5_0= ruleMyDefineLine ) ) )
             {
-            // InternalCPreprocessParser.g:392:1: ( () this_DEFINE_1= RULE_DEFINE (this_WS_2= RULE_WS )+ ( (lv_id_3_0= RULE_ID ) ) (this_WS_4= RULE_WS )* ( (lv_string_5_0= ruleMyCodeLine ) ) )
-            // InternalCPreprocessParser.g:392:2: () this_DEFINE_1= RULE_DEFINE (this_WS_2= RULE_WS )+ ( (lv_id_3_0= RULE_ID ) ) (this_WS_4= RULE_WS )* ( (lv_string_5_0= ruleMyCodeLine ) )
+            // InternalCPreprocessParser.g:392:1: ( () this_DEFINE_1= RULE_DEFINE (this_WS_2= RULE_WS )+ ( (lv_id_3_0= RULE_ID ) ) (this_WS_4= RULE_WS )* ( (lv_string_5_0= ruleMyDefineLine ) ) )
+            // InternalCPreprocessParser.g:392:2: () this_DEFINE_1= RULE_DEFINE (this_WS_2= RULE_WS )+ ( (lv_id_3_0= RULE_ID ) ) (this_WS_4= RULE_WS )* ( (lv_string_5_0= ruleMyDefineLine ) )
             {
             // InternalCPreprocessParser.g:392:2: ()
             // InternalCPreprocessParser.g:393:5: 
@@ -1108,17 +1108,17 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            // InternalCPreprocessParser.g:428:3: ( (lv_string_5_0= ruleMyCodeLine ) )
-            // InternalCPreprocessParser.g:429:1: (lv_string_5_0= ruleMyCodeLine )
+            // InternalCPreprocessParser.g:428:3: ( (lv_string_5_0= ruleMyDefineLine ) )
+            // InternalCPreprocessParser.g:429:1: (lv_string_5_0= ruleMyDefineLine )
             {
-            // InternalCPreprocessParser.g:429:1: (lv_string_5_0= ruleMyCodeLine )
-            // InternalCPreprocessParser.g:430:3: lv_string_5_0= ruleMyCodeLine
+            // InternalCPreprocessParser.g:429:1: (lv_string_5_0= ruleMyDefineLine )
+            // InternalCPreprocessParser.g:430:3: lv_string_5_0= ruleMyDefineLine
             {
              
-            	        newCompositeNode(grammarAccess.getDefineDirectiveAccess().getStringMyCodeLineParserRuleCall_5_0()); 
+            	        newCompositeNode(grammarAccess.getDefineDirectiveAccess().getStringMyDefineLineParserRuleCall_5_0()); 
             	    
             pushFollow(FOLLOW_2);
-            lv_string_5_0=ruleMyCodeLine();
+            lv_string_5_0=ruleMyDefineLine();
 
             state._fsp--;
 
@@ -1130,7 +1130,7 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
                    			current, 
                    			"string",
                     		lv_string_5_0, 
-                    		"at.jku.weiner.cpreprocess.CPreprocess.MyCodeLine");
+                    		"at.jku.weiner.cpreprocess.CPreprocess.MyDefineLine");
             	        afterParserOrEnumRuleCall();
             	    
 
@@ -1949,8 +1949,131 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleMyCode"
 
 
+    // $ANTLR start "entryRuleMyDefineLine"
+    // InternalCPreprocessParser.g:740:1: entryRuleMyDefineLine returns [String current=null] : iv_ruleMyDefineLine= ruleMyDefineLine EOF ;
+    public final String entryRuleMyDefineLine() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleMyDefineLine = null;
+
+
+        try {
+            // InternalCPreprocessParser.g:741:1: (iv_ruleMyDefineLine= ruleMyDefineLine EOF )
+            // InternalCPreprocessParser.g:742:2: iv_ruleMyDefineLine= ruleMyDefineLine EOF
+            {
+             newCompositeNode(grammarAccess.getMyDefineLineRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleMyDefineLine=ruleMyDefineLine();
+
+            state._fsp--;
+
+             current =iv_ruleMyDefineLine.getText(); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+         
+        	catch (RecognitionException re) { 
+        	    recover(input,re); 
+        	    appendSkippedTokens();
+        	}
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleMyDefineLine"
+
+
+    // $ANTLR start "ruleMyDefineLine"
+    // InternalCPreprocessParser.g:749:1: ruleMyDefineLine returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_MyCode_0= ruleMyCode | this_WS_1= RULE_WS )* ;
+    public final AntlrDatatypeRuleToken ruleMyDefineLine() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token this_WS_1=null;
+        AntlrDatatypeRuleToken this_MyCode_0 = null;
+
+
+         enterRule(); 
+            
+        try {
+            // InternalCPreprocessParser.g:753:6: ( (this_MyCode_0= ruleMyCode | this_WS_1= RULE_WS )* )
+            // InternalCPreprocessParser.g:754:1: (this_MyCode_0= ruleMyCode | this_WS_1= RULE_WS )*
+            {
+            // InternalCPreprocessParser.g:754:1: (this_MyCode_0= ruleMyCode | this_WS_1= RULE_WS )*
+            loop11:
+            do {
+                int alt11=3;
+                int LA11_0 = input.LA(1);
+
+                if ( ((LA11_0>=RULE_INCLUDE && LA11_0<=RULE_ERROR)||LA11_0==RULE_PRAGMA||LA11_0==RULE_ID||LA11_0==RULE_SPECIAL) ) {
+                    alt11=1;
+                }
+                else if ( (LA11_0==RULE_WS) ) {
+                    alt11=2;
+                }
+
+
+                switch (alt11) {
+            	case 1 :
+            	    // InternalCPreprocessParser.g:755:5: this_MyCode_0= ruleMyCode
+            	    {
+            	     
+            	            newCompositeNode(grammarAccess.getMyDefineLineAccess().getMyCodeParserRuleCall_0()); 
+            	        
+            	    pushFollow(FOLLOW_10);
+            	    this_MyCode_0=ruleMyCode();
+
+            	    state._fsp--;
+
+
+            	    		current.merge(this_MyCode_0);
+            	        
+            	     
+            	            afterParserOrEnumRuleCall();
+            	        
+
+            	    }
+            	    break;
+            	case 2 :
+            	    // InternalCPreprocessParser.g:766:10: this_WS_1= RULE_WS
+            	    {
+            	    this_WS_1=(Token)match(input,RULE_WS,FOLLOW_10); 
+
+            	    		current.merge(this_WS_1);
+            	        
+            	     
+            	        newLeafNode(this_WS_1, grammarAccess.getMyDefineLineAccess().getWSTerminalRuleCall_1()); 
+            	        
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop11;
+                }
+            } while (true);
+
+
+            }
+
+             leaveRule();
+                
+        }
+         
+        	catch (RecognitionException re) { 
+        	    recover(input,re); 
+        	    appendSkippedTokens();
+        	}
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleMyDefineLine"
+
+
     // $ANTLR start "entryRuleMyCodeLine"
-    // InternalCPreprocessParser.g:740:1: entryRuleMyCodeLine returns [String current=null] : iv_ruleMyCodeLine= ruleMyCodeLine EOF ;
+    // InternalCPreprocessParser.g:781:1: entryRuleMyCodeLine returns [String current=null] : iv_ruleMyCodeLine= ruleMyCodeLine EOF ;
     public final String entryRuleMyCodeLine() throws RecognitionException {
         String current = null;
 
@@ -1958,8 +2081,8 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalCPreprocessParser.g:741:1: (iv_ruleMyCodeLine= ruleMyCodeLine EOF )
-            // InternalCPreprocessParser.g:742:2: iv_ruleMyCodeLine= ruleMyCodeLine EOF
+            // InternalCPreprocessParser.g:782:1: (iv_ruleMyCodeLine= ruleMyCodeLine EOF )
+            // InternalCPreprocessParser.g:783:2: iv_ruleMyCodeLine= ruleMyCodeLine EOF
             {
              newCompositeNode(grammarAccess.getMyCodeLineRule()); 
             pushFollow(FOLLOW_1);
@@ -1986,7 +2109,7 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMyCodeLine"
-    // InternalCPreprocessParser.g:749:1: ruleMyCodeLine returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_MyCode_0= ruleMyCode | this_WS_1= RULE_WS )+ ;
+    // InternalCPreprocessParser.g:790:1: ruleMyCodeLine returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_MyCode_0= ruleMyCode | this_WS_1= RULE_WS )+ ;
     public final AntlrDatatypeRuleToken ruleMyCodeLine() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -1997,56 +2120,56 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // InternalCPreprocessParser.g:753:6: ( (this_MyCode_0= ruleMyCode | this_WS_1= RULE_WS )+ )
-            // InternalCPreprocessParser.g:754:1: (this_MyCode_0= ruleMyCode | this_WS_1= RULE_WS )+
+            // InternalCPreprocessParser.g:794:6: ( (this_MyCode_0= ruleMyCode | this_WS_1= RULE_WS )+ )
+            // InternalCPreprocessParser.g:795:1: (this_MyCode_0= ruleMyCode | this_WS_1= RULE_WS )+
             {
-            // InternalCPreprocessParser.g:754:1: (this_MyCode_0= ruleMyCode | this_WS_1= RULE_WS )+
-            int cnt11=0;
-            loop11:
+            // InternalCPreprocessParser.g:795:1: (this_MyCode_0= ruleMyCode | this_WS_1= RULE_WS )+
+            int cnt12=0;
+            loop12:
             do {
-                int alt11=3;
+                int alt12=3;
                 switch ( input.LA(1) ) {
                 case RULE_ID:
                     {
-                    alt11=1;
+                    alt12=1;
                     }
                     break;
                 case RULE_SPECIAL:
                     {
-                    alt11=1;
+                    alt12=1;
                     }
                     break;
                 case RULE_INCLUDE:
                     {
-                    alt11=1;
+                    alt12=1;
                     }
                     break;
                 case RULE_DEFINE:
                     {
-                    alt11=1;
+                    alt12=1;
                     }
                     break;
                 case RULE_ERROR:
                     {
-                    alt11=1;
+                    alt12=1;
                     }
                     break;
                 case RULE_PRAGMA:
                     {
-                    alt11=1;
+                    alt12=1;
                     }
                     break;
                 case RULE_WS:
                     {
-                    alt11=2;
+                    alt12=2;
                     }
                     break;
 
                 }
 
-                switch (alt11) {
+                switch (alt12) {
             	case 1 :
-            	    // InternalCPreprocessParser.g:755:5: this_MyCode_0= ruleMyCode
+            	    // InternalCPreprocessParser.g:796:5: this_MyCode_0= ruleMyCode
             	    {
             	     
             	            newCompositeNode(grammarAccess.getMyCodeLineAccess().getMyCodeParserRuleCall_0()); 
@@ -2066,7 +2189,7 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 2 :
-            	    // InternalCPreprocessParser.g:766:10: this_WS_1= RULE_WS
+            	    // InternalCPreprocessParser.g:807:10: this_WS_1= RULE_WS
             	    {
             	    this_WS_1=(Token)match(input,RULE_WS,FOLLOW_10); 
 
@@ -2080,12 +2203,12 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    if ( cnt11 >= 1 ) break loop11;
+            	    if ( cnt12 >= 1 ) break loop12;
                         EarlyExitException eee =
-                            new EarlyExitException(11, input);
+                            new EarlyExitException(12, input);
                         throw eee;
                 }
-                cnt11++;
+                cnt12++;
             } while (true);
 
 
@@ -2107,7 +2230,7 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMyCodeLineExtended"
-    // InternalCPreprocessParser.g:781:1: entryRuleMyCodeLineExtended returns [String current=null] : iv_ruleMyCodeLineExtended= ruleMyCodeLineExtended EOF ;
+    // InternalCPreprocessParser.g:822:1: entryRuleMyCodeLineExtended returns [String current=null] : iv_ruleMyCodeLineExtended= ruleMyCodeLineExtended EOF ;
     public final String entryRuleMyCodeLineExtended() throws RecognitionException {
         String current = null;
 
@@ -2115,8 +2238,8 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalCPreprocessParser.g:782:1: (iv_ruleMyCodeLineExtended= ruleMyCodeLineExtended EOF )
-            // InternalCPreprocessParser.g:783:2: iv_ruleMyCodeLineExtended= ruleMyCodeLineExtended EOF
+            // InternalCPreprocessParser.g:823:1: (iv_ruleMyCodeLineExtended= ruleMyCodeLineExtended EOF )
+            // InternalCPreprocessParser.g:824:2: iv_ruleMyCodeLineExtended= ruleMyCodeLineExtended EOF
             {
              newCompositeNode(grammarAccess.getMyCodeLineExtendedRule()); 
             pushFollow(FOLLOW_1);
@@ -2143,7 +2266,7 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMyCodeLineExtended"
-    // InternalCPreprocessParser.g:790:1: ruleMyCodeLineExtended returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (this_WS_0= RULE_WS )* (this_MyCode_1= ruleMyCode (this_MyCodeLine_2= ruleMyCodeLine | this_HASH_3= RULE_HASH )* )? ) ;
+    // InternalCPreprocessParser.g:831:1: ruleMyCodeLineExtended returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (this_WS_0= RULE_WS )* (this_MyCode_1= ruleMyCode (this_MyCodeLine_2= ruleMyCodeLine | this_HASH_3= RULE_HASH )* )? ) ;
     public final AntlrDatatypeRuleToken ruleMyCodeLineExtended() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -2157,26 +2280,26 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // InternalCPreprocessParser.g:794:6: ( ( (this_WS_0= RULE_WS )* (this_MyCode_1= ruleMyCode (this_MyCodeLine_2= ruleMyCodeLine | this_HASH_3= RULE_HASH )* )? ) )
-            // InternalCPreprocessParser.g:795:1: ( (this_WS_0= RULE_WS )* (this_MyCode_1= ruleMyCode (this_MyCodeLine_2= ruleMyCodeLine | this_HASH_3= RULE_HASH )* )? )
+            // InternalCPreprocessParser.g:835:6: ( ( (this_WS_0= RULE_WS )* (this_MyCode_1= ruleMyCode (this_MyCodeLine_2= ruleMyCodeLine | this_HASH_3= RULE_HASH )* )? ) )
+            // InternalCPreprocessParser.g:836:1: ( (this_WS_0= RULE_WS )* (this_MyCode_1= ruleMyCode (this_MyCodeLine_2= ruleMyCodeLine | this_HASH_3= RULE_HASH )* )? )
             {
-            // InternalCPreprocessParser.g:795:1: ( (this_WS_0= RULE_WS )* (this_MyCode_1= ruleMyCode (this_MyCodeLine_2= ruleMyCodeLine | this_HASH_3= RULE_HASH )* )? )
-            // InternalCPreprocessParser.g:795:2: (this_WS_0= RULE_WS )* (this_MyCode_1= ruleMyCode (this_MyCodeLine_2= ruleMyCodeLine | this_HASH_3= RULE_HASH )* )?
+            // InternalCPreprocessParser.g:836:1: ( (this_WS_0= RULE_WS )* (this_MyCode_1= ruleMyCode (this_MyCodeLine_2= ruleMyCodeLine | this_HASH_3= RULE_HASH )* )? )
+            // InternalCPreprocessParser.g:836:2: (this_WS_0= RULE_WS )* (this_MyCode_1= ruleMyCode (this_MyCodeLine_2= ruleMyCodeLine | this_HASH_3= RULE_HASH )* )?
             {
-            // InternalCPreprocessParser.g:795:2: (this_WS_0= RULE_WS )*
-            loop12:
+            // InternalCPreprocessParser.g:836:2: (this_WS_0= RULE_WS )*
+            loop13:
             do {
-                int alt12=2;
-                int LA12_0 = input.LA(1);
+                int alt13=2;
+                int LA13_0 = input.LA(1);
 
-                if ( (LA12_0==RULE_WS) ) {
-                    alt12=1;
+                if ( (LA13_0==RULE_WS) ) {
+                    alt13=1;
                 }
 
 
-                switch (alt12) {
+                switch (alt13) {
             	case 1 :
-            	    // InternalCPreprocessParser.g:795:7: this_WS_0= RULE_WS
+            	    // InternalCPreprocessParser.g:836:7: this_WS_0= RULE_WS
             	    {
             	    this_WS_0=(Token)match(input,RULE_WS,FOLLOW_10); 
 
@@ -2190,20 +2313,20 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop12;
+            	    break loop13;
                 }
             } while (true);
 
-            // InternalCPreprocessParser.g:802:3: (this_MyCode_1= ruleMyCode (this_MyCodeLine_2= ruleMyCodeLine | this_HASH_3= RULE_HASH )* )?
-            int alt14=2;
-            int LA14_0 = input.LA(1);
+            // InternalCPreprocessParser.g:843:3: (this_MyCode_1= ruleMyCode (this_MyCodeLine_2= ruleMyCodeLine | this_HASH_3= RULE_HASH )* )?
+            int alt15=2;
+            int LA15_0 = input.LA(1);
 
-            if ( ((LA14_0>=RULE_INCLUDE && LA14_0<=RULE_ERROR)||LA14_0==RULE_PRAGMA||LA14_0==RULE_ID||LA14_0==RULE_SPECIAL) ) {
-                alt14=1;
+            if ( ((LA15_0>=RULE_INCLUDE && LA15_0<=RULE_ERROR)||LA15_0==RULE_PRAGMA||LA15_0==RULE_ID||LA15_0==RULE_SPECIAL) ) {
+                alt15=1;
             }
-            switch (alt14) {
+            switch (alt15) {
                 case 1 :
-                    // InternalCPreprocessParser.g:803:5: this_MyCode_1= ruleMyCode (this_MyCodeLine_2= ruleMyCodeLine | this_HASH_3= RULE_HASH )*
+                    // InternalCPreprocessParser.g:844:5: this_MyCode_1= ruleMyCode (this_MyCodeLine_2= ruleMyCodeLine | this_HASH_3= RULE_HASH )*
                     {
                      
                             newCompositeNode(grammarAccess.getMyCodeLineExtendedAccess().getMyCodeParserRuleCall_1_0()); 
@@ -2219,23 +2342,23 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
                      
                             afterParserOrEnumRuleCall();
                         
-                    // InternalCPreprocessParser.g:813:1: (this_MyCodeLine_2= ruleMyCodeLine | this_HASH_3= RULE_HASH )*
-                    loop13:
+                    // InternalCPreprocessParser.g:854:1: (this_MyCodeLine_2= ruleMyCodeLine | this_HASH_3= RULE_HASH )*
+                    loop14:
                     do {
-                        int alt13=3;
-                        int LA13_0 = input.LA(1);
+                        int alt14=3;
+                        int LA14_0 = input.LA(1);
 
-                        if ( ((LA13_0>=RULE_INCLUDE && LA13_0<=RULE_ERROR)||LA13_0==RULE_PRAGMA||(LA13_0>=RULE_WS && LA13_0<=RULE_ID)||LA13_0==RULE_SPECIAL) ) {
-                            alt13=1;
+                        if ( ((LA14_0>=RULE_INCLUDE && LA14_0<=RULE_ERROR)||LA14_0==RULE_PRAGMA||(LA14_0>=RULE_WS && LA14_0<=RULE_ID)||LA14_0==RULE_SPECIAL) ) {
+                            alt14=1;
                         }
-                        else if ( (LA13_0==RULE_HASH) ) {
-                            alt13=2;
+                        else if ( (LA14_0==RULE_HASH) ) {
+                            alt14=2;
                         }
 
 
-                        switch (alt13) {
+                        switch (alt14) {
                     	case 1 :
-                    	    // InternalCPreprocessParser.g:814:5: this_MyCodeLine_2= ruleMyCodeLine
+                    	    // InternalCPreprocessParser.g:855:5: this_MyCodeLine_2= ruleMyCodeLine
                     	    {
                     	     
                     	            newCompositeNode(grammarAccess.getMyCodeLineExtendedAccess().getMyCodeLineParserRuleCall_1_1_0()); 
@@ -2255,7 +2378,7 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalCPreprocessParser.g:825:10: this_HASH_3= RULE_HASH
+                    	    // InternalCPreprocessParser.g:866:10: this_HASH_3= RULE_HASH
                     	    {
                     	    this_HASH_3=(Token)match(input,RULE_HASH,FOLLOW_11); 
 
@@ -2269,7 +2392,7 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop13;
+                    	    break loop14;
                         }
                     } while (true);
 

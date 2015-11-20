@@ -428,9 +428,9 @@ ruleDefineDirective returns [EObject current=null]
 )*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getDefineDirectiveAccess().getStringMyCodeLineParserRuleCall_5_0()); 
+	        newCompositeNode(grammarAccess.getDefineDirectiveAccess().getStringMyDefineLineParserRuleCall_5_0()); 
 	    }
-		lv_string_5_0=ruleMyCodeLine		{
+		lv_string_5_0=ruleMyDefineLine		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getDefineDirectiveRule());
 	        }
@@ -438,7 +438,7 @@ ruleDefineDirective returns [EObject current=null]
        			$current, 
        			"string",
         		lv_string_5_0, 
-        		"at.jku.weiner.cpreprocess.CPreprocess.MyCodeLine");
+        		"at.jku.weiner.cpreprocess.CPreprocess.MyDefineLine");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -730,6 +730,47 @@ ruleMyCode returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
     newLeafNode(this_PRAGMA_5, grammarAccess.getMyCodeAccess().getPRAGMATerminalRuleCall_5()); 
     }
 )
+    ;
+
+
+
+
+
+// Entry rule entryRuleMyDefineLine
+entryRuleMyDefineLine returns [String current=null] 
+:
+	{ newCompositeNode(grammarAccess.getMyDefineLineRule()); } 
+	 iv_ruleMyDefineLine=ruleMyDefineLine 
+	 { $current=$iv_ruleMyDefineLine.current.getText(); }  
+	 EOF 
+;
+
+// Rule MyDefineLine
+ruleMyDefineLine returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule();
+    }:
+(
+    { 
+        newCompositeNode(grammarAccess.getMyDefineLineAccess().getMyCodeParserRuleCall_0()); 
+    }
+    this_MyCode_0=ruleMyCode    {
+		$current.merge(this_MyCode_0);
+    }
+
+    { 
+        afterParserOrEnumRuleCall();
+    }
+
+    |    this_WS_1=RULE_WS    {
+		$current.merge(this_WS_1);
+    }
+
+    { 
+    newLeafNode(this_WS_1, grammarAccess.getMyDefineLineAccess().getWSTerminalRuleCall_1()); 
+    }
+)*
     ;
 
 

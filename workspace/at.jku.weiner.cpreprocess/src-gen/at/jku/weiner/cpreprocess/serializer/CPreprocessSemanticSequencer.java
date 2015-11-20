@@ -90,7 +90,7 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (id=ID string=MyCodeLine)
+	 *     (id=ID string=MyDefineLine)
 	 */
 	protected void sequence_DefineDirective(EObject context, DefineDirective semanticObject) {
 		if(errorAcceptor != null) {
@@ -102,7 +102,7 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getDefineDirectiveAccess().getIdIDTerminalRuleCall_3_0(), semanticObject.getId());
-		feeder.accept(grammarAccess.getDefineDirectiveAccess().getStringMyCodeLineParserRuleCall_5_0(), semanticObject.getString());
+		feeder.accept(grammarAccess.getDefineDirectiveAccess().getStringMyDefineLineParserRuleCall_5_0(), semanticObject.getString());
 		feeder.finish();
 	}
 	

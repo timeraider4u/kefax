@@ -173,7 +173,7 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     WS*
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     id=ID (ambiguity) string=MyCodeLine
+	 *     id=ID (ambiguity) string=MyDefineLine
 	 */
 	protected void emit_DefineDirective_WSTerminalRuleCall_4_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

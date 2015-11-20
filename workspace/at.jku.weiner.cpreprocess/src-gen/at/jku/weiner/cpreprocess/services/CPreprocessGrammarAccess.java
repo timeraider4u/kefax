@@ -212,13 +212,13 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cIdIDTerminalRuleCall_3_0 = (RuleCall)cIdAssignment_3.eContents().get(0);
 		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
 		private final Assignment cStringAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cStringMyCodeLineParserRuleCall_5_0 = (RuleCall)cStringAssignment_5.eContents().get(0);
+		private final RuleCall cStringMyDefineLineParserRuleCall_5_0 = (RuleCall)cStringAssignment_5.eContents().get(0);
 		
 		//DefineDirective:
-		//	{DefineDirective} DEFINE WS+ id=ID WS* string=MyCodeLine;
+		//	{DefineDirective} DEFINE WS+ id=ID WS* string=MyDefineLine;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{DefineDirective} DEFINE WS+ id=ID WS* string=MyCodeLine
+		//{DefineDirective} DEFINE WS+ id=ID WS* string=MyDefineLine
 		public Group getGroup() { return cGroup; }
 		
 		//{DefineDirective}
@@ -239,11 +239,11 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//WS*
 		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
 		
-		//string=MyCodeLine
+		//string=MyDefineLine
 		public Assignment getStringAssignment_5() { return cStringAssignment_5; }
 		
-		//MyCodeLine
-		public RuleCall getStringMyCodeLineParserRuleCall_5_0() { return cStringMyCodeLineParserRuleCall_5_0; }
+		//MyDefineLine
+		public RuleCall getStringMyDefineLineParserRuleCall_5_0() { return cStringMyDefineLineParserRuleCall_5_0; }
 	}
 	public class ErrorDirectiveElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.ErrorDirective");
@@ -408,6 +408,25 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//PRAGMA
 		public RuleCall getPRAGMATerminalRuleCall_5() { return cPRAGMATerminalRuleCall_5; }
 	}
+	public class MyDefineLineElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.MyDefineLine");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cMyCodeParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//MyDefineLine:
+		//	MyCode | WS*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//MyCode | WS*
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//MyCode
+		public RuleCall getMyCodeParserRuleCall_0() { return cMyCodeParserRuleCall_0; }
+		
+		//WS
+		public RuleCall getWSTerminalRuleCall_1() { return cWSTerminalRuleCall_1; }
+	}
 	public class MyCodeLineElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.MyCodeLine");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -475,6 +494,7 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	private final NewLineLineElements pNewLineLine;
 	private final CodeElements pCode;
 	private final MyCodeElements pMyCode;
+	private final MyDefineLineElements pMyDefineLine;
 	private final MyCodeLineElements pMyCodeLine;
 	private final MyCodeLineExtendedElements pMyCodeLineExtended;
 	private final TerminalRule tHASH;
@@ -516,6 +536,7 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		this.pNewLineLine = new NewLineLineElements();
 		this.pCode = new CodeElements();
 		this.pMyCode = new MyCodeElements();
+		this.pMyDefineLine = new MyDefineLineElements();
 		this.pMyCodeLine = new MyCodeLineElements();
 		this.pMyCodeLineExtended = new MyCodeLineExtendedElements();
 		this.tHASH = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.HASH");
@@ -612,7 +633,7 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DefineDirective:
-	//	{DefineDirective} DEFINE WS+ id=ID WS* string=MyCodeLine;
+	//	{DefineDirective} DEFINE WS+ id=ID WS* string=MyDefineLine;
 	public DefineDirectiveElements getDefineDirectiveAccess() {
 		return pDefineDirective;
 	}
@@ -680,6 +701,16 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getMyCodeRule() {
 		return getMyCodeAccess().getRule();
+	}
+	
+	//MyDefineLine:
+	//	MyCode | WS*;
+	public MyDefineLineElements getMyDefineLineAccess() {
+		return pMyDefineLine;
+	}
+	
+	public ParserRule getMyDefineLineRule() {
+		return getMyDefineLineAccess().getRule();
 	}
 	
 	//MyCodeLine:

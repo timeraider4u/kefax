@@ -40,6 +40,7 @@ public class CPreprocessParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTranslationUnitAccess().getAlternatives_1(), "rule__TranslationUnit__Alternatives_1");
 					put(grammarAccess.getPreprocessorDirectivesAccess().getAlternatives_4(), "rule__PreprocessorDirectives__Alternatives_4");
 					put(grammarAccess.getMyCodeAccess().getAlternatives(), "rule__MyCode__Alternatives");
+					put(grammarAccess.getMyDefineLineAccess().getAlternatives(), "rule__MyDefineLine__Alternatives");
 					put(grammarAccess.getMyCodeLineAccess().getAlternatives(), "rule__MyCodeLine__Alternatives");
 					put(grammarAccess.getMyCodeLineExtendedAccess().getAlternatives_1_1(), "rule__MyCodeLineExtended__Alternatives_1_1");
 					put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");

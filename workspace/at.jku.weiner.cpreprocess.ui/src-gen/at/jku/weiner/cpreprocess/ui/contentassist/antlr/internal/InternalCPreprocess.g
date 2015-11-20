@@ -431,6 +431,40 @@ finally {
 
 
 
+// Entry rule entryRuleMyDefineLine
+entryRuleMyDefineLine 
+:
+{ before(grammarAccess.getMyDefineLineRule()); }
+	 ruleMyDefineLine
+{ after(grammarAccess.getMyDefineLineRule()); } 
+	 EOF 
+;
+
+// Rule MyDefineLine
+ruleMyDefineLine
+    @init {
+		int stackSize = keepStackSize();
+		/*no init found*/
+    }
+	@after {
+    		/*no after found*/
+     }:
+
+(
+{ before(grammarAccess.getMyDefineLineAccess().getAlternatives()); }
+(rule__MyDefineLine__Alternatives)*
+{ after(grammarAccess.getMyDefineLineAccess().getAlternatives()); }
+)
+
+
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
 // Entry rule entryRuleMyCodeLine
 entryRuleMyCodeLine 
 :
@@ -654,6 +688,34 @@ rule__MyCode__Alternatives
 { before(grammarAccess.getMyCodeAccess().getPRAGMATerminalRuleCall_5()); }
 	RULE_PRAGMA
 { after(grammarAccess.getMyCodeAccess().getPRAGMATerminalRuleCall_5()); }
+)
+
+
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__MyDefineLine__Alternatives
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+
+(
+{ before(grammarAccess.getMyDefineLineAccess().getMyCodeParserRuleCall_0()); }
+	ruleMyCode
+{ after(grammarAccess.getMyDefineLineAccess().getMyCodeParserRuleCall_0()); }
+)
+
+
+
+    |
+(
+{ before(grammarAccess.getMyDefineLineAccess().getWSTerminalRuleCall_1()); }
+	RULE_WS
+{ after(grammarAccess.getMyDefineLineAccess().getWSTerminalRuleCall_1()); }
 )
 
 
@@ -2255,8 +2317,8 @@ rule__DefineDirective__StringAssignment_5
     }
 :
 (
-{ before(grammarAccess.getDefineDirectiveAccess().getStringMyCodeLineParserRuleCall_5_0()); }
-	ruleMyCodeLine{ after(grammarAccess.getDefineDirectiveAccess().getStringMyCodeLineParserRuleCall_5_0()); }
+{ before(grammarAccess.getDefineDirectiveAccess().getStringMyDefineLineParserRuleCall_5_0()); }
+	ruleMyDefineLine{ after(grammarAccess.getDefineDirectiveAccess().getStringMyDefineLineParserRuleCall_5_0()); }
 )
 
 ;

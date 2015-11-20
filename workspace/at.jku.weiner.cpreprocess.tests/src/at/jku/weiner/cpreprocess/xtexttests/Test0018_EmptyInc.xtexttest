@@ -1,0 +1,34 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.cpreprocess
+language cPreprocess
+//----------------------------------------------------------------------
+split-lexer=true
+source file="res/Test0018_EmptyInc.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH DEFINE WS ID NEWLINE
+	ID WS HASH INCLUDE WS SPECIAL ID SPECIAL ID SPECIAL NEWLINE
+//----------------------------------------------------------------------
+(Model
+	units+=
+	(TranslationUnit
+		lines+=
+		(PreprocessorDirectives
+			directive=
+			(DefineDirective
+				id++"EMPTY",
+				string++""
+			)
+		),
+		(Code
+			code++"EMPTY #include <file.h>"
+		)
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0018_EmptyInc.c.i"
+expected file="expected/Test0018_EmptyInc.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

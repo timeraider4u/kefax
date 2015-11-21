@@ -29,6 +29,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PragmaDirective"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NullDirective"/>
   <eClassifiers xsi:type="ecore:EClass" name="PreprocessorDirectives" eSuperTypes="#//SourceCodeLine">
     <eStructuralFeatures xsi:type="ecore:EReference" name="directive" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
         containment="true"/>

@@ -135,6 +135,13 @@ public class CPreprocessSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case CPreprocessPackage.NULL_DIRECTIVE:
+      {
+        NullDirective nullDirective = (NullDirective)theEObject;
+        T result = caseNullDirective(nullDirective);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case CPreprocessPackage.PREPROCESSOR_DIRECTIVES:
       {
         PreprocessorDirectives preprocessorDirectives = (PreprocessorDirectives)theEObject;
@@ -319,6 +326,22 @@ public class CPreprocessSwitch<T> extends Switch<T>
    * @generated
    */
   public T casePragmaDirective(PragmaDirective object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Null Directive</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Null Directive</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNullDirective(NullDirective object)
   {
     return null;
   }

@@ -104,6 +104,15 @@ public interface CPreprocessFactory extends EFactory
   PragmaDirective createPragmaDirective();
 
   /**
+   * Returns a new object of class '<em>Null Directive</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Null Directive</em>'.
+   * @generated
+   */
+  NullDirective createNullDirective();
+
+  /**
    * Returns a new object of class '<em>Preprocessor Directives</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

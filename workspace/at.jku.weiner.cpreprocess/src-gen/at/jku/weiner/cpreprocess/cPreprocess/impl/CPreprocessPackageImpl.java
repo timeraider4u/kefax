@@ -13,6 +13,7 @@ import at.jku.weiner.cpreprocess.cPreprocess.GroupOpt;
 import at.jku.weiner.cpreprocess.cPreprocess.IncludeDirective;
 import at.jku.weiner.cpreprocess.cPreprocess.Model;
 import at.jku.weiner.cpreprocess.cPreprocess.NewLineLine;
+import at.jku.weiner.cpreprocess.cPreprocess.NullDirective;
 import at.jku.weiner.cpreprocess.cPreprocess.PragmaDirective;
 import at.jku.weiner.cpreprocess.cPreprocess.PreprocessorDirectives;
 import at.jku.weiner.cpreprocess.cPreprocess.SourceCodeLine;
@@ -96,6 +97,13 @@ public class CPreprocessPackageImpl extends EPackageImpl implements CPreprocessP
    * @generated
    */
   private EClass pragmaDirectiveEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass nullDirectiveEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -370,6 +378,16 @@ public class CPreprocessPackageImpl extends EPackageImpl implements CPreprocessP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getNullDirective()
+  {
+    return nullDirectiveEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getPreprocessorDirectives()
   {
     return preprocessorDirectivesEClass;
@@ -491,6 +509,8 @@ public class CPreprocessPackageImpl extends EPackageImpl implements CPreprocessP
 
     pragmaDirectiveEClass = createEClass(PRAGMA_DIRECTIVE);
 
+    nullDirectiveEClass = createEClass(NULL_DIRECTIVE);
+
     preprocessorDirectivesEClass = createEClass(PREPROCESSOR_DIRECTIVES);
     createEReference(preprocessorDirectivesEClass, PREPROCESSOR_DIRECTIVES__DIRECTIVE);
 
@@ -565,6 +585,8 @@ public class CPreprocessPackageImpl extends EPackageImpl implements CPreprocessP
     initEAttribute(getUnDefineDirective_Id(), ecorePackage.getEString(), "id", null, 0, 1, UnDefineDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(pragmaDirectiveEClass, PragmaDirective.class, "PragmaDirective", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(nullDirectiveEClass, NullDirective.class, "NullDirective", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(preprocessorDirectivesEClass, PreprocessorDirectives.class, "PreprocessorDirectives", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getPreprocessorDirectives_Directive(), ecorePackage.getEObject(), null, "directive", null, 0, 1, PreprocessorDirectives.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

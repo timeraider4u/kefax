@@ -55,8 +55,8 @@ public class InternalCPreprocessLexer extends Lexer {
         try {
             int _type = RULE_HASH;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCPreprocess.g:2965:11: ( '#' )
-            // InternalCPreprocess.g:2965:13: '#'
+            // InternalCPreprocess.g:3025:11: ( '#' )
+            // InternalCPreprocess.g:3025:13: '#'
             {
             match('#'); 
 
@@ -75,8 +75,8 @@ public class InternalCPreprocessLexer extends Lexer {
         try {
             int _type = RULE_INCLUDE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCPreprocess.g:2967:14: ( 'include' )
-            // InternalCPreprocess.g:2967:16: 'include'
+            // InternalCPreprocess.g:3027:14: ( 'include' )
+            // InternalCPreprocess.g:3027:16: 'include'
             {
             match("include"); 
 
@@ -96,8 +96,8 @@ public class InternalCPreprocessLexer extends Lexer {
         try {
             int _type = RULE_DEFINE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCPreprocess.g:2969:13: ( 'define' )
-            // InternalCPreprocess.g:2969:15: 'define'
+            // InternalCPreprocess.g:3029:13: ( 'define' )
+            // InternalCPreprocess.g:3029:15: 'define'
             {
             match("define"); 
 
@@ -117,8 +117,8 @@ public class InternalCPreprocessLexer extends Lexer {
         try {
             int _type = RULE_ERROR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCPreprocess.g:2971:12: ( 'error' )
-            // InternalCPreprocess.g:2971:14: 'error'
+            // InternalCPreprocess.g:3031:12: ( 'error' )
+            // InternalCPreprocess.g:3031:14: 'error'
             {
             match("error"); 
 
@@ -138,8 +138,8 @@ public class InternalCPreprocessLexer extends Lexer {
         try {
             int _type = RULE_UNDEF;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCPreprocess.g:2973:12: ( 'undef' )
-            // InternalCPreprocess.g:2973:14: 'undef'
+            // InternalCPreprocess.g:3033:12: ( 'undef' )
+            // InternalCPreprocess.g:3033:14: 'undef'
             {
             match("undef"); 
 
@@ -159,8 +159,8 @@ public class InternalCPreprocessLexer extends Lexer {
         try {
             int _type = RULE_PRAGMA;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCPreprocess.g:2975:13: ( 'pragma' )
-            // InternalCPreprocess.g:2975:15: 'pragma'
+            // InternalCPreprocess.g:3035:13: ( 'pragma' )
+            // InternalCPreprocess.g:3035:15: 'pragma'
             {
             match("pragma"); 
 
@@ -180,8 +180,8 @@ public class InternalCPreprocessLexer extends Lexer {
         try {
             int _type = RULE_LPAREN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCPreprocess.g:2977:13: ( '(' )
-            // InternalCPreprocess.g:2977:15: '('
+            // InternalCPreprocess.g:3037:13: ( '(' )
+            // InternalCPreprocess.g:3037:15: '('
             {
             match('('); 
 
@@ -200,8 +200,8 @@ public class InternalCPreprocessLexer extends Lexer {
         try {
             int _type = RULE_RPAREN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCPreprocess.g:2979:13: ( ')' )
-            // InternalCPreprocess.g:2979:15: ')'
+            // InternalCPreprocess.g:3039:13: ( ')' )
+            // InternalCPreprocess.g:3039:15: ')'
             {
             match(')'); 
 
@@ -218,8 +218,8 @@ public class InternalCPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_LINEFEED"
     public final void mRULE_LINEFEED() throws RecognitionException {
         try {
-            // InternalCPreprocess.g:2981:24: ( '\\n' )
-            // InternalCPreprocess.g:2981:26: '\\n'
+            // InternalCPreprocess.g:3041:24: ( '\\n' )
+            // InternalCPreprocess.g:3041:26: '\\n'
             {
             match('\n'); 
 
@@ -234,8 +234,8 @@ public class InternalCPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_CARRIAGERETURN"
     public final void mRULE_CARRIAGERETURN() throws RecognitionException {
         try {
-            // InternalCPreprocess.g:2983:30: ( '\\r' )
-            // InternalCPreprocess.g:2983:32: '\\r'
+            // InternalCPreprocess.g:3043:30: ( '\\r' )
+            // InternalCPreprocess.g:3043:32: '\\r'
             {
             match('\r'); 
 
@@ -252,8 +252,8 @@ public class InternalCPreprocessLexer extends Lexer {
         try {
             int _type = RULE_NEWLINE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCPreprocess.g:2985:14: ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) )
-            // InternalCPreprocess.g:2985:16: ( RULE_CARRIAGERETURN | RULE_LINEFEED )
+            // InternalCPreprocess.g:3045:14: ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) )
+            // InternalCPreprocess.g:3045:16: ( RULE_CARRIAGERETURN | RULE_LINEFEED )
             {
             if ( input.LA(1)=='\n'||input.LA(1)=='\r' ) {
                 input.consume();
@@ -278,8 +278,8 @@ public class InternalCPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_BACKSLASH"
     public final void mRULE_BACKSLASH() throws RecognitionException {
         try {
-            // InternalCPreprocess.g:2987:25: ( '\\\\' )
-            // InternalCPreprocess.g:2987:27: '\\\\'
+            // InternalCPreprocess.g:3047:25: ( '\\\\' )
+            // InternalCPreprocess.g:3047:27: '\\\\'
             {
             match('\\'); 
 
@@ -294,8 +294,8 @@ public class InternalCPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_LINEBREAK"
     public final void mRULE_LINEBREAK() throws RecognitionException {
         try {
-            // InternalCPreprocess.g:2989:25: ( RULE_BACKSLASH RULE_NEWLINE )
-            // InternalCPreprocess.g:2989:27: RULE_BACKSLASH RULE_NEWLINE
+            // InternalCPreprocess.g:3049:25: ( RULE_BACKSLASH RULE_NEWLINE )
+            // InternalCPreprocess.g:3049:27: RULE_BACKSLASH RULE_NEWLINE
             {
             mRULE_BACKSLASH(); 
             mRULE_NEWLINE(); 
@@ -311,8 +311,8 @@ public class InternalCPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_SPACE"
     public final void mRULE_SPACE() throws RecognitionException {
         try {
-            // InternalCPreprocess.g:2991:21: ( ' ' )
-            // InternalCPreprocess.g:2991:23: ' '
+            // InternalCPreprocess.g:3051:21: ( ' ' )
+            // InternalCPreprocess.g:3051:23: ' '
             {
             match(' '); 
 
@@ -327,8 +327,8 @@ public class InternalCPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_TAB"
     public final void mRULE_TAB() throws RecognitionException {
         try {
-            // InternalCPreprocess.g:2993:19: ( '\\t' )
-            // InternalCPreprocess.g:2993:21: '\\t'
+            // InternalCPreprocess.g:3053:19: ( '\\t' )
+            // InternalCPreprocess.g:3053:21: '\\t'
             {
             match('\t'); 
 
@@ -345,10 +345,10 @@ public class InternalCPreprocessLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCPreprocess.g:2995:9: ( ( RULE_SPACE | RULE_TAB | RULE_LINEBREAK ) )
-            // InternalCPreprocess.g:2995:11: ( RULE_SPACE | RULE_TAB | RULE_LINEBREAK )
+            // InternalCPreprocess.g:3055:9: ( ( RULE_SPACE | RULE_TAB | RULE_LINEBREAK ) )
+            // InternalCPreprocess.g:3055:11: ( RULE_SPACE | RULE_TAB | RULE_LINEBREAK )
             {
-            // InternalCPreprocess.g:2995:11: ( RULE_SPACE | RULE_TAB | RULE_LINEBREAK )
+            // InternalCPreprocess.g:3055:11: ( RULE_SPACE | RULE_TAB | RULE_LINEBREAK )
             int alt1=3;
             switch ( input.LA(1) ) {
             case ' ':
@@ -375,21 +375,21 @@ public class InternalCPreprocessLexer extends Lexer {
 
             switch (alt1) {
                 case 1 :
-                    // InternalCPreprocess.g:2995:12: RULE_SPACE
+                    // InternalCPreprocess.g:3055:12: RULE_SPACE
                     {
                     mRULE_SPACE(); 
 
                     }
                     break;
                 case 2 :
-                    // InternalCPreprocess.g:2995:23: RULE_TAB
+                    // InternalCPreprocess.g:3055:23: RULE_TAB
                     {
                     mRULE_TAB(); 
 
                     }
                     break;
                 case 3 :
-                    // InternalCPreprocess.g:2995:32: RULE_LINEBREAK
+                    // InternalCPreprocess.g:3055:32: RULE_LINEBREAK
                     {
                     mRULE_LINEBREAK(); 
 
@@ -414,11 +414,11 @@ public class InternalCPreprocessLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCPreprocess.g:2997:9: ( RULE_ID_NONDIGIT ( RULE_ID_NONDIGIT | RULE_DIGIT )* )
-            // InternalCPreprocess.g:2997:11: RULE_ID_NONDIGIT ( RULE_ID_NONDIGIT | RULE_DIGIT )*
+            // InternalCPreprocess.g:3057:9: ( RULE_ID_NONDIGIT ( RULE_ID_NONDIGIT | RULE_DIGIT )* )
+            // InternalCPreprocess.g:3057:11: RULE_ID_NONDIGIT ( RULE_ID_NONDIGIT | RULE_DIGIT )*
             {
             mRULE_ID_NONDIGIT(); 
-            // InternalCPreprocess.g:2997:28: ( RULE_ID_NONDIGIT | RULE_DIGIT )*
+            // InternalCPreprocess.g:3057:28: ( RULE_ID_NONDIGIT | RULE_DIGIT )*
             loop2:
             do {
                 int alt2=3;
@@ -434,14 +434,14 @@ public class InternalCPreprocessLexer extends Lexer {
 
                 switch (alt2) {
             	case 1 :
-            	    // InternalCPreprocess.g:2997:29: RULE_ID_NONDIGIT
+            	    // InternalCPreprocess.g:3057:29: RULE_ID_NONDIGIT
             	    {
             	    mRULE_ID_NONDIGIT(); 
 
             	    }
             	    break;
             	case 2 :
-            	    // InternalCPreprocess.g:2997:46: RULE_DIGIT
+            	    // InternalCPreprocess.g:3057:46: RULE_DIGIT
             	    {
             	    mRULE_DIGIT(); 
 
@@ -467,10 +467,10 @@ public class InternalCPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_ID_NONDIGIT"
     public final void mRULE_ID_NONDIGIT() throws RecognitionException {
         try {
-            // InternalCPreprocess.g:2999:27: ( ( RULE_NONDIGIT_LETTER | RULE_UNIVERSAL_CHARACTER ) )
-            // InternalCPreprocess.g:2999:29: ( RULE_NONDIGIT_LETTER | RULE_UNIVERSAL_CHARACTER )
+            // InternalCPreprocess.g:3059:27: ( ( RULE_NONDIGIT_LETTER | RULE_UNIVERSAL_CHARACTER ) )
+            // InternalCPreprocess.g:3059:29: ( RULE_NONDIGIT_LETTER | RULE_UNIVERSAL_CHARACTER )
             {
-            // InternalCPreprocess.g:2999:29: ( RULE_NONDIGIT_LETTER | RULE_UNIVERSAL_CHARACTER )
+            // InternalCPreprocess.g:3059:29: ( RULE_NONDIGIT_LETTER | RULE_UNIVERSAL_CHARACTER )
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -488,14 +488,14 @@ public class InternalCPreprocessLexer extends Lexer {
             }
             switch (alt3) {
                 case 1 :
-                    // InternalCPreprocess.g:2999:30: RULE_NONDIGIT_LETTER
+                    // InternalCPreprocess.g:3059:30: RULE_NONDIGIT_LETTER
                     {
                     mRULE_NONDIGIT_LETTER(); 
 
                     }
                     break;
                 case 2 :
-                    // InternalCPreprocess.g:2999:51: RULE_UNIVERSAL_CHARACTER
+                    // InternalCPreprocess.g:3059:51: RULE_UNIVERSAL_CHARACTER
                     {
                     mRULE_UNIVERSAL_CHARACTER(); 
 
@@ -516,8 +516,8 @@ public class InternalCPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_DIGIT"
     public final void mRULE_DIGIT() throws RecognitionException {
         try {
-            // InternalCPreprocess.g:3001:21: ( '0' .. '9' )
-            // InternalCPreprocess.g:3001:23: '0' .. '9'
+            // InternalCPreprocess.g:3061:21: ( '0' .. '9' )
+            // InternalCPreprocess.g:3061:23: '0' .. '9'
             {
             matchRange('0','9'); 
 
@@ -532,8 +532,8 @@ public class InternalCPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_NONDIGIT_LETTER"
     public final void mRULE_NONDIGIT_LETTER() throws RecognitionException {
         try {
-            // InternalCPreprocess.g:3003:31: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) )
-            // InternalCPreprocess.g:3003:33: ( 'a' .. 'z' | 'A' .. 'Z' | '_' )
+            // InternalCPreprocess.g:3063:31: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) )
+            // InternalCPreprocess.g:3063:33: ( 'a' .. 'z' | 'A' .. 'Z' | '_' )
             {
             if ( (input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                 input.consume();
@@ -556,10 +556,10 @@ public class InternalCPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_UNIVERSAL_CHARACTER"
     public final void mRULE_UNIVERSAL_CHARACTER() throws RecognitionException {
         try {
-            // InternalCPreprocess.g:3005:35: ( ( '\\\\u' RULE_HEX_QUAD | '\\\\U' RULE_HEX_QUAD RULE_HEX_QUAD ) )
-            // InternalCPreprocess.g:3005:37: ( '\\\\u' RULE_HEX_QUAD | '\\\\U' RULE_HEX_QUAD RULE_HEX_QUAD )
+            // InternalCPreprocess.g:3065:35: ( ( '\\\\u' RULE_HEX_QUAD | '\\\\U' RULE_HEX_QUAD RULE_HEX_QUAD ) )
+            // InternalCPreprocess.g:3065:37: ( '\\\\u' RULE_HEX_QUAD | '\\\\U' RULE_HEX_QUAD RULE_HEX_QUAD )
             {
-            // InternalCPreprocess.g:3005:37: ( '\\\\u' RULE_HEX_QUAD | '\\\\U' RULE_HEX_QUAD RULE_HEX_QUAD )
+            // InternalCPreprocess.g:3065:37: ( '\\\\u' RULE_HEX_QUAD | '\\\\U' RULE_HEX_QUAD RULE_HEX_QUAD )
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -587,7 +587,7 @@ public class InternalCPreprocessLexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // InternalCPreprocess.g:3005:38: '\\\\u' RULE_HEX_QUAD
+                    // InternalCPreprocess.g:3065:38: '\\\\u' RULE_HEX_QUAD
                     {
                     match("\\u"); 
 
@@ -596,7 +596,7 @@ public class InternalCPreprocessLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalCPreprocess.g:3005:58: '\\\\U' RULE_HEX_QUAD RULE_HEX_QUAD
+                    // InternalCPreprocess.g:3065:58: '\\\\U' RULE_HEX_QUAD RULE_HEX_QUAD
                     {
                     match("\\U"); 
 
@@ -620,8 +620,8 @@ public class InternalCPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_HEX_QUAD"
     public final void mRULE_HEX_QUAD() throws RecognitionException {
         try {
-            // InternalCPreprocess.g:3007:24: ( RULE_HEXADECIMAL_DIGIT RULE_HEXADECIMAL_DIGIT RULE_HEXADECIMAL_DIGIT RULE_HEXADECIMAL_DIGIT )
-            // InternalCPreprocess.g:3007:26: RULE_HEXADECIMAL_DIGIT RULE_HEXADECIMAL_DIGIT RULE_HEXADECIMAL_DIGIT RULE_HEXADECIMAL_DIGIT
+            // InternalCPreprocess.g:3067:24: ( RULE_HEXADECIMAL_DIGIT RULE_HEXADECIMAL_DIGIT RULE_HEXADECIMAL_DIGIT RULE_HEXADECIMAL_DIGIT )
+            // InternalCPreprocess.g:3067:26: RULE_HEXADECIMAL_DIGIT RULE_HEXADECIMAL_DIGIT RULE_HEXADECIMAL_DIGIT RULE_HEXADECIMAL_DIGIT
             {
             mRULE_HEXADECIMAL_DIGIT(); 
             mRULE_HEXADECIMAL_DIGIT(); 
@@ -639,8 +639,8 @@ public class InternalCPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_HEXADECIMAL_DIGIT"
     public final void mRULE_HEXADECIMAL_DIGIT() throws RecognitionException {
         try {
-            // InternalCPreprocess.g:3009:33: ( ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) )
-            // InternalCPreprocess.g:3009:35: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )
+            // InternalCPreprocess.g:3069:33: ( ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) )
+            // InternalCPreprocess.g:3069:35: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )
             {
             if ( (input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='F')||(input.LA(1)>='a' && input.LA(1)<='f') ) {
                 input.consume();
@@ -665,8 +665,8 @@ public class InternalCPreprocessLexer extends Lexer {
         try {
             int _type = RULE_SPECIAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCPreprocess.g:3011:14: ( . )
-            // InternalCPreprocess.g:3011:16: .
+            // InternalCPreprocess.g:3071:14: ( . )
+            // InternalCPreprocess.g:3071:16: .
             {
             matchAny(); 
 

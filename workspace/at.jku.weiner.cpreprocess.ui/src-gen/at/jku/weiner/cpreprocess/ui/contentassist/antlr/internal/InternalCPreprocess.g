@@ -432,6 +432,42 @@ finally {
 
 
 
+// Entry rule entryRuleNullDirective
+entryRuleNullDirective 
+:
+{ before(grammarAccess.getNullDirectiveRule()); }
+	 ruleNullDirective
+{ after(grammarAccess.getNullDirectiveRule()); } 
+	 EOF 
+;
+
+// Rule NullDirective
+ruleNullDirective
+    @init {
+		int stackSize = keepStackSize();
+		/*no init found*/
+    }
+	@after {
+    		/*no after found*/
+     }:
+
+(
+{ before(grammarAccess.getNullDirectiveAccess().getNullDirectiveAction()); }
+(
+
+)
+{ after(grammarAccess.getNullDirectiveAccess().getNullDirectiveAction()); }
+)
+
+
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
 // Entry rule entryRuleNewLineLine
 entryRuleNewLineLine 
 :
@@ -727,6 +763,15 @@ rule__PreprocessorDirectives__Alternatives_4
 { before(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveAssignment_4_4()); }
 (rule__PreprocessorDirectives__DirectiveAssignment_4_4)
 { after(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveAssignment_4_4()); }
+)
+
+
+
+    |
+(
+{ before(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveAssignment_4_5()); }
+(rule__PreprocessorDirectives__DirectiveAssignment_4_5)
+{ after(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveAssignment_4_5()); }
 )
 
 
@@ -2834,6 +2879,21 @@ rule__PreprocessorDirectives__DirectiveAssignment_4_4
 (
 { before(grammarAccess.getPreprocessorDirectivesAccess().getDirectivePragmaDirectiveParserRuleCall_4_4_0()); }
 	rulePragmaDirective{ after(grammarAccess.getPreprocessorDirectivesAccess().getDirectivePragmaDirectiveParserRuleCall_4_4_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PreprocessorDirectives__DirectiveAssignment_4_5
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveNullDirectiveParserRuleCall_4_5_0()); }
+	ruleNullDirective{ after(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveNullDirectiveParserRuleCall_4_5_0()); }
 )
 
 ;

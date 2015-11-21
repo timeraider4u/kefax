@@ -12,6 +12,7 @@ import at.jku.weiner.cpreprocess.cPreprocess.GroupOpt;
 import at.jku.weiner.cpreprocess.cPreprocess.IncludeDirective;
 import at.jku.weiner.cpreprocess.cPreprocess.Model;
 import at.jku.weiner.cpreprocess.cPreprocess.NewLineLine;
+import at.jku.weiner.cpreprocess.cPreprocess.NullDirective;
 import at.jku.weiner.cpreprocess.cPreprocess.PragmaDirective;
 import at.jku.weiner.cpreprocess.cPreprocess.PreprocessorDirectives;
 import at.jku.weiner.cpreprocess.cPreprocess.TranslationUnit;
@@ -63,6 +64,9 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 				return; 
 			case CPreprocessPackage.NEW_LINE_LINE:
 				sequence_NewLineLine(context, (NewLineLine) semanticObject); 
+				return; 
+			case CPreprocessPackage.NULL_DIRECTIVE:
+				sequence_NullDirective(context, (NullDirective) semanticObject); 
 				return; 
 			case CPreprocessPackage.PRAGMA_DIRECTIVE:
 				sequence_PragmaDirective(context, (PragmaDirective) semanticObject); 
@@ -185,6 +189,15 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
+	 *     {NullDirective}
+	 */
+	protected void sequence_NullDirective(EObject context, NullDirective semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     {PragmaDirective}
 	 */
 	protected void sequence_PragmaDirective(EObject context, PragmaDirective semanticObject) {
@@ -194,7 +207,14 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (directive=IncludeDirective | directive=DefineDirective | directive=ErrorDirective | directive=UnDefineDirective | directive=PragmaDirective)
+	 *     (
+	 *         directive=IncludeDirective | 
+	 *         directive=DefineDirective | 
+	 *         directive=ErrorDirective | 
+	 *         directive=UnDefineDirective | 
+	 *         directive=PragmaDirective | 
+	 *         directive=NullDirective
+	 *     )
 	 */
 	protected void sequence_PreprocessorDirectives(EObject context, PreprocessorDirectives semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

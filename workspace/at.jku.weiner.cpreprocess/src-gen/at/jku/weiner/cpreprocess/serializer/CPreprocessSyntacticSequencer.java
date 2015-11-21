@@ -261,6 +261,7 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) HASH WS* directive=DefineDirective
 	 *     (rule start) (ambiguity) HASH WS* directive=ErrorDirective
 	 *     (rule start) (ambiguity) HASH WS* directive=IncludeDirective
+	 *     (rule start) (ambiguity) HASH WS* directive=NullDirective
 	 *     (rule start) (ambiguity) HASH WS* directive=PragmaDirective
 	 *     (rule start) (ambiguity) HASH WS* directive=UnDefineDirective
 	 */
@@ -276,6 +277,7 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) WS* HASH (ambiguity) directive=DefineDirective
 	 *     (rule start) WS* HASH (ambiguity) directive=ErrorDirective
 	 *     (rule start) WS* HASH (ambiguity) directive=IncludeDirective
+	 *     (rule start) WS* HASH (ambiguity) directive=NullDirective
 	 *     (rule start) WS* HASH (ambiguity) directive=PragmaDirective
 	 *     (rule start) WS* HASH (ambiguity) directive=UnDefineDirective
 	 */

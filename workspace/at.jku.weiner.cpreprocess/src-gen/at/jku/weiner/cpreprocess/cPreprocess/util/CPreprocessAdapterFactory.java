@@ -120,6 +120,11 @@ public class CPreprocessAdapterFactory extends AdapterFactoryImpl
         return createPragmaDirectiveAdapter();
       }
       @Override
+      public Adapter caseNullDirective(NullDirective object)
+      {
+        return createNullDirectiveAdapter();
+      }
+      @Override
       public Adapter casePreprocessorDirectives(PreprocessorDirectives object)
       {
         return createPreprocessorDirectivesAdapter();
@@ -297,6 +302,21 @@ public class CPreprocessAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createPragmaDirectiveAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.cpreprocess.cPreprocess.NullDirective <em>Null Directive</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.cpreprocess.cPreprocess.NullDirective
+   * @generated
+   */
+  public Adapter createNullDirectiveAdapter()
   {
     return null;
   }

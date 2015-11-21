@@ -131,6 +131,8 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cDirectiveUnDefineDirectiveParserRuleCall_4_3_0 = (RuleCall)cDirectiveAssignment_4_3.eContents().get(0);
 		private final Assignment cDirectiveAssignment_4_4 = (Assignment)cAlternatives_4.eContents().get(4);
 		private final RuleCall cDirectivePragmaDirectiveParserRuleCall_4_4_0 = (RuleCall)cDirectiveAssignment_4_4.eContents().get(0);
+		private final Assignment cDirectiveAssignment_4_5 = (Assignment)cAlternatives_4.eContents().get(5);
+		private final RuleCall cDirectiveNullDirectiveParserRuleCall_4_5_0 = (RuleCall)cDirectiveAssignment_4_5.eContents().get(0);
 		private final RuleCall cNEWLINETerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
 		
 		//PreprocessorDirectives SourceCodeLine:
@@ -138,11 +140,12 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//	| directive=DefineDirective
 		//	| directive=ErrorDirective
 		//	| directive=UnDefineDirective
-		//	| directive=PragmaDirective) NEWLINE
+		//	| directive=PragmaDirective
+		//	| directive=NullDirective) NEWLINE
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{PreprocessorDirectives} WS* HASH WS* (directive=IncludeDirective | directive=DefineDirective | directive=ErrorDirective
-		//| directive=UnDefineDirective | directive=PragmaDirective) NEWLINE
+		//| directive=UnDefineDirective | directive=PragmaDirective | directive=NullDirective) NEWLINE
 		public Group getGroup() { return cGroup; }
 		
 		//{PreprocessorDirectives}
@@ -158,7 +161,7 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getWSTerminalRuleCall_3() { return cWSTerminalRuleCall_3; }
 		
 		//(directive=IncludeDirective | directive=DefineDirective | directive=ErrorDirective | directive=UnDefineDirective |
-		//directive=PragmaDirective)
+		//directive=PragmaDirective | directive=NullDirective)
 		public Alternatives getAlternatives_4() { return cAlternatives_4; }
 		
 		//directive=IncludeDirective
@@ -190,6 +193,12 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//PragmaDirective
 		public RuleCall getDirectivePragmaDirectiveParserRuleCall_4_4_0() { return cDirectivePragmaDirectiveParserRuleCall_4_4_0; }
+		
+		//directive=NullDirective
+		public Assignment getDirectiveAssignment_4_5() { return cDirectiveAssignment_4_5; }
+		
+		//NullDirective
+		public RuleCall getDirectiveNullDirectiveParserRuleCall_4_5_0() { return cDirectiveNullDirectiveParserRuleCall_4_5_0; }
 		
 		//NEWLINE
 		public RuleCall getNEWLINETerminalRuleCall_5() { return cNEWLINETerminalRuleCall_5; }
@@ -428,6 +437,17 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//PRAGMA
 		public RuleCall getPRAGMATerminalRuleCall_1() { return cPRAGMATerminalRuleCall_1; }
 	}
+	public class NullDirectiveElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.NullDirective");
+		private final Action cNullDirectiveAction = (Action)rule.eContents().get(1);
+		
+		//NullDirective:
+		//	{NullDirective};
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{NullDirective}
+		public Action getNullDirectiveAction() { return cNullDirectiveAction; }
+	}
 	public class NewLineLineElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.NewLineLine");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -604,6 +624,7 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	private final ErrorDirectiveElements pErrorDirective;
 	private final UnDefineDirectiveElements pUnDefineDirective;
 	private final PragmaDirectiveElements pPragmaDirective;
+	private final NullDirectiveElements pNullDirective;
 	private final NewLineLineElements pNewLineLine;
 	private final CodeElements pCode;
 	private final MyCodeElements pMyCode;
@@ -651,6 +672,7 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		this.pErrorDirective = new ErrorDirectiveElements();
 		this.pUnDefineDirective = new UnDefineDirectiveElements();
 		this.pPragmaDirective = new PragmaDirectiveElements();
+		this.pNullDirective = new NullDirectiveElements();
 		this.pNewLineLine = new NewLineLineElements();
 		this.pCode = new CodeElements();
 		this.pMyCode = new MyCodeElements();
@@ -743,7 +765,8 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//	| directive=DefineDirective
 	//	| directive=ErrorDirective
 	//	| directive=UnDefineDirective
-	//	| directive=PragmaDirective) NEWLINE
+	//	| directive=PragmaDirective
+	//	| directive=NullDirective) NEWLINE
 	public PreprocessorDirectivesElements getPreprocessorDirectivesAccess() {
 		return pPreprocessorDirectives;
 	}
@@ -825,6 +848,16 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getPragmaDirectiveRule() {
 		return getPragmaDirectiveAccess().getRule();
+	}
+	
+	//NullDirective:
+	//	{NullDirective};
+	public NullDirectiveElements getNullDirectiveAccess() {
+		return pNullDirective;
+	}
+	
+	public ParserRule getNullDirectiveRule() {
+		return getNullDirectiveAccess().getRule();
 	}
 	
 	//NewLineLine SourceCodeLine:

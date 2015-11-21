@@ -300,6 +300,25 @@ public interface CPreprocessPackage extends EPackage
   int PRAGMA_DIRECTIVE_FEATURE_COUNT = 0;
 
   /**
+   * The meta object id for the '{@link at.jku.weiner.cpreprocess.cPreprocess.impl.NullDirectiveImpl <em>Null Directive</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.cpreprocess.cPreprocess.impl.NullDirectiveImpl
+   * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getNullDirective()
+   * @generated
+   */
+  int NULL_DIRECTIVE = 9;
+
+  /**
+   * The number of structural features of the '<em>Null Directive</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NULL_DIRECTIVE_FEATURE_COUNT = 0;
+
+  /**
    * The meta object id for the '{@link at.jku.weiner.cpreprocess.cPreprocess.impl.PreprocessorDirectivesImpl <em>Preprocessor Directives</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -307,7 +326,7 @@ public interface CPreprocessPackage extends EPackage
    * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getPreprocessorDirectives()
    * @generated
    */
-  int PREPROCESSOR_DIRECTIVES = 9;
+  int PREPROCESSOR_DIRECTIVES = 10;
 
   /**
    * The feature id for the '<em><b>Directive</b></em>' containment reference.
@@ -335,7 +354,7 @@ public interface CPreprocessPackage extends EPackage
    * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getDefineObjectMacro()
    * @generated
    */
-  int DEFINE_OBJECT_MACRO = 10;
+  int DEFINE_OBJECT_MACRO = 11;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -372,7 +391,7 @@ public interface CPreprocessPackage extends EPackage
    * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getDefineFunctionLikeMacro()
    * @generated
    */
-  int DEFINE_FUNCTION_LIKE_MACRO = 11;
+  int DEFINE_FUNCTION_LIKE_MACRO = 12;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -409,7 +428,7 @@ public interface CPreprocessPackage extends EPackage
    * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getNewLineLine()
    * @generated
    */
-  int NEW_LINE_LINE = 12;
+  int NEW_LINE_LINE = 13;
 
   /**
    * The number of structural features of the '<em>New Line Line</em>' class.
@@ -428,7 +447,7 @@ public interface CPreprocessPackage extends EPackage
    * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getCode()
    * @generated
    */
-  int CODE = 13;
+  int CODE = 14;
 
   /**
    * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -626,6 +645,16 @@ public interface CPreprocessPackage extends EPackage
    * @generated
    */
   EClass getPragmaDirective();
+
+  /**
+   * Returns the meta object for class '{@link at.jku.weiner.cpreprocess.cPreprocess.NullDirective <em>Null Directive</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Null Directive</em>'.
+   * @see at.jku.weiner.cpreprocess.cPreprocess.NullDirective
+   * @generated
+   */
+  EClass getNullDirective();
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.cpreprocess.cPreprocess.PreprocessorDirectives <em>Preprocessor Directives</em>}'.
@@ -875,6 +904,16 @@ public interface CPreprocessPackage extends EPackage
      * @generated
      */
     EClass PRAGMA_DIRECTIVE = eINSTANCE.getPragmaDirective();
+
+    /**
+     * The meta object literal for the '{@link at.jku.weiner.cpreprocess.cPreprocess.impl.NullDirectiveImpl <em>Null Directive</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.cpreprocess.cPreprocess.impl.NullDirectiveImpl
+     * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getNullDirective()
+     * @generated
+     */
+    EClass NULL_DIRECTIVE = eINSTANCE.getNullDirective();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.cpreprocess.cPreprocess.impl.PreprocessorDirectivesImpl <em>Preprocessor Directives</em>}' class.

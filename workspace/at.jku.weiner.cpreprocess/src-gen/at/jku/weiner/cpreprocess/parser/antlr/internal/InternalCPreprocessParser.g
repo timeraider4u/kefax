@@ -374,9 +374,28 @@ rulePreprocessorDirectives returns [EObject current=null]
 	    }
 
 )
-))this_NEWLINE_9=RULE_NEWLINE
+)
+    |(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveNullDirectiveParserRuleCall_4_5_0()); 
+	    }
+		lv_directive_9_0=ruleNullDirective		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getPreprocessorDirectivesRule());
+	        }
+       		set(
+       			$current, 
+       			"directive",
+        		lv_directive_9_0, 
+        		"at.jku.weiner.cpreprocess.CPreprocess.NullDirective");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))this_NEWLINE_10=RULE_NEWLINE
     { 
-    newLeafNode(this_NEWLINE_9, grammarAccess.getPreprocessorDirectivesAccess().getNEWLINETerminalRuleCall_5()); 
+    newLeafNode(this_NEWLINE_10, grammarAccess.getPreprocessorDirectivesAccess().getNEWLINETerminalRuleCall_5()); 
     }
 )
 ;
@@ -789,6 +808,36 @@ rulePragmaDirective returns [EObject current=null]
 )this_PRAGMA_1=RULE_PRAGMA
     { 
     newLeafNode(this_PRAGMA_1, grammarAccess.getPragmaDirectiveAccess().getPRAGMATerminalRuleCall_1()); 
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleNullDirective
+entryRuleNullDirective returns [EObject current=null]
+	:
+	{ newCompositeNode(grammarAccess.getNullDirectiveRule()); }
+	 iv_ruleNullDirective=ruleNullDirective 
+	 { $current=$iv_ruleNullDirective.current; } 
+	 EOF 
+;
+
+// Rule NullDirective
+ruleNullDirective returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(
+	{ 
+	  /* */ 
+	}
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getNullDirectiveAccess().getNullDirectiveAction(),
+            $current);
     }
 )
 ;

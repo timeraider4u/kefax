@@ -73,6 +73,7 @@ public class CPreprocessFactoryImpl extends EFactoryImpl implements CPreprocessF
       case CPreprocessPackage.ERROR_DIRECTIVE: return createErrorDirective();
       case CPreprocessPackage.UN_DEFINE_DIRECTIVE: return createUnDefineDirective();
       case CPreprocessPackage.PRAGMA_DIRECTIVE: return createPragmaDirective();
+      case CPreprocessPackage.NULL_DIRECTIVE: return createNullDirective();
       case CPreprocessPackage.PREPROCESSOR_DIRECTIVES: return createPreprocessorDirectives();
       case CPreprocessPackage.DEFINE_OBJECT_MACRO: return createDefineObjectMacro();
       case CPreprocessPackage.DEFINE_FUNCTION_LIKE_MACRO: return createDefineFunctionLikeMacro();
@@ -180,6 +181,17 @@ public class CPreprocessFactoryImpl extends EFactoryImpl implements CPreprocessF
   {
     PragmaDirectiveImpl pragmaDirective = new PragmaDirectiveImpl();
     return pragmaDirective;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NullDirective createNullDirective()
+  {
+    NullDirectiveImpl nullDirective = new NullDirectiveImpl();
+    return nullDirective;
   }
 
   /**

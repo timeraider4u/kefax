@@ -1,4 +1,4 @@
-package at.jku.weiner.cpreprocess.generator;
+package at.jku.weiner.cpreprocess.utils;
 
 import java.io.File;
 import java.io.IOException;
@@ -7,9 +7,6 @@ import java.util.List;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-
-import at.jku.weiner.cpreprocess.utils.IncludeDirs;
-import at.jku.weiner.cpreprocess.utils.MyPath;
 
 public final class IncludeUtils {
 

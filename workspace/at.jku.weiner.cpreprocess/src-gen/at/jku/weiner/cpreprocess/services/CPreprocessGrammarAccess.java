@@ -227,36 +227,46 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class DefineDirectiveElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.DefineDirective");
-		private final RuleCall cDefineObjectMacroParserRuleCall = (RuleCall)rule.eContents().get(1);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cDefineObjectMacroParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cDefineFunctionLikeMacroParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//DefineDirective:
-		//	DefineObjectMacro;
+		//	DefineObjectMacro
+		//	| DefineFunctionLikeMacro;
 		@Override public ParserRule getRule() { return rule; }
 		
+		//DefineObjectMacro | DefineFunctionLikeMacro
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
 		//DefineObjectMacro
-		public RuleCall getDefineObjectMacroParserRuleCall() { return cDefineObjectMacroParserRuleCall; }
+		public RuleCall getDefineObjectMacroParserRuleCall_0() { return cDefineObjectMacroParserRuleCall_0; }
+		
+		//DefineFunctionLikeMacro
+		public RuleCall getDefineFunctionLikeMacroParserRuleCall_1() { return cDefineFunctionLikeMacroParserRuleCall_1; }
 	}
 	public class DefineObjectMacroElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.DefineObjectMacro");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cDefineDirectiveAction_0 = (Action)cGroup.eContents().get(0);
+		private final Action cDefineObjectMacroAction_0 = (Action)cGroup.eContents().get(0);
 		private final RuleCall cDEFINETerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		private final Assignment cIdAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cIdIDTerminalRuleCall_3_0 = (RuleCall)cIdAssignment_3.eContents().get(0);
-		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
-		private final Assignment cStringAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cStringMyDefineLineParserRuleCall_5_0 = (RuleCall)cStringAssignment_5.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final RuleCall cWSTerminalRuleCall_4_0 = (RuleCall)cGroup_4.eContents().get(0);
+		private final Assignment cStringAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cStringMyDefineLineParserRuleCall_4_1_0 = (RuleCall)cStringAssignment_4_1.eContents().get(0);
 		
 		//DefineObjectMacro DefineDirective:
-		//	{DefineDirective} DEFINE WS+ id=ID WS* string=MyDefineLine
+		//	{DefineObjectMacro} DEFINE WS+ id=ID (WS+ string=MyDefineLine)?
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{DefineDirective} DEFINE WS+ id=ID WS* string=MyDefineLine
+		//{DefineObjectMacro} DEFINE WS+ id=ID (WS+ string=MyDefineLine)?
 		public Group getGroup() { return cGroup; }
 		
-		//{DefineDirective}
-		public Action getDefineDirectiveAction_0() { return cDefineDirectiveAction_0; }
+		//{DefineObjectMacro}
+		public Action getDefineObjectMacroAction_0() { return cDefineObjectMacroAction_0; }
 		
 		//DEFINE
 		public RuleCall getDEFINETerminalRuleCall_1() { return cDEFINETerminalRuleCall_1; }
@@ -270,14 +280,72 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getIdIDTerminalRuleCall_3_0() { return cIdIDTerminalRuleCall_3_0; }
 		
-		//WS*
-		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+		//(WS+ string=MyDefineLine)?
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//WS+
+		public RuleCall getWSTerminalRuleCall_4_0() { return cWSTerminalRuleCall_4_0; }
 		
 		//string=MyDefineLine
-		public Assignment getStringAssignment_5() { return cStringAssignment_5; }
+		public Assignment getStringAssignment_4_1() { return cStringAssignment_4_1; }
 		
 		//MyDefineLine
-		public RuleCall getStringMyDefineLineParserRuleCall_5_0() { return cStringMyDefineLineParserRuleCall_5_0; }
+		public RuleCall getStringMyDefineLineParserRuleCall_4_1_0() { return cStringMyDefineLineParserRuleCall_4_1_0; }
+	}
+	public class DefineFunctionLikeMacroElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.DefineFunctionLikeMacro");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cDefineFunctionLikeMacroAction_0 = (Action)cGroup.eContents().get(0);
+		private final RuleCall cDEFINETerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cIdAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cIdIDTerminalRuleCall_3_0 = (RuleCall)cIdAssignment_3.eContents().get(0);
+		private final RuleCall cLPARENTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cRPARENTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cWSTerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		private final Assignment cStringAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cStringMyDefineLineParserRuleCall_7_0 = (RuleCall)cStringAssignment_7.eContents().get(0);
+		
+		//DefineFunctionLikeMacro DefineDirective:
+		//	{DefineFunctionLikeMacro} DEFINE WS+ id=ID
+		//	LPAREN
+		//	RPAREN
+		//	WS+
+		//	string=MyDefineLine
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{DefineFunctionLikeMacro} DEFINE WS+ id=ID LPAREN RPAREN WS+ string=MyDefineLine
+		public Group getGroup() { return cGroup; }
+		
+		//{DefineFunctionLikeMacro}
+		public Action getDefineFunctionLikeMacroAction_0() { return cDefineFunctionLikeMacroAction_0; }
+		
+		//DEFINE
+		public RuleCall getDEFINETerminalRuleCall_1() { return cDEFINETerminalRuleCall_1; }
+		
+		//WS+
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+		
+		//id=ID
+		public Assignment getIdAssignment_3() { return cIdAssignment_3; }
+		
+		//ID
+		public RuleCall getIdIDTerminalRuleCall_3_0() { return cIdIDTerminalRuleCall_3_0; }
+		
+		//LPAREN
+		public RuleCall getLPARENTerminalRuleCall_4() { return cLPARENTerminalRuleCall_4; }
+		
+		//RPAREN
+		public RuleCall getRPARENTerminalRuleCall_5() { return cRPARENTerminalRuleCall_5; }
+		
+		//WS+
+		public RuleCall getWSTerminalRuleCall_6() { return cWSTerminalRuleCall_6; }
+		
+		//string=MyDefineLine
+		public Assignment getStringAssignment_7() { return cStringAssignment_7; }
+		
+		//MyDefineLine
+		public RuleCall getStringMyDefineLineParserRuleCall_7_0() { return cStringMyDefineLineParserRuleCall_7_0; }
 	}
 	public class ErrorDirectiveElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.ErrorDirective");
@@ -416,12 +484,14 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cDEFINETerminalRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		private final RuleCall cERRORTerminalRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		private final RuleCall cPRAGMATerminalRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cLPARENTerminalRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		private final RuleCall cRPARENTerminalRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
 		
 		//MyCode:
-		//	ID | SPECIAL | INCLUDE | DEFINE | ERROR | PRAGMA;
+		//	ID | SPECIAL | INCLUDE | DEFINE | ERROR | PRAGMA | LPAREN | RPAREN;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//ID | SPECIAL | INCLUDE | DEFINE | ERROR | PRAGMA
+		//ID | SPECIAL | INCLUDE | DEFINE | ERROR | PRAGMA | LPAREN | RPAREN
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//ID
@@ -441,6 +511,12 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//PRAGMA
 		public RuleCall getPRAGMATerminalRuleCall_5() { return cPRAGMATerminalRuleCall_5; }
+		
+		//LPAREN
+		public RuleCall getLPARENTerminalRuleCall_6() { return cLPARENTerminalRuleCall_6; }
+		
+		//RPAREN
+		public RuleCall getRPARENTerminalRuleCall_7() { return cRPARENTerminalRuleCall_7; }
 	}
 	public class MyDefineLineElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.MyDefineLine");
@@ -524,6 +600,7 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	private final IncludeDirectiveElements pIncludeDirective;
 	private final DefineDirectiveElements pDefineDirective;
 	private final DefineObjectMacroElements pDefineObjectMacro;
+	private final DefineFunctionLikeMacroElements pDefineFunctionLikeMacro;
 	private final ErrorDirectiveElements pErrorDirective;
 	private final UnDefineDirectiveElements pUnDefineDirective;
 	private final PragmaDirectiveElements pPragmaDirective;
@@ -539,6 +616,8 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tERROR;
 	private final TerminalRule tUNDEF;
 	private final TerminalRule tPRAGMA;
+	private final TerminalRule tLPAREN;
+	private final TerminalRule tRPAREN;
 	private final TerminalRule tLINEFEED;
 	private final TerminalRule tCARRIAGERETURN;
 	private final TerminalRule tNEWLINE;
@@ -568,6 +647,7 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		this.pIncludeDirective = new IncludeDirectiveElements();
 		this.pDefineDirective = new DefineDirectiveElements();
 		this.pDefineObjectMacro = new DefineObjectMacroElements();
+		this.pDefineFunctionLikeMacro = new DefineFunctionLikeMacroElements();
 		this.pErrorDirective = new ErrorDirectiveElements();
 		this.pUnDefineDirective = new UnDefineDirectiveElements();
 		this.pPragmaDirective = new PragmaDirectiveElements();
@@ -583,6 +663,8 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		this.tERROR = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.ERROR");
 		this.tUNDEF = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.UNDEF");
 		this.tPRAGMA = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.PRAGMA");
+		this.tLPAREN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.LPAREN");
+		this.tRPAREN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.RPAREN");
 		this.tLINEFEED = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.LINEFEED");
 		this.tCARRIAGERETURN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.CARRIAGERETURN");
 		this.tNEWLINE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.NEWLINE");
@@ -681,7 +763,8 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DefineDirective:
-	//	DefineObjectMacro;
+	//	DefineObjectMacro
+	//	| DefineFunctionLikeMacro;
 	public DefineDirectiveElements getDefineDirectiveAccess() {
 		return pDefineDirective;
 	}
@@ -691,13 +774,27 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DefineObjectMacro DefineDirective:
-	//	{DefineDirective} DEFINE WS+ id=ID WS* string=MyDefineLine
+	//	{DefineObjectMacro} DEFINE WS+ id=ID (WS+ string=MyDefineLine)?
 	public DefineObjectMacroElements getDefineObjectMacroAccess() {
 		return pDefineObjectMacro;
 	}
 	
 	public ParserRule getDefineObjectMacroRule() {
 		return getDefineObjectMacroAccess().getRule();
+	}
+	
+	//DefineFunctionLikeMacro DefineDirective:
+	//	{DefineFunctionLikeMacro} DEFINE WS+ id=ID
+	//	LPAREN
+	//	RPAREN
+	//	WS+
+	//	string=MyDefineLine
+	public DefineFunctionLikeMacroElements getDefineFunctionLikeMacroAccess() {
+		return pDefineFunctionLikeMacro;
+	}
+	
+	public ParserRule getDefineFunctionLikeMacroRule() {
+		return getDefineFunctionLikeMacroAccess().getRule();
 	}
 	
 	//ErrorDirective:
@@ -752,7 +849,7 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//MyCode:
-	//	ID | SPECIAL | INCLUDE | DEFINE | ERROR | PRAGMA;
+	//	ID | SPECIAL | INCLUDE | DEFINE | ERROR | PRAGMA | LPAREN | RPAREN;
 	public MyCodeElements getMyCodeAccess() {
 		return pMyCode;
 	}
@@ -825,6 +922,18 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//	'pragma';
 	public TerminalRule getPRAGMARule() {
 		return tPRAGMA;
+	}
+	
+	//terminal LPAREN:
+	//	'(';
+	public TerminalRule getLPARENRule() {
+		return tLPAREN;
+	}
+	
+	//terminal RPAREN:
+	//	')';
+	public TerminalRule getRPARENRule() {
+		return tRPAREN;
 	}
 	
 	//terminal fragment LINEFEED:

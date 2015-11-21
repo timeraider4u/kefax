@@ -9,6 +9,9 @@ source file="res/Test0018_EmptyInc.c"
 lexer-tokens
 	HASH DEFINE WS ID NEWLINE
 	ID WS HASH INCLUDE WS SPECIAL ID SPECIAL ID SPECIAL NEWLINE
+	NEWLINE
+	HASH DEFINE WS ID WS WS NEWLINE
+	ID WS HASH INCLUDE WS SPECIAL ID SPECIAL ID SPECIAL NEWLINE
 //----------------------------------------------------------------------
 (Model
 	units+=
@@ -20,13 +23,23 @@ lexer-tokens
 				directive=
 				(DefineDirective
 					id++"EMPTY",
-					string++""
+					string isNull
 				)
 			),
 			(Code
 				code++"EMPTY #include <file.h>"
+			),
+			(NewLineLine),
+			(PreprocessorDirectives
+				directive=
+				(DefineDirective
+					id++"EMPTY2",
+					string++""
+				)
+			),
+			(Code
+				code++"EMPTY2 #include <file.h>"
 			)
-			
 		)
 	)
 )

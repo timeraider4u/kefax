@@ -125,6 +125,16 @@ public class CPreprocessAdapterFactory extends AdapterFactoryImpl
         return createPreprocessorDirectivesAdapter();
       }
       @Override
+      public Adapter caseDefineObjectMacro(DefineObjectMacro object)
+      {
+        return createDefineObjectMacroAdapter();
+      }
+      @Override
+      public Adapter caseDefineFunctionLikeMacro(DefineFunctionLikeMacro object)
+      {
+        return createDefineFunctionLikeMacroAdapter();
+      }
+      @Override
       public Adapter caseNewLineLine(NewLineLine object)
       {
         return createNewLineLineAdapter();
@@ -302,6 +312,36 @@ public class CPreprocessAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createPreprocessorDirectivesAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.cpreprocess.cPreprocess.DefineObjectMacro <em>Define Object Macro</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.cpreprocess.cPreprocess.DefineObjectMacro
+   * @generated
+   */
+  public Adapter createDefineObjectMacroAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.cpreprocess.cPreprocess.DefineFunctionLikeMacro <em>Define Function Like Macro</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.cpreprocess.cPreprocess.DefineFunctionLikeMacro
+   * @generated
+   */
+  public Adapter createDefineFunctionLikeMacroAdapter()
   {
     return null;
   }

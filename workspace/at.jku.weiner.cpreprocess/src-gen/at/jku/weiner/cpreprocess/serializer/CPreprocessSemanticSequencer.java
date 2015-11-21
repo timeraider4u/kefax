@@ -5,7 +5,8 @@ package at.jku.weiner.cpreprocess.serializer;
 
 import at.jku.weiner.cpreprocess.cPreprocess.CPreprocessPackage;
 import at.jku.weiner.cpreprocess.cPreprocess.Code;
-import at.jku.weiner.cpreprocess.cPreprocess.DefineDirective;
+import at.jku.weiner.cpreprocess.cPreprocess.DefineFunctionLikeMacro;
+import at.jku.weiner.cpreprocess.cPreprocess.DefineObjectMacro;
 import at.jku.weiner.cpreprocess.cPreprocess.ErrorDirective;
 import at.jku.weiner.cpreprocess.cPreprocess.GroupOpt;
 import at.jku.weiner.cpreprocess.cPreprocess.IncludeDirective;
@@ -42,8 +43,11 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 			case CPreprocessPackage.CODE:
 				sequence_Code(context, (Code) semanticObject); 
 				return; 
-			case CPreprocessPackage.DEFINE_DIRECTIVE:
-				sequence_DefineObjectMacro(context, (DefineDirective) semanticObject); 
+			case CPreprocessPackage.DEFINE_FUNCTION_LIKE_MACRO:
+				sequence_DefineFunctionLikeMacro(context, (DefineFunctionLikeMacro) semanticObject); 
+				return; 
+			case CPreprocessPackage.DEFINE_OBJECT_MACRO:
+				sequence_DefineObjectMacro(context, (DefineObjectMacro) semanticObject); 
 				return; 
 			case CPreprocessPackage.ERROR_DIRECTIVE:
 				sequence_ErrorDirective(context, (ErrorDirective) semanticObject); 
@@ -96,7 +100,7 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 * Constraint:
 	 *     (id=ID string=MyDefineLine)
 	 */
-	protected void sequence_DefineObjectMacro(EObject context, DefineDirective semanticObject) {
+	protected void sequence_DefineFunctionLikeMacro(EObject context, DefineFunctionLikeMacro semanticObject) {
 		if(errorAcceptor != null) {
 			if(transientValues.isValueTransient(semanticObject, CPreprocessPackage.Literals.DEFINE_DIRECTIVE__ID) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CPreprocessPackage.Literals.DEFINE_DIRECTIVE__ID));
@@ -105,9 +109,18 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getDefineObjectMacroAccess().getIdIDTerminalRuleCall_3_0(), semanticObject.getId());
-		feeder.accept(grammarAccess.getDefineObjectMacroAccess().getStringMyDefineLineParserRuleCall_5_0(), semanticObject.getString());
+		feeder.accept(grammarAccess.getDefineFunctionLikeMacroAccess().getIdIDTerminalRuleCall_3_0(), semanticObject.getId());
+		feeder.accept(grammarAccess.getDefineFunctionLikeMacroAccess().getStringMyDefineLineParserRuleCall_7_0(), semanticObject.getString());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (id=ID string=MyDefineLine?)
+	 */
+	protected void sequence_DefineObjectMacro(EObject context, DefineObjectMacro semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

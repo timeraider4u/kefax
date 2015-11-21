@@ -33,6 +33,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="directive" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DefineObjectMacro" eSuperTypes="#//DefineDirective"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DefineFunctionLikeMacro" eSuperTypes="#//DefineDirective"/>
   <eClassifiers xsi:type="ecore:EClass" name="NewLineLine" eSuperTypes="#//SourceCodeLine"/>
   <eClassifiers xsi:type="ecore:EClass" name="Code" eSuperTypes="#//SourceCodeLine">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

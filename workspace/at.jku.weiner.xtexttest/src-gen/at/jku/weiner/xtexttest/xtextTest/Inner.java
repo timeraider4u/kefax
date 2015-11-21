@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.Inner#getAssignList <em>Assign List</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.Inner#getValue <em>Value</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.Inner#getAssignAsData <em>Assign As Data</em>}</li>
+ *   <li>{@link at.jku.weiner.xtexttest.xtextTest.Inner#isIsNull <em>Is Null</em>}</li>
  * </ul>
  *
  * @see at.jku.weiner.xtexttest.xtextTest.XtextTestPackage#getInner()
@@ -147,5 +148,31 @@ public interface Inner extends EObject
    * @generated
    */
   void setAssignAsData(String value);
+
+  /**
+   * Returns the value of the '<em><b>Is Null</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Is Null</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Is Null</em>' attribute.
+   * @see #setIsNull(boolean)
+   * @see at.jku.weiner.xtexttest.xtextTest.XtextTestPackage#getInner_IsNull()
+   * @model
+   * @generated
+   */
+  boolean isIsNull();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.xtexttest.xtextTest.Inner#isIsNull <em>Is Null</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Is Null</em>' attribute.
+   * @see #isIsNull()
+   * @generated
+   */
+  void setIsNull(boolean value);
 
 } // Inner

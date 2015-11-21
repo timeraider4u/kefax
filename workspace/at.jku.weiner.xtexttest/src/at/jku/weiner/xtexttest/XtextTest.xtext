@@ -69,6 +69,8 @@ Inner:
 	ASSIGNASSTRING value=STRING
 	|
 	ASSIGNASDATALIST assignAsData=STRING
+	|
+	isNull?=ISNULL
 	)
 ;
 
@@ -122,6 +124,7 @@ terminal BEFORE_KW: 'before';
 terminal AFTER_KW: 'after';
 terminal CLASS_KW: 'class';
 terminal METHOD_KW: 'method';
+terminal ISNULL: 'isNull';
 terminal LEFTPAREN: '(';
 terminal RIGHTPAREN: ')';
 terminal ASSIGNASSINGLE: '=';

@@ -39,6 +39,7 @@ public class CPreprocessParser extends AbstractContentAssistParser {
 				{
 					put(grammarAccess.getGroupOptAccess().getAlternatives_1(), "rule__GroupOpt__Alternatives_1");
 					put(grammarAccess.getPreprocessorDirectivesAccess().getAlternatives_4(), "rule__PreprocessorDirectives__Alternatives_4");
+					put(grammarAccess.getDefineDirectiveAccess().getAlternatives(), "rule__DefineDirective__Alternatives");
 					put(grammarAccess.getMyCodeAccess().getAlternatives(), "rule__MyCode__Alternatives");
 					put(grammarAccess.getMyDefineLineAccess().getAlternatives(), "rule__MyDefineLine__Alternatives");
 					put(grammarAccess.getMyCodeLineAccess().getAlternatives(), "rule__MyCodeLine__Alternatives");
@@ -49,6 +50,8 @@ public class CPreprocessParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPreprocessorDirectivesAccess().getGroup(), "rule__PreprocessorDirectives__Group__0");
 					put(grammarAccess.getIncludeDirectiveAccess().getGroup(), "rule__IncludeDirective__Group__0");
 					put(grammarAccess.getDefineObjectMacroAccess().getGroup(), "rule__DefineObjectMacro__Group__0");
+					put(grammarAccess.getDefineObjectMacroAccess().getGroup_4(), "rule__DefineObjectMacro__Group_4__0");
+					put(grammarAccess.getDefineFunctionLikeMacroAccess().getGroup(), "rule__DefineFunctionLikeMacro__Group__0");
 					put(grammarAccess.getErrorDirectiveAccess().getGroup(), "rule__ErrorDirective__Group__0");
 					put(grammarAccess.getUnDefineDirectiveAccess().getGroup(), "rule__UnDefineDirective__Group__0");
 					put(grammarAccess.getPragmaDirectiveAccess().getGroup(), "rule__PragmaDirective__Group__0");
@@ -68,7 +71,9 @@ public class CPreprocessParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveAssignment_4_4(), "rule__PreprocessorDirectives__DirectiveAssignment_4_4");
 					put(grammarAccess.getIncludeDirectiveAccess().getStringAssignment_3(), "rule__IncludeDirective__StringAssignment_3");
 					put(grammarAccess.getDefineObjectMacroAccess().getIdAssignment_3(), "rule__DefineObjectMacro__IdAssignment_3");
-					put(grammarAccess.getDefineObjectMacroAccess().getStringAssignment_5(), "rule__DefineObjectMacro__StringAssignment_5");
+					put(grammarAccess.getDefineObjectMacroAccess().getStringAssignment_4_1(), "rule__DefineObjectMacro__StringAssignment_4_1");
+					put(grammarAccess.getDefineFunctionLikeMacroAccess().getIdAssignment_3(), "rule__DefineFunctionLikeMacro__IdAssignment_3");
+					put(grammarAccess.getDefineFunctionLikeMacroAccess().getStringAssignment_7(), "rule__DefineFunctionLikeMacro__StringAssignment_7");
 					put(grammarAccess.getErrorDirectiveAccess().getMsgAssignment_3(), "rule__ErrorDirective__MsgAssignment_3");
 					put(grammarAccess.getUnDefineDirectiveAccess().getIdAssignment_3(), "rule__UnDefineDirective__IdAssignment_3");
 					put(grammarAccess.getCodeAccess().getCodeAssignment_1(), "rule__Code__CodeAssignment_1");

@@ -264,7 +264,11 @@ class XtextTestGenerator implements IGenerator {
 				«generateForDataListAssign(varName, paramName,
 										inner.assignAsData)»
 			«ELSE»
+			«IF ((inner.getValue() != null))»
 				«generateForValueAssign(varName, paramName, inner.value)»
+			«ELSE»
+				Assert.assertNull(«varName».get«paramName»());
+			«ENDIF»
 			«ENDIF»
 			«ENDIF»	
 			«ENDIF»	

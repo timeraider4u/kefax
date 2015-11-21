@@ -6,6 +6,8 @@ import at.jku.weiner.cpreprocess.cPreprocess.CPreprocessFactory;
 import at.jku.weiner.cpreprocess.cPreprocess.CPreprocessPackage;
 import at.jku.weiner.cpreprocess.cPreprocess.Code;
 import at.jku.weiner.cpreprocess.cPreprocess.DefineDirective;
+import at.jku.weiner.cpreprocess.cPreprocess.DefineFunctionLikeMacro;
+import at.jku.weiner.cpreprocess.cPreprocess.DefineObjectMacro;
 import at.jku.weiner.cpreprocess.cPreprocess.ErrorDirective;
 import at.jku.weiner.cpreprocess.cPreprocess.GroupOpt;
 import at.jku.weiner.cpreprocess.cPreprocess.IncludeDirective;
@@ -101,6 +103,20 @@ public class CPreprocessPackageImpl extends EPackageImpl implements CPreprocessP
    * @generated
    */
   private EClass preprocessorDirectivesEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass defineObjectMacroEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass defineFunctionLikeMacroEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -374,6 +390,26 @@ public class CPreprocessPackageImpl extends EPackageImpl implements CPreprocessP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getDefineObjectMacro()
+  {
+    return defineObjectMacroEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDefineFunctionLikeMacro()
+  {
+    return defineFunctionLikeMacroEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getNewLineLine()
   {
     return newLineLineEClass;
@@ -458,6 +494,10 @@ public class CPreprocessPackageImpl extends EPackageImpl implements CPreprocessP
     preprocessorDirectivesEClass = createEClass(PREPROCESSOR_DIRECTIVES);
     createEReference(preprocessorDirectivesEClass, PREPROCESSOR_DIRECTIVES__DIRECTIVE);
 
+    defineObjectMacroEClass = createEClass(DEFINE_OBJECT_MACRO);
+
+    defineFunctionLikeMacroEClass = createEClass(DEFINE_FUNCTION_LIKE_MACRO);
+
     newLineLineEClass = createEClass(NEW_LINE_LINE);
 
     codeEClass = createEClass(CODE);
@@ -494,6 +534,8 @@ public class CPreprocessPackageImpl extends EPackageImpl implements CPreprocessP
 
     // Add supertypes to classes
     preprocessorDirectivesEClass.getESuperTypes().add(this.getSourceCodeLine());
+    defineObjectMacroEClass.getESuperTypes().add(this.getDefineDirective());
+    defineFunctionLikeMacroEClass.getESuperTypes().add(this.getDefineDirective());
     newLineLineEClass.getESuperTypes().add(this.getSourceCodeLine());
     codeEClass.getESuperTypes().add(this.getSourceCodeLine());
 
@@ -526,6 +568,10 @@ public class CPreprocessPackageImpl extends EPackageImpl implements CPreprocessP
 
     initEClass(preprocessorDirectivesEClass, PreprocessorDirectives.class, "PreprocessorDirectives", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getPreprocessorDirectives_Directive(), ecorePackage.getEObject(), null, "directive", null, 0, 1, PreprocessorDirectives.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(defineObjectMacroEClass, DefineObjectMacro.class, "DefineObjectMacro", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(defineFunctionLikeMacroEClass, DefineFunctionLikeMacro.class, "DefineFunctionLikeMacro", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(newLineLineEClass, NewLineLine.class, "NewLineLine", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

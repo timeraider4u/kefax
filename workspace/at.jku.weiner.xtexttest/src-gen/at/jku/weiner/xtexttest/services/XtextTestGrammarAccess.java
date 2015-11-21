@@ -411,16 +411,19 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cASSIGNASDATALISTTerminalRuleCall_2_3_0 = (RuleCall)cGroup_2_3.eContents().get(0);
 		private final Assignment cAssignAsDataAssignment_2_3_1 = (Assignment)cGroup_2_3.eContents().get(1);
 		private final RuleCall cAssignAsDataSTRINGTerminalRuleCall_2_3_1_0 = (RuleCall)cAssignAsDataAssignment_2_3_1.eContents().get(0);
+		private final Assignment cIsNullAssignment_2_4 = (Assignment)cAlternatives_2.eContents().get(4);
+		private final RuleCall cIsNullISNULLTerminalRuleCall_2_4_0 = (RuleCall)cIsNullAssignment_2_4.eContents().get(0);
 		
 		//Inner:
 		//	{Inner} parameter=IDENTIFIER (ASSIGNASSINGLE assign=Element
 		//	| ASSIGNASLIST assignList+=Element (COMMA assignList+=Element)*
 		//	| ASSIGNASSTRING value=STRING
-		//	| ASSIGNASDATALIST assignAsData=STRING);
+		//	| ASSIGNASDATALIST assignAsData=STRING
+		//	| isNull?=ISNULL);
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Inner} parameter=IDENTIFIER (ASSIGNASSINGLE assign=Element | ASSIGNASLIST assignList+=Element (COMMA
-		//assignList+=Element)* | ASSIGNASSTRING value=STRING | ASSIGNASDATALIST assignAsData=STRING)
+		//assignList+=Element)* | ASSIGNASSTRING value=STRING | ASSIGNASDATALIST assignAsData=STRING | isNull?=ISNULL)
 		public Group getGroup() { return cGroup; }
 		
 		//{Inner}
@@ -433,7 +436,7 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getParameterIDENTIFIERTerminalRuleCall_1_0() { return cParameterIDENTIFIERTerminalRuleCall_1_0; }
 		
 		//(ASSIGNASSINGLE assign=Element | ASSIGNASLIST assignList+=Element (COMMA assignList+=Element)* | ASSIGNASSTRING
-		//value=STRING | ASSIGNASDATALIST assignAsData=STRING)
+		//value=STRING | ASSIGNASDATALIST assignAsData=STRING | isNull?=ISNULL)
 		public Alternatives getAlternatives_2() { return cAlternatives_2; }
 		
 		//ASSIGNASSINGLE assign=Element
@@ -495,6 +498,12 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//STRING
 		public RuleCall getAssignAsDataSTRINGTerminalRuleCall_2_3_1_0() { return cAssignAsDataSTRINGTerminalRuleCall_2_3_1_0; }
+		
+		//isNull?=ISNULL
+		public Assignment getIsNullAssignment_2_4() { return cIsNullAssignment_2_4; }
+		
+		//ISNULL
+		public RuleCall getIsNullISNULLTerminalRuleCall_2_4_0() { return cIsNullISNULLTerminalRuleCall_2_4_0; }
 	}
 	public class GeneratorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.Generator");
@@ -813,6 +822,7 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tAFTER_KW;
 	private final TerminalRule tCLASS_KW;
 	private final TerminalRule tMETHOD_KW;
+	private final TerminalRule tISNULL;
 	private final TerminalRule tLEFTPAREN;
 	private final TerminalRule tRIGHTPAREN;
 	private final TerminalRule tASSIGNASSINGLE;
@@ -861,6 +871,7 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		this.tAFTER_KW = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.AFTER_KW");
 		this.tCLASS_KW = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.CLASS_KW");
 		this.tMETHOD_KW = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.METHOD_KW");
+		this.tISNULL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.ISNULL");
 		this.tLEFTPAREN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.LEFTPAREN");
 		this.tRIGHTPAREN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.RIGHTPAREN");
 		this.tASSIGNASSINGLE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.ASSIGNASSINGLE");
@@ -993,7 +1004,8 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	//	{Inner} parameter=IDENTIFIER (ASSIGNASSINGLE assign=Element
 	//	| ASSIGNASLIST assignList+=Element (COMMA assignList+=Element)*
 	//	| ASSIGNASSTRING value=STRING
-	//	| ASSIGNASDATALIST assignAsData=STRING);
+	//	| ASSIGNASDATALIST assignAsData=STRING
+	//	| isNull?=ISNULL);
 	public InnerElements getInnerAccess() {
 		return pInner;
 	}
@@ -1149,6 +1161,12 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	//	'method';
 	public TerminalRule getMETHOD_KWRule() {
 		return tMETHOD_KW;
+	}
+	
+	//terminal ISNULL:
+	//	'isNull';
+	public TerminalRule getISNULLRule() {
+		return tISNULL;
 	}
 	
 	//terminal LEFTPAREN:

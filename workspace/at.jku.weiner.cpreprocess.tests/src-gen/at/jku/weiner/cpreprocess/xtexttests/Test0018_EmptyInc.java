@@ -48,6 +48,10 @@ import at.jku.weiner.cpreprocess.cPreprocess.GroupOpt;
 import at.jku.weiner.cpreprocess.cPreprocess.PreprocessorDirectives;
 import at.jku.weiner.cpreprocess.cPreprocess.DefineDirective;
 import at.jku.weiner.cpreprocess.cPreprocess.Code;
+import at.jku.weiner.cpreprocess.cPreprocess.NewLineLine;
+import at.jku.weiner.cpreprocess.cPreprocess.PreprocessorDirectives;
+import at.jku.weiner.cpreprocess.cPreprocess.DefineDirective;
+import at.jku.weiner.cpreprocess.cPreprocess.Code;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(CPreprocessInjectorProvider.class)
@@ -112,6 +116,25 @@ public class Test0018_EmptyInc {
 				"RULE_ID", 
 				"RULE_SPECIAL", 
 				"RULE_NEWLINE", 
+				"RULE_NEWLINE", 
+				"RULE_HASH", 
+				"RULE_DEFINE", 
+				"RULE_WS", 
+				"RULE_ID", 
+				"RULE_WS", 
+				"RULE_WS", 
+				"RULE_NEWLINE", 
+				"RULE_ID", 
+				"RULE_WS", 
+				"RULE_HASH", 
+				"RULE_INCLUDE", 
+				"RULE_WS", 
+				"RULE_SPECIAL", 
+				"RULE_ID", 
+				"RULE_SPECIAL", 
+				"RULE_ID", 
+				"RULE_SPECIAL", 
+				"RULE_NEWLINE", 
 				};
 			//final List<Token> actual = testHelper.getTokens(text);
 			//testHelper.outputTokens(text);
@@ -148,7 +171,7 @@ public class Test0018_EmptyInc {
 		final EList<? extends EObject> Lines_2_list = GroupOpt_2_Var
 		.getLines();
 		Assert.assertNotNull(Lines_2_list);
-		Assert.assertEquals(2, Lines_2_list.size());
+		Assert.assertEquals(5, Lines_2_list.size());
 		//2
 		final PreprocessorDirectives PreprocessorDirectives_3_Var
 		 = (PreprocessorDirectives)Lines_2_list.get(0);
@@ -162,7 +185,7 @@ public class Test0018_EmptyInc {
 		);
 		Assert.assertEquals("EMPTY", DefineDirective_4_Var
 		.getId());
-		Assert.assertEquals("", DefineDirective_4_Var
+		Assert.assertNull(DefineDirective_4_Var
 		.getString());
 		//4
 		final Code Code_5_Var
@@ -170,6 +193,33 @@ public class Test0018_EmptyInc {
 		Assert.assertNotNull(Code_5_Var
 		);
 		Assert.assertEquals("EMPTY #include <file.h>", Code_5_Var
+		.getCode());
+		//5
+		final NewLineLine NewLineLine_6_Var
+		 = (NewLineLine)Lines_2_list.get(2);
+		Assert.assertNotNull(NewLineLine_6_Var
+		);
+		//6
+		final PreprocessorDirectives PreprocessorDirectives_7_Var
+		 = (PreprocessorDirectives)Lines_2_list.get(3);
+		Assert.assertNotNull(PreprocessorDirectives_7_Var
+		);
+		//7
+		final DefineDirective DefineDirective_8_Var
+		 = (DefineDirective)PreprocessorDirectives_7_Var
+		.getDirective();
+		Assert.assertNotNull(DefineDirective_8_Var
+		);
+		Assert.assertEquals("EMPTY2", DefineDirective_8_Var
+		.getId());
+		Assert.assertEquals("", DefineDirective_8_Var
+		.getString());
+		//8
+		final Code Code_9_Var
+		 = (Code)Lines_2_list.get(4);
+		Assert.assertNotNull(Code_9_Var
+		);
+		Assert.assertEquals("EMPTY2 #include <file.h>", Code_9_Var
 		.getCode());
 	}
 	

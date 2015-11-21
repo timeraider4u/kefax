@@ -11,8 +11,11 @@ public final class DefinitionTable {
 		DefinitionTable.table.clear();
 	}
 
-	public static void add(final String id, final String replaceWith) {
+	public static void add(final String id, String replaceWith) {
 		final String key = DefinitionTable.resolve(id);
+		if (replaceWith == null) {
+			replaceWith = "";
+		}
 		final String val = DefinitionTable.resolve(replaceWith);
 		DefinitionTable.table.put(key, val);
 	}

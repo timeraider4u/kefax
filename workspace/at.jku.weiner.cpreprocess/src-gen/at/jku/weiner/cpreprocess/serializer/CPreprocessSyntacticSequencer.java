@@ -20,8 +20,10 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected CPreprocessGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_DefineFunctionLikeMacro_WSTerminalRuleCall_2_p;
+	protected AbstractElementAlias match_DefineFunctionLikeMacro_WSTerminalRuleCall_6_p;
 	protected AbstractElementAlias match_DefineObjectMacro_WSTerminalRuleCall_2_p;
-	protected AbstractElementAlias match_DefineObjectMacro_WSTerminalRuleCall_4_a;
+	protected AbstractElementAlias match_DefineObjectMacro_WSTerminalRuleCall_4_0_p;
 	protected AbstractElementAlias match_ErrorDirective_WSTerminalRuleCall_2_p;
 	protected AbstractElementAlias match_IncludeDirective_WSTerminalRuleCall_2_p;
 	protected AbstractElementAlias match_PreprocessorDirectives_WSTerminalRuleCall_1_a;
@@ -31,8 +33,10 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (CPreprocessGrammarAccess) access;
+		match_DefineFunctionLikeMacro_WSTerminalRuleCall_2_p = new TokenAlias(true, false, grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_2());
+		match_DefineFunctionLikeMacro_WSTerminalRuleCall_6_p = new TokenAlias(true, false, grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_6());
 		match_DefineObjectMacro_WSTerminalRuleCall_2_p = new TokenAlias(true, false, grammarAccess.getDefineObjectMacroAccess().getWSTerminalRuleCall_2());
-		match_DefineObjectMacro_WSTerminalRuleCall_4_a = new TokenAlias(true, true, grammarAccess.getDefineObjectMacroAccess().getWSTerminalRuleCall_4());
+		match_DefineObjectMacro_WSTerminalRuleCall_4_0_p = new TokenAlias(true, false, grammarAccess.getDefineObjectMacroAccess().getWSTerminalRuleCall_4_0());
 		match_ErrorDirective_WSTerminalRuleCall_2_p = new TokenAlias(true, false, grammarAccess.getErrorDirectiveAccess().getWSTerminalRuleCall_2());
 		match_IncludeDirective_WSTerminalRuleCall_2_p = new TokenAlias(true, false, grammarAccess.getIncludeDirectiveAccess().getWSTerminalRuleCall_2());
 		match_PreprocessorDirectives_WSTerminalRuleCall_1_a = new TokenAlias(true, true, grammarAccess.getPreprocessorDirectivesAccess().getWSTerminalRuleCall_1());
@@ -50,10 +54,14 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getHASHToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getINCLUDERule())
 			return getINCLUDEToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getLPARENRule())
+			return getLPARENToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getNEWLINERule())
 			return getNEWLINEToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getPRAGMARule())
 			return getPRAGMAToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getRPARENRule())
+			return getRPARENToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getUNDEFRule())
 			return getUNDEFToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getWSRule())
@@ -98,6 +106,15 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	}
 	
 	/**
+	 * terminal LPAREN: '(';
+	 */
+	protected String getLPARENToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "(";
+	}
+	
+	/**
 	 * terminal NEWLINE: (CARRIAGERETURN | LINEFEED) ;
 	 */
 	protected String getNEWLINEToken(EObject semanticObject, RuleCall ruleCall, INode node) {
@@ -113,6 +130,15 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return "pragma";
+	}
+	
+	/**
+	 * terminal RPAREN: ')';
+	 */
+	protected String getRPARENToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return ")";
 	}
 	
 	/**
@@ -139,10 +165,14 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if(match_DefineObjectMacro_WSTerminalRuleCall_2_p.equals(syntax))
+			if(match_DefineFunctionLikeMacro_WSTerminalRuleCall_2_p.equals(syntax))
+				emit_DefineFunctionLikeMacro_WSTerminalRuleCall_2_p(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_DefineFunctionLikeMacro_WSTerminalRuleCall_6_p.equals(syntax))
+				emit_DefineFunctionLikeMacro_WSTerminalRuleCall_6_p(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_DefineObjectMacro_WSTerminalRuleCall_2_p.equals(syntax))
 				emit_DefineObjectMacro_WSTerminalRuleCall_2_p(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_DefineObjectMacro_WSTerminalRuleCall_4_a.equals(syntax))
-				emit_DefineObjectMacro_WSTerminalRuleCall_4_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_DefineObjectMacro_WSTerminalRuleCall_4_0_p.equals(syntax))
+				emit_DefineObjectMacro_WSTerminalRuleCall_4_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_ErrorDirective_WSTerminalRuleCall_2_p.equals(syntax))
 				emit_ErrorDirective_WSTerminalRuleCall_2_p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_IncludeDirective_WSTerminalRuleCall_2_p.equals(syntax))
@@ -164,18 +194,40 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) DEFINE (ambiguity) id=ID
 	 */
+	protected void emit_DefineFunctionLikeMacro_WSTerminalRuleCall_2_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     WS+
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     id=ID LPAREN RPAREN (ambiguity) string=MyDefineLine
+	 */
+	protected void emit_DefineFunctionLikeMacro_WSTerminalRuleCall_6_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     WS+
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) DEFINE (ambiguity) id=ID
+	 */
 	protected void emit_DefineObjectMacro_WSTerminalRuleCall_2_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Ambiguous syntax:
-	 *     WS*
+	 *     WS+
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     id=ID (ambiguity) string=MyDefineLine
 	 */
-	protected void emit_DefineObjectMacro_WSTerminalRuleCall_4_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_DefineObjectMacro_WSTerminalRuleCall_4_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

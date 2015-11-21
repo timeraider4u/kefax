@@ -52,6 +52,8 @@ public class XtextTestSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getEXPECTEDToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getFILERule())
 			return getFILEToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getISNULLRule())
+			return getISNULLToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getISSAMEASINPUTFILERule())
 			return getISSAMEASINPUTFILEToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getLANGUAGERule())
@@ -176,6 +178,15 @@ public class XtextTestSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return "file";
+	}
+	
+	/**
+	 * terminal ISNULL: 'isNull';
+	 */
+	protected String getISNULLToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "isNull";
 	}
 	
 	/**

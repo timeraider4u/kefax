@@ -707,10 +707,23 @@ public class XtextTestGenerator implements IGenerator {
                     _builder.append(_generateForDataListAssign, "");
                     _builder.newLineIfNotEmpty();
                   } else {
-                    String _value = inner.getValue();
-                    CharSequence _generateForValueAssign = this.generateForValueAssign(varName, paramName, _value);
-                    _builder.append(_generateForValueAssign, "");
-                    _builder.newLineIfNotEmpty();
+                    {
+                      String _value = inner.getValue();
+                      boolean _notEquals_3 = (!Objects.equal(_value, null));
+                      if (_notEquals_3) {
+                        String _value_1 = inner.getValue();
+                        CharSequence _generateForValueAssign = this.generateForValueAssign(varName, paramName, _value_1);
+                        _builder.append(_generateForValueAssign, "");
+                        _builder.newLineIfNotEmpty();
+                      } else {
+                        _builder.append("Assert.assertNull(");
+                        _builder.append(varName, "");
+                        _builder.append(".get");
+                        _builder.append(paramName, "");
+                        _builder.append("());");
+                        _builder.newLineIfNotEmpty();
+                      }
+                    }
                   }
                 }
               }

@@ -35,6 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.InnerImpl#getAssignList <em>Assign List</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.InnerImpl#getValue <em>Value</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.InnerImpl#getAssignAsData <em>Assign As Data</em>}</li>
+ *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.InnerImpl#isIsNull <em>Is Null</em>}</li>
  * </ul>
  *
  * @generated
@@ -120,6 +121,26 @@ public class InnerImpl extends MinimalEObjectImpl.Container implements Inner
    * @ordered
    */
   protected String assignAsData = ASSIGN_AS_DATA_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #isIsNull() <em>Is Null</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isIsNull()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean IS_NULL_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isIsNull() <em>Is Null</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isIsNull()
+   * @generated
+   * @ordered
+   */
+  protected boolean isNull = IS_NULL_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -278,6 +299,29 @@ public class InnerImpl extends MinimalEObjectImpl.Container implements Inner
    * <!-- end-user-doc -->
    * @generated
    */
+  public boolean isIsNull()
+  {
+    return isNull;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIsNull(boolean newIsNull)
+  {
+    boolean oldIsNull = isNull;
+    isNull = newIsNull;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, XtextTestPackage.INNER__IS_NULL, oldIsNull, isNull));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -311,6 +355,8 @@ public class InnerImpl extends MinimalEObjectImpl.Container implements Inner
         return getValue();
       case XtextTestPackage.INNER__ASSIGN_AS_DATA:
         return getAssignAsData();
+      case XtextTestPackage.INNER__IS_NULL:
+        return isIsNull();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -342,6 +388,9 @@ public class InnerImpl extends MinimalEObjectImpl.Container implements Inner
       case XtextTestPackage.INNER__ASSIGN_AS_DATA:
         setAssignAsData((String)newValue);
         return;
+      case XtextTestPackage.INNER__IS_NULL:
+        setIsNull((Boolean)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -371,6 +420,9 @@ public class InnerImpl extends MinimalEObjectImpl.Container implements Inner
       case XtextTestPackage.INNER__ASSIGN_AS_DATA:
         setAssignAsData(ASSIGN_AS_DATA_EDEFAULT);
         return;
+      case XtextTestPackage.INNER__IS_NULL:
+        setIsNull(IS_NULL_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -395,6 +447,8 @@ public class InnerImpl extends MinimalEObjectImpl.Container implements Inner
         return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
       case XtextTestPackage.INNER__ASSIGN_AS_DATA:
         return ASSIGN_AS_DATA_EDEFAULT == null ? assignAsData != null : !ASSIGN_AS_DATA_EDEFAULT.equals(assignAsData);
+      case XtextTestPackage.INNER__IS_NULL:
+        return isNull != IS_NULL_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -416,6 +470,8 @@ public class InnerImpl extends MinimalEObjectImpl.Container implements Inner
     result.append(value);
     result.append(", assignAsData: ");
     result.append(assignAsData);
+    result.append(", isNull: ");
+    result.append(isNull);
     result.append(')');
     return result.toString();
   }

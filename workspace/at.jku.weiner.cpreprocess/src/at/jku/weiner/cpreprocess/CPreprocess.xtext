@@ -72,12 +72,24 @@ IncludeDirective:
 ;
 
 DefineDirective:
-	DefineObjectMacro
+		DefineObjectMacro
+	|	DefineFunctionLikeMacro
 ;
 
 DefineObjectMacro returns DefineDirective:
-	{DefineDirective}
-	DEFINE WS+ id=ID WS* string=MyDefineLine
+	{DefineObjectMacro}
+	DEFINE WS+ id=ID
+		(WS+ string=MyDefineLine)?
+;
+
+DefineFunctionLikeMacro returns DefineDirective:
+	{DefineFunctionLikeMacro}
+	DEFINE WS+ id=ID 
+	LPAREN
+		
+	RPAREN
+	WS+
+	string=MyDefineLine 
 ;
 
 ErrorDirective:
@@ -107,7 +119,7 @@ Code returns SourceCodeLine:
 ;
 
 MyCode returns ecore::EString:
-	ID|SPECIAL|INCLUDE|DEFINE|ERROR|PRAGMA
+	ID|SPECIAL|INCLUDE|DEFINE|ERROR|PRAGMA|LPAREN|RPAREN
 ;
 
 MyDefineLine returns ecore::EString:
@@ -130,6 +142,8 @@ terminal DEFINE: 'define';
 terminal ERROR: 'error';
 terminal UNDEF: 'undef';
 terminal PRAGMA: 'pragma';
+terminal LPAREN: '(';
+terminal RPAREN: ')';
 terminal fragment LINEFEED: '\n';
 terminal fragment CARRIAGERETURN: '\r';
 terminal NEWLINE: (CARRIAGERETURN | LINEFEED) ;

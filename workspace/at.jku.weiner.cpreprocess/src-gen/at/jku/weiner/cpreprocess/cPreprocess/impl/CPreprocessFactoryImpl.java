@@ -74,6 +74,8 @@ public class CPreprocessFactoryImpl extends EFactoryImpl implements CPreprocessF
       case CPreprocessPackage.UN_DEFINE_DIRECTIVE: return createUnDefineDirective();
       case CPreprocessPackage.PRAGMA_DIRECTIVE: return createPragmaDirective();
       case CPreprocessPackage.PREPROCESSOR_DIRECTIVES: return createPreprocessorDirectives();
+      case CPreprocessPackage.DEFINE_OBJECT_MACRO: return createDefineObjectMacro();
+      case CPreprocessPackage.DEFINE_FUNCTION_LIKE_MACRO: return createDefineFunctionLikeMacro();
       case CPreprocessPackage.NEW_LINE_LINE: return createNewLineLine();
       case CPreprocessPackage.CODE: return createCode();
       default:
@@ -189,6 +191,28 @@ public class CPreprocessFactoryImpl extends EFactoryImpl implements CPreprocessF
   {
     PreprocessorDirectivesImpl preprocessorDirectives = new PreprocessorDirectivesImpl();
     return preprocessorDirectives;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DefineObjectMacro createDefineObjectMacro()
+  {
+    DefineObjectMacroImpl defineObjectMacro = new DefineObjectMacroImpl();
+    return defineObjectMacro;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DefineFunctionLikeMacro createDefineFunctionLikeMacro()
+  {
+    DefineFunctionLikeMacroImpl defineFunctionLikeMacro = new DefineFunctionLikeMacroImpl();
+    return defineFunctionLikeMacro;
   }
 
   /**

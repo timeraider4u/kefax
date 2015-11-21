@@ -135,7 +135,7 @@ public class XtextTestSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Constraint:
-	 *     (parameter=IDENTIFIER (assign=Element | (assignList+=Element assignList+=Element*) | value=STRING | assignAsData=STRING))
+	 *     (parameter=IDENTIFIER (assign=Element | (assignList+=Element assignList+=Element*) | value=STRING | assignAsData=STRING | isNull?=ISNULL))
 	 */
 	protected void sequence_Inner(EObject context, Inner semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

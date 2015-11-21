@@ -6,6 +6,7 @@ parser grammar InternalCPreprocessParser;
 options {
 	tokenVocab=InternalCPreprocessLexer;
 	superClass=AbstractInternalAntlrParser;
+	backtrack=true;
 	
 }
 
@@ -27,6 +28,11 @@ import at.jku.weiner.cpreprocess.services.CPreprocessGrammarAccess;
 
 @members {
 
+/*
+  This grammar contains a lot of empty actions to work around a bug in ANTLR.
+  Otherwise the ANTLR tool will create synpreds that cannot be compiled in some rare cases.
+*/
+ 
 
 	private CPreprocessGrammarAccess grammarAccess;
 	 	
@@ -72,6 +78,9 @@ ruleModel returns [EObject current=null]
     }
     @after { leaveRule(); }:
 ((
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElement(
             grammarAccess.getModelAccess().getModelAction_0(),
@@ -117,6 +126,9 @@ ruleTranslationUnit returns [EObject current=null]
     }
     @after { leaveRule(); }:
 ((
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElement(
             grammarAccess.getTranslationUnitAccess().getTranslationUnitAction_0(),
@@ -162,6 +174,9 @@ ruleGroupOpt returns [EObject current=null]
     }
     @after { leaveRule(); }:
 ((
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElement(
             grammarAccess.getGroupOptAccess().getGroupOptAction_0(),
@@ -245,6 +260,9 @@ rulePreprocessorDirectives returns [EObject current=null]
     }
     @after { leaveRule(); }:
 ((
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElement(
             grammarAccess.getPreprocessorDirectivesAccess().getPreprocessorDirectivesAction_0(),
@@ -382,6 +400,9 @@ ruleIncludeDirective returns [EObject current=null]
     }
     @after { leaveRule(); }:
 ((
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElement(
             grammarAccess.getIncludeDirectiveAccess().getIncludeDirectiveAction_0(),
@@ -434,9 +455,12 @@ ruleDefineDirective returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-
+(
+	{ 
+	  /* */ 
+	}
     { 
-        newCompositeNode(grammarAccess.getDefineDirectiveAccess().getDefineObjectMacroParserRuleCall()); 
+        newCompositeNode(grammarAccess.getDefineDirectiveAccess().getDefineObjectMacroParserRuleCall_0()); 
     }
     this_DefineObjectMacro_0=ruleDefineObjectMacro
     {
@@ -444,6 +468,19 @@ ruleDefineDirective returns [EObject current=null]
         afterParserOrEnumRuleCall();
     }
 
+    |
+	{ 
+	  /* */ 
+	}
+    { 
+        newCompositeNode(grammarAccess.getDefineDirectiveAccess().getDefineFunctionLikeMacroParserRuleCall_1()); 
+    }
+    this_DefineFunctionLikeMacro_1=ruleDefineFunctionLikeMacro
+    {
+        $current = $this_DefineFunctionLikeMacro_1.current;
+        afterParserOrEnumRuleCall();
+    }
+)
 ;
 
 
@@ -465,9 +502,12 @@ ruleDefineObjectMacro returns [EObject current=null]
     }
     @after { leaveRule(); }:
 ((
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElement(
-            grammarAccess.getDefineObjectMacroAccess().getDefineDirectiveAction_0(),
+            grammarAccess.getDefineObjectMacroAccess().getDefineObjectMacroAction_0(),
             $current);
     }
 )this_DEFINE_1=RULE_DEFINE
@@ -496,14 +536,14 @@ ruleDefineObjectMacro returns [EObject current=null]
 	    }
 
 )
-)(this_WS_4=RULE_WS
+)((this_WS_4=RULE_WS
     { 
-    newLeafNode(this_WS_4, grammarAccess.getDefineObjectMacroAccess().getWSTerminalRuleCall_4()); 
+    newLeafNode(this_WS_4, grammarAccess.getDefineObjectMacroAccess().getWSTerminalRuleCall_4_0()); 
     }
-)*(
+)+(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getDefineObjectMacroAccess().getStringMyDefineLineParserRuleCall_5_0()); 
+	        newCompositeNode(grammarAccess.getDefineObjectMacroAccess().getStringMyDefineLineParserRuleCall_4_1_0()); 
 	    }
 		lv_string_5_0=ruleMyDefineLine		{
 	        if ($current==null) {
@@ -513,6 +553,92 @@ ruleDefineObjectMacro returns [EObject current=null]
        			$current, 
        			"string",
         		lv_string_5_0, 
+        		"at.jku.weiner.cpreprocess.CPreprocess.MyDefineLine");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))?)
+;
+
+
+
+
+
+// Entry rule entryRuleDefineFunctionLikeMacro
+entryRuleDefineFunctionLikeMacro returns [EObject current=null]
+	:
+	{ newCompositeNode(grammarAccess.getDefineFunctionLikeMacroRule()); }
+	 iv_ruleDefineFunctionLikeMacro=ruleDefineFunctionLikeMacro 
+	 { $current=$iv_ruleDefineFunctionLikeMacro.current; } 
+	 EOF 
+;
+
+// Rule DefineFunctionLikeMacro
+ruleDefineFunctionLikeMacro returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+	{ 
+	  /* */ 
+	}
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getDefineFunctionLikeMacroAccess().getDefineFunctionLikeMacroAction_0(),
+            $current);
+    }
+)this_DEFINE_1=RULE_DEFINE
+    { 
+    newLeafNode(this_DEFINE_1, grammarAccess.getDefineFunctionLikeMacroAccess().getDEFINETerminalRuleCall_1()); 
+    }
+(this_WS_2=RULE_WS
+    { 
+    newLeafNode(this_WS_2, grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_2()); 
+    }
+)+(
+(
+		lv_id_3_0=RULE_ID
+		{
+			newLeafNode(lv_id_3_0, grammarAccess.getDefineFunctionLikeMacroAccess().getIdIDTerminalRuleCall_3_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getDefineFunctionLikeMacroRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"id",
+        		lv_id_3_0, 
+        		"at.jku.weiner.cpreprocess.CPreprocess.ID");
+	    }
+
+)
+)this_LPAREN_4=RULE_LPAREN
+    { 
+    newLeafNode(this_LPAREN_4, grammarAccess.getDefineFunctionLikeMacroAccess().getLPARENTerminalRuleCall_4()); 
+    }
+this_RPAREN_5=RULE_RPAREN
+    { 
+    newLeafNode(this_RPAREN_5, grammarAccess.getDefineFunctionLikeMacroAccess().getRPARENTerminalRuleCall_5()); 
+    }
+(this_WS_6=RULE_WS
+    { 
+    newLeafNode(this_WS_6, grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_6()); 
+    }
+)+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getDefineFunctionLikeMacroAccess().getStringMyDefineLineParserRuleCall_7_0()); 
+	    }
+		lv_string_7_0=ruleMyDefineLine		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getDefineFunctionLikeMacroRule());
+	        }
+       		set(
+       			$current, 
+       			"string",
+        		lv_string_7_0, 
         		"at.jku.weiner.cpreprocess.CPreprocess.MyDefineLine");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -540,6 +666,9 @@ ruleErrorDirective returns [EObject current=null]
     }
     @after { leaveRule(); }:
 ((
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElement(
             grammarAccess.getErrorDirectiveAccess().getErrorDirectiveAction_0(),
@@ -593,6 +722,9 @@ ruleUnDefineDirective returns [EObject current=null]
     }
     @after { leaveRule(); }:
 ((
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElement(
             grammarAccess.getUnDefineDirectiveAccess().getUnDefineDirectiveAction_0(),
@@ -646,6 +778,9 @@ rulePragmaDirective returns [EObject current=null]
     }
     @after { leaveRule(); }:
 ((
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElement(
             grammarAccess.getPragmaDirectiveAccess().getPragmaDirectiveAction_0(),
@@ -677,6 +812,9 @@ ruleNewLineLine returns [EObject current=null]
     }
     @after { leaveRule(); }:
 ((
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElement(
             grammarAccess.getNewLineLineAccess().getNewLineLineAction_0(),
@@ -708,6 +846,9 @@ ruleCode returns [EObject current=null]
     }
     @after { leaveRule(); }:
 ((
+	{ 
+	  /* */ 
+	}
     {
         $current = forceCreateModelElement(
             grammarAccess.getCodeAccess().getCodeAction_0(),
@@ -803,6 +944,22 @@ ruleMyCode returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 
     { 
     newLeafNode(this_PRAGMA_5, grammarAccess.getMyCodeAccess().getPRAGMATerminalRuleCall_5()); 
+    }
+
+    |    this_LPAREN_6=RULE_LPAREN    {
+		$current.merge(this_LPAREN_6);
+    }
+
+    { 
+    newLeafNode(this_LPAREN_6, grammarAccess.getMyCodeAccess().getLPARENTerminalRuleCall_6()); 
+    }
+
+    |    this_RPAREN_7=RULE_RPAREN    {
+		$current.merge(this_RPAREN_7);
+    }
+
+    { 
+    newLeafNode(this_RPAREN_7, grammarAccess.getMyCodeAccess().getRPARENTerminalRuleCall_7()); 
     }
 )
     ;

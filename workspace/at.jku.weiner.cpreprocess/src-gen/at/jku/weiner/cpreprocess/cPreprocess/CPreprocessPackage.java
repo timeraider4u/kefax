@@ -328,6 +328,80 @@ public interface CPreprocessPackage extends EPackage
   int PREPROCESSOR_DIRECTIVES_FEATURE_COUNT = SOURCE_CODE_LINE_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link at.jku.weiner.cpreprocess.cPreprocess.impl.DefineObjectMacroImpl <em>Define Object Macro</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.cpreprocess.cPreprocess.impl.DefineObjectMacroImpl
+   * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getDefineObjectMacro()
+   * @generated
+   */
+  int DEFINE_OBJECT_MACRO = 10;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEFINE_OBJECT_MACRO__ID = DEFINE_DIRECTIVE__ID;
+
+  /**
+   * The feature id for the '<em><b>String</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEFINE_OBJECT_MACRO__STRING = DEFINE_DIRECTIVE__STRING;
+
+  /**
+   * The number of structural features of the '<em>Define Object Macro</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEFINE_OBJECT_MACRO_FEATURE_COUNT = DEFINE_DIRECTIVE_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link at.jku.weiner.cpreprocess.cPreprocess.impl.DefineFunctionLikeMacroImpl <em>Define Function Like Macro</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.cpreprocess.cPreprocess.impl.DefineFunctionLikeMacroImpl
+   * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getDefineFunctionLikeMacro()
+   * @generated
+   */
+  int DEFINE_FUNCTION_LIKE_MACRO = 11;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEFINE_FUNCTION_LIKE_MACRO__ID = DEFINE_DIRECTIVE__ID;
+
+  /**
+   * The feature id for the '<em><b>String</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEFINE_FUNCTION_LIKE_MACRO__STRING = DEFINE_DIRECTIVE__STRING;
+
+  /**
+   * The number of structural features of the '<em>Define Function Like Macro</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEFINE_FUNCTION_LIKE_MACRO_FEATURE_COUNT = DEFINE_DIRECTIVE_FEATURE_COUNT + 0;
+
+  /**
    * The meta object id for the '{@link at.jku.weiner.cpreprocess.cPreprocess.impl.NewLineLineImpl <em>New Line Line</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -335,7 +409,7 @@ public interface CPreprocessPackage extends EPackage
    * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getNewLineLine()
    * @generated
    */
-  int NEW_LINE_LINE = 10;
+  int NEW_LINE_LINE = 12;
 
   /**
    * The number of structural features of the '<em>New Line Line</em>' class.
@@ -354,7 +428,7 @@ public interface CPreprocessPackage extends EPackage
    * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getCode()
    * @generated
    */
-  int CODE = 11;
+  int CODE = 13;
 
   /**
    * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -573,6 +647,26 @@ public interface CPreprocessPackage extends EPackage
    * @generated
    */
   EReference getPreprocessorDirectives_Directive();
+
+  /**
+   * Returns the meta object for class '{@link at.jku.weiner.cpreprocess.cPreprocess.DefineObjectMacro <em>Define Object Macro</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Define Object Macro</em>'.
+   * @see at.jku.weiner.cpreprocess.cPreprocess.DefineObjectMacro
+   * @generated
+   */
+  EClass getDefineObjectMacro();
+
+  /**
+   * Returns the meta object for class '{@link at.jku.weiner.cpreprocess.cPreprocess.DefineFunctionLikeMacro <em>Define Function Like Macro</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Define Function Like Macro</em>'.
+   * @see at.jku.weiner.cpreprocess.cPreprocess.DefineFunctionLikeMacro
+   * @generated
+   */
+  EClass getDefineFunctionLikeMacro();
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.cpreprocess.cPreprocess.NewLineLine <em>New Line Line</em>}'.
@@ -799,6 +893,26 @@ public interface CPreprocessPackage extends EPackage
      * @generated
      */
     EReference PREPROCESSOR_DIRECTIVES__DIRECTIVE = eINSTANCE.getPreprocessorDirectives_Directive();
+
+    /**
+     * The meta object literal for the '{@link at.jku.weiner.cpreprocess.cPreprocess.impl.DefineObjectMacroImpl <em>Define Object Macro</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.cpreprocess.cPreprocess.impl.DefineObjectMacroImpl
+     * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getDefineObjectMacro()
+     * @generated
+     */
+    EClass DEFINE_OBJECT_MACRO = eINSTANCE.getDefineObjectMacro();
+
+    /**
+     * The meta object literal for the '{@link at.jku.weiner.cpreprocess.cPreprocess.impl.DefineFunctionLikeMacroImpl <em>Define Function Like Macro</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.cpreprocess.cPreprocess.impl.DefineFunctionLikeMacroImpl
+     * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getDefineFunctionLikeMacro()
+     * @generated
+     */
+    EClass DEFINE_FUNCTION_LIKE_MACRO = eINSTANCE.getDefineFunctionLikeMacro();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.cpreprocess.cPreprocess.impl.NewLineLineImpl <em>New Line Line</em>}' class.

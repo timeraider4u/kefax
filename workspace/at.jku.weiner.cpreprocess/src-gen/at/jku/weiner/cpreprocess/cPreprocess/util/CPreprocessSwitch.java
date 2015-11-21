@@ -143,6 +143,22 @@ public class CPreprocessSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case CPreprocessPackage.DEFINE_OBJECT_MACRO:
+      {
+        DefineObjectMacro defineObjectMacro = (DefineObjectMacro)theEObject;
+        T result = caseDefineObjectMacro(defineObjectMacro);
+        if (result == null) result = caseDefineDirective(defineObjectMacro);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CPreprocessPackage.DEFINE_FUNCTION_LIKE_MACRO:
+      {
+        DefineFunctionLikeMacro defineFunctionLikeMacro = (DefineFunctionLikeMacro)theEObject;
+        T result = caseDefineFunctionLikeMacro(defineFunctionLikeMacro);
+        if (result == null) result = caseDefineDirective(defineFunctionLikeMacro);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case CPreprocessPackage.NEW_LINE_LINE:
       {
         NewLineLine newLineLine = (NewLineLine)theEObject;
@@ -319,6 +335,38 @@ public class CPreprocessSwitch<T> extends Switch<T>
    * @generated
    */
   public T casePreprocessorDirectives(PreprocessorDirectives object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Define Object Macro</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Define Object Macro</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDefineObjectMacro(DefineObjectMacro object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Define Function Like Macro</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Define Function Like Macro</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDefineFunctionLikeMacro(DefineFunctionLikeMacro object)
   {
     return null;
   }

@@ -113,6 +113,24 @@ public interface CPreprocessFactory extends EFactory
   PreprocessorDirectives createPreprocessorDirectives();
 
   /**
+   * Returns a new object of class '<em>Define Object Macro</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Define Object Macro</em>'.
+   * @generated
+   */
+  DefineObjectMacro createDefineObjectMacro();
+
+  /**
+   * Returns a new object of class '<em>Define Function Like Macro</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Define Function Like Macro</em>'.
+   * @generated
+   */
+  DefineFunctionLikeMacro createDefineFunctionLikeMacro();
+
+  /**
    * Returns a new object of class '<em>New Line Line</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

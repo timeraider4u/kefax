@@ -1023,6 +1023,28 @@ this_ASSIGNASDATALIST_10=RULE_ASSIGNASDATALIST
 
 )
 
+
+    |
+(
+(
+		lv_isNull_12_0=RULE_ISNULL
+		{
+			newLeafNode(lv_isNull_12_0, grammarAccess.getInnerAccess().getIsNullISNULLTerminalRuleCall_2_4_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getInnerRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"isNull",
+        		true, 
+        		"at.jku.weiner.xtexttest.XtextTest.ISNULL");
+	    }
+
+)
+)
+
 )
 
 )
@@ -1640,6 +1662,8 @@ RULE_AFTER_KW : 'after';
 RULE_CLASS_KW : 'class';
 
 RULE_METHOD_KW : 'method';
+
+RULE_ISNULL : 'isNull';
 
 RULE_LEFTPAREN : '(';
 

@@ -34,6 +34,8 @@
     <genClasses ecoreClass="CPreprocess.ecore#//PreprocessorDirectives">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CPreprocess.ecore#//PreprocessorDirectives/directive"/>
     </genClasses>
+    <genClasses ecoreClass="CPreprocess.ecore#//DefineObjectMacro"/>
+    <genClasses ecoreClass="CPreprocess.ecore#//DefineFunctionLikeMacro"/>
     <genClasses ecoreClass="CPreprocess.ecore#//NewLineLine"/>
     <genClasses ecoreClass="CPreprocess.ecore#//Code">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CPreprocess.ecore#//Code/code"/>

@@ -7,8 +7,12 @@ split-lexer=true
 source file="res/Test0026_FunctionMacroWithString.c"
 //----------------------------------------------------------------------
 lexer-tokens
-	HASH DEFINE WS ID LPAREN ID RPAREN WS ID COMMA WS SPECIAL ID SPECIAL
-		COMMA WS SPECIAL ID WS ID WS ID SPECIAL NEWLINE
+	HASH DEFINE WS ID LPAREN ID RPAREN WS 
+		ID COMMA WS 
+		SPECIAL ID SPECIAL COMMA WS
+		ID COMMA WS 
+		SPECIAL ID WS SPECIAL+*2 ID WS ID WS SPECIAL+*3
+		COMMA WS ID NEWLINE
 	ID LPAREN ID RPAREN NEWLINE
 //----------------------------------------------------------------------
 (Model
@@ -25,7 +29,7 @@ lexer-tokens
 					(IdentifierList
 						id+*"[x]"
 					),
-					string++"x, \\\"x\\\", \\\"abc x def\\\""
+					string++"x, \\\"x\\\", x, \\\"abc \\\\\\\"x def \\\\\\\"\\\", x"
 				)
 			),
 			(Code

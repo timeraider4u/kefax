@@ -1,1 +1,1 @@
-bar, "x", "abc x def"
+bar, "x", bar, "abc \"x def \"", bar

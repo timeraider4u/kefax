@@ -43,8 +43,6 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 		final Matcher matcher = pattern.matcher(code);
 
 		int start = 0;
-		final int end = code.length();
-
 		while (matcher.find()) {
 			final int tempStart = matcher.start();
 			final int tempEnd = matcher.end() - 1;
@@ -54,7 +52,7 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 			final String replaceMatch = this.replaceMatch(code, match);
 			result.append(replaceMatch);
 		}
-		result.append(code.substring(start, end));
+		result.append(code.substring(start));
 		return result.toString();
 	}
 
@@ -89,6 +87,7 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 			// System.out.println("nextIndex='" + nextIndex + "'");
 			// System.out.println("param='" + param + "'");
 			// System.out.println("paramValue='" + paramValue + "'");
+			result = this.replaceAndIgnoreQuotes(result, param, paramValue);
 			result = result.replaceAll("([^\"]?)" + param, "$1" + paramValue);
 			currIndex = nextIndex + 1;
 		}
@@ -97,12 +96,27 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 	}
 
 	/***
-	 * remove 'id(' at the start and ')' at the end
+	 * Remove 'id', any whitespace characters and '(' at the start. Remove ')'
+	 * at the end
 	 */
 	private String getInner(final String match) {
 		final int start = this.key.length();
 		final String result = match.substring(start, match.length() - 1);
 		return result;
+	}
+
+	private String replaceAndIgnoreQuotes(final String string,
+			final String param, final String paramValue) {
+		final StringBuffer result = new StringBuffer("");
+		int start = string.indexOf("\"");
+		final Pattern pattern = Pattern.compile("[^\\]\"");
+		final Matcher matcher = pattern.matcher(string);
+		while (matcher.find()) {
+			final int tempStart = matcher.start();
+			start = string.indexOf("\"", start + 1);
+		}
+		result.append(string.substring(start));
+		return result.toString();
 	}
 
 }

@@ -23,6 +23,7 @@ import org.eclipse.emf.common.util.URI
 import at.jku.weiner.cpreprocess.cPreprocess.GroupOpt
 import at.jku.weiner.cpreprocess.utils.IncludeUtils
 import at.jku.weiner.cpreprocess.cPreprocess.DefineObjectMacro
+import at.jku.weiner.cpreprocess.cPreprocess.DefineFunctionLikeMacro
 
 /**
  * Generates code from your model files on save.
@@ -112,8 +113,8 @@ class CPreprocessGenerator implements IGenerator {
 		if (obj instanceof DefineObjectMacro) {
 			DefinitionTable.add(obj.id, obj.string);
 		}
-		else {
-			DefinitionTable.addFunctionMacro(obj.id, obj.string);
+		else if (obj instanceof DefineFunctionLikeMacro) {
+			DefinitionTable.addFunctionMacro(obj.id, obj.string, obj.list);
 		}
 		return "";
 	}

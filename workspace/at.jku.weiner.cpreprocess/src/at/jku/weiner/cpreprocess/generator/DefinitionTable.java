@@ -3,6 +3,8 @@ package at.jku.weiner.cpreprocess.generator;
 import java.util.Map;
 import java.util.TreeMap;
 
+import at.jku.weiner.cpreprocess.cPreprocess.IdentifierList;
+
 public final class DefinitionTable {
 
 	private static final Map<String, DefinitionMacro> table = new TreeMap<String, DefinitionMacro>();
@@ -34,10 +36,11 @@ public final class DefinitionTable {
 	}
 
 	public static void addFunctionMacro(final String id,
-			final String replaceWith) {
+			final String replaceWith, final IdentifierList list) {
 		final String key = DefinitionTable.resolve(id);
 		final String val = DefinitionTable.resolve(replaceWith);
-		final DefinitionMacro macro = new DefinitionFunctionMacro(key, val);
+		final DefinitionMacro macro = new DefinitionFunctionMacro(key, val,
+				list);
 		DefinitionTable.table.put(key, macro);
 	}
 

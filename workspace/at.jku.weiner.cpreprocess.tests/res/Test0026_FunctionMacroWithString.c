@@ -1,2 +1,2 @@
-#define foo(x)	x, "x"
+#define foo(x)	x, "x", "abc x def"
 foo(bar)

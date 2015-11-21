@@ -84,12 +84,12 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 				nextIndex = inner.length();
 			}
 			final String paramValue = inner.substring(currIndex, nextIndex)
-					.replaceFirst("^\\s", "");
+					.trim();
 			// System.out.println("currIndex='" + currIndex + "'");
 			// System.out.println("nextIndex='" + nextIndex + "'");
 			// System.out.println("param='" + param + "'");
 			// System.out.println("paramValue='" + paramValue + "'");
-			result = result.replace(param, paramValue);
+			result = result.replaceAll("([^\"]?)" + param, "$1" + paramValue);
 			currIndex = nextIndex + 1;
 		}
 		// System.out.println("-----------");

@@ -111,6 +111,15 @@ public class Test0026_FunctionMacroWithString {
 				"RULE_SPECIAL", 
 				"RULE_ID", 
 				"RULE_SPECIAL", 
+				"RULE_COMMA", 
+				"RULE_WS", 
+				"RULE_SPECIAL", 
+				"RULE_ID", 
+				"RULE_WS", 
+				"RULE_ID", 
+				"RULE_WS", 
+				"RULE_ID", 
+				"RULE_SPECIAL", 
 				"RULE_NEWLINE", 
 				"RULE_ID", 
 				"RULE_LPAREN", 
@@ -175,7 +184,7 @@ public class Test0026_FunctionMacroWithString {
 		);
 		Assert.assertEquals("[x]", IdentifierList_5_Var
 		.getId().toString());
-		Assert.assertEquals("x, \"x\"", DefineFunctionLikeMacro_4_Var
+		Assert.assertEquals("x, \"x\", \"abc x def\"", DefineFunctionLikeMacro_4_Var
 		.getString());
 		//5
 		final Code Code_6_Var

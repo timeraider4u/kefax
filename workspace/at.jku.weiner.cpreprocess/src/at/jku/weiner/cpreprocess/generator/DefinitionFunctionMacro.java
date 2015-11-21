@@ -6,7 +6,7 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 	private final String value;
 
 	public DefinitionFunctionMacro(final String key, final String value) {
-		this.key = key;
+		this.key = key + "(";
 		this.value = this.getValue(value);
 	}
 
@@ -19,8 +19,8 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 
 	@Override
 	public String resolve(final String code) {
-		final String result = code.replace(this.key + "()", this.key);
-		return result.replace(this.key, this.value);
+		final String result = code.replace(this.key + ")", this.value);
+		return result;
 	}
 
 }

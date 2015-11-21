@@ -1,0 +1,38 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.cpreprocess
+language cPreprocess
+//----------------------------------------------------------------------
+split-lexer=true
+source file="res/Test0022_ObjectMacroWithParensAtStart.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH DEFINE WS ID WS LPAREN RPAREN WS ID LPAREN RPAREN NEWLINE
+	ID LPAREN RPAREN NEWLINE
+//----------------------------------------------------------------------
+(Model
+	units+=
+	(TranslationUnit
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineDirective
+					id++"foo",
+					string++"() bar()"
+				)
+			),
+			(Code
+				code++"foo()"
+			)
+			
+		)
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0022_ObjectMacroWithParensAtStart.c.i"
+expected file="expected/Test0022_ObjectMacroWithParensAtStart.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

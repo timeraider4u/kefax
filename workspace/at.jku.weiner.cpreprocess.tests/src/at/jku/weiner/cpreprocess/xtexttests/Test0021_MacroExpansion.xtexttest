@@ -1,0 +1,66 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.cpreprocess
+language cPreprocess
+//----------------------------------------------------------------------
+split-lexer=true
+source file="res/Test0021_MacroExpansion.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH DEFINE WS ID LPAREN RPAREN WS ID LPAREN RPAREN NEWLINE
+	NEWLINE
+	ID WS ID LPAREN RPAREN WS SPECIAL NEWLINE
+	WS ID WS SPECIAL+*2 NEWLINE
+	SPECIAL NEWLINE
+	NEWLINE
+	ID WS ID LPAREN ID RPAREN WS SPECIAL NEWLINE
+	WS ID WS ID WS SPECIAL WS ID LPAREN RPAREN SPECIAL NEWLINE
+	WS ID WS ID SPECIAL NEWLINE
+	SPECIAL NEWLINE
+//----------------------------------------------------------------------
+(Model
+	units+=
+	(TranslationUnit
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineDirective
+					id++"foo",
+					string++"bar()"
+				)
+			),
+			(NewLineLine),
+			(Code
+				code++"int bar() {"
+			),
+			(Code
+				code++"	return 0;"
+			),
+			(Code
+				code++"}"
+			),
+			(NewLineLine),
+			(Code
+				code++"int main(void) {"
+			),
+			(Code
+				code++"	int foo = foo();"
+			),
+			(Code
+				code++"	return foo;"
+			),
+			(Code
+				code++"}"
+			)
+			
+		)
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0021_MacroExpansion.c.i"
+expected file="expected/Test0021_MacroExpansion.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

@@ -75,10 +75,24 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 		// final Matcher matcher = pattern.matcher(code);
 		String result = this.value;
 		final String inner = this.getInner(match);
+		int nextIndex = 0;
+		int currIndex = 0;
+		// System.out.println("inner='" + inner + "'");
 		for (final String param : this.list) {
-			final String paramValue = inner;
+			nextIndex = inner.indexOf(",", currIndex);
+			if ((nextIndex < 0)) {
+				nextIndex = inner.length();
+			}
+			final String paramValue = inner.substring(currIndex, nextIndex)
+					.replaceFirst("^\\s", "");
+			// System.out.println("currIndex='" + currIndex + "'");
+			// System.out.println("nextIndex='" + nextIndex + "'");
+			// System.out.println("param='" + param + "'");
+			// System.out.println("paramValue='" + paramValue + "'");
 			result = result.replace(param, paramValue);
+			currIndex = nextIndex + 1;
 		}
+		// System.out.println("-----------");
 		return result;
 	}
 

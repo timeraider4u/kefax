@@ -79,7 +79,6 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 			final String paramValue = inner;
 			result = result.replace(param, paramValue);
 		}
-		// result = match.replace(this.key + ")", this.value);
 		return result;
 	}
 

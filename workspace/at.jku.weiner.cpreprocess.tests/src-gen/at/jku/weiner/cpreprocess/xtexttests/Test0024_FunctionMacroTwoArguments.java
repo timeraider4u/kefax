@@ -173,7 +173,9 @@ public class Test0024_FunctionMacroTwoArguments {
 				"RULE_WS", 
 				"RULE_ID", 
 				"RULE_LPAREN", 
+				"RULE_LPAREN", 
 				"RULE_SPECIAL", 
+				"RULE_RPAREN", 
 				"RULE_COMMA", 
 				"RULE_WS", 
 				"RULE_SPECIAL", 
@@ -214,10 +216,15 @@ public class Test0024_FunctionMacroTwoArguments {
 				"RULE_WS", 
 				"RULE_LPAREN", 
 				"RULE_ID", 
-				"RULE_WS", 
+				"RULE_SPECIAL", 
 				"RULE_SPECIAL", 
 				"RULE_WS", 
 				"RULE_SPECIAL", 
+				"RULE_WS", 
+				"RULE_LPAREN", 
+				"RULE_SPECIAL", 
+				"RULE_ID", 
+				"RULE_RPAREN", 
 				"RULE_RPAREN", 
 				"RULE_RPAREN", 
 				"RULE_SPECIAL", 
@@ -301,7 +308,7 @@ public class Test0024_FunctionMacroTwoArguments {
 		 = (Code)Lines_2_list.get(3);
 		Assert.assertNotNull(Code_8_Var
 		);
-		Assert.assertEquals("int c = MIN(5, 5);", Code_8_Var
+		Assert.assertEquals("int c = MIN((5), 5);", Code_8_Var
 		.getCode());
 		//8
 		final Code Code_9_Var
@@ -315,7 +322,7 @@ public class Test0024_FunctionMacroTwoArguments {
 		 = (Code)Lines_2_list.get(5);
 		Assert.assertNotNull(Code_10_Var
 		);
-		Assert.assertEquals("int e = MIN(18, (b * 2));", Code_10_Var
+		Assert.assertEquals("int e = MIN(18, (b*2 + (*c)));", Code_10_Var
 		.getCode());
 	}
 	

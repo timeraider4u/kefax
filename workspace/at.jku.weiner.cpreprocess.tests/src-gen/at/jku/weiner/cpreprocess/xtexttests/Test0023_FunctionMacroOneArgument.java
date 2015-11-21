@@ -45,25 +45,14 @@ import at.jku.weiner.cpreprocess.xtexttests.LexerAndParserTest;
 import at.jku.weiner.cpreprocess.cPreprocess.Model;
 import at.jku.weiner.cpreprocess.cPreprocess.TranslationUnit;
 import at.jku.weiner.cpreprocess.cPreprocess.GroupOpt;
-import at.jku.weiner.cpreprocess.cPreprocess.Code;
 import at.jku.weiner.cpreprocess.cPreprocess.PreprocessorDirectives;
-import at.jku.weiner.cpreprocess.cPreprocess.DefineDirective;
-import at.jku.weiner.cpreprocess.cPreprocess.Code;
-import at.jku.weiner.cpreprocess.cPreprocess.PreprocessorDirectives;
-import at.jku.weiner.cpreprocess.cPreprocess.UnDefineDirective;
-import at.jku.weiner.cpreprocess.cPreprocess.Code;
-import at.jku.weiner.cpreprocess.cPreprocess.PreprocessorDirectives;
-import at.jku.weiner.cpreprocess.cPreprocess.DefineDirective;
-import at.jku.weiner.cpreprocess.cPreprocess.PreprocessorDirectives;
-import at.jku.weiner.cpreprocess.cPreprocess.UnDefineDirective;
-import at.jku.weiner.cpreprocess.cPreprocess.Code;
-import at.jku.weiner.cpreprocess.cPreprocess.PreprocessorDirectives;
-import at.jku.weiner.cpreprocess.cPreprocess.UnDefineDirective;
+import at.jku.weiner.cpreprocess.cPreprocess.DefineFunctionLikeMacro;
+import at.jku.weiner.cpreprocess.cPreprocess.IdentifierList;
 import at.jku.weiner.cpreprocess.cPreprocess.Code;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(CPreprocessInjectorProvider.class)
-public class Test0005_Undef {
+public class Test0023_FunctionMacroOneArgument {
 	@Inject
 	private ParseHelper<Model> parseHelper;
 	@Inject
@@ -105,26 +94,22 @@ public class Test0005_Undef {
 	@Test
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
-			"res/Test0005_Undef.c");
+			"res/Test0023_FunctionMacroOneArgument.c");
 			//System.out.println(text);
 			final String[] expected = new String[] {
-				"RULE_SPECIAL", 
-				"RULE_SPECIAL", 
-				"RULE_WS", 
-				"RULE_ID", 
-				"RULE_COMMA", 
-				"RULE_WS", 
-				"RULE_ID", 
-				"RULE_WS", 
-				"RULE_ID", 
-				"RULE_NEWLINE", 
 				"RULE_HASH", 
 				"RULE_DEFINE", 
 				"RULE_WS", 
 				"RULE_ID", 
-				"RULE_WS", 
+				"RULE_LPAREN", 
+				"RULE_ID", 
+				"RULE_RPAREN", 
 				"RULE_WS", 
 				"RULE_ID", 
+				"RULE_WS", 
+				"RULE_SPECIAL", 
+				"RULE_WS", 
+				"RULE_SPECIAL", 
 				"RULE_NEWLINE", 
 				"RULE_ID", 
 				"RULE_WS", 
@@ -132,59 +117,10 @@ public class Test0005_Undef {
 				"RULE_WS", 
 				"RULE_SPECIAL", 
 				"RULE_WS", 
-				"RULE_SPECIAL", 
-				"RULE_SPECIAL", 
-				"RULE_SPECIAL", 
-				"RULE_SPECIAL", 
-				"RULE_NEWLINE", 
-				"RULE_HASH", 
-				"RULE_UNDEF", 
-				"RULE_WS", 
 				"RULE_ID", 
-				"RULE_NEWLINE", 
-				"RULE_ID", 
-				"RULE_WS", 
-				"RULE_ID", 
-				"RULE_WS", 
+				"RULE_LPAREN", 
 				"RULE_SPECIAL", 
-				"RULE_WS", 
-				"RULE_SPECIAL", 
-				"RULE_SPECIAL", 
-				"RULE_NEWLINE", 
-				"RULE_HASH", 
-				"RULE_DEFINE", 
-				"RULE_WS", 
-				"RULE_ID", 
-				"RULE_WS", 
-				"RULE_WS", 
-				"RULE_ID", 
-				"RULE_NEWLINE", 
-				"RULE_HASH", 
-				"RULE_UNDEF", 
-				"RULE_WS", 
-				"RULE_ID", 
-				"RULE_NEWLINE", 
-				"RULE_ID", 
-				"RULE_WS", 
-				"RULE_ID", 
-				"RULE_WS", 
-				"RULE_SPECIAL", 
-				"RULE_WS", 
-				"RULE_SPECIAL", 
-				"RULE_SPECIAL", 
-				"RULE_NEWLINE", 
-				"RULE_HASH", 
-				"RULE_UNDEF", 
-				"RULE_WS", 
-				"RULE_ID", 
-				"RULE_NEWLINE", 
-				"RULE_ID", 
-				"RULE_WS", 
-				"RULE_ID", 
-				"RULE_WS", 
-				"RULE_SPECIAL", 
-				"RULE_WS", 
-				"RULE_SPECIAL", 
+				"RULE_RPAREN", 
 				"RULE_SPECIAL", 
 				"RULE_NEWLINE", 
 				};
@@ -196,7 +132,7 @@ public class Test0005_Undef {
 	@Test
 	public void checkParserResult() throws Exception {
 		final String text = this.getTextFromFile(
-			"res/Test0005_Undef.c");
+			"res/Test0023_FunctionMacroOneArgument.c");
 		final Model Model_0_Var
 		  = 
 			this.parseHelper.parse(text);
@@ -223,110 +159,36 @@ public class Test0005_Undef {
 		final EList<? extends EObject> Lines_2_list = GroupOpt_2_Var
 		.getLines();
 		Assert.assertNotNull(Lines_2_list);
-		Assert.assertEquals(10, Lines_2_list.size());
+		Assert.assertEquals(2, Lines_2_list.size());
 		//2
-		final Code Code_3_Var
-		 = (Code)Lines_2_list.get(0);
-		Assert.assertNotNull(Code_3_Var
+		final PreprocessorDirectives PreprocessorDirectives_3_Var
+		 = (PreprocessorDirectives)Lines_2_list.get(0);
+		Assert.assertNotNull(PreprocessorDirectives_3_Var
 		);
-		Assert.assertEquals("// nasty, but valid", Code_3_Var
-		.getCode());
 		//3
-		final PreprocessorDirectives PreprocessorDirectives_4_Var
-		 = (PreprocessorDirectives)Lines_2_list.get(1);
-		Assert.assertNotNull(PreprocessorDirectives_4_Var
-		);
-		//4
-		final DefineDirective DefineDirective_5_Var
-		 = (DefineDirective)PreprocessorDirectives_4_Var
+		final DefineFunctionLikeMacro DefineFunctionLikeMacro_4_Var
+		 = (DefineFunctionLikeMacro)PreprocessorDirectives_3_Var
 		.getDirective();
-		Assert.assertNotNull(DefineDirective_5_Var
+		Assert.assertNotNull(DefineFunctionLikeMacro_4_Var
 		);
-		Assert.assertEquals("int", DefineDirective_5_Var
+		Assert.assertEquals("inc", DefineFunctionLikeMacro_4_Var
 		.getId());
-		Assert.assertEquals("double", DefineDirective_5_Var
+		//4
+		final IdentifierList IdentifierList_5_Var
+		 = (IdentifierList)DefineFunctionLikeMacro_4_Var
+		.getList();
+		Assert.assertNotNull(IdentifierList_5_Var
+		);
+		Assert.assertEquals("[x]", IdentifierList_5_Var
+		.getId().toString());
+		Assert.assertEquals("x + 1", DefineFunctionLikeMacro_4_Var
 		.getString());
 		//5
 		final Code Code_6_Var
-		 = (Code)Lines_2_list.get(2);
+		 = (Code)Lines_2_list.get(1);
 		Assert.assertNotNull(Code_6_Var
 		);
-		Assert.assertEquals("int a = 2.5;", Code_6_Var
-		.getCode());
-		//6
-		final PreprocessorDirectives PreprocessorDirectives_7_Var
-		 = (PreprocessorDirectives)Lines_2_list.get(3);
-		Assert.assertNotNull(PreprocessorDirectives_7_Var
-		);
-		//7
-		final UnDefineDirective UnDefineDirective_8_Var
-		 = (UnDefineDirective)PreprocessorDirectives_7_Var
-		.getDirective();
-		Assert.assertNotNull(UnDefineDirective_8_Var
-		);
-		Assert.assertEquals("int", UnDefineDirective_8_Var
-		.getId());
-		//8
-		final Code Code_9_Var
-		 = (Code)Lines_2_list.get(4);
-		Assert.assertNotNull(Code_9_Var
-		);
-		Assert.assertEquals("int b = 2;", Code_9_Var
-		.getCode());
-		//9
-		final PreprocessorDirectives PreprocessorDirectives_10_Var
-		 = (PreprocessorDirectives)Lines_2_list.get(5);
-		Assert.assertNotNull(PreprocessorDirectives_10_Var
-		);
-		//10
-		final DefineDirective DefineDirective_11_Var
-		 = (DefineDirective)PreprocessorDirectives_10_Var
-		.getDirective();
-		Assert.assertNotNull(DefineDirective_11_Var
-		);
-		Assert.assertEquals("int", DefineDirective_11_Var
-		.getId());
-		Assert.assertEquals("long", DefineDirective_11_Var
-		.getString());
-		//11
-		final PreprocessorDirectives PreprocessorDirectives_12_Var
-		 = (PreprocessorDirectives)Lines_2_list.get(6);
-		Assert.assertNotNull(PreprocessorDirectives_12_Var
-		);
-		//12
-		final UnDefineDirective UnDefineDirective_13_Var
-		 = (UnDefineDirective)PreprocessorDirectives_12_Var
-		.getDirective();
-		Assert.assertNotNull(UnDefineDirective_13_Var
-		);
-		Assert.assertEquals("int", UnDefineDirective_13_Var
-		.getId());
-		//13
-		final Code Code_14_Var
-		 = (Code)Lines_2_list.get(7);
-		Assert.assertNotNull(Code_14_Var
-		);
-		Assert.assertEquals("int c = 2;", Code_14_Var
-		.getCode());
-		//14
-		final PreprocessorDirectives PreprocessorDirectives_15_Var
-		 = (PreprocessorDirectives)Lines_2_list.get(8);
-		Assert.assertNotNull(PreprocessorDirectives_15_Var
-		);
-		//15
-		final UnDefineDirective UnDefineDirective_16_Var
-		 = (UnDefineDirective)PreprocessorDirectives_15_Var
-		.getDirective();
-		Assert.assertNotNull(UnDefineDirective_16_Var
-		);
-		Assert.assertEquals("int", UnDefineDirective_16_Var
-		.getId());
-		//16
-		final Code Code_17_Var
-		 = (Code)Lines_2_list.get(9);
-		Assert.assertNotNull(Code_17_Var
-		);
-		Assert.assertEquals("int d = 4;", Code_17_Var
+		Assert.assertEquals("int x = inc(5);", Code_6_Var
 		.getCode());
 	}
 	
@@ -335,7 +197,7 @@ public class Test0005_Undef {
 		// load the resource
 		ResourceSet set = this.resourceSetProvider.get();
 		URI uri = URI.createURI(
-			"res/Test0005_Undef.c");
+			"res/Test0023_FunctionMacroOneArgument.c");
 		Resource resource = set.getResource(uri, true);
 		// validate the resource
 		List<Issue> list = this.validator.validate(resource, 
@@ -349,7 +211,7 @@ public class Test0005_Undef {
 			final Method method = clazz.getMethod("setFileName",
 					String.class);
 			if (method != null) {
-				method.invoke(this.generator, "Test0005_Undef.c.i");
+				method.invoke(this.generator, "Test0023_FunctionMacroOneArgument.c.i");
 			}
 		} catch (NoSuchMethodException | SecurityException
 			| IllegalAccessException | IllegalArgumentException
@@ -358,9 +220,9 @@ public class Test0005_Undef {
 			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
-		final String actual = this.getTextFromFile("bin/Test0005_Undef.c.i");
+		final String actual = this.getTextFromFile("bin/Test0023_FunctionMacroOneArgument.c.i");
 		final String expected = this.getTextFromFile(
-			"expected/Test0005_Undef.c"
+			"expected/Test0023_FunctionMacroOneArgument.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
 		// System.out.println("Code generation finished.");

@@ -9,6 +9,7 @@ import at.jku.weiner.cpreprocess.cPreprocess.DefineFunctionLikeMacro;
 import at.jku.weiner.cpreprocess.cPreprocess.DefineObjectMacro;
 import at.jku.weiner.cpreprocess.cPreprocess.ErrorDirective;
 import at.jku.weiner.cpreprocess.cPreprocess.GroupOpt;
+import at.jku.weiner.cpreprocess.cPreprocess.IdentifierList;
 import at.jku.weiner.cpreprocess.cPreprocess.IncludeDirective;
 import at.jku.weiner.cpreprocess.cPreprocess.Model;
 import at.jku.weiner.cpreprocess.cPreprocess.NewLineLine;
@@ -56,6 +57,9 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 			case CPreprocessPackage.GROUP_OPT:
 				sequence_GroupOpt(context, (GroupOpt) semanticObject); 
 				return; 
+			case CPreprocessPackage.IDENTIFIER_LIST:
+				sequence_IdentifierList(context, (IdentifierList) semanticObject); 
+				return; 
 			case CPreprocessPackage.INCLUDE_DIRECTIVE:
 				sequence_IncludeDirective(context, (IncludeDirective) semanticObject); 
 				return; 
@@ -102,20 +106,10 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (id=ID string=MyDefineLine)
+	 *     (id=ID list=IdentifierList? string=MyDefineLine)
 	 */
 	protected void sequence_DefineFunctionLikeMacro(EObject context, DefineFunctionLikeMacro semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, CPreprocessPackage.Literals.DEFINE_DIRECTIVE__ID) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CPreprocessPackage.Literals.DEFINE_DIRECTIVE__ID));
-			if(transientValues.isValueTransient(semanticObject, CPreprocessPackage.Literals.DEFINE_DIRECTIVE__STRING) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CPreprocessPackage.Literals.DEFINE_DIRECTIVE__STRING));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getDefineFunctionLikeMacroAccess().getIdIDTerminalRuleCall_3_0(), semanticObject.getId());
-		feeder.accept(grammarAccess.getDefineFunctionLikeMacroAccess().getStringMyDefineLineParserRuleCall_7_0(), semanticObject.getString());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -149,6 +143,15 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     ((lines+=PreprocessorDirectives | lines+=NewLineLine | lines+=Code)*)
 	 */
 	protected void sequence_GroupOpt(EObject context, GroupOpt semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (id+=ID id+=ID*)
+	 */
+	protected void sequence_IdentifierList(EObject context, IdentifierList semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

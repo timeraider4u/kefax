@@ -1,0 +1,42 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.cpreprocess
+language cPreprocess
+//----------------------------------------------------------------------
+split-lexer=true
+source file="res/Test0023_FunctionMacroOneArgument.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH DEFINE WS ID LPAREN ID RPAREN WS ID WS SPECIAL WS SPECIAL NEWLINE
+	ID WS ID WS SPECIAL WS ID LPAREN SPECIAL RPAREN SPECIAL NEWLINE
+//----------------------------------------------------------------------
+(Model
+	units+=
+	(TranslationUnit
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"inc",
+					list=
+					(IdentifierList
+						id+*"[x]"
+					),
+					string++"x + 1"
+				)
+			),
+			(Code
+				code++"int x = inc(5);"
+			)
+			
+		)
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0023_FunctionMacroOneArgument.c.i"
+expected file="expected/Test0023_FunctionMacroOneArgument.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

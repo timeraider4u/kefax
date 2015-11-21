@@ -114,6 +114,13 @@ public class CPreprocessSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case CPreprocessPackage.IDENTIFIER_LIST:
+      {
+        IdentifierList identifierList = (IdentifierList)theEObject;
+        T result = caseIdentifierList(identifierList);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case CPreprocessPackage.ERROR_DIRECTIVE:
       {
         ErrorDirective errorDirective = (ErrorDirective)theEObject;
@@ -278,6 +285,22 @@ public class CPreprocessSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDefineDirective(DefineDirective object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Identifier List</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Identifier List</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseIdentifierList(IdentifierList object)
   {
     return null;
   }

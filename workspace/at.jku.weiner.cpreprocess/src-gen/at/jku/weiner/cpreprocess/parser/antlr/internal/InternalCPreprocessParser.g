@@ -637,33 +637,125 @@ ruleDefineFunctionLikeMacro returns [EObject current=null]
     { 
     newLeafNode(this_LPAREN_4, grammarAccess.getDefineFunctionLikeMacroAccess().getLPARENTerminalRuleCall_4()); 
     }
-this_RPAREN_5=RULE_RPAREN
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getDefineFunctionLikeMacroAccess().getListIdentifierListParserRuleCall_5_0()); 
+	    }
+		lv_list_5_0=ruleIdentifierList		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getDefineFunctionLikeMacroRule());
+	        }
+       		set(
+       			$current, 
+       			"list",
+        		lv_list_5_0, 
+        		"at.jku.weiner.cpreprocess.CPreprocess.IdentifierList");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)?this_RPAREN_6=RULE_RPAREN
     { 
-    newLeafNode(this_RPAREN_5, grammarAccess.getDefineFunctionLikeMacroAccess().getRPARENTerminalRuleCall_5()); 
+    newLeafNode(this_RPAREN_6, grammarAccess.getDefineFunctionLikeMacroAccess().getRPARENTerminalRuleCall_6()); 
     }
-(this_WS_6=RULE_WS
+(this_WS_7=RULE_WS
     { 
-    newLeafNode(this_WS_6, grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_6()); 
+    newLeafNode(this_WS_7, grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_7()); 
     }
 )+(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getDefineFunctionLikeMacroAccess().getStringMyDefineLineParserRuleCall_7_0()); 
+	        newCompositeNode(grammarAccess.getDefineFunctionLikeMacroAccess().getStringMyDefineLineParserRuleCall_8_0()); 
 	    }
-		lv_string_7_0=ruleMyDefineLine		{
+		lv_string_8_0=ruleMyDefineLine		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getDefineFunctionLikeMacroRule());
 	        }
        		set(
        			$current, 
        			"string",
-        		lv_string_7_0, 
+        		lv_string_8_0, 
         		"at.jku.weiner.cpreprocess.CPreprocess.MyDefineLine");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
 ))
+;
+
+
+
+
+
+// Entry rule entryRuleIdentifierList
+entryRuleIdentifierList returns [EObject current=null]
+	:
+	{ newCompositeNode(grammarAccess.getIdentifierListRule()); }
+	 iv_ruleIdentifierList=ruleIdentifierList 
+	 { $current=$iv_ruleIdentifierList.current; } 
+	 EOF 
+;
+
+// Rule IdentifierList
+ruleIdentifierList returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+	{ 
+	  /* */ 
+	}
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getIdentifierListAccess().getIdentifierListAction_0(),
+            $current);
+    }
+)(
+(
+		lv_id_1_0=RULE_ID
+		{
+			newLeafNode(lv_id_1_0, grammarAccess.getIdentifierListAccess().getIdIDTerminalRuleCall_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getIdentifierListRule());
+	        }
+       		addWithLastConsumed(
+       			$current, 
+       			"id",
+        		lv_id_1_0, 
+        		"at.jku.weiner.cpreprocess.CPreprocess.ID");
+	    }
+
+)
+)(this_COMMA_2=RULE_COMMA
+    { 
+    newLeafNode(this_COMMA_2, grammarAccess.getIdentifierListAccess().getCOMMATerminalRuleCall_2_0()); 
+    }
+(this_WS_3=RULE_WS
+    { 
+    newLeafNode(this_WS_3, grammarAccess.getIdentifierListAccess().getWSTerminalRuleCall_2_1()); 
+    }
+)*(
+(
+		lv_id_4_0=RULE_ID
+		{
+			newLeafNode(lv_id_4_0, grammarAccess.getIdentifierListAccess().getIdIDTerminalRuleCall_2_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getIdentifierListRule());
+	        }
+       		addWithLastConsumed(
+       			$current, 
+       			"id",
+        		lv_id_4_0, 
+        		"at.jku.weiner.cpreprocess.CPreprocess.ID");
+	    }
+
+)
+))*)
 ;
 
 
@@ -1009,6 +1101,14 @@ ruleMyCode returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 
     { 
     newLeafNode(this_RPAREN_7, grammarAccess.getMyCodeAccess().getRPARENTerminalRuleCall_7()); 
+    }
+
+    |    this_COMMA_8=RULE_COMMA    {
+		$current.merge(this_COMMA_8);
+    }
+
+    { 
+    newLeafNode(this_COMMA_8, grammarAccess.getMyCodeAccess().getCOMMATerminalRuleCall_8()); 
     }
 )
     ;

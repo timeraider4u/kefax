@@ -24,6 +24,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CPreprocess.ecore#//DefineDirective/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CPreprocess.ecore#//DefineDirective/string"/>
     </genClasses>
+    <genClasses ecoreClass="CPreprocess.ecore#//IdentifierList">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CPreprocess.ecore#//IdentifierList/id"/>
+    </genClasses>
     <genClasses ecoreClass="CPreprocess.ecore#//ErrorDirective">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CPreprocess.ecore#//ErrorDirective/msg"/>
     </genClasses>
@@ -36,7 +39,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CPreprocess.ecore#//PreprocessorDirectives/directive"/>
     </genClasses>
     <genClasses ecoreClass="CPreprocess.ecore#//DefineObjectMacro"/>
-    <genClasses ecoreClass="CPreprocess.ecore#//DefineFunctionLikeMacro"/>
+    <genClasses ecoreClass="CPreprocess.ecore#//DefineFunctionLikeMacro">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CPreprocess.ecore#//DefineFunctionLikeMacro/list"/>
+    </genClasses>
     <genClasses ecoreClass="CPreprocess.ecore#//NewLineLine"/>
     <genClasses ecoreClass="CPreprocess.ecore#//Code">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CPreprocess.ecore#//Code/code"/>

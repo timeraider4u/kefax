@@ -7,7 +7,7 @@ split-lexer=true
 source file="res/Test0005_Undef.c"
 //----------------------------------------------------------------------
 lexer-tokens
-	SPECIAL +*2 WS ID SPECIAL WS ID WS ID NEWLINE
+	SPECIAL +*2 WS ID COMMA WS ID WS ID NEWLINE
 	HASH DEFINE WS ID WS WS ID NEWLINE
 	ID WS ID WS SPECIAL WS SPECIAL +*4 NEWLINE
 	HASH UNDEF WS ID NEWLINE

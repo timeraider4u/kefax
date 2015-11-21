@@ -70,6 +70,7 @@ public class CPreprocessFactoryImpl extends EFactoryImpl implements CPreprocessF
       case CPreprocessPackage.SOURCE_CODE_LINE: return createSourceCodeLine();
       case CPreprocessPackage.INCLUDE_DIRECTIVE: return createIncludeDirective();
       case CPreprocessPackage.DEFINE_DIRECTIVE: return createDefineDirective();
+      case CPreprocessPackage.IDENTIFIER_LIST: return createIdentifierList();
       case CPreprocessPackage.ERROR_DIRECTIVE: return createErrorDirective();
       case CPreprocessPackage.UN_DEFINE_DIRECTIVE: return createUnDefineDirective();
       case CPreprocessPackage.PRAGMA_DIRECTIVE: return createPragmaDirective();
@@ -148,6 +149,17 @@ public class CPreprocessFactoryImpl extends EFactoryImpl implements CPreprocessF
   {
     DefineDirectiveImpl defineDirective = new DefineDirectiveImpl();
     return defineDirective;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public IdentifierList createIdentifierList()
+  {
+    IdentifierListImpl identifierList = new IdentifierListImpl();
+    return identifierList;
   }
 
   /**

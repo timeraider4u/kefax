@@ -77,6 +77,15 @@ public interface CPreprocessFactory extends EFactory
   DefineDirective createDefineDirective();
 
   /**
+   * Returns a new object of class '<em>Identifier List</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Identifier List</em>'.
+   * @generated
+   */
+  IdentifierList createIdentifierList();
+
+  /**
    * Returns a new object of class '<em>Error Directive</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

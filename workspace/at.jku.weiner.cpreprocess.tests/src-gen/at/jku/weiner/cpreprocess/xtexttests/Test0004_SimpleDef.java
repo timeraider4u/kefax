@@ -182,7 +182,7 @@ public class Test0004_SimpleDef {
 				"RULE_SPECIAL", 
 				"RULE_WS", 
 				"RULE_ID", 
-				"RULE_SPECIAL", 
+				"RULE_COMMA", 
 				"RULE_WS", 
 				"RULE_ID", 
 				"RULE_WS", 

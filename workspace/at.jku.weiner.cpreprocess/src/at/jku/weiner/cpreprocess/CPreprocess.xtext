@@ -87,10 +87,15 @@ DefineFunctionLikeMacro returns DefineDirective:
 	{DefineFunctionLikeMacro}
 	DEFINE WS+ id=ID 
 	LPAREN
-		
+		(list=IdentifierList)?
 	RPAREN
 	WS+
 	string=MyDefineLine 
+;
+
+IdentifierList:
+	{IdentifierList}
+	id+=ID (COMMA WS* id+=ID)*
 ;
 
 ErrorDirective:
@@ -125,6 +130,7 @@ Code returns SourceCodeLine:
 
 MyCode returns ecore::EString:
 	ID|SPECIAL|INCLUDE|DEFINE|ERROR|PRAGMA|LPAREN|RPAREN
+	|COMMA
 ;
 
 MyDefineLine returns ecore::EString:
@@ -149,6 +155,7 @@ terminal UNDEF: 'undef';
 terminal PRAGMA: 'pragma';
 terminal LPAREN: '(';
 terminal RPAREN: ')';
+terminal COMMA: ',';
 terminal fragment LINEFEED: '\n';
 terminal fragment CARRIAGERETURN: '\r';
 terminal NEWLINE: (CARRIAGERETURN | LINEFEED) ;

@@ -22,6 +22,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="string" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IdentifierList">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ErrorDirective">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="msg" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -35,7 +39,10 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DefineObjectMacro" eSuperTypes="#//DefineDirective"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DefineFunctionLikeMacro" eSuperTypes="#//DefineDirective"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DefineFunctionLikeMacro" eSuperTypes="#//DefineDirective">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="list" eType="#//IdentifierList"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NewLineLine" eSuperTypes="#//SourceCodeLine"/>
   <eClassifiers xsi:type="ecore:EClass" name="Code" eSuperTypes="#//SourceCodeLine">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

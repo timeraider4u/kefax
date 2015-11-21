@@ -10,6 +10,7 @@ import at.jku.weiner.cpreprocess.cPreprocess.DefineFunctionLikeMacro;
 import at.jku.weiner.cpreprocess.cPreprocess.DefineObjectMacro;
 import at.jku.weiner.cpreprocess.cPreprocess.ErrorDirective;
 import at.jku.weiner.cpreprocess.cPreprocess.GroupOpt;
+import at.jku.weiner.cpreprocess.cPreprocess.IdentifierList;
 import at.jku.weiner.cpreprocess.cPreprocess.IncludeDirective;
 import at.jku.weiner.cpreprocess.cPreprocess.Model;
 import at.jku.weiner.cpreprocess.cPreprocess.NewLineLine;
@@ -76,6 +77,13 @@ public class CPreprocessPackageImpl extends EPackageImpl implements CPreprocessP
    * @generated
    */
   private EClass defineDirectiveEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass identifierListEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -328,6 +336,26 @@ public class CPreprocessPackageImpl extends EPackageImpl implements CPreprocessP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getIdentifierList()
+  {
+    return identifierListEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getIdentifierList_Id()
+  {
+    return (EAttribute)identifierListEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getErrorDirective()
   {
     return errorDirectiveEClass;
@@ -428,6 +456,16 @@ public class CPreprocessPackageImpl extends EPackageImpl implements CPreprocessP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getDefineFunctionLikeMacro_List()
+  {
+    return (EReference)defineFunctionLikeMacroEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getNewLineLine()
   {
     return newLineLineEClass;
@@ -501,6 +539,9 @@ public class CPreprocessPackageImpl extends EPackageImpl implements CPreprocessP
     createEAttribute(defineDirectiveEClass, DEFINE_DIRECTIVE__ID);
     createEAttribute(defineDirectiveEClass, DEFINE_DIRECTIVE__STRING);
 
+    identifierListEClass = createEClass(IDENTIFIER_LIST);
+    createEAttribute(identifierListEClass, IDENTIFIER_LIST__ID);
+
     errorDirectiveEClass = createEClass(ERROR_DIRECTIVE);
     createEAttribute(errorDirectiveEClass, ERROR_DIRECTIVE__MSG);
 
@@ -517,6 +558,7 @@ public class CPreprocessPackageImpl extends EPackageImpl implements CPreprocessP
     defineObjectMacroEClass = createEClass(DEFINE_OBJECT_MACRO);
 
     defineFunctionLikeMacroEClass = createEClass(DEFINE_FUNCTION_LIKE_MACRO);
+    createEReference(defineFunctionLikeMacroEClass, DEFINE_FUNCTION_LIKE_MACRO__LIST);
 
     newLineLineEClass = createEClass(NEW_LINE_LINE);
 
@@ -578,6 +620,9 @@ public class CPreprocessPackageImpl extends EPackageImpl implements CPreprocessP
     initEAttribute(getDefineDirective_Id(), ecorePackage.getEString(), "id", null, 0, 1, DefineDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getDefineDirective_String(), ecorePackage.getEString(), "string", null, 0, 1, DefineDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(identifierListEClass, IdentifierList.class, "IdentifierList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getIdentifierList_Id(), ecorePackage.getEString(), "id", null, 0, -1, IdentifierList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(errorDirectiveEClass, ErrorDirective.class, "ErrorDirective", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getErrorDirective_Msg(), ecorePackage.getEString(), "msg", null, 0, 1, ErrorDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -594,6 +639,7 @@ public class CPreprocessPackageImpl extends EPackageImpl implements CPreprocessP
     initEClass(defineObjectMacroEClass, DefineObjectMacro.class, "DefineObjectMacro", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(defineFunctionLikeMacroEClass, DefineFunctionLikeMacro.class, "DefineFunctionLikeMacro", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDefineFunctionLikeMacro_List(), this.getIdentifierList(), null, "list", null, 0, 1, DefineFunctionLikeMacro.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(newLineLineEClass, NewLineLine.class, "NewLineLine", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

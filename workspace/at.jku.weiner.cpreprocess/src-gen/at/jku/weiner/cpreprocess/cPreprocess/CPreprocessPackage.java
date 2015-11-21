@@ -225,6 +225,34 @@ public interface CPreprocessPackage extends EPackage
   int DEFINE_DIRECTIVE_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link at.jku.weiner.cpreprocess.cPreprocess.impl.IdentifierListImpl <em>Identifier List</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.cpreprocess.cPreprocess.impl.IdentifierListImpl
+   * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getIdentifierList()
+   * @generated
+   */
+  int IDENTIFIER_LIST = 6;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IDENTIFIER_LIST__ID = 0;
+
+  /**
+   * The number of structural features of the '<em>Identifier List</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IDENTIFIER_LIST_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link at.jku.weiner.cpreprocess.cPreprocess.impl.ErrorDirectiveImpl <em>Error Directive</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -232,7 +260,7 @@ public interface CPreprocessPackage extends EPackage
    * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getErrorDirective()
    * @generated
    */
-  int ERROR_DIRECTIVE = 6;
+  int ERROR_DIRECTIVE = 7;
 
   /**
    * The feature id for the '<em><b>Msg</b></em>' attribute.
@@ -260,7 +288,7 @@ public interface CPreprocessPackage extends EPackage
    * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getUnDefineDirective()
    * @generated
    */
-  int UN_DEFINE_DIRECTIVE = 7;
+  int UN_DEFINE_DIRECTIVE = 8;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -288,7 +316,7 @@ public interface CPreprocessPackage extends EPackage
    * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getPragmaDirective()
    * @generated
    */
-  int PRAGMA_DIRECTIVE = 8;
+  int PRAGMA_DIRECTIVE = 9;
 
   /**
    * The number of structural features of the '<em>Pragma Directive</em>' class.
@@ -307,7 +335,7 @@ public interface CPreprocessPackage extends EPackage
    * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getNullDirective()
    * @generated
    */
-  int NULL_DIRECTIVE = 9;
+  int NULL_DIRECTIVE = 10;
 
   /**
    * The number of structural features of the '<em>Null Directive</em>' class.
@@ -326,7 +354,7 @@ public interface CPreprocessPackage extends EPackage
    * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getPreprocessorDirectives()
    * @generated
    */
-  int PREPROCESSOR_DIRECTIVES = 10;
+  int PREPROCESSOR_DIRECTIVES = 11;
 
   /**
    * The feature id for the '<em><b>Directive</b></em>' containment reference.
@@ -354,7 +382,7 @@ public interface CPreprocessPackage extends EPackage
    * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getDefineObjectMacro()
    * @generated
    */
-  int DEFINE_OBJECT_MACRO = 11;
+  int DEFINE_OBJECT_MACRO = 12;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -391,7 +419,7 @@ public interface CPreprocessPackage extends EPackage
    * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getDefineFunctionLikeMacro()
    * @generated
    */
-  int DEFINE_FUNCTION_LIKE_MACRO = 12;
+  int DEFINE_FUNCTION_LIKE_MACRO = 13;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -412,13 +440,22 @@ public interface CPreprocessPackage extends EPackage
   int DEFINE_FUNCTION_LIKE_MACRO__STRING = DEFINE_DIRECTIVE__STRING;
 
   /**
+   * The feature id for the '<em><b>List</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEFINE_FUNCTION_LIKE_MACRO__LIST = DEFINE_DIRECTIVE_FEATURE_COUNT + 0;
+
+  /**
    * The number of structural features of the '<em>Define Function Like Macro</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DEFINE_FUNCTION_LIKE_MACRO_FEATURE_COUNT = DEFINE_DIRECTIVE_FEATURE_COUNT + 0;
+  int DEFINE_FUNCTION_LIKE_MACRO_FEATURE_COUNT = DEFINE_DIRECTIVE_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.cpreprocess.cPreprocess.impl.NewLineLineImpl <em>New Line Line</em>}' class.
@@ -428,7 +465,7 @@ public interface CPreprocessPackage extends EPackage
    * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getNewLineLine()
    * @generated
    */
-  int NEW_LINE_LINE = 13;
+  int NEW_LINE_LINE = 14;
 
   /**
    * The number of structural features of the '<em>New Line Line</em>' class.
@@ -447,7 +484,7 @@ public interface CPreprocessPackage extends EPackage
    * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getCode()
    * @generated
    */
-  int CODE = 14;
+  int CODE = 15;
 
   /**
    * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -595,6 +632,27 @@ public interface CPreprocessPackage extends EPackage
   EAttribute getDefineDirective_String();
 
   /**
+   * Returns the meta object for class '{@link at.jku.weiner.cpreprocess.cPreprocess.IdentifierList <em>Identifier List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Identifier List</em>'.
+   * @see at.jku.weiner.cpreprocess.cPreprocess.IdentifierList
+   * @generated
+   */
+  EClass getIdentifierList();
+
+  /**
+   * Returns the meta object for the attribute list '{@link at.jku.weiner.cpreprocess.cPreprocess.IdentifierList#getId <em>Id</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Id</em>'.
+   * @see at.jku.weiner.cpreprocess.cPreprocess.IdentifierList#getId()
+   * @see #getIdentifierList()
+   * @generated
+   */
+  EAttribute getIdentifierList_Id();
+
+  /**
    * Returns the meta object for class '{@link at.jku.weiner.cpreprocess.cPreprocess.ErrorDirective <em>Error Directive</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -696,6 +754,17 @@ public interface CPreprocessPackage extends EPackage
    * @generated
    */
   EClass getDefineFunctionLikeMacro();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.cpreprocess.cPreprocess.DefineFunctionLikeMacro#getList <em>List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>List</em>'.
+   * @see at.jku.weiner.cpreprocess.cPreprocess.DefineFunctionLikeMacro#getList()
+   * @see #getDefineFunctionLikeMacro()
+   * @generated
+   */
+  EReference getDefineFunctionLikeMacro_List();
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.cpreprocess.cPreprocess.NewLineLine <em>New Line Line</em>}'.
@@ -860,6 +929,24 @@ public interface CPreprocessPackage extends EPackage
     EAttribute DEFINE_DIRECTIVE__STRING = eINSTANCE.getDefineDirective_String();
 
     /**
+     * The meta object literal for the '{@link at.jku.weiner.cpreprocess.cPreprocess.impl.IdentifierListImpl <em>Identifier List</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.cpreprocess.cPreprocess.impl.IdentifierListImpl
+     * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getIdentifierList()
+     * @generated
+     */
+    EClass IDENTIFIER_LIST = eINSTANCE.getIdentifierList();
+
+    /**
+     * The meta object literal for the '<em><b>Id</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute IDENTIFIER_LIST__ID = eINSTANCE.getIdentifierList_Id();
+
+    /**
      * The meta object literal for the '{@link at.jku.weiner.cpreprocess.cPreprocess.impl.ErrorDirectiveImpl <em>Error Directive</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -952,6 +1039,14 @@ public interface CPreprocessPackage extends EPackage
      * @generated
      */
     EClass DEFINE_FUNCTION_LIKE_MACRO = eINSTANCE.getDefineFunctionLikeMacro();
+
+    /**
+     * The meta object literal for the '<em><b>List</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DEFINE_FUNCTION_LIKE_MACRO__LIST = eINSTANCE.getDefineFunctionLikeMacro_List();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.cpreprocess.cPreprocess.impl.NewLineLineImpl <em>New Line Line</em>}' class.

@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet
 import org.eclipse.emf.common.util.URI
 import at.jku.weiner.cpreprocess.cPreprocess.GroupOpt
 import at.jku.weiner.cpreprocess.utils.IncludeUtils
+import at.jku.weiner.cpreprocess.cPreprocess.DefineObjectMacro
 
 /**
  * Generates code from your model files on save.
@@ -108,7 +109,12 @@ class CPreprocessGenerator implements IGenerator {
 	}
 	
 	def String outputFor(DefineDirective obj) {
-		DefinitionTable.add(obj.id, obj.string);
+		if (obj instanceof DefineObjectMacro) {
+			DefinitionTable.add(obj.id, obj.string);
+		}
+		else {
+			DefinitionTable.addFunctionMacro(obj.id, obj.string);
+		}
 		return "";
 	}
 	

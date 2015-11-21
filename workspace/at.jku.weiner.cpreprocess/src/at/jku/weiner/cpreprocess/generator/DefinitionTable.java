@@ -33,4 +33,12 @@ public final class DefinitionTable {
 		}
 	}
 
+	public static void addFunctionMacro(final String id,
+			final String replaceWith) {
+		final String key = DefinitionTable.resolve(id);
+		final String val = DefinitionTable.resolve(replaceWith);
+		final DefinitionMacro macro = new DefinitionFunctionMacro(key, val);
+		DefinitionTable.table.put(key, macro);
+	}
+
 }

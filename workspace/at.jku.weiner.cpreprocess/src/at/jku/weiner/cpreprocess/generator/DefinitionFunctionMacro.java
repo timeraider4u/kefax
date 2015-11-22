@@ -18,7 +18,7 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 			final IdentifierList list) {
 		this.idList = list;
 		this.list = this.getList(list);
-		this.key = key + "(";
+		this.key = key;
 		this.value = this.getValue(value);
 	}
 
@@ -38,44 +38,48 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 
 	@Override
 	public String resolve(final String code) {
+		if (this.list == null) {
+			return this.resolveZeroArguments(code);
+		}
+		return this.resolveForParameters(code);
+
+	}
+
+	private String resolveZeroArguments(final String code) {
+		final String result = code.replaceAll(this.key + "\\s*\\([\\s]*\\)",
+				this.value);
+		return result;
+	}
+
+	private String resolveForParameters(final String code) {
 		final StringBuffer result = new StringBuffer("");
-		final Pattern pattern = Pattern.compile(this.key + ".*)");
+		final Pattern pattern = Pattern.compile(this.key + "\\s*\\(.*\\)");
 		final Matcher matcher = pattern.matcher(code);
 
 		int start = 0;
 		while (matcher.find()) {
 			final int tempStart = matcher.start();
-			final int tempEnd = matcher.end() - 1;
+			final int tempEnd = matcher.end();
 			result.append(code.substring(start, tempStart));
 			start = tempEnd;
 			final String match = code.substring(tempStart, tempEnd);
-			final String replaceMatch = this.replaceMatch(code, match);
+			System.out.println("match='" + match + "'");
+			final String replaceMatch = this.resolveForMatch(code, match);
 			result.append(replaceMatch);
 		}
+		System.out.println("");
 		result.append(code.substring(start));
 		return result.toString();
 	}
 
-	private String replaceMatch(final String code, final String match) {
-		if (this.list == null) {
-			return this.resolveZeroArguments(code, match);
-		}
-		return this.resolveForParameters(code, match);
-	}
-
-	private String resolveZeroArguments(final String code, final String match) {
-		final String result = match.replace(this.key + ")", this.value);
-		return result;
-	}
-
-	private String resolveForParameters(final String code, final String match) {
+	private String resolveForMatch(final String code, final String match) {
 		// final Pattern pattern = Pattern.compile(this.key + ".*)");
 		// final Matcher matcher = pattern.matcher(code);
 		String result = this.value;
 		final String inner = this.getInner(match);
 		int nextIndex = 0;
 		int currIndex = 0;
-		// System.out.println("inner='" + inner + "'");
+		System.out.println("inner='" + inner + "'");
 		for (final String param : this.list) {
 			nextIndex = inner.indexOf(",", currIndex);
 			if ((nextIndex < 0)) {
@@ -83,15 +87,14 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 			}
 			final String paramValue = inner.substring(currIndex, nextIndex)
 					.trim();
-			// System.out.println("currIndex='" + currIndex + "'");
-			// System.out.println("nextIndex='" + nextIndex + "'");
-			// System.out.println("param='" + param + "'");
-			// System.out.println("paramValue='" + paramValue + "'");
+			System.out.println("currIndex='" + currIndex + "'");
+			System.out.println("nextIndex='" + nextIndex + "'");
+			System.out.println("param='" + param + "'");
+			System.out.println("paramValue='" + paramValue + "'");
 			result = this.replaceAndIgnoreQuotes(result, param, paramValue);
-			result = result.replaceAll("([^\"]?)" + param, "$1" + paramValue);
 			currIndex = nextIndex + 1;
 		}
-		// System.out.println("-----------");
+		System.out.println("-----------");
 		return result;
 	}
 
@@ -100,23 +103,26 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 	 * at the end
 	 */
 	private String getInner(final String match) {
-		final int start = this.key.length();
-		final String result = match.substring(start, match.length() - 1);
+		final int start = match.indexOf("(");
+		final String result = match.substring(start + 1, match.length() - 1);
 		return result;
 	}
 
 	private String replaceAndIgnoreQuotes(final String string,
 			final String param, final String paramValue) {
-		final StringBuffer result = new StringBuffer("");
-		int start = string.indexOf("\"");
-		final Pattern pattern = Pattern.compile("[^\\]\"");
-		final Matcher matcher = pattern.matcher(string);
-		while (matcher.find()) {
-			final int tempStart = matcher.start();
-			start = string.indexOf("\"", start + 1);
-		}
-		result.append(string.substring(start));
-		return result.toString();
+		// final StringBuffer result = new StringBuffer("");
+		// final Pattern pattern = Pattern.compile("[^\\\\][\\\"]");
+		// final Matcher matcher = pattern.matcher(string);
+		// int start = 0;
+		// while (matcher.find()) {
+		// final int tempStart = matcher.start();
+		// final int tempEnd = matcher.end() - 1;
+		// result.append(string.substring(start, tempStart));
+		// start = tempEnd;
+		// }
+		// result.append(string.substring(start));
+		// return result.toString();
+		return string.replace(param, paramValue);
 	}
 
 }

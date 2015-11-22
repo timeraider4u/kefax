@@ -49,6 +49,7 @@ import at.jku.weiner.cpreprocess.cPreprocess.PreprocessorDirectives;
 import at.jku.weiner.cpreprocess.cPreprocess.DefineDirective;
 import at.jku.weiner.cpreprocess.cPreprocess.NewLineLine;
 import at.jku.weiner.cpreprocess.cPreprocess.Code;
+import at.jku.weiner.cpreprocess.cPreprocess.Code;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(CPreprocessInjectorProvider.class)
@@ -116,6 +117,15 @@ public class Test0019_SimpleFunctionMacro {
 				"RULE_RPAREN", 
 				"RULE_SPECIAL", 
 				"RULE_NEWLINE", 
+				"RULE_ID", 
+				"RULE_WS", 
+				"RULE_ID", 
+				"RULE_WS", 
+				"RULE_LPAREN", 
+				"RULE_WS", 
+				"RULE_RPAREN", 
+				"RULE_SPECIAL", 
+				"RULE_NEWLINE", 
 				};
 			//final List<Token> actual = testHelper.getTokens(text);
 			//testHelper.outputTokens(text);
@@ -152,7 +162,7 @@ public class Test0019_SimpleFunctionMacro {
 		final EList<? extends EObject> Lines_2_list = GroupOpt_2_Var
 		.getLines();
 		Assert.assertNotNull(Lines_2_list);
-		Assert.assertEquals(3, Lines_2_list.size());
+		Assert.assertEquals(4, Lines_2_list.size());
 		//2
 		final PreprocessorDirectives PreprocessorDirectives_3_Var
 		 = (PreprocessorDirectives)Lines_2_list.get(0);
@@ -179,6 +189,13 @@ public class Test0019_SimpleFunctionMacro {
 		Assert.assertNotNull(Code_6_Var
 		);
 		Assert.assertEquals("void halt();", Code_6_Var
+		.getCode());
+		//6
+		final Code Code_7_Var
+		 = (Code)Lines_2_list.get(3);
+		Assert.assertNotNull(Code_7_Var
+		);
+		Assert.assertEquals("void halt (	);", Code_7_Var
 		.getCode());
 	}
 	

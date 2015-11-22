@@ -42,7 +42,6 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 			return this.resolveZeroArguments(code);
 		}
 		return this.resolveForParameters(code);
-
 	}
 
 	private String resolveZeroArguments(final String code) {
@@ -85,8 +84,8 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 			if ((nextIndex < 0)) {
 				nextIndex = inner.length();
 			}
-			final String paramValue = inner.substring(currIndex, nextIndex)
-					.trim();
+			final String paramValue = this.getParamValue(inner, currIndex,
+					nextIndex);
 			System.out.println("currIndex='" + currIndex + "'");
 			System.out.println("nextIndex='" + nextIndex + "'");
 			System.out.println("param='" + param + "'");
@@ -105,6 +104,13 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 	private String getInner(final String match) {
 		final int start = match.indexOf("(");
 		final String result = match.substring(start + 1, match.length() - 1);
+		return result;
+	}
+
+	private String getParamValue(final String inner, final int currIndex,
+			final int nextIndex) {
+		final String paramValue = inner.substring(currIndex, nextIndex).trim();
+		final String result = DefinitionTable.resolve(paramValue);
 		return result;
 	}
 

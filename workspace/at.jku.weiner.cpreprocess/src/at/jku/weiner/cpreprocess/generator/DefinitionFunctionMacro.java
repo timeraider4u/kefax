@@ -116,19 +116,44 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 
 	private String replaceAndIgnoreQuotes(final String string,
 			final String param, final String paramValue) {
-		// final StringBuffer result = new StringBuffer("");
-		// final Pattern pattern = Pattern.compile("[^\\\\][\\\"]");
-		// final Matcher matcher = pattern.matcher(string);
-		// int start = 0;
-		// while (matcher.find()) {
-		// final int tempStart = matcher.start();
-		// final int tempEnd = matcher.end() - 1;
-		// result.append(string.substring(start, tempStart));
-		// start = tempEnd;
-		// }
-		// result.append(string.substring(start));
-		// return result.toString();
-		return string.replace(param, paramValue);
+		final StringBuffer result = new StringBuffer("");
+		final String regex = "\"(?:\\\\\"|[^\"])*?\"";
+		final Pattern pattern = Pattern
+				// .compile("[^\\\\]?[\\\"].*[^\\\\]?[\\\"].*");
+				.compile(regex);
+		final Matcher matcher = pattern.matcher(string);
+		int start = 0;
+		while (matcher.find()) {
+			final int tempStart = this.getNextMatcherStart(string,
+					matcher.start());
+			final int tempEnd = matcher.end();
+			final String match = string.substring(tempStart, tempEnd);
+
+			System.out.println("mymatch='" + match + "'");
+			final String str = string.substring(start, tempStart);
+			final String str2 = str.replace(param, paramValue);
+			System.out.println("str='" + str + "'");
+			System.out.println("str2='" + str2 + "'");
+			result.append(str2);
+			result.append(match);
+			start = tempEnd;
+		}
+		final String str = string.substring(start);
+		final String str2 = str.replace(param, paramValue);
+		System.out.println("str-2='" + str + "'");
+		System.out.println("str2-2='" + str2 + "'");
+		result.append(str2);
+		return result.toString();
+		// return string.replace(param, paramValue);
+	}
+
+	private int getNextMatcherStart(final String string, final int start) {
+		final char c = string.charAt(start);
+		final boolean firstPartIsQuote = (c == '"');
+		if (firstPartIsQuote) {
+			return start;
+		}
+		return start + 1;
 	}
 
 }

@@ -148,6 +148,19 @@ public class Test0025_FunctionMacroTwoArguments {
 				"RULE_WS", 
 				"RULE_SPECIAL", 
 				"RULE_RPAREN", 
+				"RULE_WS", 
+				"RULE_SPECIAL", 
+				"RULE_WS", 
+				"RULE_ID", 
+				"RULE_LPAREN", 
+				"RULE_WS", 
+				"RULE_SPECIAL", 
+				"RULE_WS", 
+				"RULE_COMMA", 
+				"RULE_WS", 
+				"RULE_SPECIAL", 
+				"RULE_WS", 
+				"RULE_RPAREN", 
 				"RULE_SPECIAL", 
 				"RULE_NEWLINE", 
 				"RULE_ID", 
@@ -279,7 +292,7 @@ public class Test0025_FunctionMacroTwoArguments {
 		 = (Code)Lines_2_list.get(1);
 		Assert.assertNotNull(Code_6_Var
 		);
-		Assert.assertEquals("int a = MIN(, 5);", Code_6_Var
+		Assert.assertEquals("int a = MIN(, 5) + MIN( 1 , 2 );", Code_6_Var
 		.getCode());
 		//6
 		final Code Code_7_Var

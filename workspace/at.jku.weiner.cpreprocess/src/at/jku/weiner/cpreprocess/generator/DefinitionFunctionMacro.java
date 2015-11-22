@@ -62,11 +62,11 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 			result.append(code.substring(start, tempStart));
 			start = tempEnd;
 			final String match = code.substring(tempStart, tempEnd);
-			System.out.println("match='" + match + "'");
+			// System.out.println("match='" + match + "'");
 			final String replaceMatch = this.resolveForMatch(code, match);
 			result.append(replaceMatch);
 		}
-		System.out.println("");
+		// System.out.println("");
 		result.append(code.substring(start));
 		return result.toString();
 	}
@@ -78,7 +78,7 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 		final String inner = this.getInner(match);
 		int nextIndex = 0;
 		int currIndex = 0;
-		System.out.println("inner='" + inner + "'");
+		// System.out.println("inner='" + inner + "'");
 		for (final String param : this.list) {
 			nextIndex = inner.indexOf(",", currIndex);
 			if ((nextIndex < 0)) {
@@ -86,14 +86,14 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 			}
 			final String paramValue = this.getParamValue(inner, currIndex,
 					nextIndex);
-			System.out.println("currIndex='" + currIndex + "'");
-			System.out.println("nextIndex='" + nextIndex + "'");
-			System.out.println("param='" + param + "'");
-			System.out.println("paramValue='" + paramValue + "'");
+			// System.out.println("currIndex='" + currIndex + "'");
+			// System.out.println("nextIndex='" + nextIndex + "'");
+			// System.out.println("param='" + param + "'");
+			// System.out.println("paramValue='" + paramValue + "'");
 			result = this.replaceAndIgnoreQuotes(result, param, paramValue);
 			currIndex = nextIndex + 1;
 		}
-		System.out.println("-----------");
+		// System.out.println("-----------");
 		return result;
 	}
 
@@ -118,9 +118,7 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 			final String param, final String paramValue) {
 		final StringBuffer result = new StringBuffer("");
 		final String regex = "\"(?:\\\\\"|[^\"])*?\"";
-		final Pattern pattern = Pattern
-				// .compile("[^\\\\]?[\\\"].*[^\\\\]?[\\\"].*");
-				.compile(regex);
+		final Pattern pattern = Pattern.compile(regex);
 		final Matcher matcher = pattern.matcher(string);
 		int start = 0;
 		while (matcher.find()) {
@@ -129,19 +127,19 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 			final int tempEnd = matcher.end();
 			final String match = string.substring(tempStart, tempEnd);
 
-			System.out.println("mymatch='" + match + "'");
+			// System.out.println("mymatch='" + match + "'");
 			final String str = string.substring(start, tempStart);
 			final String str2 = str.replace(param, paramValue);
-			System.out.println("str='" + str + "'");
-			System.out.println("str2='" + str2 + "'");
+			// System.out.println("str='" + str + "'");
+			// System.out.println("str2='" + str2 + "'");
 			result.append(str2);
 			result.append(match);
 			start = tempEnd;
 		}
 		final String str = string.substring(start);
 		final String str2 = str.replace(param, paramValue);
-		System.out.println("str-2='" + str + "'");
-		System.out.println("str2-2='" + str2 + "'");
+		// System.out.println("str-2='" + str + "'");
+		// System.out.println("str2-2='" + str2 + "'");
 		result.append(str2);
 		return result.toString();
 		// return string.replace(param, paramValue);

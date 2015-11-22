@@ -38,111 +38,129 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 
 	@Override
 	public String resolve(final String code) {
-		if (this.list == null) {
-			return this.resolveZeroArguments(code);
-		}
-		return this.resolveForParameters(code);
-	}
-
-	private String resolveZeroArguments(final String code) {
-		final String result = code.replaceAll(this.key + "\\s*\\([\\s]*\\)",
-				this.value);
-		return result;
-	}
-
-	private String resolveForParameters(final String code) {
 		final StringBuffer result = new StringBuffer("");
-		final Pattern pattern = Pattern.compile(this.key + "\\s*\\(.*\\)");
-		final Matcher matcher = pattern.matcher(code);
-
-		int start = 0;
-		while (matcher.find()) {
-			final int tempStart = matcher.start();
-			final int tempEnd = matcher.end();
-			result.append(code.substring(start, tempStart));
-			start = tempEnd;
-			final String match = code.substring(tempStart, tempEnd);
-			// System.out.println("match='" + match + "'");
-			final String replaceMatch = this.resolveForMatch(code, match);
-			result.append(replaceMatch);
+		if (this.list == null) {
+			this.resolveZeroArguments(result, code);
+		} else {
+			this.resolveForParameters(result, code);
 		}
-		// System.out.println("");
-		result.append(code.substring(start));
 		return result.toString();
 	}
 
-	private String resolveForMatch(final String code, final String match) {
-		// final Pattern pattern = Pattern.compile(this.key + ".*)");
-		// final Matcher matcher = pattern.matcher(code);
-		String result = this.value;
-		final String inner = this.getInner(match);
-		int nextIndex = 0;
+	private void resolveZeroArguments(final StringBuffer result,
+			final String code) {
+		final String newCode = code.replaceAll(this.key + "\\s*\\([\\s]*\\)",
+				this.value);
+		result.append(newCode);
+	}
+
+	private void resolveForParameters(final StringBuffer result,
+			final String code) {
+		System.out.println("resolveForParameters='" + code + "'");
+		final Pattern pattern = Pattern.compile(this.key + "\\s*\\(");
+		final Matcher matcher = pattern.matcher(code);
+
 		int currIndex = 0;
-		// System.out.println("inner='" + inner + "'");
-		for (final String param : this.list) {
-			nextIndex = inner.indexOf(",", currIndex);
-			if ((nextIndex < 0)) {
-				nextIndex = inner.length();
-			}
-			final String paramValue = this.getParamValue(inner, currIndex,
-					nextIndex);
-			// System.out.println("currIndex='" + currIndex + "'");
-			// System.out.println("nextIndex='" + nextIndex + "'");
-			// System.out.println("param='" + param + "'");
-			// System.out.println("paramValue='" + paramValue + "'");
-			result = this.replaceAndIgnoreQuotes(result, param, paramValue);
+		while (matcher.find(currIndex)) {
+			final int matchStart = matcher.start();
+			final int matchEnd = matcher.end();
+			final String previous = code.substring(currIndex, matchStart);
+			System.out.println("previous='" + previous + "'");
+			result.append(previous);
+			final int nextIndex = this.replaceAllParams(result, code, matchEnd);
+			System.out.println("nextIndex='" + nextIndex + "'");
 			currIndex = nextIndex + 1;
 		}
-		// System.out.println("-----------");
+		final String lastPart = code.substring(currIndex);
+		System.out.println("lastPart='" + lastPart + "'");
+		result.append(lastPart);
+		System.out.println("");
+	}
+
+	private int replaceAllParams(final StringBuffer result, final String code,
+			final int startIndex) {
+		int currIndex = startIndex;
+		int paramIndex = 0;
+		int indexComma = code.indexOf(",", startIndex);
+		int indexLParen = code.indexOf("(", startIndex);
+		int indexRParen = code.indexOf(")", startIndex);
+		System.out.println("this.value='" + this.value + "'");
+		String paramValue = this.value;
+		int parentheses = 0;
+		while (indexComma >= 0) {
+			while (indexComma > indexLParen) {
+				parentheses++;
+				currIndex = indexRParen + 1;
+				indexComma = code.indexOf(",", currIndex);
+				indexLParen = code.indexOf("(", currIndex);
+				indexRParen = code.indexOf(")", currIndex);
+			}
+
+			paramValue = this.replaceSingleParam(code, currIndex, indexComma,
+					paramIndex, paramValue);
+
+			currIndex = indexComma + 1;
+			indexComma = code.indexOf(",", currIndex);
+			indexLParen = code.indexOf("(", currIndex);
+			indexRParen = code.indexOf(")", currIndex);
+
+			paramIndex++;
+
+		}
+		paramValue = this.replaceSingleParam(code, currIndex, indexRParen,
+				paramIndex, paramValue);
+		result.append(paramValue);
+		return indexRParen;
+	}
+
+	private String replaceSingleParam(final String code, final int startIndex,
+			final int endIndex, final int paramIndex, final String paramValue) {
+		final String param = this.list.get(paramIndex);
+		final String paramCode = this.getParamCode(code, startIndex, endIndex);
+		System.out.println("paramCode='" + paramCode + "'");
+		System.out.println("param='" + param + "'");
+		System.out.println("paramValue='" + paramValue + "'");
+		final String result = this.replaceAndIgnoreQuotes(paramCode, param,
+				paramValue);
 		return result;
 	}
 
-	/***
-	 * Remove 'id', any whitespace characters and '(' at the start. Remove ')'
-	 * at the end
-	 */
-	private String getInner(final String match) {
-		final int start = match.indexOf("(");
-		final String result = match.substring(start + 1, match.length() - 1);
+	private String getParamCode(final String code, final int startIndex,
+			final int endIndex) {
+		final String paramCodeTemp = code.substring(startIndex, endIndex)
+				.trim();
+		final String result = DefinitionTable.resolve(paramCodeTemp);
 		return result;
 	}
 
-	private String getParamValue(final String inner, final int currIndex,
-			final int nextIndex) {
-		final String paramValue = inner.substring(currIndex, nextIndex).trim();
-		final String result = DefinitionTable.resolve(paramValue);
-		return result;
-	}
-
-	private String replaceAndIgnoreQuotes(final String string,
+	private String replaceAndIgnoreQuotes(final String paramCode,
 			final String param, final String paramValue) {
 		final StringBuffer result = new StringBuffer("");
 		final String regex = "\"(?:\\\\\"|[^\"])*?\"";
 		final Pattern pattern = Pattern.compile(regex);
-		final Matcher matcher = pattern.matcher(string);
+		final Matcher matcher = pattern.matcher(paramValue);
 		int start = 0;
 		while (matcher.find()) {
-			final int tempStart = this.getNextMatcherStart(string,
+			final int tempStart = this.getNextMatcherStart(paramValue,
 					matcher.start());
 			final int tempEnd = matcher.end();
-			final String match = string.substring(tempStart, tempEnd);
+			final String match = paramValue.substring(tempStart, tempEnd);
 
 			// System.out.println("mymatch='" + match + "'");
-			final String str = string.substring(start, tempStart);
-			final String str2 = str.replace(param, paramValue);
+			final String str = paramValue.substring(start, tempStart);
+			final String str2 = str.replace(param, paramCode);
 			// System.out.println("str='" + str + "'");
 			// System.out.println("str2='" + str2 + "'");
 			result.append(str2);
 			result.append(match);
 			start = tempEnd;
 		}
-		final String str = string.substring(start);
-		final String str2 = str.replace(param, paramValue);
+		final String str = paramValue.substring(start);
+		final String str2 = str.replace(param, paramCode);
 		// System.out.println("str-2='" + str + "'");
-		// System.out.println("str2-2='" + str2 + "'");
+		System.out.println("str2-2='" + str2 + "'");
 		result.append(str2);
 		return result.toString();
-		// return string.replace(param, paramValue);
 	}
 
 	private int getNextMatcherStart(final String string, final int start) {

@@ -68,6 +68,7 @@ import at.jku.weiner.cpreprocess.cPreprocess.Code;
 import at.jku.weiner.cpreprocess.cPreprocess.Code;
 import at.jku.weiner.cpreprocess.cPreprocess.Code;
 import at.jku.weiner.cpreprocess.cPreprocess.Code;
+import at.jku.weiner.cpreprocess.cPreprocess.Code;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(CPreprocessInjectorProvider.class)
@@ -378,6 +379,49 @@ public class Test0027_FunctionMacroMultipleArguments {
 				"RULE_RPAREN", 
 				"RULE_SPECIAL", 
 				"RULE_NEWLINE", 
+				"RULE_ID", 
+				"RULE_WS", 
+				"RULE_ID", 
+				"RULE_WS", 
+				"RULE_SPECIAL", 
+				"RULE_WS", 
+				"RULE_ID", 
+				"RULE_LPAREN", 
+				"RULE_RPAREN", 
+				"RULE_WS", 
+				"RULE_SPECIAL", 
+				"RULE_WS", 
+				"RULE_LPAREN", 
+				"RULE_ID", 
+				"RULE_LPAREN", 
+				"RULE_ID", 
+				"RULE_RPAREN", 
+				"RULE_RPAREN", 
+				"RULE_WS", 
+				"RULE_SPECIAL", 
+				"RULE_WS", 
+				"RULE_ID", 
+				"RULE_LPAREN", 
+				"RULE_ID", 
+				"RULE_COMMA", 
+				"RULE_WS", 
+				"RULE_ID", 
+				"RULE_RPAREN", 
+				"RULE_WS", 
+				"RULE_SPECIAL", 
+				"RULE_WS", 
+				"RULE_ID", 
+				"RULE_LPAREN", 
+				"RULE_ID", 
+				"RULE_COMMA", 
+				"RULE_WS", 
+				"RULE_ID", 
+				"RULE_COMMA", 
+				"RULE_WS", 
+				"RULE_ID", 
+				"RULE_RPAREN", 
+				"RULE_SPECIAL", 
+				"RULE_NEWLINE", 
 				};
 			//final List<Token> actual = testHelper.getTokens(text);
 			//testHelper.outputTokens(text);
@@ -414,7 +458,7 @@ public class Test0027_FunctionMacroMultipleArguments {
 		final EList<? extends EObject> Lines_2_list = GroupOpt_2_Var
 		.getLines();
 		Assert.assertNotNull(Lines_2_list);
-		Assert.assertEquals(16, Lines_2_list.size());
+		Assert.assertEquals(17, Lines_2_list.size());
 		//2
 		final PreprocessorDirectives PreprocessorDirectives_3_Var
 		 = (PreprocessorDirectives)Lines_2_list.get(0);
@@ -582,6 +626,13 @@ public class Test0027_FunctionMacroMultipleArguments {
 		Assert.assertNotNull(Code_25_Var
 		);
 		Assert.assertEquals("int j = foo(1,(1),(1,1));", Code_25_Var
+		.getCode());
+		//25
+		final Code Code_26_Var
+		 = (Code)Lines_2_list.get(16);
+		Assert.assertNotNull(Code_26_Var
+		);
+		Assert.assertEquals("int k = foo() + (foo(a)) - foo(foo, bar) * foo(foo, bar, baaar);", Code_26_Var
 		.getCode());
 	}
 	

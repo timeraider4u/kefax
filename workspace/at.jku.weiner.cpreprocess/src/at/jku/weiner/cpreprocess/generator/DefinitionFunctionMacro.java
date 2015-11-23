@@ -1,5 +1,7 @@
 package at.jku.weiner.cpreprocess.generator;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -80,22 +82,32 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 
 	private int replaceAllParams(final StringBuffer result, final String code,
 			final int startIndex) {
-		final MacroParentheseHelper helper = new MacroParentheseHelper(code,
-				startIndex);
-		int paramIndex = 0;
+
 		int currIndex = startIndex;
 		String paramValue = this.value;
+		// build up parameters list from code section
+		final MacroParentheseHelper helper = new MacroParentheseHelper(code,
+				startIndex);
+		final List<String> replaceParams = new ArrayList<String>();
 		while (helper.hasMoreParams()) {
 			final String nextParam = helper.getNextParam();
+			replaceParams.add(nextParam);
+			currIndex = helper.getIndex();
+		}
+		// check how many parameters
+		if (replaceParams.size() != this.list.size()) {
+			final String original = code.substring(startIndex, currIndex);
+			result.append(original);
+			return currIndex;
+		}
+		// iterate all parameters
+		for (int paramIndex = 0; paramIndex < replaceParams.size(); paramIndex++) {
+			final String nextParam = replaceParams.get(paramIndex);
 			final String paramCode = this.getParamCode(nextParam);
-			final int nextIndex = helper.getIndex();
-
 			paramValue = this.replaceSingleParam(code, paramCode, paramIndex,
 					paramValue);
-
-			currIndex = nextIndex;
-			paramIndex++;
 		}
+		// ending
 		result.append(paramValue);
 		return currIndex;
 	}

@@ -14,3 +14,4 @@ int g = foo( (a,(b)));
 int h = foo( (0,b),bar);
 int i = foo(1, (bar,b));
 int j = foo(1,(1),(1,1));
+int k = foo() + (foo(a)) - foo(foo, bar) * foo(foo, bar, baaar);

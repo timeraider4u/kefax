@@ -61,7 +61,13 @@ lexer-tokens
 	ID WS ID WS SPECIAL WS
 		ID LPAREN SPECIAL COMMA LPAREN SPECIAL RPAREN COMMA LPAREN SPECIAL COMMA SPECIAL RPAREN RPAREN
 		SPECIAL NEWLINE
-	
+	// k
+	ID WS ID WS SPECIAL WS
+		ID LPAREN RPAREN WS SPECIAL WS
+		LPAREN ID LPAREN ID RPAREN RPAREN WS SPECIAL WS
+		ID LPAREN ID COMMA WS ID RPAREN WS SPECIAL WS
+		ID LPAREN ID COMMA WS ID COMMA WS ID RPAREN 
+		SPECIAL NEWLINE
 //----------------------------------------------------------------------
 (Model
 	units+=
@@ -143,6 +149,9 @@ lexer-tokens
 			),
 			(Code
 				code++"int j = foo(1,(1),(1,1));"
+			),
+			(Code
+				code++"int k = foo() + (foo(a)) - foo(foo, bar) * foo(foo, bar, baaar);"
 			)
 		)
 	)

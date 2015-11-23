@@ -1,5 +1,7 @@
 package at.jku.weiner.cpreprocess.utils.macros;
 
+import at.jku.weiner.cpreprocess.utils.StringReplaceSymbolsHelper;
+
 class DefinitionObjectMacro implements DefinitionMacro {
 
 	private final String key;
@@ -31,7 +33,9 @@ class DefinitionObjectMacro implements DefinitionMacro {
 
 	@Override
 	public String resolve(final String code) {
-		return code.replace(this.key, this.value);
+		return StringReplaceSymbolsHelper.replaceAndIgnoreQuotes(code,
+				this.key, this.value);
+		// return code.replace(this.key, this.value);
 	}
 
 	@Override

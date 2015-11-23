@@ -70,7 +70,8 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 			final String previous = code.substring(currIndex, matchStart);
 			// System.out.println("previous='" + previous + "'");
 			result.append(previous);
-			final int nextIndex = this.replaceAllParams(result, code, matchEnd);
+			final int nextIndex = this.replaceAllParams(result, code,
+					matchStart, matchEnd);
 			// System.out.println("nextIndex='" + nextIndex + "'");
 			currIndex = nextIndex;
 		}
@@ -81,13 +82,13 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 	}
 
 	private int replaceAllParams(final StringBuffer result, final String code,
-			final int startIndex) {
+			final int matchStart, final int matchEnd) {
 
-		int currIndex = startIndex;
+		int currIndex = matchEnd;
 		String paramValue = this.value;
 		// build up parameters list from code section
 		final MacroParentheseHelper helper = new MacroParentheseHelper(code,
-				startIndex);
+				matchEnd);
 		final List<String> replaceParams = new ArrayList<String>();
 		while (helper.hasMoreParams()) {
 			final String nextParam = helper.getNextParam();
@@ -96,7 +97,7 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 		}
 		// check how many parameters
 		if (replaceParams.size() != this.list.size()) {
-			final String original = code.substring(startIndex, currIndex);
+			final String original = code.substring(matchStart, currIndex);
 			result.append(original);
 			return currIndex;
 		}
@@ -129,6 +130,11 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 		final String paramCodeTemp = paramCode.trim();
 		final String result = DefinitionTable.resolve(paramCodeTemp);
 		return result;
+	}
+
+	@Override
+	public String getName() {
+		return this.key;
 	}
 
 }

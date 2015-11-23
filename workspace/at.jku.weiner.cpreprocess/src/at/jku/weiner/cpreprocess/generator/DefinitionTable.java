@@ -1,38 +1,38 @@
 package at.jku.weiner.cpreprocess.generator;
 
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.ArrayList;
+import java.util.List;
 
 import at.jku.weiner.cpreprocess.cPreprocess.IdentifierList;
 
 public final class DefinitionTable {
 
-	private static final Map<String, DefinitionMacro> table = new TreeMap<String, DefinitionMacro>();
+	private static final List<DefinitionMacro> macros = new ArrayList<DefinitionMacro>();
 
 	public static void reset() {
-		DefinitionTable.table.clear();
-	}
-
-	public static void add(final String id, final String replaceWith) {
-		final String key = DefinitionTable.resolve(id);
-		final String val = DefinitionTable.resolve(replaceWith);
-		final DefinitionMacro macro = new DefinitionObjectMacro(key, val);
-		DefinitionTable.table.put(key, macro);
+		DefinitionTable.macros.clear();
 	}
 
 	public static String resolve(String code) {
-		for (final String key : DefinitionTable.table.keySet()) {
-			final DefinitionMacro macro = DefinitionTable.table.get(key);
+		for (final DefinitionMacro macro : DefinitionTable.macros) {
+			// final DefinitionMacro macro = DefinitionTable.macros.get(key);
 			code = macro.resolve(code);
 		}
 		return code;
 	}
 
-	public static void remove(final String key) {
-		// final String key = DefinitionTable.resolve(id);
-		if (DefinitionTable.table.containsKey(key)) {
-			DefinitionTable.table.remove(key);
+	public static void add(final String id, final String replaceWith) {
+		final String key = DefinitionTable.resolve(id);
+		for (int i = 0; i < DefinitionTable.macros.size(); i++) {
+			final DefinitionMacro macro = DefinitionTable.macros.get(i);
+			if (macro.getName().equals(key)) {
+				DefinitionTable.macros.remove(macro);
+			}
 		}
+
+		final String val = DefinitionTable.resolve(replaceWith);
+		final DefinitionMacro macro = new DefinitionObjectMacro(key, val);
+		DefinitionTable.macros.add(macro);
 	}
 
 	public static void addFunctionMacro(final String id,
@@ -41,7 +41,16 @@ public final class DefinitionTable {
 		final String val = DefinitionTable.resolve(replaceWith);
 		final DefinitionMacro macro = new DefinitionFunctionMacro(key, val,
 				list);
-		DefinitionTable.table.put(key, macro);
+		DefinitionTable.macros.add(macro);
+	}
+
+	public static void remove(final String key) {
+		for (int i = 0; i < DefinitionTable.macros.size(); i++) {
+			final DefinitionMacro macro = DefinitionTable.macros.get(i);
+			if (macro.getName().equals(key)) {
+				DefinitionTable.macros.remove(macro);
+			}
+		}
 	}
 
 }

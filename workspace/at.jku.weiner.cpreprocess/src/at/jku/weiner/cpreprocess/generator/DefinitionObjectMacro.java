@@ -22,4 +22,9 @@ class DefinitionObjectMacro implements DefinitionMacro {
 		return code.replace(this.key, this.value);
 	}
 
+	@Override
+	public String getName() {
+		return this.key;
+	}
+
 }

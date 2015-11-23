@@ -718,6 +718,8 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tHEX_QUAD;
 	private final TerminalRule tHEXADECIMAL_DIGIT;
 	private final TerminalRule tSPECIAL;
+	private final TerminalRule tBLOCK_COMMENT;
+	private final TerminalRule tLINE_COMMENT;
 	
 	private final Grammar grammar;
 
@@ -768,6 +770,8 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		this.tHEX_QUAD = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.HEX_QUAD");
 		this.tHEXADECIMAL_DIGIT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.HEXADECIMAL_DIGIT");
 		this.tSPECIAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.SPECIAL");
+		this.tBLOCK_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.BLOCK_COMMENT");
+		this.tLINE_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.LINE_COMMENT");
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -1095,7 +1099,7 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal WS:
-	//	SPACE | TAB | LINEBREAK;
+	//	SPACE | TAB | LINE_COMMENT | BLOCK_COMMENT | LINEBREAK;
 	public TerminalRule getWSRule() {
 		return tWS;
 	}
@@ -1154,5 +1158,17 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//	.;
 	public TerminalRule getSPECIALRule() {
 		return tSPECIAL;
+	}
+	
+	//terminal fragment BLOCK_COMMENT:
+	//	'/ *'->'* /';
+	public TerminalRule getBLOCK_COMMENTRule() {
+		return tBLOCK_COMMENT;
+	}
+	
+	//terminal fragment LINE_COMMENT:
+	//	'//' !NEWLINE*;
+	public TerminalRule getLINE_COMMENTRule() {
+		return tLINE_COMMENT;
 	}
 }

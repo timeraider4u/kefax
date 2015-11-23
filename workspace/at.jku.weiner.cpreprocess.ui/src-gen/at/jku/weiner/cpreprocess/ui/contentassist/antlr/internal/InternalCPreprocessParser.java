@@ -22,34 +22,36 @@ import java.util.Map;
 import java.util.HashMap;
 public class InternalCPreprocessParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_SPECIAL", "RULE_INCLUDE", "RULE_DEFINE", "RULE_ERROR", "RULE_PRAGMA", "RULE_LPAREN", "RULE_RPAREN", "RULE_COMMA", "RULE_WS", "RULE_HASH", "RULE_NEWLINE", "RULE_UNDEF", "RULE_LINEFEED", "RULE_CARRIAGERETURN", "RULE_BACKSLASH", "RULE_LINEBREAK", "RULE_SPACE", "RULE_TAB", "RULE_ID_NONDIGIT", "RULE_DIGIT", "RULE_NONDIGIT_LETTER", "RULE_UNIVERSAL_CHARACTER", "RULE_HEX_QUAD", "RULE_HEXADECIMAL_DIGIT"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_SPECIAL", "RULE_INCLUDE", "RULE_DEFINE", "RULE_ERROR", "RULE_PRAGMA", "RULE_LPAREN", "RULE_RPAREN", "RULE_COMMA", "RULE_WS", "RULE_HASH", "RULE_NEWLINE", "RULE_UNDEF", "RULE_LINEFEED", "RULE_CARRIAGERETURN", "RULE_BACKSLASH", "RULE_LINEBREAK", "RULE_SPACE", "RULE_TAB", "RULE_LINE_COMMENT", "RULE_BLOCK_COMMENT", "RULE_ID_NONDIGIT", "RULE_DIGIT", "RULE_NONDIGIT_LETTER", "RULE_UNIVERSAL_CHARACTER", "RULE_HEX_QUAD", "RULE_HEXADECIMAL_DIGIT"
     };
     public static final int RULE_PRAGMA=9;
     public static final int RULE_ID=4;
     public static final int RULE_NEWLINE=15;
-    public static final int RULE_ID_NONDIGIT=23;
-    public static final int RULE_NONDIGIT_LETTER=25;
+    public static final int RULE_ID_NONDIGIT=25;
+    public static final int RULE_NONDIGIT_LETTER=27;
     public static final int RULE_ERROR=8;
     public static final int RULE_COMMA=12;
     public static final int RULE_HASH=14;
     public static final int RULE_TAB=22;
     public static final int RULE_UNDEF=16;
     public static final int EOF=-1;
-    public static final int RULE_HEXADECIMAL_DIGIT=28;
+    public static final int RULE_HEXADECIMAL_DIGIT=30;
     public static final int RULE_LINEBREAK=20;
     public static final int RULE_DEFINE=7;
     public static final int RULE_SPECIAL=5;
     public static final int RULE_LPAREN=10;
     public static final int RULE_CARRIAGERETURN=18;
+    public static final int RULE_LINE_COMMENT=23;
     public static final int RULE_INCLUDE=6;
     public static final int RULE_BACKSLASH=19;
     public static final int RULE_RPAREN=11;
     public static final int RULE_WS=13;
-    public static final int RULE_DIGIT=24;
+    public static final int RULE_DIGIT=26;
     public static final int RULE_SPACE=21;
-    public static final int RULE_UNIVERSAL_CHARACTER=26;
+    public static final int RULE_UNIVERSAL_CHARACTER=28;
+    public static final int RULE_BLOCK_COMMENT=24;
     public static final int RULE_LINEFEED=17;
-    public static final int RULE_HEX_QUAD=27;
+    public static final int RULE_HEX_QUAD=29;
 
     // delegates
     // delegators

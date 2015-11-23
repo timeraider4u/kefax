@@ -12,46 +12,48 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
 public class InternalCPreprocessLexer extends Lexer {
-    public static final int FRAGMENT_RULE_HASH=29;
     public static final int RULE_PRAGMA=9;
     public static final int RULE_ID=21;
-    public static final int FRAGMENT_RULE_LPAREN=35;
-    public static final int RULE_NEWLINE=15;
-    public static final int FRAGMENT_RULE_NEWLINE=38;
     public static final int RULE_ID_NONDIGIT=22;
     public static final int RULE_NONDIGIT_LETTER=24;
-    public static final int FRAGMENT_RULE_RPAREN=36;
-    public static final int FRAGMENT_RULE_ID=40;
-    public static final int RULE_ERROR=7;
-    public static final int RULE_HASH=4;
-    public static final int RULE_COMMA=12;
-    public static final int FRAGMENT_RULE_SPECIAL=41;
-    public static final int RULE_TAB=19;
-    public static final int FRAGMENT_RULE_INCLUDE=30;
-    public static final int RULE_UNDEF=8;
-    public static final int FRAGMENT_RULE_COMMA=37;
     public static final int EOF=-1;
-    public static final int FRAGMENT_RULE_PRAGMA=34;
-    public static final int RULE_HEXADECIMAL_DIGIT=27;
-    public static final int SYNTHETIC_ALL_KEYWORDS=42;
     public static final int RULE_LINEBREAK=17;
+    public static final int RULE_LPAREN=10;
+    public static final int RULE_BACKSLASH=16;
+    public static final int FRAGMENT_RULE_DEFINE=33;
+    public static final int RULE_SPACE=18;
+    public static final int RULE_LINEFEED=13;
+    public static final int RULE_BLOCK_COMMENT=29;
+    public static final int RULE_HEX_QUAD=26;
+    public static final int FRAGMENT_RULE_HASH=31;
+    public static final int RULE_NEWLINE=15;
+    public static final int FRAGMENT_RULE_LPAREN=37;
+    public static final int FRAGMENT_RULE_NEWLINE=40;
+    public static final int FRAGMENT_RULE_RPAREN=38;
+    public static final int RULE_ERROR=7;
+    public static final int FRAGMENT_RULE_ID=42;
+    public static final int RULE_COMMA=12;
+    public static final int RULE_HASH=4;
+    public static final int FRAGMENT_RULE_SPECIAL=43;
+    public static final int RULE_TAB=19;
+    public static final int FRAGMENT_RULE_INCLUDE=32;
+    public static final int RULE_UNDEF=8;
+    public static final int FRAGMENT_RULE_COMMA=39;
+    public static final int RULE_HEXADECIMAL_DIGIT=27;
+    public static final int FRAGMENT_RULE_PRAGMA=36;
+    public static final int SYNTHETIC_ALL_KEYWORDS=44;
     public static final int RULE_DEFINE=6;
     public static final int RULE_SPECIAL=28;
-    public static final int RULE_LPAREN=10;
     public static final int RULE_CARRIAGERETURN=14;
-    public static final int FRAGMENT_RULE_UNDEF=33;
+    public static final int FRAGMENT_RULE_UNDEF=35;
+    public static final int RULE_LINE_COMMENT=30;
     public static final int RULE_INCLUDE=5;
-    public static final int RULE_BACKSLASH=16;
-    public static final int FRAGMENT_RULE_ERROR=32;
+    public static final int FRAGMENT_RULE_ERROR=34;
     public static final int RULE_RPAREN=11;
-    public static final int FRAGMENT_RULE_WS=39;
-    public static final int FRAGMENT_RULE_DEFINE=31;
+    public static final int FRAGMENT_RULE_WS=41;
     public static final int RULE_WS=20;
     public static final int RULE_DIGIT=23;
-    public static final int RULE_SPACE=18;
     public static final int RULE_UNIVERSAL_CHARACTER=25;
-    public static final int RULE_LINEFEED=13;
-    public static final int RULE_HEX_QUAD=26;
 
     // delegates
     // delegators
@@ -62,7 +64,7 @@ public class InternalCPreprocessLexer extends Lexer {
     }
     public InternalCPreprocessLexer(CharStream input, RecognizerSharedState state) {
         super(input,state);
-        state.ruleMemo = new HashMap[64+1];
+        state.ruleMemo = new HashMap[71+1];
  
     }
     public String getGrammarFileName() { return "InternalCPreprocessLexer.g"; }
@@ -74,12 +76,12 @@ public class InternalCPreprocessLexer extends Lexer {
             int _type = SYNTHETIC_ALL_KEYWORDS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
             if ( state.backtracking>0 && alreadyParsedRule(input, 1) ) { return ; }
-            // InternalCPreprocessLexer.g:50:24: ( ( FRAGMENT_RULE_HASH )=> FRAGMENT_RULE_HASH | ( FRAGMENT_RULE_INCLUDE )=> FRAGMENT_RULE_INCLUDE | ( FRAGMENT_RULE_DEFINE )=> FRAGMENT_RULE_DEFINE | ( FRAGMENT_RULE_ERROR )=> FRAGMENT_RULE_ERROR | ( FRAGMENT_RULE_UNDEF )=> FRAGMENT_RULE_UNDEF | ( FRAGMENT_RULE_PRAGMA )=> FRAGMENT_RULE_PRAGMA | ( FRAGMENT_RULE_LPAREN )=> FRAGMENT_RULE_LPAREN | ( FRAGMENT_RULE_RPAREN )=> FRAGMENT_RULE_RPAREN | ( FRAGMENT_RULE_COMMA )=> FRAGMENT_RULE_COMMA | ( FRAGMENT_RULE_NEWLINE )=> FRAGMENT_RULE_NEWLINE | ( FRAGMENT_RULE_WS )=> FRAGMENT_RULE_WS | ( FRAGMENT_RULE_ID )=> FRAGMENT_RULE_ID | ( FRAGMENT_RULE_SPECIAL )=> FRAGMENT_RULE_SPECIAL )
-            int alt1=13;
+            // InternalCPreprocessLexer.g:52:24: ( ( FRAGMENT_RULE_HASH )=> FRAGMENT_RULE_HASH | ( FRAGMENT_RULE_INCLUDE )=> FRAGMENT_RULE_INCLUDE | ( FRAGMENT_RULE_DEFINE )=> FRAGMENT_RULE_DEFINE | ( FRAGMENT_RULE_ERROR )=> FRAGMENT_RULE_ERROR | ( FRAGMENT_RULE_UNDEF )=> FRAGMENT_RULE_UNDEF | ( FRAGMENT_RULE_PRAGMA )=> FRAGMENT_RULE_PRAGMA | ( FRAGMENT_RULE_LPAREN )=> FRAGMENT_RULE_LPAREN | ( FRAGMENT_RULE_RPAREN )=> FRAGMENT_RULE_RPAREN | ( FRAGMENT_RULE_COMMA )=> FRAGMENT_RULE_COMMA | ( FRAGMENT_RULE_NEWLINE )=> FRAGMENT_RULE_NEWLINE | ( FRAGMENT_RULE_WS )=> FRAGMENT_RULE_WS | ( FRAGMENT_RULE_ID )=> FRAGMENT_RULE_ID | ( FRAGMENT_RULE_SPECIAL )=> FRAGMENT_RULE_SPECIAL | )
+            int alt1=14;
             alt1 = dfa1.predict(input);
             switch (alt1) {
                 case 1 :
-                    // InternalCPreprocessLexer.g:51:2: ( FRAGMENT_RULE_HASH )=> FRAGMENT_RULE_HASH
+                    // InternalCPreprocessLexer.g:53:2: ( FRAGMENT_RULE_HASH )=> FRAGMENT_RULE_HASH
                     {
                     mFRAGMENT_RULE_HASH(); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
@@ -89,7 +91,7 @@ public class InternalCPreprocessLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalCPreprocessLexer.g:52:2: ( FRAGMENT_RULE_INCLUDE )=> FRAGMENT_RULE_INCLUDE
+                    // InternalCPreprocessLexer.g:54:2: ( FRAGMENT_RULE_INCLUDE )=> FRAGMENT_RULE_INCLUDE
                     {
                     mFRAGMENT_RULE_INCLUDE(); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
@@ -99,7 +101,7 @@ public class InternalCPreprocessLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // InternalCPreprocessLexer.g:53:2: ( FRAGMENT_RULE_DEFINE )=> FRAGMENT_RULE_DEFINE
+                    // InternalCPreprocessLexer.g:55:2: ( FRAGMENT_RULE_DEFINE )=> FRAGMENT_RULE_DEFINE
                     {
                     mFRAGMENT_RULE_DEFINE(); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
@@ -109,7 +111,7 @@ public class InternalCPreprocessLexer extends Lexer {
                     }
                     break;
                 case 4 :
-                    // InternalCPreprocessLexer.g:54:2: ( FRAGMENT_RULE_ERROR )=> FRAGMENT_RULE_ERROR
+                    // InternalCPreprocessLexer.g:56:2: ( FRAGMENT_RULE_ERROR )=> FRAGMENT_RULE_ERROR
                     {
                     mFRAGMENT_RULE_ERROR(); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
@@ -119,7 +121,7 @@ public class InternalCPreprocessLexer extends Lexer {
                     }
                     break;
                 case 5 :
-                    // InternalCPreprocessLexer.g:55:2: ( FRAGMENT_RULE_UNDEF )=> FRAGMENT_RULE_UNDEF
+                    // InternalCPreprocessLexer.g:57:2: ( FRAGMENT_RULE_UNDEF )=> FRAGMENT_RULE_UNDEF
                     {
                     mFRAGMENT_RULE_UNDEF(); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
@@ -129,7 +131,7 @@ public class InternalCPreprocessLexer extends Lexer {
                     }
                     break;
                 case 6 :
-                    // InternalCPreprocessLexer.g:56:2: ( FRAGMENT_RULE_PRAGMA )=> FRAGMENT_RULE_PRAGMA
+                    // InternalCPreprocessLexer.g:58:2: ( FRAGMENT_RULE_PRAGMA )=> FRAGMENT_RULE_PRAGMA
                     {
                     mFRAGMENT_RULE_PRAGMA(); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
@@ -139,7 +141,7 @@ public class InternalCPreprocessLexer extends Lexer {
                     }
                     break;
                 case 7 :
-                    // InternalCPreprocessLexer.g:57:2: ( FRAGMENT_RULE_LPAREN )=> FRAGMENT_RULE_LPAREN
+                    // InternalCPreprocessLexer.g:59:2: ( FRAGMENT_RULE_LPAREN )=> FRAGMENT_RULE_LPAREN
                     {
                     mFRAGMENT_RULE_LPAREN(); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
@@ -149,7 +151,7 @@ public class InternalCPreprocessLexer extends Lexer {
                     }
                     break;
                 case 8 :
-                    // InternalCPreprocessLexer.g:58:2: ( FRAGMENT_RULE_RPAREN )=> FRAGMENT_RULE_RPAREN
+                    // InternalCPreprocessLexer.g:60:2: ( FRAGMENT_RULE_RPAREN )=> FRAGMENT_RULE_RPAREN
                     {
                     mFRAGMENT_RULE_RPAREN(); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
@@ -159,7 +161,7 @@ public class InternalCPreprocessLexer extends Lexer {
                     }
                     break;
                 case 9 :
-                    // InternalCPreprocessLexer.g:59:2: ( FRAGMENT_RULE_COMMA )=> FRAGMENT_RULE_COMMA
+                    // InternalCPreprocessLexer.g:61:2: ( FRAGMENT_RULE_COMMA )=> FRAGMENT_RULE_COMMA
                     {
                     mFRAGMENT_RULE_COMMA(); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
@@ -169,7 +171,7 @@ public class InternalCPreprocessLexer extends Lexer {
                     }
                     break;
                 case 10 :
-                    // InternalCPreprocessLexer.g:60:2: ( FRAGMENT_RULE_NEWLINE )=> FRAGMENT_RULE_NEWLINE
+                    // InternalCPreprocessLexer.g:62:2: ( FRAGMENT_RULE_NEWLINE )=> FRAGMENT_RULE_NEWLINE
                     {
                     mFRAGMENT_RULE_NEWLINE(); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
@@ -179,7 +181,7 @@ public class InternalCPreprocessLexer extends Lexer {
                     }
                     break;
                 case 11 :
-                    // InternalCPreprocessLexer.g:61:2: ( FRAGMENT_RULE_WS )=> FRAGMENT_RULE_WS
+                    // InternalCPreprocessLexer.g:63:2: ( FRAGMENT_RULE_WS )=> FRAGMENT_RULE_WS
                     {
                     mFRAGMENT_RULE_WS(); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
@@ -189,7 +191,7 @@ public class InternalCPreprocessLexer extends Lexer {
                     }
                     break;
                 case 12 :
-                    // InternalCPreprocessLexer.g:62:2: ( FRAGMENT_RULE_ID )=> FRAGMENT_RULE_ID
+                    // InternalCPreprocessLexer.g:64:2: ( FRAGMENT_RULE_ID )=> FRAGMENT_RULE_ID
                     {
                     mFRAGMENT_RULE_ID(); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
@@ -199,13 +201,18 @@ public class InternalCPreprocessLexer extends Lexer {
                     }
                     break;
                 case 13 :
-                    // InternalCPreprocessLexer.g:63:2: ( FRAGMENT_RULE_SPECIAL )=> FRAGMENT_RULE_SPECIAL
+                    // InternalCPreprocessLexer.g:65:2: ( FRAGMENT_RULE_SPECIAL )=> FRAGMENT_RULE_SPECIAL
                     {
                     mFRAGMENT_RULE_SPECIAL(); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                       _type = RULE_SPECIAL; 
                     }
 
+                    }
+                    break;
+                case 14 :
+                    // InternalCPreprocessLexer.g:66:1: 
+                    {
                     }
                     break;
 
@@ -224,8 +231,8 @@ public class InternalCPreprocessLexer extends Lexer {
         int RULE_HASH_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 2) ) { return ; }
-            // InternalCPreprocessLexer.g:68:20: ( FRAGMENT_RULE_HASH )
-            // InternalCPreprocessLexer.g:68:22: FRAGMENT_RULE_HASH
+            // InternalCPreprocessLexer.g:71:20: ( FRAGMENT_RULE_HASH )
+            // InternalCPreprocessLexer.g:71:22: FRAGMENT_RULE_HASH
             {
             mFRAGMENT_RULE_HASH(); if (state.failed) return ;
 
@@ -243,8 +250,8 @@ public class InternalCPreprocessLexer extends Lexer {
         int FRAGMENT_RULE_HASH_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 3) ) { return ; }
-            // InternalCPreprocessLexer.g:69:29: ( '#' )
-            // InternalCPreprocessLexer.g:69:31: '#'
+            // InternalCPreprocessLexer.g:72:29: ( '#' )
+            // InternalCPreprocessLexer.g:72:31: '#'
             {
             match('#'); if (state.failed) return ;
 
@@ -262,8 +269,8 @@ public class InternalCPreprocessLexer extends Lexer {
         int RULE_INCLUDE_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 4) ) { return ; }
-            // InternalCPreprocessLexer.g:71:23: ( FRAGMENT_RULE_INCLUDE )
-            // InternalCPreprocessLexer.g:71:25: FRAGMENT_RULE_INCLUDE
+            // InternalCPreprocessLexer.g:74:23: ( FRAGMENT_RULE_INCLUDE )
+            // InternalCPreprocessLexer.g:74:25: FRAGMENT_RULE_INCLUDE
             {
             mFRAGMENT_RULE_INCLUDE(); if (state.failed) return ;
 
@@ -281,8 +288,8 @@ public class InternalCPreprocessLexer extends Lexer {
         int FRAGMENT_RULE_INCLUDE_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 5) ) { return ; }
-            // InternalCPreprocessLexer.g:72:32: ( 'include' )
-            // InternalCPreprocessLexer.g:72:34: 'include'
+            // InternalCPreprocessLexer.g:75:32: ( 'include' )
+            // InternalCPreprocessLexer.g:75:34: 'include'
             {
             match("include"); if (state.failed) return ;
 
@@ -301,8 +308,8 @@ public class InternalCPreprocessLexer extends Lexer {
         int RULE_DEFINE_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 6) ) { return ; }
-            // InternalCPreprocessLexer.g:74:22: ( FRAGMENT_RULE_DEFINE )
-            // InternalCPreprocessLexer.g:74:24: FRAGMENT_RULE_DEFINE
+            // InternalCPreprocessLexer.g:77:22: ( FRAGMENT_RULE_DEFINE )
+            // InternalCPreprocessLexer.g:77:24: FRAGMENT_RULE_DEFINE
             {
             mFRAGMENT_RULE_DEFINE(); if (state.failed) return ;
 
@@ -320,8 +327,8 @@ public class InternalCPreprocessLexer extends Lexer {
         int FRAGMENT_RULE_DEFINE_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 7) ) { return ; }
-            // InternalCPreprocessLexer.g:75:31: ( 'define' )
-            // InternalCPreprocessLexer.g:75:33: 'define'
+            // InternalCPreprocessLexer.g:78:31: ( 'define' )
+            // InternalCPreprocessLexer.g:78:33: 'define'
             {
             match("define"); if (state.failed) return ;
 
@@ -340,8 +347,8 @@ public class InternalCPreprocessLexer extends Lexer {
         int RULE_ERROR_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 8) ) { return ; }
-            // InternalCPreprocessLexer.g:77:21: ( FRAGMENT_RULE_ERROR )
-            // InternalCPreprocessLexer.g:77:23: FRAGMENT_RULE_ERROR
+            // InternalCPreprocessLexer.g:80:21: ( FRAGMENT_RULE_ERROR )
+            // InternalCPreprocessLexer.g:80:23: FRAGMENT_RULE_ERROR
             {
             mFRAGMENT_RULE_ERROR(); if (state.failed) return ;
 
@@ -359,8 +366,8 @@ public class InternalCPreprocessLexer extends Lexer {
         int FRAGMENT_RULE_ERROR_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 9) ) { return ; }
-            // InternalCPreprocessLexer.g:78:30: ( 'error' )
-            // InternalCPreprocessLexer.g:78:32: 'error'
+            // InternalCPreprocessLexer.g:81:30: ( 'error' )
+            // InternalCPreprocessLexer.g:81:32: 'error'
             {
             match("error"); if (state.failed) return ;
 
@@ -379,8 +386,8 @@ public class InternalCPreprocessLexer extends Lexer {
         int RULE_UNDEF_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 10) ) { return ; }
-            // InternalCPreprocessLexer.g:80:21: ( FRAGMENT_RULE_UNDEF )
-            // InternalCPreprocessLexer.g:80:23: FRAGMENT_RULE_UNDEF
+            // InternalCPreprocessLexer.g:83:21: ( FRAGMENT_RULE_UNDEF )
+            // InternalCPreprocessLexer.g:83:23: FRAGMENT_RULE_UNDEF
             {
             mFRAGMENT_RULE_UNDEF(); if (state.failed) return ;
 
@@ -398,8 +405,8 @@ public class InternalCPreprocessLexer extends Lexer {
         int FRAGMENT_RULE_UNDEF_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 11) ) { return ; }
-            // InternalCPreprocessLexer.g:81:30: ( 'undef' )
-            // InternalCPreprocessLexer.g:81:32: 'undef'
+            // InternalCPreprocessLexer.g:84:30: ( 'undef' )
+            // InternalCPreprocessLexer.g:84:32: 'undef'
             {
             match("undef"); if (state.failed) return ;
 
@@ -418,8 +425,8 @@ public class InternalCPreprocessLexer extends Lexer {
         int RULE_PRAGMA_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 12) ) { return ; }
-            // InternalCPreprocessLexer.g:83:22: ( FRAGMENT_RULE_PRAGMA )
-            // InternalCPreprocessLexer.g:83:24: FRAGMENT_RULE_PRAGMA
+            // InternalCPreprocessLexer.g:86:22: ( FRAGMENT_RULE_PRAGMA )
+            // InternalCPreprocessLexer.g:86:24: FRAGMENT_RULE_PRAGMA
             {
             mFRAGMENT_RULE_PRAGMA(); if (state.failed) return ;
 
@@ -437,8 +444,8 @@ public class InternalCPreprocessLexer extends Lexer {
         int FRAGMENT_RULE_PRAGMA_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 13) ) { return ; }
-            // InternalCPreprocessLexer.g:84:31: ( 'pragma' )
-            // InternalCPreprocessLexer.g:84:33: 'pragma'
+            // InternalCPreprocessLexer.g:87:31: ( 'pragma' )
+            // InternalCPreprocessLexer.g:87:33: 'pragma'
             {
             match("pragma"); if (state.failed) return ;
 
@@ -457,8 +464,8 @@ public class InternalCPreprocessLexer extends Lexer {
         int RULE_LPAREN_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 14) ) { return ; }
-            // InternalCPreprocessLexer.g:86:22: ( FRAGMENT_RULE_LPAREN )
-            // InternalCPreprocessLexer.g:86:24: FRAGMENT_RULE_LPAREN
+            // InternalCPreprocessLexer.g:89:22: ( FRAGMENT_RULE_LPAREN )
+            // InternalCPreprocessLexer.g:89:24: FRAGMENT_RULE_LPAREN
             {
             mFRAGMENT_RULE_LPAREN(); if (state.failed) return ;
 
@@ -476,8 +483,8 @@ public class InternalCPreprocessLexer extends Lexer {
         int FRAGMENT_RULE_LPAREN_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 15) ) { return ; }
-            // InternalCPreprocessLexer.g:87:31: ( '(' )
-            // InternalCPreprocessLexer.g:87:33: '('
+            // InternalCPreprocessLexer.g:90:31: ( '(' )
+            // InternalCPreprocessLexer.g:90:33: '('
             {
             match('('); if (state.failed) return ;
 
@@ -495,8 +502,8 @@ public class InternalCPreprocessLexer extends Lexer {
         int RULE_RPAREN_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 16) ) { return ; }
-            // InternalCPreprocessLexer.g:89:22: ( FRAGMENT_RULE_RPAREN )
-            // InternalCPreprocessLexer.g:89:24: FRAGMENT_RULE_RPAREN
+            // InternalCPreprocessLexer.g:92:22: ( FRAGMENT_RULE_RPAREN )
+            // InternalCPreprocessLexer.g:92:24: FRAGMENT_RULE_RPAREN
             {
             mFRAGMENT_RULE_RPAREN(); if (state.failed) return ;
 
@@ -514,8 +521,8 @@ public class InternalCPreprocessLexer extends Lexer {
         int FRAGMENT_RULE_RPAREN_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 17) ) { return ; }
-            // InternalCPreprocessLexer.g:90:31: ( ')' )
-            // InternalCPreprocessLexer.g:90:33: ')'
+            // InternalCPreprocessLexer.g:93:31: ( ')' )
+            // InternalCPreprocessLexer.g:93:33: ')'
             {
             match(')'); if (state.failed) return ;
 
@@ -533,8 +540,8 @@ public class InternalCPreprocessLexer extends Lexer {
         int RULE_COMMA_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 18) ) { return ; }
-            // InternalCPreprocessLexer.g:92:21: ( FRAGMENT_RULE_COMMA )
-            // InternalCPreprocessLexer.g:92:23: FRAGMENT_RULE_COMMA
+            // InternalCPreprocessLexer.g:95:21: ( FRAGMENT_RULE_COMMA )
+            // InternalCPreprocessLexer.g:95:23: FRAGMENT_RULE_COMMA
             {
             mFRAGMENT_RULE_COMMA(); if (state.failed) return ;
 
@@ -552,8 +559,8 @@ public class InternalCPreprocessLexer extends Lexer {
         int FRAGMENT_RULE_COMMA_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 19) ) { return ; }
-            // InternalCPreprocessLexer.g:93:30: ( ',' )
-            // InternalCPreprocessLexer.g:93:32: ','
+            // InternalCPreprocessLexer.g:96:30: ( ',' )
+            // InternalCPreprocessLexer.g:96:32: ','
             {
             match(','); if (state.failed) return ;
 
@@ -571,8 +578,8 @@ public class InternalCPreprocessLexer extends Lexer {
         int RULE_LINEFEED_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 20) ) { return ; }
-            // InternalCPreprocessLexer.g:95:24: ( '\\n' )
-            // InternalCPreprocessLexer.g:95:26: '\\n'
+            // InternalCPreprocessLexer.g:98:24: ( '\\n' )
+            // InternalCPreprocessLexer.g:98:26: '\\n'
             {
             match('\n'); if (state.failed) return ;
 
@@ -590,8 +597,8 @@ public class InternalCPreprocessLexer extends Lexer {
         int RULE_CARRIAGERETURN_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 21) ) { return ; }
-            // InternalCPreprocessLexer.g:97:30: ( '\\r' )
-            // InternalCPreprocessLexer.g:97:32: '\\r'
+            // InternalCPreprocessLexer.g:100:30: ( '\\r' )
+            // InternalCPreprocessLexer.g:100:32: '\\r'
             {
             match('\r'); if (state.failed) return ;
 
@@ -609,8 +616,8 @@ public class InternalCPreprocessLexer extends Lexer {
         int RULE_NEWLINE_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 22) ) { return ; }
-            // InternalCPreprocessLexer.g:99:23: ( FRAGMENT_RULE_NEWLINE )
-            // InternalCPreprocessLexer.g:99:25: FRAGMENT_RULE_NEWLINE
+            // InternalCPreprocessLexer.g:102:23: ( FRAGMENT_RULE_NEWLINE )
+            // InternalCPreprocessLexer.g:102:25: FRAGMENT_RULE_NEWLINE
             {
             mFRAGMENT_RULE_NEWLINE(); if (state.failed) return ;
 
@@ -628,8 +635,8 @@ public class InternalCPreprocessLexer extends Lexer {
         int FRAGMENT_RULE_NEWLINE_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 23) ) { return ; }
-            // InternalCPreprocessLexer.g:100:32: ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) )
-            // InternalCPreprocessLexer.g:100:34: ( RULE_CARRIAGERETURN | RULE_LINEFEED )
+            // InternalCPreprocessLexer.g:103:32: ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) )
+            // InternalCPreprocessLexer.g:103:34: ( RULE_CARRIAGERETURN | RULE_LINEFEED )
             {
             if ( input.LA(1)=='\n'||input.LA(1)=='\r' ) {
                 input.consume();
@@ -656,8 +663,8 @@ public class InternalCPreprocessLexer extends Lexer {
         int RULE_BACKSLASH_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 24) ) { return ; }
-            // InternalCPreprocessLexer.g:102:25: ( '\\\\' )
-            // InternalCPreprocessLexer.g:102:27: '\\\\'
+            // InternalCPreprocessLexer.g:105:25: ( '\\\\' )
+            // InternalCPreprocessLexer.g:105:27: '\\\\'
             {
             match('\\'); if (state.failed) return ;
 
@@ -675,8 +682,8 @@ public class InternalCPreprocessLexer extends Lexer {
         int RULE_LINEBREAK_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 25) ) { return ; }
-            // InternalCPreprocessLexer.g:104:25: ( RULE_BACKSLASH RULE_NEWLINE )
-            // InternalCPreprocessLexer.g:104:27: RULE_BACKSLASH RULE_NEWLINE
+            // InternalCPreprocessLexer.g:107:25: ( RULE_BACKSLASH RULE_NEWLINE )
+            // InternalCPreprocessLexer.g:107:27: RULE_BACKSLASH RULE_NEWLINE
             {
             mRULE_BACKSLASH(); if (state.failed) return ;
             mRULE_NEWLINE(); if (state.failed) return ;
@@ -695,8 +702,8 @@ public class InternalCPreprocessLexer extends Lexer {
         int RULE_SPACE_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 26) ) { return ; }
-            // InternalCPreprocessLexer.g:106:21: ( ' ' )
-            // InternalCPreprocessLexer.g:106:23: ' '
+            // InternalCPreprocessLexer.g:109:21: ( ' ' )
+            // InternalCPreprocessLexer.g:109:23: ' '
             {
             match(' '); if (state.failed) return ;
 
@@ -714,8 +721,8 @@ public class InternalCPreprocessLexer extends Lexer {
         int RULE_TAB_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 27) ) { return ; }
-            // InternalCPreprocessLexer.g:108:19: ( '\\t' )
-            // InternalCPreprocessLexer.g:108:21: '\\t'
+            // InternalCPreprocessLexer.g:111:19: ( '\\t' )
+            // InternalCPreprocessLexer.g:111:21: '\\t'
             {
             match('\t'); if (state.failed) return ;
 
@@ -733,8 +740,8 @@ public class InternalCPreprocessLexer extends Lexer {
         int RULE_WS_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 28) ) { return ; }
-            // InternalCPreprocessLexer.g:110:18: ( FRAGMENT_RULE_WS )
-            // InternalCPreprocessLexer.g:110:20: FRAGMENT_RULE_WS
+            // InternalCPreprocessLexer.g:113:18: ( FRAGMENT_RULE_WS )
+            // InternalCPreprocessLexer.g:113:20: FRAGMENT_RULE_WS
             {
             mFRAGMENT_RULE_WS(); if (state.failed) return ;
 
@@ -752,11 +759,11 @@ public class InternalCPreprocessLexer extends Lexer {
         int FRAGMENT_RULE_WS_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 29) ) { return ; }
-            // InternalCPreprocessLexer.g:111:27: ( ( RULE_SPACE | RULE_TAB | RULE_LINEBREAK ) )
-            // InternalCPreprocessLexer.g:111:29: ( RULE_SPACE | RULE_TAB | RULE_LINEBREAK )
+            // InternalCPreprocessLexer.g:114:27: ( ( RULE_SPACE | RULE_TAB | RULE_LINE_COMMENT | RULE_BLOCK_COMMENT | RULE_LINEBREAK ) )
+            // InternalCPreprocessLexer.g:114:29: ( RULE_SPACE | RULE_TAB | RULE_LINE_COMMENT | RULE_BLOCK_COMMENT | RULE_LINEBREAK )
             {
-            // InternalCPreprocessLexer.g:111:29: ( RULE_SPACE | RULE_TAB | RULE_LINEBREAK )
-            int alt2=3;
+            // InternalCPreprocessLexer.g:114:29: ( RULE_SPACE | RULE_TAB | RULE_LINE_COMMENT | RULE_BLOCK_COMMENT | RULE_LINEBREAK )
+            int alt2=5;
             switch ( input.LA(1) ) {
             case ' ':
                 {
@@ -768,9 +775,28 @@ public class InternalCPreprocessLexer extends Lexer {
                 alt2=2;
                 }
                 break;
+            case '/':
+                {
+                int LA2_3 = input.LA(2);
+
+                if ( (LA2_3=='/') ) {
+                    alt2=3;
+                }
+                else if ( (LA2_3=='*') ) {
+                    alt2=4;
+                }
+                else {
+                    if (state.backtracking>0) {state.failed=true; return ;}
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 2, 3, input);
+
+                    throw nvae;
+                }
+                }
+                break;
             case '\\':
                 {
-                alt2=3;
+                alt2=5;
                 }
                 break;
             default:
@@ -783,21 +809,35 @@ public class InternalCPreprocessLexer extends Lexer {
 
             switch (alt2) {
                 case 1 :
-                    // InternalCPreprocessLexer.g:111:30: RULE_SPACE
+                    // InternalCPreprocessLexer.g:114:30: RULE_SPACE
                     {
                     mRULE_SPACE(); if (state.failed) return ;
 
                     }
                     break;
                 case 2 :
-                    // InternalCPreprocessLexer.g:111:41: RULE_TAB
+                    // InternalCPreprocessLexer.g:114:41: RULE_TAB
                     {
                     mRULE_TAB(); if (state.failed) return ;
 
                     }
                     break;
                 case 3 :
-                    // InternalCPreprocessLexer.g:111:50: RULE_LINEBREAK
+                    // InternalCPreprocessLexer.g:114:50: RULE_LINE_COMMENT
+                    {
+                    mRULE_LINE_COMMENT(); if (state.failed) return ;
+
+                    }
+                    break;
+                case 4 :
+                    // InternalCPreprocessLexer.g:114:68: RULE_BLOCK_COMMENT
+                    {
+                    mRULE_BLOCK_COMMENT(); if (state.failed) return ;
+
+                    }
+                    break;
+                case 5 :
+                    // InternalCPreprocessLexer.g:114:87: RULE_LINEBREAK
                     {
                     mRULE_LINEBREAK(); if (state.failed) return ;
 
@@ -821,8 +861,8 @@ public class InternalCPreprocessLexer extends Lexer {
         int RULE_ID_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 30) ) { return ; }
-            // InternalCPreprocessLexer.g:113:18: ( FRAGMENT_RULE_ID )
-            // InternalCPreprocessLexer.g:113:20: FRAGMENT_RULE_ID
+            // InternalCPreprocessLexer.g:116:18: ( FRAGMENT_RULE_ID )
+            // InternalCPreprocessLexer.g:116:20: FRAGMENT_RULE_ID
             {
             mFRAGMENT_RULE_ID(); if (state.failed) return ;
 
@@ -840,11 +880,11 @@ public class InternalCPreprocessLexer extends Lexer {
         int FRAGMENT_RULE_ID_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 31) ) { return ; }
-            // InternalCPreprocessLexer.g:114:27: ( RULE_ID_NONDIGIT ( RULE_ID_NONDIGIT | RULE_DIGIT )* )
-            // InternalCPreprocessLexer.g:114:29: RULE_ID_NONDIGIT ( RULE_ID_NONDIGIT | RULE_DIGIT )*
+            // InternalCPreprocessLexer.g:117:27: ( RULE_ID_NONDIGIT ( RULE_ID_NONDIGIT | RULE_DIGIT )* )
+            // InternalCPreprocessLexer.g:117:29: RULE_ID_NONDIGIT ( RULE_ID_NONDIGIT | RULE_DIGIT )*
             {
             mRULE_ID_NONDIGIT(); if (state.failed) return ;
-            // InternalCPreprocessLexer.g:114:46: ( RULE_ID_NONDIGIT | RULE_DIGIT )*
+            // InternalCPreprocessLexer.g:117:46: ( RULE_ID_NONDIGIT | RULE_DIGIT )*
             loop3:
             do {
                 int alt3=3;
@@ -860,14 +900,14 @@ public class InternalCPreprocessLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalCPreprocessLexer.g:114:47: RULE_ID_NONDIGIT
+            	    // InternalCPreprocessLexer.g:117:47: RULE_ID_NONDIGIT
             	    {
             	    mRULE_ID_NONDIGIT(); if (state.failed) return ;
 
             	    }
             	    break;
             	case 2 :
-            	    // InternalCPreprocessLexer.g:114:64: RULE_DIGIT
+            	    // InternalCPreprocessLexer.g:117:64: RULE_DIGIT
             	    {
             	    mRULE_DIGIT(); if (state.failed) return ;
 
@@ -894,10 +934,10 @@ public class InternalCPreprocessLexer extends Lexer {
         int RULE_ID_NONDIGIT_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 32) ) { return ; }
-            // InternalCPreprocessLexer.g:116:27: ( ( RULE_NONDIGIT_LETTER | RULE_UNIVERSAL_CHARACTER ) )
-            // InternalCPreprocessLexer.g:116:29: ( RULE_NONDIGIT_LETTER | RULE_UNIVERSAL_CHARACTER )
+            // InternalCPreprocessLexer.g:119:27: ( ( RULE_NONDIGIT_LETTER | RULE_UNIVERSAL_CHARACTER ) )
+            // InternalCPreprocessLexer.g:119:29: ( RULE_NONDIGIT_LETTER | RULE_UNIVERSAL_CHARACTER )
             {
-            // InternalCPreprocessLexer.g:116:29: ( RULE_NONDIGIT_LETTER | RULE_UNIVERSAL_CHARACTER )
+            // InternalCPreprocessLexer.g:119:29: ( RULE_NONDIGIT_LETTER | RULE_UNIVERSAL_CHARACTER )
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -916,14 +956,14 @@ public class InternalCPreprocessLexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // InternalCPreprocessLexer.g:116:30: RULE_NONDIGIT_LETTER
+                    // InternalCPreprocessLexer.g:119:30: RULE_NONDIGIT_LETTER
                     {
                     mRULE_NONDIGIT_LETTER(); if (state.failed) return ;
 
                     }
                     break;
                 case 2 :
-                    // InternalCPreprocessLexer.g:116:51: RULE_UNIVERSAL_CHARACTER
+                    // InternalCPreprocessLexer.g:119:51: RULE_UNIVERSAL_CHARACTER
                     {
                     mRULE_UNIVERSAL_CHARACTER(); if (state.failed) return ;
 
@@ -947,8 +987,8 @@ public class InternalCPreprocessLexer extends Lexer {
         int RULE_DIGIT_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 33) ) { return ; }
-            // InternalCPreprocessLexer.g:118:21: ( '0' .. '9' )
-            // InternalCPreprocessLexer.g:118:23: '0' .. '9'
+            // InternalCPreprocessLexer.g:121:21: ( '0' .. '9' )
+            // InternalCPreprocessLexer.g:121:23: '0' .. '9'
             {
             matchRange('0','9'); if (state.failed) return ;
 
@@ -966,8 +1006,8 @@ public class InternalCPreprocessLexer extends Lexer {
         int RULE_NONDIGIT_LETTER_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 34) ) { return ; }
-            // InternalCPreprocessLexer.g:120:31: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) )
-            // InternalCPreprocessLexer.g:120:33: ( 'a' .. 'z' | 'A' .. 'Z' | '_' )
+            // InternalCPreprocessLexer.g:123:31: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) )
+            // InternalCPreprocessLexer.g:123:33: ( 'a' .. 'z' | 'A' .. 'Z' | '_' )
             {
             if ( (input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                 input.consume();
@@ -994,10 +1034,10 @@ public class InternalCPreprocessLexer extends Lexer {
         int RULE_UNIVERSAL_CHARACTER_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 35) ) { return ; }
-            // InternalCPreprocessLexer.g:122:35: ( ( '\\\\u' RULE_HEX_QUAD | '\\\\U' RULE_HEX_QUAD RULE_HEX_QUAD ) )
-            // InternalCPreprocessLexer.g:122:37: ( '\\\\u' RULE_HEX_QUAD | '\\\\U' RULE_HEX_QUAD RULE_HEX_QUAD )
+            // InternalCPreprocessLexer.g:125:35: ( ( '\\\\u' RULE_HEX_QUAD | '\\\\U' RULE_HEX_QUAD RULE_HEX_QUAD ) )
+            // InternalCPreprocessLexer.g:125:37: ( '\\\\u' RULE_HEX_QUAD | '\\\\U' RULE_HEX_QUAD RULE_HEX_QUAD )
             {
-            // InternalCPreprocessLexer.g:122:37: ( '\\\\u' RULE_HEX_QUAD | '\\\\U' RULE_HEX_QUAD RULE_HEX_QUAD )
+            // InternalCPreprocessLexer.g:125:37: ( '\\\\u' RULE_HEX_QUAD | '\\\\U' RULE_HEX_QUAD RULE_HEX_QUAD )
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -1027,7 +1067,7 @@ public class InternalCPreprocessLexer extends Lexer {
             }
             switch (alt5) {
                 case 1 :
-                    // InternalCPreprocessLexer.g:122:38: '\\\\u' RULE_HEX_QUAD
+                    // InternalCPreprocessLexer.g:125:38: '\\\\u' RULE_HEX_QUAD
                     {
                     match("\\u"); if (state.failed) return ;
 
@@ -1036,7 +1076,7 @@ public class InternalCPreprocessLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalCPreprocessLexer.g:122:58: '\\\\U' RULE_HEX_QUAD RULE_HEX_QUAD
+                    // InternalCPreprocessLexer.g:125:58: '\\\\U' RULE_HEX_QUAD RULE_HEX_QUAD
                     {
                     match("\\U"); if (state.failed) return ;
 
@@ -1063,8 +1103,8 @@ public class InternalCPreprocessLexer extends Lexer {
         int RULE_HEX_QUAD_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 36) ) { return ; }
-            // InternalCPreprocessLexer.g:124:24: ( RULE_HEXADECIMAL_DIGIT RULE_HEXADECIMAL_DIGIT RULE_HEXADECIMAL_DIGIT RULE_HEXADECIMAL_DIGIT )
-            // InternalCPreprocessLexer.g:124:26: RULE_HEXADECIMAL_DIGIT RULE_HEXADECIMAL_DIGIT RULE_HEXADECIMAL_DIGIT RULE_HEXADECIMAL_DIGIT
+            // InternalCPreprocessLexer.g:127:24: ( RULE_HEXADECIMAL_DIGIT RULE_HEXADECIMAL_DIGIT RULE_HEXADECIMAL_DIGIT RULE_HEXADECIMAL_DIGIT )
+            // InternalCPreprocessLexer.g:127:26: RULE_HEXADECIMAL_DIGIT RULE_HEXADECIMAL_DIGIT RULE_HEXADECIMAL_DIGIT RULE_HEXADECIMAL_DIGIT
             {
             mRULE_HEXADECIMAL_DIGIT(); if (state.failed) return ;
             mRULE_HEXADECIMAL_DIGIT(); if (state.failed) return ;
@@ -1085,8 +1125,8 @@ public class InternalCPreprocessLexer extends Lexer {
         int RULE_HEXADECIMAL_DIGIT_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 37) ) { return ; }
-            // InternalCPreprocessLexer.g:126:33: ( ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) )
-            // InternalCPreprocessLexer.g:126:35: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )
+            // InternalCPreprocessLexer.g:129:33: ( ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) )
+            // InternalCPreprocessLexer.g:129:35: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )
             {
             if ( (input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='F')||(input.LA(1)>='a' && input.LA(1)<='f') ) {
                 input.consume();
@@ -1113,8 +1153,8 @@ public class InternalCPreprocessLexer extends Lexer {
         int RULE_SPECIAL_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 38) ) { return ; }
-            // InternalCPreprocessLexer.g:128:23: ( FRAGMENT_RULE_SPECIAL )
-            // InternalCPreprocessLexer.g:128:25: FRAGMENT_RULE_SPECIAL
+            // InternalCPreprocessLexer.g:131:23: ( FRAGMENT_RULE_SPECIAL )
+            // InternalCPreprocessLexer.g:131:25: FRAGMENT_RULE_SPECIAL
             {
             mFRAGMENT_RULE_SPECIAL(); if (state.failed) return ;
 
@@ -1132,8 +1172,8 @@ public class InternalCPreprocessLexer extends Lexer {
         int FRAGMENT_RULE_SPECIAL_StartIndex = input.index();
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 39) ) { return ; }
-            // InternalCPreprocessLexer.g:129:32: ( . )
-            // InternalCPreprocessLexer.g:129:34: .
+            // InternalCPreprocessLexer.g:132:32: ( . )
+            // InternalCPreprocessLexer.g:132:34: .
             {
             matchAny(); if (state.failed) return ;
 
@@ -1145,6 +1185,119 @@ public class InternalCPreprocessLexer extends Lexer {
         }
     }
     // $ANTLR end "FRAGMENT_RULE_SPECIAL"
+
+    // $ANTLR start "RULE_BLOCK_COMMENT"
+    public final void mRULE_BLOCK_COMMENT() throws RecognitionException {
+        int RULE_BLOCK_COMMENT_StartIndex = input.index();
+        try {
+            if ( state.backtracking>0 && alreadyParsedRule(input, 40) ) { return ; }
+            // InternalCPreprocessLexer.g:134:29: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalCPreprocessLexer.g:134:31: '/*' ( options {greedy=false; } : . )* '*/'
+            {
+            match("/*"); if (state.failed) return ;
+
+            // InternalCPreprocessLexer.g:134:36: ( options {greedy=false; } : . )*
+            loop6:
+            do {
+                int alt6=2;
+                int LA6_0 = input.LA(1);
+
+                if ( (LA6_0=='*') ) {
+                    int LA6_1 = input.LA(2);
+
+                    if ( (LA6_1=='/') ) {
+                        alt6=2;
+                    }
+                    else if ( ((LA6_1>='\u0000' && LA6_1<='.')||(LA6_1>='0' && LA6_1<='\uFFFF')) ) {
+                        alt6=1;
+                    }
+
+
+                }
+                else if ( ((LA6_0>='\u0000' && LA6_0<=')')||(LA6_0>='+' && LA6_0<='\uFFFF')) ) {
+                    alt6=1;
+                }
+
+
+                switch (alt6) {
+            	case 1 :
+            	    // InternalCPreprocessLexer.g:134:64: .
+            	    {
+            	    matchAny(); if (state.failed) return ;
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop6;
+                }
+            } while (true);
+
+            match("*/"); if (state.failed) return ;
+
+
+            }
+
+        }
+        finally {
+            if ( state.backtracking>0 ) { memoize(input, 40, RULE_BLOCK_COMMENT_StartIndex); }
+        }
+    }
+    // $ANTLR end "RULE_BLOCK_COMMENT"
+
+    // $ANTLR start "RULE_LINE_COMMENT"
+    public final void mRULE_LINE_COMMENT() throws RecognitionException {
+        int RULE_LINE_COMMENT_StartIndex = input.index();
+        try {
+            if ( state.backtracking>0 && alreadyParsedRule(input, 41) ) { return ; }
+            // InternalCPreprocessLexer.g:136:28: ( '//' (~ ( RULE_NEWLINE ) )* )
+            // InternalCPreprocessLexer.g:136:30: '//' (~ ( RULE_NEWLINE ) )*
+            {
+            match("//"); if (state.failed) return ;
+
+            // InternalCPreprocessLexer.g:136:35: (~ ( RULE_NEWLINE ) )*
+            loop7:
+            do {
+                int alt7=2;
+                int LA7_0 = input.LA(1);
+
+                if ( ((LA7_0>='\u0000' && LA7_0<='\t')||(LA7_0>='\u000B' && LA7_0<='\f')||(LA7_0>='\u000E' && LA7_0<='\uFFFF')) ) {
+                    alt7=1;
+                }
+
+
+                switch (alt7) {
+            	case 1 :
+            	    // InternalCPreprocessLexer.g:0:0: ~ ( RULE_NEWLINE )
+            	    {
+            	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
+            	        input.consume();
+            	    state.failed=false;
+            	    }
+            	    else {
+            	        if (state.backtracking>0) {state.failed=true; return ;}
+            	        MismatchedSetException mse = new MismatchedSetException(null,input);
+            	        recover(mse);
+            	        throw mse;}
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop7;
+                }
+            } while (true);
+
+
+            }
+
+        }
+        finally {
+            if ( state.backtracking>0 ) { memoize(input, 41, RULE_LINE_COMMENT_StartIndex); }
+        }
+    }
+    // $ANTLR end "RULE_LINE_COMMENT"
 
     public void mTokens() throws RecognitionException {
         // InternalCPreprocessLexer.g:1:8: ( SYNTHETIC_ALL_KEYWORDS )
@@ -1159,8 +1312,8 @@ public class InternalCPreprocessLexer extends Lexer {
 
     // $ANTLR start synpred1_InternalCPreprocessLexer
     public final void synpred1_InternalCPreprocessLexer_fragment() throws RecognitionException {   
-        // InternalCPreprocessLexer.g:51:2: ( FRAGMENT_RULE_HASH )
-        // InternalCPreprocessLexer.g:51:3: FRAGMENT_RULE_HASH
+        // InternalCPreprocessLexer.g:53:2: ( FRAGMENT_RULE_HASH )
+        // InternalCPreprocessLexer.g:53:3: FRAGMENT_RULE_HASH
         {
         mFRAGMENT_RULE_HASH(); if (state.failed) return ;
 
@@ -1170,8 +1323,8 @@ public class InternalCPreprocessLexer extends Lexer {
 
     // $ANTLR start synpred2_InternalCPreprocessLexer
     public final void synpred2_InternalCPreprocessLexer_fragment() throws RecognitionException {   
-        // InternalCPreprocessLexer.g:52:2: ( FRAGMENT_RULE_INCLUDE )
-        // InternalCPreprocessLexer.g:52:3: FRAGMENT_RULE_INCLUDE
+        // InternalCPreprocessLexer.g:54:2: ( FRAGMENT_RULE_INCLUDE )
+        // InternalCPreprocessLexer.g:54:3: FRAGMENT_RULE_INCLUDE
         {
         mFRAGMENT_RULE_INCLUDE(); if (state.failed) return ;
 
@@ -1181,8 +1334,8 @@ public class InternalCPreprocessLexer extends Lexer {
 
     // $ANTLR start synpred3_InternalCPreprocessLexer
     public final void synpred3_InternalCPreprocessLexer_fragment() throws RecognitionException {   
-        // InternalCPreprocessLexer.g:53:2: ( FRAGMENT_RULE_DEFINE )
-        // InternalCPreprocessLexer.g:53:3: FRAGMENT_RULE_DEFINE
+        // InternalCPreprocessLexer.g:55:2: ( FRAGMENT_RULE_DEFINE )
+        // InternalCPreprocessLexer.g:55:3: FRAGMENT_RULE_DEFINE
         {
         mFRAGMENT_RULE_DEFINE(); if (state.failed) return ;
 
@@ -1192,8 +1345,8 @@ public class InternalCPreprocessLexer extends Lexer {
 
     // $ANTLR start synpred4_InternalCPreprocessLexer
     public final void synpred4_InternalCPreprocessLexer_fragment() throws RecognitionException {   
-        // InternalCPreprocessLexer.g:54:2: ( FRAGMENT_RULE_ERROR )
-        // InternalCPreprocessLexer.g:54:3: FRAGMENT_RULE_ERROR
+        // InternalCPreprocessLexer.g:56:2: ( FRAGMENT_RULE_ERROR )
+        // InternalCPreprocessLexer.g:56:3: FRAGMENT_RULE_ERROR
         {
         mFRAGMENT_RULE_ERROR(); if (state.failed) return ;
 
@@ -1203,8 +1356,8 @@ public class InternalCPreprocessLexer extends Lexer {
 
     // $ANTLR start synpred5_InternalCPreprocessLexer
     public final void synpred5_InternalCPreprocessLexer_fragment() throws RecognitionException {   
-        // InternalCPreprocessLexer.g:55:2: ( FRAGMENT_RULE_UNDEF )
-        // InternalCPreprocessLexer.g:55:3: FRAGMENT_RULE_UNDEF
+        // InternalCPreprocessLexer.g:57:2: ( FRAGMENT_RULE_UNDEF )
+        // InternalCPreprocessLexer.g:57:3: FRAGMENT_RULE_UNDEF
         {
         mFRAGMENT_RULE_UNDEF(); if (state.failed) return ;
 
@@ -1214,8 +1367,8 @@ public class InternalCPreprocessLexer extends Lexer {
 
     // $ANTLR start synpred6_InternalCPreprocessLexer
     public final void synpred6_InternalCPreprocessLexer_fragment() throws RecognitionException {   
-        // InternalCPreprocessLexer.g:56:2: ( FRAGMENT_RULE_PRAGMA )
-        // InternalCPreprocessLexer.g:56:3: FRAGMENT_RULE_PRAGMA
+        // InternalCPreprocessLexer.g:58:2: ( FRAGMENT_RULE_PRAGMA )
+        // InternalCPreprocessLexer.g:58:3: FRAGMENT_RULE_PRAGMA
         {
         mFRAGMENT_RULE_PRAGMA(); if (state.failed) return ;
 
@@ -1225,8 +1378,8 @@ public class InternalCPreprocessLexer extends Lexer {
 
     // $ANTLR start synpred7_InternalCPreprocessLexer
     public final void synpred7_InternalCPreprocessLexer_fragment() throws RecognitionException {   
-        // InternalCPreprocessLexer.g:57:2: ( FRAGMENT_RULE_LPAREN )
-        // InternalCPreprocessLexer.g:57:3: FRAGMENT_RULE_LPAREN
+        // InternalCPreprocessLexer.g:59:2: ( FRAGMENT_RULE_LPAREN )
+        // InternalCPreprocessLexer.g:59:3: FRAGMENT_RULE_LPAREN
         {
         mFRAGMENT_RULE_LPAREN(); if (state.failed) return ;
 
@@ -1236,8 +1389,8 @@ public class InternalCPreprocessLexer extends Lexer {
 
     // $ANTLR start synpred8_InternalCPreprocessLexer
     public final void synpred8_InternalCPreprocessLexer_fragment() throws RecognitionException {   
-        // InternalCPreprocessLexer.g:58:2: ( FRAGMENT_RULE_RPAREN )
-        // InternalCPreprocessLexer.g:58:3: FRAGMENT_RULE_RPAREN
+        // InternalCPreprocessLexer.g:60:2: ( FRAGMENT_RULE_RPAREN )
+        // InternalCPreprocessLexer.g:60:3: FRAGMENT_RULE_RPAREN
         {
         mFRAGMENT_RULE_RPAREN(); if (state.failed) return ;
 
@@ -1247,8 +1400,8 @@ public class InternalCPreprocessLexer extends Lexer {
 
     // $ANTLR start synpred9_InternalCPreprocessLexer
     public final void synpred9_InternalCPreprocessLexer_fragment() throws RecognitionException {   
-        // InternalCPreprocessLexer.g:59:2: ( FRAGMENT_RULE_COMMA )
-        // InternalCPreprocessLexer.g:59:3: FRAGMENT_RULE_COMMA
+        // InternalCPreprocessLexer.g:61:2: ( FRAGMENT_RULE_COMMA )
+        // InternalCPreprocessLexer.g:61:3: FRAGMENT_RULE_COMMA
         {
         mFRAGMENT_RULE_COMMA(); if (state.failed) return ;
 
@@ -1258,8 +1411,8 @@ public class InternalCPreprocessLexer extends Lexer {
 
     // $ANTLR start synpred10_InternalCPreprocessLexer
     public final void synpred10_InternalCPreprocessLexer_fragment() throws RecognitionException {   
-        // InternalCPreprocessLexer.g:60:2: ( FRAGMENT_RULE_NEWLINE )
-        // InternalCPreprocessLexer.g:60:3: FRAGMENT_RULE_NEWLINE
+        // InternalCPreprocessLexer.g:62:2: ( FRAGMENT_RULE_NEWLINE )
+        // InternalCPreprocessLexer.g:62:3: FRAGMENT_RULE_NEWLINE
         {
         mFRAGMENT_RULE_NEWLINE(); if (state.failed) return ;
 
@@ -1269,8 +1422,8 @@ public class InternalCPreprocessLexer extends Lexer {
 
     // $ANTLR start synpred11_InternalCPreprocessLexer
     public final void synpred11_InternalCPreprocessLexer_fragment() throws RecognitionException {   
-        // InternalCPreprocessLexer.g:61:2: ( FRAGMENT_RULE_WS )
-        // InternalCPreprocessLexer.g:61:3: FRAGMENT_RULE_WS
+        // InternalCPreprocessLexer.g:63:2: ( FRAGMENT_RULE_WS )
+        // InternalCPreprocessLexer.g:63:3: FRAGMENT_RULE_WS
         {
         mFRAGMENT_RULE_WS(); if (state.failed) return ;
 
@@ -1280,8 +1433,8 @@ public class InternalCPreprocessLexer extends Lexer {
 
     // $ANTLR start synpred12_InternalCPreprocessLexer
     public final void synpred12_InternalCPreprocessLexer_fragment() throws RecognitionException {   
-        // InternalCPreprocessLexer.g:62:2: ( FRAGMENT_RULE_ID )
-        // InternalCPreprocessLexer.g:62:3: FRAGMENT_RULE_ID
+        // InternalCPreprocessLexer.g:64:2: ( FRAGMENT_RULE_ID )
+        // InternalCPreprocessLexer.g:64:3: FRAGMENT_RULE_ID
         {
         mFRAGMENT_RULE_ID(); if (state.failed) return ;
 
@@ -1291,8 +1444,8 @@ public class InternalCPreprocessLexer extends Lexer {
 
     // $ANTLR start synpred13_InternalCPreprocessLexer
     public final void synpred13_InternalCPreprocessLexer_fragment() throws RecognitionException {   
-        // InternalCPreprocessLexer.g:63:2: ( FRAGMENT_RULE_SPECIAL )
-        // InternalCPreprocessLexer.g:63:3: FRAGMENT_RULE_SPECIAL
+        // InternalCPreprocessLexer.g:65:2: ( FRAGMENT_RULE_SPECIAL )
+        // InternalCPreprocessLexer.g:65:3: FRAGMENT_RULE_SPECIAL
         {
         mFRAGMENT_RULE_SPECIAL(); if (state.failed) return ;
 
@@ -1486,33 +1639,37 @@ public class InternalCPreprocessLexer extends Lexer {
 
     protected DFA1 dfa1 = new DFA1(this);
     static final String DFA1_eotS =
-        "\15\uffff\1\36\22\uffff";
+        "\1\21\14\uffff\2\40\25\uffff";
     static final String DFA1_eofS =
-        "\40\uffff";
+        "\44\uffff";
     static final String DFA1_minS =
-        "\2\0\1\156\1\145\1\162\1\156\1\162\6\0\1\12\1\0\21\uffff";
+        "\2\0\1\156\1\145\1\162\1\156\1\162\6\0\1\52\1\12\1\0\24\uffff";
     static final String DFA1_maxS =
-        "\1\uffff\1\0\1\156\1\145\1\162\1\156\1\162\6\0\1\165\1\0\21\uffff";
+        "\1\uffff\1\0\1\156\1\145\1\162\1\156\1\162\6\0\1\57\1\165\1\0\24\uffff";
     static final String DFA1_acceptS =
-        "\17\uffff\1\15\1\1\1\2\1\14\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\2\14\1\15\1\13";
+        "\20\uffff\1\15\1\16\1\1\1\2\1\14\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\3\13\1\15\2\14\1\13";
     static final String DFA1_specialS =
-        "\1\4\1\3\1\2\1\0\1\15\1\10\1\5\1\13\1\11\1\1\1\6\1\14\1\12\1\16\1\7\21\uffff}>";
+        "\1\12\1\5\1\17\1\15\1\13\1\10\1\2\1\16\1\11\1\1\1\0\1\6\1\4\1\14\1\3\1\7\24\uffff}>";
     static final String[] DFA1_transitionS = {
-            "\11\17\1\14\1\12\2\17\1\12\22\17\1\13\2\17\1\1\4\17\1\7\1\10\2\17\1\11\24\17\32\16\1\17\1\15\2\17\1\16\1\17\3\16\1\3\1\4\3\16\1\2\6\16\1\6\4\16\1\5\5\16\uff85\17",
+            "\11\20\1\14\1\12\2\20\1\12\22\20\1\13\2\20\1\1\4\20\1\7\1\10\2\20\1\11\2\20\1\15\21\20\32\17\1\20\1\16\2\20\1\17\1\20\3\17\1\3\1\4\3\17\1\2\6\17\1\6\4\17\1\5\5\17\uff85\20",
             "\1\uffff",
-            "\1\21",
             "\1\23",
-            "\1\24",
             "\1\25",
             "\1\26",
+            "\1\27",
+            "\1\30",
             "\1\uffff",
             "\1\uffff",
             "\1\uffff",
             "\1\uffff",
             "\1\uffff",
             "\1\uffff",
-            "\1\37\2\uffff\1\37\107\uffff\1\35\37\uffff\1\34",
+            "\1\37\4\uffff\1\36",
+            "\1\43\2\uffff\1\43\107\uffff\1\42\37\uffff\1\41",
             "\1\uffff",
+            "",
+            "",
+            "",
             "",
             "",
             "",
@@ -1562,27 +1719,25 @@ public class InternalCPreprocessLexer extends Lexer {
             this.transition = DFA1_transition;
         }
         public String getDescription() {
-            return "50:1: SYNTHETIC_ALL_KEYWORDS : ( ( FRAGMENT_RULE_HASH )=> FRAGMENT_RULE_HASH | ( FRAGMENT_RULE_INCLUDE )=> FRAGMENT_RULE_INCLUDE | ( FRAGMENT_RULE_DEFINE )=> FRAGMENT_RULE_DEFINE | ( FRAGMENT_RULE_ERROR )=> FRAGMENT_RULE_ERROR | ( FRAGMENT_RULE_UNDEF )=> FRAGMENT_RULE_UNDEF | ( FRAGMENT_RULE_PRAGMA )=> FRAGMENT_RULE_PRAGMA | ( FRAGMENT_RULE_LPAREN )=> FRAGMENT_RULE_LPAREN | ( FRAGMENT_RULE_RPAREN )=> FRAGMENT_RULE_RPAREN | ( FRAGMENT_RULE_COMMA )=> FRAGMENT_RULE_COMMA | ( FRAGMENT_RULE_NEWLINE )=> FRAGMENT_RULE_NEWLINE | ( FRAGMENT_RULE_WS )=> FRAGMENT_RULE_WS | ( FRAGMENT_RULE_ID )=> FRAGMENT_RULE_ID | ( FRAGMENT_RULE_SPECIAL )=> FRAGMENT_RULE_SPECIAL );";
+            return "52:1: SYNTHETIC_ALL_KEYWORDS : ( ( FRAGMENT_RULE_HASH )=> FRAGMENT_RULE_HASH | ( FRAGMENT_RULE_INCLUDE )=> FRAGMENT_RULE_INCLUDE | ( FRAGMENT_RULE_DEFINE )=> FRAGMENT_RULE_DEFINE | ( FRAGMENT_RULE_ERROR )=> FRAGMENT_RULE_ERROR | ( FRAGMENT_RULE_UNDEF )=> FRAGMENT_RULE_UNDEF | ( FRAGMENT_RULE_PRAGMA )=> FRAGMENT_RULE_PRAGMA | ( FRAGMENT_RULE_LPAREN )=> FRAGMENT_RULE_LPAREN | ( FRAGMENT_RULE_RPAREN )=> FRAGMENT_RULE_RPAREN | ( FRAGMENT_RULE_COMMA )=> FRAGMENT_RULE_COMMA | ( FRAGMENT_RULE_NEWLINE )=> FRAGMENT_RULE_NEWLINE | ( FRAGMENT_RULE_WS )=> FRAGMENT_RULE_WS | ( FRAGMENT_RULE_ID )=> FRAGMENT_RULE_ID | ( FRAGMENT_RULE_SPECIAL )=> FRAGMENT_RULE_SPECIAL | );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA1_3 = input.LA(1);
+                        int LA1_10 = input.LA(1);
 
                          
-                        int index1_3 = input.index();
+                        int index1_10 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA1_3=='e') && (synpred3_InternalCPreprocessLexer())) {s = 19;}
+                        if ( (synpred10_InternalCPreprocessLexer()) ) {s = 28;}
 
-                        else if ( (synpred12_InternalCPreprocessLexer()) ) {s = 18;}
-
-                        else if ( (synpred13_InternalCPreprocessLexer()) ) {s = 15;}
+                        else if ( (synpred13_InternalCPreprocessLexer()) ) {s = 16;}
 
                          
-                        input.seek(index1_3);
+                        input.seek(index1_10);
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
@@ -1592,47 +1747,143 @@ public class InternalCPreprocessLexer extends Lexer {
                         int index1_9 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred9_InternalCPreprocessLexer()) ) {s = 25;}
+                        if ( (synpred9_InternalCPreprocessLexer()) ) {s = 27;}
 
-                        else if ( (synpred13_InternalCPreprocessLexer()) ) {s = 15;}
+                        else if ( (synpred13_InternalCPreprocessLexer()) ) {s = 16;}
 
                          
                         input.seek(index1_9);
                         if ( s>=0 ) return s;
                         break;
                     case 2 : 
-                        int LA1_2 = input.LA(1);
+                        int LA1_6 = input.LA(1);
 
                          
-                        int index1_2 = input.index();
+                        int index1_6 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA1_2=='n') && (synpred2_InternalCPreprocessLexer())) {s = 17;}
+                        if ( (LA1_6=='r') && (synpred6_InternalCPreprocessLexer())) {s = 24;}
 
-                        else if ( (synpred12_InternalCPreprocessLexer()) ) {s = 18;}
+                        else if ( (synpred12_InternalCPreprocessLexer()) ) {s = 20;}
 
-                        else if ( (synpred13_InternalCPreprocessLexer()) ) {s = 15;}
+                        else if ( (synpred13_InternalCPreprocessLexer()) ) {s = 16;}
 
                          
-                        input.seek(index1_2);
+                        input.seek(index1_6);
                         if ( s>=0 ) return s;
                         break;
                     case 3 : 
+                        int LA1_14 = input.LA(1);
+
+                         
+                        int index1_14 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (LA1_14=='u') && (synpred12_InternalCPreprocessLexer())) {s = 33;}
+
+                        else if ( (LA1_14=='U') && (synpred12_InternalCPreprocessLexer())) {s = 34;}
+
+                        else if ( (LA1_14=='\n'||LA1_14=='\r') && (synpred11_InternalCPreprocessLexer())) {s = 35;}
+
+                        else s = 32;
+
+                         
+                        input.seek(index1_14);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 4 : 
+                        int LA1_12 = input.LA(1);
+
+                         
+                        int index1_12 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred11_InternalCPreprocessLexer()) ) {s = 29;}
+
+                        else if ( (synpred13_InternalCPreprocessLexer()) ) {s = 16;}
+
+                         
+                        input.seek(index1_12);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 5 : 
                         int LA1_1 = input.LA(1);
 
                          
                         int index1_1 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred1_InternalCPreprocessLexer()) ) {s = 16;}
+                        if ( (synpred1_InternalCPreprocessLexer()) ) {s = 18;}
 
-                        else if ( (synpred13_InternalCPreprocessLexer()) ) {s = 15;}
+                        else if ( (synpred13_InternalCPreprocessLexer()) ) {s = 16;}
 
                          
                         input.seek(index1_1);
                         if ( s>=0 ) return s;
                         break;
-                    case 4 : 
+                    case 6 : 
+                        int LA1_11 = input.LA(1);
+
+                         
+                        int index1_11 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred11_InternalCPreprocessLexer()) ) {s = 29;}
+
+                        else if ( (synpred13_InternalCPreprocessLexer()) ) {s = 16;}
+
+                         
+                        input.seek(index1_11);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 7 : 
+                        int LA1_15 = input.LA(1);
+
+                         
+                        int index1_15 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred12_InternalCPreprocessLexer()) ) {s = 34;}
+
+                        else if ( (synpred13_InternalCPreprocessLexer()) ) {s = 32;}
+
+                         
+                        input.seek(index1_15);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 8 : 
+                        int LA1_5 = input.LA(1);
+
+                         
+                        int index1_5 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (LA1_5=='n') && (synpred5_InternalCPreprocessLexer())) {s = 23;}
+
+                        else if ( (synpred12_InternalCPreprocessLexer()) ) {s = 20;}
+
+                        else if ( (synpred13_InternalCPreprocessLexer()) ) {s = 16;}
+
+                         
+                        input.seek(index1_5);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 9 : 
+                        int LA1_8 = input.LA(1);
+
+                         
+                        int index1_8 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred8_InternalCPreprocessLexer()) ) {s = 26;}
+
+                        else if ( (synpred13_InternalCPreprocessLexer()) ) {s = 16;}
+
+                         
+                        input.seek(index1_8);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 10 : 
                         int LA1_0 = input.LA(1);
 
                          
@@ -1663,174 +1914,101 @@ public class InternalCPreprocessLexer extends Lexer {
 
                         else if ( (LA1_0=='\t') ) {s = 12;}
 
-                        else if ( (LA1_0=='\\') ) {s = 13;}
+                        else if ( (LA1_0=='/') ) {s = 13;}
 
-                        else if ( ((LA1_0>='A' && LA1_0<='Z')||LA1_0=='_'||(LA1_0>='a' && LA1_0<='c')||(LA1_0>='f' && LA1_0<='h')||(LA1_0>='j' && LA1_0<='o')||(LA1_0>='q' && LA1_0<='t')||(LA1_0>='v' && LA1_0<='z')) ) {s = 14;}
+                        else if ( (LA1_0=='\\') ) {s = 14;}
 
-                        else if ( ((LA1_0>='\u0000' && LA1_0<='\b')||(LA1_0>='\u000B' && LA1_0<='\f')||(LA1_0>='\u000E' && LA1_0<='\u001F')||(LA1_0>='!' && LA1_0<='\"')||(LA1_0>='$' && LA1_0<='\'')||(LA1_0>='*' && LA1_0<='+')||(LA1_0>='-' && LA1_0<='@')||LA1_0=='['||(LA1_0>=']' && LA1_0<='^')||LA1_0=='`'||(LA1_0>='{' && LA1_0<='\uFFFF')) && (synpred13_InternalCPreprocessLexer())) {s = 15;}
+                        else if ( ((LA1_0>='A' && LA1_0<='Z')||LA1_0=='_'||(LA1_0>='a' && LA1_0<='c')||(LA1_0>='f' && LA1_0<='h')||(LA1_0>='j' && LA1_0<='o')||(LA1_0>='q' && LA1_0<='t')||(LA1_0>='v' && LA1_0<='z')) ) {s = 15;}
+
+                        else if ( ((LA1_0>='\u0000' && LA1_0<='\b')||(LA1_0>='\u000B' && LA1_0<='\f')||(LA1_0>='\u000E' && LA1_0<='\u001F')||(LA1_0>='!' && LA1_0<='\"')||(LA1_0>='$' && LA1_0<='\'')||(LA1_0>='*' && LA1_0<='+')||(LA1_0>='-' && LA1_0<='.')||(LA1_0>='0' && LA1_0<='@')||LA1_0=='['||(LA1_0>=']' && LA1_0<='^')||LA1_0=='`'||(LA1_0>='{' && LA1_0<='\uFFFF')) && (synpred13_InternalCPreprocessLexer())) {s = 16;}
+
+                        else s = 17;
 
                          
                         input.seek(index1_0);
                         if ( s>=0 ) return s;
                         break;
-                    case 5 : 
-                        int LA1_6 = input.LA(1);
-
-                         
-                        int index1_6 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA1_6=='r') && (synpred6_InternalCPreprocessLexer())) {s = 22;}
-
-                        else if ( (synpred12_InternalCPreprocessLexer()) ) {s = 18;}
-
-                        else if ( (synpred13_InternalCPreprocessLexer()) ) {s = 15;}
-
-                         
-                        input.seek(index1_6);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 6 : 
-                        int LA1_10 = input.LA(1);
-
-                         
-                        int index1_10 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred10_InternalCPreprocessLexer()) ) {s = 26;}
-
-                        else if ( (synpred13_InternalCPreprocessLexer()) ) {s = 15;}
-
-                         
-                        input.seek(index1_10);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 7 : 
-                        int LA1_14 = input.LA(1);
-
-                         
-                        int index1_14 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred12_InternalCPreprocessLexer()) ) {s = 29;}
-
-                        else if ( (synpred13_InternalCPreprocessLexer()) ) {s = 30;}
-
-                         
-                        input.seek(index1_14);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 8 : 
-                        int LA1_5 = input.LA(1);
-
-                         
-                        int index1_5 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (LA1_5=='n') && (synpred5_InternalCPreprocessLexer())) {s = 21;}
-
-                        else if ( (synpred12_InternalCPreprocessLexer()) ) {s = 18;}
-
-                        else if ( (synpred13_InternalCPreprocessLexer()) ) {s = 15;}
-
-                         
-                        input.seek(index1_5);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 9 : 
-                        int LA1_8 = input.LA(1);
-
-                         
-                        int index1_8 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred8_InternalCPreprocessLexer()) ) {s = 24;}
-
-                        else if ( (synpred13_InternalCPreprocessLexer()) ) {s = 15;}
-
-                         
-                        input.seek(index1_8);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 10 : 
-                        int LA1_12 = input.LA(1);
-
-                         
-                        int index1_12 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred11_InternalCPreprocessLexer()) ) {s = 27;}
-
-                        else if ( (synpred13_InternalCPreprocessLexer()) ) {s = 15;}
-
-                         
-                        input.seek(index1_12);
-                        if ( s>=0 ) return s;
-                        break;
                     case 11 : 
-                        int LA1_7 = input.LA(1);
-
-                         
-                        int index1_7 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred7_InternalCPreprocessLexer()) ) {s = 23;}
-
-                        else if ( (synpred13_InternalCPreprocessLexer()) ) {s = 15;}
-
-                         
-                        input.seek(index1_7);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 12 : 
-                        int LA1_11 = input.LA(1);
-
-                         
-                        int index1_11 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred11_InternalCPreprocessLexer()) ) {s = 27;}
-
-                        else if ( (synpred13_InternalCPreprocessLexer()) ) {s = 15;}
-
-                         
-                        input.seek(index1_11);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 13 : 
                         int LA1_4 = input.LA(1);
 
                          
                         int index1_4 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA1_4=='r') && (synpred4_InternalCPreprocessLexer())) {s = 20;}
+                        if ( (LA1_4=='r') && (synpred4_InternalCPreprocessLexer())) {s = 22;}
 
-                        else if ( (synpred12_InternalCPreprocessLexer()) ) {s = 18;}
+                        else if ( (synpred12_InternalCPreprocessLexer()) ) {s = 20;}
 
-                        else if ( (synpred13_InternalCPreprocessLexer()) ) {s = 15;}
+                        else if ( (synpred13_InternalCPreprocessLexer()) ) {s = 16;}
 
                          
                         input.seek(index1_4);
                         if ( s>=0 ) return s;
                         break;
-                    case 14 : 
+                    case 12 : 
                         int LA1_13 = input.LA(1);
 
                          
                         int index1_13 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (LA1_13=='u') && (synpred12_InternalCPreprocessLexer())) {s = 28;}
+                        if ( (LA1_13=='/') && (synpred11_InternalCPreprocessLexer())) {s = 30;}
 
-                        else if ( (LA1_13=='U') && (synpred12_InternalCPreprocessLexer())) {s = 29;}
+                        else if ( (LA1_13=='*') && (synpred11_InternalCPreprocessLexer())) {s = 31;}
 
-                        else if ( (LA1_13=='\n'||LA1_13=='\r') && (synpred11_InternalCPreprocessLexer())) {s = 31;}
-
-                        else s = 30;
+                        else s = 32;
 
                          
                         input.seek(index1_13);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 13 : 
+                        int LA1_3 = input.LA(1);
+
+                         
+                        int index1_3 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (LA1_3=='e') && (synpred3_InternalCPreprocessLexer())) {s = 21;}
+
+                        else if ( (synpred12_InternalCPreprocessLexer()) ) {s = 20;}
+
+                        else if ( (synpred13_InternalCPreprocessLexer()) ) {s = 16;}
+
+                         
+                        input.seek(index1_3);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 14 : 
+                        int LA1_7 = input.LA(1);
+
+                         
+                        int index1_7 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred7_InternalCPreprocessLexer()) ) {s = 25;}
+
+                        else if ( (synpred13_InternalCPreprocessLexer()) ) {s = 16;}
+
+                         
+                        input.seek(index1_7);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 15 : 
+                        int LA1_2 = input.LA(1);
+
+                         
+                        int index1_2 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (LA1_2=='n') && (synpred2_InternalCPreprocessLexer())) {s = 19;}
+
+                        else if ( (synpred12_InternalCPreprocessLexer()) ) {s = 20;}
+
+                        else if ( (synpred13_InternalCPreprocessLexer()) ) {s = 16;}
+
+                         
+                        input.seek(index1_2);
                         if ( s>=0 ) return s;
                         break;
             }

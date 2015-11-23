@@ -21,7 +21,7 @@ import java.util.Map;
 import java.util.HashMap;
 public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_HASH", "RULE_INCLUDE", "RULE_DEFINE", "RULE_ERROR", "RULE_UNDEF", "RULE_PRAGMA", "RULE_LPAREN", "RULE_RPAREN", "RULE_COMMA", "RULE_LINEFEED", "RULE_CARRIAGERETURN", "RULE_NEWLINE", "RULE_BACKSLASH", "RULE_LINEBREAK", "RULE_SPACE", "RULE_TAB", "RULE_WS", "RULE_ID", "RULE_ID_NONDIGIT", "RULE_DIGIT", "RULE_NONDIGIT_LETTER", "RULE_UNIVERSAL_CHARACTER", "RULE_HEX_QUAD", "RULE_HEXADECIMAL_DIGIT", "RULE_SPECIAL"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_HASH", "RULE_INCLUDE", "RULE_DEFINE", "RULE_ERROR", "RULE_UNDEF", "RULE_PRAGMA", "RULE_LPAREN", "RULE_RPAREN", "RULE_COMMA", "RULE_LINEFEED", "RULE_CARRIAGERETURN", "RULE_NEWLINE", "RULE_BACKSLASH", "RULE_LINEBREAK", "RULE_SPACE", "RULE_TAB", "RULE_WS", "RULE_ID", "RULE_ID_NONDIGIT", "RULE_DIGIT", "RULE_NONDIGIT_LETTER", "RULE_UNIVERSAL_CHARACTER", "RULE_HEX_QUAD", "RULE_HEXADECIMAL_DIGIT", "RULE_SPECIAL", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT"
     };
     public static final int RULE_PRAGMA=9;
     public static final int RULE_ID=21;
@@ -40,6 +40,7 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
     public static final int RULE_SPECIAL=28;
     public static final int RULE_LPAREN=10;
     public static final int RULE_CARRIAGERETURN=14;
+    public static final int RULE_LINE_COMMENT=30;
     public static final int RULE_INCLUDE=5;
     public static final int RULE_BACKSLASH=16;
     public static final int RULE_RPAREN=11;
@@ -47,6 +48,7 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
     public static final int RULE_DIGIT=23;
     public static final int RULE_SPACE=18;
     public static final int RULE_UNIVERSAL_CHARACTER=25;
+    public static final int RULE_BLOCK_COMMENT=29;
     public static final int RULE_LINEFEED=13;
     public static final int RULE_HEX_QUAD=26;
 

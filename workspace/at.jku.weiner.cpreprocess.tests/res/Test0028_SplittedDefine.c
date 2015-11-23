@@ -1,8 +1,17 @@
+// the following is not working:
+// /\
+//     *
+//     */ # /*
+//     */ defi\
+//     ne FO\
+//     O 10\
+//     20
+
+// this is working!
 /*
      */ # /*
-     */ defi\
-     ne FO\
-     O 10\
-     24
+     */ define\
+	 FOO \
+	 1024
 
 int foo = FOO;

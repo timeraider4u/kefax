@@ -6,6 +6,7 @@ import java.util.regex.Matcher;
 import org.eclipse.emf.common.util.EList;
 
 import at.jku.weiner.cpreprocess.cPreprocess.IdentifierList;
+import at.jku.weiner.cpreprocess.utils.StringReplaceSymbolsHelper;
 
 class DefinitionFunctionMacro implements DefinitionMacro {
 
@@ -120,8 +121,8 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 		System.out.println("paramCode='" + paramCode + "'");
 		System.out.println("param='" + param + "'");
 		System.out.println("paramValue='" + paramValue + "'");
-		final String result = this.replaceAndIgnoreQuotes(paramCode, param,
-				paramValue);
+		final String result = StringReplaceSymbolsHelper
+				.replaceAndIgnoreQuotes(paramCode, param, paramValue);
 		return result;
 	}
 
@@ -131,45 +132,6 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 				.trim();
 		final String result = DefinitionTable.resolve(paramCodeTemp);
 		return result;
-	}
-
-	private String replaceAndIgnoreQuotes(final String paramCode,
-			final String param, final String paramValue) {
-		final StringBuffer result = new StringBuffer("");
-		final String regex = "\"(?:\\\\\"|[^\"])*?\"";
-		final Pattern pattern = Pattern.compile(regex);
-		final Matcher matcher = pattern.matcher(paramValue);
-		int start = 0;
-		while (matcher.find()) {
-			final int tempStart = this.getNextMatcherStart(paramValue,
-					matcher.start());
-			final int tempEnd = matcher.end();
-			final String match = paramValue.substring(tempStart, tempEnd);
-
-			// System.out.println("mymatch='" + match + "'");
-			final String str = paramValue.substring(start, tempStart);
-			final String str2 = str.replace(param, paramCode);
-			// System.out.println("str='" + str + "'");
-			// System.out.println("str2='" + str2 + "'");
-			result.append(str2);
-			result.append(match);
-			start = tempEnd;
-		}
-		final String str = paramValue.substring(start);
-		final String str2 = str.replace(param, paramCode);
-		// System.out.println("str-2='" + str + "'");
-		System.out.println("str2-2='" + str2 + "'");
-		result.append(str2);
-		return result.toString();
-	}
-
-	private int getNextMatcherStart(final String string, final int start) {
-		final char c = string.charAt(start);
-		final boolean firstPartIsQuote = (c == '"');
-		if (firstPartIsQuote) {
-			return start;
-		}
-		return start + 1;
 	}
 
 }

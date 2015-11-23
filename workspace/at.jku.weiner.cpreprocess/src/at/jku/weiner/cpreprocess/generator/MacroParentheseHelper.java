@@ -3,11 +3,8 @@ package at.jku.weiner.cpreprocess.generator;
 public class MacroParentheseHelper {
 
 	private final String text;
-	private int indexComma;
-	private int indexLParen;
-	private int indexRParen;
 	private int currIndex;
-	private final int parentheses;
+	private int parentheses;
 
 	public MacroParentheseHelper(final String text, final int startIndex) {
 		this.text = text;
@@ -20,18 +17,27 @@ public class MacroParentheseHelper {
 	}
 
 	private int calculateNextIndex() {
-		this.indexComma = this.text.indexOf(",", this.currIndex);
-		this.indexLParen = this.text.indexOf("(", this.currIndex);
-		this.indexRParen = this.text.indexOf(")", this.currIndex);
-
-		// ...
-		if ((this.indexComma < 0)) {
-
+		int nextIndex = this.currIndex;
+		while (nextIndex < this.text.length()) {
+			char ch = this.text.charAt(nextIndex);
+			switch (ch) {
+			case '(':
+				this.parentheses++;
+				break;
+			case ')':
+				this.parentheses--;
+				if (this.parentheses == 0) {
+					return nextIndex;
+				}
+				break;
+			case ',':
+				if (this.parentheses == 1) {
+					return nextIndex;
+				}
+			}
+			nextIndex = nextIndex + 1;
 		}
-
-		// ...
-
-		return -1;
+		return nextIndex;
 	}
 
 	public boolean hasMoreParams() {
@@ -41,8 +47,8 @@ public class MacroParentheseHelper {
 	public String getNextParam() {
 		final int nextIndex = this.calculateNextIndex();
 		final String result = this.text.substring(this.currIndex, nextIndex);
-		this.currIndex = nextIndex;
-		return result;
+		this.currIndex = nextIndex + 1;
+		return result.trim();
 	}
 
 }

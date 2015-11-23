@@ -1,7 +1,7 @@
 package at.jku.weiner.cpreprocess.generator;
 
-import java.util.regex.Pattern;
 import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -70,7 +70,7 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 			result.append(previous);
 			final int nextIndex = this.replaceAllParams(result, code, matchEnd);
 			// System.out.println("nextIndex='" + nextIndex + "'");
-			currIndex = nextIndex + 1;
+			currIndex = nextIndex;
 		}
 		final String lastPart = code.substring(currIndex);
 		// System.out.println("lastPart='" + lastPart + "'");
@@ -93,7 +93,7 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 			paramValue = this.replaceSingleParam(code, paramCode, paramIndex,
 					paramValue);
 
-			currIndex = nextIndex + 1;
+			currIndex = nextIndex;
 			paramIndex++;
 		}
 		result.append(paramValue);
@@ -108,7 +108,8 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 		// System.out.println("param='" + param + "'");
 		// System.out.println("paramValue='" + paramValue + "'");
 		final String result = StringReplaceSymbolsHelper
-				.replaceAndIgnoreQuotes(paramCode, param, paramValue);
+				.replaceAndIgnoreQuotes(paramValue, param, paramCode);
+		// System.out.println("result='" + result + "'");
 		return result;
 	}
 

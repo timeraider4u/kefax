@@ -18,11 +18,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.cpreprocess.cPreprocess.impl.DefineDirectiveImpl#getId <em>Id</em>}</li>
  *   <li>{@link at.jku.weiner.cpreprocess.cPreprocess.impl.DefineDirectiveImpl#getString <em>String</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

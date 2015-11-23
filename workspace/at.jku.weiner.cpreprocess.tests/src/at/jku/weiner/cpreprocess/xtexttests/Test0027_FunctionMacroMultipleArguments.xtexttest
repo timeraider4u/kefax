@@ -1,0 +1,155 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.cpreprocess
+language cPreprocess
+//----------------------------------------------------------------------
+split-lexer=true
+source file="res/Test0027_FunctionMacroMultipleArguments.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH DEFINE WS ID LPAREN WS RPAREN WS WS WS
+		ID NEWLINE
+	HASH DEFINE WS ID LPAREN ID RPAREN WS WS WS
+		SPECIAL ID SPECIAL NEWLINE
+	HASH DEFINE WS ID LPAREN ID COMMA WS ID RPAREN WS WS
+		ID WS SPECIAL WS ID NEWLINE
+	HASH DEFINE WS ID LPAREN ID COMMA WS ID COMMA ID RPAREN WS WS
+		ID WS SPECIAL WS ID WS SPECIAL WS ID NEWLINE
+	NEWLINE
+	// z
+	ID WS ID WS SPECIAL WS
+		ID WS LPAREN WS RPAREN
+		SPECIAL NEWLINE
+	// a
+	ID WS ID WS SPECIAL WS
+		ID LPAREN ID RPAREN SPECIAL
+		NEWLINE
+	// b
+	ID WS ID WS SPECIAL WS
+		ID LPAREN SPECIAL COMMA ID WS RPAREN
+		SPECIAL NEWLINE
+	// c
+	ID WS ID WS SPECIAL WS
+		ID WS LPAREN LPAREN LPAREN ID RPAREN RPAREN RPAREN
+		SPECIAL NEWLINE
+	// d
+	ID WS ID WS SPECIAL WS
+		ID LPAREN LPAREN SPECIAL RPAREN WS COMMA WS LPAREN ID RPAREN RPAREN
+		SPECIAL NEWLINE
+	// e
+	ID WS ID WS SPECIAL WS
+		ID LPAREN SPECIAL COMMA ID RPAREN WS LPAREN SPECIAL WS LPAREN SPECIAL
+		RPAREN RPAREN
+		SPECIAL NEWLINE
+	// f
+	ID WS ID WS SPECIAL WS
+		ID LPAREN SPECIAL RPAREN LPAREN SPECIAL RPAREN
+		SPECIAL NEWLINE
+	// g
+	ID WS ID WS SPECIAL WS
+		ID LPAREN WS LPAREN ID COMMA LPAREN ID RPAREN RPAREN RPAREN 
+		SPECIAL NEWLINE
+	// h
+	ID WS ID WS SPECIAL WS
+		ID LPAREN WS LPAREN SPECIAL COMMA ID RPAREN COMMA ID RPAREN 
+		SPECIAL NEWLINE
+	// i
+	ID WS ID WS SPECIAL WS
+		ID LPAREN SPECIAL COMMA WS LPAREN ID COMMA ID RPAREN RPAREN
+		SPECIAL NEWLINE
+	// j
+	ID WS ID WS SPECIAL WS
+		ID LPAREN SPECIAL COMMA LPAREN SPECIAL RPAREN COMMA LPAREN SPECIAL COMMA SPECIAL RPAREN RPAREN
+		SPECIAL NEWLINE
+	
+//----------------------------------------------------------------------
+(Model
+	units+=
+	(TranslationUnit
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"foo",
+					list isNull,
+					string++"foo_bar"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"foo",
+					list=
+					(IdentifierList
+						id+*"[X]"
+					),
+					string++"{X}"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"foo",
+					list=
+					(IdentifierList
+						id+*"[X, Y]"
+					),
+					string++"X + Y"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"foo",
+					list=
+					(IdentifierList
+						id+*"[X, Y, Z]"
+					),
+					string++"X * Y - Z"
+				)
+			),
+			(NewLineLine),
+			(Code
+				code++"int z = foo ( );"
+			),
+			(Code
+				code++"int a = foo(bar);"
+			),
+			(Code
+				code++"int b = foo(0,bar );"
+			),
+			(Code
+				code++"int c = foo (((bar)));"
+			),
+			(Code
+				code++"int d = foo((0) , (bar));"
+			),
+			(Code
+				code++"int e = foo(0,bar) (* (1));"
+			),
+			(Code
+				code++"int f = foo(0)(1);"
+			),
+			(Code
+				code++"int g = foo( (a,(b)));"
+			),
+			(Code
+				code++"int h = foo( (0,b),bar);"
+			),
+			(Code
+				code++"int i = foo(1, (bar,b));"
+			),
+			(Code
+				code++"int j = foo(1,(1),(1,1));"
+			)
+		)
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0027_FunctionMacroMultipleArguments.c.i"
+expected file="expected/Test0027_FunctionMacroMultipleArguments.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

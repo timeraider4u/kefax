@@ -76,8 +76,8 @@ public class CPreprocessParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDefineObjectMacroAccess().getIdAssignment_3(), "rule__DefineObjectMacro__IdAssignment_3");
 					put(grammarAccess.getDefineObjectMacroAccess().getStringAssignment_4_1(), "rule__DefineObjectMacro__StringAssignment_4_1");
 					put(grammarAccess.getDefineFunctionLikeMacroAccess().getIdAssignment_3(), "rule__DefineFunctionLikeMacro__IdAssignment_3");
-					put(grammarAccess.getDefineFunctionLikeMacroAccess().getListAssignment_5(), "rule__DefineFunctionLikeMacro__ListAssignment_5");
-					put(grammarAccess.getDefineFunctionLikeMacroAccess().getStringAssignment_8(), "rule__DefineFunctionLikeMacro__StringAssignment_8");
+					put(grammarAccess.getDefineFunctionLikeMacroAccess().getListAssignment_6(), "rule__DefineFunctionLikeMacro__ListAssignment_6");
+					put(grammarAccess.getDefineFunctionLikeMacroAccess().getStringAssignment_9(), "rule__DefineFunctionLikeMacro__StringAssignment_9");
 					put(grammarAccess.getIdentifierListAccess().getIdAssignment_1(), "rule__IdentifierList__IdAssignment_1");
 					put(grammarAccess.getIdentifierListAccess().getIdAssignment_2_2(), "rule__IdentifierList__IdAssignment_2_2");
 					put(grammarAccess.getErrorDirectiveAccess().getMsgAssignment_3(), "rule__ErrorDirective__MsgAssignment_3");

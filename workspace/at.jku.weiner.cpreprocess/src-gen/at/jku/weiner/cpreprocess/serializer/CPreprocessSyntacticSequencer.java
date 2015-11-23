@@ -21,7 +21,8 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected CPreprocessGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_DefineFunctionLikeMacro_WSTerminalRuleCall_2_p;
-	protected AbstractElementAlias match_DefineFunctionLikeMacro_WSTerminalRuleCall_7_p;
+	protected AbstractElementAlias match_DefineFunctionLikeMacro_WSTerminalRuleCall_5_a;
+	protected AbstractElementAlias match_DefineFunctionLikeMacro_WSTerminalRuleCall_8_p;
 	protected AbstractElementAlias match_DefineObjectMacro_WSTerminalRuleCall_2_p;
 	protected AbstractElementAlias match_DefineObjectMacro_WSTerminalRuleCall_4_0_p;
 	protected AbstractElementAlias match_ErrorDirective_WSTerminalRuleCall_2_p;
@@ -35,7 +36,8 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (CPreprocessGrammarAccess) access;
 		match_DefineFunctionLikeMacro_WSTerminalRuleCall_2_p = new TokenAlias(true, false, grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_2());
-		match_DefineFunctionLikeMacro_WSTerminalRuleCall_7_p = new TokenAlias(true, false, grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_7());
+		match_DefineFunctionLikeMacro_WSTerminalRuleCall_5_a = new TokenAlias(true, true, grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_5());
+		match_DefineFunctionLikeMacro_WSTerminalRuleCall_8_p = new TokenAlias(true, false, grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_8());
 		match_DefineObjectMacro_WSTerminalRuleCall_2_p = new TokenAlias(true, false, grammarAccess.getDefineObjectMacroAccess().getWSTerminalRuleCall_2());
 		match_DefineObjectMacro_WSTerminalRuleCall_4_0_p = new TokenAlias(true, false, grammarAccess.getDefineObjectMacroAccess().getWSTerminalRuleCall_4_0());
 		match_ErrorDirective_WSTerminalRuleCall_2_p = new TokenAlias(true, false, grammarAccess.getErrorDirectiveAccess().getWSTerminalRuleCall_2());
@@ -180,8 +182,10 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
 			if(match_DefineFunctionLikeMacro_WSTerminalRuleCall_2_p.equals(syntax))
 				emit_DefineFunctionLikeMacro_WSTerminalRuleCall_2_p(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_DefineFunctionLikeMacro_WSTerminalRuleCall_7_p.equals(syntax))
-				emit_DefineFunctionLikeMacro_WSTerminalRuleCall_7_p(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_DefineFunctionLikeMacro_WSTerminalRuleCall_5_a.equals(syntax))
+				emit_DefineFunctionLikeMacro_WSTerminalRuleCall_5_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_DefineFunctionLikeMacro_WSTerminalRuleCall_8_p.equals(syntax))
+				emit_DefineFunctionLikeMacro_WSTerminalRuleCall_8_p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_DefineObjectMacro_WSTerminalRuleCall_2_p.equals(syntax))
 				emit_DefineObjectMacro_WSTerminalRuleCall_2_p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_DefineObjectMacro_WSTerminalRuleCall_4_0_p.equals(syntax))
@@ -215,13 +219,25 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
+	 *     WS*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     id=ID LPAREN (ambiguity) RPAREN WS+ string=MyDefineLine
+	 *     id=ID LPAREN (ambiguity) list=IdentifierList
+	 */
+	protected void emit_DefineFunctionLikeMacro_WSTerminalRuleCall_5_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
 	 *     WS+
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     id=ID LPAREN RPAREN (ambiguity) string=MyDefineLine
+	 *     id=ID LPAREN WS* RPAREN (ambiguity) string=MyDefineLine
 	 *     list=IdentifierList RPAREN (ambiguity) string=MyDefineLine
 	 */
-	protected void emit_DefineFunctionLikeMacro_WSTerminalRuleCall_7_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_DefineFunctionLikeMacro_WSTerminalRuleCall_8_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

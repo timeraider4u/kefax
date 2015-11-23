@@ -2016,9 +2016,9 @@ rule__DefineFunctionLikeMacro__Group__5__Impl
 :
 
 (
-{ before(grammarAccess.getDefineFunctionLikeMacroAccess().getListAssignment_5()); }
-(rule__DefineFunctionLikeMacro__ListAssignment_5)?
-{ after(grammarAccess.getDefineFunctionLikeMacroAccess().getListAssignment_5()); }
+{ before(grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_5()); }
+(	RULE_WS)*
+{ after(grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_5()); }
 )
 
 
@@ -2048,9 +2048,9 @@ rule__DefineFunctionLikeMacro__Group__6__Impl
 :
 
 (
-{ before(grammarAccess.getDefineFunctionLikeMacroAccess().getRPARENTerminalRuleCall_6()); }
-	RULE_RPAREN
-{ after(grammarAccess.getDefineFunctionLikeMacroAccess().getRPARENTerminalRuleCall_6()); }
+{ before(grammarAccess.getDefineFunctionLikeMacroAccess().getListAssignment_6()); }
+(rule__DefineFunctionLikeMacro__ListAssignment_6)?
+{ after(grammarAccess.getDefineFunctionLikeMacroAccess().getListAssignment_6()); }
 )
 
 
@@ -2080,16 +2080,9 @@ rule__DefineFunctionLikeMacro__Group__7__Impl
 :
 
 (
-(
-{ before(grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_7()); }
-(	RULE_WS)
-{ after(grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_7()); }
-)
-(
-{ before(grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_7()); }
-(	RULE_WS)*
-{ after(grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_7()); }
-)
+{ before(grammarAccess.getDefineFunctionLikeMacroAccess().getRPARENTerminalRuleCall_7()); }
+	RULE_RPAREN
+{ after(grammarAccess.getDefineFunctionLikeMacroAccess().getRPARENTerminalRuleCall_7()); }
 )
 
 
@@ -2106,6 +2099,7 @@ rule__DefineFunctionLikeMacro__Group__8
     }
 :
 	rule__DefineFunctionLikeMacro__Group__8__Impl
+	rule__DefineFunctionLikeMacro__Group__9
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -2118,9 +2112,16 @@ rule__DefineFunctionLikeMacro__Group__8__Impl
 :
 
 (
-{ before(grammarAccess.getDefineFunctionLikeMacroAccess().getStringAssignment_8()); }
-(rule__DefineFunctionLikeMacro__StringAssignment_8)
-{ after(grammarAccess.getDefineFunctionLikeMacroAccess().getStringAssignment_8()); }
+(
+{ before(grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_8()); }
+(	RULE_WS)
+{ after(grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_8()); }
+)
+(
+{ before(grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_8()); }
+(	RULE_WS)*
+{ after(grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_8()); }
+)
 )
 
 
@@ -2129,6 +2130,39 @@ rule__DefineFunctionLikeMacro__Group__8__Impl
 finally {
 	restoreStackSize(stackSize);
 }
+
+
+rule__DefineFunctionLikeMacro__Group__9
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__DefineFunctionLikeMacro__Group__9__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DefineFunctionLikeMacro__Group__9__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+
+(
+{ before(grammarAccess.getDefineFunctionLikeMacroAccess().getStringAssignment_9()); }
+(rule__DefineFunctionLikeMacro__StringAssignment_9)
+{ after(grammarAccess.getDefineFunctionLikeMacroAccess().getStringAssignment_9()); }
+)
+
+
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
 
 
 
@@ -3242,14 +3276,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__DefineFunctionLikeMacro__ListAssignment_5
+rule__DefineFunctionLikeMacro__ListAssignment_6
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getDefineFunctionLikeMacroAccess().getListIdentifierListParserRuleCall_5_0()); }
-	ruleIdentifierList{ after(grammarAccess.getDefineFunctionLikeMacroAccess().getListIdentifierListParserRuleCall_5_0()); }
+{ before(grammarAccess.getDefineFunctionLikeMacroAccess().getListIdentifierListParserRuleCall_6_0()); }
+	ruleIdentifierList{ after(grammarAccess.getDefineFunctionLikeMacroAccess().getListIdentifierListParserRuleCall_6_0()); }
 )
 
 ;
@@ -3257,14 +3291,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__DefineFunctionLikeMacro__StringAssignment_8
+rule__DefineFunctionLikeMacro__StringAssignment_9
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getDefineFunctionLikeMacroAccess().getStringMyDefineLineParserRuleCall_8_0()); }
-	ruleMyDefineLine{ after(grammarAccess.getDefineFunctionLikeMacroAccess().getStringMyDefineLineParserRuleCall_8_0()); }
+{ before(grammarAccess.getDefineFunctionLikeMacroAccess().getStringMyDefineLineParserRuleCall_9_0()); }
+	ruleMyDefineLine{ after(grammarAccess.getDefineFunctionLikeMacroAccess().getStringMyDefineLineParserRuleCall_9_0()); }
 )
 
 ;

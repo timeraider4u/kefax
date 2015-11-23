@@ -21,10 +21,10 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.cpreprocess.cPreprocess.impl.TranslationUnitImpl#getGroup <em>Group</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

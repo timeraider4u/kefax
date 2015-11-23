@@ -4,7 +4,7 @@
     editorDirectory="/at.jku.weiner.cpreprocess.editor/src" modelPluginID="at.jku.weiner.cpreprocess"
     forceOverwrite="true" modelName="CPreprocess" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="6.0" copyrightFields="false" editPluginID="at.jku.weiner.cpreprocess.edit"
-    editorPluginID="at.jku.weiner.cpreprocess.editor" runtimeVersion="2.11">
+    editorPluginID="at.jku.weiner.cpreprocess.editor" runtimeVersion="2.10">
   <genPackages prefix="CPreprocess" basePackage="at.jku.weiner.cpreprocess" disposableProviderFactory="true"
       fileExtensions="c,h" ecorePackage="CPreprocess.ecore#/">
     <genClasses ecoreClass="CPreprocess.ecore#//Model">

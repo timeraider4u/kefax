@@ -310,23 +310,24 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cIdAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cIdIDTerminalRuleCall_3_0 = (RuleCall)cIdAssignment_3.eContents().get(0);
 		private final RuleCall cLPARENTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
-		private final Assignment cListAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cListIdentifierListParserRuleCall_5_0 = (RuleCall)cListAssignment_5.eContents().get(0);
-		private final RuleCall cRPARENTerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
-		private final RuleCall cWSTerminalRuleCall_7 = (RuleCall)cGroup.eContents().get(7);
-		private final Assignment cStringAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cStringMyDefineLineParserRuleCall_8_0 = (RuleCall)cStringAssignment_8.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final Assignment cListAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cListIdentifierListParserRuleCall_6_0 = (RuleCall)cListAssignment_6.eContents().get(0);
+		private final RuleCall cRPARENTerminalRuleCall_7 = (RuleCall)cGroup.eContents().get(7);
+		private final RuleCall cWSTerminalRuleCall_8 = (RuleCall)cGroup.eContents().get(8);
+		private final Assignment cStringAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final RuleCall cStringMyDefineLineParserRuleCall_9_0 = (RuleCall)cStringAssignment_9.eContents().get(0);
 		
 		//DefineFunctionLikeMacro DefineDirective:
 		//	{DefineFunctionLikeMacro} DEFINE WS+ id=ID
-		//	LPAREN
+		//	LPAREN WS*
 		//	list=IdentifierList?
 		//	RPAREN
 		//	WS+
 		//	string=MyDefineLine
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{DefineFunctionLikeMacro} DEFINE WS+ id=ID LPAREN list=IdentifierList? RPAREN WS+ string=MyDefineLine
+		//{DefineFunctionLikeMacro} DEFINE WS+ id=ID LPAREN WS* list=IdentifierList? RPAREN WS+ string=MyDefineLine
 		public Group getGroup() { return cGroup; }
 		
 		//{DefineFunctionLikeMacro}
@@ -347,23 +348,26 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//LPAREN
 		public RuleCall getLPARENTerminalRuleCall_4() { return cLPARENTerminalRuleCall_4; }
 		
+		//WS*
+		public RuleCall getWSTerminalRuleCall_5() { return cWSTerminalRuleCall_5; }
+		
 		//list=IdentifierList?
-		public Assignment getListAssignment_5() { return cListAssignment_5; }
+		public Assignment getListAssignment_6() { return cListAssignment_6; }
 		
 		//IdentifierList
-		public RuleCall getListIdentifierListParserRuleCall_5_0() { return cListIdentifierListParserRuleCall_5_0; }
+		public RuleCall getListIdentifierListParserRuleCall_6_0() { return cListIdentifierListParserRuleCall_6_0; }
 		
 		//RPAREN
-		public RuleCall getRPARENTerminalRuleCall_6() { return cRPARENTerminalRuleCall_6; }
+		public RuleCall getRPARENTerminalRuleCall_7() { return cRPARENTerminalRuleCall_7; }
 		
 		//WS+
-		public RuleCall getWSTerminalRuleCall_7() { return cWSTerminalRuleCall_7; }
+		public RuleCall getWSTerminalRuleCall_8() { return cWSTerminalRuleCall_8; }
 		
 		//string=MyDefineLine
-		public Assignment getStringAssignment_8() { return cStringAssignment_8; }
+		public Assignment getStringAssignment_9() { return cStringAssignment_9; }
 		
 		//MyDefineLine
-		public RuleCall getStringMyDefineLineParserRuleCall_8_0() { return cStringMyDefineLineParserRuleCall_8_0; }
+		public RuleCall getStringMyDefineLineParserRuleCall_9_0() { return cStringMyDefineLineParserRuleCall_9_0; }
 	}
 	public class IdentifierListElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.IdentifierList");
@@ -869,7 +873,7 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//DefineFunctionLikeMacro DefineDirective:
 	//	{DefineFunctionLikeMacro} DEFINE WS+ id=ID
-	//	LPAREN
+	//	LPAREN WS*
 	//	list=IdentifierList?
 	//	RPAREN
 	//	WS+

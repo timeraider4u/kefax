@@ -86,7 +86,7 @@ DefineObjectMacro returns DefineDirective:
 DefineFunctionLikeMacro returns DefineDirective:
 	{DefineFunctionLikeMacro}
 	DEFINE WS+ id=ID 
-	LPAREN
+	LPAREN WS*
 		(list=IdentifierList)?
 	RPAREN
 	WS+

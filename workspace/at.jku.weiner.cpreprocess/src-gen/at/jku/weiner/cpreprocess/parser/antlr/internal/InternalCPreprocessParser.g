@@ -637,45 +637,49 @@ ruleDefineFunctionLikeMacro returns [EObject current=null]
     { 
     newLeafNode(this_LPAREN_4, grammarAccess.getDefineFunctionLikeMacroAccess().getLPARENTerminalRuleCall_4()); 
     }
-(
+(this_WS_5=RULE_WS
+    { 
+    newLeafNode(this_WS_5, grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_5()); 
+    }
+)*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getDefineFunctionLikeMacroAccess().getListIdentifierListParserRuleCall_5_0()); 
+	        newCompositeNode(grammarAccess.getDefineFunctionLikeMacroAccess().getListIdentifierListParserRuleCall_6_0()); 
 	    }
-		lv_list_5_0=ruleIdentifierList		{
+		lv_list_6_0=ruleIdentifierList		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getDefineFunctionLikeMacroRule());
 	        }
        		set(
        			$current, 
        			"list",
-        		lv_list_5_0, 
+        		lv_list_6_0, 
         		"at.jku.weiner.cpreprocess.CPreprocess.IdentifierList");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)?this_RPAREN_6=RULE_RPAREN
+)?this_RPAREN_7=RULE_RPAREN
     { 
-    newLeafNode(this_RPAREN_6, grammarAccess.getDefineFunctionLikeMacroAccess().getRPARENTerminalRuleCall_6()); 
+    newLeafNode(this_RPAREN_7, grammarAccess.getDefineFunctionLikeMacroAccess().getRPARENTerminalRuleCall_7()); 
     }
-(this_WS_7=RULE_WS
+(this_WS_8=RULE_WS
     { 
-    newLeafNode(this_WS_7, grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_7()); 
+    newLeafNode(this_WS_8, grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_8()); 
     }
 )+(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getDefineFunctionLikeMacroAccess().getStringMyDefineLineParserRuleCall_8_0()); 
+	        newCompositeNode(grammarAccess.getDefineFunctionLikeMacroAccess().getStringMyDefineLineParserRuleCall_9_0()); 
 	    }
-		lv_string_8_0=ruleMyDefineLine		{
+		lv_string_9_0=ruleMyDefineLine		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getDefineFunctionLikeMacroRule());
 	        }
        		set(
        			$current, 
        			"string",
-        		lv_string_8_0, 
+        		lv_string_9_0, 
         		"at.jku.weiner.cpreprocess.CPreprocess.MyDefineLine");
 	        afterParserOrEnumRuleCall();
 	    }

@@ -7,7 +7,8 @@ split-lexer=true
 source file="myinclude/include/printf.h"
 //----------------------------------------------------------------------
 lexer-tokens
-	SPECIAL +*2 WS ID SPECIAL ID NEWLINE
+	//SPECIAL +*2 WS ID SPECIAL ID NEWLINE
+	WS NEWLINE
 	ID WS ID LPAREN ID WS SPECIAL+*2 WS ID RPAREN SPECIAL NEWLINE
 //----------------------------------------------------------------------
 (Model

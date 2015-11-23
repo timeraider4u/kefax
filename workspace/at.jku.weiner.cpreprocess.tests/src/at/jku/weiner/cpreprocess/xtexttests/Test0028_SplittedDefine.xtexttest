@@ -7,7 +7,17 @@ split-lexer=true
 source file="res/Test0028_SplittedDefine.c"
 //----------------------------------------------------------------------
 lexer-tokens
-	WS HASH WS DEFINE WS ID WS SPECIAL+*4 NEWLINE
+	WS NEWLINE
+	WS NEWLINE
+	WS NEWLINE
+	WS NEWLINE
+	WS NEWLINE
+	WS NEWLINE
+	WS NEWLINE
+	WS NEWLINE
+	NEWLINE
+	WS NEWLINE
+	WS+*2 HASH WS+*3 DEFINE WS+*3 ID WS+*4 SPECIAL+*4 NEWLINE
 	NEWLINE
 	
 	ID WS ID WS SPECIAL WS ID SPECIAL NEWLINE
@@ -18,6 +28,34 @@ lexer-tokens
 		group=
 		(GroupOpt
 			lines+=
+			(Code
+				code++"// the following is not working:"
+			),
+			(Code
+				code++"// /\\\\"
+			),
+			(Code
+				code++"//     *"
+			),
+			(Code
+				code++"//     */ # /*"
+			),
+			(Code
+				code++"//     */ defi\\\\"
+			),
+			(Code
+				code++"//     ne FO\\\\"
+			),
+			(Code
+				code++"//     O 10\\\\"
+			),
+			(Code
+				code++"//     20"
+			),
+			(NewLineLine),
+			(Code
+				code++"// this is working!"
+			),
 			(PreprocessorDirectives
 				directive=
 				(DefineDirective
@@ -26,10 +64,8 @@ lexer-tokens
 				)
 			),
 			(NewLineLine),
-			
-			
 			(Code
-				code++"int foo = Foo;"
+				code++"int foo = FOO;"
 			)
 			
 		)

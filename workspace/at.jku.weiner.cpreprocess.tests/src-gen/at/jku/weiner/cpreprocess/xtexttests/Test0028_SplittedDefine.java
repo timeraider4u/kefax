@@ -45,6 +45,16 @@ import at.jku.weiner.cpreprocess.xtexttests.LexerAndParserTest;
 import at.jku.weiner.cpreprocess.cPreprocess.Model;
 import at.jku.weiner.cpreprocess.cPreprocess.TranslationUnit;
 import at.jku.weiner.cpreprocess.cPreprocess.GroupOpt;
+import at.jku.weiner.cpreprocess.cPreprocess.Code;
+import at.jku.weiner.cpreprocess.cPreprocess.Code;
+import at.jku.weiner.cpreprocess.cPreprocess.Code;
+import at.jku.weiner.cpreprocess.cPreprocess.Code;
+import at.jku.weiner.cpreprocess.cPreprocess.Code;
+import at.jku.weiner.cpreprocess.cPreprocess.Code;
+import at.jku.weiner.cpreprocess.cPreprocess.Code;
+import at.jku.weiner.cpreprocess.cPreprocess.Code;
+import at.jku.weiner.cpreprocess.cPreprocess.NewLineLine;
+import at.jku.weiner.cpreprocess.cPreprocess.Code;
 import at.jku.weiner.cpreprocess.cPreprocess.PreprocessorDirectives;
 import at.jku.weiner.cpreprocess.cPreprocess.DefineDirective;
 import at.jku.weiner.cpreprocess.cPreprocess.NewLineLine;
@@ -98,11 +108,38 @@ public class Test0028_SplittedDefine {
 			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_WS", 
+				"RULE_NEWLINE", 
+				"RULE_WS", 
+				"RULE_NEWLINE", 
+				"RULE_WS", 
+				"RULE_NEWLINE", 
+				"RULE_WS", 
+				"RULE_NEWLINE", 
+				"RULE_WS", 
+				"RULE_NEWLINE", 
+				"RULE_WS", 
+				"RULE_NEWLINE", 
+				"RULE_WS", 
+				"RULE_NEWLINE", 
+				"RULE_WS", 
+				"RULE_NEWLINE", 
+				"RULE_NEWLINE", 
+				"RULE_WS", 
+				"RULE_NEWLINE", 
+				"RULE_WS", 
+				"RULE_WS", 
 				"RULE_HASH", 
+				"RULE_WS", 
+				"RULE_WS", 
 				"RULE_WS", 
 				"RULE_DEFINE", 
 				"RULE_WS", 
+				"RULE_WS", 
+				"RULE_WS", 
 				"RULE_ID", 
+				"RULE_WS", 
+				"RULE_WS", 
+				"RULE_WS", 
 				"RULE_WS", 
 				"RULE_SPECIAL", 
 				"RULE_SPECIAL", 
@@ -155,33 +192,101 @@ public class Test0028_SplittedDefine {
 		final EList<? extends EObject> Lines_2_list = GroupOpt_2_Var
 		.getLines();
 		Assert.assertNotNull(Lines_2_list);
-		Assert.assertEquals(3, Lines_2_list.size());
+		Assert.assertEquals(13, Lines_2_list.size());
 		//2
-		final PreprocessorDirectives PreprocessorDirectives_3_Var
-		 = (PreprocessorDirectives)Lines_2_list.get(0);
-		Assert.assertNotNull(PreprocessorDirectives_3_Var
+		final Code Code_3_Var
+		 = (Code)Lines_2_list.get(0);
+		Assert.assertNotNull(Code_3_Var
 		);
+		Assert.assertEquals("// the following is not working:", Code_3_Var
+		.getCode());
 		//3
-		final DefineDirective DefineDirective_4_Var
-		 = (DefineDirective)PreprocessorDirectives_3_Var
-		.getDirective();
-		Assert.assertNotNull(DefineDirective_4_Var
+		final Code Code_4_Var
+		 = (Code)Lines_2_list.get(1);
+		Assert.assertNotNull(Code_4_Var
 		);
-		Assert.assertEquals("FOO", DefineDirective_4_Var
-		.getId());
-		Assert.assertEquals("1024", DefineDirective_4_Var
-		.getString());
+		Assert.assertEquals("// /\\", Code_4_Var
+		.getCode());
 		//4
-		final NewLineLine NewLineLine_5_Var
-		 = (NewLineLine)Lines_2_list.get(1);
-		Assert.assertNotNull(NewLineLine_5_Var
+		final Code Code_5_Var
+		 = (Code)Lines_2_list.get(2);
+		Assert.assertNotNull(Code_5_Var
 		);
+		Assert.assertEquals("//     *", Code_5_Var
+		.getCode());
 		//5
 		final Code Code_6_Var
-		 = (Code)Lines_2_list.get(2);
+		 = (Code)Lines_2_list.get(3);
 		Assert.assertNotNull(Code_6_Var
 		);
-		Assert.assertEquals("int foo = Foo;", Code_6_Var
+		Assert.assertEquals("//     */ # /*", Code_6_Var
+		.getCode());
+		//6
+		final Code Code_7_Var
+		 = (Code)Lines_2_list.get(4);
+		Assert.assertNotNull(Code_7_Var
+		);
+		Assert.assertEquals("//     */ defi\\", Code_7_Var
+		.getCode());
+		//7
+		final Code Code_8_Var
+		 = (Code)Lines_2_list.get(5);
+		Assert.assertNotNull(Code_8_Var
+		);
+		Assert.assertEquals("//     ne FO\\", Code_8_Var
+		.getCode());
+		//8
+		final Code Code_9_Var
+		 = (Code)Lines_2_list.get(6);
+		Assert.assertNotNull(Code_9_Var
+		);
+		Assert.assertEquals("//     O 10\\", Code_9_Var
+		.getCode());
+		//9
+		final Code Code_10_Var
+		 = (Code)Lines_2_list.get(7);
+		Assert.assertNotNull(Code_10_Var
+		);
+		Assert.assertEquals("//     20", Code_10_Var
+		.getCode());
+		//10
+		final NewLineLine NewLineLine_11_Var
+		 = (NewLineLine)Lines_2_list.get(8);
+		Assert.assertNotNull(NewLineLine_11_Var
+		);
+		//11
+		final Code Code_12_Var
+		 = (Code)Lines_2_list.get(9);
+		Assert.assertNotNull(Code_12_Var
+		);
+		Assert.assertEquals("// this is working!", Code_12_Var
+		.getCode());
+		//12
+		final PreprocessorDirectives PreprocessorDirectives_13_Var
+		 = (PreprocessorDirectives)Lines_2_list.get(10);
+		Assert.assertNotNull(PreprocessorDirectives_13_Var
+		);
+		//13
+		final DefineDirective DefineDirective_14_Var
+		 = (DefineDirective)PreprocessorDirectives_13_Var
+		.getDirective();
+		Assert.assertNotNull(DefineDirective_14_Var
+		);
+		Assert.assertEquals("FOO", DefineDirective_14_Var
+		.getId());
+		Assert.assertEquals("1024", DefineDirective_14_Var
+		.getString());
+		//14
+		final NewLineLine NewLineLine_15_Var
+		 = (NewLineLine)Lines_2_list.get(11);
+		Assert.assertNotNull(NewLineLine_15_Var
+		);
+		//15
+		final Code Code_16_Var
+		 = (Code)Lines_2_list.get(12);
+		Assert.assertNotNull(Code_16_Var
+		);
+		Assert.assertEquals("int foo = FOO;", Code_16_Var
 		.getCode());
 	}
 	

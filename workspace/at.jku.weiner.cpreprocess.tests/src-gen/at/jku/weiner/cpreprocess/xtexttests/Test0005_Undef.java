@@ -108,15 +108,7 @@ public class Test0005_Undef {
 			"res/Test0005_Undef.c");
 			//System.out.println(text);
 			final String[] expected = new String[] {
-				"RULE_SPECIAL", 
-				"RULE_SPECIAL", 
 				"RULE_WS", 
-				"RULE_ID", 
-				"RULE_COMMA", 
-				"RULE_WS", 
-				"RULE_ID", 
-				"RULE_WS", 
-				"RULE_ID", 
 				"RULE_NEWLINE", 
 				"RULE_HASH", 
 				"RULE_DEFINE", 

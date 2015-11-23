@@ -95,12 +95,7 @@ public class Test0013_RelativeInclude_Header {
 			"myinclude/include/printf.h");
 			//System.out.println(text);
 			final String[] expected = new String[] {
-				"RULE_SPECIAL", 
-				"RULE_SPECIAL", 
 				"RULE_WS", 
-				"RULE_ID", 
-				"RULE_SPECIAL", 
-				"RULE_ID", 
 				"RULE_NEWLINE", 
 				"RULE_ID", 
 				"RULE_WS", 

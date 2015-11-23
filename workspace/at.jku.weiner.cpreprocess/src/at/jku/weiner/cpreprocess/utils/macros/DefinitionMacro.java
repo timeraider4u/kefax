@@ -1,4 +1,4 @@
-package at.jku.weiner.cpreprocess.generator;
+package at.jku.weiner.cpreprocess.utils.macros;
 
 interface DefinitionMacro {
 

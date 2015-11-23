@@ -1,4 +1,4 @@
-package at.jku.weiner.cpreprocess.generator;
+package at.jku.weiner.cpreprocess.utils.macros;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +37,37 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 			return null;
 		}
 		return this.idList.getId();
+	}
+
+	@Override
+	public boolean equals(final Object obj) {
+		if (!(obj instanceof DefinitionFunctionMacro)) {
+			return false;
+		}
+		final DefinitionFunctionMacro other = (DefinitionFunctionMacro) obj;
+		if (!this.key.equals(other.key)) {
+			return false;
+		}
+		if (!this.value.equals(other.value)) {
+			return false;
+		}
+		if ((this.list == null) && (other.list != null)) {
+			return false;
+		}
+		if ((this.list != null) && (other.list == null)) {
+			return false;
+		}
+		if (this.list.size() != other.list.size()) {
+			return false;
+		}
+		for (int i = 0; i < this.list.size(); i++) {
+			final String param1 = this.list.get(i);
+			final String param2 = other.list.get(i);
+			if (!(param1.equals(param2))) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	@Override

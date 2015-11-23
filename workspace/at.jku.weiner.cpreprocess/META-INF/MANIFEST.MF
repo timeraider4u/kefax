@@ -24,10 +24,11 @@ Export-Package: at.jku.weiner.cpreprocess,
  at.jku.weiner.cpreprocess.generator,
  at.jku.weiner.cpreprocess.parser.antlr,
  at.jku.weiner.cpreprocess.parser.antlr.internal,
+ at.jku.weiner.cpreprocess.parser.antlr.lexer,
  at.jku.weiner.cpreprocess.scoping,
  at.jku.weiner.cpreprocess.serializer,
  at.jku.weiner.cpreprocess.services,
  at.jku.weiner.cpreprocess.utils,
- at.jku.weiner.cpreprocess.validation,
- at.jku.weiner.cpreprocess.parser.antlr.lexer
+ at.jku.weiner.cpreprocess.utils.macros,
+ at.jku.weiner.cpreprocess.validation
 Import-Package: org.apache.log4j

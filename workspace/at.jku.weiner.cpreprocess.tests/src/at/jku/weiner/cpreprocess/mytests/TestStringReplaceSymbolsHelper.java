@@ -75,11 +75,51 @@ public class TestStringReplaceSymbolsHelper {
 	@Test
 	public void test06() {
 		final String text = "A little penguin looks at äöüÄÖÜß?!";
-		final String symbol = "äöüÄÖÜß?";
+		final String symbol = "äöüÄÖÜß";
+		final String replacement = "you";
+		final String actual = StringReplaceSymbolsHelper
+				.replaceAndIgnoreQuotes(text, symbol, replacement);
+		Assert.assertEquals("A little penguin looks at you?!", actual);
+	}
+
+	@Test
+	public void test07() {
+		final String text = "A little penguin2 looks at you!";
+		final String symbol = "penguin";
+		final String replacement = "red fox";
+		final String actual = StringReplaceSymbolsHelper
+				.replaceAndIgnoreQuotes(text, symbol, replacement);
+		Assert.assertEquals("A little penguin2 looks at you!", actual);
+	}
+
+	@Test
+	public void test08() {
+		final String text = "A little penguin looks at you!";
+		final String symbol = "penguin2";
+		final String replacement = "red fox";
+		final String actual = StringReplaceSymbolsHelper
+				.replaceAndIgnoreQuotes(text, symbol, replacement);
+		Assert.assertEquals("A little penguin looks at you!", actual);
+	}
+
+	@Test
+	public void test09() {
+		final String text = "A little penguin looks at äöüÄÖÜ_ß1!";
+		final String symbol = "äöüÄÖÜ_ß1";
 		final String replacement = "you";
 		final String actual = StringReplaceSymbolsHelper
 				.replaceAndIgnoreQuotes(text, symbol, replacement);
 		Assert.assertEquals("A little penguin looks at you!", actual);
+	}
+
+	@Test
+	public void test10() {
+		final String text = "A little penguin2 looks at you!";
+		final String symbol = "penguin2";
+		final String replacement = "red fox";
+		final String actual = StringReplaceSymbolsHelper
+				.replaceAndIgnoreQuotes(text, symbol, replacement);
+		Assert.assertEquals("A little red fox looks at you!", actual);
 	}
 
 }

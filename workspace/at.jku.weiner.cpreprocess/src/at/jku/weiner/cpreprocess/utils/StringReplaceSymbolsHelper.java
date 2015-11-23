@@ -28,7 +28,8 @@ public class StringReplaceSymbolsHelper {
 
 			// System.out.println("mymatch='" + match + "'");
 			final String str = text.substring(start, tempStart);
-			final String str2 = str.replace(symbol, replacement);
+			final String str2 = StringReplaceSymbolsHelper.replace(str, symbol,
+					replacement);
 			// System.out.println("str='" + str + "'");
 			// System.out.println("str2='" + str2 + "'");
 			result.append(str2);
@@ -36,7 +37,8 @@ public class StringReplaceSymbolsHelper {
 			start = tempEnd;
 		}
 		final String str = text.substring(start);
-		final String str2 = str.replace(symbol, replacement);
+		final String str2 = StringReplaceSymbolsHelper.replace(str, symbol,
+				replacement);
 		// System.out.println("str-2='" + str + "'");
 		// System.out.println("str2-2='" + str2 + "'");
 		result.append(str2);
@@ -50,6 +52,13 @@ public class StringReplaceSymbolsHelper {
 			return start;
 		}
 		return start + 1;
+	}
+
+	private static String replace(final String string, final String symbol,
+			final String replacement) {
+		// return string.replace(symbol, replacement);
+		return string.replaceAll("\\b" + symbol + "\\b", replacement);
+		// "(?=\\W+|^)"+Pattern.quote("[69-3]")+"(?=\\W+|$)"
 	}
 
 }

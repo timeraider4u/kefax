@@ -17,7 +17,7 @@ import at.jku.weiner.cpreprocess.cPreprocess.DefineDirective
 import at.jku.weiner.cpreprocess.cPreprocess.UnDefineDirective
 import at.jku.weiner.cpreprocess.cPreprocess.ErrorDirective
 import at.jku.weiner.cpreprocess.cPreprocess.PragmaDirective
-import at.jku.weiner.cpreprocess.generator.DefinitionTable
+import at.jku.weiner.cpreprocess.utils.macros.DefinitionTable
 import org.eclipse.emf.ecore.resource.ResourceSet
 import org.eclipse.emf.common.util.URI
 import at.jku.weiner.cpreprocess.cPreprocess.GroupOpt

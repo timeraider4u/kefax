@@ -3,7 +3,7 @@ package at.jku.weiner.cpreprocess.mytests;
 import org.junit.Assert;
 import org.junit.Test;
 
-import at.jku.weiner.cpreprocess.generator.MacroParentheseHelper;
+import at.jku.weiner.cpreprocess.utils.macros.MacroParentheseHelper;
 
 public class TestMacroParentheseHelper {
 

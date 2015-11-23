@@ -25,6 +25,9 @@ public class MacroParentheseHelper {
 		this.indexRParen = this.text.indexOf(")", this.currIndex);
 
 		// ...
+		if ((this.indexComma < 0)) {
+
+		}
 
 		// ...
 

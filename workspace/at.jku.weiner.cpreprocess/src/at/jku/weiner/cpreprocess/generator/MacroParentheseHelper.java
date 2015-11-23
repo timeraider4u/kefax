@@ -2,25 +2,44 @@ package at.jku.weiner.cpreprocess.generator;
 
 public class MacroParentheseHelper {
 
-	private final String string;
-	private final int startIndex;
+	private final String text;
+	private int indexComma;
+	private int indexLParen;
+	private int indexRParen;
+	private int currIndex;
+	private final int parentheses;
 
-	public MacroParentheseHelper(final String string, final int startIndex) {
-		this.string = string;
-		this.startIndex = startIndex;
+	public MacroParentheseHelper(final String text, final int startIndex) {
+		this.text = text;
+		this.currIndex = startIndex;
+		this.parentheses = 1;
 	}
 
-	public int getEndIndex() {
+	public int getIndex() {
+		return this.currIndex;
+	}
+
+	private int calculateNextIndex() {
+		this.indexComma = this.text.indexOf(",", this.currIndex);
+		this.indexLParen = this.text.indexOf("(", this.currIndex);
+		this.indexRParen = this.text.indexOf(")", this.currIndex);
+
+		// ...
+
+		// ...
 
 		return -1;
 	}
 
 	public boolean hasMoreParams() {
-		return false;
+		return (this.parentheses > 0);
 	}
 
 	public String getNextParam() {
-		return "";
+		final int nextIndex = this.calculateNextIndex();
+		final String result = this.text.substring(this.currIndex, nextIndex);
+		this.currIndex = nextIndex;
+		return result;
 	}
 
 }

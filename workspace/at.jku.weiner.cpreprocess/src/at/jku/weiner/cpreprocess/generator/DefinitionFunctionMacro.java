@@ -57,7 +57,7 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 
 	private void resolveForParameters(final StringBuffer result,
 			final String code) {
-		System.out.println("resolveForParameters='" + code + "'");
+		// System.out.println("resolveForParameters='" + code + "'");
 		final Pattern pattern = Pattern.compile(this.key + "\\s*\\(");
 		final Matcher matcher = pattern.matcher(code);
 
@@ -66,70 +66,54 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 			final int matchStart = matcher.start();
 			final int matchEnd = matcher.end();
 			final String previous = code.substring(currIndex, matchStart);
-			System.out.println("previous='" + previous + "'");
+			// System.out.println("previous='" + previous + "'");
 			result.append(previous);
 			final int nextIndex = this.replaceAllParams(result, code, matchEnd);
-			System.out.println("nextIndex='" + nextIndex + "'");
+			// System.out.println("nextIndex='" + nextIndex + "'");
 			currIndex = nextIndex + 1;
 		}
 		final String lastPart = code.substring(currIndex);
-		System.out.println("lastPart='" + lastPart + "'");
+		// System.out.println("lastPart='" + lastPart + "'");
 		result.append(lastPart);
-		System.out.println("");
+		// System.out.println("");
 	}
 
 	private int replaceAllParams(final StringBuffer result, final String code,
 			final int startIndex) {
-		int currIndex = startIndex;
+		final MacroParentheseHelper helper = new MacroParentheseHelper(code,
+				startIndex);
 		int paramIndex = 0;
-		int indexComma = code.indexOf(",", startIndex);
-		int indexLParen = code.indexOf("(", startIndex);
-		int indexRParen = code.indexOf(")", startIndex);
-		System.out.println("this.value='" + this.value + "'");
+		int currIndex = startIndex;
 		String paramValue = this.value;
-		int parentheses = 0;
-		while (indexComma >= 0) {
-			while (indexComma > indexLParen) {
-				parentheses++;
-				currIndex = indexRParen + 1;
-				indexComma = code.indexOf(",", currIndex);
-				indexLParen = code.indexOf("(", currIndex);
-				indexRParen = code.indexOf(")", currIndex);
-			}
+		while (helper.hasMoreParams()) {
+			final String nextParam = helper.getNextParam();
+			final String paramCode = this.getParamCode(nextParam);
+			final int nextIndex = helper.getIndex();
 
-			paramValue = this.replaceSingleParam(code, currIndex, indexComma,
-					paramIndex, paramValue);
+			paramValue = this.replaceSingleParam(code, paramCode, paramIndex,
+					paramValue);
 
-			currIndex = indexComma + 1;
-			indexComma = code.indexOf(",", currIndex);
-			indexLParen = code.indexOf("(", currIndex);
-			indexRParen = code.indexOf(")", currIndex);
-
+			currIndex = nextIndex + 1;
 			paramIndex++;
-
 		}
-		paramValue = this.replaceSingleParam(code, currIndex, indexRParen,
-				paramIndex, paramValue);
 		result.append(paramValue);
-		return indexRParen;
+		return currIndex;
 	}
 
-	private String replaceSingleParam(final String code, final int startIndex,
-			final int endIndex, final int paramIndex, final String paramValue) {
+	private String replaceSingleParam(final String code,
+			final String paramCode, final int paramIndex,
+			final String paramValue) {
 		final String param = this.list.get(paramIndex);
-		final String paramCode = this.getParamCode(code, startIndex, endIndex);
-		System.out.println("paramCode='" + paramCode + "'");
-		System.out.println("param='" + param + "'");
-		System.out.println("paramValue='" + paramValue + "'");
+		// System.out.println("paramCode='" + paramCode + "'");
+		// System.out.println("param='" + param + "'");
+		// System.out.println("paramValue='" + paramValue + "'");
 		final String result = StringReplaceSymbolsHelper
 				.replaceAndIgnoreQuotes(paramCode, param, paramValue);
 		return result;
 	}
 
-	private String getParamCode(final String code, final int startIndex,
-			final int endIndex) {
-		final String paramCodeTemp = code.substring(startIndex, endIndex)
-				.trim();
+	private String getParamCode(final String paramCode) {
+		final String paramCodeTemp = paramCode.trim();
 		final String result = DefinitionTable.resolve(paramCodeTemp);
 		return result;
 	}

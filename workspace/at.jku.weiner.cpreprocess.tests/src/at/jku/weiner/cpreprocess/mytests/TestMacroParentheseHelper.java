@@ -13,7 +13,7 @@ public class TestMacroParentheseHelper {
 				0);
 		Assert.assertTrue(helper.hasMoreParams());
 		Assert.assertEquals("(5)", helper.getNextParam());
-		Assert.assertEquals(4, helper.getEndIndex());
+		Assert.assertEquals(4, helper.getIndex());
 		Assert.assertFalse(helper.hasMoreParams());
 	}
 
@@ -23,10 +23,10 @@ public class TestMacroParentheseHelper {
 				"3, (5));", 0);
 		Assert.assertTrue(helper.hasMoreParams());
 		Assert.assertEquals("3", helper.getNextParam());
-		Assert.assertEquals(2, helper.getEndIndex());
+		Assert.assertEquals(2, helper.getIndex());
 		Assert.assertTrue(helper.hasMoreParams());
 		Assert.assertEquals("3", helper.getNextParam());
-		Assert.assertEquals(7, helper.getEndIndex());
+		Assert.assertEquals(7, helper.getIndex());
 		Assert.assertFalse(helper.hasMoreParams());
 	}
 
@@ -36,14 +36,14 @@ public class TestMacroParentheseHelper {
 				"(3), ((5), (3)), (3, (3), ((5))) );", 0);
 		Assert.assertTrue(helper.hasMoreParams());
 		Assert.assertEquals("(3)", helper.getNextParam());
-		Assert.assertEquals(4, helper.getEndIndex());
+		Assert.assertEquals(4, helper.getIndex());
 		Assert.assertTrue(helper.hasMoreParams());
 		Assert.assertEquals("((5), (3))", helper.getNextParam());
-		Assert.assertEquals(16, helper.getEndIndex());
+		Assert.assertEquals(16, helper.getIndex());
 
 		Assert.assertTrue(helper.hasMoreParams());
 		Assert.assertEquals("(3, (3), ((5)))", helper.getNextParam());
-		Assert.assertEquals(35, helper.getEndIndex());
+		Assert.assertEquals(35, helper.getIndex());
 
 		Assert.assertFalse(helper.hasMoreParams());
 	}
@@ -53,7 +53,7 @@ public class TestMacroParentheseHelper {
 		final MacroParentheseHelper helper = new MacroParentheseHelper(");", 0);
 		Assert.assertTrue(helper.hasMoreParams());
 		Assert.assertEquals("", helper.getNextParam());
-		Assert.assertEquals(1, helper.getEndIndex());
+		Assert.assertEquals(1, helper.getIndex());
 		Assert.assertFalse(helper.hasMoreParams());
 	}
 
@@ -63,10 +63,10 @@ public class TestMacroParentheseHelper {
 				0);
 		Assert.assertTrue(helper.hasMoreParams());
 		Assert.assertEquals("", helper.getNextParam());
-		Assert.assertEquals(1, helper.getEndIndex());
+		Assert.assertEquals(1, helper.getIndex());
 		Assert.assertTrue(helper.hasMoreParams());
 		Assert.assertEquals("()", helper.getNextParam());
-		Assert.assertEquals(4, helper.getEndIndex());
+		Assert.assertEquals(4, helper.getIndex());
 		Assert.assertFalse(helper.hasMoreParams());
 	}
 

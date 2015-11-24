@@ -78,7 +78,7 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineFunctionLikeMacro
-					id++"foo",
+					id++"foo0",
 					list isNull,
 					string++"foo_bar"
 				)
@@ -86,7 +86,7 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineFunctionLikeMacro
-					id++"foo",
+					id++"foo1",
 					list=
 					(IdentifierList
 						id+*"[X]"
@@ -97,7 +97,7 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineFunctionLikeMacro
-					id++"foo",
+					id++"foo2",
 					list=
 					(IdentifierList
 						id+*"[X, Y]"
@@ -108,7 +108,7 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(DefineFunctionLikeMacro
-					id++"foo",
+					id++"foo3",
 					list=
 					(IdentifierList
 						id+*"[X, Y, Z]"
@@ -118,40 +118,40 @@ lexer-tokens
 			),
 			(NewLineLine),
 			(Code
-				code++"int z = foo ( );"
+				code++"int z = foo0 ( );"
 			),
 			(Code
-				code++"int a = foo(bar);"
+				code++"int a = foo1(bar);"
 			),
 			(Code
-				code++"int b = foo(0,bar );"
+				code++"int b = foo2(0,bar );"
 			),
 			(Code
-				code++"int c = foo (((bar)));"
+				code++"int c = foo1 (((bar)));"
 			),
 			(Code
-				code++"int d = foo((0) , (bar));"
+				code++"int d = foo2((0) , (bar));"
 			),
 			(Code
-				code++"int e = foo(0,bar) (* (1));"
+				code++"int e = foo2(0,bar) (* (1));"
 			),
 			(Code
-				code++"int f = foo(0)(1);"
+				code++"int f = foo1(0)(1);"
 			),
 			(Code
-				code++"int g = foo( (a,(b)));"
+				code++"int g = foo1( (a,(b)));"
 			),
 			(Code
-				code++"int h = foo( (0,b),bar);"
+				code++"int h = foo2( (0,b),bar);"
 			),
 			(Code
-				code++"int i = foo(1, (bar,b));"
+				code++"int i = foo2(1, (bar,b));"
 			),
 			(Code
-				code++"int j = foo(1,(1),(1,1));"
+				code++"int j = foo3(1,(1),(1,1));"
 			),
 			(Code
-				code++"int k = foo() + (foo(a)) - foo(foo, bar) * foo(foo, bar, baaar);"
+				code++"int k = foo0() + (foo1(a)) - foo2(foo, bar) * foo3(foo, bar, baaar);"
 			)
 		)
 	)

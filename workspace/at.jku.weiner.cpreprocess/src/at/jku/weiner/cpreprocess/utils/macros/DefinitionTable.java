@@ -28,7 +28,7 @@ public final class DefinitionTable {
 	public static void add(final String id, final String replaceWith) {
 		// final String key = DefinitionTable.resolve(id);
 		final String key = id;
-		final String val = DefinitionTable.resolve(replaceWith);
+		final String val = replaceWith;
 		final DefinitionMacro newMacro = new DefinitionObjectMacro(key, val);
 
 		DefinitionTable.checkForExistence(key, newMacro);

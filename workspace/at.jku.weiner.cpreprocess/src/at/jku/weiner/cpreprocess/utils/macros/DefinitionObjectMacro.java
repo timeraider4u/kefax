@@ -33,8 +33,11 @@ class DefinitionObjectMacro implements DefinitionMacro {
 
 	@Override
 	public String resolve(final String code) {
+		if (!(code.contains(this.key))) {
+			return code;
+		}
 		return StringReplaceSymbolsHelper.replaceAndIgnoreQuotes(code,
-				this.key, this.value);
+				this.key, DefinitionTable.resolve(this.value));
 		// return code.replace(this.key, this.value);
 	}
 

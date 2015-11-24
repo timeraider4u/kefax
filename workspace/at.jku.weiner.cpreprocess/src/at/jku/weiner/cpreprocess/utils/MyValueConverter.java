@@ -21,7 +21,7 @@ public class MyValueConverter extends DefaultTerminalConverters {
 							"Couldn't convert empty MyCodeLine to String",
 							node, null);
 				}
-				return string.trim();
+				return MyValueConverter.replace(string);
 			}
 
 			@Override
@@ -43,7 +43,9 @@ public class MyValueConverter extends DefaultTerminalConverters {
 				if (Strings.isEmpty(string)) {
 					return "";
 				}
-				return string.trim();
+				final String replace = MyValueConverter.replace(string);
+				final String result = replace.replaceAll("\\s+", " ");
+				return result;
 			}
 
 			@Override
@@ -55,4 +57,8 @@ public class MyValueConverter extends DefaultTerminalConverters {
 		};
 	}
 
+	public static String replace(final String input) {
+		final String string = input.replace("\\\n", " ");
+		return string.trim();
+	}
 }

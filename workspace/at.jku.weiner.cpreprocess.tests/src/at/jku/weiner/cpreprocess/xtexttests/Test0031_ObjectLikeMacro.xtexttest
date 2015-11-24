@@ -1,0 +1,72 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.cpreprocess
+language cPreprocess
+//----------------------------------------------------------------------
+split-lexer=true
+source file="res/Test0031_ObjectLikeMacro.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH DEFINE WS ID WS SPECIAL+*4 NEWLINE
+	HASH DEFINE WS ID WS ID NEWLINE
+	ID WS ID WS SPECIAL WS ID SPECIAL NEWLINE
+	ID WS ID WS SPECIAL WS ID SPECIAL NEWLINE
+	HASH UNDEF WS ID NEWLINE
+	HASH DEFINE WS ID WS SPECIAL+*2 NEWLINE
+	ID WS ID WS SPECIAL WS ID SPECIAL NEWLINE
+	ID WS ID WS SPECIAL WS ID SPECIAL NEWLINE
+//----------------------------------------------------------------------
+(Model
+	units+=
+	(TranslationUnit
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineDirective
+					id++"FOO",
+					string++"1024"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineDirective
+					id++"BAR",
+					string++"FOO"
+				)
+			),
+			(Code
+				code++"int foo1 = FOO;"
+			),
+			(Code
+				code++"int bar1 = BAR;"
+			),
+			(PreprocessorDirectives
+				directive=
+				(UnDefineDirective
+					id++"FOO"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineDirective
+					id++"FOO",
+					string++"64"
+				)
+			),
+			(Code
+				code++"int foo2 = FOO;"
+			),
+			(Code
+				code++"int bar2 = BAR;"
+			)
+		)
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0031_ObjectLikeMacro.c.i"
+expected file="expected/Test0031_ObjectLikeMacro.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

@@ -26,7 +26,8 @@
  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
  THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
-grammar at.jku.weiner.cpreprocess.CPreprocess // with org.eclipse.xtext.common.Terminals
+grammar at.jku.weiner.cpreprocess.CPreprocess 
+// with org.eclipse.xtext.common.Terminals
 // hidden(LINEBREAK,BLOCK_COMMENT,LINE_COMMENT)
 
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore

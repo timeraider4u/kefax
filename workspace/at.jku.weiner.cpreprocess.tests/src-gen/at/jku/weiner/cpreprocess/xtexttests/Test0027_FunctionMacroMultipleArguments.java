@@ -56,6 +56,10 @@ import at.jku.weiner.cpreprocess.cPreprocess.IdentifierList;
 import at.jku.weiner.cpreprocess.cPreprocess.PreprocessorDirectives;
 import at.jku.weiner.cpreprocess.cPreprocess.DefineFunctionLikeMacro;
 import at.jku.weiner.cpreprocess.cPreprocess.IdentifierList;
+import at.jku.weiner.cpreprocess.cPreprocess.PreprocessorDirectives;
+import at.jku.weiner.cpreprocess.cPreprocess.UnDefineDirective;
+import at.jku.weiner.cpreprocess.cPreprocess.PreprocessorDirectives;
+import at.jku.weiner.cpreprocess.cPreprocess.DefineFunctionLikeMacro;
 import at.jku.weiner.cpreprocess.cPreprocess.NewLineLine;
 import at.jku.weiner.cpreprocess.cPreprocess.Code;
 import at.jku.weiner.cpreprocess.cPreprocess.Code;
@@ -182,6 +186,23 @@ public class Test0027_FunctionMacroMultipleArguments {
 				"RULE_ID", 
 				"RULE_WS", 
 				"RULE_SPECIAL", 
+				"RULE_WS", 
+				"RULE_ID", 
+				"RULE_NEWLINE", 
+				"RULE_HASH", 
+				"RULE_UNDEF", 
+				"RULE_WS", 
+				"RULE_ID", 
+				"RULE_NEWLINE", 
+				"RULE_HASH", 
+				"RULE_DEFINE", 
+				"RULE_WS", 
+				"RULE_ID", 
+				"RULE_LPAREN", 
+				"RULE_WS", 
+				"RULE_RPAREN", 
+				"RULE_WS", 
+				"RULE_WS", 
 				"RULE_WS", 
 				"RULE_ID", 
 				"RULE_NEWLINE", 
@@ -458,7 +479,7 @@ public class Test0027_FunctionMacroMultipleArguments {
 		final EList<? extends EObject> Lines_2_list = GroupOpt_2_Var
 		.getLines();
 		Assert.assertNotNull(Lines_2_list);
-		Assert.assertEquals(17, Lines_2_list.size());
+		Assert.assertEquals(19, Lines_2_list.size());
 		//2
 		final PreprocessorDirectives PreprocessorDirectives_3_Var
 		 = (PreprocessorDirectives)Lines_2_list.get(0);
@@ -474,7 +495,7 @@ public class Test0027_FunctionMacroMultipleArguments {
 		.getId());
 		Assert.assertNull(DefineFunctionLikeMacro_4_Var
 		.getList());
-		Assert.assertEquals("foo_bar", DefineFunctionLikeMacro_4_Var
+		Assert.assertEquals("bar_foo", DefineFunctionLikeMacro_4_Var
 		.getString());
 		//4
 		final PreprocessorDirectives PreprocessorDirectives_5_Var
@@ -546,93 +567,123 @@ public class Test0027_FunctionMacroMultipleArguments {
 		Assert.assertEquals("X * Y - Z", DefineFunctionLikeMacro_12_Var
 		.getString());
 		//13
-		final NewLineLine NewLineLine_14_Var
-		 = (NewLineLine)Lines_2_list.get(4);
-		Assert.assertNotNull(NewLineLine_14_Var
+		final PreprocessorDirectives PreprocessorDirectives_14_Var
+		 = (PreprocessorDirectives)Lines_2_list.get(4);
+		Assert.assertNotNull(PreprocessorDirectives_14_Var
 		);
 		//14
-		final Code Code_15_Var
-		 = (Code)Lines_2_list.get(5);
-		Assert.assertNotNull(Code_15_Var
+		final UnDefineDirective UnDefineDirective_15_Var
+		 = (UnDefineDirective)PreprocessorDirectives_14_Var
+		.getDirective();
+		Assert.assertNotNull(UnDefineDirective_15_Var
 		);
-		Assert.assertEquals("int z = foo0 ( );", Code_15_Var
-		.getCode());
+		Assert.assertEquals("foo0", UnDefineDirective_15_Var
+		.getId());
 		//15
-		final Code Code_16_Var
-		 = (Code)Lines_2_list.get(6);
-		Assert.assertNotNull(Code_16_Var
+		final PreprocessorDirectives PreprocessorDirectives_16_Var
+		 = (PreprocessorDirectives)Lines_2_list.get(5);
+		Assert.assertNotNull(PreprocessorDirectives_16_Var
 		);
-		Assert.assertEquals("int a = foo1(bar);", Code_16_Var
-		.getCode());
 		//16
-		final Code Code_17_Var
-		 = (Code)Lines_2_list.get(7);
-		Assert.assertNotNull(Code_17_Var
+		final DefineFunctionLikeMacro DefineFunctionLikeMacro_17_Var
+		 = (DefineFunctionLikeMacro)PreprocessorDirectives_16_Var
+		.getDirective();
+		Assert.assertNotNull(DefineFunctionLikeMacro_17_Var
 		);
-		Assert.assertEquals("int b = foo2(0,bar );", Code_17_Var
-		.getCode());
+		Assert.assertEquals("foo0", DefineFunctionLikeMacro_17_Var
+		.getId());
+		Assert.assertNull(DefineFunctionLikeMacro_17_Var
+		.getList());
+		Assert.assertEquals("foo_bar", DefineFunctionLikeMacro_17_Var
+		.getString());
 		//17
-		final Code Code_18_Var
-		 = (Code)Lines_2_list.get(8);
-		Assert.assertNotNull(Code_18_Var
+		final NewLineLine NewLineLine_18_Var
+		 = (NewLineLine)Lines_2_list.get(6);
+		Assert.assertNotNull(NewLineLine_18_Var
 		);
-		Assert.assertEquals("int c = foo1 (((bar)));", Code_18_Var
-		.getCode());
 		//18
 		final Code Code_19_Var
-		 = (Code)Lines_2_list.get(9);
+		 = (Code)Lines_2_list.get(7);
 		Assert.assertNotNull(Code_19_Var
 		);
-		Assert.assertEquals("int d = foo2((0) , (bar));", Code_19_Var
+		Assert.assertEquals("int z = foo0 ( );", Code_19_Var
 		.getCode());
 		//19
 		final Code Code_20_Var
-		 = (Code)Lines_2_list.get(10);
+		 = (Code)Lines_2_list.get(8);
 		Assert.assertNotNull(Code_20_Var
 		);
-		Assert.assertEquals("int e = foo2(0,bar) (* (1));", Code_20_Var
+		Assert.assertEquals("int a = foo1(bar);", Code_20_Var
 		.getCode());
 		//20
 		final Code Code_21_Var
-		 = (Code)Lines_2_list.get(11);
+		 = (Code)Lines_2_list.get(9);
 		Assert.assertNotNull(Code_21_Var
 		);
-		Assert.assertEquals("int f = foo1(0)(1);", Code_21_Var
+		Assert.assertEquals("int b = foo2(0,bar );", Code_21_Var
 		.getCode());
 		//21
 		final Code Code_22_Var
-		 = (Code)Lines_2_list.get(12);
+		 = (Code)Lines_2_list.get(10);
 		Assert.assertNotNull(Code_22_Var
 		);
-		Assert.assertEquals("int g = foo1( (a,(b)));", Code_22_Var
+		Assert.assertEquals("int c = foo1 (((bar)));", Code_22_Var
 		.getCode());
 		//22
 		final Code Code_23_Var
-		 = (Code)Lines_2_list.get(13);
+		 = (Code)Lines_2_list.get(11);
 		Assert.assertNotNull(Code_23_Var
 		);
-		Assert.assertEquals("int h = foo2( (0,b),bar);", Code_23_Var
+		Assert.assertEquals("int d = foo2((0) , (bar));", Code_23_Var
 		.getCode());
 		//23
 		final Code Code_24_Var
-		 = (Code)Lines_2_list.get(14);
+		 = (Code)Lines_2_list.get(12);
 		Assert.assertNotNull(Code_24_Var
 		);
-		Assert.assertEquals("int i = foo2(1, (bar,b));", Code_24_Var
+		Assert.assertEquals("int e = foo2(0,bar) (* (1));", Code_24_Var
 		.getCode());
 		//24
 		final Code Code_25_Var
-		 = (Code)Lines_2_list.get(15);
+		 = (Code)Lines_2_list.get(13);
 		Assert.assertNotNull(Code_25_Var
 		);
-		Assert.assertEquals("int j = foo3(1,(1),(1,1));", Code_25_Var
+		Assert.assertEquals("int f = foo1(0)(1);", Code_25_Var
 		.getCode());
 		//25
 		final Code Code_26_Var
-		 = (Code)Lines_2_list.get(16);
+		 = (Code)Lines_2_list.get(14);
 		Assert.assertNotNull(Code_26_Var
 		);
-		Assert.assertEquals("int k = foo0() + (foo1(a)) - foo2(foo, bar) * foo3(foo, bar, baaar);", Code_26_Var
+		Assert.assertEquals("int g = foo1( (a,(b)));", Code_26_Var
+		.getCode());
+		//26
+		final Code Code_27_Var
+		 = (Code)Lines_2_list.get(15);
+		Assert.assertNotNull(Code_27_Var
+		);
+		Assert.assertEquals("int h = foo2( (0,b),bar);", Code_27_Var
+		.getCode());
+		//27
+		final Code Code_28_Var
+		 = (Code)Lines_2_list.get(16);
+		Assert.assertNotNull(Code_28_Var
+		);
+		Assert.assertEquals("int i = foo2(1, (bar,b));", Code_28_Var
+		.getCode());
+		//28
+		final Code Code_29_Var
+		 = (Code)Lines_2_list.get(17);
+		Assert.assertNotNull(Code_29_Var
+		);
+		Assert.assertEquals("int j = foo3(1,(1),(1,1));", Code_29_Var
+		.getCode());
+		//29
+		final Code Code_30_Var
+		 = (Code)Lines_2_list.get(18);
+		Assert.assertNotNull(Code_30_Var
+		);
+		Assert.assertEquals("int k = foo0() + (foo1(a)) - foo2(foo, bar) * foo3(foo, bar, baaar);", Code_30_Var
 		.getCode());
 	}
 	

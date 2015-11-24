@@ -1,7 +1,9 @@
-#define foo0( )			foo_bar
+#define foo0( )			bar_foo
 #define foo1(X)			{X}
 #define foo2(X, Y)		X + Y
 #define foo3(X, Y,Z)		X * Y - Z
+#undef foo0
+#define foo0( )			foo_bar
 
 int z = foo0 ( );
 int a = foo1(bar);

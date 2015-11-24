@@ -57,6 +57,9 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 		if ((this.list != null) && (other.list == null)) {
 			return false;
 		}
+		if ((this.list == null) && (other.list == null)) {
+			return true;
+		}
 		if (this.list.size() != other.list.size()) {
 			return false;
 		}

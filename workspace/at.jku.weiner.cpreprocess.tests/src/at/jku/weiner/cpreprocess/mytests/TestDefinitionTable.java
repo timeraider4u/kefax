@@ -154,4 +154,18 @@ public class TestDefinitionTable {
 		DefinitionTable.addFunctionMacro(id, replace, this.list2);
 		Assert.assertEquals(1, DefinitionTable.size());
 	}
+
+	@Test
+	public void test11() {
+		final String id = "ID";
+		final String replace = "replace with";
+
+		this.list1 = null;
+		this.list2 = null;
+
+		DefinitionTable.addFunctionMacro(id, replace, this.list1);
+		Assert.assertEquals(1, DefinitionTable.size());
+		DefinitionTable.addFunctionMacro(id, replace, this.list2);
+		Assert.assertEquals(1, DefinitionTable.size());
+	}
 }

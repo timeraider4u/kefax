@@ -15,6 +15,9 @@ lexer-tokens
 		ID WS SPECIAL WS ID NEWLINE
 	HASH DEFINE WS ID LPAREN ID COMMA WS ID COMMA ID RPAREN WS WS
 		ID WS SPECIAL WS ID WS SPECIAL WS ID NEWLINE
+	HASH UNDEF WS ID NEWLINE
+	HASH DEFINE WS ID LPAREN WS RPAREN WS WS WS
+		ID NEWLINE
 	NEWLINE
 	// z
 	ID WS ID WS SPECIAL WS
@@ -80,7 +83,7 @@ lexer-tokens
 				(DefineFunctionLikeMacro
 					id++"foo0",
 					list isNull,
-					string++"foo_bar"
+					string++"bar_foo"
 				)
 			),
 			(PreprocessorDirectives
@@ -114,6 +117,20 @@ lexer-tokens
 						id+*"[X, Y, Z]"
 					),
 					string++"X * Y - Z"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(UnDefineDirective
+					id++"foo0"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"foo0",
+					list isNull,
+					string++"foo_bar"
 				)
 			),
 			(NewLineLine),

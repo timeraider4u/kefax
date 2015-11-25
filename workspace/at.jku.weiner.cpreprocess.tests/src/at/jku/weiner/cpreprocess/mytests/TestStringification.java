@@ -32,4 +32,15 @@ public class TestStringification {
 		Assert.assertEquals("5 \"5\"", replace);
 	}
 
+	@Test
+	public void testStringification2() {
+		final IdentifierList list = CPreprocessFactory.eINSTANCE
+				.createIdentifierList();
+		list.getId().add("X");
+		DefinitionTable.addFunctionMacro("FOO", "X #X X #X", list);
+		final String code = "FOO(5)";
+		final String replace = DefinitionTable.resolve(code);
+		Assert.assertEquals("5 \"5\" 5 \"5\"", replace);
+	}
+
 }

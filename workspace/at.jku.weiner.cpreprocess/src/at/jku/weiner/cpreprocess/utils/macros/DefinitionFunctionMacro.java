@@ -110,8 +110,7 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 	private void resolveForParameters(final StringBuffer result,
 			final String code) {
 		// System.out.println("resolveForParameters='" + code + "'");
-		final Pattern pattern = Pattern.compile(this.key + "\\s*\\(");
-		final Matcher matcher = pattern.matcher(code);
+		final Matcher matcher = this.pattern.matcher(code);
 
 		int currIndex = 0;
 		while (matcher.find(currIndex)) {
@@ -188,6 +187,14 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 	}
 
 	private void resolveStringifiaction(final StringBuffer result) {
+		String intermediate = result.toString();
+		if (!intermediate.contains("#")) {
+			return;
+		}
+		result.delete(0, result.length());
+		intermediate = intermediate
+				.replaceAll("#([^\\p{Space}]+)\\b", "\"$1\"");
 
+		result.append(intermediate);
 	}
 }

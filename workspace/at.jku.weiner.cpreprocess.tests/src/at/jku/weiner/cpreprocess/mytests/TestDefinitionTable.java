@@ -297,4 +297,63 @@ public class TestDefinitionTable {
 		Assert.assertEquals(resolve1, resolve2);
 	}
 
+	@Test
+	public void testContainsAKey9() {
+		final String code = "a little \"penguin\" looks at you!";
+		DefinitionTable.add("penguin", "firefox");
+		Assert.assertFalse(DefinitionTable.containsAKey(code));
+		final String result = DefinitionTable.resolve(code);
+		Assert.assertEquals(code, result);
+	}
+
+	@Test
+	public void testContainsAKey10() {
+		final String code = "a little \"penguin()\" looks at you!";
+		DefinitionTable.addFunctionMacro("penguin", "firefox", null);
+		Assert.assertFalse(DefinitionTable.containsAKey(code));
+		final String result = DefinitionTable.resolve(code);
+		Assert.assertEquals(code, result);
+	}
+
+	@Test
+	public void testContainsAKey11() {
+		final String code = "a little \"penguin(firefox)\" looks at you!";
+		final IdentifierList list = CPreprocessFactory.eINSTANCE
+				.createIdentifierList();
+		list.getId().add("x");
+		DefinitionTable.addFunctionMacro("penguin", "x", list);
+		Assert.assertFalse(DefinitionTable.containsAKey(code));
+		final String result = DefinitionTable.resolve(code);
+		Assert.assertEquals(code, result);
+	}
+
+	@Test
+	public void testContainsAKey12() {
+		final String code = "a little penguin(firefox) looks at you!";
+		final IdentifierList list = CPreprocessFactory.eINSTANCE
+				.createIdentifierList();
+		list.getId().add("x");
+		DefinitionTable.addFunctionMacro("penguin", "x \"penguin()\"", list);
+		Assert.assertTrue(DefinitionTable.containsAKey(code));
+		final String result = DefinitionTable.resolve(code);
+		Assert.assertEquals("a little firefox \"penguin()\" looks at you!",
+				result);
+		Assert.assertFalse(DefinitionTable.containsAKey(result));
+	}
+
+	@Test
+	public void testContainsAKey13() {
+		final String code = "a little \"penguin()\" penguin(firefox) \"penguin\" looks at you!";
+		final IdentifierList list = CPreprocessFactory.eINSTANCE
+				.createIdentifierList();
+		list.getId().add("x");
+		DefinitionTable.addFunctionMacro("penguin", "x \"x\"", list);
+		Assert.assertTrue(DefinitionTable.containsAKey(code));
+		final String result = DefinitionTable.resolve(code);
+		Assert.assertEquals(
+				"a little \"penguin()\" firefox \"x\" \"penguin\" looks at you!",
+				result);
+		Assert.assertFalse(DefinitionTable.containsAKey(code));
+	}
+
 }

@@ -3,18 +3,24 @@ package at.jku.weiner.cpreprocess.utils.macros;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import at.jku.weiner.cpreprocess.utils.StringReplaceSymbolsHelper;
+import at.jku.weiner.cpreprocess.utils.StringLiteralInStringLiteralsHelper;
 
 class DefinitionObjectMacro implements DefinitionMacro {
 
 	private final String key;
 	private final String value;
+	private final String regex;
 	private final Pattern pattern;
+	private final StringReplaceSymbolsHelper helper;
+	private final StringMatchingSymbolsHelper matcher;
 
 	public DefinitionObjectMacro(final String key, final String value) {
 		this.key = key;
 		this.value = this.getValue(value);
-		this.pattern = Pattern.compile("\\b" + key + "\\b");
+		this.regex = "\\b" + key + "\\b";
+		this.pattern = Pattern.compile(this.regex);
+		this.helper = new StringReplaceSymbolsHelper(key, value);
+		this.matcher = new StringMatchingSymbolsHelper(this.regex);
 	}
 
 	@Override
@@ -41,14 +47,16 @@ class DefinitionObjectMacro implements DefinitionMacro {
 		if (!this.matches(code)) {
 			return code;
 		}
-		return StringReplaceSymbolsHelper.replaceAndIgnoreQuotes(code,
-				this.key, this.value);
+		StringLiteralInStringLiteralsHelper.iterate(code, this.helper);
+		return this.helper.getText();
 	}
 
 	@Override
 	public boolean matches(final String code) {
-		final Matcher matcher = this.pattern.matcher(code);
-		return matcher.find();
+		StringLiteralInStringLiteralsHelper.iterate(code, this.matcher);
+		return this.matcher.contains();
+		// final Matcher matcher = this.pattern.matcher(code);
+		// return matcher.find();
 	}
 
 	@Override

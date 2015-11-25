@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 import org.eclipse.emf.common.util.EList;
 
 import at.jku.weiner.cpreprocess.cPreprocess.IdentifierList;
-import at.jku.weiner.cpreprocess.utils.StringReplaceSymbolsHelper;
+import at.jku.weiner.cpreprocess.utils.StringLiteralInStringLiteralsHelper;
 
 class DefinitionFunctionMacro implements DefinitionMacro {
 
@@ -169,11 +169,13 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 			final String paramCode, final int paramIndex,
 			final String paramValue) {
 		final String param = this.list.get(paramIndex);
+		final StringReplaceSymbolsHelper visitor = new StringReplaceSymbolsHelper(
+				param, paramCode);
 		// System.out.println("paramCode='" + paramCode + "'");
 		// System.out.println("param='" + param + "'");
 		// System.out.println("paramValue='" + paramValue + "'");
-		final String result = StringReplaceSymbolsHelper
-				.replaceAndIgnoreQuotes(paramValue, param, paramCode);
+		StringLiteralInStringLiteralsHelper.iterate(paramValue, visitor);
+		final String result = visitor.getText();
 		// System.out.println("result='" + result + "'");
 		return result;
 	}

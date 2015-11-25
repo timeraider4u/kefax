@@ -3,7 +3,8 @@ package at.jku.weiner.cpreprocess.mytests;
 import org.junit.Assert;
 import org.junit.Test;
 
-import at.jku.weiner.cpreprocess.utils.StringReplaceSymbolsHelper;
+import at.jku.weiner.cpreprocess.utils.StringLiteralInStringLiteralsHelper;
+import at.jku.weiner.cpreprocess.utils.macros.StringReplaceSymbolsHelper;
 
 public class TestStringReplaceSymbolsHelper {
 
@@ -12,8 +13,10 @@ public class TestStringReplaceSymbolsHelper {
 		final String text = "A little penguin looks at you!";
 		final String symbol = "penguin";
 		final String replacement = "red fox";
-		final String actual = StringReplaceSymbolsHelper
-				.replaceAndIgnoreQuotes(text, symbol, replacement);
+		final StringReplaceSymbolsHelper helper = new StringReplaceSymbolsHelper(
+				symbol, replacement);
+		StringLiteralInStringLiteralsHelper.iterate(text, helper);
+		final String actual = helper.getText();
 		Assert.assertEquals("A little red fox looks at you!", actual);
 	}
 
@@ -22,8 +25,11 @@ public class TestStringReplaceSymbolsHelper {
 		final String text = "\"A little penguin looks at you!\", said a penguin researcher.";
 		final String symbol = "penguin";
 		final String replacement = "red fox";
-		final String actual = StringReplaceSymbolsHelper
-				.replaceAndIgnoreQuotes(text, symbol, replacement);
+
+		final StringReplaceSymbolsHelper helper = new StringReplaceSymbolsHelper(
+				symbol, replacement);
+		StringLiteralInStringLiteralsHelper.iterate(text, helper);
+		final String actual = helper.getText();
 		Assert.assertEquals(
 				"\"A little penguin looks at you!\", said a red fox researcher.",
 				actual);
@@ -34,8 +40,10 @@ public class TestStringReplaceSymbolsHelper {
 		final String text = "Foo bar, \"\\\"Foo bar\\\"\", \\Foo bar";
 		final String symbol = "Foo";
 		final String replacement = "Bar";
-		final String actual = StringReplaceSymbolsHelper
-				.replaceAndIgnoreQuotes(text, symbol, replacement);
+		final StringReplaceSymbolsHelper helper = new StringReplaceSymbolsHelper(
+				symbol, replacement);
+		StringLiteralInStringLiteralsHelper.iterate(text, helper);
+		final String actual = helper.getText();
 		Assert.assertEquals("Bar bar, \"\\\"Foo bar\\\"\", \\Bar bar", actual);
 	}
 
@@ -44,8 +52,10 @@ public class TestStringReplaceSymbolsHelper {
 		final String text = "Foo bar, \\\"\\\"Foo bar\\\"\\\", \\Foo bar";
 		final String symbol = "Foo";
 		final String replacement = "Bar";
-		final String actual = StringReplaceSymbolsHelper
-				.replaceAndIgnoreQuotes(text, symbol, replacement);
+		final StringReplaceSymbolsHelper helper = new StringReplaceSymbolsHelper(
+				symbol, replacement);
+		StringLiteralInStringLiteralsHelper.iterate(text, helper);
+		final String actual = helper.getText();
 		Assert.assertEquals("Bar bar, \\\"\\\"Bar bar\\\"\\\", \\Bar bar",
 				actual);
 	}
@@ -55,8 +65,10 @@ public class TestStringReplaceSymbolsHelper {
 		final String text = "Foo bar, \"\"Foo bar\"\", \\\\Foo bar";
 		final String symbol = "Foo";
 		final String replacement = "Bar";
-		final String actual = StringReplaceSymbolsHelper
-				.replaceAndIgnoreQuotes(text, symbol, replacement);
+		final StringReplaceSymbolsHelper helper = new StringReplaceSymbolsHelper(
+				symbol, replacement);
+		StringLiteralInStringLiteralsHelper.iterate(text, helper);
+		final String actual = helper.getText();
 		Assert.assertEquals("Bar bar, \"\"Bar bar\"\", \\\\Bar bar", actual);
 	}
 
@@ -65,8 +77,10 @@ public class TestStringReplaceSymbolsHelper {
 		final String text = "foo = \"foo\" + \"with \\\"escaped foo\" + \"foo\" and foo;";
 		final String symbol = "foo";
 		final String replacement = "Bar";
-		final String actual = StringReplaceSymbolsHelper
-				.replaceAndIgnoreQuotes(text, symbol, replacement);
+		final StringReplaceSymbolsHelper helper = new StringReplaceSymbolsHelper(
+				symbol, replacement);
+		StringLiteralInStringLiteralsHelper.iterate(text, helper);
+		final String actual = helper.getText();
 		Assert.assertEquals(
 				"Bar = \"foo\" + \"with \\\"escaped foo\" + \"foo\" and Bar;",
 				actual);
@@ -77,8 +91,10 @@ public class TestStringReplaceSymbolsHelper {
 		final String text = "A little penguin looks at äöüÄÖÜß?!";
 		final String symbol = "äöüÄÖÜß";
 		final String replacement = "you";
-		final String actual = StringReplaceSymbolsHelper
-				.replaceAndIgnoreQuotes(text, symbol, replacement);
+		final StringReplaceSymbolsHelper helper = new StringReplaceSymbolsHelper(
+				symbol, replacement);
+		StringLiteralInStringLiteralsHelper.iterate(text, helper);
+		final String actual = helper.getText();
 		Assert.assertEquals("A little penguin looks at you?!", actual);
 	}
 
@@ -87,8 +103,10 @@ public class TestStringReplaceSymbolsHelper {
 		final String text = "A little penguin2 looks at you!";
 		final String symbol = "penguin";
 		final String replacement = "red fox";
-		final String actual = StringReplaceSymbolsHelper
-				.replaceAndIgnoreQuotes(text, symbol, replacement);
+		final StringReplaceSymbolsHelper helper = new StringReplaceSymbolsHelper(
+				symbol, replacement);
+		StringLiteralInStringLiteralsHelper.iterate(text, helper);
+		final String actual = helper.getText();
 		Assert.assertEquals("A little penguin2 looks at you!", actual);
 	}
 
@@ -97,8 +115,10 @@ public class TestStringReplaceSymbolsHelper {
 		final String text = "A little penguin looks at you!";
 		final String symbol = "penguin2";
 		final String replacement = "red fox";
-		final String actual = StringReplaceSymbolsHelper
-				.replaceAndIgnoreQuotes(text, symbol, replacement);
+		final StringReplaceSymbolsHelper helper = new StringReplaceSymbolsHelper(
+				symbol, replacement);
+		StringLiteralInStringLiteralsHelper.iterate(text, helper);
+		final String actual = helper.getText();
 		Assert.assertEquals("A little penguin looks at you!", actual);
 	}
 
@@ -107,8 +127,10 @@ public class TestStringReplaceSymbolsHelper {
 		final String text = "A little penguin looks at äöüÄÖÜ_ß1!";
 		final String symbol = "äöüÄÖÜ_ß1";
 		final String replacement = "you";
-		final String actual = StringReplaceSymbolsHelper
-				.replaceAndIgnoreQuotes(text, symbol, replacement);
+		final StringReplaceSymbolsHelper helper = new StringReplaceSymbolsHelper(
+				symbol, replacement);
+		StringLiteralInStringLiteralsHelper.iterate(text, helper);
+		final String actual = helper.getText();
 		Assert.assertEquals("A little penguin looks at you!", actual);
 	}
 
@@ -117,8 +139,10 @@ public class TestStringReplaceSymbolsHelper {
 		final String text = "A little penguin2 looks at you!";
 		final String symbol = "penguin2";
 		final String replacement = "red fox";
-		final String actual = StringReplaceSymbolsHelper
-				.replaceAndIgnoreQuotes(text, symbol, replacement);
+		final StringReplaceSymbolsHelper helper = new StringReplaceSymbolsHelper(
+				symbol, replacement);
+		StringLiteralInStringLiteralsHelper.iterate(text, helper);
+		final String actual = helper.getText();
 		Assert.assertEquals("A little red fox looks at you!", actual);
 	}
 

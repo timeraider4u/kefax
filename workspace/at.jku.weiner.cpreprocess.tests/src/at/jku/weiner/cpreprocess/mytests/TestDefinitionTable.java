@@ -168,4 +168,133 @@ public class TestDefinitionTable {
 		DefinitionTable.addFunctionMacro(id, replace, this.list2);
 		Assert.assertEquals(1, DefinitionTable.size());
 	}
+
+	@Test
+	public void testContainsAKey1() {
+		Assert.assertFalse(DefinitionTable
+				.containsAKey("a little penguin looks at you!"));
+	}
+
+	@Test
+	public void testContainsAKey2() {
+		final String code = "a little penguin looks at you!";
+		DefinitionTable.add("penguin", "red fox");
+		Assert.assertTrue(DefinitionTable.containsAKey(code));
+		final String resolve = DefinitionTable.resolve(code);
+		Assert.assertTrue(DefinitionTable.containsAKey(code));
+		Assert.assertFalse(DefinitionTable.containsAKey(resolve));
+	}
+
+	@Test
+	public void testContainsAKey3() {
+		final String code = "a little penguin looks at you!";
+		DefinitionTable.add("fox", "cat");
+		DefinitionTable.add("penguin", "red fox");
+		Assert.assertTrue(DefinitionTable.containsAKey(code));
+		final String resolve = DefinitionTable.resolve(code);
+		Assert.assertEquals("a little red fox looks at you!", resolve);
+		Assert.assertTrue(DefinitionTable.containsAKey(code));
+		Assert.assertTrue(DefinitionTable.containsAKey(resolve));
+		final String resolve2 = DefinitionTable.resolve(resolve);
+		Assert.assertEquals("a little red cat looks at you!", resolve2);
+		Assert.assertTrue(DefinitionTable.containsAKey(code));
+		Assert.assertTrue(DefinitionTable.containsAKey(resolve));
+		Assert.assertFalse(DefinitionTable.containsAKey(resolve2));
+	}
+
+	@Test
+	public void testContainsAKey4() {
+		final String code = "a little penguin() looks at you!";
+		DefinitionTable.add("fox", "cat");
+		DefinitionTable.addFunctionMacro("penguin", "red fox", null);
+		Assert.assertTrue(DefinitionTable.containsAKey(code));
+		final String resolve = DefinitionTable.resolve(code);
+		Assert.assertEquals("a little red fox looks at you!", resolve);
+		Assert.assertTrue(DefinitionTable.containsAKey(code));
+		Assert.assertTrue(DefinitionTable.containsAKey(resolve));
+		final String resolve2 = DefinitionTable.resolve(resolve);
+		Assert.assertEquals("a little red cat looks at you!", resolve2);
+		Assert.assertTrue(DefinitionTable.containsAKey(code));
+		Assert.assertTrue(DefinitionTable.containsAKey(resolve));
+		Assert.assertFalse(DefinitionTable.containsAKey(resolve2));
+	}
+
+	@Test
+	public void testContainsAKey5() {
+		final String code = "a little penguin looks at you!";
+		DefinitionTable.add("fox", "firefox");
+		DefinitionTable.add("penguin", "red fox");
+		Assert.assertTrue(DefinitionTable.containsAKey(code));
+		final String resolve = DefinitionTable.resolve(code);
+		Assert.assertEquals("a little red fox looks at you!", resolve);
+		Assert.assertTrue(DefinitionTable.containsAKey(code));
+		Assert.assertTrue(DefinitionTable.containsAKey(resolve));
+		final String resolve2 = DefinitionTable.resolve(resolve);
+		Assert.assertEquals("a little red firefox looks at you!", resolve2);
+		Assert.assertTrue(DefinitionTable.containsAKey(code));
+		Assert.assertTrue(DefinitionTable.containsAKey(resolve));
+		Assert.assertFalse(DefinitionTable.containsAKey(resolve2));
+	}
+
+	@Test
+	public void testContainsAKey6() {
+		final String code = "a little penguin looks at you!";
+		final String code2 = "a little penguin() looks at you!";
+		DefinitionTable.addFunctionMacro("penguin", "red fox", null);
+		DefinitionTable.add("fox", "firefox");
+		Assert.assertFalse(DefinitionTable.containsAKey(code));
+		Assert.assertTrue(DefinitionTable.containsAKey(code2));
+		final String resolve = DefinitionTable.resolve(code2);
+		Assert.assertFalse(DefinitionTable.containsAKey(code));
+		Assert.assertTrue(DefinitionTable.containsAKey(code2));
+		Assert.assertFalse(DefinitionTable.containsAKey(resolve));
+		final String resolve2 = DefinitionTable.resolve(resolve);
+		Assert.assertEquals(resolve, resolve2);
+		Assert.assertFalse(DefinitionTable.containsAKey(code));
+		Assert.assertTrue(DefinitionTable.containsAKey(code2));
+		Assert.assertFalse(DefinitionTable.containsAKey(resolve));
+		Assert.assertFalse(DefinitionTable.containsAKey(resolve2));
+	}
+
+	@Test
+	public void testContainsAKey7() {
+		final String code = "a little penguin looks at you!";
+		DefinitionTable.add("penguin", "red fox");
+		DefinitionTable.add("fox", "cat");
+		Assert.assertTrue(DefinitionTable.containsAKey(code));
+		final String resolve = DefinitionTable.resolve(code);
+		Assert.assertEquals("a little red cat looks at you!", resolve);
+		Assert.assertTrue(DefinitionTable.containsAKey(code));
+		Assert.assertFalse(DefinitionTable.containsAKey(resolve));
+		final String resolve2 = DefinitionTable.resolve(resolve);
+		Assert.assertTrue(DefinitionTable.containsAKey(code));
+		Assert.assertFalse(DefinitionTable.containsAKey(resolve));
+		Assert.assertFalse(DefinitionTable.containsAKey(resolve2));
+		Assert.assertEquals("a little red cat looks at you!", resolve2);
+	}
+
+	@Test
+	public void testContainsAKey8() {
+		final String code = "a little penguin looks at you!";
+		final String code2 = "a little penguin() looks at you!";
+		DefinitionTable.addFunctionMacro("penguin", "red fox", null);
+		DefinitionTable.add("fox", "cat");
+
+		Assert.assertFalse(DefinitionTable.containsAKey(code));
+		Assert.assertTrue(DefinitionTable.containsAKey(code2));
+		final String resolve0 = DefinitionTable.resolve(code);
+		Assert.assertEquals("a little penguin looks at you!", resolve0);
+		final String resolve1 = DefinitionTable.resolve(code2);
+		Assert.assertEquals("a little red cat looks at you!", resolve1);
+		Assert.assertFalse(DefinitionTable.containsAKey(code));
+		Assert.assertTrue(DefinitionTable.containsAKey(code2));
+		Assert.assertFalse(DefinitionTable.containsAKey(resolve1));
+		final String resolve2 = DefinitionTable.resolve(resolve1);
+		Assert.assertFalse(DefinitionTable.containsAKey(code));
+		Assert.assertTrue(DefinitionTable.containsAKey(code2));
+		Assert.assertFalse(DefinitionTable.containsAKey(resolve1));
+		Assert.assertFalse(DefinitionTable.containsAKey(resolve2));
+		Assert.assertEquals(resolve1, resolve2);
+	}
+
 }

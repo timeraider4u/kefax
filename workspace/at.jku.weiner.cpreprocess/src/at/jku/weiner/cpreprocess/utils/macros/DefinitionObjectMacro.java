@@ -1,15 +1,20 @@
 package at.jku.weiner.cpreprocess.utils.macros;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import at.jku.weiner.cpreprocess.utils.StringReplaceSymbolsHelper;
 
 class DefinitionObjectMacro implements DefinitionMacro {
 
 	private final String key;
 	private final String value;
+	private final Pattern pattern;
 
 	public DefinitionObjectMacro(final String key, final String value) {
 		this.key = key;
 		this.value = this.getValue(value);
+		this.pattern = Pattern.compile("\\b" + key + "\\b");
 	}
 
 	@Override
@@ -33,12 +38,17 @@ class DefinitionObjectMacro implements DefinitionMacro {
 
 	@Override
 	public String resolve(final String code) {
-		if (!(code.contains(this.key))) {
+		if (!this.matches(code)) {
 			return code;
 		}
 		return StringReplaceSymbolsHelper.replaceAndIgnoreQuotes(code,
-				this.key, DefinitionTable.resolve(this.value));
-		// return code.replace(this.key, this.value);
+				this.key, this.value);
+	}
+
+	@Override
+	public boolean matches(final String code) {
+		final Matcher matcher = this.pattern.matcher(code);
+		return matcher.find();
 	}
 
 	@Override

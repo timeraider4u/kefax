@@ -136,7 +136,15 @@ class CPreprocessGenerator implements IGenerator {
 	
 	def String outputFor(Code obj) {
 		val String code = obj.code.toString();
-		val String result = DefinitionTable.resolve(code);
+		val String result = resolve(code);
+		return result;
+	}
+	
+	def String resolve(String code) {
+		var String result = code;
+		while (DefinitionTable.containsAKey(result)) {
+			result = DefinitionTable.resolve(result);
+		}
 		return result;
 	}
 	

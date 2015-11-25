@@ -16,6 +16,7 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 	private final String value;
 	private final IdentifierList idList;
 	private final EList<String> list;
+	private final Pattern pattern;
 
 	public DefinitionFunctionMacro(final String key, final String value,
 			final IdentifierList list) {
@@ -23,6 +24,7 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 		this.list = this.getList(list);
 		this.key = key;
 		this.value = this.getValue(value);
+		this.pattern = this.getPattern();
 	}
 
 	private String getValue(String value2) {
@@ -37,6 +39,13 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 			return null;
 		}
 		return this.idList.getId();
+	}
+
+	private Pattern getPattern() {
+		if (this.idList == null) {
+			return Pattern.compile(this.key + "\\s*\\([\\s]*\\)");
+		}
+		return Pattern.compile(this.key + "\\s*\\(");
 	}
 
 	@Override
@@ -71,6 +80,12 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 			}
 		}
 		return true;
+	}
+
+	@Override
+	public boolean matches(final String code) {
+		final Matcher matcher = this.pattern.matcher(code);
+		return matcher.find();
 	}
 
 	@Override
@@ -162,7 +177,7 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 
 	private String getParamCode(final String paramCode) {
 		final String paramCodeTemp = paramCode.trim();
-		final String result = DefinitionTable.resolve(paramCodeTemp);
+		final String result = paramCodeTemp;
 		return result;
 	}
 

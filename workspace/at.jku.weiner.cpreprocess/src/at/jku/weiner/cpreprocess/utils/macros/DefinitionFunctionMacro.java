@@ -95,6 +95,7 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 			this.resolveZeroArguments(result, code);
 		} else {
 			this.resolveForParameters(result, code);
+			this.resolveStringifiaction(result);
 		}
 		return result.toString();
 	}
@@ -186,4 +187,7 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 		return this.key;
 	}
 
+	private void resolveStringifiaction(final StringBuffer result) {
+
+	}
 }

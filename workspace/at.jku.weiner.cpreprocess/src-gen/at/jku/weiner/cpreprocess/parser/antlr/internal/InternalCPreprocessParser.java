@@ -1573,7 +1573,7 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
                     	case 1 :
                     	    // InternalCPreprocessParser.g:558:4: this_WS_4= RULE_WS
                     	    {
-                    	    this_WS_4=(Token)match(input,RULE_WS,FOLLOW_8); if (state.failed) return current;
+                    	    this_WS_4=(Token)match(input,RULE_WS,FOLLOW_11); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
                     	       
                     	          newLeafNode(this_WS_4, grammarAccess.getDefineObjectMacroAccess().getWSTerminalRuleCall_4_0()); 
@@ -1788,7 +1788,7 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
             // InternalCPreprocessParser.g:619:1: (lv_id_3_0= RULE_ID )
             // InternalCPreprocessParser.g:620:3: lv_id_3_0= RULE_ID
             {
-            lv_id_3_0=(Token)match(input,RULE_ID,FOLLOW_11); if (state.failed) return current;
+            lv_id_3_0=(Token)match(input,RULE_ID,FOLLOW_12); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(lv_id_3_0, grammarAccess.getDefineFunctionLikeMacroAccess().getIdIDTerminalRuleCall_3_0()); 
@@ -1812,7 +1812,7 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
 
             }
 
-            this_LPAREN_4=(Token)match(input,RULE_LPAREN,FOLLOW_12); if (state.failed) return current;
+            this_LPAREN_4=(Token)match(input,RULE_LPAREN,FOLLOW_13); if (state.failed) return current;
             if ( state.backtracking==0 ) {
                
                   newLeafNode(this_LPAREN_4, grammarAccess.getDefineFunctionLikeMacroAccess().getLPARENTerminalRuleCall_4()); 
@@ -1833,7 +1833,7 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
             	case 1 :
             	    // InternalCPreprocessParser.g:640:2: this_WS_5= RULE_WS
             	    {
-            	    this_WS_5=(Token)match(input,RULE_WS,FOLLOW_12); if (state.failed) return current;
+            	    this_WS_5=(Token)match(input,RULE_WS,FOLLOW_13); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
             	       
             	          newLeafNode(this_WS_5, grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_5()); 
@@ -1867,7 +1867,7 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
                       	        newCompositeNode(grammarAccess.getDefineFunctionLikeMacroAccess().getListIdentifierListParserRuleCall_6_0()); 
                       	    
                     }
-                    pushFollow(FOLLOW_13);
+                    pushFollow(FOLLOW_14);
                     lv_list_6_0=ruleIdentifierList();
 
                     state._fsp--;
@@ -1922,7 +1922,7 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
             	case 1 :
             	    // InternalCPreprocessParser.g:666:2: this_WS_8= RULE_WS
             	    {
-            	    this_WS_8=(Token)match(input,RULE_WS,FOLLOW_8); if (state.failed) return current;
+            	    this_WS_8=(Token)match(input,RULE_WS,FOLLOW_11); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
             	       
             	          newLeafNode(this_WS_8, grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_8()); 
@@ -2082,7 +2082,7 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
             // InternalCPreprocessParser.g:719:1: (lv_id_1_0= RULE_ID )
             // InternalCPreprocessParser.g:720:3: lv_id_1_0= RULE_ID
             {
-            lv_id_1_0=(Token)match(input,RULE_ID,FOLLOW_14); if (state.failed) return current;
+            lv_id_1_0=(Token)match(input,RULE_ID,FOLLOW_15); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(lv_id_1_0, grammarAccess.getIdentifierListAccess().getIdIDTerminalRuleCall_1_0()); 
@@ -2163,7 +2163,7 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
             	    // InternalCPreprocessParser.g:745:1: (lv_id_4_0= RULE_ID )
             	    // InternalCPreprocessParser.g:746:3: lv_id_4_0= RULE_ID
             	    {
-            	    lv_id_4_0=(Token)match(input,RULE_ID,FOLLOW_14); if (state.failed) return current;
+            	    lv_id_4_0=(Token)match(input,RULE_ID,FOLLOW_15); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      			newLeafNode(lv_id_4_0, grammarAccess.getIdentifierListAccess().getIdIDTerminalRuleCall_2_2_0()); 
@@ -3331,33 +3331,51 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMyDefineLine"
-    // InternalCPreprocessParser.g:1134:1: ruleMyDefineLine returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_MyCode_0= ruleMyCode | this_WS_1= RULE_WS )* ;
+    // InternalCPreprocessParser.g:1134:1: ruleMyDefineLine returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_MyCode_0= ruleMyCode | this_WS_1= RULE_WS | this_HASH_2= RULE_HASH )* ;
     public final AntlrDatatypeRuleToken ruleMyDefineLine() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
         Token this_WS_1=null;
+        Token this_HASH_2=null;
         AntlrDatatypeRuleToken this_MyCode_0 = null;
 
 
          enterRule(); 
             
         try {
-            // InternalCPreprocessParser.g:1138:6: ( (this_MyCode_0= ruleMyCode | this_WS_1= RULE_WS )* )
-            // InternalCPreprocessParser.g:1139:1: (this_MyCode_0= ruleMyCode | this_WS_1= RULE_WS )*
+            // InternalCPreprocessParser.g:1138:6: ( (this_MyCode_0= ruleMyCode | this_WS_1= RULE_WS | this_HASH_2= RULE_HASH )* )
+            // InternalCPreprocessParser.g:1139:1: (this_MyCode_0= ruleMyCode | this_WS_1= RULE_WS | this_HASH_2= RULE_HASH )*
             {
-            // InternalCPreprocessParser.g:1139:1: (this_MyCode_0= ruleMyCode | this_WS_1= RULE_WS )*
+            // InternalCPreprocessParser.g:1139:1: (this_MyCode_0= ruleMyCode | this_WS_1= RULE_WS | this_HASH_2= RULE_HASH )*
             loop19:
             do {
-                int alt19=3;
-                int LA19_0 = input.LA(1);
-
-                if ( ((LA19_0>=RULE_INCLUDE && LA19_0<=RULE_ERROR)||(LA19_0>=RULE_PRAGMA && LA19_0<=RULE_COMMA)||LA19_0==RULE_ID||LA19_0==RULE_SPECIAL) ) {
+                int alt19=4;
+                switch ( input.LA(1) ) {
+                case RULE_INCLUDE:
+                case RULE_DEFINE:
+                case RULE_ERROR:
+                case RULE_PRAGMA:
+                case RULE_LPAREN:
+                case RULE_RPAREN:
+                case RULE_COMMA:
+                case RULE_ID:
+                case RULE_SPECIAL:
+                    {
                     alt19=1;
-                }
-                else if ( (LA19_0==RULE_WS) ) {
+                    }
+                    break;
+                case RULE_WS:
+                    {
                     alt19=2;
-                }
+                    }
+                    break;
+                case RULE_HASH:
+                    {
+                    alt19=3;
+                    }
+                    break;
 
+                }
 
                 switch (alt19) {
             	case 1 :
@@ -3368,7 +3386,7 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
             	              newCompositeNode(grammarAccess.getMyDefineLineAccess().getMyCodeParserRuleCall_0()); 
             	          
             	    }
-            	    pushFollow(FOLLOW_15);
+            	    pushFollow(FOLLOW_16);
             	    this_MyCode_0=ruleMyCode();
 
             	    state._fsp--;
@@ -3389,7 +3407,7 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
             	case 2 :
             	    // InternalCPreprocessParser.g:1151:10: this_WS_1= RULE_WS
             	    {
-            	    this_WS_1=(Token)match(input,RULE_WS,FOLLOW_15); if (state.failed) return current;
+            	    this_WS_1=(Token)match(input,RULE_WS,FOLLOW_16); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      		current.merge(this_WS_1);
@@ -3398,6 +3416,23 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
             	    if ( state.backtracking==0 ) {
             	       
             	          newLeafNode(this_WS_1, grammarAccess.getMyDefineLineAccess().getWSTerminalRuleCall_1()); 
+            	          
+            	    }
+
+            	    }
+            	    break;
+            	case 3 :
+            	    // InternalCPreprocessParser.g:1159:10: this_HASH_2= RULE_HASH
+            	    {
+            	    this_HASH_2=(Token)match(input,RULE_HASH,FOLLOW_16); if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      		current.merge(this_HASH_2);
+            	          
+            	    }
+            	    if ( state.backtracking==0 ) {
+            	       
+            	          newLeafNode(this_HASH_2, grammarAccess.getMyDefineLineAccess().getHASHTerminalRuleCall_2()); 
             	          
             	    }
 
@@ -3430,7 +3465,7 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMyCodeLine"
-    // InternalCPreprocessParser.g:1166:1: entryRuleMyCodeLine returns [String current=null] : iv_ruleMyCodeLine= ruleMyCodeLine EOF ;
+    // InternalCPreprocessParser.g:1174:1: entryRuleMyCodeLine returns [String current=null] : iv_ruleMyCodeLine= ruleMyCodeLine EOF ;
     public final String entryRuleMyCodeLine() throws RecognitionException {
         String current = null;
 
@@ -3438,8 +3473,8 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalCPreprocessParser.g:1167:1: (iv_ruleMyCodeLine= ruleMyCodeLine EOF )
-            // InternalCPreprocessParser.g:1168:2: iv_ruleMyCodeLine= ruleMyCodeLine EOF
+            // InternalCPreprocessParser.g:1175:1: (iv_ruleMyCodeLine= ruleMyCodeLine EOF )
+            // InternalCPreprocessParser.g:1176:2: iv_ruleMyCodeLine= ruleMyCodeLine EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getMyCodeLineRule()); 
@@ -3470,7 +3505,7 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMyCodeLine"
-    // InternalCPreprocessParser.g:1175:1: ruleMyCodeLine returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_MyCode_0= ruleMyCode | this_WS_1= RULE_WS )+ ;
+    // InternalCPreprocessParser.g:1183:1: ruleMyCodeLine returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_MyCode_0= ruleMyCode | this_WS_1= RULE_WS )+ ;
     public final AntlrDatatypeRuleToken ruleMyCodeLine() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -3481,10 +3516,10 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // InternalCPreprocessParser.g:1179:6: ( (this_MyCode_0= ruleMyCode | this_WS_1= RULE_WS )+ )
-            // InternalCPreprocessParser.g:1180:1: (this_MyCode_0= ruleMyCode | this_WS_1= RULE_WS )+
+            // InternalCPreprocessParser.g:1187:6: ( (this_MyCode_0= ruleMyCode | this_WS_1= RULE_WS )+ )
+            // InternalCPreprocessParser.g:1188:1: (this_MyCode_0= ruleMyCode | this_WS_1= RULE_WS )+
             {
-            // InternalCPreprocessParser.g:1180:1: (this_MyCode_0= ruleMyCode | this_WS_1= RULE_WS )+
+            // InternalCPreprocessParser.g:1188:1: (this_MyCode_0= ruleMyCode | this_WS_1= RULE_WS )+
             int cnt20=0;
             loop20:
             do {
@@ -3492,14 +3527,14 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
                 alt20 = dfa20.predict(input);
                 switch (alt20) {
             	case 1 :
-            	    // InternalCPreprocessParser.g:1181:5: this_MyCode_0= ruleMyCode
+            	    // InternalCPreprocessParser.g:1189:5: this_MyCode_0= ruleMyCode
             	    {
             	    if ( state.backtracking==0 ) {
             	       
             	              newCompositeNode(grammarAccess.getMyCodeLineAccess().getMyCodeParserRuleCall_0()); 
             	          
             	    }
-            	    pushFollow(FOLLOW_15);
+            	    pushFollow(FOLLOW_17);
             	    this_MyCode_0=ruleMyCode();
 
             	    state._fsp--;
@@ -3518,9 +3553,9 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 2 :
-            	    // InternalCPreprocessParser.g:1192:10: this_WS_1= RULE_WS
+            	    // InternalCPreprocessParser.g:1200:10: this_WS_1= RULE_WS
             	    {
-            	    this_WS_1=(Token)match(input,RULE_WS,FOLLOW_15); if (state.failed) return current;
+            	    this_WS_1=(Token)match(input,RULE_WS,FOLLOW_17); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      		current.merge(this_WS_1);
@@ -3566,7 +3601,7 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMyCodeLineExtended"
-    // InternalCPreprocessParser.g:1207:1: entryRuleMyCodeLineExtended returns [String current=null] : iv_ruleMyCodeLineExtended= ruleMyCodeLineExtended EOF ;
+    // InternalCPreprocessParser.g:1215:1: entryRuleMyCodeLineExtended returns [String current=null] : iv_ruleMyCodeLineExtended= ruleMyCodeLineExtended EOF ;
     public final String entryRuleMyCodeLineExtended() throws RecognitionException {
         String current = null;
 
@@ -3574,8 +3609,8 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalCPreprocessParser.g:1208:1: (iv_ruleMyCodeLineExtended= ruleMyCodeLineExtended EOF )
-            // InternalCPreprocessParser.g:1209:2: iv_ruleMyCodeLineExtended= ruleMyCodeLineExtended EOF
+            // InternalCPreprocessParser.g:1216:1: (iv_ruleMyCodeLineExtended= ruleMyCodeLineExtended EOF )
+            // InternalCPreprocessParser.g:1217:2: iv_ruleMyCodeLineExtended= ruleMyCodeLineExtended EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getMyCodeLineExtendedRule()); 
@@ -3606,7 +3641,7 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMyCodeLineExtended"
-    // InternalCPreprocessParser.g:1216:1: ruleMyCodeLineExtended returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (this_WS_0= RULE_WS )* (this_MyCode_1= ruleMyCode (this_MyCodeLine_2= ruleMyCodeLine | this_HASH_3= RULE_HASH )* )? ) ;
+    // InternalCPreprocessParser.g:1224:1: ruleMyCodeLineExtended returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (this_WS_0= RULE_WS )* (this_MyCode_1= ruleMyCode (this_MyCodeLine_2= ruleMyCodeLine | this_HASH_3= RULE_HASH )* )? ) ;
     public final AntlrDatatypeRuleToken ruleMyCodeLineExtended() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -3620,13 +3655,13 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // InternalCPreprocessParser.g:1220:6: ( ( (this_WS_0= RULE_WS )* (this_MyCode_1= ruleMyCode (this_MyCodeLine_2= ruleMyCodeLine | this_HASH_3= RULE_HASH )* )? ) )
-            // InternalCPreprocessParser.g:1221:1: ( (this_WS_0= RULE_WS )* (this_MyCode_1= ruleMyCode (this_MyCodeLine_2= ruleMyCodeLine | this_HASH_3= RULE_HASH )* )? )
+            // InternalCPreprocessParser.g:1228:6: ( ( (this_WS_0= RULE_WS )* (this_MyCode_1= ruleMyCode (this_MyCodeLine_2= ruleMyCodeLine | this_HASH_3= RULE_HASH )* )? ) )
+            // InternalCPreprocessParser.g:1229:1: ( (this_WS_0= RULE_WS )* (this_MyCode_1= ruleMyCode (this_MyCodeLine_2= ruleMyCodeLine | this_HASH_3= RULE_HASH )* )? )
             {
-            // InternalCPreprocessParser.g:1221:1: ( (this_WS_0= RULE_WS )* (this_MyCode_1= ruleMyCode (this_MyCodeLine_2= ruleMyCodeLine | this_HASH_3= RULE_HASH )* )? )
-            // InternalCPreprocessParser.g:1221:2: (this_WS_0= RULE_WS )* (this_MyCode_1= ruleMyCode (this_MyCodeLine_2= ruleMyCodeLine | this_HASH_3= RULE_HASH )* )?
+            // InternalCPreprocessParser.g:1229:1: ( (this_WS_0= RULE_WS )* (this_MyCode_1= ruleMyCode (this_MyCodeLine_2= ruleMyCodeLine | this_HASH_3= RULE_HASH )* )? )
+            // InternalCPreprocessParser.g:1229:2: (this_WS_0= RULE_WS )* (this_MyCode_1= ruleMyCode (this_MyCodeLine_2= ruleMyCodeLine | this_HASH_3= RULE_HASH )* )?
             {
-            // InternalCPreprocessParser.g:1221:2: (this_WS_0= RULE_WS )*
+            // InternalCPreprocessParser.g:1229:2: (this_WS_0= RULE_WS )*
             loop21:
             do {
                 int alt21=2;
@@ -3639,9 +3674,9 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
 
                 switch (alt21) {
             	case 1 :
-            	    // InternalCPreprocessParser.g:1221:7: this_WS_0= RULE_WS
+            	    // InternalCPreprocessParser.g:1229:7: this_WS_0= RULE_WS
             	    {
-            	    this_WS_0=(Token)match(input,RULE_WS,FOLLOW_15); if (state.failed) return current;
+            	    this_WS_0=(Token)match(input,RULE_WS,FOLLOW_17); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      		current.merge(this_WS_0);
@@ -3661,7 +3696,7 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            // InternalCPreprocessParser.g:1228:3: (this_MyCode_1= ruleMyCode (this_MyCodeLine_2= ruleMyCodeLine | this_HASH_3= RULE_HASH )* )?
+            // InternalCPreprocessParser.g:1236:3: (this_MyCode_1= ruleMyCode (this_MyCodeLine_2= ruleMyCodeLine | this_HASH_3= RULE_HASH )* )?
             int alt23=2;
             int LA23_0 = input.LA(1);
 
@@ -3670,7 +3705,7 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
             }
             switch (alt23) {
                 case 1 :
-                    // InternalCPreprocessParser.g:1229:5: this_MyCode_1= ruleMyCode (this_MyCodeLine_2= ruleMyCodeLine | this_HASH_3= RULE_HASH )*
+                    // InternalCPreprocessParser.g:1237:5: this_MyCode_1= ruleMyCode (this_MyCodeLine_2= ruleMyCodeLine | this_HASH_3= RULE_HASH )*
                     {
                     if ( state.backtracking==0 ) {
                        
@@ -3692,7 +3727,7 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
                               afterParserOrEnumRuleCall();
                           
                     }
-                    // InternalCPreprocessParser.g:1239:1: (this_MyCodeLine_2= ruleMyCodeLine | this_HASH_3= RULE_HASH )*
+                    // InternalCPreprocessParser.g:1247:1: (this_MyCodeLine_2= ruleMyCodeLine | this_HASH_3= RULE_HASH )*
                     loop22:
                     do {
                         int alt22=3;
@@ -3708,7 +3743,7 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
 
                         switch (alt22) {
                     	case 1 :
-                    	    // InternalCPreprocessParser.g:1240:5: this_MyCodeLine_2= ruleMyCodeLine
+                    	    // InternalCPreprocessParser.g:1248:5: this_MyCodeLine_2= ruleMyCodeLine
                     	    {
                     	    if ( state.backtracking==0 ) {
                     	       
@@ -3734,7 +3769,7 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalCPreprocessParser.g:1251:10: this_HASH_3= RULE_HASH
+                    	    // InternalCPreprocessParser.g:1259:10: this_HASH_3= RULE_HASH
                     	    {
                     	    this_HASH_3=(Token)match(input,RULE_HASH,FOLLOW_16); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
@@ -3906,13 +3941,13 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
     }
     // $ANTLR end synpred22_InternalCPreprocessParser
 
-    // $ANTLR start synpred34_InternalCPreprocessParser
-    public final void synpred34_InternalCPreprocessParser_fragment() throws RecognitionException {   
+    // $ANTLR start synpred35_InternalCPreprocessParser
+    public final void synpred35_InternalCPreprocessParser_fragment() throws RecognitionException {   
         AntlrDatatypeRuleToken this_MyCode_0 = null;
 
 
-        // InternalCPreprocessParser.g:1181:5: (this_MyCode_0= ruleMyCode )
-        // InternalCPreprocessParser.g:1181:5: this_MyCode_0= ruleMyCode
+        // InternalCPreprocessParser.g:1189:5: (this_MyCode_0= ruleMyCode )
+        // InternalCPreprocessParser.g:1189:5: this_MyCode_0= ruleMyCode
         {
         if ( state.backtracking==0 ) {
            
@@ -3927,28 +3962,28 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
 
         }
     }
-    // $ANTLR end synpred34_InternalCPreprocessParser
+    // $ANTLR end synpred35_InternalCPreprocessParser
 
-    // $ANTLR start synpred35_InternalCPreprocessParser
-    public final void synpred35_InternalCPreprocessParser_fragment() throws RecognitionException {   
+    // $ANTLR start synpred36_InternalCPreprocessParser
+    public final void synpred36_InternalCPreprocessParser_fragment() throws RecognitionException {   
         Token this_WS_1=null;
 
-        // InternalCPreprocessParser.g:1192:10: (this_WS_1= RULE_WS )
-        // InternalCPreprocessParser.g:1192:10: this_WS_1= RULE_WS
+        // InternalCPreprocessParser.g:1200:10: (this_WS_1= RULE_WS )
+        // InternalCPreprocessParser.g:1200:10: this_WS_1= RULE_WS
         {
         this_WS_1=(Token)match(input,RULE_WS,FOLLOW_2); if (state.failed) return ;
 
         }
     }
-    // $ANTLR end synpred35_InternalCPreprocessParser
+    // $ANTLR end synpred36_InternalCPreprocessParser
 
     // Delegated rules
 
-    public final boolean synpred34_InternalCPreprocessParser() {
+    public final boolean synpred36_InternalCPreprocessParser() {
         state.backtracking++;
         int start = input.mark();
         try {
-            synpred34_InternalCPreprocessParser_fragment(); // can never throw exception
+            synpred36_InternalCPreprocessParser_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -4145,20 +4180,20 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
     static final String DFA6_eotS =
         "\6\uffff";
     static final String DFA6_eofS =
-        "\3\uffff\1\5\2\uffff";
+        "\3\uffff\1\4\2\uffff";
     static final String DFA6_minS =
         "\1\6\2\24\1\12\2\uffff";
     static final String DFA6_maxS =
         "\1\6\1\24\1\25\1\24\2\uffff";
     static final String DFA6_acceptS =
-        "\4\uffff\1\2\1\1";
+        "\4\uffff\1\1\1\2";
     static final String DFA6_specialS =
         "\6\uffff}>";
     static final String[] DFA6_transitionS = {
             "\1\1",
             "\1\2",
             "\1\2\1\3",
-            "\1\4\4\uffff\1\5\4\uffff\1\5",
+            "\1\5\4\uffff\1\4\4\uffff\1\4",
             "",
             ""
     };
@@ -4207,7 +4242,7 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
     static final String DFA20_acceptS =
         "\1\uffff\1\3\12\uffff\1\1\1\2";
     static final String DFA20_specialS =
-        "\2\uffff\1\11\1\0\1\2\1\7\1\3\1\10\1\6\1\5\1\1\1\4\2\uffff}>";
+        "\2\uffff\1\11\1\5\1\6\1\4\1\0\1\1\1\2\1\7\1\3\1\10\2\uffff}>";
     static final String[] DFA20_transitionS = {
             "\1\1\1\4\1\5\1\6\1\uffff\1\7\1\10\1\11\1\12\2\uffff\1\1\4\uffff\1\13\1\2\6\uffff\1\3",
             "",
@@ -4255,65 +4290,20 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
             this.transition = DFA20_transition;
         }
         public String getDescription() {
-            return "()+ loopback of 1180:1: (this_MyCode_0= ruleMyCode | this_WS_1= RULE_WS )+";
+            return "()+ loopback of 1188:1: (this_MyCode_0= ruleMyCode | this_WS_1= RULE_WS )+";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA20_3 = input.LA(1);
-
-                         
-                        int index20_3 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred34_InternalCPreprocessParser()) ) {s = 12;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index20_3);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
-                        int LA20_10 = input.LA(1);
-
-                         
-                        int index20_10 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred34_InternalCPreprocessParser()) ) {s = 12;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index20_10);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
-                        int LA20_4 = input.LA(1);
-
-                         
-                        int index20_4 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred34_InternalCPreprocessParser()) ) {s = 12;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index20_4);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 3 : 
                         int LA20_6 = input.LA(1);
 
                          
                         int index20_6 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred34_InternalCPreprocessParser()) ) {s = 12;}
+                        if ( (synpred35_InternalCPreprocessParser()) ) {s = 12;}
 
                         else if ( (true) ) {s = 1;}
 
@@ -4321,44 +4311,29 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
                         input.seek(index20_6);
                         if ( s>=0 ) return s;
                         break;
-                    case 4 : 
-                        int LA20_11 = input.LA(1);
+                    case 1 : 
+                        int LA20_7 = input.LA(1);
 
                          
-                        int index20_11 = input.index();
+                        int index20_7 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred35_InternalCPreprocessParser()) ) {s = 13;}
+                        if ( (synpred35_InternalCPreprocessParser()) ) {s = 12;}
 
                         else if ( (true) ) {s = 1;}
 
                          
-                        input.seek(index20_11);
+                        input.seek(index20_7);
                         if ( s>=0 ) return s;
                         break;
-                    case 5 : 
-                        int LA20_9 = input.LA(1);
-
-                         
-                        int index20_9 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred34_InternalCPreprocessParser()) ) {s = 12;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index20_9);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 6 : 
+                    case 2 : 
                         int LA20_8 = input.LA(1);
 
                          
                         int index20_8 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred34_InternalCPreprocessParser()) ) {s = 12;}
+                        if ( (synpred35_InternalCPreprocessParser()) ) {s = 12;}
 
                         else if ( (true) ) {s = 1;}
 
@@ -4366,14 +4341,29 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
                         input.seek(index20_8);
                         if ( s>=0 ) return s;
                         break;
-                    case 7 : 
+                    case 3 : 
+                        int LA20_10 = input.LA(1);
+
+                         
+                        int index20_10 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred35_InternalCPreprocessParser()) ) {s = 12;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index20_10);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 4 : 
                         int LA20_5 = input.LA(1);
 
                          
                         int index20_5 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred34_InternalCPreprocessParser()) ) {s = 12;}
+                        if ( (synpred35_InternalCPreprocessParser()) ) {s = 12;}
 
                         else if ( (true) ) {s = 1;}
 
@@ -4381,19 +4371,64 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
                         input.seek(index20_5);
                         if ( s>=0 ) return s;
                         break;
-                    case 8 : 
-                        int LA20_7 = input.LA(1);
+                    case 5 : 
+                        int LA20_3 = input.LA(1);
 
                          
-                        int index20_7 = input.index();
+                        int index20_3 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred34_InternalCPreprocessParser()) ) {s = 12;}
+                        if ( (synpred35_InternalCPreprocessParser()) ) {s = 12;}
 
                         else if ( (true) ) {s = 1;}
 
                          
-                        input.seek(index20_7);
+                        input.seek(index20_3);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 6 : 
+                        int LA20_4 = input.LA(1);
+
+                         
+                        int index20_4 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred35_InternalCPreprocessParser()) ) {s = 12;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index20_4);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 7 : 
+                        int LA20_9 = input.LA(1);
+
+                         
+                        int index20_9 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred35_InternalCPreprocessParser()) ) {s = 12;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index20_9);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 8 : 
+                        int LA20_11 = input.LA(1);
+
+                         
+                        int index20_11 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred36_InternalCPreprocessParser()) ) {s = 13;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index20_11);
                         if ( s>=0 ) return s;
                         break;
                     case 9 : 
@@ -4403,7 +4438,7 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
                         int index20_2 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred34_InternalCPreprocessParser()) ) {s = 12;}
+                        if ( (synpred35_InternalCPreprocessParser()) ) {s = 12;}
 
                         else if ( (true) ) {s = 1;}
 
@@ -4431,11 +4466,12 @@ public class InternalCPreprocessParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000010301EE0L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000300000L});
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000100002L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000300800L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000001002L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000010301EE2L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000010301EF0L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000000400L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000300800L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000001002L});
     public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000010301EF2L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000010301EE2L});
 
 }

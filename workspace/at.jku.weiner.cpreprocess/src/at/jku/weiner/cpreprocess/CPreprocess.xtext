@@ -135,7 +135,7 @@ MyCode returns ecore::EString:
 ;
 
 MyDefineLine returns ecore::EString:
-	(MyCode|WS)*
+	(MyCode|WS|HASH)*
 ;
 
 MyCodeLine returns ecore::EString:

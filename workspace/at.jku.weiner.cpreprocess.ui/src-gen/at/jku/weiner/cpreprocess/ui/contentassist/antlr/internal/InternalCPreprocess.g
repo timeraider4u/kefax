@@ -957,6 +957,15 @@ rule__MyDefineLine__Alternatives
 
 
 
+    |
+(
+{ before(grammarAccess.getMyDefineLineAccess().getHASHTerminalRuleCall_2()); }
+	RULE_HASH
+{ after(grammarAccess.getMyDefineLineAccess().getHASHTerminalRuleCall_2()); }
+)
+
+
+
 ;
 finally {
 	restoreStackSize(stackSize);

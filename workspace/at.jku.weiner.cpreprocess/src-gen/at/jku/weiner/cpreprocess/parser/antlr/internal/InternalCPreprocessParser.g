@@ -1155,6 +1155,14 @@ ruleMyDefineLine returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleTo
     { 
     newLeafNode(this_WS_1, grammarAccess.getMyDefineLineAccess().getWSTerminalRuleCall_1()); 
     }
+
+    |    this_HASH_2=RULE_HASH    {
+		$current.merge(this_HASH_2);
+    }
+
+    { 
+    newLeafNode(this_HASH_2, grammarAccess.getMyDefineLineAccess().getHASHTerminalRuleCall_2()); 
+    }
 )*
     ;
 

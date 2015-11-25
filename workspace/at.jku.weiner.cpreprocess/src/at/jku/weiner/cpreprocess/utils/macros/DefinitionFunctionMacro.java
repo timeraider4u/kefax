@@ -12,6 +12,8 @@ import at.jku.weiner.cpreprocess.utils.StringReplaceSymbolsHelper;
 
 class DefinitionFunctionMacro implements DefinitionMacro {
 
+	private static final String REGEX_NO_PARAMS = "\\s*\\([\\s]*\\)";
+
 	private final String key;
 	private final String value;
 	private final IdentifierList idList;
@@ -43,7 +45,8 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 
 	private Pattern getPattern() {
 		if (this.idList == null) {
-			return Pattern.compile(this.key + "\\s*\\([\\s]*\\)");
+			return Pattern.compile(this.key
+					+ DefinitionFunctionMacro.REGEX_NO_PARAMS);
 		}
 		return Pattern.compile(this.key + "\\s*\\(");
 	}
@@ -102,8 +105,8 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 
 	private void resolveZeroArguments(final StringBuffer result,
 			final String code) {
-		final String newCode = code.replaceAll(this.key + "\\s*\\([\\s]*\\)",
-				this.value);
+		final String newCode = code.replaceAll(this.key
+				+ DefinitionFunctionMacro.REGEX_NO_PARAMS, this.value);
 		result.append(newCode);
 	}
 

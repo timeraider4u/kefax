@@ -24,6 +24,7 @@ import at.jku.weiner.cpreprocess.cPreprocess.GroupOpt
 import at.jku.weiner.cpreprocess.utils.IncludeUtils
 import at.jku.weiner.cpreprocess.cPreprocess.DefineObjectMacro
 import at.jku.weiner.cpreprocess.cPreprocess.DefineFunctionLikeMacro
+import at.jku.weiner.cpreprocess.cPreprocess.ConditionalDirective
 
 /**
  * Generates code from your model files on save.
@@ -85,6 +86,9 @@ class CPreprocessGenerator implements IGenerator {
 		«IF obj.directive instanceof UnDefineDirective»
 			«outputFor(obj.directive as UnDefineDirective)»
 		«ENDIF»
+		«IF obj.directive instanceof ConditionalDirective»
+			«outputFor(obj.directive as ConditionalDirective)»
+		«ENDIF»
 		«IF obj.directive instanceof ErrorDirective»
 			«outputFor(obj.directive as ErrorDirective)»
 		«ENDIF»
@@ -121,6 +125,13 @@ class CPreprocessGenerator implements IGenerator {
 	
 	def String outputFor(UnDefineDirective obj) {
 		DefinitionTable.remove(obj.id);
+		return "";
+	}
+	
+	def String outputFor(ConditionalDirective obj) {
+		if (DefinitionTable.isDefined(obj.id)) {
+			return outputFor(obj.group).trim();
+		}
 		return "";
 	}
 	

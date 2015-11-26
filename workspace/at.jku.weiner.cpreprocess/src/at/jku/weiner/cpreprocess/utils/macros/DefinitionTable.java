@@ -25,6 +25,17 @@ public final class DefinitionTable {
 		return code;
 	}
 
+	public static boolean isDefined(final String macroName) {
+		boolean result = false;
+		for (int i = 0; i < DefinitionTable.macros.size(); i++) {
+			final DefinitionEntry entry = DefinitionTable.macros.get(i);
+			if (entry.equalsKey(macroName)) {
+				result = true;
+			}
+		}
+		return result;
+	}
+
 	public static boolean containsAKey(final String code) {
 		for (final DefinitionEntry entry : DefinitionTable.macros) {
 			if (entry.matches(code)) {

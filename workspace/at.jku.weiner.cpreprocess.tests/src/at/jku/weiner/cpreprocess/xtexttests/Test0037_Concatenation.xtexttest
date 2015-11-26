@@ -1,0 +1,41 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.cpreprocess
+language cPreprocess
+//----------------------------------------------------------------------
+split-lexer=true
+source file="res/Test0037_Concatenation.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH DEFINE WS ID LPAREN ID RPAREN WS ID WS HASH HASH WS ID NEWLINE
+	ID LPAREN ID RPAREN NEWLINE
+//----------------------------------------------------------------------
+(Model
+	units+=
+	(TranslationUnit
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"FOO",
+					list=
+					(IdentifierList
+						id+*"[x]"
+					),
+					string++"x ## BAR"
+				)
+			),
+			(Code
+				code++"FOO(foo)"
+			)
+		)
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0037_Concatenation.c.i"
+expected file="expected/Test0037_Concatenation.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

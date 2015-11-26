@@ -99,14 +99,10 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 				this.list);
 		StringLiteralInStringLiteralsHelper.iterate(code, helper);
 		return helper.getText();
-
-		/*
-		 *
-		 */
 	}
 
 	class StringReplaceSymbolsFunctionMacroReplace extends
-	StringReplaceSymbolsHelper {
+			StringReplaceSymbolsHelper {
 
 		private final EList<String> list2;
 
@@ -129,6 +125,7 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 				DefinitionFunctionMacro.this.resolveForParameters(result,
 						string);
 				DefinitionFunctionMacro.this.resolveStringifiaction(result);
+				DefinitionFunctionMacro.this.resolveConcatenation(result);
 			}
 			return result.toString();
 		}
@@ -243,4 +240,15 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 
 		result.append(intermediate);
 	}
+
+	public void resolveConcatenation(final StringBuffer result) {
+		String intermediate = result.toString();
+		if (!intermediate.contains("#")) {
+			return;
+		}
+		result.delete(0, result.length());
+		intermediate = intermediate.replaceAll("\\s##\\s", "");
+		result.append(intermediate);
+	}
+
 }

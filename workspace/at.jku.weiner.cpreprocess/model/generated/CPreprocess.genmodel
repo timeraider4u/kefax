@@ -33,6 +33,10 @@
     <genClasses ecoreClass="CPreprocess.ecore#//UnDefineDirective">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CPreprocess.ecore#//UnDefineDirective/id"/>
     </genClasses>
+    <genClasses ecoreClass="CPreprocess.ecore#//ConditionalDirective">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CPreprocess.ecore#//ConditionalDirective/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CPreprocess.ecore#//ConditionalDirective/group"/>
+    </genClasses>
     <genClasses ecoreClass="CPreprocess.ecore#//PragmaDirective"/>
     <genClasses ecoreClass="CPreprocess.ecore#//NullDirective"/>
     <genClasses ecoreClass="CPreprocess.ecore#//PreprocessorDirectives">

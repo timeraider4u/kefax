@@ -135,6 +135,13 @@ public class CPreprocessSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case CPreprocessPackage.CONDITIONAL_DIRECTIVE:
+      {
+        ConditionalDirective conditionalDirective = (ConditionalDirective)theEObject;
+        T result = caseConditionalDirective(conditionalDirective);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case CPreprocessPackage.PRAGMA_DIRECTIVE:
       {
         PragmaDirective pragmaDirective = (PragmaDirective)theEObject;
@@ -333,6 +340,22 @@ public class CPreprocessSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseUnDefineDirective(UnDefineDirective object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Conditional Directive</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Conditional Directive</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseConditionalDirective(ConditionalDirective object)
   {
     return null;
   }

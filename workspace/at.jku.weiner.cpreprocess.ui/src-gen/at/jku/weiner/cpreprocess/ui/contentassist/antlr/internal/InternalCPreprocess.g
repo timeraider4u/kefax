@@ -432,6 +432,40 @@ finally {
 
 
 
+// Entry rule entryRuleConditionalDirective
+entryRuleConditionalDirective 
+:
+{ before(grammarAccess.getConditionalDirectiveRule()); }
+	 ruleConditionalDirective
+{ after(grammarAccess.getConditionalDirectiveRule()); } 
+	 EOF 
+;
+
+// Rule ConditionalDirective
+ruleConditionalDirective
+    @init {
+		int stackSize = keepStackSize();
+		/*no init found*/
+    }
+	@after {
+    		/*no after found*/
+     }:
+
+(
+{ before(grammarAccess.getConditionalDirectiveAccess().getGroup()); }
+(rule__ConditionalDirective__Group__0)
+{ after(grammarAccess.getConditionalDirectiveAccess().getGroup()); }
+)
+
+
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
 // Entry rule entryRulePragmaDirective
 entryRulePragmaDirective 
 :
@@ -810,6 +844,15 @@ rule__PreprocessorDirectives__Alternatives_4
 
 
 
+    |
+(
+{ before(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveAssignment_4_6()); }
+(rule__PreprocessorDirectives__DirectiveAssignment_4_6)
+{ after(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveAssignment_4_6()); }
+)
+
+
+
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -925,6 +968,24 @@ rule__MyCode__Alternatives
 { before(grammarAccess.getMyCodeAccess().getCOMMATerminalRuleCall_8()); }
 	RULE_COMMA
 { after(grammarAccess.getMyCodeAccess().getCOMMATerminalRuleCall_8()); }
+)
+
+
+
+    |
+(
+{ before(grammarAccess.getMyCodeAccess().getIFDEFTerminalRuleCall_9()); }
+	RULE_IFDEF
+{ after(grammarAccess.getMyCodeAccess().getIFDEFTerminalRuleCall_9()); }
+)
+
+
+
+    |
+(
+{ before(grammarAccess.getMyCodeAccess().getENDIFTerminalRuleCall_10()); }
+	RULE_ENDIF
+{ after(grammarAccess.getMyCodeAccess().getENDIFTerminalRuleCall_10()); }
 )
 
 
@@ -2684,6 +2745,286 @@ finally {
 
 
 
+rule__ConditionalDirective__Group__0
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__ConditionalDirective__Group__0__Impl
+	rule__ConditionalDirective__Group__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ConditionalDirective__Group__0__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+
+(
+{ before(grammarAccess.getConditionalDirectiveAccess().getConditionalDirectiveAction_0()); }
+(
+
+)
+{ after(grammarAccess.getConditionalDirectiveAccess().getConditionalDirectiveAction_0()); }
+)
+
+
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__ConditionalDirective__Group__1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__ConditionalDirective__Group__1__Impl
+	rule__ConditionalDirective__Group__2
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ConditionalDirective__Group__1__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+
+(
+{ before(grammarAccess.getConditionalDirectiveAccess().getIFDEFTerminalRuleCall_1()); }
+	RULE_IFDEF
+{ after(grammarAccess.getConditionalDirectiveAccess().getIFDEFTerminalRuleCall_1()); }
+)
+
+
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__ConditionalDirective__Group__2
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__ConditionalDirective__Group__2__Impl
+	rule__ConditionalDirective__Group__3
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ConditionalDirective__Group__2__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+
+(
+(
+{ before(grammarAccess.getConditionalDirectiveAccess().getWSTerminalRuleCall_2()); }
+(	RULE_WS)
+{ after(grammarAccess.getConditionalDirectiveAccess().getWSTerminalRuleCall_2()); }
+)
+(
+{ before(grammarAccess.getConditionalDirectiveAccess().getWSTerminalRuleCall_2()); }
+(	RULE_WS)*
+{ after(grammarAccess.getConditionalDirectiveAccess().getWSTerminalRuleCall_2()); }
+)
+)
+
+
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__ConditionalDirective__Group__3
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__ConditionalDirective__Group__3__Impl
+	rule__ConditionalDirective__Group__4
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ConditionalDirective__Group__3__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+
+(
+{ before(grammarAccess.getConditionalDirectiveAccess().getIdAssignment_3()); }
+(rule__ConditionalDirective__IdAssignment_3)
+{ after(grammarAccess.getConditionalDirectiveAccess().getIdAssignment_3()); }
+)
+
+
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__ConditionalDirective__Group__4
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__ConditionalDirective__Group__4__Impl
+	rule__ConditionalDirective__Group__5
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ConditionalDirective__Group__4__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+
+(
+{ before(grammarAccess.getConditionalDirectiveAccess().getNEWLINETerminalRuleCall_4()); }
+	RULE_NEWLINE
+{ after(grammarAccess.getConditionalDirectiveAccess().getNEWLINETerminalRuleCall_4()); }
+)
+
+
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__ConditionalDirective__Group__5
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__ConditionalDirective__Group__5__Impl
+	rule__ConditionalDirective__Group__6
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ConditionalDirective__Group__5__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+
+(
+{ before(grammarAccess.getConditionalDirectiveAccess().getGroupAssignment_5()); }
+(rule__ConditionalDirective__GroupAssignment_5)
+{ after(grammarAccess.getConditionalDirectiveAccess().getGroupAssignment_5()); }
+)
+
+
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__ConditionalDirective__Group__6
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__ConditionalDirective__Group__6__Impl
+	rule__ConditionalDirective__Group__7
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ConditionalDirective__Group__6__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+
+(
+{ before(grammarAccess.getConditionalDirectiveAccess().getHASHTerminalRuleCall_6()); }
+	RULE_HASH
+{ after(grammarAccess.getConditionalDirectiveAccess().getHASHTerminalRuleCall_6()); }
+)
+
+
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__ConditionalDirective__Group__7
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__ConditionalDirective__Group__7__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ConditionalDirective__Group__7__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+
+(
+{ before(grammarAccess.getConditionalDirectiveAccess().getENDIFTerminalRuleCall_7()); }
+	RULE_ENDIF
+{ after(grammarAccess.getConditionalDirectiveAccess().getENDIFTerminalRuleCall_7()); }
+)
+
+
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 rule__PragmaDirective__Group__0
     @init {
 		int stackSize = keepStackSize();
@@ -3201,8 +3542,8 @@ rule__PreprocessorDirectives__DirectiveAssignment_4_4
     }
 :
 (
-{ before(grammarAccess.getPreprocessorDirectivesAccess().getDirectivePragmaDirectiveParserRuleCall_4_4_0()); }
-	rulePragmaDirective{ after(grammarAccess.getPreprocessorDirectivesAccess().getDirectivePragmaDirectiveParserRuleCall_4_4_0()); }
+{ before(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveConditionalDirectiveParserRuleCall_4_4_0()); }
+	ruleConditionalDirective{ after(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveConditionalDirectiveParserRuleCall_4_4_0()); }
 )
 
 ;
@@ -3216,8 +3557,23 @@ rule__PreprocessorDirectives__DirectiveAssignment_4_5
     }
 :
 (
-{ before(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveNullDirectiveParserRuleCall_4_5_0()); }
-	ruleNullDirective{ after(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveNullDirectiveParserRuleCall_4_5_0()); }
+{ before(grammarAccess.getPreprocessorDirectivesAccess().getDirectivePragmaDirectiveParserRuleCall_4_5_0()); }
+	rulePragmaDirective{ after(grammarAccess.getPreprocessorDirectivesAccess().getDirectivePragmaDirectiveParserRuleCall_4_5_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PreprocessorDirectives__DirectiveAssignment_4_6
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveNullDirectiveParserRuleCall_4_6_0()); }
+	ruleNullDirective{ after(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveNullDirectiveParserRuleCall_4_6_0()); }
 )
 
 ;
@@ -3375,6 +3731,36 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+rule__ConditionalDirective__IdAssignment_3
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getConditionalDirectiveAccess().getIdIDTerminalRuleCall_3_0()); }
+	RULE_ID{ after(grammarAccess.getConditionalDirectiveAccess().getIdIDTerminalRuleCall_3_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ConditionalDirective__GroupAssignment_5
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getConditionalDirectiveAccess().getGroupGroupOptParserRuleCall_5_0()); }
+	ruleGroupOpt{ after(grammarAccess.getConditionalDirectiveAccess().getGroupGroupOptParserRuleCall_5_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__Code__CodeAssignment_1
     @init {
 		int stackSize = keepStackSize();
@@ -3400,6 +3786,10 @@ RULE_DEFINE : 'define';
 RULE_ERROR : 'error';
 
 RULE_UNDEF : 'undef';
+
+RULE_IFDEF : 'ifdef';
+
+RULE_ENDIF : 'endif';
 
 RULE_PRAGMA : 'pragma';
 

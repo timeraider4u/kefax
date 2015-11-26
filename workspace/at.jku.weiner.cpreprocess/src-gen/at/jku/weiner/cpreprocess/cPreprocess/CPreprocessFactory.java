@@ -104,6 +104,15 @@ public interface CPreprocessFactory extends EFactory
   UnDefineDirective createUnDefineDirective();
 
   /**
+   * Returns a new object of class '<em>Conditional Directive</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Conditional Directive</em>'.
+   * @generated
+   */
+  ConditionalDirective createConditionalDirective();
+
+  /**
    * Returns a new object of class '<em>Pragma Directive</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

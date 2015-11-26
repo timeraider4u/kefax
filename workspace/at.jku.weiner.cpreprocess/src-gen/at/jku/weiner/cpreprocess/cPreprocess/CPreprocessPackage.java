@@ -309,6 +309,43 @@ public interface CPreprocessPackage extends EPackage
   int UN_DEFINE_DIRECTIVE_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link at.jku.weiner.cpreprocess.cPreprocess.impl.ConditionalDirectiveImpl <em>Conditional Directive</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.cpreprocess.cPreprocess.impl.ConditionalDirectiveImpl
+   * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getConditionalDirective()
+   * @generated
+   */
+  int CONDITIONAL_DIRECTIVE = 9;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITIONAL_DIRECTIVE__ID = 0;
+
+  /**
+   * The feature id for the '<em><b>Group</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITIONAL_DIRECTIVE__GROUP = 1;
+
+  /**
+   * The number of structural features of the '<em>Conditional Directive</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITIONAL_DIRECTIVE_FEATURE_COUNT = 2;
+
+  /**
    * The meta object id for the '{@link at.jku.weiner.cpreprocess.cPreprocess.impl.PragmaDirectiveImpl <em>Pragma Directive</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -316,7 +353,7 @@ public interface CPreprocessPackage extends EPackage
    * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getPragmaDirective()
    * @generated
    */
-  int PRAGMA_DIRECTIVE = 9;
+  int PRAGMA_DIRECTIVE = 10;
 
   /**
    * The number of structural features of the '<em>Pragma Directive</em>' class.
@@ -335,7 +372,7 @@ public interface CPreprocessPackage extends EPackage
    * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getNullDirective()
    * @generated
    */
-  int NULL_DIRECTIVE = 10;
+  int NULL_DIRECTIVE = 11;
 
   /**
    * The number of structural features of the '<em>Null Directive</em>' class.
@@ -354,7 +391,7 @@ public interface CPreprocessPackage extends EPackage
    * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getPreprocessorDirectives()
    * @generated
    */
-  int PREPROCESSOR_DIRECTIVES = 11;
+  int PREPROCESSOR_DIRECTIVES = 12;
 
   /**
    * The feature id for the '<em><b>Directive</b></em>' containment reference.
@@ -382,7 +419,7 @@ public interface CPreprocessPackage extends EPackage
    * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getDefineObjectMacro()
    * @generated
    */
-  int DEFINE_OBJECT_MACRO = 12;
+  int DEFINE_OBJECT_MACRO = 13;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -419,7 +456,7 @@ public interface CPreprocessPackage extends EPackage
    * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getDefineFunctionLikeMacro()
    * @generated
    */
-  int DEFINE_FUNCTION_LIKE_MACRO = 13;
+  int DEFINE_FUNCTION_LIKE_MACRO = 14;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -465,7 +502,7 @@ public interface CPreprocessPackage extends EPackage
    * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getNewLineLine()
    * @generated
    */
-  int NEW_LINE_LINE = 14;
+  int NEW_LINE_LINE = 15;
 
   /**
    * The number of structural features of the '<em>New Line Line</em>' class.
@@ -484,7 +521,7 @@ public interface CPreprocessPackage extends EPackage
    * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getCode()
    * @generated
    */
-  int CODE = 15;
+  int CODE = 16;
 
   /**
    * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -693,6 +730,38 @@ public interface CPreprocessPackage extends EPackage
    * @generated
    */
   EAttribute getUnDefineDirective_Id();
+
+  /**
+   * Returns the meta object for class '{@link at.jku.weiner.cpreprocess.cPreprocess.ConditionalDirective <em>Conditional Directive</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Conditional Directive</em>'.
+   * @see at.jku.weiner.cpreprocess.cPreprocess.ConditionalDirective
+   * @generated
+   */
+  EClass getConditionalDirective();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.cpreprocess.cPreprocess.ConditionalDirective#getId <em>Id</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Id</em>'.
+   * @see at.jku.weiner.cpreprocess.cPreprocess.ConditionalDirective#getId()
+   * @see #getConditionalDirective()
+   * @generated
+   */
+  EAttribute getConditionalDirective_Id();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.cpreprocess.cPreprocess.ConditionalDirective#getGroup <em>Group</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Group</em>'.
+   * @see at.jku.weiner.cpreprocess.cPreprocess.ConditionalDirective#getGroup()
+   * @see #getConditionalDirective()
+   * @generated
+   */
+  EReference getConditionalDirective_Group();
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.cpreprocess.cPreprocess.PragmaDirective <em>Pragma Directive</em>}'.
@@ -981,6 +1050,32 @@ public interface CPreprocessPackage extends EPackage
      * @generated
      */
     EAttribute UN_DEFINE_DIRECTIVE__ID = eINSTANCE.getUnDefineDirective_Id();
+
+    /**
+     * The meta object literal for the '{@link at.jku.weiner.cpreprocess.cPreprocess.impl.ConditionalDirectiveImpl <em>Conditional Directive</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.cpreprocess.cPreprocess.impl.ConditionalDirectiveImpl
+     * @see at.jku.weiner.cpreprocess.cPreprocess.impl.CPreprocessPackageImpl#getConditionalDirective()
+     * @generated
+     */
+    EClass CONDITIONAL_DIRECTIVE = eINSTANCE.getConditionalDirective();
+
+    /**
+     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONDITIONAL_DIRECTIVE__ID = eINSTANCE.getConditionalDirective_Id();
+
+    /**
+     * The meta object literal for the '<em><b>Group</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONDITIONAL_DIRECTIVE__GROUP = eINSTANCE.getConditionalDirective_Group();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.cpreprocess.cPreprocess.impl.PragmaDirectiveImpl <em>Pragma Directive</em>}' class.

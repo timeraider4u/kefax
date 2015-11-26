@@ -5,6 +5,7 @@ package at.jku.weiner.cpreprocess.cPreprocess.impl;
 import at.jku.weiner.cpreprocess.cPreprocess.CPreprocessFactory;
 import at.jku.weiner.cpreprocess.cPreprocess.CPreprocessPackage;
 import at.jku.weiner.cpreprocess.cPreprocess.Code;
+import at.jku.weiner.cpreprocess.cPreprocess.ConditionalDirective;
 import at.jku.weiner.cpreprocess.cPreprocess.DefineDirective;
 import at.jku.weiner.cpreprocess.cPreprocess.DefineFunctionLikeMacro;
 import at.jku.weiner.cpreprocess.cPreprocess.DefineObjectMacro;
@@ -98,6 +99,13 @@ public class CPreprocessPackageImpl extends EPackageImpl implements CPreprocessP
    * @generated
    */
   private EClass unDefineDirectiveEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass conditionalDirectiveEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -396,6 +404,36 @@ public class CPreprocessPackageImpl extends EPackageImpl implements CPreprocessP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getConditionalDirective()
+  {
+    return conditionalDirectiveEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getConditionalDirective_Id()
+  {
+    return (EAttribute)conditionalDirectiveEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getConditionalDirective_Group()
+  {
+    return (EReference)conditionalDirectiveEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getPragmaDirective()
   {
     return pragmaDirectiveEClass;
@@ -548,6 +586,10 @@ public class CPreprocessPackageImpl extends EPackageImpl implements CPreprocessP
     unDefineDirectiveEClass = createEClass(UN_DEFINE_DIRECTIVE);
     createEAttribute(unDefineDirectiveEClass, UN_DEFINE_DIRECTIVE__ID);
 
+    conditionalDirectiveEClass = createEClass(CONDITIONAL_DIRECTIVE);
+    createEAttribute(conditionalDirectiveEClass, CONDITIONAL_DIRECTIVE__ID);
+    createEReference(conditionalDirectiveEClass, CONDITIONAL_DIRECTIVE__GROUP);
+
     pragmaDirectiveEClass = createEClass(PRAGMA_DIRECTIVE);
 
     nullDirectiveEClass = createEClass(NULL_DIRECTIVE);
@@ -628,6 +670,10 @@ public class CPreprocessPackageImpl extends EPackageImpl implements CPreprocessP
 
     initEClass(unDefineDirectiveEClass, UnDefineDirective.class, "UnDefineDirective", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getUnDefineDirective_Id(), ecorePackage.getEString(), "id", null, 0, 1, UnDefineDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(conditionalDirectiveEClass, ConditionalDirective.class, "ConditionalDirective", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getConditionalDirective_Id(), ecorePackage.getEString(), "id", null, 0, 1, ConditionalDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getConditionalDirective_Group(), this.getGroupOpt(), null, "group", null, 0, 1, ConditionalDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(pragmaDirectiveEClass, PragmaDirective.class, "PragmaDirective", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

@@ -56,6 +56,7 @@ public class CPreprocessParser extends AbstractContentAssistParser {
 					put(grammarAccess.getIdentifierListAccess().getGroup_2(), "rule__IdentifierList__Group_2__0");
 					put(grammarAccess.getErrorDirectiveAccess().getGroup(), "rule__ErrorDirective__Group__0");
 					put(grammarAccess.getUnDefineDirectiveAccess().getGroup(), "rule__UnDefineDirective__Group__0");
+					put(grammarAccess.getConditionalDirectiveAccess().getGroup(), "rule__ConditionalDirective__Group__0");
 					put(grammarAccess.getPragmaDirectiveAccess().getGroup(), "rule__PragmaDirective__Group__0");
 					put(grammarAccess.getNewLineLineAccess().getGroup(), "rule__NewLineLine__Group__0");
 					put(grammarAccess.getCodeAccess().getGroup(), "rule__Code__Group__0");
@@ -72,6 +73,7 @@ public class CPreprocessParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveAssignment_4_3(), "rule__PreprocessorDirectives__DirectiveAssignment_4_3");
 					put(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveAssignment_4_4(), "rule__PreprocessorDirectives__DirectiveAssignment_4_4");
 					put(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveAssignment_4_5(), "rule__PreprocessorDirectives__DirectiveAssignment_4_5");
+					put(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveAssignment_4_6(), "rule__PreprocessorDirectives__DirectiveAssignment_4_6");
 					put(grammarAccess.getIncludeDirectiveAccess().getStringAssignment_3(), "rule__IncludeDirective__StringAssignment_3");
 					put(grammarAccess.getDefineObjectMacroAccess().getIdAssignment_3(), "rule__DefineObjectMacro__IdAssignment_3");
 					put(grammarAccess.getDefineObjectMacroAccess().getStringAssignment_4_1(), "rule__DefineObjectMacro__StringAssignment_4_1");
@@ -82,6 +84,8 @@ public class CPreprocessParser extends AbstractContentAssistParser {
 					put(grammarAccess.getIdentifierListAccess().getIdAssignment_2_2(), "rule__IdentifierList__IdAssignment_2_2");
 					put(grammarAccess.getErrorDirectiveAccess().getMsgAssignment_3(), "rule__ErrorDirective__MsgAssignment_3");
 					put(grammarAccess.getUnDefineDirectiveAccess().getIdAssignment_3(), "rule__UnDefineDirective__IdAssignment_3");
+					put(grammarAccess.getConditionalDirectiveAccess().getIdAssignment_3(), "rule__ConditionalDirective__IdAssignment_3");
+					put(grammarAccess.getConditionalDirectiveAccess().getGroupAssignment_5(), "rule__ConditionalDirective__GroupAssignment_5");
 					put(grammarAccess.getCodeAccess().getCodeAssignment_1(), "rule__Code__CodeAssignment_1");
 				}
 			};

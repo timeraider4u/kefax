@@ -20,6 +20,7 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected CPreprocessGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_ConditionalDirective_WSTerminalRuleCall_2_p;
 	protected AbstractElementAlias match_DefineFunctionLikeMacro_WSTerminalRuleCall_2_p;
 	protected AbstractElementAlias match_DefineFunctionLikeMacro_WSTerminalRuleCall_5_a;
 	protected AbstractElementAlias match_DefineFunctionLikeMacro_WSTerminalRuleCall_8_p;
@@ -35,6 +36,7 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (CPreprocessGrammarAccess) access;
+		match_ConditionalDirective_WSTerminalRuleCall_2_p = new TokenAlias(true, false, grammarAccess.getConditionalDirectiveAccess().getWSTerminalRuleCall_2());
 		match_DefineFunctionLikeMacro_WSTerminalRuleCall_2_p = new TokenAlias(true, false, grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_2());
 		match_DefineFunctionLikeMacro_WSTerminalRuleCall_5_a = new TokenAlias(true, true, grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_5());
 		match_DefineFunctionLikeMacro_WSTerminalRuleCall_8_p = new TokenAlias(true, false, grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_8());
@@ -54,10 +56,14 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getCOMMAToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getDEFINERule())
 			return getDEFINEToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getENDIFRule())
+			return getENDIFToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getERRORRule())
 			return getERRORToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getHASHRule())
 			return getHASHToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getIFDEFRule())
+			return getIFDEFToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getINCLUDERule())
 			return getINCLUDEToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getLPARENRule())
@@ -94,6 +100,15 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	}
 	
 	/**
+	 * terminal ENDIF: 'endif';
+	 */
+	protected String getENDIFToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "endif";
+	}
+	
+	/**
 	 * terminal ERROR: 'error';
 	 */
 	protected String getERRORToken(EObject semanticObject, RuleCall ruleCall, INode node) {
@@ -109,6 +124,15 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return "#";
+	}
+	
+	/**
+	 * terminal IFDEF: 'ifdef';
+	 */
+	protected String getIFDEFToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "ifdef";
 	}
 	
 	/**
@@ -180,7 +204,9 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if(match_DefineFunctionLikeMacro_WSTerminalRuleCall_2_p.equals(syntax))
+			if(match_ConditionalDirective_WSTerminalRuleCall_2_p.equals(syntax))
+				emit_ConditionalDirective_WSTerminalRuleCall_2_p(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_DefineFunctionLikeMacro_WSTerminalRuleCall_2_p.equals(syntax))
 				emit_DefineFunctionLikeMacro_WSTerminalRuleCall_2_p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_DefineFunctionLikeMacro_WSTerminalRuleCall_5_a.equals(syntax))
 				emit_DefineFunctionLikeMacro_WSTerminalRuleCall_5_a(semanticObject, getLastNavigableState(), syntaxNodes);
@@ -206,6 +232,17 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 		}
 	}
 
+	/**
+	 * Ambiguous syntax:
+	 *     WS+
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) IFDEF (ambiguity) id=ID
+	 */
+	protected void emit_ConditionalDirective_WSTerminalRuleCall_2_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 	/**
 	 * Ambiguous syntax:
 	 *     WS+
@@ -301,6 +338,7 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     WS*
 	 *
 	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) HASH WS* directive=ConditionalDirective
 	 *     (rule start) (ambiguity) HASH WS* directive=DefineDirective
 	 *     (rule start) (ambiguity) HASH WS* directive=ErrorDirective
 	 *     (rule start) (ambiguity) HASH WS* directive=IncludeDirective
@@ -317,6 +355,7 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     WS*
 	 *
 	 * This ambiguous syntax occurs at:
+	 *     (rule start) WS* HASH (ambiguity) directive=ConditionalDirective
 	 *     (rule start) WS* HASH (ambiguity) directive=DefineDirective
 	 *     (rule start) WS* HASH (ambiguity) directive=ErrorDirective
 	 *     (rule start) WS* HASH (ambiguity) directive=IncludeDirective

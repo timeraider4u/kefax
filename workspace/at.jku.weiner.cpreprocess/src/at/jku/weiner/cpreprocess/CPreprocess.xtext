@@ -62,6 +62,7 @@ PreprocessorDirectives returns SourceCodeLine:
 		|	directive=DefineDirective
 		|	directive=ErrorDirective
 		|	directive=UnDefineDirective
+		|	directive=ConditionalDirective
 		|	directive=PragmaDirective
 		|	directive=NullDirective
 	)
@@ -109,6 +110,13 @@ UnDefineDirective:
 	UNDEF WS+ id=ID
 ;
 
+ConditionalDirective:
+	{ConditionalDirective}
+	IFDEF WS+ id=ID NEWLINE
+		group=GroupOpt
+	HASH ENDIF
+;
+
 PragmaDirective:
 	{PragmaDirective}
 	PRAGMA
@@ -131,7 +139,7 @@ Code returns SourceCodeLine:
 
 MyCode returns ecore::EString:
 	ID|SPECIAL|INCLUDE|DEFINE|ERROR|PRAGMA|LPAREN|RPAREN
-	|COMMA
+	|COMMA|IFDEF|ENDIF
 ;
 
 MyDefineLine returns ecore::EString:
@@ -153,6 +161,8 @@ terminal INCLUDE: 'include';
 terminal DEFINE: 'define';
 terminal ERROR: 'error';
 terminal UNDEF: 'undef';
+terminal IFDEF: 'ifdef';
+terminal ENDIF: 'endif';
 terminal PRAGMA: 'pragma';
 terminal LPAREN: '(';
 terminal RPAREN: ')';

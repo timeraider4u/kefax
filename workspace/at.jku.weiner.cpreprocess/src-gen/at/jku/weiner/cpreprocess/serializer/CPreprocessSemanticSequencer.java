@@ -5,6 +5,7 @@ package at.jku.weiner.cpreprocess.serializer;
 
 import at.jku.weiner.cpreprocess.cPreprocess.CPreprocessPackage;
 import at.jku.weiner.cpreprocess.cPreprocess.Code;
+import at.jku.weiner.cpreprocess.cPreprocess.ConditionalDirective;
 import at.jku.weiner.cpreprocess.cPreprocess.DefineFunctionLikeMacro;
 import at.jku.weiner.cpreprocess.cPreprocess.DefineObjectMacro;
 import at.jku.weiner.cpreprocess.cPreprocess.ErrorDirective;
@@ -44,6 +45,9 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 		if(semanticObject.eClass().getEPackage() == CPreprocessPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
 			case CPreprocessPackage.CODE:
 				sequence_Code(context, (Code) semanticObject); 
+				return; 
+			case CPreprocessPackage.CONDITIONAL_DIRECTIVE:
+				sequence_ConditionalDirective(context, (ConditionalDirective) semanticObject); 
 				return; 
 			case CPreprocessPackage.DEFINE_FUNCTION_LIKE_MACRO:
 				sequence_DefineFunctionLikeMacro(context, (DefineFunctionLikeMacro) semanticObject); 
@@ -100,6 +104,25 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getCodeAccess().getCodeMyCodeLineExtendedParserRuleCall_1_0(), semanticObject.getCode());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (id=ID group=GroupOpt)
+	 */
+	protected void sequence_ConditionalDirective(EObject context, ConditionalDirective semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, CPreprocessPackage.Literals.CONDITIONAL_DIRECTIVE__ID) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CPreprocessPackage.Literals.CONDITIONAL_DIRECTIVE__ID));
+			if(transientValues.isValueTransient(semanticObject, CPreprocessPackage.Literals.CONDITIONAL_DIRECTIVE__GROUP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CPreprocessPackage.Literals.CONDITIONAL_DIRECTIVE__GROUP));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getConditionalDirectiveAccess().getIdIDTerminalRuleCall_3_0(), semanticObject.getId());
+		feeder.accept(grammarAccess.getConditionalDirectiveAccess().getGroupGroupOptParserRuleCall_5_0(), semanticObject.getGroup());
 		feeder.finish();
 	}
 	
@@ -215,6 +238,7 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *         directive=DefineDirective | 
 	 *         directive=ErrorDirective | 
 	 *         directive=UnDefineDirective | 
+	 *         directive=ConditionalDirective | 
 	 *         directive=PragmaDirective | 
 	 *         directive=NullDirective
 	 *     )

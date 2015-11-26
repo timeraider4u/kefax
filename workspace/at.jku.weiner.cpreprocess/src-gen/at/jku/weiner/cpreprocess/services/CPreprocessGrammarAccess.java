@@ -130,9 +130,11 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cDirectiveAssignment_4_3 = (Assignment)cAlternatives_4.eContents().get(3);
 		private final RuleCall cDirectiveUnDefineDirectiveParserRuleCall_4_3_0 = (RuleCall)cDirectiveAssignment_4_3.eContents().get(0);
 		private final Assignment cDirectiveAssignment_4_4 = (Assignment)cAlternatives_4.eContents().get(4);
-		private final RuleCall cDirectivePragmaDirectiveParserRuleCall_4_4_0 = (RuleCall)cDirectiveAssignment_4_4.eContents().get(0);
+		private final RuleCall cDirectiveConditionalDirectiveParserRuleCall_4_4_0 = (RuleCall)cDirectiveAssignment_4_4.eContents().get(0);
 		private final Assignment cDirectiveAssignment_4_5 = (Assignment)cAlternatives_4.eContents().get(5);
-		private final RuleCall cDirectiveNullDirectiveParserRuleCall_4_5_0 = (RuleCall)cDirectiveAssignment_4_5.eContents().get(0);
+		private final RuleCall cDirectivePragmaDirectiveParserRuleCall_4_5_0 = (RuleCall)cDirectiveAssignment_4_5.eContents().get(0);
+		private final Assignment cDirectiveAssignment_4_6 = (Assignment)cAlternatives_4.eContents().get(6);
+		private final RuleCall cDirectiveNullDirectiveParserRuleCall_4_6_0 = (RuleCall)cDirectiveAssignment_4_6.eContents().get(0);
 		private final RuleCall cNEWLINETerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
 		
 		//PreprocessorDirectives SourceCodeLine:
@@ -140,12 +142,14 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//	| directive=DefineDirective
 		//	| directive=ErrorDirective
 		//	| directive=UnDefineDirective
+		//	| directive=ConditionalDirective
 		//	| directive=PragmaDirective
 		//	| directive=NullDirective) NEWLINE
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{PreprocessorDirectives} WS* HASH WS* (directive=IncludeDirective | directive=DefineDirective | directive=ErrorDirective
-		//| directive=UnDefineDirective | directive=PragmaDirective | directive=NullDirective) NEWLINE
+		//| directive=UnDefineDirective | directive=ConditionalDirective | directive=PragmaDirective | directive=NullDirective)
+		//NEWLINE
 		public Group getGroup() { return cGroup; }
 		
 		//{PreprocessorDirectives}
@@ -161,7 +165,7 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getWSTerminalRuleCall_3() { return cWSTerminalRuleCall_3; }
 		
 		//(directive=IncludeDirective | directive=DefineDirective | directive=ErrorDirective | directive=UnDefineDirective |
-		//directive=PragmaDirective | directive=NullDirective)
+		//directive=ConditionalDirective | directive=PragmaDirective | directive=NullDirective)
 		public Alternatives getAlternatives_4() { return cAlternatives_4; }
 		
 		//directive=IncludeDirective
@@ -188,17 +192,23 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//UnDefineDirective
 		public RuleCall getDirectiveUnDefineDirectiveParserRuleCall_4_3_0() { return cDirectiveUnDefineDirectiveParserRuleCall_4_3_0; }
 		
-		//directive=PragmaDirective
+		//directive=ConditionalDirective
 		public Assignment getDirectiveAssignment_4_4() { return cDirectiveAssignment_4_4; }
 		
-		//PragmaDirective
-		public RuleCall getDirectivePragmaDirectiveParserRuleCall_4_4_0() { return cDirectivePragmaDirectiveParserRuleCall_4_4_0; }
+		//ConditionalDirective
+		public RuleCall getDirectiveConditionalDirectiveParserRuleCall_4_4_0() { return cDirectiveConditionalDirectiveParserRuleCall_4_4_0; }
 		
-		//directive=NullDirective
+		//directive=PragmaDirective
 		public Assignment getDirectiveAssignment_4_5() { return cDirectiveAssignment_4_5; }
 		
+		//PragmaDirective
+		public RuleCall getDirectivePragmaDirectiveParserRuleCall_4_5_0() { return cDirectivePragmaDirectiveParserRuleCall_4_5_0; }
+		
+		//directive=NullDirective
+		public Assignment getDirectiveAssignment_4_6() { return cDirectiveAssignment_4_6; }
+		
 		//NullDirective
-		public RuleCall getDirectiveNullDirectiveParserRuleCall_4_5_0() { return cDirectiveNullDirectiveParserRuleCall_4_5_0; }
+		public RuleCall getDirectiveNullDirectiveParserRuleCall_4_6_0() { return cDirectiveNullDirectiveParserRuleCall_4_6_0; }
 		
 		//NEWLINE
 		public RuleCall getNEWLINETerminalRuleCall_5() { return cNEWLINETerminalRuleCall_5; }
@@ -474,6 +484,59 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getIdIDTerminalRuleCall_3_0() { return cIdIDTerminalRuleCall_3_0; }
 	}
+	public class ConditionalDirectiveElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.ConditionalDirective");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cConditionalDirectiveAction_0 = (Action)cGroup.eContents().get(0);
+		private final RuleCall cIFDEFTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cIdAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cIdIDTerminalRuleCall_3_0 = (RuleCall)cIdAssignment_3.eContents().get(0);
+		private final RuleCall cNEWLINETerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final Assignment cGroupAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cGroupGroupOptParserRuleCall_5_0 = (RuleCall)cGroupAssignment_5.eContents().get(0);
+		private final RuleCall cHASHTerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		private final RuleCall cENDIFTerminalRuleCall_7 = (RuleCall)cGroup.eContents().get(7);
+		
+		//ConditionalDirective:
+		//	{ConditionalDirective} IFDEF WS+ id=ID NEWLINE
+		//	group=GroupOpt
+		//	HASH ENDIF;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{ConditionalDirective} IFDEF WS+ id=ID NEWLINE group=GroupOpt HASH ENDIF
+		public Group getGroup() { return cGroup; }
+		
+		//{ConditionalDirective}
+		public Action getConditionalDirectiveAction_0() { return cConditionalDirectiveAction_0; }
+		
+		//IFDEF
+		public RuleCall getIFDEFTerminalRuleCall_1() { return cIFDEFTerminalRuleCall_1; }
+		
+		//WS+
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+		
+		//id=ID
+		public Assignment getIdAssignment_3() { return cIdAssignment_3; }
+		
+		//ID
+		public RuleCall getIdIDTerminalRuleCall_3_0() { return cIdIDTerminalRuleCall_3_0; }
+		
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_4() { return cNEWLINETerminalRuleCall_4; }
+		
+		//group=GroupOpt
+		public Assignment getGroupAssignment_5() { return cGroupAssignment_5; }
+		
+		//GroupOpt
+		public RuleCall getGroupGroupOptParserRuleCall_5_0() { return cGroupGroupOptParserRuleCall_5_0; }
+		
+		//HASH
+		public RuleCall getHASHTerminalRuleCall_6() { return cHASHTerminalRuleCall_6; }
+		
+		//ENDIF
+		public RuleCall getENDIFTerminalRuleCall_7() { return cENDIFTerminalRuleCall_7; }
+	}
 	public class PragmaDirectiveElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.PragmaDirective");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -563,13 +626,15 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cLPARENTerminalRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
 		private final RuleCall cRPARENTerminalRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
 		private final RuleCall cCOMMATerminalRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
+		private final RuleCall cIFDEFTerminalRuleCall_9 = (RuleCall)cAlternatives.eContents().get(9);
+		private final RuleCall cENDIFTerminalRuleCall_10 = (RuleCall)cAlternatives.eContents().get(10);
 		
 		//MyCode:
 		//	ID | SPECIAL | INCLUDE | DEFINE | ERROR | PRAGMA | LPAREN | RPAREN
-		//	| COMMA;
+		//	| COMMA | IFDEF | ENDIF;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//ID | SPECIAL | INCLUDE | DEFINE | ERROR | PRAGMA | LPAREN | RPAREN | COMMA
+		//ID | SPECIAL | INCLUDE | DEFINE | ERROR | PRAGMA | LPAREN | RPAREN | COMMA | IFDEF | ENDIF
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//ID
@@ -598,6 +663,12 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//COMMA
 		public RuleCall getCOMMATerminalRuleCall_8() { return cCOMMATerminalRuleCall_8; }
+		
+		//IFDEF
+		public RuleCall getIFDEFTerminalRuleCall_9() { return cIFDEFTerminalRuleCall_9; }
+		
+		//ENDIF
+		public RuleCall getENDIFTerminalRuleCall_10() { return cENDIFTerminalRuleCall_10; }
 	}
 	public class MyDefineLineElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.MyDefineLine");
@@ -689,6 +760,7 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	private final IdentifierListElements pIdentifierList;
 	private final ErrorDirectiveElements pErrorDirective;
 	private final UnDefineDirectiveElements pUnDefineDirective;
+	private final ConditionalDirectiveElements pConditionalDirective;
 	private final PragmaDirectiveElements pPragmaDirective;
 	private final NullDirectiveElements pNullDirective;
 	private final NewLineLineElements pNewLineLine;
@@ -702,6 +774,8 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tDEFINE;
 	private final TerminalRule tERROR;
 	private final TerminalRule tUNDEF;
+	private final TerminalRule tIFDEF;
+	private final TerminalRule tENDIF;
 	private final TerminalRule tPRAGMA;
 	private final TerminalRule tLPAREN;
 	private final TerminalRule tRPAREN;
@@ -741,6 +815,7 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		this.pIdentifierList = new IdentifierListElements();
 		this.pErrorDirective = new ErrorDirectiveElements();
 		this.pUnDefineDirective = new UnDefineDirectiveElements();
+		this.pConditionalDirective = new ConditionalDirectiveElements();
 		this.pPragmaDirective = new PragmaDirectiveElements();
 		this.pNullDirective = new NullDirectiveElements();
 		this.pNewLineLine = new NewLineLineElements();
@@ -754,6 +829,8 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		this.tDEFINE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.DEFINE");
 		this.tERROR = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.ERROR");
 		this.tUNDEF = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.UNDEF");
+		this.tIFDEF = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.IFDEF");
+		this.tENDIF = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.ENDIF");
 		this.tPRAGMA = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.PRAGMA");
 		this.tLPAREN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.LPAREN");
 		this.tRPAREN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.RPAREN");
@@ -838,6 +915,7 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//	| directive=DefineDirective
 	//	| directive=ErrorDirective
 	//	| directive=UnDefineDirective
+	//	| directive=ConditionalDirective
 	//	| directive=PragmaDirective
 	//	| directive=NullDirective) NEWLINE
 	public PreprocessorDirectivesElements getPreprocessorDirectivesAccess() {
@@ -924,6 +1002,18 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		return getUnDefineDirectiveAccess().getRule();
 	}
 	
+	//ConditionalDirective:
+	//	{ConditionalDirective} IFDEF WS+ id=ID NEWLINE
+	//	group=GroupOpt
+	//	HASH ENDIF;
+	public ConditionalDirectiveElements getConditionalDirectiveAccess() {
+		return pConditionalDirective;
+	}
+	
+	public ParserRule getConditionalDirectiveRule() {
+		return getConditionalDirectiveAccess().getRule();
+	}
+	
 	//PragmaDirective:
 	//	{PragmaDirective} PRAGMA;
 	public PragmaDirectiveElements getPragmaDirectiveAccess() {
@@ -967,7 +1057,7 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//MyCode:
 	//	ID | SPECIAL | INCLUDE | DEFINE | ERROR | PRAGMA | LPAREN | RPAREN
-	//	| COMMA;
+	//	| COMMA | IFDEF | ENDIF;
 	public MyCodeElements getMyCodeAccess() {
 		return pMyCode;
 	}
@@ -1034,6 +1124,18 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//	'undef';
 	public TerminalRule getUNDEFRule() {
 		return tUNDEF;
+	}
+	
+	//terminal IFDEF:
+	//	'ifdef';
+	public TerminalRule getIFDEFRule() {
+		return tIFDEF;
+	}
+	
+	//terminal ENDIF:
+	//	'endif';
+	public TerminalRule getENDIFRule() {
+		return tENDIF;
 	}
 	
 	//terminal PRAGMA:

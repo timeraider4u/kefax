@@ -1,0 +1,53 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.cpreprocess
+language cPreprocess
+//----------------------------------------------------------------------
+split-lexer=true
+source file="res/Test0039_IfDefSimple.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH IFDEF WS ID NEWLINE
+		WS HASH DEFINE WS ID WS ID NEWLINE
+		WS ID WS ID WS SPECIAL WS SPECIAL SPECIAL NEWLINE
+	HASH ENDIF NEWLINE
+	ID NEWLINE
+//----------------------------------------------------------------------
+(Model
+	units+=
+	(TranslationUnit
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(ConditionalDirective
+					id++"FOOBAR",
+					group=
+					(GroupOpt
+						lines+=
+						(PreprocessorDirectives
+							directive=
+							(DefineObjectMacro
+								id++"FOO",
+								string++"BAR"
+							)
+						),
+						(Code
+							code++"	int foo = 0;"
+						)
+					)
+				)
+			),
+			(Code
+				code++"FOO"
+			)
+		)
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0039_IfDefSimple.c.i"
+expected file="expected/Test0039_IfDefSimple.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

@@ -19,6 +19,7 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 	private final IdentifierList idList;
 	private final EList<String> list;
 	private final Pattern pattern;
+	private final StringMatchingSymbolsHelper matcher;
 
 	public DefinitionFunctionMacro(final String key, final String value,
 			final IdentifierList list) {
@@ -27,6 +28,7 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 		this.key = key;
 		this.value = this.getValue(value);
 		this.pattern = this.getPattern();
+		this.matcher = new StringMatchingSymbolsHelper(this.pattern);
 	}
 
 	private String getValue(String value2) {
@@ -87,20 +89,49 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 
 	@Override
 	public boolean matches(final String code) {
-		final Matcher matcher = this.pattern.matcher(code);
-		return matcher.find();
+		StringLiteralInStringLiteralsHelper.iterate(code, this.matcher);
+		return this.matcher.contains();
 	}
 
 	@Override
 	public String resolve(final String code) {
-		final StringBuffer result = new StringBuffer("");
-		if (this.list == null) {
-			this.resolveZeroArguments(result, code);
-		} else {
-			this.resolveForParameters(result, code);
-			this.resolveStringifiaction(result);
+		StringReplaceSymbolsFunctionMacroReplace helper = new StringReplaceSymbolsFunctionMacroReplace(
+				this.list);
+		StringLiteralInStringLiteralsHelper.iterate(code, helper);
+		return helper.getText();
+
+		/*
+		 *
+		 */
+	}
+
+	class StringReplaceSymbolsFunctionMacroReplace extends
+			StringReplaceSymbolsHelper {
+
+		private final EList<String> list2;
+
+		public StringReplaceSymbolsFunctionMacroReplace(final EList<String> list) {
+			this.list2 = list;
 		}
-		return result.toString();
+
+		@Override
+		public String getText() {
+			return this.result.toString();
+		}
+
+		@Override
+		protected String replace(final String string) {
+			final StringBuffer result = new StringBuffer("");
+			if (this.list2 == null) {
+				DefinitionFunctionMacro.this.resolveZeroArguments(result,
+						string);
+			} else {
+				DefinitionFunctionMacro.this.resolveForParameters(result,
+						string);
+				DefinitionFunctionMacro.this.resolveStringifiaction(result);
+			}
+			return result.toString();
+		}
 	}
 
 	private void resolveZeroArguments(final StringBuffer result,
@@ -169,7 +200,7 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 			final String paramCode, final int paramIndex,
 			final String paramValue) {
 		final String param = this.list.get(paramIndex);
-		final StringReplaceSymbolsHelper visitor = new StringReplaceSymbolsHelper(
+		final StringReplaceSymbolsHelper visitor = new StringReplaceSymbolsHelperDefaultReplace(
 				param, paramCode);
 		// System.out.println("paramCode='" + paramCode + "'");
 		// System.out.println("param='" + param + "'");

@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import at.jku.weiner.cpreprocess.utils.StringLiteralInStringLiteralsHelper;
 import at.jku.weiner.cpreprocess.utils.macros.StringReplaceSymbolsHelper;
+import at.jku.weiner.cpreprocess.utils.macros.StringReplaceSymbolsHelperDefaultReplace;
 
 public class TestStringReplaceSymbolsHelper {
 
@@ -13,7 +14,7 @@ public class TestStringReplaceSymbolsHelper {
 		final String text = "A little penguin looks at you!";
 		final String symbol = "penguin";
 		final String replacement = "red fox";
-		final StringReplaceSymbolsHelper helper = new StringReplaceSymbolsHelper(
+		final StringReplaceSymbolsHelper helper = new StringReplaceSymbolsHelperDefaultReplace(
 				symbol, replacement);
 		StringLiteralInStringLiteralsHelper.iterate(text, helper);
 		final String actual = helper.getText();
@@ -26,7 +27,7 @@ public class TestStringReplaceSymbolsHelper {
 		final String symbol = "penguin";
 		final String replacement = "red fox";
 
-		final StringReplaceSymbolsHelper helper = new StringReplaceSymbolsHelper(
+		final StringReplaceSymbolsHelper helper = new StringReplaceSymbolsHelperDefaultReplace(
 				symbol, replacement);
 		StringLiteralInStringLiteralsHelper.iterate(text, helper);
 		final String actual = helper.getText();
@@ -40,7 +41,7 @@ public class TestStringReplaceSymbolsHelper {
 		final String text = "Foo bar, \"\\\"Foo bar\\\"\", \\Foo bar";
 		final String symbol = "Foo";
 		final String replacement = "Bar";
-		final StringReplaceSymbolsHelper helper = new StringReplaceSymbolsHelper(
+		final StringReplaceSymbolsHelper helper = new StringReplaceSymbolsHelperDefaultReplace(
 				symbol, replacement);
 		StringLiteralInStringLiteralsHelper.iterate(text, helper);
 		final String actual = helper.getText();
@@ -52,7 +53,7 @@ public class TestStringReplaceSymbolsHelper {
 		final String text = "Foo bar, \\\"\\\"Foo bar\\\"\\\", \\Foo bar";
 		final String symbol = "Foo";
 		final String replacement = "Bar";
-		final StringReplaceSymbolsHelper helper = new StringReplaceSymbolsHelper(
+		final StringReplaceSymbolsHelper helper = new StringReplaceSymbolsHelperDefaultReplace(
 				symbol, replacement);
 		StringLiteralInStringLiteralsHelper.iterate(text, helper);
 		final String actual = helper.getText();
@@ -65,7 +66,7 @@ public class TestStringReplaceSymbolsHelper {
 		final String text = "Foo bar, \"\"Foo bar\"\", \\\\Foo bar";
 		final String symbol = "Foo";
 		final String replacement = "Bar";
-		final StringReplaceSymbolsHelper helper = new StringReplaceSymbolsHelper(
+		final StringReplaceSymbolsHelper helper = new StringReplaceSymbolsHelperDefaultReplace(
 				symbol, replacement);
 		StringLiteralInStringLiteralsHelper.iterate(text, helper);
 		final String actual = helper.getText();
@@ -77,7 +78,7 @@ public class TestStringReplaceSymbolsHelper {
 		final String text = "foo = \"foo\" + \"with \\\"escaped foo\" + \"foo\" and foo;";
 		final String symbol = "foo";
 		final String replacement = "Bar";
-		final StringReplaceSymbolsHelper helper = new StringReplaceSymbolsHelper(
+		final StringReplaceSymbolsHelper helper = new StringReplaceSymbolsHelperDefaultReplace(
 				symbol, replacement);
 		StringLiteralInStringLiteralsHelper.iterate(text, helper);
 		final String actual = helper.getText();
@@ -91,7 +92,7 @@ public class TestStringReplaceSymbolsHelper {
 		final String text = "A little penguin looks at äöüÄÖÜß?!";
 		final String symbol = "äöüÄÖÜß";
 		final String replacement = "you";
-		final StringReplaceSymbolsHelper helper = new StringReplaceSymbolsHelper(
+		final StringReplaceSymbolsHelper helper = new StringReplaceSymbolsHelperDefaultReplace(
 				symbol, replacement);
 		StringLiteralInStringLiteralsHelper.iterate(text, helper);
 		final String actual = helper.getText();
@@ -103,7 +104,7 @@ public class TestStringReplaceSymbolsHelper {
 		final String text = "A little penguin2 looks at you!";
 		final String symbol = "penguin";
 		final String replacement = "red fox";
-		final StringReplaceSymbolsHelper helper = new StringReplaceSymbolsHelper(
+		final StringReplaceSymbolsHelper helper = new StringReplaceSymbolsHelperDefaultReplace(
 				symbol, replacement);
 		StringLiteralInStringLiteralsHelper.iterate(text, helper);
 		final String actual = helper.getText();
@@ -115,7 +116,7 @@ public class TestStringReplaceSymbolsHelper {
 		final String text = "A little penguin looks at you!";
 		final String symbol = "penguin2";
 		final String replacement = "red fox";
-		final StringReplaceSymbolsHelper helper = new StringReplaceSymbolsHelper(
+		final StringReplaceSymbolsHelper helper = new StringReplaceSymbolsHelperDefaultReplace(
 				symbol, replacement);
 		StringLiteralInStringLiteralsHelper.iterate(text, helper);
 		final String actual = helper.getText();
@@ -127,7 +128,7 @@ public class TestStringReplaceSymbolsHelper {
 		final String text = "A little penguin looks at äöüÄÖÜ_ß1!";
 		final String symbol = "äöüÄÖÜ_ß1";
 		final String replacement = "you";
-		final StringReplaceSymbolsHelper helper = new StringReplaceSymbolsHelper(
+		final StringReplaceSymbolsHelper helper = new StringReplaceSymbolsHelperDefaultReplace(
 				symbol, replacement);
 		StringLiteralInStringLiteralsHelper.iterate(text, helper);
 		final String actual = helper.getText();
@@ -139,7 +140,7 @@ public class TestStringReplaceSymbolsHelper {
 		final String text = "A little penguin2 looks at you!";
 		final String symbol = "penguin2";
 		final String replacement = "red fox";
-		final StringReplaceSymbolsHelper helper = new StringReplaceSymbolsHelper(
+		final StringReplaceSymbolsHelper helper = new StringReplaceSymbolsHelperDefaultReplace(
 				symbol, replacement);
 		StringLiteralInStringLiteralsHelper.iterate(text, helper);
 		final String actual = helper.getText();

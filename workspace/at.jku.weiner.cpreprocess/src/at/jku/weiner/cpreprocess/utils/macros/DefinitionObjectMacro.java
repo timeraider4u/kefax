@@ -1,26 +1,26 @@
 package at.jku.weiner.cpreprocess.utils.macros;
 
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import at.jku.weiner.cpreprocess.utils.StringLiteralInStringLiteralsHelper;
 
 class DefinitionObjectMacro implements DefinitionMacro {
 
-	private final String key;
-	private final String value;
+	private final String macroID;
+	private final String replacement;
 	private final String regex;
 	private final Pattern pattern;
 	private final StringReplaceSymbolsHelper helper;
 	private final StringMatchingSymbolsHelper matcher;
 
 	public DefinitionObjectMacro(final String key, final String value) {
-		this.key = key;
-		this.value = this.getValue(value);
+		this.macroID = key;
+		this.replacement = this.getValue(value);
 		this.regex = "\\b" + key + "\\b";
 		this.pattern = Pattern.compile(this.regex);
-		this.helper = new StringReplaceSymbolsHelper(key, value);
-		this.matcher = new StringMatchingSymbolsHelper(this.regex);
+		this.helper = new StringReplaceSymbolsHelperDefaultReplace(
+				this.macroID, this.replacement);
+		this.matcher = new StringMatchingSymbolsHelper(this.pattern);
 	}
 
 	@Override
@@ -29,10 +29,10 @@ class DefinitionObjectMacro implements DefinitionMacro {
 			return false;
 		}
 		final DefinitionObjectMacro other = (DefinitionObjectMacro) obj;
-		if (!(this.key.equals(other.key))) {
+		if (!(this.macroID.equals(other.macroID))) {
 			return false;
 		}
-		return this.value.equals(other.value);
+		return this.replacement.equals(other.replacement);
 	}
 
 	private String getValue(String value2) {
@@ -55,13 +55,11 @@ class DefinitionObjectMacro implements DefinitionMacro {
 	public boolean matches(final String code) {
 		StringLiteralInStringLiteralsHelper.iterate(code, this.matcher);
 		return this.matcher.contains();
-		// final Matcher matcher = this.pattern.matcher(code);
-		// return matcher.find();
 	}
 
 	@Override
 	public String getName() {
-		return this.key;
+		return this.macroID;
 	}
 
 }

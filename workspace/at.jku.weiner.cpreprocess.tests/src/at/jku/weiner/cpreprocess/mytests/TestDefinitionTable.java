@@ -1,5 +1,8 @@
 package at.jku.weiner.cpreprocess.mytests;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -170,6 +173,30 @@ public class TestDefinitionTable {
 	}
 
 	@Test
+	public void testMatches1() {
+		final String regex = "\\bfox\\b";
+		final String text = "a little fox looks at you!";
+
+		final Pattern pattern = Pattern.compile(regex);
+		final Matcher matcher = pattern.matcher(text);
+
+		final boolean match = matcher.find();
+		Assert.assertTrue(match);
+	}
+
+	@Test
+	public void testMatches2() {
+		final String regex = "\\bfox\\b";
+		final String text = "a little firefox looks at you!";
+
+		final Pattern pattern = Pattern.compile(regex);
+		final Matcher matcher = pattern.matcher(text);
+
+		final boolean match = matcher.find();
+		Assert.assertFalse(match);
+	}
+
+	@Test
 	public void testContainsAKey1() {
 		Assert.assertFalse(DefinitionTable
 				.containsAKey("a little penguin looks at you!"));
@@ -308,10 +335,14 @@ public class TestDefinitionTable {
 
 	@Test
 	public void testContainsAKey10() {
+		// note the substring "penguin" which is a string literal
+		// inside this string literal
 		final String code = "a little \"penguin()\" looks at you!";
 		DefinitionTable.addFunctionMacro("penguin", "firefox", null);
 		Assert.assertFalse(DefinitionTable.containsAKey(code));
 		final String result = DefinitionTable.resolve(code);
+		Assert.assertFalse(DefinitionTable.containsAKey(code));
+		Assert.assertFalse(DefinitionTable.containsAKey(result));
 		Assert.assertEquals(code, result);
 	}
 
@@ -353,7 +384,9 @@ public class TestDefinitionTable {
 		Assert.assertEquals(
 				"a little \"penguin()\" firefox \"x\" \"penguin\" looks at you!",
 				result);
-		Assert.assertFalse(DefinitionTable.containsAKey(code));
+		Assert.assertTrue(DefinitionTable.containsAKey(code));
+		Assert.assertFalse(DefinitionTable.containsAKey(result));
+
 	}
 
 }

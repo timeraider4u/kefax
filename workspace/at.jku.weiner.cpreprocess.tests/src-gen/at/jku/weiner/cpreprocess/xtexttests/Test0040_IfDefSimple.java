@@ -134,6 +134,8 @@ public class Test0040_IfDefSimple {
 				"RULE_NEWLINE", 
 				"RULE_HASH", 
 				"RULE_ENDIF", 
+				"RULE_WS", 
+				"RULE_WS", 
 				"RULE_NEWLINE", 
 				"RULE_ID", 
 				"RULE_NEWLINE", 

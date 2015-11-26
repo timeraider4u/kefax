@@ -11,7 +11,7 @@ lexer-tokens
 	HASH IFDEF WS ID NEWLINE
 		WS HASH DEFINE WS ID WS ID NEWLINE
 		WS ID WS ID WS SPECIAL WS SPECIAL SPECIAL NEWLINE
-	HASH ENDIF NEWLINE
+	HASH ENDIF WS WS NEWLINE
 	ID NEWLINE
 //----------------------------------------------------------------------
 (Model

@@ -976,7 +976,11 @@ this_ENDIF_7=RULE_ENDIF
     { 
     newLeafNode(this_ENDIF_7, grammarAccess.getConditionalDirectiveAccess().getENDIFTerminalRuleCall_7()); 
     }
-)
+(this_WS_8=RULE_WS
+    { 
+    newLeafNode(this_WS_8, grammarAccess.getConditionalDirectiveAccess().getWSTerminalRuleCall_8()); 
+    }
+)*)
 ;
 
 

@@ -2984,6 +2984,7 @@ rule__ConditionalDirective__Group__7
     }
 :
 	rule__ConditionalDirective__Group__7__Impl
+	rule__ConditionalDirective__Group__8
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -3007,6 +3008,39 @@ rule__ConditionalDirective__Group__7__Impl
 finally {
 	restoreStackSize(stackSize);
 }
+
+
+rule__ConditionalDirective__Group__8
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__ConditionalDirective__Group__8__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ConditionalDirective__Group__8__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+
+(
+{ before(grammarAccess.getConditionalDirectiveAccess().getWSTerminalRuleCall_8()); }
+(	RULE_WS)*
+{ after(grammarAccess.getConditionalDirectiveAccess().getWSTerminalRuleCall_8()); }
+)
+
+
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
 
 
 

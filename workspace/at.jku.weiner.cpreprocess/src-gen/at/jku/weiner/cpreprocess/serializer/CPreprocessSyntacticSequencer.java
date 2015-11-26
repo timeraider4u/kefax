@@ -21,6 +21,7 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected CPreprocessGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_ConditionalDirective_WSTerminalRuleCall_2_p;
+	protected AbstractElementAlias match_ConditionalDirective_WSTerminalRuleCall_8_a;
 	protected AbstractElementAlias match_DefineFunctionLikeMacro_WSTerminalRuleCall_2_p;
 	protected AbstractElementAlias match_DefineFunctionLikeMacro_WSTerminalRuleCall_5_a;
 	protected AbstractElementAlias match_DefineFunctionLikeMacro_WSTerminalRuleCall_8_p;
@@ -37,6 +38,7 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (CPreprocessGrammarAccess) access;
 		match_ConditionalDirective_WSTerminalRuleCall_2_p = new TokenAlias(true, false, grammarAccess.getConditionalDirectiveAccess().getWSTerminalRuleCall_2());
+		match_ConditionalDirective_WSTerminalRuleCall_8_a = new TokenAlias(true, true, grammarAccess.getConditionalDirectiveAccess().getWSTerminalRuleCall_8());
 		match_DefineFunctionLikeMacro_WSTerminalRuleCall_2_p = new TokenAlias(true, false, grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_2());
 		match_DefineFunctionLikeMacro_WSTerminalRuleCall_5_a = new TokenAlias(true, true, grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_5());
 		match_DefineFunctionLikeMacro_WSTerminalRuleCall_8_p = new TokenAlias(true, false, grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_8());
@@ -206,6 +208,8 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
 			if(match_ConditionalDirective_WSTerminalRuleCall_2_p.equals(syntax))
 				emit_ConditionalDirective_WSTerminalRuleCall_2_p(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ConditionalDirective_WSTerminalRuleCall_8_a.equals(syntax))
+				emit_ConditionalDirective_WSTerminalRuleCall_8_a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_DefineFunctionLikeMacro_WSTerminalRuleCall_2_p.equals(syntax))
 				emit_DefineFunctionLikeMacro_WSTerminalRuleCall_2_p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_DefineFunctionLikeMacro_WSTerminalRuleCall_5_a.equals(syntax))
@@ -240,6 +244,17 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) IFDEF (ambiguity) id=ID
 	 */
 	protected void emit_ConditionalDirective_WSTerminalRuleCall_2_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     WS*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     group=GroupOpt HASH ENDIF (ambiguity) (rule end)
+	 */
+	protected void emit_ConditionalDirective_WSTerminalRuleCall_8_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

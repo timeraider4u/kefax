@@ -114,7 +114,7 @@ ConditionalDirective:
 	{ConditionalDirective}
 	IFDEF WS+ id=ID NEWLINE
 		group=GroupOpt
-	HASH ENDIF
+	HASH ENDIF WS*
 ;
 
 PragmaDirective:

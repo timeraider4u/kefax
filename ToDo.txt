@@ -17,9 +17,6 @@ Pre-Processing:
 	09.) #include_next as specified in https://gcc.gnu.org/onlinedocs/cpp/Wrapper-Headers.html#Wrapper-Headers
 	10.) System headers: https://gcc.gnu.org/onlinedocs/cpp/System-Headers.html#System-Headers
 
-!!! xx.) Stringification: https://gcc.gnu.org/onlinedocs/cpp/Stringification.html#Stringification
-!!! xx.) Concatenation: https://gcc.gnu.org/onlinedocs/cpp/Concatenation.html#Concatenation
-
 	11.) Variadic macros: https://gcc.gnu.org/onlinedocs/cpp/Variadic-Macros.html#Variadic-Macros
 
 !!!	xx.) Pre-defined macros: https://gcc.gnu.org/onlinedocs/cpp/Predefined-Macros.html#Predefined-Macros

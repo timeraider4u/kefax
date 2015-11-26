@@ -106,7 +106,7 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 	}
 
 	class StringReplaceSymbolsFunctionMacroReplace extends
-			StringReplaceSymbolsHelper {
+	StringReplaceSymbolsHelper {
 
 		private final EList<String> list2;
 
@@ -187,7 +187,7 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 		// iterate all parameters
 		for (int paramIndex = 0; paramIndex < replaceParams.size(); paramIndex++) {
 			final String nextParam = replaceParams.get(paramIndex);
-			final String paramCode = this.getParamCode(nextParam);
+			final String paramCode = this.getParamCode(paramIndex, nextParam);
 			paramValue = this.replaceSingleParam(code, paramCode, paramIndex,
 					paramValue);
 		}
@@ -211,15 +211,25 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 		return result;
 	}
 
-	private String getParamCode(final String paramCode) {
+	private String getParamCode(final int paramIndex, final String paramCode) {
+		final String param = this.list.get(paramIndex);
 		final String paramCodeTemp = paramCode.trim();
-		final String result = paramCodeTemp;
+		if (this.partOfStringification(param)) {
+			return paramCodeTemp;
+		}
+		final String result = DefinitionTable.resolve(paramCodeTemp);
 		return result;
 	}
 
 	@Override
 	public String getName() {
 		return this.key;
+	}
+
+	private boolean partOfStringification(final String param) {
+		final Pattern strPattern = Pattern.compile("#\\b" + param + "\\b");
+		final Matcher matcher = strPattern.matcher(this.value);
+		return matcher.find();
 	}
 
 	private void resolveStringifiaction(final StringBuffer result) {

@@ -110,7 +110,7 @@ public class Test0010_UglyInclude {
 				"RULE_SPECIAL", 
 				"RULE_NEWLINE", 
 				"RULE_WS", 
-				"RULE_ID", 
+				"RULE_IF", 
 				"RULE_WS", 
 				"RULE_LPAREN", 
 				"RULE_SPECIAL", 

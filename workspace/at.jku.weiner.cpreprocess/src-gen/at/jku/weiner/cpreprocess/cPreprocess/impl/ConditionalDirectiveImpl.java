@@ -4,12 +4,12 @@ package at.jku.weiner.cpreprocess.cPreprocess.impl;
 
 import at.jku.weiner.cpreprocess.cPreprocess.CPreprocessPackage;
 import at.jku.weiner.cpreprocess.cPreprocess.ConditionalDirective;
-import at.jku.weiner.cpreprocess.cPreprocess.GroupOpt;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -21,45 +21,24 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- *   <li>{@link at.jku.weiner.cpreprocess.cPreprocess.impl.ConditionalDirectiveImpl#getId <em>Id</em>}</li>
- *   <li>{@link at.jku.weiner.cpreprocess.cPreprocess.impl.ConditionalDirectiveImpl#getGroup <em>Group</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link at.jku.weiner.cpreprocess.cPreprocess.impl.ConditionalDirectiveImpl#getConditional <em>Conditional</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class ConditionalDirectiveImpl extends MinimalEObjectImpl.Container implements ConditionalDirective
 {
   /**
-   * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+   * The cached value of the '{@link #getConditional() <em>Conditional</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getId()
+   * @see #getConditional()
    * @generated
    * @ordered
    */
-  protected static final String ID_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getId()
-   * @generated
-   * @ordered
-   */
-  protected String id = ID_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getGroup() <em>Group</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getGroup()
-   * @generated
-   * @ordered
-   */
-  protected GroupOpt group;
+  protected EObject conditional;
 
   /**
    * <!-- begin-user-doc -->
@@ -87,9 +66,9 @@ public class ConditionalDirectiveImpl extends MinimalEObjectImpl.Container imple
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getId()
+  public EObject getConditional()
   {
-    return id;
+    return conditional;
   }
 
   /**
@@ -97,36 +76,13 @@ public class ConditionalDirectiveImpl extends MinimalEObjectImpl.Container imple
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setId(String newId)
+  public NotificationChain basicSetConditional(EObject newConditional, NotificationChain msgs)
   {
-    String oldId = id;
-    id = newId;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, CPreprocessPackage.CONDITIONAL_DIRECTIVE__ID, oldId, id));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public GroupOpt getGroup()
-  {
-    return group;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetGroup(GroupOpt newGroup, NotificationChain msgs)
-  {
-    GroupOpt oldGroup = group;
-    group = newGroup;
+    EObject oldConditional = conditional;
+    conditional = newConditional;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CPreprocessPackage.CONDITIONAL_DIRECTIVE__GROUP, oldGroup, newGroup);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CPreprocessPackage.CONDITIONAL_DIRECTIVE__CONDITIONAL, oldConditional, newConditional);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -137,20 +93,20 @@ public class ConditionalDirectiveImpl extends MinimalEObjectImpl.Container imple
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setGroup(GroupOpt newGroup)
+  public void setConditional(EObject newConditional)
   {
-    if (newGroup != group)
+    if (newConditional != conditional)
     {
       NotificationChain msgs = null;
-      if (group != null)
-        msgs = ((InternalEObject)group).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CPreprocessPackage.CONDITIONAL_DIRECTIVE__GROUP, null, msgs);
-      if (newGroup != null)
-        msgs = ((InternalEObject)newGroup).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CPreprocessPackage.CONDITIONAL_DIRECTIVE__GROUP, null, msgs);
-      msgs = basicSetGroup(newGroup, msgs);
+      if (conditional != null)
+        msgs = ((InternalEObject)conditional).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CPreprocessPackage.CONDITIONAL_DIRECTIVE__CONDITIONAL, null, msgs);
+      if (newConditional != null)
+        msgs = ((InternalEObject)newConditional).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CPreprocessPackage.CONDITIONAL_DIRECTIVE__CONDITIONAL, null, msgs);
+      msgs = basicSetConditional(newConditional, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, CPreprocessPackage.CONDITIONAL_DIRECTIVE__GROUP, newGroup, newGroup));
+      eNotify(new ENotificationImpl(this, Notification.SET, CPreprocessPackage.CONDITIONAL_DIRECTIVE__CONDITIONAL, newConditional, newConditional));
   }
 
   /**
@@ -163,8 +119,8 @@ public class ConditionalDirectiveImpl extends MinimalEObjectImpl.Container imple
   {
     switch (featureID)
     {
-      case CPreprocessPackage.CONDITIONAL_DIRECTIVE__GROUP:
-        return basicSetGroup(null, msgs);
+      case CPreprocessPackage.CONDITIONAL_DIRECTIVE__CONDITIONAL:
+        return basicSetConditional(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -179,10 +135,8 @@ public class ConditionalDirectiveImpl extends MinimalEObjectImpl.Container imple
   {
     switch (featureID)
     {
-      case CPreprocessPackage.CONDITIONAL_DIRECTIVE__ID:
-        return getId();
-      case CPreprocessPackage.CONDITIONAL_DIRECTIVE__GROUP:
-        return getGroup();
+      case CPreprocessPackage.CONDITIONAL_DIRECTIVE__CONDITIONAL:
+        return getConditional();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -197,11 +151,8 @@ public class ConditionalDirectiveImpl extends MinimalEObjectImpl.Container imple
   {
     switch (featureID)
     {
-      case CPreprocessPackage.CONDITIONAL_DIRECTIVE__ID:
-        setId((String)newValue);
-        return;
-      case CPreprocessPackage.CONDITIONAL_DIRECTIVE__GROUP:
-        setGroup((GroupOpt)newValue);
+      case CPreprocessPackage.CONDITIONAL_DIRECTIVE__CONDITIONAL:
+        setConditional((EObject)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -217,11 +168,8 @@ public class ConditionalDirectiveImpl extends MinimalEObjectImpl.Container imple
   {
     switch (featureID)
     {
-      case CPreprocessPackage.CONDITIONAL_DIRECTIVE__ID:
-        setId(ID_EDEFAULT);
-        return;
-      case CPreprocessPackage.CONDITIONAL_DIRECTIVE__GROUP:
-        setGroup((GroupOpt)null);
+      case CPreprocessPackage.CONDITIONAL_DIRECTIVE__CONDITIONAL:
+        setConditional((EObject)null);
         return;
     }
     super.eUnset(featureID);
@@ -237,29 +185,10 @@ public class ConditionalDirectiveImpl extends MinimalEObjectImpl.Container imple
   {
     switch (featureID)
     {
-      case CPreprocessPackage.CONDITIONAL_DIRECTIVE__ID:
-        return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-      case CPreprocessPackage.CONDITIONAL_DIRECTIVE__GROUP:
-        return group != null;
+      case CPreprocessPackage.CONDITIONAL_DIRECTIVE__CONDITIONAL:
+        return conditional != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (id: ");
-    result.append(id);
-    result.append(')');
-    return result.toString();
   }
 
 } //ConditionalDirectiveImpl

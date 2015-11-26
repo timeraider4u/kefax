@@ -4,7 +4,7 @@
     editorDirectory="/at.jku.weiner.cpreprocess.editor/src" modelPluginID="at.jku.weiner.cpreprocess"
     forceOverwrite="true" modelName="CPreprocess" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="6.0" copyrightFields="false" editPluginID="at.jku.weiner.cpreprocess.edit"
-    editorPluginID="at.jku.weiner.cpreprocess.editor" runtimeVersion="2.10">
+    editorPluginID="at.jku.weiner.cpreprocess.editor" runtimeVersion="2.11">
   <genPackages prefix="CPreprocess" basePackage="at.jku.weiner.cpreprocess" disposableProviderFactory="true"
       fileExtensions="c,h" ecorePackage="CPreprocess.ecore#/">
     <genClasses ecoreClass="CPreprocess.ecore#//Model">
@@ -34,8 +34,15 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CPreprocess.ecore#//UnDefineDirective/id"/>
     </genClasses>
     <genClasses ecoreClass="CPreprocess.ecore#//ConditionalDirective">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CPreprocess.ecore#//ConditionalDirective/id"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CPreprocess.ecore#//ConditionalDirective/group"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CPreprocess.ecore#//ConditionalDirective/conditional"/>
+    </genClasses>
+    <genClasses ecoreClass="CPreprocess.ecore#//IfDefConditional">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CPreprocess.ecore#//IfDefConditional/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CPreprocess.ecore#//IfDefConditional/group"/>
+    </genClasses>
+    <genClasses ecoreClass="CPreprocess.ecore#//IfNotDefConditional">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CPreprocess.ecore#//IfNotDefConditional/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CPreprocess.ecore#//IfNotDefConditional/group"/>
     </genClasses>
     <genClasses ecoreClass="CPreprocess.ecore#//PragmaDirective"/>
     <genClasses ecoreClass="CPreprocess.ecore#//NullDirective"/>

@@ -113,6 +113,24 @@ public interface CPreprocessFactory extends EFactory
   ConditionalDirective createConditionalDirective();
 
   /**
+   * Returns a new object of class '<em>If Def Conditional</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>If Def Conditional</em>'.
+   * @generated
+   */
+  IfDefConditional createIfDefConditional();
+
+  /**
+   * Returns a new object of class '<em>If Not Def Conditional</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>If Not Def Conditional</em>'.
+   * @generated
+   */
+  IfNotDefConditional createIfNotDefConditional();
+
+  /**
    * Returns a new object of class '<em>Pragma Directive</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -4,7 +4,7 @@ package at.jku.weiner.cpreprocess.cPreprocess.impl;
 
 import at.jku.weiner.cpreprocess.cPreprocess.CPreprocessPackage;
 import at.jku.weiner.cpreprocess.cPreprocess.GroupOpt;
-import at.jku.weiner.cpreprocess.cPreprocess.TranslationUnit;
+import at.jku.weiner.cpreprocess.cPreprocess.IfDefConditional;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -17,19 +17,40 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Translation Unit</b></em>'.
+ * An implementation of the model object '<em><b>If Def Conditional</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link at.jku.weiner.cpreprocess.cPreprocess.impl.TranslationUnitImpl#getGroup <em>Group</em>}</li>
+ *   <li>{@link at.jku.weiner.cpreprocess.cPreprocess.impl.IfDefConditionalImpl#getId <em>Id</em>}</li>
+ *   <li>{@link at.jku.weiner.cpreprocess.cPreprocess.impl.IfDefConditionalImpl#getGroup <em>Group</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class TranslationUnitImpl extends MinimalEObjectImpl.Container implements TranslationUnit
+public class IfDefConditionalImpl extends MinimalEObjectImpl.Container implements IfDefConditional
 {
+  /**
+   * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getId()
+   * @generated
+   * @ordered
+   */
+  protected static final String ID_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getId()
+   * @generated
+   * @ordered
+   */
+  protected String id = ID_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getGroup() <em>Group</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -45,7 +66,7 @@ public class TranslationUnitImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  protected TranslationUnitImpl()
+  protected IfDefConditionalImpl()
   {
     super();
   }
@@ -58,7 +79,30 @@ public class TranslationUnitImpl extends MinimalEObjectImpl.Container implements
   @Override
   protected EClass eStaticClass()
   {
-    return CPreprocessPackage.Literals.TRANSLATION_UNIT;
+    return CPreprocessPackage.Literals.IF_DEF_CONDITIONAL;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getId()
+  {
+    return id;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setId(String newId)
+  {
+    String oldId = id;
+    id = newId;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CPreprocessPackage.IF_DEF_CONDITIONAL__ID, oldId, id));
   }
 
   /**
@@ -82,7 +126,7 @@ public class TranslationUnitImpl extends MinimalEObjectImpl.Container implements
     group = newGroup;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CPreprocessPackage.TRANSLATION_UNIT__GROUP, oldGroup, newGroup);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CPreprocessPackage.IF_DEF_CONDITIONAL__GROUP, oldGroup, newGroup);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -99,14 +143,14 @@ public class TranslationUnitImpl extends MinimalEObjectImpl.Container implements
     {
       NotificationChain msgs = null;
       if (group != null)
-        msgs = ((InternalEObject)group).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CPreprocessPackage.TRANSLATION_UNIT__GROUP, null, msgs);
+        msgs = ((InternalEObject)group).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CPreprocessPackage.IF_DEF_CONDITIONAL__GROUP, null, msgs);
       if (newGroup != null)
-        msgs = ((InternalEObject)newGroup).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CPreprocessPackage.TRANSLATION_UNIT__GROUP, null, msgs);
+        msgs = ((InternalEObject)newGroup).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CPreprocessPackage.IF_DEF_CONDITIONAL__GROUP, null, msgs);
       msgs = basicSetGroup(newGroup, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, CPreprocessPackage.TRANSLATION_UNIT__GROUP, newGroup, newGroup));
+      eNotify(new ENotificationImpl(this, Notification.SET, CPreprocessPackage.IF_DEF_CONDITIONAL__GROUP, newGroup, newGroup));
   }
 
   /**
@@ -119,7 +163,7 @@ public class TranslationUnitImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case CPreprocessPackage.TRANSLATION_UNIT__GROUP:
+      case CPreprocessPackage.IF_DEF_CONDITIONAL__GROUP:
         return basicSetGroup(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -135,7 +179,9 @@ public class TranslationUnitImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case CPreprocessPackage.TRANSLATION_UNIT__GROUP:
+      case CPreprocessPackage.IF_DEF_CONDITIONAL__ID:
+        return getId();
+      case CPreprocessPackage.IF_DEF_CONDITIONAL__GROUP:
         return getGroup();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -151,7 +197,10 @@ public class TranslationUnitImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case CPreprocessPackage.TRANSLATION_UNIT__GROUP:
+      case CPreprocessPackage.IF_DEF_CONDITIONAL__ID:
+        setId((String)newValue);
+        return;
+      case CPreprocessPackage.IF_DEF_CONDITIONAL__GROUP:
         setGroup((GroupOpt)newValue);
         return;
     }
@@ -168,7 +217,10 @@ public class TranslationUnitImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case CPreprocessPackage.TRANSLATION_UNIT__GROUP:
+      case CPreprocessPackage.IF_DEF_CONDITIONAL__ID:
+        setId(ID_EDEFAULT);
+        return;
+      case CPreprocessPackage.IF_DEF_CONDITIONAL__GROUP:
         setGroup((GroupOpt)null);
         return;
     }
@@ -185,10 +237,29 @@ public class TranslationUnitImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case CPreprocessPackage.TRANSLATION_UNIT__GROUP:
+      case CPreprocessPackage.IF_DEF_CONDITIONAL__ID:
+        return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+      case CPreprocessPackage.IF_DEF_CONDITIONAL__GROUP:
         return group != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //TranslationUnitImpl
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (id: ");
+    result.append(id);
+    result.append(')');
+    return result.toString();
+  }
+
+} //IfDefConditionalImpl

@@ -920,23 +920,101 @@ ruleConditionalDirective returns [EObject current=null]
             grammarAccess.getConditionalDirectiveAccess().getConditionalDirectiveAction_0(),
             $current);
     }
+)(
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getConditionalDirectiveAccess().getConditionalIfDefConditionalParserRuleCall_1_0_0()); 
+	    }
+		lv_conditional_1_1=ruleIfDefConditional		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getConditionalDirectiveRule());
+	        }
+       		set(
+       			$current, 
+       			"conditional",
+        		lv_conditional_1_1, 
+        		"at.jku.weiner.cpreprocess.CPreprocess.IfDefConditional");
+	        afterParserOrEnumRuleCall();
+	    }
+
+    |		{ 
+	        newCompositeNode(grammarAccess.getConditionalDirectiveAccess().getConditionalIfNotDefConditionalParserRuleCall_1_0_1()); 
+	    }
+		lv_conditional_1_2=ruleIfNotDefConditional		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getConditionalDirectiveRule());
+	        }
+       		set(
+       			$current, 
+       			"conditional",
+        		lv_conditional_1_2, 
+        		"at.jku.weiner.cpreprocess.CPreprocess.IfNotDefConditional");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+
+)
+)this_HASH_2=RULE_HASH
+    { 
+    newLeafNode(this_HASH_2, grammarAccess.getConditionalDirectiveAccess().getHASHTerminalRuleCall_2()); 
+    }
+this_ENDIF_3=RULE_ENDIF
+    { 
+    newLeafNode(this_ENDIF_3, grammarAccess.getConditionalDirectiveAccess().getENDIFTerminalRuleCall_3()); 
+    }
+(this_WS_4=RULE_WS
+    { 
+    newLeafNode(this_WS_4, grammarAccess.getConditionalDirectiveAccess().getWSTerminalRuleCall_4()); 
+    }
+)*)
+;
+
+
+
+
+
+// Entry rule entryRuleIfDefConditional
+entryRuleIfDefConditional returns [EObject current=null]
+	:
+	{ newCompositeNode(grammarAccess.getIfDefConditionalRule()); }
+	 iv_ruleIfDefConditional=ruleIfDefConditional 
+	 { $current=$iv_ruleIfDefConditional.current; } 
+	 EOF 
+;
+
+// Rule IfDefConditional
+ruleIfDefConditional returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+	{ 
+	  /* */ 
+	}
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getIfDefConditionalAccess().getIfDefConditionalAction_0(),
+            $current);
+    }
 )this_IFDEF_1=RULE_IFDEF
     { 
-    newLeafNode(this_IFDEF_1, grammarAccess.getConditionalDirectiveAccess().getIFDEFTerminalRuleCall_1()); 
+    newLeafNode(this_IFDEF_1, grammarAccess.getIfDefConditionalAccess().getIFDEFTerminalRuleCall_1()); 
     }
 (this_WS_2=RULE_WS
     { 
-    newLeafNode(this_WS_2, grammarAccess.getConditionalDirectiveAccess().getWSTerminalRuleCall_2()); 
+    newLeafNode(this_WS_2, grammarAccess.getIfDefConditionalAccess().getWSTerminalRuleCall_2()); 
     }
 )+(
 (
 		lv_id_3_0=RULE_ID
 		{
-			newLeafNode(lv_id_3_0, grammarAccess.getConditionalDirectiveAccess().getIdIDTerminalRuleCall_3_0()); 
+			newLeafNode(lv_id_3_0, grammarAccess.getIfDefConditionalAccess().getIdIDTerminalRuleCall_3_0()); 
 		}
 		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getConditionalDirectiveRule());
+	            $current = createModelElement(grammarAccess.getIfDefConditionalRule());
 	        }
        		setWithLastConsumed(
        			$current, 
@@ -948,16 +1026,16 @@ ruleConditionalDirective returns [EObject current=null]
 )
 )this_NEWLINE_4=RULE_NEWLINE
     { 
-    newLeafNode(this_NEWLINE_4, grammarAccess.getConditionalDirectiveAccess().getNEWLINETerminalRuleCall_4()); 
+    newLeafNode(this_NEWLINE_4, grammarAccess.getIfDefConditionalAccess().getNEWLINETerminalRuleCall_4()); 
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getConditionalDirectiveAccess().getGroupGroupOptParserRuleCall_5_0()); 
+	        newCompositeNode(grammarAccess.getIfDefConditionalAccess().getGroupGroupOptParserRuleCall_5_0()); 
 	    }
 		lv_group_5_0=ruleGroupOpt		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getConditionalDirectiveRule());
+	            $current = createModelElementForParent(grammarAccess.getIfDefConditionalRule());
 	        }
        		set(
        			$current, 
@@ -968,19 +1046,85 @@ ruleConditionalDirective returns [EObject current=null]
 	    }
 
 )
-)this_HASH_6=RULE_HASH
-    { 
-    newLeafNode(this_HASH_6, grammarAccess.getConditionalDirectiveAccess().getHASHTerminalRuleCall_6()); 
+))
+;
+
+
+
+
+
+// Entry rule entryRuleIfNotDefConditional
+entryRuleIfNotDefConditional returns [EObject current=null]
+	:
+	{ newCompositeNode(grammarAccess.getIfNotDefConditionalRule()); }
+	 iv_ruleIfNotDefConditional=ruleIfNotDefConditional 
+	 { $current=$iv_ruleIfNotDefConditional.current; } 
+	 EOF 
+;
+
+// Rule IfNotDefConditional
+ruleIfNotDefConditional returns [EObject current=null] 
+    @init { enterRule(); 
     }
-this_ENDIF_7=RULE_ENDIF
-    { 
-    newLeafNode(this_ENDIF_7, grammarAccess.getConditionalDirectiveAccess().getENDIFTerminalRuleCall_7()); 
+    @after { leaveRule(); }:
+((
+	{ 
+	  /* */ 
+	}
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getIfNotDefConditionalAccess().getIfNotDefConditionalAction_0(),
+            $current);
     }
-(this_WS_8=RULE_WS
+)this_IFNOTDEF_1=RULE_IFNOTDEF
     { 
-    newLeafNode(this_WS_8, grammarAccess.getConditionalDirectiveAccess().getWSTerminalRuleCall_8()); 
+    newLeafNode(this_IFNOTDEF_1, grammarAccess.getIfNotDefConditionalAccess().getIFNOTDEFTerminalRuleCall_1()); 
     }
-)*)
+(this_WS_2=RULE_WS
+    { 
+    newLeafNode(this_WS_2, grammarAccess.getIfNotDefConditionalAccess().getWSTerminalRuleCall_2()); 
+    }
+)+(
+(
+		lv_id_3_0=RULE_ID
+		{
+			newLeafNode(lv_id_3_0, grammarAccess.getIfNotDefConditionalAccess().getIdIDTerminalRuleCall_3_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getIfNotDefConditionalRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"id",
+        		lv_id_3_0, 
+        		"at.jku.weiner.cpreprocess.CPreprocess.ID");
+	    }
+
+)
+)this_NEWLINE_4=RULE_NEWLINE
+    { 
+    newLeafNode(this_NEWLINE_4, grammarAccess.getIfNotDefConditionalAccess().getNEWLINETerminalRuleCall_4()); 
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getIfNotDefConditionalAccess().getGroupGroupOptParserRuleCall_5_0()); 
+	    }
+		lv_group_5_0=ruleGroupOpt		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getIfNotDefConditionalRule());
+	        }
+       		set(
+       			$current, 
+       			"group",
+        		lv_group_5_0, 
+        		"at.jku.weiner.cpreprocess.CPreprocess.GroupOpt");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))
 ;
 
 
@@ -1238,6 +1382,22 @@ ruleMyCode returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 
     { 
     newLeafNode(this_ENDIF_10, grammarAccess.getMyCodeAccess().getENDIFTerminalRuleCall_10()); 
+    }
+
+    |    this_IFNOTDEF_11=RULE_IFNOTDEF    {
+		$current.merge(this_IFNOTDEF_11);
+    }
+
+    { 
+    newLeafNode(this_IFNOTDEF_11, grammarAccess.getMyCodeAccess().getIFNOTDEFTerminalRuleCall_11()); 
+    }
+
+    |    this_IF_12=RULE_IF    {
+		$current.merge(this_IF_12);
+    }
+
+    { 
+    newLeafNode(this_IF_12, grammarAccess.getMyCodeAccess().getIFTerminalRuleCall_12()); 
     }
 )
     ;

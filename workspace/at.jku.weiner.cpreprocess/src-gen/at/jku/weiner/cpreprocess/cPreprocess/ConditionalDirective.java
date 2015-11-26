@@ -11,11 +11,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * <ul>
- *   <li>{@link at.jku.weiner.cpreprocess.cPreprocess.ConditionalDirective#getId <em>Id</em>}</li>
- *   <li>{@link at.jku.weiner.cpreprocess.cPreprocess.ConditionalDirective#getGroup <em>Group</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link at.jku.weiner.cpreprocess.cPreprocess.ConditionalDirective#getConditional <em>Conditional</em>}</li>
+ * </ul>
  *
  * @see at.jku.weiner.cpreprocess.cPreprocess.CPreprocessPackage#getConditionalDirective()
  * @model
@@ -24,55 +23,29 @@ import org.eclipse.emf.ecore.EObject;
 public interface ConditionalDirective extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Id</b></em>' attribute.
+   * Returns the value of the '<em><b>Conditional</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Id</em>' attribute isn't clear,
+   * If the meaning of the '<em>Conditional</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Id</em>' attribute.
-   * @see #setId(String)
-   * @see at.jku.weiner.cpreprocess.cPreprocess.CPreprocessPackage#getConditionalDirective_Id()
-   * @model
-   * @generated
-   */
-  String getId();
-
-  /**
-   * Sets the value of the '{@link at.jku.weiner.cpreprocess.cPreprocess.ConditionalDirective#getId <em>Id</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Id</em>' attribute.
-   * @see #getId()
-   * @generated
-   */
-  void setId(String value);
-
-  /**
-   * Returns the value of the '<em><b>Group</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Group</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Group</em>' containment reference.
-   * @see #setGroup(GroupOpt)
-   * @see at.jku.weiner.cpreprocess.cPreprocess.CPreprocessPackage#getConditionalDirective_Group()
+   * @return the value of the '<em>Conditional</em>' containment reference.
+   * @see #setConditional(EObject)
+   * @see at.jku.weiner.cpreprocess.cPreprocess.CPreprocessPackage#getConditionalDirective_Conditional()
    * @model containment="true"
    * @generated
    */
-  GroupOpt getGroup();
+  EObject getConditional();
 
   /**
-   * Sets the value of the '{@link at.jku.weiner.cpreprocess.cPreprocess.ConditionalDirective#getGroup <em>Group</em>}' containment reference.
+   * Sets the value of the '{@link at.jku.weiner.cpreprocess.cPreprocess.ConditionalDirective#getConditional <em>Conditional</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Group</em>' containment reference.
-   * @see #getGroup()
+   * @param value the new value of the '<em>Conditional</em>' containment reference.
+   * @see #getConditional()
    * @generated
    */
-  void setGroup(GroupOpt value);
+  void setConditional(EObject value);
 
 } // ConditionalDirective

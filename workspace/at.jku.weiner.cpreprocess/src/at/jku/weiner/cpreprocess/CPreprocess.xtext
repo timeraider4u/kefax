@@ -112,9 +112,24 @@ UnDefineDirective:
 
 ConditionalDirective:
 	{ConditionalDirective}
+	(conditional=
+		(		IfDefConditional
+			|	IfNotDefConditional
+		)
+	)
+	HASH ENDIF WS*
+;
+
+IfDefConditional:
+	{IfDefConditional}
 	IFDEF WS+ id=ID NEWLINE
 		group=GroupOpt
-	HASH ENDIF WS*
+;
+
+IfNotDefConditional:
+	{IfNotDefConditional}
+	IFNOTDEF WS+ id=ID NEWLINE
+		group=GroupOpt
 ;
 
 PragmaDirective:
@@ -139,7 +154,7 @@ Code returns SourceCodeLine:
 
 MyCode returns ecore::EString:
 	ID|SPECIAL|INCLUDE|DEFINE|ERROR|PRAGMA|LPAREN|RPAREN
-	|COMMA|IFDEF|ENDIF
+	|COMMA|IFDEF|ENDIF|IFNOTDEF|IF
 ;
 
 MyDefineLine returns ecore::EString:
@@ -161,7 +176,9 @@ terminal INCLUDE: 'include';
 terminal DEFINE: 'define';
 terminal ERROR: 'error';
 terminal UNDEF: 'undef';
+terminal IF: 'if';
 terminal IFDEF: 'ifdef';
+terminal IFNOTDEF: 'ifndef';
 terminal ENDIF: 'endif';
 terminal PRAGMA: 'pragma';
 terminal LPAREN: '(';

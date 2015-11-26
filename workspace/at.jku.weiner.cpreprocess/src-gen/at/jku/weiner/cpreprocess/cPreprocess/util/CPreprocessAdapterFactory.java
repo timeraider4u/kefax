@@ -125,6 +125,16 @@ public class CPreprocessAdapterFactory extends AdapterFactoryImpl
         return createConditionalDirectiveAdapter();
       }
       @Override
+      public Adapter caseIfDefConditional(IfDefConditional object)
+      {
+        return createIfDefConditionalAdapter();
+      }
+      @Override
+      public Adapter caseIfNotDefConditional(IfNotDefConditional object)
+      {
+        return createIfNotDefConditionalAdapter();
+      }
+      @Override
       public Adapter casePragmaDirective(PragmaDirective object)
       {
         return createPragmaDirectiveAdapter();
@@ -327,6 +337,36 @@ public class CPreprocessAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createConditionalDirectiveAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.cpreprocess.cPreprocess.IfDefConditional <em>If Def Conditional</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.cpreprocess.cPreprocess.IfDefConditional
+   * @generated
+   */
+  public Adapter createIfDefConditionalAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.cpreprocess.cPreprocess.IfNotDefConditional <em>If Not Def Conditional</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.cpreprocess.cPreprocess.IfNotDefConditional
+   * @generated
+   */
+  public Adapter createIfNotDefConditionalAdapter()
   {
     return null;
   }

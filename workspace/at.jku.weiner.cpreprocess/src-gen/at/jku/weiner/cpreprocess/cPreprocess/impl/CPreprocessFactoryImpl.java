@@ -74,6 +74,8 @@ public class CPreprocessFactoryImpl extends EFactoryImpl implements CPreprocessF
       case CPreprocessPackage.ERROR_DIRECTIVE: return createErrorDirective();
       case CPreprocessPackage.UN_DEFINE_DIRECTIVE: return createUnDefineDirective();
       case CPreprocessPackage.CONDITIONAL_DIRECTIVE: return createConditionalDirective();
+      case CPreprocessPackage.IF_DEF_CONDITIONAL: return createIfDefConditional();
+      case CPreprocessPackage.IF_NOT_DEF_CONDITIONAL: return createIfNotDefConditional();
       case CPreprocessPackage.PRAGMA_DIRECTIVE: return createPragmaDirective();
       case CPreprocessPackage.NULL_DIRECTIVE: return createNullDirective();
       case CPreprocessPackage.PREPROCESSOR_DIRECTIVES: return createPreprocessorDirectives();
@@ -194,6 +196,28 @@ public class CPreprocessFactoryImpl extends EFactoryImpl implements CPreprocessF
   {
     ConditionalDirectiveImpl conditionalDirective = new ConditionalDirectiveImpl();
     return conditionalDirective;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public IfDefConditional createIfDefConditional()
+  {
+    IfDefConditionalImpl ifDefConditional = new IfDefConditionalImpl();
+    return ifDefConditional;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public IfNotDefConditional createIfNotDefConditional()
+  {
+    IfNotDefConditionalImpl ifNotDefConditional = new IfNotDefConditionalImpl();
+    return ifNotDefConditional;
   }
 
   /**

@@ -22,19 +22,22 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(ConditionalDirective
-					id++"FOOBAR",
-					group=
-					(GroupOpt
-						lines+=
-						(PreprocessorDirectives
-							directive=
-							(DefineObjectMacro
-								id++"FOO",
-								string++"BAR"
+					conditional=
+					(IfDefConditional
+						id++"FOOBAR",
+						group=
+						(GroupOpt
+							lines+=
+							(PreprocessorDirectives
+								directive=
+								(DefineObjectMacro
+									id++"FOO",
+									string++"BAR"
+								)
+							),
+							(Code
+								code++"	int foo = 0;"
 							)
-						),
-						(Code
-							code++"	int foo = 0;"
 						)
 					)
 				)

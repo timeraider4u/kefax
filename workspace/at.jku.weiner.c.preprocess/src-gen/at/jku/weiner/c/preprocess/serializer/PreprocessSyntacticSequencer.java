@@ -28,6 +28,7 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_DefineObjectMacro_WSTerminalRuleCall_4_0_p;
 	protected AbstractElementAlias match_ErrorDirective_WSTerminalRuleCall_2_p;
 	protected AbstractElementAlias match_IdentifierList_WSTerminalRuleCall_2_1_a;
+	protected AbstractElementAlias match_IfConditional_WSTerminalRuleCall_2_p;
 	protected AbstractElementAlias match_IfDefConditional_WSTerminalRuleCall_2_p;
 	protected AbstractElementAlias match_IfNotDefConditional_WSTerminalRuleCall_2_p;
 	protected AbstractElementAlias match_IncludeDirective_WSTerminalRuleCall_2_p;
@@ -46,6 +47,7 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_DefineObjectMacro_WSTerminalRuleCall_4_0_p = new TokenAlias(true, false, grammarAccess.getDefineObjectMacroAccess().getWSTerminalRuleCall_4_0());
 		match_ErrorDirective_WSTerminalRuleCall_2_p = new TokenAlias(true, false, grammarAccess.getErrorDirectiveAccess().getWSTerminalRuleCall_2());
 		match_IdentifierList_WSTerminalRuleCall_2_1_a = new TokenAlias(true, true, grammarAccess.getIdentifierListAccess().getWSTerminalRuleCall_2_1());
+		match_IfConditional_WSTerminalRuleCall_2_p = new TokenAlias(true, false, grammarAccess.getIfConditionalAccess().getWSTerminalRuleCall_2());
 		match_IfDefConditional_WSTerminalRuleCall_2_p = new TokenAlias(true, false, grammarAccess.getIfDefConditionalAccess().getWSTerminalRuleCall_2());
 		match_IfNotDefConditional_WSTerminalRuleCall_2_p = new TokenAlias(true, false, grammarAccess.getIfNotDefConditionalAccess().getWSTerminalRuleCall_2());
 		match_IncludeDirective_WSTerminalRuleCall_2_p = new TokenAlias(true, false, grammarAccess.getIncludeDirectiveAccess().getWSTerminalRuleCall_2());
@@ -64,6 +66,8 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getERRORToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getHASHRule())
 			return getHASHToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getIFRule())
+			return getIFToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getIFDEFRule())
 			return getIFDEFToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getIFNOTDEFRule())
@@ -74,10 +78,28 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getNEWLINEToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getPRAGMARule())
 			return getPRAGMAToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getSKW_ANDRule())
+			return getSKW_ANDToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getSKW_ANDANDRule())
+			return getSKW_ANDANDToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getSKW_CARETRule())
+			return getSKW_CARETToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getSKW_COLONRule())
+			return getSKW_COLONToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getSKW_COMMARule())
 			return getSKW_COMMAToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getSKW_LEFTPARENRule())
 			return getSKW_LEFTPARENToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getSKW_MINUSMINUSRule())
+			return getSKW_MINUSMINUSToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getSKW_ORRule())
+			return getSKW_ORToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getSKW_ORORRule())
+			return getSKW_ORORToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getSKW_PLUSPLUSRule())
+			return getSKW_PLUSPLUSToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getSKW_QUESTIONRule())
+			return getSKW_QUESTIONToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getSKW_RIGHTPARENRule())
 			return getSKW_RIGHTPARENToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getUNDEFRule())
@@ -121,6 +143,15 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return "#";
+	}
+	
+	/**
+	 * terminal IF: 'if';
+	 */
+	protected String getIFToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "if";
 	}
 	
 	/**
@@ -169,6 +200,42 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	}
 	
 	/**
+	 * terminal SKW_AND: '&';
+	 */
+	protected String getSKW_ANDToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "&";
+	}
+	
+	/**
+	 * terminal SKW_ANDAND: SKW_AND SKW_AND;
+	 */
+	protected String getSKW_ANDANDToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "&";
+	}
+	
+	/**
+	 * terminal SKW_CARET: '^';
+	 */
+	protected String getSKW_CARETToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "^";
+	}
+	
+	/**
+	 * terminal SKW_COLON: ':';
+	 */
+	protected String getSKW_COLONToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return ":";
+	}
+	
+	/**
 	 * terminal SKW_COMMA: ',';
 	 */
 	protected String getSKW_COMMAToken(EObject semanticObject, RuleCall ruleCall, INode node) {
@@ -184,6 +251,51 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return "(";
+	}
+	
+	/**
+	 * terminal SKW_MINUSMINUS: SKW_MINUS SKW_MINUS;
+	 */
+	protected String getSKW_MINUSMINUSToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "-";
+	}
+	
+	/**
+	 * terminal SKW_OR: '|';
+	 */
+	protected String getSKW_ORToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "|";
+	}
+	
+	/**
+	 * terminal SKW_OROR: SKW_OR SKW_OR;
+	 */
+	protected String getSKW_ORORToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "|";
+	}
+	
+	/**
+	 * terminal SKW_PLUSPLUS: SKW_PLUS SKW_PLUS;
+	 */
+	protected String getSKW_PLUSPLUSToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "+";
+	}
+	
+	/**
+	 * terminal SKW_QUESTION: '?';
+	 */
+	protected String getSKW_QUESTIONToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "?";
 	}
 	
 	/**
@@ -235,6 +347,8 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_ErrorDirective_WSTerminalRuleCall_2_p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_IdentifierList_WSTerminalRuleCall_2_1_a.equals(syntax))
 				emit_IdentifierList_WSTerminalRuleCall_2_1_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_IfConditional_WSTerminalRuleCall_2_p.equals(syntax))
+				emit_IfConditional_WSTerminalRuleCall_2_p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_IfDefConditional_WSTerminalRuleCall_2_p.equals(syntax))
 				emit_IfDefConditional_WSTerminalRuleCall_2_p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_IfNotDefConditional_WSTerminalRuleCall_2_p.equals(syntax))
@@ -256,6 +370,7 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     WS*
 	 *
 	 * This ambiguous syntax occurs at:
+	 *     conditional=IfConditional HASH ENDIF (ambiguity) (rule end)
 	 *     conditional=IfDefConditional HASH ENDIF (ambiguity) (rule end)
 	 *     conditional=IfNotDefConditional HASH ENDIF (ambiguity) (rule end)
 	 */
@@ -339,6 +454,17 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     id+=ID SKW_COMMA (ambiguity) id+=ID
 	 */
 	protected void emit_IdentifierList_WSTerminalRuleCall_2_1_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     WS+
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) IF (ambiguity) expression=ShadowExpression
+	 */
+	protected void emit_IfConditional_WSTerminalRuleCall_2_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

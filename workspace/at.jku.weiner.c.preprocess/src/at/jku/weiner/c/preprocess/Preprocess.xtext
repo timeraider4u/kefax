@@ -112,11 +112,18 @@ UnDefineDirective:
 ConditionalDirective:
 	{ConditionalDirective}
 	(conditional=
-		(		IfDefConditional
+		(		IfConditional	
+			|	IfDefConditional
 			|	IfNotDefConditional
 		)
 	)
 	HASH ENDIF WS*
+;
+
+IfConditional:
+	{IfConditional}
+	IF WS+ expression=ShadowExpression NEWLINE
+		group=GroupOpt
 ;
 
 IfDefConditional:
@@ -170,6 +177,10 @@ MyCodeLineExtended returns ecore::EString:
 ;
 
 // expressions
+ShadowExpression hidden(WS):
+	ConstantExpression
+;
+
 Expression:
 	{Expression}
 	expression=ConditionalExpression

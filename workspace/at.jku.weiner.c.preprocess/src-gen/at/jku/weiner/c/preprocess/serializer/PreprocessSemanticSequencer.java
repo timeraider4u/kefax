@@ -5,24 +5,45 @@ package at.jku.weiner.c.preprocess.serializer;
 
 import at.jku.weiner.c.common.Common;
 import at.jku.weiner.c.common.CommonPackage;
+import at.jku.weiner.c.preprocess.preprocess.AdditiveExpression;
+import at.jku.weiner.c.preprocess.preprocess.AndExpression;
+import at.jku.weiner.c.preprocess.preprocess.CastExpression;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.ConditionalDirective;
+import at.jku.weiner.c.preprocess.preprocess.ConditionalExpression;
+import at.jku.weiner.c.preprocess.preprocess.ConstantExpression;
 import at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro;
 import at.jku.weiner.c.preprocess.preprocess.DefineObjectMacro;
+import at.jku.weiner.c.preprocess.preprocess.EqualityExpression;
 import at.jku.weiner.c.preprocess.preprocess.ErrorDirective;
+import at.jku.weiner.c.preprocess.preprocess.ExclusiveOrExpression;
+import at.jku.weiner.c.preprocess.preprocess.Expression;
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
+import at.jku.weiner.c.preprocess.preprocess.IfConditional;
 import at.jku.weiner.c.preprocess.preprocess.IfDefConditional;
 import at.jku.weiner.c.preprocess.preprocess.IfNotDefConditional;
 import at.jku.weiner.c.preprocess.preprocess.IncludeDirective;
+import at.jku.weiner.c.preprocess.preprocess.InclusiveOrExpression;
+import at.jku.weiner.c.preprocess.preprocess.LogicalAndExpression;
+import at.jku.weiner.c.preprocess.preprocess.LogicalOrExpression;
 import at.jku.weiner.c.preprocess.preprocess.Model;
+import at.jku.weiner.c.preprocess.preprocess.MultiplicativeExpression;
 import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
 import at.jku.weiner.c.preprocess.preprocess.NullDirective;
+import at.jku.weiner.c.preprocess.preprocess.PostfixExpression;
+import at.jku.weiner.c.preprocess.preprocess.PostfixExpressionSuffixMinusMinus;
+import at.jku.weiner.c.preprocess.preprocess.PostfixExpressionSuffixPlusPlus;
 import at.jku.weiner.c.preprocess.preprocess.PragmaDirective;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessPackage;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
+import at.jku.weiner.c.preprocess.preprocess.PrimaryExpression;
+import at.jku.weiner.c.preprocess.preprocess.RelationalExpression;
+import at.jku.weiner.c.preprocess.preprocess.ShiftExpression;
 import at.jku.weiner.c.preprocess.preprocess.TranslationUnit;
 import at.jku.weiner.c.preprocess.preprocess.UnDefineDirective;
+import at.jku.weiner.c.preprocess.preprocess.UnaryExpression;
+import at.jku.weiner.c.preprocess.preprocess.UnaryOperator;
 import at.jku.weiner.c.preprocess.services.PreprocessGrammarAccess;
 import at.jku.weiner.c.serializer.CommonSemanticSequencer;
 import com.google.inject.Inject;
@@ -52,11 +73,26 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 				return; 
 			}
 		else if(semanticObject.eClass().getEPackage() == PreprocessPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+			case PreprocessPackage.ADDITIVE_EXPRESSION:
+				sequence_AdditiveExpression(context, (AdditiveExpression) semanticObject); 
+				return; 
+			case PreprocessPackage.AND_EXPRESSION:
+				sequence_AndExpression(context, (AndExpression) semanticObject); 
+				return; 
+			case PreprocessPackage.CAST_EXPRESSION:
+				sequence_CastExpression(context, (CastExpression) semanticObject); 
+				return; 
 			case PreprocessPackage.CODE:
 				sequence_Code(context, (Code) semanticObject); 
 				return; 
 			case PreprocessPackage.CONDITIONAL_DIRECTIVE:
 				sequence_ConditionalDirective(context, (ConditionalDirective) semanticObject); 
+				return; 
+			case PreprocessPackage.CONDITIONAL_EXPRESSION:
+				sequence_ConditionalExpression(context, (ConditionalExpression) semanticObject); 
+				return; 
+			case PreprocessPackage.CONSTANT_EXPRESSION:
+				sequence_ConstantExpression(context, (ConstantExpression) semanticObject); 
 				return; 
 			case PreprocessPackage.DEFINE_FUNCTION_LIKE_MACRO:
 				sequence_DefineFunctionLikeMacro(context, (DefineFunctionLikeMacro) semanticObject); 
@@ -64,14 +100,26 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 			case PreprocessPackage.DEFINE_OBJECT_MACRO:
 				sequence_DefineObjectMacro(context, (DefineObjectMacro) semanticObject); 
 				return; 
+			case PreprocessPackage.EQUALITY_EXPRESSION:
+				sequence_EqualityExpression(context, (EqualityExpression) semanticObject); 
+				return; 
 			case PreprocessPackage.ERROR_DIRECTIVE:
 				sequence_ErrorDirective(context, (ErrorDirective) semanticObject); 
+				return; 
+			case PreprocessPackage.EXCLUSIVE_OR_EXPRESSION:
+				sequence_ExclusiveOrExpression(context, (ExclusiveOrExpression) semanticObject); 
+				return; 
+			case PreprocessPackage.EXPRESSION:
+				sequence_Expression(context, (Expression) semanticObject); 
 				return; 
 			case PreprocessPackage.GROUP_OPT:
 				sequence_GroupOpt(context, (GroupOpt) semanticObject); 
 				return; 
 			case PreprocessPackage.IDENTIFIER_LIST:
 				sequence_IdentifierList(context, (IdentifierList) semanticObject); 
+				return; 
+			case PreprocessPackage.IF_CONDITIONAL:
+				sequence_IfConditional(context, (IfConditional) semanticObject); 
 				return; 
 			case PreprocessPackage.IF_DEF_CONDITIONAL:
 				sequence_IfDefConditional(context, (IfDefConditional) semanticObject); 
@@ -82,8 +130,20 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 			case PreprocessPackage.INCLUDE_DIRECTIVE:
 				sequence_IncludeDirective(context, (IncludeDirective) semanticObject); 
 				return; 
+			case PreprocessPackage.INCLUSIVE_OR_EXPRESSION:
+				sequence_InclusiveOrExpression(context, (InclusiveOrExpression) semanticObject); 
+				return; 
+			case PreprocessPackage.LOGICAL_AND_EXPRESSION:
+				sequence_LogicalAndExpression(context, (LogicalAndExpression) semanticObject); 
+				return; 
+			case PreprocessPackage.LOGICAL_OR_EXPRESSION:
+				sequence_LogicalOrExpression(context, (LogicalOrExpression) semanticObject); 
+				return; 
 			case PreprocessPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
+				return; 
+			case PreprocessPackage.MULTIPLICATIVE_EXPRESSION:
+				sequence_MultiplicativeExpression(context, (MultiplicativeExpression) semanticObject); 
 				return; 
 			case PreprocessPackage.NEW_LINE_LINE:
 				sequence_NewLineLine(context, (NewLineLine) semanticObject); 
@@ -91,11 +151,29 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 			case PreprocessPackage.NULL_DIRECTIVE:
 				sequence_NullDirective(context, (NullDirective) semanticObject); 
 				return; 
+			case PreprocessPackage.POSTFIX_EXPRESSION:
+				sequence_PostfixExpression(context, (PostfixExpression) semanticObject); 
+				return; 
+			case PreprocessPackage.POSTFIX_EXPRESSION_SUFFIX_MINUS_MINUS:
+				sequence_PostfixExpressionSuffixMinusMinus(context, (PostfixExpressionSuffixMinusMinus) semanticObject); 
+				return; 
+			case PreprocessPackage.POSTFIX_EXPRESSION_SUFFIX_PLUS_PLUS:
+				sequence_PostfixExpressionSuffixPlusPlus(context, (PostfixExpressionSuffixPlusPlus) semanticObject); 
+				return; 
 			case PreprocessPackage.PRAGMA_DIRECTIVE:
 				sequence_PragmaDirective(context, (PragmaDirective) semanticObject); 
 				return; 
 			case PreprocessPackage.PREPROCESSOR_DIRECTIVES:
 				sequence_PreprocessorDirectives(context, (PreprocessorDirectives) semanticObject); 
+				return; 
+			case PreprocessPackage.PRIMARY_EXPRESSION:
+				sequence_PrimaryExpression(context, (PrimaryExpression) semanticObject); 
+				return; 
+			case PreprocessPackage.RELATIONAL_EXPRESSION:
+				sequence_RelationalExpression(context, (RelationalExpression) semanticObject); 
+				return; 
+			case PreprocessPackage.SHIFT_EXPRESSION:
+				sequence_ShiftExpression(context, (ShiftExpression) semanticObject); 
 				return; 
 			case PreprocessPackage.TRANSLATION_UNIT:
 				sequence_TranslationUnit(context, (TranslationUnit) semanticObject); 
@@ -103,9 +181,42 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 			case PreprocessPackage.UN_DEFINE_DIRECTIVE:
 				sequence_UnDefineDirective(context, (UnDefineDirective) semanticObject); 
 				return; 
+			case PreprocessPackage.UNARY_EXPRESSION:
+				sequence_UnaryExpression(context, (UnaryExpression) semanticObject); 
+				return; 
+			case PreprocessPackage.UNARY_OPERATOR:
+				sequence_UnaryOperator(context, (UnaryOperator) semanticObject); 
+				return; 
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * Constraint:
+	 *     (expr+=MultiplicativeExpression ((op+=SKW_PLUS | op+=SKW_MINUS) expr+=MultiplicativeExpression)*)
+	 */
+	protected void sequence_AdditiveExpression(EObject context, AdditiveExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (expr+=EqualityExpression expr+=EqualityExpression*)
+	 */
+	protected void sequence_AndExpression(EObject context, AndExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     expr=UnaryExpression
+	 */
+	protected void sequence_CastExpression(EObject context, CastExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
 	
 	/**
 	 * Constraint:
@@ -125,9 +236,27 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (conditional=IfDefConditional | conditional=IfNotDefConditional)
+	 *     (conditional=IfConditional | conditional=IfDefConditional | conditional=IfNotDefConditional)
 	 */
 	protected void sequence_ConditionalDirective(EObject context, ConditionalDirective semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (expr=LogicalOrExpression (qExpr=Expression cExpr=ConditionalExpression)?)
+	 */
+	protected void sequence_ConditionalExpression(EObject context, ConditionalExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     expr=ConditionalExpression
+	 */
+	protected void sequence_ConstantExpression(EObject context, ConstantExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -152,6 +281,15 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     (expr+=RelationalExpression ((op+=SKW_EQUAL | op+=SKW_NOTEQUAL) expr+=RelationalExpression)*)
+	 */
+	protected void sequence_EqualityExpression(EObject context, EqualityExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     msg=MyCodeLine
 	 */
 	protected void sequence_ErrorDirective(EObject context, ErrorDirective semanticObject) {
@@ -162,6 +300,31 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getErrorDirectiveAccess().getMsgMyCodeLineParserRuleCall_3_0(), semanticObject.getMsg());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (expr+=AndExpression expr+=AndExpression*)
+	 */
+	protected void sequence_ExclusiveOrExpression(EObject context, ExclusiveOrExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     expression=ConditionalExpression
+	 */
+	protected void sequence_Expression(EObject context, Expression semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, PreprocessPackage.Literals.EXPRESSION__EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PreprocessPackage.Literals.EXPRESSION__EXPRESSION));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getExpressionAccess().getExpressionConditionalExpressionParserRuleCall_1_0(), semanticObject.getExpression());
 		feeder.finish();
 	}
 	
@@ -181,6 +344,25 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	 */
 	protected void sequence_IdentifierList(EObject context, IdentifierList semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (expression=ShadowExpression group=GroupOpt)
+	 */
+	protected void sequence_IfConditional(EObject context, IfConditional semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, PreprocessPackage.Literals.IF_CONDITIONAL__EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PreprocessPackage.Literals.IF_CONDITIONAL__EXPRESSION));
+			if(transientValues.isValueTransient(semanticObject, PreprocessPackage.Literals.IF_CONDITIONAL__GROUP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PreprocessPackage.Literals.IF_CONDITIONAL__GROUP));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getIfConditionalAccess().getExpressionShadowExpressionParserRuleCall_3_0(), semanticObject.getExpression());
+		feeder.accept(grammarAccess.getIfConditionalAccess().getGroupGroupOptParserRuleCall_5_0(), semanticObject.getGroup());
+		feeder.finish();
 	}
 	
 	
@@ -240,9 +422,45 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     (expr+=ExclusiveOrExpression expr+=ExclusiveOrExpression*)
+	 */
+	protected void sequence_InclusiveOrExpression(EObject context, InclusiveOrExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (expr+=InclusiveOrExpression expr+=InclusiveOrExpression*)
+	 */
+	protected void sequence_LogicalAndExpression(EObject context, LogicalAndExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (expr+=LogicalAndExpression expr+=LogicalAndExpression*)
+	 */
+	protected void sequence_LogicalOrExpression(EObject context, LogicalOrExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     units+=TranslationUnit
 	 */
 	protected void sequence_Model(EObject context, Model semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (expr+=CastExpression ((op+=SKW_STAR | op+=SKW_DIV | op+=SKW_MOD) expr+=CastExpression)*)
+	 */
+	protected void sequence_MultiplicativeExpression(EObject context, MultiplicativeExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -261,6 +479,33 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	 *     {NullDirective}
 	 */
 	protected void sequence_NullDirective(EObject context, NullDirective semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     {PostfixExpressionSuffixMinusMinus}
+	 */
+	protected void sequence_PostfixExpressionSuffixMinusMinus(EObject context, PostfixExpressionSuffixMinusMinus semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     {PostfixExpressionSuffixPlusPlus}
+	 */
+	protected void sequence_PostfixExpressionSuffixPlusPlus(EObject context, PostfixExpressionSuffixPlusPlus semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     expr+=PrimaryExpression
+	 */
+	protected void sequence_PostfixExpression(EObject context, PostfixExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -287,6 +532,33 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	 *     )
 	 */
 	protected void sequence_PreprocessorDirectives(EObject context, PreprocessorDirectives semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (id=ID | const=Constant | expr=Expression)
+	 */
+	protected void sequence_PrimaryExpression(EObject context, PrimaryExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (expr+=ShiftExpression ((op+=SKW_LESS | op+=SKW_GREATER | op+=SKW_LESSEQUAL | op+=SKW_GREATEREQUAL) expr+=ShiftExpression)*)
+	 */
+	protected void sequence_RelationalExpression(EObject context, RelationalExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (expr+=AdditiveExpression ((op+=SKW_LEFTSHIFT | op+=SKW_RIGHTSHIFT) expr+=AdditiveExpression)*)
+	 */
+	protected void sequence_ShiftExpression(EObject context, ShiftExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -320,5 +592,36 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getUnDefineDirectiveAccess().getIdIDTerminalRuleCall_3_0(), semanticObject.getId());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
+	 *         expr=PostfixExpression | 
+	 *         (plusplus=SKW_PLUSPLUS expr=UnaryExpression) | 
+	 *         (minusminus=SKW_MINUSMINUS expr=UnaryExpression) | 
+	 *         (op=UnaryOperator expr=CastExpression) | 
+	 *         (andand=SKW_ANDAND id=ID)
+	 *     )
+	 */
+	protected void sequence_UnaryExpression(EObject context, UnaryExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
+	 *         op=SKW_AND | 
+	 *         op=SKW_STAR | 
+	 *         op=SKW_PLUS | 
+	 *         op=SKW_MINUS | 
+	 *         op=SKW_TILDE | 
+	 *         op=SKW_NOT
+	 *     )
+	 */
+	protected void sequence_UnaryOperator(EObject context, UnaryOperator semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 }

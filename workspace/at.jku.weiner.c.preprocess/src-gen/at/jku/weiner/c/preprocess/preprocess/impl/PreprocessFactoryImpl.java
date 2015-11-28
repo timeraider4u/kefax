@@ -74,15 +74,38 @@ public class PreprocessFactoryImpl extends EFactoryImpl implements PreprocessFac
       case PreprocessPackage.ERROR_DIRECTIVE: return createErrorDirective();
       case PreprocessPackage.UN_DEFINE_DIRECTIVE: return createUnDefineDirective();
       case PreprocessPackage.CONDITIONAL_DIRECTIVE: return createConditionalDirective();
+      case PreprocessPackage.IF_CONDITIONAL: return createIfConditional();
       case PreprocessPackage.IF_DEF_CONDITIONAL: return createIfDefConditional();
       case PreprocessPackage.IF_NOT_DEF_CONDITIONAL: return createIfNotDefConditional();
       case PreprocessPackage.PRAGMA_DIRECTIVE: return createPragmaDirective();
       case PreprocessPackage.NULL_DIRECTIVE: return createNullDirective();
+      case PreprocessPackage.SHADOW_EXPRESSION: return createShadowExpression();
+      case PreprocessPackage.EXPRESSION: return createExpression();
+      case PreprocessPackage.UNARY_OPERATOR: return createUnaryOperator();
+      case PreprocessPackage.POSTFIX_EXPRESSION_SUFFIX: return createPostfixExpressionSuffix();
       case PreprocessPackage.PREPROCESSOR_DIRECTIVES: return createPreprocessorDirectives();
       case PreprocessPackage.DEFINE_OBJECT_MACRO: return createDefineObjectMacro();
       case PreprocessPackage.DEFINE_FUNCTION_LIKE_MACRO: return createDefineFunctionLikeMacro();
       case PreprocessPackage.NEW_LINE_LINE: return createNewLineLine();
       case PreprocessPackage.CODE: return createCode();
+      case PreprocessPackage.CONSTANT_EXPRESSION: return createConstantExpression();
+      case PreprocessPackage.CONDITIONAL_EXPRESSION: return createConditionalExpression();
+      case PreprocessPackage.LOGICAL_OR_EXPRESSION: return createLogicalOrExpression();
+      case PreprocessPackage.LOGICAL_AND_EXPRESSION: return createLogicalAndExpression();
+      case PreprocessPackage.INCLUSIVE_OR_EXPRESSION: return createInclusiveOrExpression();
+      case PreprocessPackage.EXCLUSIVE_OR_EXPRESSION: return createExclusiveOrExpression();
+      case PreprocessPackage.AND_EXPRESSION: return createAndExpression();
+      case PreprocessPackage.EQUALITY_EXPRESSION: return createEqualityExpression();
+      case PreprocessPackage.RELATIONAL_EXPRESSION: return createRelationalExpression();
+      case PreprocessPackage.SHIFT_EXPRESSION: return createShiftExpression();
+      case PreprocessPackage.ADDITIVE_EXPRESSION: return createAdditiveExpression();
+      case PreprocessPackage.MULTIPLICATIVE_EXPRESSION: return createMultiplicativeExpression();
+      case PreprocessPackage.CAST_EXPRESSION: return createCastExpression();
+      case PreprocessPackage.UNARY_EXPRESSION: return createUnaryExpression();
+      case PreprocessPackage.POSTFIX_EXPRESSION: return createPostfixExpression();
+      case PreprocessPackage.POSTFIX_EXPRESSION_SUFFIX_PLUS_PLUS: return createPostfixExpressionSuffixPlusPlus();
+      case PreprocessPackage.POSTFIX_EXPRESSION_SUFFIX_MINUS_MINUS: return createPostfixExpressionSuffixMinusMinus();
+      case PreprocessPackage.PRIMARY_EXPRESSION: return createPrimaryExpression();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -203,6 +226,17 @@ public class PreprocessFactoryImpl extends EFactoryImpl implements PreprocessFac
    * <!-- end-user-doc -->
    * @generated
    */
+  public IfConditional createIfConditional()
+  {
+    IfConditionalImpl ifConditional = new IfConditionalImpl();
+    return ifConditional;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public IfDefConditional createIfDefConditional()
   {
     IfDefConditionalImpl ifDefConditional = new IfDefConditionalImpl();
@@ -240,6 +274,50 @@ public class PreprocessFactoryImpl extends EFactoryImpl implements PreprocessFac
   {
     NullDirectiveImpl nullDirective = new NullDirectiveImpl();
     return nullDirective;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ShadowExpression createShadowExpression()
+  {
+    ShadowExpressionImpl shadowExpression = new ShadowExpressionImpl();
+    return shadowExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Expression createExpression()
+  {
+    ExpressionImpl expression = new ExpressionImpl();
+    return expression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public UnaryOperator createUnaryOperator()
+  {
+    UnaryOperatorImpl unaryOperator = new UnaryOperatorImpl();
+    return unaryOperator;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PostfixExpressionSuffix createPostfixExpressionSuffix()
+  {
+    PostfixExpressionSuffixImpl postfixExpressionSuffix = new PostfixExpressionSuffixImpl();
+    return postfixExpressionSuffix;
   }
 
   /**
@@ -295,6 +373,204 @@ public class PreprocessFactoryImpl extends EFactoryImpl implements PreprocessFac
   {
     CodeImpl code = new CodeImpl();
     return code;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ConstantExpression createConstantExpression()
+  {
+    ConstantExpressionImpl constantExpression = new ConstantExpressionImpl();
+    return constantExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ConditionalExpression createConditionalExpression()
+  {
+    ConditionalExpressionImpl conditionalExpression = new ConditionalExpressionImpl();
+    return conditionalExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LogicalOrExpression createLogicalOrExpression()
+  {
+    LogicalOrExpressionImpl logicalOrExpression = new LogicalOrExpressionImpl();
+    return logicalOrExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LogicalAndExpression createLogicalAndExpression()
+  {
+    LogicalAndExpressionImpl logicalAndExpression = new LogicalAndExpressionImpl();
+    return logicalAndExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public InclusiveOrExpression createInclusiveOrExpression()
+  {
+    InclusiveOrExpressionImpl inclusiveOrExpression = new InclusiveOrExpressionImpl();
+    return inclusiveOrExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ExclusiveOrExpression createExclusiveOrExpression()
+  {
+    ExclusiveOrExpressionImpl exclusiveOrExpression = new ExclusiveOrExpressionImpl();
+    return exclusiveOrExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AndExpression createAndExpression()
+  {
+    AndExpressionImpl andExpression = new AndExpressionImpl();
+    return andExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EqualityExpression createEqualityExpression()
+  {
+    EqualityExpressionImpl equalityExpression = new EqualityExpressionImpl();
+    return equalityExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RelationalExpression createRelationalExpression()
+  {
+    RelationalExpressionImpl relationalExpression = new RelationalExpressionImpl();
+    return relationalExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ShiftExpression createShiftExpression()
+  {
+    ShiftExpressionImpl shiftExpression = new ShiftExpressionImpl();
+    return shiftExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AdditiveExpression createAdditiveExpression()
+  {
+    AdditiveExpressionImpl additiveExpression = new AdditiveExpressionImpl();
+    return additiveExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MultiplicativeExpression createMultiplicativeExpression()
+  {
+    MultiplicativeExpressionImpl multiplicativeExpression = new MultiplicativeExpressionImpl();
+    return multiplicativeExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public CastExpression createCastExpression()
+  {
+    CastExpressionImpl castExpression = new CastExpressionImpl();
+    return castExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public UnaryExpression createUnaryExpression()
+  {
+    UnaryExpressionImpl unaryExpression = new UnaryExpressionImpl();
+    return unaryExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PostfixExpression createPostfixExpression()
+  {
+    PostfixExpressionImpl postfixExpression = new PostfixExpressionImpl();
+    return postfixExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PostfixExpressionSuffixPlusPlus createPostfixExpressionSuffixPlusPlus()
+  {
+    PostfixExpressionSuffixPlusPlusImpl postfixExpressionSuffixPlusPlus = new PostfixExpressionSuffixPlusPlusImpl();
+    return postfixExpressionSuffixPlusPlus;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PostfixExpressionSuffixMinusMinus createPostfixExpressionSuffixMinusMinus()
+  {
+    PostfixExpressionSuffixMinusMinusImpl postfixExpressionSuffixMinusMinus = new PostfixExpressionSuffixMinusMinusImpl();
+    return postfixExpressionSuffixMinusMinus;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PrimaryExpression createPrimaryExpression()
+  {
+    PrimaryExpressionImpl primaryExpression = new PrimaryExpressionImpl();
+    return primaryExpression;
   }
 
   /**

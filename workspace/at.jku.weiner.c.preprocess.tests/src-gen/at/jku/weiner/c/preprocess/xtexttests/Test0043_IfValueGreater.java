@@ -47,11 +47,9 @@ import at.jku.weiner.c.preprocess.preprocess.TranslationUnit;
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.ConditionalDirective;
-import at.jku.weiner.c.preprocess.preprocess.IfDefConditional;
+import at.jku.weiner.c.preprocess.preprocess.IfConditional;
+import at.jku.weiner.c.preprocess.preprocess.ConstantExpression;
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
-import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
-import at.jku.weiner.c.preprocess.preprocess.DefineObjectMacro;
-import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
@@ -98,36 +96,28 @@ public class Test0043_IfValueGreater {
 	@Test
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
-			"res/Test0039_IfDefSimple.c");
+			"res/Test0043_IfValueGreater.c");
 			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_HASH", 
-				"RULE_IFDEF", 
-				"RULE_WS", 
-				"RULE_ID", 
-				"RULE_NEWLINE", 
-				"RULE_WS", 
-				"RULE_HASH", 
-				"RULE_DEFINE", 
+				"RULE_IF", 
 				"RULE_WS", 
 				"RULE_ID", 
 				"RULE_WS", 
-				"RULE_ID", 
-				"RULE_NEWLINE", 
-				"RULE_WS", 
-				"RULE_ID", 
-				"RULE_WS", 
-				"RULE_ID", 
-				"RULE_WS", 
-				"RULE_SKW_ASSIGN", 
+				"RULE_SKW_GREATEREQUAL", 
 				"RULE_WS", 
 				"RULE_DECIMAL_LITERAL", 
+				"RULE_NEWLINE", 
+				"RULE_WS", 
+				"RULE_ID", 
+				"RULE_WS", 
+				"RULE_ID", 
+				"RULE_SKW_LEFTPAREN", 
+				"RULE_SKW_RIGHTPAREN", 
 				"RULE_SKW_SEMI", 
 				"RULE_NEWLINE", 
 				"RULE_HASH", 
 				"RULE_ENDIF", 
-				"RULE_NEWLINE", 
-				"RULE_ID", 
 				"RULE_NEWLINE", 
 				};
 			//final List<Token> actual = testHelper.getTokens(text);
@@ -138,7 +128,7 @@ public class Test0043_IfValueGreater {
 	@Test
 	public void checkParserResult() throws Exception {
 		final String text = this.getTextFromFile(
-			"res/Test0039_IfDefSimple.c");
+			"res/Test0043_IfValueGreater.c");
 		final Model Model_0_Var
 		  = 
 			this.parseHelper.parse(text);
@@ -165,7 +155,7 @@ public class Test0043_IfValueGreater {
 		final EList<? extends EObject> Lines_2_list = GroupOpt_2_Var
 		.getLines();
 		Assert.assertNotNull(Lines_2_list);
-		Assert.assertEquals(2, Lines_2_list.size());
+		Assert.assertEquals(1, Lines_2_list.size());
 		//2
 		final PreprocessorDirectives PreprocessorDirectives_3_Var
 		 = (PreprocessorDirectives)Lines_2_list.get(0);
@@ -178,51 +168,33 @@ public class Test0043_IfValueGreater {
 		Assert.assertNotNull(ConditionalDirective_4_Var
 		);
 		//4
-		final IfDefConditional IfDefConditional_5_Var
-		 = (IfDefConditional)ConditionalDirective_4_Var
+		final IfConditional IfConditional_5_Var
+		 = (IfConditional)ConditionalDirective_4_Var
 		.getConditional();
-		Assert.assertNotNull(IfDefConditional_5_Var
+		Assert.assertNotNull(IfConditional_5_Var
 		);
-		Assert.assertEquals("FOOBAR", IfDefConditional_5_Var
-		.getId());
 		//5
-		final GroupOpt GroupOpt_6_Var
-		 = (GroupOpt)IfDefConditional_5_Var
-		.getGroup();
-		Assert.assertNotNull(GroupOpt_6_Var
+		final ConstantExpression ConstantExpression_6_Var
+		 = (ConstantExpression)IfConditional_5_Var
+		.getExpression();
+		Assert.assertNotNull(ConstantExpression_6_Var
 		);
-		final EList<? extends EObject> Lines_6_list = GroupOpt_6_Var
-		.getLines();
-		Assert.assertNotNull(Lines_6_list);
-		Assert.assertEquals(2, Lines_6_list.size());
 		//6
-		final PreprocessorDirectives PreprocessorDirectives_7_Var
-		 = (PreprocessorDirectives)Lines_6_list.get(0);
-		Assert.assertNotNull(PreprocessorDirectives_7_Var
+		final GroupOpt GroupOpt_7_Var
+		 = (GroupOpt)IfConditional_5_Var
+		.getGroup();
+		Assert.assertNotNull(GroupOpt_7_Var
 		);
+		final EList<? extends EObject> Lines_7_list = GroupOpt_7_Var
+		.getLines();
+		Assert.assertNotNull(Lines_7_list);
+		Assert.assertEquals(1, Lines_7_list.size());
 		//7
-		final DefineObjectMacro DefineObjectMacro_8_Var
-		 = (DefineObjectMacro)PreprocessorDirectives_7_Var
-		.getDirective();
-		Assert.assertNotNull(DefineObjectMacro_8_Var
+		final Code Code_8_Var
+		 = (Code)Lines_7_list.get(0);
+		Assert.assertNotNull(Code_8_Var
 		);
-		Assert.assertEquals("FOO", DefineObjectMacro_8_Var
-		.getId());
-		Assert.assertEquals("BAR", DefineObjectMacro_8_Var
-		.getString());
-		//8
-		final Code Code_9_Var
-		 = (Code)Lines_6_list.get(1);
-		Assert.assertNotNull(Code_9_Var
-		);
-		Assert.assertEquals("	int foo = 0;", Code_9_Var
-		.getCode());
-		//9
-		final Code Code_10_Var
-		 = (Code)Lines_2_list.get(1);
-		Assert.assertNotNull(Code_10_Var
-		);
-		Assert.assertEquals("FOO", Code_10_Var
+		Assert.assertEquals("	void api_version_2();", Code_8_Var
 		.getCode());
 	}
 	
@@ -231,7 +203,7 @@ public class Test0043_IfValueGreater {
 		// load the resource
 		ResourceSet set = this.resourceSetProvider.get();
 		URI uri = URI.createURI(
-			"res/Test0039_IfDefSimple.c");
+			"res/Test0043_IfValueGreater.c");
 		Resource resource = set.getResource(uri, true);
 		// validate the resource
 		List<Issue> list = this.validator.validate(resource, 
@@ -245,7 +217,7 @@ public class Test0043_IfValueGreater {
 			final Method method = clazz.getMethod("setFileName",
 					String.class);
 			if (method != null) {
-				method.invoke(this.generator, "Test0039_IfDefSimple.c.i");
+				method.invoke(this.generator, "Test0043_IfValueGreater.c.i");
 			}
 		} catch (NoSuchMethodException | SecurityException
 			| IllegalAccessException | IllegalArgumentException
@@ -254,9 +226,9 @@ public class Test0043_IfValueGreater {
 			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
-		final String actual = this.getTextFromFile("bin/Test0039_IfDefSimple.c.i");
+		final String actual = this.getTextFromFile("bin/Test0043_IfValueGreater.c.i");
 		final String expected = this.getTextFromFile(
-			"expected/Test0039_IfDefSimple.c"
+			"expected/Test0043_IfValueGreater.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
 		// System.out.println("Code generation finished.");

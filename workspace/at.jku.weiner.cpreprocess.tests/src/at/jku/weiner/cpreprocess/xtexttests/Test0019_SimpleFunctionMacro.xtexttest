@@ -7,10 +7,10 @@ split-lexer=true
 source file="res/Test0019_SimpleFunctionMacro.c"
 //----------------------------------------------------------------------
 lexer-tokens
-	HASH DEFINE WS ID LPAREN RPAREN WS ID LPAREN RPAREN NEWLINE
+	HASH DEFINE WS ID SKW_LEFTPAREN SKW_RIGHTPAREN WS ID SKW_LEFTPAREN SKW_RIGHTPAREN NEWLINE
 	NEWLINE
-	ID WS ID LPAREN RPAREN SPECIAL NEWLINE
-	ID WS ID WS LPAREN WS RPAREN SPECIAL NEWLINE
+	ID WS ID SKW_LEFTPAREN SKW_RIGHTPAREN SKW_SEMI NEWLINE
+	ID WS ID WS SKW_LEFTPAREN WS SKW_RIGHTPAREN SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
 (Model
 	units+=

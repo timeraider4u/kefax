@@ -105,15 +105,11 @@ public class Test0036_ObjectLikeMacro {
 				"RULE_NEWLINE", 
 				"RULE_ID", 
 				"RULE_WS", 
-				"RULE_SPECIAL", 
-				"RULE_ID", 
-				"RULE_SPECIAL", 
+				"RULE_STRING_LITERAL", 
 				"RULE_WS", 
 				"RULE_ID", 
 				"RULE_WS", 
-				"RULE_SPECIAL", 
-				"RULE_ID", 
-				"RULE_SPECIAL", 
+				"RULE_STRING_LITERAL", 
 				"RULE_NEWLINE", 
 				};
 			//final List<Token> actual = testHelper.getTokens(text);

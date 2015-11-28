@@ -8,10 +8,10 @@ source file="res/Test0018_EmptyInc.c"
 //----------------------------------------------------------------------
 lexer-tokens
 	HASH DEFINE WS ID NEWLINE
-	ID WS HASH INCLUDE WS SPECIAL ID SPECIAL ID SPECIAL NEWLINE
+	ID WS HASH INCLUDE WS SKW_LESS ID SKW_DOT ID SKW_GREATER NEWLINE
 	NEWLINE
 	HASH DEFINE WS ID WS WS NEWLINE
-	ID WS HASH INCLUDE WS SPECIAL ID SPECIAL ID SPECIAL NEWLINE
+	ID WS HASH INCLUDE WS SKW_LESS ID SKW_DOT ID SKW_GREATER NEWLINE
 //----------------------------------------------------------------------
 (Model
 	units+=

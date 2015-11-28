@@ -1,27 +1,16 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: at.jku.weiner.cpreprocess.ui
-Bundle-Vendor: My Company
-Bundle-Version: 1.0.0.qualifier
-Bundle-SymbolicName: at.jku.weiner.cpreprocess.ui; singleton:=true
+Bundle-Name: 
+Bundle-SymbolicName: ; singleton:=true
+Bundle-Version: 0.0.1.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
-Require-Bundle: at.jku.weiner.cpreprocess,
- org.eclipse.xtext.ui,
- org.eclipse.ui.editors;bundle-version="3.5.0",
- org.eclipse.ui.ide;bundle-version="3.5.0",
- org.eclipse.xtext.ide,
- org.eclipse.xtext.xbase.ide,
- org.eclipse.compare,
- org.eclipse.ui,
+Export-Package: at.jku.weiner.cpreprocess.ui.internal
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.ui.editors,
  org.eclipse.xtend.lib,
- org.eclipse.xtext.common.types.ui,
- org.eclipse.xtext.ui.codetemplates.ui,
- org.eclipse.xtext.ui.shared,
  org.eclipse.xtext.builder,
- org.eclipse.xtext.xbase.lib
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: at.jku.weiner.cpreprocess.ui.internal,
- at.jku.weiner.cpreprocess.ui.quickfix,
- at.jku.weiner.cpreprocess.ui.contentassist
-Import-Package: org.apache.log4j
+ org.eclipse.xtext.common.types.ui,
+ org.eclipse.xtext.ui,
+ org.eclipse.xtext.ui.shared
 Bundle-Activator: at.jku.weiner.cpreprocess.ui.internal.CPreprocessActivator

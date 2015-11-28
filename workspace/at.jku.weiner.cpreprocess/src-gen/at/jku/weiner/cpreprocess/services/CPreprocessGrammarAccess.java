@@ -3,6 +3,7 @@
  */
 package at.jku.weiner.cpreprocess.services;
 
+import at.jku.weiner.c.services.CommonGrammarAccess;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.util.List;
@@ -319,25 +320,25 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		private final Assignment cIdAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cIdIDTerminalRuleCall_3_0 = (RuleCall)cIdAssignment_3.eContents().get(0);
-		private final RuleCall cLPARENTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSKW_LEFTPARENTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
 		private final RuleCall cWSTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
 		private final Assignment cListAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cListIdentifierListParserRuleCall_6_0 = (RuleCall)cListAssignment_6.eContents().get(0);
-		private final RuleCall cRPARENTerminalRuleCall_7 = (RuleCall)cGroup.eContents().get(7);
+		private final RuleCall cSKW_RIGHTPARENTerminalRuleCall_7 = (RuleCall)cGroup.eContents().get(7);
 		private final RuleCall cWSTerminalRuleCall_8 = (RuleCall)cGroup.eContents().get(8);
 		private final Assignment cStringAssignment_9 = (Assignment)cGroup.eContents().get(9);
 		private final RuleCall cStringMyDefineLineParserRuleCall_9_0 = (RuleCall)cStringAssignment_9.eContents().get(0);
 		
 		//DefineFunctionLikeMacro DefineDirective:
 		//	{DefineFunctionLikeMacro} DEFINE WS+ id=ID
-		//	LPAREN WS*
+		//	SKW_LEFTPAREN WS*
 		//	list=IdentifierList?
-		//	RPAREN
+		//	SKW_RIGHTPAREN
 		//	WS+
 		//	string=MyDefineLine
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{DefineFunctionLikeMacro} DEFINE WS+ id=ID LPAREN WS* list=IdentifierList? RPAREN WS+ string=MyDefineLine
+		//{DefineFunctionLikeMacro} DEFINE WS+ id=ID SKW_LEFTPAREN WS* list=IdentifierList? SKW_RIGHTPAREN WS+ string=MyDefineLine
 		public Group getGroup() { return cGroup; }
 		
 		//{DefineFunctionLikeMacro}
@@ -355,8 +356,8 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getIdIDTerminalRuleCall_3_0() { return cIdIDTerminalRuleCall_3_0; }
 		
-		//LPAREN
-		public RuleCall getLPARENTerminalRuleCall_4() { return cLPARENTerminalRuleCall_4; }
+		//SKW_LEFTPAREN
+		public RuleCall getSKW_LEFTPARENTerminalRuleCall_4() { return cSKW_LEFTPARENTerminalRuleCall_4; }
 		
 		//WS*
 		public RuleCall getWSTerminalRuleCall_5() { return cWSTerminalRuleCall_5; }
@@ -367,8 +368,8 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//IdentifierList
 		public RuleCall getListIdentifierListParserRuleCall_6_0() { return cListIdentifierListParserRuleCall_6_0; }
 		
-		//RPAREN
-		public RuleCall getRPARENTerminalRuleCall_7() { return cRPARENTerminalRuleCall_7; }
+		//SKW_RIGHTPAREN
+		public RuleCall getSKW_RIGHTPARENTerminalRuleCall_7() { return cSKW_RIGHTPARENTerminalRuleCall_7; }
 		
 		//WS+
 		public RuleCall getWSTerminalRuleCall_8() { return cWSTerminalRuleCall_8; }
@@ -386,16 +387,16 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cIdIDTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final RuleCall cCOMMATerminalRuleCall_2_0 = (RuleCall)cGroup_2.eContents().get(0);
+		private final RuleCall cSKW_COMMATerminalRuleCall_2_0 = (RuleCall)cGroup_2.eContents().get(0);
 		private final RuleCall cWSTerminalRuleCall_2_1 = (RuleCall)cGroup_2.eContents().get(1);
 		private final Assignment cIdAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
 		private final RuleCall cIdIDTerminalRuleCall_2_2_0 = (RuleCall)cIdAssignment_2_2.eContents().get(0);
 		
 		//IdentifierList:
-		//	{IdentifierList} id+=ID (COMMA WS* id+=ID)*;
+		//	{IdentifierList} id+=ID (SKW_COMMA WS* id+=ID)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{IdentifierList} id+=ID (COMMA WS* id+=ID)*
+		//{IdentifierList} id+=ID (SKW_COMMA WS* id+=ID)*
 		public Group getGroup() { return cGroup; }
 		
 		//{IdentifierList}
@@ -407,11 +408,11 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getIdIDTerminalRuleCall_1_0() { return cIdIDTerminalRuleCall_1_0; }
 		
-		//(COMMA WS* id+=ID)*
+		//(SKW_COMMA WS* id+=ID)*
 		public Group getGroup_2() { return cGroup_2; }
 		
-		//COMMA
-		public RuleCall getCOMMATerminalRuleCall_2_0() { return cCOMMATerminalRuleCall_2_0; }
+		//SKW_COMMA
+		public RuleCall getSKW_COMMATerminalRuleCall_2_0() { return cSKW_COMMATerminalRuleCall_2_0; }
 		
 		//WS*
 		public RuleCall getWSTerminalRuleCall_2_1() { return cWSTerminalRuleCall_2_1; }
@@ -702,20 +703,20 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cDEFINETerminalRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		private final RuleCall cERRORTerminalRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		private final RuleCall cPRAGMATerminalRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
-		private final RuleCall cLPARENTerminalRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
-		private final RuleCall cRPARENTerminalRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
-		private final RuleCall cCOMMATerminalRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
-		private final RuleCall cIFDEFTerminalRuleCall_9 = (RuleCall)cAlternatives.eContents().get(9);
-		private final RuleCall cENDIFTerminalRuleCall_10 = (RuleCall)cAlternatives.eContents().get(10);
-		private final RuleCall cIFNOTDEFTerminalRuleCall_11 = (RuleCall)cAlternatives.eContents().get(11);
-		private final RuleCall cIFTerminalRuleCall_12 = (RuleCall)cAlternatives.eContents().get(12);
+		private final RuleCall cIFDEFTerminalRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		private final RuleCall cENDIFTerminalRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
+		private final RuleCall cIFNOTDEFTerminalRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
+		private final RuleCall cIFTerminalRuleCall_9 = (RuleCall)cAlternatives.eContents().get(9);
+		private final RuleCall cSpecialKeywordsParserRuleCall_10 = (RuleCall)cAlternatives.eContents().get(10);
+		private final RuleCall cConstantParserRuleCall_11 = (RuleCall)cAlternatives.eContents().get(11);
 		
 		//MyCode:
-		//	ID | SPECIAL | INCLUDE | DEFINE | ERROR | PRAGMA | LPAREN | RPAREN
-		//	| COMMA | IFDEF | ENDIF | IFNOTDEF | IF;
+		//	ID | SPECIAL | INCLUDE | DEFINE | ERROR | PRAGMA
+		//	| IFDEF | ENDIF | IFNOTDEF | IF | SpecialKeywords
+		//	| Constant;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//ID | SPECIAL | INCLUDE | DEFINE | ERROR | PRAGMA | LPAREN | RPAREN | COMMA | IFDEF | ENDIF | IFNOTDEF | IF
+		//ID | SPECIAL | INCLUDE | DEFINE | ERROR | PRAGMA | IFDEF | ENDIF | IFNOTDEF | IF | SpecialKeywords | Constant
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//ID
@@ -736,26 +737,23 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//PRAGMA
 		public RuleCall getPRAGMATerminalRuleCall_5() { return cPRAGMATerminalRuleCall_5; }
 		
-		//LPAREN
-		public RuleCall getLPARENTerminalRuleCall_6() { return cLPARENTerminalRuleCall_6; }
-		
-		//RPAREN
-		public RuleCall getRPARENTerminalRuleCall_7() { return cRPARENTerminalRuleCall_7; }
-		
-		//COMMA
-		public RuleCall getCOMMATerminalRuleCall_8() { return cCOMMATerminalRuleCall_8; }
-		
 		//IFDEF
-		public RuleCall getIFDEFTerminalRuleCall_9() { return cIFDEFTerminalRuleCall_9; }
+		public RuleCall getIFDEFTerminalRuleCall_6() { return cIFDEFTerminalRuleCall_6; }
 		
 		//ENDIF
-		public RuleCall getENDIFTerminalRuleCall_10() { return cENDIFTerminalRuleCall_10; }
+		public RuleCall getENDIFTerminalRuleCall_7() { return cENDIFTerminalRuleCall_7; }
 		
 		//IFNOTDEF
-		public RuleCall getIFNOTDEFTerminalRuleCall_11() { return cIFNOTDEFTerminalRuleCall_11; }
+		public RuleCall getIFNOTDEFTerminalRuleCall_8() { return cIFNOTDEFTerminalRuleCall_8; }
 		
 		//IF
-		public RuleCall getIFTerminalRuleCall_12() { return cIFTerminalRuleCall_12; }
+		public RuleCall getIFTerminalRuleCall_9() { return cIFTerminalRuleCall_9; }
+		
+		//SpecialKeywords
+		public RuleCall getSpecialKeywordsParserRuleCall_10() { return cSpecialKeywordsParserRuleCall_10; }
+		
+		//Constant
+		public RuleCall getConstantParserRuleCall_11() { return cConstantParserRuleCall_11; }
 	}
 	public class MyDefineLineElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.MyDefineLine");
@@ -834,6 +832,52 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//HASH
 		public RuleCall getHASHTerminalRuleCall_1_1_1() { return cHASHTerminalRuleCall_1_1_1; }
 	}
+	public class ConstantElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.Constant");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cHEX_LITERALTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cOCTAL_LITERALTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cDECIMAL_LITERALTerminalRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cCHAR_LITERALTerminalRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cSTRING_LITERALTerminalRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cFLOAT_LITERALTerminalRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cBIN_LITERALTerminalRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		
+		//// expressions
+		//Constant:
+		//	HEX_LITERAL
+		//	| OCTAL_LITERAL
+		//	| DECIMAL_LITERAL
+		//	| CHAR_LITERAL
+		//	| STRING_LITERAL
+		//	| FLOAT_LITERAL
+		//	| BIN_LITERAL;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL | CHAR_LITERAL | STRING_LITERAL | FLOAT_LITERAL | BIN_LITERAL
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//HEX_LITERAL
+		public RuleCall getHEX_LITERALTerminalRuleCall_0() { return cHEX_LITERALTerminalRuleCall_0; }
+		
+		//OCTAL_LITERAL
+		public RuleCall getOCTAL_LITERALTerminalRuleCall_1() { return cOCTAL_LITERALTerminalRuleCall_1; }
+		
+		//DECIMAL_LITERAL
+		public RuleCall getDECIMAL_LITERALTerminalRuleCall_2() { return cDECIMAL_LITERALTerminalRuleCall_2; }
+		
+		//CHAR_LITERAL
+		public RuleCall getCHAR_LITERALTerminalRuleCall_3() { return cCHAR_LITERALTerminalRuleCall_3; }
+		
+		//STRING_LITERAL
+		public RuleCall getSTRING_LITERALTerminalRuleCall_4() { return cSTRING_LITERALTerminalRuleCall_4; }
+		
+		//FLOAT_LITERAL
+		public RuleCall getFLOAT_LITERALTerminalRuleCall_5() { return cFLOAT_LITERALTerminalRuleCall_5; }
+		
+		//BIN_LITERAL
+		public RuleCall getBIN_LITERALTerminalRuleCall_6() { return cBIN_LITERALTerminalRuleCall_6; }
+	}
 	
 	
 	private final ModelElements pModel;
@@ -858,6 +902,7 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	private final MyDefineLineElements pMyDefineLine;
 	private final MyCodeLineElements pMyCodeLine;
 	private final MyCodeLineExtendedElements pMyCodeLineExtended;
+	private final ConstantElements pConstant;
 	private final TerminalRule tHASH;
 	private final TerminalRule tINCLUDE;
 	private final TerminalRule tDEFINE;
@@ -868,33 +913,41 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tIFNOTDEF;
 	private final TerminalRule tENDIF;
 	private final TerminalRule tPRAGMA;
-	private final TerminalRule tLPAREN;
-	private final TerminalRule tRPAREN;
-	private final TerminalRule tCOMMA;
 	private final TerminalRule tLINEFEED;
 	private final TerminalRule tCARRIAGERETURN;
 	private final TerminalRule tNEWLINE;
-	private final TerminalRule tBACKSLASH;
 	private final TerminalRule tLINEBREAK;
 	private final TerminalRule tSPACE;
 	private final TerminalRule tTAB;
 	private final TerminalRule tWS;
 	private final TerminalRule tID;
-	private final TerminalRule tID_NONDIGIT;
-	private final TerminalRule tDIGIT;
-	private final TerminalRule tNONDIGIT_LETTER;
-	private final TerminalRule tUNIVERSAL_CHARACTER;
-	private final TerminalRule tHEX_QUAD;
-	private final TerminalRule tHEXADECIMAL_DIGIT;
-	private final TerminalRule tSPECIAL;
+	private final TerminalRule tIDENTIFIER;
+	private final TerminalRule tLETTER;
+	private final TerminalRule tCHAR_LITERAL;
+	private final TerminalRule tSTRING_LITERAL;
+	private final TerminalRule tHEX_LITERAL;
+	private final TerminalRule tDECIMAL_LITERAL;
+	private final TerminalRule tOCTAL_LITERAL;
+	private final TerminalRule tBIN_LITERAL;
+	private final TerminalRule tHEX_DIGIT;
+	private final TerminalRule tINTEGER_TYPE_SUFFIX;
+	private final TerminalRule tFLOAT_LITERAL;
+	private final TerminalRule tEXPONENT;
+	private final TerminalRule tFLOAT_TYPE_SUFFIX;
+	private final TerminalRule tESCAPE_SEQUENCE;
+	private final TerminalRule tOCTAL_ESCAPE;
 	private final TerminalRule tBLOCK_COMMENT;
 	private final TerminalRule tLINE_COMMENT;
 	
 	private final Grammar grammar;
+	
+	private final CommonGrammarAccess gaCommon;
 
 	@Inject
-	public CPreprocessGrammarAccess(GrammarProvider grammarProvider) {
+	public CPreprocessGrammarAccess(GrammarProvider grammarProvider,
+			CommonGrammarAccess gaCommon) {
 		this.grammar = internalFindGrammar(grammarProvider);
+		this.gaCommon = gaCommon;
 		this.pModel = new ModelElements();
 		this.pTranslationUnit = new TranslationUnitElements();
 		this.pGroupOpt = new GroupOptElements();
@@ -917,6 +970,7 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		this.pMyDefineLine = new MyDefineLineElements();
 		this.pMyCodeLine = new MyCodeLineElements();
 		this.pMyCodeLineExtended = new MyCodeLineExtendedElements();
+		this.pConstant = new ConstantElements();
 		this.tHASH = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.HASH");
 		this.tINCLUDE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.INCLUDE");
 		this.tDEFINE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.DEFINE");
@@ -927,25 +981,29 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		this.tIFNOTDEF = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.IFNOTDEF");
 		this.tENDIF = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.ENDIF");
 		this.tPRAGMA = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.PRAGMA");
-		this.tLPAREN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.LPAREN");
-		this.tRPAREN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.RPAREN");
-		this.tCOMMA = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.COMMA");
 		this.tLINEFEED = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.LINEFEED");
 		this.tCARRIAGERETURN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.CARRIAGERETURN");
 		this.tNEWLINE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.NEWLINE");
-		this.tBACKSLASH = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.BACKSLASH");
 		this.tLINEBREAK = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.LINEBREAK");
 		this.tSPACE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.SPACE");
 		this.tTAB = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.TAB");
 		this.tWS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.WS");
 		this.tID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.ID");
-		this.tID_NONDIGIT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.ID_NONDIGIT");
-		this.tDIGIT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.DIGIT");
-		this.tNONDIGIT_LETTER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.NONDIGIT_LETTER");
-		this.tUNIVERSAL_CHARACTER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.UNIVERSAL_CHARACTER");
-		this.tHEX_QUAD = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.HEX_QUAD");
-		this.tHEXADECIMAL_DIGIT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.HEXADECIMAL_DIGIT");
-		this.tSPECIAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.SPECIAL");
+		this.tIDENTIFIER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.IDENTIFIER");
+		this.tLETTER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.LETTER");
+		this.tCHAR_LITERAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.CHAR_LITERAL");
+		this.tSTRING_LITERAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.STRING_LITERAL");
+		this.tHEX_LITERAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.HEX_LITERAL");
+		this.tDECIMAL_LITERAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.DECIMAL_LITERAL");
+		this.tOCTAL_LITERAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.OCTAL_LITERAL");
+		this.tBIN_LITERAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.BIN_LITERAL");
+		this.tHEX_DIGIT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.HEX_DIGIT");
+		this.tINTEGER_TYPE_SUFFIX = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.INTEGER_TYPE_SUFFIX");
+		this.tFLOAT_LITERAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.FLOAT_LITERAL");
+		this.tEXPONENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.EXPONENT");
+		this.tFLOAT_TYPE_SUFFIX = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.FLOAT_TYPE_SUFFIX");
+		this.tESCAPE_SEQUENCE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.ESCAPE_SEQUENCE");
+		this.tOCTAL_ESCAPE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.OCTAL_ESCAPE");
 		this.tBLOCK_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.BLOCK_COMMENT");
 		this.tLINE_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.cpreprocess.CPreprocess.LINE_COMMENT");
 	}
@@ -971,6 +1029,10 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		return grammar;
 	}
 	
+	
+	public CommonGrammarAccess getCommonGrammarAccess() {
+		return gaCommon;
+	}
 
 	
 	//Model:
@@ -1054,9 +1116,9 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//DefineFunctionLikeMacro DefineDirective:
 	//	{DefineFunctionLikeMacro} DEFINE WS+ id=ID
-	//	LPAREN WS*
+	//	SKW_LEFTPAREN WS*
 	//	list=IdentifierList?
-	//	RPAREN
+	//	SKW_RIGHTPAREN
 	//	WS+
 	//	string=MyDefineLine
 	public DefineFunctionLikeMacroElements getDefineFunctionLikeMacroAccess() {
@@ -1068,7 +1130,7 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//IdentifierList:
-	//	{IdentifierList} id+=ID (COMMA WS* id+=ID)*;
+	//	{IdentifierList} id+=ID (SKW_COMMA WS* id+=ID)*;
 	public IdentifierListElements getIdentifierListAccess() {
 		return pIdentifierList;
 	}
@@ -1172,8 +1234,9 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//MyCode:
-	//	ID | SPECIAL | INCLUDE | DEFINE | ERROR | PRAGMA | LPAREN | RPAREN
-	//	| COMMA | IFDEF | ENDIF | IFNOTDEF | IF;
+	//	ID | SPECIAL | INCLUDE | DEFINE | ERROR | PRAGMA
+	//	| IFDEF | ENDIF | IFNOTDEF | IF | SpecialKeywords
+	//	| Constant;
 	public MyCodeElements getMyCodeAccess() {
 		return pMyCode;
 	}
@@ -1210,6 +1273,23 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getMyCodeLineExtendedRule() {
 		return getMyCodeLineExtendedAccess().getRule();
+	}
+	
+	//// expressions
+	//Constant:
+	//	HEX_LITERAL
+	//	| OCTAL_LITERAL
+	//	| DECIMAL_LITERAL
+	//	| CHAR_LITERAL
+	//	| STRING_LITERAL
+	//	| FLOAT_LITERAL
+	//	| BIN_LITERAL;
+	public ConstantElements getConstantAccess() {
+		return pConstant;
+	}
+	
+	public ParserRule getConstantRule() {
+		return getConstantAccess().getRule();
 	}
 	
 	//terminal HASH:
@@ -1272,24 +1352,6 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		return tPRAGMA;
 	}
 	
-	//terminal LPAREN:
-	//	'(';
-	public TerminalRule getLPARENRule() {
-		return tLPAREN;
-	}
-	
-	//terminal RPAREN:
-	//	')';
-	public TerminalRule getRPARENRule() {
-		return tRPAREN;
-	}
-	
-	//terminal COMMA:
-	//	',';
-	public TerminalRule getCOMMARule() {
-		return tCOMMA;
-	}
-	
 	//terminal fragment LINEFEED:
 	//	'\n';
 	public TerminalRule getLINEFEEDRule() {
@@ -1308,14 +1370,8 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		return tNEWLINE;
 	}
 	
-	//terminal fragment BACKSLASH:
-	//	'\\';
-	public TerminalRule getBACKSLASHRule() {
-		return tBACKSLASH;
-	}
-	
 	//terminal fragment LINEBREAK:
-	//	BACKSLASH NEWLINE;
+	//	SKW_BACKSLASH NEWLINE;
 	public TerminalRule getLINEBREAKRule() {
 		return tLINEBREAK;
 	}
@@ -1339,59 +1395,105 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal ID:
-	//	ID_NONDIGIT (ID_NONDIGIT
-	//	| DIGIT)*;
+	//	IDENTIFIER;
 	public TerminalRule getIDRule() {
 		return tID;
 	}
 	
-	//terminal fragment ID_NONDIGIT:
-	//	NONDIGIT_LETTER
-	//	| UNIVERSAL_CHARACTER;
-	public TerminalRule getID_NONDIGITRule() {
-		return tID_NONDIGIT;
+	//terminal fragment IDENTIFIER:
+	//	LETTER (LETTER | '0'..'9')*;
+	public TerminalRule getIDENTIFIERRule() {
+		return tIDENTIFIER;
 	}
 	
-	//terminal fragment DIGIT:
-	//	'0'..'9';
-	public TerminalRule getDIGITRule() {
-		return tDIGIT;
-	}
-	
-	//terminal fragment NONDIGIT_LETTER:
-	//	'a'..'z'
+	//terminal fragment LETTER:
+	//	SKW_DOLLAR
 	//	| 'A'..'Z'
-	//	| '_';
-	public TerminalRule getNONDIGIT_LETTERRule() {
-		return tNONDIGIT_LETTER;
+	//	| 'a'..'z'
+	//	| SKW_UNDERSCORE;
+	public TerminalRule getLETTERRule() {
+		return tLETTER;
 	}
 	
-	//terminal fragment UNIVERSAL_CHARACTER:
-	//	'\\u' HEX_QUAD
-	//	| '\\U' HEX_QUAD HEX_QUAD;
-	public TerminalRule getUNIVERSAL_CHARACTERRule() {
-		return tUNIVERSAL_CHARACTER;
+	//terminal CHAR_LITERAL:
+	//	SKW_SINGLEQUOTE (ESCAPE_SEQUENCE | !(SKW_SINGLEQUOTE | SKW_BACKSLASH)) SKW_SINGLEQUOTE;
+	public TerminalRule getCHAR_LITERALRule() {
+		return tCHAR_LITERAL;
 	}
 	
-	//terminal fragment HEX_QUAD:
-	//	HEXADECIMAL_DIGIT HEXADECIMAL_DIGIT
-	//	HEXADECIMAL_DIGIT HEXADECIMAL_DIGIT;
-	public TerminalRule getHEX_QUADRule() {
-		return tHEX_QUAD;
+	//terminal STRING_LITERAL:
+	//	SKW_DOUBLEQUOTE (ESCAPE_SEQUENCE | !(SKW_BACKSLASH | SKW_DOUBLEQUOTE))* SKW_DOUBLEQUOTE;
+	public TerminalRule getSTRING_LITERALRule() {
+		return tSTRING_LITERAL;
 	}
 	
-	//terminal fragment HEXADECIMAL_DIGIT:
-	//	'0'..'9'
-	//	| 'a'..'f'
-	//	| 'A'..'F';
-	public TerminalRule getHEXADECIMAL_DIGITRule() {
-		return tHEXADECIMAL_DIGIT;
+	//terminal HEX_LITERAL:
+	//	'0' ('x' | 'X') HEX_DIGIT+ INTEGER_TYPE_SUFFIX?;
+	public TerminalRule getHEX_LITERALRule() {
+		return tHEX_LITERAL;
 	}
 	
-	//terminal SPECIAL:
-	//	.;
-	public TerminalRule getSPECIALRule() {
-		return tSPECIAL;
+	//terminal DECIMAL_LITERAL:
+	//	('0' | '1'..'9' '0'..'9'*) INTEGER_TYPE_SUFFIX?;
+	public TerminalRule getDECIMAL_LITERALRule() {
+		return tDECIMAL_LITERAL;
+	}
+	
+	//terminal OCTAL_LITERAL:
+	//	'0' '0'..'7'+ INTEGER_TYPE_SUFFIX?;
+	public TerminalRule getOCTAL_LITERALRule() {
+		return tOCTAL_LITERAL;
+	}
+	
+	//terminal BIN_LITERAL:
+	//	('0b' | '0B') '0'..'1'+;
+	public TerminalRule getBIN_LITERALRule() {
+		return tBIN_LITERAL;
+	}
+	
+	//terminal fragment HEX_DIGIT:
+	//	'0'..'9' | 'a'..'f' | 'A'..'F';
+	public TerminalRule getHEX_DIGITRule() {
+		return tHEX_DIGIT;
+	}
+	
+	//terminal fragment INTEGER_TYPE_SUFFIX:
+	//	('u' | 'U')? ('l' | 'L') | ('u' | 'U') ('l' | 'L')?;
+	public TerminalRule getINTEGER_TYPE_SUFFIXRule() {
+		return tINTEGER_TYPE_SUFFIX;
+	}
+	
+	//terminal FLOAT_LITERAL:
+	//	'0'..'9'+ SKW_DOT '0'..'9'* EXPONENT? FLOAT_TYPE_SUFFIX?
+	//	| SKW_DOT '0'..'9'+ EXPONENT? FLOAT_TYPE_SUFFIX?
+	//	| '0'..'9'+ EXPONENT FLOAT_TYPE_SUFFIX?
+	//	| '0'..'9'+ EXPONENT? FLOAT_TYPE_SUFFIX;
+	public TerminalRule getFLOAT_LITERALRule() {
+		return tFLOAT_LITERAL;
+	}
+	
+	//terminal fragment EXPONENT:
+	//	('e' | 'E') ('+' | '-')? '0'..'9'+;
+	public TerminalRule getEXPONENTRule() {
+		return tEXPONENT;
+	}
+	
+	//terminal fragment FLOAT_TYPE_SUFFIX:
+	//	'f' | 'F' | 'd' | 'D';
+	public TerminalRule getFLOAT_TYPE_SUFFIXRule() {
+		return tFLOAT_TYPE_SUFFIX;
+	}
+	
+	//terminal fragment ESCAPE_SEQUENCE:
+	//	SKW_BACKSLASH ('b' | 't' | 'n' | 'f' | 'r' | '\"' | SKW_SINGLEQUOTE | SKW_BACKSLASH) | OCTAL_ESCAPE;
+	public TerminalRule getESCAPE_SEQUENCERule() {
+		return tESCAPE_SEQUENCE;
+	}
+	
+	//terminal fragment OCTAL_ESCAPE:
+	//	SKW_BACKSLASH '0'..'3' '0'..'7' '0'..'7' | SKW_BACKSLASH '0'..'7' '0'..'7' | SKW_BACKSLASH '0'..'7';
+	public TerminalRule getOCTAL_ESCAPERule() {
+		return tOCTAL_ESCAPE;
 	}
 	
 	//terminal fragment BLOCK_COMMENT:
@@ -1404,5 +1506,304 @@ public class CPreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//	'//' !NEWLINE*;
 	public TerminalRule getLINE_COMMENTRule() {
 		return tLINE_COMMENT;
+	}
+	
+	//Common:
+	//	{Common};
+	public CommonGrammarAccess.CommonElements getCommonAccess() {
+		return gaCommon.getCommonAccess();
+	}
+	
+	public ParserRule getCommonRule() {
+		return getCommonAccess().getRule();
+	}
+	
+	//// keywords
+	//// special keywords
+	//SpecialKeywords:
+	//	SKW_AND
+	//	| SKW_ANDAND
+	//	| SKW_ASSIGN
+	//	| SKW_BACKSLASH
+	//	| SKW_CARET
+	//	| SKW_COMMA
+	//	| SKW_COLON
+	//	| SKW_DIV
+	//	| SKW_DOT
+	//	| SKW_DOUBLEQUOTE
+	//	| SKW_EQUAL
+	//	| SKW_GREATER
+	//	| SKW_GREATEREQUAL
+	//	| SKW_LEFTBRACE
+	//	| SKW_LEFTBRACKET
+	//	| SKW_LEFTPAREN
+	//	| SKW_LEFTSHIFT
+	//	| SKW_LESS
+	//	| SKW_LESSEQUAL
+	//	| SKW_MINUS
+	//	| SKW_MINUSMINUS
+	//	| SKW_MOD
+	//	| SKW_NOT
+	//	| SKW_NOTEQUAL
+	//	| SKW_OR
+	//	| SKW_OROR
+	//	| SKW_PLUS
+	//	| SKW_PLUSPLUS
+	//	| SKW_PLUSPLUS
+	//	| SKW_QUESTION
+	//	| SKW_RIGHTBRACE
+	//	| SKW_RIGHTBRACKET
+	//	| SKW_RIGHTPAREN
+	//	| SKW_RIGHTSHIFT
+	//	| SKW_SEMI
+	//	| SKW_SINGLEQUOTE
+	//	| SKW_STAR
+	//	| SKW_TILDE;
+	public CommonGrammarAccess.SpecialKeywordsElements getSpecialKeywordsAccess() {
+		return gaCommon.getSpecialKeywordsAccess();
+	}
+	
+	public ParserRule getSpecialKeywordsRule() {
+		return getSpecialKeywordsAccess().getRule();
+	}
+	
+	//terminal SKW_AND:
+	//	'&';
+	public TerminalRule getSKW_ANDRule() {
+		return gaCommon.getSKW_ANDRule();
+	}
+	
+	//terminal SKW_ANDAND:
+	//	SKW_AND SKW_AND;
+	public TerminalRule getSKW_ANDANDRule() {
+		return gaCommon.getSKW_ANDANDRule();
+	}
+	
+	//terminal SKW_ASSIGN:
+	//	'=';
+	public TerminalRule getSKW_ASSIGNRule() {
+		return gaCommon.getSKW_ASSIGNRule();
+	}
+	
+	//terminal SKW_BACKSLASH:
+	//	'\\';
+	public TerminalRule getSKW_BACKSLASHRule() {
+		return gaCommon.getSKW_BACKSLASHRule();
+	}
+	
+	//terminal SKW_CARET:
+	//	'^';
+	public TerminalRule getSKW_CARETRule() {
+		return gaCommon.getSKW_CARETRule();
+	}
+	
+	//terminal SKW_COMMA:
+	//	',';
+	public TerminalRule getSKW_COMMARule() {
+		return gaCommon.getSKW_COMMARule();
+	}
+	
+	//terminal SKW_COLON:
+	//	':';
+	public TerminalRule getSKW_COLONRule() {
+		return gaCommon.getSKW_COLONRule();
+	}
+	
+	//terminal SKW_DIV:
+	//	'/';
+	public TerminalRule getSKW_DIVRule() {
+		return gaCommon.getSKW_DIVRule();
+	}
+	
+	//terminal fragment SKW_DOLLAR:
+	//	'$';
+	public TerminalRule getSKW_DOLLARRule() {
+		return gaCommon.getSKW_DOLLARRule();
+	}
+	
+	//terminal SKW_DOT:
+	//	'.';
+	public TerminalRule getSKW_DOTRule() {
+		return gaCommon.getSKW_DOTRule();
+	}
+	
+	//terminal SKW_DOUBLEQUOTE:
+	//	'"';
+	public TerminalRule getSKW_DOUBLEQUOTERule() {
+		return gaCommon.getSKW_DOUBLEQUOTERule();
+	}
+	
+	//terminal SKW_EQUAL:
+	//	SKW_ASSIGN SKW_ASSIGN;
+	public TerminalRule getSKW_EQUALRule() {
+		return gaCommon.getSKW_EQUALRule();
+	}
+	
+	//terminal SKW_GREATER:
+	//	'>';
+	public TerminalRule getSKW_GREATERRule() {
+		return gaCommon.getSKW_GREATERRule();
+	}
+	
+	//terminal SKW_GREATEREQUAL:
+	//	SKW_GREATER SKW_ASSIGN;
+	public TerminalRule getSKW_GREATEREQUALRule() {
+		return gaCommon.getSKW_GREATEREQUALRule();
+	}
+	
+	//terminal SKW_LEFTBRACE:
+	//	'{';
+	public TerminalRule getSKW_LEFTBRACERule() {
+		return gaCommon.getSKW_LEFTBRACERule();
+	}
+	
+	//terminal SKW_LEFTBRACKET:
+	//	'[';
+	public TerminalRule getSKW_LEFTBRACKETRule() {
+		return gaCommon.getSKW_LEFTBRACKETRule();
+	}
+	
+	//terminal SKW_LEFTPAREN:
+	//	'(';
+	public TerminalRule getSKW_LEFTPARENRule() {
+		return gaCommon.getSKW_LEFTPARENRule();
+	}
+	
+	//terminal SKW_LEFTSHIFT:
+	//	SKW_LESS SKW_LESS;
+	public TerminalRule getSKW_LEFTSHIFTRule() {
+		return gaCommon.getSKW_LEFTSHIFTRule();
+	}
+	
+	//terminal SKW_LESS:
+	//	'<';
+	public TerminalRule getSKW_LESSRule() {
+		return gaCommon.getSKW_LESSRule();
+	}
+	
+	//terminal SKW_LESSEQUAL:
+	//	SKW_LESS SKW_ASSIGN;
+	public TerminalRule getSKW_LESSEQUALRule() {
+		return gaCommon.getSKW_LESSEQUALRule();
+	}
+	
+	//terminal SKW_MINUS:
+	//	'-';
+	public TerminalRule getSKW_MINUSRule() {
+		return gaCommon.getSKW_MINUSRule();
+	}
+	
+	//terminal SKW_MINUSMINUS:
+	//	SKW_MINUS SKW_MINUS;
+	public TerminalRule getSKW_MINUSMINUSRule() {
+		return gaCommon.getSKW_MINUSMINUSRule();
+	}
+	
+	//terminal SKW_MOD:
+	//	'%';
+	public TerminalRule getSKW_MODRule() {
+		return gaCommon.getSKW_MODRule();
+	}
+	
+	//terminal SKW_NOT:
+	//	'!';
+	public TerminalRule getSKW_NOTRule() {
+		return gaCommon.getSKW_NOTRule();
+	}
+	
+	//terminal SKW_NOTEQUAL:
+	//	SKW_NOT SKW_ASSIGN;
+	public TerminalRule getSKW_NOTEQUALRule() {
+		return gaCommon.getSKW_NOTEQUALRule();
+	}
+	
+	//terminal SKW_OR:
+	//	'|';
+	public TerminalRule getSKW_ORRule() {
+		return gaCommon.getSKW_ORRule();
+	}
+	
+	//terminal SKW_OROR:
+	//	SKW_OR SKW_OR;
+	public TerminalRule getSKW_ORORRule() {
+		return gaCommon.getSKW_ORORRule();
+	}
+	
+	//terminal SKW_PLUS:
+	//	'+';
+	public TerminalRule getSKW_PLUSRule() {
+		return gaCommon.getSKW_PLUSRule();
+	}
+	
+	//terminal SKW_PLUSPLUS:
+	//	SKW_PLUS SKW_PLUS;
+	public TerminalRule getSKW_PLUSPLUSRule() {
+		return gaCommon.getSKW_PLUSPLUSRule();
+	}
+	
+	//terminal SKW_QUESTION:
+	//	'?';
+	public TerminalRule getSKW_QUESTIONRule() {
+		return gaCommon.getSKW_QUESTIONRule();
+	}
+	
+	//terminal SKW_RIGHTBRACE:
+	//	'}';
+	public TerminalRule getSKW_RIGHTBRACERule() {
+		return gaCommon.getSKW_RIGHTBRACERule();
+	}
+	
+	//terminal SKW_RIGHTBRACKET:
+	//	']';
+	public TerminalRule getSKW_RIGHTBRACKETRule() {
+		return gaCommon.getSKW_RIGHTBRACKETRule();
+	}
+	
+	//terminal SKW_RIGHTPAREN:
+	//	')';
+	public TerminalRule getSKW_RIGHTPARENRule() {
+		return gaCommon.getSKW_RIGHTPARENRule();
+	}
+	
+	//terminal SKW_RIGHTSHIFT:
+	//	SKW_GREATER SKW_GREATER;
+	public TerminalRule getSKW_RIGHTSHIFTRule() {
+		return gaCommon.getSKW_RIGHTSHIFTRule();
+	}
+	
+	//terminal SKW_SEMI:
+	//	';';
+	public TerminalRule getSKW_SEMIRule() {
+		return gaCommon.getSKW_SEMIRule();
+	}
+	
+	//terminal SKW_SINGLEQUOTE:
+	//	'\'';
+	public TerminalRule getSKW_SINGLEQUOTERule() {
+		return gaCommon.getSKW_SINGLEQUOTERule();
+	}
+	
+	//terminal SKW_STAR:
+	//	'*';
+	public TerminalRule getSKW_STARRule() {
+		return gaCommon.getSKW_STARRule();
+	}
+	
+	//terminal SKW_TILDE:
+	//	'~';
+	public TerminalRule getSKW_TILDERule() {
+		return gaCommon.getSKW_TILDERule();
+	}
+	
+	//terminal fragment SKW_UNDERSCORE:
+	//	'_';
+	public TerminalRule getSKW_UNDERSCORERule() {
+		return gaCommon.getSKW_UNDERSCORERule();
+	}
+	
+	//terminal SPECIAL:
+	//	.;
+	public TerminalRule getSPECIALRule() {
+		return gaCommon.getSPECIALRule();
 	}
 }

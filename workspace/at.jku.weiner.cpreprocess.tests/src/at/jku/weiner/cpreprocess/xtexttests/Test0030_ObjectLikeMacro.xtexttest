@@ -7,9 +7,9 @@ split-lexer=true
 source file="res/Test0030_ObjectLikeMacro.c"
 //----------------------------------------------------------------------
 lexer-tokens
-	ID WS ID WS SPECIAL WS ID SPECIAL NEWLINE
-	HASH DEFINE WS ID WS SPECIAL NEWLINE
-	ID WS ID WS SPECIAL WS ID SPECIAL NEWLINE
+	ID WS ID WS SKW_ASSIGN WS ID SKW_SEMI NEWLINE
+	HASH DEFINE WS ID WS DECIMAL_LITERAL NEWLINE
+	ID WS ID WS SKW_ASSIGN WS ID SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
 (Model
 	units+=

@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.emf.ecore.EPackage;
 
-public class AbstractCPreprocessValidator extends org.eclipse.xtext.validation.AbstractDeclarativeValidator {
+public class AbstractCPreprocessValidator extends at.jku.weiner.c.validation.CommonValidator {
 
 	@Override
 	protected List<EPackage> getEPackages() {
-	    List<EPackage> result = new ArrayList<EPackage>();
+	    List<EPackage> result = new ArrayList<EPackage>(super.getEPackages());
 	    result.add(at.jku.weiner.cpreprocess.cPreprocess.CPreprocessPackage.eINSTANCE);
 		return result;
 	}

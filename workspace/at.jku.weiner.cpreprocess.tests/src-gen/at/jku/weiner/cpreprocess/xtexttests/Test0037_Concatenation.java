@@ -101,9 +101,9 @@ public class Test0037_Concatenation {
 				"RULE_DEFINE", 
 				"RULE_WS", 
 				"RULE_ID", 
-				"RULE_LPAREN", 
+				"RULE_SKW_LEFTPAREN", 
 				"RULE_ID", 
-				"RULE_RPAREN", 
+				"RULE_SKW_RIGHTPAREN", 
 				"RULE_WS", 
 				"RULE_ID", 
 				"RULE_WS", 
@@ -113,9 +113,9 @@ public class Test0037_Concatenation {
 				"RULE_ID", 
 				"RULE_NEWLINE", 
 				"RULE_ID", 
-				"RULE_LPAREN", 
+				"RULE_SKW_LEFTPAREN", 
 				"RULE_ID", 
-				"RULE_RPAREN", 
+				"RULE_SKW_RIGHTPAREN", 
 				"RULE_NEWLINE", 
 				};
 			//final List<Token> actual = testHelper.getTokens(text);

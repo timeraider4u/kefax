@@ -98,12 +98,7 @@ public class Test0003_Error {
 				"RULE_HASH", 
 				"RULE_ERROR", 
 				"RULE_WS", 
-				"RULE_SPECIAL", 
-				"RULE_ERROR", 
-				"RULE_WS", 
-				"RULE_ID", 
-				"RULE_SPECIAL", 
-				"RULE_SPECIAL", 
+				"RULE_STRING_LITERAL", 
 				"RULE_NEWLINE", 
 				};
 			//final List<Token> actual = testHelper.getTokens(text);

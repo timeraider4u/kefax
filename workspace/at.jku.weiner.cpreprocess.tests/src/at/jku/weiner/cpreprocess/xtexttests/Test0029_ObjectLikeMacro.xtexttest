@@ -8,13 +8,14 @@ source file="res/Test0029_ObjectLikeMacro.c"
 //----------------------------------------------------------------------
 lexer-tokens
 	HASH DEFINE WS 	ID WS
-		SPECIAL COMMA WS+*6
-		SPECIAL COMMA WS+*6
-		SPECIAL COMMA WS+*6
-		SPECIAL
+		DECIMAL_LITERAL SKW_COMMA WS+*6
+		DECIMAL_LITERAL SKW_COMMA WS+*6
+		DECIMAL_LITERAL SKW_COMMA WS+*6
+		DECIMAL_LITERAL
 		NEWLINE
-	ID WS ID SPECIAL SPECIAL WS SPECIAL WS 
-		SPECIAL WS ID WS SPECIAL SPECIAL
+	ID WS ID SKW_LEFTBRACKET SKW_RIGHTBRACKET WS SKW_ASSIGN
+		WS SKW_LEFTBRACE
+		WS ID WS SKW_RIGHTBRACE SKW_SEMI
 		NEWLINE
 //----------------------------------------------------------------------
 (Model

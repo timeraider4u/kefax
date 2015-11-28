@@ -17,10 +17,10 @@ lexer-tokens
 	WS NEWLINE
 	NEWLINE
 	WS NEWLINE
-	WS+*2 HASH WS+*3 DEFINE WS+*3 ID WS+*4 SPECIAL+*4 NEWLINE
+	WS+*2 HASH WS+*3 DEFINE WS+*3 ID WS+*4 DECIMAL_LITERAL NEWLINE
 	NEWLINE
 	
-	ID WS ID WS SPECIAL WS ID SPECIAL NEWLINE
+	ID WS ID WS SKW_ASSIGN WS ID SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
 (Model
 	units+=

@@ -56,9 +56,7 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if(ruleCall.getRule() == grammarAccess.getCOMMARule())
-			return getCOMMAToken(semanticObject, ruleCall, node);
-		else if(ruleCall.getRule() == grammarAccess.getDEFINERule())
+		if(ruleCall.getRule() == grammarAccess.getDEFINERule())
 			return getDEFINEToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getENDIFRule())
 			return getENDIFToken(semanticObject, ruleCall, node);
@@ -72,28 +70,21 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getIFNOTDEFToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getINCLUDERule())
 			return getINCLUDEToken(semanticObject, ruleCall, node);
-		else if(ruleCall.getRule() == grammarAccess.getLPARENRule())
-			return getLPARENToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getNEWLINERule())
 			return getNEWLINEToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getPRAGMARule())
 			return getPRAGMAToken(semanticObject, ruleCall, node);
-		else if(ruleCall.getRule() == grammarAccess.getRPARENRule())
-			return getRPARENToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getSKW_COMMARule())
+			return getSKW_COMMAToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getSKW_LEFTPARENRule())
+			return getSKW_LEFTPARENToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getSKW_RIGHTPARENRule())
+			return getSKW_RIGHTPARENToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getUNDEFRule())
 			return getUNDEFToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getWSRule())
 			return getWSToken(semanticObject, ruleCall, node);
 		return "";
-	}
-	
-	/**
-	 * terminal COMMA: ',';
-	 */
-	protected String getCOMMAToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return ",";
 	}
 	
 	/**
@@ -160,15 +151,6 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	}
 	
 	/**
-	 * terminal LPAREN: '(';
-	 */
-	protected String getLPARENToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "(";
-	}
-	
-	/**
 	 * terminal NEWLINE: (CARRIAGERETURN | LINEFEED) ;
 	 */
 	protected String getNEWLINEToken(EObject semanticObject, RuleCall ruleCall, INode node) {
@@ -187,9 +169,27 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	}
 	
 	/**
-	 * terminal RPAREN: ')';
+	 * terminal SKW_COMMA: ',';
 	 */
-	protected String getRPARENToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+	protected String getSKW_COMMAToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return ",";
+	}
+	
+	/**
+	 * terminal SKW_LEFTPAREN: '(';
+	 */
+	protected String getSKW_LEFTPARENToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "(";
+	}
+	
+	/**
+	 * terminal SKW_RIGHTPAREN: ')';
+	 */
+	protected String getSKW_RIGHTPARENToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
 		return ")";
@@ -279,8 +279,8 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     WS*
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     id=ID LPAREN (ambiguity) RPAREN WS+ string=MyDefineLine
-	 *     id=ID LPAREN (ambiguity) list=IdentifierList
+	 *     id=ID SKW_LEFTPAREN (ambiguity) SKW_RIGHTPAREN WS+ string=MyDefineLine
+	 *     id=ID SKW_LEFTPAREN (ambiguity) list=IdentifierList
 	 */
 	protected void emit_DefineFunctionLikeMacro_WSTerminalRuleCall_5_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -291,8 +291,8 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     WS+
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     id=ID LPAREN WS* RPAREN (ambiguity) string=MyDefineLine
-	 *     list=IdentifierList RPAREN (ambiguity) string=MyDefineLine
+	 *     id=ID SKW_LEFTPAREN WS* SKW_RIGHTPAREN (ambiguity) string=MyDefineLine
+	 *     list=IdentifierList SKW_RIGHTPAREN (ambiguity) string=MyDefineLine
 	 */
 	protected void emit_DefineFunctionLikeMacro_WSTerminalRuleCall_8_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -336,7 +336,7 @@ public class CPreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     WS*
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     id+=ID COMMA (ambiguity) id+=ID
+	 *     id+=ID SKW_COMMA (ambiguity) id+=ID
 	 */
 	protected void emit_IdentifierList_WSTerminalRuleCall_2_1_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

@@ -3,6 +3,9 @@
  */
 package at.jku.weiner.cpreprocess.serializer;
 
+import at.jku.weiner.c.common.Common;
+import at.jku.weiner.c.common.CommonPackage;
+import at.jku.weiner.c.serializer.CommonSemanticSequencer;
 import at.jku.weiner.cpreprocess.cPreprocess.CPreprocessPackage;
 import at.jku.weiner.cpreprocess.cPreprocess.Code;
 import at.jku.weiner.cpreprocess.cPreprocess.ConditionalDirective;
@@ -29,7 +32,6 @@ import org.eclipse.xtext.serializer.acceptor.ISemanticSequenceAcceptor;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.diagnostic.ISemanticSequencerDiagnosticProvider;
 import org.eclipse.xtext.serializer.diagnostic.ISerializationDiagnostic.Acceptor;
-import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.GenericSequencer;
 import org.eclipse.xtext.serializer.sequencer.ISemanticNodeProvider.INodesForEObjectProvider;
 import org.eclipse.xtext.serializer.sequencer.ISemanticSequencer;
@@ -37,7 +39,7 @@ import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 
 @SuppressWarnings("all")
-public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequencer {
+public class CPreprocessSemanticSequencer extends CommonSemanticSequencer {
 
 	@Inject
 	private CPreprocessGrammarAccess grammarAccess;
@@ -95,6 +97,11 @@ public class CPreprocessSemanticSequencer extends AbstractDelegatingSemanticSequ
 				return; 
 			case CPreprocessPackage.UN_DEFINE_DIRECTIVE:
 				sequence_UnDefineDirective(context, (UnDefineDirective) semanticObject); 
+				return; 
+			}
+		else if(semanticObject.eClass().getEPackage() == CommonPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+			case CommonPackage.COMMON:
+				sequence_Common(context, (Common) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));

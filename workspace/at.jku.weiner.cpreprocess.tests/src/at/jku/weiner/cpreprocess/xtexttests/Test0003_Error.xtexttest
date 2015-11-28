@@ -7,7 +7,7 @@ split-lexer=true
 source file="res/Test0003_Error.h"
 //----------------------------------------------------------------------
 lexer-tokens
-	HASH ERROR WS SPECIAL ERROR WS ID SPECIAL +*2 NEWLINE
+	HASH ERROR WS STRING_LITERAL NEWLINE
 //----------------------------------------------------------------------
 (Model
 	units+=

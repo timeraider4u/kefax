@@ -26,9 +26,8 @@
  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
  THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
-grammar at.jku.weiner.cpreprocess.CPreprocess 
-// with org.eclipse.xtext.common.Terminals
-// hidden(LINEBREAK,BLOCK_COMMENT,LINE_COMMENT)
+grammar at.jku.weiner.cpreprocess.CPreprocess
+with at.jku.weiner.c.Common
 
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
@@ -88,16 +87,16 @@ DefineObjectMacro returns DefineDirective:
 DefineFunctionLikeMacro returns DefineDirective:
 	{DefineFunctionLikeMacro}
 	DEFINE WS+ id=ID 
-	LPAREN WS*
+	SKW_LEFTPAREN WS*
 		(list=IdentifierList)?
-	RPAREN
+	SKW_RIGHTPAREN
 	WS+
 	string=MyDefineLine 
 ;
 
 IdentifierList:
 	{IdentifierList}
-	id+=ID (COMMA WS* id+=ID)*
+	id+=ID (SKW_COMMA WS* id+=ID)*
 ;
 
 ErrorDirective:
@@ -153,9 +152,9 @@ Code returns SourceCodeLine:
 ;
 
 MyCode returns ecore::EString:
-	ID|SPECIAL|INCLUDE|DEFINE|ERROR|PRAGMA|LPAREN|RPAREN
-	|COMMA|IFDEF|ENDIF|IFNOTDEF|IF|KW_UNDERSCORE
-	|SINGLEQUOTE|DOUBLEQUOTE|DOT|Constant
+	ID|SPECIAL|INCLUDE|DEFINE|ERROR|PRAGMA
+	|IFDEF|ENDIF|IFNOTDEF|IF|SpecialKeywords
+	|Constant
 ;
 
 MyDefineLine returns ecore::EString:
@@ -174,7 +173,7 @@ MyCodeLineExtended returns ecore::EString:
 
 Constant returns ecore::EString:
 	(
-	HEX_LITERAL
+		HEX_LITERAL
 	|	OCTAL_LITERAL
 	|	DECIMAL_LITERAL
 	|	CHAR_LITERAL
@@ -184,12 +183,22 @@ Constant returns ecore::EString:
 	)
 ;
 
+/*SpecialKeywords returns ecore::EString:
+	SKW_AND | SKW_ANDAND | SKW_ASSIGN | 
+	SKW_BACKSLASH | SKW_CARET | SKW_COMMA | 
+	SKW_COLON | SKW_DIV | SKW_DOT | 
+	SKW_DOUBLEQUOTE | SKW_EQUAL | SKW_GREATER | 
+	SKW_GREATEREQUAL | SKW_LEFTSHIFT | SKW_LESS | 
+	SKW_LESSEQUAL | SKW_MINUS | SKW_MINUSMINUS | 
+	SKW_MOD | SKW_NOT | SKW_NOTEQUAL |
+	SKW_OR | SKW_OROR | SKW_PLUS |
+	SKW_PLUSPLUS | SKW_PLUSPLUS |SKW_QUESTION |
+	SKW_RIGHTSHIFT | SKW_SEMI | SKW_SINGLEQUOTE | 
+	SKW_STAR | SKW_TILDE | 
+	LEFTBRACE | RIGHTBRACE | LEFTBRACKET | RIGHTBRACKET
+;*/
 
 // lexer tokens
-terminal KW_UNDERSCORE: '_';
-terminal SINGLEQUOTE: '\'';
-terminal DOUBLEQUOTE: '"';
-terminal DOT: '.';
 terminal HASH: '#';
 terminal INCLUDE: 'include';
 terminal DEFINE: 'define';
@@ -200,14 +209,55 @@ terminal IFDEF: 'ifdef';
 terminal IFNOTDEF: 'ifndef';
 terminal ENDIF: 'endif';
 terminal PRAGMA: 'pragma';
-terminal LPAREN: '(';
-terminal RPAREN: ')';
-terminal COMMA: ',';
+
+// special keywords
+/*terminal SKW_AND: '&';
+terminal SKW_ANDAND: SKW_AND SKW_AND;
+terminal SKW_ASSIGN: '=';
+terminal SKW_BACKSLASH: '\\';
+terminal SKW_CARET: '^';
+terminal SKW_COMMA: ',';
+terminal SKW_COLON: ':';
+terminal SKW_DIV: '/';
+terminal fragment SKW_DOLLAR: '$';
+terminal SKW_DOT: '.';
+terminal SKW_DOUBLEQUOTE: '"';
+terminal SKW_EQUAL: SKW_ASSIGN SKW_ASSIGN;
+terminal SKW_GREATER: '>';
+terminal SKW_GREATEREQUAL: SKW_GREATER SKW_ASSIGN;
+terminal SKW_LEFTSHIFT: SKW_LESS SKW_LESS;
+terminal SKW_LESS: '<';
+terminal SKW_LESSEQUAL: SKW_LESS SKW_ASSIGN;
+terminal SKW_MINUS: '-';
+terminal SKW_MINUSMINUS: SKW_MINUS SKW_MINUS;
+terminal SKW_MOD: '%';
+terminal SKW_NOT: '!';
+terminal SKW_NOTEQUAL: SKW_NOT SKW_ASSIGN;
+terminal SKW_OR: '|';
+terminal SKW_OROR: SKW_OR SKW_OR;
+terminal SKW_PLUS: '+';
+terminal SKW_PLUSPLUS: SKW_PLUS SKW_PLUS;
+terminal SKW_QUESTION: '?';
+terminal SKW_RIGHTSHIFT: SKW_GREATER SKW_GREATER;
+terminal SKW_SEMI: ';';
+terminal SKW_SINGLEQUOTE: '\'';
+terminal SKW_STAR: '*';
+terminal SKW_TILDE: '~';
+terminal fragment SKW_UNDERSCORE: '_';
+*/
+
+// more keywords
+//terminal LEFTBRACKET: '[';
+//terminal RIGHTBRACKET: ']';
+//terminal LEFTBRACE: '{';
+//terminal RIGHTBRACE: '}';
+// even more keywords
+//terminal LPAREN: '(';
+//terminal RPAREN: ')';
 terminal fragment LINEFEED: '\n';
 terminal fragment CARRIAGERETURN: '\r';
 terminal NEWLINE: (CARRIAGERETURN | LINEFEED) ;
-terminal fragment BACKSLASH: '\\';
-terminal fragment LINEBREAK: (BACKSLASH NEWLINE);
+terminal fragment LINEBREAK: (SKW_BACKSLASH NEWLINE);
 terminal fragment SPACE: ' ';
 terminal fragment TAB: '\t';
 terminal WS: (SPACE | TAB | LINE_COMMENT | BLOCK_COMMENT | LINEBREAK);
@@ -251,18 +301,18 @@ terminal fragment IDENTIFIER:
 ;
 
 terminal fragment LETTER:
-	'$'
+		SKW_DOLLAR
 	|	'A'..'Z'
 	|	'a'..'z'
-	|	KW_UNDERSCORE
+	|	SKW_UNDERSCORE
 ;
 
 terminal CHAR_LITERAL:
-	SINGLEQUOTE ( ESCAPE_SEQUENCE | !(SINGLEQUOTE|BACKSLASH) ) SINGLEQUOTE
+	SKW_SINGLEQUOTE ( ESCAPE_SEQUENCE | !(SKW_SINGLEQUOTE|SKW_BACKSLASH) ) SKW_SINGLEQUOTE
 ;
 
 terminal STRING_LITERAL:
-	DOUBLEQUOTE ( ESCAPE_SEQUENCE | !(BACKSLASH|DOUBLEQUOTE) )* DOUBLEQUOTE
+	SKW_DOUBLEQUOTE ( ESCAPE_SEQUENCE | !(SKW_BACKSLASH|SKW_DOUBLEQUOTE) )* SKW_DOUBLEQUOTE
 ;
 
 terminal HEX_LITERAL: '0' ('x'|'X') HEX_DIGIT+ INTEGER_TYPE_SUFFIX? ;
@@ -281,8 +331,8 @@ terminal fragment INTEGER_TYPE_SUFFIX:
 ;
 
 terminal FLOAT_LITERAL:
-	('0'..'9')+ DOT ('0'..'9')* EXPONENT? FLOAT_TYPE_SUFFIX?
-	|	DOT ('0'..'9')+ EXPONENT? FLOAT_TYPE_SUFFIX?
+	('0'..'9')+ SKW_DOT ('0'..'9')* EXPONENT? FLOAT_TYPE_SUFFIX?
+	|	SKW_DOT ('0'..'9')+ EXPONENT? FLOAT_TYPE_SUFFIX?
 	|	('0'..'9')+ EXPONENT FLOAT_TYPE_SUFFIX?
 	|	('0'..'9')+ EXPONENT? FLOAT_TYPE_SUFFIX
 ;
@@ -294,17 +344,17 @@ terminal fragment EXPONENT:
 terminal fragment FLOAT_TYPE_SUFFIX: ('f'|'F'|'d'|'D') ;
 
 terminal fragment ESCAPE_SEQUENCE:
-	BACKSLASH ('b'|'t'|'n'|'f'|'r'|'\"'|SINGLEQUOTE|BACKSLASH)
+	SKW_BACKSLASH ('b'|'t'|'n'|'f'|'r'|'\"'|SKW_SINGLEQUOTE|SKW_BACKSLASH)
 	|	OCTAL_ESCAPE
 ;
 
 terminal fragment OCTAL_ESCAPE:
-	BACKSLASH ('0'..'3') ('0'..'7') ('0'..'7')
-	|	BACKSLASH ('0'..'7') ('0'..'7')
-	|	BACKSLASH ('0'..'7')
+	SKW_BACKSLASH ('0'..'3') ('0'..'7') ('0'..'7')
+	|	SKW_BACKSLASH ('0'..'7') ('0'..'7')
+	|	SKW_BACKSLASH ('0'..'7')
 ;
 
 
-terminal SPECIAL: .;
+// terminal SPECIAL: .;
 terminal fragment BLOCK_COMMENT: '/*' -> '*/';
 terminal fragment LINE_COMMENT: '//' (!NEWLINE)*;

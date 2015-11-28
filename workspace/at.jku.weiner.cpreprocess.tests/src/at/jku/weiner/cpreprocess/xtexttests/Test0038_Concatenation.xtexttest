@@ -7,12 +7,12 @@ split-lexer=true
 source file="res/Test0038_Concatenation.c"
 //----------------------------------------------------------------------
 lexer-tokens
-	HASH DEFINE WS ID LPAREN ID COMMA WS ID RPAREN WS 
+	HASH DEFINE WS ID SKW_LEFTPAREN ID SKW_COMMA WS ID SKW_RIGHTPAREN WS 
 		ID WS HASH HASH WS ID
-		COMMA WS
+		SKW_COMMA WS
 		HASH ID WS HASH HASH WS HASH ID
 		NEWLINE
-	ID LPAREN ID COMMA WS ID RPAREN NEWLINE
+	ID SKW_LEFTPAREN ID SKW_COMMA WS ID SKW_RIGHTPAREN NEWLINE
 //----------------------------------------------------------------------
 (Model
 	units+=

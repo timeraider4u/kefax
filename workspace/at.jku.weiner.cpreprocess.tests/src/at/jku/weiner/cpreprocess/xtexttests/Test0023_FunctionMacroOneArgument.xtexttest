@@ -7,8 +7,8 @@ split-lexer=true
 source file="res/Test0023_FunctionMacroOneArgument.c"
 //----------------------------------------------------------------------
 lexer-tokens
-	HASH DEFINE WS ID LPAREN ID RPAREN WS ID WS SPECIAL WS SPECIAL NEWLINE
-	ID WS ID WS SPECIAL WS ID LPAREN SPECIAL RPAREN SPECIAL NEWLINE
+	HASH DEFINE WS ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WS ID WS SKW_PLUS WS DECIMAL_LITERAL NEWLINE
+	ID WS ID WS SKW_ASSIGN WS ID SKW_LEFTPAREN DECIMAL_LITERAL SKW_RIGHTPAREN SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
 (Model
 	units+=

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/at.jku.weiner.c.common/src-gen" editDirectory="/at.jku.weiner.c.common.edit/src"
+    editorDirectory="/at.jku.weiner.c.common.editor/src" modelPluginID="at.jku.weiner.c.common"
+    forceOverwrite="true" modelName="Common" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="6.0" copyrightFields="false" editPluginID="at.jku.weiner.c.common.edit"
+    editorPluginID="at.jku.weiner.c.common.editor" runtimeVersion="2.11">
+  <genPackages prefix="Common" basePackage="at.jku.weiner.c" disposableProviderFactory="true"
+      fileExtensions="c,h" ecorePackage="Common.ecore#/">
+    <genClasses ecoreClass="Common.ecore#//Common"/>
+  </genPackages>
+</genmodel:GenModel>

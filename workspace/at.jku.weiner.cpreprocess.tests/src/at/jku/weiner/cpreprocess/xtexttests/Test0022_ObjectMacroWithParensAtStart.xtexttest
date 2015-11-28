@@ -7,8 +7,8 @@ split-lexer=true
 source file="res/Test0022_ObjectMacroWithParensAtStart.c"
 //----------------------------------------------------------------------
 lexer-tokens
-	HASH DEFINE WS ID WS LPAREN RPAREN WS ID LPAREN RPAREN NEWLINE
-	ID LPAREN RPAREN NEWLINE
+	HASH DEFINE WS ID WS SKW_LEFTPAREN SKW_RIGHTPAREN WS ID SKW_LEFTPAREN SKW_RIGHTPAREN NEWLINE
+	ID SKW_LEFTPAREN SKW_RIGHTPAREN NEWLINE
 //----------------------------------------------------------------------
 (Model
 	units+=

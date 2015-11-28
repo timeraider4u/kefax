@@ -7,13 +7,10 @@ split-lexer=true
 source file="res/Test0033_Misnesting2.c"
 //----------------------------------------------------------------------
 lexer-tokens
-	HASH DEFINE WS ID LPAREN ID RPAREN WS ID LPAREN SPECIAL 
-		SPECIAL ID 
-		SPECIAL SPECIAL 
-		SPECIAL ID 
-		SPECIAL COMMA WS ID 
+	HASH DEFINE WS ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WS ID SKW_LEFTPAREN STRING_LITERAL
+		SKW_COMMA WS ID 
 		NEWLINE
-	ID LPAREN SPECIAL RPAREN COMMA WS SPECIAL RPAREN SPECIAL NEWLINE
+	ID SKW_LEFTPAREN DECIMAL_LITERAL SKW_RIGHTPAREN SKW_COMMA WS DECIMAL_LITERAL SKW_RIGHTPAREN SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
 (Model
 	units+=

@@ -9,7 +9,7 @@ source file="myinclude/include/printf.h"
 lexer-tokens
 	//SPECIAL +*2 WS ID SPECIAL ID NEWLINE
 	WS NEWLINE
-	ID WS ID LPAREN ID WS SPECIAL+*2 WS ID RPAREN SPECIAL NEWLINE
+	ID WS ID SKW_LEFTPAREN ID WS SKW_STAR +*2 WS ID SKW_RIGHTPAREN SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
 (Model
 	units+=

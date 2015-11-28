@@ -7,10 +7,10 @@ split-lexer=true
 source file="res/Test0011_Code.c"
 //----------------------------------------------------------------------
 lexer-tokens
-	ID WS ID LPAREN ID RPAREN WS SPECIAL NEWLINE
+	ID WS ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WS SKW_LEFTBRACE NEWLINE
 	WS +* 5 NEWLINE
-	WS ID WS SPECIAL +*2 NEWLINE
-	SPECIAL NEWLINE
+	WS ID WS DECIMAL_LITERAL SKW_SEMI NEWLINE
+	SKW_RIGHTBRACE NEWLINE
 	NEWLINE
 //----------------------------------------------------------------------
 (Model

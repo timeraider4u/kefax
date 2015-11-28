@@ -7,8 +7,8 @@ split-lexer=true
 source file="res/Test0006_SimpleInc.c"
 //----------------------------------------------------------------------
 lexer-tokens
-	HASH INCLUDE WS SPECIAL ID SPECIAL ID SPECIAL NEWLINE
-	HASH INCLUDE WS SPECIAL ID SPECIAL ID SPECIAL NEWLINE
+	HASH INCLUDE WS STRING_LITERAL NEWLINE
+	HASH INCLUDE WS STRING_LITERAL NEWLINE
 //----------------------------------------------------------------------
 (Model
 	units+=

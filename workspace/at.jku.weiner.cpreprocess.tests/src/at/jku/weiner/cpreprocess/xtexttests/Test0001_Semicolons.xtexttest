@@ -7,10 +7,10 @@ split-lexer=true
 source file="res/Test0001_Semicolons.c"
 //----------------------------------------------------------------------
 lexer-tokens
-	SPECIAL NEWLINE
-	SPECIAL +*6 NEWLINE
+	SKW_SEMI NEWLINE
+	SKW_SEMI SKW_BACKSLASH SKW_SEMI SKW_BACKSLASH +*2 SKW_SEMI NEWLINE
 	NEWLINE
-	SPECIAL +*3 NEWLINE
+	SKW_SEMI +*3 NEWLINE
 //----------------------------------------------------------------------
 (Model
 	units+=

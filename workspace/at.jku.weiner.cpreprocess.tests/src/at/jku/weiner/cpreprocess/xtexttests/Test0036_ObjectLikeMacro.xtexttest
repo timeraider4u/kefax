@@ -8,7 +8,7 @@ source file="res/Test0036_ObjectLikeMacro.c"
 //----------------------------------------------------------------------
 lexer-tokens
 	HASH DEFINE WS ID WS ID NEWLINE
-	ID WS SPECIAL ID SPECIAL WS ID WS SPECIAL ID SPECIAL NEWLINE
+	ID WS STRING_LITERAL WS ID WS STRING_LITERAL NEWLINE
 //----------------------------------------------------------------------
 (Model
 	units+=

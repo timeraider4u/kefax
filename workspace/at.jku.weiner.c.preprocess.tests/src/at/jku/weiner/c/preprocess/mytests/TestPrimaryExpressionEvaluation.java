@@ -10,7 +10,7 @@ import at.jku.weiner.c.preprocess.preprocess.PrimaryExpression;
 import at.jku.weiner.c.preprocess.utils.expressions.ExpressionEvaluation;
 import at.jku.weiner.c.preprocess.utils.macros.DefinitionTable;
 
-public class TestExpressionEvaluation {
+public class TestPrimaryExpressionEvaluation {
 	private static final int FALSE = 0;
 	private static final int TRUE = 1;
 	private PreprocessFactory factory = PreprocessFactory.eINSTANCE;
@@ -33,7 +33,7 @@ public class TestExpressionEvaluation {
 		final PrimaryExpression expression = this.factory
 				.createPrimaryExpression();
 		expression.setId("FOO");
-		Assert.assertEquals(TestExpressionEvaluation.FALSE,
+		Assert.assertEquals(TestPrimaryExpressionEvaluation.FALSE,
 				ExpressionEvaluation.evaluate(expression));
 	}
 
@@ -43,7 +43,7 @@ public class TestExpressionEvaluation {
 				.createPrimaryExpression();
 		expression.setId("FOO");
 		DefinitionTable.add("FOO", "1");
-		Assert.assertEquals(TestExpressionEvaluation.TRUE,
+		Assert.assertEquals(TestPrimaryExpressionEvaluation.TRUE,
 				ExpressionEvaluation.evaluate(expression));
 	}
 
@@ -54,7 +54,7 @@ public class TestExpressionEvaluation {
 		expression.setId("FOO");
 		DefinitionTable.add("FOO", "BAR");
 		DefinitionTable.add("BAR", "0");
-		Assert.assertEquals(TestExpressionEvaluation.FALSE,
+		Assert.assertEquals(TestPrimaryExpressionEvaluation.FALSE,
 				ExpressionEvaluation.evaluate(expression));
 	}
 
@@ -65,7 +65,7 @@ public class TestExpressionEvaluation {
 		expression.setId("FOO");
 		DefinitionTable.add("FOO", "BAR");
 		DefinitionTable.add("BAR", "1");
-		Assert.assertEquals(TestExpressionEvaluation.TRUE,
+		Assert.assertEquals(TestPrimaryExpressionEvaluation.TRUE,
 				ExpressionEvaluation.evaluate(expression));
 	}
 
@@ -74,7 +74,7 @@ public class TestExpressionEvaluation {
 		final PrimaryExpression expression = this.factory
 				.createPrimaryExpression();
 		expression.setConst("0");
-		Assert.assertEquals(TestExpressionEvaluation.FALSE,
+		Assert.assertEquals(TestPrimaryExpressionEvaluation.FALSE,
 				ExpressionEvaluation.evaluate(expression));
 	}
 
@@ -83,7 +83,7 @@ public class TestExpressionEvaluation {
 		final PrimaryExpression expression = this.factory
 				.createPrimaryExpression();
 		expression.setConst("1");
-		Assert.assertEquals(TestExpressionEvaluation.TRUE,
+		Assert.assertEquals(TestPrimaryExpressionEvaluation.TRUE,
 				ExpressionEvaluation.evaluate(expression));
 	}
 
@@ -117,7 +117,7 @@ public class TestExpressionEvaluation {
 				.createPrimaryExpression();
 		expression.setConst("0b001");
 		final int result = ExpressionEvaluation.evaluate(expression);
-		Assert.assertEquals(TestExpressionEvaluation.TRUE, result);
+		Assert.assertEquals(TestPrimaryExpressionEvaluation.TRUE, result);
 	}
 
 }

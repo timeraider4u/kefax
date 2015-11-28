@@ -4,5 +4,4 @@ int foo = -1;
 	#define FOO BAR
 	int foo = 0;
 #endif /* endif FOOBAR */
-
 foo = FOO;

@@ -170,6 +170,220 @@ MyCodeLineExtended returns ecore::EString:
 ;
 
 // expressions
+Expression:
+	{Expression}
+	expression=ConditionalExpression
+;
+
+ConstantExpression returns Expression:
+	{ConstantExpression}
+	expr=ConditionalExpression
+;
+
+ConditionalExpression returns Expression:
+	{ConditionalExpression}
+	expr=LogicalOrExpression
+	(SKW_QUESTION qExpr=Expression SKW_COLON
+		cExpr=ConditionalExpression
+	)?
+;
+
+LogicalOrExpression returns Expression:
+	{LogicalOrExpression}
+	expr+=LogicalAndExpression
+	(SKW_OROR expr+=LogicalAndExpression)*
+;
+
+LogicalAndExpression returns Expression:
+	{LogicalAndExpression}
+	expr+=InclusiveOrExpression
+	(SKW_ANDAND expr+=InclusiveOrExpression)*
+;
+
+InclusiveOrExpression returns Expression:
+	{InclusiveOrExpression}
+	expr+=ExclusiveOrExpression
+	(SKW_OR expr+=ExclusiveOrExpression)*
+;
+
+ExclusiveOrExpression returns Expression:
+	{ExclusiveOrExpression}
+	expr+=AndExpression
+	(SKW_CARET expr+=AndExpression)*
+;
+
+AndExpression returns Expression:
+	{AndExpression}
+	expr+=EqualityExpression
+	(SKW_AND expr+=EqualityExpression)*
+;
+
+EqualityExpression returns Expression:
+	{EqualityExpression}
+	expr+=RelationalExpression
+	(
+		(
+				op+=SKW_EQUAL
+			|	op+=SKW_NOTEQUAL
+		)
+		expr+=RelationalExpression
+	)*
+;
+
+RelationalExpression returns Expression:
+	{RelationalExpression}
+	expr+=ShiftExpression
+	(
+		(
+				op+=SKW_LESS
+			|	op+=SKW_GREATER
+			|	op+=SKW_LESSEQUAL
+			|	op+=SKW_GREATEREQUAL
+		)
+		expr += ShiftExpression
+	)*
+;
+
+ShiftExpression returns Expression:
+	{ShiftExpression}
+	expr+=AdditiveExpression
+	(
+		(
+				op+=SKW_LEFTSHIFT
+			|	op+=SKW_RIGHTSHIFT
+		)
+		expr+=AdditiveExpression
+	)*
+;
+
+AdditiveExpression returns Expression:
+	{AdditiveExpression}
+	expr+=MultiplicativeExpression
+	(
+		(
+				op+=SKW_PLUS
+			|	op+=SKW_MINUS
+		)
+		expr+=MultiplicativeExpression
+	)*
+;
+
+MultiplicativeExpression returns Expression:
+	{MultiplicativeExpression}
+	expr+=CastExpression
+	(
+		(
+				op+=SKW_STAR
+			|	op+=SKW_DIV
+			|	op+=SKW_MOD
+		)
+		expr+=CastExpression
+	)*
+;
+
+CastExpression returns Expression:
+	{CastExpression}
+	(
+		expr=UnaryExpression
+	//|	SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN expr=CastExpression
+	//|	'__extension__' LEFTPAREN type=TypeName RIGHTPAREN castExpr=CastExpression
+	)
+;
+
+UnaryExpression returns Expression:
+	{UnaryExpression}	
+	(
+		expr=PostfixExpression
+	|	plusplus=SKW_PLUSPLUS expr=UnaryExpression
+	|	minusminus=SKW_MINUSMINUS expr=UnaryExpression
+	|	op=UnaryOperator expr=CastExpression
+	//|	sizeOf=SKW_SIZEOF SKW_LEFTPAREN typeName=TypeName SKW_RIGHTPAREN
+	//|	sizeOf=SKW_SIZEOF expr=UnaryExpression 
+	//|	ALIGNOF LEFTPAREN typeName=typeName RIGHTPAREN
+	|	andand=SKW_ANDAND id=ID // GCC extension address of label
+	)
+;
+
+UnaryOperator:
+	{UnaryOperator}
+	(
+		op=SKW_AND
+	|	op=SKW_STAR
+	|	op=SKW_PLUS 
+	|	op=SKW_MINUS 
+	|	op=SKW_TILDE
+	|	op=SKW_NOT
+	)
+;
+
+PostfixExpression returns Expression:
+	{PostfixExpression}
+	(expr+=PrimaryExpression
+	/*	(
+	|	('__extension__' LEFTPAREN typeName RIGHTPAREN LEFTBRACE initializerList=initializerList) 
+			(COMMA? RIGHTBRACE)
+	)
+	*/
+	
+	//(
+		//	suffix+=PostfixExpressionSuffixArray
+		//|	suffix+=PostfixExpressionSuffixArgument
+		//|	suffix+=PostfixExpressionSuffixDot
+		//|	suffix+=PostfixExpressionSuffixArrow
+		//|	suffix+=PostfixExpressionSuffixPlusPlus
+		//|	suffix+=PostfixExpressionSuffixMinusMinus
+	//)*
+	
+	)
+;
+
+/*
+PostfixExpressionSuffixArray returns PostfixExpressionSuffix:
+	{PostfixExpressionSuffixArray}
+	SKW_LEFTBRACKET arrayExpr=Expression SKW_RIGHTBRACKET
+;
+
+
+PostfixExpressionSuffixArgument returns PostfixExpressionSuffix:
+	{PostfixExpressionSuffixArgument}
+	SKW_LEFTPAREN (argumentExpressionList=ArgumentExpressionList)? SKW_RIGHTPAREN
+;
+
+PostfixExpressionSuffixDot returns PostfixExpressionSuffix:
+	{PostfixExpressionSuffixDot}
+	SKW_DOT id=ID
+;
+
+PostfixExpressionSuffixArrow returns PostfixExpressionSuffix:
+	{PostfixExpressionSuffixArrow}
+	SKW_ARROW id=ID
+;
+*/
+
+PostfixExpressionSuffixPlusPlus returns PostfixExpressionSuffix:
+	{PostfixExpressionSuffixPlusPlus}
+	SKW_PLUSPLUS
+;
+
+PostfixExpressionSuffixMinusMinus returns PostfixExpressionSuffix:
+	{PostfixExpressionSuffixMinusMinus}
+	SKW_MINUSMINUS
+;
+
+//ArgumentExpressionList: expr+=AssignmentExpression (SKW_COMMA expr+=AssignmentExpression)*;
+
+PrimaryExpression returns Expression:
+	{PrimaryExpression}
+	(id=ID
+	|	const=Constant
+	//|	string+=STRING_LITERAL+ // reachable over Constant!
+	|	SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN
+	//|	genericSelection=genericSelection
+	// |	'__extension__'? LEFTPAREN compoundStmt=compoundStatement RIGHTPAREN // Blocks (GCC extension)
+	//|	'__builtin_va_arg' LEFTPAREN expr=unaryExpression COMMA typeName=typeName RIGHTPAREN
+	//|	'__builtin_offsetof' LEFTPAREN typeName=typeName COMMA expr=unaryExpression RIGHTPAREN
+	)
+;
 
 Constant returns ecore::EString:
 	(
@@ -182,21 +396,6 @@ Constant returns ecore::EString:
 	|	BIN_LITERAL
 	)
 ;
-
-/*SpecialKeywords returns ecore::EString:
-	SKW_AND | SKW_ANDAND | SKW_ASSIGN | 
-	SKW_BACKSLASH | SKW_CARET | SKW_COMMA | 
-	SKW_COLON | SKW_DIV | SKW_DOT | 
-	SKW_DOUBLEQUOTE | SKW_EQUAL | SKW_GREATER | 
-	SKW_GREATEREQUAL | SKW_LEFTSHIFT | SKW_LESS | 
-	SKW_LESSEQUAL | SKW_MINUS | SKW_MINUSMINUS | 
-	SKW_MOD | SKW_NOT | SKW_NOTEQUAL |
-	SKW_OR | SKW_OROR | SKW_PLUS |
-	SKW_PLUSPLUS | SKW_PLUSPLUS |SKW_QUESTION |
-	SKW_RIGHTSHIFT | SKW_SEMI | SKW_SINGLEQUOTE | 
-	SKW_STAR | SKW_TILDE | 
-	LEFTBRACE | RIGHTBRACE | LEFTBRACKET | RIGHTBRACKET
-;*/
 
 // lexer tokens
 terminal HASH: '#';

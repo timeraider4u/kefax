@@ -1,0 +1,68 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language preprocess
+//----------------------------------------------------------------------
+split-lexer=true
+source file="res/Test0042_IfnotDefSimple.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH DEFINE WS ID WS DECIMAL_LITERAL NEWLINE
+	ID WS ID WS SKW_ASSIGN WS SKW_MINUS DECIMAL_LITERAL SKW_SEMI NEWLINE
+	HASH IFNOTDEF WS ID NEWLINE
+		WS HASH DEFINE WS ID WS ID NEWLINE
+		WS ID WS ID WS SKW_ASSIGN WS DECIMAL_LITERAL SKW_SEMI NEWLINE
+	HASH ENDIF WS WS NEWLINE
+	ID WS SKW_ASSIGN WS ID SKW_SEMI NEWLINE
+//----------------------------------------------------------------------
+(Model
+	units+=
+	(TranslationUnit
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineObjectMacro
+					id++"FOOBAR",
+					string++"1"
+				)
+			),
+			(Code
+				code++"int foo = -1;"
+			),
+			(PreprocessorDirectives
+				directive=
+				(ConditionalDirective
+					conditional=
+					(IfNotDefConditional
+						id++"FOOBAR",
+						group=
+						(GroupOpt
+							lines+=
+							(PreprocessorDirectives
+								directive=
+								(DefineObjectMacro
+									id++"FOO",
+									string++"BAR"
+								)
+							),
+							(Code
+								code++"	int foo = 0;"
+							)
+						)
+					)
+				)
+			),
+			(Code
+				code++"foo = FOO;"
+			)
+		)
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0042_IfnotDefSimple.c.i"
+expected file="expected/Test0042_IfnotDefSimple.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

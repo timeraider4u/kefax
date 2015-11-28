@@ -27,6 +27,8 @@ import at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro
 import at.jku.weiner.c.preprocess.preprocess.ConditionalDirective
 import at.jku.weiner.c.preprocess.preprocess.IfDefConditional
 import at.jku.weiner.c.preprocess.preprocess.IfNotDefConditional
+import at.jku.weiner.c.preprocess.preprocess.IfConditional
+import at.jku.weiner.c.preprocess.utils.expressions.ExpressionEvaluation
 
 /**
  * Generates code from your model files on save.
@@ -131,11 +133,21 @@ class PreprocessGenerator implements IGenerator {
 	}
 	
 	def String outputFor(ConditionalDirective obj) {
+		if (obj.conditional instanceof IfConditional) {
+			return outputFor(obj.conditional as IfConditional);
+		}
 		if (obj.conditional instanceof IfDefConditional) {
 			return outputFor(obj.conditional as IfDefConditional); 
 		}
 		if (obj.conditional instanceof IfNotDefConditional) {
 			return outputFor(obj.conditional as IfNotDefConditional); 
+		}
+		return "";
+	}
+	
+	def String outputFor(IfConditional obj) {
+		if (ExpressionEvaluation.isTrue(obj.expression)) {
+			return outputFor(obj.group).trim();
 		}
 		return "";
 	}

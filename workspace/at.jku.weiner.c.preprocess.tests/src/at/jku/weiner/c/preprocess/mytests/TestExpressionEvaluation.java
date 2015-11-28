@@ -96,11 +96,28 @@ public class TestExpressionEvaluation {
 	}
 
 	@Test(expected = NumberFormatException.class)
+	public void testConstantWhichIsFloat2() {
+		final PrimaryExpression expression = this.factory
+				.createPrimaryExpression();
+		expression.setConst("1.0");
+		ExpressionEvaluation.evaluate(expression);
+	}
+
+	@Test(expected = NumberFormatException.class)
 	public void testConstantWhichIsString() {
 		final PrimaryExpression expression = this.factory
 				.createPrimaryExpression();
 		expression.setConst("\"hello\"");
 		ExpressionEvaluation.evaluate(expression);
+	}
+
+	@Test
+	public void testConstantWhichIsBinary() {
+		final PrimaryExpression expression = this.factory
+				.createPrimaryExpression();
+		expression.setConst("0b001");
+		final int result = ExpressionEvaluation.evaluate(expression);
+		Assert.assertEquals(TestExpressionEvaluation.TRUE, result);
 	}
 
 }

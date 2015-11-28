@@ -35,10 +35,10 @@ public class ExpressionEvaluation {
 		final String id = expression.getId();
 		final Expression expr = expression.getExpr();
 		if (constant != null) {
-			return ExpressionEvaluation.evaluateForConstant(constant);
+			return ExpressionEvaluation.evaluateForString(constant, true);
 		}
 		if (id != null) {
-			return ExpressionEvaluation.evaluateForId(id);
+			return ExpressionEvaluation.evaluateForString(id, false);
 		}
 		if (expr != null) {
 			return ExpressionEvaluation.evaluate(expr);
@@ -46,18 +46,16 @@ public class ExpressionEvaluation {
 		return ExpressionEvaluation.FALSE;
 	}
 
-	private static int evaluateForConstant(final String constant) {
-		final int id = Integer.valueOf(constant);
-		return id;
-	}
-
-	private static int evaluateForId(final String macroName) {
-		final String macro = DefinitionTable.resolve(macroName);
+	private static int evaluateForString(final String macroName, final boolean isConst) {
+		String macro = DefinitionTable.resolve(macroName);
 		try {
+			if (macro.startsWith("0b") || macro.startsWith("0B")) {
+				macro = macro.substring(2);
+			}
 			final int result = Integer.valueOf(macro);
 			return result;
 		} catch (final NumberFormatException ex) {
-			if (DefinitionTable.isDefined(macroName)) {
+			if (isConst || DefinitionTable.isDefined(macroName)) {
 				throw ex;
 			}
 		}

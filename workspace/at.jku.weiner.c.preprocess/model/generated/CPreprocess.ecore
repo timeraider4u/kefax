@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="cPreprocess" nsURI="http://www.jku.at/weiner/c/preprocess/CPreprocess"
+    nsPrefix="cPreprocess">
+  <eClassifiers xsi:type="ecore:EClass" name="Model">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="units" upperBound="-1"
+        eType="#//TranslationUnit" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TranslationUnit">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="group" eType="#//GroupOpt"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GroupOpt">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lines" upperBound="-1"
+        eType="#//SourceCodeLine" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SourceCodeLine"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IncludeDirective">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="string" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DefineDirective">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="string" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IdentifierList">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ErrorDirective">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="msg" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UnDefineDirective">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConditionalDirective">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="conditional" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IfDefConditional">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="group" eType="#//GroupOpt"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IfNotDefConditional">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="group" eType="#//GroupOpt"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PragmaDirective"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NullDirective"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PreprocessorDirectives" eSuperTypes="#//SourceCodeLine">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="directive" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DefineObjectMacro" eSuperTypes="#//DefineDirective"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DefineFunctionLikeMacro" eSuperTypes="#//DefineDirective">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="list" eType="#//IdentifierList"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NewLineLine" eSuperTypes="#//SourceCodeLine"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Code" eSuperTypes="#//SourceCodeLine">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

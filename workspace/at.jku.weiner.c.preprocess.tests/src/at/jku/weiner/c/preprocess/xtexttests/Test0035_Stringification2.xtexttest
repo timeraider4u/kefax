@@ -1,0 +1,65 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language cPreprocess
+//----------------------------------------------------------------------
+split-lexer=true
+source file="res/Test0035_Stringification2.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH DEFINE WS ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WS ID SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
+	HASH DEFINE WS ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WS HASH ID NEWLINE
+	HASH DEFINE WS ID WS DECIMAL_LITERAL NEWLINE
+	ID SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
+	ID SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
+//----------------------------------------------------------------------
+(Model
+	units+=
+	(TranslationUnit
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"BAR",
+					list=
+					(IdentifierList
+						id+*"[X]"
+					),
+					string++"BAZ(X)"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"BAZ",
+					list=
+					(IdentifierList
+						id+*"[X]"
+					),
+					string++"#X"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineObjectMacro
+					id++"FOO",
+					string++"64"
+				)
+			),
+			(Code
+				code++"BAZ(FOO)"
+			),
+			(Code
+				code++"BAR(FOO)"
+			)
+		)
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0035_Stringification2.c.i"
+expected file="expected/Test0035_Stringification2.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

@@ -1,0 +1,67 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language cPreprocess
+//----------------------------------------------------------------------
+split-lexer=true
+source file="res/Test0009_DefineAndInclude.h"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH DEFINE WS ID WS ID NEWLINE
+	HASH DEFINE WS ID WS ID NEWLINE
+	HASH DEFINE WS ID WS ID WS ID WS SKW_ASSIGN WS DECIMAL_LITERAL NEWLINE
+	HASH DEFINE WS ID WS DECIMAL_LITERAL WS SKW_PLUS WS DECIMAL_LITERAL NEWLINE
+	//SPECIAL +*2 WS ID NEWLINE
+	WS NEWLINE
+	ID WS ID WS SKW_ASSIGN WS ID SKW_SEMI NEWLINE
+//----------------------------------------------------------------------
+(Model
+	units+=
+	(TranslationUnit
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineDirective
+					id++"X",
+					string++"x"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineDirective
+					id++"Y",
+					string++"y"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineDirective
+					id++"DECLARATION",
+					string++"INT X = 4"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineDirective
+					id++"Z",
+					string++"1 + 1"
+				)
+			),
+			(Code
+				code++"// declarations"
+			),
+			(Code
+				code++"int Y = Z;"
+			)
+			
+		)
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0009_DefineAndInclude.h.i"
+expected file="expected/Test0009_DefineAndInclude.h"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

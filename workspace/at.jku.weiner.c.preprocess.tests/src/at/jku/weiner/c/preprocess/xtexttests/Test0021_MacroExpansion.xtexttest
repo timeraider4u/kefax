@@ -1,0 +1,66 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language cPreprocess
+//----------------------------------------------------------------------
+split-lexer=true
+source file="res/Test0021_MacroExpansion.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH DEFINE WS ID SKW_LEFTPAREN SKW_RIGHTPAREN WS ID SKW_LEFTPAREN SKW_RIGHTPAREN NEWLINE
+	NEWLINE
+	ID WS ID SKW_LEFTPAREN SKW_RIGHTPAREN WS SKW_LEFTBRACE NEWLINE
+	WS ID WS DECIMAL_LITERAL SKW_SEMI NEWLINE
+	SKW_RIGHTBRACE NEWLINE
+	NEWLINE
+	ID WS ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WS SKW_LEFTBRACE NEWLINE
+	WS ID WS ID WS SKW_ASSIGN WS ID SKW_LEFTPAREN SKW_RIGHTPAREN SKW_SEMI NEWLINE
+	WS ID WS ID SKW_SEMI NEWLINE
+	SKW_RIGHTBRACE NEWLINE
+//----------------------------------------------------------------------
+(Model
+	units+=
+	(TranslationUnit
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineDirective
+					id++"foo",
+					string++"bar()"
+				)
+			),
+			(NewLineLine),
+			(Code
+				code++"int bar() {"
+			),
+			(Code
+				code++"	return 0;"
+			),
+			(Code
+				code++"}"
+			),
+			(NewLineLine),
+			(Code
+				code++"int main(void) {"
+			),
+			(Code
+				code++"	int foo = foo();"
+			),
+			(Code
+				code++"	return foo;"
+			),
+			(Code
+				code++"}"
+			)
+			
+		)
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0021_MacroExpansion.c.i"
+expected file="expected/Test0021_MacroExpansion.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

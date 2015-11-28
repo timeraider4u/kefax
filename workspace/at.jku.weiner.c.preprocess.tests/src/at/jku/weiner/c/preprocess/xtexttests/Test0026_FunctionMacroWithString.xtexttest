@@ -1,0 +1,47 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language cPreprocess
+//----------------------------------------------------------------------
+split-lexer=true
+source file="res/Test0026_FunctionMacroWithString.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH DEFINE WS ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WS 
+		ID SKW_COMMA WS 
+		STRING_LITERAL SKW_COMMA WS
+		ID SKW_COMMA WS 
+		STRING_LITERAL
+		SKW_COMMA WS ID NEWLINE
+	ID SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
+//----------------------------------------------------------------------
+(Model
+	units+=
+	(TranslationUnit
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"foo",
+					list=
+					(IdentifierList
+						id+*"[x]"
+					),
+					string++"x, \\\"x\\\", x, \\\"abc \\\\\\\"x def \\\\\\\"\\\", x"
+				)
+			),
+			(Code
+				code++"foo(bar)"
+			)
+			
+		)
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0026_FunctionMacroWithString.c.i"
+expected file="expected/Test0026_FunctionMacroWithString.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

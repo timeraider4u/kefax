@@ -1,0 +1,61 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language cPreprocess
+//----------------------------------------------------------------------
+split-lexer=true
+source file="res/Test0014_AbsoluteInclude.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH INCLUDE WS SKW_LESS INCLUDE SKW_DIV ID SKW_DOT ID SKW_GREATER NEWLINE
+	NEWLINE
+	ID WS ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WS SKW_LEFTBRACE NEWLINE
+	WS ID SKW_LEFTPAREN STRING_LITERAL SKW_RIGHTPAREN SKW_SEMI NEWLINE
+	WS ID WS DECIMAL_LITERAL SKW_SEMI NEWLINE
+	SKW_RIGHTBRACE NEWLINE
+	NEWLINE
+//----------------------------------------------------------------------
+(Model
+	units+=
+	(TranslationUnit
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(IncludeDirective
+					string++"<include/printf.h>"
+				)
+			),
+			(NewLineLine),
+			(Code
+				code++"int main(void) {"
+			),
+			(Code
+				code++"	printf(\\\"Hello World!\\\\n\\\");"
+			),
+			(Code
+				code++"	return 0;"
+			),
+			(Code
+				code++"}"
+			),
+			
+			(NewLineLine
+				
+			)
+			
+		)
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0014_AbsoluteInclude.c.i"
+expected file="expected/Test0014_AbsoluteInclude.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+before
+	class= at.jku.weiner.c.preprocess.xtexttests.TestUtils
+	method=setUpTest0014
+	()
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

@@ -1,0 +1,37 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language cPreprocess
+//----------------------------------------------------------------------
+split-lexer=true
+source file="res/Test0036_ObjectLikeMacro.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH DEFINE WS ID WS ID NEWLINE
+	ID WS STRING_LITERAL WS ID WS STRING_LITERAL NEWLINE
+//----------------------------------------------------------------------
+(Model
+	units+=
+	(TranslationUnit
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineObjectMacro
+					id++"FOO",
+					string++"BAR"
+				)
+			),
+			(Code
+				code++"FOO \\\"FOO\\\" FOO \\\"FOO\\\""
+			)
+		)
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0036_ObjectLikeMacro.c.i"
+expected file="expected/Test0036_ObjectLikeMacro.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

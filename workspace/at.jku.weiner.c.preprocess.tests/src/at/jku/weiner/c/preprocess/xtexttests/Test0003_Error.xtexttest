@@ -1,0 +1,33 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language cPreprocess
+//----------------------------------------------------------------------
+split-lexer=true
+source file="res/Test0003_Error.h"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH ERROR WS STRING_LITERAL NEWLINE
+//----------------------------------------------------------------------
+(Model
+	units+=
+	(TranslationUnit
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(ErrorDirective
+					msg++"\\\"error message!\\\""
+				)
+			)
+			
+		)
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0003_Error.h.i"
+expected file="expected/Test0003_Error.h"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

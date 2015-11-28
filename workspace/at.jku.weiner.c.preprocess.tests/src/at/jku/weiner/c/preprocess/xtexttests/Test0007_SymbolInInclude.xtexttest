@@ -1,0 +1,34 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language cPreprocess
+//----------------------------------------------------------------------
+split-lexer=true
+source file="res/Test0007_SymbolInInclude.h"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH INCLUDE WS ID NEWLINE
+//----------------------------------------------------------------------
+(Model
+	units+=
+	(TranslationUnit
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(IncludeDirective
+					string++"abc"
+				)
+			)
+			
+		)
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0007_SymbolInInclude.c.i"
+expected file isSameAsInputFile
+expected exceptions java.lang.IllegalArgumentException
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

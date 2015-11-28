@@ -1,0 +1,41 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language cPreprocess
+//----------------------------------------------------------------------
+split-lexer=true
+source file="res/Test0001_Semicolons.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	SKW_SEMI NEWLINE
+	SKW_SEMI SKW_BACKSLASH SKW_SEMI SKW_BACKSLASH +*2 SKW_SEMI NEWLINE
+	NEWLINE
+	SKW_SEMI +*3 NEWLINE
+//----------------------------------------------------------------------
+(Model
+	units+=
+	(TranslationUnit
+		group=
+		(GroupOpt
+			lines+=		
+			(Code
+				code++";"
+			),
+			(Code
+				code++";\\\\;\\\\\\\\;"
+			),
+			(NewLineLine
+				
+			),
+			(Code
+				code++";;;"
+			)
+		)
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0001_Semicolons.c.i"
+expected file isSameAsInputFile
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

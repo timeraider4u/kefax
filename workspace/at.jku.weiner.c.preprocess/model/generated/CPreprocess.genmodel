@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/at.jku.weiner.c.preprocess/src-gen" editDirectory="/at.jku.weiner.c.preprocess.edit/src"
+    editorDirectory="/at.jku.weiner.c.preprocess.editor/src" modelPluginID="at.jku.weiner.c.preprocess"
+    forceOverwrite="true" modelName="CPreprocess" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="6.0" copyrightFields="false" editPluginID="at.jku.weiner.c.preprocess.edit"
+    editorPluginID="at.jku.weiner.c.preprocess.editor" runtimeVersion="2.11">
+  <genPackages prefix="CPreprocess" basePackage="at.jku.weiner.c.preprocess" disposableProviderFactory="true"
+      fileExtensions="c,h" ecorePackage="CPreprocess.ecore#/">
+    <genClasses ecoreClass="CPreprocess.ecore#//Model">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CPreprocess.ecore#//Model/units"/>
+    </genClasses>
+    <genClasses ecoreClass="CPreprocess.ecore#//TranslationUnit">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CPreprocess.ecore#//TranslationUnit/group"/>
+    </genClasses>
+    <genClasses ecoreClass="CPreprocess.ecore#//GroupOpt">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CPreprocess.ecore#//GroupOpt/lines"/>
+    </genClasses>
+    <genClasses ecoreClass="CPreprocess.ecore#//SourceCodeLine"/>
+    <genClasses ecoreClass="CPreprocess.ecore#//IncludeDirective">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CPreprocess.ecore#//IncludeDirective/string"/>
+    </genClasses>
+    <genClasses ecoreClass="CPreprocess.ecore#//DefineDirective">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CPreprocess.ecore#//DefineDirective/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CPreprocess.ecore#//DefineDirective/string"/>
+    </genClasses>
+    <genClasses ecoreClass="CPreprocess.ecore#//IdentifierList">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CPreprocess.ecore#//IdentifierList/id"/>
+    </genClasses>
+    <genClasses ecoreClass="CPreprocess.ecore#//ErrorDirective">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CPreprocess.ecore#//ErrorDirective/msg"/>
+    </genClasses>
+    <genClasses ecoreClass="CPreprocess.ecore#//UnDefineDirective">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CPreprocess.ecore#//UnDefineDirective/id"/>
+    </genClasses>
+    <genClasses ecoreClass="CPreprocess.ecore#//ConditionalDirective">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CPreprocess.ecore#//ConditionalDirective/conditional"/>
+    </genClasses>
+    <genClasses ecoreClass="CPreprocess.ecore#//IfDefConditional">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CPreprocess.ecore#//IfDefConditional/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CPreprocess.ecore#//IfDefConditional/group"/>
+    </genClasses>
+    <genClasses ecoreClass="CPreprocess.ecore#//IfNotDefConditional">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CPreprocess.ecore#//IfNotDefConditional/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CPreprocess.ecore#//IfNotDefConditional/group"/>
+    </genClasses>
+    <genClasses ecoreClass="CPreprocess.ecore#//PragmaDirective"/>
+    <genClasses ecoreClass="CPreprocess.ecore#//NullDirective"/>
+    <genClasses ecoreClass="CPreprocess.ecore#//PreprocessorDirectives">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CPreprocess.ecore#//PreprocessorDirectives/directive"/>
+    </genClasses>
+    <genClasses ecoreClass="CPreprocess.ecore#//DefineObjectMacro"/>
+    <genClasses ecoreClass="CPreprocess.ecore#//DefineFunctionLikeMacro">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CPreprocess.ecore#//DefineFunctionLikeMacro/list"/>
+    </genClasses>
+    <genClasses ecoreClass="CPreprocess.ecore#//NewLineLine"/>
+    <genClasses ecoreClass="CPreprocess.ecore#//Code">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CPreprocess.ecore#//Code/code"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

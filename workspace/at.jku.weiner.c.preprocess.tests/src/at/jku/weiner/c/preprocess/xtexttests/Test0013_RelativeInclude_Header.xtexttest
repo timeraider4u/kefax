@@ -1,0 +1,35 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language cPreprocess
+//----------------------------------------------------------------------
+split-lexer=true
+source file="myinclude/include/printf.h"
+//----------------------------------------------------------------------
+lexer-tokens
+	//SPECIAL +*2 WS ID SPECIAL ID NEWLINE
+	WS NEWLINE
+	ID WS ID SKW_LEFTPAREN ID WS SKW_STAR +*2 WS ID SKW_RIGHTPAREN SKW_SEMI NEWLINE
+//----------------------------------------------------------------------
+(Model
+	units+=
+	(TranslationUnit
+		group=
+		(GroupOpt
+			lines+=
+			(Code
+				code++"// printf.h"
+			),
+			(Code
+				code++"void printf(char ** argv);"
+			)
+			
+		)
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0013_RelativeInclude.h.i"
+expected file isSameAsInputFile
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

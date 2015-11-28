@@ -1,0 +1,43 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language cPreprocess
+//----------------------------------------------------------------------
+split-lexer=true
+source file="res/Test0002_Code.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	ID WS ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WS SKW_LEFTBRACE NEWLINE
+	WS ID WS DECIMAL_LITERAL SKW_SEMI NEWLINE
+	SKW_RIGHTBRACE NEWLINE
+	NEWLINE
+//----------------------------------------------------------------------
+(Model
+	units+=
+	(TranslationUnit
+		group=
+		(GroupOpt
+			lines+=
+			(Code
+				code++"int main(void) {"
+			),
+			(Code
+				code++"	return 0;"
+			),
+			(Code
+				code++"}"
+			),
+			
+			(NewLineLine
+				
+			)
+			
+		)
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0002_Code.c.i"
+expected file="expected/Test0002_Code.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

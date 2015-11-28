@@ -1,0 +1,41 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language cPreprocess
+//----------------------------------------------------------------------
+split-lexer=true
+source file="res/Test0030_ObjectLikeMacro.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	ID WS ID WS SKW_ASSIGN WS ID SKW_SEMI NEWLINE
+	HASH DEFINE WS ID WS DECIMAL_LITERAL NEWLINE
+	ID WS ID WS SKW_ASSIGN WS ID SKW_SEMI NEWLINE
+//----------------------------------------------------------------------
+(Model
+	units+=
+	(TranslationUnit
+		group=
+		(GroupOpt
+			lines+=
+			(Code
+				code++"int foo1 = BAR;"
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineDirective
+					id++"BAR",
+					string++"0"
+				)
+			),
+			(Code
+				code++"int foo2 = BAR;"
+			)
+		)
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0030_ObjectLikeMacro.c.i"
+expected file="expected/Test0030_ObjectLikeMacro.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

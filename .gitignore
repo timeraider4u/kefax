@@ -5,3 +5,5 @@
 bin/
 bin
 xtend-gen
+workspace/at.jku.weiner.c.preprocess.ui
+workspace/at.jku.weiner.c.preprocess.ui.tests

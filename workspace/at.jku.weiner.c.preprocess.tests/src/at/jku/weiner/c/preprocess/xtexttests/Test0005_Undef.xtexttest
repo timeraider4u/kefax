@@ -1,0 +1,84 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language cPreprocess
+//----------------------------------------------------------------------
+split-lexer=true
+source file="res/Test0005_Undef.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	//SPECIAL +*2 WS ID SKW_COMMA WS ID WS ID NEWLINE
+	WS NEWLINE
+	HASH DEFINE WS ID WS WS ID NEWLINE
+	ID WS ID WS SKW_ASSIGN WS FLOAT_LITERAL SKW_SEMI NEWLINE
+	HASH UNDEF WS ID NEWLINE
+	ID WS ID WS SKW_ASSIGN WS DECIMAL_LITERAL SKW_SEMI NEWLINE
+	HASH DEFINE WS ID WS WS ID NEWLINE
+	HASH UNDEF WS ID NEWLINE
+	ID WS ID WS SKW_ASSIGN WS DECIMAL_LITERAL SKW_SEMI NEWLINE
+	HASH UNDEF WS ID NEWLINE
+	ID WS ID WS SKW_ASSIGN WS DECIMAL_LITERAL SKW_SEMI NEWLINE
+//----------------------------------------------------------------------
+(Model
+	units+=
+	(TranslationUnit
+		group=
+		(GroupOpt
+			lines+=
+			(Code
+				code++"// nasty, but valid"
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineDirective
+					id++"int",
+					string++"double"
+				)
+			),
+			(Code
+				code++"int a = 2.5;"
+			),
+			(PreprocessorDirectives
+				directive=
+				(UnDefineDirective
+					id++"int"
+				)
+			),
+			(Code
+				code++"int b = 2;"
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineDirective
+					id++"int",
+					string++"long"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(UnDefineDirective
+					id++"int"
+				)
+			),
+			(Code
+				code++"int c = 2;"
+			),
+			(PreprocessorDirectives
+				directive=
+				(UnDefineDirective
+					id++"int"
+				)
+			),
+			(Code
+				code++"int d = 4;"
+			)
+			
+		)
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0005_Undef.c.i"
+expected file="expected/Test0005_Undef.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

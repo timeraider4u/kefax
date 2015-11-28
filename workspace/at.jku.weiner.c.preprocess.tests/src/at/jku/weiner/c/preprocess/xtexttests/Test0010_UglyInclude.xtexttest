@@ -1,0 +1,53 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language cPreprocess
+//----------------------------------------------------------------------
+split-lexer=true
+source file="res/Test0010_UglyInclude.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	ID WS ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WS SKW_LEFTBRACE NEWLINE
+	WS IF WS SKW_LEFTPAREN DECIMAL_LITERAL WS SKW_GREATER WS DECIMAL_LITERAL SKW_RIGHTPAREN WS SKW_LEFTBRACE NEWLINE
+	WS WS HASH INCLUDE WS STRING_LITERAL NEWLINE
+	WS SKW_RIGHTBRACE NEWLINE
+	WS ID WS SKW_MINUS DECIMAL_LITERAL SKW_SEMI NEWLINE
+	SKW_RIGHTBRACE NEWLINE
+//----------------------------------------------------------------------
+(Model
+	units+=
+	(TranslationUnit
+		group=
+		(GroupOpt
+			lines+=
+			(Code
+				code++"int main(void) {"
+			),
+			(Code
+				code++"	if (1 > 0) {"
+			),
+			(PreprocessorDirectives
+				directive=
+				(IncludeDirective
+					string++"\\\"Test0010_UglyInclude.h\\\""
+				)
+			),
+			(Code
+				code++"	}"
+			),
+			(Code
+				code++"	return -1;"
+			),
+			(Code
+				code++"}"
+			)
+			
+		)
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0010_UglyInclude.c.i"
+expected file="expected/Test0010_UglyInclude.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

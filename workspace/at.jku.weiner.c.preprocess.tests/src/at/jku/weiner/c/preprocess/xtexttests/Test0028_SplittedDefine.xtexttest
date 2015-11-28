@@ -1,0 +1,79 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language cPreprocess
+//----------------------------------------------------------------------
+split-lexer=true
+source file="res/Test0028_SplittedDefine.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	WS NEWLINE
+	WS NEWLINE
+	WS NEWLINE
+	WS NEWLINE
+	WS NEWLINE
+	WS NEWLINE
+	WS NEWLINE
+	WS NEWLINE
+	NEWLINE
+	WS NEWLINE
+	WS+*2 HASH WS+*3 DEFINE WS+*3 ID WS+*4 DECIMAL_LITERAL NEWLINE
+	NEWLINE
+	
+	ID WS ID WS SKW_ASSIGN WS ID SKW_SEMI NEWLINE
+//----------------------------------------------------------------------
+(Model
+	units+=
+	(TranslationUnit
+		group=
+		(GroupOpt
+			lines+=
+			(Code
+				code++"// the following is not working:"
+			),
+			(Code
+				code++"// /\\\\"
+			),
+			(Code
+				code++"//     *"
+			),
+			(Code
+				code++"//     */ # /*"
+			),
+			(Code
+				code++"//     */ defi\\\\"
+			),
+			(Code
+				code++"//     ne FO\\\\"
+			),
+			(Code
+				code++"//     O 10\\\\"
+			),
+			(Code
+				code++"//     20"
+			),
+			(NewLineLine),
+			(Code
+				code++"// this is working!"
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineDirective
+					id++"FOO",
+					string++"1024"
+				)
+			),
+			(NewLineLine),
+			(Code
+				code++"int foo = FOO;"
+			)
+			
+		)
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0028_SplittedDefine.c.i"
+expected file="expected/Test0028_SplittedDefine.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

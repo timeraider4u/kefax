@@ -1,0 +1,45 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language cPreprocess
+//----------------------------------------------------------------------
+split-lexer=true
+source file="res/Test0029_ObjectLikeMacro.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH DEFINE WS 	ID WS
+		DECIMAL_LITERAL SKW_COMMA WS+*6
+		DECIMAL_LITERAL SKW_COMMA WS+*6
+		DECIMAL_LITERAL SKW_COMMA WS+*6
+		DECIMAL_LITERAL
+		NEWLINE
+	ID WS ID SKW_LEFTBRACKET SKW_RIGHTBRACKET WS SKW_ASSIGN
+		WS SKW_LEFTBRACE
+		WS ID WS SKW_RIGHTBRACE SKW_SEMI
+		NEWLINE
+//----------------------------------------------------------------------
+(Model
+	units+=
+	(TranslationUnit
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineDirective
+					id++"ARRAY",
+					string++"5, 6, 7, 8"
+				)
+			),
+			(Code
+				code++"int array[] = { ARRAY };"
+			)
+		)
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0029_ObjectLikeMacro.c.i"
+expected file="expected/Test0029_ObjectLikeMacro.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

@@ -1,0 +1,54 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language cPreprocess
+//----------------------------------------------------------------------
+split-lexer=true
+source file="res/Test0032_Misnesting1.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH DEFINE WS ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WS SKW_LEFTPAREN DECIMAL_LITERAL SKW_PLUS SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_RIGHTPAREN NEWLINE
+	HASH DEFINE WS ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WS ID SKW_LEFTPAREN DECIMAL_LITERAL SKW_RIGHTPAREN NEWLINE
+	ID WS SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
+//----------------------------------------------------------------------
+(Model
+	units+=
+	(TranslationUnit
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"FOO",
+					list=
+					(IdentifierList
+						id+*"[x]"
+					),
+					string++"(3+(x))"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"BAR",
+					list=
+					(IdentifierList
+						id+*"[x]"
+					),
+					string++"x(1)"
+				)
+			),
+			(Code
+				code++"BAR (FOO)"
+			)
+			
+		)
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0032_Misnesting1.c.i"
+expected file="expected/Test0032_Misnesting1.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

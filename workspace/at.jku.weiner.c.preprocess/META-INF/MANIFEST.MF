@@ -24,13 +24,14 @@ Export-Package: at.jku.weiner.c.preprocess,
  at.jku.weiner.c.preprocess.parser.antlr,
  at.jku.weiner.c.preprocess.parser.antlr.internal,
  at.jku.weiner.c.preprocess.parser.antlr.lexer,
+ at.jku.weiner.c.preprocess.preprocess,
+ at.jku.weiner.c.preprocess.preprocess.impl,
+ at.jku.weiner.c.preprocess.preprocess.util,
  at.jku.weiner.c.preprocess.scoping,
  at.jku.weiner.c.preprocess.serializer,
  at.jku.weiner.c.preprocess.services,
  at.jku.weiner.c.preprocess.utils,
+ at.jku.weiner.c.preprocess.utils.expressions,
  at.jku.weiner.c.preprocess.utils.macros,
- at.jku.weiner.c.preprocess.validation,
- at.jku.weiner.c.preprocess.preprocess.impl,
- at.jku.weiner.c.preprocess.preprocess,
- at.jku.weiner.c.preprocess.preprocess.util
+ at.jku.weiner.c.preprocess.validation
 Import-Package: org.apache.log4j

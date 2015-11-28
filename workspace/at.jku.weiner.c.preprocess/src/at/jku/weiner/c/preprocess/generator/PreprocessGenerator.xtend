@@ -29,6 +29,7 @@ import at.jku.weiner.c.preprocess.preprocess.IfDefConditional
 import at.jku.weiner.c.preprocess.preprocess.IfNotDefConditional
 import at.jku.weiner.c.preprocess.preprocess.IfConditional
 import at.jku.weiner.c.preprocess.utils.expressions.ExpressionEvaluation
+import at.jku.weiner.c.preprocess.preprocess.ConstantExpression
 
 /**
  * Generates code from your model files on save.
@@ -146,7 +147,7 @@ class PreprocessGenerator implements IGenerator {
 	}
 	
 	def String outputFor(IfConditional obj) {
-		if (ExpressionEvaluation.isTrue(obj.expression)) {
+		if (ExpressionEvaluation.evaluateFor(obj.expression as ConstantExpression)) {
 			return outputFor(obj.group).trim();
 		}
 		return "";

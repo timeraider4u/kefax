@@ -1,0 +1,338 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.parser
+language parser
+//----------------------------------------------------------------------
+source file="res/Test0019_HelloWorld.c"
+//----------------------------------------------------------------------
+lexer-tokens
+LINEDIRECTIVE NEWLINE
+KW_INT WHITESPACE ID LEFTPAREN
+KW_INT WHITESPACE ID COMMA WHITESPACE
+KW_CHAR WHITESPACE STAR STAR WHITESPACE ID
+RIGHTPAREN WHITESPACE LEFTBRACE NEWLINE
+WHITESPACE ID LEFTPAREN STRING_LITERAL COMMA WHITESPACE 
+STRING_LITERAL RIGHTPAREN SEMI NEWLINE
+WHITESPACE KW_RETURN WHITESPACE DECIMAL_LITERAL SEMI NEWLINE
+RIGHTBRACE NEWLINE
+//----------------------------------------------------------------------
+(Model unit+=
+	(TranslationUnit 
+		external+=
+		(ExternalDeclaration 
+			functiondefHead=
+			(FunctionDefHead
+				funDeclSpecifiers=
+				(FunctionDeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"int"
+					)
+				),
+				funDeclarator=
+				(Declarator
+					declarator=
+					(DirectDeclarator
+						id++"main",
+						declaratorSuffix+=
+						(DeclaratorSuffix
+							lastSuffix=
+							(DirectDeclaratorLastSuffix
+								parameterTypeList+=
+								(ParameterTypeList
+									list=
+									(ParameterList
+										parameterDeclaration+=
+										(ParameterDeclaration
+											declSpecifiers=
+											(DeclarationSpecifiers
+												declarationSpecifier+=
+												(TypeSpecifier
+													name++"int"
+												)
+											),
+											declarator=
+											(Declarator
+												declarator=
+												(DirectDeclarator
+													id++"argc"
+												)
+											)
+										),
+										(ParameterDeclaration
+											declSpecifiers=
+											(DeclarationSpecifiers
+												declarationSpecifier+=
+												(TypeSpecifier
+													name++"char"
+												)
+											),
+											declarator=
+											(Declarator
+												declarator=
+												(DirectDeclarator
+													id++"argv"
+												),
+												pointer=
+												(Pointer 
+													star+*"[*, *]"
+												)
+											)
+										) 
+									) // end parameter list
+								)
+							)
+						) // DeclaratorSuffix
+					)
+				)
+			),
+			functionDefinition=
+			(FunctionDefinition
+				body=
+				(BodyStatement
+					blockList+=
+					(BlockList
+						statement+=
+						(Statement
+							stmt=
+							(ExpressionStatement
+								expression=
+								(Expression
+									exprExpr+=
+									(AssignmentExpression
+										expr=
+										(ConditionalExpression
+											expr=
+											(LogicalOrExpression
+												expr+=
+												(LogicalAndExpression
+													expr+=
+													(InclusiveOrExpression
+														expr+=
+														(ExclusiveOrExpression
+															expr+=
+															(AndExpression
+																expr+=
+																(EqualityExpression
+																	expr+=
+																	(RelationalExpression
+																		expr+=
+																		(ShiftExpression
+																			expr+=
+																			(AdditiveExpression
+																				expr+=
+																				(MultiplicativeExpression
+																					expr+=
+																					(CastExpression
+																						expr=
+																						(UnaryExpression
+																							expr=
+																							(PostfixExpression
+																								expr+=
+																								(PrimaryExpression
+																									id++"printf"
+																								),
+																								suffix+=
+																								(PostfixExpressionSuffixArgument
+																									argumentExpressionList=
+																									(ArgumentExpressionList
+																										expr+=
+																										(AssignmentExpression
+																											expr=
+																											(ConditionalExpression
+																												expr=
+																												(LogicalOrExpression
+																													expr+=
+																													(LogicalAndExpression
+																														expr+=
+																														(InclusiveOrExpression
+																															expr+=
+																															(ExclusiveOrExpression
+																																expr+=
+																																(AndExpression
+																																	expr+=
+																																	(EqualityExpression
+																																		expr+=
+																																		(RelationalExpression
+																																			expr+=
+																																			(ShiftExpression
+																																				expr+=
+																																				(AdditiveExpression
+																																					expr+=
+																																					(MultiplicativeExpression
+																																						expr+=
+																																						(CastExpression
+																																							expr=
+																																							(UnaryExpression
+																																								expr=
+																																								(PostfixExpression
+																																									expr+=
+																																									(PrimaryExpression
+																																										const=
+																																										(Constant
+																																											str++"\\\"%s\\\\n\\\""
+																																										)
+																																									)
+																																								)
+																																							)
+																																						)
+																																					)
+																																				)
+																																			)
+																																		)
+																																	)
+																																)
+																															)
+																														)
+																													)
+																												)
+																											)
+																										), // end assignment expression
+																										(AssignmentExpression
+																											expr=
+																											(ConditionalExpression
+																												expr=
+																												(LogicalOrExpression
+																													expr+=
+																													(LogicalAndExpression
+																														expr+=
+																														(InclusiveOrExpression
+																															expr+=
+																															(ExclusiveOrExpression
+																																expr+=
+																																(AndExpression
+																																	expr+=
+																																	(EqualityExpression
+																																		expr+=
+																																		(RelationalExpression
+																																			expr+=
+																																			(ShiftExpression
+																																				expr+=
+																																				(AdditiveExpression
+																																					expr+=
+																																					(MultiplicativeExpression
+																																						expr+=
+																																						(CastExpression
+																																							expr=
+																																							(UnaryExpression
+																																								expr=
+																																								(PostfixExpression
+																																									expr+=
+																																									(PrimaryExpression
+																																										const=
+																																										(Constant
+																																											str++"\\\"Hello World!\\\""
+																																										)
+																																									)
+																																								)
+																																							)
+																																						)
+																																					)
+																																				)
+																																			)
+																																		)
+																																	)
+																																)
+																															)
+																														)
+																													)
+																												)
+																											)
+																										) // end assignment expression
+																									)
+																								)
+																							)
+																						)
+																					)
+																				)
+																			)
+																		)
+																	)
+																	
+																)
+															)
+														)
+													)
+												)
+											)
+										)
+									)
+								), // end expression
+								semi++";"
+							) // end expression statement
+						), // end first statement
+						(Statement
+							stmt=
+							(JumpStatement
+								expr=
+								(Expression
+									exprExpr+=
+									(AssignmentExpression
+										expr=
+										(ConditionalExpression
+											expr=
+											(LogicalOrExpression
+												expr+=
+												(LogicalAndExpression
+													expr+=
+													(InclusiveOrExpression
+														expr+=
+														(ExclusiveOrExpression
+															expr+=
+															(AndExpression
+																expr+=
+																(EqualityExpression
+																	expr+=
+																	(RelationalExpression
+																		expr+=
+																		(ShiftExpression
+																			expr+=
+																			(AdditiveExpression
+																				expr+=
+																				(MultiplicativeExpression
+																					expr+=
+																					(CastExpression
+																						expr=
+																						(UnaryExpression
+																							expr=
+																							(PostfixExpression
+																								expr+=
+																								(PrimaryExpression
+																									const=
+																									(Constant
+																										dec++"0"
+																									)
+																								)
+																							)
+																						)
+																					)
+																				)
+																			)
+																		)
+																	)
+																	
+																)
+															)
+														)
+													)
+												)
+											)
+										)
+									)
+								), // end expression
+								return++"return",
+								semi++";"
+							) // end jump statement
+						) // end second statement
+					) // end block list
+				) // end body statement
+			)
+		) // end external declaration
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0019_HelloWorld.c"
+expected file isSameAsInputFile
+replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

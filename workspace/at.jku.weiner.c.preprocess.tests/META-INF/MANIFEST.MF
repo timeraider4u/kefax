@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: at.jku.weiner.cpreprocess.tests
+Bundle-Name: at.jku.weiner.c.preprocess.tests
 Bundle-Vendor: My Company
 Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: at.jku.weiner.c.preprocess.tests;singleton:=true
@@ -12,8 +12,7 @@ Require-Bundle: at.jku.weiner.c.preprocess,
  org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: at.jku.weiner.c.preprocess.tests,
- at.jku.weiner.c.preprocess.xtexttests,
- at.jku.weiner.c.preprocess.tests
+ at.jku.weiner.c.preprocess.xtexttests
 Import-Package: org.junit.runners;version="4.5.0",
  org.junit.runners.model;version="4.5.0",
  org.hamcrest.core,

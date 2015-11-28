@@ -1,0 +1,59 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.parser
+language parser
+//----------------------------------------------------------------------
+source file="res/Test0033_StaticInline.c"
+//----------------------------------------------------------------------
+lexer-tokens
+KW_STATIC WHITESPACE KW_INLINE WHITESPACE KW_VOID WHITESPACE ID
+LEFTPAREN 
+RIGHTPAREN
+WHITESPACE LEFTBRACE NEWLINE
+	NEWLINE
+RIGHTBRACE NEWLINE
+//----------------------------------------------------------------------
+(Model unit+=
+	(TranslationUnit 
+		external+=
+		(ExternalDeclaration 
+			functiondefHead=
+			(FunctionDefHead
+				funDeclSpecifiers=
+				(FunctionDeclarationSpecifiers
+					declarationSpecifier+=
+					(StorageClassSpecifier
+						name++"static"
+					),
+					(FunctionSpecifier
+						name++"inline"
+					),
+					(TypeSpecifier
+						name++"void"
+					)
+				),
+				funDeclarator=
+				(Declarator
+					declarator=
+					(DirectDeclarator
+						id++"doSomething"
+					)
+				)
+			),
+			functionDefinition=
+			(FunctionDefinition
+				body=
+				(BodyStatement
+					
+				)
+			)
+		)
+		
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0033_StaticInline.c"
+expected file isSameAsInputFile
+replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

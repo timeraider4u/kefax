@@ -1,0 +1,247 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.parser
+language parser
+//----------------------------------------------------------------------
+source file="res/Test0024_DoWhile.c"
+//----------------------------------------------------------------------
+lexer-tokens
+KW_VOID WHITESPACE ID LEFTPAREN
+KW_INT WHITESPACE ID RIGHTPAREN WHITESPACE LEFTBRACE NEWLINE
+	WHITESPACE KW_DO WHITESPACE LEFTBRACE NEWLINE
+		WHITESPACE ID MINUSMINUS SEMI NEWLINE
+	WHITESPACE RIGHTBRACE WHITESPACE 
+	KW_WHILE WHITESPACE LEFTPAREN ID WHITESPACE
+	GREATER WHITESPACE DECIMAL_LITERAL RIGHTPAREN SEMI NEWLINE
+RIGHTBRACE NEWLINE
+//----------------------------------------------------------------------
+(Model unit+=
+	(TranslationUnit 
+		external+=
+		(ExternalDeclaration 
+			functiondefHead=
+			(FunctionDefHead
+				funDeclSpecifiers=
+				(FunctionDeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"void"
+					)
+				),
+				funDeclarator=
+				(Declarator
+					declarator=
+					(DirectDeclarator
+						id++"a",
+						declaratorSuffix+=
+						(DeclaratorSuffix
+							lastSuffix=
+							(DirectDeclaratorLastSuffix
+								parameterTypeList+=
+								(ParameterTypeList
+									list=
+									(ParameterList
+										parameterDeclaration+=
+										(ParameterDeclaration
+											declSpecifiers=
+											(DeclarationSpecifiers
+												declarationSpecifier+=
+												(TypeSpecifier
+													name++"int"
+												)
+											),
+											declarator=
+											(Declarator
+												declarator=
+												(DirectDeclarator
+													id++"num"
+												)
+											)
+										) 
+									) // end parameter list
+								)
+							)
+						) // DeclaratorSuffix
+					)
+				)
+			),
+			functionDefinition=
+			(FunctionDefinition
+				body=
+				(BodyStatement
+					blockList+=
+					(BlockList
+						statement+=
+						(Statement
+							stmt=
+							(IterationStatement
+								do++"do",
+								expr=
+								(Expression
+									exprExpr+=
+									(AssignmentExpression
+										expr=
+										(ConditionalExpression
+											expr=
+											(LogicalOrExpression
+												expr+=
+												(LogicalAndExpression
+													expr+=
+													(InclusiveOrExpression
+														expr+=
+														(ExclusiveOrExpression
+															expr+=
+															(AndExpression
+																expr+=
+																(EqualityExpression
+																	expr+=
+																	(RelationalExpression
+																		op+*"[>]",
+																		expr+=
+																		(ShiftExpression
+																			expr+=
+																			(AdditiveExpression
+																				expr+=
+																				(MultiplicativeExpression
+																					expr+=
+																					(CastExpression
+																						expr=
+																						(UnaryExpression
+																							expr=
+																							(PostfixExpression
+																								expr+=
+																								(PrimaryExpression
+																									id++"num"
+																								)
+																							)
+																						)
+																					)
+																				)
+																			)
+																		),
+																		(ShiftExpression
+																			expr+=
+																			(AdditiveExpression
+																				expr+=
+																				(MultiplicativeExpression
+																					expr+=
+																					(CastExpression
+																						expr=
+																						(UnaryExpression
+																							expr=
+																							(PostfixExpression
+																								expr+=
+																								(PrimaryExpression
+																									const=
+																									(Constant
+																										dec++"0"
+																									)
+																								)
+																							)
+																						)
+																					)
+																				)
+																			)
+																		)
+																	)
+																	
+																)
+															)
+														)
+													)
+												)
+											)
+										)
+									)
+								), // end expression
+								statement=
+								(Statement
+									stmt=
+									(CompoundStatement
+										body=
+										(BodyStatement
+											blockList+=
+											(BlockList
+												statement+=
+												(Statement
+													stmt=
+													(ExpressionStatement
+														expression=
+														(Expression
+															exprExpr+=
+															(AssignmentExpression
+																expr=
+																(ConditionalExpression
+																	expr=
+																	(LogicalOrExpression
+																		expr+=
+																		(LogicalAndExpression
+																			expr+=
+																			(InclusiveOrExpression
+																				expr+=
+																				(ExclusiveOrExpression
+																					expr+=
+																					(AndExpression
+																						expr+=
+																						(EqualityExpression
+																							expr+=
+																							(RelationalExpression
+																								expr+=
+																								(ShiftExpression
+																									expr+=
+																									(AdditiveExpression
+																										expr+=
+																										(MultiplicativeExpression
+																											expr+=
+																											(CastExpression
+																												expr=
+																												(UnaryExpression
+																													expr=
+																													(PostfixExpression
+																														expr+=
+																														(PrimaryExpression
+																															id++"num"
+																														),
+																														suffix+=
+																														(PostfixExpressionSuffixMinusMinus
+																															
+																														)
+																													)
+																												)
+																											)
+																										)
+																									)
+																								)
+																							)
+																							
+																						)
+																					)
+																				)
+																			)
+																		)
+																	)
+																)
+															)
+														), // end expression
+														semi++";"
+													) // end expression statement
+												)
+											)
+										)
+									) // end compound statement
+								), // end statement
+								semi++";"
+							) // end iteration statement
+						) // end statement
+					) // end block list
+				) // end body statement
+			)
+		) // end external declaration
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0024_DoWhile.c"
+expected file isSameAsInputFile
+replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

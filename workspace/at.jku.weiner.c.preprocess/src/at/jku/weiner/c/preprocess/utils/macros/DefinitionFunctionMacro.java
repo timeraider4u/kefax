@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 
 import org.eclipse.emf.common.util.EList;
 
-import at.jku.weiner.c.preprocess.cPreprocess.IdentifierList;
+import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
 import at.jku.weiner.c.preprocess.utils.StringLiteralInStringLiteralsHelper;
 
 class DefinitionFunctionMacro implements DefinitionMacro {
@@ -102,7 +102,7 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 	}
 
 	class StringReplaceSymbolsFunctionMacroReplace extends
-	StringReplaceSymbolsHelper {
+			StringReplaceSymbolsHelper {
 
 		private final EList<String> list2;
 

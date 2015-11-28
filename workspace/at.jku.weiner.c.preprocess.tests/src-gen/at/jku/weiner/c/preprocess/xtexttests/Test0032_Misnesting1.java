@@ -37,33 +37,33 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import at.jku.weiner.c.preprocess.tests.CPreprocessInjectorProvider;
-import at.jku.weiner.c.preprocess.parser.antlr.CPreprocessParser;
-import at.jku.weiner.c.preprocess.parser.antlr.lexer.InternalCPreprocessLexer;
+import at.jku.weiner.c.preprocess.tests.PreprocessInjectorProvider;
+import at.jku.weiner.c.preprocess.parser.antlr.PreprocessParser;
+import at.jku.weiner.c.preprocess.parser.antlr.lexer.InternalPreprocessLexer;
 import at.jku.weiner.c.preprocess.xtexttests.LexerAndParserTest;
 
-import at.jku.weiner.c.preprocess.cPreprocess.Model;
-import at.jku.weiner.c.preprocess.cPreprocess.TranslationUnit;
-import at.jku.weiner.c.preprocess.cPreprocess.GroupOpt;
-import at.jku.weiner.c.preprocess.cPreprocess.PreprocessorDirectives;
-import at.jku.weiner.c.preprocess.cPreprocess.DefineFunctionLikeMacro;
-import at.jku.weiner.c.preprocess.cPreprocess.IdentifierList;
-import at.jku.weiner.c.preprocess.cPreprocess.PreprocessorDirectives;
-import at.jku.weiner.c.preprocess.cPreprocess.DefineFunctionLikeMacro;
-import at.jku.weiner.c.preprocess.cPreprocess.IdentifierList;
-import at.jku.weiner.c.preprocess.cPreprocess.Code;
+import at.jku.weiner.c.preprocess.preprocess.Model;
+import at.jku.weiner.c.preprocess.preprocess.TranslationUnit;
+import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
+import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
+import at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro;
+import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
+import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
+import at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro;
+import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
+import at.jku.weiner.c.preprocess.preprocess.Code;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
-@InjectWith(CPreprocessInjectorProvider.class)
+@InjectWith(PreprocessInjectorProvider.class)
 public class Test0032_Misnesting1 {
 	@Inject
 	private ParseHelper<Model> parseHelper;
 	@Inject
 	private ValidationTestHelper valHelper;
 	@Inject
-	private InternalCPreprocessLexer lexer;
+	private InternalPreprocessLexer lexer;
 	@Inject
-	private CPreprocessParser parser;
+	private PreprocessParser parser;
 	@Inject
 	private ITokenDefProvider tokenDefProvider;
 	//@Inject

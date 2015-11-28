@@ -5,8 +5,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import at.jku.weiner.c.preprocess.cPreprocess.CPreprocessFactory;
-import at.jku.weiner.c.preprocess.cPreprocess.IdentifierList;
+import at.jku.weiner.c.preprocess.preprocess.PreprocessFactory;
+import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
 import at.jku.weiner.c.preprocess.utils.macros.DefinitionTable;
 
 public class TestStringification {
@@ -23,7 +23,7 @@ public class TestStringification {
 
 	@Test
 	public void testStringification1() {
-		final IdentifierList list = CPreprocessFactory.eINSTANCE
+		final IdentifierList list = PreprocessFactory.eINSTANCE
 				.createIdentifierList();
 		list.getId().add("X");
 		DefinitionTable.addFunctionMacro("FOO", "X #X", list);
@@ -34,7 +34,7 @@ public class TestStringification {
 
 	@Test
 	public void testStringification2() {
-		final IdentifierList list = CPreprocessFactory.eINSTANCE
+		final IdentifierList list = PreprocessFactory.eINSTANCE
 				.createIdentifierList();
 		list.getId().add("X");
 		DefinitionTable.addFunctionMacro("FOO", "X #X X #X", list);

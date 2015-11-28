@@ -7,9 +7,9 @@
 	<extension point="org.eclipse.emf.ecore.generated_package">
 	
 	<package 
-	   uri = "http://www.jku.at/weiner/c/preprocess/CPreprocess" 
-	   class = "at.jku.weiner.c.preprocess.cPreprocess.CPreprocessPackage"
-	   genModel = "model/generated/CPreprocess.genmodel" /> 
+	   uri = "http://www.jku.at/weiner/c/preprocess/Preprocess" 
+	   class = "at.jku.weiner.c.preprocess.preprocess.PreprocessPackage"
+	   genModel = "model/generated/Preprocess.genmodel" /> 
 	
 	</extension>
 	

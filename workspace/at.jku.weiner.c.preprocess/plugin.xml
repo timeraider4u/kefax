@@ -3,13 +3,12 @@
 
 <plugin>
 	
-	
 	<extension point="org.eclipse.emf.ecore.generated_package">
 	
-	<package 
-	   uri = "http://www.jku.at/weiner/cpreprocess/CPreprocess" 
-	   class = "at.jku.weiner.cpreprocess.cPreprocess.CPreprocessPackage"
-	   genModel = "model/generated/CPreprocess.genmodel" /> 
+		<package 
+			uri = "http://www.jku.at/weiner/c/preprocess/Preprocess" 
+			class = "at.jku.weiner.c.preprocess.preprocess.PreprocessPackage"
+			genModel = "model/generated/Preprocess.genmodel" /> 
 	
 	</extension>
 	

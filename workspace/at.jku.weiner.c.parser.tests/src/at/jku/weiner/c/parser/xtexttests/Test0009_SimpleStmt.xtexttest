@@ -1,0 +1,60 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.parser
+language parser
+//----------------------------------------------------------------------
+source file="res/Test0009_SimpleStmt.c"
+//----------------------------------------------------------------------
+lexer-tokens
+KW_VOID WHITESPACE ID LEFTPAREN RIGHTPAREN WHITESPACE LEFTBRACE NEWLINE
+WHITESPACE SEMI NEWLINE
+RIGHTBRACE NEWLINE
+//----------------------------------------------------------------------
+(Model unit+=
+	(TranslationUnit 
+		external+=
+		(ExternalDeclaration 
+			functiondefHead=
+			(FunctionDefHead
+				funDeclSpecifiers=
+				(FunctionDeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"void"
+					)
+				),
+				funDeclarator=
+				(Declarator
+					declarator=
+					(DirectDeclarator
+						id++"doSomething"
+					)
+				)
+			),
+			functionDefinition=
+			(FunctionDefinition
+				body=
+				(BodyStatement
+					blockList+=
+					(BlockList
+						statement+=
+						(Statement
+							stmt=
+							(ExpressionStatement
+								semi++";"
+							)
+						)
+					)
+				)
+			)
+		)
+		
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0009_SimpleStmt.c"
+expected file isSameAsInputFile
+
+replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

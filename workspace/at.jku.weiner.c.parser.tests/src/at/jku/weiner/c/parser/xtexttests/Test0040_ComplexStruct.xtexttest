@@ -1,0 +1,214 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.parser
+language parser
+//----------------------------------------------------------------------
+source file="res/Test0040_ComplexStruct.c"
+//----------------------------------------------------------------------
+lexer-tokens
+KW_STRUCT WHITESPACE ID WHITESPACE LEFTBRACE NEWLINE
+	WHITESPACE KW_INT WHITESPACE ID SEMI NEWLINE
+RIGHTBRACE SEMI NEWLINE
+NEWLINE
+KW_STRUCT WHITESPACE ID WHITESPACE LEFTBRACE NEWLINE
+	WHITESPACE LINE_COMMENT NEWLINE
+	//WHITESPACE KW_INT WHITESPACE ID SEMI NEWLINE
+	WHITESPACE KW_STRUCT WHITESPACE ID WHITESPACE STAR ID SEMI NEWLINE
+	WHITESPACE KW_STRUCT WHITESPACE ID WHITESPACE ID SEMI NEWLINE
+	//WHITESPACE BLOCK_COMMENT NEWLINE
+	WHITESPACE KW_UNION WHITESPACE LEFTBRACE NEWLINE
+		WHITESPACE KW_STRUCT WHITESPACE ID WHITESPACE ID SEMI NEWLINE
+	WHITESPACE RIGHTBRACE WHITESPACE ID SEMI NEWLINE
+RIGHTBRACE SEMI NEWLINE
+//----------------------------------------------------------------------
+(Model unit+=
+	(TranslationUnit 
+		external+=
+		// struct temp { ... };
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(StructOrUnionSpecifier
+						type=
+						(StructOrUnion
+							name++"struct"
+						),
+						id++"temp",
+						structDeclList=
+						(StructDeclarationList
+							structDeclaration+=
+							(StructDeclaration
+								list=
+								(SpecifierQualifierList
+									typeSpecifier+=
+									(TypeSpecifier
+										name++"int"
+									)
+								),
+								structDeclarationList=
+								(StructDeclaratorList
+									structDeclarator+=
+									(StructDeclarator
+										declarator=
+										(Declarator
+											declarator=
+											(DirectDeclarator
+												id++"i"
+											)
+										)
+									)
+								)
+							)
+						)
+					)
+				)
+			)
+		),
+		// struct outer { ... }; 
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(StructOrUnionSpecifier
+						type=
+						(StructOrUnion
+							name++"struct"
+						),
+						id++"outer",
+						structDeclList=
+						(StructDeclarationList
+							structDeclaration+=
+							(StructDeclaration
+								list=
+								(SpecifierQualifierList
+									structOrUnionSpecifier+=
+									(StructOrUnionSpecifier
+										type=
+										(StructOrUnion
+											name++"struct"
+										),
+										id++"temp"
+									)
+								),
+								structDeclarationList=
+								(StructDeclaratorList
+									structDeclarator+=
+									(StructDeclarator
+										declarator=
+										(Declarator
+											pointer=
+											(Pointer
+												star+*"[*]"
+											),
+											declarator=
+											(DirectDeclarator
+												id++"in1"
+											)
+										)
+									)
+								)
+							),
+							(StructDeclaration
+								list=
+								(SpecifierQualifierList
+									structOrUnionSpecifier+=
+									(StructOrUnionSpecifier
+										type=
+										(StructOrUnion
+											name++"struct"
+										),
+										id++"temp"
+									)
+								//	typeSpecifier+=
+								//	(TypeSpecifier
+								//		name++"int"
+								//	)
+								),
+								structDeclarationList=
+								(StructDeclaratorList
+									structDeclarator+=
+									(StructDeclarator
+										declarator=
+										(Declarator
+											declarator=
+											(DirectDeclarator
+												id++"in2"
+											)
+										)
+									)
+								)
+							),
+							(StructDeclaration
+								list=
+								(SpecifierQualifierList
+									structOrUnionSpecifier+=
+									(StructOrUnionSpecifier
+										type=
+										(StructOrUnion
+											name++"union"
+										),
+										structDeclList=
+										// inner thing of union
+										(StructDeclarationList
+											structDeclaration+=
+											(StructDeclaration
+												list=
+												(SpecifierQualifierList
+													structOrUnionSpecifier+=
+													(StructOrUnionSpecifier
+														type=
+														(StructOrUnion
+															name++"struct"
+														),
+														id++"temp"
+													)
+												),
+												structDeclarationList=
+												(StructDeclaratorList
+													structDeclarator+=
+													(StructDeclarator
+														declarator=
+														(Declarator
+															declarator=
+															(DirectDeclarator
+																id++"in3"
+															)
+														)														
+													)
+												)
+											) // end StructDeclaration
+										) // end structDeclList
+									)
+								),
+								structDeclarationList=
+								(StructDeclaratorList
+									structDeclarator+=
+									(StructDeclarator
+										declarator=
+										(Declarator
+											declarator=
+											(DirectDeclarator
+												id++"inner4"
+											)
+										)
+									)
+								)
+							)
+						)
+					)
+				)
+			)
+		)
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0040_ComplexStruct.c"
+expected file isSameAsInputFile
+replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

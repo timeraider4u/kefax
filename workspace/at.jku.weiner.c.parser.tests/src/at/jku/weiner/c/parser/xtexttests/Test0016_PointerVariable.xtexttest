@@ -1,0 +1,91 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.parser
+language parser
+//----------------------------------------------------------------------
+source file="res/Test0016_PointerVariable.c"
+//----------------------------------------------------------------------
+lexer-tokens
+KW_FLOAT WHITESPACE STAR WHITESPACE KW_CONST WHITESPACE ID SEMI NEWLINE
+KW_DOUBLE WHITESPACE STAR WHITESPACE STAR WHITESPACE ID SEMI NEWLINE
+//----------------------------------------------------------------------
+(Model unit+=
+	(TranslationUnit 
+		external+=
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"float"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"a"
+							),
+							pointer=
+							(Pointer
+								star+*"[*]",
+								typeQualifierList+=
+								(TypeQualifierList
+									typeQualifier+=
+									(TypeQualifier
+										type++"const"
+									)
+								)
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+		),
+		(ExternalDeclaration
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"double"
+					)
+				)
+				,
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"b"
+							),
+							pointer=
+							(Pointer
+								star+*"[*, *]"
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+			
+		)
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0016_PointerVariable.c"
+expected file isSameAsInputFile
+replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

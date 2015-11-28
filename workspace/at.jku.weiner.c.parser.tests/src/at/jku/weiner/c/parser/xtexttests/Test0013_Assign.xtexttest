@@ -1,0 +1,103 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.parser
+language parser
+//----------------------------------------------------------------------
+source file="res/Test0013_Assign.c"
+//----------------------------------------------------------------------
+lexer-tokens
+KW_INT WHITESPACE ID WHITESPACE ASSIGN WHITESPACE DECIMAL_LITERAL
+SEMI NEWLINE
+//----------------------------------------------------------------------
+(Model unit+=
+	(TranslationUnit 
+		external+=
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"int"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"a"
+							)
+						),
+						initializer=
+						(Initializer
+							expr=
+							(AssignmentExpression
+								expr=
+								(ConditionalExpression
+									expr=
+									(LogicalOrExpression
+										expr+=
+										(LogicalAndExpression
+											expr+=
+											(InclusiveOrExpression
+												expr+=
+												(ExclusiveOrExpression
+													expr+=
+													(AndExpression
+														expr+=
+														(EqualityExpression
+															expr+=
+															(RelationalExpression
+																expr+=
+																(ShiftExpression
+																	expr+=
+																	(AdditiveExpression
+																		expr+=
+																		(MultiplicativeExpression
+																			expr+=
+																			(CastExpression
+																				expr=
+																				(UnaryExpression
+																					expr=
+																					(PostfixExpression
+																						expr+=
+																						(PrimaryExpression
+																							const=
+																							(Constant
+																								dec++"0"
+																							)
+																						)
+																					)
+																				)
+																			)
+																		)
+																	)
+																)
+															)
+														)
+													)
+												)
+											)
+										)
+									)
+								)
+							) // end assignment expression
+						) // end initializer
+					)
+				),
+				semi++";"
+			)
+		)
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0013_Assign.c"
+expected file isSameAsInputFile
+replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

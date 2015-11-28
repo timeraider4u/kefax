@@ -3,7 +3,7 @@ package at.jku.weiner.c.preprocess.utils.macros;
 import java.util.ArrayList;
 import java.util.List;
 
-import at.jku.weiner.c.preprocess.cPreprocess.IdentifierList;
+import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
 
 public final class DefinitionTable {
 

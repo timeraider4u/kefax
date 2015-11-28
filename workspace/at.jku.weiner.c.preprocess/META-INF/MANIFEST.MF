@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: at.jku.weiner.cpreprocess
+Bundle-Name: at.jku.weiner.c.preprocess
 Bundle-Vendor: My Company
 Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: at.jku.weiner.c.preprocess;singleton:=true
@@ -18,11 +18,7 @@ Require-Bundle: org.eclipse.xtext,
  org.eclipse.xtext.xbase.lib,
  at.jku.weiner.c.common;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: 
- at.jku.weiner.c.preprocess,
- at.jku.weiner.c.preprocess.cPreprocess,
- at.jku.weiner.c.preprocess.cPreprocess.impl,
- at.jku.weiner.c.preprocess.cPreprocess.util,
+Export-Package: at.jku.weiner.c.preprocess,
  at.jku.weiner.c.preprocess.generator,
  at.jku.weiner.c.preprocess.parser.antlr,
  at.jku.weiner.c.preprocess.parser.antlr.internal,
@@ -32,5 +28,8 @@ Export-Package:
  at.jku.weiner.c.preprocess.services,
  at.jku.weiner.c.preprocess.utils,
  at.jku.weiner.c.preprocess.utils.macros,
- at.jku.weiner.c.preprocess.validation
+ at.jku.weiner.c.preprocess.validation,
+ at.jku.weiner.c.preprocess.preprocess.impl,
+ at.jku.weiner.c.preprocess.preprocess,
+ at.jku.weiner.c.preprocess.preprocess.util
 Import-Package: org.apache.log4j

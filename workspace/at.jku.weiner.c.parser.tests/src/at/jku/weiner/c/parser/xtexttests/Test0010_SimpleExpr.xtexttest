@@ -1,0 +1,135 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.parser
+language parser
+//----------------------------------------------------------------------
+source file="res/Test0010_SimpleExpr.c"
+//----------------------------------------------------------------------
+lexer-tokens
+KW_VOID WHITESPACE ID LEFTPAREN RIGHTPAREN WHITESPACE LEFTBRACE NEWLINE
+WHITESPACE LINE_COMMENT NEWLINE
+WHITESPACE DECIMAL_LITERAL WHITESPACE PLUS WHITESPACE DECIMAL_LITERAL SEMI NEWLINE
+RIGHTBRACE NEWLINE
+//----------------------------------------------------------------------
+(Model unit+=
+	(TranslationUnit 
+		external+=
+		(ExternalDeclaration 
+			functiondefHead=
+			(FunctionDefHead
+				funDeclSpecifiers=
+				(FunctionDeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"void"
+					)
+				),
+				funDeclarator=
+				(Declarator
+					declarator=
+					(DirectDeclarator
+						id++"doSomething"
+					)
+				)
+			),
+			functionDefinition=
+			(FunctionDefinition
+				body=
+				(BodyStatement
+					blockList+=
+					(BlockList
+						statement+=
+						(Statement
+							stmt=
+							(ExpressionStatement
+								expression=
+								(Expression
+									exprExpr+=
+									(AssignmentExpression
+										expr=
+										(ConditionalExpression
+											expr=
+											(LogicalOrExpression
+												expr+=
+												(LogicalAndExpression
+													expr+=
+													(InclusiveOrExpression
+														expr+=
+														(ExclusiveOrExpression
+															expr+=
+															(AndExpression
+																expr+=
+																(EqualityExpression
+																	expr+=
+																	(RelationalExpression
+																		expr+=
+																		(ShiftExpression
+																			expr+=
+																			(AdditiveExpression
+																				expr+=
+																				(MultiplicativeExpression
+																					expr+=
+																					(CastExpression
+																						expr=
+																						(UnaryExpression
+																							expr=
+																							(PostfixExpression
+																								expr+=
+																								(PrimaryExpression
+																									const=
+																									(Constant
+																										dec++"1"
+																									)
+																								)
+																							)
+																						)
+																					)
+																				),
+																				(MultiplicativeExpression
+																					expr+=
+																					(CastExpression
+																						expr=
+																						(UnaryExpression
+																							expr=
+																							(PostfixExpression
+																								expr+=
+																								(PrimaryExpression
+																									const=
+																									(Constant
+																										dec++"1"
+																									)
+																								)
+																							)
+																						)
+																					)																					
+																				),
+																				op+*"[+]"
+																			)
+																		)
+																	)
+																	
+																)
+															)
+														)
+													)
+												)
+											)
+										)
+									)
+								),//end expression
+								semi++";"
+							)
+						)
+					)
+				)
+			)
+		)
+		
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0010_SimpleExpr.c"
+expected file isSameAsInputFile
+replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

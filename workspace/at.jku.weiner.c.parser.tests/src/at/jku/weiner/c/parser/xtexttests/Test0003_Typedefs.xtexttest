@@ -1,0 +1,296 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.parser
+language parser
+//----------------------------------------------------------------------
+source file="res/Test0003_Typedefs.c"
+//----------------------------------------------------------------------
+lexer-tokens
+KW_INT WHITESPACE ID SEMI NEWLINE
+KW_TYPEDEF WHITESPACE KW_INT WHITESPACE ID SEMI NEWLINE
+KW_INT WHITESPACE ID SEMI NEWLINE
+ID WHITESPACE ID SEMI NEWLINE
+KW_TYPEDEF WHITESPACE KW_DOUBLE WHITESPACE ID SEMI NEWLINE
+ID WHITESPACE ID SEMI NEWLINE
+ID WHITESPACE ID SEMI NEWLINE
+ID WHITESPACE ID SEMI NEWLINE
+KW_INT WHITESPACE ID SEMI NEWLINE
+//----------------------------------------------------------------------
+(Model unit+=
+	(TranslationUnit 
+		external+=
+		// int a;
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"int"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"a"
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+		),
+		// typedef int NUMBER1
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(StorageClassSpecifier
+						name++"typedef"
+					),
+					(TypeSpecifier
+						name++"int"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"NUMBER1"
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+		),
+		// int b;
+		(ExternalDeclaration
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"int"
+					)
+				)
+				,
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"b"
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+		),
+		// NUMBER1 c;
+		(ExternalDeclaration
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						type=
+							(TypedefName
+								id++"NUMBER1"
+							)
+					)
+				)
+				,
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"c"
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+		),
+		// typedef double NUMBER2;
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(StorageClassSpecifier
+						name++"typedef"
+					),
+					(TypeSpecifier
+						name++"double"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"NUMBER2"
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+		),
+		// NUMBER2 d;
+		(ExternalDeclaration
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						type=
+							(TypedefName
+								id++"NUMBER2"
+							)
+					)
+				)
+				,
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"d"
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+		),
+		// NUMBER1 e;
+		(ExternalDeclaration
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						type=
+							(TypedefName
+								id++"NUMBER1"
+							)
+					)
+				)
+				,
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"e"
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+		),
+		// NUMBER2 f;
+		(ExternalDeclaration
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						type=
+							(TypedefName
+								id++"NUMBER2"
+							)
+					)
+				)
+				,
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"f"
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+		),
+		// int g;
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"int"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"g"
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+		)
+		
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0003_Typedefs.c"
+expected file isSameAsInputFile
+replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

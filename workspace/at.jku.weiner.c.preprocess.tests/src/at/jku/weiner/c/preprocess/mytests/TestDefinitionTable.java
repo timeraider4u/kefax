@@ -8,8 +8,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import at.jku.weiner.c.preprocess.cPreprocess.CPreprocessFactory;
-import at.jku.weiner.c.preprocess.cPreprocess.IdentifierList;
+import at.jku.weiner.c.preprocess.preprocess.PreprocessFactory;
+import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
 import at.jku.weiner.c.preprocess.utils.macros.DefinitionTable;
 
 public class TestDefinitionTable {
@@ -20,8 +20,8 @@ public class TestDefinitionTable {
 	public void setUp() {
 		DefinitionTable.reset();
 		Assert.assertEquals(0, DefinitionTable.size());
-		this.list1 = CPreprocessFactory.eINSTANCE.createIdentifierList();
-		this.list2 = CPreprocessFactory.eINSTANCE.createIdentifierList();
+		this.list1 = PreprocessFactory.eINSTANCE.createIdentifierList();
+		this.list2 = PreprocessFactory.eINSTANCE.createIdentifierList();
 	}
 
 	@After
@@ -349,7 +349,7 @@ public class TestDefinitionTable {
 	@Test
 	public void testContainsAKey11() {
 		final String code = "a little \"penguin(firefox)\" looks at you!";
-		final IdentifierList list = CPreprocessFactory.eINSTANCE
+		final IdentifierList list = PreprocessFactory.eINSTANCE
 				.createIdentifierList();
 		list.getId().add("x");
 		DefinitionTable.addFunctionMacro("penguin", "x", list);
@@ -361,7 +361,7 @@ public class TestDefinitionTable {
 	@Test
 	public void testContainsAKey12() {
 		final String code = "a little penguin(firefox) looks at you!";
-		final IdentifierList list = CPreprocessFactory.eINSTANCE
+		final IdentifierList list = PreprocessFactory.eINSTANCE
 				.createIdentifierList();
 		list.getId().add("x");
 		DefinitionTable.addFunctionMacro("penguin", "x \"penguin()\"", list);
@@ -375,7 +375,7 @@ public class TestDefinitionTable {
 	@Test
 	public void testContainsAKey13() {
 		final String code = "a little \"penguin()\" penguin(firefox) \"penguin\" looks at you!";
-		final IdentifierList list = CPreprocessFactory.eINSTANCE
+		final IdentifierList list = PreprocessFactory.eINSTANCE
 				.createIdentifierList();
 		list.getId().add("x");
 		DefinitionTable.addFunctionMacro("penguin", "x \"x\"", list);

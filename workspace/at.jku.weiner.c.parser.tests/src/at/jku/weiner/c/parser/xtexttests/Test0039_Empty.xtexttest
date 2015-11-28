@@ -1,0 +1,56 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.parser
+language parser
+//----------------------------------------------------------------------
+source file="res/Test0039_Empty.h"
+//----------------------------------------------------------------------
+lexer-tokens
+KW_VOID WHITESPACE ID LEFTPAREN  RIGHTPAREN SEMI NEWLINE
+//----------------------------------------------------------------------
+(Model unit+=
+	(TranslationUnit 
+		external+=
+		// void do6();
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"void"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"doSomething",
+								declaratorSuffix+=
+								(DeclaratorSuffix
+									lastSuffix=
+									(DirectDeclaratorLastSuffix
+										
+									)
+								)
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+		)
+		
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0039_Empty.c"
+expected file isSameAsInputFile
+replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

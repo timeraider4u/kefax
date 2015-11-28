@@ -1,0 +1,197 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.parser
+language parser
+//----------------------------------------------------------------------
+source file="res/Test0005_FunctionDecls.c"
+//----------------------------------------------------------------------
+lexer-tokens
+KW_CHAR WHITESPACE ID LEFTPAREN RIGHTPAREN SEMI NEWLINE
+KW_DOUBLE WHITESPACE ID LEFTPAREN  RIGHTPAREN SEMI NEWLINE
+KW_FLOAT WHITESPACE ID LEFTPAREN  RIGHTPAREN SEMI NEWLINE
+KW_INT WHITESPACE ID LEFTPAREN  RIGHTPAREN SEMI NEWLINE
+KW_VOID WHITESPACE ID LEFTPAREN  RIGHTPAREN SEMI NEWLINE
+//----------------------------------------------------------------------
+(Model unit+=
+	(TranslationUnit 
+		external+=
+		// char do2();
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"char"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"do2",
+								declaratorSuffix+=
+								(DeclaratorSuffix
+									lastSuffix=
+									(DirectDeclaratorLastSuffix
+										
+									)
+								)
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+		),
+		// double do3();
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"double"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"do3",
+								declaratorSuffix+=
+								(DeclaratorSuffix
+									lastSuffix=
+									(DirectDeclaratorLastSuffix
+										
+									)
+								)
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+		),
+		// float do4();
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"float"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"do4",
+								declaratorSuffix+=
+								(DeclaratorSuffix
+									lastSuffix=
+									(DirectDeclaratorLastSuffix
+										
+									)
+								)
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+		),
+		// int do5();
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"int"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"do5",
+								declaratorSuffix+=
+								(DeclaratorSuffix
+									lastSuffix=
+									(DirectDeclaratorLastSuffix
+										
+									)
+								)
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+		),
+		// void do6();
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"void"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"do6",
+								declaratorSuffix+=
+								(DeclaratorSuffix
+									lastSuffix=
+									(DirectDeclaratorLastSuffix
+										
+									)
+								)
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+		)
+		
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0005_FunctionDecls.c"
+expected file isSameAsInputFile
+
+replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

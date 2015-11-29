@@ -10,12 +10,16 @@ import java.util.List;
 import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
+import org.eclipse.xtext.EnumLiteralDeclaration;
+import org.eclipse.xtext.EnumRule;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.Group;
+import org.eclipse.xtext.Keyword;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.TerminalRule;
+import org.eclipse.xtext.service.AbstractElementFinder.AbstractEnumRuleElementFinder;
 import org.eclipse.xtext.service.AbstractElementFinder.AbstractGrammarElementFinder;
 import org.eclipse.xtext.service.AbstractElementFinder.AbstractParserRuleElementFinder;
 import org.eclipse.xtext.service.GrammarProvider;
@@ -923,8 +927,8 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cExprAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cExprConditionalExpressionParserRuleCall_1_0 = (RuleCall)cExprAssignment_1.eContents().get(0);
 		
-		//ConstantExpression Expression:
-		//	{ConstantExpression} expr=ConditionalExpression
+		//ConstantExpression:
+		//	{ConstantExpression} expr=ConditionalExpression;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{ConstantExpression} expr=ConditionalExpression
@@ -953,9 +957,9 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cCExprAssignment_2_3 = (Assignment)cGroup_2.eContents().get(3);
 		private final RuleCall cCExprConditionalExpressionParserRuleCall_2_3_0 = (RuleCall)cCExprAssignment_2_3.eContents().get(0);
 		
-		//ConditionalExpression Expression:
+		//ConditionalExpression:
 		//	{ConditionalExpression} expr=LogicalOrExpression (SKW_QUESTION qExpr=Expression SKW_COLON
-		//	cExpr=ConditionalExpression)?
+		//	cExpr=ConditionalExpression)?;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{ConditionalExpression} expr=LogicalOrExpression (SKW_QUESTION qExpr=Expression SKW_COLON cExpr=ConditionalExpression)?
@@ -1002,8 +1006,8 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cExprAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final RuleCall cExprLogicalAndExpressionParserRuleCall_2_1_0 = (RuleCall)cExprAssignment_2_1.eContents().get(0);
 		
-		//LogicalOrExpression Expression:
-		//	{LogicalOrExpression} expr+=LogicalAndExpression (SKW_OROR expr+=LogicalAndExpression)*
+		//LogicalOrExpression:
+		//	{LogicalOrExpression} expr+=LogicalAndExpression (SKW_OROR expr+=LogicalAndExpression)*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{LogicalOrExpression} expr+=LogicalAndExpression (SKW_OROR expr+=LogicalAndExpression)*
@@ -1041,8 +1045,8 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cExprAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final RuleCall cExprInclusiveOrExpressionParserRuleCall_2_1_0 = (RuleCall)cExprAssignment_2_1.eContents().get(0);
 		
-		//LogicalAndExpression Expression:
-		//	{LogicalAndExpression} expr+=InclusiveOrExpression (SKW_ANDAND expr+=InclusiveOrExpression)*
+		//LogicalAndExpression:
+		//	{LogicalAndExpression} expr+=InclusiveOrExpression (SKW_ANDAND expr+=InclusiveOrExpression)*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{LogicalAndExpression} expr+=InclusiveOrExpression (SKW_ANDAND expr+=InclusiveOrExpression)*
@@ -1080,8 +1084,8 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cExprAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final RuleCall cExprExclusiveOrExpressionParserRuleCall_2_1_0 = (RuleCall)cExprAssignment_2_1.eContents().get(0);
 		
-		//InclusiveOrExpression Expression:
-		//	{InclusiveOrExpression} expr+=ExclusiveOrExpression (SKW_OR expr+=ExclusiveOrExpression)*
+		//InclusiveOrExpression:
+		//	{InclusiveOrExpression} expr+=ExclusiveOrExpression (SKW_OR expr+=ExclusiveOrExpression)*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{InclusiveOrExpression} expr+=ExclusiveOrExpression (SKW_OR expr+=ExclusiveOrExpression)*
@@ -1119,8 +1123,8 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cExprAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final RuleCall cExprAndExpressionParserRuleCall_2_1_0 = (RuleCall)cExprAssignment_2_1.eContents().get(0);
 		
-		//ExclusiveOrExpression Expression:
-		//	{ExclusiveOrExpression} expr+=AndExpression (SKW_CARET expr+=AndExpression)*
+		//ExclusiveOrExpression:
+		//	{ExclusiveOrExpression} expr+=AndExpression (SKW_CARET expr+=AndExpression)*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{ExclusiveOrExpression} expr+=AndExpression (SKW_CARET expr+=AndExpression)*
@@ -1158,8 +1162,8 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cExprAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final RuleCall cExprEqualityExpressionParserRuleCall_2_1_0 = (RuleCall)cExprAssignment_2_1.eContents().get(0);
 		
-		//AndExpression Expression:
-		//	{AndExpression} expr+=EqualityExpression (SKW_AND expr+=EqualityExpression)*
+		//AndExpression:
+		//	{AndExpression} expr+=EqualityExpression (SKW_AND expr+=EqualityExpression)*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{AndExpression} expr+=EqualityExpression (SKW_AND expr+=EqualityExpression)*
@@ -1201,9 +1205,9 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cExprAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final RuleCall cExprRelationalExpressionParserRuleCall_2_1_0 = (RuleCall)cExprAssignment_2_1.eContents().get(0);
 		
-		//EqualityExpression Expression:
+		//EqualityExpression:
 		//	{EqualityExpression} expr+=RelationalExpression ((op+=SKW_EQUAL
-		//	| op+=SKW_NOTEQUAL) expr+=RelationalExpression)*
+		//	| op+=SKW_NOTEQUAL) expr+=RelationalExpression)*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{EqualityExpression} expr+=RelationalExpression ((op+=SKW_EQUAL | op+=SKW_NOTEQUAL) expr+=RelationalExpression)*
@@ -1261,11 +1265,11 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cExprAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final RuleCall cExprShiftExpressionParserRuleCall_2_1_0 = (RuleCall)cExprAssignment_2_1.eContents().get(0);
 		
-		//RelationalExpression Expression:
+		//RelationalExpression:
 		//	{RelationalExpression} expr+=ShiftExpression ((op+=SKW_LESS
 		//	| op+=SKW_GREATER
 		//	| op+=SKW_LESSEQUAL
-		//	| op+=SKW_GREATEREQUAL) expr+=ShiftExpression)*
+		//	| op+=SKW_GREATEREQUAL) expr+=ShiftExpression)*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{RelationalExpression} expr+=ShiftExpression ((op+=SKW_LESS | op+=SKW_GREATER | op+=SKW_LESSEQUAL |
@@ -1332,9 +1336,9 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cExprAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final RuleCall cExprAdditiveExpressionParserRuleCall_2_1_0 = (RuleCall)cExprAssignment_2_1.eContents().get(0);
 		
-		//ShiftExpression Expression:
+		//ShiftExpression:
 		//	{ShiftExpression} expr+=AdditiveExpression ((op+=SKW_LEFTSHIFT
-		//	| op+=SKW_RIGHTSHIFT) expr+=AdditiveExpression)*
+		//	| op+=SKW_RIGHTSHIFT) expr+=AdditiveExpression)*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{ShiftExpression} expr+=AdditiveExpression ((op+=SKW_LEFTSHIFT | op+=SKW_RIGHTSHIFT) expr+=AdditiveExpression)*
@@ -1388,9 +1392,9 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cExprAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final RuleCall cExprMultiplicativeExpressionParserRuleCall_2_1_0 = (RuleCall)cExprAssignment_2_1.eContents().get(0);
 		
-		//AdditiveExpression Expression:
+		//AdditiveExpression:
 		//	{AdditiveExpression} expr+=MultiplicativeExpression ((op+=SKW_PLUS
-		//	| op+=SKW_MINUS) expr+=MultiplicativeExpression)*
+		//	| op+=SKW_MINUS) expr+=MultiplicativeExpression)*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{AdditiveExpression} expr+=MultiplicativeExpression ((op+=SKW_PLUS | op+=SKW_MINUS) expr+=MultiplicativeExpression)*
@@ -1446,10 +1450,10 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cExprAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final RuleCall cExprCastExpressionParserRuleCall_2_1_0 = (RuleCall)cExprAssignment_2_1.eContents().get(0);
 		
-		//MultiplicativeExpression Expression:
+		//MultiplicativeExpression:
 		//	{MultiplicativeExpression} expr+=CastExpression ((op+=SKW_STAR
 		//	| op+=SKW_DIV
-		//	| op+=SKW_MOD) expr+=CastExpression)*
+		//	| op+=SKW_MOD) expr+=CastExpression)*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{MultiplicativeExpression} expr+=CastExpression ((op+=SKW_STAR | op+=SKW_DIV | op+=SKW_MOD) expr+=CastExpression)*
@@ -1501,8 +1505,11 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cExprAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cExprUnaryExpressionParserRuleCall_1_0 = (RuleCall)cExprAssignment_1.eContents().get(0);
 		
-		//CastExpression Expression:
+		//CastExpression:
 		//	{CastExpression} expr=UnaryExpression
+		//	//|	SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN expr=CastExpression
+		//	//|	'__extension__' LEFTPAREN type=TypeName RIGHTPAREN castExpr=CastExpression
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{CastExpression} expr=UnaryExpression
@@ -1525,54 +1532,41 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cExprAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
 		private final RuleCall cExprPostfixExpressionParserRuleCall_1_0_0 = (RuleCall)cExprAssignment_1_0.eContents().get(0);
 		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
-		private final Assignment cPlusplusAssignment_1_1_0 = (Assignment)cGroup_1_1.eContents().get(0);
-		private final RuleCall cPlusplusSKW_PLUSPLUSTerminalRuleCall_1_1_0_0 = (RuleCall)cPlusplusAssignment_1_1_0.eContents().get(0);
+		private final Assignment cOpAssignment_1_1_0 = (Assignment)cGroup_1_1.eContents().get(0);
+		private final RuleCall cOpUnaryOperatorEnumRuleCall_1_1_0_0 = (RuleCall)cOpAssignment_1_1_0.eContents().get(0);
 		private final Assignment cExprAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
-		private final RuleCall cExprUnaryExpressionParserRuleCall_1_1_1_0 = (RuleCall)cExprAssignment_1_1_1.eContents().get(0);
-		private final Group cGroup_1_2 = (Group)cAlternatives_1.eContents().get(2);
-		private final Assignment cMinusminusAssignment_1_2_0 = (Assignment)cGroup_1_2.eContents().get(0);
-		private final RuleCall cMinusminusSKW_MINUSMINUSTerminalRuleCall_1_2_0_0 = (RuleCall)cMinusminusAssignment_1_2_0.eContents().get(0);
-		private final Assignment cExprAssignment_1_2_1 = (Assignment)cGroup_1_2.eContents().get(1);
-		private final RuleCall cExprUnaryExpressionParserRuleCall_1_2_1_0 = (RuleCall)cExprAssignment_1_2_1.eContents().get(0);
-		private final Group cGroup_1_3 = (Group)cAlternatives_1.eContents().get(3);
-		private final Assignment cOpAssignment_1_3_0 = (Assignment)cGroup_1_3.eContents().get(0);
-		private final RuleCall cOpUnaryOperatorParserRuleCall_1_3_0_0 = (RuleCall)cOpAssignment_1_3_0.eContents().get(0);
-		private final Assignment cExprAssignment_1_3_1 = (Assignment)cGroup_1_3.eContents().get(1);
-		private final RuleCall cExprCastExpressionParserRuleCall_1_3_1_0 = (RuleCall)cExprAssignment_1_3_1.eContents().get(0);
-		private final Group cGroup_1_4 = (Group)cAlternatives_1.eContents().get(4);
-		private final Assignment cAndandAssignment_1_4_0 = (Assignment)cGroup_1_4.eContents().get(0);
-		private final RuleCall cAndandSKW_ANDANDTerminalRuleCall_1_4_0_0 = (RuleCall)cAndandAssignment_1_4_0.eContents().get(0);
-		private final Assignment cIdAssignment_1_4_1 = (Assignment)cGroup_1_4.eContents().get(1);
-		private final RuleCall cIdIDTerminalRuleCall_1_4_1_0 = (RuleCall)cIdAssignment_1_4_1.eContents().get(0);
+		private final RuleCall cExprCastExpressionParserRuleCall_1_1_1_0 = (RuleCall)cExprAssignment_1_1_1.eContents().get(0);
 		
-		//UnaryExpression Expression:
+		//UnaryExpression:
 		//	{UnaryExpression} (expr=PostfixExpression
-		//	| plusplus=SKW_PLUSPLUS expr=UnaryExpression
-		//	| minusminus=SKW_MINUSMINUS expr=UnaryExpression
+		//	//|	plusplus=SKW_PLUSPLUS expr=UnaryExpression
+		//	//|	minusminus=SKW_MINUSMINUS expr=UnaryExpression
 		//	| op=UnaryOperator expr=CastExpression
 		//	//|	sizeOf=SKW_SIZEOF SKW_LEFTPAREN typeName=TypeName SKW_RIGHTPAREN
 		//	//|	sizeOf=SKW_SIZEOF expr=UnaryExpression 
 		//	//|	ALIGNOF LEFTPAREN typeName=typeName RIGHTPAREN
-		//	| andand=SKW_ANDAND id=ID // GCC extension address of label
-		//)
+		//	//|	andand=SKW_ANDAND id=ID // GCC extension address of label
+		//);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{UnaryExpression} (expr=PostfixExpression | plusplus=SKW_PLUSPLUS expr=UnaryExpression | minusminus=SKW_MINUSMINUS
-		//expr=UnaryExpression | op=UnaryOperator expr=CastExpression //|	sizeOf=SKW_SIZEOF SKW_LEFTPAREN typeName=TypeName SKW_RIGHTPAREN
+		//{UnaryExpression} (expr=PostfixExpression //|	plusplus=SKW_PLUSPLUS expr=UnaryExpression
+		////|	minusminus=SKW_MINUSMINUS expr=UnaryExpression
+		//| op=UnaryOperator expr=CastExpression //|	sizeOf=SKW_SIZEOF SKW_LEFTPAREN typeName=TypeName SKW_RIGHTPAREN
 		////|	sizeOf=SKW_SIZEOF expr=UnaryExpression 
 		////|	ALIGNOF LEFTPAREN typeName=typeName RIGHTPAREN
-		//| andand=SKW_ANDAND id=ID // GCC extension address of label
+		////|	andand=SKW_ANDAND id=ID // GCC extension address of label
 		//)
 		public Group getGroup() { return cGroup; }
 		
 		//{UnaryExpression}
 		public Action getUnaryExpressionAction_0() { return cUnaryExpressionAction_0; }
 		
-		//(expr=PostfixExpression | plusplus=SKW_PLUSPLUS expr=UnaryExpression | minusminus=SKW_MINUSMINUS expr=UnaryExpression |
-		//op=UnaryOperator expr=CastExpression //|	sizeOf=SKW_SIZEOF SKW_LEFTPAREN typeName=TypeName SKW_RIGHTPAREN
+		//(expr=PostfixExpression //|	plusplus=SKW_PLUSPLUS expr=UnaryExpression
+		////|	minusminus=SKW_MINUSMINUS expr=UnaryExpression
+		//| op=UnaryOperator expr=CastExpression //|	sizeOf=SKW_SIZEOF SKW_LEFTPAREN typeName=TypeName SKW_RIGHTPAREN
 		////|	sizeOf=SKW_SIZEOF expr=UnaryExpression 
 		////|	ALIGNOF LEFTPAREN typeName=typeName RIGHTPAREN
-		//| andand=SKW_ANDAND id=ID // GCC extension address of label
+		////|	andand=SKW_ANDAND id=ID // GCC extension address of label
 		//)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
@@ -1582,137 +1576,20 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//PostfixExpression
 		public RuleCall getExprPostfixExpressionParserRuleCall_1_0_0() { return cExprPostfixExpressionParserRuleCall_1_0_0; }
 		
-		//plusplus=SKW_PLUSPLUS expr=UnaryExpression
+		//op=UnaryOperator expr=CastExpression
 		public Group getGroup_1_1() { return cGroup_1_1; }
 		
-		//plusplus=SKW_PLUSPLUS
-		public Assignment getPlusplusAssignment_1_1_0() { return cPlusplusAssignment_1_1_0; }
-		
-		//SKW_PLUSPLUS
-		public RuleCall getPlusplusSKW_PLUSPLUSTerminalRuleCall_1_1_0_0() { return cPlusplusSKW_PLUSPLUSTerminalRuleCall_1_1_0_0; }
-		
-		//expr=UnaryExpression
-		public Assignment getExprAssignment_1_1_1() { return cExprAssignment_1_1_1; }
-		
-		//UnaryExpression
-		public RuleCall getExprUnaryExpressionParserRuleCall_1_1_1_0() { return cExprUnaryExpressionParserRuleCall_1_1_1_0; }
-		
-		//minusminus=SKW_MINUSMINUS expr=UnaryExpression
-		public Group getGroup_1_2() { return cGroup_1_2; }
-		
-		//minusminus=SKW_MINUSMINUS
-		public Assignment getMinusminusAssignment_1_2_0() { return cMinusminusAssignment_1_2_0; }
-		
-		//SKW_MINUSMINUS
-		public RuleCall getMinusminusSKW_MINUSMINUSTerminalRuleCall_1_2_0_0() { return cMinusminusSKW_MINUSMINUSTerminalRuleCall_1_2_0_0; }
-		
-		//expr=UnaryExpression
-		public Assignment getExprAssignment_1_2_1() { return cExprAssignment_1_2_1; }
-		
-		//UnaryExpression
-		public RuleCall getExprUnaryExpressionParserRuleCall_1_2_1_0() { return cExprUnaryExpressionParserRuleCall_1_2_1_0; }
-		
-		//op=UnaryOperator expr=CastExpression
-		public Group getGroup_1_3() { return cGroup_1_3; }
-		
 		//op=UnaryOperator
-		public Assignment getOpAssignment_1_3_0() { return cOpAssignment_1_3_0; }
+		public Assignment getOpAssignment_1_1_0() { return cOpAssignment_1_1_0; }
 		
 		//UnaryOperator
-		public RuleCall getOpUnaryOperatorParserRuleCall_1_3_0_0() { return cOpUnaryOperatorParserRuleCall_1_3_0_0; }
+		public RuleCall getOpUnaryOperatorEnumRuleCall_1_1_0_0() { return cOpUnaryOperatorEnumRuleCall_1_1_0_0; }
 		
 		//expr=CastExpression
-		public Assignment getExprAssignment_1_3_1() { return cExprAssignment_1_3_1; }
+		public Assignment getExprAssignment_1_1_1() { return cExprAssignment_1_1_1; }
 		
 		//CastExpression
-		public RuleCall getExprCastExpressionParserRuleCall_1_3_1_0() { return cExprCastExpressionParserRuleCall_1_3_1_0; }
-		
-		//andand=SKW_ANDAND id=ID
-		public Group getGroup_1_4() { return cGroup_1_4; }
-		
-		//andand=SKW_ANDAND
-		public Assignment getAndandAssignment_1_4_0() { return cAndandAssignment_1_4_0; }
-		
-		//SKW_ANDAND
-		public RuleCall getAndandSKW_ANDANDTerminalRuleCall_1_4_0_0() { return cAndandSKW_ANDANDTerminalRuleCall_1_4_0_0; }
-		
-		//id=ID
-		public Assignment getIdAssignment_1_4_1() { return cIdAssignment_1_4_1; }
-		
-		//ID
-		public RuleCall getIdIDTerminalRuleCall_1_4_1_0() { return cIdIDTerminalRuleCall_1_4_1_0; }
-	}
-	public class UnaryOperatorElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.UnaryOperator");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cUnaryOperatorAction_0 = (Action)cGroup.eContents().get(0);
-		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final Assignment cOpAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
-		private final RuleCall cOpSKW_ANDTerminalRuleCall_1_0_0 = (RuleCall)cOpAssignment_1_0.eContents().get(0);
-		private final Assignment cOpAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
-		private final RuleCall cOpSKW_STARTerminalRuleCall_1_1_0 = (RuleCall)cOpAssignment_1_1.eContents().get(0);
-		private final Assignment cOpAssignment_1_2 = (Assignment)cAlternatives_1.eContents().get(2);
-		private final RuleCall cOpSKW_PLUSTerminalRuleCall_1_2_0 = (RuleCall)cOpAssignment_1_2.eContents().get(0);
-		private final Assignment cOpAssignment_1_3 = (Assignment)cAlternatives_1.eContents().get(3);
-		private final RuleCall cOpSKW_MINUSTerminalRuleCall_1_3_0 = (RuleCall)cOpAssignment_1_3.eContents().get(0);
-		private final Assignment cOpAssignment_1_4 = (Assignment)cAlternatives_1.eContents().get(4);
-		private final RuleCall cOpSKW_TILDETerminalRuleCall_1_4_0 = (RuleCall)cOpAssignment_1_4.eContents().get(0);
-		private final Assignment cOpAssignment_1_5 = (Assignment)cAlternatives_1.eContents().get(5);
-		private final RuleCall cOpSKW_NOTTerminalRuleCall_1_5_0 = (RuleCall)cOpAssignment_1_5.eContents().get(0);
-		
-		//UnaryOperator:
-		//	{UnaryOperator} (op=SKW_AND
-		//	| op=SKW_STAR
-		//	| op=SKW_PLUS
-		//	| op=SKW_MINUS
-		//	| op=SKW_TILDE
-		//	| op=SKW_NOT);
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{UnaryOperator} (op=SKW_AND | op=SKW_STAR | op=SKW_PLUS | op=SKW_MINUS | op=SKW_TILDE | op=SKW_NOT)
-		public Group getGroup() { return cGroup; }
-		
-		//{UnaryOperator}
-		public Action getUnaryOperatorAction_0() { return cUnaryOperatorAction_0; }
-		
-		//(op=SKW_AND | op=SKW_STAR | op=SKW_PLUS | op=SKW_MINUS | op=SKW_TILDE | op=SKW_NOT)
-		public Alternatives getAlternatives_1() { return cAlternatives_1; }
-		
-		//op=SKW_AND
-		public Assignment getOpAssignment_1_0() { return cOpAssignment_1_0; }
-		
-		//SKW_AND
-		public RuleCall getOpSKW_ANDTerminalRuleCall_1_0_0() { return cOpSKW_ANDTerminalRuleCall_1_0_0; }
-		
-		//op=SKW_STAR
-		public Assignment getOpAssignment_1_1() { return cOpAssignment_1_1; }
-		
-		//SKW_STAR
-		public RuleCall getOpSKW_STARTerminalRuleCall_1_1_0() { return cOpSKW_STARTerminalRuleCall_1_1_0; }
-		
-		//op=SKW_PLUS
-		public Assignment getOpAssignment_1_2() { return cOpAssignment_1_2; }
-		
-		//SKW_PLUS
-		public RuleCall getOpSKW_PLUSTerminalRuleCall_1_2_0() { return cOpSKW_PLUSTerminalRuleCall_1_2_0; }
-		
-		//op=SKW_MINUS
-		public Assignment getOpAssignment_1_3() { return cOpAssignment_1_3; }
-		
-		//SKW_MINUS
-		public RuleCall getOpSKW_MINUSTerminalRuleCall_1_3_0() { return cOpSKW_MINUSTerminalRuleCall_1_3_0; }
-		
-		//op=SKW_TILDE
-		public Assignment getOpAssignment_1_4() { return cOpAssignment_1_4; }
-		
-		//SKW_TILDE
-		public RuleCall getOpSKW_TILDETerminalRuleCall_1_4_0() { return cOpSKW_TILDETerminalRuleCall_1_4_0; }
-		
-		//op=SKW_NOT
-		public Assignment getOpAssignment_1_5() { return cOpAssignment_1_5; }
-		
-		//SKW_NOT
-		public RuleCall getOpSKW_NOTTerminalRuleCall_1_5_0() { return cOpSKW_NOTTerminalRuleCall_1_5_0; }
+		public RuleCall getExprCastExpressionParserRuleCall_1_1_1_0() { return cExprCastExpressionParserRuleCall_1_1_1_0; }
 	}
 	public class PostfixExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.PostfixExpression");
@@ -1721,27 +1598,50 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cExprAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cExprPrimaryExpressionParserRuleCall_1_0 = (RuleCall)cExprAssignment_1.eContents().get(0);
 		
-		//PostfixExpression Expression:
-		//	{PostfixExpression} expr+=PrimaryExpression
+		//PostfixExpression:
+		//	{PostfixExpression} expr=PrimaryExpression
+		//	/ *	(
+		//	|	('__extension__' LEFTPAREN typeName RIGHTPAREN LEFTBRACE initializerList=initializerList) 
+		//			(COMMA? RIGHTBRACE)
+		//	)
+		//	* /
+		////(
+		//	//	suffix+=PostfixExpressionSuffixArray
+		//	//|	suffix+=PostfixExpressionSuffixArgument
+		//	//|	suffix+=PostfixExpressionSuffixDot
+		//	//|	suffix+=PostfixExpressionSuffixArrow
+		//	//	suffix+=PostfixExpressionSuffixPlusPlus
+		//	//|	suffix+=PostfixExpressionSuffixMinusMinus
+		//	//)*
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{PostfixExpression} expr+=PrimaryExpression
+		//{PostfixExpression} expr=PrimaryExpression
 		public Group getGroup() { return cGroup; }
 		
 		//{PostfixExpression}
 		public Action getPostfixExpressionAction_0() { return cPostfixExpressionAction_0; }
 		
-		//expr+=PrimaryExpression
+		//expr=PrimaryExpression
 		public Assignment getExprAssignment_1() { return cExprAssignment_1; }
 		
 		//PrimaryExpression
 		public RuleCall getExprPrimaryExpressionParserRuleCall_1_0() { return cExprPrimaryExpressionParserRuleCall_1_0; }
 	}
-	public class PostfixExpressionSuffixPlusPlusElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.PostfixExpressionSuffixPlusPlus");
+	public class PrimaryExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.PrimaryExpression");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cPostfixExpressionSuffixPlusPlusAction_0 = (Action)cGroup.eContents().get(0);
-		private final RuleCall cSKW_PLUSPLUSTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Action cPrimaryExpressionAction_0 = (Action)cGroup.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Assignment cIdAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
+		private final RuleCall cIdIDTerminalRuleCall_1_0_0 = (RuleCall)cIdAssignment_1_0.eContents().get(0);
+		private final Assignment cConstAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
+		private final RuleCall cConstConstantParserRuleCall_1_1_0 = (RuleCall)cConstAssignment_1_1.eContents().get(0);
+		private final Group cGroup_1_2 = (Group)cAlternatives_1.eContents().get(2);
+		private final RuleCall cSKW_LEFTPARENTerminalRuleCall_1_2_0 = (RuleCall)cGroup_1_2.eContents().get(0);
+		private final Assignment cExprAssignment_1_2_1 = (Assignment)cGroup_1_2.eContents().get(1);
+		private final RuleCall cExprExpressionParserRuleCall_1_2_1_0 = (RuleCall)cExprAssignment_1_2_1.eContents().get(0);
+		private final RuleCall cSKW_RIGHTPARENTerminalRuleCall_1_2_2 = (RuleCall)cGroup_1_2.eContents().get(2);
 		
 		/// *
 		//PostfixExpressionSuffixArray returns PostfixExpressionSuffix:
@@ -1764,55 +1664,21 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//	{PostfixExpressionSuffixArrow}
 		//	SKW_ARROW id=ID
 		//;
-		// * / PostfixExpressionSuffixPlusPlus PostfixExpressionSuffix:
-		//	{PostfixExpressionSuffixPlusPlus} SKW_PLUSPLUS
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{PostfixExpressionSuffixPlusPlus} SKW_PLUSPLUS
-		public Group getGroup() { return cGroup; }
-		
-		//{PostfixExpressionSuffixPlusPlus}
-		public Action getPostfixExpressionSuffixPlusPlusAction_0() { return cPostfixExpressionSuffixPlusPlusAction_0; }
-		
-		//SKW_PLUSPLUS
-		public RuleCall getSKW_PLUSPLUSTerminalRuleCall_1() { return cSKW_PLUSPLUSTerminalRuleCall_1; }
-	}
-	public class PostfixExpressionSuffixMinusMinusElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.PostfixExpressionSuffixMinusMinus");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cPostfixExpressionSuffixMinusMinusAction_0 = (Action)cGroup.eContents().get(0);
-		private final RuleCall cSKW_MINUSMINUSTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
-		
-		//PostfixExpressionSuffixMinusMinus PostfixExpressionSuffix:
-		//	{PostfixExpressionSuffixMinusMinus} SKW_MINUSMINUS
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{PostfixExpressionSuffixMinusMinus} SKW_MINUSMINUS
-		public Group getGroup() { return cGroup; }
-		
-		//{PostfixExpressionSuffixMinusMinus}
-		public Action getPostfixExpressionSuffixMinusMinusAction_0() { return cPostfixExpressionSuffixMinusMinusAction_0; }
-		
-		//SKW_MINUSMINUS
-		public RuleCall getSKW_MINUSMINUSTerminalRuleCall_1() { return cSKW_MINUSMINUSTerminalRuleCall_1; }
-	}
-	public class PrimaryExpressionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.PrimaryExpression");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cPrimaryExpressionAction_0 = (Action)cGroup.eContents().get(0);
-		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final Assignment cIdAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
-		private final RuleCall cIdIDTerminalRuleCall_1_0_0 = (RuleCall)cIdAssignment_1_0.eContents().get(0);
-		private final Assignment cConstAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
-		private final RuleCall cConstConstantParserRuleCall_1_1_0 = (RuleCall)cConstAssignment_1_1.eContents().get(0);
-		private final Group cGroup_1_2 = (Group)cAlternatives_1.eContents().get(2);
-		private final RuleCall cSKW_LEFTPARENTerminalRuleCall_1_2_0 = (RuleCall)cGroup_1_2.eContents().get(0);
-		private final Assignment cExprAssignment_1_2_1 = (Assignment)cGroup_1_2.eContents().get(1);
-		private final RuleCall cExprExpressionParserRuleCall_1_2_1_0 = (RuleCall)cExprAssignment_1_2_1.eContents().get(0);
-		private final RuleCall cSKW_RIGHTPARENTerminalRuleCall_1_2_2 = (RuleCall)cGroup_1_2.eContents().get(2);
-		
-		////ArgumentExpressionList: expr+=AssignmentExpression (SKW_COMMA expr+=AssignmentExpression)*;
-		//PrimaryExpression Expression:
+		//
+		//
+		//PostfixExpressionSuffixPlusPlus returns PostfixExpressionSuffix:
+		//	{PostfixExpressionSuffixPlusPlus}
+		//	SKW_PLUSPLUS
+		//;
+		//
+		//PostfixExpressionSuffixMinusMinus returns PostfixExpressionSuffix:
+		//	{PostfixExpressionSuffixMinusMinus}
+		//	SKW_MINUSMINUS
+		//;
+		//
+		//ArgumentExpressionList: expr+=AssignmentExpression (SKW_COMMA expr+=AssignmentExpression)*;
+		//
+		// * / PrimaryExpression:
 		//	{PrimaryExpression} (id=ID
 		//	| const=Constant
 		//	//|	string+=STRING_LITERAL+ // reachable over Constant!
@@ -1821,7 +1687,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//	// |	'__extension__'? LEFTPAREN compoundStmt=compoundStatement RIGHTPAREN // Blocks (GCC extension)
 		//	//|	'__builtin_va_arg' LEFTPAREN expr=unaryExpression COMMA typeName=typeName RIGHTPAREN
 		//	//|	'__builtin_offsetof' LEFTPAREN typeName=typeName COMMA expr=unaryExpression RIGHTPAREN
-		//)
+		//);
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{PrimaryExpression} (id=ID | const=Constant //|	string+=STRING_LITERAL+ // reachable over Constant!
@@ -1916,6 +1782,70 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getBIN_LITERALTerminalRuleCall_6() { return cBIN_LITERALTerminalRuleCall_6; }
 	}
 	
+	public class UnaryOperatorElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.UnaryOperator");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cSKW_ANDEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cSKW_ANDSKW_ANDKeyword_0_0 = (Keyword)cSKW_ANDEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cSKW_STAREnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cSKW_STARSKW_STARKeyword_1_0 = (Keyword)cSKW_STAREnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cSKW_PLUSEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cSKW_PLUSSKW_PLUSKeyword_2_0 = (Keyword)cSKW_PLUSEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cSKW_MINUSEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cSKW_MINUSSKW_MINUSKeyword_3_0 = (Keyword)cSKW_MINUSEnumLiteralDeclaration_3.eContents().get(0);
+		private final EnumLiteralDeclaration cSKW_TILDEEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
+		private final Keyword cSKW_TILDESKW_TILDEKeyword_4_0 = (Keyword)cSKW_TILDEEnumLiteralDeclaration_4.eContents().get(0);
+		private final EnumLiteralDeclaration cSKW_NOTEnumLiteralDeclaration_5 = (EnumLiteralDeclaration)cAlternatives.eContents().get(5);
+		private final Keyword cSKW_NOTSKW_NOTKeyword_5_0 = (Keyword)cSKW_NOTEnumLiteralDeclaration_5.eContents().get(0);
+		
+		//enum UnaryOperator:
+		//	SKW_AND
+		//	| SKW_STAR
+		//	| SKW_PLUS
+		//	| SKW_MINUS
+		//	| SKW_TILDE
+		//	| SKW_NOT;
+		public EnumRule getRule() { return rule; }
+		
+		//SKW_AND | SKW_STAR | SKW_PLUS | SKW_MINUS | SKW_TILDE | SKW_NOT
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//SKW_AND
+		public EnumLiteralDeclaration getSKW_ANDEnumLiteralDeclaration_0() { return cSKW_ANDEnumLiteralDeclaration_0; }
+		
+		//"SKW_AND"
+		public Keyword getSKW_ANDSKW_ANDKeyword_0_0() { return cSKW_ANDSKW_ANDKeyword_0_0; }
+		
+		//SKW_STAR
+		public EnumLiteralDeclaration getSKW_STAREnumLiteralDeclaration_1() { return cSKW_STAREnumLiteralDeclaration_1; }
+		
+		//"SKW_STAR"
+		public Keyword getSKW_STARSKW_STARKeyword_1_0() { return cSKW_STARSKW_STARKeyword_1_0; }
+		
+		//SKW_PLUS
+		public EnumLiteralDeclaration getSKW_PLUSEnumLiteralDeclaration_2() { return cSKW_PLUSEnumLiteralDeclaration_2; }
+		
+		//"SKW_PLUS"
+		public Keyword getSKW_PLUSSKW_PLUSKeyword_2_0() { return cSKW_PLUSSKW_PLUSKeyword_2_0; }
+		
+		//SKW_MINUS
+		public EnumLiteralDeclaration getSKW_MINUSEnumLiteralDeclaration_3() { return cSKW_MINUSEnumLiteralDeclaration_3; }
+		
+		//"SKW_MINUS"
+		public Keyword getSKW_MINUSSKW_MINUSKeyword_3_0() { return cSKW_MINUSSKW_MINUSKeyword_3_0; }
+		
+		//SKW_TILDE
+		public EnumLiteralDeclaration getSKW_TILDEEnumLiteralDeclaration_4() { return cSKW_TILDEEnumLiteralDeclaration_4; }
+		
+		//"SKW_TILDE"
+		public Keyword getSKW_TILDESKW_TILDEKeyword_4_0() { return cSKW_TILDESKW_TILDEKeyword_4_0; }
+		
+		//SKW_NOT
+		public EnumLiteralDeclaration getSKW_NOTEnumLiteralDeclaration_5() { return cSKW_NOTEnumLiteralDeclaration_5; }
+		
+		//"SKW_NOT"
+		public Keyword getSKW_NOTSKW_NOTKeyword_5_0() { return cSKW_NOTSKW_NOTKeyword_5_0; }
+	}
 	
 	private final ModelElements pModel;
 	private final TranslationUnitElements pTranslationUnit;
@@ -1956,10 +1886,8 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	private final MultiplicativeExpressionElements pMultiplicativeExpression;
 	private final CastExpressionElements pCastExpression;
 	private final UnaryExpressionElements pUnaryExpression;
-	private final UnaryOperatorElements pUnaryOperator;
+	private final UnaryOperatorElements eUnaryOperator;
 	private final PostfixExpressionElements pPostfixExpression;
-	private final PostfixExpressionSuffixPlusPlusElements pPostfixExpressionSuffixPlusPlus;
-	private final PostfixExpressionSuffixMinusMinusElements pPostfixExpressionSuffixMinusMinus;
 	private final PrimaryExpressionElements pPrimaryExpression;
 	private final ConstantElements pConstant;
 	private final TerminalRule tHASH;
@@ -2046,10 +1974,8 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		this.pMultiplicativeExpression = new MultiplicativeExpressionElements();
 		this.pCastExpression = new CastExpressionElements();
 		this.pUnaryExpression = new UnaryExpressionElements();
-		this.pUnaryOperator = new UnaryOperatorElements();
+		this.eUnaryOperator = new UnaryOperatorElements();
 		this.pPostfixExpression = new PostfixExpressionElements();
-		this.pPostfixExpressionSuffixPlusPlus = new PostfixExpressionSuffixPlusPlusElements();
-		this.pPostfixExpressionSuffixMinusMinus = new PostfixExpressionSuffixMinusMinusElements();
 		this.pPrimaryExpression = new PrimaryExpressionElements();
 		this.pConstant = new ConstantElements();
 		this.tHASH = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.HASH");
@@ -2389,8 +2315,8 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		return getExpressionAccess().getRule();
 	}
 	
-	//ConstantExpression Expression:
-	//	{ConstantExpression} expr=ConditionalExpression
+	//ConstantExpression:
+	//	{ConstantExpression} expr=ConditionalExpression;
 	public ConstantExpressionElements getConstantExpressionAccess() {
 		return pConstantExpression;
 	}
@@ -2399,9 +2325,9 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		return getConstantExpressionAccess().getRule();
 	}
 	
-	//ConditionalExpression Expression:
+	//ConditionalExpression:
 	//	{ConditionalExpression} expr=LogicalOrExpression (SKW_QUESTION qExpr=Expression SKW_COLON
-	//	cExpr=ConditionalExpression)?
+	//	cExpr=ConditionalExpression)?;
 	public ConditionalExpressionElements getConditionalExpressionAccess() {
 		return pConditionalExpression;
 	}
@@ -2410,8 +2336,8 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		return getConditionalExpressionAccess().getRule();
 	}
 	
-	//LogicalOrExpression Expression:
-	//	{LogicalOrExpression} expr+=LogicalAndExpression (SKW_OROR expr+=LogicalAndExpression)*
+	//LogicalOrExpression:
+	//	{LogicalOrExpression} expr+=LogicalAndExpression (SKW_OROR expr+=LogicalAndExpression)*;
 	public LogicalOrExpressionElements getLogicalOrExpressionAccess() {
 		return pLogicalOrExpression;
 	}
@@ -2420,8 +2346,8 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		return getLogicalOrExpressionAccess().getRule();
 	}
 	
-	//LogicalAndExpression Expression:
-	//	{LogicalAndExpression} expr+=InclusiveOrExpression (SKW_ANDAND expr+=InclusiveOrExpression)*
+	//LogicalAndExpression:
+	//	{LogicalAndExpression} expr+=InclusiveOrExpression (SKW_ANDAND expr+=InclusiveOrExpression)*;
 	public LogicalAndExpressionElements getLogicalAndExpressionAccess() {
 		return pLogicalAndExpression;
 	}
@@ -2430,8 +2356,8 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		return getLogicalAndExpressionAccess().getRule();
 	}
 	
-	//InclusiveOrExpression Expression:
-	//	{InclusiveOrExpression} expr+=ExclusiveOrExpression (SKW_OR expr+=ExclusiveOrExpression)*
+	//InclusiveOrExpression:
+	//	{InclusiveOrExpression} expr+=ExclusiveOrExpression (SKW_OR expr+=ExclusiveOrExpression)*;
 	public InclusiveOrExpressionElements getInclusiveOrExpressionAccess() {
 		return pInclusiveOrExpression;
 	}
@@ -2440,8 +2366,8 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		return getInclusiveOrExpressionAccess().getRule();
 	}
 	
-	//ExclusiveOrExpression Expression:
-	//	{ExclusiveOrExpression} expr+=AndExpression (SKW_CARET expr+=AndExpression)*
+	//ExclusiveOrExpression:
+	//	{ExclusiveOrExpression} expr+=AndExpression (SKW_CARET expr+=AndExpression)*;
 	public ExclusiveOrExpressionElements getExclusiveOrExpressionAccess() {
 		return pExclusiveOrExpression;
 	}
@@ -2450,8 +2376,8 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		return getExclusiveOrExpressionAccess().getRule();
 	}
 	
-	//AndExpression Expression:
-	//	{AndExpression} expr+=EqualityExpression (SKW_AND expr+=EqualityExpression)*
+	//AndExpression:
+	//	{AndExpression} expr+=EqualityExpression (SKW_AND expr+=EqualityExpression)*;
 	public AndExpressionElements getAndExpressionAccess() {
 		return pAndExpression;
 	}
@@ -2460,9 +2386,9 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		return getAndExpressionAccess().getRule();
 	}
 	
-	//EqualityExpression Expression:
+	//EqualityExpression:
 	//	{EqualityExpression} expr+=RelationalExpression ((op+=SKW_EQUAL
-	//	| op+=SKW_NOTEQUAL) expr+=RelationalExpression)*
+	//	| op+=SKW_NOTEQUAL) expr+=RelationalExpression)*;
 	public EqualityExpressionElements getEqualityExpressionAccess() {
 		return pEqualityExpression;
 	}
@@ -2471,11 +2397,11 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		return getEqualityExpressionAccess().getRule();
 	}
 	
-	//RelationalExpression Expression:
+	//RelationalExpression:
 	//	{RelationalExpression} expr+=ShiftExpression ((op+=SKW_LESS
 	//	| op+=SKW_GREATER
 	//	| op+=SKW_LESSEQUAL
-	//	| op+=SKW_GREATEREQUAL) expr+=ShiftExpression)*
+	//	| op+=SKW_GREATEREQUAL) expr+=ShiftExpression)*;
 	public RelationalExpressionElements getRelationalExpressionAccess() {
 		return pRelationalExpression;
 	}
@@ -2484,9 +2410,9 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		return getRelationalExpressionAccess().getRule();
 	}
 	
-	//ShiftExpression Expression:
+	//ShiftExpression:
 	//	{ShiftExpression} expr+=AdditiveExpression ((op+=SKW_LEFTSHIFT
-	//	| op+=SKW_RIGHTSHIFT) expr+=AdditiveExpression)*
+	//	| op+=SKW_RIGHTSHIFT) expr+=AdditiveExpression)*;
 	public ShiftExpressionElements getShiftExpressionAccess() {
 		return pShiftExpression;
 	}
@@ -2495,9 +2421,9 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		return getShiftExpressionAccess().getRule();
 	}
 	
-	//AdditiveExpression Expression:
+	//AdditiveExpression:
 	//	{AdditiveExpression} expr+=MultiplicativeExpression ((op+=SKW_PLUS
-	//	| op+=SKW_MINUS) expr+=MultiplicativeExpression)*
+	//	| op+=SKW_MINUS) expr+=MultiplicativeExpression)*;
 	public AdditiveExpressionElements getAdditiveExpressionAccess() {
 		return pAdditiveExpression;
 	}
@@ -2506,10 +2432,10 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		return getAdditiveExpressionAccess().getRule();
 	}
 	
-	//MultiplicativeExpression Expression:
+	//MultiplicativeExpression:
 	//	{MultiplicativeExpression} expr+=CastExpression ((op+=SKW_STAR
 	//	| op+=SKW_DIV
-	//	| op+=SKW_MOD) expr+=CastExpression)*
+	//	| op+=SKW_MOD) expr+=CastExpression)*;
 	public MultiplicativeExpressionElements getMultiplicativeExpressionAccess() {
 		return pMultiplicativeExpression;
 	}
@@ -2518,8 +2444,11 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		return getMultiplicativeExpressionAccess().getRule();
 	}
 	
-	//CastExpression Expression:
+	//CastExpression:
 	//	{CastExpression} expr=UnaryExpression
+	//	//|	SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN expr=CastExpression
+	//	//|	'__extension__' LEFTPAREN type=TypeName RIGHTPAREN castExpr=CastExpression
+	//;
 	public CastExpressionElements getCastExpressionAccess() {
 		return pCastExpression;
 	}
@@ -2528,16 +2457,16 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		return getCastExpressionAccess().getRule();
 	}
 	
-	//UnaryExpression Expression:
+	//UnaryExpression:
 	//	{UnaryExpression} (expr=PostfixExpression
-	//	| plusplus=SKW_PLUSPLUS expr=UnaryExpression
-	//	| minusminus=SKW_MINUSMINUS expr=UnaryExpression
+	//	//|	plusplus=SKW_PLUSPLUS expr=UnaryExpression
+	//	//|	minusminus=SKW_MINUSMINUS expr=UnaryExpression
 	//	| op=UnaryOperator expr=CastExpression
 	//	//|	sizeOf=SKW_SIZEOF SKW_LEFTPAREN typeName=TypeName SKW_RIGHTPAREN
 	//	//|	sizeOf=SKW_SIZEOF expr=UnaryExpression 
 	//	//|	ALIGNOF LEFTPAREN typeName=typeName RIGHTPAREN
-	//	| andand=SKW_ANDAND id=ID // GCC extension address of label
-	//)
+	//	//|	andand=SKW_ANDAND id=ID // GCC extension address of label
+	//);
 	public UnaryExpressionElements getUnaryExpressionAccess() {
 		return pUnaryExpression;
 	}
@@ -2546,23 +2475,37 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		return getUnaryExpressionAccess().getRule();
 	}
 	
-	//UnaryOperator:
-	//	{UnaryOperator} (op=SKW_AND
-	//	| op=SKW_STAR
-	//	| op=SKW_PLUS
-	//	| op=SKW_MINUS
-	//	| op=SKW_TILDE
-	//	| op=SKW_NOT);
+	//enum UnaryOperator:
+	//	SKW_AND
+	//	| SKW_STAR
+	//	| SKW_PLUS
+	//	| SKW_MINUS
+	//	| SKW_TILDE
+	//	| SKW_NOT;
 	public UnaryOperatorElements getUnaryOperatorAccess() {
-		return pUnaryOperator;
+		return eUnaryOperator;
 	}
 	
-	public ParserRule getUnaryOperatorRule() {
+	public EnumRule getUnaryOperatorRule() {
 		return getUnaryOperatorAccess().getRule();
 	}
 	
-	//PostfixExpression Expression:
-	//	{PostfixExpression} expr+=PrimaryExpression
+	//PostfixExpression:
+	//	{PostfixExpression} expr=PrimaryExpression
+	//	/ *	(
+	//	|	('__extension__' LEFTPAREN typeName RIGHTPAREN LEFTBRACE initializerList=initializerList) 
+	//			(COMMA? RIGHTBRACE)
+	//	)
+	//	* /
+	////(
+	//	//	suffix+=PostfixExpressionSuffixArray
+	//	//|	suffix+=PostfixExpressionSuffixArgument
+	//	//|	suffix+=PostfixExpressionSuffixDot
+	//	//|	suffix+=PostfixExpressionSuffixArrow
+	//	//	suffix+=PostfixExpressionSuffixPlusPlus
+	//	//|	suffix+=PostfixExpressionSuffixMinusMinus
+	//	//)*
+	//;
 	public PostfixExpressionElements getPostfixExpressionAccess() {
 		return pPostfixExpression;
 	}
@@ -2592,28 +2535,21 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//	{PostfixExpressionSuffixArrow}
 	//	SKW_ARROW id=ID
 	//;
-	// * / PostfixExpressionSuffixPlusPlus PostfixExpressionSuffix:
-	//	{PostfixExpressionSuffixPlusPlus} SKW_PLUSPLUS
-	public PostfixExpressionSuffixPlusPlusElements getPostfixExpressionSuffixPlusPlusAccess() {
-		return pPostfixExpressionSuffixPlusPlus;
-	}
-	
-	public ParserRule getPostfixExpressionSuffixPlusPlusRule() {
-		return getPostfixExpressionSuffixPlusPlusAccess().getRule();
-	}
-	
-	//PostfixExpressionSuffixMinusMinus PostfixExpressionSuffix:
-	//	{PostfixExpressionSuffixMinusMinus} SKW_MINUSMINUS
-	public PostfixExpressionSuffixMinusMinusElements getPostfixExpressionSuffixMinusMinusAccess() {
-		return pPostfixExpressionSuffixMinusMinus;
-	}
-	
-	public ParserRule getPostfixExpressionSuffixMinusMinusRule() {
-		return getPostfixExpressionSuffixMinusMinusAccess().getRule();
-	}
-	
-	////ArgumentExpressionList: expr+=AssignmentExpression (SKW_COMMA expr+=AssignmentExpression)*;
-	//PrimaryExpression Expression:
+	//
+	//
+	//PostfixExpressionSuffixPlusPlus returns PostfixExpressionSuffix:
+	//	{PostfixExpressionSuffixPlusPlus}
+	//	SKW_PLUSPLUS
+	//;
+	//
+	//PostfixExpressionSuffixMinusMinus returns PostfixExpressionSuffix:
+	//	{PostfixExpressionSuffixMinusMinus}
+	//	SKW_MINUSMINUS
+	//;
+	//
+	//ArgumentExpressionList: expr+=AssignmentExpression (SKW_COMMA expr+=AssignmentExpression)*;
+	//
+	// * / PrimaryExpression:
 	//	{PrimaryExpression} (id=ID
 	//	| const=Constant
 	//	//|	string+=STRING_LITERAL+ // reachable over Constant!
@@ -2622,7 +2558,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//	// |	'__extension__'? LEFTPAREN compoundStmt=compoundStatement RIGHTPAREN // Blocks (GCC extension)
 	//	//|	'__builtin_va_arg' LEFTPAREN expr=unaryExpression COMMA typeName=typeName RIGHTPAREN
 	//	//|	'__builtin_offsetof' LEFTPAREN typeName=typeName COMMA expr=unaryExpression RIGHTPAREN
-	//)
+	//);
 	public PrimaryExpressionElements getPrimaryExpressionAccess() {
 		return pPrimaryExpression;
 	}

@@ -7,6 +7,14 @@
     editorPluginID="at.jku.weiner.c.preprocess.editor" runtimeVersion="2.11">
   <genPackages prefix="Preprocess" basePackage="at.jku.weiner.c.preprocess" disposableProviderFactory="true"
       fileExtensions="c,h" ecorePackage="Preprocess.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Preprocess.ecore#//UnaryOperator">
+      <genEnumLiterals ecoreEnumLiteral="Preprocess.ecore#//UnaryOperator/SKW_AND"/>
+      <genEnumLiterals ecoreEnumLiteral="Preprocess.ecore#//UnaryOperator/SKW_STAR"/>
+      <genEnumLiterals ecoreEnumLiteral="Preprocess.ecore#//UnaryOperator/SKW_PLUS"/>
+      <genEnumLiterals ecoreEnumLiteral="Preprocess.ecore#//UnaryOperator/SKW_MINUS"/>
+      <genEnumLiterals ecoreEnumLiteral="Preprocess.ecore#//UnaryOperator/SKW_TILDE"/>
+      <genEnumLiterals ecoreEnumLiteral="Preprocess.ecore#//UnaryOperator/SKW_NOT"/>
+    </genEnums>
     <genClasses ecoreClass="Preprocess.ecore#//Model">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//Model/units"/>
     </genClasses>
@@ -53,21 +61,6 @@
     <genClasses ecoreClass="Preprocess.ecore#//ShadowExpression"/>
     <genClasses ecoreClass="Preprocess.ecore#//Expression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//Expression/expression"/>
-    </genClasses>
-    <genClasses ecoreClass="Preprocess.ecore#//UnaryOperator">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Preprocess.ecore#//UnaryOperator/op"/>
-    </genClasses>
-    <genClasses ecoreClass="Preprocess.ecore#//PostfixExpressionSuffix"/>
-    <genClasses ecoreClass="Preprocess.ecore#//PreprocessorDirectives">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//PreprocessorDirectives/directive"/>
-    </genClasses>
-    <genClasses ecoreClass="Preprocess.ecore#//DefineObjectMacro"/>
-    <genClasses ecoreClass="Preprocess.ecore#//DefineFunctionLikeMacro">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//DefineFunctionLikeMacro/list"/>
-    </genClasses>
-    <genClasses ecoreClass="Preprocess.ecore#//NewLineLine"/>
-    <genClasses ecoreClass="Preprocess.ecore#//Code">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Preprocess.ecore#//Code/code"/>
     </genClasses>
     <genClasses ecoreClass="Preprocess.ecore#//ConstantExpression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//ConstantExpression/expr"/>
@@ -117,21 +110,26 @@
     </genClasses>
     <genClasses ecoreClass="Preprocess.ecore#//UnaryExpression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//UnaryExpression/expr"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Preprocess.ecore#//UnaryExpression/plusplus"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Preprocess.ecore#//UnaryExpression/minusminus"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//UnaryExpression/op"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Preprocess.ecore#//UnaryExpression/andand"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Preprocess.ecore#//UnaryExpression/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Preprocess.ecore#//UnaryExpression/op"/>
     </genClasses>
     <genClasses ecoreClass="Preprocess.ecore#//PostfixExpression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//PostfixExpression/expr"/>
     </genClasses>
-    <genClasses ecoreClass="Preprocess.ecore#//PostfixExpressionSuffixPlusPlus"/>
-    <genClasses ecoreClass="Preprocess.ecore#//PostfixExpressionSuffixMinusMinus"/>
     <genClasses ecoreClass="Preprocess.ecore#//PrimaryExpression">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Preprocess.ecore#//PrimaryExpression/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Preprocess.ecore#//PrimaryExpression/const"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//PrimaryExpression/expr"/>
+    </genClasses>
+    <genClasses ecoreClass="Preprocess.ecore#//PreprocessorDirectives">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//PreprocessorDirectives/directive"/>
+    </genClasses>
+    <genClasses ecoreClass="Preprocess.ecore#//DefineObjectMacro"/>
+    <genClasses ecoreClass="Preprocess.ecore#//DefineFunctionLikeMacro">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//DefineFunctionLikeMacro/list"/>
+    </genClasses>
+    <genClasses ecoreClass="Preprocess.ecore#//NewLineLine"/>
+    <genClasses ecoreClass="Preprocess.ecore#//Code">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Preprocess.ecore#//Code/code"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

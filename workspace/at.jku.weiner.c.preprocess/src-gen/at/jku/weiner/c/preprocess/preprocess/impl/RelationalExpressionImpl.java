@@ -2,9 +2,9 @@
  */
 package at.jku.weiner.c.preprocess.preprocess.impl;
 
-import at.jku.weiner.c.preprocess.preprocess.Expression;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessPackage;
 import at.jku.weiner.c.preprocess.preprocess.RelationalExpression;
+import at.jku.weiner.c.preprocess.preprocess.ShiftExpression;
 
 import java.util.Collection;
 
@@ -14,6 +14,8 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -33,7 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class RelationalExpressionImpl extends ExpressionImpl implements RelationalExpression
+public class RelationalExpressionImpl extends MinimalEObjectImpl.Container implements RelationalExpression
 {
   /**
    * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference list.
@@ -43,7 +45,7 @@ public class RelationalExpressionImpl extends ExpressionImpl implements Relation
    * @generated
    * @ordered
    */
-  protected EList<Expression> expr;
+  protected EList<ShiftExpression> expr;
 
   /**
    * The cached value of the '{@link #getOp() <em>Op</em>}' attribute list.
@@ -81,11 +83,11 @@ public class RelationalExpressionImpl extends ExpressionImpl implements Relation
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Expression> getExpr()
+  public EList<ShiftExpression> getExpr()
   {
     if (expr == null)
     {
-      expr = new EObjectContainmentEList<Expression>(Expression.class, this, PreprocessPackage.RELATIONAL_EXPRESSION__EXPR);
+      expr = new EObjectContainmentEList<ShiftExpression>(ShiftExpression.class, this, PreprocessPackage.RELATIONAL_EXPRESSION__EXPR);
     }
     return expr;
   }
@@ -151,7 +153,7 @@ public class RelationalExpressionImpl extends ExpressionImpl implements Relation
     {
       case PreprocessPackage.RELATIONAL_EXPRESSION__EXPR:
         getExpr().clear();
-        getExpr().addAll((Collection<? extends Expression>)newValue);
+        getExpr().addAll((Collection<? extends ShiftExpression>)newValue);
         return;
       case PreprocessPackage.RELATIONAL_EXPRESSION__OP:
         getOp().clear();

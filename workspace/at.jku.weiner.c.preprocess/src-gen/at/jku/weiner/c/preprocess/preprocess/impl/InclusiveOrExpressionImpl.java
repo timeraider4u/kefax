@@ -2,7 +2,7 @@
  */
 package at.jku.weiner.c.preprocess.preprocess.impl;
 
-import at.jku.weiner.c.preprocess.preprocess.Expression;
+import at.jku.weiner.c.preprocess.preprocess.ExclusiveOrExpression;
 import at.jku.weiner.c.preprocess.preprocess.InclusiveOrExpression;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessPackage;
 
@@ -14,6 +14,8 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -31,7 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class InclusiveOrExpressionImpl extends ExpressionImpl implements InclusiveOrExpression
+public class InclusiveOrExpressionImpl extends MinimalEObjectImpl.Container implements InclusiveOrExpression
 {
   /**
    * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference list.
@@ -41,7 +43,7 @@ public class InclusiveOrExpressionImpl extends ExpressionImpl implements Inclusi
    * @generated
    * @ordered
    */
-  protected EList<Expression> expr;
+  protected EList<ExclusiveOrExpression> expr;
 
   /**
    * <!-- begin-user-doc -->
@@ -69,11 +71,11 @@ public class InclusiveOrExpressionImpl extends ExpressionImpl implements Inclusi
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Expression> getExpr()
+  public EList<ExclusiveOrExpression> getExpr()
   {
     if (expr == null)
     {
-      expr = new EObjectContainmentEList<Expression>(Expression.class, this, PreprocessPackage.INCLUSIVE_OR_EXPRESSION__EXPR);
+      expr = new EObjectContainmentEList<ExclusiveOrExpression>(ExclusiveOrExpression.class, this, PreprocessPackage.INCLUSIVE_OR_EXPRESSION__EXPR);
     }
     return expr;
   }
@@ -123,7 +125,7 @@ public class InclusiveOrExpressionImpl extends ExpressionImpl implements Inclusi
     {
       case PreprocessPackage.INCLUSIVE_OR_EXPRESSION__EXPR:
         getExpr().clear();
-        getExpr().addAll((Collection<? extends Expression>)newValue);
+        getExpr().addAll((Collection<? extends ExclusiveOrExpression>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

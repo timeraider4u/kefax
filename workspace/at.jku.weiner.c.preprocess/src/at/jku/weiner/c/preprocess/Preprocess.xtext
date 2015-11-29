@@ -186,12 +186,12 @@ Expression:
 	expression=ConditionalExpression
 ;
 
-ConstantExpression returns Expression:
+ConstantExpression:
 	{ConstantExpression}
 	expr=ConditionalExpression
 ;
 
-ConditionalExpression returns Expression:
+ConditionalExpression:
 	{ConditionalExpression}
 	expr=LogicalOrExpression
 	(SKW_QUESTION qExpr=Expression SKW_COLON
@@ -199,37 +199,37 @@ ConditionalExpression returns Expression:
 	)?
 ;
 
-LogicalOrExpression returns Expression:
+LogicalOrExpression:
 	{LogicalOrExpression}
 	expr+=LogicalAndExpression
 	(SKW_OROR expr+=LogicalAndExpression)*
 ;
 
-LogicalAndExpression returns Expression:
+LogicalAndExpression:
 	{LogicalAndExpression}
 	expr+=InclusiveOrExpression
 	(SKW_ANDAND expr+=InclusiveOrExpression)*
 ;
 
-InclusiveOrExpression returns Expression:
+InclusiveOrExpression:
 	{InclusiveOrExpression}
 	expr+=ExclusiveOrExpression
 	(SKW_OR expr+=ExclusiveOrExpression)*
 ;
 
-ExclusiveOrExpression returns Expression:
+ExclusiveOrExpression:
 	{ExclusiveOrExpression}
 	expr+=AndExpression
 	(SKW_CARET expr+=AndExpression)*
 ;
 
-AndExpression returns Expression:
+AndExpression:
 	{AndExpression}
 	expr+=EqualityExpression
 	(SKW_AND expr+=EqualityExpression)*
 ;
 
-EqualityExpression returns Expression:
+EqualityExpression:
 	{EqualityExpression}
 	expr+=RelationalExpression
 	(
@@ -241,7 +241,7 @@ EqualityExpression returns Expression:
 	)*
 ;
 
-RelationalExpression returns Expression:
+RelationalExpression:
 	{RelationalExpression}
 	expr+=ShiftExpression
 	(
@@ -255,7 +255,7 @@ RelationalExpression returns Expression:
 	)*
 ;
 
-ShiftExpression returns Expression:
+ShiftExpression:
 	{ShiftExpression}
 	expr+=AdditiveExpression
 	(
@@ -267,7 +267,7 @@ ShiftExpression returns Expression:
 	)*
 ;
 
-AdditiveExpression returns Expression:
+AdditiveExpression:
 	{AdditiveExpression}
 	expr+=MultiplicativeExpression
 	(
@@ -279,7 +279,7 @@ AdditiveExpression returns Expression:
 	)*
 ;
 
-MultiplicativeExpression returns Expression:
+MultiplicativeExpression:
 	{MultiplicativeExpression}
 	expr+=CastExpression
 	(
@@ -292,7 +292,7 @@ MultiplicativeExpression returns Expression:
 	)*
 ;
 
-CastExpression returns Expression:
+CastExpression:
 	{CastExpression}
 	(
 		expr=UnaryExpression
@@ -301,35 +301,32 @@ CastExpression returns Expression:
 	)
 ;
 
-UnaryExpression returns Expression:
+UnaryExpression:
 	{UnaryExpression}	
 	(
 		expr=PostfixExpression
-	|	plusplus=SKW_PLUSPLUS expr=UnaryExpression
-	|	minusminus=SKW_MINUSMINUS expr=UnaryExpression
+	//|	plusplus=SKW_PLUSPLUS expr=UnaryExpression
+	//|	minusminus=SKW_MINUSMINUS expr=UnaryExpression
 	|	op=UnaryOperator expr=CastExpression
 	//|	sizeOf=SKW_SIZEOF SKW_LEFTPAREN typeName=TypeName SKW_RIGHTPAREN
 	//|	sizeOf=SKW_SIZEOF expr=UnaryExpression 
 	//|	ALIGNOF LEFTPAREN typeName=typeName RIGHTPAREN
-	|	andand=SKW_ANDAND id=ID // GCC extension address of label
+	//|	andand=SKW_ANDAND id=ID // GCC extension address of label
 	)
 ;
 
-UnaryOperator:
-	{UnaryOperator}
-	(
-		op=SKW_AND
-	|	op=SKW_STAR
-	|	op=SKW_PLUS 
-	|	op=SKW_MINUS 
-	|	op=SKW_TILDE
-	|	op=SKW_NOT
-	)
+enum UnaryOperator:
+		SKW_AND
+	|	SKW_STAR
+	|	SKW_PLUS 
+	|	SKW_MINUS 
+	|	SKW_TILDE
+	|	SKW_NOT
 ;
 
-PostfixExpression returns Expression:
+PostfixExpression:
 	{PostfixExpression}
-	(expr+=PrimaryExpression
+	(expr=PrimaryExpression
 	/*	(
 	|	('__extension__' LEFTPAREN typeName RIGHTPAREN LEFTBRACE initializerList=initializerList) 
 			(COMMA? RIGHTBRACE)
@@ -341,7 +338,7 @@ PostfixExpression returns Expression:
 		//|	suffix+=PostfixExpressionSuffixArgument
 		//|	suffix+=PostfixExpressionSuffixDot
 		//|	suffix+=PostfixExpressionSuffixArrow
-		//|	suffix+=PostfixExpressionSuffixPlusPlus
+		//	suffix+=PostfixExpressionSuffixPlusPlus
 		//|	suffix+=PostfixExpressionSuffixMinusMinus
 	//)*
 	
@@ -369,7 +366,7 @@ PostfixExpressionSuffixArrow returns PostfixExpressionSuffix:
 	{PostfixExpressionSuffixArrow}
 	SKW_ARROW id=ID
 ;
-*/
+
 
 PostfixExpressionSuffixPlusPlus returns PostfixExpressionSuffix:
 	{PostfixExpressionSuffixPlusPlus}
@@ -381,9 +378,11 @@ PostfixExpressionSuffixMinusMinus returns PostfixExpressionSuffix:
 	SKW_MINUSMINUS
 ;
 
-//ArgumentExpressionList: expr+=AssignmentExpression (SKW_COMMA expr+=AssignmentExpression)*;
+ArgumentExpressionList: expr+=AssignmentExpression (SKW_COMMA expr+=AssignmentExpression)*;
 
-PrimaryExpression returns Expression:
+*/
+
+PrimaryExpression:
 	{PrimaryExpression}
 	(id=ID
 	|	const=Constant

@@ -2,6 +2,7 @@
  */
 package at.jku.weiner.c.preprocess.preprocess;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +22,7 @@ package at.jku.weiner.c.preprocess.preprocess;
  * @model
  * @generated
  */
-public interface ConditionalExpression extends Expression
+public interface ConditionalExpression extends EObject
 {
   /**
    * Returns the value of the '<em><b>Expr</b></em>' containment reference.
@@ -32,12 +33,12 @@ public interface ConditionalExpression extends Expression
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Expr</em>' containment reference.
-   * @see #setExpr(Expression)
+   * @see #setExpr(LogicalOrExpression)
    * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getConditionalExpression_Expr()
    * @model containment="true"
    * @generated
    */
-  Expression getExpr();
+  LogicalOrExpression getExpr();
 
   /**
    * Sets the value of the '{@link at.jku.weiner.c.preprocess.preprocess.ConditionalExpression#getExpr <em>Expr</em>}' containment reference.
@@ -47,7 +48,7 @@ public interface ConditionalExpression extends Expression
    * @see #getExpr()
    * @generated
    */
-  void setExpr(Expression value);
+  void setExpr(LogicalOrExpression value);
 
   /**
    * Returns the value of the '<em><b>QExpr</b></em>' containment reference.
@@ -84,12 +85,12 @@ public interface ConditionalExpression extends Expression
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>CExpr</em>' containment reference.
-   * @see #setCExpr(Expression)
+   * @see #setCExpr(ConditionalExpression)
    * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getConditionalExpression_CExpr()
    * @model containment="true"
    * @generated
    */
-  Expression getCExpr();
+  ConditionalExpression getCExpr();
 
   /**
    * Sets the value of the '{@link at.jku.weiner.c.preprocess.preprocess.ConditionalExpression#getCExpr <em>CExpr</em>}' containment reference.
@@ -99,6 +100,6 @@ public interface ConditionalExpression extends Expression
    * @see #getCExpr()
    * @generated
    */
-  void setCExpr(Expression value);
+  void setCExpr(ConditionalExpression value);
 
 } // ConditionalExpression

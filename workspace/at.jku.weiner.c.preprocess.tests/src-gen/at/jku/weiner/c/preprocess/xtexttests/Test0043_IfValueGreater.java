@@ -317,13 +317,10 @@ public class Test0043_IfValueGreater {
 		.getExpr();
 		Assert.assertNotNull(PostfixExpression_20_Var
 		);
-		final EList<? extends EObject> Expr_20_list = PostfixExpression_20_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_20_list);
-		Assert.assertEquals(1, Expr_20_list.size());
 		//20
 		final PrimaryExpression PrimaryExpression_21_Var
-		 = (PrimaryExpression)Expr_20_list.get(0);
+		 = (PrimaryExpression)PostfixExpression_20_Var
+		.getExpr();
 		Assert.assertNotNull(PrimaryExpression_21_Var
 		);
 		Assert.assertEquals("VERSION", PrimaryExpression_21_Var
@@ -372,13 +369,10 @@ public class Test0043_IfValueGreater {
 		.getExpr();
 		Assert.assertNotNull(PostfixExpression_27_Var
 		);
-		final EList<? extends EObject> Expr_27_list = PostfixExpression_27_Var
-		.getExpr();
-		Assert.assertNotNull(Expr_27_list);
-		Assert.assertEquals(1, Expr_27_list.size());
 		//27
 		final PrimaryExpression PrimaryExpression_28_Var
-		 = (PrimaryExpression)Expr_27_list.get(0);
+		 = (PrimaryExpression)PostfixExpression_27_Var
+		.getExpr();
 		Assert.assertNotNull(PrimaryExpression_28_Var
 		);
 		Assert.assertEquals("2", PrimaryExpression_28_Var

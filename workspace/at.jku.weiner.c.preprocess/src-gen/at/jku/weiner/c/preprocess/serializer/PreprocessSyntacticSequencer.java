@@ -90,14 +90,10 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getSKW_COMMAToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getSKW_LEFTPARENRule())
 			return getSKW_LEFTPARENToken(semanticObject, ruleCall, node);
-		else if(ruleCall.getRule() == grammarAccess.getSKW_MINUSMINUSRule())
-			return getSKW_MINUSMINUSToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getSKW_ORRule())
 			return getSKW_ORToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getSKW_ORORRule())
 			return getSKW_ORORToken(semanticObject, ruleCall, node);
-		else if(ruleCall.getRule() == grammarAccess.getSKW_PLUSPLUSRule())
-			return getSKW_PLUSPLUSToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getSKW_QUESTIONRule())
 			return getSKW_QUESTIONToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getSKW_RIGHTPARENRule())
@@ -254,15 +250,6 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	}
 	
 	/**
-	 * terminal SKW_MINUSMINUS: SKW_MINUS SKW_MINUS;
-	 */
-	protected String getSKW_MINUSMINUSToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "-";
-	}
-	
-	/**
 	 * terminal SKW_OR: '|';
 	 */
 	protected String getSKW_ORToken(EObject semanticObject, RuleCall ruleCall, INode node) {
@@ -278,15 +265,6 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return "|";
-	}
-	
-	/**
-	 * terminal SKW_PLUSPLUS: SKW_PLUS SKW_PLUS;
-	 */
-	protected String getSKW_PLUSPLUSToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "+";
 	}
 	
 	/**

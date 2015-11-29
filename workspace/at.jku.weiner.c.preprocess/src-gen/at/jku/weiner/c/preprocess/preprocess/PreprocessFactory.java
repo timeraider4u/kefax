@@ -176,69 +176,6 @@ public interface PreprocessFactory extends EFactory
   Expression createExpression();
 
   /**
-   * Returns a new object of class '<em>Unary Operator</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Unary Operator</em>'.
-   * @generated
-   */
-  UnaryOperator createUnaryOperator();
-
-  /**
-   * Returns a new object of class '<em>Postfix Expression Suffix</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Postfix Expression Suffix</em>'.
-   * @generated
-   */
-  PostfixExpressionSuffix createPostfixExpressionSuffix();
-
-  /**
-   * Returns a new object of class '<em>Preprocessor Directives</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Preprocessor Directives</em>'.
-   * @generated
-   */
-  PreprocessorDirectives createPreprocessorDirectives();
-
-  /**
-   * Returns a new object of class '<em>Define Object Macro</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Define Object Macro</em>'.
-   * @generated
-   */
-  DefineObjectMacro createDefineObjectMacro();
-
-  /**
-   * Returns a new object of class '<em>Define Function Like Macro</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Define Function Like Macro</em>'.
-   * @generated
-   */
-  DefineFunctionLikeMacro createDefineFunctionLikeMacro();
-
-  /**
-   * Returns a new object of class '<em>New Line Line</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>New Line Line</em>'.
-   * @generated
-   */
-  NewLineLine createNewLineLine();
-
-  /**
-   * Returns a new object of class '<em>Code</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Code</em>'.
-   * @generated
-   */
-  Code createCode();
-
-  /**
    * Returns a new object of class '<em>Constant Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -374,24 +311,6 @@ public interface PreprocessFactory extends EFactory
   PostfixExpression createPostfixExpression();
 
   /**
-   * Returns a new object of class '<em>Postfix Expression Suffix Plus Plus</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Postfix Expression Suffix Plus Plus</em>'.
-   * @generated
-   */
-  PostfixExpressionSuffixPlusPlus createPostfixExpressionSuffixPlusPlus();
-
-  /**
-   * Returns a new object of class '<em>Postfix Expression Suffix Minus Minus</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Postfix Expression Suffix Minus Minus</em>'.
-   * @generated
-   */
-  PostfixExpressionSuffixMinusMinus createPostfixExpressionSuffixMinusMinus();
-
-  /**
    * Returns a new object of class '<em>Primary Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -399,6 +318,51 @@ public interface PreprocessFactory extends EFactory
    * @generated
    */
   PrimaryExpression createPrimaryExpression();
+
+  /**
+   * Returns a new object of class '<em>Preprocessor Directives</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Preprocessor Directives</em>'.
+   * @generated
+   */
+  PreprocessorDirectives createPreprocessorDirectives();
+
+  /**
+   * Returns a new object of class '<em>Define Object Macro</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Define Object Macro</em>'.
+   * @generated
+   */
+  DefineObjectMacro createDefineObjectMacro();
+
+  /**
+   * Returns a new object of class '<em>Define Function Like Macro</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Define Function Like Macro</em>'.
+   * @generated
+   */
+  DefineFunctionLikeMacro createDefineFunctionLikeMacro();
+
+  /**
+   * Returns a new object of class '<em>New Line Line</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>New Line Line</em>'.
+   * @generated
+   */
+  NewLineLine createNewLineLine();
+
+  /**
+   * Returns a new object of class '<em>Code</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Code</em>'.
+   * @generated
+   */
+  Code createCode();
 
   /**
    * Returns the package supported by this factory.

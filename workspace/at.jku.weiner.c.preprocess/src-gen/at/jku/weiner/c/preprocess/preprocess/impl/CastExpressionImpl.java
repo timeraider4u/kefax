@@ -3,8 +3,8 @@
 package at.jku.weiner.c.preprocess.preprocess.impl;
 
 import at.jku.weiner.c.preprocess.preprocess.CastExpression;
-import at.jku.weiner.c.preprocess.preprocess.Expression;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessPackage;
+import at.jku.weiner.c.preprocess.preprocess.UnaryExpression;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +28,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class CastExpressionImpl extends ExpressionImpl implements CastExpression
+public class CastExpressionImpl extends MinimalEObjectImpl.Container implements CastExpression
 {
   /**
    * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
@@ -37,7 +38,7 @@ public class CastExpressionImpl extends ExpressionImpl implements CastExpression
    * @generated
    * @ordered
    */
-  protected Expression expr;
+  protected UnaryExpression expr;
 
   /**
    * <!-- begin-user-doc -->
@@ -65,7 +66,7 @@ public class CastExpressionImpl extends ExpressionImpl implements CastExpression
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expression getExpr()
+  public UnaryExpression getExpr()
   {
     return expr;
   }
@@ -75,9 +76,9 @@ public class CastExpressionImpl extends ExpressionImpl implements CastExpression
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpr(Expression newExpr, NotificationChain msgs)
+  public NotificationChain basicSetExpr(UnaryExpression newExpr, NotificationChain msgs)
   {
-    Expression oldExpr = expr;
+    UnaryExpression oldExpr = expr;
     expr = newExpr;
     if (eNotificationRequired())
     {
@@ -92,7 +93,7 @@ public class CastExpressionImpl extends ExpressionImpl implements CastExpression
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setExpr(Expression newExpr)
+  public void setExpr(UnaryExpression newExpr)
   {
     if (newExpr != expr)
     {
@@ -151,7 +152,7 @@ public class CastExpressionImpl extends ExpressionImpl implements CastExpression
     switch (featureID)
     {
       case PreprocessPackage.CAST_EXPRESSION__EXPR:
-        setExpr((Expression)newValue);
+        setExpr((UnaryExpression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -168,7 +169,7 @@ public class CastExpressionImpl extends ExpressionImpl implements CastExpression
     switch (featureID)
     {
       case PreprocessPackage.CAST_EXPRESSION__EXPR:
-        setExpr((Expression)null);
+        setExpr((UnaryExpression)null);
         return;
     }
     super.eUnset(featureID);

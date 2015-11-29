@@ -32,8 +32,6 @@ import at.jku.weiner.c.preprocess.preprocess.MultiplicativeExpression;
 import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
 import at.jku.weiner.c.preprocess.preprocess.NullDirective;
 import at.jku.weiner.c.preprocess.preprocess.PostfixExpression;
-import at.jku.weiner.c.preprocess.preprocess.PostfixExpressionSuffixMinusMinus;
-import at.jku.weiner.c.preprocess.preprocess.PostfixExpressionSuffixPlusPlus;
 import at.jku.weiner.c.preprocess.preprocess.PragmaDirective;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessPackage;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
@@ -43,7 +41,6 @@ import at.jku.weiner.c.preprocess.preprocess.ShiftExpression;
 import at.jku.weiner.c.preprocess.preprocess.TranslationUnit;
 import at.jku.weiner.c.preprocess.preprocess.UnDefineDirective;
 import at.jku.weiner.c.preprocess.preprocess.UnaryExpression;
-import at.jku.weiner.c.preprocess.preprocess.UnaryOperator;
 import at.jku.weiner.c.preprocess.services.PreprocessGrammarAccess;
 import at.jku.weiner.c.serializer.CommonSemanticSequencer;
 import com.google.inject.Inject;
@@ -154,12 +151,6 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 			case PreprocessPackage.POSTFIX_EXPRESSION:
 				sequence_PostfixExpression(context, (PostfixExpression) semanticObject); 
 				return; 
-			case PreprocessPackage.POSTFIX_EXPRESSION_SUFFIX_MINUS_MINUS:
-				sequence_PostfixExpressionSuffixMinusMinus(context, (PostfixExpressionSuffixMinusMinus) semanticObject); 
-				return; 
-			case PreprocessPackage.POSTFIX_EXPRESSION_SUFFIX_PLUS_PLUS:
-				sequence_PostfixExpressionSuffixPlusPlus(context, (PostfixExpressionSuffixPlusPlus) semanticObject); 
-				return; 
 			case PreprocessPackage.PRAGMA_DIRECTIVE:
 				sequence_PragmaDirective(context, (PragmaDirective) semanticObject); 
 				return; 
@@ -183,9 +174,6 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 				return; 
 			case PreprocessPackage.UNARY_EXPRESSION:
 				sequence_UnaryExpression(context, (UnaryExpression) semanticObject); 
-				return; 
-			case PreprocessPackage.UNARY_OPERATOR:
-				sequence_UnaryOperator(context, (UnaryOperator) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
@@ -214,7 +202,14 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	 *     expr=UnaryExpression
 	 */
 	protected void sequence_CastExpression(EObject context, CastExpression semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, PreprocessPackage.Literals.CAST_EXPRESSION__EXPR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PreprocessPackage.Literals.CAST_EXPRESSION__EXPR));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getCastExpressionAccess().getExprUnaryExpressionParserRuleCall_1_0(), semanticObject.getExpr());
+		feeder.finish();
 	}
 	
 	
@@ -257,7 +252,14 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	 *     expr=ConditionalExpression
 	 */
 	protected void sequence_ConstantExpression(EObject context, ConstantExpression semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, PreprocessPackage.Literals.CONSTANT_EXPRESSION__EXPR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PreprocessPackage.Literals.CONSTANT_EXPRESSION__EXPR));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getConstantExpressionAccess().getExprConditionalExpressionParserRuleCall_1_0(), semanticObject.getExpr());
+		feeder.finish();
 	}
 	
 	
@@ -485,28 +487,17 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     {PostfixExpressionSuffixMinusMinus}
-	 */
-	protected void sequence_PostfixExpressionSuffixMinusMinus(EObject context, PostfixExpressionSuffixMinusMinus semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     {PostfixExpressionSuffixPlusPlus}
-	 */
-	protected void sequence_PostfixExpressionSuffixPlusPlus(EObject context, PostfixExpressionSuffixPlusPlus semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     expr+=PrimaryExpression
+	 *     expr=PrimaryExpression
 	 */
 	protected void sequence_PostfixExpression(EObject context, PostfixExpression semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, PreprocessPackage.Literals.POSTFIX_EXPRESSION__EXPR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PreprocessPackage.Literals.POSTFIX_EXPRESSION__EXPR));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getPostfixExpressionAccess().getExprPrimaryExpressionParserRuleCall_1_0(), semanticObject.getExpr());
+		feeder.finish();
 	}
 	
 	
@@ -597,31 +588,9 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (
-	 *         expr=PostfixExpression | 
-	 *         (plusplus=SKW_PLUSPLUS expr=UnaryExpression) | 
-	 *         (minusminus=SKW_MINUSMINUS expr=UnaryExpression) | 
-	 *         (op=UnaryOperator expr=CastExpression) | 
-	 *         (andand=SKW_ANDAND id=ID)
-	 *     )
+	 *     (expr=PostfixExpression | (op=UnaryOperator expr=CastExpression))
 	 */
 	protected void sequence_UnaryExpression(EObject context, UnaryExpression semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (
-	 *         op=SKW_AND | 
-	 *         op=SKW_STAR | 
-	 *         op=SKW_PLUS | 
-	 *         op=SKW_MINUS | 
-	 *         op=SKW_TILDE | 
-	 *         op=SKW_NOT
-	 *     )
-	 */
-	protected void sequence_UnaryOperator(EObject context, UnaryOperator semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 }

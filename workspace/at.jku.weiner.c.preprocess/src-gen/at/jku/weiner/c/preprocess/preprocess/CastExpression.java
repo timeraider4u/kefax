@@ -2,6 +2,7 @@
  */
 package at.jku.weiner.c.preprocess.preprocess;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,7 +20,7 @@ package at.jku.weiner.c.preprocess.preprocess;
  * @model
  * @generated
  */
-public interface CastExpression extends Expression
+public interface CastExpression extends EObject
 {
   /**
    * Returns the value of the '<em><b>Expr</b></em>' containment reference.
@@ -30,12 +31,12 @@ public interface CastExpression extends Expression
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Expr</em>' containment reference.
-   * @see #setExpr(Expression)
+   * @see #setExpr(UnaryExpression)
    * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getCastExpression_Expr()
    * @model containment="true"
    * @generated
    */
-  Expression getExpr();
+  UnaryExpression getExpr();
 
   /**
    * Sets the value of the '{@link at.jku.weiner.c.preprocess.preprocess.CastExpression#getExpr <em>Expr</em>}' containment reference.
@@ -45,6 +46,6 @@ public interface CastExpression extends Expression
    * @see #getExpr()
    * @generated
    */
-  void setExpr(Expression value);
+  void setExpr(UnaryExpression value);
 
 } // CastExpression

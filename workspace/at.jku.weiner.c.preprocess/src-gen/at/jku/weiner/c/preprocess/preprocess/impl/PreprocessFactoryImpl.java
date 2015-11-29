@@ -5,6 +5,7 @@ package at.jku.weiner.c.preprocess.preprocess.impl;
 import at.jku.weiner.c.preprocess.preprocess.*;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -81,13 +82,6 @@ public class PreprocessFactoryImpl extends EFactoryImpl implements PreprocessFac
       case PreprocessPackage.NULL_DIRECTIVE: return createNullDirective();
       case PreprocessPackage.SHADOW_EXPRESSION: return createShadowExpression();
       case PreprocessPackage.EXPRESSION: return createExpression();
-      case PreprocessPackage.UNARY_OPERATOR: return createUnaryOperator();
-      case PreprocessPackage.POSTFIX_EXPRESSION_SUFFIX: return createPostfixExpressionSuffix();
-      case PreprocessPackage.PREPROCESSOR_DIRECTIVES: return createPreprocessorDirectives();
-      case PreprocessPackage.DEFINE_OBJECT_MACRO: return createDefineObjectMacro();
-      case PreprocessPackage.DEFINE_FUNCTION_LIKE_MACRO: return createDefineFunctionLikeMacro();
-      case PreprocessPackage.NEW_LINE_LINE: return createNewLineLine();
-      case PreprocessPackage.CODE: return createCode();
       case PreprocessPackage.CONSTANT_EXPRESSION: return createConstantExpression();
       case PreprocessPackage.CONDITIONAL_EXPRESSION: return createConditionalExpression();
       case PreprocessPackage.LOGICAL_OR_EXPRESSION: return createLogicalOrExpression();
@@ -103,11 +97,48 @@ public class PreprocessFactoryImpl extends EFactoryImpl implements PreprocessFac
       case PreprocessPackage.CAST_EXPRESSION: return createCastExpression();
       case PreprocessPackage.UNARY_EXPRESSION: return createUnaryExpression();
       case PreprocessPackage.POSTFIX_EXPRESSION: return createPostfixExpression();
-      case PreprocessPackage.POSTFIX_EXPRESSION_SUFFIX_PLUS_PLUS: return createPostfixExpressionSuffixPlusPlus();
-      case PreprocessPackage.POSTFIX_EXPRESSION_SUFFIX_MINUS_MINUS: return createPostfixExpressionSuffixMinusMinus();
       case PreprocessPackage.PRIMARY_EXPRESSION: return createPrimaryExpression();
+      case PreprocessPackage.PREPROCESSOR_DIRECTIVES: return createPreprocessorDirectives();
+      case PreprocessPackage.DEFINE_OBJECT_MACRO: return createDefineObjectMacro();
+      case PreprocessPackage.DEFINE_FUNCTION_LIKE_MACRO: return createDefineFunctionLikeMacro();
+      case PreprocessPackage.NEW_LINE_LINE: return createNewLineLine();
+      case PreprocessPackage.CODE: return createCode();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object createFromString(EDataType eDataType, String initialValue)
+  {
+    switch (eDataType.getClassifierID())
+    {
+      case PreprocessPackage.UNARY_OPERATOR:
+        return createUnaryOperatorFromString(eDataType, initialValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String convertToString(EDataType eDataType, Object instanceValue)
+  {
+    switch (eDataType.getClassifierID())
+    {
+      case PreprocessPackage.UNARY_OPERATOR:
+        return convertUnaryOperatorToString(eDataType, instanceValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
   }
 
@@ -303,83 +334,6 @@ public class PreprocessFactoryImpl extends EFactoryImpl implements PreprocessFac
    * <!-- end-user-doc -->
    * @generated
    */
-  public UnaryOperator createUnaryOperator()
-  {
-    UnaryOperatorImpl unaryOperator = new UnaryOperatorImpl();
-    return unaryOperator;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public PostfixExpressionSuffix createPostfixExpressionSuffix()
-  {
-    PostfixExpressionSuffixImpl postfixExpressionSuffix = new PostfixExpressionSuffixImpl();
-    return postfixExpressionSuffix;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public PreprocessorDirectives createPreprocessorDirectives()
-  {
-    PreprocessorDirectivesImpl preprocessorDirectives = new PreprocessorDirectivesImpl();
-    return preprocessorDirectives;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public DefineObjectMacro createDefineObjectMacro()
-  {
-    DefineObjectMacroImpl defineObjectMacro = new DefineObjectMacroImpl();
-    return defineObjectMacro;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public DefineFunctionLikeMacro createDefineFunctionLikeMacro()
-  {
-    DefineFunctionLikeMacroImpl defineFunctionLikeMacro = new DefineFunctionLikeMacroImpl();
-    return defineFunctionLikeMacro;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NewLineLine createNewLineLine()
-  {
-    NewLineLineImpl newLineLine = new NewLineLineImpl();
-    return newLineLine;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Code createCode()
-  {
-    CodeImpl code = new CodeImpl();
-    return code;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public ConstantExpression createConstantExpression()
   {
     ConstantExpressionImpl constantExpression = new ConstantExpressionImpl();
@@ -545,32 +499,87 @@ public class PreprocessFactoryImpl extends EFactoryImpl implements PreprocessFac
    * <!-- end-user-doc -->
    * @generated
    */
-  public PostfixExpressionSuffixPlusPlus createPostfixExpressionSuffixPlusPlus()
-  {
-    PostfixExpressionSuffixPlusPlusImpl postfixExpressionSuffixPlusPlus = new PostfixExpressionSuffixPlusPlusImpl();
-    return postfixExpressionSuffixPlusPlus;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public PostfixExpressionSuffixMinusMinus createPostfixExpressionSuffixMinusMinus()
-  {
-    PostfixExpressionSuffixMinusMinusImpl postfixExpressionSuffixMinusMinus = new PostfixExpressionSuffixMinusMinusImpl();
-    return postfixExpressionSuffixMinusMinus;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public PrimaryExpression createPrimaryExpression()
   {
     PrimaryExpressionImpl primaryExpression = new PrimaryExpressionImpl();
     return primaryExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PreprocessorDirectives createPreprocessorDirectives()
+  {
+    PreprocessorDirectivesImpl preprocessorDirectives = new PreprocessorDirectivesImpl();
+    return preprocessorDirectives;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DefineObjectMacro createDefineObjectMacro()
+  {
+    DefineObjectMacroImpl defineObjectMacro = new DefineObjectMacroImpl();
+    return defineObjectMacro;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DefineFunctionLikeMacro createDefineFunctionLikeMacro()
+  {
+    DefineFunctionLikeMacroImpl defineFunctionLikeMacro = new DefineFunctionLikeMacroImpl();
+    return defineFunctionLikeMacro;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NewLineLine createNewLineLine()
+  {
+    NewLineLineImpl newLineLine = new NewLineLineImpl();
+    return newLineLine;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Code createCode()
+  {
+    CodeImpl code = new CodeImpl();
+    return code;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public UnaryOperator createUnaryOperatorFromString(EDataType eDataType, String initialValue)
+  {
+    UnaryOperator result = UnaryOperator.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertUnaryOperatorToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
   }
 
   /**

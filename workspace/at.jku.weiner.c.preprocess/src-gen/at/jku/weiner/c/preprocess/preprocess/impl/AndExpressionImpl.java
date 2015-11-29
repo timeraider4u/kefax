@@ -3,7 +3,7 @@
 package at.jku.weiner.c.preprocess.preprocess.impl;
 
 import at.jku.weiner.c.preprocess.preprocess.AndExpression;
-import at.jku.weiner.c.preprocess.preprocess.Expression;
+import at.jku.weiner.c.preprocess.preprocess.EqualityExpression;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessPackage;
 
 import java.util.Collection;
@@ -14,6 +14,8 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -31,7 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class AndExpressionImpl extends ExpressionImpl implements AndExpression
+public class AndExpressionImpl extends MinimalEObjectImpl.Container implements AndExpression
 {
   /**
    * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference list.
@@ -41,7 +43,7 @@ public class AndExpressionImpl extends ExpressionImpl implements AndExpression
    * @generated
    * @ordered
    */
-  protected EList<Expression> expr;
+  protected EList<EqualityExpression> expr;
 
   /**
    * <!-- begin-user-doc -->
@@ -69,11 +71,11 @@ public class AndExpressionImpl extends ExpressionImpl implements AndExpression
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Expression> getExpr()
+  public EList<EqualityExpression> getExpr()
   {
     if (expr == null)
     {
-      expr = new EObjectContainmentEList<Expression>(Expression.class, this, PreprocessPackage.AND_EXPRESSION__EXPR);
+      expr = new EObjectContainmentEList<EqualityExpression>(EqualityExpression.class, this, PreprocessPackage.AND_EXPRESSION__EXPR);
     }
     return expr;
   }
@@ -123,7 +125,7 @@ public class AndExpressionImpl extends ExpressionImpl implements AndExpression
     {
       case PreprocessPackage.AND_EXPRESSION__EXPR:
         getExpr().clear();
-        getExpr().addAll((Collection<? extends Expression>)newValue);
+        getExpr().addAll((Collection<? extends EqualityExpression>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

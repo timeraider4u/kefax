@@ -61,7 +61,7 @@ lexer-tokens
 																			(UnaryExpression
 																				expr=
 																				(PostfixExpression
-																					expr+=
+																					expr=
 																					(PrimaryExpression
 																						id++"VERSION"
 																					)
@@ -82,7 +82,7 @@ lexer-tokens
 																			(UnaryExpression
 																				expr=
 																				(PostfixExpression
-																					expr+=
+																					expr=
 																					(PrimaryExpression
 																						const++"2"
 																					)

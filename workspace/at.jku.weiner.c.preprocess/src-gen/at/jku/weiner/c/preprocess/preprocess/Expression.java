@@ -2,6 +2,7 @@
  */
 package at.jku.weiner.c.preprocess.preprocess;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,7 +20,7 @@ package at.jku.weiner.c.preprocess.preprocess;
  * @model
  * @generated
  */
-public interface Expression extends ShadowExpression
+public interface Expression extends EObject
 {
   /**
    * Returns the value of the '<em><b>Expression</b></em>' containment reference.
@@ -30,12 +31,12 @@ public interface Expression extends ShadowExpression
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Expression</em>' containment reference.
-   * @see #setExpression(Expression)
+   * @see #setExpression(ConditionalExpression)
    * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getExpression_Expression()
    * @model containment="true"
    * @generated
    */
-  Expression getExpression();
+  ConditionalExpression getExpression();
 
   /**
    * Sets the value of the '{@link at.jku.weiner.c.preprocess.preprocess.Expression#getExpression <em>Expression</em>}' containment reference.
@@ -45,6 +46,6 @@ public interface Expression extends ShadowExpression
    * @see #getExpression()
    * @generated
    */
-  void setExpression(Expression value);
+  void setExpression(ConditionalExpression value);
 
 } // Expression

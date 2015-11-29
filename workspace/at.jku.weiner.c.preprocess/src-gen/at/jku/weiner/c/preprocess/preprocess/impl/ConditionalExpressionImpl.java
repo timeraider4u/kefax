@@ -4,6 +4,7 @@ package at.jku.weiner.c.preprocess.preprocess.impl;
 
 import at.jku.weiner.c.preprocess.preprocess.ConditionalExpression;
 import at.jku.weiner.c.preprocess.preprocess.Expression;
+import at.jku.weiner.c.preprocess.preprocess.LogicalOrExpression;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -13,6 +14,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +31,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class ConditionalExpressionImpl extends ExpressionImpl implements ConditionalExpression
+public class ConditionalExpressionImpl extends MinimalEObjectImpl.Container implements ConditionalExpression
 {
   /**
    * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
@@ -39,7 +41,7 @@ public class ConditionalExpressionImpl extends ExpressionImpl implements Conditi
    * @generated
    * @ordered
    */
-  protected Expression expr;
+  protected LogicalOrExpression expr;
 
   /**
    * The cached value of the '{@link #getQExpr() <em>QExpr</em>}' containment reference.
@@ -59,7 +61,7 @@ public class ConditionalExpressionImpl extends ExpressionImpl implements Conditi
    * @generated
    * @ordered
    */
-  protected Expression cExpr;
+  protected ConditionalExpression cExpr;
 
   /**
    * <!-- begin-user-doc -->
@@ -87,7 +89,7 @@ public class ConditionalExpressionImpl extends ExpressionImpl implements Conditi
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expression getExpr()
+  public LogicalOrExpression getExpr()
   {
     return expr;
   }
@@ -97,9 +99,9 @@ public class ConditionalExpressionImpl extends ExpressionImpl implements Conditi
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpr(Expression newExpr, NotificationChain msgs)
+  public NotificationChain basicSetExpr(LogicalOrExpression newExpr, NotificationChain msgs)
   {
-    Expression oldExpr = expr;
+    LogicalOrExpression oldExpr = expr;
     expr = newExpr;
     if (eNotificationRequired())
     {
@@ -114,7 +116,7 @@ public class ConditionalExpressionImpl extends ExpressionImpl implements Conditi
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setExpr(Expression newExpr)
+  public void setExpr(LogicalOrExpression newExpr)
   {
     if (newExpr != expr)
     {
@@ -183,7 +185,7 @@ public class ConditionalExpressionImpl extends ExpressionImpl implements Conditi
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expression getCExpr()
+  public ConditionalExpression getCExpr()
   {
     return cExpr;
   }
@@ -193,9 +195,9 @@ public class ConditionalExpressionImpl extends ExpressionImpl implements Conditi
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetCExpr(Expression newCExpr, NotificationChain msgs)
+  public NotificationChain basicSetCExpr(ConditionalExpression newCExpr, NotificationChain msgs)
   {
-    Expression oldCExpr = cExpr;
+    ConditionalExpression oldCExpr = cExpr;
     cExpr = newCExpr;
     if (eNotificationRequired())
     {
@@ -210,7 +212,7 @@ public class ConditionalExpressionImpl extends ExpressionImpl implements Conditi
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setCExpr(Expression newCExpr)
+  public void setCExpr(ConditionalExpression newCExpr)
   {
     if (newCExpr != cExpr)
     {
@@ -277,13 +279,13 @@ public class ConditionalExpressionImpl extends ExpressionImpl implements Conditi
     switch (featureID)
     {
       case PreprocessPackage.CONDITIONAL_EXPRESSION__EXPR:
-        setExpr((Expression)newValue);
+        setExpr((LogicalOrExpression)newValue);
         return;
       case PreprocessPackage.CONDITIONAL_EXPRESSION__QEXPR:
         setQExpr((Expression)newValue);
         return;
       case PreprocessPackage.CONDITIONAL_EXPRESSION__CEXPR:
-        setCExpr((Expression)newValue);
+        setCExpr((ConditionalExpression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -300,13 +302,13 @@ public class ConditionalExpressionImpl extends ExpressionImpl implements Conditi
     switch (featureID)
     {
       case PreprocessPackage.CONDITIONAL_EXPRESSION__EXPR:
-        setExpr((Expression)null);
+        setExpr((LogicalOrExpression)null);
         return;
       case PreprocessPackage.CONDITIONAL_EXPRESSION__QEXPR:
         setQExpr((Expression)null);
         return;
       case PreprocessPackage.CONDITIONAL_EXPRESSION__CEXPR:
-        setCExpr((Expression)null);
+        setCExpr((ConditionalExpression)null);
         return;
     }
     super.eUnset(featureID);

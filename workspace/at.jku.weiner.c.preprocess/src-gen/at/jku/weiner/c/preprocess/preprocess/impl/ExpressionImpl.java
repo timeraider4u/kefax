@@ -2,6 +2,7 @@
  */
 package at.jku.weiner.c.preprocess.preprocess.impl;
 
+import at.jku.weiner.c.preprocess.preprocess.ConditionalExpression;
 import at.jku.weiner.c.preprocess.preprocess.Expression;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessPackage;
 
@@ -12,6 +13,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,7 +28,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class ExpressionImpl extends ShadowExpressionImpl implements Expression
+public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expression
 {
   /**
    * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
@@ -36,7 +38,7 @@ public class ExpressionImpl extends ShadowExpressionImpl implements Expression
    * @generated
    * @ordered
    */
-  protected Expression expression;
+  protected ConditionalExpression expression;
 
   /**
    * <!-- begin-user-doc -->
@@ -64,7 +66,7 @@ public class ExpressionImpl extends ShadowExpressionImpl implements Expression
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expression getExpression()
+  public ConditionalExpression getExpression()
   {
     return expression;
   }
@@ -74,9 +76,9 @@ public class ExpressionImpl extends ShadowExpressionImpl implements Expression
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpression(Expression newExpression, NotificationChain msgs)
+  public NotificationChain basicSetExpression(ConditionalExpression newExpression, NotificationChain msgs)
   {
-    Expression oldExpression = expression;
+    ConditionalExpression oldExpression = expression;
     expression = newExpression;
     if (eNotificationRequired())
     {
@@ -91,7 +93,7 @@ public class ExpressionImpl extends ShadowExpressionImpl implements Expression
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setExpression(Expression newExpression)
+  public void setExpression(ConditionalExpression newExpression)
   {
     if (newExpression != expression)
     {
@@ -150,7 +152,7 @@ public class ExpressionImpl extends ShadowExpressionImpl implements Expression
     switch (featureID)
     {
       case PreprocessPackage.EXPRESSION__EXPRESSION:
-        setExpression((Expression)newValue);
+        setExpression((ConditionalExpression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -167,7 +169,7 @@ public class ExpressionImpl extends ShadowExpressionImpl implements Expression
     switch (featureID)
     {
       case PreprocessPackage.EXPRESSION__EXPRESSION:
-        setExpression((Expression)null);
+        setExpression((ConditionalExpression)null);
         return;
     }
     super.eUnset(featureID);

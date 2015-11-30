@@ -507,22 +507,18 @@ rule__Boolean__Alternatives
 :
 
 (
-{ before(grammarAccess.getBooleanAccess().getTrueKeyword_0()); }
-
-	'true' 
-
-{ after(grammarAccess.getBooleanAccess().getTrueKeyword_0()); }
+{ before(grammarAccess.getBooleanAccess().getTRUETerminalRuleCall_0()); }
+	RULE_TRUE
+{ after(grammarAccess.getBooleanAccess().getTRUETerminalRuleCall_0()); }
 )
 
 
 
     |
 (
-{ before(grammarAccess.getBooleanAccess().getFalseKeyword_1()); }
-
-	'false' 
-
-{ after(grammarAccess.getBooleanAccess().getFalseKeyword_1()); }
+{ before(grammarAccess.getBooleanAccess().getFALSETerminalRuleCall_1()); }
+	RULE_FALSE
+{ after(grammarAccess.getBooleanAccess().getFALSETerminalRuleCall_1()); }
 )
 
 
@@ -603,9 +599,46 @@ rule__Inner__Alternatives_2
 
     |
 (
-{ before(grammarAccess.getInnerAccess().getIsNullAssignment_2_4()); }
-(rule__Inner__IsNullAssignment_2_4)
-{ after(grammarAccess.getInnerAccess().getIsNullAssignment_2_4()); }
+{ before(grammarAccess.getInnerAccess().getGroup_2_4()); }
+(rule__Inner__Group_2_4__0)
+{ after(grammarAccess.getInnerAccess().getGroup_2_4()); }
+)
+
+
+
+    |
+(
+{ before(grammarAccess.getInnerAccess().getIsNullAssignment_2_5()); }
+(rule__Inner__IsNullAssignment_2_5)
+{ after(grammarAccess.getInnerAccess().getIsNullAssignment_2_5()); }
+)
+
+
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Inner__AssignAsBoolAlternatives_2_4_1_0
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+
+(
+{ before(grammarAccess.getInnerAccess().getAssignAsBoolTRUETerminalRuleCall_2_4_1_0_0()); }
+	RULE_TRUE
+{ after(grammarAccess.getInnerAccess().getAssignAsBoolTRUETerminalRuleCall_2_4_1_0_0()); }
+)
+
+
+
+    |
+(
+{ before(grammarAccess.getInnerAccess().getAssignAsBoolFALSETerminalRuleCall_2_4_1_0_1()); }
+	RULE_FALSE
+{ after(grammarAccess.getInnerAccess().getAssignAsBoolFALSETerminalRuleCall_2_4_1_0_1()); }
 )
 
 
@@ -2615,6 +2648,73 @@ finally {
 
 
 
+rule__Inner__Group_2_4__0
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__Inner__Group_2_4__0__Impl
+	rule__Inner__Group_2_4__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Inner__Group_2_4__0__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+
+(
+{ before(grammarAccess.getInnerAccess().getASSIGNASBOOLTerminalRuleCall_2_4_0()); }
+	RULE_ASSIGNASBOOL
+{ after(grammarAccess.getInnerAccess().getASSIGNASBOOLTerminalRuleCall_2_4_0()); }
+)
+
+
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__Inner__Group_2_4__1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__Inner__Group_2_4__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Inner__Group_2_4__1__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+
+(
+{ before(grammarAccess.getInnerAccess().getAssignAsBoolAssignment_2_4_1()); }
+(rule__Inner__AssignAsBoolAssignment_2_4_1)
+{ after(grammarAccess.getInnerAccess().getAssignAsBoolAssignment_2_4_1()); }
+)
+
+
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
+
+
+
 rule__Generator__Group__0
     @init {
 		int stackSize = keepStackSize();
@@ -4449,14 +4549,30 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Inner__IsNullAssignment_2_4
+rule__Inner__AssignAsBoolAssignment_2_4_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getInnerAccess().getIsNullISNULLTerminalRuleCall_2_4_0()); }
-	RULE_ISNULL{ after(grammarAccess.getInnerAccess().getIsNullISNULLTerminalRuleCall_2_4_0()); }
+{ before(grammarAccess.getInnerAccess().getAssignAsBoolAlternatives_2_4_1_0()); }
+(rule__Inner__AssignAsBoolAlternatives_2_4_1_0)
+{ after(grammarAccess.getInnerAccess().getAssignAsBoolAlternatives_2_4_1_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Inner__IsNullAssignment_2_5
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getInnerAccess().getIsNullISNULLTerminalRuleCall_2_5_0()); }
+	RULE_ISNULL{ after(grammarAccess.getInnerAccess().getIsNullISNULLTerminalRuleCall_2_5_0()); }
 )
 
 ;
@@ -4684,6 +4800,12 @@ RULE_ISNULL : 'isNull';
 RULE_LEFTPAREN : '(';
 
 RULE_RIGHTPAREN : ')';
+
+RULE_ASSIGNASBOOL : '?=';
+
+RULE_TRUE : 'true';
+
+RULE_FALSE : 'false';
 
 RULE_ASSIGNASSINGLE : '=';
 

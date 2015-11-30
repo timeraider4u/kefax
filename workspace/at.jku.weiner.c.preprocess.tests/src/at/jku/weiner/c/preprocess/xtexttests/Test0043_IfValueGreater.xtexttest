@@ -76,7 +76,7 @@ lexer-tokens
 																				(PostfixExpression
 																					expr=
 																					(PrimaryExpression
-																						const++"2"
+																						const++"200"
 																					)
 																				)
 																			)

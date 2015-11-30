@@ -12,7 +12,6 @@ import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.Group;
-import org.eclipse.xtext.Keyword;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.TerminalRule;
@@ -142,21 +141,21 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	public class BooleanElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.Boolean");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Keyword cTrueKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
-		private final Keyword cFalseKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final RuleCall cTRUETerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cFALSETerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//Boolean:
-		//	'true' | 'false';
+		//	TRUE | FALSE;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'true' | 'false'
+		//TRUE | FALSE
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//'true'
-		public Keyword getTrueKeyword_0() { return cTrueKeyword_0; }
+		//TRUE
+		public RuleCall getTRUETerminalRuleCall_0() { return cTRUETerminalRuleCall_0; }
 		
-		//'false'
-		public Keyword getFalseKeyword_1() { return cFalseKeyword_1; }
+		//FALSE
+		public RuleCall getFALSETerminalRuleCall_1() { return cFALSETerminalRuleCall_1; }
 	}
 	public class PackageIDElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.PackageID");
@@ -411,19 +410,26 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cASSIGNASDATALISTTerminalRuleCall_2_3_0 = (RuleCall)cGroup_2_3.eContents().get(0);
 		private final Assignment cAssignAsDataAssignment_2_3_1 = (Assignment)cGroup_2_3.eContents().get(1);
 		private final RuleCall cAssignAsDataSTRINGTerminalRuleCall_2_3_1_0 = (RuleCall)cAssignAsDataAssignment_2_3_1.eContents().get(0);
-		private final Assignment cIsNullAssignment_2_4 = (Assignment)cAlternatives_2.eContents().get(4);
-		private final RuleCall cIsNullISNULLTerminalRuleCall_2_4_0 = (RuleCall)cIsNullAssignment_2_4.eContents().get(0);
+		private final Group cGroup_2_4 = (Group)cAlternatives_2.eContents().get(4);
+		private final RuleCall cASSIGNASBOOLTerminalRuleCall_2_4_0 = (RuleCall)cGroup_2_4.eContents().get(0);
+		private final Assignment cAssignAsBoolAssignment_2_4_1 = (Assignment)cGroup_2_4.eContents().get(1);
+		private final Alternatives cAssignAsBoolAlternatives_2_4_1_0 = (Alternatives)cAssignAsBoolAssignment_2_4_1.eContents().get(0);
+		private final RuleCall cAssignAsBoolTRUETerminalRuleCall_2_4_1_0_0 = (RuleCall)cAssignAsBoolAlternatives_2_4_1_0.eContents().get(0);
+		private final RuleCall cAssignAsBoolFALSETerminalRuleCall_2_4_1_0_1 = (RuleCall)cAssignAsBoolAlternatives_2_4_1_0.eContents().get(1);
+		private final Assignment cIsNullAssignment_2_5 = (Assignment)cAlternatives_2.eContents().get(5);
+		private final RuleCall cIsNullISNULLTerminalRuleCall_2_5_0 = (RuleCall)cIsNullAssignment_2_5.eContents().get(0);
 		
 		//Inner:
 		//	{Inner} parameter=IDENTIFIER (ASSIGNASSINGLE assign=Element
 		//	| ASSIGNASLIST assignList+=Element (COMMA assignList+=Element)*
 		//	| ASSIGNASSTRING value=STRING
 		//	| ASSIGNASDATALIST assignAsData=STRING
-		//	| isNull?=ISNULL);
+		//	| ASSIGNASBOOL assignAsBool=(TRUE | FALSE) | isNull?=ISNULL);
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Inner} parameter=IDENTIFIER (ASSIGNASSINGLE assign=Element | ASSIGNASLIST assignList+=Element (COMMA
-		//assignList+=Element)* | ASSIGNASSTRING value=STRING | ASSIGNASDATALIST assignAsData=STRING | isNull?=ISNULL)
+		//assignList+=Element)* | ASSIGNASSTRING value=STRING | ASSIGNASDATALIST assignAsData=STRING | ASSIGNASBOOL
+		//assignAsBool=(TRUE | FALSE) | isNull?=ISNULL)
 		public Group getGroup() { return cGroup; }
 		
 		//{Inner}
@@ -436,7 +442,7 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getParameterIDENTIFIERTerminalRuleCall_1_0() { return cParameterIDENTIFIERTerminalRuleCall_1_0; }
 		
 		//(ASSIGNASSINGLE assign=Element | ASSIGNASLIST assignList+=Element (COMMA assignList+=Element)* | ASSIGNASSTRING
-		//value=STRING | ASSIGNASDATALIST assignAsData=STRING | isNull?=ISNULL)
+		//value=STRING | ASSIGNASDATALIST assignAsData=STRING | ASSIGNASBOOL assignAsBool=(TRUE | FALSE) | isNull?=ISNULL)
 		public Alternatives getAlternatives_2() { return cAlternatives_2; }
 		
 		//ASSIGNASSINGLE assign=Element
@@ -499,11 +505,29 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getAssignAsDataSTRINGTerminalRuleCall_2_3_1_0() { return cAssignAsDataSTRINGTerminalRuleCall_2_3_1_0; }
 		
+		//ASSIGNASBOOL assignAsBool=(TRUE | FALSE)
+		public Group getGroup_2_4() { return cGroup_2_4; }
+		
+		//ASSIGNASBOOL
+		public RuleCall getASSIGNASBOOLTerminalRuleCall_2_4_0() { return cASSIGNASBOOLTerminalRuleCall_2_4_0; }
+		
+		//assignAsBool=(TRUE | FALSE)
+		public Assignment getAssignAsBoolAssignment_2_4_1() { return cAssignAsBoolAssignment_2_4_1; }
+		
+		//(TRUE | FALSE)
+		public Alternatives getAssignAsBoolAlternatives_2_4_1_0() { return cAssignAsBoolAlternatives_2_4_1_0; }
+		
+		//TRUE
+		public RuleCall getAssignAsBoolTRUETerminalRuleCall_2_4_1_0_0() { return cAssignAsBoolTRUETerminalRuleCall_2_4_1_0_0; }
+		
+		//FALSE
+		public RuleCall getAssignAsBoolFALSETerminalRuleCall_2_4_1_0_1() { return cAssignAsBoolFALSETerminalRuleCall_2_4_1_0_1; }
+		
 		//isNull?=ISNULL
-		public Assignment getIsNullAssignment_2_4() { return cIsNullAssignment_2_4; }
+		public Assignment getIsNullAssignment_2_5() { return cIsNullAssignment_2_5; }
 		
 		//ISNULL
-		public RuleCall getIsNullISNULLTerminalRuleCall_2_4_0() { return cIsNullISNULLTerminalRuleCall_2_4_0; }
+		public RuleCall getIsNullISNULLTerminalRuleCall_2_5_0() { return cIsNullISNULLTerminalRuleCall_2_5_0; }
 	}
 	public class GeneratorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.Generator");
@@ -825,6 +849,9 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tISNULL;
 	private final TerminalRule tLEFTPAREN;
 	private final TerminalRule tRIGHTPAREN;
+	private final TerminalRule tASSIGNASBOOL;
+	private final TerminalRule tTRUE;
+	private final TerminalRule tFALSE;
 	private final TerminalRule tASSIGNASSINGLE;
 	private final TerminalRule tASSIGNASLIST;
 	private final TerminalRule tASSIGNASSTRING;
@@ -874,6 +901,9 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		this.tISNULL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.ISNULL");
 		this.tLEFTPAREN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.LEFTPAREN");
 		this.tRIGHTPAREN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.RIGHTPAREN");
+		this.tASSIGNASBOOL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.ASSIGNASBOOL");
+		this.tTRUE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.TRUE");
+		this.tFALSE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.FALSE");
 		this.tASSIGNASSINGLE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.ASSIGNASSINGLE");
 		this.tASSIGNASLIST = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.ASSIGNASLIST");
 		this.tASSIGNASSTRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.ASSIGNASSTRING");
@@ -927,7 +957,7 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Boolean:
-	//	'true' | 'false';
+	//	TRUE | FALSE;
 	public BooleanElements getBooleanAccess() {
 		return pBoolean;
 	}
@@ -1005,7 +1035,7 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	//	| ASSIGNASLIST assignList+=Element (COMMA assignList+=Element)*
 	//	| ASSIGNASSTRING value=STRING
 	//	| ASSIGNASDATALIST assignAsData=STRING
-	//	| isNull?=ISNULL);
+	//	| ASSIGNASBOOL assignAsBool=(TRUE | FALSE) | isNull?=ISNULL);
 	public InnerElements getInnerAccess() {
 		return pInner;
 	}
@@ -1179,6 +1209,24 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	//	')';
 	public TerminalRule getRIGHTPARENRule() {
 		return tRIGHTPAREN;
+	}
+	
+	//terminal ASSIGNASBOOL:
+	//	'?=';
+	public TerminalRule getASSIGNASBOOLRule() {
+		return tASSIGNASBOOL;
+	}
+	
+	//terminal TRUE:
+	//	'true';
+	public TerminalRule getTRUERule() {
+		return tTRUE;
+	}
+	
+	//terminal FALSE:
+	//	'false';
+	public TerminalRule getFALSERule() {
+		return tFALSE;
 	}
 	
 	//terminal ASSIGNASSINGLE:

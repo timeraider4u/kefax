@@ -334,18 +334,20 @@ ruleBoolean returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(
-	kw='true' 
-    {
-        $current.merge(kw);
-        newLeafNode(kw, grammarAccess.getBooleanAccess().getTrueKeyword_0()); 
+(    this_TRUE_0=RULE_TRUE    {
+		$current.merge(this_TRUE_0);
     }
 
-    |
-	kw='false' 
-    {
-        $current.merge(kw);
-        newLeafNode(kw, grammarAccess.getBooleanAccess().getFalseKeyword_1()); 
+    { 
+    newLeafNode(this_TRUE_0, grammarAccess.getBooleanAccess().getTRUETerminalRuleCall_0()); 
+    }
+
+    |    this_FALSE_1=RULE_FALSE    {
+		$current.merge(this_FALSE_1);
+    }
+
+    { 
+    newLeafNode(this_FALSE_1, grammarAccess.getBooleanAccess().getFALSETerminalRuleCall_1()); 
     }
 )
     ;
@@ -1026,10 +1028,60 @@ this_ASSIGNASDATALIST_10=RULE_ASSIGNASDATALIST
 
     |
 (
+this_ASSIGNASBOOL_12=RULE_ASSIGNASBOOL
+    { 
+    newLeafNode(this_ASSIGNASBOOL_12, grammarAccess.getInnerAccess().getASSIGNASBOOLTerminalRuleCall_2_4_0()); 
+    }
+
+
+
 (
-		lv_isNull_12_0=RULE_ISNULL
+(
+(
+		lv_assignAsBool_13_1=RULE_TRUE
 		{
-			newLeafNode(lv_isNull_12_0, grammarAccess.getInnerAccess().getIsNullISNULLTerminalRuleCall_2_4_0()); 
+			newLeafNode(lv_assignAsBool_13_1, grammarAccess.getInnerAccess().getAssignAsBoolTRUETerminalRuleCall_2_4_1_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getInnerRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"assignAsBool",
+        		lv_assignAsBool_13_1, 
+        		"at.jku.weiner.xtexttest.XtextTest.TRUE");
+	    }
+
+    |		lv_assignAsBool_13_2=RULE_FALSE
+		{
+			newLeafNode(lv_assignAsBool_13_2, grammarAccess.getInnerAccess().getAssignAsBoolFALSETerminalRuleCall_2_4_1_0_1()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getInnerRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"assignAsBool",
+        		lv_assignAsBool_13_2, 
+        		"at.jku.weiner.xtexttest.XtextTest.FALSE");
+	    }
+
+)
+
+)
+)
+
+)
+
+
+    |
+(
+(
+		lv_isNull_14_0=RULE_ISNULL
+		{
+			newLeafNode(lv_isNull_14_0, grammarAccess.getInnerAccess().getIsNullISNULLTerminalRuleCall_2_5_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1668,6 +1720,12 @@ RULE_ISNULL : 'isNull';
 RULE_LEFTPAREN : '(';
 
 RULE_RIGHTPAREN : ')';
+
+RULE_ASSIGNASBOOL : '?=';
+
+RULE_TRUE : 'true';
+
+RULE_FALSE : 'false';
 
 RULE_ASSIGNASSINGLE : '=';
 

@@ -32,6 +32,8 @@ public class XtextTestSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if(ruleCall.getRule() == grammarAccess.getAFTER_KWRule())
 			return getAFTER_KWToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getASSIGNASBOOLRule())
+			return getASSIGNASBOOLToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getASSIGNASDATALISTRule())
 			return getASSIGNASDATALISTToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getASSIGNASLISTRule())
@@ -88,6 +90,15 @@ public class XtextTestSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return "after";
+	}
+	
+	/**
+	 * terminal ASSIGNASBOOL: '?=';
+	 */
+	protected String getASSIGNASBOOLToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "?=";
 	}
 	
 	/**

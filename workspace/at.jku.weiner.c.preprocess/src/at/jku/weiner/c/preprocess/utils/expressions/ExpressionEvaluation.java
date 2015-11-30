@@ -91,7 +91,17 @@ public class ExpressionEvaluation {
 		final int result = ExpressionEvaluation.evaluate(expression.getExpr());
 		final Expression qExpr = expression.getQExpr();
 		final Expression cExpr = expression.getCExpr();
-		return result;
+		if ((qExpr == null) || (cExpr == null)) {
+			return result;
+		}
+		final boolean a = ExpressionEvaluationUtils.convertFrom(result);
+		final boolean b = ExpressionEvaluationUtils
+				.convertFrom(ExpressionEvaluation.evaluate(qExpr));
+		final boolean c = ExpressionEvaluationUtils
+				.convertFrom(ExpressionEvaluation.evaluate(cExpr));
+		final boolean total = a ? b : c;
+		final int totalResult = ExpressionEvaluationUtils.convertFrom(total);
+		return totalResult;
 	}
 
 	public static int evaluate(final LogicalOrExpression expression) {

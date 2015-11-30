@@ -438,9 +438,19 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getInner_IsNull()
+  public EAttribute getInner_AssignAsBool()
   {
     return (EAttribute)innerEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getInner_IsNull()
+  {
+    return (EAttribute)innerEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -665,6 +675,7 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
     createEReference(innerEClass, INNER__ASSIGN_LIST);
     createEAttribute(innerEClass, INNER__VALUE);
     createEAttribute(innerEClass, INNER__ASSIGN_AS_DATA);
+    createEAttribute(innerEClass, INNER__ASSIGN_AS_BOOL);
     createEAttribute(innerEClass, INNER__IS_NULL);
 
     generatorEClass = createEClass(GENERATOR);
@@ -751,6 +762,7 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
     initEReference(getInner_AssignList(), this.getElement(), null, "assignList", null, 0, -1, Inner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getInner_Value(), ecorePackage.getEString(), "value", null, 0, 1, Inner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getInner_AssignAsData(), ecorePackage.getEString(), "assignAsData", null, 0, 1, Inner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getInner_AssignAsBool(), ecorePackage.getEString(), "assignAsBool", null, 0, 1, Inner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getInner_IsNull(), ecorePackage.getEBoolean(), "isNull", null, 0, 1, Inner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(generatorEClass, Generator.class, "Generator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

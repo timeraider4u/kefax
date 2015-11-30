@@ -7,7 +7,7 @@ split-lexer=true
 source file="res/Test0045_IfValueGreater.c"
 //----------------------------------------------------------------------
 lexer-tokens
-	HASH DEFINE WS ID WS FLOAT_LITERAL NEWLINE
+	HASH DEFINE WS ID WS DECIMAL_LITERAL NEWLINE
 	HASH IF WS ID WS SKW_GREATEREQUAL WS DECIMAL_LITERAL NEWLINE
 		WS ID WS ID SKW_LEFTPAREN SKW_RIGHTPAREN SKW_SEMI NEWLINE
 	HASH ENDIF NEWLINE
@@ -22,7 +22,7 @@ lexer-tokens
 				directive=
 				(DefineDirective
 					id++"VERSION",
-					string++"2.9"
+					string++"290"
 				)
 			),
 			(PreprocessorDirectives
@@ -84,7 +84,7 @@ lexer-tokens
 																				(PostfixExpression
 																					expr=
 																					(PrimaryExpression
-																						const++"2"
+																						const++"200"
 																					)
 																				)
 																			)

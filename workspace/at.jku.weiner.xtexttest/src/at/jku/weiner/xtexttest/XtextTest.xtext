@@ -18,7 +18,7 @@ XtextTest:
 ;
 
 Boolean:
-	'true' | 'false'
+	TRUE | FALSE
 ;
 
 PackageID returns ecore::EString:
@@ -69,6 +69,8 @@ Inner:
 	ASSIGNASSTRING value=STRING
 	|
 	ASSIGNASDATALIST assignAsData=STRING
+	|
+	ASSIGNASBOOL assignAsBool=(TRUE|FALSE)
 	|
 	isNull?=ISNULL
 	)
@@ -127,6 +129,9 @@ terminal METHOD_KW: 'method';
 terminal ISNULL: 'isNull';
 terminal LEFTPAREN: '(';
 terminal RIGHTPAREN: ')';
+terminal ASSIGNASBOOL: '?=';
+terminal TRUE: 'true';
+terminal FALSE: 'false';
 terminal ASSIGNASSINGLE: '=';
 terminal ASSIGNASLIST: '+=';
 terminal ASSIGNASSTRING: '++';

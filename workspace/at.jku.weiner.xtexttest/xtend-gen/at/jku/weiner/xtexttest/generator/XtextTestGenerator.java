@@ -716,12 +716,23 @@ public class XtextTestGenerator implements IGenerator {
                         _builder.append(_generateForValueAssign, "");
                         _builder.newLineIfNotEmpty();
                       } else {
-                        _builder.append("Assert.assertNull(");
-                        _builder.append(varName, "");
-                        _builder.append(".get");
-                        _builder.append(paramName, "");
-                        _builder.append("());");
-                        _builder.newLineIfNotEmpty();
+                        {
+                          String _assignAsBool = inner.getAssignAsBool();
+                          boolean _notEquals_4 = (!Objects.equal(_assignAsBool, null));
+                          if (_notEquals_4) {
+                            String _assignAsBool_1 = inner.getAssignAsBool();
+                            CharSequence _generateForBoolAssign = this.generateForBoolAssign(varName, paramName, _assignAsBool_1);
+                            _builder.append(_generateForBoolAssign, "");
+                            _builder.newLineIfNotEmpty();
+                          } else {
+                            _builder.append("Assert.assertNull(");
+                            _builder.append(varName, "");
+                            _builder.append(".get");
+                            _builder.append(paramName, "");
+                            _builder.append("());");
+                            _builder.newLineIfNotEmpty();
+                          }
+                        }
                       }
                     }
                   }
@@ -846,6 +857,29 @@ public class XtextTestGenerator implements IGenerator {
     _builder.append(paramName, "");
     _builder.append("());");
     _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence generateForBoolAssign(final String varName, final String paramName, final String string3) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      boolean _equals = "true".equals(string3);
+      if (_equals) {
+        _builder.append("Assert.assertTrue(");
+        _builder.append(varName, "");
+        _builder.append(".is");
+        _builder.append(paramName, "");
+        _builder.append("());");
+        _builder.newLineIfNotEmpty();
+      } else {
+        _builder.append("Assert.assertFalse(");
+        _builder.append(varName, "");
+        _builder.append(".is");
+        _builder.append(paramName, "");
+        _builder.append("());");
+        _builder.newLineIfNotEmpty();
+      }
+    }
     return _builder;
   }
   

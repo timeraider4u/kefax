@@ -760,16 +760,17 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cENDIFTerminalRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
 		private final RuleCall cIFNOTDEFTerminalRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
 		private final RuleCall cIFTerminalRuleCall_9 = (RuleCall)cAlternatives.eContents().get(9);
-		private final RuleCall cSpecialKeywordsParserRuleCall_10 = (RuleCall)cAlternatives.eContents().get(10);
-		private final RuleCall cConstantParserRuleCall_11 = (RuleCall)cAlternatives.eContents().get(11);
+		private final RuleCall cDEFINEDTerminalRuleCall_10 = (RuleCall)cAlternatives.eContents().get(10);
+		private final RuleCall cSpecialKeywordsParserRuleCall_11 = (RuleCall)cAlternatives.eContents().get(11);
+		private final RuleCall cConstantParserRuleCall_12 = (RuleCall)cAlternatives.eContents().get(12);
 		
 		//MyCode:
 		//	ID | SPECIAL | INCLUDE | DEFINE | ERROR | PRAGMA
-		//	| IFDEF | ENDIF | IFNOTDEF | IF | SpecialKeywords
-		//	| Constant;
+		//	| IFDEF | ENDIF | IFNOTDEF | IF | DEFINED
+		//	| SpecialKeywords | Constant;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//ID | SPECIAL | INCLUDE | DEFINE | ERROR | PRAGMA | IFDEF | ENDIF | IFNOTDEF | IF | SpecialKeywords | Constant
+		//ID | SPECIAL | INCLUDE | DEFINE | ERROR | PRAGMA | IFDEF | ENDIF | IFNOTDEF | IF | DEFINED | SpecialKeywords | Constant
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//ID
@@ -802,11 +803,14 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//IF
 		public RuleCall getIFTerminalRuleCall_9() { return cIFTerminalRuleCall_9; }
 		
+		//DEFINED
+		public RuleCall getDEFINEDTerminalRuleCall_10() { return cDEFINEDTerminalRuleCall_10; }
+		
 		//SpecialKeywords
-		public RuleCall getSpecialKeywordsParserRuleCall_10() { return cSpecialKeywordsParserRuleCall_10; }
+		public RuleCall getSpecialKeywordsParserRuleCall_11() { return cSpecialKeywordsParserRuleCall_11; }
 		
 		//Constant
-		public RuleCall getConstantParserRuleCall_11() { return cConstantParserRuleCall_11; }
+		public RuleCall getConstantParserRuleCall_12() { return cConstantParserRuleCall_12; }
 	}
 	public class MyDefineLineElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.MyDefineLine");
@@ -1592,24 +1596,33 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.PostfixExpression");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cPostfixExpressionAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cExprAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cExprPrimaryExpressionParserRuleCall_1_0 = (RuleCall)cExprAssignment_1.eContents().get(0);
+		private final Assignment cDefinedAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cDefinedDEFINEDTerminalRuleCall_1_0 = (RuleCall)cDefinedAssignment_1.eContents().get(0);
+		private final Assignment cExprAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cExprPrimaryExpressionParserRuleCall_2_0 = (RuleCall)cExprAssignment_2.eContents().get(0);
 		
 		//PostfixExpression Expression:
-		//	{PostfixExpression} expr=PrimaryExpression
+		//	{PostfixExpression} defined?=DEFINED?
+		//	expr=PrimaryExpression
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{PostfixExpression} expr=PrimaryExpression
+		//{PostfixExpression} defined?=DEFINED? expr=PrimaryExpression
 		public Group getGroup() { return cGroup; }
 		
 		//{PostfixExpression}
 		public Action getPostfixExpressionAction_0() { return cPostfixExpressionAction_0; }
 		
+		//defined?=DEFINED?
+		public Assignment getDefinedAssignment_1() { return cDefinedAssignment_1; }
+		
+		//DEFINED
+		public RuleCall getDefinedDEFINEDTerminalRuleCall_1_0() { return cDefinedDEFINEDTerminalRuleCall_1_0; }
+		
 		//expr=PrimaryExpression
-		public Assignment getExprAssignment_1() { return cExprAssignment_1; }
+		public Assignment getExprAssignment_2() { return cExprAssignment_2; }
 		
 		//PrimaryExpression
-		public RuleCall getExprPrimaryExpressionParserRuleCall_1_0() { return cExprPrimaryExpressionParserRuleCall_1_0; }
+		public RuleCall getExprPrimaryExpressionParserRuleCall_2_0() { return cExprPrimaryExpressionParserRuleCall_2_0; }
 	}
 	public class PrimaryExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.PrimaryExpression");
@@ -1879,6 +1892,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tERROR;
 	private final TerminalRule tUNDEF;
 	private final TerminalRule tIF;
+	private final TerminalRule tDEFINED;
 	private final TerminalRule tIFDEF;
 	private final TerminalRule tIFNOTDEF;
 	private final TerminalRule tENDIF;
@@ -1967,6 +1981,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		this.tERROR = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.ERROR");
 		this.tUNDEF = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.UNDEF");
 		this.tIF = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.IF");
+		this.tDEFINED = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.DEFINED");
 		this.tIFDEF = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.IFDEF");
 		this.tIFNOTDEF = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.IFNOTDEF");
 		this.tENDIF = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.ENDIF");
@@ -2237,8 +2252,8 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//MyCode:
 	//	ID | SPECIAL | INCLUDE | DEFINE | ERROR | PRAGMA
-	//	| IFDEF | ENDIF | IFNOTDEF | IF | SpecialKeywords
-	//	| Constant;
+	//	| IFDEF | ENDIF | IFNOTDEF | IF | DEFINED
+	//	| SpecialKeywords | Constant;
 	public MyCodeElements getMyCodeAccess() {
 		return pMyCode;
 	}
@@ -2471,7 +2486,8 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//PostfixExpression Expression:
-	//	{PostfixExpression} expr=PrimaryExpression
+	//	{PostfixExpression} defined?=DEFINED?
+	//	expr=PrimaryExpression
 	public PostfixExpressionElements getPostfixExpressionAccess() {
 		return pPostfixExpression;
 	}
@@ -2583,6 +2599,12 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//	'if';
 	public TerminalRule getIFRule() {
 		return tIF;
+	}
+	
+	//terminal DEFINED:
+	//	'defined';
+	public TerminalRule getDEFINEDRule() {
+		return tDEFINED;
 	}
 	
 	//terminal IFDEF:

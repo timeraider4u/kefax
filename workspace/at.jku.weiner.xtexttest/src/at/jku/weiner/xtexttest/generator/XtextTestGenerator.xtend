@@ -267,7 +267,11 @@ class XtextTestGenerator implements IGenerator {
 			«IF ((inner.getValue() != null))»
 				«generateForValueAssign(varName, paramName, inner.value)»
 			«ELSE»
+			«IF (inner.getAssignAsBool() != null)»
+				«generateForBoolAssign(varName, paramName, inner.assignAsBool)»
+			«ELSE»
 				Assert.assertNull(«varName».get«paramName»());
+			«ENDIF»
 			«ENDIF»
 			«ENDIF»
 			«ENDIF»	
@@ -309,6 +313,14 @@ class XtextTestGenerator implements IGenerator {
 	def generateForValueAssign(String varName, String paramName,
 			String value) '''
 		Assert.assertEquals("«value»", «varName».get«paramName»());
+	'''
+	
+	def generateForBoolAssign(String varName, String paramName, String string3) '''
+		«IF "true".equals(string3)»
+			Assert.assertTrue(«varName».is«paramName»());
+		«ELSE»
+			Assert.assertFalse(«varName».is«paramName»());
+		«ENDIF»
 	'''
 	
 	def generatorJUnitTest() '''

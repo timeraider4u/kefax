@@ -22,7 +22,7 @@ lexer-tokens
 				directive=
 				(DefineDirective
 					id++"VERSION",
-					string++"1"
+					string++"100"
 				)
 			),
 			(PreprocessorDirectives
@@ -84,7 +84,7 @@ lexer-tokens
 																				(PostfixExpression
 																					expr=
 																					(PrimaryExpression
-																						const++"2"
+																						const++"200"
 																					)
 																				)
 																			)

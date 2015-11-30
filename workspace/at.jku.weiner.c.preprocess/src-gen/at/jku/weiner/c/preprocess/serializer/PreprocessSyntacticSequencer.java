@@ -60,6 +60,8 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if(ruleCall.getRule() == grammarAccess.getDEFINERule())
 			return getDEFINEToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getDEFINEDRule())
+			return getDEFINEDToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getENDIFRule())
 			return getENDIFToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getERRORRule())
@@ -112,6 +114,15 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return "define";
+	}
+	
+	/**
+	 * terminal DEFINED: 'defined';
+	 */
+	protected String getDEFINEDToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "defined";
 	}
 	
 	/**

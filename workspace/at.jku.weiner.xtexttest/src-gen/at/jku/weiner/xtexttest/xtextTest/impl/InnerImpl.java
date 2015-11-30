@@ -35,6 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.InnerImpl#getAssignList <em>Assign List</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.InnerImpl#getValue <em>Value</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.InnerImpl#getAssignAsData <em>Assign As Data</em>}</li>
+ *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.InnerImpl#getAssignAsBool <em>Assign As Bool</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.InnerImpl#isIsNull <em>Is Null</em>}</li>
  * </ul>
  *
@@ -121,6 +122,26 @@ public class InnerImpl extends MinimalEObjectImpl.Container implements Inner
    * @ordered
    */
   protected String assignAsData = ASSIGN_AS_DATA_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getAssignAsBool() <em>Assign As Bool</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAssignAsBool()
+   * @generated
+   * @ordered
+   */
+  protected static final String ASSIGN_AS_BOOL_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getAssignAsBool() <em>Assign As Bool</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAssignAsBool()
+   * @generated
+   * @ordered
+   */
+  protected String assignAsBool = ASSIGN_AS_BOOL_EDEFAULT;
 
   /**
    * The default value of the '{@link #isIsNull() <em>Is Null</em>}' attribute.
@@ -299,6 +320,29 @@ public class InnerImpl extends MinimalEObjectImpl.Container implements Inner
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getAssignAsBool()
+  {
+    return assignAsBool;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAssignAsBool(String newAssignAsBool)
+  {
+    String oldAssignAsBool = assignAsBool;
+    assignAsBool = newAssignAsBool;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, XtextTestPackage.INNER__ASSIGN_AS_BOOL, oldAssignAsBool, assignAsBool));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public boolean isIsNull()
   {
     return isNull;
@@ -355,6 +399,8 @@ public class InnerImpl extends MinimalEObjectImpl.Container implements Inner
         return getValue();
       case XtextTestPackage.INNER__ASSIGN_AS_DATA:
         return getAssignAsData();
+      case XtextTestPackage.INNER__ASSIGN_AS_BOOL:
+        return getAssignAsBool();
       case XtextTestPackage.INNER__IS_NULL:
         return isIsNull();
     }
@@ -388,6 +434,9 @@ public class InnerImpl extends MinimalEObjectImpl.Container implements Inner
       case XtextTestPackage.INNER__ASSIGN_AS_DATA:
         setAssignAsData((String)newValue);
         return;
+      case XtextTestPackage.INNER__ASSIGN_AS_BOOL:
+        setAssignAsBool((String)newValue);
+        return;
       case XtextTestPackage.INNER__IS_NULL:
         setIsNull((Boolean)newValue);
         return;
@@ -420,6 +469,9 @@ public class InnerImpl extends MinimalEObjectImpl.Container implements Inner
       case XtextTestPackage.INNER__ASSIGN_AS_DATA:
         setAssignAsData(ASSIGN_AS_DATA_EDEFAULT);
         return;
+      case XtextTestPackage.INNER__ASSIGN_AS_BOOL:
+        setAssignAsBool(ASSIGN_AS_BOOL_EDEFAULT);
+        return;
       case XtextTestPackage.INNER__IS_NULL:
         setIsNull(IS_NULL_EDEFAULT);
         return;
@@ -447,6 +499,8 @@ public class InnerImpl extends MinimalEObjectImpl.Container implements Inner
         return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
       case XtextTestPackage.INNER__ASSIGN_AS_DATA:
         return ASSIGN_AS_DATA_EDEFAULT == null ? assignAsData != null : !ASSIGN_AS_DATA_EDEFAULT.equals(assignAsData);
+      case XtextTestPackage.INNER__ASSIGN_AS_BOOL:
+        return ASSIGN_AS_BOOL_EDEFAULT == null ? assignAsBool != null : !ASSIGN_AS_BOOL_EDEFAULT.equals(assignAsBool);
       case XtextTestPackage.INNER__IS_NULL:
         return isNull != IS_NULL_EDEFAULT;
     }
@@ -470,6 +524,8 @@ public class InnerImpl extends MinimalEObjectImpl.Container implements Inner
     result.append(value);
     result.append(", assignAsData: ");
     result.append(assignAsData);
+    result.append(", assignAsBool: ");
+    result.append(assignAsBool);
     result.append(", isNull: ");
     result.append(isNull);
     result.append(')');

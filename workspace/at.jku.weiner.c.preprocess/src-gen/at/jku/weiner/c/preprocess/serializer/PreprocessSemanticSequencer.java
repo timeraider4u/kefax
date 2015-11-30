@@ -473,7 +473,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     expr=PrimaryExpression
+	 *     (defined?=DEFINED? expr=PrimaryExpression)
 	 */
 	protected void sequence_PostfixExpression(EObject context, PostfixExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

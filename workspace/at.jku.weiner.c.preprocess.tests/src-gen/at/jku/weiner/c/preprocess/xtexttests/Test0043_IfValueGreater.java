@@ -375,7 +375,7 @@ public class Test0043_IfValueGreater {
 		.getExpr();
 		Assert.assertNotNull(PrimaryExpression_28_Var
 		);
-		Assert.assertEquals("2", PrimaryExpression_28_Var
+		Assert.assertEquals("200", PrimaryExpression_28_Var
 		.getConst());
 		//28
 		final GroupOpt GroupOpt_29_Var

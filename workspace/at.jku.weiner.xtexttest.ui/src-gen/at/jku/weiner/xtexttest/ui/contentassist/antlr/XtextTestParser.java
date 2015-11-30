@@ -40,6 +40,7 @@ public class XtextTestParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBooleanAccess().getAlternatives(), "rule__Boolean__Alternatives");
 					put(grammarAccess.getInputAccess().getAlternatives_2(), "rule__Input__Alternatives_2");
 					put(grammarAccess.getInnerAccess().getAlternatives_2(), "rule__Inner__Alternatives_2");
+					put(grammarAccess.getInnerAccess().getAssignAsBoolAlternatives_2_4_1_0(), "rule__Inner__AssignAsBoolAlternatives_2_4_1_0");
 					put(grammarAccess.getGeneratorAccess().getAlternatives_2_2(), "rule__Generator__Alternatives_2_2");
 					put(grammarAccess.getXtextTestAccess().getGroup(), "rule__XtextTest__Group__0");
 					put(grammarAccess.getXtextTestAccess().getGroup_5(), "rule__XtextTest__Group_5__0");
@@ -60,6 +61,7 @@ public class XtextTestParser extends AbstractContentAssistParser {
 					put(grammarAccess.getInnerAccess().getGroup_2_1_2(), "rule__Inner__Group_2_1_2__0");
 					put(grammarAccess.getInnerAccess().getGroup_2_2(), "rule__Inner__Group_2_2__0");
 					put(grammarAccess.getInnerAccess().getGroup_2_3(), "rule__Inner__Group_2_3__0");
+					put(grammarAccess.getInnerAccess().getGroup_2_4(), "rule__Inner__Group_2_4__0");
 					put(grammarAccess.getGeneratorAccess().getGroup(), "rule__Generator__Group__0");
 					put(grammarAccess.getGeneratorAccess().getGroup_1(), "rule__Generator__Group_1__0");
 					put(grammarAccess.getGeneratorAccess().getGroup_2(), "rule__Generator__Group_2__0");
@@ -93,7 +95,8 @@ public class XtextTestParser extends AbstractContentAssistParser {
 					put(grammarAccess.getInnerAccess().getAssignListAssignment_2_1_2_1(), "rule__Inner__AssignListAssignment_2_1_2_1");
 					put(grammarAccess.getInnerAccess().getValueAssignment_2_2_1(), "rule__Inner__ValueAssignment_2_2_1");
 					put(grammarAccess.getInnerAccess().getAssignAsDataAssignment_2_3_1(), "rule__Inner__AssignAsDataAssignment_2_3_1");
-					put(grammarAccess.getInnerAccess().getIsNullAssignment_2_4(), "rule__Inner__IsNullAssignment_2_4");
+					put(grammarAccess.getInnerAccess().getAssignAsBoolAssignment_2_4_1(), "rule__Inner__AssignAsBoolAssignment_2_4_1");
+					put(grammarAccess.getInnerAccess().getIsNullAssignment_2_5(), "rule__Inner__IsNullAssignment_2_5");
 					put(grammarAccess.getGeneratorAccess().getOutputAssignment_1_3(), "rule__Generator__OutputAssignment_1_3");
 					put(grammarAccess.getGeneratorAccess().getExpectedAssignment_2_2_0_1(), "rule__Generator__ExpectedAssignment_2_2_0_1");
 					put(grammarAccess.getGeneratorAccess().getIsSameAsInputFileAssignment_2_2_1(), "rule__Generator__IsSameAsInputFileAssignment_2_2_1");

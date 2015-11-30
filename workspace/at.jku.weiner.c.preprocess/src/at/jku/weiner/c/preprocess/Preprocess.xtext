@@ -160,8 +160,8 @@ Code returns SourceCodeLine:
 
 MyCode returns ecore::EString:
 	ID|SPECIAL|INCLUDE|DEFINE|ERROR|PRAGMA
-	|IFDEF|ENDIF|IFNOTDEF|IF|SpecialKeywords
-	|Constant
+	|IFDEF|ENDIF|IFNOTDEF|IF|DEFINED
+	|SpecialKeywords|Constant
 ;
 
 MyDefineLine returns ecore::EString:
@@ -326,6 +326,7 @@ enum UnaryOperator:
 
 PostfixExpression returns Expression:
 	{PostfixExpression}
+	(defined?=DEFINED)?
 	(expr=PrimaryExpression
 	/*	(
 	|	('__extension__' LEFTPAREN typeName RIGHTPAREN LEFTBRACE initializerList=initializerList) 
@@ -414,6 +415,7 @@ terminal DEFINE: 'define';
 terminal ERROR: 'error';
 terminal UNDEF: 'undef';
 terminal IF: 'if';
+terminal DEFINED: 'defined';
 terminal IFDEF: 'ifdef';
 terminal IFNOTDEF: 'ifndef';
 terminal ENDIF: 'endif';

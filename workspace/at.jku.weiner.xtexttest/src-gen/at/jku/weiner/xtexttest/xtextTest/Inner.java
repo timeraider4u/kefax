@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.Inner#getAssignList <em>Assign List</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.Inner#getValue <em>Value</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.Inner#getAssignAsData <em>Assign As Data</em>}</li>
+ *   <li>{@link at.jku.weiner.xtexttest.xtextTest.Inner#getAssignAsBool <em>Assign As Bool</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.Inner#isIsNull <em>Is Null</em>}</li>
  * </ul>
  *
@@ -148,6 +149,32 @@ public interface Inner extends EObject
    * @generated
    */
   void setAssignAsData(String value);
+
+  /**
+   * Returns the value of the '<em><b>Assign As Bool</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Assign As Bool</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Assign As Bool</em>' attribute.
+   * @see #setAssignAsBool(String)
+   * @see at.jku.weiner.xtexttest.xtextTest.XtextTestPackage#getInner_AssignAsBool()
+   * @model
+   * @generated
+   */
+  String getAssignAsBool();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.xtexttest.xtextTest.Inner#getAssignAsBool <em>Assign As Bool</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Assign As Bool</em>' attribute.
+   * @see #getAssignAsBool()
+   * @generated
+   */
+  void setAssignAsBool(String value);
 
   /**
    * Returns the value of the '<em><b>Is Null</b></em>' attribute.

@@ -351,13 +351,22 @@ public interface XtextTestPackage extends EPackage
   int INNER__ASSIGN_AS_DATA = 4;
 
   /**
+   * The feature id for the '<em><b>Assign As Bool</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INNER__ASSIGN_AS_BOOL = 5;
+
+  /**
    * The feature id for the '<em><b>Is Null</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INNER__IS_NULL = 5;
+  int INNER__IS_NULL = 6;
 
   /**
    * The number of structural features of the '<em>Inner</em>' class.
@@ -366,7 +375,7 @@ public interface XtextTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INNER_FEATURE_COUNT = 6;
+  int INNER_FEATURE_COUNT = 7;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.xtexttest.xtextTest.impl.GeneratorImpl <em>Generator</em>}' class.
@@ -845,6 +854,17 @@ public interface XtextTestPackage extends EPackage
   EAttribute getInner_AssignAsData();
 
   /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.xtexttest.xtextTest.Inner#getAssignAsBool <em>Assign As Bool</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Assign As Bool</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.Inner#getAssignAsBool()
+   * @see #getInner()
+   * @generated
+   */
+  EAttribute getInner_AssignAsBool();
+
+  /**
    * Returns the meta object for the attribute '{@link at.jku.weiner.xtexttest.xtextTest.Inner#isIsNull <em>Is Null</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1277,6 +1297,14 @@ public interface XtextTestPackage extends EPackage
      * @generated
      */
     EAttribute INNER__ASSIGN_AS_DATA = eINSTANCE.getInner_AssignAsData();
+
+    /**
+     * The meta object literal for the '<em><b>Assign As Bool</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INNER__ASSIGN_AS_BOOL = eINSTANCE.getInner_AssignAsBool();
 
     /**
      * The meta object literal for the '<em><b>Is Null</b></em>' attribute feature.

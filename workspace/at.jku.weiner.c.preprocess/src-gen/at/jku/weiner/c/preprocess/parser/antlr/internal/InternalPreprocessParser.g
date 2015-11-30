@@ -1470,12 +1470,20 @@ ruleMyCode returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
     newLeafNode(this_IF_9, grammarAccess.getMyCodeAccess().getIFTerminalRuleCall_9()); 
     }
 
+    |    this_DEFINED_10=RULE_DEFINED    {
+		$current.merge(this_DEFINED_10);
+    }
+
+    { 
+    newLeafNode(this_DEFINED_10, grammarAccess.getMyCodeAccess().getDEFINEDTerminalRuleCall_10()); 
+    }
+
     |
     { 
-        newCompositeNode(grammarAccess.getMyCodeAccess().getSpecialKeywordsParserRuleCall_10()); 
+        newCompositeNode(grammarAccess.getMyCodeAccess().getSpecialKeywordsParserRuleCall_11()); 
     }
-    this_SpecialKeywords_10=ruleSpecialKeywords    {
-		$current.merge(this_SpecialKeywords_10);
+    this_SpecialKeywords_11=ruleSpecialKeywords    {
+		$current.merge(this_SpecialKeywords_11);
     }
 
     { 
@@ -1484,10 +1492,10 @@ ruleMyCode returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 
     |
     { 
-        newCompositeNode(grammarAccess.getMyCodeAccess().getConstantParserRuleCall_11()); 
+        newCompositeNode(grammarAccess.getMyCodeAccess().getConstantParserRuleCall_12()); 
     }
-    this_Constant_11=ruleConstant    {
-		$current.merge(this_Constant_11);
+    this_Constant_12=ruleConstant    {
+		$current.merge(this_Constant_12);
     }
 
     { 
@@ -2960,17 +2968,35 @@ rulePostfixExpression returns [EObject current=null]
     }
 )(
 (
-		{ 
-	        newCompositeNode(grammarAccess.getPostfixExpressionAccess().getExprPrimaryExpressionParserRuleCall_1_0()); 
+		lv_defined_1_0=RULE_DEFINED
+		{
+			newLeafNode(lv_defined_1_0, grammarAccess.getPostfixExpressionAccess().getDefinedDEFINEDTerminalRuleCall_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getPostfixExpressionRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"defined",
+        		true, 
+        		"at.jku.weiner.c.preprocess.Preprocess.DEFINED");
 	    }
-		lv_expr_1_0=rulePrimaryExpression		{
+
+)
+)?(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getPostfixExpressionAccess().getExprPrimaryExpressionParserRuleCall_2_0()); 
+	    }
+		lv_expr_2_0=rulePrimaryExpression		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getPostfixExpressionRule());
 	        }
        		set(
        			$current, 
        			"expr",
-        		lv_expr_1_0, 
+        		lv_expr_2_0, 
         		"at.jku.weiner.c.preprocess.Preprocess.PrimaryExpression");
 	        afterParserOrEnumRuleCall();
 	    }

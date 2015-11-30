@@ -200,7 +200,7 @@ public class Test0044_IfValueGreater {
 		);
 		Assert.assertEquals("VERSION", DefineDirective_4_Var
 		.getId());
-		Assert.assertEquals("1", DefineDirective_4_Var
+		Assert.assertEquals("100", DefineDirective_4_Var
 		.getString());
 		//4
 		final PreprocessorDirectives PreprocessorDirectives_5_Var
@@ -399,7 +399,7 @@ public class Test0044_IfValueGreater {
 		.getExpr();
 		Assert.assertNotNull(PrimaryExpression_30_Var
 		);
-		Assert.assertEquals("2", PrimaryExpression_30_Var
+		Assert.assertEquals("200", PrimaryExpression_30_Var
 		.getConst());
 		//30
 		final GroupOpt GroupOpt_31_Var

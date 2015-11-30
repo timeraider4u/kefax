@@ -128,7 +128,7 @@ public class Test0045_IfValueGreater {
 				"RULE_WS", 
 				"RULE_ID", 
 				"RULE_WS", 
-				"RULE_FLOAT_LITERAL", 
+				"RULE_DECIMAL_LITERAL", 
 				"RULE_NEWLINE", 
 				"RULE_HASH", 
 				"RULE_IF", 
@@ -200,7 +200,7 @@ public class Test0045_IfValueGreater {
 		);
 		Assert.assertEquals("VERSION", DefineDirective_4_Var
 		.getId());
-		Assert.assertEquals("2.9", DefineDirective_4_Var
+		Assert.assertEquals("290", DefineDirective_4_Var
 		.getString());
 		//4
 		final PreprocessorDirectives PreprocessorDirectives_5_Var
@@ -399,7 +399,7 @@ public class Test0045_IfValueGreater {
 		.getExpr();
 		Assert.assertNotNull(PrimaryExpression_30_Var
 		);
-		Assert.assertEquals("2", PrimaryExpression_30_Var
+		Assert.assertEquals("200", PrimaryExpression_30_Var
 		.getConst());
 		//30
 		final GroupOpt GroupOpt_31_Var

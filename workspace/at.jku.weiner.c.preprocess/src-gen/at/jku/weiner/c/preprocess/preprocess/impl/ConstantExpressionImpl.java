@@ -2,8 +2,8 @@
  */
 package at.jku.weiner.c.preprocess.preprocess.impl;
 
-import at.jku.weiner.c.preprocess.preprocess.ConditionalExpression;
 import at.jku.weiner.c.preprocess.preprocess.ConstantExpression;
+import at.jku.weiner.c.preprocess.preprocess.Expression;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class ConstantExpressionImpl extends ShadowExpressionImpl implements ConstantExpression
+public class ConstantExpressionImpl extends ExpressionImpl implements ConstantExpression
 {
   /**
    * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
@@ -37,7 +37,7 @@ public class ConstantExpressionImpl extends ShadowExpressionImpl implements Cons
    * @generated
    * @ordered
    */
-  protected ConditionalExpression expr;
+  protected Expression expr;
 
   /**
    * <!-- begin-user-doc -->
@@ -65,7 +65,7 @@ public class ConstantExpressionImpl extends ShadowExpressionImpl implements Cons
    * <!-- end-user-doc -->
    * @generated
    */
-  public ConditionalExpression getExpr()
+  public Expression getExpr()
   {
     return expr;
   }
@@ -75,9 +75,9 @@ public class ConstantExpressionImpl extends ShadowExpressionImpl implements Cons
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpr(ConditionalExpression newExpr, NotificationChain msgs)
+  public NotificationChain basicSetExpr(Expression newExpr, NotificationChain msgs)
   {
-    ConditionalExpression oldExpr = expr;
+    Expression oldExpr = expr;
     expr = newExpr;
     if (eNotificationRequired())
     {
@@ -92,7 +92,7 @@ public class ConstantExpressionImpl extends ShadowExpressionImpl implements Cons
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setExpr(ConditionalExpression newExpr)
+  public void setExpr(Expression newExpr)
   {
     if (newExpr != expr)
     {
@@ -151,7 +151,7 @@ public class ConstantExpressionImpl extends ShadowExpressionImpl implements Cons
     switch (featureID)
     {
       case PreprocessPackage.CONSTANT_EXPRESSION__EXPR:
-        setExpr((ConditionalExpression)newValue);
+        setExpr((Expression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -168,7 +168,7 @@ public class ConstantExpressionImpl extends ShadowExpressionImpl implements Cons
     switch (featureID)
     {
       case PreprocessPackage.CONSTANT_EXPRESSION__EXPR:
-        setExpr((ConditionalExpression)null);
+        setExpr((Expression)null);
         return;
     }
     super.eUnset(featureID);

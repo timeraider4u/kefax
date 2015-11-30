@@ -2,7 +2,7 @@
  */
 package at.jku.weiner.c.preprocess.preprocess.impl;
 
-import at.jku.weiner.c.preprocess.preprocess.LogicalAndExpression;
+import at.jku.weiner.c.preprocess.preprocess.Expression;
 import at.jku.weiner.c.preprocess.preprocess.LogicalOrExpression;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessPackage;
 
@@ -14,8 +14,6 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -33,7 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class LogicalOrExpressionImpl extends MinimalEObjectImpl.Container implements LogicalOrExpression
+public class LogicalOrExpressionImpl extends ExpressionImpl implements LogicalOrExpression
 {
   /**
    * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference list.
@@ -43,7 +41,7 @@ public class LogicalOrExpressionImpl extends MinimalEObjectImpl.Container implem
    * @generated
    * @ordered
    */
-  protected EList<LogicalAndExpression> expr;
+  protected EList<Expression> expr;
 
   /**
    * <!-- begin-user-doc -->
@@ -71,11 +69,11 @@ public class LogicalOrExpressionImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<LogicalAndExpression> getExpr()
+  public EList<Expression> getExpr()
   {
     if (expr == null)
     {
-      expr = new EObjectContainmentEList<LogicalAndExpression>(LogicalAndExpression.class, this, PreprocessPackage.LOGICAL_OR_EXPRESSION__EXPR);
+      expr = new EObjectContainmentEList<Expression>(Expression.class, this, PreprocessPackage.LOGICAL_OR_EXPRESSION__EXPR);
     }
     return expr;
   }
@@ -125,7 +123,7 @@ public class LogicalOrExpressionImpl extends MinimalEObjectImpl.Container implem
     {
       case PreprocessPackage.LOGICAL_OR_EXPRESSION__EXPR:
         getExpr().clear();
-        getExpr().addAll((Collection<? extends LogicalAndExpression>)newValue);
+        getExpr().addAll((Collection<? extends Expression>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

@@ -3,7 +3,7 @@
 package at.jku.weiner.c.preprocess.preprocess.impl;
 
 import at.jku.weiner.c.preprocess.preprocess.AdditiveExpression;
-import at.jku.weiner.c.preprocess.preprocess.MultiplicativeExpression;
+import at.jku.weiner.c.preprocess.preprocess.Expression;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessPackage;
 
 import java.util.Collection;
@@ -14,8 +14,6 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -35,7 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class AdditiveExpressionImpl extends MinimalEObjectImpl.Container implements AdditiveExpression
+public class AdditiveExpressionImpl extends ExpressionImpl implements AdditiveExpression
 {
   /**
    * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference list.
@@ -45,7 +43,7 @@ public class AdditiveExpressionImpl extends MinimalEObjectImpl.Container impleme
    * @generated
    * @ordered
    */
-  protected EList<MultiplicativeExpression> expr;
+  protected EList<Expression> expr;
 
   /**
    * The cached value of the '{@link #getOp() <em>Op</em>}' attribute list.
@@ -83,11 +81,11 @@ public class AdditiveExpressionImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<MultiplicativeExpression> getExpr()
+  public EList<Expression> getExpr()
   {
     if (expr == null)
     {
-      expr = new EObjectContainmentEList<MultiplicativeExpression>(MultiplicativeExpression.class, this, PreprocessPackage.ADDITIVE_EXPRESSION__EXPR);
+      expr = new EObjectContainmentEList<Expression>(Expression.class, this, PreprocessPackage.ADDITIVE_EXPRESSION__EXPR);
     }
     return expr;
   }
@@ -153,7 +151,7 @@ public class AdditiveExpressionImpl extends MinimalEObjectImpl.Container impleme
     {
       case PreprocessPackage.ADDITIVE_EXPRESSION__EXPR:
         getExpr().clear();
-        getExpr().addAll((Collection<? extends MultiplicativeExpression>)newValue);
+        getExpr().addAll((Collection<? extends Expression>)newValue);
         return;
       case PreprocessPackage.ADDITIVE_EXPRESSION__OP:
         getOp().clear();

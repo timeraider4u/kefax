@@ -2,7 +2,7 @@
  */
 package at.jku.weiner.c.preprocess.preprocess.impl;
 
-import at.jku.weiner.c.preprocess.preprocess.CastExpression;
+import at.jku.weiner.c.preprocess.preprocess.Expression;
 import at.jku.weiner.c.preprocess.preprocess.MultiplicativeExpression;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessPackage;
 
@@ -14,8 +14,6 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -35,7 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class MultiplicativeExpressionImpl extends MinimalEObjectImpl.Container implements MultiplicativeExpression
+public class MultiplicativeExpressionImpl extends ExpressionImpl implements MultiplicativeExpression
 {
   /**
    * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference list.
@@ -45,7 +43,7 @@ public class MultiplicativeExpressionImpl extends MinimalEObjectImpl.Container i
    * @generated
    * @ordered
    */
-  protected EList<CastExpression> expr;
+  protected EList<Expression> expr;
 
   /**
    * The cached value of the '{@link #getOp() <em>Op</em>}' attribute list.
@@ -83,11 +81,11 @@ public class MultiplicativeExpressionImpl extends MinimalEObjectImpl.Container i
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<CastExpression> getExpr()
+  public EList<Expression> getExpr()
   {
     if (expr == null)
     {
-      expr = new EObjectContainmentEList<CastExpression>(CastExpression.class, this, PreprocessPackage.MULTIPLICATIVE_EXPRESSION__EXPR);
+      expr = new EObjectContainmentEList<Expression>(Expression.class, this, PreprocessPackage.MULTIPLICATIVE_EXPRESSION__EXPR);
     }
     return expr;
   }
@@ -153,7 +151,7 @@ public class MultiplicativeExpressionImpl extends MinimalEObjectImpl.Container i
     {
       case PreprocessPackage.MULTIPLICATIVE_EXPRESSION__EXPR:
         getExpr().clear();
-        getExpr().addAll((Collection<? extends CastExpression>)newValue);
+        getExpr().addAll((Collection<? extends Expression>)newValue);
         return;
       case PreprocessPackage.MULTIPLICATIVE_EXPRESSION__OP:
         getOp().clear();

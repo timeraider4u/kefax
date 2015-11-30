@@ -4,8 +4,6 @@ package at.jku.weiner.c.preprocess.preprocess;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Inclusive Or Expression</b></em>'.
@@ -22,11 +20,11 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface InclusiveOrExpression extends EObject
+public interface InclusiveOrExpression extends Expression
 {
   /**
    * Returns the value of the '<em><b>Expr</b></em>' containment reference list.
-   * The list contents are of type {@link at.jku.weiner.c.preprocess.preprocess.ExclusiveOrExpression}.
+   * The list contents are of type {@link at.jku.weiner.c.preprocess.preprocess.Expression}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Expr</em>' containment reference list isn't clear,
@@ -38,6 +36,6 @@ public interface InclusiveOrExpression extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<ExclusiveOrExpression> getExpr();
+  EList<Expression> getExpr();
 
 } // InclusiveOrExpression

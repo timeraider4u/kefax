@@ -62,6 +62,17 @@
     <genClasses ecoreClass="Preprocess.ecore#//Expression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//Expression/expression"/>
     </genClasses>
+    <genClasses ecoreClass="Preprocess.ecore#//PreprocessorDirectives">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//PreprocessorDirectives/directive"/>
+    </genClasses>
+    <genClasses ecoreClass="Preprocess.ecore#//DefineObjectMacro"/>
+    <genClasses ecoreClass="Preprocess.ecore#//DefineFunctionLikeMacro">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//DefineFunctionLikeMacro/list"/>
+    </genClasses>
+    <genClasses ecoreClass="Preprocess.ecore#//NewLineLine"/>
+    <genClasses ecoreClass="Preprocess.ecore#//Code">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Preprocess.ecore#//Code/code"/>
+    </genClasses>
     <genClasses ecoreClass="Preprocess.ecore#//ConstantExpression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//ConstantExpression/expr"/>
     </genClasses>
@@ -119,17 +130,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Preprocess.ecore#//PrimaryExpression/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Preprocess.ecore#//PrimaryExpression/const"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//PrimaryExpression/expr"/>
-    </genClasses>
-    <genClasses ecoreClass="Preprocess.ecore#//PreprocessorDirectives">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//PreprocessorDirectives/directive"/>
-    </genClasses>
-    <genClasses ecoreClass="Preprocess.ecore#//DefineObjectMacro"/>
-    <genClasses ecoreClass="Preprocess.ecore#//DefineFunctionLikeMacro">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//DefineFunctionLikeMacro/list"/>
-    </genClasses>
-    <genClasses ecoreClass="Preprocess.ecore#//NewLineLine"/>
-    <genClasses ecoreClass="Preprocess.ecore#//Code">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Preprocess.ecore#//Code/code"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

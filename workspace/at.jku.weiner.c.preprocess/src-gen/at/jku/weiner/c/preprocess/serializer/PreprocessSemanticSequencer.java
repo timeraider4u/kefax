@@ -202,14 +202,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	 *     expr=UnaryExpression
 	 */
 	protected void sequence_CastExpression(EObject context, CastExpression semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, PreprocessPackage.Literals.CAST_EXPRESSION__EXPR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PreprocessPackage.Literals.CAST_EXPRESSION__EXPR));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getCastExpressionAccess().getExprUnaryExpressionParserRuleCall_1_0(), semanticObject.getExpr());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -252,14 +245,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	 *     expr=ConditionalExpression
 	 */
 	protected void sequence_ConstantExpression(EObject context, ConstantExpression semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, PreprocessPackage.Literals.CONSTANT_EXPRESSION__EXPR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PreprocessPackage.Literals.CONSTANT_EXPRESSION__EXPR));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getConstantExpressionAccess().getExprConditionalExpressionParserRuleCall_1_0(), semanticObject.getExpr());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -490,14 +476,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	 *     expr=PrimaryExpression
 	 */
 	protected void sequence_PostfixExpression(EObject context, PostfixExpression semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, PreprocessPackage.Literals.POSTFIX_EXPRESSION__EXPR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PreprocessPackage.Literals.POSTFIX_EXPRESSION__EXPR));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getPostfixExpressionAccess().getExprPrimaryExpressionParserRuleCall_1_0(), semanticObject.getExpr());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

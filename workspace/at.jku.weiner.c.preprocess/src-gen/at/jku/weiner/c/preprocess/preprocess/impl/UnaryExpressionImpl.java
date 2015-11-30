@@ -2,6 +2,7 @@
  */
 package at.jku.weiner.c.preprocess.preprocess.impl;
 
+import at.jku.weiner.c.preprocess.preprocess.Expression;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessPackage;
 import at.jku.weiner.c.preprocess.preprocess.UnaryExpression;
 import at.jku.weiner.c.preprocess.preprocess.UnaryOperator;
@@ -10,11 +11,9 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,7 +29,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class UnaryExpressionImpl extends MinimalEObjectImpl.Container implements UnaryExpression
+public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpression
 {
   /**
    * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
@@ -40,7 +39,7 @@ public class UnaryExpressionImpl extends MinimalEObjectImpl.Container implements
    * @generated
    * @ordered
    */
-  protected EObject expr;
+  protected Expression expr;
 
   /**
    * The default value of the '{@link #getOp() <em>Op</em>}' attribute.
@@ -88,7 +87,7 @@ public class UnaryExpressionImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public EObject getExpr()
+  public Expression getExpr()
   {
     return expr;
   }
@@ -98,9 +97,9 @@ public class UnaryExpressionImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpr(EObject newExpr, NotificationChain msgs)
+  public NotificationChain basicSetExpr(Expression newExpr, NotificationChain msgs)
   {
-    EObject oldExpr = expr;
+    Expression oldExpr = expr;
     expr = newExpr;
     if (eNotificationRequired())
     {
@@ -115,7 +114,7 @@ public class UnaryExpressionImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setExpr(EObject newExpr)
+  public void setExpr(Expression newExpr)
   {
     if (newExpr != expr)
     {
@@ -199,7 +198,7 @@ public class UnaryExpressionImpl extends MinimalEObjectImpl.Container implements
     switch (featureID)
     {
       case PreprocessPackage.UNARY_EXPRESSION__EXPR:
-        setExpr((EObject)newValue);
+        setExpr((Expression)newValue);
         return;
       case PreprocessPackage.UNARY_EXPRESSION__OP:
         setOp((UnaryOperator)newValue);
@@ -219,7 +218,7 @@ public class UnaryExpressionImpl extends MinimalEObjectImpl.Container implements
     switch (featureID)
     {
       case PreprocessPackage.UNARY_EXPRESSION__EXPR:
-        setExpr((EObject)null);
+        setExpr((Expression)null);
         return;
       case PreprocessPackage.UNARY_EXPRESSION__OP:
         setOp(OP_EDEFAULT);

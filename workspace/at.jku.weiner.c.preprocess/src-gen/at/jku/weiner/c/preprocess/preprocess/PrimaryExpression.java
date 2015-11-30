@@ -2,7 +2,6 @@
  */
 package at.jku.weiner.c.preprocess.preprocess;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface PrimaryExpression extends EObject
+public interface PrimaryExpression extends Expression
 {
   /**
    * Returns the value of the '<em><b>Id</b></em>' attribute.

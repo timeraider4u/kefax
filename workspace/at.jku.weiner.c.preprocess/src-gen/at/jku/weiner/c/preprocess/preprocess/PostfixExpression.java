@@ -2,7 +2,6 @@
  */
 package at.jku.weiner.c.preprocess.preprocess;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface PostfixExpression extends EObject
+public interface PostfixExpression extends Expression
 {
   /**
    * Returns the value of the '<em><b>Expr</b></em>' containment reference.
@@ -31,12 +30,12 @@ public interface PostfixExpression extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Expr</em>' containment reference.
-   * @see #setExpr(PrimaryExpression)
+   * @see #setExpr(Expression)
    * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getPostfixExpression_Expr()
    * @model containment="true"
    * @generated
    */
-  PrimaryExpression getExpr();
+  Expression getExpr();
 
   /**
    * Sets the value of the '{@link at.jku.weiner.c.preprocess.preprocess.PostfixExpression#getExpr <em>Expr</em>}' containment reference.
@@ -46,6 +45,6 @@ public interface PostfixExpression extends EObject
    * @see #getExpr()
    * @generated
    */
-  void setExpr(PrimaryExpression value);
+  void setExpr(Expression value);
 
 } // PostfixExpression

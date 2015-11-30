@@ -2,7 +2,6 @@
  */
 package at.jku.weiner.c.preprocess.preprocess;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface UnaryExpression extends EObject
+public interface UnaryExpression extends Expression
 {
   /**
    * Returns the value of the '<em><b>Expr</b></em>' containment reference.
@@ -32,12 +31,12 @@ public interface UnaryExpression extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Expr</em>' containment reference.
-   * @see #setExpr(EObject)
+   * @see #setExpr(Expression)
    * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getUnaryExpression_Expr()
    * @model containment="true"
    * @generated
    */
-  EObject getExpr();
+  Expression getExpr();
 
   /**
    * Sets the value of the '{@link at.jku.weiner.c.preprocess.preprocess.UnaryExpression#getExpr <em>Expr</em>}' containment reference.
@@ -47,7 +46,7 @@ public interface UnaryExpression extends EObject
    * @see #getExpr()
    * @generated
    */
-  void setExpr(EObject value);
+  void setExpr(Expression value);
 
   /**
    * Returns the value of the '<em><b>Op</b></em>' attribute.

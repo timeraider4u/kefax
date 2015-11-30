@@ -4,7 +4,6 @@ package at.jku.weiner.c.preprocess.preprocess.impl;
 
 import at.jku.weiner.c.preprocess.preprocess.ConditionalExpression;
 import at.jku.weiner.c.preprocess.preprocess.Expression;
-import at.jku.weiner.c.preprocess.preprocess.LogicalOrExpression;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -14,7 +13,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,7 +29,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class ConditionalExpressionImpl extends MinimalEObjectImpl.Container implements ConditionalExpression
+public class ConditionalExpressionImpl extends ExpressionImpl implements ConditionalExpression
 {
   /**
    * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
@@ -41,7 +39,7 @@ public class ConditionalExpressionImpl extends MinimalEObjectImpl.Container impl
    * @generated
    * @ordered
    */
-  protected LogicalOrExpression expr;
+  protected Expression expr;
 
   /**
    * The cached value of the '{@link #getQExpr() <em>QExpr</em>}' containment reference.
@@ -61,7 +59,7 @@ public class ConditionalExpressionImpl extends MinimalEObjectImpl.Container impl
    * @generated
    * @ordered
    */
-  protected ConditionalExpression cExpr;
+  protected Expression cExpr;
 
   /**
    * <!-- begin-user-doc -->
@@ -89,7 +87,7 @@ public class ConditionalExpressionImpl extends MinimalEObjectImpl.Container impl
    * <!-- end-user-doc -->
    * @generated
    */
-  public LogicalOrExpression getExpr()
+  public Expression getExpr()
   {
     return expr;
   }
@@ -99,9 +97,9 @@ public class ConditionalExpressionImpl extends MinimalEObjectImpl.Container impl
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpr(LogicalOrExpression newExpr, NotificationChain msgs)
+  public NotificationChain basicSetExpr(Expression newExpr, NotificationChain msgs)
   {
-    LogicalOrExpression oldExpr = expr;
+    Expression oldExpr = expr;
     expr = newExpr;
     if (eNotificationRequired())
     {
@@ -116,7 +114,7 @@ public class ConditionalExpressionImpl extends MinimalEObjectImpl.Container impl
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setExpr(LogicalOrExpression newExpr)
+  public void setExpr(Expression newExpr)
   {
     if (newExpr != expr)
     {
@@ -185,7 +183,7 @@ public class ConditionalExpressionImpl extends MinimalEObjectImpl.Container impl
    * <!-- end-user-doc -->
    * @generated
    */
-  public ConditionalExpression getCExpr()
+  public Expression getCExpr()
   {
     return cExpr;
   }
@@ -195,9 +193,9 @@ public class ConditionalExpressionImpl extends MinimalEObjectImpl.Container impl
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetCExpr(ConditionalExpression newCExpr, NotificationChain msgs)
+  public NotificationChain basicSetCExpr(Expression newCExpr, NotificationChain msgs)
   {
-    ConditionalExpression oldCExpr = cExpr;
+    Expression oldCExpr = cExpr;
     cExpr = newCExpr;
     if (eNotificationRequired())
     {
@@ -212,7 +210,7 @@ public class ConditionalExpressionImpl extends MinimalEObjectImpl.Container impl
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setCExpr(ConditionalExpression newCExpr)
+  public void setCExpr(Expression newCExpr)
   {
     if (newCExpr != cExpr)
     {
@@ -279,13 +277,13 @@ public class ConditionalExpressionImpl extends MinimalEObjectImpl.Container impl
     switch (featureID)
     {
       case PreprocessPackage.CONDITIONAL_EXPRESSION__EXPR:
-        setExpr((LogicalOrExpression)newValue);
+        setExpr((Expression)newValue);
         return;
       case PreprocessPackage.CONDITIONAL_EXPRESSION__QEXPR:
         setQExpr((Expression)newValue);
         return;
       case PreprocessPackage.CONDITIONAL_EXPRESSION__CEXPR:
-        setCExpr((ConditionalExpression)newValue);
+        setCExpr((Expression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -302,13 +300,13 @@ public class ConditionalExpressionImpl extends MinimalEObjectImpl.Container impl
     switch (featureID)
     {
       case PreprocessPackage.CONDITIONAL_EXPRESSION__EXPR:
-        setExpr((LogicalOrExpression)null);
+        setExpr((Expression)null);
         return;
       case PreprocessPackage.CONDITIONAL_EXPRESSION__QEXPR:
         setQExpr((Expression)null);
         return;
       case PreprocessPackage.CONDITIONAL_EXPRESSION__CEXPR:
-        setCExpr((ConditionalExpression)null);
+        setCExpr((Expression)null);
         return;
     }
     super.eUnset(featureID);

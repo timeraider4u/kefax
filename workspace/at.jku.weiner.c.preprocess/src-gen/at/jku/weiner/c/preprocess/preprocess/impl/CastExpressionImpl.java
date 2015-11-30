@@ -3,8 +3,8 @@
 package at.jku.weiner.c.preprocess.preprocess.impl;
 
 import at.jku.weiner.c.preprocess.preprocess.CastExpression;
+import at.jku.weiner.c.preprocess.preprocess.Expression;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessPackage;
-import at.jku.weiner.c.preprocess.preprocess.UnaryExpression;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +27,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class CastExpressionImpl extends MinimalEObjectImpl.Container implements CastExpression
+public class CastExpressionImpl extends ExpressionImpl implements CastExpression
 {
   /**
    * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
@@ -38,7 +37,7 @@ public class CastExpressionImpl extends MinimalEObjectImpl.Container implements 
    * @generated
    * @ordered
    */
-  protected UnaryExpression expr;
+  protected Expression expr;
 
   /**
    * <!-- begin-user-doc -->
@@ -66,7 +65,7 @@ public class CastExpressionImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public UnaryExpression getExpr()
+  public Expression getExpr()
   {
     return expr;
   }
@@ -76,9 +75,9 @@ public class CastExpressionImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpr(UnaryExpression newExpr, NotificationChain msgs)
+  public NotificationChain basicSetExpr(Expression newExpr, NotificationChain msgs)
   {
-    UnaryExpression oldExpr = expr;
+    Expression oldExpr = expr;
     expr = newExpr;
     if (eNotificationRequired())
     {
@@ -93,7 +92,7 @@ public class CastExpressionImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setExpr(UnaryExpression newExpr)
+  public void setExpr(Expression newExpr)
   {
     if (newExpr != expr)
     {
@@ -152,7 +151,7 @@ public class CastExpressionImpl extends MinimalEObjectImpl.Container implements 
     switch (featureID)
     {
       case PreprocessPackage.CAST_EXPRESSION__EXPR:
-        setExpr((UnaryExpression)newValue);
+        setExpr((Expression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -169,7 +168,7 @@ public class CastExpressionImpl extends MinimalEObjectImpl.Container implements 
     switch (featureID)
     {
       case PreprocessPackage.CAST_EXPRESSION__EXPR:
-        setExpr((UnaryExpression)null);
+        setExpr((Expression)null);
         return;
     }
     super.eUnset(featureID);

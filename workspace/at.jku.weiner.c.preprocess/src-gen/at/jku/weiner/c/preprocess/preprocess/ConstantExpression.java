@@ -19,7 +19,7 @@ package at.jku.weiner.c.preprocess.preprocess;
  * @model
  * @generated
  */
-public interface ConstantExpression extends ShadowExpression
+public interface ConstantExpression extends Expression
 {
   /**
    * Returns the value of the '<em><b>Expr</b></em>' containment reference.
@@ -30,12 +30,12 @@ public interface ConstantExpression extends ShadowExpression
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Expr</em>' containment reference.
-   * @see #setExpr(ConditionalExpression)
+   * @see #setExpr(Expression)
    * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getConstantExpression_Expr()
    * @model containment="true"
    * @generated
    */
-  ConditionalExpression getExpr();
+  Expression getExpr();
 
   /**
    * Sets the value of the '{@link at.jku.weiner.c.preprocess.preprocess.ConstantExpression#getExpr <em>Expr</em>}' containment reference.
@@ -45,6 +45,6 @@ public interface ConstantExpression extends ShadowExpression
    * @see #getExpr()
    * @generated
    */
-  void setExpr(ConditionalExpression value);
+  void setExpr(Expression value);
 
 } // ConstantExpression

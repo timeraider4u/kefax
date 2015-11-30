@@ -186,12 +186,12 @@ Expression:
 	expression=ConditionalExpression
 ;
 
-ConstantExpression:
+ConstantExpression returns Expression:
 	{ConstantExpression}
 	expr=ConditionalExpression
 ;
 
-ConditionalExpression:
+ConditionalExpression returns Expression:
 	{ConditionalExpression}
 	expr=LogicalOrExpression
 	(SKW_QUESTION qExpr=Expression SKW_COLON
@@ -199,37 +199,37 @@ ConditionalExpression:
 	)?
 ;
 
-LogicalOrExpression:
+LogicalOrExpression returns Expression:
 	{LogicalOrExpression}
 	expr+=LogicalAndExpression
 	(SKW_OROR expr+=LogicalAndExpression)*
 ;
 
-LogicalAndExpression:
+LogicalAndExpression returns Expression:
 	{LogicalAndExpression}
 	expr+=InclusiveOrExpression
 	(SKW_ANDAND expr+=InclusiveOrExpression)*
 ;
 
-InclusiveOrExpression:
+InclusiveOrExpression returns Expression:
 	{InclusiveOrExpression}
 	expr+=ExclusiveOrExpression
 	(SKW_OR expr+=ExclusiveOrExpression)*
 ;
 
-ExclusiveOrExpression:
+ExclusiveOrExpression returns Expression:
 	{ExclusiveOrExpression}
 	expr+=AndExpression
 	(SKW_CARET expr+=AndExpression)*
 ;
 
-AndExpression:
+AndExpression returns Expression:
 	{AndExpression}
 	expr+=EqualityExpression
 	(SKW_AND expr+=EqualityExpression)*
 ;
 
-EqualityExpression:
+EqualityExpression returns Expression:
 	{EqualityExpression}
 	expr+=RelationalExpression
 	(
@@ -241,7 +241,7 @@ EqualityExpression:
 	)*
 ;
 
-RelationalExpression:
+RelationalExpression returns Expression:
 	{RelationalExpression}
 	expr+=ShiftExpression
 	(
@@ -255,7 +255,7 @@ RelationalExpression:
 	)*
 ;
 
-ShiftExpression:
+ShiftExpression returns Expression:
 	{ShiftExpression}
 	expr+=AdditiveExpression
 	(
@@ -267,7 +267,7 @@ ShiftExpression:
 	)*
 ;
 
-AdditiveExpression:
+AdditiveExpression returns Expression:
 	{AdditiveExpression}
 	expr+=MultiplicativeExpression
 	(
@@ -279,7 +279,7 @@ AdditiveExpression:
 	)*
 ;
 
-MultiplicativeExpression:
+MultiplicativeExpression returns Expression:
 	{MultiplicativeExpression}
 	expr+=CastExpression
 	(
@@ -292,7 +292,7 @@ MultiplicativeExpression:
 	)*
 ;
 
-CastExpression:
+CastExpression returns Expression:
 	{CastExpression}
 	(
 		expr=UnaryExpression
@@ -301,7 +301,7 @@ CastExpression:
 	)
 ;
 
-UnaryExpression:
+UnaryExpression returns Expression:
 	{UnaryExpression}	
 	(
 		expr=PostfixExpression
@@ -324,7 +324,7 @@ enum UnaryOperator:
 	|	SKW_NOT
 ;
 
-PostfixExpression:
+PostfixExpression returns Expression:
 	{PostfixExpression}
 	(expr=PrimaryExpression
 	/*	(
@@ -382,7 +382,7 @@ ArgumentExpressionList: expr+=AssignmentExpression (SKW_COMMA expr+=AssignmentEx
 
 */
 
-PrimaryExpression:
+PrimaryExpression returns Expression:
 	{PrimaryExpression}
 	(id=ID
 	|	const=Constant

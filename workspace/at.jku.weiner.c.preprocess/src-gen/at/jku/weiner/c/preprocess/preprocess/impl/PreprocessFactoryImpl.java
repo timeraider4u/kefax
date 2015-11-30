@@ -82,6 +82,11 @@ public class PreprocessFactoryImpl extends EFactoryImpl implements PreprocessFac
       case PreprocessPackage.NULL_DIRECTIVE: return createNullDirective();
       case PreprocessPackage.SHADOW_EXPRESSION: return createShadowExpression();
       case PreprocessPackage.EXPRESSION: return createExpression();
+      case PreprocessPackage.PREPROCESSOR_DIRECTIVES: return createPreprocessorDirectives();
+      case PreprocessPackage.DEFINE_OBJECT_MACRO: return createDefineObjectMacro();
+      case PreprocessPackage.DEFINE_FUNCTION_LIKE_MACRO: return createDefineFunctionLikeMacro();
+      case PreprocessPackage.NEW_LINE_LINE: return createNewLineLine();
+      case PreprocessPackage.CODE: return createCode();
       case PreprocessPackage.CONSTANT_EXPRESSION: return createConstantExpression();
       case PreprocessPackage.CONDITIONAL_EXPRESSION: return createConditionalExpression();
       case PreprocessPackage.LOGICAL_OR_EXPRESSION: return createLogicalOrExpression();
@@ -98,11 +103,6 @@ public class PreprocessFactoryImpl extends EFactoryImpl implements PreprocessFac
       case PreprocessPackage.UNARY_EXPRESSION: return createUnaryExpression();
       case PreprocessPackage.POSTFIX_EXPRESSION: return createPostfixExpression();
       case PreprocessPackage.PRIMARY_EXPRESSION: return createPrimaryExpression();
-      case PreprocessPackage.PREPROCESSOR_DIRECTIVES: return createPreprocessorDirectives();
-      case PreprocessPackage.DEFINE_OBJECT_MACRO: return createDefineObjectMacro();
-      case PreprocessPackage.DEFINE_FUNCTION_LIKE_MACRO: return createDefineFunctionLikeMacro();
-      case PreprocessPackage.NEW_LINE_LINE: return createNewLineLine();
-      case PreprocessPackage.CODE: return createCode();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -334,6 +334,61 @@ public class PreprocessFactoryImpl extends EFactoryImpl implements PreprocessFac
    * <!-- end-user-doc -->
    * @generated
    */
+  public PreprocessorDirectives createPreprocessorDirectives()
+  {
+    PreprocessorDirectivesImpl preprocessorDirectives = new PreprocessorDirectivesImpl();
+    return preprocessorDirectives;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DefineObjectMacro createDefineObjectMacro()
+  {
+    DefineObjectMacroImpl defineObjectMacro = new DefineObjectMacroImpl();
+    return defineObjectMacro;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DefineFunctionLikeMacro createDefineFunctionLikeMacro()
+  {
+    DefineFunctionLikeMacroImpl defineFunctionLikeMacro = new DefineFunctionLikeMacroImpl();
+    return defineFunctionLikeMacro;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NewLineLine createNewLineLine()
+  {
+    NewLineLineImpl newLineLine = new NewLineLineImpl();
+    return newLineLine;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Code createCode()
+  {
+    CodeImpl code = new CodeImpl();
+    return code;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public ConstantExpression createConstantExpression()
   {
     ConstantExpressionImpl constantExpression = new ConstantExpressionImpl();
@@ -503,61 +558,6 @@ public class PreprocessFactoryImpl extends EFactoryImpl implements PreprocessFac
   {
     PrimaryExpressionImpl primaryExpression = new PrimaryExpressionImpl();
     return primaryExpression;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public PreprocessorDirectives createPreprocessorDirectives()
-  {
-    PreprocessorDirectivesImpl preprocessorDirectives = new PreprocessorDirectivesImpl();
-    return preprocessorDirectives;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public DefineObjectMacro createDefineObjectMacro()
-  {
-    DefineObjectMacroImpl defineObjectMacro = new DefineObjectMacroImpl();
-    return defineObjectMacro;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public DefineFunctionLikeMacro createDefineFunctionLikeMacro()
-  {
-    DefineFunctionLikeMacroImpl defineFunctionLikeMacro = new DefineFunctionLikeMacroImpl();
-    return defineFunctionLikeMacro;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NewLineLine createNewLineLine()
-  {
-    NewLineLineImpl newLineLine = new NewLineLineImpl();
-    return newLineLine;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Code createCode()
-  {
-    CodeImpl code = new CodeImpl();
-    return code;
   }
 
   /**

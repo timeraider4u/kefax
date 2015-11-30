@@ -326,7 +326,6 @@ enum UnaryOperator:
 
 PostfixExpression returns Expression:
 	{PostfixExpression}
-	(defined?=DEFINED)?
 	(expr=PrimaryExpression
 	/*	(
 	|	('__extension__' LEFTPAREN typeName RIGHTPAREN LEFTBRACE initializerList=initializerList) 
@@ -385,7 +384,9 @@ ArgumentExpressionList: expr+=AssignmentExpression (SKW_COMMA expr+=AssignmentEx
 
 PrimaryExpression returns Expression:
 	{PrimaryExpression}
-	(id=ID
+	(
+		(defined?=DEFINED)? id=ID
+	|	(defined?=DEFINED)? SKW_LEFTPAREN id=ID SKW_RIGHTPAREN
 	|	const=Constant
 	//|	string+=STRING_LITERAL+ // reachable over Constant!
 	|	SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN

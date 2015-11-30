@@ -22,7 +22,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.PostfixExpressionImpl#isDefined <em>Defined</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.PostfixExpressionImpl#getExpr <em>Expr</em>}</li>
  * </ul>
  *
@@ -30,26 +29,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpression
 {
-  /**
-   * The default value of the '{@link #isDefined() <em>Defined</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isDefined()
-   * @generated
-   * @ordered
-   */
-  protected static final boolean DEFINED_EDEFAULT = false;
-
-  /**
-   * The cached value of the '{@link #isDefined() <em>Defined</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isDefined()
-   * @generated
-   * @ordered
-   */
-  protected boolean defined = DEFINED_EDEFAULT;
-
   /**
    * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -79,29 +58,6 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
   protected EClass eStaticClass()
   {
     return PreprocessPackage.Literals.POSTFIX_EXPRESSION;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public boolean isDefined()
-  {
-    return defined;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setDefined(boolean newDefined)
-  {
-    boolean oldDefined = defined;
-    defined = newDefined;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, PreprocessPackage.POSTFIX_EXPRESSION__DEFINED, oldDefined, defined));
   }
 
   /**
@@ -178,8 +134,6 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
   {
     switch (featureID)
     {
-      case PreprocessPackage.POSTFIX_EXPRESSION__DEFINED:
-        return isDefined();
       case PreprocessPackage.POSTFIX_EXPRESSION__EXPR:
         return getExpr();
     }
@@ -196,9 +150,6 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
   {
     switch (featureID)
     {
-      case PreprocessPackage.POSTFIX_EXPRESSION__DEFINED:
-        setDefined((Boolean)newValue);
-        return;
       case PreprocessPackage.POSTFIX_EXPRESSION__EXPR:
         setExpr((Expression)newValue);
         return;
@@ -216,9 +167,6 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
   {
     switch (featureID)
     {
-      case PreprocessPackage.POSTFIX_EXPRESSION__DEFINED:
-        setDefined(DEFINED_EDEFAULT);
-        return;
       case PreprocessPackage.POSTFIX_EXPRESSION__EXPR:
         setExpr((Expression)null);
         return;
@@ -236,29 +184,10 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
   {
     switch (featureID)
     {
-      case PreprocessPackage.POSTFIX_EXPRESSION__DEFINED:
-        return defined != DEFINED_EDEFAULT;
       case PreprocessPackage.POSTFIX_EXPRESSION__EXPR:
         return expr != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (defined: ");
-    result.append(defined);
-    result.append(')');
-    return result.toString();
   }
 
 } //PostfixExpressionImpl

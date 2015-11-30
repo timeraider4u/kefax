@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.PrimaryExpressionImpl#isDefined <em>Defined</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.PrimaryExpressionImpl#getId <em>Id</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.PrimaryExpressionImpl#getConst <em>Const</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.PrimaryExpressionImpl#getExpr <em>Expr</em>}</li>
@@ -31,6 +32,26 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpression
 {
+  /**
+   * The default value of the '{@link #isDefined() <em>Defined</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isDefined()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean DEFINED_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isDefined() <em>Defined</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isDefined()
+   * @generated
+   * @ordered
+   */
+  protected boolean defined = DEFINED_EDEFAULT;
+
   /**
    * The default value of the '{@link #getId() <em>Id</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -100,6 +121,29 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
   protected EClass eStaticClass()
   {
     return PreprocessPackage.Literals.PRIMARY_EXPRESSION;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isDefined()
+  {
+    return defined;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDefined(boolean newDefined)
+  {
+    boolean oldDefined = defined;
+    defined = newDefined;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, PreprocessPackage.PRIMARY_EXPRESSION__DEFINED, oldDefined, defined));
   }
 
   /**
@@ -222,6 +266,8 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
   {
     switch (featureID)
     {
+      case PreprocessPackage.PRIMARY_EXPRESSION__DEFINED:
+        return isDefined();
       case PreprocessPackage.PRIMARY_EXPRESSION__ID:
         return getId();
       case PreprocessPackage.PRIMARY_EXPRESSION__CONST:
@@ -242,6 +288,9 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
   {
     switch (featureID)
     {
+      case PreprocessPackage.PRIMARY_EXPRESSION__DEFINED:
+        setDefined((Boolean)newValue);
+        return;
       case PreprocessPackage.PRIMARY_EXPRESSION__ID:
         setId((String)newValue);
         return;
@@ -265,6 +314,9 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
   {
     switch (featureID)
     {
+      case PreprocessPackage.PRIMARY_EXPRESSION__DEFINED:
+        setDefined(DEFINED_EDEFAULT);
+        return;
       case PreprocessPackage.PRIMARY_EXPRESSION__ID:
         setId(ID_EDEFAULT);
         return;
@@ -288,6 +340,8 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
   {
     switch (featureID)
     {
+      case PreprocessPackage.PRIMARY_EXPRESSION__DEFINED:
+        return defined != DEFINED_EDEFAULT;
       case PreprocessPackage.PRIMARY_EXPRESSION__ID:
         return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
       case PreprocessPackage.PRIMARY_EXPRESSION__CONST:
@@ -309,7 +363,9 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (id: ");
+    result.append(" (defined: ");
+    result.append(defined);
+    result.append(", id: ");
     result.append(id);
     result.append(", const: ");
     result.append(const_);

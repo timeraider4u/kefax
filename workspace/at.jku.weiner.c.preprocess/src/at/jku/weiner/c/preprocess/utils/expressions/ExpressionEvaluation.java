@@ -317,7 +317,14 @@ public class ExpressionEvaluation {
 			return ExpressionEvaluation.evaluateForString(constant, true);
 		}
 		if (id != null) {
-			return ExpressionEvaluation.evaluateForString(id, false);
+			if (expression.isDefined()) {
+				if (DefinitionTable.isDefined(id)) {
+					return ExpressionEvaluation.TRUE;
+				}
+				return ExpressionEvaluation.FALSE;
+			} else {
+				return ExpressionEvaluation.evaluateForString(id, false);
+			}
 		}
 		if (expr != null) {
 			return ExpressionEvaluation.evaluate(expr);

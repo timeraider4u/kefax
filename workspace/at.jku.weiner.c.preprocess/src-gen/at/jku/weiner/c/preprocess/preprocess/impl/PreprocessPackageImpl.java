@@ -1191,19 +1191,9 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getPostfixExpression_Defined()
-  {
-    return (EAttribute)postfixExpressionEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getPostfixExpression_Expr()
   {
-    return (EReference)postfixExpressionEClass.getEStructuralFeatures().get(1);
+    return (EReference)postfixExpressionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1221,7 +1211,7 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getPrimaryExpression_Id()
+  public EAttribute getPrimaryExpression_Defined()
   {
     return (EAttribute)primaryExpressionEClass.getEStructuralFeatures().get(0);
   }
@@ -1231,7 +1221,7 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getPrimaryExpression_Const()
+  public EAttribute getPrimaryExpression_Id()
   {
     return (EAttribute)primaryExpressionEClass.getEStructuralFeatures().get(1);
   }
@@ -1241,9 +1231,19 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getPrimaryExpression_Const()
+  {
+    return (EAttribute)primaryExpressionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getPrimaryExpression_Expr()
   {
-    return (EReference)primaryExpressionEClass.getEStructuralFeatures().get(2);
+    return (EReference)primaryExpressionEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -1401,10 +1401,10 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
     createEAttribute(unaryExpressionEClass, UNARY_EXPRESSION__OP);
 
     postfixExpressionEClass = createEClass(POSTFIX_EXPRESSION);
-    createEAttribute(postfixExpressionEClass, POSTFIX_EXPRESSION__DEFINED);
     createEReference(postfixExpressionEClass, POSTFIX_EXPRESSION__EXPR);
 
     primaryExpressionEClass = createEClass(PRIMARY_EXPRESSION);
+    createEAttribute(primaryExpressionEClass, PRIMARY_EXPRESSION__DEFINED);
     createEAttribute(primaryExpressionEClass, PRIMARY_EXPRESSION__ID);
     createEAttribute(primaryExpressionEClass, PRIMARY_EXPRESSION__CONST);
     createEReference(primaryExpressionEClass, PRIMARY_EXPRESSION__EXPR);
@@ -1581,10 +1581,10 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
     initEAttribute(getUnaryExpression_Op(), this.getUnaryOperator(), "op", null, 0, 1, UnaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(postfixExpressionEClass, PostfixExpression.class, "PostfixExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getPostfixExpression_Defined(), ecorePackage.getEBoolean(), "defined", null, 0, 1, PostfixExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPostfixExpression_Expr(), this.getExpression(), null, "expr", null, 0, 1, PostfixExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(primaryExpressionEClass, PrimaryExpression.class, "PrimaryExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPrimaryExpression_Defined(), ecorePackage.getEBoolean(), "defined", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getPrimaryExpression_Id(), ecorePackage.getEString(), "id", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getPrimaryExpression_Const(), ecorePackage.getEString(), "const", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPrimaryExpression_Expr(), this.getExpression(), null, "expr", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -4,10 +4,10 @@ package at.jku.weiner.c.preprocess
 language preprocess
 //----------------------------------------------------------------------
 split-lexer=true
-source file="res/Test0046_IfDefined.c"
+source file="res/Test0047_IfDefined.c"
 //----------------------------------------------------------------------
 lexer-tokens
-	// HASH DEFINE WS ID WS DECIMAL_LITERAL NEWLINE
+	HASH DEFINE WS ID WS DECIMAL_LITERAL NEWLINE
 	HASH IF WS DEFINED WS ID WS SKW_ANDAND WS ID WS SKW_GREATEREQUAL WS DECIMAL_LITERAL NEWLINE
 		WS ID WS ID SKW_LEFTPAREN SKW_RIGHTPAREN SKW_SEMI NEWLINE
 	HASH ENDIF NEWLINE
@@ -18,13 +18,13 @@ lexer-tokens
 		group=
 		(GroupOpt
 			lines+=
-			//(PreprocessorDirectives
-			//	directive=
-			//	(DefineDirective
-			//		id++"FOO",
-			//		string++"64"
-			//	)
-			//),
+			(PreprocessorDirectives
+				directive=
+				(DefineDirective
+					id++"FOO",
+					string++"32"
+				)
+			),
 			(PreprocessorDirectives
 				directive=
 				(ConditionalDirective
@@ -152,8 +152,8 @@ lexer-tokens
 	)
 )
 //----------------------------------------------------------------------
-output file="bin/Test0046_IfDefined.c.i"
-expected file="expected/Test0046_IfDefined.c"
+output file="bin/Test0047_IfDefined.c.i"
+expected file="expected/Test0047_IfDefined.c"
 //replacePatterns file="res/Patterns.txt"
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------

@@ -1301,22 +1301,13 @@ public interface PreprocessPackage extends EPackage
   int POSTFIX_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
 
   /**
-   * The feature id for the '<em><b>Defined</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int POSTFIX_EXPRESSION__DEFINED = EXPRESSION_FEATURE_COUNT + 0;
-
-  /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int POSTFIX_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 1;
+  int POSTFIX_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Postfix Expression</em>' class.
@@ -1325,7 +1316,7 @@ public interface PreprocessPackage extends EPackage
    * @generated
    * @ordered
    */
-  int POSTFIX_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+  int POSTFIX_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.PrimaryExpressionImpl <em>Primary Expression</em>}' class.
@@ -1347,13 +1338,22 @@ public interface PreprocessPackage extends EPackage
   int PRIMARY_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
 
   /**
+   * The feature id for the '<em><b>Defined</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_EXPRESSION__DEFINED = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PRIMARY_EXPRESSION__ID = EXPRESSION_FEATURE_COUNT + 0;
+  int PRIMARY_EXPRESSION__ID = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Const</b></em>' attribute.
@@ -1362,7 +1362,7 @@ public interface PreprocessPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRIMARY_EXPRESSION__CONST = EXPRESSION_FEATURE_COUNT + 1;
+  int PRIMARY_EXPRESSION__CONST = EXPRESSION_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -1371,7 +1371,7 @@ public interface PreprocessPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRIMARY_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 2;
+  int PRIMARY_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>Primary Expression</em>' class.
@@ -1380,7 +1380,7 @@ public interface PreprocessPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRIMARY_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
+  int PRIMARY_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.preprocess.preprocess.UnaryOperator <em>Unary Operator</em>}' enum.
@@ -2226,17 +2226,6 @@ public interface PreprocessPackage extends EPackage
   EClass getPostfixExpression();
 
   /**
-   * Returns the meta object for the attribute '{@link at.jku.weiner.c.preprocess.preprocess.PostfixExpression#isDefined <em>Defined</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Defined</em>'.
-   * @see at.jku.weiner.c.preprocess.preprocess.PostfixExpression#isDefined()
-   * @see #getPostfixExpression()
-   * @generated
-   */
-  EAttribute getPostfixExpression_Defined();
-
-  /**
    * Returns the meta object for the containment reference '{@link at.jku.weiner.c.preprocess.preprocess.PostfixExpression#getExpr <em>Expr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2256,6 +2245,17 @@ public interface PreprocessPackage extends EPackage
    * @generated
    */
   EClass getPrimaryExpression();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.preprocess.preprocess.PrimaryExpression#isDefined <em>Defined</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Defined</em>'.
+   * @see at.jku.weiner.c.preprocess.preprocess.PrimaryExpression#isDefined()
+   * @see #getPrimaryExpression()
+   * @generated
+   */
+  EAttribute getPrimaryExpression_Defined();
 
   /**
    * Returns the meta object for the attribute '{@link at.jku.weiner.c.preprocess.preprocess.PrimaryExpression#getId <em>Id</em>}'.
@@ -3030,14 +3030,6 @@ public interface PreprocessPackage extends EPackage
     EClass POSTFIX_EXPRESSION = eINSTANCE.getPostfixExpression();
 
     /**
-     * The meta object literal for the '<em><b>Defined</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute POSTFIX_EXPRESSION__DEFINED = eINSTANCE.getPostfixExpression_Defined();
-
-    /**
      * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3054,6 +3046,14 @@ public interface PreprocessPackage extends EPackage
      * @generated
      */
     EClass PRIMARY_EXPRESSION = eINSTANCE.getPrimaryExpression();
+
+    /**
+     * The meta object literal for the '<em><b>Defined</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PRIMARY_EXPRESSION__DEFINED = eINSTANCE.getPrimaryExpression_Defined();
 
     /**
      * The meta object literal for the '<em><b>Id</b></em>' attribute feature.

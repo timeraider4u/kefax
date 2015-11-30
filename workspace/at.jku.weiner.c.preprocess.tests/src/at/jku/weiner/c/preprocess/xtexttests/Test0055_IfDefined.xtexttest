@@ -4,11 +4,13 @@ package at.jku.weiner.c.preprocess
 language preprocess
 //----------------------------------------------------------------------
 split-lexer=true
-source file="res/Test0046_IfDefined.c"
+source file="res/Test0055_IfDefined.c"
 //----------------------------------------------------------------------
 lexer-tokens
-	// HASH DEFINE WS ID WS DECIMAL_LITERAL NEWLINE
-	HASH IF WS DEFINED WS ID WS SKW_ANDAND WS ID WS SKW_GREATEREQUAL WS DECIMAL_LITERAL NEWLINE
+	HASH DEFINE WS ID WS DECIMAL_LITERAL NEWLINE
+	HASH DEFINE WS ID WS DECIMAL_LITERAL NEWLINE
+	HASH IF WS DEFINED WS ID WS 
+		SKW_ANDAND WS DEFINED WS ID NEWLINE
 		WS ID WS ID SKW_LEFTPAREN SKW_RIGHTPAREN SKW_SEMI NEWLINE
 	HASH ENDIF NEWLINE
 //----------------------------------------------------------------------
@@ -18,13 +20,20 @@ lexer-tokens
 		group=
 		(GroupOpt
 			lines+=
-			//(PreprocessorDirectives
-			//	directive=
-			//	(DefineDirective
-			//		id++"FOO",
-			//		string++"64"
-			//	)
-			//),
+			(PreprocessorDirectives
+				directive=
+				(DefineDirective
+					id++"FOO",
+					string++"50"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineDirective
+					id++"BAR",
+					string++"0"
+				)
+			),
 			(PreprocessorDirectives
 				directive=
 				(ConditionalDirective
@@ -85,7 +94,6 @@ lexer-tokens
 													(EqualityExpression
 														expr+=
 														(RelationalExpression
-															op+*"[>=]",
 															expr+=
 															(ShiftExpression
 																expr+=
@@ -100,28 +108,8 @@ lexer-tokens
 																				(PostfixExpression
 																					expr=
 																					(PrimaryExpression
-																						id++"FOO"
-																					)
-																				)
-																			)
-																		)
-																	)
-																)
-															),
-															(ShiftExpression
-																expr+=
-																(AdditiveExpression
-																	expr+=
-																	(MultiplicativeExpression
-																		expr+=
-																		(CastExpression
-																			expr=
-																			(UnaryExpression
-																				expr=
-																				(PostfixExpression
-																					expr=
-																					(PrimaryExpression
-																						const++"64"
+																						defined?=true,
+																						id++"BAR"
 																					)
 																				)
 																			)
@@ -142,7 +130,7 @@ lexer-tokens
 						(GroupOpt
 							lines+=
 							(Code
-								code++"	void size_64();"
+								code++"	void foo_bar();"
 							)
 						)
 					)
@@ -152,8 +140,8 @@ lexer-tokens
 	)
 )
 //----------------------------------------------------------------------
-output file="bin/Test0046_IfDefined.c.i"
-expected file="expected/Test0046_IfDefined.c"
+output file="bin/Test0055_IfDefined.c.i"
+expected file="expected/Test0055_IfDefined.c"
 //replacePatterns file="res/Patterns.txt"
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------

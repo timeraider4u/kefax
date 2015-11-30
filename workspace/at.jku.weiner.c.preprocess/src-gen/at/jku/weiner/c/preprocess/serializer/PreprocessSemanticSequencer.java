@@ -41,6 +41,7 @@ import at.jku.weiner.c.preprocess.preprocess.ShiftExpression;
 import at.jku.weiner.c.preprocess.preprocess.TranslationUnit;
 import at.jku.weiner.c.preprocess.preprocess.UnDefineDirective;
 import at.jku.weiner.c.preprocess.preprocess.UnaryExpression;
+import at.jku.weiner.c.preprocess.preprocess.UnaryOperator;
 import at.jku.weiner.c.preprocess.services.PreprocessGrammarAccess;
 import at.jku.weiner.c.serializer.CommonSemanticSequencer;
 import com.google.inject.Inject;
@@ -174,6 +175,9 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 				return; 
 			case PreprocessPackage.UNARY_EXPRESSION:
 				sequence_UnaryExpression(context, (UnaryExpression) semanticObject); 
+				return; 
+			case PreprocessPackage.UNARY_OPERATOR:
+				sequence_UnaryOperator(context, (UnaryOperator) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
@@ -571,5 +575,21 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	 */
 	protected void sequence_UnaryExpression(EObject context, UnaryExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     op=SKW_AND
+	 */
+	protected void sequence_UnaryOperator(EObject context, UnaryOperator semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, PreprocessPackage.Literals.UNARY_OPERATOR__OP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PreprocessPackage.Literals.UNARY_OPERATOR__OP));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getUnaryOperatorAccess().getOpSKW_ANDTerminalRuleCall_0_1_0(), semanticObject.getOp());
+		feeder.finish();
 	}
 }

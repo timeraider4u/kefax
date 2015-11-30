@@ -315,13 +315,14 @@ UnaryExpression returns Expression:
 	)
 ;
 
-enum UnaryOperator:
-		SKW_AND
-	|	SKW_STAR
-	|	SKW_PLUS 
-	|	SKW_MINUS 
-	|	SKW_TILDE
-	|	SKW_NOT
+UnaryOperator:
+	{UnaryOperator}
+		op=SKW_AND
+	|	op=SKW_STAR
+	|	op=SKW_PLUS 
+	|	op=SKW_MINUS 
+	|	op=SKW_TILDE
+	|	op=SKW_NOT
 ;
 
 PostfixExpression returns Expression:

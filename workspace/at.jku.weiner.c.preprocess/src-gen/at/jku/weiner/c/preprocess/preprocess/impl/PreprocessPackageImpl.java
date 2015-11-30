@@ -46,7 +46,6 @@ import at.jku.weiner.c.preprocess.preprocess.UnaryOperator;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -178,6 +177,13 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
    * @generated
    */
   private EClass expressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass unaryOperatorEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -325,13 +331,6 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
    * @generated
    */
   private EClass primaryExpressionEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EEnum unaryOperatorEEnum = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -734,6 +733,26 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
   public EReference getExpression_Expression()
   {
     return (EReference)expressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getUnaryOperator()
+  {
+    return unaryOperatorEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getUnaryOperator_Op()
+  {
+    return (EAttribute)unaryOperatorEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1171,9 +1190,9 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getUnaryExpression_Op()
+  public EReference getUnaryExpression_Op()
   {
-    return (EAttribute)unaryExpressionEClass.getEStructuralFeatures().get(1);
+    return (EReference)unaryExpressionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1244,16 +1263,6 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
   public EReference getPrimaryExpression_Expr()
   {
     return (EReference)primaryExpressionEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EEnum getUnaryOperator()
-  {
-    return unaryOperatorEEnum;
   }
 
   /**
@@ -1337,6 +1346,9 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
     expressionEClass = createEClass(EXPRESSION);
     createEReference(expressionEClass, EXPRESSION__EXPRESSION);
 
+    unaryOperatorEClass = createEClass(UNARY_OPERATOR);
+    createEAttribute(unaryOperatorEClass, UNARY_OPERATOR__OP);
+
     preprocessorDirectivesEClass = createEClass(PREPROCESSOR_DIRECTIVES);
     createEReference(preprocessorDirectivesEClass, PREPROCESSOR_DIRECTIVES__DIRECTIVE);
 
@@ -1398,7 +1410,7 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 
     unaryExpressionEClass = createEClass(UNARY_EXPRESSION);
     createEReference(unaryExpressionEClass, UNARY_EXPRESSION__EXPR);
-    createEAttribute(unaryExpressionEClass, UNARY_EXPRESSION__OP);
+    createEReference(unaryExpressionEClass, UNARY_EXPRESSION__OP);
 
     postfixExpressionEClass = createEClass(POSTFIX_EXPRESSION);
     createEReference(postfixExpressionEClass, POSTFIX_EXPRESSION__EXPR);
@@ -1408,9 +1420,6 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
     createEAttribute(primaryExpressionEClass, PRIMARY_EXPRESSION__ID);
     createEAttribute(primaryExpressionEClass, PRIMARY_EXPRESSION__CONST);
     createEReference(primaryExpressionEClass, PRIMARY_EXPRESSION__EXPR);
-
-    // Create enums
-    unaryOperatorEEnum = createEEnum(UNARY_OPERATOR);
   }
 
   /**
@@ -1517,6 +1526,9 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getExpression_Expression(), this.getExpression(), null, "expression", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(unaryOperatorEClass, UnaryOperator.class, "UnaryOperator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getUnaryOperator_Op(), ecorePackage.getEString(), "op", null, 0, 1, UnaryOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(preprocessorDirectivesEClass, PreprocessorDirectives.class, "PreprocessorDirectives", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getPreprocessorDirectives_Directive(), ecorePackage.getEObject(), null, "directive", null, 0, 1, PreprocessorDirectives.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1578,7 +1590,7 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 
     initEClass(unaryExpressionEClass, UnaryExpression.class, "UnaryExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getUnaryExpression_Expr(), this.getExpression(), null, "expr", null, 0, 1, UnaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getUnaryExpression_Op(), this.getUnaryOperator(), "op", null, 0, 1, UnaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUnaryExpression_Op(), this.getUnaryOperator(), null, "op", null, 0, 1, UnaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(postfixExpressionEClass, PostfixExpression.class, "PostfixExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getPostfixExpression_Expr(), this.getExpression(), null, "expr", null, 0, 1, PostfixExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1588,15 +1600,6 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
     initEAttribute(getPrimaryExpression_Id(), ecorePackage.getEString(), "id", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getPrimaryExpression_Const(), ecorePackage.getEString(), "const", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPrimaryExpression_Expr(), this.getExpression(), null, "expr", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    // Initialize enums and add enum literals
-    initEEnum(unaryOperatorEEnum, UnaryOperator.class, "UnaryOperator");
-    addEEnumLiteral(unaryOperatorEEnum, UnaryOperator.SKW_AND);
-    addEEnumLiteral(unaryOperatorEEnum, UnaryOperator.SKW_STAR);
-    addEEnumLiteral(unaryOperatorEEnum, UnaryOperator.SKW_PLUS);
-    addEEnumLiteral(unaryOperatorEEnum, UnaryOperator.SKW_MINUS);
-    addEEnumLiteral(unaryOperatorEEnum, UnaryOperator.SKW_TILDE);
-    addEEnumLiteral(unaryOperatorEEnum, UnaryOperator.SKW_NOT);
 
     // Create resource
     createResource(eNS_URI);

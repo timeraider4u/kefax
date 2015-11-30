@@ -10,16 +10,12 @@ import java.util.List;
 import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
-import org.eclipse.xtext.EnumLiteralDeclaration;
-import org.eclipse.xtext.EnumRule;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.Group;
-import org.eclipse.xtext.Keyword;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.TerminalRule;
-import org.eclipse.xtext.service.AbstractElementFinder.AbstractEnumRuleElementFinder;
 import org.eclipse.xtext.service.AbstractElementFinder.AbstractGrammarElementFinder;
 import org.eclipse.xtext.service.AbstractElementFinder.AbstractParserRuleElementFinder;
 import org.eclipse.xtext.service.GrammarProvider;
@@ -1534,7 +1530,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cExprPostfixExpressionParserRuleCall_1_0_0 = (RuleCall)cExprAssignment_1_0.eContents().get(0);
 		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
 		private final Assignment cOpAssignment_1_1_0 = (Assignment)cGroup_1_1.eContents().get(0);
-		private final RuleCall cOpUnaryOperatorEnumRuleCall_1_1_0_0 = (RuleCall)cOpAssignment_1_1_0.eContents().get(0);
+		private final RuleCall cOpUnaryOperatorParserRuleCall_1_1_0_0 = (RuleCall)cOpAssignment_1_1_0.eContents().get(0);
 		private final Assignment cExprAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
 		private final RuleCall cExprCastExpressionParserRuleCall_1_1_1_0 = (RuleCall)cExprAssignment_1_1_1.eContents().get(0);
 		
@@ -1584,13 +1580,85 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		public Assignment getOpAssignment_1_1_0() { return cOpAssignment_1_1_0; }
 		
 		//UnaryOperator
-		public RuleCall getOpUnaryOperatorEnumRuleCall_1_1_0_0() { return cOpUnaryOperatorEnumRuleCall_1_1_0_0; }
+		public RuleCall getOpUnaryOperatorParserRuleCall_1_1_0_0() { return cOpUnaryOperatorParserRuleCall_1_1_0_0; }
 		
 		//expr=CastExpression
 		public Assignment getExprAssignment_1_1_1() { return cExprAssignment_1_1_1; }
 		
 		//CastExpression
 		public RuleCall getExprCastExpressionParserRuleCall_1_1_1_0() { return cExprCastExpressionParserRuleCall_1_1_1_0; }
+	}
+	public class UnaryOperatorElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.UnaryOperator");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Action cUnaryOperatorAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final Assignment cOpAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cOpSKW_ANDTerminalRuleCall_0_1_0 = (RuleCall)cOpAssignment_0_1.eContents().get(0);
+		private final Assignment cOpAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final RuleCall cOpSKW_STARTerminalRuleCall_1_0 = (RuleCall)cOpAssignment_1.eContents().get(0);
+		private final Assignment cOpAssignment_2 = (Assignment)cAlternatives.eContents().get(2);
+		private final RuleCall cOpSKW_PLUSTerminalRuleCall_2_0 = (RuleCall)cOpAssignment_2.eContents().get(0);
+		private final Assignment cOpAssignment_3 = (Assignment)cAlternatives.eContents().get(3);
+		private final RuleCall cOpSKW_MINUSTerminalRuleCall_3_0 = (RuleCall)cOpAssignment_3.eContents().get(0);
+		private final Assignment cOpAssignment_4 = (Assignment)cAlternatives.eContents().get(4);
+		private final RuleCall cOpSKW_TILDETerminalRuleCall_4_0 = (RuleCall)cOpAssignment_4.eContents().get(0);
+		private final Assignment cOpAssignment_5 = (Assignment)cAlternatives.eContents().get(5);
+		private final RuleCall cOpSKW_NOTTerminalRuleCall_5_0 = (RuleCall)cOpAssignment_5.eContents().get(0);
+		
+		//UnaryOperator:
+		//	{UnaryOperator} op=SKW_AND
+		//	| op=SKW_STAR
+		//	| op=SKW_PLUS
+		//	| op=SKW_MINUS
+		//	| op=SKW_TILDE
+		//	| op=SKW_NOT;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{UnaryOperator} op=SKW_AND | op=SKW_STAR | op=SKW_PLUS | op=SKW_MINUS | op=SKW_TILDE | op=SKW_NOT
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//{UnaryOperator} op=SKW_AND
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//{UnaryOperator}
+		public Action getUnaryOperatorAction_0_0() { return cUnaryOperatorAction_0_0; }
+		
+		//op=SKW_AND
+		public Assignment getOpAssignment_0_1() { return cOpAssignment_0_1; }
+		
+		//SKW_AND
+		public RuleCall getOpSKW_ANDTerminalRuleCall_0_1_0() { return cOpSKW_ANDTerminalRuleCall_0_1_0; }
+		
+		//op=SKW_STAR
+		public Assignment getOpAssignment_1() { return cOpAssignment_1; }
+		
+		//SKW_STAR
+		public RuleCall getOpSKW_STARTerminalRuleCall_1_0() { return cOpSKW_STARTerminalRuleCall_1_0; }
+		
+		//op=SKW_PLUS
+		public Assignment getOpAssignment_2() { return cOpAssignment_2; }
+		
+		//SKW_PLUS
+		public RuleCall getOpSKW_PLUSTerminalRuleCall_2_0() { return cOpSKW_PLUSTerminalRuleCall_2_0; }
+		
+		//op=SKW_MINUS
+		public Assignment getOpAssignment_3() { return cOpAssignment_3; }
+		
+		//SKW_MINUS
+		public RuleCall getOpSKW_MINUSTerminalRuleCall_3_0() { return cOpSKW_MINUSTerminalRuleCall_3_0; }
+		
+		//op=SKW_TILDE
+		public Assignment getOpAssignment_4() { return cOpAssignment_4; }
+		
+		//SKW_TILDE
+		public RuleCall getOpSKW_TILDETerminalRuleCall_4_0() { return cOpSKW_TILDETerminalRuleCall_4_0; }
+		
+		//op=SKW_NOT
+		public Assignment getOpAssignment_5() { return cOpAssignment_5; }
+		
+		//SKW_NOT
+		public RuleCall getOpSKW_NOTTerminalRuleCall_5_0() { return cOpSKW_NOTTerminalRuleCall_5_0; }
 	}
 	public class PostfixExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.PostfixExpression");
@@ -1810,70 +1878,6 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getBIN_LITERALTerminalRuleCall_6() { return cBIN_LITERALTerminalRuleCall_6; }
 	}
 	
-	public class UnaryOperatorElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.UnaryOperator");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cSKW_ANDEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cSKW_ANDSKW_ANDKeyword_0_0 = (Keyword)cSKW_ANDEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cSKW_STAREnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cSKW_STARSKW_STARKeyword_1_0 = (Keyword)cSKW_STAREnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cSKW_PLUSEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cSKW_PLUSSKW_PLUSKeyword_2_0 = (Keyword)cSKW_PLUSEnumLiteralDeclaration_2.eContents().get(0);
-		private final EnumLiteralDeclaration cSKW_MINUSEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
-		private final Keyword cSKW_MINUSSKW_MINUSKeyword_3_0 = (Keyword)cSKW_MINUSEnumLiteralDeclaration_3.eContents().get(0);
-		private final EnumLiteralDeclaration cSKW_TILDEEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
-		private final Keyword cSKW_TILDESKW_TILDEKeyword_4_0 = (Keyword)cSKW_TILDEEnumLiteralDeclaration_4.eContents().get(0);
-		private final EnumLiteralDeclaration cSKW_NOTEnumLiteralDeclaration_5 = (EnumLiteralDeclaration)cAlternatives.eContents().get(5);
-		private final Keyword cSKW_NOTSKW_NOTKeyword_5_0 = (Keyword)cSKW_NOTEnumLiteralDeclaration_5.eContents().get(0);
-		
-		//enum UnaryOperator:
-		//	SKW_AND
-		//	| SKW_STAR
-		//	| SKW_PLUS
-		//	| SKW_MINUS
-		//	| SKW_TILDE
-		//	| SKW_NOT;
-		public EnumRule getRule() { return rule; }
-		
-		//SKW_AND | SKW_STAR | SKW_PLUS | SKW_MINUS | SKW_TILDE | SKW_NOT
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//SKW_AND
-		public EnumLiteralDeclaration getSKW_ANDEnumLiteralDeclaration_0() { return cSKW_ANDEnumLiteralDeclaration_0; }
-		
-		//"SKW_AND"
-		public Keyword getSKW_ANDSKW_ANDKeyword_0_0() { return cSKW_ANDSKW_ANDKeyword_0_0; }
-		
-		//SKW_STAR
-		public EnumLiteralDeclaration getSKW_STAREnumLiteralDeclaration_1() { return cSKW_STAREnumLiteralDeclaration_1; }
-		
-		//"SKW_STAR"
-		public Keyword getSKW_STARSKW_STARKeyword_1_0() { return cSKW_STARSKW_STARKeyword_1_0; }
-		
-		//SKW_PLUS
-		public EnumLiteralDeclaration getSKW_PLUSEnumLiteralDeclaration_2() { return cSKW_PLUSEnumLiteralDeclaration_2; }
-		
-		//"SKW_PLUS"
-		public Keyword getSKW_PLUSSKW_PLUSKeyword_2_0() { return cSKW_PLUSSKW_PLUSKeyword_2_0; }
-		
-		//SKW_MINUS
-		public EnumLiteralDeclaration getSKW_MINUSEnumLiteralDeclaration_3() { return cSKW_MINUSEnumLiteralDeclaration_3; }
-		
-		//"SKW_MINUS"
-		public Keyword getSKW_MINUSSKW_MINUSKeyword_3_0() { return cSKW_MINUSSKW_MINUSKeyword_3_0; }
-		
-		//SKW_TILDE
-		public EnumLiteralDeclaration getSKW_TILDEEnumLiteralDeclaration_4() { return cSKW_TILDEEnumLiteralDeclaration_4; }
-		
-		//"SKW_TILDE"
-		public Keyword getSKW_TILDESKW_TILDEKeyword_4_0() { return cSKW_TILDESKW_TILDEKeyword_4_0; }
-		
-		//SKW_NOT
-		public EnumLiteralDeclaration getSKW_NOTEnumLiteralDeclaration_5() { return cSKW_NOTEnumLiteralDeclaration_5; }
-		
-		//"SKW_NOT"
-		public Keyword getSKW_NOTSKW_NOTKeyword_5_0() { return cSKW_NOTSKW_NOTKeyword_5_0; }
-	}
 	
 	private final ModelElements pModel;
 	private final TranslationUnitElements pTranslationUnit;
@@ -1914,7 +1918,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	private final MultiplicativeExpressionElements pMultiplicativeExpression;
 	private final CastExpressionElements pCastExpression;
 	private final UnaryExpressionElements pUnaryExpression;
-	private final UnaryOperatorElements eUnaryOperator;
+	private final UnaryOperatorElements pUnaryOperator;
 	private final PostfixExpressionElements pPostfixExpression;
 	private final PrimaryExpressionElements pPrimaryExpression;
 	private final ConstantElements pConstant;
@@ -2003,7 +2007,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		this.pMultiplicativeExpression = new MultiplicativeExpressionElements();
 		this.pCastExpression = new CastExpressionElements();
 		this.pUnaryExpression = new UnaryExpressionElements();
-		this.eUnaryOperator = new UnaryOperatorElements();
+		this.pUnaryOperator = new UnaryOperatorElements();
 		this.pPostfixExpression = new PostfixExpressionElements();
 		this.pPrimaryExpression = new PrimaryExpressionElements();
 		this.pConstant = new ConstantElements();
@@ -2502,18 +2506,18 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		return getUnaryExpressionAccess().getRule();
 	}
 	
-	//enum UnaryOperator:
-	//	SKW_AND
-	//	| SKW_STAR
-	//	| SKW_PLUS
-	//	| SKW_MINUS
-	//	| SKW_TILDE
-	//	| SKW_NOT;
+	//UnaryOperator:
+	//	{UnaryOperator} op=SKW_AND
+	//	| op=SKW_STAR
+	//	| op=SKW_PLUS
+	//	| op=SKW_MINUS
+	//	| op=SKW_TILDE
+	//	| op=SKW_NOT;
 	public UnaryOperatorElements getUnaryOperatorAccess() {
-		return eUnaryOperator;
+		return pUnaryOperator;
 	}
 	
-	public EnumRule getUnaryOperatorRule() {
+	public ParserRule getUnaryOperatorRule() {
 		return getUnaryOperatorAccess().getRule();
 	}
 	

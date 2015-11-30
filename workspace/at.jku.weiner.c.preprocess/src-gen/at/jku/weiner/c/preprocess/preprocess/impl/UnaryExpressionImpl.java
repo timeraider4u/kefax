@@ -42,24 +42,14 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
   protected Expression expr;
 
   /**
-   * The default value of the '{@link #getOp() <em>Op</em>}' attribute.
+   * The cached value of the '{@link #getOp() <em>Op</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getOp()
    * @generated
    * @ordered
    */
-  protected static final UnaryOperator OP_EDEFAULT = UnaryOperator.SKW_AND;
-
-  /**
-   * The cached value of the '{@link #getOp() <em>Op</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getOp()
-   * @generated
-   * @ordered
-   */
-  protected UnaryOperator op = OP_EDEFAULT;
+  protected UnaryOperator op;
 
   /**
    * <!-- begin-user-doc -->
@@ -145,12 +135,37 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setOp(UnaryOperator newOp)
+  public NotificationChain basicSetOp(UnaryOperator newOp, NotificationChain msgs)
   {
     UnaryOperator oldOp = op;
-    op = newOp == null ? OP_EDEFAULT : newOp;
+    op = newOp;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, PreprocessPackage.UNARY_EXPRESSION__OP, oldOp, op));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PreprocessPackage.UNARY_EXPRESSION__OP, oldOp, newOp);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setOp(UnaryOperator newOp)
+  {
+    if (newOp != op)
+    {
+      NotificationChain msgs = null;
+      if (op != null)
+        msgs = ((InternalEObject)op).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PreprocessPackage.UNARY_EXPRESSION__OP, null, msgs);
+      if (newOp != null)
+        msgs = ((InternalEObject)newOp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PreprocessPackage.UNARY_EXPRESSION__OP, null, msgs);
+      msgs = basicSetOp(newOp, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, PreprocessPackage.UNARY_EXPRESSION__OP, newOp, newOp));
   }
 
   /**
@@ -165,6 +180,8 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
     {
       case PreprocessPackage.UNARY_EXPRESSION__EXPR:
         return basicSetExpr(null, msgs);
+      case PreprocessPackage.UNARY_EXPRESSION__OP:
+        return basicSetOp(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -221,7 +238,7 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
         setExpr((Expression)null);
         return;
       case PreprocessPackage.UNARY_EXPRESSION__OP:
-        setOp(OP_EDEFAULT);
+        setOp((UnaryOperator)null);
         return;
     }
     super.eUnset(featureID);
@@ -240,26 +257,9 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
       case PreprocessPackage.UNARY_EXPRESSION__EXPR:
         return expr != null;
       case PreprocessPackage.UNARY_EXPRESSION__OP:
-        return op != OP_EDEFAULT;
+        return op != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (op: ");
-    result.append(op);
-    result.append(')');
-    return result.toString();
   }
 
 } //UnaryExpressionImpl

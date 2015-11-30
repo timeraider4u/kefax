@@ -18,7 +18,7 @@ import at.jku.weiner.c.preprocess.preprocess.UnaryExpression;
 import at.jku.weiner.c.preprocess.preprocess.UnaryOperator;
 
 public class TestExpressionHelper {
-	private final PreprocessFactory factory = PreprocessFactory.eINSTANCE;
+	protected final PreprocessFactory factory = PreprocessFactory.eINSTANCE;
 
 	protected final PrimaryExpression primaryExpression;
 	protected final PostfixExpression postfixExpression;
@@ -48,7 +48,8 @@ public class TestExpressionHelper {
 		this.castExpression1.setExpr(this.unaryExpression1);
 		this.unaryExpression2 = this.factory.createUnaryExpression();
 		this.unaryExpression2.setExpr(this.castExpression1);
-		final UnaryOperator op = UnaryOperator.SKW_PLUS;
+		final UnaryOperator op = this.factory.createUnaryOperator();
+		op.setOp("+");
 		this.unaryExpression2.setOp(op);
 		this.castExpression2 = this.factory.createCastExpression();
 		this.castExpression2.setExpr(this.unaryExpression2);

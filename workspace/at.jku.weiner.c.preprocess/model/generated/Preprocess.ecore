@@ -59,13 +59,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Expression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="UnaryOperator">
-    <eLiterals name="SKW_AND" literal="SKW_AND"/>
-    <eLiterals name="SKW_STAR" value="1" literal="SKW_STAR"/>
-    <eLiterals name="SKW_PLUS" value="2" literal="SKW_PLUS"/>
-    <eLiterals name="SKW_MINUS" value="3" literal="SKW_MINUS"/>
-    <eLiterals name="SKW_TILDE" value="4" literal="SKW_TILDE"/>
-    <eLiterals name="SKW_NOT" value="5" literal="SKW_NOT"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UnaryOperator">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PreprocessorDirectives" eSuperTypes="#//SourceCodeLine">
     <eStructuralFeatures xsi:type="ecore:EReference" name="directive" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
@@ -149,7 +144,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="UnaryExpression" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expression"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="#//UnaryOperator"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="op" eType="#//UnaryOperator"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PostfixExpression" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expression"

@@ -18,7 +18,6 @@ import org.eclipse.xtext.parser.*;
 import org.eclipse.xtext.parser.impl.*;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.common.util.Enumerator;
 import org.eclipse.xtext.parser.antlr.AbstractInternalAntlrParser;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream.HiddenTokens;
@@ -2903,7 +2902,7 @@ ruleUnaryExpression returns [EObject current=null]
     |((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUnaryExpressionAccess().getOpUnaryOperatorEnumRuleCall_1_1_0_0()); 
+	        newCompositeNode(grammarAccess.getUnaryExpressionAccess().getOpUnaryOperatorParserRuleCall_1_1_0_0()); 
 	    }
 		lv_op_2_0=ruleUnaryOperator		{
 	        if ($current==null) {
@@ -2937,6 +2936,149 @@ ruleUnaryExpression returns [EObject current=null]
 
 )
 ))))
+;
+
+
+
+
+
+// Entry rule entryRuleUnaryOperator
+entryRuleUnaryOperator returns [EObject current=null]
+	:
+	{ newCompositeNode(grammarAccess.getUnaryOperatorRule()); }
+	 iv_ruleUnaryOperator=ruleUnaryOperator 
+	 { $current=$iv_ruleUnaryOperator.current; } 
+	 EOF 
+;
+
+// Rule UnaryOperator
+ruleUnaryOperator returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(((
+	{ 
+	  /* */ 
+	}
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getUnaryOperatorAccess().getUnaryOperatorAction_0_0(),
+            $current);
+    }
+)(
+(
+		lv_op_1_0=RULE_SKW_AND
+		{
+			newLeafNode(lv_op_1_0, grammarAccess.getUnaryOperatorAccess().getOpSKW_ANDTerminalRuleCall_0_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUnaryOperatorRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"op",
+        		lv_op_1_0, 
+        		"at.jku.weiner.c.Common.SKW_AND");
+	    }
+
+)
+))
+    |(
+(
+		lv_op_2_0=RULE_SKW_STAR
+		{
+			newLeafNode(lv_op_2_0, grammarAccess.getUnaryOperatorAccess().getOpSKW_STARTerminalRuleCall_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUnaryOperatorRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"op",
+        		lv_op_2_0, 
+        		"at.jku.weiner.c.Common.SKW_STAR");
+	    }
+
+)
+)
+    |(
+(
+		lv_op_3_0=RULE_SKW_PLUS
+		{
+			newLeafNode(lv_op_3_0, grammarAccess.getUnaryOperatorAccess().getOpSKW_PLUSTerminalRuleCall_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUnaryOperatorRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"op",
+        		lv_op_3_0, 
+        		"at.jku.weiner.c.Common.SKW_PLUS");
+	    }
+
+)
+)
+    |(
+(
+		lv_op_4_0=RULE_SKW_MINUS
+		{
+			newLeafNode(lv_op_4_0, grammarAccess.getUnaryOperatorAccess().getOpSKW_MINUSTerminalRuleCall_3_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUnaryOperatorRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"op",
+        		lv_op_4_0, 
+        		"at.jku.weiner.c.Common.SKW_MINUS");
+	    }
+
+)
+)
+    |(
+(
+		lv_op_5_0=RULE_SKW_TILDE
+		{
+			newLeafNode(lv_op_5_0, grammarAccess.getUnaryOperatorAccess().getOpSKW_TILDETerminalRuleCall_4_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUnaryOperatorRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"op",
+        		lv_op_5_0, 
+        		"at.jku.weiner.c.Common.SKW_TILDE");
+	    }
+
+)
+)
+    |(
+(
+		lv_op_6_0=RULE_SKW_NOT
+		{
+			newLeafNode(lv_op_6_0, grammarAccess.getUnaryOperatorAccess().getOpSKW_NOTTerminalRuleCall_5_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUnaryOperatorRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"op",
+        		lv_op_6_0, 
+        		"at.jku.weiner.c.Common.SKW_NOT");
+	    }
+
+)
+))
 ;
 
 
@@ -3549,49 +3691,6 @@ ruleSpecialKeywords returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRul
     ;
 
 
-
-
-
-// Rule UnaryOperator
-ruleUnaryOperator returns [Enumerator current=null] 
-    @init { enterRule(); }
-    @after { leaveRule(); }:
-((    enumLiteral_0=SKW_AND
-    {
-        $current = grammarAccess.getUnaryOperatorAccess().getSKW_ANDEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_0, grammarAccess.getUnaryOperatorAccess().getSKW_ANDEnumLiteralDeclaration_0()); 
-    }
-)
-    |(    enumLiteral_1=SKW_STAR
-    {
-        $current = grammarAccess.getUnaryOperatorAccess().getSKW_STAREnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_1, grammarAccess.getUnaryOperatorAccess().getSKW_STAREnumLiteralDeclaration_1()); 
-    }
-)
-    |(    enumLiteral_2=SKW_PLUS
-    {
-        $current = grammarAccess.getUnaryOperatorAccess().getSKW_PLUSEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_2, grammarAccess.getUnaryOperatorAccess().getSKW_PLUSEnumLiteralDeclaration_2()); 
-    }
-)
-    |(    enumLiteral_3=SKW_MINUS
-    {
-        $current = grammarAccess.getUnaryOperatorAccess().getSKW_MINUSEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_3, grammarAccess.getUnaryOperatorAccess().getSKW_MINUSEnumLiteralDeclaration_3()); 
-    }
-)
-    |(    enumLiteral_4=SKW_TILDE
-    {
-        $current = grammarAccess.getUnaryOperatorAccess().getSKW_TILDEEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_4, grammarAccess.getUnaryOperatorAccess().getSKW_TILDEEnumLiteralDeclaration_4()); 
-    }
-)
-    |(    enumLiteral_5=SKW_NOT
-    {
-        $current = grammarAccess.getUnaryOperatorAccess().getSKW_NOTEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_5, grammarAccess.getUnaryOperatorAccess().getSKW_NOTEnumLiteralDeclaration_5()); 
-    }
-));
 
 
 

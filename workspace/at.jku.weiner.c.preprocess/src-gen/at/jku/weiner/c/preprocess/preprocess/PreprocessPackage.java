@@ -4,7 +4,6 @@ package at.jku.weiner.c.preprocess.preprocess;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -534,6 +533,34 @@ public interface PreprocessPackage extends EPackage
   int EXPRESSION_FEATURE_COUNT = SHADOW_EXPRESSION_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.UnaryOperatorImpl <em>Unary Operator</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.c.preprocess.preprocess.impl.UnaryOperatorImpl
+   * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getUnaryOperator()
+   * @generated
+   */
+  int UNARY_OPERATOR = 17;
+
+  /**
+   * The feature id for the '<em><b>Op</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNARY_OPERATOR__OP = 0;
+
+  /**
+   * The number of structural features of the '<em>Unary Operator</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNARY_OPERATOR_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.PreprocessorDirectivesImpl <em>Preprocessor Directives</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -541,7 +568,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getPreprocessorDirectives()
    * @generated
    */
-  int PREPROCESSOR_DIRECTIVES = 17;
+  int PREPROCESSOR_DIRECTIVES = 18;
 
   /**
    * The feature id for the '<em><b>Directive</b></em>' containment reference.
@@ -569,7 +596,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getDefineObjectMacro()
    * @generated
    */
-  int DEFINE_OBJECT_MACRO = 18;
+  int DEFINE_OBJECT_MACRO = 19;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -606,7 +633,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getDefineFunctionLikeMacro()
    * @generated
    */
-  int DEFINE_FUNCTION_LIKE_MACRO = 19;
+  int DEFINE_FUNCTION_LIKE_MACRO = 20;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -652,7 +679,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getNewLineLine()
    * @generated
    */
-  int NEW_LINE_LINE = 20;
+  int NEW_LINE_LINE = 21;
 
   /**
    * The number of structural features of the '<em>New Line Line</em>' class.
@@ -671,7 +698,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getCode()
    * @generated
    */
-  int CODE = 21;
+  int CODE = 22;
 
   /**
    * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -699,7 +726,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getConstantExpression()
    * @generated
    */
-  int CONSTANT_EXPRESSION = 22;
+  int CONSTANT_EXPRESSION = 23;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -736,7 +763,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getConditionalExpression()
    * @generated
    */
-  int CONDITIONAL_EXPRESSION = 23;
+  int CONDITIONAL_EXPRESSION = 24;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -791,7 +818,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getLogicalOrExpression()
    * @generated
    */
-  int LOGICAL_OR_EXPRESSION = 24;
+  int LOGICAL_OR_EXPRESSION = 25;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -828,7 +855,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getLogicalAndExpression()
    * @generated
    */
-  int LOGICAL_AND_EXPRESSION = 25;
+  int LOGICAL_AND_EXPRESSION = 26;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -865,7 +892,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getInclusiveOrExpression()
    * @generated
    */
-  int INCLUSIVE_OR_EXPRESSION = 26;
+  int INCLUSIVE_OR_EXPRESSION = 27;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -902,7 +929,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getExclusiveOrExpression()
    * @generated
    */
-  int EXCLUSIVE_OR_EXPRESSION = 27;
+  int EXCLUSIVE_OR_EXPRESSION = 28;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -939,7 +966,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getAndExpression()
    * @generated
    */
-  int AND_EXPRESSION = 28;
+  int AND_EXPRESSION = 29;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -976,7 +1003,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getEqualityExpression()
    * @generated
    */
-  int EQUALITY_EXPRESSION = 29;
+  int EQUALITY_EXPRESSION = 30;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1022,7 +1049,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getRelationalExpression()
    * @generated
    */
-  int RELATIONAL_EXPRESSION = 30;
+  int RELATIONAL_EXPRESSION = 31;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1068,7 +1095,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getShiftExpression()
    * @generated
    */
-  int SHIFT_EXPRESSION = 31;
+  int SHIFT_EXPRESSION = 32;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1114,7 +1141,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getAdditiveExpression()
    * @generated
    */
-  int ADDITIVE_EXPRESSION = 32;
+  int ADDITIVE_EXPRESSION = 33;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1160,7 +1187,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getMultiplicativeExpression()
    * @generated
    */
-  int MULTIPLICATIVE_EXPRESSION = 33;
+  int MULTIPLICATIVE_EXPRESSION = 34;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1206,7 +1233,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getCastExpression()
    * @generated
    */
-  int CAST_EXPRESSION = 34;
+  int CAST_EXPRESSION = 35;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1243,7 +1270,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getUnaryExpression()
    * @generated
    */
-  int UNARY_EXPRESSION = 35;
+  int UNARY_EXPRESSION = 36;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1264,7 +1291,7 @@ public interface PreprocessPackage extends EPackage
   int UNARY_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Op</b></em>' attribute.
+   * The feature id for the '<em><b>Op</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -1289,7 +1316,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getPostfixExpression()
    * @generated
    */
-  int POSTFIX_EXPRESSION = 36;
+  int POSTFIX_EXPRESSION = 37;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1326,7 +1353,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getPrimaryExpression()
    * @generated
    */
-  int PRIMARY_EXPRESSION = 37;
+  int PRIMARY_EXPRESSION = 38;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1381,16 +1408,6 @@ public interface PreprocessPackage extends EPackage
    * @ordered
    */
   int PRIMARY_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 4;
-
-  /**
-   * The meta object id for the '{@link at.jku.weiner.c.preprocess.preprocess.UnaryOperator <em>Unary Operator</em>}' enum.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see at.jku.weiner.c.preprocess.preprocess.UnaryOperator
-   * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getUnaryOperator()
-   * @generated
-   */
-  int UNARY_OPERATOR = 38;
 
 
   /**
@@ -1749,6 +1766,27 @@ public interface PreprocessPackage extends EPackage
    * @generated
    */
   EReference getExpression_Expression();
+
+  /**
+   * Returns the meta object for class '{@link at.jku.weiner.c.preprocess.preprocess.UnaryOperator <em>Unary Operator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Unary Operator</em>'.
+   * @see at.jku.weiner.c.preprocess.preprocess.UnaryOperator
+   * @generated
+   */
+  EClass getUnaryOperator();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.preprocess.preprocess.UnaryOperator#getOp <em>Op</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Op</em>'.
+   * @see at.jku.weiner.c.preprocess.preprocess.UnaryOperator#getOp()
+   * @see #getUnaryOperator()
+   * @generated
+   */
+  EAttribute getUnaryOperator_Op();
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives <em>Preprocessor Directives</em>}'.
@@ -2205,15 +2243,15 @@ public interface PreprocessPackage extends EPackage
   EReference getUnaryExpression_Expr();
 
   /**
-   * Returns the meta object for the attribute '{@link at.jku.weiner.c.preprocess.preprocess.UnaryExpression#getOp <em>Op</em>}'.
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.preprocess.preprocess.UnaryExpression#getOp <em>Op</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Op</em>'.
+   * @return the meta object for the containment reference '<em>Op</em>'.
    * @see at.jku.weiner.c.preprocess.preprocess.UnaryExpression#getOp()
    * @see #getUnaryExpression()
    * @generated
    */
-  EAttribute getUnaryExpression_Op();
+  EReference getUnaryExpression_Op();
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.c.preprocess.preprocess.PostfixExpression <em>Postfix Expression</em>}'.
@@ -2289,16 +2327,6 @@ public interface PreprocessPackage extends EPackage
    * @generated
    */
   EReference getPrimaryExpression_Expr();
-
-  /**
-   * Returns the meta object for enum '{@link at.jku.weiner.c.preprocess.preprocess.UnaryOperator <em>Unary Operator</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for enum '<em>Unary Operator</em>'.
-   * @see at.jku.weiner.c.preprocess.preprocess.UnaryOperator
-   * @generated
-   */
-  EEnum getUnaryOperator();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -2628,6 +2656,24 @@ public interface PreprocessPackage extends EPackage
      * @generated
      */
     EReference EXPRESSION__EXPRESSION = eINSTANCE.getExpression_Expression();
+
+    /**
+     * The meta object literal for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.UnaryOperatorImpl <em>Unary Operator</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.c.preprocess.preprocess.impl.UnaryOperatorImpl
+     * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getUnaryOperator()
+     * @generated
+     */
+    EClass UNARY_OPERATOR = eINSTANCE.getUnaryOperator();
+
+    /**
+     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute UNARY_OPERATOR__OP = eINSTANCE.getUnaryOperator_Op();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.PreprocessorDirectivesImpl <em>Preprocessor Directives</em>}' class.
@@ -3012,12 +3058,12 @@ public interface PreprocessPackage extends EPackage
     EReference UNARY_EXPRESSION__EXPR = eINSTANCE.getUnaryExpression_Expr();
 
     /**
-     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Op</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute UNARY_EXPRESSION__OP = eINSTANCE.getUnaryExpression_Op();
+    EReference UNARY_EXPRESSION__OP = eINSTANCE.getUnaryExpression_Op();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.PostfixExpressionImpl <em>Postfix Expression</em>}' class.
@@ -3078,16 +3124,6 @@ public interface PreprocessPackage extends EPackage
      * @generated
      */
     EReference PRIMARY_EXPRESSION__EXPR = eINSTANCE.getPrimaryExpression_Expr();
-
-    /**
-     * The meta object literal for the '{@link at.jku.weiner.c.preprocess.preprocess.UnaryOperator <em>Unary Operator</em>}' enum.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see at.jku.weiner.c.preprocess.preprocess.UnaryOperator
-     * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getUnaryOperator()
-     * @generated
-     */
-    EEnum UNARY_OPERATOR = eINSTANCE.getUnaryOperator();
 
   }
 

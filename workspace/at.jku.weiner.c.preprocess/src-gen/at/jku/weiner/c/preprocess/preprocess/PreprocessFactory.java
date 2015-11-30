@@ -176,6 +176,15 @@ public interface PreprocessFactory extends EFactory
   Expression createExpression();
 
   /**
+   * Returns a new object of class '<em>Unary Operator</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Unary Operator</em>'.
+   * @generated
+   */
+  UnaryOperator createUnaryOperator();
+
+  /**
    * Returns a new object of class '<em>Preprocessor Directives</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

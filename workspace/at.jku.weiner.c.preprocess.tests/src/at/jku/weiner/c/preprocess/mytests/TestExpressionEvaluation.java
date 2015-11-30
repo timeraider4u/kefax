@@ -10,6 +10,7 @@ import at.jku.weiner.c.preprocess.utils.expressions.ExpressionEvaluation;
 import at.jku.weiner.c.preprocess.utils.macros.DefinitionTable;
 
 public class TestExpressionEvaluation {
+
 	private UnaryOperator unaryOperatorPlus;
 	private UnaryOperator unaryOperatorMinus;
 	private UnaryOperator unaryOperatorNot;
@@ -30,9 +31,12 @@ public class TestExpressionEvaluation {
 		this.helperThree = new TestExpressionHelper(3);
 		this.helperFour = new TestExpressionHelper(4);
 
-		this.unaryOperatorPlus = UnaryOperator.SKW_PLUS;
-		this.unaryOperatorMinus = UnaryOperator.SKW_MINUS;
-		this.unaryOperatorNot = UnaryOperator.SKW_NOT;
+		this.unaryOperatorPlus = this.helperZero.factory.createUnaryOperator();
+		this.unaryOperatorPlus.setOp("+");
+		this.unaryOperatorMinus = this.helperZero.factory.createUnaryOperator();
+		this.unaryOperatorMinus.setOp("-");
+		this.unaryOperatorNot = this.helperZero.factory.createUnaryOperator();
+		this.unaryOperatorNot.setOp("!");
 	}
 
 	@After
@@ -93,19 +97,25 @@ public class TestExpressionEvaluation {
 
 	@Test(expected = UnsupportedOperationException.class)
 	public void testUnaryExpressionIllegalOperator1() {
-		this.helperZero.unaryExpression2.setOp(UnaryOperator.SKW_AND);
+		final UnaryOperator op = this.helperZero.factory.createUnaryOperator();
+		op.setOp("&");
+		this.helperZero.unaryExpression2.setOp(op);
 		ExpressionEvaluation.evaluate(this.helperZero.unaryExpression2);
 	}
 
 	@Test(expected = UnsupportedOperationException.class)
 	public void testUnaryExpressionIllegalOperator2() {
-		this.helperZero.unaryExpression2.setOp(UnaryOperator.SKW_STAR);
+		final UnaryOperator op = this.helperZero.factory.createUnaryOperator();
+		op.setOp("*");
+		this.helperZero.unaryExpression2.setOp(op);
 		ExpressionEvaluation.evaluate(this.helperZero.unaryExpression2);
 	}
 
 	@Test(expected = UnsupportedOperationException.class)
 	public void testUnaryExpressionIllegalOperator3() {
-		this.helperZero.unaryExpression2.setOp(UnaryOperator.SKW_TILDE);
+		final UnaryOperator op = this.helperZero.factory.createUnaryOperator();
+		op.setOp("~");
+		this.helperZero.unaryExpression2.setOp(op);
 		ExpressionEvaluation.evaluate(this.helperZero.unaryExpression2);
 	}
 

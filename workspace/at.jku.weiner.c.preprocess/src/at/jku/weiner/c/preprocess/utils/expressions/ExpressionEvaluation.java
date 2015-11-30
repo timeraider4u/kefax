@@ -282,19 +282,19 @@ public class ExpressionEvaluation {
 
 		final UnaryOperator op = expression.getOp();
 		final int result = ExpressionEvaluation.evaluate((CastExpression) expr);
-		switch (op) {
-		case SKW_MINUS:
+		switch (op.getOp()) {
+		case "-":
 			return result * (-1);
-		case SKW_NOT:
+		case "!":
 			if (result == ExpressionEvaluation.FALSE) {
 				return ExpressionEvaluation.TRUE;
 			}
 			return ExpressionEvaluation.FALSE;
-		case SKW_PLUS:
+		case "+":
 			break;
-		case SKW_AND:
-		case SKW_STAR:
-		case SKW_TILDE:
+		case "&":
+		case "*":
+		case "~":
 		default:
 			throw new UnsupportedOperationException(
 					"address operators not allowed in preprocessor conditionals!");

@@ -4,13 +4,13 @@ package at.jku.weiner.c.preprocess
 language preprocess
 //----------------------------------------------------------------------
 split-lexer=true
-source file="res/Test0058_IfElIfElse.c"
+source file="res/Test0061_IfElIfElse.c"
 //----------------------------------------------------------------------
 lexer-tokens
-	WS NEWLINE
-	//HASH DEFINE WS ID WS DECIMAL_LITERAL NEWLINE
-	WS NEWLINE
-	//HASH DEFINE WS ID WS DECIMAL_LITERAL NEWLINE
+	//WS NEWLINE
+	HASH DEFINE WS ID WS DECIMAL_LITERAL NEWLINE
+	//WS NEWLINE
+	HASH DEFINE WS ID WS DECIMAL_LITERAL NEWLINE
 	HASH IF WS DEFINED WS ID NEWLINE
 		WS ID WS ID SKW_LEFTPAREN SKW_RIGHTPAREN SKW_SEMI NEWLINE
 	HASH ELIF WS DEFINED WS ID NEWLINE
@@ -25,26 +25,26 @@ lexer-tokens
 		group=
 		(GroupOpt
 			lines+=
-			(Code
-				code++"//#define FOO 50"
+//			(Code
+//				code++"//#define FOO 50"
+//			),
+			(PreprocessorDirectives
+				directive=
+				(DefineDirective
+					id++"FOO",
+					string++"50"
+				)
 			),
-			//(PreprocessorDirectives
-			//	directive=
-			//	(DefineDirective
-			//		id++"FOO",
-			//		string++"50"
-			//	)
-			//),
-			(Code
-				code++"//#define BAR 0"
+//			(Code
+//				code++"//#define BAR 0"
+//			),
+			(PreprocessorDirectives
+				directive=
+				(DefineDirective
+					id++"BAR",
+					string++"0"
+				)
 			),
-			//(PreprocessorDirectives
-			//	directive=
-			//	(DefineDirective
-			//		id++"BAR",
-			//		string++"0"
-			//	)
-			//),
 			(PreprocessorDirectives
 				directive=
 				(ConditionalDirective
@@ -184,8 +184,8 @@ lexer-tokens
 	)
 )
 //----------------------------------------------------------------------
-output file="bin/Test0058_IfElIfElse.c.i"
-expected file="expected/Test0058_IfElIfElse.c"
+output file="bin/Test0061_IfElIfElse.c.i"
+expected file="expected/Test0061_IfElIfElse.c"
 //replacePatterns file="res/Patterns.txt"
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------

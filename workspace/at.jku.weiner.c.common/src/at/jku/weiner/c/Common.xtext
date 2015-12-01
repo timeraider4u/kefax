@@ -69,7 +69,6 @@ SpecialKeywords returns ecore::EString:
 	|	SKW_OROR
 	|	SKW_PLUS
 	|	SKW_PLUSPLUS
-	|	SKW_PLUSPLUS
 	|	SKW_QUESTION
 	|	SKW_RIGHTBRACE
 	|	SKW_RIGHTBRACKET

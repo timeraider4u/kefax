@@ -1,0 +1,191 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language preprocess
+//----------------------------------------------------------------------
+split-lexer=true
+source file="res/Test0058_IfElIfElse.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	WS NEWLINE
+	//HASH DEFINE WS ID WS DECIMAL_LITERAL NEWLINE
+	WS NEWLINE
+	//HASH DEFINE WS ID WS DECIMAL_LITERAL NEWLINE
+	HASH IF WS DEFINED WS ID NEWLINE
+		WS ID WS ID SKW_LEFTPAREN SKW_RIGHTPAREN SKW_SEMI NEWLINE
+	HASH ELIF WS DEFINED WS ID NEWLINE
+		WS ID WS ID SKW_LEFTPAREN SKW_RIGHTPAREN SKW_SEMI NEWLINE
+	HASH ELSE NEWLINE
+		WS ID WS ID SKW_LEFTPAREN SKW_RIGHTPAREN SKW_SEMI NEWLINE
+	HASH ENDIF NEWLINE
+//----------------------------------------------------------------------
+(Model
+	units+=
+	(TranslationUnit
+		group=
+		(GroupOpt
+			lines+=
+			(Code
+				code++"//#define FOO 50"
+			),
+			//(PreprocessorDirectives
+			//	directive=
+			//	(DefineDirective
+			//		id++"FOO",
+			//		string++"64"
+			//	)
+			//),
+			(Code
+				code++"//#define BAR 0"
+			),
+			//(PreprocessorDirectives
+			//	directive=
+			//	(DefineDirective
+			//		id++"FOO",
+			//		string++"64"
+			//	)
+			//),
+			(PreprocessorDirectives
+				directive=
+				(ConditionalDirective
+					conditional=
+					(IfConditional
+						expression=
+						(ConstantExpression
+							expr=
+							(ConditionalExpression
+								expr=
+								(LogicalOrExpression
+									expr+=
+									(LogicalAndExpression
+										expr+=
+										(InclusiveOrExpression
+											expr+=
+											(ExclusiveOrExpression
+												expr+=
+												(AndExpression
+													expr+=
+													(EqualityExpression
+														expr+=
+														(RelationalExpression
+															expr+=
+															(ShiftExpression
+																expr+=
+																(AdditiveExpression
+																	expr+=
+																	(MultiplicativeExpression
+																		expr+=
+																		(CastExpression
+																			expr=
+																			(UnaryExpression
+																				expr=
+																				(PostfixExpression
+																					expr=
+																					(PrimaryExpression
+																						defined?=true,
+																						id++"FOO"
+																					)
+																				)
+																			)
+																		)
+																	)
+																)
+															)
+														)
+													)
+												)
+											)
+										)
+									)
+								)
+							)
+						),
+						group=
+						(GroupOpt
+							lines+=
+							(Code
+								code++"	void foo();"
+							)
+						)
+					), // end if conditional
+					elifs+=
+					(ElIfConditional
+						expression=
+						(ConstantExpression
+							expr=
+							(ConditionalExpression
+								expr=
+								(LogicalOrExpression
+									expr+=
+									(LogicalAndExpression
+										expr+=
+										(InclusiveOrExpression
+											expr+=
+											(ExclusiveOrExpression
+												expr+=
+												(AndExpression
+													expr+=
+													(EqualityExpression
+														expr+=
+														(RelationalExpression
+															expr+=
+															(ShiftExpression
+																expr+=
+																(AdditiveExpression
+																	expr+=
+																	(MultiplicativeExpression
+																		expr+=
+																		(CastExpression
+																			expr=
+																			(UnaryExpression
+																				expr=
+																				(PostfixExpression
+																					expr=
+																					(PrimaryExpression
+																						defined?=true,
+																						id++"BAR"
+																					)
+																				)
+																			)
+																		)
+																	)
+																)
+															)
+														)
+													)
+												)
+											)
+										)
+									)
+								)
+							)
+						),
+						group=
+						(GroupOpt
+							lines+=
+							(Code
+								code++"	void bar();"
+							)
+						)
+					), // end elif conditional
+					else=
+					(ElseConditional
+						group=
+						(GroupOpt
+							lines+=
+							(Code
+								code++"	void no_foo_and_no_bar();"
+							)
+						)
+					)
+				) // end conditional directive
+			)
+		)
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0058_IfElIfElse.c.i"
+expected file="expected/Test0058_IfElIfElse.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

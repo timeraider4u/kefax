@@ -117,6 +117,8 @@ ConditionalDirective:
 			|	IfNotDefConditional
 		)
 	)
+	(elifs+=ElIfConditional)*
+	(else=ElseConditional)?
 	HASH ENDIF WS*
 ;
 
@@ -135,6 +137,18 @@ IfDefConditional:
 IfNotDefConditional:
 	{IfNotDefConditional}
 	IFNOTDEF WS+ id=ID NEWLINE
+		group=GroupOpt
+;
+
+ElIfConditional:
+	{ElIfConditional}
+	HASH WS* ELIF WS+ expression=ShadowExpression NEWLINE
+		group=GroupOpt
+;
+
+ElseConditional:
+	{ElseConditional}
+	HASH WS* ELSE NEWLINE
 		group=GroupOpt
 ;
 
@@ -420,6 +434,8 @@ terminal IF: 'if';
 terminal DEFINED: 'defined';
 terminal IFDEF: 'ifdef';
 terminal IFNOTDEF: 'ifndef';
+terminal ELIF: 'elif';
+terminal ELSE: 'else';
 terminal ENDIF: 'endif';
 terminal PRAGMA: 'pragma';
 

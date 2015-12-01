@@ -140,6 +140,16 @@ public class PreprocessAdapterFactory extends AdapterFactoryImpl
         return createIfNotDefConditionalAdapter();
       }
       @Override
+      public Adapter caseElIfConditional(ElIfConditional object)
+      {
+        return createElIfConditionalAdapter();
+      }
+      @Override
+      public Adapter caseElseConditional(ElseConditional object)
+      {
+        return createElseConditionalAdapter();
+      }
+      @Override
       public Adapter casePragmaDirective(PragmaDirective object)
       {
         return createPragmaDirectiveAdapter();
@@ -482,6 +492,36 @@ public class PreprocessAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createIfNotDefConditionalAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.preprocess.preprocess.ElIfConditional <em>El If Conditional</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.preprocess.preprocess.ElIfConditional
+   * @generated
+   */
+  public Adapter createElIfConditionalAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.preprocess.preprocess.ElseConditional <em>Else Conditional</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.preprocess.preprocess.ElseConditional
+   * @generated
+   */
+  public Adapter createElseConditionalAdapter()
   {
     return null;
   }

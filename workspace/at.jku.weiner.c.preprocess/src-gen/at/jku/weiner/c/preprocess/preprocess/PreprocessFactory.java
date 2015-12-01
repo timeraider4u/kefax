@@ -140,6 +140,24 @@ public interface PreprocessFactory extends EFactory
   IfNotDefConditional createIfNotDefConditional();
 
   /**
+   * Returns a new object of class '<em>El If Conditional</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>El If Conditional</em>'.
+   * @generated
+   */
+  ElIfConditional createElIfConditional();
+
+  /**
+   * Returns a new object of class '<em>Else Conditional</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Else Conditional</em>'.
+   * @generated
+   */
+  ElseConditional createElseConditional();
+
+  /**
    * Returns a new object of class '<em>Pragma Directive</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

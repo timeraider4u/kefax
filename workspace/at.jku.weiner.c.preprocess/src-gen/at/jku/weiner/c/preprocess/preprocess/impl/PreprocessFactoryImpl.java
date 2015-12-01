@@ -77,6 +77,8 @@ public class PreprocessFactoryImpl extends EFactoryImpl implements PreprocessFac
       case PreprocessPackage.IF_CONDITIONAL: return createIfConditional();
       case PreprocessPackage.IF_DEF_CONDITIONAL: return createIfDefConditional();
       case PreprocessPackage.IF_NOT_DEF_CONDITIONAL: return createIfNotDefConditional();
+      case PreprocessPackage.EL_IF_CONDITIONAL: return createElIfConditional();
+      case PreprocessPackage.ELSE_CONDITIONAL: return createElseConditional();
       case PreprocessPackage.PRAGMA_DIRECTIVE: return createPragmaDirective();
       case PreprocessPackage.NULL_DIRECTIVE: return createNullDirective();
       case PreprocessPackage.SHADOW_EXPRESSION: return createShadowExpression();
@@ -249,6 +251,28 @@ public class PreprocessFactoryImpl extends EFactoryImpl implements PreprocessFac
   {
     IfNotDefConditionalImpl ifNotDefConditional = new IfNotDefConditionalImpl();
     return ifNotDefConditional;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ElIfConditional createElIfConditional()
+  {
+    ElIfConditionalImpl elIfConditional = new ElIfConditionalImpl();
+    return elIfConditional;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ElseConditional createElseConditional()
+  {
+    ElseConditionalImpl elseConditional = new ElseConditionalImpl();
+    return elseConditional;
   }
 
   /**

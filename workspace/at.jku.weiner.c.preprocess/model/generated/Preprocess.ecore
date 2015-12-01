@@ -35,6 +35,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="ConditionalDirective">
     <eStructuralFeatures xsi:type="ecore:EReference" name="conditional" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elifs" upperBound="-1"
+        eType="#//ElIfConditional" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="else" eType="#//ElseConditional"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IfConditional">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//ShadowExpression"
@@ -49,6 +53,16 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IfNotDefConditional">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="group" eType="#//GroupOpt"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ElIfConditional">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//ShadowExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="group" eType="#//GroupOpt"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ElseConditional">
     <eStructuralFeatures xsi:type="ecore:EReference" name="group" eType="#//GroupOpt"
         containment="true"/>
   </eClassifiers>

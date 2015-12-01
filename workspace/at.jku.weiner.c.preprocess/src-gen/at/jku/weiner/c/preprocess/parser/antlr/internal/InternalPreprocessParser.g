@@ -971,17 +971,53 @@ ruleConditionalDirective returns [EObject current=null]
 )
 
 )
-)this_HASH_2=RULE_HASH
+)(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getConditionalDirectiveAccess().getElifsElIfConditionalParserRuleCall_2_0()); 
+	    }
+		lv_elifs_2_0=ruleElIfConditional		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getConditionalDirectiveRule());
+	        }
+       		add(
+       			$current, 
+       			"elifs",
+        		lv_elifs_2_0, 
+        		"at.jku.weiner.c.preprocess.Preprocess.ElIfConditional");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getConditionalDirectiveAccess().getElseElseConditionalParserRuleCall_3_0()); 
+	    }
+		lv_else_3_0=ruleElseConditional		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getConditionalDirectiveRule());
+	        }
+       		set(
+       			$current, 
+       			"else",
+        		lv_else_3_0, 
+        		"at.jku.weiner.c.preprocess.Preprocess.ElseConditional");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)?this_HASH_4=RULE_HASH
     { 
-    newLeafNode(this_HASH_2, grammarAccess.getConditionalDirectiveAccess().getHASHTerminalRuleCall_2()); 
+    newLeafNode(this_HASH_4, grammarAccess.getConditionalDirectiveAccess().getHASHTerminalRuleCall_4()); 
     }
-this_ENDIF_3=RULE_ENDIF
+this_ENDIF_5=RULE_ENDIF
     { 
-    newLeafNode(this_ENDIF_3, grammarAccess.getConditionalDirectiveAccess().getENDIFTerminalRuleCall_3()); 
+    newLeafNode(this_ENDIF_5, grammarAccess.getConditionalDirectiveAccess().getENDIFTerminalRuleCall_5()); 
     }
-(this_WS_4=RULE_WS
+(this_WS_6=RULE_WS
     { 
-    newLeafNode(this_WS_4, grammarAccess.getConditionalDirectiveAccess().getWSTerminalRuleCall_4()); 
+    newLeafNode(this_WS_6, grammarAccess.getConditionalDirectiveAccess().getWSTerminalRuleCall_6()); 
     }
 )*)
 ;
@@ -1207,6 +1243,156 @@ ruleIfNotDefConditional returns [EObject current=null]
 		lv_group_5_0=ruleGroupOpt		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getIfNotDefConditionalRule());
+	        }
+       		set(
+       			$current, 
+       			"group",
+        		lv_group_5_0, 
+        		"at.jku.weiner.c.preprocess.Preprocess.GroupOpt");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))
+;
+
+
+
+
+
+// Entry rule entryRuleElIfConditional
+entryRuleElIfConditional returns [EObject current=null]
+	:
+	{ newCompositeNode(grammarAccess.getElIfConditionalRule()); }
+	 iv_ruleElIfConditional=ruleElIfConditional 
+	 { $current=$iv_ruleElIfConditional.current; } 
+	 EOF 
+;
+
+// Rule ElIfConditional
+ruleElIfConditional returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+	{ 
+	  /* */ 
+	}
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getElIfConditionalAccess().getElIfConditionalAction_0(),
+            $current);
+    }
+)this_HASH_1=RULE_HASH
+    { 
+    newLeafNode(this_HASH_1, grammarAccess.getElIfConditionalAccess().getHASHTerminalRuleCall_1()); 
+    }
+(this_WS_2=RULE_WS
+    { 
+    newLeafNode(this_WS_2, grammarAccess.getElIfConditionalAccess().getWSTerminalRuleCall_2()); 
+    }
+)*this_ELIF_3=RULE_ELIF
+    { 
+    newLeafNode(this_ELIF_3, grammarAccess.getElIfConditionalAccess().getELIFTerminalRuleCall_3()); 
+    }
+(this_WS_4=RULE_WS
+    { 
+    newLeafNode(this_WS_4, grammarAccess.getElIfConditionalAccess().getWSTerminalRuleCall_4()); 
+    }
+)+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getElIfConditionalAccess().getExpressionShadowExpressionParserRuleCall_5_0()); 
+	    }
+		lv_expression_5_0=ruleShadowExpression		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getElIfConditionalRule());
+	        }
+       		set(
+       			$current, 
+       			"expression",
+        		lv_expression_5_0, 
+        		"at.jku.weiner.c.preprocess.Preprocess.ShadowExpression");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)this_NEWLINE_6=RULE_NEWLINE
+    { 
+    newLeafNode(this_NEWLINE_6, grammarAccess.getElIfConditionalAccess().getNEWLINETerminalRuleCall_6()); 
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getElIfConditionalAccess().getGroupGroupOptParserRuleCall_7_0()); 
+	    }
+		lv_group_7_0=ruleGroupOpt		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getElIfConditionalRule());
+	        }
+       		set(
+       			$current, 
+       			"group",
+        		lv_group_7_0, 
+        		"at.jku.weiner.c.preprocess.Preprocess.GroupOpt");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))
+;
+
+
+
+
+
+// Entry rule entryRuleElseConditional
+entryRuleElseConditional returns [EObject current=null]
+	:
+	{ newCompositeNode(grammarAccess.getElseConditionalRule()); }
+	 iv_ruleElseConditional=ruleElseConditional 
+	 { $current=$iv_ruleElseConditional.current; } 
+	 EOF 
+;
+
+// Rule ElseConditional
+ruleElseConditional returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+	{ 
+	  /* */ 
+	}
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getElseConditionalAccess().getElseConditionalAction_0(),
+            $current);
+    }
+)this_HASH_1=RULE_HASH
+    { 
+    newLeafNode(this_HASH_1, grammarAccess.getElseConditionalAccess().getHASHTerminalRuleCall_1()); 
+    }
+(this_WS_2=RULE_WS
+    { 
+    newLeafNode(this_WS_2, grammarAccess.getElseConditionalAccess().getWSTerminalRuleCall_2()); 
+    }
+)*this_ELSE_3=RULE_ELSE
+    { 
+    newLeafNode(this_ELSE_3, grammarAccess.getElseConditionalAccess().getELSETerminalRuleCall_3()); 
+    }
+this_NEWLINE_4=RULE_NEWLINE
+    { 
+    newLeafNode(this_NEWLINE_4, grammarAccess.getElseConditionalAccess().getNEWLINETerminalRuleCall_4()); 
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getElseConditionalAccess().getGroupGroupOptParserRuleCall_5_0()); 
+	    }
+		lv_group_5_0=ruleGroupOpt		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getElseConditionalRule());
 	        }
        		set(
        			$current, 
@@ -3608,84 +3794,76 @@ ruleSpecialKeywords returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRul
     newLeafNode(this_SKW_PLUSPLUS_27, grammarAccess.getSpecialKeywordsAccess().getSKW_PLUSPLUSTerminalRuleCall_27()); 
     }
 
-    |    this_SKW_PLUSPLUS_28=RULE_SKW_PLUSPLUS    {
-		$current.merge(this_SKW_PLUSPLUS_28);
+    |    this_SKW_QUESTION_28=RULE_SKW_QUESTION    {
+		$current.merge(this_SKW_QUESTION_28);
     }
 
     { 
-    newLeafNode(this_SKW_PLUSPLUS_28, grammarAccess.getSpecialKeywordsAccess().getSKW_PLUSPLUSTerminalRuleCall_28()); 
+    newLeafNode(this_SKW_QUESTION_28, grammarAccess.getSpecialKeywordsAccess().getSKW_QUESTIONTerminalRuleCall_28()); 
     }
 
-    |    this_SKW_QUESTION_29=RULE_SKW_QUESTION    {
-		$current.merge(this_SKW_QUESTION_29);
-    }
-
-    { 
-    newLeafNode(this_SKW_QUESTION_29, grammarAccess.getSpecialKeywordsAccess().getSKW_QUESTIONTerminalRuleCall_29()); 
-    }
-
-    |    this_SKW_RIGHTBRACE_30=RULE_SKW_RIGHTBRACE    {
-		$current.merge(this_SKW_RIGHTBRACE_30);
+    |    this_SKW_RIGHTBRACE_29=RULE_SKW_RIGHTBRACE    {
+		$current.merge(this_SKW_RIGHTBRACE_29);
     }
 
     { 
-    newLeafNode(this_SKW_RIGHTBRACE_30, grammarAccess.getSpecialKeywordsAccess().getSKW_RIGHTBRACETerminalRuleCall_30()); 
+    newLeafNode(this_SKW_RIGHTBRACE_29, grammarAccess.getSpecialKeywordsAccess().getSKW_RIGHTBRACETerminalRuleCall_29()); 
     }
 
-    |    this_SKW_RIGHTBRACKET_31=RULE_SKW_RIGHTBRACKET    {
-		$current.merge(this_SKW_RIGHTBRACKET_31);
-    }
-
-    { 
-    newLeafNode(this_SKW_RIGHTBRACKET_31, grammarAccess.getSpecialKeywordsAccess().getSKW_RIGHTBRACKETTerminalRuleCall_31()); 
-    }
-
-    |    this_SKW_RIGHTPAREN_32=RULE_SKW_RIGHTPAREN    {
-		$current.merge(this_SKW_RIGHTPAREN_32);
+    |    this_SKW_RIGHTBRACKET_30=RULE_SKW_RIGHTBRACKET    {
+		$current.merge(this_SKW_RIGHTBRACKET_30);
     }
 
     { 
-    newLeafNode(this_SKW_RIGHTPAREN_32, grammarAccess.getSpecialKeywordsAccess().getSKW_RIGHTPARENTerminalRuleCall_32()); 
+    newLeafNode(this_SKW_RIGHTBRACKET_30, grammarAccess.getSpecialKeywordsAccess().getSKW_RIGHTBRACKETTerminalRuleCall_30()); 
     }
 
-    |    this_SKW_RIGHTSHIFT_33=RULE_SKW_RIGHTSHIFT    {
-		$current.merge(this_SKW_RIGHTSHIFT_33);
-    }
-
-    { 
-    newLeafNode(this_SKW_RIGHTSHIFT_33, grammarAccess.getSpecialKeywordsAccess().getSKW_RIGHTSHIFTTerminalRuleCall_33()); 
-    }
-
-    |    this_SKW_SEMI_34=RULE_SKW_SEMI    {
-		$current.merge(this_SKW_SEMI_34);
+    |    this_SKW_RIGHTPAREN_31=RULE_SKW_RIGHTPAREN    {
+		$current.merge(this_SKW_RIGHTPAREN_31);
     }
 
     { 
-    newLeafNode(this_SKW_SEMI_34, grammarAccess.getSpecialKeywordsAccess().getSKW_SEMITerminalRuleCall_34()); 
+    newLeafNode(this_SKW_RIGHTPAREN_31, grammarAccess.getSpecialKeywordsAccess().getSKW_RIGHTPARENTerminalRuleCall_31()); 
     }
 
-    |    this_SKW_SINGLEQUOTE_35=RULE_SKW_SINGLEQUOTE    {
-		$current.merge(this_SKW_SINGLEQUOTE_35);
-    }
-
-    { 
-    newLeafNode(this_SKW_SINGLEQUOTE_35, grammarAccess.getSpecialKeywordsAccess().getSKW_SINGLEQUOTETerminalRuleCall_35()); 
-    }
-
-    |    this_SKW_STAR_36=RULE_SKW_STAR    {
-		$current.merge(this_SKW_STAR_36);
+    |    this_SKW_RIGHTSHIFT_32=RULE_SKW_RIGHTSHIFT    {
+		$current.merge(this_SKW_RIGHTSHIFT_32);
     }
 
     { 
-    newLeafNode(this_SKW_STAR_36, grammarAccess.getSpecialKeywordsAccess().getSKW_STARTerminalRuleCall_36()); 
+    newLeafNode(this_SKW_RIGHTSHIFT_32, grammarAccess.getSpecialKeywordsAccess().getSKW_RIGHTSHIFTTerminalRuleCall_32()); 
     }
 
-    |    this_SKW_TILDE_37=RULE_SKW_TILDE    {
-		$current.merge(this_SKW_TILDE_37);
+    |    this_SKW_SEMI_33=RULE_SKW_SEMI    {
+		$current.merge(this_SKW_SEMI_33);
     }
 
     { 
-    newLeafNode(this_SKW_TILDE_37, grammarAccess.getSpecialKeywordsAccess().getSKW_TILDETerminalRuleCall_37()); 
+    newLeafNode(this_SKW_SEMI_33, grammarAccess.getSpecialKeywordsAccess().getSKW_SEMITerminalRuleCall_33()); 
+    }
+
+    |    this_SKW_SINGLEQUOTE_34=RULE_SKW_SINGLEQUOTE    {
+		$current.merge(this_SKW_SINGLEQUOTE_34);
+    }
+
+    { 
+    newLeafNode(this_SKW_SINGLEQUOTE_34, grammarAccess.getSpecialKeywordsAccess().getSKW_SINGLEQUOTETerminalRuleCall_34()); 
+    }
+
+    |    this_SKW_STAR_35=RULE_SKW_STAR    {
+		$current.merge(this_SKW_STAR_35);
+    }
+
+    { 
+    newLeafNode(this_SKW_STAR_35, grammarAccess.getSpecialKeywordsAccess().getSKW_STARTerminalRuleCall_35()); 
+    }
+
+    |    this_SKW_TILDE_36=RULE_SKW_TILDE    {
+		$current.merge(this_SKW_TILDE_36);
+    }
+
+    { 
+    newLeafNode(this_SKW_TILDE_36, grammarAccess.getSpecialKeywordsAccess().getSKW_TILDETerminalRuleCall_36()); 
     }
 )
     ;

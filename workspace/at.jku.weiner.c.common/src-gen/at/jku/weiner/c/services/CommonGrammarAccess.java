@@ -62,16 +62,15 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSKW_ORORTerminalRuleCall_25 = (RuleCall)cAlternatives.eContents().get(25);
 		private final RuleCall cSKW_PLUSTerminalRuleCall_26 = (RuleCall)cAlternatives.eContents().get(26);
 		private final RuleCall cSKW_PLUSPLUSTerminalRuleCall_27 = (RuleCall)cAlternatives.eContents().get(27);
-		private final RuleCall cSKW_PLUSPLUSTerminalRuleCall_28 = (RuleCall)cAlternatives.eContents().get(28);
-		private final RuleCall cSKW_QUESTIONTerminalRuleCall_29 = (RuleCall)cAlternatives.eContents().get(29);
-		private final RuleCall cSKW_RIGHTBRACETerminalRuleCall_30 = (RuleCall)cAlternatives.eContents().get(30);
-		private final RuleCall cSKW_RIGHTBRACKETTerminalRuleCall_31 = (RuleCall)cAlternatives.eContents().get(31);
-		private final RuleCall cSKW_RIGHTPARENTerminalRuleCall_32 = (RuleCall)cAlternatives.eContents().get(32);
-		private final RuleCall cSKW_RIGHTSHIFTTerminalRuleCall_33 = (RuleCall)cAlternatives.eContents().get(33);
-		private final RuleCall cSKW_SEMITerminalRuleCall_34 = (RuleCall)cAlternatives.eContents().get(34);
-		private final RuleCall cSKW_SINGLEQUOTETerminalRuleCall_35 = (RuleCall)cAlternatives.eContents().get(35);
-		private final RuleCall cSKW_STARTerminalRuleCall_36 = (RuleCall)cAlternatives.eContents().get(36);
-		private final RuleCall cSKW_TILDETerminalRuleCall_37 = (RuleCall)cAlternatives.eContents().get(37);
+		private final RuleCall cSKW_QUESTIONTerminalRuleCall_28 = (RuleCall)cAlternatives.eContents().get(28);
+		private final RuleCall cSKW_RIGHTBRACETerminalRuleCall_29 = (RuleCall)cAlternatives.eContents().get(29);
+		private final RuleCall cSKW_RIGHTBRACKETTerminalRuleCall_30 = (RuleCall)cAlternatives.eContents().get(30);
+		private final RuleCall cSKW_RIGHTPARENTerminalRuleCall_31 = (RuleCall)cAlternatives.eContents().get(31);
+		private final RuleCall cSKW_RIGHTSHIFTTerminalRuleCall_32 = (RuleCall)cAlternatives.eContents().get(32);
+		private final RuleCall cSKW_SEMITerminalRuleCall_33 = (RuleCall)cAlternatives.eContents().get(33);
+		private final RuleCall cSKW_SINGLEQUOTETerminalRuleCall_34 = (RuleCall)cAlternatives.eContents().get(34);
+		private final RuleCall cSKW_STARTerminalRuleCall_35 = (RuleCall)cAlternatives.eContents().get(35);
+		private final RuleCall cSKW_TILDETerminalRuleCall_36 = (RuleCall)cAlternatives.eContents().get(36);
 		
 		//// keywords
 		//// special keywords
@@ -104,7 +103,6 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		//	| SKW_OROR
 		//	| SKW_PLUS
 		//	| SKW_PLUSPLUS
-		//	| SKW_PLUSPLUS
 		//	| SKW_QUESTION
 		//	| SKW_RIGHTBRACE
 		//	| SKW_RIGHTBRACKET
@@ -119,8 +117,8 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		//SKW_AND | SKW_ANDAND | SKW_ASSIGN | SKW_BACKSLASH | SKW_CARET | SKW_COMMA | SKW_COLON | SKW_DIV | SKW_DOT |
 		//SKW_DOUBLEQUOTE | SKW_EQUAL | SKW_GREATER | SKW_GREATEREQUAL | SKW_LEFTBRACE | SKW_LEFTBRACKET | SKW_LEFTPAREN |
 		//SKW_LEFTSHIFT | SKW_LESS | SKW_LESSEQUAL | SKW_MINUS | SKW_MINUSMINUS | SKW_MOD | SKW_NOT | SKW_NOTEQUAL | SKW_OR |
-		//SKW_OROR | SKW_PLUS | SKW_PLUSPLUS | SKW_PLUSPLUS | SKW_QUESTION | SKW_RIGHTBRACE | SKW_RIGHTBRACKET | SKW_RIGHTPAREN |
-		//SKW_RIGHTSHIFT | SKW_SEMI | SKW_SINGLEQUOTE | SKW_STAR | SKW_TILDE
+		//SKW_OROR | SKW_PLUS | SKW_PLUSPLUS | SKW_QUESTION | SKW_RIGHTBRACE | SKW_RIGHTBRACKET | SKW_RIGHTPAREN | SKW_RIGHTSHIFT
+		//| SKW_SEMI | SKW_SINGLEQUOTE | SKW_STAR | SKW_TILDE
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//SKW_AND
@@ -207,35 +205,32 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		//SKW_PLUSPLUS
 		public RuleCall getSKW_PLUSPLUSTerminalRuleCall_27() { return cSKW_PLUSPLUSTerminalRuleCall_27; }
 		
-		//SKW_PLUSPLUS
-		public RuleCall getSKW_PLUSPLUSTerminalRuleCall_28() { return cSKW_PLUSPLUSTerminalRuleCall_28; }
-		
 		//SKW_QUESTION
-		public RuleCall getSKW_QUESTIONTerminalRuleCall_29() { return cSKW_QUESTIONTerminalRuleCall_29; }
+		public RuleCall getSKW_QUESTIONTerminalRuleCall_28() { return cSKW_QUESTIONTerminalRuleCall_28; }
 		
 		//SKW_RIGHTBRACE
-		public RuleCall getSKW_RIGHTBRACETerminalRuleCall_30() { return cSKW_RIGHTBRACETerminalRuleCall_30; }
+		public RuleCall getSKW_RIGHTBRACETerminalRuleCall_29() { return cSKW_RIGHTBRACETerminalRuleCall_29; }
 		
 		//SKW_RIGHTBRACKET
-		public RuleCall getSKW_RIGHTBRACKETTerminalRuleCall_31() { return cSKW_RIGHTBRACKETTerminalRuleCall_31; }
+		public RuleCall getSKW_RIGHTBRACKETTerminalRuleCall_30() { return cSKW_RIGHTBRACKETTerminalRuleCall_30; }
 		
 		//SKW_RIGHTPAREN
-		public RuleCall getSKW_RIGHTPARENTerminalRuleCall_32() { return cSKW_RIGHTPARENTerminalRuleCall_32; }
+		public RuleCall getSKW_RIGHTPARENTerminalRuleCall_31() { return cSKW_RIGHTPARENTerminalRuleCall_31; }
 		
 		//SKW_RIGHTSHIFT
-		public RuleCall getSKW_RIGHTSHIFTTerminalRuleCall_33() { return cSKW_RIGHTSHIFTTerminalRuleCall_33; }
+		public RuleCall getSKW_RIGHTSHIFTTerminalRuleCall_32() { return cSKW_RIGHTSHIFTTerminalRuleCall_32; }
 		
 		//SKW_SEMI
-		public RuleCall getSKW_SEMITerminalRuleCall_34() { return cSKW_SEMITerminalRuleCall_34; }
+		public RuleCall getSKW_SEMITerminalRuleCall_33() { return cSKW_SEMITerminalRuleCall_33; }
 		
 		//SKW_SINGLEQUOTE
-		public RuleCall getSKW_SINGLEQUOTETerminalRuleCall_35() { return cSKW_SINGLEQUOTETerminalRuleCall_35; }
+		public RuleCall getSKW_SINGLEQUOTETerminalRuleCall_34() { return cSKW_SINGLEQUOTETerminalRuleCall_34; }
 		
 		//SKW_STAR
-		public RuleCall getSKW_STARTerminalRuleCall_36() { return cSKW_STARTerminalRuleCall_36; }
+		public RuleCall getSKW_STARTerminalRuleCall_35() { return cSKW_STARTerminalRuleCall_35; }
 		
 		//SKW_TILDE
-		public RuleCall getSKW_TILDETerminalRuleCall_37() { return cSKW_TILDETerminalRuleCall_37; }
+		public RuleCall getSKW_TILDETerminalRuleCall_36() { return cSKW_TILDETerminalRuleCall_36; }
 	}
 	
 	
@@ -394,7 +389,6 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 	//	| SKW_OR
 	//	| SKW_OROR
 	//	| SKW_PLUS
-	//	| SKW_PLUSPLUS
 	//	| SKW_PLUSPLUS
 	//	| SKW_QUESTION
 	//	| SKW_RIGHTBRACE

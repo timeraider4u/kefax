@@ -14,6 +14,8 @@ import at.jku.weiner.c.preprocess.preprocess.ConditionalExpression;
 import at.jku.weiner.c.preprocess.preprocess.ConstantExpression;
 import at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro;
 import at.jku.weiner.c.preprocess.preprocess.DefineObjectMacro;
+import at.jku.weiner.c.preprocess.preprocess.ElIfConditional;
+import at.jku.weiner.c.preprocess.preprocess.ElseConditional;
 import at.jku.weiner.c.preprocess.preprocess.EqualityExpression;
 import at.jku.weiner.c.preprocess.preprocess.ErrorDirective;
 import at.jku.weiner.c.preprocess.preprocess.ExclusiveOrExpression;
@@ -97,6 +99,12 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 				return; 
 			case PreprocessPackage.DEFINE_OBJECT_MACRO:
 				sequence_DefineObjectMacro(context, (DefineObjectMacro) semanticObject); 
+				return; 
+			case PreprocessPackage.EL_IF_CONDITIONAL:
+				sequence_ElIfConditional(context, (ElIfConditional) semanticObject); 
+				return; 
+			case PreprocessPackage.ELSE_CONDITIONAL:
+				sequence_ElseConditional(context, (ElseConditional) semanticObject); 
 				return; 
 			case PreprocessPackage.EQUALITY_EXPRESSION:
 				sequence_EqualityExpression(context, (EqualityExpression) semanticObject); 
@@ -228,7 +236,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (conditional=IfConditional | conditional=IfDefConditional | conditional=IfNotDefConditional)
+	 *     ((conditional=IfConditional | conditional=IfDefConditional | conditional=IfNotDefConditional) elifs+=ElIfConditional* else=ElseConditional?)
 	 */
 	protected void sequence_ConditionalDirective(EObject context, ConditionalDirective semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -268,6 +276,41 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	 */
 	protected void sequence_DefineObjectMacro(EObject context, DefineObjectMacro semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (expression=ShadowExpression group=GroupOpt)
+	 */
+	protected void sequence_ElIfConditional(EObject context, ElIfConditional semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, PreprocessPackage.Literals.EL_IF_CONDITIONAL__EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PreprocessPackage.Literals.EL_IF_CONDITIONAL__EXPRESSION));
+			if(transientValues.isValueTransient(semanticObject, PreprocessPackage.Literals.EL_IF_CONDITIONAL__GROUP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PreprocessPackage.Literals.EL_IF_CONDITIONAL__GROUP));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getElIfConditionalAccess().getExpressionShadowExpressionParserRuleCall_5_0(), semanticObject.getExpression());
+		feeder.accept(grammarAccess.getElIfConditionalAccess().getGroupGroupOptParserRuleCall_7_0(), semanticObject.getGroup());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     group=GroupOpt
+	 */
+	protected void sequence_ElseConditional(EObject context, ElseConditional semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, PreprocessPackage.Literals.ELSE_CONDITIONAL__GROUP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PreprocessPackage.Literals.ELSE_CONDITIONAL__GROUP));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getElseConditionalAccess().getGroupGroupOptParserRuleCall_5_0(), semanticObject.getGroup());
+		feeder.finish();
 	}
 	
 	

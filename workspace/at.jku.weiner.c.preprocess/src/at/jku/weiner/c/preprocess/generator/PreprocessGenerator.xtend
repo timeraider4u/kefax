@@ -30,6 +30,9 @@ import at.jku.weiner.c.preprocess.preprocess.IfNotDefConditional
 import at.jku.weiner.c.preprocess.preprocess.IfConditional
 import at.jku.weiner.c.preprocess.utils.expressions.ExpressionEvaluation
 import at.jku.weiner.c.preprocess.preprocess.ConstantExpression
+import at.jku.weiner.c.preprocess.preprocess.ElseConditional
+import org.eclipse.emf.common.util.EList
+import at.jku.weiner.c.preprocess.preprocess.ElIfConditional
 
 /**
  * Generates code from your model files on save.
@@ -143,6 +146,8 @@ class PreprocessGenerator implements IGenerator {
 		if (obj.conditional instanceof IfNotDefConditional) {
 			return outputFor(obj.conditional as IfNotDefConditional); 
 		}
+		outputFor(obj.getElifs());
+		outputFor(obj.getElse());
 		return "";
 	}
 	
@@ -165,6 +170,28 @@ class PreprocessGenerator implements IGenerator {
 			return outputFor(obj.group).trim();
 		}
 		return "";
+	}
+	
+	def String outputFor(EList<ElIfConditional> obj) {
+		if (obj == null) {
+ 			return "";
+ 		}
+ 		val StringBuffer result = new StringBuffer(""); 
+ 		for (ElIfConditional cond : obj) {
+ 			result.append(outputFor(cond));
+ 		}
+ 		return result.toString();
+ 	}
+ 	
+ 	def String outputFor(ElIfConditional obj) {
+ 		return "";
+ 	}
+	
+	def String outputFor(ElseConditional obj) {
+		if (obj== null) {
+			return "";
+		}
+		
 	}
 	
 	def String outputFor(ErrorDirective obj) '''

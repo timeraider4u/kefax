@@ -35,6 +35,8 @@
     </genClasses>
     <genClasses ecoreClass="Preprocess.ecore#//ConditionalDirective">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//ConditionalDirective/conditional"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//ConditionalDirective/elifs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//ConditionalDirective/else"/>
     </genClasses>
     <genClasses ecoreClass="Preprocess.ecore#//IfConditional">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//IfConditional/expression"/>
@@ -47,6 +49,13 @@
     <genClasses ecoreClass="Preprocess.ecore#//IfNotDefConditional">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Preprocess.ecore#//IfNotDefConditional/id"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//IfNotDefConditional/group"/>
+    </genClasses>
+    <genClasses ecoreClass="Preprocess.ecore#//ElIfConditional">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//ElIfConditional/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//ElIfConditional/group"/>
+    </genClasses>
+    <genClasses ecoreClass="Preprocess.ecore#//ElseConditional">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//ElseConditional/group"/>
     </genClasses>
     <genClasses ecoreClass="Preprocess.ecore#//PragmaDirective"/>
     <genClasses ecoreClass="Preprocess.ecore#//NullDirective"/>

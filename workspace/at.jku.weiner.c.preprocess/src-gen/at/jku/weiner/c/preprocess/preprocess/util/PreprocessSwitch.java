@@ -163,6 +163,20 @@ public class PreprocessSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case PreprocessPackage.EL_IF_CONDITIONAL:
+      {
+        ElIfConditional elIfConditional = (ElIfConditional)theEObject;
+        T result = caseElIfConditional(elIfConditional);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PreprocessPackage.ELSE_CONDITIONAL:
+      {
+        ElseConditional elseConditional = (ElseConditional)theEObject;
+        T result = caseElseConditional(elseConditional);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case PreprocessPackage.PRAGMA_DIRECTIVE:
       {
         PragmaDirective pragmaDirective = (PragmaDirective)theEObject;
@@ -591,6 +605,38 @@ public class PreprocessSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseIfNotDefConditional(IfNotDefConditional object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>El If Conditional</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>El If Conditional</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseElIfConditional(ElIfConditional object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Else Conditional</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Else Conditional</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseElseConditional(ElseConditional object)
   {
     return null;
   }

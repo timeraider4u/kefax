@@ -12,6 +12,8 @@ import at.jku.weiner.c.preprocess.preprocess.ConstantExpression;
 import at.jku.weiner.c.preprocess.preprocess.DefineDirective;
 import at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro;
 import at.jku.weiner.c.preprocess.preprocess.DefineObjectMacro;
+import at.jku.weiner.c.preprocess.preprocess.ElIfConditional;
+import at.jku.weiner.c.preprocess.preprocess.ElseConditional;
 import at.jku.weiner.c.preprocess.preprocess.EqualityExpression;
 import at.jku.weiner.c.preprocess.preprocess.ErrorDirective;
 import at.jku.weiner.c.preprocess.preprocess.ExclusiveOrExpression;
@@ -149,6 +151,20 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
    * @generated
    */
   private EClass ifNotDefConditionalEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass elIfConditionalEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass elseConditionalEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -600,6 +616,26 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getConditionalDirective_Elifs()
+  {
+    return (EReference)conditionalDirectiveEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getConditionalDirective_Else()
+  {
+    return (EReference)conditionalDirectiveEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getIfConditional()
   {
     return ifConditionalEClass;
@@ -683,6 +719,56 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
   public EReference getIfNotDefConditional_Group()
   {
     return (EReference)ifNotDefConditionalEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getElIfConditional()
+  {
+    return elIfConditionalEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getElIfConditional_Expression()
+  {
+    return (EReference)elIfConditionalEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getElIfConditional_Group()
+  {
+    return (EReference)elIfConditionalEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getElseConditional()
+  {
+    return elseConditionalEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getElseConditional_Group()
+  {
+    return (EReference)elseConditionalEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1324,6 +1410,8 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 
     conditionalDirectiveEClass = createEClass(CONDITIONAL_DIRECTIVE);
     createEReference(conditionalDirectiveEClass, CONDITIONAL_DIRECTIVE__CONDITIONAL);
+    createEReference(conditionalDirectiveEClass, CONDITIONAL_DIRECTIVE__ELIFS);
+    createEReference(conditionalDirectiveEClass, CONDITIONAL_DIRECTIVE__ELSE);
 
     ifConditionalEClass = createEClass(IF_CONDITIONAL);
     createEReference(ifConditionalEClass, IF_CONDITIONAL__EXPRESSION);
@@ -1336,6 +1424,13 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
     ifNotDefConditionalEClass = createEClass(IF_NOT_DEF_CONDITIONAL);
     createEAttribute(ifNotDefConditionalEClass, IF_NOT_DEF_CONDITIONAL__ID);
     createEReference(ifNotDefConditionalEClass, IF_NOT_DEF_CONDITIONAL__GROUP);
+
+    elIfConditionalEClass = createEClass(EL_IF_CONDITIONAL);
+    createEReference(elIfConditionalEClass, EL_IF_CONDITIONAL__EXPRESSION);
+    createEReference(elIfConditionalEClass, EL_IF_CONDITIONAL__GROUP);
+
+    elseConditionalEClass = createEClass(ELSE_CONDITIONAL);
+    createEReference(elseConditionalEClass, ELSE_CONDITIONAL__GROUP);
 
     pragmaDirectiveEClass = createEClass(PRAGMA_DIRECTIVE);
 
@@ -1504,6 +1599,8 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 
     initEClass(conditionalDirectiveEClass, ConditionalDirective.class, "ConditionalDirective", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getConditionalDirective_Conditional(), ecorePackage.getEObject(), null, "conditional", null, 0, 1, ConditionalDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getConditionalDirective_Elifs(), this.getElIfConditional(), null, "elifs", null, 0, -1, ConditionalDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getConditionalDirective_Else(), this.getElseConditional(), null, "else", null, 0, 1, ConditionalDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(ifConditionalEClass, IfConditional.class, "IfConditional", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getIfConditional_Expression(), this.getShadowExpression(), null, "expression", null, 0, 1, IfConditional.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1516,6 +1613,13 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
     initEClass(ifNotDefConditionalEClass, IfNotDefConditional.class, "IfNotDefConditional", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getIfNotDefConditional_Id(), ecorePackage.getEString(), "id", null, 0, 1, IfNotDefConditional.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getIfNotDefConditional_Group(), this.getGroupOpt(), null, "group", null, 0, 1, IfNotDefConditional.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(elIfConditionalEClass, ElIfConditional.class, "ElIfConditional", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getElIfConditional_Expression(), this.getShadowExpression(), null, "expression", null, 0, 1, ElIfConditional.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getElIfConditional_Group(), this.getGroupOpt(), null, "group", null, 0, 1, ElIfConditional.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(elseConditionalEClass, ElseConditional.class, "ElseConditional", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getElseConditional_Group(), this.getGroupOpt(), null, "group", null, 0, 1, ElseConditional.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(pragmaDirectiveEClass, PragmaDirective.class, "PragmaDirective", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

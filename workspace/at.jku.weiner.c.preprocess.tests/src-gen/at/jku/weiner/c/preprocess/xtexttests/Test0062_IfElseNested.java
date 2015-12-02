@@ -39,7 +39,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import at.jku.weiner.c.preprocess.tests.PreprocessInjectorProvider;
 import at.jku.weiner.c.preprocess.parser.antlr.PreprocessParser;
-import at.jku.weiner.c.preprocess.parser.antlr.lexer.InternalPreprocessLexer;
+import at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer;
 import at.jku.weiner.c.preprocess.xtexttests.LexerAndParserTest;
 
 import at.jku.weiner.c.preprocess.preprocess.Model;
@@ -663,7 +663,7 @@ public class Test0062_IfElseNested {
 		 = (Code)Lines_45_list.get(0);
 		Assert.assertNotNull(Code_46_Var
 		);
-		Assert.assertEquals("	void bar();", Code_46_Var
+		Assert.assertEquals("		void bar();", Code_46_Var
 		.getCode());
 		//46
 		final ElseConditional ElseConditional_47_Var
@@ -782,7 +782,7 @@ public class Test0062_IfElseNested {
 		final EList<? extends EObject> Expr_61_list = RelationalExpression_61_Var
 		.getExpr();
 		Assert.assertNotNull(Expr_61_list);
-		Assert.assertEquals(1, Expr_61_list.size());
+		Assert.assertEquals(2, Expr_61_list.size());
 		//61
 		final ShiftExpression ShiftExpression_62_Var
 		 = (ShiftExpression)Expr_61_list.get(0);
@@ -791,7 +791,7 @@ public class Test0062_IfElseNested {
 		final EList<? extends EObject> Expr_62_list = ShiftExpression_62_Var
 		.getExpr();
 		Assert.assertNotNull(Expr_62_list);
-		Assert.assertEquals(2, Expr_62_list.size());
+		Assert.assertEquals(1, Expr_62_list.size());
 		//62
 		final AdditiveExpression AdditiveExpression_63_Var
 		 = (AdditiveExpression)Expr_62_list.get(0);
@@ -833,13 +833,11 @@ public class Test0062_IfElseNested {
 		.getExpr();
 		Assert.assertNotNull(PrimaryExpression_68_Var
 		);
-		Assert.assertTrue(PrimaryExpression_68_Var
-		.isDefined());
 		Assert.assertEquals("FOO", PrimaryExpression_68_Var
 		.getId());
 		//68
 		final ShiftExpression ShiftExpression_69_Var
-		 = (ShiftExpression)Expr_62_list.get(1);
+		 = (ShiftExpression)Expr_61_list.get(1);
 		Assert.assertNotNull(ShiftExpression_69_Var
 		);
 		final EList<? extends EObject> Expr_69_list = ShiftExpression_69_Var
@@ -904,7 +902,7 @@ public class Test0062_IfElseNested {
 		 = (Code)Lines_76_list.get(0);
 		Assert.assertNotNull(Code_77_Var
 		);
-		Assert.assertEquals("			void bar_64();", Code_77_Var
+		Assert.assertEquals("			void foo_64();", Code_77_Var
 		.getCode());
 		//77
 		final ElseConditional ElseConditional_78_Var

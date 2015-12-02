@@ -3,7 +3,7 @@
 package at.jku.weiner.c.preprocess
 language preprocess
 //----------------------------------------------------------------------
-split-lexer=true
+split-lexer=false
 source file="res/Test0062_IfElseNested.c"
 //----------------------------------------------------------------------
 lexer-tokens
@@ -176,7 +176,7 @@ lexer-tokens
 										(GroupOpt
 											lines+=
 											(Code
-												code++"	void bar();"
+												code++"		void bar();"
 											)
 										)
 									), // end if conditional
@@ -226,29 +226,28 @@ lexer-tokens
 																												(PostfixExpression
 																													expr=
 																													(PrimaryExpression
-																														defined?=true,
 																														id++"FOO"
 																													)
 																												)
 																											)
 																										)
 																									)
-																								),
-																								(ShiftExpression
+																								)
+																							),
+																							(ShiftExpression
+																								expr+=
+																								(AdditiveExpression
 																									expr+=
-																									(AdditiveExpression
+																									(MultiplicativeExpression
 																										expr+=
-																										(MultiplicativeExpression
-																											expr+=
-																											(CastExpression
+																										(CastExpression
+																											expr=
+																											(UnaryExpression
 																												expr=
-																												(UnaryExpression
+																												(PostfixExpression
 																													expr=
-																													(PostfixExpression
-																														expr=
-																														(PrimaryExpression
-																															const++"64"
-																														)
+																													(PrimaryExpression
+																														const++"64"
 																													)
 																												)
 																											)
@@ -269,7 +268,7 @@ lexer-tokens
 														(GroupOpt
 															lines+=
 															(Code
-																code++"			void bar_64();"
+																code++"			void foo_64();"
 															)
 														)
 													), // end if conditional

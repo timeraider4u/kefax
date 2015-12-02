@@ -309,7 +309,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getElseConditionalAccess().getGroupGroupOptParserRuleCall_3_0(), semanticObject.getGroup());
+		feeder.accept(grammarAccess.getElseConditionalAccess().getGroupGroupOptParserRuleCall_6_0(), semanticObject.getGroup());
 		feeder.finish();
 	}
 	

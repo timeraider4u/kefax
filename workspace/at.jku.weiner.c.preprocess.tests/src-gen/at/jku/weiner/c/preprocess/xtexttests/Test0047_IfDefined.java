@@ -39,7 +39,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import at.jku.weiner.c.preprocess.tests.PreprocessInjectorProvider;
 import at.jku.weiner.c.preprocess.parser.antlr.PreprocessParser;
-import at.jku.weiner.c.preprocess.parser.antlr.lexer.InternalPreprocessLexer;
+import at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer;
 import at.jku.weiner.c.preprocess.xtexttests.LexerAndParserTest;
 
 import at.jku.weiner.c.preprocess.preprocess.Model;

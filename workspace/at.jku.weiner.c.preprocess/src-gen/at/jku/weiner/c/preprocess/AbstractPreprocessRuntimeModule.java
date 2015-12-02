@@ -6,7 +6,7 @@ package at.jku.weiner.c.preprocess;
 import at.jku.weiner.c.preprocess.generator.PreprocessGenerator;
 import at.jku.weiner.c.preprocess.parser.antlr.PreprocessAntlrTokenFileProvider;
 import at.jku.weiner.c.preprocess.parser.antlr.PreprocessParser;
-import at.jku.weiner.c.preprocess.parser.antlr.lexer.InternalPreprocessLexer;
+import at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer;
 import at.jku.weiner.c.preprocess.scoping.PreprocessScopeProvider;
 import at.jku.weiner.c.preprocess.serializer.PreprocessSemanticSequencer;
 import at.jku.weiner.c.preprocess.serializer.PreprocessSyntacticSequencer;
@@ -93,37 +93,37 @@ public abstract class AbstractPreprocessRuntimeModule extends DefaultCommonTypes
 		return Serializer.class;
 	}
 	
-	// contributed by org.eclipse.xtext.generator.parser.antlr.ex.rt.AntlrGeneratorFragment
+	// contributed by org.eclipse.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment
 	public Class<? extends IParser> bindIParser() {
 		return PreprocessParser.class;
 	}
 	
-	// contributed by org.eclipse.xtext.generator.parser.antlr.ex.rt.AntlrGeneratorFragment
+	// contributed by org.eclipse.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment
 	public Class<? extends ITokenToStringConverter> bindITokenToStringConverter() {
 		return AntlrTokenToStringConverter.class;
 	}
 	
-	// contributed by org.eclipse.xtext.generator.parser.antlr.ex.rt.AntlrGeneratorFragment
+	// contributed by org.eclipse.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment
 	public Class<? extends IAntlrTokenFileProvider> bindIAntlrTokenFileProvider() {
 		return PreprocessAntlrTokenFileProvider.class;
 	}
 	
-	// contributed by org.eclipse.xtext.generator.parser.antlr.ex.rt.AntlrGeneratorFragment
+	// contributed by org.eclipse.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment
 	public Class<? extends Lexer> bindLexer() {
 		return InternalPreprocessLexer.class;
 	}
 	
-	// contributed by org.eclipse.xtext.generator.parser.antlr.ex.rt.AntlrGeneratorFragment
+	// contributed by org.eclipse.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment
 	public Provider<InternalPreprocessLexer> provideInternalPreprocessLexer() {
-		return org.eclipse.xtext.parser.antlr.LexerProvider.create(at.jku.weiner.c.preprocess.parser.antlr.lexer.InternalPreprocessLexer.class);
+		return org.eclipse.xtext.parser.antlr.LexerProvider.create(at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer.class);
 	}
 	
-	// contributed by org.eclipse.xtext.generator.parser.antlr.ex.rt.AntlrGeneratorFragment
+	// contributed by org.eclipse.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment
 	public void configureRuntimeLexer(Binder binder) {
-		binder.bind(org.eclipse.xtext.parser.antlr.Lexer.class).annotatedWith(com.google.inject.name.Names.named(org.eclipse.xtext.parser.antlr.LexerBindings.RUNTIME)).to(at.jku.weiner.c.preprocess.parser.antlr.lexer.InternalPreprocessLexer.class);
+		binder.bind(org.eclipse.xtext.parser.antlr.Lexer.class).annotatedWith(com.google.inject.name.Names.named(org.eclipse.xtext.parser.antlr.LexerBindings.RUNTIME)).to(at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer.class);
 	}
 	
-	// contributed by org.eclipse.xtext.generator.parser.antlr.ex.rt.AntlrGeneratorFragment
+	// contributed by org.eclipse.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment
 	public Class<? extends ITokenDefProvider> bindITokenDefProvider() {
 		return AntlrTokenDefProvider.class;
 	}

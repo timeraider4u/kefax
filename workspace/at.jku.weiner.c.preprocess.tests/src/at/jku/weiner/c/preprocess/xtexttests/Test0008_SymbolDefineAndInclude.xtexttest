@@ -3,7 +3,7 @@
 package at.jku.weiner.c.preprocess
 language preprocess
 //----------------------------------------------------------------------
-split-lexer=true
+split-lexer=false
 source file="res/Test0008_SymbolDefineAndInclude.c"
 //----------------------------------------------------------------------
 lexer-tokens

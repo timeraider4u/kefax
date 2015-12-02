@@ -33,6 +33,8 @@ import at.jku.weiner.c.preprocess.preprocess.ConstantExpression
 import at.jku.weiner.c.preprocess.preprocess.ElseConditional
 import org.eclipse.emf.common.util.EList
 import at.jku.weiner.c.preprocess.preprocess.ElIfConditional
+import java.util.Map
+import java.util.TreeMap
 
 /**
  * Generates code from your model files on save.
@@ -44,8 +46,10 @@ class PreprocessGenerator implements IGenerator {
 	@Accessors String fileName = 'greetings.txt';
 	@Accessors boolean legacyMode = true;
 	
+	Integer currKey = 0;
 	ResourceSet rs;
 	URI uri;
+	Map<Integer, Boolean> conditionals = new TreeMap<Integer, Boolean>();
 	
 	override void doGenerate(Resource input, IFileSystemAccess fsa) {
 		rs = input.resourceSet;
@@ -137,61 +141,85 @@ class PreprocessGenerator implements IGenerator {
 	}
 	
 	def String outputFor(ConditionalDirective obj) {
+		val Integer newKey = this.currKey++;
+		val StringBuffer result = new StringBuffer(""); 
+		
+		this.conditionals.put(newKey, false);
 		if (obj.conditional instanceof IfConditional) {
-			return outputFor(obj.conditional as IfConditional);
+			result.append(outputFor(newKey, obj.conditional as IfConditional));
 		}
 		if (obj.conditional instanceof IfDefConditional) {
-			return outputFor(obj.conditional as IfDefConditional); 
+			result.append(outputFor(newKey, obj.conditional as IfDefConditional)); 
 		}
 		if (obj.conditional instanceof IfNotDefConditional) {
-			return outputFor(obj.conditional as IfNotDefConditional); 
+			result.append(outputFor(newKey, obj.conditional as IfNotDefConditional)); 
 		}
-		outputFor(obj.getElifs());
-		outputFor(obj.getElse());
-		return "";
+		result.append(outputFor(newKey, obj.getElifs()));
+		result.append(outputFor(newKey, obj.getElse()));
+		this.conditionals.remove(newKey);
+		return result.toString();
 	}
 	
-	def String outputFor(IfConditional obj) {
-		if (ExpressionEvaluation.evaluateFor(obj.expression as ConstantExpression)) {
-			return outputFor(obj.group).trim();
-		}
-		return "";
-	}
-	
-	def String outputFor(IfDefConditional obj) {
+	def String outputFor(Integer conditionalDirective, IfDefConditional obj) {
 		if (DefinitionTable.isDefined(obj.id)) {
+			conditionals.put(conditionalDirective, true);
 			return outputFor(obj.group).trim();
 		}
 		return "";
 	}
 	
-	def String outputFor(IfNotDefConditional obj) {
+	def String outputFor(Integer conditionalDirective, IfNotDefConditional obj) {
 		if (!(DefinitionTable.isDefined(obj.id))) {
+			conditionals.put(conditionalDirective, true);
 			return outputFor(obj.group).trim();
 		}
 		return "";
 	}
 	
-	def String outputFor(EList<ElIfConditional> obj) {
+	def String outputFor(Integer conditionalDirective, IfConditional obj) {
+		if (ExpressionEvaluation.evaluateFor(obj.expression as ConstantExpression)) {
+			conditionals.put(conditionalDirective, true);
+			return outputFor(obj.group).trim();
+		}
+		return "";
+	}
+	
+	def String outputFor(Integer conditionalDirective, EList<ElIfConditional> obj) {
 		if (obj == null) {
+ 			return "";
+ 		}
+ 		val boolean condition =  conditionals.get(conditionalDirective);
+ 		if (condition) {
  			return "";
  		}
  		val StringBuffer result = new StringBuffer(""); 
  		for (ElIfConditional cond : obj) {
- 			result.append(outputFor(cond));
+ 			result.append(outputFor(conditionalDirective, cond));
  		}
  		return result.toString();
  	}
  	
- 	def String outputFor(ElIfConditional obj) {
+ 	def String outputFor(Integer conditionalDirective, ElIfConditional obj) {
+ 		val boolean condition =  conditionals.get(conditionalDirective);
+ 		if (condition) {
+ 			return "";
+ 		}
+ 		if (ExpressionEvaluation.evaluateFor(obj.expression as ConstantExpression)) {
+			conditionals.put(conditionalDirective, true);
+			return outputFor(obj.group).trim();
+		}
  		return "";
  	}
 	
-	def String outputFor(ElseConditional obj) {
+	def String outputFor(Integer conditionalDirective, ElseConditional obj) {
+		val boolean condition =  conditionals.get(conditionalDirective);
+ 		if (condition) {
+ 			return "";
+ 		}
 		if (obj== null) {
 			return "";
 		}
-		
+		return outputFor(obj.group).trim();
 	}
 	
 	def String outputFor(ErrorDirective obj) '''

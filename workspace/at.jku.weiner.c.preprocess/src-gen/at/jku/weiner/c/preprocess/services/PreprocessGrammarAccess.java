@@ -498,20 +498,22 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cElifsElIfConditionalParserRuleCall_2_0 = (RuleCall)cElifsAssignment_2.eContents().get(0);
 		private final Assignment cElseAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cElseElseConditionalParserRuleCall_3_0 = (RuleCall)cElseAssignment_3.eContents().get(0);
-		private final RuleCall cHASHTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
-		private final RuleCall cENDIFTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
-		private final RuleCall cWSTerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Group cGroup_4_0 = (Group)cGroup_4.eContents().get(0);
+		private final RuleCall cHASHTerminalRuleCall_4_0_0 = (RuleCall)cGroup_4_0.eContents().get(0);
+		private final RuleCall cENDIFTerminalRuleCall_4_0_1 = (RuleCall)cGroup_4_0.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
 		
 		//ConditionalDirective:
 		//	{ConditionalDirective} conditional=(IfConditional
 		//	| IfDefConditional
 		//	| IfNotDefConditional) elifs+=ElIfConditional*
 		//	else=ElseConditional?
-		//	HASH ENDIF WS*;
+		//	=> (HASH ENDIF) WS*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{ConditionalDirective} conditional=(IfConditional | IfDefConditional | IfNotDefConditional) elifs+=ElIfConditional*
-		//else=ElseConditional? HASH ENDIF WS*
+		//else=ElseConditional? => (HASH ENDIF) WS*
 		public Group getGroup() { return cGroup; }
 		
 		//{ConditionalDirective}
@@ -544,14 +546,20 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//ElseConditional
 		public RuleCall getElseElseConditionalParserRuleCall_3_0() { return cElseElseConditionalParserRuleCall_3_0; }
 		
+		//=> (HASH ENDIF)
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//(HASH ENDIF)
+		public Group getGroup_4_0() { return cGroup_4_0; }
+		
 		//HASH
-		public RuleCall getHASHTerminalRuleCall_4() { return cHASHTerminalRuleCall_4; }
+		public RuleCall getHASHTerminalRuleCall_4_0_0() { return cHASHTerminalRuleCall_4_0_0; }
 		
 		//ENDIF
-		public RuleCall getENDIFTerminalRuleCall_5() { return cENDIFTerminalRuleCall_5; }
+		public RuleCall getENDIFTerminalRuleCall_4_0_1() { return cENDIFTerminalRuleCall_4_0_1; }
 		
 		//WS*
-		public RuleCall getWSTerminalRuleCall_6() { return cWSTerminalRuleCall_6; }
+		public RuleCall getWSTerminalRuleCall_5() { return cWSTerminalRuleCall_5; }
 	}
 	public class IfConditionalElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.IfConditional");
@@ -689,84 +697,53 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.ElIfConditional");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cElIfConditionalAction_0 = (Action)cGroup.eContents().get(0);
-		private final RuleCall cHASHTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cGroup_1.eContents().get(0);
+		private final RuleCall cHASHTerminalRuleCall_1_0_0 = (RuleCall)cGroup_1_0.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_1_0_1 = (RuleCall)cGroup_1_0.eContents().get(1);
+		private final RuleCall cELIFTerminalRuleCall_1_0_2 = (RuleCall)cGroup_1_0.eContents().get(2);
 		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
-		private final RuleCall cELIFTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
-		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
-		private final Assignment cExpressionAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cExpressionShadowExpressionParserRuleCall_5_0 = (RuleCall)cExpressionAssignment_5.eContents().get(0);
-		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
-		private final Assignment cGroupAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cGroupGroupOptParserRuleCall_7_0 = (RuleCall)cGroupAssignment_7.eContents().get(0);
+		private final Assignment cExpressionAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cExpressionShadowExpressionParserRuleCall_3_0 = (RuleCall)cExpressionAssignment_3.eContents().get(0);
+		private final RuleCall cNEWLINETerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final Assignment cGroupAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cGroupGroupOptParserRuleCall_5_0 = (RuleCall)cGroupAssignment_5.eContents().get(0);
 		
 		//ElIfConditional:
-		//	{ElIfConditional} HASH WS* ELIF WS+ expression=ShadowExpression NEWLINE
+		//	{ElIfConditional}
+		//	=> (HASH WS* ELIF) WS+ expression=ShadowExpression NEWLINE
 		//	group=GroupOpt;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{ElIfConditional} HASH WS* ELIF WS+ expression=ShadowExpression NEWLINE group=GroupOpt
+		//{ElIfConditional} => (HASH WS* ELIF) WS+ expression=ShadowExpression NEWLINE group=GroupOpt
 		public Group getGroup() { return cGroup; }
 		
 		//{ElIfConditional}
 		public Action getElIfConditionalAction_0() { return cElIfConditionalAction_0; }
 		
+		//=> (HASH WS* ELIF)
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//(HASH WS* ELIF)
+		public Group getGroup_1_0() { return cGroup_1_0; }
+		
 		//HASH
-		public RuleCall getHASHTerminalRuleCall_1() { return cHASHTerminalRuleCall_1; }
+		public RuleCall getHASHTerminalRuleCall_1_0_0() { return cHASHTerminalRuleCall_1_0_0; }
 		
 		//WS*
-		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+		public RuleCall getWSTerminalRuleCall_1_0_1() { return cWSTerminalRuleCall_1_0_1; }
 		
 		//ELIF
-		public RuleCall getELIFTerminalRuleCall_3() { return cELIFTerminalRuleCall_3; }
+		public RuleCall getELIFTerminalRuleCall_1_0_2() { return cELIFTerminalRuleCall_1_0_2; }
 		
 		//WS+
-		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
-		
-		//expression=ShadowExpression
-		public Assignment getExpressionAssignment_5() { return cExpressionAssignment_5; }
-		
-		//ShadowExpression
-		public RuleCall getExpressionShadowExpressionParserRuleCall_5_0() { return cExpressionShadowExpressionParserRuleCall_5_0; }
-		
-		//NEWLINE
-		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
-		
-		//group=GroupOpt
-		public Assignment getGroupAssignment_7() { return cGroupAssignment_7; }
-		
-		//GroupOpt
-		public RuleCall getGroupGroupOptParserRuleCall_7_0() { return cGroupGroupOptParserRuleCall_7_0; }
-	}
-	public class ElseConditionalElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.ElseConditional");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cElseConditionalAction_0 = (Action)cGroup.eContents().get(0);
-		private final RuleCall cHASHTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
-		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
-		private final RuleCall cELSETerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
-		private final RuleCall cNEWLINETerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
-		private final Assignment cGroupAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cGroupGroupOptParserRuleCall_5_0 = (RuleCall)cGroupAssignment_5.eContents().get(0);
-		
-		//ElseConditional:
-		//	{ElseConditional} HASH WS* ELSE NEWLINE
-		//	group=GroupOpt;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{ElseConditional} HASH WS* ELSE NEWLINE group=GroupOpt
-		public Group getGroup() { return cGroup; }
-		
-		//{ElseConditional}
-		public Action getElseConditionalAction_0() { return cElseConditionalAction_0; }
-		
-		//HASH
-		public RuleCall getHASHTerminalRuleCall_1() { return cHASHTerminalRuleCall_1; }
-		
-		//WS*
 		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
 		
-		//ELSE
-		public RuleCall getELSETerminalRuleCall_3() { return cELSETerminalRuleCall_3; }
+		//expression=ShadowExpression
+		public Assignment getExpressionAssignment_3() { return cExpressionAssignment_3; }
+		
+		//ShadowExpression
+		public RuleCall getExpressionShadowExpressionParserRuleCall_3_0() { return cExpressionShadowExpressionParserRuleCall_3_0; }
 		
 		//NEWLINE
 		public RuleCall getNEWLINETerminalRuleCall_4() { return cNEWLINETerminalRuleCall_4; }
@@ -776,6 +753,55 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//GroupOpt
 		public RuleCall getGroupGroupOptParserRuleCall_5_0() { return cGroupGroupOptParserRuleCall_5_0; }
+	}
+	public class ElseConditionalElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.ElseConditional");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cElseConditionalAction_0 = (Action)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cGroup_1.eContents().get(0);
+		private final RuleCall cHASHTerminalRuleCall_1_0_0 = (RuleCall)cGroup_1_0.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_1_0_1 = (RuleCall)cGroup_1_0.eContents().get(1);
+		private final RuleCall cELSETerminalRuleCall_1_0_2 = (RuleCall)cGroup_1_0.eContents().get(2);
+		private final RuleCall cNEWLINETerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cGroupAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cGroupGroupOptParserRuleCall_3_0 = (RuleCall)cGroupAssignment_3.eContents().get(0);
+		
+		//ElseConditional:
+		//	{ElseConditional}
+		//	=> (HASH WS* ELSE) NEWLINE
+		//	group=GroupOpt;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{ElseConditional} => (HASH WS* ELSE) NEWLINE group=GroupOpt
+		public Group getGroup() { return cGroup; }
+		
+		//{ElseConditional}
+		public Action getElseConditionalAction_0() { return cElseConditionalAction_0; }
+		
+		//=> (HASH WS* ELSE)
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//(HASH WS* ELSE)
+		public Group getGroup_1_0() { return cGroup_1_0; }
+		
+		//HASH
+		public RuleCall getHASHTerminalRuleCall_1_0_0() { return cHASHTerminalRuleCall_1_0_0; }
+		
+		//WS*
+		public RuleCall getWSTerminalRuleCall_1_0_1() { return cWSTerminalRuleCall_1_0_1; }
+		
+		//ELSE
+		public RuleCall getELSETerminalRuleCall_1_0_2() { return cELSETerminalRuleCall_1_0_2; }
+		
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_2() { return cNEWLINETerminalRuleCall_2; }
+		
+		//group=GroupOpt
+		public Assignment getGroupAssignment_3() { return cGroupAssignment_3; }
+		
+		//GroupOpt
+		public RuleCall getGroupGroupOptParserRuleCall_3_0() { return cGroupGroupOptParserRuleCall_3_0; }
 	}
 	public class PragmaDirectiveElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.PragmaDirective");
@@ -2324,7 +2350,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//	| IfDefConditional
 	//	| IfNotDefConditional) elifs+=ElIfConditional*
 	//	else=ElseConditional?
-	//	HASH ENDIF WS*;
+	//	=> (HASH ENDIF) WS*;
 	public ConditionalDirectiveElements getConditionalDirectiveAccess() {
 		return pConditionalDirective;
 	}
@@ -2367,7 +2393,8 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ElIfConditional:
-	//	{ElIfConditional} HASH WS* ELIF WS+ expression=ShadowExpression NEWLINE
+	//	{ElIfConditional}
+	//	=> (HASH WS* ELIF) WS+ expression=ShadowExpression NEWLINE
 	//	group=GroupOpt;
 	public ElIfConditionalElements getElIfConditionalAccess() {
 		return pElIfConditional;
@@ -2378,7 +2405,8 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ElseConditional:
-	//	{ElseConditional} HASH WS* ELSE NEWLINE
+	//	{ElseConditional}
+	//	=> (HASH WS* ELSE) NEWLINE
 	//	group=GroupOpt;
 	public ElseConditionalElements getElseConditionalAccess() {
 		return pElseConditional;

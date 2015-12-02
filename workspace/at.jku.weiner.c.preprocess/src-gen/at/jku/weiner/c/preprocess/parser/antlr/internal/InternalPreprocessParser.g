@@ -1007,17 +1007,17 @@ ruleConditionalDirective returns [EObject current=null]
 	    }
 
 )
-)?this_HASH_4=RULE_HASH
+)?(((RULE_HASHRULE_ENDIF))=>(this_HASH_4=RULE_HASH
     { 
-    newLeafNode(this_HASH_4, grammarAccess.getConditionalDirectiveAccess().getHASHTerminalRuleCall_4()); 
+    newLeafNode(this_HASH_4, grammarAccess.getConditionalDirectiveAccess().getHASHTerminalRuleCall_4_0_0()); 
     }
 this_ENDIF_5=RULE_ENDIF
     { 
-    newLeafNode(this_ENDIF_5, grammarAccess.getConditionalDirectiveAccess().getENDIFTerminalRuleCall_5()); 
+    newLeafNode(this_ENDIF_5, grammarAccess.getConditionalDirectiveAccess().getENDIFTerminalRuleCall_4_0_1()); 
     }
-(this_WS_6=RULE_WS
+))(this_WS_6=RULE_WS
     { 
-    newLeafNode(this_WS_6, grammarAccess.getConditionalDirectiveAccess().getWSTerminalRuleCall_6()); 
+    newLeafNode(this_WS_6, grammarAccess.getConditionalDirectiveAccess().getWSTerminalRuleCall_5()); 
     }
 )*)
 ;
@@ -1283,26 +1283,26 @@ ruleElIfConditional returns [EObject current=null]
             grammarAccess.getElIfConditionalAccess().getElIfConditionalAction_0(),
             $current);
     }
-)this_HASH_1=RULE_HASH
+)(((RULE_HASH(RULE_WS)*RULE_ELIF))=>(this_HASH_1=RULE_HASH
     { 
-    newLeafNode(this_HASH_1, grammarAccess.getElIfConditionalAccess().getHASHTerminalRuleCall_1()); 
+    newLeafNode(this_HASH_1, grammarAccess.getElIfConditionalAccess().getHASHTerminalRuleCall_1_0_0()); 
     }
 (this_WS_2=RULE_WS
     { 
-    newLeafNode(this_WS_2, grammarAccess.getElIfConditionalAccess().getWSTerminalRuleCall_2()); 
+    newLeafNode(this_WS_2, grammarAccess.getElIfConditionalAccess().getWSTerminalRuleCall_1_0_1()); 
     }
 )*this_ELIF_3=RULE_ELIF
     { 
-    newLeafNode(this_ELIF_3, grammarAccess.getElIfConditionalAccess().getELIFTerminalRuleCall_3()); 
+    newLeafNode(this_ELIF_3, grammarAccess.getElIfConditionalAccess().getELIFTerminalRuleCall_1_0_2()); 
     }
-(this_WS_4=RULE_WS
+))(this_WS_4=RULE_WS
     { 
-    newLeafNode(this_WS_4, grammarAccess.getElIfConditionalAccess().getWSTerminalRuleCall_4()); 
+    newLeafNode(this_WS_4, grammarAccess.getElIfConditionalAccess().getWSTerminalRuleCall_2()); 
     }
 )+(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getElIfConditionalAccess().getExpressionShadowExpressionParserRuleCall_5_0()); 
+	        newCompositeNode(grammarAccess.getElIfConditionalAccess().getExpressionShadowExpressionParserRuleCall_3_0()); 
 	    }
 		lv_expression_5_0=ruleShadowExpression		{
 	        if ($current==null) {
@@ -1319,12 +1319,12 @@ ruleElIfConditional returns [EObject current=null]
 )
 )this_NEWLINE_6=RULE_NEWLINE
     { 
-    newLeafNode(this_NEWLINE_6, grammarAccess.getElIfConditionalAccess().getNEWLINETerminalRuleCall_6()); 
+    newLeafNode(this_NEWLINE_6, grammarAccess.getElIfConditionalAccess().getNEWLINETerminalRuleCall_4()); 
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getElIfConditionalAccess().getGroupGroupOptParserRuleCall_7_0()); 
+	        newCompositeNode(grammarAccess.getElIfConditionalAccess().getGroupGroupOptParserRuleCall_5_0()); 
 	    }
 		lv_group_7_0=ruleGroupOpt		{
 	        if ($current==null) {
@@ -1369,26 +1369,26 @@ ruleElseConditional returns [EObject current=null]
             grammarAccess.getElseConditionalAccess().getElseConditionalAction_0(),
             $current);
     }
-)this_HASH_1=RULE_HASH
+)(((RULE_HASH(RULE_WS)*RULE_ELSE))=>(this_HASH_1=RULE_HASH
     { 
-    newLeafNode(this_HASH_1, grammarAccess.getElseConditionalAccess().getHASHTerminalRuleCall_1()); 
+    newLeafNode(this_HASH_1, grammarAccess.getElseConditionalAccess().getHASHTerminalRuleCall_1_0_0()); 
     }
 (this_WS_2=RULE_WS
     { 
-    newLeafNode(this_WS_2, grammarAccess.getElseConditionalAccess().getWSTerminalRuleCall_2()); 
+    newLeafNode(this_WS_2, grammarAccess.getElseConditionalAccess().getWSTerminalRuleCall_1_0_1()); 
     }
 )*this_ELSE_3=RULE_ELSE
     { 
-    newLeafNode(this_ELSE_3, grammarAccess.getElseConditionalAccess().getELSETerminalRuleCall_3()); 
+    newLeafNode(this_ELSE_3, grammarAccess.getElseConditionalAccess().getELSETerminalRuleCall_1_0_2()); 
     }
-this_NEWLINE_4=RULE_NEWLINE
+))this_NEWLINE_4=RULE_NEWLINE
     { 
-    newLeafNode(this_NEWLINE_4, grammarAccess.getElseConditionalAccess().getNEWLINETerminalRuleCall_4()); 
+    newLeafNode(this_NEWLINE_4, grammarAccess.getElseConditionalAccess().getNEWLINETerminalRuleCall_2()); 
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getElseConditionalAccess().getGroupGroupOptParserRuleCall_5_0()); 
+	        newCompositeNode(grammarAccess.getElseConditionalAccess().getGroupGroupOptParserRuleCall_3_0()); 
 	    }
 		lv_group_5_0=ruleGroupOpt		{
 	        if ($current==null) {

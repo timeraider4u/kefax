@@ -292,8 +292,8 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getElIfConditionalAccess().getExpressionShadowExpressionParserRuleCall_5_0(), semanticObject.getExpression());
-		feeder.accept(grammarAccess.getElIfConditionalAccess().getGroupGroupOptParserRuleCall_7_0(), semanticObject.getGroup());
+		feeder.accept(grammarAccess.getElIfConditionalAccess().getExpressionShadowExpressionParserRuleCall_3_0(), semanticObject.getExpression());
+		feeder.accept(grammarAccess.getElIfConditionalAccess().getGroupGroupOptParserRuleCall_5_0(), semanticObject.getGroup());
 		feeder.finish();
 	}
 	
@@ -309,7 +309,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getElseConditionalAccess().getGroupGroupOptParserRuleCall_5_0(), semanticObject.getGroup());
+		feeder.accept(grammarAccess.getElseConditionalAccess().getGroupGroupOptParserRuleCall_3_0(), semanticObject.getGroup());
 		feeder.finish();
 	}
 	

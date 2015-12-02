@@ -4,7 +4,7 @@
     editorDirectory="/at.jku.weiner.c.common.editor/src" modelPluginID="at.jku.weiner.c.common"
     forceOverwrite="true" modelName="Common" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="6.0" copyrightFields="false" editPluginID="at.jku.weiner.c.common.edit"
-    editorPluginID="at.jku.weiner.c.common.editor" runtimeVersion="2.11">
+    editorPluginID="at.jku.weiner.c.common.editor" runtimeVersion="2.10">
   <genPackages prefix="Common" basePackage="at.jku.weiner.c" disposableProviderFactory="true"
       fileExtensions="c,h" ecorePackage="Common.ecore#/">
     <genClasses ecoreClass="Common.ecore#//Common"/>

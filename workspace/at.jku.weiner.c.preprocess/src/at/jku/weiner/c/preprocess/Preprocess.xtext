@@ -119,7 +119,7 @@ ConditionalDirective:
 	)
 	(elifs+=ElIfConditional)*
 	(else=ElseConditional)?
-	HASH ENDIF WS*
+	=>(HASH ENDIF) WS*
 ;
 
 IfConditional:
@@ -142,13 +142,13 @@ IfNotDefConditional:
 
 ElIfConditional:
 	{ElIfConditional}
-	HASH WS* ELIF WS+ expression=ShadowExpression NEWLINE
+	=>(HASH WS* ELIF) WS+ expression=ShadowExpression NEWLINE
 		group=GroupOpt
 ;
 
 ElseConditional:
 	{ElseConditional}
-	HASH WS* ELSE NEWLINE
+	=>(HASH WS* ELSE) NEWLINE
 		group=GroupOpt
 ;
 

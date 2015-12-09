@@ -15,8 +15,7 @@ Require-Bundle: org.eclipse.xtext,
  org.eclipse.xtend.lib,
  org.eclipse.emf.common,
  org.eclipse.xtext.common.types,
- org.eclipse.xtext.xbase.lib,
- org.eclipse.emf.ecore.xmi.source;bundle-version="2.11.0"
+ org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: at.jku.weiner.c.common,
  at.jku.weiner.c.common.common,

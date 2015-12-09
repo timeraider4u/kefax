@@ -8,7 +8,7 @@
 			class="at.jku.weiner.c.preprocess.ui.PreprocessExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
 			contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
 			default="true"
-			extensions="c,h"
+			extensions="c.preprocess"
 			id="at.jku.weiner.c.preprocess.Preprocess"
 			name=" Editor">
 		</editor>
@@ -212,27 +212,13 @@
 		point="org.eclipse.emf.ecore.extension_parser">
 		<parser
 			class="at.jku.weiner.c.preprocess.ui.PreprocessExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
-			type="c">
+			type="c.preprocess">
 		</parser>
 	</extension>
 	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
 	    <resourceServiceProvider
 	        class="at.jku.weiner.c.preprocess.ui.PreprocessExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
-	        uriExtension="c">
-	    </resourceServiceProvider>
-	</extension>
-	
-	<extension
-		point="org.eclipse.emf.ecore.extension_parser">
-		<parser
-			class="at.jku.weiner.c.preprocess.ui.PreprocessExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
-			type="h">
-		</parser>
-	</extension>
-	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
-	    <resourceServiceProvider
-	        class="at.jku.weiner.c.preprocess.ui.PreprocessExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
-	        uriExtension="h">
+	        uriExtension="c.preprocess">
 	    </resourceServiceProvider>
 	</extension>
 	
@@ -262,7 +248,7 @@
 	<extension point="org.eclipse.xtext.builder.participant">
 		<participant
 			class="at.jku.weiner.c.preprocess.ui.PreprocessExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant"
-			fileExtensions="c,h">
+			fileExtensions="c.preprocess">
 		</participant>
 	</extension>
 	<extension point="org.eclipse.ui.preferencePages">
@@ -410,30 +396,25 @@
 	<extension point="org.eclipse.compare.contentViewers">
 	<viewer id="at.jku.weiner.c.preprocess.Preprocess.compare.contentViewers"
 	        class="at.jku.weiner.c.preprocess.ui.PreprocessExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-	        extensions="c,h">
+	        extensions="c.preprocess">
 	</viewer>
 	</extension>
 	<extension point="org.eclipse.compare.contentMergeViewers">
 	<viewer id="at.jku.weiner.c.preprocess.Preprocess.compare.contentMergeViewers"
 	        class="at.jku.weiner.c.preprocess.ui.PreprocessExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-	        extensions="c,h" label="Preprocess Compare">
+	        extensions="c.preprocess" label="Preprocess Compare">
 	 </viewer>
 	</extension>
 	<extension point="org.eclipse.ui.editors.documentProviders">
 	<provider id="at.jku.weiner.c.preprocess.Preprocess.editors.documentProviders"
 	        class="at.jku.weiner.c.preprocess.ui.PreprocessExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
-	        extensions="c,h">
+	        extensions="c.preprocess">
 	</provider>
 	</extension>
 	<extension point="org.eclipse.team.core.fileTypes">
 	
 	<fileTypes
-	        extension="c"
-	        type="text">
-	</fileTypes>
-	
-	<fileTypes
-	        extension="h"
+	        extension="c.preprocess"
 	        type="text">
 	</fileTypes>
 	

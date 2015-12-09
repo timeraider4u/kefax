@@ -4,7 +4,6 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.Stack;
 
-import org.antlr.runtime.Token;
 import org.antlr.runtime.TokenStream;
 
 public final class Scope {
@@ -55,8 +54,10 @@ public final class Scope {
 	}
 
 	public static final void removeScope() {
-		Log.log("removeScope='" + Scope.scope.peek().scopeName + "'");
-		Scope.scope.pop();
+		if (Scope.scope.size() > 0) {
+			Log.log("removeScope='" + Scope.scope.peek().scopeName + "'");
+			Scope.scope.pop();
+		}
 		// Scope.setTypedef(false);
 		Log.log("Scope.size()='" + Scope.scope.size() + "'");
 	}

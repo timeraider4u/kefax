@@ -3128,7 +3128,7 @@ ruleEqualityExpression returns [EObject current=null]
        			$current, 
        			"op",
         		lv_op_2_0, 
-        		"at.jku.weiner.c.Common.SKW_EQUAL");
+        		"at.jku.weiner.c.common.Common.SKW_EQUAL");
 	    }
 
 )
@@ -3150,7 +3150,7 @@ ruleEqualityExpression returns [EObject current=null]
        			$current, 
        			"op",
         		lv_op_3_0, 
-        		"at.jku.weiner.c.Common.SKW_NOTEQUAL");
+        		"at.jku.weiner.c.common.Common.SKW_NOTEQUAL");
 	    }
 
 )
@@ -3258,7 +3258,7 @@ ruleRelationalExpression returns [EObject current=null]
        			$current, 
        			"op",
         		lv_op_2_0, 
-        		"at.jku.weiner.c.Common.SKW_LESS");
+        		"at.jku.weiner.c.common.Common.SKW_LESS");
 	    }
 
 )
@@ -3280,7 +3280,7 @@ ruleRelationalExpression returns [EObject current=null]
        			$current, 
        			"op",
         		lv_op_3_0, 
-        		"at.jku.weiner.c.Common.SKW_GREATER");
+        		"at.jku.weiner.c.common.Common.SKW_GREATER");
 	    }
 
 )
@@ -3302,7 +3302,7 @@ ruleRelationalExpression returns [EObject current=null]
        			$current, 
        			"op",
         		lv_op_4_0, 
-        		"at.jku.weiner.c.Common.SKW_LESSEQUAL");
+        		"at.jku.weiner.c.common.Common.SKW_LESSEQUAL");
 	    }
 
 )
@@ -3324,7 +3324,7 @@ ruleRelationalExpression returns [EObject current=null]
        			$current, 
        			"op",
         		lv_op_5_0, 
-        		"at.jku.weiner.c.Common.SKW_GREATEREQUAL");
+        		"at.jku.weiner.c.common.Common.SKW_GREATEREQUAL");
 	    }
 
 )
@@ -3432,7 +3432,7 @@ ruleShiftExpression returns [EObject current=null]
        			$current, 
        			"op",
         		lv_op_2_0, 
-        		"at.jku.weiner.c.Common.SKW_LEFTSHIFT");
+        		"at.jku.weiner.c.common.Common.SKW_LEFTSHIFT");
 	    }
 
 )
@@ -3454,7 +3454,7 @@ ruleShiftExpression returns [EObject current=null]
        			$current, 
        			"op",
         		lv_op_3_0, 
-        		"at.jku.weiner.c.Common.SKW_RIGHTSHIFT");
+        		"at.jku.weiner.c.common.Common.SKW_RIGHTSHIFT");
 	    }
 
 )
@@ -3562,7 +3562,7 @@ ruleAdditiveExpression returns [EObject current=null]
        			$current, 
        			"op",
         		lv_op_2_0, 
-        		"at.jku.weiner.c.Common.SKW_PLUS");
+        		"at.jku.weiner.c.common.Common.SKW_PLUS");
 	    }
 
 )
@@ -3584,7 +3584,7 @@ ruleAdditiveExpression returns [EObject current=null]
        			$current, 
        			"op",
         		lv_op_3_0, 
-        		"at.jku.weiner.c.Common.SKW_MINUS");
+        		"at.jku.weiner.c.common.Common.SKW_MINUS");
 	    }
 
 )
@@ -3692,7 +3692,7 @@ ruleMultiplicativeExpression returns [EObject current=null]
        			$current, 
        			"op",
         		lv_op_2_0, 
-        		"at.jku.weiner.c.Common.SKW_STAR");
+        		"at.jku.weiner.c.common.Common.SKW_STAR");
 	    }
 
 )
@@ -3714,7 +3714,7 @@ ruleMultiplicativeExpression returns [EObject current=null]
        			$current, 
        			"op",
         		lv_op_3_0, 
-        		"at.jku.weiner.c.Common.SKW_DIV");
+        		"at.jku.weiner.c.common.Common.SKW_DIV");
 	    }
 
 )
@@ -3736,7 +3736,7 @@ ruleMultiplicativeExpression returns [EObject current=null]
        			$current, 
        			"op",
         		lv_op_4_0, 
-        		"at.jku.weiner.c.Common.SKW_MOD");
+        		"at.jku.weiner.c.common.Common.SKW_MOD");
 	    }
 
 )
@@ -3991,7 +3991,7 @@ ruleUnaryOperator returns [EObject current=null]
        			$current, 
        			"op",
         		lv_op_1_0, 
-        		"at.jku.weiner.c.Common.SKW_AND");
+        		"at.jku.weiner.c.common.Common.SKW_AND");
 	    }
 
 )
@@ -4015,7 +4015,7 @@ ruleUnaryOperator returns [EObject current=null]
        			$current, 
        			"op",
         		lv_op_2_0, 
-        		"at.jku.weiner.c.Common.SKW_STAR");
+        		"at.jku.weiner.c.common.Common.SKW_STAR");
 	    }
 
 )
@@ -4037,7 +4037,7 @@ ruleUnaryOperator returns [EObject current=null]
        			$current, 
        			"op",
         		lv_op_3_0, 
-        		"at.jku.weiner.c.Common.SKW_PLUS");
+        		"at.jku.weiner.c.common.Common.SKW_PLUS");
 	    }
 
 )
@@ -4059,7 +4059,7 @@ ruleUnaryOperator returns [EObject current=null]
        			$current, 
        			"op",
         		lv_op_4_0, 
-        		"at.jku.weiner.c.Common.SKW_MINUS");
+        		"at.jku.weiner.c.common.Common.SKW_MINUS");
 	    }
 
 )
@@ -4081,7 +4081,7 @@ ruleUnaryOperator returns [EObject current=null]
        			$current, 
        			"op",
         		lv_op_5_0, 
-        		"at.jku.weiner.c.Common.SKW_TILDE");
+        		"at.jku.weiner.c.common.Common.SKW_TILDE");
 	    }
 
 )
@@ -4103,7 +4103,7 @@ ruleUnaryOperator returns [EObject current=null]
        			$current, 
        			"op",
         		lv_op_6_0, 
-        		"at.jku.weiner.c.Common.SKW_NOT");
+        		"at.jku.weiner.c.common.Common.SKW_NOT");
 	    }
 
 )

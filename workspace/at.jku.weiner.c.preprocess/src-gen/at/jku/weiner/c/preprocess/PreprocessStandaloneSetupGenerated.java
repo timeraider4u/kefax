@@ -3,7 +3,7 @@
  */
 package at.jku.weiner.c.preprocess;
 
-import at.jku.weiner.c.CommonStandaloneSetup;
+import at.jku.weiner.c.common.CommonStandaloneSetup;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import org.eclipse.emf.ecore.EPackage;
@@ -42,6 +42,7 @@ public class PreprocessStandaloneSetupGenerated implements ISetup {
 		
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("h", resourceFactory);
 		org.eclipse.xtext.resource.IResourceServiceProvider.Registry.INSTANCE.getExtensionToFactoryMap().put("h", serviceProvider);
+		
 		
 	}
 }

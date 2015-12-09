@@ -1,0 +1,125 @@
+/*
+ [The "BSD licence"]
+ Copyright (c) 2013 Sam Harwell
+ Copyright (c) 2015 Harald Weiner
+ All rights reserved.
+
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ 1. Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+ 2. Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+ 3. The name of the author may not be used to endorse or promote products
+    derived from this software without specific prior written permission.
+
+ THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+ IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+ OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+ INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+ NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+grammar at.jku.weiner.c.common.Common 
+// with org.eclipse.xtext.common.Terminals
+// hidden(LINEBREAK,BLOCK_COMMENT,LINE_COMMENT)
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+generate common "http://www.jku.at/weiner/c/common/Common"
+
+Common:
+	{Common}
+;
+
+// keywords
+
+// special keywords
+SpecialKeywords returns ecore::EString:
+		SKW_AND 
+	|	SKW_ANDAND
+	|	SKW_ASSIGN
+	|	SKW_BACKSLASH
+	|	SKW_CARET
+	|	SKW_COMMA
+	|	SKW_COLON
+	|	SKW_DIV
+	|	SKW_DOT
+	|	SKW_DOUBLEQUOTE
+	|	SKW_EQUAL
+	|	SKW_GREATER
+	|	SKW_GREATEREQUAL
+	|	SKW_LEFTBRACE
+	|	SKW_LEFTBRACKET
+	|	SKW_LEFTPAREN
+	|	SKW_LEFTSHIFT
+	|	SKW_LESS
+	|	SKW_LESSEQUAL
+	|	SKW_MINUS
+	|	SKW_MINUSMINUS
+	|	SKW_MOD
+	|	SKW_NOT
+	|	SKW_NOTEQUAL
+	|	SKW_OR
+	|	SKW_OROR
+	|	SKW_PLUS
+	|	SKW_PLUSPLUS
+	|	SKW_QUESTION
+	|	SKW_RIGHTBRACE
+	|	SKW_RIGHTBRACKET
+	|	SKW_RIGHTPAREN
+	|	SKW_RIGHTSHIFT
+	|	SKW_SEMI
+	|	SKW_SINGLEQUOTE
+	|	SKW_STAR
+	|	SKW_TILDE
+;
+
+// special keywords
+terminal SKW_AND: '&';
+terminal SKW_ANDAND: SKW_AND SKW_AND;
+terminal SKW_ASSIGN: '=';
+terminal SKW_BACKSLASH: '\\';
+terminal SKW_CARET: '^';
+terminal SKW_COMMA: ',';
+terminal SKW_COLON: ':';
+terminal SKW_DIV: '/';
+terminal fragment SKW_DOLLAR: '$';
+terminal SKW_DOT: '.';
+terminal SKW_DOUBLEQUOTE: '"';
+terminal SKW_EQUAL: SKW_ASSIGN SKW_ASSIGN;
+terminal SKW_GREATER: '>';
+terminal SKW_GREATEREQUAL: SKW_GREATER SKW_ASSIGN;
+terminal SKW_LEFTBRACE: '{';
+terminal SKW_LEFTBRACKET: '[';
+terminal SKW_LEFTPAREN: '(';
+terminal SKW_LEFTSHIFT: SKW_LESS SKW_LESS;
+terminal SKW_LESS: '<';
+terminal SKW_LESSEQUAL: SKW_LESS SKW_ASSIGN;
+terminal SKW_MINUS: '-';
+terminal SKW_MINUSMINUS: SKW_MINUS SKW_MINUS;
+terminal SKW_MOD: '%';
+terminal SKW_NOT: '!';
+terminal SKW_NOTEQUAL: SKW_NOT SKW_ASSIGN;
+terminal SKW_OR: '|';
+terminal SKW_OROR: SKW_OR SKW_OR;
+terminal SKW_PLUS: '+';
+terminal SKW_PLUSPLUS: SKW_PLUS SKW_PLUS;
+terminal SKW_QUESTION: '?';
+terminal SKW_RIGHTBRACE: '}';
+terminal SKW_RIGHTBRACKET: ']';
+terminal SKW_RIGHTPAREN: ')';
+terminal SKW_RIGHTSHIFT: SKW_GREATER SKW_GREATER;
+terminal SKW_SEMI: ';';
+terminal SKW_SINGLEQUOTE: '\'';
+terminal SKW_STAR: '*';
+terminal SKW_TILDE: '~';
+terminal fragment SKW_UNDERSCORE: '_';
+
+// for anything else:
+terminal SPECIAL: .;

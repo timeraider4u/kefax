@@ -3,6 +3,7 @@
  */
 package at.jku.weiner.c.parser;
 
+import at.jku.weiner.c.parser.formatting2.ParserFormatter;
 import at.jku.weiner.c.parser.generator.ParserGenerator;
 import at.jku.weiner.c.parser.parser.antlr.ParserAntlrTokenFileProvider;
 import at.jku.weiner.c.parser.parser.antlr.ParserParser;
@@ -20,6 +21,9 @@ import org.eclipse.xtext.Constants;
 import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.common.types.DefaultCommonTypesRuntimeModule;
 import org.eclipse.xtext.common.types.xtext.TypesAwareDefaultGlobalScopeProvider;
+import org.eclipse.xtext.formatting2.FormatterPreferenceValuesProvider;
+import org.eclipse.xtext.formatting2.FormatterPreferences;
+import org.eclipse.xtext.formatting2.IFormatter2;
 import org.eclipse.xtext.generator.IGenerator;
 import org.eclipse.xtext.naming.DefaultDeclarativeQualifiedNameProvider;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
@@ -30,6 +34,7 @@ import org.eclipse.xtext.parser.antlr.AntlrTokenToStringConverter;
 import org.eclipse.xtext.parser.antlr.IAntlrTokenFileProvider;
 import org.eclipse.xtext.parser.antlr.ITokenDefProvider;
 import org.eclipse.xtext.parser.antlr.Lexer;
+import org.eclipse.xtext.preferences.IPreferenceValuesProvider;
 import org.eclipse.xtext.resource.IContainer;
 import org.eclipse.xtext.resource.IResourceDescriptions;
 import org.eclipse.xtext.resource.containers.IAllContainersState;
@@ -157,6 +162,16 @@ public abstract class AbstractParserRuntimeModule extends DefaultCommonTypesRunt
 	// contributed by org.eclipse.xtext.xtext.generator.generator.GeneratorFragment2
 	public Class<? extends IGenerator> bindIGenerator() {
 		return ParserGenerator.class;
+	}
+	
+	// contributed by org.eclipse.xtext.xtext.generator.formatting.Formatter2Fragment2
+	public Class<? extends IFormatter2> bindIFormatter2() {
+		return ParserFormatter.class;
+	}
+	
+	// contributed by org.eclipse.xtext.xtext.generator.formatting.Formatter2Fragment2
+	public void configureFormatterPreferences(Binder binder) {
+		binder.bind(IPreferenceValuesProvider.class).annotatedWith(FormatterPreferences.class).to(FormatterPreferenceValuesProvider.class);
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.builder.BuilderIntegrationFragment2

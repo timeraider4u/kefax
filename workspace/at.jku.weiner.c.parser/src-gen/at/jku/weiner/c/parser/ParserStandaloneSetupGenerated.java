@@ -57,5 +57,6 @@ public class ParserStandaloneSetupGenerated implements ISetup {
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("h", resourceFactory);
 		org.eclipse.xtext.resource.IResourceServiceProvider.Registry.INSTANCE.getExtensionToFactoryMap().put("h", serviceProvider);
 		
+		
 	}
 }

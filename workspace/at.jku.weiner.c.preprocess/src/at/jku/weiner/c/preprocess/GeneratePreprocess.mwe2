@@ -3,6 +3,7 @@ module at.jku.weiner.c.preprocess.GeneratePreprocess
 import org.eclipse.emf.mwe.utils.*
 import org.eclipse.xtext.xtext.generator.*
 import org.eclipse.xtext.generator.*
+import org.eclipse.xtext.ui.generator.*
 
 var projectName = "at.jku.weiner.c.preprocess"
 var projectPath = "../${projectName}"
@@ -18,11 +19,13 @@ Workflow {
     bean = StandaloneSetup {
 		scanClassPath = true
 		projectMapping = { projectName = 'at.jku.weiner.c.preprocess' path = '${projectPath}/../at.jku.weiner.c.preprocess' }
+		projectMapping = { projectName = 'at.jku.weiner.c.preprocess.ui' path = '${projectPath}/../at.jku.weiner.c.preprocess.ui' }
 		projectMapping = { projectName = 'at.jku.weiner.c.preprocess.tests' path = '${projectPath}/../at.jku.weiner.c.preprocess.tests' }
+		projectMapping = { projectName = 'at.jku.weiner.c.preprocess.ui.tests' path = '${projectPath}/../at.jku.weiner.c.preprocess.ui.tests' }
 		// The following two lines can be removed, if Xbase is not used.
 		registerGeneratedEPackage = "org.eclipse.xtext.xbase.XbasePackage"
 		registerGenModelFile = "platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel"
-		registerGeneratedEPackage = "at.jku.weiner.c.common.CommonPackage"
+		registerGeneratedEPackage = "at.jku.weiner.c.common.common.CommonPackage"
 		registerGenModelFile = "platform:/resource/at.jku.weiner.c.common/model/generated/Common.genmodel"
 	}
 	
@@ -30,7 +33,13 @@ Workflow {
 		directory = "${projectPath}/src-gen"
 	}
 	component = DirectoryCleaner {
+		directory = "${projectPath}.ui/src-gen"
+	}
+	component = DirectoryCleaner {
 		directory = "${projectPath}.tests/src-gen/at/jku/weiner/c/preprocess/tests"
+	}
+	component = DirectoryCleaner {
+		directory = "${projectPath}.ui.tests/src-gen"
 	}
 	component = DirectoryCleaner {
 		directory = "${projectPath}/model/generated"
@@ -40,6 +49,7 @@ Workflow {
 		configuration = {
 			project = WizardConfig {
 				runtimeRoot = projectPath
+				// eclipseEditor = false
 				testingSupport = true
 			}
 			code = auto-inject {
@@ -112,56 +122,56 @@ Workflow {
 			fragment = generator.GeneratorFragment2 {}
 
 			// formatter API
-			//fragment = formatting.Formatter2Fragment2 {}
+			fragment = formatting.Formatter2Fragment2 {}
 			
 			fragment = junit.Junit4Fragment2 auto-inject {}
 			
 			fragment = builder.BuilderIntegrationFragment2 auto-inject {}
 			// labeling API
-			//fragment = adapter.FragmentAdapter {
-			//	fragment = labeling.LabelProviderFragment auto-inject {}
-			//}
+			fragment = adapter.FragmentAdapter {
+				fragment = labeling.LabelProviderFragment auto-inject {}
+			}
 			
 			// outline API
-			//fragment = adapter.FragmentAdapter {
-			//	fragment = outline.OutlineTreeProviderFragment auto-inject {}
-			//}
-			//fragment = adapter.FragmentAdapter {
-			//	fragment = outline.QuickOutlineFragment auto-inject {}
-			//}
+			fragment = adapter.FragmentAdapter {
+				fragment = outline.OutlineTreeProviderFragment auto-inject {}
+			}
+			fragment = adapter.FragmentAdapter {
+				fragment = outline.QuickOutlineFragment auto-inject {}
+			}
 			
 			// quickfix API
-			//fragment = adapter.FragmentAdapter {
-			//	fragment = quickfix.QuickfixProviderFragment auto-inject {}
-			//}
+			fragment = adapter.FragmentAdapter {
+				fragment = quickfix.QuickfixProviderFragment auto-inject {}
+			}
 			
 			// content assist API
-			//fragment = adapter.FragmentAdapter {
-			//	fragment = contentAssist.ContentAssistFragment auto-inject {}
-			//}
+			fragment = adapter.FragmentAdapter {
+				fragment = contentAssist.ContentAssistFragment auto-inject {}
+			}
 			
 			// provides a preference page for template proposals
-			//fragment = adapter.FragmentAdapter {
-			//	fragment = templates.CodetemplatesGeneratorFragment auto-inject {}
-			//}
+			fragment = adapter.FragmentAdapter {
+				fragment = templates.CodetemplatesGeneratorFragment auto-inject {}
+			}
 			
 			// rename refactoring
-			//fragment = adapter.FragmentAdapter {
-			//	fragment = refactoring.RefactorElementNameFragment auto-inject {}
-			//}
+			fragment = adapter.FragmentAdapter {
+				fragment = refactoring.RefactorElementNameFragment auto-inject {}
+			}
 			
 			// provides a compare view
-			//fragment = adapter.FragmentAdapter {
-			//	fragment = compare.CompareFragment auto-inject {}
-			//}
+			fragment = adapter.FragmentAdapter {
+				fragment = compare.CompareFragment auto-inject {}
+			}
 			// generates a more lightweight Antlr parser and lexer tailored for content assist
-			//fragment = adapter.FragmentAdapter {
-			//	fragment = parser.antlr.XtextAntlrUiGeneratorFragment auto-inject {
-			//		options = {
-			//			backtrack = true
-			//		}
-			//	}
-			//}
+			fragment = adapter.FragmentAdapter {
+				fragment = parser.antlr.XtextAntlrUiGeneratorFragment auto-inject {
+					options = {
+						backtrack = true
+					}
+				}
+			}
 			
 			// provides the necessary bindings for java types integration
 			fragment = adapter.FragmentAdapter {

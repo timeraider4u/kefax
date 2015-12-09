@@ -3,8 +3,9 @@
  */
 package at.jku.weiner.c.preprocess.serializer;
 
-import at.jku.weiner.c.common.Common;
-import at.jku.weiner.c.common.CommonPackage;
+import at.jku.weiner.c.common.common.Common;
+import at.jku.weiner.c.common.common.CommonPackage;
+import at.jku.weiner.c.common.serializer.CommonSemanticSequencer;
 import at.jku.weiner.c.preprocess.preprocess.AdditiveExpression;
 import at.jku.weiner.c.preprocess.preprocess.AndExpression;
 import at.jku.weiner.c.preprocess.preprocess.CastExpression;
@@ -45,7 +46,6 @@ import at.jku.weiner.c.preprocess.preprocess.UnDefineDirective;
 import at.jku.weiner.c.preprocess.preprocess.UnaryExpression;
 import at.jku.weiner.c.preprocess.preprocess.UnaryOperator;
 import at.jku.weiner.c.preprocess.services.PreprocessGrammarAccess;
-import at.jku.weiner.c.serializer.CommonSemanticSequencer;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import org.eclipse.emf.ecore.EObject;

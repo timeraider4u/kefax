@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.emf.ecore.EPackage;
 
-public class AbstractPreprocessValidator extends at.jku.weiner.c.validation.CommonValidator {
+public class AbstractPreprocessValidator extends at.jku.weiner.c.common.validation.CommonValidator {
 
 	@Override
 	protected List<EPackage> getEPackages() {

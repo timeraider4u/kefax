@@ -48,6 +48,7 @@ Workflow {
 		configuration = {
 			project = WizardConfig {
 				runtimeRoot = projectPath
+				// eclipseEditor = false
 				testingSupport = true
 			}
 			code = auto-inject {

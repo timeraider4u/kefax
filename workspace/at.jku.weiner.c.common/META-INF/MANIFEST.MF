@@ -18,15 +18,16 @@ Require-Bundle: org.eclipse.xtext,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.emf.ecore.xmi.source;bundle-version="2.11.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: at.jku.weiner.c.generator,
- at.jku.weiner.c,
- at.jku.weiner.c.common.util,
- at.jku.weiner.c.serializer,
- at.jku.weiner.c.parser.antlr,
- at.jku.weiner.c.common,
- at.jku.weiner.c.services,
- at.jku.weiner.c.common.impl,
- at.jku.weiner.c.validation,
- at.jku.weiner.c.parser.antlr.internal,
- at.jku.weiner.c.scoping
+Export-Package: at.jku.weiner.c.common,
+ at.jku.weiner.c.common.common,
+ at.jku.weiner.c.common.common.impl,
+ at.jku.weiner.c.common.common.util,
+ at.jku.weiner.c.common.formatting2,
+ at.jku.weiner.c.common.generator,
+ at.jku.weiner.c.common.parser.antlr,
+ at.jku.weiner.c.common.parser.antlr.internal,
+ at.jku.weiner.c.common.scoping,
+ at.jku.weiner.c.common.serializer,
+ at.jku.weiner.c.common.services,
+ at.jku.weiner.c.common.validation
 Import-Package: org.apache.log4j

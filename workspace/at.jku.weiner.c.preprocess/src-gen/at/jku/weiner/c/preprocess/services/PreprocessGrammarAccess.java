@@ -3,7 +3,7 @@
  */
 package at.jku.weiner.c.preprocess.services;
 
-import at.jku.weiner.c.services.CommonGrammarAccess;
+import at.jku.weiner.c.common.services.CommonGrammarAccess;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.util.List;

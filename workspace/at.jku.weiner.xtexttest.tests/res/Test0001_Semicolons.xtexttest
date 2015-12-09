@@ -1,7 +1,7 @@
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------
-package at.jku.weiner.cpreprocess
-language cPreprocess
+package at.jku.weiner.c.preprocess
+language preprocess
 //----------------------------------------------------------------------
 split-lexer=true
 source file="res/Test0001_Semicolons.c"

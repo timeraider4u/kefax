@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.ConstantImpl#getHex <em>Hex</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.ConstantImpl#getOct <em>Oct</em>}</li>
@@ -28,6 +27,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.ConstantImpl#getFloat <em>Float</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.ConstantImpl#getBin <em>Bin</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

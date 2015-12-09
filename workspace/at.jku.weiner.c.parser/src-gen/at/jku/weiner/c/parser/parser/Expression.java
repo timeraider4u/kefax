@@ -13,10 +13,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.Expression#getExprExpr <em>Expr Expr</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.parser.parser.ParserPackage#getExpression()
  * @model

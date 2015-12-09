@@ -26,10 +26,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.ModelImpl#getUnits <em>Units</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

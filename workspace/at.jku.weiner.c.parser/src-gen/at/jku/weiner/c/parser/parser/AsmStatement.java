@@ -11,13 +11,13 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.AsmStatement#getAsm <em>Asm</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.AsmStatement#getVolatile <em>Volatile</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.AsmStatement#getAsmLine <em>Asm Line</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.AsmStatement#getSemi <em>Semi</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.parser.parser.ParserPackage#getAsmStatement()
  * @model

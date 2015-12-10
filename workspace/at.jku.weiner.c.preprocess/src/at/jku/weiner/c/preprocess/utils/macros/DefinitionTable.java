@@ -11,6 +11,8 @@ public final class DefinitionTable {
 
 	public static void reset() {
 		DefinitionTable.macros.clear();
+		// insert pre-defined macros
+
 	}
 
 	public static int size() {

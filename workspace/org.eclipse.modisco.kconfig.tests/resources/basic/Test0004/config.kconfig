@@ -1,0 +1,8 @@
+config OPROFILE
+	tristate "OProfile system profiling"
+
+config HAVE_OPROFILE
+	bool
+
+config KPROBES
+	bool "Kprobes"

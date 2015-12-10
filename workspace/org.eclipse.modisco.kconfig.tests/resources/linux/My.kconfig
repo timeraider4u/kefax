@@ -1,0 +1,34 @@
+config SMP
+	bool
+
+config HOTPLUG
+	bool
+
+config EXPERIMENTAL
+	tristate
+
+config NR_CPUS
+	int "Maximum number o f CPUs (2 −4096) "
+	range 2 4096
+	depends on SMP
+	default "4096"
+	help
+		You should set this to the number of CPUs in your system, but
+		keep in mind that a kernel compiled for, e.g., 2 CPUs will boot but
+		only use 2 CPUs on a >2 CPU system.
+		Setting this to a value larger
+		than 64 will cause the use of a CPU mask array, causing a small
+		performance hit.
+
+config HOTPLUG_CPU
+	bool "Support for hot−pluggable CPUs (EXPERIMENTAL)"
+	depends on SMP && EXPERIMENTAL
+	select HOTPLUG
+	default n
+	---help---
+		Say Y here to experiment with turning CPUs off and on.
+		can be controlled through /sys/devices/system/cpu/cpu#.
+		Say N if you want to disable CPU hotplug.
+
+config ARCH_ENABLE_MEMORY_HOTPLUG
+	def_bool y

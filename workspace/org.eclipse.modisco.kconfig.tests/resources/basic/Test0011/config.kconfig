@@ -1,0 +1,10 @@
+config MYTEST
+	def_bool y
+
+config MYTEST_2
+	def_tristate m
+	default n if MYTEST
+	default n if MYTEST_3
+	
+config MYTEST_3
+	def_bool y if MYTEST

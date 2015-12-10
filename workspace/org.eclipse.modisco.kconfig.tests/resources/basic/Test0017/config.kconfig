@@ -1,0 +1,12 @@
+config IRQ_WORK
+	bool
+
+menu "General setup"
+
+config BROKEN
+	bool
+
+endmenu
+
+config PREEMPT_NOTIFIERS
+	bool

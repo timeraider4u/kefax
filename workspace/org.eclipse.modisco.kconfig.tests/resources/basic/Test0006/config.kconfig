@@ -1,0 +1,20 @@
+config X86
+	bool
+
+config OPROFILE
+	tristate "OProfile system profiling"
+	depends on X86_64
+	help
+	  OProfile is a profiling system capable of profiling the
+	  whole system, include the kernel, kernel modules, libraries,
+	  and applications.
+
+	  If unsure, say N.
+
+config X86_32
+	bool
+	depends on !64BIT
+
+config X86_64
+	bool
+	depends on 64BIT

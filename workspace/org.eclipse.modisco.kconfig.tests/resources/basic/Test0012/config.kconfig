@@ -1,0 +1,7 @@
+config GENTOO_LINUX_UDEV
+	bool
+	select DEVTMPFS
+	select TMPFS
+	select FHANDLE
+	select MMU
+	select SHMEM if DEVTMPFS

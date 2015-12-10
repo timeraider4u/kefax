@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2010 Mia-Software.&#xD;&#xA;   All rights reserved. This program and the accompanying materials&#xD;&#xA;  are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA;  which accompanies this distribution, and is available at&#xD;&#xA;  http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA;  &#xD;&#xA;  Contributors:&#xD;&#xA;  &#xD;&#xA;  &#x9;   Nicolas Guyomar (Mia-Software) - initial API and implementation"
+    modelDirectory="/org.eclipse.modisco.cdt/src" modelPluginID="org.eclipse.modisco.cdt"
+    modelName="CDT" modelPluginClass="" editPluginClass="org.eclipse.modisco.cdt.provider.CdtEditPlugin"
+    editorPluginClass="org.eclipse.modisco.cdt.presentation.CDTEditorPlugin" nonNLSMarkers="true"
+    testSuiteClass="org.eclipse.modisco.cdt.tests.CDTAllTests" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="7.0" copyrightFields="false" pluginKey="CDT">
+  <foreignModel>cdt.ecore</foreignModel>
+  <genPackages prefix="Cdt" basePackage="org.eclipse.modisco" disposableProviderFactory="true"
+      ecorePackage="cdt.ecore#/">
+    <genClasses ecoreClass="cdt.ecore#//Grammar">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdt.ecore#//Grammar/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference cdt.ecore#//Grammar/usedGrammars"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdt.ecore#//Grammar/definesHiddenTokens"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference cdt.ecore#//Grammar/hiddenTokens"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cdt.ecore#//Grammar/metamodelDeclarations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cdt.ecore#//Grammar/rules"/>
+    </genClasses>
+    <genClasses ecoreClass="cdt.ecore#//AbstractRule">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdt.ecore#//AbstractRule/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cdt.ecore#//AbstractRule/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cdt.ecore#//AbstractRule/alternatives"/>
+    </genClasses>
+    <genClasses ecoreClass="cdt.ecore#//AbstractMetamodelDeclaration">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference cdt.ecore#//AbstractMetamodelDeclaration/ePackage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdt.ecore#//AbstractMetamodelDeclaration/alias"/>
+    </genClasses>
+    <genClasses ecoreClass="cdt.ecore#//GeneratedMetamodel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdt.ecore#//GeneratedMetamodel/name"/>
+    </genClasses>
+    <genClasses ecoreClass="cdt.ecore#//ReferencedMetamodel"/>
+    <genClasses ecoreClass="cdt.ecore#//ParserRule">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdt.ecore#//ParserRule/definesHiddenTokens"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference cdt.ecore#//ParserRule/hiddenTokens"/>
+    </genClasses>
+    <genClasses ecoreClass="cdt.ecore#//TypeRef">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference cdt.ecore#//TypeRef/metamodel"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference cdt.ecore#//TypeRef/classifier"/>
+    </genClasses>
+    <genClasses ecoreClass="cdt.ecore#//AbstractElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdt.ecore#//AbstractElement/cardinality"/>
+    </genClasses>
+    <genClasses ecoreClass="cdt.ecore#//Action">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cdt.ecore#//Action/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdt.ecore#//Action/feature"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdt.ecore#//Action/operator"/>
+    </genClasses>
+    <genClasses ecoreClass="cdt.ecore#//Keyword">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdt.ecore#//Keyword/value"/>
+    </genClasses>
+    <genClasses ecoreClass="cdt.ecore#//RuleCall">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference cdt.ecore#//RuleCall/rule"/>
+    </genClasses>
+    <genClasses ecoreClass="cdt.ecore#//Assignment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdt.ecore#//Assignment/feature"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdt.ecore#//Assignment/operator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cdt.ecore#//Assignment/terminal"/>
+    </genClasses>
+    <genClasses ecoreClass="cdt.ecore#//CrossReference">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cdt.ecore#//CrossReference/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cdt.ecore#//CrossReference/terminal"/>
+    </genClasses>
+    <genClasses ecoreClass="cdt.ecore#//TerminalRule"/>
+    <genClasses ecoreClass="cdt.ecore#//AbstractNegatedToken">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cdt.ecore#//AbstractNegatedToken/terminal"/>
+    </genClasses>
+    <genClasses ecoreClass="cdt.ecore#//NegatedToken"/>
+    <genClasses ecoreClass="cdt.ecore#//UntilToken"/>
+    <genClasses ecoreClass="cdt.ecore#//Wildcard"/>
+    <genClasses ecoreClass="cdt.ecore#//EnumRule"/>
+    <genClasses ecoreClass="cdt.ecore#//EnumLiteralDeclaration">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference cdt.ecore#//EnumLiteralDeclaration/enumLiteral"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cdt.ecore#//EnumLiteralDeclaration/literal"/>
+    </genClasses>
+    <genClasses ecoreClass="cdt.ecore#//Alternatives"/>
+    <genClasses ecoreClass="cdt.ecore#//UnorderedGroup"/>
+    <genClasses ecoreClass="cdt.ecore#//Group"/>
+    <genClasses ecoreClass="cdt.ecore#//CharacterRange">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cdt.ecore#//CharacterRange/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cdt.ecore#//CharacterRange/right"/>
+    </genClasses>
+    <genClasses ecoreClass="cdt.ecore#//CompoundElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cdt.ecore#//CompoundElement/elements"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

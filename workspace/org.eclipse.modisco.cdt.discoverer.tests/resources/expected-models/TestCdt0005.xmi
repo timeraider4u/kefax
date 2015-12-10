@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ASCII"?>
+<cdt:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cdt="http://www.eclipse.org/MoDisco/CDT/0.1.incubation/cdt">
+  <statements xsi:type="cdt:Type" name="void"/>
+  <units parent="/" name="functions.h" fullPath="${path}/functions.h">
+    <statements xsi:type="cdt:FunctionDeclaration" name="do1" parent="//@units.0" returnType="//@statements.0"/>
+    <statements xsi:type="cdt:FunctionDeclaration" name="do2" parent="//@units.0" returnType="//@statements.0"/>
+    <statements xsi:type="cdt:FunctionDeclaration" name="do3" parent="//@units.0" returnType="//@statements.0"/>
+    <statements xsi:type="cdt:FunctionDeclaration" name="do4" parent="//@units.0" returnType="//@statements.0"/>
+    <statements xsi:type="cdt:FunctionDeclaration" name="do5" parent="//@units.0" returnType="//@statements.0"/>
+    <statements xsi:type="cdt:FunctionDeclaration" name="do6" parent="//@units.0" returnType="//@statements.0"/>
+  </units>
+  <units parent="/" name="functions.c" fullPath="${path}/functions.c">
+    <statements xsi:type="cdt:PreprocessorIncludeStatement" name="functions.h" path="${workspace}/org.eclipse.modisco.cdt.discoverer.tests/resources/basic/TestCdt0005/functions.h" unit="//@units.0"/>
+    <statements xsi:type="cdt:FunctionDefinition" name="do1" parent="//@units.1" returnType="//@statements.0" functionDeclarations="//@units.0/@statements.0" body="//@units.1/@statements.1/@statements.0">
+      <statements xsi:type="cdt:CompoundStatement" parent="//@units.1/@statements.1"/>
+    </statements>
+    <statements xsi:type="cdt:FunctionDefinition" name="do2" parent="//@units.1" returnType="//@statements.0" functionDeclarations="//@units.0/@statements.1" body="//@units.1/@statements.2/@statements.0">
+      <statements xsi:type="cdt:CompoundStatement" parent="//@units.1/@statements.2"/>
+    </statements>
+    <statements xsi:type="cdt:FunctionDefinition" name="do3" parent="//@units.1" returnType="//@statements.0" functionDeclarations="//@units.0/@statements.2" body="//@units.1/@statements.3/@statements.0">
+      <statements xsi:type="cdt:CompoundStatement" parent="//@units.1/@statements.3"/>
+    </statements>
+    <statements xsi:type="cdt:FunctionDefinition" name="do4" parent="//@units.1" returnType="//@statements.0" functionDeclarations="//@units.0/@statements.3" body="//@units.1/@statements.4/@statements.0">
+      <statements xsi:type="cdt:CompoundStatement" parent="//@units.1/@statements.4"/>
+    </statements>
+    <statements xsi:type="cdt:FunctionDefinition" name="do5" parent="//@units.1" returnType="//@statements.0" functionDeclarations="//@units.0/@statements.4" body="//@units.1/@statements.5/@statements.0">
+      <statements xsi:type="cdt:CompoundStatement" parent="//@units.1/@statements.5"/>
+    </statements>
+    <statements xsi:type="cdt:FunctionDefinition" name="do6" parent="//@units.1" returnType="//@statements.0" functionDeclarations="//@units.0/@statements.5" body="//@units.1/@statements.6/@statements.0">
+      <statements xsi:type="cdt:CompoundStatement" parent="//@units.1/@statements.6"/>
+    </statements>
+  </units>
+</cdt:Model>

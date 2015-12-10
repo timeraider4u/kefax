@@ -1,0 +1,10 @@
+config HAVE_64BIT_ALIGNED_ACCESS
+	def_bool 64BIT || !HAVE_EFFICIENT_UNALIGNED_ACCESS
+
+config KRETPROBES
+	def_bool y
+	depends on KPROBES && HAVE_KRETPROBES
+
+config 64BIT
+	bool "64-bit kernel" if ARCH = "x86"
+	default ARCH != "i386"

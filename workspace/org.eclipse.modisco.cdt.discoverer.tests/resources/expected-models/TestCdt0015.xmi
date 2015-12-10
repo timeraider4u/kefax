@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="ASCII"?>
+<cdt:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cdt="http://www.eclipse.org/MoDisco/CDT/0.1.incubation/cdt">
+  <statements xsi:type="cdt:Type" name="int"/>
+  <statements xsi:type="cdt:Type" name="char"/>
+  <units parent="/" name="test.c" fullPath="${path}/test.c">
+    <statements xsi:type="cdt:FunctionDeclaration" name="doSomething" parent="//@units.0" returnType="//@statements.0" parameters="//@units.0/@statements.0/@statements.0">
+      <statements xsi:type="cdt:Variable" name="a" type="//@statements.0"/>
+    </statements>
+    <statements xsi:type="cdt:FunctionDeclaration" name="doSomething" parent="//@units.0" returnType="//@statements.0" parameters="//@units.0/@statements.1/@statements.0">
+      <statements xsi:type="cdt:Variable" name="b" type="//@statements.0"/>
+    </statements>
+    <statements xsi:type="cdt:FunctionDefinition" name="doSomething" parent="//@units.0" returnType="//@statements.0" parameters="//@units.0/@statements.2/@statements.0" functionDeclarations="//@units.0/@statements.0 //@units.0/@statements.1" body="//@units.0/@statements.2/@statements.1">
+      <statements xsi:type="cdt:Variable" name="a" type="//@statements.0"/>
+      <statements xsi:type="cdt:CompoundStatement" parent="//@units.0/@statements.2">
+        <statements xsi:type="cdt:ReturnStatement">
+          <expression xsi:type="cdt:LiteralExpression" value="0" type="//@statements.0"/>
+        </statements>
+      </statements>
+    </statements>
+    <statements xsi:type="cdt:FunctionDeclaration" name="doSomething" parent="//@units.0" returnType="//@statements.0" parameters="//@units.0/@statements.3/@statements.0">
+      <statements xsi:type="cdt:Variable" name="number" type="//@statements.0"/>
+    </statements>
+    <statements xsi:type="cdt:FunctionDeclaration" name="doSomething2" parent="//@units.0" returnType="//@statements.0" parameters="//@units.0/@statements.4/@statements.0">
+      <statements xsi:type="cdt:Variable" name="a" type="//@statements.0"/>
+    </statements>
+    <statements xsi:type="cdt:FunctionDeclaration" name="doSomething2" parent="//@units.0" returnType="//@statements.0" parameters="//@units.0/@statements.5/@statements.0">
+      <statements xsi:type="cdt:Variable" name="num" type="//@statements.0"/>
+    </statements>
+    <statements xsi:type="cdt:FunctionDefinition" name="doSomething2" parent="//@units.0" returnType="//@statements.0" parameters="//@units.0/@statements.6/@statements.0" functionDeclarations="//@units.0/@statements.4 //@units.0/@statements.5" body="//@units.0/@statements.6/@statements.1">
+      <statements xsi:type="cdt:Variable" name="a" type="//@statements.0"/>
+      <statements xsi:type="cdt:CompoundStatement" parent="//@units.0/@statements.6">
+        <statements xsi:type="cdt:ReturnStatement">
+          <expression xsi:type="cdt:VariableExpression" variable="//@units.0/@statements.6/@statements.0"/>
+        </statements>
+      </statements>
+    </statements>
+    <statements xsi:type="cdt:FunctionDefinition" name="my" parent="//@units.0" returnType="//@statements.0" parameters="//@units.0/@statements.7/@statements.0" body="//@units.0/@statements.7/@statements.1">
+      <statements xsi:type="cdt:Variable" name="a" type="//@statements.0"/>
+      <statements xsi:type="cdt:CompoundStatement" parent="//@units.0/@statements.7">
+        <statements xsi:type="cdt:Variable" name="x" type="//@statements.0"/>
+        <statements xsi:type="cdt:ExpressionStatement">
+          <expression xsi:type="cdt:BinaryExpression" operator="assign">
+            <operand1 xsi:type="cdt:VariableExpression" variable="//@units.0/@statements.7/@statements.1/@statements.0"/>
+            <operand2 xsi:type="cdt:FunctionCallExpression" functionName="doSomething" function="//@units.0/@statements.2">
+              <arguments xsi:type="cdt:LiteralExpression" value="1" type="//@statements.0"/>
+            </operand2>
+          </expression>
+        </statements>
+        <statements xsi:type="cdt:Variable" name="y" type="//@statements.0"/>
+        <statements xsi:type="cdt:ExpressionStatement">
+          <expression xsi:type="cdt:BinaryExpression" operator="assign">
+            <operand1 xsi:type="cdt:VariableExpression" variable="//@units.0/@statements.7/@statements.1/@statements.2"/>
+            <operand2 xsi:type="cdt:FunctionCallExpression" functionName="doSomething2" function="//@units.0/@statements.6">
+              <arguments xsi:type="cdt:VariableExpression" variable="//@units.0/@statements.7/@statements.1/@statements.0"/>
+            </operand2>
+          </expression>
+        </statements>
+        <statements xsi:type="cdt:ReturnStatement">
+          <expression xsi:type="cdt:VariableExpression" variable="//@units.0/@statements.7/@statements.1/@statements.2"/>
+        </statements>
+      </statements>
+    </statements>
+  </units>
+  <units parent="/" name="test.cpp" fullPath="${path}/test.cpp">
+    <statements xsi:type="cdt:FunctionDeclaration" name="doSomething" parent="//@units.1" returnType="//@statements.0" parameters="//@units.1/@statements.0/@statements.0">
+      <statements xsi:type="cdt:Variable" name="a" type="//@statements.0"/>
+    </statements>
+    <statements xsi:type="cdt:FunctionDeclaration" name="doSomething" parent="//@units.1" returnType="//@statements.0" parameters="//@units.1/@statements.1/@statements.0">
+      <statements xsi:type="cdt:Variable" name="b" type="//@statements.0"/>
+    </statements>
+    <statements xsi:type="cdt:FunctionDefinition" name="doSomething" parent="//@units.1" returnType="//@statements.0" parameters="//@units.1/@statements.2/@statements.0" functionDeclarations="//@units.1/@statements.0 //@units.1/@statements.1" body="//@units.1/@statements.2/@statements.1">
+      <statements xsi:type="cdt:Variable" name="a" type="//@statements.0"/>
+      <statements xsi:type="cdt:CompoundStatement" parent="//@units.1/@statements.2">
+        <statements xsi:type="cdt:ReturnStatement">
+          <expression xsi:type="cdt:LiteralExpression" value="0" type="//@statements.0"/>
+        </statements>
+      </statements>
+    </statements>
+    <statements xsi:type="cdt:FunctionDeclaration" name="doSomething" parent="//@units.1" returnType="//@statements.0" parameters="//@units.1/@statements.3/@statements.0">
+      <statements xsi:type="cdt:Variable" name="number" type="//@statements.0"/>
+    </statements>
+    <statements xsi:type="cdt:FunctionDeclaration" name="doSomething2" parent="//@units.1" returnType="//@statements.0" parameters="//@units.1/@statements.4/@statements.0">
+      <statements xsi:type="cdt:Variable" name="a" type="//@statements.0"/>
+    </statements>
+    <statements xsi:type="cdt:FunctionDeclaration" name="doSomething2" parent="//@units.1" returnType="//@statements.0" parameters="//@units.1/@statements.5/@statements.0">
+      <statements xsi:type="cdt:Variable" name="num" type="//@statements.0"/>
+    </statements>
+    <statements xsi:type="cdt:FunctionDeclaration" name="doSomething2" parent="//@units.1" returnType="//@statements.0" parameters="//@units.1/@statements.6/@statements.0">
+      <statements xsi:type="cdt:Variable" name="a" type="//@statements.1"/>
+    </statements>
+    <statements xsi:type="cdt:FunctionDefinition" name="doSomething2" parent="//@units.1" returnType="//@statements.0" parameters="//@units.1/@statements.7/@statements.0" functionDeclarations="//@units.1/@statements.6" body="//@units.1/@statements.7/@statements.1">
+      <statements xsi:type="cdt:Variable" name="a" type="//@statements.1"/>
+      <statements xsi:type="cdt:CompoundStatement" parent="//@units.1/@statements.7">
+        <statements xsi:type="cdt:ReturnStatement">
+          <expression xsi:type="cdt:LiteralExpression" value="0" type="//@statements.0"/>
+        </statements>
+      </statements>
+    </statements>
+    <statements xsi:type="cdt:FunctionDefinition" name="doSomething2" parent="//@units.1" returnType="//@statements.0" parameters="//@units.1/@statements.8/@statements.0" functionDeclarations="//@units.1/@statements.4 //@units.1/@statements.5" body="//@units.1/@statements.8/@statements.1">
+      <statements xsi:type="cdt:Variable" name="a" type="//@statements.0"/>
+      <statements xsi:type="cdt:CompoundStatement" parent="//@units.1/@statements.8">
+        <statements xsi:type="cdt:ReturnStatement">
+          <expression xsi:type="cdt:VariableExpression" variable="//@units.1/@statements.8/@statements.0"/>
+        </statements>
+      </statements>
+    </statements>
+    <statements xsi:type="cdt:FunctionDefinition" name="my" parent="//@units.1" returnType="//@statements.0" parameters="//@units.1/@statements.9/@statements.0" body="//@units.1/@statements.9/@statements.1">
+      <statements xsi:type="cdt:Variable" name="a" type="//@statements.0"/>
+      <statements xsi:type="cdt:CompoundStatement" parent="//@units.1/@statements.9">
+        <statements xsi:type="cdt:Variable" name="x" type="//@statements.0"/>
+        <statements xsi:type="cdt:ExpressionStatement">
+          <expression xsi:type="cdt:BinaryExpression" operator="assign">
+            <operand1 xsi:type="cdt:VariableExpression" variable="//@units.1/@statements.9/@statements.1/@statements.0"/>
+            <operand2 xsi:type="cdt:FunctionCallExpression" functionName="doSomething" function="//@units.1/@statements.2">
+              <arguments xsi:type="cdt:LiteralExpression" value="1" type="//@statements.0"/>
+            </operand2>
+          </expression>
+        </statements>
+        <statements xsi:type="cdt:Variable" name="y" type="//@statements.0"/>
+        <statements xsi:type="cdt:ExpressionStatement">
+          <expression xsi:type="cdt:BinaryExpression" operator="assign">
+            <operand1 xsi:type="cdt:VariableExpression" variable="//@units.1/@statements.9/@statements.1/@statements.2"/>
+            <operand2 xsi:type="cdt:FunctionCallExpression" functionName="doSomething2" function="//@units.1/@statements.8">
+              <arguments xsi:type="cdt:VariableExpression" variable="//@units.1/@statements.9/@statements.1/@statements.0"/>
+            </operand2>
+          </expression>
+        </statements>
+        <statements xsi:type="cdt:ReturnStatement">
+          <expression xsi:type="cdt:VariableExpression" variable="//@units.1/@statements.9/@statements.1/@statements.2"/>
+        </statements>
+      </statements>
+    </statements>
+    <statements xsi:type="cdt:FunctionDeclaration" name="doSomething2" parent="//@units.1" returnType="//@statements.0" parameters="//@units.1/@statements.10/@statements.0 //@units.1/@statements.10/@statements.1">
+      <statements xsi:type="cdt:Variable" name="num" type="//@statements.0"/>
+      <statements xsi:type="cdt:Variable" name="a" type="//@statements.1"/>
+    </statements>
+    <statements xsi:type="cdt:FunctionDefinition" name="doSomething2" parent="//@units.1" returnType="//@statements.0" parameters="//@units.1/@statements.11/@statements.0 //@units.1/@statements.11/@statements.1" functionDeclarations="//@units.1/@statements.10" body="//@units.1/@statements.11/@statements.2">
+      <statements xsi:type="cdt:Variable" name="num" type="//@statements.0"/>
+      <statements xsi:type="cdt:Variable" name="a" type="//@statements.1"/>
+      <statements xsi:type="cdt:CompoundStatement" parent="//@units.1/@statements.11">
+        <statements xsi:type="cdt:ExpressionStatement">
+          <expression xsi:type="cdt:FunctionCallExpression" functionName="doSomething" function="//@units.1/@statements.2">
+            <arguments xsi:type="cdt:LiteralExpression" value="1" type="//@statements.0"/>
+          </expression>
+        </statements>
+        <statements xsi:type="cdt:ExpressionStatement">
+          <expression xsi:type="cdt:FunctionCallExpression" functionName="doSomething2" function="//@units.1/@statements.8">
+            <arguments xsi:type="cdt:LiteralExpression" value="2" type="//@statements.0"/>
+          </expression>
+        </statements>
+        <statements xsi:type="cdt:ExpressionStatement">
+          <expression xsi:type="cdt:FunctionCallExpression" functionName="doSomething2" function="//@units.1/@statements.7">
+            <arguments xsi:type="cdt:LiteralExpression" value="a" type="//@statements.1"/>
+          </expression>
+        </statements>
+        <statements xsi:type="cdt:ReturnStatement">
+          <expression xsi:type="cdt:VariableExpression" variable="//@units.1/@statements.11/@statements.0"/>
+        </statements>
+      </statements>
+    </statements>
+  </units>
+</cdt:Model>

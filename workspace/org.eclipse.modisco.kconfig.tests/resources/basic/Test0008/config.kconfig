@@ -1,0 +1,12 @@
+# these two examples are defined as equivalent
+config NET_N1
+	bool "Networking support1"
+
+config NET_N2
+	bool
+	prompt "Networking support2"
+	
+# "prompt" <prompt> [if <expr>]
+config NET_N3
+	bool
+	prompt "Networking support3" if NET_N1

@@ -1,0 +1,26 @@
+config HAVE_KPROBES
+	bool
+
+config OUTPUT_FORMAT
+	string
+
+config HAVE_DMA_CONTIGUOUS
+	bool
+
+config NR_CPUS
+	int
+
+config GENERIC_SMP_IDLE_THREAD
+       bool
+
+config ILLEGAL_POINTER_VALUE
+       hex
+
+config OPROFILE
+	tristate
+
+config GENERIC_IDLE_POLL_SETUP
+       bool
+
+config IOSF_MBI
+	tristate

@@ -1,0 +1,7 @@
+source "arch/$SRCARCH/Kconfig"
+
+config MY
+	bool
+	depends on OTHER
+
+source "distro/Kconfig"

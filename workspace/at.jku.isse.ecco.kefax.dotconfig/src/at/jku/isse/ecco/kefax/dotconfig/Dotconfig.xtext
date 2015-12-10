@@ -1,0 +1,37 @@
+grammar at.jku.isse.ecco.kefax.dotconfig.Dotconfig 
+//with org.eclipse.xtext.common.Terminals
+hidden( WSS, SL_COMMENT)
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+generate dotconfig "http://www.jku.at/isse/ecco/kefax/dotconfig/Dotconfig"
+
+DotConfigModel: {DotConfigModel} (Configs+=Config)? (Eol Configs+=Config)* Eol?;
+
+Config:
+	{ConfigString} name=SYMBOL EQ v=value
+	| {ConfigLogic} name=SYMBOL EQ v=LOGIC_SYM
+	| {ConfigLogic} name=SL_COMMENT_NOT
+;
+
+value:
+	S_HEX
+	| S_INT
+	| STRING
+;
+
+Eol: NLI+;
+
+// Lexer Rules
+terminal NLI : '\n';
+terminal WSS : (' '|'\t')+ ;
+terminal EQ : '=';
+terminal LOGIC_SYM : ('y'|'n'|'m');
+terminal S_HEX : '0' ('x'|'X') ('0'..'9'|'A'..'F'|'a'..'f')+;
+terminal S_INT : '-'? ('0'..'9')+;
+terminal SYMBOL : ('A'..'Z'|'a'..'z'|'0'..'9'|'_')+;
+terminal STRING : ( '"' STR_D '"' | '\'' STR_S '\'' );
+terminal fragment STR_D: ((ESC | !(('\\'|'"'))))*;
+terminal fragment STR_S: ((ESC | !(('\\'|'\''))))*;
+terminal fragment ESC : '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|'\''|'\\');
+terminal SL_COMMENT_NOT : '# ' SYMBOL ' is not set';
+terminal SL_COMMENT : '#' !('\n')*;

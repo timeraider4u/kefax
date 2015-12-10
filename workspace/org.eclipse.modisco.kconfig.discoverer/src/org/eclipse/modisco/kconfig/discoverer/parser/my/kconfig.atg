@@ -1,0 +1,268 @@
+// Using clauses
+import org.eclipse.modisco.kconfig.BooleanExprType;
+import org.eclipse.modisco.kconfig.Config;
+import org.eclipse.modisco.kconfig.ConfigType;
+import org.eclipse.modisco.kconfig.Default;
+import org.eclipse.modisco.kconfig.Expr;
+import org.eclipse.modisco.kconfig.KconfigFactory;
+import org.eclipse.modisco.kconfig.Model;
+import org.eclipse.modisco.kconfig.Option;
+import org.eclipse.modisco.kconfig.Range;
+import org.eclipse.modisco.kconfig.Select;
+import org.eclipse.modisco.kconfig.TranslationUnit;
+import org.eclipse.modisco.kconfig.TristateValue;
+import org.eclipse.modisco.kconfig.discoverer.parser.ParserUtils;
+
+
+// Set the name of your grammar here (and at the end of this grammar):
+COMPILER Kconfig
+
+// Kconfig syntax is defined at 
+// https://www.kernel.org/doc/Documentation/kbuild/kconfig-language.txt
+
+// Add auxiliary methods and declaration here.
+// methods have been extracted to class ParserUtils
+
+// If you want your generated compiler case insensitive add the
+// keyword IGNORECASE here.
+
+
+CHARACTERS
+// Add character set declarations here.
+letter = 'A'..'Z' + 'a'..'z'.
+digit = "0123456789".
+underscore = '_'.
+lf = '\n'.
+tb = '\t'.
+str_sign = '"'.
+space = ' '.
+neg_sign = '!'.
+
+TOKENS
+// Add token declarations here.
+ident = (letter | digit | underscore) {letter | digit | underscore}.
+tab = tb.
+str_start = str_sign.
+newline = lf.
+config = "config".
+type_bool = "bool".
+type_int = "int".
+type_hex = "hex".
+type_tristate = "tristate".
+type_string = "string".
+type_defbool = "def_bool".
+type_deftristate = "def_tristate".
+help = "help".
+help2 = "---help---".
+depends = "depends".
+on = "on".
+negate = neg_sign.
+prompt = "prompt".
+if = "if".
+default = "default".
+tristate_y = "y".
+tristate_m = "m".
+tristate_n = "n".
+select = "select".
+range = "range".
+option = "option".
+env = "env".
+equals = "=".
+and = "&&".
+or = "||".
+source = "source".
+menu = "menu".
+endmenu = "endmenu".
+
+
+PRAGMAS
+// Add pragma declarations here.
+// Example:
+//   switch = '$' { digit | letter }. (. Optional semantic action .)
+
+
+// Add comments here (seems to be buggy in Compiler-Generator software)
+// Example for a multi-line block comment:
+// COMMENTS FROM "/*" TO "*/" NESTED
+// Example for a single line comment:
+//COMMENTS FROM "#" TO lf
+
+// Set the ignored characters (whitespaces) here, the blank character is
+// ignored by default.
+// Example, add line breaks to the ignore set.
+//   IGNORE cr + lf
+
+
+PRODUCTIONS
+
+// Add your productions here, one must have the same name as the grammar,
+// it will be the start symbol (entry point of your compiler).
+// Example:
+//   Empty = "BEGIN" { Statement } "END".
+//   Statement = ident "=" number { "+" number } .
+
+Kconfig = {Scope}.
+
+Scope = Config | Source | Menu.
+
+Menu = menu 
+		MyString<out String name> newline newline
+		{Scope} 
+		endmenu newline
+		newline
+.
+
+Config										(. Config config = null; .)
+=
+	config Ident<out String name> (. config = utils.insertConfig(name); .) newline
+	tab Type MyPrompt newline
+	{ConfigAdditional}
+	(newline | EOF)
+.
+
+
+ConfigAdditional = 
+	tab
+		(
+			Dependencies
+			|
+			Prompt
+			|
+			Defaults
+			|
+			Selects
+			|
+			Ranges
+			|
+			Options
+			|
+			Help
+		)
+	
+.
+	
+Type
+=
+	type_bool (. utils.setType(ConfigType.BOOL); .)
+	|
+	type_int (. utils.setType(ConfigType.INT); .)
+	|
+	type_hex (. utils.setType(ConfigType.HEX); .)
+	|
+	type_tristate (. utils.setType(ConfigType.TRISTATE); .)
+	|
+	type_string (. utils.setType(ConfigType.STRING); .)
+	|
+	(type_defbool (. utils.setType(ConfigType.BOOL); .) DefaultValue)
+	|
+	(type_deftristate (. utils.setType(ConfigType.TRISTATE); .) DefaultValue)
+.
+
+MyString<out String string> (. string = ""; .) =
+	str_start 
+	{
+		(ANY (. string = string + t.val; .))} 
+	str_start
+.
+
+Ident<out String name> = 
+	ident (. name = t.val; .).
+
+Dependencies = 
+	Depends<out Expr depends> (. utils.addDependsToUtils(depends); .)
+	newline
+.
+
+Defaults =
+	 default
+	 DefaultValue
+	 newline
+.
+
+DefaultValue (. Default myDefault = null; .) =
+	 Expr<out Expr expr> (. myDefault = utils.addDefaultExpr(expr); .)
+	 [if Expr<out Expr ifExpr> (. utils.addDefaultIfExpr(myDefault, ifExpr); .)]
+.
+
+Prompt =
+	prompt 
+	MyPrompt
+	newline
+.
+
+MyPrompt =
+	[MyString<out String desc> (. utils.setDescription(desc); .)]
+	[if Expr<out Expr expr> (. utils.addExprPrompt(expr); .)]
+.
+
+Selects (. Select select = null; .) =
+	select
+	Expr<out Expr expr> (. select = utils.addSelectExpr(expr); .)
+	[if Expr<out Expr ifExpr> (. utils.addSelectIfExpr(select, ifExpr); .)]
+	newline
+.
+
+Ranges (. Range range = utils.createRange(); .) =
+	range
+	Ident<out String lower>  (. utils.setLowerRangeExpr(range, lower); .)
+	Ident<out String upper>  (. utils.setUpperRangeExpr(range, upper); .)
+	[if Expr<out Expr ifExpr> (. utils.addRangeIfExpr(range, ifExpr); .)]                    
+	newline
+.
+
+Options (. Option option = utils.createOption(); .) =
+	option
+	env equals MyString<out String value> (. utils.setOptionValue(option, value); .)  
+	newline
+.
+
+Help = 
+	(help | help2) newline
+	{tab {ANY} (. .)  newline}
+.
+
+Depends<out Expr depends> (. depends = null; .) = 
+	depends on
+	Expr<out Expr expr> (. depends = expr; .)
+.
+
+Expr<out Expr expr> (. expr = null; .)  = 
+	SimpleExpr<out Expr outExpr> (. expr = outExpr; .)
+	[
+		or (. expr = utils.createBooleanExpr(expr, BooleanExprType.OR); .)
+		Expr<out Expr rightExpr> (. utils.setRightExpr(expr, rightExpr); .)
+		|
+		and (. expr = utils.createBooleanExpr(expr, BooleanExprType.AND); .)
+		Expr<out Expr rightExpr> (. utils.setRightExpr(expr, rightExpr); .)
+		|
+		equals (. expr = utils.createBooleanExpr(expr, BooleanExprType.EQUALS); .)
+		Expr<out Expr rightExpr> (. utils.setRightExpr(expr, rightExpr); .)
+		|
+		negate equals	(. expr = utils.createBooleanExpr(expr, BooleanExprType.NONEQUALS); .)
+		Expr<out Expr rightExpr> (. utils.setRightExpr(expr, rightExpr); .)
+	]
+.
+
+SimpleExpr<out Expr expr> (. expr = null; boolean neg = false; .) =
+(
+		[negate (. neg = true; .)]
+		Ident<out String name> (. expr = utils.createConfigExpr(neg,name); .)
+	|
+		tristate_y (. expr = utils.createTristateExpr(TristateValue.Y); .)
+	|
+		tristate_m (. expr = utils.createTristateExpr(TristateValue.M); .)
+	|
+		tristate_n (. expr = utils.createTristateExpr(TristateValue.N); .)
+	|
+		MyString<out String string> (. expr = utils.createLitExpr(string); .)
+).
+
+Source =
+	source MyString<out String fileName> (. utils.addSourceUnit(fileName); .)
+	newline {newline}
+.
+
+// End of your compiler specification, make sure the name here matches
+// the grammar name at the start of this grammar.
+END Kconfig.
+

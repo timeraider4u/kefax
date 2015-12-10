@@ -1,0 +1,8 @@
+config SRCARCH
+	string
+	option env="SRCARCH"
+
+config ARCH
+	string
+	option env="ARCH"
+

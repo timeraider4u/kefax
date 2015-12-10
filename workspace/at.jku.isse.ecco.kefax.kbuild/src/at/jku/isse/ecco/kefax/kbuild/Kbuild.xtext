@@ -1,0 +1,183 @@
+grammar at.jku.isse.ecco.kefax.kbuild.Kbuild 
+//with org.eclipse.xtext.common.Terminals
+hidden( WSS, SL_COMMENT)
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+generate kbuild "http://www.jku.at/isse/ecco/kefax/kbuild/Kbuild"
+
+Model:
+	{Model} (buildEntry+=BuildEntry)? (Eol buildEntry+=BuildEntry)* Eol;
+	
+BuildEntry:
+	({BuildEntry} value=Entry
+		)
+	|
+	({IfEq} IFEQ value=If
+		)
+	|
+	({IfNEq} IFNEQ value=If
+		)
+	|
+	({Ifndef} IFNDEF 
+		name=SYMBOL
+		Eol
+			(value=Object_Y | value=Object_M)
+		Eol
+		ENDIF
+		)
+	|
+	({HostProgram}
+		name=SYMBOL
+		(variable=Variable)?
+		value=AssignExtra (inner=Assign)?
+		)
+	| 
+	({Object}
+		(value=Object_Y | value=Object_M)
+		)
+	|
+	({Target}
+		target=Values
+		DPOINT
+			(SEMICOLON
+			|
+			(values+=Values 
+				(Eol TAB+
+					values+=Values
+				)*
+			)
+			)
+		)
+	|
+	({MyVariable}
+		name=SYMBOL
+		(variable=Variable)?
+		value=Assign
+	)
+;
+
+Entry:
+	{Entry}
+	OBJ_START variable=Variable
+		value=AssignExtra
+;
+
+If:
+	BRACE_START 
+			(
+				(Variable COMMA (Y | M))
+			|
+				(shell=ShellCmd) COMMA?
+			)
+		BRACE_END
+			Eol TAB*
+			(value=Object_Y | value=Object_M | value=Entry | value=ShellCmd)
+			Eol
+		(ELSE 
+			Eol TAB*
+			(elsevalue=Object_Y | elsevalue=Object_M)
+			Eol
+		)?
+		ENDIF
+;
+
+Object_Y:
+	{Obj_y}
+	OBJ_Y
+	value=AssignExtra
+;
+
+Object_M:
+	{Obj_m}
+	OBJ_M
+	value=AssignExtra
+;
+
+Assign:
+	EQ (TAB)*
+	Values
+;
+
+AssignExtra:
+	(TAB)*
+	(PLUS | DPOINT)
+	Assign
+;
+
+Values:
+	(BACKSLASH Eol TAB*)?
+	(values+=Value)+
+	(BACKSLASH Eol TAB* (values+=Value)+)*
+;
+
+Value:
+	{ObjectFile} SYMBOL OBJ_FILE
+	| {ObjectSingleFile} name=SYMBOL
+	| {ObjectVariable} value=Variable (additional=SLASH)?
+	| {ObjectShellCmd} value=ShellCmd
+	| {ObjectString} STRING
+	| {ObjectShellChar} value=SHELL_CHAR
+	| {ObjectDir} SYMBOL SLASH
+;
+
+Variable:{Variable}
+	DOLLAR name=SYMBOL
+	| DOLLAR BRACE_START name=SYMBOL BRACE_END	
+;
+
+ShellCmd: {ShellCmd}
+	(DOLLAR BRACE_START name=SYMBOL (shellPart+=ShellPart)+ BRACE_END)
+	|
+	({Include} INCLUDE)
+;
+
+ShellPart: {ShellPart}
+	(val=VarSlashSym | cmd=ShellCmd | STRING 
+		| COMMA | SHELL_CHAR | (BACKSLASH Eol TAB*)
+	)
+;
+
+VarSlashSym: 
+	Variable|name=SLASH|name=SYMBOL
+;
+
+Eol: NLI+;
+
+// Lexer Rules
+terminal NLI : '\n';
+terminal TAB: '\t';
+//terminal WSS : (' '|'\t')+ ;
+terminal WSS: (' ')+;
+terminal SL_COMMENT : '#' !('\n')*;
+terminal OBJ_START : 'obj-';
+terminal OBJ_Y : 'obj-y'; // xtext understand obj-y as one unique token
+terminal OBJ_M : 'obj-m'; // xtext understand obj-m as one unique token
+terminal IFEQ: 'ifeq';
+terminal IFNEQ: 'ifneq';
+terminal IFNDEF: 'ifndef';
+terminal ELSE: 'else';
+terminal ENDIF: 'endif';
+terminal Y: 'y';
+terminal M: 'm';
+terminal OBJ_FILE: '.o';
+terminal INCLUDE: 'include' !(NLI)+;
+terminal SYMBOL : ('A'..'Z'|'a'..'z'|'0'..'9'|'_'|'-'|'.'|'@')+;
+terminal SHELL_CHAR: ('>'|'<'|'|'|'&');
+terminal DOLLAR : '$';
+terminal BRACE_START: '(';
+terminal BRACE_END : ')';
+terminal QUOTE: '"';
+terminal PLUS : '+';
+terminal DPOINT : ':';
+terminal EQ : '=';
+terminal SLASH: '/';
+terminal BACKSLASH: '\\';
+terminal COMMA: ',';
+terminal SEMICOLON: ';';
+terminal STR_ESC:
+	'\\'('b'|'t'|'n'|'f'|'r'|'"'|'\\'|'$')
+	;
+terminal STRING:
+	'"' (STR_ESC | !('"'|'\r'|'\n'|'\\'))* '"'
+	;

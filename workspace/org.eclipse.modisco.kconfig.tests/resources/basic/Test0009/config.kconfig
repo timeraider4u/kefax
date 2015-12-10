@@ -1,0 +1,11 @@
+config MYTEST
+	bool
+	default y
+
+config NR_CPUS
+	int "Maximum number of CPUs (2 −4096)"
+	default "4096"
+
+config NET_N2
+	bool
+	default y if NR_CPUS

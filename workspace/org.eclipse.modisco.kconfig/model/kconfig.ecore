@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="kconfig" nsURI="http://www.eclipse.org/MoDisco/KCONFIG/0.1.incubation/kconfig"
+    nsPrefix="kconfig">
+  <eClassifiers xsi:type="ecore:EClass" name="TranslationUnit">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unitOwner" lowerBound="1"
+        eType="#//Model" eOpposite="#//Model/units"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fullPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configs" upperBound="-1"
+        eType="#//Config" eOpposite="#//Config/definedIn"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sources" upperBound="-1"
+        eType="#//TranslationUnit"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Model">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="units" upperBound="-1"
+        eType="#//TranslationUnit" containment="true" eOpposite="#//TranslationUnit/unitOwner"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configs" upperBound="-1"
+        eType="#//Config" containment="true" eOpposite="#//Config/owner"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fullPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Config">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ConfigType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="helpText" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="depends" upperBound="-1"
+        eType="#//Depend" containment="true" eOpposite="#//Depend/owner"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" eType="#//Model"
+        eOpposite="#//Model/configs"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="definedIn" eType="#//TranslationUnit"
+        eOpposite="#//TranslationUnit/configs"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prompt" eType="#//Prompt"
+        containment="true" eOpposite="#//Prompt/owner"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defaults" upperBound="-1"
+        eType="#//Default" containment="true" eOpposite="#//Default/owner"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="selects" upperBound="-1"
+        eType="#//Select" containment="true" eOpposite="#//Select/owner"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ranges" upperBound="-1"
+        eType="#//Range" containment="true" eOpposite="#//Range/owner"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="options" upperBound="-1"
+        eType="#//Option" containment="true" eOpposite="#//Option/owner"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ConfigType">
+    <eLiterals name="tristate"/>
+    <eLiterals name="bool" value="1"/>
+    <eLiterals name="string" value="2"/>
+    <eLiterals name="int" value="4"/>
+    <eLiterals name="hex" value="5"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Expr" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" lowerBound="1" eType="#//Config"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConfigExpr" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="negated" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refOnConfig" eType="#//Config"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Prompt">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" lowerBound="1" eType="#//Config"
+        eOpposite="#//Config/prompt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" lowerBound="1"
+        eType="#//Expr"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Depend">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" lowerBound="1" eType="#//Config"
+        eOpposite="#//Config/depends"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" lowerBound="1"
+        eType="#//Expr"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Default">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" lowerBound="1" eType="#//Config"
+        eOpposite="#//Config/defaults"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" lowerBound="1"
+        eType="#//Expr"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ifExpr" eType="#//Expr"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TristateExpr" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//TristateValue"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TristateValue">
+    <eLiterals name="y"/>
+    <eLiterals name="n" value="1"/>
+    <eLiterals name="m" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LiteralExpr" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Select">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" lowerBound="1" eType="#//Config"
+        eOpposite="#//Config/selects"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" lowerBound="1"
+        eType="#//Expr"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ifExpr" eType="#//Expr"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Range">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" lowerBound="1" eType="#//Config"
+        eOpposite="#//Config/ranges"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lowerExpr" lowerBound="1"
+        eType="#//Expr"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ifExpr" eType="#//Expr"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="upperExpr" lowerBound="1"
+        eType="#//Expr"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Option">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" lowerBound="1" eType="#//Config"
+        eOpposite="#//Config/options"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BooleanExpr" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" lowerBound="1" eType="#//Expr"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" lowerBound="1" eType="#//Expr"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//BooleanExprType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="BooleanExprType">
+    <eLiterals name="and"/>
+    <eLiterals name="or" value="1"/>
+    <eLiterals name="equals" value="2"/>
+    <eLiterals name="nonequals" value="3"/>
+  </eClassifiers>
+</ecore:EPackage>

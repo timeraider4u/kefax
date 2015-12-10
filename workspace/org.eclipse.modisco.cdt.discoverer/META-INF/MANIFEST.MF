@@ -21,9 +21,9 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.emf.mwe.core,
  org.eclipse.xtext.ui,
  at.jku.weiner.c.common;bundle-version="1.0.0",
- at.jku.weiner.c.parser;bundle-version="1.0.0",
+ at.jku.weiner.c.common.ui,
  at.jku.weiner.c.preprocess;bundle-version="1.0.0",
- at.jku.weiner.c.parser.ui;bundle-version="1.0.0"
+ at.jku.weiner.c.preprocess.ui;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: %Bundle-Vendor

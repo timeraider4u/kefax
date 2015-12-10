@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -16,8 +17,9 @@ import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
 import org.eclipse.xtext.ui.resource.XtextResourceSetProvider;
 
-import at.jku.weiner.c.parser.parser.Model;
-import at.jku.weiner.c.parser.ui.internal.ParserActivator;
+import at.jku.weiner.c.common.ui.internal.CommonActivator;
+import at.jku.weiner.c.preprocess.preprocess.Model;
+import at.jku.weiner.c.preprocess.ui.internal.PreprocessActivator;
 
 import com.google.inject.Injector;
 
@@ -26,26 +28,38 @@ public class XtextParser {
 	private final Injector injector;
 
 	public XtextParser() {
-		final ParserActivator activator = ParserActivator.getInstance();
-		this.injector = activator
-				.getInjector(ParserActivator.AT_JKU_WEINER_C_PARSER_PARSER);
-		// "at.jku.weiner.c.C");
-		// this.setupParser();
+		this.injector = this.setupPreprocessor();
 	}
 
-	private void setupParser() {
-		// new org.eclipse.emf.mwe.utils.StandaloneSetup()
-		// .setPlatformUri("http://www.jku.at/weiner/c/C");
-		ParserActivator.getInstance().getInjector("at.jku.weiner.c.C")
-		.injectMembers(this);
+	private Injector setupCommon() {
+		final CommonActivator activator = CommonActivator.getInstance();
+		final Injector result = activator
+				.getInjector(CommonActivator.AT_JKU_WEINER_C_COMMON_COMMON);
+		return result;
+	}
+
+	private Injector setupPreprocessor() {
+		final PreprocessActivator activator = PreprocessActivator.getInstance();
+		final Injector result = activator
+				.getInjector(PreprocessActivator.AT_JKU_WEINER_C_PREPROCESS_PREPROCESS);
+		return result;
+	}
+
+	private Injector setupParser() {
+		// final ParserActivator activator = ParserActivator.getInstance();
+		// final Injector result = activator
+		// .getInjector(ParserActivator.AT_JKU_WEINER_C_PARSER_PARSER);
+		// return result;
+		return null;
 	}
 
 	public final Model readFromXtextFile(final File file, final IFile iFile)
 			throws IOException, DiscoveryException {
-		// this.readFromXtextFileInternal(file);
-		final XtextResourceSet resourceSet = (XtextResourceSet) this.injector
-				.getInstance(XtextResourceSetProvider.class).get(
-						iFile.getProject());
+		final IProject iProject = iFile.getProject();
+		final XtextResourceSetProvider provider = this.injector
+				.getInstance(XtextResourceSetProvider.class);
+		final XtextResourceSet resourceSet = (XtextResourceSet) provider
+				.get(iProject);
 		resourceSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL,
 				Boolean.TRUE);
 		final URI uri = URI.createURI(iFile.getLocationURI().toString());
@@ -56,23 +70,24 @@ public class XtextParser {
 		System.out.println("get resource was successfull!");
 		final EObject object = resource.getContents().get(0);
 		System.out.println("get contents from resource was successfull!");
-		final Model model = (Model) object;
 		if (object == null) {
-			System.err.println("Returned object of file='"
-					+ file.getAbsolutePath() + "' from XText is null!");
-			throw new DiscoveryException("Returned object of file='"
-					+ file.getAbsolutePath() + "' from XText is null!");
+			this.error("Returned object of file='" + file.getAbsolutePath()
+					+ "' from XText is null!");
 		}
 		if (!(object instanceof Model)) {
-			System.err.println("Returned object is not a C model - file='"
-					+ file.getAbsolutePath() + "' from XText!");
-			throw new DiscoveryException(
-					"Returned object is not a C model - file='"
-							+ file.getAbsolutePath() + "' from XText!");
+			this.error("Returned object is not a C model - file='"
+					+ file.getAbsolutePath() + "' (class='"
+					+ object.getClass().getCanonicalName() + "') from XText!");
 		}
+		final Model model = (Model) object;
 		System.out.println("XText parsing was successfuly for file='"
 				+ file.toString() + "'!");
 		return model;
+	}
+
+	private final void error(final String string) throws DiscoveryException {
+		System.err.println(string);
+		throw new DiscoveryException(string);
 	}
 
 	private final void readFromXtextFileInternal(final File file)
@@ -92,8 +107,8 @@ public class XtextParser {
 		}
 		if (!(object instanceof Model)) {
 			System.out
-					.println("object is not instance of C Model, object.class='"
-							+ object.getClass().toString() + "'");
+			.println("object is not instance of C Model, object.class='"
+					+ object.getClass().toString() + "'");
 			return;
 			// throw new DiscoveryException(
 			// "Returned object is not a C model - file='"

@@ -10,10 +10,10 @@ package at.jku.weiner.c.preprocess.preprocess;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.Code#getCode <em>Code</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getCode()
  * @model

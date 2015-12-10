@@ -33,11 +33,11 @@ import org.eclipse.modisco.cdt.discoverer.utils.MyStore;
 import org.eclipse.modisco.infra.discovery.core.AbstractModelDiscoverer;
 import org.eclipse.modisco.infra.discovery.core.exception.DiscoveryException;
 
-import at.jku.weiner.c.parser.parser.Model;
-import at.jku.weiner.c.parser.parser.TranslationUnit;
+import at.jku.weiner.c.preprocess.preprocess.Model;
+import at.jku.weiner.c.preprocess.preprocess.TranslationUnit;
 
 public abstract class AbstractCDTDiscoverer<T> extends
-		AbstractModelDiscoverer<T> {
+AbstractModelDiscoverer<T> {
 
 	protected static final String PREFIX = "org.eclipse.modisco.cdt.discoverer.actions.";
 
@@ -126,7 +126,7 @@ public abstract class AbstractCDTDiscoverer<T> extends
 				this.discoverDirectory(file, store);
 			} else {
 				final String fileExtension = new Path(file.getPath())
-						.getFileExtension();
+				.getFileExtension();
 				if (DiscovererUtils.isCdtExtension(fileExtension)) {
 					this.discoverFile(file, store);
 				}
@@ -141,10 +141,10 @@ public abstract class AbstractCDTDiscoverer<T> extends
 		try {
 			final IFile iFile = DiscovererUtils.getFileFor(file);
 			final Model model = parser.readFromXtextFile(file, iFile);
-			final EList<TranslationUnit> units = model.getUnit();
+			final EList<TranslationUnit> units = model.getUnits();
 			if (units.size() > 0) {
-				final TranslationUnit unit = model.getUnit().get(0);
-				store.getModel().getUnit().add(unit);
+				final TranslationUnit unit = model.getUnits().get(0);
+				store.getModel().getUnits().add(unit);
 			}
 		} catch (final IOException ex) {
 			throw new DiscoveryException(

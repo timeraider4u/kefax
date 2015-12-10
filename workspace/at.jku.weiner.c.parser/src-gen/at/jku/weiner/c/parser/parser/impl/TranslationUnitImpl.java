@@ -26,10 +26,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.TranslationUnitImpl#getExternal <em>External</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -8,9 +8,9 @@
 			class="at.jku.weiner.c.common.ui.CommonExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
 			contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
 			default="true"
-			extensions="xtexttest"
+			extensions="cdt.common"
 			id="at.jku.weiner.c.common.Common"
-			name=" Editor">
+			name="at.jku.weiner.c.common.Common Editor">
 		</editor>
 	</extension>
 	<extension
@@ -212,34 +212,34 @@
 		point="org.eclipse.emf.ecore.extension_parser">
 		<parser
 			class="at.jku.weiner.c.common.ui.CommonExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
-			type="xtexttest">
+			type="cdt.common">
 		</parser>
 	</extension>
 	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
 	    <resourceServiceProvider
 	        class="at.jku.weiner.c.common.ui.CommonExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
-	        uriExtension="xtexttest">
+	        uriExtension="cdt.common">
 	    </resourceServiceProvider>
 	</extension>
 	
 	
 	<!-- marker definitions for at.jku.weiner.c.common.Common -->
 	<extension
-	        id="xtexttest.check.fast"
+	        id="common.check.fast"
 	        name="Common Problem"
 	        point="org.eclipse.core.resources.markers">
 	    <super type="org.eclipse.xtext.ui.check.fast"/>
 	    <persistent value="true"/>
 	</extension>
 	<extension
-	        id="xtexttest.check.normal"
+	        id="common.check.normal"
 	        name="Common Problem"
 	        point="org.eclipse.core.resources.markers">
 	    <super type="org.eclipse.xtext.ui.check.normal"/>
 	    <persistent value="true"/>
 	</extension>
 	<extension
-	        id="xtexttest.check.expensive"
+	        id="common.check.expensive"
 	        name="Common Problem"
 	        point="org.eclipse.core.resources.markers">
 	    <super type="org.eclipse.xtext.ui.check.expensive"/>
@@ -248,7 +248,7 @@
 	<extension point="org.eclipse.xtext.builder.participant">
 		<participant
 			class="at.jku.weiner.c.common.ui.CommonExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant"
-			fileExtensions="xtexttest">
+			fileExtensions="cdt.common">
 		</participant>
 	</extension>
 	<extension point="org.eclipse.ui.preferencePages">
@@ -334,7 +334,7 @@
 	        point="org.eclipse.ui.ide.markerResolution">
 	    <markerResolutionGenerator
 	        class="at.jku.weiner.c.common.ui.CommonExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
-	        markerType="at.jku.weiner.c.common.ui.xtexttest.check.fast">
+	        markerType="at.jku.weiner.c.common.ui.common.check.fast">
 	        <attribute
 	            name="FIXABLE_KEY"
 	            value="true">
@@ -342,7 +342,7 @@
 	    </markerResolutionGenerator>
 	    <markerResolutionGenerator
 	        class="at.jku.weiner.c.common.ui.CommonExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
-	        markerType="at.jku.weiner.c.common.ui.xtexttest.check.normal">
+	        markerType="at.jku.weiner.c.common.ui.common.check.normal">
 	        <attribute
 	            name="FIXABLE_KEY"
 	            value="true">
@@ -350,7 +350,7 @@
 	    </markerResolutionGenerator>
 	    <markerResolutionGenerator
 	        class="at.jku.weiner.c.common.ui.CommonExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
-	        markerType="at.jku.weiner.c.common.ui.xtexttest.check.expensive">
+	        markerType="at.jku.weiner.c.common.ui.common.check.expensive">
 	        <attribute
 	            name="FIXABLE_KEY"
 	            value="true">
@@ -396,76 +396,27 @@
 	<extension point="org.eclipse.compare.contentViewers">
 	<viewer id="at.jku.weiner.c.common.Common.compare.contentViewers"
 	        class="at.jku.weiner.c.common.ui.CommonExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-	        extensions="xtexttest">
+	        extensions="cdt.common">
 	</viewer>
 	</extension>
 	<extension point="org.eclipse.compare.contentMergeViewers">
 	<viewer id="at.jku.weiner.c.common.Common.compare.contentMergeViewers"
 	        class="at.jku.weiner.c.common.ui.CommonExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-	        extensions="xtexttest" label="Common Compare">
+	        extensions="cdt.common" label="Common Compare">
 	 </viewer>
 	</extension>
 	<extension point="org.eclipse.ui.editors.documentProviders">
 	<provider id="at.jku.weiner.c.common.Common.editors.documentProviders"
 	        class="at.jku.weiner.c.common.ui.CommonExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
-	        extensions="xtexttest">
+	        extensions="cdt.common">
 	</provider>
 	</extension>
 	<extension point="org.eclipse.team.core.fileTypes">
 	
 	<fileTypes
-	        extension="xtexttest"
+	        extension="cdt.common"
 	        type="text">
 	</fileTypes>
 	
 	</extension>
-	
-	
-	<!-- see also https://christiandietrich.wordpress.com/2011/10/15/xtext-calling-the-generator-from-a-context-menu/ -->
-	
-	<extension point="org.eclipse.ui.handlers">
-		<handler
-			class="at.jku.weiner.c.common.ui.CommonExecutableExtensionFactory:at.jku.weiner.c.common.ui.handler.GenerationHandler"
-			commandId="at.jku.weiner.c.common.ui.handler.GenerationCommand">
-		</handler>
-  	</extension>
-  
- 	<extension point="org.eclipse.ui.commands">
- 		<command name="Generate Code for Commons"
-			id="at.jku.weiner.c.common.ui.handler.GenerationCommand">
-		</command>
- 	</extension>
-  
-	<extension point="org.eclipse.ui.menus">
-		<menuContribution locationURI="popup:org.eclipse.jdt.ui.PackageExplorer">
-			<command commandId="at.jku.weiner.c.common.ui.handler.GenerationCommand"
-				style="push">
-				<visibleWhen checkEnabled="false">
-					<iterate>
-						<adapt type="org.eclipse.core.resources.IResource">
-							<test property="org.eclipse.core.resources.name" 
-							value="*.xtexttest"/>
-						</adapt>
-					</iterate>
-				</visibleWhen>
-			</command>
- 		</menuContribution>
- 	</extension>
- 	
- 	<extension point="org.eclipse.ui.menus">
-		<menuContribution locationURI="popup:org.eclipse.ui.navigator.ProjectExplorer#PopupMenu">
-			<command commandId="at.jku.weiner.c.common.ui.handler.GenerationCommand"
-				style="push">
-				<visibleWhen checkEnabled="false">
-					<iterate>
-						<adapt type="org.eclipse.core.resources.IResource">
-							<test property="org.eclipse.core.resources.name" 
-							value="*.xtexttest"/>
-						</adapt>
-					</iterate>
-				</visibleWhen>
-			</command>
- 		</menuContribution>
- 	</extension>
-	
 </plugin>

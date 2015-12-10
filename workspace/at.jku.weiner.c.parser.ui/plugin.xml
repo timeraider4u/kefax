@@ -8,9 +8,9 @@
 			class="at.jku.weiner.c.parser.ui.ParserExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
 			contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
 			default="true"
-			extensions="c,h"
+			extensions="cdt.i"
 			id="at.jku.weiner.c.parser.Parser"
-			name="at.jku.weiner.c.parser.Parser - C Parser Editor">
+			name="at.jku.weiner.c.parser.Parser Editor">
 		</editor>
 	</extension>
 	<extension
@@ -212,20 +212,20 @@
 		point="org.eclipse.emf.ecore.extension_parser">
 		<parser
 			class="at.jku.weiner.c.parser.ui.ParserExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
-			type="c">
+			type="cdt.i">
 		</parser>
 	</extension>
 	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
 	    <resourceServiceProvider
 	        class="at.jku.weiner.c.parser.ui.ParserExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
-	        uriExtension="c">
+	        uriExtension="cdt.i">
 	    </resourceServiceProvider>
 	</extension>
 	
 	
 	<!-- marker definitions for at.jku.weiner.c.parser.Parser -->
 	<extension
-	        id="c.check.fast"
+	        id="parser.check.fast"
 	        name="Parser Problem"
 	        point="org.eclipse.core.resources.markers">
 	    <super type="org.eclipse.xtext.ui.check.fast"/>
@@ -248,7 +248,7 @@
 	<extension point="org.eclipse.xtext.builder.participant">
 		<participant
 			class="at.jku.weiner.c.parser.ui.ParserExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant"
-			fileExtensions="parser">
+			fileExtensions="cdt.i">
 		</participant>
 	</extension>
 	<extension point="org.eclipse.ui.preferencePages">
@@ -396,108 +396,27 @@
 	<extension point="org.eclipse.compare.contentViewers">
 	<viewer id="at.jku.weiner.c.parser.Parser.compare.contentViewers"
 	        class="at.jku.weiner.c.parser.ui.ParserExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-	        extensions="parser">
+	        extensions="cdt.i">
 	</viewer>
 	</extension>
 	<extension point="org.eclipse.compare.contentMergeViewers">
 	<viewer id="at.jku.weiner.c.parser.Parser.compare.contentMergeViewers"
 	        class="at.jku.weiner.c.parser.ui.ParserExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-	        extensions="parser" label="Parser Compare">
+	        extensions="cdt.i" label="Parser Compare">
 	 </viewer>
 	</extension>
 	<extension point="org.eclipse.ui.editors.documentProviders">
 	<provider id="at.jku.weiner.c.parser.Parser.editors.documentProviders"
 	        class="at.jku.weiner.c.parser.ui.ParserExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
-	        extensions="parser">
+	        extensions="cdt.i">
 	</provider>
 	</extension>
 	<extension point="org.eclipse.team.core.fileTypes">
 	
 	<fileTypes
-	        extension="parser"
+	        extension="cdt.i"
 	        type="text">
 	</fileTypes>
 	
 	</extension>
-	
-	
-	<!-- see also https://christiandietrich.wordpress.com/2011/10/15/xtext-calling-the-generator-from-a-context-menu/ -->
-	
-	<extension point="org.eclipse.ui.handlers">
-		<handler
-			class="at.jku.weiner.c.parser.ui.ParserExecutableExtensionFactory:at.jku.weiner.c.parser.ui.handler.GenerationHandler"
-			commandId="at.jku.weiner.c.parser.ui.handler.GenerationCommand">
-		</handler>
-  	</extension>
-  
- 	<extension point="org.eclipse.ui.commands">
- 		<command name="Generate Code for Parsers"
-			id="at.jku.weiner.c.parser.ui.handler.GenerationCommand">
-		</command>
- 	</extension>
-  
-	<extension point="org.eclipse.ui.menus">
-		<menuContribution locationURI="popup:org.eclipse.jdt.ui.PackageExplorer">
-			<command commandId="at.jku.weiner.c.parser.ui.handler.GenerationCommand"
-				style="push">
-				<visibleWhen checkEnabled="false">
-					<iterate>
-						<adapt type="org.eclipse.core.resources.IResource">
-							<test property="org.eclipse.core.resources.name" 
-							value="*.c"/>
-						</adapt>
-					</iterate>
-				</visibleWhen>
-			</command>
- 		</menuContribution>
- 	</extension>
- 	
- 	<extension point="org.eclipse.ui.menus">
-		<menuContribution locationURI="popup:org.eclipse.ui.navigator.ProjectExplorer#PopupMenu">
-			<command commandId="at.jku.weiner.c.parser.ui.handler.GenerationCommand"
-				style="push">
-				<visibleWhen checkEnabled="false">
-					<iterate>
-						<adapt type="org.eclipse.core.resources.IResource">
-							<test property="org.eclipse.core.resources.name" 
-							value="*.c"/>
-						</adapt>
-					</iterate>
-				</visibleWhen>
-			</command>
- 		</menuContribution>
- 	</extension>
- 	
- 	<extension point="org.eclipse.ui.menus">
-		<menuContribution locationURI="popup:org.eclipse.jdt.ui.PackageExplorer">
-			<command commandId="at.jku.weiner.c.parser.ui.handler.GenerationCommand"
-				style="push">
-				<visibleWhen checkEnabled="false">
-					<iterate>
-						<adapt type="org.eclipse.core.resources.IResource">
-							<test property="org.eclipse.core.resources.name" 
-							value="*.h"/>
-						</adapt>
-					</iterate>
-				</visibleWhen>
-			</command>
- 		</menuContribution>
- 	</extension>
- 	
- 	<extension point="org.eclipse.ui.menus">
-		<menuContribution locationURI="popup:org.eclipse.ui.navigator.ProjectExplorer#PopupMenu">
-			<command commandId="at.jku.weiner.c.parser.ui.handler.GenerationCommand"
-				style="push">
-				<visibleWhen checkEnabled="false">
-					<iterate>
-						<adapt type="org.eclipse.core.resources.IResource">
-							<test property="org.eclipse.core.resources.name" 
-							value="*.h"/>
-						</adapt>
-					</iterate>
-				</visibleWhen>
-			</command>
- 		</menuContribution>
- 	</extension>
-	
 </plugin>

@@ -10,11 +10,11 @@ package at.jku.weiner.c.preprocess.preprocess;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.UnaryExpression#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.UnaryExpression#getOp <em>Op</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getUnaryExpression()
  * @model

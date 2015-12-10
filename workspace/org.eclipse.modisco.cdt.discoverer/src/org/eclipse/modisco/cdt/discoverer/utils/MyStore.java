@@ -10,13 +10,13 @@ import org.eclipse.modisco.cdt.Scope;
 import org.eclipse.modisco.cdt.TranslationUnit;
 import org.eclipse.modisco.infra.discovery.core.exception.DiscoveryException;
 
-import at.jku.weiner.c.parser.parser.Model;
-import at.jku.weiner.c.parser.parser.ParserFactory;
+import at.jku.weiner.c.preprocess.preprocess.Model;
+import at.jku.weiner.c.preprocess.preprocess.PreprocessFactory;
 
 public final class MyStore {
 
 	private final IProgressMonitor monitor;
-	private final ParserFactory factory;
+	private final PreprocessFactory factory;
 	private final Model model;
 	private final Map<String, TranslationUnit> alreadyParsed;
 	private Scope scope;
@@ -24,7 +24,7 @@ public final class MyStore {
 	public MyStore(final IProgressMonitor monitor, final Resource targetModel)
 			throws DiscoveryException {
 		this.monitor = monitor;
-		this.factory = ParserFactory.eINSTANCE;
+		this.factory = PreprocessFactory.eINSTANCE;
 		if (this.factory == null) {
 			throw new DiscoveryException("factory is null!");
 		}

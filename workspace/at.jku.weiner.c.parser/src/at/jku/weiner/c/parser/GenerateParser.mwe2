@@ -8,7 +8,7 @@ import org.eclipse.xtext.ui.generator.*
 var projectName = "at.jku.weiner.c.parser"
 var projectPath = "../${projectName}"
 
-var fileExtensions = "c,h"
+var fileExtensions = "cdt.i"
 var grammarURI = "platform:/resource/${projectName}/src/at/jku/weiner/c/parser/Parser.xtext"
 
 var encoding = "UTF-8"

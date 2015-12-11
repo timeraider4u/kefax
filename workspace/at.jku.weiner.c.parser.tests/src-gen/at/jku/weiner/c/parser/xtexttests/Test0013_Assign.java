@@ -122,10 +122,10 @@ public class Test0013_Assign {
 				"RULE_WHITESPACE", 
 				"RULE_ID", 
 				"RULE_WHITESPACE", 
-				"RULE_ASSIGN", 
+				"RULE_SKW_ASSIGN", 
 				"RULE_WHITESPACE", 
 				"RULE_DECIMAL_LITERAL", 
-				"RULE_SEMI", 
+				"RULE_SKW_SEMI", 
 				"RULE_NEWLINE", 
 				};
 			//final List<Token> actual = testHelper.getTokens(text);

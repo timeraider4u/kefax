@@ -8,7 +8,7 @@ source file="res/Test0041_MultipleLinesPreprocessorDirective.c"
 lexer-tokens
 LINEDIRECTIVE NEWLINE
 NEWLINE
-KW_INT WHITESPACE ID WHITESPACE ASSIGN WHITESPACE ID SEMI NEWLINE
+KW_INT WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE ID SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
 (Model
 	unit+=

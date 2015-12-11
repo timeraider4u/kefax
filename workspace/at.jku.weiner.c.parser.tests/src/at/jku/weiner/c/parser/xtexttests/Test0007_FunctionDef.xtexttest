@@ -6,8 +6,8 @@ language parser
 source file="res/Test0007_FunctionDef.c"
 //----------------------------------------------------------------------
 lexer-tokens
-KW_VOID WHITESPACE ID LEFTPAREN RIGHTPAREN WHITESPACE LEFTBRACE NEWLINE
-RIGHTBRACE NEWLINE
+KW_VOID WHITESPACE ID SKW_LEFTPAREN SKW_RIGHTPAREN WHITESPACE SKW_LEFTBRACE NEWLINE
+SKW_RIGHTBRACE NEWLINE
 //----------------------------------------------------------------------
 (Model unit+=
 	(TranslationUnit 

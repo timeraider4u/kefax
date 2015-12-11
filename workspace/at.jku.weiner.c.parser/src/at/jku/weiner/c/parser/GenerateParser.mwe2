@@ -29,6 +29,9 @@ Workflow {
 		// Use ecore
 		registerGeneratedEPackage = "org.eclipse.emf.ecore.EcorePackage"
     	registerGenModelFile = "platform:/resource/org.eclipse.emf.ecore/model/Ecore.genmodel"
+    	// Use common
+		registerGeneratedEPackage = "at.jku.weiner.c.common.common.CommonPackage"
+		registerGenModelFile = "platform:/resource/at.jku.weiner.c.common/model/generated/Common.genmodel"
 	}
 	
 	component = DirectoryCleaner {

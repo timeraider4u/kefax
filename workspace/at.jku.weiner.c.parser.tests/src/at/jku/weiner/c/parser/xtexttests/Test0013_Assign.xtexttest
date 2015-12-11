@@ -6,8 +6,8 @@ language parser
 source file="res/Test0013_Assign.c"
 //----------------------------------------------------------------------
 lexer-tokens
-KW_INT WHITESPACE ID WHITESPACE ASSIGN WHITESPACE DECIMAL_LITERAL
-SEMI NEWLINE
+KW_INT WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE DECIMAL_LITERAL
+SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
 (Model unit+=
 	(TranslationUnit 

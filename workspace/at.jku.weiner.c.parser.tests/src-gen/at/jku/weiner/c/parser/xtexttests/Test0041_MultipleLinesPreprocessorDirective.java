@@ -124,10 +124,10 @@ public class Test0041_MultipleLinesPreprocessorDirective {
 				"RULE_WHITESPACE", 
 				"RULE_ID", 
 				"RULE_WHITESPACE", 
-				"RULE_ASSIGN", 
+				"RULE_SKW_ASSIGN", 
 				"RULE_WHITESPACE", 
 				"RULE_ID", 
-				"RULE_SEMI", 
+				"RULE_SKW_SEMI", 
 				"RULE_NEWLINE", 
 				};
 			//final List<Token> actual = testHelper.getTokens(text);

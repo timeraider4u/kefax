@@ -254,9 +254,9 @@ ruleFunctionDefHead
 )
 
 
-this_LEFTBRACE_2=RULE_LEFTBRACE
+this_SKW_LEFTBRACE_2=RULE_SKW_LEFTBRACE
     { 
-    newLeafNode(this_LEFTBRACE_2, grammarAccess.getExternalDeclarationAccess().getLEFTBRACETerminalRuleCall_1_0_0_1()); 
+    newLeafNode(this_SKW_LEFTBRACE_2, grammarAccess.getExternalDeclarationAccess().getSKW_LEFTBRACETerminalRuleCall_1_0_0_1()); 
     }
 
 
@@ -284,9 +284,9 @@ this_LEFTBRACE_2=RULE_LEFTBRACE
 )
 
 
-this_RIGHTBRACE_4=RULE_RIGHTBRACE
+this_SKW_RIGHTBRACE_4=RULE_SKW_RIGHTBRACE
     { 
-    newLeafNode(this_RIGHTBRACE_4, grammarAccess.getExternalDeclarationAccess().getRIGHTBRACETerminalRuleCall_1_0_2()); 
+    newLeafNode(this_SKW_RIGHTBRACE_4, grammarAccess.getExternalDeclarationAccess().getSKW_RIGHTBRACETerminalRuleCall_1_0_2()); 
     }
 
 
@@ -318,9 +318,9 @@ this_RIGHTBRACE_4=RULE_RIGHTBRACE
     |
 (
 (
-		lv_semi_6_0=RULE_SEMI
+		lv_semi_6_0=RULE_SKW_SEMI
 		{
-			newLeafNode(lv_semi_6_0, grammarAccess.getExternalDeclarationAccess().getSemiSEMITerminalRuleCall_1_2_0()); 
+			newLeafNode(lv_semi_6_0, grammarAccess.getExternalDeclarationAccess().getSemiSKW_SEMITerminalRuleCall_1_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -330,7 +330,7 @@ this_RIGHTBRACE_4=RULE_RIGHTBRACE
        			$current, 
        			"semi",
         		lv_semi_6_0, 
-        		"at.jku.weiner.c.parser.Parser.SEMI");
+        		"at.jku.weiner.c.common.Common.SKW_SEMI");
 	    }
 
 )
@@ -585,9 +585,9 @@ ruleDeclaration returns [EObject current=null]
 
 (
 (
-		lv_semi_3_0=RULE_SEMI
+		lv_semi_3_0=RULE_SKW_SEMI
 		{
-			newLeafNode(lv_semi_3_0, grammarAccess.getDeclarationAccess().getSemiSEMITerminalRuleCall_1_2_0()); 
+			newLeafNode(lv_semi_3_0, grammarAccess.getDeclarationAccess().getSemiSKW_SEMITerminalRuleCall_1_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -597,7 +597,7 @@ ruleDeclaration returns [EObject current=null]
        			$current, 
        			"semi",
         		lv_semi_3_0, 
-        		"at.jku.weiner.c.parser.Parser.SEMI");
+        		"at.jku.weiner.c.common.Common.SKW_SEMI");
 	    }
 
 )
@@ -925,9 +925,9 @@ ruleInitDeclaratorList returns [EObject current=null]
 
 
 (
-this_COMMA_2=RULE_COMMA
+this_SKW_COMMA_2=RULE_SKW_COMMA
     { 
-    newLeafNode(this_COMMA_2, grammarAccess.getInitDeclaratorListAccess().getCOMMATerminalRuleCall_2_0()); 
+    newLeafNode(this_SKW_COMMA_2, grammarAccess.getInitDeclaratorListAccess().getSKW_COMMATerminalRuleCall_2_0()); 
     }
 
 
@@ -1016,9 +1016,9 @@ ruleInitDeclarator returns [EObject current=null]
 
 
 (
-this_ASSIGN_2=RULE_ASSIGN
+this_SKW_ASSIGN_2=RULE_SKW_ASSIGN
     { 
-    newLeafNode(this_ASSIGN_2, grammarAccess.getInitDeclaratorAccess().getASSIGNTerminalRuleCall_2_0()); 
+    newLeafNode(this_SKW_ASSIGN_2, grammarAccess.getInitDeclaratorAccess().getSKW_ASSIGNTerminalRuleCall_2_0()); 
     }
 
 
@@ -1757,9 +1757,9 @@ ruleStructOrUnionSpecifier returns [EObject current=null]
 )?
 
 
-this_LEFTBRACE_3=RULE_LEFTBRACE
+this_SKW_LEFTBRACE_3=RULE_SKW_LEFTBRACE
     { 
-    newLeafNode(this_LEFTBRACE_3, grammarAccess.getStructOrUnionSpecifierAccess().getLEFTBRACETerminalRuleCall_2_0_1()); 
+    newLeafNode(this_SKW_LEFTBRACE_3, grammarAccess.getStructOrUnionSpecifierAccess().getSKW_LEFTBRACETerminalRuleCall_2_0_1()); 
     }
 
 
@@ -1785,9 +1785,9 @@ this_LEFTBRACE_3=RULE_LEFTBRACE
 )
 
 
-this_RIGHTBRACE_5=RULE_RIGHTBRACE
+this_SKW_RIGHTBRACE_5=RULE_SKW_RIGHTBRACE
     { 
-    newLeafNode(this_RIGHTBRACE_5, grammarAccess.getStructOrUnionSpecifierAccess().getRIGHTBRACETerminalRuleCall_2_0_3()); 
+    newLeafNode(this_SKW_RIGHTBRACE_5, grammarAccess.getStructOrUnionSpecifierAccess().getSKW_RIGHTBRACETerminalRuleCall_2_0_3()); 
     }
 
 
@@ -2017,9 +2017,9 @@ ruleStructDeclaration returns [EObject current=null]
 )?
 
 
-this_SEMI_2=RULE_SEMI
+this_SKW_SEMI_2=RULE_SKW_SEMI
     { 
-    newLeafNode(this_SEMI_2, grammarAccess.getStructDeclarationAccess().getSEMITerminalRuleCall_2()); 
+    newLeafNode(this_SKW_SEMI_2, grammarAccess.getStructDeclarationAccess().getSKW_SEMITerminalRuleCall_2()); 
     }
 
 
@@ -2180,9 +2180,9 @@ ruleStructDeclaratorList returns [EObject current=null]
 
 
 (
-this_COMMA_1=RULE_COMMA
+this_SKW_COMMA_1=RULE_SKW_COMMA
     { 
-    newLeafNode(this_COMMA_1, grammarAccess.getStructDeclaratorListAccess().getCOMMATerminalRuleCall_1_0()); 
+    newLeafNode(this_SKW_COMMA_1, grammarAccess.getStructDeclaratorListAccess().getSKW_COMMATerminalRuleCall_1_0()); 
     }
 
 
@@ -2260,9 +2260,9 @@ ruleStructDeclarator returns [EObject current=null]
 
 
 (
-this_COLON_1=RULE_COLON
+this_SKW_COLON_1=RULE_SKW_COLON
     { 
-    newLeafNode(this_COLON_1, grammarAccess.getStructDeclaratorAccess().getCOLONTerminalRuleCall_0_1_0()); 
+    newLeafNode(this_SKW_COLON_1, grammarAccess.getStructDeclaratorAccess().getSKW_COLONTerminalRuleCall_0_1_0()); 
     }
 
 
@@ -2294,9 +2294,9 @@ this_COLON_1=RULE_COLON
 
     |
 (
-this_COLON_3=RULE_COLON
+this_SKW_COLON_3=RULE_SKW_COLON
     { 
-    newLeafNode(this_COLON_3, grammarAccess.getStructDeclaratorAccess().getCOLONTerminalRuleCall_1_0()); 
+    newLeafNode(this_SKW_COLON_3, grammarAccess.getStructDeclaratorAccess().getSKW_COLONTerminalRuleCall_1_0()); 
     }
 
 
@@ -2373,9 +2373,9 @@ this_KW_ENUM_1=RULE_KW_ENUM
 
 (
 (
-this_LEFTBRACE_2=RULE_LEFTBRACE
+this_SKW_LEFTBRACE_2=RULE_SKW_LEFTBRACE
     { 
-    newLeafNode(this_LEFTBRACE_2, grammarAccess.getEnumSpecifierAccess().getLEFTBRACETerminalRuleCall_1_1_0_0()); 
+    newLeafNode(this_SKW_LEFTBRACE_2, grammarAccess.getEnumSpecifierAccess().getSKW_LEFTBRACETerminalRuleCall_1_1_0_0()); 
     }
 
 
@@ -2401,9 +2401,9 @@ this_LEFTBRACE_2=RULE_LEFTBRACE
 )
 
 
-this_RIGHTBRACE_4=RULE_RIGHTBRACE
+this_SKW_RIGHTBRACE_4=RULE_SKW_RIGHTBRACE
     { 
-    newLeafNode(this_RIGHTBRACE_4, grammarAccess.getEnumSpecifierAccess().getRIGHTBRACETerminalRuleCall_1_1_0_2()); 
+    newLeafNode(this_SKW_RIGHTBRACE_4, grammarAccess.getEnumSpecifierAccess().getSKW_RIGHTBRACETerminalRuleCall_1_1_0_2()); 
     }
 
 
@@ -2434,9 +2434,9 @@ this_RIGHTBRACE_4=RULE_RIGHTBRACE
 
 
 (
-this_LEFTBRACE_6=RULE_LEFTBRACE
+this_SKW_LEFTBRACE_6=RULE_SKW_LEFTBRACE
     { 
-    newLeafNode(this_LEFTBRACE_6, grammarAccess.getEnumSpecifierAccess().getLEFTBRACETerminalRuleCall_1_1_1_1_0()); 
+    newLeafNode(this_SKW_LEFTBRACE_6, grammarAccess.getEnumSpecifierAccess().getSKW_LEFTBRACETerminalRuleCall_1_1_1_1_0()); 
     }
 
 
@@ -2462,9 +2462,9 @@ this_LEFTBRACE_6=RULE_LEFTBRACE
 )
 
 
-this_RIGHTBRACE_8=RULE_RIGHTBRACE
+this_SKW_RIGHTBRACE_8=RULE_SKW_RIGHTBRACE
     { 
-    newLeafNode(this_RIGHTBRACE_8, grammarAccess.getEnumSpecifierAccess().getRIGHTBRACETerminalRuleCall_1_1_1_1_2()); 
+    newLeafNode(this_SKW_RIGHTBRACE_8, grammarAccess.getEnumSpecifierAccess().getSKW_RIGHTBRACETerminalRuleCall_1_1_1_1_2()); 
     }
 
 
@@ -2526,9 +2526,9 @@ ruleEnumeratorList returns [EObject current=null]
 
 
 (
-this_COMMA_1=RULE_COMMA
+this_SKW_COMMA_1=RULE_SKW_COMMA
     { 
-    newLeafNode(this_COMMA_1, grammarAccess.getEnumeratorListAccess().getCOMMATerminalRuleCall_1_0()); 
+    newLeafNode(this_SKW_COMMA_1, grammarAccess.getEnumeratorListAccess().getSKW_COMMATerminalRuleCall_1_0()); 
     }
 
 
@@ -2617,9 +2617,9 @@ ruleEnumerator returns [EObject current=null]
 
 
 (
-this_ASSIGN_2=RULE_ASSIGN
+this_SKW_ASSIGN_2=RULE_SKW_ASSIGN
     { 
-    newLeafNode(this_ASSIGN_2, grammarAccess.getEnumeratorAccess().getASSIGNTerminalRuleCall_2_0()); 
+    newLeafNode(this_SKW_ASSIGN_2, grammarAccess.getEnumeratorAccess().getSKW_ASSIGNTerminalRuleCall_2_0()); 
     }
 
 
@@ -3007,9 +3007,9 @@ ruleDirectDeclarator returns [EObject current=null]
 
     |
 (
-this_LEFTPAREN_2=RULE_LEFTPAREN
+this_SKW_LEFTPAREN_2=RULE_SKW_LEFTPAREN
     { 
-    newLeafNode(this_LEFTPAREN_2, grammarAccess.getDirectDeclaratorAccess().getLEFTPARENTerminalRuleCall_1_1_0()); 
+    newLeafNode(this_SKW_LEFTPAREN_2, grammarAccess.getDirectDeclaratorAccess().getSKW_LEFTPARENTerminalRuleCall_1_1_0()); 
     }
 
 
@@ -3035,9 +3035,9 @@ this_LEFTPAREN_2=RULE_LEFTPAREN
 )
 
 
-this_RIGHTPAREN_4=RULE_RIGHTPAREN
+this_SKW_RIGHTPAREN_4=RULE_SKW_RIGHTPAREN
     { 
-    newLeafNode(this_RIGHTPAREN_4, grammarAccess.getDirectDeclaratorAccess().getRIGHTPARENTerminalRuleCall_1_1_2()); 
+    newLeafNode(this_SKW_RIGHTPAREN_4, grammarAccess.getDirectDeclaratorAccess().getSKW_RIGHTPARENTerminalRuleCall_1_1_2()); 
     }
 
 
@@ -3108,9 +3108,9 @@ ruleDeclaratorSuffix returns [EObject current=null]
 
 (
 (
-this_LEFTBRACKET_1=RULE_LEFTBRACKET
+this_SKW_LEFTBRACKET_1=RULE_SKW_LEFTBRACKET
     { 
-    newLeafNode(this_LEFTBRACKET_1, grammarAccess.getDeclaratorSuffixAccess().getLEFTBRACKETTerminalRuleCall_1_0_0()); 
+    newLeafNode(this_SKW_LEFTBRACKET_1, grammarAccess.getDeclaratorSuffixAccess().getSKW_LEFTBRACKETTerminalRuleCall_1_0_0()); 
     }
 
 
@@ -3178,9 +3178,9 @@ this_LEFTBRACKET_1=RULE_LEFTBRACKET
 )?
 
 
-this_RIGHTBRACKET_5=RULE_RIGHTBRACKET
+this_SKW_RIGHTBRACKET_5=RULE_SKW_RIGHTBRACKET
     { 
-    newLeafNode(this_RIGHTBRACKET_5, grammarAccess.getDeclaratorSuffixAccess().getRIGHTBRACKETTerminalRuleCall_1_0_4()); 
+    newLeafNode(this_SKW_RIGHTBRACKET_5, grammarAccess.getDeclaratorSuffixAccess().getSKW_RIGHTBRACKETTerminalRuleCall_1_0_4()); 
     }
 
 
@@ -3189,9 +3189,9 @@ this_RIGHTBRACKET_5=RULE_RIGHTBRACKET
 
     |
 (
-this_LEFTBRACKET_6=RULE_LEFTBRACKET
+this_SKW_LEFTBRACKET_6=RULE_SKW_LEFTBRACKET
     { 
-    newLeafNode(this_LEFTBRACKET_6, grammarAccess.getDeclaratorSuffixAccess().getLEFTBRACKETTerminalRuleCall_1_1_0()); 
+    newLeafNode(this_SKW_LEFTBRACKET_6, grammarAccess.getDeclaratorSuffixAccess().getSKW_LEFTBRACKETTerminalRuleCall_1_1_0()); 
     }
 
 
@@ -3238,9 +3238,9 @@ this_LEFTBRACKET_6=RULE_LEFTBRACKET
 )
 
 
-this_RIGHTBRACKET_9=RULE_RIGHTBRACKET
+this_SKW_RIGHTBRACKET_9=RULE_SKW_RIGHTBRACKET
     { 
-    newLeafNode(this_RIGHTBRACKET_9, grammarAccess.getDeclaratorSuffixAccess().getRIGHTBRACKETTerminalRuleCall_1_1_3()); 
+    newLeafNode(this_SKW_RIGHTBRACKET_9, grammarAccess.getDeclaratorSuffixAccess().getSKW_RIGHTBRACKETTerminalRuleCall_1_1_3()); 
     }
 
 
@@ -3249,9 +3249,9 @@ this_RIGHTBRACKET_9=RULE_RIGHTBRACKET
 
     |
 (
-this_LEFTBRACKET_10=RULE_LEFTBRACKET
+this_SKW_LEFTBRACKET_10=RULE_SKW_LEFTBRACKET
     { 
-    newLeafNode(this_LEFTBRACKET_10, grammarAccess.getDeclaratorSuffixAccess().getLEFTBRACKETTerminalRuleCall_1_2_0()); 
+    newLeafNode(this_SKW_LEFTBRACKET_10, grammarAccess.getDeclaratorSuffixAccess().getSKW_LEFTBRACKETTerminalRuleCall_1_2_0()); 
     }
 
 
@@ -3319,9 +3319,9 @@ this_LEFTBRACKET_10=RULE_LEFTBRACKET
 )
 
 
-this_RIGHTBRACKET_14=RULE_RIGHTBRACKET
+this_SKW_RIGHTBRACKET_14=RULE_SKW_RIGHTBRACKET
     { 
-    newLeafNode(this_RIGHTBRACKET_14, grammarAccess.getDeclaratorSuffixAccess().getRIGHTBRACKETTerminalRuleCall_1_2_4()); 
+    newLeafNode(this_SKW_RIGHTBRACKET_14, grammarAccess.getDeclaratorSuffixAccess().getSKW_RIGHTBRACKETTerminalRuleCall_1_2_4()); 
     }
 
 
@@ -3330,9 +3330,9 @@ this_RIGHTBRACKET_14=RULE_RIGHTBRACKET
 
     |
 (
-this_LEFTBRACKET_15=RULE_LEFTBRACKET
+this_SKW_LEFTBRACKET_15=RULE_SKW_LEFTBRACKET
     { 
-    newLeafNode(this_LEFTBRACKET_15, grammarAccess.getDeclaratorSuffixAccess().getLEFTBRACKETTerminalRuleCall_1_3_0()); 
+    newLeafNode(this_SKW_LEFTBRACKET_15, grammarAccess.getDeclaratorSuffixAccess().getSKW_LEFTBRACKETTerminalRuleCall_1_3_0()); 
     }
 
 
@@ -3360,9 +3360,9 @@ this_LEFTBRACKET_15=RULE_LEFTBRACKET
 
 (
 (
-		lv_star_17_0=RULE_STAR
+		lv_star_17_0=RULE_SKW_STAR
 		{
-			newLeafNode(lv_star_17_0, grammarAccess.getDeclaratorSuffixAccess().getStarSTARTerminalRuleCall_1_3_2_0()); 
+			newLeafNode(lv_star_17_0, grammarAccess.getDeclaratorSuffixAccess().getStarSKW_STARTerminalRuleCall_1_3_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -3372,16 +3372,16 @@ this_LEFTBRACKET_15=RULE_LEFTBRACKET
        			$current, 
        			"star",
         		lv_star_17_0, 
-        		"at.jku.weiner.c.parser.Parser.STAR");
+        		"at.jku.weiner.c.common.Common.SKW_STAR");
 	    }
 
 )
 )
 
 
-this_RIGHTBRACKET_18=RULE_RIGHTBRACKET
+this_SKW_RIGHTBRACKET_18=RULE_SKW_RIGHTBRACKET
     { 
-    newLeafNode(this_RIGHTBRACKET_18, grammarAccess.getDeclaratorSuffixAccess().getRIGHTBRACKETTerminalRuleCall_1_3_3()); 
+    newLeafNode(this_SKW_RIGHTBRACKET_18, grammarAccess.getDeclaratorSuffixAccess().getSKW_RIGHTBRACKETTerminalRuleCall_1_3_3()); 
     }
 
 
@@ -3451,9 +3451,9 @@ ruleDirectDeclaratorLastSuffix returns [EObject current=null]
 )
 
 
-this_LEFTPAREN_1=RULE_LEFTPAREN
+this_SKW_LEFTPAREN_1=RULE_SKW_LEFTPAREN
     { 
-    newLeafNode(this_LEFTPAREN_1, grammarAccess.getDirectDeclaratorLastSuffixAccess().getLEFTPARENTerminalRuleCall_1()); 
+    newLeafNode(this_SKW_LEFTPAREN_1, grammarAccess.getDirectDeclaratorLastSuffixAccess().getSKW_LEFTPARENTerminalRuleCall_1()); 
     }
 
 
@@ -3504,9 +3504,9 @@ this_LEFTPAREN_1=RULE_LEFTPAREN
 )
 
 
-this_RIGHTPAREN_4=RULE_RIGHTPAREN
+this_SKW_RIGHTPAREN_4=RULE_SKW_RIGHTPAREN
     { 
-    newLeafNode(this_RIGHTPAREN_4, grammarAccess.getDirectDeclaratorLastSuffixAccess().getRIGHTPARENTerminalRuleCall_3()); 
+    newLeafNode(this_SKW_RIGHTPAREN_4, grammarAccess.getDirectDeclaratorLastSuffixAccess().getSKW_RIGHTPARENTerminalRuleCall_3()); 
     }
 
 
@@ -3554,9 +3554,9 @@ rulePointer returns [EObject current=null]
 (
 (
 (
-		lv_star_1_0=RULE_STAR
+		lv_star_1_0=RULE_SKW_STAR
 		{
-			newLeafNode(lv_star_1_0, grammarAccess.getPointerAccess().getStarSTARTerminalRuleCall_1_0_0_0()); 
+			newLeafNode(lv_star_1_0, grammarAccess.getPointerAccess().getStarSKW_STARTerminalRuleCall_1_0_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -3566,7 +3566,7 @@ rulePointer returns [EObject current=null]
        			$current, 
        			"star",
         		lv_star_1_0, 
-        		"at.jku.weiner.c.parser.Parser.STAR");
+        		"at.jku.weiner.c.common.Common.SKW_STAR");
 	    }
 
 )
@@ -3576,9 +3576,9 @@ rulePointer returns [EObject current=null]
     |
 (
 (
-		lv_caret_2_0=RULE_CARET
+		lv_caret_2_0=RULE_SKW_CARET
 		{
-			newLeafNode(lv_caret_2_0, grammarAccess.getPointerAccess().getCaretCARETTerminalRuleCall_1_0_1_0()); 
+			newLeafNode(lv_caret_2_0, grammarAccess.getPointerAccess().getCaretSKW_CARETTerminalRuleCall_1_0_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -3588,7 +3588,7 @@ rulePointer returns [EObject current=null]
        			$current, 
        			"caret",
         		lv_caret_2_0, 
-        		"at.jku.weiner.c.parser.Parser.CARET");
+        		"at.jku.weiner.c.common.Common.SKW_CARET");
 	    }
 
 )
@@ -3741,9 +3741,9 @@ ruleParameterTypeList returns [EObject current=null]
 
 
 (
-this_COMMA_2=RULE_COMMA
+this_SKW_COMMA_2=RULE_SKW_COMMA
     { 
-    newLeafNode(this_COMMA_2, grammarAccess.getParameterTypeListAccess().getCOMMATerminalRuleCall_2_0()); 
+    newLeafNode(this_SKW_COMMA_2, grammarAccess.getParameterTypeListAccess().getSKW_COMMATerminalRuleCall_2_0()); 
     }
 
 
@@ -3818,9 +3818,9 @@ ruleParameterList returns [EObject current=null]
 
 
 (
-this_COMMA_2=RULE_COMMA
+this_SKW_COMMA_2=RULE_SKW_COMMA
     { 
-    newLeafNode(this_COMMA_2, grammarAccess.getParameterListAccess().getCOMMATerminalRuleCall_2_0()); 
+    newLeafNode(this_SKW_COMMA_2, grammarAccess.getParameterListAccess().getSKW_COMMATerminalRuleCall_2_0()); 
     }
 
 
@@ -3990,9 +3990,9 @@ ruleIdentifierList returns [EObject current=null]
 
 
 (
-this_COMMA_2=RULE_COMMA
+this_SKW_COMMA_2=RULE_SKW_COMMA
     { 
-    newLeafNode(this_COMMA_2, grammarAccess.getIdentifierListAccess().getCOMMATerminalRuleCall_2_0()); 
+    newLeafNode(this_SKW_COMMA_2, grammarAccess.getIdentifierListAccess().getSKW_COMMATerminalRuleCall_2_0()); 
     }
 
 
@@ -4203,9 +4203,9 @@ ruleInitializer returns [EObject current=null]
 
     |
 (
-this_LEFTBRACE_2=RULE_LEFTBRACE
+this_SKW_LEFTBRACE_2=RULE_SKW_LEFTBRACE
     { 
-    newLeafNode(this_LEFTBRACE_2, grammarAccess.getInitializerAccess().getLEFTBRACETerminalRuleCall_1_1_0()); 
+    newLeafNode(this_SKW_LEFTBRACE_2, grammarAccess.getInitializerAccess().getSKW_LEFTBRACETerminalRuleCall_1_1_0()); 
     }
 
 
@@ -4231,16 +4231,16 @@ this_LEFTBRACE_2=RULE_LEFTBRACE
 )
 
 
-(this_COMMA_4=RULE_COMMA
+(this_SKW_COMMA_4=RULE_SKW_COMMA
     { 
-    newLeafNode(this_COMMA_4, grammarAccess.getInitializerAccess().getCOMMATerminalRuleCall_1_1_2()); 
+    newLeafNode(this_SKW_COMMA_4, grammarAccess.getInitializerAccess().getSKW_COMMATerminalRuleCall_1_1_2()); 
     }
 )?
 
 
-this_RIGHTBRACE_5=RULE_RIGHTBRACE
+this_SKW_RIGHTBRACE_5=RULE_SKW_RIGHTBRACE
     { 
-    newLeafNode(this_RIGHTBRACE_5, grammarAccess.getInitializerAccess().getRIGHTBRACETerminalRuleCall_1_1_3()); 
+    newLeafNode(this_SKW_RIGHTBRACE_5, grammarAccess.getInitializerAccess().getSKW_RIGHTBRACETerminalRuleCall_1_1_3()); 
     }
 
 
@@ -4310,9 +4310,9 @@ ruleInitializerList returns [EObject current=null]
 
 
 (
-this_COMMA_2=RULE_COMMA
+this_SKW_COMMA_2=RULE_SKW_COMMA
     { 
-    newLeafNode(this_COMMA_2, grammarAccess.getInitializerListAccess().getCOMMATerminalRuleCall_2_0()); 
+    newLeafNode(this_SKW_COMMA_2, grammarAccess.getInitializerListAccess().getSKW_COMMATerminalRuleCall_2_0()); 
     }
 
 
@@ -4682,9 +4682,9 @@ ruleLabeledStatement returns [EObject current=null]
 )
 
 
-this_COLON_2=RULE_COLON
+this_SKW_COLON_2=RULE_SKW_COLON
     { 
-    newLeafNode(this_COLON_2, grammarAccess.getLabeledStatementAccess().getCOLONTerminalRuleCall_1_0_1()); 
+    newLeafNode(this_SKW_COLON_2, grammarAccess.getLabeledStatementAccess().getSKW_COLONTerminalRuleCall_1_0_1()); 
     }
 
 
@@ -4756,9 +4756,9 @@ this_COLON_2=RULE_COLON
 )
 
 
-this_COLON_6=RULE_COLON
+this_SKW_COLON_6=RULE_SKW_COLON
     { 
-    newLeafNode(this_COLON_6, grammarAccess.getLabeledStatementAccess().getCOLONTerminalRuleCall_1_1_2()); 
+    newLeafNode(this_SKW_COLON_6, grammarAccess.getLabeledStatementAccess().getSKW_COLONTerminalRuleCall_1_1_2()); 
     }
 
 
@@ -4809,9 +4809,9 @@ this_COLON_6=RULE_COLON
 )
 
 
-this_COLON_9=RULE_COLON
+this_SKW_COLON_9=RULE_SKW_COLON
     { 
-    newLeafNode(this_COLON_9, grammarAccess.getLabeledStatementAccess().getCOLONTerminalRuleCall_1_2_1()); 
+    newLeafNode(this_SKW_COLON_9, grammarAccess.getLabeledStatementAccess().getSKW_COLONTerminalRuleCall_1_2_1()); 
     }
 
 
@@ -4880,9 +4880,9 @@ ruleCompoundStatement returns [EObject current=null]
 )
 
 
-this_LEFTBRACE_1=RULE_LEFTBRACE
+this_SKW_LEFTBRACE_1=RULE_SKW_LEFTBRACE
     { 
-    newLeafNode(this_LEFTBRACE_1, grammarAccess.getCompoundStatementAccess().getLEFTBRACETerminalRuleCall_1()); 
+    newLeafNode(this_SKW_LEFTBRACE_1, grammarAccess.getCompoundStatementAccess().getSKW_LEFTBRACETerminalRuleCall_1()); 
     }
 
 
@@ -4908,9 +4908,9 @@ this_LEFTBRACE_1=RULE_LEFTBRACE
 )
 
 
-this_RIGHTBRACE_3=RULE_RIGHTBRACE
+this_SKW_RIGHTBRACE_3=RULE_SKW_RIGHTBRACE
     { 
-    newLeafNode(this_RIGHTBRACE_3, grammarAccess.getCompoundStatementAccess().getRIGHTBRACETerminalRuleCall_3()); 
+    newLeafNode(this_SKW_RIGHTBRACE_3, grammarAccess.getCompoundStatementAccess().getSKW_RIGHTBRACETerminalRuleCall_3()); 
     }
 
 
@@ -5037,9 +5037,9 @@ ruleExpressionStatement returns [EObject current=null]
 
 (
 (
-		lv_semi_2_0=RULE_SEMI
+		lv_semi_2_0=RULE_SKW_SEMI
 		{
-			newLeafNode(lv_semi_2_0, grammarAccess.getExpressionStatementAccess().getSemiSEMITerminalRuleCall_2_0()); 
+			newLeafNode(lv_semi_2_0, grammarAccess.getExpressionStatementAccess().getSemiSKW_SEMITerminalRuleCall_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -5049,7 +5049,7 @@ ruleExpressionStatement returns [EObject current=null]
        			$current, 
        			"semi",
         		lv_semi_2_0, 
-        		"at.jku.weiner.c.parser.Parser.SEMI");
+        		"at.jku.weiner.c.common.Common.SKW_SEMI");
 	    }
 
 )
@@ -5118,9 +5118,9 @@ ruleSelectionStatement returns [EObject current=null]
 )
 
 
-this_LEFTPAREN_2=RULE_LEFTPAREN
+this_SKW_LEFTPAREN_2=RULE_SKW_LEFTPAREN
     { 
-    newLeafNode(this_LEFTPAREN_2, grammarAccess.getSelectionStatementAccess().getLEFTPARENTerminalRuleCall_1_0_1()); 
+    newLeafNode(this_SKW_LEFTPAREN_2, grammarAccess.getSelectionStatementAccess().getSKW_LEFTPARENTerminalRuleCall_1_0_1()); 
     }
 
 
@@ -5146,9 +5146,9 @@ this_LEFTPAREN_2=RULE_LEFTPAREN
 )
 
 
-this_RIGHTPAREN_4=RULE_RIGHTPAREN
+this_SKW_RIGHTPAREN_4=RULE_SKW_RIGHTPAREN
     { 
-    newLeafNode(this_RIGHTPAREN_4, grammarAccess.getSelectionStatementAccess().getRIGHTPARENTerminalRuleCall_1_0_3()); 
+    newLeafNode(this_SKW_RIGHTPAREN_4, grammarAccess.getSelectionStatementAccess().getSKW_RIGHTPARENTerminalRuleCall_1_0_3()); 
     }
 
 
@@ -5249,9 +5249,9 @@ RULE_KW_ELSE
 )
 
 
-this_LEFTPAREN_9=RULE_LEFTPAREN
+this_SKW_LEFTPAREN_9=RULE_SKW_LEFTPAREN
     { 
-    newLeafNode(this_LEFTPAREN_9, grammarAccess.getSelectionStatementAccess().getLEFTPARENTerminalRuleCall_1_1_1()); 
+    newLeafNode(this_SKW_LEFTPAREN_9, grammarAccess.getSelectionStatementAccess().getSKW_LEFTPARENTerminalRuleCall_1_1_1()); 
     }
 
 
@@ -5277,9 +5277,9 @@ this_LEFTPAREN_9=RULE_LEFTPAREN
 )
 
 
-this_RIGHTPAREN_11=RULE_RIGHTPAREN
+this_SKW_RIGHTPAREN_11=RULE_SKW_RIGHTPAREN
     { 
-    newLeafNode(this_RIGHTPAREN_11, grammarAccess.getSelectionStatementAccess().getRIGHTPARENTerminalRuleCall_1_1_3()); 
+    newLeafNode(this_SKW_RIGHTPAREN_11, grammarAccess.getSelectionStatementAccess().getSKW_RIGHTPARENTerminalRuleCall_1_1_3()); 
     }
 
 
@@ -5371,9 +5371,9 @@ ruleIterationStatement returns [EObject current=null]
 )
 
 
-this_LEFTPAREN_2=RULE_LEFTPAREN
+this_SKW_LEFTPAREN_2=RULE_SKW_LEFTPAREN
     { 
-    newLeafNode(this_LEFTPAREN_2, grammarAccess.getIterationStatementAccess().getLEFTPARENTerminalRuleCall_1_0_1()); 
+    newLeafNode(this_SKW_LEFTPAREN_2, grammarAccess.getIterationStatementAccess().getSKW_LEFTPARENTerminalRuleCall_1_0_1()); 
     }
 
 
@@ -5399,9 +5399,9 @@ this_LEFTPAREN_2=RULE_LEFTPAREN
 )
 
 
-this_RIGHTPAREN_4=RULE_RIGHTPAREN
+this_SKW_RIGHTPAREN_4=RULE_SKW_RIGHTPAREN
     { 
-    newLeafNode(this_RIGHTPAREN_4, grammarAccess.getIterationStatementAccess().getRIGHTPARENTerminalRuleCall_1_0_3()); 
+    newLeafNode(this_SKW_RIGHTPAREN_4, grammarAccess.getIterationStatementAccess().getSKW_RIGHTPARENTerminalRuleCall_1_0_3()); 
     }
 
 
@@ -5480,9 +5480,9 @@ this_KW_WHILE_8=RULE_KW_WHILE
 
 
 
-this_LEFTPAREN_9=RULE_LEFTPAREN
+this_SKW_LEFTPAREN_9=RULE_SKW_LEFTPAREN
     { 
-    newLeafNode(this_LEFTPAREN_9, grammarAccess.getIterationStatementAccess().getLEFTPARENTerminalRuleCall_1_1_3()); 
+    newLeafNode(this_SKW_LEFTPAREN_9, grammarAccess.getIterationStatementAccess().getSKW_LEFTPARENTerminalRuleCall_1_1_3()); 
     }
 
 
@@ -5508,18 +5508,18 @@ this_LEFTPAREN_9=RULE_LEFTPAREN
 )
 
 
-this_RIGHTPAREN_11=RULE_RIGHTPAREN
+this_SKW_RIGHTPAREN_11=RULE_SKW_RIGHTPAREN
     { 
-    newLeafNode(this_RIGHTPAREN_11, grammarAccess.getIterationStatementAccess().getRIGHTPARENTerminalRuleCall_1_1_5()); 
+    newLeafNode(this_SKW_RIGHTPAREN_11, grammarAccess.getIterationStatementAccess().getSKW_RIGHTPARENTerminalRuleCall_1_1_5()); 
     }
 
 
 
 (
 (
-		lv_semi_12_0=RULE_SEMI
+		lv_semi_12_0=RULE_SKW_SEMI
 		{
-			newLeafNode(lv_semi_12_0, grammarAccess.getIterationStatementAccess().getSemiSEMITerminalRuleCall_1_1_6_0()); 
+			newLeafNode(lv_semi_12_0, grammarAccess.getIterationStatementAccess().getSemiSKW_SEMITerminalRuleCall_1_1_6_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -5529,7 +5529,7 @@ this_RIGHTPAREN_11=RULE_RIGHTPAREN
        			$current, 
        			"semi",
         		lv_semi_12_0, 
-        		"at.jku.weiner.c.parser.Parser.SEMI");
+        		"at.jku.weiner.c.common.Common.SKW_SEMI");
 	    }
 
 )
@@ -5561,9 +5561,9 @@ this_RIGHTPAREN_11=RULE_RIGHTPAREN
 )
 
 
-this_LEFTPAREN_14=RULE_LEFTPAREN
+this_SKW_LEFTPAREN_14=RULE_SKW_LEFTPAREN
     { 
-    newLeafNode(this_LEFTPAREN_14, grammarAccess.getIterationStatementAccess().getLEFTPARENTerminalRuleCall_1_2_1()); 
+    newLeafNode(this_SKW_LEFTPAREN_14, grammarAccess.getIterationStatementAccess().getSKW_LEFTPARENTerminalRuleCall_1_2_1()); 
     }
 
 
@@ -5589,9 +5589,9 @@ this_LEFTPAREN_14=RULE_LEFTPAREN
 )?
 
 
-this_SEMI_16=RULE_SEMI
+this_SKW_SEMI_16=RULE_SKW_SEMI
     { 
-    newLeafNode(this_SEMI_16, grammarAccess.getIterationStatementAccess().getSEMITerminalRuleCall_1_2_3()); 
+    newLeafNode(this_SKW_SEMI_16, grammarAccess.getIterationStatementAccess().getSKW_SEMITerminalRuleCall_1_2_3()); 
     }
 
 
@@ -5617,9 +5617,9 @@ this_SEMI_16=RULE_SEMI
 )?
 
 
-this_SEMI_18=RULE_SEMI
+this_SKW_SEMI_18=RULE_SKW_SEMI
     { 
-    newLeafNode(this_SEMI_18, grammarAccess.getIterationStatementAccess().getSEMITerminalRuleCall_1_2_5()); 
+    newLeafNode(this_SKW_SEMI_18, grammarAccess.getIterationStatementAccess().getSKW_SEMITerminalRuleCall_1_2_5()); 
     }
 
 
@@ -5645,9 +5645,9 @@ this_SEMI_18=RULE_SEMI
 )?
 
 
-this_RIGHTPAREN_20=RULE_RIGHTPAREN
+this_SKW_RIGHTPAREN_20=RULE_SKW_RIGHTPAREN
     { 
-    newLeafNode(this_RIGHTPAREN_20, grammarAccess.getIterationStatementAccess().getRIGHTPARENTerminalRuleCall_1_2_7()); 
+    newLeafNode(this_SKW_RIGHTPAREN_20, grammarAccess.getIterationStatementAccess().getSKW_RIGHTPARENTerminalRuleCall_1_2_7()); 
     }
 
 
@@ -5698,9 +5698,9 @@ this_RIGHTPAREN_20=RULE_RIGHTPAREN
 )
 
 
-this_LEFTPAREN_23=RULE_LEFTPAREN
+this_SKW_LEFTPAREN_23=RULE_SKW_LEFTPAREN
     { 
-    newLeafNode(this_LEFTPAREN_23, grammarAccess.getIterationStatementAccess().getLEFTPARENTerminalRuleCall_1_3_1()); 
+    newLeafNode(this_SKW_LEFTPAREN_23, grammarAccess.getIterationStatementAccess().getSKW_LEFTPARENTerminalRuleCall_1_3_1()); 
     }
 
 
@@ -5747,9 +5747,9 @@ this_LEFTPAREN_23=RULE_LEFTPAREN
 )?
 
 
-this_SEMI_26=RULE_SEMI
+this_SKW_SEMI_26=RULE_SKW_SEMI
     { 
-    newLeafNode(this_SEMI_26, grammarAccess.getIterationStatementAccess().getSEMITerminalRuleCall_1_3_4()); 
+    newLeafNode(this_SKW_SEMI_26, grammarAccess.getIterationStatementAccess().getSKW_SEMITerminalRuleCall_1_3_4()); 
     }
 
 
@@ -5775,9 +5775,9 @@ this_SEMI_26=RULE_SEMI
 )?
 
 
-this_RIGHTPAREN_28=RULE_RIGHTPAREN
+this_SKW_RIGHTPAREN_28=RULE_SKW_RIGHTPAREN
     { 
-    newLeafNode(this_RIGHTPAREN_28, grammarAccess.getIterationStatementAccess().getRIGHTPARENTerminalRuleCall_1_3_6()); 
+    newLeafNode(this_SKW_RIGHTPAREN_28, grammarAccess.getIterationStatementAccess().getSKW_RIGHTPARENTerminalRuleCall_1_3_6()); 
     }
 
 
@@ -5871,9 +5871,9 @@ ruleJumpStatement returns [EObject current=null]
 
 (
 (
-		lv_semi_2_0=RULE_SEMI
+		lv_semi_2_0=RULE_SKW_SEMI
 		{
-			newLeafNode(lv_semi_2_0, grammarAccess.getJumpStatementAccess().getSemiSEMITerminalRuleCall_1_0_1_0()); 
+			newLeafNode(lv_semi_2_0, grammarAccess.getJumpStatementAccess().getSemiSKW_SEMITerminalRuleCall_1_0_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -5883,7 +5883,7 @@ ruleJumpStatement returns [EObject current=null]
        			$current, 
        			"semi",
         		lv_semi_2_0, 
-        		"at.jku.weiner.c.parser.Parser.SEMI");
+        		"at.jku.weiner.c.common.Common.SKW_SEMI");
 	    }
 
 )
@@ -5917,9 +5917,9 @@ ruleJumpStatement returns [EObject current=null]
 
 (
 (
-		lv_semi_4_0=RULE_SEMI
+		lv_semi_4_0=RULE_SKW_SEMI
 		{
-			newLeafNode(lv_semi_4_0, grammarAccess.getJumpStatementAccess().getSemiSEMITerminalRuleCall_1_1_1_0()); 
+			newLeafNode(lv_semi_4_0, grammarAccess.getJumpStatementAccess().getSemiSKW_SEMITerminalRuleCall_1_1_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -5929,7 +5929,7 @@ ruleJumpStatement returns [EObject current=null]
        			$current, 
        			"semi",
         		lv_semi_4_0, 
-        		"at.jku.weiner.c.parser.Parser.SEMI");
+        		"at.jku.weiner.c.common.Common.SKW_SEMI");
 	    }
 
 )
@@ -5984,9 +5984,9 @@ ruleJumpStatement returns [EObject current=null]
 
 (
 (
-		lv_semi_7_0=RULE_SEMI
+		lv_semi_7_0=RULE_SKW_SEMI
 		{
-			newLeafNode(lv_semi_7_0, grammarAccess.getJumpStatementAccess().getSemiSEMITerminalRuleCall_1_2_2_0()); 
+			newLeafNode(lv_semi_7_0, grammarAccess.getJumpStatementAccess().getSemiSKW_SEMITerminalRuleCall_1_2_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -5996,7 +5996,7 @@ ruleJumpStatement returns [EObject current=null]
        			$current, 
        			"semi",
         		lv_semi_7_0, 
-        		"at.jku.weiner.c.parser.Parser.SEMI");
+        		"at.jku.weiner.c.common.Common.SKW_SEMI");
 	    }
 
 )
@@ -6051,9 +6051,9 @@ ruleJumpStatement returns [EObject current=null]
 
 (
 (
-		lv_semi_10_0=RULE_SEMI
+		lv_semi_10_0=RULE_SKW_SEMI
 		{
-			newLeafNode(lv_semi_10_0, grammarAccess.getJumpStatementAccess().getSemiSEMITerminalRuleCall_1_3_2_0()); 
+			newLeafNode(lv_semi_10_0, grammarAccess.getJumpStatementAccess().getSemiSKW_SEMITerminalRuleCall_1_3_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -6063,7 +6063,7 @@ ruleJumpStatement returns [EObject current=null]
        			$current, 
        			"semi",
         		lv_semi_10_0, 
-        		"at.jku.weiner.c.parser.Parser.SEMI");
+        		"at.jku.weiner.c.common.Common.SKW_SEMI");
 	    }
 
 )
@@ -6205,9 +6205,9 @@ ruleAsmStatement returns [EObject current=null]
 )?
 
 
-this_LEFTPAREN_5=RULE_LEFTPAREN
+this_SKW_LEFTPAREN_5=RULE_SKW_LEFTPAREN
     { 
-    newLeafNode(this_LEFTPAREN_5, grammarAccess.getAsmStatementAccess().getLEFTPARENTerminalRuleCall_3()); 
+    newLeafNode(this_SKW_LEFTPAREN_5, grammarAccess.getAsmStatementAccess().getSKW_LEFTPARENTerminalRuleCall_3()); 
     }
 
 
@@ -6257,18 +6257,18 @@ this_LEFTPAREN_5=RULE_LEFTPAREN
 )+
 
 
-this_RIGHTPAREN_8=RULE_RIGHTPAREN
+this_SKW_RIGHTPAREN_8=RULE_SKW_RIGHTPAREN
     { 
-    newLeafNode(this_RIGHTPAREN_8, grammarAccess.getAsmStatementAccess().getRIGHTPARENTerminalRuleCall_5()); 
+    newLeafNode(this_SKW_RIGHTPAREN_8, grammarAccess.getAsmStatementAccess().getSKW_RIGHTPARENTerminalRuleCall_5()); 
     }
 
 
 
 (
 (
-		lv_semi_9_0=RULE_SEMI
+		lv_semi_9_0=RULE_SKW_SEMI
 		{
-			newLeafNode(lv_semi_9_0, grammarAccess.getAsmStatementAccess().getSemiSEMITerminalRuleCall_6_0()); 
+			newLeafNode(lv_semi_9_0, grammarAccess.getAsmStatementAccess().getSemiSKW_SEMITerminalRuleCall_6_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -6278,7 +6278,7 @@ this_RIGHTPAREN_8=RULE_RIGHTPAREN
        			$current, 
        			"semi",
         		lv_semi_9_0, 
-        		"at.jku.weiner.c.parser.Parser.SEMI");
+        		"at.jku.weiner.c.common.Common.SKW_SEMI");
 	    }
 
 )
@@ -6326,9 +6326,9 @@ ruleAsmLineWithColon returns [EObject current=null]
 
 (
 (
-		lv_colon_1_0=RULE_COLON
+		lv_colon_1_0=RULE_SKW_COLON
 		{
-			newLeafNode(lv_colon_1_0, grammarAccess.getAsmLineWithColonAccess().getColonCOLONTerminalRuleCall_1_0()); 
+			newLeafNode(lv_colon_1_0, grammarAccess.getAsmLineWithColonAccess().getColonSKW_COLONTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -6338,7 +6338,7 @@ ruleAsmLineWithColon returns [EObject current=null]
        			$current, 
        			"colon",
         		true, 
-        		"at.jku.weiner.c.parser.Parser.COLON");
+        		"at.jku.weiner.c.common.Common.SKW_COLON");
 	    }
 
 )
@@ -6405,9 +6405,9 @@ ruleAsmLineWithComma returns [EObject current=null]
 )
 
 
-this_COMMA_1=RULE_COMMA
+this_SKW_COMMA_1=RULE_SKW_COMMA
     { 
-    newLeafNode(this_COMMA_1, grammarAccess.getAsmLineWithCommaAccess().getCOMMATerminalRuleCall_1()); 
+    newLeafNode(this_SKW_COMMA_1, grammarAccess.getAsmLineWithCommaAccess().getSKW_COMMATerminalRuleCall_1()); 
     }
 
 
@@ -6494,9 +6494,9 @@ ruleExpression returns [EObject current=null]
 
 
 (
-this_COMMA_2=RULE_COMMA
+this_SKW_COMMA_2=RULE_SKW_COMMA
     { 
-    newLeafNode(this_COMMA_2, grammarAccess.getExpressionAccess().getCOMMATerminalRuleCall_2_0()); 
+    newLeafNode(this_SKW_COMMA_2, grammarAccess.getExpressionAccess().getSKW_COMMATerminalRuleCall_2_0()); 
     }
 
 
@@ -6735,9 +6735,9 @@ ruleAssignmentOperator returns [EObject current=null]
 (
 (
 (
-		lv_op_1_0=RULE_ASSIGN
+		lv_op_1_0=RULE_SKW_ASSIGN
 		{
-			newLeafNode(lv_op_1_0, grammarAccess.getAssignmentOperatorAccess().getOpASSIGNTerminalRuleCall_1_0_0()); 
+			newLeafNode(lv_op_1_0, grammarAccess.getAssignmentOperatorAccess().getOpSKW_ASSIGNTerminalRuleCall_1_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -6747,7 +6747,7 @@ ruleAssignmentOperator returns [EObject current=null]
        			$current, 
        			"op",
         		lv_op_1_0, 
-        		"at.jku.weiner.c.parser.Parser.ASSIGN");
+        		"at.jku.weiner.c.common.Common.SKW_ASSIGN");
 	    }
 
 )
@@ -7037,9 +7037,9 @@ ruleConditionalExpression returns [EObject current=null]
 
 
 (
-this_QUESTION_2=RULE_QUESTION
+this_SKW_QUESTION_2=RULE_SKW_QUESTION
     { 
-    newLeafNode(this_QUESTION_2, grammarAccess.getConditionalExpressionAccess().getQUESTIONTerminalRuleCall_2_0()); 
+    newLeafNode(this_SKW_QUESTION_2, grammarAccess.getConditionalExpressionAccess().getSKW_QUESTIONTerminalRuleCall_2_0()); 
     }
 
 
@@ -7065,9 +7065,9 @@ this_QUESTION_2=RULE_QUESTION
 )
 
 
-this_COLON_4=RULE_COLON
+this_SKW_COLON_4=RULE_SKW_COLON
     { 
-    newLeafNode(this_COLON_4, grammarAccess.getConditionalExpressionAccess().getCOLONTerminalRuleCall_2_2()); 
+    newLeafNode(this_SKW_COLON_4, grammarAccess.getConditionalExpressionAccess().getSKW_COLONTerminalRuleCall_2_2()); 
     }
 
 
@@ -7156,9 +7156,9 @@ ruleLogicalOrExpression returns [EObject current=null]
 
 
 (
-this_OROR_2=RULE_OROR
+this_SKW_OROR_2=RULE_SKW_OROR
     { 
-    newLeafNode(this_OROR_2, grammarAccess.getLogicalOrExpressionAccess().getORORTerminalRuleCall_2_0()); 
+    newLeafNode(this_SKW_OROR_2, grammarAccess.getLogicalOrExpressionAccess().getSKW_ORORTerminalRuleCall_2_0()); 
     }
 
 
@@ -7247,9 +7247,9 @@ ruleLogicalAndExpression returns [EObject current=null]
 
 
 (
-this_ANDAND_2=RULE_ANDAND
+this_SKW_ANDAND_2=RULE_SKW_ANDAND
     { 
-    newLeafNode(this_ANDAND_2, grammarAccess.getLogicalAndExpressionAccess().getANDANDTerminalRuleCall_2_0()); 
+    newLeafNode(this_SKW_ANDAND_2, grammarAccess.getLogicalAndExpressionAccess().getSKW_ANDANDTerminalRuleCall_2_0()); 
     }
 
 
@@ -7338,9 +7338,9 @@ ruleInclusiveOrExpression returns [EObject current=null]
 
 
 (
-this_OR_2=RULE_OR
+this_SKW_OR_2=RULE_SKW_OR
     { 
-    newLeafNode(this_OR_2, grammarAccess.getInclusiveOrExpressionAccess().getORTerminalRuleCall_2_0()); 
+    newLeafNode(this_SKW_OR_2, grammarAccess.getInclusiveOrExpressionAccess().getSKW_ORTerminalRuleCall_2_0()); 
     }
 
 
@@ -7429,9 +7429,9 @@ ruleExclusiveOrExpression returns [EObject current=null]
 
 
 (
-this_CARET_2=RULE_CARET
+this_SKW_CARET_2=RULE_SKW_CARET
     { 
-    newLeafNode(this_CARET_2, grammarAccess.getExclusiveOrExpressionAccess().getCARETTerminalRuleCall_2_0()); 
+    newLeafNode(this_SKW_CARET_2, grammarAccess.getExclusiveOrExpressionAccess().getSKW_CARETTerminalRuleCall_2_0()); 
     }
 
 
@@ -7520,9 +7520,9 @@ ruleAndExpression returns [EObject current=null]
 
 
 (
-this_AND_2=RULE_AND
+this_SKW_AND_2=RULE_SKW_AND
     { 
-    newLeafNode(this_AND_2, grammarAccess.getAndExpressionAccess().getANDTerminalRuleCall_2_0()); 
+    newLeafNode(this_SKW_AND_2, grammarAccess.getAndExpressionAccess().getSKW_ANDTerminalRuleCall_2_0()); 
     }
 
 
@@ -7614,9 +7614,9 @@ ruleEqualityExpression returns [EObject current=null]
 (
 (
 (
-		lv_op_2_0=RULE_EQUAL
+		lv_op_2_0=RULE_SKW_EQUAL
 		{
-			newLeafNode(lv_op_2_0, grammarAccess.getEqualityExpressionAccess().getOpEQUALTerminalRuleCall_2_0_0_0()); 
+			newLeafNode(lv_op_2_0, grammarAccess.getEqualityExpressionAccess().getOpSKW_EQUALTerminalRuleCall_2_0_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -7626,7 +7626,7 @@ ruleEqualityExpression returns [EObject current=null]
        			$current, 
        			"op",
         		lv_op_2_0, 
-        		"at.jku.weiner.c.parser.Parser.EQUAL");
+        		"at.jku.weiner.c.common.Common.SKW_EQUAL");
 	    }
 
 )
@@ -7636,9 +7636,9 @@ ruleEqualityExpression returns [EObject current=null]
     |
 (
 (
-		lv_op_3_0=RULE_NOTEQUAL
+		lv_op_3_0=RULE_SKW_NOTEQUAL
 		{
-			newLeafNode(lv_op_3_0, grammarAccess.getEqualityExpressionAccess().getOpNOTEQUALTerminalRuleCall_2_0_1_0()); 
+			newLeafNode(lv_op_3_0, grammarAccess.getEqualityExpressionAccess().getOpSKW_NOTEQUALTerminalRuleCall_2_0_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -7648,7 +7648,7 @@ ruleEqualityExpression returns [EObject current=null]
        			$current, 
        			"op",
         		lv_op_3_0, 
-        		"at.jku.weiner.c.parser.Parser.NOTEQUAL");
+        		"at.jku.weiner.c.common.Common.SKW_NOTEQUAL");
 	    }
 
 )
@@ -7744,9 +7744,9 @@ ruleRelationalExpression returns [EObject current=null]
 (
 (
 (
-		lv_op_2_0=RULE_LESS
+		lv_op_2_0=RULE_SKW_LESS
 		{
-			newLeafNode(lv_op_2_0, grammarAccess.getRelationalExpressionAccess().getOpLESSTerminalRuleCall_2_0_0_0()); 
+			newLeafNode(lv_op_2_0, grammarAccess.getRelationalExpressionAccess().getOpSKW_LESSTerminalRuleCall_2_0_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -7756,7 +7756,7 @@ ruleRelationalExpression returns [EObject current=null]
        			$current, 
        			"op",
         		lv_op_2_0, 
-        		"at.jku.weiner.c.parser.Parser.LESS");
+        		"at.jku.weiner.c.common.Common.SKW_LESS");
 	    }
 
 )
@@ -7766,9 +7766,9 @@ ruleRelationalExpression returns [EObject current=null]
     |
 (
 (
-		lv_op_3_0=RULE_GREATER
+		lv_op_3_0=RULE_SKW_GREATER
 		{
-			newLeafNode(lv_op_3_0, grammarAccess.getRelationalExpressionAccess().getOpGREATERTerminalRuleCall_2_0_1_0()); 
+			newLeafNode(lv_op_3_0, grammarAccess.getRelationalExpressionAccess().getOpSKW_GREATERTerminalRuleCall_2_0_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -7778,7 +7778,7 @@ ruleRelationalExpression returns [EObject current=null]
        			$current, 
        			"op",
         		lv_op_3_0, 
-        		"at.jku.weiner.c.parser.Parser.GREATER");
+        		"at.jku.weiner.c.common.Common.SKW_GREATER");
 	    }
 
 )
@@ -7788,9 +7788,9 @@ ruleRelationalExpression returns [EObject current=null]
     |
 (
 (
-		lv_op_4_0=RULE_LESSEQUAL
+		lv_op_4_0=RULE_SKW_LESSEQUAL
 		{
-			newLeafNode(lv_op_4_0, grammarAccess.getRelationalExpressionAccess().getOpLESSEQUALTerminalRuleCall_2_0_2_0()); 
+			newLeafNode(lv_op_4_0, grammarAccess.getRelationalExpressionAccess().getOpSKW_LESSEQUALTerminalRuleCall_2_0_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -7800,7 +7800,7 @@ ruleRelationalExpression returns [EObject current=null]
        			$current, 
        			"op",
         		lv_op_4_0, 
-        		"at.jku.weiner.c.parser.Parser.LESSEQUAL");
+        		"at.jku.weiner.c.common.Common.SKW_LESSEQUAL");
 	    }
 
 )
@@ -7810,9 +7810,9 @@ ruleRelationalExpression returns [EObject current=null]
     |
 (
 (
-		lv_op_5_0=RULE_GREATEREQUAL
+		lv_op_5_0=RULE_SKW_GREATEREQUAL
 		{
-			newLeafNode(lv_op_5_0, grammarAccess.getRelationalExpressionAccess().getOpGREATEREQUALTerminalRuleCall_2_0_3_0()); 
+			newLeafNode(lv_op_5_0, grammarAccess.getRelationalExpressionAccess().getOpSKW_GREATEREQUALTerminalRuleCall_2_0_3_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -7822,7 +7822,7 @@ ruleRelationalExpression returns [EObject current=null]
        			$current, 
        			"op",
         		lv_op_5_0, 
-        		"at.jku.weiner.c.parser.Parser.GREATEREQUAL");
+        		"at.jku.weiner.c.common.Common.SKW_GREATEREQUAL");
 	    }
 
 )
@@ -7918,9 +7918,9 @@ ruleShiftExpression returns [EObject current=null]
 (
 (
 (
-		lv_op_2_0=RULE_LEFTSHIFT
+		lv_op_2_0=RULE_SKW_LEFTSHIFT
 		{
-			newLeafNode(lv_op_2_0, grammarAccess.getShiftExpressionAccess().getOpLEFTSHIFTTerminalRuleCall_2_0_0_0()); 
+			newLeafNode(lv_op_2_0, grammarAccess.getShiftExpressionAccess().getOpSKW_LEFTSHIFTTerminalRuleCall_2_0_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -7930,7 +7930,7 @@ ruleShiftExpression returns [EObject current=null]
        			$current, 
        			"op",
         		lv_op_2_0, 
-        		"at.jku.weiner.c.parser.Parser.LEFTSHIFT");
+        		"at.jku.weiner.c.common.Common.SKW_LEFTSHIFT");
 	    }
 
 )
@@ -7940,9 +7940,9 @@ ruleShiftExpression returns [EObject current=null]
     |
 (
 (
-		lv_op_3_0=RULE_RIGHTSHIFT
+		lv_op_3_0=RULE_SKW_RIGHTSHIFT
 		{
-			newLeafNode(lv_op_3_0, grammarAccess.getShiftExpressionAccess().getOpRIGHTSHIFTTerminalRuleCall_2_0_1_0()); 
+			newLeafNode(lv_op_3_0, grammarAccess.getShiftExpressionAccess().getOpSKW_RIGHTSHIFTTerminalRuleCall_2_0_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -7952,7 +7952,7 @@ ruleShiftExpression returns [EObject current=null]
        			$current, 
        			"op",
         		lv_op_3_0, 
-        		"at.jku.weiner.c.parser.Parser.RIGHTSHIFT");
+        		"at.jku.weiner.c.common.Common.SKW_RIGHTSHIFT");
 	    }
 
 )
@@ -8048,9 +8048,9 @@ ruleAdditiveExpression returns [EObject current=null]
 (
 (
 (
-		lv_op_2_0=RULE_PLUS
+		lv_op_2_0=RULE_SKW_PLUS
 		{
-			newLeafNode(lv_op_2_0, grammarAccess.getAdditiveExpressionAccess().getOpPLUSTerminalRuleCall_2_0_0_0()); 
+			newLeafNode(lv_op_2_0, grammarAccess.getAdditiveExpressionAccess().getOpSKW_PLUSTerminalRuleCall_2_0_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -8060,7 +8060,7 @@ ruleAdditiveExpression returns [EObject current=null]
        			$current, 
        			"op",
         		lv_op_2_0, 
-        		"at.jku.weiner.c.parser.Parser.PLUS");
+        		"at.jku.weiner.c.common.Common.SKW_PLUS");
 	    }
 
 )
@@ -8070,9 +8070,9 @@ ruleAdditiveExpression returns [EObject current=null]
     |
 (
 (
-		lv_op_3_0=RULE_MINUS
+		lv_op_3_0=RULE_SKW_MINUS
 		{
-			newLeafNode(lv_op_3_0, grammarAccess.getAdditiveExpressionAccess().getOpMINUSTerminalRuleCall_2_0_1_0()); 
+			newLeafNode(lv_op_3_0, grammarAccess.getAdditiveExpressionAccess().getOpSKW_MINUSTerminalRuleCall_2_0_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -8082,7 +8082,7 @@ ruleAdditiveExpression returns [EObject current=null]
        			$current, 
        			"op",
         		lv_op_3_0, 
-        		"at.jku.weiner.c.parser.Parser.MINUS");
+        		"at.jku.weiner.c.common.Common.SKW_MINUS");
 	    }
 
 )
@@ -8178,9 +8178,9 @@ ruleMultiplicativeExpression returns [EObject current=null]
 (
 (
 (
-		lv_op_2_0=RULE_STAR
+		lv_op_2_0=RULE_SKW_STAR
 		{
-			newLeafNode(lv_op_2_0, grammarAccess.getMultiplicativeExpressionAccess().getOpSTARTerminalRuleCall_2_0_0_0()); 
+			newLeafNode(lv_op_2_0, grammarAccess.getMultiplicativeExpressionAccess().getOpSKW_STARTerminalRuleCall_2_0_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -8190,7 +8190,7 @@ ruleMultiplicativeExpression returns [EObject current=null]
        			$current, 
        			"op",
         		lv_op_2_0, 
-        		"at.jku.weiner.c.parser.Parser.STAR");
+        		"at.jku.weiner.c.common.Common.SKW_STAR");
 	    }
 
 )
@@ -8200,9 +8200,9 @@ ruleMultiplicativeExpression returns [EObject current=null]
     |
 (
 (
-		lv_op_3_0=RULE_DIV
+		lv_op_3_0=RULE_SKW_DIV
 		{
-			newLeafNode(lv_op_3_0, grammarAccess.getMultiplicativeExpressionAccess().getOpDIVTerminalRuleCall_2_0_1_0()); 
+			newLeafNode(lv_op_3_0, grammarAccess.getMultiplicativeExpressionAccess().getOpSKW_DIVTerminalRuleCall_2_0_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -8212,7 +8212,7 @@ ruleMultiplicativeExpression returns [EObject current=null]
        			$current, 
        			"op",
         		lv_op_3_0, 
-        		"at.jku.weiner.c.parser.Parser.DIV");
+        		"at.jku.weiner.c.common.Common.SKW_DIV");
 	    }
 
 )
@@ -8222,9 +8222,9 @@ ruleMultiplicativeExpression returns [EObject current=null]
     |
 (
 (
-		lv_op_4_0=RULE_MOD
+		lv_op_4_0=RULE_SKW_MOD
 		{
-			newLeafNode(lv_op_4_0, grammarAccess.getMultiplicativeExpressionAccess().getOpMODTerminalRuleCall_2_0_2_0()); 
+			newLeafNode(lv_op_4_0, grammarAccess.getMultiplicativeExpressionAccess().getOpSKW_MODTerminalRuleCall_2_0_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -8234,7 +8234,7 @@ ruleMultiplicativeExpression returns [EObject current=null]
        			$current, 
        			"op",
         		lv_op_4_0, 
-        		"at.jku.weiner.c.parser.Parser.MOD");
+        		"at.jku.weiner.c.common.Common.SKW_MOD");
 	    }
 
 )
@@ -8329,9 +8329,9 @@ ruleCastExpression returns [EObject current=null]
 
     |
 (
-this_LEFTPAREN_2=RULE_LEFTPAREN
+this_SKW_LEFTPAREN_2=RULE_SKW_LEFTPAREN
     { 
-    newLeafNode(this_LEFTPAREN_2, grammarAccess.getCastExpressionAccess().getLEFTPARENTerminalRuleCall_1_1_0()); 
+    newLeafNode(this_SKW_LEFTPAREN_2, grammarAccess.getCastExpressionAccess().getSKW_LEFTPARENTerminalRuleCall_1_1_0()); 
     }
 
 
@@ -8357,9 +8357,9 @@ this_LEFTPAREN_2=RULE_LEFTPAREN
 )
 
 
-this_RIGHTPAREN_4=RULE_RIGHTPAREN
+this_SKW_RIGHTPAREN_4=RULE_SKW_RIGHTPAREN
     { 
-    newLeafNode(this_RIGHTPAREN_4, grammarAccess.getCastExpressionAccess().getRIGHTPARENTerminalRuleCall_1_1_2()); 
+    newLeafNode(this_SKW_RIGHTPAREN_4, grammarAccess.getCastExpressionAccess().getSKW_RIGHTPARENTerminalRuleCall_1_1_2()); 
     }
 
 
@@ -8454,9 +8454,9 @@ ruleUnaryExpression returns [EObject current=null]
 (
 (
 (
-		lv_plusplus_2_0=RULE_PLUSPLUS
+		lv_plusplus_2_0=RULE_SKW_PLUSPLUS
 		{
-			newLeafNode(lv_plusplus_2_0, grammarAccess.getUnaryExpressionAccess().getPlusplusPLUSPLUSTerminalRuleCall_1_1_0_0()); 
+			newLeafNode(lv_plusplus_2_0, grammarAccess.getUnaryExpressionAccess().getPlusplusSKW_PLUSPLUSTerminalRuleCall_1_1_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -8466,7 +8466,7 @@ ruleUnaryExpression returns [EObject current=null]
        			$current, 
        			"plusplus",
         		lv_plusplus_2_0, 
-        		"at.jku.weiner.c.parser.Parser.PLUSPLUS");
+        		"at.jku.weiner.c.common.Common.SKW_PLUSPLUS");
 	    }
 
 )
@@ -8500,9 +8500,9 @@ ruleUnaryExpression returns [EObject current=null]
 (
 (
 (
-		lv_minusminus_4_0=RULE_MINUSMINUS
+		lv_minusminus_4_0=RULE_SKW_MINUSMINUS
 		{
-			newLeafNode(lv_minusminus_4_0, grammarAccess.getUnaryExpressionAccess().getMinusminusMINUSMINUSTerminalRuleCall_1_2_0_0()); 
+			newLeafNode(lv_minusminus_4_0, grammarAccess.getUnaryExpressionAccess().getMinusminusSKW_MINUSMINUSTerminalRuleCall_1_2_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -8512,7 +8512,7 @@ ruleUnaryExpression returns [EObject current=null]
        			$current, 
        			"minusminus",
         		lv_minusminus_4_0, 
-        		"at.jku.weiner.c.parser.Parser.MINUSMINUS");
+        		"at.jku.weiner.c.common.Common.SKW_MINUSMINUS");
 	    }
 
 )
@@ -8611,9 +8611,9 @@ ruleUnaryExpression returns [EObject current=null]
 )
 
 
-this_LEFTPAREN_9=RULE_LEFTPAREN
+this_SKW_LEFTPAREN_9=RULE_SKW_LEFTPAREN
     { 
-    newLeafNode(this_LEFTPAREN_9, grammarAccess.getUnaryExpressionAccess().getLEFTPARENTerminalRuleCall_1_4_1()); 
+    newLeafNode(this_SKW_LEFTPAREN_9, grammarAccess.getUnaryExpressionAccess().getSKW_LEFTPARENTerminalRuleCall_1_4_1()); 
     }
 
 
@@ -8639,9 +8639,9 @@ this_LEFTPAREN_9=RULE_LEFTPAREN
 )
 
 
-this_RIGHTPAREN_11=RULE_RIGHTPAREN
+this_SKW_RIGHTPAREN_11=RULE_SKW_RIGHTPAREN
     { 
-    newLeafNode(this_RIGHTPAREN_11, grammarAccess.getUnaryExpressionAccess().getRIGHTPARENTerminalRuleCall_1_4_3()); 
+    newLeafNode(this_SKW_RIGHTPAREN_11, grammarAccess.getUnaryExpressionAccess().getSKW_RIGHTPARENTerminalRuleCall_1_4_3()); 
     }
 
 
@@ -8698,9 +8698,9 @@ this_RIGHTPAREN_11=RULE_RIGHTPAREN
 (
 (
 (
-		lv_andand_14_0=RULE_ANDAND
+		lv_andand_14_0=RULE_SKW_ANDAND
 		{
-			newLeafNode(lv_andand_14_0, grammarAccess.getUnaryExpressionAccess().getAndandANDANDTerminalRuleCall_1_6_0_0()); 
+			newLeafNode(lv_andand_14_0, grammarAccess.getUnaryExpressionAccess().getAndandSKW_ANDANDTerminalRuleCall_1_6_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -8710,7 +8710,7 @@ this_RIGHTPAREN_11=RULE_RIGHTPAREN
        			$current, 
        			"andand",
         		lv_andand_14_0, 
-        		"at.jku.weiner.c.parser.Parser.ANDAND");
+        		"at.jku.weiner.c.common.Common.SKW_ANDAND");
 	    }
 
 )
@@ -8784,9 +8784,9 @@ ruleUnaryOperator returns [EObject current=null]
 (
 (
 (
-		lv_op_1_0=RULE_AND
+		lv_op_1_0=RULE_SKW_AND
 		{
-			newLeafNode(lv_op_1_0, grammarAccess.getUnaryOperatorAccess().getOpANDTerminalRuleCall_1_0_0()); 
+			newLeafNode(lv_op_1_0, grammarAccess.getUnaryOperatorAccess().getOpSKW_ANDTerminalRuleCall_1_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -8796,7 +8796,7 @@ ruleUnaryOperator returns [EObject current=null]
        			$current, 
        			"op",
         		lv_op_1_0, 
-        		"at.jku.weiner.c.parser.Parser.AND");
+        		"at.jku.weiner.c.common.Common.SKW_AND");
 	    }
 
 )
@@ -8806,9 +8806,9 @@ ruleUnaryOperator returns [EObject current=null]
     |
 (
 (
-		lv_op_2_0=RULE_STAR
+		lv_op_2_0=RULE_SKW_STAR
 		{
-			newLeafNode(lv_op_2_0, grammarAccess.getUnaryOperatorAccess().getOpSTARTerminalRuleCall_1_1_0()); 
+			newLeafNode(lv_op_2_0, grammarAccess.getUnaryOperatorAccess().getOpSKW_STARTerminalRuleCall_1_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -8818,7 +8818,7 @@ ruleUnaryOperator returns [EObject current=null]
        			$current, 
        			"op",
         		lv_op_2_0, 
-        		"at.jku.weiner.c.parser.Parser.STAR");
+        		"at.jku.weiner.c.common.Common.SKW_STAR");
 	    }
 
 )
@@ -8828,9 +8828,9 @@ ruleUnaryOperator returns [EObject current=null]
     |
 (
 (
-		lv_op_3_0=RULE_PLUS
+		lv_op_3_0=RULE_SKW_PLUS
 		{
-			newLeafNode(lv_op_3_0, grammarAccess.getUnaryOperatorAccess().getOpPLUSTerminalRuleCall_1_2_0()); 
+			newLeafNode(lv_op_3_0, grammarAccess.getUnaryOperatorAccess().getOpSKW_PLUSTerminalRuleCall_1_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -8840,7 +8840,7 @@ ruleUnaryOperator returns [EObject current=null]
        			$current, 
        			"op",
         		lv_op_3_0, 
-        		"at.jku.weiner.c.parser.Parser.PLUS");
+        		"at.jku.weiner.c.common.Common.SKW_PLUS");
 	    }
 
 )
@@ -8850,9 +8850,9 @@ ruleUnaryOperator returns [EObject current=null]
     |
 (
 (
-		lv_op_4_0=RULE_MINUS
+		lv_op_4_0=RULE_SKW_MINUS
 		{
-			newLeafNode(lv_op_4_0, grammarAccess.getUnaryOperatorAccess().getOpMINUSTerminalRuleCall_1_3_0()); 
+			newLeafNode(lv_op_4_0, grammarAccess.getUnaryOperatorAccess().getOpSKW_MINUSTerminalRuleCall_1_3_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -8862,7 +8862,7 @@ ruleUnaryOperator returns [EObject current=null]
        			$current, 
        			"op",
         		lv_op_4_0, 
-        		"at.jku.weiner.c.parser.Parser.MINUS");
+        		"at.jku.weiner.c.common.Common.SKW_MINUS");
 	    }
 
 )
@@ -8872,9 +8872,9 @@ ruleUnaryOperator returns [EObject current=null]
     |
 (
 (
-		lv_op_5_0=RULE_TILDE
+		lv_op_5_0=RULE_SKW_TILDE
 		{
-			newLeafNode(lv_op_5_0, grammarAccess.getUnaryOperatorAccess().getOpTILDETerminalRuleCall_1_4_0()); 
+			newLeafNode(lv_op_5_0, grammarAccess.getUnaryOperatorAccess().getOpSKW_TILDETerminalRuleCall_1_4_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -8884,7 +8884,7 @@ ruleUnaryOperator returns [EObject current=null]
        			$current, 
        			"op",
         		lv_op_5_0, 
-        		"at.jku.weiner.c.parser.Parser.TILDE");
+        		"at.jku.weiner.c.common.Common.SKW_TILDE");
 	    }
 
 )
@@ -8894,9 +8894,9 @@ ruleUnaryOperator returns [EObject current=null]
     |
 (
 (
-		lv_op_6_0=RULE_NOT
+		lv_op_6_0=RULE_SKW_NOT
 		{
-			newLeafNode(lv_op_6_0, grammarAccess.getUnaryOperatorAccess().getOpNOTTerminalRuleCall_1_5_0()); 
+			newLeafNode(lv_op_6_0, grammarAccess.getUnaryOperatorAccess().getOpSKW_NOTTerminalRuleCall_1_5_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -8906,7 +8906,7 @@ ruleUnaryOperator returns [EObject current=null]
        			$current, 
        			"op",
         		lv_op_6_0, 
-        		"at.jku.weiner.c.parser.Parser.NOT");
+        		"at.jku.weiner.c.common.Common.SKW_NOT");
 	    }
 
 )
@@ -9151,9 +9151,9 @@ rulePostfixExpressionSuffixArray returns [EObject current=null]
 )
 
 
-this_LEFTBRACKET_1=RULE_LEFTBRACKET
+this_SKW_LEFTBRACKET_1=RULE_SKW_LEFTBRACKET
     { 
-    newLeafNode(this_LEFTBRACKET_1, grammarAccess.getPostfixExpressionSuffixArrayAccess().getLEFTBRACKETTerminalRuleCall_1()); 
+    newLeafNode(this_SKW_LEFTBRACKET_1, grammarAccess.getPostfixExpressionSuffixArrayAccess().getSKW_LEFTBRACKETTerminalRuleCall_1()); 
     }
 
 
@@ -9179,9 +9179,9 @@ this_LEFTBRACKET_1=RULE_LEFTBRACKET
 )
 
 
-this_RIGHTBRACKET_3=RULE_RIGHTBRACKET
+this_SKW_RIGHTBRACKET_3=RULE_SKW_RIGHTBRACKET
     { 
-    newLeafNode(this_RIGHTBRACKET_3, grammarAccess.getPostfixExpressionSuffixArrayAccess().getRIGHTBRACKETTerminalRuleCall_3()); 
+    newLeafNode(this_SKW_RIGHTBRACKET_3, grammarAccess.getPostfixExpressionSuffixArrayAccess().getSKW_RIGHTBRACKETTerminalRuleCall_3()); 
     }
 
 
@@ -9225,9 +9225,9 @@ rulePostfixExpressionSuffixArgument returns [EObject current=null]
 )
 
 
-this_LEFTPAREN_1=RULE_LEFTPAREN
+this_SKW_LEFTPAREN_1=RULE_SKW_LEFTPAREN
     { 
-    newLeafNode(this_LEFTPAREN_1, grammarAccess.getPostfixExpressionSuffixArgumentAccess().getLEFTPARENTerminalRuleCall_1()); 
+    newLeafNode(this_SKW_LEFTPAREN_1, grammarAccess.getPostfixExpressionSuffixArgumentAccess().getSKW_LEFTPARENTerminalRuleCall_1()); 
     }
 
 
@@ -9253,9 +9253,9 @@ this_LEFTPAREN_1=RULE_LEFTPAREN
 )?
 
 
-this_RIGHTPAREN_3=RULE_RIGHTPAREN
+this_SKW_RIGHTPAREN_3=RULE_SKW_RIGHTPAREN
     { 
-    newLeafNode(this_RIGHTPAREN_3, grammarAccess.getPostfixExpressionSuffixArgumentAccess().getRIGHTPARENTerminalRuleCall_3()); 
+    newLeafNode(this_SKW_RIGHTPAREN_3, grammarAccess.getPostfixExpressionSuffixArgumentAccess().getSKW_RIGHTPARENTerminalRuleCall_3()); 
     }
 
 
@@ -9299,9 +9299,9 @@ rulePostfixExpressionSuffixDot returns [EObject current=null]
 )
 
 
-this_DOT_1=RULE_DOT
+this_SKW_DOT_1=RULE_SKW_DOT
     { 
-    newLeafNode(this_DOT_1, grammarAccess.getPostfixExpressionSuffixDotAccess().getDOTTerminalRuleCall_1()); 
+    newLeafNode(this_SKW_DOT_1, grammarAccess.getPostfixExpressionSuffixDotAccess().getSKW_DOTTerminalRuleCall_1()); 
     }
 
 
@@ -9433,9 +9433,9 @@ rulePostfixExpressionSuffixPlusPlus returns [EObject current=null]
 )
 
 
-this_PLUSPLUS_1=RULE_PLUSPLUS
+this_SKW_PLUSPLUS_1=RULE_SKW_PLUSPLUS
     { 
-    newLeafNode(this_PLUSPLUS_1, grammarAccess.getPostfixExpressionSuffixPlusPlusAccess().getPLUSPLUSTerminalRuleCall_1()); 
+    newLeafNode(this_SKW_PLUSPLUS_1, grammarAccess.getPostfixExpressionSuffixPlusPlusAccess().getSKW_PLUSPLUSTerminalRuleCall_1()); 
     }
 
 
@@ -9479,9 +9479,9 @@ rulePostfixExpressionSuffixMinusMinus returns [EObject current=null]
 )
 
 
-this_MINUSMINUS_1=RULE_MINUSMINUS
+this_SKW_MINUSMINUS_1=RULE_SKW_MINUSMINUS
     { 
-    newLeafNode(this_MINUSMINUS_1, grammarAccess.getPostfixExpressionSuffixMinusMinusAccess().getMINUSMINUSTerminalRuleCall_1()); 
+    newLeafNode(this_SKW_MINUSMINUS_1, grammarAccess.getPostfixExpressionSuffixMinusMinusAccess().getSKW_MINUSMINUSTerminalRuleCall_1()); 
     }
 
 
@@ -9535,9 +9535,9 @@ ruleArgumentExpressionList returns [EObject current=null]
 
 
 (
-this_COMMA_1=RULE_COMMA
+this_SKW_COMMA_1=RULE_SKW_COMMA
     { 
-    newLeafNode(this_COMMA_1, grammarAccess.getArgumentExpressionListAccess().getCOMMATerminalRuleCall_1_0()); 
+    newLeafNode(this_SKW_COMMA_1, grammarAccess.getArgumentExpressionListAccess().getSKW_COMMATerminalRuleCall_1_0()); 
     }
 
 
@@ -9650,9 +9650,9 @@ rulePrimaryExpression returns [EObject current=null]
 
     |
 (
-this_LEFTPAREN_3=RULE_LEFTPAREN
+this_SKW_LEFTPAREN_3=RULE_SKW_LEFTPAREN
     { 
-    newLeafNode(this_LEFTPAREN_3, grammarAccess.getPrimaryExpressionAccess().getLEFTPARENTerminalRuleCall_1_2_0()); 
+    newLeafNode(this_SKW_LEFTPAREN_3, grammarAccess.getPrimaryExpressionAccess().getSKW_LEFTPARENTerminalRuleCall_1_2_0()); 
     }
 
 
@@ -9678,9 +9678,9 @@ this_LEFTPAREN_3=RULE_LEFTPAREN
 )
 
 
-this_RIGHTPAREN_5=RULE_RIGHTPAREN
+this_SKW_RIGHTPAREN_5=RULE_SKW_RIGHTPAREN
     { 
-    newLeafNode(this_RIGHTPAREN_5, grammarAccess.getPrimaryExpressionAccess().getRIGHTPARENTerminalRuleCall_1_2_2()); 
+    newLeafNode(this_SKW_RIGHTPAREN_5, grammarAccess.getPrimaryExpressionAccess().getSKW_RIGHTPARENTerminalRuleCall_1_2_2()); 
     }
 
 
@@ -9952,7 +9952,9 @@ ruleConstantExpression returns [EObject current=null]
 
 
 
-fragment RULE_KW_UNDERSCORE : '_';
+
+
+
 
 RULE_KW_AUTO : 'auto';
 
@@ -10026,9 +10028,9 @@ RULE_KW_ALIGNAS : '_Alignas';
 
 RULE_KW_ALIGNOF : '_Alignof';
 
-RULE_KW_ASM1 : RULE_KW_UNDERSCORE RULE_KW_UNDERSCORE 'asm';
+RULE_KW_ASM1 : RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE 'asm';
 
-RULE_KW_ASM2 : RULE_KW_ASM1 RULE_KW_UNDERSCORE RULE_KW_UNDERSCORE;
+RULE_KW_ASM2 : RULE_KW_ASM1 RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE;
 
 RULE_KW_ATOMIC : '_Atomic';
 
@@ -10048,115 +10050,45 @@ RULE_KW_THREADLOCAL : '_Thread_local';
 
 RULE_KW_PRAGMA : 'pragma';
 
-RULE_KW_VOLATILE2 : RULE_KW_UNDERSCORE RULE_KW_UNDERSCORE RULE_KW_VOLATILE RULE_KW_UNDERSCORE RULE_KW_UNDERSCORE;
+RULE_KW_VOLATILE2 : RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE RULE_KW_VOLATILE RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE;
 
-RULE_LEFTPAREN : '(';
+RULE_STARASSIGN : RULE_SKW_STAR RULE_SKW_ASSIGN;
 
-RULE_RIGHTPAREN : ')';
+RULE_DIVASSIGN : RULE_SKW_DIV RULE_SKW_ASSIGN;
 
-RULE_LEFTBRACKET : '[';
+RULE_MODASSIGN : RULE_SKW_MOD RULE_SKW_ASSIGN;
 
-RULE_RIGHTBRACKET : ']';
+RULE_PLUSASSIGN : RULE_SKW_PLUS RULE_SKW_ASSIGN;
 
-RULE_LEFTBRACE : '{';
+RULE_MINUSASSIGN : RULE_SKW_MINUS RULE_SKW_ASSIGN;
 
-RULE_RIGHTBRACE : '}';
+RULE_LEFTSHIFTASSIGN : RULE_SKW_LEFTSHIFT RULE_SKW_ASSIGN;
 
-RULE_LESS : '<';
+RULE_RIGHTSHIFTASSIGN : RULE_SKW_RIGHTSHIFT RULE_SKW_ASSIGN;
 
-RULE_LESSEQUAL : RULE_LESS RULE_ASSIGN;
+RULE_ANDASSIGN : RULE_SKW_AND RULE_SKW_ASSIGN;
 
-RULE_GREATER : '>';
+RULE_XORASSIGN : RULE_SKW_CARET RULE_SKW_ASSIGN;
 
-RULE_GREATEREQUAL : RULE_GREATER RULE_ASSIGN;
+RULE_ORASSIGN : RULE_SKW_OR RULE_SKW_ASSIGN;
 
-RULE_LEFTSHIFT : RULE_LESS RULE_LESS;
+RULE_ARROW : RULE_SKW_MINUS RULE_SKW_GREATER;
 
-RULE_RIGHTSHIFT : RULE_GREATER RULE_GREATER;
-
-RULE_PLUS : '+';
-
-RULE_PLUSPLUS : RULE_PLUS RULE_PLUS;
-
-RULE_MINUS : '-';
-
-RULE_MINUSMINUS : RULE_MINUS RULE_MINUS;
-
-RULE_STAR : '*';
-
-RULE_DIV : '/';
-
-RULE_MOD : '%';
-
-RULE_AND : '&';
-
-RULE_ANDAND : RULE_AND RULE_AND;
-
-RULE_OR : '|';
-
-RULE_OROR : RULE_OR RULE_OR;
-
-RULE_CARET : '^';
-
-RULE_NOT : '!';
-
-RULE_TILDE : '~';
-
-RULE_QUESTION : '?';
-
-RULE_COLON : ':';
-
-RULE_SEMI : ';';
-
-RULE_COMMA : ',';
-
-RULE_ASSIGN : '=';
-
-RULE_STARASSIGN : RULE_STAR RULE_ASSIGN;
-
-RULE_DIVASSIGN : RULE_DIV RULE_ASSIGN;
-
-RULE_MODASSIGN : RULE_MOD RULE_ASSIGN;
-
-RULE_PLUSASSIGN : RULE_PLUS RULE_ASSIGN;
-
-RULE_MINUSASSIGN : RULE_MINUS RULE_ASSIGN;
-
-RULE_LEFTSHIFTASSIGN : RULE_LEFTSHIFT RULE_ASSIGN;
-
-RULE_RIGHTSHIFTASSIGN : RULE_RIGHTSHIFT RULE_ASSIGN;
-
-RULE_ANDASSIGN : RULE_AND RULE_ASSIGN;
-
-RULE_XORASSIGN : RULE_CARET RULE_ASSIGN;
-
-RULE_ORASSIGN : RULE_OR RULE_ASSIGN;
-
-RULE_EQUAL : RULE_ASSIGN RULE_ASSIGN;
-
-RULE_NOTEQUAL : RULE_NOT RULE_ASSIGN;
-
-RULE_ARROW : RULE_MINUS RULE_GREATER;
-
-RULE_DOT : '.';
-
-RULE_ELLIPSIS : RULE_DOT RULE_DOT RULE_DOT;
+RULE_ELLIPSIS : RULE_SKW_DOT RULE_SKW_DOT RULE_SKW_DOT;
 
 fragment RULE_SINGLEQUOTE : '\'';
 
 fragment RULE_DOUBLEQUOTE : '"';
 
-fragment RULE_BACKSLASH : '\\';
-
 RULE_ID : RULE_IDENTIFIER;
 
 fragment RULE_IDENTIFIER : RULE_LETTER (RULE_LETTER|'0'..'9')*;
 
-fragment RULE_LETTER : ('$'|'A'..'Z'|'a'..'z'|RULE_KW_UNDERSCORE);
+fragment RULE_LETTER : ('$'|'A'..'Z'|'a'..'z'|RULE_SKW_UNDERSCORE);
 
-RULE_CHAR_LITERAL : RULE_SINGLEQUOTE (RULE_ESCAPE_SEQUENCE|~((RULE_SINGLEQUOTE|RULE_BACKSLASH))) RULE_SINGLEQUOTE;
+RULE_CHAR_LITERAL : RULE_SINGLEQUOTE (RULE_ESCAPE_SEQUENCE|~((RULE_SINGLEQUOTE|RULE_SKW_BACKSLASH))) RULE_SINGLEQUOTE;
 
-RULE_STRING_LITERAL : RULE_DOUBLEQUOTE (RULE_ESCAPE_SEQUENCE|~((RULE_BACKSLASH|RULE_DOUBLEQUOTE)))* RULE_DOUBLEQUOTE;
+RULE_STRING_LITERAL : RULE_DOUBLEQUOTE (RULE_ESCAPE_SEQUENCE|~((RULE_SKW_BACKSLASH|RULE_DOUBLEQUOTE)))* RULE_DOUBLEQUOTE;
 
 RULE_HEX_LITERAL : '0' ('x'|'X') RULE_HEX_DIGIT+ RULE_INTEGER_TYPE_SUFFIX?;
 
@@ -10170,19 +10102,19 @@ fragment RULE_HEX_DIGIT : ('0'..'9'|'a'..'f'|'A'..'F');
 
 fragment RULE_INTEGER_TYPE_SUFFIX : (('u'|'U')? ('l'|'L')|('u'|'U') ('l'|'L')?);
 
-RULE_FLOAT_LITERAL : (('0'..'9')+ RULE_DOT ('0'..'9')* RULE_EXPONENT? RULE_FLOAT_TYPE_SUFFIX?|RULE_DOT ('0'..'9')+ RULE_EXPONENT? RULE_FLOAT_TYPE_SUFFIX?|('0'..'9')+ RULE_EXPONENT RULE_FLOAT_TYPE_SUFFIX?|('0'..'9')+ RULE_EXPONENT? RULE_FLOAT_TYPE_SUFFIX);
+RULE_FLOAT_LITERAL : (('0'..'9')+ RULE_SKW_DOT ('0'..'9')* RULE_EXPONENT? RULE_FLOAT_TYPE_SUFFIX?|RULE_SKW_DOT ('0'..'9')+ RULE_EXPONENT? RULE_FLOAT_TYPE_SUFFIX?|('0'..'9')+ RULE_EXPONENT RULE_FLOAT_TYPE_SUFFIX?|('0'..'9')+ RULE_EXPONENT? RULE_FLOAT_TYPE_SUFFIX);
 
 fragment RULE_EXPONENT : ('e'|'E') ('+'|'-')? ('0'..'9')+;
 
 fragment RULE_FLOAT_TYPE_SUFFIX : ('f'|'F'|'d'|'D');
 
-fragment RULE_ESCAPE_SEQUENCE : (RULE_BACKSLASH ('b'|'t'|'n'|'f'|'r'|'"'|RULE_SINGLEQUOTE|RULE_BACKSLASH)|RULE_OCTAL_ESCAPE);
+fragment RULE_ESCAPE_SEQUENCE : (RULE_SKW_BACKSLASH ('b'|'t'|'n'|'f'|'r'|'"'|RULE_SINGLEQUOTE|RULE_SKW_BACKSLASH)|RULE_OCTAL_ESCAPE);
 
-fragment RULE_OCTAL_ESCAPE : (RULE_BACKSLASH '0'..'3' '0'..'7' '0'..'7'|RULE_BACKSLASH '0'..'7' '0'..'7'|RULE_BACKSLASH '0'..'7');
+fragment RULE_OCTAL_ESCAPE : (RULE_SKW_BACKSLASH '0'..'3' '0'..'7' '0'..'7'|RULE_SKW_BACKSLASH '0'..'7' '0'..'7'|RULE_SKW_BACKSLASH '0'..'7');
 
-fragment RULE_UNICODE_ESCAPE : RULE_BACKSLASH 'u' RULE_HEX_DIGIT RULE_HEX_DIGIT RULE_HEX_DIGIT RULE_HEX_DIGIT;
+fragment RULE_UNICODE_ESCAPE : RULE_SKW_BACKSLASH 'u' RULE_HEX_DIGIT RULE_HEX_DIGIT RULE_HEX_DIGIT RULE_HEX_DIGIT;
 
-RULE_LINEDIRECTIVE : '#' (~(RULE_NEWLINE)|RULE_BACKSLASH RULE_NEWLINE)*;
+RULE_LINEDIRECTIVE : '#' (~(RULE_NEWLINE)|RULE_SKW_BACKSLASH RULE_NEWLINE)*;
 
 RULE_WHITESPACE : (' '|'\t')+;
 
@@ -10191,5 +10123,85 @@ RULE_BLOCK_COMMENT : '/*' ( options {greedy=false;} : . )*'*/';
 RULE_LINE_COMMENT : '//' ~(RULE_NEWLINE)*;
 
 RULE_NEWLINE : ('\r'|'\n');
+
+RULE_SKW_AND : '&';
+
+RULE_SKW_ANDAND : RULE_SKW_AND RULE_SKW_AND;
+
+RULE_SKW_ASSIGN : '=';
+
+RULE_SKW_BACKSLASH : '\\';
+
+RULE_SKW_CARET : '^';
+
+RULE_SKW_COMMA : ',';
+
+RULE_SKW_COLON : ':';
+
+RULE_SKW_DIV : '/';
+
+fragment RULE_SKW_DOLLAR : '$';
+
+RULE_SKW_DOT : '.';
+
+RULE_SKW_DOUBLEQUOTE : '"';
+
+RULE_SKW_EQUAL : RULE_SKW_ASSIGN RULE_SKW_ASSIGN;
+
+RULE_SKW_GREATER : '>';
+
+RULE_SKW_GREATEREQUAL : RULE_SKW_GREATER RULE_SKW_ASSIGN;
+
+RULE_SKW_LEFTBRACE : '{';
+
+RULE_SKW_LEFTBRACKET : '[';
+
+RULE_SKW_LEFTPAREN : '(';
+
+RULE_SKW_LEFTSHIFT : RULE_SKW_LESS RULE_SKW_LESS;
+
+RULE_SKW_LESS : '<';
+
+RULE_SKW_LESSEQUAL : RULE_SKW_LESS RULE_SKW_ASSIGN;
+
+RULE_SKW_MINUS : '-';
+
+RULE_SKW_MINUSMINUS : RULE_SKW_MINUS RULE_SKW_MINUS;
+
+RULE_SKW_MOD : '%';
+
+RULE_SKW_NOT : '!';
+
+RULE_SKW_NOTEQUAL : RULE_SKW_NOT RULE_SKW_ASSIGN;
+
+RULE_SKW_OR : '|';
+
+RULE_SKW_OROR : RULE_SKW_OR RULE_SKW_OR;
+
+RULE_SKW_PLUS : '+';
+
+RULE_SKW_PLUSPLUS : RULE_SKW_PLUS RULE_SKW_PLUS;
+
+RULE_SKW_QUESTION : '?';
+
+RULE_SKW_RIGHTBRACE : '}';
+
+RULE_SKW_RIGHTBRACKET : ']';
+
+RULE_SKW_RIGHTPAREN : ')';
+
+RULE_SKW_RIGHTSHIFT : RULE_SKW_GREATER RULE_SKW_GREATER;
+
+RULE_SKW_SEMI : ';';
+
+RULE_SKW_SINGLEQUOTE : '\'';
+
+RULE_SKW_STAR : '*';
+
+RULE_SKW_TILDE : '~';
+
+fragment RULE_SKW_UNDERSCORE : '_';
+
+RULE_SPECIAL : .;
 
 

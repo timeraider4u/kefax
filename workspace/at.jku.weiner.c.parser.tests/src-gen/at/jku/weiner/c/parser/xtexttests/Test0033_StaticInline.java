@@ -109,13 +109,13 @@ public class Test0033_StaticInline {
 				"RULE_KW_VOID", 
 				"RULE_WHITESPACE", 
 				"RULE_ID", 
-				"RULE_LEFTPAREN", 
-				"RULE_RIGHTPAREN", 
+				"RULE_SKW_LEFTPAREN", 
+				"RULE_SKW_RIGHTPAREN", 
 				"RULE_WHITESPACE", 
-				"RULE_LEFTBRACE", 
+				"RULE_SKW_LEFTBRACE", 
 				"RULE_NEWLINE", 
 				"RULE_NEWLINE", 
-				"RULE_RIGHTBRACE", 
+				"RULE_SKW_RIGHTBRACE", 
 				"RULE_NEWLINE", 
 				};
 			//final List<Token> actual = testHelper.getTokens(text);

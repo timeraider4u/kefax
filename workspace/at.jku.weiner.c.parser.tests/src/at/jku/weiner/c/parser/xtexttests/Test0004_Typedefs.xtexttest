@@ -6,10 +6,10 @@ language parser
 source file="res/Test0004_Typedefs.c"
 //----------------------------------------------------------------------
 lexer-tokens
-KW_TYPEDEF WHITESPACE KW_INT WHITESPACE ID SEMI NEWLINE
-KW_TYPEDEF WHITESPACE ID WHITESPACE ID SEMI NEWLINE
-ID WHITESPACE ID SEMI NEWLINE
-ID WHITESPACE ID SEMI NEWLINE
+KW_TYPEDEF WHITESPACE KW_INT WHITESPACE ID SKW_SEMI NEWLINE
+KW_TYPEDEF WHITESPACE ID WHITESPACE ID SKW_SEMI NEWLINE
+ID WHITESPACE ID SKW_SEMI NEWLINE
+ID WHITESPACE ID SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
 (Model unit+=
 	(TranslationUnit 

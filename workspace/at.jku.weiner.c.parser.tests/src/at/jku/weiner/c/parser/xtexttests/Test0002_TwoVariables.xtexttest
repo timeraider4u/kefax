@@ -6,8 +6,8 @@ language parser
 source file="res/Test0002_TwoVariables.c"
 //----------------------------------------------------------------------
 lexer-tokens
-KW_INT WHITESPACE ID SEMI NEWLINE
-KW_INT WHITESPACE ID SEMI
+KW_INT WHITESPACE ID SKW_SEMI NEWLINE
+KW_INT WHITESPACE ID SKW_SEMI
 //----------------------------------------------------------------------
 (Model unit+=
 	(TranslationUnit 

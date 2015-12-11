@@ -21,87 +21,69 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class ParserSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected ParserGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_Initializer_COMMATerminalRuleCall_1_1_2_q;
-	protected AbstractElementAlias match_ParameterTypeList___COMMATerminalRuleCall_2_0_ELLIPSISTerminalRuleCall_2_1__q;
+	protected AbstractElementAlias match_Initializer_SKW_COMMATerminalRuleCall_1_1_2_q;
+	protected AbstractElementAlias match_ParameterTypeList___SKW_COMMATerminalRuleCall_2_0_ELLIPSISTerminalRuleCall_2_1__q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (ParserGrammarAccess) access;
-		match_Initializer_COMMATerminalRuleCall_1_1_2_q = new TokenAlias(false, true, grammarAccess.getInitializerAccess().getCOMMATerminalRuleCall_1_1_2());
-		match_ParameterTypeList___COMMATerminalRuleCall_2_0_ELLIPSISTerminalRuleCall_2_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getParameterTypeListAccess().getCOMMATerminalRuleCall_2_0()), new TokenAlias(false, false, grammarAccess.getParameterTypeListAccess().getELLIPSISTerminalRuleCall_2_1()));
+		match_Initializer_SKW_COMMATerminalRuleCall_1_1_2_q = new TokenAlias(false, true, grammarAccess.getInitializerAccess().getSKW_COMMATerminalRuleCall_1_1_2());
+		match_ParameterTypeList___SKW_COMMATerminalRuleCall_2_0_ELLIPSISTerminalRuleCall_2_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getParameterTypeListAccess().getSKW_COMMATerminalRuleCall_2_0()), new TokenAlias(false, false, grammarAccess.getParameterTypeListAccess().getELLIPSISTerminalRuleCall_2_1()));
 	}
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if(ruleCall.getRule() == grammarAccess.getANDRule())
-			return getANDToken(semanticObject, ruleCall, node);
-		else if(ruleCall.getRule() == grammarAccess.getANDANDRule())
-			return getANDANDToken(semanticObject, ruleCall, node);
-		else if(ruleCall.getRule() == grammarAccess.getARROWRule())
+		if(ruleCall.getRule() == grammarAccess.getARROWRule())
 			return getARROWToken(semanticObject, ruleCall, node);
-		else if(ruleCall.getRule() == grammarAccess.getASSIGNRule())
-			return getASSIGNToken(semanticObject, ruleCall, node);
-		else if(ruleCall.getRule() == grammarAccess.getCARETRule())
-			return getCARETToken(semanticObject, ruleCall, node);
-		else if(ruleCall.getRule() == grammarAccess.getCOLONRule())
-			return getCOLONToken(semanticObject, ruleCall, node);
-		else if(ruleCall.getRule() == grammarAccess.getCOMMARule())
-			return getCOMMAToken(semanticObject, ruleCall, node);
-		else if(ruleCall.getRule() == grammarAccess.getDOTRule())
-			return getDOTToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getELLIPSISRule())
 			return getELLIPSISToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getKW_ENUMRule())
 			return getKW_ENUMToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getKW_WHILERule())
 			return getKW_WHILEToken(semanticObject, ruleCall, node);
-		else if(ruleCall.getRule() == grammarAccess.getLEFTBRACERule())
-			return getLEFTBRACEToken(semanticObject, ruleCall, node);
-		else if(ruleCall.getRule() == grammarAccess.getLEFTBRACKETRule())
-			return getLEFTBRACKETToken(semanticObject, ruleCall, node);
-		else if(ruleCall.getRule() == grammarAccess.getLEFTPARENRule())
-			return getLEFTPARENToken(semanticObject, ruleCall, node);
-		else if(ruleCall.getRule() == grammarAccess.getMINUSMINUSRule())
-			return getMINUSMINUSToken(semanticObject, ruleCall, node);
-		else if(ruleCall.getRule() == grammarAccess.getORRule())
-			return getORToken(semanticObject, ruleCall, node);
-		else if(ruleCall.getRule() == grammarAccess.getORORRule())
-			return getORORToken(semanticObject, ruleCall, node);
-		else if(ruleCall.getRule() == grammarAccess.getPLUSPLUSRule())
-			return getPLUSPLUSToken(semanticObject, ruleCall, node);
-		else if(ruleCall.getRule() == grammarAccess.getQUESTIONRule())
-			return getQUESTIONToken(semanticObject, ruleCall, node);
-		else if(ruleCall.getRule() == grammarAccess.getRIGHTBRACERule())
-			return getRIGHTBRACEToken(semanticObject, ruleCall, node);
-		else if(ruleCall.getRule() == grammarAccess.getRIGHTBRACKETRule())
-			return getRIGHTBRACKETToken(semanticObject, ruleCall, node);
-		else if(ruleCall.getRule() == grammarAccess.getRIGHTPARENRule())
-			return getRIGHTPARENToken(semanticObject, ruleCall, node);
-		else if(ruleCall.getRule() == grammarAccess.getSEMIRule())
-			return getSEMIToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getSKW_ANDRule())
+			return getSKW_ANDToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getSKW_ANDANDRule())
+			return getSKW_ANDANDToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getSKW_ASSIGNRule())
+			return getSKW_ASSIGNToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getSKW_CARETRule())
+			return getSKW_CARETToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getSKW_COLONRule())
+			return getSKW_COLONToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getSKW_COMMARule())
+			return getSKW_COMMAToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getSKW_DOTRule())
+			return getSKW_DOTToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getSKW_LEFTBRACERule())
+			return getSKW_LEFTBRACEToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getSKW_LEFTBRACKETRule())
+			return getSKW_LEFTBRACKETToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getSKW_LEFTPARENRule())
+			return getSKW_LEFTPARENToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getSKW_MINUSMINUSRule())
+			return getSKW_MINUSMINUSToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getSKW_ORRule())
+			return getSKW_ORToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getSKW_ORORRule())
+			return getSKW_ORORToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getSKW_PLUSPLUSRule())
+			return getSKW_PLUSPLUSToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getSKW_QUESTIONRule())
+			return getSKW_QUESTIONToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getSKW_RIGHTBRACERule())
+			return getSKW_RIGHTBRACEToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getSKW_RIGHTBRACKETRule())
+			return getSKW_RIGHTBRACKETToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getSKW_RIGHTPARENRule())
+			return getSKW_RIGHTPARENToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getSKW_SEMIRule())
+			return getSKW_SEMIToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
 	/**
-	 * terminal AND: '&';
-	 */
-	protected String getANDToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "&";
-	}
-	
-	/**
-	 * terminal ANDAND: AND AND;
-	 */
-	protected String getANDANDToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "&";
-	}
-	
-	/**
-	 * terminal ARROW: MINUS GREATER;
+	 * terminal ARROW: SKW_MINUS SKW_GREATER;
 	 */
 	protected String getARROWToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
@@ -110,52 +92,7 @@ public class ParserSyntacticSequencer extends AbstractSyntacticSequencer {
 	}
 	
 	/**
-	 * terminal ASSIGN: '=';
-	 */
-	protected String getASSIGNToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "=";
-	}
-	
-	/**
-	 * terminal CARET: '^';
-	 */
-	protected String getCARETToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "^";
-	}
-	
-	/**
-	 * terminal COLON: ':';
-	 */
-	protected String getCOLONToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return ":";
-	}
-	
-	/**
-	 * terminal COMMA: ',';
-	 */
-	protected String getCOMMAToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return ",";
-	}
-	
-	/**
-	 * terminal DOT: '.';
-	 */
-	protected String getDOTToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return ".";
-	}
-	
-	/**
-	 * terminal ELLIPSIS: DOT DOT DOT;
+	 * terminal ELLIPSIS: SKW_DOT SKW_DOT SKW_DOT;
 	 */
 	protected String getELLIPSISToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
@@ -182,108 +119,171 @@ public class ParserSyntacticSequencer extends AbstractSyntacticSequencer {
 	}
 	
 	/**
-	 * terminal LEFTBRACE: '{';
+	 * terminal SKW_AND: '&';
 	 */
-	protected String getLEFTBRACEToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+	protected String getSKW_ANDToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "&";
+	}
+	
+	/**
+	 * terminal SKW_ANDAND: SKW_AND SKW_AND;
+	 */
+	protected String getSKW_ANDANDToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "&";
+	}
+	
+	/**
+	 * terminal SKW_ASSIGN: '=';
+	 */
+	protected String getSKW_ASSIGNToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "=";
+	}
+	
+	/**
+	 * terminal SKW_CARET: '^';
+	 */
+	protected String getSKW_CARETToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "^";
+	}
+	
+	/**
+	 * terminal SKW_COLON: ':';
+	 */
+	protected String getSKW_COLONToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return ":";
+	}
+	
+	/**
+	 * terminal SKW_COMMA: ',';
+	 */
+	protected String getSKW_COMMAToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return ",";
+	}
+	
+	/**
+	 * terminal SKW_DOT: '.';
+	 */
+	protected String getSKW_DOTToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return ".";
+	}
+	
+	/**
+	 * terminal SKW_LEFTBRACE: '{';
+	 */
+	protected String getSKW_LEFTBRACEToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
 		return "{";
 	}
 	
 	/**
-	 * terminal LEFTBRACKET: '[';
+	 * terminal SKW_LEFTBRACKET: '[';
 	 */
-	protected String getLEFTBRACKETToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+	protected String getSKW_LEFTBRACKETToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
 		return "[";
 	}
 	
 	/**
-	 * terminal LEFTPAREN: '(';
+	 * terminal SKW_LEFTPAREN: '(';
 	 */
-	protected String getLEFTPARENToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+	protected String getSKW_LEFTPARENToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
 		return "(";
 	}
 	
 	/**
-	 * terminal MINUSMINUS: MINUS MINUS;
+	 * terminal SKW_MINUSMINUS: SKW_MINUS SKW_MINUS;
 	 */
-	protected String getMINUSMINUSToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+	protected String getSKW_MINUSMINUSToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
 		return "-";
 	}
 	
 	/**
-	 * terminal OR: '|';
+	 * terminal SKW_OR: '|';
 	 */
-	protected String getORToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+	protected String getSKW_ORToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
 		return "|";
 	}
 	
 	/**
-	 * terminal OROR: OR OR;
+	 * terminal SKW_OROR: SKW_OR SKW_OR;
 	 */
-	protected String getORORToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+	protected String getSKW_ORORToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
 		return "|";
 	}
 	
 	/**
-	 * terminal PLUSPLUS: PLUS PLUS;
+	 * terminal SKW_PLUSPLUS: SKW_PLUS SKW_PLUS;
 	 */
-	protected String getPLUSPLUSToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+	protected String getSKW_PLUSPLUSToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
 		return "+";
 	}
 	
 	/**
-	 * terminal QUESTION: '?';
+	 * terminal SKW_QUESTION: '?';
 	 */
-	protected String getQUESTIONToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+	protected String getSKW_QUESTIONToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
 		return "?";
 	}
 	
 	/**
-	 * terminal RIGHTBRACE: '}';
+	 * terminal SKW_RIGHTBRACE: '}';
 	 */
-	protected String getRIGHTBRACEToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+	protected String getSKW_RIGHTBRACEToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
 		return "}";
 	}
 	
 	/**
-	 * terminal RIGHTBRACKET: ']';
+	 * terminal SKW_RIGHTBRACKET: ']';
 	 */
-	protected String getRIGHTBRACKETToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+	protected String getSKW_RIGHTBRACKETToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
 		return "]";
 	}
 	
 	/**
-	 * terminal RIGHTPAREN: ')';
+	 * terminal SKW_RIGHTPAREN: ')';
 	 */
-	protected String getRIGHTPARENToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+	protected String getSKW_RIGHTPARENToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
 		return ")";
 	}
 	
 	/**
-	 * terminal SEMI: ';';
+	 * terminal SKW_SEMI: ';';
 	 */
-	protected String getSEMIToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+	protected String getSKW_SEMIToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
 		return ";";
@@ -295,33 +295,33 @@ public class ParserSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if(match_Initializer_COMMATerminalRuleCall_1_1_2_q.equals(syntax))
-				emit_Initializer_COMMATerminalRuleCall_1_1_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_ParameterTypeList___COMMATerminalRuleCall_2_0_ELLIPSISTerminalRuleCall_2_1__q.equals(syntax))
-				emit_ParameterTypeList___COMMATerminalRuleCall_2_0_ELLIPSISTerminalRuleCall_2_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			if(match_Initializer_SKW_COMMATerminalRuleCall_1_1_2_q.equals(syntax))
+				emit_Initializer_SKW_COMMATerminalRuleCall_1_1_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ParameterTypeList___SKW_COMMATerminalRuleCall_2_0_ELLIPSISTerminalRuleCall_2_1__q.equals(syntax))
+				emit_ParameterTypeList___SKW_COMMATerminalRuleCall_2_0_ELLIPSISTerminalRuleCall_2_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
 	/**
 	 * Ambiguous syntax:
-	 *     COMMA?
+	 *     SKW_COMMA?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     list=InitializerList (ambiguity) RIGHTBRACE (rule end)
+	 *     list=InitializerList (ambiguity) SKW_RIGHTBRACE (rule end)
 	 */
-	protected void emit_Initializer_COMMATerminalRuleCall_1_1_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Initializer_SKW_COMMATerminalRuleCall_1_1_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Ambiguous syntax:
-	 *     (COMMA ELLIPSIS)?
+	 *     (SKW_COMMA ELLIPSIS)?
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     list=ParameterList (ambiguity) (rule end)
 	 */
-	protected void emit_ParameterTypeList___COMMATerminalRuleCall_2_0_ELLIPSISTerminalRuleCall_2_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_ParameterTypeList___SKW_COMMATerminalRuleCall_2_0_ELLIPSISTerminalRuleCall_2_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

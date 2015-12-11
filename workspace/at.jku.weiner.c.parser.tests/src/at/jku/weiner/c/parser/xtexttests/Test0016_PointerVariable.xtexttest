@@ -6,8 +6,8 @@ language parser
 source file="res/Test0016_PointerVariable.c"
 //----------------------------------------------------------------------
 lexer-tokens
-KW_FLOAT WHITESPACE STAR WHITESPACE KW_CONST WHITESPACE ID SEMI NEWLINE
-KW_DOUBLE WHITESPACE STAR WHITESPACE STAR WHITESPACE ID SEMI NEWLINE
+KW_FLOAT WHITESPACE SKW_STAR WHITESPACE KW_CONST WHITESPACE ID SKW_SEMI NEWLINE
+KW_DOUBLE WHITESPACE SKW_STAR WHITESPACE SKW_STAR WHITESPACE ID SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
 (Model unit+=
 	(TranslationUnit 

@@ -6,7 +6,7 @@ language parser
 source file="res/Test0039_Empty.h"
 //----------------------------------------------------------------------
 lexer-tokens
-KW_VOID WHITESPACE ID LEFTPAREN  RIGHTPAREN SEMI NEWLINE
+KW_VOID WHITESPACE ID SKW_LEFTPAREN  SKW_RIGHTPAREN SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
 (Model unit+=
 	(TranslationUnit 

@@ -6,9 +6,9 @@ language parser
 source file="res/Test0009_SimpleStmt.c"
 //----------------------------------------------------------------------
 lexer-tokens
-KW_VOID WHITESPACE ID LEFTPAREN RIGHTPAREN WHITESPACE LEFTBRACE NEWLINE
-WHITESPACE SEMI NEWLINE
-RIGHTBRACE NEWLINE
+KW_VOID WHITESPACE ID SKW_LEFTPAREN SKW_RIGHTPAREN WHITESPACE SKW_LEFTBRACE NEWLINE
+WHITESPACE SKW_SEMI NEWLINE
+SKW_RIGHTBRACE NEWLINE
 //----------------------------------------------------------------------
 (Model unit+=
 	(TranslationUnit 

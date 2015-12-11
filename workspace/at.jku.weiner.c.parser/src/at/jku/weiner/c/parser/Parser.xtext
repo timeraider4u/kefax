@@ -27,8 +27,8 @@
  THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-grammar at.jku.weiner.c.parser.Parser 
-/*with org.eclipse.xtext.common.Terminals*/
+grammar at.jku.weiner.c.parser.Parser
+with at.jku.weiner.c.common.Common 
 hidden(LINEDIRECTIVE,LINE_COMMENT,BLOCK_COMMENT,NEWLINE,WHITESPACE)
 
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
@@ -58,13 +58,13 @@ ExternalDeclaration:
 		(
 			(=>
 				functiondefHead=FunctionDefHead 
-				LEFTBRACE
+				SKW_LEFTBRACE
 			)
 			functionDefinition=FunctionDefinition
-			RIGHTBRACE
+			SKW_RIGHTBRACE
 		)
 	|	declaration=Declaration
-	|	semi=SEMI
+	|	semi=SKW_SEMI
 	)
 ;
 
@@ -101,7 +101,7 @@ Declaration
 	(
 		specifiers=DeclarationSpecifiers 
 		(initDeclaratorList+=InitDeclaratorList)? 
-		semi=SEMI
+		semi=SKW_SEMI
 	//|	staticAssertDeclaration
 	)
 ;
@@ -133,14 +133,14 @@ InitDeclaratorList:
 	{InitDeclaratorList}
 	
 	initDeclarator+=InitDeclarator
-	(COMMA initDeclarator+=InitDeclarator)*
+	(SKW_COMMA initDeclarator+=InitDeclarator)*
 ;
 
 InitDeclarator:
 	{InitDeclarator}
 	
 	declarator=Declarator
-	(ASSIGN initializer=Initializer)?
+	(SKW_ASSIGN initializer=Initializer)?
 ;
 
 StorageClassSpecifier:
@@ -197,7 +197,7 @@ StructOrUnionSpecifier returns DeclarationSpecifier
 	:
 	{StructOrUnionSpecifier}
 	type=StructOrUnion
-	(	(id=ID)? LEFTBRACE structDeclList=StructDeclarationList RIGHTBRACE
+	(	(id=ID)? SKW_LEFTBRACE structDeclList=StructDeclarationList SKW_RIGHTBRACE
 	|	id=ID
 	)
 ;
@@ -211,7 +211,7 @@ StructOrUnion:
 StructDeclarationList: (structDeclaration+=StructDeclaration)+;
 
 StructDeclaration:
-	list=SpecifierQualifierList (structDeclarationList=StructDeclaratorList)? SEMI
+	list=SpecifierQualifierList (structDeclarationList=StructDeclaratorList)? SKW_SEMI
 	//|	staticAssertDeclaration
 ;
 
@@ -222,30 +222,30 @@ SpecifierQualifierList:
 	)+
 ;
 
-StructDeclaratorList: structDeclarator+=StructDeclarator (COMMA structDeclarator+=StructDeclarator)*;
+StructDeclaratorList: structDeclarator+=StructDeclarator (SKW_COMMA structDeclarator+=StructDeclarator)*;
 
-StructDeclarator: declarator=Declarator (COLON constExpr+=ConstantExpression)?
-	| (COLON constExpr+=ConstantExpression)
+StructDeclarator: declarator=Declarator (SKW_COLON constExpr+=ConstantExpression)?
+	| (SKW_COLON constExpr+=ConstantExpression)
 ;
 
 EnumSpecifier returns DeclarationSpecifier:
 	{EnumSpecifier} 
 	(	
 		KW_ENUM
-		(	LEFTBRACE enumList=EnumeratorList RIGHTBRACE
-		|	id=ID (LEFTBRACE enumList=EnumeratorList RIGHTBRACE)?
+		(	SKW_LEFTBRACE enumList=EnumeratorList SKW_RIGHTBRACE
+		|	id=ID (SKW_LEFTBRACE enumList=EnumeratorList SKW_RIGHTBRACE)?
 		)
 	)
 ;
 
 EnumeratorList: enumerator+=Enumerator
-	(COMMA enumerator+=Enumerator)*
+	(SKW_COMMA enumerator+=Enumerator)*
 ;
 
 Enumerator:
 	{Enumerator} 
 	id=ID
-	(ASSIGN expr=ConstantExpression)?
+	(SKW_ASSIGN expr=ConstantExpression)?
 ;
 
 /*
@@ -296,7 +296,7 @@ DirectDeclarator:
 		postAction{ {
 			at.jku.weiner.c.parser.Scope.addTypedefIfIsTypedef();
 		} }
-	| LEFTPAREN declarator=Declarator RIGHTPAREN
+	| SKW_LEFTPAREN declarator=Declarator SKW_RIGHTPAREN
 	)
 	(declaratorSuffix+=DeclaratorSuffix)*	
 ;
@@ -304,26 +304,26 @@ DirectDeclarator:
 DeclaratorSuffix:
 	{DeclaratorSuffix}
 	(
-		LEFTBRACKET static=KW_STATIC (typeQualifierList=TypeQualifierList)?
-			(expr=AssignmentExpression)? RIGHTBRACKET
-	|	LEFTBRACKET  (typeQualifierList=TypeQualifierList)?
-			(expr=AssignmentExpression) RIGHTBRACKET
-	|	LEFTBRACKET (typeQualifierList=TypeQualifierList) static=KW_STATIC
-			(expr=AssignmentExpression) RIGHTBRACKET
-	|	LEFTBRACKET (typeQualifierList=TypeQualifierList)? star=STAR RIGHTBRACKET
+		SKW_LEFTBRACKET static=KW_STATIC (typeQualifierList=TypeQualifierList)?
+			(expr=AssignmentExpression)? SKW_RIGHTBRACKET
+	|	SKW_LEFTBRACKET  (typeQualifierList=TypeQualifierList)?
+			(expr=AssignmentExpression) SKW_RIGHTBRACKET
+	|	SKW_LEFTBRACKET (typeQualifierList=TypeQualifierList) static=KW_STATIC
+			(expr=AssignmentExpression) SKW_RIGHTBRACKET
+	|	SKW_LEFTBRACKET (typeQualifierList=TypeQualifierList)? star=SKW_STAR SKW_RIGHTBRACKET
 	|	lastSuffix=DirectDeclaratorLastSuffix
 	)
 ;
 
 DirectDeclaratorLastSuffix:
 	{DirectDeclaratorLastSuffix}
-	 LEFTPAREN
+	 SKW_LEFTPAREN
 		(
 			(parameterTypeList+=ParameterTypeList)
 			|
 			(identifierList=IdentifierList)?
 		)
-	RIGHTPAREN
+	SKW_RIGHTPAREN
 ;
 
 /*
@@ -354,7 +354,7 @@ gccAttribute: {gccAttribute} (ANYOTHER)
 Pointer:
 	{Pointer} 
 	(
-		((star+=STAR | caret+=CARET) typeQualifierList+=TypeQualifierList?)*
+		((star+=SKW_STAR | caret+=SKW_CARET) typeQualifierList+=TypeQualifierList?)*
 		//|	{pointer} CARET typeQualifierList=typeQualifierList? pointer=pointer?// Blocks language extension
 	)
 ;
@@ -364,13 +364,13 @@ TypeQualifierList: {TypeQualifierList} (typeQualifier+=TypeQualifier)+;
 ParameterTypeList:
 	{ParameterTypeList}
 	list=ParameterList
-	(COMMA ELLIPSIS)?
+	(SKW_COMMA ELLIPSIS)?
 ;
 
 ParameterList:
 	{ParameterList} 
 	parameterDeclaration+=ParameterDeclaration
-	(COMMA parameterDeclaration+=ParameterDeclaration)*
+	(SKW_COMMA parameterDeclaration+=ParameterDeclaration)*
 ;
 
 ParameterDeclaration:
@@ -384,7 +384,7 @@ ParameterDeclaration:
 
 IdentifierList:
 	{IdentifierList} 
-	id+=MyIdentifier (COMMA id+=MyIdentifier)*
+	id+=MyIdentifier (SKW_COMMA id+=MyIdentifier)*
 ;
 
 MyIdentifier:
@@ -440,7 +440,7 @@ Initializer:
 	{Initializer}
 	(
 		expr=AssignmentExpression
-	|	LEFTBRACE list=InitializerList COMMA? RIGHTBRACE
+	|	SKW_LEFTBRACE list=InitializerList SKW_COMMA? SKW_RIGHTBRACE
 	)
 ;
 
@@ -448,7 +448,7 @@ InitializerList:
 	{InitializerList}
 	//designation+=Designation?
 	(initializer+=Initializer)
-	(COMMA 
+	(SKW_COMMA 
 		//(designation+=Designation)?
 		(initializer+=Initializer)
 	)*
@@ -477,9 +477,9 @@ Statement:
 LabeledStatement returns Statement:
 	{LabeledStatement}
 	(
-		id=ID COLON lStmt=Statement	
-	|	case=KW_CASE expr=ConstantExpression COLON lStmt=Statement
-	|	default=KW_DEFAULT COLON lStmt=Statement
+		id=ID SKW_COLON lStmt=Statement	
+	|	case=KW_CASE expr=ConstantExpression SKW_COLON lStmt=Statement
+	|	default=KW_DEFAULT SKW_COLON lStmt=Statement
 	)
 ;
 
@@ -492,9 +492,9 @@ CompoundStatement returns Statement
 	}
 	:
 	{CompoundStatement}
-	LEFTBRACE
+	SKW_LEFTBRACE
 		body=BodyStatement
-	RIGHTBRACE
+	SKW_RIGHTBRACE
 ;
 
 BodyStatement returns Statement:
@@ -505,37 +505,37 @@ BodyStatement returns Statement:
 ExpressionStatement returns Statement:
 	{ExpressionStatement} 
 	(expression = Expression)? 
-	semi=SEMI
+	semi=SKW_SEMI
 ;
 
 SelectionStatement returns Statement:
 	{SelectionStatement}
 	(
-		if=KW_IF LEFTPAREN expr=Expression RIGHTPAREN ifStatement=Statement
+		if=KW_IF SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN ifStatement=Statement
 		(=>else=KW_ELSE elseStatement=Statement)?
-	|	switch=KW_SWITCH LEFTPAREN expr=Expression RIGHTPAREN switchStatement=Statement
+	|	switch=KW_SWITCH SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN switchStatement=Statement
 	)
 ;
 
 IterationStatement returns Statement:
 	{IterationStatement}
 	(
-		while=KW_WHILE LEFTPAREN expr=Expression RIGHTPAREN statement=Statement
-	|	do=KW_DO statement=Statement KW_WHILE LEFTPAREN expr=Expression RIGHTPAREN semi=SEMI
-	|	for=KW_FOR LEFTPAREN initExpr=Expression? SEMI expr=Expression? SEMI incExpr=Expression? 
-			RIGHTPAREN statement=Statement
-	|	for=KW_FOR LEFTPAREN initDecl=Declaration (expr=Expression)? SEMI incExpr=Expression? 
-			RIGHTPAREN statement=Statement
+		while=KW_WHILE SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN statement=Statement
+	|	do=KW_DO statement=Statement KW_WHILE SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN semi=SKW_SEMI
+	|	for=KW_FOR SKW_LEFTPAREN initExpr=Expression? SKW_SEMI expr=Expression? SKW_SEMI incExpr=Expression? 
+			SKW_RIGHTPAREN statement=Statement
+	|	for=KW_FOR SKW_LEFTPAREN initDecl=Declaration (expr=Expression)? SKW_SEMI incExpr=Expression? 
+			SKW_RIGHTPAREN statement=Statement
 	)
 ;
 
 JumpStatement returns Statement:
 	{JumpStatement}
 	(
-		continue=KW_CONTINUE semi=SEMI
-	|	break=KW_BREAK semi=SEMI
-	|	return=KW_RETURN expr=Expression? semi=SEMI
-	|	goto=KW_GOTO expr=UnaryExpression semi=SEMI // GCC extension
+		continue=KW_CONTINUE semi=SKW_SEMI
+	|	break=KW_BREAK semi=SKW_SEMI
+	|	return=KW_RETURN expr=Expression? semi=SKW_SEMI
+	|	goto=KW_GOTO expr=UnaryExpression semi=SKW_SEMI // GCC extension
 	//|	KW_GOTO id=ID semi=SEMI //(can be reached over GOTO unaryExpression)
 	)
 ;
@@ -544,7 +544,7 @@ AsmStatement returns Statement:
 	{AsmStatement}
 	(asm=KW_ASM1 | asm=KW_ASM2) 
 	(volatile=KW_VOLATILE | volatile=KW_VOLATILE2)? 
-		LEFTPAREN
+		SKW_LEFTPAREN
 			(
 				//(COLON? expr+=LogicalOrExpression 
 				//	(COMMA expr+=LogicalOrExpression)*
@@ -552,17 +552,17 @@ AsmStatement returns Statement:
 				asmLine+=AsmLineWithColon
 				(asmLine+=AsmLineWithComma)*
 			)+
-		RIGHTPAREN semi=SEMI
+		SKW_RIGHTPAREN semi=SKW_SEMI
 ;
 
 AsmLineWithColon returns AsmLine:
 	{AsmLineWithColon}
-	colon?=COLON? expr=LogicalOrExpression
+	colon?=SKW_COLON? expr=LogicalOrExpression
 ;
 
 AsmLineWithComma returns AsmLine:
 	{AsmLineWithComma}
-	COMMA expr=LogicalOrExpression
+	SKW_COMMA expr=LogicalOrExpression
 ;
 
 //designation: designatorList ASSIGN;
@@ -586,7 +586,7 @@ declarationList:
 Expression:
 	{Expression}
 	exprExpr+=AssignmentExpression
-	(COMMA exprExpr+=AssignmentExpression)*
+	(SKW_COMMA exprExpr+=AssignmentExpression)*
 ;
 
 AssignmentExpression returns Expression:
@@ -610,7 +610,7 @@ Lvalue returns Expression:
 AssignmentOperator:
 	{AssignmentOperator}
 	(
-		op=ASSIGN
+		op=SKW_ASSIGN
 	| 	op=STARASSIGN
 	| 	op=DIVASSIGN
 	| 	op=MODASSIGN
@@ -627,7 +627,7 @@ AssignmentOperator:
 ConditionalExpression returns Expression:
 	{ConditionalExpression}
 	expr=LogicalOrExpression
-	(QUESTION qExpr=Expression COLON
+	(SKW_QUESTION qExpr=Expression SKW_COLON
 		cExpr=ConditionalExpression
 	)?
 ;
@@ -635,43 +635,43 @@ ConditionalExpression returns Expression:
 LogicalOrExpression returns Expression:
 	{LogicalOrExpression}
 	expr+=LogicalAndExpression
-	(OROR expr+=LogicalAndExpression)*
+	(SKW_OROR expr+=LogicalAndExpression)*
 ;
 
 LogicalAndExpression returns Expression:
 	{LogicalAndExpression}
 	expr+=InclusiveOrExpression
-	(ANDAND expr+=InclusiveOrExpression)*
+	(SKW_ANDAND expr+=InclusiveOrExpression)*
 ;
 
 InclusiveOrExpression returns Expression:
 	{InclusiveOrExpression}
 	expr+=ExclusiveOrExpression
-	(OR expr+=ExclusiveOrExpression)*
+	(SKW_OR expr+=ExclusiveOrExpression)*
 ;
 
 ExclusiveOrExpression returns Expression:
 	{ExclusiveOrExpression}
 	expr+=AndExpression
-	(CARET expr+=AndExpression)*
+	(SKW_CARET expr+=AndExpression)*
 ;
 
 AndExpression returns Expression:
 	{AndExpression}
 	expr+=EqualityExpression
-	(AND expr+=EqualityExpression)*
+	(SKW_AND expr+=EqualityExpression)*
 ;
 
 EqualityExpression returns Expression:
 	{EqualityExpression}
 	expr+=RelationalExpression
-	((op+=EQUAL | op+=NOTEQUAL) expr+=RelationalExpression)*
+	((op+=SKW_EQUAL | op+=SKW_NOTEQUAL) expr+=RelationalExpression)*
 ;
 
 RelationalExpression returns Expression:
 	{RelationalExpression}
 	expr+=ShiftExpression
-	((op+=LESS|op+=GREATER|op+=LESSEQUAL|op+=GREATEREQUAL)
+	((op+=SKW_LESS|op+=SKW_GREATER|op+=SKW_LESSEQUAL|op+=SKW_GREATEREQUAL)
 		expr += ShiftExpression
 	)*
 ;
@@ -679,7 +679,7 @@ RelationalExpression returns Expression:
 ShiftExpression returns Expression:
 	{ShiftExpression}
 	expr+=AdditiveExpression
-	((op+=LEFTSHIFT| op+=RIGHTSHIFT)
+	((op+=SKW_LEFTSHIFT| op+=SKW_RIGHTSHIFT)
 		expr+=AdditiveExpression
 	)*
 ;
@@ -687,7 +687,7 @@ ShiftExpression returns Expression:
 AdditiveExpression returns Expression:
 	{AdditiveExpression}
 	expr+=MultiplicativeExpression
-	((op+=PLUS| op+=MINUS)
+	((op+=SKW_PLUS| op+=SKW_MINUS)
 		expr+=MultiplicativeExpression
 	)*
 ;
@@ -695,7 +695,7 @@ AdditiveExpression returns Expression:
 MultiplicativeExpression returns Expression:
 	{MultiplicativeExpression}
 	expr+=CastExpression
-	((op+=STAR|op+=DIV|op+=MOD)
+	((op+=SKW_STAR|op+=SKW_DIV|op+=SKW_MOD)
 		expr+=CastExpression
 	)*
 ;
@@ -704,7 +704,7 @@ CastExpression returns Expression:
 	{CastExpression}
 	(
 	expr=UnaryExpression
-	|	LEFTPAREN type=TypeName RIGHTPAREN expr=CastExpression
+	|	SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN expr=CastExpression
 	//|	'__extension__' LEFTPAREN type=TypeName RIGHTPAREN castExpr=CastExpression
 	)
 ;
@@ -713,25 +713,25 @@ UnaryExpression returns Expression:
 	{UnaryExpression}	
 	(
 		expr=PostfixExpression
-	|	plusplus=PLUSPLUS expr=UnaryExpression
-	|	minusminus=MINUSMINUS expr=UnaryExpression
+	|	plusplus=SKW_PLUSPLUS expr=UnaryExpression
+	|	minusminus=SKW_MINUSMINUS expr=UnaryExpression
 	|	op=UnaryOperator expr=CastExpression
-	|	sizeOf=KW_SIZEOF LEFTPAREN typeName=TypeName RIGHTPAREN
+	|	sizeOf=KW_SIZEOF SKW_LEFTPAREN typeName=TypeName SKW_RIGHTPAREN
 	|	sizeOf=KW_SIZEOF expr=UnaryExpression 
 	//|	ALIGNOF LEFTPAREN typeName=typeName RIGHTPAREN
-	|	andand=ANDAND id=ID // GCC extension address of label
+	|	andand=SKW_ANDAND id=ID // GCC extension address of label
 	)
 ;
 
 UnaryOperator:
 	{UnaryOperator}
 	(
-		op=AND
-	|	op=STAR
-	|	op=PLUS 
-	|	op=MINUS 
-	|	op=TILDE
-	|	op=NOT
+		op=SKW_AND
+	|	op=SKW_STAR
+	|	op=SKW_PLUS 
+	|	op=SKW_MINUS 
+	|	op=SKW_TILDE
+	|	op=SKW_NOT
 	)
 ;
 
@@ -758,17 +758,17 @@ PostfixExpression returns Expression:
 
 PostfixExpressionSuffixArray returns PostfixExpressionSuffix:
 	{PostfixExpressionSuffixArray}
-	LEFTBRACKET arrayExpr=Expression RIGHTBRACKET
+	SKW_LEFTBRACKET arrayExpr=Expression SKW_RIGHTBRACKET
 ;
 
 PostfixExpressionSuffixArgument returns PostfixExpressionSuffix:
 	{PostfixExpressionSuffixArgument}
-	LEFTPAREN (argumentExpressionList=ArgumentExpressionList)? RIGHTPAREN
+	SKW_LEFTPAREN (argumentExpressionList=ArgumentExpressionList)? SKW_RIGHTPAREN
 ;
 
 PostfixExpressionSuffixDot returns PostfixExpressionSuffix:
 	{PostfixExpressionSuffixDot}
-	DOT id=ID
+	SKW_DOT id=ID
 ;
 
 PostfixExpressionSuffixArrow returns PostfixExpressionSuffix:
@@ -778,22 +778,22 @@ PostfixExpressionSuffixArrow returns PostfixExpressionSuffix:
 
 PostfixExpressionSuffixPlusPlus returns PostfixExpressionSuffix:
 	{PostfixExpressionSuffixPlusPlus}
-	PLUSPLUS
+	SKW_PLUSPLUS
 ;
 
 PostfixExpressionSuffixMinusMinus returns PostfixExpressionSuffix:
 	{PostfixExpressionSuffixMinusMinus}
-	MINUSMINUS
+	SKW_MINUSMINUS
 ;
 
-ArgumentExpressionList: expr+=AssignmentExpression (COMMA expr+=AssignmentExpression)*;
+ArgumentExpressionList: expr+=AssignmentExpression (SKW_COMMA expr+=AssignmentExpression)*;
 
 PrimaryExpression returns Expression:
 	{PrimaryExpression}
 	(id=ID
 	|	const=Constant
 	//|	string+=STRING_LITERAL+ // reachable over Constant!
-	|	LEFTPAREN expr=Expression RIGHTPAREN
+	|	SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN
 	//|	genericSelection=genericSelection
 	// |	'__extension__'? LEFTPAREN compoundStmt=compoundStatement RIGHTPAREN // Blocks (GCC extension)
 	//|	'__builtin_va_arg' LEFTPAREN expr=unaryExpression COMMA typeName=typeName RIGHTPAREN
@@ -834,7 +834,7 @@ genericAssociation:
 
 /*** lexer ***/
 /*** start with keywords ;-) */
-terminal KW_UNDERSCORE: '_';
+//terminal KW_UNDERSCORE: '_';
 
 terminal KW_AUTO : 'auto';
 terminal KW_BREAK : 'break';
@@ -873,8 +873,8 @@ terminal KW_WHILE : 'while';
 
 terminal KW_ALIGNAS : '_Alignas';
 terminal KW_ALIGNOF : '_Alignof';
-terminal KW_ASM1: KW_UNDERSCORE KW_UNDERSCORE 'asm';
-terminal KW_ASM2: KW_ASM1 KW_UNDERSCORE KW_UNDERSCORE;
+terminal KW_ASM1: SKW_UNDERSCORE SKW_UNDERSCORE 'asm';
+terminal KW_ASM2: KW_ASM1 SKW_UNDERSCORE SKW_UNDERSCORE;
 terminal KW_ATOMIC : '_Atomic';
 terminal KW_BOOL : '_Bool';
 terminal KW_COMPLEX : '_Complex';
@@ -884,9 +884,9 @@ terminal KW_NORETURN : '_Noreturn';
 terminal KW_STATICASSERT : '_Static_assert';
 terminal KW_THREADLOCAL : '_Thread_local';
 terminal KW_PRAGMA: 'pragma';
-terminal KW_VOLATILE2: KW_UNDERSCORE KW_UNDERSCORE KW_VOLATILE KW_UNDERSCORE KW_UNDERSCORE ;
+terminal KW_VOLATILE2: SKW_UNDERSCORE SKW_UNDERSCORE KW_VOLATILE SKW_UNDERSCORE SKW_UNDERSCORE ;
 
-terminal LEFTPAREN: '(';
+/*terminal LEFTPAREN: '(';
 terminal RIGHTPAREN: ')';
 terminal LEFTBRACKET: '[';
 terminal RIGHTBRACKET: ']';
@@ -920,29 +920,26 @@ terminal COLON: ':';
 terminal SEMI: ';';
 terminal COMMA: ',';
 terminal ASSIGN: '=';
+*/
 
-terminal STARASSIGN: STAR ASSIGN;
-terminal DIVASSIGN: DIV ASSIGN;
-terminal MODASSIGN: MOD ASSIGN;
-terminal PLUSASSIGN: PLUS ASSIGN;
-terminal MINUSASSIGN: MINUS ASSIGN;
-terminal LEFTSHIFTASSIGN: LEFTSHIFT ASSIGN;
-terminal RIGHTSHIFTASSIGN:RIGHTSHIFT ASSIGN;
-terminal ANDASSIGN: AND ASSIGN;
-terminal XORASSIGN: CARET ASSIGN;
-terminal ORASSIGN: OR ASSIGN;
+terminal STARASSIGN: SKW_STAR SKW_ASSIGN;
+terminal DIVASSIGN: SKW_DIV SKW_ASSIGN;
+terminal MODASSIGN: SKW_MOD SKW_ASSIGN;
+terminal PLUSASSIGN: SKW_PLUS SKW_ASSIGN;
+terminal MINUSASSIGN: SKW_MINUS SKW_ASSIGN;
+terminal LEFTSHIFTASSIGN: SKW_LEFTSHIFT SKW_ASSIGN;
+terminal RIGHTSHIFTASSIGN:SKW_RIGHTSHIFT SKW_ASSIGN;
+terminal ANDASSIGN: SKW_AND SKW_ASSIGN;
+terminal XORASSIGN: SKW_CARET SKW_ASSIGN;
+terminal ORASSIGN: SKW_OR SKW_ASSIGN;
 
-terminal EQUAL: ASSIGN ASSIGN;
-terminal NOTEQUAL: NOT ASSIGN;
 
-terminal ARROW: MINUS GREATER;
-terminal DOT: '.';
-terminal ELLIPSIS: DOT DOT DOT;
+terminal ARROW: SKW_MINUS SKW_GREATER;
+terminal ELLIPSIS: SKW_DOT SKW_DOT SKW_DOT;
 
 //terminal ZERO: '0';
 terminal SINGLEQUOTE: '\'';
 terminal DOUBLEQUOTE: '"';
-terminal BACKSLASH: '\\';
 
 terminal ID: IDENTIFIER;
 terminal fragment IDENTIFIER:
@@ -953,15 +950,15 @@ terminal fragment LETTER:
 	'$'
 	|	'A'..'Z'
 	|	'a'..'z'
-	|	KW_UNDERSCORE
+	|	SKW_UNDERSCORE
 ;
 
 terminal CHAR_LITERAL:
-	SINGLEQUOTE ( ESCAPE_SEQUENCE | !(SINGLEQUOTE|BACKSLASH) ) SINGLEQUOTE
+	SINGLEQUOTE ( ESCAPE_SEQUENCE | !(SINGLEQUOTE|SKW_BACKSLASH) ) SINGLEQUOTE
 ;
 
 terminal STRING_LITERAL:
-	DOUBLEQUOTE ( ESCAPE_SEQUENCE | !(BACKSLASH|DOUBLEQUOTE) )* DOUBLEQUOTE
+	DOUBLEQUOTE ( ESCAPE_SEQUENCE | !(SKW_BACKSLASH|DOUBLEQUOTE) )* DOUBLEQUOTE
 ;
 
 terminal HEX_LITERAL: '0' ('x'|'X') HEX_DIGIT+ INTEGER_TYPE_SUFFIX? ;
@@ -980,8 +977,8 @@ terminal fragment INTEGER_TYPE_SUFFIX:
 ;
 
 terminal FLOAT_LITERAL:
-	('0'..'9')+ DOT ('0'..'9')* EXPONENT? FLOAT_TYPE_SUFFIX?
-	|	DOT ('0'..'9')+ EXPONENT? FLOAT_TYPE_SUFFIX?
+	('0'..'9')+ SKW_DOT ('0'..'9')* EXPONENT? FLOAT_TYPE_SUFFIX?
+	|	SKW_DOT ('0'..'9')+ EXPONENT? FLOAT_TYPE_SUFFIX?
 	|	('0'..'9')+ EXPONENT FLOAT_TYPE_SUFFIX?
 	|	('0'..'9')+ EXPONENT? FLOAT_TYPE_SUFFIX
 ;
@@ -993,21 +990,21 @@ terminal fragment EXPONENT:
 terminal fragment FLOAT_TYPE_SUFFIX: ('f'|'F'|'d'|'D') ;
 
 terminal fragment ESCAPE_SEQUENCE:
-	BACKSLASH ('b'|'t'|'n'|'f'|'r'|'\"'|SINGLEQUOTE|BACKSLASH)
+	SKW_BACKSLASH ('b'|'t'|'n'|'f'|'r'|'\"'|SINGLEQUOTE|SKW_BACKSLASH)
 	|	OCTAL_ESCAPE
 ;
 
 terminal fragment OCTAL_ESCAPE:
-	BACKSLASH ('0'..'3') ('0'..'7') ('0'..'7')
-	|	BACKSLASH ('0'..'7') ('0'..'7')
-	|	BACKSLASH ('0'..'7')
+	SKW_BACKSLASH ('0'..'3') ('0'..'7') ('0'..'7')
+	|	SKW_BACKSLASH ('0'..'7') ('0'..'7')
+	|	SKW_BACKSLASH ('0'..'7')
 ;
 
 terminal fragment UNICODE_ESCAPE:
-	BACKSLASH 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
+	SKW_BACKSLASH 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
 ;
 
-terminal LINEDIRECTIVE: '#' (!NEWLINE | BACKSLASH NEWLINE)*;
+terminal LINEDIRECTIVE: '#' (!NEWLINE | SKW_BACKSLASH NEWLINE)*;
 terminal WHITESPACE: (' ' | '\t')+;
 terminal BLOCK_COMMENT: '/*' -> '*/';
 terminal LINE_COMMENT: '//' (!NEWLINE)*;

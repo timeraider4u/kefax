@@ -105,9 +105,9 @@ public class Test0039_Empty {
 				"RULE_KW_VOID", 
 				"RULE_WHITESPACE", 
 				"RULE_ID", 
-				"RULE_LEFTPAREN", 
-				"RULE_RIGHTPAREN", 
-				"RULE_SEMI", 
+				"RULE_SKW_LEFTPAREN", 
+				"RULE_SKW_RIGHTPAREN", 
+				"RULE_SKW_SEMI", 
 				"RULE_NEWLINE", 
 				};
 			//final List<Token> actual = testHelper.getTokens(text);

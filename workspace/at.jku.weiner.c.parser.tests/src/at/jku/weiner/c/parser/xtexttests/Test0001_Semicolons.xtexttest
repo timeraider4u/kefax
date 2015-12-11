@@ -6,8 +6,8 @@ language parser
 source file="res/Test0001_Semicolons.c"
 //----------------------------------------------------------------------
 lexer-tokens
-SEMI NEWLINE
-SEMI SEMI NEWLINE
+SKW_SEMI NEWLINE
+SKW_SEMI SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
 (Model unit+=
 	(TranslationUnit 

@@ -7,11 +7,11 @@ source file="res/Test0033_StaticInline.c"
 //----------------------------------------------------------------------
 lexer-tokens
 KW_STATIC WHITESPACE KW_INLINE WHITESPACE KW_VOID WHITESPACE ID
-LEFTPAREN 
-RIGHTPAREN
-WHITESPACE LEFTBRACE NEWLINE
+SKW_LEFTPAREN 
+SKW_RIGHTPAREN
+WHITESPACE SKW_LEFTBRACE NEWLINE
 	NEWLINE
-RIGHTBRACE NEWLINE
+SKW_RIGHTBRACE NEWLINE
 //----------------------------------------------------------------------
 (Model unit+=
 	(TranslationUnit 

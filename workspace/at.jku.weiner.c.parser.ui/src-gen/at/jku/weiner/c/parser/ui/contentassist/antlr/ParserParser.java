@@ -75,6 +75,7 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPostfixExpressionAccess().getAlternatives_1_1(), "rule__PostfixExpression__Alternatives_1_1");
 					put(grammarAccess.getPrimaryExpressionAccess().getAlternatives_1(), "rule__PrimaryExpression__Alternatives_1");
 					put(grammarAccess.getConstantAccess().getAlternatives_1(), "rule__Constant__Alternatives_1");
+					put(grammarAccess.getSpecialKeywordsAccess().getAlternatives(), "rule__SpecialKeywords__Alternatives");
 					put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
 					put(grammarAccess.getTranslationUnitAccess().getGroup(), "rule__TranslationUnit__Group__0");
 					put(grammarAccess.getExternalDeclarationAccess().getGroup(), "rule__ExternalDeclaration__Group__0");

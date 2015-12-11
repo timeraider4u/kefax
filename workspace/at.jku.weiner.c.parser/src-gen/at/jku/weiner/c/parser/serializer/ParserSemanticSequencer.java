@@ -3,6 +3,9 @@
  */
 package at.jku.weiner.c.parser.serializer;
 
+import at.jku.weiner.c.common.common.Common;
+import at.jku.weiner.c.common.common.CommonPackage;
+import at.jku.weiner.c.common.serializer.CommonSemanticSequencer;
 import at.jku.weiner.c.parser.parser.AdditiveExpression;
 import at.jku.weiner.c.parser.parser.AndExpression;
 import at.jku.weiner.c.parser.parser.ArgumentExpressionList;
@@ -91,7 +94,6 @@ import org.eclipse.xtext.serializer.acceptor.ISemanticSequenceAcceptor;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.diagnostic.ISemanticSequencerDiagnosticProvider;
 import org.eclipse.xtext.serializer.diagnostic.ISerializationDiagnostic.Acceptor;
-import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.GenericSequencer;
 import org.eclipse.xtext.serializer.sequencer.ISemanticNodeProvider.INodesForEObjectProvider;
 import org.eclipse.xtext.serializer.sequencer.ISemanticSequencer;
@@ -99,14 +101,19 @@ import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 
 @SuppressWarnings("all")
-public class ParserSemanticSequencer extends AbstractDelegatingSemanticSequencer {
+public class ParserSemanticSequencer extends CommonSemanticSequencer {
 
 	@Inject
 	private ParserGrammarAccess grammarAccess;
 	
 	@Override
 	public void createSequence(EObject context, EObject semanticObject) {
-		if(semanticObject.eClass().getEPackage() == ParserPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+		if(semanticObject.eClass().getEPackage() == CommonPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+			case CommonPackage.COMMON:
+				sequence_Common(context, (Common) semanticObject); 
+				return; 
+			}
+		else if(semanticObject.eClass().getEPackage() == ParserPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
 			case ParserPackage.ADDITIVE_EXPRESSION:
 				sequence_AdditiveExpression(context, (AdditiveExpression) semanticObject); 
 				return; 
@@ -350,7 +357,7 @@ public class ParserSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Constraint:
-	 *     (expr+=MultiplicativeExpression ((op+=PLUS | op+=MINUS) expr+=MultiplicativeExpression)*)
+	 *     (expr+=MultiplicativeExpression ((op+=SKW_PLUS | op+=SKW_MINUS) expr+=MultiplicativeExpression)*)
 	 */
 	protected void sequence_AdditiveExpression(EObject context, AdditiveExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -377,7 +384,7 @@ public class ParserSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Constraint:
-	 *     (colon?=COLON? expr=LogicalOrExpression)
+	 *     (colon?=SKW_COLON? expr=LogicalOrExpression)
 	 */
 	protected void sequence_AsmLineWithColon(EObject context, AsmLineWithColon semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -402,7 +409,12 @@ public class ParserSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Constraint:
-	 *     ((asm=KW_ASM1 | asm=KW_ASM2) (volatile=KW_VOLATILE | volatile=KW_VOLATILE2)? (asmLine+=AsmLineWithColon asmLine+=AsmLineWithComma*)+ semi=SEMI)
+	 *     (
+	 *         (asm=KW_ASM1 | asm=KW_ASM2) 
+	 *         (volatile=KW_VOLATILE | volatile=KW_VOLATILE2)? 
+	 *         (asmLine+=AsmLineWithColon asmLine+=AsmLineWithComma*)+ 
+	 *         semi=SKW_SEMI
+	 *     )
 	 */
 	protected void sequence_AsmStatement(EObject context, AsmStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -421,7 +433,7 @@ public class ParserSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * Constraint:
 	 *     (
-	 *         op=ASSIGN | 
+	 *         op=SKW_ASSIGN | 
 	 *         op=STARASSIGN | 
 	 *         op=DIVASSIGN | 
 	 *         op=MODASSIGN | 
@@ -526,7 +538,7 @@ public class ParserSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Constraint:
-	 *     (specifiers=DeclarationSpecifiers initDeclaratorList+=InitDeclaratorList? semi=SEMI)
+	 *     (specifiers=DeclarationSpecifiers initDeclaratorList+=InitDeclaratorList? semi=SKW_SEMI)
 	 */
 	protected void sequence_Declaration(EObject context, Declaration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -539,7 +551,7 @@ public class ParserSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *         (static=KW_STATIC typeQualifierList=TypeQualifierList? expr=AssignmentExpression?) | 
 	 *         (typeQualifierList=TypeQualifierList? expr=AssignmentExpression) | 
 	 *         (typeQualifierList=TypeQualifierList static=KW_STATIC expr=AssignmentExpression) | 
-	 *         (typeQualifierList=TypeQualifierList? star=STAR) | 
+	 *         (typeQualifierList=TypeQualifierList? star=SKW_STAR) | 
 	 *         lastSuffix=DirectDeclaratorLastSuffix
 	 *     )
 	 */
@@ -604,7 +616,7 @@ public class ParserSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Constraint:
-	 *     (expr+=RelationalExpression ((op+=EQUAL | op+=NOTEQUAL) expr+=RelationalExpression)*)
+	 *     (expr+=RelationalExpression ((op+=SKW_EQUAL | op+=SKW_NOTEQUAL) expr+=RelationalExpression)*)
 	 */
 	protected void sequence_EqualityExpression(EObject context, EqualityExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -622,7 +634,7 @@ public class ParserSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Constraint:
-	 *     (expression=Expression? semi=SEMI)
+	 *     (expression=Expression? semi=SKW_SEMI)
 	 */
 	protected void sequence_ExpressionStatement(EObject context, ExpressionStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -640,7 +652,7 @@ public class ParserSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Constraint:
-	 *     ((functiondefHead=FunctionDefHead functionDefinition=FunctionDefinition) | declaration=Declaration | semi=SEMI)
+	 *     ((functiondefHead=FunctionDefHead functionDefinition=FunctionDefinition) | declaration=Declaration | semi=SKW_SEMI)
 	 */
 	protected void sequence_ExternalDeclaration(EObject context, ExternalDeclaration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -753,7 +765,7 @@ public class ParserSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 * Constraint:
 	 *     (
 	 *         (while=KW_WHILE expr=Expression statement=Statement) | 
-	 *         (do=KW_DO statement=Statement expr=Expression semi=SEMI) | 
+	 *         (do=KW_DO statement=Statement expr=Expression semi=SKW_SEMI) | 
 	 *         (for=KW_FOR initExpr=Expression? expr=Expression? incExpr=Expression? statement=Statement) | 
 	 *         (for=KW_FOR initDecl=Declaration expr=Expression? incExpr=Expression? statement=Statement)
 	 *     )
@@ -766,10 +778,10 @@ public class ParserSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * Constraint:
 	 *     (
-	 *         (continue=KW_CONTINUE semi=SEMI) | 
-	 *         (break=KW_BREAK semi=SEMI) | 
-	 *         (return=KW_RETURN expr=Expression? semi=SEMI) | 
-	 *         (goto=KW_GOTO expr=UnaryExpression semi=SEMI)
+	 *         (continue=KW_CONTINUE semi=SKW_SEMI) | 
+	 *         (break=KW_BREAK semi=SKW_SEMI) | 
+	 *         (return=KW_RETURN expr=Expression? semi=SKW_SEMI) | 
+	 *         (goto=KW_GOTO expr=UnaryExpression semi=SKW_SEMI)
 	 *     )
 	 */
 	protected void sequence_JumpStatement(EObject context, JumpStatement semanticObject) {
@@ -815,7 +827,7 @@ public class ParserSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Constraint:
-	 *     (expr+=CastExpression ((op+=STAR | op+=DIV | op+=MOD) expr+=CastExpression)*)
+	 *     (expr+=CastExpression ((op+=SKW_STAR | op+=SKW_DIV | op+=SKW_MOD) expr+=CastExpression)*)
 	 */
 	protected void sequence_MultiplicativeExpression(EObject context, MultiplicativeExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -874,7 +886,7 @@ public class ParserSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Constraint:
-	 *     (((star+=STAR | caret+=CARET) typeQualifierList+=TypeQualifierList?)*)
+	 *     (((star+=SKW_STAR | caret+=SKW_CARET) typeQualifierList+=TypeQualifierList?)*)
 	 */
 	protected void sequence_Pointer(EObject context, Pointer semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -986,7 +998,7 @@ public class ParserSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Constraint:
-	 *     (expr+=ShiftExpression ((op+=LESS | op+=GREATER | op+=LESSEQUAL | op+=GREATEREQUAL) expr+=ShiftExpression)*)
+	 *     (expr+=ShiftExpression ((op+=SKW_LESS | op+=SKW_GREATER | op+=SKW_LESSEQUAL | op+=SKW_GREATEREQUAL) expr+=ShiftExpression)*)
 	 */
 	protected void sequence_RelationalExpression(EObject context, RelationalExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1007,7 +1019,7 @@ public class ParserSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Constraint:
-	 *     (expr+=AdditiveExpression ((op+=LEFTSHIFT | op+=RIGHTSHIFT) expr+=AdditiveExpression)*)
+	 *     (expr+=AdditiveExpression ((op+=SKW_LEFTSHIFT | op+=SKW_RIGHTSHIFT) expr+=AdditiveExpression)*)
 	 */
 	protected void sequence_ShiftExpression(EObject context, ShiftExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1189,12 +1201,12 @@ public class ParserSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 * Constraint:
 	 *     (
 	 *         expr=PostfixExpression | 
-	 *         (plusplus=PLUSPLUS expr=UnaryExpression) | 
-	 *         (minusminus=MINUSMINUS expr=UnaryExpression) | 
+	 *         (plusplus=SKW_PLUSPLUS expr=UnaryExpression) | 
+	 *         (minusminus=SKW_MINUSMINUS expr=UnaryExpression) | 
 	 *         (op=UnaryOperator expr=CastExpression) | 
 	 *         (sizeOf=KW_SIZEOF typeName=TypeName) | 
 	 *         (sizeOf=KW_SIZEOF expr=UnaryExpression) | 
-	 *         (andand=ANDAND id=ID)
+	 *         (andand=SKW_ANDAND id=ID)
 	 *     )
 	 */
 	protected void sequence_UnaryExpression(EObject context, UnaryExpression semanticObject) {
@@ -1205,12 +1217,12 @@ public class ParserSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	/**
 	 * Constraint:
 	 *     (
-	 *         op=AND | 
-	 *         op=STAR | 
-	 *         op=PLUS | 
-	 *         op=MINUS | 
-	 *         op=TILDE | 
-	 *         op=NOT
+	 *         op=SKW_AND | 
+	 *         op=SKW_STAR | 
+	 *         op=SKW_PLUS | 
+	 *         op=SKW_MINUS | 
+	 *         op=SKW_TILDE | 
+	 *         op=SKW_NOT
 	 *     )
 	 */
 	protected void sequence_UnaryOperator(EObject context, UnaryOperator semanticObject) {

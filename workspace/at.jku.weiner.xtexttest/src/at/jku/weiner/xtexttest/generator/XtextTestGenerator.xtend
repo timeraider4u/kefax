@@ -57,13 +57,20 @@ class XtextTestGenerator implements IGenerator {
 		return test.input.text != null;
 	}
 	
-	def getSourceFile() {
+	def String getSourceFile() {
 		if (shouldGenerateTextSourceDataFile()) {
 			return test.package.replace(".", "/") + "/"
 					+ PKG_PREFIX + "/"
 					+ uri.lastSegment().replace(".xtexttest", "") + ".dat";
 		}
 		return test.input.file;
+	}
+	
+	def String getFileExtension() {
+		val String fileNameForDataFile = getSourceFile();
+		val int index = fileNameForDataFile.indexOf(".");
+		val String result = fileNameForDataFile.substring(index + 1);
+		return result;
 	}
 	
 	def outputDataFile() '''«test.input.text»'''
@@ -108,11 +115,12 @@ class XtextTestGenerator implements IGenerator {
 		import org.eclipse.xtext.junit4.util.ParseHelper;
 		import org.eclipse.xtext.junit4.validation.ValidationTestHelper;
 		import org.eclipse.xtext.junit4.XtextRunner;
+		import org.eclipse.xtext.parser.antlr.ITokenDefProvider;
+		import org.eclipse.xtext.resource.IResourceFactory;
 		import org.eclipse.xtext.util.CancelIndicator;
 		import org.eclipse.xtext.validation.CheckMode;
 		import org.eclipse.xtext.validation.IResourceValidator;
 		import org.eclipse.xtext.validation.Issue;
-		import org.eclipse.xtext.parser.antlr.ITokenDefProvider;
 		
 		import org.junit.Assert;
 		import org.junit.After;
@@ -143,7 +151,7 @@ class XtextTestGenerator implements IGenerator {
 		«ENDIF»
 	'''
 	
-	def outputClass() '''
+	def String outputClass() '''
 		@SuppressWarnings("unused")
 		@RunWith(XtextRunner.class)
 		@InjectWith(«myDsl»InjectorProvider.class)
@@ -168,11 +176,15 @@ class XtextTestGenerator implements IGenerator {
 			private IResourceValidator validator;
 			@Inject
 			private JavaIoFileSystemAccess fileAccessSystem;
+			@Inject
+			private IResourceFactory resourceFactory;
 			
 			@Before
 			public void initialize(){
 				this.testHelper = new LexerAndParserTest(lexer, 
 					parser, tokenDefProvider);
+				Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("«getFileExtension()»",
+								this.resourceFactory);
 				«IF this.test.before != null»
 					«this.test.before.myclass».«this.test.before.method»();
 				«ENDIF»

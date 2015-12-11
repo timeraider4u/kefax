@@ -117,6 +117,13 @@ public class XtextTestGenerator implements IGenerator {
     return _input.getFile();
   }
   
+  public String getFileExtension() {
+    final String fileNameForDataFile = this.getSourceFile();
+    final int index = fileNameForDataFile.indexOf(".");
+    final String result = fileNameForDataFile.substring((index + 1));
+    return result;
+  }
+  
   public CharSequence outputDataFile() {
     StringConcatenation _builder = new StringConcatenation();
     Input _input = this.test.getInput();
@@ -135,7 +142,7 @@ public class XtextTestGenerator implements IGenerator {
     CharSequence _outputHeader = this.outputHeader();
     _builder.append(_outputHeader, "");
     _builder.newLineIfNotEmpty();
-    CharSequence _outputClass = this.outputClass();
+    String _outputClass = this.outputClass();
     _builder.append(_outputClass, "");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
@@ -200,6 +207,10 @@ public class XtextTestGenerator implements IGenerator {
     _builder.newLine();
     _builder.append("import org.eclipse.xtext.junit4.XtextRunner;");
     _builder.newLine();
+    _builder.append("import org.eclipse.xtext.parser.antlr.ITokenDefProvider;");
+    _builder.newLine();
+    _builder.append("import org.eclipse.xtext.resource.IResourceFactory;");
+    _builder.newLine();
     _builder.append("import org.eclipse.xtext.util.CancelIndicator;");
     _builder.newLine();
     _builder.append("import org.eclipse.xtext.validation.CheckMode;");
@@ -207,8 +218,6 @@ public class XtextTestGenerator implements IGenerator {
     _builder.append("import org.eclipse.xtext.validation.IResourceValidator;");
     _builder.newLine();
     _builder.append("import org.eclipse.xtext.validation.Issue;");
-    _builder.newLine();
-    _builder.append("import org.eclipse.xtext.parser.antlr.ITokenDefProvider;");
     _builder.newLine();
     _builder.newLine();
     _builder.append("import org.junit.Assert;");
@@ -309,7 +318,7 @@ public class XtextTestGenerator implements IGenerator {
     return _builder.toString();
   }
   
-  public CharSequence outputClass() {
+  public String outputClass() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("@SuppressWarnings(\"unused\")");
     _builder.newLine();
@@ -393,6 +402,12 @@ public class XtextTestGenerator implements IGenerator {
     _builder.append("private JavaIoFileSystemAccess fileAccessSystem;");
     _builder.newLine();
     _builder.append("\t");
+    _builder.append("@Inject");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("private IResourceFactory resourceFactory;");
+    _builder.newLine();
+    _builder.append("\t");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("@Before");
@@ -405,6 +420,15 @@ public class XtextTestGenerator implements IGenerator {
     _builder.newLine();
     _builder.append("\t\t\t");
     _builder.append("parser, tokenDefProvider);");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(\"");
+    String _fileExtension = this.getFileExtension();
+    _builder.append(_fileExtension, "\t\t");
+    _builder.append("\",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t\t\t\t");
+    _builder.append("this.resourceFactory);");
     _builder.newLine();
     {
       Before _before = this.test.getBefore();
@@ -495,7 +519,7 @@ public class XtextTestGenerator implements IGenerator {
     _builder.append("}");
     _builder.newLine();
     _builder.newLine();
-    return _builder;
+    return _builder.toString();
   }
   
   public CharSequence tokensJUnitTest() {

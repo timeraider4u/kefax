@@ -78,7 +78,7 @@ public class ExpressionEvaluation {
 			return ExpressionEvaluation
 					.evaluate((PrimaryExpression) expression);
 		}
-		return ExpressionEvaluation.evaluate((ConstantExpression) expression
+		return ExpressionEvaluation.evaluate((Expression) expression
 				.getExpression());
 	}
 

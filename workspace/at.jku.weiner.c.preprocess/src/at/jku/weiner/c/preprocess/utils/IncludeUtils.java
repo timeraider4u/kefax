@@ -74,9 +74,9 @@ public final class IncludeUtils {
 			final MyPath pathInInclude = new MyPath(include);
 			final String searchForFile = pathInInclude.combine(pathInURI);
 			final File file = new File(searchForFile);
-			System.out.println("searchForFile='" + searchForFile + "'");
-			System.out.println("fileExists='" + file.exists() + "'");
-			System.out.println("canRead='" + file.canRead() + "'");
+			// System.out.println("searchForFile='" + searchForFile + "'");
+			// System.out.println("fileExists='" + file.exists() + "'");
+			// System.out.println("canRead='" + file.canRead() + "'");
 			if (file.exists() && file.canRead()) {
 				return URI.createURI(searchForFile);
 			}
@@ -92,7 +92,7 @@ public final class IncludeUtils {
 		if (index <= 0) {
 			throw new IllegalArgumentException(
 					"not a valid relative include fileName='" + this.uriStr
-					+ "'");
+							+ "'");
 		}
 		final String path = this.uriStr.substring(0, index);
 		final String newFileName = path + File.separator + this.fileName;

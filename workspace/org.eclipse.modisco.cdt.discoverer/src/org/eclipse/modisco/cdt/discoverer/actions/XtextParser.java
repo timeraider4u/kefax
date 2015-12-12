@@ -4,6 +4,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.List;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
@@ -13,22 +16,37 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.modisco.infra.discovery.core.exception.DiscoveryException;
+import org.eclipse.xtext.generator.IGenerator;
+import org.eclipse.xtext.generator.JavaIoFileSystemAccess;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
 import org.eclipse.xtext.ui.resource.XtextResourceSetProvider;
+import org.eclipse.xtext.util.CancelIndicator;
+import org.eclipse.xtext.validation.CheckMode;
+import org.eclipse.xtext.validation.IResourceValidator;
+import org.eclipse.xtext.validation.Issue;
 
 import at.jku.weiner.c.common.ui.internal.CommonActivator;
+import at.jku.weiner.c.parser.ui.internal.ParserActivator;
 import at.jku.weiner.c.preprocess.preprocess.Model;
 import at.jku.weiner.c.preprocess.ui.internal.PreprocessActivator;
 
+import com.google.inject.Inject;
 import com.google.inject.Injector;
 
 public class XtextParser {
 
 	private final Injector injector;
+	private final IResourceValidator validator;
+	private final JavaIoFileSystemAccess fileAccessSystem;
+	private final IGenerator generator;
 
 	public XtextParser() {
 		this.injector = this.setupPreprocessor();
+		this.validator = this.injector.getInstance(IResourceValidator.class);
+		this.fileAccessSystem = this.injector
+				.getInstance(JavaIoFileSystemAccess.class);
+		this.generator = this.injector.getInstance(IGenerator.class);
 	}
 
 	private Injector setupCommon() {
@@ -46,28 +64,18 @@ public class XtextParser {
 	}
 
 	private Injector setupParser() {
-		// final ParserActivator activator = ParserActivator.getInstance();
-		// final Injector result = activator
-		// .getInjector(ParserActivator.AT_JKU_WEINER_C_PARSER_PARSER);
-		// return result;
-		return null;
+		final ParserActivator activator = ParserActivator.getInstance();
+		final Injector result = activator
+				.getInjector(ParserActivator.AT_JKU_WEINER_C_PARSER_PARSER);
+		return result;
 	}
 
 	public final Model readFromXtextFile(final File file, final IFile iFile)
 			throws IOException, DiscoveryException {
-		final IProject iProject = iFile.getProject();
-		final XtextResourceSetProvider provider = this.injector
-				.getInstance(XtextResourceSetProvider.class);
-		final XtextResourceSet resourceSet = (XtextResourceSet) provider
-				.get(iProject);
-		resourceSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL,
-				Boolean.TRUE);
-		final URI uri = URI.createURI(iFile.getLocationURI().toString());
-		final String uriStr = uri.toFileString();
-		System.out.println("uri.toFileString()='" + uriStr + "'");
-		System.out.println("uri.toString()='" + uri.toString() + "'");
-		final Resource resource = resourceSet.getResource(uri, true);
+		final Resource resource = this.loadResource(file, iFile);
 		System.out.println("get resource was successfull!");
+		this.validateResource(resource);
+		System.out.println("validation was successfull!");
 		final EObject object = resource.getContents().get(0);
 		System.out.println("get contents from resource was successfull!");
 		if (object == null) {
@@ -82,12 +90,76 @@ public class XtextParser {
 		final Model model = (Model) object;
 		System.out.println("XText parsing was successfuly for file='"
 				+ file.toString() + "'!");
+		// generate intermediate
+		final URI uri = URI.createURI(iFile.getLocationURI().toString());
+		final String fileExt = uri.fileExtension();
+		final String lastSegment = uri.lastSegment();
+		final int index = lastSegment.length() - fileExt.length() - 1;
+		final String fileNameOnly = lastSegment.substring(0, index) + ".cdt.i";
+		System.out.println("fileNameOnly='" + fileNameOnly + "'");
+		this.generateIntermediateFile(resource, iFile, fileNameOnly);
+		// return model
 		return model;
 	}
 
 	private final void error(final String string) throws DiscoveryException {
 		System.err.println(string);
 		throw new DiscoveryException(string);
+	}
+
+	private final Resource loadResource(final File file, final IFile iFile)
+			throws IOException, DiscoveryException {
+		final IProject iProject = iFile.getProject();
+		final XtextResourceSetProvider provider = this.injector
+				.getInstance(XtextResourceSetProvider.class);
+		final XtextResourceSet resourceSet = (XtextResourceSet) provider
+				.get(iProject);
+		resourceSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL,
+				Boolean.TRUE);
+		final URI uri = URI.createURI(iFile.getLocationURI().toString());
+		final String uriStr = uri.toFileString();
+		System.out.println("uri.toFileString()='" + uriStr + "'");
+		System.out.println("uri.toString()='" + uri.toString() + "'");
+		final Resource resource = resourceSet.getResource(uri, true);
+		return resource;
+	}
+
+	private final void validateResource(final Resource resource)
+			throws DiscoveryException {
+		// validate the resource
+		final List<Issue> list = this.validator.validate(resource,
+				CheckMode.ALL, CancelIndicator.NullImpl);
+		if (!(list.isEmpty())) {
+			final String uri = resource.getURI().toFileString();
+			this.error("Errors found during validation for resource='" + uri
+					+ "': " + list.toString());
+		}
+	}
+
+	private final void generateIntermediateFile(final Resource resource,
+			final IFile iFile, final String fileNameOnly)
+					throws DiscoveryException {
+		// configure and start the generator
+		final URI whole = URI.createURI(iFile.getLocationURI().toString());
+		final URI uri = whole.trimSegments(1);
+		final String path = uri.path();
+		final String wholeStr = path + File.separator + fileNameOnly;
+		System.out.println("outputPath='" + path + "'");
+		System.out.println("fileName='" + wholeStr + "'");
+		this.fileAccessSystem.setOutputPath(path);
+		final Class<?> clazz = this.generator.getClass();
+		try {
+			final Method method = clazz.getMethod("setFileName", String.class);
+			if (method != null) {
+				method.invoke(this.generator, wholeStr);
+			}
+		} catch (NoSuchMethodException | SecurityException
+				| IllegalAccessException | IllegalArgumentException
+				| InvocationTargetException e) {
+			// do nothing
+			// System.out.println("do nothing!");
+		}
+		this.generator.doGenerate(resource, this.fileAccessSystem);
 	}
 
 	private final void readFromXtextFileInternal(final File file)
@@ -107,8 +179,8 @@ public class XtextParser {
 		}
 		if (!(object instanceof Model)) {
 			System.out
-			.println("object is not instance of C Model, object.class='"
-					+ object.getClass().toString() + "'");
+					.println("object is not instance of C Model, object.class='"
+							+ object.getClass().toString() + "'");
 			return;
 			// throw new DiscoveryException(
 			// "Returned object is not a C model - file='"

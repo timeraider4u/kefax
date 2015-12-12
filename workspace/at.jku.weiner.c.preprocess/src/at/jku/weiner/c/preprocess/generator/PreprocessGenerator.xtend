@@ -35,6 +35,7 @@ import org.eclipse.emf.common.util.EList
 import at.jku.weiner.c.preprocess.preprocess.ElIfConditional
 import java.util.Map
 import java.util.TreeMap
+import at.jku.weiner.c.preprocess.utils.IncludeDirs
 
 /**
  * Generates code from your model files on save.
@@ -54,9 +55,11 @@ class PreprocessGenerator implements IGenerator {
 	override void doGenerate(Resource input, IFileSystemAccess fsa) {
 		rs = input.resourceSet;
 		uri = input.URI;
+		IncludeDirs.setUp();
 		DefinitionTable.reset();
 		val TranslationUnit unit = getUnitFor(input);
 		val String output = outputFor(unit);
+		// System.out.println("generating output file='" + fileName + "'");
 		fsa.generateFile(fileName, output);
 	}
 	

@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 
 public final class IncludeUtils {
+	private final String URI_PREFIX = "file://";
 
 	private final ResourceSet rs;
 	private final String fileName;
@@ -78,7 +79,7 @@ public final class IncludeUtils {
 			// System.out.println("fileExists='" + file.exists() + "'");
 			// System.out.println("canRead='" + file.canRead() + "'");
 			if (file.exists() && file.canRead()) {
-				return URI.createURI(searchForFile);
+				return URI.createURI(this.URI_PREFIX + searchForFile);
 			}
 		}
 		throw new RuntimeException("Absolute include file ('" + this.fileName

@@ -1,6 +1,7 @@
 package at.jku.weiner.c.preprocess.xtexttests;
 
 import java.io.File;
+
 import at.jku.weiner.c.preprocess.utils.IncludeDirs;
 
 public final class TestUtils {
@@ -35,6 +36,13 @@ public final class TestUtils {
 				+ File.separator + "include");
 		IncludeDirs.addIncludeDirectoryToList(prjDir + "xcopy");
 
+	}
+
+	public static void setUpTest0068() {
+		final File file = new File(""); // dummy file
+		final String prjDir = file.getAbsolutePath() + File.separator;
+		IncludeDirs.clearAllIncludeDirectories();
+		IncludeDirs.addIncludeDirectoryToList(prjDir + "myinclude");
 	}
 
 }

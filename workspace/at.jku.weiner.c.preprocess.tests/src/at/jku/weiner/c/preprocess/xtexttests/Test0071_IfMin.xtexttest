@@ -1,0 +1,117 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language preprocess
+//----------------------------------------------------------------------
+split-lexer=false
+source file="res/Test0071_IfMin.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	LINE_COMMENT NEWLINE
+	HASH IF WS ID SKW_LEFTPAREN DECIMAL_LITERAL SKW_COMMA DECIMAL_LITERAL
+		 	SKW_RIGHTPAREN 
+			WS SKW_GREATEREQUAL WS DECIMAL_LITERAL NEWLINE
+		WS ID WS ID SKW_LEFTPAREN SKW_RIGHTPAREN SKW_SEMI NEWLINE
+	HASH ENDIF NEWLINE
+//----------------------------------------------------------------------
+(Model
+	units+=
+	(TranslationUnit
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(ConditionalDirective
+					conditional=
+					(IfConditional
+						expression=
+						(ConstantExpression
+							expr=
+							(ConditionalExpression
+								expr=
+								(LogicalOrExpression
+									expr+=
+									(LogicalAndExpression
+										expr+=
+										(InclusiveOrExpression
+											expr+=
+											(ExclusiveOrExpression
+												expr+=
+												(AndExpression
+													expr+=
+													(EqualityExpression
+														expr+=
+														(RelationalExpression
+															op+*"[>=]",
+															expr+=
+															(ShiftExpression
+																expr+=
+																(AdditiveExpression
+																	expr+=
+																	(MultiplicativeExpression
+																		expr+=
+																		(CastExpression
+																			expr=
+																			(UnaryExpression
+																				expr=
+																				(PostfixExpression
+																					expr=
+																					(PrimaryExpression
+																						id++"VERSION"
+																					)
+																				)
+																			)
+																		)
+																	)
+																)
+															),
+															(ShiftExpression
+																expr+=
+																(AdditiveExpression
+																	expr+=
+																	(MultiplicativeExpression
+																		expr+=
+																		(CastExpression
+																			expr=
+																			(UnaryExpression
+																				expr=
+																				(PostfixExpression
+																					expr=
+																					(PrimaryExpression
+																						const++"5"
+																					)
+																				)
+																			)
+																		)
+																	)
+																)
+															)
+														)
+													)
+												)
+											)
+										)
+									)
+								)
+							)
+						),
+						group=
+						(GroupOpt
+							lines+=
+							(Code
+								code++"	void greaterEqualFive();"
+							)
+						)
+					)
+				)
+			)
+		)
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0071_IfMin.c.i"
+expected file="expected/Test0071_IfMin.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

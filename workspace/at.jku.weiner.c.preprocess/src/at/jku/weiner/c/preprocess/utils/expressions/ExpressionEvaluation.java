@@ -1,6 +1,7 @@
 package at.jku.weiner.c.preprocess.utils.expressions;
 
 import org.eclipse.emf.common.util.EList;
+
 import at.jku.weiner.c.preprocess.preprocess.AdditiveExpression;
 import at.jku.weiner.c.preprocess.preprocess.AndExpression;
 import at.jku.weiner.c.preprocess.preprocess.CastExpression;
@@ -339,6 +340,7 @@ public class ExpressionEvaluation {
 			if (macro.startsWith("0b") || macro.startsWith("0B")) {
 				macro = macro.substring(2);
 			}
+			macro = ExpressionEvaluation.cutDecimalSuffix(macro);
 			final int result = Integer.valueOf(macro);
 			return result;
 		} catch (final NumberFormatException ex) {
@@ -347,6 +349,16 @@ public class ExpressionEvaluation {
 			}
 		}
 		return ExpressionEvaluation.FALSE;
+	}
+
+	private static String cutDecimalSuffix(final String macro) {
+		int index = macro.length();
+		if (macro.endsWith("l") || macro.endsWith("L") || macro.endsWith("u")
+				|| macro.endsWith("U")) {
+			final String sub = macro.substring(0, index - 1);
+			return ExpressionEvaluation.cutDecimalSuffix(sub);
+		}
+		return macro.substring(0, index);
 	}
 
 }

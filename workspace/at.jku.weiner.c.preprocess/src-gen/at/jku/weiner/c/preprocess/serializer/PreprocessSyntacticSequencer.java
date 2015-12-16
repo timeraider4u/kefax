@@ -342,7 +342,7 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	}
 	
 	/**
-	 * terminal WS: (SPACE | TAB | LINE_COMMENT | BLOCK_COMMENT | LINEBREAK);
+	 * terminal WS: (SPACE | TAB);
 	 */
 	protected String getWSToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)

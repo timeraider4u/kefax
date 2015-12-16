@@ -7,9 +7,9 @@ split-lexer=false
 source file="res/Test0058_IfElIfElse.c"
 //----------------------------------------------------------------------
 lexer-tokens
-	WS NEWLINE
+	LINE_COMMENT NEWLINE
 	//HASH DEFINE WS ID WS DECIMAL_LITERAL NEWLINE
-	WS NEWLINE
+	LINE_COMMENT NEWLINE
 	//HASH DEFINE WS ID WS DECIMAL_LITERAL NEWLINE
 	HASH IF WS DEFINED WS ID NEWLINE
 		WS ID WS ID SKW_LEFTPAREN SKW_RIGHTPAREN SKW_SEMI NEWLINE
@@ -25,9 +25,7 @@ lexer-tokens
 		group=
 		(GroupOpt
 			lines+=
-			(Code
-				code++"//#define FOO 50"
-			),
+			(NewLineLine),
 			//(PreprocessorDirectives
 			//	directive=
 			//	(DefineDirective
@@ -35,9 +33,7 @@ lexer-tokens
 			//		string++"50"
 			//	)
 			//),
-			(Code
-				code++"//#define BAR 0"
-			),
+			(NewLineLine),
 			//(PreprocessorDirectives
 			//	directive=
 			//	(DefineDirective

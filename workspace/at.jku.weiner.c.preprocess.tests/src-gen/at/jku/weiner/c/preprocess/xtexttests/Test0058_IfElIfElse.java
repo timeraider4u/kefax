@@ -26,12 +26,11 @@ import org.eclipse.xtext.junit4.InjectWith;
 import org.eclipse.xtext.junit4.util.ParseHelper;
 import org.eclipse.xtext.junit4.validation.ValidationTestHelper;
 import org.eclipse.xtext.junit4.XtextRunner;
-import org.eclipse.xtext.parser.antlr.ITokenDefProvider;
-import org.eclipse.xtext.resource.IResourceFactory;
 import org.eclipse.xtext.util.CancelIndicator;
 import org.eclipse.xtext.validation.CheckMode;
 import org.eclipse.xtext.validation.IResourceValidator;
 import org.eclipse.xtext.validation.Issue;
+import org.eclipse.xtext.parser.antlr.ITokenDefProvider;
 
 import org.junit.Assert;
 import org.junit.After;
@@ -46,8 +45,8 @@ import at.jku.weiner.c.preprocess.xtexttests.LexerAndParserTest;
 import at.jku.weiner.c.preprocess.preprocess.Model;
 import at.jku.weiner.c.preprocess.preprocess.TranslationUnit;
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
-import at.jku.weiner.c.preprocess.preprocess.Code;
-import at.jku.weiner.c.preprocess.preprocess.Code;
+import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
+import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.ConditionalDirective;
 import at.jku.weiner.c.preprocess.preprocess.IfConditional;
@@ -115,15 +114,11 @@ public class Test0058_IfElIfElse {
 	private IResourceValidator validator;
 	@Inject
 	private JavaIoFileSystemAccess fileAccessSystem;
-	@Inject
-	private IResourceFactory resourceFactory;
 	
 	@Before
 	public void initialize(){
 		this.testHelper = new LexerAndParserTest(lexer, 
 			parser, tokenDefProvider);
-		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("c",
-						this.resourceFactory);
 	}
 	
 	@After
@@ -143,9 +138,9 @@ public class Test0058_IfElIfElse {
 			"res/Test0058_IfElIfElse.c");
 			//System.out.println(text);
 			final String[] expected = new String[] {
-				"RULE_WS", 
+				"RULE_LINE_COMMENT", 
 				"RULE_NEWLINE", 
-				"RULE_WS", 
+				"RULE_LINE_COMMENT", 
 				"RULE_NEWLINE", 
 				"RULE_HASH", 
 				"RULE_IF", 
@@ -229,19 +224,15 @@ public class Test0058_IfElIfElse {
 		Assert.assertNotNull(Lines_2_list);
 		Assert.assertEquals(3, Lines_2_list.size());
 		//2
-		final Code Code_3_Var
-		 = (Code)Lines_2_list.get(0);
-		Assert.assertNotNull(Code_3_Var
+		final NewLineLine NewLineLine_3_Var
+		 = (NewLineLine)Lines_2_list.get(0);
+		Assert.assertNotNull(NewLineLine_3_Var
 		);
-		Assert.assertEquals("//#define FOO 50", Code_3_Var
-		.getCode());
 		//3
-		final Code Code_4_Var
-		 = (Code)Lines_2_list.get(1);
-		Assert.assertNotNull(Code_4_Var
+		final NewLineLine NewLineLine_4_Var
+		 = (NewLineLine)Lines_2_list.get(1);
+		Assert.assertNotNull(NewLineLine_4_Var
 		);
-		Assert.assertEquals("//#define BAR 0", Code_4_Var
-		.getCode());
 		//4
 		final PreprocessorDirectives PreprocessorDirectives_5_Var
 		 = (PreprocessorDirectives)Lines_2_list.get(2);

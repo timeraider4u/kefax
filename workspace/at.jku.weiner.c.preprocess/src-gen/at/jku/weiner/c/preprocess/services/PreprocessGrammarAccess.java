@@ -2860,7 +2860,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		return tNEWLINE;
 	}
 	
-	//terminal fragment LINEBREAK:
+	//terminal LINEBREAK:
 	//	SKW_BACKSLASH NEWLINE;
 	public TerminalRule getLINEBREAKRule() {
 		return tLINEBREAK;
@@ -2879,7 +2879,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal WS:
-	//	SPACE | TAB | LINE_COMMENT | BLOCK_COMMENT | LINEBREAK;
+	//	SPACE | TAB;
 	public TerminalRule getWSRule() {
 		return tWS;
 	}
@@ -2986,13 +2986,13 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		return tOCTAL_ESCAPE;
 	}
 	
-	//terminal fragment BLOCK_COMMENT:
+	//terminal BLOCK_COMMENT:
 	//	'/ *'->'* /';
 	public TerminalRule getBLOCK_COMMENTRule() {
 		return tBLOCK_COMMENT;
 	}
 	
-	//terminal fragment LINE_COMMENT:
+	//terminal LINE_COMMENT:
 	//	'//' !NEWLINE*;
 	public TerminalRule getLINE_COMMENTRule() {
 		return tLINE_COMMENT;

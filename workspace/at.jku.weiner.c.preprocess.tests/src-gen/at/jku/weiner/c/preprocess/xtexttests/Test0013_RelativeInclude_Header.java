@@ -26,12 +26,11 @@ import org.eclipse.xtext.junit4.InjectWith;
 import org.eclipse.xtext.junit4.util.ParseHelper;
 import org.eclipse.xtext.junit4.validation.ValidationTestHelper;
 import org.eclipse.xtext.junit4.XtextRunner;
-import org.eclipse.xtext.parser.antlr.ITokenDefProvider;
-import org.eclipse.xtext.resource.IResourceFactory;
 import org.eclipse.xtext.util.CancelIndicator;
 import org.eclipse.xtext.validation.CheckMode;
 import org.eclipse.xtext.validation.IResourceValidator;
 import org.eclipse.xtext.validation.Issue;
+import org.eclipse.xtext.parser.antlr.ITokenDefProvider;
 
 import org.junit.Assert;
 import org.junit.After;
@@ -46,7 +45,7 @@ import at.jku.weiner.c.preprocess.xtexttests.LexerAndParserTest;
 import at.jku.weiner.c.preprocess.preprocess.Model;
 import at.jku.weiner.c.preprocess.preprocess.TranslationUnit;
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
-import at.jku.weiner.c.preprocess.preprocess.Code;
+import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
@@ -72,15 +71,11 @@ public class Test0013_RelativeInclude_Header {
 	private IResourceValidator validator;
 	@Inject
 	private JavaIoFileSystemAccess fileAccessSystem;
-	@Inject
-	private IResourceFactory resourceFactory;
 	
 	@Before
 	public void initialize(){
 		this.testHelper = new LexerAndParserTest(lexer, 
 			parser, tokenDefProvider);
-		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("h",
-						this.resourceFactory);
 	}
 	
 	@After
@@ -100,7 +95,7 @@ public class Test0013_RelativeInclude_Header {
 			"myinclude/include/printf.h");
 			//System.out.println(text);
 			final String[] expected = new String[] {
-				"RULE_WS", 
+				"RULE_LINE_COMMENT", 
 				"RULE_NEWLINE", 
 				"RULE_ID", 
 				"RULE_WS", 
@@ -153,12 +148,10 @@ public class Test0013_RelativeInclude_Header {
 		Assert.assertNotNull(Lines_2_list);
 		Assert.assertEquals(2, Lines_2_list.size());
 		//2
-		final Code Code_3_Var
-		 = (Code)Lines_2_list.get(0);
-		Assert.assertNotNull(Code_3_Var
+		final NewLineLine NewLineLine_3_Var
+		 = (NewLineLine)Lines_2_list.get(0);
+		Assert.assertNotNull(NewLineLine_3_Var
 		);
-		Assert.assertEquals("// printf.h", Code_3_Var
-		.getCode());
 		//3
 		final Code Code_4_Var
 		 = (Code)Lines_2_list.get(1);
@@ -198,7 +191,7 @@ public class Test0013_RelativeInclude_Header {
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 		final String actual = this.getTextFromFile("bin/Test0013_RelativeInclude.h.i");
 		final String expected = this.getTextFromFile(
-			"myinclude/include/printf.h"
+			"expected/Test0013_RelativeInclude_Header.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
 		// System.out.println("Code generation finished.");

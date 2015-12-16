@@ -9,15 +9,14 @@ source file="res/Test0012_MoreIncludes.c"
 lexer-tokens
 	HASH WS INCLUDE WS STRING_LITERAL NEWLINE
 	NEWLINE
-	//SPECIAL SPECIAL WS INCLUDE WS SPECIAL ID SPECIAL ID SPECIAL NEWLINE
-	WS NEWLINE
-	//SPECIAL SPECIAL WS HASH INCLUDE WS SPECIAL ID SPECIAL ID SPECIAL NEWLINE
-	WS NEWLINE
-	HASH WS+*3 INCLUDE WS+*2 STRING_LITERAL NEWLINE
+	
+	LINE_COMMENT NEWLINE
+	LINE_COMMENT NEWLINE
+	
+	HASH WS LINEBREAK WS INCLUDE LINEBREAK WS STRING_LITERAL NEWLINE
 	HASH INCLUDE WS STRING_LITERAL NEWLINE
 	NEWLINE
-	//SPECIAL SPECIAL HASH INCLUDE WS SPECIAL ID SPECIAL ID SPECIAL SPECIAL SPECIAL NEWLINE
-	WS NEWLINE
+	BLOCK_COMMENT NEWLINE
 	NEWLINE
 	HASH INCLUDE WS+*2 STRING_LITERAL NEWLINE
 	NEWLINE
@@ -36,12 +35,8 @@ lexer-tokens
 				)
 			),
 			(NewLineLine),
-			(Code
-				code++"// include \\\"Test0000_Empty.c\\\""
-			),
-			(Code
-				code++"// #include \\\"Test0000_Empty.c\\\""
-			),
+			(NewLineLine),
+			(NewLineLine),
 			(PreprocessorDirectives
 				directive=
 				(IncludeDirective
@@ -55,9 +50,7 @@ lexer-tokens
 				)
 			),
 			(NewLineLine),
-			(Code
-				code++"/*#include \\\"Test0000_Empty.c\\\"*/"
-			),
+			(NewLineLine),
 			(NewLineLine),
 			(PreprocessorDirectives
 				directive=

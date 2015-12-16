@@ -1,4 +1,4 @@
-// declarations
+
 int y = 1 + 1;
 
 int x = 4;

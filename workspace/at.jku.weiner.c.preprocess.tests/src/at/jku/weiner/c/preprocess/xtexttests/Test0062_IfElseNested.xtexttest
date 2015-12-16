@@ -7,9 +7,9 @@ split-lexer=false
 source file="res/Test0062_IfElseNested.c"
 //----------------------------------------------------------------------
 lexer-tokens
-	WS NEWLINE
+	LINE_COMMENT NEWLINE
 	//HASH DEFINE WS ID WS DECIMAL_LITERAL NEWLINE
-	WS NEWLINE
+	LINE_COMMENT NEWLINE
 	//HASH DEFINE WS ID WS DECIMAL_LITERAL NEWLINE
 	/// if defined FOO
 	HASH IF WS DEFINED WS ID NEWLINE
@@ -24,8 +24,8 @@ lexer-tokens
 				WS WS WS ID WS ID SKW_LEFTPAREN SKW_RIGHTPAREN SKW_SEMI NEWLINE
 			WS WS HASH ELSE NEWLINE
 				WS WS WS ID WS ID SKW_LEFTPAREN SKW_RIGHTPAREN SKW_SEMI NEWLINE
-			WS WS HASH ENDIF WS WS NEWLINE
-		WS HASH ENDIF WS WS NEWLINE
+			WS WS HASH ENDIF WS BLOCK_COMMENT NEWLINE
+		WS HASH ENDIF WS BLOCK_COMMENT NEWLINE
 	HASH ELSE NEWLINE
 		WS ID WS ID SKW_LEFTPAREN SKW_RIGHTPAREN SKW_SEMI NEWLINE
 	HASH ENDIF NEWLINE
@@ -36,9 +36,7 @@ lexer-tokens
 		group=
 		(GroupOpt
 			lines+=
-			(Code
-				code++"//#define FOO 50"
-			),
+			(NewLineLine),
 			//(PreprocessorDirectives
 			//	directive=
 			//	(DefineDirective
@@ -46,9 +44,7 @@ lexer-tokens
 			//		string++"50"
 			//	)
 			//),
-			(Code
-				code++"//#define BAR 0"
-			),
+			(NewLineLine),
 			//(PreprocessorDirectives
 			//	directive=
 			//	(DefineDirective

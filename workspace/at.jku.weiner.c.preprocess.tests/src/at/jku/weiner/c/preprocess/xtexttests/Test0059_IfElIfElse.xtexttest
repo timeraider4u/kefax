@@ -7,7 +7,7 @@ split-lexer=false
 source file="res/Test0059_IfElIfElse.c"
 //----------------------------------------------------------------------
 lexer-tokens
-	WS NEWLINE
+	LINE_COMMENT NEWLINE
 	//HASH DEFINE WS ID WS DECIMAL_LITERAL NEWLINE
 	//WS NEWLINE
 	HASH DEFINE WS ID WS DECIMAL_LITERAL NEWLINE
@@ -25,9 +25,7 @@ lexer-tokens
 		group=
 		(GroupOpt
 			lines+=
-			(Code
-				code++"//#define FOO 50"
-			),
+			(NewLineLine),
 //			(PreprocessorDirectives
 //				directive=
 //				(DefineDirective

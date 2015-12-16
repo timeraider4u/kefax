@@ -9,8 +9,7 @@ source file="res/Test0060_IfElIfElse.c"
 lexer-tokens
 	//WS NEWLINE
 	HASH DEFINE WS ID WS DECIMAL_LITERAL NEWLINE
-	WS NEWLINE
-	//HASH DEFINE WS ID WS DECIMAL_LITERAL NEWLINE
+	LINE_COMMENT NEWLINE
 	HASH IF WS DEFINED WS ID NEWLINE
 		WS ID WS ID SKW_LEFTPAREN SKW_RIGHTPAREN SKW_SEMI NEWLINE
 	HASH ELIF WS DEFINED WS ID NEWLINE
@@ -35,9 +34,7 @@ lexer-tokens
 					string++"50"
 				)
 			),
-			(Code
-				code++"//#define BAR 0"
-			),
+			(NewLineLine),
 //			(PreprocessorDirectives
 //				directive=
 //				(DefineDirective

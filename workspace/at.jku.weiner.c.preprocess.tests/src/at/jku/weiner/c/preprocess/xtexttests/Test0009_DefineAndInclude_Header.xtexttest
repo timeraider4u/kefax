@@ -12,7 +12,7 @@ lexer-tokens
 	HASH DEFINE WS ID WS ID WS ID WS SKW_ASSIGN WS DECIMAL_LITERAL NEWLINE
 	HASH DEFINE WS ID WS DECIMAL_LITERAL WS SKW_PLUS WS DECIMAL_LITERAL NEWLINE
 	//SPECIAL +*2 WS ID NEWLINE
-	WS NEWLINE
+	LINE_COMMENT NEWLINE
 	ID WS ID WS SKW_ASSIGN WS ID SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
 (Model
@@ -49,9 +49,7 @@ lexer-tokens
 					string++"1 + 1"
 				)
 			),
-			(Code
-				code++"// declarations"
-			),
+			(NewLineLine),
 			(Code
 				code++"int Y = Z;"
 			)

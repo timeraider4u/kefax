@@ -26,12 +26,11 @@ import org.eclipse.xtext.junit4.InjectWith;
 import org.eclipse.xtext.junit4.util.ParseHelper;
 import org.eclipse.xtext.junit4.validation.ValidationTestHelper;
 import org.eclipse.xtext.junit4.XtextRunner;
-import org.eclipse.xtext.parser.antlr.ITokenDefProvider;
-import org.eclipse.xtext.resource.IResourceFactory;
 import org.eclipse.xtext.util.CancelIndicator;
 import org.eclipse.xtext.validation.CheckMode;
 import org.eclipse.xtext.validation.IResourceValidator;
 import org.eclipse.xtext.validation.Issue;
+import org.eclipse.xtext.parser.antlr.ITokenDefProvider;
 
 import org.junit.Assert;
 import org.junit.After;
@@ -46,16 +45,16 @@ import at.jku.weiner.c.preprocess.xtexttests.LexerAndParserTest;
 import at.jku.weiner.c.preprocess.preprocess.Model;
 import at.jku.weiner.c.preprocess.preprocess.TranslationUnit;
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
-import at.jku.weiner.c.preprocess.preprocess.Code;
-import at.jku.weiner.c.preprocess.preprocess.Code;
-import at.jku.weiner.c.preprocess.preprocess.Code;
-import at.jku.weiner.c.preprocess.preprocess.Code;
-import at.jku.weiner.c.preprocess.preprocess.Code;
-import at.jku.weiner.c.preprocess.preprocess.Code;
-import at.jku.weiner.c.preprocess.preprocess.Code;
-import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
-import at.jku.weiner.c.preprocess.preprocess.Code;
+import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
+import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
+import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
+import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
+import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
+import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
+import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
+import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
+import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.DefineDirective;
 import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
@@ -84,15 +83,11 @@ public class Test0028_SplittedDefine {
 	private IResourceValidator validator;
 	@Inject
 	private JavaIoFileSystemAccess fileAccessSystem;
-	@Inject
-	private IResourceFactory resourceFactory;
 	
 	@Before
 	public void initialize(){
 		this.testHelper = new LexerAndParserTest(lexer, 
 			parser, tokenDefProvider);
-		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("c",
-						this.resourceFactory);
 	}
 	
 	@After
@@ -112,38 +107,38 @@ public class Test0028_SplittedDefine {
 			"res/Test0028_SplittedDefine.c");
 			//System.out.println(text);
 			final String[] expected = new String[] {
-				"RULE_WS", 
+				"RULE_LINE_COMMENT", 
 				"RULE_NEWLINE", 
-				"RULE_WS", 
+				"RULE_LINE_COMMENT", 
 				"RULE_NEWLINE", 
-				"RULE_WS", 
+				"RULE_LINE_COMMENT", 
 				"RULE_NEWLINE", 
-				"RULE_WS", 
+				"RULE_LINE_COMMENT", 
 				"RULE_NEWLINE", 
-				"RULE_WS", 
+				"RULE_LINE_COMMENT", 
 				"RULE_NEWLINE", 
-				"RULE_WS", 
+				"RULE_LINE_COMMENT", 
 				"RULE_NEWLINE", 
-				"RULE_WS", 
+				"RULE_LINE_COMMENT", 
 				"RULE_NEWLINE", 
-				"RULE_WS", 
+				"RULE_LINE_COMMENT", 
 				"RULE_NEWLINE", 
 				"RULE_NEWLINE", 
-				"RULE_WS", 
+				"RULE_LINE_COMMENT", 
 				"RULE_NEWLINE", 
-				"RULE_WS", 
+				"RULE_BLOCK_COMMENT", 
 				"RULE_WS", 
 				"RULE_HASH", 
 				"RULE_WS", 
-				"RULE_WS", 
+				"RULE_BLOCK_COMMENT", 
 				"RULE_WS", 
 				"RULE_DEFINE", 
-				"RULE_WS", 
+				"RULE_LINEBREAK", 
 				"RULE_WS", 
 				"RULE_WS", 
 				"RULE_ID", 
 				"RULE_WS", 
-				"RULE_WS", 
+				"RULE_LINEBREAK", 
 				"RULE_WS", 
 				"RULE_WS", 
 				"RULE_DECIMAL_LITERAL", 
@@ -196,73 +191,55 @@ public class Test0028_SplittedDefine {
 		Assert.assertNotNull(Lines_2_list);
 		Assert.assertEquals(13, Lines_2_list.size());
 		//2
-		final Code Code_3_Var
-		 = (Code)Lines_2_list.get(0);
-		Assert.assertNotNull(Code_3_Var
+		final NewLineLine NewLineLine_3_Var
+		 = (NewLineLine)Lines_2_list.get(0);
+		Assert.assertNotNull(NewLineLine_3_Var
 		);
-		Assert.assertEquals("// the following is not working:", Code_3_Var
-		.getCode());
 		//3
-		final Code Code_4_Var
-		 = (Code)Lines_2_list.get(1);
-		Assert.assertNotNull(Code_4_Var
+		final NewLineLine NewLineLine_4_Var
+		 = (NewLineLine)Lines_2_list.get(1);
+		Assert.assertNotNull(NewLineLine_4_Var
 		);
-		Assert.assertEquals("// /\\", Code_4_Var
-		.getCode());
 		//4
-		final Code Code_5_Var
-		 = (Code)Lines_2_list.get(2);
-		Assert.assertNotNull(Code_5_Var
+		final NewLineLine NewLineLine_5_Var
+		 = (NewLineLine)Lines_2_list.get(2);
+		Assert.assertNotNull(NewLineLine_5_Var
 		);
-		Assert.assertEquals("//     *", Code_5_Var
-		.getCode());
 		//5
-		final Code Code_6_Var
-		 = (Code)Lines_2_list.get(3);
-		Assert.assertNotNull(Code_6_Var
+		final NewLineLine NewLineLine_6_Var
+		 = (NewLineLine)Lines_2_list.get(3);
+		Assert.assertNotNull(NewLineLine_6_Var
 		);
-		Assert.assertEquals("//     */ # /*", Code_6_Var
-		.getCode());
 		//6
-		final Code Code_7_Var
-		 = (Code)Lines_2_list.get(4);
-		Assert.assertNotNull(Code_7_Var
+		final NewLineLine NewLineLine_7_Var
+		 = (NewLineLine)Lines_2_list.get(4);
+		Assert.assertNotNull(NewLineLine_7_Var
 		);
-		Assert.assertEquals("//     */ defi\\", Code_7_Var
-		.getCode());
 		//7
-		final Code Code_8_Var
-		 = (Code)Lines_2_list.get(5);
-		Assert.assertNotNull(Code_8_Var
+		final NewLineLine NewLineLine_8_Var
+		 = (NewLineLine)Lines_2_list.get(5);
+		Assert.assertNotNull(NewLineLine_8_Var
 		);
-		Assert.assertEquals("//     ne FO\\", Code_8_Var
-		.getCode());
 		//8
-		final Code Code_9_Var
-		 = (Code)Lines_2_list.get(6);
-		Assert.assertNotNull(Code_9_Var
+		final NewLineLine NewLineLine_9_Var
+		 = (NewLineLine)Lines_2_list.get(6);
+		Assert.assertNotNull(NewLineLine_9_Var
 		);
-		Assert.assertEquals("//     O 10\\", Code_9_Var
-		.getCode());
 		//9
-		final Code Code_10_Var
-		 = (Code)Lines_2_list.get(7);
-		Assert.assertNotNull(Code_10_Var
+		final NewLineLine NewLineLine_10_Var
+		 = (NewLineLine)Lines_2_list.get(7);
+		Assert.assertNotNull(NewLineLine_10_Var
 		);
-		Assert.assertEquals("//     20", Code_10_Var
-		.getCode());
 		//10
 		final NewLineLine NewLineLine_11_Var
 		 = (NewLineLine)Lines_2_list.get(8);
 		Assert.assertNotNull(NewLineLine_11_Var
 		);
 		//11
-		final Code Code_12_Var
-		 = (Code)Lines_2_list.get(9);
-		Assert.assertNotNull(Code_12_Var
+		final NewLineLine NewLineLine_12_Var
+		 = (NewLineLine)Lines_2_list.get(9);
+		Assert.assertNotNull(NewLineLine_12_Var
 		);
-		Assert.assertEquals("// this is working!", Code_12_Var
-		.getCode());
 		//12
 		final PreprocessorDirectives PreprocessorDirectives_13_Var
 		 = (PreprocessorDirectives)Lines_2_list.get(10);

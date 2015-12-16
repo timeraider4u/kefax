@@ -26,12 +26,11 @@ import org.eclipse.xtext.junit4.InjectWith;
 import org.eclipse.xtext.junit4.util.ParseHelper;
 import org.eclipse.xtext.junit4.validation.ValidationTestHelper;
 import org.eclipse.xtext.junit4.XtextRunner;
-import org.eclipse.xtext.parser.antlr.ITokenDefProvider;
-import org.eclipse.xtext.resource.IResourceFactory;
 import org.eclipse.xtext.util.CancelIndicator;
 import org.eclipse.xtext.validation.CheckMode;
 import org.eclipse.xtext.validation.IResourceValidator;
 import org.eclipse.xtext.validation.Issue;
+import org.eclipse.xtext.parser.antlr.ITokenDefProvider;
 
 import org.junit.Assert;
 import org.junit.After;
@@ -49,14 +48,14 @@ import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.IncludeDirective;
 import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
-import at.jku.weiner.c.preprocess.preprocess.Code;
-import at.jku.weiner.c.preprocess.preprocess.Code;
+import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
+import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.IncludeDirective;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.IncludeDirective;
 import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
-import at.jku.weiner.c.preprocess.preprocess.Code;
+import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
 import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.IncludeDirective;
@@ -87,15 +86,11 @@ public class Test0012_MoreIncludes {
 	private IResourceValidator validator;
 	@Inject
 	private JavaIoFileSystemAccess fileAccessSystem;
-	@Inject
-	private IResourceFactory resourceFactory;
 	
 	@Before
 	public void initialize(){
 		this.testHelper = new LexerAndParserTest(lexer, 
 			parser, tokenDefProvider);
-		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("c",
-						this.resourceFactory);
 	}
 	
 	@After
@@ -122,16 +117,16 @@ public class Test0012_MoreIncludes {
 				"RULE_STRING_LITERAL", 
 				"RULE_NEWLINE", 
 				"RULE_NEWLINE", 
-				"RULE_WS", 
+				"RULE_LINE_COMMENT", 
 				"RULE_NEWLINE", 
-				"RULE_WS", 
+				"RULE_LINE_COMMENT", 
 				"RULE_NEWLINE", 
 				"RULE_HASH", 
 				"RULE_WS", 
-				"RULE_WS", 
+				"RULE_LINEBREAK", 
 				"RULE_WS", 
 				"RULE_INCLUDE", 
-				"RULE_WS", 
+				"RULE_LINEBREAK", 
 				"RULE_WS", 
 				"RULE_STRING_LITERAL", 
 				"RULE_NEWLINE", 
@@ -141,7 +136,7 @@ public class Test0012_MoreIncludes {
 				"RULE_STRING_LITERAL", 
 				"RULE_NEWLINE", 
 				"RULE_NEWLINE", 
-				"RULE_WS", 
+				"RULE_BLOCK_COMMENT", 
 				"RULE_NEWLINE", 
 				"RULE_NEWLINE", 
 				"RULE_HASH", 
@@ -216,19 +211,15 @@ public class Test0012_MoreIncludes {
 		Assert.assertNotNull(NewLineLine_5_Var
 		);
 		//5
-		final Code Code_6_Var
-		 = (Code)Lines_2_list.get(2);
-		Assert.assertNotNull(Code_6_Var
+		final NewLineLine NewLineLine_6_Var
+		 = (NewLineLine)Lines_2_list.get(2);
+		Assert.assertNotNull(NewLineLine_6_Var
 		);
-		Assert.assertEquals("// include \"Test0000_Empty.c\"", Code_6_Var
-		.getCode());
 		//6
-		final Code Code_7_Var
-		 = (Code)Lines_2_list.get(3);
-		Assert.assertNotNull(Code_7_Var
+		final NewLineLine NewLineLine_7_Var
+		 = (NewLineLine)Lines_2_list.get(3);
+		Assert.assertNotNull(NewLineLine_7_Var
 		);
-		Assert.assertEquals("// #include \"Test0000_Empty.c\"", Code_7_Var
-		.getCode());
 		//7
 		final PreprocessorDirectives PreprocessorDirectives_8_Var
 		 = (PreprocessorDirectives)Lines_2_list.get(4);
@@ -261,12 +252,10 @@ public class Test0012_MoreIncludes {
 		Assert.assertNotNull(NewLineLine_12_Var
 		);
 		//12
-		final Code Code_13_Var
-		 = (Code)Lines_2_list.get(7);
-		Assert.assertNotNull(Code_13_Var
+		final NewLineLine NewLineLine_13_Var
+		 = (NewLineLine)Lines_2_list.get(7);
+		Assert.assertNotNull(NewLineLine_13_Var
 		);
-		Assert.assertEquals("/*#include \"Test0000_Empty.c\"*/", Code_13_Var
-		.getCode());
 		//13
 		final NewLineLine NewLineLine_14_Var
 		 = (NewLineLine)Lines_2_list.get(8);

@@ -1,4 +1,4 @@
-// printf.h
+
 void printf(char ** argv);
 
 int main(void) {

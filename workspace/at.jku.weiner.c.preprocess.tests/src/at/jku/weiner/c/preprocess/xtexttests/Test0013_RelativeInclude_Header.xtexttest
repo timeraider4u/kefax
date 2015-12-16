@@ -8,7 +8,7 @@ source file="myinclude/include/printf.h"
 //----------------------------------------------------------------------
 lexer-tokens
 	//SPECIAL +*2 WS ID SPECIAL ID NEWLINE
-	WS NEWLINE
+	LINE_COMMENT NEWLINE
 	ID WS ID SKW_LEFTPAREN ID WS SKW_STAR +*2 WS ID SKW_RIGHTPAREN SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
 (Model
@@ -17,9 +17,7 @@ lexer-tokens
 		group=
 		(GroupOpt
 			lines+=
-			(Code
-				code++"// printf.h"
-			),
+			(NewLineLine),
 			(Code
 				code++"void printf(char ** argv);"
 			)
@@ -29,7 +27,7 @@ lexer-tokens
 )
 //----------------------------------------------------------------------
 output file="bin/Test0013_RelativeInclude.h.i"
-expected file isSameAsInputFile
+expected file="expected/Test0013_RelativeInclude_Header.c"
 //replacePatterns file="res/Patterns.txt"
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------

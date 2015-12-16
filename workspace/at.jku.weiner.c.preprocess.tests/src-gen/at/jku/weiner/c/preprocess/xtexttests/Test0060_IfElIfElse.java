@@ -26,12 +26,11 @@ import org.eclipse.xtext.junit4.InjectWith;
 import org.eclipse.xtext.junit4.util.ParseHelper;
 import org.eclipse.xtext.junit4.validation.ValidationTestHelper;
 import org.eclipse.xtext.junit4.XtextRunner;
-import org.eclipse.xtext.parser.antlr.ITokenDefProvider;
-import org.eclipse.xtext.resource.IResourceFactory;
 import org.eclipse.xtext.util.CancelIndicator;
 import org.eclipse.xtext.validation.CheckMode;
 import org.eclipse.xtext.validation.IResourceValidator;
 import org.eclipse.xtext.validation.Issue;
+import org.eclipse.xtext.parser.antlr.ITokenDefProvider;
 
 import org.junit.Assert;
 import org.junit.After;
@@ -48,7 +47,7 @@ import at.jku.weiner.c.preprocess.preprocess.TranslationUnit;
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.DefineDirective;
-import at.jku.weiner.c.preprocess.preprocess.Code;
+import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.ConditionalDirective;
 import at.jku.weiner.c.preprocess.preprocess.IfConditional;
@@ -116,15 +115,11 @@ public class Test0060_IfElIfElse {
 	private IResourceValidator validator;
 	@Inject
 	private JavaIoFileSystemAccess fileAccessSystem;
-	@Inject
-	private IResourceFactory resourceFactory;
 	
 	@Before
 	public void initialize(){
 		this.testHelper = new LexerAndParserTest(lexer, 
 			parser, tokenDefProvider);
-		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("c",
-						this.resourceFactory);
 	}
 	
 	@After
@@ -151,7 +146,7 @@ public class Test0060_IfElIfElse {
 				"RULE_WS", 
 				"RULE_DECIMAL_LITERAL", 
 				"RULE_NEWLINE", 
-				"RULE_WS", 
+				"RULE_LINE_COMMENT", 
 				"RULE_NEWLINE", 
 				"RULE_HASH", 
 				"RULE_IF", 
@@ -250,12 +245,10 @@ public class Test0060_IfElIfElse {
 		Assert.assertEquals("50", DefineDirective_4_Var
 		.getString());
 		//4
-		final Code Code_5_Var
-		 = (Code)Lines_2_list.get(1);
-		Assert.assertNotNull(Code_5_Var
+		final NewLineLine NewLineLine_5_Var
+		 = (NewLineLine)Lines_2_list.get(1);
+		Assert.assertNotNull(NewLineLine_5_Var
 		);
-		Assert.assertEquals("//#define BAR 0", Code_5_Var
-		.getCode());
 		//5
 		final PreprocessorDirectives PreprocessorDirectives_6_Var
 		 = (PreprocessorDirectives)Lines_2_list.get(2);

@@ -5776,7 +5776,7 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
 
 
          
-        		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS");
+        		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT", "RULE_LINEBREAK");
         	
         try {
             // InternalPreprocess.g:2325:2: (iv_ruleShadowExpression= ruleShadowExpression EOF )
@@ -5823,7 +5823,7 @@ public class InternalPreprocessParser extends AbstractInternalAntlrParser {
 
          enterRule();
            		/*no init found*/
-        		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS");
+        		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT", "RULE_LINEBREAK");
             
         try {
             // InternalPreprocess.g:2343:7: (this_ConstantExpression_0= ruleConstantExpression )

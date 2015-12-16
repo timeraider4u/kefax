@@ -920,7 +920,7 @@ finally {
 // Entry rule entryRuleShadowExpression
 entryRuleShadowExpression 
 @init {
-	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS");
+	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT", "RULE_LINEBREAK");
 }
 :
 { before(grammarAccess.getShadowExpressionRule()); }
@@ -935,7 +935,7 @@ finally {
 // Rule ShadowExpression
 ruleShadowExpression
     @init {
-		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS");
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT", "RULE_LINEBREAK");
 		int stackSize = keepStackSize();
 		/*no init found*/
     }

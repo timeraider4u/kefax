@@ -192,7 +192,7 @@ MyCodeLineExtended returns ecore::EString:
 ;
 
 // expressions
-ShadowExpression hidden(WS):
+ShadowExpression hidden(WS,BLOCK_COMMENT,LINE_COMMENT,LINEBREAK):
 	ConstantExpression
 ;
 

@@ -1021,7 +1021,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cConstantExpressionParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
 		//// expressions
-		//ShadowExpression hidden(WS):
+		//ShadowExpression hidden(WS, BLOCK_COMMENT, LINE_COMMENT, LINEBREAK):
 		//	ConstantExpression;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -2492,7 +2492,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//// expressions
-	//ShadowExpression hidden(WS):
+	//ShadowExpression hidden(WS, BLOCK_COMMENT, LINE_COMMENT, LINEBREAK):
 	//	ConstantExpression;
 	public ShadowExpressionElements getShadowExpressionAccess() {
 		return pShadowExpression;

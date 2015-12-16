@@ -1,0 +1,192 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language preprocess
+//----------------------------------------------------------------------
+split-lexer=false
+source file="res/Test0069_IfValueDefinedOrLineBreak.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH DEFINE WS ID WS DECIMAL_LITERAL NEWLINE
+	HASH IF WS SKW_LEFTPAREN DEFINED WS ID
+			WS LINEBREAK WS+*2
+			SKW_OROR WS DEFINED WS ID SKW_RIGHTPAREN NEWLINE
+		WS ID WS ID SKW_LEFTPAREN SKW_RIGHTPAREN SKW_SEMI NEWLINE
+	HASH ENDIF NEWLINE
+//----------------------------------------------------------------------
+(Model
+	units+=
+	(TranslationUnit
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineDirective
+					id++"__STDC_VERSION__",
+					string++"201300UL"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(ConditionalDirective
+					conditional=
+					(IfConditional
+						expression=
+						(ConstantExpression
+							expr=
+							(ConditionalExpression
+								expr=
+								(LogicalOrExpression
+									expr+=
+									(LogicalAndExpression
+										expr+=
+										(InclusiveOrExpression
+											expr+=
+											(ExclusiveOrExpression
+												expr+=
+												(AndExpression
+													expr+=
+													(EqualityExpression
+														expr+=
+														(RelationalExpression
+															expr+=
+															(ShiftExpression
+																expr+=
+																(AdditiveExpression
+																	expr+=
+																	(MultiplicativeExpression
+																		expr+=
+																		(CastExpression
+																			expr=
+																			(UnaryExpression
+																				expr=
+																				(PostfixExpression
+																					expr=
+																					(PrimaryExpression
+																						//id++"__STDC_VERSION__"
+																						expr=
+																						(Expression
+																							expression=
+																							(ConditionalExpression
+																								expr=
+																								(LogicalOrExpression
+																									expr+=
+																									(LogicalAndExpression
+																										expr+=
+																										(InclusiveOrExpression
+																											expr+=
+																											(ExclusiveOrExpression
+																												expr+=
+																												(AndExpression
+																													expr+=
+																													(EqualityExpression
+																														expr+=
+																														(RelationalExpression
+																															expr+=
+																															(ShiftExpression
+																																expr+=
+																																(AdditiveExpression
+																																	expr+=
+																																	(MultiplicativeExpression
+																																		expr+=
+																																		(CastExpression
+																																			expr=
+																																			(UnaryExpression
+																																				expr=
+																																				(PostfixExpression
+																																					expr=
+																																					(PrimaryExpression
+																																						defined?=true,
+																																						id++"__STDC_VERSION__"
+																																					)
+																																				)
+																																			)
+																																		)
+																																	)
+																																)
+																															)
+																														)
+																													)
+																												)
+																											)
+																										)
+																									), // logical and expression
+																									(LogicalAndExpression
+																										expr+=
+																										(InclusiveOrExpression
+																											expr+=
+																											(ExclusiveOrExpression
+																												expr+=
+																												(AndExpression
+																													expr+=
+																													(EqualityExpression
+																														expr+=
+																														(RelationalExpression
+																															expr+=
+																															(ShiftExpression
+																																expr+=
+																																(AdditiveExpression
+																																	expr+=
+																																	(MultiplicativeExpression
+																																		expr+=
+																																		(CastExpression
+																																			expr=
+																																			(UnaryExpression
+																																				expr=
+																																				(PostfixExpression
+																																					expr=
+																																					(PrimaryExpression
+																																						defined?=true,
+																																						id++"__GCC_VERSION__"
+																																					)
+																																				)
+																																			)
+																																		)
+																																	)
+																																)
+																															)
+																														)
+																													)
+																												)
+																											)
+																										) // inclusive or expression
+																									) // inclusive and expression
+																								)
+																							)
+																						)
+																					)
+																				)
+																			)
+																		)
+																	)
+																)
+															)
+														)
+													)
+												)
+											)
+										)
+									)
+								)
+							)
+						),
+						group=
+						(GroupOpt
+							lines+=
+							(Code
+								code++"	void c11_extension();"
+							)
+						)
+					)
+				)
+			)
+		)
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0069_IfValueDefinedOrLineBreak.c.i"
+expected file="expected/Test0069_IfValueDefinedOrLineBreak.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

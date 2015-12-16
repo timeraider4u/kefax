@@ -2469,7 +2469,7 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
     // InternalPreprocess.g:921:1: entryRuleShadowExpression : ruleShadowExpression EOF ;
     public final void entryRuleShadowExpression() throws RecognitionException {
 
-        	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS");
+        	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT", "RULE_LINEBREAK");
 
         try {
             // InternalPreprocess.g:925:1: ( ruleShadowExpression EOF )
@@ -2509,7 +2509,7 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
     // InternalPreprocess.g:936:1: ruleShadowExpression : ( ruleConstantExpression ) ;
     public final void ruleShadowExpression() throws RecognitionException {
 
-        		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS");
+        		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT", "RULE_LINEBREAK");
         		int stackSize = keepStackSize();
         		/*no init found*/
             

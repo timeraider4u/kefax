@@ -2320,7 +2320,7 @@ ruleMyCodeLineExtended returns [AntlrDatatypeRuleToken current=new AntlrDatatype
 // Entry rule entryRuleShadowExpression
 entryRuleShadowExpression returns [EObject current=null] 
 	@init { 
-		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS");
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT", "RULE_LINEBREAK");
 	}
 	:
 	{ newCompositeNode(grammarAccess.getShadowExpressionRule()); }
@@ -2336,7 +2336,7 @@ finally {
 ruleShadowExpression returns [EObject current=null] 
     @init { enterRule();
    		/*no init found*/
-		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS");
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT", "RULE_LINEBREAK");
     }
     @after { leaveRule();
     		/*no after found*/

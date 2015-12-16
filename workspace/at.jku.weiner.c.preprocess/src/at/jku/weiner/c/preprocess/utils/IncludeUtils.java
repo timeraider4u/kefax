@@ -46,7 +46,7 @@ public final class IncludeUtils {
 		// load the resource
 		final ResourceSet set = this.rs; // this.resourceSetProvider.get();
 		final URI uri = this.createURI();
-		// System.out.println("resource='" + uri + "'");
+		System.out.println("resource='" + uri + "'");
 		final Resource resource = set.getResource(uri, true);
 		// validate the resource
 		// final List<Issue> list = this.validator.validate(resource,
@@ -67,7 +67,7 @@ public final class IncludeUtils {
 
 	private URI createAbsoluteURI() {
 		if (this.fileName.startsWith(File.separator)) {
-			return URI.createURI(this.fileName);
+			return URI.createURI(this.URI_PREFIX + this.fileName);
 		}
 		final MyPath pathInURI = new MyPath(this.fileName);
 		final List<String> includeDirs = IncludeDirs.getListCopy();

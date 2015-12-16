@@ -30,6 +30,9 @@
     <genClasses ecoreClass="Preprocess.ecore#//ErrorDirective">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Preprocess.ecore#//ErrorDirective/msg"/>
     </genClasses>
+    <genClasses ecoreClass="Preprocess.ecore#//WarningDirective">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Preprocess.ecore#//WarningDirective/msg"/>
+    </genClasses>
     <genClasses ecoreClass="Preprocess.ecore#//UnDefineDirective">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Preprocess.ecore#//UnDefineDirective/id"/>
     </genClasses>

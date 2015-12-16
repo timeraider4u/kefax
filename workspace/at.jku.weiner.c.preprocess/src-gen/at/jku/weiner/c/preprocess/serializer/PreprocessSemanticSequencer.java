@@ -45,6 +45,7 @@ import at.jku.weiner.c.preprocess.preprocess.TranslationUnit;
 import at.jku.weiner.c.preprocess.preprocess.UnDefineDirective;
 import at.jku.weiner.c.preprocess.preprocess.UnaryExpression;
 import at.jku.weiner.c.preprocess.preprocess.UnaryOperator;
+import at.jku.weiner.c.preprocess.preprocess.WarningDirective;
 import at.jku.weiner.c.preprocess.services.PreprocessGrammarAccess;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
@@ -186,6 +187,9 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 				return; 
 			case PreprocessPackage.UNARY_OPERATOR:
 				sequence_UnaryOperator(context, (UnaryOperator) semanticObject); 
+				return; 
+			case PreprocessPackage.WARNING_DIRECTIVE:
+				sequence_WarningDirective(context, (WarningDirective) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
@@ -542,6 +546,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	 *         directive=IncludeDirective | 
 	 *         directive=DefineDirective | 
 	 *         directive=ErrorDirective | 
+	 *         directive=WarningDirective | 
 	 *         directive=UnDefineDirective | 
 	 *         directive=ConditionalDirective | 
 	 *         directive=PragmaDirective | 
@@ -633,6 +638,22 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getUnaryOperatorAccess().getOpSKW_ANDTerminalRuleCall_0_1_0(), semanticObject.getOp());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     msg=MyCodeLine
+	 */
+	protected void sequence_WarningDirective(EObject context, WarningDirective semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, PreprocessPackage.Literals.WARNING_DIRECTIVE__MSG) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PreprocessPackage.Literals.WARNING_DIRECTIVE__MSG));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getWarningDirectiveAccess().getMsgMyCodeLineParserRuleCall_3_0(), semanticObject.getMsg());
 		feeder.finish();
 	}
 }

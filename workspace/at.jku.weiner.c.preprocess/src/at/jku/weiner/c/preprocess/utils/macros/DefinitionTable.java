@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
+import at.jku.weiner.c.preprocess.utils.IncludeDirs;
+import at.jku.weiner.c.preprocess.utils.OSEnum;
+import at.jku.weiner.c.preprocess.utils.OSUtils;
 
 public final class DefinitionTable {
 
@@ -11,8 +14,23 @@ public final class DefinitionTable {
 
 	public static void reset() {
 		DefinitionTable.macros.clear();
-		// insert pre-defined macros
+	}
 
+	/***
+	 * insert pre-defined macros
+	 */
+	public static void insertPredefinedMacros() {
+		final OSEnum os = OSUtils.getOS();
+		switch (os) {
+		case Linux:
+			DefinitionTable.add("__STDC__", "1");
+			DefinitionTable.add("__GNUC__", "4");
+			DefinitionTable.add("__GNUC_MINOR__", "8");
+			DefinitionTable.add("__GNUC_PATCHLEVEL__", "4");
+			break;
+		default:
+			break;
+		}
 	}
 
 	public static int size() {

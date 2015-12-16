@@ -281,6 +281,34 @@ public interface PreprocessPackage extends EPackage
   int ERROR_DIRECTIVE_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.WarningDirectiveImpl <em>Warning Directive</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.c.preprocess.preprocess.impl.WarningDirectiveImpl
+   * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getWarningDirective()
+   * @generated
+   */
+  int WARNING_DIRECTIVE = 8;
+
+  /**
+   * The feature id for the '<em><b>Msg</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WARNING_DIRECTIVE__MSG = 0;
+
+  /**
+   * The number of structural features of the '<em>Warning Directive</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WARNING_DIRECTIVE_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.UnDefineDirectiveImpl <em>Un Define Directive</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -288,7 +316,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getUnDefineDirective()
    * @generated
    */
-  int UN_DEFINE_DIRECTIVE = 8;
+  int UN_DEFINE_DIRECTIVE = 9;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -316,7 +344,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getConditionalDirective()
    * @generated
    */
-  int CONDITIONAL_DIRECTIVE = 9;
+  int CONDITIONAL_DIRECTIVE = 10;
 
   /**
    * The feature id for the '<em><b>Conditional</b></em>' containment reference.
@@ -362,7 +390,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getIfConditional()
    * @generated
    */
-  int IF_CONDITIONAL = 10;
+  int IF_CONDITIONAL = 11;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -399,7 +427,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getIfDefConditional()
    * @generated
    */
-  int IF_DEF_CONDITIONAL = 11;
+  int IF_DEF_CONDITIONAL = 12;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -436,7 +464,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getIfNotDefConditional()
    * @generated
    */
-  int IF_NOT_DEF_CONDITIONAL = 12;
+  int IF_NOT_DEF_CONDITIONAL = 13;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -473,7 +501,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getElIfConditional()
    * @generated
    */
-  int EL_IF_CONDITIONAL = 13;
+  int EL_IF_CONDITIONAL = 14;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -510,7 +538,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getElseConditional()
    * @generated
    */
-  int ELSE_CONDITIONAL = 14;
+  int ELSE_CONDITIONAL = 15;
 
   /**
    * The feature id for the '<em><b>Group</b></em>' containment reference.
@@ -538,7 +566,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getPragmaDirective()
    * @generated
    */
-  int PRAGMA_DIRECTIVE = 15;
+  int PRAGMA_DIRECTIVE = 16;
 
   /**
    * The number of structural features of the '<em>Pragma Directive</em>' class.
@@ -557,7 +585,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getNullDirective()
    * @generated
    */
-  int NULL_DIRECTIVE = 16;
+  int NULL_DIRECTIVE = 17;
 
   /**
    * The number of structural features of the '<em>Null Directive</em>' class.
@@ -576,7 +604,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getShadowExpression()
    * @generated
    */
-  int SHADOW_EXPRESSION = 17;
+  int SHADOW_EXPRESSION = 18;
 
   /**
    * The number of structural features of the '<em>Shadow Expression</em>' class.
@@ -595,7 +623,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 18;
+  int EXPRESSION = 19;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -623,7 +651,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getUnaryOperator()
    * @generated
    */
-  int UNARY_OPERATOR = 19;
+  int UNARY_OPERATOR = 20;
 
   /**
    * The feature id for the '<em><b>Op</b></em>' attribute.
@@ -651,7 +679,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getPreprocessorDirectives()
    * @generated
    */
-  int PREPROCESSOR_DIRECTIVES = 20;
+  int PREPROCESSOR_DIRECTIVES = 21;
 
   /**
    * The feature id for the '<em><b>Directive</b></em>' containment reference.
@@ -679,7 +707,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getDefineObjectMacro()
    * @generated
    */
-  int DEFINE_OBJECT_MACRO = 21;
+  int DEFINE_OBJECT_MACRO = 22;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -716,7 +744,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getDefineFunctionLikeMacro()
    * @generated
    */
-  int DEFINE_FUNCTION_LIKE_MACRO = 22;
+  int DEFINE_FUNCTION_LIKE_MACRO = 23;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -762,7 +790,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getNewLineLine()
    * @generated
    */
-  int NEW_LINE_LINE = 23;
+  int NEW_LINE_LINE = 24;
 
   /**
    * The number of structural features of the '<em>New Line Line</em>' class.
@@ -781,7 +809,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getCode()
    * @generated
    */
-  int CODE = 24;
+  int CODE = 25;
 
   /**
    * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -809,7 +837,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getConstantExpression()
    * @generated
    */
-  int CONSTANT_EXPRESSION = 25;
+  int CONSTANT_EXPRESSION = 26;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -846,7 +874,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getConditionalExpression()
    * @generated
    */
-  int CONDITIONAL_EXPRESSION = 26;
+  int CONDITIONAL_EXPRESSION = 27;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -901,7 +929,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getLogicalOrExpression()
    * @generated
    */
-  int LOGICAL_OR_EXPRESSION = 27;
+  int LOGICAL_OR_EXPRESSION = 28;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -938,7 +966,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getLogicalAndExpression()
    * @generated
    */
-  int LOGICAL_AND_EXPRESSION = 28;
+  int LOGICAL_AND_EXPRESSION = 29;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -975,7 +1003,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getInclusiveOrExpression()
    * @generated
    */
-  int INCLUSIVE_OR_EXPRESSION = 29;
+  int INCLUSIVE_OR_EXPRESSION = 30;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1012,7 +1040,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getExclusiveOrExpression()
    * @generated
    */
-  int EXCLUSIVE_OR_EXPRESSION = 30;
+  int EXCLUSIVE_OR_EXPRESSION = 31;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1049,7 +1077,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getAndExpression()
    * @generated
    */
-  int AND_EXPRESSION = 31;
+  int AND_EXPRESSION = 32;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1086,7 +1114,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getEqualityExpression()
    * @generated
    */
-  int EQUALITY_EXPRESSION = 32;
+  int EQUALITY_EXPRESSION = 33;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1132,7 +1160,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getRelationalExpression()
    * @generated
    */
-  int RELATIONAL_EXPRESSION = 33;
+  int RELATIONAL_EXPRESSION = 34;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1178,7 +1206,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getShiftExpression()
    * @generated
    */
-  int SHIFT_EXPRESSION = 34;
+  int SHIFT_EXPRESSION = 35;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1224,7 +1252,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getAdditiveExpression()
    * @generated
    */
-  int ADDITIVE_EXPRESSION = 35;
+  int ADDITIVE_EXPRESSION = 36;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1270,7 +1298,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getMultiplicativeExpression()
    * @generated
    */
-  int MULTIPLICATIVE_EXPRESSION = 36;
+  int MULTIPLICATIVE_EXPRESSION = 37;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1316,7 +1344,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getCastExpression()
    * @generated
    */
-  int CAST_EXPRESSION = 37;
+  int CAST_EXPRESSION = 38;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1353,7 +1381,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getUnaryExpression()
    * @generated
    */
-  int UNARY_EXPRESSION = 38;
+  int UNARY_EXPRESSION = 39;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1399,7 +1427,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getPostfixExpression()
    * @generated
    */
-  int POSTFIX_EXPRESSION = 39;
+  int POSTFIX_EXPRESSION = 40;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1436,7 +1464,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getPrimaryExpression()
    * @generated
    */
-  int PRIMARY_EXPRESSION = 40;
+  int PRIMARY_EXPRESSION = 41;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1660,6 +1688,27 @@ public interface PreprocessPackage extends EPackage
    * @generated
    */
   EAttribute getErrorDirective_Msg();
+
+  /**
+   * Returns the meta object for class '{@link at.jku.weiner.c.preprocess.preprocess.WarningDirective <em>Warning Directive</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Warning Directive</em>'.
+   * @see at.jku.weiner.c.preprocess.preprocess.WarningDirective
+   * @generated
+   */
+  EClass getWarningDirective();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.preprocess.preprocess.WarningDirective#getMsg <em>Msg</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Msg</em>'.
+   * @see at.jku.weiner.c.preprocess.preprocess.WarningDirective#getMsg()
+   * @see #getWarningDirective()
+   * @generated
+   */
+  EAttribute getWarningDirective_Msg();
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.c.preprocess.preprocess.UnDefineDirective <em>Un Define Directive</em>}'.
@@ -2652,6 +2701,24 @@ public interface PreprocessPackage extends EPackage
      * @generated
      */
     EAttribute ERROR_DIRECTIVE__MSG = eINSTANCE.getErrorDirective_Msg();
+
+    /**
+     * The meta object literal for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.WarningDirectiveImpl <em>Warning Directive</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.c.preprocess.preprocess.impl.WarningDirectiveImpl
+     * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getWarningDirective()
+     * @generated
+     */
+    EClass WARNING_DIRECTIVE = eINSTANCE.getWarningDirective();
+
+    /**
+     * The meta object literal for the '<em><b>Msg</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute WARNING_DIRECTIVE__MSG = eINSTANCE.getWarningDirective_Msg();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.UnDefineDirectiveImpl <em>Un Define Directive</em>}' class.

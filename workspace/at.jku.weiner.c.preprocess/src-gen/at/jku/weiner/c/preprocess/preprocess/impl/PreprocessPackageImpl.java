@@ -45,6 +45,7 @@ import at.jku.weiner.c.preprocess.preprocess.TranslationUnit;
 import at.jku.weiner.c.preprocess.preprocess.UnDefineDirective;
 import at.jku.weiner.c.preprocess.preprocess.UnaryExpression;
 import at.jku.weiner.c.preprocess.preprocess.UnaryOperator;
+import at.jku.weiner.c.preprocess.preprocess.WarningDirective;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -117,6 +118,13 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
    * @generated
    */
   private EClass errorDirectiveEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass warningDirectiveEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -573,6 +581,26 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
   public EAttribute getErrorDirective_Msg()
   {
     return (EAttribute)errorDirectiveEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getWarningDirective()
+  {
+    return warningDirectiveEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getWarningDirective_Msg()
+  {
+    return (EAttribute)warningDirectiveEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1409,6 +1437,9 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
     errorDirectiveEClass = createEClass(ERROR_DIRECTIVE);
     createEAttribute(errorDirectiveEClass, ERROR_DIRECTIVE__MSG);
 
+    warningDirectiveEClass = createEClass(WARNING_DIRECTIVE);
+    createEAttribute(warningDirectiveEClass, WARNING_DIRECTIVE__MSG);
+
     unDefineDirectiveEClass = createEClass(UN_DEFINE_DIRECTIVE);
     createEAttribute(unDefineDirectiveEClass, UN_DEFINE_DIRECTIVE__ID);
 
@@ -1600,6 +1631,9 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 
     initEClass(errorDirectiveEClass, ErrorDirective.class, "ErrorDirective", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getErrorDirective_Msg(), theEcorePackage.getEString(), "msg", null, 0, 1, ErrorDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(warningDirectiveEClass, WarningDirective.class, "WarningDirective", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getWarningDirective_Msg(), theEcorePackage.getEString(), "msg", null, 0, 1, WarningDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(unDefineDirectiveEClass, UnDefineDirective.class, "UnDefineDirective", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getUnDefineDirective_Id(), theEcorePackage.getEString(), "id", null, 0, 1, UnDefineDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

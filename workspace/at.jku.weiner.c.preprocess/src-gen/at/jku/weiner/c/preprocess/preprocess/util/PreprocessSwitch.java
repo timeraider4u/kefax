@@ -128,6 +128,13 @@ public class PreprocessSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case PreprocessPackage.WARNING_DIRECTIVE:
+      {
+        WarningDirective warningDirective = (WarningDirective)theEObject;
+        T result = caseWarningDirective(warningDirective);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case PreprocessPackage.UN_DEFINE_DIRECTIVE:
       {
         UnDefineDirective unDefineDirective = (UnDefineDirective)theEObject;
@@ -525,6 +532,22 @@ public class PreprocessSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseErrorDirective(ErrorDirective object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Warning Directive</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Warning Directive</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseWarningDirective(WarningDirective object)
   {
     return null;
   }

@@ -72,6 +72,7 @@ public class PreprocessFactoryImpl extends EFactoryImpl implements PreprocessFac
       case PreprocessPackage.DEFINE_DIRECTIVE: return createDefineDirective();
       case PreprocessPackage.IDENTIFIER_LIST: return createIdentifierList();
       case PreprocessPackage.ERROR_DIRECTIVE: return createErrorDirective();
+      case PreprocessPackage.WARNING_DIRECTIVE: return createWarningDirective();
       case PreprocessPackage.UN_DEFINE_DIRECTIVE: return createUnDefineDirective();
       case PreprocessPackage.CONDITIONAL_DIRECTIVE: return createConditionalDirective();
       case PreprocessPackage.IF_CONDITIONAL: return createIfConditional();
@@ -196,6 +197,17 @@ public class PreprocessFactoryImpl extends EFactoryImpl implements PreprocessFac
   {
     ErrorDirectiveImpl errorDirective = new ErrorDirectiveImpl();
     return errorDirective;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public WarningDirective createWarningDirective()
+  {
+    WarningDirectiveImpl warningDirective = new WarningDirectiveImpl();
+    return warningDirective;
   }
 
   /**

@@ -61,6 +61,7 @@ PreprocessorDirectives returns SourceCodeLine:
 			directive=IncludeDirective
 		|	directive=DefineDirective
 		|	directive=ErrorDirective
+		|	directive=WarningDirective
 		|	directive=UnDefineDirective
 		|	directive=ConditionalDirective
 		|	directive=PragmaDirective
@@ -103,6 +104,11 @@ IdentifierList:
 ErrorDirective:
 	{ErrorDirective}
 	ERROR WS+ msg=MyCodeLine
+;
+
+WarningDirective:
+	{WarningDirective}
+	WARNING WS+ msg=MyCodeLine
 ;
 
 UnDefineDirective:
@@ -430,6 +436,7 @@ terminal HASH: '#';
 terminal INCLUDE: 'include';
 terminal DEFINE: 'define';
 terminal ERROR: 'error';
+terminal WARNING: 'warning';
 terminal UNDEF: 'undef';
 terminal IF: 'if';
 terminal DEFINED: 'defined';
@@ -441,49 +448,9 @@ terminal ENDIF: 'endif';
 terminal PRAGMA: 'pragma';
 
 // special keywords
-/*terminal SKW_AND: '&';
-terminal SKW_ANDAND: SKW_AND SKW_AND;
-terminal SKW_ASSIGN: '=';
-terminal SKW_BACKSLASH: '\\';
-terminal SKW_CARET: '^';
-terminal SKW_COMMA: ',';
-terminal SKW_COLON: ':';
-terminal SKW_DIV: '/';
-terminal fragment SKW_DOLLAR: '$';
-terminal SKW_DOT: '.';
-terminal SKW_DOUBLEQUOTE: '"';
-terminal SKW_EQUAL: SKW_ASSIGN SKW_ASSIGN;
-terminal SKW_GREATER: '>';
-terminal SKW_GREATEREQUAL: SKW_GREATER SKW_ASSIGN;
-terminal SKW_LEFTSHIFT: SKW_LESS SKW_LESS;
-terminal SKW_LESS: '<';
-terminal SKW_LESSEQUAL: SKW_LESS SKW_ASSIGN;
-terminal SKW_MINUS: '-';
-terminal SKW_MINUSMINUS: SKW_MINUS SKW_MINUS;
-terminal SKW_MOD: '%';
-terminal SKW_NOT: '!';
-terminal SKW_NOTEQUAL: SKW_NOT SKW_ASSIGN;
-terminal SKW_OR: '|';
-terminal SKW_OROR: SKW_OR SKW_OR;
-terminal SKW_PLUS: '+';
-terminal SKW_PLUSPLUS: SKW_PLUS SKW_PLUS;
-terminal SKW_QUESTION: '?';
-terminal SKW_RIGHTSHIFT: SKW_GREATER SKW_GREATER;
-terminal SKW_SEMI: ';';
-terminal SKW_SINGLEQUOTE: '\'';
-terminal SKW_STAR: '*';
-terminal SKW_TILDE: '~';
-terminal fragment SKW_UNDERSCORE: '_';
-*/
+// ... see common
 
 // more keywords
-//terminal LEFTBRACKET: '[';
-//terminal RIGHTBRACKET: ']';
-//terminal LEFTBRACE: '{';
-//terminal RIGHTBRACE: '}';
-// even more keywords
-//terminal LPAREN: '(';
-//terminal RPAREN: ')';
 terminal fragment LINEFEED: '\n';
 terminal fragment CARRIAGERETURN: '\r';
 terminal NEWLINE: (CARRIAGERETURN | LINEFEED) ;

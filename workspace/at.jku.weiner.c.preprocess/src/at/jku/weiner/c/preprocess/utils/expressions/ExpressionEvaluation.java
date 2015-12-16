@@ -27,7 +27,11 @@ public class ExpressionEvaluation {
 	public static final int TRUE = 1;
 	public static final int FALSE = 0;
 
-	public static boolean evaluateFor(final Expression expression) {
+	private static boolean advanced = false;
+
+	public static boolean evaluateFor(final Expression expression,
+			final boolean advanced) {
+		ExpressionEvaluation.advanced = advanced;
 		final int value = ExpressionEvaluation.evaluate(expression);
 		final boolean result = ExpressionEvaluationUtils.convertFrom(value);
 		return result;
@@ -344,7 +348,11 @@ public class ExpressionEvaluation {
 			final int result = Integer.valueOf(macro);
 			return result;
 		} catch (final NumberFormatException ex) {
-			if (isConst || DefinitionTable.isDefined(macroName)) {
+			if (ExpressionEvaluation.advanced) {
+				return 0;
+			} else if (DefinitionTable.isDefined(macroName)) {
+				throw ex;
+			} else if (isConst) {
 				throw ex;
 			}
 		}
@@ -352,7 +360,7 @@ public class ExpressionEvaluation {
 	}
 
 	private static String cutDecimalSuffix(final String macro) {
-		int index = macro.length();
+		final int index = macro.length();
 		if (macro.endsWith("l") || macro.endsWith("L") || macro.endsWith("u")
 				|| macro.endsWith("U")) {
 			final String sub = macro.substring(0, index - 1);

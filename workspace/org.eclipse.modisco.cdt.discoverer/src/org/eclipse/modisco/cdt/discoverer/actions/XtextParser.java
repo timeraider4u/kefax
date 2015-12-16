@@ -28,6 +28,7 @@ import org.eclipse.xtext.validation.Issue;
 
 import at.jku.weiner.c.common.ui.internal.CommonActivator;
 import at.jku.weiner.c.parser.ui.internal.ParserActivator;
+import at.jku.weiner.c.preprocess.generator.PreprocessGenerator;
 import at.jku.weiner.c.preprocess.preprocess.Model;
 import at.jku.weiner.c.preprocess.ui.internal.PreprocessActivator;
 
@@ -39,14 +40,14 @@ public class XtextParser {
 	private final Injector injector;
 	private final IResourceValidator validator;
 	private final JavaIoFileSystemAccess fileAccessSystem;
-	private final IGenerator generator;
+	private final PreprocessGenerator generator;
 
 	public XtextParser() {
 		this.injector = this.setupPreprocessor();
 		this.validator = this.injector.getInstance(IResourceValidator.class);
 		this.fileAccessSystem = this.injector
 				.getInstance(JavaIoFileSystemAccess.class);
-		this.generator = this.injector.getInstance(IGenerator.class);
+		this.generator = this.injector.getInstance(PreprocessGenerator.class);
 	}
 
 	private Injector setupCommon() {
@@ -147,18 +148,8 @@ public class XtextParser {
 		System.out.println("outputPath='" + path + "'");
 		System.out.println("fileName='" + wholeStr + "'");
 		this.fileAccessSystem.setOutputPath(path);
-		final Class<?> clazz = this.generator.getClass();
-		try {
-			final Method method = clazz.getMethod("setFileName", String.class);
-			if (method != null) {
-				method.invoke(this.generator, wholeStr);
-			}
-		} catch (NoSuchMethodException | SecurityException
-				| IllegalAccessException | IllegalArgumentException
-				| InvocationTargetException e) {
-			// do nothing
-			// System.out.println("do nothing!");
-		}
+		this.generator.setFileName(wholeStr);
+		this.generator.setAdvanced(true);
 		this.generator.doGenerate(resource, this.fileAccessSystem);
 	}
 

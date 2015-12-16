@@ -95,6 +95,15 @@ public interface PreprocessFactory extends EFactory
   ErrorDirective createErrorDirective();
 
   /**
+   * Returns a new object of class '<em>Warning Directive</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Warning Directive</em>'.
+   * @generated
+   */
+  WarningDirective createWarningDirective();
+
+  /**
    * Returns a new object of class '<em>Un Define Directive</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

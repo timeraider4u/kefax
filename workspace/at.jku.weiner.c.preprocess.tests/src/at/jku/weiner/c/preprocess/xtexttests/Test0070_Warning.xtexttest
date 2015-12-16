@@ -1,0 +1,33 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language preprocess
+//----------------------------------------------------------------------
+split-lexer=false
+source file="res/Test0070_Warning.h"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH WARNING WS STRING_LITERAL NEWLINE
+//----------------------------------------------------------------------
+(Model
+	units+=
+	(TranslationUnit
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(WarningDirective
+					msg++"\\\"some warning message!\\\""
+				)
+			)
+			
+		)
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0070_Warning.h.i"
+expected file="expected/Test0070_Warning.h"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

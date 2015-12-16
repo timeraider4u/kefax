@@ -115,6 +115,11 @@ public class PreprocessAdapterFactory extends AdapterFactoryImpl
         return createErrorDirectiveAdapter();
       }
       @Override
+      public Adapter caseWarningDirective(WarningDirective object)
+      {
+        return createWarningDirectiveAdapter();
+      }
+      @Override
       public Adapter caseUnDefineDirective(UnDefineDirective object)
       {
         return createUnDefineDirectiveAdapter();
@@ -417,6 +422,21 @@ public class PreprocessAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createErrorDirectiveAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.preprocess.preprocess.WarningDirective <em>Warning Directive</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.preprocess.preprocess.WarningDirective
+   * @generated
+   */
+  public Adapter createWarningDirectiveAdapter()
   {
     return null;
   }

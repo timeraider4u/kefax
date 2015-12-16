@@ -42,6 +42,7 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_PreprocessorDirectives_WSTerminalRuleCall_1_a;
 	protected AbstractElementAlias match_PreprocessorDirectives_WSTerminalRuleCall_3_a;
 	protected AbstractElementAlias match_UnDefineDirective_WSTerminalRuleCall_2_p;
+	protected AbstractElementAlias match_WarningDirective_WSTerminalRuleCall_2_p;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
@@ -68,6 +69,7 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_PreprocessorDirectives_WSTerminalRuleCall_1_a = new TokenAlias(true, true, grammarAccess.getPreprocessorDirectivesAccess().getWSTerminalRuleCall_1());
 		match_PreprocessorDirectives_WSTerminalRuleCall_3_a = new TokenAlias(true, true, grammarAccess.getPreprocessorDirectivesAccess().getWSTerminalRuleCall_3());
 		match_UnDefineDirective_WSTerminalRuleCall_2_p = new TokenAlias(true, false, grammarAccess.getUnDefineDirectiveAccess().getWSTerminalRuleCall_2());
+		match_WarningDirective_WSTerminalRuleCall_2_p = new TokenAlias(true, false, grammarAccess.getWarningDirectiveAccess().getWSTerminalRuleCall_2());
 	}
 	
 	@Override
@@ -120,6 +122,8 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getSKW_RIGHTPARENToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getUNDEFRule())
 			return getUNDEFToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getWARNINGRule())
+			return getWARNINGToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getWSRule())
 			return getWSToken(semanticObject, ruleCall, node);
 		return "";
@@ -342,6 +346,15 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	}
 	
 	/**
+	 * terminal WARNING: 'warning';
+	 */
+	protected String getWARNINGToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "warning";
+	}
+	
+	/**
 	 * terminal WS: (SPACE | TAB);
 	 */
 	protected String getWSToken(EObject semanticObject, RuleCall ruleCall, INode node) {
@@ -400,6 +413,8 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_PreprocessorDirectives_WSTerminalRuleCall_3_a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_UnDefineDirective_WSTerminalRuleCall_2_p.equals(syntax))
 				emit_UnDefineDirective_WSTerminalRuleCall_2_p(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_WarningDirective_WSTerminalRuleCall_2_p.equals(syntax))
+				emit_WarningDirective_WSTerminalRuleCall_2_p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -639,6 +654,7 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) HASH WS* directive=NullDirective
 	 *     (rule start) (ambiguity) HASH WS* directive=PragmaDirective
 	 *     (rule start) (ambiguity) HASH WS* directive=UnDefineDirective
+	 *     (rule start) (ambiguity) HASH WS* directive=WarningDirective
 	 */
 	protected void emit_PreprocessorDirectives_WSTerminalRuleCall_1_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -656,6 +672,7 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) WS* HASH (ambiguity) directive=NullDirective
 	 *     (rule start) WS* HASH (ambiguity) directive=PragmaDirective
 	 *     (rule start) WS* HASH (ambiguity) directive=UnDefineDirective
+	 *     (rule start) WS* HASH (ambiguity) directive=WarningDirective
 	 */
 	protected void emit_PreprocessorDirectives_WSTerminalRuleCall_3_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -669,6 +686,17 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) UNDEF (ambiguity) id=ID
 	 */
 	protected void emit_UnDefineDirective_WSTerminalRuleCall_2_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     WS+
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) WARNING (ambiguity) msg=MyCodeLine
+	 */
+	protected void emit_WarningDirective_WSTerminalRuleCall_2_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

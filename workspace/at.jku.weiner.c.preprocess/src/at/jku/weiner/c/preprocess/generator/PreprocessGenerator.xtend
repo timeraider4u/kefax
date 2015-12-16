@@ -36,6 +36,12 @@ import at.jku.weiner.c.preprocess.preprocess.ElIfConditional
 import java.util.Map
 import java.util.TreeMap
 import at.jku.weiner.c.preprocess.utils.IncludeDirs
+import com.google.inject.Inject
+import org.eclipse.xtext.validation.IResourceValidator
+import java.util.List
+import org.eclipse.xtext.validation.Issue
+import org.eclipse.xtext.validation.CheckMode
+import org.eclipse.xtext.util.CancelIndicator
 
 /**
  * Generates code from your model files on save.
@@ -46,6 +52,9 @@ class PreprocessGenerator implements IGenerator {
 
 	@Accessors String fileName = 'greetings.txt';
 	@Accessors boolean legacyMode = true;
+	@Accessors boolean advanced = false;
+	@Inject
+	IResourceValidator validator;
 	
 	Integer currKey = 0;
 	ResourceSet rs;
@@ -57,6 +66,9 @@ class PreprocessGenerator implements IGenerator {
 		uri = input.URI;
 		IncludeDirs.setUp();
 		DefinitionTable.reset();
+		if (advanced) {
+			DefinitionTable.insertPredefinedMacros();
+		}
 		val TranslationUnit unit = getUnitFor(input);
 		val String output = outputFor(unit);
 		// System.out.println("generating output file='" + fileName + "'");
@@ -64,9 +76,24 @@ class PreprocessGenerator implements IGenerator {
 	}
 	
 	def TranslationUnit getUnitFor(Resource input) {
+		validateUnit(input);
 		val Model model = input.allContents.filter(typeof(Model)).head;
 		val TranslationUnit unit = model.units.head;
 		return unit;
+	}
+	
+	def void validateUnit(Resource resource) {
+		if (!advanced) {
+			return;
+		}
+		val List<Issue> list = validator.validate(resource, CheckMode.ALL, 
+			CancelIndicator.NullImpl
+		);
+		if (!(list.isEmpty())) {
+			throw new RuntimeException("error during validation of unit='" 
+				+ list.toString() + "'"
+			);
+		}
 	}
 
 	def String outputFor(TranslationUnit unit) {
@@ -180,7 +207,7 @@ class PreprocessGenerator implements IGenerator {
 	}
 	
 	def String outputFor(Integer conditionalDirective, IfConditional obj) {
-		if (ExpressionEvaluation.evaluateFor(obj.expression as ConstantExpression)) {
+		if (ExpressionEvaluation.evaluateFor(obj.expression as ConstantExpression, advanced)) {
 			conditionals.put(conditionalDirective, true);
 			return outputFor(obj.group).trim();
 		}
@@ -207,7 +234,7 @@ class PreprocessGenerator implements IGenerator {
  		if (condition) {
  			return "";
  		}
- 		if (ExpressionEvaluation.evaluateFor(obj.expression as ConstantExpression)) {
+ 		if (ExpressionEvaluation.evaluateFor(obj.expression as ConstantExpression, advanced)) {
 			conditionals.put(conditionalDirective, true);
 			return outputFor(obj.group).trim();
 		}

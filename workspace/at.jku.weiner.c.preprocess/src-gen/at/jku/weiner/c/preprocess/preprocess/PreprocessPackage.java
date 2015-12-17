@@ -672,6 +672,53 @@ public interface PreprocessPackage extends EPackage
   int UNARY_OPERATOR_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.PostfixExpressionSuffixImpl <em>Postfix Expression Suffix</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.c.preprocess.preprocess.impl.PostfixExpressionSuffixImpl
+   * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getPostfixExpressionSuffix()
+   * @generated
+   */
+  int POSTFIX_EXPRESSION_SUFFIX = 21;
+
+  /**
+   * The number of structural features of the '<em>Postfix Expression Suffix</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POSTFIX_EXPRESSION_SUFFIX_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.ArgumentExpressionListImpl <em>Argument Expression List</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.c.preprocess.preprocess.impl.ArgumentExpressionListImpl
+   * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getArgumentExpressionList()
+   * @generated
+   */
+  int ARGUMENT_EXPRESSION_LIST = 22;
+
+  /**
+   * The feature id for the '<em><b>Expr</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARGUMENT_EXPRESSION_LIST__EXPR = 0;
+
+  /**
+   * The number of structural features of the '<em>Argument Expression List</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARGUMENT_EXPRESSION_LIST_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.PreprocessorDirectivesImpl <em>Preprocessor Directives</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -679,7 +726,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getPreprocessorDirectives()
    * @generated
    */
-  int PREPROCESSOR_DIRECTIVES = 21;
+  int PREPROCESSOR_DIRECTIVES = 23;
 
   /**
    * The feature id for the '<em><b>Directive</b></em>' containment reference.
@@ -707,7 +754,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getDefineObjectMacro()
    * @generated
    */
-  int DEFINE_OBJECT_MACRO = 22;
+  int DEFINE_OBJECT_MACRO = 24;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -744,7 +791,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getDefineFunctionLikeMacro()
    * @generated
    */
-  int DEFINE_FUNCTION_LIKE_MACRO = 23;
+  int DEFINE_FUNCTION_LIKE_MACRO = 25;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -790,7 +837,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getNewLineLine()
    * @generated
    */
-  int NEW_LINE_LINE = 24;
+  int NEW_LINE_LINE = 26;
 
   /**
    * The number of structural features of the '<em>New Line Line</em>' class.
@@ -809,7 +856,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getCode()
    * @generated
    */
-  int CODE = 25;
+  int CODE = 27;
 
   /**
    * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -837,7 +884,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getConstantExpression()
    * @generated
    */
-  int CONSTANT_EXPRESSION = 26;
+  int CONSTANT_EXPRESSION = 28;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -874,7 +921,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getConditionalExpression()
    * @generated
    */
-  int CONDITIONAL_EXPRESSION = 27;
+  int CONDITIONAL_EXPRESSION = 29;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -929,7 +976,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getLogicalOrExpression()
    * @generated
    */
-  int LOGICAL_OR_EXPRESSION = 28;
+  int LOGICAL_OR_EXPRESSION = 30;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -966,7 +1013,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getLogicalAndExpression()
    * @generated
    */
-  int LOGICAL_AND_EXPRESSION = 29;
+  int LOGICAL_AND_EXPRESSION = 31;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1003,7 +1050,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getInclusiveOrExpression()
    * @generated
    */
-  int INCLUSIVE_OR_EXPRESSION = 30;
+  int INCLUSIVE_OR_EXPRESSION = 32;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1040,7 +1087,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getExclusiveOrExpression()
    * @generated
    */
-  int EXCLUSIVE_OR_EXPRESSION = 31;
+  int EXCLUSIVE_OR_EXPRESSION = 33;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1077,7 +1124,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getAndExpression()
    * @generated
    */
-  int AND_EXPRESSION = 32;
+  int AND_EXPRESSION = 34;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1114,7 +1161,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getEqualityExpression()
    * @generated
    */
-  int EQUALITY_EXPRESSION = 33;
+  int EQUALITY_EXPRESSION = 35;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1160,7 +1207,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getRelationalExpression()
    * @generated
    */
-  int RELATIONAL_EXPRESSION = 34;
+  int RELATIONAL_EXPRESSION = 36;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1206,7 +1253,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getShiftExpression()
    * @generated
    */
-  int SHIFT_EXPRESSION = 35;
+  int SHIFT_EXPRESSION = 37;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1252,7 +1299,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getAdditiveExpression()
    * @generated
    */
-  int ADDITIVE_EXPRESSION = 36;
+  int ADDITIVE_EXPRESSION = 38;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1298,7 +1345,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getMultiplicativeExpression()
    * @generated
    */
-  int MULTIPLICATIVE_EXPRESSION = 37;
+  int MULTIPLICATIVE_EXPRESSION = 39;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1344,7 +1391,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getCastExpression()
    * @generated
    */
-  int CAST_EXPRESSION = 38;
+  int CAST_EXPRESSION = 40;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1381,7 +1428,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getUnaryExpression()
    * @generated
    */
-  int UNARY_EXPRESSION = 39;
+  int UNARY_EXPRESSION = 41;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1427,7 +1474,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getPostfixExpression()
    * @generated
    */
-  int POSTFIX_EXPRESSION = 40;
+  int POSTFIX_EXPRESSION = 42;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1448,13 +1495,50 @@ public interface PreprocessPackage extends EPackage
   int POSTFIX_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Suffix</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POSTFIX_EXPRESSION__SUFFIX = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
    * The number of structural features of the '<em>Postfix Expression</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int POSTFIX_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+  int POSTFIX_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.PostfixExpressionSuffixArgumentImpl <em>Postfix Expression Suffix Argument</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.c.preprocess.preprocess.impl.PostfixExpressionSuffixArgumentImpl
+   * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getPostfixExpressionSuffixArgument()
+   * @generated
+   */
+  int POSTFIX_EXPRESSION_SUFFIX_ARGUMENT = 43;
+
+  /**
+   * The feature id for the '<em><b>Argument Expression List</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POSTFIX_EXPRESSION_SUFFIX_ARGUMENT__ARGUMENT_EXPRESSION_LIST = POSTFIX_EXPRESSION_SUFFIX_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Postfix Expression Suffix Argument</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POSTFIX_EXPRESSION_SUFFIX_ARGUMENT_FEATURE_COUNT = POSTFIX_EXPRESSION_SUFFIX_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.PrimaryExpressionImpl <em>Primary Expression</em>}' class.
@@ -1464,7 +1548,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getPrimaryExpression()
    * @generated
    */
-  int PRIMARY_EXPRESSION = 41;
+  int PRIMARY_EXPRESSION = 44;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1996,6 +2080,37 @@ public interface PreprocessPackage extends EPackage
   EAttribute getUnaryOperator_Op();
 
   /**
+   * Returns the meta object for class '{@link at.jku.weiner.c.preprocess.preprocess.PostfixExpressionSuffix <em>Postfix Expression Suffix</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Postfix Expression Suffix</em>'.
+   * @see at.jku.weiner.c.preprocess.preprocess.PostfixExpressionSuffix
+   * @generated
+   */
+  EClass getPostfixExpressionSuffix();
+
+  /**
+   * Returns the meta object for class '{@link at.jku.weiner.c.preprocess.preprocess.ArgumentExpressionList <em>Argument Expression List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Argument Expression List</em>'.
+   * @see at.jku.weiner.c.preprocess.preprocess.ArgumentExpressionList
+   * @generated
+   */
+  EClass getArgumentExpressionList();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.preprocess.preprocess.ArgumentExpressionList#getExpr <em>Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Expr</em>'.
+   * @see at.jku.weiner.c.preprocess.preprocess.ArgumentExpressionList#getExpr()
+   * @see #getArgumentExpressionList()
+   * @generated
+   */
+  EReference getArgumentExpressionList_Expr();
+
+  /**
    * Returns the meta object for class '{@link at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives <em>Preprocessor Directives</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2482,6 +2597,38 @@ public interface PreprocessPackage extends EPackage
   EReference getPostfixExpression_Expr();
 
   /**
+   * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.preprocess.preprocess.PostfixExpression#getSuffix <em>Suffix</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Suffix</em>'.
+   * @see at.jku.weiner.c.preprocess.preprocess.PostfixExpression#getSuffix()
+   * @see #getPostfixExpression()
+   * @generated
+   */
+  EReference getPostfixExpression_Suffix();
+
+  /**
+   * Returns the meta object for class '{@link at.jku.weiner.c.preprocess.preprocess.PostfixExpressionSuffixArgument <em>Postfix Expression Suffix Argument</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Postfix Expression Suffix Argument</em>'.
+   * @see at.jku.weiner.c.preprocess.preprocess.PostfixExpressionSuffixArgument
+   * @generated
+   */
+  EClass getPostfixExpressionSuffixArgument();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.preprocess.preprocess.PostfixExpressionSuffixArgument#getArgumentExpressionList <em>Argument Expression List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Argument Expression List</em>'.
+   * @see at.jku.weiner.c.preprocess.preprocess.PostfixExpressionSuffixArgument#getArgumentExpressionList()
+   * @see #getPostfixExpressionSuffixArgument()
+   * @generated
+   */
+  EReference getPostfixExpressionSuffixArgument_ArgumentExpressionList();
+
+  /**
    * Returns the meta object for class '{@link at.jku.weiner.c.preprocess.preprocess.PrimaryExpression <em>Primary Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2961,6 +3108,34 @@ public interface PreprocessPackage extends EPackage
     EAttribute UNARY_OPERATOR__OP = eINSTANCE.getUnaryOperator_Op();
 
     /**
+     * The meta object literal for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.PostfixExpressionSuffixImpl <em>Postfix Expression Suffix</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.c.preprocess.preprocess.impl.PostfixExpressionSuffixImpl
+     * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getPostfixExpressionSuffix()
+     * @generated
+     */
+    EClass POSTFIX_EXPRESSION_SUFFIX = eINSTANCE.getPostfixExpressionSuffix();
+
+    /**
+     * The meta object literal for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.ArgumentExpressionListImpl <em>Argument Expression List</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.c.preprocess.preprocess.impl.ArgumentExpressionListImpl
+     * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getArgumentExpressionList()
+     * @generated
+     */
+    EClass ARGUMENT_EXPRESSION_LIST = eINSTANCE.getArgumentExpressionList();
+
+    /**
+     * The meta object literal for the '<em><b>Expr</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARGUMENT_EXPRESSION_LIST__EXPR = eINSTANCE.getArgumentExpressionList_Expr();
+
+    /**
      * The meta object literal for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.PreprocessorDirectivesImpl <em>Preprocessor Directives</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3367,6 +3542,32 @@ public interface PreprocessPackage extends EPackage
      * @generated
      */
     EReference POSTFIX_EXPRESSION__EXPR = eINSTANCE.getPostfixExpression_Expr();
+
+    /**
+     * The meta object literal for the '<em><b>Suffix</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference POSTFIX_EXPRESSION__SUFFIX = eINSTANCE.getPostfixExpression_Suffix();
+
+    /**
+     * The meta object literal for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.PostfixExpressionSuffixArgumentImpl <em>Postfix Expression Suffix Argument</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.c.preprocess.preprocess.impl.PostfixExpressionSuffixArgumentImpl
+     * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getPostfixExpressionSuffixArgument()
+     * @generated
+     */
+    EClass POSTFIX_EXPRESSION_SUFFIX_ARGUMENT = eINSTANCE.getPostfixExpressionSuffixArgument();
+
+    /**
+     * The meta object literal for the '<em><b>Argument Expression List</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference POSTFIX_EXPRESSION_SUFFIX_ARGUMENT__ARGUMENT_EXPRESSION_LIST = eINSTANCE.getPostfixExpressionSuffixArgument_ArgumentExpressionList();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.PrimaryExpressionImpl <em>Primary Expression</em>}' class.

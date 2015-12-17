@@ -180,6 +180,16 @@ public class PreprocessAdapterFactory extends AdapterFactoryImpl
         return createUnaryOperatorAdapter();
       }
       @Override
+      public Adapter casePostfixExpressionSuffix(PostfixExpressionSuffix object)
+      {
+        return createPostfixExpressionSuffixAdapter();
+      }
+      @Override
+      public Adapter caseArgumentExpressionList(ArgumentExpressionList object)
+      {
+        return createArgumentExpressionListAdapter();
+      }
+      @Override
       public Adapter casePreprocessorDirectives(PreprocessorDirectives object)
       {
         return createPreprocessorDirectivesAdapter();
@@ -278,6 +288,11 @@ public class PreprocessAdapterFactory extends AdapterFactoryImpl
       public Adapter casePostfixExpression(PostfixExpression object)
       {
         return createPostfixExpressionAdapter();
+      }
+      @Override
+      public Adapter casePostfixExpressionSuffixArgument(PostfixExpressionSuffixArgument object)
+      {
+        return createPostfixExpressionSuffixArgumentAdapter();
       }
       @Override
       public Adapter casePrimaryExpression(PrimaryExpression object)
@@ -622,6 +637,36 @@ public class PreprocessAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.preprocess.preprocess.PostfixExpressionSuffix <em>Postfix Expression Suffix</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.preprocess.preprocess.PostfixExpressionSuffix
+   * @generated
+   */
+  public Adapter createPostfixExpressionSuffixAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.preprocess.preprocess.ArgumentExpressionList <em>Argument Expression List</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.preprocess.preprocess.ArgumentExpressionList
+   * @generated
+   */
+  public Adapter createArgumentExpressionListAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives <em>Preprocessor Directives</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -917,6 +962,21 @@ public class PreprocessAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createPostfixExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.preprocess.preprocess.PostfixExpressionSuffixArgument <em>Postfix Expression Suffix Argument</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.preprocess.preprocess.PostfixExpressionSuffixArgument
+   * @generated
+   */
+  public Adapter createPostfixExpressionSuffixArgumentAdapter()
   {
     return null;
   }

@@ -355,14 +355,14 @@ PostfixExpression returns Expression:
 	)
 	*/
 	
-	//(
+	(
 		//	suffix+=PostfixExpressionSuffixArray
-		//|	suffix+=PostfixExpressionSuffixArgument
+		suffix+=PostfixExpressionSuffixArgument
 		//|	suffix+=PostfixExpressionSuffixDot
 		//|	suffix+=PostfixExpressionSuffixArrow
 		//	suffix+=PostfixExpressionSuffixPlusPlus
 		//|	suffix+=PostfixExpressionSuffixMinusMinus
-	//)*
+	)*
 	
 	)
 ;
@@ -372,13 +372,14 @@ PostfixExpressionSuffixArray returns PostfixExpressionSuffix:
 	{PostfixExpressionSuffixArray}
 	SKW_LEFTBRACKET arrayExpr=Expression SKW_RIGHTBRACKET
 ;
-
+*/
 
 PostfixExpressionSuffixArgument returns PostfixExpressionSuffix:
 	{PostfixExpressionSuffixArgument}
 	SKW_LEFTPAREN (argumentExpressionList=ArgumentExpressionList)? SKW_RIGHTPAREN
 ;
 
+/*
 PostfixExpressionSuffixDot returns PostfixExpressionSuffix:
 	{PostfixExpressionSuffixDot}
 	SKW_DOT id=ID
@@ -399,10 +400,10 @@ PostfixExpressionSuffixMinusMinus returns PostfixExpressionSuffix:
 	{PostfixExpressionSuffixMinusMinus}
 	SKW_MINUSMINUS
 ;
-
-ArgumentExpressionList: expr+=AssignmentExpression (SKW_COMMA expr+=AssignmentExpression)*;
-
 */
+
+ArgumentExpressionList: expr+=ConditionalExpression (SKW_COMMA expr+=ConditionalExpression)*;
+
 
 PrimaryExpression returns Expression:
 	{PrimaryExpression}

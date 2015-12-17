@@ -85,6 +85,8 @@ public class PreprocessFactoryImpl extends EFactoryImpl implements PreprocessFac
       case PreprocessPackage.SHADOW_EXPRESSION: return createShadowExpression();
       case PreprocessPackage.EXPRESSION: return createExpression();
       case PreprocessPackage.UNARY_OPERATOR: return createUnaryOperator();
+      case PreprocessPackage.POSTFIX_EXPRESSION_SUFFIX: return createPostfixExpressionSuffix();
+      case PreprocessPackage.ARGUMENT_EXPRESSION_LIST: return createArgumentExpressionList();
       case PreprocessPackage.PREPROCESSOR_DIRECTIVES: return createPreprocessorDirectives();
       case PreprocessPackage.DEFINE_OBJECT_MACRO: return createDefineObjectMacro();
       case PreprocessPackage.DEFINE_FUNCTION_LIKE_MACRO: return createDefineFunctionLikeMacro();
@@ -105,6 +107,7 @@ public class PreprocessFactoryImpl extends EFactoryImpl implements PreprocessFac
       case PreprocessPackage.CAST_EXPRESSION: return createCastExpression();
       case PreprocessPackage.UNARY_EXPRESSION: return createUnaryExpression();
       case PreprocessPackage.POSTFIX_EXPRESSION: return createPostfixExpression();
+      case PreprocessPackage.POSTFIX_EXPRESSION_SUFFIX_ARGUMENT: return createPostfixExpressionSuffixArgument();
       case PreprocessPackage.PRIMARY_EXPRESSION: return createPrimaryExpression();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -347,6 +350,28 @@ public class PreprocessFactoryImpl extends EFactoryImpl implements PreprocessFac
    * <!-- end-user-doc -->
    * @generated
    */
+  public PostfixExpressionSuffix createPostfixExpressionSuffix()
+  {
+    PostfixExpressionSuffixImpl postfixExpressionSuffix = new PostfixExpressionSuffixImpl();
+    return postfixExpressionSuffix;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ArgumentExpressionList createArgumentExpressionList()
+  {
+    ArgumentExpressionListImpl argumentExpressionList = new ArgumentExpressionListImpl();
+    return argumentExpressionList;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public PreprocessorDirectives createPreprocessorDirectives()
   {
     PreprocessorDirectivesImpl preprocessorDirectives = new PreprocessorDirectivesImpl();
@@ -560,6 +585,17 @@ public class PreprocessFactoryImpl extends EFactoryImpl implements PreprocessFac
   {
     PostfixExpressionImpl postfixExpression = new PostfixExpressionImpl();
     return postfixExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PostfixExpressionSuffixArgument createPostfixExpressionSuffixArgument()
+  {
+    PostfixExpressionSuffixArgumentImpl postfixExpressionSuffixArgument = new PostfixExpressionSuffixArgumentImpl();
+    return postfixExpressionSuffixArgument;
   }
 
   /**

@@ -4,6 +4,7 @@ package at.jku.weiner.c.preprocess.preprocess.impl;
 
 import at.jku.weiner.c.preprocess.preprocess.AdditiveExpression;
 import at.jku.weiner.c.preprocess.preprocess.AndExpression;
+import at.jku.weiner.c.preprocess.preprocess.ArgumentExpressionList;
 import at.jku.weiner.c.preprocess.preprocess.CastExpression;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.ConditionalDirective;
@@ -32,6 +33,8 @@ import at.jku.weiner.c.preprocess.preprocess.MultiplicativeExpression;
 import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
 import at.jku.weiner.c.preprocess.preprocess.NullDirective;
 import at.jku.weiner.c.preprocess.preprocess.PostfixExpression;
+import at.jku.weiner.c.preprocess.preprocess.PostfixExpressionSuffix;
+import at.jku.weiner.c.preprocess.preprocess.PostfixExpressionSuffixArgument;
 import at.jku.weiner.c.preprocess.preprocess.PragmaDirective;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessFactory;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessPackage;
@@ -215,6 +218,20 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass postfixExpressionSuffixEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass argumentExpressionListEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass preprocessorDirectivesEClass = null;
 
   /**
@@ -349,6 +366,13 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
    * @generated
    */
   private EClass postfixExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass postfixExpressionSuffixArgumentEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -878,6 +902,36 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getPostfixExpressionSuffix()
+  {
+    return postfixExpressionSuffixEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getArgumentExpressionList()
+  {
+    return argumentExpressionListEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getArgumentExpressionList_Expr()
+  {
+    return (EReference)argumentExpressionListEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getPreprocessorDirectives()
   {
     return preprocessorDirectivesEClass;
@@ -1338,6 +1392,36 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getPostfixExpression_Suffix()
+  {
+    return (EReference)postfixExpressionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPostfixExpressionSuffixArgument()
+  {
+    return postfixExpressionSuffixArgumentEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPostfixExpressionSuffixArgument_ArgumentExpressionList()
+  {
+    return (EReference)postfixExpressionSuffixArgumentEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getPrimaryExpression()
   {
     return primaryExpressionEClass;
@@ -1479,6 +1563,11 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
     unaryOperatorEClass = createEClass(UNARY_OPERATOR);
     createEAttribute(unaryOperatorEClass, UNARY_OPERATOR__OP);
 
+    postfixExpressionSuffixEClass = createEClass(POSTFIX_EXPRESSION_SUFFIX);
+
+    argumentExpressionListEClass = createEClass(ARGUMENT_EXPRESSION_LIST);
+    createEReference(argumentExpressionListEClass, ARGUMENT_EXPRESSION_LIST__EXPR);
+
     preprocessorDirectivesEClass = createEClass(PREPROCESSOR_DIRECTIVES);
     createEReference(preprocessorDirectivesEClass, PREPROCESSOR_DIRECTIVES__DIRECTIVE);
 
@@ -1544,6 +1633,10 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 
     postfixExpressionEClass = createEClass(POSTFIX_EXPRESSION);
     createEReference(postfixExpressionEClass, POSTFIX_EXPRESSION__EXPR);
+    createEReference(postfixExpressionEClass, POSTFIX_EXPRESSION__SUFFIX);
+
+    postfixExpressionSuffixArgumentEClass = createEClass(POSTFIX_EXPRESSION_SUFFIX_ARGUMENT);
+    createEReference(postfixExpressionSuffixArgumentEClass, POSTFIX_EXPRESSION_SUFFIX_ARGUMENT__ARGUMENT_EXPRESSION_LIST);
 
     primaryExpressionEClass = createEClass(PRIMARY_EXPRESSION);
     createEAttribute(primaryExpressionEClass, PRIMARY_EXPRESSION__DEFINED);
@@ -1605,6 +1698,7 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
     castExpressionEClass.getESuperTypes().add(this.getExpression());
     unaryExpressionEClass.getESuperTypes().add(this.getExpression());
     postfixExpressionEClass.getESuperTypes().add(this.getExpression());
+    postfixExpressionSuffixArgumentEClass.getESuperTypes().add(this.getPostfixExpressionSuffix());
     primaryExpressionEClass.getESuperTypes().add(this.getExpression());
 
     // Initialize classes and features; add operations and parameters
@@ -1674,6 +1768,11 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
     initEClass(unaryOperatorEClass, UnaryOperator.class, "UnaryOperator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getUnaryOperator_Op(), theEcorePackage.getEString(), "op", null, 0, 1, UnaryOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(postfixExpressionSuffixEClass, PostfixExpressionSuffix.class, "PostfixExpressionSuffix", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(argumentExpressionListEClass, ArgumentExpressionList.class, "ArgumentExpressionList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getArgumentExpressionList_Expr(), this.getExpression(), null, "expr", null, 0, -1, ArgumentExpressionList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(preprocessorDirectivesEClass, PreprocessorDirectives.class, "PreprocessorDirectives", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getPreprocessorDirectives_Directive(), theEcorePackage.getEObject(), null, "directive", null, 0, 1, PreprocessorDirectives.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1739,6 +1838,10 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 
     initEClass(postfixExpressionEClass, PostfixExpression.class, "PostfixExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getPostfixExpression_Expr(), this.getExpression(), null, "expr", null, 0, 1, PostfixExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPostfixExpression_Suffix(), this.getPostfixExpressionSuffix(), null, "suffix", null, 0, -1, PostfixExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(postfixExpressionSuffixArgumentEClass, PostfixExpressionSuffixArgument.class, "PostfixExpressionSuffixArgument", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPostfixExpressionSuffixArgument_ArgumentExpressionList(), this.getArgumentExpressionList(), null, "argumentExpressionList", null, 0, 1, PostfixExpressionSuffixArgument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(primaryExpressionEClass, PrimaryExpression.class, "PrimaryExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPrimaryExpression_Defined(), theEcorePackage.getEBoolean(), "defined", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

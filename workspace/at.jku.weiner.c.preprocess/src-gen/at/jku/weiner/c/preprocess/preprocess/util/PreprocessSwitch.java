@@ -50,7 +50,7 @@ public class PreprocessSwitch<T> extends Switch<T>
    * Checks whether this is a switch for the given package.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param ePackage the package in question.
+   * @parameter ePackage the package in question.
    * @return whether this is a switch for the given package.
    * @generated
    */
@@ -217,6 +217,20 @@ public class PreprocessSwitch<T> extends Switch<T>
       {
         UnaryOperator unaryOperator = (UnaryOperator)theEObject;
         T result = caseUnaryOperator(unaryOperator);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PreprocessPackage.POSTFIX_EXPRESSION_SUFFIX:
+      {
+        PostfixExpressionSuffix postfixExpressionSuffix = (PostfixExpressionSuffix)theEObject;
+        T result = casePostfixExpressionSuffix(postfixExpressionSuffix);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PreprocessPackage.ARGUMENT_EXPRESSION_LIST:
+      {
+        ArgumentExpressionList argumentExpressionList = (ArgumentExpressionList)theEObject;
+        T result = caseArgumentExpressionList(argumentExpressionList);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -392,6 +406,14 @@ public class PreprocessSwitch<T> extends Switch<T>
         T result = casePostfixExpression(postfixExpression);
         if (result == null) result = caseExpression(postfixExpression);
         if (result == null) result = caseShadowExpression(postfixExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PreprocessPackage.POSTFIX_EXPRESSION_SUFFIX_ARGUMENT:
+      {
+        PostfixExpressionSuffixArgument postfixExpressionSuffixArgument = (PostfixExpressionSuffixArgument)theEObject;
+        T result = casePostfixExpressionSuffixArgument(postfixExpressionSuffixArgument);
+        if (result == null) result = casePostfixExpressionSuffix(postfixExpressionSuffixArgument);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -745,6 +767,38 @@ public class PreprocessSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Postfix Expression Suffix</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Postfix Expression Suffix</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePostfixExpressionSuffix(PostfixExpressionSuffix object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Argument Expression List</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Argument Expression List</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseArgumentExpressionList(ArgumentExpressionList object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Preprocessor Directives</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1060,6 +1114,22 @@ public class PreprocessSwitch<T> extends Switch<T>
    * @generated
    */
   public T casePostfixExpression(PostfixExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Postfix Expression Suffix Argument</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Postfix Expression Suffix Argument</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePostfixExpressionSuffixArgument(PostfixExpressionSuffixArgument object)
   {
     return null;
   }

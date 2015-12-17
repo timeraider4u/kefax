@@ -1835,24 +1835,163 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.PostfixExpression");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cPostfixExpressionAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cExprAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cExprPrimaryExpressionParserRuleCall_1_0 = (RuleCall)cExprAssignment_1.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Assignment cExprAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final RuleCall cExprPrimaryExpressionParserRuleCall_1_0_0 = (RuleCall)cExprAssignment_1_0.eContents().get(0);
+		private final Assignment cSuffixAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cSuffixPostfixExpressionSuffixArgumentParserRuleCall_1_1_0 = (RuleCall)cSuffixAssignment_1_1.eContents().get(0);
 		
 		//PostfixExpression Expression:
-		//	{PostfixExpression} expr=PrimaryExpression
+		//	{PostfixExpression} (expr=PrimaryExpression
+		//	/ *	(
+		//	|	('__extension__' LEFTPAREN typeName RIGHTPAREN LEFTBRACE initializerList=initializerList) 
+		//			(COMMA? RIGHTBRACE)
+		//	)
+		//	* /
+		//	suffix+=PostfixExpressionSuffixArgument
+		//	//|	suffix+=PostfixExpressionSuffixDot
+		//	//|	suffix+=PostfixExpressionSuffixArrow
+		//	//	suffix+=PostfixExpressionSuffixPlusPlus
+		//	//|	suffix+=PostfixExpressionSuffixMinusMinus
+		// *)
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{PostfixExpression} expr=PrimaryExpression
+		//{PostfixExpression} (expr=PrimaryExpression / *	(
+		//	|	('__extension__' LEFTPAREN typeName RIGHTPAREN LEFTBRACE initializerList=initializerList) 
+		//			(COMMA? RIGHTBRACE)
+		//	)
+		//	* / suffix+=PostfixExpressionSuffixArgument //|	suffix+=PostfixExpressionSuffixDot
+		////|	suffix+=PostfixExpressionSuffixArrow
+		////	suffix+=PostfixExpressionSuffixPlusPlus
+		////|	suffix+=PostfixExpressionSuffixMinusMinus
+		// *)
 		public Group getGroup() { return cGroup; }
 		
 		//{PostfixExpression}
 		public Action getPostfixExpressionAction_0() { return cPostfixExpressionAction_0; }
 		
+		//(expr=PrimaryExpression / *	(
+		//	|	('__extension__' LEFTPAREN typeName RIGHTPAREN LEFTBRACE initializerList=initializerList) 
+		//			(COMMA? RIGHTBRACE)
+		//	)
+		//	* / suffix+=PostfixExpressionSuffixArgument //|	suffix+=PostfixExpressionSuffixDot
+		////|	suffix+=PostfixExpressionSuffixArrow
+		////	suffix+=PostfixExpressionSuffixPlusPlus
+		////|	suffix+=PostfixExpressionSuffixMinusMinus
+		// *)
+		public Group getGroup_1() { return cGroup_1; }
+		
 		//expr=PrimaryExpression
-		public Assignment getExprAssignment_1() { return cExprAssignment_1; }
+		public Assignment getExprAssignment_1_0() { return cExprAssignment_1_0; }
 		
 		//PrimaryExpression
-		public RuleCall getExprPrimaryExpressionParserRuleCall_1_0() { return cExprPrimaryExpressionParserRuleCall_1_0; }
+		public RuleCall getExprPrimaryExpressionParserRuleCall_1_0_0() { return cExprPrimaryExpressionParserRuleCall_1_0_0; }
+		
+		/// *	(
+		//	|	('__extension__' LEFTPAREN typeName RIGHTPAREN LEFTBRACE initializerList=initializerList) 
+		//			(COMMA? RIGHTBRACE)
+		//	)
+		//	* / suffix+=PostfixExpressionSuffixArgument //|	suffix+=PostfixExpressionSuffixDot
+		////|	suffix+=PostfixExpressionSuffixArrow
+		////	suffix+=PostfixExpressionSuffixPlusPlus
+		////|	suffix+=PostfixExpressionSuffixMinusMinus
+		// *
+		public Assignment getSuffixAssignment_1_1() { return cSuffixAssignment_1_1; }
+		
+		//PostfixExpressionSuffixArgument
+		public RuleCall getSuffixPostfixExpressionSuffixArgumentParserRuleCall_1_1_0() { return cSuffixPostfixExpressionSuffixArgumentParserRuleCall_1_1_0; }
+	}
+	public class PostfixExpressionSuffixArgumentElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.PostfixExpressionSuffixArgument");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cPostfixExpressionSuffixArgumentAction_0 = (Action)cGroup.eContents().get(0);
+		private final RuleCall cSKW_LEFTPARENTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cArgumentExpressionListAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cArgumentExpressionListArgumentExpressionListParserRuleCall_2_0 = (RuleCall)cArgumentExpressionListAssignment_2.eContents().get(0);
+		private final RuleCall cSKW_RIGHTPARENTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		
+		/// *
+		//PostfixExpressionSuffixArray returns PostfixExpressionSuffix:
+		//	{PostfixExpressionSuffixArray}
+		//	SKW_LEFTBRACKET arrayExpr=Expression SKW_RIGHTBRACKET
+		//;
+		// * / PostfixExpressionSuffixArgument PostfixExpressionSuffix:
+		//	{PostfixExpressionSuffixArgument} SKW_LEFTPAREN argumentExpressionList=ArgumentExpressionList? SKW_RIGHTPAREN
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{PostfixExpressionSuffixArgument} SKW_LEFTPAREN argumentExpressionList=ArgumentExpressionList? SKW_RIGHTPAREN
+		public Group getGroup() { return cGroup; }
+		
+		//{PostfixExpressionSuffixArgument}
+		public Action getPostfixExpressionSuffixArgumentAction_0() { return cPostfixExpressionSuffixArgumentAction_0; }
+		
+		//SKW_LEFTPAREN
+		public RuleCall getSKW_LEFTPARENTerminalRuleCall_1() { return cSKW_LEFTPARENTerminalRuleCall_1; }
+		
+		//argumentExpressionList=ArgumentExpressionList?
+		public Assignment getArgumentExpressionListAssignment_2() { return cArgumentExpressionListAssignment_2; }
+		
+		//ArgumentExpressionList
+		public RuleCall getArgumentExpressionListArgumentExpressionListParserRuleCall_2_0() { return cArgumentExpressionListArgumentExpressionListParserRuleCall_2_0; }
+		
+		//SKW_RIGHTPAREN
+		public RuleCall getSKW_RIGHTPARENTerminalRuleCall_3() { return cSKW_RIGHTPARENTerminalRuleCall_3; }
+	}
+	public class ArgumentExpressionListElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.ArgumentExpressionList");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cExprAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cExprConditionalExpressionParserRuleCall_0_0 = (RuleCall)cExprAssignment_0.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final RuleCall cSKW_COMMATerminalRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
+		private final Assignment cExprAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cExprConditionalExpressionParserRuleCall_1_1_0 = (RuleCall)cExprAssignment_1_1.eContents().get(0);
+		
+		/// *
+		//PostfixExpressionSuffixDot returns PostfixExpressionSuffix:
+		//	{PostfixExpressionSuffixDot}
+		//	SKW_DOT id=ID
+		//;
+		//
+		//PostfixExpressionSuffixArrow returns PostfixExpressionSuffix:
+		//	{PostfixExpressionSuffixArrow}
+		//	SKW_ARROW id=ID
+		//;
+		//
+		//
+		//PostfixExpressionSuffixPlusPlus returns PostfixExpressionSuffix:
+		//	{PostfixExpressionSuffixPlusPlus}
+		//	SKW_PLUSPLUS
+		//;
+		//
+		//PostfixExpressionSuffixMinusMinus returns PostfixExpressionSuffix:
+		//	{PostfixExpressionSuffixMinusMinus}
+		//	SKW_MINUSMINUS
+		//;
+		// * / ArgumentExpressionList:
+		//	expr+=ConditionalExpression (SKW_COMMA expr+=ConditionalExpression)*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//expr+=ConditionalExpression (SKW_COMMA expr+=ConditionalExpression)*
+		public Group getGroup() { return cGroup; }
+		
+		//expr+=ConditionalExpression
+		public Assignment getExprAssignment_0() { return cExprAssignment_0; }
+		
+		//ConditionalExpression
+		public RuleCall getExprConditionalExpressionParserRuleCall_0_0() { return cExprConditionalExpressionParserRuleCall_0_0; }
+		
+		//(SKW_COMMA expr+=ConditionalExpression)*
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//SKW_COMMA
+		public RuleCall getSKW_COMMATerminalRuleCall_1_0() { return cSKW_COMMATerminalRuleCall_1_0; }
+		
+		//expr+=ConditionalExpression
+		public Assignment getExprAssignment_1_1() { return cExprAssignment_1_1; }
+		
+		//ConditionalExpression
+		public RuleCall getExprConditionalExpressionParserRuleCall_1_1_0() { return cExprConditionalExpressionParserRuleCall_1_1_0; }
 	}
 	public class PrimaryExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.PrimaryExpression");
@@ -1879,42 +2018,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cExprExpressionParserRuleCall_1_3_1_0 = (RuleCall)cExprAssignment_1_3_1.eContents().get(0);
 		private final RuleCall cSKW_RIGHTPARENTerminalRuleCall_1_3_2 = (RuleCall)cGroup_1_3.eContents().get(2);
 		
-		/// *
-		//PostfixExpressionSuffixArray returns PostfixExpressionSuffix:
-		//	{PostfixExpressionSuffixArray}
-		//	SKW_LEFTBRACKET arrayExpr=Expression SKW_RIGHTBRACKET
-		//;
-		//
-		//
-		//PostfixExpressionSuffixArgument returns PostfixExpressionSuffix:
-		//	{PostfixExpressionSuffixArgument}
-		//	SKW_LEFTPAREN (argumentExpressionList=ArgumentExpressionList)? SKW_RIGHTPAREN
-		//;
-		//
-		//PostfixExpressionSuffixDot returns PostfixExpressionSuffix:
-		//	{PostfixExpressionSuffixDot}
-		//	SKW_DOT id=ID
-		//;
-		//
-		//PostfixExpressionSuffixArrow returns PostfixExpressionSuffix:
-		//	{PostfixExpressionSuffixArrow}
-		//	SKW_ARROW id=ID
-		//;
-		//
-		//
-		//PostfixExpressionSuffixPlusPlus returns PostfixExpressionSuffix:
-		//	{PostfixExpressionSuffixPlusPlus}
-		//	SKW_PLUSPLUS
-		//;
-		//
-		//PostfixExpressionSuffixMinusMinus returns PostfixExpressionSuffix:
-		//	{PostfixExpressionSuffixMinusMinus}
-		//	SKW_MINUSMINUS
-		//;
-		//
-		//ArgumentExpressionList: expr+=AssignmentExpression (SKW_COMMA expr+=AssignmentExpression)*;
-		//
-		// * / PrimaryExpression Expression:
+		//PrimaryExpression Expression:
 		//	{PrimaryExpression} (defined?=DEFINED? id=ID
 		//	| defined?=DEFINED? SKW_LEFTPAREN id=ID SKW_RIGHTPAREN
 		//	| const=Constant
@@ -2094,6 +2198,8 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	private final UnaryExpressionElements pUnaryExpression;
 	private final UnaryOperatorElements pUnaryOperator;
 	private final PostfixExpressionElements pPostfixExpression;
+	private final PostfixExpressionSuffixArgumentElements pPostfixExpressionSuffixArgument;
+	private final ArgumentExpressionListElements pArgumentExpressionList;
 	private final PrimaryExpressionElements pPrimaryExpression;
 	private final ConstantElements pConstant;
 	private final TerminalRule tHASH;
@@ -2189,6 +2295,8 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		this.pUnaryExpression = new UnaryExpressionElements();
 		this.pUnaryOperator = new UnaryOperatorElements();
 		this.pPostfixExpression = new PostfixExpressionElements();
+		this.pPostfixExpressionSuffixArgument = new PostfixExpressionSuffixArgumentElements();
+		this.pArgumentExpressionList = new ArgumentExpressionListElements();
 		this.pPrimaryExpression = new PrimaryExpressionElements();
 		this.pConstant = new ConstantElements();
 		this.tHASH = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.HASH");
@@ -2740,7 +2848,18 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//PostfixExpression Expression:
-	//	{PostfixExpression} expr=PrimaryExpression
+	//	{PostfixExpression} (expr=PrimaryExpression
+	//	/ *	(
+	//	|	('__extension__' LEFTPAREN typeName RIGHTPAREN LEFTBRACE initializerList=initializerList) 
+	//			(COMMA? RIGHTBRACE)
+	//	)
+	//	* /
+	//	suffix+=PostfixExpressionSuffixArgument
+	//	//|	suffix+=PostfixExpressionSuffixDot
+	//	//|	suffix+=PostfixExpressionSuffixArrow
+	//	//	suffix+=PostfixExpressionSuffixPlusPlus
+	//	//|	suffix+=PostfixExpressionSuffixMinusMinus
+	// *)
 	public PostfixExpressionElements getPostfixExpressionAccess() {
 		return pPostfixExpression;
 	}
@@ -2754,13 +2873,17 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//	{PostfixExpressionSuffixArray}
 	//	SKW_LEFTBRACKET arrayExpr=Expression SKW_RIGHTBRACKET
 	//;
-	//
-	//
-	//PostfixExpressionSuffixArgument returns PostfixExpressionSuffix:
-	//	{PostfixExpressionSuffixArgument}
-	//	SKW_LEFTPAREN (argumentExpressionList=ArgumentExpressionList)? SKW_RIGHTPAREN
-	//;
-	//
+	// * / PostfixExpressionSuffixArgument PostfixExpressionSuffix:
+	//	{PostfixExpressionSuffixArgument} SKW_LEFTPAREN argumentExpressionList=ArgumentExpressionList? SKW_RIGHTPAREN
+	public PostfixExpressionSuffixArgumentElements getPostfixExpressionSuffixArgumentAccess() {
+		return pPostfixExpressionSuffixArgument;
+	}
+	
+	public ParserRule getPostfixExpressionSuffixArgumentRule() {
+		return getPostfixExpressionSuffixArgumentAccess().getRule();
+	}
+	
+	/// *
 	//PostfixExpressionSuffixDot returns PostfixExpressionSuffix:
 	//	{PostfixExpressionSuffixDot}
 	//	SKW_DOT id=ID
@@ -2781,10 +2904,17 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//	{PostfixExpressionSuffixMinusMinus}
 	//	SKW_MINUSMINUS
 	//;
-	//
-	//ArgumentExpressionList: expr+=AssignmentExpression (SKW_COMMA expr+=AssignmentExpression)*;
-	//
-	// * / PrimaryExpression Expression:
+	// * / ArgumentExpressionList:
+	//	expr+=ConditionalExpression (SKW_COMMA expr+=ConditionalExpression)*;
+	public ArgumentExpressionListElements getArgumentExpressionListAccess() {
+		return pArgumentExpressionList;
+	}
+	
+	public ParserRule getArgumentExpressionListRule() {
+		return getArgumentExpressionListAccess().getRule();
+	}
+	
+	//PrimaryExpression Expression:
 	//	{PrimaryExpression} (defined?=DEFINED? id=ID
 	//	| defined?=DEFINED? SKW_LEFTPAREN id=ID SKW_RIGHTPAREN
 	//	| const=Constant

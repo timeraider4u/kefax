@@ -4247,8 +4247,9 @@ rulePostfixExpression returns [EObject current=null]
 
 (
 (
+(
 		{ 
-	        newCompositeNode(grammarAccess.getPostfixExpressionAccess().getExprPrimaryExpressionParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getPostfixExpressionAccess().getExprPrimaryExpressionParserRuleCall_1_0_0()); 
 	    }
 		lv_expr_1_0=rulePrimaryExpression		{
 	        if ($current==null) {
@@ -4264,6 +4265,182 @@ rulePostfixExpression returns [EObject current=null]
 
 )
 )
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getPostfixExpressionAccess().getSuffixPostfixExpressionSuffixArgumentParserRuleCall_1_1_0()); 
+	    }
+		lv_suffix_2_0=rulePostfixExpressionSuffixArgument		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getPostfixExpressionRule());
+	        }
+       		add(
+       			$current, 
+       			"suffix",
+        		lv_suffix_2_0, 
+        		"at.jku.weiner.c.preprocess.Preprocess.PostfixExpressionSuffixArgument");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*
+
+)
+
+)
+
+
+;
+
+
+
+
+
+// Entry rule entryRulePostfixExpressionSuffixArgument
+entryRulePostfixExpressionSuffixArgument returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getPostfixExpressionSuffixArgumentRule()); }
+	 iv_rulePostfixExpressionSuffixArgument=rulePostfixExpressionSuffixArgument 
+	 { $current=$iv_rulePostfixExpressionSuffixArgument.current; } 
+	 EOF 
+;
+
+// Rule PostfixExpressionSuffixArgument
+rulePostfixExpressionSuffixArgument returns [EObject current=null] 
+    @init { enterRule();
+   		/*no init found*/
+    }
+    @after { leaveRule();
+    		/*no after found*/
+     }:
+
+(
+(
+	{ 
+	  /* */ 
+	}
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getPostfixExpressionSuffixArgumentAccess().getPostfixExpressionSuffixArgumentAction_0(),
+            $current);
+    }
+)
+
+
+this_SKW_LEFTPAREN_1=RULE_SKW_LEFTPAREN
+    { 
+    newLeafNode(this_SKW_LEFTPAREN_1, grammarAccess.getPostfixExpressionSuffixArgumentAccess().getSKW_LEFTPARENTerminalRuleCall_1()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getPostfixExpressionSuffixArgumentAccess().getArgumentExpressionListArgumentExpressionListParserRuleCall_2_0()); 
+	    }
+		lv_argumentExpressionList_2_0=ruleArgumentExpressionList		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getPostfixExpressionSuffixArgumentRule());
+	        }
+       		set(
+       			$current, 
+       			"argumentExpressionList",
+        		lv_argumentExpressionList_2_0, 
+        		"at.jku.weiner.c.preprocess.Preprocess.ArgumentExpressionList");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)?
+
+
+this_SKW_RIGHTPAREN_3=RULE_SKW_RIGHTPAREN
+    { 
+    newLeafNode(this_SKW_RIGHTPAREN_3, grammarAccess.getPostfixExpressionSuffixArgumentAccess().getSKW_RIGHTPARENTerminalRuleCall_3()); 
+    }
+
+
+)
+
+
+;
+
+
+
+
+
+// Entry rule entryRuleArgumentExpressionList
+entryRuleArgumentExpressionList returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getArgumentExpressionListRule()); }
+	 iv_ruleArgumentExpressionList=ruleArgumentExpressionList 
+	 { $current=$iv_ruleArgumentExpressionList.current; } 
+	 EOF 
+;
+
+// Rule ArgumentExpressionList
+ruleArgumentExpressionList returns [EObject current=null] 
+    @init { enterRule();
+   		/*no init found*/
+    }
+    @after { leaveRule();
+    		/*no after found*/
+     }:
+
+(
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getArgumentExpressionListAccess().getExprConditionalExpressionParserRuleCall_0_0()); 
+	    }
+		lv_expr_0_0=ruleConditionalExpression		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getArgumentExpressionListRule());
+	        }
+       		add(
+       			$current, 
+       			"expr",
+        		lv_expr_0_0, 
+        		"at.jku.weiner.c.preprocess.Preprocess.ConditionalExpression");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+(
+this_SKW_COMMA_1=RULE_SKW_COMMA
+    { 
+    newLeafNode(this_SKW_COMMA_1, grammarAccess.getArgumentExpressionListAccess().getSKW_COMMATerminalRuleCall_1_0()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getArgumentExpressionListAccess().getExprConditionalExpressionParserRuleCall_1_1_0()); 
+	    }
+		lv_expr_2_0=ruleConditionalExpression		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getArgumentExpressionListRule());
+	        }
+       		add(
+       			$current, 
+       			"expr",
+        		lv_expr_2_0, 
+        		"at.jku.weiner.c.preprocess.Preprocess.ConditionalExpression");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+)*
 
 )
 

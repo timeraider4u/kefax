@@ -109,6 +109,10 @@ public class PreprocessParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUnaryExpressionAccess().getGroup_1_1(), "rule__UnaryExpression__Group_1_1__0");
 					put(grammarAccess.getUnaryOperatorAccess().getGroup_0(), "rule__UnaryOperator__Group_0__0");
 					put(grammarAccess.getPostfixExpressionAccess().getGroup(), "rule__PostfixExpression__Group__0");
+					put(grammarAccess.getPostfixExpressionAccess().getGroup_1(), "rule__PostfixExpression__Group_1__0");
+					put(grammarAccess.getPostfixExpressionSuffixArgumentAccess().getGroup(), "rule__PostfixExpressionSuffixArgument__Group__0");
+					put(grammarAccess.getArgumentExpressionListAccess().getGroup(), "rule__ArgumentExpressionList__Group__0");
+					put(grammarAccess.getArgumentExpressionListAccess().getGroup_1(), "rule__ArgumentExpressionList__Group_1__0");
 					put(grammarAccess.getPrimaryExpressionAccess().getGroup(), "rule__PrimaryExpression__Group__0");
 					put(grammarAccess.getPrimaryExpressionAccess().getGroup_1_0(), "rule__PrimaryExpression__Group_1_0__0");
 					put(grammarAccess.getPrimaryExpressionAccess().getGroup_1_1(), "rule__PrimaryExpression__Group_1_1__0");
@@ -198,7 +202,11 @@ public class PreprocessParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUnaryOperatorAccess().getOpAssignment_3(), "rule__UnaryOperator__OpAssignment_3");
 					put(grammarAccess.getUnaryOperatorAccess().getOpAssignment_4(), "rule__UnaryOperator__OpAssignment_4");
 					put(grammarAccess.getUnaryOperatorAccess().getOpAssignment_5(), "rule__UnaryOperator__OpAssignment_5");
-					put(grammarAccess.getPostfixExpressionAccess().getExprAssignment_1(), "rule__PostfixExpression__ExprAssignment_1");
+					put(grammarAccess.getPostfixExpressionAccess().getExprAssignment_1_0(), "rule__PostfixExpression__ExprAssignment_1_0");
+					put(grammarAccess.getPostfixExpressionAccess().getSuffixAssignment_1_1(), "rule__PostfixExpression__SuffixAssignment_1_1");
+					put(grammarAccess.getPostfixExpressionSuffixArgumentAccess().getArgumentExpressionListAssignment_2(), "rule__PostfixExpressionSuffixArgument__ArgumentExpressionListAssignment_2");
+					put(grammarAccess.getArgumentExpressionListAccess().getExprAssignment_0(), "rule__ArgumentExpressionList__ExprAssignment_0");
+					put(grammarAccess.getArgumentExpressionListAccess().getExprAssignment_1_1(), "rule__ArgumentExpressionList__ExprAssignment_1_1");
 					put(grammarAccess.getPrimaryExpressionAccess().getDefinedAssignment_1_0_0(), "rule__PrimaryExpression__DefinedAssignment_1_0_0");
 					put(grammarAccess.getPrimaryExpressionAccess().getIdAssignment_1_0_1(), "rule__PrimaryExpression__IdAssignment_1_0_1");
 					put(grammarAccess.getPrimaryExpressionAccess().getDefinedAssignment_1_1_0(), "rule__PrimaryExpression__DefinedAssignment_1_1_0");

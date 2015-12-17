@@ -212,6 +212,24 @@ public interface PreprocessFactory extends EFactory
   UnaryOperator createUnaryOperator();
 
   /**
+   * Returns a new object of class '<em>Postfix Expression Suffix</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Postfix Expression Suffix</em>'.
+   * @generated
+   */
+  PostfixExpressionSuffix createPostfixExpressionSuffix();
+
+  /**
+   * Returns a new object of class '<em>Argument Expression List</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Argument Expression List</em>'.
+   * @generated
+   */
+  ArgumentExpressionList createArgumentExpressionList();
+
+  /**
    * Returns a new object of class '<em>Preprocessor Directives</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -390,6 +408,15 @@ public interface PreprocessFactory extends EFactory
    * @generated
    */
   PostfixExpression createPostfixExpression();
+
+  /**
+   * Returns a new object of class '<em>Postfix Expression Suffix Argument</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Postfix Expression Suffix Argument</em>'.
+   * @generated
+   */
+  PostfixExpressionSuffixArgument createPostfixExpressionSuffixArgument();
 
   /**
    * Returns a new object of class '<em>Primary Expression</em>'.

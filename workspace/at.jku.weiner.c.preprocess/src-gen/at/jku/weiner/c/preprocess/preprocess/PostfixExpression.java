@@ -2,6 +2,7 @@
  */
 package at.jku.weiner.c.preprocess.preprocess;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -10,10 +11,11 @@ package at.jku.weiner.c.preprocess.preprocess;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.PostfixExpression#getExpr <em>Expr</em>}</li>
+ *   <li>{@link at.jku.weiner.c.preprocess.preprocess.PostfixExpression#getSuffix <em>Suffix</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getPostfixExpression()
  * @model
@@ -46,5 +48,21 @@ public interface PostfixExpression extends Expression
    * @generated
    */
   void setExpr(Expression value);
+
+  /**
+   * Returns the value of the '<em><b>Suffix</b></em>' containment reference list.
+   * The list contents are of type {@link at.jku.weiner.c.preprocess.preprocess.PostfixExpressionSuffix}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Suffix</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Suffix</em>' containment reference list.
+   * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getPostfixExpression_Suffix()
+   * @model containment="true"
+   * @generated
+   */
+  EList<PostfixExpressionSuffix> getSuffix();
 
 } // PostfixExpression

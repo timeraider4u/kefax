@@ -4,7 +4,7 @@
     editorDirectory="/at.jku.weiner.c.preprocess.editor/src" modelPluginID="at.jku.weiner.c.preprocess"
     forceOverwrite="true" modelName="Preprocess" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="6.0" copyrightFields="false" editPluginID="at.jku.weiner.c.preprocess.edit"
-    editorPluginID="at.jku.weiner.c.preprocess.editor" runtimeVersion="2.11" usedGenPackages="platform:/resource/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore">
+    editorPluginID="at.jku.weiner.c.preprocess.editor" runtimeVersion="2.10" usedGenPackages="platform:/resource/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore">
   <genPackages prefix="Preprocess" basePackage="at.jku.weiner.c.preprocess" disposableProviderFactory="true"
       fileExtensions="c,h" ecorePackage="Preprocess.ecore#/">
     <genClasses ecoreClass="Preprocess.ecore#//Model">
@@ -69,6 +69,10 @@
     <genClasses ecoreClass="Preprocess.ecore#//UnaryOperator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Preprocess.ecore#//UnaryOperator/op"/>
     </genClasses>
+    <genClasses ecoreClass="Preprocess.ecore#//PostfixExpressionSuffix"/>
+    <genClasses ecoreClass="Preprocess.ecore#//ArgumentExpressionList">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//ArgumentExpressionList/expr"/>
+    </genClasses>
     <genClasses ecoreClass="Preprocess.ecore#//PreprocessorDirectives">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//PreprocessorDirectives/directive"/>
     </genClasses>
@@ -132,6 +136,10 @@
     </genClasses>
     <genClasses ecoreClass="Preprocess.ecore#//PostfixExpression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//PostfixExpression/expr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//PostfixExpression/suffix"/>
+    </genClasses>
+    <genClasses ecoreClass="Preprocess.ecore#//PostfixExpressionSuffixArgument">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//PostfixExpressionSuffixArgument/argumentExpressionList"/>
     </genClasses>
     <genClasses ecoreClass="Preprocess.ecore#//PrimaryExpression">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Preprocess.ecore#//PrimaryExpression/defined"/>

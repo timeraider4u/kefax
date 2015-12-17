@@ -20,6 +20,7 @@ lexer-tokens
 		group=
 		(GroupOpt
 			lines+=
+			(NewLineLine),
 			(PreprocessorDirectives
 				directive=
 				(ConditionalDirective
@@ -58,7 +59,106 @@ lexer-tokens
 																				(PostfixExpression
 																					expr=
 																					(PrimaryExpression
-																						id++"VERSION"
+																						id++"MIN"
+																					),
+																					suffix+=
+																					(PostfixExpressionSuffixArgument
+																						argumentExpressionList=
+																						(ArgumentExpressionList
+																							expr+=
+																							// 1. argument of min
+																							(ConditionalExpression
+																								expr=
+																								(LogicalOrExpression
+																									expr+=
+																									(LogicalAndExpression
+																										expr+=
+																										(InclusiveOrExpression
+																											expr+=
+																											(ExclusiveOrExpression
+																												expr+=
+																												(AndExpression
+																													expr+=
+																													(EqualityExpression
+																														expr+=
+																														(RelationalExpression
+																															expr+=
+																															(ShiftExpression
+																																expr+=
+																																(AdditiveExpression
+																																	expr+=
+																																	(MultiplicativeExpression
+																																		expr+=
+																																		(CastExpression
+																																			expr=
+																																			(UnaryExpression
+																																				expr=
+																																				(PostfixExpression
+																																					expr=
+																																					(PrimaryExpression
+																																						const++"0"
+																																					)
+																																				)
+																																			)
+																																		)
+																																	)
+																																)
+																															)
+																														)
+																													)
+																												)
+																											)
+																										)
+																									)
+																								)
+																							), // end 1. argument of min
+																							// 2. argument of min
+																							(ConditionalExpression
+																								expr=
+																								(LogicalOrExpression
+																									expr+=
+																									(LogicalAndExpression
+																										expr+=
+																										(InclusiveOrExpression
+																											expr+=
+																											(ExclusiveOrExpression
+																												expr+=
+																												(AndExpression
+																													expr+=
+																													(EqualityExpression
+																														expr+=
+																														(RelationalExpression
+																															expr+=
+																															(ShiftExpression
+																																expr+=
+																																(AdditiveExpression
+																																	expr+=
+																																	(MultiplicativeExpression
+																																		expr+=
+																																		(CastExpression
+																																			expr=
+																																			(UnaryExpression
+																																				expr=
+																																				(PostfixExpression
+																																					expr=
+																																					(PrimaryExpression
+																																						const++"6"
+																																					)
+																																				)
+																																			)
+																																		)
+																																	)
+																																)
+																															)
+																														)
+																													)
+																												)
+																											)
+																										)
+																									)
+																								)
+																							) // end 2. argument of min
+																						)
 																					)
 																				)
 																			)

@@ -8,6 +8,7 @@ import at.jku.weiner.c.common.common.CommonPackage;
 import at.jku.weiner.c.common.serializer.CommonSemanticSequencer;
 import at.jku.weiner.c.preprocess.preprocess.AdditiveExpression;
 import at.jku.weiner.c.preprocess.preprocess.AndExpression;
+import at.jku.weiner.c.preprocess.preprocess.ArgumentExpressionList;
 import at.jku.weiner.c.preprocess.preprocess.CastExpression;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.ConditionalDirective;
@@ -35,6 +36,7 @@ import at.jku.weiner.c.preprocess.preprocess.MultiplicativeExpression;
 import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
 import at.jku.weiner.c.preprocess.preprocess.NullDirective;
 import at.jku.weiner.c.preprocess.preprocess.PostfixExpression;
+import at.jku.weiner.c.preprocess.preprocess.PostfixExpressionSuffixArgument;
 import at.jku.weiner.c.preprocess.preprocess.PragmaDirective;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessPackage;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
@@ -79,6 +81,9 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 				return; 
 			case PreprocessPackage.AND_EXPRESSION:
 				sequence_AndExpression(context, (AndExpression) semanticObject); 
+				return; 
+			case PreprocessPackage.ARGUMENT_EXPRESSION_LIST:
+				sequence_ArgumentExpressionList(context, (ArgumentExpressionList) semanticObject); 
 				return; 
 			case PreprocessPackage.CAST_EXPRESSION:
 				sequence_CastExpression(context, (CastExpression) semanticObject); 
@@ -161,6 +166,9 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 			case PreprocessPackage.POSTFIX_EXPRESSION:
 				sequence_PostfixExpression(context, (PostfixExpression) semanticObject); 
 				return; 
+			case PreprocessPackage.POSTFIX_EXPRESSION_SUFFIX_ARGUMENT:
+				sequence_PostfixExpressionSuffixArgument(context, (PostfixExpressionSuffixArgument) semanticObject); 
+				return; 
 			case PreprocessPackage.PRAGMA_DIRECTIVE:
 				sequence_PragmaDirective(context, (PragmaDirective) semanticObject); 
 				return; 
@@ -209,6 +217,15 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	 *     (expr+=EqualityExpression expr+=EqualityExpression*)
 	 */
 	protected void sequence_AndExpression(EObject context, AndExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (expr+=ConditionalExpression expr+=ConditionalExpression*)
+	 */
+	protected void sequence_ArgumentExpressionList(EObject context, ArgumentExpressionList semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -524,7 +541,16 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     expr=PrimaryExpression
+	 *     (argumentExpressionList=ArgumentExpressionList?)
+	 */
+	protected void sequence_PostfixExpressionSuffixArgument(EObject context, PostfixExpressionSuffixArgument semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (expr=PrimaryExpression suffix+=PostfixExpressionSuffixArgument*)
 	 */
 	protected void sequence_PostfixExpression(EObject context, PostfixExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

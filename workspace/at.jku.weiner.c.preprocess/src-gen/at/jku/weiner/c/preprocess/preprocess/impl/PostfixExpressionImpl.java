@@ -4,15 +4,23 @@ package at.jku.weiner.c.preprocess.preprocess.impl;
 
 import at.jku.weiner.c.preprocess.preprocess.Expression;
 import at.jku.weiner.c.preprocess.preprocess.PostfixExpression;
+import at.jku.weiner.c.preprocess.preprocess.PostfixExpressionSuffix;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessPackage;
+
+import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,10 +28,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.PostfixExpressionImpl#getExpr <em>Expr</em>}</li>
+ *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.PostfixExpressionImpl#getSuffix <em>Suffix</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -38,6 +47,16 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
    * @ordered
    */
   protected Expression expr;
+
+  /**
+   * The cached value of the '{@link #getSuffix() <em>Suffix</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSuffix()
+   * @generated
+   * @ordered
+   */
+  protected EList<PostfixExpressionSuffix> suffix;
 
   /**
    * <!-- begin-user-doc -->
@@ -113,6 +132,20 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<PostfixExpressionSuffix> getSuffix()
+  {
+    if (suffix == null)
+    {
+      suffix = new EObjectContainmentEList<PostfixExpressionSuffix>(PostfixExpressionSuffix.class, this, PreprocessPackage.POSTFIX_EXPRESSION__SUFFIX);
+    }
+    return suffix;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -120,6 +153,8 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
     {
       case PreprocessPackage.POSTFIX_EXPRESSION__EXPR:
         return basicSetExpr(null, msgs);
+      case PreprocessPackage.POSTFIX_EXPRESSION__SUFFIX:
+        return ((InternalEList<?>)getSuffix()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -136,6 +171,8 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
     {
       case PreprocessPackage.POSTFIX_EXPRESSION__EXPR:
         return getExpr();
+      case PreprocessPackage.POSTFIX_EXPRESSION__SUFFIX:
+        return getSuffix();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -145,6 +182,7 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -152,6 +190,10 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
     {
       case PreprocessPackage.POSTFIX_EXPRESSION__EXPR:
         setExpr((Expression)newValue);
+        return;
+      case PreprocessPackage.POSTFIX_EXPRESSION__SUFFIX:
+        getSuffix().clear();
+        getSuffix().addAll((Collection<? extends PostfixExpressionSuffix>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -170,6 +212,9 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
       case PreprocessPackage.POSTFIX_EXPRESSION__EXPR:
         setExpr((Expression)null);
         return;
+      case PreprocessPackage.POSTFIX_EXPRESSION__SUFFIX:
+        getSuffix().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -186,6 +231,8 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
     {
       case PreprocessPackage.POSTFIX_EXPRESSION__EXPR:
         return expr != null;
+      case PreprocessPackage.POSTFIX_EXPRESSION__SUFFIX:
+        return suffix != null && !suffix.isEmpty();
     }
     return super.eIsSet(featureID);
   }

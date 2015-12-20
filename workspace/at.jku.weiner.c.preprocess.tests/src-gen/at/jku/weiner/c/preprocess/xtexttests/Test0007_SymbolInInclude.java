@@ -102,7 +102,7 @@ public class Test0007_SymbolInInclude {
 			final String[] expected = new String[] {
 				"RULE_HASH", 
 				"RULE_INCLUDE", 
-				"RULE_WS", 
+				"RULE_WHITESPACE", 
 				"RULE_ID", 
 				"RULE_NEWLINE", 
 				};

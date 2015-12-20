@@ -37,12 +37,12 @@ Common:
 	{Common}
 ;
 
-Expression hidden(WS,BLOCK_COMMENT,LINE_COMMENT,LINEBREAK):
+Expression hidden(WHITESPACE,BLOCK_COMMENT,LINE_COMMENT,LINEBREAK):
 	{Expression}
 	expression=ConditionalExpression
 ;
 
-ConstantExpression returns Expression hidden(WS,BLOCK_COMMENT,LINE_COMMENT,LINEBREAK):
+ConstantExpression returns Expression hidden(WHITESPACE,BLOCK_COMMENT,LINE_COMMENT,LINEBREAK):
 	{ConstantExpression}
 	expr=ConditionalExpression
 ;
@@ -425,7 +425,7 @@ terminal NEWLINE: (CARRIAGERETURN | LINEFEED) ;
 terminal LINEBREAK: (SKW_BACKSLASH NEWLINE);
 terminal fragment SPACE: ' ';
 terminal fragment TAB: '\t';
-terminal WS: (SPACE | TAB);
+terminal WHITESPACE: (SPACE | TAB);
 
 terminal BLOCK_COMMENT: '/*' -> '*/';
 terminal LINE_COMMENT: '//' (!NEWLINE)*;

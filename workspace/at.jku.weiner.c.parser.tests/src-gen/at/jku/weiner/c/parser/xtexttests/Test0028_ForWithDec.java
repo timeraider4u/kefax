@@ -89,7 +89,7 @@ import at.jku.weiner.c.parser.parser.CastExpression;
 import at.jku.weiner.c.parser.parser.UnaryExpression;
 import at.jku.weiner.c.parser.parser.PostfixExpression;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
-import at.jku.weiner.c.parser.parser.Constant;
+import at.jku.weiner.c.common.common.Constant2;
 import at.jku.weiner.c.parser.parser.Expression;
 import at.jku.weiner.c.parser.parser.AssignmentExpression;
 import at.jku.weiner.c.parser.parser.ConditionalExpression;
@@ -114,7 +114,7 @@ import at.jku.weiner.c.parser.parser.CastExpression;
 import at.jku.weiner.c.parser.parser.UnaryExpression;
 import at.jku.weiner.c.parser.parser.PostfixExpression;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
-import at.jku.weiner.c.parser.parser.Constant;
+import at.jku.weiner.c.common.common.Constant2;
 import at.jku.weiner.c.parser.parser.Expression;
 import at.jku.weiner.c.parser.parser.AssignmentExpression;
 import at.jku.weiner.c.parser.parser.ConditionalExpression;
@@ -607,12 +607,12 @@ public class Test0028_ForWithDec {
 		Assert.assertNotNull(PrimaryExpression_45_Var
 		);
 		//45
-		final Constant Constant_46_Var
-		 = (Constant)PrimaryExpression_45_Var
+		final Constant2 Constant2_46_Var
+		 = (Constant2)PrimaryExpression_45_Var
 		.getConst();
-		Assert.assertNotNull(Constant_46_Var
+		Assert.assertNotNull(Constant2_46_Var
 		);
-		Assert.assertEquals("0", Constant_46_Var
+		Assert.assertEquals("0", Constant2_46_Var
 		.getDec());
 		Assert.assertEquals(";", Declaration_22_Var
 		.getSemi());
@@ -812,12 +812,12 @@ public class Test0028_ForWithDec {
 		Assert.assertNotNull(PrimaryExpression_70_Var
 		);
 		//70
-		final Constant Constant_71_Var
-		 = (Constant)PrimaryExpression_70_Var
+		final Constant2 Constant2_71_Var
+		 = (Constant2)PrimaryExpression_70_Var
 		.getConst();
-		Assert.assertNotNull(Constant_71_Var
+		Assert.assertNotNull(Constant2_71_Var
 		);
-		Assert.assertEquals("5", Constant_71_Var
+		Assert.assertEquals("5", Constant2_71_Var
 		.getDec());
 		//71
 		final Expression Expression_72_Var

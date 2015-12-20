@@ -363,6 +363,7 @@ public class ParserSwitch<T> extends Switch<T>
       {
         Expression expression = (Expression)theEObject;
         T result = caseExpression(expression);
+        if (result == null) result = caseCommon_Expression(expression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -377,6 +378,7 @@ public class ParserSwitch<T> extends Switch<T>
       {
         UnaryOperator unaryOperator = (UnaryOperator)theEObject;
         T result = caseUnaryOperator(unaryOperator);
+        if (result == null) result = caseCommon_UnaryOperator(unaryOperator);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -384,6 +386,7 @@ public class ParserSwitch<T> extends Switch<T>
       {
         PostfixExpressionSuffix postfixExpressionSuffix = (PostfixExpressionSuffix)theEObject;
         T result = casePostfixExpressionSuffix(postfixExpressionSuffix);
+        if (result == null) result = caseCommon_PostfixExpressionSuffix(postfixExpressionSuffix);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -391,13 +394,7 @@ public class ParserSwitch<T> extends Switch<T>
       {
         ArgumentExpressionList argumentExpressionList = (ArgumentExpressionList)theEObject;
         T result = caseArgumentExpressionList(argumentExpressionList);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case ParserPackage.CONSTANT:
-      {
-        Constant constant = (Constant)theEObject;
-        T result = caseConstant(constant);
+        if (result == null) result = caseCommon_ArgumentExpressionList(argumentExpressionList);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -502,6 +499,7 @@ public class ParserSwitch<T> extends Switch<T>
         AssignmentExpression assignmentExpression = (AssignmentExpression)theEObject;
         T result = caseAssignmentExpression(assignmentExpression);
         if (result == null) result = caseExpression(assignmentExpression);
+        if (result == null) result = caseCommon_Expression(assignmentExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -510,6 +508,7 @@ public class ParserSwitch<T> extends Switch<T>
         ConditionalExpression conditionalExpression = (ConditionalExpression)theEObject;
         T result = caseConditionalExpression(conditionalExpression);
         if (result == null) result = caseExpression(conditionalExpression);
+        if (result == null) result = caseCommon_Expression(conditionalExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -518,6 +517,7 @@ public class ParserSwitch<T> extends Switch<T>
         LogicalOrExpression logicalOrExpression = (LogicalOrExpression)theEObject;
         T result = caseLogicalOrExpression(logicalOrExpression);
         if (result == null) result = caseExpression(logicalOrExpression);
+        if (result == null) result = caseCommon_Expression(logicalOrExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -526,6 +526,7 @@ public class ParserSwitch<T> extends Switch<T>
         LogicalAndExpression logicalAndExpression = (LogicalAndExpression)theEObject;
         T result = caseLogicalAndExpression(logicalAndExpression);
         if (result == null) result = caseExpression(logicalAndExpression);
+        if (result == null) result = caseCommon_Expression(logicalAndExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -534,6 +535,7 @@ public class ParserSwitch<T> extends Switch<T>
         InclusiveOrExpression inclusiveOrExpression = (InclusiveOrExpression)theEObject;
         T result = caseInclusiveOrExpression(inclusiveOrExpression);
         if (result == null) result = caseExpression(inclusiveOrExpression);
+        if (result == null) result = caseCommon_Expression(inclusiveOrExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -542,6 +544,7 @@ public class ParserSwitch<T> extends Switch<T>
         ExclusiveOrExpression exclusiveOrExpression = (ExclusiveOrExpression)theEObject;
         T result = caseExclusiveOrExpression(exclusiveOrExpression);
         if (result == null) result = caseExpression(exclusiveOrExpression);
+        if (result == null) result = caseCommon_Expression(exclusiveOrExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -550,6 +553,7 @@ public class ParserSwitch<T> extends Switch<T>
         AndExpression andExpression = (AndExpression)theEObject;
         T result = caseAndExpression(andExpression);
         if (result == null) result = caseExpression(andExpression);
+        if (result == null) result = caseCommon_Expression(andExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -558,6 +562,7 @@ public class ParserSwitch<T> extends Switch<T>
         EqualityExpression equalityExpression = (EqualityExpression)theEObject;
         T result = caseEqualityExpression(equalityExpression);
         if (result == null) result = caseExpression(equalityExpression);
+        if (result == null) result = caseCommon_Expression(equalityExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -566,6 +571,7 @@ public class ParserSwitch<T> extends Switch<T>
         RelationalExpression relationalExpression = (RelationalExpression)theEObject;
         T result = caseRelationalExpression(relationalExpression);
         if (result == null) result = caseExpression(relationalExpression);
+        if (result == null) result = caseCommon_Expression(relationalExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -574,6 +580,7 @@ public class ParserSwitch<T> extends Switch<T>
         ShiftExpression shiftExpression = (ShiftExpression)theEObject;
         T result = caseShiftExpression(shiftExpression);
         if (result == null) result = caseExpression(shiftExpression);
+        if (result == null) result = caseCommon_Expression(shiftExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -582,6 +589,7 @@ public class ParserSwitch<T> extends Switch<T>
         AdditiveExpression additiveExpression = (AdditiveExpression)theEObject;
         T result = caseAdditiveExpression(additiveExpression);
         if (result == null) result = caseExpression(additiveExpression);
+        if (result == null) result = caseCommon_Expression(additiveExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -590,6 +598,7 @@ public class ParserSwitch<T> extends Switch<T>
         MultiplicativeExpression multiplicativeExpression = (MultiplicativeExpression)theEObject;
         T result = caseMultiplicativeExpression(multiplicativeExpression);
         if (result == null) result = caseExpression(multiplicativeExpression);
+        if (result == null) result = caseCommon_Expression(multiplicativeExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -598,6 +607,7 @@ public class ParserSwitch<T> extends Switch<T>
         CastExpression castExpression = (CastExpression)theEObject;
         T result = caseCastExpression(castExpression);
         if (result == null) result = caseExpression(castExpression);
+        if (result == null) result = caseCommon_Expression(castExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -606,6 +616,7 @@ public class ParserSwitch<T> extends Switch<T>
         UnaryExpression unaryExpression = (UnaryExpression)theEObject;
         T result = caseUnaryExpression(unaryExpression);
         if (result == null) result = caseExpression(unaryExpression);
+        if (result == null) result = caseCommon_Expression(unaryExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -614,6 +625,7 @@ public class ParserSwitch<T> extends Switch<T>
         PostfixExpression postfixExpression = (PostfixExpression)theEObject;
         T result = casePostfixExpression(postfixExpression);
         if (result == null) result = caseExpression(postfixExpression);
+        if (result == null) result = caseCommon_Expression(postfixExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -622,6 +634,7 @@ public class ParserSwitch<T> extends Switch<T>
         PostfixExpressionSuffixArray postfixExpressionSuffixArray = (PostfixExpressionSuffixArray)theEObject;
         T result = casePostfixExpressionSuffixArray(postfixExpressionSuffixArray);
         if (result == null) result = casePostfixExpressionSuffix(postfixExpressionSuffixArray);
+        if (result == null) result = caseCommon_PostfixExpressionSuffix(postfixExpressionSuffixArray);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -630,6 +643,7 @@ public class ParserSwitch<T> extends Switch<T>
         PostfixExpressionSuffixArgument postfixExpressionSuffixArgument = (PostfixExpressionSuffixArgument)theEObject;
         T result = casePostfixExpressionSuffixArgument(postfixExpressionSuffixArgument);
         if (result == null) result = casePostfixExpressionSuffix(postfixExpressionSuffixArgument);
+        if (result == null) result = caseCommon_PostfixExpressionSuffix(postfixExpressionSuffixArgument);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -638,6 +652,7 @@ public class ParserSwitch<T> extends Switch<T>
         PostfixExpressionSuffixDot postfixExpressionSuffixDot = (PostfixExpressionSuffixDot)theEObject;
         T result = casePostfixExpressionSuffixDot(postfixExpressionSuffixDot);
         if (result == null) result = casePostfixExpressionSuffix(postfixExpressionSuffixDot);
+        if (result == null) result = caseCommon_PostfixExpressionSuffix(postfixExpressionSuffixDot);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -646,6 +661,7 @@ public class ParserSwitch<T> extends Switch<T>
         PostfixExpressionSuffixArrow postfixExpressionSuffixArrow = (PostfixExpressionSuffixArrow)theEObject;
         T result = casePostfixExpressionSuffixArrow(postfixExpressionSuffixArrow);
         if (result == null) result = casePostfixExpressionSuffix(postfixExpressionSuffixArrow);
+        if (result == null) result = caseCommon_PostfixExpressionSuffix(postfixExpressionSuffixArrow);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -654,6 +670,7 @@ public class ParserSwitch<T> extends Switch<T>
         PostfixExpressionSuffixPlusPlus postfixExpressionSuffixPlusPlus = (PostfixExpressionSuffixPlusPlus)theEObject;
         T result = casePostfixExpressionSuffixPlusPlus(postfixExpressionSuffixPlusPlus);
         if (result == null) result = casePostfixExpressionSuffix(postfixExpressionSuffixPlusPlus);
+        if (result == null) result = caseCommon_PostfixExpressionSuffix(postfixExpressionSuffixPlusPlus);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -662,6 +679,7 @@ public class ParserSwitch<T> extends Switch<T>
         PostfixExpressionSuffixMinusMinus postfixExpressionSuffixMinusMinus = (PostfixExpressionSuffixMinusMinus)theEObject;
         T result = casePostfixExpressionSuffixMinusMinus(postfixExpressionSuffixMinusMinus);
         if (result == null) result = casePostfixExpressionSuffix(postfixExpressionSuffixMinusMinus);
+        if (result == null) result = caseCommon_PostfixExpressionSuffix(postfixExpressionSuffixMinusMinus);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -670,6 +688,7 @@ public class ParserSwitch<T> extends Switch<T>
         PrimaryExpression primaryExpression = (PrimaryExpression)theEObject;
         T result = casePrimaryExpression(primaryExpression);
         if (result == null) result = caseExpression(primaryExpression);
+        if (result == null) result = caseCommon_Expression(primaryExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -678,6 +697,7 @@ public class ParserSwitch<T> extends Switch<T>
         ConstantExpression constantExpression = (ConstantExpression)theEObject;
         T result = caseConstantExpression(constantExpression);
         if (result == null) result = caseExpression(constantExpression);
+        if (result == null) result = caseCommon_Expression(constantExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1422,22 +1442,6 @@ public class ParserSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Constant</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Constant</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseConstant(Constant object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Struct Or Union Specifier</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1993,6 +1997,70 @@ public class ParserSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseConstantExpression(ConstantExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCommon_Expression(at.jku.weiner.c.common.common.Expression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Unary Operator</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Unary Operator</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCommon_UnaryOperator(at.jku.weiner.c.common.common.UnaryOperator object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Postfix Expression Suffix</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Postfix Expression Suffix</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCommon_PostfixExpressionSuffix(at.jku.weiner.c.common.common.PostfixExpressionSuffix object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Argument Expression List</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Argument Expression List</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCommon_ArgumentExpressionList(at.jku.weiner.c.common.common.ArgumentExpressionList object)
   {
     return null;
   }

@@ -2,6 +2,7 @@
 //----------------------------------------------------------------------
 package at.jku.weiner.c.parser
 language parser
+imports at.jku.weiner.c.common.common
 //----------------------------------------------------------------------
 source file="res/Test0010_SimpleExpr.c"
 //----------------------------------------------------------------------
@@ -77,7 +78,7 @@ SKW_RIGHTBRACE NEWLINE
 																								expr+=
 																								(PrimaryExpression
 																									const=
-																									(Constant
+																									(common::Constant2
 																										dec++"1"
 																									)
 																								)
@@ -95,7 +96,7 @@ SKW_RIGHTBRACE NEWLINE
 																								expr+=
 																								(PrimaryExpression
 																									const=
-																									(Constant
+																									(common::Constant2
 																										dec++"1"
 																									)
 																								)

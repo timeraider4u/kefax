@@ -56,7 +56,7 @@ GroupOpt:
 
 PreprocessorDirectives returns SourceCodeLine:
 	{PreprocessorDirectives}
-	WS* HASH WS*
+	WHITESPACE* HASH WHITESPACE*
 	(
 			directive=IncludeDirective
 		|	directive=DefineDirective
@@ -72,7 +72,7 @@ PreprocessorDirectives returns SourceCodeLine:
 
 IncludeDirective:
 	{IncludeDirective}
-	INCLUDE WS+ string=MyCodeLine
+	INCLUDE WHITESPACE+ string=MyCodeLine
 ;
 
 DefineDirective:
@@ -82,38 +82,38 @@ DefineDirective:
 
 DefineObjectMacro returns DefineDirective:
 	{DefineObjectMacro}
-	DEFINE WS+ id=ID
-		(WS+ string=MyDefineLine)?
+	DEFINE WHITESPACE+ id=ID
+		(WHITESPACE+ string=MyDefineLine)?
 ;
 
 DefineFunctionLikeMacro returns DefineDirective:
 	{DefineFunctionLikeMacro}
-	DEFINE WS+ id=ID 
-	SKW_LEFTPAREN WS*
+	DEFINE WHITESPACE+ id=ID 
+	SKW_LEFTPAREN WHITESPACE*
 		(list=IdentifierList)?
 	SKW_RIGHTPAREN
-	WS+
+	WHITESPACE+
 	string=MyDefineLine 
 ;
 
 IdentifierList:
 	{IdentifierList}
-	id+=ID (SKW_COMMA WS* id+=ID)*
+	id+=ID (SKW_COMMA WHITESPACE* id+=ID)*
 ;
 
 ErrorDirective:
 	{ErrorDirective}
-	ERROR WS+ msg=MyCodeLine
+	ERROR WHITESPACE+ msg=MyCodeLine
 ;
 
 WarningDirective:
 	{WarningDirective}
-	WARNING WS+ msg=MyCodeLine
+	WARNING WHITESPACE+ msg=MyCodeLine
 ;
 
 UnDefineDirective:
 	{UnDefineDirective}
-	UNDEF WS+ id=ID
+	UNDEF WHITESPACE+ id=ID
 ;
 
 ConditionalDirective:
@@ -126,36 +126,36 @@ ConditionalDirective:
 	)
 	(elifs+=ElIfConditional)*
 	(else=ElseConditional)?
-	WS* HASH WS* ENDIF WS*
+	WHITESPACE* HASH WHITESPACE* ENDIF WHITESPACE*
 ;
 
 IfConditional:
 	{IfConditional}
-	IF WS+ expression=Common::ConstantExpression NEWLINE
+	IF WHITESPACE+ expression=Common::ConstantExpression NEWLINE
 		group=GroupOpt
 ;
 
 IfDefConditional:
 	{IfDefConditional}
-	IFDEF WS+ id=ID NEWLINE
+	IFDEF WHITESPACE+ id=ID NEWLINE
 		group=GroupOpt
 ;
 
 IfNotDefConditional:
 	{IfNotDefConditional}
-	IFNOTDEF WS+ id=ID NEWLINE
+	IFNOTDEF WHITESPACE+ id=ID NEWLINE
 		group=GroupOpt
 ;
 
 ElIfConditional:
 	{ElIfConditional}
-	(WS* HASH WS* ELIF) WS+ expression=Common::ConstantExpression NEWLINE
+	(WHITESPACE* HASH WHITESPACE* ELIF) WHITESPACE+ expression=Common::ConstantExpression NEWLINE
 		group=GroupOpt
 ;
 
 ElseConditional:
 	{ElseConditional}
-	WS* HASH WS* ELSE NEWLINE
+	WHITESPACE* HASH WHITESPACE* ELSE NEWLINE
 		group=GroupOpt
 ;
 
@@ -186,15 +186,15 @@ MyCode returns ecore::EString:
 ;
 
 MyDefineLine returns ecore::EString:
-	(MyCode|WS|HASH)*
+	(MyCode|WHITESPACE|HASH)*
 ;
 
 MyCodeLine returns ecore::EString:
-	(MyCode|WS)+
+	(MyCode|WHITESPACE)+
 ;
 
 MyCodeLineExtended returns ecore::EString:
-	WS* (MyCode (MyCodeLine|HASH)*)?
+	WHITESPACE* (MyCode (MyCodeLine|HASH)*)?
 ;
 
 // expressions

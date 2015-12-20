@@ -100,7 +100,7 @@ ruleCommon returns [EObject current=null]
 // Entry rule entryRuleExpression
 entryRuleExpression returns [EObject current=null] 
 	@init { 
-		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT", "RULE_LINEBREAK");
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WHITESPACE", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT", "RULE_LINEBREAK");
 	}
 	:
 	{ newCompositeNode(grammarAccess.getExpressionRule()); }
@@ -116,7 +116,7 @@ finally {
 ruleExpression returns [EObject current=null] 
     @init { enterRule();
    		/*no init found*/
-		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT", "RULE_LINEBREAK");
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WHITESPACE", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT", "RULE_LINEBREAK");
     }
     @after { leaveRule();
     		/*no after found*/
@@ -2284,7 +2284,7 @@ fragment RULE_SPACE : ' ';
 
 fragment RULE_TAB : '\t';
 
-RULE_WS : (RULE_SPACE|RULE_TAB);
+RULE_WHITESPACE : (RULE_SPACE|RULE_TAB);
 
 RULE_BLOCK_COMMENT : '/*' ( options {greedy=false;} : . )*'*/';
 

@@ -7,8 +7,6 @@ import at.jku.weiner.c.parser.parser.PostfixExpressionSuffix;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Postfix Expression Suffix</b></em>'.
@@ -16,7 +14,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class PostfixExpressionSuffixImpl extends MinimalEObjectImpl.Container implements PostfixExpressionSuffix
+public class PostfixExpressionSuffixImpl extends at.jku.weiner.c.common.common.impl.PostfixExpressionSuffixImpl implements PostfixExpressionSuffix
 {
   /**
    * <!-- begin-user-doc -->

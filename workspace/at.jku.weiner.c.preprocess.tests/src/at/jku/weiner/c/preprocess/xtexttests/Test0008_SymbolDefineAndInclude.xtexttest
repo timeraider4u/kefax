@@ -8,8 +8,8 @@ split-lexer=false
 source file="res/Test0008_SymbolDefineAndInclude.c"
 //----------------------------------------------------------------------
 lexer-tokens
-	HASH DEFINE WS ID WS STRING_LITERAL NEWLINE
-	HASH INCLUDE WS STRING_LITERAL NEWLINE
+	HASH DEFINE WHITESPACE ID WHITESPACE STRING_LITERAL NEWLINE
+	HASH INCLUDE WHITESPACE STRING_LITERAL NEWLINE
 //----------------------------------------------------------------------
 (Model
 	units+=

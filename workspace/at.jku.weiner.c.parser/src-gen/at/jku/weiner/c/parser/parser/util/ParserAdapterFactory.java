@@ -305,11 +305,6 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
         return createArgumentExpressionListAdapter();
       }
       @Override
-      public Adapter caseConstant(Constant object)
-      {
-        return createConstantAdapter();
-      }
-      @Override
       public Adapter caseStructOrUnionSpecifier(StructOrUnionSpecifier object)
       {
         return createStructOrUnionSpecifierAdapter();
@@ -483,6 +478,26 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
       public Adapter caseConstantExpression(ConstantExpression object)
       {
         return createConstantExpressionAdapter();
+      }
+      @Override
+      public Adapter caseCommon_Expression(at.jku.weiner.c.common.common.Expression object)
+      {
+        return createCommon_ExpressionAdapter();
+      }
+      @Override
+      public Adapter caseCommon_UnaryOperator(at.jku.weiner.c.common.common.UnaryOperator object)
+      {
+        return createCommon_UnaryOperatorAdapter();
+      }
+      @Override
+      public Adapter caseCommon_PostfixExpressionSuffix(at.jku.weiner.c.common.common.PostfixExpressionSuffix object)
+      {
+        return createCommon_PostfixExpressionSuffixAdapter();
+      }
+      @Override
+      public Adapter caseCommon_ArgumentExpressionList(at.jku.weiner.c.common.common.ArgumentExpressionList object)
+      {
+        return createCommon_ArgumentExpressionListAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -1197,21 +1212,6 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.parser.parser.Constant <em>Constant</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see at.jku.weiner.c.parser.parser.Constant
-   * @generated
-   */
-  public Adapter createConstantAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link at.jku.weiner.c.parser.parser.StructOrUnionSpecifier <em>Struct Or Union Specifier</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1732,6 +1732,66 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createConstantExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.common.common.Expression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.common.common.Expression
+   * @generated
+   */
+  public Adapter createCommon_ExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.common.common.UnaryOperator <em>Unary Operator</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.common.common.UnaryOperator
+   * @generated
+   */
+  public Adapter createCommon_UnaryOperatorAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.common.common.PostfixExpressionSuffix <em>Postfix Expression Suffix</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.common.common.PostfixExpressionSuffix
+   * @generated
+   */
+  public Adapter createCommon_PostfixExpressionSuffixAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.common.common.ArgumentExpressionList <em>Argument Expression List</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.common.common.ArgumentExpressionList
+   * @generated
+   */
+  public Adapter createCommon_ArgumentExpressionListAdapter()
   {
     return null;
   }

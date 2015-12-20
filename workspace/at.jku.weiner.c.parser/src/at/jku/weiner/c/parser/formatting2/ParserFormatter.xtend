@@ -79,6 +79,7 @@ import com.google.inject.Inject
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.formatting2.AbstractFormatter2
 import org.eclipse.xtext.formatting2.IFormattableDocument
+import org.eclipse.emf.common.util.EList
 
 class ParserFormatter extends AbstractFormatter2 {
 	
@@ -512,8 +513,9 @@ class ParserFormatter extends AbstractFormatter2 {
 	}
 
 	def dispatch void format(ArgumentExpressionList argumentExpressionList, extension IFormattableDocument document) {
-		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		for (Expression expr : argumentExpressionList.getExpr()) {
+		// TODO: format HiddenRegions around keywords, attributes, cross references, etc.
+		val EList<at.jku.weiner.c.common.common.Expression> list = argumentExpressionList.getExpr();
+		for (at.jku.weiner.c.common.common.Expression expr : list) {
 			format(expr, document);
 		}
 	}

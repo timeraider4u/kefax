@@ -8,8 +8,8 @@ split-lexer=false
 source file="res/Test0036_ObjectLikeMacro.c"
 //----------------------------------------------------------------------
 lexer-tokens
-	HASH DEFINE WS ID WS ID NEWLINE
-	ID WS STRING_LITERAL WS ID WS STRING_LITERAL NEWLINE
+	HASH DEFINE WHITESPACE ID WHITESPACE ID NEWLINE
+	ID WHITESPACE STRING_LITERAL WHITESPACE ID WHITESPACE STRING_LITERAL NEWLINE
 //----------------------------------------------------------------------
 (Model
 	units+=

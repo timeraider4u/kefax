@@ -2,6 +2,7 @@
 //----------------------------------------------------------------------
 package at.jku.weiner.c.parser
 language parser
+imports at.jku.weiner.c.common.common
 //----------------------------------------------------------------------
 source file="res/Test0025_Switch.c"
 //----------------------------------------------------------------------
@@ -186,7 +187,7 @@ SKW_RIGHTBRACE NEWLINE
 																													expr+=
 																													(PrimaryExpression
 																														const=
-																														(Constant
+																														(common::Constant2
 																															dec++"0"
 																														)
 																													)
@@ -245,7 +246,7 @@ SKW_RIGHTBRACE NEWLINE
 																																expr+=
 																																(PrimaryExpression
 																																	const=
-																																	(Constant
+																																	(common::Constant2
 																																		dec++"0"	
 																																	)
 																																)
@@ -309,7 +310,7 @@ SKW_RIGHTBRACE NEWLINE
 																													expr+=
 																													(PrimaryExpression
 																														const=
-																														(Constant
+																														(common::Constant2
 																															dec++"1"
 																														)
 																													)
@@ -403,7 +404,7 @@ SKW_RIGHTBRACE NEWLINE
 																																				expr+=
 																																				(PrimaryExpression
 																																					const=
-																																					(Constant
+																																					(common::Constant2
 																																						dec++"2"	
 																																					)
 																																				)
@@ -479,7 +480,7 @@ SKW_RIGHTBRACE NEWLINE
 																								expr+=
 																								(PrimaryExpression
 																									const=
-																									(Constant
+																									(common::Constant2
 																										dec++"1"
 																									)
 																								)

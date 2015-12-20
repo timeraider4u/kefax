@@ -110,7 +110,6 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
       case ParserPackage.UNARY_OPERATOR: return createUnaryOperator();
       case ParserPackage.POSTFIX_EXPRESSION_SUFFIX: return createPostfixExpressionSuffix();
       case ParserPackage.ARGUMENT_EXPRESSION_LIST: return createArgumentExpressionList();
-      case ParserPackage.CONSTANT: return createConstant();
       case ParserPackage.STRUCT_OR_UNION_SPECIFIER: return createStructOrUnionSpecifier();
       case ParserPackage.ENUM_SPECIFIER: return createEnumSpecifier();
       case ParserPackage.LABELED_STATEMENT: return createLabeledStatement();
@@ -655,17 +654,6 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
   {
     ArgumentExpressionListImpl argumentExpressionList = new ArgumentExpressionListImpl();
     return argumentExpressionList;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Constant createConstant()
-  {
-    ConstantImpl constant = new ConstantImpl();
-    return constant;
   }
 
   /**

@@ -74,7 +74,8 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUnaryOperatorAccess().getAlternatives_1(), "rule__UnaryOperator__Alternatives_1");
 					put(grammarAccess.getPostfixExpressionAccess().getAlternatives_1_1(), "rule__PostfixExpression__Alternatives_1_1");
 					put(grammarAccess.getPrimaryExpressionAccess().getAlternatives_1(), "rule__PrimaryExpression__Alternatives_1");
-					put(grammarAccess.getConstantAccess().getAlternatives_1(), "rule__Constant__Alternatives_1");
+					put(grammarAccess.getConstant1Access().getAlternatives(), "rule__Constant1__Alternatives");
+					put(grammarAccess.getConstant2Access().getAlternatives_1(), "rule__Constant2__Alternatives_1");
 					put(grammarAccess.getSpecialKeywordsAccess().getAlternatives(), "rule__SpecialKeywords__Alternatives");
 					put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
 					put(grammarAccess.getTranslationUnitAccess().getGroup(), "rule__TranslationUnit__Group__0");
@@ -216,8 +217,8 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getArgumentExpressionListAccess().getGroup_1(), "rule__ArgumentExpressionList__Group_1__0");
 					put(grammarAccess.getPrimaryExpressionAccess().getGroup(), "rule__PrimaryExpression__Group__0");
 					put(grammarAccess.getPrimaryExpressionAccess().getGroup_1_2(), "rule__PrimaryExpression__Group_1_2__0");
-					put(grammarAccess.getConstantAccess().getGroup(), "rule__Constant__Group__0");
 					put(grammarAccess.getConstantExpressionAccess().getGroup(), "rule__ConstantExpression__Group__0");
+					put(grammarAccess.getConstant2Access().getGroup(), "rule__Constant2__Group__0");
 					put(grammarAccess.getModelAccess().getUnitAssignment_1(), "rule__Model__UnitAssignment_1");
 					put(grammarAccess.getTranslationUnitAccess().getExternalAssignment_1(), "rule__TranslationUnit__ExternalAssignment_1");
 					put(grammarAccess.getExternalDeclarationAccess().getFunctiondefHeadAssignment_1_0_0_0(), "rule__ExternalDeclaration__FunctiondefHeadAssignment_1_0_0_0");
@@ -487,14 +488,14 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPrimaryExpressionAccess().getIdAssignment_1_0(), "rule__PrimaryExpression__IdAssignment_1_0");
 					put(grammarAccess.getPrimaryExpressionAccess().getConstAssignment_1_1(), "rule__PrimaryExpression__ConstAssignment_1_1");
 					put(grammarAccess.getPrimaryExpressionAccess().getExprAssignment_1_2_1(), "rule__PrimaryExpression__ExprAssignment_1_2_1");
-					put(grammarAccess.getConstantAccess().getHexAssignment_1_0(), "rule__Constant__HexAssignment_1_0");
-					put(grammarAccess.getConstantAccess().getOctAssignment_1_1(), "rule__Constant__OctAssignment_1_1");
-					put(grammarAccess.getConstantAccess().getDecAssignment_1_2(), "rule__Constant__DecAssignment_1_2");
-					put(grammarAccess.getConstantAccess().getChAssignment_1_3(), "rule__Constant__ChAssignment_1_3");
-					put(grammarAccess.getConstantAccess().getStrAssignment_1_4(), "rule__Constant__StrAssignment_1_4");
-					put(grammarAccess.getConstantAccess().getFloatAssignment_1_5(), "rule__Constant__FloatAssignment_1_5");
-					put(grammarAccess.getConstantAccess().getBinAssignment_1_6(), "rule__Constant__BinAssignment_1_6");
 					put(grammarAccess.getConstantExpressionAccess().getExprAssignment_1(), "rule__ConstantExpression__ExprAssignment_1");
+					put(grammarAccess.getConstant2Access().getHexAssignment_1_0(), "rule__Constant2__HexAssignment_1_0");
+					put(grammarAccess.getConstant2Access().getOctAssignment_1_1(), "rule__Constant2__OctAssignment_1_1");
+					put(grammarAccess.getConstant2Access().getDecAssignment_1_2(), "rule__Constant2__DecAssignment_1_2");
+					put(grammarAccess.getConstant2Access().getChAssignment_1_3(), "rule__Constant2__ChAssignment_1_3");
+					put(grammarAccess.getConstant2Access().getStrAssignment_1_4(), "rule__Constant2__StrAssignment_1_4");
+					put(grammarAccess.getConstant2Access().getFloatAssignment_1_5(), "rule__Constant2__FloatAssignment_1_5");
+					put(grammarAccess.getConstant2Access().getBinAssignment_1_6(), "rule__Constant2__BinAssignment_1_6");
 				}
 			};
 		}

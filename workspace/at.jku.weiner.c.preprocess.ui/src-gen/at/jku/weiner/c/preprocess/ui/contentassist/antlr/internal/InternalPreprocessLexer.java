@@ -39,6 +39,7 @@ public class InternalPreprocessLexer extends Lexer {
     public static final int RULE_WARNING=62;
     public static final int RULE_SKW_AND=24;
     public static final int RULE_SKW_CARET=28;
+    public static final int RULE_WHITESPACE=15;
     public static final int RULE_OCTAL_LITERAL=18;
     public static final int RULE_SKW_COMMA=29;
     public static final int RULE_SKW_RIGHTBRACKET=54;
@@ -49,8 +50,8 @@ public class InternalPreprocessLexer extends Lexer {
     public static final int RULE_BIN_LITERAL=23;
     public static final int RULE_SKW_LEFTPAREN=39;
     public static final int RULE_SKW_MINUS=43;
-    public static final int RULE_SKW_SEMI=57;
     public static final int RULE_IFDEF=10;
+    public static final int RULE_SKW_SEMI=57;
     public static final int RULE_NEWLINE=61;
     public static final int RULE_SKW_DOLLAR=66;
     public static final int RULE_SKW_EQUAL=34;
@@ -85,7 +86,6 @@ public class InternalPreprocessLexer extends Lexer {
     public static final int RULE_SKW_UNDERSCORE=67;
     public static final int RULE_CHAR_LITERAL=20;
     public static final int RULE_ELIF=64;
-    public static final int RULE_WS=15;
     public static final int RULE_IF=13;
     public static final int RULE_SKW_LEFTBRACE=37;
     public static final int RULE_FLOAT_LITERAL=22;
@@ -2565,13 +2565,13 @@ public class InternalPreprocessLexer extends Lexer {
     }
     // $ANTLR end "RULE_TAB"
 
-    // $ANTLR start "RULE_WS"
-    public final void mRULE_WS() throws RecognitionException {
+    // $ANTLR start "RULE_WHITESPACE"
+    public final void mRULE_WHITESPACE() throws RecognitionException {
         try {
-            int _type = RULE_WS;
+            int _type = RULE_WHITESPACE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11287:9: ( ( RULE_SPACE | RULE_TAB ) )
-            // InternalPreprocess.g:11287:11: ( RULE_SPACE | RULE_TAB )
+            // InternalPreprocess.g:11287:17: ( ( RULE_SPACE | RULE_TAB ) )
+            // InternalPreprocess.g:11287:19: ( RULE_SPACE | RULE_TAB )
             {
             if ( input.LA(1)=='\t'||input.LA(1)==' ' ) {
                 input.consume();
@@ -2591,7 +2591,7 @@ public class InternalPreprocessLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end "RULE_WS"
+    // $ANTLR end "RULE_WHITESPACE"
 
     // $ANTLR start "RULE_BLOCK_COMMENT"
     public final void mRULE_BLOCK_COMMENT() throws RecognitionException {
@@ -2728,7 +2728,7 @@ public class InternalPreprocessLexer extends Lexer {
     // $ANTLR end "RULE_SPECIAL"
 
     public void mTokens() throws RecognitionException {
-        // InternalPreprocess.g:1:8: ( RULE_HASH | RULE_INCLUDE | RULE_DEFINE | RULE_ERROR | RULE_WARNING | RULE_UNDEF | RULE_IF | RULE_DEFINED | RULE_IFDEF | RULE_IFNOTDEF | RULE_ELIF | RULE_ELSE | RULE_ENDIF | RULE_PRAGMA | RULE_SKW_AND | RULE_SKW_ANDAND | RULE_SKW_ASSIGN | RULE_SKW_BACKSLASH | RULE_SKW_CARET | RULE_SKW_COMMA | RULE_SKW_COLON | RULE_SKW_DIV | RULE_SKW_DOT | RULE_SKW_DOUBLEQUOTE | RULE_SKW_EQUAL | RULE_SKW_GREATER | RULE_SKW_GREATEREQUAL | RULE_SKW_LEFTBRACE | RULE_SKW_LEFTBRACKET | RULE_SKW_LEFTPAREN | RULE_SKW_LEFTSHIFT | RULE_SKW_LESS | RULE_SKW_LESSEQUAL | RULE_SKW_MINUS | RULE_SKW_MINUSMINUS | RULE_SKW_MOD | RULE_SKW_NOT | RULE_SKW_NOTEQUAL | RULE_SKW_OR | RULE_SKW_OROR | RULE_SKW_PLUS | RULE_SKW_PLUSPLUS | RULE_SKW_QUESTION | RULE_SKW_RIGHTBRACE | RULE_SKW_RIGHTBRACKET | RULE_SKW_RIGHTPAREN | RULE_SKW_RIGHTSHIFT | RULE_SKW_SEMI | RULE_SKW_SINGLEQUOTE | RULE_SKW_STAR | RULE_SKW_TILDE | RULE_ID | RULE_CHAR_LITERAL | RULE_STRING_LITERAL | RULE_HEX_LITERAL | RULE_DECIMAL_LITERAL | RULE_OCTAL_LITERAL | RULE_BIN_LITERAL | RULE_FLOAT_LITERAL | RULE_NEWLINE | RULE_LINEBREAK | RULE_WS | RULE_BLOCK_COMMENT | RULE_LINE_COMMENT | RULE_SPECIAL )
+        // InternalPreprocess.g:1:8: ( RULE_HASH | RULE_INCLUDE | RULE_DEFINE | RULE_ERROR | RULE_WARNING | RULE_UNDEF | RULE_IF | RULE_DEFINED | RULE_IFDEF | RULE_IFNOTDEF | RULE_ELIF | RULE_ELSE | RULE_ENDIF | RULE_PRAGMA | RULE_SKW_AND | RULE_SKW_ANDAND | RULE_SKW_ASSIGN | RULE_SKW_BACKSLASH | RULE_SKW_CARET | RULE_SKW_COMMA | RULE_SKW_COLON | RULE_SKW_DIV | RULE_SKW_DOT | RULE_SKW_DOUBLEQUOTE | RULE_SKW_EQUAL | RULE_SKW_GREATER | RULE_SKW_GREATEREQUAL | RULE_SKW_LEFTBRACE | RULE_SKW_LEFTBRACKET | RULE_SKW_LEFTPAREN | RULE_SKW_LEFTSHIFT | RULE_SKW_LESS | RULE_SKW_LESSEQUAL | RULE_SKW_MINUS | RULE_SKW_MINUSMINUS | RULE_SKW_MOD | RULE_SKW_NOT | RULE_SKW_NOTEQUAL | RULE_SKW_OR | RULE_SKW_OROR | RULE_SKW_PLUS | RULE_SKW_PLUSPLUS | RULE_SKW_QUESTION | RULE_SKW_RIGHTBRACE | RULE_SKW_RIGHTBRACKET | RULE_SKW_RIGHTPAREN | RULE_SKW_RIGHTSHIFT | RULE_SKW_SEMI | RULE_SKW_SINGLEQUOTE | RULE_SKW_STAR | RULE_SKW_TILDE | RULE_ID | RULE_CHAR_LITERAL | RULE_STRING_LITERAL | RULE_HEX_LITERAL | RULE_DECIMAL_LITERAL | RULE_OCTAL_LITERAL | RULE_BIN_LITERAL | RULE_FLOAT_LITERAL | RULE_NEWLINE | RULE_LINEBREAK | RULE_WHITESPACE | RULE_BLOCK_COMMENT | RULE_LINE_COMMENT | RULE_SPECIAL )
         int alt34=65;
         alt34 = dfa34.predict(input);
         switch (alt34) {
@@ -3160,28 +3160,28 @@ public class InternalPreprocessLexer extends Lexer {
                 }
                 break;
             case 62 :
-                // InternalPreprocess.g:1:958: RULE_WS
+                // InternalPreprocess.g:1:958: RULE_WHITESPACE
                 {
-                mRULE_WS(); 
+                mRULE_WHITESPACE(); 
 
                 }
                 break;
             case 63 :
-                // InternalPreprocess.g:1:966: RULE_BLOCK_COMMENT
+                // InternalPreprocess.g:1:974: RULE_BLOCK_COMMENT
                 {
                 mRULE_BLOCK_COMMENT(); 
 
                 }
                 break;
             case 64 :
-                // InternalPreprocess.g:1:985: RULE_LINE_COMMENT
+                // InternalPreprocess.g:1:993: RULE_LINE_COMMENT
                 {
                 mRULE_LINE_COMMENT(); 
 
                 }
                 break;
             case 65 :
-                // InternalPreprocess.g:1:1003: RULE_SPECIAL
+                // InternalPreprocess.g:1:1011: RULE_SPECIAL
                 {
                 mRULE_SPECIAL(); 
 
@@ -3453,7 +3453,7 @@ public class InternalPreprocessLexer extends Lexer {
             this.transition = DFA34_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( RULE_HASH | RULE_INCLUDE | RULE_DEFINE | RULE_ERROR | RULE_WARNING | RULE_UNDEF | RULE_IF | RULE_DEFINED | RULE_IFDEF | RULE_IFNOTDEF | RULE_ELIF | RULE_ELSE | RULE_ENDIF | RULE_PRAGMA | RULE_SKW_AND | RULE_SKW_ANDAND | RULE_SKW_ASSIGN | RULE_SKW_BACKSLASH | RULE_SKW_CARET | RULE_SKW_COMMA | RULE_SKW_COLON | RULE_SKW_DIV | RULE_SKW_DOT | RULE_SKW_DOUBLEQUOTE | RULE_SKW_EQUAL | RULE_SKW_GREATER | RULE_SKW_GREATEREQUAL | RULE_SKW_LEFTBRACE | RULE_SKW_LEFTBRACKET | RULE_SKW_LEFTPAREN | RULE_SKW_LEFTSHIFT | RULE_SKW_LESS | RULE_SKW_LESSEQUAL | RULE_SKW_MINUS | RULE_SKW_MINUSMINUS | RULE_SKW_MOD | RULE_SKW_NOT | RULE_SKW_NOTEQUAL | RULE_SKW_OR | RULE_SKW_OROR | RULE_SKW_PLUS | RULE_SKW_PLUSPLUS | RULE_SKW_QUESTION | RULE_SKW_RIGHTBRACE | RULE_SKW_RIGHTBRACKET | RULE_SKW_RIGHTPAREN | RULE_SKW_RIGHTSHIFT | RULE_SKW_SEMI | RULE_SKW_SINGLEQUOTE | RULE_SKW_STAR | RULE_SKW_TILDE | RULE_ID | RULE_CHAR_LITERAL | RULE_STRING_LITERAL | RULE_HEX_LITERAL | RULE_DECIMAL_LITERAL | RULE_OCTAL_LITERAL | RULE_BIN_LITERAL | RULE_FLOAT_LITERAL | RULE_NEWLINE | RULE_LINEBREAK | RULE_WS | RULE_BLOCK_COMMENT | RULE_LINE_COMMENT | RULE_SPECIAL );";
+            return "1:1: Tokens : ( RULE_HASH | RULE_INCLUDE | RULE_DEFINE | RULE_ERROR | RULE_WARNING | RULE_UNDEF | RULE_IF | RULE_DEFINED | RULE_IFDEF | RULE_IFNOTDEF | RULE_ELIF | RULE_ELSE | RULE_ENDIF | RULE_PRAGMA | RULE_SKW_AND | RULE_SKW_ANDAND | RULE_SKW_ASSIGN | RULE_SKW_BACKSLASH | RULE_SKW_CARET | RULE_SKW_COMMA | RULE_SKW_COLON | RULE_SKW_DIV | RULE_SKW_DOT | RULE_SKW_DOUBLEQUOTE | RULE_SKW_EQUAL | RULE_SKW_GREATER | RULE_SKW_GREATEREQUAL | RULE_SKW_LEFTBRACE | RULE_SKW_LEFTBRACKET | RULE_SKW_LEFTPAREN | RULE_SKW_LEFTSHIFT | RULE_SKW_LESS | RULE_SKW_LESSEQUAL | RULE_SKW_MINUS | RULE_SKW_MINUSMINUS | RULE_SKW_MOD | RULE_SKW_NOT | RULE_SKW_NOTEQUAL | RULE_SKW_OR | RULE_SKW_OROR | RULE_SKW_PLUS | RULE_SKW_PLUSPLUS | RULE_SKW_QUESTION | RULE_SKW_RIGHTBRACE | RULE_SKW_RIGHTBRACKET | RULE_SKW_RIGHTPAREN | RULE_SKW_RIGHTSHIFT | RULE_SKW_SEMI | RULE_SKW_SINGLEQUOTE | RULE_SKW_STAR | RULE_SKW_TILDE | RULE_ID | RULE_CHAR_LITERAL | RULE_STRING_LITERAL | RULE_HEX_LITERAL | RULE_DECIMAL_LITERAL | RULE_OCTAL_LITERAL | RULE_BIN_LITERAL | RULE_FLOAT_LITERAL | RULE_NEWLINE | RULE_LINEBREAK | RULE_WHITESPACE | RULE_BLOCK_COMMENT | RULE_LINE_COMMENT | RULE_SPECIAL );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;

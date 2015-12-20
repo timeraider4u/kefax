@@ -102,7 +102,7 @@ public class Test0003_Error {
 			final String[] expected = new String[] {
 				"RULE_HASH", 
 				"RULE_ERROR", 
-				"RULE_WS", 
+				"RULE_WHITESPACE", 
 				"RULE_STRING_LITERAL", 
 				"RULE_NEWLINE", 
 				};

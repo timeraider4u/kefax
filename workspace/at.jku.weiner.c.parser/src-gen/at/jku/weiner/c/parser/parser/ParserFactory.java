@@ -437,15 +437,6 @@ public interface ParserFactory extends EFactory
   ArgumentExpressionList createArgumentExpressionList();
 
   /**
-   * Returns a new object of class '<em>Constant</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Constant</em>'.
-   * @generated
-   */
-  Constant createConstant();
-
-  /**
    * Returns a new object of class '<em>Struct Or Union Specifier</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

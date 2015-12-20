@@ -2,6 +2,7 @@
 //----------------------------------------------------------------------
 package at.jku.weiner.c.parser
 language parser
+imports at.jku.weiner.c.common.common
 //----------------------------------------------------------------------
 source file="res/Test0020_Goto.c"
 //----------------------------------------------------------------------
@@ -134,7 +135,7 @@ SKW_RIGHTBRACE NEWLINE
 																																									expr+=
 																																									(PrimaryExpression
 																																										const=
-																																										(Constant
+																																										(common::Constant2
 																																											str++"\\\"will never be reached\\\\n\\\""
 																																										)
 																																									)
@@ -256,7 +257,7 @@ SKW_RIGHTBRACE NEWLINE
 																																											expr+=
 																																											(PrimaryExpression
 																																												const=
-																																												(Constant
+																																												(common::Constant2
 																																													str++"\\\"reached target\\\\n\\\""
 																																												)
 																																											)

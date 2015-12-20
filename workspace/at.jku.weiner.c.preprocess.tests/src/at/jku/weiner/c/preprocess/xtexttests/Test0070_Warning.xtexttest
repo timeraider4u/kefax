@@ -8,7 +8,7 @@ split-lexer=false
 source file="res/Test0070_Warning.h"
 //----------------------------------------------------------------------
 lexer-tokens
-	HASH WARNING WS STRING_LITERAL NEWLINE
+	HASH WARNING WHITESPACE STRING_LITERAL NEWLINE
 //----------------------------------------------------------------------
 (Model
 	units+=

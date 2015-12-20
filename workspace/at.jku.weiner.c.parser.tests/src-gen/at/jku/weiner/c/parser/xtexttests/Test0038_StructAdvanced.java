@@ -83,7 +83,7 @@ import at.jku.weiner.c.parser.parser.CastExpression;
 import at.jku.weiner.c.parser.parser.UnaryExpression;
 import at.jku.weiner.c.parser.parser.PostfixExpression;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
-import at.jku.weiner.c.parser.parser.Constant;
+import at.jku.weiner.c.common.common.Constant2;
 import at.jku.weiner.c.parser.parser.InitDeclaratorList;
 import at.jku.weiner.c.parser.parser.InitDeclarator;
 import at.jku.weiner.c.parser.parser.Declarator;
@@ -116,7 +116,7 @@ import at.jku.weiner.c.parser.parser.CastExpression;
 import at.jku.weiner.c.parser.parser.UnaryExpression;
 import at.jku.weiner.c.parser.parser.PostfixExpression;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
-import at.jku.weiner.c.parser.parser.Constant;
+import at.jku.weiner.c.common.common.Constant2;
 import at.jku.weiner.c.parser.parser.Initializer;
 import at.jku.weiner.c.parser.parser.AssignmentExpression;
 import at.jku.weiner.c.parser.parser.ConditionalExpression;
@@ -134,7 +134,7 @@ import at.jku.weiner.c.parser.parser.CastExpression;
 import at.jku.weiner.c.parser.parser.UnaryExpression;
 import at.jku.weiner.c.parser.parser.PostfixExpression;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
-import at.jku.weiner.c.parser.parser.Constant;
+import at.jku.weiner.c.common.common.Constant2;
 import at.jku.weiner.c.parser.parser.ExternalDeclaration;
 import at.jku.weiner.c.parser.parser.Declaration;
 import at.jku.weiner.c.parser.parser.DeclarationSpecifiers;
@@ -163,7 +163,7 @@ import at.jku.weiner.c.parser.parser.CastExpression;
 import at.jku.weiner.c.parser.parser.UnaryExpression;
 import at.jku.weiner.c.parser.parser.PostfixExpression;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
-import at.jku.weiner.c.parser.parser.Constant;
+import at.jku.weiner.c.common.common.Constant2;
 import at.jku.weiner.c.parser.parser.Initializer;
 import at.jku.weiner.c.parser.parser.AssignmentExpression;
 import at.jku.weiner.c.parser.parser.ConditionalExpression;
@@ -181,7 +181,7 @@ import at.jku.weiner.c.parser.parser.CastExpression;
 import at.jku.weiner.c.parser.parser.UnaryExpression;
 import at.jku.weiner.c.parser.parser.PostfixExpression;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
-import at.jku.weiner.c.parser.parser.Constant;
+import at.jku.weiner.c.common.common.Constant2;
 import at.jku.weiner.c.parser.parser.ExternalDeclaration;
 import at.jku.weiner.c.parser.parser.FunctionDefHead;
 import at.jku.weiner.c.parser.parser.FunctionDeclarationSpecifiers;
@@ -239,7 +239,7 @@ import at.jku.weiner.c.parser.parser.CastExpression;
 import at.jku.weiner.c.parser.parser.UnaryExpression;
 import at.jku.weiner.c.parser.parser.PostfixExpression;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
-import at.jku.weiner.c.parser.parser.Constant;
+import at.jku.weiner.c.common.common.Constant2;
 import at.jku.weiner.c.parser.parser.AssignmentExpression;
 import at.jku.weiner.c.parser.parser.ConditionalExpression;
 import at.jku.weiner.c.parser.parser.LogicalOrExpression;
@@ -314,7 +314,7 @@ import at.jku.weiner.c.parser.parser.CastExpression;
 import at.jku.weiner.c.parser.parser.UnaryExpression;
 import at.jku.weiner.c.parser.parser.PostfixExpression;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
-import at.jku.weiner.c.parser.parser.Constant;
+import at.jku.weiner.c.common.common.Constant2;
 import at.jku.weiner.c.parser.parser.AssignmentExpression;
 import at.jku.weiner.c.parser.parser.ConditionalExpression;
 import at.jku.weiner.c.parser.parser.LogicalOrExpression;
@@ -462,7 +462,7 @@ import at.jku.weiner.c.parser.parser.CastExpression;
 import at.jku.weiner.c.parser.parser.UnaryExpression;
 import at.jku.weiner.c.parser.parser.PostfixExpression;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
-import at.jku.weiner.c.parser.parser.Constant;
+import at.jku.weiner.c.common.common.Constant2;
 import at.jku.weiner.c.parser.parser.Statement;
 import at.jku.weiner.c.parser.parser.JumpStatement;
 import at.jku.weiner.c.parser.parser.Expression;
@@ -485,7 +485,7 @@ import at.jku.weiner.c.parser.parser.CastExpression;
 import at.jku.weiner.c.parser.parser.UnaryExpression;
 import at.jku.weiner.c.parser.parser.PostfixExpression;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
-import at.jku.weiner.c.parser.parser.Constant;
+import at.jku.weiner.c.common.common.Constant2;
 import at.jku.weiner.c.parser.parser.Statement;
 import at.jku.weiner.c.parser.parser.ExpressionStatement;
 import at.jku.weiner.c.parser.parser.Expression;
@@ -591,7 +591,7 @@ import at.jku.weiner.c.parser.parser.CastExpression;
 import at.jku.weiner.c.parser.parser.UnaryExpression;
 import at.jku.weiner.c.parser.parser.PostfixExpression;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
-import at.jku.weiner.c.parser.parser.Constant;
+import at.jku.weiner.c.common.common.Constant2;
 import at.jku.weiner.c.parser.parser.Statement;
 import at.jku.weiner.c.parser.parser.ExpressionStatement;
 import at.jku.weiner.c.parser.parser.Expression;
@@ -646,7 +646,7 @@ import at.jku.weiner.c.parser.parser.CastExpression;
 import at.jku.weiner.c.parser.parser.UnaryExpression;
 import at.jku.weiner.c.parser.parser.PostfixExpression;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
-import at.jku.weiner.c.parser.parser.Constant;
+import at.jku.weiner.c.common.common.Constant2;
 import at.jku.weiner.c.parser.parser.Statement;
 import at.jku.weiner.c.parser.parser.ExpressionStatement;
 import at.jku.weiner.c.parser.parser.Expression;
@@ -740,7 +740,7 @@ import at.jku.weiner.c.parser.parser.CastExpression;
 import at.jku.weiner.c.parser.parser.UnaryExpression;
 import at.jku.weiner.c.parser.parser.PostfixExpression;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
-import at.jku.weiner.c.parser.parser.Constant;
+import at.jku.weiner.c.common.common.Constant2;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(ParserInjectorProvider.class)
@@ -1346,12 +1346,12 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(PrimaryExpression_39_Var
 		);
 		//39
-		final Constant Constant_40_Var
-		 = (Constant)PrimaryExpression_39_Var
+		final Constant2 Constant2_40_Var
+		 = (Constant2)PrimaryExpression_39_Var
 		.getConst();
-		Assert.assertNotNull(Constant_40_Var
+		Assert.assertNotNull(Constant2_40_Var
 		);
-		Assert.assertEquals("250", Constant_40_Var
+		Assert.assertEquals("250", Constant2_40_Var
 		.getDec());
 		final EList<? extends EObject> InitDeclaratorList_40_list = Declaration_3_Var
 		.getInitDeclaratorList();
@@ -1604,12 +1604,12 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(PrimaryExpression_72_Var
 		);
 		//72
-		final Constant Constant_73_Var
-		 = (Constant)PrimaryExpression_72_Var
+		final Constant2 Constant2_73_Var
+		 = (Constant2)PrimaryExpression_72_Var
 		.getConst();
-		Assert.assertNotNull(Constant_73_Var
+		Assert.assertNotNull(Constant2_73_Var
 		);
-		Assert.assertEquals("0x007", Constant_73_Var
+		Assert.assertEquals("0x007", Constant2_73_Var
 		.getHex());
 		//73
 		final Initializer Initializer_74_Var
@@ -1746,12 +1746,12 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(PrimaryExpression_90_Var
 		);
 		//90
-		final Constant Constant_91_Var
-		 = (Constant)PrimaryExpression_90_Var
+		final Constant2 Constant2_91_Var
+		 = (Constant2)PrimaryExpression_90_Var
 		.getConst();
-		Assert.assertNotNull(Constant_91_Var
+		Assert.assertNotNull(Constant2_91_Var
 		);
-		Assert.assertEquals("\"Joe Nobody\"", Constant_91_Var
+		Assert.assertEquals("\"Joe Nobody\"", Constant2_91_Var
 		.getStr());
 		//91
 		final ExternalDeclaration ExternalDeclaration_92_Var
@@ -1970,12 +1970,12 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(PrimaryExpression_119_Var
 		);
 		//119
-		final Constant Constant_120_Var
-		 = (Constant)PrimaryExpression_119_Var
+		final Constant2 Constant2_120_Var
+		 = (Constant2)PrimaryExpression_119_Var
 		.getConst();
-		Assert.assertNotNull(Constant_120_Var
+		Assert.assertNotNull(Constant2_120_Var
 		);
-		Assert.assertEquals("0x008", Constant_120_Var
+		Assert.assertEquals("0x008", Constant2_120_Var
 		.getHex());
 		//120
 		final Initializer Initializer_121_Var
@@ -2112,12 +2112,12 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(PrimaryExpression_137_Var
 		);
 		//137
-		final Constant Constant_138_Var
-		 = (Constant)PrimaryExpression_137_Var
+		final Constant2 Constant2_138_Var
+		 = (Constant2)PrimaryExpression_137_Var
 		.getConst();
-		Assert.assertNotNull(Constant_138_Var
+		Assert.assertNotNull(Constant2_138_Var
 		);
-		Assert.assertEquals("\"Phil Morrison\"", Constant_138_Var
+		Assert.assertEquals("\"Phil Morrison\"", Constant2_138_Var
 		.getStr());
 		//138
 		final ExternalDeclaration ExternalDeclaration_139_Var
@@ -2569,12 +2569,12 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(PrimaryExpression_195_Var
 		);
 		//195
-		final Constant Constant_196_Var
-		 = (Constant)PrimaryExpression_195_Var
+		final Constant2 Constant2_196_Var
+		 = (Constant2)PrimaryExpression_195_Var
 		.getConst();
-		Assert.assertNotNull(Constant_196_Var
+		Assert.assertNotNull(Constant2_196_Var
 		);
-		Assert.assertEquals("\"(*employee).id=%d\\n\"", Constant_196_Var
+		Assert.assertEquals("\"(*employee).id=%d\\n\"", Constant2_196_Var
 		.getStr());
 		//196
 		final AssignmentExpression AssignmentExpression_197_Var
@@ -3176,12 +3176,12 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(PrimaryExpression_270_Var
 		);
 		//270
-		final Constant Constant_271_Var
-		 = (Constant)PrimaryExpression_270_Var
+		final Constant2 Constant2_271_Var
+		 = (Constant2)PrimaryExpression_270_Var
 		.getConst();
-		Assert.assertNotNull(Constant_271_Var
+		Assert.assertNotNull(Constant2_271_Var
 		);
-		Assert.assertEquals("\"employee->name=%s\\n\"", Constant_271_Var
+		Assert.assertEquals("\"employee->name=%s\\n\"", Constant2_271_Var
 		.getStr());
 		//271
 		final AssignmentExpression AssignmentExpression_272_Var
@@ -4370,12 +4370,12 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(PrimaryExpression_418_Var
 		);
 		//418
-		final Constant Constant_419_Var
-		 = (Constant)PrimaryExpression_418_Var
+		final Constant2 Constant2_419_Var
+		 = (Constant2)PrimaryExpression_418_Var
 		.getConst();
-		Assert.assertNotNull(Constant_419_Var
+		Assert.assertNotNull(Constant2_419_Var
 		);
-		Assert.assertEquals("\"Could not reserve space for new employee!\\n\"", Constant_419_Var
+		Assert.assertEquals("\"Could not reserve space for new employee!\\n\"", Constant2_419_Var
 		.getStr());
 		Assert.assertEquals(";", ExpressionStatement_383_Var
 		.getSemi());
@@ -4549,12 +4549,12 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(PrimaryExpression_441_Var
 		);
 		//441
-		final Constant Constant_442_Var
-		 = (Constant)PrimaryExpression_441_Var
+		final Constant2 Constant2_442_Var
+		 = (Constant2)PrimaryExpression_441_Var
 		.getConst();
-		Assert.assertNotNull(Constant_442_Var
+		Assert.assertNotNull(Constant2_442_Var
 		);
-		Assert.assertEquals("1", Constant_442_Var
+		Assert.assertEquals("1", Constant2_442_Var
 		.getDec());
 		Assert.assertEquals("return", JumpStatement_421_Var
 		.getReturn());
@@ -5402,12 +5402,12 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(PrimaryExpression_547_Var
 		);
 		//547
-		final Constant Constant_548_Var
-		 = (Constant)PrimaryExpression_547_Var
+		final Constant2 Constant2_548_Var
+		 = (Constant2)PrimaryExpression_547_Var
 		.getConst();
-		Assert.assertNotNull(Constant_548_Var
+		Assert.assertNotNull(Constant2_548_Var
 		);
-		Assert.assertEquals("0x009", Constant_548_Var
+		Assert.assertEquals("0x009", Constant2_548_Var
 		.getHex());
 		Assert.assertEquals(";", ExpressionStatement_524_Var
 		.getSemi());
@@ -5851,12 +5851,12 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(PrimaryExpression_602_Var
 		);
 		//602
-		final Constant Constant_603_Var
-		 = (Constant)PrimaryExpression_602_Var
+		final Constant2 Constant2_603_Var
+		 = (Constant2)PrimaryExpression_602_Var
 		.getConst();
-		Assert.assertNotNull(Constant_603_Var
+		Assert.assertNotNull(Constant2_603_Var
 		);
-		Assert.assertEquals("\"Billy The Kid\"", Constant_603_Var
+		Assert.assertEquals("\"Billy The Kid\"", Constant2_603_Var
 		.getStr());
 		Assert.assertEquals(";", ExpressionStatement_550_Var
 		.getSemi());
@@ -6614,12 +6614,12 @@ public class Test0038_StructAdvanced {
 		Assert.assertNotNull(PrimaryExpression_696_Var
 		);
 		//696
-		final Constant Constant_697_Var
-		 = (Constant)PrimaryExpression_696_Var
+		final Constant2 Constant2_697_Var
+		 = (Constant2)PrimaryExpression_696_Var
 		.getConst();
-		Assert.assertNotNull(Constant_697_Var
+		Assert.assertNotNull(Constant2_697_Var
 		);
-		Assert.assertEquals("0", Constant_697_Var
+		Assert.assertEquals("0", Constant2_697_Var
 		.getDec());
 		Assert.assertEquals("return", JumpStatement_679_Var
 		.getReturn());

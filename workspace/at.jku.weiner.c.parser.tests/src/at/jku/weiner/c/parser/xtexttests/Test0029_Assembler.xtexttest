@@ -2,6 +2,7 @@
 //----------------------------------------------------------------------
 package at.jku.weiner.c.parser
 language parser
+imports at.jku.weiner.c.common.common
 //----------------------------------------------------------------------
 source file="res/Test0029_Assembler.c"
 //----------------------------------------------------------------------
@@ -233,7 +234,7 @@ SKW_RIGHTBRACE NEWLINE
 																						expr+=
 																						(PrimaryExpression
 																							const=
-																							(Constant
+																							(common::Constant2
 																								str++"\\\"int $0x80\\\""
 																							)
 																						)
@@ -282,7 +283,7 @@ SKW_RIGHTBRACE NEWLINE
 																						expr+=
 																						(PrimaryExpression
 																							const=
-																							(Constant
+																							(common::Constant2
 																								str++"\\\"=a\\\""
 																							)
 																						),
@@ -386,7 +387,7 @@ SKW_RIGHTBRACE NEWLINE
 																						expr+=
 																						(PrimaryExpression
 																							const=
-																							(Constant
+																							(common::Constant2
 																								str++"\\\"+b\\\""
 																							)
 																						),
@@ -490,7 +491,7 @@ SKW_RIGHTBRACE NEWLINE
 																						expr+=
 																						(PrimaryExpression
 																							const=
-																							(Constant
+																							(common::Constant2
 																								str++"\\\"+c\\\""
 																							)
 																						),
@@ -594,7 +595,7 @@ SKW_RIGHTBRACE NEWLINE
 																						expr+=
 																						(PrimaryExpression
 																							const=
-																							(Constant
+																							(common::Constant2
 																								str++"\\\"+d\\\""
 																							)
 																						),
@@ -698,7 +699,7 @@ SKW_RIGHTBRACE NEWLINE
 																						expr+=
 																						(PrimaryExpression
 																							const=
-																							(Constant
+																							(common::Constant2
 																								str++"\\\"a\\\""
 																							)
 																						),
@@ -739,7 +740,7 @@ SKW_RIGHTBRACE NEWLINE
 																																							expr+=
 																																							(PrimaryExpression
 																																								const=
-																																								(Constant
+																																								(common::Constant2
 																																									dec++"128"
 																																								)
 																																							)
@@ -805,7 +806,7 @@ SKW_RIGHTBRACE NEWLINE
 																						expr+=
 																						(PrimaryExpression
 																							const=
-																							(Constant
+																							(common::Constant2
 																								str++"\\\"memory\\\""
 																							)
 																						)
@@ -854,7 +855,7 @@ SKW_RIGHTBRACE NEWLINE
 																						expr+=
 																						(PrimaryExpression
 																							const=
-																							(Constant
+																							(common::Constant2
 																								str++"\\\"cc\\\""
 																							)
 																						)
@@ -921,7 +922,7 @@ SKW_RIGHTBRACE NEWLINE
 																										expr+=
 																										(PrimaryExpression
 																											const=
-																											(Constant
+																											(common::Constant2
 																												dec++"125"
 																											)
 																										)
@@ -1010,7 +1011,7 @@ SKW_RIGHTBRACE NEWLINE
 																								expr+=
 																								(PrimaryExpression
 																									const=
-																									(Constant
+																									(common::Constant2
 																										dec++"0"
 																									)
 																								)
@@ -1190,7 +1191,7 @@ SKW_RIGHTBRACE NEWLINE
 																																	expr+=
 																																	(PrimaryExpression
 																																		const=
-																																		(Constant
+																																		(common::Constant2
 																																			dec++"1"
 																																		)
 																																	)

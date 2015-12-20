@@ -122,7 +122,7 @@ import at.jku.weiner.c.parser.parser.CastExpression;
 import at.jku.weiner.c.parser.parser.UnaryExpression;
 import at.jku.weiner.c.parser.parser.PostfixExpression;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
-import at.jku.weiner.c.parser.parser.Constant;
+import at.jku.weiner.c.common.common.Constant2;
 import at.jku.weiner.c.parser.parser.AssignmentOperator;
 import at.jku.weiner.c.parser.parser.AssignmentExpression;
 import at.jku.weiner.c.parser.parser.ConditionalExpression;
@@ -163,7 +163,7 @@ import at.jku.weiner.c.parser.parser.CastExpression;
 import at.jku.weiner.c.parser.parser.UnaryExpression;
 import at.jku.weiner.c.parser.parser.PostfixExpression;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
-import at.jku.weiner.c.parser.parser.Constant;
+import at.jku.weiner.c.common.common.Constant2;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(ParserInjectorProvider.class)
@@ -894,12 +894,12 @@ public class Test0018_PointerInFunctionDef {
 		Assert.assertNotNull(PrimaryExpression_78_Var
 		);
 		//78
-		final Constant Constant_79_Var
-		 = (Constant)PrimaryExpression_78_Var
+		final Constant2 Constant2_79_Var
+		 = (Constant2)PrimaryExpression_78_Var
 		.getConst();
-		Assert.assertNotNull(Constant_79_Var
+		Assert.assertNotNull(Constant2_79_Var
 		);
-		Assert.assertEquals("9", Constant_79_Var
+		Assert.assertEquals("9", Constant2_79_Var
 		.getDec());
 		//79
 		final AssignmentOperator AssignmentOperator_80_Var
@@ -1225,12 +1225,12 @@ public class Test0018_PointerInFunctionDef {
 		Assert.assertNotNull(PrimaryExpression_119_Var
 		);
 		//119
-		final Constant Constant_120_Var
-		 = (Constant)PrimaryExpression_119_Var
+		final Constant2 Constant2_120_Var
+		 = (Constant2)PrimaryExpression_119_Var
 		.getConst();
-		Assert.assertNotNull(Constant_120_Var
+		Assert.assertNotNull(Constant2_120_Var
 		);
-		Assert.assertEquals("0b011", Constant_120_Var
+		Assert.assertEquals("0b011", Constant2_120_Var
 		.getBin());
 		Assert.assertEquals("[+]", AdditiveExpression_91_Var
 		.getOp().toString());

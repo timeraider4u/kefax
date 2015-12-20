@@ -8,9 +8,9 @@ split-lexer=false
 source file="res/Test0039_IfDefSimple.c"
 //----------------------------------------------------------------------
 lexer-tokens
-	HASH IFDEF WS ID NEWLINE
-		WS HASH DEFINE WS ID WS ID NEWLINE
-		WS ID WS ID WS SKW_ASSIGN WS DECIMAL_LITERAL SKW_SEMI NEWLINE
+	HASH IFDEF WHITESPACE ID NEWLINE
+		WHITESPACE HASH DEFINE WHITESPACE ID WHITESPACE ID NEWLINE
+		WHITESPACE ID WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE DECIMAL_LITERAL SKW_SEMI NEWLINE
 	HASH ENDIF NEWLINE
 	ID NEWLINE
 //----------------------------------------------------------------------

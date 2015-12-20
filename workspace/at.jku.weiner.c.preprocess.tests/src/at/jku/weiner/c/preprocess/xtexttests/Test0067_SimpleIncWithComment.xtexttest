@@ -8,8 +8,8 @@ split-lexer=false
 source file="res/Test0067_SimpleIncWithComment.c"
 //----------------------------------------------------------------------
 lexer-tokens
-	HASH INCLUDE WS STRING_LITERAL WS BLOCK_COMMENT NEWLINE
-	HASH INCLUDE WS STRING_LITERAL LINE_COMMENT NEWLINE
+	HASH INCLUDE WHITESPACE STRING_LITERAL WHITESPACE BLOCK_COMMENT NEWLINE
+	HASH INCLUDE WHITESPACE STRING_LITERAL LINE_COMMENT NEWLINE
 //----------------------------------------------------------------------
 (Model
 	units+=

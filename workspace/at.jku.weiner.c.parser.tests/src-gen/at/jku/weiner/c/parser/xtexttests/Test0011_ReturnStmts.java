@@ -73,7 +73,7 @@ import at.jku.weiner.c.parser.parser.CastExpression;
 import at.jku.weiner.c.parser.parser.UnaryExpression;
 import at.jku.weiner.c.parser.parser.PostfixExpression;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
-import at.jku.weiner.c.parser.parser.Constant;
+import at.jku.weiner.c.common.common.Constant2;
 import at.jku.weiner.c.parser.parser.ExternalDeclaration;
 import at.jku.weiner.c.parser.parser.FunctionDefHead;
 import at.jku.weiner.c.parser.parser.FunctionDeclarationSpecifiers;
@@ -104,7 +104,7 @@ import at.jku.weiner.c.parser.parser.CastExpression;
 import at.jku.weiner.c.parser.parser.UnaryExpression;
 import at.jku.weiner.c.parser.parser.PostfixExpression;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
-import at.jku.weiner.c.parser.parser.Constant;
+import at.jku.weiner.c.common.common.Constant2;
 import at.jku.weiner.c.parser.parser.UnaryOperator;
 import at.jku.weiner.c.parser.parser.ExternalDeclaration;
 import at.jku.weiner.c.parser.parser.FunctionDefHead;
@@ -134,7 +134,7 @@ import at.jku.weiner.c.parser.parser.CastExpression;
 import at.jku.weiner.c.parser.parser.UnaryExpression;
 import at.jku.weiner.c.parser.parser.PostfixExpression;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
-import at.jku.weiner.c.parser.parser.Constant;
+import at.jku.weiner.c.common.common.Constant2;
 import at.jku.weiner.c.parser.parser.ExternalDeclaration;
 import at.jku.weiner.c.parser.parser.FunctionDefHead;
 import at.jku.weiner.c.parser.parser.FunctionDeclarationSpecifiers;
@@ -163,7 +163,7 @@ import at.jku.weiner.c.parser.parser.CastExpression;
 import at.jku.weiner.c.parser.parser.UnaryExpression;
 import at.jku.weiner.c.parser.parser.PostfixExpression;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
-import at.jku.weiner.c.parser.parser.Constant;
+import at.jku.weiner.c.common.common.Constant2;
 import at.jku.weiner.c.parser.parser.ExternalDeclaration;
 import at.jku.weiner.c.parser.parser.FunctionDefHead;
 import at.jku.weiner.c.parser.parser.FunctionDeclarationSpecifiers;
@@ -558,12 +558,12 @@ public class Test0011_ReturnStmts {
 		Assert.assertNotNull(PrimaryExpression_29_Var
 		);
 		//29
-		final Constant Constant_30_Var
-		 = (Constant)PrimaryExpression_29_Var
+		final Constant2 Constant2_30_Var
+		 = (Constant2)PrimaryExpression_29_Var
 		.getConst();
-		Assert.assertNotNull(Constant_30_Var
+		Assert.assertNotNull(Constant2_30_Var
 		);
-		Assert.assertEquals("'a'", Constant_30_Var
+		Assert.assertEquals("'a'", Constant2_30_Var
 		.getCh());
 		Assert.assertEquals("return", JumpStatement_12_Var
 		.getReturn());
@@ -798,12 +798,12 @@ public class Test0011_ReturnStmts {
 		Assert.assertNotNull(PrimaryExpression_60_Var
 		);
 		//60
-		final Constant Constant_61_Var
-		 = (Constant)PrimaryExpression_60_Var
+		final Constant2 Constant2_61_Var
+		 = (Constant2)PrimaryExpression_60_Var
 		.getConst();
-		Assert.assertNotNull(Constant_61_Var
+		Assert.assertNotNull(Constant2_61_Var
 		);
-		Assert.assertEquals("1", Constant_61_Var
+		Assert.assertEquals("1", Constant2_61_Var
 		.getDec());
 		//61
 		final UnaryOperator UnaryOperator_62_Var
@@ -1034,12 +1034,12 @@ public class Test0011_ReturnStmts {
 		Assert.assertNotNull(PrimaryExpression_90_Var
 		);
 		//90
-		final Constant Constant_91_Var
-		 = (Constant)PrimaryExpression_90_Var
+		final Constant2 Constant2_91_Var
+		 = (Constant2)PrimaryExpression_90_Var
 		.getConst();
-		Assert.assertNotNull(Constant_91_Var
+		Assert.assertNotNull(Constant2_91_Var
 		);
-		Assert.assertEquals("0.8", Constant_91_Var
+		Assert.assertEquals("0.8", Constant2_91_Var
 		.getFloat());
 		Assert.assertEquals("return", JumpStatement_73_Var
 		.getReturn());
@@ -1262,12 +1262,12 @@ public class Test0011_ReturnStmts {
 		Assert.assertNotNull(PrimaryExpression_119_Var
 		);
 		//119
-		final Constant Constant_120_Var
-		 = (Constant)PrimaryExpression_119_Var
+		final Constant2 Constant2_120_Var
+		 = (Constant2)PrimaryExpression_119_Var
 		.getConst();
-		Assert.assertNotNull(Constant_120_Var
+		Assert.assertNotNull(Constant2_120_Var
 		);
-		Assert.assertEquals("0x01A", Constant_120_Var
+		Assert.assertEquals("0x01A", Constant2_120_Var
 		.getHex());
 		Assert.assertEquals("return", JumpStatement_102_Var
 		.getReturn());

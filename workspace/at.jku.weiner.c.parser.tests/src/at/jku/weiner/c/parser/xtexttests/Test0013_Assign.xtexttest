@@ -2,6 +2,7 @@
 //----------------------------------------------------------------------
 package at.jku.weiner.c.parser
 language parser
+imports at.jku.weiner.c.common.common
 //----------------------------------------------------------------------
 source file="res/Test0013_Assign.c"
 //----------------------------------------------------------------------
@@ -68,7 +69,7 @@ SKW_SEMI NEWLINE
 																						expr+=
 																						(PrimaryExpression
 																							const=
-																							(Constant
+																							(common::Constant2
 																								dec++"0"
 																							)
 																						)

@@ -8,7 +8,7 @@ split-lexer=false
 source file="res/Test0037_Concatenation.c"
 //----------------------------------------------------------------------
 lexer-tokens
-	HASH DEFINE WS ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WS ID WS HASH HASH WS ID NEWLINE
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WHITESPACE ID WHITESPACE HASH HASH WHITESPACE ID NEWLINE
 	ID SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
 //----------------------------------------------------------------------
 (Model

@@ -8,7 +8,7 @@ split-lexer=false
 source file="res/Test0007_SymbolInInclude.h"
 //----------------------------------------------------------------------
 lexer-tokens
-	HASH INCLUDE WS ID NEWLINE
+	HASH INCLUDE WHITESPACE ID NEWLINE
 //----------------------------------------------------------------------
 (Model
 	units+=

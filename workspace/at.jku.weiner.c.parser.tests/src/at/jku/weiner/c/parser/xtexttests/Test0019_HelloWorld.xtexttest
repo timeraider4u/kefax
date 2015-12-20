@@ -2,6 +2,7 @@
 //----------------------------------------------------------------------
 package at.jku.weiner.c.parser
 language parser
+imports at.jku.weiner.c.common.common
 //----------------------------------------------------------------------
 source file="res/Test0019_HelloWorld.c"
 //----------------------------------------------------------------------
@@ -169,7 +170,7 @@ SKW_RIGHTBRACE NEWLINE
 																																									expr+=
 																																									(PrimaryExpression
 																																										const=
-																																										(Constant
+																																										(common::Constant2
 																																											str++"\\\"%s\\\\n\\\""
 																																										)
 																																									)
@@ -220,7 +221,7 @@ SKW_RIGHTBRACE NEWLINE
 																																									expr+=
 																																									(PrimaryExpression
 																																										const=
-																																										(Constant
+																																										(common::Constant2
 																																											str++"\\\"Hello World!\\\""
 																																										)
 																																									)
@@ -299,7 +300,7 @@ SKW_RIGHTBRACE NEWLINE
 																								expr+=
 																								(PrimaryExpression
 																									const=
-																									(Constant
+																									(common::Constant2
 																										dec++"0"
 																									)
 																								)

@@ -87,7 +87,7 @@ import at.jku.weiner.c.parser.parser.CastExpression;
 import at.jku.weiner.c.parser.parser.UnaryExpression;
 import at.jku.weiner.c.parser.parser.PostfixExpression;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
-import at.jku.weiner.c.parser.parser.Constant;
+import at.jku.weiner.c.common.common.Constant2;
 import at.jku.weiner.c.parser.parser.Expression;
 import at.jku.weiner.c.parser.parser.AssignmentExpression;
 import at.jku.weiner.c.parser.parser.ConditionalExpression;
@@ -112,7 +112,7 @@ import at.jku.weiner.c.parser.parser.CastExpression;
 import at.jku.weiner.c.parser.parser.UnaryExpression;
 import at.jku.weiner.c.parser.parser.PostfixExpression;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
-import at.jku.weiner.c.parser.parser.Constant;
+import at.jku.weiner.c.common.common.Constant2;
 import at.jku.weiner.c.parser.parser.Expression;
 import at.jku.weiner.c.parser.parser.AssignmentExpression;
 import at.jku.weiner.c.parser.parser.ConditionalExpression;
@@ -613,12 +613,12 @@ public class Test0027_For {
 		Assert.assertNotNull(PrimaryExpression_43_Var
 		);
 		//43
-		final Constant Constant_44_Var
-		 = (Constant)PrimaryExpression_43_Var
+		final Constant2 Constant2_44_Var
+		 = (Constant2)PrimaryExpression_43_Var
 		.getConst();
-		Assert.assertNotNull(Constant_44_Var
+		Assert.assertNotNull(Constant2_44_Var
 		);
-		Assert.assertEquals("0", Constant_44_Var
+		Assert.assertEquals("0", Constant2_44_Var
 		.getDec());
 		//44
 		final Expression Expression_45_Var
@@ -816,12 +816,12 @@ public class Test0027_For {
 		Assert.assertNotNull(PrimaryExpression_68_Var
 		);
 		//68
-		final Constant Constant_69_Var
-		 = (Constant)PrimaryExpression_68_Var
+		final Constant2 Constant2_69_Var
+		 = (Constant2)PrimaryExpression_68_Var
 		.getConst();
-		Assert.assertNotNull(Constant_69_Var
+		Assert.assertNotNull(Constant2_69_Var
 		);
-		Assert.assertEquals("5", Constant_69_Var
+		Assert.assertEquals("5", Constant2_69_Var
 		.getDec());
 		//69
 		final Expression Expression_70_Var

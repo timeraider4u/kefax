@@ -2,6 +2,8 @@
  */
 package at.jku.weiner.c.parser.parser;
 
+import at.jku.weiner.c.common.common.CommonPackage;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -1467,13 +1469,22 @@ public interface ParserPackage extends EPackage
   int EXPRESSION = 41;
 
   /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION__EXPRESSION = CommonPackage.EXPRESSION__EXPRESSION;
+
+  /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRESSION__EXPR_EXPR = 0;
+  int EXPRESSION__EXPR_EXPR = CommonPackage.EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Expression</em>' class.
@@ -1482,7 +1493,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION_FEATURE_COUNT = 1;
+  int EXPRESSION_FEATURE_COUNT = CommonPackage.EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.AssignmentOperatorImpl <em>Assignment Operator</em>}' class.
@@ -1529,7 +1540,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int UNARY_OPERATOR__OP = 0;
+  int UNARY_OPERATOR__OP = CommonPackage.UNARY_OPERATOR__OP;
 
   /**
    * The number of structural features of the '<em>Unary Operator</em>' class.
@@ -1538,7 +1549,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int UNARY_OPERATOR_FEATURE_COUNT = 1;
+  int UNARY_OPERATOR_FEATURE_COUNT = CommonPackage.UNARY_OPERATOR_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.PostfixExpressionSuffixImpl <em>Postfix Expression Suffix</em>}' class.
@@ -1557,7 +1568,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int POSTFIX_EXPRESSION_SUFFIX_FEATURE_COUNT = 0;
+  int POSTFIX_EXPRESSION_SUFFIX_FEATURE_COUNT = CommonPackage.POSTFIX_EXPRESSION_SUFFIX_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.ArgumentExpressionListImpl <em>Argument Expression List</em>}' class.
@@ -1576,7 +1587,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ARGUMENT_EXPRESSION_LIST__EXPR = 0;
+  int ARGUMENT_EXPRESSION_LIST__EXPR = CommonPackage.ARGUMENT_EXPRESSION_LIST__EXPR;
 
   /**
    * The number of structural features of the '<em>Argument Expression List</em>' class.
@@ -1585,89 +1596,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ARGUMENT_EXPRESSION_LIST_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.ConstantImpl <em>Constant</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see at.jku.weiner.c.parser.parser.impl.ConstantImpl
-   * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getConstant()
-   * @generated
-   */
-  int CONSTANT = 46;
-
-  /**
-   * The feature id for the '<em><b>Hex</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONSTANT__HEX = 0;
-
-  /**
-   * The feature id for the '<em><b>Oct</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONSTANT__OCT = 1;
-
-  /**
-   * The feature id for the '<em><b>Dec</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONSTANT__DEC = 2;
-
-  /**
-   * The feature id for the '<em><b>Ch</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONSTANT__CH = 3;
-
-  /**
-   * The feature id for the '<em><b>Str</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONSTANT__STR = 4;
-
-  /**
-   * The feature id for the '<em><b>Float</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONSTANT__FLOAT = 5;
-
-  /**
-   * The feature id for the '<em><b>Bin</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONSTANT__BIN = 6;
-
-  /**
-   * The number of structural features of the '<em>Constant</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONSTANT_FEATURE_COUNT = 7;
+  int ARGUMENT_EXPRESSION_LIST_FEATURE_COUNT = CommonPackage.ARGUMENT_EXPRESSION_LIST_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.StructOrUnionSpecifierImpl <em>Struct Or Union Specifier</em>}' class.
@@ -1677,7 +1606,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getStructOrUnionSpecifier()
    * @generated
    */
-  int STRUCT_OR_UNION_SPECIFIER = 47;
+  int STRUCT_OR_UNION_SPECIFIER = 46;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1723,7 +1652,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getEnumSpecifier()
    * @generated
    */
-  int ENUM_SPECIFIER = 48;
+  int ENUM_SPECIFIER = 47;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1760,7 +1689,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getLabeledStatement()
    * @generated
    */
-  int LABELED_STATEMENT = 49;
+  int LABELED_STATEMENT = 48;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -1833,7 +1762,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getCompoundStatement()
    * @generated
    */
-  int COMPOUND_STATEMENT = 50;
+  int COMPOUND_STATEMENT = 49;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -1870,7 +1799,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getBodyStatement()
    * @generated
    */
-  int BODY_STATEMENT = 51;
+  int BODY_STATEMENT = 50;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -1907,7 +1836,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getExpressionStatement()
    * @generated
    */
-  int EXPRESSION_STATEMENT = 52;
+  int EXPRESSION_STATEMENT = 51;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -1953,7 +1882,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getSelectionStatement()
    * @generated
    */
-  int SELECTION_STATEMENT = 53;
+  int SELECTION_STATEMENT = 52;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -2044,7 +1973,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getIterationStatement()
    * @generated
    */
-  int ITERATION_STATEMENT = 54;
+  int ITERATION_STATEMENT = 53;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -2153,7 +2082,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getJumpStatement()
    * @generated
    */
-  int JUMP_STATEMENT = 55;
+  int JUMP_STATEMENT = 54;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -2235,7 +2164,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getAsmStatement()
    * @generated
    */
-  int ASM_STATEMENT = 56;
+  int ASM_STATEMENT = 55;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -2299,7 +2228,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getAsmLineWithColon()
    * @generated
    */
-  int ASM_LINE_WITH_COLON = 57;
+  int ASM_LINE_WITH_COLON = 56;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -2336,7 +2265,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getAsmLineWithComma()
    * @generated
    */
-  int ASM_LINE_WITH_COMMA = 58;
+  int ASM_LINE_WITH_COMMA = 57;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -2364,7 +2293,16 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getAssignmentExpression()
    * @generated
    */
-  int ASSIGNMENT_EXPRESSION = 59;
+  int ASSIGNMENT_EXPRESSION = 58;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSIGNMENT_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2419,7 +2357,16 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getConditionalExpression()
    * @generated
    */
-  int CONDITIONAL_EXPRESSION = 60;
+  int CONDITIONAL_EXPRESSION = 59;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITIONAL_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2474,7 +2421,16 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getLogicalOrExpression()
    * @generated
    */
-  int LOGICAL_OR_EXPRESSION = 61;
+  int LOGICAL_OR_EXPRESSION = 60;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGICAL_OR_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2511,7 +2467,16 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getLogicalAndExpression()
    * @generated
    */
-  int LOGICAL_AND_EXPRESSION = 62;
+  int LOGICAL_AND_EXPRESSION = 61;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGICAL_AND_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2548,7 +2513,16 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getInclusiveOrExpression()
    * @generated
    */
-  int INCLUSIVE_OR_EXPRESSION = 63;
+  int INCLUSIVE_OR_EXPRESSION = 62;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INCLUSIVE_OR_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2585,7 +2559,16 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getExclusiveOrExpression()
    * @generated
    */
-  int EXCLUSIVE_OR_EXPRESSION = 64;
+  int EXCLUSIVE_OR_EXPRESSION = 63;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXCLUSIVE_OR_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2622,7 +2605,16 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getAndExpression()
    * @generated
    */
-  int AND_EXPRESSION = 65;
+  int AND_EXPRESSION = 64;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AND_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2659,7 +2651,16 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getEqualityExpression()
    * @generated
    */
-  int EQUALITY_EXPRESSION = 66;
+  int EQUALITY_EXPRESSION = 65;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EQUALITY_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2705,7 +2706,16 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getRelationalExpression()
    * @generated
    */
-  int RELATIONAL_EXPRESSION = 67;
+  int RELATIONAL_EXPRESSION = 66;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RELATIONAL_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2751,7 +2761,16 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getShiftExpression()
    * @generated
    */
-  int SHIFT_EXPRESSION = 68;
+  int SHIFT_EXPRESSION = 67;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SHIFT_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2797,7 +2816,16 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getAdditiveExpression()
    * @generated
    */
-  int ADDITIVE_EXPRESSION = 69;
+  int ADDITIVE_EXPRESSION = 68;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ADDITIVE_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2843,7 +2871,16 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getMultiplicativeExpression()
    * @generated
    */
-  int MULTIPLICATIVE_EXPRESSION = 70;
+  int MULTIPLICATIVE_EXPRESSION = 69;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MULTIPLICATIVE_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2889,7 +2926,16 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getCastExpression()
    * @generated
    */
-  int CAST_EXPRESSION = 71;
+  int CAST_EXPRESSION = 70;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CAST_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -2935,7 +2981,16 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getUnaryExpression()
    * @generated
    */
-  int UNARY_EXPRESSION = 72;
+  int UNARY_EXPRESSION = 71;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNARY_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -3035,7 +3090,16 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getPostfixExpression()
    * @generated
    */
-  int POSTFIX_EXPRESSION = 73;
+  int POSTFIX_EXPRESSION = 72;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POSTFIX_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -3081,7 +3145,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getPostfixExpressionSuffixArray()
    * @generated
    */
-  int POSTFIX_EXPRESSION_SUFFIX_ARRAY = 74;
+  int POSTFIX_EXPRESSION_SUFFIX_ARRAY = 73;
 
   /**
    * The feature id for the '<em><b>Array Expr</b></em>' containment reference.
@@ -3109,7 +3173,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getPostfixExpressionSuffixArgument()
    * @generated
    */
-  int POSTFIX_EXPRESSION_SUFFIX_ARGUMENT = 75;
+  int POSTFIX_EXPRESSION_SUFFIX_ARGUMENT = 74;
 
   /**
    * The feature id for the '<em><b>Argument Expression List</b></em>' containment reference.
@@ -3137,7 +3201,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getPostfixExpressionSuffixDot()
    * @generated
    */
-  int POSTFIX_EXPRESSION_SUFFIX_DOT = 76;
+  int POSTFIX_EXPRESSION_SUFFIX_DOT = 75;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3165,7 +3229,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getPostfixExpressionSuffixArrow()
    * @generated
    */
-  int POSTFIX_EXPRESSION_SUFFIX_ARROW = 77;
+  int POSTFIX_EXPRESSION_SUFFIX_ARROW = 76;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3193,7 +3257,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getPostfixExpressionSuffixPlusPlus()
    * @generated
    */
-  int POSTFIX_EXPRESSION_SUFFIX_PLUS_PLUS = 78;
+  int POSTFIX_EXPRESSION_SUFFIX_PLUS_PLUS = 77;
 
   /**
    * The number of structural features of the '<em>Postfix Expression Suffix Plus Plus</em>' class.
@@ -3212,7 +3276,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getPostfixExpressionSuffixMinusMinus()
    * @generated
    */
-  int POSTFIX_EXPRESSION_SUFFIX_MINUS_MINUS = 79;
+  int POSTFIX_EXPRESSION_SUFFIX_MINUS_MINUS = 78;
 
   /**
    * The number of structural features of the '<em>Postfix Expression Suffix Minus Minus</em>' class.
@@ -3231,7 +3295,16 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getPrimaryExpression()
    * @generated
    */
-  int PRIMARY_EXPRESSION = 80;
+  int PRIMARY_EXPRESSION = 79;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -3286,7 +3359,16 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getConstantExpression()
    * @generated
    */
-  int CONSTANT_EXPRESSION = 81;
+  int CONSTANT_EXPRESSION = 80;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONSTANT_EXPRESSION__EXPRESSION = EXPRESSION__EXPRESSION;
 
   /**
    * The feature id for the '<em><b>Expr Expr</b></em>' containment reference list.
@@ -4538,17 +4620,6 @@ public interface ParserPackage extends EPackage
   EClass getUnaryOperator();
 
   /**
-   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.UnaryOperator#getOp <em>Op</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Op</em>'.
-   * @see at.jku.weiner.c.parser.parser.UnaryOperator#getOp()
-   * @see #getUnaryOperator()
-   * @generated
-   */
-  EAttribute getUnaryOperator_Op();
-
-  /**
    * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.PostfixExpressionSuffix <em>Postfix Expression Suffix</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4567,104 +4638,6 @@ public interface ParserPackage extends EPackage
    * @generated
    */
   EClass getArgumentExpressionList();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.parser.parser.ArgumentExpressionList#getExpr <em>Expr</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Expr</em>'.
-   * @see at.jku.weiner.c.parser.parser.ArgumentExpressionList#getExpr()
-   * @see #getArgumentExpressionList()
-   * @generated
-   */
-  EReference getArgumentExpressionList_Expr();
-
-  /**
-   * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.Constant <em>Constant</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Constant</em>'.
-   * @see at.jku.weiner.c.parser.parser.Constant
-   * @generated
-   */
-  EClass getConstant();
-
-  /**
-   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.Constant#getHex <em>Hex</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Hex</em>'.
-   * @see at.jku.weiner.c.parser.parser.Constant#getHex()
-   * @see #getConstant()
-   * @generated
-   */
-  EAttribute getConstant_Hex();
-
-  /**
-   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.Constant#getOct <em>Oct</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Oct</em>'.
-   * @see at.jku.weiner.c.parser.parser.Constant#getOct()
-   * @see #getConstant()
-   * @generated
-   */
-  EAttribute getConstant_Oct();
-
-  /**
-   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.Constant#getDec <em>Dec</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Dec</em>'.
-   * @see at.jku.weiner.c.parser.parser.Constant#getDec()
-   * @see #getConstant()
-   * @generated
-   */
-  EAttribute getConstant_Dec();
-
-  /**
-   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.Constant#getCh <em>Ch</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Ch</em>'.
-   * @see at.jku.weiner.c.parser.parser.Constant#getCh()
-   * @see #getConstant()
-   * @generated
-   */
-  EAttribute getConstant_Ch();
-
-  /**
-   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.Constant#getStr <em>Str</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Str</em>'.
-   * @see at.jku.weiner.c.parser.parser.Constant#getStr()
-   * @see #getConstant()
-   * @generated
-   */
-  EAttribute getConstant_Str();
-
-  /**
-   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.Constant#getFloat <em>Float</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Float</em>'.
-   * @see at.jku.weiner.c.parser.parser.Constant#getFloat()
-   * @see #getConstant()
-   * @generated
-   */
-  EAttribute getConstant_Float();
-
-  /**
-   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.Constant#getBin <em>Bin</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Bin</em>'.
-   * @see at.jku.weiner.c.parser.parser.Constant#getBin()
-   * @see #getConstant()
-   * @generated
-   */
-  EAttribute getConstant_Bin();
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.StructOrUnionSpecifier <em>Struct Or Union Specifier</em>}'.
@@ -6928,14 +6901,6 @@ public interface ParserPackage extends EPackage
     EClass UNARY_OPERATOR = eINSTANCE.getUnaryOperator();
 
     /**
-     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute UNARY_OPERATOR__OP = eINSTANCE.getUnaryOperator_Op();
-
-    /**
      * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.PostfixExpressionSuffixImpl <em>Postfix Expression Suffix</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6954,80 +6919,6 @@ public interface ParserPackage extends EPackage
      * @generated
      */
     EClass ARGUMENT_EXPRESSION_LIST = eINSTANCE.getArgumentExpressionList();
-
-    /**
-     * The meta object literal for the '<em><b>Expr</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ARGUMENT_EXPRESSION_LIST__EXPR = eINSTANCE.getArgumentExpressionList_Expr();
-
-    /**
-     * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.ConstantImpl <em>Constant</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see at.jku.weiner.c.parser.parser.impl.ConstantImpl
-     * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getConstant()
-     * @generated
-     */
-    EClass CONSTANT = eINSTANCE.getConstant();
-
-    /**
-     * The meta object literal for the '<em><b>Hex</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute CONSTANT__HEX = eINSTANCE.getConstant_Hex();
-
-    /**
-     * The meta object literal for the '<em><b>Oct</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute CONSTANT__OCT = eINSTANCE.getConstant_Oct();
-
-    /**
-     * The meta object literal for the '<em><b>Dec</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute CONSTANT__DEC = eINSTANCE.getConstant_Dec();
-
-    /**
-     * The meta object literal for the '<em><b>Ch</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute CONSTANT__CH = eINSTANCE.getConstant_Ch();
-
-    /**
-     * The meta object literal for the '<em><b>Str</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute CONSTANT__STR = eINSTANCE.getConstant_Str();
-
-    /**
-     * The meta object literal for the '<em><b>Float</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute CONSTANT__FLOAT = eINSTANCE.getConstant_Float();
-
-    /**
-     * The meta object literal for the '<em><b>Bin</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute CONSTANT__BIN = eINSTANCE.getConstant_Bin();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.StructOrUnionSpecifierImpl <em>Struct Or Union Specifier</em>}' class.

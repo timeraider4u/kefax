@@ -4,8 +4,6 @@ package at.jku.weiner.c.parser.parser;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Expression</b></em>'.
@@ -22,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Expression extends EObject
+public interface Expression extends at.jku.weiner.c.common.common.Expression
 {
   /**
    * Returns the value of the '<em><b>Expr Expr</b></em>' containment reference list.

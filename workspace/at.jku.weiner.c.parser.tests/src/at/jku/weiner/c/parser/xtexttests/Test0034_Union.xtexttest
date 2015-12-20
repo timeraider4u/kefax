@@ -2,6 +2,7 @@
 //----------------------------------------------------------------------
 package at.jku.weiner.c.parser
 language parser
+imports at.jku.weiner.c.common.common
 //----------------------------------------------------------------------
 source file="res/Test0034_Union.c"
 //----------------------------------------------------------------------
@@ -419,7 +420,7 @@ SKW_RIGHTBRACE NEWLINE
 																																									expr+=
 																																									(PrimaryExpression
 																																										const=
-																																										(Constant
+																																										(common::Constant2
 																																											str++"\\\"sizeof(number)=%lu\\\\n\\\""
 																																										)
 																																									)
@@ -585,7 +586,7 @@ SKW_RIGHTBRACE NEWLINE
 																																									expr+=
 																																									(PrimaryExpression
 																																										const=
-																																										(Constant
+																																										(common::Constant2
 																																											str++"\\\"sizeof(number.numChar)=%lu\\\\n\\\""
 																																										)
 																																									)
@@ -811,7 +812,7 @@ SKW_RIGHTBRACE NEWLINE
 																																									expr+=
 																																									(PrimaryExpression
 																																										const=
-																																										(Constant
+																																										(common::Constant2
 																																											str++"\\\"sizeof(float)=%lu\\\\n\\\""
 																																										)
 																																									)
@@ -963,7 +964,7 @@ SKW_RIGHTBRACE NEWLINE
 																									expr+=
 																									(PrimaryExpression
 																										const=
-																										(Constant
+																										(common::Constant2
 																											dec++"65"
 																										)
 																									)
@@ -1065,7 +1066,7 @@ SKW_RIGHTBRACE NEWLINE
 																																									expr+=
 																																									(PrimaryExpression
 																																										const=
-																																										(Constant
+																																										(common::Constant2
 																																											str++"\\\"number.numChar(as decimal)=%d\\\\n\\\""
 																																										)
 																																									)
@@ -1235,7 +1236,7 @@ SKW_RIGHTBRACE NEWLINE
 																																									expr+=
 																																									(PrimaryExpression
 																																										const=
-																																										(Constant
+																																										(common::Constant2
 																																											str++"\\\"number.numChar(as char)=%c\\\\n\\\""
 																																										)
 																																									)
@@ -1405,7 +1406,7 @@ SKW_RIGHTBRACE NEWLINE
 																																									expr+=
 																																									(PrimaryExpression
 																																										const=
-																																										(Constant
+																																										(common::Constant2
 																																											str++"\\\"number.numFloat=%f\\\\n\\\""
 																																										)
 																																									)
@@ -1557,7 +1558,7 @@ SKW_RIGHTBRACE NEWLINE
 																									expr+=
 																									(PrimaryExpression
 																										const=
-																										(Constant
+																										(common::Constant2
 																											float++"0.56789"
 																										)
 																									)
@@ -1659,7 +1660,7 @@ SKW_RIGHTBRACE NEWLINE
 																																									expr+=
 																																									(PrimaryExpression
 																																										const=
-																																										(Constant
+																																										(common::Constant2
 																																											str++"\\\"number.numChar(as decimal)=%d\\\\n\\\""
 																																										)
 																																									)
@@ -1828,7 +1829,7 @@ SKW_RIGHTBRACE NEWLINE
 																																									expr+=
 																																									(PrimaryExpression
 																																										const=
-																																										(Constant
+																																										(common::Constant2
 																																											str++"\\\"number.numFloat=%f\\\\n\\\""
 																																										)
 																																									)
@@ -1960,7 +1961,7 @@ SKW_RIGHTBRACE NEWLINE
 																								expr+=
 																								(PrimaryExpression
 																									const=
-																									(Constant
+																									(common::Constant2
 																										dec++"0"
 																									)
 																								)

@@ -104,14 +104,14 @@ public class Test0008_SymbolDefineAndInclude {
 			final String[] expected = new String[] {
 				"RULE_HASH", 
 				"RULE_DEFINE", 
-				"RULE_WS", 
+				"RULE_WHITESPACE", 
 				"RULE_ID", 
-				"RULE_WS", 
+				"RULE_WHITESPACE", 
 				"RULE_STRING_LITERAL", 
 				"RULE_NEWLINE", 
 				"RULE_HASH", 
 				"RULE_INCLUDE", 
-				"RULE_WS", 
+				"RULE_WHITESPACE", 
 				"RULE_STRING_LITERAL", 
 				"RULE_NEWLINE", 
 				};

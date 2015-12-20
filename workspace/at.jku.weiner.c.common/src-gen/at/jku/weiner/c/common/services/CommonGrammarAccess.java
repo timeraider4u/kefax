@@ -40,7 +40,7 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cExpressionAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cExpressionConditionalExpressionParserRuleCall_1_0 = (RuleCall)cExpressionAssignment_1.eContents().get(0);
 		
-		//Expression hidden(WS, BLOCK_COMMENT, LINE_COMMENT, LINEBREAK):
+		//Expression hidden(WHITESPACE, BLOCK_COMMENT, LINE_COMMENT, LINEBREAK):
 		//	{Expression} expression=ConditionalExpression;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -63,7 +63,7 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cExprAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cExprConditionalExpressionParserRuleCall_1_0 = (RuleCall)cExprAssignment_1.eContents().get(0);
 		
-		//ConstantExpression Expression hidden(WS, BLOCK_COMMENT, LINE_COMMENT, LINEBREAK):
+		//ConstantExpression Expression hidden(WHITESPACE, BLOCK_COMMENT, LINE_COMMENT, LINEBREAK):
 		//	{ConstantExpression} expr=ConditionalExpression
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -1422,7 +1422,7 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tLINEBREAK;
 	private final TerminalRule tSPACE;
 	private final TerminalRule tTAB;
-	private final TerminalRule tWS;
+	private final TerminalRule tWHITESPACE;
 	private final TerminalRule tBLOCK_COMMENT;
 	private final TerminalRule tLINE_COMMENT;
 	private final TerminalRule tSPECIAL;
@@ -1517,7 +1517,7 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		this.tLINEBREAK = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.LINEBREAK");
 		this.tSPACE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.SPACE");
 		this.tTAB = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.TAB");
-		this.tWS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.WS");
+		this.tWHITESPACE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.WHITESPACE");
 		this.tBLOCK_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.BLOCK_COMMENT");
 		this.tLINE_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.LINE_COMMENT");
 		this.tSPECIAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.SPECIAL");
@@ -1556,7 +1556,7 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		return getCommonAccess().getRule();
 	}
 	
-	//Expression hidden(WS, BLOCK_COMMENT, LINE_COMMENT, LINEBREAK):
+	//Expression hidden(WHITESPACE, BLOCK_COMMENT, LINE_COMMENT, LINEBREAK):
 	//	{Expression} expression=ConditionalExpression;
 	public ExpressionElements getExpressionAccess() {
 		return pExpression;
@@ -1566,7 +1566,7 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		return getExpressionAccess().getRule();
 	}
 	
-	//ConstantExpression Expression hidden(WS, BLOCK_COMMENT, LINE_COMMENT, LINEBREAK):
+	//ConstantExpression Expression hidden(WHITESPACE, BLOCK_COMMENT, LINE_COMMENT, LINEBREAK):
 	//	{ConstantExpression} expr=ConditionalExpression
 	public ConstantExpressionElements getConstantExpressionAccess() {
 		return pConstantExpression;
@@ -2269,10 +2269,10 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		return tTAB;
 	}
 	
-	//terminal WS:
+	//terminal WHITESPACE:
 	//	SPACE | TAB;
-	public TerminalRule getWSRule() {
-		return tWS;
+	public TerminalRule getWHITESPACERule() {
+		return tWHITESPACE;
 	}
 	
 	//terminal BLOCK_COMMENT:

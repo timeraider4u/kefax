@@ -106,7 +106,7 @@ import at.jku.weiner.c.parser.parser.CastExpression;
 import at.jku.weiner.c.parser.parser.UnaryExpression;
 import at.jku.weiner.c.parser.parser.PostfixExpression;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
-import at.jku.weiner.c.parser.parser.Constant;
+import at.jku.weiner.c.common.common.Constant2;
 import at.jku.weiner.c.parser.parser.AssignmentExpression;
 import at.jku.weiner.c.parser.parser.ConditionalExpression;
 import at.jku.weiner.c.parser.parser.LogicalOrExpression;
@@ -123,7 +123,7 @@ import at.jku.weiner.c.parser.parser.CastExpression;
 import at.jku.weiner.c.parser.parser.UnaryExpression;
 import at.jku.weiner.c.parser.parser.PostfixExpression;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
-import at.jku.weiner.c.parser.parser.Constant;
+import at.jku.weiner.c.common.common.Constant2;
 import at.jku.weiner.c.parser.parser.Statement;
 import at.jku.weiner.c.parser.parser.JumpStatement;
 import at.jku.weiner.c.parser.parser.Expression;
@@ -143,7 +143,7 @@ import at.jku.weiner.c.parser.parser.CastExpression;
 import at.jku.weiner.c.parser.parser.UnaryExpression;
 import at.jku.weiner.c.parser.parser.PostfixExpression;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
-import at.jku.weiner.c.parser.parser.Constant;
+import at.jku.weiner.c.common.common.Constant2;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(ParserInjectorProvider.class)
@@ -746,12 +746,12 @@ public class Test0019_HelloWorld {
 		Assert.assertNotNull(PrimaryExpression_62_Var
 		);
 		//62
-		final Constant Constant_63_Var
-		 = (Constant)PrimaryExpression_62_Var
+		final Constant2 Constant2_63_Var
+		 = (Constant2)PrimaryExpression_62_Var
 		.getConst();
-		Assert.assertNotNull(Constant_63_Var
+		Assert.assertNotNull(Constant2_63_Var
 		);
-		Assert.assertEquals("\"%s\\n\"", Constant_63_Var
+		Assert.assertEquals("\"%s\\n\"", Constant2_63_Var
 		.getStr());
 		//63
 		final AssignmentExpression AssignmentExpression_64_Var
@@ -882,12 +882,12 @@ public class Test0019_HelloWorld {
 		Assert.assertNotNull(PrimaryExpression_79_Var
 		);
 		//79
-		final Constant Constant_80_Var
-		 = (Constant)PrimaryExpression_79_Var
+		final Constant2 Constant2_80_Var
+		 = (Constant2)PrimaryExpression_79_Var
 		.getConst();
-		Assert.assertNotNull(Constant_80_Var
+		Assert.assertNotNull(Constant2_80_Var
 		);
-		Assert.assertEquals("\"Hello World!\"", Constant_80_Var
+		Assert.assertEquals("\"Hello World!\"", Constant2_80_Var
 		.getStr());
 		Assert.assertEquals(";", ExpressionStatement_27_Var
 		.getSemi());
@@ -1041,12 +1041,12 @@ public class Test0019_HelloWorld {
 		Assert.assertNotNull(PrimaryExpression_99_Var
 		);
 		//99
-		final Constant Constant_100_Var
-		 = (Constant)PrimaryExpression_99_Var
+		final Constant2 Constant2_100_Var
+		 = (Constant2)PrimaryExpression_99_Var
 		.getConst();
-		Assert.assertNotNull(Constant_100_Var
+		Assert.assertNotNull(Constant2_100_Var
 		);
-		Assert.assertEquals("0", Constant_100_Var
+		Assert.assertEquals("0", Constant2_100_Var
 		.getDec());
 		Assert.assertEquals("return", JumpStatement_82_Var
 		.getReturn());

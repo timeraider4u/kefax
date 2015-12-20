@@ -96,7 +96,7 @@ finally {
 // Entry rule entryRuleExpression
 entryRuleExpression 
 @init {
-	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT", "RULE_LINEBREAK");
+	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WHITESPACE", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT", "RULE_LINEBREAK");
 }
 :
 { before(grammarAccess.getExpressionRule()); }
@@ -111,7 +111,7 @@ finally {
 // Rule Expression
 ruleExpression
     @init {
-		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT", "RULE_LINEBREAK");
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WHITESPACE", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT", "RULE_LINEBREAK");
 		int stackSize = keepStackSize();
 		/*no init found*/
     }
@@ -4960,7 +4960,7 @@ fragment RULE_SPACE : ' ';
 
 fragment RULE_TAB : '\t';
 
-RULE_WS : (RULE_SPACE|RULE_TAB);
+RULE_WHITESPACE : (RULE_SPACE|RULE_TAB);
 
 RULE_BLOCK_COMMENT : '/*' ( options {greedy=false;} : . )*'*/';
 

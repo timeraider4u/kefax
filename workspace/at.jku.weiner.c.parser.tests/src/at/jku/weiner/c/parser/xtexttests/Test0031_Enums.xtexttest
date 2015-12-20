@@ -2,6 +2,7 @@
 //----------------------------------------------------------------------
 package at.jku.weiner.c.parser
 language parser
+imports at.jku.weiner.c.common.common
 //----------------------------------------------------------------------
 source file="res/Test0031_Enums.c"
 //----------------------------------------------------------------------
@@ -110,7 +111,7 @@ SKW_RIGHTBRACE NEWLINE
 																						expr+=
 																						(PrimaryExpression
 																							const=
-																							(Constant
+																							(common::Constant2
 																								dec++"1"
 																							)
 																						)
@@ -174,7 +175,7 @@ SKW_RIGHTBRACE NEWLINE
 																						expr+=
 																						(PrimaryExpression
 																							const=
-																							(Constant
+																							(common::Constant2
 																								dec++"2"
 																							)
 																						)
@@ -238,7 +239,7 @@ SKW_RIGHTBRACE NEWLINE
 																						expr+=
 																						(PrimaryExpression
 																							const=
-																							(Constant
+																							(common::Constant2
 																								dec++"3"
 																							)
 																						)
@@ -302,7 +303,7 @@ SKW_RIGHTBRACE NEWLINE
 																						expr+=
 																						(PrimaryExpression
 																							const=
-																							(Constant
+																							(common::Constant2
 																								dec++"4"
 																							)
 																						)
@@ -366,7 +367,7 @@ SKW_RIGHTBRACE NEWLINE
 																						expr+=
 																						(PrimaryExpression
 																							const=
-																							(Constant
+																							(common::Constant2
 																								dec++"5"
 																							)
 																						)
@@ -430,7 +431,7 @@ SKW_RIGHTBRACE NEWLINE
 																						expr+=
 																						(PrimaryExpression
 																							const=
-																							(Constant
+																							(common::Constant2
 																								dec++"6"
 																							)
 																						)
@@ -494,7 +495,7 @@ SKW_RIGHTBRACE NEWLINE
 																						expr+=
 																						(PrimaryExpression
 																							const=
-																							(Constant
+																							(common::Constant2
 																								dec++"7"
 																							)
 																						)
@@ -568,7 +569,7 @@ SKW_RIGHTBRACE NEWLINE
 																								expr+=
 																								(PrimaryExpression
 																									const=
-																									(Constant
+																									(common::Constant2
 																										dec++"1"
 																									)
 																								)
@@ -668,7 +669,7 @@ SKW_RIGHTBRACE NEWLINE
 																								expr+=
 																								(PrimaryExpression
 																									const=
-																									(Constant
+																									(common::Constant2
 																										dec++"1"
 																									)
 																								)
@@ -769,7 +770,7 @@ SKW_RIGHTBRACE NEWLINE
 																								expr+=
 																								(PrimaryExpression
 																									const=
-																									(Constant
+																									(common::Constant2
 																										dec++"1"
 																									)
 																								)
@@ -1025,7 +1026,7 @@ SKW_RIGHTBRACE NEWLINE
 																																									expr+=
 																																									(PrimaryExpression
 																																										const=
-																																										(Constant
+																																										(common::Constant2
 																																											str++"\\\"Monday is %d. day of week\\\\n\\\""
 																																										)
 																																									)
@@ -1190,7 +1191,7 @@ SKW_RIGHTBRACE NEWLINE
 																																									expr+=
 																																									(PrimaryExpression
 																																										const=
-																																										(Constant
+																																										(common::Constant2
 																																											str++"\\\"Monday is %d. day of week\\\\n\\\""
 																																										)
 																																									)
@@ -1355,7 +1356,7 @@ SKW_RIGHTBRACE NEWLINE
 																																									expr+=
 																																									(PrimaryExpression
 																																										const=
-																																										(Constant
+																																										(common::Constant2
 																																											str++"\\\"Sunday is %d. day of week\\\\n\\\""
 																																										)
 																																									)
@@ -1520,7 +1521,7 @@ SKW_RIGHTBRACE NEWLINE
 																																									expr+=
 																																									(PrimaryExpression
 																																										const=
-																																										(Constant
+																																										(common::Constant2
 																																											str++"\\\"Sunday is %d. day of week\\\\n\\\""
 																																										)
 																																									)
@@ -1762,7 +1763,7 @@ SKW_RIGHTBRACE NEWLINE
 																																									expr+=
 																																									(PrimaryExpression
 																																										const=
-																																										(Constant
+																																										(common::Constant2
 																																											str++"\\\"The %d. day of the week is my favourite!\\\\n\\\""
 																																										)
 																																									)
@@ -1927,7 +1928,7 @@ SKW_RIGHTBRACE NEWLINE
 																																									expr+=
 																																									(PrimaryExpression
 																																										const=
-																																										(Constant
+																																										(common::Constant2
 																																											str++"\\\"The %d. day of the week is my favourite!\\\\n\\\""
 																																										)
 																																									)
@@ -2054,7 +2055,7 @@ SKW_RIGHTBRACE NEWLINE
 																								expr+=
 																								(PrimaryExpression
 																									const=
-																									(Constant
+																									(common::Constant2
 																										dec++"0"
 																									)
 																								)

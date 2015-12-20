@@ -2,7 +2,6 @@
  */
 package at.jku.weiner.c.parser.parser;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,6 +13,6 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface PostfixExpressionSuffix extends EObject
+public interface PostfixExpressionSuffix extends at.jku.weiner.c.common.common.PostfixExpressionSuffix
 {
 } // PostfixExpressionSuffix

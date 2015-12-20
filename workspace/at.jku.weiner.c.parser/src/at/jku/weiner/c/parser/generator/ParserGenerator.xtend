@@ -57,7 +57,7 @@ import at.jku.weiner.c.parser.parser.UnaryExpression
 import at.jku.weiner.c.parser.parser.UnaryOperator
 import at.jku.weiner.c.parser.parser.PostfixExpression
 import at.jku.weiner.c.parser.parser.PrimaryExpression
-import at.jku.weiner.c.parser.parser.Constant
+import at.jku.weiner.c.common.common.Constant2
 import at.jku.weiner.c.parser.parser.ConstantExpression
 import at.jku.weiner.c.parser.parser.BlockList
 import at.jku.weiner.c.parser.parser.TypeName
@@ -705,7 +705,7 @@ class ParserGenerator implements IGenerator {
 		«IF obj.expr != null»(«outputFor(obj.expr)»)«ENDIF»
 	'''
 	
-	def String outputFor(Constant obj) '''
+	def String outputFor(Constant2 obj) '''
 		«IF obj.hex != null»«obj.hex»«ENDIF»
 		«IF obj.oct != null»«obj.oct»«ENDIF»
 		«IF obj.dec != null»«obj.dec»«ENDIF»

@@ -2,6 +2,8 @@
  */
 package at.jku.weiner.c.parser.parser.impl;
 
+import at.jku.weiner.c.common.common.CommonPackage;
+
 import at.jku.weiner.c.parser.parser.AdditiveExpression;
 import at.jku.weiner.c.parser.parser.AndExpression;
 import at.jku.weiner.c.parser.parser.ArgumentExpressionList;
@@ -16,7 +18,6 @@ import at.jku.weiner.c.parser.parser.BodyStatement;
 import at.jku.weiner.c.parser.parser.CastExpression;
 import at.jku.weiner.c.parser.parser.CompoundStatement;
 import at.jku.weiner.c.parser.parser.ConditionalExpression;
-import at.jku.weiner.c.parser.parser.Constant;
 import at.jku.weiner.c.parser.parser.ConstantExpression;
 import at.jku.weiner.c.parser.parser.Declaration;
 import at.jku.weiner.c.parser.parser.DeclarationSpecifier;
@@ -430,13 +431,6 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass constantEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass structOrUnionSpecifierEClass = null;
 
   /**
@@ -726,6 +720,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     isInited = true;
 
     // Initialize simple dependencies
+    CommonPackage.eINSTANCE.eClass();
     EcorePackage.eINSTANCE.eClass();
 
     // Create package meta-data objects
@@ -1898,16 +1893,6 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getUnaryOperator_Op()
-  {
-    return (EAttribute)unaryOperatorEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getPostfixExpressionSuffix()
   {
     return postfixExpressionSuffixEClass;
@@ -1921,96 +1906,6 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
   public EClass getArgumentExpressionList()
   {
     return argumentExpressionListEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getArgumentExpressionList_Expr()
-  {
-    return (EReference)argumentExpressionListEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getConstant()
-  {
-    return constantEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getConstant_Hex()
-  {
-    return (EAttribute)constantEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getConstant_Oct()
-  {
-    return (EAttribute)constantEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getConstant_Dec()
-  {
-    return (EAttribute)constantEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getConstant_Ch()
-  {
-    return (EAttribute)constantEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getConstant_Str()
-  {
-    return (EAttribute)constantEClass.getEStructuralFeatures().get(4);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getConstant_Float()
-  {
-    return (EAttribute)constantEClass.getEStructuralFeatures().get(5);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getConstant_Bin()
-  {
-    return (EAttribute)constantEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -3351,21 +3246,10 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     createEAttribute(assignmentOperatorEClass, ASSIGNMENT_OPERATOR__OP);
 
     unaryOperatorEClass = createEClass(UNARY_OPERATOR);
-    createEAttribute(unaryOperatorEClass, UNARY_OPERATOR__OP);
 
     postfixExpressionSuffixEClass = createEClass(POSTFIX_EXPRESSION_SUFFIX);
 
     argumentExpressionListEClass = createEClass(ARGUMENT_EXPRESSION_LIST);
-    createEReference(argumentExpressionListEClass, ARGUMENT_EXPRESSION_LIST__EXPR);
-
-    constantEClass = createEClass(CONSTANT);
-    createEAttribute(constantEClass, CONSTANT__HEX);
-    createEAttribute(constantEClass, CONSTANT__OCT);
-    createEAttribute(constantEClass, CONSTANT__DEC);
-    createEAttribute(constantEClass, CONSTANT__CH);
-    createEAttribute(constantEClass, CONSTANT__STR);
-    createEAttribute(constantEClass, CONSTANT__FLOAT);
-    createEAttribute(constantEClass, CONSTANT__BIN);
 
     structOrUnionSpecifierEClass = createEClass(STRUCT_OR_UNION_SPECIFIER);
     createEReference(structOrUnionSpecifierEClass, STRUCT_OR_UNION_SPECIFIER__TYPE);
@@ -3544,12 +3428,17 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 
     // Obtain other dependent packages
     EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
+    CommonPackage theCommonPackage = (CommonPackage)EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI);
 
     // Create type parameters
 
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    expressionEClass.getESuperTypes().add(theCommonPackage.getExpression());
+    unaryOperatorEClass.getESuperTypes().add(theCommonPackage.getUnaryOperator());
+    postfixExpressionSuffixEClass.getESuperTypes().add(theCommonPackage.getPostfixExpressionSuffix());
+    argumentExpressionListEClass.getESuperTypes().add(theCommonPackage.getArgumentExpressionList());
     structOrUnionSpecifierEClass.getESuperTypes().add(this.getDeclarationSpecifier());
     enumSpecifierEClass.getESuperTypes().add(this.getDeclarationSpecifier());
     labeledStatementEClass.getESuperTypes().add(this.getStatement());
@@ -3745,21 +3634,10 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     initEAttribute(getAssignmentOperator_Op(), theEcorePackage.getEString(), "op", null, 0, 1, AssignmentOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(unaryOperatorEClass, UnaryOperator.class, "UnaryOperator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getUnaryOperator_Op(), theEcorePackage.getEString(), "op", null, 0, 1, UnaryOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(postfixExpressionSuffixEClass, PostfixExpressionSuffix.class, "PostfixExpressionSuffix", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(argumentExpressionListEClass, ArgumentExpressionList.class, "ArgumentExpressionList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getArgumentExpressionList_Expr(), this.getExpression(), null, "expr", null, 0, -1, ArgumentExpressionList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(constantEClass, Constant.class, "Constant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getConstant_Hex(), theEcorePackage.getEString(), "hex", null, 0, 1, Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getConstant_Oct(), theEcorePackage.getEString(), "oct", null, 0, 1, Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getConstant_Dec(), theEcorePackage.getEString(), "dec", null, 0, 1, Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getConstant_Ch(), theEcorePackage.getEString(), "ch", null, 0, 1, Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getConstant_Str(), theEcorePackage.getEString(), "str", null, 0, 1, Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getConstant_Float(), theEcorePackage.getEString(), "float", null, 0, 1, Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getConstant_Bin(), theEcorePackage.getEString(), "bin", null, 0, 1, Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(structOrUnionSpecifierEClass, StructOrUnionSpecifier.class, "StructOrUnionSpecifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getStructOrUnionSpecifier_Type(), this.getStructOrUnion(), null, "type", null, 0, 1, StructOrUnionSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3905,7 +3783,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 
     initEClass(primaryExpressionEClass, PrimaryExpression.class, "PrimaryExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPrimaryExpression_Id(), theEcorePackage.getEString(), "id", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPrimaryExpression_Const(), this.getConstant(), null, "const", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPrimaryExpression_Const(), theCommonPackage.getConstant2(), null, "const", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPrimaryExpression_Expr(), this.getExpression(), null, "expr", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(constantExpressionEClass, ConstantExpression.class, "ConstantExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

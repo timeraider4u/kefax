@@ -2,6 +2,7 @@
  */
 package at.jku.weiner.c.parser.parser;
 
+import at.jku.weiner.c.common.common.Constant2;
 
 /**
  * <!-- begin-user-doc -->
@@ -58,12 +59,12 @@ public interface PrimaryExpression extends Expression
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Const</em>' containment reference.
-   * @see #setConst(Constant)
+   * @see #setConst(Constant2)
    * @see at.jku.weiner.c.parser.parser.ParserPackage#getPrimaryExpression_Const()
    * @model containment="true"
    * @generated
    */
-  Constant getConst();
+  Constant2 getConst();
 
   /**
    * Sets the value of the '{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getConst <em>Const</em>}' containment reference.
@@ -73,7 +74,7 @@ public interface PrimaryExpression extends Expression
    * @see #getConst()
    * @generated
    */
-  void setConst(Constant value);
+  void setConst(Constant2 value);
 
   /**
    * Returns the value of the '<em><b>Expr</b></em>' containment reference.

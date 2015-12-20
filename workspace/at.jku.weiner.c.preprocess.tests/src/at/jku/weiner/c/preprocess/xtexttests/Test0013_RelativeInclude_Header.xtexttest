@@ -8,9 +8,9 @@ split-lexer=false
 source file="myinclude/include/printf.h"
 //----------------------------------------------------------------------
 lexer-tokens
-	//SPECIAL +*2 WS ID SPECIAL ID NEWLINE
+	//SPECIAL +*2 WHITESPACE ID SPECIAL ID NEWLINE
 	LINE_COMMENT NEWLINE
-	ID WS ID SKW_LEFTPAREN ID WS SKW_STAR +*2 WS ID SKW_RIGHTPAREN SKW_SEMI NEWLINE
+	ID WHITESPACE ID SKW_LEFTPAREN ID WHITESPACE SKW_STAR +*2 WHITESPACE ID SKW_RIGHTPAREN SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
 (Model
 	units+=

@@ -8,8 +8,8 @@ split-lexer=false
 source file="res/Test0043_IfValueGreater.c"
 //----------------------------------------------------------------------
 lexer-tokens
-	HASH IF WS ID WS SKW_GREATEREQUAL WS DECIMAL_LITERAL NEWLINE
-		WS ID WS ID SKW_LEFTPAREN SKW_RIGHTPAREN SKW_SEMI NEWLINE
+	HASH IF WHITESPACE ID WHITESPACE SKW_GREATEREQUAL WHITESPACE DECIMAL_LITERAL NEWLINE
+		WHITESPACE ID WHITESPACE ID SKW_LEFTPAREN SKW_RIGHTPAREN SKW_SEMI NEWLINE
 	HASH ENDIF NEWLINE
 //----------------------------------------------------------------------
 (Model

@@ -8,8 +8,8 @@ split-lexer=false
 source file="res/Test0006_SimpleInc.c"
 //----------------------------------------------------------------------
 lexer-tokens
-	HASH INCLUDE WS STRING_LITERAL NEWLINE
-	HASH INCLUDE WS STRING_LITERAL NEWLINE
+	HASH INCLUDE WHITESPACE STRING_LITERAL NEWLINE
+	HASH INCLUDE WHITESPACE STRING_LITERAL NEWLINE
 //----------------------------------------------------------------------
 (Model
 	units+=

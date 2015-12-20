@@ -8,7 +8,7 @@ split-lexer=false
 source file="res/Test0003_Error.h"
 //----------------------------------------------------------------------
 lexer-tokens
-	HASH ERROR WS STRING_LITERAL NEWLINE
+	HASH ERROR WHITESPACE STRING_LITERAL NEWLINE
 //----------------------------------------------------------------------
 (Model
 	units+=

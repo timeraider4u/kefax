@@ -2,6 +2,7 @@
 //----------------------------------------------------------------------
 package at.jku.weiner.c.parser
 language parser
+imports at.jku.weiner.c.common.common
 //----------------------------------------------------------------------
 source file="res/Test0011_ReturnStmts.c"
 //----------------------------------------------------------------------
@@ -88,7 +89,7 @@ SKW_RIGHTBRACE NEWLINE
 																								expr+=
 																								(PrimaryExpression
 																									const=
-																									(Constant
+																									(common::Constant2
 																										ch++"'a'"
 																									)
 																								)
@@ -183,7 +184,7 @@ SKW_RIGHTBRACE NEWLINE
 																										expr+=
 																										(PrimaryExpression
 																											const=
-																											(Constant
+																											(common::Constant2
 																												dec++"1"
 																											)
 																										)
@@ -280,7 +281,7 @@ SKW_RIGHTBRACE NEWLINE
 																								expr+=
 																								(PrimaryExpression
 																									const=
-																									(Constant
+																									(common::Constant2
 																										float++"0.8"
 																									)
 																								)
@@ -371,7 +372,7 @@ SKW_RIGHTBRACE NEWLINE
 																								expr+=
 																								(PrimaryExpression
 																									const=
-																									(Constant
+																									(common::Constant2
 																										hex++"0x01A"
 																									)
 																								)

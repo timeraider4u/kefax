@@ -70,7 +70,7 @@ import at.jku.weiner.c.parser.parser.CastExpression;
 import at.jku.weiner.c.parser.parser.UnaryExpression;
 import at.jku.weiner.c.parser.parser.PostfixExpression;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
-import at.jku.weiner.c.parser.parser.Constant;
+import at.jku.weiner.c.common.common.Constant2;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(ParserInjectorProvider.class)
@@ -359,12 +359,12 @@ public class Test0013_Assign {
 		Assert.assertNotNull(PrimaryExpression_26_Var
 		);
 		//26
-		final Constant Constant_27_Var
-		 = (Constant)PrimaryExpression_26_Var
+		final Constant2 Constant2_27_Var
+		 = (Constant2)PrimaryExpression_26_Var
 		.getConst();
-		Assert.assertNotNull(Constant_27_Var
+		Assert.assertNotNull(Constant2_27_Var
 		);
-		Assert.assertEquals("0", Constant_27_Var
+		Assert.assertEquals("0", Constant2_27_Var
 		.getDec());
 		Assert.assertEquals(";", Declaration_3_Var
 		.getSemi());

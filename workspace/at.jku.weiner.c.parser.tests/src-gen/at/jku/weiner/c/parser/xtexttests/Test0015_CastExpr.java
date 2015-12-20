@@ -74,7 +74,7 @@ import at.jku.weiner.c.parser.parser.CastExpression;
 import at.jku.weiner.c.parser.parser.UnaryExpression;
 import at.jku.weiner.c.parser.parser.PostfixExpression;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
-import at.jku.weiner.c.parser.parser.Constant;
+import at.jku.weiner.c.common.common.Constant2;
 import at.jku.weiner.c.parser.parser.TypeName;
 import at.jku.weiner.c.parser.parser.SpecifierQualifierList;
 import at.jku.weiner.c.parser.parser.TypeSpecifier;
@@ -401,12 +401,12 @@ public class Test0015_CastExpr {
 		Assert.assertNotNull(PrimaryExpression_30_Var
 		);
 		//30
-		final Constant Constant_31_Var
-		 = (Constant)PrimaryExpression_30_Var
+		final Constant2 Constant2_31_Var
+		 = (Constant2)PrimaryExpression_30_Var
 		.getConst();
-		Assert.assertNotNull(Constant_31_Var
+		Assert.assertNotNull(Constant2_31_Var
 		);
-		Assert.assertEquals("0.8", Constant_31_Var
+		Assert.assertEquals("0.8", Constant2_31_Var
 		.getFloat());
 		//31
 		final TypeName TypeName_32_Var

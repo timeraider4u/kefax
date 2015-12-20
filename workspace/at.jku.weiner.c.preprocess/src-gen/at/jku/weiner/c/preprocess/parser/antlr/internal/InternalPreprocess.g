@@ -328,9 +328,9 @@ rulePreprocessorDirectives returns [EObject current=null]
 )
 
 
-(this_WS_1=RULE_WS
+(this_WHITESPACE_1=RULE_WHITESPACE
     { 
-    newLeafNode(this_WS_1, grammarAccess.getPreprocessorDirectivesAccess().getWSTerminalRuleCall_1()); 
+    newLeafNode(this_WHITESPACE_1, grammarAccess.getPreprocessorDirectivesAccess().getWHITESPACETerminalRuleCall_1()); 
     }
 )*
 
@@ -342,9 +342,9 @@ this_HASH_2=RULE_HASH
 
 
 
-(this_WS_3=RULE_WS
+(this_WHITESPACE_3=RULE_WHITESPACE
     { 
-    newLeafNode(this_WS_3, grammarAccess.getPreprocessorDirectivesAccess().getWSTerminalRuleCall_3()); 
+    newLeafNode(this_WHITESPACE_3, grammarAccess.getPreprocessorDirectivesAccess().getWHITESPACETerminalRuleCall_3()); 
     }
 )*
 
@@ -580,9 +580,9 @@ this_INCLUDE_1=RULE_INCLUDE
 
 
 
-(this_WS_2=RULE_WS
+(this_WHITESPACE_2=RULE_WHITESPACE
     { 
-    newLeafNode(this_WS_2, grammarAccess.getIncludeDirectiveAccess().getWSTerminalRuleCall_2()); 
+    newLeafNode(this_WHITESPACE_2, grammarAccess.getIncludeDirectiveAccess().getWHITESPACETerminalRuleCall_2()); 
     }
 )+
 
@@ -712,9 +712,9 @@ this_DEFINE_1=RULE_DEFINE
 
 
 
-(this_WS_2=RULE_WS
+(this_WHITESPACE_2=RULE_WHITESPACE
     { 
-    newLeafNode(this_WS_2, grammarAccess.getDefineObjectMacroAccess().getWSTerminalRuleCall_2()); 
+    newLeafNode(this_WHITESPACE_2, grammarAccess.getDefineObjectMacroAccess().getWHITESPACETerminalRuleCall_2()); 
     }
 )+
 
@@ -741,9 +741,9 @@ this_DEFINE_1=RULE_DEFINE
 
 
 (
-(this_WS_4=RULE_WS
+(this_WHITESPACE_4=RULE_WHITESPACE
     { 
-    newLeafNode(this_WS_4, grammarAccess.getDefineObjectMacroAccess().getWSTerminalRuleCall_4_0()); 
+    newLeafNode(this_WHITESPACE_4, grammarAccess.getDefineObjectMacroAccess().getWHITESPACETerminalRuleCall_4_0()); 
     }
 )+
 
@@ -817,9 +817,9 @@ this_DEFINE_1=RULE_DEFINE
 
 
 
-(this_WS_2=RULE_WS
+(this_WHITESPACE_2=RULE_WHITESPACE
     { 
-    newLeafNode(this_WS_2, grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_2()); 
+    newLeafNode(this_WHITESPACE_2, grammarAccess.getDefineFunctionLikeMacroAccess().getWHITESPACETerminalRuleCall_2()); 
     }
 )+
 
@@ -852,9 +852,9 @@ this_SKW_LEFTPAREN_4=RULE_SKW_LEFTPAREN
 
 
 
-(this_WS_5=RULE_WS
+(this_WHITESPACE_5=RULE_WHITESPACE
     { 
-    newLeafNode(this_WS_5, grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_5()); 
+    newLeafNode(this_WHITESPACE_5, grammarAccess.getDefineFunctionLikeMacroAccess().getWHITESPACETerminalRuleCall_5()); 
     }
 )*
 
@@ -887,9 +887,9 @@ this_SKW_RIGHTPAREN_7=RULE_SKW_RIGHTPAREN
 
 
 
-(this_WS_8=RULE_WS
+(this_WHITESPACE_8=RULE_WHITESPACE
     { 
-    newLeafNode(this_WS_8, grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_8()); 
+    newLeafNode(this_WHITESPACE_8, grammarAccess.getDefineFunctionLikeMacroAccess().getWHITESPACETerminalRuleCall_8()); 
     }
 )+
 
@@ -983,9 +983,9 @@ this_SKW_COMMA_2=RULE_SKW_COMMA
 
 
 
-(this_WS_3=RULE_WS
+(this_WHITESPACE_3=RULE_WHITESPACE
     { 
-    newLeafNode(this_WS_3, grammarAccess.getIdentifierListAccess().getWSTerminalRuleCall_2_1()); 
+    newLeafNode(this_WHITESPACE_3, grammarAccess.getIdentifierListAccess().getWHITESPACETerminalRuleCall_2_1()); 
     }
 )*
 
@@ -1059,9 +1059,9 @@ this_ERROR_1=RULE_ERROR
 
 
 
-(this_WS_2=RULE_WS
+(this_WHITESPACE_2=RULE_WHITESPACE
     { 
-    newLeafNode(this_WS_2, grammarAccess.getErrorDirectiveAccess().getWSTerminalRuleCall_2()); 
+    newLeafNode(this_WHITESPACE_2, grammarAccess.getErrorDirectiveAccess().getWHITESPACETerminalRuleCall_2()); 
     }
 )+
 
@@ -1133,9 +1133,9 @@ this_WARNING_1=RULE_WARNING
 
 
 
-(this_WS_2=RULE_WS
+(this_WHITESPACE_2=RULE_WHITESPACE
     { 
-    newLeafNode(this_WS_2, grammarAccess.getWarningDirectiveAccess().getWSTerminalRuleCall_2()); 
+    newLeafNode(this_WHITESPACE_2, grammarAccess.getWarningDirectiveAccess().getWHITESPACETerminalRuleCall_2()); 
     }
 )+
 
@@ -1207,9 +1207,9 @@ this_UNDEF_1=RULE_UNDEF
 
 
 
-(this_WS_2=RULE_WS
+(this_WHITESPACE_2=RULE_WHITESPACE
     { 
-    newLeafNode(this_WS_2, grammarAccess.getUnDefineDirectiveAccess().getWSTerminalRuleCall_2()); 
+    newLeafNode(this_WHITESPACE_2, grammarAccess.getUnDefineDirectiveAccess().getWHITESPACETerminalRuleCall_2()); 
     }
 )+
 
@@ -1370,9 +1370,9 @@ ruleConditionalDirective returns [EObject current=null]
 )?
 
 
-(this_WS_4=RULE_WS
+(this_WHITESPACE_4=RULE_WHITESPACE
     { 
-    newLeafNode(this_WS_4, grammarAccess.getConditionalDirectiveAccess().getWSTerminalRuleCall_4()); 
+    newLeafNode(this_WHITESPACE_4, grammarAccess.getConditionalDirectiveAccess().getWHITESPACETerminalRuleCall_4()); 
     }
 )*
 
@@ -1384,9 +1384,9 @@ this_HASH_5=RULE_HASH
 
 
 
-(this_WS_6=RULE_WS
+(this_WHITESPACE_6=RULE_WHITESPACE
     { 
-    newLeafNode(this_WS_6, grammarAccess.getConditionalDirectiveAccess().getWSTerminalRuleCall_6()); 
+    newLeafNode(this_WHITESPACE_6, grammarAccess.getConditionalDirectiveAccess().getWHITESPACETerminalRuleCall_6()); 
     }
 )*
 
@@ -1398,9 +1398,9 @@ this_ENDIF_7=RULE_ENDIF
 
 
 
-(this_WS_8=RULE_WS
+(this_WHITESPACE_8=RULE_WHITESPACE
     { 
-    newLeafNode(this_WS_8, grammarAccess.getConditionalDirectiveAccess().getWSTerminalRuleCall_8()); 
+    newLeafNode(this_WHITESPACE_8, grammarAccess.getConditionalDirectiveAccess().getWHITESPACETerminalRuleCall_8()); 
     }
 )*
 
@@ -1451,9 +1451,9 @@ this_IF_1=RULE_IF
 
 
 
-(this_WS_2=RULE_WS
+(this_WHITESPACE_2=RULE_WHITESPACE
     { 
-    newLeafNode(this_WS_2, grammarAccess.getIfConditionalAccess().getWSTerminalRuleCall_2()); 
+    newLeafNode(this_WHITESPACE_2, grammarAccess.getIfConditionalAccess().getWHITESPACETerminalRuleCall_2()); 
     }
 )+
 
@@ -1553,9 +1553,9 @@ this_IFDEF_1=RULE_IFDEF
 
 
 
-(this_WS_2=RULE_WS
+(this_WHITESPACE_2=RULE_WHITESPACE
     { 
-    newLeafNode(this_WS_2, grammarAccess.getIfDefConditionalAccess().getWSTerminalRuleCall_2()); 
+    newLeafNode(this_WHITESPACE_2, grammarAccess.getIfDefConditionalAccess().getWHITESPACETerminalRuleCall_2()); 
     }
 )+
 
@@ -1655,9 +1655,9 @@ this_IFNOTDEF_1=RULE_IFNOTDEF
 
 
 
-(this_WS_2=RULE_WS
+(this_WHITESPACE_2=RULE_WHITESPACE
     { 
-    newLeafNode(this_WS_2, grammarAccess.getIfNotDefConditionalAccess().getWSTerminalRuleCall_2()); 
+    newLeafNode(this_WHITESPACE_2, grammarAccess.getIfNotDefConditionalAccess().getWHITESPACETerminalRuleCall_2()); 
     }
 )+
 
@@ -1751,9 +1751,9 @@ ruleElIfConditional returns [EObject current=null]
 
 
 (
-(this_WS_1=RULE_WS
+(this_WHITESPACE_1=RULE_WHITESPACE
     { 
-    newLeafNode(this_WS_1, grammarAccess.getElIfConditionalAccess().getWSTerminalRuleCall_1_0()); 
+    newLeafNode(this_WHITESPACE_1, grammarAccess.getElIfConditionalAccess().getWHITESPACETerminalRuleCall_1_0()); 
     }
 )*
 
@@ -1765,9 +1765,9 @@ this_HASH_2=RULE_HASH
 
 
 
-(this_WS_3=RULE_WS
+(this_WHITESPACE_3=RULE_WHITESPACE
     { 
-    newLeafNode(this_WS_3, grammarAccess.getElIfConditionalAccess().getWSTerminalRuleCall_1_2()); 
+    newLeafNode(this_WHITESPACE_3, grammarAccess.getElIfConditionalAccess().getWHITESPACETerminalRuleCall_1_2()); 
     }
 )*
 
@@ -1781,9 +1781,9 @@ this_ELIF_4=RULE_ELIF
 )
 
 
-(this_WS_5=RULE_WS
+(this_WHITESPACE_5=RULE_WHITESPACE
     { 
-    newLeafNode(this_WS_5, grammarAccess.getElIfConditionalAccess().getWSTerminalRuleCall_2()); 
+    newLeafNode(this_WHITESPACE_5, grammarAccess.getElIfConditionalAccess().getWHITESPACETerminalRuleCall_2()); 
     }
 )+
 
@@ -1876,9 +1876,9 @@ ruleElseConditional returns [EObject current=null]
 )
 
 
-(this_WS_1=RULE_WS
+(this_WHITESPACE_1=RULE_WHITESPACE
     { 
-    newLeafNode(this_WS_1, grammarAccess.getElseConditionalAccess().getWSTerminalRuleCall_1()); 
+    newLeafNode(this_WHITESPACE_1, grammarAccess.getElseConditionalAccess().getWHITESPACETerminalRuleCall_1()); 
     }
 )*
 
@@ -1890,9 +1890,9 @@ this_HASH_2=RULE_HASH
 
 
 
-(this_WS_3=RULE_WS
+(this_WHITESPACE_3=RULE_WHITESPACE
     { 
-    newLeafNode(this_WS_3, grammarAccess.getElseConditionalAccess().getWSTerminalRuleCall_3()); 
+    newLeafNode(this_WHITESPACE_3, grammarAccess.getElseConditionalAccess().getWHITESPACETerminalRuleCall_3()); 
     }
 )*
 
@@ -2293,12 +2293,12 @@ ruleMyDefineLine returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleTo
         afterParserOrEnumRuleCall();
     }
 
-    |    this_WS_1=RULE_WS    {
-		$current.merge(this_WS_1);
+    |    this_WHITESPACE_1=RULE_WHITESPACE    {
+		$current.merge(this_WHITESPACE_1);
     }
 
     { 
-    newLeafNode(this_WS_1, grammarAccess.getMyDefineLineAccess().getWSTerminalRuleCall_1()); 
+    newLeafNode(this_WHITESPACE_1, grammarAccess.getMyDefineLineAccess().getWHITESPACETerminalRuleCall_1()); 
     }
 
     |    this_HASH_2=RULE_HASH    {
@@ -2341,12 +2341,12 @@ ruleMyCodeLine returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToke
         afterParserOrEnumRuleCall();
     }
 
-    |    this_WS_1=RULE_WS    {
-		$current.merge(this_WS_1);
+    |    this_WHITESPACE_1=RULE_WHITESPACE    {
+		$current.merge(this_WHITESPACE_1);
     }
 
     { 
-    newLeafNode(this_WS_1, grammarAccess.getMyCodeLineAccess().getWSTerminalRuleCall_1()); 
+    newLeafNode(this_WHITESPACE_1, grammarAccess.getMyCodeLineAccess().getWHITESPACETerminalRuleCall_1()); 
     }
 )+
     ;
@@ -2369,12 +2369,12 @@ ruleMyCodeLineExtended returns [AntlrDatatypeRuleToken current=new AntlrDatatype
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-((    this_WS_0=RULE_WS    {
-		$current.merge(this_WS_0);
+((    this_WHITESPACE_0=RULE_WHITESPACE    {
+		$current.merge(this_WHITESPACE_0);
     }
 
     { 
-    newLeafNode(this_WS_0, grammarAccess.getMyCodeLineExtendedAccess().getWSTerminalRuleCall_0()); 
+    newLeafNode(this_WHITESPACE_0, grammarAccess.getMyCodeLineExtendedAccess().getWHITESPACETerminalRuleCall_0()); 
     }
 )*(
     { 
@@ -2702,7 +2702,7 @@ ruleConstant returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken(
 // Entry rule entryRuleExpression
 entryRuleExpression returns [EObject current=null] 
 	@init { 
-		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT", "RULE_LINEBREAK");
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WHITESPACE", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT", "RULE_LINEBREAK");
 	}
 	:
 	{ newCompositeNode(grammarAccess.getExpressionRule()); }
@@ -2718,7 +2718,7 @@ finally {
 ruleExpression returns [EObject current=null] 
     @init { enterRule();
    		/*no init found*/
-		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT", "RULE_LINEBREAK");
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WHITESPACE", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT", "RULE_LINEBREAK");
     }
     @after { leaveRule();
     		/*no after found*/
@@ -2772,7 +2772,7 @@ finally {
 // Entry rule entryRuleConstantExpression
 entryRuleConstantExpression returns [EObject current=null] 
 	@init { 
-		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT", "RULE_LINEBREAK");
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WHITESPACE", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT", "RULE_LINEBREAK");
 	}
 	:
 	{ newCompositeNode(grammarAccess.getConstantExpressionRule()); }
@@ -2788,7 +2788,7 @@ finally {
 ruleConstantExpression returns [EObject current=null] 
     @init { enterRule();
    		/*no init found*/
-		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT", "RULE_LINEBREAK");
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WHITESPACE", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT", "RULE_LINEBREAK");
     }
     @after { leaveRule();
     		/*no after found*/
@@ -5178,7 +5178,7 @@ fragment RULE_SPACE : ' ';
 
 fragment RULE_TAB : '\t';
 
-RULE_WS : (RULE_SPACE|RULE_TAB);
+RULE_WHITESPACE : (RULE_SPACE|RULE_TAB);
 
 RULE_BLOCK_COMMENT : '/*' ( options {greedy=false;} : . )*'*/';
 

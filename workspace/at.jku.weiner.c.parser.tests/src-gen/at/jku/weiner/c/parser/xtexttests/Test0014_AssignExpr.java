@@ -78,7 +78,7 @@ import at.jku.weiner.c.parser.parser.CastExpression;
 import at.jku.weiner.c.parser.parser.UnaryExpression;
 import at.jku.weiner.c.parser.parser.PostfixExpression;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
-import at.jku.weiner.c.parser.parser.Constant;
+import at.jku.weiner.c.common.common.Constant2;
 import at.jku.weiner.c.parser.parser.Declaration;
 import at.jku.weiner.c.parser.parser.DeclarationSpecifiers;
 import at.jku.weiner.c.parser.parser.TypeSpecifier;
@@ -103,7 +103,7 @@ import at.jku.weiner.c.parser.parser.CastExpression;
 import at.jku.weiner.c.parser.parser.UnaryExpression;
 import at.jku.weiner.c.parser.parser.PostfixExpression;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
-import at.jku.weiner.c.parser.parser.Constant;
+import at.jku.weiner.c.common.common.Constant2;
 import at.jku.weiner.c.parser.parser.Statement;
 import at.jku.weiner.c.parser.parser.ExpressionStatement;
 import at.jku.weiner.c.parser.parser.Expression;
@@ -128,7 +128,7 @@ import at.jku.weiner.c.parser.parser.CastExpression;
 import at.jku.weiner.c.parser.parser.UnaryExpression;
 import at.jku.weiner.c.parser.parser.PostfixExpression;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
-import at.jku.weiner.c.parser.parser.Constant;
+import at.jku.weiner.c.common.common.Constant2;
 import at.jku.weiner.c.parser.parser.AssignmentExpression;
 import at.jku.weiner.c.parser.parser.UnaryExpression;
 import at.jku.weiner.c.parser.parser.PostfixExpression;
@@ -150,7 +150,7 @@ import at.jku.weiner.c.parser.parser.CastExpression;
 import at.jku.weiner.c.parser.parser.UnaryExpression;
 import at.jku.weiner.c.parser.parser.PostfixExpression;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
-import at.jku.weiner.c.parser.parser.Constant;
+import at.jku.weiner.c.common.common.Constant2;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(ParserInjectorProvider.class)
@@ -536,12 +536,12 @@ public class Test0014_AssignExpr {
 		Assert.assertNotNull(PrimaryExpression_34_Var
 		);
 		//34
-		final Constant Constant_35_Var
-		 = (Constant)PrimaryExpression_34_Var
+		final Constant2 Constant2_35_Var
+		 = (Constant2)PrimaryExpression_34_Var
 		.getConst();
-		Assert.assertNotNull(Constant_35_Var
+		Assert.assertNotNull(Constant2_35_Var
 		);
-		Assert.assertEquals("0", Constant_35_Var
+		Assert.assertEquals("0", Constant2_35_Var
 		.getDec());
 		//35
 		final Declaration Declaration_36_Var
@@ -733,12 +733,12 @@ public class Test0014_AssignExpr {
 		Assert.assertNotNull(PrimaryExpression_59_Var
 		);
 		//59
-		final Constant Constant_60_Var
-		 = (Constant)PrimaryExpression_59_Var
+		final Constant2 Constant2_60_Var
+		 = (Constant2)PrimaryExpression_59_Var
 		.getConst();
-		Assert.assertNotNull(Constant_60_Var
+		Assert.assertNotNull(Constant2_60_Var
 		);
-		Assert.assertEquals("2", Constant_60_Var
+		Assert.assertEquals("2", Constant2_60_Var
 		.getDec());
 		final EList<? extends EObject> Statement_60_list = BlockList_10_Var
 		.getStatement();
@@ -931,12 +931,12 @@ public class Test0014_AssignExpr {
 		Assert.assertNotNull(PrimaryExpression_84_Var
 		);
 		//84
-		final Constant Constant_85_Var
-		 = (Constant)PrimaryExpression_84_Var
+		final Constant2 Constant2_85_Var
+		 = (Constant2)PrimaryExpression_84_Var
 		.getConst();
-		Assert.assertNotNull(Constant_85_Var
+		Assert.assertNotNull(Constant2_85_Var
 		);
-		Assert.assertEquals("12", Constant_85_Var
+		Assert.assertEquals("12", Constant2_85_Var
 		.getDec());
 		//85
 		final AssignmentExpression AssignmentExpression_86_Var
@@ -1104,12 +1104,12 @@ public class Test0014_AssignExpr {
 		Assert.assertNotNull(PrimaryExpression_106_Var
 		);
 		//106
-		final Constant Constant_107_Var
-		 = (Constant)PrimaryExpression_106_Var
+		final Constant2 Constant2_107_Var
+		 = (Constant2)PrimaryExpression_106_Var
 		.getConst();
-		Assert.assertNotNull(Constant_107_Var
+		Assert.assertNotNull(Constant2_107_Var
 		);
-		Assert.assertEquals("21", Constant_107_Var
+		Assert.assertEquals("21", Constant2_107_Var
 		.getDec());
 		Assert.assertEquals(";", ExpressionStatement_62_Var
 		.getSemi());

@@ -73,13 +73,13 @@ import at.jku.weiner.c.parser.parser.CastExpression;
 import at.jku.weiner.c.parser.parser.UnaryExpression;
 import at.jku.weiner.c.parser.parser.PostfixExpression;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
-import at.jku.weiner.c.parser.parser.Constant;
+import at.jku.weiner.c.common.common.Constant2;
 import at.jku.weiner.c.parser.parser.MultiplicativeExpression;
 import at.jku.weiner.c.parser.parser.CastExpression;
 import at.jku.weiner.c.parser.parser.UnaryExpression;
 import at.jku.weiner.c.parser.parser.PostfixExpression;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
-import at.jku.weiner.c.parser.parser.Constant;
+import at.jku.weiner.c.common.common.Constant2;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(ParserInjectorProvider.class)
@@ -401,12 +401,12 @@ public class Test0010_SimpleExpr {
 		Assert.assertNotNull(PrimaryExpression_29_Var
 		);
 		//29
-		final Constant Constant_30_Var
-		 = (Constant)PrimaryExpression_29_Var
+		final Constant2 Constant2_30_Var
+		 = (Constant2)PrimaryExpression_29_Var
 		.getConst();
-		Assert.assertNotNull(Constant_30_Var
+		Assert.assertNotNull(Constant2_30_Var
 		);
-		Assert.assertEquals("1", Constant_30_Var
+		Assert.assertEquals("1", Constant2_30_Var
 		.getDec());
 		//30
 		final MultiplicativeExpression MultiplicativeExpression_31_Var
@@ -444,12 +444,12 @@ public class Test0010_SimpleExpr {
 		Assert.assertNotNull(PrimaryExpression_35_Var
 		);
 		//35
-		final Constant Constant_36_Var
-		 = (Constant)PrimaryExpression_35_Var
+		final Constant2 Constant2_36_Var
+		 = (Constant2)PrimaryExpression_35_Var
 		.getConst();
-		Assert.assertNotNull(Constant_36_Var
+		Assert.assertNotNull(Constant2_36_Var
 		);
-		Assert.assertEquals("1", Constant_36_Var
+		Assert.assertEquals("1", Constant2_36_Var
 		.getDec());
 		Assert.assertEquals("[+]", AdditiveExpression_24_Var
 		.getOp().toString());

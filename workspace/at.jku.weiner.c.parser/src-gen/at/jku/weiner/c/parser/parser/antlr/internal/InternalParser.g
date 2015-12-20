@@ -1667,7 +1667,7 @@ ruleTypedefName returns [EObject current=null]
        			$current, 
        			"id",
         		lv_id_1_0, 
-        		"at.jku.weiner.c.parser.Parser.ID");
+        		"at.jku.weiner.c.common.Common.ID");
 	    }
 
 )
@@ -1750,7 +1750,7 @@ ruleStructOrUnionSpecifier returns [EObject current=null]
        			$current, 
        			"id",
         		lv_id_2_0, 
-        		"at.jku.weiner.c.parser.Parser.ID");
+        		"at.jku.weiner.c.common.Common.ID");
 	    }
 
 )
@@ -1809,7 +1809,7 @@ this_SKW_RIGHTBRACE_5=RULE_SKW_RIGHTBRACE
        			$current, 
        			"id",
         		lv_id_6_0, 
-        		"at.jku.weiner.c.parser.Parser.ID");
+        		"at.jku.weiner.c.common.Common.ID");
 	    }
 
 )
@@ -2426,7 +2426,7 @@ this_SKW_RIGHTBRACE_4=RULE_SKW_RIGHTBRACE
        			$current, 
        			"id",
         		lv_id_5_0, 
-        		"at.jku.weiner.c.parser.Parser.ID");
+        		"at.jku.weiner.c.common.Common.ID");
 	    }
 
 )
@@ -2609,7 +2609,7 @@ ruleEnumerator returns [EObject current=null]
        			$current, 
        			"id",
         		lv_id_1_0, 
-        		"at.jku.weiner.c.parser.Parser.ID");
+        		"at.jku.weiner.c.common.Common.ID");
 	    }
 
 )
@@ -2997,7 +2997,7 @@ ruleDirectDeclarator returns [EObject current=null]
        			$current, 
        			"id",
         		lv_id_1_0, 
-        		"at.jku.weiner.c.parser.Parser.ID");
+        		"at.jku.weiner.c.common.Common.ID");
 	    }
 
 )
@@ -4073,7 +4073,7 @@ ruleMyIdentifier returns [EObject current=null]
        			$current, 
        			"id",
         		lv_id_1_0, 
-        		"at.jku.weiner.c.parser.Parser.ID");
+        		"at.jku.weiner.c.common.Common.ID");
 	    }
 
 )
@@ -4675,7 +4675,7 @@ ruleLabeledStatement returns [EObject current=null]
        			$current, 
        			"id",
         		lv_id_1_0, 
-        		"at.jku.weiner.c.parser.Parser.ID");
+        		"at.jku.weiner.c.common.Common.ID");
 	    }
 
 )
@@ -8731,7 +8731,7 @@ this_SKW_RIGHTPAREN_11=RULE_SKW_RIGHTPAREN
        			$current, 
        			"id",
         		lv_id_15_0, 
-        		"at.jku.weiner.c.parser.Parser.ID");
+        		"at.jku.weiner.c.common.Common.ID");
 	    }
 
 )
@@ -9320,7 +9320,7 @@ this_SKW_DOT_1=RULE_SKW_DOT
        			$current, 
        			"id",
         		lv_id_2_0, 
-        		"at.jku.weiner.c.parser.Parser.ID");
+        		"at.jku.weiner.c.common.Common.ID");
 	    }
 
 )
@@ -9387,7 +9387,7 @@ this_ARROW_1=RULE_ARROW
        			$current, 
        			"id",
         		lv_id_2_0, 
-        		"at.jku.weiner.c.parser.Parser.ID");
+        		"at.jku.weiner.c.common.Common.ID");
 	    }
 
 )
@@ -9619,7 +9619,7 @@ rulePrimaryExpression returns [EObject current=null]
        			$current, 
        			"id",
         		lv_id_1_0, 
-        		"at.jku.weiner.c.parser.Parser.ID");
+        		"at.jku.weiner.c.common.Common.ID");
 	    }
 
 )
@@ -9630,9 +9630,9 @@ rulePrimaryExpression returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getConstConstantParserRuleCall_1_1_0()); 
+	        newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getConstConstant2ParserRuleCall_1_1_0()); 
 	    }
-		lv_const_2_0=ruleConstant		{
+		lv_const_2_0=ruleConstant2		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getPrimaryExpressionRule());
 	        }
@@ -9640,7 +9640,7 @@ rulePrimaryExpression returns [EObject current=null]
        			$current, 
        			"const",
         		lv_const_2_0, 
-        		"at.jku.weiner.c.parser.Parser.Constant");
+        		"at.jku.weiner.c.common.Common.Constant2");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -9684,201 +9684,6 @@ this_SKW_RIGHTPAREN_5=RULE_SKW_RIGHTPAREN
     }
 
 
-)
-
-)
-
-)
-
-
-;
-
-
-
-
-
-// Entry rule entryRuleConstant
-entryRuleConstant returns [EObject current=null] 
-	:
-	{ newCompositeNode(grammarAccess.getConstantRule()); }
-	 iv_ruleConstant=ruleConstant 
-	 { $current=$iv_ruleConstant.current; } 
-	 EOF 
-;
-
-// Rule Constant
-ruleConstant returns [EObject current=null] 
-    @init { enterRule();
-   		/*no init found*/
-    }
-    @after { leaveRule();
-    		/*no after found*/
-     }:
-
-(
-(
-	{ 
-	  /* */ 
-	}
-    {
-        $current = forceCreateModelElement(
-            grammarAccess.getConstantAccess().getConstantAction_0(),
-            $current);
-    }
-)
-
-
-(
-(
-(
-		lv_hex_1_0=RULE_HEX_LITERAL
-		{
-			newLeafNode(lv_hex_1_0, grammarAccess.getConstantAccess().getHexHEX_LITERALTerminalRuleCall_1_0_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getConstantRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"hex",
-        		lv_hex_1_0, 
-        		"at.jku.weiner.c.parser.Parser.HEX_LITERAL");
-	    }
-
-)
-)
-
-
-    |
-(
-(
-		lv_oct_2_0=RULE_OCTAL_LITERAL
-		{
-			newLeafNode(lv_oct_2_0, grammarAccess.getConstantAccess().getOctOCTAL_LITERALTerminalRuleCall_1_1_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getConstantRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"oct",
-        		lv_oct_2_0, 
-        		"at.jku.weiner.c.parser.Parser.OCTAL_LITERAL");
-	    }
-
-)
-)
-
-
-    |
-(
-(
-		lv_dec_3_0=RULE_DECIMAL_LITERAL
-		{
-			newLeafNode(lv_dec_3_0, grammarAccess.getConstantAccess().getDecDECIMAL_LITERALTerminalRuleCall_1_2_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getConstantRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"dec",
-        		lv_dec_3_0, 
-        		"at.jku.weiner.c.parser.Parser.DECIMAL_LITERAL");
-	    }
-
-)
-)
-
-
-    |
-(
-(
-		lv_ch_4_0=RULE_CHAR_LITERAL
-		{
-			newLeafNode(lv_ch_4_0, grammarAccess.getConstantAccess().getChCHAR_LITERALTerminalRuleCall_1_3_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getConstantRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"ch",
-        		lv_ch_4_0, 
-        		"at.jku.weiner.c.parser.Parser.CHAR_LITERAL");
-	    }
-
-)
-)
-
-
-    |
-(
-(
-		lv_str_5_0=RULE_STRING_LITERAL
-		{
-			newLeafNode(lv_str_5_0, grammarAccess.getConstantAccess().getStrSTRING_LITERALTerminalRuleCall_1_4_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getConstantRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"str",
-        		lv_str_5_0, 
-        		"at.jku.weiner.c.parser.Parser.STRING_LITERAL");
-	    }
-
-)
-)
-
-
-    |
-(
-(
-		lv_float_6_0=RULE_FLOAT_LITERAL
-		{
-			newLeafNode(lv_float_6_0, grammarAccess.getConstantAccess().getFloatFLOAT_LITERALTerminalRuleCall_1_5_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getConstantRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"float",
-        		lv_float_6_0, 
-        		"at.jku.weiner.c.parser.Parser.FLOAT_LITERAL");
-	    }
-
-)
-)
-
-
-    |
-(
-(
-		lv_bin_7_0=RULE_BIN_LITERAL
-		{
-			newLeafNode(lv_bin_7_0, grammarAccess.getConstantAccess().getBinBIN_LITERALTerminalRuleCall_1_6_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getConstantRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"bin",
-        		lv_bin_7_0, 
-        		"at.jku.weiner.c.parser.Parser.BIN_LITERAL");
-	    }
-
-)
 )
 
 )
@@ -9949,6 +9754,203 @@ ruleConstantExpression returns [EObject current=null]
 ;
 
 
+
+
+
+
+
+
+
+// Entry rule entryRuleConstant2
+entryRuleConstant2 returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getConstant2Rule()); }
+	 iv_ruleConstant2=ruleConstant2 
+	 { $current=$iv_ruleConstant2.current; } 
+	 EOF 
+;
+
+// Rule Constant2
+ruleConstant2 returns [EObject current=null] 
+    @init { enterRule();
+   		/*no init found*/
+    }
+    @after { leaveRule();
+    		/*no after found*/
+     }:
+
+(
+(
+	{ 
+	  /* */ 
+	}
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getConstant2Access().getConstant2Action_0(),
+            $current);
+    }
+)
+
+
+(
+(
+(
+		lv_hex_1_0=RULE_HEX_LITERAL
+		{
+			newLeafNode(lv_hex_1_0, grammarAccess.getConstant2Access().getHexHEX_LITERALTerminalRuleCall_1_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getConstant2Rule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"hex",
+        		lv_hex_1_0, 
+        		"at.jku.weiner.c.common.Common.HEX_LITERAL");
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		lv_oct_2_0=RULE_OCTAL_LITERAL
+		{
+			newLeafNode(lv_oct_2_0, grammarAccess.getConstant2Access().getOctOCTAL_LITERALTerminalRuleCall_1_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getConstant2Rule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"oct",
+        		lv_oct_2_0, 
+        		"at.jku.weiner.c.common.Common.OCTAL_LITERAL");
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		lv_dec_3_0=RULE_DECIMAL_LITERAL
+		{
+			newLeafNode(lv_dec_3_0, grammarAccess.getConstant2Access().getDecDECIMAL_LITERALTerminalRuleCall_1_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getConstant2Rule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"dec",
+        		lv_dec_3_0, 
+        		"at.jku.weiner.c.common.Common.DECIMAL_LITERAL");
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		lv_ch_4_0=RULE_CHAR_LITERAL
+		{
+			newLeafNode(lv_ch_4_0, grammarAccess.getConstant2Access().getChCHAR_LITERALTerminalRuleCall_1_3_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getConstant2Rule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"ch",
+        		lv_ch_4_0, 
+        		"at.jku.weiner.c.common.Common.CHAR_LITERAL");
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		lv_str_5_0=RULE_STRING_LITERAL
+		{
+			newLeafNode(lv_str_5_0, grammarAccess.getConstant2Access().getStrSTRING_LITERALTerminalRuleCall_1_4_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getConstant2Rule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"str",
+        		lv_str_5_0, 
+        		"at.jku.weiner.c.common.Common.STRING_LITERAL");
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		lv_float_6_0=RULE_FLOAT_LITERAL
+		{
+			newLeafNode(lv_float_6_0, grammarAccess.getConstant2Access().getFloatFLOAT_LITERALTerminalRuleCall_1_5_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getConstant2Rule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"float",
+        		lv_float_6_0, 
+        		"at.jku.weiner.c.common.Common.FLOAT_LITERAL");
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		lv_bin_7_0=RULE_BIN_LITERAL
+		{
+			newLeafNode(lv_bin_7_0, grammarAccess.getConstant2Access().getBinBIN_LITERALTerminalRuleCall_1_6_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getConstant2Rule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"bin",
+        		lv_bin_7_0, 
+        		"at.jku.weiner.c.common.Common.BIN_LITERAL");
+	    }
+
+)
+)
+
+)
+
+)
+
+
+;
 
 
 
@@ -10076,53 +10078,9 @@ RULE_ARROW : RULE_SKW_MINUS RULE_SKW_GREATER;
 
 RULE_ELLIPSIS : RULE_SKW_DOT RULE_SKW_DOT RULE_SKW_DOT;
 
-fragment RULE_SINGLEQUOTE : '\'';
-
-fragment RULE_DOUBLEQUOTE : '"';
-
-RULE_ID : RULE_IDENTIFIER;
-
-fragment RULE_IDENTIFIER : RULE_LETTER (RULE_LETTER|'0'..'9')*;
-
-fragment RULE_LETTER : ('$'|'A'..'Z'|'a'..'z'|RULE_SKW_UNDERSCORE);
-
-RULE_CHAR_LITERAL : RULE_SINGLEQUOTE (RULE_ESCAPE_SEQUENCE|~((RULE_SINGLEQUOTE|RULE_SKW_BACKSLASH))) RULE_SINGLEQUOTE;
-
-RULE_STRING_LITERAL : RULE_DOUBLEQUOTE (RULE_ESCAPE_SEQUENCE|~((RULE_SKW_BACKSLASH|RULE_DOUBLEQUOTE)))* RULE_DOUBLEQUOTE;
-
-RULE_HEX_LITERAL : '0' ('x'|'X') RULE_HEX_DIGIT+ RULE_INTEGER_TYPE_SUFFIX?;
-
-RULE_DECIMAL_LITERAL : ('0'|'1'..'9' ('0'..'9')*) RULE_INTEGER_TYPE_SUFFIX?;
-
-RULE_OCTAL_LITERAL : '0' ('0'..'7')+ RULE_INTEGER_TYPE_SUFFIX?;
-
-RULE_BIN_LITERAL : ('0b'|'0B') ('0'..'1')+;
-
-fragment RULE_HEX_DIGIT : ('0'..'9'|'a'..'f'|'A'..'F');
-
-fragment RULE_INTEGER_TYPE_SUFFIX : (('u'|'U')? ('l'|'L')|('u'|'U') ('l'|'L')?);
-
-RULE_FLOAT_LITERAL : (('0'..'9')+ RULE_SKW_DOT ('0'..'9')* RULE_EXPONENT? RULE_FLOAT_TYPE_SUFFIX?|RULE_SKW_DOT ('0'..'9')+ RULE_EXPONENT? RULE_FLOAT_TYPE_SUFFIX?|('0'..'9')+ RULE_EXPONENT RULE_FLOAT_TYPE_SUFFIX?|('0'..'9')+ RULE_EXPONENT? RULE_FLOAT_TYPE_SUFFIX);
-
-fragment RULE_EXPONENT : ('e'|'E') ('+'|'-')? ('0'..'9')+;
-
-fragment RULE_FLOAT_TYPE_SUFFIX : ('f'|'F'|'d'|'D');
-
-fragment RULE_ESCAPE_SEQUENCE : (RULE_SKW_BACKSLASH ('b'|'t'|'n'|'f'|'r'|'"'|RULE_SINGLEQUOTE|RULE_SKW_BACKSLASH)|RULE_OCTAL_ESCAPE);
-
-fragment RULE_OCTAL_ESCAPE : (RULE_SKW_BACKSLASH '0'..'3' '0'..'7' '0'..'7'|RULE_SKW_BACKSLASH '0'..'7' '0'..'7'|RULE_SKW_BACKSLASH '0'..'7');
-
-fragment RULE_UNICODE_ESCAPE : RULE_SKW_BACKSLASH 'u' RULE_HEX_DIGIT RULE_HEX_DIGIT RULE_HEX_DIGIT RULE_HEX_DIGIT;
-
 RULE_LINEDIRECTIVE : '#' (~(RULE_NEWLINE)|RULE_SKW_BACKSLASH RULE_NEWLINE)*;
 
 RULE_WHITESPACE : (' '|'\t')+;
-
-RULE_BLOCK_COMMENT : '/*' ( options {greedy=false;} : . )*'*/';
-
-RULE_LINE_COMMENT : '//' ~(RULE_NEWLINE)*;
-
-RULE_NEWLINE : ('\r'|'\n');
 
 RULE_SKW_AND : '&';
 
@@ -10201,6 +10159,54 @@ RULE_SKW_STAR : '*';
 RULE_SKW_TILDE : '~';
 
 fragment RULE_SKW_UNDERSCORE : '_';
+
+RULE_ID : RULE_IDENTIFIER;
+
+fragment RULE_IDENTIFIER : RULE_LETTER (RULE_LETTER|'0'..'9')*;
+
+fragment RULE_LETTER : (RULE_SKW_DOLLAR|'A'..'Z'|'a'..'z'|RULE_SKW_UNDERSCORE);
+
+RULE_CHAR_LITERAL : RULE_SKW_SINGLEQUOTE (RULE_ESCAPE_SEQUENCE|~((RULE_SKW_SINGLEQUOTE|RULE_SKW_BACKSLASH))) RULE_SKW_SINGLEQUOTE;
+
+RULE_STRING_LITERAL : RULE_SKW_DOUBLEQUOTE (RULE_ESCAPE_SEQUENCE|~((RULE_SKW_BACKSLASH|RULE_SKW_DOUBLEQUOTE)))* RULE_SKW_DOUBLEQUOTE;
+
+RULE_HEX_LITERAL : '0' ('x'|'X') RULE_HEX_DIGIT+ RULE_INTEGER_TYPE_SUFFIX?;
+
+RULE_DECIMAL_LITERAL : ('0'|'1'..'9' ('0'..'9')*) RULE_INTEGER_TYPE_SUFFIX?;
+
+RULE_OCTAL_LITERAL : '0' ('0'..'7')+ RULE_INTEGER_TYPE_SUFFIX?;
+
+RULE_BIN_LITERAL : ('0b'|'0B') ('0'..'1')+;
+
+fragment RULE_HEX_DIGIT : ('0'..'9'|'a'..'f'|'A'..'F');
+
+fragment RULE_INTEGER_TYPE_SUFFIX : (('u'|'U')? ('l'|'L')|('u'|'U') ('l'|'L')?);
+
+RULE_FLOAT_LITERAL : (('0'..'9')+ RULE_SKW_DOT ('0'..'9')* RULE_EXPONENT? RULE_FLOAT_TYPE_SUFFIX?|RULE_SKW_DOT ('0'..'9')+ RULE_EXPONENT? RULE_FLOAT_TYPE_SUFFIX?|('0'..'9')+ RULE_EXPONENT RULE_FLOAT_TYPE_SUFFIX?|('0'..'9')+ RULE_EXPONENT? RULE_FLOAT_TYPE_SUFFIX);
+
+fragment RULE_EXPONENT : ('e'|'E') ('+'|'-')? ('0'..'9')+;
+
+fragment RULE_FLOAT_TYPE_SUFFIX : ('f'|'F'|'d'|'D');
+
+fragment RULE_ESCAPE_SEQUENCE : (RULE_SKW_BACKSLASH ('b'|'t'|'n'|'f'|'r'|'"'|RULE_SKW_SINGLEQUOTE|RULE_SKW_BACKSLASH)|RULE_OCTAL_ESCAPE);
+
+fragment RULE_OCTAL_ESCAPE : (RULE_SKW_BACKSLASH '0'..'3' '0'..'7' '0'..'7'|RULE_SKW_BACKSLASH '0'..'7' '0'..'7'|RULE_SKW_BACKSLASH '0'..'7');
+
+fragment RULE_LINEFEED : '\n';
+
+fragment RULE_CARRIAGERETURN : '\r';
+
+RULE_NEWLINE : (RULE_CARRIAGERETURN|RULE_LINEFEED);
+
+RULE_LINEBREAK : RULE_SKW_BACKSLASH RULE_NEWLINE;
+
+fragment RULE_SPACE : ' ';
+
+fragment RULE_TAB : '\t';
+
+RULE_BLOCK_COMMENT : '/*' ( options {greedy=false;} : . )*'*/';
+
+RULE_LINE_COMMENT : '//' ~(RULE_NEWLINE)*;
 
 RULE_SPECIAL : .;
 

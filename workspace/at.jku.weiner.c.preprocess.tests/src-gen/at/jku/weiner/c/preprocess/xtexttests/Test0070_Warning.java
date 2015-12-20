@@ -102,7 +102,7 @@ public class Test0070_Warning {
 			final String[] expected = new String[] {
 				"RULE_HASH", 
 				"RULE_WARNING", 
-				"RULE_WS", 
+				"RULE_WHITESPACE", 
 				"RULE_STRING_LITERAL", 
 				"RULE_NEWLINE", 
 				};

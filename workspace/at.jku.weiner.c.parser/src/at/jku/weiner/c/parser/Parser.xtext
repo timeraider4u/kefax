@@ -925,8 +925,9 @@ terminal ARROW: SKW_MINUS SKW_GREATER;
 terminal ELLIPSIS: SKW_DOT SKW_DOT SKW_DOT;
 
 //terminal ZERO: '0';
-terminal SINGLEQUOTE: '\'';
+/*terminal SINGLEQUOTE: '\'';
 terminal DOUBLEQUOTE: '"';
+
 
 terminal ID: IDENTIFIER;
 terminal fragment IDENTIFIER:
@@ -992,10 +993,14 @@ terminal fragment UNICODE_ESCAPE:
 ;
 
 terminal LINEDIRECTIVE: '#' (!NEWLINE | SKW_BACKSLASH NEWLINE)*;
-terminal WHITESPACE: (' ' | '\t')+;
-terminal BLOCK_COMMENT: '/*' -> '*/';
+
+terminal BLOCK_COMMENT: '/*' -> '';
 terminal LINE_COMMENT: '//' (!NEWLINE)*;
+
 terminal NEWLINE: ('\r'|'\n');
+*/
+terminal LINEDIRECTIVE: '#' (!NEWLINE | SKW_BACKSLASH NEWLINE)*;
+terminal WHITESPACE: (' ' | '\t')+;
 //terminal EOF_TERMINAL: EOF;
 
 //terminal ANYOTHER: !(COMMA | LEFTPAREN | RIGHTPAREN);

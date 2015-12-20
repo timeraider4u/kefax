@@ -22,7 +22,7 @@ import java.util.Map;
 import java.util.HashMap;
 public class InternalPreprocessParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_SPECIAL", "RULE_INCLUDE", "RULE_DEFINE", "RULE_ERROR", "RULE_PRAGMA", "RULE_IFDEF", "RULE_ENDIF", "RULE_IFNOTDEF", "RULE_IF", "RULE_DEFINED", "RULE_WS", "RULE_HASH", "RULE_HEX_LITERAL", "RULE_OCTAL_LITERAL", "RULE_DECIMAL_LITERAL", "RULE_CHAR_LITERAL", "RULE_STRING_LITERAL", "RULE_FLOAT_LITERAL", "RULE_BIN_LITERAL", "RULE_SKW_AND", "RULE_SKW_ANDAND", "RULE_SKW_ASSIGN", "RULE_SKW_BACKSLASH", "RULE_SKW_CARET", "RULE_SKW_COMMA", "RULE_SKW_COLON", "RULE_SKW_DIV", "RULE_SKW_DOT", "RULE_SKW_DOUBLEQUOTE", "RULE_SKW_EQUAL", "RULE_SKW_GREATER", "RULE_SKW_GREATEREQUAL", "RULE_SKW_LEFTBRACE", "RULE_SKW_LEFTBRACKET", "RULE_SKW_LEFTPAREN", "RULE_SKW_LEFTSHIFT", "RULE_SKW_LESS", "RULE_SKW_LESSEQUAL", "RULE_SKW_MINUS", "RULE_SKW_MINUSMINUS", "RULE_SKW_MOD", "RULE_SKW_NOT", "RULE_SKW_NOTEQUAL", "RULE_SKW_OR", "RULE_SKW_OROR", "RULE_SKW_PLUS", "RULE_SKW_PLUSPLUS", "RULE_SKW_QUESTION", "RULE_SKW_RIGHTBRACE", "RULE_SKW_RIGHTBRACKET", "RULE_SKW_RIGHTPAREN", "RULE_SKW_RIGHTSHIFT", "RULE_SKW_SEMI", "RULE_SKW_SINGLEQUOTE", "RULE_SKW_STAR", "RULE_SKW_TILDE", "RULE_NEWLINE", "RULE_WARNING", "RULE_UNDEF", "RULE_ELIF", "RULE_ELSE", "RULE_SKW_DOLLAR", "RULE_SKW_UNDERSCORE", "RULE_IDENTIFIER", "RULE_LETTER", "RULE_ESCAPE_SEQUENCE", "RULE_HEX_DIGIT", "RULE_INTEGER_TYPE_SUFFIX", "RULE_EXPONENT", "RULE_FLOAT_TYPE_SUFFIX", "RULE_OCTAL_ESCAPE", "RULE_LINEFEED", "RULE_CARRIAGERETURN", "RULE_LINEBREAK", "RULE_SPACE", "RULE_TAB", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_SPECIAL", "RULE_INCLUDE", "RULE_DEFINE", "RULE_ERROR", "RULE_PRAGMA", "RULE_IFDEF", "RULE_ENDIF", "RULE_IFNOTDEF", "RULE_IF", "RULE_DEFINED", "RULE_WHITESPACE", "RULE_HASH", "RULE_HEX_LITERAL", "RULE_OCTAL_LITERAL", "RULE_DECIMAL_LITERAL", "RULE_CHAR_LITERAL", "RULE_STRING_LITERAL", "RULE_FLOAT_LITERAL", "RULE_BIN_LITERAL", "RULE_SKW_AND", "RULE_SKW_ANDAND", "RULE_SKW_ASSIGN", "RULE_SKW_BACKSLASH", "RULE_SKW_CARET", "RULE_SKW_COMMA", "RULE_SKW_COLON", "RULE_SKW_DIV", "RULE_SKW_DOT", "RULE_SKW_DOUBLEQUOTE", "RULE_SKW_EQUAL", "RULE_SKW_GREATER", "RULE_SKW_GREATEREQUAL", "RULE_SKW_LEFTBRACE", "RULE_SKW_LEFTBRACKET", "RULE_SKW_LEFTPAREN", "RULE_SKW_LEFTSHIFT", "RULE_SKW_LESS", "RULE_SKW_LESSEQUAL", "RULE_SKW_MINUS", "RULE_SKW_MINUSMINUS", "RULE_SKW_MOD", "RULE_SKW_NOT", "RULE_SKW_NOTEQUAL", "RULE_SKW_OR", "RULE_SKW_OROR", "RULE_SKW_PLUS", "RULE_SKW_PLUSPLUS", "RULE_SKW_QUESTION", "RULE_SKW_RIGHTBRACE", "RULE_SKW_RIGHTBRACKET", "RULE_SKW_RIGHTPAREN", "RULE_SKW_RIGHTSHIFT", "RULE_SKW_SEMI", "RULE_SKW_SINGLEQUOTE", "RULE_SKW_STAR", "RULE_SKW_TILDE", "RULE_NEWLINE", "RULE_WARNING", "RULE_UNDEF", "RULE_ELIF", "RULE_ELSE", "RULE_SKW_DOLLAR", "RULE_SKW_UNDERSCORE", "RULE_IDENTIFIER", "RULE_LETTER", "RULE_ESCAPE_SEQUENCE", "RULE_HEX_DIGIT", "RULE_INTEGER_TYPE_SUFFIX", "RULE_EXPONENT", "RULE_FLOAT_TYPE_SUFFIX", "RULE_OCTAL_ESCAPE", "RULE_LINEFEED", "RULE_CARRIAGERETURN", "RULE_LINEBREAK", "RULE_SPACE", "RULE_TAB", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT"
     };
     public static final int RULE_PRAGMA=9;
     public static final int RULE_ID=4;
@@ -52,6 +52,7 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
     public static final int RULE_WARNING=62;
     public static final int RULE_SKW_AND=24;
     public static final int RULE_SKW_CARET=28;
+    public static final int RULE_WHITESPACE=15;
     public static final int RULE_OCTAL_LITERAL=18;
     public static final int RULE_SKW_COMMA=29;
     public static final int RULE_SKW_RIGHTBRACKET=54;
@@ -98,7 +99,6 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
     public static final int RULE_SKW_BACKSLASH=27;
     public static final int RULE_ELIF=64;
     public static final int RULE_CHAR_LITERAL=20;
-    public static final int RULE_WS=15;
     public static final int RULE_IF=13;
     public static final int RULE_ELSE=65;
     public static final int RULE_FLOAT_LITERAL=22;
@@ -2743,7 +2743,7 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
     // InternalPreprocess.g:1025:1: entryRuleExpression : ruleExpression EOF ;
     public final void entryRuleExpression() throws RecognitionException {
 
-        	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT", "RULE_LINEBREAK");
+        	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WHITESPACE", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT", "RULE_LINEBREAK");
 
         try {
             // InternalPreprocess.g:1029:1: ( ruleExpression EOF )
@@ -2783,7 +2783,7 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
     // InternalPreprocess.g:1040:1: ruleExpression : ( ( rule__Expression__Group__0 ) ) ;
     public final void ruleExpression() throws RecognitionException {
 
-        		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT", "RULE_LINEBREAK");
+        		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WHITESPACE", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT", "RULE_LINEBREAK");
         		int stackSize = keepStackSize();
         		/*no init found*/
             
@@ -2842,7 +2842,7 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
     // InternalPreprocess.g:1067:1: entryRuleConstantExpression : ruleConstantExpression EOF ;
     public final void entryRuleConstantExpression() throws RecognitionException {
 
-        	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT", "RULE_LINEBREAK");
+        	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WHITESPACE", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT", "RULE_LINEBREAK");
 
         try {
             // InternalPreprocess.g:1071:1: ( ruleConstantExpression EOF )
@@ -2882,7 +2882,7 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
     // InternalPreprocess.g:1082:1: ruleConstantExpression : ( ( rule__ConstantExpression__Group__0 ) ) ;
     public final void ruleConstantExpression() throws RecognitionException {
 
-        		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT", "RULE_LINEBREAK");
+        		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WHITESPACE", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT", "RULE_LINEBREAK");
         		int stackSize = keepStackSize();
         		/*no init found*/
             
@@ -5594,13 +5594,13 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__MyDefineLine__Alternatives"
-    // InternalPreprocess.g:2036:1: rule__MyDefineLine__Alternatives : ( ( ruleMyCode ) | ( RULE_WS ) | ( RULE_HASH ) );
+    // InternalPreprocess.g:2036:1: rule__MyDefineLine__Alternatives : ( ( ruleMyCode ) | ( RULE_WHITESPACE ) | ( RULE_HASH ) );
     public final void rule__MyDefineLine__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalPreprocess.g:2040:1: ( ( ruleMyCode ) | ( RULE_WS ) | ( RULE_HASH ) )
+            // InternalPreprocess.g:2040:1: ( ( ruleMyCode ) | ( RULE_WHITESPACE ) | ( RULE_HASH ) )
             int alt8=3;
             switch ( input.LA(1) ) {
             case RULE_ID:
@@ -5662,7 +5662,7 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
                 alt8=1;
                 }
                 break;
-            case RULE_WS:
+            case RULE_WHITESPACE:
                 {
                 alt8=2;
                 }
@@ -5705,17 +5705,17 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 2 :
-                    // InternalPreprocess.g:2051:1: ( RULE_WS )
+                    // InternalPreprocess.g:2051:1: ( RULE_WHITESPACE )
                     {
-                    // InternalPreprocess.g:2051:1: ( RULE_WS )
-                    // InternalPreprocess.g:2052:1: RULE_WS
+                    // InternalPreprocess.g:2051:1: ( RULE_WHITESPACE )
+                    // InternalPreprocess.g:2052:1: RULE_WHITESPACE
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getMyDefineLineAccess().getWSTerminalRuleCall_1()); 
+                       before(grammarAccess.getMyDefineLineAccess().getWHITESPACETerminalRuleCall_1()); 
                     }
-                    match(input,RULE_WS,FOLLOW_2); if (state.failed) return ;
+                    match(input,RULE_WHITESPACE,FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getMyDefineLineAccess().getWSTerminalRuleCall_1()); 
+                       after(grammarAccess.getMyDefineLineAccess().getWHITESPACETerminalRuleCall_1()); 
                     }
 
                     }
@@ -5760,20 +5760,20 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__MyCodeLine__Alternatives"
-    // InternalPreprocess.g:2073:1: rule__MyCodeLine__Alternatives : ( ( ruleMyCode ) | ( RULE_WS ) );
+    // InternalPreprocess.g:2073:1: rule__MyCodeLine__Alternatives : ( ( ruleMyCode ) | ( RULE_WHITESPACE ) );
     public final void rule__MyCodeLine__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalPreprocess.g:2077:1: ( ( ruleMyCode ) | ( RULE_WS ) )
+            // InternalPreprocess.g:2077:1: ( ( ruleMyCode ) | ( RULE_WHITESPACE ) )
             int alt9=2;
             int LA9_0 = input.LA(1);
 
             if ( ((LA9_0>=RULE_ID && LA9_0<=RULE_DEFINED)||(LA9_0>=RULE_HEX_LITERAL && LA9_0<=RULE_SKW_TILDE)) ) {
                 alt9=1;
             }
-            else if ( (LA9_0==RULE_WS) ) {
+            else if ( (LA9_0==RULE_WHITESPACE) ) {
                 alt9=2;
             }
             else {
@@ -5808,17 +5808,17 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 2 :
-                    // InternalPreprocess.g:2088:1: ( RULE_WS )
+                    // InternalPreprocess.g:2088:1: ( RULE_WHITESPACE )
                     {
-                    // InternalPreprocess.g:2088:1: ( RULE_WS )
-                    // InternalPreprocess.g:2089:1: RULE_WS
+                    // InternalPreprocess.g:2088:1: ( RULE_WHITESPACE )
+                    // InternalPreprocess.g:2089:1: RULE_WHITESPACE
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getMyCodeLineAccess().getWSTerminalRuleCall_1()); 
+                       before(grammarAccess.getMyCodeLineAccess().getWHITESPACETerminalRuleCall_1()); 
                     }
-                    match(input,RULE_WS,FOLLOW_2); if (state.failed) return ;
+                    match(input,RULE_WHITESPACE,FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getMyCodeLineAccess().getWSTerminalRuleCall_1()); 
+                       after(grammarAccess.getMyCodeLineAccess().getWHITESPACETerminalRuleCall_1()); 
                     }
 
                     }
@@ -5854,7 +5854,7 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
             int alt10=2;
             int LA10_0 = input.LA(1);
 
-            if ( ((LA10_0>=RULE_ID && LA10_0<=RULE_WS)||(LA10_0>=RULE_HEX_LITERAL && LA10_0<=RULE_SKW_TILDE)) ) {
+            if ( ((LA10_0>=RULE_ID && LA10_0<=RULE_WHITESPACE)||(LA10_0>=RULE_HEX_LITERAL && LA10_0<=RULE_SKW_TILDE)) ) {
                 alt10=1;
             }
             else if ( (LA10_0==RULE_HASH) ) {
@@ -8858,37 +8858,37 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__PreprocessorDirectives__Group__1__Impl"
-    // InternalPreprocess.g:3107:1: rule__PreprocessorDirectives__Group__1__Impl : ( ( RULE_WS )* ) ;
+    // InternalPreprocess.g:3107:1: rule__PreprocessorDirectives__Group__1__Impl : ( ( RULE_WHITESPACE )* ) ;
     public final void rule__PreprocessorDirectives__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalPreprocess.g:3111:1: ( ( ( RULE_WS )* ) )
-            // InternalPreprocess.g:3113:1: ( ( RULE_WS )* )
+            // InternalPreprocess.g:3111:1: ( ( ( RULE_WHITESPACE )* ) )
+            // InternalPreprocess.g:3113:1: ( ( RULE_WHITESPACE )* )
             {
-            // InternalPreprocess.g:3113:1: ( ( RULE_WS )* )
-            // InternalPreprocess.g:3114:1: ( RULE_WS )*
+            // InternalPreprocess.g:3113:1: ( ( RULE_WHITESPACE )* )
+            // InternalPreprocess.g:3114:1: ( RULE_WHITESPACE )*
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getPreprocessorDirectivesAccess().getWSTerminalRuleCall_1()); 
+               before(grammarAccess.getPreprocessorDirectivesAccess().getWHITESPACETerminalRuleCall_1()); 
             }
-            // InternalPreprocess.g:3115:1: ( RULE_WS )*
+            // InternalPreprocess.g:3115:1: ( RULE_WHITESPACE )*
             loop22:
             do {
                 int alt22=2;
                 int LA22_0 = input.LA(1);
 
-                if ( (LA22_0==RULE_WS) ) {
+                if ( (LA22_0==RULE_WHITESPACE) ) {
                     alt22=1;
                 }
 
 
                 switch (alt22) {
             	case 1 :
-            	    // InternalPreprocess.g:3115:3: RULE_WS
+            	    // InternalPreprocess.g:3115:3: RULE_WHITESPACE
             	    {
-            	    match(input,RULE_WS,FOLLOW_8); if (state.failed) return ;
+            	    match(input,RULE_WHITESPACE,FOLLOW_8); if (state.failed) return ;
 
             	    }
             	    break;
@@ -8899,7 +8899,7 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
             } while (true);
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getPreprocessorDirectivesAccess().getWSTerminalRuleCall_1()); 
+               after(grammarAccess.getPreprocessorDirectivesAccess().getWHITESPACETerminalRuleCall_1()); 
             }
 
             }
@@ -9040,37 +9040,37 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__PreprocessorDirectives__Group__3__Impl"
-    // InternalPreprocess.g:3171:1: rule__PreprocessorDirectives__Group__3__Impl : ( ( RULE_WS )* ) ;
+    // InternalPreprocess.g:3171:1: rule__PreprocessorDirectives__Group__3__Impl : ( ( RULE_WHITESPACE )* ) ;
     public final void rule__PreprocessorDirectives__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalPreprocess.g:3175:1: ( ( ( RULE_WS )* ) )
-            // InternalPreprocess.g:3177:1: ( ( RULE_WS )* )
+            // InternalPreprocess.g:3175:1: ( ( ( RULE_WHITESPACE )* ) )
+            // InternalPreprocess.g:3177:1: ( ( RULE_WHITESPACE )* )
             {
-            // InternalPreprocess.g:3177:1: ( ( RULE_WS )* )
-            // InternalPreprocess.g:3178:1: ( RULE_WS )*
+            // InternalPreprocess.g:3177:1: ( ( RULE_WHITESPACE )* )
+            // InternalPreprocess.g:3178:1: ( RULE_WHITESPACE )*
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getPreprocessorDirectivesAccess().getWSTerminalRuleCall_3()); 
+               before(grammarAccess.getPreprocessorDirectivesAccess().getWHITESPACETerminalRuleCall_3()); 
             }
-            // InternalPreprocess.g:3179:1: ( RULE_WS )*
+            // InternalPreprocess.g:3179:1: ( RULE_WHITESPACE )*
             loop23:
             do {
                 int alt23=2;
                 int LA23_0 = input.LA(1);
 
-                if ( (LA23_0==RULE_WS) ) {
+                if ( (LA23_0==RULE_WHITESPACE) ) {
                     alt23=1;
                 }
 
 
                 switch (alt23) {
             	case 1 :
-            	    // InternalPreprocess.g:3179:3: RULE_WS
+            	    // InternalPreprocess.g:3179:3: RULE_WHITESPACE
             	    {
-            	    match(input,RULE_WS,FOLLOW_8); if (state.failed) return ;
+            	    match(input,RULE_WHITESPACE,FOLLOW_8); if (state.failed) return ;
 
             	    }
             	    break;
@@ -9081,7 +9081,7 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
             } while (true);
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getPreprocessorDirectivesAccess().getWSTerminalRuleCall_3()); 
+               after(grammarAccess.getPreprocessorDirectivesAccess().getWHITESPACETerminalRuleCall_3()); 
             }
 
             }
@@ -9464,53 +9464,53 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__IncludeDirective__Group__2__Impl"
-    // InternalPreprocess.g:3344:1: rule__IncludeDirective__Group__2__Impl : ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) ) ;
+    // InternalPreprocess.g:3344:1: rule__IncludeDirective__Group__2__Impl : ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) ) ;
     public final void rule__IncludeDirective__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalPreprocess.g:3348:1: ( ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) ) )
-            // InternalPreprocess.g:3350:1: ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) )
+            // InternalPreprocess.g:3348:1: ( ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) ) )
+            // InternalPreprocess.g:3350:1: ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) )
             {
-            // InternalPreprocess.g:3350:1: ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) )
-            // InternalPreprocess.g:3351:1: ( ( RULE_WS ) ) ( ( RULE_WS )* )
+            // InternalPreprocess.g:3350:1: ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) )
+            // InternalPreprocess.g:3351:1: ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* )
             {
-            // InternalPreprocess.g:3351:1: ( ( RULE_WS ) )
-            // InternalPreprocess.g:3352:1: ( RULE_WS )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getIncludeDirectiveAccess().getWSTerminalRuleCall_2()); 
-            }
-            // InternalPreprocess.g:3353:1: ( RULE_WS )
-            // InternalPreprocess.g:3353:3: RULE_WS
-            {
-            match(input,RULE_WS,FOLLOW_8); if (state.failed) return ;
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getIncludeDirectiveAccess().getWSTerminalRuleCall_2()); 
-            }
-
-            }
-
-            // InternalPreprocess.g:3356:1: ( ( RULE_WS )* )
-            // InternalPreprocess.g:3357:1: ( RULE_WS )*
+            // InternalPreprocess.g:3351:1: ( ( RULE_WHITESPACE ) )
+            // InternalPreprocess.g:3352:1: ( RULE_WHITESPACE )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getIncludeDirectiveAccess().getWSTerminalRuleCall_2()); 
+               before(grammarAccess.getIncludeDirectiveAccess().getWHITESPACETerminalRuleCall_2()); 
             }
-            // InternalPreprocess.g:3358:1: ( RULE_WS )*
+            // InternalPreprocess.g:3353:1: ( RULE_WHITESPACE )
+            // InternalPreprocess.g:3353:3: RULE_WHITESPACE
+            {
+            match(input,RULE_WHITESPACE,FOLLOW_8); if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getIncludeDirectiveAccess().getWHITESPACETerminalRuleCall_2()); 
+            }
+
+            }
+
+            // InternalPreprocess.g:3356:1: ( ( RULE_WHITESPACE )* )
+            // InternalPreprocess.g:3357:1: ( RULE_WHITESPACE )*
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getIncludeDirectiveAccess().getWHITESPACETerminalRuleCall_2()); 
+            }
+            // InternalPreprocess.g:3358:1: ( RULE_WHITESPACE )*
             loop24:
             do {
                 int alt24=2;
                 alt24 = dfa24.predict(input);
                 switch (alt24) {
             	case 1 :
-            	    // InternalPreprocess.g:3358:3: RULE_WS
+            	    // InternalPreprocess.g:3358:3: RULE_WHITESPACE
             	    {
-            	    match(input,RULE_WS,FOLLOW_8); if (state.failed) return ;
+            	    match(input,RULE_WHITESPACE,FOLLOW_8); if (state.failed) return ;
 
             	    }
             	    break;
@@ -9521,7 +9521,7 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
             } while (true);
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getIncludeDirectiveAccess().getWSTerminalRuleCall_2()); 
+               after(grammarAccess.getIncludeDirectiveAccess().getWHITESPACETerminalRuleCall_2()); 
             }
 
             }
@@ -9828,59 +9828,59 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DefineObjectMacro__Group__2__Impl"
-    // InternalPreprocess.g:3488:1: rule__DefineObjectMacro__Group__2__Impl : ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) ) ;
+    // InternalPreprocess.g:3488:1: rule__DefineObjectMacro__Group__2__Impl : ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) ) ;
     public final void rule__DefineObjectMacro__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalPreprocess.g:3492:1: ( ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) ) )
-            // InternalPreprocess.g:3494:1: ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) )
+            // InternalPreprocess.g:3492:1: ( ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) ) )
+            // InternalPreprocess.g:3494:1: ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) )
             {
-            // InternalPreprocess.g:3494:1: ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) )
-            // InternalPreprocess.g:3495:1: ( ( RULE_WS ) ) ( ( RULE_WS )* )
+            // InternalPreprocess.g:3494:1: ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) )
+            // InternalPreprocess.g:3495:1: ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* )
             {
-            // InternalPreprocess.g:3495:1: ( ( RULE_WS ) )
-            // InternalPreprocess.g:3496:1: ( RULE_WS )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDefineObjectMacroAccess().getWSTerminalRuleCall_2()); 
-            }
-            // InternalPreprocess.g:3497:1: ( RULE_WS )
-            // InternalPreprocess.g:3497:3: RULE_WS
-            {
-            match(input,RULE_WS,FOLLOW_8); if (state.failed) return ;
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDefineObjectMacroAccess().getWSTerminalRuleCall_2()); 
-            }
-
-            }
-
-            // InternalPreprocess.g:3500:1: ( ( RULE_WS )* )
-            // InternalPreprocess.g:3501:1: ( RULE_WS )*
+            // InternalPreprocess.g:3495:1: ( ( RULE_WHITESPACE ) )
+            // InternalPreprocess.g:3496:1: ( RULE_WHITESPACE )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDefineObjectMacroAccess().getWSTerminalRuleCall_2()); 
+               before(grammarAccess.getDefineObjectMacroAccess().getWHITESPACETerminalRuleCall_2()); 
             }
-            // InternalPreprocess.g:3502:1: ( RULE_WS )*
+            // InternalPreprocess.g:3497:1: ( RULE_WHITESPACE )
+            // InternalPreprocess.g:3497:3: RULE_WHITESPACE
+            {
+            match(input,RULE_WHITESPACE,FOLLOW_8); if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDefineObjectMacroAccess().getWHITESPACETerminalRuleCall_2()); 
+            }
+
+            }
+
+            // InternalPreprocess.g:3500:1: ( ( RULE_WHITESPACE )* )
+            // InternalPreprocess.g:3501:1: ( RULE_WHITESPACE )*
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDefineObjectMacroAccess().getWHITESPACETerminalRuleCall_2()); 
+            }
+            // InternalPreprocess.g:3502:1: ( RULE_WHITESPACE )*
             loop25:
             do {
                 int alt25=2;
                 int LA25_0 = input.LA(1);
 
-                if ( (LA25_0==RULE_WS) ) {
+                if ( (LA25_0==RULE_WHITESPACE) ) {
                     alt25=1;
                 }
 
 
                 switch (alt25) {
             	case 1 :
-            	    // InternalPreprocess.g:3502:3: RULE_WS
+            	    // InternalPreprocess.g:3502:3: RULE_WHITESPACE
             	    {
-            	    match(input,RULE_WS,FOLLOW_8); if (state.failed) return ;
+            	    match(input,RULE_WHITESPACE,FOLLOW_8); if (state.failed) return ;
 
             	    }
             	    break;
@@ -9891,7 +9891,7 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
             } while (true);
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDefineObjectMacroAccess().getWSTerminalRuleCall_2()); 
+               after(grammarAccess.getDefineObjectMacroAccess().getWHITESPACETerminalRuleCall_2()); 
             }
 
             }
@@ -10059,7 +10059,7 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
             int alt26=2;
             int LA26_0 = input.LA(1);
 
-            if ( (LA26_0==RULE_WS) ) {
+            if ( (LA26_0==RULE_WHITESPACE) ) {
                 alt26=1;
             }
             switch (alt26) {
@@ -10140,50 +10140,50 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DefineObjectMacro__Group_4__0__Impl"
-    // InternalPreprocess.g:3600:1: rule__DefineObjectMacro__Group_4__0__Impl : ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) ) ;
+    // InternalPreprocess.g:3600:1: rule__DefineObjectMacro__Group_4__0__Impl : ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) ) ;
     public final void rule__DefineObjectMacro__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalPreprocess.g:3604:1: ( ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) ) )
-            // InternalPreprocess.g:3606:1: ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) )
+            // InternalPreprocess.g:3604:1: ( ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) ) )
+            // InternalPreprocess.g:3606:1: ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) )
             {
-            // InternalPreprocess.g:3606:1: ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) )
-            // InternalPreprocess.g:3607:1: ( ( RULE_WS ) ) ( ( RULE_WS )* )
+            // InternalPreprocess.g:3606:1: ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) )
+            // InternalPreprocess.g:3607:1: ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* )
             {
-            // InternalPreprocess.g:3607:1: ( ( RULE_WS ) )
-            // InternalPreprocess.g:3608:1: ( RULE_WS )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDefineObjectMacroAccess().getWSTerminalRuleCall_4_0()); 
-            }
-            // InternalPreprocess.g:3609:1: ( RULE_WS )
-            // InternalPreprocess.g:3609:3: RULE_WS
-            {
-            match(input,RULE_WS,FOLLOW_8); if (state.failed) return ;
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDefineObjectMacroAccess().getWSTerminalRuleCall_4_0()); 
-            }
-
-            }
-
-            // InternalPreprocess.g:3612:1: ( ( RULE_WS )* )
-            // InternalPreprocess.g:3613:1: ( RULE_WS )*
+            // InternalPreprocess.g:3607:1: ( ( RULE_WHITESPACE ) )
+            // InternalPreprocess.g:3608:1: ( RULE_WHITESPACE )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDefineObjectMacroAccess().getWSTerminalRuleCall_4_0()); 
+               before(grammarAccess.getDefineObjectMacroAccess().getWHITESPACETerminalRuleCall_4_0()); 
             }
-            // InternalPreprocess.g:3614:1: ( RULE_WS )*
+            // InternalPreprocess.g:3609:1: ( RULE_WHITESPACE )
+            // InternalPreprocess.g:3609:3: RULE_WHITESPACE
+            {
+            match(input,RULE_WHITESPACE,FOLLOW_8); if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDefineObjectMacroAccess().getWHITESPACETerminalRuleCall_4_0()); 
+            }
+
+            }
+
+            // InternalPreprocess.g:3612:1: ( ( RULE_WHITESPACE )* )
+            // InternalPreprocess.g:3613:1: ( RULE_WHITESPACE )*
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDefineObjectMacroAccess().getWHITESPACETerminalRuleCall_4_0()); 
+            }
+            // InternalPreprocess.g:3614:1: ( RULE_WHITESPACE )*
             loop27:
             do {
                 int alt27=2;
                 int LA27_0 = input.LA(1);
 
-                if ( (LA27_0==RULE_WS) ) {
+                if ( (LA27_0==RULE_WHITESPACE) ) {
                     int LA27_2 = input.LA(2);
 
                     if ( (synpred96_InternalPreprocess()) ) {
@@ -10196,9 +10196,9 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
 
                 switch (alt27) {
             	case 1 :
-            	    // InternalPreprocess.g:3614:3: RULE_WS
+            	    // InternalPreprocess.g:3614:3: RULE_WHITESPACE
             	    {
-            	    match(input,RULE_WS,FOLLOW_8); if (state.failed) return ;
+            	    match(input,RULE_WHITESPACE,FOLLOW_8); if (state.failed) return ;
 
             	    }
             	    break;
@@ -10209,7 +10209,7 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
             } while (true);
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDefineObjectMacroAccess().getWSTerminalRuleCall_4_0()); 
+               after(grammarAccess.getDefineObjectMacroAccess().getWHITESPACETerminalRuleCall_4_0()); 
             }
 
             }
@@ -10516,59 +10516,59 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DefineFunctionLikeMacro__Group__2__Impl"
-    // InternalPreprocess.g:3740:1: rule__DefineFunctionLikeMacro__Group__2__Impl : ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) ) ;
+    // InternalPreprocess.g:3740:1: rule__DefineFunctionLikeMacro__Group__2__Impl : ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) ) ;
     public final void rule__DefineFunctionLikeMacro__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalPreprocess.g:3744:1: ( ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) ) )
-            // InternalPreprocess.g:3746:1: ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) )
+            // InternalPreprocess.g:3744:1: ( ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) ) )
+            // InternalPreprocess.g:3746:1: ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) )
             {
-            // InternalPreprocess.g:3746:1: ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) )
-            // InternalPreprocess.g:3747:1: ( ( RULE_WS ) ) ( ( RULE_WS )* )
+            // InternalPreprocess.g:3746:1: ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) )
+            // InternalPreprocess.g:3747:1: ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* )
             {
-            // InternalPreprocess.g:3747:1: ( ( RULE_WS ) )
-            // InternalPreprocess.g:3748:1: ( RULE_WS )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_2()); 
-            }
-            // InternalPreprocess.g:3749:1: ( RULE_WS )
-            // InternalPreprocess.g:3749:3: RULE_WS
-            {
-            match(input,RULE_WS,FOLLOW_8); if (state.failed) return ;
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_2()); 
-            }
-
-            }
-
-            // InternalPreprocess.g:3752:1: ( ( RULE_WS )* )
-            // InternalPreprocess.g:3753:1: ( RULE_WS )*
+            // InternalPreprocess.g:3747:1: ( ( RULE_WHITESPACE ) )
+            // InternalPreprocess.g:3748:1: ( RULE_WHITESPACE )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_2()); 
+               before(grammarAccess.getDefineFunctionLikeMacroAccess().getWHITESPACETerminalRuleCall_2()); 
             }
-            // InternalPreprocess.g:3754:1: ( RULE_WS )*
+            // InternalPreprocess.g:3749:1: ( RULE_WHITESPACE )
+            // InternalPreprocess.g:3749:3: RULE_WHITESPACE
+            {
+            match(input,RULE_WHITESPACE,FOLLOW_8); if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDefineFunctionLikeMacroAccess().getWHITESPACETerminalRuleCall_2()); 
+            }
+
+            }
+
+            // InternalPreprocess.g:3752:1: ( ( RULE_WHITESPACE )* )
+            // InternalPreprocess.g:3753:1: ( RULE_WHITESPACE )*
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDefineFunctionLikeMacroAccess().getWHITESPACETerminalRuleCall_2()); 
+            }
+            // InternalPreprocess.g:3754:1: ( RULE_WHITESPACE )*
             loop28:
             do {
                 int alt28=2;
                 int LA28_0 = input.LA(1);
 
-                if ( (LA28_0==RULE_WS) ) {
+                if ( (LA28_0==RULE_WHITESPACE) ) {
                     alt28=1;
                 }
 
 
                 switch (alt28) {
             	case 1 :
-            	    // InternalPreprocess.g:3754:3: RULE_WS
+            	    // InternalPreprocess.g:3754:3: RULE_WHITESPACE
             	    {
-            	    match(input,RULE_WS,FOLLOW_8); if (state.failed) return ;
+            	    match(input,RULE_WHITESPACE,FOLLOW_8); if (state.failed) return ;
 
             	    }
             	    break;
@@ -10579,7 +10579,7 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
             } while (true);
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_2()); 
+               after(grammarAccess.getDefineFunctionLikeMacroAccess().getWHITESPACETerminalRuleCall_2()); 
             }
 
             }
@@ -10812,37 +10812,37 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DefineFunctionLikeMacro__Group__5__Impl"
-    // InternalPreprocess.g:3843:1: rule__DefineFunctionLikeMacro__Group__5__Impl : ( ( RULE_WS )* ) ;
+    // InternalPreprocess.g:3843:1: rule__DefineFunctionLikeMacro__Group__5__Impl : ( ( RULE_WHITESPACE )* ) ;
     public final void rule__DefineFunctionLikeMacro__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalPreprocess.g:3847:1: ( ( ( RULE_WS )* ) )
-            // InternalPreprocess.g:3849:1: ( ( RULE_WS )* )
+            // InternalPreprocess.g:3847:1: ( ( ( RULE_WHITESPACE )* ) )
+            // InternalPreprocess.g:3849:1: ( ( RULE_WHITESPACE )* )
             {
-            // InternalPreprocess.g:3849:1: ( ( RULE_WS )* )
-            // InternalPreprocess.g:3850:1: ( RULE_WS )*
+            // InternalPreprocess.g:3849:1: ( ( RULE_WHITESPACE )* )
+            // InternalPreprocess.g:3850:1: ( RULE_WHITESPACE )*
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_5()); 
+               before(grammarAccess.getDefineFunctionLikeMacroAccess().getWHITESPACETerminalRuleCall_5()); 
             }
-            // InternalPreprocess.g:3851:1: ( RULE_WS )*
+            // InternalPreprocess.g:3851:1: ( RULE_WHITESPACE )*
             loop29:
             do {
                 int alt29=2;
                 int LA29_0 = input.LA(1);
 
-                if ( (LA29_0==RULE_WS) ) {
+                if ( (LA29_0==RULE_WHITESPACE) ) {
                     alt29=1;
                 }
 
 
                 switch (alt29) {
             	case 1 :
-            	    // InternalPreprocess.g:3851:3: RULE_WS
+            	    // InternalPreprocess.g:3851:3: RULE_WHITESPACE
             	    {
-            	    match(input,RULE_WS,FOLLOW_8); if (state.failed) return ;
+            	    match(input,RULE_WHITESPACE,FOLLOW_8); if (state.failed) return ;
 
             	    }
             	    break;
@@ -10853,7 +10853,7 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
             } while (true);
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_5()); 
+               after(grammarAccess.getDefineFunctionLikeMacroAccess().getWHITESPACETerminalRuleCall_5()); 
             }
 
             }
@@ -11094,50 +11094,50 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DefineFunctionLikeMacro__Group__8__Impl"
-    // InternalPreprocess.g:3939:1: rule__DefineFunctionLikeMacro__Group__8__Impl : ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) ) ;
+    // InternalPreprocess.g:3939:1: rule__DefineFunctionLikeMacro__Group__8__Impl : ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) ) ;
     public final void rule__DefineFunctionLikeMacro__Group__8__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalPreprocess.g:3943:1: ( ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) ) )
-            // InternalPreprocess.g:3945:1: ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) )
+            // InternalPreprocess.g:3943:1: ( ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) ) )
+            // InternalPreprocess.g:3945:1: ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) )
             {
-            // InternalPreprocess.g:3945:1: ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) )
-            // InternalPreprocess.g:3946:1: ( ( RULE_WS ) ) ( ( RULE_WS )* )
+            // InternalPreprocess.g:3945:1: ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) )
+            // InternalPreprocess.g:3946:1: ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* )
             {
-            // InternalPreprocess.g:3946:1: ( ( RULE_WS ) )
-            // InternalPreprocess.g:3947:1: ( RULE_WS )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_8()); 
-            }
-            // InternalPreprocess.g:3948:1: ( RULE_WS )
-            // InternalPreprocess.g:3948:3: RULE_WS
-            {
-            match(input,RULE_WS,FOLLOW_8); if (state.failed) return ;
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_8()); 
-            }
-
-            }
-
-            // InternalPreprocess.g:3951:1: ( ( RULE_WS )* )
-            // InternalPreprocess.g:3952:1: ( RULE_WS )*
+            // InternalPreprocess.g:3946:1: ( ( RULE_WHITESPACE ) )
+            // InternalPreprocess.g:3947:1: ( RULE_WHITESPACE )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_8()); 
+               before(grammarAccess.getDefineFunctionLikeMacroAccess().getWHITESPACETerminalRuleCall_8()); 
             }
-            // InternalPreprocess.g:3953:1: ( RULE_WS )*
+            // InternalPreprocess.g:3948:1: ( RULE_WHITESPACE )
+            // InternalPreprocess.g:3948:3: RULE_WHITESPACE
+            {
+            match(input,RULE_WHITESPACE,FOLLOW_8); if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getDefineFunctionLikeMacroAccess().getWHITESPACETerminalRuleCall_8()); 
+            }
+
+            }
+
+            // InternalPreprocess.g:3951:1: ( ( RULE_WHITESPACE )* )
+            // InternalPreprocess.g:3952:1: ( RULE_WHITESPACE )*
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getDefineFunctionLikeMacroAccess().getWHITESPACETerminalRuleCall_8()); 
+            }
+            // InternalPreprocess.g:3953:1: ( RULE_WHITESPACE )*
             loop31:
             do {
                 int alt31=2;
                 int LA31_0 = input.LA(1);
 
-                if ( (LA31_0==RULE_WS) ) {
+                if ( (LA31_0==RULE_WHITESPACE) ) {
                     int LA31_2 = input.LA(2);
 
                     if ( (synpred100_InternalPreprocess()) ) {
@@ -11150,9 +11150,9 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
 
                 switch (alt31) {
             	case 1 :
-            	    // InternalPreprocess.g:3953:3: RULE_WS
+            	    // InternalPreprocess.g:3953:3: RULE_WHITESPACE
             	    {
-            	    match(input,RULE_WS,FOLLOW_8); if (state.failed) return ;
+            	    match(input,RULE_WHITESPACE,FOLLOW_8); if (state.failed) return ;
 
             	    }
             	    break;
@@ -11163,7 +11163,7 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
             } while (true);
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDefineFunctionLikeMacroAccess().getWSTerminalRuleCall_8()); 
+               after(grammarAccess.getDefineFunctionLikeMacroAccess().getWHITESPACETerminalRuleCall_8()); 
             }
 
             }
@@ -11661,37 +11661,37 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__IdentifierList__Group_2__1__Impl"
-    // InternalPreprocess.g:4164:1: rule__IdentifierList__Group_2__1__Impl : ( ( RULE_WS )* ) ;
+    // InternalPreprocess.g:4164:1: rule__IdentifierList__Group_2__1__Impl : ( ( RULE_WHITESPACE )* ) ;
     public final void rule__IdentifierList__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalPreprocess.g:4168:1: ( ( ( RULE_WS )* ) )
-            // InternalPreprocess.g:4170:1: ( ( RULE_WS )* )
+            // InternalPreprocess.g:4168:1: ( ( ( RULE_WHITESPACE )* ) )
+            // InternalPreprocess.g:4170:1: ( ( RULE_WHITESPACE )* )
             {
-            // InternalPreprocess.g:4170:1: ( ( RULE_WS )* )
-            // InternalPreprocess.g:4171:1: ( RULE_WS )*
+            // InternalPreprocess.g:4170:1: ( ( RULE_WHITESPACE )* )
+            // InternalPreprocess.g:4171:1: ( RULE_WHITESPACE )*
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getIdentifierListAccess().getWSTerminalRuleCall_2_1()); 
+               before(grammarAccess.getIdentifierListAccess().getWHITESPACETerminalRuleCall_2_1()); 
             }
-            // InternalPreprocess.g:4172:1: ( RULE_WS )*
+            // InternalPreprocess.g:4172:1: ( RULE_WHITESPACE )*
             loop33:
             do {
                 int alt33=2;
                 int LA33_0 = input.LA(1);
 
-                if ( (LA33_0==RULE_WS) ) {
+                if ( (LA33_0==RULE_WHITESPACE) ) {
                     alt33=1;
                 }
 
 
                 switch (alt33) {
             	case 1 :
-            	    // InternalPreprocess.g:4172:3: RULE_WS
+            	    // InternalPreprocess.g:4172:3: RULE_WHITESPACE
             	    {
-            	    match(input,RULE_WS,FOLLOW_8); if (state.failed) return ;
+            	    match(input,RULE_WHITESPACE,FOLLOW_8); if (state.failed) return ;
 
             	    }
             	    break;
@@ -11702,7 +11702,7 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
             } while (true);
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getIdentifierListAccess().getWSTerminalRuleCall_2_1()); 
+               after(grammarAccess.getIdentifierListAccess().getWHITESPACETerminalRuleCall_2_1()); 
             }
 
             }
@@ -12006,53 +12006,53 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ErrorDirective__Group__2__Impl"
-    // InternalPreprocess.g:4299:1: rule__ErrorDirective__Group__2__Impl : ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) ) ;
+    // InternalPreprocess.g:4299:1: rule__ErrorDirective__Group__2__Impl : ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) ) ;
     public final void rule__ErrorDirective__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalPreprocess.g:4303:1: ( ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) ) )
-            // InternalPreprocess.g:4305:1: ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) )
+            // InternalPreprocess.g:4303:1: ( ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) ) )
+            // InternalPreprocess.g:4305:1: ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) )
             {
-            // InternalPreprocess.g:4305:1: ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) )
-            // InternalPreprocess.g:4306:1: ( ( RULE_WS ) ) ( ( RULE_WS )* )
+            // InternalPreprocess.g:4305:1: ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) )
+            // InternalPreprocess.g:4306:1: ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* )
             {
-            // InternalPreprocess.g:4306:1: ( ( RULE_WS ) )
-            // InternalPreprocess.g:4307:1: ( RULE_WS )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getErrorDirectiveAccess().getWSTerminalRuleCall_2()); 
-            }
-            // InternalPreprocess.g:4308:1: ( RULE_WS )
-            // InternalPreprocess.g:4308:3: RULE_WS
-            {
-            match(input,RULE_WS,FOLLOW_8); if (state.failed) return ;
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getErrorDirectiveAccess().getWSTerminalRuleCall_2()); 
-            }
-
-            }
-
-            // InternalPreprocess.g:4311:1: ( ( RULE_WS )* )
-            // InternalPreprocess.g:4312:1: ( RULE_WS )*
+            // InternalPreprocess.g:4306:1: ( ( RULE_WHITESPACE ) )
+            // InternalPreprocess.g:4307:1: ( RULE_WHITESPACE )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getErrorDirectiveAccess().getWSTerminalRuleCall_2()); 
+               before(grammarAccess.getErrorDirectiveAccess().getWHITESPACETerminalRuleCall_2()); 
             }
-            // InternalPreprocess.g:4313:1: ( RULE_WS )*
+            // InternalPreprocess.g:4308:1: ( RULE_WHITESPACE )
+            // InternalPreprocess.g:4308:3: RULE_WHITESPACE
+            {
+            match(input,RULE_WHITESPACE,FOLLOW_8); if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getErrorDirectiveAccess().getWHITESPACETerminalRuleCall_2()); 
+            }
+
+            }
+
+            // InternalPreprocess.g:4311:1: ( ( RULE_WHITESPACE )* )
+            // InternalPreprocess.g:4312:1: ( RULE_WHITESPACE )*
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getErrorDirectiveAccess().getWHITESPACETerminalRuleCall_2()); 
+            }
+            // InternalPreprocess.g:4313:1: ( RULE_WHITESPACE )*
             loop34:
             do {
                 int alt34=2;
                 alt34 = dfa34.predict(input);
                 switch (alt34) {
             	case 1 :
-            	    // InternalPreprocess.g:4313:3: RULE_WS
+            	    // InternalPreprocess.g:4313:3: RULE_WHITESPACE
             	    {
-            	    match(input,RULE_WS,FOLLOW_8); if (state.failed) return ;
+            	    match(input,RULE_WHITESPACE,FOLLOW_8); if (state.failed) return ;
 
             	    }
             	    break;
@@ -12063,7 +12063,7 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
             } while (true);
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getErrorDirectiveAccess().getWSTerminalRuleCall_2()); 
+               after(grammarAccess.getErrorDirectiveAccess().getWHITESPACETerminalRuleCall_2()); 
             }
 
             }
@@ -12370,53 +12370,53 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__WarningDirective__Group__2__Impl"
-    // InternalPreprocess.g:4443:1: rule__WarningDirective__Group__2__Impl : ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) ) ;
+    // InternalPreprocess.g:4443:1: rule__WarningDirective__Group__2__Impl : ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) ) ;
     public final void rule__WarningDirective__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalPreprocess.g:4447:1: ( ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) ) )
-            // InternalPreprocess.g:4449:1: ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) )
+            // InternalPreprocess.g:4447:1: ( ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) ) )
+            // InternalPreprocess.g:4449:1: ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) )
             {
-            // InternalPreprocess.g:4449:1: ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) )
-            // InternalPreprocess.g:4450:1: ( ( RULE_WS ) ) ( ( RULE_WS )* )
+            // InternalPreprocess.g:4449:1: ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) )
+            // InternalPreprocess.g:4450:1: ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* )
             {
-            // InternalPreprocess.g:4450:1: ( ( RULE_WS ) )
-            // InternalPreprocess.g:4451:1: ( RULE_WS )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getWarningDirectiveAccess().getWSTerminalRuleCall_2()); 
-            }
-            // InternalPreprocess.g:4452:1: ( RULE_WS )
-            // InternalPreprocess.g:4452:3: RULE_WS
-            {
-            match(input,RULE_WS,FOLLOW_8); if (state.failed) return ;
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getWarningDirectiveAccess().getWSTerminalRuleCall_2()); 
-            }
-
-            }
-
-            // InternalPreprocess.g:4455:1: ( ( RULE_WS )* )
-            // InternalPreprocess.g:4456:1: ( RULE_WS )*
+            // InternalPreprocess.g:4450:1: ( ( RULE_WHITESPACE ) )
+            // InternalPreprocess.g:4451:1: ( RULE_WHITESPACE )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getWarningDirectiveAccess().getWSTerminalRuleCall_2()); 
+               before(grammarAccess.getWarningDirectiveAccess().getWHITESPACETerminalRuleCall_2()); 
             }
-            // InternalPreprocess.g:4457:1: ( RULE_WS )*
+            // InternalPreprocess.g:4452:1: ( RULE_WHITESPACE )
+            // InternalPreprocess.g:4452:3: RULE_WHITESPACE
+            {
+            match(input,RULE_WHITESPACE,FOLLOW_8); if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getWarningDirectiveAccess().getWHITESPACETerminalRuleCall_2()); 
+            }
+
+            }
+
+            // InternalPreprocess.g:4455:1: ( ( RULE_WHITESPACE )* )
+            // InternalPreprocess.g:4456:1: ( RULE_WHITESPACE )*
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getWarningDirectiveAccess().getWHITESPACETerminalRuleCall_2()); 
+            }
+            // InternalPreprocess.g:4457:1: ( RULE_WHITESPACE )*
             loop35:
             do {
                 int alt35=2;
                 alt35 = dfa35.predict(input);
                 switch (alt35) {
             	case 1 :
-            	    // InternalPreprocess.g:4457:3: RULE_WS
+            	    // InternalPreprocess.g:4457:3: RULE_WHITESPACE
             	    {
-            	    match(input,RULE_WS,FOLLOW_8); if (state.failed) return ;
+            	    match(input,RULE_WHITESPACE,FOLLOW_8); if (state.failed) return ;
 
             	    }
             	    break;
@@ -12427,7 +12427,7 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
             } while (true);
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getWarningDirectiveAccess().getWSTerminalRuleCall_2()); 
+               after(grammarAccess.getWarningDirectiveAccess().getWHITESPACETerminalRuleCall_2()); 
             }
 
             }
@@ -12734,59 +12734,59 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__UnDefineDirective__Group__2__Impl"
-    // InternalPreprocess.g:4587:1: rule__UnDefineDirective__Group__2__Impl : ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) ) ;
+    // InternalPreprocess.g:4587:1: rule__UnDefineDirective__Group__2__Impl : ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) ) ;
     public final void rule__UnDefineDirective__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalPreprocess.g:4591:1: ( ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) ) )
-            // InternalPreprocess.g:4593:1: ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) )
+            // InternalPreprocess.g:4591:1: ( ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) ) )
+            // InternalPreprocess.g:4593:1: ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) )
             {
-            // InternalPreprocess.g:4593:1: ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) )
-            // InternalPreprocess.g:4594:1: ( ( RULE_WS ) ) ( ( RULE_WS )* )
+            // InternalPreprocess.g:4593:1: ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) )
+            // InternalPreprocess.g:4594:1: ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* )
             {
-            // InternalPreprocess.g:4594:1: ( ( RULE_WS ) )
-            // InternalPreprocess.g:4595:1: ( RULE_WS )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getUnDefineDirectiveAccess().getWSTerminalRuleCall_2()); 
-            }
-            // InternalPreprocess.g:4596:1: ( RULE_WS )
-            // InternalPreprocess.g:4596:3: RULE_WS
-            {
-            match(input,RULE_WS,FOLLOW_8); if (state.failed) return ;
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getUnDefineDirectiveAccess().getWSTerminalRuleCall_2()); 
-            }
-
-            }
-
-            // InternalPreprocess.g:4599:1: ( ( RULE_WS )* )
-            // InternalPreprocess.g:4600:1: ( RULE_WS )*
+            // InternalPreprocess.g:4594:1: ( ( RULE_WHITESPACE ) )
+            // InternalPreprocess.g:4595:1: ( RULE_WHITESPACE )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getUnDefineDirectiveAccess().getWSTerminalRuleCall_2()); 
+               before(grammarAccess.getUnDefineDirectiveAccess().getWHITESPACETerminalRuleCall_2()); 
             }
-            // InternalPreprocess.g:4601:1: ( RULE_WS )*
+            // InternalPreprocess.g:4596:1: ( RULE_WHITESPACE )
+            // InternalPreprocess.g:4596:3: RULE_WHITESPACE
+            {
+            match(input,RULE_WHITESPACE,FOLLOW_8); if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getUnDefineDirectiveAccess().getWHITESPACETerminalRuleCall_2()); 
+            }
+
+            }
+
+            // InternalPreprocess.g:4599:1: ( ( RULE_WHITESPACE )* )
+            // InternalPreprocess.g:4600:1: ( RULE_WHITESPACE )*
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getUnDefineDirectiveAccess().getWHITESPACETerminalRuleCall_2()); 
+            }
+            // InternalPreprocess.g:4601:1: ( RULE_WHITESPACE )*
             loop36:
             do {
                 int alt36=2;
                 int LA36_0 = input.LA(1);
 
-                if ( (LA36_0==RULE_WS) ) {
+                if ( (LA36_0==RULE_WHITESPACE) ) {
                     alt36=1;
                 }
 
 
                 switch (alt36) {
             	case 1 :
-            	    // InternalPreprocess.g:4601:3: RULE_WS
+            	    // InternalPreprocess.g:4601:3: RULE_WHITESPACE
             	    {
-            	    match(input,RULE_WS,FOLLOW_8); if (state.failed) return ;
+            	    match(input,RULE_WHITESPACE,FOLLOW_8); if (state.failed) return ;
 
             	    }
             	    break;
@@ -12797,7 +12797,7 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
             } while (true);
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getUnDefineDirectiveAccess().getWSTerminalRuleCall_2()); 
+               after(grammarAccess.getUnDefineDirectiveAccess().getWHITESPACETerminalRuleCall_2()); 
             }
 
             }
@@ -13311,37 +13311,37 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ConditionalDirective__Group__4__Impl"
-    // InternalPreprocess.g:4795:1: rule__ConditionalDirective__Group__4__Impl : ( ( RULE_WS )* ) ;
+    // InternalPreprocess.g:4795:1: rule__ConditionalDirective__Group__4__Impl : ( ( RULE_WHITESPACE )* ) ;
     public final void rule__ConditionalDirective__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalPreprocess.g:4799:1: ( ( ( RULE_WS )* ) )
-            // InternalPreprocess.g:4801:1: ( ( RULE_WS )* )
+            // InternalPreprocess.g:4799:1: ( ( ( RULE_WHITESPACE )* ) )
+            // InternalPreprocess.g:4801:1: ( ( RULE_WHITESPACE )* )
             {
-            // InternalPreprocess.g:4801:1: ( ( RULE_WS )* )
-            // InternalPreprocess.g:4802:1: ( RULE_WS )*
+            // InternalPreprocess.g:4801:1: ( ( RULE_WHITESPACE )* )
+            // InternalPreprocess.g:4802:1: ( RULE_WHITESPACE )*
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getConditionalDirectiveAccess().getWSTerminalRuleCall_4()); 
+               before(grammarAccess.getConditionalDirectiveAccess().getWHITESPACETerminalRuleCall_4()); 
             }
-            // InternalPreprocess.g:4803:1: ( RULE_WS )*
+            // InternalPreprocess.g:4803:1: ( RULE_WHITESPACE )*
             loop39:
             do {
                 int alt39=2;
                 int LA39_0 = input.LA(1);
 
-                if ( (LA39_0==RULE_WS) ) {
+                if ( (LA39_0==RULE_WHITESPACE) ) {
                     alt39=1;
                 }
 
 
                 switch (alt39) {
             	case 1 :
-            	    // InternalPreprocess.g:4803:3: RULE_WS
+            	    // InternalPreprocess.g:4803:3: RULE_WHITESPACE
             	    {
-            	    match(input,RULE_WS,FOLLOW_8); if (state.failed) return ;
+            	    match(input,RULE_WHITESPACE,FOLLOW_8); if (state.failed) return ;
 
             	    }
             	    break;
@@ -13352,7 +13352,7 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
             } while (true);
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getConditionalDirectiveAccess().getWSTerminalRuleCall_4()); 
+               after(grammarAccess.getConditionalDirectiveAccess().getWHITESPACETerminalRuleCall_4()); 
             }
 
             }
@@ -13493,37 +13493,37 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ConditionalDirective__Group__6__Impl"
-    // InternalPreprocess.g:4859:1: rule__ConditionalDirective__Group__6__Impl : ( ( RULE_WS )* ) ;
+    // InternalPreprocess.g:4859:1: rule__ConditionalDirective__Group__6__Impl : ( ( RULE_WHITESPACE )* ) ;
     public final void rule__ConditionalDirective__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalPreprocess.g:4863:1: ( ( ( RULE_WS )* ) )
-            // InternalPreprocess.g:4865:1: ( ( RULE_WS )* )
+            // InternalPreprocess.g:4863:1: ( ( ( RULE_WHITESPACE )* ) )
+            // InternalPreprocess.g:4865:1: ( ( RULE_WHITESPACE )* )
             {
-            // InternalPreprocess.g:4865:1: ( ( RULE_WS )* )
-            // InternalPreprocess.g:4866:1: ( RULE_WS )*
+            // InternalPreprocess.g:4865:1: ( ( RULE_WHITESPACE )* )
+            // InternalPreprocess.g:4866:1: ( RULE_WHITESPACE )*
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getConditionalDirectiveAccess().getWSTerminalRuleCall_6()); 
+               before(grammarAccess.getConditionalDirectiveAccess().getWHITESPACETerminalRuleCall_6()); 
             }
-            // InternalPreprocess.g:4867:1: ( RULE_WS )*
+            // InternalPreprocess.g:4867:1: ( RULE_WHITESPACE )*
             loop40:
             do {
                 int alt40=2;
                 int LA40_0 = input.LA(1);
 
-                if ( (LA40_0==RULE_WS) ) {
+                if ( (LA40_0==RULE_WHITESPACE) ) {
                     alt40=1;
                 }
 
 
                 switch (alt40) {
             	case 1 :
-            	    // InternalPreprocess.g:4867:3: RULE_WS
+            	    // InternalPreprocess.g:4867:3: RULE_WHITESPACE
             	    {
-            	    match(input,RULE_WS,FOLLOW_8); if (state.failed) return ;
+            	    match(input,RULE_WHITESPACE,FOLLOW_8); if (state.failed) return ;
 
             	    }
             	    break;
@@ -13534,7 +13534,7 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
             } while (true);
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getConditionalDirectiveAccess().getWSTerminalRuleCall_6()); 
+               after(grammarAccess.getConditionalDirectiveAccess().getWHITESPACETerminalRuleCall_6()); 
             }
 
             }
@@ -13670,37 +13670,37 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ConditionalDirective__Group__8__Impl"
-    // InternalPreprocess.g:4922:1: rule__ConditionalDirective__Group__8__Impl : ( ( RULE_WS )* ) ;
+    // InternalPreprocess.g:4922:1: rule__ConditionalDirective__Group__8__Impl : ( ( RULE_WHITESPACE )* ) ;
     public final void rule__ConditionalDirective__Group__8__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalPreprocess.g:4926:1: ( ( ( RULE_WS )* ) )
-            // InternalPreprocess.g:4928:1: ( ( RULE_WS )* )
+            // InternalPreprocess.g:4926:1: ( ( ( RULE_WHITESPACE )* ) )
+            // InternalPreprocess.g:4928:1: ( ( RULE_WHITESPACE )* )
             {
-            // InternalPreprocess.g:4928:1: ( ( RULE_WS )* )
-            // InternalPreprocess.g:4929:1: ( RULE_WS )*
+            // InternalPreprocess.g:4928:1: ( ( RULE_WHITESPACE )* )
+            // InternalPreprocess.g:4929:1: ( RULE_WHITESPACE )*
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getConditionalDirectiveAccess().getWSTerminalRuleCall_8()); 
+               before(grammarAccess.getConditionalDirectiveAccess().getWHITESPACETerminalRuleCall_8()); 
             }
-            // InternalPreprocess.g:4930:1: ( RULE_WS )*
+            // InternalPreprocess.g:4930:1: ( RULE_WHITESPACE )*
             loop41:
             do {
                 int alt41=2;
                 int LA41_0 = input.LA(1);
 
-                if ( (LA41_0==RULE_WS) ) {
+                if ( (LA41_0==RULE_WHITESPACE) ) {
                     alt41=1;
                 }
 
 
                 switch (alt41) {
             	case 1 :
-            	    // InternalPreprocess.g:4930:3: RULE_WS
+            	    // InternalPreprocess.g:4930:3: RULE_WHITESPACE
             	    {
-            	    match(input,RULE_WS,FOLLOW_8); if (state.failed) return ;
+            	    match(input,RULE_WHITESPACE,FOLLOW_8); if (state.failed) return ;
 
             	    }
             	    break;
@@ -13711,7 +13711,7 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
             } while (true);
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getConditionalDirectiveAccess().getWSTerminalRuleCall_8()); 
+               after(grammarAccess.getConditionalDirectiveAccess().getWHITESPACETerminalRuleCall_8()); 
             }
 
             }
@@ -13931,59 +13931,59 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__IfConditional__Group__2__Impl"
-    // InternalPreprocess.g:5038:1: rule__IfConditional__Group__2__Impl : ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) ) ;
+    // InternalPreprocess.g:5038:1: rule__IfConditional__Group__2__Impl : ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) ) ;
     public final void rule__IfConditional__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalPreprocess.g:5042:1: ( ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) ) )
-            // InternalPreprocess.g:5044:1: ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) )
+            // InternalPreprocess.g:5042:1: ( ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) ) )
+            // InternalPreprocess.g:5044:1: ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) )
             {
-            // InternalPreprocess.g:5044:1: ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) )
-            // InternalPreprocess.g:5045:1: ( ( RULE_WS ) ) ( ( RULE_WS )* )
+            // InternalPreprocess.g:5044:1: ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) )
+            // InternalPreprocess.g:5045:1: ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* )
             {
-            // InternalPreprocess.g:5045:1: ( ( RULE_WS ) )
-            // InternalPreprocess.g:5046:1: ( RULE_WS )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getIfConditionalAccess().getWSTerminalRuleCall_2()); 
-            }
-            // InternalPreprocess.g:5047:1: ( RULE_WS )
-            // InternalPreprocess.g:5047:3: RULE_WS
-            {
-            match(input,RULE_WS,FOLLOW_8); if (state.failed) return ;
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getIfConditionalAccess().getWSTerminalRuleCall_2()); 
-            }
-
-            }
-
-            // InternalPreprocess.g:5050:1: ( ( RULE_WS )* )
-            // InternalPreprocess.g:5051:1: ( RULE_WS )*
+            // InternalPreprocess.g:5045:1: ( ( RULE_WHITESPACE ) )
+            // InternalPreprocess.g:5046:1: ( RULE_WHITESPACE )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getIfConditionalAccess().getWSTerminalRuleCall_2()); 
+               before(grammarAccess.getIfConditionalAccess().getWHITESPACETerminalRuleCall_2()); 
             }
-            // InternalPreprocess.g:5052:1: ( RULE_WS )*
+            // InternalPreprocess.g:5047:1: ( RULE_WHITESPACE )
+            // InternalPreprocess.g:5047:3: RULE_WHITESPACE
+            {
+            match(input,RULE_WHITESPACE,FOLLOW_8); if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getIfConditionalAccess().getWHITESPACETerminalRuleCall_2()); 
+            }
+
+            }
+
+            // InternalPreprocess.g:5050:1: ( ( RULE_WHITESPACE )* )
+            // InternalPreprocess.g:5051:1: ( RULE_WHITESPACE )*
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getIfConditionalAccess().getWHITESPACETerminalRuleCall_2()); 
+            }
+            // InternalPreprocess.g:5052:1: ( RULE_WHITESPACE )*
             loop42:
             do {
                 int alt42=2;
                 int LA42_0 = input.LA(1);
 
-                if ( (LA42_0==RULE_WS) ) {
+                if ( (LA42_0==RULE_WHITESPACE) ) {
                     alt42=1;
                 }
 
 
                 switch (alt42) {
             	case 1 :
-            	    // InternalPreprocess.g:5052:3: RULE_WS
+            	    // InternalPreprocess.g:5052:3: RULE_WHITESPACE
             	    {
-            	    match(input,RULE_WS,FOLLOW_8); if (state.failed) return ;
+            	    match(input,RULE_WHITESPACE,FOLLOW_8); if (state.failed) return ;
 
             	    }
             	    break;
@@ -13994,7 +13994,7 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
             } while (true);
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getIfConditionalAccess().getWSTerminalRuleCall_2()); 
+               after(grammarAccess.getIfConditionalAccess().getWHITESPACETerminalRuleCall_2()); 
             }
 
             }
@@ -14469,59 +14469,59 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__IfDefConditional__Group__2__Impl"
-    // InternalPreprocess.g:5250:1: rule__IfDefConditional__Group__2__Impl : ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) ) ;
+    // InternalPreprocess.g:5250:1: rule__IfDefConditional__Group__2__Impl : ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) ) ;
     public final void rule__IfDefConditional__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalPreprocess.g:5254:1: ( ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) ) )
-            // InternalPreprocess.g:5256:1: ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) )
+            // InternalPreprocess.g:5254:1: ( ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) ) )
+            // InternalPreprocess.g:5256:1: ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) )
             {
-            // InternalPreprocess.g:5256:1: ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) )
-            // InternalPreprocess.g:5257:1: ( ( RULE_WS ) ) ( ( RULE_WS )* )
+            // InternalPreprocess.g:5256:1: ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) )
+            // InternalPreprocess.g:5257:1: ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* )
             {
-            // InternalPreprocess.g:5257:1: ( ( RULE_WS ) )
-            // InternalPreprocess.g:5258:1: ( RULE_WS )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getIfDefConditionalAccess().getWSTerminalRuleCall_2()); 
-            }
-            // InternalPreprocess.g:5259:1: ( RULE_WS )
-            // InternalPreprocess.g:5259:3: RULE_WS
-            {
-            match(input,RULE_WS,FOLLOW_8); if (state.failed) return ;
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getIfDefConditionalAccess().getWSTerminalRuleCall_2()); 
-            }
-
-            }
-
-            // InternalPreprocess.g:5262:1: ( ( RULE_WS )* )
-            // InternalPreprocess.g:5263:1: ( RULE_WS )*
+            // InternalPreprocess.g:5257:1: ( ( RULE_WHITESPACE ) )
+            // InternalPreprocess.g:5258:1: ( RULE_WHITESPACE )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getIfDefConditionalAccess().getWSTerminalRuleCall_2()); 
+               before(grammarAccess.getIfDefConditionalAccess().getWHITESPACETerminalRuleCall_2()); 
             }
-            // InternalPreprocess.g:5264:1: ( RULE_WS )*
+            // InternalPreprocess.g:5259:1: ( RULE_WHITESPACE )
+            // InternalPreprocess.g:5259:3: RULE_WHITESPACE
+            {
+            match(input,RULE_WHITESPACE,FOLLOW_8); if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getIfDefConditionalAccess().getWHITESPACETerminalRuleCall_2()); 
+            }
+
+            }
+
+            // InternalPreprocess.g:5262:1: ( ( RULE_WHITESPACE )* )
+            // InternalPreprocess.g:5263:1: ( RULE_WHITESPACE )*
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getIfDefConditionalAccess().getWHITESPACETerminalRuleCall_2()); 
+            }
+            // InternalPreprocess.g:5264:1: ( RULE_WHITESPACE )*
             loop43:
             do {
                 int alt43=2;
                 int LA43_0 = input.LA(1);
 
-                if ( (LA43_0==RULE_WS) ) {
+                if ( (LA43_0==RULE_WHITESPACE) ) {
                     alt43=1;
                 }
 
 
                 switch (alt43) {
             	case 1 :
-            	    // InternalPreprocess.g:5264:3: RULE_WS
+            	    // InternalPreprocess.g:5264:3: RULE_WHITESPACE
             	    {
-            	    match(input,RULE_WS,FOLLOW_8); if (state.failed) return ;
+            	    match(input,RULE_WHITESPACE,FOLLOW_8); if (state.failed) return ;
 
             	    }
             	    break;
@@ -14532,7 +14532,7 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
             } while (true);
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getIfDefConditionalAccess().getWSTerminalRuleCall_2()); 
+               after(grammarAccess.getIfDefConditionalAccess().getWHITESPACETerminalRuleCall_2()); 
             }
 
             }
@@ -15007,59 +15007,59 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__IfNotDefConditional__Group__2__Impl"
-    // InternalPreprocess.g:5462:1: rule__IfNotDefConditional__Group__2__Impl : ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) ) ;
+    // InternalPreprocess.g:5462:1: rule__IfNotDefConditional__Group__2__Impl : ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) ) ;
     public final void rule__IfNotDefConditional__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalPreprocess.g:5466:1: ( ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) ) )
-            // InternalPreprocess.g:5468:1: ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) )
+            // InternalPreprocess.g:5466:1: ( ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) ) )
+            // InternalPreprocess.g:5468:1: ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) )
             {
-            // InternalPreprocess.g:5468:1: ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) )
-            // InternalPreprocess.g:5469:1: ( ( RULE_WS ) ) ( ( RULE_WS )* )
+            // InternalPreprocess.g:5468:1: ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) )
+            // InternalPreprocess.g:5469:1: ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* )
             {
-            // InternalPreprocess.g:5469:1: ( ( RULE_WS ) )
-            // InternalPreprocess.g:5470:1: ( RULE_WS )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getIfNotDefConditionalAccess().getWSTerminalRuleCall_2()); 
-            }
-            // InternalPreprocess.g:5471:1: ( RULE_WS )
-            // InternalPreprocess.g:5471:3: RULE_WS
-            {
-            match(input,RULE_WS,FOLLOW_8); if (state.failed) return ;
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getIfNotDefConditionalAccess().getWSTerminalRuleCall_2()); 
-            }
-
-            }
-
-            // InternalPreprocess.g:5474:1: ( ( RULE_WS )* )
-            // InternalPreprocess.g:5475:1: ( RULE_WS )*
+            // InternalPreprocess.g:5469:1: ( ( RULE_WHITESPACE ) )
+            // InternalPreprocess.g:5470:1: ( RULE_WHITESPACE )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getIfNotDefConditionalAccess().getWSTerminalRuleCall_2()); 
+               before(grammarAccess.getIfNotDefConditionalAccess().getWHITESPACETerminalRuleCall_2()); 
             }
-            // InternalPreprocess.g:5476:1: ( RULE_WS )*
+            // InternalPreprocess.g:5471:1: ( RULE_WHITESPACE )
+            // InternalPreprocess.g:5471:3: RULE_WHITESPACE
+            {
+            match(input,RULE_WHITESPACE,FOLLOW_8); if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getIfNotDefConditionalAccess().getWHITESPACETerminalRuleCall_2()); 
+            }
+
+            }
+
+            // InternalPreprocess.g:5474:1: ( ( RULE_WHITESPACE )* )
+            // InternalPreprocess.g:5475:1: ( RULE_WHITESPACE )*
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getIfNotDefConditionalAccess().getWHITESPACETerminalRuleCall_2()); 
+            }
+            // InternalPreprocess.g:5476:1: ( RULE_WHITESPACE )*
             loop44:
             do {
                 int alt44=2;
                 int LA44_0 = input.LA(1);
 
-                if ( (LA44_0==RULE_WS) ) {
+                if ( (LA44_0==RULE_WHITESPACE) ) {
                     alt44=1;
                 }
 
 
                 switch (alt44) {
             	case 1 :
-            	    // InternalPreprocess.g:5476:3: RULE_WS
+            	    // InternalPreprocess.g:5476:3: RULE_WHITESPACE
             	    {
-            	    match(input,RULE_WS,FOLLOW_8); if (state.failed) return ;
+            	    match(input,RULE_WHITESPACE,FOLLOW_8); if (state.failed) return ;
 
             	    }
             	    break;
@@ -15070,7 +15070,7 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
             } while (true);
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getIfNotDefConditionalAccess().getWSTerminalRuleCall_2()); 
+               after(grammarAccess.getIfNotDefConditionalAccess().getWHITESPACETerminalRuleCall_2()); 
             }
 
             }
@@ -15555,59 +15555,59 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ElIfConditional__Group__2__Impl"
-    // InternalPreprocess.g:5674:1: rule__ElIfConditional__Group__2__Impl : ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) ) ;
+    // InternalPreprocess.g:5674:1: rule__ElIfConditional__Group__2__Impl : ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) ) ;
     public final void rule__ElIfConditional__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalPreprocess.g:5678:1: ( ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) ) )
-            // InternalPreprocess.g:5680:1: ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) )
+            // InternalPreprocess.g:5678:1: ( ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) ) )
+            // InternalPreprocess.g:5680:1: ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) )
             {
-            // InternalPreprocess.g:5680:1: ( ( ( RULE_WS ) ) ( ( RULE_WS )* ) )
-            // InternalPreprocess.g:5681:1: ( ( RULE_WS ) ) ( ( RULE_WS )* )
+            // InternalPreprocess.g:5680:1: ( ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* ) )
+            // InternalPreprocess.g:5681:1: ( ( RULE_WHITESPACE ) ) ( ( RULE_WHITESPACE )* )
             {
-            // InternalPreprocess.g:5681:1: ( ( RULE_WS ) )
-            // InternalPreprocess.g:5682:1: ( RULE_WS )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getElIfConditionalAccess().getWSTerminalRuleCall_2()); 
-            }
-            // InternalPreprocess.g:5683:1: ( RULE_WS )
-            // InternalPreprocess.g:5683:3: RULE_WS
-            {
-            match(input,RULE_WS,FOLLOW_8); if (state.failed) return ;
-
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getElIfConditionalAccess().getWSTerminalRuleCall_2()); 
-            }
-
-            }
-
-            // InternalPreprocess.g:5686:1: ( ( RULE_WS )* )
-            // InternalPreprocess.g:5687:1: ( RULE_WS )*
+            // InternalPreprocess.g:5681:1: ( ( RULE_WHITESPACE ) )
+            // InternalPreprocess.g:5682:1: ( RULE_WHITESPACE )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getElIfConditionalAccess().getWSTerminalRuleCall_2()); 
+               before(grammarAccess.getElIfConditionalAccess().getWHITESPACETerminalRuleCall_2()); 
             }
-            // InternalPreprocess.g:5688:1: ( RULE_WS )*
+            // InternalPreprocess.g:5683:1: ( RULE_WHITESPACE )
+            // InternalPreprocess.g:5683:3: RULE_WHITESPACE
+            {
+            match(input,RULE_WHITESPACE,FOLLOW_8); if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getElIfConditionalAccess().getWHITESPACETerminalRuleCall_2()); 
+            }
+
+            }
+
+            // InternalPreprocess.g:5686:1: ( ( RULE_WHITESPACE )* )
+            // InternalPreprocess.g:5687:1: ( RULE_WHITESPACE )*
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getElIfConditionalAccess().getWHITESPACETerminalRuleCall_2()); 
+            }
+            // InternalPreprocess.g:5688:1: ( RULE_WHITESPACE )*
             loop45:
             do {
                 int alt45=2;
                 int LA45_0 = input.LA(1);
 
-                if ( (LA45_0==RULE_WS) ) {
+                if ( (LA45_0==RULE_WHITESPACE) ) {
                     alt45=1;
                 }
 
 
                 switch (alt45) {
             	case 1 :
-            	    // InternalPreprocess.g:5688:3: RULE_WS
+            	    // InternalPreprocess.g:5688:3: RULE_WHITESPACE
             	    {
-            	    match(input,RULE_WS,FOLLOW_8); if (state.failed) return ;
+            	    match(input,RULE_WHITESPACE,FOLLOW_8); if (state.failed) return ;
 
             	    }
             	    break;
@@ -15618,7 +15618,7 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
             } while (true);
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getElIfConditionalAccess().getWSTerminalRuleCall_2()); 
+               after(grammarAccess.getElIfConditionalAccess().getWHITESPACETerminalRuleCall_2()); 
             }
 
             }
@@ -15935,37 +15935,37 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ElIfConditional__Group_1__0__Impl"
-    // InternalPreprocess.g:5820:1: rule__ElIfConditional__Group_1__0__Impl : ( ( RULE_WS )* ) ;
+    // InternalPreprocess.g:5820:1: rule__ElIfConditional__Group_1__0__Impl : ( ( RULE_WHITESPACE )* ) ;
     public final void rule__ElIfConditional__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalPreprocess.g:5824:1: ( ( ( RULE_WS )* ) )
-            // InternalPreprocess.g:5826:1: ( ( RULE_WS )* )
+            // InternalPreprocess.g:5824:1: ( ( ( RULE_WHITESPACE )* ) )
+            // InternalPreprocess.g:5826:1: ( ( RULE_WHITESPACE )* )
             {
-            // InternalPreprocess.g:5826:1: ( ( RULE_WS )* )
-            // InternalPreprocess.g:5827:1: ( RULE_WS )*
+            // InternalPreprocess.g:5826:1: ( ( RULE_WHITESPACE )* )
+            // InternalPreprocess.g:5827:1: ( RULE_WHITESPACE )*
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getElIfConditionalAccess().getWSTerminalRuleCall_1_0()); 
+               before(grammarAccess.getElIfConditionalAccess().getWHITESPACETerminalRuleCall_1_0()); 
             }
-            // InternalPreprocess.g:5828:1: ( RULE_WS )*
+            // InternalPreprocess.g:5828:1: ( RULE_WHITESPACE )*
             loop46:
             do {
                 int alt46=2;
                 int LA46_0 = input.LA(1);
 
-                if ( (LA46_0==RULE_WS) ) {
+                if ( (LA46_0==RULE_WHITESPACE) ) {
                     alt46=1;
                 }
 
 
                 switch (alt46) {
             	case 1 :
-            	    // InternalPreprocess.g:5828:3: RULE_WS
+            	    // InternalPreprocess.g:5828:3: RULE_WHITESPACE
             	    {
-            	    match(input,RULE_WS,FOLLOW_8); if (state.failed) return ;
+            	    match(input,RULE_WHITESPACE,FOLLOW_8); if (state.failed) return ;
 
             	    }
             	    break;
@@ -15976,7 +15976,7 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
             } while (true);
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getElIfConditionalAccess().getWSTerminalRuleCall_1_0()); 
+               after(grammarAccess.getElIfConditionalAccess().getWHITESPACETerminalRuleCall_1_0()); 
             }
 
             }
@@ -16117,37 +16117,37 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ElIfConditional__Group_1__2__Impl"
-    // InternalPreprocess.g:5884:1: rule__ElIfConditional__Group_1__2__Impl : ( ( RULE_WS )* ) ;
+    // InternalPreprocess.g:5884:1: rule__ElIfConditional__Group_1__2__Impl : ( ( RULE_WHITESPACE )* ) ;
     public final void rule__ElIfConditional__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalPreprocess.g:5888:1: ( ( ( RULE_WS )* ) )
-            // InternalPreprocess.g:5890:1: ( ( RULE_WS )* )
+            // InternalPreprocess.g:5888:1: ( ( ( RULE_WHITESPACE )* ) )
+            // InternalPreprocess.g:5890:1: ( ( RULE_WHITESPACE )* )
             {
-            // InternalPreprocess.g:5890:1: ( ( RULE_WS )* )
-            // InternalPreprocess.g:5891:1: ( RULE_WS )*
+            // InternalPreprocess.g:5890:1: ( ( RULE_WHITESPACE )* )
+            // InternalPreprocess.g:5891:1: ( RULE_WHITESPACE )*
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getElIfConditionalAccess().getWSTerminalRuleCall_1_2()); 
+               before(grammarAccess.getElIfConditionalAccess().getWHITESPACETerminalRuleCall_1_2()); 
             }
-            // InternalPreprocess.g:5892:1: ( RULE_WS )*
+            // InternalPreprocess.g:5892:1: ( RULE_WHITESPACE )*
             loop47:
             do {
                 int alt47=2;
                 int LA47_0 = input.LA(1);
 
-                if ( (LA47_0==RULE_WS) ) {
+                if ( (LA47_0==RULE_WHITESPACE) ) {
                     alt47=1;
                 }
 
 
                 switch (alt47) {
             	case 1 :
-            	    // InternalPreprocess.g:5892:3: RULE_WS
+            	    // InternalPreprocess.g:5892:3: RULE_WHITESPACE
             	    {
-            	    match(input,RULE_WS,FOLLOW_8); if (state.failed) return ;
+            	    match(input,RULE_WHITESPACE,FOLLOW_8); if (state.failed) return ;
 
             	    }
             	    break;
@@ -16158,7 +16158,7 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
             } while (true);
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getElIfConditionalAccess().getWSTerminalRuleCall_1_2()); 
+               after(grammarAccess.getElIfConditionalAccess().getWHITESPACETerminalRuleCall_1_2()); 
             }
 
             }
@@ -16373,37 +16373,37 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ElseConditional__Group__1__Impl"
-    // InternalPreprocess.g:5989:1: rule__ElseConditional__Group__1__Impl : ( ( RULE_WS )* ) ;
+    // InternalPreprocess.g:5989:1: rule__ElseConditional__Group__1__Impl : ( ( RULE_WHITESPACE )* ) ;
     public final void rule__ElseConditional__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalPreprocess.g:5993:1: ( ( ( RULE_WS )* ) )
-            // InternalPreprocess.g:5995:1: ( ( RULE_WS )* )
+            // InternalPreprocess.g:5993:1: ( ( ( RULE_WHITESPACE )* ) )
+            // InternalPreprocess.g:5995:1: ( ( RULE_WHITESPACE )* )
             {
-            // InternalPreprocess.g:5995:1: ( ( RULE_WS )* )
-            // InternalPreprocess.g:5996:1: ( RULE_WS )*
+            // InternalPreprocess.g:5995:1: ( ( RULE_WHITESPACE )* )
+            // InternalPreprocess.g:5996:1: ( RULE_WHITESPACE )*
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getElseConditionalAccess().getWSTerminalRuleCall_1()); 
+               before(grammarAccess.getElseConditionalAccess().getWHITESPACETerminalRuleCall_1()); 
             }
-            // InternalPreprocess.g:5997:1: ( RULE_WS )*
+            // InternalPreprocess.g:5997:1: ( RULE_WHITESPACE )*
             loop48:
             do {
                 int alt48=2;
                 int LA48_0 = input.LA(1);
 
-                if ( (LA48_0==RULE_WS) ) {
+                if ( (LA48_0==RULE_WHITESPACE) ) {
                     alt48=1;
                 }
 
 
                 switch (alt48) {
             	case 1 :
-            	    // InternalPreprocess.g:5997:3: RULE_WS
+            	    // InternalPreprocess.g:5997:3: RULE_WHITESPACE
             	    {
-            	    match(input,RULE_WS,FOLLOW_8); if (state.failed) return ;
+            	    match(input,RULE_WHITESPACE,FOLLOW_8); if (state.failed) return ;
 
             	    }
             	    break;
@@ -16414,7 +16414,7 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
             } while (true);
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getElseConditionalAccess().getWSTerminalRuleCall_1()); 
+               after(grammarAccess.getElseConditionalAccess().getWHITESPACETerminalRuleCall_1()); 
             }
 
             }
@@ -16555,37 +16555,37 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ElseConditional__Group__3__Impl"
-    // InternalPreprocess.g:6053:1: rule__ElseConditional__Group__3__Impl : ( ( RULE_WS )* ) ;
+    // InternalPreprocess.g:6053:1: rule__ElseConditional__Group__3__Impl : ( ( RULE_WHITESPACE )* ) ;
     public final void rule__ElseConditional__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalPreprocess.g:6057:1: ( ( ( RULE_WS )* ) )
-            // InternalPreprocess.g:6059:1: ( ( RULE_WS )* )
+            // InternalPreprocess.g:6057:1: ( ( ( RULE_WHITESPACE )* ) )
+            // InternalPreprocess.g:6059:1: ( ( RULE_WHITESPACE )* )
             {
-            // InternalPreprocess.g:6059:1: ( ( RULE_WS )* )
-            // InternalPreprocess.g:6060:1: ( RULE_WS )*
+            // InternalPreprocess.g:6059:1: ( ( RULE_WHITESPACE )* )
+            // InternalPreprocess.g:6060:1: ( RULE_WHITESPACE )*
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getElseConditionalAccess().getWSTerminalRuleCall_3()); 
+               before(grammarAccess.getElseConditionalAccess().getWHITESPACETerminalRuleCall_3()); 
             }
-            // InternalPreprocess.g:6061:1: ( RULE_WS )*
+            // InternalPreprocess.g:6061:1: ( RULE_WHITESPACE )*
             loop49:
             do {
                 int alt49=2;
                 int LA49_0 = input.LA(1);
 
-                if ( (LA49_0==RULE_WS) ) {
+                if ( (LA49_0==RULE_WHITESPACE) ) {
                     alt49=1;
                 }
 
 
                 switch (alt49) {
             	case 1 :
-            	    // InternalPreprocess.g:6061:3: RULE_WS
+            	    // InternalPreprocess.g:6061:3: RULE_WHITESPACE
             	    {
-            	    match(input,RULE_WS,FOLLOW_8); if (state.failed) return ;
+            	    match(input,RULE_WHITESPACE,FOLLOW_8); if (state.failed) return ;
 
             	    }
             	    break;
@@ -16596,7 +16596,7 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
             } while (true);
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getElseConditionalAccess().getWSTerminalRuleCall_3()); 
+               after(grammarAccess.getElseConditionalAccess().getWHITESPACETerminalRuleCall_3()); 
             }
 
             }
@@ -17448,37 +17448,37 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__MyCodeLineExtended__Group__0__Impl"
-    // InternalPreprocess.g:6435:1: rule__MyCodeLineExtended__Group__0__Impl : ( ( RULE_WS )* ) ;
+    // InternalPreprocess.g:6435:1: rule__MyCodeLineExtended__Group__0__Impl : ( ( RULE_WHITESPACE )* ) ;
     public final void rule__MyCodeLineExtended__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalPreprocess.g:6439:1: ( ( ( RULE_WS )* ) )
-            // InternalPreprocess.g:6441:1: ( ( RULE_WS )* )
+            // InternalPreprocess.g:6439:1: ( ( ( RULE_WHITESPACE )* ) )
+            // InternalPreprocess.g:6441:1: ( ( RULE_WHITESPACE )* )
             {
-            // InternalPreprocess.g:6441:1: ( ( RULE_WS )* )
-            // InternalPreprocess.g:6442:1: ( RULE_WS )*
+            // InternalPreprocess.g:6441:1: ( ( RULE_WHITESPACE )* )
+            // InternalPreprocess.g:6442:1: ( RULE_WHITESPACE )*
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getMyCodeLineExtendedAccess().getWSTerminalRuleCall_0()); 
+               before(grammarAccess.getMyCodeLineExtendedAccess().getWHITESPACETerminalRuleCall_0()); 
             }
-            // InternalPreprocess.g:6443:1: ( RULE_WS )*
+            // InternalPreprocess.g:6443:1: ( RULE_WHITESPACE )*
             loop50:
             do {
                 int alt50=2;
                 int LA50_0 = input.LA(1);
 
-                if ( (LA50_0==RULE_WS) ) {
+                if ( (LA50_0==RULE_WHITESPACE) ) {
                     alt50=1;
                 }
 
 
                 switch (alt50) {
             	case 1 :
-            	    // InternalPreprocess.g:6443:3: RULE_WS
+            	    // InternalPreprocess.g:6443:3: RULE_WHITESPACE
             	    {
-            	    match(input,RULE_WS,FOLLOW_8); if (state.failed) return ;
+            	    match(input,RULE_WHITESPACE,FOLLOW_8); if (state.failed) return ;
 
             	    }
             	    break;
@@ -17489,7 +17489,7 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
             } while (true);
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getMyCodeLineExtendedAccess().getWSTerminalRuleCall_0()); 
+               after(grammarAccess.getMyCodeLineExtendedAccess().getWHITESPACETerminalRuleCall_0()); 
             }
 
             }
@@ -30007,10 +30007,10 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
 
     // $ANTLR start synpred93_InternalPreprocess
     public final void synpred93_InternalPreprocess_fragment() throws RecognitionException {   
-        // InternalPreprocess.g:3358:3: ( RULE_WS )
-        // InternalPreprocess.g:3358:3: RULE_WS
+        // InternalPreprocess.g:3358:3: ( RULE_WHITESPACE )
+        // InternalPreprocess.g:3358:3: RULE_WHITESPACE
         {
-        match(input,RULE_WS,FOLLOW_2); if (state.failed) return ;
+        match(input,RULE_WHITESPACE,FOLLOW_2); if (state.failed) return ;
 
         }
     }
@@ -30018,10 +30018,10 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
 
     // $ANTLR start synpred96_InternalPreprocess
     public final void synpred96_InternalPreprocess_fragment() throws RecognitionException {   
-        // InternalPreprocess.g:3614:3: ( RULE_WS )
-        // InternalPreprocess.g:3614:3: RULE_WS
+        // InternalPreprocess.g:3614:3: ( RULE_WHITESPACE )
+        // InternalPreprocess.g:3614:3: RULE_WHITESPACE
         {
-        match(input,RULE_WS,FOLLOW_2); if (state.failed) return ;
+        match(input,RULE_WHITESPACE,FOLLOW_2); if (state.failed) return ;
 
         }
     }
@@ -30029,10 +30029,10 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
 
     // $ANTLR start synpred100_InternalPreprocess
     public final void synpred100_InternalPreprocess_fragment() throws RecognitionException {   
-        // InternalPreprocess.g:3953:3: ( RULE_WS )
-        // InternalPreprocess.g:3953:3: RULE_WS
+        // InternalPreprocess.g:3953:3: ( RULE_WHITESPACE )
+        // InternalPreprocess.g:3953:3: RULE_WHITESPACE
         {
-        match(input,RULE_WS,FOLLOW_2); if (state.failed) return ;
+        match(input,RULE_WHITESPACE,FOLLOW_2); if (state.failed) return ;
 
         }
     }
@@ -30040,10 +30040,10 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
 
     // $ANTLR start synpred103_InternalPreprocess
     public final void synpred103_InternalPreprocess_fragment() throws RecognitionException {   
-        // InternalPreprocess.g:4313:3: ( RULE_WS )
-        // InternalPreprocess.g:4313:3: RULE_WS
+        // InternalPreprocess.g:4313:3: ( RULE_WHITESPACE )
+        // InternalPreprocess.g:4313:3: RULE_WHITESPACE
         {
-        match(input,RULE_WS,FOLLOW_2); if (state.failed) return ;
+        match(input,RULE_WHITESPACE,FOLLOW_2); if (state.failed) return ;
 
         }
     }
@@ -30051,10 +30051,10 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
 
     // $ANTLR start synpred104_InternalPreprocess
     public final void synpred104_InternalPreprocess_fragment() throws RecognitionException {   
-        // InternalPreprocess.g:4457:3: ( RULE_WS )
-        // InternalPreprocess.g:4457:3: RULE_WS
+        // InternalPreprocess.g:4457:3: ( RULE_WHITESPACE )
+        // InternalPreprocess.g:4457:3: RULE_WHITESPACE
         {
-        match(input,RULE_WS,FOLLOW_2); if (state.failed) return ;
+        match(input,RULE_WHITESPACE,FOLLOW_2); if (state.failed) return ;
 
         }
     }
@@ -31437,7 +31437,7 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
             this.transition = DFA24_transition;
         }
         public String getDescription() {
-            return "()* loopback of 3358:1: ( RULE_WS )*";
+            return "()* loopback of 3358:1: ( RULE_WHITESPACE )*";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -32396,7 +32396,7 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
             this.transition = DFA34_transition;
         }
         public String getDescription() {
-            return "()* loopback of 4313:1: ( RULE_WS )*";
+            return "()* loopback of 4313:1: ( RULE_WHITESPACE )*";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -33355,7 +33355,7 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
             this.transition = DFA35_transition;
         }
         public String getDescription() {
-            return "()* loopback of 4457:1: ( RULE_WS )*";
+            return "()* loopback of 4457:1: ( RULE_WHITESPACE )*";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;

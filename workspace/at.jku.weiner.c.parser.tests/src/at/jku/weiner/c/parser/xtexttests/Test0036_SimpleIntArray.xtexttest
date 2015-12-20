@@ -2,6 +2,7 @@
 //----------------------------------------------------------------------
 package at.jku.weiner.c.parser
 language parser
+imports at.jku.weiner.c.common.common
 //----------------------------------------------------------------------
 source file="res/Test0036_SimpleIntArray.c"
 //----------------------------------------------------------------------
@@ -87,7 +88,7 @@ SKW_RIGHTBRACE NEWLINE
 																								expr+=
 																								(PrimaryExpression
 																									const=
-																									(Constant
+																									(common::Constant2
 																										dec++"6"
 																									)
 																								)
@@ -149,7 +150,7 @@ SKW_RIGHTBRACE NEWLINE
 																								expr+=
 																								(PrimaryExpression
 																									const=
-																									(Constant
+																									(common::Constant2
 																										dec++"1"
 																									)
 																								)
@@ -203,7 +204,7 @@ SKW_RIGHTBRACE NEWLINE
 																								expr+=
 																								(PrimaryExpression
 																									const=
-																									(Constant
+																									(common::Constant2
 																										dec++"2"
 																									)
 																								)
@@ -257,7 +258,7 @@ SKW_RIGHTBRACE NEWLINE
 																								expr+=
 																								(PrimaryExpression
 																									const=
-																									(Constant
+																									(common::Constant2
 																										dec++"3"
 																									)
 																								)
@@ -311,7 +312,7 @@ SKW_RIGHTBRACE NEWLINE
 																								expr+=
 																								(PrimaryExpression
 																									const=
-																									(Constant
+																									(common::Constant2
 																										dec++"5"
 																									)
 																								)
@@ -365,7 +366,7 @@ SKW_RIGHTBRACE NEWLINE
 																								expr+=
 																								(PrimaryExpression
 																									const=
-																									(Constant
+																									(common::Constant2
 																										dec++"7"
 																									)
 																								)
@@ -419,7 +420,7 @@ SKW_RIGHTBRACE NEWLINE
 																								expr+=
 																								(PrimaryExpression
 																									const=
-																									(Constant
+																									(common::Constant2
 																										dec++"11"
 																									)
 																								)
@@ -569,7 +570,7 @@ SKW_RIGHTBRACE NEWLINE
 																																									expr+=
 																																									(PrimaryExpression
 																																										const=
-																																										(Constant
+																																										(common::Constant2
 																																											str++"\\\"%d\\\\n\\\""
 																																										)
 																																									)
@@ -658,7 +659,7 @@ SKW_RIGHTBRACE NEWLINE
 																																																										expr+=
 																																																										(PrimaryExpression
 																																																											const=
-																																																											(Constant
+																																																											(common::Constant2
 																																																												dec++"3"
 																																																											)
 																																																										)
@@ -755,7 +756,7 @@ SKW_RIGHTBRACE NEWLINE
 																								expr+=
 																								(PrimaryExpression
 																									const=
-																									(Constant
+																									(common::Constant2
 																										dec++"0"
 																									)
 																								)

@@ -2,6 +2,7 @@
 //----------------------------------------------------------------------
 package at.jku.weiner.c.parser
 language parser
+imports at.jku.weiner.c.common.common
 //----------------------------------------------------------------------
 source file="res/Test0037_Struct.c"
 //----------------------------------------------------------------------
@@ -136,7 +137,7 @@ SKW_RIGHTBRACE NEWLINE
 																												expr+=
 																												(PrimaryExpression
 																													const=
-																													(Constant
+																													(common::Constant2
 																														dec++"250"
 																													)
 																												)
@@ -247,7 +248,7 @@ SKW_RIGHTBRACE NEWLINE
 																								expr+=
 																								(PrimaryExpression
 																									const=
-																									(Constant
+																									(common::Constant2
 																										hex++"0x007"
 																									)
 																								)
@@ -301,7 +302,7 @@ SKW_RIGHTBRACE NEWLINE
 																								expr+=
 																								(PrimaryExpression
 																									const=
-																									(Constant
+																									(common::Constant2
 																										str++"\\\"Joe Nobody\\\""
 																									)
 																								)
@@ -452,7 +453,7 @@ SKW_RIGHTBRACE NEWLINE
 																																									expr+=
 																																									(PrimaryExpression
 																																										const=
-																																										(Constant
+																																										(common::Constant2
 																																											str++"\\\"sizeof(joe.id)=%lu\\\\n\\\""
 																																										)
 																																									)
@@ -678,7 +679,7 @@ SKW_RIGHTBRACE NEWLINE
 																																									expr+=
 																																									(PrimaryExpression
 																																										const=
-																																										(Constant
+																																										(common::Constant2
 																																											str++"\\\"sizeof(joe.name)=%lu\\\\n\\\""
 																																										)
 																																									)
@@ -904,7 +905,7 @@ SKW_RIGHTBRACE NEWLINE
 																																									expr+=
 																																									(PrimaryExpression
 																																										const=
-																																										(Constant
+																																										(common::Constant2
 																																											str++"\\\"sizeof(joe)=%lu\\\\n\\\""
 																																										)
 																																									)
@@ -1110,7 +1111,7 @@ SKW_RIGHTBRACE NEWLINE
 																									expr+=
 																									(PrimaryExpression
 																										const=
-																										(Constant
+																										(common::Constant2
 																											hex++"0x008"
 																										)
 																									)
@@ -1264,7 +1265,7 @@ SKW_RIGHTBRACE NEWLINE
 																																									expr+=
 																																									(PrimaryExpression
 																																										const=
-																																										(Constant
+																																										(common::Constant2
 																																											str++"\\\"Phil Morrison\\\""
 																																										)
 																																									)
@@ -1382,7 +1383,7 @@ SKW_RIGHTBRACE NEWLINE
 																																									expr+=
 																																									(PrimaryExpression
 																																										const=
-																																										(Constant
+																																										(common::Constant2
 																																											str++"\\\"joe.id=%d\\\\n\\\""
 																																										)
 																																									)
@@ -1552,7 +1553,7 @@ SKW_RIGHTBRACE NEWLINE
 																																									expr+=
 																																									(PrimaryExpression
 																																										const=
-																																										(Constant
+																																										(common::Constant2
 																																											str++"\\\"joe.name=%s\\\\n\\\""
 																																										)
 																																									)
@@ -1722,7 +1723,7 @@ SKW_RIGHTBRACE NEWLINE
 																																									expr+=
 																																									(PrimaryExpression
 																																										const=
-																																										(Constant
+																																										(common::Constant2
 																																											str++"\\\"phil.id=%d\\\\n\\\""
 																																										)
 																																									)
@@ -1892,7 +1893,7 @@ SKW_RIGHTBRACE NEWLINE
 																																									expr+=
 																																									(PrimaryExpression
 																																										const=
-																																										(Constant
+																																										(common::Constant2
 																																											str++"\\\"phil.name=%s\\\\n\\\""
 																																										)
 																																									)
@@ -2024,7 +2025,7 @@ SKW_RIGHTBRACE NEWLINE
 																								expr+=
 																								(PrimaryExpression
 																									const=
-																									(Constant
+																									(common::Constant2
 																										dec++"0"
 																									)
 																								)

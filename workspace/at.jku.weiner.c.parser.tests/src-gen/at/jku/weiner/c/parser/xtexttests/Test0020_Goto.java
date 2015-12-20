@@ -96,7 +96,7 @@ import at.jku.weiner.c.parser.parser.CastExpression;
 import at.jku.weiner.c.parser.parser.UnaryExpression;
 import at.jku.weiner.c.parser.parser.PostfixExpression;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
-import at.jku.weiner.c.parser.parser.Constant;
+import at.jku.weiner.c.common.common.Constant2;
 import at.jku.weiner.c.parser.parser.Statement;
 import at.jku.weiner.c.parser.parser.LabeledStatement;
 import at.jku.weiner.c.parser.parser.Statement;
@@ -136,7 +136,7 @@ import at.jku.weiner.c.parser.parser.CastExpression;
 import at.jku.weiner.c.parser.parser.UnaryExpression;
 import at.jku.weiner.c.parser.parser.PostfixExpression;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
-import at.jku.weiner.c.parser.parser.Constant;
+import at.jku.weiner.c.common.common.Constant2;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(ParserInjectorProvider.class)
@@ -657,12 +657,12 @@ public class Test0020_Goto {
 		Assert.assertNotNull(PrimaryExpression_52_Var
 		);
 		//52
-		final Constant Constant_53_Var
-		 = (Constant)PrimaryExpression_52_Var
+		final Constant2 Constant2_53_Var
+		 = (Constant2)PrimaryExpression_52_Var
 		.getConst();
-		Assert.assertNotNull(Constant_53_Var
+		Assert.assertNotNull(Constant2_53_Var
 		);
-		Assert.assertEquals("\"will never be reached\\n\"", Constant_53_Var
+		Assert.assertEquals("\"will never be reached\\n\"", Constant2_53_Var
 		.getStr());
 		Assert.assertEquals(";", ExpressionStatement_17_Var
 		.getSemi());
@@ -979,12 +979,12 @@ public class Test0020_Goto {
 		Assert.assertNotNull(PrimaryExpression_92_Var
 		);
 		//92
-		final Constant Constant_93_Var
-		 = (Constant)PrimaryExpression_92_Var
+		final Constant2 Constant2_93_Var
+		 = (Constant2)PrimaryExpression_92_Var
 		.getConst();
-		Assert.assertNotNull(Constant_93_Var
+		Assert.assertNotNull(Constant2_93_Var
 		);
-		Assert.assertEquals("\"reached target\\n\"", Constant_93_Var
+		Assert.assertEquals("\"reached target\\n\"", Constant2_93_Var
 		.getStr());
 		Assert.assertEquals(";", ExpressionStatement_57_Var
 		.getSemi());

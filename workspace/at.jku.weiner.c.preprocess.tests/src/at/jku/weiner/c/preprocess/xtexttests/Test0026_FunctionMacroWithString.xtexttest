@@ -8,12 +8,12 @@ split-lexer=false
 source file="res/Test0026_FunctionMacroWithString.c"
 //----------------------------------------------------------------------
 lexer-tokens
-	HASH DEFINE WS ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WS 
-		ID SKW_COMMA WS 
-		STRING_LITERAL SKW_COMMA WS
-		ID SKW_COMMA WS 
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WHITESPACE 
+		ID SKW_COMMA WHITESPACE 
+		STRING_LITERAL SKW_COMMA WHITESPACE
+		ID SKW_COMMA WHITESPACE 
 		STRING_LITERAL
-		SKW_COMMA WS ID NEWLINE
+		SKW_COMMA WHITESPACE ID NEWLINE
 	ID SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
 //----------------------------------------------------------------------
 (Model

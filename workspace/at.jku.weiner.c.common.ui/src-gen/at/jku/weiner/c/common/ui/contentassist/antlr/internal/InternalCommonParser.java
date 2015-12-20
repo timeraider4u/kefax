@@ -38,7 +38,7 @@ public class InternalCommonParser extends AbstractInternalContentAssistParser {
 		"RULE_SKW_PLUSPLUS", "RULE_SKW_QUESTION", "RULE_SKW_RIGHTBRACE", "RULE_SKW_RIGHTBRACKET", 
 		"RULE_SKW_RIGHTPAREN", "RULE_SKW_RIGHTSHIFT", "RULE_SKW_SEMI", "RULE_SKW_SINGLEQUOTE", 
 		"RULE_SKW_STAR", "RULE_SKW_TILDE", "RULE_SKW_UNDERSCORE", "RULE_SPACE", 
-		"RULE_SPECIAL", "RULE_STRING_LITERAL", "RULE_TAB", "RULE_WS"
+		"RULE_SPECIAL", "RULE_STRING_LITERAL", "RULE_TAB", "RULE_WHITESPACE"
 	};
 	public static final int EOF=-1;
 	public static final int RULE_BIN_LITERAL=4;
@@ -105,7 +105,7 @@ public class InternalCommonParser extends AbstractInternalContentAssistParser {
 	public static final int RULE_SPECIAL=65;
 	public static final int RULE_STRING_LITERAL=66;
 	public static final int RULE_TAB=67;
-	public static final int RULE_WS=68;
+	public static final int RULE_WHITESPACE=68;
 
 	// delegates
 	public AbstractInternalContentAssistParser[] getDelegates() {
@@ -219,7 +219,7 @@ public class InternalCommonParser extends AbstractInternalContentAssistParser {
 	// InternalCommon.g:97:1: entryRuleExpression : ruleExpression EOF ;
 	public final void entryRuleExpression() throws RecognitionException {
 
-			HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT", "RULE_LINEBREAK");
+			HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WHITESPACE", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT", "RULE_LINEBREAK");
 
 		try {
 			// InternalCommon.g:101:1: ( ruleExpression EOF )
@@ -254,7 +254,7 @@ public class InternalCommonParser extends AbstractInternalContentAssistParser {
 	// InternalCommon.g:112:1: ruleExpression : ( ( rule__Expression__Group__0 ) ) ;
 	public final void ruleExpression() throws RecognitionException {
 
-				HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT", "RULE_LINEBREAK");
+				HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WHITESPACE", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT", "RULE_LINEBREAK");
 				int stackSize = keepStackSize();
 				/*no init found*/
 		    

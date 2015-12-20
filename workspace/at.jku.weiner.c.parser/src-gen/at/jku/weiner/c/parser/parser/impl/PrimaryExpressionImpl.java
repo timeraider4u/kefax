@@ -2,7 +2,8 @@
  */
 package at.jku.weiner.c.parser.parser.impl;
 
-import at.jku.weiner.c.parser.parser.Constant;
+import at.jku.weiner.c.common.common.Constant2;
+
 import at.jku.weiner.c.parser.parser.Expression;
 import at.jku.weiner.c.parser.parser.ParserPackage;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
@@ -60,7 +61,7 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
    * @generated
    * @ordered
    */
-  protected Constant const_;
+  protected Constant2 const_;
 
   /**
    * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
@@ -121,7 +122,7 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
    * <!-- end-user-doc -->
    * @generated
    */
-  public Constant getConst()
+  public Constant2 getConst()
   {
     return const_;
   }
@@ -131,9 +132,9 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetConst(Constant newConst, NotificationChain msgs)
+  public NotificationChain basicSetConst(Constant2 newConst, NotificationChain msgs)
   {
-    Constant oldConst = const_;
+    Constant2 oldConst = const_;
     const_ = newConst;
     if (eNotificationRequired())
     {
@@ -148,7 +149,7 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setConst(Constant newConst)
+  public void setConst(Constant2 newConst)
   {
     if (newConst != const_)
     {
@@ -264,7 +265,7 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
         setId((String)newValue);
         return;
       case ParserPackage.PRIMARY_EXPRESSION__CONST:
-        setConst((Constant)newValue);
+        setConst((Constant2)newValue);
         return;
       case ParserPackage.PRIMARY_EXPRESSION__EXPR:
         setExpr((Expression)newValue);
@@ -287,7 +288,7 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
         setId(ID_EDEFAULT);
         return;
       case ParserPackage.PRIMARY_EXPRESSION__CONST:
-        setConst((Constant)null);
+        setConst((Constant2)null);
         return;
       case ParserPackage.PRIMARY_EXPRESSION__EXPR:
         setExpr((Expression)null);

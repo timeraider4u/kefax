@@ -89,7 +89,7 @@ import at.jku.weiner.c.parser.parser.CastExpression;
 import at.jku.weiner.c.parser.parser.UnaryExpression;
 import at.jku.weiner.c.parser.parser.PostfixExpression;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
-import at.jku.weiner.c.parser.parser.Constant;
+import at.jku.weiner.c.common.common.Constant2;
 import at.jku.weiner.c.parser.parser.Statement;
 import at.jku.weiner.c.parser.parser.CompoundStatement;
 import at.jku.weiner.c.parser.parser.BodyStatement;
@@ -577,12 +577,12 @@ public class Test0023_While {
 		Assert.assertNotNull(PrimaryExpression_45_Var
 		);
 		//45
-		final Constant Constant_46_Var
-		 = (Constant)PrimaryExpression_45_Var
+		final Constant2 Constant2_46_Var
+		 = (Constant2)PrimaryExpression_45_Var
 		.getConst();
-		Assert.assertNotNull(Constant_46_Var
+		Assert.assertNotNull(Constant2_46_Var
 		);
-		Assert.assertEquals("0", Constant_46_Var
+		Assert.assertEquals("0", Constant2_46_Var
 		.getDec());
 		//46
 		final Statement Statement_47_Var

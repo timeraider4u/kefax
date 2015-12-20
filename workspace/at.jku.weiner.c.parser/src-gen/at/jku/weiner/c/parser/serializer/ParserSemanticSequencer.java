@@ -5,6 +5,7 @@ package at.jku.weiner.c.parser.serializer;
 
 import at.jku.weiner.c.common.common.Common;
 import at.jku.weiner.c.common.common.CommonPackage;
+import at.jku.weiner.c.common.common.Constant2;
 import at.jku.weiner.c.common.serializer.CommonSemanticSequencer;
 import at.jku.weiner.c.parser.parser.AdditiveExpression;
 import at.jku.weiner.c.parser.parser.AndExpression;
@@ -19,7 +20,6 @@ import at.jku.weiner.c.parser.parser.BodyStatement;
 import at.jku.weiner.c.parser.parser.CastExpression;
 import at.jku.weiner.c.parser.parser.CompoundStatement;
 import at.jku.weiner.c.parser.parser.ConditionalExpression;
-import at.jku.weiner.c.parser.parser.Constant;
 import at.jku.weiner.c.parser.parser.ConstantExpression;
 import at.jku.weiner.c.parser.parser.Declaration;
 import at.jku.weiner.c.parser.parser.DeclarationSpecifiers;
@@ -112,6 +112,9 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 			case CommonPackage.COMMON:
 				sequence_Common(context, (Common) semanticObject); 
 				return; 
+			case CommonPackage.CONSTANT2:
+				sequence_Constant2(context, (Constant2) semanticObject); 
+				return; 
 			}
 		else if(semanticObject.eClass().getEPackage() == ParserPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
 			case ParserPackage.ADDITIVE_EXPRESSION:
@@ -152,9 +155,6 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 				return; 
 			case ParserPackage.CONDITIONAL_EXPRESSION:
 				sequence_ConditionalExpression(context, (ConditionalExpression) semanticObject); 
-				return; 
-			case ParserPackage.CONSTANT:
-				sequence_Constant(context, (Constant) semanticObject); 
 				return; 
 			case ParserPackage.CONSTANT_EXPRESSION:
 				sequence_ConstantExpression(context, (ConstantExpression) semanticObject); 
@@ -501,23 +501,6 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	 *     expr=ConditionalExpression
 	 */
 	protected void sequence_ConstantExpression(EObject context, ConstantExpression semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (
-	 *         hex=HEX_LITERAL | 
-	 *         oct=OCTAL_LITERAL | 
-	 *         dec=DECIMAL_LITERAL | 
-	 *         ch=CHAR_LITERAL | 
-	 *         str=STRING_LITERAL | 
-	 *         float=FLOAT_LITERAL | 
-	 *         bin=BIN_LITERAL
-	 *     )
-	 */
-	protected void sequence_Constant(EObject context, Constant semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -989,7 +972,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (id=ID | const=Constant | expr=Expression)
+	 *     (id=ID | const=Constant2 | expr=Expression)
 	 */
 	protected void sequence_PrimaryExpression(EObject context, PrimaryExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

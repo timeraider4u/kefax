@@ -2,6 +2,8 @@
  */
 package at.jku.weiner.c.preprocess.preprocess;
 
+import at.jku.weiner.c.common.common.Expression;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -11,11 +13,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.ElIfConditional#getExpression <em>Expression</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.ElIfConditional#getGroup <em>Group</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getElIfConditional()
  * @model
@@ -32,12 +34,12 @@ public interface ElIfConditional extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Expression</em>' containment reference.
-   * @see #setExpression(ShadowExpression)
+   * @see #setExpression(Expression)
    * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getElIfConditional_Expression()
    * @model containment="true"
    * @generated
    */
-  ShadowExpression getExpression();
+  Expression getExpression();
 
   /**
    * Sets the value of the '{@link at.jku.weiner.c.preprocess.preprocess.ElIfConditional#getExpression <em>Expression</em>}' containment reference.
@@ -47,7 +49,7 @@ public interface ElIfConditional extends EObject
    * @see #getExpression()
    * @generated
    */
-  void setExpression(ShadowExpression value);
+  void setExpression(Expression value);
 
   /**
    * Returns the value of the '<em><b>Group</b></em>' containment reference.

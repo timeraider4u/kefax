@@ -198,7 +198,7 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getXtextTest_Boolean()
+  public EAttribute getXtextTest_Imports()
   {
     return (EAttribute)xtextTestEClass.getEStructuralFeatures().get(2);
   }
@@ -208,9 +208,9 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getXtextTest_Input()
+  public EAttribute getXtextTest_Boolean()
   {
-    return (EReference)xtextTestEClass.getEStructuralFeatures().get(3);
+    return (EAttribute)xtextTestEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -218,7 +218,7 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getXtextTest_Tokens()
+  public EReference getXtextTest_Input()
   {
     return (EReference)xtextTestEClass.getEStructuralFeatures().get(4);
   }
@@ -228,7 +228,7 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getXtextTest_Root()
+  public EReference getXtextTest_Tokens()
   {
     return (EReference)xtextTestEClass.getEStructuralFeatures().get(5);
   }
@@ -238,7 +238,7 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getXtextTest_Output()
+  public EReference getXtextTest_Root()
   {
     return (EReference)xtextTestEClass.getEStructuralFeatures().get(6);
   }
@@ -248,7 +248,7 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getXtextTest_Before()
+  public EReference getXtextTest_Output()
   {
     return (EReference)xtextTestEClass.getEStructuralFeatures().get(7);
   }
@@ -258,9 +258,19 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getXtextTest_After()
+  public EReference getXtextTest_Before()
   {
     return (EReference)xtextTestEClass.getEStructuralFeatures().get(8);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getXtextTest_After()
+  {
+    return (EReference)xtextTestEClass.getEStructuralFeatures().get(9);
   }
 
   /**
@@ -358,7 +368,7 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getElement_Name()
+  public EAttribute getElement_Importing()
   {
     return (EAttribute)elementEClass.getEStructuralFeatures().get(0);
   }
@@ -368,9 +378,19 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getElement_Name()
+  {
+    return (EAttribute)elementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getElement_Inner()
   {
-    return (EReference)elementEClass.getEStructuralFeatures().get(1);
+    return (EReference)elementEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -646,6 +666,7 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
     xtextTestEClass = createEClass(XTEXT_TEST);
     createEAttribute(xtextTestEClass, XTEXT_TEST__PACKAGE);
     createEAttribute(xtextTestEClass, XTEXT_TEST__LANG);
+    createEAttribute(xtextTestEClass, XTEXT_TEST__IMPORTS);
     createEAttribute(xtextTestEClass, XTEXT_TEST__BOOLEAN);
     createEReference(xtextTestEClass, XTEXT_TEST__INPUT);
     createEReference(xtextTestEClass, XTEXT_TEST__TOKENS);
@@ -666,6 +687,7 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
     createEAttribute(myTokensEClass, MY_TOKENS__COUNT);
 
     elementEClass = createEClass(ELEMENT);
+    createEAttribute(elementEClass, ELEMENT__IMPORTING);
     createEAttribute(elementEClass, ELEMENT__NAME);
     createEReference(elementEClass, ELEMENT__INNER);
 
@@ -733,6 +755,7 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
     initEClass(xtextTestEClass, XtextTest.class, "XtextTest", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getXtextTest_Package(), ecorePackage.getEString(), "package", null, 0, 1, XtextTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getXtextTest_Lang(), ecorePackage.getEString(), "lang", null, 0, 1, XtextTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getXtextTest_Imports(), ecorePackage.getEString(), "imports", null, 0, 1, XtextTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getXtextTest_Boolean(), ecorePackage.getEString(), "boolean", null, 0, 1, XtextTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getXtextTest_Input(), this.getInput(), null, "input", null, 0, 1, XtextTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getXtextTest_Tokens(), this.getTokens(), null, "tokens", null, 0, 1, XtextTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -753,6 +776,7 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
     initEAttribute(getMyTokens_Count(), ecorePackage.getEInt(), "count", null, 0, 1, MyTokens.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(elementEClass, Element.class, "Element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getElement_Importing(), ecorePackage.getEString(), "importing", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getElement_Inner(), this.getInner(), null, "inner", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

@@ -112,7 +112,7 @@ public class XtextTestSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Constraint:
-	 *     (name=IDENTIFIER (inner+=Inner inner+=Inner*)?)
+	 *     (importing=IDENTIFIER? name=IDENTIFIER (inner+=Inner inner+=Inner*)?)
 	 */
 	protected void sequence_Element(EObject context, Element semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -204,6 +204,7 @@ public class XtextTestSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     (
 	 *         package=PackageID 
 	 *         lang=LangID 
+	 *         imports=ImportID? 
 	 *         boolean=Boolean? 
 	 *         input=Input 
 	 *         tokens=Tokens? 

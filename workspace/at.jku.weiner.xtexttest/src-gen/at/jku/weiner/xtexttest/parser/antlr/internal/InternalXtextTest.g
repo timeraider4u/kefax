@@ -149,16 +149,9 @@ this_LANGUAGE_3=RULE_LANGUAGE
 
 
 (
-this_SPLITLEXER_5=RULE_SPLITLEXER
+this_IMPORTS_5=RULE_IMPORTS
     { 
-    newLeafNode(this_SPLITLEXER_5, grammarAccess.getXtextTestAccess().getSPLITLEXERTerminalRuleCall_5_0()); 
-    }
-
-
-
-this_ASSIGNASSINGLE_6=RULE_ASSIGNASSINGLE
-    { 
-    newLeafNode(this_ASSIGNASSINGLE_6, grammarAccess.getXtextTestAccess().getASSIGNASSINGLETerminalRuleCall_5_1()); 
+    newLeafNode(this_IMPORTS_5, grammarAccess.getXtextTestAccess().getIMPORTSTerminalRuleCall_5_0()); 
     }
 
 
@@ -166,16 +159,54 @@ this_ASSIGNASSINGLE_6=RULE_ASSIGNASSINGLE
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getXtextTestAccess().getBooleanBooleanParserRuleCall_5_2_0()); 
+	        newCompositeNode(grammarAccess.getXtextTestAccess().getImportsImportIDParserRuleCall_5_1_0()); 
 	    }
-		lv_boolean_7_0=ruleBoolean		{
+		lv_imports_6_0=ruleImportID		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getXtextTestRule());
+	        }
+       		set(
+       			$current, 
+       			"imports",
+        		lv_imports_6_0, 
+        		"at.jku.weiner.xtexttest.XtextTest.ImportID");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+)?
+
+
+(
+this_SPLITLEXER_7=RULE_SPLITLEXER
+    { 
+    newLeafNode(this_SPLITLEXER_7, grammarAccess.getXtextTestAccess().getSPLITLEXERTerminalRuleCall_6_0()); 
+    }
+
+
+
+this_ASSIGNASSINGLE_8=RULE_ASSIGNASSINGLE
+    { 
+    newLeafNode(this_ASSIGNASSINGLE_8, grammarAccess.getXtextTestAccess().getASSIGNASSINGLETerminalRuleCall_6_1()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getXtextTestAccess().getBooleanBooleanParserRuleCall_6_2_0()); 
+	    }
+		lv_boolean_9_0=ruleBoolean		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getXtextTestRule());
 	        }
        		set(
        			$current, 
        			"boolean",
-        		lv_boolean_7_0, 
+        		lv_boolean_9_0, 
         		"at.jku.weiner.xtexttest.XtextTest.Boolean");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -189,16 +220,16 @@ this_ASSIGNASSINGLE_6=RULE_ASSIGNASSINGLE
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getXtextTestAccess().getInputInputParserRuleCall_6_0()); 
+	        newCompositeNode(grammarAccess.getXtextTestAccess().getInputInputParserRuleCall_7_0()); 
 	    }
-		lv_input_8_0=ruleInput		{
+		lv_input_10_0=ruleInput		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getXtextTestRule());
 	        }
        		set(
        			$current, 
        			"input",
-        		lv_input_8_0, 
+        		lv_input_10_0, 
         		"at.jku.weiner.xtexttest.XtextTest.Input");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -210,16 +241,16 @@ this_ASSIGNASSINGLE_6=RULE_ASSIGNASSINGLE
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getXtextTestAccess().getTokensTokensParserRuleCall_7_0()); 
+	        newCompositeNode(grammarAccess.getXtextTestAccess().getTokensTokensParserRuleCall_8_0()); 
 	    }
-		lv_tokens_9_0=ruleTokens		{
+		lv_tokens_11_0=ruleTokens		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getXtextTestRule());
 	        }
        		set(
        			$current, 
        			"tokens",
-        		lv_tokens_9_0, 
+        		lv_tokens_11_0, 
         		"at.jku.weiner.xtexttest.XtextTest.Tokens");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -231,16 +262,16 @@ this_ASSIGNASSINGLE_6=RULE_ASSIGNASSINGLE
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getXtextTestAccess().getRootElementParserRuleCall_8_0()); 
+	        newCompositeNode(grammarAccess.getXtextTestAccess().getRootElementParserRuleCall_9_0()); 
 	    }
-		lv_root_10_0=ruleElement		{
+		lv_root_12_0=ruleElement		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getXtextTestRule());
 	        }
        		set(
        			$current, 
        			"root",
-        		lv_root_10_0, 
+        		lv_root_12_0, 
         		"at.jku.weiner.xtexttest.XtextTest.Element");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -252,16 +283,16 @@ this_ASSIGNASSINGLE_6=RULE_ASSIGNASSINGLE
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getXtextTestAccess().getOutputGeneratorParserRuleCall_9_0()); 
+	        newCompositeNode(grammarAccess.getXtextTestAccess().getOutputGeneratorParserRuleCall_10_0()); 
 	    }
-		lv_output_11_0=ruleGenerator		{
+		lv_output_13_0=ruleGenerator		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getXtextTestRule());
 	        }
        		set(
        			$current, 
        			"output",
-        		lv_output_11_0, 
+        		lv_output_13_0, 
         		"at.jku.weiner.xtexttest.XtextTest.Generator");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -273,16 +304,16 @@ this_ASSIGNASSINGLE_6=RULE_ASSIGNASSINGLE
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getXtextTestAccess().getBeforeBeforeParserRuleCall_10_0()); 
+	        newCompositeNode(grammarAccess.getXtextTestAccess().getBeforeBeforeParserRuleCall_11_0()); 
 	    }
-		lv_before_12_0=ruleBefore		{
+		lv_before_14_0=ruleBefore		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getXtextTestRule());
 	        }
        		set(
        			$current, 
        			"before",
-        		lv_before_12_0, 
+        		lv_before_14_0, 
         		"at.jku.weiner.xtexttest.XtextTest.Before");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -294,16 +325,16 @@ this_ASSIGNASSINGLE_6=RULE_ASSIGNASSINGLE
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getXtextTestAccess().getAfterAfterParserRuleCall_11_0()); 
+	        newCompositeNode(grammarAccess.getXtextTestAccess().getAfterAfterParserRuleCall_12_0()); 
 	    }
-		lv_after_13_0=ruleAfter		{
+		lv_after_15_0=ruleAfter		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getXtextTestRule());
 	        }
        		set(
        			$current, 
        			"after",
-        		lv_after_13_0, 
+        		lv_after_15_0, 
         		"at.jku.weiner.xtexttest.XtextTest.After");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -420,6 +451,48 @@ ruleLangID returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
     newLeafNode(this_IDENTIFIER_0, grammarAccess.getLangIDAccess().getIDENTIFIERTerminalRuleCall()); 
     }
 
+    ;
+
+
+
+
+
+// Entry rule entryRuleImportID
+entryRuleImportID returns [String current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getImportIDRule()); } 
+	 iv_ruleImportID=ruleImportID 
+	 { $current=$iv_ruleImportID.current.getText(); }  
+	 EOF 
+;
+
+// Rule ImportID
+ruleImportID returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(    this_IDENTIFIER_0=RULE_IDENTIFIER    {
+		$current.merge(this_IDENTIFIER_0);
+    }
+
+    { 
+    newLeafNode(this_IDENTIFIER_0, grammarAccess.getImportIDAccess().getIDENTIFIERTerminalRuleCall_0()); 
+    }
+(    this_POINT_1=RULE_POINT    {
+		$current.merge(this_POINT_1);
+    }
+
+    { 
+    newLeafNode(this_POINT_1, grammarAccess.getImportIDAccess().getPOINTTerminalRuleCall_1_0()); 
+    }
+    this_IDENTIFIER_2=RULE_IDENTIFIER    {
+		$current.merge(this_IDENTIFIER_2);
+    }
+
+    { 
+    newLeafNode(this_IDENTIFIER_2, grammarAccess.getImportIDAccess().getIDENTIFIERTerminalRuleCall_1_1()); 
+    }
+)*)
     ;
 
 
@@ -729,9 +802,40 @@ this_LEFTPAREN_1=RULE_LEFTPAREN
 
 (
 (
-		lv_name_2_0=RULE_IDENTIFIER
+(
+		lv_importing_2_0=RULE_IDENTIFIER
 		{
-			newLeafNode(lv_name_2_0, grammarAccess.getElementAccess().getNameIDENTIFIERTerminalRuleCall_2_0()); 
+			newLeafNode(lv_importing_2_0, grammarAccess.getElementAccess().getImportingIDENTIFIERTerminalRuleCall_2_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getElementRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"importing",
+        		lv_importing_2_0, 
+        		"at.jku.weiner.xtexttest.XtextTest.IDENTIFIER");
+	    }
+
+)
+)
+
+
+this_IMPORTER_3=RULE_IMPORTER
+    { 
+    newLeafNode(this_IMPORTER_3, grammarAccess.getElementAccess().getIMPORTERTerminalRuleCall_2_1()); 
+    }
+
+
+)?
+
+
+(
+(
+		lv_name_4_0=RULE_IDENTIFIER
+		{
+			newLeafNode(lv_name_4_0, grammarAccess.getElementAccess().getNameIDENTIFIERTerminalRuleCall_3_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -740,7 +844,7 @@ this_LEFTPAREN_1=RULE_LEFTPAREN
        		setWithLastConsumed(
        			$current, 
        			"name",
-        		lv_name_2_0, 
+        		lv_name_4_0, 
         		"at.jku.weiner.xtexttest.XtextTest.IDENTIFIER");
 	    }
 
@@ -752,36 +856,7 @@ this_LEFTPAREN_1=RULE_LEFTPAREN
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getElementAccess().getInnerInnerParserRuleCall_3_0_0()); 
-	    }
-		lv_inner_3_0=ruleInner		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getElementRule());
-	        }
-       		add(
-       			$current, 
-       			"inner",
-        		lv_inner_3_0, 
-        		"at.jku.weiner.xtexttest.XtextTest.Inner");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)
-
-
-(
-this_COMMA_4=RULE_COMMA
-    { 
-    newLeafNode(this_COMMA_4, grammarAccess.getElementAccess().getCOMMATerminalRuleCall_3_1_0()); 
-    }
-
-
-
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getElementAccess().getInnerInnerParserRuleCall_3_1_1_0()); 
+	        newCompositeNode(grammarAccess.getElementAccess().getInnerInnerParserRuleCall_4_0_0()); 
 	    }
 		lv_inner_5_0=ruleInner		{
 	        if ($current==null) {
@@ -798,14 +873,43 @@ this_COMMA_4=RULE_COMMA
 )
 )
 
+
+(
+this_COMMA_6=RULE_COMMA
+    { 
+    newLeafNode(this_COMMA_6, grammarAccess.getElementAccess().getCOMMATerminalRuleCall_4_1_0()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getElementAccess().getInnerInnerParserRuleCall_4_1_1_0()); 
+	    }
+		lv_inner_7_0=ruleInner		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getElementRule());
+	        }
+       		add(
+       			$current, 
+       			"inner",
+        		lv_inner_7_0, 
+        		"at.jku.weiner.xtexttest.XtextTest.Inner");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
 )*
 
 )?
 
 
-this_RIGHTPAREN_6=RULE_RIGHTPAREN
+this_RIGHTPAREN_8=RULE_RIGHTPAREN
     { 
-    newLeafNode(this_RIGHTPAREN_6, grammarAccess.getElementAccess().getRIGHTPARENTerminalRuleCall_4()); 
+    newLeafNode(this_RIGHTPAREN_8, grammarAccess.getElementAccess().getRIGHTPARENTerminalRuleCall_5()); 
     }
 
 
@@ -1685,6 +1789,8 @@ RULE_PACKAGE : 'package';
 
 RULE_LANGUAGE : 'language';
 
+RULE_IMPORTS : 'imports';
+
 RULE_POINT : '.';
 
 RULE_SPLITLEXER : 'split-lexer';
@@ -1738,6 +1844,8 @@ RULE_ASSIGNASDATALIST : '+*';
 RULE_COMMA : ',';
 
 RULE_IDENTIFIER : RULE_ID;
+
+RULE_IMPORTER : '::';
 
 fragment RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 

@@ -1,119 +1,118 @@
 package at.jku.weiner.c.preprocess.utils.expressions;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
-import at.jku.weiner.c.preprocess.preprocess.AdditiveExpression;
-import at.jku.weiner.c.preprocess.preprocess.AndExpression;
-import at.jku.weiner.c.preprocess.preprocess.CastExpression;
-import at.jku.weiner.c.preprocess.preprocess.ConditionalExpression;
-import at.jku.weiner.c.preprocess.preprocess.ConstantExpression;
-import at.jku.weiner.c.preprocess.preprocess.EqualityExpression;
-import at.jku.weiner.c.preprocess.preprocess.ExclusiveOrExpression;
-import at.jku.weiner.c.preprocess.preprocess.Expression;
-import at.jku.weiner.c.preprocess.preprocess.InclusiveOrExpression;
-import at.jku.weiner.c.preprocess.preprocess.LogicalAndExpression;
-import at.jku.weiner.c.preprocess.preprocess.LogicalOrExpression;
-import at.jku.weiner.c.preprocess.preprocess.MultiplicativeExpression;
-import at.jku.weiner.c.preprocess.preprocess.PostfixExpression;
+import at.jku.weiner.c.common.common.AdditiveExpression;
+import at.jku.weiner.c.common.common.AndExpression;
+import at.jku.weiner.c.common.common.ArgumentExpressionList;
+import at.jku.weiner.c.common.common.CastExpression;
+import at.jku.weiner.c.common.common.ConditionalExpression;
+import at.jku.weiner.c.common.common.ConstantExpression;
+import at.jku.weiner.c.common.common.EqualityExpression;
+import at.jku.weiner.c.common.common.ExclusiveOrExpression;
+import at.jku.weiner.c.common.common.Expression;
+import at.jku.weiner.c.common.common.InclusiveOrExpression;
+import at.jku.weiner.c.common.common.LogicalAndExpression;
+import at.jku.weiner.c.common.common.LogicalOrExpression;
+import at.jku.weiner.c.common.common.MultiplicativeExpression;
+import at.jku.weiner.c.common.common.PostfixExpression;
+import at.jku.weiner.c.common.common.PostfixExpressionSuffix;
+import at.jku.weiner.c.common.common.PostfixExpressionSuffixArgument;
 import at.jku.weiner.c.preprocess.preprocess.PrimaryExpression;
-import at.jku.weiner.c.preprocess.preprocess.RelationalExpression;
-import at.jku.weiner.c.preprocess.preprocess.ShiftExpression;
-import at.jku.weiner.c.preprocess.preprocess.UnaryExpression;
-import at.jku.weiner.c.preprocess.preprocess.UnaryOperator;
+import at.jku.weiner.c.common.common.RelationalExpression;
+import at.jku.weiner.c.common.common.ShiftExpression;
+import at.jku.weiner.c.common.common.UnaryExpression;
+import at.jku.weiner.c.common.common.UnaryOperator;
 import at.jku.weiner.c.preprocess.utils.macros.DefinitionTable;
 
-public class ExpressionEvaluation {
+public class ExpressionEvaluation implements IExpressionWalker<Integer> {
 
-	public static final int TRUE = 1;
-	public static final int FALSE = 0;
+	public static final Integer TRUE = 1;
+	public static final Integer FALSE = 0;
 
-	private static boolean advanced = false;
+	private final boolean advanced;
 
 	public static boolean evaluateFor(final Expression expression,
 			final boolean advanced) {
-		ExpressionEvaluation.advanced = advanced;
-		final int value = ExpressionEvaluation.evaluate(expression);
+		final ExpressionEvaluation evaluate = new ExpressionEvaluation(advanced);
+		final Integer value = evaluate.walkTo(expression);
 		final boolean result = ExpressionEvaluationUtils.convertFrom(value);
 		return result;
 	}
 
-	public static int evaluate(final Expression expression) {
-		if (expression instanceof ConstantExpression) {
-			return ExpressionEvaluation
-					.evaluate((ConstantExpression) expression);
-		} else if (expression instanceof ConditionalExpression) {
-			return ExpressionEvaluation
-					.evaluate((ConditionalExpression) expression);
-		} else if (expression instanceof LogicalOrExpression) {
-			return ExpressionEvaluation
-					.evaluate((LogicalOrExpression) expression);
-		} else if (expression instanceof LogicalAndExpression) {
-			return ExpressionEvaluation
-					.evaluate((LogicalAndExpression) expression);
-		} else if (expression instanceof InclusiveOrExpression) {
-			return ExpressionEvaluation
-					.evaluate((InclusiveOrExpression) expression);
-		} else if (expression instanceof ExclusiveOrExpression) {
-			return ExpressionEvaluation
-					.evaluate((ExclusiveOrExpression) expression);
-		} else if (expression instanceof AndExpression) {
-			return ExpressionEvaluation.evaluate((AndExpression) expression);
-		} else if (expression instanceof EqualityExpression) {
-			return ExpressionEvaluation
-					.evaluate((EqualityExpression) expression);
-		} else if (expression instanceof RelationalExpression) {
-			return ExpressionEvaluation
-					.evaluate((RelationalExpression) expression);
-		} else if (expression instanceof ShiftExpression) {
-			return ExpressionEvaluation.evaluate((ShiftExpression) expression);
-		} else if (expression instanceof AdditiveExpression) {
-			return ExpressionEvaluation
-					.evaluate((AdditiveExpression) expression);
-		} else if (expression instanceof MultiplicativeExpression) {
-			return ExpressionEvaluation
-					.evaluate((MultiplicativeExpression) expression);
-		} else if (expression instanceof CastExpression) {
-			return ExpressionEvaluation.evaluate((CastExpression) expression);
-		} else if (expression instanceof UnaryExpression) {
-			return ExpressionEvaluation.evaluate((UnaryExpression) expression);
-		} else if (expression instanceof PostfixExpression) {
-			return ExpressionEvaluation
-					.evaluate((PostfixExpression) expression);
-		} else if (expression instanceof PrimaryExpression) {
-			return ExpressionEvaluation
-					.evaluate((PrimaryExpression) expression);
-		}
-		return ExpressionEvaluation.evaluate((Expression) expression
-				.getExpression());
+	public ExpressionEvaluation(final boolean advanced) {
+		this.advanced = advanced;
 	}
 
-	public static int evaluate(final ConstantExpression expression) {
-		final int result = ExpressionEvaluation.evaluate(expression.getExpr());
+	@Override
+	public Integer walkTo(final Expression expression) {
+		if (expression instanceof ConstantExpression) {
+			return this.walkTo((ConstantExpression) expression);
+		} else if (expression instanceof ConditionalExpression) {
+			return this.walkTo((ConditionalExpression) expression);
+		} else if (expression instanceof LogicalOrExpression) {
+			return this.walkTo((LogicalOrExpression) expression);
+		} else if (expression instanceof LogicalAndExpression) {
+			return this.walkTo((LogicalAndExpression) expression);
+		} else if (expression instanceof InclusiveOrExpression) {
+			return this.walkTo((InclusiveOrExpression) expression);
+		} else if (expression instanceof ExclusiveOrExpression) {
+			return this.walkTo((ExclusiveOrExpression) expression);
+		} else if (expression instanceof AndExpression) {
+			return this.walkTo((AndExpression) expression);
+		} else if (expression instanceof EqualityExpression) {
+			return this.walkTo((EqualityExpression) expression);
+		} else if (expression instanceof RelationalExpression) {
+			return this.walkTo((RelationalExpression) expression);
+		} else if (expression instanceof ShiftExpression) {
+			return this.walkTo((ShiftExpression) expression);
+		} else if (expression instanceof AdditiveExpression) {
+			return this.walkTo((AdditiveExpression) expression);
+		} else if (expression instanceof MultiplicativeExpression) {
+			return this.walkTo((MultiplicativeExpression) expression);
+		} else if (expression instanceof CastExpression) {
+			return this.walkTo((CastExpression) expression);
+		} else if (expression instanceof UnaryExpression) {
+			return this.walkTo((UnaryExpression) expression);
+		} else if (expression instanceof PostfixExpression) {
+			return this.walkTo((PostfixExpression) expression);
+		} else if (expression instanceof PrimaryExpression) {
+			return this.walkTo((PrimaryExpression) expression);
+		}
+		return this.walkTo((Expression) expression.getExpression());
+	}
+
+	@Override
+	public Integer walkTo(final ConstantExpression expression) {
+		final int result = this.walkTo((Expression) expression.getExpr());
 		return result;
 	}
 
-	public static int evaluate(final ConditionalExpression expression) {
-		final int result = ExpressionEvaluation.evaluate(expression.getExpr());
-		final Expression qExpr = expression.getQExpr();
-		final Expression cExpr = expression.getCExpr();
+	@Override
+	public Integer walkTo(final ConditionalExpression expression) {
+		final int result = this.walkTo((Expression) expression.getExpr());
+		final Expression qExpr = (Expression) expression.getQExpr();
+		final Expression cExpr = (Expression) expression.getCExpr();
 		if ((qExpr == null) || (cExpr == null)) {
 			return result;
 		}
 		final boolean a = ExpressionEvaluationUtils.convertFrom(result);
-		final boolean b = ExpressionEvaluationUtils
-				.convertFrom(ExpressionEvaluation.evaluate(qExpr));
-		final boolean c = ExpressionEvaluationUtils
-				.convertFrom(ExpressionEvaluation.evaluate(cExpr));
+		final boolean b = ExpressionEvaluationUtils.convertFrom(this
+				.walkTo(qExpr));
+		final boolean c = ExpressionEvaluationUtils.convertFrom(this
+				.walkTo(cExpr));
 		final boolean total = a ? b : c;
 		final int totalResult = ExpressionEvaluationUtils.convertFrom(total);
 		return totalResult;
 	}
 
-	public static int evaluate(final LogicalOrExpression expression) {
+	@Override
+	public Integer walkTo(final LogicalOrExpression expression) {
 		final EList<Expression> list = expression.getExpr();
-		int result = ExpressionEvaluation.evaluate(list.get(0));
+		int result = this.walkTo(list.get(0));
 		for (int i = 1; i < list.size(); i++) {
-			final int next = ExpressionEvaluation.evaluate(list.get(i));
+			final int next = this.walkTo(list.get(i));
 			final boolean a = ExpressionEvaluationUtils.convertFrom(result);
 			final boolean b = ExpressionEvaluationUtils.convertFrom(next);
 			result = ExpressionEvaluationUtils.convertFrom(a || b);
@@ -121,11 +120,12 @@ public class ExpressionEvaluation {
 		return result;
 	}
 
-	public static int evaluate(final LogicalAndExpression expression) {
+	@Override
+	public Integer walkTo(final LogicalAndExpression expression) {
 		final EList<Expression> list = expression.getExpr();
-		int result = ExpressionEvaluation.evaluate(list.get(0));
+		int result = this.walkTo(list.get(0));
 		for (int i = 1; i < list.size(); i++) {
-			final int next = ExpressionEvaluation.evaluate(list.get(i));
+			final int next = this.walkTo(list.get(i));
 			final boolean a = ExpressionEvaluationUtils.convertFrom(result);
 			final boolean b = ExpressionEvaluationUtils.convertFrom(next);
 			result = ExpressionEvaluationUtils.convertFrom(a && b);
@@ -133,43 +133,47 @@ public class ExpressionEvaluation {
 		return result;
 	}
 
-	public static int evaluate(final InclusiveOrExpression expression) {
+	@Override
+	public Integer walkTo(final InclusiveOrExpression expression) {
 		final EList<Expression> list = expression.getExpr();
-		int result = ExpressionEvaluation.evaluate(list.get(0));
+		int result = this.walkTo(list.get(0));
 		for (int i = 1; i < list.size(); i++) {
-			final int next = ExpressionEvaluation.evaluate(list.get(i));
+			final int next = this.walkTo(list.get(i));
 			result = result | next;
 		}
 		return result;
 	}
 
-	public static int evaluate(final ExclusiveOrExpression expression) {
+	@Override
+	public Integer walkTo(final ExclusiveOrExpression expression) {
 		final EList<Expression> list = expression.getExpr();
-		int result = ExpressionEvaluation.evaluate(list.get(0));
+		int result = this.walkTo(list.get(0));
 		for (int i = 1; i < list.size(); i++) {
-			final int next = ExpressionEvaluation.evaluate(list.get(i));
+			final int next = this.walkTo(list.get(i));
 			result = result ^ next;
 		}
 		return result;
 	}
 
-	public static int evaluate(final AndExpression expression) {
+	@Override
+	public Integer walkTo(final AndExpression expression) {
 		final EList<Expression> list = expression.getExpr();
-		int result = ExpressionEvaluation.evaluate(list.get(0));
+		int result = this.walkTo(list.get(0));
 		for (int i = 1; i < list.size(); i++) {
-			final int next = ExpressionEvaluation.evaluate(list.get(i));
+			final int next = this.walkTo(list.get(i));
 			result = result & next;
 		}
 		return result;
 	}
 
-	public static int evaluate(final EqualityExpression expression) {
+	@Override
+	public Integer walkTo(final EqualityExpression expression) {
 		final EList<Expression> list = expression.getExpr();
-		int result = ExpressionEvaluation.evaluate(list.get(0));
+		int result = this.walkTo(list.get(0));
 		final EList<String> ops = expression.getOp();
 		ExpressionEvaluationUtils.checkLists(list, ops, "equlity");
 		for (int i = 0; i < ops.size(); i++) {
-			final int next = ExpressionEvaluation.evaluate(list.get(i + 1));
+			final int next = this.walkTo(list.get(i + 1));
 			final String op = ops.get(i);
 			switch (op) {
 			case "==":
@@ -183,13 +187,14 @@ public class ExpressionEvaluation {
 		return result;
 	}
 
-	public static int evaluate(final RelationalExpression expression) {
+	@Override
+	public Integer walkTo(final RelationalExpression expression) {
 		final EList<Expression> list = expression.getExpr();
-		int result = ExpressionEvaluation.evaluate(list.get(0));
+		int result = this.walkTo(list.get(0));
 		final EList<String> ops = expression.getOp();
 		ExpressionEvaluationUtils.checkLists(list, ops, "relational");
 		for (int i = 0; i < ops.size(); i++) {
-			final int next = ExpressionEvaluation.evaluate(list.get(i + 1));
+			final int next = this.walkTo(list.get(i + 1));
 			final String op = ops.get(i);
 			switch (op) {
 			case "<=":
@@ -209,13 +214,14 @@ public class ExpressionEvaluation {
 		return result;
 	}
 
-	public static int evaluate(final ShiftExpression expression) {
+	@Override
+	public Integer walkTo(final ShiftExpression expression) {
 		final EList<Expression> list = expression.getExpr();
-		int result = ExpressionEvaluation.evaluate(list.get(0));
+		int result = this.walkTo(list.get(0));
 		final EList<String> ops = expression.getOp();
 		ExpressionEvaluationUtils.checkLists(list, ops, "shift");
 		for (int i = 0; i < ops.size(); i++) {
-			final int next = ExpressionEvaluation.evaluate(list.get(i + 1));
+			final int next = this.walkTo(list.get(i + 1));
 			final String op = ops.get(i);
 			switch (op) {
 			case ">>":
@@ -229,13 +235,14 @@ public class ExpressionEvaluation {
 		return result;
 	}
 
-	public static int evaluate(final AdditiveExpression expression) {
+	@Override
+	public Integer walkTo(final AdditiveExpression expression) {
 		final EList<Expression> list = expression.getExpr();
-		int result = ExpressionEvaluation.evaluate(list.get(0));
+		int result = this.walkTo(list.get(0));
 		final EList<String> ops = expression.getOp();
 		ExpressionEvaluationUtils.checkLists(list, ops, "additive");
 		for (int i = 0; i < ops.size(); i++) {
-			final int next = ExpressionEvaluation.evaluate(list.get(i + 1));
+			final int next = this.walkTo(list.get(i + 1));
 			final String op = ops.get(i);
 			switch (op) {
 			case "+":
@@ -249,13 +256,14 @@ public class ExpressionEvaluation {
 		return result;
 	}
 
-	public static int evaluate(final MultiplicativeExpression expression) {
+	@Override
+	public Integer walkTo(final MultiplicativeExpression expression) {
 		final EList<Expression> list = expression.getExpr();
-		int result = ExpressionEvaluation.evaluate(list.get(0));
+		int result = this.walkTo(list.get(0));
 		final EList<String> ops = expression.getOp();
 		ExpressionEvaluationUtils.checkLists(list, ops, "multiplicate");
 		for (int i = 0; i < ops.size(); i++) {
-			final int next = ExpressionEvaluation.evaluate(list.get(i + 1));
+			final int next = this.walkTo(list.get(i + 1));
 			final String op = ops.get(i);
 			switch (op) {
 			case "*":
@@ -272,21 +280,22 @@ public class ExpressionEvaluation {
 		return result;
 	}
 
-	public static int evaluate(final CastExpression expression) {
-		final int result = ExpressionEvaluation.evaluate(expression.getExpr());
+	@Override
+	public Integer walkTo(final CastExpression expression) {
+		final int result = this.walkTo(expression.getExpr());
 		return result;
 	}
 
-	public static int evaluate(final UnaryExpression expression) {
+	@Override
+	public Integer walkTo(final UnaryExpression expression) {
 		final Expression expr = expression.getExpr();
 		if (expr instanceof PostfixExpression) {
-			final int result = ExpressionEvaluation
-					.evaluate((PostfixExpression) expr);
+			final int result = this.walkTo((PostfixExpression) expr);
 			return result;
 		}
 
 		final UnaryOperator op = expression.getOp();
-		final int result = ExpressionEvaluation.evaluate((CastExpression) expr);
+		final int result = this.walkTo((CastExpression) expr);
 		switch (op.getOp()) {
 		case "-":
 			return result * (-1);
@@ -307,19 +316,20 @@ public class ExpressionEvaluation {
 		return result;
 	}
 
-	public static int evaluate(final PostfixExpression expression) {
-		final int result = ExpressionEvaluation
-				.evaluate((PrimaryExpression) expression.getExpr());
-		// PostfixExpressionSuffixes not allowed in preprocessor!!!
+	@Override
+	public Integer walkTo(final PostfixExpression expression) {
+		final int result = this
+				.walkTo((PrimaryExpression) expression.getExpr());
 		return result;
 	}
 
-	public static int evaluate(final PrimaryExpression expression) {
+	@Override
+	public Integer walkTo(final PrimaryExpression expression) {
 		final String constant = expression.getConst();
 		final String id = expression.getId();
 		final Expression expr = expression.getExpr();
 		if (constant != null) {
-			return ExpressionEvaluation.evaluateForString(constant, true);
+			return this.evaluateConstant(constant);
 		}
 		if (id != null) {
 			if (expression.isDefined()) {
@@ -328,27 +338,54 @@ public class ExpressionEvaluation {
 				}
 				return ExpressionEvaluation.FALSE;
 			} else {
-				return ExpressionEvaluation.evaluateForString(id, false);
+				final EObject object = expression.eContainer();
+				final PostfixExpression postfix = (PostfixExpression) object;
+
+				return this.evaluateForString(id, false, postfix);
 			}
 		}
 		if (expr != null) {
-			return ExpressionEvaluation.evaluate(expr);
+			return this.walkTo(expr);
 		}
 		return ExpressionEvaluation.FALSE;
 	}
 
-	private static int evaluateForString(final String macroName,
-			final boolean isConst) {
-		String macro = DefinitionTable.resolve(macroName);
+	private int evaluateConstant(String constant) {
+		try {
+			if (constant.startsWith("0b") || constant.startsWith("0B")) {
+				constant = constant.substring(2);
+			}
+			constant = this.cutDecimalSuffix(constant);
+			final int result = Integer.valueOf(constant);
+			return result;
+		} catch (final NumberFormatException ex) {
+			throw ex;
+		}
+	}
+
+	private String cutDecimalSuffix(final String macro) {
+		final int index = macro.length();
+		if (macro.endsWith("l") || macro.endsWith("L") || macro.endsWith("u")
+				|| macro.endsWith("U")) {
+			final String sub = macro.substring(0, index - 1);
+			return this.cutDecimalSuffix(sub);
+		}
+		return macro.substring(0, index);
+	}
+
+	private int evaluateForString(final String macroName,
+			final boolean isConst, final PostfixExpression postfix) {
+		final String code = this.getCode(macroName, postfix);
+		String macro = DefinitionTable.resolve(code);
 		try {
 			if (macro.startsWith("0b") || macro.startsWith("0B")) {
 				macro = macro.substring(2);
 			}
-			macro = ExpressionEvaluation.cutDecimalSuffix(macro);
+			macro = this.cutDecimalSuffix(macro);
 			final int result = Integer.valueOf(macro);
 			return result;
 		} catch (final NumberFormatException ex) {
-			if (ExpressionEvaluation.advanced) {
+			if (this.advanced) {
 				return 0;
 			} else if (DefinitionTable.isDefined(macroName)) {
 				throw ex;
@@ -359,14 +396,36 @@ public class ExpressionEvaluation {
 		return ExpressionEvaluation.FALSE;
 	}
 
-	private static String cutDecimalSuffix(final String macro) {
-		final int index = macro.length();
-		if (macro.endsWith("l") || macro.endsWith("L") || macro.endsWith("u")
-				|| macro.endsWith("U")) {
-			final String sub = macro.substring(0, index - 1);
-			return ExpressionEvaluation.cutDecimalSuffix(sub);
+	private String getCode(final String macroName,
+			final PostfixExpression postfix) {
+		if (postfix == null) {
+			return macroName;
 		}
-		return macro.substring(0, index);
+		final EList<PostfixExpressionSuffix> list = postfix.getSuffix();
+		if (list == null) {
+			return macroName;
+		}
+		final StringBuffer result = new StringBuffer(macroName);
+		for (int i = 0; i < list.size(); i++) {
+			final PostfixExpressionSuffixArgument argument = (PostfixExpressionSuffixArgument) list
+					.get(i);
+			final ArgumentExpressionList argList = argument
+					.getArgumentExpressionList();
+			final EList<Expression> exprList = argList.getExpr();
+			result.append("(");
+			for (int j = 0; j < exprList.size(); j++) {
+				if (j > 0) {
+					result.append(",");
+				}
+				final Expression expression = exprList.get(j);
+				final ExpressionEvaluation evaluater = new ExpressionEvaluation(
+						this.advanced);
+				final Integer param = evaluater.walkTo(expression);
+				result.append(param);
+			}
+			result.append(")");
+		}
+		return result.toString();
 	}
 
 }

@@ -10,13 +10,13 @@ package at.jku.weiner.c.preprocess.preprocess;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.PrimaryExpression#isDefined <em>Defined</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.PrimaryExpression#getId <em>Id</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.PrimaryExpression#getConst <em>Const</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.PrimaryExpression#getExpr <em>Expr</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getPrimaryExpression()
  * @model
@@ -111,12 +111,12 @@ public interface PrimaryExpression extends Expression
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Expr</em>' containment reference.
-   * @see #setExpr(Expression)
+   * @see #setExpr(at.jku.weiner.c.common.common.Expression)
    * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getPrimaryExpression_Expr()
    * @model containment="true"
    * @generated
    */
-  Expression getExpr();
+  at.jku.weiner.c.common.common.Expression getExpr();
 
   /**
    * Sets the value of the '{@link at.jku.weiner.c.preprocess.preprocess.PrimaryExpression#getExpr <em>Expr</em>}' containment reference.
@@ -126,6 +126,6 @@ public interface PrimaryExpression extends Expression
    * @see #getExpr()
    * @generated
    */
-  void setExpr(Expression value);
+  void setExpr(at.jku.weiner.c.common.common.Expression value);
 
 } // PrimaryExpression

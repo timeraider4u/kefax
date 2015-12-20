@@ -29,7 +29,7 @@ import at.jku.weiner.c.preprocess.preprocess.IfDefConditional
 import at.jku.weiner.c.preprocess.preprocess.IfNotDefConditional
 import at.jku.weiner.c.preprocess.preprocess.IfConditional
 import at.jku.weiner.c.preprocess.utils.expressions.ExpressionEvaluation
-import at.jku.weiner.c.preprocess.preprocess.ConstantExpression
+import at.jku.weiner.c.common.common.ConstantExpression
 import at.jku.weiner.c.preprocess.preprocess.ElseConditional
 import org.eclipse.emf.common.util.EList
 import at.jku.weiner.c.preprocess.preprocess.ElIfConditional

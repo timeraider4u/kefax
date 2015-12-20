@@ -4,7 +4,7 @@
     editorDirectory="/at.jku.weiner.c.preprocess.editor/src" modelPluginID="at.jku.weiner.c.preprocess"
     forceOverwrite="true" modelName="Preprocess" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="6.0" copyrightFields="false" editPluginID="at.jku.weiner.c.preprocess.edit"
-    editorPluginID="at.jku.weiner.c.preprocess.editor" runtimeVersion="2.10" usedGenPackages="platform:/resource/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore">
+    editorPluginID="at.jku.weiner.c.preprocess.editor" runtimeVersion="2.11" usedGenPackages="platform:/resource/at.jku.weiner.c.common/model/generated/Common.genmodel#//common platform:/resource/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore">
   <genPackages prefix="Preprocess" basePackage="at.jku.weiner.c.preprocess" disposableProviderFactory="true"
       fileExtensions="c,h" ecorePackage="Preprocess.ecore#/">
     <genClasses ecoreClass="Preprocess.ecore#//Model">
@@ -62,17 +62,7 @@
     </genClasses>
     <genClasses ecoreClass="Preprocess.ecore#//PragmaDirective"/>
     <genClasses ecoreClass="Preprocess.ecore#//NullDirective"/>
-    <genClasses ecoreClass="Preprocess.ecore#//ShadowExpression"/>
-    <genClasses ecoreClass="Preprocess.ecore#//Expression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//Expression/expression"/>
-    </genClasses>
-    <genClasses ecoreClass="Preprocess.ecore#//UnaryOperator">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Preprocess.ecore#//UnaryOperator/op"/>
-    </genClasses>
-    <genClasses ecoreClass="Preprocess.ecore#//PostfixExpressionSuffix"/>
-    <genClasses ecoreClass="Preprocess.ecore#//ArgumentExpressionList">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//ArgumentExpressionList/expr"/>
-    </genClasses>
+    <genClasses ecoreClass="Preprocess.ecore#//Expression"/>
     <genClasses ecoreClass="Preprocess.ecore#//PreprocessorDirectives">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//PreprocessorDirectives/directive"/>
     </genClasses>
@@ -83,63 +73,6 @@
     <genClasses ecoreClass="Preprocess.ecore#//NewLineLine"/>
     <genClasses ecoreClass="Preprocess.ecore#//Code">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Preprocess.ecore#//Code/code"/>
-    </genClasses>
-    <genClasses ecoreClass="Preprocess.ecore#//ConstantExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//ConstantExpression/expr"/>
-    </genClasses>
-    <genClasses ecoreClass="Preprocess.ecore#//ConditionalExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//ConditionalExpression/expr"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//ConditionalExpression/qExpr"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//ConditionalExpression/cExpr"/>
-    </genClasses>
-    <genClasses ecoreClass="Preprocess.ecore#//LogicalOrExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//LogicalOrExpression/expr"/>
-    </genClasses>
-    <genClasses ecoreClass="Preprocess.ecore#//LogicalAndExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//LogicalAndExpression/expr"/>
-    </genClasses>
-    <genClasses ecoreClass="Preprocess.ecore#//InclusiveOrExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//InclusiveOrExpression/expr"/>
-    </genClasses>
-    <genClasses ecoreClass="Preprocess.ecore#//ExclusiveOrExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//ExclusiveOrExpression/expr"/>
-    </genClasses>
-    <genClasses ecoreClass="Preprocess.ecore#//AndExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//AndExpression/expr"/>
-    </genClasses>
-    <genClasses ecoreClass="Preprocess.ecore#//EqualityExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//EqualityExpression/expr"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Preprocess.ecore#//EqualityExpression/op"/>
-    </genClasses>
-    <genClasses ecoreClass="Preprocess.ecore#//RelationalExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//RelationalExpression/expr"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Preprocess.ecore#//RelationalExpression/op"/>
-    </genClasses>
-    <genClasses ecoreClass="Preprocess.ecore#//ShiftExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//ShiftExpression/expr"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Preprocess.ecore#//ShiftExpression/op"/>
-    </genClasses>
-    <genClasses ecoreClass="Preprocess.ecore#//AdditiveExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//AdditiveExpression/expr"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Preprocess.ecore#//AdditiveExpression/op"/>
-    </genClasses>
-    <genClasses ecoreClass="Preprocess.ecore#//MultiplicativeExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//MultiplicativeExpression/expr"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Preprocess.ecore#//MultiplicativeExpression/op"/>
-    </genClasses>
-    <genClasses ecoreClass="Preprocess.ecore#//CastExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//CastExpression/expr"/>
-    </genClasses>
-    <genClasses ecoreClass="Preprocess.ecore#//UnaryExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//UnaryExpression/expr"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//UnaryExpression/op"/>
-    </genClasses>
-    <genClasses ecoreClass="Preprocess.ecore#//PostfixExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//PostfixExpression/expr"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//PostfixExpression/suffix"/>
-    </genClasses>
-    <genClasses ecoreClass="Preprocess.ecore#//PostfixExpressionSuffixArgument">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Preprocess.ecore#//PostfixExpressionSuffixArgument/argumentExpressionList"/>
     </genClasses>
     <genClasses ecoreClass="Preprocess.ecore#//PrimaryExpression">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Preprocess.ecore#//PrimaryExpression/defined"/>

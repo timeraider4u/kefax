@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.XtextTestImpl#getPackage <em>Package</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.XtextTestImpl#getLang <em>Lang</em>}</li>
+ *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.XtextTestImpl#getImports <em>Imports</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.XtextTestImpl#getBoolean <em>Boolean</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.XtextTestImpl#getInput <em>Input</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.XtextTestImpl#getTokens <em>Tokens</em>}</li>
@@ -82,6 +83,26 @@ public class XtextTestImpl extends MinimalEObjectImpl.Container implements Xtext
    * @ordered
    */
   protected String lang = LANG_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getImports() <em>Imports</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getImports()
+   * @generated
+   * @ordered
+   */
+  protected static final String IMPORTS_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getImports() <em>Imports</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getImports()
+   * @generated
+   * @ordered
+   */
+  protected String imports = IMPORTS_EDEFAULT;
 
   /**
    * The default value of the '{@link #getBoolean() <em>Boolean</em>}' attribute.
@@ -228,6 +249,29 @@ public class XtextTestImpl extends MinimalEObjectImpl.Container implements Xtext
     lang = newLang;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, XtextTestPackage.XTEXT_TEST__LANG, oldLang, lang));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getImports()
+  {
+    return imports;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setImports(String newImports)
+  {
+    String oldImports = imports;
+    imports = newImports;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, XtextTestPackage.XTEXT_TEST__IMPORTS, oldImports, imports));
   }
 
   /**
@@ -581,6 +625,8 @@ public class XtextTestImpl extends MinimalEObjectImpl.Container implements Xtext
         return getPackage();
       case XtextTestPackage.XTEXT_TEST__LANG:
         return getLang();
+      case XtextTestPackage.XTEXT_TEST__IMPORTS:
+        return getImports();
       case XtextTestPackage.XTEXT_TEST__BOOLEAN:
         return getBoolean();
       case XtextTestPackage.XTEXT_TEST__INPUT:
@@ -614,6 +660,9 @@ public class XtextTestImpl extends MinimalEObjectImpl.Container implements Xtext
         return;
       case XtextTestPackage.XTEXT_TEST__LANG:
         setLang((String)newValue);
+        return;
+      case XtextTestPackage.XTEXT_TEST__IMPORTS:
+        setImports((String)newValue);
         return;
       case XtextTestPackage.XTEXT_TEST__BOOLEAN:
         setBoolean((String)newValue);
@@ -656,6 +705,9 @@ public class XtextTestImpl extends MinimalEObjectImpl.Container implements Xtext
       case XtextTestPackage.XTEXT_TEST__LANG:
         setLang(LANG_EDEFAULT);
         return;
+      case XtextTestPackage.XTEXT_TEST__IMPORTS:
+        setImports(IMPORTS_EDEFAULT);
+        return;
       case XtextTestPackage.XTEXT_TEST__BOOLEAN:
         setBoolean(BOOLEAN_EDEFAULT);
         return;
@@ -695,6 +747,8 @@ public class XtextTestImpl extends MinimalEObjectImpl.Container implements Xtext
         return PACKAGE_EDEFAULT == null ? package_ != null : !PACKAGE_EDEFAULT.equals(package_);
       case XtextTestPackage.XTEXT_TEST__LANG:
         return LANG_EDEFAULT == null ? lang != null : !LANG_EDEFAULT.equals(lang);
+      case XtextTestPackage.XTEXT_TEST__IMPORTS:
+        return IMPORTS_EDEFAULT == null ? imports != null : !IMPORTS_EDEFAULT.equals(imports);
       case XtextTestPackage.XTEXT_TEST__BOOLEAN:
         return BOOLEAN_EDEFAULT == null ? boolean_ != null : !BOOLEAN_EDEFAULT.equals(boolean_);
       case XtextTestPackage.XTEXT_TEST__INPUT:
@@ -728,6 +782,8 @@ public class XtextTestImpl extends MinimalEObjectImpl.Container implements Xtext
     result.append(package_);
     result.append(", lang: ");
     result.append(lang);
+    result.append(", imports: ");
+    result.append(imports);
     result.append(", boolean: ");
     result.append(boolean_);
     result.append(')');

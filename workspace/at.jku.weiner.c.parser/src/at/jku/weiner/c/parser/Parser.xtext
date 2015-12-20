@@ -791,26 +791,13 @@ ArgumentExpressionList: expr+=AssignmentExpression (SKW_COMMA expr+=AssignmentEx
 PrimaryExpression returns Expression:
 	{PrimaryExpression}
 	(id=ID
-	|	const=Constant
+	|	const=Constant2
 	//|	string+=STRING_LITERAL+ // reachable over Constant!
 	|	SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN
 	//|	genericSelection=genericSelection
 	// |	'__extension__'? LEFTPAREN compoundStmt=compoundStatement RIGHTPAREN // Blocks (GCC extension)
 	//|	'__builtin_va_arg' LEFTPAREN expr=unaryExpression COMMA typeName=typeName RIGHTPAREN
 	//|	'__builtin_offsetof' LEFTPAREN typeName=typeName COMMA expr=unaryExpression RIGHTPAREN
-	)
-;
-
-Constant:
-	{Constant}
-	(
-		hex=HEX_LITERAL
-	|	oct=OCTAL_LITERAL
-	|	dec=DECIMAL_LITERAL
-	|	ch=CHAR_LITERAL
-	|	str=STRING_LITERAL
-	|	float=FLOAT_LITERAL
-	|	bin=BIN_LITERAL
 	)
 ;
 

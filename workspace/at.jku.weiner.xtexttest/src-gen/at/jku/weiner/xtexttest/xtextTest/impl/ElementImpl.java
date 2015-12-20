@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.ElementImpl#getImporting <em>Importing</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.ElementImpl#getName <em>Name</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.ElementImpl#getInner <em>Inner</em>}</li>
  * </ul>
@@ -38,6 +39,26 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class ElementImpl extends MinimalEObjectImpl.Container implements Element
 {
+  /**
+   * The default value of the '{@link #getImporting() <em>Importing</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getImporting()
+   * @generated
+   * @ordered
+   */
+  protected static final String IMPORTING_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getImporting() <em>Importing</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getImporting()
+   * @generated
+   * @ordered
+   */
+  protected String importing = IMPORTING_EDEFAULT;
+
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -87,6 +108,29 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
   protected EClass eStaticClass()
   {
     return XtextTestPackage.Literals.ELEMENT;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getImporting()
+  {
+    return importing;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setImporting(String newImporting)
+  {
+    String oldImporting = importing;
+    importing = newImporting;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, XtextTestPackage.ELEMENT__IMPORTING, oldImporting, importing));
   }
 
   /**
@@ -152,6 +196,8 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
   {
     switch (featureID)
     {
+      case XtextTestPackage.ELEMENT__IMPORTING:
+        return getImporting();
       case XtextTestPackage.ELEMENT__NAME:
         return getName();
       case XtextTestPackage.ELEMENT__INNER:
@@ -171,6 +217,9 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
   {
     switch (featureID)
     {
+      case XtextTestPackage.ELEMENT__IMPORTING:
+        setImporting((String)newValue);
+        return;
       case XtextTestPackage.ELEMENT__NAME:
         setName((String)newValue);
         return;
@@ -192,6 +241,9 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
   {
     switch (featureID)
     {
+      case XtextTestPackage.ELEMENT__IMPORTING:
+        setImporting(IMPORTING_EDEFAULT);
+        return;
       case XtextTestPackage.ELEMENT__NAME:
         setName(NAME_EDEFAULT);
         return;
@@ -212,6 +264,8 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
   {
     switch (featureID)
     {
+      case XtextTestPackage.ELEMENT__IMPORTING:
+        return IMPORTING_EDEFAULT == null ? importing != null : !IMPORTING_EDEFAULT.equals(importing);
       case XtextTestPackage.ELEMENT__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case XtextTestPackage.ELEMENT__INNER:
@@ -231,7 +285,9 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
+    result.append(" (importing: ");
+    result.append(importing);
+    result.append(", name: ");
     result.append(name);
     result.append(')');
     return result.toString();

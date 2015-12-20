@@ -45,6 +45,8 @@ public class PreprocessParser extends AbstractContentAssistParser {
 					put(grammarAccess.getMyDefineLineAccess().getAlternatives(), "rule__MyDefineLine__Alternatives");
 					put(grammarAccess.getMyCodeLineAccess().getAlternatives(), "rule__MyCodeLine__Alternatives");
 					put(grammarAccess.getMyCodeLineExtendedAccess().getAlternatives_1_1(), "rule__MyCodeLineExtended__Alternatives_1_1");
+					put(grammarAccess.getPrimaryExpressionAccess().getAlternatives_1(), "rule__PrimaryExpression__Alternatives_1");
+					put(grammarAccess.getConstantAccess().getAlternatives(), "rule__Constant__Alternatives");
 					put(grammarAccess.getEqualityExpressionAccess().getAlternatives_2_0(), "rule__EqualityExpression__Alternatives_2_0");
 					put(grammarAccess.getRelationalExpressionAccess().getAlternatives_2_0(), "rule__RelationalExpression__Alternatives_2_0");
 					put(grammarAccess.getShiftExpressionAccess().getAlternatives_2_0(), "rule__ShiftExpression__Alternatives_2_0");
@@ -52,8 +54,8 @@ public class PreprocessParser extends AbstractContentAssistParser {
 					put(grammarAccess.getMultiplicativeExpressionAccess().getAlternatives_2_0(), "rule__MultiplicativeExpression__Alternatives_2_0");
 					put(grammarAccess.getUnaryExpressionAccess().getAlternatives_1(), "rule__UnaryExpression__Alternatives_1");
 					put(grammarAccess.getUnaryOperatorAccess().getAlternatives(), "rule__UnaryOperator__Alternatives");
-					put(grammarAccess.getPrimaryExpressionAccess().getAlternatives_1(), "rule__PrimaryExpression__Alternatives_1");
-					put(grammarAccess.getConstantAccess().getAlternatives(), "rule__Constant__Alternatives");
+					put(grammarAccess.getConstant1Access().getAlternatives(), "rule__Constant1__Alternatives");
+					put(grammarAccess.getConstant2Access().getAlternatives_1(), "rule__Constant2__Alternatives_1");
 					put(grammarAccess.getSpecialKeywordsAccess().getAlternatives(), "rule__SpecialKeywords__Alternatives");
 					put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
 					put(grammarAccess.getTranslationUnitAccess().getGroup(), "rule__TranslationUnit__Group__0");
@@ -80,6 +82,10 @@ public class PreprocessParser extends AbstractContentAssistParser {
 					put(grammarAccess.getCodeAccess().getGroup(), "rule__Code__Group__0");
 					put(grammarAccess.getMyCodeLineExtendedAccess().getGroup(), "rule__MyCodeLineExtended__Group__0");
 					put(grammarAccess.getMyCodeLineExtendedAccess().getGroup_1(), "rule__MyCodeLineExtended__Group_1__0");
+					put(grammarAccess.getPrimaryExpressionAccess().getGroup(), "rule__PrimaryExpression__Group__0");
+					put(grammarAccess.getPrimaryExpressionAccess().getGroup_1_0(), "rule__PrimaryExpression__Group_1_0__0");
+					put(grammarAccess.getPrimaryExpressionAccess().getGroup_1_1(), "rule__PrimaryExpression__Group_1_1__0");
+					put(grammarAccess.getPrimaryExpressionAccess().getGroup_1_3(), "rule__PrimaryExpression__Group_1_3__0");
 					put(grammarAccess.getExpressionAccess().getGroup(), "rule__Expression__Group__0");
 					put(grammarAccess.getConstantExpressionAccess().getGroup(), "rule__ConstantExpression__Group__0");
 					put(grammarAccess.getConditionalExpressionAccess().getGroup(), "rule__ConditionalExpression__Group__0");
@@ -113,10 +119,7 @@ public class PreprocessParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPostfixExpressionSuffixArgumentAccess().getGroup(), "rule__PostfixExpressionSuffixArgument__Group__0");
 					put(grammarAccess.getArgumentExpressionListAccess().getGroup(), "rule__ArgumentExpressionList__Group__0");
 					put(grammarAccess.getArgumentExpressionListAccess().getGroup_1(), "rule__ArgumentExpressionList__Group_1__0");
-					put(grammarAccess.getPrimaryExpressionAccess().getGroup(), "rule__PrimaryExpression__Group__0");
-					put(grammarAccess.getPrimaryExpressionAccess().getGroup_1_0(), "rule__PrimaryExpression__Group_1_0__0");
-					put(grammarAccess.getPrimaryExpressionAccess().getGroup_1_1(), "rule__PrimaryExpression__Group_1_1__0");
-					put(grammarAccess.getPrimaryExpressionAccess().getGroup_1_3(), "rule__PrimaryExpression__Group_1_3__0");
+					put(grammarAccess.getConstant2Access().getGroup(), "rule__Constant2__Group__0");
 					put(grammarAccess.getModelAccess().getUnitsAssignment_1(), "rule__Model__UnitsAssignment_1");
 					put(grammarAccess.getTranslationUnitAccess().getGroupAssignment_1(), "rule__TranslationUnit__GroupAssignment_1");
 					put(grammarAccess.getGroupOptAccess().getLinesAssignment_1_0(), "rule__GroupOpt__LinesAssignment_1_0");
@@ -154,6 +157,12 @@ public class PreprocessParser extends AbstractContentAssistParser {
 					put(grammarAccess.getElIfConditionalAccess().getGroupAssignment_5(), "rule__ElIfConditional__GroupAssignment_5");
 					put(grammarAccess.getElseConditionalAccess().getGroupAssignment_6(), "rule__ElseConditional__GroupAssignment_6");
 					put(grammarAccess.getCodeAccess().getCodeAssignment_1(), "rule__Code__CodeAssignment_1");
+					put(grammarAccess.getPrimaryExpressionAccess().getDefinedAssignment_1_0_0(), "rule__PrimaryExpression__DefinedAssignment_1_0_0");
+					put(grammarAccess.getPrimaryExpressionAccess().getIdAssignment_1_0_1(), "rule__PrimaryExpression__IdAssignment_1_0_1");
+					put(grammarAccess.getPrimaryExpressionAccess().getDefinedAssignment_1_1_0(), "rule__PrimaryExpression__DefinedAssignment_1_1_0");
+					put(grammarAccess.getPrimaryExpressionAccess().getIdAssignment_1_1_2(), "rule__PrimaryExpression__IdAssignment_1_1_2");
+					put(grammarAccess.getPrimaryExpressionAccess().getConstAssignment_1_2(), "rule__PrimaryExpression__ConstAssignment_1_2");
+					put(grammarAccess.getPrimaryExpressionAccess().getExprAssignment_1_3_1(), "rule__PrimaryExpression__ExprAssignment_1_3_1");
 					put(grammarAccess.getExpressionAccess().getExpressionAssignment_1(), "rule__Expression__ExpressionAssignment_1");
 					put(grammarAccess.getConstantExpressionAccess().getExprAssignment_1(), "rule__ConstantExpression__ExprAssignment_1");
 					put(grammarAccess.getConditionalExpressionAccess().getExprAssignment_1(), "rule__ConditionalExpression__ExprAssignment_1");
@@ -207,12 +216,13 @@ public class PreprocessParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPostfixExpressionSuffixArgumentAccess().getArgumentExpressionListAssignment_2(), "rule__PostfixExpressionSuffixArgument__ArgumentExpressionListAssignment_2");
 					put(grammarAccess.getArgumentExpressionListAccess().getExprAssignment_0(), "rule__ArgumentExpressionList__ExprAssignment_0");
 					put(grammarAccess.getArgumentExpressionListAccess().getExprAssignment_1_1(), "rule__ArgumentExpressionList__ExprAssignment_1_1");
-					put(grammarAccess.getPrimaryExpressionAccess().getDefinedAssignment_1_0_0(), "rule__PrimaryExpression__DefinedAssignment_1_0_0");
-					put(grammarAccess.getPrimaryExpressionAccess().getIdAssignment_1_0_1(), "rule__PrimaryExpression__IdAssignment_1_0_1");
-					put(grammarAccess.getPrimaryExpressionAccess().getDefinedAssignment_1_1_0(), "rule__PrimaryExpression__DefinedAssignment_1_1_0");
-					put(grammarAccess.getPrimaryExpressionAccess().getIdAssignment_1_1_2(), "rule__PrimaryExpression__IdAssignment_1_1_2");
-					put(grammarAccess.getPrimaryExpressionAccess().getConstAssignment_1_2(), "rule__PrimaryExpression__ConstAssignment_1_2");
-					put(grammarAccess.getPrimaryExpressionAccess().getExprAssignment_1_3_1(), "rule__PrimaryExpression__ExprAssignment_1_3_1");
+					put(grammarAccess.getConstant2Access().getHexAssignment_1_0(), "rule__Constant2__HexAssignment_1_0");
+					put(grammarAccess.getConstant2Access().getOctAssignment_1_1(), "rule__Constant2__OctAssignment_1_1");
+					put(grammarAccess.getConstant2Access().getDecAssignment_1_2(), "rule__Constant2__DecAssignment_1_2");
+					put(grammarAccess.getConstant2Access().getChAssignment_1_3(), "rule__Constant2__ChAssignment_1_3");
+					put(grammarAccess.getConstant2Access().getStrAssignment_1_4(), "rule__Constant2__StrAssignment_1_4");
+					put(grammarAccess.getConstant2Access().getFloatAssignment_1_5(), "rule__Constant2__FloatAssignment_1_5");
+					put(grammarAccess.getConstant2Access().getBinAssignment_1_6(), "rule__Constant2__BinAssignment_1_6");
 				}
 			};
 		}

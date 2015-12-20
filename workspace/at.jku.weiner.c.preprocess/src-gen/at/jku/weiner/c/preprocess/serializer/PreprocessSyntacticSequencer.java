@@ -526,7 +526,7 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     WS*
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) HASH WS* ELIF WS+ expression=ShadowExpression
+	 *     (rule start) (ambiguity) HASH WS* ELIF WS+ expression=ConstantExpression
 	 */
 	protected void emit_ElIfConditional_WSTerminalRuleCall_1_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -537,7 +537,7 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     WS*
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) WS* HASH (ambiguity) ELIF WS+ expression=ShadowExpression
+	 *     (rule start) WS* HASH (ambiguity) ELIF WS+ expression=ConstantExpression
 	 */
 	protected void emit_ElIfConditional_WSTerminalRuleCall_1_2_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -548,7 +548,7 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     WS+
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) WS* HASH WS* ELIF (ambiguity) expression=ShadowExpression
+	 *     (rule start) WS* HASH WS* ELIF (ambiguity) expression=ConstantExpression
 	 */
 	protected void emit_ElIfConditional_WSTerminalRuleCall_2_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -603,7 +603,7 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     WS+
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) IF (ambiguity) expression=ShadowExpression
+	 *     (rule start) IF (ambiguity) expression=ConstantExpression
 	 */
 	protected void emit_IfConditional_WSTerminalRuleCall_2_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

@@ -141,7 +141,11 @@ class XtextTestGenerator implements IGenerator {
 
 	def String iterateImports(Element element) '''
 		«IF element != null»
-		import «test.package».«test.lang».«element.name»;
+		«IF element.importing != null»
+			import «test.imports».«element.name»;
+		«ELSE»
+			import «test.package».«test.lang».«element.name»;
+		«ENDIF»
 		«FOR inner : element.inner»
 			«iterateImports(inner.assign)»
 			«FOR elem : inner.assignList»

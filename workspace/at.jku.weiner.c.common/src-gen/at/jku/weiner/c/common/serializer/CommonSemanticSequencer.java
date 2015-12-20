@@ -3,19 +3,43 @@
  */
 package at.jku.weiner.c.common.serializer;
 
+import at.jku.weiner.c.common.common.AdditiveExpression;
+import at.jku.weiner.c.common.common.AndExpression;
+import at.jku.weiner.c.common.common.ArgumentExpressionList;
+import at.jku.weiner.c.common.common.CastExpression;
 import at.jku.weiner.c.common.common.Common;
 import at.jku.weiner.c.common.common.CommonPackage;
+import at.jku.weiner.c.common.common.ConditionalExpression;
+import at.jku.weiner.c.common.common.Constant2;
+import at.jku.weiner.c.common.common.ConstantExpression;
+import at.jku.weiner.c.common.common.EqualityExpression;
+import at.jku.weiner.c.common.common.ExclusiveOrExpression;
+import at.jku.weiner.c.common.common.Expression;
+import at.jku.weiner.c.common.common.InclusiveOrExpression;
+import at.jku.weiner.c.common.common.LogicalAndExpression;
+import at.jku.weiner.c.common.common.LogicalOrExpression;
+import at.jku.weiner.c.common.common.MultiplicativeExpression;
+import at.jku.weiner.c.common.common.PostfixExpression;
+import at.jku.weiner.c.common.common.PostfixExpressionSuffixArgument;
+import at.jku.weiner.c.common.common.PrimaryExpression;
+import at.jku.weiner.c.common.common.RelationalExpression;
+import at.jku.weiner.c.common.common.ShiftExpression;
+import at.jku.weiner.c.common.common.UnaryExpression;
+import at.jku.weiner.c.common.common.UnaryOperator;
 import at.jku.weiner.c.common.services.CommonGrammarAccess;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.serializer.acceptor.ISemanticSequenceAcceptor;
+import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.diagnostic.ISemanticSequencerDiagnosticProvider;
 import org.eclipse.xtext.serializer.diagnostic.ISerializationDiagnostic.Acceptor;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.GenericSequencer;
+import org.eclipse.xtext.serializer.sequencer.ISemanticNodeProvider.INodesForEObjectProvider;
 import org.eclipse.xtext.serializer.sequencer.ISemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
+import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 
 @SuppressWarnings("all")
 public class CommonSemanticSequencer extends AbstractDelegatingSemanticSequencer {
@@ -26,8 +50,71 @@ public class CommonSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	@Override
 	public void createSequence(EObject context, EObject semanticObject) {
 		if(semanticObject.eClass().getEPackage() == CommonPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+			case CommonPackage.ADDITIVE_EXPRESSION:
+				sequence_AdditiveExpression(context, (AdditiveExpression) semanticObject); 
+				return; 
+			case CommonPackage.AND_EXPRESSION:
+				sequence_AndExpression(context, (AndExpression) semanticObject); 
+				return; 
+			case CommonPackage.ARGUMENT_EXPRESSION_LIST:
+				sequence_ArgumentExpressionList(context, (ArgumentExpressionList) semanticObject); 
+				return; 
+			case CommonPackage.CAST_EXPRESSION:
+				sequence_CastExpression(context, (CastExpression) semanticObject); 
+				return; 
 			case CommonPackage.COMMON:
 				sequence_Common(context, (Common) semanticObject); 
+				return; 
+			case CommonPackage.CONDITIONAL_EXPRESSION:
+				sequence_ConditionalExpression(context, (ConditionalExpression) semanticObject); 
+				return; 
+			case CommonPackage.CONSTANT2:
+				sequence_Constant2(context, (Constant2) semanticObject); 
+				return; 
+			case CommonPackage.CONSTANT_EXPRESSION:
+				sequence_ConstantExpression(context, (ConstantExpression) semanticObject); 
+				return; 
+			case CommonPackage.EQUALITY_EXPRESSION:
+				sequence_EqualityExpression(context, (EqualityExpression) semanticObject); 
+				return; 
+			case CommonPackage.EXCLUSIVE_OR_EXPRESSION:
+				sequence_ExclusiveOrExpression(context, (ExclusiveOrExpression) semanticObject); 
+				return; 
+			case CommonPackage.EXPRESSION:
+				sequence_Expression(context, (Expression) semanticObject); 
+				return; 
+			case CommonPackage.INCLUSIVE_OR_EXPRESSION:
+				sequence_InclusiveOrExpression(context, (InclusiveOrExpression) semanticObject); 
+				return; 
+			case CommonPackage.LOGICAL_AND_EXPRESSION:
+				sequence_LogicalAndExpression(context, (LogicalAndExpression) semanticObject); 
+				return; 
+			case CommonPackage.LOGICAL_OR_EXPRESSION:
+				sequence_LogicalOrExpression(context, (LogicalOrExpression) semanticObject); 
+				return; 
+			case CommonPackage.MULTIPLICATIVE_EXPRESSION:
+				sequence_MultiplicativeExpression(context, (MultiplicativeExpression) semanticObject); 
+				return; 
+			case CommonPackage.POSTFIX_EXPRESSION:
+				sequence_PostfixExpression(context, (PostfixExpression) semanticObject); 
+				return; 
+			case CommonPackage.POSTFIX_EXPRESSION_SUFFIX_ARGUMENT:
+				sequence_PostfixExpressionSuffixArgument(context, (PostfixExpressionSuffixArgument) semanticObject); 
+				return; 
+			case CommonPackage.PRIMARY_EXPRESSION:
+				sequence_PrimaryExpression(context, (PrimaryExpression) semanticObject); 
+				return; 
+			case CommonPackage.RELATIONAL_EXPRESSION:
+				sequence_RelationalExpression(context, (RelationalExpression) semanticObject); 
+				return; 
+			case CommonPackage.SHIFT_EXPRESSION:
+				sequence_ShiftExpression(context, (ShiftExpression) semanticObject); 
+				return; 
+			case CommonPackage.UNARY_EXPRESSION:
+				sequence_UnaryExpression(context, (UnaryExpression) semanticObject); 
+				return; 
+			case CommonPackage.UNARY_OPERATOR:
+				sequence_UnaryOperator(context, (UnaryOperator) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
@@ -35,9 +122,220 @@ public class CommonSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Constraint:
+	 *     (expr+=MultiplicativeExpression ((op+=SKW_PLUS | op+=SKW_MINUS) expr+=MultiplicativeExpression)*)
+	 */
+	protected void sequence_AdditiveExpression(EObject context, AdditiveExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (expr+=EqualityExpression expr+=EqualityExpression*)
+	 */
+	protected void sequence_AndExpression(EObject context, AndExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (expr+=ConditionalExpression expr+=ConditionalExpression*)
+	 */
+	protected void sequence_ArgumentExpressionList(EObject context, ArgumentExpressionList semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     expr=UnaryExpression
+	 */
+	protected void sequence_CastExpression(EObject context, CastExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     {Common}
 	 */
 	protected void sequence_Common(EObject context, Common semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (expr=LogicalOrExpression (qExpr=Expression cExpr=ConditionalExpression)?)
+	 */
+	protected void sequence_ConditionalExpression(EObject context, ConditionalExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
+	 *         hex=HEX_LITERAL | 
+	 *         oct=OCTAL_LITERAL | 
+	 *         dec=DECIMAL_LITERAL | 
+	 *         ch=CHAR_LITERAL | 
+	 *         str=STRING_LITERAL | 
+	 *         float=FLOAT_LITERAL | 
+	 *         bin=BIN_LITERAL
+	 *     )
+	 */
+	protected void sequence_Constant2(EObject context, Constant2 semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     expr=ConditionalExpression
+	 */
+	protected void sequence_ConstantExpression(EObject context, ConstantExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (expr+=RelationalExpression ((op+=SKW_EQUAL | op+=SKW_NOTEQUAL) expr+=RelationalExpression)*)
+	 */
+	protected void sequence_EqualityExpression(EObject context, EqualityExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (expr+=AndExpression expr+=AndExpression*)
+	 */
+	protected void sequence_ExclusiveOrExpression(EObject context, ExclusiveOrExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     expression=ConditionalExpression
+	 */
+	protected void sequence_Expression(EObject context, Expression semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, CommonPackage.Literals.EXPRESSION__EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CommonPackage.Literals.EXPRESSION__EXPRESSION));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getExpressionAccess().getExpressionConditionalExpressionParserRuleCall_1_0(), semanticObject.getExpression());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (expr+=ExclusiveOrExpression expr+=ExclusiveOrExpression*)
+	 */
+	protected void sequence_InclusiveOrExpression(EObject context, InclusiveOrExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (expr+=InclusiveOrExpression expr+=InclusiveOrExpression*)
+	 */
+	protected void sequence_LogicalAndExpression(EObject context, LogicalAndExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (expr+=LogicalAndExpression expr+=LogicalAndExpression*)
+	 */
+	protected void sequence_LogicalOrExpression(EObject context, LogicalOrExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (expr+=CastExpression ((op+=SKW_STAR | op+=SKW_DIV | op+=SKW_MOD) expr+=CastExpression)*)
+	 */
+	protected void sequence_MultiplicativeExpression(EObject context, MultiplicativeExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (argumentExpressionList=ArgumentExpressionList?)
+	 */
+	protected void sequence_PostfixExpressionSuffixArgument(EObject context, PostfixExpressionSuffixArgument semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (expr=PrimaryExpression suffix+=PostfixExpressionSuffixArgument*)
+	 */
+	protected void sequence_PostfixExpression(EObject context, PostfixExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (const=Constant1 expr=Expression)
+	 */
+	protected void sequence_PrimaryExpression(EObject context, PrimaryExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (expr+=ShiftExpression ((op+=SKW_LESS | op+=SKW_GREATER | op+=SKW_LESSEQUAL | op+=SKW_GREATEREQUAL) expr+=ShiftExpression)*)
+	 */
+	protected void sequence_RelationalExpression(EObject context, RelationalExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (expr+=AdditiveExpression ((op+=SKW_LEFTSHIFT | op+=SKW_RIGHTSHIFT) expr+=AdditiveExpression)*)
+	 */
+	protected void sequence_ShiftExpression(EObject context, ShiftExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (expr=PostfixExpression | (op=UnaryOperator expr=CastExpression))
+	 */
+	protected void sequence_UnaryExpression(EObject context, UnaryExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     op=SKW_AND
+	 */
+	protected void sequence_UnaryOperator(EObject context, UnaryOperator semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, CommonPackage.Literals.UNARY_OPERATOR__OP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CommonPackage.Literals.UNARY_OPERATOR__OP));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getUnaryOperatorAccess().getOpSKW_ANDTerminalRuleCall_0_1_0(), semanticObject.getOp());
+		feeder.finish();
 	}
 }

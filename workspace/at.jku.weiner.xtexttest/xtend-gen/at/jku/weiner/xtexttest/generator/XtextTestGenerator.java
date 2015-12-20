@@ -285,17 +285,32 @@ public class XtextTestGenerator implements IGenerator {
     {
       boolean _notEquals = (!Objects.equal(element, null));
       if (_notEquals) {
-        _builder.append("import ");
-        String _package = this.test.getPackage();
-        _builder.append(_package, "");
-        _builder.append(".");
-        String _lang = this.test.getLang();
-        _builder.append(_lang, "");
-        _builder.append(".");
-        String _name = element.getName();
-        _builder.append(_name, "");
-        _builder.append(";");
-        _builder.newLineIfNotEmpty();
+        {
+          String _importing = element.getImporting();
+          boolean _notEquals_1 = (!Objects.equal(_importing, null));
+          if (_notEquals_1) {
+            _builder.append("import ");
+            String _imports = this.test.getImports();
+            _builder.append(_imports, "");
+            _builder.append(".");
+            String _name = element.getName();
+            _builder.append(_name, "");
+            _builder.append(";");
+            _builder.newLineIfNotEmpty();
+          } else {
+            _builder.append("import ");
+            String _package = this.test.getPackage();
+            _builder.append(_package, "");
+            _builder.append(".");
+            String _lang = this.test.getLang();
+            _builder.append(_lang, "");
+            _builder.append(".");
+            String _name_1 = element.getName();
+            _builder.append(_name_1, "");
+            _builder.append(";");
+            _builder.newLineIfNotEmpty();
+          }
+        }
         {
           EList<Inner> _inner = element.getInner();
           for(final Inner inner : _inner) {

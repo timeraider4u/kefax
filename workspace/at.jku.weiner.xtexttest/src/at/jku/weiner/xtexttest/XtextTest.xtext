@@ -8,6 +8,7 @@ XtextTest:
 	{XtextTest}
 	PACKAGE package=PackageID
 	LANGUAGE lang=LangID
+	(IMPORTS imports=ImportID)?
 	(SPLITLEXER ASSIGNASSINGLE boolean=Boolean)?
 	input=Input
 	(tokens=Tokens)?
@@ -27,6 +28,10 @@ PackageID returns ecore::EString:
 
 LangID returns ecore::EString:
 	IDENTIFIER
+;
+
+ImportID returns ecore::EString:
+	IDENTIFIER (POINT IDENTIFIER)*
 ;
 
 Input:
@@ -51,6 +56,7 @@ MyTokens:
 Element:
 	{Element}
 	LEFTPAREN
+		(importing=IDENTIFIER IMPORTER)?
 		name=IDENTIFIER
 		(
 			(inner+=Inner)
@@ -61,6 +67,7 @@ Element:
 
 Inner:
 	{Inner}
+	
 	parameter=IDENTIFIER
 	(ASSIGNASSINGLE assign=Element
 	|
@@ -111,6 +118,7 @@ After:
 
 terminal PACKAGE: 'package';
 terminal LANGUAGE: 'language';
+terminal IMPORTS: 'imports';
 terminal POINT: '.';
 terminal SPLITLEXER: 'split-lexer';
 terminal SOURCE: 'source';
@@ -138,3 +146,4 @@ terminal ASSIGNASSTRING: '++';
 terminal ASSIGNASDATALIST: '+*';
 terminal COMMA: ',';
 terminal IDENTIFIER: ID;
+terminal IMPORTER: '::';

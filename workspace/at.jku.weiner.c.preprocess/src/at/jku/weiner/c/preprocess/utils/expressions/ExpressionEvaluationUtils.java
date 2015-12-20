@@ -2,7 +2,7 @@ package at.jku.weiner.c.preprocess.utils.expressions;
 
 import org.eclipse.emf.common.util.EList;
 
-import at.jku.weiner.c.preprocess.preprocess.Expression;
+import at.jku.weiner.c.common.common.Expression;
 
 class ExpressionEvaluationUtils {
 	private static final String errorListSizeStart = "please check expressions and"
@@ -14,7 +14,7 @@ class ExpressionEvaluationUtils {
 		if (ops.size() != (list.size() - 1)) {
 			throw new IllegalArgumentException(
 					ExpressionEvaluationUtils.errorListSizeStart + text
-					+ ExpressionEvaluationUtils.errorListSizeEnd);
+							+ ExpressionEvaluationUtils.errorListSizeEnd);
 		}
 	}
 

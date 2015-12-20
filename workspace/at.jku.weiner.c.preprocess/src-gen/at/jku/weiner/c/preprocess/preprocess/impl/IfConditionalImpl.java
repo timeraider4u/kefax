@@ -2,10 +2,11 @@
  */
 package at.jku.weiner.c.preprocess.preprocess.impl;
 
+import at.jku.weiner.c.common.common.Expression;
+
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.IfConditional;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessPackage;
-import at.jku.weiner.c.preprocess.preprocess.ShadowExpression;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -22,11 +23,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.IfConditionalImpl#getExpression <em>Expression</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.IfConditionalImpl#getGroup <em>Group</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -40,7 +41,7 @@ public class IfConditionalImpl extends MinimalEObjectImpl.Container implements I
    * @generated
    * @ordered
    */
-  protected ShadowExpression expression;
+  protected Expression expression;
 
   /**
    * The cached value of the '{@link #getGroup() <em>Group</em>}' containment reference.
@@ -78,7 +79,7 @@ public class IfConditionalImpl extends MinimalEObjectImpl.Container implements I
    * <!-- end-user-doc -->
    * @generated
    */
-  public ShadowExpression getExpression()
+  public Expression getExpression()
   {
     return expression;
   }
@@ -88,9 +89,9 @@ public class IfConditionalImpl extends MinimalEObjectImpl.Container implements I
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpression(ShadowExpression newExpression, NotificationChain msgs)
+  public NotificationChain basicSetExpression(Expression newExpression, NotificationChain msgs)
   {
-    ShadowExpression oldExpression = expression;
+    Expression oldExpression = expression;
     expression = newExpression;
     if (eNotificationRequired())
     {
@@ -105,7 +106,7 @@ public class IfConditionalImpl extends MinimalEObjectImpl.Container implements I
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setExpression(ShadowExpression newExpression)
+  public void setExpression(Expression newExpression)
   {
     if (newExpression != expression)
     {
@@ -216,7 +217,7 @@ public class IfConditionalImpl extends MinimalEObjectImpl.Container implements I
     switch (featureID)
     {
       case PreprocessPackage.IF_CONDITIONAL__EXPRESSION:
-        setExpression((ShadowExpression)newValue);
+        setExpression((Expression)newValue);
         return;
       case PreprocessPackage.IF_CONDITIONAL__GROUP:
         setGroup((GroupOpt)newValue);
@@ -236,7 +237,7 @@ public class IfConditionalImpl extends MinimalEObjectImpl.Container implements I
     switch (featureID)
     {
       case PreprocessPackage.IF_CONDITIONAL__EXPRESSION:
-        setExpression((ShadowExpression)null);
+        setExpression((Expression)null);
         return;
       case PreprocessPackage.IF_CONDITIONAL__GROUP:
         setGroup((GroupOpt)null);

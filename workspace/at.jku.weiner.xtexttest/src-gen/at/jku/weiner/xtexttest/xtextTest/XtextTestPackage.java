@@ -85,13 +85,22 @@ public interface XtextTestPackage extends EPackage
   int XTEXT_TEST__LANG = 1;
 
   /**
+   * The feature id for the '<em><b>Imports</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int XTEXT_TEST__IMPORTS = 2;
+
+  /**
    * The feature id for the '<em><b>Boolean</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int XTEXT_TEST__BOOLEAN = 2;
+  int XTEXT_TEST__BOOLEAN = 3;
 
   /**
    * The feature id for the '<em><b>Input</b></em>' containment reference.
@@ -100,7 +109,7 @@ public interface XtextTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int XTEXT_TEST__INPUT = 3;
+  int XTEXT_TEST__INPUT = 4;
 
   /**
    * The feature id for the '<em><b>Tokens</b></em>' containment reference.
@@ -109,7 +118,7 @@ public interface XtextTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int XTEXT_TEST__TOKENS = 4;
+  int XTEXT_TEST__TOKENS = 5;
 
   /**
    * The feature id for the '<em><b>Root</b></em>' containment reference.
@@ -118,7 +127,7 @@ public interface XtextTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int XTEXT_TEST__ROOT = 5;
+  int XTEXT_TEST__ROOT = 6;
 
   /**
    * The feature id for the '<em><b>Output</b></em>' containment reference.
@@ -127,7 +136,7 @@ public interface XtextTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int XTEXT_TEST__OUTPUT = 6;
+  int XTEXT_TEST__OUTPUT = 7;
 
   /**
    * The feature id for the '<em><b>Before</b></em>' containment reference.
@@ -136,7 +145,7 @@ public interface XtextTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int XTEXT_TEST__BEFORE = 7;
+  int XTEXT_TEST__BEFORE = 8;
 
   /**
    * The feature id for the '<em><b>After</b></em>' containment reference.
@@ -145,7 +154,7 @@ public interface XtextTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int XTEXT_TEST__AFTER = 8;
+  int XTEXT_TEST__AFTER = 9;
 
   /**
    * The number of structural features of the '<em>Xtext Test</em>' class.
@@ -154,7 +163,7 @@ public interface XtextTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int XTEXT_TEST_FEATURE_COUNT = 9;
+  int XTEXT_TEST_FEATURE_COUNT = 10;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.xtexttest.xtextTest.impl.InputImpl <em>Input</em>}' class.
@@ -269,13 +278,22 @@ public interface XtextTestPackage extends EPackage
   int ELEMENT = 4;
 
   /**
+   * The feature id for the '<em><b>Importing</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ELEMENT__IMPORTING = 0;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ELEMENT__NAME = 0;
+  int ELEMENT__NAME = 1;
 
   /**
    * The feature id for the '<em><b>Inner</b></em>' containment reference list.
@@ -284,7 +302,7 @@ public interface XtextTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ELEMENT__INNER = 1;
+  int ELEMENT__INNER = 2;
 
   /**
    * The number of structural features of the '<em>Element</em>' class.
@@ -293,7 +311,7 @@ public interface XtextTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ELEMENT_FEATURE_COUNT = 2;
+  int ELEMENT_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.xtexttest.xtextTest.impl.InnerImpl <em>Inner</em>}' class.
@@ -595,6 +613,17 @@ public interface XtextTestPackage extends EPackage
   EAttribute getXtextTest_Lang();
 
   /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.xtexttest.xtextTest.XtextTest#getImports <em>Imports</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Imports</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.XtextTest#getImports()
+   * @see #getXtextTest()
+   * @generated
+   */
+  EAttribute getXtextTest_Imports();
+
+  /**
    * Returns the meta object for the attribute '{@link at.jku.weiner.xtexttest.xtextTest.XtextTest#getBoolean <em>Boolean</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -765,6 +794,17 @@ public interface XtextTestPackage extends EPackage
    * @generated
    */
   EClass getElement();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.xtexttest.xtextTest.Element#getImporting <em>Importing</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Importing</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.Element#getImporting()
+   * @see #getElement()
+   * @generated
+   */
+  EAttribute getElement_Importing();
 
   /**
    * Returns the meta object for the attribute '{@link at.jku.weiner.xtexttest.xtextTest.Element#getName <em>Name</em>}'.
@@ -1097,6 +1137,14 @@ public interface XtextTestPackage extends EPackage
     EAttribute XTEXT_TEST__LANG = eINSTANCE.getXtextTest_Lang();
 
     /**
+     * The meta object literal for the '<em><b>Imports</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute XTEXT_TEST__IMPORTS = eINSTANCE.getXtextTest_Imports();
+
+    /**
      * The meta object literal for the '<em><b>Boolean</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1231,6 +1279,14 @@ public interface XtextTestPackage extends EPackage
      * @generated
      */
     EClass ELEMENT = eINSTANCE.getElement();
+
+    /**
+     * The meta object literal for the '<em><b>Importing</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ELEMENT__IMPORTING = eINSTANCE.getElement_Importing();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.

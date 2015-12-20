@@ -37,6 +37,243 @@ Common:
 	{Common}
 ;
 
+Expression hidden(WS,BLOCK_COMMENT,LINE_COMMENT,LINEBREAK):
+	{Expression}
+	expression=ConditionalExpression
+;
+
+ConstantExpression returns Expression hidden(WS,BLOCK_COMMENT,LINE_COMMENT,LINEBREAK):
+	{ConstantExpression}
+	expr=ConditionalExpression
+;
+
+ConditionalExpression returns Expression:
+	{ConditionalExpression}
+	expr=LogicalOrExpression
+	(SKW_QUESTION qExpr=Expression SKW_COLON
+		cExpr=ConditionalExpression
+	)?
+;
+
+LogicalOrExpression returns Expression:
+	{LogicalOrExpression}
+	expr+=LogicalAndExpression
+	(SKW_OROR expr+=LogicalAndExpression)*
+;
+
+LogicalAndExpression returns Expression:
+	{LogicalAndExpression}
+	expr+=InclusiveOrExpression
+	(SKW_ANDAND expr+=InclusiveOrExpression)*
+;
+
+InclusiveOrExpression returns Expression:
+	{InclusiveOrExpression}
+	expr+=ExclusiveOrExpression
+	(SKW_OR expr+=ExclusiveOrExpression)*
+;
+
+ExclusiveOrExpression returns Expression:
+	{ExclusiveOrExpression}
+	expr+=AndExpression
+	(SKW_CARET expr+=AndExpression)*
+;
+
+AndExpression returns Expression:
+	{AndExpression}
+	expr+=EqualityExpression
+	(SKW_AND expr+=EqualityExpression)*
+;
+
+EqualityExpression returns Expression:
+	{EqualityExpression}
+	expr+=RelationalExpression
+	(
+		(
+				op+=SKW_EQUAL
+			|	op+=SKW_NOTEQUAL
+		)
+		expr+=RelationalExpression
+	)*
+;
+
+RelationalExpression returns Expression:
+	{RelationalExpression}
+	expr+=ShiftExpression
+	(
+		(
+				op+=SKW_LESS
+			|	op+=SKW_GREATER
+			|	op+=SKW_LESSEQUAL
+			|	op+=SKW_GREATEREQUAL
+		)
+		expr += ShiftExpression
+	)*
+;
+
+ShiftExpression returns Expression:
+	{ShiftExpression}
+	expr+=AdditiveExpression
+	(
+		(
+				op+=SKW_LEFTSHIFT
+			|	op+=SKW_RIGHTSHIFT
+		)
+		expr+=AdditiveExpression
+	)*
+;
+
+AdditiveExpression returns Expression:
+	{AdditiveExpression}
+	expr+=MultiplicativeExpression
+	(
+		(
+				op+=SKW_PLUS
+			|	op+=SKW_MINUS
+		)
+		expr+=MultiplicativeExpression
+	)*
+;
+
+MultiplicativeExpression returns Expression:
+	{MultiplicativeExpression}
+	expr+=CastExpression
+	(
+		(
+				op+=SKW_STAR
+			|	op+=SKW_DIV
+			|	op+=SKW_MOD
+		)
+		expr+=CastExpression
+	)*
+;
+
+CastExpression returns Expression:
+	{CastExpression}
+	(
+		expr=UnaryExpression
+	//|	SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN expr=CastExpression
+	//|	'__extension__' LEFTPAREN type=TypeName RIGHTPAREN castExpr=CastExpression
+	)
+;
+
+UnaryExpression returns Expression:
+	{UnaryExpression}	
+	(
+		expr=PostfixExpression
+	//|	plusplus=SKW_PLUSPLUS expr=UnaryExpression
+	//|	minusminus=SKW_MINUSMINUS expr=UnaryExpression
+	|	op=UnaryOperator expr=CastExpression
+	//|	sizeOf=SKW_SIZEOF SKW_LEFTPAREN typeName=TypeName SKW_RIGHTPAREN
+	//|	sizeOf=SKW_SIZEOF expr=UnaryExpression 
+	//|	ALIGNOF LEFTPAREN typeName=typeName RIGHTPAREN
+	//|	andand=SKW_ANDAND id=ID // GCC extension address of label
+	)
+;
+
+UnaryOperator:
+	{UnaryOperator}
+		op=SKW_AND
+	|	op=SKW_STAR
+	|	op=SKW_PLUS 
+	|	op=SKW_MINUS 
+	|	op=SKW_TILDE
+	|	op=SKW_NOT
+;
+
+PostfixExpression returns Expression:
+	{PostfixExpression}
+	(expr=PrimaryExpression
+	/*	(
+	|	('__extension__' LEFTPAREN typeName RIGHTPAREN LEFTBRACE initializerList=initializerList) 
+			(COMMA? RIGHTBRACE)
+	)
+	*/
+	
+	(
+		//	suffix+=PostfixExpressionSuffixArray
+		suffix+=PostfixExpressionSuffixArgument
+		//|	suffix+=PostfixExpressionSuffixDot
+		//|	suffix+=PostfixExpressionSuffixArrow
+		//	suffix+=PostfixExpressionSuffixPlusPlus
+		//|	suffix+=PostfixExpressionSuffixMinusMinus
+	)*
+	
+	)
+;
+
+/*
+PostfixExpressionSuffixArray returns PostfixExpressionSuffix:
+	{PostfixExpressionSuffixArray}
+	SKW_LEFTBRACKET arrayExpr=Expression SKW_RIGHTBRACKET
+;
+*/
+
+PostfixExpressionSuffixArgument returns PostfixExpressionSuffix:
+	{PostfixExpressionSuffixArgument}
+	SKW_LEFTPAREN (argumentExpressionList=ArgumentExpressionList)? SKW_RIGHTPAREN
+;
+
+/*
+PostfixExpressionSuffixDot returns PostfixExpressionSuffix:
+	{PostfixExpressionSuffixDot}
+	SKW_DOT id=ID
+;
+
+PostfixExpressionSuffixArrow returns PostfixExpressionSuffix:
+	{PostfixExpressionSuffixArrow}
+	SKW_ARROW id=ID
+;
+
+
+PostfixExpressionSuffixPlusPlus returns PostfixExpressionSuffix:
+	{PostfixExpressionSuffixPlusPlus}
+	SKW_PLUSPLUS
+;
+
+PostfixExpressionSuffixMinusMinus returns PostfixExpressionSuffix:
+	{PostfixExpressionSuffixMinusMinus}
+	SKW_MINUSMINUS
+;
+*/
+
+ArgumentExpressionList: expr+=ConditionalExpression (SKW_COMMA expr+=ConditionalExpression)*;
+
+
+PrimaryExpression returns Expression:
+	{PrimaryExpression}
+	(	
+		const=Constant1
+		//|	string+=STRING_LITERAL+ // reachable over Constant!
+		SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN
+	)
+;
+
+Constant1 returns ecore::EString:
+	(
+		HEX_LITERAL
+	|	OCTAL_LITERAL
+	|	DECIMAL_LITERAL
+	|	CHAR_LITERAL
+	|	STRING_LITERAL
+	|	FLOAT_LITERAL
+	|	BIN_LITERAL
+	)
+;
+
+Constant2:
+	{Constant2}
+	(
+		hex=HEX_LITERAL
+	|	oct=OCTAL_LITERAL
+	|	dec=DECIMAL_LITERAL
+	|	ch=CHAR_LITERAL
+	|	str=STRING_LITERAL
+	|	float=FLOAT_LITERAL
+	|	bin=BIN_LITERAL
+	)
+;
+
 // keywords
 
 // special keywords
@@ -120,6 +357,78 @@ terminal SKW_SINGLEQUOTE: '\'';
 terminal SKW_STAR: '*';
 terminal SKW_TILDE: '~';
 terminal fragment SKW_UNDERSCORE: '_';
+
+// identifiers and constants
+terminal ID: IDENTIFIER;
+terminal fragment IDENTIFIER:
+	LETTER (LETTER|'0'..'9')*
+;
+
+terminal fragment LETTER:
+		SKW_DOLLAR
+	|	'A'..'Z'
+	|	'a'..'z'
+	|	SKW_UNDERSCORE
+;
+
+terminal CHAR_LITERAL:
+	SKW_SINGLEQUOTE ( ESCAPE_SEQUENCE | !(SKW_SINGLEQUOTE|SKW_BACKSLASH) ) SKW_SINGLEQUOTE
+;
+
+terminal STRING_LITERAL:
+	SKW_DOUBLEQUOTE ( ESCAPE_SEQUENCE | !(SKW_BACKSLASH|SKW_DOUBLEQUOTE) )* SKW_DOUBLEQUOTE
+;
+
+terminal HEX_LITERAL: '0' ('x'|'X') HEX_DIGIT+ INTEGER_TYPE_SUFFIX? ;
+
+terminal DECIMAL_LITERAL: ('0' | '1'..'9' '0'..'9'*) INTEGER_TYPE_SUFFIX? ;
+
+terminal OCTAL_LITERAL: '0' ('0'..'7')+ INTEGER_TYPE_SUFFIX? ;
+
+terminal BIN_LITERAL: ('0b' | '0B') ('0'..'1')+;
+
+terminal fragment HEX_DIGIT: ('0'..'9'|'a'..'f'|'A'..'F');
+
+terminal fragment INTEGER_TYPE_SUFFIX:
+	('u'|'U')? ('l'|'L')
+	|	('u'|'U')  ('l'|'L')?
+;
+
+terminal FLOAT_LITERAL:
+	('0'..'9')+ SKW_DOT ('0'..'9')* EXPONENT? FLOAT_TYPE_SUFFIX?
+	|	SKW_DOT ('0'..'9')+ EXPONENT? FLOAT_TYPE_SUFFIX?
+	|	('0'..'9')+ EXPONENT FLOAT_TYPE_SUFFIX?
+	|	('0'..'9')+ EXPONENT? FLOAT_TYPE_SUFFIX
+;
+
+terminal fragment EXPONENT:
+	('e'|'E') ('+'|'-')? ('0'..'9')+
+;
+
+terminal fragment FLOAT_TYPE_SUFFIX: ('f'|'F'|'d'|'D') ;
+
+terminal fragment ESCAPE_SEQUENCE:
+	SKW_BACKSLASH ('b'|'t'|'n'|'f'|'r'|'\"'|SKW_SINGLEQUOTE|SKW_BACKSLASH)
+	|	OCTAL_ESCAPE
+;
+
+terminal fragment OCTAL_ESCAPE:
+	SKW_BACKSLASH ('0'..'3') ('0'..'7') ('0'..'7')
+	|	SKW_BACKSLASH ('0'..'7') ('0'..'7')
+	|	SKW_BACKSLASH ('0'..'7')
+;
+
+// Whitespace terminals
+terminal fragment LINEFEED: '\n';
+terminal fragment CARRIAGERETURN: '\r';
+terminal NEWLINE: (CARRIAGERETURN | LINEFEED) ;
+terminal LINEBREAK: (SKW_BACKSLASH NEWLINE);
+terminal fragment SPACE: ' ';
+terminal fragment TAB: '\t';
+terminal WS: (SPACE | TAB);
+
+terminal BLOCK_COMMENT: '/*' -> '*/';
+terminal LINE_COMMENT: '//' (!NEWLINE)*;
 
 // for anything else:
 terminal SPECIAL: .;

@@ -2,6 +2,7 @@
 //----------------------------------------------------------------------
 package at.jku.weiner.c.preprocess
 language preprocess
+imports at.jku.weiner.c.common.common
 //----------------------------------------------------------------------
 split-lexer=false
 source file="res/Test0008_SymbolDefineAndInclude.c"

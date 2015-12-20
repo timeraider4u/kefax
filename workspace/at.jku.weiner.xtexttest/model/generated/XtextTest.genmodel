@@ -10,6 +10,7 @@
     <genClasses ecoreClass="XtextTest.ecore#//XtextTest">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//XtextTest/package"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//XtextTest/lang"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//XtextTest/imports"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//XtextTest/boolean"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XtextTest.ecore#//XtextTest/input"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XtextTest.ecore#//XtextTest/tokens"/>
@@ -30,6 +31,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//MyTokens/count"/>
     </genClasses>
     <genClasses ecoreClass="XtextTest.ecore#//Element">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//Element/importing"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//Element/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XtextTest.ecore#//Element/inner"/>
     </genClasses>

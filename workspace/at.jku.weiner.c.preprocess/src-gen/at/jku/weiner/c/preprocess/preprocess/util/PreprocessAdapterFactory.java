@@ -165,29 +165,9 @@ public class PreprocessAdapterFactory extends AdapterFactoryImpl
         return createNullDirectiveAdapter();
       }
       @Override
-      public Adapter caseShadowExpression(ShadowExpression object)
-      {
-        return createShadowExpressionAdapter();
-      }
-      @Override
       public Adapter caseExpression(Expression object)
       {
         return createExpressionAdapter();
-      }
-      @Override
-      public Adapter caseUnaryOperator(UnaryOperator object)
-      {
-        return createUnaryOperatorAdapter();
-      }
-      @Override
-      public Adapter casePostfixExpressionSuffix(PostfixExpressionSuffix object)
-      {
-        return createPostfixExpressionSuffixAdapter();
-      }
-      @Override
-      public Adapter caseArgumentExpressionList(ArgumentExpressionList object)
-      {
-        return createArgumentExpressionListAdapter();
       }
       @Override
       public Adapter casePreprocessorDirectives(PreprocessorDirectives object)
@@ -215,89 +195,14 @@ public class PreprocessAdapterFactory extends AdapterFactoryImpl
         return createCodeAdapter();
       }
       @Override
-      public Adapter caseConstantExpression(ConstantExpression object)
-      {
-        return createConstantExpressionAdapter();
-      }
-      @Override
-      public Adapter caseConditionalExpression(ConditionalExpression object)
-      {
-        return createConditionalExpressionAdapter();
-      }
-      @Override
-      public Adapter caseLogicalOrExpression(LogicalOrExpression object)
-      {
-        return createLogicalOrExpressionAdapter();
-      }
-      @Override
-      public Adapter caseLogicalAndExpression(LogicalAndExpression object)
-      {
-        return createLogicalAndExpressionAdapter();
-      }
-      @Override
-      public Adapter caseInclusiveOrExpression(InclusiveOrExpression object)
-      {
-        return createInclusiveOrExpressionAdapter();
-      }
-      @Override
-      public Adapter caseExclusiveOrExpression(ExclusiveOrExpression object)
-      {
-        return createExclusiveOrExpressionAdapter();
-      }
-      @Override
-      public Adapter caseAndExpression(AndExpression object)
-      {
-        return createAndExpressionAdapter();
-      }
-      @Override
-      public Adapter caseEqualityExpression(EqualityExpression object)
-      {
-        return createEqualityExpressionAdapter();
-      }
-      @Override
-      public Adapter caseRelationalExpression(RelationalExpression object)
-      {
-        return createRelationalExpressionAdapter();
-      }
-      @Override
-      public Adapter caseShiftExpression(ShiftExpression object)
-      {
-        return createShiftExpressionAdapter();
-      }
-      @Override
-      public Adapter caseAdditiveExpression(AdditiveExpression object)
-      {
-        return createAdditiveExpressionAdapter();
-      }
-      @Override
-      public Adapter caseMultiplicativeExpression(MultiplicativeExpression object)
-      {
-        return createMultiplicativeExpressionAdapter();
-      }
-      @Override
-      public Adapter caseCastExpression(CastExpression object)
-      {
-        return createCastExpressionAdapter();
-      }
-      @Override
-      public Adapter caseUnaryExpression(UnaryExpression object)
-      {
-        return createUnaryExpressionAdapter();
-      }
-      @Override
-      public Adapter casePostfixExpression(PostfixExpression object)
-      {
-        return createPostfixExpressionAdapter();
-      }
-      @Override
-      public Adapter casePostfixExpressionSuffixArgument(PostfixExpressionSuffixArgument object)
-      {
-        return createPostfixExpressionSuffixArgumentAdapter();
-      }
-      @Override
       public Adapter casePrimaryExpression(PrimaryExpression object)
       {
         return createPrimaryExpressionAdapter();
+      }
+      @Override
+      public Adapter caseCommon_Expression(at.jku.weiner.c.common.common.Expression object)
+      {
+        return createCommon_ExpressionAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -592,21 +497,6 @@ public class PreprocessAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.preprocess.preprocess.ShadowExpression <em>Shadow Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see at.jku.weiner.c.preprocess.preprocess.ShadowExpression
-   * @generated
-   */
-  public Adapter createShadowExpressionAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link at.jku.weiner.c.preprocess.preprocess.Expression <em>Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -617,51 +507,6 @@ public class PreprocessAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createExpressionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.preprocess.preprocess.UnaryOperator <em>Unary Operator</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see at.jku.weiner.c.preprocess.preprocess.UnaryOperator
-   * @generated
-   */
-  public Adapter createUnaryOperatorAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.preprocess.preprocess.PostfixExpressionSuffix <em>Postfix Expression Suffix</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see at.jku.weiner.c.preprocess.preprocess.PostfixExpressionSuffix
-   * @generated
-   */
-  public Adapter createPostfixExpressionSuffixAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.preprocess.preprocess.ArgumentExpressionList <em>Argument Expression List</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see at.jku.weiner.c.preprocess.preprocess.ArgumentExpressionList
-   * @generated
-   */
-  public Adapter createArgumentExpressionListAdapter()
   {
     return null;
   }
@@ -742,246 +587,6 @@ public class PreprocessAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.preprocess.preprocess.ConstantExpression <em>Constant Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see at.jku.weiner.c.preprocess.preprocess.ConstantExpression
-   * @generated
-   */
-  public Adapter createConstantExpressionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.preprocess.preprocess.ConditionalExpression <em>Conditional Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see at.jku.weiner.c.preprocess.preprocess.ConditionalExpression
-   * @generated
-   */
-  public Adapter createConditionalExpressionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.preprocess.preprocess.LogicalOrExpression <em>Logical Or Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see at.jku.weiner.c.preprocess.preprocess.LogicalOrExpression
-   * @generated
-   */
-  public Adapter createLogicalOrExpressionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.preprocess.preprocess.LogicalAndExpression <em>Logical And Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see at.jku.weiner.c.preprocess.preprocess.LogicalAndExpression
-   * @generated
-   */
-  public Adapter createLogicalAndExpressionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.preprocess.preprocess.InclusiveOrExpression <em>Inclusive Or Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see at.jku.weiner.c.preprocess.preprocess.InclusiveOrExpression
-   * @generated
-   */
-  public Adapter createInclusiveOrExpressionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.preprocess.preprocess.ExclusiveOrExpression <em>Exclusive Or Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see at.jku.weiner.c.preprocess.preprocess.ExclusiveOrExpression
-   * @generated
-   */
-  public Adapter createExclusiveOrExpressionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.preprocess.preprocess.AndExpression <em>And Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see at.jku.weiner.c.preprocess.preprocess.AndExpression
-   * @generated
-   */
-  public Adapter createAndExpressionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.preprocess.preprocess.EqualityExpression <em>Equality Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see at.jku.weiner.c.preprocess.preprocess.EqualityExpression
-   * @generated
-   */
-  public Adapter createEqualityExpressionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.preprocess.preprocess.RelationalExpression <em>Relational Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see at.jku.weiner.c.preprocess.preprocess.RelationalExpression
-   * @generated
-   */
-  public Adapter createRelationalExpressionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.preprocess.preprocess.ShiftExpression <em>Shift Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see at.jku.weiner.c.preprocess.preprocess.ShiftExpression
-   * @generated
-   */
-  public Adapter createShiftExpressionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.preprocess.preprocess.AdditiveExpression <em>Additive Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see at.jku.weiner.c.preprocess.preprocess.AdditiveExpression
-   * @generated
-   */
-  public Adapter createAdditiveExpressionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.preprocess.preprocess.MultiplicativeExpression <em>Multiplicative Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see at.jku.weiner.c.preprocess.preprocess.MultiplicativeExpression
-   * @generated
-   */
-  public Adapter createMultiplicativeExpressionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.preprocess.preprocess.CastExpression <em>Cast Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see at.jku.weiner.c.preprocess.preprocess.CastExpression
-   * @generated
-   */
-  public Adapter createCastExpressionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.preprocess.preprocess.UnaryExpression <em>Unary Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see at.jku.weiner.c.preprocess.preprocess.UnaryExpression
-   * @generated
-   */
-  public Adapter createUnaryExpressionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.preprocess.preprocess.PostfixExpression <em>Postfix Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see at.jku.weiner.c.preprocess.preprocess.PostfixExpression
-   * @generated
-   */
-  public Adapter createPostfixExpressionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.preprocess.preprocess.PostfixExpressionSuffixArgument <em>Postfix Expression Suffix Argument</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see at.jku.weiner.c.preprocess.preprocess.PostfixExpressionSuffixArgument
-   * @generated
-   */
-  public Adapter createPostfixExpressionSuffixArgumentAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link at.jku.weiner.c.preprocess.preprocess.PrimaryExpression <em>Primary Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -992,6 +597,21 @@ public class PreprocessAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createPrimaryExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.common.common.Expression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.common.common.Expression
+   * @generated
+   */
+  public Adapter createCommon_ExpressionAdapter()
   {
     return null;
   }

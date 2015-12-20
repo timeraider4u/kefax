@@ -50,7 +50,7 @@ public class PreprocessSwitch<T> extends Switch<T>
    * Checks whether this is a switch for the given package.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @parameter ePackage the package in question.
+   * @param ePackage the package in question.
    * @return whether this is a switch for the given package.
    * @generated
    */
@@ -198,39 +198,11 @@ public class PreprocessSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case PreprocessPackage.SHADOW_EXPRESSION:
-      {
-        ShadowExpression shadowExpression = (ShadowExpression)theEObject;
-        T result = caseShadowExpression(shadowExpression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case PreprocessPackage.EXPRESSION:
       {
         Expression expression = (Expression)theEObject;
         T result = caseExpression(expression);
-        if (result == null) result = caseShadowExpression(expression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case PreprocessPackage.UNARY_OPERATOR:
-      {
-        UnaryOperator unaryOperator = (UnaryOperator)theEObject;
-        T result = caseUnaryOperator(unaryOperator);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case PreprocessPackage.POSTFIX_EXPRESSION_SUFFIX:
-      {
-        PostfixExpressionSuffix postfixExpressionSuffix = (PostfixExpressionSuffix)theEObject;
-        T result = casePostfixExpressionSuffix(postfixExpressionSuffix);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case PreprocessPackage.ARGUMENT_EXPRESSION_LIST:
-      {
-        ArgumentExpressionList argumentExpressionList = (ArgumentExpressionList)theEObject;
-        T result = caseArgumentExpressionList(argumentExpressionList);
+        if (result == null) result = caseCommon_Expression(expression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -274,155 +246,12 @@ public class PreprocessSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case PreprocessPackage.CONSTANT_EXPRESSION:
-      {
-        ConstantExpression constantExpression = (ConstantExpression)theEObject;
-        T result = caseConstantExpression(constantExpression);
-        if (result == null) result = caseExpression(constantExpression);
-        if (result == null) result = caseShadowExpression(constantExpression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case PreprocessPackage.CONDITIONAL_EXPRESSION:
-      {
-        ConditionalExpression conditionalExpression = (ConditionalExpression)theEObject;
-        T result = caseConditionalExpression(conditionalExpression);
-        if (result == null) result = caseExpression(conditionalExpression);
-        if (result == null) result = caseShadowExpression(conditionalExpression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case PreprocessPackage.LOGICAL_OR_EXPRESSION:
-      {
-        LogicalOrExpression logicalOrExpression = (LogicalOrExpression)theEObject;
-        T result = caseLogicalOrExpression(logicalOrExpression);
-        if (result == null) result = caseExpression(logicalOrExpression);
-        if (result == null) result = caseShadowExpression(logicalOrExpression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case PreprocessPackage.LOGICAL_AND_EXPRESSION:
-      {
-        LogicalAndExpression logicalAndExpression = (LogicalAndExpression)theEObject;
-        T result = caseLogicalAndExpression(logicalAndExpression);
-        if (result == null) result = caseExpression(logicalAndExpression);
-        if (result == null) result = caseShadowExpression(logicalAndExpression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case PreprocessPackage.INCLUSIVE_OR_EXPRESSION:
-      {
-        InclusiveOrExpression inclusiveOrExpression = (InclusiveOrExpression)theEObject;
-        T result = caseInclusiveOrExpression(inclusiveOrExpression);
-        if (result == null) result = caseExpression(inclusiveOrExpression);
-        if (result == null) result = caseShadowExpression(inclusiveOrExpression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case PreprocessPackage.EXCLUSIVE_OR_EXPRESSION:
-      {
-        ExclusiveOrExpression exclusiveOrExpression = (ExclusiveOrExpression)theEObject;
-        T result = caseExclusiveOrExpression(exclusiveOrExpression);
-        if (result == null) result = caseExpression(exclusiveOrExpression);
-        if (result == null) result = caseShadowExpression(exclusiveOrExpression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case PreprocessPackage.AND_EXPRESSION:
-      {
-        AndExpression andExpression = (AndExpression)theEObject;
-        T result = caseAndExpression(andExpression);
-        if (result == null) result = caseExpression(andExpression);
-        if (result == null) result = caseShadowExpression(andExpression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case PreprocessPackage.EQUALITY_EXPRESSION:
-      {
-        EqualityExpression equalityExpression = (EqualityExpression)theEObject;
-        T result = caseEqualityExpression(equalityExpression);
-        if (result == null) result = caseExpression(equalityExpression);
-        if (result == null) result = caseShadowExpression(equalityExpression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case PreprocessPackage.RELATIONAL_EXPRESSION:
-      {
-        RelationalExpression relationalExpression = (RelationalExpression)theEObject;
-        T result = caseRelationalExpression(relationalExpression);
-        if (result == null) result = caseExpression(relationalExpression);
-        if (result == null) result = caseShadowExpression(relationalExpression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case PreprocessPackage.SHIFT_EXPRESSION:
-      {
-        ShiftExpression shiftExpression = (ShiftExpression)theEObject;
-        T result = caseShiftExpression(shiftExpression);
-        if (result == null) result = caseExpression(shiftExpression);
-        if (result == null) result = caseShadowExpression(shiftExpression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case PreprocessPackage.ADDITIVE_EXPRESSION:
-      {
-        AdditiveExpression additiveExpression = (AdditiveExpression)theEObject;
-        T result = caseAdditiveExpression(additiveExpression);
-        if (result == null) result = caseExpression(additiveExpression);
-        if (result == null) result = caseShadowExpression(additiveExpression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case PreprocessPackage.MULTIPLICATIVE_EXPRESSION:
-      {
-        MultiplicativeExpression multiplicativeExpression = (MultiplicativeExpression)theEObject;
-        T result = caseMultiplicativeExpression(multiplicativeExpression);
-        if (result == null) result = caseExpression(multiplicativeExpression);
-        if (result == null) result = caseShadowExpression(multiplicativeExpression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case PreprocessPackage.CAST_EXPRESSION:
-      {
-        CastExpression castExpression = (CastExpression)theEObject;
-        T result = caseCastExpression(castExpression);
-        if (result == null) result = caseExpression(castExpression);
-        if (result == null) result = caseShadowExpression(castExpression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case PreprocessPackage.UNARY_EXPRESSION:
-      {
-        UnaryExpression unaryExpression = (UnaryExpression)theEObject;
-        T result = caseUnaryExpression(unaryExpression);
-        if (result == null) result = caseExpression(unaryExpression);
-        if (result == null) result = caseShadowExpression(unaryExpression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case PreprocessPackage.POSTFIX_EXPRESSION:
-      {
-        PostfixExpression postfixExpression = (PostfixExpression)theEObject;
-        T result = casePostfixExpression(postfixExpression);
-        if (result == null) result = caseExpression(postfixExpression);
-        if (result == null) result = caseShadowExpression(postfixExpression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case PreprocessPackage.POSTFIX_EXPRESSION_SUFFIX_ARGUMENT:
-      {
-        PostfixExpressionSuffixArgument postfixExpressionSuffixArgument = (PostfixExpressionSuffixArgument)theEObject;
-        T result = casePostfixExpressionSuffixArgument(postfixExpressionSuffixArgument);
-        if (result == null) result = casePostfixExpressionSuffix(postfixExpressionSuffixArgument);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case PreprocessPackage.PRIMARY_EXPRESSION:
       {
         PrimaryExpression primaryExpression = (PrimaryExpression)theEObject;
         T result = casePrimaryExpression(primaryExpression);
         if (result == null) result = caseExpression(primaryExpression);
-        if (result == null) result = caseShadowExpression(primaryExpression);
+        if (result == null) result = caseCommon_Expression(primaryExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -719,22 +548,6 @@ public class PreprocessSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Shadow Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Shadow Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseShadowExpression(ShadowExpression object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -746,54 +559,6 @@ public class PreprocessSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseExpression(Expression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Unary Operator</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Unary Operator</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseUnaryOperator(UnaryOperator object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Postfix Expression Suffix</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Postfix Expression Suffix</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casePostfixExpressionSuffix(PostfixExpressionSuffix object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Argument Expression List</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Argument Expression List</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseArgumentExpressionList(ArgumentExpressionList object)
   {
     return null;
   }
@@ -879,262 +644,6 @@ public class PreprocessSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Constant Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Constant Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseConstantExpression(ConstantExpression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Conditional Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Conditional Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseConditionalExpression(ConditionalExpression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Logical Or Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Logical Or Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseLogicalOrExpression(LogicalOrExpression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Logical And Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Logical And Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseLogicalAndExpression(LogicalAndExpression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Inclusive Or Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Inclusive Or Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseInclusiveOrExpression(InclusiveOrExpression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Exclusive Or Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Exclusive Or Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseExclusiveOrExpression(ExclusiveOrExpression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>And Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>And Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAndExpression(AndExpression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Equality Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Equality Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseEqualityExpression(EqualityExpression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Relational Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Relational Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseRelationalExpression(RelationalExpression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Shift Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Shift Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseShiftExpression(ShiftExpression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Additive Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Additive Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAdditiveExpression(AdditiveExpression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Multiplicative Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Multiplicative Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseMultiplicativeExpression(MultiplicativeExpression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Cast Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Cast Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseCastExpression(CastExpression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Unary Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Unary Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseUnaryExpression(UnaryExpression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Postfix Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Postfix Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casePostfixExpression(PostfixExpression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Postfix Expression Suffix Argument</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Postfix Expression Suffix Argument</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casePostfixExpressionSuffixArgument(PostfixExpressionSuffixArgument object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Primary Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1146,6 +655,22 @@ public class PreprocessSwitch<T> extends Switch<T>
    * @generated
    */
   public T casePrimaryExpression(PrimaryExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCommon_Expression(at.jku.weiner.c.common.common.Expression object)
   {
     return null;
   }

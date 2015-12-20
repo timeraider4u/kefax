@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link at.jku.weiner.xtexttest.xtextTest.Element#getImporting <em>Importing</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.Element#getName <em>Name</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.Element#getInner <em>Inner</em>}</li>
  * </ul>
@@ -25,6 +26,32 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Element extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Importing</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Importing</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Importing</em>' attribute.
+   * @see #setImporting(String)
+   * @see at.jku.weiner.xtexttest.xtextTest.XtextTestPackage#getElement_Importing()
+   * @model
+   * @generated
+   */
+  String getImporting();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.xtexttest.xtextTest.Element#getImporting <em>Importing</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Importing</em>' attribute.
+   * @see #getImporting()
+   * @generated
+   */
+  void setImporting(String value);
+
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->

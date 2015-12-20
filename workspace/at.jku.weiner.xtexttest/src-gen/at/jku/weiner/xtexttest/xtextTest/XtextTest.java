@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.XtextTest#getPackage <em>Package</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.XtextTest#getLang <em>Lang</em>}</li>
+ *   <li>{@link at.jku.weiner.xtexttest.xtextTest.XtextTest#getImports <em>Imports</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.XtextTest#getBoolean <em>Boolean</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.XtextTest#getInput <em>Input</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.XtextTest#getTokens <em>Tokens</em>}</li>
@@ -81,6 +82,32 @@ public interface XtextTest extends EObject
    * @generated
    */
   void setLang(String value);
+
+  /**
+   * Returns the value of the '<em><b>Imports</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Imports</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Imports</em>' attribute.
+   * @see #setImports(String)
+   * @see at.jku.weiner.xtexttest.xtextTest.XtextTestPackage#getXtextTest_Imports()
+   * @model
+   * @generated
+   */
+  String getImports();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.xtexttest.xtextTest.XtextTest#getImports <em>Imports</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Imports</em>' attribute.
+   * @see #getImports()
+   * @generated
+   */
+  void setImports(String value);
 
   /**
    * Returns the value of the '<em><b>Boolean</b></em>' attribute.

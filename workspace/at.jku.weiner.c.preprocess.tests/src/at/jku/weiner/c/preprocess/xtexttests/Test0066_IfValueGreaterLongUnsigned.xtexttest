@@ -2,6 +2,7 @@
 //----------------------------------------------------------------------
 package at.jku.weiner.c.preprocess
 language preprocess
+imports at.jku.weiner.c.common.common
 //----------------------------------------------------------------------
 split-lexer=false
 source file="res/Test0066_IfValueGreaterLongUnsigned.c"
@@ -33,68 +34,68 @@ lexer-tokens
 					conditional=
 					(IfConditional
 						expression=
-						(ConstantExpression
+						(common::ConstantExpression
 							expr=
-							(ConditionalExpression
+							(common::ConditionalExpression
 								expr=
-								(LogicalOrExpression
+								(common::LogicalOrExpression
 									expr+=
-									(LogicalAndExpression
+									(common::LogicalAndExpression
 										expr+=
-										(InclusiveOrExpression
+										(common::InclusiveOrExpression
 											expr+=
-											(ExclusiveOrExpression
+											(common::ExclusiveOrExpression
 												expr+=
-												(AndExpression
+												(common::AndExpression
 													expr+=
-													(EqualityExpression
+													(common::EqualityExpression
 														expr+=
-														(RelationalExpression
+														(common::RelationalExpression
 															expr+=
-															(ShiftExpression
+															(common::ShiftExpression
 																expr+=
-																(AdditiveExpression
+																(common::AdditiveExpression
 																	expr+=
-																	(MultiplicativeExpression
+																	(common::MultiplicativeExpression
 																		expr+=
-																		(CastExpression
+																		(common::CastExpression
 																			expr=
-																			(UnaryExpression
+																			(common::UnaryExpression
 																				expr=
-																				(PostfixExpression
+																				(common::PostfixExpression
 																					expr=
 																					(PrimaryExpression
 																						//id++"__STDC_VERSION__"
 																						expr=
-																						(Expression
+																						(common::Expression
 																							expression=
-																							(ConditionalExpression
+																							(common::ConditionalExpression
 																								expr=
-																								(LogicalOrExpression
+																								(common::LogicalOrExpression
 																									expr+=
-																									(LogicalAndExpression
+																									(common::LogicalAndExpression
 																										expr+=
-																										(InclusiveOrExpression
+																										(common::InclusiveOrExpression
 																											expr+=
-																											(ExclusiveOrExpression
+																											(common::ExclusiveOrExpression
 																												expr+=
-																												(AndExpression
+																												(common::AndExpression
 																													expr+=
-																													(EqualityExpression
+																													(common::EqualityExpression
 																														expr+=
-																														(RelationalExpression
+																														(common::RelationalExpression
 																															expr+=
-																															(ShiftExpression
+																															(common::ShiftExpression
 																																expr+=
-																																(AdditiveExpression
+																																(common::AdditiveExpression
 																																	expr+=
-																																	(MultiplicativeExpression
+																																	(common::MultiplicativeExpression
 																																		expr+=
-																																		(CastExpression
+																																		(common::CastExpression
 																																			expr=
-																																			(UnaryExpression
+																																			(common::UnaryExpression
 																																				expr=
-																																				(PostfixExpression
+																																				(common::PostfixExpression
 																																					expr=
 																																					(PrimaryExpression
 																																						defined?=true,
@@ -111,28 +112,28 @@ lexer-tokens
 																												)
 																											)
 																										), // inclusive or expression
-																										(InclusiveOrExpression
+																										(common::InclusiveOrExpression
 																											expr+=
-																											(ExclusiveOrExpression
+																											(common::ExclusiveOrExpression
 																												expr+=
-																												(AndExpression
+																												(common::AndExpression
 																													expr+=
-																													(EqualityExpression
+																													(common::EqualityExpression
 																														expr+=
-																														(RelationalExpression
+																														(common::RelationalExpression
 																															op+*"[>=]",
 																															expr+=
-																															(ShiftExpression
+																															(common::ShiftExpression
 																																expr+=
-																																(AdditiveExpression
+																																(common::AdditiveExpression
 																																	expr+=
-																																	(MultiplicativeExpression
+																																	(common::MultiplicativeExpression
 																																		expr+=
-																																		(CastExpression
+																																		(common::CastExpression
 																																			expr=
-																																			(UnaryExpression
+																																			(common::UnaryExpression
 																																				expr=
-																																				(PostfixExpression
+																																				(common::PostfixExpression
 																																					expr=
 																																					(PrimaryExpression
 																																						id++"__STDC_VERSION__"
@@ -143,17 +144,17 @@ lexer-tokens
 																																	)
 																																)
 																															),
-																															(ShiftExpression
+																															(common::ShiftExpression
 																																expr+=
-																																(AdditiveExpression
+																																(common::AdditiveExpression
 																																	expr+=
-																																	(MultiplicativeExpression
+																																	(common::MultiplicativeExpression
 																																		expr+=
-																																		(CastExpression
+																																		(common::CastExpression
 																																			expr=
-																																			(UnaryExpression
+																																			(common::UnaryExpression
 																																				expr=
-																																				(PostfixExpression
+																																				(common::PostfixExpression
 																																					expr=
 																																					(PrimaryExpression
 																																						const++"201112L"

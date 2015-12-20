@@ -5,8 +5,12 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.google.inject.Inject;
+import com.google.inject.Injector;
+
 import at.jku.weiner.c.preprocess.preprocess.PreprocessFactory;
 import at.jku.weiner.c.preprocess.preprocess.PrimaryExpression;
+import at.jku.weiner.c.preprocess.tests.PreprocessInjectorProvider;
 import at.jku.weiner.c.preprocess.utils.expressions.ExpressionEvaluation;
 import at.jku.weiner.c.preprocess.utils.macros.DefinitionTable;
 

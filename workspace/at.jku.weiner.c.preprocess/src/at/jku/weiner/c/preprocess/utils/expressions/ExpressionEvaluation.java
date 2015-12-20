@@ -1,7 +1,11 @@
 package at.jku.weiner.c.preprocess.utils.expressions;
 
+import java.io.IOException;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+
+import com.google.inject.Injector;
 
 import at.jku.weiner.c.common.common.AdditiveExpression;
 import at.jku.weiner.c.common.common.AndExpression;
@@ -34,7 +38,7 @@ public class ExpressionEvaluation implements IExpressionWalker<Integer> {
 	private final boolean advanced;
 
 	public static boolean evaluateFor(final Expression expression,
-			final boolean advanced) {
+			final Injector injector, final boolean advanced) {
 		final ExpressionEvaluation evaluate = new ExpressionEvaluation(advanced);
 		final Integer value = evaluate.walkTo(expression);
 		final boolean result = ExpressionEvaluationUtils.convertFrom(value);
@@ -376,24 +380,25 @@ public class ExpressionEvaluation implements IExpressionWalker<Integer> {
 	private int evaluateForString(final String macroName,
 			final boolean isConst, final PostfixExpression postfix) {
 		final String code = this.getCode(macroName, postfix);
-		String macro = DefinitionTable.resolve(code);
+		final String macro = DefinitionTable.resolve(code);
 		try {
-			if (macro.startsWith("0b") || macro.startsWith("0B")) {
-				macro = macro.substring(2);
+			if (macro
+					.matches("(0b|B)?[0-9a-fA-F]+([.][0-9a-fA-F]+)*[uUlL]{0,2}")) {
+				return this.evaluateConstant(macro);
+			} else if (macro.matches("[_a-zA-Z$]+")) {
+				return ExpressionEvaluation.FALSE;
+			} else {
+				System.out.println("string='" + macro + "'");
+				final ExpressionParser parser = new ExpressionParser();
+				final Expression expression = parser.getExpression(macro);
+				final ExpressionEvaluation evaluater = new ExpressionEvaluation(
+						this.advanced);
+				final Integer result = evaluater.walkTo(expression);
+				return result;
 			}
-			macro = this.cutDecimalSuffix(macro);
-			final int result = Integer.valueOf(macro);
-			return result;
-		} catch (final NumberFormatException ex) {
-			if (this.advanced) {
-				return 0;
-			} else if (DefinitionTable.isDefined(macroName)) {
-				throw ex;
-			} else if (isConst) {
-				throw ex;
-			}
+		} catch (final IOException ex) {
+			throw new RuntimeException(ex);
 		}
-		return ExpressionEvaluation.FALSE;
 	}
 
 	private String getCode(final String macroName,

@@ -42,6 +42,7 @@ import java.util.List
 import org.eclipse.xtext.validation.Issue
 import org.eclipse.xtext.validation.CheckMode
 import org.eclipse.xtext.util.CancelIndicator
+import com.google.inject.Injector
 
 /**
  * Generates code from your model files on save.
@@ -53,6 +54,8 @@ class PreprocessGenerator implements IGenerator {
 	@Accessors String fileName = 'greetings.txt';
 	@Accessors boolean legacyMode = true;
 	@Accessors boolean advanced = false;
+	@Accessors Injector injector = null;
+	
 	@Inject
 	IResourceValidator validator;
 	
@@ -207,7 +210,7 @@ class PreprocessGenerator implements IGenerator {
 	}
 	
 	def String outputFor(Integer conditionalDirective, IfConditional obj) {
-		if (ExpressionEvaluation.evaluateFor(obj.expression as ConstantExpression, advanced)) {
+		if (ExpressionEvaluation.evaluateFor(obj.expression as ConstantExpression, injector, advanced)) {
 			conditionals.put(conditionalDirective, true);
 			return outputFor(obj.group).trim();
 		}
@@ -234,7 +237,7 @@ class PreprocessGenerator implements IGenerator {
  		if (condition) {
  			return "";
  		}
- 		if (ExpressionEvaluation.evaluateFor(obj.expression as ConstantExpression, advanced)) {
+ 		if (ExpressionEvaluation.evaluateFor(obj.expression as ConstantExpression, injector, advanced)) {
 			conditionals.put(conditionalDirective, true);
 			return outputFor(obj.group).trim();
 		}

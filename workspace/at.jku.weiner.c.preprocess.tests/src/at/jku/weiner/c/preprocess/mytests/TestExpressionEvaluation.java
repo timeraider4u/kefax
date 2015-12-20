@@ -1,11 +1,17 @@
 package at.jku.weiner.c.preprocess.mytests;
 
+import org.eclipse.xtext.junit4.util.ParseHelper;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.google.inject.Inject;
+import com.google.inject.Injector;
+
 import at.jku.weiner.c.common.common.UnaryOperator;
+import at.jku.weiner.c.preprocess.preprocess.Model;
+import at.jku.weiner.c.preprocess.tests.PreprocessInjectorProvider;
 import at.jku.weiner.c.preprocess.utils.expressions.ExpressionEvaluation;
 import at.jku.weiner.c.preprocess.utils.macros.DefinitionTable;
 

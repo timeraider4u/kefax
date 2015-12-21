@@ -6136,16 +6136,6 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return tWHITESPACE;
 	}
 	
-	//Common:
-	//	{Common};
-	public CommonGrammarAccess.CommonElements getCommonAccess() {
-		return gaCommon.getCommonAccess();
-	}
-	
-	public ParserRule getCommonRule() {
-		return getCommonAccess().getRule();
-	}
-	
 	//Constant1:
 	//	HEX_LITERAL
 	//	| OCTAL_LITERAL

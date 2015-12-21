@@ -45,7 +45,7 @@ import at.jku.weiner.c.common.services.CommonGrammarAccess;
     
     @Override
     protected String getFirstRuleName() {
-    	return "Common";	
+    	return "Expression";	
    	}
    	
    	@Override
@@ -60,39 +60,6 @@ import at.jku.weiner.c.common.services.CommonGrammarAccess;
         appendSkippedTokens();
     } 
 }
-
-
-
-
-// Entry rule entryRuleCommon
-entryRuleCommon returns [EObject current=null] 
-	:
-	{ newCompositeNode(grammarAccess.getCommonRule()); }
-	 iv_ruleCommon=ruleCommon 
-	 { $current=$iv_ruleCommon.current; } 
-	 EOF 
-;
-
-// Rule Common
-ruleCommon returns [EObject current=null] 
-    @init { enterRule();
-   		/*no init found*/
-    }
-    @after { leaveRule();
-    		/*no after found*/
-     }:
-
-(
-    {
-        $current = forceCreateModelElement(
-            grammarAccess.getCommonAccess().getCommonAction(),
-            $current);
-    }
-)
-
-
-;
-
 
 
 
@@ -2037,9 +2004,11 @@ rulePrimaryExpression returns [EObject current=null]
 )
 
 
+    |
+(
 this_SKW_LEFTPAREN_2=RULE_SKW_LEFTPAREN
     { 
-    newLeafNode(this_SKW_LEFTPAREN_2, grammarAccess.getPrimaryExpressionAccess().getSKW_LEFTPARENTerminalRuleCall_1_1()); 
+    newLeafNode(this_SKW_LEFTPAREN_2, grammarAccess.getPrimaryExpressionAccess().getSKW_LEFTPARENTerminalRuleCall_1_1_0()); 
     }
 
 
@@ -2047,7 +2016,7 @@ this_SKW_LEFTPAREN_2=RULE_SKW_LEFTPAREN
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getExprExpressionParserRuleCall_1_2_0()); 
+	        newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getExprExpressionParserRuleCall_1_1_1_0()); 
 	    }
 		lv_expr_3_0=ruleExpression		{
 	        if ($current==null) {
@@ -2067,9 +2036,11 @@ this_SKW_LEFTPAREN_2=RULE_SKW_LEFTPAREN
 
 this_SKW_RIGHTPAREN_4=RULE_SKW_RIGHTPAREN
     { 
-    newLeafNode(this_SKW_RIGHTPAREN_4, grammarAccess.getPrimaryExpressionAccess().getSKW_RIGHTPARENTerminalRuleCall_1_3()); 
+    newLeafNode(this_SKW_RIGHTPAREN_4, grammarAccess.getPrimaryExpressionAccess().getSKW_RIGHTPARENTerminalRuleCall_1_1_2()); 
     }
 
+
+)
 
 )
 

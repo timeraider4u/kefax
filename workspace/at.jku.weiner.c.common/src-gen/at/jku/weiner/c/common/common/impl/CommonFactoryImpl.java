@@ -64,7 +64,6 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory
   {
     switch (eClass.getClassifierID())
     {
-      case CommonPackage.COMMON: return createCommon();
       case CommonPackage.EXPRESSION: return createExpression();
       case CommonPackage.UNARY_OPERATOR: return createUnaryOperator();
       case CommonPackage.POSTFIX_EXPRESSION_SUFFIX: return createPostfixExpressionSuffix();
@@ -90,17 +89,6 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Common createCommon()
-  {
-    CommonImpl common = new CommonImpl();
-    return common;
   }
 
   /**

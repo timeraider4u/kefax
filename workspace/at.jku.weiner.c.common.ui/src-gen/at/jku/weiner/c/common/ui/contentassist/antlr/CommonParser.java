@@ -44,6 +44,7 @@ public class CommonParser extends AbstractContentAssistParser {
 					put(grammarAccess.getMultiplicativeExpressionAccess().getAlternatives_2_0(), "rule__MultiplicativeExpression__Alternatives_2_0");
 					put(grammarAccess.getUnaryExpressionAccess().getAlternatives_1(), "rule__UnaryExpression__Alternatives_1");
 					put(grammarAccess.getUnaryOperatorAccess().getAlternatives(), "rule__UnaryOperator__Alternatives");
+					put(grammarAccess.getPrimaryExpressionAccess().getAlternatives_1(), "rule__PrimaryExpression__Alternatives_1");
 					put(grammarAccess.getConstant1Access().getAlternatives(), "rule__Constant1__Alternatives");
 					put(grammarAccess.getConstant2Access().getAlternatives_1(), "rule__Constant2__Alternatives_1");
 					put(grammarAccess.getSpecialKeywordsAccess().getAlternatives(), "rule__SpecialKeywords__Alternatives");
@@ -81,7 +82,7 @@ public class CommonParser extends AbstractContentAssistParser {
 					put(grammarAccess.getArgumentExpressionListAccess().getGroup(), "rule__ArgumentExpressionList__Group__0");
 					put(grammarAccess.getArgumentExpressionListAccess().getGroup_1(), "rule__ArgumentExpressionList__Group_1__0");
 					put(grammarAccess.getPrimaryExpressionAccess().getGroup(), "rule__PrimaryExpression__Group__0");
-					put(grammarAccess.getPrimaryExpressionAccess().getGroup_1(), "rule__PrimaryExpression__Group_1__0");
+					put(grammarAccess.getPrimaryExpressionAccess().getGroup_1_1(), "rule__PrimaryExpression__Group_1_1__0");
 					put(grammarAccess.getConstant2Access().getGroup(), "rule__Constant2__Group__0");
 					put(grammarAccess.getExpressionAccess().getExpressionAssignment_1(), "rule__Expression__ExpressionAssignment_1");
 					put(grammarAccess.getConstantExpressionAccess().getExprAssignment_1(), "rule__ConstantExpression__ExprAssignment_1");
@@ -137,7 +138,7 @@ public class CommonParser extends AbstractContentAssistParser {
 					put(grammarAccess.getArgumentExpressionListAccess().getExprAssignment_0(), "rule__ArgumentExpressionList__ExprAssignment_0");
 					put(grammarAccess.getArgumentExpressionListAccess().getExprAssignment_1_1(), "rule__ArgumentExpressionList__ExprAssignment_1_1");
 					put(grammarAccess.getPrimaryExpressionAccess().getConstAssignment_1_0(), "rule__PrimaryExpression__ConstAssignment_1_0");
-					put(grammarAccess.getPrimaryExpressionAccess().getExprAssignment_1_2(), "rule__PrimaryExpression__ExprAssignment_1_2");
+					put(grammarAccess.getPrimaryExpressionAccess().getExprAssignment_1_1_1(), "rule__PrimaryExpression__ExprAssignment_1_1_1");
 					put(grammarAccess.getConstant2Access().getHexAssignment_1_0(), "rule__Constant2__HexAssignment_1_0");
 					put(grammarAccess.getConstant2Access().getOctAssignment_1_1(), "rule__Constant2__OctAssignment_1_1");
 					put(grammarAccess.getConstant2Access().getDecAssignment_1_2(), "rule__Constant2__DecAssignment_1_2");
@@ -155,7 +156,7 @@ public class CommonParser extends AbstractContentAssistParser {
 	protected Collection<FollowElement> getFollowElements(AbstractInternalContentAssistParser parser) {
 		try {
 			at.jku.weiner.c.common.ui.contentassist.antlr.internal.InternalCommonParser typedParser = (at.jku.weiner.c.common.ui.contentassist.antlr.internal.InternalCommonParser) parser;
-			typedParser.entryRuleCommon();
+			typedParser.entryRuleExpression();
 			return typedParser.getFollowElements();
 		} catch(RecognitionException ex) {
 			throw new RuntimeException(ex);

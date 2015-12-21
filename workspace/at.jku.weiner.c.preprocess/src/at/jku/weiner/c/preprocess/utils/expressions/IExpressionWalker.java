@@ -56,4 +56,6 @@ public interface IExpressionWalker<T> {
 
 	public T walkTo(PrimaryExpression expression);
 
+	public T walkTo(at.jku.weiner.c.common.common.PrimaryExpression expression);
+
 }

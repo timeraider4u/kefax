@@ -931,15 +931,15 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cIFTerminalRuleCall_9 = (RuleCall)cAlternatives.eContents().get(9);
 		private final RuleCall cDEFINEDTerminalRuleCall_10 = (RuleCall)cAlternatives.eContents().get(10);
 		private final RuleCall cSpecialKeywordsParserRuleCall_11 = (RuleCall)cAlternatives.eContents().get(11);
-		private final RuleCall cConstantParserRuleCall_12 = (RuleCall)cAlternatives.eContents().get(12);
+		private final RuleCall cConstant1ParserRuleCall_12 = (RuleCall)cAlternatives.eContents().get(12);
 		
 		//MyCode:
 		//	ID | SPECIAL | INCLUDE | DEFINE | ERROR | PRAGMA
 		//	| IFDEF | ENDIF | IFNOTDEF | IF | DEFINED
-		//	| SpecialKeywords | Constant;
+		//	| SpecialKeywords | Constant1;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//ID | SPECIAL | INCLUDE | DEFINE | ERROR | PRAGMA | IFDEF | ENDIF | IFNOTDEF | IF | DEFINED | SpecialKeywords | Constant
+		//ID | SPECIAL | INCLUDE | DEFINE | ERROR | PRAGMA | IFDEF | ENDIF | IFNOTDEF | IF | DEFINED | SpecialKeywords | Constant1
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//ID
@@ -978,8 +978,8 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//SpecialKeywords
 		public RuleCall getSpecialKeywordsParserRuleCall_11() { return cSpecialKeywordsParserRuleCall_11; }
 		
-		//Constant
-		public RuleCall getConstantParserRuleCall_12() { return cConstantParserRuleCall_12; }
+		//Constant1
+		public RuleCall getConstant1ParserRuleCall_12() { return cConstant1ParserRuleCall_12; }
 	}
 	public class MyDefineLineElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.MyDefineLine");
@@ -1076,7 +1076,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cIdIDTerminalRuleCall_1_1_2_0 = (RuleCall)cIdAssignment_1_1_2.eContents().get(0);
 		private final RuleCall cSKW_RIGHTPARENTerminalRuleCall_1_1_3 = (RuleCall)cGroup_1_1.eContents().get(3);
 		private final Assignment cConstAssignment_1_2 = (Assignment)cAlternatives_1.eContents().get(2);
-		private final RuleCall cConstConstantParserRuleCall_1_2_0 = (RuleCall)cConstAssignment_1_2.eContents().get(0);
+		private final RuleCall cConstConstant1ParserRuleCall_1_2_0 = (RuleCall)cConstAssignment_1_2.eContents().get(0);
 		private final Group cGroup_1_3 = (Group)cAlternatives_1.eContents().get(3);
 		private final RuleCall cSKW_LEFTPARENTerminalRuleCall_1_3_0 = (RuleCall)cGroup_1_3.eContents().get(0);
 		private final Assignment cExprAssignment_1_3_1 = (Assignment)cGroup_1_3.eContents().get(1);
@@ -1087,19 +1087,19 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//PrimaryExpression Expression:
 		//	{PrimaryExpression} (defined?=DEFINED? id=ID
 		//	| defined?=DEFINED? SKW_LEFTPAREN id=ID SKW_RIGHTPAREN
-		//	| const=Constant
+		//	| const=Constant1
 		//	//|	string+=STRING_LITERAL+ // reachable over Constant!
 		//	| SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN)
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{PrimaryExpression} (defined?=DEFINED? id=ID | defined?=DEFINED? SKW_LEFTPAREN id=ID SKW_RIGHTPAREN | const=Constant //|	string+=STRING_LITERAL+ // reachable over Constant!
+		//{PrimaryExpression} (defined?=DEFINED? id=ID | defined?=DEFINED? SKW_LEFTPAREN id=ID SKW_RIGHTPAREN | const=Constant1 //|	string+=STRING_LITERAL+ // reachable over Constant!
 		//| SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN)
 		public Group getGroup() { return cGroup; }
 		
 		//{PrimaryExpression}
 		public Action getPrimaryExpressionAction_0() { return cPrimaryExpressionAction_0; }
 		
-		//(defined?=DEFINED? id=ID | defined?=DEFINED? SKW_LEFTPAREN id=ID SKW_RIGHTPAREN | const=Constant //|	string+=STRING_LITERAL+ // reachable over Constant!
+		//(defined?=DEFINED? id=ID | defined?=DEFINED? SKW_LEFTPAREN id=ID SKW_RIGHTPAREN | const=Constant1 //|	string+=STRING_LITERAL+ // reachable over Constant!
 		//| SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
@@ -1139,11 +1139,11 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//SKW_RIGHTPAREN
 		public RuleCall getSKW_RIGHTPARENTerminalRuleCall_1_1_3() { return cSKW_RIGHTPARENTerminalRuleCall_1_1_3; }
 		
-		//const=Constant
+		//const=Constant1
 		public Assignment getConstAssignment_1_2() { return cConstAssignment_1_2; }
 		
-		//Constant
-		public RuleCall getConstConstantParserRuleCall_1_2_0() { return cConstConstantParserRuleCall_1_2_0; }
+		//Constant1
+		public RuleCall getConstConstant1ParserRuleCall_1_2_0() { return cConstConstant1ParserRuleCall_1_2_0; }
 		
 		//SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN
 		public Group getGroup_1_3() { return cGroup_1_3; }
@@ -1159,51 +1159,6 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//SKW_RIGHTPAREN
 		public RuleCall getSKW_RIGHTPARENTerminalRuleCall_1_3_2() { return cSKW_RIGHTPARENTerminalRuleCall_1_3_2; }
-	}
-	public class ConstantElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.Constant");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cHEX_LITERALTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cOCTAL_LITERALTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cDECIMAL_LITERALTerminalRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cCHAR_LITERALTerminalRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cSTRING_LITERALTerminalRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
-		private final RuleCall cFLOAT_LITERALTerminalRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
-		private final RuleCall cBIN_LITERALTerminalRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
-		
-		//Constant:
-		//	HEX_LITERAL
-		//	| OCTAL_LITERAL
-		//	| DECIMAL_LITERAL
-		//	| CHAR_LITERAL
-		//	| STRING_LITERAL
-		//	| FLOAT_LITERAL
-		//	| BIN_LITERAL;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL | CHAR_LITERAL | STRING_LITERAL | FLOAT_LITERAL | BIN_LITERAL
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//HEX_LITERAL
-		public RuleCall getHEX_LITERALTerminalRuleCall_0() { return cHEX_LITERALTerminalRuleCall_0; }
-		
-		//OCTAL_LITERAL
-		public RuleCall getOCTAL_LITERALTerminalRuleCall_1() { return cOCTAL_LITERALTerminalRuleCall_1; }
-		
-		//DECIMAL_LITERAL
-		public RuleCall getDECIMAL_LITERALTerminalRuleCall_2() { return cDECIMAL_LITERALTerminalRuleCall_2; }
-		
-		//CHAR_LITERAL
-		public RuleCall getCHAR_LITERALTerminalRuleCall_3() { return cCHAR_LITERALTerminalRuleCall_3; }
-		
-		//STRING_LITERAL
-		public RuleCall getSTRING_LITERALTerminalRuleCall_4() { return cSTRING_LITERALTerminalRuleCall_4; }
-		
-		//FLOAT_LITERAL
-		public RuleCall getFLOAT_LITERALTerminalRuleCall_5() { return cFLOAT_LITERALTerminalRuleCall_5; }
-		
-		//BIN_LITERAL
-		public RuleCall getBIN_LITERALTerminalRuleCall_6() { return cBIN_LITERALTerminalRuleCall_6; }
 	}
 	
 	
@@ -1234,7 +1189,6 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	private final MyCodeLineElements pMyCodeLine;
 	private final MyCodeLineExtendedElements pMyCodeLineExtended;
 	private final PrimaryExpressionElements pPrimaryExpression;
-	private final ConstantElements pConstant;
 	private final TerminalRule tHASH;
 	private final TerminalRule tINCLUDE;
 	private final TerminalRule tDEFINE;
@@ -1286,7 +1240,6 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		this.pMyCodeLine = new MyCodeLineElements();
 		this.pMyCodeLineExtended = new MyCodeLineExtendedElements();
 		this.pPrimaryExpression = new PrimaryExpressionElements();
-		this.pConstant = new ConstantElements();
 		this.tHASH = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.HASH");
 		this.tINCLUDE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.INCLUDE");
 		this.tDEFINE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.DEFINE");
@@ -1578,7 +1531,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//MyCode:
 	//	ID | SPECIAL | INCLUDE | DEFINE | ERROR | PRAGMA
 	//	| IFDEF | ENDIF | IFNOTDEF | IF | DEFINED
-	//	| SpecialKeywords | Constant;
+	//	| SpecialKeywords | Constant1;
 	public MyCodeElements getMyCodeAccess() {
 		return pMyCode;
 	}
@@ -1621,7 +1574,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//PrimaryExpression Expression:
 	//	{PrimaryExpression} (defined?=DEFINED? id=ID
 	//	| defined?=DEFINED? SKW_LEFTPAREN id=ID SKW_RIGHTPAREN
-	//	| const=Constant
+	//	| const=Constant1
 	//	//|	string+=STRING_LITERAL+ // reachable over Constant!
 	//	| SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN)
 	public PrimaryExpressionElements getPrimaryExpressionAccess() {
@@ -1630,22 +1583,6 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getPrimaryExpressionRule() {
 		return getPrimaryExpressionAccess().getRule();
-	}
-	
-	//Constant:
-	//	HEX_LITERAL
-	//	| OCTAL_LITERAL
-	//	| DECIMAL_LITERAL
-	//	| CHAR_LITERAL
-	//	| STRING_LITERAL
-	//	| FLOAT_LITERAL
-	//	| BIN_LITERAL;
-	public ConstantElements getConstantAccess() {
-		return pConstant;
-	}
-	
-	public ParserRule getConstantRule() {
-		return getConstantAccess().getRule();
 	}
 	
 	//terminal HASH:
@@ -1730,16 +1667,6 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//	'pragma';
 	public TerminalRule getPRAGMARule() {
 		return tPRAGMA;
-	}
-	
-	//Common:
-	//	{Common};
-	public CommonGrammarAccess.CommonElements getCommonAccess() {
-		return gaCommon.getCommonAccess();
-	}
-	
-	public ParserRule getCommonRule() {
-		return getCommonAccess().getRule();
 	}
 	
 	//Expression hidden(WHITESPACE, BLOCK_COMMENT, LINE_COMMENT, LINEBREAK):

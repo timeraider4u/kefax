@@ -7,7 +7,6 @@
     editorPluginID="at.jku.weiner.c.common.editor" runtimeVersion="2.11">
   <genPackages prefix="Common" basePackage="at.jku.weiner.c.common" disposableProviderFactory="true"
       fileExtensions="cdt.common" ecorePackage="Common.ecore#/">
-    <genClasses ecoreClass="Common.ecore#//Common"/>
     <genClasses ecoreClass="Common.ecore#//Expression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Common.ecore#//Expression/expression"/>
     </genClasses>

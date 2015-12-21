@@ -19025,7 +19025,7 @@ public class InternalParserParser extends AbstractInternalAntlrParser {
 
 
 	// $ANTLR start "entryRuleConstant2"
-	// InternalParser.g:9765:1: entryRuleConstant2 returns [EObject current=null] :iv_ruleConstant2= ruleConstant2 EOF ;
+	// InternalParser.g:9763:1: entryRuleConstant2 returns [EObject current=null] :iv_ruleConstant2= ruleConstant2 EOF ;
 	public final EObject entryRuleConstant2() throws RecognitionException {
 		EObject current = null;
 
@@ -19036,8 +19036,8 @@ public class InternalParserParser extends AbstractInternalAntlrParser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 159) ) { return current; }
 
-			// InternalParser.g:9766:2: (iv_ruleConstant2= ruleConstant2 EOF )
-			// InternalParser.g:9767:2: iv_ruleConstant2= ruleConstant2 EOF
+			// InternalParser.g:9764:2: (iv_ruleConstant2= ruleConstant2 EOF )
+			// InternalParser.g:9765:2: iv_ruleConstant2= ruleConstant2 EOF
 			{
 			if ( state.backtracking==0 ) { newCompositeNode(grammarAccess.getConstant2Rule()); }
 			pushFollow(FollowSets000.FOLLOW_1);
@@ -19067,7 +19067,7 @@ public class InternalParserParser extends AbstractInternalAntlrParser {
 
 
 	// $ANTLR start "ruleConstant2"
-	// InternalParser.g:9774:1: ruleConstant2 returns [EObject current=null] : ( () ( ( (lv_hex_1_0= RULE_HEX_LITERAL ) ) | ( (lv_oct_2_0= RULE_OCTAL_LITERAL ) ) | ( (lv_dec_3_0= RULE_DECIMAL_LITERAL ) ) | ( (lv_ch_4_0= RULE_CHAR_LITERAL ) ) | ( (lv_str_5_0= RULE_STRING_LITERAL ) ) | ( (lv_float_6_0= RULE_FLOAT_LITERAL ) ) | ( (lv_bin_7_0= RULE_BIN_LITERAL ) ) ) ) ;
+	// InternalParser.g:9772:1: ruleConstant2 returns [EObject current=null] : ( () ( ( (lv_hex_1_0= RULE_HEX_LITERAL ) ) | ( (lv_oct_2_0= RULE_OCTAL_LITERAL ) ) | ( (lv_dec_3_0= RULE_DECIMAL_LITERAL ) ) | ( (lv_ch_4_0= RULE_CHAR_LITERAL ) ) | ( (lv_str_5_0= RULE_STRING_LITERAL ) ) | ( (lv_float_6_0= RULE_FLOAT_LITERAL ) ) | ( (lv_bin_7_0= RULE_BIN_LITERAL ) ) ) ) ;
 	public final EObject ruleConstant2() throws RecognitionException {
 		EObject current = null;
 
@@ -19087,14 +19087,14 @@ public class InternalParserParser extends AbstractInternalAntlrParser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 160) ) { return current; }
 
-			// InternalParser.g:9780:7: ( ( () ( ( (lv_hex_1_0= RULE_HEX_LITERAL ) ) | ( (lv_oct_2_0= RULE_OCTAL_LITERAL ) ) | ( (lv_dec_3_0= RULE_DECIMAL_LITERAL ) ) | ( (lv_ch_4_0= RULE_CHAR_LITERAL ) ) | ( (lv_str_5_0= RULE_STRING_LITERAL ) ) | ( (lv_float_6_0= RULE_FLOAT_LITERAL ) ) | ( (lv_bin_7_0= RULE_BIN_LITERAL ) ) ) ) )
-			// InternalParser.g:9782:2: ( () ( ( (lv_hex_1_0= RULE_HEX_LITERAL ) ) | ( (lv_oct_2_0= RULE_OCTAL_LITERAL ) ) | ( (lv_dec_3_0= RULE_DECIMAL_LITERAL ) ) | ( (lv_ch_4_0= RULE_CHAR_LITERAL ) ) | ( (lv_str_5_0= RULE_STRING_LITERAL ) ) | ( (lv_float_6_0= RULE_FLOAT_LITERAL ) ) | ( (lv_bin_7_0= RULE_BIN_LITERAL ) ) ) )
+			// InternalParser.g:9778:7: ( ( () ( ( (lv_hex_1_0= RULE_HEX_LITERAL ) ) | ( (lv_oct_2_0= RULE_OCTAL_LITERAL ) ) | ( (lv_dec_3_0= RULE_DECIMAL_LITERAL ) ) | ( (lv_ch_4_0= RULE_CHAR_LITERAL ) ) | ( (lv_str_5_0= RULE_STRING_LITERAL ) ) | ( (lv_float_6_0= RULE_FLOAT_LITERAL ) ) | ( (lv_bin_7_0= RULE_BIN_LITERAL ) ) ) ) )
+			// InternalParser.g:9780:2: ( () ( ( (lv_hex_1_0= RULE_HEX_LITERAL ) ) | ( (lv_oct_2_0= RULE_OCTAL_LITERAL ) ) | ( (lv_dec_3_0= RULE_DECIMAL_LITERAL ) ) | ( (lv_ch_4_0= RULE_CHAR_LITERAL ) ) | ( (lv_str_5_0= RULE_STRING_LITERAL ) ) | ( (lv_float_6_0= RULE_FLOAT_LITERAL ) ) | ( (lv_bin_7_0= RULE_BIN_LITERAL ) ) ) )
 			{
-			// InternalParser.g:9782:2: ( () ( ( (lv_hex_1_0= RULE_HEX_LITERAL ) ) | ( (lv_oct_2_0= RULE_OCTAL_LITERAL ) ) | ( (lv_dec_3_0= RULE_DECIMAL_LITERAL ) ) | ( (lv_ch_4_0= RULE_CHAR_LITERAL ) ) | ( (lv_str_5_0= RULE_STRING_LITERAL ) ) | ( (lv_float_6_0= RULE_FLOAT_LITERAL ) ) | ( (lv_bin_7_0= RULE_BIN_LITERAL ) ) ) )
-			// InternalParser.g:9783:2: () ( ( (lv_hex_1_0= RULE_HEX_LITERAL ) ) | ( (lv_oct_2_0= RULE_OCTAL_LITERAL ) ) | ( (lv_dec_3_0= RULE_DECIMAL_LITERAL ) ) | ( (lv_ch_4_0= RULE_CHAR_LITERAL ) ) | ( (lv_str_5_0= RULE_STRING_LITERAL ) ) | ( (lv_float_6_0= RULE_FLOAT_LITERAL ) ) | ( (lv_bin_7_0= RULE_BIN_LITERAL ) ) )
+			// InternalParser.g:9780:2: ( () ( ( (lv_hex_1_0= RULE_HEX_LITERAL ) ) | ( (lv_oct_2_0= RULE_OCTAL_LITERAL ) ) | ( (lv_dec_3_0= RULE_DECIMAL_LITERAL ) ) | ( (lv_ch_4_0= RULE_CHAR_LITERAL ) ) | ( (lv_str_5_0= RULE_STRING_LITERAL ) ) | ( (lv_float_6_0= RULE_FLOAT_LITERAL ) ) | ( (lv_bin_7_0= RULE_BIN_LITERAL ) ) ) )
+			// InternalParser.g:9781:2: () ( ( (lv_hex_1_0= RULE_HEX_LITERAL ) ) | ( (lv_oct_2_0= RULE_OCTAL_LITERAL ) ) | ( (lv_dec_3_0= RULE_DECIMAL_LITERAL ) ) | ( (lv_ch_4_0= RULE_CHAR_LITERAL ) ) | ( (lv_str_5_0= RULE_STRING_LITERAL ) ) | ( (lv_float_6_0= RULE_FLOAT_LITERAL ) ) | ( (lv_bin_7_0= RULE_BIN_LITERAL ) ) )
 			{
-			// InternalParser.g:9783:2: ()
-			// InternalParser.g:9784:2: 
+			// InternalParser.g:9781:2: ()
+			// InternalParser.g:9782:2: 
 			{
 			if ( state.backtracking==0 ) { 
 				  /* */ 
@@ -19106,7 +19106,7 @@ public class InternalParserParser extends AbstractInternalAntlrParser {
 			    }
 			}
 
-			// InternalParser.g:9795:0: ( ( (lv_hex_1_0= RULE_HEX_LITERAL ) ) | ( (lv_oct_2_0= RULE_OCTAL_LITERAL ) ) | ( (lv_dec_3_0= RULE_DECIMAL_LITERAL ) ) | ( (lv_ch_4_0= RULE_CHAR_LITERAL ) ) | ( (lv_str_5_0= RULE_STRING_LITERAL ) ) | ( (lv_float_6_0= RULE_FLOAT_LITERAL ) ) | ( (lv_bin_7_0= RULE_BIN_LITERAL ) ) )
+			// InternalParser.g:9793:0: ( ( (lv_hex_1_0= RULE_HEX_LITERAL ) ) | ( (lv_oct_2_0= RULE_OCTAL_LITERAL ) ) | ( (lv_dec_3_0= RULE_DECIMAL_LITERAL ) ) | ( (lv_ch_4_0= RULE_CHAR_LITERAL ) ) | ( (lv_str_5_0= RULE_STRING_LITERAL ) ) | ( (lv_float_6_0= RULE_FLOAT_LITERAL ) ) | ( (lv_bin_7_0= RULE_BIN_LITERAL ) ) )
 			int alt94=7;
 			switch ( input.LA(1) ) {
 			case RULE_HEX_LITERAL:
@@ -19152,13 +19152,13 @@ public class InternalParserParser extends AbstractInternalAntlrParser {
 			}
 			switch (alt94) {
 				case 1 :
-					// InternalParser.g:9796:0: ( (lv_hex_1_0= RULE_HEX_LITERAL ) )
+					// InternalParser.g:9794:0: ( (lv_hex_1_0= RULE_HEX_LITERAL ) )
 					{
-					// InternalParser.g:9796:3: ( (lv_hex_1_0= RULE_HEX_LITERAL ) )
-					// InternalParser.g:9797:3: (lv_hex_1_0= RULE_HEX_LITERAL )
+					// InternalParser.g:9794:3: ( (lv_hex_1_0= RULE_HEX_LITERAL ) )
+					// InternalParser.g:9795:3: (lv_hex_1_0= RULE_HEX_LITERAL )
 					{
-					// InternalParser.g:9797:3: (lv_hex_1_0= RULE_HEX_LITERAL )
-					// InternalParser.g:9798:3: lv_hex_1_0= RULE_HEX_LITERAL
+					// InternalParser.g:9795:3: (lv_hex_1_0= RULE_HEX_LITERAL )
+					// InternalParser.g:9796:3: lv_hex_1_0= RULE_HEX_LITERAL
 					{
 					lv_hex_1_0=(Token)match(input,RULE_HEX_LITERAL,FollowSets000.FOLLOW_2); if (state.failed) return current;
 					if ( state.backtracking==0 ) {
@@ -19181,13 +19181,13 @@ public class InternalParserParser extends AbstractInternalAntlrParser {
 					}
 					break;
 				case 2 :
-					// InternalParser.g:9818:0: ( (lv_oct_2_0= RULE_OCTAL_LITERAL ) )
+					// InternalParser.g:9816:0: ( (lv_oct_2_0= RULE_OCTAL_LITERAL ) )
 					{
-					// InternalParser.g:9818:3: ( (lv_oct_2_0= RULE_OCTAL_LITERAL ) )
-					// InternalParser.g:9819:3: (lv_oct_2_0= RULE_OCTAL_LITERAL )
+					// InternalParser.g:9816:3: ( (lv_oct_2_0= RULE_OCTAL_LITERAL ) )
+					// InternalParser.g:9817:3: (lv_oct_2_0= RULE_OCTAL_LITERAL )
 					{
-					// InternalParser.g:9819:3: (lv_oct_2_0= RULE_OCTAL_LITERAL )
-					// InternalParser.g:9820:3: lv_oct_2_0= RULE_OCTAL_LITERAL
+					// InternalParser.g:9817:3: (lv_oct_2_0= RULE_OCTAL_LITERAL )
+					// InternalParser.g:9818:3: lv_oct_2_0= RULE_OCTAL_LITERAL
 					{
 					lv_oct_2_0=(Token)match(input,RULE_OCTAL_LITERAL,FollowSets000.FOLLOW_2); if (state.failed) return current;
 					if ( state.backtracking==0 ) {
@@ -19210,13 +19210,13 @@ public class InternalParserParser extends AbstractInternalAntlrParser {
 					}
 					break;
 				case 3 :
-					// InternalParser.g:9840:0: ( (lv_dec_3_0= RULE_DECIMAL_LITERAL ) )
+					// InternalParser.g:9838:0: ( (lv_dec_3_0= RULE_DECIMAL_LITERAL ) )
 					{
-					// InternalParser.g:9840:3: ( (lv_dec_3_0= RULE_DECIMAL_LITERAL ) )
-					// InternalParser.g:9841:3: (lv_dec_3_0= RULE_DECIMAL_LITERAL )
+					// InternalParser.g:9838:3: ( (lv_dec_3_0= RULE_DECIMAL_LITERAL ) )
+					// InternalParser.g:9839:3: (lv_dec_3_0= RULE_DECIMAL_LITERAL )
 					{
-					// InternalParser.g:9841:3: (lv_dec_3_0= RULE_DECIMAL_LITERAL )
-					// InternalParser.g:9842:3: lv_dec_3_0= RULE_DECIMAL_LITERAL
+					// InternalParser.g:9839:3: (lv_dec_3_0= RULE_DECIMAL_LITERAL )
+					// InternalParser.g:9840:3: lv_dec_3_0= RULE_DECIMAL_LITERAL
 					{
 					lv_dec_3_0=(Token)match(input,RULE_DECIMAL_LITERAL,FollowSets000.FOLLOW_2); if (state.failed) return current;
 					if ( state.backtracking==0 ) {
@@ -19239,13 +19239,13 @@ public class InternalParserParser extends AbstractInternalAntlrParser {
 					}
 					break;
 				case 4 :
-					// InternalParser.g:9862:0: ( (lv_ch_4_0= RULE_CHAR_LITERAL ) )
+					// InternalParser.g:9860:0: ( (lv_ch_4_0= RULE_CHAR_LITERAL ) )
 					{
-					// InternalParser.g:9862:3: ( (lv_ch_4_0= RULE_CHAR_LITERAL ) )
-					// InternalParser.g:9863:3: (lv_ch_4_0= RULE_CHAR_LITERAL )
+					// InternalParser.g:9860:3: ( (lv_ch_4_0= RULE_CHAR_LITERAL ) )
+					// InternalParser.g:9861:3: (lv_ch_4_0= RULE_CHAR_LITERAL )
 					{
-					// InternalParser.g:9863:3: (lv_ch_4_0= RULE_CHAR_LITERAL )
-					// InternalParser.g:9864:3: lv_ch_4_0= RULE_CHAR_LITERAL
+					// InternalParser.g:9861:3: (lv_ch_4_0= RULE_CHAR_LITERAL )
+					// InternalParser.g:9862:3: lv_ch_4_0= RULE_CHAR_LITERAL
 					{
 					lv_ch_4_0=(Token)match(input,RULE_CHAR_LITERAL,FollowSets000.FOLLOW_2); if (state.failed) return current;
 					if ( state.backtracking==0 ) {
@@ -19268,13 +19268,13 @@ public class InternalParserParser extends AbstractInternalAntlrParser {
 					}
 					break;
 				case 5 :
-					// InternalParser.g:9884:0: ( (lv_str_5_0= RULE_STRING_LITERAL ) )
+					// InternalParser.g:9882:0: ( (lv_str_5_0= RULE_STRING_LITERAL ) )
 					{
-					// InternalParser.g:9884:3: ( (lv_str_5_0= RULE_STRING_LITERAL ) )
-					// InternalParser.g:9885:3: (lv_str_5_0= RULE_STRING_LITERAL )
+					// InternalParser.g:9882:3: ( (lv_str_5_0= RULE_STRING_LITERAL ) )
+					// InternalParser.g:9883:3: (lv_str_5_0= RULE_STRING_LITERAL )
 					{
-					// InternalParser.g:9885:3: (lv_str_5_0= RULE_STRING_LITERAL )
-					// InternalParser.g:9886:3: lv_str_5_0= RULE_STRING_LITERAL
+					// InternalParser.g:9883:3: (lv_str_5_0= RULE_STRING_LITERAL )
+					// InternalParser.g:9884:3: lv_str_5_0= RULE_STRING_LITERAL
 					{
 					lv_str_5_0=(Token)match(input,RULE_STRING_LITERAL,FollowSets000.FOLLOW_2); if (state.failed) return current;
 					if ( state.backtracking==0 ) {
@@ -19297,13 +19297,13 @@ public class InternalParserParser extends AbstractInternalAntlrParser {
 					}
 					break;
 				case 6 :
-					// InternalParser.g:9906:0: ( (lv_float_6_0= RULE_FLOAT_LITERAL ) )
+					// InternalParser.g:9904:0: ( (lv_float_6_0= RULE_FLOAT_LITERAL ) )
 					{
-					// InternalParser.g:9906:3: ( (lv_float_6_0= RULE_FLOAT_LITERAL ) )
-					// InternalParser.g:9907:3: (lv_float_6_0= RULE_FLOAT_LITERAL )
+					// InternalParser.g:9904:3: ( (lv_float_6_0= RULE_FLOAT_LITERAL ) )
+					// InternalParser.g:9905:3: (lv_float_6_0= RULE_FLOAT_LITERAL )
 					{
-					// InternalParser.g:9907:3: (lv_float_6_0= RULE_FLOAT_LITERAL )
-					// InternalParser.g:9908:3: lv_float_6_0= RULE_FLOAT_LITERAL
+					// InternalParser.g:9905:3: (lv_float_6_0= RULE_FLOAT_LITERAL )
+					// InternalParser.g:9906:3: lv_float_6_0= RULE_FLOAT_LITERAL
 					{
 					lv_float_6_0=(Token)match(input,RULE_FLOAT_LITERAL,FollowSets000.FOLLOW_2); if (state.failed) return current;
 					if ( state.backtracking==0 ) {
@@ -19326,13 +19326,13 @@ public class InternalParserParser extends AbstractInternalAntlrParser {
 					}
 					break;
 				case 7 :
-					// InternalParser.g:9928:3: ( (lv_bin_7_0= RULE_BIN_LITERAL ) )
+					// InternalParser.g:9926:3: ( (lv_bin_7_0= RULE_BIN_LITERAL ) )
 					{
-					// InternalParser.g:9928:3: ( (lv_bin_7_0= RULE_BIN_LITERAL ) )
-					// InternalParser.g:9929:3: (lv_bin_7_0= RULE_BIN_LITERAL )
+					// InternalParser.g:9926:3: ( (lv_bin_7_0= RULE_BIN_LITERAL ) )
+					// InternalParser.g:9927:3: (lv_bin_7_0= RULE_BIN_LITERAL )
 					{
-					// InternalParser.g:9929:3: (lv_bin_7_0= RULE_BIN_LITERAL )
-					// InternalParser.g:9930:3: lv_bin_7_0= RULE_BIN_LITERAL
+					// InternalParser.g:9927:3: (lv_bin_7_0= RULE_BIN_LITERAL )
+					// InternalParser.g:9928:3: lv_bin_7_0= RULE_BIN_LITERAL
 					{
 					lv_bin_7_0=(Token)match(input,RULE_BIN_LITERAL,FollowSets000.FOLLOW_2); if (state.failed) return current;
 					if ( state.backtracking==0 ) {

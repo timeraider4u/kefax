@@ -9759,8 +9759,6 @@ ruleConstantExpression returns [EObject current=null]
 
 
 
-
-
 // Entry rule entryRuleConstant2
 entryRuleConstant2 returns [EObject current=null] 
 	:

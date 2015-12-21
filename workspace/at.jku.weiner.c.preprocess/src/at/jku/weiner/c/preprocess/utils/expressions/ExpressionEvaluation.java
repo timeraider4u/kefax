@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 
 import com.google.inject.Injector;
 
@@ -36,16 +37,19 @@ public class ExpressionEvaluation implements IExpressionWalker<Integer> {
 	public static final Integer FALSE = 0;
 
 	private final boolean advanced;
+	private final ResourceSet set;
 
 	public static boolean evaluateFor(final Expression expression,
-			final Injector injector, final boolean advanced) {
-		final ExpressionEvaluation evaluate = new ExpressionEvaluation(advanced);
+			final ResourceSet set, final boolean advanced) {
+		final ExpressionEvaluation evaluate = new ExpressionEvaluation(set,
+				advanced);
 		final Integer value = evaluate.walkTo(expression);
 		final boolean result = ExpressionEvaluationUtils.convertFrom(value);
 		return result;
 	}
 
-	public ExpressionEvaluation(final boolean advanced) {
+	public ExpressionEvaluation(final ResourceSet set, final boolean advanced) {
+		this.set = set;
 		this.advanced = advanced;
 	}
 
@@ -95,20 +99,17 @@ public class ExpressionEvaluation implements IExpressionWalker<Integer> {
 
 	@Override
 	public Integer walkTo(final ConditionalExpression expression) {
-		final int result = this.walkTo((Expression) expression.getExpr());
+		final int a = this.walkTo((Expression) expression.getExpr());
 		final Expression qExpr = (Expression) expression.getQExpr();
 		final Expression cExpr = (Expression) expression.getCExpr();
 		if ((qExpr == null) || (cExpr == null)) {
-			return result;
+			return a;
 		}
-		final boolean a = ExpressionEvaluationUtils.convertFrom(result);
-		final boolean b = ExpressionEvaluationUtils.convertFrom(this
-				.walkTo(qExpr));
-		final boolean c = ExpressionEvaluationUtils.convertFrom(this
-				.walkTo(cExpr));
-		final boolean total = a ? b : c;
-		final int totalResult = ExpressionEvaluationUtils.convertFrom(total);
-		return totalResult;
+		final Integer b = this.walkTo(qExpr);
+		final Integer c = this.walkTo(cExpr);
+		final boolean isTrue = ExpressionEvaluationUtils.convertFrom(a);
+		final Integer result = isTrue ? b : c;
+		return result;
 	}
 
 	@Override
@@ -322,8 +323,27 @@ public class ExpressionEvaluation implements IExpressionWalker<Integer> {
 
 	@Override
 	public Integer walkTo(final PostfixExpression expression) {
-		final int result = this
-				.walkTo((PrimaryExpression) expression.getExpr());
+		final Expression expr = expression.getExpr();
+		if (expr instanceof PrimaryExpression) {
+			final int result = this.walkTo((PrimaryExpression) expr);
+			return result;
+		} else {
+			final int result = this
+					.walkTo((at.jku.weiner.c.common.common.PrimaryExpression) expr);
+			return result;
+		}
+	}
+
+	@Override
+	public Integer walkTo(
+			final at.jku.weiner.c.common.common.PrimaryExpression expression) {
+		final Expression expr = expression.getExpr();
+		if (expr != null) {
+			final Integer result = this.walkTo(expr);
+			return result;
+		}
+		final String constant = expression.getConst();
+		final Integer result = this.evaluateConstant(constant);
 		return result;
 	}
 
@@ -363,7 +383,7 @@ public class ExpressionEvaluation implements IExpressionWalker<Integer> {
 			final int result = Integer.valueOf(constant);
 			return result;
 		} catch (final NumberFormatException ex) {
-			throw ex;
+			return ExpressionEvaluation.FALSE;
 		}
 	}
 
@@ -382,19 +402,16 @@ public class ExpressionEvaluation implements IExpressionWalker<Integer> {
 		final String code = this.getCode(macroName, postfix);
 		final String macro = DefinitionTable.resolve(code);
 		try {
-			if (macro
-					.matches("(0b|B)?[0-9a-fA-F]+([.][0-9a-fA-F]+)*[uUlL]{0,2}")) {
-				return this.evaluateConstant(macro);
-			} else if (macro.matches("[_a-zA-Z$]+")) {
-				return ExpressionEvaluation.FALSE;
-			} else {
-				System.out.println("string='" + macro + "'");
-				final ExpressionParser parser = new ExpressionParser();
+			if (macro.matches(".*[+\\-*/%><|&^]+.*")) {
+				// System.out.println("string='" + macro + "'");
+				final ExpressionParser parser = new ExpressionParser(this.set);
 				final Expression expression = parser.getExpression(macro);
 				final ExpressionEvaluation evaluater = new ExpressionEvaluation(
-						this.advanced);
+						this.set, this.advanced);
 				final Integer result = evaluater.walkTo(expression);
 				return result;
+			} else {
+				return this.evaluateConstant(macro);
 			}
 		} catch (final IOException ex) {
 			throw new RuntimeException(ex);
@@ -424,7 +441,7 @@ public class ExpressionEvaluation implements IExpressionWalker<Integer> {
 				}
 				final Expression expression = exprList.get(j);
 				final ExpressionEvaluation evaluater = new ExpressionEvaluation(
-						this.advanced);
+						this.set, this.advanced);
 				final Integer param = evaluater.walkTo(expression);
 				result.append(param);
 			}

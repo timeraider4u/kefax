@@ -1,16 +1,14 @@
 package at.jku.weiner.c.preprocess.mytests;
 
-import org.eclipse.xtext.junit4.util.ParseHelper;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.google.inject.Inject;
 import com.google.inject.Injector;
 
 import at.jku.weiner.c.common.common.UnaryOperator;
-import at.jku.weiner.c.preprocess.preprocess.Model;
 import at.jku.weiner.c.preprocess.tests.PreprocessInjectorProvider;
 import at.jku.weiner.c.preprocess.utils.expressions.ExpressionEvaluation;
 import at.jku.weiner.c.preprocess.utils.macros.DefinitionTable;
@@ -47,7 +45,10 @@ public class TestExpressionEvaluation {
 		this.unaryOperatorNot = this.helperZero.factory2.createUnaryOperator();
 		this.unaryOperatorNot.setOp("!");
 
-		this.evaluater = new ExpressionEvaluation(false);
+		final PreprocessInjectorProvider provider = new PreprocessInjectorProvider();
+		final Injector injector = provider.getInjector();
+		final ResourceSet set = injector.getInstance(ResourceSet.class);
+		this.evaluater = new ExpressionEvaluation(set, false);
 	}
 
 	@After

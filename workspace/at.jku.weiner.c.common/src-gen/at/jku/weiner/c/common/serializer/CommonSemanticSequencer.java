@@ -7,7 +7,6 @@ import at.jku.weiner.c.common.common.AdditiveExpression;
 import at.jku.weiner.c.common.common.AndExpression;
 import at.jku.weiner.c.common.common.ArgumentExpressionList;
 import at.jku.weiner.c.common.common.CastExpression;
-import at.jku.weiner.c.common.common.Common;
 import at.jku.weiner.c.common.common.CommonPackage;
 import at.jku.weiner.c.common.common.ConditionalExpression;
 import at.jku.weiner.c.common.common.Constant2;
@@ -61,9 +60,6 @@ public class CommonSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				return; 
 			case CommonPackage.CAST_EXPRESSION:
 				sequence_CastExpression(context, (CastExpression) semanticObject); 
-				return; 
-			case CommonPackage.COMMON:
-				sequence_Common(context, (Common) semanticObject); 
 				return; 
 			case CommonPackage.CONDITIONAL_EXPRESSION:
 				sequence_ConditionalExpression(context, (ConditionalExpression) semanticObject); 
@@ -152,15 +148,6 @@ public class CommonSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     expr=UnaryExpression
 	 */
 	protected void sequence_CastExpression(EObject context, CastExpression semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     {Common}
-	 */
-	protected void sequence_Common(EObject context, Common semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -290,7 +277,7 @@ public class CommonSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Constraint:
-	 *     (const=Constant1 expr=Expression)
+	 *     (const=Constant1 | expr=Expression)
 	 */
 	protected void sequence_PrimaryExpression(EObject context, PrimaryExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

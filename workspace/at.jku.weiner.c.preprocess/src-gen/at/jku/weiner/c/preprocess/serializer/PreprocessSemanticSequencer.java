@@ -7,7 +7,6 @@ import at.jku.weiner.c.common.common.AdditiveExpression;
 import at.jku.weiner.c.common.common.AndExpression;
 import at.jku.weiner.c.common.common.ArgumentExpressionList;
 import at.jku.weiner.c.common.common.CastExpression;
-import at.jku.weiner.c.common.common.Common;
 import at.jku.weiner.c.common.common.CommonPackage;
 import at.jku.weiner.c.common.common.ConditionalExpression;
 import at.jku.weiner.c.common.common.Constant2;
@@ -83,9 +82,6 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 				return; 
 			case CommonPackage.CAST_EXPRESSION:
 				sequence_CastExpression(context, (CastExpression) semanticObject); 
-				return; 
-			case CommonPackage.COMMON:
-				sequence_Common(context, (Common) semanticObject); 
 				return; 
 			case CommonPackage.CONDITIONAL_EXPRESSION:
 				sequence_ConditionalExpression(context, (ConditionalExpression) semanticObject); 
@@ -448,7 +444,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     ((defined?=DEFINED? id=ID) | (defined?=DEFINED? id=ID) | const=Constant | expr=Expression)
+	 *     ((defined?=DEFINED? id=ID) | (defined?=DEFINED? id=ID) | const=Constant1 | expr=Expression)
 	 */
 	protected void sequence_PrimaryExpression(EObject context, PrimaryExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

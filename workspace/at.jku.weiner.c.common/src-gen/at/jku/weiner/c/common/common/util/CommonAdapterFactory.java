@@ -75,11 +75,6 @@ public class CommonAdapterFactory extends AdapterFactoryImpl
     new CommonSwitch<Adapter>()
     {
       @Override
-      public Adapter caseCommon(Common object)
-      {
-        return createCommonAdapter();
-      }
-      @Override
       public Adapter caseExpression(Expression object)
       {
         return createExpressionAdapter();
@@ -210,21 +205,6 @@ public class CommonAdapterFactory extends AdapterFactoryImpl
     return modelSwitch.doSwitch((EObject)target);
   }
 
-
-  /**
-   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.common.common.Common <em>Common</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see at.jku.weiner.c.common.common.Common
-   * @generated
-   */
-  public Adapter createCommonAdapter()
-  {
-    return null;
-  }
 
   /**
    * Creates a new adapter for an object of class '{@link at.jku.weiner.c.common.common.Expression <em>Expression</em>}'.

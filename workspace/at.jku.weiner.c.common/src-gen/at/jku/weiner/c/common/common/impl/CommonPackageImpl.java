@@ -6,7 +6,6 @@ import at.jku.weiner.c.common.common.AdditiveExpression;
 import at.jku.weiner.c.common.common.AndExpression;
 import at.jku.weiner.c.common.common.ArgumentExpressionList;
 import at.jku.weiner.c.common.common.CastExpression;
-import at.jku.weiner.c.common.common.Common;
 import at.jku.weiner.c.common.common.CommonFactory;
 import at.jku.weiner.c.common.common.CommonPackage;
 import at.jku.weiner.c.common.common.ConditionalExpression;
@@ -43,13 +42,6 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  */
 public class CommonPackageImpl extends EPackageImpl implements CommonPackage
 {
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass commonEClass = null;
-
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -265,16 +257,6 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
     // Update the registry and return the package
     EPackage.Registry.INSTANCE.put(CommonPackage.eNS_URI, theCommonPackage);
     return theCommonPackage;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getCommon()
-  {
-    return commonEClass;
   }
 
   /**
@@ -897,8 +879,6 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
     isCreated = true;
 
     // Create classes and their features
-    commonEClass = createEClass(COMMON);
-
     expressionEClass = createEClass(EXPRESSION);
     createEReference(expressionEClass, EXPRESSION__EXPRESSION);
 
@@ -1029,8 +1009,6 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
     primaryExpressionEClass.getESuperTypes().add(this.getExpression());
 
     // Initialize classes and features; add operations and parameters
-    initEClass(commonEClass, Common.class, "Common", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getExpression_Expression(), this.getExpression(), null, "expression", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

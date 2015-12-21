@@ -182,7 +182,7 @@ Code returns SourceCodeLine:
 MyCode returns ecore::EString:
 	ID|SPECIAL|INCLUDE|DEFINE|ERROR|PRAGMA
 	|IFDEF|ENDIF|IFNOTDEF|IF|DEFINED
-	|SpecialKeywords|Constant
+	|SpecialKeywords|Constant1
 ;
 
 MyDefineLine returns ecore::EString:
@@ -203,21 +203,9 @@ PrimaryExpression returns Expression:
 	(
 		(defined?=DEFINED)? id=ID
 	|	(defined?=DEFINED)? SKW_LEFTPAREN id=ID SKW_RIGHTPAREN
-	|	const=Constant
+	|	const=Constant1
 	//|	string+=STRING_LITERAL+ // reachable over Constant!
 	|	SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN
-	)
-;
-
-Constant returns ecore::EString:
-	(
-		HEX_LITERAL
-	|	OCTAL_LITERAL
-	|	DECIMAL_LITERAL
-	|	CHAR_LITERAL
-	|	STRING_LITERAL
-	|	FLOAT_LITERAL
-	|	BIN_LITERAL
 	)
 ;
 

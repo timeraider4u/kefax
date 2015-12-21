@@ -1,11 +1,11 @@
 package at.jku.weiner.c.preprocess.mytests;
 
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.google.inject.Inject;
 import com.google.inject.Injector;
 
 import at.jku.weiner.c.preprocess.preprocess.PreprocessFactory;
@@ -23,7 +23,10 @@ public class TestPrimaryExpressionEvaluation {
 		DefinitionTable.reset();
 		Assert.assertEquals(0, DefinitionTable.size());
 		this.factory = PreprocessFactory.eINSTANCE;
-		this.evaluater = new ExpressionEvaluation(false);
+		final PreprocessInjectorProvider provider = new PreprocessInjectorProvider();
+		final Injector injector = provider.getInjector();
+		final ResourceSet set = injector.getInstance(ResourceSet.class);
+		this.evaluater = new ExpressionEvaluation(set, false);
 	}
 
 	@After
@@ -91,28 +94,37 @@ public class TestPrimaryExpressionEvaluation {
 				this.evaluater.walkTo(expression));
 	}
 
-	@Test(expected = NumberFormatException.class)
+	@Test
+	// (expected = NumberFormatException.class)
 	public void testConstantWhichIsFloat() {
 		final PrimaryExpression expression = this.factory
 				.createPrimaryExpression();
 		expression.setConst("1.5");
-		this.evaluater.walkTo(expression);
+		final Integer result = this.evaluater.walkTo(expression);
+		final Integer expected = ExpressionEvaluation.FALSE;
+		Assert.assertEquals(expected, result);
 	}
 
-	@Test(expected = NumberFormatException.class)
+	@Test
+	// (expected = NumberFormatException.class)
 	public void testConstantWhichIsFloat2() {
 		final PrimaryExpression expression = this.factory
 				.createPrimaryExpression();
 		expression.setConst("1.0");
-		this.evaluater.walkTo(expression);
+		final Integer result = this.evaluater.walkTo(expression);
+		final Integer expected = ExpressionEvaluation.FALSE;
+		Assert.assertEquals(expected, result);
 	}
 
-	@Test(expected = NumberFormatException.class)
+	@Test
+	// (expected = NumberFormatException.class)
 	public void testConstantWhichIsString() {
 		final PrimaryExpression expression = this.factory
 				.createPrimaryExpression();
 		expression.setConst("\"hello\"");
-		this.evaluater.walkTo(expression);
+		final Integer result = this.evaluater.walkTo(expression);
+		final Integer expected = ExpressionEvaluation.FALSE;
+		Assert.assertEquals(expected, result);
 	}
 
 	@Test

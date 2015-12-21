@@ -3,7 +3,6 @@
  */
 package at.jku.weiner.c.parser.serializer;
 
-import at.jku.weiner.c.common.common.Common;
 import at.jku.weiner.c.common.common.CommonPackage;
 import at.jku.weiner.c.common.common.Constant2;
 import at.jku.weiner.c.common.serializer.CommonSemanticSequencer;
@@ -109,9 +108,6 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	@Override
 	public void createSequence(EObject context, EObject semanticObject) {
 		if(semanticObject.eClass().getEPackage() == CommonPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
-			case CommonPackage.COMMON:
-				sequence_Common(context, (Common) semanticObject); 
-				return; 
 			case CommonPackage.CONSTANT2:
 				sequence_Constant2(context, (Constant2) semanticObject); 
 				return; 

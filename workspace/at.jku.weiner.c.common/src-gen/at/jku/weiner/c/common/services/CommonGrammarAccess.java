@@ -22,17 +22,6 @@ import org.eclipse.xtext.service.GrammarProvider;
 @Singleton
 public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 	
-	public class CommonElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.Common");
-		private final Action cCommonAction = (Action)rule.eContents().get(1);
-		
-		//Common:
-		//	{Common};
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{Common}
-		public Action getCommonAction() { return cCommonAction; }
-	}
 	public class ExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.Expression");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -962,30 +951,31 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.PrimaryExpression");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cPrimaryExpressionAction_0 = (Action)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Assignment cConstAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Assignment cConstAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
 		private final RuleCall cConstConstant1ParserRuleCall_1_0_0 = (RuleCall)cConstAssignment_1_0.eContents().get(0);
-		private final RuleCall cSKW_LEFTPARENTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
-		private final Assignment cExprAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cExprExpressionParserRuleCall_1_2_0 = (RuleCall)cExprAssignment_1_2.eContents().get(0);
-		private final RuleCall cSKW_RIGHTPARENTerminalRuleCall_1_3 = (RuleCall)cGroup_1.eContents().get(3);
+		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
+		private final RuleCall cSKW_LEFTPARENTerminalRuleCall_1_1_0 = (RuleCall)cGroup_1_1.eContents().get(0);
+		private final Assignment cExprAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
+		private final RuleCall cExprExpressionParserRuleCall_1_1_1_0 = (RuleCall)cExprAssignment_1_1_1.eContents().get(0);
+		private final RuleCall cSKW_RIGHTPARENTerminalRuleCall_1_1_2 = (RuleCall)cGroup_1_1.eContents().get(2);
 		
 		//PrimaryExpression Expression:
 		//	{PrimaryExpression} (const=Constant1
 		//	//|	string+=STRING_LITERAL+ // reachable over Constant!
-		//	SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN)
+		//	| SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN)
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{PrimaryExpression} (const=Constant1 //|	string+=STRING_LITERAL+ // reachable over Constant!
-		//SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN)
+		//| SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN)
 		public Group getGroup() { return cGroup; }
 		
 		//{PrimaryExpression}
 		public Action getPrimaryExpressionAction_0() { return cPrimaryExpressionAction_0; }
 		
 		//(const=Constant1 //|	string+=STRING_LITERAL+ // reachable over Constant!
-		//SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN)
-		public Group getGroup_1() { return cGroup_1; }
+		//| SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN)
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
 		//const=Constant1
 		public Assignment getConstAssignment_1_0() { return cConstAssignment_1_0; }
@@ -993,18 +983,20 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		//Constant1
 		public RuleCall getConstConstant1ParserRuleCall_1_0_0() { return cConstConstant1ParserRuleCall_1_0_0; }
 		
-		////|	string+=STRING_LITERAL+ // reachable over Constant!
+		//SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN
+		public Group getGroup_1_1() { return cGroup_1_1; }
+		
 		//SKW_LEFTPAREN
-		public RuleCall getSKW_LEFTPARENTerminalRuleCall_1_1() { return cSKW_LEFTPARENTerminalRuleCall_1_1; }
+		public RuleCall getSKW_LEFTPARENTerminalRuleCall_1_1_0() { return cSKW_LEFTPARENTerminalRuleCall_1_1_0; }
 		
 		//expr=Expression
-		public Assignment getExprAssignment_1_2() { return cExprAssignment_1_2; }
+		public Assignment getExprAssignment_1_1_1() { return cExprAssignment_1_1_1; }
 		
 		//Expression
-		public RuleCall getExprExpressionParserRuleCall_1_2_0() { return cExprExpressionParserRuleCall_1_2_0; }
+		public RuleCall getExprExpressionParserRuleCall_1_1_1_0() { return cExprExpressionParserRuleCall_1_1_1_0; }
 		
 		//SKW_RIGHTPAREN
-		public RuleCall getSKW_RIGHTPARENTerminalRuleCall_1_3() { return cSKW_RIGHTPARENTerminalRuleCall_1_3; }
+		public RuleCall getSKW_RIGHTPARENTerminalRuleCall_1_1_2() { return cSKW_RIGHTPARENTerminalRuleCall_1_1_2; }
 	}
 	public class Constant1Elements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.Constant1");
@@ -1337,7 +1329,6 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	
-	private final CommonElements pCommon;
 	private final ExpressionElements pExpression;
 	private final ConstantExpressionElements pConstantExpression;
 	private final ConditionalExpressionElements pConditionalExpression;
@@ -1432,7 +1423,6 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 	@Inject
 	public CommonGrammarAccess(GrammarProvider grammarProvider) {
 		this.grammar = internalFindGrammar(grammarProvider);
-		this.pCommon = new CommonElements();
 		this.pExpression = new ExpressionElements();
 		this.pConstantExpression = new ConstantExpressionElements();
 		this.pConditionalExpression = new ConditionalExpressionElements();
@@ -1545,16 +1535,6 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 
-	
-	//Common:
-	//	{Common};
-	public CommonElements getCommonAccess() {
-		return pCommon;
-	}
-	
-	public ParserRule getCommonRule() {
-		return getCommonAccess().getRule();
-	}
 	
 	//Expression hidden(WHITESPACE, BLOCK_COMMENT, LINE_COMMENT, LINEBREAK):
 	//	{Expression} expression=ConditionalExpression;
@@ -1808,7 +1788,7 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 	//PrimaryExpression Expression:
 	//	{PrimaryExpression} (const=Constant1
 	//	//|	string+=STRING_LITERAL+ // reachable over Constant!
-	//	SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN)
+	//	| SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN)
 	public PrimaryExpressionElements getPrimaryExpressionAccess() {
 		return pPrimaryExpression;
 	}

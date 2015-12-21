@@ -57,25 +57,6 @@ public interface CommonPackage extends EPackage
   CommonPackage eINSTANCE = at.jku.weiner.c.common.common.impl.CommonPackageImpl.init();
 
   /**
-   * The meta object id for the '{@link at.jku.weiner.c.common.common.impl.CommonImpl <em>Common</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see at.jku.weiner.c.common.common.impl.CommonImpl
-   * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getCommon()
-   * @generated
-   */
-  int COMMON = 0;
-
-  /**
-   * The number of structural features of the '<em>Common</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMMON_FEATURE_COUNT = 0;
-
-  /**
    * The meta object id for the '{@link at.jku.weiner.c.common.common.impl.ExpressionImpl <em>Expression</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -83,7 +64,7 @@ public interface CommonPackage extends EPackage
    * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 1;
+  int EXPRESSION = 0;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -111,7 +92,7 @@ public interface CommonPackage extends EPackage
    * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getUnaryOperator()
    * @generated
    */
-  int UNARY_OPERATOR = 2;
+  int UNARY_OPERATOR = 1;
 
   /**
    * The feature id for the '<em><b>Op</b></em>' attribute.
@@ -139,7 +120,7 @@ public interface CommonPackage extends EPackage
    * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getPostfixExpressionSuffix()
    * @generated
    */
-  int POSTFIX_EXPRESSION_SUFFIX = 3;
+  int POSTFIX_EXPRESSION_SUFFIX = 2;
 
   /**
    * The number of structural features of the '<em>Postfix Expression Suffix</em>' class.
@@ -158,7 +139,7 @@ public interface CommonPackage extends EPackage
    * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getArgumentExpressionList()
    * @generated
    */
-  int ARGUMENT_EXPRESSION_LIST = 4;
+  int ARGUMENT_EXPRESSION_LIST = 3;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference list.
@@ -186,7 +167,7 @@ public interface CommonPackage extends EPackage
    * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getConstant2()
    * @generated
    */
-  int CONSTANT2 = 5;
+  int CONSTANT2 = 4;
 
   /**
    * The feature id for the '<em><b>Hex</b></em>' attribute.
@@ -268,7 +249,7 @@ public interface CommonPackage extends EPackage
    * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getConstantExpression()
    * @generated
    */
-  int CONSTANT_EXPRESSION = 6;
+  int CONSTANT_EXPRESSION = 5;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -305,7 +286,7 @@ public interface CommonPackage extends EPackage
    * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getConditionalExpression()
    * @generated
    */
-  int CONDITIONAL_EXPRESSION = 7;
+  int CONDITIONAL_EXPRESSION = 6;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -360,7 +341,7 @@ public interface CommonPackage extends EPackage
    * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getLogicalOrExpression()
    * @generated
    */
-  int LOGICAL_OR_EXPRESSION = 8;
+  int LOGICAL_OR_EXPRESSION = 7;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -397,7 +378,7 @@ public interface CommonPackage extends EPackage
    * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getLogicalAndExpression()
    * @generated
    */
-  int LOGICAL_AND_EXPRESSION = 9;
+  int LOGICAL_AND_EXPRESSION = 8;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -434,7 +415,7 @@ public interface CommonPackage extends EPackage
    * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getInclusiveOrExpression()
    * @generated
    */
-  int INCLUSIVE_OR_EXPRESSION = 10;
+  int INCLUSIVE_OR_EXPRESSION = 9;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -471,7 +452,7 @@ public interface CommonPackage extends EPackage
    * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getExclusiveOrExpression()
    * @generated
    */
-  int EXCLUSIVE_OR_EXPRESSION = 11;
+  int EXCLUSIVE_OR_EXPRESSION = 10;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -508,7 +489,7 @@ public interface CommonPackage extends EPackage
    * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getAndExpression()
    * @generated
    */
-  int AND_EXPRESSION = 12;
+  int AND_EXPRESSION = 11;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -545,7 +526,7 @@ public interface CommonPackage extends EPackage
    * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getEqualityExpression()
    * @generated
    */
-  int EQUALITY_EXPRESSION = 13;
+  int EQUALITY_EXPRESSION = 12;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -591,7 +572,7 @@ public interface CommonPackage extends EPackage
    * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getRelationalExpression()
    * @generated
    */
-  int RELATIONAL_EXPRESSION = 14;
+  int RELATIONAL_EXPRESSION = 13;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -637,7 +618,7 @@ public interface CommonPackage extends EPackage
    * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getShiftExpression()
    * @generated
    */
-  int SHIFT_EXPRESSION = 15;
+  int SHIFT_EXPRESSION = 14;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -683,7 +664,7 @@ public interface CommonPackage extends EPackage
    * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getAdditiveExpression()
    * @generated
    */
-  int ADDITIVE_EXPRESSION = 16;
+  int ADDITIVE_EXPRESSION = 15;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -729,7 +710,7 @@ public interface CommonPackage extends EPackage
    * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getMultiplicativeExpression()
    * @generated
    */
-  int MULTIPLICATIVE_EXPRESSION = 17;
+  int MULTIPLICATIVE_EXPRESSION = 16;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -775,7 +756,7 @@ public interface CommonPackage extends EPackage
    * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getCastExpression()
    * @generated
    */
-  int CAST_EXPRESSION = 18;
+  int CAST_EXPRESSION = 17;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -812,7 +793,7 @@ public interface CommonPackage extends EPackage
    * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getUnaryExpression()
    * @generated
    */
-  int UNARY_EXPRESSION = 19;
+  int UNARY_EXPRESSION = 18;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -858,7 +839,7 @@ public interface CommonPackage extends EPackage
    * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getPostfixExpression()
    * @generated
    */
-  int POSTFIX_EXPRESSION = 20;
+  int POSTFIX_EXPRESSION = 19;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -904,7 +885,7 @@ public interface CommonPackage extends EPackage
    * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getPostfixExpressionSuffixArgument()
    * @generated
    */
-  int POSTFIX_EXPRESSION_SUFFIX_ARGUMENT = 21;
+  int POSTFIX_EXPRESSION_SUFFIX_ARGUMENT = 20;
 
   /**
    * The feature id for the '<em><b>Argument Expression List</b></em>' containment reference.
@@ -932,7 +913,7 @@ public interface CommonPackage extends EPackage
    * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getPrimaryExpression()
    * @generated
    */
-  int PRIMARY_EXPRESSION = 22;
+  int PRIMARY_EXPRESSION = 21;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -970,16 +951,6 @@ public interface CommonPackage extends EPackage
    */
   int PRIMARY_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
-
-  /**
-   * Returns the meta object for class '{@link at.jku.weiner.c.common.common.Common <em>Common</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Common</em>'.
-   * @see at.jku.weiner.c.common.common.Common
-   * @generated
-   */
-  EClass getCommon();
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.c.common.common.Expression <em>Expression</em>}'.
@@ -1631,16 +1602,6 @@ public interface CommonPackage extends EPackage
    */
   interface Literals
   {
-    /**
-     * The meta object literal for the '{@link at.jku.weiner.c.common.common.impl.CommonImpl <em>Common</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see at.jku.weiner.c.common.common.impl.CommonImpl
-     * @see at.jku.weiner.c.common.common.impl.CommonPackageImpl#getCommon()
-     * @generated
-     */
-    EClass COMMON = eINSTANCE.getCommon();
-
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.common.common.impl.ExpressionImpl <em>Expression</em>}' class.
      * <!-- begin-user-doc -->

@@ -23,15 +23,6 @@ public interface CommonFactory extends EFactory
   CommonFactory eINSTANCE = at.jku.weiner.c.common.common.impl.CommonFactoryImpl.init();
 
   /**
-   * Returns a new object of class '<em>Common</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Common</em>'.
-   * @generated
-   */
-  Common createCommon();
-
-  /**
    * Returns a new object of class '<em>Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

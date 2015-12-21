@@ -6564,16 +6564,22 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return gaCommon.getCARRIAGERETURNRule();
 	}
 	
-	//terminal NEWLINE:
+	//terminal LINE_END:
 	//	CARRIAGERETURN | LINEFEED;
-	public TerminalRule getNEWLINERule() {
-		return gaCommon.getNEWLINERule();
+	public TerminalRule getLINE_ENDRule() {
+		return gaCommon.getLINE_ENDRule();
 	}
 	
 	//terminal LINEBREAK:
-	//	SKW_BACKSLASH NEWLINE;
+	//	SKW_BACKSLASH LINE_END;
 	public TerminalRule getLINEBREAKRule() {
 		return gaCommon.getLINEBREAKRule();
+	}
+	
+	//terminal NEWLINE:
+	//	LINE_END;
+	public TerminalRule getNEWLINERule() {
+		return gaCommon.getNEWLINERule();
 	}
 	
 	//terminal fragment SPACE:
@@ -6595,7 +6601,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal LINE_COMMENT:
-	//	'//' !NEWLINE*;
+	//	'//' !LINE_END*;
 	public TerminalRule getLINE_COMMENTRule() {
 		return gaCommon.getLINE_COMMENTRule();
 	}

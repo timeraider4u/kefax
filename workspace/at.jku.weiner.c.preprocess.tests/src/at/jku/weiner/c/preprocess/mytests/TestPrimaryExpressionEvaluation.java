@@ -1,18 +1,17 @@
 package at.jku.weiner.c.preprocess.mytests;
 
-import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import com.google.inject.Injector;
 
 import at.jku.weiner.c.preprocess.preprocess.PreprocessFactory;
 import at.jku.weiner.c.preprocess.preprocess.PrimaryExpression;
 import at.jku.weiner.c.preprocess.tests.PreprocessInjectorProvider;
 import at.jku.weiner.c.preprocess.utils.expressions.ExpressionEvaluation;
 import at.jku.weiner.c.preprocess.utils.macros.DefinitionTable;
+
+import com.google.inject.Injector;
 
 public class TestPrimaryExpressionEvaluation {
 	private PreprocessFactory factory = PreprocessFactory.eINSTANCE;
@@ -25,8 +24,7 @@ public class TestPrimaryExpressionEvaluation {
 		this.factory = PreprocessFactory.eINSTANCE;
 		final PreprocessInjectorProvider provider = new PreprocessInjectorProvider();
 		final Injector injector = provider.getInjector();
-		final ResourceSet set = injector.getInstance(ResourceSet.class);
-		this.evaluater = new ExpressionEvaluation(set, false);
+		this.evaluater = new ExpressionEvaluation(injector, false);
 	}
 
 	@After

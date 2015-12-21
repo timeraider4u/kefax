@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.common.common.Constant2#getHex <em>Hex</em>}</li>
  *   <li>{@link at.jku.weiner.c.common.common.Constant2#getOct <em>Oct</em>}</li>
@@ -21,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link at.jku.weiner.c.common.common.Constant2#getFloat <em>Float</em>}</li>
  *   <li>{@link at.jku.weiner.c.common.common.Constant2#getBin <em>Bin</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.common.common.CommonPackage#getConstant2()
  * @model

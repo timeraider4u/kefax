@@ -4,8 +4,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.List;
 
 import org.eclipse.core.resources.IFile;
@@ -16,7 +14,6 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.modisco.infra.discovery.core.exception.DiscoveryException;
-import org.eclipse.xtext.generator.IGenerator;
 import org.eclipse.xtext.generator.JavaIoFileSystemAccess;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
@@ -32,22 +29,25 @@ import at.jku.weiner.c.preprocess.generator.PreprocessGenerator;
 import at.jku.weiner.c.preprocess.preprocess.Model;
 import at.jku.weiner.c.preprocess.ui.internal.PreprocessActivator;
 
-import com.google.inject.Inject;
 import com.google.inject.Injector;
 
 public class XtextParser {
 
-	private final Injector injector;
-	private final IResourceValidator validator;
-	private final JavaIoFileSystemAccess fileAccessSystem;
-	private final PreprocessGenerator generator;
+	private final Injector preprocessInjector;
+	private final IResourceValidator preprocessValidator;
+	private final JavaIoFileSystemAccess preprocessfileAccessSystem;
+	private final PreprocessGenerator preprocessGenerator;
+	private final Injector commonInjector;
 
 	public XtextParser() {
-		this.injector = this.setupPreprocessor();
-		this.validator = this.injector.getInstance(IResourceValidator.class);
-		this.fileAccessSystem = this.injector
+		this.commonInjector = this.setupCommon();
+		this.preprocessInjector = this.setupPreprocessor();
+		this.preprocessValidator = this.preprocessInjector
+				.getInstance(IResourceValidator.class);
+		this.preprocessfileAccessSystem = this.preprocessInjector
 				.getInstance(JavaIoFileSystemAccess.class);
-		this.generator = this.injector.getInstance(PreprocessGenerator.class);
+		this.preprocessGenerator = this.preprocessInjector
+				.getInstance(PreprocessGenerator.class);
 	}
 
 	private Injector setupCommon() {
@@ -111,7 +111,7 @@ public class XtextParser {
 	private final Resource loadResource(final File file, final IFile iFile)
 			throws IOException, DiscoveryException {
 		final IProject iProject = iFile.getProject();
-		final XtextResourceSetProvider provider = this.injector
+		final XtextResourceSetProvider provider = this.preprocessInjector
 				.getInstance(XtextResourceSetProvider.class);
 		final XtextResourceSet resourceSet = (XtextResourceSet) provider
 				.get(iProject);
@@ -128,7 +128,7 @@ public class XtextParser {
 	private final void validateResource(final Resource resource)
 			throws DiscoveryException {
 		// validate the resource
-		final List<Issue> list = this.validator.validate(resource,
+		final List<Issue> list = this.preprocessValidator.validate(resource,
 				CheckMode.ALL, CancelIndicator.NullImpl);
 		if (!(list.isEmpty())) {
 			final String uri = resource.getURI().toFileString();
@@ -139,7 +139,7 @@ public class XtextParser {
 
 	private final void generateIntermediateFile(final Resource resource,
 			final IFile iFile, final String fileNameOnly)
-					throws DiscoveryException {
+			throws DiscoveryException {
 		// configure and start the generator
 		final URI whole = URI.createURI(iFile.getLocationURI().toString());
 		final URI uri = whole.trimSegments(1);
@@ -147,10 +147,12 @@ public class XtextParser {
 		final String wholeStr = path + File.separator + fileNameOnly;
 		System.out.println("outputPath='" + path + "'");
 		System.out.println("fileName='" + wholeStr + "'");
-		this.fileAccessSystem.setOutputPath(path);
-		this.generator.setFileName(wholeStr);
-		this.generator.setAdvanced(true);
-		this.generator.doGenerate(resource, this.fileAccessSystem);
+		this.preprocessfileAccessSystem.setOutputPath(path);
+		this.preprocessGenerator.setFileName(wholeStr);
+		this.preprocessGenerator.setAdvanced(true);
+		this.preprocessGenerator.setCommonInjector(this.commonInjector);
+		this.preprocessGenerator.doGenerate(resource,
+				this.preprocessfileAccessSystem);
 	}
 
 	private final void readFromXtextFileInternal(final File file)
@@ -170,8 +172,8 @@ public class XtextParser {
 		}
 		if (!(object instanceof Model)) {
 			System.out
-					.println("object is not instance of C Model, object.class='"
-							+ object.getClass().toString() + "'");
+			.println("object is not instance of C Model, object.class='"
+					+ object.getClass().toString() + "'");
 			return;
 			// throw new DiscoveryException(
 			// "Returned object is not a C model - file='"

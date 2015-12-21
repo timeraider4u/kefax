@@ -417,14 +417,15 @@ terminal fragment OCTAL_ESCAPE:
 // Whitespace terminals
 terminal fragment LINEFEED: '\n';
 terminal fragment CARRIAGERETURN: '\r';
-terminal NEWLINE: (CARRIAGERETURN | LINEFEED) ;
-terminal LINEBREAK: (SKW_BACKSLASH NEWLINE);
+terminal LINE_END: (CARRIAGERETURN | LINEFEED) ;
+terminal LINEBREAK: (SKW_BACKSLASH LINE_END);
+terminal NEWLINE: LINE_END;
 terminal fragment SPACE: ' ';
 terminal fragment TAB: '\t';
 terminal WHITESPACE: (SPACE | TAB);
 
 terminal BLOCK_COMMENT: '/*' -> '*/';
-terminal LINE_COMMENT: '//' (!NEWLINE)*;
+terminal LINE_COMMENT: '//' (!LINE_END)*;
 
 // for anything else:
 terminal SPECIAL: .;

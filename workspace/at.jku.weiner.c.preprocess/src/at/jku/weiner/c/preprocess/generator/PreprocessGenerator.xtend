@@ -43,6 +43,7 @@ import org.eclipse.xtext.validation.Issue
 import org.eclipse.xtext.validation.CheckMode
 import org.eclipse.xtext.util.CancelIndicator
 import com.google.inject.Injector
+import at.jku.weiner.c.common.CommonStandaloneSetup
 
 /**
  * Generates code from your model files on save.
@@ -54,6 +55,7 @@ class PreprocessGenerator implements IGenerator {
 	@Accessors String fileName = 'greetings.txt';
 	@Accessors boolean legacyMode = true;
 	@Accessors boolean advanced = false;
+	@Accessors Injector commonInjector;
 	
 	@Inject
 	IResourceValidator validator;
@@ -64,6 +66,13 @@ class PreprocessGenerator implements IGenerator {
 	Map<Integer, Boolean> conditionals = new TreeMap<Integer, Boolean>();
 	
 	override void doGenerate(Resource input, IFileSystemAccess fsa) {
+		if (commonInjector == null) {
+			// only do when we are executing tests,
+			// but not when in Eclipse environment
+			val CommonStandaloneSetup setup = new CommonStandaloneSetup();
+			val Injector injector = setup.createInjectorAndDoEMFRegistration();
+			commonInjector = injector;
+		}
 		rs = input.resourceSet;
 		uri = input.URI;
 		IncludeDirs.setUp();
@@ -209,7 +218,7 @@ class PreprocessGenerator implements IGenerator {
 	}
 	
 	def String outputFor(Integer conditionalDirective, IfConditional obj) {
-		if (ExpressionEvaluation.evaluateFor(obj.expression as ConstantExpression, rs, advanced)) {
+		if (ExpressionEvaluation.evaluateFor(obj.expression as ConstantExpression, commonInjector, advanced)) {
 			conditionals.put(conditionalDirective, true);
 			return outputFor(obj.group).trim();
 		}
@@ -236,7 +245,7 @@ class PreprocessGenerator implements IGenerator {
  		if (condition) {
  			return "";
  		}
- 		if (ExpressionEvaluation.evaluateFor(obj.expression as ConstantExpression, rs, advanced)) {
+ 		if (ExpressionEvaluation.evaluateFor(obj.expression as ConstantExpression, commonInjector, advanced)) {
 			conditionals.put(conditionalDirective, true);
 			return outputFor(obj.group).trim();
 		}

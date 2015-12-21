@@ -24,10 +24,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.common.common.impl.ExclusiveOrExpressionImpl#getExpr <em>Expr</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

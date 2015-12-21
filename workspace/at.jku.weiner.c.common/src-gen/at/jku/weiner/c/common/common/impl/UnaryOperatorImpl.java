@@ -18,10 +18,10 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.common.common.impl.UnaryOperatorImpl#getOp <em>Op</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

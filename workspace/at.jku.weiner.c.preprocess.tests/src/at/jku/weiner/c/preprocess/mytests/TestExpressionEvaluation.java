@@ -1,17 +1,16 @@
 package at.jku.weiner.c.preprocess.mytests;
 
-import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.google.inject.Injector;
-
+import at.jku.weiner.c.common.CommonStandaloneSetup;
 import at.jku.weiner.c.common.common.UnaryOperator;
-import at.jku.weiner.c.preprocess.tests.PreprocessInjectorProvider;
 import at.jku.weiner.c.preprocess.utils.expressions.ExpressionEvaluation;
 import at.jku.weiner.c.preprocess.utils.macros.DefinitionTable;
+
+import com.google.inject.Injector;
 
 public class TestExpressionEvaluation {
 
@@ -45,10 +44,17 @@ public class TestExpressionEvaluation {
 		this.unaryOperatorNot = this.helperZero.factory2.createUnaryOperator();
 		this.unaryOperatorNot.setOp("!");
 
-		final PreprocessInjectorProvider provider = new PreprocessInjectorProvider();
-		final Injector injector = provider.getInjector();
-		final ResourceSet set = injector.getInstance(ResourceSet.class);
-		this.evaluater = new ExpressionEvaluation(set, false);
+		final Injector injector = this.getInjector();
+		this.evaluater = new ExpressionEvaluation(injector, false);
+	}
+
+	private Injector getInjector() {
+		// only do when we are executing tests,
+		// but not when in Eclipse environment
+
+		final CommonStandaloneSetup setup = new CommonStandaloneSetup();
+		final Injector injector = setup.createInjectorAndDoEMFRegistration();
+		return injector;
 	}
 
 	@After

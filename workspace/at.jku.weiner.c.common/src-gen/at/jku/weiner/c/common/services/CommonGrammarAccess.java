@@ -1409,8 +1409,9 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tOCTAL_ESCAPE;
 	private final TerminalRule tLINEFEED;
 	private final TerminalRule tCARRIAGERETURN;
-	private final TerminalRule tNEWLINE;
+	private final TerminalRule tLINE_END;
 	private final TerminalRule tLINEBREAK;
+	private final TerminalRule tNEWLINE;
 	private final TerminalRule tSPACE;
 	private final TerminalRule tTAB;
 	private final TerminalRule tWHITESPACE;
@@ -1503,8 +1504,9 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		this.tOCTAL_ESCAPE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.OCTAL_ESCAPE");
 		this.tLINEFEED = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.LINEFEED");
 		this.tCARRIAGERETURN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.CARRIAGERETURN");
-		this.tNEWLINE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.NEWLINE");
+		this.tLINE_END = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.LINE_END");
 		this.tLINEBREAK = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.LINEBREAK");
+		this.tNEWLINE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.NEWLINE");
 		this.tSPACE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.SPACE");
 		this.tTAB = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.TAB");
 		this.tWHITESPACE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.WHITESPACE");
@@ -2225,16 +2227,22 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		return tCARRIAGERETURN;
 	}
 	
-	//terminal NEWLINE:
+	//terminal LINE_END:
 	//	CARRIAGERETURN | LINEFEED;
-	public TerminalRule getNEWLINERule() {
-		return tNEWLINE;
+	public TerminalRule getLINE_ENDRule() {
+		return tLINE_END;
 	}
 	
 	//terminal LINEBREAK:
-	//	SKW_BACKSLASH NEWLINE;
+	//	SKW_BACKSLASH LINE_END;
 	public TerminalRule getLINEBREAKRule() {
 		return tLINEBREAK;
+	}
+	
+	//terminal NEWLINE:
+	//	LINE_END;
+	public TerminalRule getNEWLINERule() {
+		return tNEWLINE;
 	}
 	
 	//terminal fragment SPACE:
@@ -2262,7 +2270,7 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal LINE_COMMENT:
-	//	'//' !NEWLINE*;
+	//	'//' !LINE_END*;
 	public TerminalRule getLINE_COMMENTRule() {
 		return tLINE_COMMENT;
 	}

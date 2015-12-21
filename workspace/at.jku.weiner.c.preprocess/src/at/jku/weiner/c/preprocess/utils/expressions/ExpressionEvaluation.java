@@ -4,9 +4,6 @@ import java.io.IOException;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-
-import com.google.inject.Injector;
 
 import at.jku.weiner.c.common.common.AdditiveExpression;
 import at.jku.weiner.c.common.common.AndExpression;
@@ -24,12 +21,14 @@ import at.jku.weiner.c.common.common.MultiplicativeExpression;
 import at.jku.weiner.c.common.common.PostfixExpression;
 import at.jku.weiner.c.common.common.PostfixExpressionSuffix;
 import at.jku.weiner.c.common.common.PostfixExpressionSuffixArgument;
-import at.jku.weiner.c.preprocess.preprocess.PrimaryExpression;
 import at.jku.weiner.c.common.common.RelationalExpression;
 import at.jku.weiner.c.common.common.ShiftExpression;
 import at.jku.weiner.c.common.common.UnaryExpression;
 import at.jku.weiner.c.common.common.UnaryOperator;
+import at.jku.weiner.c.preprocess.preprocess.PrimaryExpression;
 import at.jku.weiner.c.preprocess.utils.macros.DefinitionTable;
+
+import com.google.inject.Injector;
 
 public class ExpressionEvaluation implements IExpressionWalker<Integer> {
 
@@ -37,19 +36,19 @@ public class ExpressionEvaluation implements IExpressionWalker<Integer> {
 	public static final Integer FALSE = 0;
 
 	private final boolean advanced;
-	private final ResourceSet set;
+	private final Injector injector;
 
 	public static boolean evaluateFor(final Expression expression,
-			final ResourceSet set, final boolean advanced) {
-		final ExpressionEvaluation evaluate = new ExpressionEvaluation(set,
-				advanced);
+			final Injector injector, final boolean advanced) {
+		final ExpressionEvaluation evaluate = new ExpressionEvaluation(
+				injector, advanced);
 		final Integer value = evaluate.walkTo(expression);
 		final boolean result = ExpressionEvaluationUtils.convertFrom(value);
 		return result;
 	}
 
-	public ExpressionEvaluation(final ResourceSet set, final boolean advanced) {
-		this.set = set;
+	public ExpressionEvaluation(final Injector injector, final boolean advanced) {
+		this.injector = injector;
 		this.advanced = advanced;
 	}
 
@@ -404,10 +403,11 @@ public class ExpressionEvaluation implements IExpressionWalker<Integer> {
 		try {
 			if (macro.matches(".*[+\\-*/%><|&^]+.*")) {
 				// System.out.println("string='" + macro + "'");
-				final ExpressionParser parser = new ExpressionParser(this.set);
+				final ExpressionParser parser = new ExpressionParser(
+						this.injector);
 				final Expression expression = parser.getExpression(macro);
 				final ExpressionEvaluation evaluater = new ExpressionEvaluation(
-						this.set, this.advanced);
+						this.injector, this.advanced);
 				final Integer result = evaluater.walkTo(expression);
 				return result;
 			} else {
@@ -441,7 +441,7 @@ public class ExpressionEvaluation implements IExpressionWalker<Integer> {
 				}
 				final Expression expression = exprList.get(j);
 				final ExpressionEvaluation evaluater = new ExpressionEvaluation(
-						this.set, this.advanced);
+						this.injector, this.advanced);
 				final Integer param = evaluater.walkTo(expression);
 				result.append(param);
 			}

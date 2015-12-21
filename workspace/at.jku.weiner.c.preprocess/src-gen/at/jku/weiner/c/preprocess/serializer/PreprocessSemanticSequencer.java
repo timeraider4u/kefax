@@ -299,7 +299,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     ((lines+=PreprocessorDirectives | lines+=NewLineLine | lines+=Code)*)
+	 *     (lines+=GroupOptTemp*)
 	 */
 	protected void sequence_GroupOpt(EObject context, GroupOpt semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

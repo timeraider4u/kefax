@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.JumpStatementImpl#getContinue <em>Continue</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.JumpStatementImpl#getSemi <em>Semi</em>}</li>
@@ -29,6 +28,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.JumpStatementImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.JumpStatementImpl#getGoto <em>Goto</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

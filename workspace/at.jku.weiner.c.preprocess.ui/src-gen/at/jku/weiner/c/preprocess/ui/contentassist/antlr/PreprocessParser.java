@@ -37,7 +37,7 @@ public class PreprocessParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
-					put(grammarAccess.getGroupOptAccess().getAlternatives_1(), "rule__GroupOpt__Alternatives_1");
+					put(grammarAccess.getGroupOptTempAccess().getAlternatives(), "rule__GroupOptTemp__Alternatives");
 					put(grammarAccess.getPreprocessorDirectivesAccess().getAlternatives_4(), "rule__PreprocessorDirectives__Alternatives_4");
 					put(grammarAccess.getDefineDirectiveAccess().getAlternatives(), "rule__DefineDirective__Alternatives");
 					put(grammarAccess.getConditionalDirectiveAccess().getConditionalAlternatives_1_0(), "rule__ConditionalDirective__ConditionalAlternatives_1_0");
@@ -59,6 +59,7 @@ public class PreprocessParser extends AbstractContentAssistParser {
 					put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
 					put(grammarAccess.getTranslationUnitAccess().getGroup(), "rule__TranslationUnit__Group__0");
 					put(grammarAccess.getGroupOptAccess().getGroup(), "rule__GroupOpt__Group__0");
+					put(grammarAccess.getGroupOptAccess().getGroup_1(), "rule__GroupOpt__Group_1__0");
 					put(grammarAccess.getPreprocessorDirectivesAccess().getGroup(), "rule__PreprocessorDirectives__Group__0");
 					put(grammarAccess.getIncludeDirectiveAccess().getGroup(), "rule__IncludeDirective__Group__0");
 					put(grammarAccess.getDefineObjectMacroAccess().getGroup(), "rule__DefineObjectMacro__Group__0");
@@ -77,7 +78,6 @@ public class PreprocessParser extends AbstractContentAssistParser {
 					put(grammarAccess.getElIfConditionalAccess().getGroup_1(), "rule__ElIfConditional__Group_1__0");
 					put(grammarAccess.getElseConditionalAccess().getGroup(), "rule__ElseConditional__Group__0");
 					put(grammarAccess.getPragmaDirectiveAccess().getGroup(), "rule__PragmaDirective__Group__0");
-					put(grammarAccess.getNewLineLineAccess().getGroup(), "rule__NewLineLine__Group__0");
 					put(grammarAccess.getCodeAccess().getGroup(), "rule__Code__Group__0");
 					put(grammarAccess.getMyCodeLineExtendedAccess().getGroup(), "rule__MyCodeLineExtended__Group__0");
 					put(grammarAccess.getMyCodeLineExtendedAccess().getGroup_1(), "rule__MyCodeLineExtended__Group_1__0");
@@ -122,8 +122,6 @@ public class PreprocessParser extends AbstractContentAssistParser {
 					put(grammarAccess.getModelAccess().getUnitsAssignment_1(), "rule__Model__UnitsAssignment_1");
 					put(grammarAccess.getTranslationUnitAccess().getGroupAssignment_1(), "rule__TranslationUnit__GroupAssignment_1");
 					put(grammarAccess.getGroupOptAccess().getLinesAssignment_1_0(), "rule__GroupOpt__LinesAssignment_1_0");
-					put(grammarAccess.getGroupOptAccess().getLinesAssignment_1_1(), "rule__GroupOpt__LinesAssignment_1_1");
-					put(grammarAccess.getGroupOptAccess().getLinesAssignment_1_2(), "rule__GroupOpt__LinesAssignment_1_2");
 					put(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveAssignment_4_0(), "rule__PreprocessorDirectives__DirectiveAssignment_4_0");
 					put(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveAssignment_4_1(), "rule__PreprocessorDirectives__DirectiveAssignment_4_1");
 					put(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveAssignment_4_2(), "rule__PreprocessorDirectives__DirectiveAssignment_4_2");

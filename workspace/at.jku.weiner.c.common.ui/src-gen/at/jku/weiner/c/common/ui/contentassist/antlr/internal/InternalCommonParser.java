@@ -27,11 +27,11 @@ public class InternalCommonParser extends AbstractInternalContentAssistParser {
 		"RULE_EXPONENT", "RULE_FLOAT_LITERAL", "RULE_FLOAT_TYPE_SUFFIX", "RULE_HEX_DIGIT", 
 		"RULE_HEX_LITERAL", "RULE_ID", "RULE_IDENTIFIER", "RULE_INTEGER_TYPE_SUFFIX", 
 		"RULE_LETTER", "RULE_LINEBREAK", "RULE_LINEFEED", "RULE_LINE_COMMENT", 
-		"RULE_NEWLINE", "RULE_OCTAL_ESCAPE", "RULE_OCTAL_LITERAL", "RULE_SKW_AND", 
-		"RULE_SKW_ANDAND", "RULE_SKW_ASSIGN", "RULE_SKW_BACKSLASH", "RULE_SKW_CARET", 
-		"RULE_SKW_COLON", "RULE_SKW_COMMA", "RULE_SKW_DIV", "RULE_SKW_DOLLAR", 
-		"RULE_SKW_DOT", "RULE_SKW_DOUBLEQUOTE", "RULE_SKW_EQUAL", "RULE_SKW_GREATER", 
-		"RULE_SKW_GREATEREQUAL", "RULE_SKW_LEFTBRACE", "RULE_SKW_LEFTBRACKET", 
+		"RULE_LINE_END", "RULE_NEWLINE", "RULE_OCTAL_ESCAPE", "RULE_OCTAL_LITERAL", 
+		"RULE_SKW_AND", "RULE_SKW_ANDAND", "RULE_SKW_ASSIGN", "RULE_SKW_BACKSLASH", 
+		"RULE_SKW_CARET", "RULE_SKW_COLON", "RULE_SKW_COMMA", "RULE_SKW_DIV", 
+		"RULE_SKW_DOLLAR", "RULE_SKW_DOT", "RULE_SKW_DOUBLEQUOTE", "RULE_SKW_EQUAL", 
+		"RULE_SKW_GREATER", "RULE_SKW_GREATEREQUAL", "RULE_SKW_LEFTBRACE", "RULE_SKW_LEFTBRACKET", 
 		"RULE_SKW_LEFTPAREN", "RULE_SKW_LEFTSHIFT", "RULE_SKW_LESS", "RULE_SKW_LESSEQUAL", 
 		"RULE_SKW_MINUS", "RULE_SKW_MINUSMINUS", "RULE_SKW_MOD", "RULE_SKW_NOT", 
 		"RULE_SKW_NOTEQUAL", "RULE_SKW_OR", "RULE_SKW_OROR", "RULE_SKW_PLUS", 
@@ -59,53 +59,54 @@ public class InternalCommonParser extends AbstractInternalContentAssistParser {
 	public static final int RULE_LINEBREAK=19;
 	public static final int RULE_LINEFEED=20;
 	public static final int RULE_LINE_COMMENT=21;
-	public static final int RULE_NEWLINE=22;
-	public static final int RULE_OCTAL_ESCAPE=23;
-	public static final int RULE_OCTAL_LITERAL=24;
-	public static final int RULE_SKW_AND=25;
-	public static final int RULE_SKW_ANDAND=26;
-	public static final int RULE_SKW_ASSIGN=27;
-	public static final int RULE_SKW_BACKSLASH=28;
-	public static final int RULE_SKW_CARET=29;
-	public static final int RULE_SKW_COLON=30;
-	public static final int RULE_SKW_COMMA=31;
-	public static final int RULE_SKW_DIV=32;
-	public static final int RULE_SKW_DOLLAR=33;
-	public static final int RULE_SKW_DOT=34;
-	public static final int RULE_SKW_DOUBLEQUOTE=35;
-	public static final int RULE_SKW_EQUAL=36;
-	public static final int RULE_SKW_GREATER=37;
-	public static final int RULE_SKW_GREATEREQUAL=38;
-	public static final int RULE_SKW_LEFTBRACE=39;
-	public static final int RULE_SKW_LEFTBRACKET=40;
-	public static final int RULE_SKW_LEFTPAREN=41;
-	public static final int RULE_SKW_LEFTSHIFT=42;
-	public static final int RULE_SKW_LESS=43;
-	public static final int RULE_SKW_LESSEQUAL=44;
-	public static final int RULE_SKW_MINUS=45;
-	public static final int RULE_SKW_MINUSMINUS=46;
-	public static final int RULE_SKW_MOD=47;
-	public static final int RULE_SKW_NOT=48;
-	public static final int RULE_SKW_NOTEQUAL=49;
-	public static final int RULE_SKW_OR=50;
-	public static final int RULE_SKW_OROR=51;
-	public static final int RULE_SKW_PLUS=52;
-	public static final int RULE_SKW_PLUSPLUS=53;
-	public static final int RULE_SKW_QUESTION=54;
-	public static final int RULE_SKW_RIGHTBRACE=55;
-	public static final int RULE_SKW_RIGHTBRACKET=56;
-	public static final int RULE_SKW_RIGHTPAREN=57;
-	public static final int RULE_SKW_RIGHTSHIFT=58;
-	public static final int RULE_SKW_SEMI=59;
-	public static final int RULE_SKW_SINGLEQUOTE=60;
-	public static final int RULE_SKW_STAR=61;
-	public static final int RULE_SKW_TILDE=62;
-	public static final int RULE_SKW_UNDERSCORE=63;
-	public static final int RULE_SPACE=64;
-	public static final int RULE_SPECIAL=65;
-	public static final int RULE_STRING_LITERAL=66;
-	public static final int RULE_TAB=67;
-	public static final int RULE_WHITESPACE=68;
+	public static final int RULE_LINE_END=22;
+	public static final int RULE_NEWLINE=23;
+	public static final int RULE_OCTAL_ESCAPE=24;
+	public static final int RULE_OCTAL_LITERAL=25;
+	public static final int RULE_SKW_AND=26;
+	public static final int RULE_SKW_ANDAND=27;
+	public static final int RULE_SKW_ASSIGN=28;
+	public static final int RULE_SKW_BACKSLASH=29;
+	public static final int RULE_SKW_CARET=30;
+	public static final int RULE_SKW_COLON=31;
+	public static final int RULE_SKW_COMMA=32;
+	public static final int RULE_SKW_DIV=33;
+	public static final int RULE_SKW_DOLLAR=34;
+	public static final int RULE_SKW_DOT=35;
+	public static final int RULE_SKW_DOUBLEQUOTE=36;
+	public static final int RULE_SKW_EQUAL=37;
+	public static final int RULE_SKW_GREATER=38;
+	public static final int RULE_SKW_GREATEREQUAL=39;
+	public static final int RULE_SKW_LEFTBRACE=40;
+	public static final int RULE_SKW_LEFTBRACKET=41;
+	public static final int RULE_SKW_LEFTPAREN=42;
+	public static final int RULE_SKW_LEFTSHIFT=43;
+	public static final int RULE_SKW_LESS=44;
+	public static final int RULE_SKW_LESSEQUAL=45;
+	public static final int RULE_SKW_MINUS=46;
+	public static final int RULE_SKW_MINUSMINUS=47;
+	public static final int RULE_SKW_MOD=48;
+	public static final int RULE_SKW_NOT=49;
+	public static final int RULE_SKW_NOTEQUAL=50;
+	public static final int RULE_SKW_OR=51;
+	public static final int RULE_SKW_OROR=52;
+	public static final int RULE_SKW_PLUS=53;
+	public static final int RULE_SKW_PLUSPLUS=54;
+	public static final int RULE_SKW_QUESTION=55;
+	public static final int RULE_SKW_RIGHTBRACE=56;
+	public static final int RULE_SKW_RIGHTBRACKET=57;
+	public static final int RULE_SKW_RIGHTPAREN=58;
+	public static final int RULE_SKW_RIGHTSHIFT=59;
+	public static final int RULE_SKW_SEMI=60;
+	public static final int RULE_SKW_SINGLEQUOTE=61;
+	public static final int RULE_SKW_STAR=62;
+	public static final int RULE_SKW_TILDE=63;
+	public static final int RULE_SKW_UNDERSCORE=64;
+	public static final int RULE_SPACE=65;
+	public static final int RULE_SPECIAL=66;
+	public static final int RULE_STRING_LITERAL=67;
+	public static final int RULE_TAB=68;
+	public static final int RULE_WHITESPACE=69;
 
 	// delegates
 	public AbstractInternalContentAssistParser[] getDelegates() {
@@ -11323,34 +11324,34 @@ public class InternalCommonParser extends AbstractInternalContentAssistParser {
 
 	public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
 	public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x6011220003004990L,0x0000000000000004L});
-	public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0040000000000000L});
-	public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000040000000L});
-	public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0008000000000000L});
-	public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0008000000000002L});
-	public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000004000000L});
-	public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000004000002L});
-	public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0004000000000000L});
-	public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0004000000000002L});
-	public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000020000000L});
-	public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000020000002L});
-	public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000002000000L});
-	public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000002000002L});
-	public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0002001000000000L});
-	public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0002001000000002L});
-	public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000186000000000L});
-	public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000186000000002L});
-	public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0400040000000000L});
-	public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0400040000000002L});
-	public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0010200000000000L});
-	public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0010200000000002L});
-	public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x2000800100000000L});
-	public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x2000800100000002L});
-	public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000020001004990L,0x0000000000000004L});
-	public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000020000000000L});
-	public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000020000000002L});
-	public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x6211220003004990L,0x0000000000000004L});
-	public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0200000000000000L});
-	public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000000080000000L});
-	public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000000080000002L});
+	public static final BitSet FOLLOW_3 = new BitSet(new long[]{0xC022440006004990L,0x0000000000000008L});
+	public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0080000000000000L});
+	public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000080000000L});
+	public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0010000000000000L});
+	public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0010000000000002L});
+	public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000008000000L});
+	public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000008000002L});
+	public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0008000000000000L});
+	public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0008000000000002L});
+	public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000040000000L});
+	public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000040000002L});
+	public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000004000000L});
+	public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000004000002L});
+	public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0004002000000000L});
+	public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0004002000000002L});
+	public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x000030C000000000L});
+	public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x000030C000000002L});
+	public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0800080000000000L});
+	public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0800080000000002L});
+	public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0020400000000000L});
+	public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0020400000000002L});
+	public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x4001000200000000L});
+	public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x4001000200000002L});
+	public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000040002004990L,0x0000000000000008L});
+	public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000040000000000L});
+	public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000040000000002L});
+	public static final BitSet FOLLOW_29 = new BitSet(new long[]{0xC422440006004990L,0x0000000000000008L});
+	public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0400000000000000L});
+	public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000000100000000L});
+	public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000000100000002L});
 }

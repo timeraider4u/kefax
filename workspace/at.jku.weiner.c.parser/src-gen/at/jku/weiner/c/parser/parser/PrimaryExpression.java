@@ -11,12 +11,12 @@ import at.jku.weiner.c.common.common.Constant2;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getId <em>Id</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getConst <em>Const</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getExpr <em>Expr</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.parser.parser.ParserPackage#getPrimaryExpression()
  * @model

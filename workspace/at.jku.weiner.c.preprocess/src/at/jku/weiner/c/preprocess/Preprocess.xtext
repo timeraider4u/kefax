@@ -36,7 +36,8 @@ generate preprocess "http://www.jku.at/weiner/c/preprocess/Preprocess"
 
 Model:
 	{Model}
-	(units+=TranslationUnit);
+	(units+=TranslationUnit)
+;
 	
 TranslationUnit:
 	{TranslationUnit}
@@ -46,12 +47,15 @@ TranslationUnit:
 GroupOpt:
 	{GroupOpt}
 	(
-		lines+=PreprocessorDirectives
-		|
-		lines+=NewLineLine
-		|	
-		lines+=Code
+		lines+=GroupOptTemp
+		(NEWLINE)
 	)*
+;
+
+GroupOptTemp returns SourceCodeLine:
+		PreprocessorDirectives
+	|	NewLineLine
+	|	Code
 ;
 
 PreprocessorDirectives returns SourceCodeLine:
@@ -67,7 +71,7 @@ PreprocessorDirectives returns SourceCodeLine:
 		|	directive=PragmaDirective
 		|	directive=NullDirective
 	)
-	NEWLINE
+	//(NEWLINE)
 ;
 
 IncludeDirective:
@@ -170,13 +174,13 @@ NullDirective:
 
 NewLineLine returns SourceCodeLine:
 	{NewLineLine}
-	NEWLINE
+	//(NEWLINE)
 ;
 
 Code returns SourceCodeLine:
 	{Code}
 	code=MyCodeLineExtended
-	NEWLINE
+	//(NEWLINE)
 ;
 
 MyCode returns ecore::EString:
@@ -227,3 +231,5 @@ terminal PRAGMA: 'pragma';
 
 // special keywords
 // ... see common
+terminal END_OF_FILE: EOF;
+terminal NEWLINE: Common::NEWLINE | END_OF_FILE;

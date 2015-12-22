@@ -1416,6 +1416,7 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tFLOAT_TYPE_SUFFIX;
 	private final TerminalRule tESCAPE_SEQUENCE;
 	private final TerminalRule tOCTAL_ESCAPE;
+	private final TerminalRule tHEX_ESCAPE;
 	private final TerminalRule tLINEFEED;
 	private final TerminalRule tCARRIAGERETURN;
 	private final TerminalRule tLINE_END;
@@ -1511,6 +1512,7 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		this.tFLOAT_TYPE_SUFFIX = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.FLOAT_TYPE_SUFFIX");
 		this.tESCAPE_SEQUENCE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.ESCAPE_SEQUENCE");
 		this.tOCTAL_ESCAPE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.OCTAL_ESCAPE");
+		this.tHEX_ESCAPE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.HEX_ESCAPE");
 		this.tLINEFEED = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.LINEFEED");
 		this.tCARRIAGERETURN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.CARRIAGERETURN");
 		this.tLINE_END = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.LINE_END");
@@ -2214,7 +2216,8 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal fragment ESCAPE_SEQUENCE:
-	//	SKW_BACKSLASH ('b' | 't' | 'n' | 'f' | 'r' | '\"' | SKW_SINGLEQUOTE | SKW_BACKSLASH) | OCTAL_ESCAPE;
+	//	SKW_BACKSLASH ('b' | 't' | 'n' | 'f' | 'r' | '\"' | SKW_SINGLEQUOTE | SKW_BACKSLASH) | OCTAL_ESCAPE
+	//	| HEX_ESCAPE;
 	public TerminalRule getESCAPE_SEQUENCERule() {
 		return tESCAPE_SEQUENCE;
 	}
@@ -2223,6 +2226,12 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 	//	SKW_BACKSLASH '0'..'3' '0'..'7' '0'..'7' | SKW_BACKSLASH '0'..'7' '0'..'7' | SKW_BACKSLASH '0'..'7';
 	public TerminalRule getOCTAL_ESCAPERule() {
 		return tOCTAL_ESCAPE;
+	}
+	
+	//terminal fragment HEX_ESCAPE:
+	//	SKW_BACKSLASH 'x' HEX_DIGIT+;
+	public TerminalRule getHEX_ESCAPERule() {
+		return tHEX_ESCAPE;
 	}
 	
 	//terminal fragment LINEFEED:

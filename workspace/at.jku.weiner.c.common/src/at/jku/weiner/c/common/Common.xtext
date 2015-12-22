@@ -350,7 +350,6 @@ terminal SKW_RIGHTBRACKET: ']';
 terminal SKW_RIGHTPAREN: ')';
 terminal SKW_RIGHTSHIFT: SKW_GREATER SKW_GREATER;
 terminal SKW_SEMI: ';';
-terminal SKW_SLASH: '/';
 terminal SKW_SINGLEQUOTE: '\'';
 terminal SKW_STAR: '*';
 terminal SKW_TILDE: '~';
@@ -406,14 +405,19 @@ terminal fragment EXPONENT:
 terminal fragment FLOAT_TYPE_SUFFIX: ('f'|'F'|'d'|'D') ;
 
 terminal fragment ESCAPE_SEQUENCE:
-	SKW_BACKSLASH ('b'|'t'|'n'|'f'|'r'|'\"'|SKW_SINGLEQUOTE|SKW_BACKSLASH)
+		SKW_BACKSLASH ('b'|'t'|'n'|'f'|'r'|'\"'|SKW_SINGLEQUOTE|SKW_BACKSLASH)
 	|	OCTAL_ESCAPE
+	|	HEX_ESCAPE
 ;
 
 terminal fragment OCTAL_ESCAPE:
 	SKW_BACKSLASH ('0'..'3') ('0'..'7') ('0'..'7')
 	|	SKW_BACKSLASH ('0'..'7') ('0'..'7')
 	|	SKW_BACKSLASH ('0'..'7')
+;
+
+terminal fragment HEX_ESCAPE:
+	SKW_BACKSLASH 'x' HEX_DIGIT+
 ;
 
 // Whitespace terminals

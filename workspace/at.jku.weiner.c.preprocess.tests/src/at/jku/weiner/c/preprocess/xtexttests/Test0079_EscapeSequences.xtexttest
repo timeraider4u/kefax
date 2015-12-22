@@ -15,6 +15,7 @@ lexer-tokens
 	CHAR_LITERAL NEWLINE
 	CHAR_LITERAL NEWLINE
 	CHAR_LITERAL NEWLINE
+	CHAR_LITERAL NEWLINE
 	STRING_LITERAL NEWLINE
 //----------------------------------------------------------------------
 (Model
@@ -31,6 +32,9 @@ lexer-tokens
 			),
 			(Code
 				code++"'\\\\012'"
+			),
+			(Code
+				code++"'\\\\x2f'"
 			),
 			(Code
 				code++"'\\\\0'"

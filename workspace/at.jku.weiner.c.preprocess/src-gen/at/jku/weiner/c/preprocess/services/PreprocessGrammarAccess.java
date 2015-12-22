@@ -2517,7 +2517,8 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal fragment ESCAPE_SEQUENCE:
-	//	SKW_BACKSLASH ('b' | 't' | 'n' | 'f' | 'r' | '\"' | SKW_SINGLEQUOTE | SKW_BACKSLASH) | OCTAL_ESCAPE;
+	//	SKW_BACKSLASH ('b' | 't' | 'n' | 'f' | 'r' | '\"' | SKW_SINGLEQUOTE | SKW_BACKSLASH) | OCTAL_ESCAPE
+	//	| HEX_ESCAPE;
 	public TerminalRule getESCAPE_SEQUENCERule() {
 		return gaCommon.getESCAPE_SEQUENCERule();
 	}
@@ -2526,6 +2527,12 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//	SKW_BACKSLASH '0'..'3' '0'..'7' '0'..'7' | SKW_BACKSLASH '0'..'7' '0'..'7' | SKW_BACKSLASH '0'..'7';
 	public TerminalRule getOCTAL_ESCAPERule() {
 		return gaCommon.getOCTAL_ESCAPERule();
+	}
+	
+	//terminal fragment HEX_ESCAPE:
+	//	SKW_BACKSLASH 'x' HEX_DIGIT+;
+	public TerminalRule getHEX_ESCAPERule() {
+		return gaCommon.getHEX_ESCAPERule();
 	}
 	
 	//terminal fragment LINEFEED:

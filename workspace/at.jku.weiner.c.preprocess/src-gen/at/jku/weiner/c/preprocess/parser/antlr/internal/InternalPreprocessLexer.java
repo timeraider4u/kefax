@@ -28,7 +28,7 @@ public class InternalPreprocessLexer extends Lexer {
     public static final int RULE_SKW_RIGHTPAREN=11;
     public static final int RULE_SKW_STAR=42;
     public static final int RULE_ENDIF=16;
-    public static final int RULE_LINEBREAK=80;
+    public static final int RULE_LINEBREAK=81;
     public static final int RULE_STRING_LITERAL=51;
     public static final int RULE_SKW_PLUSPLUS=61;
     public static final int RULE_SKW_DOUBLEQUOTE=57;
@@ -43,10 +43,10 @@ public class InternalPreprocessLexer extends Lexer {
     public static final int RULE_OCTAL_LITERAL=48;
     public static final int RULE_SKW_COMMA=12;
     public static final int RULE_SKW_RIGHTBRACKET=63;
-    public static final int RULE_SPACE=81;
+    public static final int RULE_SPACE=82;
     public static final int SUPER_NEWLINE=66;
-    public static final int RULE_BLOCK_COMMENT=83;
-    public static final int RULE_LINEFEED=77;
+    public static final int RULE_BLOCK_COMMENT=84;
+    public static final int RULE_LINEFEED=78;
     public static final int RULE_SKW_COLON=26;
     public static final int RULE_BIN_LITERAL=53;
     public static final int RULE_SKW_LEFTPAREN=10;
@@ -66,7 +66,8 @@ public class InternalPreprocessLexer extends Lexer {
     public static final int RULE_HASH=6;
     public static final int RULE_IDENTIFIER=69;
     public static final int RULE_SKW_LEFTBRACKET=59;
-    public static final int RULE_TAB=82;
+    public static final int RULE_HEX_ESCAPE=77;
+    public static final int RULE_TAB=83;
     public static final int RULE_SKW_SINGLEQUOTE=65;
     public static final int RULE_UNDEF=15;
     public static final int RULE_SKW_MOD=44;
@@ -78,16 +79,16 @@ public class InternalPreprocessLexer extends Lexer {
     public static final int RULE_INTEGER_TYPE_SUFFIX=73;
     public static final int RULE_EXPONENT=74;
     public static final int RULE_SPECIAL=23;
-    public static final int RULE_CARRIAGERETURN=78;
+    public static final int RULE_CARRIAGERETURN=79;
     public static final int RULE_SKW_TILDE=45;
-    public static final int RULE_LINE_COMMENT=84;
+    public static final int RULE_LINE_COMMENT=85;
     public static final int RULE_INCLUDE=7;
     public static final int RULE_SKW_OR=29;
     public static final int RULE_SKW_BACKSLASH=55;
     public static final int RULE_SKW_UNDERSCORE=68;
     public static final int RULE_ELIF=20;
     public static final int RULE_CHAR_LITERAL=50;
-    public static final int RULE_LINE_END=79;
+    public static final int RULE_LINE_END=80;
     public static final int RULE_IF=17;
     public static final int RULE_ELSE=21;
     public static final int RULE_FLOAT_LITERAL=52;
@@ -2319,28 +2320,51 @@ public class InternalPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_ESCAPE_SEQUENCE"
     public final void mRULE_ESCAPE_SEQUENCE() throws RecognitionException {
         try {
-            // InternalPreprocess.g:5458:31: ( ( RULE_SKW_BACKSLASH ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | RULE_SKW_SINGLEQUOTE | RULE_SKW_BACKSLASH ) | RULE_OCTAL_ESCAPE ) )
-            // InternalPreprocess.g:5458:33: ( RULE_SKW_BACKSLASH ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | RULE_SKW_SINGLEQUOTE | RULE_SKW_BACKSLASH ) | RULE_OCTAL_ESCAPE )
+            // InternalPreprocess.g:5458:31: ( ( RULE_SKW_BACKSLASH ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | RULE_SKW_SINGLEQUOTE | RULE_SKW_BACKSLASH ) | RULE_OCTAL_ESCAPE | RULE_HEX_ESCAPE ) )
+            // InternalPreprocess.g:5458:33: ( RULE_SKW_BACKSLASH ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | RULE_SKW_SINGLEQUOTE | RULE_SKW_BACKSLASH ) | RULE_OCTAL_ESCAPE | RULE_HEX_ESCAPE )
             {
-            // InternalPreprocess.g:5458:33: ( RULE_SKW_BACKSLASH ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | RULE_SKW_SINGLEQUOTE | RULE_SKW_BACKSLASH ) | RULE_OCTAL_ESCAPE )
-            int alt30=2;
+            // InternalPreprocess.g:5458:33: ( RULE_SKW_BACKSLASH ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | RULE_SKW_SINGLEQUOTE | RULE_SKW_BACKSLASH ) | RULE_OCTAL_ESCAPE | RULE_HEX_ESCAPE )
+            int alt30=3;
             int LA30_0 = input.LA(1);
 
             if ( (LA30_0=='\\') ) {
-                int LA30_1 = input.LA(2);
-
-                if ( ((LA30_1>='0' && LA30_1<='7')) ) {
+                switch ( input.LA(2) ) {
+                case '0':
+                case '1':
+                case '2':
+                case '3':
+                case '4':
+                case '5':
+                case '6':
+                case '7':
+                    {
                     alt30=2;
-                }
-                else if ( (LA30_1=='\"'||LA30_1=='\''||LA30_1=='\\'||LA30_1=='b'||LA30_1=='f'||LA30_1=='n'||LA30_1=='r'||LA30_1=='t') ) {
+                    }
+                    break;
+                case '\"':
+                case '\'':
+                case '\\':
+                case 'b':
+                case 'f':
+                case 'n':
+                case 'r':
+                case 't':
+                    {
                     alt30=1;
-                }
-                else {
+                    }
+                    break;
+                case 'x':
+                    {
+                    alt30=3;
+                    }
+                    break;
+                default:
                     NoViableAltException nvae =
                         new NoViableAltException("", 30, 1, input);
 
                     throw nvae;
                 }
+
             }
             else {
                 NoViableAltException nvae =
@@ -2369,6 +2393,13 @@ public class InternalPreprocessLexer extends Lexer {
                     // InternalPreprocess.g:5458:119: RULE_OCTAL_ESCAPE
                     {
                     mRULE_OCTAL_ESCAPE(); 
+
+                    }
+                    break;
+                case 3 :
+                    // InternalPreprocess.g:5458:137: RULE_HEX_ESCAPE
+                    {
+                    mRULE_HEX_ESCAPE(); 
 
                     }
                     break;
@@ -2474,11 +2505,58 @@ public class InternalPreprocessLexer extends Lexer {
     }
     // $ANTLR end "RULE_OCTAL_ESCAPE"
 
+    // $ANTLR start "RULE_HEX_ESCAPE"
+    public final void mRULE_HEX_ESCAPE() throws RecognitionException {
+        try {
+            // InternalPreprocess.g:5462:26: ( RULE_SKW_BACKSLASH 'x' ( RULE_HEX_DIGIT )+ )
+            // InternalPreprocess.g:5462:28: RULE_SKW_BACKSLASH 'x' ( RULE_HEX_DIGIT )+
+            {
+            mRULE_SKW_BACKSLASH(); 
+            match('x'); 
+            // InternalPreprocess.g:5462:51: ( RULE_HEX_DIGIT )+
+            int cnt32=0;
+            loop32:
+            do {
+                int alt32=2;
+                int LA32_0 = input.LA(1);
+
+                if ( ((LA32_0>='0' && LA32_0<='9')||(LA32_0>='A' && LA32_0<='F')||(LA32_0>='a' && LA32_0<='f')) ) {
+                    alt32=1;
+                }
+
+
+                switch (alt32) {
+            	case 1 :
+            	    // InternalPreprocess.g:5462:51: RULE_HEX_DIGIT
+            	    {
+            	    mRULE_HEX_DIGIT(); 
+
+            	    }
+            	    break;
+
+            	default :
+            	    if ( cnt32 >= 1 ) break loop32;
+                        EarlyExitException eee =
+                            new EarlyExitException(32, input);
+                        throw eee;
+                }
+                cnt32++;
+            } while (true);
+
+
+            }
+
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "RULE_HEX_ESCAPE"
+
     // $ANTLR start "RULE_LINEFEED"
     public final void mRULE_LINEFEED() throws RecognitionException {
         try {
-            // InternalPreprocess.g:5462:24: ( '\\n' )
-            // InternalPreprocess.g:5462:26: '\\n'
+            // InternalPreprocess.g:5464:24: ( '\\n' )
+            // InternalPreprocess.g:5464:26: '\\n'
             {
             match('\n'); 
 
@@ -2493,8 +2571,8 @@ public class InternalPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_CARRIAGERETURN"
     public final void mRULE_CARRIAGERETURN() throws RecognitionException {
         try {
-            // InternalPreprocess.g:5464:30: ( '\\r' )
-            // InternalPreprocess.g:5464:32: '\\r'
+            // InternalPreprocess.g:5466:30: ( '\\r' )
+            // InternalPreprocess.g:5466:32: '\\r'
             {
             match('\r'); 
 
@@ -2509,8 +2587,8 @@ public class InternalPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_LINE_END"
     public final void mRULE_LINE_END() throws RecognitionException {
         try {
-            // InternalPreprocess.g:5466:24: ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) )
-            // InternalPreprocess.g:5466:26: ( RULE_CARRIAGERETURN | RULE_LINEFEED )
+            // InternalPreprocess.g:5468:24: ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) )
+            // InternalPreprocess.g:5468:26: ( RULE_CARRIAGERETURN | RULE_LINEFEED )
             {
             if ( input.LA(1)=='\n'||input.LA(1)=='\r' ) {
                 input.consume();
@@ -2535,8 +2613,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_LINEBREAK;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:5468:16: ( RULE_SKW_BACKSLASH RULE_LINE_END )
-            // InternalPreprocess.g:5468:18: RULE_SKW_BACKSLASH RULE_LINE_END
+            // InternalPreprocess.g:5470:16: ( RULE_SKW_BACKSLASH RULE_LINE_END )
+            // InternalPreprocess.g:5470:18: RULE_SKW_BACKSLASH RULE_LINE_END
             {
             mRULE_SKW_BACKSLASH(); 
             mRULE_LINE_END(); 
@@ -2554,8 +2632,8 @@ public class InternalPreprocessLexer extends Lexer {
     // $ANTLR start "SUPER_NEWLINE"
     public final void mSUPER_NEWLINE() throws RecognitionException {
         try {
-            // InternalPreprocess.g:5470:24: ( RULE_LINE_END )
-            // InternalPreprocess.g:5470:26: RULE_LINE_END
+            // InternalPreprocess.g:5472:24: ( RULE_LINE_END )
+            // InternalPreprocess.g:5472:26: RULE_LINE_END
             {
             mRULE_LINE_END(); 
 
@@ -2570,8 +2648,8 @@ public class InternalPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_SPACE"
     public final void mRULE_SPACE() throws RecognitionException {
         try {
-            // InternalPreprocess.g:5472:21: ( ' ' )
-            // InternalPreprocess.g:5472:23: ' '
+            // InternalPreprocess.g:5474:21: ( ' ' )
+            // InternalPreprocess.g:5474:23: ' '
             {
             match(' '); 
 
@@ -2586,8 +2664,8 @@ public class InternalPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_TAB"
     public final void mRULE_TAB() throws RecognitionException {
         try {
-            // InternalPreprocess.g:5474:19: ( '\\t' )
-            // InternalPreprocess.g:5474:21: '\\t'
+            // InternalPreprocess.g:5476:19: ( '\\t' )
+            // InternalPreprocess.g:5476:21: '\\t'
             {
             match('\t'); 
 
@@ -2604,8 +2682,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_WHITESPACE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:5476:17: ( ( RULE_SPACE | RULE_TAB ) )
-            // InternalPreprocess.g:5476:19: ( RULE_SPACE | RULE_TAB )
+            // InternalPreprocess.g:5478:17: ( ( RULE_SPACE | RULE_TAB ) )
+            // InternalPreprocess.g:5478:19: ( RULE_SPACE | RULE_TAB )
             {
             if ( input.LA(1)=='\t'||input.LA(1)==' ' ) {
                 input.consume();
@@ -2632,37 +2710,37 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_BLOCK_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:5478:20: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalPreprocess.g:5478:22: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalPreprocess.g:5480:20: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalPreprocess.g:5480:22: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalPreprocess.g:5478:27: ( options {greedy=false; } : . )*
-            loop32:
+            // InternalPreprocess.g:5480:27: ( options {greedy=false; } : . )*
+            loop33:
             do {
-                int alt32=2;
-                int LA32_0 = input.LA(1);
+                int alt33=2;
+                int LA33_0 = input.LA(1);
 
-                if ( (LA32_0=='*') ) {
-                    int LA32_1 = input.LA(2);
+                if ( (LA33_0=='*') ) {
+                    int LA33_1 = input.LA(2);
 
-                    if ( (LA32_1=='/') ) {
-                        alt32=2;
+                    if ( (LA33_1=='/') ) {
+                        alt33=2;
                     }
-                    else if ( ((LA32_1>='\u0000' && LA32_1<='.')||(LA32_1>='0' && LA32_1<='\uFFFF')) ) {
-                        alt32=1;
+                    else if ( ((LA33_1>='\u0000' && LA33_1<='.')||(LA33_1>='0' && LA33_1<='\uFFFF')) ) {
+                        alt33=1;
                     }
 
 
                 }
-                else if ( ((LA32_0>='\u0000' && LA32_0<=')')||(LA32_0>='+' && LA32_0<='\uFFFF')) ) {
-                    alt32=1;
+                else if ( ((LA33_0>='\u0000' && LA33_0<=')')||(LA33_0>='+' && LA33_0<='\uFFFF')) ) {
+                    alt33=1;
                 }
 
 
-                switch (alt32) {
+                switch (alt33) {
             	case 1 :
-            	    // InternalPreprocess.g:5478:55: .
+            	    // InternalPreprocess.g:5480:55: .
             	    {
             	    matchAny(); 
 
@@ -2670,7 +2748,7 @@ public class InternalPreprocessLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop32;
+            	    break loop33;
                 }
             } while (true);
 
@@ -2692,25 +2770,25 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_LINE_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:5480:19: ( '//' (~ ( RULE_LINE_END ) )* )
-            // InternalPreprocess.g:5480:21: '//' (~ ( RULE_LINE_END ) )*
+            // InternalPreprocess.g:5482:19: ( '//' (~ ( RULE_LINE_END ) )* )
+            // InternalPreprocess.g:5482:21: '//' (~ ( RULE_LINE_END ) )*
             {
             match("//"); 
 
-            // InternalPreprocess.g:5480:26: (~ ( RULE_LINE_END ) )*
-            loop33:
+            // InternalPreprocess.g:5482:26: (~ ( RULE_LINE_END ) )*
+            loop34:
             do {
-                int alt33=2;
-                int LA33_0 = input.LA(1);
+                int alt34=2;
+                int LA34_0 = input.LA(1);
 
-                if ( ((LA33_0>='\u0000' && LA33_0<='\t')||(LA33_0>='\u000B' && LA33_0<='\f')||(LA33_0>='\u000E' && LA33_0<='\uFFFF')) ) {
-                    alt33=1;
+                if ( ((LA34_0>='\u0000' && LA34_0<='\t')||(LA34_0>='\u000B' && LA34_0<='\f')||(LA34_0>='\u000E' && LA34_0<='\uFFFF')) ) {
+                    alt34=1;
                 }
 
 
-                switch (alt33) {
+                switch (alt34) {
             	case 1 :
-            	    // InternalPreprocess.g:5480:26: ~ ( RULE_LINE_END )
+            	    // InternalPreprocess.g:5482:26: ~ ( RULE_LINE_END )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -2726,7 +2804,7 @@ public class InternalPreprocessLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop33;
+            	    break loop34;
                 }
             } while (true);
 
@@ -2746,8 +2824,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_SPECIAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:5482:14: ( . )
-            // InternalPreprocess.g:5482:16: .
+            // InternalPreprocess.g:5484:14: ( . )
+            // InternalPreprocess.g:5484:16: .
             {
             matchAny(); 
 
@@ -2763,9 +2841,9 @@ public class InternalPreprocessLexer extends Lexer {
 
     public void mTokens() throws RecognitionException {
         // InternalPreprocess.g:1:8: ( RULE_HASH | RULE_INCLUDE | RULE_DEFINE | RULE_ERROR | RULE_WARNING | RULE_UNDEF | RULE_IF | RULE_DEFINED | RULE_IFDEF | RULE_IFNOTDEF | RULE_ELIF | RULE_ELSE | RULE_ENDIF | RULE_PRAGMA | RULE_NEWLINE | RULE_SKW_AND | RULE_SKW_ANDAND | RULE_SKW_ASSIGN | RULE_SKW_BACKSLASH | RULE_SKW_CARET | RULE_SKW_COMMA | RULE_SKW_COLON | RULE_SKW_DIV | RULE_SKW_DOT | RULE_SKW_DOUBLEQUOTE | RULE_SKW_EQUAL | RULE_SKW_GREATER | RULE_SKW_GREATEREQUAL | RULE_SKW_LEFTBRACE | RULE_SKW_LEFTBRACKET | RULE_SKW_LEFTPAREN | RULE_SKW_LEFTSHIFT | RULE_SKW_LESS | RULE_SKW_LESSEQUAL | RULE_SKW_MINUS | RULE_SKW_MINUSMINUS | RULE_SKW_MOD | RULE_SKW_NOT | RULE_SKW_NOTEQUAL | RULE_SKW_OR | RULE_SKW_OROR | RULE_SKW_PLUS | RULE_SKW_PLUSPLUS | RULE_SKW_QUESTION | RULE_SKW_RIGHTBRACE | RULE_SKW_RIGHTBRACKET | RULE_SKW_RIGHTPAREN | RULE_SKW_RIGHTSHIFT | RULE_SKW_SEMI | RULE_SKW_SINGLEQUOTE | RULE_SKW_STAR | RULE_SKW_TILDE | RULE_ID | RULE_CHAR_LITERAL | RULE_STRING_LITERAL | RULE_HEX_LITERAL | RULE_DECIMAL_LITERAL | RULE_OCTAL_LITERAL | RULE_BIN_LITERAL | RULE_FLOAT_LITERAL | RULE_LINEBREAK | RULE_WHITESPACE | RULE_BLOCK_COMMENT | RULE_LINE_COMMENT | RULE_SPECIAL )
-        int alt34=65;
-        alt34 = dfa34.predict(input);
-        switch (alt34) {
+        int alt35=65;
+        alt35 = dfa35.predict(input);
+        switch (alt35) {
             case 1 :
                 // InternalPreprocess.g:1:10: RULE_HASH
                 {
@@ -3228,7 +3306,7 @@ public class InternalPreprocessLexer extends Lexer {
 
 
     protected DFA27 dfa27 = new DFA27(this);
-    protected DFA34 dfa34 = new DFA34(this);
+    protected DFA35 dfa35 = new DFA35(this);
     static final String DFA27_eotS =
         "\7\uffff\1\10\2\uffff";
     static final String DFA27_eofS =
@@ -3287,19 +3365,19 @@ public class InternalPreprocessLexer extends Lexer {
             return "5452:22: ( ( '0' .. '9' )+ RULE_SKW_DOT ( '0' .. '9' )* ( RULE_EXPONENT )? ( RULE_FLOAT_TYPE_SUFFIX )? | RULE_SKW_DOT ( '0' .. '9' )+ ( RULE_EXPONENT )? ( RULE_FLOAT_TYPE_SUFFIX )? | ( '0' .. '9' )+ RULE_EXPONENT ( RULE_FLOAT_TYPE_SUFFIX )? | ( '0' .. '9' )+ ( RULE_EXPONENT )? RULE_FLOAT_TYPE_SUFFIX )";
         }
     }
-    static final String DFA34_eotS =
+    static final String DFA35_eotS =
         "\2\uffff\6\54\1\uffff\1\65\1\67\1\71\3\uffff\1\100\1\101\1\103\1\105\3\uffff\1\113\1\116\1\uffff\1\121\1\123\1\125\5\uffff\1\134\3\uffff\2\143\3\uffff\1\54\1\151\1\uffff\7\54\56\uffff\1\162\1\uffff\1\143\1\uffff\3\54\1\uffff\10\54\1\uffff\5\54\1\u0083\1\u0084\5\54\1\u008a\2\54\1\u008d\2\uffff\1\u008e\1\54\1\u0090\2\54\1\uffff\1\u0093\1\u0095\2\uffff\1\54\1\uffff\1\u0097\1\u0098\1\uffff\1\u0099\1\uffff\1\u009a\4\uffff";
-    static final String DFA34_eofS =
+    static final String DFA35_eofS =
         "\u009b\uffff";
-    static final String DFA34_minS =
+    static final String DFA35_minS =
         "\1\0\1\uffff\1\146\1\145\1\154\1\141\1\156\1\162\1\uffff\1\46\1\75\1\12\3\uffff\1\52\1\60\1\0\1\75\3\uffff\1\74\1\55\1\uffff\1\75\1\174\1\53\5\uffff\1\0\3\uffff\2\56\3\uffff\1\143\1\44\1\uffff\1\146\1\162\1\151\1\144\1\162\1\144\1\141\56\uffff\1\56\1\uffff\1\56\1\uffff\1\154\1\145\1\144\1\uffff\1\151\1\157\1\146\1\145\1\151\1\156\1\145\1\147\1\uffff\1\165\1\146\1\145\1\156\1\162\2\44\1\146\1\151\1\146\1\155\1\144\1\44\1\146\1\145\1\44\2\uffff\1\44\1\156\1\44\1\141\1\145\1\uffff\2\44\2\uffff\1\147\1\uffff\2\44\1\uffff\1\44\1\uffff\1\44\4\uffff";
-    static final String DFA34_maxS =
+    static final String DFA35_maxS =
         "\1\uffff\1\uffff\1\156\1\145\1\162\1\141\1\156\1\162\1\uffff\1\46\1\75\1\15\3\uffff\1\57\1\71\1\uffff\1\76\3\uffff\1\75\1\55\1\uffff\1\75\1\174\1\53\5\uffff\1\uffff\3\uffff\1\170\1\146\3\uffff\1\143\1\172\1\uffff\1\146\1\162\1\163\1\144\1\162\1\144\1\141\56\uffff\1\146\1\uffff\1\146\1\uffff\1\154\1\145\1\144\1\uffff\1\151\1\157\1\146\1\145\1\151\1\156\1\145\1\147\1\uffff\1\165\1\146\1\145\1\156\1\162\2\172\1\146\1\151\1\146\1\155\1\144\1\172\1\146\1\145\1\172\2\uffff\1\172\1\156\1\172\1\141\1\145\1\uffff\2\172\2\uffff\1\147\1\uffff\2\172\1\uffff\1\172\1\uffff\1\172\4\uffff";
-    static final String DFA34_acceptS =
+    static final String DFA35_acceptS =
         "\1\uffff\1\1\6\uffff\1\17\3\uffff\1\24\1\25\1\26\4\uffff\1\35\1\36\1\37\2\uffff\1\45\3\uffff\1\54\1\55\1\56\1\57\1\61\1\uffff\1\63\1\64\1\65\2\uffff\1\76\1\101\1\1\2\uffff\1\65\7\uffff\1\17\1\20\1\21\1\22\1\32\1\23\1\75\1\24\1\25\1\26\1\77\1\100\1\27\1\30\1\74\1\31\1\67\1\33\1\34\1\60\1\35\1\36\1\37\1\41\1\40\1\42\1\43\1\44\1\45\1\46\1\47\1\50\1\51\1\52\1\53\1\54\1\55\1\56\1\57\1\61\1\62\1\66\1\63\1\64\1\70\1\73\1\uffff\1\71\1\uffff\1\76\3\uffff\1\7\10\uffff\1\72\20\uffff\1\13\1\14\5\uffff\1\11\2\uffff\1\4\1\15\1\uffff\1\6\2\uffff\1\12\1\uffff\1\3\1\uffff\1\16\1\2\1\10\1\5";
-    static final String DFA34_specialS =
-        "\1\0\20\uffff\1\2\17\uffff\1\1\171\uffff}>";
-    static final String[] DFA34_transitionS = {
+    static final String DFA35_specialS =
+        "\1\0\20\uffff\1\1\17\uffff\1\2\171\uffff}>";
+    static final String[] DFA35_transitionS = {
             "\11\50\1\47\1\10\2\50\1\10\22\50\1\47\1\31\1\21\1\1\1\44\1\30\1\11\1\41\1\25\1\37\1\42\1\33\1\15\1\27\1\20\1\17\1\45\11\46\1\16\1\40\1\26\1\12\1\22\1\34\1\50\32\44\1\24\1\13\1\36\1\14\1\44\1\50\3\44\1\3\1\4\3\44\1\2\6\44\1\7\4\44\1\6\1\44\1\5\3\44\1\23\1\32\1\35\1\43\uff81\50",
             "",
             "\1\53\7\uffff\1\52",
@@ -3457,34 +3535,34 @@ public class InternalPreprocessLexer extends Lexer {
             ""
     };
 
-    static final short[] DFA34_eot = DFA.unpackEncodedString(DFA34_eotS);
-    static final short[] DFA34_eof = DFA.unpackEncodedString(DFA34_eofS);
-    static final char[] DFA34_min = DFA.unpackEncodedStringToUnsignedChars(DFA34_minS);
-    static final char[] DFA34_max = DFA.unpackEncodedStringToUnsignedChars(DFA34_maxS);
-    static final short[] DFA34_accept = DFA.unpackEncodedString(DFA34_acceptS);
-    static final short[] DFA34_special = DFA.unpackEncodedString(DFA34_specialS);
-    static final short[][] DFA34_transition;
+    static final short[] DFA35_eot = DFA.unpackEncodedString(DFA35_eotS);
+    static final short[] DFA35_eof = DFA.unpackEncodedString(DFA35_eofS);
+    static final char[] DFA35_min = DFA.unpackEncodedStringToUnsignedChars(DFA35_minS);
+    static final char[] DFA35_max = DFA.unpackEncodedStringToUnsignedChars(DFA35_maxS);
+    static final short[] DFA35_accept = DFA.unpackEncodedString(DFA35_acceptS);
+    static final short[] DFA35_special = DFA.unpackEncodedString(DFA35_specialS);
+    static final short[][] DFA35_transition;
 
     static {
-        int numStates = DFA34_transitionS.length;
-        DFA34_transition = new short[numStates][];
+        int numStates = DFA35_transitionS.length;
+        DFA35_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA34_transition[i] = DFA.unpackEncodedString(DFA34_transitionS[i]);
+            DFA35_transition[i] = DFA.unpackEncodedString(DFA35_transitionS[i]);
         }
     }
 
-    class DFA34 extends DFA {
+    class DFA35 extends DFA {
 
-        public DFA34(BaseRecognizer recognizer) {
+        public DFA35(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 34;
-            this.eot = DFA34_eot;
-            this.eof = DFA34_eof;
-            this.min = DFA34_min;
-            this.max = DFA34_max;
-            this.accept = DFA34_accept;
-            this.special = DFA34_special;
-            this.transition = DFA34_transition;
+            this.decisionNumber = 35;
+            this.eot = DFA35_eot;
+            this.eof = DFA35_eof;
+            this.min = DFA35_min;
+            this.max = DFA35_max;
+            this.accept = DFA35_accept;
+            this.special = DFA35_special;
+            this.transition = DFA35_transition;
         }
         public String getDescription() {
             return "1:1: Tokens : ( RULE_HASH | RULE_INCLUDE | RULE_DEFINE | RULE_ERROR | RULE_WARNING | RULE_UNDEF | RULE_IF | RULE_DEFINED | RULE_IFDEF | RULE_IFNOTDEF | RULE_ELIF | RULE_ELSE | RULE_ENDIF | RULE_PRAGMA | RULE_NEWLINE | RULE_SKW_AND | RULE_SKW_ANDAND | RULE_SKW_ASSIGN | RULE_SKW_BACKSLASH | RULE_SKW_CARET | RULE_SKW_COMMA | RULE_SKW_COLON | RULE_SKW_DIV | RULE_SKW_DOT | RULE_SKW_DOUBLEQUOTE | RULE_SKW_EQUAL | RULE_SKW_GREATER | RULE_SKW_GREATEREQUAL | RULE_SKW_LEFTBRACE | RULE_SKW_LEFTBRACKET | RULE_SKW_LEFTPAREN | RULE_SKW_LEFTSHIFT | RULE_SKW_LESS | RULE_SKW_LESSEQUAL | RULE_SKW_MINUS | RULE_SKW_MINUSMINUS | RULE_SKW_MOD | RULE_SKW_NOT | RULE_SKW_NOTEQUAL | RULE_SKW_OR | RULE_SKW_OROR | RULE_SKW_PLUS | RULE_SKW_PLUSPLUS | RULE_SKW_QUESTION | RULE_SKW_RIGHTBRACE | RULE_SKW_RIGHTBRACKET | RULE_SKW_RIGHTPAREN | RULE_SKW_RIGHTSHIFT | RULE_SKW_SEMI | RULE_SKW_SINGLEQUOTE | RULE_SKW_STAR | RULE_SKW_TILDE | RULE_ID | RULE_CHAR_LITERAL | RULE_STRING_LITERAL | RULE_HEX_LITERAL | RULE_DECIMAL_LITERAL | RULE_OCTAL_LITERAL | RULE_BIN_LITERAL | RULE_FLOAT_LITERAL | RULE_LINEBREAK | RULE_WHITESPACE | RULE_BLOCK_COMMENT | RULE_LINE_COMMENT | RULE_SPECIAL );";
@@ -3494,114 +3572,114 @@ public class InternalPreprocessLexer extends Lexer {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA34_0 = input.LA(1);
+                        int LA35_0 = input.LA(1);
 
                         s = -1;
-                        if ( (LA34_0=='#') ) {s = 1;}
+                        if ( (LA35_0=='#') ) {s = 1;}
 
-                        else if ( (LA34_0=='i') ) {s = 2;}
+                        else if ( (LA35_0=='i') ) {s = 2;}
 
-                        else if ( (LA34_0=='d') ) {s = 3;}
+                        else if ( (LA35_0=='d') ) {s = 3;}
 
-                        else if ( (LA34_0=='e') ) {s = 4;}
+                        else if ( (LA35_0=='e') ) {s = 4;}
 
-                        else if ( (LA34_0=='w') ) {s = 5;}
+                        else if ( (LA35_0=='w') ) {s = 5;}
 
-                        else if ( (LA34_0=='u') ) {s = 6;}
+                        else if ( (LA35_0=='u') ) {s = 6;}
 
-                        else if ( (LA34_0=='p') ) {s = 7;}
+                        else if ( (LA35_0=='p') ) {s = 7;}
 
-                        else if ( (LA34_0=='\n'||LA34_0=='\r') ) {s = 8;}
+                        else if ( (LA35_0=='\n'||LA35_0=='\r') ) {s = 8;}
 
-                        else if ( (LA34_0=='&') ) {s = 9;}
+                        else if ( (LA35_0=='&') ) {s = 9;}
 
-                        else if ( (LA34_0=='=') ) {s = 10;}
+                        else if ( (LA35_0=='=') ) {s = 10;}
 
-                        else if ( (LA34_0=='\\') ) {s = 11;}
+                        else if ( (LA35_0=='\\') ) {s = 11;}
 
-                        else if ( (LA34_0=='^') ) {s = 12;}
+                        else if ( (LA35_0=='^') ) {s = 12;}
 
-                        else if ( (LA34_0==',') ) {s = 13;}
+                        else if ( (LA35_0==',') ) {s = 13;}
 
-                        else if ( (LA34_0==':') ) {s = 14;}
+                        else if ( (LA35_0==':') ) {s = 14;}
 
-                        else if ( (LA34_0=='/') ) {s = 15;}
+                        else if ( (LA35_0=='/') ) {s = 15;}
 
-                        else if ( (LA34_0=='.') ) {s = 16;}
+                        else if ( (LA35_0=='.') ) {s = 16;}
 
-                        else if ( (LA34_0=='\"') ) {s = 17;}
+                        else if ( (LA35_0=='\"') ) {s = 17;}
 
-                        else if ( (LA34_0=='>') ) {s = 18;}
+                        else if ( (LA35_0=='>') ) {s = 18;}
 
-                        else if ( (LA34_0=='{') ) {s = 19;}
+                        else if ( (LA35_0=='{') ) {s = 19;}
 
-                        else if ( (LA34_0=='[') ) {s = 20;}
+                        else if ( (LA35_0=='[') ) {s = 20;}
 
-                        else if ( (LA34_0=='(') ) {s = 21;}
+                        else if ( (LA35_0=='(') ) {s = 21;}
 
-                        else if ( (LA34_0=='<') ) {s = 22;}
+                        else if ( (LA35_0=='<') ) {s = 22;}
 
-                        else if ( (LA34_0=='-') ) {s = 23;}
+                        else if ( (LA35_0=='-') ) {s = 23;}
 
-                        else if ( (LA34_0=='%') ) {s = 24;}
+                        else if ( (LA35_0=='%') ) {s = 24;}
 
-                        else if ( (LA34_0=='!') ) {s = 25;}
+                        else if ( (LA35_0=='!') ) {s = 25;}
 
-                        else if ( (LA34_0=='|') ) {s = 26;}
+                        else if ( (LA35_0=='|') ) {s = 26;}
 
-                        else if ( (LA34_0=='+') ) {s = 27;}
+                        else if ( (LA35_0=='+') ) {s = 27;}
 
-                        else if ( (LA34_0=='?') ) {s = 28;}
+                        else if ( (LA35_0=='?') ) {s = 28;}
 
-                        else if ( (LA34_0=='}') ) {s = 29;}
+                        else if ( (LA35_0=='}') ) {s = 29;}
 
-                        else if ( (LA34_0==']') ) {s = 30;}
+                        else if ( (LA35_0==']') ) {s = 30;}
 
-                        else if ( (LA34_0==')') ) {s = 31;}
+                        else if ( (LA35_0==')') ) {s = 31;}
 
-                        else if ( (LA34_0==';') ) {s = 32;}
+                        else if ( (LA35_0==';') ) {s = 32;}
 
-                        else if ( (LA34_0=='\'') ) {s = 33;}
+                        else if ( (LA35_0=='\'') ) {s = 33;}
 
-                        else if ( (LA34_0=='*') ) {s = 34;}
+                        else if ( (LA35_0=='*') ) {s = 34;}
 
-                        else if ( (LA34_0=='~') ) {s = 35;}
+                        else if ( (LA35_0=='~') ) {s = 35;}
 
-                        else if ( (LA34_0=='$'||(LA34_0>='A' && LA34_0<='Z')||LA34_0=='_'||(LA34_0>='a' && LA34_0<='c')||(LA34_0>='f' && LA34_0<='h')||(LA34_0>='j' && LA34_0<='o')||(LA34_0>='q' && LA34_0<='t')||LA34_0=='v'||(LA34_0>='x' && LA34_0<='z')) ) {s = 36;}
+                        else if ( (LA35_0=='$'||(LA35_0>='A' && LA35_0<='Z')||LA35_0=='_'||(LA35_0>='a' && LA35_0<='c')||(LA35_0>='f' && LA35_0<='h')||(LA35_0>='j' && LA35_0<='o')||(LA35_0>='q' && LA35_0<='t')||LA35_0=='v'||(LA35_0>='x' && LA35_0<='z')) ) {s = 36;}
 
-                        else if ( (LA34_0=='0') ) {s = 37;}
+                        else if ( (LA35_0=='0') ) {s = 37;}
 
-                        else if ( ((LA34_0>='1' && LA34_0<='9')) ) {s = 38;}
+                        else if ( ((LA35_0>='1' && LA35_0<='9')) ) {s = 38;}
 
-                        else if ( (LA34_0=='\t'||LA34_0==' ') ) {s = 39;}
+                        else if ( (LA35_0=='\t'||LA35_0==' ') ) {s = 39;}
 
-                        else if ( ((LA34_0>='\u0000' && LA34_0<='\b')||(LA34_0>='\u000B' && LA34_0<='\f')||(LA34_0>='\u000E' && LA34_0<='\u001F')||LA34_0=='@'||LA34_0=='`'||(LA34_0>='\u007F' && LA34_0<='\uFFFF')) ) {s = 40;}
+                        else if ( ((LA35_0>='\u0000' && LA35_0<='\b')||(LA35_0>='\u000B' && LA35_0<='\f')||(LA35_0>='\u000E' && LA35_0<='\u001F')||LA35_0=='@'||LA35_0=='`'||(LA35_0>='\u007F' && LA35_0<='\uFFFF')) ) {s = 40;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
-                        int LA34_33 = input.LA(1);
+                        int LA35_17 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA34_33>='\u0000' && LA34_33<='&')||(LA34_33>='(' && LA34_33<='\uFFFF')) ) {s = 93;}
-
-                        else s = 92;
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
-                        int LA34_17 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA34_17>='\u0000' && LA34_17<='\uFFFF')) ) {s = 68;}
+                        if ( ((LA35_17>='\u0000' && LA35_17<='\uFFFF')) ) {s = 68;}
 
                         else s = 67;
 
                         if ( s>=0 ) return s;
                         break;
+                    case 2 : 
+                        int LA35_33 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA35_33>='\u0000' && LA35_33<='&')||(LA35_33>='(' && LA35_33<='\uFFFF')) ) {s = 93;}
+
+                        else s = 92;
+
+                        if ( s>=0 ) return s;
+                        break;
             }
             NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 34, _s, input);
+                new NoViableAltException(getDescription(), 35, _s, input);
             error(nvae);
             throw nvae;
         }

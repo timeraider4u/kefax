@@ -22,7 +22,7 @@ import java.util.Map;
 import java.util.HashMap;
 public class InternalPreprocessParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_WHITESPACE", "RULE_ID", "RULE_SPECIAL", "RULE_INCLUDE", "RULE_DEFINE", "RULE_ERROR", "RULE_PRAGMA", "RULE_IFDEF", "RULE_ENDIF", "RULE_IFNOTDEF", "RULE_IF", "RULE_DEFINED", "RULE_ELIF", "RULE_ELSE", "RULE_HASH", "RULE_HEX_LITERAL", "RULE_OCTAL_LITERAL", "RULE_DECIMAL_LITERAL", "RULE_CHAR_LITERAL", "RULE_STRING_LITERAL", "RULE_FLOAT_LITERAL", "RULE_BIN_LITERAL", "RULE_SKW_AND", "RULE_SKW_ANDAND", "RULE_SKW_ASSIGN", "RULE_SKW_BACKSLASH", "RULE_SKW_CARET", "RULE_SKW_COMMA", "RULE_SKW_COLON", "RULE_SKW_DIV", "RULE_SKW_DOT", "RULE_SKW_DOUBLEQUOTE", "RULE_SKW_EQUAL", "RULE_SKW_GREATER", "RULE_SKW_GREATEREQUAL", "RULE_SKW_LEFTBRACE", "RULE_SKW_LEFTBRACKET", "RULE_SKW_LEFTPAREN", "RULE_SKW_LEFTSHIFT", "RULE_SKW_LESS", "RULE_SKW_LESSEQUAL", "RULE_SKW_MINUS", "RULE_SKW_MINUSMINUS", "RULE_SKW_MOD", "RULE_SKW_NOT", "RULE_SKW_NOTEQUAL", "RULE_SKW_OR", "RULE_SKW_OROR", "RULE_SKW_PLUS", "RULE_SKW_PLUSPLUS", "RULE_SKW_QUESTION", "RULE_SKW_RIGHTBRACE", "RULE_SKW_RIGHTBRACKET", "RULE_SKW_RIGHTPAREN", "RULE_SKW_RIGHTSHIFT", "RULE_SKW_SEMI", "RULE_SKW_SINGLEQUOTE", "RULE_SKW_STAR", "RULE_SKW_TILDE", "RULE_NEWLINE", "RULE_WARNING", "RULE_UNDEF", "SUPER_NEWLINE", "RULE_SKW_DOLLAR", "RULE_SKW_UNDERSCORE", "RULE_IDENTIFIER", "RULE_LETTER", "RULE_ESCAPE_SEQUENCE", "RULE_HEX_DIGIT", "RULE_INTEGER_TYPE_SUFFIX", "RULE_EXPONENT", "RULE_FLOAT_TYPE_SUFFIX", "RULE_OCTAL_ESCAPE", "RULE_LINEFEED", "RULE_CARRIAGERETURN", "RULE_LINE_END", "RULE_LINEBREAK", "RULE_SPACE", "RULE_TAB", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_WHITESPACE", "RULE_ID", "RULE_SPECIAL", "RULE_INCLUDE", "RULE_DEFINE", "RULE_ERROR", "RULE_PRAGMA", "RULE_IFDEF", "RULE_ENDIF", "RULE_IFNOTDEF", "RULE_IF", "RULE_DEFINED", "RULE_ELIF", "RULE_ELSE", "RULE_HASH", "RULE_HEX_LITERAL", "RULE_OCTAL_LITERAL", "RULE_DECIMAL_LITERAL", "RULE_CHAR_LITERAL", "RULE_STRING_LITERAL", "RULE_FLOAT_LITERAL", "RULE_BIN_LITERAL", "RULE_SKW_AND", "RULE_SKW_ANDAND", "RULE_SKW_ASSIGN", "RULE_SKW_BACKSLASH", "RULE_SKW_CARET", "RULE_SKW_COMMA", "RULE_SKW_COLON", "RULE_SKW_DIV", "RULE_SKW_DOT", "RULE_SKW_DOUBLEQUOTE", "RULE_SKW_EQUAL", "RULE_SKW_GREATER", "RULE_SKW_GREATEREQUAL", "RULE_SKW_LEFTBRACE", "RULE_SKW_LEFTBRACKET", "RULE_SKW_LEFTPAREN", "RULE_SKW_LEFTSHIFT", "RULE_SKW_LESS", "RULE_SKW_LESSEQUAL", "RULE_SKW_MINUS", "RULE_SKW_MINUSMINUS", "RULE_SKW_MOD", "RULE_SKW_NOT", "RULE_SKW_NOTEQUAL", "RULE_SKW_OR", "RULE_SKW_OROR", "RULE_SKW_PLUS", "RULE_SKW_PLUSPLUS", "RULE_SKW_QUESTION", "RULE_SKW_RIGHTBRACE", "RULE_SKW_RIGHTBRACKET", "RULE_SKW_RIGHTPAREN", "RULE_SKW_RIGHTSHIFT", "RULE_SKW_SEMI", "RULE_SKW_SINGLEQUOTE", "RULE_SKW_STAR", "RULE_SKW_TILDE", "RULE_NEWLINE", "RULE_WARNING", "RULE_UNDEF", "SUPER_NEWLINE", "RULE_SKW_DOLLAR", "RULE_SKW_UNDERSCORE", "RULE_IDENTIFIER", "RULE_LETTER", "RULE_ESCAPE_SEQUENCE", "RULE_HEX_DIGIT", "RULE_INTEGER_TYPE_SUFFIX", "RULE_EXPONENT", "RULE_FLOAT_TYPE_SUFFIX", "RULE_OCTAL_ESCAPE", "RULE_HEX_ESCAPE", "RULE_LINEFEED", "RULE_CARRIAGERETURN", "RULE_LINE_END", "RULE_LINEBREAK", "RULE_SPACE", "RULE_TAB", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT"
     };
     public static final int RULE_PRAGMA=10;
     public static final int RULE_ID=5;
@@ -41,7 +41,7 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
     public static final int RULE_SKW_RIGHTPAREN=57;
     public static final int RULE_SKW_STAR=61;
     public static final int RULE_ENDIF=12;
-    public static final int RULE_LINEBREAK=80;
+    public static final int RULE_LINEBREAK=81;
     public static final int RULE_STRING_LITERAL=23;
     public static final int RULE_SKW_PLUSPLUS=53;
     public static final int RULE_SKW_LESSEQUAL=44;
@@ -56,10 +56,10 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
     public static final int RULE_OCTAL_LITERAL=20;
     public static final int RULE_SKW_COMMA=31;
     public static final int RULE_SKW_RIGHTBRACKET=56;
-    public static final int RULE_SPACE=81;
+    public static final int RULE_SPACE=82;
     public static final int SUPER_NEWLINE=66;
-    public static final int RULE_BLOCK_COMMENT=83;
-    public static final int RULE_LINEFEED=77;
+    public static final int RULE_BLOCK_COMMENT=84;
+    public static final int RULE_LINEFEED=78;
     public static final int RULE_SKW_COLON=32;
     public static final int RULE_BIN_LITERAL=25;
     public static final int RULE_SKW_LEFTPAREN=41;
@@ -78,7 +78,8 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
     public static final int RULE_SKW_GREATER=37;
     public static final int RULE_IDENTIFIER=69;
     public static final int RULE_HASH=18;
-    public static final int RULE_TAB=82;
+    public static final int RULE_TAB=83;
+    public static final int RULE_HEX_ESCAPE=77;
     public static final int RULE_SKW_LEFTBRACKET=40;
     public static final int RULE_SKW_SINGLEQUOTE=60;
     public static final int RULE_UNDEF=65;
@@ -91,16 +92,16 @@ public class InternalPreprocessParser extends AbstractInternalContentAssistParse
     public static final int RULE_INTEGER_TYPE_SUFFIX=73;
     public static final int RULE_DEFINE=8;
     public static final int RULE_SPECIAL=6;
-    public static final int RULE_CARRIAGERETURN=78;
+    public static final int RULE_CARRIAGERETURN=79;
     public static final int RULE_SKW_TILDE=62;
-    public static final int RULE_LINE_COMMENT=84;
+    public static final int RULE_LINE_COMMENT=85;
     public static final int RULE_INCLUDE=7;
     public static final int RULE_SKW_UNDERSCORE=68;
     public static final int RULE_SKW_OR=50;
     public static final int RULE_SKW_BACKSLASH=29;
     public static final int RULE_ELIF=16;
     public static final int RULE_CHAR_LITERAL=22;
-    public static final int RULE_LINE_END=79;
+    public static final int RULE_LINE_END=80;
     public static final int RULE_IF=14;
     public static final int RULE_ELSE=17;
     public static final int RULE_FLOAT_LITERAL=24;

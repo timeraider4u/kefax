@@ -54,6 +54,7 @@ import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.Code;
+import at.jku.weiner.c.preprocess.preprocess.Code;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(PreprocessInjectorProvider.class)
@@ -120,6 +121,8 @@ public class Test0079_EscapeSequences {
 				"RULE_NEWLINE", 
 				"RULE_CHAR_LITERAL", 
 				"RULE_NEWLINE", 
+				"RULE_CHAR_LITERAL", 
+				"RULE_NEWLINE", 
 				"RULE_STRING_LITERAL", 
 				"RULE_NEWLINE", 
 				};
@@ -158,7 +161,7 @@ public class Test0079_EscapeSequences {
 		final EList<? extends EObject> Lines_2_list = GroupOpt_2_Var
 		.getLines();
 		Assert.assertNotNull(Lines_2_list);
-		Assert.assertEquals(8, Lines_2_list.size());
+		Assert.assertEquals(9, Lines_2_list.size());
 		//2
 		final Code Code_3_Var
 		 = (Code)Lines_2_list.get(0);
@@ -185,35 +188,42 @@ public class Test0079_EscapeSequences {
 		 = (Code)Lines_2_list.get(3);
 		Assert.assertNotNull(Code_6_Var
 		);
-		Assert.assertEquals("'\\0'", Code_6_Var
+		Assert.assertEquals("'\\x2f'", Code_6_Var
 		.getCode());
 		//6
 		final Code Code_7_Var
 		 = (Code)Lines_2_list.get(4);
 		Assert.assertNotNull(Code_7_Var
 		);
-		Assert.assertEquals("'\\''", Code_7_Var
+		Assert.assertEquals("'\\0'", Code_7_Var
 		.getCode());
 		//7
 		final Code Code_8_Var
 		 = (Code)Lines_2_list.get(5);
 		Assert.assertNotNull(Code_8_Var
 		);
-		Assert.assertEquals("'\\\\'", Code_8_Var
+		Assert.assertEquals("'\\''", Code_8_Var
 		.getCode());
 		//8
 		final Code Code_9_Var
 		 = (Code)Lines_2_list.get(6);
 		Assert.assertNotNull(Code_9_Var
 		);
-		Assert.assertEquals("'\\f'", Code_9_Var
+		Assert.assertEquals("'\\\\'", Code_9_Var
 		.getCode());
 		//9
 		final Code Code_10_Var
 		 = (Code)Lines_2_list.get(7);
 		Assert.assertNotNull(Code_10_Var
 		);
-		Assert.assertEquals("\"\\f\\\\a\\0\"", Code_10_Var
+		Assert.assertEquals("'\\f'", Code_10_Var
+		.getCode());
+		//10
+		final Code Code_11_Var
+		 = (Code)Lines_2_list.get(8);
+		Assert.assertNotNull(Code_11_Var
+		);
+		Assert.assertEquals("\"\\f\\\\a\\0\"", Code_11_Var
 		.getCode());
 	}
 	

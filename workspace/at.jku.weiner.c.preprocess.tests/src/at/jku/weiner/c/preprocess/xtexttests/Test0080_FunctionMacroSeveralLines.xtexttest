@@ -1,0 +1,82 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language preprocess
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+split-lexer=false
+source file="res/Test0080_FunctionMacroSeveralLines.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN WHITESPACE
+		SKW_LEFTPAREN SKW_LEFTPAREN ID SKW_RIGHTPAREN WHITESPACE SKW_LESS WHITESPACE
+		SKW_LEFTPAREN ID SKW_RIGHTPAREN WHITESPACE SKW_QUESTION WHITESPACE
+		SKW_LEFTPAREN ID SKW_RIGHTPAREN WHITESPACE SKW_COLON WHITESPACE
+		SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_RIGHTPAREN 
+		NEWLINE
+	// a
+	ID WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE ID SKW_LEFTPAREN DECIMAL_LITERAL SKW_COMMA WHITESPACE DECIMAL_LITERAL SKW_RIGHTPAREN WHITESPACE
+		SKW_PLUS WHITESPACE ID SKW_LEFTPAREN 
+		NEWLINE
+	WHITESPACE+*2 DECIMAL_LITERAL WHITESPACE SKW_COMMA NEWLINE
+	WHITESPACE+*2 DECIMAL_LITERAL WHITESPACE SKW_RIGHTPAREN
+		WHITESPACE  SKW_PLUS WHITESPACE ID SKW_LEFTPAREN SKW_COMMA NEWLINE
+	WHITESPACE+*2 DECIMAL_LITERAL SKW_RIGHTPAREN SKW_SEMI NEWLINE
+	// b
+	ID WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE ID WHITESPACE SKW_LEFTPAREN ID 
+		NEWLINE WHITESPACE +*2 SKW_LEFTPAREN DECIMAL_LITERAL SKW_COMMA NEWLINE
+		WHITESPACE+*3 DECIMAL_LITERAL SKW_RIGHTPAREN 
+		SKW_COMMA NEWLINE
+		WHITESPACE+*2 DECIMAL_LITERAL SKW_RIGHTPAREN 
+		WHITESPACE SKW_PLUS WHITESPACE DECIMAL_LITERAL SKW_SEMI NEWLINE
+//----------------------------------------------------------------------
+(Model
+	units+=
+	(TranslationUnit
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"MIN",
+					list=
+					(IdentifierList
+						id+*"[X, Y]"
+					),
+					string++"((X) < (Y) ? (X) : (Y))"
+				)
+			),
+			(Code
+				code++"int a = MIN(0, 5) + MIN("
+			),
+			(Code
+				code++"		1 ,"
+			),
+			(Code
+				code++"		2 ) + MIN(,"
+			),
+			(Code
+				code++"		5);"
+			),
+			(Code
+				code++"int b = MIN (MIN"
+			),
+			(Code
+				code++"		(1,"
+			),
+			(Code
+				code++"			2),"
+			),
+			(Code
+				code++"		3) + 5;"
+			)
+		)
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0080_FunctionMacroSeveralLines.c.i"
+expected file="expected/Test0080_FunctionMacroSeveralLines.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

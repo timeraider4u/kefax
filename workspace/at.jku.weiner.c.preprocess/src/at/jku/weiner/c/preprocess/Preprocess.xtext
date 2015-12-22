@@ -152,25 +152,25 @@ ConditionalDirective:
 
 IfConditional:
 	{IfConditional}
-	IF WHITESPACE+ expression=Common::ConstantExpression NEWLINE
+	IF WHITESPACE+ expression=Common::ConstantExpression WHITESPACE* NEWLINE
 		group=GroupOpt
 ;
 
 IfDefConditional:
 	{IfDefConditional}
-	IFDEF WHITESPACE+ id=ID NEWLINE
+	IFDEF WHITESPACE+ id=ID WHITESPACE* NEWLINE
 		group=GroupOpt
 ;
 
 IfNotDefConditional:
 	{IfNotDefConditional}
-	IFNOTDEF WHITESPACE+ id=ID NEWLINE
+	IFNOTDEF WHITESPACE+ id=ID WHITESPACE* NEWLINE
 		group=GroupOpt
 ;
 
 ElIfConditional:
 	{ElIfConditional}
-	(WHITESPACE* HASH WHITESPACE* ELIF) WHITESPACE+ expression=Common::ConstantExpression NEWLINE
+	(WHITESPACE* HASH WHITESPACE* ELIF) WHITESPACE+ expression=Common::ConstantExpression WHITESPACE* NEWLINE
 		group=GroupOpt
 ;
 

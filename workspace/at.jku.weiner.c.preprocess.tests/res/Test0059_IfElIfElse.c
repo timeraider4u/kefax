@@ -2,7 +2,7 @@
 #define BAR 0
 #if defined FOO
 	void foo();
-#elif defined BAR
+#elif defined BAR /* else if */
 	void bar();
 #else	/* else ... */
 	void no_foo_and_no_bar();

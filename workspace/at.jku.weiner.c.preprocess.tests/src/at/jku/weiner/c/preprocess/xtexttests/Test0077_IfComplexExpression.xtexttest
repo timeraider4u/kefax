@@ -1,0 +1,244 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language preprocess
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+split-lexer=false
+source file="res/Test0077_IfComplexExpression.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH DEFINE WHITESPACE ID WHITESPACE DECIMAL_LITERAL NEWLINE
+	HASH DEFINE WHITESPACE ID WHITESPACE DECIMAL_LITERAL NEWLINE
+	NEWLINE
+	HASH DEFINE WHITESPACE ID WHITESPACE DECIMAL_LITERAL NEWLINE
+	HASH DEFINE WHITESPACE ID WHITESPACE DECIMAL_LITERAL NEWLINE
+	NEWLINE
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN
+		WHITESPACE SKW_LEFTPAREN +*2 ID WHITESPACE SKW_LEFTSHIFT WHITESPACE DECIMAL_LITERAL SKW_RIGHTPAREN
+		WHITESPACE SKW_PLUS WHITESPACE ID WHITESPACE SKW_GREATEREQUAL WHITESPACE 
+		SKW_LEFTPAREN +*2 ID SKW_RIGHTPAREN WHITESPACE SKW_LEFTSHIFT WHITESPACE DECIMAL_LITERAL SKW_RIGHTPAREN 
+		WHITESPACE SKW_PLUS WHITESPACE SKW_LEFTPAREN ID SKW_RIGHTPAREN +*2 NEWLINE 
+	NEWLINE
+	HASH IF WHITESPACE ID SKW_LEFTPAREN ID SKW_COMMA ID SKW_RIGHTPAREN NEWLINE 
+		WHITESPACE ID WHITESPACE ID SKW_LEFTPAREN SKW_RIGHTPAREN SKW_SEMI NEWLINE
+	HASH ENDIF NEWLINE
+//----------------------------------------------------------------------
+(Model
+	units+=
+	(TranslationUnit
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineObjectMacro
+					id++"REQ_MAJOR",
+					string++"3"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineObjectMacro
+					id++"REQ_MINOR",
+					string++"2"
+				)
+			),
+			(NewLineLine),
+			(PreprocessorDirectives
+				directive=
+				(DefineObjectMacro
+					id++"MAJOR",
+					string++"4"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineObjectMacro
+					id++"MINOR",
+					string++"1"
+				)
+			),
+			(NewLineLine),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"REQ",
+					list=
+					(IdentifierList
+						id+*"[major, minor]"
+					),
+					string++"((major << 32) + minor >= ((REQ_MAJOR) << 32) + (REQ_MINOR))"
+				)
+			),
+			(NewLineLine),
+			(PreprocessorDirectives
+				directive=
+				(ConditionalDirective
+					conditional=
+					(IfConditional
+						expression=
+						(common::ConstantExpression
+							expr=
+							(common::ConditionalExpression
+								expr=
+								(common::LogicalOrExpression
+									expr+=
+									(common::LogicalAndExpression
+										expr+=
+										(common::InclusiveOrExpression
+											expr+=
+											(common::ExclusiveOrExpression
+												expr+=
+												(common::AndExpression
+													expr+=
+													(common::EqualityExpression
+														expr+=
+														(common::RelationalExpression
+															expr+=
+															(common::ShiftExpression
+																expr+=
+																(common::AdditiveExpression
+																	expr+=
+																	(common::MultiplicativeExpression
+																		expr+=
+																		(common::CastExpression
+																			expr=
+																			(common::UnaryExpression
+																				expr=
+																				(common::PostfixExpression
+																					expr=
+																					(PrimaryExpression
+																						id++"REQ"
+																					),
+																					suffix+=
+																					(common::PostfixExpressionSuffixArgument
+																						argumentExpressionList=
+																						(common::ArgumentExpressionList
+																							expr+=
+																							(common::ConditionalExpression
+																								expr=
+																								(common::LogicalOrExpression
+																									expr+=
+																									(common::LogicalAndExpression
+																										expr+=
+																										(common::InclusiveOrExpression
+																											expr+=
+																											(common::ExclusiveOrExpression
+																												expr+=
+																												(common::AndExpression
+																													expr+=
+																													(common::EqualityExpression
+																														expr+=
+																														(common::RelationalExpression
+																															expr+=
+																															(common::ShiftExpression
+																																expr+=
+																																(common::AdditiveExpression
+																																	expr+=
+																																	(common::MultiplicativeExpression
+																																		expr+=
+																																		(common::CastExpression
+																																			expr=
+																																			(common::UnaryExpression
+																																				expr=
+																																				(common::PostfixExpression
+																																					expr=
+																																					(PrimaryExpression
+																																						id++"MAJOR"
+																																					)
+																																				)
+																																			)
+																																		)
+																																	)
+																																)
+																															)
+																														)
+																													)
+																												)
+																											)
+																										)
+																									)
+																								)
+																							), // end common::ConditionalExpression
+																							(common::ConditionalExpression
+																								expr=
+																								(common::LogicalOrExpression
+																									expr+=
+																									(common::LogicalAndExpression
+																										expr+=
+																										(common::InclusiveOrExpression
+																											expr+=
+																											(common::ExclusiveOrExpression
+																												expr+=
+																												(common::AndExpression
+																													expr+=
+																													(common::EqualityExpression
+																														expr+=
+																														(common::RelationalExpression
+																															expr+=
+																															(common::ShiftExpression
+																																expr+=
+																																(common::AdditiveExpression
+																																	expr+=
+																																	(common::MultiplicativeExpression
+																																		expr+=
+																																		(common::CastExpression
+																																			expr=
+																																			(common::UnaryExpression
+																																				expr=
+																																				(common::PostfixExpression
+																																					expr=
+																																					(PrimaryExpression
+																																						id++"MINOR"
+																																					)
+																																				)
+																																			)
+																																		)
+																																	)
+																																)
+																															)
+																														)
+																													)
+																												)
+																											)
+																										)
+																									)
+																								)
+																							) // end common::ConditionalExpression
+																						) // end argument expression list
+																					) // end post-fix expression suffix argument
+																				)
+																			)
+																		)
+																	)
+																)
+															)
+														)
+													)
+												)
+											)
+										)
+									)
+								)
+							)
+						),
+						group=
+						(GroupOpt
+							lines+=
+							(Code
+								code++"	void foo_bar();"
+							)
+						)
+					)
+				)
+			)
+		)
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0077_IfComplexExpression.c.i"
+expected file="expected/Test0077_IfComplexExpression.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

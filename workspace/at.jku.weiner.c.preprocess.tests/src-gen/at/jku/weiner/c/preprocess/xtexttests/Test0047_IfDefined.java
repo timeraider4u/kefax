@@ -161,6 +161,8 @@ public class Test0047_IfDefined {
 				"RULE_SKW_GREATEREQUAL", 
 				"RULE_WHITESPACE", 
 				"RULE_DECIMAL_LITERAL", 
+				"RULE_WHITESPACE", 
+				"RULE_BLOCK_COMMENT", 
 				"RULE_NEWLINE", 
 				"RULE_WHITESPACE", 
 				"RULE_ID", 

@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link at.jku.weiner.c.common.common.impl.PrimaryExpressionImpl#getConst <em>Const</em>}</li>
+ *   <li>{@link at.jku.weiner.c.common.common.impl.PrimaryExpressionImpl#getId <em>Id</em>}</li>
  *   <li>{@link at.jku.weiner.c.common.common.impl.PrimaryExpressionImpl#getExpr <em>Expr</em>}</li>
  * </ul>
  * </p>
@@ -49,6 +50,26 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
    * @ordered
    */
   protected String const_ = CONST_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getId()
+   * @generated
+   * @ordered
+   */
+  protected static final String ID_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getId()
+   * @generated
+   * @ordered
+   */
+  protected String id = ID_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
@@ -102,6 +123,29 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
     const_ = newConst;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, CommonPackage.PRIMARY_EXPRESSION__CONST, oldConst, const_));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getId()
+  {
+    return id;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setId(String newId)
+  {
+    String oldId = id;
+    id = newId;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CommonPackage.PRIMARY_EXPRESSION__ID, oldId, id));
   }
 
   /**
@@ -180,6 +224,8 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
     {
       case CommonPackage.PRIMARY_EXPRESSION__CONST:
         return getConst();
+      case CommonPackage.PRIMARY_EXPRESSION__ID:
+        return getId();
       case CommonPackage.PRIMARY_EXPRESSION__EXPR:
         return getExpr();
     }
@@ -198,6 +244,9 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
     {
       case CommonPackage.PRIMARY_EXPRESSION__CONST:
         setConst((String)newValue);
+        return;
+      case CommonPackage.PRIMARY_EXPRESSION__ID:
+        setId((String)newValue);
         return;
       case CommonPackage.PRIMARY_EXPRESSION__EXPR:
         setExpr((Expression)newValue);
@@ -219,6 +268,9 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
       case CommonPackage.PRIMARY_EXPRESSION__CONST:
         setConst(CONST_EDEFAULT);
         return;
+      case CommonPackage.PRIMARY_EXPRESSION__ID:
+        setId(ID_EDEFAULT);
+        return;
       case CommonPackage.PRIMARY_EXPRESSION__EXPR:
         setExpr((Expression)null);
         return;
@@ -238,6 +290,8 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
     {
       case CommonPackage.PRIMARY_EXPRESSION__CONST:
         return CONST_EDEFAULT == null ? const_ != null : !CONST_EDEFAULT.equals(const_);
+      case CommonPackage.PRIMARY_EXPRESSION__ID:
+        return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
       case CommonPackage.PRIMARY_EXPRESSION__EXPR:
         return expr != null;
     }
@@ -257,6 +311,8 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (const: ");
     result.append(const_);
+    result.append(", id: ");
+    result.append(id);
     result.append(')');
     return result.toString();
   }

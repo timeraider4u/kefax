@@ -264,7 +264,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getElIfConditionalAccess().getExpressionConstantExpressionParserRuleCall_3_0(), semanticObject.getExpression());
-		feeder.accept(grammarAccess.getElIfConditionalAccess().getGroupGroupOptParserRuleCall_5_0(), semanticObject.getGroup());
+		feeder.accept(grammarAccess.getElIfConditionalAccess().getGroupGroupOptParserRuleCall_6_0(), semanticObject.getGroup());
 		feeder.finish();
 	}
 	
@@ -342,7 +342,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getIfConditionalAccess().getExpressionConstantExpressionParserRuleCall_3_0(), semanticObject.getExpression());
-		feeder.accept(grammarAccess.getIfConditionalAccess().getGroupGroupOptParserRuleCall_5_0(), semanticObject.getGroup());
+		feeder.accept(grammarAccess.getIfConditionalAccess().getGroupGroupOptParserRuleCall_6_0(), semanticObject.getGroup());
 		feeder.finish();
 	}
 	
@@ -361,7 +361,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getIfDefConditionalAccess().getIdIDTerminalRuleCall_3_0(), semanticObject.getId());
-		feeder.accept(grammarAccess.getIfDefConditionalAccess().getGroupGroupOptParserRuleCall_5_0(), semanticObject.getGroup());
+		feeder.accept(grammarAccess.getIfDefConditionalAccess().getGroupGroupOptParserRuleCall_6_0(), semanticObject.getGroup());
 		feeder.finish();
 	}
 	
@@ -380,7 +380,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getIfNotDefConditionalAccess().getIdIDTerminalRuleCall_3_0(), semanticObject.getId());
-		feeder.accept(grammarAccess.getIfNotDefConditionalAccess().getGroupGroupOptParserRuleCall_5_0(), semanticObject.getGroup());
+		feeder.accept(grammarAccess.getIfNotDefConditionalAccess().getGroupGroupOptParserRuleCall_6_0(), semanticObject.getGroup());
 		feeder.finish();
 	}
 	

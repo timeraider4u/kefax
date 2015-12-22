@@ -151,13 +151,13 @@ public class PreprocessParser extends AbstractContentAssistParser {
 					put(grammarAccess.getConditionalDirectiveAccess().getElifsAssignment_2(), "rule__ConditionalDirective__ElifsAssignment_2");
 					put(grammarAccess.getConditionalDirectiveAccess().getElseAssignment_3(), "rule__ConditionalDirective__ElseAssignment_3");
 					put(grammarAccess.getIfConditionalAccess().getExpressionAssignment_3(), "rule__IfConditional__ExpressionAssignment_3");
-					put(grammarAccess.getIfConditionalAccess().getGroupAssignment_5(), "rule__IfConditional__GroupAssignment_5");
+					put(grammarAccess.getIfConditionalAccess().getGroupAssignment_6(), "rule__IfConditional__GroupAssignment_6");
 					put(grammarAccess.getIfDefConditionalAccess().getIdAssignment_3(), "rule__IfDefConditional__IdAssignment_3");
-					put(grammarAccess.getIfDefConditionalAccess().getGroupAssignment_5(), "rule__IfDefConditional__GroupAssignment_5");
+					put(grammarAccess.getIfDefConditionalAccess().getGroupAssignment_6(), "rule__IfDefConditional__GroupAssignment_6");
 					put(grammarAccess.getIfNotDefConditionalAccess().getIdAssignment_3(), "rule__IfNotDefConditional__IdAssignment_3");
-					put(grammarAccess.getIfNotDefConditionalAccess().getGroupAssignment_5(), "rule__IfNotDefConditional__GroupAssignment_5");
+					put(grammarAccess.getIfNotDefConditionalAccess().getGroupAssignment_6(), "rule__IfNotDefConditional__GroupAssignment_6");
 					put(grammarAccess.getElIfConditionalAccess().getExpressionAssignment_3(), "rule__ElIfConditional__ExpressionAssignment_3");
-					put(grammarAccess.getElIfConditionalAccess().getGroupAssignment_5(), "rule__ElIfConditional__GroupAssignment_5");
+					put(grammarAccess.getElIfConditionalAccess().getGroupAssignment_6(), "rule__ElIfConditional__GroupAssignment_6");
 					put(grammarAccess.getElseConditionalAccess().getGroupAssignment_7(), "rule__ElseConditional__GroupAssignment_7");
 					put(grammarAccess.getCodeAccess().getCodeAssignment_1(), "rule__Code__CodeAssignment_1");
 					put(grammarAccess.getPrimaryExpressionAccess().getDefinedAssignment_1_0_0(), "rule__PrimaryExpression__DefinedAssignment_1_0_0");

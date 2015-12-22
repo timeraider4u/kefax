@@ -9,13 +9,15 @@ import at.jku.weiner.c.preprocess.preprocess.PreprocessFactory;
 import at.jku.weiner.c.preprocess.preprocess.PrimaryExpression;
 import at.jku.weiner.c.preprocess.tests.PreprocessInjectorProvider;
 import at.jku.weiner.c.preprocess.utils.expressions.ExpressionEvaluation;
+import at.jku.weiner.c.preprocess.utils.expressions.ExpressionLongVisitor;
+import at.jku.weiner.c.preprocess.utils.expressions.IExpressionVisitor;
 import at.jku.weiner.c.preprocess.utils.macros.DefinitionTable;
 
 import com.google.inject.Injector;
 
 public class TestPrimaryExpressionEvaluation {
 	private PreprocessFactory factory = PreprocessFactory.eINSTANCE;
-	private ExpressionEvaluation evaluater;
+	private ExpressionEvaluation<Long> evaluater;
 
 	@Before
 	public void setUp() throws Exception {
@@ -24,7 +26,9 @@ public class TestPrimaryExpressionEvaluation {
 		this.factory = PreprocessFactory.eINSTANCE;
 		final PreprocessInjectorProvider provider = new PreprocessInjectorProvider();
 		final Injector injector = provider.getInjector();
-		this.evaluater = new ExpressionEvaluation(injector, false);
+		final IExpressionVisitor<Long> visitor = new ExpressionLongVisitor(
+				injector, false);
+		this.evaluater = new ExpressionEvaluation<Long>(visitor);
 	}
 
 	@After
@@ -38,7 +42,7 @@ public class TestPrimaryExpressionEvaluation {
 		final PrimaryExpression expression = this.factory
 				.createPrimaryExpression();
 		expression.setId("FOO");
-		Assert.assertEquals(ExpressionEvaluation.FALSE,
+		Assert.assertEquals(ExpressionLongVisitor.FALSE,
 				this.evaluater.walkTo(expression));
 	}
 
@@ -48,7 +52,7 @@ public class TestPrimaryExpressionEvaluation {
 				.createPrimaryExpression();
 		expression.setId("FOO");
 		DefinitionTable.add("FOO", "1");
-		Assert.assertEquals(ExpressionEvaluation.TRUE,
+		Assert.assertEquals(ExpressionLongVisitor.TRUE,
 				this.evaluater.walkTo(expression));
 	}
 
@@ -59,7 +63,7 @@ public class TestPrimaryExpressionEvaluation {
 		expression.setId("FOO");
 		DefinitionTable.add("FOO", "BAR");
 		DefinitionTable.add("BAR", "0");
-		Assert.assertEquals(ExpressionEvaluation.FALSE,
+		Assert.assertEquals(ExpressionLongVisitor.FALSE,
 				this.evaluater.walkTo(expression));
 	}
 
@@ -70,7 +74,7 @@ public class TestPrimaryExpressionEvaluation {
 		expression.setId("FOO");
 		DefinitionTable.add("FOO", "BAR");
 		DefinitionTable.add("BAR", "1");
-		Assert.assertEquals(ExpressionEvaluation.TRUE,
+		Assert.assertEquals(ExpressionLongVisitor.TRUE,
 				this.evaluater.walkTo(expression));
 	}
 
@@ -79,7 +83,7 @@ public class TestPrimaryExpressionEvaluation {
 		final PrimaryExpression expression = this.factory
 				.createPrimaryExpression();
 		expression.setConst("0");
-		Assert.assertEquals(ExpressionEvaluation.FALSE,
+		Assert.assertEquals(ExpressionLongVisitor.FALSE,
 				this.evaluater.walkTo(expression));
 	}
 
@@ -88,7 +92,7 @@ public class TestPrimaryExpressionEvaluation {
 		final PrimaryExpression expression = this.factory
 				.createPrimaryExpression();
 		expression.setConst("1");
-		Assert.assertEquals(ExpressionEvaluation.TRUE,
+		Assert.assertEquals(ExpressionLongVisitor.TRUE,
 				this.evaluater.walkTo(expression));
 	}
 
@@ -98,8 +102,8 @@ public class TestPrimaryExpressionEvaluation {
 		final PrimaryExpression expression = this.factory
 				.createPrimaryExpression();
 		expression.setConst("1.5");
-		final Integer result = this.evaluater.walkTo(expression);
-		final Integer expected = ExpressionEvaluation.FALSE;
+		final Long result = this.evaluater.walkTo(expression);
+		final Long expected = ExpressionLongVisitor.FALSE;
 		Assert.assertEquals(expected, result);
 	}
 
@@ -109,8 +113,8 @@ public class TestPrimaryExpressionEvaluation {
 		final PrimaryExpression expression = this.factory
 				.createPrimaryExpression();
 		expression.setConst("1.0");
-		final Integer result = this.evaluater.walkTo(expression);
-		final Integer expected = ExpressionEvaluation.FALSE;
+		final Long result = this.evaluater.walkTo(expression);
+		final Long expected = ExpressionLongVisitor.FALSE;
 		Assert.assertEquals(expected, result);
 	}
 
@@ -120,8 +124,8 @@ public class TestPrimaryExpressionEvaluation {
 		final PrimaryExpression expression = this.factory
 				.createPrimaryExpression();
 		expression.setConst("\"hello\"");
-		final Integer result = this.evaluater.walkTo(expression);
-		final Integer expected = ExpressionEvaluation.FALSE;
+		final Long result = this.evaluater.walkTo(expression);
+		final Long expected = ExpressionLongVisitor.FALSE;
 		Assert.assertEquals(expected, result);
 	}
 
@@ -130,8 +134,8 @@ public class TestPrimaryExpressionEvaluation {
 		final PrimaryExpression expression = this.factory
 				.createPrimaryExpression();
 		expression.setConst("0b001");
-		final Integer result = this.evaluater.walkTo(expression);
-		Assert.assertEquals(ExpressionEvaluation.TRUE, result);
+		final Long result = this.evaluater.walkTo(expression);
+		Assert.assertEquals(ExpressionLongVisitor.TRUE, result);
 	}
 
 }

@@ -130,6 +130,8 @@ public class Test0042_IfnotDefSimple {
 				"RULE_IFNOTDEF", 
 				"RULE_WHITESPACE", 
 				"RULE_ID", 
+				"RULE_WHITESPACE", 
+				"RULE_BLOCK_COMMENT", 
 				"RULE_NEWLINE", 
 				"RULE_WHITESPACE", 
 				"RULE_HASH", 

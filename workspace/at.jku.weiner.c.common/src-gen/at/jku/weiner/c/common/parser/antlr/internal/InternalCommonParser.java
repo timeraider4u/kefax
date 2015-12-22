@@ -2852,7 +2852,7 @@ public class InternalCommonParser extends AbstractInternalAntlrParser {
 			// InternalCommon.g:1478:3: ( ( (lv_expr_1_0= rulePostfixExpression ) ) | ( ( (lv_op_2_0= ruleUnaryOperator ) ) ( (lv_expr_3_0= ruleCastExpression ) ) ) )
 			int alt17=2;
 			int LA17_0 = input.LA(1);
-			if ( (LA17_0==RULE_BIN_LITERAL||(LA17_0 >= RULE_CHAR_LITERAL && LA17_0 <= RULE_DECIMAL_LITERAL)||LA17_0==RULE_FLOAT_LITERAL||LA17_0==RULE_HEX_LITERAL||LA17_0==RULE_OCTAL_LITERAL||LA17_0==RULE_SKW_LEFTPAREN||LA17_0==RULE_STRING_LITERAL) ) {
+			if ( (LA17_0==RULE_BIN_LITERAL||(LA17_0 >= RULE_CHAR_LITERAL && LA17_0 <= RULE_DECIMAL_LITERAL)||LA17_0==RULE_FLOAT_LITERAL||(LA17_0 >= RULE_HEX_LITERAL && LA17_0 <= RULE_ID)||LA17_0==RULE_OCTAL_LITERAL||LA17_0==RULE_SKW_LEFTPAREN||LA17_0==RULE_STRING_LITERAL) ) {
 				alt17=1;
 			}
 			else if ( (LA17_0==RULE_SKW_AND||LA17_0==RULE_SKW_MINUS||LA17_0==RULE_SKW_NOT||LA17_0==RULE_SKW_PLUS||(LA17_0 >= RULE_SKW_STAR && LA17_0 <= RULE_SKW_TILDE)) ) {
@@ -3540,7 +3540,7 @@ public class InternalCommonParser extends AbstractInternalAntlrParser {
 			// InternalCommon.g:1842:3: ( (lv_argumentExpressionList_2_0= ruleArgumentExpressionList ) )?
 			int alt20=2;
 			int LA20_0 = input.LA(1);
-			if ( (LA20_0==RULE_BIN_LITERAL||(LA20_0 >= RULE_CHAR_LITERAL && LA20_0 <= RULE_DECIMAL_LITERAL)||LA20_0==RULE_FLOAT_LITERAL||LA20_0==RULE_HEX_LITERAL||(LA20_0 >= RULE_OCTAL_LITERAL && LA20_0 <= RULE_SKW_AND)||LA20_0==RULE_SKW_LEFTPAREN||LA20_0==RULE_SKW_MINUS||LA20_0==RULE_SKW_NOT||LA20_0==RULE_SKW_PLUS||(LA20_0 >= RULE_SKW_STAR && LA20_0 <= RULE_SKW_TILDE)||LA20_0==RULE_STRING_LITERAL) ) {
+			if ( (LA20_0==RULE_BIN_LITERAL||(LA20_0 >= RULE_CHAR_LITERAL && LA20_0 <= RULE_DECIMAL_LITERAL)||LA20_0==RULE_FLOAT_LITERAL||(LA20_0 >= RULE_HEX_LITERAL && LA20_0 <= RULE_ID)||(LA20_0 >= RULE_OCTAL_LITERAL && LA20_0 <= RULE_SKW_AND)||LA20_0==RULE_SKW_LEFTPAREN||LA20_0==RULE_SKW_MINUS||LA20_0==RULE_SKW_NOT||LA20_0==RULE_SKW_PLUS||(LA20_0 >= RULE_SKW_STAR && LA20_0 <= RULE_SKW_TILDE)||LA20_0==RULE_STRING_LITERAL) ) {
 				alt20=1;
 			}
 			switch (alt20) {
@@ -3801,25 +3801,26 @@ public class InternalCommonParser extends AbstractInternalAntlrParser {
 
 
 	// $ANTLR start "rulePrimaryExpression"
-	// InternalCommon.g:1967:1: rulePrimaryExpression returns [EObject current=null] : ( () ( ( (lv_const_1_0= ruleConstant1 ) ) | (this_SKW_LEFTPAREN_2= RULE_SKW_LEFTPAREN ( (lv_expr_3_0= ruleExpression ) ) this_SKW_RIGHTPAREN_4= RULE_SKW_RIGHTPAREN ) ) ) ;
+	// InternalCommon.g:1967:1: rulePrimaryExpression returns [EObject current=null] : ( () ( ( (lv_const_1_0= ruleConstant1 ) ) | ( (lv_id_2_0= RULE_ID ) ) | (this_SKW_LEFTPAREN_3= RULE_SKW_LEFTPAREN ( (lv_expr_4_0= ruleExpression ) ) this_SKW_RIGHTPAREN_5= RULE_SKW_RIGHTPAREN ) ) ) ;
 	public final EObject rulePrimaryExpression() throws RecognitionException {
 		EObject current = null;
 
 
-		Token this_SKW_LEFTPAREN_2=null;
-		Token this_SKW_RIGHTPAREN_4=null;
+		Token lv_id_2_0=null;
+		Token this_SKW_LEFTPAREN_3=null;
+		Token this_SKW_RIGHTPAREN_5=null;
 		AntlrDatatypeRuleToken lv_const_1_0 =null;
-		EObject lv_expr_3_0 =null;
+		EObject lv_expr_4_0 =null;
 
 		 enterRule();
 		   		/*no init found*/
 		    
 		try {
-			// InternalCommon.g:1973:7: ( ( () ( ( (lv_const_1_0= ruleConstant1 ) ) | (this_SKW_LEFTPAREN_2= RULE_SKW_LEFTPAREN ( (lv_expr_3_0= ruleExpression ) ) this_SKW_RIGHTPAREN_4= RULE_SKW_RIGHTPAREN ) ) ) )
-			// InternalCommon.g:1975:5: ( () ( ( (lv_const_1_0= ruleConstant1 ) ) | (this_SKW_LEFTPAREN_2= RULE_SKW_LEFTPAREN ( (lv_expr_3_0= ruleExpression ) ) this_SKW_RIGHTPAREN_4= RULE_SKW_RIGHTPAREN ) ) )
+			// InternalCommon.g:1973:7: ( ( () ( ( (lv_const_1_0= ruleConstant1 ) ) | ( (lv_id_2_0= RULE_ID ) ) | (this_SKW_LEFTPAREN_3= RULE_SKW_LEFTPAREN ( (lv_expr_4_0= ruleExpression ) ) this_SKW_RIGHTPAREN_5= RULE_SKW_RIGHTPAREN ) ) ) )
+			// InternalCommon.g:1975:5: ( () ( ( (lv_const_1_0= ruleConstant1 ) ) | ( (lv_id_2_0= RULE_ID ) ) | (this_SKW_LEFTPAREN_3= RULE_SKW_LEFTPAREN ( (lv_expr_4_0= ruleExpression ) ) this_SKW_RIGHTPAREN_5= RULE_SKW_RIGHTPAREN ) ) )
 			{
-			// InternalCommon.g:1975:5: ( () ( ( (lv_const_1_0= ruleConstant1 ) ) | (this_SKW_LEFTPAREN_2= RULE_SKW_LEFTPAREN ( (lv_expr_3_0= ruleExpression ) ) this_SKW_RIGHTPAREN_4= RULE_SKW_RIGHTPAREN ) ) )
-			// InternalCommon.g:1976:5: () ( ( (lv_const_1_0= ruleConstant1 ) ) | (this_SKW_LEFTPAREN_2= RULE_SKW_LEFTPAREN ( (lv_expr_3_0= ruleExpression ) ) this_SKW_RIGHTPAREN_4= RULE_SKW_RIGHTPAREN ) )
+			// InternalCommon.g:1975:5: ( () ( ( (lv_const_1_0= ruleConstant1 ) ) | ( (lv_id_2_0= RULE_ID ) ) | (this_SKW_LEFTPAREN_3= RULE_SKW_LEFTPAREN ( (lv_expr_4_0= ruleExpression ) ) this_SKW_RIGHTPAREN_5= RULE_SKW_RIGHTPAREN ) ) )
+			// InternalCommon.g:1976:5: () ( ( (lv_const_1_0= ruleConstant1 ) ) | ( (lv_id_2_0= RULE_ID ) ) | (this_SKW_LEFTPAREN_3= RULE_SKW_LEFTPAREN ( (lv_expr_4_0= ruleExpression ) ) this_SKW_RIGHTPAREN_5= RULE_SKW_RIGHTPAREN ) )
 			{
 			// InternalCommon.g:1976:5: ()
 			// InternalCommon.g:1977:5: 
@@ -3831,22 +3832,35 @@ public class InternalCommonParser extends AbstractInternalAntlrParser {
 			    
 			}
 
-			// InternalCommon.g:1985:3: ( ( (lv_const_1_0= ruleConstant1 ) ) | (this_SKW_LEFTPAREN_2= RULE_SKW_LEFTPAREN ( (lv_expr_3_0= ruleExpression ) ) this_SKW_RIGHTPAREN_4= RULE_SKW_RIGHTPAREN ) )
-			int alt22=2;
-			int LA22_0 = input.LA(1);
-			if ( (LA22_0==RULE_BIN_LITERAL||(LA22_0 >= RULE_CHAR_LITERAL && LA22_0 <= RULE_DECIMAL_LITERAL)||LA22_0==RULE_FLOAT_LITERAL||LA22_0==RULE_HEX_LITERAL||LA22_0==RULE_OCTAL_LITERAL||LA22_0==RULE_STRING_LITERAL) ) {
+			// InternalCommon.g:1985:3: ( ( (lv_const_1_0= ruleConstant1 ) ) | ( (lv_id_2_0= RULE_ID ) ) | (this_SKW_LEFTPAREN_3= RULE_SKW_LEFTPAREN ( (lv_expr_4_0= ruleExpression ) ) this_SKW_RIGHTPAREN_5= RULE_SKW_RIGHTPAREN ) )
+			int alt22=3;
+			switch ( input.LA(1) ) {
+			case RULE_BIN_LITERAL:
+			case RULE_CHAR_LITERAL:
+			case RULE_DECIMAL_LITERAL:
+			case RULE_FLOAT_LITERAL:
+			case RULE_HEX_LITERAL:
+			case RULE_OCTAL_LITERAL:
+			case RULE_STRING_LITERAL:
+				{
 				alt22=1;
-			}
-			else if ( (LA22_0==RULE_SKW_LEFTPAREN) ) {
+				}
+				break;
+			case RULE_ID:
+				{
 				alt22=2;
-			}
-
-			else {
+				}
+				break;
+			case RULE_SKW_LEFTPAREN:
+				{
+				alt22=3;
+				}
+				break;
+			default:
 				NoViableAltException nvae =
 					new NoViableAltException("", 22, 0, input);
 				throw nvae;
 			}
-
 			switch (alt22) {
 				case 1 :
 					// InternalCommon.g:1986:3: ( (lv_const_1_0= ruleConstant1 ) )
@@ -3882,26 +3896,55 @@ public class InternalCommonParser extends AbstractInternalAntlrParser {
 					}
 					break;
 				case 2 :
-					// InternalCommon.g:2008:21: (this_SKW_LEFTPAREN_2= RULE_SKW_LEFTPAREN ( (lv_expr_3_0= ruleExpression ) ) this_SKW_RIGHTPAREN_4= RULE_SKW_RIGHTPAREN )
+					// InternalCommon.g:2008:3: ( (lv_id_2_0= RULE_ID ) )
 					{
-					// InternalCommon.g:2008:21: (this_SKW_LEFTPAREN_2= RULE_SKW_LEFTPAREN ( (lv_expr_3_0= ruleExpression ) ) this_SKW_RIGHTPAREN_4= RULE_SKW_RIGHTPAREN )
-					// InternalCommon.g:2009:21: this_SKW_LEFTPAREN_2= RULE_SKW_LEFTPAREN ( (lv_expr_3_0= ruleExpression ) ) this_SKW_RIGHTPAREN_4= RULE_SKW_RIGHTPAREN
+					// InternalCommon.g:2008:3: ( (lv_id_2_0= RULE_ID ) )
+					// InternalCommon.g:2009:3: (lv_id_2_0= RULE_ID )
 					{
-					this_SKW_LEFTPAREN_2=(Token)match(input,RULE_SKW_LEFTPAREN,FOLLOW_4); 
+					// InternalCommon.g:2009:3: (lv_id_2_0= RULE_ID )
+					// InternalCommon.g:2010:3: lv_id_2_0= RULE_ID
+					{
+					lv_id_2_0=(Token)match(input,RULE_ID,FOLLOW_2); 
+
+								newLeafNode(lv_id_2_0, grammarAccess.getPrimaryExpressionAccess().getIdIDTerminalRuleCall_1_1_0()); 
+							
+
+						        if (current==null) {
+						            current = createModelElement(grammarAccess.getPrimaryExpressionRule());
+						        }
+					       		setWithLastConsumed(
+					       			current, 
+					       			"id",
+					        		lv_id_2_0, 
+					        		"at.jku.weiner.c.common.Common.ID");
+						    
+					}
+
+					}
+
+					}
+					break;
+				case 3 :
+					// InternalCommon.g:2030:21: (this_SKW_LEFTPAREN_3= RULE_SKW_LEFTPAREN ( (lv_expr_4_0= ruleExpression ) ) this_SKW_RIGHTPAREN_5= RULE_SKW_RIGHTPAREN )
+					{
+					// InternalCommon.g:2030:21: (this_SKW_LEFTPAREN_3= RULE_SKW_LEFTPAREN ( (lv_expr_4_0= ruleExpression ) ) this_SKW_RIGHTPAREN_5= RULE_SKW_RIGHTPAREN )
+					// InternalCommon.g:2031:21: this_SKW_LEFTPAREN_3= RULE_SKW_LEFTPAREN ( (lv_expr_4_0= ruleExpression ) ) this_SKW_RIGHTPAREN_5= RULE_SKW_RIGHTPAREN
+					{
+					this_SKW_LEFTPAREN_3=(Token)match(input,RULE_SKW_LEFTPAREN,FOLLOW_4); 
 					 
-					    newLeafNode(this_SKW_LEFTPAREN_2, grammarAccess.getPrimaryExpressionAccess().getSKW_LEFTPARENTerminalRuleCall_1_1_0()); 
+					    newLeafNode(this_SKW_LEFTPAREN_3, grammarAccess.getPrimaryExpressionAccess().getSKW_LEFTPARENTerminalRuleCall_1_2_0()); 
 					    
-					// InternalCommon.g:2016:3: ( (lv_expr_3_0= ruleExpression ) )
-					// InternalCommon.g:2017:3: (lv_expr_3_0= ruleExpression )
+					// InternalCommon.g:2038:3: ( (lv_expr_4_0= ruleExpression ) )
+					// InternalCommon.g:2039:3: (lv_expr_4_0= ruleExpression )
 					{
-					// InternalCommon.g:2017:3: (lv_expr_3_0= ruleExpression )
-					// InternalCommon.g:2018:3: lv_expr_3_0= ruleExpression
+					// InternalCommon.g:2039:3: (lv_expr_4_0= ruleExpression )
+					// InternalCommon.g:2040:3: lv_expr_4_0= ruleExpression
 					{
 					 
-						        newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getExprExpressionParserRuleCall_1_1_1_0()); 
+						        newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getExprExpressionParserRuleCall_1_2_1_0()); 
 						    
 					pushFollow(FOLLOW_18);
-					lv_expr_3_0=ruleExpression();
+					lv_expr_4_0=ruleExpression();
 					state._fsp--;
 
 
@@ -3911,7 +3954,7 @@ public class InternalCommonParser extends AbstractInternalAntlrParser {
 					       		set(
 					       			current, 
 					       			"expr",
-					        		lv_expr_3_0, 
+					        		lv_expr_4_0, 
 					        		"at.jku.weiner.c.common.Common.Expression");
 						        afterParserOrEnumRuleCall();
 						    
@@ -3919,9 +3962,9 @@ public class InternalCommonParser extends AbstractInternalAntlrParser {
 
 					}
 
-					this_SKW_RIGHTPAREN_4=(Token)match(input,RULE_SKW_RIGHTPAREN,FOLLOW_2); 
+					this_SKW_RIGHTPAREN_5=(Token)match(input,RULE_SKW_RIGHTPAREN,FOLLOW_2); 
 					 
-					    newLeafNode(this_SKW_RIGHTPAREN_4, grammarAccess.getPrimaryExpressionAccess().getSKW_RIGHTPARENTerminalRuleCall_1_1_2()); 
+					    newLeafNode(this_SKW_RIGHTPAREN_5, grammarAccess.getPrimaryExpressionAccess().getSKW_RIGHTPARENTerminalRuleCall_1_2_2()); 
 					    
 					}
 
@@ -3954,7 +3997,7 @@ public class InternalCommonParser extends AbstractInternalAntlrParser {
 
 
 	// $ANTLR start "entryRuleConstant1"
-	// InternalCommon.g:2057:1: entryRuleConstant1 returns [String current=null] :iv_ruleConstant1= ruleConstant1 EOF ;
+	// InternalCommon.g:2079:1: entryRuleConstant1 returns [String current=null] :iv_ruleConstant1= ruleConstant1 EOF ;
 	public final String entryRuleConstant1() throws RecognitionException {
 		String current = null;
 
@@ -3962,8 +4005,8 @@ public class InternalCommonParser extends AbstractInternalAntlrParser {
 		AntlrDatatypeRuleToken iv_ruleConstant1 =null;
 
 		try {
-			// InternalCommon.g:2058:2: (iv_ruleConstant1= ruleConstant1 EOF )
-			// InternalCommon.g:2059:2: iv_ruleConstant1= ruleConstant1 EOF
+			// InternalCommon.g:2080:2: (iv_ruleConstant1= ruleConstant1 EOF )
+			// InternalCommon.g:2081:2: iv_ruleConstant1= ruleConstant1 EOF
 			{
 			 newCompositeNode(grammarAccess.getConstant1Rule()); 
 			pushFollow(FOLLOW_1);
@@ -3991,7 +4034,7 @@ public class InternalCommonParser extends AbstractInternalAntlrParser {
 
 
 	// $ANTLR start "ruleConstant1"
-	// InternalCommon.g:2066:1: ruleConstant1 returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_HEX_LITERAL_0= RULE_HEX_LITERAL |this_OCTAL_LITERAL_1= RULE_OCTAL_LITERAL |this_DECIMAL_LITERAL_2= RULE_DECIMAL_LITERAL |this_CHAR_LITERAL_3= RULE_CHAR_LITERAL |this_STRING_LITERAL_4= RULE_STRING_LITERAL |this_FLOAT_LITERAL_5= RULE_FLOAT_LITERAL |this_BIN_LITERAL_6= RULE_BIN_LITERAL ) ;
+	// InternalCommon.g:2088:1: ruleConstant1 returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_HEX_LITERAL_0= RULE_HEX_LITERAL |this_OCTAL_LITERAL_1= RULE_OCTAL_LITERAL |this_DECIMAL_LITERAL_2= RULE_DECIMAL_LITERAL |this_CHAR_LITERAL_3= RULE_CHAR_LITERAL |this_STRING_LITERAL_4= RULE_STRING_LITERAL |this_FLOAT_LITERAL_5= RULE_FLOAT_LITERAL |this_BIN_LITERAL_6= RULE_BIN_LITERAL ) ;
 	public final AntlrDatatypeRuleToken ruleConstant1() throws RecognitionException {
 		AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -4007,10 +4050,10 @@ public class InternalCommonParser extends AbstractInternalAntlrParser {
 		 enterRule(); 
 		    
 		try {
-			// InternalCommon.g:2069:28: ( (this_HEX_LITERAL_0= RULE_HEX_LITERAL |this_OCTAL_LITERAL_1= RULE_OCTAL_LITERAL |this_DECIMAL_LITERAL_2= RULE_DECIMAL_LITERAL |this_CHAR_LITERAL_3= RULE_CHAR_LITERAL |this_STRING_LITERAL_4= RULE_STRING_LITERAL |this_FLOAT_LITERAL_5= RULE_FLOAT_LITERAL |this_BIN_LITERAL_6= RULE_BIN_LITERAL ) )
-			// InternalCommon.g:2070:6: (this_HEX_LITERAL_0= RULE_HEX_LITERAL |this_OCTAL_LITERAL_1= RULE_OCTAL_LITERAL |this_DECIMAL_LITERAL_2= RULE_DECIMAL_LITERAL |this_CHAR_LITERAL_3= RULE_CHAR_LITERAL |this_STRING_LITERAL_4= RULE_STRING_LITERAL |this_FLOAT_LITERAL_5= RULE_FLOAT_LITERAL |this_BIN_LITERAL_6= RULE_BIN_LITERAL )
+			// InternalCommon.g:2091:28: ( (this_HEX_LITERAL_0= RULE_HEX_LITERAL |this_OCTAL_LITERAL_1= RULE_OCTAL_LITERAL |this_DECIMAL_LITERAL_2= RULE_DECIMAL_LITERAL |this_CHAR_LITERAL_3= RULE_CHAR_LITERAL |this_STRING_LITERAL_4= RULE_STRING_LITERAL |this_FLOAT_LITERAL_5= RULE_FLOAT_LITERAL |this_BIN_LITERAL_6= RULE_BIN_LITERAL ) )
+			// InternalCommon.g:2092:6: (this_HEX_LITERAL_0= RULE_HEX_LITERAL |this_OCTAL_LITERAL_1= RULE_OCTAL_LITERAL |this_DECIMAL_LITERAL_2= RULE_DECIMAL_LITERAL |this_CHAR_LITERAL_3= RULE_CHAR_LITERAL |this_STRING_LITERAL_4= RULE_STRING_LITERAL |this_FLOAT_LITERAL_5= RULE_FLOAT_LITERAL |this_BIN_LITERAL_6= RULE_BIN_LITERAL )
 			{
-			// InternalCommon.g:2070:6: (this_HEX_LITERAL_0= RULE_HEX_LITERAL |this_OCTAL_LITERAL_1= RULE_OCTAL_LITERAL |this_DECIMAL_LITERAL_2= RULE_DECIMAL_LITERAL |this_CHAR_LITERAL_3= RULE_CHAR_LITERAL |this_STRING_LITERAL_4= RULE_STRING_LITERAL |this_FLOAT_LITERAL_5= RULE_FLOAT_LITERAL |this_BIN_LITERAL_6= RULE_BIN_LITERAL )
+			// InternalCommon.g:2092:6: (this_HEX_LITERAL_0= RULE_HEX_LITERAL |this_OCTAL_LITERAL_1= RULE_OCTAL_LITERAL |this_DECIMAL_LITERAL_2= RULE_DECIMAL_LITERAL |this_CHAR_LITERAL_3= RULE_CHAR_LITERAL |this_STRING_LITERAL_4= RULE_STRING_LITERAL |this_FLOAT_LITERAL_5= RULE_FLOAT_LITERAL |this_BIN_LITERAL_6= RULE_BIN_LITERAL )
 			int alt23=7;
 			switch ( input.LA(1) ) {
 			case RULE_HEX_LITERAL:
@@ -4055,7 +4098,7 @@ public class InternalCommonParser extends AbstractInternalAntlrParser {
 			}
 			switch (alt23) {
 				case 1 :
-					// InternalCommon.g:2070:6: this_HEX_LITERAL_0= RULE_HEX_LITERAL
+					// InternalCommon.g:2092:6: this_HEX_LITERAL_0= RULE_HEX_LITERAL
 					{
 					this_HEX_LITERAL_0=(Token)match(input,RULE_HEX_LITERAL,FOLLOW_2); 
 
@@ -4067,7 +4110,7 @@ public class InternalCommonParser extends AbstractInternalAntlrParser {
 					}
 					break;
 				case 2 :
-					// InternalCommon.g:2078:10: this_OCTAL_LITERAL_1= RULE_OCTAL_LITERAL
+					// InternalCommon.g:2100:10: this_OCTAL_LITERAL_1= RULE_OCTAL_LITERAL
 					{
 					this_OCTAL_LITERAL_1=(Token)match(input,RULE_OCTAL_LITERAL,FOLLOW_2); 
 
@@ -4079,7 +4122,7 @@ public class InternalCommonParser extends AbstractInternalAntlrParser {
 					}
 					break;
 				case 3 :
-					// InternalCommon.g:2086:10: this_DECIMAL_LITERAL_2= RULE_DECIMAL_LITERAL
+					// InternalCommon.g:2108:10: this_DECIMAL_LITERAL_2= RULE_DECIMAL_LITERAL
 					{
 					this_DECIMAL_LITERAL_2=(Token)match(input,RULE_DECIMAL_LITERAL,FOLLOW_2); 
 
@@ -4091,7 +4134,7 @@ public class InternalCommonParser extends AbstractInternalAntlrParser {
 					}
 					break;
 				case 4 :
-					// InternalCommon.g:2094:10: this_CHAR_LITERAL_3= RULE_CHAR_LITERAL
+					// InternalCommon.g:2116:10: this_CHAR_LITERAL_3= RULE_CHAR_LITERAL
 					{
 					this_CHAR_LITERAL_3=(Token)match(input,RULE_CHAR_LITERAL,FOLLOW_2); 
 
@@ -4103,7 +4146,7 @@ public class InternalCommonParser extends AbstractInternalAntlrParser {
 					}
 					break;
 				case 5 :
-					// InternalCommon.g:2102:10: this_STRING_LITERAL_4= RULE_STRING_LITERAL
+					// InternalCommon.g:2124:10: this_STRING_LITERAL_4= RULE_STRING_LITERAL
 					{
 					this_STRING_LITERAL_4=(Token)match(input,RULE_STRING_LITERAL,FOLLOW_2); 
 
@@ -4115,7 +4158,7 @@ public class InternalCommonParser extends AbstractInternalAntlrParser {
 					}
 					break;
 				case 6 :
-					// InternalCommon.g:2110:10: this_FLOAT_LITERAL_5= RULE_FLOAT_LITERAL
+					// InternalCommon.g:2132:10: this_FLOAT_LITERAL_5= RULE_FLOAT_LITERAL
 					{
 					this_FLOAT_LITERAL_5=(Token)match(input,RULE_FLOAT_LITERAL,FOLLOW_2); 
 
@@ -4127,7 +4170,7 @@ public class InternalCommonParser extends AbstractInternalAntlrParser {
 					}
 					break;
 				case 7 :
-					// InternalCommon.g:2118:10: this_BIN_LITERAL_6= RULE_BIN_LITERAL
+					// InternalCommon.g:2140:10: this_BIN_LITERAL_6= RULE_BIN_LITERAL
 					{
 					this_BIN_LITERAL_6=(Token)match(input,RULE_BIN_LITERAL,FOLLOW_2); 
 
@@ -4165,7 +4208,7 @@ public class InternalCommonParser extends AbstractInternalAntlrParser {
 	public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
 	public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0080000000000002L});
-	public static final BitSet FOLLOW_4 = new BitSet(new long[]{0xC022440006004990L,0x0000000000000008L});
+	public static final BitSet FOLLOW_4 = new BitSet(new long[]{0xC02244000600C990L,0x0000000000000008L});
 	public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000080000000L});
 	public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0010000000000002L});
 	public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000008000002L});
@@ -4178,7 +4221,7 @@ public class InternalCommonParser extends AbstractInternalAntlrParser {
 	public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0020400000000002L});
 	public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x4001000200000002L});
 	public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000040000000002L});
-	public static final BitSet FOLLOW_17 = new BitSet(new long[]{0xC422440006004990L,0x0000000000000008L});
+	public static final BitSet FOLLOW_17 = new BitSet(new long[]{0xC42244000600C990L,0x0000000000000008L});
 	public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0400000000000000L});
 	public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000100000002L});
 }

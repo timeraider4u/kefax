@@ -11,12 +11,12 @@ import at.jku.weiner.c.common.common.LogicalAndExpression;
 import at.jku.weiner.c.common.common.LogicalOrExpression;
 import at.jku.weiner.c.common.common.MultiplicativeExpression;
 import at.jku.weiner.c.common.common.PostfixExpression;
-import at.jku.weiner.c.preprocess.preprocess.PreprocessFactory;
-import at.jku.weiner.c.preprocess.preprocess.PrimaryExpression;
 import at.jku.weiner.c.common.common.RelationalExpression;
 import at.jku.weiner.c.common.common.ShiftExpression;
 import at.jku.weiner.c.common.common.UnaryExpression;
 import at.jku.weiner.c.common.common.UnaryOperator;
+import at.jku.weiner.c.preprocess.preprocess.PreprocessFactory;
+import at.jku.weiner.c.preprocess.preprocess.PrimaryExpression;
 
 public class TestExpressionHelper {
 	protected final PreprocessFactory factory1 = PreprocessFactory.eINSTANCE;
@@ -39,13 +39,13 @@ public class TestExpressionHelper {
 	protected final LogicalAndExpression logicalAndExpression;
 	protected final LogicalOrExpression logicalOrExpression;
 
-	public TestExpressionHelper(final Integer literal) {
-		this(literal.intValue());
+	public TestExpressionHelper(final Long literal) {
+		this(literal.longValue());
 	}
 
-	public TestExpressionHelper(final int literal) {
+	public TestExpressionHelper(final long literal) {
 		this.primaryExpression = this.factory1.createPrimaryExpression();
-		this.primaryExpression.setId("" + literal);
+		this.primaryExpression.setConst("" + literal);
 		this.postfixExpression = this.factory2.createPostfixExpression();
 		this.postfixExpression.setExpr(this.primaryExpression);
 		this.unaryExpression1 = this.factory2.createUnaryExpression();

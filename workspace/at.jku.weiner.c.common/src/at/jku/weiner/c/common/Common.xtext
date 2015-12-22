@@ -240,6 +240,7 @@ PrimaryExpression returns Expression:
 	{PrimaryExpression}
 	(	
 			const=Constant1
+		|	id=ID
 		//|	string+=STRING_LITERAL+ // reachable over Constant!
 		|	SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN
 	)

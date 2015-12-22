@@ -14,19 +14,19 @@ class ExpressionEvaluationUtils {
 		if (ops.size() != (list.size() - 1)) {
 			throw new IllegalArgumentException(
 					ExpressionEvaluationUtils.errorListSizeStart + text
-							+ ExpressionEvaluationUtils.errorListSizeEnd);
+					+ ExpressionEvaluationUtils.errorListSizeEnd);
 		}
 	}
 
-	protected static int convertFrom(final boolean value) {
+	protected static Long convertFrom(final boolean value) {
 		if (!value) {
-			return ExpressionEvaluation.FALSE;
+			return ExpressionLongVisitor.FALSE;
 		}
-		return ExpressionEvaluation.TRUE;
+		return ExpressionLongVisitor.TRUE;
 	}
 
-	protected static boolean convertFrom(final int value) {
-		if (value == ExpressionEvaluation.FALSE) {
+	protected static boolean convertFrom(final Long value) {
+		if (ExpressionLongVisitor.FALSE.equals(value)) {
 			return false;
 		}
 		return true;

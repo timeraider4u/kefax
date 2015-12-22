@@ -682,16 +682,17 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cWHITESPACETerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		private final Assignment cExpressionAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cExpressionConstantExpressionParserRuleCall_3_0 = (RuleCall)cExpressionAssignment_3.eContents().get(0);
-		private final RuleCall cNEWLINETerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
-		private final Assignment cGroupAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cGroupGroupOptParserRuleCall_5_0 = (RuleCall)cGroupAssignment_5.eContents().get(0);
+		private final RuleCall cWHITESPACETerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cNEWLINETerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final Assignment cGroupAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cGroupGroupOptParserRuleCall_6_0 = (RuleCall)cGroupAssignment_6.eContents().get(0);
 		
 		//IfConditional:
-		//	{IfConditional} IF WHITESPACE+ expression=Common::ConstantExpression NEWLINE
+		//	{IfConditional} IF WHITESPACE+ expression=Common::ConstantExpression WHITESPACE* NEWLINE
 		//	group=GroupOpt;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{IfConditional} IF WHITESPACE+ expression=Common::ConstantExpression NEWLINE group=GroupOpt
+		//{IfConditional} IF WHITESPACE+ expression=Common::ConstantExpression WHITESPACE* NEWLINE group=GroupOpt
 		public Group getGroup() { return cGroup; }
 		
 		//{IfConditional}
@@ -709,14 +710,17 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//Common::ConstantExpression
 		public RuleCall getExpressionConstantExpressionParserRuleCall_3_0() { return cExpressionConstantExpressionParserRuleCall_3_0; }
 		
+		//WHITESPACE*
+		public RuleCall getWHITESPACETerminalRuleCall_4() { return cWHITESPACETerminalRuleCall_4; }
+		
 		//NEWLINE
-		public RuleCall getNEWLINETerminalRuleCall_4() { return cNEWLINETerminalRuleCall_4; }
+		public RuleCall getNEWLINETerminalRuleCall_5() { return cNEWLINETerminalRuleCall_5; }
 		
 		//group=GroupOpt
-		public Assignment getGroupAssignment_5() { return cGroupAssignment_5; }
+		public Assignment getGroupAssignment_6() { return cGroupAssignment_6; }
 		
 		//GroupOpt
-		public RuleCall getGroupGroupOptParserRuleCall_5_0() { return cGroupGroupOptParserRuleCall_5_0; }
+		public RuleCall getGroupGroupOptParserRuleCall_6_0() { return cGroupGroupOptParserRuleCall_6_0; }
 	}
 	public class IfDefConditionalElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.IfDefConditional");
@@ -726,16 +730,17 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cWHITESPACETerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		private final Assignment cIdAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cIdIDTerminalRuleCall_3_0 = (RuleCall)cIdAssignment_3.eContents().get(0);
-		private final RuleCall cNEWLINETerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
-		private final Assignment cGroupAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cGroupGroupOptParserRuleCall_5_0 = (RuleCall)cGroupAssignment_5.eContents().get(0);
+		private final RuleCall cWHITESPACETerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cNEWLINETerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final Assignment cGroupAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cGroupGroupOptParserRuleCall_6_0 = (RuleCall)cGroupAssignment_6.eContents().get(0);
 		
 		//IfDefConditional:
-		//	{IfDefConditional} IFDEF WHITESPACE+ id=ID NEWLINE
+		//	{IfDefConditional} IFDEF WHITESPACE+ id=ID WHITESPACE* NEWLINE
 		//	group=GroupOpt;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{IfDefConditional} IFDEF WHITESPACE+ id=ID NEWLINE group=GroupOpt
+		//{IfDefConditional} IFDEF WHITESPACE+ id=ID WHITESPACE* NEWLINE group=GroupOpt
 		public Group getGroup() { return cGroup; }
 		
 		//{IfDefConditional}
@@ -753,14 +758,17 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getIdIDTerminalRuleCall_3_0() { return cIdIDTerminalRuleCall_3_0; }
 		
+		//WHITESPACE*
+		public RuleCall getWHITESPACETerminalRuleCall_4() { return cWHITESPACETerminalRuleCall_4; }
+		
 		//NEWLINE
-		public RuleCall getNEWLINETerminalRuleCall_4() { return cNEWLINETerminalRuleCall_4; }
+		public RuleCall getNEWLINETerminalRuleCall_5() { return cNEWLINETerminalRuleCall_5; }
 		
 		//group=GroupOpt
-		public Assignment getGroupAssignment_5() { return cGroupAssignment_5; }
+		public Assignment getGroupAssignment_6() { return cGroupAssignment_6; }
 		
 		//GroupOpt
-		public RuleCall getGroupGroupOptParserRuleCall_5_0() { return cGroupGroupOptParserRuleCall_5_0; }
+		public RuleCall getGroupGroupOptParserRuleCall_6_0() { return cGroupGroupOptParserRuleCall_6_0; }
 	}
 	public class IfNotDefConditionalElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.IfNotDefConditional");
@@ -770,16 +778,17 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cWHITESPACETerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		private final Assignment cIdAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cIdIDTerminalRuleCall_3_0 = (RuleCall)cIdAssignment_3.eContents().get(0);
-		private final RuleCall cNEWLINETerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
-		private final Assignment cGroupAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cGroupGroupOptParserRuleCall_5_0 = (RuleCall)cGroupAssignment_5.eContents().get(0);
+		private final RuleCall cWHITESPACETerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cNEWLINETerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final Assignment cGroupAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cGroupGroupOptParserRuleCall_6_0 = (RuleCall)cGroupAssignment_6.eContents().get(0);
 		
 		//IfNotDefConditional:
-		//	{IfNotDefConditional} IFNOTDEF WHITESPACE+ id=ID NEWLINE
+		//	{IfNotDefConditional} IFNOTDEF WHITESPACE+ id=ID WHITESPACE* NEWLINE
 		//	group=GroupOpt;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{IfNotDefConditional} IFNOTDEF WHITESPACE+ id=ID NEWLINE group=GroupOpt
+		//{IfNotDefConditional} IFNOTDEF WHITESPACE+ id=ID WHITESPACE* NEWLINE group=GroupOpt
 		public Group getGroup() { return cGroup; }
 		
 		//{IfNotDefConditional}
@@ -797,14 +806,17 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getIdIDTerminalRuleCall_3_0() { return cIdIDTerminalRuleCall_3_0; }
 		
+		//WHITESPACE*
+		public RuleCall getWHITESPACETerminalRuleCall_4() { return cWHITESPACETerminalRuleCall_4; }
+		
 		//NEWLINE
-		public RuleCall getNEWLINETerminalRuleCall_4() { return cNEWLINETerminalRuleCall_4; }
+		public RuleCall getNEWLINETerminalRuleCall_5() { return cNEWLINETerminalRuleCall_5; }
 		
 		//group=GroupOpt
-		public Assignment getGroupAssignment_5() { return cGroupAssignment_5; }
+		public Assignment getGroupAssignment_6() { return cGroupAssignment_6; }
 		
 		//GroupOpt
-		public RuleCall getGroupGroupOptParserRuleCall_5_0() { return cGroupGroupOptParserRuleCall_5_0; }
+		public RuleCall getGroupGroupOptParserRuleCall_6_0() { return cGroupGroupOptParserRuleCall_6_0; }
 	}
 	public class ElIfConditionalElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.ElIfConditional");
@@ -818,17 +830,19 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cWHITESPACETerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		private final Assignment cExpressionAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cExpressionConstantExpressionParserRuleCall_3_0 = (RuleCall)cExpressionAssignment_3.eContents().get(0);
-		private final RuleCall cNEWLINETerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
-		private final Assignment cGroupAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cGroupGroupOptParserRuleCall_5_0 = (RuleCall)cGroupAssignment_5.eContents().get(0);
+		private final RuleCall cWHITESPACETerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cNEWLINETerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final Assignment cGroupAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cGroupGroupOptParserRuleCall_6_0 = (RuleCall)cGroupAssignment_6.eContents().get(0);
 		
 		//ElIfConditional:
-		//	{ElIfConditional} (WHITESPACE* HASH WHITESPACE* ELIF) WHITESPACE+ expression=Common::ConstantExpression NEWLINE
+		//	{ElIfConditional} (WHITESPACE* HASH WHITESPACE* ELIF) WHITESPACE+ expression=Common::ConstantExpression WHITESPACE*
+		//	NEWLINE
 		//	group=GroupOpt;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{ElIfConditional} (WHITESPACE* HASH WHITESPACE* ELIF) WHITESPACE+ expression=Common::ConstantExpression NEWLINE
-		//group=GroupOpt
+		//{ElIfConditional} (WHITESPACE* HASH WHITESPACE* ELIF) WHITESPACE+ expression=Common::ConstantExpression WHITESPACE*
+		//NEWLINE group=GroupOpt
 		public Group getGroup() { return cGroup; }
 		
 		//{ElIfConditional}
@@ -858,14 +872,17 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//Common::ConstantExpression
 		public RuleCall getExpressionConstantExpressionParserRuleCall_3_0() { return cExpressionConstantExpressionParserRuleCall_3_0; }
 		
+		//WHITESPACE*
+		public RuleCall getWHITESPACETerminalRuleCall_4() { return cWHITESPACETerminalRuleCall_4; }
+		
 		//NEWLINE
-		public RuleCall getNEWLINETerminalRuleCall_4() { return cNEWLINETerminalRuleCall_4; }
+		public RuleCall getNEWLINETerminalRuleCall_5() { return cNEWLINETerminalRuleCall_5; }
 		
 		//group=GroupOpt
-		public Assignment getGroupAssignment_5() { return cGroupAssignment_5; }
+		public Assignment getGroupAssignment_6() { return cGroupAssignment_6; }
 		
 		//GroupOpt
-		public RuleCall getGroupGroupOptParserRuleCall_5_0() { return cGroupGroupOptParserRuleCall_5_0; }
+		public RuleCall getGroupGroupOptParserRuleCall_6_0() { return cGroupGroupOptParserRuleCall_6_0; }
 	}
 	public class ElseConditionalElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.ElseConditional");
@@ -1568,7 +1585,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//IfConditional:
-	//	{IfConditional} IF WHITESPACE+ expression=Common::ConstantExpression NEWLINE
+	//	{IfConditional} IF WHITESPACE+ expression=Common::ConstantExpression WHITESPACE* NEWLINE
 	//	group=GroupOpt;
 	public IfConditionalElements getIfConditionalAccess() {
 		return pIfConditional;
@@ -1579,7 +1596,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//IfDefConditional:
-	//	{IfDefConditional} IFDEF WHITESPACE+ id=ID NEWLINE
+	//	{IfDefConditional} IFDEF WHITESPACE+ id=ID WHITESPACE* NEWLINE
 	//	group=GroupOpt;
 	public IfDefConditionalElements getIfDefConditionalAccess() {
 		return pIfDefConditional;
@@ -1590,7 +1607,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//IfNotDefConditional:
-	//	{IfNotDefConditional} IFNOTDEF WHITESPACE+ id=ID NEWLINE
+	//	{IfNotDefConditional} IFNOTDEF WHITESPACE+ id=ID WHITESPACE* NEWLINE
 	//	group=GroupOpt;
 	public IfNotDefConditionalElements getIfNotDefConditionalAccess() {
 		return pIfNotDefConditional;
@@ -1601,7 +1618,8 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ElIfConditional:
-	//	{ElIfConditional} (WHITESPACE* HASH WHITESPACE* ELIF) WHITESPACE+ expression=Common::ConstantExpression NEWLINE
+	//	{ElIfConditional} (WHITESPACE* HASH WHITESPACE* ELIF) WHITESPACE+ expression=Common::ConstantExpression WHITESPACE*
+	//	NEWLINE
 	//	group=GroupOpt;
 	public ElIfConditionalElements getElIfConditionalAccess() {
 		return pElIfConditional;

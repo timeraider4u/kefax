@@ -1661,9 +1661,16 @@ this_IF_1=RULE_IF
 )
 
 
-this_NEWLINE_4=RULE_NEWLINE
+(this_WHITESPACE_4=RULE_WHITESPACE
     { 
-    newLeafNode(this_NEWLINE_4, grammarAccess.getIfConditionalAccess().getNEWLINETerminalRuleCall_4()); 
+    newLeafNode(this_WHITESPACE_4, grammarAccess.getIfConditionalAccess().getWHITESPACETerminalRuleCall_4()); 
+    }
+)*
+
+
+this_NEWLINE_5=RULE_NEWLINE
+    { 
+    newLeafNode(this_NEWLINE_5, grammarAccess.getIfConditionalAccess().getNEWLINETerminalRuleCall_5()); 
     }
 
 
@@ -1671,16 +1678,16 @@ this_NEWLINE_4=RULE_NEWLINE
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getIfConditionalAccess().getGroupGroupOptParserRuleCall_5_0()); 
+	        newCompositeNode(grammarAccess.getIfConditionalAccess().getGroupGroupOptParserRuleCall_6_0()); 
 	    }
-		lv_group_5_0=ruleGroupOpt		{
+		lv_group_6_0=ruleGroupOpt		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getIfConditionalRule());
 	        }
        		set(
        			$current, 
        			"group",
-        		lv_group_5_0, 
+        		lv_group_6_0, 
         		"at.jku.weiner.c.preprocess.Preprocess.GroupOpt");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -1763,9 +1770,16 @@ this_IFDEF_1=RULE_IFDEF
 )
 
 
-this_NEWLINE_4=RULE_NEWLINE
+(this_WHITESPACE_4=RULE_WHITESPACE
     { 
-    newLeafNode(this_NEWLINE_4, grammarAccess.getIfDefConditionalAccess().getNEWLINETerminalRuleCall_4()); 
+    newLeafNode(this_WHITESPACE_4, grammarAccess.getIfDefConditionalAccess().getWHITESPACETerminalRuleCall_4()); 
+    }
+)*
+
+
+this_NEWLINE_5=RULE_NEWLINE
+    { 
+    newLeafNode(this_NEWLINE_5, grammarAccess.getIfDefConditionalAccess().getNEWLINETerminalRuleCall_5()); 
     }
 
 
@@ -1773,16 +1787,16 @@ this_NEWLINE_4=RULE_NEWLINE
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getIfDefConditionalAccess().getGroupGroupOptParserRuleCall_5_0()); 
+	        newCompositeNode(grammarAccess.getIfDefConditionalAccess().getGroupGroupOptParserRuleCall_6_0()); 
 	    }
-		lv_group_5_0=ruleGroupOpt		{
+		lv_group_6_0=ruleGroupOpt		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getIfDefConditionalRule());
 	        }
        		set(
        			$current, 
        			"group",
-        		lv_group_5_0, 
+        		lv_group_6_0, 
         		"at.jku.weiner.c.preprocess.Preprocess.GroupOpt");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -1865,9 +1879,16 @@ this_IFNOTDEF_1=RULE_IFNOTDEF
 )
 
 
-this_NEWLINE_4=RULE_NEWLINE
+(this_WHITESPACE_4=RULE_WHITESPACE
     { 
-    newLeafNode(this_NEWLINE_4, grammarAccess.getIfNotDefConditionalAccess().getNEWLINETerminalRuleCall_4()); 
+    newLeafNode(this_WHITESPACE_4, grammarAccess.getIfNotDefConditionalAccess().getWHITESPACETerminalRuleCall_4()); 
+    }
+)*
+
+
+this_NEWLINE_5=RULE_NEWLINE
+    { 
+    newLeafNode(this_NEWLINE_5, grammarAccess.getIfNotDefConditionalAccess().getNEWLINETerminalRuleCall_5()); 
     }
 
 
@@ -1875,16 +1896,16 @@ this_NEWLINE_4=RULE_NEWLINE
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getIfNotDefConditionalAccess().getGroupGroupOptParserRuleCall_5_0()); 
+	        newCompositeNode(grammarAccess.getIfNotDefConditionalAccess().getGroupGroupOptParserRuleCall_6_0()); 
 	    }
-		lv_group_5_0=ruleGroupOpt		{
+		lv_group_6_0=ruleGroupOpt		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getIfNotDefConditionalRule());
 	        }
        		set(
        			$current, 
        			"group",
-        		lv_group_5_0, 
+        		lv_group_6_0, 
         		"at.jku.weiner.c.preprocess.Preprocess.GroupOpt");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -1991,9 +2012,16 @@ this_ELIF_4=RULE_ELIF
 )
 
 
-this_NEWLINE_7=RULE_NEWLINE
+(this_WHITESPACE_7=RULE_WHITESPACE
     { 
-    newLeafNode(this_NEWLINE_7, grammarAccess.getElIfConditionalAccess().getNEWLINETerminalRuleCall_4()); 
+    newLeafNode(this_WHITESPACE_7, grammarAccess.getElIfConditionalAccess().getWHITESPACETerminalRuleCall_4()); 
+    }
+)*
+
+
+this_NEWLINE_8=RULE_NEWLINE
+    { 
+    newLeafNode(this_NEWLINE_8, grammarAccess.getElIfConditionalAccess().getNEWLINETerminalRuleCall_5()); 
     }
 
 
@@ -2001,16 +2029,16 @@ this_NEWLINE_7=RULE_NEWLINE
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getElIfConditionalAccess().getGroupGroupOptParserRuleCall_5_0()); 
+	        newCompositeNode(grammarAccess.getElIfConditionalAccess().getGroupGroupOptParserRuleCall_6_0()); 
 	    }
-		lv_group_8_0=ruleGroupOpt		{
+		lv_group_9_0=ruleGroupOpt		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getElIfConditionalRule());
 	        }
        		set(
        			$current, 
        			"group",
-        		lv_group_8_0, 
+        		lv_group_9_0, 
         		"at.jku.weiner.c.preprocess.Preprocess.GroupOpt");
 	        afterParserOrEnumRuleCall();
 	    }

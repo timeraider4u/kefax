@@ -350,6 +350,7 @@ terminal SKW_RIGHTBRACKET: ']';
 terminal SKW_RIGHTPAREN: ')';
 terminal SKW_RIGHTSHIFT: SKW_GREATER SKW_GREATER;
 terminal SKW_SEMI: ';';
+terminal SKW_SLASH: '/';
 terminal SKW_SINGLEQUOTE: '\'';
 terminal SKW_STAR: '*';
 terminal SKW_TILDE: '~';

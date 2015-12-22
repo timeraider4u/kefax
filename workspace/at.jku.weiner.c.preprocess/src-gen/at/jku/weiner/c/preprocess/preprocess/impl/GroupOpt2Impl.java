@@ -2,26 +2,26 @@
  */
 package at.jku.weiner.c.preprocess.preprocess.impl;
 
-import at.jku.weiner.c.preprocess.preprocess.DefineObjectMacro;
+import at.jku.weiner.c.preprocess.preprocess.GroupOpt2;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessPackage;
 
 import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Define Object Macro</b></em>'.
+ * An implementation of the model object '<em><b>Group Opt2</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class DefineObjectMacroImpl extends DefineDirectiveImpl implements DefineObjectMacro
+public class GroupOpt2Impl extends GroupOptImpl implements GroupOpt2
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected DefineObjectMacroImpl()
+  protected GroupOpt2Impl()
   {
     super();
   }
@@ -34,7 +34,7 @@ public class DefineObjectMacroImpl extends DefineDirectiveImpl implements Define
   @Override
   protected EClass eStaticClass()
   {
-    return PreprocessPackage.Literals.DEFINE_OBJECT_MACRO;
+    return PreprocessPackage.Literals.GROUP_OPT2;
   }
 
-} //DefineObjectMacroImpl
+} //GroupOpt2Impl

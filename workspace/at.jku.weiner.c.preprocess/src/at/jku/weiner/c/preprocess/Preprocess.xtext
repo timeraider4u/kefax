@@ -41,20 +41,36 @@ Model:
 	
 TranslationUnit:
 	{TranslationUnit}
-	group=GroupOpt
+	group=GroupOpt2
 ;
 
 GroupOpt:
 	{GroupOpt}
 	(
-		lines+=GroupOptTemp
-		(NEWLINE)
+		lines+=GroupOptTemp1
+		NEWLINE
 	)*
 ;
 
-GroupOptTemp returns SourceCodeLine:
+GroupOpt2 returns GroupOpt:
+	{GroupOpt2}
+	(
+		lines+=GroupOptTemp1
+		NEWLINE
+	)*
+	(
+		lines+=GroupOptTemp2
+	)?
+;
+
+GroupOptTemp1 returns SourceCodeLine:
 		PreprocessorDirectives
-	|	NewLineLine
+	|	NewLineLine	
+	|	Code
+;
+
+GroupOptTemp2 returns SourceCodeLine:
+		PreprocessorDirectives
 	|	Code
 ;
 
@@ -198,7 +214,16 @@ MyCodeLine returns ecore::EString:
 ;
 
 MyCodeLineExtended returns ecore::EString:
-	WHITESPACE* (MyCode (MyCodeLine|HASH)*)?
+		MyCodeLineExtendedWSOnly
+	|	MyCodeLineExtendedNormal
+;
+
+MyCodeLineExtendedWSOnly returns ecore::EString:
+	WHITESPACE+
+;
+
+MyCodeLineExtendedNormal returns ecore::EString:
+	WHITESPACE* MyCode+ (MyCodeLine|HASH)*
 ;
 
 // expressions
@@ -231,5 +256,5 @@ terminal PRAGMA: 'pragma';
 
 // special keywords
 // ... see common
-terminal END_OF_FILE: EOF;
-terminal NEWLINE: Common::NEWLINE | END_OF_FILE;
+//terminal END_OF_FILE: EOF;
+terminal NEWLINE: Common::NEWLINE;// | END_OF_FILE;

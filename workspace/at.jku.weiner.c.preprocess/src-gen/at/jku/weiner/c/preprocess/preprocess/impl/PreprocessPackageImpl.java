@@ -14,6 +14,7 @@ import at.jku.weiner.c.preprocess.preprocess.ElseConditional;
 import at.jku.weiner.c.preprocess.preprocess.ErrorDirective;
 import at.jku.weiner.c.preprocess.preprocess.Expression;
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
+import at.jku.weiner.c.preprocess.preprocess.GroupOpt2;
 import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
 import at.jku.weiner.c.preprocess.preprocess.IfConditional;
 import at.jku.weiner.c.preprocess.preprocess.IfDefConditional;
@@ -180,6 +181,13 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
    * @generated
    */
   private EClass expressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass groupOpt2EClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -705,6 +713,16 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getGroupOpt2()
+  {
+    return groupOpt2EClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getPreprocessorDirectives()
   {
     return preprocessorDirectivesEClass;
@@ -920,6 +938,8 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 
     expressionEClass = createEClass(EXPRESSION);
 
+    groupOpt2EClass = createEClass(GROUP_OPT2);
+
     preprocessorDirectivesEClass = createEClass(PREPROCESSOR_DIRECTIVES);
     createEReference(preprocessorDirectivesEClass, PREPROCESSOR_DIRECTIVES__DIRECTIVE);
 
@@ -974,6 +994,7 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 
     // Add supertypes to classes
     expressionEClass.getESuperTypes().add(theCommonPackage.getExpression());
+    groupOpt2EClass.getESuperTypes().add(this.getGroupOpt());
     preprocessorDirectivesEClass.getESuperTypes().add(this.getSourceCodeLine());
     defineObjectMacroEClass.getESuperTypes().add(this.getDefineDirective());
     defineFunctionLikeMacroEClass.getESuperTypes().add(this.getDefineDirective());
@@ -1041,6 +1062,8 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
     initEClass(nullDirectiveEClass, NullDirective.class, "NullDirective", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(groupOpt2EClass, GroupOpt2.class, "GroupOpt2", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(preprocessorDirectivesEClass, PreprocessorDirectives.class, "PreprocessorDirectives", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getPreprocessorDirectives_Directive(), theEcorePackage.getEObject(), null, "directive", null, 0, 1, PreprocessorDirectives.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

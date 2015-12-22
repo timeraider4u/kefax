@@ -51,23 +51,23 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cTranslationUnitAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cGroupAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cGroupGroupOptParserRuleCall_1_0 = (RuleCall)cGroupAssignment_1.eContents().get(0);
+		private final RuleCall cGroupGroupOpt2ParserRuleCall_1_0 = (RuleCall)cGroupAssignment_1.eContents().get(0);
 		
 		//TranslationUnit:
-		//	{TranslationUnit} group=GroupOpt;
+		//	{TranslationUnit} group=GroupOpt2;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{TranslationUnit} group=GroupOpt
+		//{TranslationUnit} group=GroupOpt2
 		public Group getGroup() { return cGroup; }
 		
 		//{TranslationUnit}
 		public Action getTranslationUnitAction_0() { return cTranslationUnitAction_0; }
 		
-		//group=GroupOpt
+		//group=GroupOpt2
 		public Assignment getGroupAssignment_1() { return cGroupAssignment_1; }
 		
-		//GroupOpt
-		public RuleCall getGroupGroupOptParserRuleCall_1_0() { return cGroupGroupOptParserRuleCall_1_0; }
+		//GroupOpt2
+		public RuleCall getGroupGroupOpt2ParserRuleCall_1_0() { return cGroupGroupOpt2ParserRuleCall_1_0; }
 	}
 	public class GroupOptElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.GroupOpt");
@@ -75,40 +75,81 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cGroupOptAction_0 = (Action)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Assignment cLinesAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
-		private final RuleCall cLinesGroupOptTempParserRuleCall_1_0_0 = (RuleCall)cLinesAssignment_1_0.eContents().get(0);
+		private final RuleCall cLinesGroupOptTemp1ParserRuleCall_1_0_0 = (RuleCall)cLinesAssignment_1_0.eContents().get(0);
 		private final RuleCall cNEWLINETerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
 		
 		//GroupOpt:
-		//	{GroupOpt} (lines+=GroupOptTemp
+		//	{GroupOpt} (lines+=GroupOptTemp1
 		//	NEWLINE)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{GroupOpt} (lines+=GroupOptTemp NEWLINE)*
+		//{GroupOpt} (lines+=GroupOptTemp1 NEWLINE)*
 		public Group getGroup() { return cGroup; }
 		
 		//{GroupOpt}
 		public Action getGroupOptAction_0() { return cGroupOptAction_0; }
 		
-		//(lines+=GroupOptTemp NEWLINE)*
+		//(lines+=GroupOptTemp1 NEWLINE)*
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//lines+=GroupOptTemp
+		//lines+=GroupOptTemp1
 		public Assignment getLinesAssignment_1_0() { return cLinesAssignment_1_0; }
 		
-		//GroupOptTemp
-		public RuleCall getLinesGroupOptTempParserRuleCall_1_0_0() { return cLinesGroupOptTempParserRuleCall_1_0_0; }
+		//GroupOptTemp1
+		public RuleCall getLinesGroupOptTemp1ParserRuleCall_1_0_0() { return cLinesGroupOptTemp1ParserRuleCall_1_0_0; }
 		
 		//NEWLINE
 		public RuleCall getNEWLINETerminalRuleCall_1_1() { return cNEWLINETerminalRuleCall_1_1; }
 	}
-	public class GroupOptTempElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.GroupOptTemp");
+	public class GroupOpt2Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.GroupOpt2");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cGroupOpt2Action_0 = (Action)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Assignment cLinesAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final RuleCall cLinesGroupOptTemp1ParserRuleCall_1_0_0 = (RuleCall)cLinesAssignment_1_0.eContents().get(0);
+		private final RuleCall cNEWLINETerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		private final Assignment cLinesAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cLinesGroupOptTemp2ParserRuleCall_2_0 = (RuleCall)cLinesAssignment_2.eContents().get(0);
+		
+		//GroupOpt2 GroupOpt:
+		//	{GroupOpt2} (lines+=GroupOptTemp1
+		//	NEWLINE)*
+		//	lines+=GroupOptTemp2?
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{GroupOpt2} (lines+=GroupOptTemp1 NEWLINE)* lines+=GroupOptTemp2?
+		public Group getGroup() { return cGroup; }
+		
+		//{GroupOpt2}
+		public Action getGroupOpt2Action_0() { return cGroupOpt2Action_0; }
+		
+		//(lines+=GroupOptTemp1 NEWLINE)*
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//lines+=GroupOptTemp1
+		public Assignment getLinesAssignment_1_0() { return cLinesAssignment_1_0; }
+		
+		//GroupOptTemp1
+		public RuleCall getLinesGroupOptTemp1ParserRuleCall_1_0_0() { return cLinesGroupOptTemp1ParserRuleCall_1_0_0; }
+		
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_1_1() { return cNEWLINETerminalRuleCall_1_1; }
+		
+		//lines+=GroupOptTemp2?
+		public Assignment getLinesAssignment_2() { return cLinesAssignment_2; }
+		
+		//GroupOptTemp2
+		public RuleCall getLinesGroupOptTemp2ParserRuleCall_2_0() { return cLinesGroupOptTemp2ParserRuleCall_2_0; }
+	}
+	public class GroupOptTemp1Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.GroupOptTemp1");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cPreprocessorDirectivesParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cNewLineLineParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cCodeParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
-		//GroupOptTemp SourceCodeLine:
+		//GroupOptTemp1 SourceCodeLine:
 		//	PreprocessorDirectives
 		//	| NewLineLine
 		//	| Code
@@ -125,6 +166,26 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Code
 		public RuleCall getCodeParserRuleCall_2() { return cCodeParserRuleCall_2; }
+	}
+	public class GroupOptTemp2Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.GroupOptTemp2");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cPreprocessorDirectivesParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cCodeParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//GroupOptTemp2 SourceCodeLine:
+		//	PreprocessorDirectives
+		//	| Code
+		@Override public ParserRule getRule() { return rule; }
+		
+		//PreprocessorDirectives | Code
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//PreprocessorDirectives
+		public RuleCall getPreprocessorDirectivesParserRuleCall_0() { return cPreprocessorDirectivesParserRuleCall_0; }
+		
+		//Code
+		public RuleCall getCodeParserRuleCall_1() { return cCodeParserRuleCall_1; }
 	}
 	public class PreprocessorDirectivesElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.PreprocessorDirectives");
@@ -1020,38 +1081,65 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class MyCodeLineExtendedElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.MyCodeLineExtended");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cWHITESPACETerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final RuleCall cMyCodeParserRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
-		private final Alternatives cAlternatives_1_1 = (Alternatives)cGroup_1.eContents().get(1);
-		private final RuleCall cMyCodeLineParserRuleCall_1_1_0 = (RuleCall)cAlternatives_1_1.eContents().get(0);
-		private final RuleCall cHASHTerminalRuleCall_1_1_1 = (RuleCall)cAlternatives_1_1.eContents().get(1);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cMyCodeLineExtendedWSOnlyParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cMyCodeLineExtendedNormalParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//MyCodeLineExtended:
-		//	WHITESPACE* (MyCode (MyCodeLine | HASH)*)?;
+		//	MyCodeLineExtendedWSOnly
+		//	| MyCodeLineExtendedNormal;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//WHITESPACE* (MyCode (MyCodeLine | HASH)*)?
+		//MyCodeLineExtendedWSOnly | MyCodeLineExtendedNormal
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//MyCodeLineExtendedWSOnly
+		public RuleCall getMyCodeLineExtendedWSOnlyParserRuleCall_0() { return cMyCodeLineExtendedWSOnlyParserRuleCall_0; }
+		
+		//MyCodeLineExtendedNormal
+		public RuleCall getMyCodeLineExtendedNormalParserRuleCall_1() { return cMyCodeLineExtendedNormalParserRuleCall_1; }
+	}
+	public class MyCodeLineExtendedWSOnlyElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.MyCodeLineExtendedWSOnly");
+		private final RuleCall cWHITESPACETerminalRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		//MyCodeLineExtendedWSOnly:
+		//	WHITESPACE+;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//WHITESPACE+
+		public RuleCall getWHITESPACETerminalRuleCall() { return cWHITESPACETerminalRuleCall; }
+	}
+	public class MyCodeLineExtendedNormalElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.MyCodeLineExtendedNormal");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWHITESPACETerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final RuleCall cMyCodeParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
+		private final RuleCall cMyCodeLineParserRuleCall_2_0 = (RuleCall)cAlternatives_2.eContents().get(0);
+		private final RuleCall cHASHTerminalRuleCall_2_1 = (RuleCall)cAlternatives_2.eContents().get(1);
+		
+		//MyCodeLineExtendedNormal:
+		//	WHITESPACE* MyCode+ (MyCodeLine | HASH)*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//WHITESPACE* MyCode+ (MyCodeLine | HASH)*
 		public Group getGroup() { return cGroup; }
 		
 		//WHITESPACE*
 		public RuleCall getWHITESPACETerminalRuleCall_0() { return cWHITESPACETerminalRuleCall_0; }
 		
-		//(MyCode (MyCodeLine | HASH)*)?
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//MyCode
-		public RuleCall getMyCodeParserRuleCall_1_0() { return cMyCodeParserRuleCall_1_0; }
+		//MyCode+
+		public RuleCall getMyCodeParserRuleCall_1() { return cMyCodeParserRuleCall_1; }
 		
 		//(MyCodeLine | HASH)*
-		public Alternatives getAlternatives_1_1() { return cAlternatives_1_1; }
+		public Alternatives getAlternatives_2() { return cAlternatives_2; }
 		
 		//MyCodeLine
-		public RuleCall getMyCodeLineParserRuleCall_1_1_0() { return cMyCodeLineParserRuleCall_1_1_0; }
+		public RuleCall getMyCodeLineParserRuleCall_2_0() { return cMyCodeLineParserRuleCall_2_0; }
 		
 		//HASH
-		public RuleCall getHASHTerminalRuleCall_1_1_1() { return cHASHTerminalRuleCall_1_1_1; }
+		public RuleCall getHASHTerminalRuleCall_2_1() { return cHASHTerminalRuleCall_2_1; }
 	}
 	public class PrimaryExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.PrimaryExpression");
@@ -1160,7 +1248,9 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	private final ModelElements pModel;
 	private final TranslationUnitElements pTranslationUnit;
 	private final GroupOptElements pGroupOpt;
-	private final GroupOptTempElements pGroupOptTemp;
+	private final GroupOpt2Elements pGroupOpt2;
+	private final GroupOptTemp1Elements pGroupOptTemp1;
+	private final GroupOptTemp2Elements pGroupOptTemp2;
 	private final PreprocessorDirectivesElements pPreprocessorDirectives;
 	private final IncludeDirectiveElements pIncludeDirective;
 	private final DefineDirectiveElements pDefineDirective;
@@ -1184,6 +1274,8 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	private final MyDefineLineElements pMyDefineLine;
 	private final MyCodeLineElements pMyCodeLine;
 	private final MyCodeLineExtendedElements pMyCodeLineExtended;
+	private final MyCodeLineExtendedWSOnlyElements pMyCodeLineExtendedWSOnly;
+	private final MyCodeLineExtendedNormalElements pMyCodeLineExtendedNormal;
 	private final PrimaryExpressionElements pPrimaryExpression;
 	private final TerminalRule tHASH;
 	private final TerminalRule tINCLUDE;
@@ -1199,7 +1291,6 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tELSE;
 	private final TerminalRule tENDIF;
 	private final TerminalRule tPRAGMA;
-	private final TerminalRule tEND_OF_FILE;
 	private final TerminalRule tNEWLINE;
 	
 	private final Grammar grammar;
@@ -1214,7 +1305,9 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		this.pModel = new ModelElements();
 		this.pTranslationUnit = new TranslationUnitElements();
 		this.pGroupOpt = new GroupOptElements();
-		this.pGroupOptTemp = new GroupOptTempElements();
+		this.pGroupOpt2 = new GroupOpt2Elements();
+		this.pGroupOptTemp1 = new GroupOptTemp1Elements();
+		this.pGroupOptTemp2 = new GroupOptTemp2Elements();
 		this.pPreprocessorDirectives = new PreprocessorDirectivesElements();
 		this.pIncludeDirective = new IncludeDirectiveElements();
 		this.pDefineDirective = new DefineDirectiveElements();
@@ -1238,6 +1331,8 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		this.pMyDefineLine = new MyDefineLineElements();
 		this.pMyCodeLine = new MyCodeLineElements();
 		this.pMyCodeLineExtended = new MyCodeLineExtendedElements();
+		this.pMyCodeLineExtendedWSOnly = new MyCodeLineExtendedWSOnlyElements();
+		this.pMyCodeLineExtendedNormal = new MyCodeLineExtendedNormalElements();
 		this.pPrimaryExpression = new PrimaryExpressionElements();
 		this.tHASH = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.HASH");
 		this.tINCLUDE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.INCLUDE");
@@ -1253,7 +1348,6 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		this.tELSE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.ELSE");
 		this.tENDIF = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.ENDIF");
 		this.tPRAGMA = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.PRAGMA");
-		this.tEND_OF_FILE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.END_OF_FILE");
 		this.tNEWLINE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.NEWLINE");
 	}
 	
@@ -1295,7 +1389,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//TranslationUnit:
-	//	{TranslationUnit} group=GroupOpt;
+	//	{TranslationUnit} group=GroupOpt2;
 	public TranslationUnitElements getTranslationUnitAccess() {
 		return pTranslationUnit;
 	}
@@ -1305,7 +1399,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//GroupOpt:
-	//	{GroupOpt} (lines+=GroupOptTemp
+	//	{GroupOpt} (lines+=GroupOptTemp1
 	//	NEWLINE)*;
 	public GroupOptElements getGroupOptAccess() {
 		return pGroupOpt;
@@ -1315,16 +1409,39 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		return getGroupOptAccess().getRule();
 	}
 	
-	//GroupOptTemp SourceCodeLine:
+	//GroupOpt2 GroupOpt:
+	//	{GroupOpt2} (lines+=GroupOptTemp1
+	//	NEWLINE)*
+	//	lines+=GroupOptTemp2?
+	public GroupOpt2Elements getGroupOpt2Access() {
+		return pGroupOpt2;
+	}
+	
+	public ParserRule getGroupOpt2Rule() {
+		return getGroupOpt2Access().getRule();
+	}
+	
+	//GroupOptTemp1 SourceCodeLine:
 	//	PreprocessorDirectives
 	//	| NewLineLine
 	//	| Code
-	public GroupOptTempElements getGroupOptTempAccess() {
-		return pGroupOptTemp;
+	public GroupOptTemp1Elements getGroupOptTemp1Access() {
+		return pGroupOptTemp1;
 	}
 	
-	public ParserRule getGroupOptTempRule() {
-		return getGroupOptTempAccess().getRule();
+	public ParserRule getGroupOptTemp1Rule() {
+		return getGroupOptTemp1Access().getRule();
+	}
+	
+	//GroupOptTemp2 SourceCodeLine:
+	//	PreprocessorDirectives
+	//	| Code
+	public GroupOptTemp2Elements getGroupOptTemp2Access() {
+		return pGroupOptTemp2;
+	}
+	
+	public ParserRule getGroupOptTemp2Rule() {
+		return getGroupOptTemp2Access().getRule();
 	}
 	
 	//PreprocessorDirectives SourceCodeLine:
@@ -1572,13 +1689,34 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//MyCodeLineExtended:
-	//	WHITESPACE* (MyCode (MyCodeLine | HASH)*)?;
+	//	MyCodeLineExtendedWSOnly
+	//	| MyCodeLineExtendedNormal;
 	public MyCodeLineExtendedElements getMyCodeLineExtendedAccess() {
 		return pMyCodeLineExtended;
 	}
 	
 	public ParserRule getMyCodeLineExtendedRule() {
 		return getMyCodeLineExtendedAccess().getRule();
+	}
+	
+	//MyCodeLineExtendedWSOnly:
+	//	WHITESPACE+;
+	public MyCodeLineExtendedWSOnlyElements getMyCodeLineExtendedWSOnlyAccess() {
+		return pMyCodeLineExtendedWSOnly;
+	}
+	
+	public ParserRule getMyCodeLineExtendedWSOnlyRule() {
+		return getMyCodeLineExtendedWSOnlyAccess().getRule();
+	}
+	
+	//MyCodeLineExtendedNormal:
+	//	WHITESPACE* MyCode+ (MyCodeLine | HASH)*;
+	public MyCodeLineExtendedNormalElements getMyCodeLineExtendedNormalAccess() {
+		return pMyCodeLineExtendedNormal;
+	}
+	
+	public ParserRule getMyCodeLineExtendedNormalRule() {
+		return getMyCodeLineExtendedNormalAccess().getRule();
 	}
 	
 	//// expressions
@@ -1680,14 +1818,8 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		return tPRAGMA;
 	}
 	
-	//terminal END_OF_FILE:
-	//	EOF;
-	public TerminalRule getEND_OF_FILERule() {
-		return tEND_OF_FILE;
-	}
-	
 	//terminal NEWLINE:
-	//	Common::NEWLINE | END_OF_FILE;
+	//	Common::NEWLINE;
 	public TerminalRule getNEWLINERule() {
 		return tNEWLINE;
 	}

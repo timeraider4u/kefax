@@ -37,14 +37,16 @@ public class PreprocessParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
-					put(grammarAccess.getGroupOptTempAccess().getAlternatives(), "rule__GroupOptTemp__Alternatives");
+					put(grammarAccess.getGroupOptTemp1Access().getAlternatives(), "rule__GroupOptTemp1__Alternatives");
+					put(grammarAccess.getGroupOptTemp2Access().getAlternatives(), "rule__GroupOptTemp2__Alternatives");
 					put(grammarAccess.getPreprocessorDirectivesAccess().getAlternatives_4(), "rule__PreprocessorDirectives__Alternatives_4");
 					put(grammarAccess.getDefineDirectiveAccess().getAlternatives(), "rule__DefineDirective__Alternatives");
 					put(grammarAccess.getConditionalDirectiveAccess().getConditionalAlternatives_1_0(), "rule__ConditionalDirective__ConditionalAlternatives_1_0");
 					put(grammarAccess.getMyCodeAccess().getAlternatives(), "rule__MyCode__Alternatives");
 					put(grammarAccess.getMyDefineLineAccess().getAlternatives(), "rule__MyDefineLine__Alternatives");
 					put(grammarAccess.getMyCodeLineAccess().getAlternatives(), "rule__MyCodeLine__Alternatives");
-					put(grammarAccess.getMyCodeLineExtendedAccess().getAlternatives_1_1(), "rule__MyCodeLineExtended__Alternatives_1_1");
+					put(grammarAccess.getMyCodeLineExtendedAccess().getAlternatives(), "rule__MyCodeLineExtended__Alternatives");
+					put(grammarAccess.getMyCodeLineExtendedNormalAccess().getAlternatives_2(), "rule__MyCodeLineExtendedNormal__Alternatives_2");
 					put(grammarAccess.getPrimaryExpressionAccess().getAlternatives_1(), "rule__PrimaryExpression__Alternatives_1");
 					put(grammarAccess.getEqualityExpressionAccess().getAlternatives_2_0(), "rule__EqualityExpression__Alternatives_2_0");
 					put(grammarAccess.getRelationalExpressionAccess().getAlternatives_2_0(), "rule__RelationalExpression__Alternatives_2_0");
@@ -60,6 +62,8 @@ public class PreprocessParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTranslationUnitAccess().getGroup(), "rule__TranslationUnit__Group__0");
 					put(grammarAccess.getGroupOptAccess().getGroup(), "rule__GroupOpt__Group__0");
 					put(grammarAccess.getGroupOptAccess().getGroup_1(), "rule__GroupOpt__Group_1__0");
+					put(grammarAccess.getGroupOpt2Access().getGroup(), "rule__GroupOpt2__Group__0");
+					put(grammarAccess.getGroupOpt2Access().getGroup_1(), "rule__GroupOpt2__Group_1__0");
 					put(grammarAccess.getPreprocessorDirectivesAccess().getGroup(), "rule__PreprocessorDirectives__Group__0");
 					put(grammarAccess.getIncludeDirectiveAccess().getGroup(), "rule__IncludeDirective__Group__0");
 					put(grammarAccess.getDefineObjectMacroAccess().getGroup(), "rule__DefineObjectMacro__Group__0");
@@ -79,8 +83,7 @@ public class PreprocessParser extends AbstractContentAssistParser {
 					put(grammarAccess.getElseConditionalAccess().getGroup(), "rule__ElseConditional__Group__0");
 					put(grammarAccess.getPragmaDirectiveAccess().getGroup(), "rule__PragmaDirective__Group__0");
 					put(grammarAccess.getCodeAccess().getGroup(), "rule__Code__Group__0");
-					put(grammarAccess.getMyCodeLineExtendedAccess().getGroup(), "rule__MyCodeLineExtended__Group__0");
-					put(grammarAccess.getMyCodeLineExtendedAccess().getGroup_1(), "rule__MyCodeLineExtended__Group_1__0");
+					put(grammarAccess.getMyCodeLineExtendedNormalAccess().getGroup(), "rule__MyCodeLineExtendedNormal__Group__0");
 					put(grammarAccess.getPrimaryExpressionAccess().getGroup(), "rule__PrimaryExpression__Group__0");
 					put(grammarAccess.getPrimaryExpressionAccess().getGroup_1_0(), "rule__PrimaryExpression__Group_1_0__0");
 					put(grammarAccess.getPrimaryExpressionAccess().getGroup_1_1(), "rule__PrimaryExpression__Group_1_1__0");
@@ -122,6 +125,8 @@ public class PreprocessParser extends AbstractContentAssistParser {
 					put(grammarAccess.getModelAccess().getUnitsAssignment_1(), "rule__Model__UnitsAssignment_1");
 					put(grammarAccess.getTranslationUnitAccess().getGroupAssignment_1(), "rule__TranslationUnit__GroupAssignment_1");
 					put(grammarAccess.getGroupOptAccess().getLinesAssignment_1_0(), "rule__GroupOpt__LinesAssignment_1_0");
+					put(grammarAccess.getGroupOpt2Access().getLinesAssignment_1_0(), "rule__GroupOpt2__LinesAssignment_1_0");
+					put(grammarAccess.getGroupOpt2Access().getLinesAssignment_2(), "rule__GroupOpt2__LinesAssignment_2");
 					put(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveAssignment_4_0(), "rule__PreprocessorDirectives__DirectiveAssignment_4_0");
 					put(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveAssignment_4_1(), "rule__PreprocessorDirectives__DirectiveAssignment_4_1");
 					put(grammarAccess.getPreprocessorDirectivesAccess().getDirectiveAssignment_4_2(), "rule__PreprocessorDirectives__DirectiveAssignment_4_2");

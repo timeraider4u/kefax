@@ -164,9 +164,9 @@ ruleTranslationUnit returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getTranslationUnitAccess().getGroupGroupOptParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getTranslationUnitAccess().getGroupGroupOpt2ParserRuleCall_1_0()); 
 	    }
-		lv_group_1_0=ruleGroupOpt		{
+		lv_group_1_0=ruleGroupOpt2		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getTranslationUnitRule());
 	        }
@@ -174,7 +174,7 @@ ruleTranslationUnit returns [EObject current=null]
        			$current, 
        			"group",
         		lv_group_1_0, 
-        		"at.jku.weiner.c.preprocess.Preprocess.GroupOpt");
+        		"at.jku.weiner.c.preprocess.Preprocess.GroupOpt2");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -225,9 +225,9 @@ ruleGroupOpt returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getGroupOptAccess().getLinesGroupOptTempParserRuleCall_1_0_0()); 
+	        newCompositeNode(grammarAccess.getGroupOptAccess().getLinesGroupOptTemp1ParserRuleCall_1_0_0()); 
 	    }
-		lv_lines_1_0=ruleGroupOptTemp		{
+		lv_lines_1_0=ruleGroupOptTemp1		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getGroupOptRule());
 	        }
@@ -235,7 +235,7 @@ ruleGroupOpt returns [EObject current=null]
        			$current, 
        			"lines",
         		lv_lines_1_0, 
-        		"at.jku.weiner.c.preprocess.Preprocess.GroupOptTemp");
+        		"at.jku.weiner.c.preprocess.Preprocess.GroupOptTemp1");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -260,17 +260,108 @@ this_NEWLINE_2=RULE_NEWLINE
 
 
 
-// Entry rule entryRuleGroupOptTemp
-entryRuleGroupOptTemp returns [EObject current=null] 
+// Entry rule entryRuleGroupOpt2
+entryRuleGroupOpt2 returns [EObject current=null] 
 	:
-	{ newCompositeNode(grammarAccess.getGroupOptTempRule()); }
-	 iv_ruleGroupOptTemp=ruleGroupOptTemp 
-	 { $current=$iv_ruleGroupOptTemp.current; } 
+	{ newCompositeNode(grammarAccess.getGroupOpt2Rule()); }
+	 iv_ruleGroupOpt2=ruleGroupOpt2 
+	 { $current=$iv_ruleGroupOpt2.current; } 
 	 EOF 
 ;
 
-// Rule GroupOptTemp
-ruleGroupOptTemp returns [EObject current=null] 
+// Rule GroupOpt2
+ruleGroupOpt2 returns [EObject current=null] 
+    @init { enterRule();
+   		/*no init found*/
+    }
+    @after { leaveRule();
+    		/*no after found*/
+     }:
+
+(
+(
+	{ 
+	  /* */ 
+	}
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getGroupOpt2Access().getGroupOpt2Action_0(),
+            $current);
+    }
+)
+
+
+(
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getGroupOpt2Access().getLinesGroupOptTemp1ParserRuleCall_1_0_0()); 
+	    }
+		lv_lines_1_0=ruleGroupOptTemp1		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getGroupOpt2Rule());
+	        }
+       		add(
+       			$current, 
+       			"lines",
+        		lv_lines_1_0, 
+        		"at.jku.weiner.c.preprocess.Preprocess.GroupOptTemp1");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+this_NEWLINE_2=RULE_NEWLINE
+    { 
+    newLeafNode(this_NEWLINE_2, grammarAccess.getGroupOpt2Access().getNEWLINETerminalRuleCall_1_1()); 
+    }
+
+
+)*
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getGroupOpt2Access().getLinesGroupOptTemp2ParserRuleCall_2_0()); 
+	    }
+		lv_lines_3_0=ruleGroupOptTemp2		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getGroupOpt2Rule());
+	        }
+       		add(
+       			$current, 
+       			"lines",
+        		lv_lines_3_0, 
+        		"at.jku.weiner.c.preprocess.Preprocess.GroupOptTemp2");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)?
+
+)
+
+
+;
+
+
+
+
+
+// Entry rule entryRuleGroupOptTemp1
+entryRuleGroupOptTemp1 returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getGroupOptTemp1Rule()); }
+	 iv_ruleGroupOptTemp1=ruleGroupOptTemp1 
+	 { $current=$iv_ruleGroupOptTemp1.current; } 
+	 EOF 
+;
+
+// Rule GroupOptTemp1
+ruleGroupOptTemp1 returns [EObject current=null] 
     @init { enterRule();
    		/*no init found*/
     }
@@ -284,7 +375,7 @@ ruleGroupOptTemp returns [EObject current=null]
 	  /* */ 
 	}
     { 
-        newCompositeNode(grammarAccess.getGroupOptTempAccess().getPreprocessorDirectivesParserRuleCall_0()); 
+        newCompositeNode(grammarAccess.getGroupOptTemp1Access().getPreprocessorDirectivesParserRuleCall_0()); 
     }
     this_PreprocessorDirectives_0=rulePreprocessorDirectives
     { 
@@ -300,7 +391,7 @@ ruleGroupOptTemp returns [EObject current=null]
 	  /* */ 
 	}
     { 
-        newCompositeNode(grammarAccess.getGroupOptTempAccess().getNewLineLineParserRuleCall_1()); 
+        newCompositeNode(grammarAccess.getGroupOptTemp1Access().getNewLineLineParserRuleCall_1()); 
     }
     this_NewLineLine_1=ruleNewLineLine
     { 
@@ -316,11 +407,69 @@ ruleGroupOptTemp returns [EObject current=null]
 	  /* */ 
 	}
     { 
-        newCompositeNode(grammarAccess.getGroupOptTempAccess().getCodeParserRuleCall_2()); 
+        newCompositeNode(grammarAccess.getGroupOptTemp1Access().getCodeParserRuleCall_2()); 
     }
     this_Code_2=ruleCode
     { 
         $current = $this_Code_2.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+
+)
+
+
+;
+
+
+
+
+
+// Entry rule entryRuleGroupOptTemp2
+entryRuleGroupOptTemp2 returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getGroupOptTemp2Rule()); }
+	 iv_ruleGroupOptTemp2=ruleGroupOptTemp2 
+	 { $current=$iv_ruleGroupOptTemp2.current; } 
+	 EOF 
+;
+
+// Rule GroupOptTemp2
+ruleGroupOptTemp2 returns [EObject current=null] 
+    @init { enterRule();
+   		/*no init found*/
+    }
+    @after { leaveRule();
+    		/*no after found*/
+     }:
+
+(
+
+	{ 
+	  /* */ 
+	}
+    { 
+        newCompositeNode(grammarAccess.getGroupOptTemp2Access().getPreprocessorDirectivesParserRuleCall_0()); 
+    }
+    this_PreprocessorDirectives_0=rulePreprocessorDirectives
+    { 
+        $current = $this_PreprocessorDirectives_0.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+
+
+    |
+
+	{ 
+	  /* */ 
+	}
+    { 
+        newCompositeNode(grammarAccess.getGroupOptTemp2Access().getCodeParserRuleCall_1()); 
+    }
+    this_Code_1=ruleCode
+    { 
+        $current = $this_Code_1.current; 
         afterParserOrEnumRuleCall();
     }
 
@@ -2382,16 +2531,88 @@ ruleMyCodeLineExtended returns [AntlrDatatypeRuleToken current=new AntlrDatatype
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
+(
+    { 
+        newCompositeNode(grammarAccess.getMyCodeLineExtendedAccess().getMyCodeLineExtendedWSOnlyParserRuleCall_0()); 
+    }
+    this_MyCodeLineExtendedWSOnly_0=ruleMyCodeLineExtendedWSOnly    {
+		$current.merge(this_MyCodeLineExtendedWSOnly_0);
+    }
+
+    { 
+        afterParserOrEnumRuleCall();
+    }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getMyCodeLineExtendedAccess().getMyCodeLineExtendedNormalParserRuleCall_1()); 
+    }
+    this_MyCodeLineExtendedNormal_1=ruleMyCodeLineExtendedNormal    {
+		$current.merge(this_MyCodeLineExtendedNormal_1);
+    }
+
+    { 
+        afterParserOrEnumRuleCall();
+    }
+)
+    ;
+
+
+
+
+
+// Entry rule entryRuleMyCodeLineExtendedWSOnly
+entryRuleMyCodeLineExtendedWSOnly returns [String current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getMyCodeLineExtendedWSOnlyRule()); } 
+	 iv_ruleMyCodeLineExtendedWSOnly=ruleMyCodeLineExtendedWSOnly 
+	 { $current=$iv_ruleMyCodeLineExtendedWSOnly.current.getText(); }  
+	 EOF 
+;
+
+// Rule MyCodeLineExtendedWSOnly
+ruleMyCodeLineExtendedWSOnly returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(    this_WHITESPACE_0=RULE_WHITESPACE    {
+		$current.merge(this_WHITESPACE_0);
+    }
+
+    { 
+    newLeafNode(this_WHITESPACE_0, grammarAccess.getMyCodeLineExtendedWSOnlyAccess().getWHITESPACETerminalRuleCall()); 
+    }
+)+
+    ;
+
+
+
+
+
+// Entry rule entryRuleMyCodeLineExtendedNormal
+entryRuleMyCodeLineExtendedNormal returns [String current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getMyCodeLineExtendedNormalRule()); } 
+	 iv_ruleMyCodeLineExtendedNormal=ruleMyCodeLineExtendedNormal 
+	 { $current=$iv_ruleMyCodeLineExtendedNormal.current.getText(); }  
+	 EOF 
+;
+
+// Rule MyCodeLineExtendedNormal
+ruleMyCodeLineExtendedNormal returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
 ((    this_WHITESPACE_0=RULE_WHITESPACE    {
 		$current.merge(this_WHITESPACE_0);
     }
 
     { 
-    newLeafNode(this_WHITESPACE_0, grammarAccess.getMyCodeLineExtendedAccess().getWHITESPACETerminalRuleCall_0()); 
+    newLeafNode(this_WHITESPACE_0, grammarAccess.getMyCodeLineExtendedNormalAccess().getWHITESPACETerminalRuleCall_0()); 
     }
 )*(
     { 
-        newCompositeNode(grammarAccess.getMyCodeLineExtendedAccess().getMyCodeParserRuleCall_1_0()); 
+        newCompositeNode(grammarAccess.getMyCodeLineExtendedNormalAccess().getMyCodeParserRuleCall_1()); 
     }
     this_MyCode_1=ruleMyCode    {
 		$current.merge(this_MyCode_1);
@@ -2400,9 +2621,9 @@ ruleMyCodeLineExtended returns [AntlrDatatypeRuleToken current=new AntlrDatatype
     { 
         afterParserOrEnumRuleCall();
     }
-(
+)+(
     { 
-        newCompositeNode(grammarAccess.getMyCodeLineExtendedAccess().getMyCodeLineParserRuleCall_1_1_0()); 
+        newCompositeNode(grammarAccess.getMyCodeLineExtendedNormalAccess().getMyCodeLineParserRuleCall_2_0()); 
     }
     this_MyCodeLine_2=ruleMyCodeLine    {
 		$current.merge(this_MyCodeLine_2);
@@ -2417,9 +2638,9 @@ ruleMyCodeLineExtended returns [AntlrDatatypeRuleToken current=new AntlrDatatype
     }
 
     { 
-    newLeafNode(this_HASH_3, grammarAccess.getMyCodeLineExtendedAccess().getHASHTerminalRuleCall_1_1_1()); 
+    newLeafNode(this_HASH_3, grammarAccess.getMyCodeLineExtendedNormalAccess().getHASHTerminalRuleCall_2_1()); 
     }
-)*)?)
+)*)
     ;
 
 
@@ -5065,9 +5286,7 @@ RULE_ENDIF : 'endif';
 
 RULE_PRAGMA : 'pragma';
 
-fragment RULE_END_OF_FILE : EOF;
-
-RULE_NEWLINE : (SUPER_NEWLINE|RULE_END_OF_FILE);
+RULE_NEWLINE : SUPER_NEWLINE;
 
 RULE_SKW_AND : '&';
 

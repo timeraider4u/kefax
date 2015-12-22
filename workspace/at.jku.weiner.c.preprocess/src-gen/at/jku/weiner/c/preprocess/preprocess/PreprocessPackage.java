@@ -627,6 +627,34 @@ public interface PreprocessPackage extends EPackage
   int EXPRESSION_FEATURE_COUNT = CommonPackage.EXPRESSION_FEATURE_COUNT + 0;
 
   /**
+   * The meta object id for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.GroupOpt2Impl <em>Group Opt2</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.c.preprocess.preprocess.impl.GroupOpt2Impl
+   * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getGroupOpt2()
+   * @generated
+   */
+  int GROUP_OPT2 = 19;
+
+  /**
+   * The feature id for the '<em><b>Lines</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GROUP_OPT2__LINES = GROUP_OPT__LINES;
+
+  /**
+   * The number of structural features of the '<em>Group Opt2</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GROUP_OPT2_FEATURE_COUNT = GROUP_OPT_FEATURE_COUNT + 0;
+
+  /**
    * The meta object id for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.PreprocessorDirectivesImpl <em>Preprocessor Directives</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -634,7 +662,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getPreprocessorDirectives()
    * @generated
    */
-  int PREPROCESSOR_DIRECTIVES = 19;
+  int PREPROCESSOR_DIRECTIVES = 20;
 
   /**
    * The feature id for the '<em><b>Directive</b></em>' containment reference.
@@ -662,7 +690,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getDefineObjectMacro()
    * @generated
    */
-  int DEFINE_OBJECT_MACRO = 20;
+  int DEFINE_OBJECT_MACRO = 21;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -699,7 +727,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getDefineFunctionLikeMacro()
    * @generated
    */
-  int DEFINE_FUNCTION_LIKE_MACRO = 21;
+  int DEFINE_FUNCTION_LIKE_MACRO = 22;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -745,7 +773,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getNewLineLine()
    * @generated
    */
-  int NEW_LINE_LINE = 22;
+  int NEW_LINE_LINE = 23;
 
   /**
    * The number of structural features of the '<em>New Line Line</em>' class.
@@ -764,7 +792,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getCode()
    * @generated
    */
-  int CODE = 23;
+  int CODE = 24;
 
   /**
    * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -792,7 +820,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getPrimaryExpression()
    * @generated
    */
-  int PRIMARY_EXPRESSION = 24;
+  int PRIMARY_EXPRESSION = 25;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1280,6 +1308,16 @@ public interface PreprocessPackage extends EPackage
    * @generated
    */
   EClass getExpression();
+
+  /**
+   * Returns the meta object for class '{@link at.jku.weiner.c.preprocess.preprocess.GroupOpt2 <em>Group Opt2</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Group Opt2</em>'.
+   * @see at.jku.weiner.c.preprocess.preprocess.GroupOpt2
+   * @generated
+   */
+  EClass getGroupOpt2();
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives <em>Preprocessor Directives</em>}'.
@@ -1806,6 +1844,16 @@ public interface PreprocessPackage extends EPackage
      * @generated
      */
     EClass EXPRESSION = eINSTANCE.getExpression();
+
+    /**
+     * The meta object literal for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.GroupOpt2Impl <em>Group Opt2</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.c.preprocess.preprocess.impl.GroupOpt2Impl
+     * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getGroupOpt2()
+     * @generated
+     */
+    EClass GROUP_OPT2 = eINSTANCE.getGroupOpt2();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.PreprocessorDirectivesImpl <em>Preprocessor Directives</em>}' class.

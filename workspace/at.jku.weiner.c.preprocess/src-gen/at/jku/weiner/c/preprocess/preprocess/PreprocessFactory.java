@@ -194,6 +194,15 @@ public interface PreprocessFactory extends EFactory
   Expression createExpression();
 
   /**
+   * Returns a new object of class '<em>Group Opt2</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Group Opt2</em>'.
+   * @generated
+   */
+  GroupOpt2 createGroupOpt2();
+
+  /**
    * Returns a new object of class '<em>Preprocessor Directives</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

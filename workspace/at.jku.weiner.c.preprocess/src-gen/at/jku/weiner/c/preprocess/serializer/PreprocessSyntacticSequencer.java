@@ -229,7 +229,7 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	}
 	
 	/**
-	 * terminal NEWLINE: Common::NEWLINE | END_OF_FILE;
+	 * terminal NEWLINE: Common::NEWLINE;
 	 */
 	protected String getNEWLINEToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)

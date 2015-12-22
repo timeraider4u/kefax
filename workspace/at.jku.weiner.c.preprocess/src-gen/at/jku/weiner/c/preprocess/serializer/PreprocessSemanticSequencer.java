@@ -33,6 +33,7 @@ import at.jku.weiner.c.preprocess.preprocess.ElIfConditional;
 import at.jku.weiner.c.preprocess.preprocess.ElseConditional;
 import at.jku.weiner.c.preprocess.preprocess.ErrorDirective;
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
+import at.jku.weiner.c.preprocess.preprocess.GroupOpt2;
 import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
 import at.jku.weiner.c.preprocess.preprocess.IfConditional;
 import at.jku.weiner.c.preprocess.preprocess.IfDefConditional;
@@ -156,6 +157,9 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 				return; 
 			case PreprocessPackage.GROUP_OPT:
 				sequence_GroupOpt(context, (GroupOpt) semanticObject); 
+				return; 
+			case PreprocessPackage.GROUP_OPT2:
+				sequence_GroupOpt2(context, (GroupOpt2) semanticObject); 
 				return; 
 			case PreprocessPackage.IDENTIFIER_LIST:
 				sequence_IdentifierList(context, (IdentifierList) semanticObject); 
@@ -299,7 +303,16 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (lines+=GroupOptTemp*)
+	 *     (lines+=GroupOptTemp1* lines+=GroupOptTemp2?)
+	 */
+	protected void sequence_GroupOpt2(EObject context, GroupOpt2 semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (lines+=GroupOptTemp1*)
 	 */
 	protected void sequence_GroupOpt(EObject context, GroupOpt semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -453,7 +466,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     group=GroupOpt
+	 *     group=GroupOpt2
 	 */
 	protected void sequence_TranslationUnit(EObject context, TranslationUnit semanticObject) {
 		if(errorAcceptor != null) {
@@ -462,7 +475,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getTranslationUnitAccess().getGroupGroupOptParserRuleCall_1_0(), semanticObject.getGroup());
+		feeder.accept(grammarAccess.getTranslationUnitAccess().getGroupGroupOpt2ParserRuleCall_1_0(), semanticObject.getGroup());
 		feeder.finish();
 	}
 	

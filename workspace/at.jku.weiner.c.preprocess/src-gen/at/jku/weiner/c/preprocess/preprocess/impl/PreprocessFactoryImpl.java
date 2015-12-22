@@ -83,6 +83,7 @@ public class PreprocessFactoryImpl extends EFactoryImpl implements PreprocessFac
       case PreprocessPackage.PRAGMA_DIRECTIVE: return createPragmaDirective();
       case PreprocessPackage.NULL_DIRECTIVE: return createNullDirective();
       case PreprocessPackage.EXPRESSION: return createExpression();
+      case PreprocessPackage.GROUP_OPT2: return createGroupOpt2();
       case PreprocessPackage.PREPROCESSOR_DIRECTIVES: return createPreprocessorDirectives();
       case PreprocessPackage.DEFINE_OBJECT_MACRO: return createDefineObjectMacro();
       case PreprocessPackage.DEFINE_FUNCTION_LIKE_MACRO: return createDefineFunctionLikeMacro();
@@ -301,6 +302,17 @@ public class PreprocessFactoryImpl extends EFactoryImpl implements PreprocessFac
   {
     ExpressionImpl expression = new ExpressionImpl();
     return expression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public GroupOpt2 createGroupOpt2()
+  {
+    GroupOpt2Impl groupOpt2 = new GroupOpt2Impl();
+    return groupOpt2;
   }
 
   /**

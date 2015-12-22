@@ -170,6 +170,11 @@ public class PreprocessAdapterFactory extends AdapterFactoryImpl
         return createExpressionAdapter();
       }
       @Override
+      public Adapter caseGroupOpt2(GroupOpt2 object)
+      {
+        return createGroupOpt2Adapter();
+      }
+      @Override
       public Adapter casePreprocessorDirectives(PreprocessorDirectives object)
       {
         return createPreprocessorDirectivesAdapter();
@@ -507,6 +512,21 @@ public class PreprocessAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.preprocess.preprocess.GroupOpt2 <em>Group Opt2</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.preprocess.preprocess.GroupOpt2
+   * @generated
+   */
+  public Adapter createGroupOpt2Adapter()
   {
     return null;
   }

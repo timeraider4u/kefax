@@ -50,7 +50,7 @@ public class PreprocessSwitch<T> extends Switch<T>
    * Checks whether this is a switch for the given package.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @parameter ePackage the package in question.
+   * @param ePackage the package in question.
    * @return whether this is a switch for the given package.
    * @generated
    */
@@ -203,6 +203,14 @@ public class PreprocessSwitch<T> extends Switch<T>
         Expression expression = (Expression)theEObject;
         T result = caseExpression(expression);
         if (result == null) result = caseCommon_Expression(expression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PreprocessPackage.GROUP_OPT2:
+      {
+        GroupOpt2 groupOpt2 = (GroupOpt2)theEObject;
+        T result = caseGroupOpt2(groupOpt2);
+        if (result == null) result = caseGroupOpt(groupOpt2);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -559,6 +567,22 @@ public class PreprocessSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseExpression(Expression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Group Opt2</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Group Opt2</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseGroupOpt2(GroupOpt2 object)
   {
     return null;
   }

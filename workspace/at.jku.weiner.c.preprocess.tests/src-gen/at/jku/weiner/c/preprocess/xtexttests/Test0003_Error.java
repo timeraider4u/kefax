@@ -47,6 +47,12 @@ import at.jku.weiner.c.preprocess.preprocess.Model;
 import at.jku.weiner.c.preprocess.preprocess.TranslationUnit;
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
+import at.jku.weiner.c.preprocess.preprocess.WarningDirective;
+import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
+import at.jku.weiner.c.preprocess.preprocess.WarningDirective;
+import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
+import at.jku.weiner.c.preprocess.preprocess.ErrorDirective;
+import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.ErrorDirective;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
@@ -101,9 +107,20 @@ public class Test0003_Error {
 			//System.out.println(text);
 			final String[] expected = new String[] {
 				"RULE_HASH", 
+				"RULE_WARNING", 
+				"RULE_WHITESPACE", 
+				"RULE_STRING_LITERAL", 
+				"RULE_NEWLINE", 
+				"RULE_HASH", 
+				"RULE_WARNING", 
+				"RULE_NEWLINE", 
+				"RULE_HASH", 
 				"RULE_ERROR", 
 				"RULE_WHITESPACE", 
 				"RULE_STRING_LITERAL", 
+				"RULE_NEWLINE", 
+				"RULE_HASH", 
+				"RULE_ERROR", 
 				"RULE_NEWLINE", 
 				};
 			//final List<Token> actual = testHelper.getTokens(text);
@@ -141,19 +158,58 @@ public class Test0003_Error {
 		final EList<? extends EObject> Lines_2_list = GroupOpt_2_Var
 		.getLines();
 		Assert.assertNotNull(Lines_2_list);
-		Assert.assertEquals(1, Lines_2_list.size());
+		Assert.assertEquals(4, Lines_2_list.size());
 		//2
 		final PreprocessorDirectives PreprocessorDirectives_3_Var
 		 = (PreprocessorDirectives)Lines_2_list.get(0);
 		Assert.assertNotNull(PreprocessorDirectives_3_Var
 		);
 		//3
-		final ErrorDirective ErrorDirective_4_Var
-		 = (ErrorDirective)PreprocessorDirectives_3_Var
+		final WarningDirective WarningDirective_4_Var
+		 = (WarningDirective)PreprocessorDirectives_3_Var
 		.getDirective();
-		Assert.assertNotNull(ErrorDirective_4_Var
+		Assert.assertNotNull(WarningDirective_4_Var
 		);
-		Assert.assertEquals("\"error message!\"", ErrorDirective_4_Var
+		Assert.assertEquals("\"warning message!\"", WarningDirective_4_Var
+		.getMsg());
+		//4
+		final PreprocessorDirectives PreprocessorDirectives_5_Var
+		 = (PreprocessorDirectives)Lines_2_list.get(1);
+		Assert.assertNotNull(PreprocessorDirectives_5_Var
+		);
+		//5
+		final WarningDirective WarningDirective_6_Var
+		 = (WarningDirective)PreprocessorDirectives_5_Var
+		.getDirective();
+		Assert.assertNotNull(WarningDirective_6_Var
+		);
+		Assert.assertNull(WarningDirective_6_Var
+		.getMsg());
+		//6
+		final PreprocessorDirectives PreprocessorDirectives_7_Var
+		 = (PreprocessorDirectives)Lines_2_list.get(2);
+		Assert.assertNotNull(PreprocessorDirectives_7_Var
+		);
+		//7
+		final ErrorDirective ErrorDirective_8_Var
+		 = (ErrorDirective)PreprocessorDirectives_7_Var
+		.getDirective();
+		Assert.assertNotNull(ErrorDirective_8_Var
+		);
+		Assert.assertEquals("\"error message!\"", ErrorDirective_8_Var
+		.getMsg());
+		//8
+		final PreprocessorDirectives PreprocessorDirectives_9_Var
+		 = (PreprocessorDirectives)Lines_2_list.get(3);
+		Assert.assertNotNull(PreprocessorDirectives_9_Var
+		);
+		//9
+		final ErrorDirective ErrorDirective_10_Var
+		 = (ErrorDirective)PreprocessorDirectives_9_Var
+		.getDirective();
+		Assert.assertNotNull(ErrorDirective_10_Var
+		);
+		Assert.assertNull(ErrorDirective_10_Var
 		.getMsg());
 	}
 	

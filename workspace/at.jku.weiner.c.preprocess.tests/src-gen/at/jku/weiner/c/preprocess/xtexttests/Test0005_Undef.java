@@ -172,6 +172,8 @@ public class Test0005_Undef {
 				"RULE_UNDEF", 
 				"RULE_WHITESPACE", 
 				"RULE_ID", 
+				"RULE_WHITESPACE", 
+				"RULE_BLOCK_COMMENT", 
 				"RULE_NEWLINE", 
 				"RULE_ID", 
 				"RULE_WHITESPACE", 

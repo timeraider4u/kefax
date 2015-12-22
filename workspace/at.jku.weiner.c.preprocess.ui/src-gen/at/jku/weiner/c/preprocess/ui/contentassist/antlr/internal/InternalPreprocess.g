@@ -4769,16 +4769,9 @@ rule__ErrorDirective__Group__2__Impl
 :
 
 (
-(
-{ before(grammarAccess.getErrorDirectiveAccess().getWHITESPACETerminalRuleCall_2()); }
-(	RULE_WHITESPACE)
-{ after(grammarAccess.getErrorDirectiveAccess().getWHITESPACETerminalRuleCall_2()); }
-)
-(
 { before(grammarAccess.getErrorDirectiveAccess().getWHITESPACETerminalRuleCall_2()); }
 (	RULE_WHITESPACE)*
 { after(grammarAccess.getErrorDirectiveAccess().getWHITESPACETerminalRuleCall_2()); }
-)
 )
 
 
@@ -4808,7 +4801,7 @@ rule__ErrorDirective__Group__3__Impl
 
 (
 { before(grammarAccess.getErrorDirectiveAccess().getMsgAssignment_3()); }
-(rule__ErrorDirective__MsgAssignment_3)
+(rule__ErrorDirective__MsgAssignment_3)?
 { after(grammarAccess.getErrorDirectiveAccess().getMsgAssignment_3()); }
 )
 
@@ -4913,16 +4906,9 @@ rule__WarningDirective__Group__2__Impl
 :
 
 (
-(
-{ before(grammarAccess.getWarningDirectiveAccess().getWHITESPACETerminalRuleCall_2()); }
-(	RULE_WHITESPACE)
-{ after(grammarAccess.getWarningDirectiveAccess().getWHITESPACETerminalRuleCall_2()); }
-)
-(
 { before(grammarAccess.getWarningDirectiveAccess().getWHITESPACETerminalRuleCall_2()); }
 (	RULE_WHITESPACE)*
 { after(grammarAccess.getWarningDirectiveAccess().getWHITESPACETerminalRuleCall_2()); }
-)
 )
 
 
@@ -4952,7 +4938,7 @@ rule__WarningDirective__Group__3__Impl
 
 (
 { before(grammarAccess.getWarningDirectiveAccess().getMsgAssignment_3()); }
-(rule__WarningDirective__MsgAssignment_3)
+(rule__WarningDirective__MsgAssignment_3)?
 { after(grammarAccess.getWarningDirectiveAccess().getMsgAssignment_3()); }
 )
 
@@ -5083,6 +5069,7 @@ rule__UnDefineDirective__Group__3
     }
 :
 	rule__UnDefineDirective__Group__3__Impl
+	rule__UnDefineDirective__Group__4
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -5106,6 +5093,39 @@ rule__UnDefineDirective__Group__3__Impl
 finally {
 	restoreStackSize(stackSize);
 }
+
+
+rule__UnDefineDirective__Group__4
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__UnDefineDirective__Group__4__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__UnDefineDirective__Group__4__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+
+(
+{ before(grammarAccess.getUnDefineDirectiveAccess().getWHITESPACETerminalRuleCall_4()); }
+(	RULE_WHITESPACE)*
+{ after(grammarAccess.getUnDefineDirectiveAccess().getWHITESPACETerminalRuleCall_4()); }
+)
+
+
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
 
 
 

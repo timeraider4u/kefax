@@ -6,5 +6,5 @@ int b = 2;
 #define int		long
 #undef int
 int c = 2;
-#undef int
+#undef int /* undef int */
 int d = 4;

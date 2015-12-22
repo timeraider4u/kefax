@@ -1245,7 +1245,7 @@ this_ERROR_1=RULE_ERROR
     { 
     newLeafNode(this_WHITESPACE_2, grammarAccess.getErrorDirectiveAccess().getWHITESPACETerminalRuleCall_2()); 
     }
-)+
+)*
 
 
 (
@@ -1266,7 +1266,7 @@ this_ERROR_1=RULE_ERROR
 	    }
 
 )
-)
+)?
 
 )
 
@@ -1319,7 +1319,7 @@ this_WARNING_1=RULE_WARNING
     { 
     newLeafNode(this_WHITESPACE_2, grammarAccess.getWarningDirectiveAccess().getWHITESPACETerminalRuleCall_2()); 
     }
-)+
+)*
 
 
 (
@@ -1340,7 +1340,7 @@ this_WARNING_1=RULE_WARNING
 	    }
 
 )
-)
+)?
 
 )
 
@@ -1415,6 +1415,13 @@ this_UNDEF_1=RULE_UNDEF
 
 )
 )
+
+
+(this_WHITESPACE_4=RULE_WHITESPACE
+    { 
+    newLeafNode(this_WHITESPACE_4, grammarAccess.getUnDefineDirectiveAccess().getWHITESPACETerminalRuleCall_4()); 
+    }
+)*
 
 )
 

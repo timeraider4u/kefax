@@ -124,17 +124,17 @@ IdentifierList:
 
 ErrorDirective:
 	{ErrorDirective}
-	ERROR WHITESPACE+ msg=MyCodeLine
+	ERROR WHITESPACE* (msg=MyCodeLine)?
 ;
 
 WarningDirective:
 	{WarningDirective}
-	WARNING WHITESPACE+ msg=MyCodeLine
+	WARNING WHITESPACE* (msg=MyCodeLine)?
 ;
 
 UnDefineDirective:
 	{UnDefineDirective}
-	UNDEF WHITESPACE+ id=ID
+	UNDEF WHITESPACE+ id=ID WHITESPACE*
 ;
 
 ConditionalDirective:

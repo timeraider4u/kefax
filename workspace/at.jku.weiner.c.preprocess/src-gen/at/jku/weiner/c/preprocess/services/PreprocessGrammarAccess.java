@@ -515,10 +515,10 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cMsgMyCodeLineParserRuleCall_3_0 = (RuleCall)cMsgAssignment_3.eContents().get(0);
 		
 		//ErrorDirective:
-		//	{ErrorDirective} ERROR WHITESPACE+ msg=MyCodeLine;
+		//	{ErrorDirective} ERROR WHITESPACE* msg=MyCodeLine?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{ErrorDirective} ERROR WHITESPACE+ msg=MyCodeLine
+		//{ErrorDirective} ERROR WHITESPACE* msg=MyCodeLine?
 		public Group getGroup() { return cGroup; }
 		
 		//{ErrorDirective}
@@ -527,10 +527,10 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//ERROR
 		public RuleCall getERRORTerminalRuleCall_1() { return cERRORTerminalRuleCall_1; }
 		
-		//WHITESPACE+
+		//WHITESPACE*
 		public RuleCall getWHITESPACETerminalRuleCall_2() { return cWHITESPACETerminalRuleCall_2; }
 		
-		//msg=MyCodeLine
+		//msg=MyCodeLine?
 		public Assignment getMsgAssignment_3() { return cMsgAssignment_3; }
 		
 		//MyCodeLine
@@ -546,10 +546,10 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cMsgMyCodeLineParserRuleCall_3_0 = (RuleCall)cMsgAssignment_3.eContents().get(0);
 		
 		//WarningDirective:
-		//	{WarningDirective} WARNING WHITESPACE+ msg=MyCodeLine;
+		//	{WarningDirective} WARNING WHITESPACE* msg=MyCodeLine?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{WarningDirective} WARNING WHITESPACE+ msg=MyCodeLine
+		//{WarningDirective} WARNING WHITESPACE* msg=MyCodeLine?
 		public Group getGroup() { return cGroup; }
 		
 		//{WarningDirective}
@@ -558,10 +558,10 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//WARNING
 		public RuleCall getWARNINGTerminalRuleCall_1() { return cWARNINGTerminalRuleCall_1; }
 		
-		//WHITESPACE+
+		//WHITESPACE*
 		public RuleCall getWHITESPACETerminalRuleCall_2() { return cWHITESPACETerminalRuleCall_2; }
 		
-		//msg=MyCodeLine
+		//msg=MyCodeLine?
 		public Assignment getMsgAssignment_3() { return cMsgAssignment_3; }
 		
 		//MyCodeLine
@@ -575,12 +575,13 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cWHITESPACETerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		private final Assignment cIdAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cIdIDTerminalRuleCall_3_0 = (RuleCall)cIdAssignment_3.eContents().get(0);
+		private final RuleCall cWHITESPACETerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
 		
 		//UnDefineDirective:
-		//	{UnDefineDirective} UNDEF WHITESPACE+ id=ID;
+		//	{UnDefineDirective} UNDEF WHITESPACE+ id=ID WHITESPACE*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{UnDefineDirective} UNDEF WHITESPACE+ id=ID
+		//{UnDefineDirective} UNDEF WHITESPACE+ id=ID WHITESPACE*
 		public Group getGroup() { return cGroup; }
 		
 		//{UnDefineDirective}
@@ -597,6 +598,9 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//ID
 		public RuleCall getIdIDTerminalRuleCall_3_0() { return cIdIDTerminalRuleCall_3_0; }
+		
+		//WHITESPACE*
+		public RuleCall getWHITESPACETerminalRuleCall_4() { return cWHITESPACETerminalRuleCall_4; }
 	}
 	public class ConditionalDirectiveElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.ConditionalDirective");
@@ -1541,7 +1545,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ErrorDirective:
-	//	{ErrorDirective} ERROR WHITESPACE+ msg=MyCodeLine;
+	//	{ErrorDirective} ERROR WHITESPACE* msg=MyCodeLine?;
 	public ErrorDirectiveElements getErrorDirectiveAccess() {
 		return pErrorDirective;
 	}
@@ -1551,7 +1555,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//WarningDirective:
-	//	{WarningDirective} WARNING WHITESPACE+ msg=MyCodeLine;
+	//	{WarningDirective} WARNING WHITESPACE* msg=MyCodeLine?;
 	public WarningDirectiveElements getWarningDirectiveAccess() {
 		return pWarningDirective;
 	}
@@ -1561,7 +1565,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//UnDefineDirective:
-	//	{UnDefineDirective} UNDEF WHITESPACE+ id=ID;
+	//	{UnDefineDirective} UNDEF WHITESPACE+ id=ID WHITESPACE*;
 	public UnDefineDirectiveElements getUnDefineDirectiveAccess() {
 		return pUnDefineDirective;
 	}

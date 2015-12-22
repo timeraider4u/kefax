@@ -287,17 +287,10 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     msg=MyCodeLine
+	 *     (msg=MyCodeLine?)
 	 */
 	protected void sequence_ErrorDirective(EObject context, ErrorDirective semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, PreprocessPackage.Literals.ERROR_DIRECTIVE__MSG) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PreprocessPackage.Literals.ERROR_DIRECTIVE__MSG));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getErrorDirectiveAccess().getMsgMyCodeLineParserRuleCall_3_0(), semanticObject.getMsg());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -498,16 +491,9 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     msg=MyCodeLine
+	 *     (msg=MyCodeLine?)
 	 */
 	protected void sequence_WarningDirective(EObject context, WarningDirective semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, PreprocessPackage.Literals.WARNING_DIRECTIVE__MSG) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PreprocessPackage.Literals.WARNING_DIRECTIVE__MSG));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getWarningDirectiveAccess().getMsgMyCodeLineParserRuleCall_3_0(), semanticObject.getMsg());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 }

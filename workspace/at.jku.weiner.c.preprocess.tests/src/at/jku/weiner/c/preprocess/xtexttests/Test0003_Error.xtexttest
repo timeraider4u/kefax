@@ -8,7 +8,10 @@ split-lexer=false
 source file="res/Test0003_Error.h"
 //----------------------------------------------------------------------
 lexer-tokens
+	HASH WARNING WHITESPACE STRING_LITERAL NEWLINE
+	HASH WARNING NEWLINE
 	HASH ERROR WHITESPACE STRING_LITERAL NEWLINE
+	HASH ERROR NEWLINE
 //----------------------------------------------------------------------
 (Model
 	units+=
@@ -18,8 +21,26 @@ lexer-tokens
 			lines+=
 			(PreprocessorDirectives
 				directive=
+				(WarningDirective
+					msg++"\\\"warning message!\\\""
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(WarningDirective
+					msg isNull
+				)
+			),
+			(PreprocessorDirectives
+				directive=
 				(ErrorDirective
 					msg++"\\\"error message!\\\""
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(ErrorDirective
+					msg isNull
 				)
 			)
 			

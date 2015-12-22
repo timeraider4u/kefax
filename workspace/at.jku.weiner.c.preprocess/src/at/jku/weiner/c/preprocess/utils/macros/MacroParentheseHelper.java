@@ -46,7 +46,12 @@ public class MacroParentheseHelper {
 
 	public String getNextParam() {
 		final int nextIndex = this.calculateNextIndex();
-		final String result = this.text.substring(this.currIndex, nextIndex);
+		String result;
+		try {
+			result = this.text.substring(this.currIndex, nextIndex);
+		} catch (StringIndexOutOfBoundsException ex) {
+			throw ex;
+		}
 		this.currIndex = nextIndex + 1;
 		return result.trim();
 	}

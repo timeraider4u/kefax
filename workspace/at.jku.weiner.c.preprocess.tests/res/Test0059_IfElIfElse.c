@@ -4,6 +4,6 @@
 	void foo();
 #elif defined BAR
 	void bar();
-#else
+#else	/* else ... */
 	void no_foo_and_no_bar();
 #endif

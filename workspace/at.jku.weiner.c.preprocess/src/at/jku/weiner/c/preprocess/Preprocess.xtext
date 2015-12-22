@@ -112,8 +112,9 @@ DefineFunctionLikeMacro returns DefineDirective:
 	SKW_LEFTPAREN WHITESPACE*
 		(list=IdentifierList)?
 	SKW_RIGHTPAREN
-	WHITESPACE+
-	string=MyDefineLine 
+	
+	(WHITESPACE+
+	string=MyDefineLine)? 
 ;
 
 IdentifierList:
@@ -175,7 +176,7 @@ ElIfConditional:
 
 ElseConditional:
 	{ElseConditional}
-	WHITESPACE* HASH WHITESPACE* ELSE NEWLINE
+	WHITESPACE* HASH WHITESPACE* ELSE WHITESPACE* NEWLINE
 		group=GroupOpt
 ;
 

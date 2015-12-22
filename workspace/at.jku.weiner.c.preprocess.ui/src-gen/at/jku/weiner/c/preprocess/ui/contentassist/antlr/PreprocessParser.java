@@ -69,6 +69,7 @@ public class PreprocessParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDefineObjectMacroAccess().getGroup(), "rule__DefineObjectMacro__Group__0");
 					put(grammarAccess.getDefineObjectMacroAccess().getGroup_4(), "rule__DefineObjectMacro__Group_4__0");
 					put(grammarAccess.getDefineFunctionLikeMacroAccess().getGroup(), "rule__DefineFunctionLikeMacro__Group__0");
+					put(grammarAccess.getDefineFunctionLikeMacroAccess().getGroup_8(), "rule__DefineFunctionLikeMacro__Group_8__0");
 					put(grammarAccess.getIdentifierListAccess().getGroup(), "rule__IdentifierList__Group__0");
 					put(grammarAccess.getIdentifierListAccess().getGroup_2(), "rule__IdentifierList__Group_2__0");
 					put(grammarAccess.getErrorDirectiveAccess().getGroup(), "rule__ErrorDirective__Group__0");
@@ -140,7 +141,7 @@ public class PreprocessParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDefineObjectMacroAccess().getStringAssignment_4_1(), "rule__DefineObjectMacro__StringAssignment_4_1");
 					put(grammarAccess.getDefineFunctionLikeMacroAccess().getIdAssignment_3(), "rule__DefineFunctionLikeMacro__IdAssignment_3");
 					put(grammarAccess.getDefineFunctionLikeMacroAccess().getListAssignment_6(), "rule__DefineFunctionLikeMacro__ListAssignment_6");
-					put(grammarAccess.getDefineFunctionLikeMacroAccess().getStringAssignment_9(), "rule__DefineFunctionLikeMacro__StringAssignment_9");
+					put(grammarAccess.getDefineFunctionLikeMacroAccess().getStringAssignment_8_1(), "rule__DefineFunctionLikeMacro__StringAssignment_8_1");
 					put(grammarAccess.getIdentifierListAccess().getIdAssignment_1(), "rule__IdentifierList__IdAssignment_1");
 					put(grammarAccess.getIdentifierListAccess().getIdAssignment_2_2(), "rule__IdentifierList__IdAssignment_2_2");
 					put(grammarAccess.getErrorDirectiveAccess().getMsgAssignment_3(), "rule__ErrorDirective__MsgAssignment_3");
@@ -157,7 +158,7 @@ public class PreprocessParser extends AbstractContentAssistParser {
 					put(grammarAccess.getIfNotDefConditionalAccess().getGroupAssignment_5(), "rule__IfNotDefConditional__GroupAssignment_5");
 					put(grammarAccess.getElIfConditionalAccess().getExpressionAssignment_3(), "rule__ElIfConditional__ExpressionAssignment_3");
 					put(grammarAccess.getElIfConditionalAccess().getGroupAssignment_5(), "rule__ElIfConditional__GroupAssignment_5");
-					put(grammarAccess.getElseConditionalAccess().getGroupAssignment_6(), "rule__ElseConditional__GroupAssignment_6");
+					put(grammarAccess.getElseConditionalAccess().getGroupAssignment_7(), "rule__ElseConditional__GroupAssignment_7");
 					put(grammarAccess.getCodeAccess().getCodeAssignment_1(), "rule__Code__CodeAssignment_1");
 					put(grammarAccess.getPrimaryExpressionAccess().getDefinedAssignment_1_0_0(), "rule__PrimaryExpression__DefinedAssignment_1_0_0");
 					put(grammarAccess.getPrimaryExpressionAccess().getIdAssignment_1_0_1(), "rule__PrimaryExpression__IdAssignment_1_0_1");

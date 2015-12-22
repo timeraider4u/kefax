@@ -1,0 +1,106 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language preprocess
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+split-lexer=false
+source file="res/Test0075_IfDefinedEmptyFunctionMacro.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
+	HASH IF WHITESPACE DEFINED WHITESPACE SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE 
+		WHITESPACE ID WHITESPACE ID SKW_LEFTPAREN SKW_RIGHTPAREN SKW_SEMI NEWLINE
+	HASH ENDIF NEWLINE
+//----------------------------------------------------------------------
+(Model
+	units+=
+	(TranslationUnit
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"FOO",
+					list=
+					(IdentifierList
+						id+*"[bar]"
+					),
+					string isNull
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(ConditionalDirective
+					conditional=
+					(IfConditional
+						expression=
+						(common::ConstantExpression
+							expr=
+							(common::ConditionalExpression
+								expr=
+								(common::LogicalOrExpression
+									expr+=
+									(common::LogicalAndExpression
+										expr+=
+										(common::InclusiveOrExpression
+											expr+=
+											(common::ExclusiveOrExpression
+												expr+=
+												(common::AndExpression
+													expr+=
+													(common::EqualityExpression
+														expr+=
+														(common::RelationalExpression
+															expr+=
+															(common::ShiftExpression
+																expr+=
+																(common::AdditiveExpression
+																	expr+=
+																	(common::MultiplicativeExpression
+																		expr+=
+																		(common::CastExpression
+																			expr=
+																			(common::UnaryExpression
+																				expr=
+																				(common::PostfixExpression
+																					expr=
+																					(PrimaryExpression
+																						defined?=true,
+																						id++"FOO"
+																					)
+																				)
+																			)
+																		)
+																	)
+																)
+															)
+														)
+													)
+												)
+											)
+										)
+									)
+								)
+							)
+						),
+						group=
+						(GroupOpt
+							lines+=
+							(Code
+								code++"	void foo_bar();"
+							)
+						)
+					)
+				)
+			)
+		)
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0075_IfDefinedEmptyFunctionMacro.c.i"
+expected file="expected/Test0075_IfDefinedEmptyFunctionMacro.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

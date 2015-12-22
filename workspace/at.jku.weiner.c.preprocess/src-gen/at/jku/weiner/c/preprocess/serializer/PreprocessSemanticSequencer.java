@@ -234,7 +234,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (id=ID list=IdentifierList? string=MyDefineLine)
+	 *     (id=ID list=IdentifierList? string=MyDefineLine?)
 	 */
 	protected void sequence_DefineFunctionLikeMacro(EObject context, DefineFunctionLikeMacro semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -280,7 +280,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getElseConditionalAccess().getGroupGroupOptParserRuleCall_6_0(), semanticObject.getGroup());
+		feeder.accept(grammarAccess.getElseConditionalAccess().getGroupGroupOptParserRuleCall_7_0(), semanticObject.getGroup());
 		feeder.finish();
 	}
 	

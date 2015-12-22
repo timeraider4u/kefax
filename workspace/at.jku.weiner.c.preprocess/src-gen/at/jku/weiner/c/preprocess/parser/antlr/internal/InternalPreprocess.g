@@ -1066,9 +1066,10 @@ this_SKW_RIGHTPAREN_7=RULE_SKW_RIGHTPAREN
 
 
 
+(
 (this_WHITESPACE_8=RULE_WHITESPACE
     { 
-    newLeafNode(this_WHITESPACE_8, grammarAccess.getDefineFunctionLikeMacroAccess().getWHITESPACETerminalRuleCall_8()); 
+    newLeafNode(this_WHITESPACE_8, grammarAccess.getDefineFunctionLikeMacroAccess().getWHITESPACETerminalRuleCall_8_0()); 
     }
 )+
 
@@ -1076,7 +1077,7 @@ this_SKW_RIGHTPAREN_7=RULE_SKW_RIGHTPAREN
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getDefineFunctionLikeMacroAccess().getStringMyDefineLineParserRuleCall_9_0()); 
+	        newCompositeNode(grammarAccess.getDefineFunctionLikeMacroAccess().getStringMyDefineLineParserRuleCall_8_1_0()); 
 	    }
 		lv_string_9_0=ruleMyDefineLine		{
 	        if ($current==null) {
@@ -1092,6 +1093,8 @@ this_SKW_RIGHTPAREN_7=RULE_SKW_RIGHTPAREN
 
 )
 )
+
+)?
 
 )
 
@@ -2083,9 +2086,16 @@ this_ELSE_4=RULE_ELSE
 
 
 
-this_NEWLINE_5=RULE_NEWLINE
+(this_WHITESPACE_5=RULE_WHITESPACE
     { 
-    newLeafNode(this_NEWLINE_5, grammarAccess.getElseConditionalAccess().getNEWLINETerminalRuleCall_5()); 
+    newLeafNode(this_WHITESPACE_5, grammarAccess.getElseConditionalAccess().getWHITESPACETerminalRuleCall_5()); 
+    }
+)*
+
+
+this_NEWLINE_6=RULE_NEWLINE
+    { 
+    newLeafNode(this_NEWLINE_6, grammarAccess.getElseConditionalAccess().getNEWLINETerminalRuleCall_6()); 
     }
 
 
@@ -2093,16 +2103,16 @@ this_NEWLINE_5=RULE_NEWLINE
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getElseConditionalAccess().getGroupGroupOptParserRuleCall_6_0()); 
+	        newCompositeNode(grammarAccess.getElseConditionalAccess().getGroupGroupOptParserRuleCall_7_0()); 
 	    }
-		lv_group_6_0=ruleGroupOpt		{
+		lv_group_7_0=ruleGroupOpt		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getElseConditionalRule());
 	        }
        		set(
        			$current, 
        			"group",
-        		lv_group_6_0, 
+        		lv_group_7_0, 
         		"at.jku.weiner.c.preprocess.Preprocess.GroupOpt");
 	        afterParserOrEnumRuleCall();
 	    }

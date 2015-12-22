@@ -49,6 +49,9 @@ import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.Code;
+import at.jku.weiner.c.preprocess.preprocess.Code;
+import at.jku.weiner.c.preprocess.preprocess.Code;
+import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
@@ -112,6 +115,24 @@ public class Test0002_Code {
 				"RULE_SKW_LEFTBRACE", 
 				"RULE_NEWLINE", 
 				"RULE_WHITESPACE", 
+				"RULE_IF", 
+				"RULE_WHITESPACE", 
+				"RULE_SKW_LEFTPAREN", 
+				"RULE_DECIMAL_LITERAL", 
+				"RULE_SKW_RIGHTPAREN", 
+				"RULE_NEWLINE", 
+				"RULE_WHITESPACE", 
+				"RULE_WHITESPACE", 
+				"RULE_ID", 
+				"RULE_WHITESPACE", 
+				"RULE_DECIMAL_LITERAL", 
+				"RULE_SKW_SEMI", 
+				"RULE_NEWLINE", 
+				"RULE_WHITESPACE", 
+				"RULE_ELSE", 
+				"RULE_NEWLINE", 
+				"RULE_WHITESPACE", 
+				"RULE_WHITESPACE", 
 				"RULE_ID", 
 				"RULE_WHITESPACE", 
 				"RULE_DECIMAL_LITERAL", 
@@ -156,7 +177,7 @@ public class Test0002_Code {
 		final EList<? extends EObject> Lines_2_list = GroupOpt_2_Var
 		.getLines();
 		Assert.assertNotNull(Lines_2_list);
-		Assert.assertEquals(4, Lines_2_list.size());
+		Assert.assertEquals(7, Lines_2_list.size());
 		//2
 		final Code Code_3_Var
 		 = (Code)Lines_2_list.get(0);
@@ -169,19 +190,40 @@ public class Test0002_Code {
 		 = (Code)Lines_2_list.get(1);
 		Assert.assertNotNull(Code_4_Var
 		);
-		Assert.assertEquals("	return 0;", Code_4_Var
+		Assert.assertEquals("	if (0)", Code_4_Var
 		.getCode());
 		//4
 		final Code Code_5_Var
 		 = (Code)Lines_2_list.get(2);
 		Assert.assertNotNull(Code_5_Var
 		);
-		Assert.assertEquals("}", Code_5_Var
+		Assert.assertEquals("		return 0;", Code_5_Var
 		.getCode());
 		//5
-		final NewLineLine NewLineLine_6_Var
-		 = (NewLineLine)Lines_2_list.get(3);
-		Assert.assertNotNull(NewLineLine_6_Var
+		final Code Code_6_Var
+		 = (Code)Lines_2_list.get(3);
+		Assert.assertNotNull(Code_6_Var
+		);
+		Assert.assertEquals("	else", Code_6_Var
+		.getCode());
+		//6
+		final Code Code_7_Var
+		 = (Code)Lines_2_list.get(4);
+		Assert.assertNotNull(Code_7_Var
+		);
+		Assert.assertEquals("		return 0;", Code_7_Var
+		.getCode());
+		//7
+		final Code Code_8_Var
+		 = (Code)Lines_2_list.get(5);
+		Assert.assertNotNull(Code_8_Var
+		);
+		Assert.assertEquals("}", Code_8_Var
+		.getCode());
+		//8
+		final NewLineLine NewLineLine_9_Var
+		 = (NewLineLine)Lines_2_list.get(6);
+		Assert.assertNotNull(NewLineLine_9_Var
 		);
 	}
 	

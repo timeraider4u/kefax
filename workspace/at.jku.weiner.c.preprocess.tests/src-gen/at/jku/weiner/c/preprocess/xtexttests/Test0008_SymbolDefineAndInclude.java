@@ -164,7 +164,7 @@ public class Test0008_SymbolDefineAndInclude {
 		);
 		Assert.assertEquals("abc", DefineDirective_4_Var
 		.getId());
-		Assert.assertEquals("\"Test0002_Code.c\"", DefineDirective_4_Var
+		Assert.assertEquals("\"Test0002b_Code.c\"", DefineDirective_4_Var
 		.getString());
 		//4
 		final PreprocessorDirectives PreprocessorDirectives_5_Var

@@ -173,7 +173,7 @@ public class Test0006_SimpleInc {
 		.getDirective();
 		Assert.assertNotNull(IncludeDirective_6_Var
 		);
-		Assert.assertEquals("\"Test0002_Code.c\"", IncludeDirective_6_Var
+		Assert.assertEquals("\"Test0002b_Code.c\"", IncludeDirective_6_Var
 		.getString());
 	}
 	

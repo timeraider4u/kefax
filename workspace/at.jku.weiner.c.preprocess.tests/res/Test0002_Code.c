@@ -1,4 +1,7 @@
 int main(void) {
-	return 0;
+	if (0)
+		return 0;
+	else
+		return 0;
 }
 

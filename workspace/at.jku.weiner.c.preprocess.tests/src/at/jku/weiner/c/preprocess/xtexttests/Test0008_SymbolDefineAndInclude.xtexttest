@@ -21,7 +21,7 @@ lexer-tokens
 				directive=
 				(DefineDirective
 					id++"abc",
-					string++"\\\"Test0002_Code.c\\\""
+					string++"\\\"Test0002b_Code.c\\\""
 				)
 			),
 			(PreprocessorDirectives

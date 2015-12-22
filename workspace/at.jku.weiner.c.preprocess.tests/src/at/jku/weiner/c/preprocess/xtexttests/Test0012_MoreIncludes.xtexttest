@@ -63,7 +63,7 @@ lexer-tokens
 			(PreprocessorDirectives
 				directive=
 				(IncludeDirective
-					string++"\\\"Test0002_Code.c\\\""
+					string++"\\\"Test0002b_Code.c\\\""
 				)
 			)
 			

@@ -9,7 +9,10 @@ source file="res/Test0002_Code.c"
 //----------------------------------------------------------------------
 lexer-tokens
 	ID WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WHITESPACE SKW_LEFTBRACE NEWLINE
-	WHITESPACE ID WHITESPACE DECIMAL_LITERAL SKW_SEMI NEWLINE
+	WHITESPACE IF WHITESPACE SKW_LEFTPAREN DECIMAL_LITERAL SKW_RIGHTPAREN NEWLINE
+	WHITESPACE+*2 ID WHITESPACE DECIMAL_LITERAL SKW_SEMI NEWLINE
+	WHITESPACE ELSE NEWLINE
+	WHITESPACE+*2 ID WHITESPACE DECIMAL_LITERAL SKW_SEMI NEWLINE
 	SKW_RIGHTBRACE NEWLINE
 	NEWLINE
 //----------------------------------------------------------------------
@@ -23,7 +26,16 @@ lexer-tokens
 				code++"int main(void) {"
 			),
 			(Code
-				code++"	return 0;"
+				code++"	if (0)"
+			),
+			(Code
+				code++"		return 0;"
+			),
+			(Code
+				code++"	else"
+			),
+			(Code
+				code++"		return 0;"
 			),
 			(Code
 				code++"}"

@@ -295,7 +295,7 @@ public class Test0012_MoreIncludes {
 		.getDirective();
 		Assert.assertNotNull(IncludeDirective_19_Var
 		);
-		Assert.assertEquals("\"Test0002_Code.c\"", IncludeDirective_19_Var
+		Assert.assertEquals("\"Test0002b_Code.c\"", IncludeDirective_19_Var
 		.getString());
 	}
 	

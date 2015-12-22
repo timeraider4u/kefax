@@ -44,6 +44,7 @@ import org.eclipse.xtext.validation.CheckMode
 import org.eclipse.xtext.util.CancelIndicator
 import com.google.inject.Injector
 import at.jku.weiner.c.common.CommonStandaloneSetup
+import java.util.Stack
 
 /**
  * Generates code from your model files on save.
@@ -64,6 +65,7 @@ class PreprocessGenerator implements IGenerator {
 	ResourceSet rs;
 	URI uri;
 	Map<Integer, Boolean> conditionals = new TreeMap<Integer, Boolean>();
+	Stack<Resource> stack = new Stack<Resource>();
 	
 	override void doGenerate(Resource input, IFileSystemAccess fsa) {
 		if (commonInjector == null) {
@@ -76,10 +78,12 @@ class PreprocessGenerator implements IGenerator {
 		rs = input.resourceSet;
 		uri = input.URI;
 		IncludeDirs.setUp();
+		stack.clear();
 		DefinitionTable.reset();
 		if (advanced) {
 			DefinitionTable.insertPredefinedMacros();
 		}
+		stack.push(input);
 		val TranslationUnit unit = getUnitFor(input);
 		val String output = outputFor(unit);
 		// System.out.println("generating output file='" + fileName + "'");
@@ -161,8 +165,12 @@ class PreprocessGenerator implements IGenerator {
 		val String inc = DefinitionTable.resolve(obj.string);
 		val IncludeUtils includeUtils = new IncludeUtils(rs, uri, inc);
 		val Resource res = includeUtils.getResource();
+		stack.push(res);
 		val TranslationUnit unit = this.getUnitFor(res);
 		val String output = outputFor(unit);
+		stack.pop();
+		val Resource current = stack.peek();
+		System.out.println("back in file='" + current.URI.toFileString + "'");
 		return output;
 	}
 	

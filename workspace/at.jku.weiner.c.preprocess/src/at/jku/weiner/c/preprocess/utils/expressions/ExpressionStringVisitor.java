@@ -77,7 +77,7 @@ public class ExpressionStringVisitor implements IExpressionVisitor<String> {
 	@Override
 	public String evaluateForUnaryExpression(
 			final String resultOfCastExpression, final UnaryOperator op) {
-		return op.toString() + resultOfCastExpression;
+		return op.getOp() + resultOfCastExpression;
 	}
 
 	@Override
@@ -88,10 +88,11 @@ public class ExpressionStringVisitor implements IExpressionVisitor<String> {
 	@Override
 	public String evaluateForId(final boolean isDefined, final String id,
 			final PostfixExpression postfix) {
-		StringBuffer result = new StringBuffer(id);
+		StringBuffer result = new StringBuffer("");
 		if (isDefined) {
-			result.append("defined");
+			result.append(" defined ");
 		}
+		result.append(id);
 
 		if (postfix == null) {
 			return result.toString();

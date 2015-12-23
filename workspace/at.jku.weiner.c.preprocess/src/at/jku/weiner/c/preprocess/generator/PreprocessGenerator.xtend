@@ -45,6 +45,9 @@ import org.eclipse.xtext.util.CancelIndicator
 import com.google.inject.Injector
 import at.jku.weiner.c.common.CommonStandaloneSetup
 import java.util.Stack
+import at.jku.weiner.c.preprocess.utils.macros.MacroParentheseNotClosedYetException
+import at.jku.weiner.c.preprocess.preprocess.SourceCodeLine
+import java.util.ArrayList
 
 /**
  * Generates code from your model files on save.
@@ -117,7 +120,8 @@ class PreprocessGenerator implements IGenerator {
 	
 	def String outputFor(GroupOpt group) {
 		val StringBuffer result = new StringBuffer("");
-		for (obj : group.lines) {
+		for (var int i = 0; i < group.lines.size; i++) {
+			var SourceCodeLine obj = group.lines.get(i);
 			if (obj instanceof PreprocessorDirectives) {
 				result.append(outputFor(obj as PreprocessorDirectives));
 			}
@@ -125,9 +129,23 @@ class PreprocessGenerator implements IGenerator {
 				result.append(outputFor(obj as NewLineLine));
 			}
 			if (obj instanceof Code) {
-				result.append(outputFor(obj as Code));
-				//result.append(File.separator);
-				result.append("\n");
+				var boolean fullResolved = false;
+				var String codeResult = "";
+				val List<Code> codeList = new ArrayList<Code>();
+				do {
+					try {
+						val Code code = obj as Code;
+						codeList.add(code);
+						codeResult = outputFor(codeList);
+						fullResolved = true;
+					} catch (MacroParentheseNotClosedYetException ex) {
+						i++; 
+						obj = group.lines.get(i);
+						//fullResolved = true;
+					}
+				} while (!fullResolved);
+				result.append(codeResult);
+				result.append(getNewLine());
 			}
 		}
 		return result.toString();
@@ -277,13 +295,20 @@ class PreprocessGenerator implements IGenerator {
 	def String outputFor(PragmaDirective obj) '''
 	'''
 	
-	def String outputFor(NewLineLine obj) '''
+	def String outputFor(NewLineLine obj) {
+		return getNewLine();
+	}
+	
+	def String getNewLine() '''
 
 	'''
 	
-	def String outputFor(Code obj) {
-		val String code = obj.code.toString();
-		val String result = resolve(code);
+	def String outputFor(List<Code> obj) {
+		val StringBuffer text = new StringBuffer("");
+		for (Code code : obj) {
+			text.append(code.code);
+		}
+		val String result = resolve(text.toString());
 		return result;
 	}
 	

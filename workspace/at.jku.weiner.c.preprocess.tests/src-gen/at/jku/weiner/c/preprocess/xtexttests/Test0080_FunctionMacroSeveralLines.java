@@ -57,6 +57,7 @@ import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.Code;
+import at.jku.weiner.c.preprocess.preprocess.Code;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(PreprocessInjectorProvider.class)
@@ -185,6 +186,12 @@ public class Test0080_FunctionMacroSeveralLines {
 				"RULE_WHITESPACE", 
 				"RULE_DECIMAL_LITERAL", 
 				"RULE_SKW_RIGHTPAREN", 
+				"RULE_NEWLINE", 
+				"RULE_WHITESPACE", 
+				"RULE_WHITESPACE", 
+				"RULE_SKW_PLUS", 
+				"RULE_WHITESPACE", 
+				"RULE_DECIMAL_LITERAL", 
 				"RULE_SKW_SEMI", 
 				"RULE_NEWLINE", 
 				"RULE_ID", 
@@ -257,7 +264,7 @@ public class Test0080_FunctionMacroSeveralLines {
 		final EList<? extends EObject> Lines_2_list = GroupOpt_2_Var
 		.getLines();
 		Assert.assertNotNull(Lines_2_list);
-		Assert.assertEquals(9, Lines_2_list.size());
+		Assert.assertEquals(10, Lines_2_list.size());
 		//2
 		final PreprocessorDirectives PreprocessorDirectives_3_Var
 		 = (PreprocessorDirectives)Lines_2_list.get(0);
@@ -307,35 +314,42 @@ public class Test0080_FunctionMacroSeveralLines {
 		 = (Code)Lines_2_list.get(4);
 		Assert.assertNotNull(Code_9_Var
 		);
-		Assert.assertEquals("		5);", Code_9_Var
+		Assert.assertEquals("		5)", Code_9_Var
 		.getCode());
 		//9
 		final Code Code_10_Var
 		 = (Code)Lines_2_list.get(5);
 		Assert.assertNotNull(Code_10_Var
 		);
-		Assert.assertEquals("int b = MIN (MIN", Code_10_Var
+		Assert.assertEquals("		+ 5;", Code_10_Var
 		.getCode());
 		//10
 		final Code Code_11_Var
 		 = (Code)Lines_2_list.get(6);
 		Assert.assertNotNull(Code_11_Var
 		);
-		Assert.assertEquals("		(1,", Code_11_Var
+		Assert.assertEquals("int b = MIN (MIN", Code_11_Var
 		.getCode());
 		//11
 		final Code Code_12_Var
 		 = (Code)Lines_2_list.get(7);
 		Assert.assertNotNull(Code_12_Var
 		);
-		Assert.assertEquals("			2),", Code_12_Var
+		Assert.assertEquals("		(1,", Code_12_Var
 		.getCode());
 		//12
 		final Code Code_13_Var
 		 = (Code)Lines_2_list.get(8);
 		Assert.assertNotNull(Code_13_Var
 		);
-		Assert.assertEquals("		3) + 5;", Code_13_Var
+		Assert.assertEquals("			2),", Code_13_Var
+		.getCode());
+		//13
+		final Code Code_14_Var
+		 = (Code)Lines_2_list.get(9);
+		Assert.assertNotNull(Code_14_Var
+		);
+		Assert.assertEquals("		3) + 5;", Code_14_Var
 		.getCode());
 	}
 	

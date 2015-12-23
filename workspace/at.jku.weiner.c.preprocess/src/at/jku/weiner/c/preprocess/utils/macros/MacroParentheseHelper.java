@@ -41,17 +41,16 @@ public class MacroParentheseHelper {
 	}
 
 	public boolean hasMoreParams() {
-		return (this.parentheses > 0);
+		return ((this.parentheses > 0));
 	}
 
 	public String getNextParam() {
 		final int nextIndex = this.calculateNextIndex();
-		String result;
-		try {
-			result = this.text.substring(this.currIndex, nextIndex);
-		} catch (StringIndexOutOfBoundsException ex) {
-			throw ex;
+		if (nextIndex > this.text.length()) {
+			throw new MacroParentheseNotClosedYetException(this.text, nextIndex);
 		}
+		String result;
+		result = this.text.substring(this.currIndex, nextIndex);
 		this.currIndex = nextIndex + 1;
 		return result.trim();
 	}

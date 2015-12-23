@@ -174,4 +174,33 @@ public class TestMacroParentheseHelper {
 		Assert.assertEquals(10, helper.getIndex());
 		Assert.assertFalse(helper.hasMoreParams());
 	}
+
+	@Test
+	public void testJ() {
+		final MacroParentheseHelper helper = new MacroParentheseHelper(
+				"foobar1,(foo1,bar2),(foobar2)) (foo2,bar2)", 0);
+		Assert.assertTrue(helper.hasMoreParams());
+		Assert.assertEquals("foobar1", helper.getNextParam());
+		Assert.assertEquals(8, helper.getIndex());
+		Assert.assertTrue(helper.hasMoreParams());
+		Assert.assertEquals("(foo1,bar2)", helper.getNextParam());
+		Assert.assertEquals(20, helper.getIndex());
+		Assert.assertTrue(helper.hasMoreParams());
+		Assert.assertEquals("(foobar2)", helper.getNextParam());
+		Assert.assertEquals(30, helper.getIndex());
+		Assert.assertFalse(helper.hasMoreParams());
+	}
+
+	@Test
+	public void testK() {
+		final MacroParentheseHelper helper = new MacroParentheseHelper(
+				"foobar1,(foo1,bar2),(foobar2)) (foo2,bar2)", 32);
+		Assert.assertTrue(helper.hasMoreParams());
+		Assert.assertEquals("foo2", helper.getNextParam());
+		Assert.assertEquals(37, helper.getIndex());
+		Assert.assertTrue(helper.hasMoreParams());
+		Assert.assertEquals("bar2", helper.getNextParam());
+		Assert.assertEquals(42, helper.getIndex());
+		Assert.assertFalse(helper.hasMoreParams());
+	}
 }

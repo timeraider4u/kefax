@@ -68,7 +68,7 @@ class PreprocessGenerator implements IGenerator {
 	ResourceSet rs;
 	URI uri;
 	Map<Integer, Boolean> conditionals = new TreeMap<Integer, Boolean>();
-	Stack<Resource> stack = new Stack<Resource>();
+	List<String> path = new ArrayList<String>();
 	
 	override void doGenerate(Resource input, IFileSystemAccess fsa) {
 		if (commonInjector == null) {
@@ -81,12 +81,11 @@ class PreprocessGenerator implements IGenerator {
 		rs = input.resourceSet;
 		uri = input.URI;
 		IncludeDirs.setUp();
-		stack.clear();
+		path.clear();
 		DefinitionTable.reset();
 		if (advanced) {
 			DefinitionTable.insertPredefinedMacros();
 		}
-		stack.push(input);
 		val TranslationUnit unit = getUnitFor(input);
 		val String output = outputFor(unit);
 		// System.out.println("generating output file='" + fileName + "'");
@@ -97,6 +96,7 @@ class PreprocessGenerator implements IGenerator {
 		validateUnit(input);
 		val Model model = input.allContents.filter(typeof(Model)).head;
 		val TranslationUnit unit = model.units.head;
+		path.add("/" + input.URI.toFileString + "/");
 		return unit;
 	}
 	
@@ -139,15 +139,20 @@ class PreprocessGenerator implements IGenerator {
 						codeResult = outputFor(codeList);
 						fullResolved = true;
 					} catch (MacroParentheseNotClosedYetException ex) {
+						System.out.println("not fully resolved at='" + i + "'");
 						i++; 
 						obj = group.lines.get(i);
 						//fullResolved = true;
+					} catch (IndexOutOfBoundsException ex) {
+						System.out.println(ex.toString());
 					}
+					
 				} while (!fullResolved);
 				result.append(codeResult);
 				result.append(getNewLine());
 			}
 		}
+		path.remove(path.length() - 1);
 		return result.toString();
 	}
 
@@ -183,12 +188,9 @@ class PreprocessGenerator implements IGenerator {
 		val String inc = DefinitionTable.resolve(obj.string);
 		val IncludeUtils includeUtils = new IncludeUtils(rs, uri, inc);
 		val Resource res = includeUtils.getResource();
-		stack.push(res);
 		val TranslationUnit unit = this.getUnitFor(res);
 		val String output = outputFor(unit);
-		stack.pop();
-		val Resource current = stack.peek();
-		System.out.println("back in file='" + current.URI.toFileString + "'");
+		//path.remove(path.length() -1);
 		return output;
 	}
 	
@@ -230,6 +232,7 @@ class PreprocessGenerator implements IGenerator {
 	def String outputFor(Integer conditionalDirective, IfDefConditional obj) {
 		if (DefinitionTable.isDefined(obj.id)) {
 			conditionals.put(conditionalDirective, true);
+			path.add("ifdef " + obj.id + "/");
 			return outputFor(obj.group).trim();
 		}
 		return "";
@@ -238,13 +241,17 @@ class PreprocessGenerator implements IGenerator {
 	def String outputFor(Integer conditionalDirective, IfNotDefConditional obj) {
 		if (!(DefinitionTable.isDefined(obj.id))) {
 			conditionals.put(conditionalDirective, true);
+			path.add("ifnotdef " + obj.id + "/");
 			return outputFor(obj.group).trim();
 		}
 		return "";
 	}
 	
 	def String outputFor(Integer conditionalDirective, IfConditional obj) {
-		if (ExpressionEvaluation.evaluateFor(obj.expression as ConstantExpression, commonInjector, advanced)) {
+		val ConstantExpression expr = obj.expression as ConstantExpression;
+		if (ExpressionEvaluation.evaluateFor(expr, commonInjector, advanced)) {
+			val String string = ExpressionEvaluation.evaluateFor(expr);
+			path.add("if " + string + "/");
 			conditionals.put(conditionalDirective, true);
 			return outputFor(obj.group).trim();
 		}
@@ -271,7 +278,10 @@ class PreprocessGenerator implements IGenerator {
  		if (condition) {
  			return "";
  		}
- 		if (ExpressionEvaluation.evaluateFor(obj.expression as ConstantExpression, commonInjector, advanced)) {
+ 		val ConstantExpression expr = obj.expression as ConstantExpression;
+ 		if (ExpressionEvaluation.evaluateFor(expr, commonInjector, advanced)) {
+ 			val String string = ExpressionEvaluation.evaluateFor(expr);
+			path.add("elif" + string + "/");
 			conditionals.put(conditionalDirective, true);
 			return outputFor(obj.group).trim();
 		}
@@ -286,6 +296,7 @@ class PreprocessGenerator implements IGenerator {
 		if (obj== null) {
 			return "";
 		}
+		path.add("else/");
 		return outputFor(obj.group).trim();
 	}
 	

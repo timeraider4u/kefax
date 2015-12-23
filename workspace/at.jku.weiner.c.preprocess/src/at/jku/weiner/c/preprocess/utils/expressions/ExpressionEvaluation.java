@@ -30,10 +30,7 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 
 	public static boolean evaluateFor(final Expression expression,
 			final Injector injector, final boolean advanced) {
-		final IExpressionVisitor<String> printVisitor = new ExpressionStringVisitor();
-		final ExpressionEvaluation<String> evaluate1 = new ExpressionEvaluation<String>(
-				printVisitor);
-		final String string = evaluate1.walkTo(expression);
+		final String string = ExpressionEvaluation.evaluateFor(expression);
 		System.out.println("evaluateFor='" + string + "'");
 
 		final IExpressionVisitor<Long> evalVisitor = new ExpressionLongVisitor(
@@ -43,6 +40,14 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 		final Long value = evaluate2.walkTo(expression);
 		final boolean result = ExpressionEvaluationUtils.convertFrom(value);
 		return result;
+	}
+
+	public static String evaluateFor(final Expression expression) {
+		final IExpressionVisitor<String> printVisitor = new ExpressionStringVisitor();
+		final ExpressionEvaluation<String> evaluate1 = new ExpressionEvaluation<String>(
+				printVisitor);
+		final String string = evaluate1.walkTo(expression);
+		return string;
 	}
 
 	public ExpressionEvaluation(final IExpressionVisitor<T> visitor) {

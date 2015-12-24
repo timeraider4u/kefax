@@ -127,16 +127,20 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 				if (c == ')') {
 					this.openParens--;
 					if ((c == ')') && (this.openParens == 0)) {
-						params.add(param.toString());
+						final String paramStr = param.toString();
+						params.add(paramStr);
 						this.startReplacement(result, params);
 						return i;
 					}
+					param.append(c);
 				} else if ((c == ',') && (this.openParens == 1)) {
 					// found another parameter
-					params.add(param.toString());
+					final String paramStr = param.toString();
+					params.add(paramStr);
 					param = new StringBuffer("");
 				} else if (c == '(') {
 					this.openParens++;
+					param.append(c);
 				} else {
 					param.append(c);
 				}
@@ -153,7 +157,21 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 			result.append(this.value);
 			return;
 		}
-		result.append(this.value);
+		String temp = this.value;
+		final EList<String> list = this.idList.getId();
+		for (int i = 0; i < list.size(); i++) {
+			final String key = list.get(i).trim();
+			final String val = params.get(i).trim();
+			final DefinitionObjectMacro macro = new DefinitionObjectMacro(key,
+					val);
+			temp = macro.resolve(temp);
+		}
+		result.append(temp);
+		// MatchState state = MatchState.Normal;
+		// for (int i = 0; i < this.value.length(); i++) {
+		// final char c = this.value.charAt(i);
+		// state = MatchUtils.calculateNextState(c, state);
+		// }
 	}
 
 	/*

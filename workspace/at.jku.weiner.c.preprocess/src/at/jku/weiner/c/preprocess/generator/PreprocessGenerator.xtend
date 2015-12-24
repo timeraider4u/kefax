@@ -143,10 +143,7 @@ class PreprocessGenerator implements IGenerator {
 						i++; 
 						obj = group.lines.get(i);
 						//fullResolved = true;
-					} catch (IndexOutOfBoundsException ex) {
-						System.out.println(ex.toString());
 					}
-					
 				} while (!fullResolved);
 				result.append(codeResult);
 				result.append(getNewLine());

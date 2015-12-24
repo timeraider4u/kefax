@@ -1,0 +1,77 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language preprocess
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+split-lexer=false
+source file="res/Test0081_Stringification3.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WHITESPACE HASH ID NEWLINE
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WHITESPACE ID SKW_LEFTPAREN HASH ID SKW_RIGHTPAREN NEWLINE
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WHITESPACE HASH ID WHITESPACE 
+		ID SKW_LEFTPAREN HASH ID SKW_RIGHTPAREN NEWLINE
+	NEWLINE
+	ID SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_SEMI NEWLINE
+	ID SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_SEMI NEWLINE
+	ID SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_SEMI NEWLINE
+//----------------------------------------------------------------------
+(Model
+	units+=
+	(TranslationUnit
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"FOO",
+					list=
+					(IdentifierList
+						id+*"[X]"
+					),
+					string++"#X"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"BAR",
+					list=
+					(IdentifierList
+						id+*"[X]"
+					),
+					string++"FOO(#X)"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"FOOBAR",
+					list=
+					(IdentifierList
+						id+*"[X]"
+					),
+					string++"#X BAR(#X)"
+				)
+			),
+			(NewLineLine),
+			(Code
+				code++"FOO(abc);"
+			),
+			(Code
+				code++"BAR(abc);"
+			),
+			(Code
+				code++"FOOBAR(abc);"
+			)
+		)
+	)
+)
+//----------------------------------------------------------------------
+output file="bin/Test0081_Stringification3.c.i"
+expected file="expected/Test0081_Stringification3.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

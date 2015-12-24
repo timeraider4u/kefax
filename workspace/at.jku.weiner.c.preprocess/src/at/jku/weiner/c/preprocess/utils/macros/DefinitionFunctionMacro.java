@@ -235,6 +235,18 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 			return;
 		}
 		result.delete(0, result.length());
+		final Pattern pattern = Pattern.compile("#([^\\p{Space}]+)\\b");
+		final Matcher matcher = pattern.matcher(intermediate);
+		while (matcher.find()) {
+			System.out.print("Start index: " + matcher.start());
+			System.out.print(" End index: " + matcher.end() + " ");
+			System.out.println(matcher.group());
+			final String original = matcher.group();
+			final StringBuilder builder = new StringBuilder(intermediate);
+			final String removedQuotes = matcher.group().replace("\"", "\\\"");
+			builder.replace(matcher.start(), matcher.end(), removedQuotes);
+			intermediate = builder.toString();
+		}
 		intermediate = intermediate
 				.replaceAll("#([^\\p{Space}]+)\\b", "\"$1\"");
 

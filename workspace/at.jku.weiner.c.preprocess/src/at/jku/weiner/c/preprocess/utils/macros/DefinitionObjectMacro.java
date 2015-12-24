@@ -37,6 +37,11 @@ class DefinitionObjectMacro implements DefinitionMacro {
 	}
 
 	@Override
+	public boolean matches(final String code) {
+		return MatchUtils.matches(code, this.pattern);
+	}
+
+	@Override
 	public String resolve(final String code) {
 		final Matcher matcher = this.pattern.matcher(code);
 		if (!matcher.find()) {
@@ -48,7 +53,7 @@ class DefinitionObjectMacro implements DefinitionMacro {
 		int nextMatchEndIndex = matcher.end();
 		for (int i = 0; i < code.length(); i++) {
 			final char c = code.charAt(i);
-			state = this.calculateNextState(c, state);
+			state = MatchUtils.calculateNextState(c, state);
 			if ((state == MatchState.Normal) && (i == nextMatchStartIndex)) {
 				result.append(this.replacement);
 				i = nextMatchEndIndex - 1;
@@ -63,66 +68,6 @@ class DefinitionObjectMacro implements DefinitionMacro {
 			nextMatchEndIndex = matcher.end();
 		}
 		return result.toString();
-	}
-
-	private enum MatchState {
-		Normal, InString, InChar, BackslashInString, BackslashInChar
-	}
-
-	@Override
-	public boolean matches(final String code) {
-		final Matcher matcher = this.pattern.matcher(code);
-		if (!matcher.find()) {
-			return false;
-		}
-		MatchState state = MatchState.Normal;
-		int nextMatchStartIndex = matcher.start();
-		for (int i = 0; i < code.length(); i++) {
-			final char c = code.charAt(i);
-			state = this.calculateNextState(c, state);
-			if ((state == MatchState.Normal) && (i == nextMatchStartIndex)) {
-				return true;
-			}
-			if (!matcher.find(i)) {
-				return false;
-			}
-			nextMatchStartIndex = matcher.start();
-		}
-		return false;
-	}
-
-	private MatchState calculateNextState(final char c, MatchState state) {
-		switch (state) {
-		case Normal:
-			if (c == '"') {
-				state = MatchState.InString;
-			} else if (c == '\'') {
-				state = MatchState.InChar;
-			}
-			break;
-		case InString:
-			if (c == '\\') {
-				state = MatchState.BackslashInString;
-			} else if (c == '"') {
-				state = MatchState.Normal;
-			}
-			break;
-
-		case InChar:
-			if (c == '\\') {
-				state = MatchState.BackslashInChar;
-			} else if (c == '\'') {
-				state = MatchState.Normal;
-			}
-			break;
-		case BackslashInString:
-			state = MatchState.InString;
-			break;
-		case BackslashInChar:
-			state = MatchState.InChar;
-			break;
-		}
-		return state;
 	}
 
 	@Override

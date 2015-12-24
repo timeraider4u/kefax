@@ -47,6 +47,7 @@ public class MacroParentheseHelper {
 	public String getNextParam() {
 		final int nextIndex = this.calculateNextIndex();
 		if (nextIndex > this.text.length()) {
+			System.out.println("macro exception!");
 			throw new MacroParentheseNotClosedYetException(this.text, nextIndex);
 		}
 		String result;

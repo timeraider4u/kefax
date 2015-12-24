@@ -1,5 +1,8 @@
 package at.jku.weiner.c.preprocess.mytests;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -8,6 +11,30 @@ import at.jku.weiner.c.preprocess.utils.macros.StringReplaceSymbolsHelper;
 import at.jku.weiner.c.preprocess.utils.macros.StringReplaceSymbolsHelperDefaultReplace;
 
 public class TestStringReplaceSymbolsHelper {
+
+	@Test
+	public void testSimplePattern() {
+		final String text = "FOO \"FOO\" FOO \"FOO\" FOO";
+		final Pattern pattern = Pattern.compile("\\bFOO\\b");
+		final Matcher matcher = pattern.matcher(text);
+		Assert.assertTrue(matcher.find(0));
+		int index = matcher.start();
+		Assert.assertTrue(matcher.find(0));
+		Assert.assertEquals(0, index);
+		Assert.assertTrue(matcher.find(1));
+		index = matcher.start();
+		Assert.assertEquals(5, index);
+		Assert.assertTrue(matcher.find(6));
+		index = matcher.start();
+		Assert.assertEquals(10, index);
+		Assert.assertTrue(matcher.find(11));
+		index = matcher.start();
+		Assert.assertEquals(15, index);
+		Assert.assertTrue(matcher.find(16));
+		index = matcher.start();
+		Assert.assertEquals(20, index);
+		Assert.assertFalse(matcher.find(21));
+	}
 
 	@Test
 	public void test00() {

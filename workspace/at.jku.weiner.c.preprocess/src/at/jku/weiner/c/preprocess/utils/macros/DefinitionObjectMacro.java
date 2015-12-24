@@ -1,8 +1,7 @@
 package at.jku.weiner.c.preprocess.utils.macros;
 
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import at.jku.weiner.c.preprocess.utils.StringLiteralInStringLiteralsHelper;
 
 class DefinitionObjectMacro implements DefinitionMacro {
 
@@ -10,17 +9,12 @@ class DefinitionObjectMacro implements DefinitionMacro {
 	private final String replacement;
 	private final String regex;
 	private final Pattern pattern;
-	private final StringReplaceSymbolsHelper helper;
-	private final StringMatchingSymbolsHelper matcher;
 
 	public DefinitionObjectMacro(final String key, final String value) {
 		this.macroID = key;
 		this.replacement = this.getValue(value);
 		this.regex = "\\b" + key + "\\b";
 		this.pattern = Pattern.compile(this.regex);
-		this.helper = new StringReplaceSymbolsHelperDefaultReplace(
-				this.macroID, this.replacement);
-		this.matcher = new StringMatchingSymbolsHelper(this.pattern);
 	}
 
 	@Override
@@ -44,17 +38,91 @@ class DefinitionObjectMacro implements DefinitionMacro {
 
 	@Override
 	public String resolve(final String code) {
-		if (!this.matches(code)) {
+		final Matcher matcher = this.pattern.matcher(code);
+		if (!matcher.find()) {
 			return code;
 		}
-		StringLiteralInStringLiteralsHelper.iterate(code, this.helper);
-		return this.helper.getText();
+		final StringBuffer result = new StringBuffer("");
+		MatchState state = MatchState.Normal;
+		int nextMatchStartIndex = matcher.start();
+		int nextMatchEndIndex = matcher.end();
+		for (int i = 0; i < code.length(); i++) {
+			final char c = code.charAt(i);
+			state = this.calculateNextState(c, state);
+			if ((state == MatchState.Normal) && (i == nextMatchStartIndex)) {
+				result.append(this.replacement);
+				i = nextMatchEndIndex - 1;
+			} else if (!matcher.find(i)) {
+				result.append(code.substring(i));
+				return result.toString();
+
+			} else {
+				result.append(c);
+			}
+			nextMatchStartIndex = matcher.start();
+			nextMatchEndIndex = matcher.end();
+		}
+		return result.toString();
+	}
+
+	private enum MatchState {
+		Normal, InString, InChar, BackslashInString, BackslashInChar
 	}
 
 	@Override
 	public boolean matches(final String code) {
-		StringLiteralInStringLiteralsHelper.iterate(code, this.matcher);
-		return this.matcher.contains();
+		final Matcher matcher = this.pattern.matcher(code);
+		if (!matcher.find()) {
+			return false;
+		}
+		MatchState state = MatchState.Normal;
+		int nextMatchStartIndex = matcher.start();
+		for (int i = 0; i < code.length(); i++) {
+			final char c = code.charAt(i);
+			state = this.calculateNextState(c, state);
+			if ((state == MatchState.Normal) && (i == nextMatchStartIndex)) {
+				return true;
+			}
+			if (!matcher.find(i)) {
+				return false;
+			}
+			nextMatchStartIndex = matcher.start();
+		}
+		return false;
+	}
+
+	private MatchState calculateNextState(final char c, MatchState state) {
+		switch (state) {
+		case Normal:
+			if (c == '"') {
+				state = MatchState.InString;
+			} else if (c == '\'') {
+				state = MatchState.InChar;
+			}
+			break;
+		case InString:
+			if (c == '\\') {
+				state = MatchState.BackslashInString;
+			} else if (c == '"') {
+				state = MatchState.Normal;
+			}
+			break;
+
+		case InChar:
+			if (c == '\\') {
+				state = MatchState.BackslashInChar;
+			} else if (c == '\'') {
+				state = MatchState.Normal;
+			}
+			break;
+		case BackslashInString:
+			state = MatchState.InString;
+			break;
+		case BackslashInChar:
+			state = MatchState.InChar;
+			break;
+		}
+		return state;
 	}
 
 	@Override

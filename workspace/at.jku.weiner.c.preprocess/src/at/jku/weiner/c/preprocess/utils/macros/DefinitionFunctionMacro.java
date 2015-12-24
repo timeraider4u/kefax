@@ -11,18 +11,18 @@ import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
 import at.jku.weiner.c.preprocess.utils.StringLiteralInStringLiteralsHelper;
 
 class DefinitionFunctionMacro implements DefinitionMacro {
-	
+
 	private static final String REGEX = "\\s*\\(";
-	
+
 	private static final String REGEX_NO_PARAMS = "\\s*\\([\\s]*\\)";
-	
+
 	private final String key;
 	private final String value;
 	private final IdentifierList idList;
 	private final EList<String> list;
 	private final Pattern pattern;
 	private int openParens = 0;
-	
+
 	public DefinitionFunctionMacro(final String key, final String value,
 			final IdentifierList list) {
 		this.idList = list;
@@ -32,21 +32,21 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 		this.pattern = Pattern
 				.compile(this.key + DefinitionFunctionMacro.REGEX);
 	}
-	
+
 	private String getValue(String value2) {
 		if (value2 == null) {
 			value2 = "";
 		}
 		return value2;
 	}
-	
+
 	private EList<String> getList(final IdentifierList list) {
 		if (this.idList == null) {
 			return null;
 		}
 		return this.idList.getId();
 	}
-	
+
 	@Override
 	public boolean equals(final Object obj) {
 		if (!(obj instanceof DefinitionFunctionMacro)) {
@@ -80,12 +80,12 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 		}
 		return true;
 	}
-	
+
 	@Override
 	public boolean matches(final String code) {
 		return MatchUtils.matches(code, this.pattern);
 	}
-	
+
 	@Override
 	public String resolve(final String code) {
 		final Matcher matcher = this.pattern.matcher(code);
@@ -96,13 +96,13 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 		MatchState state = MatchState.Normal;
 		this.openParens = 0;
 		int nextMatchStartIndex = matcher.start();
+		int nextMatchEndIndex = matcher.end();
 		for (int i = 0; i < code.length(); i++) {
 			final char c = code.charAt(i);
 			state = MatchUtils.calculateNextState(c, state);
 			if ((state == MatchState.Normal) && (i == nextMatchStartIndex)) {
 				this.openParens++;
-				i = this.searchForClosingParen(code, result, i);
-				result.append(this.value);
+				i = this.searchForClosingParen(code, result, nextMatchEndIndex);
 			} else if (!matcher.find(i)) {
 				result.append(code.substring(i));
 				return result.toString();
@@ -110,10 +110,11 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 				result.append(c);
 			}
 			nextMatchStartIndex = matcher.start();
+			nextMatchEndIndex = matcher.end();
 		}
 		return result.toString();
 	}
-	
+
 	private int searchForClosingParen(final String code,
 			final StringBuffer result, int i) {
 		MatchState state = MatchState.Normal;
@@ -124,8 +125,10 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 			state = MatchUtils.calculateNextState(c, state);
 			if (state == MatchState.Normal) {
 				if (c == ')') {
-					this.openParens++;
+					this.openParens--;
 					if ((c == ')') && (this.openParens == 0)) {
+						params.add(param.toString());
+						this.startReplacement(result, params);
 						return i;
 					}
 				} else if ((c == ',') && (this.openParens == 1)) {
@@ -143,6 +146,15 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 		}
 		return i;
 	}
+	
+	private void startReplacement(final StringBuffer result,
+			final List<String> params) {
+		if (this.idList == null) {
+			result.append(this.value);
+			return;
+		}
+		result.append(this.value);
+	}
 
 	/*
 	 * { final StringReplaceSymbolsFunctionMacroReplace helper = new
@@ -150,21 +162,21 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 	 * StringLiteralInStringLiteralsHelper.iterate(code, helper); return
 	 * helper.getText(); }
 	 */
-
+	
 	class StringReplaceSymbolsFunctionMacroReplace extends
-	StringReplaceSymbolsHelper {
-
+			StringReplaceSymbolsHelper {
+		
 		private final EList<String> list2;
-
+		
 		public StringReplaceSymbolsFunctionMacroReplace(final EList<String> list) {
 			this.list2 = list;
 		}
-
+		
 		@Override
 		public String getText() {
 			return this.result.toString();
 		}
-
+		
 		@Override
 		protected String replace(final String code) {
 			final StringBuffer result = new StringBuffer("");
@@ -178,19 +190,19 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 			return result.toString();
 		}
 	}
-	
+
 	private void resolveZeroArguments(final StringBuffer result,
 			final String code) {
 		final String newCode = code.replaceAll(this.key
 				+ DefinitionFunctionMacro.REGEX_NO_PARAMS, this.value);
 		result.append(newCode);
 	}
-	
+
 	private void resolveForParameters(final StringBuffer result,
 			final String code) {
 		// System.out.println("resolveForParameters='" + code + "'");
 		final Matcher matcher = this.pattern.matcher(code);
-		
+
 		int currIndex = 0;
 		while (matcher.find(currIndex)) {
 			final int matchStart = matcher.start();
@@ -208,10 +220,10 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 		result.append(lastPart);
 		// System.out.println("");
 	}
-	
+
 	private int replaceAllParams(final StringBuffer result, final String code,
 			final int matchStart, final int matchEnd) {
-		
+
 		int currIndex = matchEnd;
 		String paramValue = this.value;
 		// build up parameters list from code section
@@ -240,7 +252,7 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 		result.append(paramValue);
 		return currIndex;
 	}
-	
+
 	private String replaceSingleParam(final String code,
 			final String paramCode, final int paramIndex,
 			final String paramValue) {
@@ -255,7 +267,7 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 		// System.out.println("result='" + result + "'");
 		return result;
 	}
-	
+
 	private String getParamCode(final int paramIndex, final String paramCode) {
 		final String param = this.list.get(paramIndex);
 		final String paramCodeTemp = paramCode.trim();
@@ -265,18 +277,18 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 		final String result = DefinitionTable.resolve(paramCodeTemp);
 		return result;
 	}
-	
+
 	@Override
 	public String getName() {
 		return this.key;
 	}
-	
+
 	private boolean partOfStringification(final String param) {
 		final Pattern strPattern = Pattern.compile("#\\b" + param + "\\b");
 		final Matcher matcher = strPattern.matcher(this.value);
 		return matcher.find();
 	}
-	
+
 	private void resolveStringifiaction(final StringBuffer result) {
 		String intermediate = result.toString();
 		if (!intermediate.contains("#")) {
@@ -297,10 +309,10 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 		}
 		intermediate = intermediate
 				.replaceAll("#([^\\p{Space}]+)\\b", "\"$1\"");
-		
+
 		result.append(intermediate);
 	}
-	
+
 	public void resolveConcatenation(final StringBuffer result) {
 		String intermediate = result.toString();
 		if (!intermediate.contains("#")) {
@@ -310,5 +322,5 @@ class DefinitionFunctionMacro implements DefinitionMacro {
 		intermediate = intermediate.replaceAll("\\s##\\s", "");
 		result.append(intermediate);
 	}
-	
+
 }

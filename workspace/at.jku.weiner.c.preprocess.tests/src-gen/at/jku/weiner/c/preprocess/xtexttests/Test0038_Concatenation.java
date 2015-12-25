@@ -49,6 +49,10 @@ import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro;
 import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
+import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
+import at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro;
+import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
+import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
@@ -125,10 +129,40 @@ public class Test0038_Concatenation {
 				"RULE_ID", 
 				"RULE_WHITESPACE", 
 				"RULE_HASH", 
+				"RULE_ID", 
+				"RULE_NEWLINE", 
 				"RULE_HASH", 
+				"RULE_DEFINE", 
+				"RULE_WHITESPACE", 
+				"RULE_ID", 
+				"RULE_SKW_LEFTPAREN", 
+				"RULE_ID", 
+				"RULE_SKW_COMMA", 
+				"RULE_WHITESPACE", 
+				"RULE_ID", 
+				"RULE_SKW_RIGHTPAREN", 
 				"RULE_WHITESPACE", 
 				"RULE_HASH", 
 				"RULE_ID", 
+				"RULE_WHITESPACE", 
+				"RULE_HASH", 
+				"RULE_ID", 
+				"RULE_SKW_COMMA", 
+				"RULE_WHITESPACE", 
+				"RULE_ID", 
+				"RULE_WHITESPACE", 
+				"RULE_HASH", 
+				"RULE_HASH", 
+				"RULE_WHITESPACE", 
+				"RULE_ID", 
+				"RULE_NEWLINE", 
+				"RULE_ID", 
+				"RULE_SKW_LEFTPAREN", 
+				"RULE_ID", 
+				"RULE_SKW_COMMA", 
+				"RULE_WHITESPACE", 
+				"RULE_ID", 
+				"RULE_SKW_RIGHTPAREN", 
 				"RULE_NEWLINE", 
 				"RULE_ID", 
 				"RULE_SKW_LEFTPAREN", 
@@ -174,7 +208,7 @@ public class Test0038_Concatenation {
 		final EList<? extends EObject> Lines_2_list = GroupOpt_2_Var
 		.getLines();
 		Assert.assertNotNull(Lines_2_list);
-		Assert.assertEquals(2, Lines_2_list.size());
+		Assert.assertEquals(4, Lines_2_list.size());
 		//2
 		final PreprocessorDirectives PreprocessorDirectives_3_Var
 		 = (PreprocessorDirectives)Lines_2_list.get(0);
@@ -196,14 +230,44 @@ public class Test0038_Concatenation {
 		);
 		Assert.assertEquals("[x, y]", IdentifierList_5_Var
 		.getId().toString());
-		Assert.assertEquals("x ## y, #x ## #y", DefineFunctionLikeMacro_4_Var
+		Assert.assertEquals("x ## y, #x #y", DefineFunctionLikeMacro_4_Var
 		.getString());
 		//5
-		final Code Code_6_Var
-		 = (Code)Lines_2_list.get(1);
-		Assert.assertNotNull(Code_6_Var
+		final PreprocessorDirectives PreprocessorDirectives_6_Var
+		 = (PreprocessorDirectives)Lines_2_list.get(1);
+		Assert.assertNotNull(PreprocessorDirectives_6_Var
 		);
-		Assert.assertEquals("FOO(foo, bar)", Code_6_Var
+		//6
+		final DefineFunctionLikeMacro DefineFunctionLikeMacro_7_Var
+		 = (DefineFunctionLikeMacro)PreprocessorDirectives_6_Var
+		.getDirective();
+		Assert.assertNotNull(DefineFunctionLikeMacro_7_Var
+		);
+		Assert.assertEquals("BAR", DefineFunctionLikeMacro_7_Var
+		.getId());
+		//7
+		final IdentifierList IdentifierList_8_Var
+		 = (IdentifierList)DefineFunctionLikeMacro_7_Var
+		.getList();
+		Assert.assertNotNull(IdentifierList_8_Var
+		);
+		Assert.assertEquals("[x, y]", IdentifierList_8_Var
+		.getId().toString());
+		Assert.assertEquals("#x #y, x ## y", DefineFunctionLikeMacro_7_Var
+		.getString());
+		//8
+		final Code Code_9_Var
+		 = (Code)Lines_2_list.get(2);
+		Assert.assertNotNull(Code_9_Var
+		);
+		Assert.assertEquals("FOO(foo, bar)", Code_9_Var
+		.getCode());
+		//9
+		final Code Code_10_Var
+		 = (Code)Lines_2_list.get(3);
+		Assert.assertNotNull(Code_10_Var
+		);
+		Assert.assertEquals("BAR(foo, bar)", Code_10_Var
 		.getCode());
 	}
 	

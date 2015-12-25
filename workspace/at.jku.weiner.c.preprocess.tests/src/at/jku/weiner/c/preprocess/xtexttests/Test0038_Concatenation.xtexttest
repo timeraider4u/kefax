@@ -11,8 +11,14 @@ lexer-tokens
 	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN WHITESPACE 
 		ID WHITESPACE HASH HASH WHITESPACE ID
 		SKW_COMMA WHITESPACE
-		HASH ID WHITESPACE HASH HASH WHITESPACE HASH ID
+		HASH ID WHITESPACE HASH ID
 		NEWLINE
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN WHITESPACE 
+		HASH ID WHITESPACE HASH ID
+		SKW_COMMA WHITESPACE
+		ID WHITESPACE HASH HASH WHITESPACE ID
+		NEWLINE
+	ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN NEWLINE
 	ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN NEWLINE
 //----------------------------------------------------------------------
 (Model
@@ -29,11 +35,25 @@ lexer-tokens
 					(IdentifierList
 						id+*"[x, y]"
 					),
-					string++"x ## y, #x ## #y"
+					string++"x ## y, #x #y"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"BAR",
+					list=
+					(IdentifierList
+						id+*"[x, y]"
+					),
+					string++"#x #y, x ## y"
 				)
 			),
 			(Code
 				code++"FOO(foo, bar)"
+			),
+			(Code
+				code++"BAR(foo, bar)"
 			)
 		)
 	)

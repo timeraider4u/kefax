@@ -10,14 +10,14 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 
 public final class IncludeUtils {
 	private final String URI_PREFIX = "file://";
-
+	
 	private final ResourceSet rs;
 	private final String fileName;
 	private final URI uri;
-
+	
 	private final boolean isAbsoluteInclude;
 	private final String uriStr;
-
+	
 	public IncludeUtils(final ResourceSet set, final URI uri,
 			final String fileName) {
 		this.uri = uri;
@@ -26,7 +26,7 @@ public final class IncludeUtils {
 		this.rs = set;
 		this.uriStr = this.uri.toFileString();
 	}
-
+	
 	private boolean isAbsoluteFileName(final String fileName) {
 		if (fileName.startsWith("\"") && fileName.endsWith("\"")) {
 			return false;
@@ -37,16 +37,16 @@ public final class IncludeUtils {
 		throw new IllegalArgumentException("include fileName='" + fileName
 				+ "' is not a valid path");
 	}
-
+	
 	private String replace(final String fileName) {
 		return fileName.substring(1, fileName.length() - 1);
 	}
-
+	
 	public Resource getResource() throws IOException {
 		// load the resource
 		final ResourceSet set = this.rs; // this.resourceSetProvider.get();
 		final URI uri = this.createURI();
-		System.out.println("resource='" + uri + "'");
+		// System.out.println("resource='" + uri + "'");
 		final Resource resource = set.getResource(uri, true);
 		// validate the resource
 		// final List<Issue> list = this.validator.validate(resource,
@@ -57,14 +57,14 @@ public final class IncludeUtils {
 		// }
 		return resource;
 	}
-
+	
 	private URI createURI() {
 		if (this.isAbsoluteInclude) {
 			return this.createAbsoluteURI();
 		}
 		return this.createRelativeURI();
 	}
-
+	
 	private URI createAbsoluteURI() {
 		if (this.fileName.startsWith(File.separator)) {
 			return URI.createURI(this.URI_PREFIX + this.fileName);
@@ -86,19 +86,19 @@ public final class IncludeUtils {
 				+ "') not found in directories='" + includeDirs.toString()
 				+ "'!");
 	}
-
+	
 	private URI createRelativeURI() {
 		// System.out.println(uriStr);
 		final int index = this.uriStr.lastIndexOf(File.separator);
 		if (index <= 0) {
 			throw new IllegalArgumentException(
 					"not a valid relative include fileName='" + this.uriStr
-							+ "'");
+					+ "'");
 		}
 		final String path = this.uriStr.substring(0, index);
 		final String newFileName = path + File.separator + this.fileName;
 		// System.out.println(newFileName);
 		return URI.createURI(newFileName);
 	}
-
+	
 }

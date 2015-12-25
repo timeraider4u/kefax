@@ -139,7 +139,7 @@ class PreprocessGenerator implements IGenerator {
 						codeResult = outputFor(codeList);
 						fullResolved = true;
 					} catch (MacroParentheseNotClosedYetException ex) {
-						System.out.println("not fully resolved at='" + i + "'");
+						// System.out.println("not fully resolved at='" + i + "'");
 						i++; 
 						obj = group.lines.get(i);
 						//fullResolved = true;

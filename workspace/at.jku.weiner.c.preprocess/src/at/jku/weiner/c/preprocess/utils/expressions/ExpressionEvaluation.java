@@ -25,14 +25,14 @@ import at.jku.weiner.c.preprocess.preprocess.PrimaryExpression;
 import com.google.inject.Injector;
 
 public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
-
+	
 	private final IExpressionVisitor<T> visitor;
-
+	
 	public static boolean evaluateFor(final Expression expression,
 			final Injector injector, final boolean advanced) {
 		final String string = ExpressionEvaluation.evaluateFor(expression);
-		System.out.println("evaluateFor='" + string + "'");
-
+		// System.out.println("evaluateFor='" + string + "'");
+		
 		final IExpressionVisitor<Long> evalVisitor = new ExpressionLongVisitor(
 				injector, advanced);
 		final ExpressionEvaluation<Long> evaluate2 = new ExpressionEvaluation<Long>(
@@ -41,7 +41,7 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 		final boolean result = ExpressionEvaluationUtils.convertFrom(value);
 		return result;
 	}
-
+	
 	public static String evaluateFor(final Expression expression) {
 		final IExpressionVisitor<String> printVisitor = new ExpressionStringVisitor();
 		final ExpressionEvaluation<String> evaluate1 = new ExpressionEvaluation<String>(
@@ -49,11 +49,11 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 		final String string = evaluate1.walkTo(expression);
 		return string;
 	}
-
+	
 	public ExpressionEvaluation(final IExpressionVisitor<T> visitor) {
 		this.visitor = visitor;
 	}
-
+	
 	@Override
 	public T walkTo(final Expression expression) {
 		if (expression instanceof ConstantExpression) {
@@ -91,13 +91,13 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 		}
 		return this.walkTo((Expression) expression.getExpression());
 	}
-
+	
 	@Override
 	public T walkTo(final ConstantExpression expression) {
 		final T result = this.walkTo((Expression) expression.getExpr());
 		return result;
 	}
-
+	
 	@Override
 	public T walkTo(final ConditionalExpression expression) {
 		final T a = this.walkTo((Expression) expression.getExpr());
@@ -111,7 +111,7 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 		final T result = this.visitor.evaluateForConditionalExpression(a, b, c);
 		return result;
 	}
-
+	
 	@Override
 	public T walkTo(final LogicalOrExpression expression) {
 		final EList<Expression> list = expression.getExpr();
@@ -122,7 +122,7 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 		}
 		return result;
 	}
-
+	
 	@Override
 	public T walkTo(final LogicalAndExpression expression) {
 		final EList<Expression> list = expression.getExpr();
@@ -133,7 +133,7 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 		}
 		return result;
 	}
-
+	
 	@Override
 	public T walkTo(final InclusiveOrExpression expression) {
 		final EList<Expression> list = expression.getExpr();
@@ -145,7 +145,7 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 		}
 		return result;
 	}
-
+	
 	@Override
 	public T walkTo(final ExclusiveOrExpression expression) {
 		final EList<Expression> list = expression.getExpr();
@@ -157,7 +157,7 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 		}
 		return result;
 	}
-
+	
 	@Override
 	public T walkTo(final AndExpression expression) {
 		final EList<Expression> list = expression.getExpr();
@@ -168,7 +168,7 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 		}
 		return result;
 	}
-
+	
 	@Override
 	public T walkTo(final EqualityExpression expression) {
 		final EList<Expression> list = expression.getExpr();
@@ -183,7 +183,7 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 		}
 		return result;
 	}
-
+	
 	@Override
 	public T walkTo(final RelationalExpression expression) {
 		final EList<Expression> list = expression.getExpr();
@@ -198,7 +198,7 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 		}
 		return result;
 	}
-
+	
 	@Override
 	public T walkTo(final ShiftExpression expression) {
 		final EList<Expression> list = expression.getExpr();
@@ -212,7 +212,7 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 		}
 		return result;
 	}
-
+	
 	@Override
 	public T walkTo(final AdditiveExpression expression) {
 		final EList<Expression> list = expression.getExpr();
@@ -227,7 +227,7 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 		}
 		return result;
 	}
-
+	
 	@Override
 	public T walkTo(final MultiplicativeExpression expression) {
 		final EList<Expression> list = expression.getExpr();
@@ -242,13 +242,13 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 		}
 		return result;
 	}
-
+	
 	@Override
 	public T walkTo(final CastExpression expression) {
 		final T result = this.walkTo(expression.getExpr());
 		return result;
 	}
-
+	
 	@Override
 	public T walkTo(final UnaryExpression expression) {
 		final Expression expr = expression.getExpr();
@@ -256,14 +256,14 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 			final T result = this.walkTo((PostfixExpression) expr);
 			return result;
 		}
-
+		
 		final UnaryOperator op = expression.getOp();
 		final T castExprResult = this.walkTo((CastExpression) expr);
 		final T result = this.visitor.evaluateForUnaryExpression(
 				castExprResult, op);
 		return result;
 	}
-
+	
 	@Override
 	public T walkTo(final PostfixExpression expression) {
 		final Expression expr = expression.getExpr();
@@ -276,7 +276,7 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 			return result;
 		}
 	}
-
+	
 	@Override
 	public T walkTo(
 			final at.jku.weiner.c.common.common.PrimaryExpression expression) {
@@ -285,24 +285,21 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 		final String id = expression.getId();
 		if (constant != null) {
 			final T result = this.visitor.evaluateConstant(constant);
-			System.out.println("resultOfPrimaryExpr='" + result + "'");
 			return result;
 		}
 		if (id != null) {
 			final EObject object = expression.eContainer();
 			final PostfixExpression postfix = (PostfixExpression) object;
 			final T result = this.visitor.evaluateForId(false, id, postfix);
-			System.out.println("resultOfPrimaryExpr='" + result + "'");
 			return result;
 		}
 		if (expr != null) {
 			final T result = this.walkTo(expr);
-			System.out.println("resultOfPrimaryExpr='" + result + "'");
 			return result;
 		}
 		return this.visitor.getDefaultReturn();
 	}
-
+	
 	@Override
 	public T walkTo(final PrimaryExpression expression) {
 		final String constant = expression.getConst();
@@ -310,7 +307,6 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 		final Expression expr = expression.getExpr();
 		if (constant != null) {
 			final T result = this.visitor.evaluateConstant(constant);
-			System.out.println("resultOfPrimaryExpr='" + result + "'");
 			return result;
 		}
 		if (id != null) {
@@ -318,15 +314,13 @@ public class ExpressionEvaluation<T> implements IExpressionWalker<T> {
 			final PostfixExpression postfix = (PostfixExpression) object;
 			final boolean isDefined = expression.isDefined();
 			final T result = this.visitor.evaluateForId(isDefined, id, postfix);
-			System.out.println("resultOfPrimaryExpr='" + result + "'");
 			return result;
 		}
 		if (expr != null) {
 			final T result = this.walkTo(expr);
-			System.out.println("resultOfPrimaryExpr='" + result + "'");
 			return result;
 		}
 		return this.visitor.getDefaultReturn();
 	}
-
+	
 }

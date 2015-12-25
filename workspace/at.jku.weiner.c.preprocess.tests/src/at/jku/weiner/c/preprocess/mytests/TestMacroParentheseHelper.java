@@ -1,206 +1,251 @@
 package at.jku.weiner.c.preprocess.mytests;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Assert;
 import org.junit.Test;
 
-import at.jku.weiner.c.preprocess.utils.macros.MacroParentheseHelper;
+import at.jku.weiner.c.preprocess.utils.macros.DefinitionFunctionMacro;
+import at.jku.weiner.c.preprocess.utils.macros.MacroParentheseNotClosedYetException;
 
 public class TestMacroParentheseHelper {
+	
+	private final static String MACRO_NAME = "foo";
+	private final static String VALUE = "X Y Z";
 
 	@Test
 	public void test00() {
-		final MacroParentheseHelper helper = new MacroParentheseHelper("(5));",
-				0);
-		Assert.assertTrue(helper.hasMoreParams());
-		Assert.assertEquals("(5)", helper.getNextParam());
-		Assert.assertEquals(4, helper.getIndex());
-		Assert.assertFalse(helper.hasMoreParams());
-	}
+		final List<String> params = new ArrayList<String>();
+		final DefinitionFunctionMacro macro = new DefinitionFunctionMacro(
+				TestMacroParentheseHelper.MACRO_NAME,
+				TestMacroParentheseHelper.VALUE, params);
 
+		final String code = "pre;" + TestMacroParentheseHelper.MACRO_NAME
+				+ "();post";
+		final String actual = macro.resolve(code);
+		final String expected = "pre;X Y Z;post";
+		Assert.assertEquals(expected, actual);
+	}
+	
 	@Test
 	public void test01() {
-		final MacroParentheseHelper helper = new MacroParentheseHelper(
-				"3, (5));", 0);
-		Assert.assertTrue(helper.hasMoreParams());
-		Assert.assertEquals("3", helper.getNextParam());
-		Assert.assertEquals(2, helper.getIndex());
-		Assert.assertTrue(helper.hasMoreParams());
-		Assert.assertEquals("(5)", helper.getNextParam());
-		Assert.assertEquals(7, helper.getIndex());
-		Assert.assertFalse(helper.hasMoreParams());
+		final List<String> params = new ArrayList<String>();
+		params.add("X");
+		final DefinitionFunctionMacro macro = new DefinitionFunctionMacro(
+				TestMacroParentheseHelper.MACRO_NAME,
+				TestMacroParentheseHelper.VALUE, params);
+		final String code = "pre;" + TestMacroParentheseHelper.MACRO_NAME
+				+ "(55);post";
+		final String actual = macro.resolve(code);
+		final String expected = "pre;55 Y Z;post";
+		Assert.assertEquals(expected, actual);
 	}
 
 	@Test
 	public void test02() {
-		final MacroParentheseHelper helper = new MacroParentheseHelper(
-				"(3), ((5), (3)), (3, (3), ((5))) );", 0);
-		Assert.assertTrue(helper.hasMoreParams());
-		Assert.assertEquals("(3)", helper.getNextParam());
-		Assert.assertEquals(4, helper.getIndex());
-		Assert.assertTrue(helper.hasMoreParams());
-		Assert.assertEquals("((5), (3))", helper.getNextParam());
-		Assert.assertEquals(16, helper.getIndex());
-
-		Assert.assertTrue(helper.hasMoreParams());
-		Assert.assertEquals("(3, (3), ((5)))", helper.getNextParam());
-		Assert.assertEquals(34, helper.getIndex());
-
-		Assert.assertFalse(helper.hasMoreParams());
+		final List<String> params = new ArrayList<String>();
+		params.add("X");
+		params.add("Y");
+		final DefinitionFunctionMacro macro = new DefinitionFunctionMacro(
+				TestMacroParentheseHelper.MACRO_NAME,
+				TestMacroParentheseHelper.VALUE, params);
+		final String code = "pre;" + TestMacroParentheseHelper.MACRO_NAME
+				+ "(3, (5));post";
+		final String actual = macro.resolve(code);
+		final String expected = "pre;3 (5) Z;post";
+		Assert.assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void test03Params() {
+		final List<String> params = new ArrayList<String>();
+		params.add("X");
+		params.add("Y");
+		params.add("Z");
+		final DefinitionFunctionMacro macro = new DefinitionFunctionMacro(
+				TestMacroParentheseHelper.MACRO_NAME,
+				TestMacroParentheseHelper.VALUE, params);
+		final String code = "pre;" + TestMacroParentheseHelper.MACRO_NAME
+				+ "((3), ((5), (3)), (3, (3), ((5))) );post";
+		final String actual = macro.resolve(code);
+		final String expected = "pre;(3) ((5), (3)) (3, (3), ((5)));post";
+		Assert.assertEquals(expected, actual);
 	}
 
-	@Test
+	@Test(expected = MacroParentheseNotClosedYetException.class)
 	public void test03() {
-		final MacroParentheseHelper helper = new MacroParentheseHelper(");", 0);
-		Assert.assertTrue(helper.hasMoreParams());
-		Assert.assertEquals("", helper.getNextParam());
-		Assert.assertEquals(1, helper.getIndex());
-		Assert.assertFalse(helper.hasMoreParams());
+		final List<String> params = new ArrayList<String>();
+		params.add("X");
+		final DefinitionFunctionMacro macro = new DefinitionFunctionMacro(
+				TestMacroParentheseHelper.MACRO_NAME,
+				TestMacroParentheseHelper.VALUE, params);
+		final String code = "pre;" + TestMacroParentheseHelper.MACRO_NAME
+				+ "(;post";
+		macro.resolve(code);
 	}
 
 	@Test
 	public void test04() {
-		final MacroParentheseHelper helper = new MacroParentheseHelper(",());",
-				0);
-		Assert.assertTrue(helper.hasMoreParams());
-		Assert.assertEquals("", helper.getNextParam());
-		Assert.assertEquals(1, helper.getIndex());
-		Assert.assertTrue(helper.hasMoreParams());
-		Assert.assertEquals("()", helper.getNextParam());
-		Assert.assertEquals(4, helper.getIndex());
-		Assert.assertFalse(helper.hasMoreParams());
+		final List<String> params = new ArrayList<String>();
+		params.add("X");
+		params.add("Y");
+		final DefinitionFunctionMacro macro = new DefinitionFunctionMacro(
+				TestMacroParentheseHelper.MACRO_NAME,
+				TestMacroParentheseHelper.VALUE, params);
+		final String code = "pre;" + TestMacroParentheseHelper.MACRO_NAME
+				+ "(A,());post";
+		final String actual = macro.resolve(code);
+		final String expected = "pre;A () Z;post";
+		Assert.assertEquals(expected, actual);
 	}
 
 	@Test
 	public void testA() {
-		final MacroParentheseHelper helper = new MacroParentheseHelper("bar);",
-				0);
-		Assert.assertTrue(helper.hasMoreParams());
-		Assert.assertEquals("bar", helper.getNextParam());
-		Assert.assertEquals(4, helper.getIndex());
-		Assert.assertFalse(helper.hasMoreParams());
+		final List<String> params = new ArrayList<String>();
+		params.add("X");
+		final DefinitionFunctionMacro macro = new DefinitionFunctionMacro(
+				TestMacroParentheseHelper.MACRO_NAME,
+				TestMacroParentheseHelper.VALUE, params);
+		final String code = "pre;" + TestMacroParentheseHelper.MACRO_NAME
+				+ "(bar);post";
+		final String actual = macro.resolve(code);
+		final String expected = "pre;bar Y Z;post";
+		Assert.assertEquals(expected, actual);
 	}
 
 	@Test
 	public void testB() {
-		final MacroParentheseHelper helper = new MacroParentheseHelper(
-				"0,bar);", 0);
-		Assert.assertTrue(helper.hasMoreParams());
-		Assert.assertEquals("0", helper.getNextParam());
-		Assert.assertEquals(2, helper.getIndex());
-		Assert.assertTrue(helper.hasMoreParams());
-		Assert.assertEquals("bar", helper.getNextParam());
-		Assert.assertEquals(6, helper.getIndex());
-		Assert.assertFalse(helper.hasMoreParams());
+		final List<String> params = new ArrayList<String>();
+		params.add("X");
+		params.add("Y");
+		final DefinitionFunctionMacro macro = new DefinitionFunctionMacro(
+				TestMacroParentheseHelper.MACRO_NAME,
+				TestMacroParentheseHelper.VALUE, params);
+		final String code = "pre;" + TestMacroParentheseHelper.MACRO_NAME
+				+ "(0,bar);post";
+		final String actual = macro.resolve(code);
+		final String expected = "pre;0 bar Z;post";
+		Assert.assertEquals(expected, actual);
 	}
 
 	@Test
 	public void testC() {
-		final MacroParentheseHelper helper = new MacroParentheseHelper(
-				"((bar)));", 0);
-		Assert.assertTrue(helper.hasMoreParams());
-		Assert.assertEquals("((bar))", helper.getNextParam());
-		Assert.assertEquals(8, helper.getIndex());
-		Assert.assertFalse(helper.hasMoreParams());
+		final List<String> params = new ArrayList<String>();
+		params.add("X");
+		final DefinitionFunctionMacro macro = new DefinitionFunctionMacro(
+				TestMacroParentheseHelper.MACRO_NAME,
+				TestMacroParentheseHelper.VALUE, params);
+		final String code = "pre;" + TestMacroParentheseHelper.MACRO_NAME
+				+ "(((bar)));post";
+		final String actual = macro.resolve(code);
+		final String expected = "pre;((bar)) Y Z;post";
+		Assert.assertEquals(expected, actual);
 	}
 
 	@Test
 	public void testD() {
-		final MacroParentheseHelper helper = new MacroParentheseHelper(
-				"(0),(bar));", 0);
-		Assert.assertTrue(helper.hasMoreParams());
-		Assert.assertEquals("(0)", helper.getNextParam());
-		Assert.assertEquals(4, helper.getIndex());
-		Assert.assertTrue(helper.hasMoreParams());
-		Assert.assertEquals("(bar)", helper.getNextParam());
-		Assert.assertEquals(10, helper.getIndex());
-		Assert.assertFalse(helper.hasMoreParams());
+		final List<String> params = new ArrayList<String>();
+		params.add("X");
+		params.add("Y");
+		final DefinitionFunctionMacro macro = new DefinitionFunctionMacro(
+				TestMacroParentheseHelper.MACRO_NAME,
+				TestMacroParentheseHelper.VALUE, params);
+		final String code = "pre;" + TestMacroParentheseHelper.MACRO_NAME
+				+ "((0),(bar));post";
+		final String actual = macro.resolve(code);
+		final String expected = "pre;(0) (bar) Z;post";
+		Assert.assertEquals(expected, actual);
 	}
 
 	@Test
 	public void testE() {
-		final MacroParentheseHelper helper = new MacroParentheseHelper(
-				"0,bar)(1);", 0);
-		Assert.assertTrue(helper.hasMoreParams());
-		Assert.assertEquals("0", helper.getNextParam());
-		Assert.assertEquals(2, helper.getIndex());
-		Assert.assertTrue(helper.hasMoreParams());
-		Assert.assertEquals("bar", helper.getNextParam());
-		Assert.assertEquals(6, helper.getIndex());
-		Assert.assertFalse(helper.hasMoreParams());
+		final List<String> params = new ArrayList<String>();
+		params.add("X");
+		params.add("Y");
+		final DefinitionFunctionMacro macro = new DefinitionFunctionMacro(
+				TestMacroParentheseHelper.MACRO_NAME,
+				TestMacroParentheseHelper.VALUE, params);
+		final String code = "pre;" + TestMacroParentheseHelper.MACRO_NAME
+				+ "(0,bar)(1);post";
+		final String actual = macro.resolve(code);
+		final String expected = "pre;0 bar Z(1);post";
+		Assert.assertEquals(expected, actual);
 	}
 
 	@Test
 	public void testF() {
-		final MacroParentheseHelper helper = new MacroParentheseHelper(
-				"0)(1);", 0);
-		Assert.assertTrue(helper.hasMoreParams());
-		Assert.assertEquals("0", helper.getNextParam());
-		Assert.assertEquals(2, helper.getIndex());
-		Assert.assertFalse(helper.hasMoreParams());
+		final List<String> params = new ArrayList<String>();
+		params.add("X");
+		final DefinitionFunctionMacro macro = new DefinitionFunctionMacro(
+				TestMacroParentheseHelper.MACRO_NAME,
+				TestMacroParentheseHelper.VALUE, params);
+		final String code = "pre;" + TestMacroParentheseHelper.MACRO_NAME
+				+ "(0)(1);post";
+		final String actual = macro.resolve(code);
+		final String expected = "pre;0 Y Z(1);post";
+		Assert.assertEquals(expected, actual);
 	}
 
 	@Test
 	public void testG() {
-		final MacroParentheseHelper helper = new MacroParentheseHelper(
-				" (a,b))", 0);
-		Assert.assertTrue(helper.hasMoreParams());
-		Assert.assertEquals("(a,b)", helper.getNextParam());
-		Assert.assertEquals(7, helper.getIndex());
-		Assert.assertFalse(helper.hasMoreParams());
+		final List<String> params = new ArrayList<String>();
+		params.add("X");
+		params.add("Y");
+		final DefinitionFunctionMacro macro = new DefinitionFunctionMacro(
+				TestMacroParentheseHelper.MACRO_NAME,
+				TestMacroParentheseHelper.VALUE, params);
+		final String code = "pre;" + TestMacroParentheseHelper.MACRO_NAME
+				+ " (a,b);post";
+		final String actual = macro.resolve(code);
+		final String expected = "pre;a b Z;post";
+		Assert.assertEquals(expected, actual);
 	}
 
 	@Test
 	public void testH() {
-		final MacroParentheseHelper helper = new MacroParentheseHelper(
-				" (0,b),bar)", 0);
-		Assert.assertTrue(helper.hasMoreParams());
-		Assert.assertEquals("(0,b)", helper.getNextParam());
-		Assert.assertEquals(7, helper.getIndex());
-		Assert.assertTrue(helper.hasMoreParams());
-		Assert.assertEquals("bar", helper.getNextParam());
-		Assert.assertEquals(11, helper.getIndex());
-		Assert.assertFalse(helper.hasMoreParams());
+		final List<String> params = new ArrayList<String>();
+		params.add("X");
+		params.add("Y");
+		final DefinitionFunctionMacro macro = new DefinitionFunctionMacro(
+				TestMacroParentheseHelper.MACRO_NAME,
+				TestMacroParentheseHelper.VALUE, params);
+		final String code = "pre;" + TestMacroParentheseHelper.MACRO_NAME
+				+ " ((0,b),bar);post";
+		final String actual = macro.resolve(code);
+		final String expected = "pre;(0,b) bar Z;post";
+		Assert.assertEquals(expected, actual);
 	}
 
 	@Test
 	public void testI() {
-		final MacroParentheseHelper helper = new MacroParentheseHelper(
-				"1,(bar,b))", 0);
-		Assert.assertTrue(helper.hasMoreParams());
-		Assert.assertEquals("1", helper.getNextParam());
-		Assert.assertEquals(2, helper.getIndex());
-		Assert.assertTrue(helper.hasMoreParams());
-		Assert.assertEquals("(bar,b)", helper.getNextParam());
-		Assert.assertEquals(10, helper.getIndex());
-		Assert.assertFalse(helper.hasMoreParams());
+		final List<String> params = new ArrayList<String>();
+		params.add("X");
+		params.add("Y");
+		final DefinitionFunctionMacro macro = new DefinitionFunctionMacro(
+				TestMacroParentheseHelper.MACRO_NAME,
+				TestMacroParentheseHelper.VALUE, params);
+		final String code = "pre;" + TestMacroParentheseHelper.MACRO_NAME
+				+ "(1,(bar,b));post";
+		final String actual = macro.resolve(code);
+		final String expected = "pre;1 (bar,b) Z;post";
+		Assert.assertEquals(expected, actual);
 	}
 
 	@Test
 	public void testJ() {
-		final MacroParentheseHelper helper = new MacroParentheseHelper(
-				"foobar1,(foo1,bar2),(foobar2)) (foo2,bar2)", 0);
-		Assert.assertTrue(helper.hasMoreParams());
-		Assert.assertEquals("foobar1", helper.getNextParam());
-		Assert.assertEquals(8, helper.getIndex());
-		Assert.assertTrue(helper.hasMoreParams());
-		Assert.assertEquals("(foo1,bar2)", helper.getNextParam());
-		Assert.assertEquals(20, helper.getIndex());
-		Assert.assertTrue(helper.hasMoreParams());
-		Assert.assertEquals("(foobar2)", helper.getNextParam());
-		Assert.assertEquals(30, helper.getIndex());
-		Assert.assertFalse(helper.hasMoreParams());
+		final List<String> params = new ArrayList<String>();
+		params.add("X");
+		params.add("Y");
+		params.add("Z");
+		final DefinitionFunctionMacro macro = new DefinitionFunctionMacro(
+				TestMacroParentheseHelper.MACRO_NAME,
+				TestMacroParentheseHelper.VALUE, params);
+		final String code = "pre;" + TestMacroParentheseHelper.MACRO_NAME
+				+ "(foobar1,(foo1,bar2),(foobar2)) (foo2,bar2);post";
+		final String actual = macro.resolve(code);
+		final String expected = "pre;foobar1 (foo1,bar2) (foobar2) (foo2,bar2);post";
+		Assert.assertEquals(expected, actual);
 	}
 
-	@Test
-	public void testK() {
-		final MacroParentheseHelper helper = new MacroParentheseHelper(
-				"foobar1,(foo1,bar2),(foobar2)) (foo2,bar2)", 32);
-		Assert.assertTrue(helper.hasMoreParams());
-		Assert.assertEquals("foo2", helper.getNextParam());
-		Assert.assertEquals(37, helper.getIndex());
-		Assert.assertTrue(helper.hasMoreParams());
-		Assert.assertEquals("bar2", helper.getNextParam());
-		Assert.assertEquals(42, helper.getIndex());
-		Assert.assertFalse(helper.hasMoreParams());
-	}
 }

@@ -1,1 +1,2 @@
-foobar, "foo""bar"
+foobar, "foo" "bar"
+"foo" "bar", foobar

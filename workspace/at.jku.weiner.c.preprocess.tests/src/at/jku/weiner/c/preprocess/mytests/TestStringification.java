@@ -37,10 +37,21 @@ public class TestStringification {
 		final IdentifierList list = PreprocessFactory.eINSTANCE
 				.createIdentifierList();
 		list.getId().add("X");
-		DefinitionTable.addFunctionMacro("FOO", "X #X X #X", list);
-		final String code = "FOO(5)";
+		DefinitionTable.addFunctionMacro("FOO", "X #X X #X X #X", list);
+		final String code = "FOO( 56 )";
 		final String replace = DefinitionTable.resolve(code);
-		Assert.assertEquals("5 \"5\" 5 \"5\"", replace);
+		Assert.assertEquals("56 \"56\" 56 \"56\" 56 \"56\"", replace);
 	}
 
+	@Test
+	public void testStringification3() {
+		final IdentifierList list = PreprocessFactory.eINSTANCE
+				.createIdentifierList();
+		list.getId().add("AB");
+		DefinitionTable.addFunctionMacro("FOO", "AB # AB AB # 	 AB", list);
+		final String code = "FOO(57)";
+		final String replace = DefinitionTable.resolve(code);
+		Assert.assertEquals("57 \"57\" 57 \"57\"", replace);
+	}
+	
 }

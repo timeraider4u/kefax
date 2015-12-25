@@ -154,62 +154,82 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			result.append(this.value);
 			return;
 		}
+
 		String temp = this.value;
 		for (int i = 0; i < this.list.size(); i++) {
 			final String key = this.list.get(i).trim();
-			final String val = params.get(i).trim();
+			String val = params.get(i).trim();
+			val = DefinitionTable.resolve(val);
 			final DefinitionObjectMacro macro = new DefinitionObjectMacro(key,
 					val);
 			temp = macro.resolve(temp);
 		}
-		temp = this.resolveConcatenation(temp);
-		temp = this.resolveStringification(temp);
-		
+
+		temp = this.resolveConcatenationAndStringification(temp);
 		result.append(temp);
 	}
 	
-	private String resolveConcatenation(String result) {
-		if (!result.contains("#")) {
-			return result;
-		}
-		result = result.replaceAll("\\s##\\s", "");
-		return result;
-	}
-	
-	private String resolveStringification(final String code) {
+	private String resolveConcatenationAndStringification(final String code) {
 		if (!code.contains("#")) {
 			return code;
 		}
 		final Pattern strPattern = Pattern.compile("#[\\s]*([\\w\\\"\\\\]+)");
 		final Matcher strMatcher = strPattern.matcher(code);
-		if (!strMatcher.find()) {
+		final Pattern conPattern = Pattern.compile("[\\s]*##[\\s]*");
+		final Matcher conMatcher = conPattern.matcher(code);
+		if (!strMatcher.find(0) && !conMatcher.find(0)) {
 			return code;
 		}
 		MatchState state = MatchState.Normal;
 		final StringBuffer result = new StringBuffer("");
-		int nextMatchStartIndex = strMatcher.start();
-		int nextMatchEndIndex = strMatcher.end();
+		int nextStrMatchStartIndex = -1;
+		int nextStrMatchEndIndex = -1;
+		int nextConMatchStartIndex = -1;
+		int nextConMatchEndIndex = -1;
+		
+		if (strMatcher.find(0)) {
+			nextStrMatchStartIndex = strMatcher.start();
+			nextStrMatchEndIndex = strMatcher.end();
+		}
+		if (conMatcher.find(0)) {
+			nextConMatchStartIndex = conMatcher.start();
+			nextConMatchEndIndex = conMatcher.end();
+		}
 		for (int i = 0; i < code.length(); i++) {
 			final char c = code.charAt(i);
 			state = MatchUtils.calculateNextState(c, state);
-			if ((state == MatchState.Normal) && (i == nextMatchStartIndex)) {
-				// do replacement!!!
-				final String group2 = strMatcher.group(1);
-				// final String replace = group2.replace("\\", "\\\\");
-				final String str = "\"" + group2.replace("\"", "\\\"") + "\"";
-				result.append(str);
-				i = nextMatchEndIndex - 1;
-			} else if (!strMatcher.find(i)) {
+			if (state == MatchState.Normal) {
+				if (i == nextConMatchStartIndex) {
+					// concatenation
+					i = nextConMatchEndIndex - 1;
+				} else if (i == nextStrMatchStartIndex) {
+					// stringification
+					final String group2 = strMatcher.group(1);
+					final String replace = group2.replace("\\", "\\\\");
+					String str = replace.replace("\"", "\\\"");
+					// str = DefinitionTable.resolve(str);
+					str = "\"" + str + "\"";
+					result.append(str);
+					i = nextStrMatchEndIndex - 1;
+				} else {
+					result.append(c);
+				}
+			} else if (!strMatcher.find(i) && !(conMatcher.find(i))) {
 				result.append(code.substring(i));
 				return result.toString();
 			} else {
 				result.append(c);
 			}
-			nextMatchStartIndex = strMatcher.start();
-			nextMatchEndIndex = strMatcher.end();
+			
+			if (strMatcher.find(i)) {
+				nextStrMatchStartIndex = strMatcher.start();
+				nextStrMatchEndIndex = strMatcher.end();
+			}
+			if (conMatcher.find(i)) {
+				nextConMatchStartIndex = conMatcher.start();
+				nextConMatchEndIndex = conMatcher.end();
+			}
 		}
-		// code = code.replaceAll("#\\s*([^\\p{Space}]+)\\b", "\\\"$1\\\"");
 		return result.toString();
 	}
-	
 }

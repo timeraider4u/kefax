@@ -18,7 +18,7 @@ import com.google.inject.Injector;
 public class TestPrimaryExpressionEvaluation {
 	private PreprocessFactory factory = PreprocessFactory.eINSTANCE;
 	private ExpressionEvaluation<Long> evaluater;
-
+	
 	@Before
 	public void setUp() throws Exception {
 		DefinitionTable.reset();
@@ -27,16 +27,16 @@ public class TestPrimaryExpressionEvaluation {
 		final PreprocessInjectorProvider provider = new PreprocessInjectorProvider();
 		final Injector injector = provider.getInjector();
 		final IExpressionVisitor<Long> visitor = new ExpressionLongVisitor(
-				injector, false);
+				injector);
 		this.evaluater = new ExpressionEvaluation<Long>(visitor);
 	}
-
+	
 	@After
 	public void tearDown() throws Exception {
 		DefinitionTable.reset();
 		Assert.assertEquals(0, DefinitionTable.size());
 	}
-
+	
 	@Test
 	public void testIDWhichIsEmpty() {
 		final PrimaryExpression expression = this.factory
@@ -45,7 +45,7 @@ public class TestPrimaryExpressionEvaluation {
 		Assert.assertEquals(ExpressionLongVisitor.FALSE,
 				this.evaluater.walkTo(expression));
 	}
-
+	
 	@Test
 	public void testIDWhichIsDefined() {
 		final PrimaryExpression expression = this.factory
@@ -55,7 +55,7 @@ public class TestPrimaryExpressionEvaluation {
 		Assert.assertEquals(ExpressionLongVisitor.TRUE,
 				this.evaluater.walkTo(expression));
 	}
-
+	
 	@Test
 	public void testIDWhichIsEmpty2() {
 		final PrimaryExpression expression = this.factory
@@ -66,7 +66,7 @@ public class TestPrimaryExpressionEvaluation {
 		Assert.assertEquals(ExpressionLongVisitor.FALSE,
 				this.evaluater.walkTo(expression));
 	}
-
+	
 	@Test
 	public void testIDWhichIsDefined2() {
 		final PrimaryExpression expression = this.factory
@@ -77,7 +77,7 @@ public class TestPrimaryExpressionEvaluation {
 		Assert.assertEquals(ExpressionLongVisitor.TRUE,
 				this.evaluater.walkTo(expression));
 	}
-
+	
 	@Test
 	public void testConstantWhichIsDecimalAndIsFalse() {
 		final PrimaryExpression expression = this.factory
@@ -86,7 +86,7 @@ public class TestPrimaryExpressionEvaluation {
 		Assert.assertEquals(ExpressionLongVisitor.FALSE,
 				this.evaluater.walkTo(expression));
 	}
-
+	
 	@Test
 	public void testConstantWhichIsDecimalAndIsTrue() {
 		final PrimaryExpression expression = this.factory
@@ -95,7 +95,7 @@ public class TestPrimaryExpressionEvaluation {
 		Assert.assertEquals(ExpressionLongVisitor.TRUE,
 				this.evaluater.walkTo(expression));
 	}
-
+	
 	@Test
 	// (expected = NumberFormatException.class)
 	public void testConstantWhichIsFloat() {
@@ -106,7 +106,7 @@ public class TestPrimaryExpressionEvaluation {
 		final Long expected = ExpressionLongVisitor.FALSE;
 		Assert.assertEquals(expected, result);
 	}
-
+	
 	@Test
 	// (expected = NumberFormatException.class)
 	public void testConstantWhichIsFloat2() {
@@ -117,7 +117,7 @@ public class TestPrimaryExpressionEvaluation {
 		final Long expected = ExpressionLongVisitor.FALSE;
 		Assert.assertEquals(expected, result);
 	}
-
+	
 	@Test
 	// (expected = NumberFormatException.class)
 	public void testConstantWhichIsString() {
@@ -128,7 +128,7 @@ public class TestPrimaryExpressionEvaluation {
 		final Long expected = ExpressionLongVisitor.FALSE;
 		Assert.assertEquals(expected, result);
 	}
-
+	
 	@Test
 	public void testConstantWhichIsBinary() {
 		final PrimaryExpression expression = this.factory
@@ -137,5 +137,5 @@ public class TestPrimaryExpressionEvaluation {
 		final Long result = this.evaluater.walkTo(expression);
 		Assert.assertEquals(ExpressionLongVisitor.TRUE, result);
 	}
-
+	
 }

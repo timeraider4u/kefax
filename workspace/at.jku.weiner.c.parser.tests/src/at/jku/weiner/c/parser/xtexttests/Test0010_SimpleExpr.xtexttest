@@ -12,9 +12,9 @@ WHITESPACE LINE_COMMENT NEWLINE
 WHITESPACE DECIMAL_LITERAL WHITESPACE SKW_PLUS WHITESPACE DECIMAL_LITERAL SKW_SEMI NEWLINE
 SKW_RIGHTBRACE NEWLINE
 //----------------------------------------------------------------------
-(common::Model units+=
-	(common::TranslationUnit 
-	parser=(Parser
+//(common::Model units+=
+	//(common::TranslationUnit 
+	(Parser
 		external+=
 		(ExternalDeclaration 
 			functiondefHead=
@@ -128,8 +128,8 @@ SKW_RIGHTBRACE NEWLINE
 		)
 		
 	)
-)
-)
+//)
+//)
 //----------------------------------------------------------------------
 output file="bin/Test0010_SimpleExpr.c"
 expected file isSameAsInputFile

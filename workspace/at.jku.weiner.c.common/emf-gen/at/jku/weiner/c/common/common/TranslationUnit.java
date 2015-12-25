@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link at.jku.weiner.c.common.common.TranslationUnit#getPreprocess <em>Preprocess</em>}</li>
  *   <li>{@link at.jku.weiner.c.common.common.TranslationUnit#getParser <em>Parser</em>}</li>
+ *   <li>{@link at.jku.weiner.c.common.common.TranslationUnit#getPath <em>Path</em>}</li>
  * </ul>
  *
  * @see at.jku.weiner.c.common.common.CommonPackage#getTranslationUnit()
@@ -74,5 +75,31 @@ public interface TranslationUnit extends EObject
 	 * @generated
 	 */
 	void setParser(Parser value);
+
+	/**
+	 * Returns the value of the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Path</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Path</em>' attribute.
+	 * @see #setPath(String)
+	 * @see at.jku.weiner.c.common.common.CommonPackage#getTranslationUnit_Path()
+	 * @model
+	 * @generated
+	 */
+	String getPath();
+
+	/**
+	 * Sets the value of the '{@link at.jku.weiner.c.common.common.TranslationUnit#getPath <em>Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Path</em>' attribute.
+	 * @see #getPath()
+	 * @generated
+	 */
+	void setPath(String value);
 
 } // TranslationUnit

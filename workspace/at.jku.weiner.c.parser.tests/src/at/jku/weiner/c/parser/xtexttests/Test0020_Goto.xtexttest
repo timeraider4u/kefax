@@ -14,9 +14,9 @@ WHITESPACE ID SKW_COLON WHITESPACE
 ID SKW_LEFTPAREN STRING_LITERAL SKW_RIGHTPAREN SKW_SEMI NEWLINE
 SKW_RIGHTBRACE NEWLINE
 //----------------------------------------------------------------------
-(common::Model units+=
-	(common::TranslationUnit 
-	parser=(Parser
+//(common::Model units+=
+	//(common::TranslationUnit 
+	(Parser
 		external+=
 		(ExternalDeclaration 
 			functiondefHead=
@@ -306,8 +306,8 @@ SKW_RIGHTBRACE NEWLINE
 			)
 		) // end external declaration
 	)
-)
-)
+//)
+//)
 //----------------------------------------------------------------------
 output file="bin/Test0020_Goto.c"
 expected file isSameAsInputFile

@@ -113,13 +113,22 @@ public interface CommonPackage extends EPackage
 	int TRANSLATION_UNIT__PARSER = 1;
 
 	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSLATION_UNIT__PATH = 2;
+
+	/**
 	 * The number of structural features of the '<em>Translation Unit</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSLATION_UNIT_FEATURE_COUNT = 2;
+	int TRANSLATION_UNIT_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link at.jku.weiner.c.common.common.impl.PreprocessImpl <em>Preprocess</em>}' class.
@@ -1118,6 +1127,17 @@ public interface CommonPackage extends EPackage
 	EReference getTranslationUnit_Parser();
 
 	/**
+	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.common.common.TranslationUnit#getPath <em>Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Path</em>'.
+	 * @see at.jku.weiner.c.common.common.TranslationUnit#getPath()
+	 * @see #getTranslationUnit()
+	 * @generated
+	 */
+	EAttribute getTranslationUnit_Path();
+
+	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.common.common.Preprocess <em>Preprocess</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1841,6 +1861,14 @@ public interface CommonPackage extends EPackage
 		 * @generated
 		 */
 		EReference TRANSLATION_UNIT__PARSER = eINSTANCE.getTranslationUnit_Parser();
+
+		/**
+		 * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TRANSLATION_UNIT__PATH = eINSTANCE.getTranslationUnit_Path();
 
 		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.common.common.impl.PreprocessImpl <em>Preprocess</em>}' class.

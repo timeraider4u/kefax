@@ -11,10 +11,10 @@ lexer-tokens
 	HASH INCLUDE WHITESPACE STRING_LITERAL WHITESPACE BLOCK_COMMENT NEWLINE
 	HASH INCLUDE WHITESPACE STRING_LITERAL LINE_COMMENT NEWLINE
 //----------------------------------------------------------------------
-(common::Model
-	units+=
-	(common::TranslationUnit
-	preprocess=(Preprocess
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
 		group=
 		(GroupOpt
 			lines+=
@@ -33,8 +33,8 @@ lexer-tokens
 			
 		)
 	)
-)
-)
+//)
+//)
 //----------------------------------------------------------------------
 output file="bin/Test0067_SimpleIncWithComment.c.i"
 expected file="expected/Test0067_SimpleIncWithComment.c"

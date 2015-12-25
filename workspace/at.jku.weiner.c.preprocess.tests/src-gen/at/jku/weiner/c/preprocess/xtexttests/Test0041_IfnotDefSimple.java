@@ -43,8 +43,6 @@ import at.jku.weiner.c.preprocess.parser.antlr.PreprocessParser;
 import at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer;
 import at.jku.weiner.c.preprocess.xtexttests.LexerAndParserTest;
 
-import at.jku.weiner.c.common.common.Model;
-import at.jku.weiner.c.common.common.TranslationUnit;
 import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.Code;
@@ -61,7 +59,7 @@ import at.jku.weiner.c.preprocess.preprocess.Code;
 @InjectWith(PreprocessInjectorProvider.class)
 public class Test0041_IfnotDefSimple {
 	@Inject
-	private ParseHelper<Model> parseHelper;
+	private ParseHelper<Preprocess> parseHelper;
 	@Inject
 	private ValidationTestHelper valHelper;
 	@Inject
@@ -150,103 +148,88 @@ public class Test0041_IfnotDefSimple {
 	public void checkParserResult() throws Exception {
 		final String text = this.getTextFromFile(
 			"res/Test0041_IfnotDefSimple.c");
-		final Model Model_0_Var
+		final Preprocess Preprocess_0_Var
 		  = 
 			this.parseHelper.parse(text);
-		this.valHelper.assertNoErrors(Model_0_Var
+		this.valHelper.assertNoErrors(Preprocess_0_Var
 		);
 		
-		Assert.assertNotNull(Model_0_Var
+		Assert.assertNotNull(Preprocess_0_Var
 		);
-		final EList<? extends EObject> Units_0_list = Model_0_Var
-		.getUnits();
-		Assert.assertNotNull(Units_0_list);
-		Assert.assertEquals(1, Units_0_list.size());
 		//0
-		final TranslationUnit TranslationUnit_1_Var
-		 = (TranslationUnit)Units_0_list.get(0);
-		Assert.assertNotNull(TranslationUnit_1_Var
+		final GroupOpt GroupOpt_1_Var
+		 = (GroupOpt)Preprocess_0_Var
+		.getGroup();
+		Assert.assertNotNull(GroupOpt_1_Var
 		);
+		final EList<? extends EObject> Lines_1_list = GroupOpt_1_Var
+		.getLines();
+		Assert.assertNotNull(Lines_1_list);
+		Assert.assertEquals(3, Lines_1_list.size());
 		//1
-		final Preprocess Preprocess_2_Var
-		 = (Preprocess)TranslationUnit_1_Var
-		.getPreprocess();
-		Assert.assertNotNull(Preprocess_2_Var
+		final Code Code_2_Var
+		 = (Code)Lines_1_list.get(0);
+		Assert.assertNotNull(Code_2_Var
 		);
+		Assert.assertEquals("FOO", Code_2_Var
+		.getCode());
 		//2
-		final GroupOpt GroupOpt_3_Var
-		 = (GroupOpt)Preprocess_2_Var
-		.getGroup();
-		Assert.assertNotNull(GroupOpt_3_Var
+		final PreprocessorDirectives PreprocessorDirectives_3_Var
+		 = (PreprocessorDirectives)Lines_1_list.get(1);
+		Assert.assertNotNull(PreprocessorDirectives_3_Var
 		);
-		final EList<? extends EObject> Lines_3_list = GroupOpt_3_Var
-		.getLines();
-		Assert.assertNotNull(Lines_3_list);
-		Assert.assertEquals(3, Lines_3_list.size());
 		//3
-		final Code Code_4_Var
-		 = (Code)Lines_3_list.get(0);
-		Assert.assertNotNull(Code_4_Var
+		final ConditionalDirective ConditionalDirective_4_Var
+		 = (ConditionalDirective)PreprocessorDirectives_3_Var
+		.getDirective();
+		Assert.assertNotNull(ConditionalDirective_4_Var
 		);
-		Assert.assertEquals("FOO", Code_4_Var
-		.getCode());
 		//4
-		final PreprocessorDirectives PreprocessorDirectives_5_Var
-		 = (PreprocessorDirectives)Lines_3_list.get(1);
-		Assert.assertNotNull(PreprocessorDirectives_5_Var
-		);
-		//5
-		final ConditionalDirective ConditionalDirective_6_Var
-		 = (ConditionalDirective)PreprocessorDirectives_5_Var
-		.getDirective();
-		Assert.assertNotNull(ConditionalDirective_6_Var
-		);
-		//6
-		final IfNotDefConditional IfNotDefConditional_7_Var
-		 = (IfNotDefConditional)ConditionalDirective_6_Var
+		final IfNotDefConditional IfNotDefConditional_5_Var
+		 = (IfNotDefConditional)ConditionalDirective_4_Var
 		.getConditional();
-		Assert.assertNotNull(IfNotDefConditional_7_Var
+		Assert.assertNotNull(IfNotDefConditional_5_Var
 		);
-		Assert.assertEquals("FOOBAR", IfNotDefConditional_7_Var
+		Assert.assertEquals("FOOBAR", IfNotDefConditional_5_Var
 		.getId());
-		//7
-		final GroupOpt GroupOpt_8_Var
-		 = (GroupOpt)IfNotDefConditional_7_Var
+		//5
+		final GroupOpt GroupOpt_6_Var
+		 = (GroupOpt)IfNotDefConditional_5_Var
 		.getGroup();
-		Assert.assertNotNull(GroupOpt_8_Var
+		Assert.assertNotNull(GroupOpt_6_Var
 		);
-		final EList<? extends EObject> Lines_8_list = GroupOpt_8_Var
+		final EList<? extends EObject> Lines_6_list = GroupOpt_6_Var
 		.getLines();
-		Assert.assertNotNull(Lines_8_list);
-		Assert.assertEquals(2, Lines_8_list.size());
-		//8
-		final PreprocessorDirectives PreprocessorDirectives_9_Var
-		 = (PreprocessorDirectives)Lines_8_list.get(0);
-		Assert.assertNotNull(PreprocessorDirectives_9_Var
+		Assert.assertNotNull(Lines_6_list);
+		Assert.assertEquals(2, Lines_6_list.size());
+		//6
+		final PreprocessorDirectives PreprocessorDirectives_7_Var
+		 = (PreprocessorDirectives)Lines_6_list.get(0);
+		Assert.assertNotNull(PreprocessorDirectives_7_Var
 		);
-		//9
-		final DefineObjectMacro DefineObjectMacro_10_Var
-		 = (DefineObjectMacro)PreprocessorDirectives_9_Var
+		//7
+		final DefineObjectMacro DefineObjectMacro_8_Var
+		 = (DefineObjectMacro)PreprocessorDirectives_7_Var
 		.getDirective();
-		Assert.assertNotNull(DefineObjectMacro_10_Var
+		Assert.assertNotNull(DefineObjectMacro_8_Var
 		);
-		Assert.assertEquals("FOO", DefineObjectMacro_10_Var
+		Assert.assertEquals("FOO", DefineObjectMacro_8_Var
 		.getId());
-		Assert.assertEquals("BAR", DefineObjectMacro_10_Var
+		Assert.assertEquals("BAR", DefineObjectMacro_8_Var
 		.getString());
-		//10
-		final Code Code_11_Var
-		 = (Code)Lines_8_list.get(1);
-		Assert.assertNotNull(Code_11_Var
+		//8
+		final Code Code_9_Var
+		 = (Code)Lines_6_list.get(1);
+		Assert.assertNotNull(Code_9_Var
 		);
-		Assert.assertEquals("	int foo = 0;", Code_11_Var
+		Assert.assertEquals("	int foo = 0;", Code_9_Var
 		.getCode());
-		//11
-		final Code Code_12_Var
-		 = (Code)Lines_3_list.get(2);
-		Assert.assertNotNull(Code_12_Var
+		//9
+		final Code Code_10_Var
+		 = (Code)Lines_1_list.get(2);
+		Assert.assertNotNull(Code_10_Var
 		);
-		Assert.assertEquals("FOO", Code_12_Var
+		Assert.assertEquals("FOO", Code_10_Var
 		.getCode());
 	}
 	

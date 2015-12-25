@@ -10,10 +10,10 @@ source file="res/Test0070_Warning.h"
 lexer-tokens
 	HASH WARNING WHITESPACE STRING_LITERAL NEWLINE
 //----------------------------------------------------------------------
-(common::Model
-	units+=
-	(common::TranslationUnit
-	preprocess=(Preprocess
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
 		group=
 		(GroupOpt
 			lines+=
@@ -26,8 +26,8 @@ lexer-tokens
 			
 		)
 	)
-)
-)
+//)
+//)
 //----------------------------------------------------------------------
 output file="bin/Test0070_Warning.h.i"
 expected file="expected/Test0070_Warning.h"

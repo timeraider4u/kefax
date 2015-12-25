@@ -11,10 +11,10 @@ lexer-tokens
 	HASH DEFINE WHITESPACE ID WHITESPACE SKW_LEFTPAREN SKW_RIGHTPAREN WHITESPACE ID SKW_LEFTPAREN SKW_RIGHTPAREN NEWLINE
 	ID SKW_LEFTPAREN SKW_RIGHTPAREN NEWLINE
 //----------------------------------------------------------------------
-(common::Model
-	units+=
-	(common::TranslationUnit
-	preprocess=(Preprocess
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
 		group=
 		(GroupOpt
 			lines+=
@@ -31,8 +31,8 @@ lexer-tokens
 			
 		)
 	)
-)
-)
+//)
+//)
 //----------------------------------------------------------------------
 output file="bin/Test0022_ObjectMacroWithParensAtStart.c.i"
 expected file="expected/Test0022_ObjectMacroWithParensAtStart.c"

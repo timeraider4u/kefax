@@ -23,10 +23,10 @@ lexer-tokens
 	NEWLINE
 	HASH WHITESPACE INCLUDE WHITESPACE+*4 STRING_LITERAL NEWLINE
 //----------------------------------------------------------------------
-(common::Model
-	units+=
-	(common::TranslationUnit
-	preprocess=(Preprocess
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
 		group=
 		(GroupOpt
 			lines+=
@@ -70,8 +70,8 @@ lexer-tokens
 			
 		)
 	)
-)
-)
+//)
+//)
 //----------------------------------------------------------------------
 output file="bin/Test0012_MoreIncludes.c.i"
 expected file="expected/Test0012_MoreIncludes.c"

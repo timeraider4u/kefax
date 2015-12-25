@@ -10,9 +10,9 @@ lexer-tokens
 KW_INT WHITESPACE ID SKW_SEMI NEWLINE
 KW_INT WHITESPACE ID SKW_SEMI
 //----------------------------------------------------------------------
-(common::Model units+=
-	(common::TranslationUnit 
-	parser=(Parser
+//(common::Model units+=
+	//(common::TranslationUnit 
+	(Parser
 		external+=
 		(ExternalDeclaration 
 			declaration=
@@ -69,8 +69,8 @@ KW_INT WHITESPACE ID SKW_SEMI
 			
 		)
 	)
-)
-)
+//)
+//)
 //----------------------------------------------------------------------
 output file="bin/Test0002_TwoVariables.c"
 expected file isSameAsInputFile

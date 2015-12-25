@@ -28,9 +28,9 @@ WHITESPACE SKW_LEFTBRACE NEWLINE
 	WHITESPACE SKW_RIGHTBRACE NEWLINE
 SKW_RIGHTBRACE NEWLINE
 //----------------------------------------------------------------------
-(common::Model units+=
-	(common::TranslationUnit 
-	parser=(Parser
+//(common::Model units+=
+	//(common::TranslationUnit 
+	(Parser
 		external+=
 		(ExternalDeclaration 
 			functiondefHead=
@@ -476,8 +476,8 @@ SKW_RIGHTBRACE NEWLINE
 			)
 		)// end external declaration		
 	)
-)
-)
+//)
+//)
 //----------------------------------------------------------------------
 output file="bin/Test0021_IfElse.c"
 expected file isSameAsInputFile

@@ -18,10 +18,10 @@ lexer-tokens
 	ID SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_SEMI NEWLINE
 	ID SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
-(common::Model
-	units+=
-	(common::TranslationUnit
-	preprocess=(Preprocess
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
 		group=
 		(GroupOpt
 			lines+=
@@ -70,8 +70,8 @@ lexer-tokens
 			)
 		)
 	)
-)
-)
+//)
+//)
 //----------------------------------------------------------------------
 output file="bin/Test0082_Stringification4.c.i"
 expected file="expected/Test0082_Stringification4.c"

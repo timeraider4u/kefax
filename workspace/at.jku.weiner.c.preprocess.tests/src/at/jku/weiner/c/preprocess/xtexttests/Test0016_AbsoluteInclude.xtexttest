@@ -16,10 +16,10 @@ lexer-tokens
 	SKW_RIGHTBRACE NEWLINE
 	NEWLINE
 //----------------------------------------------------------------------
-(common::Model
-	units+=
-	(common::TranslationUnit
-	preprocess=(Preprocess
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
 		group=
 		(GroupOpt
 			lines+=
@@ -49,8 +49,8 @@ lexer-tokens
 			
 		)
 	)
-)
-)
+//)
+//)
 //----------------------------------------------------------------------
 output file="bin/Test0016_AbsoluteInclude.c.i"
 expected file="expected/Test0014_AbsoluteInclude.c"

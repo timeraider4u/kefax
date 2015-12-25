@@ -11,10 +11,10 @@ lexer-tokens
 	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WHITESPACE ID WHITESPACE SKW_PLUS WHITESPACE DECIMAL_LITERAL NEWLINE
 	ID WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE ID SKW_LEFTPAREN DECIMAL_LITERAL SKW_RIGHTPAREN SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
-(common::Model
-	units+=
-	(common::TranslationUnit
-	preprocess=(Preprocess
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
 		group=
 		(GroupOpt
 			lines+=
@@ -35,8 +35,8 @@ lexer-tokens
 			
 		)
 	)
-)
-)
+//)
+//)
 //----------------------------------------------------------------------
 output file="bin/Test0023_FunctionMacroOneArgument.c.i"
 expected file="expected/Test0023_FunctionMacroOneArgument.c"

@@ -48,9 +48,9 @@ KW_INT WHITESPACE ID SKW_LEFTPAREN KW_VOID SKW_RIGHTPAREN WHITESPACE SKW_LEFTBRA
 	WHITESPACE KW_RETURN WHITESPACE DECIMAL_LITERAL SKW_SEMI NEWLINE
 SKW_RIGHTBRACE NEWLINE
 //----------------------------------------------------------------------
-(common::Model units+=
-	(common::TranslationUnit 
-	parser=(Parser
+//(common::Model units+=
+	//(common::TranslationUnit 
+	(Parser
 		external+=
 		// const int ...;
 		(ExternalDeclaration
@@ -2086,8 +2086,8 @@ SKW_RIGHTBRACE NEWLINE
 			)
 		) // end external declaration
 	)
-)
-)
+//)
+//)
 //----------------------------------------------------------------------
 output file="bin/Test0031_Enums.c"
 expected file isSameAsInputFile

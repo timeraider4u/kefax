@@ -43,13 +43,13 @@ import at.jku.weiner.c.parser.parser.antlr.ParserParser;
 import at.jku.weiner.c.parser.parser.antlr.internal.InternalParserLexer;
 import at.jku.weiner.c.parser.xtexttests.LexerAndParserTest;
 
-import at.jku.weiner.c.common.common.Model;
+import at.jku.weiner.c.parser.parser.Parser;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(ParserInjectorProvider.class)
 public class Test0000_Empty {
 	@Inject
-	private ParseHelper<Model> parseHelper;
+	private ParseHelper<Parser> parseHelper;
 	@Inject
 	private ValidationTestHelper valHelper;
 	@Inject
@@ -95,13 +95,13 @@ public class Test0000_Empty {
 	public void checkParserResult() throws Exception {
 		final String text = this.getTextFromFile(
 			"res/Test0000_Empty.c");
-		final Model Model_0_Var
+		final Parser Parser_0_Var
 		  = 
 			this.parseHelper.parse(text);
-		this.valHelper.assertNoErrors(Model_0_Var
+		this.valHelper.assertNoErrors(Parser_0_Var
 		);
 		
-		Assert.assertNotNull(Model_0_Var
+		Assert.assertNotNull(Parser_0_Var
 		);
 	}
 	

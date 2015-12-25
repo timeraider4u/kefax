@@ -15,10 +15,10 @@ lexer-tokens
 	WHITESPACE ID WHITESPACE SKW_MINUS DECIMAL_LITERAL SKW_SEMI NEWLINE
 	SKW_RIGHTBRACE NEWLINE
 //----------------------------------------------------------------------
-(common::Model
-	units+=
-	(common::TranslationUnit
-	preprocess=(Preprocess
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
 		group=
 		(GroupOpt
 			lines+=
@@ -46,8 +46,8 @@ lexer-tokens
 			
 		)
 	)
-)
-)
+//)
+//)
 //----------------------------------------------------------------------
 output file="bin/Test0010_UglyInclude.c.i"
 expected file="expected/Test0010_UglyInclude.c"

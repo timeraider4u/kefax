@@ -43,8 +43,6 @@ import at.jku.weiner.c.preprocess.parser.antlr.PreprocessParser;
 import at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer;
 import at.jku.weiner.c.preprocess.xtexttests.LexerAndParserTest;
 
-import at.jku.weiner.c.common.common.Model;
-import at.jku.weiner.c.common.common.TranslationUnit;
 import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
@@ -64,7 +62,7 @@ import at.jku.weiner.c.preprocess.preprocess.Code;
 @InjectWith(PreprocessInjectorProvider.class)
 public class Test0009_DefineAndInclude {
 	@Inject
-	private ParseHelper<Model> parseHelper;
+	private ParseHelper<Preprocess> parseHelper;
 	@Inject
 	private ValidationTestHelper valHelper;
 	@Inject
@@ -170,42 +168,42 @@ public class Test0009_DefineAndInclude {
 	public void checkParserResult() throws Exception {
 		final String text = this.getTextFromFile(
 			"res/Test0009_DefineAndInclude.c");
-		final Model Model_0_Var
+		final Preprocess Preprocess_0_Var
 		  = 
 			this.parseHelper.parse(text);
-		this.valHelper.assertNoErrors(Model_0_Var
+		this.valHelper.assertNoErrors(Preprocess_0_Var
 		);
 		
-		Assert.assertNotNull(Model_0_Var
+		Assert.assertNotNull(Preprocess_0_Var
 		);
-		final EList<? extends EObject> Units_0_list = Model_0_Var
-		.getUnits();
-		Assert.assertNotNull(Units_0_list);
-		Assert.assertEquals(1, Units_0_list.size());
 		//0
-		final TranslationUnit TranslationUnit_1_Var
-		 = (TranslationUnit)Units_0_list.get(0);
-		Assert.assertNotNull(TranslationUnit_1_Var
+		final GroupOpt GroupOpt_1_Var
+		 = (GroupOpt)Preprocess_0_Var
+		.getGroup();
+		Assert.assertNotNull(GroupOpt_1_Var
 		);
+		final EList<? extends EObject> Lines_1_list = GroupOpt_1_Var
+		.getLines();
+		Assert.assertNotNull(Lines_1_list);
+		Assert.assertEquals(9, Lines_1_list.size());
 		//1
-		final Preprocess Preprocess_2_Var
-		 = (Preprocess)TranslationUnit_1_Var
-		.getPreprocess();
-		Assert.assertNotNull(Preprocess_2_Var
+		final PreprocessorDirectives PreprocessorDirectives_2_Var
+		 = (PreprocessorDirectives)Lines_1_list.get(0);
+		Assert.assertNotNull(PreprocessorDirectives_2_Var
 		);
 		//2
-		final GroupOpt GroupOpt_3_Var
-		 = (GroupOpt)Preprocess_2_Var
-		.getGroup();
-		Assert.assertNotNull(GroupOpt_3_Var
+		final DefineDirective DefineDirective_3_Var
+		 = (DefineDirective)PreprocessorDirectives_2_Var
+		.getDirective();
+		Assert.assertNotNull(DefineDirective_3_Var
 		);
-		final EList<? extends EObject> Lines_3_list = GroupOpt_3_Var
-		.getLines();
-		Assert.assertNotNull(Lines_3_list);
-		Assert.assertEquals(9, Lines_3_list.size());
+		Assert.assertEquals("INT", DefineDirective_3_Var
+		.getId());
+		Assert.assertEquals("int", DefineDirective_3_Var
+		.getString());
 		//3
 		final PreprocessorDirectives PreprocessorDirectives_4_Var
-		 = (PreprocessorDirectives)Lines_3_list.get(0);
+		 = (PreprocessorDirectives)Lines_1_list.get(1);
 		Assert.assertNotNull(PreprocessorDirectives_4_Var
 		);
 		//4
@@ -214,75 +212,60 @@ public class Test0009_DefineAndInclude {
 		.getDirective();
 		Assert.assertNotNull(DefineDirective_5_Var
 		);
-		Assert.assertEquals("INT", DefineDirective_5_Var
+		Assert.assertEquals("MAIN", DefineDirective_5_Var
 		.getId());
-		Assert.assertEquals("int", DefineDirective_5_Var
+		Assert.assertEquals("main", DefineDirective_5_Var
 		.getString());
 		//5
 		final PreprocessorDirectives PreprocessorDirectives_6_Var
-		 = (PreprocessorDirectives)Lines_3_list.get(1);
+		 = (PreprocessorDirectives)Lines_1_list.get(2);
 		Assert.assertNotNull(PreprocessorDirectives_6_Var
 		);
 		//6
-		final DefineDirective DefineDirective_7_Var
-		 = (DefineDirective)PreprocessorDirectives_6_Var
+		final IncludeDirective IncludeDirective_7_Var
+		 = (IncludeDirective)PreprocessorDirectives_6_Var
 		.getDirective();
-		Assert.assertNotNull(DefineDirective_7_Var
+		Assert.assertNotNull(IncludeDirective_7_Var
 		);
-		Assert.assertEquals("MAIN", DefineDirective_7_Var
-		.getId());
-		Assert.assertEquals("main", DefineDirective_7_Var
+		Assert.assertEquals("\"Test0009_DefineAndInclude.h\"", IncludeDirective_7_Var
 		.getString());
 		//7
-		final PreprocessorDirectives PreprocessorDirectives_8_Var
-		 = (PreprocessorDirectives)Lines_3_list.get(2);
-		Assert.assertNotNull(PreprocessorDirectives_8_Var
+		final NewLineLine NewLineLine_8_Var
+		 = (NewLineLine)Lines_1_list.get(3);
+		Assert.assertNotNull(NewLineLine_8_Var
 		);
 		//8
-		final IncludeDirective IncludeDirective_9_Var
-		 = (IncludeDirective)PreprocessorDirectives_8_Var
-		.getDirective();
-		Assert.assertNotNull(IncludeDirective_9_Var
+		final Code Code_9_Var
+		 = (Code)Lines_1_list.get(4);
+		Assert.assertNotNull(Code_9_Var
 		);
-		Assert.assertEquals("\"Test0009_DefineAndInclude.h\"", IncludeDirective_9_Var
-		.getString());
+		Assert.assertEquals("DECLARATION;", Code_9_Var
+		.getCode());
 		//9
 		final NewLineLine NewLineLine_10_Var
-		 = (NewLineLine)Lines_3_list.get(3);
+		 = (NewLineLine)Lines_1_list.get(5);
 		Assert.assertNotNull(NewLineLine_10_Var
 		);
 		//10
 		final Code Code_11_Var
-		 = (Code)Lines_3_list.get(4);
+		 = (Code)Lines_1_list.get(6);
 		Assert.assertNotNull(Code_11_Var
 		);
-		Assert.assertEquals("DECLARATION;", Code_11_Var
+		Assert.assertEquals("INT MAIN(void) {", Code_11_Var
 		.getCode());
 		//11
-		final NewLineLine NewLineLine_12_Var
-		 = (NewLineLine)Lines_3_list.get(5);
-		Assert.assertNotNull(NewLineLine_12_Var
+		final Code Code_12_Var
+		 = (Code)Lines_1_list.get(7);
+		Assert.assertNotNull(Code_12_Var
 		);
+		Assert.assertEquals("	return x - 2 * Y;", Code_12_Var
+		.getCode());
 		//12
 		final Code Code_13_Var
-		 = (Code)Lines_3_list.get(6);
+		 = (Code)Lines_1_list.get(8);
 		Assert.assertNotNull(Code_13_Var
 		);
-		Assert.assertEquals("INT MAIN(void) {", Code_13_Var
-		.getCode());
-		//13
-		final Code Code_14_Var
-		 = (Code)Lines_3_list.get(7);
-		Assert.assertNotNull(Code_14_Var
-		);
-		Assert.assertEquals("	return x - 2 * Y;", Code_14_Var
-		.getCode());
-		//14
-		final Code Code_15_Var
-		 = (Code)Lines_3_list.get(8);
-		Assert.assertNotNull(Code_15_Var
-		);
-		Assert.assertEquals("}", Code_15_Var
+		Assert.assertEquals("}", Code_13_Var
 		.getCode());
 	}
 	

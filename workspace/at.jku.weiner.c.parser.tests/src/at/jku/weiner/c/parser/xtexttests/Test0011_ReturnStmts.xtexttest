@@ -23,9 +23,9 @@ KW_VOID WHITESPACE ID SKW_LEFTPAREN SKW_RIGHTPAREN WHITESPACE SKW_LEFTBRACE NEWL
 WHITESPACE KW_RETURN SKW_SEMI NEWLINE
 SKW_RIGHTBRACE NEWLINE
 //----------------------------------------------------------------------
-(common::Model units+=
-	(common::TranslationUnit 
-	parser=(Parser
+//(common::Model units+=
+	//(common::TranslationUnit 
+	(Parser
 		external+=
 		(ExternalDeclaration 
 			functiondefHead=
@@ -440,8 +440,8 @@ SKW_RIGHTBRACE NEWLINE
 		)// end external declaration
 		
 	)
-)
-)
+//)
+//)
 //----------------------------------------------------------------------
 output file="bin/Test0011_ReturnStmts.c"
 expected file isSameAsInputFile

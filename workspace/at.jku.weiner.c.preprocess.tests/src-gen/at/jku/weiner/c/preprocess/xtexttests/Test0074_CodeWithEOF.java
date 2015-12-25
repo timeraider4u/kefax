@@ -43,8 +43,6 @@ import at.jku.weiner.c.preprocess.parser.antlr.PreprocessParser;
 import at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer;
 import at.jku.weiner.c.preprocess.xtexttests.LexerAndParserTest;
 
-import at.jku.weiner.c.common.common.Model;
-import at.jku.weiner.c.common.common.TranslationUnit;
 import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.Code;
@@ -55,7 +53,7 @@ import at.jku.weiner.c.preprocess.preprocess.Code;
 @InjectWith(PreprocessInjectorProvider.class)
 public class Test0074_CodeWithEOF {
 	@Inject
-	private ParseHelper<Model> parseHelper;
+	private ParseHelper<Preprocess> parseHelper;
 	@Inject
 	private ValidationTestHelper valHelper;
 	@Inject
@@ -128,59 +126,44 @@ public class Test0074_CodeWithEOF {
 	public void checkParserResult() throws Exception {
 		final String text = this.getTextFromFile(
 			"res/Test0074_CodeWithEOF.c");
-		final Model Model_0_Var
+		final Preprocess Preprocess_0_Var
 		  = 
 			this.parseHelper.parse(text);
-		this.valHelper.assertNoErrors(Model_0_Var
+		this.valHelper.assertNoErrors(Preprocess_0_Var
 		);
 		
-		Assert.assertNotNull(Model_0_Var
+		Assert.assertNotNull(Preprocess_0_Var
 		);
-		final EList<? extends EObject> Units_0_list = Model_0_Var
-		.getUnits();
-		Assert.assertNotNull(Units_0_list);
-		Assert.assertEquals(1, Units_0_list.size());
 		//0
-		final TranslationUnit TranslationUnit_1_Var
-		 = (TranslationUnit)Units_0_list.get(0);
-		Assert.assertNotNull(TranslationUnit_1_Var
-		);
-		//1
-		final Preprocess Preprocess_2_Var
-		 = (Preprocess)TranslationUnit_1_Var
-		.getPreprocess();
-		Assert.assertNotNull(Preprocess_2_Var
-		);
-		//2
-		final GroupOpt GroupOpt_3_Var
-		 = (GroupOpt)Preprocess_2_Var
+		final GroupOpt GroupOpt_1_Var
+		 = (GroupOpt)Preprocess_0_Var
 		.getGroup();
-		Assert.assertNotNull(GroupOpt_3_Var
+		Assert.assertNotNull(GroupOpt_1_Var
 		);
-		final EList<? extends EObject> Lines_3_list = GroupOpt_3_Var
+		final EList<? extends EObject> Lines_1_list = GroupOpt_1_Var
 		.getLines();
-		Assert.assertNotNull(Lines_3_list);
-		Assert.assertEquals(3, Lines_3_list.size());
+		Assert.assertNotNull(Lines_1_list);
+		Assert.assertEquals(3, Lines_1_list.size());
+		//1
+		final Code Code_2_Var
+		 = (Code)Lines_1_list.get(0);
+		Assert.assertNotNull(Code_2_Var
+		);
+		Assert.assertEquals("int main(void) {", Code_2_Var
+		.getCode());
+		//2
+		final Code Code_3_Var
+		 = (Code)Lines_1_list.get(1);
+		Assert.assertNotNull(Code_3_Var
+		);
+		Assert.assertEquals("	return 0;", Code_3_Var
+		.getCode());
 		//3
 		final Code Code_4_Var
-		 = (Code)Lines_3_list.get(0);
+		 = (Code)Lines_1_list.get(2);
 		Assert.assertNotNull(Code_4_Var
 		);
-		Assert.assertEquals("int main(void) {", Code_4_Var
-		.getCode());
-		//4
-		final Code Code_5_Var
-		 = (Code)Lines_3_list.get(1);
-		Assert.assertNotNull(Code_5_Var
-		);
-		Assert.assertEquals("	return 0;", Code_5_Var
-		.getCode());
-		//5
-		final Code Code_6_Var
-		 = (Code)Lines_3_list.get(2);
-		Assert.assertNotNull(Code_6_Var
-		);
-		Assert.assertEquals("}", Code_6_Var
+		Assert.assertEquals("}", Code_4_Var
 		.getCode());
 	}
 	

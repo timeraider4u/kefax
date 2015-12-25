@@ -26,19 +26,20 @@ import org.eclipse.xtext.validation.Issue;
 import at.jku.weiner.c.common.ui.internal.CommonActivator;
 import at.jku.weiner.c.parser.ui.internal.ParserActivator;
 import at.jku.weiner.c.preprocess.generator.PreprocessGenerator;
-import at.jku.weiner.c.preprocess.preprocess.Model;
+import at.jku.weiner.c.common.common.Model;
 import at.jku.weiner.c.preprocess.ui.internal.PreprocessActivator;
 
 import com.google.inject.Injector;
 
 public class XtextParser {
-
+	
 	private final Injector preprocessInjector;
 	private final IResourceValidator preprocessValidator;
 	private final JavaIoFileSystemAccess preprocessfileAccessSystem;
 	private final PreprocessGenerator preprocessGenerator;
 	private final Injector commonInjector;
-
+	private final Injector parserInjector;
+	
 	public XtextParser() {
 		this.commonInjector = this.setupCommon();
 		this.preprocessInjector = this.setupPreprocessor();
@@ -48,29 +49,30 @@ public class XtextParser {
 				.getInstance(JavaIoFileSystemAccess.class);
 		this.preprocessGenerator = this.preprocessInjector
 				.getInstance(PreprocessGenerator.class);
+		this.parserInjector = this.setupParser();
 	}
-
+	
 	private Injector setupCommon() {
 		final CommonActivator activator = CommonActivator.getInstance();
 		final Injector result = activator
 				.getInjector(CommonActivator.AT_JKU_WEINER_C_COMMON_COMMON);
 		return result;
 	}
-
+	
 	private Injector setupPreprocessor() {
 		final PreprocessActivator activator = PreprocessActivator.getInstance();
 		final Injector result = activator
 				.getInjector(PreprocessActivator.AT_JKU_WEINER_C_PREPROCESS_PREPROCESS);
 		return result;
 	}
-
+	
 	private Injector setupParser() {
 		final ParserActivator activator = ParserActivator.getInstance();
 		final Injector result = activator
 				.getInjector(ParserActivator.AT_JKU_WEINER_C_PARSER_PARSER);
 		return result;
 	}
-
+	
 	public final Model readFromXtextFile(final File file, final IFile iFile)
 			throws IOException, DiscoveryException {
 		final Resource resource = this.loadResource(file, iFile);
@@ -102,12 +104,12 @@ public class XtextParser {
 		// return model
 		return model;
 	}
-
+	
 	private final void error(final String string) throws DiscoveryException {
 		System.err.println(string);
 		throw new DiscoveryException(string);
 	}
-
+	
 	private final Resource loadResource(final File file, final IFile iFile)
 			throws IOException, DiscoveryException {
 		final IProject iProject = iFile.getProject();
@@ -124,7 +126,7 @@ public class XtextParser {
 		final Resource resource = resourceSet.getResource(uri, true);
 		return resource;
 	}
-
+	
 	private final void validateResource(final Resource resource)
 			throws DiscoveryException {
 		// validate the resource
@@ -136,10 +138,10 @@ public class XtextParser {
 					+ "': " + list.toString());
 		}
 	}
-
+	
 	private final void generateIntermediateFile(final Resource resource,
 			final IFile iFile, final String fileNameOnly)
-			throws DiscoveryException {
+					throws DiscoveryException {
 		// configure and start the generator
 		final URI whole = URI.createURI(iFile.getLocationURI().toString());
 		final URI uri = whole.trimSegments(1);
@@ -149,15 +151,16 @@ public class XtextParser {
 		System.out.println("fileName='" + wholeStr + "'");
 		this.preprocessfileAccessSystem.setOutputPath(path);
 		this.preprocessGenerator.setFileName(wholeStr);
-		this.preprocessGenerator.setAdvanced(true);
+		this.preprocessGenerator.setInsertPredefinedMacros(true);
+		this.preprocessGenerator.setValidateUnit(true);
 		this.preprocessGenerator.setCommonInjector(this.commonInjector);
 		this.preprocessGenerator.doGenerate(resource,
 				this.preprocessfileAccessSystem);
 	}
-
+	
 	private final void readFromXtextFileInternal(final File file)
 			throws IOException, DiscoveryException {
-
+		
 		final String fileName = file.getAbsolutePath();
 		System.out.println("Parsing .c file '" + fileName + "'!");
 		final ResourceSet resourceSet = new ResourceSetImpl();
@@ -172,8 +175,8 @@ public class XtextParser {
 		}
 		if (!(object instanceof Model)) {
 			System.out
-			.println("object is not instance of C Model, object.class='"
-					+ object.getClass().toString() + "'");
+					.println("object is not instance of C Model, object.class='"
+							+ object.getClass().toString() + "'");
 			return;
 			// throw new DiscoveryException(
 			// "Returned object is not a C model - file='"
@@ -181,9 +184,9 @@ public class XtextParser {
 		}
 		System.out.println("XText parsing was successfuly for file='"
 				+ file.getAbsolutePath() + "'!");
-
+		
 	}
-
+	
 	/**
 	 * Parses an input stream and returns the resulting object tree root
 	 * element.
@@ -201,7 +204,7 @@ public class XtextParser {
 	 * this.resourceSet.getLoadOptions()); return resource.getContents().get(0);
 	 * }
 	 */
-
+	
 	/**
 	 * Parses a resource specified by an URI and returns the resulting object
 	 * tree root element.

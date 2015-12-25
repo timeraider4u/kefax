@@ -25,10 +25,10 @@ lexer-tokens
 	WHITESPACE ID WHITESPACE ID SKW_SEMI NEWLINE
 	SKW_RIGHTBRACE NEWLINE
 //----------------------------------------------------------------------
-(common::Model
-	units+=
-	(common::TranslationUnit
-	preprocess=(Preprocess
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
 		group=
 		(GroupOpt
 			lines+=
@@ -94,8 +94,8 @@ lexer-tokens
 			
 		)
 	)
-)
-)
+//)
+//)
 //----------------------------------------------------------------------
 output file="bin/Test0004_SimpleDef.c.i"
 expected file="expected/Test0004_SimpleDef.c"

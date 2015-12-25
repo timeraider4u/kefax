@@ -12,9 +12,9 @@ KW_TYPEDEF WHITESPACE ID WHITESPACE ID SKW_SEMI NEWLINE
 ID WHITESPACE ID SKW_SEMI NEWLINE
 ID WHITESPACE ID SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
-(common::Model units+=
-	(common::TranslationUnit 
-	parser=(Parser
+//(common::Model units+=
+	//(common::TranslationUnit 
+	(Parser
 		external+=
 		// typedef int NUMBER1
 		(ExternalDeclaration 
@@ -144,8 +144,8 @@ ID WHITESPACE ID SKW_SEMI NEWLINE
 		
 		
 	)
-)
-)
+//)
+//)
 //----------------------------------------------------------------------
 output file="bin/Test0004_Typedefs.c"
 expected file isSameAsInputFile

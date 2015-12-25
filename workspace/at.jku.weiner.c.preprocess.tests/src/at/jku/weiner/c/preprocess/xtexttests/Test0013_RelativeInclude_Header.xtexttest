@@ -12,10 +12,10 @@ lexer-tokens
 	LINE_COMMENT NEWLINE
 	ID WHITESPACE ID SKW_LEFTPAREN ID WHITESPACE SKW_STAR +*2 WHITESPACE ID SKW_RIGHTPAREN SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
-(common::Model
-	units+=
-	(common::TranslationUnit
-	preprocess=(Preprocess
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
 		group=
 		(GroupOpt
 			lines+=
@@ -26,8 +26,8 @@ lexer-tokens
 			
 		)
 	)
-)
-)
+//)
+//)
 //----------------------------------------------------------------------
 output file="bin/Test0013_RelativeInclude.h.i"
 expected file="expected/Test0013_RelativeInclude_Header.c"

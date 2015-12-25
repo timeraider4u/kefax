@@ -33,8 +33,8 @@ import org.eclipse.modisco.cdt.discoverer.utils.MyStore;
 import org.eclipse.modisco.infra.discovery.core.AbstractModelDiscoverer;
 import org.eclipse.modisco.infra.discovery.core.exception.DiscoveryException;
 
-import at.jku.weiner.c.preprocess.preprocess.Model;
-import at.jku.weiner.c.preprocess.preprocess.TranslationUnit;
+import at.jku.weiner.c.common.common.Model;
+import at.jku.weiner.c.common.common.TranslationUnit;
 
 public abstract class AbstractCDTDiscoverer<T> extends
 AbstractModelDiscoverer<T> {
@@ -142,8 +142,8 @@ AbstractModelDiscoverer<T> {
 			final IFile iFile = DiscovererUtils.getFileFor(file);
 			final Model model = parser.readFromXtextFile(file, iFile);
 			final EList<TranslationUnit> units = model.getUnits();
-			if (units.size() > 0) {
-				final TranslationUnit unit = model.getUnits().get(0);
+			for (int i = 0; i < units.size(); i++) {
+				final TranslationUnit unit = model.getUnits().get(i);
 				store.getModel().getUnits().add(unit);
 			}
 		} catch (final IOException ex) {

@@ -17,13 +17,11 @@ import at.jku.weiner.c.common.common.Expression;
 import at.jku.weiner.c.common.common.InclusiveOrExpression;
 import at.jku.weiner.c.common.common.LogicalAndExpression;
 import at.jku.weiner.c.common.common.LogicalOrExpression;
-import at.jku.weiner.c.common.common.Model;
 import at.jku.weiner.c.common.common.MultiplicativeExpression;
 import at.jku.weiner.c.common.common.PostfixExpression;
 import at.jku.weiner.c.common.common.PostfixExpressionSuffixArgument;
 import at.jku.weiner.c.common.common.RelationalExpression;
 import at.jku.weiner.c.common.common.ShiftExpression;
-import at.jku.weiner.c.common.common.TranslationUnit;
 import at.jku.weiner.c.common.common.UnaryExpression;
 import at.jku.weiner.c.common.common.UnaryOperator;
 import at.jku.weiner.c.common.serializer.CommonSemanticSequencer;
@@ -112,9 +110,6 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 			case CommonPackage.LOGICAL_OR_EXPRESSION:
 				sequence_LogicalOrExpression(context, (LogicalOrExpression) semanticObject); 
 				return; 
-			case CommonPackage.MODEL:
-				sequence_Model(context, (Model) semanticObject); 
-				return; 
 			case CommonPackage.MULTIPLICATIVE_EXPRESSION:
 				sequence_MultiplicativeExpression(context, (MultiplicativeExpression) semanticObject); 
 				return; 
@@ -129,9 +124,6 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 				return; 
 			case CommonPackage.SHIFT_EXPRESSION:
 				sequence_ShiftExpression(context, (ShiftExpression) semanticObject); 
-				return; 
-			case CommonPackage.TRANSLATION_UNIT:
-				sequence_TranslationUnit(context, (TranslationUnit) semanticObject); 
 				return; 
 			case CommonPackage.UNARY_EXPRESSION:
 				sequence_UnaryExpression(context, (UnaryExpression) semanticObject); 
@@ -400,15 +392,6 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     units+=TranslationUnit
-	 */
-	protected void sequence_Model(EObject context, Model semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
 	 *     {NewLineLine}
 	 */
 	protected void sequence_NewLineLine(EObject context, NewLineLine semanticObject) {
@@ -473,15 +456,6 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	 *     ((defined?=DEFINED? id=ID) | (defined?=DEFINED? id=ID) | const=Constant1 | expr=Expression)
 	 */
 	protected void sequence_PrimaryExpression(EObject context, PrimaryExpression semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     preprocess=Preprocess
-	 */
-	protected void sequence_TranslationUnit(EObject context, TranslationUnit semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

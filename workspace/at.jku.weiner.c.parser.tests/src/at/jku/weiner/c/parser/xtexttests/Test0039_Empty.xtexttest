@@ -9,9 +9,9 @@ source file="res/Test0039_Empty.h"
 lexer-tokens
 KW_VOID WHITESPACE ID SKW_LEFTPAREN  SKW_RIGHTPAREN SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
-(common::Model units+=
-	(common::TranslationUnit 
-	parser=(Parser
+//(common::Model units+=
+	//(common::TranslationUnit 
+	(Parser
 		external+=
 		// void do6();
 		(ExternalDeclaration 
@@ -49,8 +49,8 @@ KW_VOID WHITESPACE ID SKW_LEFTPAREN  SKW_RIGHTPAREN SKW_SEMI NEWLINE
 		)
 		
 	)
-)
-)
+//)
+//)
 //----------------------------------------------------------------------
 output file="bin/Test0039_Empty.c"
 expected file isSameAsInputFile

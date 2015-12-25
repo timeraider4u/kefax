@@ -12,10 +12,10 @@ lexer-tokens
 	WHITESPACE ID WHITESPACE DECIMAL_LITERAL SKW_SEMI NEWLINE
 	SKW_RIGHTBRACE
 //----------------------------------------------------------------------
-(common::Model
-	units+=
-	(common::TranslationUnit
-	preprocess=(Preprocess
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
 		group=
 		(GroupOpt
 			lines+=
@@ -30,8 +30,8 @@ lexer-tokens
 			)
 		)
 	)
-)
-)
+//)
+//)
 //----------------------------------------------------------------------
 output file="bin/Test0074_CodeWithEOF.c.i"
 expected file="expected/Test0074_CodeWithEOF.c"

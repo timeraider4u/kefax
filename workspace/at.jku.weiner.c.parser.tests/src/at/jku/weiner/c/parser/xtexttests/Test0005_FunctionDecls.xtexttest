@@ -13,9 +13,9 @@ KW_FLOAT WHITESPACE ID SKW_LEFTPAREN  SKW_RIGHTPAREN SKW_SEMI NEWLINE
 KW_INT WHITESPACE ID SKW_LEFTPAREN  SKW_RIGHTPAREN SKW_SEMI NEWLINE
 KW_VOID WHITESPACE ID SKW_LEFTPAREN  SKW_RIGHTPAREN SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
-(common::Model units+=
-	(common::TranslationUnit 
-	parser=(Parser
+//(common::Model units+=
+	//(common::TranslationUnit 
+	(Parser
 		external+=
 		// char do2();
 		(ExternalDeclaration 
@@ -189,8 +189,8 @@ KW_VOID WHITESPACE ID SKW_LEFTPAREN  SKW_RIGHTPAREN SKW_SEMI NEWLINE
 		)
 		
 	)
-)
-)
+//)
+//)
 //----------------------------------------------------------------------
 output file="bin/Test0005_FunctionDecls.c"
 expected file isSameAsInputFile

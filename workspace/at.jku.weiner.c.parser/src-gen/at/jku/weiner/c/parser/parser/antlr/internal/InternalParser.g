@@ -56,7 +56,7 @@ import at.jku.weiner.c.parser.services.ParserGrammarAccess;
     
     @Override
     protected String getFirstRuleName() {
-    	return "Model";	
+    	return "Parser";	
    	}
    	
    	@Override
@@ -71,126 +71,6 @@ import at.jku.weiner.c.parser.services.ParserGrammarAccess;
         appendSkippedTokens();
     } 
 }
-
-
-
-
-// Entry rule entryRuleModel
-entryRuleModel returns [EObject current=null] 
-	:
-	{ newCompositeNode(grammarAccess.getModelRule()); }
-	 iv_ruleModel=ruleModel 
-	 { $current=$iv_ruleModel.current; } 
-	 EOF 
-;
-
-// Rule Model
-ruleModel returns [EObject current=null] 
-    @init { enterRule();
-   		/*no init found*/
-    }
-    @after { leaveRule();
-    		/*no after found*/
-     }:
-
-(
-(
-	{ 
-	  /* */ 
-	}
-    {
-        $current = forceCreateModelElement(
-            grammarAccess.getModelAccess().getModelAction_0(),
-            $current);
-    }
-)
-
-
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getModelAccess().getUnitsTranslationUnitParserRuleCall_1_0()); 
-	    }
-		lv_units_1_0=ruleTranslationUnit		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getModelRule());
-	        }
-       		add(
-       			$current, 
-       			"units",
-        		lv_units_1_0, 
-        		"at.jku.weiner.c.parser.Parser.TranslationUnit");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)
-
-)
-
-
-;
-
-
-
-
-
-// Entry rule entryRuleTranslationUnit
-entryRuleTranslationUnit returns [EObject current=null] 
-	:
-	{ newCompositeNode(grammarAccess.getTranslationUnitRule()); }
-	 iv_ruleTranslationUnit=ruleTranslationUnit 
-	 { $current=$iv_ruleTranslationUnit.current; } 
-	 EOF 
-;
-
-// Rule TranslationUnit
-ruleTranslationUnit returns [EObject current=null] 
-    @init { enterRule();
-   		/*no init found*/
-    }
-    @after { leaveRule();
-    		/*no after found*/
-     }:
-
-(
-(
-	{ 
-	  /* */ 
-	}
-    {
-        $current = forceCreateModelElement(
-            grammarAccess.getTranslationUnitAccess().getTranslationUnitAction_0(),
-            $current);
-    }
-)
-
-
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getTranslationUnitAccess().getParserParserParserRuleCall_1_0()); 
-	    }
-		lv_parser_1_0=ruleParser		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getTranslationUnitRule());
-	        }
-       		set(
-       			$current, 
-       			"parser",
-        		lv_parser_1_0, 
-        		"at.jku.weiner.c.parser.Parser.Parser");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)
-
-)
-
-
-;
-
 
 
 

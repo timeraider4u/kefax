@@ -12,10 +12,10 @@ lexer-tokens
 	HASH DEFINE WHITESPACE ID WHITESPACE DECIMAL_LITERAL NEWLINE
 	ID WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE ID SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
-(common::Model
-	units+=
-	(common::TranslationUnit
-	preprocess=(Preprocess
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
 		group=
 		(GroupOpt
 			lines+=
@@ -34,8 +34,8 @@ lexer-tokens
 			)
 		)
 	)
-)
-)
+//)
+//)
 //----------------------------------------------------------------------
 output file="bin/Test0030_ObjectLikeMacro.c.i"
 expected file="expected/Test0030_ObjectLikeMacro.c"

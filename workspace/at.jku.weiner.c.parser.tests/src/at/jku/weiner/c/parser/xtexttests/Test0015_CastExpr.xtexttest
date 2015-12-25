@@ -11,9 +11,9 @@ KW_VOID WHITESPACE ID SKW_LEFTPAREN SKW_RIGHTPAREN WHITESPACE SKW_LEFTBRACE NEWL
 WHITESPACE SKW_LEFTPAREN KW_INT SKW_RIGHTPAREN FLOAT_LITERAL SKW_SEMI NEWLINE
 SKW_RIGHTBRACE NEWLINE
 //----------------------------------------------------------------------
-(common::Model units+=
-	(common::TranslationUnit 
-	parser=(Parser
+//(common::Model units+=
+	//(common::TranslationUnit 
+	(Parser
 		external+=
 		(ExternalDeclaration 
 			functiondefHead=
@@ -121,8 +121,8 @@ SKW_RIGHTBRACE NEWLINE
 		)
 		
 	)
-)
-)
+//)
+//)
 //----------------------------------------------------------------------
 output file="bin/Test0015_CastExpr.c"
 expected file isSameAsInputFile

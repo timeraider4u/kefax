@@ -7,9 +7,11 @@ imports at.jku.weiner.c.common.common
 source file="res/Test0000_Empty.c"
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------
-(common::Model
-	
-)
+//(common::Model
+	(Parser
+		
+	)
+//)
 //----------------------------------------------------------------------
 output file="bin/Test0000_Empty.c"
 expected file isSameAsInputFile

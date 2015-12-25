@@ -10,9 +10,9 @@ lexer-tokens
 SKW_SEMI NEWLINE
 SKW_SEMI SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
-(common::Model units+=
-	(common::TranslationUnit 
-	parser=(Parser
+//(common::Model units+=
+	//(common::TranslationUnit 
+	(Parser
 		external+=
 		(ExternalDeclaration 
 			semi++";"
@@ -24,8 +24,8 @@ SKW_SEMI SKW_SEMI NEWLINE
 			semi++";"
 		)
 	)
-)
-)
+//)
+//)
 //----------------------------------------------------------------------
 output file="bin/Test0001_Semicolons.c"
 expected file isSameAsInputFile

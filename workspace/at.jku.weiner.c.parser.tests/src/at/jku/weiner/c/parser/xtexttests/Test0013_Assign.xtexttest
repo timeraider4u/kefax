@@ -10,9 +10,9 @@ lexer-tokens
 KW_INT WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE DECIMAL_LITERAL
 SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
-(common::Model units+=
-	(common::TranslationUnit 
-	parser=(Parser
+//(common::Model units+=
+	//(common::TranslationUnit 
+	(Parser
 		external+=
 		(ExternalDeclaration 
 			declaration=
@@ -96,8 +96,8 @@ SKW_SEMI NEWLINE
 			)
 		)
 	)
-)
-)
+//)
+//)
 //----------------------------------------------------------------------
 output file="bin/Test0013_Assign.c"
 expected file isSameAsInputFile

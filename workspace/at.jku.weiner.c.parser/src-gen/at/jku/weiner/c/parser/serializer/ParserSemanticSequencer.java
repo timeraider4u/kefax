@@ -5,8 +5,6 @@ package at.jku.weiner.c.parser.serializer;
 
 import at.jku.weiner.c.common.common.CommonPackage;
 import at.jku.weiner.c.common.common.Constant2;
-import at.jku.weiner.c.common.common.Model;
-import at.jku.weiner.c.common.common.TranslationUnit;
 import at.jku.weiner.c.common.serializer.CommonSemanticSequencer;
 import at.jku.weiner.c.parser.parser.AdditiveExpression;
 import at.jku.weiner.c.parser.parser.AndExpression;
@@ -111,12 +109,6 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 		if(semanticObject.eClass().getEPackage() == CommonPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
 			case CommonPackage.CONSTANT2:
 				sequence_Constant2(context, (Constant2) semanticObject); 
-				return; 
-			case CommonPackage.MODEL:
-				sequence_Model(context, (Model) semanticObject); 
-				return; 
-			case CommonPackage.TRANSLATION_UNIT:
-				sequence_TranslationUnit(context, (TranslationUnit) semanticObject); 
 				return; 
 			}
 		else if(semanticObject.eClass().getEPackage() == ParserPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
@@ -801,15 +793,6 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     units+=TranslationUnit
-	 */
-	protected void sequence_Model(EObject context, Model semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
 	 *     (expr+=CastExpression ((op+=SKW_STAR | op+=SKW_DIV | op+=SKW_MOD) expr+=CastExpression)*)
 	 */
 	protected void sequence_MultiplicativeExpression(EObject context, MultiplicativeExpression semanticObject) {
@@ -1118,15 +1101,6 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getStructOrUnionAccess().getNameKW_STRUCTTerminalRuleCall_0_1_0(), semanticObject.getName());
 		feeder.finish();
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     parser=Parser
-	 */
-	protected void sequence_TranslationUnit(EObject context, TranslationUnit semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

@@ -19,10 +19,10 @@ lexer-tokens
 	WHITESPACE ID WHITESPACE ID SKW_SEMI NEWLINE
 	SKW_RIGHTBRACE NEWLINE
 //----------------------------------------------------------------------
-(common::Model
-	units+=
-	(common::TranslationUnit
-	preprocess=(Preprocess
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
 		group=
 		(GroupOpt
 			lines+=
@@ -59,8 +59,8 @@ lexer-tokens
 			
 		)
 	)
-)
-)
+//)
+//)
 //----------------------------------------------------------------------
 output file="bin/Test0021_MacroExpansion.c.i"
 expected file="expected/Test0021_MacroExpansion.c"

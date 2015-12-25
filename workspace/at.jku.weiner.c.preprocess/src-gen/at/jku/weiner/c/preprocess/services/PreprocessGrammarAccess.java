@@ -23,52 +23,6 @@ import org.eclipse.xtext.service.GrammarProvider;
 @Singleton
 public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	
-	public class ModelElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.Model");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cModelAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cUnitsAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cUnitsTranslationUnitParserRuleCall_1_0 = (RuleCall)cUnitsAssignment_1.eContents().get(0);
-		
-		//Model common::Model:
-		//	{common::Model} units+=TranslationUnit
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{common::Model} units+=TranslationUnit
-		public Group getGroup() { return cGroup; }
-		
-		//{common::Model}
-		public Action getModelAction_0() { return cModelAction_0; }
-		
-		//units+=TranslationUnit
-		public Assignment getUnitsAssignment_1() { return cUnitsAssignment_1; }
-		
-		//TranslationUnit
-		public RuleCall getUnitsTranslationUnitParserRuleCall_1_0() { return cUnitsTranslationUnitParserRuleCall_1_0; }
-	}
-	public class TranslationUnitElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.TranslationUnit");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cTranslationUnitAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cPreprocessAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cPreprocessPreprocessParserRuleCall_1_0 = (RuleCall)cPreprocessAssignment_1.eContents().get(0);
-		
-		//TranslationUnit common::TranslationUnit:
-		//	{common::TranslationUnit} preprocess=Preprocess
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{common::TranslationUnit} preprocess=Preprocess
-		public Group getGroup() { return cGroup; }
-		
-		//{common::TranslationUnit}
-		public Action getTranslationUnitAction_0() { return cTranslationUnitAction_0; }
-		
-		//preprocess=Preprocess
-		public Assignment getPreprocessAssignment_1() { return cPreprocessAssignment_1; }
-		
-		//Preprocess
-		public RuleCall getPreprocessPreprocessParserRuleCall_1_0() { return cPreprocessPreprocessParserRuleCall_1_0; }
-	}
 	public class PreprocessElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.Preprocess");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -76,6 +30,15 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cGroupAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cGroupGroupOpt2ParserRuleCall_1_0 = (RuleCall)cGroupAssignment_1.eContents().get(0);
 		
+		////Model returns common::Model:
+		////	{common::Model}
+		////	units+=TranslationUnit
+		////;
+		////
+		////TranslationUnit returns common::TranslationUnit:
+		////	{common::TranslationUnit}
+		////	preprocess=Preprocess
+		////;
 		//Preprocess common::Preprocess:
 		//	{Preprocess} group=GroupOpt2
 		@Override public ParserRule getRule() { return rule; }
@@ -1306,8 +1269,6 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	
-	private final ModelElements pModel;
-	private final TranslationUnitElements pTranslationUnit;
 	private final PreprocessElements pPreprocess;
 	private final GroupOptElements pGroupOpt;
 	private final GroupOpt2Elements pGroupOpt2;
@@ -1364,8 +1325,6 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 			CommonGrammarAccess gaCommon) {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaCommon = gaCommon;
-		this.pModel = new ModelElements();
-		this.pTranslationUnit = new TranslationUnitElements();
 		this.pPreprocess = new PreprocessElements();
 		this.pGroupOpt = new GroupOptElements();
 		this.pGroupOpt2 = new GroupOpt2Elements();
@@ -1441,26 +1400,15 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
-	//Model common::Model:
-	//	{common::Model} units+=TranslationUnit
-	public ModelElements getModelAccess() {
-		return pModel;
-	}
-	
-	public ParserRule getModelRule() {
-		return getModelAccess().getRule();
-	}
-	
-	//TranslationUnit common::TranslationUnit:
-	//	{common::TranslationUnit} preprocess=Preprocess
-	public TranslationUnitElements getTranslationUnitAccess() {
-		return pTranslationUnit;
-	}
-	
-	public ParserRule getTranslationUnitRule() {
-		return getTranslationUnitAccess().getRule();
-	}
-	
+	////Model returns common::Model:
+	////	{common::Model}
+	////	units+=TranslationUnit
+	////;
+	////
+	////TranslationUnit returns common::TranslationUnit:
+	////	{common::TranslationUnit}
+	////	preprocess=Preprocess
+	////;
 	//Preprocess common::Preprocess:
 	//	{Preprocess} group=GroupOpt2
 	public PreprocessElements getPreprocessAccess() {

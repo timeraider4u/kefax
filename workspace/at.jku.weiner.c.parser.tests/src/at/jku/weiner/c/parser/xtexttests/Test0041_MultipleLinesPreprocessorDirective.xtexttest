@@ -11,10 +11,10 @@ LINEDIRECTIVE NEWLINE
 NEWLINE
 KW_INT WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE ID SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
-(common::Model
-	units+=
-	(common::TranslationUnit 
-	parser=(Parser
+//(common::Model
+	//units+=
+	//(common::TranslationUnit 
+	(Parser
 		external+=
 		(ExternalDeclaration 
 			declaration=
@@ -95,8 +95,8 @@ KW_INT WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE ID SKW_SEMI NEWLINE
 			)
 		)
 	)
-)
-)
+//)
+//)
 //----------------------------------------------------------------------
 output file="bin/Test0041_MultipleLinesPreprocessorDirective.c"
 expected file isSameAsInputFile

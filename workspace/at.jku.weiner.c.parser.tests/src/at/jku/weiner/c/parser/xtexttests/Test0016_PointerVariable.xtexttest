@@ -10,9 +10,9 @@ lexer-tokens
 KW_FLOAT WHITESPACE SKW_STAR WHITESPACE KW_CONST WHITESPACE ID SKW_SEMI NEWLINE
 KW_DOUBLE WHITESPACE SKW_STAR WHITESPACE SKW_STAR WHITESPACE ID SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
-(common::Model units+=
-	(common::TranslationUnit 
-	parser=(Parser
+//(common::Model units+=
+	//(common::TranslationUnit 
+	(Parser
 		external+=
 		(ExternalDeclaration 
 			declaration=
@@ -84,8 +84,8 @@ KW_DOUBLE WHITESPACE SKW_STAR WHITESPACE SKW_STAR WHITESPACE ID SKW_SEMI NEWLINE
 			
 		)
 	)
-)
-)
+//)
+//)
 //----------------------------------------------------------------------
 output file="bin/Test0016_PointerVariable.c"
 expected file isSameAsInputFile

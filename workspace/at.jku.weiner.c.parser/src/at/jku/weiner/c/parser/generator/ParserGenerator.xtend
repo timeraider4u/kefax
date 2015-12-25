@@ -92,17 +92,16 @@ import at.jku.weiner.c.parser.parser.Parser
  */
 class ParserGenerator implements IGenerator {
 	
-	@Accessors String fileName = 'greetings.txt';
+	@Accessors String fileName = 'hello_world.cdt.c';
 	
 	override void doGenerate(Resource input, IFileSystemAccess fsa) {
-		val model = input.allContents.filter(typeof(Model)).head;
-		val unit = model.units.head;
-		val output = outputFor(unit);
+		val parser = input.allContents.filter(typeof(Parser)).head;
+		//val unit = model.units.head;
+		val output = outputFor(parser);
 		fsa.generateFile(fileName, output);
 	}
 
-	def String outputFor(TranslationUnit unit) {
-		val Parser parser = unit.parser as Parser;
+	def String outputFor(Parser parser) {
 		val StringBuffer result = new StringBuffer("");
 		for (e : parser.external) {
 			result.append(outputFor(e));

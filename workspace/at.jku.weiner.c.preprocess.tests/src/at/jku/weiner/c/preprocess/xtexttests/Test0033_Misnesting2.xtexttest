@@ -13,10 +13,10 @@ lexer-tokens
 		NEWLINE
 	ID SKW_LEFTPAREN DECIMAL_LITERAL SKW_RIGHTPAREN SKW_COMMA WHITESPACE DECIMAL_LITERAL SKW_RIGHTPAREN SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
-(common::Model
-	units+=
-	(common::TranslationUnit
-	preprocess=(Preprocess
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
 		group=
 		(GroupOpt
 			lines+=
@@ -37,8 +37,8 @@ lexer-tokens
 			
 		)
 	)
-)
-)
+//)
+//)
 //----------------------------------------------------------------------
 output file="bin/Test0033_Misnesting2.c.i"
 expected file="expected/Test0033_Misnesting2.c"

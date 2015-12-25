@@ -350,6 +350,16 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getTranslationUnit_Path()
+	{
+		return (EAttribute)translationUnitEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPreprocess()
 	{
 		return preprocessEClass;
@@ -1001,6 +1011,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
 		translationUnitEClass = createEClass(TRANSLATION_UNIT);
 		createEReference(translationUnitEClass, TRANSLATION_UNIT__PREPROCESS);
 		createEReference(translationUnitEClass, TRANSLATION_UNIT__PARSER);
+		createEAttribute(translationUnitEClass, TRANSLATION_UNIT__PATH);
 
 		preprocessEClass = createEClass(PREPROCESS);
 
@@ -1146,6 +1157,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
 		initEClass(translationUnitEClass, TranslationUnit.class, "TranslationUnit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTranslationUnit_Preprocess(), this.getPreprocess(), null, "preprocess", null, 0, 1, TranslationUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTranslationUnit_Parser(), this.getParser(), null, "parser", null, 0, 1, TranslationUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTranslationUnit_Path(), theEcorePackage.getEString(), "path", null, 0, 1, TranslationUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(preprocessEClass, Preprocess.class, "Preprocess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

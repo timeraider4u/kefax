@@ -13,10 +13,10 @@ lexer-tokens
 	NEWLINE
 	SKW_SEMI +*3 NEWLINE
 //----------------------------------------------------------------------
-(common::Model
-	units+=
-	(common::TranslationUnit
-	preprocess=(Preprocess
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
 		group=
 		(GroupOpt
 			lines+=		
@@ -34,8 +34,8 @@ lexer-tokens
 			)
 		)
 	)
-)
-)
+//)
+//)
 //----------------------------------------------------------------------
 output file="bin/Test0001_Semicolons.c.i"
 expected file isSameAsInputFile

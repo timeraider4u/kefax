@@ -16,9 +16,9 @@ KW_INT WHITESPACE ID SKW_RIGHTPAREN WHITESPACE SKW_LEFTBRACE NEWLINE
 	SKW_GREATER WHITESPACE DECIMAL_LITERAL SKW_RIGHTPAREN SKW_SEMI NEWLINE
 SKW_RIGHTBRACE NEWLINE
 //----------------------------------------------------------------------
-(common::Model units+=
-	(common::TranslationUnit 
-	parser=(Parser
+//(common::Model units+=
+	//(common::TranslationUnit 
+	(Parser
 		external+=
 		(ExternalDeclaration 
 			functiondefHead=
@@ -240,8 +240,8 @@ SKW_RIGHTBRACE NEWLINE
 			)
 		) // end external declaration
 	)
-)
-)
+//)
+//)
 //----------------------------------------------------------------------
 output file="bin/Test0024_DoWhile.c"
 expected file isSameAsInputFile

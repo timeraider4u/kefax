@@ -14,10 +14,10 @@ lexer-tokens
 	HASH DEFINE WHITESPACE ID WHITESPACE WHITESPACE NEWLINE
 	ID WHITESPACE HASH INCLUDE WHITESPACE SKW_LESS ID SKW_DOT ID SKW_GREATER NEWLINE
 //----------------------------------------------------------------------
-(common::Model
-	units+=
-	(common::TranslationUnit
-	preprocess=(Preprocess
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
 		group=
 		(GroupOpt
 			lines+=
@@ -44,8 +44,8 @@ lexer-tokens
 			)
 		)
 	)
-)
-)
+//)
+//)
 //----------------------------------------------------------------------
 output file="bin/Test0018_EmptyInc.c.i"
 expected file="expected/Test0018_EmptyInc.c"

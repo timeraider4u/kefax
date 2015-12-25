@@ -12,9 +12,9 @@ KW_INT WHITESPACE SKW_STAR ID SKW_COMMA WHITESPACE
 KW_CHAR WHITESPACE SKW_STAR SKW_STAR WHITESPACE ID
 SKW_RIGHTPAREN SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
-(common::Model units+=
-	(common::TranslationUnit 
-	parser=(Parser
+//(common::Model units+=
+	//(common::TranslationUnit 
+	(Parser
 		external+=
 		(ExternalDeclaration 
 			declaration=
@@ -97,8 +97,8 @@ SKW_RIGHTPAREN SKW_SEMI NEWLINE
 		)
 		
 	)
-)
-)
+//)
+//)
 //----------------------------------------------------------------------
 output file="bin/Test0017_PointerInFunctionDecl.c"
 expected file isSameAsInputFile

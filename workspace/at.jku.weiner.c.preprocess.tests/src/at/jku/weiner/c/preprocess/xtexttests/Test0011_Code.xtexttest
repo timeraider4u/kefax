@@ -14,10 +14,10 @@ lexer-tokens
 	SKW_RIGHTBRACE NEWLINE
 	NEWLINE
 //----------------------------------------------------------------------
-(common::Model
-	units+=
-	(common::TranslationUnit
-	preprocess=(Preprocess
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
 		group=
 		(GroupOpt
 			lines+=
@@ -40,8 +40,8 @@ lexer-tokens
 			
 		)
 	)
-)
-)
+//)
+//)
 //----------------------------------------------------------------------
 output file="bin/Test0011_Code.c.i"
 expected file="expected/Test0011_Code.c"

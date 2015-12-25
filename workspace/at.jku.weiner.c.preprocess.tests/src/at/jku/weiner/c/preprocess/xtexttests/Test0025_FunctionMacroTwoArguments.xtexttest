@@ -28,10 +28,10 @@ lexer-tokens
 	ID WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE ID WHITESPACE SKW_LEFTPAREN ID WHITESPACE SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN 
 		SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
-(common::Model
-	units+=
-	(common::TranslationUnit
-	preprocess=(Preprocess
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
 		group=
 		(GroupOpt
 			lines+=
@@ -63,8 +63,8 @@ lexer-tokens
 			)
 		)
 	)
-)
-)
+//)
+//)
 //----------------------------------------------------------------------
 output file="bin/Test0025_FunctionMacroTwoArguments.c.i"
 expected file="expected/Test0025_FunctionMacroTwoArguments.c"

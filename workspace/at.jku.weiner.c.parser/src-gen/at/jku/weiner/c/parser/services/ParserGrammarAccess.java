@@ -24,52 +24,6 @@ import org.eclipse.xtext.service.GrammarProvider;
 @Singleton
 public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	
-	public class ModelElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.Model");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cModelAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cUnitsAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cUnitsTranslationUnitParserRuleCall_1_0 = (RuleCall)cUnitsAssignment_1.eContents().get(0);
-		
-		/// *** parser *** / Model common::Model:
-		//	{common::Model} units+=TranslationUnit
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{common::Model} units+=TranslationUnit
-		public Group getGroup() { return cGroup; }
-		
-		//{common::Model}
-		public Action getModelAction_0() { return cModelAction_0; }
-		
-		//units+=TranslationUnit
-		public Assignment getUnitsAssignment_1() { return cUnitsAssignment_1; }
-		
-		//TranslationUnit
-		public RuleCall getUnitsTranslationUnitParserRuleCall_1_0() { return cUnitsTranslationUnitParserRuleCall_1_0; }
-	}
-	public class TranslationUnitElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.TranslationUnit");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cTranslationUnitAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cParserAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cParserParserParserRuleCall_1_0 = (RuleCall)cParserAssignment_1.eContents().get(0);
-		
-		//TranslationUnit common::TranslationUnit:
-		//	{common::TranslationUnit} parser=Parser
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{common::TranslationUnit} parser=Parser
-		public Group getGroup() { return cGroup; }
-		
-		//{common::TranslationUnit}
-		public Action getTranslationUnitAction_0() { return cTranslationUnitAction_0; }
-		
-		//parser=Parser
-		public Assignment getParserAssignment_1() { return cParserAssignment_1; }
-		
-		//Parser
-		public RuleCall getParserParserParserRuleCall_1_0() { return cParserParserParserRuleCall_1_0; }
-	}
 	public class ParserElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.Parser");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -77,6 +31,15 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cExternalAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cExternalExternalDeclarationParserRuleCall_1_0 = (RuleCall)cExternalAssignment_1.eContents().get(0);
 		
+		/// *** parser *** / //Model returns common::Model: 
+		////	{common::Model} 
+		////	(units+=TranslationUnit)
+		////;
+		////
+		////TranslationUnit returns common::TranslationUnit:
+		////	{common::TranslationUnit}
+		////	parser=Parser
+		////;
 		//Parser common::Parser initRuleAction { at.jku.weiner.c.parser.Scope.createNewScope("Parser"); } afterRuleAction {
 		//at.jku.weiner.c.parser.Scope.removeScope(0); }:
 		//	{Parser} external+=ExternalDeclaration*
@@ -4442,8 +4405,6 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	
-	private final ModelElements pModel;
-	private final TranslationUnitElements pTranslationUnit;
 	private final ParserElements pParser;
 	private final ExternalDeclarationElements pExternalDeclaration;
 	private final FunctionDefHeadElements pFunctionDefHead;
@@ -4594,8 +4555,6 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 			CommonGrammarAccess gaCommon) {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaCommon = gaCommon;
-		this.pModel = new ModelElements();
-		this.pTranslationUnit = new TranslationUnitElements();
 		this.pParser = new ParserElements();
 		this.pExternalDeclaration = new ExternalDeclarationElements();
 		this.pFunctionDefHead = new FunctionDefHeadElements();
@@ -4765,26 +4724,15 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
-	/// *** parser *** / Model common::Model:
-	//	{common::Model} units+=TranslationUnit
-	public ModelElements getModelAccess() {
-		return pModel;
-	}
-	
-	public ParserRule getModelRule() {
-		return getModelAccess().getRule();
-	}
-	
-	//TranslationUnit common::TranslationUnit:
-	//	{common::TranslationUnit} parser=Parser
-	public TranslationUnitElements getTranslationUnitAccess() {
-		return pTranslationUnit;
-	}
-	
-	public ParserRule getTranslationUnitRule() {
-		return getTranslationUnitAccess().getRule();
-	}
-	
+	/// *** parser *** / //Model returns common::Model: 
+	////	{common::Model} 
+	////	(units+=TranslationUnit)
+	////;
+	////
+	////TranslationUnit returns common::TranslationUnit:
+	////	{common::TranslationUnit}
+	////	parser=Parser
+	////;
 	//Parser common::Parser initRuleAction { at.jku.weiner.c.parser.Scope.createNewScope("Parser"); } afterRuleAction {
 	//at.jku.weiner.c.parser.Scope.removeScope(0); }:
 	//	{Parser} external+=ExternalDeclaration*

@@ -58,8 +58,6 @@ public class PreprocessParser extends AbstractContentAssistParser {
 					put(grammarAccess.getConstant1Access().getAlternatives(), "rule__Constant1__Alternatives");
 					put(grammarAccess.getConstant2Access().getAlternatives_1(), "rule__Constant2__Alternatives_1");
 					put(grammarAccess.getSpecialKeywordsAccess().getAlternatives(), "rule__SpecialKeywords__Alternatives");
-					put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
-					put(grammarAccess.getTranslationUnitAccess().getGroup(), "rule__TranslationUnit__Group__0");
 					put(grammarAccess.getPreprocessAccess().getGroup(), "rule__Preprocess__Group__0");
 					put(grammarAccess.getGroupOptAccess().getGroup(), "rule__GroupOpt__Group__0");
 					put(grammarAccess.getGroupOptAccess().getGroup_1(), "rule__GroupOpt__Group_1__0");
@@ -124,8 +122,6 @@ public class PreprocessParser extends AbstractContentAssistParser {
 					put(grammarAccess.getArgumentExpressionListAccess().getGroup(), "rule__ArgumentExpressionList__Group__0");
 					put(grammarAccess.getArgumentExpressionListAccess().getGroup_1(), "rule__ArgumentExpressionList__Group_1__0");
 					put(grammarAccess.getConstant2Access().getGroup(), "rule__Constant2__Group__0");
-					put(grammarAccess.getModelAccess().getUnitsAssignment_1(), "rule__Model__UnitsAssignment_1");
-					put(grammarAccess.getTranslationUnitAccess().getPreprocessAssignment_1(), "rule__TranslationUnit__PreprocessAssignment_1");
 					put(grammarAccess.getPreprocessAccess().getGroupAssignment_1(), "rule__Preprocess__GroupAssignment_1");
 					put(grammarAccess.getGroupOptAccess().getLinesAssignment_1_0(), "rule__GroupOpt__LinesAssignment_1_0");
 					put(grammarAccess.getGroupOpt2Access().getLinesAssignment_1_0(), "rule__GroupOpt2__LinesAssignment_1_0");
@@ -238,7 +234,7 @@ public class PreprocessParser extends AbstractContentAssistParser {
 	protected Collection<FollowElement> getFollowElements(AbstractInternalContentAssistParser parser) {
 		try {
 			at.jku.weiner.c.preprocess.ui.contentassist.antlr.internal.InternalPreprocessParser typedParser = (at.jku.weiner.c.preprocess.ui.contentassist.antlr.internal.InternalPreprocessParser) parser;
-			typedParser.entryRuleModel();
+			typedParser.entryRulePreprocess();
 			return typedParser.getFollowElements();
 		} catch(RecognitionException ex) {
 			throw new RuntimeException(ex);

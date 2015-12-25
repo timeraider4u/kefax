@@ -25,7 +25,7 @@ public class PreprocessParser extends org.eclipse.xtext.parser.antlr.AbstractAnt
 	
 	@Override 
 	protected String getDefaultRuleName() {
-		return "Model";
+		return "Preprocess";
 	}
 	
 	public PreprocessGrammarAccess getGrammarAccess() {

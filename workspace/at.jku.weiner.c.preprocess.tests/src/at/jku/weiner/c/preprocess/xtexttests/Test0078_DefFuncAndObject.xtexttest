@@ -13,10 +13,10 @@ lexer-tokens
 	ID NEWLINE
 	ID SKW_LEFTPAREN DECIMAL_LITERAL SKW_RIGHTPAREN NEWLINE
 //----------------------------------------------------------------------
-(common::Model
-	units+=
-	(common::TranslationUnit
-	preprocess=(Preprocess
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
 		group=
 		(GroupOpt
 			lines+=
@@ -47,8 +47,8 @@ lexer-tokens
 			
 		)
 	)
-)
-)
+//)
+//)
 //----------------------------------------------------------------------
 output file="bin/Test0078_DefFuncAndObject.c.i"
 expected file="expected/Test0078_DefFuncAndObject.c"

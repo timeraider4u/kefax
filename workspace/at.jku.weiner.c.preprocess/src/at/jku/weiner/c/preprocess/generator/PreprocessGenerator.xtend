@@ -56,9 +56,11 @@ import at.jku.weiner.c.preprocess.preprocess.Preprocess
  */
 class PreprocessGenerator implements IGenerator {
 
-	@Accessors String fileName = 'greetings.txt';
+	@Accessors String fileName = 'hello_world.cdt.i';
+	@Accessors Model model = null;
 	@Accessors boolean legacyMode = true;
-	@Accessors boolean advanced = false;
+	@Accessors boolean insertPredefinedMacros = false;
+	@Accessors boolean validateUnit = true;
 	@Accessors Injector commonInjector;
 	
 	@Inject
@@ -83,25 +85,31 @@ class PreprocessGenerator implements IGenerator {
 		IncludeDirs.setUp();
 		path.clear();
 		DefinitionTable.reset();
-		if (advanced) {
+		if (insertPredefinedMacros) {
 			DefinitionTable.insertPredefinedMacros();
 		}
-		val TranslationUnit unit = getUnitFor(input);
-		val String output = outputFor(unit);
+		val Preprocess preprocess = getPreprocessFor(input);
+		val String output = outputFor(preprocess);
 		// System.out.println("generating output file='" + fileName + "'");
 		fsa.generateFile(fileName, output);
 	}
 	
-	def TranslationUnit getUnitFor(Resource input) {
-		validateUnit(input);
-		val Model model = input.allContents.filter(typeof(Model)).head;
-		val TranslationUnit unit = model.getUnits().head;
-		path.add("/" + input.URI.toFileString + "/");
-		return unit;
+	def Preprocess getPreprocessFor(Resource input) {
+		validatePreprocess(input);
+		val Preprocess preprocess = input.allContents.filter(typeof(Preprocess)).head;
+		//val TranslationUnit unit = model.getUnits().head;
+		val String fileName = input.URI.toFileString;
+		// unit.setPath(fileName);
+		path.add("/" + fileName + "/");
+		return preprocess;
 	}
 	
-	def void validateUnit(Resource resource) {
-		if (!advanced) {
+	def Preprocess getPreprocess(Resource input) {
+		
+	}
+	
+	def void validatePreprocess(Resource resource) {
+		if (!validateUnit) {
 			return;
 		}
 		val List<Issue> list = validator.validate(resource, CheckMode.ALL, 
@@ -190,8 +198,11 @@ class PreprocessGenerator implements IGenerator {
 		val String inc = DefinitionTable.resolve(obj.string);
 		val IncludeUtils includeUtils = new IncludeUtils(rs, uri, inc);
 		val Resource res = includeUtils.getResource();
-		val TranslationUnit unit = this.getUnitFor(res);
-		val String output = outputFor(unit);
+		//val TranslationUnit unit = this.getUnitFor(res);
+		//val String output = outputFor(unit);
+
+		val Preprocess preprocess = this.getPreprocessFor(res);
+		val String output = outputFor(preprocess);		
 		//path.remove(path.length() -1);
 		return output;
 	}
@@ -251,7 +262,7 @@ class PreprocessGenerator implements IGenerator {
 	
 	def String outputFor(Integer conditionalDirective, IfConditional obj) {
 		val ConstantExpression expr = obj.expression as ConstantExpression;
-		if (ExpressionEvaluation.evaluateFor(expr, commonInjector, advanced)) {
+		if (ExpressionEvaluation.evaluateFor(expr, commonInjector)) {
 			val String string = ExpressionEvaluation.evaluateFor(expr);
 			path.add("if " + string + "/");
 			conditionals.put(conditionalDirective, true);
@@ -281,7 +292,7 @@ class PreprocessGenerator implements IGenerator {
  			return "";
  		}
  		val ConstantExpression expr = obj.expression as ConstantExpression;
- 		if (ExpressionEvaluation.evaluateFor(expr, commonInjector, advanced)) {
+ 		if (ExpressionEvaluation.evaluateFor(expr, commonInjector)) {
  			val String string = ExpressionEvaluation.evaluateFor(expr);
 			path.add("elif" + string + "/");
 			conditionals.put(conditionalDirective, true);

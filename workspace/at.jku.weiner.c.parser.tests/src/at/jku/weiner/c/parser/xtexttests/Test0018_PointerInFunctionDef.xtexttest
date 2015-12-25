@@ -20,9 +20,9 @@ SKW_ASSIGN WHITESPACE ID SKW_LEFTBRACKET ID SKW_RIGHTBRACKET WHITESPACE
 SKW_PLUS WHITESPACE BIN_LITERAL SKW_SEMI NEWLINE
 SKW_RIGHTBRACE NEWLINE
 //----------------------------------------------------------------------
-(common::Model units+=
-	(common::TranslationUnit 
-	parser=(Parser
+//(common::Model units+=
+	//(common::TranslationUnit 
+	(Parser
 		external+=
 		(ExternalDeclaration 
 			functiondefHead=
@@ -406,8 +406,8 @@ SKW_RIGHTBRACE NEWLINE
 		) // end external declaration
 		
 	)
-)
-)
+//)
+//)
 //----------------------------------------------------------------------
 output file="bin/Test0018_PointerInFunctionDef.c"
 expected file isSameAsInputFile

@@ -20,16 +20,15 @@ import at.jku.weiner.c.preprocess.preprocess.IfConditional;
 import at.jku.weiner.c.preprocess.preprocess.IfDefConditional;
 import at.jku.weiner.c.preprocess.preprocess.IfNotDefConditional;
 import at.jku.weiner.c.preprocess.preprocess.IncludeDirective;
-import at.jku.weiner.c.preprocess.preprocess.Model;
 import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
 import at.jku.weiner.c.preprocess.preprocess.NullDirective;
 import at.jku.weiner.c.preprocess.preprocess.PragmaDirective;
+import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessFactory;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessPackage;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.PrimaryExpression;
 import at.jku.weiner.c.preprocess.preprocess.SourceCodeLine;
-import at.jku.weiner.c.preprocess.preprocess.TranslationUnit;
 import at.jku.weiner.c.preprocess.preprocess.UnDefineDirective;
 import at.jku.weiner.c.preprocess.preprocess.WarningDirective;
 
@@ -49,20 +48,6 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  */
 public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPackage
 {
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass modelEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass translationUnitEClass = null;
-
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -187,6 +172,13 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass preprocessEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass groupOpt2EClass = null;
 
   /**
@@ -281,7 +273,6 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 
     // Initialize simple dependencies
     CommonPackage.eINSTANCE.eClass();
-    EcorePackage.eINSTANCE.eClass();
 
     // Create package meta-data objects
     thePreprocessPackage.createPackageContents();
@@ -296,46 +287,6 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
     // Update the registry and return the package
     EPackage.Registry.INSTANCE.put(PreprocessPackage.eNS_URI, thePreprocessPackage);
     return thePreprocessPackage;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getModel()
-  {
-    return modelEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getModel_Units()
-  {
-    return (EReference)modelEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getTranslationUnit()
-  {
-    return translationUnitEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getTranslationUnit_Group()
-  {
-    return (EReference)translationUnitEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -713,6 +664,26 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getPreprocess()
+  {
+    return preprocessEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPreprocess_Group()
+  {
+    return (EReference)preprocessEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getGroupOpt2()
   {
     return groupOpt2EClass;
@@ -878,12 +849,6 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
     isCreated = true;
 
     // Create classes and their features
-    modelEClass = createEClass(MODEL);
-    createEReference(modelEClass, MODEL__UNITS);
-
-    translationUnitEClass = createEClass(TRANSLATION_UNIT);
-    createEReference(translationUnitEClass, TRANSLATION_UNIT__GROUP);
-
     groupOptEClass = createEClass(GROUP_OPT);
     createEReference(groupOptEClass, GROUP_OPT__LINES);
 
@@ -937,6 +902,9 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
     nullDirectiveEClass = createEClass(NULL_DIRECTIVE);
 
     expressionEClass = createEClass(EXPRESSION);
+
+    preprocessEClass = createEClass(PREPROCESS);
+    createEReference(preprocessEClass, PREPROCESS__GROUP);
 
     groupOpt2EClass = createEClass(GROUP_OPT2);
 
@@ -994,6 +962,7 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 
     // Add supertypes to classes
     expressionEClass.getESuperTypes().add(theCommonPackage.getExpression());
+    preprocessEClass.getESuperTypes().add(theCommonPackage.getPreprocess());
     groupOpt2EClass.getESuperTypes().add(this.getGroupOpt());
     preprocessorDirectivesEClass.getESuperTypes().add(this.getSourceCodeLine());
     defineObjectMacroEClass.getESuperTypes().add(this.getDefineDirective());
@@ -1003,12 +972,6 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
     primaryExpressionEClass.getESuperTypes().add(this.getExpression());
 
     // Initialize classes and features; add operations and parameters
-    initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getModel_Units(), this.getTranslationUnit(), null, "units", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(translationUnitEClass, TranslationUnit.class, "TranslationUnit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getTranslationUnit_Group(), this.getGroupOpt(), null, "group", null, 0, 1, TranslationUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
     initEClass(groupOptEClass, GroupOpt.class, "GroupOpt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getGroupOpt_Lines(), this.getSourceCodeLine(), null, "lines", null, 0, -1, GroupOpt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1062,6 +1025,9 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
     initEClass(nullDirectiveEClass, NullDirective.class, "NullDirective", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(preprocessEClass, Preprocess.class, "Preprocess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPreprocess_Group(), this.getGroupOpt(), null, "group", null, 0, 1, Preprocess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(groupOpt2EClass, GroupOpt2.class, "GroupOpt2", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

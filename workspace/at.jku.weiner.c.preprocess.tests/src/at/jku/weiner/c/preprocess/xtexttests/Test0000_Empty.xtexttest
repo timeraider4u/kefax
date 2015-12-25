@@ -8,11 +8,13 @@ split-lexer=false
 source file="res/Test0000_Empty.c"
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------
-(Model
+(common::Model
 	units+=
-	(TranslationUnit
+	(common::TranslationUnit
+	preprocess=(Preprocess
 		
 	)
+)
 )
 //----------------------------------------------------------------------
 output file="bin/Test0000_Empty.c.i"

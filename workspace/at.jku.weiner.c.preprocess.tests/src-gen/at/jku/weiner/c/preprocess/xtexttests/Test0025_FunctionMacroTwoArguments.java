@@ -43,8 +43,9 @@ import at.jku.weiner.c.preprocess.parser.antlr.PreprocessParser;
 import at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer;
 import at.jku.weiner.c.preprocess.xtexttests.LexerAndParserTest;
 
-import at.jku.weiner.c.preprocess.preprocess.Model;
-import at.jku.weiner.c.preprocess.preprocess.TranslationUnit;
+import at.jku.weiner.c.common.common.Model;
+import at.jku.weiner.c.common.common.TranslationUnit;
+import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro;
@@ -260,72 +261,78 @@ public class Test0025_FunctionMacroTwoArguments {
 		Assert.assertNotNull(TranslationUnit_1_Var
 		);
 		//1
-		final GroupOpt GroupOpt_2_Var
-		 = (GroupOpt)TranslationUnit_1_Var
-		.getGroup();
-		Assert.assertNotNull(GroupOpt_2_Var
+		final Preprocess Preprocess_2_Var
+		 = (Preprocess)TranslationUnit_1_Var
+		.getPreprocess();
+		Assert.assertNotNull(Preprocess_2_Var
 		);
-		final EList<? extends EObject> Lines_2_list = GroupOpt_2_Var
-		.getLines();
-		Assert.assertNotNull(Lines_2_list);
-		Assert.assertEquals(6, Lines_2_list.size());
 		//2
-		final PreprocessorDirectives PreprocessorDirectives_3_Var
-		 = (PreprocessorDirectives)Lines_2_list.get(0);
-		Assert.assertNotNull(PreprocessorDirectives_3_Var
+		final GroupOpt GroupOpt_3_Var
+		 = (GroupOpt)Preprocess_2_Var
+		.getGroup();
+		Assert.assertNotNull(GroupOpt_3_Var
 		);
+		final EList<? extends EObject> Lines_3_list = GroupOpt_3_Var
+		.getLines();
+		Assert.assertNotNull(Lines_3_list);
+		Assert.assertEquals(6, Lines_3_list.size());
 		//3
-		final DefineFunctionLikeMacro DefineFunctionLikeMacro_4_Var
-		 = (DefineFunctionLikeMacro)PreprocessorDirectives_3_Var
-		.getDirective();
-		Assert.assertNotNull(DefineFunctionLikeMacro_4_Var
+		final PreprocessorDirectives PreprocessorDirectives_4_Var
+		 = (PreprocessorDirectives)Lines_3_list.get(0);
+		Assert.assertNotNull(PreprocessorDirectives_4_Var
 		);
-		Assert.assertEquals("MIN", DefineFunctionLikeMacro_4_Var
-		.getId());
 		//4
-		final IdentifierList IdentifierList_5_Var
-		 = (IdentifierList)DefineFunctionLikeMacro_4_Var
-		.getList();
-		Assert.assertNotNull(IdentifierList_5_Var
+		final DefineFunctionLikeMacro DefineFunctionLikeMacro_5_Var
+		 = (DefineFunctionLikeMacro)PreprocessorDirectives_4_Var
+		.getDirective();
+		Assert.assertNotNull(DefineFunctionLikeMacro_5_Var
 		);
-		Assert.assertEquals("[X, Y]", IdentifierList_5_Var
-		.getId().toString());
-		Assert.assertEquals("((X) < (Y) ? (X) : (Y))", DefineFunctionLikeMacro_4_Var
-		.getString());
+		Assert.assertEquals("MIN", DefineFunctionLikeMacro_5_Var
+		.getId());
 		//5
-		final Code Code_6_Var
-		 = (Code)Lines_2_list.get(1);
-		Assert.assertNotNull(Code_6_Var
+		final IdentifierList IdentifierList_6_Var
+		 = (IdentifierList)DefineFunctionLikeMacro_5_Var
+		.getList();
+		Assert.assertNotNull(IdentifierList_6_Var
 		);
-		Assert.assertEquals("int a = MIN(, 5) + MIN( 1 , 2 );", Code_6_Var
-		.getCode());
+		Assert.assertEquals("[X, Y]", IdentifierList_6_Var
+		.getId().toString());
+		Assert.assertEquals("((X) < (Y) ? (X) : (Y))", DefineFunctionLikeMacro_5_Var
+		.getString());
 		//6
 		final Code Code_7_Var
-		 = (Code)Lines_2_list.get(2);
+		 = (Code)Lines_3_list.get(1);
 		Assert.assertNotNull(Code_7_Var
 		);
-		Assert.assertEquals("int b = MIN(a, );", Code_7_Var
+		Assert.assertEquals("int a = MIN(, 5) + MIN( 1 , 2 );", Code_7_Var
 		.getCode());
 		//7
 		final Code Code_8_Var
-		 = (Code)Lines_2_list.get(3);
+		 = (Code)Lines_3_list.get(2);
 		Assert.assertNotNull(Code_8_Var
 		);
-		Assert.assertEquals("int c = MIN(,);", Code_8_Var
+		Assert.assertEquals("int b = MIN(a, );", Code_8_Var
 		.getCode());
 		//8
 		final Code Code_9_Var
-		 = (Code)Lines_2_list.get(4);
+		 = (Code)Lines_3_list.get(3);
 		Assert.assertNotNull(Code_9_Var
 		);
-		Assert.assertEquals("int d = MIN((,),);", Code_9_Var
+		Assert.assertEquals("int c = MIN(,);", Code_9_Var
 		.getCode());
 		//9
 		final Code Code_10_Var
-		 = (Code)Lines_2_list.get(5);
+		 = (Code)Lines_3_list.get(4);
 		Assert.assertNotNull(Code_10_Var
 		);
-		Assert.assertEquals("int e = MIN (MIN (a, b), c);", Code_10_Var
+		Assert.assertEquals("int d = MIN((,),);", Code_10_Var
+		.getCode());
+		//10
+		final Code Code_11_Var
+		 = (Code)Lines_3_list.get(5);
+		Assert.assertNotNull(Code_11_Var
+		);
+		Assert.assertEquals("int e = MIN (MIN (a, b), c);", Code_11_Var
 		.getCode());
 	}
 	

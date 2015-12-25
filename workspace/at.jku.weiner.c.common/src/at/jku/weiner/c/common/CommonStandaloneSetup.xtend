@@ -3,6 +3,9 @@
  */
 package at.jku.weiner.c.common
 
+import com.google.inject.Injector
+import org.eclipse.emf.ecore.EPackage
+import at.jku.weiner.c.common.common.CommonPackage
 
 /**
  * Initialization support for running Xtext languages without Equinox extension registry.
@@ -13,4 +16,11 @@ class CommonStandaloneSetup extends CommonStandaloneSetupGenerated {
 		new CommonStandaloneSetup().createInjectorAndDoEMFRegistration()
 	}
 
+	override register(Injector injector) {
+		if (!EPackage.Registry.INSTANCE.containsKey("http://www.jku.at/weiner/c/common/Common")) {
+            EPackage.Registry.INSTANCE.put("http://www.jku.at/weiner/c/common/Common", CommonPackage.eINSTANCE);
+        }
+		super.register(injector)
+	}
+	
 }

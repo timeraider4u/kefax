@@ -11,9 +11,10 @@ lexer-tokens
 	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WHITESPACE ID WHITESPACE HASH HASH WHITESPACE ID NEWLINE
 	ID SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
 //----------------------------------------------------------------------
-(Model
+(common::Model
 	units+=
-	(TranslationUnit
+	(common::TranslationUnit
+	preprocess=(Preprocess
 		group=
 		(GroupOpt
 			lines+=
@@ -33,6 +34,7 @@ lexer-tokens
 			)
 		)
 	)
+)
 )
 //----------------------------------------------------------------------
 output file="bin/Test0037_Concatenation.c.i"

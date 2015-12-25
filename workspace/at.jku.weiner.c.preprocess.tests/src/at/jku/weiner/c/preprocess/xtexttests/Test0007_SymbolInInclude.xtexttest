@@ -10,9 +10,10 @@ source file="res/Test0007_SymbolInInclude.h"
 lexer-tokens
 	HASH INCLUDE WHITESPACE ID NEWLINE
 //----------------------------------------------------------------------
-(Model
+(common::Model
 	units+=
-	(TranslationUnit
+	(common::TranslationUnit
+	preprocess=(Preprocess
 		group=
 		(GroupOpt
 			lines+=
@@ -25,6 +26,7 @@ lexer-tokens
 			
 		)
 	)
+)
 )
 //----------------------------------------------------------------------
 output file="bin/Test0007_SymbolInInclude.c.i"

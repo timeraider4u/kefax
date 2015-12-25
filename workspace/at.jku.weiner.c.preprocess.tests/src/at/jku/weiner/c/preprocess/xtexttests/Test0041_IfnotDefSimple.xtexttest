@@ -15,9 +15,10 @@ lexer-tokens
 	HASH ENDIF WHITESPACE BLOCK_COMMENT NEWLINE
 	ID NEWLINE
 //----------------------------------------------------------------------
-(Model
+(common::Model
 	units+=
-	(TranslationUnit
+	(common::TranslationUnit
+	preprocess=(Preprocess
 		group=
 		(GroupOpt
 			lines+=
@@ -52,6 +53,7 @@ lexer-tokens
 			)
 		)
 	)
+)
 )
 //----------------------------------------------------------------------
 output file="bin/Test0041_IfnotDefSimple.c.i"

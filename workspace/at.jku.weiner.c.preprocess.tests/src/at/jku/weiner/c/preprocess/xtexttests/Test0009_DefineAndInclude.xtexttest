@@ -18,9 +18,10 @@ lexer-tokens
 	WHITESPACE ID WHITESPACE ID WHITESPACE SKW_MINUS WHITESPACE DECIMAL_LITERAL WHITESPACE SKW_STAR WHITESPACE ID SKW_SEMI NEWLINE
 	SKW_RIGHTBRACE NEWLINE
 //----------------------------------------------------------------------
-(Model
+(common::Model
 	units+=
-	(TranslationUnit
+	(common::TranslationUnit
+	preprocess=(Preprocess
 		group=
 		(GroupOpt
 			lines+=
@@ -61,6 +62,7 @@ lexer-tokens
 			
 		)
 	)
+)
 )
 //----------------------------------------------------------------------
 output file="bin/Test0009_DefineAndInclude.c.i"

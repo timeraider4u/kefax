@@ -7,8 +7,8 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
 import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtend.lib.annotations.Accessors
-import at.jku.weiner.c.preprocess.preprocess.TranslationUnit
-import at.jku.weiner.c.preprocess.preprocess.Model
+import at.jku.weiner.c.common.common.TranslationUnit
+import at.jku.weiner.c.common.common.Model
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives
 import at.jku.weiner.c.preprocess.preprocess.NewLineLine
 import at.jku.weiner.c.preprocess.preprocess.Code
@@ -44,10 +44,10 @@ import org.eclipse.xtext.validation.CheckMode
 import org.eclipse.xtext.util.CancelIndicator
 import com.google.inject.Injector
 import at.jku.weiner.c.common.CommonStandaloneSetup
-import java.util.Stack
 import at.jku.weiner.c.preprocess.utils.macros.MacroParentheseNotClosedYetException
 import at.jku.weiner.c.preprocess.preprocess.SourceCodeLine
 import java.util.ArrayList
+import at.jku.weiner.c.preprocess.preprocess.Preprocess
 
 /**
  * Generates code from your model files on save.
@@ -95,7 +95,7 @@ class PreprocessGenerator implements IGenerator {
 	def TranslationUnit getUnitFor(Resource input) {
 		validateUnit(input);
 		val Model model = input.allContents.filter(typeof(Model)).head;
-		val TranslationUnit unit = model.units.head;
+		val TranslationUnit unit = model.getUnits().head;
 		path.add("/" + input.URI.toFileString + "/");
 		return unit;
 	}
@@ -115,7 +115,12 @@ class PreprocessGenerator implements IGenerator {
 	}
 
 	def String outputFor(TranslationUnit unit) {
-		return outputFor(unit.group);
+		val Preprocess preprocess = unit.preprocess as Preprocess;
+		return outputFor(preprocess);
+	}
+	
+	def String outputFor(Preprocess preprocess) {
+		return outputFor(preprocess.group);
 	}
 	
 	def String outputFor(GroupOpt group) {

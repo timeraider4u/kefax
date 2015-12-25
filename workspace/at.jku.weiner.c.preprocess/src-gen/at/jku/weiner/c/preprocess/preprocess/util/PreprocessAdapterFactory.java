@@ -75,16 +75,6 @@ public class PreprocessAdapterFactory extends AdapterFactoryImpl
     new PreprocessSwitch<Adapter>()
     {
       @Override
-      public Adapter caseModel(Model object)
-      {
-        return createModelAdapter();
-      }
-      @Override
-      public Adapter caseTranslationUnit(TranslationUnit object)
-      {
-        return createTranslationUnitAdapter();
-      }
-      @Override
       public Adapter caseGroupOpt(GroupOpt object)
       {
         return createGroupOptAdapter();
@@ -170,6 +160,11 @@ public class PreprocessAdapterFactory extends AdapterFactoryImpl
         return createExpressionAdapter();
       }
       @Override
+      public Adapter casePreprocess(Preprocess object)
+      {
+        return createPreprocessAdapter();
+      }
+      @Override
       public Adapter caseGroupOpt2(GroupOpt2 object)
       {
         return createGroupOpt2Adapter();
@@ -210,6 +205,11 @@ public class PreprocessAdapterFactory extends AdapterFactoryImpl
         return createCommon_ExpressionAdapter();
       }
       @Override
+      public Adapter caseCommon_Preprocess(at.jku.weiner.c.common.common.Preprocess object)
+      {
+        return createCommon_PreprocessAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -230,36 +230,6 @@ public class PreprocessAdapterFactory extends AdapterFactoryImpl
     return modelSwitch.doSwitch((EObject)target);
   }
 
-
-  /**
-   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.preprocess.preprocess.Model <em>Model</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see at.jku.weiner.c.preprocess.preprocess.Model
-   * @generated
-   */
-  public Adapter createModelAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.preprocess.preprocess.TranslationUnit <em>Translation Unit</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see at.jku.weiner.c.preprocess.preprocess.TranslationUnit
-   * @generated
-   */
-  public Adapter createTranslationUnitAdapter()
-  {
-    return null;
-  }
 
   /**
    * Creates a new adapter for an object of class '{@link at.jku.weiner.c.preprocess.preprocess.GroupOpt <em>Group Opt</em>}'.
@@ -517,6 +487,21 @@ public class PreprocessAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.preprocess.preprocess.Preprocess <em>Preprocess</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.preprocess.preprocess.Preprocess
+   * @generated
+   */
+  public Adapter createPreprocessAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link at.jku.weiner.c.preprocess.preprocess.GroupOpt2 <em>Group Opt2</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -632,6 +617,21 @@ public class PreprocessAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createCommon_ExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.common.common.Preprocess <em>Preprocess</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.common.common.Preprocess
+   * @generated
+   */
+  public Adapter createCommon_PreprocessAdapter()
   {
     return null;
   }

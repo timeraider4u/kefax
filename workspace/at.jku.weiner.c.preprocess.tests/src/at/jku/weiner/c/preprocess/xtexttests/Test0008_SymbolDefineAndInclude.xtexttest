@@ -11,9 +11,10 @@ lexer-tokens
 	HASH DEFINE WHITESPACE ID WHITESPACE STRING_LITERAL NEWLINE
 	HASH INCLUDE WHITESPACE STRING_LITERAL NEWLINE
 //----------------------------------------------------------------------
-(Model
+(common::Model
 	units+=
-	(TranslationUnit
+	(common::TranslationUnit
+	preprocess=(Preprocess
 		group=
 		(GroupOpt
 			lines+=
@@ -33,6 +34,7 @@ lexer-tokens
 			
 		)
 	)
+)
 )
 //----------------------------------------------------------------------
 output file="bin/Test0008_SymbolDefineAndInclude.c.i"

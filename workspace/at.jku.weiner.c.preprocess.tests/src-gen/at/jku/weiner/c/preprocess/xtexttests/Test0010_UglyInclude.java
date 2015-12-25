@@ -43,8 +43,9 @@ import at.jku.weiner.c.preprocess.parser.antlr.PreprocessParser;
 import at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer;
 import at.jku.weiner.c.preprocess.xtexttests.LexerAndParserTest;
 
-import at.jku.weiner.c.preprocess.preprocess.Model;
-import at.jku.weiner.c.preprocess.preprocess.TranslationUnit;
+import at.jku.weiner.c.common.common.Model;
+import at.jku.weiner.c.common.common.TranslationUnit;
+import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.Code;
@@ -174,62 +175,68 @@ public class Test0010_UglyInclude {
 		Assert.assertNotNull(TranslationUnit_1_Var
 		);
 		//1
-		final GroupOpt GroupOpt_2_Var
-		 = (GroupOpt)TranslationUnit_1_Var
-		.getGroup();
-		Assert.assertNotNull(GroupOpt_2_Var
+		final Preprocess Preprocess_2_Var
+		 = (Preprocess)TranslationUnit_1_Var
+		.getPreprocess();
+		Assert.assertNotNull(Preprocess_2_Var
 		);
-		final EList<? extends EObject> Lines_2_list = GroupOpt_2_Var
-		.getLines();
-		Assert.assertNotNull(Lines_2_list);
-		Assert.assertEquals(6, Lines_2_list.size());
 		//2
-		final Code Code_3_Var
-		 = (Code)Lines_2_list.get(0);
-		Assert.assertNotNull(Code_3_Var
+		final GroupOpt GroupOpt_3_Var
+		 = (GroupOpt)Preprocess_2_Var
+		.getGroup();
+		Assert.assertNotNull(GroupOpt_3_Var
 		);
-		Assert.assertEquals("int main(void) {", Code_3_Var
-		.getCode());
+		final EList<? extends EObject> Lines_3_list = GroupOpt_3_Var
+		.getLines();
+		Assert.assertNotNull(Lines_3_list);
+		Assert.assertEquals(6, Lines_3_list.size());
 		//3
 		final Code Code_4_Var
-		 = (Code)Lines_2_list.get(1);
+		 = (Code)Lines_3_list.get(0);
 		Assert.assertNotNull(Code_4_Var
 		);
-		Assert.assertEquals("	if (1 > 0) {", Code_4_Var
+		Assert.assertEquals("int main(void) {", Code_4_Var
 		.getCode());
 		//4
-		final PreprocessorDirectives PreprocessorDirectives_5_Var
-		 = (PreprocessorDirectives)Lines_2_list.get(2);
-		Assert.assertNotNull(PreprocessorDirectives_5_Var
+		final Code Code_5_Var
+		 = (Code)Lines_3_list.get(1);
+		Assert.assertNotNull(Code_5_Var
 		);
-		//5
-		final IncludeDirective IncludeDirective_6_Var
-		 = (IncludeDirective)PreprocessorDirectives_5_Var
-		.getDirective();
-		Assert.assertNotNull(IncludeDirective_6_Var
-		);
-		Assert.assertEquals("\"Test0010_UglyInclude.h\"", IncludeDirective_6_Var
-		.getString());
-		//6
-		final Code Code_7_Var
-		 = (Code)Lines_2_list.get(3);
-		Assert.assertNotNull(Code_7_Var
-		);
-		Assert.assertEquals("	}", Code_7_Var
+		Assert.assertEquals("	if (1 > 0) {", Code_5_Var
 		.getCode());
+		//5
+		final PreprocessorDirectives PreprocessorDirectives_6_Var
+		 = (PreprocessorDirectives)Lines_3_list.get(2);
+		Assert.assertNotNull(PreprocessorDirectives_6_Var
+		);
+		//6
+		final IncludeDirective IncludeDirective_7_Var
+		 = (IncludeDirective)PreprocessorDirectives_6_Var
+		.getDirective();
+		Assert.assertNotNull(IncludeDirective_7_Var
+		);
+		Assert.assertEquals("\"Test0010_UglyInclude.h\"", IncludeDirective_7_Var
+		.getString());
 		//7
 		final Code Code_8_Var
-		 = (Code)Lines_2_list.get(4);
+		 = (Code)Lines_3_list.get(3);
 		Assert.assertNotNull(Code_8_Var
 		);
-		Assert.assertEquals("	return -1;", Code_8_Var
+		Assert.assertEquals("	}", Code_8_Var
 		.getCode());
 		//8
 		final Code Code_9_Var
-		 = (Code)Lines_2_list.get(5);
+		 = (Code)Lines_3_list.get(4);
 		Assert.assertNotNull(Code_9_Var
 		);
-		Assert.assertEquals("}", Code_9_Var
+		Assert.assertEquals("	return -1;", Code_9_Var
+		.getCode());
+		//9
+		final Code Code_10_Var
+		 = (Code)Lines_3_list.get(5);
+		Assert.assertNotNull(Code_10_Var
+		);
+		Assert.assertEquals("}", Code_10_Var
 		.getCode());
 	}
 	

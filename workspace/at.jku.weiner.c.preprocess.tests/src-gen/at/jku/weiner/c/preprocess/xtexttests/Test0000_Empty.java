@@ -43,8 +43,9 @@ import at.jku.weiner.c.preprocess.parser.antlr.PreprocessParser;
 import at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer;
 import at.jku.weiner.c.preprocess.xtexttests.LexerAndParserTest;
 
-import at.jku.weiner.c.preprocess.preprocess.Model;
-import at.jku.weiner.c.preprocess.preprocess.TranslationUnit;
+import at.jku.weiner.c.common.common.Model;
+import at.jku.weiner.c.common.common.TranslationUnit;
+import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(PreprocessInjectorProvider.class)
@@ -112,6 +113,12 @@ public class Test0000_Empty {
 		final TranslationUnit TranslationUnit_1_Var
 		 = (TranslationUnit)Units_0_list.get(0);
 		Assert.assertNotNull(TranslationUnit_1_Var
+		);
+		//1
+		final Preprocess Preprocess_2_Var
+		 = (Preprocess)TranslationUnit_1_Var
+		.getPreprocess();
+		Assert.assertNotNull(Preprocess_2_Var
 		);
 	}
 	

@@ -17,11 +17,13 @@ import at.jku.weiner.c.common.common.Expression;
 import at.jku.weiner.c.common.common.InclusiveOrExpression;
 import at.jku.weiner.c.common.common.LogicalAndExpression;
 import at.jku.weiner.c.common.common.LogicalOrExpression;
+import at.jku.weiner.c.common.common.Model;
 import at.jku.weiner.c.common.common.MultiplicativeExpression;
 import at.jku.weiner.c.common.common.PostfixExpression;
 import at.jku.weiner.c.common.common.PostfixExpressionSuffixArgument;
 import at.jku.weiner.c.common.common.RelationalExpression;
 import at.jku.weiner.c.common.common.ShiftExpression;
+import at.jku.weiner.c.common.common.TranslationUnit;
 import at.jku.weiner.c.common.common.UnaryExpression;
 import at.jku.weiner.c.common.common.UnaryOperator;
 import at.jku.weiner.c.common.serializer.CommonSemanticSequencer;
@@ -39,14 +41,13 @@ import at.jku.weiner.c.preprocess.preprocess.IfConditional;
 import at.jku.weiner.c.preprocess.preprocess.IfDefConditional;
 import at.jku.weiner.c.preprocess.preprocess.IfNotDefConditional;
 import at.jku.weiner.c.preprocess.preprocess.IncludeDirective;
-import at.jku.weiner.c.preprocess.preprocess.Model;
 import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
 import at.jku.weiner.c.preprocess.preprocess.NullDirective;
 import at.jku.weiner.c.preprocess.preprocess.PragmaDirective;
+import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessPackage;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.PrimaryExpression;
-import at.jku.weiner.c.preprocess.preprocess.TranslationUnit;
 import at.jku.weiner.c.preprocess.preprocess.UnDefineDirective;
 import at.jku.weiner.c.preprocess.preprocess.WarningDirective;
 import at.jku.weiner.c.preprocess.services.PreprocessGrammarAccess;
@@ -111,6 +112,9 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 			case CommonPackage.LOGICAL_OR_EXPRESSION:
 				sequence_LogicalOrExpression(context, (LogicalOrExpression) semanticObject); 
 				return; 
+			case CommonPackage.MODEL:
+				sequence_Model(context, (Model) semanticObject); 
+				return; 
 			case CommonPackage.MULTIPLICATIVE_EXPRESSION:
 				sequence_MultiplicativeExpression(context, (MultiplicativeExpression) semanticObject); 
 				return; 
@@ -125,6 +129,9 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 				return; 
 			case CommonPackage.SHIFT_EXPRESSION:
 				sequence_ShiftExpression(context, (ShiftExpression) semanticObject); 
+				return; 
+			case CommonPackage.TRANSLATION_UNIT:
+				sequence_TranslationUnit(context, (TranslationUnit) semanticObject); 
 				return; 
 			case CommonPackage.UNARY_EXPRESSION:
 				sequence_UnaryExpression(context, (UnaryExpression) semanticObject); 
@@ -176,9 +183,6 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 			case PreprocessPackage.INCLUDE_DIRECTIVE:
 				sequence_IncludeDirective(context, (IncludeDirective) semanticObject); 
 				return; 
-			case PreprocessPackage.MODEL:
-				sequence_Model(context, (Model) semanticObject); 
-				return; 
 			case PreprocessPackage.NEW_LINE_LINE:
 				sequence_NewLineLine(context, (NewLineLine) semanticObject); 
 				return; 
@@ -188,14 +192,14 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 			case PreprocessPackage.PRAGMA_DIRECTIVE:
 				sequence_PragmaDirective(context, (PragmaDirective) semanticObject); 
 				return; 
+			case PreprocessPackage.PREPROCESS:
+				sequence_Preprocess(context, (Preprocess) semanticObject); 
+				return; 
 			case PreprocessPackage.PREPROCESSOR_DIRECTIVES:
 				sequence_PreprocessorDirectives(context, (PreprocessorDirectives) semanticObject); 
 				return; 
 			case PreprocessPackage.PRIMARY_EXPRESSION:
 				sequence_PrimaryExpression(context, (PrimaryExpression) semanticObject); 
-				return; 
-			case PreprocessPackage.TRANSLATION_UNIT:
-				sequence_TranslationUnit(context, (TranslationUnit) semanticObject); 
 				return; 
 			case PreprocessPackage.UN_DEFINE_DIRECTIVE:
 				sequence_UnDefineDirective(context, (UnDefineDirective) semanticObject); 
@@ -432,6 +436,22 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     group=GroupOpt2
+	 */
+	protected void sequence_Preprocess(EObject context, Preprocess semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, PreprocessPackage.Literals.PREPROCESS__GROUP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PreprocessPackage.Literals.PREPROCESS__GROUP));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getPreprocessAccess().getGroupGroupOpt2ParserRuleCall_1_0(), semanticObject.getGroup());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (
 	 *         directive=IncludeDirective | 
 	 *         directive=DefineDirective | 
@@ -459,17 +479,10 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     group=GroupOpt2
+	 *     preprocess=Preprocess
 	 */
 	protected void sequence_TranslationUnit(EObject context, TranslationUnit semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, PreprocessPackage.Literals.TRANSLATION_UNIT__GROUP) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PreprocessPackage.Literals.TRANSLATION_UNIT__GROUP));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getTranslationUnitAccess().getGroupGroupOpt2ParserRuleCall_1_0(), semanticObject.getGroup());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

@@ -16,9 +16,10 @@ lexer-tokens
 		SKW_COMMA WHITESPACE ID NEWLINE
 	ID SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
 //----------------------------------------------------------------------
-(Model
+(common::Model
 	units+=
-	(TranslationUnit
+	(common::TranslationUnit
+	preprocess=(Preprocess
 		group=
 		(GroupOpt
 			lines+=
@@ -39,6 +40,7 @@ lexer-tokens
 			
 		)
 	)
+)
 )
 //----------------------------------------------------------------------
 output file="bin/Test0026_FunctionMacroWithString.c.i"

@@ -20,9 +20,10 @@ lexer-tokens
 	HASH UNDEF WHITESPACE ID WHITESPACE BLOCK_COMMENT NEWLINE
 	ID WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE DECIMAL_LITERAL SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
-(Model
+(common::Model
 	units+=
-	(TranslationUnit
+	(common::TranslationUnit
+	preprocess=(Preprocess
 		group=
 		(GroupOpt
 			lines+=
@@ -74,6 +75,7 @@ lexer-tokens
 			
 		)
 	)
+)
 )
 //----------------------------------------------------------------------
 output file="bin/Test0005_Undef.c.i"

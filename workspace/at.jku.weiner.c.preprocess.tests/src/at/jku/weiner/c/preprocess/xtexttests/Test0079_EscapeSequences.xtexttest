@@ -18,9 +18,10 @@ lexer-tokens
 	CHAR_LITERAL NEWLINE
 	STRING_LITERAL NEWLINE
 //----------------------------------------------------------------------
-(Model
+(common::Model
 	units+=
-	(TranslationUnit
+	(common::TranslationUnit
+	preprocess=(Preprocess
 		group=
 		(GroupOpt
 			lines+=
@@ -53,6 +54,7 @@ lexer-tokens
 			)
 		)
 	)
+)
 )
 //----------------------------------------------------------------------
 output file="bin/Test0079_EscapeSequences.c.i"

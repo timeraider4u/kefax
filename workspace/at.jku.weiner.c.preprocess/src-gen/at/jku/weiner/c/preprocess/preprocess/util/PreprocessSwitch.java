@@ -50,7 +50,7 @@ public class PreprocessSwitch<T> extends Switch<T>
    * Checks whether this is a switch for the given package.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @parameter ePackage the package in question.
+   * @param ePackage the package in question.
    * @return whether this is a switch for the given package.
    * @generated
    */
@@ -72,20 +72,6 @@ public class PreprocessSwitch<T> extends Switch<T>
   {
     switch (classifierID)
     {
-      case PreprocessPackage.MODEL:
-      {
-        Model model = (Model)theEObject;
-        T result = caseModel(model);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case PreprocessPackage.TRANSLATION_UNIT:
-      {
-        TranslationUnit translationUnit = (TranslationUnit)theEObject;
-        T result = caseTranslationUnit(translationUnit);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case PreprocessPackage.GROUP_OPT:
       {
         GroupOpt groupOpt = (GroupOpt)theEObject;
@@ -206,6 +192,14 @@ public class PreprocessSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case PreprocessPackage.PREPROCESS:
+      {
+        Preprocess preprocess = (Preprocess)theEObject;
+        T result = casePreprocess(preprocess);
+        if (result == null) result = caseCommon_Preprocess(preprocess);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case PreprocessPackage.GROUP_OPT2:
       {
         GroupOpt2 groupOpt2 = (GroupOpt2)theEObject;
@@ -265,38 +259,6 @@ public class PreprocessSwitch<T> extends Switch<T>
       }
       default: return defaultCase(theEObject);
     }
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Model</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Model</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseModel(Model object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Translation Unit</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Translation Unit</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseTranslationUnit(TranslationUnit object)
-  {
-    return null;
   }
 
   /**
@@ -572,6 +534,22 @@ public class PreprocessSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Preprocess</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Preprocess</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePreprocess(Preprocess object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Group Opt2</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -695,6 +673,22 @@ public class PreprocessSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseCommon_Expression(at.jku.weiner.c.common.common.Expression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Preprocess</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Preprocess</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCommon_Preprocess(at.jku.weiner.c.common.common.Preprocess object)
   {
     return null;
   }

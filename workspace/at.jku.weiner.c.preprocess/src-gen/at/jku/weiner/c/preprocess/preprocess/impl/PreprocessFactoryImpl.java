@@ -64,8 +64,6 @@ public class PreprocessFactoryImpl extends EFactoryImpl implements PreprocessFac
   {
     switch (eClass.getClassifierID())
     {
-      case PreprocessPackage.MODEL: return createModel();
-      case PreprocessPackage.TRANSLATION_UNIT: return createTranslationUnit();
       case PreprocessPackage.GROUP_OPT: return createGroupOpt();
       case PreprocessPackage.SOURCE_CODE_LINE: return createSourceCodeLine();
       case PreprocessPackage.INCLUDE_DIRECTIVE: return createIncludeDirective();
@@ -83,6 +81,7 @@ public class PreprocessFactoryImpl extends EFactoryImpl implements PreprocessFac
       case PreprocessPackage.PRAGMA_DIRECTIVE: return createPragmaDirective();
       case PreprocessPackage.NULL_DIRECTIVE: return createNullDirective();
       case PreprocessPackage.EXPRESSION: return createExpression();
+      case PreprocessPackage.PREPROCESS: return createPreprocess();
       case PreprocessPackage.GROUP_OPT2: return createGroupOpt2();
       case PreprocessPackage.PREPROCESSOR_DIRECTIVES: return createPreprocessorDirectives();
       case PreprocessPackage.DEFINE_OBJECT_MACRO: return createDefineObjectMacro();
@@ -93,28 +92,6 @@ public class PreprocessFactoryImpl extends EFactoryImpl implements PreprocessFac
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Model createModel()
-  {
-    ModelImpl model = new ModelImpl();
-    return model;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public TranslationUnit createTranslationUnit()
-  {
-    TranslationUnitImpl translationUnit = new TranslationUnitImpl();
-    return translationUnit;
   }
 
   /**
@@ -302,6 +279,17 @@ public class PreprocessFactoryImpl extends EFactoryImpl implements PreprocessFac
   {
     ExpressionImpl expression = new ExpressionImpl();
     return expression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Preprocess createPreprocess()
+  {
+    PreprocessImpl preprocess = new PreprocessImpl();
+    return preprocess;
   }
 
   /**

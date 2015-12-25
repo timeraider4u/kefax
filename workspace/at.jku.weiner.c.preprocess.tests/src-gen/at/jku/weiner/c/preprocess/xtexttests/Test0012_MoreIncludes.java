@@ -43,8 +43,9 @@ import at.jku.weiner.c.preprocess.parser.antlr.PreprocessParser;
 import at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer;
 import at.jku.weiner.c.preprocess.xtexttests.LexerAndParserTest;
 
-import at.jku.weiner.c.preprocess.preprocess.Model;
-import at.jku.weiner.c.preprocess.preprocess.TranslationUnit;
+import at.jku.weiner.c.common.common.Model;
+import at.jku.weiner.c.common.common.TranslationUnit;
+import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.IncludeDirective;
@@ -188,114 +189,120 @@ public class Test0012_MoreIncludes {
 		Assert.assertNotNull(TranslationUnit_1_Var
 		);
 		//1
-		final GroupOpt GroupOpt_2_Var
-		 = (GroupOpt)TranslationUnit_1_Var
-		.getGroup();
-		Assert.assertNotNull(GroupOpt_2_Var
+		final Preprocess Preprocess_2_Var
+		 = (Preprocess)TranslationUnit_1_Var
+		.getPreprocess();
+		Assert.assertNotNull(Preprocess_2_Var
 		);
-		final EList<? extends EObject> Lines_2_list = GroupOpt_2_Var
-		.getLines();
-		Assert.assertNotNull(Lines_2_list);
-		Assert.assertEquals(12, Lines_2_list.size());
 		//2
-		final PreprocessorDirectives PreprocessorDirectives_3_Var
-		 = (PreprocessorDirectives)Lines_2_list.get(0);
-		Assert.assertNotNull(PreprocessorDirectives_3_Var
+		final GroupOpt GroupOpt_3_Var
+		 = (GroupOpt)Preprocess_2_Var
+		.getGroup();
+		Assert.assertNotNull(GroupOpt_3_Var
 		);
+		final EList<? extends EObject> Lines_3_list = GroupOpt_3_Var
+		.getLines();
+		Assert.assertNotNull(Lines_3_list);
+		Assert.assertEquals(12, Lines_3_list.size());
 		//3
-		final IncludeDirective IncludeDirective_4_Var
-		 = (IncludeDirective)PreprocessorDirectives_3_Var
-		.getDirective();
-		Assert.assertNotNull(IncludeDirective_4_Var
+		final PreprocessorDirectives PreprocessorDirectives_4_Var
+		 = (PreprocessorDirectives)Lines_3_list.get(0);
+		Assert.assertNotNull(PreprocessorDirectives_4_Var
 		);
-		Assert.assertEquals("\"Test0000_Empty.c\"", IncludeDirective_4_Var
-		.getString());
 		//4
-		final NewLineLine NewLineLine_5_Var
-		 = (NewLineLine)Lines_2_list.get(1);
-		Assert.assertNotNull(NewLineLine_5_Var
+		final IncludeDirective IncludeDirective_5_Var
+		 = (IncludeDirective)PreprocessorDirectives_4_Var
+		.getDirective();
+		Assert.assertNotNull(IncludeDirective_5_Var
 		);
+		Assert.assertEquals("\"Test0000_Empty.c\"", IncludeDirective_5_Var
+		.getString());
 		//5
 		final NewLineLine NewLineLine_6_Var
-		 = (NewLineLine)Lines_2_list.get(2);
+		 = (NewLineLine)Lines_3_list.get(1);
 		Assert.assertNotNull(NewLineLine_6_Var
 		);
 		//6
 		final NewLineLine NewLineLine_7_Var
-		 = (NewLineLine)Lines_2_list.get(3);
+		 = (NewLineLine)Lines_3_list.get(2);
 		Assert.assertNotNull(NewLineLine_7_Var
 		);
 		//7
-		final PreprocessorDirectives PreprocessorDirectives_8_Var
-		 = (PreprocessorDirectives)Lines_2_list.get(4);
-		Assert.assertNotNull(PreprocessorDirectives_8_Var
+		final NewLineLine NewLineLine_8_Var
+		 = (NewLineLine)Lines_3_list.get(3);
+		Assert.assertNotNull(NewLineLine_8_Var
 		);
 		//8
-		final IncludeDirective IncludeDirective_9_Var
-		 = (IncludeDirective)PreprocessorDirectives_8_Var
-		.getDirective();
-		Assert.assertNotNull(IncludeDirective_9_Var
+		final PreprocessorDirectives PreprocessorDirectives_9_Var
+		 = (PreprocessorDirectives)Lines_3_list.get(4);
+		Assert.assertNotNull(PreprocessorDirectives_9_Var
 		);
-		Assert.assertEquals("\"Test0000_Empty.c\"", IncludeDirective_9_Var
-		.getString());
 		//9
-		final PreprocessorDirectives PreprocessorDirectives_10_Var
-		 = (PreprocessorDirectives)Lines_2_list.get(5);
-		Assert.assertNotNull(PreprocessorDirectives_10_Var
-		);
-		//10
-		final IncludeDirective IncludeDirective_11_Var
-		 = (IncludeDirective)PreprocessorDirectives_10_Var
+		final IncludeDirective IncludeDirective_10_Var
+		 = (IncludeDirective)PreprocessorDirectives_9_Var
 		.getDirective();
-		Assert.assertNotNull(IncludeDirective_11_Var
+		Assert.assertNotNull(IncludeDirective_10_Var
 		);
-		Assert.assertEquals("\"Test0000_Empty.c\"", IncludeDirective_11_Var
+		Assert.assertEquals("\"Test0000_Empty.c\"", IncludeDirective_10_Var
 		.getString());
-		//11
-		final NewLineLine NewLineLine_12_Var
-		 = (NewLineLine)Lines_2_list.get(6);
-		Assert.assertNotNull(NewLineLine_12_Var
+		//10
+		final PreprocessorDirectives PreprocessorDirectives_11_Var
+		 = (PreprocessorDirectives)Lines_3_list.get(5);
+		Assert.assertNotNull(PreprocessorDirectives_11_Var
 		);
+		//11
+		final IncludeDirective IncludeDirective_12_Var
+		 = (IncludeDirective)PreprocessorDirectives_11_Var
+		.getDirective();
+		Assert.assertNotNull(IncludeDirective_12_Var
+		);
+		Assert.assertEquals("\"Test0000_Empty.c\"", IncludeDirective_12_Var
+		.getString());
 		//12
 		final NewLineLine NewLineLine_13_Var
-		 = (NewLineLine)Lines_2_list.get(7);
+		 = (NewLineLine)Lines_3_list.get(6);
 		Assert.assertNotNull(NewLineLine_13_Var
 		);
 		//13
 		final NewLineLine NewLineLine_14_Var
-		 = (NewLineLine)Lines_2_list.get(8);
+		 = (NewLineLine)Lines_3_list.get(7);
 		Assert.assertNotNull(NewLineLine_14_Var
 		);
 		//14
-		final PreprocessorDirectives PreprocessorDirectives_15_Var
-		 = (PreprocessorDirectives)Lines_2_list.get(9);
-		Assert.assertNotNull(PreprocessorDirectives_15_Var
+		final NewLineLine NewLineLine_15_Var
+		 = (NewLineLine)Lines_3_list.get(8);
+		Assert.assertNotNull(NewLineLine_15_Var
 		);
 		//15
-		final IncludeDirective IncludeDirective_16_Var
-		 = (IncludeDirective)PreprocessorDirectives_15_Var
-		.getDirective();
-		Assert.assertNotNull(IncludeDirective_16_Var
+		final PreprocessorDirectives PreprocessorDirectives_16_Var
+		 = (PreprocessorDirectives)Lines_3_list.get(9);
+		Assert.assertNotNull(PreprocessorDirectives_16_Var
 		);
-		Assert.assertEquals("\"Test0000_Empty.c\"", IncludeDirective_16_Var
-		.getString());
 		//16
-		final NewLineLine NewLineLine_17_Var
-		 = (NewLineLine)Lines_2_list.get(10);
-		Assert.assertNotNull(NewLineLine_17_Var
+		final IncludeDirective IncludeDirective_17_Var
+		 = (IncludeDirective)PreprocessorDirectives_16_Var
+		.getDirective();
+		Assert.assertNotNull(IncludeDirective_17_Var
 		);
+		Assert.assertEquals("\"Test0000_Empty.c\"", IncludeDirective_17_Var
+		.getString());
 		//17
-		final PreprocessorDirectives PreprocessorDirectives_18_Var
-		 = (PreprocessorDirectives)Lines_2_list.get(11);
-		Assert.assertNotNull(PreprocessorDirectives_18_Var
+		final NewLineLine NewLineLine_18_Var
+		 = (NewLineLine)Lines_3_list.get(10);
+		Assert.assertNotNull(NewLineLine_18_Var
 		);
 		//18
-		final IncludeDirective IncludeDirective_19_Var
-		 = (IncludeDirective)PreprocessorDirectives_18_Var
-		.getDirective();
-		Assert.assertNotNull(IncludeDirective_19_Var
+		final PreprocessorDirectives PreprocessorDirectives_19_Var
+		 = (PreprocessorDirectives)Lines_3_list.get(11);
+		Assert.assertNotNull(PreprocessorDirectives_19_Var
 		);
-		Assert.assertEquals("\"Test0002b_Code.c\"", IncludeDirective_19_Var
+		//19
+		final IncludeDirective IncludeDirective_20_Var
+		 = (IncludeDirective)PreprocessorDirectives_19_Var
+		.getDirective();
+		Assert.assertNotNull(IncludeDirective_20_Var
+		);
+		Assert.assertEquals("\"Test0002b_Code.c\"", IncludeDirective_20_Var
 		.getString());
 	}
 	

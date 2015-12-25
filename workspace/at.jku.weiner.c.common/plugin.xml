@@ -9,7 +9,7 @@
 	<package 
 	   uri = "http://www.jku.at/weiner/c/common/Common" 
 	   class = "at.jku.weiner.c.common.common.CommonPackage"
-	   genModel = "model/generated/Common.genmodel" /> 
+	   genModel = "model/custom/Common.genmodel" /> 
 	
 	</extension>
 	

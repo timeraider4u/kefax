@@ -29,7 +29,26 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cExpressionAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cExpressionConditionalExpressionParserRuleCall_1_0 = (RuleCall)cExpressionAssignment_1.eContents().get(0);
 		
-		//Expression hidden(WHITESPACE, BLOCK_COMMENT, LINE_COMMENT, LINEBREAK):
+		////generate common "http://www.jku.at/weiner/c/common/Common"
+		////Model:
+		////	{Model}
+		////	(units+=TranslationUnit)
+		////;
+		////
+		////TranslationUnit:
+		////	{TranslationUnit}
+		////	preprocess=Preprocess
+		////	parser=Parser
+		////;
+		////
+		////Preprocess:
+		////	{Preprocess}
+		////;
+		////
+		////Parser:
+		////	{Parser}
+		////;
+		/// *** expressions *** / Expression hidden(WHITESPACE, BLOCK_COMMENT, LINE_COMMENT, LINEBREAK):
 		//	{Expression} expression=ConditionalExpression;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -1549,7 +1568,26 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 	
 
 	
-	//Expression hidden(WHITESPACE, BLOCK_COMMENT, LINE_COMMENT, LINEBREAK):
+	////generate common "http://www.jku.at/weiner/c/common/Common"
+	////Model:
+	////	{Model}
+	////	(units+=TranslationUnit)
+	////;
+	////
+	////TranslationUnit:
+	////	{TranslationUnit}
+	////	preprocess=Preprocess
+	////	parser=Parser
+	////;
+	////
+	////Preprocess:
+	////	{Preprocess}
+	////;
+	////
+	////Parser:
+	////	{Parser}
+	////;
+	/// *** expressions *** / Expression hidden(WHITESPACE, BLOCK_COMMENT, LINE_COMMENT, LINEBREAK):
 	//	{Expression} expression=ConditionalExpression;
 	public ExpressionElements getExpressionAccess() {
 		return pExpression;

@@ -19,9 +19,10 @@ lexer-tokens
 		WHITESPACE ID WHITESPACE SKW_RIGHTBRACE SKW_SEMI
 		NEWLINE
 //----------------------------------------------------------------------
-(Model
+(common::Model
 	units+=
-	(TranslationUnit
+	(common::TranslationUnit
+	preprocess=(Preprocess
 		group=
 		(GroupOpt
 			lines+=
@@ -37,6 +38,7 @@ lexer-tokens
 			)
 		)
 	)
+)
 )
 //----------------------------------------------------------------------
 output file="bin/Test0029_ObjectLikeMacro.c.i"

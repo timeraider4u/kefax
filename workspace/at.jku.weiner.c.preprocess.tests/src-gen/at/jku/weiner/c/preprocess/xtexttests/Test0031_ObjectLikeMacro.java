@@ -43,8 +43,9 @@ import at.jku.weiner.c.preprocess.parser.antlr.PreprocessParser;
 import at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer;
 import at.jku.weiner.c.preprocess.xtexttests.LexerAndParserTest;
 
-import at.jku.weiner.c.preprocess.preprocess.Model;
-import at.jku.weiner.c.preprocess.preprocess.TranslationUnit;
+import at.jku.weiner.c.common.common.Model;
+import at.jku.weiner.c.common.common.TranslationUnit;
+import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.DefineDirective;
@@ -200,100 +201,106 @@ public class Test0031_ObjectLikeMacro {
 		Assert.assertNotNull(TranslationUnit_1_Var
 		);
 		//1
-		final GroupOpt GroupOpt_2_Var
-		 = (GroupOpt)TranslationUnit_1_Var
-		.getGroup();
-		Assert.assertNotNull(GroupOpt_2_Var
+		final Preprocess Preprocess_2_Var
+		 = (Preprocess)TranslationUnit_1_Var
+		.getPreprocess();
+		Assert.assertNotNull(Preprocess_2_Var
 		);
-		final EList<? extends EObject> Lines_2_list = GroupOpt_2_Var
-		.getLines();
-		Assert.assertNotNull(Lines_2_list);
-		Assert.assertEquals(8, Lines_2_list.size());
 		//2
-		final PreprocessorDirectives PreprocessorDirectives_3_Var
-		 = (PreprocessorDirectives)Lines_2_list.get(0);
-		Assert.assertNotNull(PreprocessorDirectives_3_Var
+		final GroupOpt GroupOpt_3_Var
+		 = (GroupOpt)Preprocess_2_Var
+		.getGroup();
+		Assert.assertNotNull(GroupOpt_3_Var
 		);
+		final EList<? extends EObject> Lines_3_list = GroupOpt_3_Var
+		.getLines();
+		Assert.assertNotNull(Lines_3_list);
+		Assert.assertEquals(8, Lines_3_list.size());
 		//3
-		final DefineDirective DefineDirective_4_Var
-		 = (DefineDirective)PreprocessorDirectives_3_Var
-		.getDirective();
-		Assert.assertNotNull(DefineDirective_4_Var
+		final PreprocessorDirectives PreprocessorDirectives_4_Var
+		 = (PreprocessorDirectives)Lines_3_list.get(0);
+		Assert.assertNotNull(PreprocessorDirectives_4_Var
 		);
-		Assert.assertEquals("FOO", DefineDirective_4_Var
-		.getId());
-		Assert.assertEquals("1024", DefineDirective_4_Var
-		.getString());
 		//4
-		final PreprocessorDirectives PreprocessorDirectives_5_Var
-		 = (PreprocessorDirectives)Lines_2_list.get(1);
-		Assert.assertNotNull(PreprocessorDirectives_5_Var
-		);
-		//5
-		final DefineDirective DefineDirective_6_Var
-		 = (DefineDirective)PreprocessorDirectives_5_Var
+		final DefineDirective DefineDirective_5_Var
+		 = (DefineDirective)PreprocessorDirectives_4_Var
 		.getDirective();
-		Assert.assertNotNull(DefineDirective_6_Var
+		Assert.assertNotNull(DefineDirective_5_Var
 		);
-		Assert.assertEquals("BAR", DefineDirective_6_Var
+		Assert.assertEquals("FOO", DefineDirective_5_Var
 		.getId());
-		Assert.assertEquals("FOO", DefineDirective_6_Var
+		Assert.assertEquals("1024", DefineDirective_5_Var
 		.getString());
-		//6
-		final Code Code_7_Var
-		 = (Code)Lines_2_list.get(2);
-		Assert.assertNotNull(Code_7_Var
+		//5
+		final PreprocessorDirectives PreprocessorDirectives_6_Var
+		 = (PreprocessorDirectives)Lines_3_list.get(1);
+		Assert.assertNotNull(PreprocessorDirectives_6_Var
 		);
-		Assert.assertEquals("int foo1 = FOO;", Code_7_Var
-		.getCode());
+		//6
+		final DefineDirective DefineDirective_7_Var
+		 = (DefineDirective)PreprocessorDirectives_6_Var
+		.getDirective();
+		Assert.assertNotNull(DefineDirective_7_Var
+		);
+		Assert.assertEquals("BAR", DefineDirective_7_Var
+		.getId());
+		Assert.assertEquals("FOO", DefineDirective_7_Var
+		.getString());
 		//7
 		final Code Code_8_Var
-		 = (Code)Lines_2_list.get(3);
+		 = (Code)Lines_3_list.get(2);
 		Assert.assertNotNull(Code_8_Var
 		);
-		Assert.assertEquals("int bar1 = BAR;", Code_8_Var
+		Assert.assertEquals("int foo1 = FOO;", Code_8_Var
 		.getCode());
 		//8
-		final PreprocessorDirectives PreprocessorDirectives_9_Var
-		 = (PreprocessorDirectives)Lines_2_list.get(4);
-		Assert.assertNotNull(PreprocessorDirectives_9_Var
+		final Code Code_9_Var
+		 = (Code)Lines_3_list.get(3);
+		Assert.assertNotNull(Code_9_Var
 		);
-		//9
-		final UnDefineDirective UnDefineDirective_10_Var
-		 = (UnDefineDirective)PreprocessorDirectives_9_Var
-		.getDirective();
-		Assert.assertNotNull(UnDefineDirective_10_Var
-		);
-		Assert.assertEquals("FOO", UnDefineDirective_10_Var
-		.getId());
-		//10
-		final PreprocessorDirectives PreprocessorDirectives_11_Var
-		 = (PreprocessorDirectives)Lines_2_list.get(5);
-		Assert.assertNotNull(PreprocessorDirectives_11_Var
-		);
-		//11
-		final DefineDirective DefineDirective_12_Var
-		 = (DefineDirective)PreprocessorDirectives_11_Var
-		.getDirective();
-		Assert.assertNotNull(DefineDirective_12_Var
-		);
-		Assert.assertEquals("FOO", DefineDirective_12_Var
-		.getId());
-		Assert.assertEquals("64", DefineDirective_12_Var
-		.getString());
-		//12
-		final Code Code_13_Var
-		 = (Code)Lines_2_list.get(6);
-		Assert.assertNotNull(Code_13_Var
-		);
-		Assert.assertEquals("int foo2 = FOO;", Code_13_Var
+		Assert.assertEquals("int bar1 = BAR;", Code_9_Var
 		.getCode());
+		//9
+		final PreprocessorDirectives PreprocessorDirectives_10_Var
+		 = (PreprocessorDirectives)Lines_3_list.get(4);
+		Assert.assertNotNull(PreprocessorDirectives_10_Var
+		);
+		//10
+		final UnDefineDirective UnDefineDirective_11_Var
+		 = (UnDefineDirective)PreprocessorDirectives_10_Var
+		.getDirective();
+		Assert.assertNotNull(UnDefineDirective_11_Var
+		);
+		Assert.assertEquals("FOO", UnDefineDirective_11_Var
+		.getId());
+		//11
+		final PreprocessorDirectives PreprocessorDirectives_12_Var
+		 = (PreprocessorDirectives)Lines_3_list.get(5);
+		Assert.assertNotNull(PreprocessorDirectives_12_Var
+		);
+		//12
+		final DefineDirective DefineDirective_13_Var
+		 = (DefineDirective)PreprocessorDirectives_12_Var
+		.getDirective();
+		Assert.assertNotNull(DefineDirective_13_Var
+		);
+		Assert.assertEquals("FOO", DefineDirective_13_Var
+		.getId());
+		Assert.assertEquals("64", DefineDirective_13_Var
+		.getString());
 		//13
 		final Code Code_14_Var
-		 = (Code)Lines_2_list.get(7);
+		 = (Code)Lines_3_list.get(6);
 		Assert.assertNotNull(Code_14_Var
 		);
-		Assert.assertEquals("int bar2 = BAR;", Code_14_Var
+		Assert.assertEquals("int foo2 = FOO;", Code_14_Var
+		.getCode());
+		//14
+		final Code Code_15_Var
+		 = (Code)Lines_3_list.get(7);
+		Assert.assertNotNull(Code_15_Var
+		);
+		Assert.assertEquals("int bar2 = BAR;", Code_15_Var
 		.getCode());
 	}
 	

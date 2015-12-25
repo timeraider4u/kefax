@@ -11,9 +11,10 @@ lexer-tokens
 	HASH INCLUDE WHITESPACE STRING_LITERAL NEWLINE
 	HASH INCLUDE WHITESPACE STRING_LITERAL NEWLINE
 //----------------------------------------------------------------------
-(Model
+(common::Model
 	units+=
-	(TranslationUnit
+	(common::TranslationUnit
+	preprocess=(Preprocess
 		group=
 		(GroupOpt
 			lines+=
@@ -32,6 +33,7 @@ lexer-tokens
 			
 		)
 	)
+)
 )
 //----------------------------------------------------------------------
 output file="bin/Test0006_SimpleInc.c.i"

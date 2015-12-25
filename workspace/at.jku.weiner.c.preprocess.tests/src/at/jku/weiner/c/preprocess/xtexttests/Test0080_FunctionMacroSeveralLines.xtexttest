@@ -31,9 +31,10 @@ lexer-tokens
 		WHITESPACE+*2 DECIMAL_LITERAL SKW_RIGHTPAREN 
 		WHITESPACE SKW_PLUS WHITESPACE DECIMAL_LITERAL SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
-(Model
+(common::Model
 	units+=
-	(TranslationUnit
+	(common::TranslationUnit
+	preprocess=(Preprocess
 		group=
 		(GroupOpt
 			lines+=
@@ -77,6 +78,7 @@ lexer-tokens
 			)
 		)
 	)
+)
 )
 //----------------------------------------------------------------------
 output file="bin/Test0080_FunctionMacroSeveralLines.c.i"

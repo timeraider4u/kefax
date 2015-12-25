@@ -13,9 +13,10 @@ lexer-tokens
 	ID WHITESPACE ID SKW_LEFTPAREN SKW_RIGHTPAREN SKW_SEMI NEWLINE
 	ID WHITESPACE ID WHITESPACE SKW_LEFTPAREN WHITESPACE SKW_RIGHTPAREN SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
-(Model
+(common::Model
 	units+=
-	(TranslationUnit
+	(common::TranslationUnit
+	preprocess=(Preprocess
 		group=
 		(GroupOpt
 			lines+=
@@ -36,6 +37,7 @@ lexer-tokens
 			
 		)
 	)
+)
 )
 //----------------------------------------------------------------------
 output file="bin/Test0019_SimpleFunctionMacro.c.i"

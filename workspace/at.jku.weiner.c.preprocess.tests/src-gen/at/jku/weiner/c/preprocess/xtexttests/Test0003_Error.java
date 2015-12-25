@@ -43,8 +43,9 @@ import at.jku.weiner.c.preprocess.parser.antlr.PreprocessParser;
 import at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer;
 import at.jku.weiner.c.preprocess.xtexttests.LexerAndParserTest;
 
-import at.jku.weiner.c.preprocess.preprocess.Model;
-import at.jku.weiner.c.preprocess.preprocess.TranslationUnit;
+import at.jku.weiner.c.common.common.Model;
+import at.jku.weiner.c.common.common.TranslationUnit;
+import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.WarningDirective;
@@ -150,66 +151,72 @@ public class Test0003_Error {
 		Assert.assertNotNull(TranslationUnit_1_Var
 		);
 		//1
-		final GroupOpt GroupOpt_2_Var
-		 = (GroupOpt)TranslationUnit_1_Var
-		.getGroup();
-		Assert.assertNotNull(GroupOpt_2_Var
+		final Preprocess Preprocess_2_Var
+		 = (Preprocess)TranslationUnit_1_Var
+		.getPreprocess();
+		Assert.assertNotNull(Preprocess_2_Var
 		);
-		final EList<? extends EObject> Lines_2_list = GroupOpt_2_Var
-		.getLines();
-		Assert.assertNotNull(Lines_2_list);
-		Assert.assertEquals(4, Lines_2_list.size());
 		//2
-		final PreprocessorDirectives PreprocessorDirectives_3_Var
-		 = (PreprocessorDirectives)Lines_2_list.get(0);
-		Assert.assertNotNull(PreprocessorDirectives_3_Var
+		final GroupOpt GroupOpt_3_Var
+		 = (GroupOpt)Preprocess_2_Var
+		.getGroup();
+		Assert.assertNotNull(GroupOpt_3_Var
 		);
+		final EList<? extends EObject> Lines_3_list = GroupOpt_3_Var
+		.getLines();
+		Assert.assertNotNull(Lines_3_list);
+		Assert.assertEquals(4, Lines_3_list.size());
 		//3
-		final WarningDirective WarningDirective_4_Var
-		 = (WarningDirective)PreprocessorDirectives_3_Var
-		.getDirective();
-		Assert.assertNotNull(WarningDirective_4_Var
+		final PreprocessorDirectives PreprocessorDirectives_4_Var
+		 = (PreprocessorDirectives)Lines_3_list.get(0);
+		Assert.assertNotNull(PreprocessorDirectives_4_Var
 		);
-		Assert.assertEquals("\"warning message!\"", WarningDirective_4_Var
-		.getMsg());
 		//4
-		final PreprocessorDirectives PreprocessorDirectives_5_Var
-		 = (PreprocessorDirectives)Lines_2_list.get(1);
-		Assert.assertNotNull(PreprocessorDirectives_5_Var
+		final WarningDirective WarningDirective_5_Var
+		 = (WarningDirective)PreprocessorDirectives_4_Var
+		.getDirective();
+		Assert.assertNotNull(WarningDirective_5_Var
 		);
+		Assert.assertEquals("\"warning message!\"", WarningDirective_5_Var
+		.getMsg());
 		//5
-		final WarningDirective WarningDirective_6_Var
-		 = (WarningDirective)PreprocessorDirectives_5_Var
-		.getDirective();
-		Assert.assertNotNull(WarningDirective_6_Var
+		final PreprocessorDirectives PreprocessorDirectives_6_Var
+		 = (PreprocessorDirectives)Lines_3_list.get(1);
+		Assert.assertNotNull(PreprocessorDirectives_6_Var
 		);
-		Assert.assertNull(WarningDirective_6_Var
-		.getMsg());
 		//6
-		final PreprocessorDirectives PreprocessorDirectives_7_Var
-		 = (PreprocessorDirectives)Lines_2_list.get(2);
-		Assert.assertNotNull(PreprocessorDirectives_7_Var
-		);
-		//7
-		final ErrorDirective ErrorDirective_8_Var
-		 = (ErrorDirective)PreprocessorDirectives_7_Var
+		final WarningDirective WarningDirective_7_Var
+		 = (WarningDirective)PreprocessorDirectives_6_Var
 		.getDirective();
-		Assert.assertNotNull(ErrorDirective_8_Var
+		Assert.assertNotNull(WarningDirective_7_Var
 		);
-		Assert.assertEquals("\"error message!\"", ErrorDirective_8_Var
+		Assert.assertNull(WarningDirective_7_Var
 		.getMsg());
+		//7
+		final PreprocessorDirectives PreprocessorDirectives_8_Var
+		 = (PreprocessorDirectives)Lines_3_list.get(2);
+		Assert.assertNotNull(PreprocessorDirectives_8_Var
+		);
 		//8
-		final PreprocessorDirectives PreprocessorDirectives_9_Var
-		 = (PreprocessorDirectives)Lines_2_list.get(3);
-		Assert.assertNotNull(PreprocessorDirectives_9_Var
-		);
-		//9
-		final ErrorDirective ErrorDirective_10_Var
-		 = (ErrorDirective)PreprocessorDirectives_9_Var
+		final ErrorDirective ErrorDirective_9_Var
+		 = (ErrorDirective)PreprocessorDirectives_8_Var
 		.getDirective();
-		Assert.assertNotNull(ErrorDirective_10_Var
+		Assert.assertNotNull(ErrorDirective_9_Var
 		);
-		Assert.assertNull(ErrorDirective_10_Var
+		Assert.assertEquals("\"error message!\"", ErrorDirective_9_Var
+		.getMsg());
+		//9
+		final PreprocessorDirectives PreprocessorDirectives_10_Var
+		 = (PreprocessorDirectives)Lines_3_list.get(3);
+		Assert.assertNotNull(PreprocessorDirectives_10_Var
+		);
+		//10
+		final ErrorDirective ErrorDirective_11_Var
+		 = (ErrorDirective)PreprocessorDirectives_10_Var
+		.getDirective();
+		Assert.assertNotNull(ErrorDirective_11_Var
+		);
+		Assert.assertNull(ErrorDirective_11_Var
 		.getMsg());
 	}
 	

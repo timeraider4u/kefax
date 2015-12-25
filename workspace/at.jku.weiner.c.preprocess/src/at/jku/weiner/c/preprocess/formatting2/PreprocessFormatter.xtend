@@ -23,7 +23,6 @@ import at.jku.weiner.c.preprocess.preprocess.IfNotDefConditional
 import at.jku.weiner.c.common.common.InclusiveOrExpression
 import at.jku.weiner.c.common.common.LogicalAndExpression
 import at.jku.weiner.c.common.common.LogicalOrExpression
-import at.jku.weiner.c.preprocess.preprocess.Model
 import at.jku.weiner.c.common.common.MultiplicativeExpression
 import at.jku.weiner.c.common.common.PostfixExpression
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives
@@ -31,24 +30,17 @@ import at.jku.weiner.c.preprocess.preprocess.PrimaryExpression
 import at.jku.weiner.c.common.common.RelationalExpression
 import at.jku.weiner.c.common.common.ShiftExpression
 import at.jku.weiner.c.preprocess.preprocess.SourceCodeLine
-import at.jku.weiner.c.preprocess.preprocess.TranslationUnit
 import at.jku.weiner.c.common.common.UnaryExpression
 import at.jku.weiner.c.preprocess.services.PreprocessGrammarAccess
 import com.google.inject.Inject
 import org.eclipse.xtext.formatting2.IFormattableDocument
+import at.jku.weiner.c.preprocess.preprocess.Preprocess
 
 class PreprocessFormatter extends CommonFormatter {
 	
 	@Inject extension PreprocessGrammarAccess
 
-	def dispatch void format(Model model, extension IFormattableDocument document) {
-		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		for (TranslationUnit units : model.getUnits()) {
-			format(units, document);
-		}
-	}
-
-	def dispatch void format(TranslationUnit translationUnit, extension IFormattableDocument document) {
+	def dispatch void format(Preprocess translationUnit, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
 		format(translationUnit.getGroup(), document);
 	}

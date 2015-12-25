@@ -164,11 +164,71 @@ ruleTranslationUnit returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getTranslationUnitAccess().getGroupGroupOpt2ParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getTranslationUnitAccess().getPreprocessPreprocessParserRuleCall_1_0()); 
+	    }
+		lv_preprocess_1_0=rulePreprocess		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getTranslationUnitRule());
+	        }
+       		set(
+       			$current, 
+       			"preprocess",
+        		lv_preprocess_1_0, 
+        		"at.jku.weiner.c.preprocess.Preprocess.Preprocess");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+)
+
+
+;
+
+
+
+
+
+// Entry rule entryRulePreprocess
+entryRulePreprocess returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getPreprocessRule()); }
+	 iv_rulePreprocess=rulePreprocess 
+	 { $current=$iv_rulePreprocess.current; } 
+	 EOF 
+;
+
+// Rule Preprocess
+rulePreprocess returns [EObject current=null] 
+    @init { enterRule();
+   		/*no init found*/
+    }
+    @after { leaveRule();
+    		/*no after found*/
+     }:
+
+(
+(
+	{ 
+	  /* */ 
+	}
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getPreprocessAccess().getPreprocessAction_0(),
+            $current);
+    }
+)
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getPreprocessAccess().getGroupGroupOpt2ParserRuleCall_1_0()); 
 	    }
 		lv_group_1_0=ruleGroupOpt2		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getTranslationUnitRule());
+	            $current = createModelElementForParent(grammarAccess.getPreprocessRule());
 	        }
        		set(
        			$current, 

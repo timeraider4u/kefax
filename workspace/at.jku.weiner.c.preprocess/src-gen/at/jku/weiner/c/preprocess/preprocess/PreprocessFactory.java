@@ -23,24 +23,6 @@ public interface PreprocessFactory extends EFactory
   PreprocessFactory eINSTANCE = at.jku.weiner.c.preprocess.preprocess.impl.PreprocessFactoryImpl.init();
 
   /**
-   * Returns a new object of class '<em>Model</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Model</em>'.
-   * @generated
-   */
-  Model createModel();
-
-  /**
-   * Returns a new object of class '<em>Translation Unit</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Translation Unit</em>'.
-   * @generated
-   */
-  TranslationUnit createTranslationUnit();
-
-  /**
    * Returns a new object of class '<em>Group Opt</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -192,6 +174,15 @@ public interface PreprocessFactory extends EFactory
    * @generated
    */
   Expression createExpression();
+
+  /**
+   * Returns a new object of class '<em>Preprocess</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Preprocess</em>'.
+   * @generated
+   */
+  Preprocess createPreprocess();
 
   /**
    * Returns a new object of class '<em>Group Opt2</em>'.

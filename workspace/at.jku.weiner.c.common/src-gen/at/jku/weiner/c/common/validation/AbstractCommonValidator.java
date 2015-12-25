@@ -12,7 +12,7 @@ public class AbstractCommonValidator extends org.eclipse.xtext.validation.Abstra
 	@Override
 	protected List<EPackage> getEPackages() {
 	    List<EPackage> result = new ArrayList<EPackage>();
-	    result.add(at.jku.weiner.c.common.common.CommonPackage.eINSTANCE);
+	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.jku.at/weiner/c/common/Common"));
 		return result;
 	}
 }

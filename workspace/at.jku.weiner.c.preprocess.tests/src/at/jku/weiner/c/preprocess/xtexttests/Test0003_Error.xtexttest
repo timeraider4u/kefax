@@ -13,9 +13,10 @@ lexer-tokens
 	HASH ERROR WHITESPACE STRING_LITERAL NEWLINE
 	HASH ERROR NEWLINE
 //----------------------------------------------------------------------
-(Model
+(common::Model
 	units+=
-	(TranslationUnit
+	(common::TranslationUnit
+	preprocess=(Preprocess
 		group=
 		(GroupOpt
 			lines+=
@@ -46,6 +47,7 @@ lexer-tokens
 			
 		)
 	)
+)
 )
 //----------------------------------------------------------------------
 output file="bin/Test0003_Error.h.i"

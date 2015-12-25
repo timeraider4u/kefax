@@ -20,9 +20,10 @@ lexer-tokens
 		WHITESPACE ID WHITESPACE ID SKW_LEFTPAREN SKW_RIGHTPAREN SKW_SEMI NEWLINE
 	HASH ENDIF NEWLINE
 //----------------------------------------------------------------------
-(Model
+(common::Model
 	units+=
-	(TranslationUnit
+	(common::TranslationUnit
+	preprocess=(Preprocess
 		group=
 		(GroupOpt
 			lines+=
@@ -224,6 +225,7 @@ lexer-tokens
 			)
 		)
 	)
+)
 )
 //----------------------------------------------------------------------
 output file="bin/Test0072_IfMin.c.i"

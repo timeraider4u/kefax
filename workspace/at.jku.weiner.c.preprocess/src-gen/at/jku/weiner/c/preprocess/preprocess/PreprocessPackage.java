@@ -59,62 +59,6 @@ public interface PreprocessPackage extends EPackage
   PreprocessPackage eINSTANCE = at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl.init();
 
   /**
-   * The meta object id for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.ModelImpl <em>Model</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see at.jku.weiner.c.preprocess.preprocess.impl.ModelImpl
-   * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getModel()
-   * @generated
-   */
-  int MODEL = 0;
-
-  /**
-   * The feature id for the '<em><b>Units</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODEL__UNITS = 0;
-
-  /**
-   * The number of structural features of the '<em>Model</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODEL_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.TranslationUnitImpl <em>Translation Unit</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see at.jku.weiner.c.preprocess.preprocess.impl.TranslationUnitImpl
-   * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getTranslationUnit()
-   * @generated
-   */
-  int TRANSLATION_UNIT = 1;
-
-  /**
-   * The feature id for the '<em><b>Group</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TRANSLATION_UNIT__GROUP = 0;
-
-  /**
-   * The number of structural features of the '<em>Translation Unit</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TRANSLATION_UNIT_FEATURE_COUNT = 1;
-
-  /**
    * The meta object id for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.GroupOptImpl <em>Group Opt</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -122,7 +66,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getGroupOpt()
    * @generated
    */
-  int GROUP_OPT = 2;
+  int GROUP_OPT = 0;
 
   /**
    * The feature id for the '<em><b>Lines</b></em>' containment reference list.
@@ -150,7 +94,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getSourceCodeLine()
    * @generated
    */
-  int SOURCE_CODE_LINE = 3;
+  int SOURCE_CODE_LINE = 1;
 
   /**
    * The number of structural features of the '<em>Source Code Line</em>' class.
@@ -169,7 +113,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getIncludeDirective()
    * @generated
    */
-  int INCLUDE_DIRECTIVE = 4;
+  int INCLUDE_DIRECTIVE = 2;
 
   /**
    * The feature id for the '<em><b>String</b></em>' attribute.
@@ -197,7 +141,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getDefineDirective()
    * @generated
    */
-  int DEFINE_DIRECTIVE = 5;
+  int DEFINE_DIRECTIVE = 3;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -234,7 +178,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getIdentifierList()
    * @generated
    */
-  int IDENTIFIER_LIST = 6;
+  int IDENTIFIER_LIST = 4;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute list.
@@ -262,7 +206,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getErrorDirective()
    * @generated
    */
-  int ERROR_DIRECTIVE = 7;
+  int ERROR_DIRECTIVE = 5;
 
   /**
    * The feature id for the '<em><b>Msg</b></em>' attribute.
@@ -290,7 +234,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getWarningDirective()
    * @generated
    */
-  int WARNING_DIRECTIVE = 8;
+  int WARNING_DIRECTIVE = 6;
 
   /**
    * The feature id for the '<em><b>Msg</b></em>' attribute.
@@ -318,7 +262,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getUnDefineDirective()
    * @generated
    */
-  int UN_DEFINE_DIRECTIVE = 9;
+  int UN_DEFINE_DIRECTIVE = 7;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -346,7 +290,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getConditionalDirective()
    * @generated
    */
-  int CONDITIONAL_DIRECTIVE = 10;
+  int CONDITIONAL_DIRECTIVE = 8;
 
   /**
    * The feature id for the '<em><b>Conditional</b></em>' containment reference.
@@ -392,7 +336,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getIfConditional()
    * @generated
    */
-  int IF_CONDITIONAL = 11;
+  int IF_CONDITIONAL = 9;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -429,7 +373,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getIfDefConditional()
    * @generated
    */
-  int IF_DEF_CONDITIONAL = 12;
+  int IF_DEF_CONDITIONAL = 10;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -466,7 +410,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getIfNotDefConditional()
    * @generated
    */
-  int IF_NOT_DEF_CONDITIONAL = 13;
+  int IF_NOT_DEF_CONDITIONAL = 11;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -503,7 +447,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getElIfConditional()
    * @generated
    */
-  int EL_IF_CONDITIONAL = 14;
+  int EL_IF_CONDITIONAL = 12;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -540,7 +484,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getElseConditional()
    * @generated
    */
-  int ELSE_CONDITIONAL = 15;
+  int ELSE_CONDITIONAL = 13;
 
   /**
    * The feature id for the '<em><b>Group</b></em>' containment reference.
@@ -568,7 +512,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getPragmaDirective()
    * @generated
    */
-  int PRAGMA_DIRECTIVE = 16;
+  int PRAGMA_DIRECTIVE = 14;
 
   /**
    * The number of structural features of the '<em>Pragma Directive</em>' class.
@@ -587,7 +531,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getNullDirective()
    * @generated
    */
-  int NULL_DIRECTIVE = 17;
+  int NULL_DIRECTIVE = 15;
 
   /**
    * The number of structural features of the '<em>Null Directive</em>' class.
@@ -606,7 +550,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 18;
+  int EXPRESSION = 16;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -627,6 +571,34 @@ public interface PreprocessPackage extends EPackage
   int EXPRESSION_FEATURE_COUNT = CommonPackage.EXPRESSION_FEATURE_COUNT + 0;
 
   /**
+   * The meta object id for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.PreprocessImpl <em>Preprocess</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessImpl
+   * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getPreprocess()
+   * @generated
+   */
+  int PREPROCESS = 17;
+
+  /**
+   * The feature id for the '<em><b>Group</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PREPROCESS__GROUP = CommonPackage.PREPROCESS_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Preprocess</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PREPROCESS_FEATURE_COUNT = CommonPackage.PREPROCESS_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.GroupOpt2Impl <em>Group Opt2</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -634,7 +606,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getGroupOpt2()
    * @generated
    */
-  int GROUP_OPT2 = 19;
+  int GROUP_OPT2 = 18;
 
   /**
    * The feature id for the '<em><b>Lines</b></em>' containment reference list.
@@ -662,7 +634,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getPreprocessorDirectives()
    * @generated
    */
-  int PREPROCESSOR_DIRECTIVES = 20;
+  int PREPROCESSOR_DIRECTIVES = 19;
 
   /**
    * The feature id for the '<em><b>Directive</b></em>' containment reference.
@@ -690,7 +662,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getDefineObjectMacro()
    * @generated
    */
-  int DEFINE_OBJECT_MACRO = 21;
+  int DEFINE_OBJECT_MACRO = 20;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -727,7 +699,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getDefineFunctionLikeMacro()
    * @generated
    */
-  int DEFINE_FUNCTION_LIKE_MACRO = 22;
+  int DEFINE_FUNCTION_LIKE_MACRO = 21;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -773,7 +745,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getNewLineLine()
    * @generated
    */
-  int NEW_LINE_LINE = 23;
+  int NEW_LINE_LINE = 22;
 
   /**
    * The number of structural features of the '<em>New Line Line</em>' class.
@@ -792,7 +764,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getCode()
    * @generated
    */
-  int CODE = 24;
+  int CODE = 23;
 
   /**
    * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -820,7 +792,7 @@ public interface PreprocessPackage extends EPackage
    * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getPrimaryExpression()
    * @generated
    */
-  int PRIMARY_EXPRESSION = 25;
+  int PRIMARY_EXPRESSION = 24;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -876,48 +848,6 @@ public interface PreprocessPackage extends EPackage
    */
   int PRIMARY_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 4;
 
-
-  /**
-   * Returns the meta object for class '{@link at.jku.weiner.c.preprocess.preprocess.Model <em>Model</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Model</em>'.
-   * @see at.jku.weiner.c.preprocess.preprocess.Model
-   * @generated
-   */
-  EClass getModel();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.preprocess.preprocess.Model#getUnits <em>Units</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Units</em>'.
-   * @see at.jku.weiner.c.preprocess.preprocess.Model#getUnits()
-   * @see #getModel()
-   * @generated
-   */
-  EReference getModel_Units();
-
-  /**
-   * Returns the meta object for class '{@link at.jku.weiner.c.preprocess.preprocess.TranslationUnit <em>Translation Unit</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Translation Unit</em>'.
-   * @see at.jku.weiner.c.preprocess.preprocess.TranslationUnit
-   * @generated
-   */
-  EClass getTranslationUnit();
-
-  /**
-   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.preprocess.preprocess.TranslationUnit#getGroup <em>Group</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Group</em>'.
-   * @see at.jku.weiner.c.preprocess.preprocess.TranslationUnit#getGroup()
-   * @see #getTranslationUnit()
-   * @generated
-   */
-  EReference getTranslationUnit_Group();
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.c.preprocess.preprocess.GroupOpt <em>Group Opt</em>}'.
@@ -1310,6 +1240,27 @@ public interface PreprocessPackage extends EPackage
   EClass getExpression();
 
   /**
+   * Returns the meta object for class '{@link at.jku.weiner.c.preprocess.preprocess.Preprocess <em>Preprocess</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Preprocess</em>'.
+   * @see at.jku.weiner.c.preprocess.preprocess.Preprocess
+   * @generated
+   */
+  EClass getPreprocess();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.preprocess.preprocess.Preprocess#getGroup <em>Group</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Group</em>'.
+   * @see at.jku.weiner.c.preprocess.preprocess.Preprocess#getGroup()
+   * @see #getPreprocess()
+   * @generated
+   */
+  EReference getPreprocess_Group();
+
+  /**
    * Returns the meta object for class '{@link at.jku.weiner.c.preprocess.preprocess.GroupOpt2 <em>Group Opt2</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1479,42 +1430,6 @@ public interface PreprocessPackage extends EPackage
    */
   interface Literals
   {
-    /**
-     * The meta object literal for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.ModelImpl <em>Model</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see at.jku.weiner.c.preprocess.preprocess.impl.ModelImpl
-     * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getModel()
-     * @generated
-     */
-    EClass MODEL = eINSTANCE.getModel();
-
-    /**
-     * The meta object literal for the '<em><b>Units</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference MODEL__UNITS = eINSTANCE.getModel_Units();
-
-    /**
-     * The meta object literal for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.TranslationUnitImpl <em>Translation Unit</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see at.jku.weiner.c.preprocess.preprocess.impl.TranslationUnitImpl
-     * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getTranslationUnit()
-     * @generated
-     */
-    EClass TRANSLATION_UNIT = eINSTANCE.getTranslationUnit();
-
-    /**
-     * The meta object literal for the '<em><b>Group</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference TRANSLATION_UNIT__GROUP = eINSTANCE.getTranslationUnit_Group();
-
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.GroupOptImpl <em>Group Opt</em>}' class.
      * <!-- begin-user-doc -->
@@ -1844,6 +1759,24 @@ public interface PreprocessPackage extends EPackage
      * @generated
      */
     EClass EXPRESSION = eINSTANCE.getExpression();
+
+    /**
+     * The meta object literal for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.PreprocessImpl <em>Preprocess</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessImpl
+     * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getPreprocess()
+     * @generated
+     */
+    EClass PREPROCESS = eINSTANCE.getPreprocess();
+
+    /**
+     * The meta object literal for the '<em><b>Group</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PREPROCESS__GROUP = eINSTANCE.getPreprocess_Group();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.GroupOpt2Impl <em>Group Opt2</em>}' class.

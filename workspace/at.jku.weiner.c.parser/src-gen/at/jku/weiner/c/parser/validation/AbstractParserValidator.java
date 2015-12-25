@@ -13,6 +13,7 @@ public class AbstractParserValidator extends at.jku.weiner.c.common.validation.C
 	protected List<EPackage> getEPackages() {
 	    List<EPackage> result = new ArrayList<EPackage>(super.getEPackages());
 	    result.add(at.jku.weiner.c.parser.parser.ParserPackage.eINSTANCE);
+	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.jku.at/weiner/c/common/Common"));
 		return result;
 	}
 }

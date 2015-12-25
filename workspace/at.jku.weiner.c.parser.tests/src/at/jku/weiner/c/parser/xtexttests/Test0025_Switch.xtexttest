@@ -27,8 +27,9 @@ WHITESPACE SKW_LEFTBRACE NEWLINE
 	WHITESPACE KW_RETURN WHITESPACE DECIMAL_LITERAL SKW_SEMI NEWLINE
 SKW_RIGHTBRACE NEWLINE
 //----------------------------------------------------------------------
-(Model unit+=
-	(TranslationUnit 
+(common::Model units+=
+	(common::TranslationUnit 
+	parser=(Parser
 		external+=
 		(ExternalDeclaration 
 			functiondefHead=
@@ -509,6 +510,7 @@ SKW_RIGHTBRACE NEWLINE
 			)
 		)// end external declaration		
 	)
+)
 )
 //----------------------------------------------------------------------
 output file="bin/Test0025_Switch.c"

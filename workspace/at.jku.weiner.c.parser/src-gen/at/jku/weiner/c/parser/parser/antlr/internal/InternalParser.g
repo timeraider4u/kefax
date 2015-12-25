@@ -109,16 +109,16 @@ ruleModel returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getModelAccess().getUnitTranslationUnitParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getModelAccess().getUnitsTranslationUnitParserRuleCall_1_0()); 
 	    }
-		lv_unit_1_0=ruleTranslationUnit		{
+		lv_units_1_0=ruleTranslationUnit		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getModelRule());
 	        }
        		add(
        			$current, 
-       			"unit",
-        		lv_unit_1_0, 
+       			"units",
+        		lv_units_1_0, 
         		"at.jku.weiner.c.parser.Parser.TranslationUnit");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -147,10 +147,10 @@ entryRuleTranslationUnit returns [EObject current=null]
 // Rule TranslationUnit
 ruleTranslationUnit returns [EObject current=null] 
     @init { enterRule();
-   		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.Scope.createNewScope("TranslationUnit");}
+   		/*no init found*/
     }
     @after { leaveRule();
-    		at.jku.weiner.c.parser.Scope.removeScope(0);
+    		/*no after found*/
      }:
 
 (
@@ -169,11 +169,71 @@ ruleTranslationUnit returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getTranslationUnitAccess().getExternalExternalDeclarationParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getTranslationUnitAccess().getParserParserParserRuleCall_1_0()); 
+	    }
+		lv_parser_1_0=ruleParser		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getTranslationUnitRule());
+	        }
+       		set(
+       			$current, 
+       			"parser",
+        		lv_parser_1_0, 
+        		"at.jku.weiner.c.parser.Parser.Parser");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+)
+
+
+;
+
+
+
+
+
+// Entry rule entryRuleParser
+entryRuleParser returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getParserRule()); }
+	 iv_ruleParser=ruleParser 
+	 { $current=$iv_ruleParser.current; } 
+	 EOF 
+;
+
+// Rule Parser
+ruleParser returns [EObject current=null] 
+    @init { enterRule();
+   		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.Scope.createNewScope("Parser");}
+    }
+    @after { leaveRule();
+    		at.jku.weiner.c.parser.Scope.removeScope(0);
+     }:
+
+(
+(
+	{ 
+	  /* */ 
+	}
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getParserAccess().getParserAction_0(),
+            $current);
+    }
+)
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getParserAccess().getExternalExternalDeclarationParserRuleCall_1_0()); 
 	    }
 		lv_external_1_0=ruleExternalDeclaration		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getTranslationUnitRule());
+	            $current = createModelElementForParent(grammarAccess.getParserRule());
 	        }
        		add(
        			$current, 
@@ -10186,9 +10246,11 @@ fragment RULE_EXPONENT : ('e'|'E') ('+'|'-')? ('0'..'9')+;
 
 fragment RULE_FLOAT_TYPE_SUFFIX : ('f'|'F'|'d'|'D');
 
-fragment RULE_ESCAPE_SEQUENCE : (RULE_SKW_BACKSLASH ('b'|'t'|'n'|'f'|'r'|'"'|RULE_SKW_SINGLEQUOTE|RULE_SKW_BACKSLASH)|RULE_OCTAL_ESCAPE);
+fragment RULE_ESCAPE_SEQUENCE : (RULE_SKW_BACKSLASH ('b'|'t'|'n'|'f'|'r'|'"'|RULE_SKW_SINGLEQUOTE|RULE_SKW_BACKSLASH)|RULE_OCTAL_ESCAPE|RULE_HEX_ESCAPE);
 
 fragment RULE_OCTAL_ESCAPE : (RULE_SKW_BACKSLASH '0'..'3' '0'..'7' '0'..'7'|RULE_SKW_BACKSLASH '0'..'7' '0'..'7'|RULE_SKW_BACKSLASH '0'..'7');
+
+fragment RULE_HEX_ESCAPE : RULE_SKW_BACKSLASH 'x' RULE_HEX_DIGIT+;
 
 fragment RULE_LINEFEED : '\n';
 

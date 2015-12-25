@@ -14,8 +14,9 @@ WHITESPACE SKW_LEFTBRACE NEWLINE
 	NEWLINE
 SKW_RIGHTBRACE NEWLINE
 //----------------------------------------------------------------------
-(Model unit+=
-	(TranslationUnit 
+(common::Model units+=
+	(common::TranslationUnit 
+	parser=(Parser
 		external+=
 		(ExternalDeclaration 
 			functiondefHead=
@@ -51,6 +52,7 @@ SKW_RIGHTBRACE NEWLINE
 		)
 		
 	)
+)
 )
 //----------------------------------------------------------------------
 output file="bin/Test0033_StaticInline.c"

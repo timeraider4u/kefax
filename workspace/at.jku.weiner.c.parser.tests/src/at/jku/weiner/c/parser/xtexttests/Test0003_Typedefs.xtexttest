@@ -17,8 +17,9 @@ ID WHITESPACE ID SKW_SEMI NEWLINE
 ID WHITESPACE ID SKW_SEMI NEWLINE
 KW_INT WHITESPACE ID SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
-(Model unit+=
-	(TranslationUnit 
+(common::Model units+=
+	(common::TranslationUnit 
+	parser=(Parser
 		external+=
 		// int a;
 		(ExternalDeclaration 
@@ -288,6 +289,7 @@ KW_INT WHITESPACE ID SKW_SEMI NEWLINE
 		)
 		
 	)
+)
 )
 //----------------------------------------------------------------------
 output file="bin/Test0003_Typedefs.c"

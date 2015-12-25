@@ -10,10 +10,10 @@ package at.jku.weiner.c.parser.parser;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.PostfixExpressionSuffixArgument#getArgumentExpressionList <em>Argument Expression List</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.c.parser.parser.ParserPackage#getPostfixExpressionSuffixArgument()
  * @model

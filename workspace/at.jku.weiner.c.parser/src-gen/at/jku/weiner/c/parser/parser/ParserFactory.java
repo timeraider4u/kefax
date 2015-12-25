@@ -23,24 +23,6 @@ public interface ParserFactory extends EFactory
   ParserFactory eINSTANCE = at.jku.weiner.c.parser.parser.impl.ParserFactoryImpl.init();
 
   /**
-   * Returns a new object of class '<em>Model</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Model</em>'.
-   * @generated
-   */
-  Model createModel();
-
-  /**
-   * Returns a new object of class '<em>Translation Unit</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Translation Unit</em>'.
-   * @generated
-   */
-  TranslationUnit createTranslationUnit();
-
-  /**
    * Returns a new object of class '<em>External Declaration</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -435,6 +417,15 @@ public interface ParserFactory extends EFactory
    * @generated
    */
   ArgumentExpressionList createArgumentExpressionList();
+
+  /**
+   * Returns a new object of class '<em>Parser</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Parser</em>'.
+   * @generated
+   */
+  Parser createParser();
 
   /**
    * Returns a new object of class '<em>Struct Or Union Specifier</em>'.

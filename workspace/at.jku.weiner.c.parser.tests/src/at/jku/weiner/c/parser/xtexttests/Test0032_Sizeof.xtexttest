@@ -21,8 +21,9 @@ SKW_LEFTBRACE NEWLINE
 	KW_LONG SKW_RIGHTPAREN KW_SIZEOF SKW_LEFTPAREN KW_INT SKW_RIGHTPAREN SKW_SEMI NEWLINE
 SKW_RIGHTBRACE NEWLINE
 //----------------------------------------------------------------------
-(Model unit+=
-	(TranslationUnit 
+(common::Model units+=
+	(common::TranslationUnit 
+	parser=(Parser
 		external+=		
 		(ExternalDeclaration 
 			functiondefHead=
@@ -229,6 +230,7 @@ SKW_RIGHTBRACE NEWLINE
 			)
 		)// end external declaration				
 	)
+)
 )
 //----------------------------------------------------------------------
 output file="bin/Test0032_Sizeof.c"

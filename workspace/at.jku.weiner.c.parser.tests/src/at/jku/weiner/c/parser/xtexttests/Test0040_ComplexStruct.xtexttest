@@ -22,8 +22,9 @@ KW_STRUCT WHITESPACE ID WHITESPACE SKW_LEFTBRACE NEWLINE
 	WHITESPACE SKW_RIGHTBRACE WHITESPACE ID SKW_SEMI NEWLINE
 SKW_RIGHTBRACE SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
-(Model unit+=
-	(TranslationUnit 
+(common::Model units+=
+	(common::TranslationUnit 
+	parser=(Parser
 		external+=
 		// struct temp { ... };
 		(ExternalDeclaration 
@@ -206,6 +207,7 @@ SKW_RIGHTBRACE SKW_SEMI NEWLINE
 			)
 		)
 	)
+)
 )
 //----------------------------------------------------------------------
 output file="bin/Test0040_ComplexStruct.c"

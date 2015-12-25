@@ -64,8 +64,6 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
   {
     switch (eClass.getClassifierID())
     {
-      case ParserPackage.MODEL: return createModel();
-      case ParserPackage.TRANSLATION_UNIT: return createTranslationUnit();
       case ParserPackage.EXTERNAL_DECLARATION: return createExternalDeclaration();
       case ParserPackage.FUNCTION_DEF_HEAD: return createFunctionDefHead();
       case ParserPackage.FUNCTION_DEFINITION: return createFunctionDefinition();
@@ -110,6 +108,7 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
       case ParserPackage.UNARY_OPERATOR: return createUnaryOperator();
       case ParserPackage.POSTFIX_EXPRESSION_SUFFIX: return createPostfixExpressionSuffix();
       case ParserPackage.ARGUMENT_EXPRESSION_LIST: return createArgumentExpressionList();
+      case ParserPackage.PARSER: return createParser();
       case ParserPackage.STRUCT_OR_UNION_SPECIFIER: return createStructOrUnionSpecifier();
       case ParserPackage.ENUM_SPECIFIER: return createEnumSpecifier();
       case ParserPackage.LABELED_STATEMENT: return createLabeledStatement();
@@ -148,28 +147,6 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Model createModel()
-  {
-    ModelImpl model = new ModelImpl();
-    return model;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public TranslationUnit createTranslationUnit()
-  {
-    TranslationUnitImpl translationUnit = new TranslationUnitImpl();
-    return translationUnit;
   }
 
   /**
@@ -654,6 +631,17 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
   {
     ArgumentExpressionListImpl argumentExpressionList = new ArgumentExpressionListImpl();
     return argumentExpressionList;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Parser createParser()
+  {
+    ParserImpl parser = new ParserImpl();
+    return parser;
   }
 
   /**

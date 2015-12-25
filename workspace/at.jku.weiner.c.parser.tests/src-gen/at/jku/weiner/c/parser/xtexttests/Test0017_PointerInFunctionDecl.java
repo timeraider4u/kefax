@@ -43,8 +43,9 @@ import at.jku.weiner.c.parser.parser.antlr.ParserParser;
 import at.jku.weiner.c.parser.parser.antlr.internal.InternalParserLexer;
 import at.jku.weiner.c.parser.xtexttests.LexerAndParserTest;
 
-import at.jku.weiner.c.parser.parser.Model;
-import at.jku.weiner.c.parser.parser.TranslationUnit;
+import at.jku.weiner.c.common.common.Model;
+import at.jku.weiner.c.common.common.TranslationUnit;
+import at.jku.weiner.c.parser.parser.Parser;
 import at.jku.weiner.c.parser.parser.ExternalDeclaration;
 import at.jku.weiner.c.parser.parser.Declaration;
 import at.jku.weiner.c.parser.parser.DeclarationSpecifiers;
@@ -158,202 +159,208 @@ public class Test0017_PointerInFunctionDecl {
 		
 		Assert.assertNotNull(Model_0_Var
 		);
-		final EList<? extends EObject> Unit_0_list = Model_0_Var
-		.getUnit();
-		Assert.assertNotNull(Unit_0_list);
-		Assert.assertEquals(1, Unit_0_list.size());
+		final EList<? extends EObject> Units_0_list = Model_0_Var
+		.getUnits();
+		Assert.assertNotNull(Units_0_list);
+		Assert.assertEquals(1, Units_0_list.size());
 		//0
 		final TranslationUnit TranslationUnit_1_Var
-		 = (TranslationUnit)Unit_0_list.get(0);
+		 = (TranslationUnit)Units_0_list.get(0);
 		Assert.assertNotNull(TranslationUnit_1_Var
 		);
-		final EList<? extends EObject> External_1_list = TranslationUnit_1_Var
-		.getExternal();
-		Assert.assertNotNull(External_1_list);
-		Assert.assertEquals(1, External_1_list.size());
 		//1
-		final ExternalDeclaration ExternalDeclaration_2_Var
-		 = (ExternalDeclaration)External_1_list.get(0);
-		Assert.assertNotNull(ExternalDeclaration_2_Var
+		final Parser Parser_2_Var
+		 = (Parser)TranslationUnit_1_Var
+		.getParser();
+		Assert.assertNotNull(Parser_2_Var
 		);
+		final EList<? extends EObject> External_2_list = Parser_2_Var
+		.getExternal();
+		Assert.assertNotNull(External_2_list);
+		Assert.assertEquals(1, External_2_list.size());
 		//2
-		final Declaration Declaration_3_Var
-		 = (Declaration)ExternalDeclaration_2_Var
-		.getDeclaration();
-		Assert.assertNotNull(Declaration_3_Var
+		final ExternalDeclaration ExternalDeclaration_3_Var
+		 = (ExternalDeclaration)External_2_list.get(0);
+		Assert.assertNotNull(ExternalDeclaration_3_Var
 		);
 		//3
-		final DeclarationSpecifiers DeclarationSpecifiers_4_Var
-		 = (DeclarationSpecifiers)Declaration_3_Var
-		.getSpecifiers();
-		Assert.assertNotNull(DeclarationSpecifiers_4_Var
+		final Declaration Declaration_4_Var
+		 = (Declaration)ExternalDeclaration_3_Var
+		.getDeclaration();
+		Assert.assertNotNull(Declaration_4_Var
 		);
-		final EList<? extends EObject> DeclarationSpecifier_4_list = DeclarationSpecifiers_4_Var
-		.getDeclarationSpecifier();
-		Assert.assertNotNull(DeclarationSpecifier_4_list);
-		Assert.assertEquals(1, DeclarationSpecifier_4_list.size());
 		//4
-		final TypeSpecifier TypeSpecifier_5_Var
-		 = (TypeSpecifier)DeclarationSpecifier_4_list.get(0);
-		Assert.assertNotNull(TypeSpecifier_5_Var
+		final DeclarationSpecifiers DeclarationSpecifiers_5_Var
+		 = (DeclarationSpecifiers)Declaration_4_Var
+		.getSpecifiers();
+		Assert.assertNotNull(DeclarationSpecifiers_5_Var
 		);
-		Assert.assertEquals("void", TypeSpecifier_5_Var
-		.getName());
-		final EList<? extends EObject> InitDeclaratorList_5_list = Declaration_3_Var
-		.getInitDeclaratorList();
-		Assert.assertNotNull(InitDeclaratorList_5_list);
-		Assert.assertEquals(1, InitDeclaratorList_5_list.size());
+		final EList<? extends EObject> DeclarationSpecifier_5_list = DeclarationSpecifiers_5_Var
+		.getDeclarationSpecifier();
+		Assert.assertNotNull(DeclarationSpecifier_5_list);
+		Assert.assertEquals(1, DeclarationSpecifier_5_list.size());
 		//5
-		final InitDeclaratorList InitDeclaratorList_6_Var
-		 = (InitDeclaratorList)InitDeclaratorList_5_list.get(0);
-		Assert.assertNotNull(InitDeclaratorList_6_Var
+		final TypeSpecifier TypeSpecifier_6_Var
+		 = (TypeSpecifier)DeclarationSpecifier_5_list.get(0);
+		Assert.assertNotNull(TypeSpecifier_6_Var
 		);
-		final EList<? extends EObject> InitDeclarator_6_list = InitDeclaratorList_6_Var
-		.getInitDeclarator();
-		Assert.assertNotNull(InitDeclarator_6_list);
-		Assert.assertEquals(1, InitDeclarator_6_list.size());
+		Assert.assertEquals("void", TypeSpecifier_6_Var
+		.getName());
+		final EList<? extends EObject> InitDeclaratorList_6_list = Declaration_4_Var
+		.getInitDeclaratorList();
+		Assert.assertNotNull(InitDeclaratorList_6_list);
+		Assert.assertEquals(1, InitDeclaratorList_6_list.size());
 		//6
-		final InitDeclarator InitDeclarator_7_Var
-		 = (InitDeclarator)InitDeclarator_6_list.get(0);
-		Assert.assertNotNull(InitDeclarator_7_Var
+		final InitDeclaratorList InitDeclaratorList_7_Var
+		 = (InitDeclaratorList)InitDeclaratorList_6_list.get(0);
+		Assert.assertNotNull(InitDeclaratorList_7_Var
 		);
+		final EList<? extends EObject> InitDeclarator_7_list = InitDeclaratorList_7_Var
+		.getInitDeclarator();
+		Assert.assertNotNull(InitDeclarator_7_list);
+		Assert.assertEquals(1, InitDeclarator_7_list.size());
 		//7
-		final Declarator Declarator_8_Var
-		 = (Declarator)InitDeclarator_7_Var
-		.getDeclarator();
-		Assert.assertNotNull(Declarator_8_Var
+		final InitDeclarator InitDeclarator_8_Var
+		 = (InitDeclarator)InitDeclarator_7_list.get(0);
+		Assert.assertNotNull(InitDeclarator_8_Var
 		);
 		//8
-		final DirectDeclarator DirectDeclarator_9_Var
-		 = (DirectDeclarator)Declarator_8_Var
+		final Declarator Declarator_9_Var
+		 = (Declarator)InitDeclarator_8_Var
 		.getDeclarator();
-		Assert.assertNotNull(DirectDeclarator_9_Var
+		Assert.assertNotNull(Declarator_9_Var
 		);
-		Assert.assertEquals("do1", DirectDeclarator_9_Var
-		.getId());
-		final EList<? extends EObject> DeclaratorSuffix_9_list = DirectDeclarator_9_Var
-		.getDeclaratorSuffix();
-		Assert.assertNotNull(DeclaratorSuffix_9_list);
-		Assert.assertEquals(1, DeclaratorSuffix_9_list.size());
 		//9
-		final DeclaratorSuffix DeclaratorSuffix_10_Var
-		 = (DeclaratorSuffix)DeclaratorSuffix_9_list.get(0);
-		Assert.assertNotNull(DeclaratorSuffix_10_Var
+		final DirectDeclarator DirectDeclarator_10_Var
+		 = (DirectDeclarator)Declarator_9_Var
+		.getDeclarator();
+		Assert.assertNotNull(DirectDeclarator_10_Var
 		);
+		Assert.assertEquals("do1", DirectDeclarator_10_Var
+		.getId());
+		final EList<? extends EObject> DeclaratorSuffix_10_list = DirectDeclarator_10_Var
+		.getDeclaratorSuffix();
+		Assert.assertNotNull(DeclaratorSuffix_10_list);
+		Assert.assertEquals(1, DeclaratorSuffix_10_list.size());
 		//10
-		final DirectDeclaratorLastSuffix DirectDeclaratorLastSuffix_11_Var
-		 = (DirectDeclaratorLastSuffix)DeclaratorSuffix_10_Var
-		.getLastSuffix();
-		Assert.assertNotNull(DirectDeclaratorLastSuffix_11_Var
+		final DeclaratorSuffix DeclaratorSuffix_11_Var
+		 = (DeclaratorSuffix)DeclaratorSuffix_10_list.get(0);
+		Assert.assertNotNull(DeclaratorSuffix_11_Var
 		);
-		final EList<? extends EObject> ParameterTypeList_11_list = DirectDeclaratorLastSuffix_11_Var
-		.getParameterTypeList();
-		Assert.assertNotNull(ParameterTypeList_11_list);
-		Assert.assertEquals(1, ParameterTypeList_11_list.size());
 		//11
-		final ParameterTypeList ParameterTypeList_12_Var
-		 = (ParameterTypeList)ParameterTypeList_11_list.get(0);
-		Assert.assertNotNull(ParameterTypeList_12_Var
+		final DirectDeclaratorLastSuffix DirectDeclaratorLastSuffix_12_Var
+		 = (DirectDeclaratorLastSuffix)DeclaratorSuffix_11_Var
+		.getLastSuffix();
+		Assert.assertNotNull(DirectDeclaratorLastSuffix_12_Var
 		);
+		final EList<? extends EObject> ParameterTypeList_12_list = DirectDeclaratorLastSuffix_12_Var
+		.getParameterTypeList();
+		Assert.assertNotNull(ParameterTypeList_12_list);
+		Assert.assertEquals(1, ParameterTypeList_12_list.size());
 		//12
-		final ParameterList ParameterList_13_Var
-		 = (ParameterList)ParameterTypeList_12_Var
-		.getList();
-		Assert.assertNotNull(ParameterList_13_Var
+		final ParameterTypeList ParameterTypeList_13_Var
+		 = (ParameterTypeList)ParameterTypeList_12_list.get(0);
+		Assert.assertNotNull(ParameterTypeList_13_Var
 		);
-		final EList<? extends EObject> ParameterDeclaration_13_list = ParameterList_13_Var
-		.getParameterDeclaration();
-		Assert.assertNotNull(ParameterDeclaration_13_list);
-		Assert.assertEquals(2, ParameterDeclaration_13_list.size());
 		//13
-		final ParameterDeclaration ParameterDeclaration_14_Var
-		 = (ParameterDeclaration)ParameterDeclaration_13_list.get(0);
-		Assert.assertNotNull(ParameterDeclaration_14_Var
+		final ParameterList ParameterList_14_Var
+		 = (ParameterList)ParameterTypeList_13_Var
+		.getList();
+		Assert.assertNotNull(ParameterList_14_Var
 		);
+		final EList<? extends EObject> ParameterDeclaration_14_list = ParameterList_14_Var
+		.getParameterDeclaration();
+		Assert.assertNotNull(ParameterDeclaration_14_list);
+		Assert.assertEquals(2, ParameterDeclaration_14_list.size());
 		//14
-		final DeclarationSpecifiers DeclarationSpecifiers_15_Var
-		 = (DeclarationSpecifiers)ParameterDeclaration_14_Var
-		.getDeclSpecifiers();
-		Assert.assertNotNull(DeclarationSpecifiers_15_Var
+		final ParameterDeclaration ParameterDeclaration_15_Var
+		 = (ParameterDeclaration)ParameterDeclaration_14_list.get(0);
+		Assert.assertNotNull(ParameterDeclaration_15_Var
 		);
-		final EList<? extends EObject> DeclarationSpecifier_15_list = DeclarationSpecifiers_15_Var
-		.getDeclarationSpecifier();
-		Assert.assertNotNull(DeclarationSpecifier_15_list);
-		Assert.assertEquals(1, DeclarationSpecifier_15_list.size());
 		//15
-		final TypeSpecifier TypeSpecifier_16_Var
-		 = (TypeSpecifier)DeclarationSpecifier_15_list.get(0);
-		Assert.assertNotNull(TypeSpecifier_16_Var
-		);
-		Assert.assertEquals("int", TypeSpecifier_16_Var
-		.getName());
-		//16
-		final Declarator Declarator_17_Var
-		 = (Declarator)ParameterDeclaration_14_Var
-		.getDeclarator();
-		Assert.assertNotNull(Declarator_17_Var
-		);
-		//17
-		final DirectDeclarator DirectDeclarator_18_Var
-		 = (DirectDeclarator)Declarator_17_Var
-		.getDeclarator();
-		Assert.assertNotNull(DirectDeclarator_18_Var
-		);
-		Assert.assertEquals("argc", DirectDeclarator_18_Var
-		.getId());
-		//18
-		final Pointer Pointer_19_Var
-		 = (Pointer)Declarator_17_Var
-		.getPointer();
-		Assert.assertNotNull(Pointer_19_Var
-		);
-		Assert.assertEquals("[*]", Pointer_19_Var
-		.getStar().toString());
-		//19
-		final ParameterDeclaration ParameterDeclaration_20_Var
-		 = (ParameterDeclaration)ParameterDeclaration_13_list.get(1);
-		Assert.assertNotNull(ParameterDeclaration_20_Var
-		);
-		//20
-		final DeclarationSpecifiers DeclarationSpecifiers_21_Var
-		 = (DeclarationSpecifiers)ParameterDeclaration_20_Var
+		final DeclarationSpecifiers DeclarationSpecifiers_16_Var
+		 = (DeclarationSpecifiers)ParameterDeclaration_15_Var
 		.getDeclSpecifiers();
-		Assert.assertNotNull(DeclarationSpecifiers_21_Var
+		Assert.assertNotNull(DeclarationSpecifiers_16_Var
 		);
-		final EList<? extends EObject> DeclarationSpecifier_21_list = DeclarationSpecifiers_21_Var
+		final EList<? extends EObject> DeclarationSpecifier_16_list = DeclarationSpecifiers_16_Var
 		.getDeclarationSpecifier();
-		Assert.assertNotNull(DeclarationSpecifier_21_list);
-		Assert.assertEquals(1, DeclarationSpecifier_21_list.size());
-		//21
-		final TypeSpecifier TypeSpecifier_22_Var
-		 = (TypeSpecifier)DeclarationSpecifier_21_list.get(0);
-		Assert.assertNotNull(TypeSpecifier_22_Var
+		Assert.assertNotNull(DeclarationSpecifier_16_list);
+		Assert.assertEquals(1, DeclarationSpecifier_16_list.size());
+		//16
+		final TypeSpecifier TypeSpecifier_17_Var
+		 = (TypeSpecifier)DeclarationSpecifier_16_list.get(0);
+		Assert.assertNotNull(TypeSpecifier_17_Var
 		);
-		Assert.assertEquals("char", TypeSpecifier_22_Var
+		Assert.assertEquals("int", TypeSpecifier_17_Var
 		.getName());
-		//22
-		final Declarator Declarator_23_Var
-		 = (Declarator)ParameterDeclaration_20_Var
+		//17
+		final Declarator Declarator_18_Var
+		 = (Declarator)ParameterDeclaration_15_Var
 		.getDeclarator();
-		Assert.assertNotNull(Declarator_23_Var
+		Assert.assertNotNull(Declarator_18_Var
 		);
-		//23
-		final DirectDeclarator DirectDeclarator_24_Var
-		 = (DirectDeclarator)Declarator_23_Var
+		//18
+		final DirectDeclarator DirectDeclarator_19_Var
+		 = (DirectDeclarator)Declarator_18_Var
 		.getDeclarator();
-		Assert.assertNotNull(DirectDeclarator_24_Var
+		Assert.assertNotNull(DirectDeclarator_19_Var
 		);
-		Assert.assertEquals("argv", DirectDeclarator_24_Var
+		Assert.assertEquals("argc", DirectDeclarator_19_Var
 		.getId());
-		//24
-		final Pointer Pointer_25_Var
-		 = (Pointer)Declarator_23_Var
+		//19
+		final Pointer Pointer_20_Var
+		 = (Pointer)Declarator_18_Var
 		.getPointer();
-		Assert.assertNotNull(Pointer_25_Var
+		Assert.assertNotNull(Pointer_20_Var
 		);
-		Assert.assertEquals("[*, *]", Pointer_25_Var
+		Assert.assertEquals("[*]", Pointer_20_Var
 		.getStar().toString());
-		Assert.assertEquals(";", Declaration_3_Var
+		//20
+		final ParameterDeclaration ParameterDeclaration_21_Var
+		 = (ParameterDeclaration)ParameterDeclaration_14_list.get(1);
+		Assert.assertNotNull(ParameterDeclaration_21_Var
+		);
+		//21
+		final DeclarationSpecifiers DeclarationSpecifiers_22_Var
+		 = (DeclarationSpecifiers)ParameterDeclaration_21_Var
+		.getDeclSpecifiers();
+		Assert.assertNotNull(DeclarationSpecifiers_22_Var
+		);
+		final EList<? extends EObject> DeclarationSpecifier_22_list = DeclarationSpecifiers_22_Var
+		.getDeclarationSpecifier();
+		Assert.assertNotNull(DeclarationSpecifier_22_list);
+		Assert.assertEquals(1, DeclarationSpecifier_22_list.size());
+		//22
+		final TypeSpecifier TypeSpecifier_23_Var
+		 = (TypeSpecifier)DeclarationSpecifier_22_list.get(0);
+		Assert.assertNotNull(TypeSpecifier_23_Var
+		);
+		Assert.assertEquals("char", TypeSpecifier_23_Var
+		.getName());
+		//23
+		final Declarator Declarator_24_Var
+		 = (Declarator)ParameterDeclaration_21_Var
+		.getDeclarator();
+		Assert.assertNotNull(Declarator_24_Var
+		);
+		//24
+		final DirectDeclarator DirectDeclarator_25_Var
+		 = (DirectDeclarator)Declarator_24_Var
+		.getDeclarator();
+		Assert.assertNotNull(DirectDeclarator_25_Var
+		);
+		Assert.assertEquals("argv", DirectDeclarator_25_Var
+		.getId());
+		//25
+		final Pointer Pointer_26_Var
+		 = (Pointer)Declarator_24_Var
+		.getPointer();
+		Assert.assertNotNull(Pointer_26_Var
+		);
+		Assert.assertEquals("[*, *]", Pointer_26_Var
+		.getStar().toString());
+		Assert.assertEquals(";", Declaration_4_Var
 		.getSemi());
 	}
 	

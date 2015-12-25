@@ -16,8 +16,9 @@ KW_INT WHITESPACE ID SKW_RIGHTPAREN WHITESPACE SKW_LEFTBRACE NEWLINE
 	WHITESPACE SKW_RIGHTBRACE NEWLINE
 SKW_RIGHTBRACE NEWLINE
 //----------------------------------------------------------------------
-(Model unit+=
-	(TranslationUnit 
+(common::Model units+=
+	(common::TranslationUnit 
+	parser=(Parser
 		external+=
 		(ExternalDeclaration 
 			functiondefHead=
@@ -238,6 +239,7 @@ SKW_RIGHTBRACE NEWLINE
 			)
 		) // end external declaration
 	)
+)
 )
 //----------------------------------------------------------------------
 output file="bin/Test0023_While.c"

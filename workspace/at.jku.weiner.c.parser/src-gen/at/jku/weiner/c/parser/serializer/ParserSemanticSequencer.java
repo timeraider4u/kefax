@@ -5,6 +5,8 @@ package at.jku.weiner.c.parser.serializer;
 
 import at.jku.weiner.c.common.common.CommonPackage;
 import at.jku.weiner.c.common.common.Constant2;
+import at.jku.weiner.c.common.common.Model;
+import at.jku.weiner.c.common.common.TranslationUnit;
 import at.jku.weiner.c.common.serializer.CommonSemanticSequencer;
 import at.jku.weiner.c.parser.parser.AdditiveExpression;
 import at.jku.weiner.c.parser.parser.AndExpression;
@@ -49,12 +51,12 @@ import at.jku.weiner.c.parser.parser.JumpStatement;
 import at.jku.weiner.c.parser.parser.LabeledStatement;
 import at.jku.weiner.c.parser.parser.LogicalAndExpression;
 import at.jku.weiner.c.parser.parser.LogicalOrExpression;
-import at.jku.weiner.c.parser.parser.Model;
 import at.jku.weiner.c.parser.parser.MultiplicativeExpression;
 import at.jku.weiner.c.parser.parser.MyIdentifier;
 import at.jku.weiner.c.parser.parser.ParameterDeclaration;
 import at.jku.weiner.c.parser.parser.ParameterList;
 import at.jku.weiner.c.parser.parser.ParameterTypeList;
+import at.jku.weiner.c.parser.parser.Parser;
 import at.jku.weiner.c.parser.parser.ParserPackage;
 import at.jku.weiner.c.parser.parser.Pointer;
 import at.jku.weiner.c.parser.parser.PostfixExpression;
@@ -77,7 +79,6 @@ import at.jku.weiner.c.parser.parser.StructDeclarator;
 import at.jku.weiner.c.parser.parser.StructDeclaratorList;
 import at.jku.weiner.c.parser.parser.StructOrUnion;
 import at.jku.weiner.c.parser.parser.StructOrUnionSpecifier;
-import at.jku.weiner.c.parser.parser.TranslationUnit;
 import at.jku.weiner.c.parser.parser.TypeName;
 import at.jku.weiner.c.parser.parser.TypeQualifier;
 import at.jku.weiner.c.parser.parser.TypeQualifierList;
@@ -110,6 +111,12 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 		if(semanticObject.eClass().getEPackage() == CommonPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
 			case CommonPackage.CONSTANT2:
 				sequence_Constant2(context, (Constant2) semanticObject); 
+				return; 
+			case CommonPackage.MODEL:
+				sequence_Model(context, (Model) semanticObject); 
+				return; 
+			case CommonPackage.TRANSLATION_UNIT:
+				sequence_TranslationUnit(context, (TranslationUnit) semanticObject); 
 				return; 
 			}
 		else if(semanticObject.eClass().getEPackage() == ParserPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
@@ -242,9 +249,6 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 			case ParserPackage.LOGICAL_OR_EXPRESSION:
 				sequence_LogicalOrExpression(context, (LogicalOrExpression) semanticObject); 
 				return; 
-			case ParserPackage.MODEL:
-				sequence_Model(context, (Model) semanticObject); 
-				return; 
 			case ParserPackage.MULTIPLICATIVE_EXPRESSION:
 				sequence_MultiplicativeExpression(context, (MultiplicativeExpression) semanticObject); 
 				return; 
@@ -259,6 +263,9 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 				return; 
 			case ParserPackage.PARAMETER_TYPE_LIST:
 				sequence_ParameterTypeList(context, (ParameterTypeList) semanticObject); 
+				return; 
+			case ParserPackage.PARSER:
+				sequence_Parser(context, (Parser) semanticObject); 
 				return; 
 			case ParserPackage.POINTER:
 				sequence_Pointer(context, (Pointer) semanticObject); 
@@ -322,9 +329,6 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 				return; 
 			case ParserPackage.STRUCT_OR_UNION_SPECIFIER:
 				sequence_StructOrUnionSpecifier(context, (StructOrUnionSpecifier) semanticObject); 
-				return; 
-			case ParserPackage.TRANSLATION_UNIT:
-				sequence_TranslationUnit(context, (TranslationUnit) semanticObject); 
 				return; 
 			case ParserPackage.TYPE_NAME:
 				sequence_TypeName(context, (TypeName) semanticObject); 
@@ -797,7 +801,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     unit+=TranslationUnit
+	 *     units+=TranslationUnit
 	 */
 	protected void sequence_Model(EObject context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -860,6 +864,15 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getParameterTypeListAccess().getListParameterListParserRuleCall_1_0(), semanticObject.getList());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (external+=ExternalDeclaration*)
+	 */
+	protected void sequence_Parser(EObject context, Parser semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -1110,7 +1123,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (external+=ExternalDeclaration*)
+	 *     parser=Parser
 	 */
 	protected void sequence_TranslationUnit(EObject context, TranslationUnit semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

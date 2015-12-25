@@ -19,8 +19,9 @@ KW_INT
 SKW_RIGHTPAREN SKW_SEMI NEWLINE
 LINE_COMMENT NEWLINE
 //----------------------------------------------------------------------
-(Model unit+=
-	(TranslationUnit 
+(common::Model units+=
+	(common::TranslationUnit 
+	parser=(Parser
 		external+=
 		// int do1(int a, int b, int c);
 		(ExternalDeclaration 
@@ -179,6 +180,7 @@ LINE_COMMENT NEWLINE
 		)
 		
 	)
+)
 )
 //----------------------------------------------------------------------
 output file="bin/Test0006_FunctionDecls.c"

@@ -10,6 +10,7 @@ package at.jku.weiner.c.parser.parser;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.JumpStatement#getContinue <em>Continue</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.JumpStatement#getSemi <em>Semi</em>}</li>
@@ -18,7 +19,6 @@ package at.jku.weiner.c.parser.parser;
  *   <li>{@link at.jku.weiner.c.parser.parser.JumpStatement#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.JumpStatement#getGoto <em>Goto</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.c.parser.parser.ParserPackage#getJumpStatement()
  * @model

@@ -43,8 +43,9 @@ import at.jku.weiner.c.parser.parser.antlr.ParserParser;
 import at.jku.weiner.c.parser.parser.antlr.internal.InternalParserLexer;
 import at.jku.weiner.c.parser.xtexttests.LexerAndParserTest;
 
-import at.jku.weiner.c.parser.parser.Model;
-import at.jku.weiner.c.parser.parser.TranslationUnit;
+import at.jku.weiner.c.common.common.Model;
+import at.jku.weiner.c.common.common.TranslationUnit;
+import at.jku.weiner.c.parser.parser.Parser;
 import at.jku.weiner.c.parser.parser.ExternalDeclaration;
 import at.jku.weiner.c.parser.parser.ExternalDeclaration;
 import at.jku.weiner.c.parser.parser.ExternalDeclaration;
@@ -123,39 +124,45 @@ public class Test0001_Semicolons {
 		
 		Assert.assertNotNull(Model_0_Var
 		);
-		final EList<? extends EObject> Unit_0_list = Model_0_Var
-		.getUnit();
-		Assert.assertNotNull(Unit_0_list);
-		Assert.assertEquals(1, Unit_0_list.size());
+		final EList<? extends EObject> Units_0_list = Model_0_Var
+		.getUnits();
+		Assert.assertNotNull(Units_0_list);
+		Assert.assertEquals(1, Units_0_list.size());
 		//0
 		final TranslationUnit TranslationUnit_1_Var
-		 = (TranslationUnit)Unit_0_list.get(0);
+		 = (TranslationUnit)Units_0_list.get(0);
 		Assert.assertNotNull(TranslationUnit_1_Var
 		);
-		final EList<? extends EObject> External_1_list = TranslationUnit_1_Var
-		.getExternal();
-		Assert.assertNotNull(External_1_list);
-		Assert.assertEquals(3, External_1_list.size());
 		//1
-		final ExternalDeclaration ExternalDeclaration_2_Var
-		 = (ExternalDeclaration)External_1_list.get(0);
-		Assert.assertNotNull(ExternalDeclaration_2_Var
+		final Parser Parser_2_Var
+		 = (Parser)TranslationUnit_1_Var
+		.getParser();
+		Assert.assertNotNull(Parser_2_Var
 		);
-		Assert.assertEquals(";", ExternalDeclaration_2_Var
-		.getSemi());
+		final EList<? extends EObject> External_2_list = Parser_2_Var
+		.getExternal();
+		Assert.assertNotNull(External_2_list);
+		Assert.assertEquals(3, External_2_list.size());
 		//2
 		final ExternalDeclaration ExternalDeclaration_3_Var
-		 = (ExternalDeclaration)External_1_list.get(1);
+		 = (ExternalDeclaration)External_2_list.get(0);
 		Assert.assertNotNull(ExternalDeclaration_3_Var
 		);
 		Assert.assertEquals(";", ExternalDeclaration_3_Var
 		.getSemi());
 		//3
 		final ExternalDeclaration ExternalDeclaration_4_Var
-		 = (ExternalDeclaration)External_1_list.get(2);
+		 = (ExternalDeclaration)External_2_list.get(1);
 		Assert.assertNotNull(ExternalDeclaration_4_Var
 		);
 		Assert.assertEquals(";", ExternalDeclaration_4_Var
+		.getSemi());
+		//4
+		final ExternalDeclaration ExternalDeclaration_5_Var
+		 = (ExternalDeclaration)External_2_list.get(2);
+		Assert.assertNotNull(ExternalDeclaration_5_Var
+		);
+		Assert.assertEquals(";", ExternalDeclaration_5_Var
 		.getSemi());
 	}
 	

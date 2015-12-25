@@ -43,8 +43,9 @@ import at.jku.weiner.c.parser.parser.antlr.ParserParser;
 import at.jku.weiner.c.parser.parser.antlr.internal.InternalParserLexer;
 import at.jku.weiner.c.parser.xtexttests.LexerAndParserTest;
 
-import at.jku.weiner.c.parser.parser.Model;
-import at.jku.weiner.c.parser.parser.TranslationUnit;
+import at.jku.weiner.c.common.common.Model;
+import at.jku.weiner.c.common.common.TranslationUnit;
+import at.jku.weiner.c.parser.parser.Parser;
 import at.jku.weiner.c.parser.parser.ExternalDeclaration;
 import at.jku.weiner.c.parser.parser.FunctionDefHead;
 import at.jku.weiner.c.parser.parser.FunctionDeclarationSpecifiers;
@@ -133,72 +134,78 @@ public class Test0007_FunctionDef {
 		
 		Assert.assertNotNull(Model_0_Var
 		);
-		final EList<? extends EObject> Unit_0_list = Model_0_Var
-		.getUnit();
-		Assert.assertNotNull(Unit_0_list);
-		Assert.assertEquals(1, Unit_0_list.size());
+		final EList<? extends EObject> Units_0_list = Model_0_Var
+		.getUnits();
+		Assert.assertNotNull(Units_0_list);
+		Assert.assertEquals(1, Units_0_list.size());
 		//0
 		final TranslationUnit TranslationUnit_1_Var
-		 = (TranslationUnit)Unit_0_list.get(0);
+		 = (TranslationUnit)Units_0_list.get(0);
 		Assert.assertNotNull(TranslationUnit_1_Var
 		);
-		final EList<? extends EObject> External_1_list = TranslationUnit_1_Var
-		.getExternal();
-		Assert.assertNotNull(External_1_list);
-		Assert.assertEquals(1, External_1_list.size());
 		//1
-		final ExternalDeclaration ExternalDeclaration_2_Var
-		 = (ExternalDeclaration)External_1_list.get(0);
-		Assert.assertNotNull(ExternalDeclaration_2_Var
+		final Parser Parser_2_Var
+		 = (Parser)TranslationUnit_1_Var
+		.getParser();
+		Assert.assertNotNull(Parser_2_Var
 		);
+		final EList<? extends EObject> External_2_list = Parser_2_Var
+		.getExternal();
+		Assert.assertNotNull(External_2_list);
+		Assert.assertEquals(1, External_2_list.size());
 		//2
-		final FunctionDefHead FunctionDefHead_3_Var
-		 = (FunctionDefHead)ExternalDeclaration_2_Var
-		.getFunctiondefHead();
-		Assert.assertNotNull(FunctionDefHead_3_Var
+		final ExternalDeclaration ExternalDeclaration_3_Var
+		 = (ExternalDeclaration)External_2_list.get(0);
+		Assert.assertNotNull(ExternalDeclaration_3_Var
 		);
 		//3
-		final FunctionDeclarationSpecifiers FunctionDeclarationSpecifiers_4_Var
-		 = (FunctionDeclarationSpecifiers)FunctionDefHead_3_Var
-		.getFunDeclSpecifiers();
-		Assert.assertNotNull(FunctionDeclarationSpecifiers_4_Var
+		final FunctionDefHead FunctionDefHead_4_Var
+		 = (FunctionDefHead)ExternalDeclaration_3_Var
+		.getFunctiondefHead();
+		Assert.assertNotNull(FunctionDefHead_4_Var
 		);
-		final EList<? extends EObject> DeclarationSpecifier_4_list = FunctionDeclarationSpecifiers_4_Var
-		.getDeclarationSpecifier();
-		Assert.assertNotNull(DeclarationSpecifier_4_list);
-		Assert.assertEquals(1, DeclarationSpecifier_4_list.size());
 		//4
-		final TypeSpecifier TypeSpecifier_5_Var
-		 = (TypeSpecifier)DeclarationSpecifier_4_list.get(0);
-		Assert.assertNotNull(TypeSpecifier_5_Var
+		final FunctionDeclarationSpecifiers FunctionDeclarationSpecifiers_5_Var
+		 = (FunctionDeclarationSpecifiers)FunctionDefHead_4_Var
+		.getFunDeclSpecifiers();
+		Assert.assertNotNull(FunctionDeclarationSpecifiers_5_Var
 		);
-		Assert.assertEquals("void", TypeSpecifier_5_Var
-		.getName());
+		final EList<? extends EObject> DeclarationSpecifier_5_list = FunctionDeclarationSpecifiers_5_Var
+		.getDeclarationSpecifier();
+		Assert.assertNotNull(DeclarationSpecifier_5_list);
+		Assert.assertEquals(1, DeclarationSpecifier_5_list.size());
 		//5
-		final Declarator Declarator_6_Var
-		 = (Declarator)FunctionDefHead_3_Var
-		.getFunDeclarator();
-		Assert.assertNotNull(Declarator_6_Var
+		final TypeSpecifier TypeSpecifier_6_Var
+		 = (TypeSpecifier)DeclarationSpecifier_5_list.get(0);
+		Assert.assertNotNull(TypeSpecifier_6_Var
 		);
+		Assert.assertEquals("void", TypeSpecifier_6_Var
+		.getName());
 		//6
-		final DirectDeclarator DirectDeclarator_7_Var
-		 = (DirectDeclarator)Declarator_6_Var
-		.getDeclarator();
-		Assert.assertNotNull(DirectDeclarator_7_Var
+		final Declarator Declarator_7_Var
+		 = (Declarator)FunctionDefHead_4_Var
+		.getFunDeclarator();
+		Assert.assertNotNull(Declarator_7_Var
 		);
-		Assert.assertEquals("do1", DirectDeclarator_7_Var
-		.getId());
 		//7
-		final FunctionDefinition FunctionDefinition_8_Var
-		 = (FunctionDefinition)ExternalDeclaration_2_Var
-		.getFunctionDefinition();
-		Assert.assertNotNull(FunctionDefinition_8_Var
+		final DirectDeclarator DirectDeclarator_8_Var
+		 = (DirectDeclarator)Declarator_7_Var
+		.getDeclarator();
+		Assert.assertNotNull(DirectDeclarator_8_Var
 		);
+		Assert.assertEquals("do1", DirectDeclarator_8_Var
+		.getId());
 		//8
-		final BodyStatement BodyStatement_9_Var
-		 = (BodyStatement)FunctionDefinition_8_Var
+		final FunctionDefinition FunctionDefinition_9_Var
+		 = (FunctionDefinition)ExternalDeclaration_3_Var
+		.getFunctionDefinition();
+		Assert.assertNotNull(FunctionDefinition_9_Var
+		);
+		//9
+		final BodyStatement BodyStatement_10_Var
+		 = (BodyStatement)FunctionDefinition_9_Var
 		.getBody();
-		Assert.assertNotNull(BodyStatement_9_Var
+		Assert.assertNotNull(BodyStatement_10_Var
 		);
 	}
 	

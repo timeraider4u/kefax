@@ -28,42 +28,65 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.Model");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cModelAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cUnitAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cUnitTranslationUnitParserRuleCall_1_0 = (RuleCall)cUnitAssignment_1.eContents().get(0);
+		private final Assignment cUnitsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cUnitsTranslationUnitParserRuleCall_1_0 = (RuleCall)cUnitsAssignment_1.eContents().get(0);
 		
-		/// *** parser *** / Model:
-		//	{Model} unit+=TranslationUnit;
+		/// *** parser *** / Model common::Model:
+		//	{common::Model} units+=TranslationUnit
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Model} unit+=TranslationUnit
+		//{common::Model} units+=TranslationUnit
 		public Group getGroup() { return cGroup; }
 		
-		//{Model}
+		//{common::Model}
 		public Action getModelAction_0() { return cModelAction_0; }
 		
-		//unit+=TranslationUnit
-		public Assignment getUnitAssignment_1() { return cUnitAssignment_1; }
+		//units+=TranslationUnit
+		public Assignment getUnitsAssignment_1() { return cUnitsAssignment_1; }
 		
 		//TranslationUnit
-		public RuleCall getUnitTranslationUnitParserRuleCall_1_0() { return cUnitTranslationUnitParserRuleCall_1_0; }
+		public RuleCall getUnitsTranslationUnitParserRuleCall_1_0() { return cUnitsTranslationUnitParserRuleCall_1_0; }
 	}
 	public class TranslationUnitElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.TranslationUnit");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cTranslationUnitAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cParserAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cParserParserParserRuleCall_1_0 = (RuleCall)cParserAssignment_1.eContents().get(0);
+		
+		//TranslationUnit common::TranslationUnit:
+		//	{common::TranslationUnit} parser=Parser
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{common::TranslationUnit} parser=Parser
+		public Group getGroup() { return cGroup; }
+		
+		//{common::TranslationUnit}
+		public Action getTranslationUnitAction_0() { return cTranslationUnitAction_0; }
+		
+		//parser=Parser
+		public Assignment getParserAssignment_1() { return cParserAssignment_1; }
+		
+		//Parser
+		public RuleCall getParserParserParserRuleCall_1_0() { return cParserParserParserRuleCall_1_0; }
+	}
+	public class ParserElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.Parser");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cParserAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cExternalAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cExternalExternalDeclarationParserRuleCall_1_0 = (RuleCall)cExternalAssignment_1.eContents().get(0);
 		
-		//TranslationUnit initRuleAction { at.jku.weiner.c.parser.Scope.createNewScope("TranslationUnit"); } afterRuleAction {
+		//Parser common::Parser initRuleAction { at.jku.weiner.c.parser.Scope.createNewScope("Parser"); } afterRuleAction {
 		//at.jku.weiner.c.parser.Scope.removeScope(0); }:
-		//	{TranslationUnit} external+=ExternalDeclaration*;
+		//	{Parser} external+=ExternalDeclaration*
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{TranslationUnit} external+=ExternalDeclaration*
+		//{Parser} external+=ExternalDeclaration*
 		public Group getGroup() { return cGroup; }
 		
-		//{TranslationUnit}
-		public Action getTranslationUnitAction_0() { return cTranslationUnitAction_0; }
+		//{Parser}
+		public Action getParserAction_0() { return cParserAction_0; }
 		
 		//external+=ExternalDeclaration*
 		public Assignment getExternalAssignment_1() { return cExternalAssignment_1; }
@@ -4421,6 +4444,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	
 	private final ModelElements pModel;
 	private final TranslationUnitElements pTranslationUnit;
+	private final ParserElements pParser;
 	private final ExternalDeclarationElements pExternalDeclaration;
 	private final FunctionDefHeadElements pFunctionDefHead;
 	private final FunctionDefinitionElements pFunctionDefinition;
@@ -4572,6 +4596,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		this.gaCommon = gaCommon;
 		this.pModel = new ModelElements();
 		this.pTranslationUnit = new TranslationUnitElements();
+		this.pParser = new ParserElements();
 		this.pExternalDeclaration = new ExternalDeclarationElements();
 		this.pFunctionDefHead = new FunctionDefHeadElements();
 		this.pFunctionDefinition = new FunctionDefinitionElements();
@@ -4740,8 +4765,8 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
-	/// *** parser *** / Model:
-	//	{Model} unit+=TranslationUnit;
+	/// *** parser *** / Model common::Model:
+	//	{common::Model} units+=TranslationUnit
 	public ModelElements getModelAccess() {
 		return pModel;
 	}
@@ -4750,15 +4775,25 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return getModelAccess().getRule();
 	}
 	
-	//TranslationUnit initRuleAction { at.jku.weiner.c.parser.Scope.createNewScope("TranslationUnit"); } afterRuleAction {
-	//at.jku.weiner.c.parser.Scope.removeScope(0); }:
-	//	{TranslationUnit} external+=ExternalDeclaration*;
+	//TranslationUnit common::TranslationUnit:
+	//	{common::TranslationUnit} parser=Parser
 	public TranslationUnitElements getTranslationUnitAccess() {
 		return pTranslationUnit;
 	}
 	
 	public ParserRule getTranslationUnitRule() {
 		return getTranslationUnitAccess().getRule();
+	}
+	
+	//Parser common::Parser initRuleAction { at.jku.weiner.c.parser.Scope.createNewScope("Parser"); } afterRuleAction {
+	//at.jku.weiner.c.parser.Scope.removeScope(0); }:
+	//	{Parser} external+=ExternalDeclaration*
+	public ParserElements getParserAccess() {
+		return pParser;
+	}
+	
+	public ParserRule getParserRule() {
+		return getParserAccess().getRule();
 	}
 	
 	//ExternalDeclaration:
@@ -6541,7 +6576,8 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal fragment ESCAPE_SEQUENCE:
-	//	SKW_BACKSLASH ('b' | 't' | 'n' | 'f' | 'r' | '\"' | SKW_SINGLEQUOTE | SKW_BACKSLASH) | OCTAL_ESCAPE;
+	//	SKW_BACKSLASH ('b' | 't' | 'n' | 'f' | 'r' | '\"' | SKW_SINGLEQUOTE | SKW_BACKSLASH) | OCTAL_ESCAPE
+	//	| HEX_ESCAPE;
 	public TerminalRule getESCAPE_SEQUENCERule() {
 		return gaCommon.getESCAPE_SEQUENCERule();
 	}
@@ -6550,6 +6586,12 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//	SKW_BACKSLASH '0'..'3' '0'..'7' '0'..'7' | SKW_BACKSLASH '0'..'7' '0'..'7' | SKW_BACKSLASH '0'..'7';
 	public TerminalRule getOCTAL_ESCAPERule() {
 		return gaCommon.getOCTAL_ESCAPERule();
+	}
+	
+	//terminal fragment HEX_ESCAPE:
+	//	SKW_BACKSLASH 'x' HEX_DIGIT+;
+	public TerminalRule getHEX_ESCAPERule() {
+		return gaCommon.getHEX_ESCAPERule();
 	}
 	
 	//terminal fragment LINEFEED:

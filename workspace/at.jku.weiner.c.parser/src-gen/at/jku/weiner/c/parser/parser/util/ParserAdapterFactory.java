@@ -75,16 +75,6 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
     new ParserSwitch<Adapter>()
     {
       @Override
-      public Adapter caseModel(Model object)
-      {
-        return createModelAdapter();
-      }
-      @Override
-      public Adapter caseTranslationUnit(TranslationUnit object)
-      {
-        return createTranslationUnitAdapter();
-      }
-      @Override
       public Adapter caseExternalDeclaration(ExternalDeclaration object)
       {
         return createExternalDeclarationAdapter();
@@ -305,6 +295,11 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
         return createArgumentExpressionListAdapter();
       }
       @Override
+      public Adapter caseParser(Parser object)
+      {
+        return createParserAdapter();
+      }
+      @Override
       public Adapter caseStructOrUnionSpecifier(StructOrUnionSpecifier object)
       {
         return createStructOrUnionSpecifierAdapter();
@@ -500,6 +495,11 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
         return createCommon_ArgumentExpressionListAdapter();
       }
       @Override
+      public Adapter caseCommon_Parser(at.jku.weiner.c.common.common.Parser object)
+      {
+        return createCommon_ParserAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -520,36 +520,6 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
     return modelSwitch.doSwitch((EObject)target);
   }
 
-
-  /**
-   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.parser.parser.Model <em>Model</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see at.jku.weiner.c.parser.parser.Model
-   * @generated
-   */
-  public Adapter createModelAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.parser.parser.TranslationUnit <em>Translation Unit</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see at.jku.weiner.c.parser.parser.TranslationUnit
-   * @generated
-   */
-  public Adapter createTranslationUnitAdapter()
-  {
-    return null;
-  }
 
   /**
    * Creates a new adapter for an object of class '{@link at.jku.weiner.c.parser.parser.ExternalDeclaration <em>External Declaration</em>}'.
@@ -1212,6 +1182,21 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.parser.parser.Parser <em>Parser</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.parser.parser.Parser
+   * @generated
+   */
+  public Adapter createParserAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link at.jku.weiner.c.parser.parser.StructOrUnionSpecifier <em>Struct Or Union Specifier</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1792,6 +1777,21 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createCommon_ArgumentExpressionListAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.common.common.Parser <em>Parser</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.common.common.Parser
+   * @generated
+   */
+  public Adapter createCommon_ParserAdapter()
   {
     return null;
   }

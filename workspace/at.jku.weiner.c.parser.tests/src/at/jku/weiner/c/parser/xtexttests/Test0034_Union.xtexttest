@@ -45,8 +45,9 @@ KW_INT WHITESPACE ID SKW_LEFTPAREN KW_VOID SKW_RIGHTPAREN WHITESPACE SKW_LEFTBRA
 	WHITESPACE KW_RETURN WHITESPACE DECIMAL_LITERAL SKW_SEMI NEWLINE
 SKW_RIGHTBRACE NEWLINE
 //----------------------------------------------------------------------
-(Model unit+=
-	(TranslationUnit 
+(common::Model units+=
+	(common::TranslationUnit 
+	parser=(Parser
 		external+=
 		// union num { ... };
 		(ExternalDeclaration
@@ -1991,6 +1992,7 @@ SKW_RIGHTBRACE NEWLINE
 			)
 		) // end external declaration
 	)
+)
 )
 //----------------------------------------------------------------------
 output file="bin/Test0034_Union.c"

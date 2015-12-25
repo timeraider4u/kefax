@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.LabeledStatementImpl#getId <em>Id</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.LabeledStatementImpl#getLStmt <em>LStmt</em>}</li>
@@ -28,7 +29,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.LabeledStatementImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.LabeledStatementImpl#getDefault <em>Default</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

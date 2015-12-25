@@ -3,8 +3,8 @@
 package at.jku.weiner.c.parser.parser.impl;
 
 import at.jku.weiner.c.parser.parser.ExternalDeclaration;
+import at.jku.weiner.c.parser.parser.Parser;
 import at.jku.weiner.c.parser.parser.ParserPackage;
-import at.jku.weiner.c.parser.parser.TranslationUnit;
 
 import java.util.Collection;
 
@@ -15,25 +15,23 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Translation Unit</b></em>'.
+ * An implementation of the model object '<em><b>Parser</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- *   <li>{@link at.jku.weiner.c.parser.parser.impl.TranslationUnitImpl#getExternal <em>External</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.ParserImpl#getExternal <em>External</em>}</li>
+ * </ul>
  *
  * @generated
  */
-public class TranslationUnitImpl extends MinimalEObjectImpl.Container implements TranslationUnit
+public class ParserImpl extends at.jku.weiner.c.common.common.impl.ParserImpl implements Parser
 {
   /**
    * The cached value of the '{@link #getExternal() <em>External</em>}' containment reference list.
@@ -50,7 +48,7 @@ public class TranslationUnitImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  protected TranslationUnitImpl()
+  protected ParserImpl()
   {
     super();
   }
@@ -63,7 +61,7 @@ public class TranslationUnitImpl extends MinimalEObjectImpl.Container implements
   @Override
   protected EClass eStaticClass()
   {
-    return ParserPackage.Literals.TRANSLATION_UNIT;
+    return ParserPackage.Literals.PARSER;
   }
 
   /**
@@ -75,7 +73,7 @@ public class TranslationUnitImpl extends MinimalEObjectImpl.Container implements
   {
     if (external == null)
     {
-      external = new EObjectContainmentEList<ExternalDeclaration>(ExternalDeclaration.class, this, ParserPackage.TRANSLATION_UNIT__EXTERNAL);
+      external = new EObjectContainmentEList<ExternalDeclaration>(ExternalDeclaration.class, this, ParserPackage.PARSER__EXTERNAL);
     }
     return external;
   }
@@ -90,7 +88,7 @@ public class TranslationUnitImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case ParserPackage.TRANSLATION_UNIT__EXTERNAL:
+      case ParserPackage.PARSER__EXTERNAL:
         return ((InternalEList<?>)getExternal()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -106,7 +104,7 @@ public class TranslationUnitImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case ParserPackage.TRANSLATION_UNIT__EXTERNAL:
+      case ParserPackage.PARSER__EXTERNAL:
         return getExternal();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -123,7 +121,7 @@ public class TranslationUnitImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case ParserPackage.TRANSLATION_UNIT__EXTERNAL:
+      case ParserPackage.PARSER__EXTERNAL:
         getExternal().clear();
         getExternal().addAll((Collection<? extends ExternalDeclaration>)newValue);
         return;
@@ -141,7 +139,7 @@ public class TranslationUnitImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case ParserPackage.TRANSLATION_UNIT__EXTERNAL:
+      case ParserPackage.PARSER__EXTERNAL:
         getExternal().clear();
         return;
     }
@@ -158,10 +156,10 @@ public class TranslationUnitImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case ParserPackage.TRANSLATION_UNIT__EXTERNAL:
+      case ParserPackage.PARSER__EXTERNAL:
         return external != null && !external.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //TranslationUnitImpl
+} //ParserImpl

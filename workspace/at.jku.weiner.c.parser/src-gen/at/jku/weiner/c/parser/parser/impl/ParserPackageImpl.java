@@ -49,12 +49,12 @@ import at.jku.weiner.c.parser.parser.JumpStatement;
 import at.jku.weiner.c.parser.parser.LabeledStatement;
 import at.jku.weiner.c.parser.parser.LogicalAndExpression;
 import at.jku.weiner.c.parser.parser.LogicalOrExpression;
-import at.jku.weiner.c.parser.parser.Model;
 import at.jku.weiner.c.parser.parser.MultiplicativeExpression;
 import at.jku.weiner.c.parser.parser.MyIdentifier;
 import at.jku.weiner.c.parser.parser.ParameterDeclaration;
 import at.jku.weiner.c.parser.parser.ParameterList;
 import at.jku.weiner.c.parser.parser.ParameterTypeList;
+import at.jku.weiner.c.parser.parser.Parser;
 import at.jku.weiner.c.parser.parser.ParserFactory;
 import at.jku.weiner.c.parser.parser.ParserPackage;
 import at.jku.weiner.c.parser.parser.Pointer;
@@ -79,7 +79,6 @@ import at.jku.weiner.c.parser.parser.StructDeclarator;
 import at.jku.weiner.c.parser.parser.StructDeclaratorList;
 import at.jku.weiner.c.parser.parser.StructOrUnion;
 import at.jku.weiner.c.parser.parser.StructOrUnionSpecifier;
-import at.jku.weiner.c.parser.parser.TranslationUnit;
 import at.jku.weiner.c.parser.parser.TypeName;
 import at.jku.weiner.c.parser.parser.TypeQualifier;
 import at.jku.weiner.c.parser.parser.TypeQualifierList;
@@ -104,20 +103,6 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  */
 public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 {
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass modelEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass translationUnitEClass = null;
-
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -431,6 +416,13 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass parserEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass structOrUnionSpecifierEClass = null;
 
   /**
@@ -721,7 +713,6 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 
     // Initialize simple dependencies
     CommonPackage.eINSTANCE.eClass();
-    EcorePackage.eINSTANCE.eClass();
 
     // Create package meta-data objects
     theParserPackage.createPackageContents();
@@ -736,46 +727,6 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     // Update the registry and return the package
     EPackage.Registry.INSTANCE.put(ParserPackage.eNS_URI, theParserPackage);
     return theParserPackage;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getModel()
-  {
-    return modelEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getModel_Unit()
-  {
-    return (EReference)modelEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getTranslationUnit()
-  {
-    return translationUnitEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getTranslationUnit_External()
-  {
-    return (EReference)translationUnitEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1906,6 +1857,26 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
   public EClass getArgumentExpressionList()
   {
     return argumentExpressionListEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getParser()
+  {
+    return parserEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getParser_External()
+  {
+    return (EReference)parserEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3088,12 +3059,6 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     isCreated = true;
 
     // Create classes and their features
-    modelEClass = createEClass(MODEL);
-    createEReference(modelEClass, MODEL__UNIT);
-
-    translationUnitEClass = createEClass(TRANSLATION_UNIT);
-    createEReference(translationUnitEClass, TRANSLATION_UNIT__EXTERNAL);
-
     externalDeclarationEClass = createEClass(EXTERNAL_DECLARATION);
     createEReference(externalDeclarationEClass, EXTERNAL_DECLARATION__FUNCTIONDEF_HEAD);
     createEReference(externalDeclarationEClass, EXTERNAL_DECLARATION__FUNCTION_DEFINITION);
@@ -3250,6 +3215,9 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     postfixExpressionSuffixEClass = createEClass(POSTFIX_EXPRESSION_SUFFIX);
 
     argumentExpressionListEClass = createEClass(ARGUMENT_EXPRESSION_LIST);
+
+    parserEClass = createEClass(PARSER);
+    createEReference(parserEClass, PARSER__EXTERNAL);
 
     structOrUnionSpecifierEClass = createEClass(STRUCT_OR_UNION_SPECIFIER);
     createEReference(structOrUnionSpecifierEClass, STRUCT_OR_UNION_SPECIFIER__TYPE);
@@ -3439,6 +3407,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     unaryOperatorEClass.getESuperTypes().add(theCommonPackage.getUnaryOperator());
     postfixExpressionSuffixEClass.getESuperTypes().add(theCommonPackage.getPostfixExpressionSuffix());
     argumentExpressionListEClass.getESuperTypes().add(theCommonPackage.getArgumentExpressionList());
+    parserEClass.getESuperTypes().add(theCommonPackage.getParser());
     structOrUnionSpecifierEClass.getESuperTypes().add(this.getDeclarationSpecifier());
     enumSpecifierEClass.getESuperTypes().add(this.getDeclarationSpecifier());
     labeledStatementEClass.getESuperTypes().add(this.getStatement());
@@ -3476,12 +3445,6 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     constantExpressionEClass.getESuperTypes().add(this.getExpression());
 
     // Initialize classes and features; add operations and parameters
-    initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getModel_Unit(), this.getTranslationUnit(), null, "unit", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(translationUnitEClass, TranslationUnit.class, "TranslationUnit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getTranslationUnit_External(), this.getExternalDeclaration(), null, "external", null, 0, -1, TranslationUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
     initEClass(externalDeclarationEClass, ExternalDeclaration.class, "ExternalDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getExternalDeclaration_FunctiondefHead(), this.getFunctionDefHead(), null, "functiondefHead", null, 0, 1, ExternalDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExternalDeclaration_FunctionDefinition(), this.getFunctionDefinition(), null, "functionDefinition", null, 0, 1, ExternalDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3638,6 +3601,9 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     initEClass(postfixExpressionSuffixEClass, PostfixExpressionSuffix.class, "PostfixExpressionSuffix", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(argumentExpressionListEClass, ArgumentExpressionList.class, "ArgumentExpressionList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(parserEClass, Parser.class, "Parser", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getParser_External(), this.getExternalDeclaration(), null, "external", null, 0, -1, Parser.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(structOrUnionSpecifierEClass, StructOrUnionSpecifier.class, "StructOrUnionSpecifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getStructOrUnionSpecifier_Type(), this.getStructOrUnion(), null, "type", null, 0, 1, StructOrUnionSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

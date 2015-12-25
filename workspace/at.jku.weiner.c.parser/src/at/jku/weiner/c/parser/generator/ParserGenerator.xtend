@@ -6,8 +6,8 @@ package at.jku.weiner.c.parser.generator
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
 import org.eclipse.xtext.generator.IGenerator
-import at.jku.weiner.c.parser.parser.Model
-import at.jku.weiner.c.parser.parser.TranslationUnit
+import at.jku.weiner.c.common.common.Model
+import at.jku.weiner.c.common.common.TranslationUnit
 import at.jku.weiner.c.parser.parser.ExternalDeclaration
 import at.jku.weiner.c.parser.parser.Declaration
 import at.jku.weiner.c.parser.parser.DeclarationSpecifiers
@@ -83,6 +83,7 @@ import at.jku.weiner.c.parser.parser.PostfixExpressionSuffixDot
 import at.jku.weiner.c.parser.parser.PostfixExpressionSuffixPlusPlus
 import at.jku.weiner.c.parser.parser.PostfixExpressionSuffixArrow
 import at.jku.weiner.c.parser.parser.PostfixExpressionSuffixMinusMinus
+import at.jku.weiner.c.parser.parser.Parser
 
 /**
  * Generates code from your model files on save.
@@ -95,16 +96,19 @@ class ParserGenerator implements IGenerator {
 	
 	override void doGenerate(Resource input, IFileSystemAccess fsa) {
 		val model = input.allContents.filter(typeof(Model)).head;
-		val unit = model.unit.head;
+		val unit = model.units.head;
 		val output = outputFor(unit);
 		fsa.generateFile(fileName, output);
 	}
 
-	def String outputFor(TranslationUnit unit) '''
-		«FOR e : unit.external»
-			«outputFor(e)»
-		«ENDFOR»
-	'''
+	def String outputFor(TranslationUnit unit) {
+		val Parser parser = unit.parser as Parser;
+		val StringBuffer result = new StringBuffer("");
+		for (e : parser.external) {
+			result.append(outputFor(e));
+		}
+		return result.toString();
+	}
 	
 	def String outputFor(ExternalDeclaration dec) '''
 		«IF dec.functiondefHead != null»

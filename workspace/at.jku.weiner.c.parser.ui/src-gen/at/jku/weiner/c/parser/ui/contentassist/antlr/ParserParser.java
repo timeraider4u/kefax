@@ -79,6 +79,7 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSpecialKeywordsAccess().getAlternatives(), "rule__SpecialKeywords__Alternatives");
 					put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
 					put(grammarAccess.getTranslationUnitAccess().getGroup(), "rule__TranslationUnit__Group__0");
+					put(grammarAccess.getParserAccess().getGroup(), "rule__Parser__Group__0");
 					put(grammarAccess.getExternalDeclarationAccess().getGroup(), "rule__ExternalDeclaration__Group__0");
 					put(grammarAccess.getExternalDeclarationAccess().getGroup_1_0(), "rule__ExternalDeclaration__Group_1_0__0");
 					put(grammarAccess.getExternalDeclarationAccess().getGroup_1_0_0(), "rule__ExternalDeclaration__Group_1_0_0__0");
@@ -219,8 +220,9 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPrimaryExpressionAccess().getGroup_1_2(), "rule__PrimaryExpression__Group_1_2__0");
 					put(grammarAccess.getConstantExpressionAccess().getGroup(), "rule__ConstantExpression__Group__0");
 					put(grammarAccess.getConstant2Access().getGroup(), "rule__Constant2__Group__0");
-					put(grammarAccess.getModelAccess().getUnitAssignment_1(), "rule__Model__UnitAssignment_1");
-					put(grammarAccess.getTranslationUnitAccess().getExternalAssignment_1(), "rule__TranslationUnit__ExternalAssignment_1");
+					put(grammarAccess.getModelAccess().getUnitsAssignment_1(), "rule__Model__UnitsAssignment_1");
+					put(grammarAccess.getTranslationUnitAccess().getParserAssignment_1(), "rule__TranslationUnit__ParserAssignment_1");
+					put(grammarAccess.getParserAccess().getExternalAssignment_1(), "rule__Parser__ExternalAssignment_1");
 					put(grammarAccess.getExternalDeclarationAccess().getFunctiondefHeadAssignment_1_0_0_0(), "rule__ExternalDeclaration__FunctiondefHeadAssignment_1_0_0_0");
 					put(grammarAccess.getExternalDeclarationAccess().getFunctionDefinitionAssignment_1_0_1(), "rule__ExternalDeclaration__FunctionDefinitionAssignment_1_0_1");
 					put(grammarAccess.getExternalDeclarationAccess().getDeclarationAssignment_1_1(), "rule__ExternalDeclaration__DeclarationAssignment_1_1");

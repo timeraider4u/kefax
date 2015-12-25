@@ -4,25 +4,23 @@ package at.jku.weiner.c.parser.parser;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Translation Unit</b></em>'.
+ * A representation of the model object '<em><b>Parser</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
- * <ul>
- *   <li>{@link at.jku.weiner.c.parser.parser.TranslationUnit#getExternal <em>External</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link at.jku.weiner.c.parser.parser.Parser#getExternal <em>External</em>}</li>
+ * </ul>
  *
- * @see at.jku.weiner.c.parser.parser.ParserPackage#getTranslationUnit()
+ * @see at.jku.weiner.c.parser.parser.ParserPackage#getParser()
  * @model
  * @generated
  */
-public interface TranslationUnit extends EObject
+public interface Parser extends at.jku.weiner.c.common.common.Parser
 {
   /**
    * Returns the value of the '<em><b>External</b></em>' containment reference list.
@@ -34,10 +32,10 @@ public interface TranslationUnit extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>External</em>' containment reference list.
-   * @see at.jku.weiner.c.parser.parser.ParserPackage#getTranslationUnit_External()
+   * @see at.jku.weiner.c.parser.parser.ParserPackage#getParser_External()
    * @model containment="true"
    * @generated
    */
   EList<ExternalDeclaration> getExternal();
 
-} // TranslationUnit
+} // Parser

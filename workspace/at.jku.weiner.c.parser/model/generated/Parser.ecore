@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="parser" nsURI="http://www.jku.at/weiner/c/parser/Parser" nsPrefix="parser">
-  <eClassifiers xsi:type="ecore:EClass" name="Model">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="unit" upperBound="-1" eType="#//TranslationUnit"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TranslationUnit">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="external" upperBound="-1"
-        eType="#//ExternalDeclaration" containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExternalDeclaration">
     <eStructuralFeatures xsi:type="ecore:EReference" name="functiondefHead" eType="#//FunctionDefHead"
         containment="true"/>
@@ -209,16 +201,20 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Expression" eSuperTypes="platform:/resource/at.jku.weiner.c.common/model/generated/Common.ecore#//Expression">
+  <eClassifiers xsi:type="ecore:EClass" name="Expression" eSuperTypes="platform:/resource/at.jku.weiner.c.common/model/custom/Common.ecore#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="exprExpr" upperBound="-1"
         eType="#//Expression" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AssignmentOperator">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UnaryOperator" eSuperTypes="platform:/resource/at.jku.weiner.c.common/model/generated/Common.ecore#//UnaryOperator"/>
-  <eClassifiers xsi:type="ecore:EClass" name="PostfixExpressionSuffix" eSuperTypes="platform:/resource/at.jku.weiner.c.common/model/generated/Common.ecore#//PostfixExpressionSuffix"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ArgumentExpressionList" eSuperTypes="platform:/resource/at.jku.weiner.c.common/model/generated/Common.ecore#//ArgumentExpressionList"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UnaryOperator" eSuperTypes="platform:/resource/at.jku.weiner.c.common/model/custom/Common.ecore#//UnaryOperator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PostfixExpressionSuffix" eSuperTypes="platform:/resource/at.jku.weiner.c.common/model/custom/Common.ecore#//PostfixExpressionSuffix"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ArgumentExpressionList" eSuperTypes="platform:/resource/at.jku.weiner.c.common/model/custom/Common.ecore#//ArgumentExpressionList"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Parser" eSuperTypes="platform:/resource/at.jku.weiner.c.common/model/custom/Common.ecore#//Parser">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="external" upperBound="-1"
+        eType="#//ExternalDeclaration" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StructOrUnionSpecifier" eSuperTypes="#//DeclarationSpecifier">
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//StructOrUnion"
         containment="true"/>
@@ -409,7 +405,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="PostfixExpressionSuffixMinusMinus" eSuperTypes="#//PostfixExpressionSuffix"/>
   <eClassifiers xsi:type="ecore:EClass" name="PrimaryExpression" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="const" eType="ecore:EClass platform:/resource/at.jku.weiner.c.common/model/generated/Common.ecore#//Constant2"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="const" eType="ecore:EClass platform:/resource/at.jku.weiner.c.common/model/custom/Common.ecore#//Constant2"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expression"
         containment="true"/>

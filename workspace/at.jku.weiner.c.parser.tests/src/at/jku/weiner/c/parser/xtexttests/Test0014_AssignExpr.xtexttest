@@ -14,8 +14,9 @@ WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE DECIMAL_LITERAL SKW_COMMA
 WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE DECIMAL_LITERAL SKW_SEMI NEWLINE
 SKW_RIGHTBRACE NEWLINE
 //----------------------------------------------------------------------
-(Model unit+=
-	(TranslationUnit 
+(common::Model units+=
+	(common::TranslationUnit 
+	parser=(Parser
 		external+=
 		(ExternalDeclaration 
 			functiondefHead=
@@ -354,6 +355,7 @@ SKW_RIGHTBRACE NEWLINE
 			)
 		)
 	)
+)
 )
 //----------------------------------------------------------------------
 output file="bin/Test0014_AssignExpr.c"

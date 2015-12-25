@@ -50,7 +50,7 @@ public class ParserSwitch<T> extends Switch<T>
    * Checks whether this is a switch for the given package.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @parameter ePackage the package in question.
+   * @param ePackage the package in question.
    * @return whether this is a switch for the given package.
    * @generated
    */
@@ -72,20 +72,6 @@ public class ParserSwitch<T> extends Switch<T>
   {
     switch (classifierID)
     {
-      case ParserPackage.MODEL:
-      {
-        Model model = (Model)theEObject;
-        T result = caseModel(model);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case ParserPackage.TRANSLATION_UNIT:
-      {
-        TranslationUnit translationUnit = (TranslationUnit)theEObject;
-        T result = caseTranslationUnit(translationUnit);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case ParserPackage.EXTERNAL_DECLARATION:
       {
         ExternalDeclaration externalDeclaration = (ExternalDeclaration)theEObject;
@@ -398,6 +384,14 @@ public class ParserSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case ParserPackage.PARSER:
+      {
+        Parser parser = (Parser)theEObject;
+        T result = caseParser(parser);
+        if (result == null) result = caseCommon_Parser(parser);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case ParserPackage.STRUCT_OR_UNION_SPECIFIER:
       {
         StructOrUnionSpecifier structOrUnionSpecifier = (StructOrUnionSpecifier)theEObject;
@@ -703,38 +697,6 @@ public class ParserSwitch<T> extends Switch<T>
       }
       default: return defaultCase(theEObject);
     }
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Model</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Model</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseModel(Model object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Translation Unit</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Translation Unit</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseTranslationUnit(TranslationUnit object)
-  {
-    return null;
   }
 
   /**
@@ -1442,6 +1404,22 @@ public class ParserSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Parser</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Parser</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseParser(Parser object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Struct Or Union Specifier</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -2061,6 +2039,22 @@ public class ParserSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseCommon_ArgumentExpressionList(at.jku.weiner.c.common.common.ArgumentExpressionList object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Parser</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Parser</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCommon_Parser(at.jku.weiner.c.common.common.Parser object)
   {
     return null;
   }

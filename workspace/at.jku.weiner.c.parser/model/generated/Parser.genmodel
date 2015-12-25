@@ -4,15 +4,9 @@
     editorDirectory="/at.jku.weiner.c.parser.editor/src" modelPluginID="at.jku.weiner.c.parser"
     forceOverwrite="true" modelName="Parser" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="6.0" copyrightFields="false" editPluginID="at.jku.weiner.c.parser.edit"
-    editorPluginID="at.jku.weiner.c.parser.editor" runtimeVersion="2.10" usedGenPackages="platform:/resource/at.jku.weiner.c.common/model/generated/Common.genmodel#//common platform:/resource/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore">
+    editorPluginID="at.jku.weiner.c.parser.editor" runtimeVersion="2.11" usedGenPackages="platform:/resource/at.jku.weiner.c.common/model/custom/Common.genmodel#//common platform:/resource/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore">
   <genPackages prefix="Parser" basePackage="at.jku.weiner.c.parser" disposableProviderFactory="true"
       fileExtensions="cdt.i" ecorePackage="Parser.ecore#/">
-    <genClasses ecoreClass="Parser.ecore#//Model">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//Model/unit"/>
-    </genClasses>
-    <genClasses ecoreClass="Parser.ecore#//TranslationUnit">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//TranslationUnit/external"/>
-    </genClasses>
     <genClasses ecoreClass="Parser.ecore#//ExternalDeclaration">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//ExternalDeclaration/functiondefHead"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//ExternalDeclaration/functionDefinition"/>
@@ -167,6 +161,9 @@
     <genClasses ecoreClass="Parser.ecore#//UnaryOperator"/>
     <genClasses ecoreClass="Parser.ecore#//PostfixExpressionSuffix"/>
     <genClasses ecoreClass="Parser.ecore#//ArgumentExpressionList"/>
+    <genClasses ecoreClass="Parser.ecore#//Parser">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//Parser/external"/>
+    </genClasses>
     <genClasses ecoreClass="Parser.ecore#//StructOrUnionSpecifier">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//StructOrUnionSpecifier/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//StructOrUnionSpecifier/structDeclList"/>

@@ -3,6 +3,9 @@
  */
 package at.jku.weiner.c.parser.formatting2
 
+import at.jku.weiner.c.common.common.Model
+import at.jku.weiner.c.common.common.TranslationUnit
+import at.jku.weiner.c.common.formatting2.CommonFormatter
 import at.jku.weiner.c.parser.parser.AdditiveExpression
 import at.jku.weiner.c.parser.parser.AndExpression
 import at.jku.weiner.c.parser.parser.ArgumentExpressionList
@@ -46,12 +49,12 @@ import at.jku.weiner.c.parser.parser.JumpStatement
 import at.jku.weiner.c.parser.parser.LabeledStatement
 import at.jku.weiner.c.parser.parser.LogicalAndExpression
 import at.jku.weiner.c.parser.parser.LogicalOrExpression
-import at.jku.weiner.c.parser.parser.Model
 import at.jku.weiner.c.parser.parser.MultiplicativeExpression
 import at.jku.weiner.c.parser.parser.MyIdentifier
 import at.jku.weiner.c.parser.parser.ParameterDeclaration
 import at.jku.weiner.c.parser.parser.ParameterList
 import at.jku.weiner.c.parser.parser.ParameterTypeList
+import at.jku.weiner.c.parser.parser.Parser
 import at.jku.weiner.c.parser.parser.Pointer
 import at.jku.weiner.c.parser.parser.PostfixExpression
 import at.jku.weiner.c.parser.parser.PostfixExpressionSuffix
@@ -68,7 +71,6 @@ import at.jku.weiner.c.parser.parser.StructDeclarationList
 import at.jku.weiner.c.parser.parser.StructDeclarator
 import at.jku.weiner.c.parser.parser.StructDeclaratorList
 import at.jku.weiner.c.parser.parser.StructOrUnionSpecifier
-import at.jku.weiner.c.parser.parser.TranslationUnit
 import at.jku.weiner.c.parser.parser.TypeName
 import at.jku.weiner.c.parser.parser.TypeQualifier
 import at.jku.weiner.c.parser.parser.TypeQualifierList
@@ -77,24 +79,27 @@ import at.jku.weiner.c.parser.parser.UnaryExpression
 import at.jku.weiner.c.parser.services.ParserGrammarAccess
 import com.google.inject.Inject
 import org.eclipse.emf.ecore.EObject
-import org.eclipse.xtext.formatting2.AbstractFormatter2
 import org.eclipse.xtext.formatting2.IFormattableDocument
-import org.eclipse.emf.common.util.EList
 
-class ParserFormatter extends AbstractFormatter2 {
+class ParserFormatter extends CommonFormatter {
 	
 	@Inject extension ParserGrammarAccess
 
 	def dispatch void format(Model model, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		for (TranslationUnit unit : model.getUnit()) {
-			format(unit, document);
+		for (TranslationUnit units : model.getUnits()) {
+			format(units, document);
 		}
 	}
 
 	def dispatch void format(TranslationUnit translationUnit, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		for (ExternalDeclaration external : translationUnit.getExternal()) {
+		format(translationUnit.getParser(), document);
+	}
+
+	def dispatch void format(Parser parser, extension IFormattableDocument document) {
+		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+		for (ExternalDeclaration external : parser.getExternal()) {
 			format(external, document);
 		}
 	}
@@ -513,9 +518,8 @@ class ParserFormatter extends AbstractFormatter2 {
 	}
 
 	def dispatch void format(ArgumentExpressionList argumentExpressionList, extension IFormattableDocument document) {
-		// TODO: format HiddenRegions around keywords, attributes, cross references, etc.
-		val EList<at.jku.weiner.c.common.common.Expression> list = argumentExpressionList.getExpr();
-		for (at.jku.weiner.c.common.common.Expression expr : list) {
+		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+		for (at.jku.weiner.c.common.common.Expression expr : argumentExpressionList.getExpr()) {
 			format(expr, document);
 		}
 	}

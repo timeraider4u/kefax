@@ -57,7 +57,7 @@ import at.jku.weiner.c.preprocess.preprocess.Preprocess
 class PreprocessGenerator implements IGenerator {
 
 	@Accessors String fileName = 'hello_world.cdt.i';
-	@Accessors Model model = null;
+	@Accessors TranslationUnit unit = null;
 	@Accessors boolean legacyMode = true;
 	@Accessors boolean insertPredefinedMacros = false;
 	@Accessors boolean validateUnit = true;
@@ -95,17 +95,19 @@ class PreprocessGenerator implements IGenerator {
 	}
 	
 	def Preprocess getPreprocessFor(Resource input) {
+		var Preprocess preprocess = null;
 		validatePreprocess(input);
-		val Preprocess preprocess = input.allContents.filter(typeof(Preprocess)).head;
+		if (this.unit == null) {
+			preprocess = input.allContents.filter(typeof(Preprocess)).head;
+		}
+		else {
+			preprocess = unit.preprocess as Preprocess;
+		}
 		//val TranslationUnit unit = model.getUnits().head;
 		val String fileName = input.URI.toFileString;
 		// unit.setPath(fileName);
 		path.add("/" + fileName + "/");
 		return preprocess;
-	}
-	
-	def Preprocess getPreprocess(Resource input) {
-		
 	}
 	
 	def void validatePreprocess(Resource resource) {

@@ -26,7 +26,6 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.modisco.cdt.discoverer.ast.my.MyASTLookUp;
 import org.eclipse.modisco.cdt.discoverer.utils.FileNameSorter;
 import org.eclipse.modisco.cdt.discoverer.utils.Messages;
 import org.eclipse.modisco.cdt.discoverer.utils.MyStore;
@@ -137,15 +136,15 @@ AbstractModelDiscoverer<T> {
 	private final void discoverFile(final File file, final MyStore store)
 			throws DiscoveryException {
 		final ParserUtils utils = new ParserUtils(store.getMonitor());
-		final XtextParser parser = new XtextParser();
+		final XtextParser parser = new XtextParser(store);
 		try {
 			final IFile iFile = DiscovererUtils.getFileFor(file);
-			final Model model = parser.readFromXtextFile(file, iFile);
-			final EList<TranslationUnit> units = model.getUnits();
-			for (int i = 0; i < units.size(); i++) {
-				final TranslationUnit unit = model.getUnits().get(i);
-				store.getModel().getUnits().add(unit);
-			}
+			parser.readFromXtextFile(file, iFile);
+			// final EList<TranslationUnit> units = model.getUnits();
+			// for (int i = 0; i < units.size(); i++) {
+			// final TranslationUnit unit = model.getUnits().get(i);
+			// store.getModel().getUnits().add(unit);
+			// }
 		} catch (final IOException ex) {
 			throw new DiscoveryException(
 					"Error parsing file='" + file.getAbsolutePath() + "' with XText", ex); //$NON-NLS-1$
@@ -158,8 +157,8 @@ AbstractModelDiscoverer<T> {
 			final ParserUtils utils) throws DiscoveryException {
 		final IASTTranslationUnit unit = utils.getTranslationUnitFor(file,
 				store);
-		final MyASTLookUp lookUp = new MyASTLookUp(store);
-		lookUp.lookUp(unit);
+		// final MyASTLookUp lookUp = new MyASTLookUp(store);
+		// lookUp.lookUp(unit);
 
 	}
 

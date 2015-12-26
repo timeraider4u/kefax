@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.modisco.cdt.discoverer.utils.MyStore;
 import org.eclipse.modisco.infra.discovery.core.exception.DiscoveryException;
 import org.eclipse.xtext.generator.JavaIoFileSystemAccess;
 import org.eclipse.xtext.resource.XtextResource;
@@ -27,12 +28,15 @@ import at.jku.weiner.c.common.ui.internal.CommonActivator;
 import at.jku.weiner.c.parser.ui.internal.ParserActivator;
 import at.jku.weiner.c.preprocess.generator.PreprocessGenerator;
 import at.jku.weiner.c.common.common.Model;
+import at.jku.weiner.c.common.common.TranslationUnit;
+import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 import at.jku.weiner.c.preprocess.ui.internal.PreprocessActivator;
 
 import com.google.inject.Injector;
 
 public class XtextParser {
 	
+	private final MyStore store;
 	private final Injector preprocessInjector;
 	private final IResourceValidator preprocessValidator;
 	private final JavaIoFileSystemAccess preprocessfileAccessSystem;
@@ -40,7 +44,8 @@ public class XtextParser {
 	private final Injector commonInjector;
 	private final Injector parserInjector;
 	
-	public XtextParser() {
+	public XtextParser(final MyStore store) {
+		this.store = store;
 		this.commonInjector = this.setupCommon();
 		this.preprocessInjector = this.setupPreprocessor();
 		this.preprocessValidator = this.preprocessInjector
@@ -73,8 +78,16 @@ public class XtextParser {
 		return result;
 	}
 	
-	public final Model readFromXtextFile(final File file, final IFile iFile)
+	public final void readFromXtextFile(final File file, final IFile iFile)
 			throws IOException, DiscoveryException {
+		// initialize ...
+		// final TranslationUnit unit = this.store.getFactory()
+		// .createTranslationUnit();
+		// final URI uri = URI.createURI(iFile.getLocationURI().toString());
+		// final String uriStr = uri.toFileString();
+		// unit.setPath(uriStr);
+		// this.store.getModel().getUnits().add(unit);
+		// load file
 		final Resource resource = this.loadResource(file, iFile);
 		System.out.println("get resource was successfull!");
 		this.validateResource(resource);
@@ -85,14 +98,15 @@ public class XtextParser {
 			this.error("Returned object of file='" + file.getAbsolutePath()
 					+ "' from XText is null!");
 		}
-		if (!(object instanceof Model)) {
+		if (!(object instanceof Preprocess)) {
 			this.error("Returned object is not a C model - file='"
 					+ file.getAbsolutePath() + "' (class='"
 					+ object.getClass().getCanonicalName() + "') from XText!");
 		}
-		final Model model = (Model) object;
+		final Preprocess preprocess = (Preprocess) object;
 		System.out.println("XText parsing was successfuly for file='"
 				+ file.toString() + "'!");
+		// unit.setPreprocess(preprocess);
 		// generate intermediate
 		final URI uri = URI.createURI(iFile.getLocationURI().toString());
 		final String fileExt = uri.fileExtension();
@@ -102,7 +116,7 @@ public class XtextParser {
 		System.out.println("fileNameOnly='" + fileNameOnly + "'");
 		this.generateIntermediateFile(resource, iFile, fileNameOnly);
 		// return model
-		return model;
+		// return preprocess;
 	}
 	
 	private final void error(final String string) throws DiscoveryException {

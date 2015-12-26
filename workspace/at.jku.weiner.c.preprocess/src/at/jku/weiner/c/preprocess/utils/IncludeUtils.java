@@ -13,18 +13,20 @@ public final class IncludeUtils {
 	
 	private final ResourceSet rs;
 	private final String fileName;
-	private final URI uri;
+	// private final URI uri;
+	private final String currentURIString;
 	
 	private final boolean isAbsoluteInclude;
-	private final String uriStr;
+
+	// private final String uriStr;
 	
 	public IncludeUtils(final ResourceSet set, final URI uri,
 			final String fileName) {
-		this.uri = uri;
 		this.isAbsoluteInclude = this.isAbsoluteFileName(fileName);
 		this.fileName = this.replace(fileName);
 		this.rs = set;
-		this.uriStr = this.uri.toFileString();
+		this.currentURIString = uri.toFileString();
+		// this.uriStr = this.uri.toFileString();
 	}
 	
 	private boolean isAbsoluteFileName(final String fileName) {
@@ -89,13 +91,13 @@ public final class IncludeUtils {
 	
 	private URI createRelativeURI() {
 		// System.out.println(uriStr);
-		final int index = this.uriStr.lastIndexOf(File.separator);
+		final int index = this.currentURIString.lastIndexOf(File.separator);
 		if (index <= 0) {
 			throw new IllegalArgumentException(
-					"not a valid relative include fileName='" + this.uriStr
-					+ "'");
+					"not a valid relative include fileName='"
+							+ this.currentURIString + "'");
 		}
-		final String path = this.uriStr.substring(0, index);
+		final String path = this.currentURIString.substring(0, index);
 		final String newFileName = path + File.separator + this.fileName;
 		// System.out.println(newFileName);
 		return URI.createURI(newFileName);

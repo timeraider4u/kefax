@@ -48,6 +48,8 @@ import at.jku.weiner.c.preprocess.utils.macros.MacroParentheseNotClosedYetExcept
 import at.jku.weiner.c.preprocess.preprocess.SourceCodeLine
 import java.util.ArrayList
 import at.jku.weiner.c.preprocess.preprocess.Preprocess
+import at.jku.weiner.c.preprocess.preprocess.PreprocessFactory
+import at.jku.weiner.c.common.common.CommonFactory
 
 /**
  * Generates code from your model files on save.
@@ -61,6 +63,7 @@ class PreprocessGenerator implements IGenerator {
 	@Accessors boolean legacyMode = true;
 	@Accessors boolean insertPredefinedMacros = false;
 	@Accessors boolean validateUnit = true;
+	// @Accessors boolean addToModel = false;
 	@Accessors Injector commonInjector;
 	
 	@Inject
@@ -88,26 +91,62 @@ class PreprocessGenerator implements IGenerator {
 		if (insertPredefinedMacros) {
 			DefinitionTable.insertPredefinedMacros();
 		}
-		val Preprocess preprocess = getPreprocessFor(input);
+		val Preprocess preprocess = getPreprocessFor(input, false);
 		val String output = outputFor(preprocess);
 		// System.out.println("generating output file='" + fileName + "'");
 		fsa.generateFile(fileName, output);
 	}
 	
-	def Preprocess getPreprocessFor(Resource input) {
+	def Preprocess getPreprocessFor(Resource input, boolean forceLoading) {
 		var Preprocess preprocess = null;
 		validatePreprocess(input);
+		val String fileName = getFileName(input);
 		if (this.unit == null) {
 			preprocess = input.allContents.filter(typeof(Preprocess)).head;
+			//System.out.println("unit-null: preprocess='" + preprocess + "'" + fileName + "'");
+		}
+		else if (forceLoading) {
+			preprocess = loadExistingPreprocess(fileName);
+			//System.out.println("force-loading: preprocess='" + preprocess + "'" + fileName + "'");
+			
+			if (preprocess == null) {
+				preprocess = input.allContents.filter(typeof(Preprocess)).head;
+				//System.out.println("filtering: preprocess='" + preprocess + "'" + fileName + "'");
+				
+			}
 		}
 		else {
+			// System.out.println("else: preprocess='" + preprocess + "'" + fileName + "'");
+			
 			preprocess = unit.preprocess as Preprocess;
 		}
+		
+		if (preprocess == null) {
+			System.out.println("preprocess is null!");
+		}
+		
 		//val TranslationUnit unit = model.getUnits().head;
-		val String fileName = input.URI.toFileString;
 		// unit.setPath(fileName);
 		path.add("/" + fileName + "/");
 		return preprocess;
+	}
+	
+	def String getFileName(Resource input) {
+		val String fileName = input.URI.toFileString;
+		val String path = fileName.replaceAll("^///", "/");
+		return path;
+	}
+	
+	def Preprocess loadExistingPreprocess(String filePath) {
+		val Model model = unit.eContainer as Model;
+		val EList<TranslationUnit> units = model.units;
+		for (var int i = 0; i < units.size; i++) {
+			val TranslationUnit myUnit = units.get(i);
+			if (filePath.equals(myUnit.path)) {
+				return myUnit.preprocess as Preprocess;
+			}
+		}
+		return null;
 	}
 	
 	def void validatePreprocess(Resource resource) {
@@ -122,11 +161,6 @@ class PreprocessGenerator implements IGenerator {
 				+ list.toString() + "'"
 			);
 		}
-	}
-
-	def String outputFor(TranslationUnit unit) {
-		val Preprocess preprocess = unit.preprocess as Preprocess;
-		return outputFor(preprocess);
 	}
 	
 	def String outputFor(Preprocess preprocess) {
@@ -198,13 +232,28 @@ class PreprocessGenerator implements IGenerator {
 	
 	def String outputForLegacyMode(IncludeDirective obj) {
 		val String inc = DefinitionTable.resolve(obj.string);
-		val IncludeUtils includeUtils = new IncludeUtils(rs, uri, inc);
+		val IncludeUtils includeUtils = new IncludeUtils(rs, this.uri, inc);
 		val Resource res = includeUtils.getResource();
 		//val TranslationUnit unit = this.getUnitFor(res);
 		//val String output = outputFor(unit);
+		
+		
 
-		val Preprocess preprocess = this.getPreprocessFor(res);
-		val String output = outputFor(preprocess);		
+		val Preprocess preprocess = this.getPreprocessFor(res, true);
+		if (this.unit != null && preprocess.eContainer == null) {
+			val Model model = this.unit.eContainer as Model;
+			val CommonFactory factory = CommonFactory.eINSTANCE;
+			val TranslationUnit unit2 = factory.createTranslationUnit();
+			val String path = getFileName(res);
+			
+			unit2.path = path;
+			model.units.add(unit2);
+			unit2.preprocess = preprocess;
+		}
+		val String output = outputFor(preprocess);
+		
+		
+		
 		//path.remove(path.length() -1);
 		return output;
 	}

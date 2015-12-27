@@ -251,17 +251,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	 *     (expression=ConstantExpression group=GroupOpt)
 	 */
 	protected void sequence_ElIfConditional(EObject context, ElIfConditional semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, PreprocessPackage.Literals.EL_IF_CONDITIONAL__EXPRESSION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PreprocessPackage.Literals.EL_IF_CONDITIONAL__EXPRESSION));
-			if(transientValues.isValueTransient(semanticObject, PreprocessPackage.Literals.EL_IF_CONDITIONAL__GROUP) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PreprocessPackage.Literals.EL_IF_CONDITIONAL__GROUP));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getElIfConditionalAccess().getExpressionConstantExpressionParserRuleCall_3_0(), semanticObject.getExpression());
-		feeder.accept(grammarAccess.getElIfConditionalAccess().getGroupGroupOptParserRuleCall_6_0(), semanticObject.getGroup());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -270,14 +260,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	 *     group=GroupOpt
 	 */
 	protected void sequence_ElseConditional(EObject context, ElseConditional semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, PreprocessPackage.Literals.ELSE_CONDITIONAL__GROUP) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PreprocessPackage.Literals.ELSE_CONDITIONAL__GROUP));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getElseConditionalAccess().getGroupGroupOptParserRuleCall_7_0(), semanticObject.getGroup());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -322,17 +305,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	 *     (expression=ConstantExpression group=GroupOpt)
 	 */
 	protected void sequence_IfConditional(EObject context, IfConditional semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, PreprocessPackage.Literals.IF_CONDITIONAL__EXPRESSION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PreprocessPackage.Literals.IF_CONDITIONAL__EXPRESSION));
-			if(transientValues.isValueTransient(semanticObject, PreprocessPackage.Literals.IF_CONDITIONAL__GROUP) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PreprocessPackage.Literals.IF_CONDITIONAL__GROUP));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getIfConditionalAccess().getExpressionConstantExpressionParserRuleCall_3_0(), semanticObject.getExpression());
-		feeder.accept(grammarAccess.getIfConditionalAccess().getGroupGroupOptParserRuleCall_6_0(), semanticObject.getGroup());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -341,17 +314,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	 *     (id=ID group=GroupOpt)
 	 */
 	protected void sequence_IfDefConditional(EObject context, IfDefConditional semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, PreprocessPackage.Literals.IF_DEF_CONDITIONAL__ID) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PreprocessPackage.Literals.IF_DEF_CONDITIONAL__ID));
-			if(transientValues.isValueTransient(semanticObject, PreprocessPackage.Literals.IF_DEF_CONDITIONAL__GROUP) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PreprocessPackage.Literals.IF_DEF_CONDITIONAL__GROUP));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getIfDefConditionalAccess().getIdIDTerminalRuleCall_3_0(), semanticObject.getId());
-		feeder.accept(grammarAccess.getIfDefConditionalAccess().getGroupGroupOptParserRuleCall_6_0(), semanticObject.getGroup());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -360,17 +323,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	 *     (id=ID group=GroupOpt)
 	 */
 	protected void sequence_IfNotDefConditional(EObject context, IfNotDefConditional semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, PreprocessPackage.Literals.IF_NOT_DEF_CONDITIONAL__ID) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PreprocessPackage.Literals.IF_NOT_DEF_CONDITIONAL__ID));
-			if(transientValues.isValueTransient(semanticObject, PreprocessPackage.Literals.IF_NOT_DEF_CONDITIONAL__GROUP) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PreprocessPackage.Literals.IF_NOT_DEF_CONDITIONAL__GROUP));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getIfNotDefConditionalAccess().getIdIDTerminalRuleCall_3_0(), semanticObject.getId());
-		feeder.accept(grammarAccess.getIfNotDefConditionalAccess().getGroupGroupOptParserRuleCall_6_0(), semanticObject.getGroup());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

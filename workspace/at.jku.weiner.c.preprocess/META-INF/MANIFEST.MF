@@ -18,7 +18,8 @@ Require-Bundle: org.eclipse.xtext,
  org.eclipse.xtext.xbase.lib,
  at.jku.weiner.c.common;bundle-version="1.0.0",
  org.eclipse.xtext.ui,
- at.jku.weiner.c.common.ui;bundle-version="1.0.0"
+ at.jku.weiner.c.common.ui;bundle-version="1.0.0",
+ org.eclipse.xtext.ecore;bundle-version="2.9.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: at.jku.weiner.c.preprocess,
  at.jku.weiner.c.preprocess.generator,

@@ -8,7 +8,7 @@
 		<package 
 			uri = "http://www.jku.at/weiner/c/preprocess/Preprocess" 
 			class = "at.jku.weiner.c.preprocess.preprocess.PreprocessPackage"
-			genModel = "model/generated/Preprocess.genmodel" /> 
+			genModel = "model/custom/Preprocess.genmodel" /> 
 	
 	</extension>
 	

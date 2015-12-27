@@ -3,6 +3,9 @@
  */
 package at.jku.weiner.c.preprocess
 
+import com.google.inject.Injector
+import org.eclipse.emf.ecore.EPackage
+import at.jku.weiner.c.preprocess.preprocess.PreprocessPackage
 
 /**
  * Initialization support for running Xtext languages without Equinox extension registry.
@@ -13,4 +16,10 @@ class PreprocessStandaloneSetup extends PreprocessStandaloneSetupGenerated {
 		new PreprocessStandaloneSetup().createInjectorAndDoEMFRegistration()
 	}
 
+	override register(Injector injector) {
+		if (!EPackage.Registry.INSTANCE.containsKey("http://www.jku.at/weiner/c/preprocess/Preprocess")) {
+            EPackage.Registry.INSTANCE.put("http://www.jku.at/weiner/c/preprocess/Preprocess", PreprocessPackage.eINSTANCE);
+        }
+		super.register(injector)
+	}
 }

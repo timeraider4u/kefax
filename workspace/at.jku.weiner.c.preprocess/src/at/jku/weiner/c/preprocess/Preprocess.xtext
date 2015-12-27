@@ -33,7 +33,8 @@ hidden(BLOCK_COMMENT,LINE_COMMENT,LINEBREAK)
 
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 import "http://www.jku.at/weiner/c/common/Common" as common
-generate preprocess "http://www.jku.at/weiner/c/preprocess/Preprocess"
+import "http://www.jku.at/weiner/c/preprocess/Preprocess"
+//generate preprocess "http://www.jku.at/weiner/c/preprocess/Preprocess"
 
 //Model returns common::Model:
 //	{common::Model}

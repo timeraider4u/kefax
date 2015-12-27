@@ -28,12 +28,6 @@ public class PreprocessStandaloneSetupGenerated implements ISetup {
 	
 	public void register(Injector injector) {
 		
-		
-		if (!EPackage.Registry.INSTANCE.containsKey("http://www.jku.at/weiner/c/preprocess/Preprocess")) {
-		EPackage.Registry.INSTANCE.put("http://www.jku.at/weiner/c/preprocess/Preprocess", at.jku.weiner.c.preprocess.preprocess.PreprocessPackage.eINSTANCE);
-		}
-		
-		
 		org.eclipse.xtext.resource.IResourceFactory resourceFactory = injector.getInstance(org.eclipse.xtext.resource.IResourceFactory.class);
 		org.eclipse.xtext.resource.IResourceServiceProvider serviceProvider = injector.getInstance(org.eclipse.xtext.resource.IResourceServiceProvider.class);
 		

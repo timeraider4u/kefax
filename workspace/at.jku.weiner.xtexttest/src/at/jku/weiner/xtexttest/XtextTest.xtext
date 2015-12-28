@@ -80,6 +80,8 @@ Inner:
 	ASSIGNASBOOL assignAsBool=(TRUE|FALSE)
 	|
 	isNull?=ISNULL
+	|
+	isNotNull?=ISNOTNULL
 	)
 ;
 
@@ -135,6 +137,7 @@ terminal AFTER_KW: 'after';
 terminal CLASS_KW: 'class';
 terminal METHOD_KW: 'method';
 terminal ISNULL: 'isNull';
+terminal ISNOTNULL: 'isNotNull';
 terminal LEFTPAREN: '(';
 terminal RIGHTPAREN: ')';
 terminal ASSIGNASBOOL: '?=';

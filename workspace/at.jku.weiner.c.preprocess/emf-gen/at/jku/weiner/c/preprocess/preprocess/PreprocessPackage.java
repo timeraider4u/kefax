@@ -320,13 +320,22 @@ public interface PreprocessPackage extends EPackage
 	int CONDITIONAL_DIRECTIVE__ELSE = 2;
 
 	/**
+	 * The feature id for the '<em><b>Branch Taken</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITIONAL_DIRECTIVE__BRANCH_TAKEN = 3;
+
+	/**
 	 * The number of structural features of the '<em>Conditional Directive</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITIONAL_DIRECTIVE_FEATURE_COUNT = 3;
+	int CONDITIONAL_DIRECTIVE_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.IfAbstractConditionalImpl <em>If Abstract Conditional</em>}' class.
@@ -1134,6 +1143,17 @@ public interface PreprocessPackage extends EPackage
 	EReference getConditionalDirective_Else();
 
 	/**
+	 * Returns the meta object for the reference '{@link at.jku.weiner.c.preprocess.preprocess.ConditionalDirective#getBranchTaken <em>Branch Taken</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Branch Taken</em>'.
+	 * @see at.jku.weiner.c.preprocess.preprocess.ConditionalDirective#getBranchTaken()
+	 * @see #getConditionalDirective()
+	 * @generated
+	 */
+	EReference getConditionalDirective_BranchTaken();
+
+	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.preprocess.preprocess.IfConditional <em>If Conditional</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1701,6 +1721,14 @@ public interface PreprocessPackage extends EPackage
 		 * @generated
 		 */
 		EReference CONDITIONAL_DIRECTIVE__ELSE = eINSTANCE.getConditionalDirective_Else();
+
+		/**
+		 * The meta object literal for the '<em><b>Branch Taken</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONDITIONAL_DIRECTIVE__BRANCH_TAKEN = eINSTANCE.getConditionalDirective_BranchTaken();
 
 		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.IfConditionalImpl <em>If Conditional</em>}' class.

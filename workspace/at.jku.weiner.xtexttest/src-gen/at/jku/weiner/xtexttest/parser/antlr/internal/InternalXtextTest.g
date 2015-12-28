@@ -1201,6 +1201,28 @@ this_ASSIGNASBOOL_12=RULE_ASSIGNASBOOL
 )
 )
 
+
+    |
+(
+(
+		lv_isNotNull_15_0=RULE_ISNOTNULL
+		{
+			newLeafNode(lv_isNotNull_15_0, grammarAccess.getInnerAccess().getIsNotNullISNOTNULLTerminalRuleCall_2_6_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getInnerRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"isNotNull",
+        		true, 
+        		"at.jku.weiner.xtexttest.XtextTest.ISNOTNULL");
+	    }
+
+)
+)
+
 )
 
 )
@@ -1822,6 +1844,8 @@ RULE_CLASS_KW : 'class';
 RULE_METHOD_KW : 'method';
 
 RULE_ISNULL : 'isNull';
+
+RULE_ISNOTNULL : 'isNotNull';
 
 RULE_LEFTPAREN : '(';
 

@@ -22,11 +22,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.IfConditionalImpl#getExpression <em>Expression</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.IfConditionalImpl#getGroup <em>Group</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -92,8 +92,7 @@ public class IfConditionalImpl extends IfAbstractConditionalImpl implements IfCo
 	{
 		Expression oldExpression = expression;
 		expression = newExpression;
-		if (eNotificationRequired())
-		{
+		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PreprocessPackage.IF_CONDITIONAL__EXPRESSION, oldExpression, newExpression);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -107,8 +106,7 @@ public class IfConditionalImpl extends IfAbstractConditionalImpl implements IfCo
 	 */
 	public void setExpression(Expression newExpression)
 	{
-		if (newExpression != expression)
-		{
+		if (newExpression != expression) {
 			NotificationChain msgs = null;
 			if (expression != null)
 				msgs = ((InternalEObject)expression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PreprocessPackage.IF_CONDITIONAL__EXPRESSION, null, msgs);
@@ -140,8 +138,7 @@ public class IfConditionalImpl extends IfAbstractConditionalImpl implements IfCo
 	{
 		GroupOpt oldGroup = group;
 		group = newGroup;
-		if (eNotificationRequired())
-		{
+		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PreprocessPackage.IF_CONDITIONAL__GROUP, oldGroup, newGroup);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -155,8 +152,7 @@ public class IfConditionalImpl extends IfAbstractConditionalImpl implements IfCo
 	 */
 	public void setGroup(GroupOpt newGroup)
 	{
-		if (newGroup != group)
-		{
+		if (newGroup != group) {
 			NotificationChain msgs = null;
 			if (group != null)
 				msgs = ((InternalEObject)group).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PreprocessPackage.IF_CONDITIONAL__GROUP, null, msgs);
@@ -177,8 +173,7 @@ public class IfConditionalImpl extends IfAbstractConditionalImpl implements IfCo
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case PreprocessPackage.IF_CONDITIONAL__EXPRESSION:
 				return basicSetExpression(null, msgs);
 			case PreprocessPackage.IF_CONDITIONAL__GROUP:
@@ -195,8 +190,7 @@ public class IfConditionalImpl extends IfAbstractConditionalImpl implements IfCo
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case PreprocessPackage.IF_CONDITIONAL__EXPRESSION:
 				return getExpression();
 			case PreprocessPackage.IF_CONDITIONAL__GROUP:
@@ -213,8 +207,7 @@ public class IfConditionalImpl extends IfAbstractConditionalImpl implements IfCo
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case PreprocessPackage.IF_CONDITIONAL__EXPRESSION:
 				setExpression((Expression)newValue);
 				return;
@@ -233,8 +226,7 @@ public class IfConditionalImpl extends IfAbstractConditionalImpl implements IfCo
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case PreprocessPackage.IF_CONDITIONAL__EXPRESSION:
 				setExpression((Expression)null);
 				return;
@@ -253,8 +245,7 @@ public class IfConditionalImpl extends IfAbstractConditionalImpl implements IfCo
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case PreprocessPackage.IF_CONDITIONAL__EXPRESSION:
 				return expression != null;
 			case PreprocessPackage.IF_CONDITIONAL__GROUP:

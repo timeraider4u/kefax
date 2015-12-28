@@ -18,10 +18,10 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.UnDefineDirectiveImpl#getId <em>Id</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -99,8 +99,7 @@ public class UnDefineDirectiveImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case PreprocessPackage.UN_DEFINE_DIRECTIVE__ID:
 				return getId();
 		}
@@ -115,8 +114,7 @@ public class UnDefineDirectiveImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case PreprocessPackage.UN_DEFINE_DIRECTIVE__ID:
 				setId((String)newValue);
 				return;
@@ -132,8 +130,7 @@ public class UnDefineDirectiveImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case PreprocessPackage.UN_DEFINE_DIRECTIVE__ID:
 				setId(ID_EDEFAULT);
 				return;
@@ -149,8 +146,7 @@ public class UnDefineDirectiveImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case PreprocessPackage.UN_DEFINE_DIRECTIVE__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 		}

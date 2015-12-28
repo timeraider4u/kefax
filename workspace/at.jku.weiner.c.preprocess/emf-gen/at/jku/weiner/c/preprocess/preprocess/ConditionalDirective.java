@@ -13,12 +13,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.ConditionalDirective#getConditional <em>Conditional</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.ConditionalDirective#getElifs <em>Elifs</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.ConditionalDirective#getElse <em>Else</em>}</li>
+ *   <li>{@link at.jku.weiner.c.preprocess.preprocess.ConditionalDirective#getBranchTaken <em>Branch Taken</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getConditionalDirective()
  * @model
@@ -93,5 +94,31 @@ public interface ConditionalDirective extends EObject
 	 * @generated
 	 */
 	void setElse(ElseConditional value);
+
+	/**
+	 * Returns the value of the '<em><b>Branch Taken</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Branch Taken</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Branch Taken</em>' reference.
+	 * @see #setBranchTaken(IfAbstractConditional)
+	 * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getConditionalDirective_BranchTaken()
+	 * @model
+	 * @generated
+	 */
+	IfAbstractConditional getBranchTaken();
+
+	/**
+	 * Sets the value of the '{@link at.jku.weiner.c.preprocess.preprocess.ConditionalDirective#getBranchTaken <em>Branch Taken</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Branch Taken</em>' reference.
+	 * @see #getBranchTaken()
+	 * @generated
+	 */
+	void setBranchTaken(IfAbstractConditional value);
 
 } // ConditionalDirective

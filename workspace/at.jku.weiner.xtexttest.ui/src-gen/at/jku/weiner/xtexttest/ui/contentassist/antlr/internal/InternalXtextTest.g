@@ -649,6 +649,15 @@ rule__Inner__Alternatives_2
 
 
 
+    |
+(
+{ before(grammarAccess.getInnerAccess().getIsNotNullAssignment_2_6()); }
+(rule__Inner__IsNotNullAssignment_2_6)
+{ after(grammarAccess.getInnerAccess().getIsNotNullAssignment_2_6()); }
+)
+
+
+
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -4980,6 +4989,21 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+rule__Inner__IsNotNullAssignment_2_6
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getInnerAccess().getIsNotNullISNOTNULLTerminalRuleCall_2_6_0()); }
+	RULE_ISNOTNULL{ after(grammarAccess.getInnerAccess().getIsNotNullISNOTNULLTerminalRuleCall_2_6_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__Generator__OutputAssignment_1_3
     @init {
 		int stackSize = keepStackSize();
@@ -5198,6 +5222,8 @@ RULE_CLASS_KW : 'class';
 RULE_METHOD_KW : 'method';
 
 RULE_ISNULL : 'isNull';
+
+RULE_ISNOTNULL : 'isNotNull';
 
 RULE_LEFTPAREN : '(';
 

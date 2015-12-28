@@ -477,18 +477,21 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cAssignAsBoolFALSETerminalRuleCall_2_4_1_0_1 = (RuleCall)cAssignAsBoolAlternatives_2_4_1_0.eContents().get(1);
 		private final Assignment cIsNullAssignment_2_5 = (Assignment)cAlternatives_2.eContents().get(5);
 		private final RuleCall cIsNullISNULLTerminalRuleCall_2_5_0 = (RuleCall)cIsNullAssignment_2_5.eContents().get(0);
+		private final Assignment cIsNotNullAssignment_2_6 = (Assignment)cAlternatives_2.eContents().get(6);
+		private final RuleCall cIsNotNullISNOTNULLTerminalRuleCall_2_6_0 = (RuleCall)cIsNotNullAssignment_2_6.eContents().get(0);
 		
 		//Inner:
 		//	{Inner} parameter=IDENTIFIER (ASSIGNASSINGLE assign=Element
 		//	| ASSIGNASLIST assignList+=Element (COMMA assignList+=Element)*
 		//	| ASSIGNASSTRING value=STRING
 		//	| ASSIGNASDATALIST assignAsData=STRING
-		//	| ASSIGNASBOOL assignAsBool=(TRUE | FALSE) | isNull?=ISNULL);
+		//	| ASSIGNASBOOL assignAsBool=(TRUE | FALSE) | isNull?=ISNULL
+		//	| isNotNull?=ISNOTNULL);
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Inner} parameter=IDENTIFIER (ASSIGNASSINGLE assign=Element | ASSIGNASLIST assignList+=Element (COMMA
 		//assignList+=Element)* | ASSIGNASSTRING value=STRING | ASSIGNASDATALIST assignAsData=STRING | ASSIGNASBOOL
-		//assignAsBool=(TRUE | FALSE) | isNull?=ISNULL)
+		//assignAsBool=(TRUE | FALSE) | isNull?=ISNULL | isNotNull?=ISNOTNULL)
 		public Group getGroup() { return cGroup; }
 		
 		//{Inner}
@@ -501,7 +504,8 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getParameterIDENTIFIERTerminalRuleCall_1_0() { return cParameterIDENTIFIERTerminalRuleCall_1_0; }
 		
 		//(ASSIGNASSINGLE assign=Element | ASSIGNASLIST assignList+=Element (COMMA assignList+=Element)* | ASSIGNASSTRING
-		//value=STRING | ASSIGNASDATALIST assignAsData=STRING | ASSIGNASBOOL assignAsBool=(TRUE | FALSE) | isNull?=ISNULL)
+		//value=STRING | ASSIGNASDATALIST assignAsData=STRING | ASSIGNASBOOL assignAsBool=(TRUE | FALSE) | isNull?=ISNULL |
+		//isNotNull?=ISNOTNULL)
 		public Alternatives getAlternatives_2() { return cAlternatives_2; }
 		
 		//ASSIGNASSINGLE assign=Element
@@ -587,6 +591,12 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//ISNULL
 		public RuleCall getIsNullISNULLTerminalRuleCall_2_5_0() { return cIsNullISNULLTerminalRuleCall_2_5_0; }
+		
+		//isNotNull?=ISNOTNULL
+		public Assignment getIsNotNullAssignment_2_6() { return cIsNotNullAssignment_2_6; }
+		
+		//ISNOTNULL
+		public RuleCall getIsNotNullISNOTNULLTerminalRuleCall_2_6_0() { return cIsNotNullISNOTNULLTerminalRuleCall_2_6_0; }
 	}
 	public class GeneratorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.Generator");
@@ -908,6 +918,7 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tCLASS_KW;
 	private final TerminalRule tMETHOD_KW;
 	private final TerminalRule tISNULL;
+	private final TerminalRule tISNOTNULL;
 	private final TerminalRule tLEFTPAREN;
 	private final TerminalRule tRIGHTPAREN;
 	private final TerminalRule tASSIGNASBOOL;
@@ -963,6 +974,7 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		this.tCLASS_KW = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.CLASS_KW");
 		this.tMETHOD_KW = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.METHOD_KW");
 		this.tISNULL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.ISNULL");
+		this.tISNOTNULL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.ISNOTNULL");
 		this.tLEFTPAREN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.LEFTPAREN");
 		this.tRIGHTPAREN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.RIGHTPAREN");
 		this.tASSIGNASBOOL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.ASSIGNASBOOL");
@@ -1110,7 +1122,8 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	//	| ASSIGNASLIST assignList+=Element (COMMA assignList+=Element)*
 	//	| ASSIGNASSTRING value=STRING
 	//	| ASSIGNASDATALIST assignAsData=STRING
-	//	| ASSIGNASBOOL assignAsBool=(TRUE | FALSE) | isNull?=ISNULL);
+	//	| ASSIGNASBOOL assignAsBool=(TRUE | FALSE) | isNull?=ISNULL
+	//	| isNotNull?=ISNOTNULL);
 	public InnerElements getInnerAccess() {
 		return pInner;
 	}
@@ -1278,6 +1291,12 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	//	'isNull';
 	public TerminalRule getISNULLRule() {
 		return tISNULL;
+	}
+	
+	//terminal ISNOTNULL:
+	//	'isNotNull';
+	public TerminalRule getISNOTNULLRule() {
+		return tISNOTNULL;
 	}
 	
 	//terminal LEFTPAREN:

@@ -709,75 +709,86 @@ public class XtextTestGenerator implements IGenerator {
             CharSequence _generateForInnerAssign = this.generateForInnerAssign(varName, paramName, _assign_1);
             _builder.append(_generateForInnerAssign, "");
             _builder.newLineIfNotEmpty();
+          }
+        }
+        {
+          boolean _and = false;
+          EList<Element> _assignList = inner.getAssignList();
+          boolean _notEquals_1 = (!Objects.equal(_assignList, null));
+          if (!_notEquals_1) {
+            _and = false;
           } else {
-            {
-              boolean _and = false;
-              EList<Element> _assignList = inner.getAssignList();
-              boolean _notEquals_1 = (!Objects.equal(_assignList, null));
-              if (!_notEquals_1) {
-                _and = false;
-              } else {
-                EList<Element> _assignList_1 = inner.getAssignList();
-                boolean _isEmpty = _assignList_1.isEmpty();
-                boolean _not = (!_isEmpty);
-                _and = _not;
-              }
-              if (_and) {
-                EList<Element> _assignList_2 = inner.getAssignList();
-                CharSequence _generateForListAssign = this.generateForListAssign(varName, paramName, _assignList_2);
-                _builder.append(_generateForListAssign, "");
-                _builder.newLineIfNotEmpty();
-              } else {
-                {
-                  boolean _and_1 = false;
-                  String _assignAsData = inner.getAssignAsData();
-                  boolean _notEquals_2 = (!Objects.equal(_assignAsData, null));
-                  if (!_notEquals_2) {
-                    _and_1 = false;
-                  } else {
-                    String _assignAsData_1 = inner.getAssignAsData();
-                    boolean _isEmpty_1 = _assignAsData_1.isEmpty();
-                    boolean _not_1 = (!_isEmpty_1);
-                    _and_1 = _not_1;
-                  }
-                  if (_and_1) {
-                    String _assignAsData_2 = inner.getAssignAsData();
-                    CharSequence _generateForDataListAssign = this.generateForDataListAssign(varName, paramName, _assignAsData_2);
-                    _builder.append(_generateForDataListAssign, "");
-                    _builder.newLineIfNotEmpty();
-                  } else {
-                    {
-                      String _value = inner.getValue();
-                      boolean _notEquals_3 = (!Objects.equal(_value, null));
-                      if (_notEquals_3) {
-                        String _value_1 = inner.getValue();
-                        CharSequence _generateForValueAssign = this.generateForValueAssign(varName, paramName, _value_1);
-                        _builder.append(_generateForValueAssign, "");
-                        _builder.newLineIfNotEmpty();
-                      } else {
-                        {
-                          String _assignAsBool = inner.getAssignAsBool();
-                          boolean _notEquals_4 = (!Objects.equal(_assignAsBool, null));
-                          if (_notEquals_4) {
-                            String _assignAsBool_1 = inner.getAssignAsBool();
-                            CharSequence _generateForBoolAssign = this.generateForBoolAssign(varName, paramName, _assignAsBool_1);
-                            _builder.append(_generateForBoolAssign, "");
-                            _builder.newLineIfNotEmpty();
-                          } else {
-                            _builder.append("Assert.assertNull(");
-                            _builder.append(varName, "");
-                            _builder.append(".get");
-                            _builder.append(paramName, "");
-                            _builder.append("());");
-                            _builder.newLineIfNotEmpty();
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
+            EList<Element> _assignList_1 = inner.getAssignList();
+            boolean _isEmpty = _assignList_1.isEmpty();
+            boolean _not = (!_isEmpty);
+            _and = _not;
+          }
+          if (_and) {
+            EList<Element> _assignList_2 = inner.getAssignList();
+            CharSequence _generateForListAssign = this.generateForListAssign(varName, paramName, _assignList_2);
+            _builder.append(_generateForListAssign, "");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        {
+          boolean _and_1 = false;
+          String _assignAsData = inner.getAssignAsData();
+          boolean _notEquals_2 = (!Objects.equal(_assignAsData, null));
+          if (!_notEquals_2) {
+            _and_1 = false;
+          } else {
+            String _assignAsData_1 = inner.getAssignAsData();
+            boolean _isEmpty_1 = _assignAsData_1.isEmpty();
+            boolean _not_1 = (!_isEmpty_1);
+            _and_1 = _not_1;
+          }
+          if (_and_1) {
+            String _assignAsData_2 = inner.getAssignAsData();
+            CharSequence _generateForDataListAssign = this.generateForDataListAssign(varName, paramName, _assignAsData_2);
+            _builder.append(_generateForDataListAssign, "");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        {
+          String _value = inner.getValue();
+          boolean _notEquals_3 = (!Objects.equal(_value, null));
+          if (_notEquals_3) {
+            String _value_1 = inner.getValue();
+            CharSequence _generateForValueAssign = this.generateForValueAssign(varName, paramName, _value_1);
+            _builder.append(_generateForValueAssign, "");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        {
+          String _assignAsBool = inner.getAssignAsBool();
+          boolean _notEquals_4 = (!Objects.equal(_assignAsBool, null));
+          if (_notEquals_4) {
+            String _assignAsBool_1 = inner.getAssignAsBool();
+            CharSequence _generateForBoolAssign = this.generateForBoolAssign(varName, paramName, _assignAsBool_1);
+            _builder.append(_generateForBoolAssign, "");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        {
+          boolean _isIsNull = inner.isIsNull();
+          if (_isIsNull) {
+            _builder.append("Assert.assertNull(");
+            _builder.append(varName, "");
+            _builder.append(".get");
+            _builder.append(paramName, "");
+            _builder.append("());");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        {
+          boolean _isIsNotNull = inner.isIsNotNull();
+          if (_isIsNotNull) {
+            _builder.append("Assert.assertNotNull(");
+            _builder.append(varName, "");
+            _builder.append(".get");
+            _builder.append(paramName, "");
+            _builder.append("());");
+            _builder.newLineIfNotEmpty();
           }
         }
       }

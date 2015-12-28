@@ -34,6 +34,7 @@
         eType="#//ElIfConditional" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="else" eType="#//ElseConditional"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="branchTaken" eType="#//IfAbstractConditional"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IfConditional" eSuperTypes="#//IfAbstractConditional">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="ecore:EClass ../../../at.jku.weiner.c.common/model/custom/Common.ecore#//Expression"

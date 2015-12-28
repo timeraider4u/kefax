@@ -28,7 +28,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.InnerImpl#getParameter <em>Parameter</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.InnerImpl#getAssign <em>Assign</em>}</li>
@@ -37,7 +36,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.InnerImpl#getAssignAsData <em>Assign As Data</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.InnerImpl#getAssignAsBool <em>Assign As Bool</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.InnerImpl#isIsNull <em>Is Null</em>}</li>
+ *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.InnerImpl#isIsNotNull <em>Is Not Null</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -162,6 +163,26 @@ public class InnerImpl extends MinimalEObjectImpl.Container implements Inner
    * @ordered
    */
   protected boolean isNull = IS_NULL_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #isIsNotNull() <em>Is Not Null</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isIsNotNull()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean IS_NOT_NULL_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isIsNotNull() <em>Is Not Null</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isIsNotNull()
+   * @generated
+   * @ordered
+   */
+  protected boolean isNotNull = IS_NOT_NULL_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -366,6 +387,29 @@ public class InnerImpl extends MinimalEObjectImpl.Container implements Inner
    * <!-- end-user-doc -->
    * @generated
    */
+  public boolean isIsNotNull()
+  {
+    return isNotNull;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIsNotNull(boolean newIsNotNull)
+  {
+    boolean oldIsNotNull = isNotNull;
+    isNotNull = newIsNotNull;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, XtextTestPackage.INNER__IS_NOT_NULL, oldIsNotNull, isNotNull));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -403,6 +447,8 @@ public class InnerImpl extends MinimalEObjectImpl.Container implements Inner
         return getAssignAsBool();
       case XtextTestPackage.INNER__IS_NULL:
         return isIsNull();
+      case XtextTestPackage.INNER__IS_NOT_NULL:
+        return isIsNotNull();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -440,6 +486,9 @@ public class InnerImpl extends MinimalEObjectImpl.Container implements Inner
       case XtextTestPackage.INNER__IS_NULL:
         setIsNull((Boolean)newValue);
         return;
+      case XtextTestPackage.INNER__IS_NOT_NULL:
+        setIsNotNull((Boolean)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -475,6 +524,9 @@ public class InnerImpl extends MinimalEObjectImpl.Container implements Inner
       case XtextTestPackage.INNER__IS_NULL:
         setIsNull(IS_NULL_EDEFAULT);
         return;
+      case XtextTestPackage.INNER__IS_NOT_NULL:
+        setIsNotNull(IS_NOT_NULL_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -503,6 +555,8 @@ public class InnerImpl extends MinimalEObjectImpl.Container implements Inner
         return ASSIGN_AS_BOOL_EDEFAULT == null ? assignAsBool != null : !ASSIGN_AS_BOOL_EDEFAULT.equals(assignAsBool);
       case XtextTestPackage.INNER__IS_NULL:
         return isNull != IS_NULL_EDEFAULT;
+      case XtextTestPackage.INNER__IS_NOT_NULL:
+        return isNotNull != IS_NOT_NULL_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -528,6 +582,8 @@ public class InnerImpl extends MinimalEObjectImpl.Container implements Inner
     result.append(assignAsBool);
     result.append(", isNull: ");
     result.append(isNull);
+    result.append(", isNotNull: ");
+    result.append(isNotNull);
     result.append(')');
     return result.toString();
   }

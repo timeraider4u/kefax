@@ -10,11 +10,11 @@ package at.jku.weiner.c.preprocess.preprocess;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.IfNotDefConditional#getId <em>Id</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.IfNotDefConditional#getGroup <em>Group</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getIfNotDefConditional()
  * @model

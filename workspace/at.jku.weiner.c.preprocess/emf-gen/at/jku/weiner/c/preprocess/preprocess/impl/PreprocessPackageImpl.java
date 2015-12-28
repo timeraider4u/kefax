@@ -502,6 +502,15 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getConditionalDirective_BranchTaken() {
+		return (EReference)conditionalDirectiveEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getIfConditional()
 	{
 		return ifConditionalEClass;
@@ -905,6 +914,7 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 		createEReference(conditionalDirectiveEClass, CONDITIONAL_DIRECTIVE__CONDITIONAL);
 		createEReference(conditionalDirectiveEClass, CONDITIONAL_DIRECTIVE__ELIFS);
 		createEReference(conditionalDirectiveEClass, CONDITIONAL_DIRECTIVE__ELSE);
+		createEReference(conditionalDirectiveEClass, CONDITIONAL_DIRECTIVE__BRANCH_TAKEN);
 
 		ifConditionalEClass = createEClass(IF_CONDITIONAL);
 		createEReference(ifConditionalEClass, IF_CONDITIONAL__EXPRESSION);
@@ -1036,6 +1046,7 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 		initEReference(getConditionalDirective_Conditional(), this.getIfAbstractConditional(), null, "conditional", null, 0, 1, ConditionalDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getConditionalDirective_Elifs(), this.getElIfConditional(), null, "elifs", null, 0, -1, ConditionalDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getConditionalDirective_Else(), this.getElseConditional(), null, "else", null, 0, 1, ConditionalDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConditionalDirective_BranchTaken(), this.getIfAbstractConditional(), null, "branchTaken", null, 0, 1, ConditionalDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(ifConditionalEClass, IfConditional.class, "IfConditional", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIfConditional_Expression(), theCommonPackage.getExpression(), null, "expression", null, 0, 1, IfConditional.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

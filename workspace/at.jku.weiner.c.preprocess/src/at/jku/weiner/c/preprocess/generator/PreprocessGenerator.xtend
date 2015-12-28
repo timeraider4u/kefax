@@ -50,6 +50,7 @@ import java.util.ArrayList
 import at.jku.weiner.c.preprocess.preprocess.Preprocess
 import at.jku.weiner.c.preprocess.preprocess.PreprocessFactory
 import at.jku.weiner.c.common.common.CommonFactory
+import at.jku.weiner.c.preprocess.preprocess.IfAbstractConditional
 
 /**
  * Generates code from your model files on save.
@@ -69,10 +70,8 @@ class PreprocessGenerator implements IGenerator {
 	@Inject
 	IResourceValidator validator;
 	
-	Integer currKey = 0;
 	ResourceSet rs;
 	URI uri;
-	Map<Integer, Boolean> conditionals = new TreeMap<Integer, Boolean>();
 	List<String> path = new ArrayList<String>();
 	
 	override void doGenerate(Resource input, IFileSystemAccess fsa) {
@@ -274,92 +273,97 @@ class PreprocessGenerator implements IGenerator {
 	}
 	
 	def String outputFor(ConditionalDirective obj) {
-		val Integer newKey = this.currKey++;
 		val StringBuffer result = new StringBuffer(""); 
 		
-		this.conditionals.put(newKey, false);
 		if (obj.conditional instanceof IfConditional) {
-			result.append(outputFor(newKey, obj.conditional as IfConditional));
+			result.append(outputFor(obj, obj.conditional as IfConditional));
 		}
 		if (obj.conditional instanceof IfDefConditional) {
-			result.append(outputFor(newKey, obj.conditional as IfDefConditional)); 
+			result.append(outputFor(obj, obj.conditional as IfDefConditional)); 
 		}
 		if (obj.conditional instanceof IfNotDefConditional) {
-			result.append(outputFor(newKey, obj.conditional as IfNotDefConditional)); 
+			result.append(outputFor(obj, obj.conditional as IfNotDefConditional)); 
 		}
-		result.append(outputFor(newKey, obj.getElifs()));
-		result.append(outputFor(newKey, obj.getElse()));
-		this.conditionals.remove(newKey);
+		result.append(outputFor(obj, obj.getElifs()));
+		result.append(outputFor(obj, obj.getElse()));
 		return result.toString();
 	}
 	
-	def String outputFor(Integer conditionalDirective, IfDefConditional obj) {
+	def String outputFor(ConditionalDirective condDirective, IfDefConditional obj) {
 		if (DefinitionTable.isDefined(obj.id)) {
-			conditionals.put(conditionalDirective, true);
+			condDirective.branchTaken = obj;
+			obj.branchTaken = true;
+			
 			path.add("ifdef " + obj.id + "/");
 			return outputFor(obj.group).trim();
 		}
 		return "";
 	}
 	
-	def String outputFor(Integer conditionalDirective, IfNotDefConditional obj) {
+	def String outputFor(ConditionalDirective condDirective, IfNotDefConditional obj) {
 		if (!(DefinitionTable.isDefined(obj.id))) {
-			conditionals.put(conditionalDirective, true);
+			condDirective.branchTaken = obj;
+			obj.branchTaken = true;
+			
 			path.add("ifnotdef " + obj.id + "/");
 			return outputFor(obj.group).trim();
 		}
 		return "";
 	}
 	
-	def String outputFor(Integer conditionalDirective, IfConditional obj) {
+	def String outputFor(ConditionalDirective condDirective, IfConditional obj) {
 		val ConstantExpression expr = obj.expression as ConstantExpression;
 		if (ExpressionEvaluation.evaluateFor(expr, commonInjector)) {
 			val String string = ExpressionEvaluation.evaluateFor(expr);
 			path.add("if " + string + "/");
-			conditionals.put(conditionalDirective, true);
+			condDirective.branchTaken = obj;
+			obj.branchTaken = true;
 			return outputFor(obj.group).trim();
 		}
 		return "";
 	}
 	
-	def String outputFor(Integer conditionalDirective, EList<ElIfConditional> obj) {
+	def String outputFor(ConditionalDirective condDirective, EList<ElIfConditional> obj) {
 		if (obj == null) {
  			return "";
  		}
- 		val boolean condition =  conditionals.get(conditionalDirective);
- 		if (condition) {
+ 		val IfAbstractConditional condition = condDirective.branchTaken;
+ 		if (condition != null) {
  			return "";
  		}
  		val StringBuffer result = new StringBuffer(""); 
  		for (ElIfConditional cond : obj) {
- 			result.append(outputFor(conditionalDirective, cond));
+ 			result.append(outputFor(condDirective, cond));
  		}
  		return result.toString();
  	}
  	
- 	def String outputFor(Integer conditionalDirective, ElIfConditional obj) {
- 		val boolean condition =  conditionals.get(conditionalDirective);
- 		if (condition) {
+ 	def String outputFor(ConditionalDirective condDirective, ElIfConditional obj) {
+ 		val IfAbstractConditional condition = condDirective.branchTaken;
+ 		if (condition != null) {
  			return "";
  		}
  		val ConstantExpression expr = obj.expression as ConstantExpression;
  		if (ExpressionEvaluation.evaluateFor(expr, commonInjector)) {
  			val String string = ExpressionEvaluation.evaluateFor(expr);
 			path.add("elif" + string + "/");
-			conditionals.put(conditionalDirective, true);
+			condDirective.branchTaken = obj;
+			obj.branchTaken = true;
 			return outputFor(obj.group).trim();
 		}
  		return "";
  	}
 	
-	def String outputFor(Integer conditionalDirective, ElseConditional obj) {
-		val boolean condition =  conditionals.get(conditionalDirective);
- 		if (condition) {
+	def String outputFor(ConditionalDirective condDirective, ElseConditional obj) {
+		val IfAbstractConditional condition = condDirective.branchTaken;
+ 		if (condition != null) {
  			return "";
  		}
 		if (obj== null) {
 			return "";
 		}
+		condDirective.branchTaken = obj;
+		obj.branchTaken = true;
 		path.add("else/");
 		return outputFor(obj.group).trim();
 	}

@@ -270,28 +270,28 @@ class XtextTestGenerator implements IGenerator {
 			«val paramName = firstCharToUpperCase(inner.parameter)»
 			«IF inner.assign != null»
 				«generateForInnerAssign(varName, paramName, inner.assign)»
-			«ELSE»
+			«ENDIF»
 			«IF ((inner.getAssignList() != null)
 					&& (!inner.getAssignList().isEmpty()))»
 				«generateForListAssign(varName, paramName, inner.assignList)»
-			«ELSE»
+			«ENDIF»
 			«IF ((inner.getAssignAsData() != null)
 					&& (!inner.getAssignAsData().isEmpty()))»
 				«generateForDataListAssign(varName, paramName,
 										inner.assignAsData)»
-			«ELSE»
+			«ENDIF»
 			«IF ((inner.getValue() != null))»
 				«generateForValueAssign(varName, paramName, inner.value)»
-			«ELSE»
+			«ENDIF»
 			«IF (inner.getAssignAsBool() != null)»
 				«generateForBoolAssign(varName, paramName, inner.assignAsBool)»
-			«ELSE»
+			«ENDIF»
+			«IF (inner.isNull)»
 				Assert.assertNull(«varName».get«paramName»());
 			«ENDIF»
+			«IF (inner.isNotNull)»
+				Assert.assertNotNull(«varName».get«paramName»());
 			«ENDIF»
-			«ENDIF»
-			«ENDIF»	
-			«ENDIF»	
 		«ENDFOR»
 	'''
 	

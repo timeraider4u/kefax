@@ -4,7 +4,7 @@
     editorDirectory="/at.jku.weiner.xtexttest.editor/src" modelPluginID="at.jku.weiner.xtexttest"
     forceOverwrite="true" modelName="XtextTest" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="6.0" copyrightFields="false" editPluginID="at.jku.weiner.xtexttest.edit"
-    editorPluginID="at.jku.weiner.xtexttest.editor" runtimeVersion="2.11">
+    editorPluginID="at.jku.weiner.xtexttest.editor" runtimeVersion="2.10">
   <genPackages prefix="XtextTest" basePackage="at.jku.weiner.xtexttest" disposableProviderFactory="true"
       fileExtensions="xtexttest" ecorePackage="XtextTest.ecore#/">
     <genClasses ecoreClass="XtextTest.ecore#//XtextTest">
@@ -43,6 +43,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//Inner/assignAsData"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//Inner/assignAsBool"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//Inner/isNull"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//Inner/isNotNull"/>
     </genClasses>
     <genClasses ecoreClass="XtextTest.ecore#//Generator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//Generator/output"/>

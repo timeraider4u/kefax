@@ -99,7 +99,7 @@ public class Test0013_RelativeInclude {
 		return content;
 	}
 	
-	@Test
+	@Test (timeout=1000)
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0013_RelativeInclude.c");
@@ -142,7 +142,7 @@ public class Test0013_RelativeInclude {
 			testHelper.checkTokenisation(text, expected);
 	}
 	
-	@Test
+	@Test (timeout=1000)
 	public void checkParserResult() throws Exception {
 		final String text = this.getTextFromFile(
 			"res/Test0013_RelativeInclude.c");
@@ -218,6 +218,8 @@ public class Test0013_RelativeInclude {
 	}
 	
 	@Test
+	(timeout=1000
+	)
 	public void testGenerator() throws Exception {
 		// load the resource
 		ResourceSet set = this.resourceSetProvider.get();

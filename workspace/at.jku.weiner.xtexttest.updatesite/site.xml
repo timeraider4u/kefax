@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/at.jku.weiner.xtexttest.feature_1.0.0.201512281549.jar" id="at.jku.weiner.xtexttest.feature" version="1.0.0.201512281549">
+   <feature url="features/at.jku.weiner.xtexttest.feature_1.0.0.201512281955.jar" id="at.jku.weiner.xtexttest.feature" version="1.0.0.201512281955">
       <category name="at.jku.weiner.xtexttest"/>
    </feature>
    <category-def name="at.jku.weiner.xtexttest" label="at.jku.weiner.xtexttest"/>

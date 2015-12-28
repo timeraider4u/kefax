@@ -117,7 +117,7 @@ public class Test0057_IfNotDefined {
 		return content;
 	}
 	
-	@Test
+	@Test (timeout=1000)
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0057_IfNotDefined.c");
@@ -156,7 +156,7 @@ public class Test0057_IfNotDefined {
 			testHelper.checkTokenisation(text, expected);
 	}
 	
-	@Test
+	@Test (timeout=1000)
 	public void checkParserResult() throws Exception {
 		final String text = this.getTextFromFile(
 			"res/Test0057_IfNotDefined.c");
@@ -382,6 +382,8 @@ public class Test0057_IfNotDefined {
 	}
 	
 	@Test
+	(timeout=1000
+	)
 	public void testGenerator() throws Exception {
 		// load the resource
 		ResourceSet set = this.resourceSetProvider.get();

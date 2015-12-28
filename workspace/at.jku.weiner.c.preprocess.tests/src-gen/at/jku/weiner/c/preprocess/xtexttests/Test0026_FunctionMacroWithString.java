@@ -95,7 +95,7 @@ public class Test0026_FunctionMacroWithString {
 		return content;
 	}
 	
-	@Test
+	@Test (timeout=1000)
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0026_FunctionMacroWithString.c");
@@ -134,7 +134,7 @@ public class Test0026_FunctionMacroWithString {
 			testHelper.checkTokenisation(text, expected);
 	}
 	
-	@Test
+	@Test (timeout=1000)
 	public void checkParserResult() throws Exception {
 		final String text = this.getTextFromFile(
 			"res/Test0026_FunctionMacroWithString.c");
@@ -189,6 +189,8 @@ public class Test0026_FunctionMacroWithString {
 	}
 	
 	@Test
+	(timeout=1000
+	)
 	public void testGenerator() throws Exception {
 		// load the resource
 		ResourceSet set = this.resourceSetProvider.get();

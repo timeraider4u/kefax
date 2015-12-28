@@ -94,7 +94,7 @@ public class Test0022_ObjectMacroWithParensAtStart {
 		return content;
 	}
 	
-	@Test
+	@Test (timeout=1000)
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0022_ObjectMacroWithParensAtStart.c");
@@ -122,7 +122,7 @@ public class Test0022_ObjectMacroWithParensAtStart {
 			testHelper.checkTokenisation(text, expected);
 	}
 	
-	@Test
+	@Test (timeout=1000)
 	public void checkParserResult() throws Exception {
 		final String text = this.getTextFromFile(
 			"res/Test0022_ObjectMacroWithParensAtStart.c");
@@ -169,6 +169,8 @@ public class Test0022_ObjectMacroWithParensAtStart {
 	}
 	
 	@Test
+	(timeout=1000
+	)
 	public void testGenerator() throws Exception {
 		// load the resource
 		ResourceSet set = this.resourceSetProvider.get();

@@ -100,7 +100,7 @@ public class Test0068_AbsoluteIncludeWithComment {
 		return content;
 	}
 	
-	@Test
+	@Test (timeout=1000)
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0068_AbsoluteIncludeWithComment.c");
@@ -153,7 +153,7 @@ public class Test0068_AbsoluteIncludeWithComment {
 			testHelper.checkTokenisation(text, expected);
 	}
 	
-	@Test
+	@Test (timeout=1000)
 	public void checkParserResult() throws Exception {
 		final String text = this.getTextFromFile(
 			"res/Test0068_AbsoluteIncludeWithComment.c");
@@ -229,6 +229,8 @@ public class Test0068_AbsoluteIncludeWithComment {
 	}
 	
 	@Test
+	(timeout=1000
+	)
 	public void testGenerator() throws Exception {
 		// load the resource
 		ResourceSet set = this.resourceSetProvider.get();

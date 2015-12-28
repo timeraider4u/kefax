@@ -10,7 +10,7 @@ import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
 public final class DefinitionFunctionMacro implements DefinitionMacro {
 
 	private static final String REGEX = "\\s*\\(";
-	
+
 	private final String key;
 	private final String value;
 	private final List<String> list;
@@ -21,7 +21,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			final IdentifierList list) {
 		this(key, value, ((list == null) ? null : list.getId()));
 	}
-	
+
 	public DefinitionFunctionMacro(final String key, final String value,
 			final List<String> list) {
 		this.list = list;
@@ -30,19 +30,19 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		this.pattern = Pattern.compile("\\b" + this.key + "\\b"
 				+ DefinitionFunctionMacro.REGEX);
 	}
-	
+
 	private String getValue(String value2) {
 		if (value2 == null) {
 			value2 = "";
 		}
 		return value2;
 	}
-	
+
 	@Override
 	public String getName() {
 		return this.key;
 	}
-	
+
 	@Override
 	public boolean equals(final Object obj) {
 		if (!(obj instanceof DefinitionFunctionMacro)) {
@@ -76,12 +76,12 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		}
 		return true;
 	}
-	
+
 	@Override
 	public boolean matches(final String code) {
 		return MatchUtils.matches(code, this.pattern);
 	}
-	
+
 	@Override
 	public String resolve(final String code) {
 		final Matcher matcher = this.pattern.matcher(code);
@@ -110,7 +110,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		}
 		return result.toString();
 	}
-	
+
 	private int searchForClosingParen(final String code,
 			final StringBuffer result, int i) {
 		MatchState state = MatchState.Normal;
@@ -147,7 +147,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		// should never get here
 		throw new MacroParentheseNotClosedYetException(code, i);
 	}
-	
+
 	private void startReplacement(final StringBuffer result,
 			final List<String> params) {
 		if (this.list == null) {
@@ -168,17 +168,17 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		temp = this.resolveConcatenationAndStringification(temp);
 		result.append(temp);
 	}
-	
-	private String resolveConcatenationAndStringification(final String code) {
-		if (!code.contains("#")) {
-			return code;
+
+	private String resolveConcatenationAndStringification(final String temp) {
+		if (!temp.contains("#")) {
+			return temp;
 		}
-		final Pattern strPattern = Pattern.compile("#[\\s]*([\\w\\\"\\\\]+)");
-		final Matcher strMatcher = strPattern.matcher(code);
+		final Pattern strPattern = Pattern.compile("#[\\s]*([\\w\\\"\\\\]*)");
+		final Matcher strMatcher = strPattern.matcher(temp);
 		final Pattern conPattern = Pattern.compile("[\\s]*##[\\s]*");
-		final Matcher conMatcher = conPattern.matcher(code);
+		final Matcher conMatcher = conPattern.matcher(temp);
 		if (!strMatcher.find(0) && !conMatcher.find(0)) {
-			return code;
+			return temp;
 		}
 		MatchState state = MatchState.Normal;
 		final StringBuffer result = new StringBuffer("");
@@ -186,7 +186,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		int nextStrMatchEndIndex = -1;
 		int nextConMatchStartIndex = -1;
 		int nextConMatchEndIndex = -1;
-		
+
 		if (strMatcher.find(0)) {
 			nextStrMatchStartIndex = strMatcher.start();
 			nextStrMatchEndIndex = strMatcher.end();
@@ -195,8 +195,8 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			nextConMatchStartIndex = conMatcher.start();
 			nextConMatchEndIndex = conMatcher.end();
 		}
-		for (int i = 0; i < code.length(); i++) {
-			final char c = code.charAt(i);
+		for (int i = 0; i < temp.length(); i++) {
+			final char c = temp.charAt(i);
 			state = MatchUtils.calculateNextState(c, state);
 			if (state == MatchState.Normal) {
 				if (i == nextConMatchStartIndex) {
@@ -211,16 +211,19 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 					str = "\"" + str + "\"";
 					result.append(str);
 					i = nextStrMatchEndIndex - 1;
+					if (group2.isEmpty()) {
+						result.append(" ");
+					}
 				} else {
 					result.append(c);
 				}
 			} else if (!strMatcher.find(i) && !(conMatcher.find(i))) {
-				result.append(code.substring(i));
+				result.append(temp.substring(i));
 				return result.toString();
 			} else {
 				result.append(c);
 			}
-			
+
 			if (strMatcher.find(i)) {
 				nextStrMatchStartIndex = strMatcher.start();
 				nextStrMatchEndIndex = strMatcher.end();
@@ -230,6 +233,6 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 				nextConMatchEndIndex = conMatcher.end();
 			}
 		}
-		return result.toString();
+		return result.toString().trim();
 	}
 }

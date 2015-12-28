@@ -102,7 +102,7 @@ public class Test0042_IfnotDefSimple {
 		return content;
 	}
 	
-	@Test
+	@Test (timeout=1000)
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0042_IfnotDefSimple.c");
@@ -168,7 +168,7 @@ public class Test0042_IfnotDefSimple {
 			testHelper.checkTokenisation(text, expected);
 	}
 	
-	@Test
+	@Test (timeout=1000)
 	public void checkParserResult() throws Exception {
 		final String text = this.getTextFromFile(
 			"res/Test0042_IfnotDefSimple.c");
@@ -273,6 +273,8 @@ public class Test0042_IfnotDefSimple {
 	}
 	
 	@Test
+	(timeout=1000
+	)
 	public void testGenerator() throws Exception {
 		// load the resource
 		ResourceSet set = this.resourceSetProvider.get();

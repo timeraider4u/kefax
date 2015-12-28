@@ -172,7 +172,7 @@ public class Test0062_IfElseNested {
 		return content;
 	}
 	
-	@Test
+	@Test (timeout=1000)
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0062_IfElseNested.c");
@@ -296,7 +296,7 @@ public class Test0062_IfElseNested {
 			testHelper.checkTokenisation(text, expected);
 	}
 	
-	@Test
+	@Test (timeout=1000)
 	public void checkParserResult() throws Exception {
 		final String text = this.getTextFromFile(
 			"res/Test0062_IfElseNested.c");
@@ -944,6 +944,8 @@ public class Test0062_IfElseNested {
 	}
 	
 	@Test
+	(timeout=1000
+	)
 	public void testGenerator() throws Exception {
 		// load the resource
 		ResourceSet set = this.resourceSetProvider.get();

@@ -1,0 +1,57 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language preprocess
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+split-lexer=false
+source file="res/Test0083_EmptyStringification.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN WHITESPACE HASH ID WHITESPACE 
+		HASH ID NEWLINE	
+	ID SKW_LEFTPAREN ID SKW_COMMA SKW_RIGHTPAREN NEWLINE
+	ID SKW_LEFTPAREN SKW_COMMA ID SKW_RIGHTPAREN NEWLINE
+	ID SKW_LEFTPAREN SKW_COMMA SKW_RIGHTPAREN NEWLINE
+	ID SKW_LEFTPAREN WHITESPACE SKW_COMMA WHITESPACE SKW_RIGHTPAREN NEWLINE
+//----------------------------------------------------------------------
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"FOO",
+					list=
+					(IdentifierList
+						id+*"[A, B]"
+					),
+					string++"#A #B"
+				)
+			),
+			(Code
+				code++"FOO(BAR,)"
+			),
+			(Code
+				code++"FOO(,BAR)"
+			),
+			(Code
+				code++"FOO(,)"
+			),
+			(Code
+				code++"FOO( , )"
+			)
+		)
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0083_EmptyStringification.c.i"
+expected file="expected/Test0083_EmptyStringification.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

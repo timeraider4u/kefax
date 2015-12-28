@@ -112,7 +112,7 @@ public class Test0004_SimpleDef {
 		return content;
 	}
 	
-	@Test
+	@Test (timeout=1000)
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0004_SimpleDef.c");
@@ -205,7 +205,7 @@ public class Test0004_SimpleDef {
 			testHelper.checkTokenisation(text, expected);
 	}
 	
-	@Test
+	@Test (timeout=1000)
 	public void checkParserResult() throws Exception {
 		final String text = this.getTextFromFile(
 			"res/Test0004_SimpleDef.c");
@@ -373,6 +373,8 @@ public class Test0004_SimpleDef {
 	}
 	
 	@Test
+	(timeout=1000
+	)
 	public void testGenerator() throws Exception {
 		// load the resource
 		ResourceSet set = this.resourceSetProvider.get();

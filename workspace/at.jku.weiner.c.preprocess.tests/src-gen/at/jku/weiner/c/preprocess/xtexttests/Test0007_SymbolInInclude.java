@@ -93,7 +93,7 @@ public class Test0007_SymbolInInclude {
 		return content;
 	}
 	
-	@Test
+	@Test (timeout=1000)
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0007_SymbolInInclude.h");
@@ -110,7 +110,7 @@ public class Test0007_SymbolInInclude {
 			testHelper.checkTokenisation(text, expected);
 	}
 	
-	@Test
+	@Test (timeout=1000)
 	public void checkParserResult() throws Exception {
 		final String text = this.getTextFromFile(
 			"res/Test0007_SymbolInInclude.h");
@@ -148,7 +148,9 @@ public class Test0007_SymbolInInclude {
 	}
 	
 	@Test
-	(expected = java.lang.IllegalArgumentException.class)
+	(timeout=1000
+	, expected = java.lang.IllegalArgumentException.class
+	)
 	public void testGenerator() throws Exception {
 		// load the resource
 		ResourceSet set = this.resourceSetProvider.get();

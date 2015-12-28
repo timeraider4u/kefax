@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
-import at.jku.weiner.c.preprocess.utils.IncludeDirs;
 import at.jku.weiner.c.preprocess.utils.OSEnum;
 import at.jku.weiner.c.preprocess.utils.OSUtils;
 
@@ -27,6 +26,10 @@ public final class DefinitionTable {
 			DefinitionTable.add("__GNUC__", "4");
 			DefinitionTable.add("__GNUC_MINOR__", "8");
 			DefinitionTable.add("__GNUC_PATCHLEVEL__", "4");
+			DefinitionTable.add("__x86_64", "1");
+			DefinitionTable.add("__x86_64__", "1");
+			DefinitionTable.add("__USER_LABEL_PREFIX__", "");
+			DefinitionTable.add("__WINT_TYPE__", "unsigned int");
 			break;
 		default:
 			break;

@@ -39,6 +39,8 @@ import org.eclipse.xtext.xbase.lib.Pure;
 public class XtextTestGenerator implements IGenerator {
   private final static String PKG_PREFIX = "xtexttests";
   
+  private final static int TIMEOUT = 1000;
+  
   private int elementCount;
   
   private XtextTest test;
@@ -543,8 +545,10 @@ public class XtextTestGenerator implements IGenerator {
       Tokens _tokens = this.test.getTokens();
       boolean _notEquals = (!Objects.equal(_tokens, null));
       if (_notEquals) {
-        _builder.append("@Test");
-        _builder.newLine();
+        _builder.append("@Test (timeout=");
+        _builder.append(XtextTestGenerator.TIMEOUT, "");
+        _builder.append(")");
+        _builder.newLineIfNotEmpty();
         _builder.append("public void checkLexerTokens() throws Exception{");
         _builder.newLine();
         _builder.append("\t");
@@ -619,8 +623,10 @@ public class XtextTestGenerator implements IGenerator {
   
   public CharSequence parserJUnitTest() {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("@Test");
-    _builder.newLine();
+    _builder.append("@Test (timeout=");
+    _builder.append(XtextTestGenerator.TIMEOUT, "");
+    _builder.append(")");
+    _builder.newLineIfNotEmpty();
     _builder.append("public void checkParserResult() throws Exception {");
     _builder.newLine();
     _builder.append("\t");
@@ -941,19 +947,24 @@ public class XtextTestGenerator implements IGenerator {
       if (_notEquals) {
         _builder.append("@Test");
         _builder.newLine();
+        _builder.append("(timeout=");
+        _builder.append(XtextTestGenerator.TIMEOUT, "");
+        _builder.newLineIfNotEmpty();
         {
           Generator _output_1 = this.test.getOutput();
           String _exception = _output_1.getException();
           boolean _notEquals_1 = (!Objects.equal(_exception, null));
           if (_notEquals_1) {
-            _builder.append("(expected = ");
+            _builder.append(", expected = ");
             Generator _output_2 = this.test.getOutput();
             String _exception_1 = _output_2.getException();
             _builder.append(_exception_1, "");
-            _builder.append(".class)");
+            _builder.append(".class");
             _builder.newLineIfNotEmpty();
           }
         }
+        _builder.append(")");
+        _builder.newLine();
         _builder.append("public void testGenerator() throws Exception {");
         _builder.newLine();
         _builder.append("\t");

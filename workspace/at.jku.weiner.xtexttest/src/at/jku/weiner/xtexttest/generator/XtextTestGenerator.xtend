@@ -20,6 +20,7 @@ import org.eclipse.xtend.lib.annotations.Accessors
  */
 class XtextTestGenerator implements IGenerator {
 	private static final String PKG_PREFIX = "xtexttests";
+	private static final int TIMEOUT = 1000;
 	private int elementCount;
 	private XtextTest test;
 	private URI uri;
@@ -220,7 +221,7 @@ class XtextTestGenerator implements IGenerator {
 	
 	def tokensJUnitTest() '''
 		«IF test.tokens != null»
-		@Test
+		@Test (timeout=«TIMEOUT»)
 		public void checkLexerTokens() throws Exception{
 			final String text = this.getTextFromFile(
 				"«IF shouldGenerateTextSourceDataFile»src-gen/«ENDIF»«getSourceFile»");
@@ -243,7 +244,7 @@ class XtextTestGenerator implements IGenerator {
 	'''
 	
 	def parserJUnitTest() '''
-		@Test
+		@Test (timeout=«TIMEOUT»)
 		public void checkParserResult() throws Exception {
 			final String text = this.getTextFromFile(
 				"«IF shouldGenerateTextSourceDataFile»src-gen/«ENDIF»«getSourceFile»");
@@ -342,9 +343,11 @@ class XtextTestGenerator implements IGenerator {
 	def generatorJUnitTest() '''
 		«IF test.output != null»
 		@Test
+		(timeout=«TIMEOUT»
 		«IF test.output.exception != null»
-		(expected = «test.output.exception».class)
+		, expected = «test.output.exception».class
 		«ENDIF»
+		)
 		public void testGenerator() throws Exception {
 			// load the resource
 			ResourceSet set = this.resourceSetProvider.get();

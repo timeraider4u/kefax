@@ -274,6 +274,7 @@ class PreprocessGenerator implements IGenerator {
 	
 	def String outputFor(ConditionalDirective obj) {
 		val StringBuffer result = new StringBuffer(""); 
+		obj.branchTaken = null;
 		
 		if (obj.conditional instanceof IfConditional) {
 			result.append(outputFor(obj, obj.conditional as IfConditional));

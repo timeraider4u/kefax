@@ -108,7 +108,7 @@ public class Test0012_MoreIncludes {
 		return content;
 	}
 	
-	@Test
+	@Test (timeout=1000)
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0012_MoreIncludes.c");
@@ -165,7 +165,7 @@ public class Test0012_MoreIncludes {
 			testHelper.checkTokenisation(text, expected);
 	}
 	
-	@Test
+	@Test (timeout=1000)
 	public void checkParserResult() throws Exception {
 		final String text = this.getTextFromFile(
 			"res/Test0012_MoreIncludes.c");
@@ -290,6 +290,8 @@ public class Test0012_MoreIncludes {
 	}
 	
 	@Test
+	(timeout=1000
+	)
 	public void testGenerator() throws Exception {
 		// load the resource
 		ResourceSet set = this.resourceSetProvider.get();

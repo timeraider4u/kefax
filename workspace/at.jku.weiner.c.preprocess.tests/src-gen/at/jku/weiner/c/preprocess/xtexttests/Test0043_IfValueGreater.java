@@ -119,7 +119,7 @@ public class Test0043_IfValueGreater {
 		return content;
 	}
 	
-	@Test
+	@Test (timeout=1000)
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0043_IfValueGreater.c");
@@ -151,7 +151,7 @@ public class Test0043_IfValueGreater {
 			testHelper.checkTokenisation(text, expected);
 	}
 	
-	@Test
+	@Test (timeout=1000)
 	public void checkParserResult() throws Exception {
 		final String text = this.getTextFromFile(
 			"res/Test0043_IfValueGreater.c");
@@ -392,6 +392,8 @@ public class Test0043_IfValueGreater {
 	}
 	
 	@Test
+	(timeout=1000
+	)
 	public void testGenerator() throws Exception {
 		// load the resource
 		ResourceSet set = this.resourceSetProvider.get();

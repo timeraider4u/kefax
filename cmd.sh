@@ -16,3 +16,5 @@ sed '/^$/d' -i ${CDT2}
 #sed '/^\w+$/d' -i ${CDT2}
 
 diff ${GCC2} ${CDT2} --ignore-all-space
+
+diff -Naur ${GCC2} ${CDT2} --ignore-all-space > MyDiff.patch

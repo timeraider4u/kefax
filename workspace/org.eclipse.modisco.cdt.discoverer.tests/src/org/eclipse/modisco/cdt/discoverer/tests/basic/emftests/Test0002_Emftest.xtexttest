@@ -1,0 +1,26 @@
+emftest
+package org.eclipse.modisco.cdt.discoverer.tests.basic
+default at.jku.weiner.c.common.common
+imports at.jku.weiner.c.preprocess.preprocess as preprocess
+imports at.jku.weiner.c.parser.parser as parser
+
+class=org.eclipse.modisco.cdt.discoverer.tests.basic.EMFTest method=emfTest(this.pureJavaClassFileName)
+
+source file="res/TestDiscoverer0001.c"
+
+(Model
+	units+=
+	(TranslationUnit
+		preprocess=
+		(preprocess::Preprocess
+			
+		),
+		parser=
+		(parser::Parser
+			
+		)
+	),
+	(TranslationUnit
+		
+	)
+)

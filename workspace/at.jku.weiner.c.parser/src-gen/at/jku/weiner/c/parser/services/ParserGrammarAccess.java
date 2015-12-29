@@ -1448,20 +1448,20 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
 		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
 		private final RuleCall cSKW_LEFTBRACKETTerminalRuleCall_1_0_0 = (RuleCall)cGroup_1_0.eContents().get(0);
-		private final Assignment cStaticAssignment_1_0_1 = (Assignment)cGroup_1_0.eContents().get(1);
-		private final RuleCall cStaticKW_STATICTerminalRuleCall_1_0_1_0 = (RuleCall)cStaticAssignment_1_0_1.eContents().get(0);
-		private final Assignment cTypeQualifierListAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
-		private final RuleCall cTypeQualifierListTypeQualifierListParserRuleCall_1_0_2_0 = (RuleCall)cTypeQualifierListAssignment_1_0_2.eContents().get(0);
-		private final Assignment cExprAssignment_1_0_3 = (Assignment)cGroup_1_0.eContents().get(3);
-		private final RuleCall cExprAssignmentExpressionParserRuleCall_1_0_3_0 = (RuleCall)cExprAssignment_1_0_3.eContents().get(0);
-		private final RuleCall cSKW_RIGHTBRACKETTerminalRuleCall_1_0_4 = (RuleCall)cGroup_1_0.eContents().get(4);
+		private final Assignment cTypeQualifierListAssignment_1_0_1 = (Assignment)cGroup_1_0.eContents().get(1);
+		private final RuleCall cTypeQualifierListTypeQualifierListParserRuleCall_1_0_1_0 = (RuleCall)cTypeQualifierListAssignment_1_0_1.eContents().get(0);
+		private final Assignment cExprAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
+		private final RuleCall cExprAssignmentExpressionParserRuleCall_1_0_2_0 = (RuleCall)cExprAssignment_1_0_2.eContents().get(0);
+		private final RuleCall cSKW_RIGHTBRACKETTerminalRuleCall_1_0_3 = (RuleCall)cGroup_1_0.eContents().get(3);
 		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
 		private final RuleCall cSKW_LEFTBRACKETTerminalRuleCall_1_1_0 = (RuleCall)cGroup_1_1.eContents().get(0);
-		private final Assignment cTypeQualifierListAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
-		private final RuleCall cTypeQualifierListTypeQualifierListParserRuleCall_1_1_1_0 = (RuleCall)cTypeQualifierListAssignment_1_1_1.eContents().get(0);
-		private final Assignment cExprAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
-		private final RuleCall cExprAssignmentExpressionParserRuleCall_1_1_2_0 = (RuleCall)cExprAssignment_1_1_2.eContents().get(0);
-		private final RuleCall cSKW_RIGHTBRACKETTerminalRuleCall_1_1_3 = (RuleCall)cGroup_1_1.eContents().get(3);
+		private final Assignment cStaticAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
+		private final RuleCall cStaticKW_STATICTerminalRuleCall_1_1_1_0 = (RuleCall)cStaticAssignment_1_1_1.eContents().get(0);
+		private final Assignment cTypeQualifierListAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
+		private final RuleCall cTypeQualifierListTypeQualifierListParserRuleCall_1_1_2_0 = (RuleCall)cTypeQualifierListAssignment_1_1_2.eContents().get(0);
+		private final Assignment cExprAssignment_1_1_3 = (Assignment)cGroup_1_1.eContents().get(3);
+		private final RuleCall cExprAssignmentExpressionParserRuleCall_1_1_3_0 = (RuleCall)cExprAssignment_1_1_3.eContents().get(0);
+		private final RuleCall cSKW_RIGHTBRACKETTerminalRuleCall_1_1_4 = (RuleCall)cGroup_1_1.eContents().get(4);
 		private final Group cGroup_1_2 = (Group)cAlternatives_1.eContents().get(2);
 		private final RuleCall cSKW_LEFTBRACKETTerminalRuleCall_1_2_0 = (RuleCall)cGroup_1_2.eContents().get(0);
 		private final Assignment cTypeQualifierListAssignment_1_2_1 = (Assignment)cGroup_1_2.eContents().get(1);
@@ -1482,9 +1482,9 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cLastSuffixDirectDeclaratorLastSuffixParserRuleCall_1_4_0 = (RuleCall)cLastSuffixAssignment_1_4.eContents().get(0);
 		
 		//DeclaratorSuffix:
-		//	{DeclaratorSuffix} (SKW_LEFTBRACKET static=KW_STATIC typeQualifierList=TypeQualifierList?
+		//	{DeclaratorSuffix} (SKW_LEFTBRACKET typeQualifierList=TypeQualifierList?
 		//	expr=AssignmentExpression? SKW_RIGHTBRACKET
-		//	| SKW_LEFTBRACKET typeQualifierList=TypeQualifierList?
+		//	| SKW_LEFTBRACKET static=KW_STATIC typeQualifierList=TypeQualifierList?
 		//	expr=AssignmentExpression SKW_RIGHTBRACKET
 		//	| SKW_LEFTBRACKET typeQualifierList=TypeQualifierList static=KW_STATIC
 		//	expr=AssignmentExpression SKW_RIGHTBRACKET
@@ -1492,8 +1492,8 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//	| lastSuffix=DirectDeclaratorLastSuffix);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{DeclaratorSuffix} (SKW_LEFTBRACKET static=KW_STATIC typeQualifierList=TypeQualifierList? expr=AssignmentExpression?
-		//SKW_RIGHTBRACKET | SKW_LEFTBRACKET typeQualifierList=TypeQualifierList? expr=AssignmentExpression SKW_RIGHTBRACKET |
+		//{DeclaratorSuffix} (SKW_LEFTBRACKET typeQualifierList=TypeQualifierList? expr=AssignmentExpression? SKW_RIGHTBRACKET |
+		//SKW_LEFTBRACKET static=KW_STATIC typeQualifierList=TypeQualifierList? expr=AssignmentExpression SKW_RIGHTBRACKET |
 		//SKW_LEFTBRACKET typeQualifierList=TypeQualifierList static=KW_STATIC expr=AssignmentExpression SKW_RIGHTBRACKET |
 		//SKW_LEFTBRACKET typeQualifierList=TypeQualifierList? star=SKW_STAR SKW_RIGHTBRACKET |
 		//lastSuffix=DirectDeclaratorLastSuffix)
@@ -1502,59 +1502,59 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//{DeclaratorSuffix}
 		public Action getDeclaratorSuffixAction_0() { return cDeclaratorSuffixAction_0; }
 		
-		//(SKW_LEFTBRACKET static=KW_STATIC typeQualifierList=TypeQualifierList? expr=AssignmentExpression? SKW_RIGHTBRACKET |
-		//SKW_LEFTBRACKET typeQualifierList=TypeQualifierList? expr=AssignmentExpression SKW_RIGHTBRACKET | SKW_LEFTBRACKET
+		//(SKW_LEFTBRACKET typeQualifierList=TypeQualifierList? expr=AssignmentExpression? SKW_RIGHTBRACKET | SKW_LEFTBRACKET
+		//static=KW_STATIC typeQualifierList=TypeQualifierList? expr=AssignmentExpression SKW_RIGHTBRACKET | SKW_LEFTBRACKET
 		//typeQualifierList=TypeQualifierList static=KW_STATIC expr=AssignmentExpression SKW_RIGHTBRACKET | SKW_LEFTBRACKET
 		//typeQualifierList=TypeQualifierList? star=SKW_STAR SKW_RIGHTBRACKET | lastSuffix=DirectDeclaratorLastSuffix)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		//SKW_LEFTBRACKET static=KW_STATIC typeQualifierList=TypeQualifierList? expr=AssignmentExpression? SKW_RIGHTBRACKET
+		//SKW_LEFTBRACKET typeQualifierList=TypeQualifierList? expr=AssignmentExpression? SKW_RIGHTBRACKET
 		public Group getGroup_1_0() { return cGroup_1_0; }
 		
 		//SKW_LEFTBRACKET
 		public RuleCall getSKW_LEFTBRACKETTerminalRuleCall_1_0_0() { return cSKW_LEFTBRACKETTerminalRuleCall_1_0_0; }
 		
-		//static=KW_STATIC
-		public Assignment getStaticAssignment_1_0_1() { return cStaticAssignment_1_0_1; }
-		
-		//KW_STATIC
-		public RuleCall getStaticKW_STATICTerminalRuleCall_1_0_1_0() { return cStaticKW_STATICTerminalRuleCall_1_0_1_0; }
-		
 		//typeQualifierList=TypeQualifierList?
-		public Assignment getTypeQualifierListAssignment_1_0_2() { return cTypeQualifierListAssignment_1_0_2; }
+		public Assignment getTypeQualifierListAssignment_1_0_1() { return cTypeQualifierListAssignment_1_0_1; }
 		
 		//TypeQualifierList
-		public RuleCall getTypeQualifierListTypeQualifierListParserRuleCall_1_0_2_0() { return cTypeQualifierListTypeQualifierListParserRuleCall_1_0_2_0; }
+		public RuleCall getTypeQualifierListTypeQualifierListParserRuleCall_1_0_1_0() { return cTypeQualifierListTypeQualifierListParserRuleCall_1_0_1_0; }
 		
 		//expr=AssignmentExpression?
-		public Assignment getExprAssignment_1_0_3() { return cExprAssignment_1_0_3; }
+		public Assignment getExprAssignment_1_0_2() { return cExprAssignment_1_0_2; }
 		
 		//AssignmentExpression
-		public RuleCall getExprAssignmentExpressionParserRuleCall_1_0_3_0() { return cExprAssignmentExpressionParserRuleCall_1_0_3_0; }
+		public RuleCall getExprAssignmentExpressionParserRuleCall_1_0_2_0() { return cExprAssignmentExpressionParserRuleCall_1_0_2_0; }
 		
 		//SKW_RIGHTBRACKET
-		public RuleCall getSKW_RIGHTBRACKETTerminalRuleCall_1_0_4() { return cSKW_RIGHTBRACKETTerminalRuleCall_1_0_4; }
+		public RuleCall getSKW_RIGHTBRACKETTerminalRuleCall_1_0_3() { return cSKW_RIGHTBRACKETTerminalRuleCall_1_0_3; }
 		
-		//SKW_LEFTBRACKET typeQualifierList=TypeQualifierList? expr=AssignmentExpression SKW_RIGHTBRACKET
+		//SKW_LEFTBRACKET static=KW_STATIC typeQualifierList=TypeQualifierList? expr=AssignmentExpression SKW_RIGHTBRACKET
 		public Group getGroup_1_1() { return cGroup_1_1; }
 		
 		//SKW_LEFTBRACKET
 		public RuleCall getSKW_LEFTBRACKETTerminalRuleCall_1_1_0() { return cSKW_LEFTBRACKETTerminalRuleCall_1_1_0; }
 		
+		//static=KW_STATIC
+		public Assignment getStaticAssignment_1_1_1() { return cStaticAssignment_1_1_1; }
+		
+		//KW_STATIC
+		public RuleCall getStaticKW_STATICTerminalRuleCall_1_1_1_0() { return cStaticKW_STATICTerminalRuleCall_1_1_1_0; }
+		
 		//typeQualifierList=TypeQualifierList?
-		public Assignment getTypeQualifierListAssignment_1_1_1() { return cTypeQualifierListAssignment_1_1_1; }
+		public Assignment getTypeQualifierListAssignment_1_1_2() { return cTypeQualifierListAssignment_1_1_2; }
 		
 		//TypeQualifierList
-		public RuleCall getTypeQualifierListTypeQualifierListParserRuleCall_1_1_1_0() { return cTypeQualifierListTypeQualifierListParserRuleCall_1_1_1_0; }
+		public RuleCall getTypeQualifierListTypeQualifierListParserRuleCall_1_1_2_0() { return cTypeQualifierListTypeQualifierListParserRuleCall_1_1_2_0; }
 		
 		//expr=AssignmentExpression
-		public Assignment getExprAssignment_1_1_2() { return cExprAssignment_1_1_2; }
+		public Assignment getExprAssignment_1_1_3() { return cExprAssignment_1_1_3; }
 		
 		//AssignmentExpression
-		public RuleCall getExprAssignmentExpressionParserRuleCall_1_1_2_0() { return cExprAssignmentExpressionParserRuleCall_1_1_2_0; }
+		public RuleCall getExprAssignmentExpressionParserRuleCall_1_1_3_0() { return cExprAssignmentExpressionParserRuleCall_1_1_3_0; }
 		
 		//SKW_RIGHTBRACKET
-		public RuleCall getSKW_RIGHTBRACKETTerminalRuleCall_1_1_3() { return cSKW_RIGHTBRACKETTerminalRuleCall_1_1_3; }
+		public RuleCall getSKW_RIGHTBRACKETTerminalRuleCall_1_1_4() { return cSKW_RIGHTBRACKETTerminalRuleCall_1_1_4; }
 		
 		//SKW_LEFTBRACKET typeQualifierList=TypeQualifierList static=KW_STATIC expr=AssignmentExpression SKW_RIGHTBRACKET
 		public Group getGroup_1_2() { return cGroup_1_2; }
@@ -5425,9 +5425,9 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DeclaratorSuffix:
-	//	{DeclaratorSuffix} (SKW_LEFTBRACKET static=KW_STATIC typeQualifierList=TypeQualifierList?
+	//	{DeclaratorSuffix} (SKW_LEFTBRACKET typeQualifierList=TypeQualifierList?
 	//	expr=AssignmentExpression? SKW_RIGHTBRACKET
-	//	| SKW_LEFTBRACKET typeQualifierList=TypeQualifierList?
+	//	| SKW_LEFTBRACKET static=KW_STATIC typeQualifierList=TypeQualifierList?
 	//	expr=AssignmentExpression SKW_RIGHTBRACKET
 	//	| SKW_LEFTBRACKET typeQualifierList=TypeQualifierList static=KW_STATIC
 	//	expr=AssignmentExpression SKW_RIGHTBRACKET

@@ -9902,16 +9902,41 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 			int LA15_0 = input.LA(1);
 			if ( (LA15_0==RULE_SKW_LEFTBRACKET) ) {
 				switch ( input.LA(2) ) {
-				case RULE_KW_STATIC:
-					{
-					alt15=1;
-					}
-					break;
 				case RULE_KW_CONST:
 					{
+					int LA15_3 = input.LA(3);
+					if ( (synpred45_InternalParser()) ) {
+						alt15=1;
+					}
+					else if ( (synpred47_InternalParser()) ) {
+						alt15=3;
+					}
+					else if ( (synpred48_InternalParser()) ) {
+						alt15=4;
+					}
+
+					else {
+						if (state.backtracking>0) {state.failed=true; return;}
+						int nvaeMark = input.mark();
+						try {
+							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
+								input.consume();
+							}
+							NoViableAltException nvae =
+								new NoViableAltException("", 15, 3, input);
+							throw nvae;
+						} finally {
+							input.rewind(nvaeMark);
+						}
+					}
+
+					}
+					break;
+				case RULE_KW_RESTRICT:
+					{
 					int LA15_4 = input.LA(3);
-					if ( (synpred46_InternalParser()) ) {
-						alt15=2;
+					if ( (synpred45_InternalParser()) ) {
+						alt15=1;
 					}
 					else if ( (synpred47_InternalParser()) ) {
 						alt15=3;
@@ -9937,11 +9962,11 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 
 					}
 					break;
-				case RULE_KW_RESTRICT:
+				case RULE_KW_RESTRICT2:
 					{
 					int LA15_5 = input.LA(3);
-					if ( (synpred46_InternalParser()) ) {
-						alt15=2;
+					if ( (synpred45_InternalParser()) ) {
+						alt15=1;
 					}
 					else if ( (synpred47_InternalParser()) ) {
 						alt15=3;
@@ -9967,11 +9992,11 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 
 					}
 					break;
-				case RULE_KW_RESTRICT2:
+				case RULE_KW_RESTRICT3:
 					{
 					int LA15_6 = input.LA(3);
-					if ( (synpred46_InternalParser()) ) {
-						alt15=2;
+					if ( (synpred45_InternalParser()) ) {
+						alt15=1;
 					}
 					else if ( (synpred47_InternalParser()) ) {
 						alt15=3;
@@ -9997,11 +10022,11 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 
 					}
 					break;
-				case RULE_KW_RESTRICT3:
+				case RULE_KW_VOLATILE:
 					{
 					int LA15_7 = input.LA(3);
-					if ( (synpred46_InternalParser()) ) {
-						alt15=2;
+					if ( (synpred45_InternalParser()) ) {
+						alt15=1;
 					}
 					else if ( (synpred47_InternalParser()) ) {
 						alt15=3;
@@ -10027,11 +10052,11 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 
 					}
 					break;
-				case RULE_KW_VOLATILE:
+				case RULE_KW_ATOMIC:
 					{
 					int LA15_8 = input.LA(3);
-					if ( (synpred46_InternalParser()) ) {
-						alt15=2;
+					if ( (synpred45_InternalParser()) ) {
+						alt15=1;
 					}
 					else if ( (synpred47_InternalParser()) ) {
 						alt15=3;
@@ -10057,36 +10082,6 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 
 					}
 					break;
-				case RULE_KW_ATOMIC:
-					{
-					int LA15_9 = input.LA(3);
-					if ( (synpred46_InternalParser()) ) {
-						alt15=2;
-					}
-					else if ( (synpred47_InternalParser()) ) {
-						alt15=3;
-					}
-					else if ( (synpred48_InternalParser()) ) {
-						alt15=4;
-					}
-
-					else {
-						if (state.backtracking>0) {state.failed=true; return;}
-						int nvaeMark = input.mark();
-						try {
-							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
-								input.consume();
-							}
-							NoViableAltException nvae =
-								new NoViableAltException("", 15, 9, input);
-							throw nvae;
-						} finally {
-							input.rewind(nvaeMark);
-						}
-					}
-
-					}
-					break;
 				case RULE_BIN_LITERAL:
 				case RULE_CHAR_LITERAL:
 				case RULE_DECIMAL_LITERAL:
@@ -10103,17 +10098,18 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				case RULE_SKW_NOT:
 				case RULE_SKW_PLUS:
 				case RULE_SKW_PLUSPLUS:
+				case RULE_SKW_RIGHTBRACKET:
 				case RULE_SKW_TILDE:
 				case RULE_STRING_LITERAL:
 					{
-					alt15=2;
+					alt15=1;
 					}
 					break;
 				case RULE_SKW_STAR:
 					{
-					int LA15_22 = input.LA(3);
-					if ( (synpred46_InternalParser()) ) {
-						alt15=2;
+					int LA15_21 = input.LA(3);
+					if ( (synpred45_InternalParser()) ) {
+						alt15=1;
 					}
 					else if ( (synpred48_InternalParser()) ) {
 						alt15=4;
@@ -10127,13 +10123,18 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 								input.consume();
 							}
 							NoViableAltException nvae =
-								new NoViableAltException("", 15, 22, input);
+								new NoViableAltException("", 15, 21, input);
 							throw nvae;
 						} finally {
 							input.rewind(nvaeMark);
 						}
 					}
 
+					}
+					break;
+				case RULE_KW_STATIC:
+					{
+					alt15=2;
 					}
 					break;
 				default:
@@ -23798,7 +23799,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__DeclaratorSuffix__Group_1_0__1__Impl"
-	// InternalParser.g:8515:1: rule__DeclaratorSuffix__Group_1_0__1__Impl : ( ( rule__DeclaratorSuffix__StaticAssignment_1_0_1 ) ) ;
+	// InternalParser.g:8515:1: rule__DeclaratorSuffix__Group_1_0__1__Impl : ( ( rule__DeclaratorSuffix__TypeQualifierListAssignment_1_0_1 )? ) ;
 	public final void rule__DeclaratorSuffix__Group_1_0__1__Impl() throws RecognitionException {
 		int rule__DeclaratorSuffix__Group_1_0__1__Impl_StartIndex = input.index();
 
@@ -23808,23 +23809,33 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 425) ) { return; }
 
-			// InternalParser.g:8519:1: ( ( ( rule__DeclaratorSuffix__StaticAssignment_1_0_1 ) ) )
-			// InternalParser.g:8521:1: ( ( rule__DeclaratorSuffix__StaticAssignment_1_0_1 ) )
+			// InternalParser.g:8519:1: ( ( ( rule__DeclaratorSuffix__TypeQualifierListAssignment_1_0_1 )? ) )
+			// InternalParser.g:8521:1: ( ( rule__DeclaratorSuffix__TypeQualifierListAssignment_1_0_1 )? )
 			{
-			// InternalParser.g:8521:1: ( ( rule__DeclaratorSuffix__StaticAssignment_1_0_1 ) )
-			// InternalParser.g:8522:1: ( rule__DeclaratorSuffix__StaticAssignment_1_0_1 )
+			// InternalParser.g:8521:1: ( ( rule__DeclaratorSuffix__TypeQualifierListAssignment_1_0_1 )? )
+			// InternalParser.g:8522:1: ( rule__DeclaratorSuffix__TypeQualifierListAssignment_1_0_1 )?
 			{
-			if ( state.backtracking==0 ) { before(grammarAccess.getDeclaratorSuffixAccess().getStaticAssignment_1_0_1()); }
-			// InternalParser.g:8523:2: ( rule__DeclaratorSuffix__StaticAssignment_1_0_1 )
-			// InternalParser.g:8523:2: rule__DeclaratorSuffix__StaticAssignment_1_0_1
-			{
-			pushFollow(FollowSets000.FOLLOW_2);
-			rule__DeclaratorSuffix__StaticAssignment_1_0_1();
-			state._fsp--;
-			if (state.failed) return;
+			if ( state.backtracking==0 ) { before(grammarAccess.getDeclaratorSuffixAccess().getTypeQualifierListAssignment_1_0_1()); }
+			// InternalParser.g:8523:2: ( rule__DeclaratorSuffix__TypeQualifierListAssignment_1_0_1 )?
+			int alt66=2;
+			int LA66_0 = input.LA(1);
+			if ( (LA66_0==RULE_KW_ATOMIC||LA66_0==RULE_KW_CONST||(LA66_0 >= RULE_KW_RESTRICT && LA66_0 <= RULE_KW_RESTRICT3)||LA66_0==RULE_KW_VOLATILE) ) {
+				alt66=1;
+			}
+			switch (alt66) {
+				case 1 :
+					// InternalParser.g:8523:2: rule__DeclaratorSuffix__TypeQualifierListAssignment_1_0_1
+					{
+					pushFollow(FollowSets000.FOLLOW_2);
+					rule__DeclaratorSuffix__TypeQualifierListAssignment_1_0_1();
+					state._fsp--;
+					if (state.failed) return;
+					}
+					break;
+
 			}
 
-			if ( state.backtracking==0 ) { after(grammarAccess.getDeclaratorSuffixAccess().getStaticAssignment_1_0_1()); }
+			if ( state.backtracking==0 ) { after(grammarAccess.getDeclaratorSuffixAccess().getTypeQualifierListAssignment_1_0_1()); }
 			}
 
 			}
@@ -23890,7 +23901,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__DeclaratorSuffix__Group_1_0__2__Impl"
-	// InternalParser.g:8547:1: rule__DeclaratorSuffix__Group_1_0__2__Impl : ( ( rule__DeclaratorSuffix__TypeQualifierListAssignment_1_0_2 )? ) ;
+	// InternalParser.g:8547:1: rule__DeclaratorSuffix__Group_1_0__2__Impl : ( ( rule__DeclaratorSuffix__ExprAssignment_1_0_2 )? ) ;
 	public final void rule__DeclaratorSuffix__Group_1_0__2__Impl() throws RecognitionException {
 		int rule__DeclaratorSuffix__Group_1_0__2__Impl_StartIndex = input.index();
 
@@ -23900,25 +23911,25 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 427) ) { return; }
 
-			// InternalParser.g:8551:1: ( ( ( rule__DeclaratorSuffix__TypeQualifierListAssignment_1_0_2 )? ) )
-			// InternalParser.g:8553:1: ( ( rule__DeclaratorSuffix__TypeQualifierListAssignment_1_0_2 )? )
+			// InternalParser.g:8551:1: ( ( ( rule__DeclaratorSuffix__ExprAssignment_1_0_2 )? ) )
+			// InternalParser.g:8553:1: ( ( rule__DeclaratorSuffix__ExprAssignment_1_0_2 )? )
 			{
-			// InternalParser.g:8553:1: ( ( rule__DeclaratorSuffix__TypeQualifierListAssignment_1_0_2 )? )
-			// InternalParser.g:8554:1: ( rule__DeclaratorSuffix__TypeQualifierListAssignment_1_0_2 )?
+			// InternalParser.g:8553:1: ( ( rule__DeclaratorSuffix__ExprAssignment_1_0_2 )? )
+			// InternalParser.g:8554:1: ( rule__DeclaratorSuffix__ExprAssignment_1_0_2 )?
 			{
-			if ( state.backtracking==0 ) { before(grammarAccess.getDeclaratorSuffixAccess().getTypeQualifierListAssignment_1_0_2()); }
-			// InternalParser.g:8555:2: ( rule__DeclaratorSuffix__TypeQualifierListAssignment_1_0_2 )?
-			int alt66=2;
-			int LA66_0 = input.LA(1);
-			if ( (LA66_0==RULE_KW_ATOMIC||LA66_0==RULE_KW_CONST||(LA66_0 >= RULE_KW_RESTRICT && LA66_0 <= RULE_KW_RESTRICT3)||LA66_0==RULE_KW_VOLATILE) ) {
-				alt66=1;
+			if ( state.backtracking==0 ) { before(grammarAccess.getDeclaratorSuffixAccess().getExprAssignment_1_0_2()); }
+			// InternalParser.g:8555:2: ( rule__DeclaratorSuffix__ExprAssignment_1_0_2 )?
+			int alt67=2;
+			int LA67_0 = input.LA(1);
+			if ( (LA67_0==RULE_BIN_LITERAL||(LA67_0 >= RULE_CHAR_LITERAL && LA67_0 <= RULE_DECIMAL_LITERAL)||LA67_0==RULE_FLOAT_LITERAL||(LA67_0 >= RULE_HEX_LITERAL && LA67_0 <= RULE_ID)||LA67_0==RULE_KW_SIZEOF||LA67_0==RULE_OCTAL_LITERAL||(LA67_0 >= RULE_SKW_AND && LA67_0 <= RULE_SKW_ANDAND)||LA67_0==RULE_SKW_LEFTPAREN||(LA67_0 >= RULE_SKW_MINUS && LA67_0 <= RULE_SKW_MINUSMINUS)||LA67_0==RULE_SKW_NOT||(LA67_0 >= RULE_SKW_PLUS && LA67_0 <= RULE_SKW_PLUSPLUS)||(LA67_0 >= RULE_SKW_STAR && LA67_0 <= RULE_SKW_TILDE)||LA67_0==RULE_STRING_LITERAL) ) {
+				alt67=1;
 			}
-			switch (alt66) {
+			switch (alt67) {
 				case 1 :
-					// InternalParser.g:8555:2: rule__DeclaratorSuffix__TypeQualifierListAssignment_1_0_2
+					// InternalParser.g:8555:2: rule__DeclaratorSuffix__ExprAssignment_1_0_2
 					{
 					pushFollow(FollowSets000.FOLLOW_2);
-					rule__DeclaratorSuffix__TypeQualifierListAssignment_1_0_2();
+					rule__DeclaratorSuffix__ExprAssignment_1_0_2();
 					state._fsp--;
 					if (state.failed) return;
 					}
@@ -23926,7 +23937,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 
 			}
 
-			if ( state.backtracking==0 ) { after(grammarAccess.getDeclaratorSuffixAccess().getTypeQualifierListAssignment_1_0_2()); }
+			if ( state.backtracking==0 ) { after(grammarAccess.getDeclaratorSuffixAccess().getExprAssignment_1_0_2()); }
 			}
 
 			}
@@ -23950,7 +23961,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__DeclaratorSuffix__Group_1_0__3"
-	// InternalParser.g:8567:1: rule__DeclaratorSuffix__Group_1_0__3 : rule__DeclaratorSuffix__Group_1_0__3__Impl rule__DeclaratorSuffix__Group_1_0__4 ;
+	// InternalParser.g:8567:1: rule__DeclaratorSuffix__Group_1_0__3 : rule__DeclaratorSuffix__Group_1_0__3__Impl ;
 	public final void rule__DeclaratorSuffix__Group_1_0__3() throws RecognitionException {
 		int rule__DeclaratorSuffix__Group_1_0__3_StartIndex = input.index();
 
@@ -23960,15 +23971,11 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 428) ) { return; }
 
-			// InternalParser.g:8571:2: ( rule__DeclaratorSuffix__Group_1_0__3__Impl rule__DeclaratorSuffix__Group_1_0__4 )
-			// InternalParser.g:8572:2: rule__DeclaratorSuffix__Group_1_0__3__Impl rule__DeclaratorSuffix__Group_1_0__4
+			// InternalParser.g:8571:2: ( rule__DeclaratorSuffix__Group_1_0__3__Impl )
+			// InternalParser.g:8572:2: rule__DeclaratorSuffix__Group_1_0__3__Impl
 			{
-			pushFollow(FollowSets000.FOLLOW_44);
-			rule__DeclaratorSuffix__Group_1_0__3__Impl();
-			state._fsp--;
-			if (state.failed) return;
 			pushFollow(FollowSets000.FOLLOW_2);
-			rule__DeclaratorSuffix__Group_1_0__4();
+			rule__DeclaratorSuffix__Group_1_0__3__Impl();
 			state._fsp--;
 			if (state.failed) return;
 			}
@@ -23992,7 +23999,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__DeclaratorSuffix__Group_1_0__3__Impl"
-	// InternalParser.g:8579:1: rule__DeclaratorSuffix__Group_1_0__3__Impl : ( ( rule__DeclaratorSuffix__ExprAssignment_1_0_3 )? ) ;
+	// InternalParser.g:8578:1: rule__DeclaratorSuffix__Group_1_0__3__Impl : ( RULE_SKW_RIGHTBRACKET ) ;
 	public final void rule__DeclaratorSuffix__Group_1_0__3__Impl() throws RecognitionException {
 		int rule__DeclaratorSuffix__Group_1_0__3__Impl_StartIndex = input.index();
 
@@ -24002,33 +24009,15 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 429) ) { return; }
 
-			// InternalParser.g:8583:1: ( ( ( rule__DeclaratorSuffix__ExprAssignment_1_0_3 )? ) )
-			// InternalParser.g:8585:1: ( ( rule__DeclaratorSuffix__ExprAssignment_1_0_3 )? )
+			// InternalParser.g:8582:1: ( ( RULE_SKW_RIGHTBRACKET ) )
+			// InternalParser.g:8584:1: ( RULE_SKW_RIGHTBRACKET )
 			{
-			// InternalParser.g:8585:1: ( ( rule__DeclaratorSuffix__ExprAssignment_1_0_3 )? )
-			// InternalParser.g:8586:1: ( rule__DeclaratorSuffix__ExprAssignment_1_0_3 )?
+			// InternalParser.g:8584:1: ( RULE_SKW_RIGHTBRACKET )
+			// InternalParser.g:8585:1: RULE_SKW_RIGHTBRACKET
 			{
-			if ( state.backtracking==0 ) { before(grammarAccess.getDeclaratorSuffixAccess().getExprAssignment_1_0_3()); }
-			// InternalParser.g:8587:2: ( rule__DeclaratorSuffix__ExprAssignment_1_0_3 )?
-			int alt67=2;
-			int LA67_0 = input.LA(1);
-			if ( (LA67_0==RULE_BIN_LITERAL||(LA67_0 >= RULE_CHAR_LITERAL && LA67_0 <= RULE_DECIMAL_LITERAL)||LA67_0==RULE_FLOAT_LITERAL||(LA67_0 >= RULE_HEX_LITERAL && LA67_0 <= RULE_ID)||LA67_0==RULE_KW_SIZEOF||LA67_0==RULE_OCTAL_LITERAL||(LA67_0 >= RULE_SKW_AND && LA67_0 <= RULE_SKW_ANDAND)||LA67_0==RULE_SKW_LEFTPAREN||(LA67_0 >= RULE_SKW_MINUS && LA67_0 <= RULE_SKW_MINUSMINUS)||LA67_0==RULE_SKW_NOT||(LA67_0 >= RULE_SKW_PLUS && LA67_0 <= RULE_SKW_PLUSPLUS)||(LA67_0 >= RULE_SKW_STAR && LA67_0 <= RULE_SKW_TILDE)||LA67_0==RULE_STRING_LITERAL) ) {
-				alt67=1;
-			}
-			switch (alt67) {
-				case 1 :
-					// InternalParser.g:8587:2: rule__DeclaratorSuffix__ExprAssignment_1_0_3
-					{
-					pushFollow(FollowSets000.FOLLOW_2);
-					rule__DeclaratorSuffix__ExprAssignment_1_0_3();
-					state._fsp--;
-					if (state.failed) return;
-					}
-					break;
-
-			}
-
-			if ( state.backtracking==0 ) { after(grammarAccess.getDeclaratorSuffixAccess().getExprAssignment_1_0_3()); }
+			if ( state.backtracking==0 ) { before(grammarAccess.getDeclaratorSuffixAccess().getSKW_RIGHTBRACKETTerminalRuleCall_1_0_3()); }
+			match(input,RULE_SKW_RIGHTBRACKET,FollowSets000.FOLLOW_2); if (state.failed) return;
+			if ( state.backtracking==0 ) { after(grammarAccess.getDeclaratorSuffixAccess().getSKW_RIGHTBRACKETTerminalRuleCall_1_0_3()); }
 			}
 
 			}
@@ -24051,88 +24040,8 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 
 
 
-	// $ANTLR start "rule__DeclaratorSuffix__Group_1_0__4"
-	// InternalParser.g:8599:1: rule__DeclaratorSuffix__Group_1_0__4 : rule__DeclaratorSuffix__Group_1_0__4__Impl ;
-	public final void rule__DeclaratorSuffix__Group_1_0__4() throws RecognitionException {
-		int rule__DeclaratorSuffix__Group_1_0__4_StartIndex = input.index();
-
-
-				int stackSize = keepStackSize();
-		    
-		try {
-			if ( state.backtracking>0 && alreadyParsedRule(input, 430) ) { return; }
-
-			// InternalParser.g:8603:2: ( rule__DeclaratorSuffix__Group_1_0__4__Impl )
-			// InternalParser.g:8604:2: rule__DeclaratorSuffix__Group_1_0__4__Impl
-			{
-			pushFollow(FollowSets000.FOLLOW_2);
-			rule__DeclaratorSuffix__Group_1_0__4__Impl();
-			state._fsp--;
-			if (state.failed) return;
-			}
-
-		}
-		catch (RecognitionException re) {
-			reportError(re);
-			recover(input,re);
-		}
-		finally {
-			// do for sure before leaving
-			if ( state.backtracking>0 ) { memoize(input, 430, rule__DeclaratorSuffix__Group_1_0__4_StartIndex); }
-
-
-				restoreStackSize(stackSize);
-
-		}
-	}
-	// $ANTLR end "rule__DeclaratorSuffix__Group_1_0__4"
-
-
-
-	// $ANTLR start "rule__DeclaratorSuffix__Group_1_0__4__Impl"
-	// InternalParser.g:8610:1: rule__DeclaratorSuffix__Group_1_0__4__Impl : ( RULE_SKW_RIGHTBRACKET ) ;
-	public final void rule__DeclaratorSuffix__Group_1_0__4__Impl() throws RecognitionException {
-		int rule__DeclaratorSuffix__Group_1_0__4__Impl_StartIndex = input.index();
-
-
-				int stackSize = keepStackSize();
-		    
-		try {
-			if ( state.backtracking>0 && alreadyParsedRule(input, 431) ) { return; }
-
-			// InternalParser.g:8614:1: ( ( RULE_SKW_RIGHTBRACKET ) )
-			// InternalParser.g:8616:1: ( RULE_SKW_RIGHTBRACKET )
-			{
-			// InternalParser.g:8616:1: ( RULE_SKW_RIGHTBRACKET )
-			// InternalParser.g:8617:1: RULE_SKW_RIGHTBRACKET
-			{
-			if ( state.backtracking==0 ) { before(grammarAccess.getDeclaratorSuffixAccess().getSKW_RIGHTBRACKETTerminalRuleCall_1_0_4()); }
-			match(input,RULE_SKW_RIGHTBRACKET,FollowSets000.FOLLOW_2); if (state.failed) return;
-			if ( state.backtracking==0 ) { after(grammarAccess.getDeclaratorSuffixAccess().getSKW_RIGHTBRACKETTerminalRuleCall_1_0_4()); }
-			}
-
-			}
-
-		}
-		catch (RecognitionException re) {
-			reportError(re);
-			recover(input,re);
-		}
-		finally {
-			// do for sure before leaving
-			if ( state.backtracking>0 ) { memoize(input, 431, rule__DeclaratorSuffix__Group_1_0__4__Impl_StartIndex); }
-
-
-				restoreStackSize(stackSize);
-
-		}
-	}
-	// $ANTLR end "rule__DeclaratorSuffix__Group_1_0__4__Impl"
-
-
-
 	// $ANTLR start "rule__DeclaratorSuffix__Group_1_1__0"
-	// InternalParser.g:8640:1: rule__DeclaratorSuffix__Group_1_1__0 : rule__DeclaratorSuffix__Group_1_1__0__Impl rule__DeclaratorSuffix__Group_1_1__1 ;
+	// InternalParser.g:8606:1: rule__DeclaratorSuffix__Group_1_1__0 : rule__DeclaratorSuffix__Group_1_1__0__Impl rule__DeclaratorSuffix__Group_1_1__1 ;
 	public final void rule__DeclaratorSuffix__Group_1_1__0() throws RecognitionException {
 		int rule__DeclaratorSuffix__Group_1_1__0_StartIndex = input.index();
 
@@ -24140,12 +24049,12 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int stackSize = keepStackSize();
 		    
 		try {
-			if ( state.backtracking>0 && alreadyParsedRule(input, 432) ) { return; }
+			if ( state.backtracking>0 && alreadyParsedRule(input, 430) ) { return; }
 
-			// InternalParser.g:8644:2: ( rule__DeclaratorSuffix__Group_1_1__0__Impl rule__DeclaratorSuffix__Group_1_1__1 )
-			// InternalParser.g:8645:2: rule__DeclaratorSuffix__Group_1_1__0__Impl rule__DeclaratorSuffix__Group_1_1__1
+			// InternalParser.g:8610:2: ( rule__DeclaratorSuffix__Group_1_1__0__Impl rule__DeclaratorSuffix__Group_1_1__1 )
+			// InternalParser.g:8611:2: rule__DeclaratorSuffix__Group_1_1__0__Impl rule__DeclaratorSuffix__Group_1_1__1
 			{
-			pushFollow(FollowSets000.FOLLOW_45);
+			pushFollow(FollowSets000.FOLLOW_44);
 			rule__DeclaratorSuffix__Group_1_1__0__Impl();
 			state._fsp--;
 			if (state.failed) return;
@@ -24162,7 +24071,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 		}
 		finally {
 			// do for sure before leaving
-			if ( state.backtracking>0 ) { memoize(input, 432, rule__DeclaratorSuffix__Group_1_1__0_StartIndex); }
+			if ( state.backtracking>0 ) { memoize(input, 430, rule__DeclaratorSuffix__Group_1_1__0_StartIndex); }
 
 
 				restoreStackSize(stackSize);
@@ -24174,7 +24083,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__DeclaratorSuffix__Group_1_1__0__Impl"
-	// InternalParser.g:8652:1: rule__DeclaratorSuffix__Group_1_1__0__Impl : ( RULE_SKW_LEFTBRACKET ) ;
+	// InternalParser.g:8618:1: rule__DeclaratorSuffix__Group_1_1__0__Impl : ( RULE_SKW_LEFTBRACKET ) ;
 	public final void rule__DeclaratorSuffix__Group_1_1__0__Impl() throws RecognitionException {
 		int rule__DeclaratorSuffix__Group_1_1__0__Impl_StartIndex = input.index();
 
@@ -24182,13 +24091,13 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int stackSize = keepStackSize();
 		    
 		try {
-			if ( state.backtracking>0 && alreadyParsedRule(input, 433) ) { return; }
+			if ( state.backtracking>0 && alreadyParsedRule(input, 431) ) { return; }
 
-			// InternalParser.g:8656:1: ( ( RULE_SKW_LEFTBRACKET ) )
-			// InternalParser.g:8658:1: ( RULE_SKW_LEFTBRACKET )
+			// InternalParser.g:8622:1: ( ( RULE_SKW_LEFTBRACKET ) )
+			// InternalParser.g:8624:1: ( RULE_SKW_LEFTBRACKET )
 			{
-			// InternalParser.g:8658:1: ( RULE_SKW_LEFTBRACKET )
-			// InternalParser.g:8659:1: RULE_SKW_LEFTBRACKET
+			// InternalParser.g:8624:1: ( RULE_SKW_LEFTBRACKET )
+			// InternalParser.g:8625:1: RULE_SKW_LEFTBRACKET
 			{
 			if ( state.backtracking==0 ) { before(grammarAccess.getDeclaratorSuffixAccess().getSKW_LEFTBRACKETTerminalRuleCall_1_1_0()); }
 			match(input,RULE_SKW_LEFTBRACKET,FollowSets000.FOLLOW_2); if (state.failed) return;
@@ -24204,7 +24113,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 		}
 		finally {
 			// do for sure before leaving
-			if ( state.backtracking>0 ) { memoize(input, 433, rule__DeclaratorSuffix__Group_1_1__0__Impl_StartIndex); }
+			if ( state.backtracking>0 ) { memoize(input, 431, rule__DeclaratorSuffix__Group_1_1__0__Impl_StartIndex); }
 
 
 				restoreStackSize(stackSize);
@@ -24216,7 +24125,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__DeclaratorSuffix__Group_1_1__1"
-	// InternalParser.g:8672:1: rule__DeclaratorSuffix__Group_1_1__1 : rule__DeclaratorSuffix__Group_1_1__1__Impl rule__DeclaratorSuffix__Group_1_1__2 ;
+	// InternalParser.g:8638:1: rule__DeclaratorSuffix__Group_1_1__1 : rule__DeclaratorSuffix__Group_1_1__1__Impl rule__DeclaratorSuffix__Group_1_1__2 ;
 	public final void rule__DeclaratorSuffix__Group_1_1__1() throws RecognitionException {
 		int rule__DeclaratorSuffix__Group_1_1__1_StartIndex = input.index();
 
@@ -24224,12 +24133,12 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int stackSize = keepStackSize();
 		    
 		try {
-			if ( state.backtracking>0 && alreadyParsedRule(input, 434) ) { return; }
+			if ( state.backtracking>0 && alreadyParsedRule(input, 432) ) { return; }
 
-			// InternalParser.g:8676:2: ( rule__DeclaratorSuffix__Group_1_1__1__Impl rule__DeclaratorSuffix__Group_1_1__2 )
-			// InternalParser.g:8677:2: rule__DeclaratorSuffix__Group_1_1__1__Impl rule__DeclaratorSuffix__Group_1_1__2
+			// InternalParser.g:8642:2: ( rule__DeclaratorSuffix__Group_1_1__1__Impl rule__DeclaratorSuffix__Group_1_1__2 )
+			// InternalParser.g:8643:2: rule__DeclaratorSuffix__Group_1_1__1__Impl rule__DeclaratorSuffix__Group_1_1__2
 			{
-			pushFollow(FollowSets000.FOLLOW_31);
+			pushFollow(FollowSets000.FOLLOW_45);
 			rule__DeclaratorSuffix__Group_1_1__1__Impl();
 			state._fsp--;
 			if (state.failed) return;
@@ -24246,7 +24155,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 		}
 		finally {
 			// do for sure before leaving
-			if ( state.backtracking>0 ) { memoize(input, 434, rule__DeclaratorSuffix__Group_1_1__1_StartIndex); }
+			if ( state.backtracking>0 ) { memoize(input, 432, rule__DeclaratorSuffix__Group_1_1__1_StartIndex); }
 
 
 				restoreStackSize(stackSize);
@@ -24258,7 +24167,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__DeclaratorSuffix__Group_1_1__1__Impl"
-	// InternalParser.g:8684:1: rule__DeclaratorSuffix__Group_1_1__1__Impl : ( ( rule__DeclaratorSuffix__TypeQualifierListAssignment_1_1_1 )? ) ;
+	// InternalParser.g:8650:1: rule__DeclaratorSuffix__Group_1_1__1__Impl : ( ( rule__DeclaratorSuffix__StaticAssignment_1_1_1 ) ) ;
 	public final void rule__DeclaratorSuffix__Group_1_1__1__Impl() throws RecognitionException {
 		int rule__DeclaratorSuffix__Group_1_1__1__Impl_StartIndex = input.index();
 
@@ -24266,35 +24175,25 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int stackSize = keepStackSize();
 		    
 		try {
-			if ( state.backtracking>0 && alreadyParsedRule(input, 435) ) { return; }
+			if ( state.backtracking>0 && alreadyParsedRule(input, 433) ) { return; }
 
-			// InternalParser.g:8688:1: ( ( ( rule__DeclaratorSuffix__TypeQualifierListAssignment_1_1_1 )? ) )
-			// InternalParser.g:8690:1: ( ( rule__DeclaratorSuffix__TypeQualifierListAssignment_1_1_1 )? )
+			// InternalParser.g:8654:1: ( ( ( rule__DeclaratorSuffix__StaticAssignment_1_1_1 ) ) )
+			// InternalParser.g:8656:1: ( ( rule__DeclaratorSuffix__StaticAssignment_1_1_1 ) )
 			{
-			// InternalParser.g:8690:1: ( ( rule__DeclaratorSuffix__TypeQualifierListAssignment_1_1_1 )? )
-			// InternalParser.g:8691:1: ( rule__DeclaratorSuffix__TypeQualifierListAssignment_1_1_1 )?
+			// InternalParser.g:8656:1: ( ( rule__DeclaratorSuffix__StaticAssignment_1_1_1 ) )
+			// InternalParser.g:8657:1: ( rule__DeclaratorSuffix__StaticAssignment_1_1_1 )
 			{
-			if ( state.backtracking==0 ) { before(grammarAccess.getDeclaratorSuffixAccess().getTypeQualifierListAssignment_1_1_1()); }
-			// InternalParser.g:8692:2: ( rule__DeclaratorSuffix__TypeQualifierListAssignment_1_1_1 )?
-			int alt68=2;
-			int LA68_0 = input.LA(1);
-			if ( (LA68_0==RULE_KW_ATOMIC||LA68_0==RULE_KW_CONST||(LA68_0 >= RULE_KW_RESTRICT && LA68_0 <= RULE_KW_RESTRICT3)||LA68_0==RULE_KW_VOLATILE) ) {
-				alt68=1;
-			}
-			switch (alt68) {
-				case 1 :
-					// InternalParser.g:8692:2: rule__DeclaratorSuffix__TypeQualifierListAssignment_1_1_1
-					{
-					pushFollow(FollowSets000.FOLLOW_2);
-					rule__DeclaratorSuffix__TypeQualifierListAssignment_1_1_1();
-					state._fsp--;
-					if (state.failed) return;
-					}
-					break;
-
+			if ( state.backtracking==0 ) { before(grammarAccess.getDeclaratorSuffixAccess().getStaticAssignment_1_1_1()); }
+			// InternalParser.g:8658:2: ( rule__DeclaratorSuffix__StaticAssignment_1_1_1 )
+			// InternalParser.g:8658:2: rule__DeclaratorSuffix__StaticAssignment_1_1_1
+			{
+			pushFollow(FollowSets000.FOLLOW_2);
+			rule__DeclaratorSuffix__StaticAssignment_1_1_1();
+			state._fsp--;
+			if (state.failed) return;
 			}
 
-			if ( state.backtracking==0 ) { after(grammarAccess.getDeclaratorSuffixAccess().getTypeQualifierListAssignment_1_1_1()); }
+			if ( state.backtracking==0 ) { after(grammarAccess.getDeclaratorSuffixAccess().getStaticAssignment_1_1_1()); }
 			}
 
 			}
@@ -24306,7 +24205,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 		}
 		finally {
 			// do for sure before leaving
-			if ( state.backtracking>0 ) { memoize(input, 435, rule__DeclaratorSuffix__Group_1_1__1__Impl_StartIndex); }
+			if ( state.backtracking>0 ) { memoize(input, 433, rule__DeclaratorSuffix__Group_1_1__1__Impl_StartIndex); }
 
 
 				restoreStackSize(stackSize);
@@ -24318,7 +24217,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__DeclaratorSuffix__Group_1_1__2"
-	// InternalParser.g:8704:1: rule__DeclaratorSuffix__Group_1_1__2 : rule__DeclaratorSuffix__Group_1_1__2__Impl rule__DeclaratorSuffix__Group_1_1__3 ;
+	// InternalParser.g:8670:1: rule__DeclaratorSuffix__Group_1_1__2 : rule__DeclaratorSuffix__Group_1_1__2__Impl rule__DeclaratorSuffix__Group_1_1__3 ;
 	public final void rule__DeclaratorSuffix__Group_1_1__2() throws RecognitionException {
 		int rule__DeclaratorSuffix__Group_1_1__2_StartIndex = input.index();
 
@@ -24326,12 +24225,12 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int stackSize = keepStackSize();
 		    
 		try {
-			if ( state.backtracking>0 && alreadyParsedRule(input, 436) ) { return; }
+			if ( state.backtracking>0 && alreadyParsedRule(input, 434) ) { return; }
 
-			// InternalParser.g:8708:2: ( rule__DeclaratorSuffix__Group_1_1__2__Impl rule__DeclaratorSuffix__Group_1_1__3 )
-			// InternalParser.g:8709:2: rule__DeclaratorSuffix__Group_1_1__2__Impl rule__DeclaratorSuffix__Group_1_1__3
+			// InternalParser.g:8674:2: ( rule__DeclaratorSuffix__Group_1_1__2__Impl rule__DeclaratorSuffix__Group_1_1__3 )
+			// InternalParser.g:8675:2: rule__DeclaratorSuffix__Group_1_1__2__Impl rule__DeclaratorSuffix__Group_1_1__3
 			{
-			pushFollow(FollowSets000.FOLLOW_44);
+			pushFollow(FollowSets000.FOLLOW_31);
 			rule__DeclaratorSuffix__Group_1_1__2__Impl();
 			state._fsp--;
 			if (state.failed) return;
@@ -24348,7 +24247,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 		}
 		finally {
 			// do for sure before leaving
-			if ( state.backtracking>0 ) { memoize(input, 436, rule__DeclaratorSuffix__Group_1_1__2_StartIndex); }
+			if ( state.backtracking>0 ) { memoize(input, 434, rule__DeclaratorSuffix__Group_1_1__2_StartIndex); }
 
 
 				restoreStackSize(stackSize);
@@ -24360,7 +24259,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__DeclaratorSuffix__Group_1_1__2__Impl"
-	// InternalParser.g:8716:1: rule__DeclaratorSuffix__Group_1_1__2__Impl : ( ( rule__DeclaratorSuffix__ExprAssignment_1_1_2 ) ) ;
+	// InternalParser.g:8682:1: rule__DeclaratorSuffix__Group_1_1__2__Impl : ( ( rule__DeclaratorSuffix__TypeQualifierListAssignment_1_1_2 )? ) ;
 	public final void rule__DeclaratorSuffix__Group_1_1__2__Impl() throws RecognitionException {
 		int rule__DeclaratorSuffix__Group_1_1__2__Impl_StartIndex = input.index();
 
@@ -24368,25 +24267,35 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int stackSize = keepStackSize();
 		    
 		try {
-			if ( state.backtracking>0 && alreadyParsedRule(input, 437) ) { return; }
+			if ( state.backtracking>0 && alreadyParsedRule(input, 435) ) { return; }
 
-			// InternalParser.g:8720:1: ( ( ( rule__DeclaratorSuffix__ExprAssignment_1_1_2 ) ) )
-			// InternalParser.g:8722:1: ( ( rule__DeclaratorSuffix__ExprAssignment_1_1_2 ) )
+			// InternalParser.g:8686:1: ( ( ( rule__DeclaratorSuffix__TypeQualifierListAssignment_1_1_2 )? ) )
+			// InternalParser.g:8688:1: ( ( rule__DeclaratorSuffix__TypeQualifierListAssignment_1_1_2 )? )
 			{
-			// InternalParser.g:8722:1: ( ( rule__DeclaratorSuffix__ExprAssignment_1_1_2 ) )
-			// InternalParser.g:8723:1: ( rule__DeclaratorSuffix__ExprAssignment_1_1_2 )
+			// InternalParser.g:8688:1: ( ( rule__DeclaratorSuffix__TypeQualifierListAssignment_1_1_2 )? )
+			// InternalParser.g:8689:1: ( rule__DeclaratorSuffix__TypeQualifierListAssignment_1_1_2 )?
 			{
-			if ( state.backtracking==0 ) { before(grammarAccess.getDeclaratorSuffixAccess().getExprAssignment_1_1_2()); }
-			// InternalParser.g:8724:2: ( rule__DeclaratorSuffix__ExprAssignment_1_1_2 )
-			// InternalParser.g:8724:2: rule__DeclaratorSuffix__ExprAssignment_1_1_2
-			{
-			pushFollow(FollowSets000.FOLLOW_2);
-			rule__DeclaratorSuffix__ExprAssignment_1_1_2();
-			state._fsp--;
-			if (state.failed) return;
+			if ( state.backtracking==0 ) { before(grammarAccess.getDeclaratorSuffixAccess().getTypeQualifierListAssignment_1_1_2()); }
+			// InternalParser.g:8690:2: ( rule__DeclaratorSuffix__TypeQualifierListAssignment_1_1_2 )?
+			int alt68=2;
+			int LA68_0 = input.LA(1);
+			if ( (LA68_0==RULE_KW_ATOMIC||LA68_0==RULE_KW_CONST||(LA68_0 >= RULE_KW_RESTRICT && LA68_0 <= RULE_KW_RESTRICT3)||LA68_0==RULE_KW_VOLATILE) ) {
+				alt68=1;
+			}
+			switch (alt68) {
+				case 1 :
+					// InternalParser.g:8690:2: rule__DeclaratorSuffix__TypeQualifierListAssignment_1_1_2
+					{
+					pushFollow(FollowSets000.FOLLOW_2);
+					rule__DeclaratorSuffix__TypeQualifierListAssignment_1_1_2();
+					state._fsp--;
+					if (state.failed) return;
+					}
+					break;
+
 			}
 
-			if ( state.backtracking==0 ) { after(grammarAccess.getDeclaratorSuffixAccess().getExprAssignment_1_1_2()); }
+			if ( state.backtracking==0 ) { after(grammarAccess.getDeclaratorSuffixAccess().getTypeQualifierListAssignment_1_1_2()); }
 			}
 
 			}
@@ -24398,7 +24307,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 		}
 		finally {
 			// do for sure before leaving
-			if ( state.backtracking>0 ) { memoize(input, 437, rule__DeclaratorSuffix__Group_1_1__2__Impl_StartIndex); }
+			if ( state.backtracking>0 ) { memoize(input, 435, rule__DeclaratorSuffix__Group_1_1__2__Impl_StartIndex); }
 
 
 				restoreStackSize(stackSize);
@@ -24410,7 +24319,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__DeclaratorSuffix__Group_1_1__3"
-	// InternalParser.g:8736:1: rule__DeclaratorSuffix__Group_1_1__3 : rule__DeclaratorSuffix__Group_1_1__3__Impl ;
+	// InternalParser.g:8702:1: rule__DeclaratorSuffix__Group_1_1__3 : rule__DeclaratorSuffix__Group_1_1__3__Impl rule__DeclaratorSuffix__Group_1_1__4 ;
 	public final void rule__DeclaratorSuffix__Group_1_1__3() throws RecognitionException {
 		int rule__DeclaratorSuffix__Group_1_1__3_StartIndex = input.index();
 
@@ -24418,13 +24327,17 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int stackSize = keepStackSize();
 		    
 		try {
-			if ( state.backtracking>0 && alreadyParsedRule(input, 438) ) { return; }
+			if ( state.backtracking>0 && alreadyParsedRule(input, 436) ) { return; }
 
-			// InternalParser.g:8740:2: ( rule__DeclaratorSuffix__Group_1_1__3__Impl )
-			// InternalParser.g:8741:2: rule__DeclaratorSuffix__Group_1_1__3__Impl
+			// InternalParser.g:8706:2: ( rule__DeclaratorSuffix__Group_1_1__3__Impl rule__DeclaratorSuffix__Group_1_1__4 )
+			// InternalParser.g:8707:2: rule__DeclaratorSuffix__Group_1_1__3__Impl rule__DeclaratorSuffix__Group_1_1__4
 			{
-			pushFollow(FollowSets000.FOLLOW_2);
+			pushFollow(FollowSets000.FOLLOW_43);
 			rule__DeclaratorSuffix__Group_1_1__3__Impl();
+			state._fsp--;
+			if (state.failed) return;
+			pushFollow(FollowSets000.FOLLOW_2);
+			rule__DeclaratorSuffix__Group_1_1__4();
 			state._fsp--;
 			if (state.failed) return;
 			}
@@ -24436,7 +24349,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 		}
 		finally {
 			// do for sure before leaving
-			if ( state.backtracking>0 ) { memoize(input, 438, rule__DeclaratorSuffix__Group_1_1__3_StartIndex); }
+			if ( state.backtracking>0 ) { memoize(input, 436, rule__DeclaratorSuffix__Group_1_1__3_StartIndex); }
 
 
 				restoreStackSize(stackSize);
@@ -24448,7 +24361,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__DeclaratorSuffix__Group_1_1__3__Impl"
-	// InternalParser.g:8747:1: rule__DeclaratorSuffix__Group_1_1__3__Impl : ( RULE_SKW_RIGHTBRACKET ) ;
+	// InternalParser.g:8714:1: rule__DeclaratorSuffix__Group_1_1__3__Impl : ( ( rule__DeclaratorSuffix__ExprAssignment_1_1_3 ) ) ;
 	public final void rule__DeclaratorSuffix__Group_1_1__3__Impl() throws RecognitionException {
 		int rule__DeclaratorSuffix__Group_1_1__3__Impl_StartIndex = input.index();
 
@@ -24456,17 +24369,25 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int stackSize = keepStackSize();
 		    
 		try {
-			if ( state.backtracking>0 && alreadyParsedRule(input, 439) ) { return; }
+			if ( state.backtracking>0 && alreadyParsedRule(input, 437) ) { return; }
 
-			// InternalParser.g:8751:1: ( ( RULE_SKW_RIGHTBRACKET ) )
-			// InternalParser.g:8753:1: ( RULE_SKW_RIGHTBRACKET )
+			// InternalParser.g:8718:1: ( ( ( rule__DeclaratorSuffix__ExprAssignment_1_1_3 ) ) )
+			// InternalParser.g:8720:1: ( ( rule__DeclaratorSuffix__ExprAssignment_1_1_3 ) )
 			{
-			// InternalParser.g:8753:1: ( RULE_SKW_RIGHTBRACKET )
-			// InternalParser.g:8754:1: RULE_SKW_RIGHTBRACKET
+			// InternalParser.g:8720:1: ( ( rule__DeclaratorSuffix__ExprAssignment_1_1_3 ) )
+			// InternalParser.g:8721:1: ( rule__DeclaratorSuffix__ExprAssignment_1_1_3 )
 			{
-			if ( state.backtracking==0 ) { before(grammarAccess.getDeclaratorSuffixAccess().getSKW_RIGHTBRACKETTerminalRuleCall_1_1_3()); }
-			match(input,RULE_SKW_RIGHTBRACKET,FollowSets000.FOLLOW_2); if (state.failed) return;
-			if ( state.backtracking==0 ) { after(grammarAccess.getDeclaratorSuffixAccess().getSKW_RIGHTBRACKETTerminalRuleCall_1_1_3()); }
+			if ( state.backtracking==0 ) { before(grammarAccess.getDeclaratorSuffixAccess().getExprAssignment_1_1_3()); }
+			// InternalParser.g:8722:2: ( rule__DeclaratorSuffix__ExprAssignment_1_1_3 )
+			// InternalParser.g:8722:2: rule__DeclaratorSuffix__ExprAssignment_1_1_3
+			{
+			pushFollow(FollowSets000.FOLLOW_2);
+			rule__DeclaratorSuffix__ExprAssignment_1_1_3();
+			state._fsp--;
+			if (state.failed) return;
+			}
+
+			if ( state.backtracking==0 ) { after(grammarAccess.getDeclaratorSuffixAccess().getExprAssignment_1_1_3()); }
 			}
 
 			}
@@ -24478,7 +24399,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 		}
 		finally {
 			// do for sure before leaving
-			if ( state.backtracking>0 ) { memoize(input, 439, rule__DeclaratorSuffix__Group_1_1__3__Impl_StartIndex); }
+			if ( state.backtracking>0 ) { memoize(input, 437, rule__DeclaratorSuffix__Group_1_1__3__Impl_StartIndex); }
 
 
 				restoreStackSize(stackSize);
@@ -24486,6 +24407,86 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 		}
 	}
 	// $ANTLR end "rule__DeclaratorSuffix__Group_1_1__3__Impl"
+
+
+
+	// $ANTLR start "rule__DeclaratorSuffix__Group_1_1__4"
+	// InternalParser.g:8734:1: rule__DeclaratorSuffix__Group_1_1__4 : rule__DeclaratorSuffix__Group_1_1__4__Impl ;
+	public final void rule__DeclaratorSuffix__Group_1_1__4() throws RecognitionException {
+		int rule__DeclaratorSuffix__Group_1_1__4_StartIndex = input.index();
+
+
+				int stackSize = keepStackSize();
+		    
+		try {
+			if ( state.backtracking>0 && alreadyParsedRule(input, 438) ) { return; }
+
+			// InternalParser.g:8738:2: ( rule__DeclaratorSuffix__Group_1_1__4__Impl )
+			// InternalParser.g:8739:2: rule__DeclaratorSuffix__Group_1_1__4__Impl
+			{
+			pushFollow(FollowSets000.FOLLOW_2);
+			rule__DeclaratorSuffix__Group_1_1__4__Impl();
+			state._fsp--;
+			if (state.failed) return;
+			}
+
+		}
+		catch (RecognitionException re) {
+			reportError(re);
+			recover(input,re);
+		}
+		finally {
+			// do for sure before leaving
+			if ( state.backtracking>0 ) { memoize(input, 438, rule__DeclaratorSuffix__Group_1_1__4_StartIndex); }
+
+
+				restoreStackSize(stackSize);
+
+		}
+	}
+	// $ANTLR end "rule__DeclaratorSuffix__Group_1_1__4"
+
+
+
+	// $ANTLR start "rule__DeclaratorSuffix__Group_1_1__4__Impl"
+	// InternalParser.g:8745:1: rule__DeclaratorSuffix__Group_1_1__4__Impl : ( RULE_SKW_RIGHTBRACKET ) ;
+	public final void rule__DeclaratorSuffix__Group_1_1__4__Impl() throws RecognitionException {
+		int rule__DeclaratorSuffix__Group_1_1__4__Impl_StartIndex = input.index();
+
+
+				int stackSize = keepStackSize();
+		    
+		try {
+			if ( state.backtracking>0 && alreadyParsedRule(input, 439) ) { return; }
+
+			// InternalParser.g:8749:1: ( ( RULE_SKW_RIGHTBRACKET ) )
+			// InternalParser.g:8751:1: ( RULE_SKW_RIGHTBRACKET )
+			{
+			// InternalParser.g:8751:1: ( RULE_SKW_RIGHTBRACKET )
+			// InternalParser.g:8752:1: RULE_SKW_RIGHTBRACKET
+			{
+			if ( state.backtracking==0 ) { before(grammarAccess.getDeclaratorSuffixAccess().getSKW_RIGHTBRACKETTerminalRuleCall_1_1_4()); }
+			match(input,RULE_SKW_RIGHTBRACKET,FollowSets000.FOLLOW_2); if (state.failed) return;
+			if ( state.backtracking==0 ) { after(grammarAccess.getDeclaratorSuffixAccess().getSKW_RIGHTBRACKETTerminalRuleCall_1_1_4()); }
+			}
+
+			}
+
+		}
+		catch (RecognitionException re) {
+			reportError(re);
+			recover(input,re);
+		}
+		finally {
+			// do for sure before leaving
+			if ( state.backtracking>0 ) { memoize(input, 439, rule__DeclaratorSuffix__Group_1_1__4__Impl_StartIndex); }
+
+
+				restoreStackSize(stackSize);
+
+		}
+	}
+	// $ANTLR end "rule__DeclaratorSuffix__Group_1_1__4__Impl"
 
 
 
@@ -24587,7 +24588,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 			// InternalParser.g:8811:2: ( rule__DeclaratorSuffix__Group_1_2__1__Impl rule__DeclaratorSuffix__Group_1_2__2 )
 			// InternalParser.g:8812:2: rule__DeclaratorSuffix__Group_1_2__1__Impl rule__DeclaratorSuffix__Group_1_2__2
 			{
-			pushFollow(FollowSets000.FOLLOW_41);
+			pushFollow(FollowSets000.FOLLOW_44);
 			rule__DeclaratorSuffix__Group_1_2__1__Impl();
 			state._fsp--;
 			if (state.failed) return;
@@ -24771,7 +24772,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 			// InternalParser.g:8875:2: ( rule__DeclaratorSuffix__Group_1_2__3__Impl rule__DeclaratorSuffix__Group_1_2__4 )
 			// InternalParser.g:8876:2: rule__DeclaratorSuffix__Group_1_2__3__Impl rule__DeclaratorSuffix__Group_1_2__4
 			{
-			pushFollow(FollowSets000.FOLLOW_44);
+			pushFollow(FollowSets000.FOLLOW_43);
 			rule__DeclaratorSuffix__Group_1_2__3__Impl();
 			state._fsp--;
 			if (state.failed) return;
@@ -25129,7 +25130,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 			// InternalParser.g:9012:2: ( rule__DeclaratorSuffix__Group_1_3__2__Impl rule__DeclaratorSuffix__Group_1_3__3 )
 			// InternalParser.g:9013:2: rule__DeclaratorSuffix__Group_1_3__2__Impl rule__DeclaratorSuffix__Group_1_3__3
 			{
-			pushFollow(FollowSets000.FOLLOW_44);
+			pushFollow(FollowSets000.FOLLOW_43);
 			rule__DeclaratorSuffix__Group_1_3__2__Impl();
 			state._fsp--;
 			if (state.failed) return;
@@ -49405,7 +49406,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 			// InternalParser.g:18152:2: ( rule__PostfixExpressionSuffixArray__Group__2__Impl rule__PostfixExpressionSuffixArray__Group__3 )
 			// InternalParser.g:18153:2: rule__PostfixExpressionSuffixArray__Group__2__Impl rule__PostfixExpressionSuffixArray__Group__3
 			{
-			pushFollow(FollowSets000.FOLLOW_44);
+			pushFollow(FollowSets000.FOLLOW_43);
 			rule__PostfixExpressionSuffixArray__Group__2__Impl();
 			state._fsp--;
 			if (state.failed) return;
@@ -55733,10 +55734,10 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 
 
 
-	// $ANTLR start "rule__DeclaratorSuffix__StaticAssignment_1_0_1"
-	// InternalParser.g:20463:1: rule__DeclaratorSuffix__StaticAssignment_1_0_1 : ( RULE_KW_STATIC ) ;
-	public final void rule__DeclaratorSuffix__StaticAssignment_1_0_1() throws RecognitionException {
-		int rule__DeclaratorSuffix__StaticAssignment_1_0_1_StartIndex = input.index();
+	// $ANTLR start "rule__DeclaratorSuffix__TypeQualifierListAssignment_1_0_1"
+	// InternalParser.g:20463:1: rule__DeclaratorSuffix__TypeQualifierListAssignment_1_0_1 : ( ruleTypeQualifierList ) ;
+	public final void rule__DeclaratorSuffix__TypeQualifierListAssignment_1_0_1() throws RecognitionException {
+		int rule__DeclaratorSuffix__TypeQualifierListAssignment_1_0_1_StartIndex = input.index();
 
 
 				int stackSize = keepStackSize();
@@ -55744,15 +55745,18 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 1136) ) { return; }
 
-			// InternalParser.g:20467:1: ( ( RULE_KW_STATIC ) )
-			// InternalParser.g:20468:1: ( RULE_KW_STATIC )
+			// InternalParser.g:20467:1: ( ( ruleTypeQualifierList ) )
+			// InternalParser.g:20468:1: ( ruleTypeQualifierList )
 			{
-			// InternalParser.g:20468:1: ( RULE_KW_STATIC )
-			// InternalParser.g:20469:1: RULE_KW_STATIC
+			// InternalParser.g:20468:1: ( ruleTypeQualifierList )
+			// InternalParser.g:20469:1: ruleTypeQualifierList
 			{
-			if ( state.backtracking==0 ) { before(grammarAccess.getDeclaratorSuffixAccess().getStaticKW_STATICTerminalRuleCall_1_0_1_0()); }
-			match(input,RULE_KW_STATIC,FollowSets000.FOLLOW_2); if (state.failed) return;
-			if ( state.backtracking==0 ) { after(grammarAccess.getDeclaratorSuffixAccess().getStaticKW_STATICTerminalRuleCall_1_0_1_0()); }
+			if ( state.backtracking==0 ) { before(grammarAccess.getDeclaratorSuffixAccess().getTypeQualifierListTypeQualifierListParserRuleCall_1_0_1_0()); }
+			pushFollow(FollowSets000.FOLLOW_2);
+			ruleTypeQualifierList();
+			state._fsp--;
+			if (state.failed) return;
+			if ( state.backtracking==0 ) { after(grammarAccess.getDeclaratorSuffixAccess().getTypeQualifierListTypeQualifierListParserRuleCall_1_0_1_0()); }
 			}
 
 			}
@@ -55764,21 +55768,21 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 		}
 		finally {
 			// do for sure before leaving
-			if ( state.backtracking>0 ) { memoize(input, 1136, rule__DeclaratorSuffix__StaticAssignment_1_0_1_StartIndex); }
+			if ( state.backtracking>0 ) { memoize(input, 1136, rule__DeclaratorSuffix__TypeQualifierListAssignment_1_0_1_StartIndex); }
 
 
 				restoreStackSize(stackSize);
 
 		}
 	}
-	// $ANTLR end "rule__DeclaratorSuffix__StaticAssignment_1_0_1"
+	// $ANTLR end "rule__DeclaratorSuffix__TypeQualifierListAssignment_1_0_1"
 
 
 
-	// $ANTLR start "rule__DeclaratorSuffix__TypeQualifierListAssignment_1_0_2"
-	// InternalParser.g:20478:1: rule__DeclaratorSuffix__TypeQualifierListAssignment_1_0_2 : ( ruleTypeQualifierList ) ;
-	public final void rule__DeclaratorSuffix__TypeQualifierListAssignment_1_0_2() throws RecognitionException {
-		int rule__DeclaratorSuffix__TypeQualifierListAssignment_1_0_2_StartIndex = input.index();
+	// $ANTLR start "rule__DeclaratorSuffix__ExprAssignment_1_0_2"
+	// InternalParser.g:20478:1: rule__DeclaratorSuffix__ExprAssignment_1_0_2 : ( ruleAssignmentExpression ) ;
+	public final void rule__DeclaratorSuffix__ExprAssignment_1_0_2() throws RecognitionException {
+		int rule__DeclaratorSuffix__ExprAssignment_1_0_2_StartIndex = input.index();
 
 
 				int stackSize = keepStackSize();
@@ -55786,18 +55790,18 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 1137) ) { return; }
 
-			// InternalParser.g:20482:1: ( ( ruleTypeQualifierList ) )
-			// InternalParser.g:20483:1: ( ruleTypeQualifierList )
+			// InternalParser.g:20482:1: ( ( ruleAssignmentExpression ) )
+			// InternalParser.g:20483:1: ( ruleAssignmentExpression )
 			{
-			// InternalParser.g:20483:1: ( ruleTypeQualifierList )
-			// InternalParser.g:20484:1: ruleTypeQualifierList
+			// InternalParser.g:20483:1: ( ruleAssignmentExpression )
+			// InternalParser.g:20484:1: ruleAssignmentExpression
 			{
-			if ( state.backtracking==0 ) { before(grammarAccess.getDeclaratorSuffixAccess().getTypeQualifierListTypeQualifierListParserRuleCall_1_0_2_0()); }
+			if ( state.backtracking==0 ) { before(grammarAccess.getDeclaratorSuffixAccess().getExprAssignmentExpressionParserRuleCall_1_0_2_0()); }
 			pushFollow(FollowSets000.FOLLOW_2);
-			ruleTypeQualifierList();
+			ruleAssignmentExpression();
 			state._fsp--;
 			if (state.failed) return;
-			if ( state.backtracking==0 ) { after(grammarAccess.getDeclaratorSuffixAccess().getTypeQualifierListTypeQualifierListParserRuleCall_1_0_2_0()); }
+			if ( state.backtracking==0 ) { after(grammarAccess.getDeclaratorSuffixAccess().getExprAssignmentExpressionParserRuleCall_1_0_2_0()); }
 			}
 
 			}
@@ -55809,21 +55813,21 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 		}
 		finally {
 			// do for sure before leaving
-			if ( state.backtracking>0 ) { memoize(input, 1137, rule__DeclaratorSuffix__TypeQualifierListAssignment_1_0_2_StartIndex); }
+			if ( state.backtracking>0 ) { memoize(input, 1137, rule__DeclaratorSuffix__ExprAssignment_1_0_2_StartIndex); }
 
 
 				restoreStackSize(stackSize);
 
 		}
 	}
-	// $ANTLR end "rule__DeclaratorSuffix__TypeQualifierListAssignment_1_0_2"
+	// $ANTLR end "rule__DeclaratorSuffix__ExprAssignment_1_0_2"
 
 
 
-	// $ANTLR start "rule__DeclaratorSuffix__ExprAssignment_1_0_3"
-	// InternalParser.g:20493:1: rule__DeclaratorSuffix__ExprAssignment_1_0_3 : ( ruleAssignmentExpression ) ;
-	public final void rule__DeclaratorSuffix__ExprAssignment_1_0_3() throws RecognitionException {
-		int rule__DeclaratorSuffix__ExprAssignment_1_0_3_StartIndex = input.index();
+	// $ANTLR start "rule__DeclaratorSuffix__StaticAssignment_1_1_1"
+	// InternalParser.g:20493:1: rule__DeclaratorSuffix__StaticAssignment_1_1_1 : ( RULE_KW_STATIC ) ;
+	public final void rule__DeclaratorSuffix__StaticAssignment_1_1_1() throws RecognitionException {
+		int rule__DeclaratorSuffix__StaticAssignment_1_1_1_StartIndex = input.index();
 
 
 				int stackSize = keepStackSize();
@@ -55831,18 +55835,15 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 1138) ) { return; }
 
-			// InternalParser.g:20497:1: ( ( ruleAssignmentExpression ) )
-			// InternalParser.g:20498:1: ( ruleAssignmentExpression )
+			// InternalParser.g:20497:1: ( ( RULE_KW_STATIC ) )
+			// InternalParser.g:20498:1: ( RULE_KW_STATIC )
 			{
-			// InternalParser.g:20498:1: ( ruleAssignmentExpression )
-			// InternalParser.g:20499:1: ruleAssignmentExpression
+			// InternalParser.g:20498:1: ( RULE_KW_STATIC )
+			// InternalParser.g:20499:1: RULE_KW_STATIC
 			{
-			if ( state.backtracking==0 ) { before(grammarAccess.getDeclaratorSuffixAccess().getExprAssignmentExpressionParserRuleCall_1_0_3_0()); }
-			pushFollow(FollowSets000.FOLLOW_2);
-			ruleAssignmentExpression();
-			state._fsp--;
-			if (state.failed) return;
-			if ( state.backtracking==0 ) { after(grammarAccess.getDeclaratorSuffixAccess().getExprAssignmentExpressionParserRuleCall_1_0_3_0()); }
+			if ( state.backtracking==0 ) { before(grammarAccess.getDeclaratorSuffixAccess().getStaticKW_STATICTerminalRuleCall_1_1_1_0()); }
+			match(input,RULE_KW_STATIC,FollowSets000.FOLLOW_2); if (state.failed) return;
+			if ( state.backtracking==0 ) { after(grammarAccess.getDeclaratorSuffixAccess().getStaticKW_STATICTerminalRuleCall_1_1_1_0()); }
 			}
 
 			}
@@ -55854,21 +55855,21 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 		}
 		finally {
 			// do for sure before leaving
-			if ( state.backtracking>0 ) { memoize(input, 1138, rule__DeclaratorSuffix__ExprAssignment_1_0_3_StartIndex); }
+			if ( state.backtracking>0 ) { memoize(input, 1138, rule__DeclaratorSuffix__StaticAssignment_1_1_1_StartIndex); }
 
 
 				restoreStackSize(stackSize);
 
 		}
 	}
-	// $ANTLR end "rule__DeclaratorSuffix__ExprAssignment_1_0_3"
+	// $ANTLR end "rule__DeclaratorSuffix__StaticAssignment_1_1_1"
 
 
 
-	// $ANTLR start "rule__DeclaratorSuffix__TypeQualifierListAssignment_1_1_1"
-	// InternalParser.g:20508:1: rule__DeclaratorSuffix__TypeQualifierListAssignment_1_1_1 : ( ruleTypeQualifierList ) ;
-	public final void rule__DeclaratorSuffix__TypeQualifierListAssignment_1_1_1() throws RecognitionException {
-		int rule__DeclaratorSuffix__TypeQualifierListAssignment_1_1_1_StartIndex = input.index();
+	// $ANTLR start "rule__DeclaratorSuffix__TypeQualifierListAssignment_1_1_2"
+	// InternalParser.g:20508:1: rule__DeclaratorSuffix__TypeQualifierListAssignment_1_1_2 : ( ruleTypeQualifierList ) ;
+	public final void rule__DeclaratorSuffix__TypeQualifierListAssignment_1_1_2() throws RecognitionException {
+		int rule__DeclaratorSuffix__TypeQualifierListAssignment_1_1_2_StartIndex = input.index();
 
 
 				int stackSize = keepStackSize();
@@ -55882,12 +55883,12 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 			// InternalParser.g:20513:1: ( ruleTypeQualifierList )
 			// InternalParser.g:20514:1: ruleTypeQualifierList
 			{
-			if ( state.backtracking==0 ) { before(grammarAccess.getDeclaratorSuffixAccess().getTypeQualifierListTypeQualifierListParserRuleCall_1_1_1_0()); }
+			if ( state.backtracking==0 ) { before(grammarAccess.getDeclaratorSuffixAccess().getTypeQualifierListTypeQualifierListParserRuleCall_1_1_2_0()); }
 			pushFollow(FollowSets000.FOLLOW_2);
 			ruleTypeQualifierList();
 			state._fsp--;
 			if (state.failed) return;
-			if ( state.backtracking==0 ) { after(grammarAccess.getDeclaratorSuffixAccess().getTypeQualifierListTypeQualifierListParserRuleCall_1_1_1_0()); }
+			if ( state.backtracking==0 ) { after(grammarAccess.getDeclaratorSuffixAccess().getTypeQualifierListTypeQualifierListParserRuleCall_1_1_2_0()); }
 			}
 
 			}
@@ -55899,21 +55900,21 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 		}
 		finally {
 			// do for sure before leaving
-			if ( state.backtracking>0 ) { memoize(input, 1139, rule__DeclaratorSuffix__TypeQualifierListAssignment_1_1_1_StartIndex); }
+			if ( state.backtracking>0 ) { memoize(input, 1139, rule__DeclaratorSuffix__TypeQualifierListAssignment_1_1_2_StartIndex); }
 
 
 				restoreStackSize(stackSize);
 
 		}
 	}
-	// $ANTLR end "rule__DeclaratorSuffix__TypeQualifierListAssignment_1_1_1"
+	// $ANTLR end "rule__DeclaratorSuffix__TypeQualifierListAssignment_1_1_2"
 
 
 
-	// $ANTLR start "rule__DeclaratorSuffix__ExprAssignment_1_1_2"
-	// InternalParser.g:20523:1: rule__DeclaratorSuffix__ExprAssignment_1_1_2 : ( ruleAssignmentExpression ) ;
-	public final void rule__DeclaratorSuffix__ExprAssignment_1_1_2() throws RecognitionException {
-		int rule__DeclaratorSuffix__ExprAssignment_1_1_2_StartIndex = input.index();
+	// $ANTLR start "rule__DeclaratorSuffix__ExprAssignment_1_1_3"
+	// InternalParser.g:20523:1: rule__DeclaratorSuffix__ExprAssignment_1_1_3 : ( ruleAssignmentExpression ) ;
+	public final void rule__DeclaratorSuffix__ExprAssignment_1_1_3() throws RecognitionException {
+		int rule__DeclaratorSuffix__ExprAssignment_1_1_3_StartIndex = input.index();
 
 
 				int stackSize = keepStackSize();
@@ -55927,12 +55928,12 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 			// InternalParser.g:20528:1: ( ruleAssignmentExpression )
 			// InternalParser.g:20529:1: ruleAssignmentExpression
 			{
-			if ( state.backtracking==0 ) { before(grammarAccess.getDeclaratorSuffixAccess().getExprAssignmentExpressionParserRuleCall_1_1_2_0()); }
+			if ( state.backtracking==0 ) { before(grammarAccess.getDeclaratorSuffixAccess().getExprAssignmentExpressionParserRuleCall_1_1_3_0()); }
 			pushFollow(FollowSets000.FOLLOW_2);
 			ruleAssignmentExpression();
 			state._fsp--;
 			if (state.failed) return;
-			if ( state.backtracking==0 ) { after(grammarAccess.getDeclaratorSuffixAccess().getExprAssignmentExpressionParserRuleCall_1_1_2_0()); }
+			if ( state.backtracking==0 ) { after(grammarAccess.getDeclaratorSuffixAccess().getExprAssignmentExpressionParserRuleCall_1_1_3_0()); }
 			}
 
 			}
@@ -55944,14 +55945,14 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 		}
 		finally {
 			// do for sure before leaving
-			if ( state.backtracking>0 ) { memoize(input, 1140, rule__DeclaratorSuffix__ExprAssignment_1_1_2_StartIndex); }
+			if ( state.backtracking>0 ) { memoize(input, 1140, rule__DeclaratorSuffix__ExprAssignment_1_1_3_StartIndex); }
 
 
 				restoreStackSize(stackSize);
 
 		}
 	}
-	// $ANTLR end "rule__DeclaratorSuffix__ExprAssignment_1_1_2"
+	// $ANTLR end "rule__DeclaratorSuffix__ExprAssignment_1_1_3"
 
 
 
@@ -64880,19 +64881,19 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 	}
 	// $ANTLR end synpred31_InternalParser
 
-	// $ANTLR start synpred46_InternalParser
-	public final void synpred46_InternalParser_fragment() throws RecognitionException {
-		// InternalParser.g:3654:2: ( ( ( rule__DeclaratorSuffix__Group_1_1__0 ) ) )
-		// InternalParser.g:3654:2: ( ( rule__DeclaratorSuffix__Group_1_1__0 ) )
+	// $ANTLR start synpred45_InternalParser
+	public final void synpred45_InternalParser_fragment() throws RecognitionException {
+		// InternalParser.g:3645:2: ( ( ( rule__DeclaratorSuffix__Group_1_0__0 ) ) )
+		// InternalParser.g:3645:2: ( ( rule__DeclaratorSuffix__Group_1_0__0 ) )
 		{
-		// InternalParser.g:3654:2: ( ( rule__DeclaratorSuffix__Group_1_1__0 ) )
-		// InternalParser.g:3655:2: ( rule__DeclaratorSuffix__Group_1_1__0 )
+		// InternalParser.g:3645:2: ( ( rule__DeclaratorSuffix__Group_1_0__0 ) )
+		// InternalParser.g:3646:2: ( rule__DeclaratorSuffix__Group_1_0__0 )
 		{
-		// InternalParser.g:3656:2: ( rule__DeclaratorSuffix__Group_1_1__0 )
-		// InternalParser.g:3656:2: rule__DeclaratorSuffix__Group_1_1__0
+		// InternalParser.g:3647:2: ( rule__DeclaratorSuffix__Group_1_0__0 )
+		// InternalParser.g:3647:2: rule__DeclaratorSuffix__Group_1_0__0
 		{
 		pushFollow(FollowSets000.FOLLOW_2);
-		rule__DeclaratorSuffix__Group_1_1__0();
+		rule__DeclaratorSuffix__Group_1_0__0();
 		state._fsp--;
 		if (state.failed) return;
 		}
@@ -64902,7 +64903,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 		}
 
 	}
-	// $ANTLR end synpred46_InternalParser
+	// $ANTLR end synpred45_InternalParser
 
 	// $ANTLR start synpred47_InternalParser
 	public final void synpred47_InternalParser_fragment() throws RecognitionException {
@@ -65370,20 +65371,6 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 		state.failed=false;
 		return success;
 	}
-	public final boolean synpred46_InternalParser() {
-		state.backtracking++;
-		int start = input.mark();
-		try {
-			synpred46_InternalParser_fragment(); // can never throw exception
-		} catch (RecognitionException re) {
-			System.err.println("impossible: "+re);
-		}
-		boolean success = !state.failed;
-		input.rewind(start);
-		state.backtracking--;
-		state.failed=false;
-		return success;
-	}
 	public final boolean synpred103_InternalParser() {
 		state.backtracking++;
 		int start = input.mark();
@@ -65697,6 +65684,20 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 		int start = input.mark();
 		try {
 			synpred138_InternalParser_fragment(); // can never throw exception
+		} catch (RecognitionException re) {
+			System.err.println("impossible: "+re);
+		}
+		boolean success = !state.failed;
+		input.rewind(start);
+		state.backtracking--;
+		state.failed=false;
+		return success;
+	}
+	public final boolean synpred45_InternalParser() {
+		state.backtracking++;
+		int start = input.mark();
+		try {
+			synpred45_InternalParser_fragment(); // can never throw exception
 		} catch (RecognitionException re) {
 			System.err.println("impossible: "+re);
 		}
@@ -97764,10 +97765,10 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0000000000000000L,0x0000600000000000L});
         public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0000000000000002L,0x0000600000000000L});
         public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0000000000000000L,0x4000000000000000L});
-        public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
-        public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x7000002010188640L,0x262C4000C4001004L,0x000000000000010CL});
-        public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0000000000188640L,0x262C4000C4000004L,0x000000000000010CL});
-        public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x0000000000000000L,0x2000000000000000L});
+        public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x7000002010188640L,0x262C4000C4001004L,0x000000000000010CL});
+        public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0000000000188640L,0x262C4000C4000004L,0x000000000000010CL});
+        public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0000000000000000L,0x2000000000000000L});
+        public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
         public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x7000002010188640L,0x062C4000C4001004L,0x000000000000010CL});
         public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x7000002010000000L,0x0000000000001000L,0x0000000000000004L});
         public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});

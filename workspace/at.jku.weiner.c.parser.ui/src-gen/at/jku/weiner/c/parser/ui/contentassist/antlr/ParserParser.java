@@ -319,11 +319,11 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDirectDeclaratorAccess().getIdAssignment_1_0(), "rule__DirectDeclarator__IdAssignment_1_0");
 					put(grammarAccess.getDirectDeclaratorAccess().getDeclaratorAssignment_1_1_1(), "rule__DirectDeclarator__DeclaratorAssignment_1_1_1");
 					put(grammarAccess.getDirectDeclaratorAccess().getDeclaratorSuffixAssignment_2(), "rule__DirectDeclarator__DeclaratorSuffixAssignment_2");
-					put(grammarAccess.getDeclaratorSuffixAccess().getStaticAssignment_1_0_1(), "rule__DeclaratorSuffix__StaticAssignment_1_0_1");
-					put(grammarAccess.getDeclaratorSuffixAccess().getTypeQualifierListAssignment_1_0_2(), "rule__DeclaratorSuffix__TypeQualifierListAssignment_1_0_2");
-					put(grammarAccess.getDeclaratorSuffixAccess().getExprAssignment_1_0_3(), "rule__DeclaratorSuffix__ExprAssignment_1_0_3");
-					put(grammarAccess.getDeclaratorSuffixAccess().getTypeQualifierListAssignment_1_1_1(), "rule__DeclaratorSuffix__TypeQualifierListAssignment_1_1_1");
-					put(grammarAccess.getDeclaratorSuffixAccess().getExprAssignment_1_1_2(), "rule__DeclaratorSuffix__ExprAssignment_1_1_2");
+					put(grammarAccess.getDeclaratorSuffixAccess().getTypeQualifierListAssignment_1_0_1(), "rule__DeclaratorSuffix__TypeQualifierListAssignment_1_0_1");
+					put(grammarAccess.getDeclaratorSuffixAccess().getExprAssignment_1_0_2(), "rule__DeclaratorSuffix__ExprAssignment_1_0_2");
+					put(grammarAccess.getDeclaratorSuffixAccess().getStaticAssignment_1_1_1(), "rule__DeclaratorSuffix__StaticAssignment_1_1_1");
+					put(grammarAccess.getDeclaratorSuffixAccess().getTypeQualifierListAssignment_1_1_2(), "rule__DeclaratorSuffix__TypeQualifierListAssignment_1_1_2");
+					put(grammarAccess.getDeclaratorSuffixAccess().getExprAssignment_1_1_3(), "rule__DeclaratorSuffix__ExprAssignment_1_1_3");
 					put(grammarAccess.getDeclaratorSuffixAccess().getTypeQualifierListAssignment_1_2_1(), "rule__DeclaratorSuffix__TypeQualifierListAssignment_1_2_1");
 					put(grammarAccess.getDeclaratorSuffixAccess().getStaticAssignment_1_2_2(), "rule__DeclaratorSuffix__StaticAssignment_1_2_2");
 					put(grammarAccess.getDeclaratorSuffixAccess().getExprAssignment_1_2_3(), "rule__DeclaratorSuffix__ExprAssignment_1_2_3");

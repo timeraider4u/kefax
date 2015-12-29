@@ -335,9 +335,9 @@ DirectDeclarator:
 DeclaratorSuffix:
 	{DeclaratorSuffix}
 	(
-		SKW_LEFTBRACKET static=KW_STATIC (typeQualifierList=TypeQualifierList)?
+		SKW_LEFTBRACKET  (typeQualifierList=TypeQualifierList)?
 			(expr=AssignmentExpression)? SKW_RIGHTBRACKET
-	|	SKW_LEFTBRACKET  (typeQualifierList=TypeQualifierList)?
+	|	SKW_LEFTBRACKET static=KW_STATIC (typeQualifierList=TypeQualifierList)?
 			(expr=AssignmentExpression) SKW_RIGHTBRACKET
 	|	SKW_LEFTBRACKET (typeQualifierList=TypeQualifierList) static=KW_STATIC
 			(expr=AssignmentExpression) SKW_RIGHTBRACKET

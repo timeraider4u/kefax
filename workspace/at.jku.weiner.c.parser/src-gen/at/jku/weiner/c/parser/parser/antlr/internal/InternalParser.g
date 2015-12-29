@@ -3231,38 +3231,17 @@ this_SKW_LEFTBRACKET_1=RULE_SKW_LEFTBRACKET
 
 (
 (
-		lv_static_2_0=RULE_KW_STATIC
-		{
-			newLeafNode(lv_static_2_0, grammarAccess.getDeclaratorSuffixAccess().getStaticKW_STATICTerminalRuleCall_1_0_1_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getDeclaratorSuffixRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"static",
-        		lv_static_2_0, 
-        		"at.jku.weiner.c.parser.Parser.KW_STATIC");
-	    }
-
-)
-)
-
-
-(
-(
 		{ 
-	        newCompositeNode(grammarAccess.getDeclaratorSuffixAccess().getTypeQualifierListTypeQualifierListParserRuleCall_1_0_2_0()); 
+	        newCompositeNode(grammarAccess.getDeclaratorSuffixAccess().getTypeQualifierListTypeQualifierListParserRuleCall_1_0_1_0()); 
 	    }
-		lv_typeQualifierList_3_0=ruleTypeQualifierList		{
+		lv_typeQualifierList_2_0=ruleTypeQualifierList		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getDeclaratorSuffixRule());
 	        }
        		set(
        			$current, 
        			"typeQualifierList",
-        		lv_typeQualifierList_3_0, 
+        		lv_typeQualifierList_2_0, 
         		"at.jku.weiner.c.parser.Parser.TypeQualifierList");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -3274,16 +3253,16 @@ this_SKW_LEFTBRACKET_1=RULE_SKW_LEFTBRACKET
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getDeclaratorSuffixAccess().getExprAssignmentExpressionParserRuleCall_1_0_3_0()); 
+	        newCompositeNode(grammarAccess.getDeclaratorSuffixAccess().getExprAssignmentExpressionParserRuleCall_1_0_2_0()); 
 	    }
-		lv_expr_4_0=ruleAssignmentExpression		{
+		lv_expr_3_0=ruleAssignmentExpression		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getDeclaratorSuffixRule());
 	        }
        		set(
        			$current, 
        			"expr",
-        		lv_expr_4_0, 
+        		lv_expr_3_0, 
         		"at.jku.weiner.c.parser.Parser.AssignmentExpression");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -3292,9 +3271,9 @@ this_SKW_LEFTBRACKET_1=RULE_SKW_LEFTBRACKET
 )?
 
 
-this_SKW_RIGHTBRACKET_5=RULE_SKW_RIGHTBRACKET
+this_SKW_RIGHTBRACKET_4=RULE_SKW_RIGHTBRACKET
     { 
-    newLeafNode(this_SKW_RIGHTBRACKET_5, grammarAccess.getDeclaratorSuffixAccess().getSKW_RIGHTBRACKETTerminalRuleCall_1_0_4()); 
+    newLeafNode(this_SKW_RIGHTBRACKET_4, grammarAccess.getDeclaratorSuffixAccess().getSKW_RIGHTBRACKETTerminalRuleCall_1_0_3()); 
     }
 
 
@@ -3303,17 +3282,38 @@ this_SKW_RIGHTBRACKET_5=RULE_SKW_RIGHTBRACKET
 
     |
 (
-this_SKW_LEFTBRACKET_6=RULE_SKW_LEFTBRACKET
+this_SKW_LEFTBRACKET_5=RULE_SKW_LEFTBRACKET
     { 
-    newLeafNode(this_SKW_LEFTBRACKET_6, grammarAccess.getDeclaratorSuffixAccess().getSKW_LEFTBRACKETTerminalRuleCall_1_1_0()); 
+    newLeafNode(this_SKW_LEFTBRACKET_5, grammarAccess.getDeclaratorSuffixAccess().getSKW_LEFTBRACKETTerminalRuleCall_1_1_0()); 
     }
 
 
 
 (
 (
+		lv_static_6_0=RULE_KW_STATIC
+		{
+			newLeafNode(lv_static_6_0, grammarAccess.getDeclaratorSuffixAccess().getStaticKW_STATICTerminalRuleCall_1_1_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getDeclaratorSuffixRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"static",
+        		lv_static_6_0, 
+        		"at.jku.weiner.c.parser.Parser.KW_STATIC");
+	    }
+
+)
+)
+
+
+(
+(
 		{ 
-	        newCompositeNode(grammarAccess.getDeclaratorSuffixAccess().getTypeQualifierListTypeQualifierListParserRuleCall_1_1_1_0()); 
+	        newCompositeNode(grammarAccess.getDeclaratorSuffixAccess().getTypeQualifierListTypeQualifierListParserRuleCall_1_1_2_0()); 
 	    }
 		lv_typeQualifierList_7_0=ruleTypeQualifierList		{
 	        if ($current==null) {
@@ -3334,7 +3334,7 @@ this_SKW_LEFTBRACKET_6=RULE_SKW_LEFTBRACKET
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getDeclaratorSuffixAccess().getExprAssignmentExpressionParserRuleCall_1_1_2_0()); 
+	        newCompositeNode(grammarAccess.getDeclaratorSuffixAccess().getExprAssignmentExpressionParserRuleCall_1_1_3_0()); 
 	    }
 		lv_expr_8_0=ruleAssignmentExpression		{
 	        if ($current==null) {
@@ -3354,7 +3354,7 @@ this_SKW_LEFTBRACKET_6=RULE_SKW_LEFTBRACKET
 
 this_SKW_RIGHTBRACKET_9=RULE_SKW_RIGHTBRACKET
     { 
-    newLeafNode(this_SKW_RIGHTBRACKET_9, grammarAccess.getDeclaratorSuffixAccess().getSKW_RIGHTBRACKETTerminalRuleCall_1_1_3()); 
+    newLeafNode(this_SKW_RIGHTBRACKET_9, grammarAccess.getDeclaratorSuffixAccess().getSKW_RIGHTBRACKETTerminalRuleCall_1_1_4()); 
     }
 
 

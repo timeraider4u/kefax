@@ -563,8 +563,8 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
-	 *         (static=KW_STATIC typeQualifierList=TypeQualifierList? expr=AssignmentExpression?) | 
-	 *         (typeQualifierList=TypeQualifierList? expr=AssignmentExpression) | 
+	 *         (typeQualifierList=TypeQualifierList? expr=AssignmentExpression?) | 
+	 *         (static=KW_STATIC typeQualifierList=TypeQualifierList? expr=AssignmentExpression) | 
 	 *         (typeQualifierList=TypeQualifierList static=KW_STATIC expr=AssignmentExpression) | 
 	 *         (typeQualifierList=TypeQualifierList? star=SKW_STAR) | 
 	 *         lastSuffix=DirectDeclaratorLastSuffix

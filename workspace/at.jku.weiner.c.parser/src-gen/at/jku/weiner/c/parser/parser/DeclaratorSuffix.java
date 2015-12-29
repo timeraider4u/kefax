@@ -12,9 +12,9 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link at.jku.weiner.c.parser.parser.DeclaratorSuffix#getStatic <em>Static</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.DeclaratorSuffix#getTypeQualifierList <em>Type Qualifier List</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.DeclaratorSuffix#getExpr <em>Expr</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.DeclaratorSuffix#getStatic <em>Static</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.DeclaratorSuffix#getStar <em>Star</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.DeclaratorSuffix#getLastSuffix <em>Last Suffix</em>}</li>
  * </ul>
@@ -26,32 +26,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface DeclaratorSuffix extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Static</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Static</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Static</em>' attribute.
-   * @see #setStatic(String)
-   * @see at.jku.weiner.c.parser.parser.ParserPackage#getDeclaratorSuffix_Static()
-   * @model
-   * @generated
-   */
-  String getStatic();
-
-  /**
-   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.DeclaratorSuffix#getStatic <em>Static</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Static</em>' attribute.
-   * @see #getStatic()
-   * @generated
-   */
-  void setStatic(String value);
-
   /**
    * Returns the value of the '<em><b>Type Qualifier List</b></em>' containment reference.
    * <!-- begin-user-doc -->
@@ -103,6 +77,32 @@ public interface DeclaratorSuffix extends EObject
    * @generated
    */
   void setExpr(Expression value);
+
+  /**
+   * Returns the value of the '<em><b>Static</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Static</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Static</em>' attribute.
+   * @see #setStatic(String)
+   * @see at.jku.weiner.c.parser.parser.ParserPackage#getDeclaratorSuffix_Static()
+   * @model
+   * @generated
+   */
+  String getStatic();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.DeclaratorSuffix#getStatic <em>Static</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Static</em>' attribute.
+   * @see #getStatic()
+   * @generated
+   */
+  void setStatic(String value);
 
   /**
    * Returns the value of the '<em><b>Star</b></em>' attribute.

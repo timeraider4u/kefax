@@ -949,22 +949,13 @@ public interface ParserPackage extends EPackage
   int DECLARATOR_SUFFIX = 25;
 
   /**
-   * The feature id for the '<em><b>Static</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DECLARATOR_SUFFIX__STATIC = 0;
-
-  /**
    * The feature id for the '<em><b>Type Qualifier List</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DECLARATOR_SUFFIX__TYPE_QUALIFIER_LIST = 1;
+  int DECLARATOR_SUFFIX__TYPE_QUALIFIER_LIST = 0;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -973,7 +964,16 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DECLARATOR_SUFFIX__EXPR = 2;
+  int DECLARATOR_SUFFIX__EXPR = 1;
+
+  /**
+   * The feature id for the '<em><b>Static</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DECLARATOR_SUFFIX__STATIC = 2;
 
   /**
    * The feature id for the '<em><b>Star</b></em>' attribute.
@@ -4366,17 +4366,6 @@ public interface ParserPackage extends EPackage
   EClass getDeclaratorSuffix();
 
   /**
-   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.DeclaratorSuffix#getStatic <em>Static</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Static</em>'.
-   * @see at.jku.weiner.c.parser.parser.DeclaratorSuffix#getStatic()
-   * @see #getDeclaratorSuffix()
-   * @generated
-   */
-  EAttribute getDeclaratorSuffix_Static();
-
-  /**
    * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.DeclaratorSuffix#getTypeQualifierList <em>Type Qualifier List</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4397,6 +4386,17 @@ public interface ParserPackage extends EPackage
    * @generated
    */
   EReference getDeclaratorSuffix_Expr();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.DeclaratorSuffix#getStatic <em>Static</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Static</em>'.
+   * @see at.jku.weiner.c.parser.parser.DeclaratorSuffix#getStatic()
+   * @see #getDeclaratorSuffix()
+   * @generated
+   */
+  EAttribute getDeclaratorSuffix_Static();
 
   /**
    * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.DeclaratorSuffix#getStar <em>Star</em>}'.
@@ -6918,14 +6918,6 @@ public interface ParserPackage extends EPackage
     EClass DECLARATOR_SUFFIX = eINSTANCE.getDeclaratorSuffix();
 
     /**
-     * The meta object literal for the '<em><b>Static</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute DECLARATOR_SUFFIX__STATIC = eINSTANCE.getDeclaratorSuffix_Static();
-
-    /**
      * The meta object literal for the '<em><b>Type Qualifier List</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6940,6 +6932,14 @@ public interface ParserPackage extends EPackage
      * @generated
      */
     EReference DECLARATOR_SUFFIX__EXPR = eINSTANCE.getDeclaratorSuffix_Expr();
+
+    /**
+     * The meta object literal for the '<em><b>Static</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DECLARATOR_SUFFIX__STATIC = eINSTANCE.getDeclaratorSuffix_Static();
 
     /**
      * The meta object literal for the '<em><b>Star</b></em>' attribute feature.

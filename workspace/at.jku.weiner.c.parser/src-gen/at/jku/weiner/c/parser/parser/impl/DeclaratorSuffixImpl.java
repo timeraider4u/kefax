@@ -24,9 +24,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link at.jku.weiner.c.parser.parser.impl.DeclaratorSuffixImpl#getStatic <em>Static</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.DeclaratorSuffixImpl#getTypeQualifierList <em>Type Qualifier List</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.DeclaratorSuffixImpl#getExpr <em>Expr</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.DeclaratorSuffixImpl#getStatic <em>Static</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.DeclaratorSuffixImpl#getStar <em>Star</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.DeclaratorSuffixImpl#getLastSuffix <em>Last Suffix</em>}</li>
  * </ul>
@@ -36,26 +36,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class DeclaratorSuffixImpl extends MinimalEObjectImpl.Container implements DeclaratorSuffix
 {
-  /**
-   * The default value of the '{@link #getStatic() <em>Static</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getStatic()
-   * @generated
-   * @ordered
-   */
-  protected static final String STATIC_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getStatic() <em>Static</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getStatic()
-   * @generated
-   * @ordered
-   */
-  protected String static_ = STATIC_EDEFAULT;
-
   /**
    * The cached value of the '{@link #getTypeQualifierList() <em>Type Qualifier List</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -75,6 +55,26 @@ public class DeclaratorSuffixImpl extends MinimalEObjectImpl.Container implement
    * @ordered
    */
   protected Expression expr;
+
+  /**
+   * The default value of the '{@link #getStatic() <em>Static</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getStatic()
+   * @generated
+   * @ordered
+   */
+  protected static final String STATIC_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getStatic() <em>Static</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getStatic()
+   * @generated
+   * @ordered
+   */
+  protected String static_ = STATIC_EDEFAULT;
 
   /**
    * The default value of the '{@link #getStar() <em>Star</em>}' attribute.
@@ -125,29 +125,6 @@ public class DeclaratorSuffixImpl extends MinimalEObjectImpl.Container implement
   protected EClass eStaticClass()
   {
     return ParserPackage.Literals.DECLARATOR_SUFFIX;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getStatic()
-  {
-    return static_;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setStatic(String newStatic)
-  {
-    String oldStatic = static_;
-    static_ = newStatic;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.DECLARATOR_SUFFIX__STATIC, oldStatic, static_));
   }
 
   /**
@@ -251,6 +228,29 @@ public class DeclaratorSuffixImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getStatic()
+  {
+    return static_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setStatic(String newStatic)
+  {
+    String oldStatic = static_;
+    static_ = newStatic;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.DECLARATOR_SUFFIX__STATIC, oldStatic, static_));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getStar()
   {
     return star;
@@ -347,12 +347,12 @@ public class DeclaratorSuffixImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case ParserPackage.DECLARATOR_SUFFIX__STATIC:
-        return getStatic();
       case ParserPackage.DECLARATOR_SUFFIX__TYPE_QUALIFIER_LIST:
         return getTypeQualifierList();
       case ParserPackage.DECLARATOR_SUFFIX__EXPR:
         return getExpr();
+      case ParserPackage.DECLARATOR_SUFFIX__STATIC:
+        return getStatic();
       case ParserPackage.DECLARATOR_SUFFIX__STAR:
         return getStar();
       case ParserPackage.DECLARATOR_SUFFIX__LAST_SUFFIX:
@@ -371,14 +371,14 @@ public class DeclaratorSuffixImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case ParserPackage.DECLARATOR_SUFFIX__STATIC:
-        setStatic((String)newValue);
-        return;
       case ParserPackage.DECLARATOR_SUFFIX__TYPE_QUALIFIER_LIST:
         setTypeQualifierList((TypeQualifierList)newValue);
         return;
       case ParserPackage.DECLARATOR_SUFFIX__EXPR:
         setExpr((Expression)newValue);
+        return;
+      case ParserPackage.DECLARATOR_SUFFIX__STATIC:
+        setStatic((String)newValue);
         return;
       case ParserPackage.DECLARATOR_SUFFIX__STAR:
         setStar((String)newValue);
@@ -400,14 +400,14 @@ public class DeclaratorSuffixImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case ParserPackage.DECLARATOR_SUFFIX__STATIC:
-        setStatic(STATIC_EDEFAULT);
-        return;
       case ParserPackage.DECLARATOR_SUFFIX__TYPE_QUALIFIER_LIST:
         setTypeQualifierList((TypeQualifierList)null);
         return;
       case ParserPackage.DECLARATOR_SUFFIX__EXPR:
         setExpr((Expression)null);
+        return;
+      case ParserPackage.DECLARATOR_SUFFIX__STATIC:
+        setStatic(STATIC_EDEFAULT);
         return;
       case ParserPackage.DECLARATOR_SUFFIX__STAR:
         setStar(STAR_EDEFAULT);
@@ -429,12 +429,12 @@ public class DeclaratorSuffixImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case ParserPackage.DECLARATOR_SUFFIX__STATIC:
-        return STATIC_EDEFAULT == null ? static_ != null : !STATIC_EDEFAULT.equals(static_);
       case ParserPackage.DECLARATOR_SUFFIX__TYPE_QUALIFIER_LIST:
         return typeQualifierList != null;
       case ParserPackage.DECLARATOR_SUFFIX__EXPR:
         return expr != null;
+      case ParserPackage.DECLARATOR_SUFFIX__STATIC:
+        return STATIC_EDEFAULT == null ? static_ != null : !STATIC_EDEFAULT.equals(static_);
       case ParserPackage.DECLARATOR_SUFFIX__STAR:
         return STAR_EDEFAULT == null ? star != null : !STAR_EDEFAULT.equals(star);
       case ParserPackage.DECLARATOR_SUFFIX__LAST_SUFFIX:

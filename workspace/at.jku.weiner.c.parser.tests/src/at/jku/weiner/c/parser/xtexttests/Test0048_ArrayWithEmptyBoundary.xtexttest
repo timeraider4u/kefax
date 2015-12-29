@@ -1,0 +1,56 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.parser
+language parser
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+source file="res/Test0048_ArrayWithEmptyBoundary.c"
+//----------------------------------------------------------------------
+lexer-tokens
+
+KW_CHAR WHITESPACE ID SKW_LEFTBRACKET SKW_RIGHTBRACKET SKW_SEMI NEWLINE
+//----------------------------------------------------------------------
+//(common::Model units+=
+	//(common::TranslationUnit 
+	(Parser
+		external+=
+		(ExternalDeclaration
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"char"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"out",
+								declaratorSuffix+=
+								(DeclaratorSuffix
+									typeQualifierList isNull,
+									expr isNull
+								)
+							)
+						) // end declarator
+					)
+				)
+			)
+		)
+		
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0048_ArrayWithEmptyBoundary.c"
+expected file isSameAsInputFile
+replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

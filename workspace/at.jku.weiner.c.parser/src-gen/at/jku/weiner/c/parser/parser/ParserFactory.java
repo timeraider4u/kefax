@@ -329,6 +329,15 @@ public interface ParserFactory extends EFactory
   TypeName createTypeName();
 
   /**
+   * Returns a new object of class '<em>Abstract Declarator</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Abstract Declarator</em>'.
+   * @generated
+   */
+  AbstractDeclarator createAbstractDeclarator();
+
+  /**
    * Returns a new object of class '<em>Initializer</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

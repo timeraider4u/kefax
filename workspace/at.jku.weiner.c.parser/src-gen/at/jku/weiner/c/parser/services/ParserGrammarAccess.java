@@ -13,7 +13,6 @@ import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.Group;
-import org.eclipse.xtext.Keyword;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.TerminalRule;
@@ -552,15 +551,17 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_10 = (Assignment)cAlternatives.eContents().get(10);
 		private final RuleCall cNameKW_COMPLEXTerminalRuleCall_10_0 = (RuleCall)cNameAssignment_10.eContents().get(0);
 		private final Assignment cNameAssignment_11 = (Assignment)cAlternatives.eContents().get(11);
-		private final Keyword cName__m128Keyword_11_0 = (Keyword)cNameAssignment_11.eContents().get(0);
+		private final RuleCall cNameKW_BUILTIN_VA_LISTTerminalRuleCall_11_0 = (RuleCall)cNameAssignment_11.eContents().get(0);
 		private final Assignment cNameAssignment_12 = (Assignment)cAlternatives.eContents().get(12);
-		private final Keyword cName__m128dKeyword_12_0 = (Keyword)cNameAssignment_12.eContents().get(0);
+		private final RuleCall cNameKW_M128TerminalRuleCall_12_0 = (RuleCall)cNameAssignment_12.eContents().get(0);
 		private final Assignment cNameAssignment_13 = (Assignment)cAlternatives.eContents().get(13);
-		private final Keyword cName__m128iKeyword_13_0 = (Keyword)cNameAssignment_13.eContents().get(0);
-		private final Assignment cSpecifierAssignment_14 = (Assignment)cAlternatives.eContents().get(14);
-		private final RuleCall cSpecifierEnumSpecifierParserRuleCall_14_0 = (RuleCall)cSpecifierAssignment_14.eContents().get(0);
-		private final Assignment cTypeAssignment_15 = (Assignment)cAlternatives.eContents().get(15);
-		private final RuleCall cTypeTypedefNameParserRuleCall_15_0 = (RuleCall)cTypeAssignment_15.eContents().get(0);
+		private final RuleCall cNameKW_M128DTerminalRuleCall_13_0 = (RuleCall)cNameAssignment_13.eContents().get(0);
+		private final Assignment cNameAssignment_14 = (Assignment)cAlternatives.eContents().get(14);
+		private final RuleCall cNameKW_M128ITerminalRuleCall_14_0 = (RuleCall)cNameAssignment_14.eContents().get(0);
+		private final Assignment cSpecifierAssignment_15 = (Assignment)cAlternatives.eContents().get(15);
+		private final RuleCall cSpecifierEnumSpecifierParserRuleCall_15_0 = (RuleCall)cSpecifierAssignment_15.eContents().get(0);
+		private final Assignment cTypeAssignment_16 = (Assignment)cAlternatives.eContents().get(16);
+		private final RuleCall cTypeTypedefNameParserRuleCall_16_0 = (RuleCall)cTypeAssignment_16.eContents().get(0);
 		
 		//TypeSpecifier:
 		//	{TypeSpecifier} name=KW_VOID
@@ -574,9 +575,10 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//	| name=KW_UNSIGNED
 		//	| name=KW_BOOL
 		//	| name=KW_COMPLEX
-		//	| name='__m128'
-		//	| name='__m128d'
-		//	| name='__m128i'
+		//	| name=KW_BUILTIN_VA_LIST
+		//	| name=KW_M128
+		//	| name=KW_M128D
+		//	| name=KW_M128I
 		//	// |	'__extension__' LEFTPAREN ('__m128' | '__m128d' | '__m128i') RIGHTPAREN
 		//	//  |	specifier=atomicTypeSpecifier
 		//	//|	specifier=StructOrUnionSpecifier
@@ -587,8 +589,8 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{TypeSpecifier} name=KW_VOID | name=KW_CHAR | name=KW_SHORT | name=KW_INT | name=KW_LONG | name=KW_FLOAT |
-		//name=KW_DOUBLE | name=KW_SIGNED | name=KW_UNSIGNED | name=KW_BOOL | name=KW_COMPLEX | name='__m128' | name='__m128d' |
-		//name='__m128i' // |	'__extension__' LEFTPAREN ('__m128' | '__m128d' | '__m128i') RIGHTPAREN
+		//name=KW_DOUBLE | name=KW_SIGNED | name=KW_UNSIGNED | name=KW_BOOL | name=KW_COMPLEX | name=KW_BUILTIN_VA_LIST |
+		//name=KW_M128 | name=KW_M128D | name=KW_M128I // |	'__extension__' LEFTPAREN ('__m128' | '__m128d' | '__m128i') RIGHTPAREN
 		////  |	specifier=atomicTypeSpecifier
 		////|	specifier=StructOrUnionSpecifier
 		//| specifier=EnumSpecifier | type=TypedefName
@@ -666,35 +668,41 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//KW_COMPLEX
 		public RuleCall getNameKW_COMPLEXTerminalRuleCall_10_0() { return cNameKW_COMPLEXTerminalRuleCall_10_0; }
 		
-		//name='__m128'
+		//name=KW_BUILTIN_VA_LIST
 		public Assignment getNameAssignment_11() { return cNameAssignment_11; }
 		
-		//'__m128'
-		public Keyword getName__m128Keyword_11_0() { return cName__m128Keyword_11_0; }
+		//KW_BUILTIN_VA_LIST
+		public RuleCall getNameKW_BUILTIN_VA_LISTTerminalRuleCall_11_0() { return cNameKW_BUILTIN_VA_LISTTerminalRuleCall_11_0; }
 		
-		//name='__m128d'
+		//name=KW_M128
 		public Assignment getNameAssignment_12() { return cNameAssignment_12; }
 		
-		//'__m128d'
-		public Keyword getName__m128dKeyword_12_0() { return cName__m128dKeyword_12_0; }
+		//KW_M128
+		public RuleCall getNameKW_M128TerminalRuleCall_12_0() { return cNameKW_M128TerminalRuleCall_12_0; }
 		
-		//name='__m128i'
+		//name=KW_M128D
 		public Assignment getNameAssignment_13() { return cNameAssignment_13; }
 		
-		//'__m128i'
-		public Keyword getName__m128iKeyword_13_0() { return cName__m128iKeyword_13_0; }
+		//KW_M128D
+		public RuleCall getNameKW_M128DTerminalRuleCall_13_0() { return cNameKW_M128DTerminalRuleCall_13_0; }
+		
+		//name=KW_M128I
+		public Assignment getNameAssignment_14() { return cNameAssignment_14; }
+		
+		//KW_M128I
+		public RuleCall getNameKW_M128ITerminalRuleCall_14_0() { return cNameKW_M128ITerminalRuleCall_14_0; }
 		
 		//specifier=EnumSpecifier
-		public Assignment getSpecifierAssignment_14() { return cSpecifierAssignment_14; }
+		public Assignment getSpecifierAssignment_15() { return cSpecifierAssignment_15; }
 		
 		//EnumSpecifier
-		public RuleCall getSpecifierEnumSpecifierParserRuleCall_14_0() { return cSpecifierEnumSpecifierParserRuleCall_14_0; }
+		public RuleCall getSpecifierEnumSpecifierParserRuleCall_15_0() { return cSpecifierEnumSpecifierParserRuleCall_15_0; }
 		
 		//type=TypedefName
-		public Assignment getTypeAssignment_15() { return cTypeAssignment_15; }
+		public Assignment getTypeAssignment_16() { return cTypeAssignment_16; }
 		
 		//TypedefName
-		public RuleCall getTypeTypedefNameParserRuleCall_15_0() { return cTypeTypedefNameParserRuleCall_15_0; }
+		public RuleCall getTypeTypedefNameParserRuleCall_16_0() { return cTypeTypedefNameParserRuleCall_16_0; }
 	}
 	public class TypedefNameElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.TypedefName");
@@ -1849,14 +1857,15 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cTypeNameAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cListAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cListSpecifierQualifierListParserRuleCall_1_0 = (RuleCall)cListAssignment_1.eContents().get(0);
+		private final Assignment cAbstractDeclaratorAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cAbstractDeclaratorAbstractDeclaratorParserRuleCall_2_0 = (RuleCall)cAbstractDeclaratorAssignment_2.eContents().get(0);
 		
 		//TypeName:
 		//	{TypeName} list=SpecifierQualifierList
-		//	//(abstractDeclarator+=AbstractDeclarator)?;
-		//;
+		//	abstractDeclarator=AbstractDeclarator?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{TypeName} list=SpecifierQualifierList
+		//{TypeName} list=SpecifierQualifierList abstractDeclarator=AbstractDeclarator?
 		public Group getGroup() { return cGroup; }
 		
 		//{TypeName}
@@ -1867,6 +1876,41 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//SpecifierQualifierList
 		public RuleCall getListSpecifierQualifierListParserRuleCall_1_0() { return cListSpecifierQualifierListParserRuleCall_1_0; }
+		
+		//abstractDeclarator=AbstractDeclarator?
+		public Assignment getAbstractDeclaratorAssignment_2() { return cAbstractDeclaratorAssignment_2; }
+		
+		//AbstractDeclarator
+		public RuleCall getAbstractDeclaratorAbstractDeclaratorParserRuleCall_2_0() { return cAbstractDeclaratorAbstractDeclaratorParserRuleCall_2_0; }
+	}
+	public class AbstractDeclaratorElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.AbstractDeclarator");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cAbstractDeclaratorAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cPointerAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cPointerPointerParserRuleCall_1_0 = (RuleCall)cPointerAssignment_1.eContents().get(0);
+		
+		//AbstractDeclarator:
+		//	{AbstractDeclarator} pointer=Pointer
+		//	//(directAbstractDeclarator=DirectAbstractDeclarator)?
+		//	//(gccDeclExtAbstract+=gccDeclaratorExtension)*
+		//	//| 
+		//	//(directAbstractDeclarator=DirectAbstractDeclarator)?
+		//	//(gccDeclExtAbstract+=gccDeclaratorExtension)*
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{AbstractDeclarator} pointer=Pointer
+		public Group getGroup() { return cGroup; }
+		
+		//{AbstractDeclarator}
+		public Action getAbstractDeclaratorAction_0() { return cAbstractDeclaratorAction_0; }
+		
+		//pointer=Pointer
+		public Assignment getPointerAssignment_1() { return cPointerAssignment_1; }
+		
+		//Pointer
+		public RuleCall getPointerPointerParserRuleCall_1_0() { return cPointerPointerParserRuleCall_1_0; }
 	}
 	public class InitializerElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.Initializer");
@@ -1882,38 +1926,25 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSKW_COMMATerminalRuleCall_1_1_2 = (RuleCall)cGroup_1_1.eContents().get(2);
 		private final RuleCall cSKW_RIGHTBRACETerminalRuleCall_1_1_3 = (RuleCall)cGroup_1_1.eContents().get(3);
 		
-		/// *
-		//AbstractDeclarator:
-		//	{AbstractDeclarator}
-		//	(
-		//	//pointer
-		//	//(directAbstractDeclarator=DirectAbstractDeclarator)?
-		//	//(gccDeclExtAbstract+=gccDeclaratorExtension)*
-		//	//| 
-		//	(directAbstractDeclarator=DirectAbstractDeclarator)
-		//	//(gccDeclExtAbstract+=gccDeclaratorExtension)*
-		//	)
-		//;
-		// * / / *
-		//DirectAbstractDeclarator returns AbstractDeclarator:
-		//	{DirectAbstractDeclarator}
-		//	(LEFTPAREN declarator=AbstractDeclarator RIGHTPAREN
-		//		//(gccDeclExt+=gccDeclaratorExtension)*
-		//	|	abstractDeclaratorSuffix+=AbstractDeclaratorSuffix
-		//	)
-		//	
-		//	//(abstractDeclaratorSuffix+=abstractDeclaratorSuffix)*
-		//;
-		// * / / *
-		//abstractDeclaratorSuffix: {abstractDeclaratorSuffix}
-		//	(LEFTBRACKET typeQualifierList=typeQualifierList? (assignmentExpr+=assignmentExpression)? RIGHTBRACKET
-		//	|	LEFTBRACKET STATIC typeQualifierList=typeQualifierList? (assignmentExpr+=assignmentExpression) RIGHTBRACKET
-		//	|	LEFTBRACKET typeQualifierListOrig=typeQualifierList STATIC assignmentExpr+=assignmentExpression RIGHTBRACKET
-		//	|	LEFTBRACKET STAR RIGHTBRACKET
-		//	|	LEFTPAREN parameterTypeList=parameterTypeList? RIGHTPAREN (gccDeclExt+=gccDeclaratorExtension)*
-		//	)
-		//;
-		// * / Initializer:
+		////DirectAbstractDeclarator returns AbstractDeclarator:
+		////	{DirectAbstractDeclarator}
+		////	(SKW_LEFTPAREN declarator=AbstractDeclarator SKW_RIGHTPAREN
+		////		//(gccDeclExt+=gccDeclaratorExtension)*
+		////	|	abstractDeclaratorSuffix+=AbstractDeclaratorSuffix
+		////	)
+		////	
+		////	//(abstractDeclaratorSuffix+=abstractDeclaratorSuffix)*
+		////;
+		////AbstractDeclaratorSuffix:
+		////	{AbstractDeclaratorSuffix}
+		////	(SKW_LEFTBRACKET typeQualifierList=TypeQualifierList? (assignmentExpr+=AssignmentExpression)? SKW_RIGHTBRACKET
+		////	|	SKW_LEFTBRACKET KW_STATIC typeQualifierList=TypeQualifierList? (assignmentExpr+=AssignmentExpression) SKW_RIGHTBRACKET
+		////	|	SKW_LEFTBRACKET typeQualifierListOrig=TypeQualifierList KW_STATIC assignmentExpr+=AssignmentExpression SKW_RIGHTBRACKET
+		////	|	SKW_LEFTBRACKET SKW_STAR SKW_RIGHTBRACKET
+		////	//|	SKW_LEFTPAREN parameterTypeList=ParameterTypeList? SKW_RIGHTPAREN (gccDeclExt+=gccDeclaratorExtension)*
+		////	)
+		////;
+		//Initializer:
 		//	{Initializer} (expr=AssignmentExpression
 		//	| SKW_LEFTBRACE list=InitializerList SKW_COMMA? SKW_RIGHTBRACE);
 		@Override public ParserRule getRule() { return rule; }
@@ -2854,9 +2885,6 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//(asmLine+=AsmLineWithColon asmLine+=AsmLineWithComma*)+
 		public Group getGroup_4() { return cGroup_4; }
 		
-		////(COLON? expr+=LogicalOrExpression 
-		////	(COMMA expr+=LogicalOrExpression)*
-		////)
 		//asmLine+=AsmLineWithColon
 		public Assignment getAsmLineAssignment_4_0() { return cAsmLineAssignment_4_0; }
 		
@@ -4441,6 +4469,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	private final IdentifierListElements pIdentifierList;
 	private final MyIdentifierElements pMyIdentifier;
 	private final TypeNameElements pTypeName;
+	private final AbstractDeclaratorElements pAbstractDeclarator;
 	private final InitializerElements pInitializer;
 	private final InitializerListElements pInitializerList;
 	private final BlockListElements pBlockList;
@@ -4483,10 +4512,18 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	private final ArgumentExpressionListElements pArgumentExpressionList;
 	private final PrimaryExpressionElements pPrimaryExpression;
 	private final ConstantExpressionElements pConstantExpression;
+	private final TerminalRule tKW_ATOMIC;
 	private final TerminalRule tKW_AUTO;
+	private final TerminalRule tKW_ALIGNAS;
+	private final TerminalRule tKW_ALIGNOF;
+	private final TerminalRule tKW_ASM1;
+	private final TerminalRule tKW_ASM2;
+	private final TerminalRule tKW_BOOL;
 	private final TerminalRule tKW_BREAK;
+	private final TerminalRule tKW_BUILTIN_VA_LIST;
 	private final TerminalRule tKW_CASE;
 	private final TerminalRule tKW_CHAR;
+	private final TerminalRule tKW_COMPLEX;
 	private final TerminalRule tKW_CONST;
 	private final TerminalRule tKW_CONTINUE;
 	private final TerminalRule tKW_DEFAULT;
@@ -4497,11 +4534,18 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tKW_EXTERN;
 	private final TerminalRule tKW_FLOAT;
 	private final TerminalRule tKW_FOR;
+	private final TerminalRule tKW_GENERIC;
 	private final TerminalRule tKW_GOTO;
 	private final TerminalRule tKW_IF;
+	private final TerminalRule tKW_IMAGINARY;
 	private final TerminalRule tKW_INLINE;
 	private final TerminalRule tKW_INT;
 	private final TerminalRule tKW_LONG;
+	private final TerminalRule tKW_M128;
+	private final TerminalRule tKW_M128D;
+	private final TerminalRule tKW_M128I;
+	private final TerminalRule tKW_NORETURN;
+	private final TerminalRule tKW_PRAGMA;
 	private final TerminalRule tKW_REGISTER;
 	private final TerminalRule tKW_RESTRICT;
 	private final TerminalRule tKW_RETURN;
@@ -4509,28 +4553,17 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tKW_SIGNED;
 	private final TerminalRule tKW_SIZEOF;
 	private final TerminalRule tKW_STATIC;
+	private final TerminalRule tKW_STATICASSERT;
 	private final TerminalRule tKW_STRUCT;
 	private final TerminalRule tKW_SWITCH;
+	private final TerminalRule tKW_THREADLOCAL;
 	private final TerminalRule tKW_TYPEDEF;
 	private final TerminalRule tKW_UNION;
 	private final TerminalRule tKW_UNSIGNED;
 	private final TerminalRule tKW_VOID;
 	private final TerminalRule tKW_VOLATILE;
-	private final TerminalRule tKW_WHILE;
-	private final TerminalRule tKW_ALIGNAS;
-	private final TerminalRule tKW_ALIGNOF;
-	private final TerminalRule tKW_ASM1;
-	private final TerminalRule tKW_ASM2;
-	private final TerminalRule tKW_ATOMIC;
-	private final TerminalRule tKW_BOOL;
-	private final TerminalRule tKW_COMPLEX;
-	private final TerminalRule tKW_GENERIC;
-	private final TerminalRule tKW_IMAGINARY;
-	private final TerminalRule tKW_NORETURN;
-	private final TerminalRule tKW_STATICASSERT;
-	private final TerminalRule tKW_THREADLOCAL;
-	private final TerminalRule tKW_PRAGMA;
 	private final TerminalRule tKW_VOLATILE2;
+	private final TerminalRule tKW_WHILE;
 	private final TerminalRule tSTARASSIGN;
 	private final TerminalRule tDIVASSIGN;
 	private final TerminalRule tMODASSIGN;
@@ -4591,6 +4624,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		this.pIdentifierList = new IdentifierListElements();
 		this.pMyIdentifier = new MyIdentifierElements();
 		this.pTypeName = new TypeNameElements();
+		this.pAbstractDeclarator = new AbstractDeclaratorElements();
 		this.pInitializer = new InitializerElements();
 		this.pInitializerList = new InitializerListElements();
 		this.pBlockList = new BlockListElements();
@@ -4633,10 +4667,18 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		this.pArgumentExpressionList = new ArgumentExpressionListElements();
 		this.pPrimaryExpression = new PrimaryExpressionElements();
 		this.pConstantExpression = new ConstantExpressionElements();
+		this.tKW_ATOMIC = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_ATOMIC");
 		this.tKW_AUTO = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_AUTO");
+		this.tKW_ALIGNAS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_ALIGNAS");
+		this.tKW_ALIGNOF = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_ALIGNOF");
+		this.tKW_ASM1 = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_ASM1");
+		this.tKW_ASM2 = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_ASM2");
+		this.tKW_BOOL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_BOOL");
 		this.tKW_BREAK = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_BREAK");
+		this.tKW_BUILTIN_VA_LIST = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_BUILTIN_VA_LIST");
 		this.tKW_CASE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_CASE");
 		this.tKW_CHAR = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_CHAR");
+		this.tKW_COMPLEX = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_COMPLEX");
 		this.tKW_CONST = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_CONST");
 		this.tKW_CONTINUE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_CONTINUE");
 		this.tKW_DEFAULT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_DEFAULT");
@@ -4647,11 +4689,18 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		this.tKW_EXTERN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_EXTERN");
 		this.tKW_FLOAT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_FLOAT");
 		this.tKW_FOR = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_FOR");
+		this.tKW_GENERIC = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_GENERIC");
 		this.tKW_GOTO = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_GOTO");
 		this.tKW_IF = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_IF");
+		this.tKW_IMAGINARY = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_IMAGINARY");
 		this.tKW_INLINE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_INLINE");
 		this.tKW_INT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_INT");
 		this.tKW_LONG = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_LONG");
+		this.tKW_M128 = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_M128");
+		this.tKW_M128D = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_M128D");
+		this.tKW_M128I = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_M128I");
+		this.tKW_NORETURN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_NORETURN");
+		this.tKW_PRAGMA = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_PRAGMA");
 		this.tKW_REGISTER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_REGISTER");
 		this.tKW_RESTRICT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_RESTRICT");
 		this.tKW_RETURN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_RETURN");
@@ -4659,28 +4708,17 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		this.tKW_SIGNED = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_SIGNED");
 		this.tKW_SIZEOF = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_SIZEOF");
 		this.tKW_STATIC = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_STATIC");
+		this.tKW_STATICASSERT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_STATICASSERT");
 		this.tKW_STRUCT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_STRUCT");
 		this.tKW_SWITCH = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_SWITCH");
+		this.tKW_THREADLOCAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_THREADLOCAL");
 		this.tKW_TYPEDEF = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_TYPEDEF");
 		this.tKW_UNION = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_UNION");
 		this.tKW_UNSIGNED = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_UNSIGNED");
 		this.tKW_VOID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_VOID");
 		this.tKW_VOLATILE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_VOLATILE");
-		this.tKW_WHILE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_WHILE");
-		this.tKW_ALIGNAS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_ALIGNAS");
-		this.tKW_ALIGNOF = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_ALIGNOF");
-		this.tKW_ASM1 = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_ASM1");
-		this.tKW_ASM2 = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_ASM2");
-		this.tKW_ATOMIC = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_ATOMIC");
-		this.tKW_BOOL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_BOOL");
-		this.tKW_COMPLEX = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_COMPLEX");
-		this.tKW_GENERIC = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_GENERIC");
-		this.tKW_IMAGINARY = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_IMAGINARY");
-		this.tKW_NORETURN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_NORETURN");
-		this.tKW_STATICASSERT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_STATICASSERT");
-		this.tKW_THREADLOCAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_THREADLOCAL");
-		this.tKW_PRAGMA = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_PRAGMA");
 		this.tKW_VOLATILE2 = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_VOLATILE2");
+		this.tKW_WHILE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_WHILE");
 		this.tSTARASSIGN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.STARASSIGN");
 		this.tDIVASSIGN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.DIVASSIGN");
 		this.tMODASSIGN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.MODASSIGN");
@@ -4878,9 +4916,10 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//	| name=KW_UNSIGNED
 	//	| name=KW_BOOL
 	//	| name=KW_COMPLEX
-	//	| name='__m128'
-	//	| name='__m128d'
-	//	| name='__m128i'
+	//	| name=KW_BUILTIN_VA_LIST
+	//	| name=KW_M128
+	//	| name=KW_M128D
+	//	| name=KW_M128I
 	//	// |	'__extension__' LEFTPAREN ('__m128' | '__m128d' | '__m128i') RIGHTPAREN
 	//	//  |	specifier=atomicTypeSpecifier
 	//	//|	specifier=StructOrUnionSpecifier
@@ -5201,8 +5240,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//TypeName:
 	//	{TypeName} list=SpecifierQualifierList
-	//	//(abstractDeclarator+=AbstractDeclarator)?;
-	//;
+	//	abstractDeclarator=AbstractDeclarator?;
 	public TypeNameElements getTypeNameAccess() {
 		return pTypeName;
 	}
@@ -5211,38 +5249,41 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return getTypeNameAccess().getRule();
 	}
 	
-	/// *
 	//AbstractDeclarator:
-	//	{AbstractDeclarator}
-	//	(
-	//	//pointer
+	//	{AbstractDeclarator} pointer=Pointer
 	//	//(directAbstractDeclarator=DirectAbstractDeclarator)?
 	//	//(gccDeclExtAbstract+=gccDeclaratorExtension)*
 	//	//| 
-	//	(directAbstractDeclarator=DirectAbstractDeclarator)
+	//	//(directAbstractDeclarator=DirectAbstractDeclarator)?
 	//	//(gccDeclExtAbstract+=gccDeclaratorExtension)*
-	//	)
 	//;
-	// * / / *
-	//DirectAbstractDeclarator returns AbstractDeclarator:
-	//	{DirectAbstractDeclarator}
-	//	(LEFTPAREN declarator=AbstractDeclarator RIGHTPAREN
-	//		//(gccDeclExt+=gccDeclaratorExtension)*
-	//	|	abstractDeclaratorSuffix+=AbstractDeclaratorSuffix
-	//	)
-	//	
-	//	//(abstractDeclaratorSuffix+=abstractDeclaratorSuffix)*
-	//;
-	// * / / *
-	//abstractDeclaratorSuffix: {abstractDeclaratorSuffix}
-	//	(LEFTBRACKET typeQualifierList=typeQualifierList? (assignmentExpr+=assignmentExpression)? RIGHTBRACKET
-	//	|	LEFTBRACKET STATIC typeQualifierList=typeQualifierList? (assignmentExpr+=assignmentExpression) RIGHTBRACKET
-	//	|	LEFTBRACKET typeQualifierListOrig=typeQualifierList STATIC assignmentExpr+=assignmentExpression RIGHTBRACKET
-	//	|	LEFTBRACKET STAR RIGHTBRACKET
-	//	|	LEFTPAREN parameterTypeList=parameterTypeList? RIGHTPAREN (gccDeclExt+=gccDeclaratorExtension)*
-	//	)
-	//;
-	// * / Initializer:
+	public AbstractDeclaratorElements getAbstractDeclaratorAccess() {
+		return pAbstractDeclarator;
+	}
+	
+	public ParserRule getAbstractDeclaratorRule() {
+		return getAbstractDeclaratorAccess().getRule();
+	}
+	
+	////DirectAbstractDeclarator returns AbstractDeclarator:
+	////	{DirectAbstractDeclarator}
+	////	(SKW_LEFTPAREN declarator=AbstractDeclarator SKW_RIGHTPAREN
+	////		//(gccDeclExt+=gccDeclaratorExtension)*
+	////	|	abstractDeclaratorSuffix+=AbstractDeclaratorSuffix
+	////	)
+	////	
+	////	//(abstractDeclaratorSuffix+=abstractDeclaratorSuffix)*
+	////;
+	////AbstractDeclaratorSuffix:
+	////	{AbstractDeclaratorSuffix}
+	////	(SKW_LEFTBRACKET typeQualifierList=TypeQualifierList? (assignmentExpr+=AssignmentExpression)? SKW_RIGHTBRACKET
+	////	|	SKW_LEFTBRACKET KW_STATIC typeQualifierList=TypeQualifierList? (assignmentExpr+=AssignmentExpression) SKW_RIGHTBRACKET
+	////	|	SKW_LEFTBRACKET typeQualifierListOrig=TypeQualifierList KW_STATIC assignmentExpr+=AssignmentExpression SKW_RIGHTBRACKET
+	////	|	SKW_LEFTBRACKET SKW_STAR SKW_RIGHTBRACKET
+	////	//|	SKW_LEFTPAREN parameterTypeList=ParameterTypeList? SKW_RIGHTPAREN (gccDeclExt+=gccDeclaratorExtension)*
+	////	)
+	////;
+	//Initializer:
 	//	{Initializer} (expr=AssignmentExpression
 	//	| SKW_LEFTBRACE list=InitializerList SKW_COMMA? SKW_RIGHTBRACE);
 	public InitializerElements getInitializerAccess() {
@@ -5747,16 +5788,58 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return getConstantExpressionAccess().getRule();
 	}
 	
+	//terminal KW_ATOMIC:
+	//	'_Atomic';
+	public TerminalRule getKW_ATOMICRule() {
+		return tKW_ATOMIC;
+	}
+	
 	//terminal KW_AUTO:
 	//	'auto';
 	public TerminalRule getKW_AUTORule() {
 		return tKW_AUTO;
 	}
 	
+	//terminal KW_ALIGNAS:
+	//	'_Alignas';
+	public TerminalRule getKW_ALIGNASRule() {
+		return tKW_ALIGNAS;
+	}
+	
+	//terminal KW_ALIGNOF:
+	//	'_Alignof';
+	public TerminalRule getKW_ALIGNOFRule() {
+		return tKW_ALIGNOF;
+	}
+	
+	//terminal KW_ASM1:
+	//	SKW_UNDERSCORE SKW_UNDERSCORE 'asm';
+	public TerminalRule getKW_ASM1Rule() {
+		return tKW_ASM1;
+	}
+	
+	//terminal KW_ASM2:
+	//	KW_ASM1 SKW_UNDERSCORE SKW_UNDERSCORE;
+	public TerminalRule getKW_ASM2Rule() {
+		return tKW_ASM2;
+	}
+	
+	//terminal KW_BOOL:
+	//	'_Bool';
+	public TerminalRule getKW_BOOLRule() {
+		return tKW_BOOL;
+	}
+	
 	//terminal KW_BREAK:
 	//	'break';
 	public TerminalRule getKW_BREAKRule() {
 		return tKW_BREAK;
+	}
+	
+	//terminal KW_BUILTIN_VA_LIST:
+	//	'__builtin_va_list';
+	public TerminalRule getKW_BUILTIN_VA_LISTRule() {
+		return tKW_BUILTIN_VA_LIST;
 	}
 	
 	//terminal KW_CASE:
@@ -5769,6 +5852,12 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//	'char';
 	public TerminalRule getKW_CHARRule() {
 		return tKW_CHAR;
+	}
+	
+	//terminal KW_COMPLEX:
+	//	'_Complex';
+	public TerminalRule getKW_COMPLEXRule() {
+		return tKW_COMPLEX;
 	}
 	
 	//terminal KW_CONST:
@@ -5831,6 +5920,12 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return tKW_FOR;
 	}
 	
+	//terminal KW_GENERIC:
+	//	'_Generic';
+	public TerminalRule getKW_GENERICRule() {
+		return tKW_GENERIC;
+	}
+	
 	//terminal KW_GOTO:
 	//	'goto';
 	public TerminalRule getKW_GOTORule() {
@@ -5841,6 +5936,12 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//	'if';
 	public TerminalRule getKW_IFRule() {
 		return tKW_IF;
+	}
+	
+	//terminal KW_IMAGINARY:
+	//	'_Imaginary';
+	public TerminalRule getKW_IMAGINARYRule() {
+		return tKW_IMAGINARY;
 	}
 	
 	//terminal KW_INLINE:
@@ -5859,6 +5960,36 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//	'long';
 	public TerminalRule getKW_LONGRule() {
 		return tKW_LONG;
+	}
+	
+	//terminal KW_M128:
+	//	'__m128';
+	public TerminalRule getKW_M128Rule() {
+		return tKW_M128;
+	}
+	
+	//terminal KW_M128D:
+	//	'__m128d';
+	public TerminalRule getKW_M128DRule() {
+		return tKW_M128D;
+	}
+	
+	//terminal KW_M128I:
+	//	'__m128i';
+	public TerminalRule getKW_M128IRule() {
+		return tKW_M128I;
+	}
+	
+	//terminal KW_NORETURN:
+	//	'_Noreturn';
+	public TerminalRule getKW_NORETURNRule() {
+		return tKW_NORETURN;
+	}
+	
+	//terminal KW_PRAGMA:
+	//	'pragma';
+	public TerminalRule getKW_PRAGMARule() {
+		return tKW_PRAGMA;
 	}
 	
 	//terminal KW_REGISTER:
@@ -5903,6 +6034,12 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return tKW_STATIC;
 	}
 	
+	//terminal KW_STATICASSERT:
+	//	'_Static_assert';
+	public TerminalRule getKW_STATICASSERTRule() {
+		return tKW_STATICASSERT;
+	}
+	
 	//terminal KW_STRUCT:
 	//	'struct';
 	public TerminalRule getKW_STRUCTRule() {
@@ -5913,6 +6050,12 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//	'switch';
 	public TerminalRule getKW_SWITCHRule() {
 		return tKW_SWITCH;
+	}
+	
+	//terminal KW_THREADLOCAL:
+	//	'_Thread_local';
+	public TerminalRule getKW_THREADLOCALRule() {
+		return tKW_THREADLOCAL;
 	}
 	
 	//terminal KW_TYPEDEF:
@@ -5945,94 +6088,16 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return tKW_VOLATILE;
 	}
 	
-	//terminal KW_WHILE:
-	//	'while';
-	public TerminalRule getKW_WHILERule() {
-		return tKW_WHILE;
-	}
-	
-	//terminal KW_ALIGNAS:
-	//	'_Alignas';
-	public TerminalRule getKW_ALIGNASRule() {
-		return tKW_ALIGNAS;
-	}
-	
-	//terminal KW_ALIGNOF:
-	//	'_Alignof';
-	public TerminalRule getKW_ALIGNOFRule() {
-		return tKW_ALIGNOF;
-	}
-	
-	//terminal KW_ASM1:
-	//	SKW_UNDERSCORE SKW_UNDERSCORE 'asm';
-	public TerminalRule getKW_ASM1Rule() {
-		return tKW_ASM1;
-	}
-	
-	//terminal KW_ASM2:
-	//	KW_ASM1 SKW_UNDERSCORE SKW_UNDERSCORE;
-	public TerminalRule getKW_ASM2Rule() {
-		return tKW_ASM2;
-	}
-	
-	//terminal KW_ATOMIC:
-	//	'_Atomic';
-	public TerminalRule getKW_ATOMICRule() {
-		return tKW_ATOMIC;
-	}
-	
-	//terminal KW_BOOL:
-	//	'_Bool';
-	public TerminalRule getKW_BOOLRule() {
-		return tKW_BOOL;
-	}
-	
-	//terminal KW_COMPLEX:
-	//	'_Complex';
-	public TerminalRule getKW_COMPLEXRule() {
-		return tKW_COMPLEX;
-	}
-	
-	//terminal KW_GENERIC:
-	//	'_Generic';
-	public TerminalRule getKW_GENERICRule() {
-		return tKW_GENERIC;
-	}
-	
-	//terminal KW_IMAGINARY:
-	//	'_Imaginary';
-	public TerminalRule getKW_IMAGINARYRule() {
-		return tKW_IMAGINARY;
-	}
-	
-	//terminal KW_NORETURN:
-	//	'_Noreturn';
-	public TerminalRule getKW_NORETURNRule() {
-		return tKW_NORETURN;
-	}
-	
-	//terminal KW_STATICASSERT:
-	//	'_Static_assert';
-	public TerminalRule getKW_STATICASSERTRule() {
-		return tKW_STATICASSERT;
-	}
-	
-	//terminal KW_THREADLOCAL:
-	//	'_Thread_local';
-	public TerminalRule getKW_THREADLOCALRule() {
-		return tKW_THREADLOCAL;
-	}
-	
-	//terminal KW_PRAGMA:
-	//	'pragma';
-	public TerminalRule getKW_PRAGMARule() {
-		return tKW_PRAGMA;
-	}
-	
 	//terminal KW_VOLATILE2:
 	//	SKW_UNDERSCORE SKW_UNDERSCORE KW_VOLATILE SKW_UNDERSCORE SKW_UNDERSCORE;
 	public TerminalRule getKW_VOLATILE2Rule() {
 		return tKW_VOLATILE2;
+	}
+	
+	//terminal KW_WHILE:
+	//	'while';
+	public TerminalRule getKW_WHILERule() {
+		return tKW_WHILE;
 	}
 	
 	//terminal STARASSIGN:

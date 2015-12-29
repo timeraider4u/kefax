@@ -1,0 +1,91 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.parser
+language parser
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+source file="res/Test0042_BuiltinVaArgs.c"
+//----------------------------------------------------------------------
+lexer-tokens
+LINE_COMMENT NEWLINE
+LINE_COMMENT NEWLINE
+LINE_COMMENT NEWLINE
+KW_TYPEDEF WHITESPACE KW_BUILTIN_VA_LIST WHITESPACE ID SKW_SEMI NEWLINE
+ID WHITESPACE ID SKW_SEMI NEWLINE
+//----------------------------------------------------------------------
+//(common::Model units+=
+	//(common::TranslationUnit 
+	(Parser
+		external+=
+		// typedef __builtin_va_list my_list
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(StorageClassSpecifier
+						name++"typedef"
+					),
+					(TypeSpecifier
+						name++"__builtin_va_list"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"my_list"
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+		),
+		// my_list a;
+		(ExternalDeclaration
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						type=
+							(TypedefName
+								id++"my_list"
+							)
+					)
+				)
+				,
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"a"
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+		)
+		
+		
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0042_BuiltinVaArgs.c"
+expected file isSameAsInputFile
+replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

@@ -84,6 +84,7 @@ import at.jku.weiner.c.parser.parser.PostfixExpressionSuffixPlusPlus
 import at.jku.weiner.c.parser.parser.PostfixExpressionSuffixArrow
 import at.jku.weiner.c.parser.parser.PostfixExpressionSuffixMinusMinus
 import at.jku.weiner.c.parser.parser.Parser
+import at.jku.weiner.c.parser.parser.AbstractDeclarator
 
 /**
  * Generates code from your model files on save.
@@ -609,6 +610,9 @@ class ParserGenerator implements IGenerator {
 	
 	def String outputFor(TypeName obj) '''
 		«outputFor(obj.list)»
+		«IF obj.abstractDeclarator != null»
+			«outputFor(obj.abstractDeclarator)»
+		«ENDIF»
 	'''
 	
 	def String outputFor(SpecifierQualifierList obj) '''
@@ -621,6 +625,10 @@ class ParserGenerator implements IGenerator {
 		«FOR x : obj.structOrUnionSpecifier»
 			«outputFor(x as StructOrUnionSpecifier)»
 		«ENDFOR»
+	'''
+	
+	def String outputFor(AbstractDeclarator obj) '''
+		«outputFor(obj.pointer)»
 	'''
 	
 	def String outputForUnaryExpression(UnaryExpression obj) '''

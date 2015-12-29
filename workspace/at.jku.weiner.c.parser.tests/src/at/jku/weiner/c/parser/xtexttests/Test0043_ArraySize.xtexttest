@@ -1,0 +1,194 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.parser
+language parser
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+source file="res/Test0043_ArraySize.c"
+//----------------------------------------------------------------------
+lexer-tokens
+KW_CHAR WHITESPACE ID SKW_LEFTBRACKET
+	DECIMAL_LITERAL WHITESPACE 
+	SKW_STAR WHITESPACE 
+	KW_SIZEOF WHITESPACE SKW_LEFTPAREN KW_INT SKW_RIGHTPAREN WHITESPACE
+	SKW_MINUS WHITESPACE DECIMAL_LITERAL WHITESPACE SKW_STAR WHITESPACE
+	KW_SIZEOF WHITESPACE SKW_LEFTPAREN KW_VOID WHITESPACE SKW_STAR 
+	SKW_RIGHTPAREN WHITESPACE 
+	SKW_MINUS WHITESPACE KW_SIZEOF WHITESPACE SKW_LEFTPAREN
+	KW_INT SKW_RIGHTPAREN
+	SKW_RIGHTBRACKET SKW_SEMI NEWLINE
+//----------------------------------------------------------------------
+//(common::Model units+=
+	//(common::TranslationUnit 
+	(Parser
+		external+=
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"char"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"my_array",
+								declaratorSuffix+=
+								(DeclaratorSuffix
+									expr=
+									(AssignmentExpression
+										expr=
+										(ConditionalExpression
+											expr=
+											(LogicalOrExpression
+												expr+=
+												(LogicalAndExpression
+													expr+=
+													(InclusiveOrExpression
+														expr+=
+														(ExclusiveOrExpression
+															expr+=
+															(AndExpression
+																expr+=
+																(EqualityExpression
+																	expr+=
+																	(RelationalExpression
+																		expr+=
+																		(ShiftExpression
+																			expr+=
+																			(AdditiveExpression
+																				op+*"[-, -]",
+																				expr+=
+																				(MultiplicativeExpression
+																					op+*"[*]",
+																					expr+=
+																					(CastExpression
+																						expr=
+																						(UnaryExpression
+																							expr=
+																							(PostfixExpression
+																								expr+=
+																								(PrimaryExpression
+																									const=
+																									(common::Constant2
+																										dec++"25"
+																									)
+																								)
+																							)
+																						)
+																					),
+																					(CastExpression
+																						expr=
+																						(UnaryExpression
+																							sizeOf++"sizeof",
+																							typeName=
+																							(TypeName
+																								list=
+																								(SpecifierQualifierList
+																									typeSpecifier+=
+																									(TypeSpecifier
+																										name++"int"
+																									)
+																								)
+																							)
+																						)
+																					)
+																				),
+																				(MultiplicativeExpression
+																					op+*"[*]",
+																					expr+=
+																					(CastExpression
+																						expr=
+																						(UnaryExpression
+																							expr=
+																							(PostfixExpression
+																								expr+=
+																								(PrimaryExpression
+																									const=
+																									(Common::Constant2
+																										dec++"8"
+																									)
+																								)
+																							)
+																						)
+																					),
+																					(CastExpression
+																						expr=
+																						(UnaryExpression
+																							sizeOf++"sizeof",
+																							typeName=
+																							(TypeName
+																								list=
+																								(SpecifierQualifierList
+																									typeSpecifier+=
+																									(TypeSpecifier
+																										name++"void"
+																									)
+																								),
+																								abstractDeclarator=
+																								(AbstractDeclarator
+																									pointer=
+																									(Pointer
+																										star+*"[*]"
+																									)
+																								)
+																							)
+																						)
+																					)
+																				),
+																				(MultiplicativeExpression
+																					expr+=
+																					(CastExpression
+																						expr=
+																						(UnaryExpression
+																							sizeOf++"sizeof",
+																							typeName=
+																							(TypeName
+																								list=
+																								(SpecifierQualifierList
+																									typeSpecifier+=
+																									(TypeSpecifier
+																										name++"int"
+																									)
+																								)
+																							)
+																						)
+																					)
+																				)
+																			) // end additive expression
+																		) // end shift expression
+																		
+																	)
+																)
+															)
+														)
+													)
+												)
+											)
+										)
+									)
+								)
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+		)
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0043_ArraySize.c"
+expected file isSameAsInputFile
+replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

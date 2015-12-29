@@ -22,11 +22,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.StructDeclarationImpl#getList <em>List</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.StructDeclarationImpl#getStructDeclarationList <em>Struct Declaration List</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

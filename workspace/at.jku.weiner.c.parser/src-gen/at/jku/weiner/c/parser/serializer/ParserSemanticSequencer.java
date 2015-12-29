@@ -6,6 +6,7 @@ package at.jku.weiner.c.parser.serializer;
 import at.jku.weiner.c.common.common.CommonPackage;
 import at.jku.weiner.c.common.common.Constant2;
 import at.jku.weiner.c.common.serializer.CommonSemanticSequencer;
+import at.jku.weiner.c.parser.parser.AbstractDeclarator;
 import at.jku.weiner.c.parser.parser.AdditiveExpression;
 import at.jku.weiner.c.parser.parser.AndExpression;
 import at.jku.weiner.c.parser.parser.ArgumentExpressionList;
@@ -112,6 +113,9 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 				return; 
 			}
 		else if(semanticObject.eClass().getEPackage() == ParserPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+			case ParserPackage.ABSTRACT_DECLARATOR:
+				sequence_AbstractDeclarator(context, (AbstractDeclarator) semanticObject); 
+				return; 
 			case ParserPackage.ADDITIVE_EXPRESSION:
 				sequence_AdditiveExpression(context, (AdditiveExpression) semanticObject); 
 				return; 
@@ -346,6 +350,22 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * Constraint:
+	 *     pointer=Pointer
+	 */
+	protected void sequence_AbstractDeclarator(EObject context, AbstractDeclarator semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, ParserPackage.Literals.ABSTRACT_DECLARATOR__POINTER) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ParserPackage.Literals.ABSTRACT_DECLARATOR__POINTER));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getAbstractDeclaratorAccess().getPointerPointerParserRuleCall_1_0(), semanticObject.getPointer());
+		feeder.finish();
+	}
+	
 	
 	/**
 	 * Constraint:
@@ -1106,17 +1126,10 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     list=SpecifierQualifierList
+	 *     (list=SpecifierQualifierList abstractDeclarator=AbstractDeclarator?)
 	 */
 	protected void sequence_TypeName(EObject context, TypeName semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, ParserPackage.Literals.TYPE_NAME__LIST) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ParserPackage.Literals.TYPE_NAME__LIST));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getTypeNameAccess().getListSpecifierQualifierListParserRuleCall_1_0(), semanticObject.getList());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

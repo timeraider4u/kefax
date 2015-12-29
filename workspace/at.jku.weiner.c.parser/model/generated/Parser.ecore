@@ -176,6 +176,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="TypeName">
     <eStructuralFeatures xsi:type="ecore:EReference" name="list" eType="#//SpecifierQualifierList"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="abstractDeclarator" eType="#//AbstractDeclarator"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractDeclarator">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pointer" eType="#//Pointer"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Initializer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expression"

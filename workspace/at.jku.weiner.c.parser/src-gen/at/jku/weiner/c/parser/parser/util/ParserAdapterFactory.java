@@ -245,6 +245,11 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
         return createTypeNameAdapter();
       }
       @Override
+      public Adapter caseAbstractDeclarator(AbstractDeclarator object)
+      {
+        return createAbstractDeclaratorAdapter();
+      }
+      @Override
       public Adapter caseInitializer(Initializer object)
       {
         return createInitializerAdapter();
@@ -1027,6 +1032,21 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createTypeNameAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.parser.parser.AbstractDeclarator <em>Abstract Declarator</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.parser.parser.AbstractDeclarator
+   * @generated
+   */
+  public Adapter createAbstractDeclaratorAdapter()
   {
     return null;
   }

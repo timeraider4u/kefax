@@ -136,6 +136,7 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getIdentifierListAccess().getGroup_2(), "rule__IdentifierList__Group_2__0");
 					put(grammarAccess.getMyIdentifierAccess().getGroup(), "rule__MyIdentifier__Group__0");
 					put(grammarAccess.getTypeNameAccess().getGroup(), "rule__TypeName__Group__0");
+					put(grammarAccess.getAbstractDeclaratorAccess().getGroup(), "rule__AbstractDeclarator__Group__0");
 					put(grammarAccess.getInitializerAccess().getGroup(), "rule__Initializer__Group__0");
 					put(grammarAccess.getInitializerAccess().getGroup_1_1(), "rule__Initializer__Group_1_1__0");
 					put(grammarAccess.getInitializerListAccess().getGroup(), "rule__InitializerList__Group__0");
@@ -262,8 +263,9 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTypeSpecifierAccess().getNameAssignment_11(), "rule__TypeSpecifier__NameAssignment_11");
 					put(grammarAccess.getTypeSpecifierAccess().getNameAssignment_12(), "rule__TypeSpecifier__NameAssignment_12");
 					put(grammarAccess.getTypeSpecifierAccess().getNameAssignment_13(), "rule__TypeSpecifier__NameAssignment_13");
-					put(grammarAccess.getTypeSpecifierAccess().getSpecifierAssignment_14(), "rule__TypeSpecifier__SpecifierAssignment_14");
-					put(grammarAccess.getTypeSpecifierAccess().getTypeAssignment_15(), "rule__TypeSpecifier__TypeAssignment_15");
+					put(grammarAccess.getTypeSpecifierAccess().getNameAssignment_14(), "rule__TypeSpecifier__NameAssignment_14");
+					put(grammarAccess.getTypeSpecifierAccess().getSpecifierAssignment_15(), "rule__TypeSpecifier__SpecifierAssignment_15");
+					put(grammarAccess.getTypeSpecifierAccess().getTypeAssignment_16(), "rule__TypeSpecifier__TypeAssignment_16");
 					put(grammarAccess.getTypedefNameAccess().getIdAssignment_1(), "rule__TypedefName__IdAssignment_1");
 					put(grammarAccess.getStructOrUnionSpecifierAccess().getTypeAssignment_1(), "rule__StructOrUnionSpecifier__TypeAssignment_1");
 					put(grammarAccess.getStructOrUnionSpecifierAccess().getIdAssignment_2_0_0(), "rule__StructOrUnionSpecifier__IdAssignment_2_0_0");
@@ -326,6 +328,8 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getIdentifierListAccess().getIdAssignment_2_1(), "rule__IdentifierList__IdAssignment_2_1");
 					put(grammarAccess.getMyIdentifierAccess().getIdAssignment_1(), "rule__MyIdentifier__IdAssignment_1");
 					put(grammarAccess.getTypeNameAccess().getListAssignment_1(), "rule__TypeName__ListAssignment_1");
+					put(grammarAccess.getTypeNameAccess().getAbstractDeclaratorAssignment_2(), "rule__TypeName__AbstractDeclaratorAssignment_2");
+					put(grammarAccess.getAbstractDeclaratorAccess().getPointerAssignment_1(), "rule__AbstractDeclarator__PointerAssignment_1");
 					put(grammarAccess.getInitializerAccess().getExprAssignment_1_0(), "rule__Initializer__ExprAssignment_1_0");
 					put(grammarAccess.getInitializerAccess().getListAssignment_1_1_1(), "rule__Initializer__ListAssignment_1_1_1");
 					put(grammarAccess.getInitializerListAccess().getInitializerAssignment_1(), "rule__InitializerList__InitializerAssignment_1");

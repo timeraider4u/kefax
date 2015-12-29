@@ -98,6 +98,7 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
       case ParserPackage.IDENTIFIER_LIST: return createIdentifierList();
       case ParserPackage.MY_IDENTIFIER: return createMyIdentifier();
       case ParserPackage.TYPE_NAME: return createTypeName();
+      case ParserPackage.ABSTRACT_DECLARATOR: return createAbstractDeclarator();
       case ParserPackage.INITIALIZER: return createInitializer();
       case ParserPackage.INITIALIZER_LIST: return createInitializerList();
       case ParserPackage.BLOCK_LIST: return createBlockList();
@@ -521,6 +522,17 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
   {
     TypeNameImpl typeName = new TypeNameImpl();
     return typeName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AbstractDeclarator createAbstractDeclarator()
+  {
+    AbstractDeclaratorImpl abstractDeclarator = new AbstractDeclaratorImpl();
+    return abstractDeclarator;
   }
 
   /**

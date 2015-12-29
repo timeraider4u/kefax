@@ -4,6 +4,7 @@ package at.jku.weiner.c.parser.parser.impl;
 
 import at.jku.weiner.c.common.common.CommonPackage;
 
+import at.jku.weiner.c.parser.parser.AbstractDeclarator;
 import at.jku.weiner.c.parser.parser.AdditiveExpression;
 import at.jku.weiner.c.parser.parser.AndExpression;
 import at.jku.weiner.c.parser.parser.ArgumentExpressionList;
@@ -340,6 +341,13 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * @generated
    */
   private EClass typeNameEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass abstractDeclaratorEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1667,6 +1675,36 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
   public EReference getTypeName_List()
   {
     return (EReference)typeNameEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTypeName_AbstractDeclarator()
+  {
+    return (EReference)typeNameEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getAbstractDeclarator()
+  {
+    return abstractDeclaratorEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAbstractDeclarator_Pointer()
+  {
+    return (EReference)abstractDeclaratorEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3186,6 +3224,10 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 
     typeNameEClass = createEClass(TYPE_NAME);
     createEReference(typeNameEClass, TYPE_NAME__LIST);
+    createEReference(typeNameEClass, TYPE_NAME__ABSTRACT_DECLARATOR);
+
+    abstractDeclaratorEClass = createEClass(ABSTRACT_DECLARATOR);
+    createEReference(abstractDeclaratorEClass, ABSTRACT_DECLARATOR__POINTER);
 
     initializerEClass = createEClass(INITIALIZER);
     createEReference(initializerEClass, INITIALIZER__EXPR);
@@ -3572,6 +3614,10 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 
     initEClass(typeNameEClass, TypeName.class, "TypeName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getTypeName_List(), this.getSpecifierQualifierList(), null, "list", null, 0, 1, TypeName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTypeName_AbstractDeclarator(), this.getAbstractDeclarator(), null, "abstractDeclarator", null, 0, 1, TypeName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(abstractDeclaratorEClass, AbstractDeclarator.class, "AbstractDeclarator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAbstractDeclarator_Pointer(), this.getPointer(), null, "pointer", null, 0, 1, AbstractDeclarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(initializerEClass, Initializer.class, "Initializer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getInitializer_Expr(), this.getExpression(), null, "expr", null, 0, 1, Initializer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -177,9 +177,10 @@ TypeSpecifier:
 	|	name=KW_UNSIGNED
 	|	name=KW_BOOL
 	|	name=KW_COMPLEX
-	|	name='__m128'
-	|	name='__m128d'
-	|	name='__m128i'
+	|	name=KW_BUILTIN_VA_LIST
+	|	name=KW_M128
+	|	name=KW_M128D
+	|	name=KW_M128I
 	
 	// |	'__extension__' LEFTPAREN ('__m128' | '__m128d' | '__m128i') RIGHTPAREN
   //  |	specifier=atomicTypeSpecifier
@@ -404,45 +405,45 @@ MyIdentifier:
 TypeName:
 	{TypeName}
 	list=SpecifierQualifierList 
-	//(abstractDeclarator+=AbstractDeclarator)?;
+	(abstractDeclarator=AbstractDeclarator)?
 ;
 
-/*
+
 AbstractDeclarator:
 	{AbstractDeclarator}
 	(
-	//pointer
+	pointer=Pointer
 	//(directAbstractDeclarator=DirectAbstractDeclarator)?
 	//(gccDeclExtAbstract+=gccDeclaratorExtension)*
 	//| 
-	(directAbstractDeclarator=DirectAbstractDeclarator)
+	//(directAbstractDeclarator=DirectAbstractDeclarator)?
 	//(gccDeclExtAbstract+=gccDeclaratorExtension)*
 	)
 ;
-*/
 
-/*
-DirectAbstractDeclarator returns AbstractDeclarator:
-	{DirectAbstractDeclarator}
-	(LEFTPAREN declarator=AbstractDeclarator RIGHTPAREN
-		//(gccDeclExt+=gccDeclaratorExtension)*
-	|	abstractDeclaratorSuffix+=AbstractDeclaratorSuffix
-	)
-	
-	//(abstractDeclaratorSuffix+=abstractDeclaratorSuffix)*
-;
-*/
 
-/*
-abstractDeclaratorSuffix: {abstractDeclaratorSuffix}
-	(LEFTBRACKET typeQualifierList=typeQualifierList? (assignmentExpr+=assignmentExpression)? RIGHTBRACKET
-	|	LEFTBRACKET STATIC typeQualifierList=typeQualifierList? (assignmentExpr+=assignmentExpression) RIGHTBRACKET
-	|	LEFTBRACKET typeQualifierListOrig=typeQualifierList STATIC assignmentExpr+=assignmentExpression RIGHTBRACKET
-	|	LEFTBRACKET STAR RIGHTBRACKET
-	|	LEFTPAREN parameterTypeList=parameterTypeList? RIGHTPAREN (gccDeclExt+=gccDeclaratorExtension)*
-	)
-;
-*/
+//DirectAbstractDeclarator returns AbstractDeclarator:
+//	{DirectAbstractDeclarator}
+//	(SKW_LEFTPAREN declarator=AbstractDeclarator SKW_RIGHTPAREN
+//		//(gccDeclExt+=gccDeclaratorExtension)*
+//	|	abstractDeclaratorSuffix+=AbstractDeclaratorSuffix
+//	)
+//	
+//	//(abstractDeclaratorSuffix+=abstractDeclaratorSuffix)*
+//;
+
+
+
+//AbstractDeclaratorSuffix:
+//	{AbstractDeclaratorSuffix}
+//	(SKW_LEFTBRACKET typeQualifierList=TypeQualifierList? (assignmentExpr+=AssignmentExpression)? SKW_RIGHTBRACKET
+//	|	SKW_LEFTBRACKET KW_STATIC typeQualifierList=TypeQualifierList? (assignmentExpr+=AssignmentExpression) SKW_RIGHTBRACKET
+//	|	SKW_LEFTBRACKET typeQualifierListOrig=TypeQualifierList KW_STATIC assignmentExpr+=AssignmentExpression SKW_RIGHTBRACKET
+//	|	SKW_LEFTBRACKET SKW_STAR SKW_RIGHTBRACKET
+//	//|	SKW_LEFTPAREN parameterTypeList=ParameterTypeList? SKW_RIGHTPAREN (gccDeclExt+=gccDeclaratorExtension)*
+//	)
+//;
+
 
 
 Initializer:
@@ -555,9 +556,6 @@ AsmStatement returns Statement:
 	(volatile=KW_VOLATILE | volatile=KW_VOLATILE2)? 
 		SKW_LEFTPAREN
 			(
-				//(COLON? expr+=LogicalOrExpression 
-				//	(COMMA expr+=LogicalOrExpression)*
-				//)
 				asmLine+=AsmLineWithColon
 				(asmLine+=AsmLineWithComma)*
 			)+
@@ -830,12 +828,19 @@ genericAssociation:
 
 /*** lexer ***/
 /*** start with keywords ;-) */
-//terminal KW_UNDERSCORE: '_';
 
+terminal KW_ATOMIC : '_Atomic';
 terminal KW_AUTO : 'auto';
+terminal KW_ALIGNAS : '_Alignas';
+terminal KW_ALIGNOF : '_Alignof';
+terminal KW_ASM1: SKW_UNDERSCORE SKW_UNDERSCORE 'asm';
+terminal KW_ASM2: KW_ASM1 SKW_UNDERSCORE SKW_UNDERSCORE;
+terminal KW_BOOL : '_Bool';
 terminal KW_BREAK : 'break';
+terminal KW_BUILTIN_VA_LIST: '__builtin_va_list';
 terminal KW_CASE : 'case';
 terminal KW_CHAR : 'char';
+terminal KW_COMPLEX : '_Complex';
 terminal KW_CONST : 'const';
 terminal KW_CONTINUE : 'continue';
 terminal KW_DEFAULT : 'default';
@@ -846,11 +851,18 @@ terminal KW_ENUM : 'enum';
 terminal KW_EXTERN : 'extern';
 terminal KW_FLOAT : 'float';
 terminal KW_FOR : 'for';
+terminal KW_GENERIC : '_Generic';
 terminal KW_GOTO : 'goto';
 terminal KW_IF : 'if';
+terminal KW_IMAGINARY : '_Imaginary';
 terminal KW_INLINE : 'inline';
 terminal KW_INT : 'int';
 terminal KW_LONG : 'long';
+terminal KW_M128: '__m128';
+terminal KW_M128D: '__m128d';
+terminal KW_M128I: '__m128i';
+terminal KW_NORETURN : '_Noreturn';
+terminal KW_PRAGMA: 'pragma';
 terminal KW_REGISTER : 'register';
 terminal KW_RESTRICT : 'restrict';
 terminal KW_RETURN : 'return';
@@ -858,65 +870,19 @@ terminal KW_SHORT : 'short';
 terminal KW_SIGNED : 'signed';
 terminal KW_SIZEOF : 'sizeof';
 terminal KW_STATIC : 'static';
+terminal KW_STATICASSERT : '_Static_assert';
 terminal KW_STRUCT : 'struct';
 terminal KW_SWITCH : 'switch';
+terminal KW_THREADLOCAL : '_Thread_local';
 terminal KW_TYPEDEF : 'typedef';
 terminal KW_UNION : 'union';
 terminal KW_UNSIGNED : 'unsigned';
 terminal KW_VOID : 'void';
 terminal KW_VOLATILE : 'volatile';
+terminal KW_VOLATILE2: SKW_UNDERSCORE SKW_UNDERSCORE KW_VOLATILE SKW_UNDERSCORE SKW_UNDERSCORE ;
 terminal KW_WHILE : 'while';
 
-terminal KW_ALIGNAS : '_Alignas';
-terminal KW_ALIGNOF : '_Alignof';
-terminal KW_ASM1: SKW_UNDERSCORE SKW_UNDERSCORE 'asm';
-terminal KW_ASM2: KW_ASM1 SKW_UNDERSCORE SKW_UNDERSCORE;
-terminal KW_ATOMIC : '_Atomic';
-terminal KW_BOOL : '_Bool';
-terminal KW_COMPLEX : '_Complex';
-terminal KW_GENERIC : '_Generic';
-terminal KW_IMAGINARY : '_Imaginary';
-terminal KW_NORETURN : '_Noreturn';
-terminal KW_STATICASSERT : '_Static_assert';
-terminal KW_THREADLOCAL : '_Thread_local';
-terminal KW_PRAGMA: 'pragma';
-terminal KW_VOLATILE2: SKW_UNDERSCORE SKW_UNDERSCORE KW_VOLATILE SKW_UNDERSCORE SKW_UNDERSCORE ;
 
-/*terminal LEFTPAREN: '(';
-terminal RIGHTPAREN: ')';
-terminal LEFTBRACKET: '[';
-terminal RIGHTBRACKET: ']';
-terminal LEFTBRACE: '{';
-terminal RIGHTBRACE: '}';
-terminal LESS: '<';
-terminal LESSEQUAL: LESS ASSIGN;
-terminal GREATER: '>';
-terminal GREATEREQUAL: GREATER ASSIGN;
-terminal LEFTSHIFT: LESS LESS;
-terminal RIGHTSHIFT: GREATER GREATER;
-
-terminal PLUS: '+';
-terminal PLUSPLUS: PLUS PLUS;
-terminal MINUS: '-';
-terminal MINUSMINUS: MINUS MINUS;
-terminal STAR: '*';
-terminal DIV: '/';
-terminal MOD: '%';
-
-terminal AND: '&';
-terminal ANDAND: AND AND;
-terminal OR: '|';
-terminal OROR: OR OR;
-terminal CARET: '^';
-terminal NOT: '!';
-terminal TILDE: '~';
-
-terminal QUESTION: '?';
-terminal COLON: ':';
-terminal SEMI: ';';
-terminal COMMA: ',';
-terminal ASSIGN: '=';
-*/
 
 terminal STARASSIGN: SKW_STAR SKW_ASSIGN;
 terminal DIVASSIGN: SKW_DIV SKW_ASSIGN;
@@ -933,84 +899,7 @@ terminal ORASSIGN: SKW_OR SKW_ASSIGN;
 terminal ARROW: SKW_MINUS SKW_GREATER;
 terminal ELLIPSIS: SKW_DOT SKW_DOT SKW_DOT;
 
-//terminal ZERO: '0';
-/*terminal SINGLEQUOTE: '\'';
-terminal DOUBLEQUOTE: '"';
 
-
-terminal ID: IDENTIFIER;
-terminal fragment IDENTIFIER:
-	LETTER (LETTER|'0'..'9')*
-;
-
-terminal fragment LETTER:
-	'$'
-	|	'A'..'Z'
-	|	'a'..'z'
-	|	SKW_UNDERSCORE
-;
-
-terminal CHAR_LITERAL:
-	SINGLEQUOTE ( ESCAPE_SEQUENCE | !(SINGLEQUOTE|SKW_BACKSLASH) ) SINGLEQUOTE
-;
-
-terminal STRING_LITERAL:
-	DOUBLEQUOTE ( ESCAPE_SEQUENCE | !(SKW_BACKSLASH|DOUBLEQUOTE) )* DOUBLEQUOTE
-;
-
-terminal HEX_LITERAL: '0' ('x'|'X') HEX_DIGIT+ INTEGER_TYPE_SUFFIX? ;
-
-terminal DECIMAL_LITERAL: ('0' | '1'..'9' '0'..'9'*) INTEGER_TYPE_SUFFIX? ;
-
-terminal OCTAL_LITERAL: '0' ('0'..'7')+ INTEGER_TYPE_SUFFIX? ;
-
-terminal BIN_LITERAL: ('0b' | '0B') ('0'..'1')+;
-
-terminal fragment HEX_DIGIT: ('0'..'9'|'a'..'f'|'A'..'F');
-
-terminal fragment INTEGER_TYPE_SUFFIX:
-	('u'|'U')? ('l'|'L')
-	|	('u'|'U')  ('l'|'L')?
-;
-
-terminal FLOAT_LITERAL:
-	('0'..'9')+ SKW_DOT ('0'..'9')* EXPONENT? FLOAT_TYPE_SUFFIX?
-	|	SKW_DOT ('0'..'9')+ EXPONENT? FLOAT_TYPE_SUFFIX?
-	|	('0'..'9')+ EXPONENT FLOAT_TYPE_SUFFIX?
-	|	('0'..'9')+ EXPONENT? FLOAT_TYPE_SUFFIX
-;
-
-terminal fragment EXPONENT:
-	('e'|'E') ('+'|'-')? ('0'..'9')+
-;
-
-terminal fragment FLOAT_TYPE_SUFFIX: ('f'|'F'|'d'|'D') ;
-
-terminal fragment ESCAPE_SEQUENCE:
-	SKW_BACKSLASH ('b'|'t'|'n'|'f'|'r'|'\"'|SINGLEQUOTE|SKW_BACKSLASH)
-	|	OCTAL_ESCAPE
-;
-
-terminal fragment OCTAL_ESCAPE:
-	SKW_BACKSLASH ('0'..'3') ('0'..'7') ('0'..'7')
-	|	SKW_BACKSLASH ('0'..'7') ('0'..'7')
-	|	SKW_BACKSLASH ('0'..'7')
-;
-
-terminal fragment UNICODE_ESCAPE:
-	SKW_BACKSLASH 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
-;
-
-terminal LINEDIRECTIVE: '#' (!NEWLINE | SKW_BACKSLASH NEWLINE)*;
-
-terminal BLOCK_COMMENT: '/*' -> '';
-terminal LINE_COMMENT: '//' (!NEWLINE)*;
-
-terminal NEWLINE: ('\r'|'\n');
-*/
 terminal LINEDIRECTIVE: '#' (!NEWLINE | SKW_BACKSLASH NEWLINE)*;
 terminal WHITESPACE: (' ' | '\t')+;
 //terminal EOF_TERMINAL: EOF;
-
-//terminal ANYOTHER: !(COMMA | LEFTPAREN | RIGHTPAREN);
-//terminal NOPAREN: !(LEFTPAREN | RIGHTPAREN);

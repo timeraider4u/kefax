@@ -10,11 +10,11 @@ package at.jku.weiner.c.parser.parser;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.StructOrUnionSpecifier#getType <em>Type</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.StructOrUnionSpecifier#getStructDeclList <em>Struct Decl List</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.parser.parser.ParserPackage#getStructOrUnionSpecifier()
  * @model

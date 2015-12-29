@@ -287,6 +287,8 @@ TypeQualifier:
 	{TypeQualifier} 
 	(	type=KW_CONST
 	|	type=KW_RESTRICT
+	|	type=KW_RESTRICT2
+	|	type=KW_RESTRICT3
 	|	type=KW_VOLATILE
 	|	type=KW_ATOMIC
 	)
@@ -898,6 +900,8 @@ terminal KW_NORETURN : SKW_UNDERSCORE 'Noreturn';
 terminal KW_PRAGMA: 'pragma';
 terminal KW_REGISTER : 'register';
 terminal KW_RESTRICT : 'restrict';
+terminal KW_RESTRICT2: SKW_UNDERSCORE SKW_UNDERSCORE KW_RESTRICT;
+terminal KW_RESTRICT3: KW_RESTRICT2 SKW_UNDERSCORE SKW_UNDERSCORE;
 terminal KW_RETURN : 'return';
 terminal KW_SHORT : 'short';
 terminal KW_SIGNED : 'signed';

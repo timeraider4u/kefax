@@ -1216,7 +1216,14 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (type=KW_CONST | type=KW_RESTRICT | type=KW_VOLATILE | type=KW_ATOMIC)
+	 *     (
+	 *         type=KW_CONST | 
+	 *         type=KW_RESTRICT | 
+	 *         type=KW_RESTRICT2 | 
+	 *         type=KW_RESTRICT3 | 
+	 *         type=KW_VOLATILE | 
+	 *         type=KW_ATOMIC
+	 *     )
 	 */
 	protected void sequence_TypeQualifier(EObject context, TypeQualifier semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

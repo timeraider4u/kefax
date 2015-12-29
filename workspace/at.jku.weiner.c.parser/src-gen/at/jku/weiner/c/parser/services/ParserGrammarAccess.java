@@ -1227,9 +1227,13 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cTypeAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
 		private final RuleCall cTypeKW_RESTRICTTerminalRuleCall_1_1_0 = (RuleCall)cTypeAssignment_1_1.eContents().get(0);
 		private final Assignment cTypeAssignment_1_2 = (Assignment)cAlternatives_1.eContents().get(2);
-		private final RuleCall cTypeKW_VOLATILETerminalRuleCall_1_2_0 = (RuleCall)cTypeAssignment_1_2.eContents().get(0);
+		private final RuleCall cTypeKW_RESTRICT2TerminalRuleCall_1_2_0 = (RuleCall)cTypeAssignment_1_2.eContents().get(0);
 		private final Assignment cTypeAssignment_1_3 = (Assignment)cAlternatives_1.eContents().get(3);
-		private final RuleCall cTypeKW_ATOMICTerminalRuleCall_1_3_0 = (RuleCall)cTypeAssignment_1_3.eContents().get(0);
+		private final RuleCall cTypeKW_RESTRICT3TerminalRuleCall_1_3_0 = (RuleCall)cTypeAssignment_1_3.eContents().get(0);
+		private final Assignment cTypeAssignment_1_4 = (Assignment)cAlternatives_1.eContents().get(4);
+		private final RuleCall cTypeKW_VOLATILETerminalRuleCall_1_4_0 = (RuleCall)cTypeAssignment_1_4.eContents().get(0);
+		private final Assignment cTypeAssignment_1_5 = (Assignment)cAlternatives_1.eContents().get(5);
+		private final RuleCall cTypeKW_ATOMICTerminalRuleCall_1_5_0 = (RuleCall)cTypeAssignment_1_5.eContents().get(0);
 		
 		/// *
 		//atomicTypeSpecifier returns declarationSpecifier:
@@ -1238,17 +1242,20 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		// * / TypeQualifier:
 		//	{TypeQualifier} (type=KW_CONST
 		//	| type=KW_RESTRICT
+		//	| type=KW_RESTRICT2
+		//	| type=KW_RESTRICT3
 		//	| type=KW_VOLATILE
 		//	| type=KW_ATOMIC);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{TypeQualifier} (type=KW_CONST | type=KW_RESTRICT | type=KW_VOLATILE | type=KW_ATOMIC)
+		//{TypeQualifier} (type=KW_CONST | type=KW_RESTRICT | type=KW_RESTRICT2 | type=KW_RESTRICT3 | type=KW_VOLATILE |
+		//type=KW_ATOMIC)
 		public Group getGroup() { return cGroup; }
 		
 		//{TypeQualifier}
 		public Action getTypeQualifierAction_0() { return cTypeQualifierAction_0; }
 		
-		//(type=KW_CONST | type=KW_RESTRICT | type=KW_VOLATILE | type=KW_ATOMIC)
+		//(type=KW_CONST | type=KW_RESTRICT | type=KW_RESTRICT2 | type=KW_RESTRICT3 | type=KW_VOLATILE | type=KW_ATOMIC)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
 		//type=KW_CONST
@@ -1263,17 +1270,29 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//KW_RESTRICT
 		public RuleCall getTypeKW_RESTRICTTerminalRuleCall_1_1_0() { return cTypeKW_RESTRICTTerminalRuleCall_1_1_0; }
 		
-		//type=KW_VOLATILE
+		//type=KW_RESTRICT2
 		public Assignment getTypeAssignment_1_2() { return cTypeAssignment_1_2; }
 		
-		//KW_VOLATILE
-		public RuleCall getTypeKW_VOLATILETerminalRuleCall_1_2_0() { return cTypeKW_VOLATILETerminalRuleCall_1_2_0; }
+		//KW_RESTRICT2
+		public RuleCall getTypeKW_RESTRICT2TerminalRuleCall_1_2_0() { return cTypeKW_RESTRICT2TerminalRuleCall_1_2_0; }
 		
-		//type=KW_ATOMIC
+		//type=KW_RESTRICT3
 		public Assignment getTypeAssignment_1_3() { return cTypeAssignment_1_3; }
 		
+		//KW_RESTRICT3
+		public RuleCall getTypeKW_RESTRICT3TerminalRuleCall_1_3_0() { return cTypeKW_RESTRICT3TerminalRuleCall_1_3_0; }
+		
+		//type=KW_VOLATILE
+		public Assignment getTypeAssignment_1_4() { return cTypeAssignment_1_4; }
+		
+		//KW_VOLATILE
+		public RuleCall getTypeKW_VOLATILETerminalRuleCall_1_4_0() { return cTypeKW_VOLATILETerminalRuleCall_1_4_0; }
+		
+		//type=KW_ATOMIC
+		public Assignment getTypeAssignment_1_5() { return cTypeAssignment_1_5; }
+		
 		//KW_ATOMIC
-		public RuleCall getTypeKW_ATOMICTerminalRuleCall_1_3_0() { return cTypeKW_ATOMICTerminalRuleCall_1_3_0; }
+		public RuleCall getTypeKW_ATOMICTerminalRuleCall_1_5_0() { return cTypeKW_ATOMICTerminalRuleCall_1_5_0; }
 	}
 	public class FunctionSpecifierElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.FunctionSpecifier");
@@ -4789,6 +4808,8 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tKW_PRAGMA;
 	private final TerminalRule tKW_REGISTER;
 	private final TerminalRule tKW_RESTRICT;
+	private final TerminalRule tKW_RESTRICT2;
+	private final TerminalRule tKW_RESTRICT3;
 	private final TerminalRule tKW_RETURN;
 	private final TerminalRule tKW_SHORT;
 	private final TerminalRule tKW_SIGNED;
@@ -4950,6 +4971,8 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		this.tKW_PRAGMA = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_PRAGMA");
 		this.tKW_REGISTER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_REGISTER");
 		this.tKW_RESTRICT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_RESTRICT");
+		this.tKW_RESTRICT2 = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_RESTRICT2");
+		this.tKW_RESTRICT3 = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_RESTRICT3");
 		this.tKW_RETURN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_RETURN");
 		this.tKW_SHORT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_SHORT");
 		this.tKW_SIGNED = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_SIGNED");
@@ -5326,6 +5349,8 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	// * / TypeQualifier:
 	//	{TypeQualifier} (type=KW_CONST
 	//	| type=KW_RESTRICT
+	//	| type=KW_RESTRICT2
+	//	| type=KW_RESTRICT3
 	//	| type=KW_VOLATILE
 	//	| type=KW_ATOMIC);
 	public TypeQualifierElements getTypeQualifierAccess() {
@@ -6297,6 +6322,18 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//	'restrict';
 	public TerminalRule getKW_RESTRICTRule() {
 		return tKW_RESTRICT;
+	}
+	
+	//terminal KW_RESTRICT2:
+	//	SKW_UNDERSCORE SKW_UNDERSCORE KW_RESTRICT;
+	public TerminalRule getKW_RESTRICT2Rule() {
+		return tKW_RESTRICT2;
+	}
+	
+	//terminal KW_RESTRICT3:
+	//	KW_RESTRICT2 SKW_UNDERSCORE SKW_UNDERSCORE;
+	public TerminalRule getKW_RESTRICT3Rule() {
+		return tKW_RESTRICT3;
 	}
 	
 	//terminal KW_RETURN:

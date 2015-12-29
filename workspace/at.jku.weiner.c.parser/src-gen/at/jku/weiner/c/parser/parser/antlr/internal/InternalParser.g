@@ -2782,9 +2782,9 @@ ruleTypeQualifier returns [EObject current=null]
     |
 (
 (
-		lv_type_3_0=RULE_KW_VOLATILE
+		lv_type_3_0=RULE_KW_RESTRICT2
 		{
-			newLeafNode(lv_type_3_0, grammarAccess.getTypeQualifierAccess().getTypeKW_VOLATILETerminalRuleCall_1_2_0()); 
+			newLeafNode(lv_type_3_0, grammarAccess.getTypeQualifierAccess().getTypeKW_RESTRICT2TerminalRuleCall_1_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -2794,6 +2794,50 @@ ruleTypeQualifier returns [EObject current=null]
        			$current, 
        			"type",
         		lv_type_3_0, 
+        		"at.jku.weiner.c.parser.Parser.KW_RESTRICT2");
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		lv_type_4_0=RULE_KW_RESTRICT3
+		{
+			newLeafNode(lv_type_4_0, grammarAccess.getTypeQualifierAccess().getTypeKW_RESTRICT3TerminalRuleCall_1_3_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTypeQualifierRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"type",
+        		lv_type_4_0, 
+        		"at.jku.weiner.c.parser.Parser.KW_RESTRICT3");
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		lv_type_5_0=RULE_KW_VOLATILE
+		{
+			newLeafNode(lv_type_5_0, grammarAccess.getTypeQualifierAccess().getTypeKW_VOLATILETerminalRuleCall_1_4_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTypeQualifierRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"type",
+        		lv_type_5_0, 
         		"at.jku.weiner.c.parser.Parser.KW_VOLATILE");
 	    }
 
@@ -2804,9 +2848,9 @@ ruleTypeQualifier returns [EObject current=null]
     |
 (
 (
-		lv_type_4_0=RULE_KW_ATOMIC
+		lv_type_6_0=RULE_KW_ATOMIC
 		{
-			newLeafNode(lv_type_4_0, grammarAccess.getTypeQualifierAccess().getTypeKW_ATOMICTerminalRuleCall_1_3_0()); 
+			newLeafNode(lv_type_6_0, grammarAccess.getTypeQualifierAccess().getTypeKW_ATOMICTerminalRuleCall_1_5_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -2815,7 +2859,7 @@ ruleTypeQualifier returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"type",
-        		lv_type_4_0, 
+        		lv_type_6_0, 
         		"at.jku.weiner.c.parser.Parser.KW_ATOMIC");
 	    }
 
@@ -10699,6 +10743,10 @@ RULE_KW_PRAGMA : 'pragma';
 RULE_KW_REGISTER : 'register';
 
 RULE_KW_RESTRICT : 'restrict';
+
+RULE_KW_RESTRICT2 : RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE RULE_KW_RESTRICT;
+
+RULE_KW_RESTRICT3 : RULE_KW_RESTRICT2 RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE;
 
 RULE_KW_RETURN : 'return';
 

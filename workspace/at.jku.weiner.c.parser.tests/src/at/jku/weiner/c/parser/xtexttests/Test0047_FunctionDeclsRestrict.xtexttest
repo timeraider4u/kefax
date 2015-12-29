@@ -1,0 +1,101 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.parser
+language parser
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+source file="res/Test0047_FunctionDeclsRestrict.c"
+//----------------------------------------------------------------------
+lexer-tokens
+KW_CHAR WHITESPACE ID SKW_LEFTPAREN KW_CONST WHITESPACE
+	KW_INT WHITESPACE SKW_STAR WHITESPACE KW_RESTRICT WHITESPACE ID 
+	SKW_RIGHTPAREN SKW_SEMI NEWLINE
+KW_CHAR WHITESPACE ID SKW_LEFTPAREN KW_CONST WHITESPACE
+	KW_INT WHITESPACE SKW_STAR WHITESPACE KW_RESTRICT2 WHITESPACE ID 
+	SKW_RIGHTPAREN SKW_SEMI NEWLINE
+KW_CHAR WHITESPACE ID SKW_LEFTPAREN KW_CONST WHITESPACE
+	KW_INT WHITESPACE SKW_STAR WHITESPACE KW_RESTRICT3 WHITESPACE ID 
+	SKW_RIGHTPAREN SKW_SEMI NEWLINE
+
+//----------------------------------------------------------------------
+//(common::Model units+=
+	//(common::TranslationUnit 
+	(Parser
+		external+=
+		// 
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"char"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"do1",
+								declaratorSuffix+=
+								(DeclaratorSuffix
+									lastSuffix=
+									(DirectDeclaratorLastSuffix
+										parameterTypeList+=
+										(ParameterTypeList
+											list=
+											(ParameterList
+												parameterDeclaration+=
+												(ParameterDeclaration
+													declSpecifiers=
+													(DeclarationSpecifiers
+														declarationSpecifier+=
+														(TypeQualifier
+															type++"const"
+														),
+														(TypeSpecifier
+															name++"int"
+														)
+													),
+													declarator=
+													(Declarator
+														pointer=
+														(Pointer
+															star+*"[*]"
+														),
+														declarator=
+														(DirectDeclarator
+															id++"c"
+														)
+													)
+												)
+											)
+										)
+									)
+								)
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+		),
+		(ExternalDeclaration),
+		(ExternalDeclaration )
+		
+		
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0047_FunctionDeclsRestrict.c"
+expected file isSameAsInputFile
+
+replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

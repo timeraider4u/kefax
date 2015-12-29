@@ -25,7 +25,7 @@ public class XtextTestParser extends org.eclipse.xtext.parser.antlr.AbstractAntl
 	
 	@Override 
 	protected String getDefaultRuleName() {
-		return "XtextTest";
+		return "Model";
 	}
 	
 	public XtextTestGrammarAccess getGrammarAccess() {

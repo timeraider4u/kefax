@@ -4,10 +4,14 @@ package at.jku.weiner.xtexttest.xtextTest.impl;
 
 import at.jku.weiner.xtexttest.xtextTest.After;
 import at.jku.weiner.xtexttest.xtextTest.Before;
+import at.jku.weiner.xtexttest.xtextTest.CodeCall;
 import at.jku.weiner.xtexttest.xtextTest.Element;
+import at.jku.weiner.xtexttest.xtextTest.EmfTest;
 import at.jku.weiner.xtexttest.xtextTest.Generator;
+import at.jku.weiner.xtexttest.xtextTest.Import;
 import at.jku.weiner.xtexttest.xtextTest.Inner;
 import at.jku.weiner.xtexttest.xtextTest.Input;
+import at.jku.weiner.xtexttest.xtextTest.Model;
 import at.jku.weiner.xtexttest.xtextTest.MyTokens;
 import at.jku.weiner.xtexttest.xtextTest.ReplacePatterns;
 import at.jku.weiner.xtexttest.xtextTest.Tokens;
@@ -35,7 +39,28 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass modelEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass xtextTestEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass emfTestEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass importEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -101,6 +126,13 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
   private EClass afterEClass = null;
 
   /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass codeCallEClass = null;
+
+  /**
    * Creates an instance of the model <b>Package</b>, registered with
    * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
    * package URI value.
@@ -161,6 +193,36 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
     // Update the registry and return the package
     EPackage.Registry.INSTANCE.put(XtextTestPackage.eNS_URI, theXtextTestPackage);
     return theXtextTestPackage;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getModel()
+  {
+    return modelEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getModel_XtextTest()
+  {
+    return (EReference)modelEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getModel_EmfTest()
+  {
+    return (EReference)modelEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -271,6 +333,106 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
   public EReference getXtextTest_After()
   {
     return (EReference)xtextTestEClass.getEStructuralFeatures().get(9);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getEmfTest()
+  {
+    return emfTestEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getEmfTest_Package()
+  {
+    return (EAttribute)emfTestEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getEmfTest_Mydefault()
+  {
+    return (EAttribute)emfTestEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getEmfTest_Myimport()
+  {
+    return (EReference)emfTestEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getEmfTest_CodeCall()
+  {
+    return (EReference)emfTestEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getEmfTest_File()
+  {
+    return (EAttribute)emfTestEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getEmfTest_Root()
+  {
+    return (EReference)emfTestEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getImport()
+  {
+    return importEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getImport_Id()
+  {
+    return (EAttribute)importEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getImport_Alias()
+  {
+    return (EAttribute)importEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -648,6 +810,46 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getCodeCall()
+  {
+    return codeCallEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCodeCall_Myclass()
+  {
+    return (EAttribute)codeCallEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCodeCall_Method()
+  {
+    return (EAttribute)codeCallEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCodeCall_Params()
+  {
+    return (EAttribute)codeCallEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public XtextTestFactory getXtextTestFactory()
   {
     return (XtextTestFactory)getEFactoryInstance();
@@ -673,6 +875,10 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
     isCreated = true;
 
     // Create classes and their features
+    modelEClass = createEClass(MODEL);
+    createEReference(modelEClass, MODEL__XTEXT_TEST);
+    createEReference(modelEClass, MODEL__EMF_TEST);
+
     xtextTestEClass = createEClass(XTEXT_TEST);
     createEAttribute(xtextTestEClass, XTEXT_TEST__PACKAGE);
     createEAttribute(xtextTestEClass, XTEXT_TEST__LANG);
@@ -684,6 +890,18 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
     createEReference(xtextTestEClass, XTEXT_TEST__OUTPUT);
     createEReference(xtextTestEClass, XTEXT_TEST__BEFORE);
     createEReference(xtextTestEClass, XTEXT_TEST__AFTER);
+
+    emfTestEClass = createEClass(EMF_TEST);
+    createEAttribute(emfTestEClass, EMF_TEST__PACKAGE);
+    createEAttribute(emfTestEClass, EMF_TEST__MYDEFAULT);
+    createEReference(emfTestEClass, EMF_TEST__MYIMPORT);
+    createEReference(emfTestEClass, EMF_TEST__CODE_CALL);
+    createEAttribute(emfTestEClass, EMF_TEST__FILE);
+    createEReference(emfTestEClass, EMF_TEST__ROOT);
+
+    importEClass = createEClass(IMPORT);
+    createEAttribute(importEClass, IMPORT__ID);
+    createEAttribute(importEClass, IMPORT__ALIAS);
 
     inputEClass = createEClass(INPUT);
     createEAttribute(inputEClass, INPUT__TEXT);
@@ -730,6 +948,11 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
     afterEClass = createEClass(AFTER);
     createEAttribute(afterEClass, AFTER__MYCLASS);
     createEAttribute(afterEClass, AFTER__METHOD);
+
+    codeCallEClass = createEClass(CODE_CALL);
+    createEAttribute(codeCallEClass, CODE_CALL__MYCLASS);
+    createEAttribute(codeCallEClass, CODE_CALL__METHOD);
+    createEAttribute(codeCallEClass, CODE_CALL__PARAMS);
   }
 
   /**
@@ -763,6 +986,10 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
     // Add supertypes to classes
 
     // Initialize classes and features; add operations and parameters
+    initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getModel_XtextTest(), this.getXtextTest(), null, "xtextTest", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_EmfTest(), this.getEmfTest(), null, "emfTest", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(xtextTestEClass, XtextTest.class, "XtextTest", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getXtextTest_Package(), ecorePackage.getEString(), "package", null, 0, 1, XtextTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getXtextTest_Lang(), ecorePackage.getEString(), "lang", null, 0, 1, XtextTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -774,6 +1001,18 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
     initEReference(getXtextTest_Output(), this.getGenerator(), null, "output", null, 0, 1, XtextTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getXtextTest_Before(), this.getBefore(), null, "before", null, 0, 1, XtextTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getXtextTest_After(), this.getAfter(), null, "after", null, 0, 1, XtextTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(emfTestEClass, EmfTest.class, "EmfTest", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getEmfTest_Package(), ecorePackage.getEString(), "package", null, 0, 1, EmfTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getEmfTest_Mydefault(), ecorePackage.getEString(), "mydefault", null, 0, 1, EmfTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEmfTest_Myimport(), this.getImport(), null, "myimport", null, 0, -1, EmfTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEmfTest_CodeCall(), this.getCodeCall(), null, "codeCall", null, 0, 1, EmfTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getEmfTest_File(), ecorePackage.getEString(), "file", null, 0, 1, EmfTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEmfTest_Root(), this.getElement(), null, "root", null, 0, 1, EmfTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(importEClass, Import.class, "Import", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getImport_Id(), ecorePackage.getEString(), "id", null, 0, 1, Import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getImport_Alias(), ecorePackage.getEString(), "alias", null, 0, 1, Import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(inputEClass, Input.class, "Input", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getInput_Text(), ecorePackage.getEString(), "text", null, 0, 1, Input.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -820,6 +1059,11 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
     initEClass(afterEClass, After.class, "After", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAfter_Myclass(), ecorePackage.getEString(), "myclass", null, 0, 1, After.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAfter_Method(), ecorePackage.getEString(), "method", null, 0, 1, After.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(codeCallEClass, CodeCall.class, "CodeCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCodeCall_Myclass(), ecorePackage.getEString(), "myclass", null, 0, 1, CodeCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCodeCall_Method(), ecorePackage.getEString(), "method", null, 0, 1, CodeCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCodeCall_Params(), ecorePackage.getEString(), "params", null, 0, -1, CodeCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

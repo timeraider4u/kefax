@@ -23,6 +23,15 @@ public interface XtextTestFactory extends EFactory
   XtextTestFactory eINSTANCE = at.jku.weiner.xtexttest.xtextTest.impl.XtextTestFactoryImpl.init();
 
   /**
+   * Returns a new object of class '<em>Model</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Model</em>'.
+   * @generated
+   */
+  Model createModel();
+
+  /**
    * Returns a new object of class '<em>Xtext Test</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -30,6 +39,24 @@ public interface XtextTestFactory extends EFactory
    * @generated
    */
   XtextTest createXtextTest();
+
+  /**
+   * Returns a new object of class '<em>Emf Test</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Emf Test</em>'.
+   * @generated
+   */
+  EmfTest createEmfTest();
+
+  /**
+   * Returns a new object of class '<em>Import</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Import</em>'.
+   * @generated
+   */
+  Import createImport();
 
   /**
    * Returns a new object of class '<em>Input</em>'.
@@ -111,6 +138,15 @@ public interface XtextTestFactory extends EFactory
    * @generated
    */
   After createAfter();
+
+  /**
+   * Returns a new object of class '<em>Code Call</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Code Call</em>'.
+   * @generated
+   */
+  CodeCall createCodeCall();
 
   /**
    * Returns the package supported by this factory.

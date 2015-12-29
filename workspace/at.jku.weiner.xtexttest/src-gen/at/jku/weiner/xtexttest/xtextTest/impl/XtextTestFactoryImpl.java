@@ -64,7 +64,10 @@ public class XtextTestFactoryImpl extends EFactoryImpl implements XtextTestFacto
   {
     switch (eClass.getClassifierID())
     {
+      case XtextTestPackage.MODEL: return createModel();
       case XtextTestPackage.XTEXT_TEST: return createXtextTest();
+      case XtextTestPackage.EMF_TEST: return createEmfTest();
+      case XtextTestPackage.IMPORT: return createImport();
       case XtextTestPackage.INPUT: return createInput();
       case XtextTestPackage.TOKENS: return createTokens();
       case XtextTestPackage.MY_TOKENS: return createMyTokens();
@@ -74,9 +77,21 @@ public class XtextTestFactoryImpl extends EFactoryImpl implements XtextTestFacto
       case XtextTestPackage.REPLACE_PATTERNS: return createReplacePatterns();
       case XtextTestPackage.BEFORE: return createBefore();
       case XtextTestPackage.AFTER: return createAfter();
+      case XtextTestPackage.CODE_CALL: return createCodeCall();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Model createModel()
+  {
+    ModelImpl model = new ModelImpl();
+    return model;
   }
 
   /**
@@ -88,6 +103,28 @@ public class XtextTestFactoryImpl extends EFactoryImpl implements XtextTestFacto
   {
     XtextTestImpl xtextTest = new XtextTestImpl();
     return xtextTest;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EmfTest createEmfTest()
+  {
+    EmfTestImpl emfTest = new EmfTestImpl();
+    return emfTest;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Import createImport()
+  {
+    ImportImpl import_ = new ImportImpl();
+    return import_;
   }
 
   /**
@@ -187,6 +224,17 @@ public class XtextTestFactoryImpl extends EFactoryImpl implements XtextTestFacto
   {
     AfterImpl after = new AfterImpl();
     return after;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public CodeCall createCodeCall()
+  {
+    CodeCallImpl codeCall = new CodeCallImpl();
+    return codeCall;
   }
 
   /**

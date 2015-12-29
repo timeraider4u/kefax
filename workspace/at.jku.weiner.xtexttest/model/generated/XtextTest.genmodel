@@ -4,9 +4,13 @@
     editorDirectory="/at.jku.weiner.xtexttest.editor/src" modelPluginID="at.jku.weiner.xtexttest"
     forceOverwrite="true" modelName="XtextTest" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="6.0" copyrightFields="false" editPluginID="at.jku.weiner.xtexttest.edit"
-    editorPluginID="at.jku.weiner.xtexttest.editor" runtimeVersion="2.10">
+    editorPluginID="at.jku.weiner.xtexttest.editor" runtimeVersion="2.11">
   <genPackages prefix="XtextTest" basePackage="at.jku.weiner.xtexttest" disposableProviderFactory="true"
       fileExtensions="xtexttest" ecorePackage="XtextTest.ecore#/">
+    <genClasses ecoreClass="XtextTest.ecore#//Model">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XtextTest.ecore#//Model/xtextTest"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XtextTest.ecore#//Model/emfTest"/>
+    </genClasses>
     <genClasses ecoreClass="XtextTest.ecore#//XtextTest">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//XtextTest/package"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//XtextTest/lang"/>
@@ -18,6 +22,18 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XtextTest.ecore#//XtextTest/output"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XtextTest.ecore#//XtextTest/before"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XtextTest.ecore#//XtextTest/after"/>
+    </genClasses>
+    <genClasses ecoreClass="XtextTest.ecore#//EmfTest">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//EmfTest/package"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//EmfTest/mydefault"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XtextTest.ecore#//EmfTest/myimport"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XtextTest.ecore#//EmfTest/codeCall"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//EmfTest/file"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XtextTest.ecore#//EmfTest/root"/>
+    </genClasses>
+    <genClasses ecoreClass="XtextTest.ecore#//Import">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//Import/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//Import/alias"/>
     </genClasses>
     <genClasses ecoreClass="XtextTest.ecore#//Input">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//Input/text"/>
@@ -64,6 +80,11 @@
     <genClasses ecoreClass="XtextTest.ecore#//After">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//After/myclass"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//After/method"/>
+    </genClasses>
+    <genClasses ecoreClass="XtextTest.ecore#//CodeCall">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//CodeCall/myclass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//CodeCall/method"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//CodeCall/params"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

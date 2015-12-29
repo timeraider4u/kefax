@@ -75,9 +75,24 @@ public class XtextTestAdapterFactory extends AdapterFactoryImpl
     new XtextTestSwitch<Adapter>()
     {
       @Override
+      public Adapter caseModel(Model object)
+      {
+        return createModelAdapter();
+      }
+      @Override
       public Adapter caseXtextTest(XtextTest object)
       {
         return createXtextTestAdapter();
+      }
+      @Override
+      public Adapter caseEmfTest(EmfTest object)
+      {
+        return createEmfTestAdapter();
+      }
+      @Override
+      public Adapter caseImport(Import object)
+      {
+        return createImportAdapter();
       }
       @Override
       public Adapter caseInput(Input object)
@@ -125,6 +140,11 @@ public class XtextTestAdapterFactory extends AdapterFactoryImpl
         return createAfterAdapter();
       }
       @Override
+      public Adapter caseCodeCall(CodeCall object)
+      {
+        return createCodeCallAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -147,6 +167,21 @@ public class XtextTestAdapterFactory extends AdapterFactoryImpl
 
 
   /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.xtexttest.xtextTest.Model <em>Model</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.xtexttest.xtextTest.Model
+   * @generated
+   */
+  public Adapter createModelAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link at.jku.weiner.xtexttest.xtextTest.XtextTest <em>Xtext Test</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -157,6 +192,36 @@ public class XtextTestAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createXtextTestAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.xtexttest.xtextTest.EmfTest <em>Emf Test</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.xtexttest.xtextTest.EmfTest
+   * @generated
+   */
+  public Adapter createEmfTestAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.xtexttest.xtextTest.Import <em>Import</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.xtexttest.xtextTest.Import
+   * @generated
+   */
+  public Adapter createImportAdapter()
   {
     return null;
   }
@@ -292,6 +357,21 @@ public class XtextTestAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createAfterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.xtexttest.xtextTest.CodeCall <em>Code Call</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.xtexttest.xtextTest.CodeCall
+   * @generated
+   */
+  public Adapter createCodeCallAdapter()
   {
     return null;
   }

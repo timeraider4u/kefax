@@ -50,7 +50,7 @@ public class XtextTestSwitch<T> extends Switch<T>
    * Checks whether this is a switch for the given package.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @parameter ePackage the package in question.
+   * @param ePackage the package in question.
    * @return whether this is a switch for the given package.
    * @generated
    */
@@ -72,10 +72,31 @@ public class XtextTestSwitch<T> extends Switch<T>
   {
     switch (classifierID)
     {
+      case XtextTestPackage.MODEL:
+      {
+        Model model = (Model)theEObject;
+        T result = caseModel(model);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case XtextTestPackage.XTEXT_TEST:
       {
         XtextTest xtextTest = (XtextTest)theEObject;
         T result = caseXtextTest(xtextTest);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case XtextTestPackage.EMF_TEST:
+      {
+        EmfTest emfTest = (EmfTest)theEObject;
+        T result = caseEmfTest(emfTest);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case XtextTestPackage.IMPORT:
+      {
+        Import import_ = (Import)theEObject;
+        T result = caseImport(import_);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -142,8 +163,31 @@ public class XtextTestSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case XtextTestPackage.CODE_CALL:
+      {
+        CodeCall codeCall = (CodeCall)theEObject;
+        T result = caseCodeCall(codeCall);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Model</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Model</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseModel(Model object)
+  {
+    return null;
   }
 
   /**
@@ -158,6 +202,38 @@ public class XtextTestSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseXtextTest(XtextTest object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Emf Test</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Emf Test</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEmfTest(EmfTest object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Import</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Import</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseImport(Import object)
   {
     return null;
   }
@@ -302,6 +378,22 @@ public class XtextTestSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseAfter(After object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Code Call</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Code Call</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCodeCall(CodeCall object)
   {
     return null;
   }

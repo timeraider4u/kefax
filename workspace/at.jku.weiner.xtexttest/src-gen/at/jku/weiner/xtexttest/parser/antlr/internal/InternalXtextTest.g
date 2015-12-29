@@ -45,7 +45,7 @@ import at.jku.weiner.xtexttest.services.XtextTestGrammarAccess;
     
     @Override
     protected String getFirstRuleName() {
-    	return "XtextTest";	
+    	return "Model";	
    	}
    	
    	@Override
@@ -60,6 +60,88 @@ import at.jku.weiner.xtexttest.services.XtextTestGrammarAccess;
         appendSkippedTokens();
     } 
 }
+
+
+
+
+// Entry rule entryRuleModel
+entryRuleModel returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getModelRule()); }
+	 iv_ruleModel=ruleModel 
+	 { $current=$iv_ruleModel.current; } 
+	 EOF 
+;
+
+// Rule Model
+ruleModel returns [EObject current=null] 
+    @init { enterRule();
+   		/*no init found*/
+    }
+    @after { leaveRule();
+    		/*no after found*/
+     }:
+
+(
+(
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getModelAccess().getModelAction_0(),
+            $current);
+    }
+)
+
+
+(
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getModelAccess().getXtextTestXtextTestParserRuleCall_1_0_0()); 
+	    }
+		lv_xtextTest_1_0=ruleXtextTest		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getModelRule());
+	        }
+       		set(
+       			$current, 
+       			"xtextTest",
+        		lv_xtextTest_1_0, 
+        		"at.jku.weiner.xtexttest.XtextTest.XtextTest");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getModelAccess().getEmfTestEmfTestParserRuleCall_1_1_0()); 
+	    }
+		lv_emfTest_2_0=ruleEmfTest		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getModelRule());
+	        }
+       		set(
+       			$current, 
+       			"emfTest",
+        		lv_emfTest_2_0, 
+        		"at.jku.weiner.xtexttest.XtextTest.EmfTest");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+)
+
+)
+
+
+;
+
 
 
 
@@ -341,6 +423,305 @@ this_ASSIGNASSINGLE_8=RULE_ASSIGNASSINGLE
 
 )
 )?
+
+)
+
+
+;
+
+
+
+
+
+// Entry rule entryRuleEmfTest
+entryRuleEmfTest returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getEmfTestRule()); }
+	 iv_ruleEmfTest=ruleEmfTest 
+	 { $current=$iv_ruleEmfTest.current; } 
+	 EOF 
+;
+
+// Rule EmfTest
+ruleEmfTest returns [EObject current=null] 
+    @init { enterRule();
+   		/*no init found*/
+    }
+    @after { leaveRule();
+    		/*no after found*/
+     }:
+
+(
+(
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getEmfTestAccess().getEmfTestAction_0(),
+            $current);
+    }
+)
+
+
+this_KW_EMFTEST_1=RULE_KW_EMFTEST
+    { 
+    newLeafNode(this_KW_EMFTEST_1, grammarAccess.getEmfTestAccess().getKW_EMFTESTTerminalRuleCall_1()); 
+    }
+
+
+
+this_PACKAGE_2=RULE_PACKAGE
+    { 
+    newLeafNode(this_PACKAGE_2, grammarAccess.getEmfTestAccess().getPACKAGETerminalRuleCall_2()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getEmfTestAccess().getPackagePackageIDParserRuleCall_3_0()); 
+	    }
+		lv_package_3_0=rulePackageID		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getEmfTestRule());
+	        }
+       		set(
+       			$current, 
+       			"package",
+        		lv_package_3_0, 
+        		"at.jku.weiner.xtexttest.XtextTest.PackageID");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+this_DEFAULT_4=RULE_DEFAULT
+    { 
+    newLeafNode(this_DEFAULT_4, grammarAccess.getEmfTestAccess().getDEFAULTTerminalRuleCall_4()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getEmfTestAccess().getMydefaultPackageIDParserRuleCall_5_0()); 
+	    }
+		lv_mydefault_5_0=rulePackageID		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getEmfTestRule());
+	        }
+       		set(
+       			$current, 
+       			"mydefault",
+        		lv_mydefault_5_0, 
+        		"at.jku.weiner.xtexttest.XtextTest.PackageID");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getEmfTestAccess().getMyimportImportParserRuleCall_6_0()); 
+	    }
+		lv_myimport_6_0=ruleImport		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getEmfTestRule());
+	        }
+       		add(
+       			$current, 
+       			"myimport",
+        		lv_myimport_6_0, 
+        		"at.jku.weiner.xtexttest.XtextTest.Import");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getEmfTestAccess().getCodeCallCodeCallParserRuleCall_7_0()); 
+	    }
+		lv_codeCall_7_0=ruleCodeCall		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getEmfTestRule());
+	        }
+       		set(
+       			$current, 
+       			"codeCall",
+        		lv_codeCall_7_0, 
+        		"at.jku.weiner.xtexttest.XtextTest.CodeCall");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+(
+this_SOURCE_8=RULE_SOURCE
+    { 
+    newLeafNode(this_SOURCE_8, grammarAccess.getEmfTestAccess().getSOURCETerminalRuleCall_8_0()); 
+    }
+
+
+
+this_FILE_9=RULE_FILE
+    { 
+    newLeafNode(this_FILE_9, grammarAccess.getEmfTestAccess().getFILETerminalRuleCall_8_1()); 
+    }
+
+
+
+this_ASSIGNASSINGLE_10=RULE_ASSIGNASSINGLE
+    { 
+    newLeafNode(this_ASSIGNASSINGLE_10, grammarAccess.getEmfTestAccess().getASSIGNASSINGLETerminalRuleCall_8_2()); 
+    }
+
+
+
+(
+(
+		lv_file_11_0=RULE_STRING
+		{
+			newLeafNode(lv_file_11_0, grammarAccess.getEmfTestAccess().getFileSTRINGTerminalRuleCall_8_3_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getEmfTestRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"file",
+        		lv_file_11_0, 
+        		"org.eclipse.xtext.common.Terminals.STRING");
+	    }
+
+)
+)
+
+)
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getEmfTestAccess().getRootElementParserRuleCall_9_0()); 
+	    }
+		lv_root_12_0=ruleElement		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getEmfTestRule());
+	        }
+       		set(
+       			$current, 
+       			"root",
+        		lv_root_12_0, 
+        		"at.jku.weiner.xtexttest.XtextTest.Element");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+)
+
+
+;
+
+
+
+
+
+// Entry rule entryRuleImport
+entryRuleImport returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getImportRule()); }
+	 iv_ruleImport=ruleImport 
+	 { $current=$iv_ruleImport.current; } 
+	 EOF 
+;
+
+// Rule Import
+ruleImport returns [EObject current=null] 
+    @init { enterRule();
+   		/*no init found*/
+    }
+    @after { leaveRule();
+    		/*no after found*/
+     }:
+
+(
+(
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getImportAccess().getImportAction_0(),
+            $current);
+    }
+)
+
+
+this_IMPORTS_1=RULE_IMPORTS
+    { 
+    newLeafNode(this_IMPORTS_1, grammarAccess.getImportAccess().getIMPORTSTerminalRuleCall_1()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getImportAccess().getIdImportIDParserRuleCall_2_0()); 
+	    }
+		lv_id_2_0=ruleImportID		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getImportRule());
+	        }
+       		set(
+       			$current, 
+       			"id",
+        		lv_id_2_0, 
+        		"at.jku.weiner.xtexttest.XtextTest.ImportID");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+this_KW_AS_3=RULE_KW_AS
+    { 
+    newLeafNode(this_KW_AS_3, grammarAccess.getImportAccess().getKW_ASTerminalRuleCall_3()); 
+    }
+
+
+
+(
+(
+		lv_alias_4_0=RULE_IDENTIFIER
+		{
+			newLeafNode(lv_alias_4_0, grammarAccess.getImportAccess().getAliasIDENTIFIERTerminalRuleCall_4_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getImportRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"alias",
+        		lv_alias_4_0, 
+        		"at.jku.weiner.xtexttest.XtextTest.IDENTIFIER");
+	    }
+
+)
+)
 
 )
 
@@ -1807,11 +2188,183 @@ this_RIGHTPAREN_8=RULE_RIGHTPAREN
 
 
 
+// Entry rule entryRuleCodeCall
+entryRuleCodeCall returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getCodeCallRule()); }
+	 iv_ruleCodeCall=ruleCodeCall 
+	 { $current=$iv_ruleCodeCall.current; } 
+	 EOF 
+;
+
+// Rule CodeCall
+ruleCodeCall returns [EObject current=null] 
+    @init { enterRule();
+   		/*no init found*/
+    }
+    @after { leaveRule();
+    		/*no after found*/
+     }:
+
+(
+this_CLASS_KW_0=RULE_CLASS_KW
+    { 
+    newLeafNode(this_CLASS_KW_0, grammarAccess.getCodeCallAccess().getCLASS_KWTerminalRuleCall_0()); 
+    }
+
+
+
+this_ASSIGNASSINGLE_1=RULE_ASSIGNASSINGLE
+    { 
+    newLeafNode(this_ASSIGNASSINGLE_1, grammarAccess.getCodeCallAccess().getASSIGNASSINGLETerminalRuleCall_1()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getCodeCallAccess().getMyclassPackageIDParserRuleCall_2_0()); 
+	    }
+		lv_myclass_2_0=rulePackageID		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getCodeCallRule());
+	        }
+       		set(
+       			$current, 
+       			"myclass",
+        		lv_myclass_2_0, 
+        		"at.jku.weiner.xtexttest.XtextTest.PackageID");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+this_METHOD_KW_3=RULE_METHOD_KW
+    { 
+    newLeafNode(this_METHOD_KW_3, grammarAccess.getCodeCallAccess().getMETHOD_KWTerminalRuleCall_3()); 
+    }
+
+
+
+this_ASSIGNASSINGLE_4=RULE_ASSIGNASSINGLE
+    { 
+    newLeafNode(this_ASSIGNASSINGLE_4, grammarAccess.getCodeCallAccess().getASSIGNASSINGLETerminalRuleCall_4()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getCodeCallAccess().getMethodPackageIDParserRuleCall_5_0()); 
+	    }
+		lv_method_5_0=rulePackageID		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getCodeCallRule());
+	        }
+       		set(
+       			$current, 
+       			"method",
+        		lv_method_5_0, 
+        		"at.jku.weiner.xtexttest.XtextTest.PackageID");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+this_LEFTPAREN_6=RULE_LEFTPAREN
+    { 
+    newLeafNode(this_LEFTPAREN_6, grammarAccess.getCodeCallAccess().getLEFTPARENTerminalRuleCall_6()); 
+    }
+
+
+
+(
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getCodeCallAccess().getParamsPackageIDParserRuleCall_7_0_0()); 
+	    }
+		lv_params_7_0=rulePackageID		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getCodeCallRule());
+	        }
+       		add(
+       			$current, 
+       			"params",
+        		lv_params_7_0, 
+        		"at.jku.weiner.xtexttest.XtextTest.PackageID");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+(
+this_COMMA_8=RULE_COMMA
+    { 
+    newLeafNode(this_COMMA_8, grammarAccess.getCodeCallAccess().getCOMMATerminalRuleCall_7_1_0()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getCodeCallAccess().getParamsPackageIDParserRuleCall_7_1_1_0()); 
+	    }
+		lv_params_9_0=rulePackageID		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getCodeCallRule());
+	        }
+       		add(
+       			$current, 
+       			"params",
+        		lv_params_9_0, 
+        		"at.jku.weiner.xtexttest.XtextTest.PackageID");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+)*
+
+)?
+
+
+this_RIGHTPAREN_10=RULE_RIGHTPAREN
+    { 
+    newLeafNode(this_RIGHTPAREN_10, grammarAccess.getCodeCallAccess().getRIGHTPARENTerminalRuleCall_8()); 
+    }
+
+
+)
+
+
+;
+
+
+
+
+
+RULE_KW_EMFTEST : 'emftest';
+
 RULE_PACKAGE : 'package';
+
+RULE_DEFAULT : 'default';
 
 RULE_LANGUAGE : 'language';
 
 RULE_IMPORTS : 'imports';
+
+RULE_KW_AS : 'as';
 
 RULE_POINT : '.';
 

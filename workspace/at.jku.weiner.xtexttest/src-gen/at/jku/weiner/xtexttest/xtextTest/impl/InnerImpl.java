@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.InnerImpl#getParameter <em>Parameter</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.InnerImpl#getAssign <em>Assign</em>}</li>
@@ -38,7 +39,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.InnerImpl#isIsNull <em>Is Null</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.InnerImpl#isIsNotNull <em>Is Not Null</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

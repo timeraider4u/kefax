@@ -57,6 +57,43 @@ public interface XtextTestPackage extends EPackage
   XtextTestPackage eINSTANCE = at.jku.weiner.xtexttest.xtextTest.impl.XtextTestPackageImpl.init();
 
   /**
+   * The meta object id for the '{@link at.jku.weiner.xtexttest.xtextTest.impl.ModelImpl <em>Model</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.xtexttest.xtextTest.impl.ModelImpl
+   * @see at.jku.weiner.xtexttest.xtextTest.impl.XtextTestPackageImpl#getModel()
+   * @generated
+   */
+  int MODEL = 0;
+
+  /**
+   * The feature id for the '<em><b>Xtext Test</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__XTEXT_TEST = 0;
+
+  /**
+   * The feature id for the '<em><b>Emf Test</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__EMF_TEST = 1;
+
+  /**
+   * The number of structural features of the '<em>Model</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL_FEATURE_COUNT = 2;
+
+  /**
    * The meta object id for the '{@link at.jku.weiner.xtexttest.xtextTest.impl.XtextTestImpl <em>Xtext Test</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -64,7 +101,7 @@ public interface XtextTestPackage extends EPackage
    * @see at.jku.weiner.xtexttest.xtextTest.impl.XtextTestPackageImpl#getXtextTest()
    * @generated
    */
-  int XTEXT_TEST = 0;
+  int XTEXT_TEST = 1;
 
   /**
    * The feature id for the '<em><b>Package</b></em>' attribute.
@@ -166,6 +203,116 @@ public interface XtextTestPackage extends EPackage
   int XTEXT_TEST_FEATURE_COUNT = 10;
 
   /**
+   * The meta object id for the '{@link at.jku.weiner.xtexttest.xtextTest.impl.EmfTestImpl <em>Emf Test</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.xtexttest.xtextTest.impl.EmfTestImpl
+   * @see at.jku.weiner.xtexttest.xtextTest.impl.XtextTestPackageImpl#getEmfTest()
+   * @generated
+   */
+  int EMF_TEST = 2;
+
+  /**
+   * The feature id for the '<em><b>Package</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EMF_TEST__PACKAGE = 0;
+
+  /**
+   * The feature id for the '<em><b>Mydefault</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EMF_TEST__MYDEFAULT = 1;
+
+  /**
+   * The feature id for the '<em><b>Myimport</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EMF_TEST__MYIMPORT = 2;
+
+  /**
+   * The feature id for the '<em><b>Code Call</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EMF_TEST__CODE_CALL = 3;
+
+  /**
+   * The feature id for the '<em><b>File</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EMF_TEST__FILE = 4;
+
+  /**
+   * The feature id for the '<em><b>Root</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EMF_TEST__ROOT = 5;
+
+  /**
+   * The number of structural features of the '<em>Emf Test</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EMF_TEST_FEATURE_COUNT = 6;
+
+  /**
+   * The meta object id for the '{@link at.jku.weiner.xtexttest.xtextTest.impl.ImportImpl <em>Import</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.xtexttest.xtextTest.impl.ImportImpl
+   * @see at.jku.weiner.xtexttest.xtextTest.impl.XtextTestPackageImpl#getImport()
+   * @generated
+   */
+  int IMPORT = 3;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMPORT__ID = 0;
+
+  /**
+   * The feature id for the '<em><b>Alias</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMPORT__ALIAS = 1;
+
+  /**
+   * The number of structural features of the '<em>Import</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMPORT_FEATURE_COUNT = 2;
+
+  /**
    * The meta object id for the '{@link at.jku.weiner.xtexttest.xtextTest.impl.InputImpl <em>Input</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -173,7 +320,7 @@ public interface XtextTestPackage extends EPackage
    * @see at.jku.weiner.xtexttest.xtextTest.impl.XtextTestPackageImpl#getInput()
    * @generated
    */
-  int INPUT = 1;
+  int INPUT = 4;
 
   /**
    * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -210,7 +357,7 @@ public interface XtextTestPackage extends EPackage
    * @see at.jku.weiner.xtexttest.xtextTest.impl.XtextTestPackageImpl#getTokens()
    * @generated
    */
-  int TOKENS = 2;
+  int TOKENS = 5;
 
   /**
    * The feature id for the '<em><b>Tokens</b></em>' containment reference list.
@@ -238,7 +385,7 @@ public interface XtextTestPackage extends EPackage
    * @see at.jku.weiner.xtexttest.xtextTest.impl.XtextTestPackageImpl#getMyTokens()
    * @generated
    */
-  int MY_TOKENS = 3;
+  int MY_TOKENS = 6;
 
   /**
    * The feature id for the '<em><b>Token</b></em>' attribute.
@@ -275,7 +422,7 @@ public interface XtextTestPackage extends EPackage
    * @see at.jku.weiner.xtexttest.xtextTest.impl.XtextTestPackageImpl#getElement()
    * @generated
    */
-  int ELEMENT = 4;
+  int ELEMENT = 7;
 
   /**
    * The feature id for the '<em><b>Importing</b></em>' attribute.
@@ -321,7 +468,7 @@ public interface XtextTestPackage extends EPackage
    * @see at.jku.weiner.xtexttest.xtextTest.impl.XtextTestPackageImpl#getInner()
    * @generated
    */
-  int INNER = 5;
+  int INNER = 8;
 
   /**
    * The feature id for the '<em><b>Parameter</b></em>' attribute.
@@ -412,7 +559,7 @@ public interface XtextTestPackage extends EPackage
    * @see at.jku.weiner.xtexttest.xtextTest.impl.XtextTestPackageImpl#getGenerator()
    * @generated
    */
-  int GENERATOR = 6;
+  int GENERATOR = 9;
 
   /**
    * The feature id for the '<em><b>Output</b></em>' attribute.
@@ -485,7 +632,7 @@ public interface XtextTestPackage extends EPackage
    * @see at.jku.weiner.xtexttest.xtextTest.impl.XtextTestPackageImpl#getReplacePatterns()
    * @generated
    */
-  int REPLACE_PATTERNS = 7;
+  int REPLACE_PATTERNS = 10;
 
   /**
    * The feature id for the '<em><b>Regex</b></em>' attribute.
@@ -522,7 +669,7 @@ public interface XtextTestPackage extends EPackage
    * @see at.jku.weiner.xtexttest.xtextTest.impl.XtextTestPackageImpl#getBefore()
    * @generated
    */
-  int BEFORE = 8;
+  int BEFORE = 11;
 
   /**
    * The feature id for the '<em><b>Myclass</b></em>' attribute.
@@ -559,7 +706,7 @@ public interface XtextTestPackage extends EPackage
    * @see at.jku.weiner.xtexttest.xtextTest.impl.XtextTestPackageImpl#getAfter()
    * @generated
    */
-  int AFTER = 9;
+  int AFTER = 12;
 
   /**
    * The feature id for the '<em><b>Myclass</b></em>' attribute.
@@ -588,6 +735,84 @@ public interface XtextTestPackage extends EPackage
    */
   int AFTER_FEATURE_COUNT = 2;
 
+  /**
+   * The meta object id for the '{@link at.jku.weiner.xtexttest.xtextTest.impl.CodeCallImpl <em>Code Call</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.xtexttest.xtextTest.impl.CodeCallImpl
+   * @see at.jku.weiner.xtexttest.xtextTest.impl.XtextTestPackageImpl#getCodeCall()
+   * @generated
+   */
+  int CODE_CALL = 13;
+
+  /**
+   * The feature id for the '<em><b>Myclass</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CODE_CALL__MYCLASS = 0;
+
+  /**
+   * The feature id for the '<em><b>Method</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CODE_CALL__METHOD = 1;
+
+  /**
+   * The feature id for the '<em><b>Params</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CODE_CALL__PARAMS = 2;
+
+  /**
+   * The number of structural features of the '<em>Code Call</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CODE_CALL_FEATURE_COUNT = 3;
+
+
+  /**
+   * Returns the meta object for class '{@link at.jku.weiner.xtexttest.xtextTest.Model <em>Model</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Model</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.Model
+   * @generated
+   */
+  EClass getModel();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.xtexttest.xtextTest.Model#getXtextTest <em>Xtext Test</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Xtext Test</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.Model#getXtextTest()
+   * @see #getModel()
+   * @generated
+   */
+  EReference getModel_XtextTest();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.xtexttest.xtextTest.Model#getEmfTest <em>Emf Test</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Emf Test</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.Model#getEmfTest()
+   * @see #getModel()
+   * @generated
+   */
+  EReference getModel_EmfTest();
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.xtexttest.xtextTest.XtextTest <em>Xtext Test</em>}'.
@@ -708,6 +933,114 @@ public interface XtextTestPackage extends EPackage
    * @generated
    */
   EReference getXtextTest_After();
+
+  /**
+   * Returns the meta object for class '{@link at.jku.weiner.xtexttest.xtextTest.EmfTest <em>Emf Test</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Emf Test</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.EmfTest
+   * @generated
+   */
+  EClass getEmfTest();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.xtexttest.xtextTest.EmfTest#getPackage <em>Package</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Package</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.EmfTest#getPackage()
+   * @see #getEmfTest()
+   * @generated
+   */
+  EAttribute getEmfTest_Package();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.xtexttest.xtextTest.EmfTest#getMydefault <em>Mydefault</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Mydefault</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.EmfTest#getMydefault()
+   * @see #getEmfTest()
+   * @generated
+   */
+  EAttribute getEmfTest_Mydefault();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link at.jku.weiner.xtexttest.xtextTest.EmfTest#getMyimport <em>Myimport</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Myimport</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.EmfTest#getMyimport()
+   * @see #getEmfTest()
+   * @generated
+   */
+  EReference getEmfTest_Myimport();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.xtexttest.xtextTest.EmfTest#getCodeCall <em>Code Call</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Code Call</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.EmfTest#getCodeCall()
+   * @see #getEmfTest()
+   * @generated
+   */
+  EReference getEmfTest_CodeCall();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.xtexttest.xtextTest.EmfTest#getFile <em>File</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>File</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.EmfTest#getFile()
+   * @see #getEmfTest()
+   * @generated
+   */
+  EAttribute getEmfTest_File();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.xtexttest.xtextTest.EmfTest#getRoot <em>Root</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Root</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.EmfTest#getRoot()
+   * @see #getEmfTest()
+   * @generated
+   */
+  EReference getEmfTest_Root();
+
+  /**
+   * Returns the meta object for class '{@link at.jku.weiner.xtexttest.xtextTest.Import <em>Import</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Import</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.Import
+   * @generated
+   */
+  EClass getImport();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.xtexttest.xtextTest.Import#getId <em>Id</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Id</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.Import#getId()
+   * @see #getImport()
+   * @generated
+   */
+  EAttribute getImport_Id();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.xtexttest.xtextTest.Import#getAlias <em>Alias</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Alias</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.Import#getAlias()
+   * @see #getImport()
+   * @generated
+   */
+  EAttribute getImport_Alias();
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.xtexttest.xtextTest.Input <em>Input</em>}'.
@@ -1108,6 +1441,49 @@ public interface XtextTestPackage extends EPackage
   EAttribute getAfter_Method();
 
   /**
+   * Returns the meta object for class '{@link at.jku.weiner.xtexttest.xtextTest.CodeCall <em>Code Call</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Code Call</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.CodeCall
+   * @generated
+   */
+  EClass getCodeCall();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.xtexttest.xtextTest.CodeCall#getMyclass <em>Myclass</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Myclass</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.CodeCall#getMyclass()
+   * @see #getCodeCall()
+   * @generated
+   */
+  EAttribute getCodeCall_Myclass();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.xtexttest.xtextTest.CodeCall#getMethod <em>Method</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Method</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.CodeCall#getMethod()
+   * @see #getCodeCall()
+   * @generated
+   */
+  EAttribute getCodeCall_Method();
+
+  /**
+   * Returns the meta object for the attribute list '{@link at.jku.weiner.xtexttest.xtextTest.CodeCall#getParams <em>Params</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Params</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.CodeCall#getParams()
+   * @see #getCodeCall()
+   * @generated
+   */
+  EAttribute getCodeCall_Params();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1130,6 +1506,32 @@ public interface XtextTestPackage extends EPackage
    */
   interface Literals
   {
+    /**
+     * The meta object literal for the '{@link at.jku.weiner.xtexttest.xtextTest.impl.ModelImpl <em>Model</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.xtexttest.xtextTest.impl.ModelImpl
+     * @see at.jku.weiner.xtexttest.xtextTest.impl.XtextTestPackageImpl#getModel()
+     * @generated
+     */
+    EClass MODEL = eINSTANCE.getModel();
+
+    /**
+     * The meta object literal for the '<em><b>Xtext Test</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODEL__XTEXT_TEST = eINSTANCE.getModel_XtextTest();
+
+    /**
+     * The meta object literal for the '<em><b>Emf Test</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODEL__EMF_TEST = eINSTANCE.getModel_EmfTest();
+
     /**
      * The meta object literal for the '{@link at.jku.weiner.xtexttest.xtextTest.impl.XtextTestImpl <em>Xtext Test</em>}' class.
      * <!-- begin-user-doc -->
@@ -1219,6 +1621,90 @@ public interface XtextTestPackage extends EPackage
      * @generated
      */
     EReference XTEXT_TEST__AFTER = eINSTANCE.getXtextTest_After();
+
+    /**
+     * The meta object literal for the '{@link at.jku.weiner.xtexttest.xtextTest.impl.EmfTestImpl <em>Emf Test</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.xtexttest.xtextTest.impl.EmfTestImpl
+     * @see at.jku.weiner.xtexttest.xtextTest.impl.XtextTestPackageImpl#getEmfTest()
+     * @generated
+     */
+    EClass EMF_TEST = eINSTANCE.getEmfTest();
+
+    /**
+     * The meta object literal for the '<em><b>Package</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EMF_TEST__PACKAGE = eINSTANCE.getEmfTest_Package();
+
+    /**
+     * The meta object literal for the '<em><b>Mydefault</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EMF_TEST__MYDEFAULT = eINSTANCE.getEmfTest_Mydefault();
+
+    /**
+     * The meta object literal for the '<em><b>Myimport</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EMF_TEST__MYIMPORT = eINSTANCE.getEmfTest_Myimport();
+
+    /**
+     * The meta object literal for the '<em><b>Code Call</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EMF_TEST__CODE_CALL = eINSTANCE.getEmfTest_CodeCall();
+
+    /**
+     * The meta object literal for the '<em><b>File</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EMF_TEST__FILE = eINSTANCE.getEmfTest_File();
+
+    /**
+     * The meta object literal for the '<em><b>Root</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EMF_TEST__ROOT = eINSTANCE.getEmfTest_Root();
+
+    /**
+     * The meta object literal for the '{@link at.jku.weiner.xtexttest.xtextTest.impl.ImportImpl <em>Import</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.xtexttest.xtextTest.impl.ImportImpl
+     * @see at.jku.weiner.xtexttest.xtextTest.impl.XtextTestPackageImpl#getImport()
+     * @generated
+     */
+    EClass IMPORT = eINSTANCE.getImport();
+
+    /**
+     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute IMPORT__ID = eINSTANCE.getImport_Id();
+
+    /**
+     * The meta object literal for the '<em><b>Alias</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute IMPORT__ALIAS = eINSTANCE.getImport_Alias();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.xtexttest.xtextTest.impl.InputImpl <em>Input</em>}' class.
@@ -1533,6 +2019,40 @@ public interface XtextTestPackage extends EPackage
      * @generated
      */
     EAttribute AFTER__METHOD = eINSTANCE.getAfter_Method();
+
+    /**
+     * The meta object literal for the '{@link at.jku.weiner.xtexttest.xtextTest.impl.CodeCallImpl <em>Code Call</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.xtexttest.xtextTest.impl.CodeCallImpl
+     * @see at.jku.weiner.xtexttest.xtextTest.impl.XtextTestPackageImpl#getCodeCall()
+     * @generated
+     */
+    EClass CODE_CALL = eINSTANCE.getCodeCall();
+
+    /**
+     * The meta object literal for the '<em><b>Myclass</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CODE_CALL__MYCLASS = eINSTANCE.getCodeCall_Myclass();
+
+    /**
+     * The meta object literal for the '<em><b>Method</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CODE_CALL__METHOD = eINSTANCE.getCodeCall_Method();
+
+    /**
+     * The meta object literal for the '<em><b>Params</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CODE_CALL__PARAMS = eINSTANCE.getCodeCall_Params();
 
   }
 

@@ -37,14 +37,19 @@ public class XtextTestParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
+					put(grammarAccess.getModelAccess().getAlternatives_1(), "rule__Model__Alternatives_1");
 					put(grammarAccess.getBooleanAccess().getAlternatives(), "rule__Boolean__Alternatives");
 					put(grammarAccess.getInputAccess().getAlternatives_2(), "rule__Input__Alternatives_2");
 					put(grammarAccess.getInnerAccess().getAlternatives_2(), "rule__Inner__Alternatives_2");
 					put(grammarAccess.getInnerAccess().getAssignAsBoolAlternatives_2_4_1_0(), "rule__Inner__AssignAsBoolAlternatives_2_4_1_0");
 					put(grammarAccess.getGeneratorAccess().getAlternatives_2_2(), "rule__Generator__Alternatives_2_2");
+					put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
 					put(grammarAccess.getXtextTestAccess().getGroup(), "rule__XtextTest__Group__0");
 					put(grammarAccess.getXtextTestAccess().getGroup_5(), "rule__XtextTest__Group_5__0");
 					put(grammarAccess.getXtextTestAccess().getGroup_6(), "rule__XtextTest__Group_6__0");
+					put(grammarAccess.getEmfTestAccess().getGroup(), "rule__EmfTest__Group__0");
+					put(grammarAccess.getEmfTestAccess().getGroup_8(), "rule__EmfTest__Group_8__0");
+					put(grammarAccess.getImportAccess().getGroup(), "rule__Import__Group__0");
 					put(grammarAccess.getPackageIDAccess().getGroup(), "rule__PackageID__Group__0");
 					put(grammarAccess.getPackageIDAccess().getGroup_1(), "rule__PackageID__Group_1__0");
 					put(grammarAccess.getImportIDAccess().getGroup(), "rule__ImportID__Group__0");
@@ -76,6 +81,11 @@ public class XtextTestParser extends AbstractContentAssistParser {
 					put(grammarAccess.getReplacePatternsAccess().getGroup(), "rule__ReplacePatterns__Group__0");
 					put(grammarAccess.getBeforeAccess().getGroup(), "rule__Before__Group__0");
 					put(grammarAccess.getAfterAccess().getGroup(), "rule__After__Group__0");
+					put(grammarAccess.getCodeCallAccess().getGroup(), "rule__CodeCall__Group__0");
+					put(grammarAccess.getCodeCallAccess().getGroup_7(), "rule__CodeCall__Group_7__0");
+					put(grammarAccess.getCodeCallAccess().getGroup_7_1(), "rule__CodeCall__Group_7_1__0");
+					put(grammarAccess.getModelAccess().getXtextTestAssignment_1_0(), "rule__Model__XtextTestAssignment_1_0");
+					put(grammarAccess.getModelAccess().getEmfTestAssignment_1_1(), "rule__Model__EmfTestAssignment_1_1");
 					put(grammarAccess.getXtextTestAccess().getPackageAssignment_2(), "rule__XtextTest__PackageAssignment_2");
 					put(grammarAccess.getXtextTestAccess().getLangAssignment_4(), "rule__XtextTest__LangAssignment_4");
 					put(grammarAccess.getXtextTestAccess().getImportsAssignment_5_1(), "rule__XtextTest__ImportsAssignment_5_1");
@@ -86,6 +96,14 @@ public class XtextTestParser extends AbstractContentAssistParser {
 					put(grammarAccess.getXtextTestAccess().getOutputAssignment_10(), "rule__XtextTest__OutputAssignment_10");
 					put(grammarAccess.getXtextTestAccess().getBeforeAssignment_11(), "rule__XtextTest__BeforeAssignment_11");
 					put(grammarAccess.getXtextTestAccess().getAfterAssignment_12(), "rule__XtextTest__AfterAssignment_12");
+					put(grammarAccess.getEmfTestAccess().getPackageAssignment_3(), "rule__EmfTest__PackageAssignment_3");
+					put(grammarAccess.getEmfTestAccess().getMydefaultAssignment_5(), "rule__EmfTest__MydefaultAssignment_5");
+					put(grammarAccess.getEmfTestAccess().getMyimportAssignment_6(), "rule__EmfTest__MyimportAssignment_6");
+					put(grammarAccess.getEmfTestAccess().getCodeCallAssignment_7(), "rule__EmfTest__CodeCallAssignment_7");
+					put(grammarAccess.getEmfTestAccess().getFileAssignment_8_3(), "rule__EmfTest__FileAssignment_8_3");
+					put(grammarAccess.getEmfTestAccess().getRootAssignment_9(), "rule__EmfTest__RootAssignment_9");
+					put(grammarAccess.getImportAccess().getIdAssignment_2(), "rule__Import__IdAssignment_2");
+					put(grammarAccess.getImportAccess().getAliasAssignment_4(), "rule__Import__AliasAssignment_4");
 					put(grammarAccess.getInputAccess().getTextAssignment_2_0_2(), "rule__Input__TextAssignment_2_0_2");
 					put(grammarAccess.getInputAccess().getFileAssignment_2_1_2(), "rule__Input__FileAssignment_2_1_2");
 					put(grammarAccess.getTokensAccess().getTokensAssignment_2(), "rule__Tokens__TokensAssignment_2");
@@ -116,6 +134,10 @@ public class XtextTestParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBeforeAccess().getMethodAssignment_6(), "rule__Before__MethodAssignment_6");
 					put(grammarAccess.getAfterAccess().getMyclassAssignment_3(), "rule__After__MyclassAssignment_3");
 					put(grammarAccess.getAfterAccess().getMethodAssignment_6(), "rule__After__MethodAssignment_6");
+					put(grammarAccess.getCodeCallAccess().getMyclassAssignment_2(), "rule__CodeCall__MyclassAssignment_2");
+					put(grammarAccess.getCodeCallAccess().getMethodAssignment_5(), "rule__CodeCall__MethodAssignment_5");
+					put(grammarAccess.getCodeCallAccess().getParamsAssignment_7_0(), "rule__CodeCall__ParamsAssignment_7_0");
+					put(grammarAccess.getCodeCallAccess().getParamsAssignment_7_1_1(), "rule__CodeCall__ParamsAssignment_7_1_1");
 				}
 			};
 		}
@@ -126,7 +148,7 @@ public class XtextTestParser extends AbstractContentAssistParser {
 	protected Collection<FollowElement> getFollowElements(AbstractInternalContentAssistParser parser) {
 		try {
 			at.jku.weiner.xtexttest.ui.contentassist.antlr.internal.InternalXtextTestParser typedParser = (at.jku.weiner.xtexttest.ui.contentassist.antlr.internal.InternalXtextTestParser) parser;
-			typedParser.entryRuleXtextTest();
+			typedParser.entryRuleModel();
 			return typedParser.getFollowElements();
 		} catch(RecognitionException ex) {
 			throw new RuntimeException(ex);

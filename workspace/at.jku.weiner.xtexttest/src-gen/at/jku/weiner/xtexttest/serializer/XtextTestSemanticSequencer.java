@@ -6,10 +6,14 @@ package at.jku.weiner.xtexttest.serializer;
 import at.jku.weiner.xtexttest.services.XtextTestGrammarAccess;
 import at.jku.weiner.xtexttest.xtextTest.After;
 import at.jku.weiner.xtexttest.xtextTest.Before;
+import at.jku.weiner.xtexttest.xtextTest.CodeCall;
 import at.jku.weiner.xtexttest.xtextTest.Element;
+import at.jku.weiner.xtexttest.xtextTest.EmfTest;
 import at.jku.weiner.xtexttest.xtextTest.Generator;
+import at.jku.weiner.xtexttest.xtextTest.Import;
 import at.jku.weiner.xtexttest.xtextTest.Inner;
 import at.jku.weiner.xtexttest.xtextTest.Input;
+import at.jku.weiner.xtexttest.xtextTest.Model;
 import at.jku.weiner.xtexttest.xtextTest.MyTokens;
 import at.jku.weiner.xtexttest.xtextTest.ReplacePatterns;
 import at.jku.weiner.xtexttest.xtextTest.Tokens;
@@ -44,17 +48,29 @@ public class XtextTestSemanticSequencer extends AbstractDelegatingSemanticSequen
 			case XtextTestPackage.BEFORE:
 				sequence_Before(context, (Before) semanticObject); 
 				return; 
+			case XtextTestPackage.CODE_CALL:
+				sequence_CodeCall(context, (CodeCall) semanticObject); 
+				return; 
 			case XtextTestPackage.ELEMENT:
 				sequence_Element(context, (Element) semanticObject); 
 				return; 
+			case XtextTestPackage.EMF_TEST:
+				sequence_EmfTest(context, (EmfTest) semanticObject); 
+				return; 
 			case XtextTestPackage.GENERATOR:
 				sequence_Generator(context, (Generator) semanticObject); 
+				return; 
+			case XtextTestPackage.IMPORT:
+				sequence_Import(context, (Import) semanticObject); 
 				return; 
 			case XtextTestPackage.INNER:
 				sequence_Inner(context, (Inner) semanticObject); 
 				return; 
 			case XtextTestPackage.INPUT:
 				sequence_Input(context, (Input) semanticObject); 
+				return; 
+			case XtextTestPackage.MODEL:
+				sequence_Model(context, (Model) semanticObject); 
 				return; 
 			case XtextTestPackage.MY_TOKENS:
 				sequence_MyTokens(context, (MyTokens) semanticObject); 
@@ -112,9 +128,34 @@ public class XtextTestSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Constraint:
+	 *     (myclass=PackageID method=PackageID (params+=PackageID params+=PackageID*)?)
+	 */
+	protected void sequence_CodeCall(EObject context, CodeCall semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (importing=IDENTIFIER? name=IDENTIFIER (inner+=Inner inner+=Inner*)?)
 	 */
 	protected void sequence_Element(EObject context, Element semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
+	 *         package=PackageID 
+	 *         mydefault=PackageID 
+	 *         myimport+=Import* 
+	 *         codeCall=CodeCall 
+	 *         file=STRING 
+	 *         root=Element
+	 *     )
+	 */
+	protected void sequence_EmfTest(EObject context, EmfTest semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -130,6 +171,25 @@ public class XtextTestSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 */
 	protected void sequence_Generator(EObject context, Generator semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (id=ImportID alias=IDENTIFIER)
+	 */
+	protected void sequence_Import(EObject context, Import semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, XtextTestPackage.Literals.IMPORT__ID) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, XtextTestPackage.Literals.IMPORT__ID));
+			if(transientValues.isValueTransient(semanticObject, XtextTestPackage.Literals.IMPORT__ALIAS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, XtextTestPackage.Literals.IMPORT__ALIAS));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getImportAccess().getIdImportIDParserRuleCall_2_0(), semanticObject.getId());
+		feeder.accept(grammarAccess.getImportAccess().getAliasIDENTIFIERTerminalRuleCall_4_0(), semanticObject.getAlias());
+		feeder.finish();
 	}
 	
 	
@@ -159,6 +219,15 @@ public class XtextTestSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     (text=STRING | file=STRING)
 	 */
 	protected void sequence_Input(EObject context, Input semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (xtextTest=XtextTest | emfTest=EmfTest)
+	 */
+	protected void sequence_Model(EObject context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

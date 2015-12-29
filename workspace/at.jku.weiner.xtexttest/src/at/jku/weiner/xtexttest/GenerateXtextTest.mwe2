@@ -165,4 +165,11 @@ Workflow {
 			
 		}
 	}
+	
+	component = DirectoryCleaner {
+		directory = "${projectPath}.tests/src/at/jku/weiner/xtexttest/tests"
+		exclude = "xtexttests"
+		exclude = ".keep"
+		exclude = "LexerAndParserTest.java"
+	}
 }

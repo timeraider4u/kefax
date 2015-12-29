@@ -23,6 +23,42 @@ import org.eclipse.xtext.service.GrammarProvider;
 @Singleton
 public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	
+	public class ModelElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.Model");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cModelAction_0 = (Action)cGroup.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Assignment cXtextTestAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
+		private final RuleCall cXtextTestXtextTestParserRuleCall_1_0_0 = (RuleCall)cXtextTestAssignment_1_0.eContents().get(0);
+		private final Assignment cEmfTestAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
+		private final RuleCall cEmfTestEmfTestParserRuleCall_1_1_0 = (RuleCall)cEmfTestAssignment_1_1.eContents().get(0);
+		
+		//Model:
+		//	{Model} (xtextTest=XtextTest
+		//	| emfTest=EmfTest);
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{Model} (xtextTest=XtextTest | emfTest=EmfTest)
+		public Group getGroup() { return cGroup; }
+		
+		//{Model}
+		public Action getModelAction_0() { return cModelAction_0; }
+		
+		//(xtextTest=XtextTest | emfTest=EmfTest)
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		
+		//xtextTest=XtextTest
+		public Assignment getXtextTestAssignment_1_0() { return cXtextTestAssignment_1_0; }
+		
+		//XtextTest
+		public RuleCall getXtextTestXtextTestParserRuleCall_1_0_0() { return cXtextTestXtextTestParserRuleCall_1_0_0; }
+		
+		//emfTest=EmfTest
+		public Assignment getEmfTestAssignment_1_1() { return cEmfTestAssignment_1_1; }
+		
+		//EmfTest
+		public RuleCall getEmfTestEmfTestParserRuleCall_1_1_0() { return cEmfTestEmfTestParserRuleCall_1_1_0; }
+	}
 	public class XtextTestElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.XtextTest");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -153,6 +189,141 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//After
 		public RuleCall getAfterAfterParserRuleCall_12_0() { return cAfterAfterParserRuleCall_12_0; }
+	}
+	public class EmfTestElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.EmfTest");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cEmfTestAction_0 = (Action)cGroup.eContents().get(0);
+		private final RuleCall cKW_EMFTESTTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final RuleCall cPACKAGETerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cPackageAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cPackagePackageIDParserRuleCall_3_0 = (RuleCall)cPackageAssignment_3.eContents().get(0);
+		private final RuleCall cDEFAULTTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final Assignment cMydefaultAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cMydefaultPackageIDParserRuleCall_5_0 = (RuleCall)cMydefaultAssignment_5.eContents().get(0);
+		private final Assignment cMyimportAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cMyimportImportParserRuleCall_6_0 = (RuleCall)cMyimportAssignment_6.eContents().get(0);
+		private final Assignment cCodeCallAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cCodeCallCodeCallParserRuleCall_7_0 = (RuleCall)cCodeCallAssignment_7.eContents().get(0);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final RuleCall cSOURCETerminalRuleCall_8_0 = (RuleCall)cGroup_8.eContents().get(0);
+		private final RuleCall cFILETerminalRuleCall_8_1 = (RuleCall)cGroup_8.eContents().get(1);
+		private final RuleCall cASSIGNASSINGLETerminalRuleCall_8_2 = (RuleCall)cGroup_8.eContents().get(2);
+		private final Assignment cFileAssignment_8_3 = (Assignment)cGroup_8.eContents().get(3);
+		private final RuleCall cFileSTRINGTerminalRuleCall_8_3_0 = (RuleCall)cFileAssignment_8_3.eContents().get(0);
+		private final Assignment cRootAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final RuleCall cRootElementParserRuleCall_9_0 = (RuleCall)cRootAssignment_9.eContents().get(0);
+		
+		//EmfTest:
+		//	{EmfTest} KW_EMFTEST
+		//	PACKAGE package=PackageID
+		//	DEFAULT mydefault=PackageID
+		//	myimport+=Import*
+		//	codeCall=CodeCall (SOURCE FILE ASSIGNASSINGLE file=STRING) root=Element;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{EmfTest} KW_EMFTEST PACKAGE package=PackageID DEFAULT mydefault=PackageID myimport+=Import* codeCall=CodeCall (SOURCE
+		//FILE ASSIGNASSINGLE file=STRING) root=Element
+		public Group getGroup() { return cGroup; }
+		
+		//{EmfTest}
+		public Action getEmfTestAction_0() { return cEmfTestAction_0; }
+		
+		//KW_EMFTEST
+		public RuleCall getKW_EMFTESTTerminalRuleCall_1() { return cKW_EMFTESTTerminalRuleCall_1; }
+		
+		//PACKAGE
+		public RuleCall getPACKAGETerminalRuleCall_2() { return cPACKAGETerminalRuleCall_2; }
+		
+		//package=PackageID
+		public Assignment getPackageAssignment_3() { return cPackageAssignment_3; }
+		
+		//PackageID
+		public RuleCall getPackagePackageIDParserRuleCall_3_0() { return cPackagePackageIDParserRuleCall_3_0; }
+		
+		//DEFAULT
+		public RuleCall getDEFAULTTerminalRuleCall_4() { return cDEFAULTTerminalRuleCall_4; }
+		
+		//mydefault=PackageID
+		public Assignment getMydefaultAssignment_5() { return cMydefaultAssignment_5; }
+		
+		//PackageID
+		public RuleCall getMydefaultPackageIDParserRuleCall_5_0() { return cMydefaultPackageIDParserRuleCall_5_0; }
+		
+		//myimport+=Import*
+		public Assignment getMyimportAssignment_6() { return cMyimportAssignment_6; }
+		
+		//Import
+		public RuleCall getMyimportImportParserRuleCall_6_0() { return cMyimportImportParserRuleCall_6_0; }
+		
+		//codeCall=CodeCall
+		public Assignment getCodeCallAssignment_7() { return cCodeCallAssignment_7; }
+		
+		//CodeCall
+		public RuleCall getCodeCallCodeCallParserRuleCall_7_0() { return cCodeCallCodeCallParserRuleCall_7_0; }
+		
+		//(SOURCE FILE ASSIGNASSINGLE file=STRING)
+		public Group getGroup_8() { return cGroup_8; }
+		
+		//SOURCE
+		public RuleCall getSOURCETerminalRuleCall_8_0() { return cSOURCETerminalRuleCall_8_0; }
+		
+		//FILE
+		public RuleCall getFILETerminalRuleCall_8_1() { return cFILETerminalRuleCall_8_1; }
+		
+		//ASSIGNASSINGLE
+		public RuleCall getASSIGNASSINGLETerminalRuleCall_8_2() { return cASSIGNASSINGLETerminalRuleCall_8_2; }
+		
+		//file=STRING
+		public Assignment getFileAssignment_8_3() { return cFileAssignment_8_3; }
+		
+		//STRING
+		public RuleCall getFileSTRINGTerminalRuleCall_8_3_0() { return cFileSTRINGTerminalRuleCall_8_3_0; }
+		
+		//root=Element
+		public Assignment getRootAssignment_9() { return cRootAssignment_9; }
+		
+		//Element
+		public RuleCall getRootElementParserRuleCall_9_0() { return cRootElementParserRuleCall_9_0; }
+	}
+	public class ImportElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.Import");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cImportAction_0 = (Action)cGroup.eContents().get(0);
+		private final RuleCall cIMPORTSTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cIdAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cIdImportIDParserRuleCall_2_0 = (RuleCall)cIdAssignment_2.eContents().get(0);
+		private final RuleCall cKW_ASTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		private final Assignment cAliasAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cAliasIDENTIFIERTerminalRuleCall_4_0 = (RuleCall)cAliasAssignment_4.eContents().get(0);
+		
+		//Import:
+		//	{Import} IMPORTS id=ImportID KW_AS alias=IDENTIFIER;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{Import} IMPORTS id=ImportID KW_AS alias=IDENTIFIER
+		public Group getGroup() { return cGroup; }
+		
+		//{Import}
+		public Action getImportAction_0() { return cImportAction_0; }
+		
+		//IMPORTS
+		public RuleCall getIMPORTSTerminalRuleCall_1() { return cIMPORTSTerminalRuleCall_1; }
+		
+		//id=ImportID
+		public Assignment getIdAssignment_2() { return cIdAssignment_2; }
+		
+		//ImportID
+		public RuleCall getIdImportIDParserRuleCall_2_0() { return cIdImportIDParserRuleCall_2_0; }
+		
+		//KW_AS
+		public RuleCall getKW_ASTerminalRuleCall_3() { return cKW_ASTerminalRuleCall_3; }
+		
+		//alias=IDENTIFIER
+		public Assignment getAliasAssignment_4() { return cAliasAssignment_4; }
+		
+		//IDENTIFIER
+		public RuleCall getAliasIDENTIFIERTerminalRuleCall_4_0() { return cAliasIDENTIFIERTerminalRuleCall_4_0; }
 	}
 	public class BooleanElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.Boolean");
@@ -883,9 +1054,94 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		//RIGHTPAREN
 		public RuleCall getRIGHTPARENTerminalRuleCall_8() { return cRIGHTPARENTerminalRuleCall_8; }
 	}
+	public class CodeCallElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.CodeCall");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cCLASS_KWTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final RuleCall cASSIGNASSINGLETerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cMyclassAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cMyclassPackageIDParserRuleCall_2_0 = (RuleCall)cMyclassAssignment_2.eContents().get(0);
+		private final RuleCall cMETHOD_KWTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		private final RuleCall cASSIGNASSINGLETerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final Assignment cMethodAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cMethodPackageIDParserRuleCall_5_0 = (RuleCall)cMethodAssignment_5.eContents().get(0);
+		private final RuleCall cLEFTPARENTerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Assignment cParamsAssignment_7_0 = (Assignment)cGroup_7.eContents().get(0);
+		private final RuleCall cParamsPackageIDParserRuleCall_7_0_0 = (RuleCall)cParamsAssignment_7_0.eContents().get(0);
+		private final Group cGroup_7_1 = (Group)cGroup_7.eContents().get(1);
+		private final RuleCall cCOMMATerminalRuleCall_7_1_0 = (RuleCall)cGroup_7_1.eContents().get(0);
+		private final Assignment cParamsAssignment_7_1_1 = (Assignment)cGroup_7_1.eContents().get(1);
+		private final RuleCall cParamsPackageIDParserRuleCall_7_1_1_0 = (RuleCall)cParamsAssignment_7_1_1.eContents().get(0);
+		private final RuleCall cRIGHTPARENTerminalRuleCall_8 = (RuleCall)cGroup.eContents().get(8);
+		
+		//CodeCall:
+		//	CLASS_KW ASSIGNASSINGLE myclass=PackageID
+		//	METHOD_KW ASSIGNASSINGLE method=PackageID
+		//	LEFTPAREN (params+=PackageID (COMMA params+=PackageID)*)? RIGHTPAREN;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//CLASS_KW ASSIGNASSINGLE myclass=PackageID METHOD_KW ASSIGNASSINGLE method=PackageID LEFTPAREN (params+=PackageID (COMMA
+		//params+=PackageID)*)? RIGHTPAREN
+		public Group getGroup() { return cGroup; }
+		
+		//CLASS_KW
+		public RuleCall getCLASS_KWTerminalRuleCall_0() { return cCLASS_KWTerminalRuleCall_0; }
+		
+		//ASSIGNASSINGLE
+		public RuleCall getASSIGNASSINGLETerminalRuleCall_1() { return cASSIGNASSINGLETerminalRuleCall_1; }
+		
+		//myclass=PackageID
+		public Assignment getMyclassAssignment_2() { return cMyclassAssignment_2; }
+		
+		//PackageID
+		public RuleCall getMyclassPackageIDParserRuleCall_2_0() { return cMyclassPackageIDParserRuleCall_2_0; }
+		
+		//METHOD_KW
+		public RuleCall getMETHOD_KWTerminalRuleCall_3() { return cMETHOD_KWTerminalRuleCall_3; }
+		
+		//ASSIGNASSINGLE
+		public RuleCall getASSIGNASSINGLETerminalRuleCall_4() { return cASSIGNASSINGLETerminalRuleCall_4; }
+		
+		//method=PackageID
+		public Assignment getMethodAssignment_5() { return cMethodAssignment_5; }
+		
+		//PackageID
+		public RuleCall getMethodPackageIDParserRuleCall_5_0() { return cMethodPackageIDParserRuleCall_5_0; }
+		
+		//LEFTPAREN
+		public RuleCall getLEFTPARENTerminalRuleCall_6() { return cLEFTPARENTerminalRuleCall_6; }
+		
+		//(params+=PackageID (COMMA params+=PackageID)*)?
+		public Group getGroup_7() { return cGroup_7; }
+		
+		//params+=PackageID
+		public Assignment getParamsAssignment_7_0() { return cParamsAssignment_7_0; }
+		
+		//PackageID
+		public RuleCall getParamsPackageIDParserRuleCall_7_0_0() { return cParamsPackageIDParserRuleCall_7_0_0; }
+		
+		//(COMMA params+=PackageID)*
+		public Group getGroup_7_1() { return cGroup_7_1; }
+		
+		//COMMA
+		public RuleCall getCOMMATerminalRuleCall_7_1_0() { return cCOMMATerminalRuleCall_7_1_0; }
+		
+		//params+=PackageID
+		public Assignment getParamsAssignment_7_1_1() { return cParamsAssignment_7_1_1; }
+		
+		//PackageID
+		public RuleCall getParamsPackageIDParserRuleCall_7_1_1_0() { return cParamsPackageIDParserRuleCall_7_1_1_0; }
+		
+		//RIGHTPAREN
+		public RuleCall getRIGHTPARENTerminalRuleCall_8() { return cRIGHTPARENTerminalRuleCall_8; }
+	}
 	
 	
+	private final ModelElements pModel;
 	private final XtextTestElements pXtextTest;
+	private final EmfTestElements pEmfTest;
+	private final ImportElements pImport;
 	private final BooleanElements pBoolean;
 	private final PackageIDElements pPackageID;
 	private final LangIDElements pLangID;
@@ -899,9 +1155,13 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	private final ReplacePatternsElements pReplacePatterns;
 	private final BeforeElements pBefore;
 	private final AfterElements pAfter;
+	private final CodeCallElements pCodeCall;
+	private final TerminalRule tKW_EMFTEST;
 	private final TerminalRule tPACKAGE;
+	private final TerminalRule tDEFAULT;
 	private final TerminalRule tLANGUAGE;
 	private final TerminalRule tIMPORTS;
+	private final TerminalRule tKW_AS;
 	private final TerminalRule tPOINT;
 	private final TerminalRule tSPLITLEXER;
 	private final TerminalRule tSOURCE;
@@ -941,7 +1201,10 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 			TerminalsGrammarAccess gaTerminals) {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
+		this.pModel = new ModelElements();
 		this.pXtextTest = new XtextTestElements();
+		this.pEmfTest = new EmfTestElements();
+		this.pImport = new ImportElements();
 		this.pBoolean = new BooleanElements();
 		this.pPackageID = new PackageIDElements();
 		this.pLangID = new LangIDElements();
@@ -955,9 +1218,13 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		this.pReplacePatterns = new ReplacePatternsElements();
 		this.pBefore = new BeforeElements();
 		this.pAfter = new AfterElements();
+		this.pCodeCall = new CodeCallElements();
+		this.tKW_EMFTEST = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.KW_EMFTEST");
 		this.tPACKAGE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.PACKAGE");
+		this.tDEFAULT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.DEFAULT");
 		this.tLANGUAGE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.LANGUAGE");
 		this.tIMPORTS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.IMPORTS");
+		this.tKW_AS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.KW_AS");
 		this.tPOINT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.POINT");
 		this.tSPLITLEXER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.SPLITLEXER");
 		this.tSOURCE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.SOURCE");
@@ -1016,6 +1283,17 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
+	//Model:
+	//	{Model} (xtextTest=XtextTest
+	//	| emfTest=EmfTest);
+	public ModelElements getModelAccess() {
+		return pModel;
+	}
+	
+	public ParserRule getModelRule() {
+		return getModelAccess().getRule();
+	}
+	
 	//XtextTest:
 	//	{XtextTest} PACKAGE package=PackageID
 	//	LANGUAGE lang=LangID (IMPORTS imports=ImportID)? (SPLITLEXER ASSIGNASSINGLE boolean=Boolean)?
@@ -1031,6 +1309,30 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getXtextTestRule() {
 		return getXtextTestAccess().getRule();
+	}
+	
+	//EmfTest:
+	//	{EmfTest} KW_EMFTEST
+	//	PACKAGE package=PackageID
+	//	DEFAULT mydefault=PackageID
+	//	myimport+=Import*
+	//	codeCall=CodeCall (SOURCE FILE ASSIGNASSINGLE file=STRING) root=Element;
+	public EmfTestElements getEmfTestAccess() {
+		return pEmfTest;
+	}
+	
+	public ParserRule getEmfTestRule() {
+		return getEmfTestAccess().getRule();
+	}
+	
+	//Import:
+	//	{Import} IMPORTS id=ImportID KW_AS alias=IDENTIFIER;
+	public ImportElements getImportAccess() {
+		return pImport;
+	}
+	
+	public ParserRule getImportRule() {
+		return getImportAccess().getRule();
 	}
 	
 	//Boolean:
@@ -1179,10 +1481,34 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		return getAfterAccess().getRule();
 	}
 	
+	//CodeCall:
+	//	CLASS_KW ASSIGNASSINGLE myclass=PackageID
+	//	METHOD_KW ASSIGNASSINGLE method=PackageID
+	//	LEFTPAREN (params+=PackageID (COMMA params+=PackageID)*)? RIGHTPAREN;
+	public CodeCallElements getCodeCallAccess() {
+		return pCodeCall;
+	}
+	
+	public ParserRule getCodeCallRule() {
+		return getCodeCallAccess().getRule();
+	}
+	
+	//terminal KW_EMFTEST:
+	//	'emftest';
+	public TerminalRule getKW_EMFTESTRule() {
+		return tKW_EMFTEST;
+	}
+	
 	//terminal PACKAGE:
 	//	'package';
 	public TerminalRule getPACKAGERule() {
 		return tPACKAGE;
+	}
+	
+	//terminal DEFAULT:
+	//	'default';
+	public TerminalRule getDEFAULTRule() {
+		return tDEFAULT;
 	}
 	
 	//terminal LANGUAGE:
@@ -1195,6 +1521,12 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	//	'imports';
 	public TerminalRule getIMPORTSRule() {
 		return tIMPORTS;
+	}
+	
+	//terminal KW_AS:
+	//	'as';
+	public TerminalRule getKW_ASRule() {
+		return tKW_AS;
 	}
 	
 	//terminal POINT:

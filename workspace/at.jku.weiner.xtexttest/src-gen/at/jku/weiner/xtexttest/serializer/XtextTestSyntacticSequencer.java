@@ -48,6 +48,8 @@ public class XtextTestSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getCLASS_KWToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getCOMMARule())
 			return getCOMMAToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getDEFAULTRule())
+			return getDEFAULTToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getEXCEPTIONSRule())
 			return getEXCEPTIONSToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getEXPECTEDRule())
@@ -64,6 +66,10 @@ public class XtextTestSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getISNULLToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getISSAMEASINPUTFILERule())
 			return getISSAMEASINPUTFILEToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getKW_ASRule())
+			return getKW_ASToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getKW_EMFTESTRule())
+			return getKW_EMFTESTToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getLANGUAGERule())
 			return getLANGUAGEToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getLEFTPARENRule())
@@ -171,6 +177,15 @@ public class XtextTestSyntacticSequencer extends AbstractSyntacticSequencer {
 	}
 	
 	/**
+	 * terminal DEFAULT: 'default';
+	 */
+	protected String getDEFAULTToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "default";
+	}
+	
+	/**
 	 * terminal EXCEPTIONS: 'exceptions';
 	 */
 	protected String getEXCEPTIONSToken(EObject semanticObject, RuleCall ruleCall, INode node) {
@@ -240,6 +255,24 @@ public class XtextTestSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return "isSameAsInputFile";
+	}
+	
+	/**
+	 * terminal KW_AS: 'as';
+	 */
+	protected String getKW_ASToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "as";
+	}
+	
+	/**
+	 * terminal KW_EMFTEST: 'emftest';
+	 */
+	protected String getKW_EMFTESTToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "emftest";
 	}
 	
 	/**

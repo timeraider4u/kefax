@@ -16,14 +16,12 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 
-import org.eclipse.cdt.core.dom.ast.IASTTranslationUnit;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.modisco.cdt.discoverer.utils.FileNameSorter;
@@ -31,9 +29,6 @@ import org.eclipse.modisco.cdt.discoverer.utils.Messages;
 import org.eclipse.modisco.cdt.discoverer.utils.MyStore;
 import org.eclipse.modisco.infra.discovery.core.AbstractModelDiscoverer;
 import org.eclipse.modisco.infra.discovery.core.exception.DiscoveryException;
-
-import at.jku.weiner.c.common.common.Model;
-import at.jku.weiner.c.common.common.TranslationUnit;
 
 public abstract class AbstractCDTDiscoverer<T> extends
 AbstractModelDiscoverer<T> {
@@ -55,6 +50,8 @@ AbstractModelDiscoverer<T> {
 		} else if (resource instanceof IFolder) {
 			final IFolder folder = (IFolder) resource;
 			System.out.println("isFolder");
+			boolean result = folder.isAccessible();
+			return result;
 		}
 		return false;
 	}
@@ -136,7 +133,7 @@ AbstractModelDiscoverer<T> {
 	private final void discoverFile(final File file, final MyStore store)
 			throws DiscoveryException {
 		final ParserUtils utils = new ParserUtils(store.getMonitor());
-		final XtextParser parser = new XtextParser(store);
+		final XtextUtils parser = new XtextUtils(store);
 		try {
 			final IFile iFile = DiscovererUtils.getFileFor(file);
 			parser.readFromXtextFile(file, iFile);
@@ -150,16 +147,6 @@ AbstractModelDiscoverer<T> {
 					"Error parsing file='" + file.getAbsolutePath() + "' with XText", ex); //$NON-NLS-1$
 		}
 		utils.cleanUp();
-	}
-
-	@SuppressWarnings("unused")
-	private final void discoverCdtModel(final File file, final MyStore store,
-			final ParserUtils utils) throws DiscoveryException {
-		final IASTTranslationUnit unit = utils.getTranslationUnitFor(file,
-				store);
-		// final MyASTLookUp lookUp = new MyASTLookUp(store);
-		// lookUp.lookUp(unit);
-
 	}
 
 	/***

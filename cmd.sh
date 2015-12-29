@@ -2,8 +2,8 @@ HELL="HelloC.c"
 GCC1="${HELL}.output"
 GCC2="${HELL}.output.2"
 
-CDT1="${HELL}.cdt.i"
-CDT2="${HELL}.cdt.i.2"
+CDT1="${HELL}.i"
+CDT2="${HELL}.i.2"
 
 gcc -E ${HELL} > ${GCC1}
 cp ${GCC1} ${GCC2}

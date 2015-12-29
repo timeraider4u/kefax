@@ -58,8 +58,7 @@ final class DiscovererUtils {
 		return coreModel;
 	}
 
-	protected static IFile getFileFor(final File file)
-			throws DiscoveryException {
+	public static IFile getFileFor(final File file) throws DiscoveryException {
 		final IWorkspace workspace = ResourcesPlugin.getWorkspace();
 		final IPath location = Path.fromOSString(file.getAbsolutePath());
 		final IFile result = workspace.getRoot().getFileForLocation(location);

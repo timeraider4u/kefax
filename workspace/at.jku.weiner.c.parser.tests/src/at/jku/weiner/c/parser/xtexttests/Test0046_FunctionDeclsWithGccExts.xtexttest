@@ -1,0 +1,188 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.parser
+language parser
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+source file="res/Test0046_FunctionDeclsWithGccExts.c"
+//----------------------------------------------------------------------
+lexer-tokens
+KW_CHAR WHITESPACE ID SKW_LEFTPAREN
+	KW_INT WHITESPACE ID SKW_RIGHTPAREN
+	WHITESPACE KW_ATTRIBUTE WHITESPACE
+	SKW_LEFTPAREN SKW_LEFTPAREN
+	ID WHITESPACE SKW_COMMA WHITESPACE ID
+	SKW_RIGHTPAREN SKW_RIGHTPAREN
+	SKW_SEMI NEWLINE
+KW_CHAR WHITESPACE ID SKW_LEFTPAREN
+	KW_INT WHITESPACE ID SKW_RIGHTPAREN
+	WHITESPACE KW_ATTRIBUTE WHITESPACE
+	SKW_LEFTPAREN SKW_LEFTPAREN
+	ID
+	SKW_RIGHTPAREN SKW_RIGHTPAREN
+	SKW_SEMI NEWLINE
+//----------------------------------------------------------------------
+//(common::Model units+=
+	//(common::TranslationUnit 
+	(Parser
+		external+=
+		// char do2(int c) __attribute__ ((__nothrow__ , __leaf__));
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"char"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"do2",
+								declaratorSuffix+=
+								(DeclaratorSuffix
+									lastSuffix=
+									(DirectDeclaratorLastSuffix
+										parameterTypeList+=
+										(ParameterTypeList
+											list=
+											(ParameterList
+												parameterDeclaration+=
+												(ParameterDeclaration
+													declSpecifiers=
+													(DeclarationSpecifiers
+														declarationSpecifier+=
+														(TypeSpecifier
+															name++"int"
+														)
+													),
+													declarator=
+													(Declarator
+														pointer=
+														(Pointer
+															
+														),
+														declarator=
+														(DirectDeclarator
+															id++"c"
+														)
+													)
+												)
+											)
+										)
+									)
+								)
+							),
+							gccDeclExt+=
+							(GccDeclaratorExtension
+								gccAttributeSpecifier=
+								(GccAttributeSpecifier
+									list=
+									(GccAttributeList
+										gccAttribute+=
+										(GccAttribute
+											id++"__nothrow__"											
+										),
+										(GccAttribute
+											id++"__leaf__"
+										)
+									)
+								)
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+		),
+		// char do1(int c) __attribute__ ((__nothrow__));
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"char"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"do1",
+								declaratorSuffix+=
+								(DeclaratorSuffix
+									lastSuffix=
+									(DirectDeclaratorLastSuffix
+										parameterTypeList+=
+										(ParameterTypeList
+											list=
+											(ParameterList
+												parameterDeclaration+=
+												(ParameterDeclaration
+													declSpecifiers=
+													(DeclarationSpecifiers
+														declarationSpecifier+=
+														(TypeSpecifier
+															name++"int"
+														)
+													),
+													declarator=
+													(Declarator
+														pointer=
+														(Pointer
+															
+														),
+														declarator=
+														(DirectDeclarator
+															id++"c"
+														)
+													)
+												)
+											)
+										)
+									)
+								)
+							),
+							gccDeclExt+=
+							(GccDeclaratorExtension
+								gccAttributeSpecifier=
+								(GccAttributeSpecifier
+									list=
+									(GccAttributeList
+										gccAttribute+=
+										(GccAttribute
+											id++"__nothrow__"											
+										)
+									)
+								)
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+		)
+		
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0046_FunctionDeclsWithGccExts.c"
+expected file isSameAsInputFile
+
+replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

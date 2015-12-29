@@ -85,6 +85,11 @@ import at.jku.weiner.c.parser.parser.PostfixExpressionSuffixArrow
 import at.jku.weiner.c.parser.parser.PostfixExpressionSuffixMinusMinus
 import at.jku.weiner.c.parser.parser.Parser
 import at.jku.weiner.c.parser.parser.AbstractDeclarator
+import at.jku.weiner.c.parser.parser.GccDeclaratorExtension
+import at.jku.weiner.c.parser.parser.GccAttributeSpecifier
+import at.jku.weiner.c.parser.parser.GccAttributeList
+import at.jku.weiner.c.parser.parser.GccAttribute
+import org.eclipse.emf.common.util.EList
 
 /**
  * Generates code from your model files on save.
@@ -284,6 +289,7 @@ class ParserGenerator implements IGenerator {
 	def String outputFor(Declarator decl) '''
 		«IF decl.pointer != null»«outputFor(decl.pointer)»«ENDIF»
 		«outputFor(decl.declarator)»
+		«IF decl.gccDeclExt != null»«outputFor(decl.gccDeclExt)»«ENDIF»
 	'''
 	
 	def String outputFor(DirectDeclarator decl) '''
@@ -382,6 +388,46 @@ class ParserGenerator implements IGenerator {
 			«outputFor(i)»
 		«ENDFOR»
 	'''
+	
+	def String outputFor(EList<GccDeclaratorExtension> obj) {
+		val StringBuffer result = new StringBuffer("");
+		for (var int i = 0; i < obj.size(); i++) {
+			val GccDeclaratorExtension ext = obj.get(i);
+			result.append(outputFor(ext));
+		}
+		return result.toString();
+	}
+	
+	def String outputFor(GccDeclaratorExtension obj) '''
+		«IF obj.asm»__asm(«obj.string»)«ENDIF»
+		«IF obj.gccAttributeSpecifier != null»«outputFor(obj.gccAttributeSpecifier)»«ENDIF»
+	'''
+	
+	def String outputFor(GccAttributeSpecifier obj) '''
+		__attribute__ ((«IF obj.list != null»«outputFor(obj.list)»«ENDIF»))
+	'''
+	
+	def String outputFor(GccAttributeList obj) {
+		val StringBuffer result = new StringBuffer("");
+		var boolean isFirst = true;
+		for (var int i = 0; i < obj.gccAttribute.size(); i++) {
+			if (!isFirst) {
+				result.append(",");
+			}
+			val GccAttribute attr = obj.gccAttribute.get(i);
+			result.append(outputFor(attr));
+			
+			isFirst = false;
+		}	
+		return result.toString();
+	}
+	
+	def String outputFor(GccAttribute attr) '''
+		«IF attr.id != null»«attr.id»«ENDIF»
+		«IF attr.const != null»«attr.const»«ENDIF»
+		«IF attr.list != null»(«outputFor(attr.list)»)«ENDIF»
+	'''
+	
 	
 	def String outputFor(Statement obj) '''
 		«IF obj.stmt != null»«outputFor(obj.stmt)»«ENDIF»

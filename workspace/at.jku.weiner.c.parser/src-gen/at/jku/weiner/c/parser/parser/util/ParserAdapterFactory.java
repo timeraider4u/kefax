@@ -210,6 +210,26 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
         return createDirectDeclaratorLastSuffixAdapter();
       }
       @Override
+      public Adapter caseGccDeclaratorExtension(GccDeclaratorExtension object)
+      {
+        return createGccDeclaratorExtensionAdapter();
+      }
+      @Override
+      public Adapter caseGccAttributeSpecifier(GccAttributeSpecifier object)
+      {
+        return createGccAttributeSpecifierAdapter();
+      }
+      @Override
+      public Adapter caseGccAttributeList(GccAttributeList object)
+      {
+        return createGccAttributeListAdapter();
+      }
+      @Override
+      public Adapter caseGccAttribute(GccAttribute object)
+      {
+        return createGccAttributeAdapter();
+      }
+      @Override
       public Adapter casePointer(Pointer object)
       {
         return createPointerAdapter();
@@ -932,6 +952,66 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDirectDeclaratorLastSuffixAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.parser.parser.GccDeclaratorExtension <em>Gcc Declarator Extension</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.parser.parser.GccDeclaratorExtension
+   * @generated
+   */
+  public Adapter createGccDeclaratorExtensionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.parser.parser.GccAttributeSpecifier <em>Gcc Attribute Specifier</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.parser.parser.GccAttributeSpecifier
+   * @generated
+   */
+  public Adapter createGccAttributeSpecifierAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.parser.parser.GccAttributeList <em>Gcc Attribute List</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.parser.parser.GccAttributeList
+   * @generated
+   */
+  public Adapter createGccAttributeListAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.parser.parser.GccAttribute <em>Gcc Attribute</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.parser.parser.GccAttribute
+   * @generated
+   */
+  public Adapter createGccAttributeAdapter()
   {
     return null;
   }

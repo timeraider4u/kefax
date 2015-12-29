@@ -581,7 +581,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//	| name=KW_M128
 		//	| name=KW_M128D
 		//	| name=KW_M128I
-		//	// |	'__extension__' LEFTPAREN ('__m128' | '__m128d' | '__m128i') RIGHTPAREN
+		//	// |	'__extension__' LEFTPAREN (KW_M128 | KW_M128D | KW_M128I) RIGHTPAREN
 		//	//  |	specifier=atomicTypeSpecifier
 		//	//|	specifier=StructOrUnionSpecifier
 		//	| specifier=EnumSpecifier
@@ -593,7 +593,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//{TypeSpecifier} name=KW_VOID | name=KW_CHAR | name=KW_SHORT | name=KW_INT | name=KW_LONG | name=KW_FLOAT |
 		//name=KW_DOUBLE | name=KW_SIGNED | name=KW_UNSIGNED | name=KW_BOOL | name=KW_COMPLEX | name=KW_BUILTIN_VA_LIST |
-		//name=KW_M128 | name=KW_M128D | name=KW_M128I // |	'__extension__' LEFTPAREN ('__m128' | '__m128d' | '__m128i') RIGHTPAREN
+		//name=KW_M128 | name=KW_M128D | name=KW_M128I // |	'__extension__' LEFTPAREN (KW_M128 | KW_M128D | KW_M128I) RIGHTPAREN
 		////  |	specifier=atomicTypeSpecifier
 		////|	specifier=StructOrUnionSpecifier
 		//| specifier=EnumSpecifier | type=TypedefName | struct=StructOrUnionName
@@ -1326,15 +1326,17 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cPointerPointerParserRuleCall_1_0 = (RuleCall)cPointerAssignment_1.eContents().get(0);
 		private final Assignment cDeclaratorAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cDeclaratorDirectDeclaratorParserRuleCall_2_0 = (RuleCall)cDeclaratorAssignment_2.eContents().get(0);
+		private final Assignment cGccDeclExtAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cGccDeclExtGccDeclaratorExtensionParserRuleCall_3_0 = (RuleCall)cGccDeclExtAssignment_3.eContents().get(0);
 		
 		/// *
 		//alignmentSpecifier: ALIGNAS LEFTPAREN (typeName | constantExpression) RIGHTPAREN;
 		// * / Declarator:
 		//	{Declarator} pointer=Pointer?
-		//	declarator=DirectDeclarator;
+		//	declarator=DirectDeclarator gccDeclExt+=GccDeclaratorExtension*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Declarator} pointer=Pointer? declarator=DirectDeclarator
+		//{Declarator} pointer=Pointer? declarator=DirectDeclarator gccDeclExt+=GccDeclaratorExtension*
 		public Group getGroup() { return cGroup; }
 		
 		//{Declarator}
@@ -1351,6 +1353,12 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//DirectDeclarator
 		public RuleCall getDeclaratorDirectDeclaratorParserRuleCall_2_0() { return cDeclaratorDirectDeclaratorParserRuleCall_2_0; }
+		
+		//gccDeclExt+=GccDeclaratorExtension*
+		public Assignment getGccDeclExtAssignment_3() { return cGccDeclExtAssignment_3; }
+		
+		//GccDeclaratorExtension
+		public RuleCall getGccDeclExtGccDeclaratorExtensionParserRuleCall_3_0() { return cGccDeclExtGccDeclaratorExtensionParserRuleCall_3_0; }
 	}
 	public class DirectDeclaratorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.DirectDeclarator");
@@ -1628,6 +1636,199 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//SKW_RIGHTPAREN
 		public RuleCall getSKW_RIGHTPARENTerminalRuleCall_3() { return cSKW_RIGHTPARENTerminalRuleCall_3; }
 	}
+	public class GccDeclaratorExtensionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.GccDeclaratorExtension");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cGccDeclaratorExtensionAction_0 = (Action)cGroup.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
+		private final Assignment cAsmAssignment_1_0_0 = (Assignment)cGroup_1_0.eContents().get(0);
+		private final RuleCall cAsmKW_ASM1TerminalRuleCall_1_0_0_0 = (RuleCall)cAsmAssignment_1_0_0.eContents().get(0);
+		private final RuleCall cSKW_LEFTPARENTerminalRuleCall_1_0_1 = (RuleCall)cGroup_1_0.eContents().get(1);
+		private final Assignment cStringAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
+		private final RuleCall cStringSTRING_LITERALTerminalRuleCall_1_0_2_0 = (RuleCall)cStringAssignment_1_0_2.eContents().get(0);
+		private final RuleCall cSKW_RIGHTPARENTerminalRuleCall_1_0_3 = (RuleCall)cGroup_1_0.eContents().get(3);
+		private final Assignment cGccAttributeSpecifierAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
+		private final RuleCall cGccAttributeSpecifierGccAttributeSpecifierParserRuleCall_1_1_0 = (RuleCall)cGccAttributeSpecifierAssignment_1_1.eContents().get(0);
+		
+		//GccDeclaratorExtension:
+		//	{GccDeclaratorExtension} (asm?=KW_ASM1 SKW_LEFTPAREN string+=STRING_LITERAL+ SKW_RIGHTPAREN
+		//	| gccAttributeSpecifier=GccAttributeSpecifier);
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{GccDeclaratorExtension} (asm?=KW_ASM1 SKW_LEFTPAREN string+=STRING_LITERAL+ SKW_RIGHTPAREN |
+		//gccAttributeSpecifier=GccAttributeSpecifier)
+		public Group getGroup() { return cGroup; }
+		
+		//{GccDeclaratorExtension}
+		public Action getGccDeclaratorExtensionAction_0() { return cGccDeclaratorExtensionAction_0; }
+		
+		//(asm?=KW_ASM1 SKW_LEFTPAREN string+=STRING_LITERAL+ SKW_RIGHTPAREN | gccAttributeSpecifier=GccAttributeSpecifier)
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		
+		//asm?=KW_ASM1 SKW_LEFTPAREN string+=STRING_LITERAL+ SKW_RIGHTPAREN
+		public Group getGroup_1_0() { return cGroup_1_0; }
+		
+		//asm?=KW_ASM1
+		public Assignment getAsmAssignment_1_0_0() { return cAsmAssignment_1_0_0; }
+		
+		//KW_ASM1
+		public RuleCall getAsmKW_ASM1TerminalRuleCall_1_0_0_0() { return cAsmKW_ASM1TerminalRuleCall_1_0_0_0; }
+		
+		//SKW_LEFTPAREN
+		public RuleCall getSKW_LEFTPARENTerminalRuleCall_1_0_1() { return cSKW_LEFTPARENTerminalRuleCall_1_0_1; }
+		
+		//string+=STRING_LITERAL+
+		public Assignment getStringAssignment_1_0_2() { return cStringAssignment_1_0_2; }
+		
+		//STRING_LITERAL
+		public RuleCall getStringSTRING_LITERALTerminalRuleCall_1_0_2_0() { return cStringSTRING_LITERALTerminalRuleCall_1_0_2_0; }
+		
+		//SKW_RIGHTPAREN
+		public RuleCall getSKW_RIGHTPARENTerminalRuleCall_1_0_3() { return cSKW_RIGHTPARENTerminalRuleCall_1_0_3; }
+		
+		//gccAttributeSpecifier=GccAttributeSpecifier
+		public Assignment getGccAttributeSpecifierAssignment_1_1() { return cGccAttributeSpecifierAssignment_1_1; }
+		
+		//GccAttributeSpecifier
+		public RuleCall getGccAttributeSpecifierGccAttributeSpecifierParserRuleCall_1_1_0() { return cGccAttributeSpecifierGccAttributeSpecifierParserRuleCall_1_1_0; }
+	}
+	public class GccAttributeSpecifierElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.GccAttributeSpecifier");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cGccAttributeSpecifierAction_0 = (Action)cGroup.eContents().get(0);
+		private final RuleCall cKW_ATTRIBUTETerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final RuleCall cSKW_LEFTPARENTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final RuleCall cSKW_LEFTPARENTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		private final Assignment cListAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cListGccAttributeListParserRuleCall_4_0 = (RuleCall)cListAssignment_4.eContents().get(0);
+		private final RuleCall cSKW_RIGHTPARENTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cSKW_RIGHTPARENTerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//GccAttributeSpecifier:
+		//	{GccAttributeSpecifier} KW_ATTRIBUTE SKW_LEFTPAREN SKW_LEFTPAREN
+		//	list=GccAttributeList?
+		//	SKW_RIGHTPAREN SKW_RIGHTPAREN;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{GccAttributeSpecifier} KW_ATTRIBUTE SKW_LEFTPAREN SKW_LEFTPAREN list=GccAttributeList? SKW_RIGHTPAREN SKW_RIGHTPAREN
+		public Group getGroup() { return cGroup; }
+		
+		//{GccAttributeSpecifier}
+		public Action getGccAttributeSpecifierAction_0() { return cGccAttributeSpecifierAction_0; }
+		
+		//KW_ATTRIBUTE
+		public RuleCall getKW_ATTRIBUTETerminalRuleCall_1() { return cKW_ATTRIBUTETerminalRuleCall_1; }
+		
+		//SKW_LEFTPAREN
+		public RuleCall getSKW_LEFTPARENTerminalRuleCall_2() { return cSKW_LEFTPARENTerminalRuleCall_2; }
+		
+		//SKW_LEFTPAREN
+		public RuleCall getSKW_LEFTPARENTerminalRuleCall_3() { return cSKW_LEFTPARENTerminalRuleCall_3; }
+		
+		//list=GccAttributeList?
+		public Assignment getListAssignment_4() { return cListAssignment_4; }
+		
+		//GccAttributeList
+		public RuleCall getListGccAttributeListParserRuleCall_4_0() { return cListGccAttributeListParserRuleCall_4_0; }
+		
+		//SKW_RIGHTPAREN
+		public RuleCall getSKW_RIGHTPARENTerminalRuleCall_5() { return cSKW_RIGHTPARENTerminalRuleCall_5; }
+		
+		//SKW_RIGHTPAREN
+		public RuleCall getSKW_RIGHTPARENTerminalRuleCall_6() { return cSKW_RIGHTPARENTerminalRuleCall_6; }
+	}
+	public class GccAttributeListElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.GccAttributeList");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cGccAttributeAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cGccAttributeGccAttributeParserRuleCall_0_0 = (RuleCall)cGccAttributeAssignment_0.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final RuleCall cSKW_COMMATerminalRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
+		private final Assignment cGccAttributeAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cGccAttributeGccAttributeParserRuleCall_1_1_0 = (RuleCall)cGccAttributeAssignment_1_1.eContents().get(0);
+		
+		//GccAttributeList:
+		//	gccAttribute+=GccAttribute (SKW_COMMA gccAttribute+=GccAttribute)*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//gccAttribute+=GccAttribute (SKW_COMMA gccAttribute+=GccAttribute)*
+		public Group getGroup() { return cGroup; }
+		
+		//gccAttribute+=GccAttribute
+		public Assignment getGccAttributeAssignment_0() { return cGccAttributeAssignment_0; }
+		
+		//GccAttribute
+		public RuleCall getGccAttributeGccAttributeParserRuleCall_0_0() { return cGccAttributeGccAttributeParserRuleCall_0_0; }
+		
+		//(SKW_COMMA gccAttribute+=GccAttribute)*
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//SKW_COMMA
+		public RuleCall getSKW_COMMATerminalRuleCall_1_0() { return cSKW_COMMATerminalRuleCall_1_0; }
+		
+		//gccAttribute+=GccAttribute
+		public Assignment getGccAttributeAssignment_1_1() { return cGccAttributeAssignment_1_1; }
+		
+		//GccAttribute
+		public RuleCall getGccAttributeGccAttributeParserRuleCall_1_1_0() { return cGccAttributeGccAttributeParserRuleCall_1_1_0; }
+	}
+	public class GccAttributeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.GccAttribute");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cGccAttributeAction_0 = (Action)cGroup.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Assignment cIdAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
+		private final RuleCall cIdIDTerminalRuleCall_1_0_0 = (RuleCall)cIdAssignment_1_0.eContents().get(0);
+		private final Assignment cConstAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
+		private final RuleCall cConstConstant1ParserRuleCall_1_1_0 = (RuleCall)cConstAssignment_1_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final RuleCall cSKW_LEFTPARENTerminalRuleCall_2_0 = (RuleCall)cGroup_2.eContents().get(0);
+		private final Assignment cListAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cListArgumentExpressionListParserRuleCall_2_1_0 = (RuleCall)cListAssignment_2_1.eContents().get(0);
+		private final RuleCall cSKW_RIGHTPARENTerminalRuleCall_2_2 = (RuleCall)cGroup_2.eContents().get(2);
+		
+		//GccAttribute:
+		//	{GccAttribute} (id=ID
+		//	| const=Constant1) (SKW_LEFTPAREN list=ArgumentExpressionList? SKW_RIGHTPAREN)?;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{GccAttribute} (id=ID | const=Constant1) (SKW_LEFTPAREN list=ArgumentExpressionList? SKW_RIGHTPAREN)?
+		public Group getGroup() { return cGroup; }
+		
+		//{GccAttribute}
+		public Action getGccAttributeAction_0() { return cGccAttributeAction_0; }
+		
+		//(id=ID | const=Constant1)
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		
+		//id=ID
+		public Assignment getIdAssignment_1_0() { return cIdAssignment_1_0; }
+		
+		//ID
+		public RuleCall getIdIDTerminalRuleCall_1_0_0() { return cIdIDTerminalRuleCall_1_0_0; }
+		
+		//const=Constant1
+		public Assignment getConstAssignment_1_1() { return cConstAssignment_1_1; }
+		
+		//Constant1
+		public RuleCall getConstConstant1ParserRuleCall_1_1_0() { return cConstConstant1ParserRuleCall_1_1_0; }
+		
+		//(SKW_LEFTPAREN list=ArgumentExpressionList? SKW_RIGHTPAREN)?
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//SKW_LEFTPAREN
+		public RuleCall getSKW_LEFTPARENTerminalRuleCall_2_0() { return cSKW_LEFTPARENTerminalRuleCall_2_0; }
+		
+		//list=ArgumentExpressionList?
+		public Assignment getListAssignment_2_1() { return cListAssignment_2_1; }
+		
+		//ArgumentExpressionList
+		public RuleCall getListArgumentExpressionListParserRuleCall_2_1_0() { return cListArgumentExpressionListParserRuleCall_2_1_0; }
+		
+		//SKW_RIGHTPAREN
+		public RuleCall getSKW_RIGHTPARENTerminalRuleCall_2_2() { return cSKW_RIGHTPARENTerminalRuleCall_2_2; }
+	}
 	public class PointerElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.Pointer");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -1641,29 +1842,13 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cTypeQualifierListAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cTypeQualifierListTypeQualifierListParserRuleCall_1_1_0 = (RuleCall)cTypeQualifierListAssignment_1_1.eContents().get(0);
 		
-		/// *
-		//gccDeclaratorExtension:
-		//	{gccDeclaratorExtension} '__asm' LEFTPAREN STRINGLITERAL+ RIGHTPAREN
-		//	| {gccDeclaratorExtension} gccAttributeSpecifier=gccAttributeSpecifier
-		//;
-		//
-		//
-		//gccAttributeSpecifier: '__attribute__' LEFTPAREN LEFTPAREN list=gccAttributeList RIGHTPAREN RIGHTPAREN;
-		//gccAttributeList: gcAttribute=gccAttribute (COMMA gccAttribute+=gccAttribute)*;
-		//	//|	// empty;
-		//
-		//// enter gccAttribute and nestedParenthesesBlock here
-		//gccAttribute: {gccAttribute} (ANYOTHER)
-		//	// relaxed def for "identifier or reserved word"
-		//		(LEFTPAREN list=argumentExpressionList? RIGHTPAREN)?
-		//	// |	//empty
-		//;
-		//
+		///// * * /
 		////nestedParenthesesBlock: (	NOPAREN
 		////		|	LEFTPAREN nestedParenthesesBlock RIGHTPAREN
 		////		)*
 		////;
-		// * / Pointer:
+		//// * /
+		//Pointer:
 		//	{Pointer} ((star+=SKW_STAR | caret+=SKW_CARET) typeQualifierList+=TypeQualifierList?)*
 		//	//|	{pointer} CARET typeQualifierList=typeQualifierList? pointer=pointer?// Blocks language extension
 		//;
@@ -3098,8 +3283,6 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//(expr=Lvalue op=AssignmentOperator assignmentExpr=AssignmentExpression | expr=ConditionalExpression)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		//// yes, the order of these rules
-		//// makes A DIFFERENCE!!!
 		//expr=Lvalue op=AssignmentOperator assignmentExpr=AssignmentExpression
 		public Group getGroup_1_0() { return cGroup_1_0; }
 		
@@ -3823,18 +4006,18 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//CastExpression Expression:
 		//	{CastExpression} (expr=UnaryExpression
 		//	| SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN expr=CastExpression
-		//	//|	'__extension__' LEFTPAREN type=TypeName RIGHTPAREN castExpr=CastExpression
+		//	//|	'__extension__' SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN castExpr=CastExpression
 		//)
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{CastExpression} (expr=UnaryExpression | SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN expr=CastExpression //|	'__extension__' LEFTPAREN type=TypeName RIGHTPAREN castExpr=CastExpression
+		//{CastExpression} (expr=UnaryExpression | SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN expr=CastExpression //|	'__extension__' SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN castExpr=CastExpression
 		//)
 		public Group getGroup() { return cGroup; }
 		
 		//{CastExpression}
 		public Action getCastExpressionAction_0() { return cCastExpressionAction_0; }
 		
-		//(expr=UnaryExpression | SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN expr=CastExpression //|	'__extension__' LEFTPAREN type=TypeName RIGHTPAREN castExpr=CastExpression
+		//(expr=UnaryExpression | SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN expr=CastExpression //|	'__extension__' SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN castExpr=CastExpression
 		//)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
@@ -3912,14 +4095,14 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//	| op=UnaryOperator expr=CastExpression
 		//	| sizeOf=KW_SIZEOF SKW_LEFTPAREN typeName=TypeName SKW_RIGHTPAREN
 		//	| sizeOf=KW_SIZEOF expr=UnaryExpression
-		//	//|	ALIGNOF LEFTPAREN typeName=typeName RIGHTPAREN
+		//	//|	KW_ALIGNOF SKW_LEFTPAREN typeName=typeName SKW_RIGHTPAREN
 		//	| andand=SKW_ANDAND id=ID // GCC extension address of label
 		//)
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{UnaryExpression} (expr=PostfixExpression | plusplus=SKW_PLUSPLUS expr=UnaryExpression | minusminus=SKW_MINUSMINUS
 		//expr=UnaryExpression | op=UnaryOperator expr=CastExpression | sizeOf=KW_SIZEOF SKW_LEFTPAREN typeName=TypeName
-		//SKW_RIGHTPAREN | sizeOf=KW_SIZEOF expr=UnaryExpression //|	ALIGNOF LEFTPAREN typeName=typeName RIGHTPAREN
+		//SKW_RIGHTPAREN | sizeOf=KW_SIZEOF expr=UnaryExpression //|	KW_ALIGNOF SKW_LEFTPAREN typeName=typeName SKW_RIGHTPAREN
 		//| andand=SKW_ANDAND id=ID // GCC extension address of label
 		//)
 		public Group getGroup() { return cGroup; }
@@ -3929,7 +4112,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//(expr=PostfixExpression | plusplus=SKW_PLUSPLUS expr=UnaryExpression | minusminus=SKW_MINUSMINUS expr=UnaryExpression |
 		//op=UnaryOperator expr=CastExpression | sizeOf=KW_SIZEOF SKW_LEFTPAREN typeName=TypeName SKW_RIGHTPAREN |
-		//sizeOf=KW_SIZEOF expr=UnaryExpression //|	ALIGNOF LEFTPAREN typeName=typeName RIGHTPAREN
+		//sizeOf=KW_SIZEOF expr=UnaryExpression //|	KW_ALIGNOF SKW_LEFTPAREN typeName=typeName SKW_RIGHTPAREN
 		//| andand=SKW_ANDAND id=ID // GCC extension address of label
 		//)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
@@ -4514,6 +4697,10 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	private final DirectDeclaratorElements pDirectDeclarator;
 	private final DeclaratorSuffixElements pDeclaratorSuffix;
 	private final DirectDeclaratorLastSuffixElements pDirectDeclaratorLastSuffix;
+	private final GccDeclaratorExtensionElements pGccDeclaratorExtension;
+	private final GccAttributeSpecifierElements pGccAttributeSpecifier;
+	private final GccAttributeListElements pGccAttributeList;
+	private final GccAttributeElements pGccAttribute;
 	private final PointerElements pPointer;
 	private final TypeQualifierListElements pTypeQualifierList;
 	private final ParameterTypeListElements pParameterTypeList;
@@ -4566,6 +4753,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	private final PrimaryExpressionElements pPrimaryExpression;
 	private final ConstantExpressionElements pConstantExpression;
 	private final TerminalRule tKW_ATOMIC;
+	private final TerminalRule tKW_ATTRIBUTE;
 	private final TerminalRule tKW_AUTO;
 	private final TerminalRule tKW_ALIGNAS;
 	private final TerminalRule tKW_ALIGNOF;
@@ -4670,6 +4858,10 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		this.pDirectDeclarator = new DirectDeclaratorElements();
 		this.pDeclaratorSuffix = new DeclaratorSuffixElements();
 		this.pDirectDeclaratorLastSuffix = new DirectDeclaratorLastSuffixElements();
+		this.pGccDeclaratorExtension = new GccDeclaratorExtensionElements();
+		this.pGccAttributeSpecifier = new GccAttributeSpecifierElements();
+		this.pGccAttributeList = new GccAttributeListElements();
+		this.pGccAttribute = new GccAttributeElements();
 		this.pPointer = new PointerElements();
 		this.pTypeQualifierList = new TypeQualifierListElements();
 		this.pParameterTypeList = new ParameterTypeListElements();
@@ -4722,6 +4914,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		this.pPrimaryExpression = new PrimaryExpressionElements();
 		this.pConstantExpression = new ConstantExpressionElements();
 		this.tKW_ATOMIC = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_ATOMIC");
+		this.tKW_ATTRIBUTE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_ATTRIBUTE");
 		this.tKW_AUTO = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_AUTO");
 		this.tKW_ALIGNAS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_ALIGNAS");
 		this.tKW_ALIGNOF = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_ALIGNOF");
@@ -4974,7 +5167,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//	| name=KW_M128
 	//	| name=KW_M128D
 	//	| name=KW_M128I
-	//	// |	'__extension__' LEFTPAREN ('__m128' | '__m128d' | '__m128i') RIGHTPAREN
+	//	// |	'__extension__' LEFTPAREN (KW_M128 | KW_M128D | KW_M128I) RIGHTPAREN
 	//	//  |	specifier=atomicTypeSpecifier
 	//	//|	specifier=StructOrUnionSpecifier
 	//	| specifier=EnumSpecifier
@@ -5161,7 +5354,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//alignmentSpecifier: ALIGNAS LEFTPAREN (typeName | constantExpression) RIGHTPAREN;
 	// * / Declarator:
 	//	{Declarator} pointer=Pointer?
-	//	declarator=DirectDeclarator;
+	//	declarator=DirectDeclarator gccDeclExt+=GccDeclaratorExtension*;
 	public DeclaratorElements getDeclaratorAccess() {
 		return pDeclarator;
 	}
@@ -5211,29 +5404,57 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return getDirectDeclaratorLastSuffixAccess().getRule();
 	}
 	
-	/// *
-	//gccDeclaratorExtension:
-	//	{gccDeclaratorExtension} '__asm' LEFTPAREN STRINGLITERAL+ RIGHTPAREN
-	//	| {gccDeclaratorExtension} gccAttributeSpecifier=gccAttributeSpecifier
-	//;
-	//
-	//
-	//gccAttributeSpecifier: '__attribute__' LEFTPAREN LEFTPAREN list=gccAttributeList RIGHTPAREN RIGHTPAREN;
-	//gccAttributeList: gcAttribute=gccAttribute (COMMA gccAttribute+=gccAttribute)*;
-	//	//|	// empty;
-	//
-	//// enter gccAttribute and nestedParenthesesBlock here
-	//gccAttribute: {gccAttribute} (ANYOTHER)
-	//	// relaxed def for "identifier or reserved word"
-	//		(LEFTPAREN list=argumentExpressionList? RIGHTPAREN)?
-	//	// |	//empty
-	//;
-	//
+	//GccDeclaratorExtension:
+	//	{GccDeclaratorExtension} (asm?=KW_ASM1 SKW_LEFTPAREN string+=STRING_LITERAL+ SKW_RIGHTPAREN
+	//	| gccAttributeSpecifier=GccAttributeSpecifier);
+	public GccDeclaratorExtensionElements getGccDeclaratorExtensionAccess() {
+		return pGccDeclaratorExtension;
+	}
+	
+	public ParserRule getGccDeclaratorExtensionRule() {
+		return getGccDeclaratorExtensionAccess().getRule();
+	}
+	
+	//GccAttributeSpecifier:
+	//	{GccAttributeSpecifier} KW_ATTRIBUTE SKW_LEFTPAREN SKW_LEFTPAREN
+	//	list=GccAttributeList?
+	//	SKW_RIGHTPAREN SKW_RIGHTPAREN;
+	public GccAttributeSpecifierElements getGccAttributeSpecifierAccess() {
+		return pGccAttributeSpecifier;
+	}
+	
+	public ParserRule getGccAttributeSpecifierRule() {
+		return getGccAttributeSpecifierAccess().getRule();
+	}
+	
+	//GccAttributeList:
+	//	gccAttribute+=GccAttribute (SKW_COMMA gccAttribute+=GccAttribute)*;
+	public GccAttributeListElements getGccAttributeListAccess() {
+		return pGccAttributeList;
+	}
+	
+	public ParserRule getGccAttributeListRule() {
+		return getGccAttributeListAccess().getRule();
+	}
+	
+	//GccAttribute:
+	//	{GccAttribute} (id=ID
+	//	| const=Constant1) (SKW_LEFTPAREN list=ArgumentExpressionList? SKW_RIGHTPAREN)?;
+	public GccAttributeElements getGccAttributeAccess() {
+		return pGccAttribute;
+	}
+	
+	public ParserRule getGccAttributeRule() {
+		return getGccAttributeAccess().getRule();
+	}
+	
+	///// * * /
 	////nestedParenthesesBlock: (	NOPAREN
 	////		|	LEFTPAREN nestedParenthesesBlock RIGHTPAREN
 	////		)*
 	////;
-	// * / Pointer:
+	//// * /
+	//Pointer:
 	//	{Pointer} ((star+=SKW_STAR | caret+=SKW_CARET) typeQualifierList+=TypeQualifierList?)*
 	//	//|	{pointer} CARET typeQualifierList=typeQualifierList? pointer=pointer?// Blocks language extension
 	//;
@@ -5700,7 +5921,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//CastExpression Expression:
 	//	{CastExpression} (expr=UnaryExpression
 	//	| SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN expr=CastExpression
-	//	//|	'__extension__' LEFTPAREN type=TypeName RIGHTPAREN castExpr=CastExpression
+	//	//|	'__extension__' SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN castExpr=CastExpression
 	//)
 	public CastExpressionElements getCastExpressionAccess() {
 		return pCastExpression;
@@ -5717,7 +5938,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//	| op=UnaryOperator expr=CastExpression
 	//	| sizeOf=KW_SIZEOF SKW_LEFTPAREN typeName=TypeName SKW_RIGHTPAREN
 	//	| sizeOf=KW_SIZEOF expr=UnaryExpression
-	//	//|	ALIGNOF LEFTPAREN typeName=typeName RIGHTPAREN
+	//	//|	KW_ALIGNOF SKW_LEFTPAREN typeName=typeName SKW_RIGHTPAREN
 	//	| andand=SKW_ANDAND id=ID // GCC extension address of label
 	//)
 	public UnaryExpressionElements getUnaryExpressionAccess() {
@@ -5857,9 +6078,15 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal KW_ATOMIC:
-	//	'_Atomic';
+	//	SKW_UNDERSCORE 'Atomic';
 	public TerminalRule getKW_ATOMICRule() {
 		return tKW_ATOMIC;
+	}
+	
+	//terminal KW_ATTRIBUTE:
+	//	SKW_UNDERSCORE SKW_UNDERSCORE 'attribute' SKW_UNDERSCORE SKW_UNDERSCORE;
+	public TerminalRule getKW_ATTRIBUTERule() {
+		return tKW_ATTRIBUTE;
 	}
 	
 	//terminal KW_AUTO:
@@ -5869,13 +6096,13 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal KW_ALIGNAS:
-	//	'_Alignas';
+	//	SKW_UNDERSCORE 'Alignas';
 	public TerminalRule getKW_ALIGNASRule() {
 		return tKW_ALIGNAS;
 	}
 	
 	//terminal KW_ALIGNOF:
-	//	'_Alignof';
+	//	SKW_UNDERSCORE 'Alignof';
 	public TerminalRule getKW_ALIGNOFRule() {
 		return tKW_ALIGNOF;
 	}
@@ -5893,7 +6120,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal KW_BOOL:
-	//	'_Bool';
+	//	SKW_UNDERSCORE 'Bool';
 	public TerminalRule getKW_BOOLRule() {
 		return tKW_BOOL;
 	}
@@ -5905,7 +6132,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal KW_BUILTIN_VA_LIST:
-	//	'__builtin_va_list';
+	//	SKW_UNDERSCORE SKW_UNDERSCORE 'builtin_va_list';
 	public TerminalRule getKW_BUILTIN_VA_LISTRule() {
 		return tKW_BUILTIN_VA_LIST;
 	}
@@ -5923,7 +6150,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal KW_COMPLEX:
-	//	'_Complex';
+	//	SKW_UNDERSCORE 'Complex';
 	public TerminalRule getKW_COMPLEXRule() {
 		return tKW_COMPLEX;
 	}
@@ -5989,7 +6216,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal KW_GENERIC:
-	//	'_Generic';
+	//	SKW_UNDERSCORE 'Generic';
 	public TerminalRule getKW_GENERICRule() {
 		return tKW_GENERIC;
 	}
@@ -6007,7 +6234,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal KW_IMAGINARY:
-	//	'_Imaginary';
+	//	SKW_UNDERSCORE 'Imaginary';
 	public TerminalRule getKW_IMAGINARYRule() {
 		return tKW_IMAGINARY;
 	}
@@ -6031,25 +6258,25 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal KW_M128:
-	//	'__m128';
+	//	SKW_UNDERSCORE SKW_UNDERSCORE 'm128';
 	public TerminalRule getKW_M128Rule() {
 		return tKW_M128;
 	}
 	
 	//terminal KW_M128D:
-	//	'__m128d';
+	//	KW_M128 'd';
 	public TerminalRule getKW_M128DRule() {
 		return tKW_M128D;
 	}
 	
 	//terminal KW_M128I:
-	//	'__m128i';
+	//	KW_M128 'i';
 	public TerminalRule getKW_M128IRule() {
 		return tKW_M128I;
 	}
 	
 	//terminal KW_NORETURN:
-	//	'_Noreturn';
+	//	SKW_UNDERSCORE 'Noreturn';
 	public TerminalRule getKW_NORETURNRule() {
 		return tKW_NORETURN;
 	}
@@ -6103,7 +6330,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal KW_STATICASSERT:
-	//	'_Static_assert';
+	//	SKW_UNDERSCORE 'Static_assert';
 	public TerminalRule getKW_STATICASSERTRule() {
 		return tKW_STATICASSERT;
 	}
@@ -6121,7 +6348,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal KW_THREADLOCAL:
-	//	'_Thread_local';
+	//	SKW_UNDERSCORE 'Thread_local';
 	public TerminalRule getKW_THREADLOCALRule() {
 		return tKW_THREADLOCAL;
 	}

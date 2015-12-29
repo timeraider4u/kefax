@@ -91,6 +91,10 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
       case ParserPackage.DIRECT_DECLARATOR: return createDirectDeclarator();
       case ParserPackage.DECLARATOR_SUFFIX: return createDeclaratorSuffix();
       case ParserPackage.DIRECT_DECLARATOR_LAST_SUFFIX: return createDirectDeclaratorLastSuffix();
+      case ParserPackage.GCC_DECLARATOR_EXTENSION: return createGccDeclaratorExtension();
+      case ParserPackage.GCC_ATTRIBUTE_SPECIFIER: return createGccAttributeSpecifier();
+      case ParserPackage.GCC_ATTRIBUTE_LIST: return createGccAttributeList();
+      case ParserPackage.GCC_ATTRIBUTE: return createGccAttribute();
       case ParserPackage.POINTER: return createPointer();
       case ParserPackage.TYPE_QUALIFIER_LIST: return createTypeQualifierList();
       case ParserPackage.PARAMETER_TYPE_LIST: return createParameterTypeList();
@@ -446,6 +450,50 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
   {
     DirectDeclaratorLastSuffixImpl directDeclaratorLastSuffix = new DirectDeclaratorLastSuffixImpl();
     return directDeclaratorLastSuffix;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public GccDeclaratorExtension createGccDeclaratorExtension()
+  {
+    GccDeclaratorExtensionImpl gccDeclaratorExtension = new GccDeclaratorExtensionImpl();
+    return gccDeclaratorExtension;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public GccAttributeSpecifier createGccAttributeSpecifier()
+  {
+    GccAttributeSpecifierImpl gccAttributeSpecifier = new GccAttributeSpecifierImpl();
+    return gccAttributeSpecifier;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public GccAttributeList createGccAttributeList()
+  {
+    GccAttributeListImpl gccAttributeList = new GccAttributeListImpl();
+    return gccAttributeList;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public GccAttribute createGccAttribute()
+  {
+    GccAttributeImpl gccAttribute = new GccAttributeImpl();
+    return gccAttribute;
   }
 
   /**

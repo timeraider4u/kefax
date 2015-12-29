@@ -182,7 +182,7 @@ TypeSpecifier:
 	|	name=KW_M128D
 	|	name=KW_M128I
 	
-	// |	'__extension__' LEFTPAREN ('__m128' | '__m128d' | '__m128i') RIGHTPAREN
+	// |	'__extension__' LEFTPAREN (KW_M128 | KW_M128D | KW_M128I) RIGHTPAREN
   //  |	specifier=atomicTypeSpecifier
 	//|	specifier=StructOrUnionSpecifier
 	|	specifier=EnumSpecifier
@@ -313,7 +313,7 @@ Declarator:
 	{Declarator}	
 	(pointer=Pointer)?
 	(declarator=DirectDeclarator)
-	//(gccDeclExt+=gccDeclaratorExtension)*
+	(gccDeclExt+=GccDeclaratorExtension)*
 ;
 
 DirectDeclarator:
@@ -355,29 +355,43 @@ DirectDeclaratorLastSuffix:
 	SKW_RIGHTPAREN
 ;
 
-/*
-gccDeclaratorExtension:
-	{gccDeclaratorExtension} '__asm' LEFTPAREN STRINGLITERAL+ RIGHTPAREN
-	| {gccDeclaratorExtension} gccAttributeSpecifier=gccAttributeSpecifier
+
+GccDeclaratorExtension:
+	{GccDeclaratorExtension}
+	(
+			asm?=KW_ASM1 SKW_LEFTPAREN string+=STRING_LITERAL+ SKW_RIGHTPAREN
+		|	gccAttributeSpecifier=GccAttributeSpecifier
+	)
 ;
 
 
-gccAttributeSpecifier: '__attribute__' LEFTPAREN LEFTPAREN list=gccAttributeList RIGHTPAREN RIGHTPAREN;
-gccAttributeList: gcAttribute=gccAttribute (COMMA gccAttribute+=gccAttribute)*;
-	//|	// empty;
-
-// enter gccAttribute and nestedParenthesesBlock here
-gccAttribute: {gccAttribute} (ANYOTHER)
-	// relaxed def for "identifier or reserved word"
-		(LEFTPAREN list=argumentExpressionList? RIGHTPAREN)?
-	// |	//empty
+GccAttributeSpecifier:
+	{GccAttributeSpecifier} 
+	KW_ATTRIBUTE SKW_LEFTPAREN SKW_LEFTPAREN 
+		(list=GccAttributeList)? 
+	SKW_RIGHTPAREN SKW_RIGHTPAREN
 ;
 
+GccAttributeList: 
+		gccAttribute+=GccAttribute 
+		(SKW_COMMA gccAttribute+=GccAttribute)*
+;
+
+
+GccAttribute: {GccAttribute}
+	(
+			id=ID
+		|	const = Constant1
+	)
+	(SKW_LEFTPAREN list=ArgumentExpressionList? SKW_RIGHTPAREN)?
+;
+
+///* */
 //nestedParenthesesBlock: (	NOPAREN
 //		|	LEFTPAREN nestedParenthesesBlock RIGHTPAREN
 //		)*
 //;
-*/
+//*/
 
 
 Pointer:
@@ -618,11 +632,10 @@ Expression:
 AssignmentExpression returns Expression:
 	{AssignmentExpression}
 	(
-		// yes, the order of these rules
-		// makes A DIFFERENCE!!!
-		(expr=Lvalue
-		op=AssignmentOperator
-		assignmentExpr=AssignmentExpression
+		(
+			expr=Lvalue
+			op=AssignmentOperator
+			assignmentExpr=AssignmentExpression
 		)
 	|
 		expr=ConditionalExpression
@@ -731,7 +744,7 @@ CastExpression returns Expression:
 	(
 	expr=UnaryExpression
 	|	SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN expr=CastExpression
-	//|	'__extension__' LEFTPAREN type=TypeName RIGHTPAREN castExpr=CastExpression
+	//|	'__extension__' SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN castExpr=CastExpression
 	)
 ;
 
@@ -744,7 +757,7 @@ UnaryExpression returns Expression:
 	|	op=UnaryOperator expr=CastExpression
 	|	sizeOf=KW_SIZEOF SKW_LEFTPAREN typeName=TypeName SKW_RIGHTPAREN
 	|	sizeOf=KW_SIZEOF expr=UnaryExpression 
-	//|	ALIGNOF LEFTPAREN typeName=typeName RIGHTPAREN
+	//|	KW_ALIGNOF SKW_LEFTPAREN typeName=typeName SKW_RIGHTPAREN
 	|	andand=SKW_ANDAND id=ID // GCC extension address of label
 	)
 ;
@@ -848,18 +861,19 @@ genericAssociation:
 /*** lexer ***/
 /*** start with keywords ;-) */
 
-terminal KW_ATOMIC : '_Atomic';
+terminal KW_ATOMIC : SKW_UNDERSCORE 'Atomic';
+terminal KW_ATTRIBUTE: SKW_UNDERSCORE SKW_UNDERSCORE 'attribute' SKW_UNDERSCORE SKW_UNDERSCORE;
 terminal KW_AUTO : 'auto';
-terminal KW_ALIGNAS : '_Alignas';
-terminal KW_ALIGNOF : '_Alignof';
+terminal KW_ALIGNAS : SKW_UNDERSCORE 'Alignas';
+terminal KW_ALIGNOF : SKW_UNDERSCORE 'Alignof';
 terminal KW_ASM1: SKW_UNDERSCORE SKW_UNDERSCORE 'asm';
 terminal KW_ASM2: KW_ASM1 SKW_UNDERSCORE SKW_UNDERSCORE;
-terminal KW_BOOL : '_Bool';
+terminal KW_BOOL : SKW_UNDERSCORE 'Bool';
 terminal KW_BREAK : 'break';
-terminal KW_BUILTIN_VA_LIST: '__builtin_va_list';
+terminal KW_BUILTIN_VA_LIST: SKW_UNDERSCORE SKW_UNDERSCORE 'builtin_va_list';
 terminal KW_CASE : 'case';
 terminal KW_CHAR : 'char';
-terminal KW_COMPLEX : '_Complex';
+terminal KW_COMPLEX : SKW_UNDERSCORE 'Complex';
 terminal KW_CONST : 'const';
 terminal KW_CONTINUE : 'continue';
 terminal KW_DEFAULT : 'default';
@@ -870,17 +884,17 @@ terminal KW_ENUM : 'enum';
 terminal KW_EXTERN : 'extern';
 terminal KW_FLOAT : 'float';
 terminal KW_FOR : 'for';
-terminal KW_GENERIC : '_Generic';
+terminal KW_GENERIC : SKW_UNDERSCORE 'Generic';
 terminal KW_GOTO : 'goto';
 terminal KW_IF : 'if';
-terminal KW_IMAGINARY : '_Imaginary';
+terminal KW_IMAGINARY : SKW_UNDERSCORE 'Imaginary';
 terminal KW_INLINE : 'inline';
 terminal KW_INT : 'int';
 terminal KW_LONG : 'long';
-terminal KW_M128: '__m128';
-terminal KW_M128D: '__m128d';
-terminal KW_M128I: '__m128i';
-terminal KW_NORETURN : '_Noreturn';
+terminal KW_M128: SKW_UNDERSCORE SKW_UNDERSCORE 'm128';
+terminal KW_M128D: KW_M128 'd';
+terminal KW_M128I: KW_M128 'i';
+terminal KW_NORETURN : SKW_UNDERSCORE 'Noreturn';
 terminal KW_PRAGMA: 'pragma';
 terminal KW_REGISTER : 'register';
 terminal KW_RESTRICT : 'restrict';
@@ -889,10 +903,10 @@ terminal KW_SHORT : 'short';
 terminal KW_SIGNED : 'signed';
 terminal KW_SIZEOF : 'sizeof';
 terminal KW_STATIC : 'static';
-terminal KW_STATICASSERT : '_Static_assert';
+terminal KW_STATICASSERT : SKW_UNDERSCORE 'Static_assert';
 terminal KW_STRUCT : 'struct';
 terminal KW_SWITCH : 'switch';
-terminal KW_THREADLOCAL : '_Thread_local';
+terminal KW_THREADLOCAL : SKW_UNDERSCORE 'Thread_local';
 terminal KW_TYPEDEF : 'typedef';
 terminal KW_UNION : 'union';
 terminal KW_UNSIGNED : 'unsigned';
@@ -903,6 +917,7 @@ terminal KW_WHILE : 'while';
 
 
 
+/*** assigning operators ***/
 terminal STARASSIGN: SKW_STAR SKW_ASSIGN;
 terminal DIVASSIGN: SKW_DIV SKW_ASSIGN;
 terminal MODASSIGN: SKW_MOD SKW_ASSIGN;
@@ -914,11 +929,9 @@ terminal ANDASSIGN: SKW_AND SKW_ASSIGN;
 terminal XORASSIGN: SKW_CARET SKW_ASSIGN;
 terminal ORASSIGN: SKW_OR SKW_ASSIGN;
 
-
 terminal ARROW: SKW_MINUS SKW_GREATER;
 terminal ELLIPSIS: SKW_DOT SKW_DOT SKW_DOT;
 
-
+/*** Whitespace specifics ***/
 terminal LINEDIRECTIVE: '#' (!NEWLINE | SKW_BACKSLASH NEWLINE)*;
 terminal WHITESPACE: (' ' | '\t')+;
-//terminal EOF_TERMINAL: EOF;

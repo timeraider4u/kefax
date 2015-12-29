@@ -39,6 +39,10 @@ import at.jku.weiner.c.parser.parser.FunctionDeclarationSpecifiers;
 import at.jku.weiner.c.parser.parser.FunctionDefHead;
 import at.jku.weiner.c.parser.parser.FunctionDefinition;
 import at.jku.weiner.c.parser.parser.FunctionSpecifier;
+import at.jku.weiner.c.parser.parser.GccAttribute;
+import at.jku.weiner.c.parser.parser.GccAttributeList;
+import at.jku.weiner.c.parser.parser.GccAttributeSpecifier;
+import at.jku.weiner.c.parser.parser.GccDeclaratorExtension;
 import at.jku.weiner.c.parser.parser.IdentifierList;
 import at.jku.weiner.c.parser.parser.InclusiveOrExpression;
 import at.jku.weiner.c.parser.parser.InitDeclarator;
@@ -293,6 +297,34 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * @generated
    */
   private EClass directDeclaratorLastSuffixEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass gccDeclaratorExtensionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass gccAttributeSpecifierEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass gccAttributeListEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass gccAttributeEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1400,6 +1432,16 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getDeclarator_GccDeclExt()
+  {
+    return (EReference)declaratorEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getDirectDeclarator()
   {
     return directDeclaratorEClass;
@@ -1523,6 +1565,126 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
   public EReference getDirectDeclaratorLastSuffix_IdentifierList()
   {
     return (EReference)directDeclaratorLastSuffixEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getGccDeclaratorExtension()
+  {
+    return gccDeclaratorExtensionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getGccDeclaratorExtension_Asm()
+  {
+    return (EAttribute)gccDeclaratorExtensionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getGccDeclaratorExtension_String()
+  {
+    return (EAttribute)gccDeclaratorExtensionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getGccDeclaratorExtension_GccAttributeSpecifier()
+  {
+    return (EReference)gccDeclaratorExtensionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getGccAttributeSpecifier()
+  {
+    return gccAttributeSpecifierEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getGccAttributeSpecifier_List()
+  {
+    return (EReference)gccAttributeSpecifierEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getGccAttributeList()
+  {
+    return gccAttributeListEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getGccAttributeList_GccAttribute()
+  {
+    return (EReference)gccAttributeListEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getGccAttribute()
+  {
+    return gccAttributeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getGccAttribute_Id()
+  {
+    return (EAttribute)gccAttributeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getGccAttribute_Const()
+  {
+    return (EAttribute)gccAttributeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getGccAttribute_List()
+  {
+    return (EReference)gccAttributeEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -3233,6 +3395,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     declaratorEClass = createEClass(DECLARATOR);
     createEReference(declaratorEClass, DECLARATOR__POINTER);
     createEReference(declaratorEClass, DECLARATOR__DECLARATOR);
+    createEReference(declaratorEClass, DECLARATOR__GCC_DECL_EXT);
 
     directDeclaratorEClass = createEClass(DIRECT_DECLARATOR);
     createEAttribute(directDeclaratorEClass, DIRECT_DECLARATOR__ID);
@@ -3249,6 +3412,22 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     directDeclaratorLastSuffixEClass = createEClass(DIRECT_DECLARATOR_LAST_SUFFIX);
     createEReference(directDeclaratorLastSuffixEClass, DIRECT_DECLARATOR_LAST_SUFFIX__PARAMETER_TYPE_LIST);
     createEReference(directDeclaratorLastSuffixEClass, DIRECT_DECLARATOR_LAST_SUFFIX__IDENTIFIER_LIST);
+
+    gccDeclaratorExtensionEClass = createEClass(GCC_DECLARATOR_EXTENSION);
+    createEAttribute(gccDeclaratorExtensionEClass, GCC_DECLARATOR_EXTENSION__ASM);
+    createEAttribute(gccDeclaratorExtensionEClass, GCC_DECLARATOR_EXTENSION__STRING);
+    createEReference(gccDeclaratorExtensionEClass, GCC_DECLARATOR_EXTENSION__GCC_ATTRIBUTE_SPECIFIER);
+
+    gccAttributeSpecifierEClass = createEClass(GCC_ATTRIBUTE_SPECIFIER);
+    createEReference(gccAttributeSpecifierEClass, GCC_ATTRIBUTE_SPECIFIER__LIST);
+
+    gccAttributeListEClass = createEClass(GCC_ATTRIBUTE_LIST);
+    createEReference(gccAttributeListEClass, GCC_ATTRIBUTE_LIST__GCC_ATTRIBUTE);
+
+    gccAttributeEClass = createEClass(GCC_ATTRIBUTE);
+    createEAttribute(gccAttributeEClass, GCC_ATTRIBUTE__ID);
+    createEAttribute(gccAttributeEClass, GCC_ATTRIBUTE__CONST);
+    createEReference(gccAttributeEClass, GCC_ATTRIBUTE__LIST);
 
     pointerEClass = createEClass(POINTER);
     createEAttribute(pointerEClass, POINTER__STAR);
@@ -3628,6 +3807,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     initEClass(declaratorEClass, Declarator.class, "Declarator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDeclarator_Pointer(), this.getPointer(), null, "pointer", null, 0, 1, Declarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDeclarator_Declarator(), this.getDirectDeclarator(), null, "declarator", null, 0, 1, Declarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDeclarator_GccDeclExt(), this.getGccDeclaratorExtension(), null, "gccDeclExt", null, 0, -1, Declarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(directDeclaratorEClass, DirectDeclarator.class, "DirectDeclarator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDirectDeclarator_Id(), theEcorePackage.getEString(), "id", null, 0, 1, DirectDeclarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3644,6 +3824,22 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     initEClass(directDeclaratorLastSuffixEClass, DirectDeclaratorLastSuffix.class, "DirectDeclaratorLastSuffix", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDirectDeclaratorLastSuffix_ParameterTypeList(), this.getParameterTypeList(), null, "parameterTypeList", null, 0, -1, DirectDeclaratorLastSuffix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDirectDeclaratorLastSuffix_IdentifierList(), this.getIdentifierList(), null, "identifierList", null, 0, 1, DirectDeclaratorLastSuffix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(gccDeclaratorExtensionEClass, GccDeclaratorExtension.class, "GccDeclaratorExtension", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getGccDeclaratorExtension_Asm(), theEcorePackage.getEBoolean(), "asm", null, 0, 1, GccDeclaratorExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getGccDeclaratorExtension_String(), theEcorePackage.getEString(), "string", null, 0, -1, GccDeclaratorExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getGccDeclaratorExtension_GccAttributeSpecifier(), this.getGccAttributeSpecifier(), null, "gccAttributeSpecifier", null, 0, 1, GccDeclaratorExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(gccAttributeSpecifierEClass, GccAttributeSpecifier.class, "GccAttributeSpecifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getGccAttributeSpecifier_List(), this.getGccAttributeList(), null, "list", null, 0, 1, GccAttributeSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(gccAttributeListEClass, GccAttributeList.class, "GccAttributeList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getGccAttributeList_GccAttribute(), this.getGccAttribute(), null, "gccAttribute", null, 0, -1, GccAttributeList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(gccAttributeEClass, GccAttribute.class, "GccAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getGccAttribute_Id(), theEcorePackage.getEString(), "id", null, 0, 1, GccAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getGccAttribute_Const(), theEcorePackage.getEString(), "const", null, 0, 1, GccAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getGccAttribute_List(), this.getArgumentExpressionList(), null, "list", null, 0, 1, GccAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(pointerEClass, Pointer.class, "Pointer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPointer_Star(), theEcorePackage.getEString(), "star", null, 0, -1, Pointer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

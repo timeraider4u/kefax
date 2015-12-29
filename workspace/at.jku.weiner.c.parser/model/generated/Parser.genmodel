@@ -95,6 +95,7 @@
     <genClasses ecoreClass="Parser.ecore#//Declarator">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//Declarator/pointer"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//Declarator/declarator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//Declarator/gccDeclExt"/>
     </genClasses>
     <genClasses ecoreClass="Parser.ecore#//DirectDeclarator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//DirectDeclarator/id"/>
@@ -111,6 +112,22 @@
     <genClasses ecoreClass="Parser.ecore#//DirectDeclaratorLastSuffix">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//DirectDeclaratorLastSuffix/parameterTypeList"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//DirectDeclaratorLastSuffix/identifierList"/>
+    </genClasses>
+    <genClasses ecoreClass="Parser.ecore#//GccDeclaratorExtension">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//GccDeclaratorExtension/asm"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//GccDeclaratorExtension/string"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//GccDeclaratorExtension/gccAttributeSpecifier"/>
+    </genClasses>
+    <genClasses ecoreClass="Parser.ecore#//GccAttributeSpecifier">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//GccAttributeSpecifier/list"/>
+    </genClasses>
+    <genClasses ecoreClass="Parser.ecore#//GccAttributeList">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//GccAttributeList/gccAttribute"/>
+    </genClasses>
+    <genClasses ecoreClass="Parser.ecore#//GccAttribute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//GccAttribute/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//GccAttribute/const"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//GccAttribute/list"/>
     </genClasses>
     <genClasses ecoreClass="Parser.ecore#//Pointer">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//Pointer/star"/>

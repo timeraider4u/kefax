@@ -266,6 +266,42 @@ public interface ParserFactory extends EFactory
   DirectDeclaratorLastSuffix createDirectDeclaratorLastSuffix();
 
   /**
+   * Returns a new object of class '<em>Gcc Declarator Extension</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Gcc Declarator Extension</em>'.
+   * @generated
+   */
+  GccDeclaratorExtension createGccDeclaratorExtension();
+
+  /**
+   * Returns a new object of class '<em>Gcc Attribute Specifier</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Gcc Attribute Specifier</em>'.
+   * @generated
+   */
+  GccAttributeSpecifier createGccAttributeSpecifier();
+
+  /**
+   * Returns a new object of class '<em>Gcc Attribute List</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Gcc Attribute List</em>'.
+   * @generated
+   */
+  GccAttributeList createGccAttributeList();
+
+  /**
+   * Returns a new object of class '<em>Gcc Attribute</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Gcc Attribute</em>'.
+   * @generated
+   */
+  GccAttribute createGccAttribute();
+
+  /**
    * Returns a new object of class '<em>Pointer</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

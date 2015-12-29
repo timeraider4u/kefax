@@ -39,6 +39,10 @@ import at.jku.weiner.c.parser.parser.FunctionDeclarationSpecifiers;
 import at.jku.weiner.c.parser.parser.FunctionDefHead;
 import at.jku.weiner.c.parser.parser.FunctionDefinition;
 import at.jku.weiner.c.parser.parser.FunctionSpecifier;
+import at.jku.weiner.c.parser.parser.GccAttribute;
+import at.jku.weiner.c.parser.parser.GccAttributeList;
+import at.jku.weiner.c.parser.parser.GccAttributeSpecifier;
+import at.jku.weiner.c.parser.parser.GccDeclaratorExtension;
 import at.jku.weiner.c.parser.parser.IdentifierList;
 import at.jku.weiner.c.parser.parser.InclusiveOrExpression;
 import at.jku.weiner.c.parser.parser.InitDeclarator;
@@ -212,6 +216,18 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 				return; 
 			case ParserPackage.FUNCTION_SPECIFIER:
 				sequence_FunctionSpecifier(context, (FunctionSpecifier) semanticObject); 
+				return; 
+			case ParserPackage.GCC_ATTRIBUTE:
+				sequence_GccAttribute(context, (GccAttribute) semanticObject); 
+				return; 
+			case ParserPackage.GCC_ATTRIBUTE_LIST:
+				sequence_GccAttributeList(context, (GccAttributeList) semanticObject); 
+				return; 
+			case ParserPackage.GCC_ATTRIBUTE_SPECIFIER:
+				sequence_GccAttributeSpecifier(context, (GccAttributeSpecifier) semanticObject); 
+				return; 
+			case ParserPackage.GCC_DECLARATOR_EXTENSION:
+				sequence_GccDeclaratorExtension(context, (GccDeclaratorExtension) semanticObject); 
 				return; 
 			case ParserPackage.IDENTIFIER_LIST:
 				sequence_IdentifierList(context, (IdentifierList) semanticObject); 
@@ -561,7 +577,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (pointer=Pointer? declarator=DirectDeclarator)
+	 *     (pointer=Pointer? declarator=DirectDeclarator gccDeclExt+=GccDeclaratorExtension*)
 	 */
 	protected void sequence_Declarator(EObject context, Declarator semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -702,6 +718,42 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	 *     (name=KW_INLINE | name=KW_NORETURN)
 	 */
 	protected void sequence_FunctionSpecifier(EObject context, FunctionSpecifier semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (gccAttribute+=GccAttribute gccAttribute+=GccAttribute*)
+	 */
+	protected void sequence_GccAttributeList(EObject context, GccAttributeList semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (list=GccAttributeList?)
+	 */
+	protected void sequence_GccAttributeSpecifier(EObject context, GccAttributeSpecifier semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     ((id=ID | const=Constant1) list=ArgumentExpressionList?)
+	 */
+	protected void sequence_GccAttribute(EObject context, GccAttribute semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     ((asm?=KW_ASM1 string+=STRING_LITERAL+) | gccAttributeSpecifier=GccAttributeSpecifier)
+	 */
+	protected void sequence_GccDeclaratorExtension(EObject context, GccDeclaratorExtension semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

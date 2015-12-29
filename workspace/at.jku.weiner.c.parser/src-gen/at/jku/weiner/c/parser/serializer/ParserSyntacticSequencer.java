@@ -21,12 +21,14 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class ParserSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected ParserGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_GccAttribute___SKW_LEFTPARENTerminalRuleCall_2_0_SKW_RIGHTPARENTerminalRuleCall_2_2__q;
 	protected AbstractElementAlias match_Initializer_SKW_COMMATerminalRuleCall_1_1_2_q;
 	protected AbstractElementAlias match_ParameterTypeList___SKW_COMMATerminalRuleCall_2_0_ELLIPSISTerminalRuleCall_2_1__q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (ParserGrammarAccess) access;
+		match_GccAttribute___SKW_LEFTPARENTerminalRuleCall_2_0_SKW_RIGHTPARENTerminalRuleCall_2_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getGccAttributeAccess().getSKW_LEFTPARENTerminalRuleCall_2_0()), new TokenAlias(false, false, grammarAccess.getGccAttributeAccess().getSKW_RIGHTPARENTerminalRuleCall_2_2()));
 		match_Initializer_SKW_COMMATerminalRuleCall_1_1_2_q = new TokenAlias(false, true, grammarAccess.getInitializerAccess().getSKW_COMMATerminalRuleCall_1_1_2());
 		match_ParameterTypeList___SKW_COMMATerminalRuleCall_2_0_ELLIPSISTerminalRuleCall_2_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getParameterTypeListAccess().getSKW_COMMATerminalRuleCall_2_0()), new TokenAlias(false, false, grammarAccess.getParameterTypeListAccess().getELLIPSISTerminalRuleCall_2_1()));
 	}
@@ -37,6 +39,10 @@ public class ParserSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getARROWToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getELLIPSISRule())
 			return getELLIPSISToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getKW_ASM1Rule())
+			return getKW_ASM1Token(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getKW_ATTRIBUTERule())
+			return getKW_ATTRIBUTEToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getKW_ENUMRule())
 			return getKW_ENUMToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getKW_WHILERule())
@@ -98,6 +104,24 @@ public class ParserSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return ".";
+	}
+	
+	/**
+	 * terminal KW_ASM1: SKW_UNDERSCORE SKW_UNDERSCORE 'asm';
+	 */
+	protected String getKW_ASM1Token(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "_asm";
+	}
+	
+	/**
+	 * terminal KW_ATTRIBUTE: SKW_UNDERSCORE SKW_UNDERSCORE 'attribute' SKW_UNDERSCORE SKW_UNDERSCORE;
+	 */
+	protected String getKW_ATTRIBUTEToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "_attribute";
 	}
 	
 	/**
@@ -295,7 +319,9 @@ public class ParserSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if(match_Initializer_SKW_COMMATerminalRuleCall_1_1_2_q.equals(syntax))
+			if(match_GccAttribute___SKW_LEFTPARENTerminalRuleCall_2_0_SKW_RIGHTPARENTerminalRuleCall_2_2__q.equals(syntax))
+				emit_GccAttribute___SKW_LEFTPARENTerminalRuleCall_2_0_SKW_RIGHTPARENTerminalRuleCall_2_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_Initializer_SKW_COMMATerminalRuleCall_1_1_2_q.equals(syntax))
 				emit_Initializer_SKW_COMMATerminalRuleCall_1_1_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_ParameterTypeList___SKW_COMMATerminalRuleCall_2_0_ELLIPSISTerminalRuleCall_2_1__q.equals(syntax))
 				emit_ParameterTypeList___SKW_COMMATerminalRuleCall_2_0_ELLIPSISTerminalRuleCall_2_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
@@ -303,6 +329,18 @@ public class ParserSyntacticSequencer extends AbstractSyntacticSequencer {
 		}
 	}
 
+	/**
+	 * Ambiguous syntax:
+	 *     (SKW_LEFTPAREN SKW_RIGHTPAREN)?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     const=Constant1 (ambiguity) (rule end)
+	 *     id=ID (ambiguity) (rule end)
+	 */
+	protected void emit_GccAttribute___SKW_LEFTPARENTerminalRuleCall_2_0_SKW_RIGHTPARENTerminalRuleCall_2_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 	/**
 	 * Ambiguous syntax:
 	 *     SKW_COMMA?

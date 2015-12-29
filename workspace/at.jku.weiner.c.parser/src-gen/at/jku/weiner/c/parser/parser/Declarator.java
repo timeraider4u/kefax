@@ -2,6 +2,8 @@
  */
 package at.jku.weiner.c.parser.parser;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.Declarator#getPointer <em>Pointer</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.Declarator#getDeclarator <em>Declarator</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.Declarator#getGccDeclExt <em>Gcc Decl Ext</em>}</li>
  * </ul>
  * </p>
  *
@@ -74,5 +77,21 @@ public interface Declarator extends EObject
    * @generated
    */
   void setDeclarator(DirectDeclarator value);
+
+  /**
+   * Returns the value of the '<em><b>Gcc Decl Ext</b></em>' containment reference list.
+   * The list contents are of type {@link at.jku.weiner.c.parser.parser.GccDeclaratorExtension}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Gcc Decl Ext</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Gcc Decl Ext</em>' containment reference list.
+   * @see at.jku.weiner.c.parser.parser.ParserPackage#getDeclarator_GccDeclExt()
+   * @model containment="true"
+   * @generated
+   */
+  EList<GccDeclaratorExtension> getGccDeclExt();
 
 } // Declarator

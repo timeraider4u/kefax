@@ -2990,6 +2990,27 @@ ruleDeclarator returns [EObject current=null]
 )
 )
 
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getDeclaratorAccess().getGccDeclExtGccDeclaratorExtensionParserRuleCall_3_0()); 
+	    }
+		lv_gccDeclExt_3_0=ruleGccDeclaratorExtension		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getDeclaratorRule());
+	        }
+       		add(
+       			$current, 
+       			"gccDeclExt",
+        		lv_gccDeclExt_3_0, 
+        		"at.jku.weiner.c.parser.Parser.GccDeclaratorExtension");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*
+
 )
 
 
@@ -3558,6 +3579,426 @@ this_SKW_RIGHTPAREN_4=RULE_SKW_RIGHTPAREN
     newLeafNode(this_SKW_RIGHTPAREN_4, grammarAccess.getDirectDeclaratorLastSuffixAccess().getSKW_RIGHTPARENTerminalRuleCall_3()); 
     }
 
+
+)
+
+
+;
+
+
+
+
+
+// Entry rule entryRuleGccDeclaratorExtension
+entryRuleGccDeclaratorExtension returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getGccDeclaratorExtensionRule()); }
+	 iv_ruleGccDeclaratorExtension=ruleGccDeclaratorExtension 
+	 { $current=$iv_ruleGccDeclaratorExtension.current; } 
+	 EOF 
+;
+
+// Rule GccDeclaratorExtension
+ruleGccDeclaratorExtension returns [EObject current=null] 
+    @init { enterRule();
+   		/*no init found*/
+    }
+    @after { leaveRule();
+    		/*no after found*/
+     }:
+
+(
+(
+	{ 
+	  /* */ 
+	}
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getGccDeclaratorExtensionAccess().getGccDeclaratorExtensionAction_0(),
+            $current);
+    }
+)
+
+
+(
+(
+(
+(
+		lv_asm_1_0=RULE_KW_ASM1
+		{
+			newLeafNode(lv_asm_1_0, grammarAccess.getGccDeclaratorExtensionAccess().getAsmKW_ASM1TerminalRuleCall_1_0_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getGccDeclaratorExtensionRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"asm",
+        		true, 
+        		"at.jku.weiner.c.parser.Parser.KW_ASM1");
+	    }
+
+)
+)
+
+
+this_SKW_LEFTPAREN_2=RULE_SKW_LEFTPAREN
+    { 
+    newLeafNode(this_SKW_LEFTPAREN_2, grammarAccess.getGccDeclaratorExtensionAccess().getSKW_LEFTPARENTerminalRuleCall_1_0_1()); 
+    }
+
+
+
+(
+(
+		lv_string_3_0=RULE_STRING_LITERAL
+		{
+			newLeafNode(lv_string_3_0, grammarAccess.getGccDeclaratorExtensionAccess().getStringSTRING_LITERALTerminalRuleCall_1_0_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getGccDeclaratorExtensionRule());
+	        }
+       		addWithLastConsumed(
+       			$current, 
+       			"string",
+        		lv_string_3_0, 
+        		"at.jku.weiner.c.common.Common.STRING_LITERAL");
+	    }
+
+)
+)+
+
+
+this_SKW_RIGHTPAREN_4=RULE_SKW_RIGHTPAREN
+    { 
+    newLeafNode(this_SKW_RIGHTPAREN_4, grammarAccess.getGccDeclaratorExtensionAccess().getSKW_RIGHTPARENTerminalRuleCall_1_0_3()); 
+    }
+
+
+)
+
+
+    |
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getGccDeclaratorExtensionAccess().getGccAttributeSpecifierGccAttributeSpecifierParserRuleCall_1_1_0()); 
+	    }
+		lv_gccAttributeSpecifier_5_0=ruleGccAttributeSpecifier		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getGccDeclaratorExtensionRule());
+	        }
+       		set(
+       			$current, 
+       			"gccAttributeSpecifier",
+        		lv_gccAttributeSpecifier_5_0, 
+        		"at.jku.weiner.c.parser.Parser.GccAttributeSpecifier");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+)
+
+)
+
+
+;
+
+
+
+
+
+// Entry rule entryRuleGccAttributeSpecifier
+entryRuleGccAttributeSpecifier returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getGccAttributeSpecifierRule()); }
+	 iv_ruleGccAttributeSpecifier=ruleGccAttributeSpecifier 
+	 { $current=$iv_ruleGccAttributeSpecifier.current; } 
+	 EOF 
+;
+
+// Rule GccAttributeSpecifier
+ruleGccAttributeSpecifier returns [EObject current=null] 
+    @init { enterRule();
+   		/*no init found*/
+    }
+    @after { leaveRule();
+    		/*no after found*/
+     }:
+
+(
+(
+	{ 
+	  /* */ 
+	}
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getGccAttributeSpecifierAccess().getGccAttributeSpecifierAction_0(),
+            $current);
+    }
+)
+
+
+this_KW_ATTRIBUTE_1=RULE_KW_ATTRIBUTE
+    { 
+    newLeafNode(this_KW_ATTRIBUTE_1, grammarAccess.getGccAttributeSpecifierAccess().getKW_ATTRIBUTETerminalRuleCall_1()); 
+    }
+
+
+
+this_SKW_LEFTPAREN_2=RULE_SKW_LEFTPAREN
+    { 
+    newLeafNode(this_SKW_LEFTPAREN_2, grammarAccess.getGccAttributeSpecifierAccess().getSKW_LEFTPARENTerminalRuleCall_2()); 
+    }
+
+
+
+this_SKW_LEFTPAREN_3=RULE_SKW_LEFTPAREN
+    { 
+    newLeafNode(this_SKW_LEFTPAREN_3, grammarAccess.getGccAttributeSpecifierAccess().getSKW_LEFTPARENTerminalRuleCall_3()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getGccAttributeSpecifierAccess().getListGccAttributeListParserRuleCall_4_0()); 
+	    }
+		lv_list_4_0=ruleGccAttributeList		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getGccAttributeSpecifierRule());
+	        }
+       		set(
+       			$current, 
+       			"list",
+        		lv_list_4_0, 
+        		"at.jku.weiner.c.parser.Parser.GccAttributeList");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)?
+
+
+this_SKW_RIGHTPAREN_5=RULE_SKW_RIGHTPAREN
+    { 
+    newLeafNode(this_SKW_RIGHTPAREN_5, grammarAccess.getGccAttributeSpecifierAccess().getSKW_RIGHTPARENTerminalRuleCall_5()); 
+    }
+
+
+
+this_SKW_RIGHTPAREN_6=RULE_SKW_RIGHTPAREN
+    { 
+    newLeafNode(this_SKW_RIGHTPAREN_6, grammarAccess.getGccAttributeSpecifierAccess().getSKW_RIGHTPARENTerminalRuleCall_6()); 
+    }
+
+
+)
+
+
+;
+
+
+
+
+
+// Entry rule entryRuleGccAttributeList
+entryRuleGccAttributeList returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getGccAttributeListRule()); }
+	 iv_ruleGccAttributeList=ruleGccAttributeList 
+	 { $current=$iv_ruleGccAttributeList.current; } 
+	 EOF 
+;
+
+// Rule GccAttributeList
+ruleGccAttributeList returns [EObject current=null] 
+    @init { enterRule();
+   		/*no init found*/
+    }
+    @after { leaveRule();
+    		/*no after found*/
+     }:
+
+(
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getGccAttributeListAccess().getGccAttributeGccAttributeParserRuleCall_0_0()); 
+	    }
+		lv_gccAttribute_0_0=ruleGccAttribute		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getGccAttributeListRule());
+	        }
+       		add(
+       			$current, 
+       			"gccAttribute",
+        		lv_gccAttribute_0_0, 
+        		"at.jku.weiner.c.parser.Parser.GccAttribute");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+(
+this_SKW_COMMA_1=RULE_SKW_COMMA
+    { 
+    newLeafNode(this_SKW_COMMA_1, grammarAccess.getGccAttributeListAccess().getSKW_COMMATerminalRuleCall_1_0()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getGccAttributeListAccess().getGccAttributeGccAttributeParserRuleCall_1_1_0()); 
+	    }
+		lv_gccAttribute_2_0=ruleGccAttribute		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getGccAttributeListRule());
+	        }
+       		add(
+       			$current, 
+       			"gccAttribute",
+        		lv_gccAttribute_2_0, 
+        		"at.jku.weiner.c.parser.Parser.GccAttribute");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+)*
+
+)
+
+
+;
+
+
+
+
+
+// Entry rule entryRuleGccAttribute
+entryRuleGccAttribute returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getGccAttributeRule()); }
+	 iv_ruleGccAttribute=ruleGccAttribute 
+	 { $current=$iv_ruleGccAttribute.current; } 
+	 EOF 
+;
+
+// Rule GccAttribute
+ruleGccAttribute returns [EObject current=null] 
+    @init { enterRule();
+   		/*no init found*/
+    }
+    @after { leaveRule();
+    		/*no after found*/
+     }:
+
+(
+(
+	{ 
+	  /* */ 
+	}
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getGccAttributeAccess().getGccAttributeAction_0(),
+            $current);
+    }
+)
+
+
+(
+(
+(
+		lv_id_1_0=RULE_ID
+		{
+			newLeafNode(lv_id_1_0, grammarAccess.getGccAttributeAccess().getIdIDTerminalRuleCall_1_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getGccAttributeRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"id",
+        		lv_id_1_0, 
+        		"at.jku.weiner.c.common.Common.ID");
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getGccAttributeAccess().getConstConstant1ParserRuleCall_1_1_0()); 
+	    }
+		lv_const_2_0=ruleConstant1		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getGccAttributeRule());
+	        }
+       		set(
+       			$current, 
+       			"const",
+        		lv_const_2_0, 
+        		"at.jku.weiner.c.common.Common.Constant1");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+)
+
+
+(
+this_SKW_LEFTPAREN_3=RULE_SKW_LEFTPAREN
+    { 
+    newLeafNode(this_SKW_LEFTPAREN_3, grammarAccess.getGccAttributeAccess().getSKW_LEFTPARENTerminalRuleCall_2_0()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getGccAttributeAccess().getListArgumentExpressionListParserRuleCall_2_1_0()); 
+	    }
+		lv_list_4_0=ruleArgumentExpressionList		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getGccAttributeRule());
+	        }
+       		set(
+       			$current, 
+       			"list",
+        		lv_list_4_0, 
+        		"at.jku.weiner.c.parser.Parser.ArgumentExpressionList");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)?
+
+
+this_SKW_RIGHTPAREN_5=RULE_SKW_RIGHTPAREN
+    { 
+    newLeafNode(this_SKW_RIGHTPAREN_5, grammarAccess.getGccAttributeAccess().getSKW_RIGHTPARENTerminalRuleCall_2_2()); 
+    }
+
+
+)?
 
 )
 
@@ -9912,6 +10353,80 @@ ruleConstantExpression returns [EObject current=null]
 
 
 
+// Entry rule entryRuleConstant1
+entryRuleConstant1 returns [String current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getConstant1Rule()); } 
+	 iv_ruleConstant1=ruleConstant1 
+	 { $current=$iv_ruleConstant1.current.getText(); }  
+	 EOF 
+;
+
+// Rule Constant1
+ruleConstant1 returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(    this_HEX_LITERAL_0=RULE_HEX_LITERAL    {
+		$current.merge(this_HEX_LITERAL_0);
+    }
+
+    { 
+    newLeafNode(this_HEX_LITERAL_0, grammarAccess.getConstant1Access().getHEX_LITERALTerminalRuleCall_0()); 
+    }
+
+    |    this_OCTAL_LITERAL_1=RULE_OCTAL_LITERAL    {
+		$current.merge(this_OCTAL_LITERAL_1);
+    }
+
+    { 
+    newLeafNode(this_OCTAL_LITERAL_1, grammarAccess.getConstant1Access().getOCTAL_LITERALTerminalRuleCall_1()); 
+    }
+
+    |    this_DECIMAL_LITERAL_2=RULE_DECIMAL_LITERAL    {
+		$current.merge(this_DECIMAL_LITERAL_2);
+    }
+
+    { 
+    newLeafNode(this_DECIMAL_LITERAL_2, grammarAccess.getConstant1Access().getDECIMAL_LITERALTerminalRuleCall_2()); 
+    }
+
+    |    this_CHAR_LITERAL_3=RULE_CHAR_LITERAL    {
+		$current.merge(this_CHAR_LITERAL_3);
+    }
+
+    { 
+    newLeafNode(this_CHAR_LITERAL_3, grammarAccess.getConstant1Access().getCHAR_LITERALTerminalRuleCall_3()); 
+    }
+
+    |    this_STRING_LITERAL_4=RULE_STRING_LITERAL    {
+		$current.merge(this_STRING_LITERAL_4);
+    }
+
+    { 
+    newLeafNode(this_STRING_LITERAL_4, grammarAccess.getConstant1Access().getSTRING_LITERALTerminalRuleCall_4()); 
+    }
+
+    |    this_FLOAT_LITERAL_5=RULE_FLOAT_LITERAL    {
+		$current.merge(this_FLOAT_LITERAL_5);
+    }
+
+    { 
+    newLeafNode(this_FLOAT_LITERAL_5, grammarAccess.getConstant1Access().getFLOAT_LITERALTerminalRuleCall_5()); 
+    }
+
+    |    this_BIN_LITERAL_6=RULE_BIN_LITERAL    {
+		$current.merge(this_BIN_LITERAL_6);
+    }
+
+    { 
+    newLeafNode(this_BIN_LITERAL_6, grammarAccess.getConstant1Access().getBIN_LITERALTerminalRuleCall_6()); 
+    }
+)
+    ;
+
+
+
 
 
 // Entry rule entryRuleConstant2
@@ -10111,29 +10626,31 @@ ruleConstant2 returns [EObject current=null]
 
 
 
-RULE_KW_ATOMIC : '_Atomic';
+RULE_KW_ATOMIC : RULE_SKW_UNDERSCORE 'Atomic';
+
+RULE_KW_ATTRIBUTE : RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE 'attribute' RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE;
 
 RULE_KW_AUTO : 'auto';
 
-RULE_KW_ALIGNAS : '_Alignas';
+RULE_KW_ALIGNAS : RULE_SKW_UNDERSCORE 'Alignas';
 
-RULE_KW_ALIGNOF : '_Alignof';
+RULE_KW_ALIGNOF : RULE_SKW_UNDERSCORE 'Alignof';
 
 RULE_KW_ASM1 : RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE 'asm';
 
 RULE_KW_ASM2 : RULE_KW_ASM1 RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE;
 
-RULE_KW_BOOL : '_Bool';
+RULE_KW_BOOL : RULE_SKW_UNDERSCORE 'Bool';
 
 RULE_KW_BREAK : 'break';
 
-RULE_KW_BUILTIN_VA_LIST : '__builtin_va_list';
+RULE_KW_BUILTIN_VA_LIST : RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE 'builtin_va_list';
 
 RULE_KW_CASE : 'case';
 
 RULE_KW_CHAR : 'char';
 
-RULE_KW_COMPLEX : '_Complex';
+RULE_KW_COMPLEX : RULE_SKW_UNDERSCORE 'Complex';
 
 RULE_KW_CONST : 'const';
 
@@ -10155,13 +10672,13 @@ RULE_KW_FLOAT : 'float';
 
 RULE_KW_FOR : 'for';
 
-RULE_KW_GENERIC : '_Generic';
+RULE_KW_GENERIC : RULE_SKW_UNDERSCORE 'Generic';
 
 RULE_KW_GOTO : 'goto';
 
 RULE_KW_IF : 'if';
 
-RULE_KW_IMAGINARY : '_Imaginary';
+RULE_KW_IMAGINARY : RULE_SKW_UNDERSCORE 'Imaginary';
 
 RULE_KW_INLINE : 'inline';
 
@@ -10169,13 +10686,13 @@ RULE_KW_INT : 'int';
 
 RULE_KW_LONG : 'long';
 
-RULE_KW_M128 : '__m128';
+RULE_KW_M128 : RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE 'm128';
 
-RULE_KW_M128D : '__m128d';
+RULE_KW_M128D : RULE_KW_M128 'd';
 
-RULE_KW_M128I : '__m128i';
+RULE_KW_M128I : RULE_KW_M128 'i';
 
-RULE_KW_NORETURN : '_Noreturn';
+RULE_KW_NORETURN : RULE_SKW_UNDERSCORE 'Noreturn';
 
 RULE_KW_PRAGMA : 'pragma';
 
@@ -10193,13 +10710,13 @@ RULE_KW_SIZEOF : 'sizeof';
 
 RULE_KW_STATIC : 'static';
 
-RULE_KW_STATICASSERT : '_Static_assert';
+RULE_KW_STATICASSERT : RULE_SKW_UNDERSCORE 'Static_assert';
 
 RULE_KW_STRUCT : 'struct';
 
 RULE_KW_SWITCH : 'switch';
 
-RULE_KW_THREADLOCAL : '_Thread_local';
+RULE_KW_THREADLOCAL : RULE_SKW_UNDERSCORE 'Thread_local';
 
 RULE_KW_TYPEDEF : 'typedef';
 

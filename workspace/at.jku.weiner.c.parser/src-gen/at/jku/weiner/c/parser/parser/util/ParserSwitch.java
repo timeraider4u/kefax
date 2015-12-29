@@ -261,6 +261,34 @@ public class ParserSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case ParserPackage.GCC_DECLARATOR_EXTENSION:
+      {
+        GccDeclaratorExtension gccDeclaratorExtension = (GccDeclaratorExtension)theEObject;
+        T result = caseGccDeclaratorExtension(gccDeclaratorExtension);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ParserPackage.GCC_ATTRIBUTE_SPECIFIER:
+      {
+        GccAttributeSpecifier gccAttributeSpecifier = (GccAttributeSpecifier)theEObject;
+        T result = caseGccAttributeSpecifier(gccAttributeSpecifier);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ParserPackage.GCC_ATTRIBUTE_LIST:
+      {
+        GccAttributeList gccAttributeList = (GccAttributeList)theEObject;
+        T result = caseGccAttributeList(gccAttributeList);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ParserPackage.GCC_ATTRIBUTE:
+      {
+        GccAttribute gccAttribute = (GccAttribute)theEObject;
+        T result = caseGccAttribute(gccAttribute);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case ParserPackage.POINTER:
       {
         Pointer pointer = (Pointer)theEObject;
@@ -1141,6 +1169,70 @@ public class ParserSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDirectDeclaratorLastSuffix(DirectDeclaratorLastSuffix object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Gcc Declarator Extension</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Gcc Declarator Extension</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseGccDeclaratorExtension(GccDeclaratorExtension object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Gcc Attribute Specifier</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Gcc Attribute Specifier</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseGccAttributeSpecifier(GccAttributeSpecifier object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Gcc Attribute List</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Gcc Attribute List</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseGccAttributeList(GccAttributeList object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Gcc Attribute</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Gcc Attribute</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseGccAttribute(GccAttribute object)
   {
     return null;
   }

@@ -79,6 +79,7 @@ import at.jku.weiner.c.parser.parser.StructDeclarationList;
 import at.jku.weiner.c.parser.parser.StructDeclarator;
 import at.jku.weiner.c.parser.parser.StructDeclaratorList;
 import at.jku.weiner.c.parser.parser.StructOrUnion;
+import at.jku.weiner.c.parser.parser.StructOrUnionName;
 import at.jku.weiner.c.parser.parser.StructOrUnionSpecifier;
 import at.jku.weiner.c.parser.parser.TypeName;
 import at.jku.weiner.c.parser.parser.TypeQualifier;
@@ -180,6 +181,13 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * @generated
    */
   private EClass typedefNameEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass structOrUnionNameEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1042,6 +1050,16 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getTypeSpecifier_Struct()
+  {
+    return (EReference)typeSpecifierEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getTypedefName()
   {
     return typedefNameEClass;
@@ -1055,6 +1073,26 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
   public EAttribute getTypedefName_Id()
   {
     return (EAttribute)typedefNameEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getStructOrUnionName()
+  {
+    return structOrUnionNameEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getStructOrUnionName_Id()
+  {
+    return (EAttribute)structOrUnionNameEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1615,6 +1653,16 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
   public EReference getParameterDeclaration_Declarator()
   {
     return (EReference)parameterDeclarationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getParameterDeclaration_AbstractDeclator()
+  {
+    return (EReference)parameterDeclarationEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -3136,9 +3184,13 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     createEAttribute(typeSpecifierEClass, TYPE_SPECIFIER__NAME);
     createEReference(typeSpecifierEClass, TYPE_SPECIFIER__SPECIFIER);
     createEReference(typeSpecifierEClass, TYPE_SPECIFIER__TYPE);
+    createEReference(typeSpecifierEClass, TYPE_SPECIFIER__STRUCT);
 
     typedefNameEClass = createEClass(TYPEDEF_NAME);
     createEAttribute(typedefNameEClass, TYPEDEF_NAME__ID);
+
+    structOrUnionNameEClass = createEClass(STRUCT_OR_UNION_NAME);
+    createEAttribute(structOrUnionNameEClass, STRUCT_OR_UNION_NAME__ID);
 
     declarationSpecifierEClass = createEClass(DECLARATION_SPECIFIER);
     createEAttribute(declarationSpecifierEClass, DECLARATION_SPECIFIER__ID);
@@ -3215,6 +3267,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     parameterDeclarationEClass = createEClass(PARAMETER_DECLARATION);
     createEReference(parameterDeclarationEClass, PARAMETER_DECLARATION__DECL_SPECIFIERS);
     createEReference(parameterDeclarationEClass, PARAMETER_DECLARATION__DECLARATOR);
+    createEReference(parameterDeclarationEClass, PARAMETER_DECLARATION__ABSTRACT_DECLATOR);
 
     identifierListEClass = createEClass(IDENTIFIER_LIST);
     createEReference(identifierListEClass, IDENTIFIER_LIST__ID);
@@ -3526,9 +3579,13 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     initEAttribute(getTypeSpecifier_Name(), theEcorePackage.getEString(), "name", null, 0, 1, TypeSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTypeSpecifier_Specifier(), this.getDeclarationSpecifier(), null, "specifier", null, 0, 1, TypeSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTypeSpecifier_Type(), this.getTypedefName(), null, "type", null, 0, 1, TypeSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTypeSpecifier_Struct(), this.getStructOrUnionName(), null, "struct", null, 0, 1, TypeSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typedefNameEClass, TypedefName.class, "TypedefName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTypedefName_Id(), theEcorePackage.getEString(), "id", null, 0, 1, TypedefName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(structOrUnionNameEClass, StructOrUnionName.class, "StructOrUnionName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getStructOrUnionName_Id(), theEcorePackage.getEString(), "id", null, 0, 1, StructOrUnionName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(declarationSpecifierEClass, DeclarationSpecifier.class, "DeclarationSpecifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDeclarationSpecifier_Id(), theEcorePackage.getEString(), "id", null, 0, 1, DeclarationSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3605,6 +3662,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     initEClass(parameterDeclarationEClass, ParameterDeclaration.class, "ParameterDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getParameterDeclaration_DeclSpecifiers(), this.getDeclarationSpecifiers(), null, "declSpecifiers", null, 0, 1, ParameterDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getParameterDeclaration_Declarator(), this.getDeclarator(), null, "declarator", null, 0, 1, ParameterDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getParameterDeclaration_AbstractDeclator(), this.getAbstractDeclarator(), null, "abstractDeclator", null, 0, 1, ParameterDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(identifierListEClass, IdentifierList.class, "IdentifierList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getIdentifierList_Id(), this.getMyIdentifier(), null, "id", null, 0, -1, IdentifierList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

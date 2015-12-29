@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link at.jku.weiner.c.parser.parser.TypeSpecifier#getName <em>Name</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.TypeSpecifier#getSpecifier <em>Specifier</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.TypeSpecifier#getType <em>Type</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.TypeSpecifier#getStruct <em>Struct</em>}</li>
  * </ul>
  * </p>
  *
@@ -101,5 +102,31 @@ public interface TypeSpecifier extends EObject
    * @generated
    */
   void setType(TypedefName value);
+
+  /**
+   * Returns the value of the '<em><b>Struct</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Struct</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Struct</em>' containment reference.
+   * @see #setStruct(StructOrUnionName)
+   * @see at.jku.weiner.c.parser.parser.ParserPackage#getTypeSpecifier_Struct()
+   * @model containment="true"
+   * @generated
+   */
+  StructOrUnionName getStruct();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.TypeSpecifier#getStruct <em>Struct</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Struct</em>' containment reference.
+   * @see #getStruct()
+   * @generated
+   */
+  void setStruct(StructOrUnionName value);
 
 } // TypeSpecifier

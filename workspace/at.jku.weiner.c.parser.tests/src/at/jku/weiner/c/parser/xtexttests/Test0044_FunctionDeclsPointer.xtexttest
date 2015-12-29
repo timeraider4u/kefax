@@ -1,0 +1,145 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.parser
+language parser
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+source file="res/Test0044_FunctionDeclsPointer.c"
+//----------------------------------------------------------------------
+lexer-tokens
+KW_CHAR WHITESPACE ID SKW_LEFTPAREN
+	KW_VOID WHITESPACE SKW_STAR WHITESPACE ID SKW_RIGHTPAREN SKW_SEMI NEWLINE
+KW_CHAR WHITESPACE ID SKW_LEFTPAREN
+	KW_VOID WHITESPACE SKW_STAR SKW_RIGHTPAREN SKW_SEMI NEWLINE
+//----------------------------------------------------------------------
+//(common::Model units+=
+	//(common::TranslationUnit 
+	(Parser
+		external+=
+		// char do2(void * c);
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"char"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"do2",
+								declaratorSuffix+=
+								(DeclaratorSuffix
+									lastSuffix=
+									(DirectDeclaratorLastSuffix
+										parameterTypeList+=
+										(ParameterTypeList
+											list=
+											(ParameterList
+												parameterDeclaration+=
+												(ParameterDeclaration
+													declSpecifiers=
+													(DeclarationSpecifiers
+														declarationSpecifier+=
+														(TypeSpecifier
+															name++"void"
+														)
+													),
+													declarator=
+													(Declarator
+														pointer=
+														(Pointer
+															star+*"[*]"
+														),
+														declarator=
+														(DirectDeclarator
+															id++"c"
+														)
+													)
+												)
+											)
+										)
+									)
+								)
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+		),
+		// char do3(void *);
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"char"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"do3",
+								declaratorSuffix+=
+								(DeclaratorSuffix
+									lastSuffix=
+									(DirectDeclaratorLastSuffix
+										parameterTypeList+=
+										(ParameterTypeList
+											list=
+											(ParameterList
+												parameterDeclaration+=
+												(ParameterDeclaration
+													declSpecifiers=
+													(DeclarationSpecifiers
+														declarationSpecifier+=
+														(TypeSpecifier
+															name++"void"
+														)
+													),
+													abstractDeclator=
+													(AbstractDeclarator
+														pointer=
+														(Pointer
+															star+*"[*]"
+														)
+													)
+												)
+											)
+										)
+									)
+								)
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+		)
+		
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0044_FunctionDeclsPointer.c"
+expected file isSameAsInputFile
+
+replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

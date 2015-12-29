@@ -187,6 +187,7 @@ TypeSpecifier:
 	//|	specifier=StructOrUnionSpecifier
 	|	specifier=EnumSpecifier
 	|	type=TypedefName
+	|	struct=StructOrUnionName
 	// |	'__typeof__' LEFTPAREN constExrp=constantExpression RIGHTPAREN // GCC extension
 ;
 
@@ -194,6 +195,12 @@ TypedefName:
 	{TypedefName}
 	id=ID
 		preAction{ { at.jku.weiner.c.parser.Scope.isTypeName(input.LT(1).getText()) }? }
+;
+
+StructOrUnionName:
+	{StructOrUnionName}
+	id=ID
+		preAction{ { at.jku.weiner.c.parser.Scope.isStructName(input.LT(1).getText()) }? }
 ;
 
 StructOrUnionSpecifier returns DeclarationSpecifier
@@ -208,7 +215,19 @@ StructOrUnionSpecifier returns DeclarationSpecifier
 	{StructOrUnionSpecifier}
 	type=StructOrUnion
 	(	(id=ID)? SKW_LEFTBRACE structDeclList=StructDeclarationList SKW_RIGHTBRACE
+		preAction{ {
+			at.jku.weiner.c.parser.Scope.setTemp(input);
+		} }
+		postAction{ {
+			at.jku.weiner.c.parser.Scope.addStructOrUnion();
+		} }
 	|	id=ID
+		preAction{ {
+			at.jku.weiner.c.parser.Scope.setTemp(input);
+		} }
+		postAction{ {
+			at.jku.weiner.c.parser.Scope.addStructOrUnion();
+		} }
 	)
 ;
 
@@ -386,10 +405,10 @@ ParameterList:
 ParameterDeclaration:
 	{ParameterDeclaration}
 	declSpecifiers=DeclarationSpecifiers
-	(declarator=Declarator
-		//	|
-		//	(abstractDeclator=AbstractDeclarator)
-	)?
+	(		
+			declarator=Declarator
+		|	(abstractDeclator=AbstractDeclarator)?
+	)
 ;
 
 IdentifierList:

@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.ParameterDeclaration#getDeclSpecifiers <em>Decl Specifiers</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.ParameterDeclaration#getDeclarator <em>Declarator</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.ParameterDeclaration#getAbstractDeclator <em>Abstract Declator</em>}</li>
  * </ul>
  * </p>
  *
@@ -74,5 +75,31 @@ public interface ParameterDeclaration extends EObject
    * @generated
    */
   void setDeclarator(Declarator value);
+
+  /**
+   * Returns the value of the '<em><b>Abstract Declator</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Abstract Declator</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Abstract Declator</em>' containment reference.
+   * @see #setAbstractDeclator(AbstractDeclarator)
+   * @see at.jku.weiner.c.parser.parser.ParserPackage#getParameterDeclaration_AbstractDeclator()
+   * @model containment="true"
+   * @generated
+   */
+  AbstractDeclarator getAbstractDeclator();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.ParameterDeclaration#getAbstractDeclator <em>Abstract Declator</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Abstract Declator</em>' containment reference.
+   * @see #getAbstractDeclator()
+   * @generated
+   */
+  void setAbstractDeclator(AbstractDeclarator value);
 
 } // ParameterDeclaration

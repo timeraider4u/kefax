@@ -1,4 +1,5 @@
-FILE="../tests/test43.c"
+#FILE="../tests/test43.c"
+FILE="../tests/Test0045_FunctionDeclsStruct.c"
 
 CP="../libs/antlr-4.5.1-complete.jar:."
 java -cp ${CP} org.antlr.v4.Tool C.g4 && \

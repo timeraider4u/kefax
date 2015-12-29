@@ -11,6 +11,7 @@ public final class Scope {
 	private static final class Symbols {
 		public final String scopeName;
 		public final Set<String> types = new HashSet<String>();
+		public final Set<String> structs = new HashSet<String>();
 		public boolean isTypeDefValue = false;
 		public String temp = null;
 
@@ -43,6 +44,21 @@ public final class Scope {
 			Log.log("no type found in scope='" + symbols.scopeName + "'");
 		}
 		Log.log("isTypeName='false'");
+		return false;
+	}
+
+	public static final boolean isStructName(final String name) {
+		Log.log("searching for structName='" + name + "', scopeSize='"
+				+ Scope.scope.size() + "'");
+		for (int i = 0; i < Scope.scope.size(); i++) {
+			final Symbols symbols = Scope.scope.get(i);
+			if (symbols.structs.contains(name)) {
+				Log.log("found in scope='" + symbols.scopeName + "'");
+				return true;
+			}
+			Log.log("no struct found in scope='" + symbols.scopeName + "'");
+		}
+		Log.log("isStructName='false'");
 		return false;
 	}
 
@@ -113,6 +129,12 @@ public final class Scope {
 
 	public static final void addTypedefIfIsTypedef() {
 		Scope.addTypedefIfIsTypedef(Scope.scope.peek().temp);
+	}
+
+	public static final void addStructOrUnion() {
+		Scope.Symbols curr = Scope.scope.pop();
+		Scope.scope.peek().structs.add(curr.temp);
+		Scope.scope.push(curr);
 	}
 
 	public static final void debug(final TokenStream stream) {

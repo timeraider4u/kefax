@@ -2,6 +2,7 @@
  */
 package at.jku.weiner.c.parser.parser.impl;
 
+import at.jku.weiner.c.parser.parser.AbstractDeclarator;
 import at.jku.weiner.c.parser.parser.DeclarationSpecifiers;
 import at.jku.weiner.c.parser.parser.Declarator;
 import at.jku.weiner.c.parser.parser.ParameterDeclaration;
@@ -25,6 +26,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.ParameterDeclarationImpl#getDeclSpecifiers <em>Decl Specifiers</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.ParameterDeclarationImpl#getDeclarator <em>Declarator</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.ParameterDeclarationImpl#getAbstractDeclator <em>Abstract Declator</em>}</li>
  * </ul>
  * </p>
  *
@@ -51,6 +53,16 @@ public class ParameterDeclarationImpl extends MinimalEObjectImpl.Container imple
    * @ordered
    */
   protected Declarator declarator;
+
+  /**
+   * The cached value of the '{@link #getAbstractDeclator() <em>Abstract Declator</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAbstractDeclator()
+   * @generated
+   * @ordered
+   */
+  protected AbstractDeclarator abstractDeclator;
 
   /**
    * <!-- begin-user-doc -->
@@ -174,6 +186,54 @@ public class ParameterDeclarationImpl extends MinimalEObjectImpl.Container imple
    * <!-- end-user-doc -->
    * @generated
    */
+  public AbstractDeclarator getAbstractDeclator()
+  {
+    return abstractDeclator;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetAbstractDeclator(AbstractDeclarator newAbstractDeclator, NotificationChain msgs)
+  {
+    AbstractDeclarator oldAbstractDeclator = abstractDeclator;
+    abstractDeclator = newAbstractDeclator;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ParserPackage.PARAMETER_DECLARATION__ABSTRACT_DECLATOR, oldAbstractDeclator, newAbstractDeclator);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAbstractDeclator(AbstractDeclarator newAbstractDeclator)
+  {
+    if (newAbstractDeclator != abstractDeclator)
+    {
+      NotificationChain msgs = null;
+      if (abstractDeclator != null)
+        msgs = ((InternalEObject)abstractDeclator).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ParserPackage.PARAMETER_DECLARATION__ABSTRACT_DECLATOR, null, msgs);
+      if (newAbstractDeclator != null)
+        msgs = ((InternalEObject)newAbstractDeclator).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ParserPackage.PARAMETER_DECLARATION__ABSTRACT_DECLATOR, null, msgs);
+      msgs = basicSetAbstractDeclator(newAbstractDeclator, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.PARAMETER_DECLARATION__ABSTRACT_DECLATOR, newAbstractDeclator, newAbstractDeclator));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -183,6 +243,8 @@ public class ParameterDeclarationImpl extends MinimalEObjectImpl.Container imple
         return basicSetDeclSpecifiers(null, msgs);
       case ParserPackage.PARAMETER_DECLARATION__DECLARATOR:
         return basicSetDeclarator(null, msgs);
+      case ParserPackage.PARAMETER_DECLARATION__ABSTRACT_DECLATOR:
+        return basicSetAbstractDeclator(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -201,6 +263,8 @@ public class ParameterDeclarationImpl extends MinimalEObjectImpl.Container imple
         return getDeclSpecifiers();
       case ParserPackage.PARAMETER_DECLARATION__DECLARATOR:
         return getDeclarator();
+      case ParserPackage.PARAMETER_DECLARATION__ABSTRACT_DECLATOR:
+        return getAbstractDeclator();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -220,6 +284,9 @@ public class ParameterDeclarationImpl extends MinimalEObjectImpl.Container imple
         return;
       case ParserPackage.PARAMETER_DECLARATION__DECLARATOR:
         setDeclarator((Declarator)newValue);
+        return;
+      case ParserPackage.PARAMETER_DECLARATION__ABSTRACT_DECLATOR:
+        setAbstractDeclator((AbstractDeclarator)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -241,6 +308,9 @@ public class ParameterDeclarationImpl extends MinimalEObjectImpl.Container imple
       case ParserPackage.PARAMETER_DECLARATION__DECLARATOR:
         setDeclarator((Declarator)null);
         return;
+      case ParserPackage.PARAMETER_DECLARATION__ABSTRACT_DECLATOR:
+        setAbstractDeclator((AbstractDeclarator)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -259,6 +329,8 @@ public class ParameterDeclarationImpl extends MinimalEObjectImpl.Container imple
         return declSpecifiers != null;
       case ParserPackage.PARAMETER_DECLARATION__DECLARATOR:
         return declarator != null;
+      case ParserPackage.PARAMETER_DECLARATION__ABSTRACT_DECLATOR:
+        return abstractDeclator != null;
     }
     return super.eIsSet(featureID);
   }

@@ -4,6 +4,7 @@ package at.jku.weiner.c.parser.parser.impl;
 
 import at.jku.weiner.c.parser.parser.DeclarationSpecifier;
 import at.jku.weiner.c.parser.parser.ParserPackage;
+import at.jku.weiner.c.parser.parser.StructOrUnionName;
 import at.jku.weiner.c.parser.parser.TypeSpecifier;
 import at.jku.weiner.c.parser.parser.TypedefName;
 
@@ -26,6 +27,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.TypeSpecifierImpl#getName <em>Name</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.TypeSpecifierImpl#getSpecifier <em>Specifier</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.TypeSpecifierImpl#getType <em>Type</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.TypeSpecifierImpl#getStruct <em>Struct</em>}</li>
  * </ul>
  * </p>
  *
@@ -72,6 +74,16 @@ public class TypeSpecifierImpl extends MinimalEObjectImpl.Container implements T
    * @ordered
    */
   protected TypedefName type;
+
+  /**
+   * The cached value of the '{@link #getStruct() <em>Struct</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getStruct()
+   * @generated
+   * @ordered
+   */
+  protected StructOrUnionName struct;
 
   /**
    * <!-- begin-user-doc -->
@@ -218,6 +230,54 @@ public class TypeSpecifierImpl extends MinimalEObjectImpl.Container implements T
    * <!-- end-user-doc -->
    * @generated
    */
+  public StructOrUnionName getStruct()
+  {
+    return struct;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetStruct(StructOrUnionName newStruct, NotificationChain msgs)
+  {
+    StructOrUnionName oldStruct = struct;
+    struct = newStruct;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ParserPackage.TYPE_SPECIFIER__STRUCT, oldStruct, newStruct);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setStruct(StructOrUnionName newStruct)
+  {
+    if (newStruct != struct)
+    {
+      NotificationChain msgs = null;
+      if (struct != null)
+        msgs = ((InternalEObject)struct).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ParserPackage.TYPE_SPECIFIER__STRUCT, null, msgs);
+      if (newStruct != null)
+        msgs = ((InternalEObject)newStruct).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ParserPackage.TYPE_SPECIFIER__STRUCT, null, msgs);
+      msgs = basicSetStruct(newStruct, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.TYPE_SPECIFIER__STRUCT, newStruct, newStruct));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -227,6 +287,8 @@ public class TypeSpecifierImpl extends MinimalEObjectImpl.Container implements T
         return basicSetSpecifier(null, msgs);
       case ParserPackage.TYPE_SPECIFIER__TYPE:
         return basicSetType(null, msgs);
+      case ParserPackage.TYPE_SPECIFIER__STRUCT:
+        return basicSetStruct(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -247,6 +309,8 @@ public class TypeSpecifierImpl extends MinimalEObjectImpl.Container implements T
         return getSpecifier();
       case ParserPackage.TYPE_SPECIFIER__TYPE:
         return getType();
+      case ParserPackage.TYPE_SPECIFIER__STRUCT:
+        return getStruct();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -269,6 +333,9 @@ public class TypeSpecifierImpl extends MinimalEObjectImpl.Container implements T
         return;
       case ParserPackage.TYPE_SPECIFIER__TYPE:
         setType((TypedefName)newValue);
+        return;
+      case ParserPackage.TYPE_SPECIFIER__STRUCT:
+        setStruct((StructOrUnionName)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -293,6 +360,9 @@ public class TypeSpecifierImpl extends MinimalEObjectImpl.Container implements T
       case ParserPackage.TYPE_SPECIFIER__TYPE:
         setType((TypedefName)null);
         return;
+      case ParserPackage.TYPE_SPECIFIER__STRUCT:
+        setStruct((StructOrUnionName)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -313,6 +383,8 @@ public class TypeSpecifierImpl extends MinimalEObjectImpl.Container implements T
         return specifier != null;
       case ParserPackage.TYPE_SPECIFIER__TYPE:
         return type != null;
+      case ParserPackage.TYPE_SPECIFIER__STRUCT:
+        return struct != null;
     }
     return super.eIsSet(featureID);
   }

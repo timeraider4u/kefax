@@ -206,6 +206,9 @@ class ParserGenerator implements IGenerator {
 		«IF spec.name != null»
 			«spec.name»
 		«ENDIF»
+		«IF spec.struct != null»
+			«spec.struct.id»
+		«ENDIF»
 	'''
 	
 	def String outputFor(StructOrUnionSpecifier obj) '''
@@ -351,6 +354,9 @@ class ParserGenerator implements IGenerator {
 		«outputFor(obj.declSpecifiers)»
 		«IF obj.declarator != null»
 			«outputFor(obj.declarator)»
+		«ENDIF»
+		«IF obj.abstractDeclator != null»
+			«outputFor(obj.abstractDeclator)»
 		«ENDIF»
 	''' 
 	

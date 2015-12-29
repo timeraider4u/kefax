@@ -264,7 +264,7 @@ public class Test0043_ArraySize {
 		.getDeclarator();
 		Assert.assertNotNull(DirectDeclarator_8_Var
 		);
-		Assert.assertEquals("my_array", DirectDeclarator_8_Var
+		Assert.assertEquals("__my_array", DirectDeclarator_8_Var
 		.getId());
 		final EList<? extends EObject> DeclaratorSuffix_8_list = DirectDeclarator_8_Var
 		.getDeclaratorSuffix();

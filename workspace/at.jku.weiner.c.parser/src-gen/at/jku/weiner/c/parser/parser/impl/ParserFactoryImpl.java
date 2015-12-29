@@ -75,6 +75,7 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
       case ParserPackage.STORAGE_CLASS_SPECIFIER: return createStorageClassSpecifier();
       case ParserPackage.TYPE_SPECIFIER: return createTypeSpecifier();
       case ParserPackage.TYPEDEF_NAME: return createTypedefName();
+      case ParserPackage.STRUCT_OR_UNION_NAME: return createStructOrUnionName();
       case ParserPackage.DECLARATION_SPECIFIER: return createDeclarationSpecifier();
       case ParserPackage.STRUCT_OR_UNION: return createStructOrUnion();
       case ParserPackage.STRUCT_DECLARATION_LIST: return createStructDeclarationList();
@@ -269,6 +270,17 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
   {
     TypedefNameImpl typedefName = new TypedefNameImpl();
     return typedefName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public StructOrUnionName createStructOrUnionName()
+  {
+    StructOrUnionNameImpl structOrUnionName = new StructOrUnionNameImpl();
+    return structOrUnionName;
   }
 
   /**

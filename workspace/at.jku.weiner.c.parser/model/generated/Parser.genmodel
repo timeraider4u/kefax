@@ -46,9 +46,13 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//TypeSpecifier/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//TypeSpecifier/specifier"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//TypeSpecifier/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//TypeSpecifier/struct"/>
     </genClasses>
     <genClasses ecoreClass="Parser.ecore#//TypedefName">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//TypedefName/id"/>
+    </genClasses>
+    <genClasses ecoreClass="Parser.ecore#//StructOrUnionName">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//StructOrUnionName/id"/>
     </genClasses>
     <genClasses ecoreClass="Parser.ecore#//DeclarationSpecifier">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//DeclarationSpecifier/id"/>
@@ -125,6 +129,7 @@
     <genClasses ecoreClass="Parser.ecore#//ParameterDeclaration">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//ParameterDeclaration/declSpecifiers"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//ParameterDeclaration/declarator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//ParameterDeclaration/abstractDeclator"/>
     </genClasses>
     <genClasses ecoreClass="Parser.ecore#//IdentifierList">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//IdentifierList/id"/>

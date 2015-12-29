@@ -1,0 +1,235 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.parser
+language parser
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+source file="res/Test0045_FunctionDeclsStruct.c"
+//----------------------------------------------------------------------
+lexer-tokens
+KW_STRUCT WHITESPACE ID WHITESPACE SKW_SEMI NEWLINE
+KW_CHAR WHITESPACE ID SKW_LEFTPAREN
+	ID WHITESPACE ID SKW_RIGHTPAREN SKW_SEMI NEWLINE
+KW_CHAR WHITESPACE ID SKW_LEFTPAREN
+	ID WHITESPACE SKW_STAR WHITESPACE ID SKW_RIGHTPAREN SKW_SEMI NEWLINE
+KW_CHAR WHITESPACE ID SKW_LEFTPAREN
+	ID WHITESPACE SKW_STAR SKW_RIGHTPAREN SKW_SEMI NEWLINE
+//----------------------------------------------------------------------
+//(common::Model units+=
+	//(common::TranslationUnit 
+	(Parser
+		external+=
+		// struct STRUCT ;
+		(ExternalDeclaration
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(StructOrUnionSpecifier
+						type=
+						(StructOrUnion
+							name++"struct"
+						),
+						id++"STRUCT",
+						structDeclList isNull
+					)
+				)
+			)
+		),
+		// char do2(STRUCT s);
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"char"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"do2",
+								declaratorSuffix+=
+								(DeclaratorSuffix
+									lastSuffix=
+									(DirectDeclaratorLastSuffix
+										parameterTypeList+=
+										(ParameterTypeList
+											list=
+											(ParameterList
+												parameterDeclaration+=
+												(ParameterDeclaration
+													declSpecifiers=
+													(DeclarationSpecifiers
+														declarationSpecifier+=
+														(TypeSpecifier
+															struct=
+															(StructOrUnionName
+																id++"STRUCT"
+															)
+														)
+													),
+													declarator=
+													(Declarator
+														pointer=
+														(Pointer
+															
+														),
+														declarator=
+														(DirectDeclarator
+															id++"s"
+														)
+													)
+												)
+											)
+										)
+									)
+								)
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+		),
+		// char do3(STRUCT * s);
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"char"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"do3",
+								declaratorSuffix+=
+								(DeclaratorSuffix
+									lastSuffix=
+									(DirectDeclaratorLastSuffix
+										parameterTypeList+=
+										(ParameterTypeList
+											list=
+											(ParameterList
+												parameterDeclaration+=
+												(ParameterDeclaration
+													declSpecifiers=
+													(DeclarationSpecifiers
+														declarationSpecifier+=
+														(TypeSpecifier
+															struct=
+															(StructOrUnionName
+																id++"STRUCT"
+															)
+														)
+													),
+													declarator=
+													(Declarator
+														pointer=
+														(Pointer
+															star+*"[*]"
+														),
+														declarator=
+														(DirectDeclarator
+															id++"s"
+														)
+													)
+												)
+											)
+										)
+									)
+								)
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+		),
+		// char do4(STRUCT *);
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"char"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"do4",
+								declaratorSuffix+=
+								(DeclaratorSuffix
+									lastSuffix=
+									(DirectDeclaratorLastSuffix
+										parameterTypeList+=
+										(ParameterTypeList
+											list=
+											(ParameterList
+												parameterDeclaration+=
+												(ParameterDeclaration
+													declSpecifiers=
+													(DeclarationSpecifiers
+														declarationSpecifier+=
+														(TypeSpecifier
+															struct=
+															(StructOrUnionName
+																id++"STRUCT"
+															)
+														)
+													),
+													abstractDeclator=
+													(AbstractDeclarator
+														pointer=
+														(Pointer
+															star+*"[*]"
+														)
+													)
+												)
+											)
+										)
+									)
+								)
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+		)
+		
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0045_FunctionDeclsStruct.c"
+expected file isSameAsInputFile
+
+replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

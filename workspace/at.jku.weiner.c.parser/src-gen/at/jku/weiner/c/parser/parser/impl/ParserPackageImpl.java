@@ -3826,7 +3826,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     initEReference(getDirectDeclaratorLastSuffix_IdentifierList(), this.getIdentifierList(), null, "identifierList", null, 0, 1, DirectDeclaratorLastSuffix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(gccDeclaratorExtensionEClass, GccDeclaratorExtension.class, "GccDeclaratorExtension", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getGccDeclaratorExtension_Asm(), theEcorePackage.getEBoolean(), "asm", null, 0, 1, GccDeclaratorExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getGccDeclaratorExtension_Asm(), theEcorePackage.getEString(), "asm", null, 0, 1, GccDeclaratorExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getGccDeclaratorExtension_String(), theEcorePackage.getEString(), "string", null, 0, -1, GccDeclaratorExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getGccDeclaratorExtension_GccAttributeSpecifier(), this.getGccAttributeSpecifier(), null, "gccAttributeSpecifier", null, 0, 1, GccDeclaratorExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

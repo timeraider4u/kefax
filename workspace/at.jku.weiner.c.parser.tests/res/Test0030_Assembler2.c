@@ -10,7 +10,7 @@ int main(void)
 	int bar = 4;
 
 	/* Here starts the inline assembler section  in AT&T syntax */
-	__asm__ (
+	__asm (
 			"add %1, %0\n\t"	/* Add the value of operand %1 to the value of operand %0. */
 			"inc %0"			/* Increment the value of operand %0 by 1. */
 			/* Definition of the constraints:

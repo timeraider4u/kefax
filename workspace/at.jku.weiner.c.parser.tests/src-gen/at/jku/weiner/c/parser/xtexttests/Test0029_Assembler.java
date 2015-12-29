@@ -484,7 +484,7 @@ public class Test0029_Assembler {
 		return content;
 	}
 	
-	@Test
+	@Test (timeout=1000)
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0029_Assembler.c");
@@ -529,7 +529,7 @@ public class Test0029_Assembler {
 				"RULE_SKW_SEMI", 
 				"RULE_NEWLINE", 
 				"RULE_WHITESPACE", 
-				"RULE_KW_ASM2", 
+				"RULE_KW_ASM3", 
 				"RULE_WHITESPACE", 
 				"RULE_KW_VOLATILE", 
 				"RULE_SKW_LEFTPAREN", 
@@ -665,7 +665,7 @@ public class Test0029_Assembler {
 			testHelper.checkTokenisation(text, expected);
 	}
 	
-	@Test
+	@Test (timeout=1000)
 	public void checkParserResult() throws Exception {
 		final String text = this.getTextFromFile(
 			"res/Test0029_Assembler.c");
@@ -3845,6 +3845,8 @@ public class Test0029_Assembler {
 	}
 	
 	@Test
+	(timeout=1000
+	)
 	public void testGenerator() throws Exception {
 		// load the resource
 		ResourceSet set = this.resourceSetProvider.get();

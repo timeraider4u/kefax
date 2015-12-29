@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link at.jku.weiner.c.parser.parser.GccDeclaratorExtension#isAsm <em>Asm</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.GccDeclaratorExtension#getAsm <em>Asm</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.GccDeclaratorExtension#getString <em>String</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.GccDeclaratorExtension#getGccAttributeSpecifier <em>Gcc Attribute Specifier</em>}</li>
  * </ul>
@@ -35,22 +35,22 @@ public interface GccDeclaratorExtension extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Asm</em>' attribute.
-   * @see #setAsm(boolean)
+   * @see #setAsm(String)
    * @see at.jku.weiner.c.parser.parser.ParserPackage#getGccDeclaratorExtension_Asm()
    * @model
    * @generated
    */
-  boolean isAsm();
+  String getAsm();
 
   /**
-   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.GccDeclaratorExtension#isAsm <em>Asm</em>}' attribute.
+   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.GccDeclaratorExtension#getAsm <em>Asm</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Asm</em>' attribute.
-   * @see #isAsm()
+   * @see #getAsm()
    * @generated
    */
-  void setAsm(boolean value);
+  void setAsm(String value);
 
   /**
    * Returns the value of the '<em><b>String</b></em>' attribute list.

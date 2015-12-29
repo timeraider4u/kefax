@@ -4463,11 +4463,11 @@ public interface ParserPackage extends EPackage
   EClass getGccDeclaratorExtension();
 
   /**
-   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.GccDeclaratorExtension#isAsm <em>Asm</em>}'.
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.GccDeclaratorExtension#getAsm <em>Asm</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Asm</em>'.
-   * @see at.jku.weiner.c.parser.parser.GccDeclaratorExtension#isAsm()
+   * @see at.jku.weiner.c.parser.parser.GccDeclaratorExtension#getAsm()
    * @see #getGccDeclaratorExtension()
    * @generated
    */

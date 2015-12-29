@@ -89,6 +89,63 @@ import at.jku.weiner.c.parser.parser.GccDeclaratorExtension;
 import at.jku.weiner.c.parser.parser.GccAttributeSpecifier;
 import at.jku.weiner.c.parser.parser.GccAttributeList;
 import at.jku.weiner.c.parser.parser.GccAttribute;
+import at.jku.weiner.c.parser.parser.ExternalDeclaration;
+import at.jku.weiner.c.parser.parser.Declaration;
+import at.jku.weiner.c.parser.parser.DeclarationSpecifiers;
+import at.jku.weiner.c.parser.parser.TypeSpecifier;
+import at.jku.weiner.c.parser.parser.InitDeclaratorList;
+import at.jku.weiner.c.parser.parser.InitDeclarator;
+import at.jku.weiner.c.parser.parser.Declarator;
+import at.jku.weiner.c.parser.parser.DirectDeclarator;
+import at.jku.weiner.c.parser.parser.DeclaratorSuffix;
+import at.jku.weiner.c.parser.parser.DirectDeclaratorLastSuffix;
+import at.jku.weiner.c.parser.parser.ParameterTypeList;
+import at.jku.weiner.c.parser.parser.ParameterList;
+import at.jku.weiner.c.parser.parser.ParameterDeclaration;
+import at.jku.weiner.c.parser.parser.DeclarationSpecifiers;
+import at.jku.weiner.c.parser.parser.TypeSpecifier;
+import at.jku.weiner.c.parser.parser.Declarator;
+import at.jku.weiner.c.parser.parser.Pointer;
+import at.jku.weiner.c.parser.parser.DirectDeclarator;
+import at.jku.weiner.c.parser.parser.GccDeclaratorExtension;
+import at.jku.weiner.c.parser.parser.ExternalDeclaration;
+import at.jku.weiner.c.parser.parser.Declaration;
+import at.jku.weiner.c.parser.parser.DeclarationSpecifiers;
+import at.jku.weiner.c.parser.parser.TypeSpecifier;
+import at.jku.weiner.c.parser.parser.InitDeclaratorList;
+import at.jku.weiner.c.parser.parser.InitDeclarator;
+import at.jku.weiner.c.parser.parser.Declarator;
+import at.jku.weiner.c.parser.parser.DirectDeclarator;
+import at.jku.weiner.c.parser.parser.DeclaratorSuffix;
+import at.jku.weiner.c.parser.parser.DirectDeclaratorLastSuffix;
+import at.jku.weiner.c.parser.parser.ParameterTypeList;
+import at.jku.weiner.c.parser.parser.ParameterList;
+import at.jku.weiner.c.parser.parser.ParameterDeclaration;
+import at.jku.weiner.c.parser.parser.DeclarationSpecifiers;
+import at.jku.weiner.c.parser.parser.TypeSpecifier;
+import at.jku.weiner.c.parser.parser.Declarator;
+import at.jku.weiner.c.parser.parser.Pointer;
+import at.jku.weiner.c.parser.parser.DirectDeclarator;
+import at.jku.weiner.c.parser.parser.GccDeclaratorExtension;
+import at.jku.weiner.c.parser.parser.ExternalDeclaration;
+import at.jku.weiner.c.parser.parser.Declaration;
+import at.jku.weiner.c.parser.parser.DeclarationSpecifiers;
+import at.jku.weiner.c.parser.parser.TypeSpecifier;
+import at.jku.weiner.c.parser.parser.InitDeclaratorList;
+import at.jku.weiner.c.parser.parser.InitDeclarator;
+import at.jku.weiner.c.parser.parser.Declarator;
+import at.jku.weiner.c.parser.parser.DirectDeclarator;
+import at.jku.weiner.c.parser.parser.DeclaratorSuffix;
+import at.jku.weiner.c.parser.parser.DirectDeclaratorLastSuffix;
+import at.jku.weiner.c.parser.parser.ParameterTypeList;
+import at.jku.weiner.c.parser.parser.ParameterList;
+import at.jku.weiner.c.parser.parser.ParameterDeclaration;
+import at.jku.weiner.c.parser.parser.DeclarationSpecifiers;
+import at.jku.weiner.c.parser.parser.TypeSpecifier;
+import at.jku.weiner.c.parser.parser.Declarator;
+import at.jku.weiner.c.parser.parser.Pointer;
+import at.jku.weiner.c.parser.parser.DirectDeclarator;
+import at.jku.weiner.c.parser.parser.GccDeclaratorExtension;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(ParserInjectorProvider.class)
@@ -181,6 +238,60 @@ public class Test0046_FunctionDeclsWithGccExts {
 				"RULE_SKW_RIGHTPAREN", 
 				"RULE_SKW_SEMI", 
 				"RULE_NEWLINE", 
+				"RULE_KW_CHAR", 
+				"RULE_WHITESPACE", 
+				"RULE_ID", 
+				"RULE_SKW_LEFTPAREN", 
+				"RULE_KW_INT", 
+				"RULE_WHITESPACE", 
+				"RULE_ID", 
+				"RULE_SKW_RIGHTPAREN", 
+				"RULE_WHITESPACE", 
+				"RULE_KW_ASM1", 
+				"RULE_WHITESPACE", 
+				"RULE_SKW_LEFTPAREN", 
+				"RULE_STRING_LITERAL", 
+				"RULE_WHITESPACE", 
+				"RULE_STRING_LITERAL", 
+				"RULE_SKW_RIGHTPAREN", 
+				"RULE_SKW_SEMI", 
+				"RULE_NEWLINE", 
+				"RULE_KW_CHAR", 
+				"RULE_WHITESPACE", 
+				"RULE_ID", 
+				"RULE_SKW_LEFTPAREN", 
+				"RULE_KW_INT", 
+				"RULE_WHITESPACE", 
+				"RULE_ID", 
+				"RULE_SKW_RIGHTPAREN", 
+				"RULE_WHITESPACE", 
+				"RULE_KW_ASM2", 
+				"RULE_WHITESPACE", 
+				"RULE_SKW_LEFTPAREN", 
+				"RULE_STRING_LITERAL", 
+				"RULE_WHITESPACE", 
+				"RULE_STRING_LITERAL", 
+				"RULE_SKW_RIGHTPAREN", 
+				"RULE_SKW_SEMI", 
+				"RULE_NEWLINE", 
+				"RULE_KW_CHAR", 
+				"RULE_WHITESPACE", 
+				"RULE_ID", 
+				"RULE_SKW_LEFTPAREN", 
+				"RULE_KW_INT", 
+				"RULE_WHITESPACE", 
+				"RULE_ID", 
+				"RULE_SKW_RIGHTPAREN", 
+				"RULE_WHITESPACE", 
+				"RULE_KW_ASM3", 
+				"RULE_WHITESPACE", 
+				"RULE_SKW_LEFTPAREN", 
+				"RULE_STRING_LITERAL", 
+				"RULE_WHITESPACE", 
+				"RULE_STRING_LITERAL", 
+				"RULE_SKW_RIGHTPAREN", 
+				"RULE_SKW_SEMI", 
+				"RULE_NEWLINE", 
 				};
 			//final List<Token> actual = testHelper.getTokens(text);
 			//testHelper.outputTokens(text);
@@ -202,7 +313,7 @@ public class Test0046_FunctionDeclsWithGccExts {
 		final EList<? extends EObject> External_0_list = Parser_0_Var
 		.getExternal();
 		Assert.assertNotNull(External_0_list);
-		Assert.assertEquals(2, External_0_list.size());
+		Assert.assertEquals(5, External_0_list.size());
 		//0
 		final ExternalDeclaration ExternalDeclaration_1_Var
 		 = (ExternalDeclaration)External_0_list.get(0);
@@ -549,6 +660,459 @@ public class Test0046_FunctionDeclsWithGccExts {
 		Assert.assertEquals("__nothrow__", GccAttribute_45_Var
 		.getId());
 		Assert.assertEquals(";", Declaration_25_Var
+		.getSemi());
+		//45
+		final ExternalDeclaration ExternalDeclaration_46_Var
+		 = (ExternalDeclaration)External_0_list.get(2);
+		Assert.assertNotNull(ExternalDeclaration_46_Var
+		);
+		//46
+		final Declaration Declaration_47_Var
+		 = (Declaration)ExternalDeclaration_46_Var
+		.getDeclaration();
+		Assert.assertNotNull(Declaration_47_Var
+		);
+		//47
+		final DeclarationSpecifiers DeclarationSpecifiers_48_Var
+		 = (DeclarationSpecifiers)Declaration_47_Var
+		.getSpecifiers();
+		Assert.assertNotNull(DeclarationSpecifiers_48_Var
+		);
+		final EList<? extends EObject> DeclarationSpecifier_48_list = DeclarationSpecifiers_48_Var
+		.getDeclarationSpecifier();
+		Assert.assertNotNull(DeclarationSpecifier_48_list);
+		Assert.assertEquals(1, DeclarationSpecifier_48_list.size());
+		//48
+		final TypeSpecifier TypeSpecifier_49_Var
+		 = (TypeSpecifier)DeclarationSpecifier_48_list.get(0);
+		Assert.assertNotNull(TypeSpecifier_49_Var
+		);
+		Assert.assertEquals("char", TypeSpecifier_49_Var
+		.getName());
+		final EList<? extends EObject> InitDeclaratorList_49_list = Declaration_47_Var
+		.getInitDeclaratorList();
+		Assert.assertNotNull(InitDeclaratorList_49_list);
+		Assert.assertEquals(1, InitDeclaratorList_49_list.size());
+		//49
+		final InitDeclaratorList InitDeclaratorList_50_Var
+		 = (InitDeclaratorList)InitDeclaratorList_49_list.get(0);
+		Assert.assertNotNull(InitDeclaratorList_50_Var
+		);
+		final EList<? extends EObject> InitDeclarator_50_list = InitDeclaratorList_50_Var
+		.getInitDeclarator();
+		Assert.assertNotNull(InitDeclarator_50_list);
+		Assert.assertEquals(1, InitDeclarator_50_list.size());
+		//50
+		final InitDeclarator InitDeclarator_51_Var
+		 = (InitDeclarator)InitDeclarator_50_list.get(0);
+		Assert.assertNotNull(InitDeclarator_51_Var
+		);
+		//51
+		final Declarator Declarator_52_Var
+		 = (Declarator)InitDeclarator_51_Var
+		.getDeclarator();
+		Assert.assertNotNull(Declarator_52_Var
+		);
+		//52
+		final DirectDeclarator DirectDeclarator_53_Var
+		 = (DirectDeclarator)Declarator_52_Var
+		.getDeclarator();
+		Assert.assertNotNull(DirectDeclarator_53_Var
+		);
+		Assert.assertEquals("do3", DirectDeclarator_53_Var
+		.getId());
+		final EList<? extends EObject> DeclaratorSuffix_53_list = DirectDeclarator_53_Var
+		.getDeclaratorSuffix();
+		Assert.assertNotNull(DeclaratorSuffix_53_list);
+		Assert.assertEquals(1, DeclaratorSuffix_53_list.size());
+		//53
+		final DeclaratorSuffix DeclaratorSuffix_54_Var
+		 = (DeclaratorSuffix)DeclaratorSuffix_53_list.get(0);
+		Assert.assertNotNull(DeclaratorSuffix_54_Var
+		);
+		//54
+		final DirectDeclaratorLastSuffix DirectDeclaratorLastSuffix_55_Var
+		 = (DirectDeclaratorLastSuffix)DeclaratorSuffix_54_Var
+		.getLastSuffix();
+		Assert.assertNotNull(DirectDeclaratorLastSuffix_55_Var
+		);
+		final EList<? extends EObject> ParameterTypeList_55_list = DirectDeclaratorLastSuffix_55_Var
+		.getParameterTypeList();
+		Assert.assertNotNull(ParameterTypeList_55_list);
+		Assert.assertEquals(1, ParameterTypeList_55_list.size());
+		//55
+		final ParameterTypeList ParameterTypeList_56_Var
+		 = (ParameterTypeList)ParameterTypeList_55_list.get(0);
+		Assert.assertNotNull(ParameterTypeList_56_Var
+		);
+		//56
+		final ParameterList ParameterList_57_Var
+		 = (ParameterList)ParameterTypeList_56_Var
+		.getList();
+		Assert.assertNotNull(ParameterList_57_Var
+		);
+		final EList<? extends EObject> ParameterDeclaration_57_list = ParameterList_57_Var
+		.getParameterDeclaration();
+		Assert.assertNotNull(ParameterDeclaration_57_list);
+		Assert.assertEquals(1, ParameterDeclaration_57_list.size());
+		//57
+		final ParameterDeclaration ParameterDeclaration_58_Var
+		 = (ParameterDeclaration)ParameterDeclaration_57_list.get(0);
+		Assert.assertNotNull(ParameterDeclaration_58_Var
+		);
+		//58
+		final DeclarationSpecifiers DeclarationSpecifiers_59_Var
+		 = (DeclarationSpecifiers)ParameterDeclaration_58_Var
+		.getDeclSpecifiers();
+		Assert.assertNotNull(DeclarationSpecifiers_59_Var
+		);
+		final EList<? extends EObject> DeclarationSpecifier_59_list = DeclarationSpecifiers_59_Var
+		.getDeclarationSpecifier();
+		Assert.assertNotNull(DeclarationSpecifier_59_list);
+		Assert.assertEquals(1, DeclarationSpecifier_59_list.size());
+		//59
+		final TypeSpecifier TypeSpecifier_60_Var
+		 = (TypeSpecifier)DeclarationSpecifier_59_list.get(0);
+		Assert.assertNotNull(TypeSpecifier_60_Var
+		);
+		Assert.assertEquals("int", TypeSpecifier_60_Var
+		.getName());
+		//60
+		final Declarator Declarator_61_Var
+		 = (Declarator)ParameterDeclaration_58_Var
+		.getDeclarator();
+		Assert.assertNotNull(Declarator_61_Var
+		);
+		//61
+		final Pointer Pointer_62_Var
+		 = (Pointer)Declarator_61_Var
+		.getPointer();
+		Assert.assertNotNull(Pointer_62_Var
+		);
+		//62
+		final DirectDeclarator DirectDeclarator_63_Var
+		 = (DirectDeclarator)Declarator_61_Var
+		.getDeclarator();
+		Assert.assertNotNull(DirectDeclarator_63_Var
+		);
+		Assert.assertEquals("c", DirectDeclarator_63_Var
+		.getId());
+		final EList<? extends EObject> GccDeclExt_63_list = Declarator_52_Var
+		.getGccDeclExt();
+		Assert.assertNotNull(GccDeclExt_63_list);
+		Assert.assertEquals(1, GccDeclExt_63_list.size());
+		//63
+		final GccDeclaratorExtension GccDeclaratorExtension_64_Var
+		 = (GccDeclaratorExtension)GccDeclExt_63_list.get(0);
+		Assert.assertNotNull(GccDeclaratorExtension_64_Var
+		);
+		Assert.assertEquals("asm", GccDeclaratorExtension_64_Var
+		.getAsm());
+		Assert.assertEquals("[\"\", \"something\"]", GccDeclaratorExtension_64_Var
+		.getString().toString());
+		Assert.assertEquals(";", Declaration_47_Var
+		.getSemi());
+		//64
+		final ExternalDeclaration ExternalDeclaration_65_Var
+		 = (ExternalDeclaration)External_0_list.get(3);
+		Assert.assertNotNull(ExternalDeclaration_65_Var
+		);
+		//65
+		final Declaration Declaration_66_Var
+		 = (Declaration)ExternalDeclaration_65_Var
+		.getDeclaration();
+		Assert.assertNotNull(Declaration_66_Var
+		);
+		//66
+		final DeclarationSpecifiers DeclarationSpecifiers_67_Var
+		 = (DeclarationSpecifiers)Declaration_66_Var
+		.getSpecifiers();
+		Assert.assertNotNull(DeclarationSpecifiers_67_Var
+		);
+		final EList<? extends EObject> DeclarationSpecifier_67_list = DeclarationSpecifiers_67_Var
+		.getDeclarationSpecifier();
+		Assert.assertNotNull(DeclarationSpecifier_67_list);
+		Assert.assertEquals(1, DeclarationSpecifier_67_list.size());
+		//67
+		final TypeSpecifier TypeSpecifier_68_Var
+		 = (TypeSpecifier)DeclarationSpecifier_67_list.get(0);
+		Assert.assertNotNull(TypeSpecifier_68_Var
+		);
+		Assert.assertEquals("char", TypeSpecifier_68_Var
+		.getName());
+		final EList<? extends EObject> InitDeclaratorList_68_list = Declaration_66_Var
+		.getInitDeclaratorList();
+		Assert.assertNotNull(InitDeclaratorList_68_list);
+		Assert.assertEquals(1, InitDeclaratorList_68_list.size());
+		//68
+		final InitDeclaratorList InitDeclaratorList_69_Var
+		 = (InitDeclaratorList)InitDeclaratorList_68_list.get(0);
+		Assert.assertNotNull(InitDeclaratorList_69_Var
+		);
+		final EList<? extends EObject> InitDeclarator_69_list = InitDeclaratorList_69_Var
+		.getInitDeclarator();
+		Assert.assertNotNull(InitDeclarator_69_list);
+		Assert.assertEquals(1, InitDeclarator_69_list.size());
+		//69
+		final InitDeclarator InitDeclarator_70_Var
+		 = (InitDeclarator)InitDeclarator_69_list.get(0);
+		Assert.assertNotNull(InitDeclarator_70_Var
+		);
+		//70
+		final Declarator Declarator_71_Var
+		 = (Declarator)InitDeclarator_70_Var
+		.getDeclarator();
+		Assert.assertNotNull(Declarator_71_Var
+		);
+		//71
+		final DirectDeclarator DirectDeclarator_72_Var
+		 = (DirectDeclarator)Declarator_71_Var
+		.getDeclarator();
+		Assert.assertNotNull(DirectDeclarator_72_Var
+		);
+		Assert.assertEquals("do4", DirectDeclarator_72_Var
+		.getId());
+		final EList<? extends EObject> DeclaratorSuffix_72_list = DirectDeclarator_72_Var
+		.getDeclaratorSuffix();
+		Assert.assertNotNull(DeclaratorSuffix_72_list);
+		Assert.assertEquals(1, DeclaratorSuffix_72_list.size());
+		//72
+		final DeclaratorSuffix DeclaratorSuffix_73_Var
+		 = (DeclaratorSuffix)DeclaratorSuffix_72_list.get(0);
+		Assert.assertNotNull(DeclaratorSuffix_73_Var
+		);
+		//73
+		final DirectDeclaratorLastSuffix DirectDeclaratorLastSuffix_74_Var
+		 = (DirectDeclaratorLastSuffix)DeclaratorSuffix_73_Var
+		.getLastSuffix();
+		Assert.assertNotNull(DirectDeclaratorLastSuffix_74_Var
+		);
+		final EList<? extends EObject> ParameterTypeList_74_list = DirectDeclaratorLastSuffix_74_Var
+		.getParameterTypeList();
+		Assert.assertNotNull(ParameterTypeList_74_list);
+		Assert.assertEquals(1, ParameterTypeList_74_list.size());
+		//74
+		final ParameterTypeList ParameterTypeList_75_Var
+		 = (ParameterTypeList)ParameterTypeList_74_list.get(0);
+		Assert.assertNotNull(ParameterTypeList_75_Var
+		);
+		//75
+		final ParameterList ParameterList_76_Var
+		 = (ParameterList)ParameterTypeList_75_Var
+		.getList();
+		Assert.assertNotNull(ParameterList_76_Var
+		);
+		final EList<? extends EObject> ParameterDeclaration_76_list = ParameterList_76_Var
+		.getParameterDeclaration();
+		Assert.assertNotNull(ParameterDeclaration_76_list);
+		Assert.assertEquals(1, ParameterDeclaration_76_list.size());
+		//76
+		final ParameterDeclaration ParameterDeclaration_77_Var
+		 = (ParameterDeclaration)ParameterDeclaration_76_list.get(0);
+		Assert.assertNotNull(ParameterDeclaration_77_Var
+		);
+		//77
+		final DeclarationSpecifiers DeclarationSpecifiers_78_Var
+		 = (DeclarationSpecifiers)ParameterDeclaration_77_Var
+		.getDeclSpecifiers();
+		Assert.assertNotNull(DeclarationSpecifiers_78_Var
+		);
+		final EList<? extends EObject> DeclarationSpecifier_78_list = DeclarationSpecifiers_78_Var
+		.getDeclarationSpecifier();
+		Assert.assertNotNull(DeclarationSpecifier_78_list);
+		Assert.assertEquals(1, DeclarationSpecifier_78_list.size());
+		//78
+		final TypeSpecifier TypeSpecifier_79_Var
+		 = (TypeSpecifier)DeclarationSpecifier_78_list.get(0);
+		Assert.assertNotNull(TypeSpecifier_79_Var
+		);
+		Assert.assertEquals("int", TypeSpecifier_79_Var
+		.getName());
+		//79
+		final Declarator Declarator_80_Var
+		 = (Declarator)ParameterDeclaration_77_Var
+		.getDeclarator();
+		Assert.assertNotNull(Declarator_80_Var
+		);
+		//80
+		final Pointer Pointer_81_Var
+		 = (Pointer)Declarator_80_Var
+		.getPointer();
+		Assert.assertNotNull(Pointer_81_Var
+		);
+		//81
+		final DirectDeclarator DirectDeclarator_82_Var
+		 = (DirectDeclarator)Declarator_80_Var
+		.getDeclarator();
+		Assert.assertNotNull(DirectDeclarator_82_Var
+		);
+		Assert.assertEquals("c", DirectDeclarator_82_Var
+		.getId());
+		final EList<? extends EObject> GccDeclExt_82_list = Declarator_71_Var
+		.getGccDeclExt();
+		Assert.assertNotNull(GccDeclExt_82_list);
+		Assert.assertEquals(1, GccDeclExt_82_list.size());
+		//82
+		final GccDeclaratorExtension GccDeclaratorExtension_83_Var
+		 = (GccDeclaratorExtension)GccDeclExt_82_list.get(0);
+		Assert.assertNotNull(GccDeclaratorExtension_83_Var
+		);
+		Assert.assertEquals("__asm", GccDeclaratorExtension_83_Var
+		.getAsm());
+		Assert.assertEquals("[\"\", \"something\"]", GccDeclaratorExtension_83_Var
+		.getString().toString());
+		Assert.assertEquals(";", Declaration_66_Var
+		.getSemi());
+		//83
+		final ExternalDeclaration ExternalDeclaration_84_Var
+		 = (ExternalDeclaration)External_0_list.get(4);
+		Assert.assertNotNull(ExternalDeclaration_84_Var
+		);
+		//84
+		final Declaration Declaration_85_Var
+		 = (Declaration)ExternalDeclaration_84_Var
+		.getDeclaration();
+		Assert.assertNotNull(Declaration_85_Var
+		);
+		//85
+		final DeclarationSpecifiers DeclarationSpecifiers_86_Var
+		 = (DeclarationSpecifiers)Declaration_85_Var
+		.getSpecifiers();
+		Assert.assertNotNull(DeclarationSpecifiers_86_Var
+		);
+		final EList<? extends EObject> DeclarationSpecifier_86_list = DeclarationSpecifiers_86_Var
+		.getDeclarationSpecifier();
+		Assert.assertNotNull(DeclarationSpecifier_86_list);
+		Assert.assertEquals(1, DeclarationSpecifier_86_list.size());
+		//86
+		final TypeSpecifier TypeSpecifier_87_Var
+		 = (TypeSpecifier)DeclarationSpecifier_86_list.get(0);
+		Assert.assertNotNull(TypeSpecifier_87_Var
+		);
+		Assert.assertEquals("char", TypeSpecifier_87_Var
+		.getName());
+		final EList<? extends EObject> InitDeclaratorList_87_list = Declaration_85_Var
+		.getInitDeclaratorList();
+		Assert.assertNotNull(InitDeclaratorList_87_list);
+		Assert.assertEquals(1, InitDeclaratorList_87_list.size());
+		//87
+		final InitDeclaratorList InitDeclaratorList_88_Var
+		 = (InitDeclaratorList)InitDeclaratorList_87_list.get(0);
+		Assert.assertNotNull(InitDeclaratorList_88_Var
+		);
+		final EList<? extends EObject> InitDeclarator_88_list = InitDeclaratorList_88_Var
+		.getInitDeclarator();
+		Assert.assertNotNull(InitDeclarator_88_list);
+		Assert.assertEquals(1, InitDeclarator_88_list.size());
+		//88
+		final InitDeclarator InitDeclarator_89_Var
+		 = (InitDeclarator)InitDeclarator_88_list.get(0);
+		Assert.assertNotNull(InitDeclarator_89_Var
+		);
+		//89
+		final Declarator Declarator_90_Var
+		 = (Declarator)InitDeclarator_89_Var
+		.getDeclarator();
+		Assert.assertNotNull(Declarator_90_Var
+		);
+		//90
+		final DirectDeclarator DirectDeclarator_91_Var
+		 = (DirectDeclarator)Declarator_90_Var
+		.getDeclarator();
+		Assert.assertNotNull(DirectDeclarator_91_Var
+		);
+		Assert.assertEquals("do5", DirectDeclarator_91_Var
+		.getId());
+		final EList<? extends EObject> DeclaratorSuffix_91_list = DirectDeclarator_91_Var
+		.getDeclaratorSuffix();
+		Assert.assertNotNull(DeclaratorSuffix_91_list);
+		Assert.assertEquals(1, DeclaratorSuffix_91_list.size());
+		//91
+		final DeclaratorSuffix DeclaratorSuffix_92_Var
+		 = (DeclaratorSuffix)DeclaratorSuffix_91_list.get(0);
+		Assert.assertNotNull(DeclaratorSuffix_92_Var
+		);
+		//92
+		final DirectDeclaratorLastSuffix DirectDeclaratorLastSuffix_93_Var
+		 = (DirectDeclaratorLastSuffix)DeclaratorSuffix_92_Var
+		.getLastSuffix();
+		Assert.assertNotNull(DirectDeclaratorLastSuffix_93_Var
+		);
+		final EList<? extends EObject> ParameterTypeList_93_list = DirectDeclaratorLastSuffix_93_Var
+		.getParameterTypeList();
+		Assert.assertNotNull(ParameterTypeList_93_list);
+		Assert.assertEquals(1, ParameterTypeList_93_list.size());
+		//93
+		final ParameterTypeList ParameterTypeList_94_Var
+		 = (ParameterTypeList)ParameterTypeList_93_list.get(0);
+		Assert.assertNotNull(ParameterTypeList_94_Var
+		);
+		//94
+		final ParameterList ParameterList_95_Var
+		 = (ParameterList)ParameterTypeList_94_Var
+		.getList();
+		Assert.assertNotNull(ParameterList_95_Var
+		);
+		final EList<? extends EObject> ParameterDeclaration_95_list = ParameterList_95_Var
+		.getParameterDeclaration();
+		Assert.assertNotNull(ParameterDeclaration_95_list);
+		Assert.assertEquals(1, ParameterDeclaration_95_list.size());
+		//95
+		final ParameterDeclaration ParameterDeclaration_96_Var
+		 = (ParameterDeclaration)ParameterDeclaration_95_list.get(0);
+		Assert.assertNotNull(ParameterDeclaration_96_Var
+		);
+		//96
+		final DeclarationSpecifiers DeclarationSpecifiers_97_Var
+		 = (DeclarationSpecifiers)ParameterDeclaration_96_Var
+		.getDeclSpecifiers();
+		Assert.assertNotNull(DeclarationSpecifiers_97_Var
+		);
+		final EList<? extends EObject> DeclarationSpecifier_97_list = DeclarationSpecifiers_97_Var
+		.getDeclarationSpecifier();
+		Assert.assertNotNull(DeclarationSpecifier_97_list);
+		Assert.assertEquals(1, DeclarationSpecifier_97_list.size());
+		//97
+		final TypeSpecifier TypeSpecifier_98_Var
+		 = (TypeSpecifier)DeclarationSpecifier_97_list.get(0);
+		Assert.assertNotNull(TypeSpecifier_98_Var
+		);
+		Assert.assertEquals("int", TypeSpecifier_98_Var
+		.getName());
+		//98
+		final Declarator Declarator_99_Var
+		 = (Declarator)ParameterDeclaration_96_Var
+		.getDeclarator();
+		Assert.assertNotNull(Declarator_99_Var
+		);
+		//99
+		final Pointer Pointer_100_Var
+		 = (Pointer)Declarator_99_Var
+		.getPointer();
+		Assert.assertNotNull(Pointer_100_Var
+		);
+		//100
+		final DirectDeclarator DirectDeclarator_101_Var
+		 = (DirectDeclarator)Declarator_99_Var
+		.getDeclarator();
+		Assert.assertNotNull(DirectDeclarator_101_Var
+		);
+		Assert.assertEquals("c", DirectDeclarator_101_Var
+		.getId());
+		final EList<? extends EObject> GccDeclExt_101_list = Declarator_90_Var
+		.getGccDeclExt();
+		Assert.assertNotNull(GccDeclExt_101_list);
+		Assert.assertEquals(1, GccDeclExt_101_list.size());
+		//101
+		final GccDeclaratorExtension GccDeclaratorExtension_102_Var
+		 = (GccDeclaratorExtension)GccDeclExt_101_list.get(0);
+		Assert.assertNotNull(GccDeclaratorExtension_102_Var
+		);
+		Assert.assertEquals("__asm__", GccDeclaratorExtension_102_Var
+		.getAsm());
+		Assert.assertEquals("[\"\", \"something\"]", GccDeclaratorExtension_102_Var
+		.getString().toString());
+		Assert.assertEquals(";", Declaration_85_Var
 		.getSemi());
 	}
 	

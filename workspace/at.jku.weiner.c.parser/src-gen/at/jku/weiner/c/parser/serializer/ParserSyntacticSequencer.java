@@ -39,8 +39,6 @@ public class ParserSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getARROWToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getELLIPSISRule())
 			return getELLIPSISToken(semanticObject, ruleCall, node);
-		else if(ruleCall.getRule() == grammarAccess.getKW_ASM1Rule())
-			return getKW_ASM1Token(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getKW_ATTRIBUTERule())
 			return getKW_ATTRIBUTEToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getKW_ENUMRule())
@@ -104,15 +102,6 @@ public class ParserSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return ".";
-	}
-	
-	/**
-	 * terminal KW_ASM1: SKW_UNDERSCORE SKW_UNDERSCORE 'asm';
-	 */
-	protected String getKW_ASM1Token(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "_asm";
 	}
 	
 	/**

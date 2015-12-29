@@ -28,7 +28,7 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link at.jku.weiner.c.parser.parser.impl.GccDeclaratorExtensionImpl#isAsm <em>Asm</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.GccDeclaratorExtensionImpl#getAsm <em>Asm</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.GccDeclaratorExtensionImpl#getString <em>String</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.GccDeclaratorExtensionImpl#getGccAttributeSpecifier <em>Gcc Attribute Specifier</em>}</li>
  * </ul>
@@ -39,24 +39,24 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
 public class GccDeclaratorExtensionImpl extends MinimalEObjectImpl.Container implements GccDeclaratorExtension
 {
   /**
-   * The default value of the '{@link #isAsm() <em>Asm</em>}' attribute.
+   * The default value of the '{@link #getAsm() <em>Asm</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isAsm()
+   * @see #getAsm()
    * @generated
    * @ordered
    */
-  protected static final boolean ASM_EDEFAULT = false;
+  protected static final String ASM_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #isAsm() <em>Asm</em>}' attribute.
+   * The cached value of the '{@link #getAsm() <em>Asm</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isAsm()
+   * @see #getAsm()
    * @generated
    * @ordered
    */
-  protected boolean asm = ASM_EDEFAULT;
+  protected String asm = ASM_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getString() <em>String</em>}' attribute list.
@@ -104,7 +104,7 @@ public class GccDeclaratorExtensionImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public boolean isAsm()
+  public String getAsm()
   {
     return asm;
   }
@@ -114,9 +114,9 @@ public class GccDeclaratorExtensionImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setAsm(boolean newAsm)
+  public void setAsm(String newAsm)
   {
-    boolean oldAsm = asm;
+    String oldAsm = asm;
     asm = newAsm;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.GCC_DECLARATOR_EXTENSION__ASM, oldAsm, asm));
@@ -211,7 +211,7 @@ public class GccDeclaratorExtensionImpl extends MinimalEObjectImpl.Container imp
     switch (featureID)
     {
       case ParserPackage.GCC_DECLARATOR_EXTENSION__ASM:
-        return isAsm();
+        return getAsm();
       case ParserPackage.GCC_DECLARATOR_EXTENSION__STRING:
         return getString();
       case ParserPackage.GCC_DECLARATOR_EXTENSION__GCC_ATTRIBUTE_SPECIFIER:
@@ -232,7 +232,7 @@ public class GccDeclaratorExtensionImpl extends MinimalEObjectImpl.Container imp
     switch (featureID)
     {
       case ParserPackage.GCC_DECLARATOR_EXTENSION__ASM:
-        setAsm((Boolean)newValue);
+        setAsm((String)newValue);
         return;
       case ParserPackage.GCC_DECLARATOR_EXTENSION__STRING:
         getString().clear();
@@ -279,7 +279,7 @@ public class GccDeclaratorExtensionImpl extends MinimalEObjectImpl.Container imp
     switch (featureID)
     {
       case ParserPackage.GCC_DECLARATOR_EXTENSION__ASM:
-        return asm != ASM_EDEFAULT;
+        return ASM_EDEFAULT == null ? asm != null : !ASM_EDEFAULT.equals(asm);
       case ParserPackage.GCC_DECLARATOR_EXTENSION__STRING:
         return string != null && !string.isEmpty();
       case ParserPackage.GCC_DECLARATOR_EXTENSION__GCC_ATTRIBUTE_SPECIFIER:

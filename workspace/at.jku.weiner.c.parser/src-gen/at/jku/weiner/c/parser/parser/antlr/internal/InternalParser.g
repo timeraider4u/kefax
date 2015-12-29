@@ -3668,9 +3668,10 @@ ruleGccDeclaratorExtension returns [EObject current=null]
 (
 (
 (
-		lv_asm_1_0=RULE_KW_ASM1
+(
+		lv_asm_1_1=RULE_KW_ASM1
 		{
-			newLeafNode(lv_asm_1_0, grammarAccess.getGccDeclaratorExtensionAccess().getAsmKW_ASM1TerminalRuleCall_1_0_0_0()); 
+			newLeafNode(lv_asm_1_1, grammarAccess.getGccDeclaratorExtensionAccess().getAsmKW_ASM1TerminalRuleCall_1_0_0_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -3679,9 +3680,41 @@ ruleGccDeclaratorExtension returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"asm",
-        		true, 
+        		lv_asm_1_1, 
         		"at.jku.weiner.c.parser.Parser.KW_ASM1");
 	    }
+
+    |		lv_asm_1_2=RULE_KW_ASM2
+		{
+			newLeafNode(lv_asm_1_2, grammarAccess.getGccDeclaratorExtensionAccess().getAsmKW_ASM2TerminalRuleCall_1_0_0_0_1()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getGccDeclaratorExtensionRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"asm",
+        		lv_asm_1_2, 
+        		"at.jku.weiner.c.parser.Parser.KW_ASM2");
+	    }
+
+    |		lv_asm_1_3=RULE_KW_ASM3
+		{
+			newLeafNode(lv_asm_1_3, grammarAccess.getGccDeclaratorExtensionAccess().getAsmKW_ASM3TerminalRuleCall_1_0_0_0_2()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getGccDeclaratorExtensionRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"asm",
+        		lv_asm_1_3, 
+        		"at.jku.weiner.c.parser.Parser.KW_ASM3");
+	    }
+
+)
 
 )
 )
@@ -6796,15 +6829,37 @@ ruleAsmStatement returns [EObject current=null]
 )
 )
 
+
+    |
+(
+(
+		lv_asm_3_0=RULE_KW_ASM3
+		{
+			newLeafNode(lv_asm_3_0, grammarAccess.getAsmStatementAccess().getAsmKW_ASM3TerminalRuleCall_1_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getAsmStatementRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"asm",
+        		lv_asm_3_0, 
+        		"at.jku.weiner.c.parser.Parser.KW_ASM3");
+	    }
+
+)
+)
+
 )
 
 
 (
 (
 (
-		lv_volatile_3_0=RULE_KW_VOLATILE
+		lv_volatile_4_0=RULE_KW_VOLATILE
 		{
-			newLeafNode(lv_volatile_3_0, grammarAccess.getAsmStatementAccess().getVolatileKW_VOLATILETerminalRuleCall_2_0_0()); 
+			newLeafNode(lv_volatile_4_0, grammarAccess.getAsmStatementAccess().getVolatileKW_VOLATILETerminalRuleCall_2_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -6813,7 +6868,7 @@ ruleAsmStatement returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"volatile",
-        		lv_volatile_3_0, 
+        		lv_volatile_4_0, 
         		"at.jku.weiner.c.parser.Parser.KW_VOLATILE");
 	    }
 
@@ -6824,9 +6879,9 @@ ruleAsmStatement returns [EObject current=null]
     |
 (
 (
-		lv_volatile_4_0=RULE_KW_VOLATILE2
+		lv_volatile_5_0=RULE_KW_VOLATILE2
 		{
-			newLeafNode(lv_volatile_4_0, grammarAccess.getAsmStatementAccess().getVolatileKW_VOLATILE2TerminalRuleCall_2_1_0()); 
+			newLeafNode(lv_volatile_5_0, grammarAccess.getAsmStatementAccess().getVolatileKW_VOLATILE2TerminalRuleCall_2_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -6835,7 +6890,7 @@ ruleAsmStatement returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"volatile",
-        		lv_volatile_4_0, 
+        		lv_volatile_5_0, 
         		"at.jku.weiner.c.parser.Parser.KW_VOLATILE2");
 	    }
 
@@ -6845,9 +6900,9 @@ ruleAsmStatement returns [EObject current=null]
 )?
 
 
-this_SKW_LEFTPAREN_5=RULE_SKW_LEFTPAREN
+this_SKW_LEFTPAREN_6=RULE_SKW_LEFTPAREN
     { 
-    newLeafNode(this_SKW_LEFTPAREN_5, grammarAccess.getAsmStatementAccess().getSKW_LEFTPARENTerminalRuleCall_3()); 
+    newLeafNode(this_SKW_LEFTPAREN_6, grammarAccess.getAsmStatementAccess().getSKW_LEFTPARENTerminalRuleCall_3()); 
     }
 
 
@@ -6858,14 +6913,14 @@ this_SKW_LEFTPAREN_5=RULE_SKW_LEFTPAREN
 		{ 
 	        newCompositeNode(grammarAccess.getAsmStatementAccess().getAsmLineAsmLineWithColonParserRuleCall_4_0_0()); 
 	    }
-		lv_asmLine_6_0=ruleAsmLineWithColon		{
+		lv_asmLine_7_0=ruleAsmLineWithColon		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getAsmStatementRule());
 	        }
        		add(
        			$current, 
        			"asmLine",
-        		lv_asmLine_6_0, 
+        		lv_asmLine_7_0, 
         		"at.jku.weiner.c.parser.Parser.AsmLineWithColon");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -6879,14 +6934,14 @@ this_SKW_LEFTPAREN_5=RULE_SKW_LEFTPAREN
 		{ 
 	        newCompositeNode(grammarAccess.getAsmStatementAccess().getAsmLineAsmLineWithCommaParserRuleCall_4_1_0()); 
 	    }
-		lv_asmLine_7_0=ruleAsmLineWithComma		{
+		lv_asmLine_8_0=ruleAsmLineWithComma		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getAsmStatementRule());
 	        }
        		add(
        			$current, 
        			"asmLine",
-        		lv_asmLine_7_0, 
+        		lv_asmLine_8_0, 
         		"at.jku.weiner.c.parser.Parser.AsmLineWithComma");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -6897,18 +6952,18 @@ this_SKW_LEFTPAREN_5=RULE_SKW_LEFTPAREN
 )+
 
 
-this_SKW_RIGHTPAREN_8=RULE_SKW_RIGHTPAREN
+this_SKW_RIGHTPAREN_9=RULE_SKW_RIGHTPAREN
     { 
-    newLeafNode(this_SKW_RIGHTPAREN_8, grammarAccess.getAsmStatementAccess().getSKW_RIGHTPARENTerminalRuleCall_5()); 
+    newLeafNode(this_SKW_RIGHTPAREN_9, grammarAccess.getAsmStatementAccess().getSKW_RIGHTPARENTerminalRuleCall_5()); 
     }
 
 
 
 (
 (
-		lv_semi_9_0=RULE_SKW_SEMI
+		lv_semi_10_0=RULE_SKW_SEMI
 		{
-			newLeafNode(lv_semi_9_0, grammarAccess.getAsmStatementAccess().getSemiSKW_SEMITerminalRuleCall_6_0()); 
+			newLeafNode(lv_semi_10_0, grammarAccess.getAsmStatementAccess().getSemiSKW_SEMITerminalRuleCall_6_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -6917,7 +6972,7 @@ this_SKW_RIGHTPAREN_8=RULE_SKW_RIGHTPAREN
        		setWithLastConsumed(
        			$current, 
        			"semi",
-        		lv_semi_9_0, 
+        		lv_semi_10_0, 
         		"at.jku.weiner.c.common.Common.SKW_SEMI");
 	    }
 
@@ -10680,9 +10735,11 @@ RULE_KW_ALIGNAS : RULE_SKW_UNDERSCORE 'Alignas';
 
 RULE_KW_ALIGNOF : RULE_SKW_UNDERSCORE 'Alignof';
 
-RULE_KW_ASM1 : RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE 'asm';
+RULE_KW_ASM1 : 'asm';
 
-RULE_KW_ASM2 : RULE_KW_ASM1 RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE;
+RULE_KW_ASM2 : RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE RULE_KW_ASM1;
+
+RULE_KW_ASM3 : RULE_KW_ASM2 RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE;
 
 RULE_KW_BOOL : RULE_SKW_UNDERSCORE 'Bool';
 

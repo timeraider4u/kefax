@@ -21,6 +21,27 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN
 	ID
 	SKW_RIGHTPAREN SKW_RIGHTPAREN
 	SKW_SEMI NEWLINE
+KW_CHAR WHITESPACE ID SKW_LEFTPAREN
+	KW_INT WHITESPACE ID SKW_RIGHTPAREN
+	WHITESPACE KW_ASM1 WHITESPACE
+	SKW_LEFTPAREN 
+	STRING_LITERAL WHITESPACE STRING_LITERAL
+	SKW_RIGHTPAREN 
+	SKW_SEMI NEWLINE
+KW_CHAR WHITESPACE ID SKW_LEFTPAREN
+	KW_INT WHITESPACE ID SKW_RIGHTPAREN
+	WHITESPACE KW_ASM2 WHITESPACE
+	SKW_LEFTPAREN 
+	STRING_LITERAL WHITESPACE STRING_LITERAL
+	SKW_RIGHTPAREN 
+	SKW_SEMI NEWLINE
+KW_CHAR WHITESPACE ID SKW_LEFTPAREN
+	KW_INT WHITESPACE ID SKW_RIGHTPAREN
+	WHITESPACE KW_ASM3 WHITESPACE
+	SKW_LEFTPAREN 
+	STRING_LITERAL WHITESPACE STRING_LITERAL
+	SKW_RIGHTPAREN 
+	SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
 //(common::Model units+=
 	//(common::TranslationUnit 
@@ -174,8 +195,202 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN
 				),
 				semi++";"
 			)
+		),
+		// asm
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"char"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"do3",
+								declaratorSuffix+=
+								(DeclaratorSuffix
+									lastSuffix=
+									(DirectDeclaratorLastSuffix
+										parameterTypeList+=
+										(ParameterTypeList
+											list=
+											(ParameterList
+												parameterDeclaration+=
+												(ParameterDeclaration
+													declSpecifiers=
+													(DeclarationSpecifiers
+														declarationSpecifier+=
+														(TypeSpecifier
+															name++"int"
+														)
+													),
+													declarator=
+													(Declarator
+														pointer=
+														(Pointer
+															
+														),
+														declarator=
+														(DirectDeclarator
+															id++"c"
+														)
+													)
+												)
+											)
+										)
+									)
+								)
+							),
+							gccDeclExt+=
+							(GccDeclaratorExtension
+								asm++"asm",
+								string+*"[\\\"\\\", \\\"something\\\"]"
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+		),
+		// __asm
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"char"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"do4",
+								declaratorSuffix+=
+								(DeclaratorSuffix
+									lastSuffix=
+									(DirectDeclaratorLastSuffix
+										parameterTypeList+=
+										(ParameterTypeList
+											list=
+											(ParameterList
+												parameterDeclaration+=
+												(ParameterDeclaration
+													declSpecifiers=
+													(DeclarationSpecifiers
+														declarationSpecifier+=
+														(TypeSpecifier
+															name++"int"
+														)
+													),
+													declarator=
+													(Declarator
+														pointer=
+														(Pointer
+															
+														),
+														declarator=
+														(DirectDeclarator
+															id++"c"
+														)
+													)
+												)
+											)
+										)
+									)
+								)
+							),
+							gccDeclExt+=
+							(GccDeclaratorExtension
+								asm++"__asm",
+								string+*"[\\\"\\\", \\\"something\\\"]"
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+		),
+		// __asm__
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"char"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"do5",
+								declaratorSuffix+=
+								(DeclaratorSuffix
+									lastSuffix=
+									(DirectDeclaratorLastSuffix
+										parameterTypeList+=
+										(ParameterTypeList
+											list=
+											(ParameterList
+												parameterDeclaration+=
+												(ParameterDeclaration
+													declSpecifiers=
+													(DeclarationSpecifiers
+														declarationSpecifier+=
+														(TypeSpecifier
+															name++"int"
+														)
+													),
+													declarator=
+													(Declarator
+														pointer=
+														(Pointer
+															
+														),
+														declarator=
+														(DirectDeclarator
+															id++"c"
+														)
+													)
+												)
+											)
+										)
+									)
+								)
+							),
+							gccDeclExt+=
+							(GccDeclaratorExtension
+								asm++"__asm__",
+								string+*"[\\\"\\\", \\\"something\\\"]"
+							)
+						)
+					)
+				),
+				semi++";"
+			)
 		)
-		
 	)
 //)
 //)

@@ -361,7 +361,7 @@ DirectDeclaratorLastSuffix:
 GccDeclaratorExtension:
 	{GccDeclaratorExtension}
 	(
-			asm?=KW_ASM1 SKW_LEFTPAREN string+=STRING_LITERAL+ SKW_RIGHTPAREN
+			asm=(KW_ASM1|KW_ASM2|KW_ASM3) SKW_LEFTPAREN string+=STRING_LITERAL+ SKW_RIGHTPAREN
 		|	gccAttributeSpecifier=GccAttributeSpecifier
 	)
 ;
@@ -587,7 +587,7 @@ JumpStatement returns Statement:
 
 AsmStatement returns Statement:
 	{AsmStatement}
-	(asm=KW_ASM1 | asm=KW_ASM2) 
+	(asm=KW_ASM1 | asm=KW_ASM2 | asm=KW_ASM3) 
 	(volatile=KW_VOLATILE | volatile=KW_VOLATILE2)? 
 		SKW_LEFTPAREN
 			(
@@ -868,8 +868,9 @@ terminal KW_ATTRIBUTE: SKW_UNDERSCORE SKW_UNDERSCORE 'attribute' SKW_UNDERSCORE 
 terminal KW_AUTO : 'auto';
 terminal KW_ALIGNAS : SKW_UNDERSCORE 'Alignas';
 terminal KW_ALIGNOF : SKW_UNDERSCORE 'Alignof';
-terminal KW_ASM1: SKW_UNDERSCORE SKW_UNDERSCORE 'asm';
-terminal KW_ASM2: KW_ASM1 SKW_UNDERSCORE SKW_UNDERSCORE;
+terminal KW_ASM1: 'asm';
+terminal KW_ASM2: SKW_UNDERSCORE SKW_UNDERSCORE KW_ASM1;
+terminal KW_ASM3: KW_ASM2 SKW_UNDERSCORE SKW_UNDERSCORE;
 terminal KW_BOOL : SKW_UNDERSCORE 'Bool';
 terminal KW_BREAK : 'break';
 terminal KW_BUILTIN_VA_LIST: SKW_UNDERSCORE SKW_UNDERSCORE 'builtin_va_list';

@@ -399,9 +399,23 @@ class ParserGenerator implements IGenerator {
 	}
 	
 	def String outputFor(GccDeclaratorExtension obj) '''
-		«IF obj.asm»__asm(«obj.string»)«ENDIF»
+		«IF obj.asm != null»«obj.asm»(«outputFor(obj.string, false)»)«ENDIF»
 		«IF obj.gccAttributeSpecifier != null»«outputFor(obj.gccAttributeSpecifier)»«ENDIF»
 	'''
+	
+	def String outputFor(EList<String> obj, boolean addCommas) {
+		val StringBuffer result = new StringBuffer("");
+		var boolean isFirst = true;
+		for (var int i = 0; i < obj.size(); i++) {
+			if (!isFirst && addCommas) {
+				result.append(",");
+			}
+			val String str = obj.get(i);
+			result.append(str);
+			isFirst = false;
+		}
+		return result.toString();
+	}
 	
 	def String outputFor(GccAttributeSpecifier obj) '''
 		__attribute__ ((«IF obj.list != null»«outputFor(obj.list)»«ENDIF»))

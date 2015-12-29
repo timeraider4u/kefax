@@ -53,6 +53,7 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDeclaratorSuffixAccess().getAlternatives_1(), "rule__DeclaratorSuffix__Alternatives_1");
 					put(grammarAccess.getDirectDeclaratorLastSuffixAccess().getAlternatives_2(), "rule__DirectDeclaratorLastSuffix__Alternatives_2");
 					put(grammarAccess.getGccDeclaratorExtensionAccess().getAlternatives_1(), "rule__GccDeclaratorExtension__Alternatives_1");
+					put(grammarAccess.getGccDeclaratorExtensionAccess().getAsmAlternatives_1_0_0_0(), "rule__GccDeclaratorExtension__AsmAlternatives_1_0_0_0");
 					put(grammarAccess.getGccAttributeAccess().getAlternatives_1(), "rule__GccAttribute__Alternatives_1");
 					put(grammarAccess.getPointerAccess().getAlternatives_1_0(), "rule__Pointer__Alternatives_1_0");
 					put(grammarAccess.getParameterDeclarationAccess().getAlternatives_2(), "rule__ParameterDeclaration__Alternatives_2");
@@ -417,6 +418,7 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getJumpStatementAccess().getSemiAssignment_1_3_2(), "rule__JumpStatement__SemiAssignment_1_3_2");
 					put(grammarAccess.getAsmStatementAccess().getAsmAssignment_1_0(), "rule__AsmStatement__AsmAssignment_1_0");
 					put(grammarAccess.getAsmStatementAccess().getAsmAssignment_1_1(), "rule__AsmStatement__AsmAssignment_1_1");
+					put(grammarAccess.getAsmStatementAccess().getAsmAssignment_1_2(), "rule__AsmStatement__AsmAssignment_1_2");
 					put(grammarAccess.getAsmStatementAccess().getVolatileAssignment_2_0(), "rule__AsmStatement__VolatileAssignment_2_0");
 					put(grammarAccess.getAsmStatementAccess().getVolatileAssignment_2_1(), "rule__AsmStatement__VolatileAssignment_2_1");
 					put(grammarAccess.getAsmStatementAccess().getAsmLineAssignment_4_0(), "rule__AsmStatement__AsmLineAssignment_4_0");

@@ -442,7 +442,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
-	 *         (asm=KW_ASM1 | asm=KW_ASM2) 
+	 *         (asm=KW_ASM1 | asm=KW_ASM2 | asm=KW_ASM3) 
 	 *         (volatile=KW_VOLATILE | volatile=KW_VOLATILE2)? 
 	 *         (asmLine+=AsmLineWithColon asmLine+=AsmLineWithComma*)+ 
 	 *         semi=SKW_SEMI
@@ -751,7 +751,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     ((asm?=KW_ASM1 string+=STRING_LITERAL+) | gccAttributeSpecifier=GccAttributeSpecifier)
+	 *     (((asm=KW_ASM1 | asm=KW_ASM2 | asm=KW_ASM3) string+=STRING_LITERAL+) | gccAttributeSpecifier=GccAttributeSpecifier)
 	 */
 	protected void sequence_GccDeclaratorExtension(EObject context, GccDeclaratorExtension semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

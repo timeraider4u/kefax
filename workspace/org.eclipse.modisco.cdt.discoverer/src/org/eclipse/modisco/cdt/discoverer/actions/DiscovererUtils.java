@@ -1,15 +1,23 @@
 package org.eclipse.modisco.cdt.discoverer.actions;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import org.eclipse.cdt.core.model.CoreModel;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.modisco.cdt.discoverer.utils.Messages;
 import org.eclipse.modisco.infra.discovery.core.exception.DiscoveryException;
 
@@ -73,5 +81,36 @@ final class DiscovererUtils {
 		}
 		System.out.println("filename=" + result.getFullPath().toOSString());
 		return result;
+	}
+
+	public static String getTargetDirectory(final IResource res,
+			final IProgressMonitor monitor) throws DiscoveryException {
+		IProject project = res.getProject();
+		IFolder folder = project.getFolder("tmp-discover");
+		if (!folder.exists()) {
+			try {
+				folder.create(true, true, monitor);
+			} catch (CoreException ex) {
+				throw new DiscoveryException(ex);
+			}
+		}
+		final String tmpStr = folder.getLocationURI().toString();
+		final String result = tmpStr.replaceAll("file[:]", "");
+		return result;
+	}
+
+	public static URI getTargetModel(final IResource res,
+			final IProgressMonitor monitor) throws DiscoveryException {
+		final String path = DiscovererUtils.getTargetDirectory(res, monitor);
+		System.out.println("targetPath='" + path + "'");
+		final Date dNow = new Date();
+		final SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd-hhmmss");
+		final String prefix = ft.format(dNow);
+		System.out.println("prefix='" + prefix + "'");
+		final String model = path + IPath.SEPARATOR + "discover-" + prefix
+				+ Messages.modelFileSuffix;
+		System.out.println("modelURI='" + model + "'");
+		final URI uri = URI.createFileURI(model);
+		return uri;
 	}
 }

@@ -58,21 +58,21 @@ AbstractModelDiscoverer<T> {
 
 	protected final void discover(final IResource resource,
 			final IProgressMonitor monitor) throws DiscoveryException {
-		final MyStore store = this.initialize(monitor);
+		final MyStore store = this.initialize(resource, monitor);
 		// discover
 		store.getMonitor().beginTask(Messages.discover,
 				IProgressMonitor.UNKNOWN);
 		if (resource instanceof IFile) {
 			final IFile file = (IFile) resource;
-			this.setDefaultTargetURI(URI.createPlatformResourceURI(file
-					.getFullPath().toString().concat(Messages.modelFileSuffix),
-					true));
+			// this.setDefaultTargetURI(URI.createPlatformResourceURI(file
+			// .getFullPath().toString().concat(Messages.modelFileSuffix),
+			// true));
 			this.discoverFile(file.getLocation().toFile(), store);
 		} else if (resource instanceof IContainer) {
 			final IContainer container = (IContainer) resource;
-			this.setDefaultTargetURI(URI.createPlatformResourceURI(container
-					.getFullPath().append(container.getName()).toString()
-					.concat(Messages.modelFileSuffix), true));
+			// this.setDefaultTargetURI(URI.createPlatformResourceURI(container
+			// .getFullPath().append(container.getName()).toString()
+			// .concat(Messages.modelFileSuffix), true));
 			this.discoverDirectory(container.getLocation().toFile(), store);
 		} else {
 			throw new DiscoveryException(resource.getClass().getName()
@@ -87,15 +87,20 @@ AbstractModelDiscoverer<T> {
 	/***
 	 * initialize all data values
 	 *
+	 * @param resource
+	 *
 	 * @param monitor
 	 * @return
 	 * @throws DiscoveryException
 	 */
-	private final MyStore initialize(final IProgressMonitor monitor)
-			throws DiscoveryException {
+	private final MyStore initialize(final IResource resource,
+			final IProgressMonitor monitor) throws DiscoveryException {
 		System.out.println("discoverElement()");
 		monitor.beginTask(Messages.discover, IProgressMonitor.UNKNOWN);
 		this.checkParameterValues();
+		final URI targetURI = DiscovererUtils.getTargetModel(resource, monitor);
+		System.out.println("targetURI='" + targetURI.toFileString() + "'");
+		this.setTargetURI(targetURI);
 		final Resource targetModel = this.createTargetModel();
 		final MyStore result = new MyStore(monitor, targetModel);
 		return result;
@@ -158,14 +163,16 @@ AbstractModelDiscoverer<T> {
 	private final void save(final MyStore store) throws DiscoveryException {
 		System.out.println("saving...");
 		store.getMonitor().setTaskName(Messages.saving);
-		if (this.isTargetSerializationChosen()) {
-			try {
-				this.saveTargetModel();
-			} catch (final IOException ex) {
-				throw new DiscoveryException(
-						"Error saving discovery result model", ex); //$NON-NLS-1$
-			}
+		// if (this.isTargetSerializationChosen()) {
+		try {
+			this.saveTargetModel();
+			System.out.println("saved to='"
+					+ this.getTargetModel().getURI().toFileString() + "'");
+		} catch (final IOException ex) {
+			throw new DiscoveryException(
+					"Error saving discovery result model", ex); //$NON-NLS-1$
 		}
+		// }
 	}
 
 }

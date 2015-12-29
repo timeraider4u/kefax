@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.modisco.cdt.discoverer.utils.MyStore;
@@ -68,6 +69,12 @@ public class XtextUtils {
 				.getFileFor(intermediateFile);
 		Parser parser = this.parser.parseFile(intermediateFile, iIntermediate);
 		unit.setParser(parser);
+		// update project
+		try {
+			iFile.getProject().refreshLocal(1, this.store.getMonitor());
+		} catch (CoreException ex) {
+			throw new DiscoveryException(ex);
+		}
 	}
 
 	private final String getFilenameForIntermediate(final URI uri) {

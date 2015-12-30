@@ -20,7 +20,6 @@ import at.jku.weiner.c.common.common.Model;
 
 @SuppressWarnings({ "restriction" })
 public class TestUtils {
-	private static final String PREFIX = "/res/";
 
 	private final IProject project;
 	private final DiscoverCDTFromIResource discoverer;
@@ -31,16 +30,15 @@ public class TestUtils {
 		this.cleanUpOldProject();
 		this.project = this.getProject();
 		Assert.assertNotNull(this.project);
-		final IResource srcFolder = this.getRes(TestUtils.PREFIX + testName
-				+ "/");
+		final IResource srcFolder = this.getRes(testName + "/");
 		Assert.assertNotNull(srcFolder);
 		this.discoverer = new DiscoverCDTFromIResource();
 		Assert.assertTrue(
 				"res is not an instanceof IFolder, res='" + srcFolder.getName()
-				+ "'", srcFolder instanceof IFolder);
+						+ "'", srcFolder instanceof IFolder);
 		final IFolder srcFolderDir = (IFolder) srcFolder;
 		this.discoverer
-		.discoverElement(srcFolderDir, new NullProgressMonitor());
+				.discoverElement(srcFolderDir, new NullProgressMonitor());
 		this.discoveredModel = this.discoverer.getTargetModel();
 		Assert.assertNotNull(this.discoveredModel);
 	}

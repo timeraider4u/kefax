@@ -25,25 +25,13 @@ import org.junit.runner.RunWith;
 import at.jku.weiner.c.common.common.Model;
 
 
-import at.jku.weiner.c.common.common.TranslationUnit;
-import at.jku.weiner.c.preprocess.preprocess.Preprocess;
-
-
-import at.jku.weiner.c.parser.parser.Parser;
-
-
-
-
-import at.jku.weiner.c.common.common.TranslationUnit;
-
-
 
 
 @SuppressWarnings("unused")
-public class Test0002_Empty {
+public class Test0001_Empty {
 	
-	private final String pureJavaClassFileName = "Test0002_Empty";
-	private final String sourceFile = "res/Test0002_Empty";
+	private final String pureJavaClassFileName = "Test0001_Empty";
+	private final String sourceFile = "res/Test0001_Empty";
 	
 	@Before
 	public void initialize(){
@@ -75,32 +63,8 @@ public class Test0002_Empty {
 		  =  (Model)obj;
 		Assert.assertNotNull(Model_0_Var
 		);
-		final EList<? extends EObject> Units_0_list = Model_0_Var
-		.getUnits();
-		Assert.assertNotNull(Units_0_list);
-		Assert.assertEquals(2, Units_0_list.size());
-		//0
-		final TranslationUnit TranslationUnit_1_Var
-		 = (TranslationUnit)Units_0_list.get(0);
-		Assert.assertNotNull(TranslationUnit_1_Var
-		);
-		//1
-		final Preprocess Preprocess_2_Var
-		 = (Preprocess)TranslationUnit_1_Var
-		.getPreprocess();
-		Assert.assertNotNull(Preprocess_2_Var
-		);
-		//2
-		final Parser Parser_3_Var
-		 = (Parser)TranslationUnit_1_Var
-		.getParser();
-		Assert.assertNotNull(Parser_3_Var
-		);
-		//3
-		final TranslationUnit TranslationUnit_4_Var
-		 = (TranslationUnit)Units_0_list.get(1);
-		Assert.assertNotNull(TranslationUnit_4_Var
-		);
+		Assert.assertTrue(Model_0_Var
+		.getUnits().isEmpty());
 	}
 	
 	

@@ -39,4 +39,3 @@ Bundle-Vendor: %Bundle-Vendor
 Export-Package: org.eclipse.modisco.cdt.discoverer.tests
 Bundle-ClassPath: libs/commons-io-2.4.jar,
  .
-Import-Package: org.eclipse.cdt.utils

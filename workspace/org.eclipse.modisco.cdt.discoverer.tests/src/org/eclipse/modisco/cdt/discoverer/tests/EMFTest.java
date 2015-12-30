@@ -1,6 +1,4 @@
-package org.eclipse.modisco.cdt.discoverer.tests.basic;
-
-import org.eclipse.modisco.cdt.discoverer.tests.TestUtils;
+package org.eclipse.modisco.cdt.discoverer.tests;
 
 import at.jku.weiner.c.common.common.Model;
 

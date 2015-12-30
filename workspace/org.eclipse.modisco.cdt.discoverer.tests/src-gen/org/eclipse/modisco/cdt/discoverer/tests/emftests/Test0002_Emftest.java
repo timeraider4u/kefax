@@ -1,4 +1,4 @@
-package org.eclipse.modisco.cdt.discoverer.tests.basic.emftests;
+package org.eclipse.modisco.cdt.discoverer.tests.emftests;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -65,7 +65,7 @@ public class Test0002_Emftest {
 				
 	@Test (timeout=25000)
 	public void checkParserResult() throws Exception {
-		final EObject obj = org.eclipse.modisco.cdt.discoverer.tests.basic.EMFTest.emfTest(
+		final EObject obj = org.eclipse.modisco.cdt.discoverer.tests.EMFTest.emfTest(
 		this.pureJavaClassFileName
 		);
 		Assert.assertNotNull(obj);

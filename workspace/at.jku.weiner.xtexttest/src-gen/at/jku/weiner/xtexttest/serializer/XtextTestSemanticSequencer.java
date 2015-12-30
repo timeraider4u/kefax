@@ -205,7 +205,8 @@ public class XtextTestSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *             assignAsBool=TRUE | 
 	 *             assignAsBool=FALSE | 
 	 *             isNull?=ISNULL | 
-	 *             isNotNull?=ISNOTNULL
+	 *             isNotNull?=ISNOTNULL | 
+	 *             isEmpty?=ISEMPTY
 	 *         )
 	 *     )
 	 */

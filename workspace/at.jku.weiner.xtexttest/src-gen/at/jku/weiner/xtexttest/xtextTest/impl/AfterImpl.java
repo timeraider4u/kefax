@@ -18,11 +18,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.AfterImpl#getMyclass <em>Myclass</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.AfterImpl#getMethod <em>Method</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

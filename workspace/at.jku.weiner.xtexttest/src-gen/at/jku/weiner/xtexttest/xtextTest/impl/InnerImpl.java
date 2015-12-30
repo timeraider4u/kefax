@@ -28,7 +28,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.InnerImpl#getParameter <em>Parameter</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.InnerImpl#getAssign <em>Assign</em>}</li>
@@ -38,7 +37,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.InnerImpl#getAssignAsBool <em>Assign As Bool</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.InnerImpl#isIsNull <em>Is Null</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.InnerImpl#isIsNotNull <em>Is Not Null</em>}</li>
+ *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.InnerImpl#isIsEmpty <em>Is Empty</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -183,6 +184,26 @@ public class InnerImpl extends MinimalEObjectImpl.Container implements Inner
    * @ordered
    */
   protected boolean isNotNull = IS_NOT_NULL_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #isIsEmpty() <em>Is Empty</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isIsEmpty()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean IS_EMPTY_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isIsEmpty() <em>Is Empty</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isIsEmpty()
+   * @generated
+   * @ordered
+   */
+  protected boolean isEmpty = IS_EMPTY_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -410,6 +431,29 @@ public class InnerImpl extends MinimalEObjectImpl.Container implements Inner
    * <!-- end-user-doc -->
    * @generated
    */
+  public boolean isIsEmpty()
+  {
+    return isEmpty;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIsEmpty(boolean newIsEmpty)
+  {
+    boolean oldIsEmpty = isEmpty;
+    isEmpty = newIsEmpty;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, XtextTestPackage.INNER__IS_EMPTY, oldIsEmpty, isEmpty));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -449,6 +493,8 @@ public class InnerImpl extends MinimalEObjectImpl.Container implements Inner
         return isIsNull();
       case XtextTestPackage.INNER__IS_NOT_NULL:
         return isIsNotNull();
+      case XtextTestPackage.INNER__IS_EMPTY:
+        return isIsEmpty();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -489,6 +535,9 @@ public class InnerImpl extends MinimalEObjectImpl.Container implements Inner
       case XtextTestPackage.INNER__IS_NOT_NULL:
         setIsNotNull((Boolean)newValue);
         return;
+      case XtextTestPackage.INNER__IS_EMPTY:
+        setIsEmpty((Boolean)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -527,6 +576,9 @@ public class InnerImpl extends MinimalEObjectImpl.Container implements Inner
       case XtextTestPackage.INNER__IS_NOT_NULL:
         setIsNotNull(IS_NOT_NULL_EDEFAULT);
         return;
+      case XtextTestPackage.INNER__IS_EMPTY:
+        setIsEmpty(IS_EMPTY_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -557,6 +609,8 @@ public class InnerImpl extends MinimalEObjectImpl.Container implements Inner
         return isNull != IS_NULL_EDEFAULT;
       case XtextTestPackage.INNER__IS_NOT_NULL:
         return isNotNull != IS_NOT_NULL_EDEFAULT;
+      case XtextTestPackage.INNER__IS_EMPTY:
+        return isEmpty != IS_EMPTY_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -584,6 +638,8 @@ public class InnerImpl extends MinimalEObjectImpl.Container implements Inner
     result.append(isNull);
     result.append(", isNotNull: ");
     result.append(isNotNull);
+    result.append(", isEmpty: ");
+    result.append(isEmpty);
     result.append(')');
     return result.toString();
   }

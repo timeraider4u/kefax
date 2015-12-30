@@ -543,13 +543,22 @@ public interface XtextTestPackage extends EPackage
   int INNER__IS_NOT_NULL = 7;
 
   /**
+   * The feature id for the '<em><b>Is Empty</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INNER__IS_EMPTY = 8;
+
+  /**
    * The number of structural features of the '<em>Inner</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INNER_FEATURE_COUNT = 8;
+  int INNER_FEATURE_COUNT = 9;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.xtexttest.xtextTest.impl.GeneratorImpl <em>Generator</em>}' class.
@@ -1269,6 +1278,17 @@ public interface XtextTestPackage extends EPackage
   EAttribute getInner_IsNotNull();
 
   /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.xtexttest.xtextTest.Inner#isIsEmpty <em>Is Empty</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Is Empty</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.Inner#isIsEmpty()
+   * @see #getInner()
+   * @generated
+   */
+  EAttribute getInner_IsEmpty();
+
+  /**
    * Returns the meta object for class '{@link at.jku.weiner.xtexttest.xtextTest.Generator <em>Generator</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1883,6 +1903,14 @@ public interface XtextTestPackage extends EPackage
      * @generated
      */
     EAttribute INNER__IS_NOT_NULL = eINSTANCE.getInner_IsNotNull();
+
+    /**
+     * The meta object literal for the '<em><b>Is Empty</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INNER__IS_EMPTY = eINSTANCE.getInner_IsEmpty();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.xtexttest.xtextTest.impl.GeneratorImpl <em>Generator</em>}' class.

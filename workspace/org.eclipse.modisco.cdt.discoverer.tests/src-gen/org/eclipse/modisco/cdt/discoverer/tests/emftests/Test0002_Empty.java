@@ -40,9 +40,9 @@ import at.jku.weiner.c.common.common.TranslationUnit;
 
 
 @SuppressWarnings("unused")
-public class Test0002_Emftest {
+public class Test0002_Empty {
 	
-	private final String pureJavaClassFileName = "Test0002_Emftest";
+	private final String pureJavaClassFileName = "Test0002_Empty";
 	
 	@Before
 	public void initialize(){
@@ -66,7 +66,7 @@ public class Test0002_Emftest {
 	@Test (timeout=25000)
 	public void checkParserResult() throws Exception {
 		final EObject obj = org.eclipse.modisco.cdt.discoverer.tests.EMFTest.emfTest(
-		this.pureJavaClassFileName
+		this.sourceFile
 		);
 		Assert.assertNotNull(obj);
 		Assert.assertTrue(obj instanceof Model);

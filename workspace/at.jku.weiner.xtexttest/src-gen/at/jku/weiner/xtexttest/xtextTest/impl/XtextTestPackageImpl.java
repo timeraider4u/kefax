@@ -650,6 +650,16 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getInner_IsEmpty()
+  {
+    return (EAttribute)innerEClass.getEStructuralFeatures().get(8);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getGenerator()
   {
     return generatorEClass;
@@ -928,6 +938,7 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
     createEAttribute(innerEClass, INNER__ASSIGN_AS_BOOL);
     createEAttribute(innerEClass, INNER__IS_NULL);
     createEAttribute(innerEClass, INNER__IS_NOT_NULL);
+    createEAttribute(innerEClass, INNER__IS_EMPTY);
 
     generatorEClass = createEClass(GENERATOR);
     createEAttribute(generatorEClass, GENERATOR__OUTPUT);
@@ -1039,6 +1050,7 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
     initEAttribute(getInner_AssignAsBool(), ecorePackage.getEString(), "assignAsBool", null, 0, 1, Inner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getInner_IsNull(), ecorePackage.getEBoolean(), "isNull", null, 0, 1, Inner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getInner_IsNotNull(), ecorePackage.getEBoolean(), "isNotNull", null, 0, 1, Inner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getInner_IsEmpty(), ecorePackage.getEBoolean(), "isEmpty", null, 0, 1, Inner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(generatorEClass, Generator.class, "Generator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getGenerator_Output(), ecorePackage.getEString(), "output", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

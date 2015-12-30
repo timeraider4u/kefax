@@ -24,12 +24,12 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.CodeCallImpl#getMyclass <em>Myclass</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.CodeCallImpl#getMethod <em>Method</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.CodeCallImpl#getParams <em>Params</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

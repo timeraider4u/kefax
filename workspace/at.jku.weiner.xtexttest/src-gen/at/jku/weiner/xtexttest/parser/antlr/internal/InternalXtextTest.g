@@ -1604,6 +1604,28 @@ this_ASSIGNASBOOL_12=RULE_ASSIGNASBOOL
 )
 )
 
+
+    |
+(
+(
+		lv_isEmpty_16_0=RULE_ISEMPTY
+		{
+			newLeafNode(lv_isEmpty_16_0, grammarAccess.getInnerAccess().getIsEmptyISEMPTYTerminalRuleCall_2_7_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getInnerRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"isEmpty",
+        		true, 
+        		"at.jku.weiner.xtexttest.XtextTest.ISEMPTY");
+	    }
+
+)
+)
+
 )
 
 )
@@ -2399,6 +2421,8 @@ RULE_METHOD_KW : 'method';
 RULE_ISNULL : 'isNull';
 
 RULE_ISNOTNULL : 'isNotNull';
+
+RULE_ISEMPTY : 'isEmpty';
 
 RULE_LEFTPAREN : '(';
 

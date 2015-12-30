@@ -100,6 +100,7 @@ class EmfTestGenerator {
 		public class «getJavaClassFileName» {
 			
 			private final String pureJavaClassFileName = "«getJavaClassFileName()»";
+			private final String sourceFile = "«this.test.file»";
 			
 			@Before
 			public void initialize(){
@@ -192,6 +193,9 @@ class EmfTestGenerator {
 			«ENDIF»
 			«IF (inner.isNotNull)»
 				Assert.assertNotNull(«varName».get«paramName»());
+			«ENDIF»
+			«IF (inner.isEmpty)»
+				Assert.assertTrue(«varName».get«paramName»().isEmpty());
 			«ENDIF»
 		«ENDFOR»
 	'''

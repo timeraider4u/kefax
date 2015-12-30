@@ -122,6 +122,7 @@ public class XtextTestParser extends AbstractContentAssistParser {
 					put(grammarAccess.getInnerAccess().getAssignAsBoolAssignment_2_4_1(), "rule__Inner__AssignAsBoolAssignment_2_4_1");
 					put(grammarAccess.getInnerAccess().getIsNullAssignment_2_5(), "rule__Inner__IsNullAssignment_2_5");
 					put(grammarAccess.getInnerAccess().getIsNotNullAssignment_2_6(), "rule__Inner__IsNotNullAssignment_2_6");
+					put(grammarAccess.getInnerAccess().getIsEmptyAssignment_2_7(), "rule__Inner__IsEmptyAssignment_2_7");
 					put(grammarAccess.getGeneratorAccess().getOutputAssignment_1_3(), "rule__Generator__OutputAssignment_1_3");
 					put(grammarAccess.getGeneratorAccess().getExpectedAssignment_2_2_0_1(), "rule__Generator__ExpectedAssignment_2_2_0_1");
 					put(grammarAccess.getGeneratorAccess().getIsSameAsInputFileAssignment_2_2_1(), "rule__Generator__IsSameAsInputFileAssignment_2_2_1");

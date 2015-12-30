@@ -107,6 +107,8 @@ Inner:
 	isNull?=ISNULL
 	|
 	isNotNull?=ISNOTNULL
+	|
+	isEmpty?=ISEMPTY
 	)
 ;
 
@@ -172,6 +174,7 @@ terminal CLASS_KW: 'class';
 terminal METHOD_KW: 'method';
 terminal ISNULL: 'isNull';
 terminal ISNOTNULL: 'isNotNull';
+terminal ISEMPTY: 'isEmpty';
 terminal LEFTPAREN: '(';
 terminal RIGHTPAREN: ')';
 terminal ASSIGNASBOOL: '?=';

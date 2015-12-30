@@ -60,6 +60,8 @@ public class XtextTestSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getIMPORTERToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getIMPORTSRule())
 			return getIMPORTSToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getISEMPTYRule())
+			return getISEMPTYToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getISNOTNULLRule())
 			return getISNOTNULLToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getISNULLRule())
@@ -228,6 +230,15 @@ public class XtextTestSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return "imports";
+	}
+	
+	/**
+	 * terminal ISEMPTY: 'isEmpty';
+	 */
+	protected String getISEMPTYToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "isEmpty";
 	}
 	
 	/**

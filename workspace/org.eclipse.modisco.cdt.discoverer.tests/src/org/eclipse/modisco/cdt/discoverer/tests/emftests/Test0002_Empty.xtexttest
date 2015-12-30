@@ -4,9 +4,9 @@ default at.jku.weiner.c.common.common
 imports at.jku.weiner.c.preprocess.preprocess as preprocess
 imports at.jku.weiner.c.parser.parser as parser
 
-class=org.eclipse.modisco.cdt.discoverer.tests.EMFTest method=emfTest(this.pureJavaClassFileName)
+class=org.eclipse.modisco.cdt.discoverer.tests.EMFTest method=emfTest(this.sourceFile)
 
-source file="res/TestDiscoverer0001.c"
+source file="res/Test0002_Empty"
 
 (Model
 	units+=

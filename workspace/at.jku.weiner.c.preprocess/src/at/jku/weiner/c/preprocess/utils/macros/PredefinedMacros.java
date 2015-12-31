@@ -5,6 +5,7 @@ import java.io.File;
 import org.eclipse.emf.common.util.URI;
 
 public class PredefinedMacros {
+
 	private static final String BUNDLE_NAME = "at.jku.weiner.c.preprocess";
 
 	/***
@@ -15,8 +16,9 @@ public class PredefinedMacros {
 		if (standAlone) {
 			return PredefinedMacros.getURIFromFile(fileName);
 		}
-		return URI.createPlatformResourceURI(PredefinedMacros.BUNDLE_NAME
-				+ fileName, true);
+		final URI uri = URI.createPlatformPluginURI("/"
+				+ PredefinedMacros.BUNDLE_NAME + "/" + fileName, true);
+		return uri;
 	}
 
 	private static URI getURIFromFile(final String fileName) {

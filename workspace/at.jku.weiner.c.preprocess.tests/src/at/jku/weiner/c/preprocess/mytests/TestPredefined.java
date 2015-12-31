@@ -21,7 +21,6 @@ import org.eclipse.xtext.validation.Issue;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -51,21 +50,18 @@ public class TestPredefined {
 	@Inject
 	private ValidationTestHelper valHelper;
 	
-	@Test
-	@Ignore
+	@Test(timeout = 1000)
 	public void loadPredefined() throws Exception {
 		// load the resource
 		final ResourceSet set = this.resourceSetProvider.get();
-		final URI uri = URI
-				.createURI("/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.preprocess/res/predefined/gcc_4.8.4.h");
+		final URI uri = URI.createURI("res/predefined/gcc_4.8.4.h");
 		final Resource resource = set.getResource(uri, true);
 		// validate the resource
 		final List<Issue> list = this.validator.validate(resource,
 				CheckMode.ALL, CancelIndicator.NullImpl);
 		Assert.assertTrue(list.isEmpty());
 		// parse helper
-		final String text = this
-				.getTextFromFile("/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.preprocess/res/predefined/gcc_4.8.4.h");
+		final String text = this.getTextFromFile("res/predefined/gcc_4.8.4.h");
 		final Preprocess preprocess = this.parseHelper.parse(text);
 
 		this.parseHelper.parse(text);
@@ -73,8 +69,7 @@ public class TestPredefined {
 		Assert.assertNotNull(preprocess);
 	}
 	
-	@Test
-	// (timeout = 1000)
+	@Test(timeout = 1000)
 	public void testGenerator() throws Exception {
 		// load the resource
 		final ResourceSet set = this.resourceSetProvider.get();
@@ -106,10 +101,12 @@ public class TestPredefined {
 				this.resourceFactory);
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("h",
 				this.resourceFactory);
+		DefinitionTable.reset();
 	}
 
 	@After
 	public void cleanUp() {
+		DefinitionTable.reset();
 	}
 
 	private String getTextFromFile(final String fileName) throws Exception {

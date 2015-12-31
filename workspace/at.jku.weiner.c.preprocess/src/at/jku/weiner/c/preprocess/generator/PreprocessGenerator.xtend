@@ -62,6 +62,7 @@ import org.eclipse.core.runtime.Platform
 import org.eclipse.core.runtime.FileLocator
 import java.io.FileInputStream
 import at.jku.weiner.c.preprocess.utils.macros.PredefinedMacros
+import org.eclipse.core.runtime.URIUtil
 
 /**
  * Generates code from your model files on save.
@@ -105,7 +106,7 @@ class PreprocessGenerator implements IGenerator {
 			val Resource predefinedRes = rs.getResource(predefinedURI, true);
 			val Preprocess preprocess = getPreprocessFor(predefinedRes, false);
 			val String output = outputFor(preprocess);
-			output.trim();			
+			output.trim();
 		}
 		val Preprocess preprocess = getPreprocessFor(input, false);
 		val String output = outputFor(preprocess);
@@ -148,7 +149,11 @@ class PreprocessGenerator implements IGenerator {
 	}
 	
 	def String getFileName(Resource input) {
-		val String fileName = input.URI.toFileString;
+		val URI uri = input.URI;
+		var String fileName = uri.toFileString;
+		if (fileName == null) {
+			fileName = uri.toPlatformString(false);
+		}
 		val String path = fileName.replaceAll("^///", "/");
 		return path;
 	}

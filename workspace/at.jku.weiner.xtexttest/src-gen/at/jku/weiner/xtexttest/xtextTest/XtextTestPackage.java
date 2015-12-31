@@ -249,13 +249,22 @@ public interface XtextTestPackage extends EPackage
   int EMF_TEST__CODE_CALL = 3;
 
   /**
+   * The feature id for the '<em><b>Option Call</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EMF_TEST__OPTION_CALL = 4;
+
+  /**
    * The feature id for the '<em><b>File</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EMF_TEST__FILE = 4;
+  int EMF_TEST__FILE = 5;
 
   /**
    * The feature id for the '<em><b>Root</b></em>' containment reference.
@@ -264,7 +273,7 @@ public interface XtextTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EMF_TEST__ROOT = 5;
+  int EMF_TEST__ROOT = 6;
 
   /**
    * The number of structural features of the '<em>Emf Test</em>' class.
@@ -273,7 +282,7 @@ public interface XtextTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EMF_TEST_FEATURE_COUNT = 6;
+  int EMF_TEST_FEATURE_COUNT = 7;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.xtexttest.xtextTest.impl.ImportImpl <em>Import</em>}' class.
@@ -773,22 +782,13 @@ public interface XtextTestPackage extends EPackage
   int CODE_CALL__METHOD = 1;
 
   /**
-   * The feature id for the '<em><b>Params</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CODE_CALL__PARAMS = 2;
-
-  /**
    * The number of structural features of the '<em>Code Call</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CODE_CALL_FEATURE_COUNT = 3;
+  int CODE_CALL_FEATURE_COUNT = 2;
 
 
   /**
@@ -996,6 +996,17 @@ public interface XtextTestPackage extends EPackage
    * @generated
    */
   EReference getEmfTest_CodeCall();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.xtexttest.xtextTest.EmfTest#getOptionCall <em>Option Call</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Option Call</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.EmfTest#getOptionCall()
+   * @see #getEmfTest()
+   * @generated
+   */
+  EReference getEmfTest_OptionCall();
 
   /**
    * Returns the meta object for the attribute '{@link at.jku.weiner.xtexttest.xtextTest.EmfTest#getFile <em>File</em>}'.
@@ -1493,17 +1504,6 @@ public interface XtextTestPackage extends EPackage
   EAttribute getCodeCall_Method();
 
   /**
-   * Returns the meta object for the attribute list '{@link at.jku.weiner.xtexttest.xtextTest.CodeCall#getParams <em>Params</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Params</em>'.
-   * @see at.jku.weiner.xtexttest.xtextTest.CodeCall#getParams()
-   * @see #getCodeCall()
-   * @generated
-   */
-  EAttribute getCodeCall_Params();
-
-  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1683,6 +1683,14 @@ public interface XtextTestPackage extends EPackage
      * @generated
      */
     EReference EMF_TEST__CODE_CALL = eINSTANCE.getEmfTest_CodeCall();
+
+    /**
+     * The meta object literal for the '<em><b>Option Call</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EMF_TEST__OPTION_CALL = eINSTANCE.getEmfTest_OptionCall();
 
     /**
      * The meta object literal for the '<em><b>File</b></em>' attribute feature.
@@ -2073,14 +2081,6 @@ public interface XtextTestPackage extends EPackage
      * @generated
      */
     EAttribute CODE_CALL__METHOD = eINSTANCE.getCodeCall_Method();
-
-    /**
-     * The meta object literal for the '<em><b>Params</b></em>' attribute list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute CODE_CALL__PARAMS = eINSTANCE.getCodeCall_Params();
 
   }
 

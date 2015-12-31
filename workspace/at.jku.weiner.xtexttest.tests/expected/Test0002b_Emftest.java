@@ -29,13 +29,16 @@ import at.jku.weiner.c.parser.parser.Parser;
 import at.jku.weiner.c.common.common.TranslationUnit;
 
 @SuppressWarnings("unused")
-public class Test0002_Emftest {
+public class Test0002b_Emftest {
 	
-	private final String pureJavaClassFileName = "Test0002_Emftest";
+	private final String pureJavaClassFileName = "Test0002b_Emftest";
 	private final String sourceFile = "res/TestDiscoverer0001.c";
+	private Map<String,Object> options;
 	
 	@Before
 	public void initialize(){
+		options = org.eclipse.modisco.cdt.discoverer.tests.basic.EMFTest.getOptions(
+			this.pureJavaClassFileName, this.sourceFile);
 		
 	}
 	
@@ -84,6 +87,8 @@ public class Test0002_Emftest {
 		.getParser();
 		Assert.assertNotNull(Parser_3_Var
 		);
+		Assert.assertEquals("" + options.get("path") + "/" + options.get("sourceFile") + "/Empty.c", TranslationUnit_1_Var
+		.getPath());
 		//3
 		final TranslationUnit TranslationUnit_4_Var
 		 = (TranslationUnit)Units_0_list.get(1);

@@ -206,24 +206,28 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cCodeCallAssignment_7 = (Assignment)cGroup.eContents().get(7);
 		private final RuleCall cCodeCallCodeCallParserRuleCall_7_0 = (RuleCall)cCodeCallAssignment_7.eContents().get(0);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
-		private final RuleCall cSOURCETerminalRuleCall_8_0 = (RuleCall)cGroup_8.eContents().get(0);
-		private final RuleCall cFILETerminalRuleCall_8_1 = (RuleCall)cGroup_8.eContents().get(1);
-		private final RuleCall cASSIGNASSINGLETerminalRuleCall_8_2 = (RuleCall)cGroup_8.eContents().get(2);
-		private final Assignment cFileAssignment_8_3 = (Assignment)cGroup_8.eContents().get(3);
-		private final RuleCall cFileSTRINGTerminalRuleCall_8_3_0 = (RuleCall)cFileAssignment_8_3.eContents().get(0);
-		private final Assignment cRootAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final RuleCall cRootElementParserRuleCall_9_0 = (RuleCall)cRootAssignment_9.eContents().get(0);
+		private final RuleCall cOPTIONSTerminalRuleCall_8_0 = (RuleCall)cGroup_8.eContents().get(0);
+		private final Assignment cOptionCallAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
+		private final RuleCall cOptionCallCodeCallParserRuleCall_8_1_0 = (RuleCall)cOptionCallAssignment_8_1.eContents().get(0);
+		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
+		private final RuleCall cSOURCETerminalRuleCall_9_0 = (RuleCall)cGroup_9.eContents().get(0);
+		private final RuleCall cFILETerminalRuleCall_9_1 = (RuleCall)cGroup_9.eContents().get(1);
+		private final RuleCall cASSIGNASSINGLETerminalRuleCall_9_2 = (RuleCall)cGroup_9.eContents().get(2);
+		private final Assignment cFileAssignment_9_3 = (Assignment)cGroup_9.eContents().get(3);
+		private final RuleCall cFileSTRINGTerminalRuleCall_9_3_0 = (RuleCall)cFileAssignment_9_3.eContents().get(0);
+		private final Assignment cRootAssignment_10 = (Assignment)cGroup.eContents().get(10);
+		private final RuleCall cRootElementParserRuleCall_10_0 = (RuleCall)cRootAssignment_10.eContents().get(0);
 		
 		//EmfTest:
 		//	{EmfTest} KW_EMFTEST
 		//	PACKAGE package=PackageID
 		//	DEFAULT mydefault=PackageID
 		//	myimport+=Import*
-		//	codeCall=CodeCall (SOURCE FILE ASSIGNASSINGLE file=STRING) root=Element;
+		//	codeCall=CodeCall (OPTIONS optionCall=CodeCall)? (SOURCE FILE ASSIGNASSINGLE file=STRING) root=Element;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{EmfTest} KW_EMFTEST PACKAGE package=PackageID DEFAULT mydefault=PackageID myimport+=Import* codeCall=CodeCall (SOURCE
-		//FILE ASSIGNASSINGLE file=STRING) root=Element
+		//{EmfTest} KW_EMFTEST PACKAGE package=PackageID DEFAULT mydefault=PackageID myimport+=Import* codeCall=CodeCall (OPTIONS
+		//optionCall=CodeCall)? (SOURCE FILE ASSIGNASSINGLE file=STRING) root=Element
 		public Group getGroup() { return cGroup; }
 		
 		//{EmfTest}
@@ -262,29 +266,41 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		//CodeCall
 		public RuleCall getCodeCallCodeCallParserRuleCall_7_0() { return cCodeCallCodeCallParserRuleCall_7_0; }
 		
-		//(SOURCE FILE ASSIGNASSINGLE file=STRING)
+		//(OPTIONS optionCall=CodeCall)?
 		public Group getGroup_8() { return cGroup_8; }
 		
+		//OPTIONS
+		public RuleCall getOPTIONSTerminalRuleCall_8_0() { return cOPTIONSTerminalRuleCall_8_0; }
+		
+		//optionCall=CodeCall
+		public Assignment getOptionCallAssignment_8_1() { return cOptionCallAssignment_8_1; }
+		
+		//CodeCall
+		public RuleCall getOptionCallCodeCallParserRuleCall_8_1_0() { return cOptionCallCodeCallParserRuleCall_8_1_0; }
+		
+		//(SOURCE FILE ASSIGNASSINGLE file=STRING)
+		public Group getGroup_9() { return cGroup_9; }
+		
 		//SOURCE
-		public RuleCall getSOURCETerminalRuleCall_8_0() { return cSOURCETerminalRuleCall_8_0; }
+		public RuleCall getSOURCETerminalRuleCall_9_0() { return cSOURCETerminalRuleCall_9_0; }
 		
 		//FILE
-		public RuleCall getFILETerminalRuleCall_8_1() { return cFILETerminalRuleCall_8_1; }
+		public RuleCall getFILETerminalRuleCall_9_1() { return cFILETerminalRuleCall_9_1; }
 		
 		//ASSIGNASSINGLE
-		public RuleCall getASSIGNASSINGLETerminalRuleCall_8_2() { return cASSIGNASSINGLETerminalRuleCall_8_2; }
+		public RuleCall getASSIGNASSINGLETerminalRuleCall_9_2() { return cASSIGNASSINGLETerminalRuleCall_9_2; }
 		
 		//file=STRING
-		public Assignment getFileAssignment_8_3() { return cFileAssignment_8_3; }
+		public Assignment getFileAssignment_9_3() { return cFileAssignment_9_3; }
 		
 		//STRING
-		public RuleCall getFileSTRINGTerminalRuleCall_8_3_0() { return cFileSTRINGTerminalRuleCall_8_3_0; }
+		public RuleCall getFileSTRINGTerminalRuleCall_9_3_0() { return cFileSTRINGTerminalRuleCall_9_3_0; }
 		
 		//root=Element
-		public Assignment getRootAssignment_9() { return cRootAssignment_9; }
+		public Assignment getRootAssignment_10() { return cRootAssignment_10; }
 		
 		//Element
-		public RuleCall getRootElementParserRuleCall_9_0() { return cRootElementParserRuleCall_9_0; }
+		public RuleCall getRootElementParserRuleCall_10_0() { return cRootElementParserRuleCall_10_0; }
 	}
 	public class ImportElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.Import");
@@ -1074,24 +1090,15 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cASSIGNASSINGLETerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
 		private final Assignment cMethodAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cMethodPackageIDParserRuleCall_5_0 = (RuleCall)cMethodAssignment_5.eContents().get(0);
-		private final RuleCall cLEFTPARENTerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
-		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
-		private final Assignment cParamsAssignment_7_0 = (Assignment)cGroup_7.eContents().get(0);
-		private final RuleCall cParamsPackageIDParserRuleCall_7_0_0 = (RuleCall)cParamsAssignment_7_0.eContents().get(0);
-		private final Group cGroup_7_1 = (Group)cGroup_7.eContents().get(1);
-		private final RuleCall cCOMMATerminalRuleCall_7_1_0 = (RuleCall)cGroup_7_1.eContents().get(0);
-		private final Assignment cParamsAssignment_7_1_1 = (Assignment)cGroup_7_1.eContents().get(1);
-		private final RuleCall cParamsPackageIDParserRuleCall_7_1_1_0 = (RuleCall)cParamsAssignment_7_1_1.eContents().get(0);
-		private final RuleCall cRIGHTPARENTerminalRuleCall_8 = (RuleCall)cGroup.eContents().get(8);
 		
 		//CodeCall:
 		//	CLASS_KW ASSIGNASSINGLE myclass=PackageID
 		//	METHOD_KW ASSIGNASSINGLE method=PackageID
-		//	LEFTPAREN (params+=PackageID (COMMA params+=PackageID)*)? RIGHTPAREN;
+		//	//(LEFTPAREN (params+=PackageID (COMMA params+=PackageID)*)? RIGHTPAREN)
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//CLASS_KW ASSIGNASSINGLE myclass=PackageID METHOD_KW ASSIGNASSINGLE method=PackageID LEFTPAREN (params+=PackageID (COMMA
-		//params+=PackageID)*)? RIGHTPAREN
+		//CLASS_KW ASSIGNASSINGLE myclass=PackageID METHOD_KW ASSIGNASSINGLE method=PackageID
 		public Group getGroup() { return cGroup; }
 		
 		//CLASS_KW
@@ -1117,33 +1124,6 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//PackageID
 		public RuleCall getMethodPackageIDParserRuleCall_5_0() { return cMethodPackageIDParserRuleCall_5_0; }
-		
-		//LEFTPAREN
-		public RuleCall getLEFTPARENTerminalRuleCall_6() { return cLEFTPARENTerminalRuleCall_6; }
-		
-		//(params+=PackageID (COMMA params+=PackageID)*)?
-		public Group getGroup_7() { return cGroup_7; }
-		
-		//params+=PackageID
-		public Assignment getParamsAssignment_7_0() { return cParamsAssignment_7_0; }
-		
-		//PackageID
-		public RuleCall getParamsPackageIDParserRuleCall_7_0_0() { return cParamsPackageIDParserRuleCall_7_0_0; }
-		
-		//(COMMA params+=PackageID)*
-		public Group getGroup_7_1() { return cGroup_7_1; }
-		
-		//COMMA
-		public RuleCall getCOMMATerminalRuleCall_7_1_0() { return cCOMMATerminalRuleCall_7_1_0; }
-		
-		//params+=PackageID
-		public Assignment getParamsAssignment_7_1_1() { return cParamsAssignment_7_1_1; }
-		
-		//PackageID
-		public RuleCall getParamsPackageIDParserRuleCall_7_1_1_0() { return cParamsPackageIDParserRuleCall_7_1_1_0; }
-		
-		//RIGHTPAREN
-		public RuleCall getRIGHTPARENTerminalRuleCall_8() { return cRIGHTPARENTerminalRuleCall_8; }
 	}
 	
 	
@@ -1177,6 +1157,7 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tSRCTEXT;
 	private final TerminalRule tFILE;
 	private final TerminalRule tLEXER;
+	private final TerminalRule tOPTIONS;
 	private final TerminalRule tOUTPUT;
 	private final TerminalRule tEXPECTED;
 	private final TerminalRule tISSAMEASINPUTFILE;
@@ -1241,6 +1222,7 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		this.tSRCTEXT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.SRCTEXT");
 		this.tFILE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.FILE");
 		this.tLEXER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.LEXER");
+		this.tOPTIONS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.OPTIONS");
 		this.tOUTPUT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.OUTPUT");
 		this.tEXPECTED = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.EXPECTED");
 		this.tISSAMEASINPUTFILE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.ISSAMEASINPUTFILE");
@@ -1327,7 +1309,7 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	//	PACKAGE package=PackageID
 	//	DEFAULT mydefault=PackageID
 	//	myimport+=Import*
-	//	codeCall=CodeCall (SOURCE FILE ASSIGNASSINGLE file=STRING) root=Element;
+	//	codeCall=CodeCall (OPTIONS optionCall=CodeCall)? (SOURCE FILE ASSIGNASSINGLE file=STRING) root=Element;
 	public EmfTestElements getEmfTestAccess() {
 		return pEmfTest;
 	}
@@ -1496,7 +1478,8 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	//CodeCall:
 	//	CLASS_KW ASSIGNASSINGLE myclass=PackageID
 	//	METHOD_KW ASSIGNASSINGLE method=PackageID
-	//	LEFTPAREN (params+=PackageID (COMMA params+=PackageID)*)? RIGHTPAREN;
+	//	//(LEFTPAREN (params+=PackageID (COMMA params+=PackageID)*)? RIGHTPAREN)
+	//;
 	public CodeCallElements getCodeCallAccess() {
 		return pCodeCall;
 	}
@@ -1575,6 +1558,12 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	//	'lexer-tokens';
 	public TerminalRule getLEXERRule() {
 		return tLEXER;
+	}
+	
+	//terminal OPTIONS:
+	//	'options';
+	public TerminalRule getOPTIONSRule() {
+		return tOPTIONS;
 	}
 	
 	//terminal OUTPUT:

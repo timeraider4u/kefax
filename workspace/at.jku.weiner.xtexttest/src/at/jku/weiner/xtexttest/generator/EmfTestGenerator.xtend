@@ -28,9 +28,10 @@ class EmfTestGenerator {
 		
 		elementCount = 0;
 		val String outputForJava = outputJava();
+		val String output = outputForJava.replaceAll("[$][{][{]([^\\}]*)[}][}]", "\" + options.get(\"$1\") + \"");
 		val String fileName = test.package.replace(".", "/") + "/" + PKG_PREFIX
 			+ "/" + uri.lastSegment().replace(".xtexttest", "") + ".java";
-		fsa.generateFile(fileName, outputForJava);
+		fsa.generateFile(fileName, output);
 	}
 	
 	def void initializeAliases() {
@@ -74,7 +75,8 @@ class EmfTestGenerator {
 		import org.junit.Test;
 		import org.junit.runner.RunWith;
 		
-		«iterateImports(test.root)»
+		«iterateImports(test.root).replaceAll("\n+", "\n")»
+		
 	'''
 
 	def String iterateImports(Element element) '''
@@ -92,7 +94,6 @@ class EmfTestGenerator {
 		«ENDFOR»
 		«ENDIF»
 		
-		
 	'''
 	
 	def String outputClass() '''
@@ -101,10 +102,12 @@ class EmfTestGenerator {
 			
 			private final String pureJavaClassFileName = "«getJavaClassFileName()»";
 			private final String sourceFile = "«this.test.file»";
+			«IF this.test.optionCall != null»private Map<String,Object> options;«ENDIF»
 			
 			@Before
 			public void initialize(){
-				
+				«IF this.test.optionCall != null»options = «getClassFor(this.test.optionCall.myclass)».«this.test.optionCall.method»(
+					this.pureJavaClassFileName, this.sourceFile);«ENDIF»
 				
 			}
 			
@@ -127,11 +130,19 @@ class EmfTestGenerator {
 		
 	'''
 	
+	def String getClassFor(String clazzName) {
+		var String result = clazzName;
+		if (!clazzName.contains(".")) { 
+			result = this.test.package + "." + clazzName;
+		}
+		return result;
+	}
+	
 	def String mainJUnitTest() '''
 		@Test (timeout=«TIMEOUT»)
 		public void checkParserResult() throws Exception {
-			final EObject obj = «test.codeCall.myclass».«test.codeCall.method»(
-			«outputFor(test.codeCall.params)»
+			final EObject obj = «getClassFor(test.codeCall.myclass)».«test.codeCall.method»(
+				this.pureJavaClassFileName, this.sourceFile
 			);
 			Assert.assertNotNull(obj);
 			Assert.assertTrue(obj instanceof «test.root.name»);

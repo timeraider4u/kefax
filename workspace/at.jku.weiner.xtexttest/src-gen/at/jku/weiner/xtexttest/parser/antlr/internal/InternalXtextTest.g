@@ -567,32 +567,63 @@ this_DEFAULT_4=RULE_DEFAULT
 
 
 (
-this_SOURCE_8=RULE_SOURCE
+this_OPTIONS_8=RULE_OPTIONS
     { 
-    newLeafNode(this_SOURCE_8, grammarAccess.getEmfTestAccess().getSOURCETerminalRuleCall_8_0()); 
-    }
-
-
-
-this_FILE_9=RULE_FILE
-    { 
-    newLeafNode(this_FILE_9, grammarAccess.getEmfTestAccess().getFILETerminalRuleCall_8_1()); 
-    }
-
-
-
-this_ASSIGNASSINGLE_10=RULE_ASSIGNASSINGLE
-    { 
-    newLeafNode(this_ASSIGNASSINGLE_10, grammarAccess.getEmfTestAccess().getASSIGNASSINGLETerminalRuleCall_8_2()); 
+    newLeafNode(this_OPTIONS_8, grammarAccess.getEmfTestAccess().getOPTIONSTerminalRuleCall_8_0()); 
     }
 
 
 
 (
 (
-		lv_file_11_0=RULE_STRING
+		{ 
+	        newCompositeNode(grammarAccess.getEmfTestAccess().getOptionCallCodeCallParserRuleCall_8_1_0()); 
+	    }
+		lv_optionCall_9_0=ruleCodeCall		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getEmfTestRule());
+	        }
+       		set(
+       			$current, 
+       			"optionCall",
+        		lv_optionCall_9_0, 
+        		"at.jku.weiner.xtexttest.XtextTest.CodeCall");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+)?
+
+
+(
+this_SOURCE_10=RULE_SOURCE
+    { 
+    newLeafNode(this_SOURCE_10, grammarAccess.getEmfTestAccess().getSOURCETerminalRuleCall_9_0()); 
+    }
+
+
+
+this_FILE_11=RULE_FILE
+    { 
+    newLeafNode(this_FILE_11, grammarAccess.getEmfTestAccess().getFILETerminalRuleCall_9_1()); 
+    }
+
+
+
+this_ASSIGNASSINGLE_12=RULE_ASSIGNASSINGLE
+    { 
+    newLeafNode(this_ASSIGNASSINGLE_12, grammarAccess.getEmfTestAccess().getASSIGNASSINGLETerminalRuleCall_9_2()); 
+    }
+
+
+
+(
+(
+		lv_file_13_0=RULE_STRING
 		{
-			newLeafNode(lv_file_11_0, grammarAccess.getEmfTestAccess().getFileSTRINGTerminalRuleCall_8_3_0()); 
+			newLeafNode(lv_file_13_0, grammarAccess.getEmfTestAccess().getFileSTRINGTerminalRuleCall_9_3_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -601,7 +632,7 @@ this_ASSIGNASSINGLE_10=RULE_ASSIGNASSINGLE
        		setWithLastConsumed(
        			$current, 
        			"file",
-        		lv_file_11_0, 
+        		lv_file_13_0, 
         		"org.eclipse.xtext.common.Terminals.STRING");
 	    }
 
@@ -614,16 +645,16 @@ this_ASSIGNASSINGLE_10=RULE_ASSIGNASSINGLE
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getEmfTestAccess().getRootElementParserRuleCall_9_0()); 
+	        newCompositeNode(grammarAccess.getEmfTestAccess().getRootElementParserRuleCall_10_0()); 
 	    }
-		lv_root_12_0=ruleElement		{
+		lv_root_14_0=ruleElement		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getEmfTestRule());
 	        }
        		set(
        			$current, 
        			"root",
-        		lv_root_12_0, 
+        		lv_root_14_0, 
         		"at.jku.weiner.xtexttest.XtextTest.Element");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -2298,75 +2329,6 @@ this_ASSIGNASSINGLE_4=RULE_ASSIGNASSINGLE
 )
 )
 
-
-this_LEFTPAREN_6=RULE_LEFTPAREN
-    { 
-    newLeafNode(this_LEFTPAREN_6, grammarAccess.getCodeCallAccess().getLEFTPARENTerminalRuleCall_6()); 
-    }
-
-
-
-(
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getCodeCallAccess().getParamsPackageIDParserRuleCall_7_0_0()); 
-	    }
-		lv_params_7_0=rulePackageID		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getCodeCallRule());
-	        }
-       		add(
-       			$current, 
-       			"params",
-        		lv_params_7_0, 
-        		"at.jku.weiner.xtexttest.XtextTest.PackageID");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)
-
-
-(
-this_COMMA_8=RULE_COMMA
-    { 
-    newLeafNode(this_COMMA_8, grammarAccess.getCodeCallAccess().getCOMMATerminalRuleCall_7_1_0()); 
-    }
-
-
-
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getCodeCallAccess().getParamsPackageIDParserRuleCall_7_1_1_0()); 
-	    }
-		lv_params_9_0=rulePackageID		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getCodeCallRule());
-	        }
-       		add(
-       			$current, 
-       			"params",
-        		lv_params_9_0, 
-        		"at.jku.weiner.xtexttest.XtextTest.PackageID");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)
-
-)*
-
-)?
-
-
-this_RIGHTPAREN_10=RULE_RIGHTPAREN
-    { 
-    newLeafNode(this_RIGHTPAREN_10, grammarAccess.getCodeCallAccess().getRIGHTPARENTerminalRuleCall_8()); 
-    }
-
-
 )
 
 
@@ -2399,6 +2361,8 @@ RULE_SRCTEXT : 'text';
 RULE_FILE : 'file';
 
 RULE_LEXER : 'lexer-tokens';
+
+RULE_OPTIONS : 'options';
 
 RULE_OUTPUT : 'output';
 

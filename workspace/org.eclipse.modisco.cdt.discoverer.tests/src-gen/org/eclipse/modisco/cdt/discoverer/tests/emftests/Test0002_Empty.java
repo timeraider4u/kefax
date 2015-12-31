@@ -23,21 +23,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import at.jku.weiner.c.common.common.Model;
-
-
 import at.jku.weiner.c.common.common.TranslationUnit;
 import at.jku.weiner.c.preprocess.preprocess.Preprocess;
-
-
 import at.jku.weiner.c.parser.parser.Parser;
-
-
-
-
 import at.jku.weiner.c.common.common.TranslationUnit;
-
-
-
 
 @SuppressWarnings("unused")
 public class Test0002_Empty {
@@ -47,7 +36,6 @@ public class Test0002_Empty {
 	
 	@Before
 	public void initialize(){
-		
 		
 	}
 	
@@ -67,7 +55,7 @@ public class Test0002_Empty {
 	@Test (timeout=25000)
 	public void checkParserResult() throws Exception {
 		final EObject obj = org.eclipse.modisco.cdt.discoverer.tests.EMFTest.emfTest(
-		this.sourceFile
+			this.pureJavaClassFileName, this.sourceFile
 		);
 		Assert.assertNotNull(obj);
 		Assert.assertTrue(obj instanceof Model);
@@ -96,6 +84,8 @@ public class Test0002_Empty {
 		.getParser();
 		Assert.assertNotNull(Parser_3_Var
 		);
+		Assert.assertEquals("${SOURCE_FILE_URI}/Empty.c", TranslationUnit_1_Var
+		.getPath());
 		//3
 		final TranslationUnit TranslationUnit_4_Var
 		 = (TranslationUnit)Units_0_list.get(1);

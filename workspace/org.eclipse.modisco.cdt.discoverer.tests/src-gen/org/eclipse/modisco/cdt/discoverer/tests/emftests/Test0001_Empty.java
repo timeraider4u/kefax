@@ -24,9 +24,6 @@ import org.junit.runner.RunWith;
 
 import at.jku.weiner.c.common.common.Model;
 
-
-
-
 @SuppressWarnings("unused")
 public class Test0001_Empty {
 	
@@ -35,7 +32,6 @@ public class Test0001_Empty {
 	
 	@Before
 	public void initialize(){
-		
 		
 	}
 	
@@ -55,7 +51,7 @@ public class Test0001_Empty {
 	@Test (timeout=25000)
 	public void checkParserResult() throws Exception {
 		final EObject obj = org.eclipse.modisco.cdt.discoverer.tests.EMFTest.emfTest(
-		this.sourceFile
+			this.pureJavaClassFileName, this.sourceFile
 		);
 		Assert.assertNotNull(obj);
 		Assert.assertTrue(obj instanceof Model);

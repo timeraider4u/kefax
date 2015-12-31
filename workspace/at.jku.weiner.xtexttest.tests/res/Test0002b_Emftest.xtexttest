@@ -4,7 +4,8 @@ default at.jku.weiner.c.common.common
 imports at.jku.weiner.c.preprocess.preprocess as preprocess
 imports at.jku.weiner.c.parser.parser as parser
 
-class=org.eclipse.modisco.cdt.discoverer.tests.basic.EMFTest method=emfTest
+class=EMFTest method=emfTest
+options class=EMFTest method=getOptions
 
 source file="res/TestDiscoverer0001.c"
 
@@ -18,7 +19,8 @@ source file="res/TestDiscoverer0001.c"
 		parser=
 		(parser::Parser
 			
-		)
+		),
+		path++"${{path}}/${{sourceFile}}/Empty.c"
 	),
 	(TranslationUnit
 		

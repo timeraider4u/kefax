@@ -13,15 +13,16 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.EmfTest#getPackage <em>Package</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.EmfTest#getMydefault <em>Mydefault</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.EmfTest#getMyimport <em>Myimport</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.EmfTest#getCodeCall <em>Code Call</em>}</li>
+ *   <li>{@link at.jku.weiner.xtexttest.xtextTest.EmfTest#getOptionCall <em>Option Call</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.EmfTest#getFile <em>File</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.EmfTest#getRoot <em>Root</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.xtexttest.xtextTest.XtextTestPackage#getEmfTest()
  * @model
@@ -122,6 +123,32 @@ public interface EmfTest extends EObject
    * @generated
    */
   void setCodeCall(CodeCall value);
+
+  /**
+   * Returns the value of the '<em><b>Option Call</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Option Call</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Option Call</em>' containment reference.
+   * @see #setOptionCall(CodeCall)
+   * @see at.jku.weiner.xtexttest.xtextTest.XtextTestPackage#getEmfTest_OptionCall()
+   * @model containment="true"
+   * @generated
+   */
+  CodeCall getOptionCall();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.xtexttest.xtextTest.EmfTest#getOptionCall <em>Option Call</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Option Call</em>' containment reference.
+   * @see #getOptionCall()
+   * @generated
+   */
+  void setOptionCall(CodeCall value);
 
   /**
    * Returns the value of the '<em><b>File</b></em>' attribute.

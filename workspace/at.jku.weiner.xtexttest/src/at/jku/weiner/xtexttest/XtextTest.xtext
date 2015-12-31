@@ -33,6 +33,7 @@ EmfTest:
 	DEFAULT mydefault=PackageID
 	(myimport+=Import)*
 	codeCall=CodeCall
+	(OPTIONS optionCall=CodeCall)?
 	(SOURCE FILE ASSIGNASSINGLE file=STRING)
 	
 	root=Element
@@ -148,7 +149,7 @@ After:
 CodeCall:
 	CLASS_KW ASSIGNASSINGLE myclass=PackageID
 	METHOD_KW ASSIGNASSINGLE method=PackageID
-	LEFTPAREN (params+=PackageID (COMMA params+=PackageID)*)? RIGHTPAREN
+	//(LEFTPAREN (params+=PackageID (COMMA params+=PackageID)*)? RIGHTPAREN)
 ;
 
 terminal KW_EMFTEST: 'emftest';
@@ -163,6 +164,7 @@ terminal SOURCE: 'source';
 terminal SRCTEXT: 'text';
 terminal FILE: 'file';
 terminal LEXER: 'lexer-tokens';
+terminal OPTIONS: 'options';
 terminal OUTPUT: 'output';
 terminal EXPECTED: 'expected';
 terminal ISSAMEASINPUTFILE: 'isSameAsInputFile';

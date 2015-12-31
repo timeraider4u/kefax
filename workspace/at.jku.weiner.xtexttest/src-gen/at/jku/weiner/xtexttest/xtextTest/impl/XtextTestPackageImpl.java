@@ -390,9 +390,19 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getEmfTest_OptionCall()
+  {
+    return (EReference)emfTestEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EAttribute getEmfTest_File()
   {
-    return (EAttribute)emfTestEClass.getEStructuralFeatures().get(4);
+    return (EAttribute)emfTestEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -402,7 +412,7 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
    */
   public EReference getEmfTest_Root()
   {
-    return (EReference)emfTestEClass.getEStructuralFeatures().get(5);
+    return (EReference)emfTestEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -850,16 +860,6 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getCodeCall_Params()
-  {
-    return (EAttribute)codeCallEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public XtextTestFactory getXtextTestFactory()
   {
     return (XtextTestFactory)getEFactoryInstance();
@@ -906,6 +906,7 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
     createEAttribute(emfTestEClass, EMF_TEST__MYDEFAULT);
     createEReference(emfTestEClass, EMF_TEST__MYIMPORT);
     createEReference(emfTestEClass, EMF_TEST__CODE_CALL);
+    createEReference(emfTestEClass, EMF_TEST__OPTION_CALL);
     createEAttribute(emfTestEClass, EMF_TEST__FILE);
     createEReference(emfTestEClass, EMF_TEST__ROOT);
 
@@ -963,7 +964,6 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
     codeCallEClass = createEClass(CODE_CALL);
     createEAttribute(codeCallEClass, CODE_CALL__MYCLASS);
     createEAttribute(codeCallEClass, CODE_CALL__METHOD);
-    createEAttribute(codeCallEClass, CODE_CALL__PARAMS);
   }
 
   /**
@@ -1018,6 +1018,7 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
     initEAttribute(getEmfTest_Mydefault(), ecorePackage.getEString(), "mydefault", null, 0, 1, EmfTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEmfTest_Myimport(), this.getImport(), null, "myimport", null, 0, -1, EmfTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEmfTest_CodeCall(), this.getCodeCall(), null, "codeCall", null, 0, 1, EmfTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEmfTest_OptionCall(), this.getCodeCall(), null, "optionCall", null, 0, 1, EmfTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getEmfTest_File(), ecorePackage.getEString(), "file", null, 0, 1, EmfTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEmfTest_Root(), this.getElement(), null, "root", null, 0, 1, EmfTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1075,7 +1076,6 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
     initEClass(codeCallEClass, CodeCall.class, "CodeCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getCodeCall_Myclass(), ecorePackage.getEString(), "myclass", null, 0, 1, CodeCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getCodeCall_Method(), ecorePackage.getEString(), "method", null, 0, 1, CodeCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getCodeCall_Params(), ecorePackage.getEString(), "params", null, 0, -1, CodeCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

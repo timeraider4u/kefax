@@ -30,15 +30,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.EmfTestImpl#getPackage <em>Package</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.EmfTestImpl#getMydefault <em>Mydefault</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.EmfTestImpl#getMyimport <em>Myimport</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.EmfTestImpl#getCodeCall <em>Code Call</em>}</li>
+ *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.EmfTestImpl#getOptionCall <em>Option Call</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.EmfTestImpl#getFile <em>File</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.EmfTestImpl#getRoot <em>Root</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -103,6 +104,16 @@ public class EmfTestImpl extends MinimalEObjectImpl.Container implements EmfTest
    * @ordered
    */
   protected CodeCall codeCall;
+
+  /**
+   * The cached value of the '{@link #getOptionCall() <em>Option Call</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOptionCall()
+   * @generated
+   * @ordered
+   */
+  protected CodeCall optionCall;
 
   /**
    * The default value of the '{@link #getFile() <em>File</em>}' attribute.
@@ -268,6 +279,54 @@ public class EmfTestImpl extends MinimalEObjectImpl.Container implements EmfTest
    * <!-- end-user-doc -->
    * @generated
    */
+  public CodeCall getOptionCall()
+  {
+    return optionCall;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetOptionCall(CodeCall newOptionCall, NotificationChain msgs)
+  {
+    CodeCall oldOptionCall = optionCall;
+    optionCall = newOptionCall;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, XtextTestPackage.EMF_TEST__OPTION_CALL, oldOptionCall, newOptionCall);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setOptionCall(CodeCall newOptionCall)
+  {
+    if (newOptionCall != optionCall)
+    {
+      NotificationChain msgs = null;
+      if (optionCall != null)
+        msgs = ((InternalEObject)optionCall).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - XtextTestPackage.EMF_TEST__OPTION_CALL, null, msgs);
+      if (newOptionCall != null)
+        msgs = ((InternalEObject)newOptionCall).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - XtextTestPackage.EMF_TEST__OPTION_CALL, null, msgs);
+      msgs = basicSetOptionCall(newOptionCall, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, XtextTestPackage.EMF_TEST__OPTION_CALL, newOptionCall, newOptionCall));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getFile()
   {
     return file;
@@ -348,6 +407,8 @@ public class EmfTestImpl extends MinimalEObjectImpl.Container implements EmfTest
         return ((InternalEList<?>)getMyimport()).basicRemove(otherEnd, msgs);
       case XtextTestPackage.EMF_TEST__CODE_CALL:
         return basicSetCodeCall(null, msgs);
+      case XtextTestPackage.EMF_TEST__OPTION_CALL:
+        return basicSetOptionCall(null, msgs);
       case XtextTestPackage.EMF_TEST__ROOT:
         return basicSetRoot(null, msgs);
     }
@@ -372,6 +433,8 @@ public class EmfTestImpl extends MinimalEObjectImpl.Container implements EmfTest
         return getMyimport();
       case XtextTestPackage.EMF_TEST__CODE_CALL:
         return getCodeCall();
+      case XtextTestPackage.EMF_TEST__OPTION_CALL:
+        return getOptionCall();
       case XtextTestPackage.EMF_TEST__FILE:
         return getFile();
       case XtextTestPackage.EMF_TEST__ROOT:
@@ -403,6 +466,9 @@ public class EmfTestImpl extends MinimalEObjectImpl.Container implements EmfTest
         return;
       case XtextTestPackage.EMF_TEST__CODE_CALL:
         setCodeCall((CodeCall)newValue);
+        return;
+      case XtextTestPackage.EMF_TEST__OPTION_CALL:
+        setOptionCall((CodeCall)newValue);
         return;
       case XtextTestPackage.EMF_TEST__FILE:
         setFile((String)newValue);
@@ -436,6 +502,9 @@ public class EmfTestImpl extends MinimalEObjectImpl.Container implements EmfTest
       case XtextTestPackage.EMF_TEST__CODE_CALL:
         setCodeCall((CodeCall)null);
         return;
+      case XtextTestPackage.EMF_TEST__OPTION_CALL:
+        setOptionCall((CodeCall)null);
+        return;
       case XtextTestPackage.EMF_TEST__FILE:
         setFile(FILE_EDEFAULT);
         return;
@@ -464,6 +533,8 @@ public class EmfTestImpl extends MinimalEObjectImpl.Container implements EmfTest
         return myimport != null && !myimport.isEmpty();
       case XtextTestPackage.EMF_TEST__CODE_CALL:
         return codeCall != null;
+      case XtextTestPackage.EMF_TEST__OPTION_CALL:
+        return optionCall != null;
       case XtextTestPackage.EMF_TEST__FILE:
         return FILE_EDEFAULT == null ? file != null : !FILE_EDEFAULT.equals(file);
       case XtextTestPackage.EMF_TEST__ROOT:

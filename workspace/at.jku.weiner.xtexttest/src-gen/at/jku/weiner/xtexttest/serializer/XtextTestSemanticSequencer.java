@@ -128,10 +128,20 @@ public class XtextTestSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Constraint:
-	 *     (myclass=PackageID method=PackageID (params+=PackageID params+=PackageID*)?)
+	 *     (myclass=PackageID method=PackageID)
 	 */
 	protected void sequence_CodeCall(EObject context, CodeCall semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, XtextTestPackage.Literals.CODE_CALL__MYCLASS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, XtextTestPackage.Literals.CODE_CALL__MYCLASS));
+			if(transientValues.isValueTransient(semanticObject, XtextTestPackage.Literals.CODE_CALL__METHOD) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, XtextTestPackage.Literals.CODE_CALL__METHOD));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getCodeCallAccess().getMyclassPackageIDParserRuleCall_2_0(), semanticObject.getMyclass());
+		feeder.accept(grammarAccess.getCodeCallAccess().getMethodPackageIDParserRuleCall_5_0(), semanticObject.getMethod());
+		feeder.finish();
 	}
 	
 	
@@ -151,6 +161,7 @@ public class XtextTestSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *         mydefault=PackageID 
 	 *         myimport+=Import* 
 	 *         codeCall=CodeCall 
+	 *         optionCall=CodeCall? 
 	 *         file=STRING 
 	 *         root=Element
 	 *     )

@@ -80,6 +80,8 @@ public class XtextTestSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getLEXERToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getMETHOD_KWRule())
 			return getMETHOD_KWToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getOPTIONSRule())
+			return getOPTIONSToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getOUTPUTRule())
 			return getOUTPUTToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getPACKAGERule())
@@ -320,6 +322,15 @@ public class XtextTestSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return "method";
+	}
+	
+	/**
+	 * terminal OPTIONS: 'options';
+	 */
+	protected String getOPTIONSToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "options";
 	}
 	
 	/**

@@ -18,11 +18,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.InputImpl#getText <em>Text</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.InputImpl#getFile <em>File</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

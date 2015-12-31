@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Map;
 
 import org.antlr.runtime.Token;
 
@@ -33,9 +34,12 @@ public class Test0002_Empty {
 	
 	private final String pureJavaClassFileName = "Test0002_Empty";
 	private final String sourceFile = "res/Test0002_Empty";
+	private Map<String,Object> options;
 	
 	@Before
 	public void initialize(){
+		options = org.eclipse.modisco.cdt.discoverer.tests.EMFTest.getOptions(
+			this.pureJavaClassFileName, this.sourceFile);
 		
 	}
 	
@@ -84,13 +88,15 @@ public class Test0002_Empty {
 		.getParser();
 		Assert.assertNotNull(Parser_3_Var
 		);
-		Assert.assertEquals("${SOURCE_FILE_URI}/Empty.c", TranslationUnit_1_Var
+		Assert.assertEquals("" + options.get("path") + "/" + options.get("sourceFile") + "/Empty.c", TranslationUnit_1_Var
 		.getPath());
 		//3
 		final TranslationUnit TranslationUnit_4_Var
 		 = (TranslationUnit)Units_0_list.get(1);
 		Assert.assertNotNull(TranslationUnit_4_Var
 		);
+		Assert.assertEquals("" + options.get("path") + "/" + options.get("sourceFile") + "/Empty2.c", TranslationUnit_4_Var
+		.getPath());
 	}
 	
 	

@@ -13,11 +13,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.BlockList#getDeclaration <em>Declaration</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.BlockList#getStatement <em>Statement</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.c.parser.parser.ParserPackage#getBlockList()
  * @model

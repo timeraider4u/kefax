@@ -1,0 +1,175 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.parser
+language parser
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+source file="res/Test0049_Inline.c"
+//----------------------------------------------------------------------
+lexer-tokens
+KW_INLINE1 WHITESPACE KW_VOID WHITESPACE ID SKW_LEFTPAREN SKW_RIGHTPAREN SKW_SEMI NEWLINE
+NEWLINE
+KW_INLINE2 WHITESPACE KW_VOID WHITESPACE ID SKW_LEFTPAREN  SKW_RIGHTPAREN SKW_SEMI NEWLINE
+NEWLINE
+
+KW_STATIC WHITESPACE KW_INLINE1 WHITESPACE KW_VOID WHITESPACE ID SKW_LEFTPAREN SKW_RIGHTPAREN WHITESPACE SKW_LEFTBRACE NEWLINE
+SKW_RIGHTBRACE NEWLINE
+NEWLINE
+KW_STATIC WHITESPACE KW_INLINE2 WHITESPACE KW_VOID WHITESPACE ID SKW_LEFTPAREN  SKW_RIGHTPAREN WHITESPACE SKW_LEFTBRACE NEWLINE
+SKW_RIGHTBRACE NEWLINE
+//NEWLINE
+//----------------------------------------------------------------------
+//(common::Model units+=
+	//(common::TranslationUnit 
+	(Parser
+		external+=
+		// doSomething1
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(FunctionSpecifier
+						name++"inline"
+					),
+					(TypeSpecifier
+						name++"void"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"doSomething1",
+								declaratorSuffix+=
+								(DeclaratorSuffix
+									lastSuffix=
+									(DirectDeclaratorLastSuffix
+										
+									)
+								)
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+		),
+		// doSomething2
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(FunctionSpecifier
+						name++"__inline"
+					),
+					(TypeSpecifier
+						name++"void"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"doSomething2",
+								declaratorSuffix+=
+								(DeclaratorSuffix
+									lastSuffix=
+									(DirectDeclaratorLastSuffix
+										
+									)
+								)
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+		),
+		// doSomething3
+		(ExternalDeclaration 
+			functiondefHead=
+			(FunctionDefHead
+				funDeclSpecifiers=
+				(FunctionDeclarationSpecifiers
+					declarationSpecifier+=
+					(StorageClassSpecifier
+						name++"static"
+					),
+					(FunctionSpecifier
+						name++"inline"
+					),
+					(TypeSpecifier
+						name++"void"
+					)
+				),
+				funDeclarator=
+				(Declarator
+					declarator=
+					(DirectDeclarator
+						id++"doSomething3"
+					)
+				)
+			),
+			functionDefinition=
+			(FunctionDefinition
+				body=
+				(BodyStatement
+					
+				)
+			)
+		),
+		(ExternalDeclaration 
+			functiondefHead=
+			(FunctionDefHead
+				funDeclSpecifiers=
+				(FunctionDeclarationSpecifiers
+					declarationSpecifier+=
+					(StorageClassSpecifier
+						name++"static"
+					),
+					(FunctionSpecifier
+						name++"__inline"
+					),
+					(TypeSpecifier
+						name++"void"
+					)
+				),
+				funDeclarator=
+				(Declarator
+					declarator=
+					(DirectDeclarator
+						id++"doSomething4"
+					)
+				)
+			),
+			functionDefinition=
+			(FunctionDefinition
+				body=
+				(BodyStatement
+					
+				)
+			)
+		)
+		
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0005_FunctionDecls.c"
+expected file isSameAsInputFile
+
+replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

@@ -543,7 +543,8 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	 *         declarationSpecifier+=StorageClassSpecifier | 
 	 *         declarationSpecifier+=TypeSpecifier | 
 	 *         declarationSpecifier+=TypeQualifier | 
-	 *         declarationSpecifier+=StructOrUnionSpecifier
+	 *         declarationSpecifier+=StructOrUnionSpecifier | 
+	 *         declarationSpecifier+=FunctionSpecifier
 	 *     )+
 	 */
 	protected void sequence_DeclarationSpecifiers(EObject context, DeclarationSpecifiers semanticObject) {
@@ -715,7 +716,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=KW_INLINE | name=KW_NORETURN)
+	 *     (name=KW_INLINE1 | name=KW_INLINE2 | name=KW_NORETURN)
 	 */
 	protected void sequence_FunctionSpecifier(EObject context, FunctionSpecifier semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

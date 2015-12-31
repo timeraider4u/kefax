@@ -7,7 +7,7 @@ imports at.jku.weiner.c.common.common
 source file="res/Test0033_StaticInline.c"
 //----------------------------------------------------------------------
 lexer-tokens
-KW_STATIC WHITESPACE KW_INLINE WHITESPACE KW_VOID WHITESPACE ID
+KW_STATIC WHITESPACE KW_INLINE1 WHITESPACE KW_VOID WHITESPACE ID
 SKW_LEFTPAREN 
 SKW_RIGHTPAREN
 WHITESPACE SKW_LEFTBRACE NEWLINE

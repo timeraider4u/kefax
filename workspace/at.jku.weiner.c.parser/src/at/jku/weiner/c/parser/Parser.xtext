@@ -133,7 +133,7 @@ DeclarationSpecifiers:
 	|	declarationSpecifier+=TypeSpecifier
 	|	declarationSpecifier+=TypeQualifier
 	|	declarationSpecifier+=StructOrUnionSpecifier
-	//|	declarationSpecifier+=FunctionSpecifier
+	|	declarationSpecifier+=FunctionSpecifier
 	//|	declarationSpecifier+=alignmentSpecifier
 	)+
 ;
@@ -297,9 +297,9 @@ TypeQualifier:
 FunctionSpecifier:
 	{FunctionSpecifier} 
 	(
-		(	name=KW_INLINE
+		(	name=KW_INLINE1
+		|	name=KW_INLINE2 // GCC extension	
 		|	name=KW_NORETURN
-		//|	'__inline__' // GCC extension
 		//|	'__stdcall'
 		)
 		//|	gccAttributeSpecifier=gccAttributeSpecifier
@@ -891,7 +891,8 @@ terminal KW_GENERIC : SKW_UNDERSCORE 'Generic';
 terminal KW_GOTO : 'goto';
 terminal KW_IF : 'if';
 terminal KW_IMAGINARY : SKW_UNDERSCORE 'Imaginary';
-terminal KW_INLINE : 'inline';
+terminal KW_INLINE1 : 'inline';
+terminal KW_INLINE2 : SKW_UNDERSCORE SKW_UNDERSCORE KW_INLINE1;
 terminal KW_INT : 'int';
 terminal KW_LONG : 'long';
 terminal KW_M128: SKW_UNDERSCORE SKW_UNDERSCORE 'm128';

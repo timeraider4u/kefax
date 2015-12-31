@@ -251,6 +251,7 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDeclarationSpecifiersAccess().getDeclarationSpecifierAssignment_1_1(), "rule__DeclarationSpecifiers__DeclarationSpecifierAssignment_1_1");
 					put(grammarAccess.getDeclarationSpecifiersAccess().getDeclarationSpecifierAssignment_1_2(), "rule__DeclarationSpecifiers__DeclarationSpecifierAssignment_1_2");
 					put(grammarAccess.getDeclarationSpecifiersAccess().getDeclarationSpecifierAssignment_1_3(), "rule__DeclarationSpecifiers__DeclarationSpecifierAssignment_1_3");
+					put(grammarAccess.getDeclarationSpecifiersAccess().getDeclarationSpecifierAssignment_1_4(), "rule__DeclarationSpecifiers__DeclarationSpecifierAssignment_1_4");
 					put(grammarAccess.getInitDeclaratorListAccess().getInitDeclaratorAssignment_1(), "rule__InitDeclaratorList__InitDeclaratorAssignment_1");
 					put(grammarAccess.getInitDeclaratorListAccess().getInitDeclaratorAssignment_2_1(), "rule__InitDeclaratorList__InitDeclaratorAssignment_2_1");
 					put(grammarAccess.getInitDeclaratorAccess().getDeclaratorAssignment_1(), "rule__InitDeclarator__DeclaratorAssignment_1");
@@ -313,6 +314,7 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTypeQualifierAccess().getTypeAssignment_1_5(), "rule__TypeQualifier__TypeAssignment_1_5");
 					put(grammarAccess.getFunctionSpecifierAccess().getNameAssignment_1_0(), "rule__FunctionSpecifier__NameAssignment_1_0");
 					put(grammarAccess.getFunctionSpecifierAccess().getNameAssignment_1_1(), "rule__FunctionSpecifier__NameAssignment_1_1");
+					put(grammarAccess.getFunctionSpecifierAccess().getNameAssignment_1_2(), "rule__FunctionSpecifier__NameAssignment_1_2");
 					put(grammarAccess.getDeclaratorAccess().getPointerAssignment_1(), "rule__Declarator__PointerAssignment_1");
 					put(grammarAccess.getDeclaratorAccess().getDeclaratorAssignment_2(), "rule__Declarator__DeclaratorAssignment_2");
 					put(grammarAccess.getDeclaratorAccess().getGccDeclExtAssignment_3(), "rule__Declarator__GccDeclExtAssignment_3");

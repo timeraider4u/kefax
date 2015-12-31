@@ -100,7 +100,7 @@ public class Test0033_StaticInline {
 		return content;
 	}
 	
-	@Test
+	@Test (timeout=1000)
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0033_StaticInline.c");
@@ -108,7 +108,7 @@ public class Test0033_StaticInline {
 			final String[] expected = new String[] {
 				"RULE_KW_STATIC", 
 				"RULE_WHITESPACE", 
-				"RULE_KW_INLINE", 
+				"RULE_KW_INLINE1", 
 				"RULE_WHITESPACE", 
 				"RULE_KW_VOID", 
 				"RULE_WHITESPACE", 
@@ -127,7 +127,7 @@ public class Test0033_StaticInline {
 			testHelper.checkTokenisation(text, expected);
 	}
 	
-	@Test
+	@Test (timeout=1000)
 	public void checkParserResult() throws Exception {
 		final String text = this.getTextFromFile(
 			"res/Test0033_StaticInline.c");
@@ -214,6 +214,8 @@ public class Test0033_StaticInline {
 	}
 	
 	@Test
+	(timeout=1000
+	)
 	public void testGenerator() throws Exception {
 		// load the resource
 		ResourceSet set = this.resourceSetProvider.get();

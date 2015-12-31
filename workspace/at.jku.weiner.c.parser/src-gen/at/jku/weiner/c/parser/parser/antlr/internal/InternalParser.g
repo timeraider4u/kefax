@@ -801,6 +801,28 @@ ruleDeclarationSpecifiers returns [EObject current=null]
 )
 )
 
+
+    |
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getDeclarationSpecifiersAccess().getDeclarationSpecifierFunctionSpecifierParserRuleCall_1_4_0()); 
+	    }
+		lv_declarationSpecifier_5_0=ruleFunctionSpecifier		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getDeclarationSpecifiersRule());
+	        }
+       		add(
+       			$current, 
+       			"declarationSpecifier",
+        		lv_declarationSpecifier_5_0, 
+        		"at.jku.weiner.c.parser.Parser.FunctionSpecifier");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
 )+
 
 )
@@ -2911,9 +2933,9 @@ ruleFunctionSpecifier returns [EObject current=null]
 (
 (
 (
-		lv_name_1_0=RULE_KW_INLINE
+		lv_name_1_0=RULE_KW_INLINE1
 		{
-			newLeafNode(lv_name_1_0, grammarAccess.getFunctionSpecifierAccess().getNameKW_INLINETerminalRuleCall_1_0_0()); 
+			newLeafNode(lv_name_1_0, grammarAccess.getFunctionSpecifierAccess().getNameKW_INLINE1TerminalRuleCall_1_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -2923,7 +2945,7 @@ ruleFunctionSpecifier returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"at.jku.weiner.c.parser.Parser.KW_INLINE");
+        		"at.jku.weiner.c.parser.Parser.KW_INLINE1");
 	    }
 
 )
@@ -2933,9 +2955,9 @@ ruleFunctionSpecifier returns [EObject current=null]
     |
 (
 (
-		lv_name_2_0=RULE_KW_NORETURN
+		lv_name_2_0=RULE_KW_INLINE2
 		{
-			newLeafNode(lv_name_2_0, grammarAccess.getFunctionSpecifierAccess().getNameKW_NORETURNTerminalRuleCall_1_1_0()); 
+			newLeafNode(lv_name_2_0, grammarAccess.getFunctionSpecifierAccess().getNameKW_INLINE2TerminalRuleCall_1_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -2945,6 +2967,28 @@ ruleFunctionSpecifier returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_2_0, 
+        		"at.jku.weiner.c.parser.Parser.KW_INLINE2");
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		lv_name_3_0=RULE_KW_NORETURN
+		{
+			newLeafNode(lv_name_3_0, grammarAccess.getFunctionSpecifierAccess().getNameKW_NORETURNTerminalRuleCall_1_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getFunctionSpecifierRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_3_0, 
         		"at.jku.weiner.c.parser.Parser.KW_NORETURN");
 	    }
 
@@ -10781,7 +10825,9 @@ RULE_KW_IF : 'if';
 
 RULE_KW_IMAGINARY : RULE_SKW_UNDERSCORE 'Imaginary';
 
-RULE_KW_INLINE : 'inline';
+RULE_KW_INLINE1 : 'inline';
+
+RULE_KW_INLINE2 : RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE RULE_KW_INLINE1;
 
 RULE_KW_INT : 'int';
 

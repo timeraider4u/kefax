@@ -181,6 +181,9 @@ class ParserGenerator implements IGenerator {
 			«IF s instanceof TypeQualifier»
 			«outputFor(s)»
 			«ENDIF»
+			«IF s instanceof FunctionSpecifier»
+			«outputFor(s)»
+			«ENDIF»
 			«IF s instanceof StructOrUnionSpecifier»
 			«outputFor(s)»
 			«ENDIF»

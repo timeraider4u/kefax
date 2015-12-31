@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.common.util.URI;
@@ -21,27 +22,27 @@ import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 import com.google.inject.Injector;
 
 public class XtextUtils {
-
+	
 	private final MyStore store;
-
+	
 	private final Injector commonInjector;
 	private final XtextPreprocessor preprocessor;
 	private final XtextParser parser;
-
+	
 	public XtextUtils(final MyStore store) {
 		this.store = store;
 		this.commonInjector = this.setupCommon();
 		this.preprocessor = new XtextPreprocessor(store);
 		this.parser = new XtextParser(store);
 	}
-
+	
 	private Injector setupCommon() {
 		final CommonActivator activator = CommonActivator.getInstance();
 		final Injector result = activator
 				.getInjector(CommonActivator.AT_JKU_WEINER_C_COMMON_COMMON);
 		return result;
 	}
-
+	
 	public final void readFromXtextFile(final File file, final IFile iFile)
 			throws IOException, DiscoveryException {
 		// initialize ...
@@ -52,7 +53,7 @@ public class XtextUtils {
 		unit.setPath(uriStr);
 		this.store.getModel().getUnits().add(unit);
 		// preprocess
-		Preprocess preprocess = this.preprocessor.parseFile(file, iFile);
+		final Preprocess preprocess = this.preprocessor.parseFile(file, iFile);
 		unit.setPreprocess(preprocess);
 		// generate intermediate
 		final String fileNameOnly = this.getFilenameForIntermediate(uri);
@@ -67,16 +68,18 @@ public class XtextUtils {
 		final File intermediateFile = new File(intermediateStr);
 		final IFile iIntermediate = DiscovererUtils
 				.getFileFor(intermediateFile);
-		Parser parser = this.parser.parseFile(intermediateFile, iIntermediate);
+		final Parser parser = this.parser.parseFile(intermediateFile,
+				iIntermediate);
 		unit.setParser(parser);
 		// update project
 		try {
-			iFile.getProject().refreshLocal(1, this.store.getMonitor());
-		} catch (CoreException ex) {
+			iFile.getProject().refreshLocal(IResource.DEPTH_INFINITE,
+					this.store.getMonitor());
+		} catch (final CoreException ex) {
 			throw new DiscoveryException(ex);
 		}
 	}
-
+	
 	private final String getFilenameForIntermediate(final URI uri) {
 		final String fileExt = uri.fileExtension();
 		final String lastSegment = uri.lastSegment();
@@ -84,18 +87,18 @@ public class XtextUtils {
 		final String fileNameOnly = lastSegment.substring(0, index) + ".i";
 		return fileNameOnly;
 	}
-
+	
 	private final String generateIntermediateFile(final IFile iFile,
 			final String fileNameOnly, final TranslationUnit unit)
-					throws DiscoveryException {
+			throws DiscoveryException {
 		// configure and start the generator
 		final URI whole = URI.createURI(iFile.getLocationURI().toString());
 		final URI uri = whole.trimSegments(1);
 		final String path = uri.path();
 		final String wholeStr = path + File.separator + fileNameOnly;
-
+		
 		System.out.println("fileName='" + wholeStr + "'");
-		PreprocessGenerator preprocessGenerator = this.preprocessor
+		final PreprocessGenerator preprocessGenerator = this.preprocessor
 				.getGenerator();
 		preprocessGenerator.setFileName(wholeStr);
 		preprocessGenerator.setInsertPredefinedMacros(true);
@@ -105,5 +108,5 @@ public class XtextUtils {
 		this.preprocessor.generate(iFile, fileNameOnly);
 		return wholeStr;
 	}
-
+	
 }

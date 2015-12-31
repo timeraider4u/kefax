@@ -51,6 +51,17 @@ import at.jku.weiner.c.preprocess.preprocess.Preprocess
 import at.jku.weiner.c.preprocess.preprocess.PreprocessFactory
 import at.jku.weiner.c.common.common.CommonFactory
 import at.jku.weiner.c.preprocess.preprocess.IfAbstractConditional
+import java.io.InputStream
+import java.net.URL
+import org.eclipse.emf.ecore.resource.impl.FileURIHandlerImpl
+import org.eclipse.emf.ecore.resource.URIHandler
+import java.util.HashMap
+import java.io.File
+import org.osgi.framework.Bundle
+import org.eclipse.core.runtime.Platform
+import org.eclipse.core.runtime.FileLocator
+import java.io.FileInputStream
+import at.jku.weiner.c.preprocess.utils.macros.PredefinedMacros
 
 /**
  * Generates code from your model files on save.
@@ -73,9 +84,11 @@ class PreprocessGenerator implements IGenerator {
 	ResourceSet rs;
 	URI uri;
 	List<String> path = new ArrayList<String>();
+	boolean standAlone = false;
 	
 	override void doGenerate(Resource input, IFileSystemAccess fsa) {
 		if (commonInjector == null) {
+			standAlone = true;
 			// only do when we are executing tests,
 			// but not when in Eclipse environment
 			val CommonStandaloneSetup setup = new CommonStandaloneSetup();
@@ -88,7 +101,11 @@ class PreprocessGenerator implements IGenerator {
 		path.clear();
 		DefinitionTable.reset();
 		if (insertPredefinedMacros) {
-			DefinitionTable.insertPredefinedMacros();
+			val URI predefinedURI = PredefinedMacros.getPredefinedURI(standAlone);
+			val Resource predefinedRes = rs.getResource(predefinedURI, true);
+			val Preprocess preprocess = getPreprocessFor(predefinedRes, false);
+			val String output = outputFor(preprocess);
+			output.trim();			
 		}
 		val Preprocess preprocess = getPreprocessFor(input, false);
 		val String output = outputFor(preprocess);

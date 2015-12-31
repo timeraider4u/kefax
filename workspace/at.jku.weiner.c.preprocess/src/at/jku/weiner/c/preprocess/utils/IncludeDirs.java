@@ -10,21 +10,15 @@ public final class IncludeDirs {
 	private static final List<String> dirs = new ArrayList<String>();
 
 	public static void setUp() {
-		final OSEnum os = OSUtils.getOS();
-		switch (os) {
-		case Linux:
-			// is unix-like operating system
-			// add GCC include dirs,
-			// seehttps://gcc.gnu.org/onlinedocs/cpp/Search-Path.html#Search-Path
-			IncludeDirs.addIncludeDirectoryToList("/usr/local/include");
-			IncludeDirs.addIncludeDirectoryToList("/usr/target/include");
-			IncludeDirs
-					.addIncludeDirectoryToList("/usr/lib64/gcc/x86_64-pc-linux-gnu/4.9.3/include");
-			IncludeDirs.addIncludeDirectoryToList("/usr/include");
-			break;
-		default:
-			break;
-		}
+		// is unix-like operating system
+		// add GCC include dirs,
+		// seehttps://gcc.gnu.org/onlinedocs/cpp/Search-Path.html#Search-Path
+		IncludeDirs.addIncludeDirectoryToList("/usr/local/include");
+		IncludeDirs.addIncludeDirectoryToList("/usr/target/include");
+		IncludeDirs
+		.addIncludeDirectoryToList("/usr/lib64/gcc/x86_64-pc-linux-gnu/4.9.3/include");
+		IncludeDirs.addIncludeDirectoryToList("/usr/include");
+
 	}
 
 	public static void clearAllIncludeDirectories() {

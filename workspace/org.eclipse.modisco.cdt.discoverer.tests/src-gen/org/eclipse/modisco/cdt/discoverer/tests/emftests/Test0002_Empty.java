@@ -88,14 +88,14 @@ public class Test0002_Empty {
 		.getParser();
 		Assert.assertNotNull(Parser_3_Var
 		);
-		Assert.assertEquals("" + options.get("path") + "/" + options.get("sourceFile") + "/Empty.c", TranslationUnit_1_Var
+		Assert.assertEquals("" + options.get("path") + "/" + options.get("plugin_id") + "/" + options.get("sourceFile") + "/Empty.c", TranslationUnit_1_Var
 		.getPath());
 		//3
 		final TranslationUnit TranslationUnit_4_Var
 		 = (TranslationUnit)Units_0_list.get(1);
 		Assert.assertNotNull(TranslationUnit_4_Var
 		);
-		Assert.assertEquals("" + options.get("path") + "/" + options.get("sourceFile") + "/Empty2.c", TranslationUnit_4_Var
+		Assert.assertEquals("" + options.get("path") + "/" + options.get("plugin_id") + "/" + options.get("sourceFile") + "/Empty2.c", TranslationUnit_4_Var
 		.getPath());
 	}
 	

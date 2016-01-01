@@ -20,9 +20,9 @@ source file="res/Test0002_Empty"
 		(parser::Parser
 			
 		),
-		path++"${{path}}/${{sourceFile}}/Empty.c"
+		path++"${{path}}/${{plugin_id}}/${{sourceFile}}/Empty.c"
 	),
 	(TranslationUnit
-		path++"${{path}}/${{sourceFile}}/Empty2.c"
+		path++"${{path}}/${{plugin_id}}/${{sourceFile}}/Empty2.c"
 	)
 )

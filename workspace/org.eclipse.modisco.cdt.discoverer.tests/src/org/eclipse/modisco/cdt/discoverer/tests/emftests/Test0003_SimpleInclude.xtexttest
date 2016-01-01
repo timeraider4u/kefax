@@ -1,0 +1,222 @@
+emftest
+package org.eclipse.modisco.cdt.discoverer.tests
+default at.jku.weiner.c.common.common
+imports at.jku.weiner.c.preprocess.preprocess as preprocess
+imports at.jku.weiner.c.parser.parser as parser
+
+class=EMFTest method=emfTest
+options class=EMFTest method=getOptions 
+
+source file="res/Test0003_SimpleInclude"
+
+(Model
+	units+=
+	// SimpleInclude.c
+	(TranslationUnit
+		preprocess=
+		(preprocess::Preprocess
+			group=
+			(preprocess::GroupOpt
+				lines+=
+				(preprocess::PreprocessorDirectives
+					directive=
+					(preprocess::IncludeDirective
+						string++"\\\"../include/SimpleInclude.h\\\""
+					)
+				),
+				(preprocess::NewLineLine),
+				(preprocess::Code
+					code++"NUMBER main(void) {"
+				),
+				(preprocess::Code
+					code++"	return getValue();"
+				),
+				(preprocess::Code
+					code++"}"
+				)
+			)
+		),
+		parser=
+		(parser::Parser
+			external+=
+			(parser::ExternalDeclaration 
+				declaration=
+				(parser::Declaration
+					specifiers=
+					(parser::DeclarationSpecifiers
+						declarationSpecifier+=
+						(parser::StorageClassSpecifier
+							name++"extern"
+						),
+						(parser::TypeSpecifier
+							name++"int"
+						)
+					),
+					initDeclaratorList+=
+					(parser::InitDeclaratorList
+						initDeclarator+=
+						(parser::InitDeclarator
+							declarator=
+							(parser::Declarator
+								declarator=
+								(parser::DirectDeclarator
+									id++"getValue",
+									declaratorSuffix+=
+									(parser::DeclaratorSuffix
+										lastSuffix=
+										(parser::DirectDeclaratorLastSuffix
+											
+										)
+									)
+								)
+							)
+						)
+					),
+					semi++";"
+				)	
+			),
+			(parser::ExternalDeclaration 
+				functiondefHead=
+				(parser::FunctionDefHead
+					funDeclSpecifiers=
+					(parser::FunctionDeclarationSpecifiers
+						declarationSpecifier+=
+						(parser::TypeSpecifier
+							name++"int"
+						)
+					),
+					funDeclarator=
+					(parser::Declarator
+						declarator=
+						(parser::DirectDeclarator
+							id++"main",
+							declaratorSuffix+=
+							(parser::DeclaratorSuffix
+								lastSuffix=
+								(parser::DirectDeclaratorLastSuffix
+									parameterTypeList+=
+									(parser::ParameterTypeList
+										list=
+										(parser::ParameterList
+											parameterDeclaration+=
+											(parser::ParameterDeclaration
+												declSpecifiers=
+												(parser::DeclarationSpecifiers
+													declarationSpecifier+=
+													(parser::TypeSpecifier
+														name++"void"
+													)
+												),
+												declarator isNull
+											)
+										) // end parameter list
+									)
+								)
+							) // DeclaratorSuffix
+						)
+					)
+				),
+				functionDefinition=
+				(parser::FunctionDefinition
+					body=
+					(parser::BodyStatement
+						blockList+=
+						(parser::BlockList
+							statement+=
+							(parser::Statement
+								stmt=
+								(parser::JumpStatement
+									expr=
+									(parser::Expression
+										exprExpr+=
+										(parser::AssignmentExpression
+											expr=
+											(parser::ConditionalExpression
+												expr=
+												(parser::LogicalOrExpression
+													expr+=
+													(parser::LogicalAndExpression
+														expr+=
+														(parser::InclusiveOrExpression
+															expr+=
+															(parser::ExclusiveOrExpression
+																expr+=
+																(parser::AndExpression
+																	expr+=
+																	(parser::EqualityExpression
+																		expr+=
+																		(parser::RelationalExpression
+																			expr+=
+																			(parser::ShiftExpression
+																				expr+=
+																				(parser::AdditiveExpression
+																					expr+=
+																					(parser::MultiplicativeExpression
+																						expr+=
+																						(parser::CastExpression
+																							expr=
+																							(parser::UnaryExpression
+																								expr=
+																								(parser::PostfixExpression
+																									expr+=
+																									(parser::PrimaryExpression
+																										id++"getValue"
+																									),
+																									suffix+=
+																									(parser::PostfixExpressionSuffixArgument
+																										argumentExpressionList=
+																										(parser::ArgumentExpressionList
+																											
+																										)
+																									)
+																								)
+																							)
+																						)
+																					)
+																				)
+																			)
+																		)
+																		
+																	)
+																)
+															)
+														)
+													)
+												)
+											)
+										)
+									), // end expression
+									return++"return",
+									semi++";"
+								) // end jump statement
+							) // end return statement
+						)
+					)
+				)
+			)
+		),
+		path++"${{path}}/${{plugin_id}}/${{sourceFile}}/SimpleInclude.c"
+	),
+	// SimpleInclude.h
+	(TranslationUnit
+		path++"${{path}}/${{plugin_id}}/res/include/SimpleInclude.h",
+		preprocess=
+		(preprocess::Preprocess
+			group=
+			(preprocess::GroupOpt
+				lines+=
+				(preprocess::PreprocessorDirectives
+					directive=
+					(preprocess::DefineDirective
+						id++"NUMBER",
+						string++"int"
+					)
+				),
+				(preprocess::Code
+					code++"extern NUMBER getValue();"
+				)
+			)
+		),
+		parser isNull
+	)
+)

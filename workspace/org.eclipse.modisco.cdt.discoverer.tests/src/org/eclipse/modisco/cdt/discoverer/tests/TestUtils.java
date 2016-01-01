@@ -24,14 +24,10 @@ public class TestUtils {
 	private final IProject project;
 	private final DiscoverCDTFromIResource discoverer;
 	private final Resource discoveredModel;
-	private static boolean firstCall = true;
 
-	public TestUtils(final String testName) throws Exception {
-		if (TestUtils.firstCall) {
-			Thread.sleep(1000);
-		}
-		this.cleanUpOldProject();
-		this.project = this.getProject();
+	public TestUtils(final IProject iProject, final String testName)
+			throws Exception {
+		this.project = iProject;
 		Assert.assertNotNull(this.project);
 		final IResource srcFolder = this.getRes(testName + "/");
 		Assert.assertNotNull(srcFolder);
@@ -44,20 +40,6 @@ public class TestUtils {
 				.discoverElement(srcFolderDir, new NullProgressMonitor());
 		this.discoveredModel = this.discoverer.getTargetModel();
 		Assert.assertNotNull(this.discoveredModel);
-		TestUtils.firstCall = false;
-	}
-
-	private void cleanUpOldProject() throws CoreException {
-		final IProject oldProject = ResourcesPlugin.getWorkspace().getRoot()
-				.getProject(Activator.PLUGIN_ID);
-		if (oldProject.exists()) {
-			oldProject.delete(true, true, new NullProgressMonitor());
-		}
-	}
-
-	private IProject getProject() throws CoreException, IOException {
-		final Bundle bundle = Platform.getBundle(Activator.PLUGIN_ID);
-		return ProjectUtils.importPlugin(bundle);
 	}
 
 	private IResource getRes(final String fileName) {

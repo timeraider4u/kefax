@@ -7,28 +7,30 @@ import java.util.List;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.URIConverter;
 
 public final class IncludeUtils {
 	private final String URI_PREFIX = "file://";
-	
+
 	private final ResourceSet rs;
 	private final String fileName;
-	// private final URI uri;
+	private final URI uri;
 	private final String currentURIString;
-	
-	private final boolean isAbsoluteInclude;
 
-	// private final String uriStr;
+	private final boolean isAbsoluteInclude;
 	
+	// private final String uriStr;
+
 	public IncludeUtils(final ResourceSet set, final URI uri,
 			final String fileName) {
 		this.isAbsoluteInclude = this.isAbsoluteFileName(fileName);
 		this.fileName = this.replace(fileName);
 		this.rs = set;
+		this.uri = uri;
 		this.currentURIString = uri.toFileString();
 		// this.uriStr = this.uri.toFileString();
 	}
-	
+
 	private boolean isAbsoluteFileName(final String fileName) {
 		if (fileName.startsWith("\"") && fileName.endsWith("\"")) {
 			return false;
@@ -39,11 +41,11 @@ public final class IncludeUtils {
 		throw new IllegalArgumentException("include fileName='" + fileName
 				+ "' is not a valid path");
 	}
-	
+
 	private String replace(final String fileName) {
 		return fileName.substring(1, fileName.length() - 1);
 	}
-	
+
 	public Resource getResource() throws IOException {
 		// load the resource
 		final ResourceSet set = this.rs; // this.resourceSetProvider.get();
@@ -59,17 +61,17 @@ public final class IncludeUtils {
 		// }
 		return resource;
 	}
-	
+
 	private URI createURI() {
 		if (this.isAbsoluteInclude) {
 			return this.createAbsoluteURI();
 		}
 		return this.createRelativeURI();
 	}
-	
+
 	private URI createAbsoluteURI() {
 		if (this.fileName.startsWith(File.separator)) {
-			return URI.createURI(this.URI_PREFIX + this.fileName);
+			return URI.createFileURI(this.fileName);
 		}
 		final MyPath pathInURI = new MyPath(this.fileName);
 		final List<String> includeDirs = IncludeDirs.getListCopy();
@@ -81,26 +83,20 @@ public final class IncludeUtils {
 			// System.out.println("fileExists='" + file.exists() + "'");
 			// System.out.println("canRead='" + file.canRead() + "'");
 			if (file.exists() && file.canRead()) {
-				return URI.createURI(this.URI_PREFIX + searchForFile);
+				return URI.createFileURI(searchForFile);
 			}
 		}
 		throw new RuntimeException("Absolute include file ('" + this.fileName
 				+ "') not found in directories='" + includeDirs.toString()
 				+ "'!");
 	}
-	
+
 	private URI createRelativeURI() {
-		// System.out.println(uriStr);
-		final int index = this.currentURIString.lastIndexOf(File.separator);
-		if (index <= 0) {
-			throw new IllegalArgumentException(
-					"not a valid relative include fileName='"
-							+ this.currentURIString + "'");
-		}
-		final String path = this.currentURIString.substring(0, index);
-		final String newFileName = path + File.separator + this.fileName;
-		// System.out.println(newFileName);
-		return URI.createURI(newFileName);
+		final URI relative = URI.createFileURI(this.fileName);
+		final URIConverter converter = this.rs.getURIConverter();
+		final URI normalized = converter.normalize(this.uri);
+		final URI result = relative.resolve(normalized);
+		return result;
 	}
-	
+
 }

@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Map;
 
 import org.antlr.runtime.Token;
 
@@ -23,6 +24,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import at.jku.weiner.c.common.common.Model;
+import at.jku.weiner.c.common.common.TranslationUnit;
+import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 
 @SuppressWarnings("unused")
 public class Test0001_Empty {
@@ -59,8 +62,23 @@ public class Test0001_Empty {
 		  =  (Model)obj;
 		Assert.assertNotNull(Model_0_Var
 		);
-		Assert.assertTrue(Model_0_Var
-		.getUnits().isEmpty());
+		final EList<? extends EObject> Units_0_list = Model_0_Var
+		.getUnits();
+		Assert.assertNotNull(Units_0_list);
+		Assert.assertEquals(1, Units_0_list.size());
+		//0
+		final TranslationUnit TranslationUnit_1_Var
+		 = (TranslationUnit)Units_0_list.get(0);
+		Assert.assertNotNull(TranslationUnit_1_Var
+		);
+		Assert.assertEquals("platform:/plugin/at.jku.weiner.c.preprocess/res/predefined/gcc_4.8.4.h", TranslationUnit_1_Var
+		.getPath());
+		//1
+		final Preprocess Preprocess_2_Var
+		 = (Preprocess)TranslationUnit_1_Var
+		.getPreprocess();
+		Assert.assertNotNull(Preprocess_2_Var
+		);
 	}
 	
 	

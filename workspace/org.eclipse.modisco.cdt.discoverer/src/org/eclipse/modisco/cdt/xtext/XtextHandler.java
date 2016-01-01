@@ -27,21 +27,21 @@ import at.jku.weiner.c.preprocess.ui.internal.PreprocessActivator;
 import com.google.inject.Injector;
 
 public abstract class XtextHandler<T> {
-
+	
 	public static Injector setupPreprocessor() {
 		final PreprocessActivator activator = PreprocessActivator.getInstance();
 		final Injector result = activator
 				.getInjector(PreprocessActivator.AT_JKU_WEINER_C_PREPROCESS_PREPROCESS);
 		return result;
 	}
-
+	
 	public static Injector setupParser() {
 		final ParserActivator activator = ParserActivator.getInstance();
 		final Injector result = activator
 				.getInjector(ParserActivator.AT_JKU_WEINER_C_PARSER_PARSER);
 		return result;
 	}
-
+	
 	protected final String[] fileExtensions;
 	protected final MyStore store;
 	private final Injector injector;
@@ -49,9 +49,9 @@ public abstract class XtextHandler<T> {
 	private final IResourceValidator validator;
 	private final JavaIoFileSystemAccess fileAccessSystem;
 	protected final IGenerator generator;
-
+	
 	private Resource resource = null;
-
+	
 	public XtextHandler(final String[] fileExtensions, final MyStore store,
 			final Injector injector) {
 		this.fileExtensions = fileExtensions;
@@ -64,18 +64,18 @@ public abstract class XtextHandler<T> {
 				.getInstance(JavaIoFileSystemAccess.class);
 		this.generator = this.injector.getInstance(IGenerator.class);
 	}
-
+	
 	public final T parseFile(final File file, final IFile iFile)
 			throws DiscoveryException {
 		// set-up
 		this.setUp(file, iFile);
 		// load resource
 		this.resource = this.loadResource(file, iFile);
-		System.out.println("get resource was successfull!");
+		// System.out.println("get resource was successfull!");
 		this.validateResource(this.resource);
-		System.out.println("validation was successfull!");
+		// System.out.println("validation was successfull!");
 		final EObject object = this.resource.getContents().get(0);
-		System.out.println("get contents from resource was successfull!");
+		// System.out.println("get contents from resource was successfull!");
 		if (object == null) {
 			this.error("Returned object of file='" + file.getAbsolutePath()
 					+ "' from XText is null!");
@@ -83,11 +83,11 @@ public abstract class XtextHandler<T> {
 		try {
 			@SuppressWarnings("unchecked")
 			final T result = (T) object;
-			System.out.println("XText parsing was successfuly for file='"
-					+ file.toString() + "'!");
+			// System.out.println("XText parsing was successfuly for file='"
+			// + file.toString() + "'!");
 			this.parseFinalize(result);
 			return result;
-		} catch (ClassCastException ignored) {
+		} catch (final ClassCastException ignored) {
 			this.error("Returned object is not a C model - file='"
 					+ file.getAbsolutePath() + "' (class='"
 					+ object.getClass().getCanonicalName() + "') from XText!");
@@ -95,16 +95,16 @@ public abstract class XtextHandler<T> {
 		// should never get here
 		return null;
 	}
-
+	
 	protected void setUp(final File file, final IFile iFile) {
-
+		
 	}
-
+	
 	private final void error(final String string) throws DiscoveryException {
 		System.err.println(string);
 		throw new DiscoveryException(string);
 	}
-
+	
 	private final Resource loadResource(final File file, final IFile iFile)
 			throws DiscoveryException {
 		for (final String ext : this.fileExtensions) {
@@ -119,13 +119,13 @@ public abstract class XtextHandler<T> {
 		resourceSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL,
 				Boolean.TRUE);
 		final URI uri = URI.createURI(iFile.getLocationURI().toString());
-		final String uriStr = uri.toFileString();
-		System.out.println("uri.toFileString()='" + uriStr + "'");
-		System.out.println("uri.toString()='" + uri.toString() + "'");
+		// final String uriStr = uri.toFileString();
+		// System.out.println("uri.toFileString()='" + uriStr + "'");
+		// System.out.println("uri.toString()='" + uri.toString() + "'");
 		final Resource resource = resourceSet.getResource(uri, true);
 		return resource;
 	}
-
+	
 	private final void validateResource(final Resource resource)
 			throws DiscoveryException {
 		// validate the resource
@@ -137,22 +137,22 @@ public abstract class XtextHandler<T> {
 					+ "': " + list.toString());
 		}
 	}
-
+	
 	protected void parseFinalize(final T resource) {
-
+		
 	}
-
+	
 	public void generate(final IFile iFile, final String fileNameOnly)
 			throws DiscoveryException {
 		final String path = this.getOutputPath(iFile);
-		System.out.println("outputPath='" + path + "'");
+		// System.out.println("outputPath='" + path + "'");
 		this.fileAccessSystem.setOutputPath(path);
 		this.setUpGenerator();
 		this.generator.doGenerate(this.resource, this.fileAccessSystem);
 	}
-
+	
 	public abstract String getOutputPath(IFile iFile) throws DiscoveryException;
-
+	
 	protected abstract void setUpGenerator();
-
+	
 }

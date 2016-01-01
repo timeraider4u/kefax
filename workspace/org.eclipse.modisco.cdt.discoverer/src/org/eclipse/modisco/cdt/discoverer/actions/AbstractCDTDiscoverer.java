@@ -50,7 +50,7 @@ AbstractModelDiscoverer<T> {
 		} else if (resource instanceof IFolder) {
 			final IFolder folder = (IFolder) resource;
 			System.out.println("isFolder");
-			boolean result = folder.isAccessible();
+			final boolean result = folder.isAccessible();
 			return result;
 		}
 		return false;
@@ -95,11 +95,9 @@ AbstractModelDiscoverer<T> {
 	 */
 	private final MyStore initialize(final IResource resource,
 			final IProgressMonitor monitor) throws DiscoveryException {
-		System.out.println("discoverElement()");
 		monitor.beginTask(Messages.discover, IProgressMonitor.UNKNOWN);
 		this.checkParameterValues();
 		final URI targetURI = DiscovererUtils.getTargetModel(resource, monitor);
-		System.out.println("targetURI='" + targetURI.toFileString() + "'");
 		this.setTargetURI(targetURI);
 		final Resource targetModel = this.createTargetModel();
 		final MyStore result = new MyStore(monitor, targetModel);
@@ -114,8 +112,6 @@ AbstractModelDiscoverer<T> {
 	 */
 	private final void discoverDirectory(final File directory,
 			final MyStore store) throws DiscoveryException {
-		// final File directory = dir.toFile();
-		System.out.println("discover dir=" + directory.getAbsolutePath());
 		if (!directory.isDirectory()) {
 			throw new DiscoveryException(
 					"not a directory '" + directory.getAbsolutePath() + "'"); //$NON-NLS-1$
@@ -137,11 +133,11 @@ AbstractModelDiscoverer<T> {
 
 	private final void discoverFile(final File file, final MyStore store)
 			throws DiscoveryException {
-		final ParserUtils utils = new ParserUtils(store.getMonitor());
-		final XtextUtils parser = new XtextUtils(store);
+		// final ParserUtils utils = new ParserUtils(store.getMonitor());
+
 		try {
 			final IFile iFile = DiscovererUtils.getFileFor(file);
-			parser.readFromXtextFile(file, iFile);
+			store.getParser().readFromXtextFile(file, iFile);
 			// final EList<TranslationUnit> units = model.getUnits();
 			// for (int i = 0; i < units.size(); i++) {
 			// final TranslationUnit unit = model.getUnits().get(i);
@@ -151,7 +147,7 @@ AbstractModelDiscoverer<T> {
 			throw new DiscoveryException(
 					"Error parsing file='" + file.getAbsolutePath() + "' with XText", ex); //$NON-NLS-1$
 		}
-		utils.cleanUp();
+		// utils.cleanUp();
 	}
 
 	/***
@@ -161,7 +157,6 @@ AbstractModelDiscoverer<T> {
 	 * @throws DiscoveryException
 	 */
 	private final void save(final MyStore store) throws DiscoveryException {
-		System.out.println("saving...");
 		store.getMonitor().setTaskName(Messages.saving);
 		// if (this.isTargetSerializationChosen()) {
 		try {

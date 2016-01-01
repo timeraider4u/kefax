@@ -33,8 +33,6 @@ import at.jku.weiner.c.common.common.ConstantExpression
 import at.jku.weiner.c.preprocess.preprocess.ElseConditional
 import org.eclipse.emf.common.util.EList
 import at.jku.weiner.c.preprocess.preprocess.ElIfConditional
-import java.util.Map
-import java.util.TreeMap
 import at.jku.weiner.c.preprocess.utils.IncludeDirs
 import com.google.inject.Inject
 import org.eclipse.xtext.validation.IResourceValidator
@@ -48,21 +46,11 @@ import at.jku.weiner.c.preprocess.utils.macros.MacroParentheseNotClosedYetExcept
 import at.jku.weiner.c.preprocess.preprocess.SourceCodeLine
 import java.util.ArrayList
 import at.jku.weiner.c.preprocess.preprocess.Preprocess
-import at.jku.weiner.c.preprocess.preprocess.PreprocessFactory
 import at.jku.weiner.c.common.common.CommonFactory
 import at.jku.weiner.c.preprocess.preprocess.IfAbstractConditional
-import java.io.InputStream
-import java.net.URL
-import org.eclipse.emf.ecore.resource.impl.FileURIHandlerImpl
-import org.eclipse.emf.ecore.resource.URIHandler
-import java.util.HashMap
-import java.io.File
-import org.osgi.framework.Bundle
-import org.eclipse.core.runtime.Platform
-import org.eclipse.core.runtime.FileLocator
-import java.io.FileInputStream
+
 import at.jku.weiner.c.preprocess.utils.macros.PredefinedMacros
-import org.eclipse.core.runtime.URIUtil
+
 
 /**
  * Generates code from your model files on save.
@@ -88,6 +76,23 @@ class PreprocessGenerator implements IGenerator {
 	boolean standAlone = false;
 	
 	override void doGenerate(Resource input, IFileSystemAccess fsa) {
+		setUp();
+		rs = input.resourceSet;
+		uri = input.URI;
+		IncludeDirs.setUp();
+		path.clear();
+		DefinitionTable.reset();
+		if (insertPredefinedMacros) {
+			insertPredefinedMacros();
+		}
+		
+		val Preprocess preprocess = getPreprocessFor(input, false);
+		val String output = outputFor(preprocess);
+		// System.out.println("generating output file='" + fileName + "'");
+		fsa.generateFile(fileName, output);
+	}
+	
+	def void setUp() {
 		if (commonInjector == null) {
 			standAlone = true;
 			// only do when we are executing tests,
@@ -96,22 +101,13 @@ class PreprocessGenerator implements IGenerator {
 			val Injector injector = setup.createInjectorAndDoEMFRegistration();
 			commonInjector = injector;
 		}
-		rs = input.resourceSet;
-		uri = input.URI;
-		IncludeDirs.setUp();
-		path.clear();
-		DefinitionTable.reset();
-		if (insertPredefinedMacros) {
-			val URI predefinedURI = PredefinedMacros.getPredefinedURI(standAlone);
-			val Resource predefinedRes = rs.getResource(predefinedURI, true);
-			val Preprocess preprocess = getPreprocessFor(predefinedRes, false);
-			val String output = outputFor(preprocess);
-			output.trim();
-		}
-		val Preprocess preprocess = getPreprocessFor(input, false);
-		val String output = outputFor(preprocess);
-		// System.out.println("generating output file='" + fileName + "'");
-		fsa.generateFile(fileName, output);
+	}
+	
+	def void insertPredefinedMacros() {
+		val Preprocess predefined = PredefinedMacros.loadPreDefinedMacros(standAlone);
+		path.add("/predefined/");
+		val String output = outputFor(predefined);
+		output.trim();
 	}
 	
 	def Preprocess getPreprocessFor(Resource input, boolean forceLoading) {
@@ -122,24 +118,20 @@ class PreprocessGenerator implements IGenerator {
 			preprocess = input.allContents.filter(typeof(Preprocess)).head;
 			//System.out.println("unit-null: preprocess='" + preprocess + "'" + fileName + "'");
 		}
-		else if (forceLoading) {
-			preprocess = loadExistingPreprocess(fileName);
-			//System.out.println("force-loading: preprocess='" + preprocess + "'" + fileName + "'");
-			
-			if (preprocess == null) {
-				preprocess = input.allContents.filter(typeof(Preprocess)).head;
-				//System.out.println("filtering: preprocess='" + preprocess + "'" + fileName + "'");
-				
-			}
-		}
 		else {
-			// System.out.println("else: preprocess='" + preprocess + "'" + fileName + "'");
-			
 			preprocess = unit.preprocess as Preprocess;
+			if (preprocess == null || forceLoading) {
+				preprocess = loadExistingPreprocess(fileName);
+				//System.out.println("force-loading: preprocess='" + preprocess + "'" + fileName + "'");
+				if (preprocess == null) {
+					preprocess = input.allContents.filter(typeof(Preprocess)).head;
+					//System.out.println("filtering: preprocess='" + preprocess + "'" + fileName + "'");
+				}
+			}
 		}
 		
 		if (preprocess == null) {
-			System.out.println("preprocess is null!");
+			throw new RuntimeException("preprocess is null!");
 		}
 		
 		//val TranslationUnit unit = model.getUnits().head;
@@ -160,6 +152,9 @@ class PreprocessGenerator implements IGenerator {
 	
 	def Preprocess loadExistingPreprocess(String filePath) {
 		val Model model = unit.eContainer as Model;
+		if (model == null) {
+			return null;
+		}
 		val EList<TranslationUnit> units = model.units;
 		for (var int i = 0; i < units.size; i++) {
 			val TranslationUnit myUnit = units.get(i);

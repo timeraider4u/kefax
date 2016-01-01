@@ -9,5 +9,13 @@ class=EMFTest method=emfTest
 source file="res/Test0001_Empty"
 
 (Model
-	units isEmpty
+	units+=
+	// Predefined
+	(TranslationUnit
+		path++"platform:/plugin/at.jku.weiner.c.preprocess/res/predefined/gcc_4.8.4.h",
+		preprocess=
+		(preprocess::Preprocess
+			
+		)
+	)
 )

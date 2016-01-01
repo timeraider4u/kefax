@@ -12,6 +12,13 @@ source file="res/Test0002_Empty"
 (Model
 	units+=
 	(TranslationUnit
+		path++"platform:/plugin/at.jku.weiner.c.preprocess/res/predefined/gcc_4.8.4.h",
+		preprocess=
+		(preprocess::Preprocess
+			
+		)
+	),
+	(TranslationUnit
 		preprocess=
 		(preprocess::Preprocess
 			

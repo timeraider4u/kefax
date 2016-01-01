@@ -1062,9 +1062,9 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getTypeSpecifier_Specifier()
+  public EAttribute getTypeSpecifier_ExtType()
   {
-    return (EReference)typeSpecifierEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)typeSpecifierEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1072,7 +1072,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getTypeSpecifier_Type()
+  public EReference getTypeSpecifier_Specifier()
   {
     return (EReference)typeSpecifierEClass.getEStructuralFeatures().get(2);
   }
@@ -1082,9 +1082,19 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getTypeSpecifier_Struct()
+  public EReference getTypeSpecifier_Type()
   {
     return (EReference)typeSpecifierEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTypeSpecifier_Struct()
+  {
+    return (EReference)typeSpecifierEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -3344,6 +3354,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 
     typeSpecifierEClass = createEClass(TYPE_SPECIFIER);
     createEAttribute(typeSpecifierEClass, TYPE_SPECIFIER__NAME);
+    createEAttribute(typeSpecifierEClass, TYPE_SPECIFIER__EXT_TYPE);
     createEReference(typeSpecifierEClass, TYPE_SPECIFIER__SPECIFIER);
     createEReference(typeSpecifierEClass, TYPE_SPECIFIER__TYPE);
     createEReference(typeSpecifierEClass, TYPE_SPECIFIER__STRUCT);
@@ -3756,6 +3767,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 
     initEClass(typeSpecifierEClass, TypeSpecifier.class, "TypeSpecifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTypeSpecifier_Name(), theEcorePackage.getEString(), "name", null, 0, 1, TypeSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTypeSpecifier_ExtType(), theEcorePackage.getEString(), "extType", null, 0, 1, TypeSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTypeSpecifier_Specifier(), this.getDeclarationSpecifier(), null, "specifier", null, 0, 1, TypeSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTypeSpecifier_Type(), this.getTypedefName(), null, "type", null, 0, 1, TypeSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTypeSpecifier_Struct(), this.getStructOrUnionName(), null, "struct", null, 0, 1, TypeSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

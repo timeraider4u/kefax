@@ -402,13 +402,22 @@ public interface ParserPackage extends EPackage
   int TYPE_SPECIFIER__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Ext Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_SPECIFIER__EXT_TYPE = 1;
+
+  /**
    * The feature id for the '<em><b>Specifier</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE_SPECIFIER__SPECIFIER = 1;
+  int TYPE_SPECIFIER__SPECIFIER = 2;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -417,7 +426,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_SPECIFIER__TYPE = 2;
+  int TYPE_SPECIFIER__TYPE = 3;
 
   /**
    * The feature id for the '<em><b>Struct</b></em>' containment reference.
@@ -426,7 +435,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_SPECIFIER__STRUCT = 3;
+  int TYPE_SPECIFIER__STRUCT = 4;
 
   /**
    * The number of structural features of the '<em>Type Specifier</em>' class.
@@ -435,7 +444,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_SPECIFIER_FEATURE_COUNT = 4;
+  int TYPE_SPECIFIER_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.TypedefNameImpl <em>Typedef Name</em>}' class.
@@ -3909,6 +3918,17 @@ public interface ParserPackage extends EPackage
   EAttribute getTypeSpecifier_Name();
 
   /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.TypeSpecifier#getExtType <em>Ext Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Ext Type</em>'.
+   * @see at.jku.weiner.c.parser.parser.TypeSpecifier#getExtType()
+   * @see #getTypeSpecifier()
+   * @generated
+   */
+  EAttribute getTypeSpecifier_ExtType();
+
+  /**
    * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.TypeSpecifier#getSpecifier <em>Specifier</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6540,6 +6560,14 @@ public interface ParserPackage extends EPackage
      * @generated
      */
     EAttribute TYPE_SPECIFIER__NAME = eINSTANCE.getTypeSpecifier_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Ext Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TYPE_SPECIFIER__EXT_TYPE = eINSTANCE.getTypeSpecifier_ExtType();
 
     /**
      * The meta object literal for the '<em><b>Specifier</b></em>' containment reference feature.

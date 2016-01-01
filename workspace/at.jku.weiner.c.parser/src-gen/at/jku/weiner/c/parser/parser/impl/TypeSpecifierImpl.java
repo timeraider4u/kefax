@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.TypeSpecifierImpl#getName <em>Name</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.TypeSpecifierImpl#getExtType <em>Ext Type</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.TypeSpecifierImpl#getSpecifier <em>Specifier</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.TypeSpecifierImpl#getType <em>Type</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.TypeSpecifierImpl#getStruct <em>Struct</em>}</li>
@@ -54,6 +55,26 @@ public class TypeSpecifierImpl extends MinimalEObjectImpl.Container implements T
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getExtType() <em>Ext Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExtType()
+   * @generated
+   * @ordered
+   */
+  protected static final String EXT_TYPE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getExtType() <em>Ext Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExtType()
+   * @generated
+   * @ordered
+   */
+  protected String extType = EXT_TYPE_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getSpecifier() <em>Specifier</em>}' containment reference.
@@ -127,6 +148,29 @@ public class TypeSpecifierImpl extends MinimalEObjectImpl.Container implements T
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.TYPE_SPECIFIER__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getExtType()
+  {
+    return extType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExtType(String newExtType)
+  {
+    String oldExtType = extType;
+    extType = newExtType;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.TYPE_SPECIFIER__EXT_TYPE, oldExtType, extType));
   }
 
   /**
@@ -305,6 +349,8 @@ public class TypeSpecifierImpl extends MinimalEObjectImpl.Container implements T
     {
       case ParserPackage.TYPE_SPECIFIER__NAME:
         return getName();
+      case ParserPackage.TYPE_SPECIFIER__EXT_TYPE:
+        return getExtType();
       case ParserPackage.TYPE_SPECIFIER__SPECIFIER:
         return getSpecifier();
       case ParserPackage.TYPE_SPECIFIER__TYPE:
@@ -327,6 +373,9 @@ public class TypeSpecifierImpl extends MinimalEObjectImpl.Container implements T
     {
       case ParserPackage.TYPE_SPECIFIER__NAME:
         setName((String)newValue);
+        return;
+      case ParserPackage.TYPE_SPECIFIER__EXT_TYPE:
+        setExtType((String)newValue);
         return;
       case ParserPackage.TYPE_SPECIFIER__SPECIFIER:
         setSpecifier((DeclarationSpecifier)newValue);
@@ -354,6 +403,9 @@ public class TypeSpecifierImpl extends MinimalEObjectImpl.Container implements T
       case ParserPackage.TYPE_SPECIFIER__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case ParserPackage.TYPE_SPECIFIER__EXT_TYPE:
+        setExtType(EXT_TYPE_EDEFAULT);
+        return;
       case ParserPackage.TYPE_SPECIFIER__SPECIFIER:
         setSpecifier((DeclarationSpecifier)null);
         return;
@@ -379,6 +431,8 @@ public class TypeSpecifierImpl extends MinimalEObjectImpl.Container implements T
     {
       case ParserPackage.TYPE_SPECIFIER__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case ParserPackage.TYPE_SPECIFIER__EXT_TYPE:
+        return EXT_TYPE_EDEFAULT == null ? extType != null : !EXT_TYPE_EDEFAULT.equals(extType);
       case ParserPackage.TYPE_SPECIFIER__SPECIFIER:
         return specifier != null;
       case ParserPackage.TYPE_SPECIFIER__TYPE:
@@ -402,6 +456,8 @@ public class TypeSpecifierImpl extends MinimalEObjectImpl.Container implements T
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", extType: ");
+    result.append(extType);
     result.append(')');
     return result.toString();
   }

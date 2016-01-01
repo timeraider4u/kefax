@@ -565,12 +565,25 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameKW_M128DTerminalRuleCall_13_0 = (RuleCall)cNameAssignment_13.eContents().get(0);
 		private final Assignment cNameAssignment_14 = (Assignment)cAlternatives.eContents().get(14);
 		private final RuleCall cNameKW_M128ITerminalRuleCall_14_0 = (RuleCall)cNameAssignment_14.eContents().get(0);
-		private final Assignment cSpecifierAssignment_15 = (Assignment)cAlternatives.eContents().get(15);
-		private final RuleCall cSpecifierEnumSpecifierParserRuleCall_15_0 = (RuleCall)cSpecifierAssignment_15.eContents().get(0);
-		private final Assignment cTypeAssignment_16 = (Assignment)cAlternatives.eContents().get(16);
-		private final RuleCall cTypeTypedefNameParserRuleCall_16_0 = (RuleCall)cTypeAssignment_16.eContents().get(0);
-		private final Assignment cStructAssignment_17 = (Assignment)cAlternatives.eContents().get(17);
-		private final RuleCall cStructStructOrUnionNameParserRuleCall_17_0 = (RuleCall)cStructAssignment_17.eContents().get(0);
+		private final Group cGroup_15 = (Group)cAlternatives.eContents().get(15);
+		private final Assignment cNameAssignment_15_0 = (Assignment)cGroup_15.eContents().get(0);
+		private final RuleCall cNameKW_EXTENSIONTerminalRuleCall_15_0_0 = (RuleCall)cNameAssignment_15_0.eContents().get(0);
+		private final Group cGroup_15_1 = (Group)cGroup_15.eContents().get(1);
+		private final RuleCall cSKW_LEFTPARENTerminalRuleCall_15_1_0 = (RuleCall)cGroup_15_1.eContents().get(0);
+		private final Alternatives cAlternatives_15_1_1 = (Alternatives)cGroup_15_1.eContents().get(1);
+		private final Assignment cExtTypeAssignment_15_1_1_0 = (Assignment)cAlternatives_15_1_1.eContents().get(0);
+		private final RuleCall cExtTypeKW_M128TerminalRuleCall_15_1_1_0_0 = (RuleCall)cExtTypeAssignment_15_1_1_0.eContents().get(0);
+		private final Assignment cExtTypeAssignment_15_1_1_1 = (Assignment)cAlternatives_15_1_1.eContents().get(1);
+		private final RuleCall cExtTypeKW_M128DTerminalRuleCall_15_1_1_1_0 = (RuleCall)cExtTypeAssignment_15_1_1_1.eContents().get(0);
+		private final Assignment cExtTypeAssignment_15_1_1_2 = (Assignment)cAlternatives_15_1_1.eContents().get(2);
+		private final RuleCall cExtTypeKW_M128ITerminalRuleCall_15_1_1_2_0 = (RuleCall)cExtTypeAssignment_15_1_1_2.eContents().get(0);
+		private final RuleCall cSKW_RIGHTPARENTerminalRuleCall_15_1_2 = (RuleCall)cGroup_15_1.eContents().get(2);
+		private final Assignment cSpecifierAssignment_16 = (Assignment)cAlternatives.eContents().get(16);
+		private final RuleCall cSpecifierEnumSpecifierParserRuleCall_16_0 = (RuleCall)cSpecifierAssignment_16.eContents().get(0);
+		private final Assignment cTypeAssignment_17 = (Assignment)cAlternatives.eContents().get(17);
+		private final RuleCall cTypeTypedefNameParserRuleCall_17_0 = (RuleCall)cTypeAssignment_17.eContents().get(0);
+		private final Assignment cStructAssignment_18 = (Assignment)cAlternatives.eContents().get(18);
+		private final RuleCall cStructStructOrUnionNameParserRuleCall_18_0 = (RuleCall)cStructAssignment_18.eContents().get(0);
 		
 		//TypeSpecifier:
 		//	{TypeSpecifier} name=KW_VOID
@@ -588,7 +601,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//	| name=KW_M128
 		//	| name=KW_M128D
 		//	| name=KW_M128I
-		//	// |	'__extension__' LEFTPAREN (KW_M128 | KW_M128D | KW_M128I) RIGHTPAREN
+		//	| name=KW_EXTENSION (SKW_LEFTPAREN (extType=KW_M128 | extType=KW_M128D | extType=KW_M128I) SKW_RIGHTPAREN)?
 		//	//  |	specifier=atomicTypeSpecifier
 		//	//|	specifier=StructOrUnionSpecifier
 		//	| specifier=EnumSpecifier
@@ -600,8 +613,8 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//{TypeSpecifier} name=KW_VOID | name=KW_CHAR | name=KW_SHORT | name=KW_INT | name=KW_LONG | name=KW_FLOAT |
 		//name=KW_DOUBLE | name=KW_SIGNED | name=KW_UNSIGNED | name=KW_BOOL | name=KW_COMPLEX | name=KW_BUILTIN_VA_LIST |
-		//name=KW_M128 | name=KW_M128D | name=KW_M128I // |	'__extension__' LEFTPAREN (KW_M128 | KW_M128D | KW_M128I) RIGHTPAREN
-		////  |	specifier=atomicTypeSpecifier
+		//name=KW_M128 | name=KW_M128D | name=KW_M128I | name=KW_EXTENSION (SKW_LEFTPAREN (extType=KW_M128 | extType=KW_M128D |
+		//extType=KW_M128I) SKW_RIGHTPAREN)? //  |	specifier=atomicTypeSpecifier
 		////|	specifier=StructOrUnionSpecifier
 		//| specifier=EnumSpecifier | type=TypedefName | struct=StructOrUnionName
 		public Alternatives getAlternatives() { return cAlternatives; }
@@ -702,23 +715,62 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//KW_M128I
 		public RuleCall getNameKW_M128ITerminalRuleCall_14_0() { return cNameKW_M128ITerminalRuleCall_14_0; }
 		
+		//name=KW_EXTENSION (SKW_LEFTPAREN (extType=KW_M128 | extType=KW_M128D | extType=KW_M128I) SKW_RIGHTPAREN)?
+		public Group getGroup_15() { return cGroup_15; }
+		
+		//name=KW_EXTENSION
+		public Assignment getNameAssignment_15_0() { return cNameAssignment_15_0; }
+		
+		//KW_EXTENSION
+		public RuleCall getNameKW_EXTENSIONTerminalRuleCall_15_0_0() { return cNameKW_EXTENSIONTerminalRuleCall_15_0_0; }
+		
+		//(SKW_LEFTPAREN (extType=KW_M128 | extType=KW_M128D | extType=KW_M128I) SKW_RIGHTPAREN)?
+		public Group getGroup_15_1() { return cGroup_15_1; }
+		
+		//SKW_LEFTPAREN
+		public RuleCall getSKW_LEFTPARENTerminalRuleCall_15_1_0() { return cSKW_LEFTPARENTerminalRuleCall_15_1_0; }
+		
+		//(extType=KW_M128 | extType=KW_M128D | extType=KW_M128I)
+		public Alternatives getAlternatives_15_1_1() { return cAlternatives_15_1_1; }
+		
+		//extType=KW_M128
+		public Assignment getExtTypeAssignment_15_1_1_0() { return cExtTypeAssignment_15_1_1_0; }
+		
+		//KW_M128
+		public RuleCall getExtTypeKW_M128TerminalRuleCall_15_1_1_0_0() { return cExtTypeKW_M128TerminalRuleCall_15_1_1_0_0; }
+		
+		//extType=KW_M128D
+		public Assignment getExtTypeAssignment_15_1_1_1() { return cExtTypeAssignment_15_1_1_1; }
+		
+		//KW_M128D
+		public RuleCall getExtTypeKW_M128DTerminalRuleCall_15_1_1_1_0() { return cExtTypeKW_M128DTerminalRuleCall_15_1_1_1_0; }
+		
+		//extType=KW_M128I
+		public Assignment getExtTypeAssignment_15_1_1_2() { return cExtTypeAssignment_15_1_1_2; }
+		
+		//KW_M128I
+		public RuleCall getExtTypeKW_M128ITerminalRuleCall_15_1_1_2_0() { return cExtTypeKW_M128ITerminalRuleCall_15_1_1_2_0; }
+		
+		//SKW_RIGHTPAREN
+		public RuleCall getSKW_RIGHTPARENTerminalRuleCall_15_1_2() { return cSKW_RIGHTPARENTerminalRuleCall_15_1_2; }
+		
 		//specifier=EnumSpecifier
-		public Assignment getSpecifierAssignment_15() { return cSpecifierAssignment_15; }
+		public Assignment getSpecifierAssignment_16() { return cSpecifierAssignment_16; }
 		
 		//EnumSpecifier
-		public RuleCall getSpecifierEnumSpecifierParserRuleCall_15_0() { return cSpecifierEnumSpecifierParserRuleCall_15_0; }
+		public RuleCall getSpecifierEnumSpecifierParserRuleCall_16_0() { return cSpecifierEnumSpecifierParserRuleCall_16_0; }
 		
 		//type=TypedefName
-		public Assignment getTypeAssignment_16() { return cTypeAssignment_16; }
+		public Assignment getTypeAssignment_17() { return cTypeAssignment_17; }
 		
 		//TypedefName
-		public RuleCall getTypeTypedefNameParserRuleCall_16_0() { return cTypeTypedefNameParserRuleCall_16_0; }
+		public RuleCall getTypeTypedefNameParserRuleCall_17_0() { return cTypeTypedefNameParserRuleCall_17_0; }
 		
 		//struct=StructOrUnionName
-		public Assignment getStructAssignment_17() { return cStructAssignment_17; }
+		public Assignment getStructAssignment_18() { return cStructAssignment_18; }
 		
 		//StructOrUnionName
-		public RuleCall getStructStructOrUnionNameParserRuleCall_17_0() { return cStructStructOrUnionNameParserRuleCall_17_0; }
+		public RuleCall getStructStructOrUnionNameParserRuleCall_18_0() { return cStructStructOrUnionNameParserRuleCall_18_0; }
 	}
 	public class TypedefNameElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.TypedefName");
@@ -4827,6 +4879,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tKW_DO;
 	private final TerminalRule tKW_DOUBLE;
 	private final TerminalRule tKW_ELSE;
+	private final TerminalRule tKW_EXTENSION;
 	private final TerminalRule tKW_ENUM;
 	private final TerminalRule tKW_EXTERN;
 	private final TerminalRule tKW_FLOAT;
@@ -4992,6 +5045,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		this.tKW_DO = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_DO");
 		this.tKW_DOUBLE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_DOUBLE");
 		this.tKW_ELSE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_ELSE");
+		this.tKW_EXTENSION = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_EXTENSION");
 		this.tKW_ENUM = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_ENUM");
 		this.tKW_EXTERN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_EXTERN");
 		this.tKW_FLOAT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_FLOAT");
@@ -5230,7 +5284,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//	| name=KW_M128
 	//	| name=KW_M128D
 	//	| name=KW_M128I
-	//	// |	'__extension__' LEFTPAREN (KW_M128 | KW_M128D | KW_M128I) RIGHTPAREN
+	//	| name=KW_EXTENSION (SKW_LEFTPAREN (extType=KW_M128 | extType=KW_M128D | extType=KW_M128I) SKW_RIGHTPAREN)?
 	//	//  |	specifier=atomicTypeSpecifier
 	//	//|	specifier=StructOrUnionSpecifier
 	//	| specifier=EnumSpecifier
@@ -6260,6 +6314,12 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//	'else';
 	public TerminalRule getKW_ELSERule() {
 		return tKW_ELSE;
+	}
+	
+	//terminal KW_EXTENSION:
+	//	SKW_UNDERSCORE SKW_UNDERSCORE 'extension' SKW_UNDERSCORE SKW_UNDERSCORE;
+	public TerminalRule getKW_EXTENSIONRule() {
+		return tKW_EXTENSION;
 	}
 	
 	//terminal KW_ENUM:

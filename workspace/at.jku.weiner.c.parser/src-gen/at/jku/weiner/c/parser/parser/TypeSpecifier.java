@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.TypeSpecifier#getName <em>Name</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.TypeSpecifier#getExtType <em>Ext Type</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.TypeSpecifier#getSpecifier <em>Specifier</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.TypeSpecifier#getType <em>Type</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.TypeSpecifier#getStruct <em>Struct</em>}</li>
@@ -50,6 +51,32 @@ public interface TypeSpecifier extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Ext Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Ext Type</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Ext Type</em>' attribute.
+   * @see #setExtType(String)
+   * @see at.jku.weiner.c.parser.parser.ParserPackage#getTypeSpecifier_ExtType()
+   * @model
+   * @generated
+   */
+  String getExtType();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.TypeSpecifier#getExtType <em>Ext Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Ext Type</em>' attribute.
+   * @see #getExtType()
+   * @generated
+   */
+  void setExtType(String value);
 
   /**
    * Returns the value of the '<em><b>Specifier</b></em>' containment reference.

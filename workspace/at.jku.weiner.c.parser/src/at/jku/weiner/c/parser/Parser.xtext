@@ -182,8 +182,10 @@ TypeSpecifier:
 	|	name=KW_M128D
 	|	name=KW_M128I
 	
-	// |	'__extension__' LEFTPAREN (KW_M128 | KW_M128D | KW_M128I) RIGHTPAREN
-  //  |	specifier=atomicTypeSpecifier
+	|	name=KW_EXTENSION (SKW_LEFTPAREN 
+			(extType=KW_M128 | extType=KW_M128D | extType=KW_M128I) 
+			SKW_RIGHTPAREN)?
+	//  |	specifier=atomicTypeSpecifier
 	//|	specifier=StructOrUnionSpecifier
 	|	specifier=EnumSpecifier
 	|	type=TypedefName
@@ -883,6 +885,7 @@ terminal KW_DEFAULT : 'default';
 terminal KW_DO : 'do';
 terminal KW_DOUBLE : 'double';
 terminal KW_ELSE : 'else';
+terminal KW_EXTENSION: SKW_UNDERSCORE SKW_UNDERSCORE 'extension' SKW_UNDERSCORE SKW_UNDERSCORE;
 terminal KW_ENUM : 'enum';
 terminal KW_EXTERN : 'extern';
 terminal KW_FLOAT : 'float';

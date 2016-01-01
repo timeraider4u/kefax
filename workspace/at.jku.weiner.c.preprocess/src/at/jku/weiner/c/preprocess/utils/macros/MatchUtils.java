@@ -4,7 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 class MatchUtils {
-
+	
 	public static boolean matches(final String code, final Pattern pattern) {
 		final Matcher matcher = pattern.matcher(code);
 		if (!matcher.find()) {
@@ -25,42 +25,42 @@ class MatchUtils {
 		}
 		return false;
 	}
-
+	
 	protected static MatchState calculateNextState(final char c,
 			MatchState state) {
 		switch (state) {
-		case Normal:
-			if (c == '"') {
+			case Normal:
+				if (c == '"') {
+					state = MatchState.InString;
+				} else if (c == '\'') {
+					state = MatchState.InChar;
+				}
+				break;
+			case InString:
+				if (c == '\\') {
+					state = MatchState.BackslashInString;
+				} else if (c == '"') {
+					state = MatchState.Normal;
+				}
+				break;
+			
+			case InChar:
+				if (c == '\\') {
+					state = MatchState.BackslashInChar;
+				} else if (c == '\'') {
+					state = MatchState.Normal;
+				}
+				break;
+			case BackslashInString:
 				state = MatchState.InString;
-			} else if (c == '\'') {
+				break;
+			case BackslashInChar:
 				state = MatchState.InChar;
-			}
-			break;
-		case InString:
-			if (c == '\\') {
-				state = MatchState.BackslashInString;
-			} else if (c == '"') {
-				state = MatchState.Normal;
-			}
-			break;
-
-		case InChar:
-			if (c == '\\') {
-				state = MatchState.BackslashInChar;
-			} else if (c == '\'') {
-				state = MatchState.Normal;
-			}
-			break;
-		case BackslashInString:
-			state = MatchState.InString;
-			break;
-		case BackslashInChar:
-			state = MatchState.InChar;
-			break;
-		default:
-			return state;
+				break;
+			default:
+				return state;
 		}
 		return state;
 	}
-
+	
 }

@@ -331,8 +331,8 @@ class PreprocessGenerator implements IGenerator {
 	
 	def String outputFor(ConditionalDirective condDirective, IfConditional obj) {
 		val ConstantExpression expr = obj.expression as ConstantExpression;
+		val String string = ExpressionEvaluation.evaluateFor(expr);
 		if (ExpressionEvaluation.evaluateFor(expr, commonInjector)) {
-			val String string = ExpressionEvaluation.evaluateFor(expr);
 			path.add("if " + string + "/");
 			condDirective.branchTaken = obj;
 			obj.branchTaken = true;

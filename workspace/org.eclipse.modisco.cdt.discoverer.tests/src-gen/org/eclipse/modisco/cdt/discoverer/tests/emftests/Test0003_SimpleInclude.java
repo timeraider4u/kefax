@@ -81,7 +81,6 @@ import at.jku.weiner.c.parser.parser.UnaryExpression;
 import at.jku.weiner.c.parser.parser.PostfixExpression;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
 import at.jku.weiner.c.parser.parser.PostfixExpressionSuffixArgument;
-import at.jku.weiner.c.parser.parser.ArgumentExpressionList;
 import at.jku.weiner.c.common.common.TranslationUnit;
 import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
@@ -570,64 +569,60 @@ public class Test0003_SimpleInclude {
 		 = (PostfixExpressionSuffixArgument)Suffix_56_list.get(0);
 		Assert.assertNotNull(PostfixExpressionSuffixArgument_57_Var
 		);
-		//57
-		final ArgumentExpressionList ArgumentExpressionList_58_Var
-		 = (ArgumentExpressionList)PostfixExpressionSuffixArgument_57_Var
-		.getArgumentExpressionList();
-		Assert.assertNotNull(ArgumentExpressionList_58_Var
-		);
+		Assert.assertNull(PostfixExpressionSuffixArgument_57_Var
+		.getArgumentExpressionList());
 		Assert.assertEquals("return", JumpStatement_39_Var
 		.getReturn());
 		Assert.assertEquals(";", JumpStatement_39_Var
 		.getSemi());
 		Assert.assertEquals("" + options.get("path") + "/" + options.get("plugin_id") + "/" + options.get("sourceFile") + "/SimpleInclude.c", TranslationUnit_1_Var
 		.getPath());
-		//58
-		final TranslationUnit TranslationUnit_59_Var
+		//57
+		final TranslationUnit TranslationUnit_58_Var
 		 = (TranslationUnit)Units_0_list.get(1);
-		Assert.assertNotNull(TranslationUnit_59_Var
+		Assert.assertNotNull(TranslationUnit_58_Var
 		);
-		Assert.assertEquals("" + options.get("path") + "/" + options.get("plugin_id") + "/res/include/SimpleInclude.h", TranslationUnit_59_Var
+		Assert.assertEquals("" + options.get("path") + "/" + options.get("plugin_id") + "/res/include/SimpleInclude.h", TranslationUnit_58_Var
 		.getPath());
-		//59
-		final Preprocess Preprocess_60_Var
-		 = (Preprocess)TranslationUnit_59_Var
+		//58
+		final Preprocess Preprocess_59_Var
+		 = (Preprocess)TranslationUnit_58_Var
 		.getPreprocess();
-		Assert.assertNotNull(Preprocess_60_Var
+		Assert.assertNotNull(Preprocess_59_Var
 		);
-		//60
-		final GroupOpt GroupOpt_61_Var
-		 = (GroupOpt)Preprocess_60_Var
+		//59
+		final GroupOpt GroupOpt_60_Var
+		 = (GroupOpt)Preprocess_59_Var
 		.getGroup();
-		Assert.assertNotNull(GroupOpt_61_Var
+		Assert.assertNotNull(GroupOpt_60_Var
 		);
-		final EList<? extends EObject> Lines_61_list = GroupOpt_61_Var
+		final EList<? extends EObject> Lines_60_list = GroupOpt_60_Var
 		.getLines();
-		Assert.assertNotNull(Lines_61_list);
-		Assert.assertEquals(2, Lines_61_list.size());
+		Assert.assertNotNull(Lines_60_list);
+		Assert.assertEquals(2, Lines_60_list.size());
+		//60
+		final PreprocessorDirectives PreprocessorDirectives_61_Var
+		 = (PreprocessorDirectives)Lines_60_list.get(0);
+		Assert.assertNotNull(PreprocessorDirectives_61_Var
+		);
 		//61
-		final PreprocessorDirectives PreprocessorDirectives_62_Var
-		 = (PreprocessorDirectives)Lines_61_list.get(0);
-		Assert.assertNotNull(PreprocessorDirectives_62_Var
-		);
-		//62
-		final DefineDirective DefineDirective_63_Var
-		 = (DefineDirective)PreprocessorDirectives_62_Var
+		final DefineDirective DefineDirective_62_Var
+		 = (DefineDirective)PreprocessorDirectives_61_Var
 		.getDirective();
-		Assert.assertNotNull(DefineDirective_63_Var
+		Assert.assertNotNull(DefineDirective_62_Var
 		);
-		Assert.assertEquals("NUMBER", DefineDirective_63_Var
+		Assert.assertEquals("NUMBER", DefineDirective_62_Var
 		.getId());
-		Assert.assertEquals("int", DefineDirective_63_Var
+		Assert.assertEquals("int", DefineDirective_62_Var
 		.getString());
-		//63
-		final Code Code_64_Var
-		 = (Code)Lines_61_list.get(1);
-		Assert.assertNotNull(Code_64_Var
+		//62
+		final Code Code_63_Var
+		 = (Code)Lines_60_list.get(1);
+		Assert.assertNotNull(Code_63_Var
 		);
-		Assert.assertEquals("extern NUMBER getValue();", Code_64_Var
+		Assert.assertEquals("extern NUMBER getValue();", Code_63_Var
 		.getCode());
-		Assert.assertNull(TranslationUnit_59_Var
+		Assert.assertNull(TranslationUnit_58_Var
 		.getParser());
 	}
 	

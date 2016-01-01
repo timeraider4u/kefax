@@ -164,10 +164,7 @@ source file="res/Test0003_SimpleInclude"
 																									),
 																									suffix+=
 																									(parser::PostfixExpressionSuffixArgument
-																										argumentExpressionList=
-																										(parser::ArgumentExpressionList
-																											
-																										)
+																										argumentExpressionList isNull
 																									)
 																								)
 																							)
@@ -176,7 +173,6 @@ source file="res/Test0003_SimpleInclude"
 																				)
 																			)
 																		)
-																		
 																	)
 																)
 															)

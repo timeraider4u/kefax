@@ -24,13 +24,13 @@ import at.jku.weiner.c.preprocess.utils.macros.PredefinedMacros;
 import com.google.inject.Injector;
 
 public class XtextUtils {
-
+	
 	private final MyStore store;
-
+	
 	private final Injector commonInjector;
 	private final XtextPreprocessor preprocessor;
 	private final XtextParser parser;
-
+	
 	public XtextUtils(final MyStore store) {
 		this.store = store;
 		this.commonInjector = this.setupCommon();
@@ -38,14 +38,14 @@ public class XtextUtils {
 		this.parser = new XtextParser(store);
 		this.setUpPredefinedMacros();
 	}
-
+	
 	private Injector setupCommon() {
 		final CommonActivator activator = CommonActivator.getInstance();
 		final Injector result = activator
 				.getInjector(CommonActivator.AT_JKU_WEINER_C_COMMON_COMMON);
 		return result;
 	}
-
+	
 	private void setUpPredefinedMacros() {
 		final URI uri = PredefinedMacros.getPredefinedURI(false);
 		final Preprocess preprocess = PredefinedMacros
@@ -57,7 +57,7 @@ public class XtextUtils {
 		predefined.setPath(path);
 		this.store.getModel().getUnits().add(predefined);
 	}
-
+	
 	public final void readFromXtextFile(final File file, final IFile iFile)
 			throws IOException, DiscoveryException {
 		// initialize ...
@@ -92,7 +92,7 @@ public class XtextUtils {
 			throw new DiscoveryException(ex);
 		}
 	}
-
+	
 	private final String getFilenameForIntermediate(final URI uri) {
 		final String fileExt = uri.fileExtension();
 		final String lastSegment = uri.lastSegment();
@@ -100,16 +100,16 @@ public class XtextUtils {
 		final String fileNameOnly = lastSegment.substring(0, index) + ".i";
 		return fileNameOnly;
 	}
-
+	
 	private final String generateIntermediateFile(final IFile iFile,
 			final String fileNameOnly, final TranslationUnit unit)
-					throws DiscoveryException {
+			throws DiscoveryException {
 		// configure and start the generator
 		final URI whole = URI.createURI(iFile.getLocationURI().toString());
 		final URI uri = whole.trimSegments(1);
 		final String path = uri.path();
 		final String wholeStr = path + File.separator + fileNameOnly;
-
+		
 		this.setUpIncludeDirs();
 		final PreprocessGenerator preprocessGenerator = this.preprocessor
 				.getGenerator();
@@ -125,7 +125,7 @@ public class XtextUtils {
 		this.preprocessor.generate(iFile, fileNameOnly);
 		return wholeStr;
 	}
-	
+
 	private void setUpIncludeDirs() {
 		IncludeDirs.clearAllIncludeDirectories();
 		final String includeDirs = this.store.getIncludeDirs();
@@ -135,9 +135,9 @@ public class XtextUtils {
 		}
 		final String[] dirs = includeDirs.split(File.pathSeparator);
 		for (final String dir : dirs) {
-			System.out.println("addIncludeDirectoryToList='" + dir + "'");
+			// System.out.println("addIncludeDirectoryToList='" + dir + "'");
 			IncludeDirs.addIncludeDirectoryToList(dir);
 		}
 	}
-
+	
 }

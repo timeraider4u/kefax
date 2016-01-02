@@ -5,12 +5,13 @@ language preprocess
 imports at.jku.weiner.c.common.common
 //----------------------------------------------------------------------
 split-lexer=false
-source file="res/Test0086_AdditionalDef.c"
+source file="res/Test0087_Stringification.c"
 //----------------------------------------------------------------------
 lexer-tokens
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WHITESPACE HASH ID NEWLINE
 	ID WHITESPACE SKW_STAR WHITESPACE  ID WHITESPACE 
-		SKW_ASSIGN WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_SEMI NEWLINE
-	ID NEWLINE
+		SKW_ASSIGN WHITESPACE ID SKW_LEFTPAREN ID WHITESPACE ID SKW_NOT SKW_RIGHTPAREN SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
 //(common::Model
 	//units+=
@@ -19,20 +20,38 @@ lexer-tokens
 		group=
 		(GroupOpt
 			lines+=
-			(Code
-				code++"char * c = STR(Hello_world);"
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"STR",
+					list=
+					(IdentifierList
+						id+*"[x]"
+					),
+					string++"FOO(x)"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"FOO",
+					list=
+					(IdentifierList
+						id+*"[x]"
+					),
+					string++"#x"
+				)
 			),
 			(Code
-				code++"DO_SOMETHING"
+				code++"char * c = STR(Hello world!);"
 			)
 		)
 	)
 //)
 //)
 //----------------------------------------------------------------------
-output file="bin/Test0086_AdditionalDef.c.i"
-expected file="expected/Test0086_AdditionalDef.c"
+output file="bin/Test0087_Stringification.c.i"
+expected file="expected/Test0087_Stringification.c"
 //replacePatterns file="res/Patterns.txt"
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------
-before class=at.jku.weiner.c.preprocess.xtexttests.TestUtils method=setUpTest0086(generator)

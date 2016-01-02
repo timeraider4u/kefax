@@ -1,2 +1,2 @@
-char * c = "Hello world!";
+char * c = "Hello_world";
 void doSomething();

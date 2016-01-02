@@ -120,10 +120,12 @@ class PreprocessGenerator implements IGenerator {
 		if (this.additionalDefines == null || additionalDefines.isEmpty()) {
 			return;
 		}
-		val Resource resource = resourceSet.createResource(URI.createURI("dummy:/example.mydsl"));
+		val Resource resource = resourceSet.createResource(URI.createURI("dummy:/additionalDefines.c"));
+		// System.out.println("Resource='" + resource + "'");
 		val InputStream in = new ByteArrayInputStream(additionalDefines.getBytes());
 		resource.load(in, resourceSet.getLoadOptions());
 		val Preprocess preprocess = resource.getContents().get(0) as Preprocess;
+		path.add("/additionalDefines/");
 		outputFor(preprocess);
 	}
 	

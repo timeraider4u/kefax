@@ -1,2 +1,2 @@
-char * c = STR(HELLO_WORLD);
+char * c = STR(Hello_world);
 DO_SOMETHING

@@ -45,12 +45,17 @@ import at.jku.weiner.c.preprocess.xtexttests.LexerAndParserTest;
 
 import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
-import at.jku.weiner.c.preprocess.preprocess.Code;
+import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
+import at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro;
+import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
+import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
+import at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro;
+import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(PreprocessInjectorProvider.class)
-public class Test0086_AdditionalDef {
+public class Test0087_Stringification {
 	@Inject
 	private ParseHelper<Preprocess> parseHelper;
 	@Inject
@@ -80,7 +85,6 @@ public class Test0086_AdditionalDef {
 			parser, tokenDefProvider);
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("c",
 						this.resourceFactory);
-		at.jku.weiner.c.preprocess.xtexttests.TestUtils.setUpTest0086(generator);
 	}
 	
 	@After
@@ -97,9 +101,33 @@ public class Test0086_AdditionalDef {
 	@Test (timeout=1000)
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
-			"res/Test0086_AdditionalDef.c");
+			"res/Test0087_Stringification.c");
 			//System.out.println(text);
 			final String[] expected = new String[] {
+				"RULE_HASH", 
+				"RULE_DEFINE", 
+				"RULE_WHITESPACE", 
+				"RULE_ID", 
+				"RULE_SKW_LEFTPAREN", 
+				"RULE_ID", 
+				"RULE_SKW_RIGHTPAREN", 
+				"RULE_WHITESPACE", 
+				"RULE_ID", 
+				"RULE_SKW_LEFTPAREN", 
+				"RULE_ID", 
+				"RULE_SKW_RIGHTPAREN", 
+				"RULE_NEWLINE", 
+				"RULE_HASH", 
+				"RULE_DEFINE", 
+				"RULE_WHITESPACE", 
+				"RULE_ID", 
+				"RULE_SKW_LEFTPAREN", 
+				"RULE_ID", 
+				"RULE_SKW_RIGHTPAREN", 
+				"RULE_WHITESPACE", 
+				"RULE_HASH", 
+				"RULE_ID", 
+				"RULE_NEWLINE", 
 				"RULE_ID", 
 				"RULE_WHITESPACE", 
 				"RULE_SKW_STAR", 
@@ -111,10 +139,11 @@ public class Test0086_AdditionalDef {
 				"RULE_ID", 
 				"RULE_SKW_LEFTPAREN", 
 				"RULE_ID", 
+				"RULE_WHITESPACE", 
+				"RULE_ID", 
+				"RULE_SKW_NOT", 
 				"RULE_SKW_RIGHTPAREN", 
 				"RULE_SKW_SEMI", 
-				"RULE_NEWLINE", 
-				"RULE_ID", 
 				"RULE_NEWLINE", 
 				};
 			//final List<Token> actual = testHelper.getTokens(text);
@@ -125,7 +154,7 @@ public class Test0086_AdditionalDef {
 	@Test (timeout=1000)
 	public void checkParserResult() throws Exception {
 		final String text = this.getTextFromFile(
-			"res/Test0086_AdditionalDef.c");
+			"res/Test0087_Stringification.c");
 		final Preprocess Preprocess_0_Var
 		  = 
 			this.parseHelper.parse(text);
@@ -143,20 +172,59 @@ public class Test0086_AdditionalDef {
 		final EList<? extends EObject> Lines_1_list = GroupOpt_1_Var
 		.getLines();
 		Assert.assertNotNull(Lines_1_list);
-		Assert.assertEquals(2, Lines_1_list.size());
+		Assert.assertEquals(3, Lines_1_list.size());
 		//1
-		final Code Code_2_Var
-		 = (Code)Lines_1_list.get(0);
-		Assert.assertNotNull(Code_2_Var
+		final PreprocessorDirectives PreprocessorDirectives_2_Var
+		 = (PreprocessorDirectives)Lines_1_list.get(0);
+		Assert.assertNotNull(PreprocessorDirectives_2_Var
 		);
-		Assert.assertEquals("char * c = STR(Hello_world);", Code_2_Var
-		.getCode());
 		//2
-		final Code Code_3_Var
-		 = (Code)Lines_1_list.get(1);
-		Assert.assertNotNull(Code_3_Var
+		final DefineFunctionLikeMacro DefineFunctionLikeMacro_3_Var
+		 = (DefineFunctionLikeMacro)PreprocessorDirectives_2_Var
+		.getDirective();
+		Assert.assertNotNull(DefineFunctionLikeMacro_3_Var
 		);
-		Assert.assertEquals("DO_SOMETHING", Code_3_Var
+		Assert.assertEquals("STR", DefineFunctionLikeMacro_3_Var
+		.getId());
+		//3
+		final IdentifierList IdentifierList_4_Var
+		 = (IdentifierList)DefineFunctionLikeMacro_3_Var
+		.getList();
+		Assert.assertNotNull(IdentifierList_4_Var
+		);
+		Assert.assertEquals("[x]", IdentifierList_4_Var
+		.getId().toString());
+		Assert.assertEquals("FOO(x)", DefineFunctionLikeMacro_3_Var
+		.getString());
+		//4
+		final PreprocessorDirectives PreprocessorDirectives_5_Var
+		 = (PreprocessorDirectives)Lines_1_list.get(1);
+		Assert.assertNotNull(PreprocessorDirectives_5_Var
+		);
+		//5
+		final DefineFunctionLikeMacro DefineFunctionLikeMacro_6_Var
+		 = (DefineFunctionLikeMacro)PreprocessorDirectives_5_Var
+		.getDirective();
+		Assert.assertNotNull(DefineFunctionLikeMacro_6_Var
+		);
+		Assert.assertEquals("FOO", DefineFunctionLikeMacro_6_Var
+		.getId());
+		//6
+		final IdentifierList IdentifierList_7_Var
+		 = (IdentifierList)DefineFunctionLikeMacro_6_Var
+		.getList();
+		Assert.assertNotNull(IdentifierList_7_Var
+		);
+		Assert.assertEquals("[x]", IdentifierList_7_Var
+		.getId().toString());
+		Assert.assertEquals("#x", DefineFunctionLikeMacro_6_Var
+		.getString());
+		//7
+		final Code Code_8_Var
+		 = (Code)Lines_1_list.get(2);
+		Assert.assertNotNull(Code_8_Var
+		);
+		Assert.assertEquals("char * c = STR(Hello world!);", Code_8_Var
 		.getCode());
 	}
 	
@@ -167,7 +235,7 @@ public class Test0086_AdditionalDef {
 		// load the resource
 		ResourceSet set = this.resourceSetProvider.get();
 		URI uri = URI.createURI(
-			"res/Test0086_AdditionalDef.c");
+			"res/Test0087_Stringification.c");
 		Resource resource = set.getResource(uri, true);
 		// validate the resource
 		List<Issue> list = this.validator.validate(resource, 
@@ -181,7 +249,7 @@ public class Test0086_AdditionalDef {
 			final Method method = clazz.getMethod("setFileName",
 					String.class);
 			if (method != null) {
-				method.invoke(this.generator, "Test0086_AdditionalDef.c.i");
+				method.invoke(this.generator, "Test0087_Stringification.c.i");
 			}
 		} catch (NoSuchMethodException | SecurityException
 			| IllegalAccessException | IllegalArgumentException
@@ -190,9 +258,9 @@ public class Test0086_AdditionalDef {
 			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
-		final String actual = this.getTextFromFile("bin/Test0086_AdditionalDef.c.i");
+		final String actual = this.getTextFromFile("bin/Test0087_Stringification.c.i");
 		final String expected = this.getTextFromFile(
-			"expected/Test0086_AdditionalDef.c"
+			"expected/Test0087_Stringification.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
 		// System.out.println("Code generation finished.");

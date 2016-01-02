@@ -173,6 +173,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		if (!temp.contains("#")) {
 			return temp;
 		}
+		// System.out.println("temp='" + temp + "'");
 		final Pattern strPattern = Pattern.compile("#[\\s]*([\\w\\\"\\\\]*)");
 		final Matcher strMatcher = strPattern.matcher(temp);
 		final Pattern conPattern = Pattern.compile("[\\s]*##[\\s]*");

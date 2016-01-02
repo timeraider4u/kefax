@@ -1,0 +1,34 @@
+emftest
+package org.eclipse.modisco.cdt.discoverer.tests
+default at.jku.weiner.c.common.common
+imports at.jku.weiner.c.preprocess.preprocess as preprocess
+imports at.jku.weiner.c.parser.parser as parser
+
+class=EMFTest method=emfTest
+options class=EMFTest method=getOptions 
+
+source file="res/Test0005_Empty/Empty.c"
+
+// only include Empty.c but not Empty.h
+
+(Model
+	units+=
+	(TranslationUnit
+		path++"platform:/plugin/at.jku.weiner.c.preprocess/res/predefined/gcc_4.8.4.h",
+		preprocess=
+		(preprocess::Preprocess
+			
+		)
+	),
+	(TranslationUnit
+		preprocess=
+		(preprocess::Preprocess
+			
+		),
+		parser=
+		(parser::Parser
+			
+		),
+		path++"${{path}}/${{plugin_id}}/res/Test0005_Empty/Empty.c"
+	)
+)

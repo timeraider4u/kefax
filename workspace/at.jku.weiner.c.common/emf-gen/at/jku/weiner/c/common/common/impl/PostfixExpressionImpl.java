@@ -98,8 +98,7 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
 	{
 		Expression oldExpr = expr;
 		expr = newExpr;
-		if (eNotificationRequired())
-		{
+		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CommonPackage.POSTFIX_EXPRESSION__EXPR, oldExpr, newExpr);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -113,8 +112,7 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
 	 */
 	public void setExpr(Expression newExpr)
 	{
-		if (newExpr != expr)
-		{
+		if (newExpr != expr) {
 			NotificationChain msgs = null;
 			if (expr != null)
 				msgs = ((InternalEObject)expr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CommonPackage.POSTFIX_EXPRESSION__EXPR, null, msgs);
@@ -134,8 +132,7 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
 	 */
 	public EList<PostfixExpressionSuffix> getSuffix()
 	{
-		if (suffix == null)
-		{
+		if (suffix == null) {
 			suffix = new EObjectContainmentEList<PostfixExpressionSuffix>(PostfixExpressionSuffix.class, this, CommonPackage.POSTFIX_EXPRESSION__SUFFIX);
 		}
 		return suffix;
@@ -149,8 +146,7 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.POSTFIX_EXPRESSION__EXPR:
 				return basicSetExpr(null, msgs);
 			case CommonPackage.POSTFIX_EXPRESSION__SUFFIX:
@@ -167,8 +163,7 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.POSTFIX_EXPRESSION__EXPR:
 				return getExpr();
 			case CommonPackage.POSTFIX_EXPRESSION__SUFFIX:
@@ -186,8 +181,7 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.POSTFIX_EXPRESSION__EXPR:
 				setExpr((Expression)newValue);
 				return;
@@ -207,8 +201,7 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.POSTFIX_EXPRESSION__EXPR:
 				setExpr((Expression)null);
 				return;
@@ -227,8 +220,7 @@ public class PostfixExpressionImpl extends ExpressionImpl implements PostfixExpr
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.POSTFIX_EXPRESSION__EXPR:
 				return expr != null;
 			case CommonPackage.POSTFIX_EXPRESSION__SUFFIX:

@@ -122,13 +122,22 @@ public interface CommonPackage extends EPackage
 	int TRANSLATION_UNIT__PATH = 2;
 
 	/**
+	 * The feature id for the '<em><b>Additional Preprocessing Directives</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSLATION_UNIT__ADDITIONAL_PREPROCESSING_DIRECTIVES = 3;
+
+	/**
 	 * The number of structural features of the '<em>Translation Unit</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSLATION_UNIT_FEATURE_COUNT = 3;
+	int TRANSLATION_UNIT_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link at.jku.weiner.c.common.common.impl.PreprocessImpl <em>Preprocess</em>}' class.
@@ -1138,6 +1147,17 @@ public interface CommonPackage extends EPackage
 	EAttribute getTranslationUnit_Path();
 
 	/**
+	 * Returns the meta object for the reference '{@link at.jku.weiner.c.common.common.TranslationUnit#getAdditionalPreprocessingDirectives <em>Additional Preprocessing Directives</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Additional Preprocessing Directives</em>'.
+	 * @see at.jku.weiner.c.common.common.TranslationUnit#getAdditionalPreprocessingDirectives()
+	 * @see #getTranslationUnit()
+	 * @generated
+	 */
+	EReference getTranslationUnit_AdditionalPreprocessingDirectives();
+
+	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.common.common.Preprocess <em>Preprocess</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1869,6 +1889,14 @@ public interface CommonPackage extends EPackage
 		 * @generated
 		 */
 		EAttribute TRANSLATION_UNIT__PATH = eINSTANCE.getTranslationUnit_Path();
+
+		/**
+		 * The meta object literal for the '<em><b>Additional Preprocessing Directives</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TRANSLATION_UNIT__ADDITIONAL_PREPROCESSING_DIRECTIVES = eINSTANCE.getTranslationUnit_AdditionalPreprocessingDirectives();
 
 		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.common.common.impl.PreprocessImpl <em>Preprocess</em>}' class.

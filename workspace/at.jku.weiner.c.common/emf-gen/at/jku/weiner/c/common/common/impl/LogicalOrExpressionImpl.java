@@ -71,8 +71,7 @@ public class LogicalOrExpressionImpl extends ExpressionImpl implements LogicalOr
 	 */
 	public EList<Expression> getExpr()
 	{
-		if (expr == null)
-		{
+		if (expr == null) {
 			expr = new EObjectContainmentEList<Expression>(Expression.class, this, CommonPackage.LOGICAL_OR_EXPRESSION__EXPR);
 		}
 		return expr;
@@ -86,8 +85,7 @@ public class LogicalOrExpressionImpl extends ExpressionImpl implements LogicalOr
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.LOGICAL_OR_EXPRESSION__EXPR:
 				return ((InternalEList<?>)getExpr()).basicRemove(otherEnd, msgs);
 		}
@@ -102,8 +100,7 @@ public class LogicalOrExpressionImpl extends ExpressionImpl implements LogicalOr
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.LOGICAL_OR_EXPRESSION__EXPR:
 				return getExpr();
 		}
@@ -119,8 +116,7 @@ public class LogicalOrExpressionImpl extends ExpressionImpl implements LogicalOr
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.LOGICAL_OR_EXPRESSION__EXPR:
 				getExpr().clear();
 				getExpr().addAll((Collection<? extends Expression>)newValue);
@@ -137,8 +133,7 @@ public class LogicalOrExpressionImpl extends ExpressionImpl implements LogicalOr
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.LOGICAL_OR_EXPRESSION__EXPR:
 				getExpr().clear();
 				return;
@@ -154,8 +149,7 @@ public class LogicalOrExpressionImpl extends ExpressionImpl implements LogicalOr
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.LOGICAL_OR_EXPRESSION__EXPR:
 				return expr != null && !expr.isEmpty();
 		}

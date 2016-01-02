@@ -99,8 +99,7 @@ public class UnaryOperatorImpl extends MinimalEObjectImpl.Container implements U
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.UNARY_OPERATOR__OP:
 				return getOp();
 		}
@@ -115,8 +114,7 @@ public class UnaryOperatorImpl extends MinimalEObjectImpl.Container implements U
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.UNARY_OPERATOR__OP:
 				setOp((String)newValue);
 				return;
@@ -132,8 +130,7 @@ public class UnaryOperatorImpl extends MinimalEObjectImpl.Container implements U
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.UNARY_OPERATOR__OP:
 				setOp(OP_EDEFAULT);
 				return;
@@ -149,8 +146,7 @@ public class UnaryOperatorImpl extends MinimalEObjectImpl.Container implements U
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.UNARY_OPERATOR__OP:
 				return OP_EDEFAULT == null ? op != null : !OP_EDEFAULT.equals(op);
 		}

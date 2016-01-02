@@ -11,6 +11,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parser" eType="#//Parser"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType ../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalPreprocessingDirectives"
+        eType="#//Preprocess"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Preprocess"/>
   <eClassifiers xsi:type="ecore:EClass" name="Parser"/>

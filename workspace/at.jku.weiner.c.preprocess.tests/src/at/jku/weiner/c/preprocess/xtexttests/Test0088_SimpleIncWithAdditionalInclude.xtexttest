@@ -1,0 +1,33 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language preprocess
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+split-lexer=false
+source file="res/Test0088_SimpleIncWithAdditionalInclude.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	LINE_COMMENT NEWLINE
+//----------------------------------------------------------------------
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
+		group=
+		(GroupOpt
+			lines+=
+			(NewLineLine
+				
+			)
+		)
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0088_SimpleIncWithAdditionalInclude.c.i"
+expected file="expected/Test0088_SimpleIncWithAdditionalInclude.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+before class=at.jku.weiner.c.preprocess.xtexttests.TestUtils method=setUpTest0088(generator)

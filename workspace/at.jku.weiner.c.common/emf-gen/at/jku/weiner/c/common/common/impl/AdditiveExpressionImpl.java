@@ -83,8 +83,7 @@ public class AdditiveExpressionImpl extends ExpressionImpl implements AdditiveEx
 	 */
 	public EList<Expression> getExpr()
 	{
-		if (expr == null)
-		{
+		if (expr == null) {
 			expr = new EObjectContainmentEList<Expression>(Expression.class, this, CommonPackage.ADDITIVE_EXPRESSION__EXPR);
 		}
 		return expr;
@@ -97,8 +96,7 @@ public class AdditiveExpressionImpl extends ExpressionImpl implements AdditiveEx
 	 */
 	public EList<String> getOp()
 	{
-		if (op == null)
-		{
+		if (op == null) {
 			op = new EDataTypeEList<String>(String.class, this, CommonPackage.ADDITIVE_EXPRESSION__OP);
 		}
 		return op;
@@ -112,8 +110,7 @@ public class AdditiveExpressionImpl extends ExpressionImpl implements AdditiveEx
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.ADDITIVE_EXPRESSION__EXPR:
 				return ((InternalEList<?>)getExpr()).basicRemove(otherEnd, msgs);
 		}
@@ -128,8 +125,7 @@ public class AdditiveExpressionImpl extends ExpressionImpl implements AdditiveEx
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.ADDITIVE_EXPRESSION__EXPR:
 				return getExpr();
 			case CommonPackage.ADDITIVE_EXPRESSION__OP:
@@ -147,8 +143,7 @@ public class AdditiveExpressionImpl extends ExpressionImpl implements AdditiveEx
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.ADDITIVE_EXPRESSION__EXPR:
 				getExpr().clear();
 				getExpr().addAll((Collection<? extends Expression>)newValue);
@@ -169,8 +164,7 @@ public class AdditiveExpressionImpl extends ExpressionImpl implements AdditiveEx
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.ADDITIVE_EXPRESSION__EXPR:
 				getExpr().clear();
 				return;
@@ -189,8 +183,7 @@ public class AdditiveExpressionImpl extends ExpressionImpl implements AdditiveEx
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case CommonPackage.ADDITIVE_EXPRESSION__EXPR:
 				return expr != null && !expr.isEmpty();
 			case CommonPackage.ADDITIVE_EXPRESSION__OP:

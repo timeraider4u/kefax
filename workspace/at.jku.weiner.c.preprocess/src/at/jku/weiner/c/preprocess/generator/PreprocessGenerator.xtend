@@ -52,6 +52,7 @@ import at.jku.weiner.c.preprocess.preprocess.IfAbstractConditional
 import at.jku.weiner.c.preprocess.utils.macros.PredefinedMacros
 import java.io.InputStream
 import java.io.ByteArrayInputStream
+import at.jku.weiner.c.preprocess.utils.macros.AdditionalPreprocessingDirectives
 
 /**
  * Generates code from your model files on save.
@@ -68,7 +69,7 @@ class PreprocessGenerator implements IGenerator {
 	// @Accessors boolean addToModel = false;
 	@Accessors Injector commonInjector;
 	@Accessors boolean stdInclude = true;
-	@Accessors String additionalDefines = null;
+	@Accessors String additionalPreprocessingDirectives = null;
 	
 	@Inject
 	IResourceValidator validator;
@@ -90,12 +91,13 @@ class PreprocessGenerator implements IGenerator {
 		if (insertPredefinedMacros) {
 			insertPredefinedMacros();
 		}
-		addAdditionalDefines(rs);
+		val String additional = addAdditionalPreprocessingDirectives(rs);
 		
 		val Preprocess preprocess = getPreprocessFor(input, false);
 		val String output = outputFor(preprocess);
+		val String result = additional + output;
 		// System.out.println("generating output file='" + fileName + "'");
-		fsa.generateFile(fileName, output);
+		fsa.generateFile(fileName, result);
 	}
 	
 	def void setUp() {
@@ -116,17 +118,16 @@ class PreprocessGenerator implements IGenerator {
 		output.trim();
 	}
 	
-	def void addAdditionalDefines(ResourceSet resourceSet) {
-		if (this.additionalDefines == null || additionalDefines.isEmpty()) {
-			return;
+	def String addAdditionalPreprocessingDirectives(ResourceSet resourceSet) {
+		if (this.additionalPreprocessingDirectives == null || additionalPreprocessingDirectives.isEmpty()) {
+			return "";
 		}
-		val Resource resource = resourceSet.createResource(URI.createURI("dummy:/additionalDefines.c"));
-		// System.out.println("Resource='" + resource + "'");
-		val InputStream in = new ByteArrayInputStream(additionalDefines.getBytes());
-		resource.load(in, resourceSet.getLoadOptions());
-		val Preprocess preprocess = resource.getContents().get(0) as Preprocess;
-		path.add("/additionalDefines/");
-		outputFor(preprocess);
+		val Preprocess additional = AdditionalPreprocessingDirectives.getAdditionalDirectivesFor(
+			additionalPreprocessingDirectives
+		);
+		path.add("/additionalPreprocessingDirectives/");
+		val String result = outputFor(additional);
+		return result.trim();
 	}
 	
 	def Preprocess getPreprocessFor(Resource input, boolean forceLoading) {

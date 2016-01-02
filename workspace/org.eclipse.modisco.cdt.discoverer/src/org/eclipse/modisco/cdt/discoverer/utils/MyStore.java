@@ -18,17 +18,18 @@ public final class MyStore {
 	private final boolean stdInclude;
 	private final String includeDirs;
 	private final IResource resource;
-	private final String defines;
+	private final String additionalPreprocessingDirectives;
 
 	public MyStore(final IProgressMonitor monitor, final Resource targetModel,
 			final IResource resource, final boolean stdInclude,
-			final String includeDirs, final String defines)
+			final String includeDirs,
+			final String additionalPreprocessingDirectives)
 			throws DiscoveryException {
 		this.monitor = monitor;
 		this.resource = resource;
 		this.stdInclude = stdInclude;
 		this.includeDirs = includeDirs;
-		this.defines = defines;
+		this.additionalPreprocessingDirectives = additionalPreprocessingDirectives;
 		this.factory = CommonFactory.eINSTANCE;
 		if (this.factory == null) {
 			throw new DiscoveryException("factory is null!");
@@ -66,8 +67,8 @@ public final class MyStore {
 		return this.resource;
 	}
 	
-	public String getDefines() {
-		return this.defines;
+	public String getAdditionalPreprocessingDirectives() {
+		return this.additionalPreprocessingDirectives;
 	}
 
 }

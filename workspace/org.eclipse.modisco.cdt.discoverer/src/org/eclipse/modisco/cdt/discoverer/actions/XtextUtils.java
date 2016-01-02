@@ -17,6 +17,7 @@ import at.jku.weiner.c.parser.parser.Parser;
 import at.jku.weiner.c.preprocess.generator.PreprocessGenerator;
 import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 import at.jku.weiner.c.preprocess.utils.IncludeDirs;
+import at.jku.weiner.c.preprocess.utils.macros.AdditionalPreprocessingDirectives;
 import at.jku.weiner.c.preprocess.utils.macros.DefinitionTable;
 import at.jku.weiner.c.preprocess.utils.macros.PredefinedMacros;
 
@@ -67,6 +68,8 @@ public class XtextUtils {
 		final String uriStr = uri.toFileString();
 		unit.setPath(uriStr);
 		this.store.getModel().getUnits().add(unit);
+		// set-up additional preprocessing directives
+		this.setUpAdditionalPreprocessingDirectives(unit);
 		// preprocess
 		final Preprocess preprocess = this.preprocessor.parseFile(file, iFile);
 		unit.setPreprocess(preprocess);
@@ -113,7 +116,8 @@ public class XtextUtils {
 		preprocessGenerator.setStdInclude(this.store.isStdInclude());
 		// System.out.println("setStdInclude='" + this.store.isStdInclude() +
 		// "'");
-		preprocessGenerator.setAdditionalDefines(this.store.getDefines());
+		preprocessGenerator.setAdditionalPreprocessingDirectives(this.store
+				.getAdditionalPreprocessingDirectives());
 		preprocessGenerator.setCommonInjector(this.commonInjector);
 		// preprocessGenerator.insertPredefinedMacros(this.store.getModel());
 		this.preprocessor.generate(iFile, fileNameOnly);
@@ -138,4 +142,16 @@ public class XtextUtils {
 		DefinitionTable.reset();
 	}
 	
+	private void setUpAdditionalPreprocessingDirectives(
+			final TranslationUnit unit) throws IOException {
+		final String additionalStr = this.store
+				.getAdditionalPreprocessingDirectives();
+		if ((additionalStr == null) || additionalStr.isEmpty()) {
+			return;
+		}
+		final Preprocess additional = AdditionalPreprocessingDirectives
+				.getAdditionalDirectivesFor(additionalStr);
+		unit.setAdditionalPreprocessingDirectives(additional);
+	}
+
 }

@@ -39,7 +39,7 @@ public abstract class AbstractCDTDiscoverer<T> extends
 
 	private boolean setStdInclude = true;
 	private String includeDirs = "";
-	private String defines = "";
+	private String additionalDirectives = "";
 	
 	protected final boolean isApplicableOn(final IResource resource) {
 		// System.out.println("isApplicableOn='" + resource + "'");
@@ -109,7 +109,8 @@ public abstract class AbstractCDTDiscoverer<T> extends
 		this.setTargetURI(targetURI);
 		final Resource targetModel = this.createTargetModel();
 		final MyStore result = new MyStore(monitor, targetModel, resource,
-				this.setStdInclude, this.includeDirs, this.getDefines());
+				this.setStdInclude, this.includeDirs,
+				this.getAdditionalDirectives());
 		return result;
 	}
 	
@@ -206,15 +207,17 @@ public abstract class AbstractCDTDiscoverer<T> extends
 		this.includeDirs = includeDirs;
 	}
 	
-	public String getDefines() {
-		return this.defines;
+	public String getAdditionalDirectives() {
+		return this.additionalDirectives;
 	}
 
-	@Parameter(name = "DEFINES", requiresInputValue = false,
-			description = "Add additional preprocessor macros"
-					+ "(e.g., #define FOO BAR\n#define BAR(x) #x")
-	public void setDefines(final String defines) {
-		this.defines = defines;
+	@Parameter(
+			name = "ADDITIONAL_PREPROCESSOR_DIRECTIVES",
+			requiresInputValue = false,
+			description = "Add additional preprocessor directives and macros"
+					+ "(e.g., <br/>#define FOO BAR<br/>#define BAR(x) #x<br/>#include &quot;include/myinclude.h&quot;")
+	public void setAdditionalDirectives(final String defines) {
+		this.additionalDirectives = defines;
 	}
 	
 }

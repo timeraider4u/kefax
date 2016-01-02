@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link at.jku.weiner.c.common.common.TranslationUnit#getPreprocess <em>Preprocess</em>}</li>
  *   <li>{@link at.jku.weiner.c.common.common.TranslationUnit#getParser <em>Parser</em>}</li>
  *   <li>{@link at.jku.weiner.c.common.common.TranslationUnit#getPath <em>Path</em>}</li>
+ *   <li>{@link at.jku.weiner.c.common.common.TranslationUnit#getAdditionalPreprocessingDirectives <em>Additional Preprocessing Directives</em>}</li>
  * </ul>
  *
  * @see at.jku.weiner.c.common.common.CommonPackage#getTranslationUnit()
@@ -101,5 +102,31 @@ public interface TranslationUnit extends EObject
 	 * @generated
 	 */
 	void setPath(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Additional Preprocessing Directives</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Additional Preprocessing Directives</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Additional Preprocessing Directives</em>' reference.
+	 * @see #setAdditionalPreprocessingDirectives(Preprocess)
+	 * @see at.jku.weiner.c.common.common.CommonPackage#getTranslationUnit_AdditionalPreprocessingDirectives()
+	 * @model
+	 * @generated
+	 */
+	Preprocess getAdditionalPreprocessingDirectives();
+
+	/**
+	 * Sets the value of the '{@link at.jku.weiner.c.common.common.TranslationUnit#getAdditionalPreprocessingDirectives <em>Additional Preprocessing Directives</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Additional Preprocessing Directives</em>' reference.
+	 * @see #getAdditionalPreprocessingDirectives()
+	 * @generated
+	 */
+	void setAdditionalPreprocessingDirectives(Preprocess value);
 
 } // TranslationUnit

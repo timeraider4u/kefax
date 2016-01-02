@@ -11,14 +11,14 @@ import org.junit.Assert;
 import at.jku.weiner.c.common.common.Model;
 
 public class TestUtils {
-
+	
 	private final IProject project;
 	private final DiscoverCDTFromIResource discoverer;
 	private final Resource discoveredModel;
-
+	
 	public TestUtils(final IProject iProject, final String testName,
-			final boolean stdInclude, final String includeDirs, final String defines)
-			throws Exception {
+			final boolean stdInclude, final String includeDirs,
+			final String defines) throws Exception {
 		this.project = iProject;
 		Assert.assertNotNull(this.project);
 		final IResource res = this.getRes(testName);
@@ -26,13 +26,14 @@ public class TestUtils {
 		this.discoverer = new DiscoverCDTFromIResource();
 		this.discoverer.setSetStdInclude(stdInclude);
 		this.discoverer.setIncludeDirs(includeDirs);
+		this.discoverer.setDefines(defines);
 		// System.out.println("testName='" + testName + "', includeDirs='"
 		// + includeDirs + "'");
 		this.discoverer.discoverElement(res, new NullProgressMonitor());
 		this.discoveredModel = this.discoverer.getTargetModel();
 		Assert.assertNotNull(this.discoveredModel);
 	}
-
+	
 	private IResource getRes(final String fileName) {
 		IResource res = this.project.getFile(fileName);
 		if ((res == null) || !res.exists()) {
@@ -44,11 +45,11 @@ public class TestUtils {
 				res.exists() && res.isAccessible());
 		return res;
 	}
-
+	
 	public Model getModel() {
 		final EObject root = this.discoveredModel.getContents().get(0);
 		final Model model = (Model) root;
 		return model;
 	}
-
+	
 }

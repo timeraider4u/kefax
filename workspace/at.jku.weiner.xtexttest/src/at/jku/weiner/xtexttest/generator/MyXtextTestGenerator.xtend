@@ -186,14 +186,14 @@ class MyXtextTestGenerator {
 				Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("«getFileExtension()»",
 								this.resourceFactory);
 				«IF this.test.before != null»
-					«this.test.before.myclass».«this.test.before.method»();
+					«this.test.before.codeCall.myclass».«this.test.before.codeCall.method»(«outputParams(this.test.before.codeCall.params)»);
 				«ENDIF»
 			}
 			
 			@After
 			public void cleanUp() {
 				«IF this.test.after != null»
-					«this.test.after.myclass».«this.test.after.method»();
+					«this.test.after.codeCall.myclass».«this.test.after.codeCall.method»(«outputParams(this.test.after.codeCall.params)»);
 				«ENDIF»
 			}
 			
@@ -463,5 +463,22 @@ class MyXtextTestGenerator {
 		val string6 = string5.replace('\\', "\\\\");
 		val string7 = string6.replace('\"', "\\\"");
 		return string7;
+	}
+	
+	def String outputParams(EList<String> list) {
+		val StringBuffer buffer = new StringBuffer("");
+		if (list == null) {
+			return buffer.toString();
+		}
+		var boolean isFirst = true;
+		for (var int i = 0; i < list.size(); i++) {
+			if (!isFirst) {
+				buffer.append(",");
+			}
+			val String param = list.get(i);
+			buffer.append(param);
+			isFirst = false;
+		}
+		return buffer.toString();  
 	}
 }

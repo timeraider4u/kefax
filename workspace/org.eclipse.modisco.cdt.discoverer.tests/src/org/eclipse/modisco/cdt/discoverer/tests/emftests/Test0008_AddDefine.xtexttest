@@ -7,7 +7,7 @@ imports at.jku.weiner.c.parser.parser as parser
 class=EMFTest method=emfTest()
 options class=EMFTest method=getOptions() 
 
-source file="res/Test0004_Predef"
+source file="res/Test0008_AddDefine"
 
 (Model
 	units+=
@@ -26,50 +26,14 @@ source file="res/Test0004_Predef"
 			group=
 			(preprocess::GroupOpt
 				lines+=
-				(preprocess::PreprocessorDirectives
-					directive=
-					(preprocess::IncludeDirective
-						string++"\\\"../include/SimplePredef.h\\\""
-					)
-				),
-				(preprocess::NewLineLine),
 				(preprocess::Code
-					code++"__CHAR32_TYPE__ anotherVar2;"
+					code++"__MY_TYPE__ var1;"
 				)
 			)
 		),
 		parser=
 		(parser::Parser
 			external+=
-			(parser::ExternalDeclaration 
-				declaration=
-				(parser::Declaration
-					specifiers=
-					(parser::DeclarationSpecifiers
-						declarationSpecifier+=
-						(parser::TypeSpecifier
-							name++"long"
-						),
-						(parser::TypeSpecifier
-							name++"int"
-						)
-					),
-					initDeclaratorList+=
-					(parser::InitDeclaratorList
-						initDeclarator+=
-						(parser::InitDeclarator
-							declarator=
-							(parser::Declarator
-								declarator=
-								(parser::DirectDeclarator
-									id++"myVar1"
-								)
-							)
-						)
-					),
-					semi++";"
-				)	
-			),
 			(parser::ExternalDeclaration 
 				declaration=
 				(parser::Declaration
@@ -91,7 +55,7 @@ source file="res/Test0004_Predef"
 							(parser::Declarator
 								declarator=
 								(parser::DirectDeclarator
-									id++"anotherVar2"
+									id++"var1"
 								)
 							)
 						)
@@ -101,20 +65,7 @@ source file="res/Test0004_Predef"
 			)
 		),
 		path++"${{path}}/${{plugin_id}}/${{sourceFile}}/Simple.c"
-	),
-	// SimplePredef.h
-	(TranslationUnit
-		path++"${{path}}/${{plugin_id}}/res/include/SimplePredef.h",
-		preprocess=
-		(preprocess::Preprocess
-			group=
-			(preprocess::GroupOpt
-				lines+=
-				(preprocess::Code
-					code++"__INTMAX_TYPE__ myVar1;"
-				)
-			)
-		),
-		parser isNull
 	)
 )
+
+before class=org.eclipse.modisco.cdt.discoverer.tests.EMFTest method=addDefine()

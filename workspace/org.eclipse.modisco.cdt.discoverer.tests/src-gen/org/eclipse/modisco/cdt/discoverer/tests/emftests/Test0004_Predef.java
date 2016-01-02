@@ -68,12 +68,10 @@ public class Test0004_Predef {
 	public void initialize(){
 		options = org.eclipse.modisco.cdt.discoverer.tests.EMFTest.getOptions(
 			this.pureJavaClassFileName, this.sourceFile);
-		
 	}
 	
 	@After
 	public void cleanUp() {
-		
 	}
 	
 	private String getTextFromFile(final String fileName)

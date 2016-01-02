@@ -137,21 +137,20 @@ ReplacePatterns:
 ;
 
 Before:
-	BEFORE_KW CLASS_KW ASSIGNASSINGLE myclass=PackageID
-	METHOD_KW ASSIGNASSINGLE method=PackageID 
-	LEFTPAREN RIGHTPAREN
+	{Before}
+	BEFORE_KW codeCall=CodeCall
 ;
 
 After:
-	AFTER_KW CLASS_KW ASSIGNASSINGLE myclass=PackageID
-	METHOD_KW ASSIGNASSINGLE method=PackageID
-	LEFTPAREN RIGHTPAREN
+	{After}
+	AFTER_KW codeCall=CodeCall
 ;
 
 CodeCall:
+	{CodeCall}
 	CLASS_KW ASSIGNASSINGLE myclass=PackageID
 	METHOD_KW ASSIGNASSINGLE method=PackageID
-	//(LEFTPAREN (params+=PackageID (COMMA params+=PackageID)*)? RIGHTPAREN)
+	(LEFTPAREN (params+=PackageID (COMMA params+=PackageID)*)? RIGHTPAREN)
 ;
 
 terminal KW_EMFTEST: 'emftest';

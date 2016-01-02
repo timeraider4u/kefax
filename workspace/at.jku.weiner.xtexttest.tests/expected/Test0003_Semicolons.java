@@ -82,12 +82,10 @@ public class Test0001_Semicolons {
 			parser, tokenDefProvider);
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("c",
 						this.resourceFactory);
-		at.jku.weiner.xtexttest.demo.Demo.beforeDemo(mydemo);
 	}
 	
 	@After
 	public void cleanUp() {
-		at.jku.weiner.xtexttest.demo.Demo.afterDemo(mydemo,mydemo2);
 	}
 	
 	private String getTextFromFile(final String fileName)

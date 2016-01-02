@@ -2,39 +2,37 @@
 //----------------------------------------------------------------------
 package at.jku.weiner.c.preprocess
 language preprocess
+imports at.jku.weiner.c.common.common
 //----------------------------------------------------------------------
-split-lexer=true
-source file="res/Test0001_Semicolons.c"
+split-lexer=false
+source file="res/Test0086_AdditionalDef.c"
 //----------------------------------------------------------------------
 lexer-tokens
-	MYCODE NEWLINE
-	MYCODE +*6 NEWLINE
-	NEWLINE
-	MYCODE +*3 NEWLINE
+	ID WHITESPACE SKW_STAR WHITESPACE  ID WHITESPACE 
+		SKW_ASSIGN WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_SEMI NEWLINE
+	ID NEWLINE
 //----------------------------------------------------------------------
-(Model
-	units+=
-	(TranslationUnit
-		lines+=
-		(Code
-			code++";"
-		),
-		(Code
-			code++";\\\\;\\\\\\\\;"
-		),
-		(NewLineLine
-			
-		),
-		(Code
-			code++";;;"
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
+		group=
+		(GroupOpt
+			lines+=
+			(Code
+				code++"char * c = STR(HELLO_WORLD);"
+			),
+			(Code
+				code++"DO_SOMETHING"
+			)
 		)
 	)
-)
+//)
+//)
 //----------------------------------------------------------------------
-output file="bin/Test0001_Semicolons.c.i"
-expected file isSameAsInputFile
+output file="bin/Test0086_AdditionalDef.c.i"
+expected file="expected/Test0086_AdditionalDef.c"
 //replacePatterns file="res/Patterns.txt"
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------
-before class=at.jku.weiner.xtexttest.demo.Demo method=beforeDemo(mydemo)
-after class=at.jku.weiner.xtexttest.demo.Demo method=afterDemo(mydemo,mydemo2)
+before class=at.jku.weiner.c.preprocess.xtexttests.TestUtils method=setUpTest0086(generator)

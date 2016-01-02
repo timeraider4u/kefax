@@ -19,6 +19,7 @@ import java.util.Arrays;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
@@ -38,6 +39,7 @@ public abstract class AbstractCDTDiscoverer<T> extends
 
 	private boolean setStdInclude = true;
 	private String includeDirs = "";
+	private String defines = "";
 	
 	protected final boolean isApplicableOn(final IResource resource) {
 		// System.out.println("isApplicableOn='" + resource + "'");
@@ -82,6 +84,8 @@ public abstract class AbstractCDTDiscoverer<T> extends
 			throw new DiscoveryException(resource.getClass().getName()
 					+ " not handled"); //$NON-NLS-1$
 		}
+		// clean-up
+		store.getParser().cleanUp();
 		// saving
 		this.save(store);
 		// done
@@ -104,8 +108,8 @@ public abstract class AbstractCDTDiscoverer<T> extends
 		final URI targetURI = DiscovererUtils.getTargetModel(resource, monitor);
 		this.setTargetURI(targetURI);
 		final Resource targetModel = this.createTargetModel();
-		final MyStore result = new MyStore(monitor, targetModel,
-				this.setStdInclude, this.includeDirs);
+		final MyStore result = new MyStore(monitor, targetModel, resource,
+				this.setStdInclude, this.includeDirs, this.getDefines());
 		return result;
 	}
 	
@@ -152,7 +156,7 @@ public abstract class AbstractCDTDiscoverer<T> extends
 			throw new DiscoveryException(
 					"Error parsing file='" + file.getAbsolutePath() + "' with XText", ex); //$NON-NLS-1$
 		}
-		// utils.cleanUp();
+		
 	}
 	
 	/***
@@ -166,9 +170,12 @@ public abstract class AbstractCDTDiscoverer<T> extends
 		// if (this.isTargetSerializationChosen()) {
 		try {
 			this.saveTargetModel();
+			// update project
+			final IProject project = store.getResource().getProject();
+			project.refreshLocal(IResource.DEPTH_INFINITE, store.getMonitor());
 			System.out.println("saved to='"
 					+ this.getTargetModel().getURI().toFileString() + "'");
-		} catch (final IOException ex) {
+		} catch (final Exception ex) {
 			throw new DiscoveryException(
 					"Error saving discovery result model", ex); //$NON-NLS-1$
 		}
@@ -197,6 +204,17 @@ public abstract class AbstractCDTDiscoverer<T> extends
 			description = "Add additional directories to search path. Use File.pathSeparator to add multiple directories.")
 	public void setIncludeDirs(final String includeDirs) {
 		this.includeDirs = includeDirs;
+	}
+	
+	public String getDefines() {
+		return this.defines;
+	}
+
+	@Parameter(name = "DEFINES", requiresInputValue = false,
+			description = "Add additional preprocessor macros"
+					+ "(e.g., #define FOO BAR\n#define BAR(x) #x")
+	public void setDefines(final String defines) {
+		this.defines = defines;
 	}
 	
 }

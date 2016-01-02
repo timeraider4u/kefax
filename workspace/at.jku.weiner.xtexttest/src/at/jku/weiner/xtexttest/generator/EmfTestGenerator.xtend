@@ -110,14 +110,14 @@ class EmfTestGenerator {
 				«IF this.test.optionCall != null»options = «getClassFor(this.test.optionCall.myclass)».«this.test.optionCall.method»(
 					this.pureJavaClassFileName, this.sourceFile);«ENDIF»
 				«IF this.test.before != null»
-					«this.test.before.myclass».«this.test.before.method»();
+					«this.test.before.codeCall.myclass».«this.test.before.codeCall.method»(«outputFor(test.before.codeCall.params)»);
 				«ENDIF»
 			}
 			
 			@After
 			public void cleanUp() {
 				«IF this.test.after != null»
-					«this.test.after.myclass».«this.test.after.method»();
+					«this.test.after.codeCall.myclass».«this.test.after.codeCall.method»(«outputFor(test.after.codeCall.params)»);
 				«ENDIF»
 			}
 			
@@ -166,6 +166,7 @@ class EmfTestGenerator {
 			}
 			val String entry = list.get(i);
 			result.append(entry);
+			isFirst = false;
 		}
 		return result.toString();
 	}

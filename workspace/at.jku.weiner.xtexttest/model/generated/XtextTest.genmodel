@@ -78,16 +78,15 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//ReplacePatterns/replace"/>
     </genClasses>
     <genClasses ecoreClass="XtextTest.ecore#//Before">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//Before/myclass"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//Before/method"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XtextTest.ecore#//Before/codeCall"/>
     </genClasses>
     <genClasses ecoreClass="XtextTest.ecore#//After">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//After/myclass"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//After/method"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XtextTest.ecore#//After/codeCall"/>
     </genClasses>
     <genClasses ecoreClass="XtextTest.ecore#//CodeCall">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//CodeCall/myclass"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//CodeCall/method"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//CodeCall/params"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

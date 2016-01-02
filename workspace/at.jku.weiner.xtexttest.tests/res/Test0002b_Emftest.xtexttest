@@ -4,8 +4,8 @@ default at.jku.weiner.c.common.common
 imports at.jku.weiner.c.preprocess.preprocess as preprocess
 imports at.jku.weiner.c.parser.parser as parser
 
-class=EMFTest method=emfTest
-options class=EMFTest method=getOptions
+class=EMFTest method=emfTest()
+options class=EMFTest method=getOptions()
 
 source file="res/TestDiscoverer0001.c"
 
@@ -27,5 +27,5 @@ source file="res/TestDiscoverer0001.c"
 	)
 )
 
-before class=at.jku.weiner.xtexttest.demo.Demo method=beforeDemo()
-after class=at.jku.weiner.xtexttest.demo.Demo method=afterDemo()
+before class=at.jku.weiner.xtexttest.demo.Demo method=beforeDemo(demo)
+after class=at.jku.weiner.xtexttest.demo.Demo method=afterDemo(demo,demo)

@@ -1,7 +1,6 @@
 package org.eclipse.modisco.cdt.discoverer.tests;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,6 +17,7 @@ import org.osgi.framework.Bundle;
 
 import at.jku.weiner.c.common.common.Model;
 import at.jku.weiner.c.preprocess.utils.IncludeDirs;
+import at.jku.weiner.c.preprocess.utils.macros.DefinitionTable;
 
 @SuppressWarnings("restriction")
 public class EMFTest {
@@ -25,6 +25,7 @@ public class EMFTest {
 	private static boolean stdInclude = true;
 	private static String includeDirs = null;
 	private static String path3 = null;
+	private static String defines = null;
 	
 	public static Map<String, Object> getOptions(
 			final String pureJavaClassFileName, final String sourceFile) {
@@ -62,11 +63,13 @@ public class EMFTest {
 		final IProject iProject = EMFTest.getProject();
 		final String myIncludeDirs = EMFTest.includeDirs;
 		final boolean myStdInclude = EMFTest.stdInclude;
+		final String myDefines = EMFTest.defines;
 		EMFTest.stdInclude = true;
 		EMFTest.includeDirs = null;
+		EMFTest.defines = null;
 		
 		final TestUtils utils = new TestUtils(iProject, sourceFile,
-				myStdInclude, myIncludeDirs);
+				myStdInclude, myIncludeDirs, EMFTest.defines);
 
 		final Model result = utils.getModel();
 		return result;
@@ -103,6 +106,11 @@ public class EMFTest {
 	public static void addIncludeDir() {
 		EMFTest.includeDirs = EMFTest.path3 + File.separator
 				+ Activator.PLUGIN_ID + File.separator + "res/";
+	}
+
+	public static void addDefine() {
+		Assert.assertEquals(0, DefinitionTable.size());
+		EMFTest.defines = "#define __MY_TYPE__ unsigned int";
 	}
 	
 }

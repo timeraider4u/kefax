@@ -35,12 +35,10 @@ public class Test0001_Empty {
 	
 	@Before
 	public void initialize(){
-		
 	}
 	
 	@After
 	public void cleanUp() {
-		
 	}
 	
 	private String getTextFromFile(final String fileName)

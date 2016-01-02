@@ -40,12 +40,12 @@ public class Test0002b_Emftest {
 	public void initialize(){
 		options = org.eclipse.modisco.cdt.discoverer.tests.basic.EMFTest.getOptions(
 			this.pureJavaClassFileName, this.sourceFile);
-		at.jku.weiner.xtexttest.demo.Demo.beforeDemo();
+		at.jku.weiner.xtexttest.demo.Demo.beforeDemo(demo);
 	}
 	
 	@After
 	public void cleanUp() {
-		at.jku.weiner.xtexttest.demo.Demo.afterDemo();
+		at.jku.weiner.xtexttest.demo.Demo.afterDemo(demo,demo);
 	}
 	
 	private String getTextFromFile(final String fileName)

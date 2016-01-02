@@ -3,11 +3,14 @@
 package at.jku.weiner.xtexttest.xtextTest.impl;
 
 import at.jku.weiner.xtexttest.xtextTest.After;
+import at.jku.weiner.xtexttest.xtextTest.CodeCall;
 import at.jku.weiner.xtexttest.xtextTest.XtextTestPackage;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -20,8 +23,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.AfterImpl#getMyclass <em>Myclass</em>}</li>
- *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.AfterImpl#getMethod <em>Method</em>}</li>
+ *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.AfterImpl#getCodeCall <em>Code Call</em>}</li>
  * </ul>
  *
  * @generated
@@ -29,44 +31,14 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class AfterImpl extends MinimalEObjectImpl.Container implements After
 {
   /**
-   * The default value of the '{@link #getMyclass() <em>Myclass</em>}' attribute.
+   * The cached value of the '{@link #getCodeCall() <em>Code Call</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getMyclass()
+   * @see #getCodeCall()
    * @generated
    * @ordered
    */
-  protected static final String MYCLASS_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getMyclass() <em>Myclass</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getMyclass()
-   * @generated
-   * @ordered
-   */
-  protected String myclass = MYCLASS_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getMethod() <em>Method</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getMethod()
-   * @generated
-   * @ordered
-   */
-  protected static final String METHOD_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getMethod() <em>Method</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getMethod()
-   * @generated
-   * @ordered
-   */
-  protected String method = METHOD_EDEFAULT;
+  protected CodeCall codeCall;
 
   /**
    * <!-- begin-user-doc -->
@@ -94,9 +66,9 @@ public class AfterImpl extends MinimalEObjectImpl.Container implements After
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getMyclass()
+  public CodeCall getCodeCall()
   {
-    return myclass;
+    return codeCall;
   }
 
   /**
@@ -104,12 +76,16 @@ public class AfterImpl extends MinimalEObjectImpl.Container implements After
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setMyclass(String newMyclass)
+  public NotificationChain basicSetCodeCall(CodeCall newCodeCall, NotificationChain msgs)
   {
-    String oldMyclass = myclass;
-    myclass = newMyclass;
+    CodeCall oldCodeCall = codeCall;
+    codeCall = newCodeCall;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, XtextTestPackage.AFTER__MYCLASS, oldMyclass, myclass));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, XtextTestPackage.AFTER__CODE_CALL, oldCodeCall, newCodeCall);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
   }
 
   /**
@@ -117,9 +93,20 @@ public class AfterImpl extends MinimalEObjectImpl.Container implements After
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getMethod()
+  public void setCodeCall(CodeCall newCodeCall)
   {
-    return method;
+    if (newCodeCall != codeCall)
+    {
+      NotificationChain msgs = null;
+      if (codeCall != null)
+        msgs = ((InternalEObject)codeCall).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - XtextTestPackage.AFTER__CODE_CALL, null, msgs);
+      if (newCodeCall != null)
+        msgs = ((InternalEObject)newCodeCall).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - XtextTestPackage.AFTER__CODE_CALL, null, msgs);
+      msgs = basicSetCodeCall(newCodeCall, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, XtextTestPackage.AFTER__CODE_CALL, newCodeCall, newCodeCall));
   }
 
   /**
@@ -127,12 +114,15 @@ public class AfterImpl extends MinimalEObjectImpl.Container implements After
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setMethod(String newMethod)
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    String oldMethod = method;
-    method = newMethod;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, XtextTestPackage.AFTER__METHOD, oldMethod, method));
+    switch (featureID)
+    {
+      case XtextTestPackage.AFTER__CODE_CALL:
+        return basicSetCodeCall(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -145,10 +135,8 @@ public class AfterImpl extends MinimalEObjectImpl.Container implements After
   {
     switch (featureID)
     {
-      case XtextTestPackage.AFTER__MYCLASS:
-        return getMyclass();
-      case XtextTestPackage.AFTER__METHOD:
-        return getMethod();
+      case XtextTestPackage.AFTER__CODE_CALL:
+        return getCodeCall();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -163,11 +151,8 @@ public class AfterImpl extends MinimalEObjectImpl.Container implements After
   {
     switch (featureID)
     {
-      case XtextTestPackage.AFTER__MYCLASS:
-        setMyclass((String)newValue);
-        return;
-      case XtextTestPackage.AFTER__METHOD:
-        setMethod((String)newValue);
+      case XtextTestPackage.AFTER__CODE_CALL:
+        setCodeCall((CodeCall)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -183,11 +168,8 @@ public class AfterImpl extends MinimalEObjectImpl.Container implements After
   {
     switch (featureID)
     {
-      case XtextTestPackage.AFTER__MYCLASS:
-        setMyclass(MYCLASS_EDEFAULT);
-        return;
-      case XtextTestPackage.AFTER__METHOD:
-        setMethod(METHOD_EDEFAULT);
+      case XtextTestPackage.AFTER__CODE_CALL:
+        setCodeCall((CodeCall)null);
         return;
     }
     super.eUnset(featureID);
@@ -203,31 +185,10 @@ public class AfterImpl extends MinimalEObjectImpl.Container implements After
   {
     switch (featureID)
     {
-      case XtextTestPackage.AFTER__MYCLASS:
-        return MYCLASS_EDEFAULT == null ? myclass != null : !MYCLASS_EDEFAULT.equals(myclass);
-      case XtextTestPackage.AFTER__METHOD:
-        return METHOD_EDEFAULT == null ? method != null : !METHOD_EDEFAULT.equals(method);
+      case XtextTestPackage.AFTER__CODE_CALL:
+        return codeCall != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (myclass: ");
-    result.append(myclass);
-    result.append(", method: ");
-    result.append(method);
-    result.append(')');
-    return result.toString();
   }
 
 } //AfterImpl

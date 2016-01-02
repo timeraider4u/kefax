@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 public class InternalXtextTestParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_PACKAGE", "RULE_LANGUAGE", "RULE_IMPORTS", "RULE_SPLITLEXER", "RULE_ASSIGNASSINGLE", "RULE_KW_EMFTEST", "RULE_DEFAULT", "RULE_OPTIONS", "RULE_SOURCE", "RULE_FILE", "RULE_STRING", "RULE_KW_AS", "RULE_IDENTIFIER", "RULE_TRUE", "RULE_FALSE", "RULE_POINT", "RULE_SRCTEXT", "RULE_LEXER", "RULE_ASSIGNASDATALIST", "RULE_INT", "RULE_LEFTPAREN", "RULE_IMPORTER", "RULE_COMMA", "RULE_RIGHTPAREN", "RULE_ASSIGNASLIST", "RULE_ASSIGNASSTRING", "RULE_ASSIGNASBOOL", "RULE_ISNULL", "RULE_ISNOTNULL", "RULE_ISEMPTY", "RULE_OUTPUT", "RULE_EXPECTED", "RULE_ISSAMEASINPUTFILE", "RULE_PATTERNS", "RULE_EXCEPTIONS", "RULE_BEFORE_KW", "RULE_CLASS_KW", "RULE_METHOD_KW", "RULE_AFTER_KW", "RULE_ID", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_PACKAGE", "RULE_LANGUAGE", "RULE_IMPORTS", "RULE_SPLITLEXER", "RULE_ASSIGNASSINGLE", "RULE_KW_EMFTEST", "RULE_DEFAULT", "RULE_OPTIONS", "RULE_SOURCE", "RULE_FILE", "RULE_STRING", "RULE_KW_AS", "RULE_IDENTIFIER", "RULE_TRUE", "RULE_FALSE", "RULE_POINT", "RULE_SRCTEXT", "RULE_LEXER", "RULE_ASSIGNASDATALIST", "RULE_INT", "RULE_LEFTPAREN", "RULE_IMPORTER", "RULE_COMMA", "RULE_RIGHTPAREN", "RULE_ASSIGNASLIST", "RULE_ASSIGNASSTRING", "RULE_ASSIGNASBOOL", "RULE_ISNULL", "RULE_ISNOTNULL", "RULE_ISEMPTY", "RULE_OUTPUT", "RULE_EXPECTED", "RULE_ISSAMEASINPUTFILE", "RULE_PATTERNS", "RULE_EXCEPTIONS", "RULE_BEFORE_KW", "RULE_AFTER_KW", "RULE_CLASS_KW", "RULE_METHOD_KW", "RULE_ID", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER"
     };
     public static final int RULE_ID=43;
     public static final int RULE_IMPORTER=25;
@@ -36,7 +36,7 @@ public class InternalXtextTestParser extends AbstractInternalAntlrParser {
     public static final int RULE_ASSIGNASLIST=28;
     public static final int RULE_POINT=19;
     public static final int RULE_INT=23;
-    public static final int RULE_CLASS_KW=40;
+    public static final int RULE_CLASS_KW=41;
     public static final int RULE_ASSIGNASSTRING=29;
     public static final int RULE_OPTIONS=11;
     public static final int RULE_ISSAMEASINPUTFILE=36;
@@ -44,7 +44,7 @@ public class InternalXtextTestParser extends AbstractInternalAntlrParser {
     public static final int RULE_IMPORTS=6;
     public static final int RULE_RIGHTPAREN=27;
     public static final int RULE_PATTERNS=37;
-    public static final int RULE_METHOD_KW=41;
+    public static final int RULE_METHOD_KW=42;
     public static final int RULE_ASSIGNASDATALIST=22;
     public static final int RULE_ISNULL=31;
     public static final int RULE_ISEMPTY=33;
@@ -52,7 +52,7 @@ public class InternalXtextTestParser extends AbstractInternalAntlrParser {
     public static final int RULE_FILE=13;
     public static final int RULE_IDENTIFIER=16;
     public static final int RULE_COMMA=26;
-    public static final int RULE_AFTER_KW=42;
+    public static final int RULE_AFTER_KW=40;
     public static final int RULE_SL_COMMENT=45;
     public static final int RULE_ISNOTNULL=32;
     public static final int RULE_DEFAULT=10;
@@ -3866,55 +3866,50 @@ public class InternalXtextTestParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBefore"
-    // InternalXtextTest.g:2060:1: ruleBefore returns [EObject current=null] : (this_BEFORE_KW_0= RULE_BEFORE_KW this_CLASS_KW_1= RULE_CLASS_KW this_ASSIGNASSINGLE_2= RULE_ASSIGNASSINGLE ( (lv_myclass_3_0= rulePackageID ) ) this_METHOD_KW_4= RULE_METHOD_KW this_ASSIGNASSINGLE_5= RULE_ASSIGNASSINGLE ( (lv_method_6_0= rulePackageID ) ) this_LEFTPAREN_7= RULE_LEFTPAREN this_RIGHTPAREN_8= RULE_RIGHTPAREN ) ;
+    // InternalXtextTest.g:2060:1: ruleBefore returns [EObject current=null] : ( () this_BEFORE_KW_1= RULE_BEFORE_KW ( (lv_codeCall_2_0= ruleCodeCall ) ) ) ;
     public final EObject ruleBefore() throws RecognitionException {
         EObject current = null;
 
-        Token this_BEFORE_KW_0=null;
-        Token this_CLASS_KW_1=null;
-        Token this_ASSIGNASSINGLE_2=null;
-        Token this_METHOD_KW_4=null;
-        Token this_ASSIGNASSINGLE_5=null;
-        Token this_LEFTPAREN_7=null;
-        Token this_RIGHTPAREN_8=null;
-        AntlrDatatypeRuleToken lv_myclass_3_0 = null;
-
-        AntlrDatatypeRuleToken lv_method_6_0 = null;
+        Token this_BEFORE_KW_1=null;
+        EObject lv_codeCall_2_0 = null;
 
 
          enterRule();
            		/*no init found*/
             
         try {
-            // InternalXtextTest.g:2066:7: ( (this_BEFORE_KW_0= RULE_BEFORE_KW this_CLASS_KW_1= RULE_CLASS_KW this_ASSIGNASSINGLE_2= RULE_ASSIGNASSINGLE ( (lv_myclass_3_0= rulePackageID ) ) this_METHOD_KW_4= RULE_METHOD_KW this_ASSIGNASSINGLE_5= RULE_ASSIGNASSINGLE ( (lv_method_6_0= rulePackageID ) ) this_LEFTPAREN_7= RULE_LEFTPAREN this_RIGHTPAREN_8= RULE_RIGHTPAREN ) )
-            // InternalXtextTest.g:2068:1: (this_BEFORE_KW_0= RULE_BEFORE_KW this_CLASS_KW_1= RULE_CLASS_KW this_ASSIGNASSINGLE_2= RULE_ASSIGNASSINGLE ( (lv_myclass_3_0= rulePackageID ) ) this_METHOD_KW_4= RULE_METHOD_KW this_ASSIGNASSINGLE_5= RULE_ASSIGNASSINGLE ( (lv_method_6_0= rulePackageID ) ) this_LEFTPAREN_7= RULE_LEFTPAREN this_RIGHTPAREN_8= RULE_RIGHTPAREN )
+            // InternalXtextTest.g:2066:7: ( ( () this_BEFORE_KW_1= RULE_BEFORE_KW ( (lv_codeCall_2_0= ruleCodeCall ) ) ) )
+            // InternalXtextTest.g:2068:1: ( () this_BEFORE_KW_1= RULE_BEFORE_KW ( (lv_codeCall_2_0= ruleCodeCall ) ) )
             {
-            // InternalXtextTest.g:2068:1: (this_BEFORE_KW_0= RULE_BEFORE_KW this_CLASS_KW_1= RULE_CLASS_KW this_ASSIGNASSINGLE_2= RULE_ASSIGNASSINGLE ( (lv_myclass_3_0= rulePackageID ) ) this_METHOD_KW_4= RULE_METHOD_KW this_ASSIGNASSINGLE_5= RULE_ASSIGNASSINGLE ( (lv_method_6_0= rulePackageID ) ) this_LEFTPAREN_7= RULE_LEFTPAREN this_RIGHTPAREN_8= RULE_RIGHTPAREN )
-            // InternalXtextTest.g:2069:1: this_BEFORE_KW_0= RULE_BEFORE_KW this_CLASS_KW_1= RULE_CLASS_KW this_ASSIGNASSINGLE_2= RULE_ASSIGNASSINGLE ( (lv_myclass_3_0= rulePackageID ) ) this_METHOD_KW_4= RULE_METHOD_KW this_ASSIGNASSINGLE_5= RULE_ASSIGNASSINGLE ( (lv_method_6_0= rulePackageID ) ) this_LEFTPAREN_7= RULE_LEFTPAREN this_RIGHTPAREN_8= RULE_RIGHTPAREN
+            // InternalXtextTest.g:2068:1: ( () this_BEFORE_KW_1= RULE_BEFORE_KW ( (lv_codeCall_2_0= ruleCodeCall ) ) )
+            // InternalXtextTest.g:2069:1: () this_BEFORE_KW_1= RULE_BEFORE_KW ( (lv_codeCall_2_0= ruleCodeCall ) )
             {
-            this_BEFORE_KW_0=(Token)match(input,RULE_BEFORE_KW,FOLLOW_36); 
-             
-                newLeafNode(this_BEFORE_KW_0, grammarAccess.getBeforeAccess().getBEFORE_KWTerminalRuleCall_0()); 
+            // InternalXtextTest.g:2069:1: ()
+            // InternalXtextTest.g:2070:5: 
+            {
+
+                    current = forceCreateModelElement(
+                        grammarAccess.getBeforeAccess().getBeforeAction_0(),
+                        current);
                 
-            this_CLASS_KW_1=(Token)match(input,RULE_CLASS_KW,FOLLOW_6); 
+
+            }
+
+            this_BEFORE_KW_1=(Token)match(input,RULE_BEFORE_KW,FOLLOW_14); 
              
-                newLeafNode(this_CLASS_KW_1, grammarAccess.getBeforeAccess().getCLASS_KWTerminalRuleCall_1()); 
+                newLeafNode(this_BEFORE_KW_1, grammarAccess.getBeforeAccess().getBEFORE_KWTerminalRuleCall_1()); 
                 
-            this_ASSIGNASSINGLE_2=(Token)match(input,RULE_ASSIGNASSINGLE,FOLLOW_3); 
-             
-                newLeafNode(this_ASSIGNASSINGLE_2, grammarAccess.getBeforeAccess().getASSIGNASSINGLETerminalRuleCall_2()); 
-                
-            // InternalXtextTest.g:2090:1: ( (lv_myclass_3_0= rulePackageID ) )
-            // InternalXtextTest.g:2091:1: (lv_myclass_3_0= rulePackageID )
+            // InternalXtextTest.g:2085:1: ( (lv_codeCall_2_0= ruleCodeCall ) )
+            // InternalXtextTest.g:2086:1: (lv_codeCall_2_0= ruleCodeCall )
             {
-            // InternalXtextTest.g:2091:1: (lv_myclass_3_0= rulePackageID )
-            // InternalXtextTest.g:2092:3: lv_myclass_3_0= rulePackageID
+            // InternalXtextTest.g:2086:1: (lv_codeCall_2_0= ruleCodeCall )
+            // InternalXtextTest.g:2087:3: lv_codeCall_2_0= ruleCodeCall
             {
              
-            	        newCompositeNode(grammarAccess.getBeforeAccess().getMyclassPackageIDParserRuleCall_3_0()); 
+            	        newCompositeNode(grammarAccess.getBeforeAccess().getCodeCallCodeCallParserRuleCall_2_0()); 
             	    
-            pushFollow(FOLLOW_37);
-            lv_myclass_3_0=rulePackageID();
+            pushFollow(FOLLOW_2);
+            lv_codeCall_2_0=ruleCodeCall();
 
             state._fsp--;
 
@@ -3924,9 +3919,9 @@ public class InternalXtextTestParser extends AbstractInternalAntlrParser {
             	        }
                    		set(
                    			current, 
-                   			"myclass",
-                    		lv_myclass_3_0, 
-                    		"at.jku.weiner.xtexttest.XtextTest.PackageID");
+                   			"codeCall",
+                    		lv_codeCall_2_0, 
+                    		"at.jku.weiner.xtexttest.XtextTest.CodeCall");
             	        afterParserOrEnumRuleCall();
             	    
 
@@ -3935,53 +3930,6 @@ public class InternalXtextTestParser extends AbstractInternalAntlrParser {
 
             }
 
-            this_METHOD_KW_4=(Token)match(input,RULE_METHOD_KW,FOLLOW_6); 
-             
-                newLeafNode(this_METHOD_KW_4, grammarAccess.getBeforeAccess().getMETHOD_KWTerminalRuleCall_4()); 
-                
-            this_ASSIGNASSINGLE_5=(Token)match(input,RULE_ASSIGNASSINGLE,FOLLOW_3); 
-             
-                newLeafNode(this_ASSIGNASSINGLE_5, grammarAccess.getBeforeAccess().getASSIGNASSINGLETerminalRuleCall_5()); 
-                
-            // InternalXtextTest.g:2125:1: ( (lv_method_6_0= rulePackageID ) )
-            // InternalXtextTest.g:2126:1: (lv_method_6_0= rulePackageID )
-            {
-            // InternalXtextTest.g:2126:1: (lv_method_6_0= rulePackageID )
-            // InternalXtextTest.g:2127:3: lv_method_6_0= rulePackageID
-            {
-             
-            	        newCompositeNode(grammarAccess.getBeforeAccess().getMethodPackageIDParserRuleCall_6_0()); 
-            	    
-            pushFollow(FOLLOW_38);
-            lv_method_6_0=rulePackageID();
-
-            state._fsp--;
-
-
-            	        if (current==null) {
-            	            current = createModelElementForParent(grammarAccess.getBeforeRule());
-            	        }
-                   		set(
-                   			current, 
-                   			"method",
-                    		lv_method_6_0, 
-                    		"at.jku.weiner.xtexttest.XtextTest.PackageID");
-            	        afterParserOrEnumRuleCall();
-            	    
-
-            }
-
-
-            }
-
-            this_LEFTPAREN_7=(Token)match(input,RULE_LEFTPAREN,FOLLOW_39); 
-             
-                newLeafNode(this_LEFTPAREN_7, grammarAccess.getBeforeAccess().getLEFTPARENTerminalRuleCall_7()); 
-                
-            this_RIGHTPAREN_8=(Token)match(input,RULE_RIGHTPAREN,FOLLOW_2); 
-             
-                newLeafNode(this_RIGHTPAREN_8, grammarAccess.getBeforeAccess().getRIGHTPARENTerminalRuleCall_8()); 
-                
 
             }
 
@@ -4005,7 +3953,7 @@ public class InternalXtextTestParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAfter"
-    // InternalXtextTest.g:2169:1: entryRuleAfter returns [EObject current=null] : iv_ruleAfter= ruleAfter EOF ;
+    // InternalXtextTest.g:2115:1: entryRuleAfter returns [EObject current=null] : iv_ruleAfter= ruleAfter EOF ;
     public final EObject entryRuleAfter() throws RecognitionException {
         EObject current = null;
 
@@ -4013,8 +3961,8 @@ public class InternalXtextTestParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalXtextTest.g:2170:2: (iv_ruleAfter= ruleAfter EOF )
-            // InternalXtextTest.g:2171:2: iv_ruleAfter= ruleAfter EOF
+            // InternalXtextTest.g:2116:2: (iv_ruleAfter= ruleAfter EOF )
+            // InternalXtextTest.g:2117:2: iv_ruleAfter= ruleAfter EOF
             {
              newCompositeNode(grammarAccess.getAfterRule()); 
             pushFollow(FOLLOW_1);
@@ -4041,55 +3989,50 @@ public class InternalXtextTestParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAfter"
-    // InternalXtextTest.g:2178:1: ruleAfter returns [EObject current=null] : (this_AFTER_KW_0= RULE_AFTER_KW this_CLASS_KW_1= RULE_CLASS_KW this_ASSIGNASSINGLE_2= RULE_ASSIGNASSINGLE ( (lv_myclass_3_0= rulePackageID ) ) this_METHOD_KW_4= RULE_METHOD_KW this_ASSIGNASSINGLE_5= RULE_ASSIGNASSINGLE ( (lv_method_6_0= rulePackageID ) ) this_LEFTPAREN_7= RULE_LEFTPAREN this_RIGHTPAREN_8= RULE_RIGHTPAREN ) ;
+    // InternalXtextTest.g:2124:1: ruleAfter returns [EObject current=null] : ( () this_AFTER_KW_1= RULE_AFTER_KW ( (lv_codeCall_2_0= ruleCodeCall ) ) ) ;
     public final EObject ruleAfter() throws RecognitionException {
         EObject current = null;
 
-        Token this_AFTER_KW_0=null;
-        Token this_CLASS_KW_1=null;
-        Token this_ASSIGNASSINGLE_2=null;
-        Token this_METHOD_KW_4=null;
-        Token this_ASSIGNASSINGLE_5=null;
-        Token this_LEFTPAREN_7=null;
-        Token this_RIGHTPAREN_8=null;
-        AntlrDatatypeRuleToken lv_myclass_3_0 = null;
-
-        AntlrDatatypeRuleToken lv_method_6_0 = null;
+        Token this_AFTER_KW_1=null;
+        EObject lv_codeCall_2_0 = null;
 
 
          enterRule();
            		/*no init found*/
             
         try {
-            // InternalXtextTest.g:2184:7: ( (this_AFTER_KW_0= RULE_AFTER_KW this_CLASS_KW_1= RULE_CLASS_KW this_ASSIGNASSINGLE_2= RULE_ASSIGNASSINGLE ( (lv_myclass_3_0= rulePackageID ) ) this_METHOD_KW_4= RULE_METHOD_KW this_ASSIGNASSINGLE_5= RULE_ASSIGNASSINGLE ( (lv_method_6_0= rulePackageID ) ) this_LEFTPAREN_7= RULE_LEFTPAREN this_RIGHTPAREN_8= RULE_RIGHTPAREN ) )
-            // InternalXtextTest.g:2186:1: (this_AFTER_KW_0= RULE_AFTER_KW this_CLASS_KW_1= RULE_CLASS_KW this_ASSIGNASSINGLE_2= RULE_ASSIGNASSINGLE ( (lv_myclass_3_0= rulePackageID ) ) this_METHOD_KW_4= RULE_METHOD_KW this_ASSIGNASSINGLE_5= RULE_ASSIGNASSINGLE ( (lv_method_6_0= rulePackageID ) ) this_LEFTPAREN_7= RULE_LEFTPAREN this_RIGHTPAREN_8= RULE_RIGHTPAREN )
+            // InternalXtextTest.g:2130:7: ( ( () this_AFTER_KW_1= RULE_AFTER_KW ( (lv_codeCall_2_0= ruleCodeCall ) ) ) )
+            // InternalXtextTest.g:2132:1: ( () this_AFTER_KW_1= RULE_AFTER_KW ( (lv_codeCall_2_0= ruleCodeCall ) ) )
             {
-            // InternalXtextTest.g:2186:1: (this_AFTER_KW_0= RULE_AFTER_KW this_CLASS_KW_1= RULE_CLASS_KW this_ASSIGNASSINGLE_2= RULE_ASSIGNASSINGLE ( (lv_myclass_3_0= rulePackageID ) ) this_METHOD_KW_4= RULE_METHOD_KW this_ASSIGNASSINGLE_5= RULE_ASSIGNASSINGLE ( (lv_method_6_0= rulePackageID ) ) this_LEFTPAREN_7= RULE_LEFTPAREN this_RIGHTPAREN_8= RULE_RIGHTPAREN )
-            // InternalXtextTest.g:2187:1: this_AFTER_KW_0= RULE_AFTER_KW this_CLASS_KW_1= RULE_CLASS_KW this_ASSIGNASSINGLE_2= RULE_ASSIGNASSINGLE ( (lv_myclass_3_0= rulePackageID ) ) this_METHOD_KW_4= RULE_METHOD_KW this_ASSIGNASSINGLE_5= RULE_ASSIGNASSINGLE ( (lv_method_6_0= rulePackageID ) ) this_LEFTPAREN_7= RULE_LEFTPAREN this_RIGHTPAREN_8= RULE_RIGHTPAREN
+            // InternalXtextTest.g:2132:1: ( () this_AFTER_KW_1= RULE_AFTER_KW ( (lv_codeCall_2_0= ruleCodeCall ) ) )
+            // InternalXtextTest.g:2133:1: () this_AFTER_KW_1= RULE_AFTER_KW ( (lv_codeCall_2_0= ruleCodeCall ) )
             {
-            this_AFTER_KW_0=(Token)match(input,RULE_AFTER_KW,FOLLOW_36); 
-             
-                newLeafNode(this_AFTER_KW_0, grammarAccess.getAfterAccess().getAFTER_KWTerminalRuleCall_0()); 
+            // InternalXtextTest.g:2133:1: ()
+            // InternalXtextTest.g:2134:5: 
+            {
+
+                    current = forceCreateModelElement(
+                        grammarAccess.getAfterAccess().getAfterAction_0(),
+                        current);
                 
-            this_CLASS_KW_1=(Token)match(input,RULE_CLASS_KW,FOLLOW_6); 
+
+            }
+
+            this_AFTER_KW_1=(Token)match(input,RULE_AFTER_KW,FOLLOW_14); 
              
-                newLeafNode(this_CLASS_KW_1, grammarAccess.getAfterAccess().getCLASS_KWTerminalRuleCall_1()); 
+                newLeafNode(this_AFTER_KW_1, grammarAccess.getAfterAccess().getAFTER_KWTerminalRuleCall_1()); 
                 
-            this_ASSIGNASSINGLE_2=(Token)match(input,RULE_ASSIGNASSINGLE,FOLLOW_3); 
-             
-                newLeafNode(this_ASSIGNASSINGLE_2, grammarAccess.getAfterAccess().getASSIGNASSINGLETerminalRuleCall_2()); 
-                
-            // InternalXtextTest.g:2208:1: ( (lv_myclass_3_0= rulePackageID ) )
-            // InternalXtextTest.g:2209:1: (lv_myclass_3_0= rulePackageID )
+            // InternalXtextTest.g:2149:1: ( (lv_codeCall_2_0= ruleCodeCall ) )
+            // InternalXtextTest.g:2150:1: (lv_codeCall_2_0= ruleCodeCall )
             {
-            // InternalXtextTest.g:2209:1: (lv_myclass_3_0= rulePackageID )
-            // InternalXtextTest.g:2210:3: lv_myclass_3_0= rulePackageID
+            // InternalXtextTest.g:2150:1: (lv_codeCall_2_0= ruleCodeCall )
+            // InternalXtextTest.g:2151:3: lv_codeCall_2_0= ruleCodeCall
             {
              
-            	        newCompositeNode(grammarAccess.getAfterAccess().getMyclassPackageIDParserRuleCall_3_0()); 
+            	        newCompositeNode(grammarAccess.getAfterAccess().getCodeCallCodeCallParserRuleCall_2_0()); 
             	    
-            pushFollow(FOLLOW_37);
-            lv_myclass_3_0=rulePackageID();
+            pushFollow(FOLLOW_2);
+            lv_codeCall_2_0=ruleCodeCall();
 
             state._fsp--;
 
@@ -4099,9 +4042,9 @@ public class InternalXtextTestParser extends AbstractInternalAntlrParser {
             	        }
                    		set(
                    			current, 
-                   			"myclass",
-                    		lv_myclass_3_0, 
-                    		"at.jku.weiner.xtexttest.XtextTest.PackageID");
+                   			"codeCall",
+                    		lv_codeCall_2_0, 
+                    		"at.jku.weiner.xtexttest.XtextTest.CodeCall");
             	        afterParserOrEnumRuleCall();
             	    
 
@@ -4110,53 +4053,6 @@ public class InternalXtextTestParser extends AbstractInternalAntlrParser {
 
             }
 
-            this_METHOD_KW_4=(Token)match(input,RULE_METHOD_KW,FOLLOW_6); 
-             
-                newLeafNode(this_METHOD_KW_4, grammarAccess.getAfterAccess().getMETHOD_KWTerminalRuleCall_4()); 
-                
-            this_ASSIGNASSINGLE_5=(Token)match(input,RULE_ASSIGNASSINGLE,FOLLOW_3); 
-             
-                newLeafNode(this_ASSIGNASSINGLE_5, grammarAccess.getAfterAccess().getASSIGNASSINGLETerminalRuleCall_5()); 
-                
-            // InternalXtextTest.g:2243:1: ( (lv_method_6_0= rulePackageID ) )
-            // InternalXtextTest.g:2244:1: (lv_method_6_0= rulePackageID )
-            {
-            // InternalXtextTest.g:2244:1: (lv_method_6_0= rulePackageID )
-            // InternalXtextTest.g:2245:3: lv_method_6_0= rulePackageID
-            {
-             
-            	        newCompositeNode(grammarAccess.getAfterAccess().getMethodPackageIDParserRuleCall_6_0()); 
-            	    
-            pushFollow(FOLLOW_38);
-            lv_method_6_0=rulePackageID();
-
-            state._fsp--;
-
-
-            	        if (current==null) {
-            	            current = createModelElementForParent(grammarAccess.getAfterRule());
-            	        }
-                   		set(
-                   			current, 
-                   			"method",
-                    		lv_method_6_0, 
-                    		"at.jku.weiner.xtexttest.XtextTest.PackageID");
-            	        afterParserOrEnumRuleCall();
-            	    
-
-            }
-
-
-            }
-
-            this_LEFTPAREN_7=(Token)match(input,RULE_LEFTPAREN,FOLLOW_39); 
-             
-                newLeafNode(this_LEFTPAREN_7, grammarAccess.getAfterAccess().getLEFTPARENTerminalRuleCall_7()); 
-                
-            this_RIGHTPAREN_8=(Token)match(input,RULE_RIGHTPAREN,FOLLOW_2); 
-             
-                newLeafNode(this_RIGHTPAREN_8, grammarAccess.getAfterAccess().getRIGHTPARENTerminalRuleCall_8()); 
-                
 
             }
 
@@ -4180,7 +4076,7 @@ public class InternalXtextTestParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleCodeCall"
-    // InternalXtextTest.g:2287:1: entryRuleCodeCall returns [EObject current=null] : iv_ruleCodeCall= ruleCodeCall EOF ;
+    // InternalXtextTest.g:2179:1: entryRuleCodeCall returns [EObject current=null] : iv_ruleCodeCall= ruleCodeCall EOF ;
     public final EObject entryRuleCodeCall() throws RecognitionException {
         EObject current = null;
 
@@ -4188,8 +4084,8 @@ public class InternalXtextTestParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalXtextTest.g:2288:2: (iv_ruleCodeCall= ruleCodeCall EOF )
-            // InternalXtextTest.g:2289:2: iv_ruleCodeCall= ruleCodeCall EOF
+            // InternalXtextTest.g:2180:2: (iv_ruleCodeCall= ruleCodeCall EOF )
+            // InternalXtextTest.g:2181:2: iv_ruleCodeCall= ruleCodeCall EOF
             {
              newCompositeNode(grammarAccess.getCodeCallRule()); 
             pushFollow(FOLLOW_1);
@@ -4216,48 +4112,66 @@ public class InternalXtextTestParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCodeCall"
-    // InternalXtextTest.g:2296:1: ruleCodeCall returns [EObject current=null] : (this_CLASS_KW_0= RULE_CLASS_KW this_ASSIGNASSINGLE_1= RULE_ASSIGNASSINGLE ( (lv_myclass_2_0= rulePackageID ) ) this_METHOD_KW_3= RULE_METHOD_KW this_ASSIGNASSINGLE_4= RULE_ASSIGNASSINGLE ( (lv_method_5_0= rulePackageID ) ) ) ;
+    // InternalXtextTest.g:2188:1: ruleCodeCall returns [EObject current=null] : ( () this_CLASS_KW_1= RULE_CLASS_KW this_ASSIGNASSINGLE_2= RULE_ASSIGNASSINGLE ( (lv_myclass_3_0= rulePackageID ) ) this_METHOD_KW_4= RULE_METHOD_KW this_ASSIGNASSINGLE_5= RULE_ASSIGNASSINGLE ( (lv_method_6_0= rulePackageID ) ) (this_LEFTPAREN_7= RULE_LEFTPAREN ( ( (lv_params_8_0= rulePackageID ) ) (this_COMMA_9= RULE_COMMA ( (lv_params_10_0= rulePackageID ) ) )* )? this_RIGHTPAREN_11= RULE_RIGHTPAREN ) ) ;
     public final EObject ruleCodeCall() throws RecognitionException {
         EObject current = null;
 
-        Token this_CLASS_KW_0=null;
-        Token this_ASSIGNASSINGLE_1=null;
-        Token this_METHOD_KW_3=null;
-        Token this_ASSIGNASSINGLE_4=null;
-        AntlrDatatypeRuleToken lv_myclass_2_0 = null;
+        Token this_CLASS_KW_1=null;
+        Token this_ASSIGNASSINGLE_2=null;
+        Token this_METHOD_KW_4=null;
+        Token this_ASSIGNASSINGLE_5=null;
+        Token this_LEFTPAREN_7=null;
+        Token this_COMMA_9=null;
+        Token this_RIGHTPAREN_11=null;
+        AntlrDatatypeRuleToken lv_myclass_3_0 = null;
 
-        AntlrDatatypeRuleToken lv_method_5_0 = null;
+        AntlrDatatypeRuleToken lv_method_6_0 = null;
+
+        AntlrDatatypeRuleToken lv_params_8_0 = null;
+
+        AntlrDatatypeRuleToken lv_params_10_0 = null;
 
 
          enterRule();
            		/*no init found*/
             
         try {
-            // InternalXtextTest.g:2302:7: ( (this_CLASS_KW_0= RULE_CLASS_KW this_ASSIGNASSINGLE_1= RULE_ASSIGNASSINGLE ( (lv_myclass_2_0= rulePackageID ) ) this_METHOD_KW_3= RULE_METHOD_KW this_ASSIGNASSINGLE_4= RULE_ASSIGNASSINGLE ( (lv_method_5_0= rulePackageID ) ) ) )
-            // InternalXtextTest.g:2304:1: (this_CLASS_KW_0= RULE_CLASS_KW this_ASSIGNASSINGLE_1= RULE_ASSIGNASSINGLE ( (lv_myclass_2_0= rulePackageID ) ) this_METHOD_KW_3= RULE_METHOD_KW this_ASSIGNASSINGLE_4= RULE_ASSIGNASSINGLE ( (lv_method_5_0= rulePackageID ) ) )
+            // InternalXtextTest.g:2194:7: ( ( () this_CLASS_KW_1= RULE_CLASS_KW this_ASSIGNASSINGLE_2= RULE_ASSIGNASSINGLE ( (lv_myclass_3_0= rulePackageID ) ) this_METHOD_KW_4= RULE_METHOD_KW this_ASSIGNASSINGLE_5= RULE_ASSIGNASSINGLE ( (lv_method_6_0= rulePackageID ) ) (this_LEFTPAREN_7= RULE_LEFTPAREN ( ( (lv_params_8_0= rulePackageID ) ) (this_COMMA_9= RULE_COMMA ( (lv_params_10_0= rulePackageID ) ) )* )? this_RIGHTPAREN_11= RULE_RIGHTPAREN ) ) )
+            // InternalXtextTest.g:2196:1: ( () this_CLASS_KW_1= RULE_CLASS_KW this_ASSIGNASSINGLE_2= RULE_ASSIGNASSINGLE ( (lv_myclass_3_0= rulePackageID ) ) this_METHOD_KW_4= RULE_METHOD_KW this_ASSIGNASSINGLE_5= RULE_ASSIGNASSINGLE ( (lv_method_6_0= rulePackageID ) ) (this_LEFTPAREN_7= RULE_LEFTPAREN ( ( (lv_params_8_0= rulePackageID ) ) (this_COMMA_9= RULE_COMMA ( (lv_params_10_0= rulePackageID ) ) )* )? this_RIGHTPAREN_11= RULE_RIGHTPAREN ) )
             {
-            // InternalXtextTest.g:2304:1: (this_CLASS_KW_0= RULE_CLASS_KW this_ASSIGNASSINGLE_1= RULE_ASSIGNASSINGLE ( (lv_myclass_2_0= rulePackageID ) ) this_METHOD_KW_3= RULE_METHOD_KW this_ASSIGNASSINGLE_4= RULE_ASSIGNASSINGLE ( (lv_method_5_0= rulePackageID ) ) )
-            // InternalXtextTest.g:2305:1: this_CLASS_KW_0= RULE_CLASS_KW this_ASSIGNASSINGLE_1= RULE_ASSIGNASSINGLE ( (lv_myclass_2_0= rulePackageID ) ) this_METHOD_KW_3= RULE_METHOD_KW this_ASSIGNASSINGLE_4= RULE_ASSIGNASSINGLE ( (lv_method_5_0= rulePackageID ) )
+            // InternalXtextTest.g:2196:1: ( () this_CLASS_KW_1= RULE_CLASS_KW this_ASSIGNASSINGLE_2= RULE_ASSIGNASSINGLE ( (lv_myclass_3_0= rulePackageID ) ) this_METHOD_KW_4= RULE_METHOD_KW this_ASSIGNASSINGLE_5= RULE_ASSIGNASSINGLE ( (lv_method_6_0= rulePackageID ) ) (this_LEFTPAREN_7= RULE_LEFTPAREN ( ( (lv_params_8_0= rulePackageID ) ) (this_COMMA_9= RULE_COMMA ( (lv_params_10_0= rulePackageID ) ) )* )? this_RIGHTPAREN_11= RULE_RIGHTPAREN ) )
+            // InternalXtextTest.g:2197:1: () this_CLASS_KW_1= RULE_CLASS_KW this_ASSIGNASSINGLE_2= RULE_ASSIGNASSINGLE ( (lv_myclass_3_0= rulePackageID ) ) this_METHOD_KW_4= RULE_METHOD_KW this_ASSIGNASSINGLE_5= RULE_ASSIGNASSINGLE ( (lv_method_6_0= rulePackageID ) ) (this_LEFTPAREN_7= RULE_LEFTPAREN ( ( (lv_params_8_0= rulePackageID ) ) (this_COMMA_9= RULE_COMMA ( (lv_params_10_0= rulePackageID ) ) )* )? this_RIGHTPAREN_11= RULE_RIGHTPAREN )
             {
-            this_CLASS_KW_0=(Token)match(input,RULE_CLASS_KW,FOLLOW_6); 
-             
-                newLeafNode(this_CLASS_KW_0, grammarAccess.getCodeCallAccess().getCLASS_KWTerminalRuleCall_0()); 
+            // InternalXtextTest.g:2197:1: ()
+            // InternalXtextTest.g:2198:5: 
+            {
+
+                    current = forceCreateModelElement(
+                        grammarAccess.getCodeCallAccess().getCodeCallAction_0(),
+                        current);
                 
-            this_ASSIGNASSINGLE_1=(Token)match(input,RULE_ASSIGNASSINGLE,FOLLOW_3); 
+
+            }
+
+            this_CLASS_KW_1=(Token)match(input,RULE_CLASS_KW,FOLLOW_6); 
              
-                newLeafNode(this_ASSIGNASSINGLE_1, grammarAccess.getCodeCallAccess().getASSIGNASSINGLETerminalRuleCall_1()); 
+                newLeafNode(this_CLASS_KW_1, grammarAccess.getCodeCallAccess().getCLASS_KWTerminalRuleCall_1()); 
                 
-            // InternalXtextTest.g:2319:1: ( (lv_myclass_2_0= rulePackageID ) )
-            // InternalXtextTest.g:2320:1: (lv_myclass_2_0= rulePackageID )
+            this_ASSIGNASSINGLE_2=(Token)match(input,RULE_ASSIGNASSINGLE,FOLLOW_3); 
+             
+                newLeafNode(this_ASSIGNASSINGLE_2, grammarAccess.getCodeCallAccess().getASSIGNASSINGLETerminalRuleCall_2()); 
+                
+            // InternalXtextTest.g:2220:1: ( (lv_myclass_3_0= rulePackageID ) )
+            // InternalXtextTest.g:2221:1: (lv_myclass_3_0= rulePackageID )
             {
-            // InternalXtextTest.g:2320:1: (lv_myclass_2_0= rulePackageID )
-            // InternalXtextTest.g:2321:3: lv_myclass_2_0= rulePackageID
+            // InternalXtextTest.g:2221:1: (lv_myclass_3_0= rulePackageID )
+            // InternalXtextTest.g:2222:3: lv_myclass_3_0= rulePackageID
             {
              
-            	        newCompositeNode(grammarAccess.getCodeCallAccess().getMyclassPackageIDParserRuleCall_2_0()); 
+            	        newCompositeNode(grammarAccess.getCodeCallAccess().getMyclassPackageIDParserRuleCall_3_0()); 
             	    
-            pushFollow(FOLLOW_37);
-            lv_myclass_2_0=rulePackageID();
+            pushFollow(FOLLOW_36);
+            lv_myclass_3_0=rulePackageID();
 
             state._fsp--;
 
@@ -4268,7 +4182,7 @@ public class InternalXtextTestParser extends AbstractInternalAntlrParser {
                    		set(
                    			current, 
                    			"myclass",
-                    		lv_myclass_2_0, 
+                    		lv_myclass_3_0, 
                     		"at.jku.weiner.xtexttest.XtextTest.PackageID");
             	        afterParserOrEnumRuleCall();
             	    
@@ -4278,25 +4192,25 @@ public class InternalXtextTestParser extends AbstractInternalAntlrParser {
 
             }
 
-            this_METHOD_KW_3=(Token)match(input,RULE_METHOD_KW,FOLLOW_6); 
+            this_METHOD_KW_4=(Token)match(input,RULE_METHOD_KW,FOLLOW_6); 
              
-                newLeafNode(this_METHOD_KW_3, grammarAccess.getCodeCallAccess().getMETHOD_KWTerminalRuleCall_3()); 
+                newLeafNode(this_METHOD_KW_4, grammarAccess.getCodeCallAccess().getMETHOD_KWTerminalRuleCall_4()); 
                 
-            this_ASSIGNASSINGLE_4=(Token)match(input,RULE_ASSIGNASSINGLE,FOLLOW_3); 
+            this_ASSIGNASSINGLE_5=(Token)match(input,RULE_ASSIGNASSINGLE,FOLLOW_3); 
              
-                newLeafNode(this_ASSIGNASSINGLE_4, grammarAccess.getCodeCallAccess().getASSIGNASSINGLETerminalRuleCall_4()); 
+                newLeafNode(this_ASSIGNASSINGLE_5, grammarAccess.getCodeCallAccess().getASSIGNASSINGLETerminalRuleCall_5()); 
                 
-            // InternalXtextTest.g:2354:1: ( (lv_method_5_0= rulePackageID ) )
-            // InternalXtextTest.g:2355:1: (lv_method_5_0= rulePackageID )
+            // InternalXtextTest.g:2255:1: ( (lv_method_6_0= rulePackageID ) )
+            // InternalXtextTest.g:2256:1: (lv_method_6_0= rulePackageID )
             {
-            // InternalXtextTest.g:2355:1: (lv_method_5_0= rulePackageID )
-            // InternalXtextTest.g:2356:3: lv_method_5_0= rulePackageID
+            // InternalXtextTest.g:2256:1: (lv_method_6_0= rulePackageID )
+            // InternalXtextTest.g:2257:3: lv_method_6_0= rulePackageID
             {
              
-            	        newCompositeNode(grammarAccess.getCodeCallAccess().getMethodPackageIDParserRuleCall_5_0()); 
+            	        newCompositeNode(grammarAccess.getCodeCallAccess().getMethodPackageIDParserRuleCall_6_0()); 
             	    
-            pushFollow(FOLLOW_2);
-            lv_method_5_0=rulePackageID();
+            pushFollow(FOLLOW_37);
+            lv_method_6_0=rulePackageID();
 
             state._fsp--;
 
@@ -4307,13 +4221,134 @@ public class InternalXtextTestParser extends AbstractInternalAntlrParser {
                    		set(
                    			current, 
                    			"method",
-                    		lv_method_5_0, 
+                    		lv_method_6_0, 
                     		"at.jku.weiner.xtexttest.XtextTest.PackageID");
             	        afterParserOrEnumRuleCall();
             	    
 
             }
 
+
+            }
+
+            // InternalXtextTest.g:2276:1: (this_LEFTPAREN_7= RULE_LEFTPAREN ( ( (lv_params_8_0= rulePackageID ) ) (this_COMMA_9= RULE_COMMA ( (lv_params_10_0= rulePackageID ) ) )* )? this_RIGHTPAREN_11= RULE_RIGHTPAREN )
+            // InternalXtextTest.g:2277:1: this_LEFTPAREN_7= RULE_LEFTPAREN ( ( (lv_params_8_0= rulePackageID ) ) (this_COMMA_9= RULE_COMMA ( (lv_params_10_0= rulePackageID ) ) )* )? this_RIGHTPAREN_11= RULE_RIGHTPAREN
+            {
+            this_LEFTPAREN_7=(Token)match(input,RULE_LEFTPAREN,FOLLOW_26); 
+             
+                newLeafNode(this_LEFTPAREN_7, grammarAccess.getCodeCallAccess().getLEFTPARENTerminalRuleCall_7_0()); 
+                
+            // InternalXtextTest.g:2284:1: ( ( (lv_params_8_0= rulePackageID ) ) (this_COMMA_9= RULE_COMMA ( (lv_params_10_0= rulePackageID ) ) )* )?
+            int alt30=2;
+            int LA30_0 = input.LA(1);
+
+            if ( (LA30_0==RULE_IDENTIFIER) ) {
+                alt30=1;
+            }
+            switch (alt30) {
+                case 1 :
+                    // InternalXtextTest.g:2285:1: ( (lv_params_8_0= rulePackageID ) ) (this_COMMA_9= RULE_COMMA ( (lv_params_10_0= rulePackageID ) ) )*
+                    {
+                    // InternalXtextTest.g:2285:1: ( (lv_params_8_0= rulePackageID ) )
+                    // InternalXtextTest.g:2286:1: (lv_params_8_0= rulePackageID )
+                    {
+                    // InternalXtextTest.g:2286:1: (lv_params_8_0= rulePackageID )
+                    // InternalXtextTest.g:2287:3: lv_params_8_0= rulePackageID
+                    {
+                     
+                    	        newCompositeNode(grammarAccess.getCodeCallAccess().getParamsPackageIDParserRuleCall_7_1_0_0()); 
+                    	    
+                    pushFollow(FOLLOW_27);
+                    lv_params_8_0=rulePackageID();
+
+                    state._fsp--;
+
+
+                    	        if (current==null) {
+                    	            current = createModelElementForParent(grammarAccess.getCodeCallRule());
+                    	        }
+                           		add(
+                           			current, 
+                           			"params",
+                            		lv_params_8_0, 
+                            		"at.jku.weiner.xtexttest.XtextTest.PackageID");
+                    	        afterParserOrEnumRuleCall();
+                    	    
+
+                    }
+
+
+                    }
+
+                    // InternalXtextTest.g:2306:1: (this_COMMA_9= RULE_COMMA ( (lv_params_10_0= rulePackageID ) ) )*
+                    loop29:
+                    do {
+                        int alt29=2;
+                        int LA29_0 = input.LA(1);
+
+                        if ( (LA29_0==RULE_COMMA) ) {
+                            alt29=1;
+                        }
+
+
+                        switch (alt29) {
+                    	case 1 :
+                    	    // InternalXtextTest.g:2307:1: this_COMMA_9= RULE_COMMA ( (lv_params_10_0= rulePackageID ) )
+                    	    {
+                    	    this_COMMA_9=(Token)match(input,RULE_COMMA,FOLLOW_3); 
+                    	     
+                    	        newLeafNode(this_COMMA_9, grammarAccess.getCodeCallAccess().getCOMMATerminalRuleCall_7_1_1_0()); 
+                    	        
+                    	    // InternalXtextTest.g:2314:1: ( (lv_params_10_0= rulePackageID ) )
+                    	    // InternalXtextTest.g:2315:1: (lv_params_10_0= rulePackageID )
+                    	    {
+                    	    // InternalXtextTest.g:2315:1: (lv_params_10_0= rulePackageID )
+                    	    // InternalXtextTest.g:2316:3: lv_params_10_0= rulePackageID
+                    	    {
+                    	     
+                    	    	        newCompositeNode(grammarAccess.getCodeCallAccess().getParamsPackageIDParserRuleCall_7_1_1_1_0()); 
+                    	    	    
+                    	    pushFollow(FOLLOW_27);
+                    	    lv_params_10_0=rulePackageID();
+
+                    	    state._fsp--;
+
+
+                    	    	        if (current==null) {
+                    	    	            current = createModelElementForParent(grammarAccess.getCodeCallRule());
+                    	    	        }
+                    	           		add(
+                    	           			current, 
+                    	           			"params",
+                    	            		lv_params_10_0, 
+                    	            		"at.jku.weiner.xtexttest.XtextTest.PackageID");
+                    	    	        afterParserOrEnumRuleCall();
+                    	    	    
+
+                    	    }
+
+
+                    	    }
+
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop29;
+                        }
+                    } while (true);
+
+
+                    }
+                    break;
+
+            }
+
+            this_RIGHTPAREN_11=(Token)match(input,RULE_RIGHTPAREN,FOLLOW_2); 
+             
+                newLeafNode(this_RIGHTPAREN_11, grammarAccess.getCodeCallAccess().getRIGHTPARENTerminalRuleCall_7_2()); 
+                
 
             }
 
@@ -4351,12 +4386,12 @@ public class InternalXtextTestParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000000100L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000060000L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000001200000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000048400000002L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000048000000002L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000040000000002L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000018400000002L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000018000000002L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000010000000002L});
     public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000010000000040L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000020000000040L});
     public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000001800L});
     public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000001000L});
     public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000002000L});
@@ -4378,9 +4413,7 @@ public class InternalXtextTestParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000000800006002L});
     public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000000800004002L});
     public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0000004000000000L});
-    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0000010000000000L});
-    public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0000040000000000L});
+    public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0000000001000000L});
 
 }

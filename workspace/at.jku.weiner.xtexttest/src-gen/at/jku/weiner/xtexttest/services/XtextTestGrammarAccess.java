@@ -986,64 +986,61 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	public class BeforeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.Before");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cBEFORE_KWTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final RuleCall cCLASS_KWTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
-		private final RuleCall cASSIGNASSINGLETerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
-		private final Assignment cMyclassAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cMyclassPackageIDParserRuleCall_3_0 = (RuleCall)cMyclassAssignment_3.eContents().get(0);
-		private final RuleCall cMETHOD_KWTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
-		private final RuleCall cASSIGNASSINGLETerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
-		private final Assignment cMethodAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cMethodPackageIDParserRuleCall_6_0 = (RuleCall)cMethodAssignment_6.eContents().get(0);
-		private final RuleCall cLEFTPARENTerminalRuleCall_7 = (RuleCall)cGroup.eContents().get(7);
-		private final RuleCall cRIGHTPARENTerminalRuleCall_8 = (RuleCall)cGroup.eContents().get(8);
+		private final Action cBeforeAction_0 = (Action)cGroup.eContents().get(0);
+		private final RuleCall cBEFORE_KWTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cCodeCallAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cCodeCallCodeCallParserRuleCall_2_0 = (RuleCall)cCodeCallAssignment_2.eContents().get(0);
 		
 		//Before:
-		//	BEFORE_KW CLASS_KW ASSIGNASSINGLE myclass=PackageID
-		//	METHOD_KW ASSIGNASSINGLE method=PackageID
-		//	LEFTPAREN RIGHTPAREN;
+		//	{Before} BEFORE_KW codeCall=CodeCall;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//BEFORE_KW CLASS_KW ASSIGNASSINGLE myclass=PackageID METHOD_KW ASSIGNASSINGLE method=PackageID LEFTPAREN RIGHTPAREN
+		//{Before} BEFORE_KW codeCall=CodeCall
 		public Group getGroup() { return cGroup; }
 		
+		//{Before}
+		public Action getBeforeAction_0() { return cBeforeAction_0; }
+		
 		//BEFORE_KW
-		public RuleCall getBEFORE_KWTerminalRuleCall_0() { return cBEFORE_KWTerminalRuleCall_0; }
+		public RuleCall getBEFORE_KWTerminalRuleCall_1() { return cBEFORE_KWTerminalRuleCall_1; }
 		
-		//CLASS_KW
-		public RuleCall getCLASS_KWTerminalRuleCall_1() { return cCLASS_KWTerminalRuleCall_1; }
+		//codeCall=CodeCall
+		public Assignment getCodeCallAssignment_2() { return cCodeCallAssignment_2; }
 		
-		//ASSIGNASSINGLE
-		public RuleCall getASSIGNASSINGLETerminalRuleCall_2() { return cASSIGNASSINGLETerminalRuleCall_2; }
-		
-		//myclass=PackageID
-		public Assignment getMyclassAssignment_3() { return cMyclassAssignment_3; }
-		
-		//PackageID
-		public RuleCall getMyclassPackageIDParserRuleCall_3_0() { return cMyclassPackageIDParserRuleCall_3_0; }
-		
-		//METHOD_KW
-		public RuleCall getMETHOD_KWTerminalRuleCall_4() { return cMETHOD_KWTerminalRuleCall_4; }
-		
-		//ASSIGNASSINGLE
-		public RuleCall getASSIGNASSINGLETerminalRuleCall_5() { return cASSIGNASSINGLETerminalRuleCall_5; }
-		
-		//method=PackageID
-		public Assignment getMethodAssignment_6() { return cMethodAssignment_6; }
-		
-		//PackageID
-		public RuleCall getMethodPackageIDParserRuleCall_6_0() { return cMethodPackageIDParserRuleCall_6_0; }
-		
-		//LEFTPAREN
-		public RuleCall getLEFTPARENTerminalRuleCall_7() { return cLEFTPARENTerminalRuleCall_7; }
-		
-		//RIGHTPAREN
-		public RuleCall getRIGHTPARENTerminalRuleCall_8() { return cRIGHTPARENTerminalRuleCall_8; }
+		//CodeCall
+		public RuleCall getCodeCallCodeCallParserRuleCall_2_0() { return cCodeCallCodeCallParserRuleCall_2_0; }
 	}
 	public class AfterElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.After");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cAFTER_KWTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Action cAfterAction_0 = (Action)cGroup.eContents().get(0);
+		private final RuleCall cAFTER_KWTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cCodeCallAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cCodeCallCodeCallParserRuleCall_2_0 = (RuleCall)cCodeCallAssignment_2.eContents().get(0);
+		
+		//After:
+		//	{After} AFTER_KW codeCall=CodeCall;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{After} AFTER_KW codeCall=CodeCall
+		public Group getGroup() { return cGroup; }
+		
+		//{After}
+		public Action getAfterAction_0() { return cAfterAction_0; }
+		
+		//AFTER_KW
+		public RuleCall getAFTER_KWTerminalRuleCall_1() { return cAFTER_KWTerminalRuleCall_1; }
+		
+		//codeCall=CodeCall
+		public Assignment getCodeCallAssignment_2() { return cCodeCallAssignment_2; }
+		
+		//CodeCall
+		public RuleCall getCodeCallCodeCallParserRuleCall_2_0() { return cCodeCallCodeCallParserRuleCall_2_0; }
+	}
+	public class CodeCallElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.CodeCall");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cCodeCallAction_0 = (Action)cGroup.eContents().get(0);
 		private final RuleCall cCLASS_KWTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		private final RuleCall cASSIGNASSINGLETerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		private final Assignment cMyclassAssignment_3 = (Assignment)cGroup.eContents().get(3);
@@ -1052,20 +1049,28 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cASSIGNASSINGLETerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
 		private final Assignment cMethodAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cMethodPackageIDParserRuleCall_6_0 = (RuleCall)cMethodAssignment_6.eContents().get(0);
-		private final RuleCall cLEFTPARENTerminalRuleCall_7 = (RuleCall)cGroup.eContents().get(7);
-		private final RuleCall cRIGHTPARENTerminalRuleCall_8 = (RuleCall)cGroup.eContents().get(8);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final RuleCall cLEFTPARENTerminalRuleCall_7_0 = (RuleCall)cGroup_7.eContents().get(0);
+		private final Group cGroup_7_1 = (Group)cGroup_7.eContents().get(1);
+		private final Assignment cParamsAssignment_7_1_0 = (Assignment)cGroup_7_1.eContents().get(0);
+		private final RuleCall cParamsPackageIDParserRuleCall_7_1_0_0 = (RuleCall)cParamsAssignment_7_1_0.eContents().get(0);
+		private final Group cGroup_7_1_1 = (Group)cGroup_7_1.eContents().get(1);
+		private final RuleCall cCOMMATerminalRuleCall_7_1_1_0 = (RuleCall)cGroup_7_1_1.eContents().get(0);
+		private final Assignment cParamsAssignment_7_1_1_1 = (Assignment)cGroup_7_1_1.eContents().get(1);
+		private final RuleCall cParamsPackageIDParserRuleCall_7_1_1_1_0 = (RuleCall)cParamsAssignment_7_1_1_1.eContents().get(0);
+		private final RuleCall cRIGHTPARENTerminalRuleCall_7_2 = (RuleCall)cGroup_7.eContents().get(2);
 		
-		//After:
-		//	AFTER_KW CLASS_KW ASSIGNASSINGLE myclass=PackageID
-		//	METHOD_KW ASSIGNASSINGLE method=PackageID
-		//	LEFTPAREN RIGHTPAREN;
+		//CodeCall:
+		//	{CodeCall} CLASS_KW ASSIGNASSINGLE myclass=PackageID
+		//	METHOD_KW ASSIGNASSINGLE method=PackageID (LEFTPAREN (params+=PackageID (COMMA params+=PackageID)*)? RIGHTPAREN);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//AFTER_KW CLASS_KW ASSIGNASSINGLE myclass=PackageID METHOD_KW ASSIGNASSINGLE method=PackageID LEFTPAREN RIGHTPAREN
+		//{CodeCall} CLASS_KW ASSIGNASSINGLE myclass=PackageID METHOD_KW ASSIGNASSINGLE method=PackageID (LEFTPAREN
+		//(params+=PackageID (COMMA params+=PackageID)*)? RIGHTPAREN)
 		public Group getGroup() { return cGroup; }
 		
-		//AFTER_KW
-		public RuleCall getAFTER_KWTerminalRuleCall_0() { return cAFTER_KWTerminalRuleCall_0; }
+		//{CodeCall}
+		public Action getCodeCallAction_0() { return cCodeCallAction_0; }
 		
 		//CLASS_KW
 		public RuleCall getCLASS_KWTerminalRuleCall_1() { return cCLASS_KWTerminalRuleCall_1; }
@@ -1091,57 +1096,35 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		//PackageID
 		public RuleCall getMethodPackageIDParserRuleCall_6_0() { return cMethodPackageIDParserRuleCall_6_0; }
 		
+		//(LEFTPAREN (params+=PackageID (COMMA params+=PackageID)*)? RIGHTPAREN)
+		public Group getGroup_7() { return cGroup_7; }
+		
 		//LEFTPAREN
-		public RuleCall getLEFTPARENTerminalRuleCall_7() { return cLEFTPARENTerminalRuleCall_7; }
+		public RuleCall getLEFTPARENTerminalRuleCall_7_0() { return cLEFTPARENTerminalRuleCall_7_0; }
+		
+		//(params+=PackageID (COMMA params+=PackageID)*)?
+		public Group getGroup_7_1() { return cGroup_7_1; }
+		
+		//params+=PackageID
+		public Assignment getParamsAssignment_7_1_0() { return cParamsAssignment_7_1_0; }
+		
+		//PackageID
+		public RuleCall getParamsPackageIDParserRuleCall_7_1_0_0() { return cParamsPackageIDParserRuleCall_7_1_0_0; }
+		
+		//(COMMA params+=PackageID)*
+		public Group getGroup_7_1_1() { return cGroup_7_1_1; }
+		
+		//COMMA
+		public RuleCall getCOMMATerminalRuleCall_7_1_1_0() { return cCOMMATerminalRuleCall_7_1_1_0; }
+		
+		//params+=PackageID
+		public Assignment getParamsAssignment_7_1_1_1() { return cParamsAssignment_7_1_1_1; }
+		
+		//PackageID
+		public RuleCall getParamsPackageIDParserRuleCall_7_1_1_1_0() { return cParamsPackageIDParserRuleCall_7_1_1_1_0; }
 		
 		//RIGHTPAREN
-		public RuleCall getRIGHTPARENTerminalRuleCall_8() { return cRIGHTPARENTerminalRuleCall_8; }
-	}
-	public class CodeCallElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.CodeCall");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cCLASS_KWTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final RuleCall cASSIGNASSINGLETerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
-		private final Assignment cMyclassAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cMyclassPackageIDParserRuleCall_2_0 = (RuleCall)cMyclassAssignment_2.eContents().get(0);
-		private final RuleCall cMETHOD_KWTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
-		private final RuleCall cASSIGNASSINGLETerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
-		private final Assignment cMethodAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cMethodPackageIDParserRuleCall_5_0 = (RuleCall)cMethodAssignment_5.eContents().get(0);
-		
-		//CodeCall:
-		//	CLASS_KW ASSIGNASSINGLE myclass=PackageID
-		//	METHOD_KW ASSIGNASSINGLE method=PackageID
-		//	//(LEFTPAREN (params+=PackageID (COMMA params+=PackageID)*)? RIGHTPAREN)
-		//;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//CLASS_KW ASSIGNASSINGLE myclass=PackageID METHOD_KW ASSIGNASSINGLE method=PackageID
-		public Group getGroup() { return cGroup; }
-		
-		//CLASS_KW
-		public RuleCall getCLASS_KWTerminalRuleCall_0() { return cCLASS_KWTerminalRuleCall_0; }
-		
-		//ASSIGNASSINGLE
-		public RuleCall getASSIGNASSINGLETerminalRuleCall_1() { return cASSIGNASSINGLETerminalRuleCall_1; }
-		
-		//myclass=PackageID
-		public Assignment getMyclassAssignment_2() { return cMyclassAssignment_2; }
-		
-		//PackageID
-		public RuleCall getMyclassPackageIDParserRuleCall_2_0() { return cMyclassPackageIDParserRuleCall_2_0; }
-		
-		//METHOD_KW
-		public RuleCall getMETHOD_KWTerminalRuleCall_3() { return cMETHOD_KWTerminalRuleCall_3; }
-		
-		//ASSIGNASSINGLE
-		public RuleCall getASSIGNASSINGLETerminalRuleCall_4() { return cASSIGNASSINGLETerminalRuleCall_4; }
-		
-		//method=PackageID
-		public Assignment getMethodAssignment_5() { return cMethodAssignment_5; }
-		
-		//PackageID
-		public RuleCall getMethodPackageIDParserRuleCall_5_0() { return cMethodPackageIDParserRuleCall_5_0; }
+		public RuleCall getRIGHTPARENTerminalRuleCall_7_2() { return cRIGHTPARENTerminalRuleCall_7_2; }
 	}
 	
 	
@@ -1472,9 +1455,7 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Before:
-	//	BEFORE_KW CLASS_KW ASSIGNASSINGLE myclass=PackageID
-	//	METHOD_KW ASSIGNASSINGLE method=PackageID
-	//	LEFTPAREN RIGHTPAREN;
+	//	{Before} BEFORE_KW codeCall=CodeCall;
 	public BeforeElements getBeforeAccess() {
 		return pBefore;
 	}
@@ -1484,9 +1465,7 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//After:
-	//	AFTER_KW CLASS_KW ASSIGNASSINGLE myclass=PackageID
-	//	METHOD_KW ASSIGNASSINGLE method=PackageID
-	//	LEFTPAREN RIGHTPAREN;
+	//	{After} AFTER_KW codeCall=CodeCall;
 	public AfterElements getAfterAccess() {
 		return pAfter;
 	}
@@ -1496,10 +1475,8 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//CodeCall:
-	//	CLASS_KW ASSIGNASSINGLE myclass=PackageID
-	//	METHOD_KW ASSIGNASSINGLE method=PackageID
-	//	//(LEFTPAREN (params+=PackageID (COMMA params+=PackageID)*)? RIGHTPAREN)
-	//;
+	//	{CodeCall} CLASS_KW ASSIGNASSINGLE myclass=PackageID
+	//	METHOD_KW ASSIGNASSINGLE method=PackageID (LEFTPAREN (params+=PackageID (COMMA params+=PackageID)*)? RIGHTPAREN);
 	public CodeCallElements getCodeCallAccess() {
 		return pCodeCall;
 	}

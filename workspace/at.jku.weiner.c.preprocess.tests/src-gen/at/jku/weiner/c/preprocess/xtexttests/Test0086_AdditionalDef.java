@@ -40,21 +40,19 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import at.jku.weiner.c.preprocess.tests.PreprocessInjectorProvider;
 import at.jku.weiner.c.preprocess.parser.antlr.PreprocessParser;
-import at.jku.weiner.c.preprocess.parser.antlr.lexer.InternalPreprocessLexer;
+import at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer;
 import at.jku.weiner.c.preprocess.xtexttests.LexerAndParserTest;
 
-import at.jku.weiner.c.preprocess.preprocess.Model;
-import at.jku.weiner.c.preprocess.preprocess.TranslationUnit;
+import at.jku.weiner.c.preprocess.preprocess.Preprocess;
+import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.Code;
-import at.jku.weiner.c.preprocess.preprocess.Code;
-import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(PreprocessInjectorProvider.class)
-public class Test0001_Semicolons {
+public class Test0086_AdditionalDef {
 	@Inject
-	private ParseHelper<Model> parseHelper;
+	private ParseHelper<Preprocess> parseHelper;
 	@Inject
 	private ValidationTestHelper valHelper;
 	@Inject
@@ -82,12 +80,11 @@ public class Test0001_Semicolons {
 			parser, tokenDefProvider);
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("c",
 						this.resourceFactory);
-		at.jku.weiner.xtexttest.demo.Demo.beforeDemo(mydemo);
+		at.jku.weiner.c.preprocess.xtexttests.TestUtils.setUpTest0086(generator);
 	}
 	
 	@After
 	public void cleanUp() {
-		at.jku.weiner.xtexttest.demo.Demo.afterDemo(mydemo,mydemo2);
 	}
 	
 	private String getTextFromFile(final String fileName)
@@ -100,22 +97,24 @@ public class Test0001_Semicolons {
 	@Test (timeout=1000)
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
-			"res/Test0001_Semicolons.c");
+			"res/Test0086_AdditionalDef.c");
 			//System.out.println(text);
 			final String[] expected = new String[] {
-				"RULE_MYCODE", 
+				"RULE_ID", 
+				"RULE_WHITESPACE", 
+				"RULE_SKW_STAR", 
+				"RULE_WHITESPACE", 
+				"RULE_ID", 
+				"RULE_WHITESPACE", 
+				"RULE_SKW_ASSIGN", 
+				"RULE_WHITESPACE", 
+				"RULE_ID", 
+				"RULE_SKW_LEFTPAREN", 
+				"RULE_ID", 
+				"RULE_SKW_RIGHTPAREN", 
+				"RULE_SKW_SEMI", 
 				"RULE_NEWLINE", 
-				"RULE_MYCODE", 
-				"RULE_MYCODE", 
-				"RULE_MYCODE", 
-				"RULE_MYCODE", 
-				"RULE_MYCODE", 
-				"RULE_MYCODE", 
-				"RULE_NEWLINE", 
-				"RULE_NEWLINE", 
-				"RULE_MYCODE", 
-				"RULE_MYCODE", 
-				"RULE_MYCODE", 
+				"RULE_ID", 
 				"RULE_NEWLINE", 
 				};
 			//final List<Token> actual = testHelper.getTokens(text);
@@ -126,53 +125,38 @@ public class Test0001_Semicolons {
 	@Test (timeout=1000)
 	public void checkParserResult() throws Exception {
 		final String text = this.getTextFromFile(
-			"res/Test0001_Semicolons.c");
-		final Model Model_0_Var
+			"res/Test0086_AdditionalDef.c");
+		final Preprocess Preprocess_0_Var
 		  = 
 			this.parseHelper.parse(text);
-		this.valHelper.assertNoErrors(Model_0_Var
+		this.valHelper.assertNoErrors(Preprocess_0_Var
 		);
 		
-		Assert.assertNotNull(Model_0_Var
+		Assert.assertNotNull(Preprocess_0_Var
 		);
-		final EList<? extends EObject> Units_0_list = Model_0_Var
-		.getUnits();
-		Assert.assertNotNull(Units_0_list);
-		Assert.assertEquals(1, Units_0_list.size());
 		//0
-		final TranslationUnit TranslationUnit_1_Var
-		 = (TranslationUnit)Units_0_list.get(0);
-		Assert.assertNotNull(TranslationUnit_1_Var
+		final GroupOpt GroupOpt_1_Var
+		 = (GroupOpt)Preprocess_0_Var
+		.getGroup();
+		Assert.assertNotNull(GroupOpt_1_Var
 		);
-		final EList<? extends EObject> Lines_1_list = TranslationUnit_1_Var
+		final EList<? extends EObject> Lines_1_list = GroupOpt_1_Var
 		.getLines();
 		Assert.assertNotNull(Lines_1_list);
-		Assert.assertEquals(4, Lines_1_list.size());
+		Assert.assertEquals(2, Lines_1_list.size());
 		//1
 		final Code Code_2_Var
 		 = (Code)Lines_1_list.get(0);
 		Assert.assertNotNull(Code_2_Var
 		);
-		Assert.assertEquals(";", Code_2_Var
+		Assert.assertEquals("char * c = STR(HELLO_WORLD);", Code_2_Var
 		.getCode());
 		//2
 		final Code Code_3_Var
 		 = (Code)Lines_1_list.get(1);
 		Assert.assertNotNull(Code_3_Var
 		);
-		Assert.assertEquals(";\\;\\\\;", Code_3_Var
-		.getCode());
-		//3
-		final NewLineLine NewLineLine_4_Var
-		 = (NewLineLine)Lines_1_list.get(2);
-		Assert.assertNotNull(NewLineLine_4_Var
-		);
-		//4
-		final Code Code_5_Var
-		 = (Code)Lines_1_list.get(3);
-		Assert.assertNotNull(Code_5_Var
-		);
-		Assert.assertEquals(";;;", Code_5_Var
+		Assert.assertEquals("DO_SOMETHING", Code_3_Var
 		.getCode());
 	}
 	
@@ -183,7 +167,7 @@ public class Test0001_Semicolons {
 		// load the resource
 		ResourceSet set = this.resourceSetProvider.get();
 		URI uri = URI.createURI(
-			"res/Test0001_Semicolons.c");
+			"res/Test0086_AdditionalDef.c");
 		Resource resource = set.getResource(uri, true);
 		// validate the resource
 		List<Issue> list = this.validator.validate(resource, 
@@ -197,7 +181,7 @@ public class Test0001_Semicolons {
 			final Method method = clazz.getMethod("setFileName",
 					String.class);
 			if (method != null) {
-				method.invoke(this.generator, "Test0001_Semicolons.c.i");
+				method.invoke(this.generator, "Test0086_AdditionalDef.c.i");
 			}
 		} catch (NoSuchMethodException | SecurityException
 			| IllegalAccessException | IllegalArgumentException
@@ -206,9 +190,9 @@ public class Test0001_Semicolons {
 			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
-		final String actual = this.getTextFromFile("bin/Test0001_Semicolons.c.i");
+		final String actual = this.getTextFromFile("bin/Test0086_AdditionalDef.c.i");
 		final String expected = this.getTextFromFile(
-			"res/Test0001_Semicolons.c"
+			"expected/Test0086_AdditionalDef.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
 		// System.out.println("Code generation finished.");

@@ -4,8 +4,6 @@ import java.io.File;
 import java.io.IOException;
 
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IResource;
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.modisco.cdt.discoverer.utils.MyStore;
@@ -19,18 +17,19 @@ import at.jku.weiner.c.parser.parser.Parser;
 import at.jku.weiner.c.preprocess.generator.PreprocessGenerator;
 import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 import at.jku.weiner.c.preprocess.utils.IncludeDirs;
+import at.jku.weiner.c.preprocess.utils.macros.DefinitionTable;
 import at.jku.weiner.c.preprocess.utils.macros.PredefinedMacros;
 
 import com.google.inject.Injector;
 
 public class XtextUtils {
-	
+
 	private final MyStore store;
-	
+
 	private final Injector commonInjector;
 	private final XtextPreprocessor preprocessor;
 	private final XtextParser parser;
-	
+
 	public XtextUtils(final MyStore store) {
 		this.store = store;
 		this.commonInjector = this.setupCommon();
@@ -38,14 +37,14 @@ public class XtextUtils {
 		this.parser = new XtextParser(store);
 		this.setUpPredefinedMacros();
 	}
-	
+
 	private Injector setupCommon() {
 		final CommonActivator activator = CommonActivator.getInstance();
 		final Injector result = activator
 				.getInjector(CommonActivator.AT_JKU_WEINER_C_COMMON_COMMON);
 		return result;
 	}
-	
+
 	private void setUpPredefinedMacros() {
 		final URI uri = PredefinedMacros.getPredefinedURI(false);
 		final Preprocess preprocess = PredefinedMacros
@@ -57,10 +56,11 @@ public class XtextUtils {
 		predefined.setPath(path);
 		this.store.getModel().getUnits().add(predefined);
 	}
-	
+
 	public final void readFromXtextFile(final File file, final IFile iFile)
 			throws IOException, DiscoveryException {
 		// initialize ...
+		this.cleanUp();
 		final TranslationUnit unit = this.store.getFactory()
 				.createTranslationUnit();
 		final URI uri = URI.createURI(iFile.getLocationURI().toString());
@@ -84,15 +84,8 @@ public class XtextUtils {
 		final Parser parser = this.parser.parseFile(intermediateFile,
 				iIntermediate);
 		unit.setParser(parser);
-		// update project
-		try {
-			iFile.getProject().refreshLocal(IResource.DEPTH_INFINITE,
-					this.store.getMonitor());
-		} catch (final CoreException ex) {
-			throw new DiscoveryException(ex);
-		}
 	}
-	
+
 	private final String getFilenameForIntermediate(final URI uri) {
 		final String fileExt = uri.fileExtension();
 		final String lastSegment = uri.lastSegment();
@@ -100,16 +93,16 @@ public class XtextUtils {
 		final String fileNameOnly = lastSegment.substring(0, index) + ".i";
 		return fileNameOnly;
 	}
-	
+
 	private final String generateIntermediateFile(final IFile iFile,
 			final String fileNameOnly, final TranslationUnit unit)
-			throws DiscoveryException {
+					throws DiscoveryException {
 		// configure and start the generator
 		final URI whole = URI.createURI(iFile.getLocationURI().toString());
 		final URI uri = whole.trimSegments(1);
 		final String path = uri.path();
 		final String wholeStr = path + File.separator + fileNameOnly;
-		
+
 		this.setUpIncludeDirs();
 		final PreprocessGenerator preprocessGenerator = this.preprocessor
 				.getGenerator();
@@ -125,9 +118,8 @@ public class XtextUtils {
 		this.preprocessor.generate(iFile, fileNameOnly);
 		return wholeStr;
 	}
-
+	
 	private void setUpIncludeDirs() {
-		IncludeDirs.clearAllIncludeDirectories();
 		final String includeDirs = this.store.getIncludeDirs();
 		// System.out.println("includeDirs='" + includeDirs + "'");
 		if ((includeDirs == null) || includeDirs.isEmpty()) {
@@ -140,4 +132,9 @@ public class XtextUtils {
 		}
 	}
 	
+	public void cleanUp() {
+		IncludeDirs.clearAllIncludeDirectories();
+		DefinitionTable.reset();
+	}
+
 }

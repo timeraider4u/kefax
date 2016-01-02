@@ -708,22 +708,13 @@ public interface XtextTestPackage extends EPackage
   int BEFORE = 11;
 
   /**
-   * The feature id for the '<em><b>Myclass</b></em>' attribute.
+   * The feature id for the '<em><b>Code Call</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BEFORE__MYCLASS = 0;
-
-  /**
-   * The feature id for the '<em><b>Method</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BEFORE__METHOD = 1;
+  int BEFORE__CODE_CALL = 0;
 
   /**
    * The number of structural features of the '<em>Before</em>' class.
@@ -732,7 +723,7 @@ public interface XtextTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BEFORE_FEATURE_COUNT = 2;
+  int BEFORE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.xtexttest.xtextTest.impl.AfterImpl <em>After</em>}' class.
@@ -745,22 +736,13 @@ public interface XtextTestPackage extends EPackage
   int AFTER = 12;
 
   /**
-   * The feature id for the '<em><b>Myclass</b></em>' attribute.
+   * The feature id for the '<em><b>Code Call</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int AFTER__MYCLASS = 0;
-
-  /**
-   * The feature id for the '<em><b>Method</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int AFTER__METHOD = 1;
+  int AFTER__CODE_CALL = 0;
 
   /**
    * The number of structural features of the '<em>After</em>' class.
@@ -769,7 +751,7 @@ public interface XtextTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int AFTER_FEATURE_COUNT = 2;
+  int AFTER_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.xtexttest.xtextTest.impl.CodeCallImpl <em>Code Call</em>}' class.
@@ -800,13 +782,22 @@ public interface XtextTestPackage extends EPackage
   int CODE_CALL__METHOD = 1;
 
   /**
+   * The feature id for the '<em><b>Params</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CODE_CALL__PARAMS = 2;
+
+  /**
    * The number of structural features of the '<em>Code Call</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CODE_CALL_FEATURE_COUNT = 2;
+  int CODE_CALL_FEATURE_COUNT = 3;
 
 
   /**
@@ -1458,26 +1449,15 @@ public interface XtextTestPackage extends EPackage
   EClass getBefore();
 
   /**
-   * Returns the meta object for the attribute '{@link at.jku.weiner.xtexttest.xtextTest.Before#getMyclass <em>Myclass</em>}'.
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.xtexttest.xtextTest.Before#getCodeCall <em>Code Call</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Myclass</em>'.
-   * @see at.jku.weiner.xtexttest.xtextTest.Before#getMyclass()
+   * @return the meta object for the containment reference '<em>Code Call</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.Before#getCodeCall()
    * @see #getBefore()
    * @generated
    */
-  EAttribute getBefore_Myclass();
-
-  /**
-   * Returns the meta object for the attribute '{@link at.jku.weiner.xtexttest.xtextTest.Before#getMethod <em>Method</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Method</em>'.
-   * @see at.jku.weiner.xtexttest.xtextTest.Before#getMethod()
-   * @see #getBefore()
-   * @generated
-   */
-  EAttribute getBefore_Method();
+  EReference getBefore_CodeCall();
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.xtexttest.xtextTest.After <em>After</em>}'.
@@ -1490,26 +1470,15 @@ public interface XtextTestPackage extends EPackage
   EClass getAfter();
 
   /**
-   * Returns the meta object for the attribute '{@link at.jku.weiner.xtexttest.xtextTest.After#getMyclass <em>Myclass</em>}'.
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.xtexttest.xtextTest.After#getCodeCall <em>Code Call</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Myclass</em>'.
-   * @see at.jku.weiner.xtexttest.xtextTest.After#getMyclass()
+   * @return the meta object for the containment reference '<em>Code Call</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.After#getCodeCall()
    * @see #getAfter()
    * @generated
    */
-  EAttribute getAfter_Myclass();
-
-  /**
-   * Returns the meta object for the attribute '{@link at.jku.weiner.xtexttest.xtextTest.After#getMethod <em>Method</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Method</em>'.
-   * @see at.jku.weiner.xtexttest.xtextTest.After#getMethod()
-   * @see #getAfter()
-   * @generated
-   */
-  EAttribute getAfter_Method();
+  EReference getAfter_CodeCall();
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.xtexttest.xtextTest.CodeCall <em>Code Call</em>}'.
@@ -1542,6 +1511,17 @@ public interface XtextTestPackage extends EPackage
    * @generated
    */
   EAttribute getCodeCall_Method();
+
+  /**
+   * Returns the meta object for the attribute list '{@link at.jku.weiner.xtexttest.xtextTest.CodeCall#getParams <em>Params</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Params</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.CodeCall#getParams()
+   * @see #getCodeCall()
+   * @generated
+   */
+  EAttribute getCodeCall_Params();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -2071,20 +2051,12 @@ public interface XtextTestPackage extends EPackage
     EClass BEFORE = eINSTANCE.getBefore();
 
     /**
-     * The meta object literal for the '<em><b>Myclass</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Code Call</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute BEFORE__MYCLASS = eINSTANCE.getBefore_Myclass();
-
-    /**
-     * The meta object literal for the '<em><b>Method</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute BEFORE__METHOD = eINSTANCE.getBefore_Method();
+    EReference BEFORE__CODE_CALL = eINSTANCE.getBefore_CodeCall();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.xtexttest.xtextTest.impl.AfterImpl <em>After</em>}' class.
@@ -2097,20 +2069,12 @@ public interface XtextTestPackage extends EPackage
     EClass AFTER = eINSTANCE.getAfter();
 
     /**
-     * The meta object literal for the '<em><b>Myclass</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Code Call</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute AFTER__MYCLASS = eINSTANCE.getAfter_Myclass();
-
-    /**
-     * The meta object literal for the '<em><b>Method</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute AFTER__METHOD = eINSTANCE.getAfter_Method();
+    EReference AFTER__CODE_CALL = eINSTANCE.getAfter_CodeCall();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.xtexttest.xtextTest.impl.CodeCallImpl <em>Code Call</em>}' class.
@@ -2137,6 +2101,14 @@ public interface XtextTestPackage extends EPackage
      * @generated
      */
     EAttribute CODE_CALL__METHOD = eINSTANCE.getCodeCall_Method();
+
+    /**
+     * The meta object literal for the '<em><b>Params</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CODE_CALL__PARAMS = eINSTANCE.getCodeCall_Params();
 
   }
 

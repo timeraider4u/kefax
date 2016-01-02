@@ -800,19 +800,9 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getBefore_Myclass()
+  public EReference getBefore_CodeCall()
   {
-    return (EAttribute)beforeEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getBefore_Method()
-  {
-    return (EAttribute)beforeEClass.getEStructuralFeatures().get(1);
+    return (EReference)beforeEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -830,19 +820,9 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAfter_Myclass()
+  public EReference getAfter_CodeCall()
   {
-    return (EAttribute)afterEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getAfter_Method()
-  {
-    return (EAttribute)afterEClass.getEStructuralFeatures().get(1);
+    return (EReference)afterEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -873,6 +853,16 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
   public EAttribute getCodeCall_Method()
   {
     return (EAttribute)codeCallEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCodeCall_Params()
+  {
+    return (EAttribute)codeCallEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -976,16 +966,15 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
     createEAttribute(replacePatternsEClass, REPLACE_PATTERNS__REPLACE);
 
     beforeEClass = createEClass(BEFORE);
-    createEAttribute(beforeEClass, BEFORE__MYCLASS);
-    createEAttribute(beforeEClass, BEFORE__METHOD);
+    createEReference(beforeEClass, BEFORE__CODE_CALL);
 
     afterEClass = createEClass(AFTER);
-    createEAttribute(afterEClass, AFTER__MYCLASS);
-    createEAttribute(afterEClass, AFTER__METHOD);
+    createEReference(afterEClass, AFTER__CODE_CALL);
 
     codeCallEClass = createEClass(CODE_CALL);
     createEAttribute(codeCallEClass, CODE_CALL__MYCLASS);
     createEAttribute(codeCallEClass, CODE_CALL__METHOD);
+    createEAttribute(codeCallEClass, CODE_CALL__PARAMS);
   }
 
   /**
@@ -1090,16 +1079,15 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
     initEAttribute(getReplacePatterns_Replace(), ecorePackage.getEString(), "replace", null, 0, 1, ReplacePatterns.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(beforeEClass, Before.class, "Before", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getBefore_Myclass(), ecorePackage.getEString(), "myclass", null, 0, 1, Before.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getBefore_Method(), ecorePackage.getEString(), "method", null, 0, 1, Before.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBefore_CodeCall(), this.getCodeCall(), null, "codeCall", null, 0, 1, Before.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(afterEClass, After.class, "After", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getAfter_Myclass(), ecorePackage.getEString(), "myclass", null, 0, 1, After.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getAfter_Method(), ecorePackage.getEString(), "method", null, 0, 1, After.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAfter_CodeCall(), this.getCodeCall(), null, "codeCall", null, 0, 1, After.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(codeCallEClass, CodeCall.class, "CodeCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getCodeCall_Myclass(), ecorePackage.getEString(), "myclass", null, 0, 1, CodeCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getCodeCall_Method(), ecorePackage.getEString(), "method", null, 0, 1, CodeCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCodeCall_Params(), ecorePackage.getEString(), "params", null, 0, -1, CodeCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

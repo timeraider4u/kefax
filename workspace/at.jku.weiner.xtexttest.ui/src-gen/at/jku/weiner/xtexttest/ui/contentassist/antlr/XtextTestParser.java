@@ -83,6 +83,9 @@ public class XtextTestParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBeforeAccess().getGroup(), "rule__Before__Group__0");
 					put(grammarAccess.getAfterAccess().getGroup(), "rule__After__Group__0");
 					put(grammarAccess.getCodeCallAccess().getGroup(), "rule__CodeCall__Group__0");
+					put(grammarAccess.getCodeCallAccess().getGroup_7(), "rule__CodeCall__Group_7__0");
+					put(grammarAccess.getCodeCallAccess().getGroup_7_1(), "rule__CodeCall__Group_7_1__0");
+					put(grammarAccess.getCodeCallAccess().getGroup_7_1_1(), "rule__CodeCall__Group_7_1_1__0");
 					put(grammarAccess.getModelAccess().getXtextTestAssignment_1_0(), "rule__Model__XtextTestAssignment_1_0");
 					put(grammarAccess.getModelAccess().getEmfTestAssignment_1_1(), "rule__Model__EmfTestAssignment_1_1");
 					put(grammarAccess.getXtextTestAccess().getPackageAssignment_2(), "rule__XtextTest__PackageAssignment_2");
@@ -133,12 +136,12 @@ public class XtextTestParser extends AbstractContentAssistParser {
 					put(grammarAccess.getGeneratorAccess().getExceptionAssignment_4_2(), "rule__Generator__ExceptionAssignment_4_2");
 					put(grammarAccess.getReplacePatternsAccess().getRegexAssignment_0(), "rule__ReplacePatterns__RegexAssignment_0");
 					put(grammarAccess.getReplacePatternsAccess().getReplaceAssignment_2(), "rule__ReplacePatterns__ReplaceAssignment_2");
-					put(grammarAccess.getBeforeAccess().getMyclassAssignment_3(), "rule__Before__MyclassAssignment_3");
-					put(grammarAccess.getBeforeAccess().getMethodAssignment_6(), "rule__Before__MethodAssignment_6");
-					put(grammarAccess.getAfterAccess().getMyclassAssignment_3(), "rule__After__MyclassAssignment_3");
-					put(grammarAccess.getAfterAccess().getMethodAssignment_6(), "rule__After__MethodAssignment_6");
-					put(grammarAccess.getCodeCallAccess().getMyclassAssignment_2(), "rule__CodeCall__MyclassAssignment_2");
-					put(grammarAccess.getCodeCallAccess().getMethodAssignment_5(), "rule__CodeCall__MethodAssignment_5");
+					put(grammarAccess.getBeforeAccess().getCodeCallAssignment_2(), "rule__Before__CodeCallAssignment_2");
+					put(grammarAccess.getAfterAccess().getCodeCallAssignment_2(), "rule__After__CodeCallAssignment_2");
+					put(grammarAccess.getCodeCallAccess().getMyclassAssignment_3(), "rule__CodeCall__MyclassAssignment_3");
+					put(grammarAccess.getCodeCallAccess().getMethodAssignment_6(), "rule__CodeCall__MethodAssignment_6");
+					put(grammarAccess.getCodeCallAccess().getParamsAssignment_7_1_0(), "rule__CodeCall__ParamsAssignment_7_1_0");
+					put(grammarAccess.getCodeCallAccess().getParamsAssignment_7_1_1_1(), "rule__CodeCall__ParamsAssignment_7_1_1_1");
 				}
 			};
 		}

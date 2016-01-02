@@ -2066,23 +2066,18 @@ ruleBefore returns [EObject current=null]
      }:
 
 (
-this_BEFORE_KW_0=RULE_BEFORE_KW
-    { 
-    newLeafNode(this_BEFORE_KW_0, grammarAccess.getBeforeAccess().getBEFORE_KWTerminalRuleCall_0()); 
+(
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getBeforeAccess().getBeforeAction_0(),
+            $current);
     }
+)
 
 
-
-this_CLASS_KW_1=RULE_CLASS_KW
+this_BEFORE_KW_1=RULE_BEFORE_KW
     { 
-    newLeafNode(this_CLASS_KW_1, grammarAccess.getBeforeAccess().getCLASS_KWTerminalRuleCall_1()); 
-    }
-
-
-
-this_ASSIGNASSINGLE_2=RULE_ASSIGNASSINGLE
-    { 
-    newLeafNode(this_ASSIGNASSINGLE_2, grammarAccess.getBeforeAccess().getASSIGNASSINGLETerminalRuleCall_2()); 
+    newLeafNode(this_BEFORE_KW_1, grammarAccess.getBeforeAccess().getBEFORE_KWTerminalRuleCall_1()); 
     }
 
 
@@ -2090,71 +2085,22 @@ this_ASSIGNASSINGLE_2=RULE_ASSIGNASSINGLE
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getBeforeAccess().getMyclassPackageIDParserRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getBeforeAccess().getCodeCallCodeCallParserRuleCall_2_0()); 
 	    }
-		lv_myclass_3_0=rulePackageID		{
+		lv_codeCall_2_0=ruleCodeCall		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getBeforeRule());
 	        }
        		set(
        			$current, 
-       			"myclass",
-        		lv_myclass_3_0, 
-        		"at.jku.weiner.xtexttest.XtextTest.PackageID");
+       			"codeCall",
+        		lv_codeCall_2_0, 
+        		"at.jku.weiner.xtexttest.XtextTest.CodeCall");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
 )
-
-
-this_METHOD_KW_4=RULE_METHOD_KW
-    { 
-    newLeafNode(this_METHOD_KW_4, grammarAccess.getBeforeAccess().getMETHOD_KWTerminalRuleCall_4()); 
-    }
-
-
-
-this_ASSIGNASSINGLE_5=RULE_ASSIGNASSINGLE
-    { 
-    newLeafNode(this_ASSIGNASSINGLE_5, grammarAccess.getBeforeAccess().getASSIGNASSINGLETerminalRuleCall_5()); 
-    }
-
-
-
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getBeforeAccess().getMethodPackageIDParserRuleCall_6_0()); 
-	    }
-		lv_method_6_0=rulePackageID		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getBeforeRule());
-	        }
-       		set(
-       			$current, 
-       			"method",
-        		lv_method_6_0, 
-        		"at.jku.weiner.xtexttest.XtextTest.PackageID");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)
-
-
-this_LEFTPAREN_7=RULE_LEFTPAREN
-    { 
-    newLeafNode(this_LEFTPAREN_7, grammarAccess.getBeforeAccess().getLEFTPARENTerminalRuleCall_7()); 
-    }
-
-
-
-this_RIGHTPAREN_8=RULE_RIGHTPAREN
-    { 
-    newLeafNode(this_RIGHTPAREN_8, grammarAccess.getBeforeAccess().getRIGHTPARENTerminalRuleCall_8()); 
-    }
-
 
 )
 
@@ -2184,23 +2130,18 @@ ruleAfter returns [EObject current=null]
      }:
 
 (
-this_AFTER_KW_0=RULE_AFTER_KW
-    { 
-    newLeafNode(this_AFTER_KW_0, grammarAccess.getAfterAccess().getAFTER_KWTerminalRuleCall_0()); 
+(
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getAfterAccess().getAfterAction_0(),
+            $current);
     }
+)
 
 
-
-this_CLASS_KW_1=RULE_CLASS_KW
+this_AFTER_KW_1=RULE_AFTER_KW
     { 
-    newLeafNode(this_CLASS_KW_1, grammarAccess.getAfterAccess().getCLASS_KWTerminalRuleCall_1()); 
-    }
-
-
-
-this_ASSIGNASSINGLE_2=RULE_ASSIGNASSINGLE
-    { 
-    newLeafNode(this_ASSIGNASSINGLE_2, grammarAccess.getAfterAccess().getASSIGNASSINGLETerminalRuleCall_2()); 
+    newLeafNode(this_AFTER_KW_1, grammarAccess.getAfterAccess().getAFTER_KWTerminalRuleCall_1()); 
     }
 
 
@@ -2208,71 +2149,22 @@ this_ASSIGNASSINGLE_2=RULE_ASSIGNASSINGLE
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getAfterAccess().getMyclassPackageIDParserRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getAfterAccess().getCodeCallCodeCallParserRuleCall_2_0()); 
 	    }
-		lv_myclass_3_0=rulePackageID		{
+		lv_codeCall_2_0=ruleCodeCall		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getAfterRule());
 	        }
        		set(
        			$current, 
-       			"myclass",
-        		lv_myclass_3_0, 
-        		"at.jku.weiner.xtexttest.XtextTest.PackageID");
+       			"codeCall",
+        		lv_codeCall_2_0, 
+        		"at.jku.weiner.xtexttest.XtextTest.CodeCall");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
 )
-
-
-this_METHOD_KW_4=RULE_METHOD_KW
-    { 
-    newLeafNode(this_METHOD_KW_4, grammarAccess.getAfterAccess().getMETHOD_KWTerminalRuleCall_4()); 
-    }
-
-
-
-this_ASSIGNASSINGLE_5=RULE_ASSIGNASSINGLE
-    { 
-    newLeafNode(this_ASSIGNASSINGLE_5, grammarAccess.getAfterAccess().getASSIGNASSINGLETerminalRuleCall_5()); 
-    }
-
-
-
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getAfterAccess().getMethodPackageIDParserRuleCall_6_0()); 
-	    }
-		lv_method_6_0=rulePackageID		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getAfterRule());
-	        }
-       		set(
-       			$current, 
-       			"method",
-        		lv_method_6_0, 
-        		"at.jku.weiner.xtexttest.XtextTest.PackageID");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)
-
-
-this_LEFTPAREN_7=RULE_LEFTPAREN
-    { 
-    newLeafNode(this_LEFTPAREN_7, grammarAccess.getAfterAccess().getLEFTPARENTerminalRuleCall_7()); 
-    }
-
-
-
-this_RIGHTPAREN_8=RULE_RIGHTPAREN
-    { 
-    newLeafNode(this_RIGHTPAREN_8, grammarAccess.getAfterAccess().getRIGHTPARENTerminalRuleCall_8()); 
-    }
-
 
 )
 
@@ -2302,16 +2194,25 @@ ruleCodeCall returns [EObject current=null]
      }:
 
 (
-this_CLASS_KW_0=RULE_CLASS_KW
+(
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getCodeCallAccess().getCodeCallAction_0(),
+            $current);
+    }
+)
+
+
+this_CLASS_KW_1=RULE_CLASS_KW
     { 
-    newLeafNode(this_CLASS_KW_0, grammarAccess.getCodeCallAccess().getCLASS_KWTerminalRuleCall_0()); 
+    newLeafNode(this_CLASS_KW_1, grammarAccess.getCodeCallAccess().getCLASS_KWTerminalRuleCall_1()); 
     }
 
 
 
-this_ASSIGNASSINGLE_1=RULE_ASSIGNASSINGLE
+this_ASSIGNASSINGLE_2=RULE_ASSIGNASSINGLE
     { 
-    newLeafNode(this_ASSIGNASSINGLE_1, grammarAccess.getCodeCallAccess().getASSIGNASSINGLETerminalRuleCall_1()); 
+    newLeafNode(this_ASSIGNASSINGLE_2, grammarAccess.getCodeCallAccess().getASSIGNASSINGLETerminalRuleCall_2()); 
     }
 
 
@@ -2319,16 +2220,16 @@ this_ASSIGNASSINGLE_1=RULE_ASSIGNASSINGLE
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getCodeCallAccess().getMyclassPackageIDParserRuleCall_2_0()); 
+	        newCompositeNode(grammarAccess.getCodeCallAccess().getMyclassPackageIDParserRuleCall_3_0()); 
 	    }
-		lv_myclass_2_0=rulePackageID		{
+		lv_myclass_3_0=rulePackageID		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getCodeCallRule());
 	        }
        		set(
        			$current, 
        			"myclass",
-        		lv_myclass_2_0, 
+        		lv_myclass_3_0, 
         		"at.jku.weiner.xtexttest.XtextTest.PackageID");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -2337,16 +2238,16 @@ this_ASSIGNASSINGLE_1=RULE_ASSIGNASSINGLE
 )
 
 
-this_METHOD_KW_3=RULE_METHOD_KW
+this_METHOD_KW_4=RULE_METHOD_KW
     { 
-    newLeafNode(this_METHOD_KW_3, grammarAccess.getCodeCallAccess().getMETHOD_KWTerminalRuleCall_3()); 
+    newLeafNode(this_METHOD_KW_4, grammarAccess.getCodeCallAccess().getMETHOD_KWTerminalRuleCall_4()); 
     }
 
 
 
-this_ASSIGNASSINGLE_4=RULE_ASSIGNASSINGLE
+this_ASSIGNASSINGLE_5=RULE_ASSIGNASSINGLE
     { 
-    newLeafNode(this_ASSIGNASSINGLE_4, grammarAccess.getCodeCallAccess().getASSIGNASSINGLETerminalRuleCall_4()); 
+    newLeafNode(this_ASSIGNASSINGLE_5, grammarAccess.getCodeCallAccess().getASSIGNASSINGLETerminalRuleCall_5()); 
     }
 
 
@@ -2354,21 +2255,93 @@ this_ASSIGNASSINGLE_4=RULE_ASSIGNASSINGLE
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getCodeCallAccess().getMethodPackageIDParserRuleCall_5_0()); 
+	        newCompositeNode(grammarAccess.getCodeCallAccess().getMethodPackageIDParserRuleCall_6_0()); 
 	    }
-		lv_method_5_0=rulePackageID		{
+		lv_method_6_0=rulePackageID		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getCodeCallRule());
 	        }
        		set(
        			$current, 
        			"method",
-        		lv_method_5_0, 
+        		lv_method_6_0, 
         		"at.jku.weiner.xtexttest.XtextTest.PackageID");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
+)
+
+
+(
+this_LEFTPAREN_7=RULE_LEFTPAREN
+    { 
+    newLeafNode(this_LEFTPAREN_7, grammarAccess.getCodeCallAccess().getLEFTPARENTerminalRuleCall_7_0()); 
+    }
+
+
+
+(
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getCodeCallAccess().getParamsPackageIDParserRuleCall_7_1_0_0()); 
+	    }
+		lv_params_8_0=rulePackageID		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getCodeCallRule());
+	        }
+       		add(
+       			$current, 
+       			"params",
+        		lv_params_8_0, 
+        		"at.jku.weiner.xtexttest.XtextTest.PackageID");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+(
+this_COMMA_9=RULE_COMMA
+    { 
+    newLeafNode(this_COMMA_9, grammarAccess.getCodeCallAccess().getCOMMATerminalRuleCall_7_1_1_0()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getCodeCallAccess().getParamsPackageIDParserRuleCall_7_1_1_1_0()); 
+	    }
+		lv_params_10_0=rulePackageID		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getCodeCallRule());
+	        }
+       		add(
+       			$current, 
+       			"params",
+        		lv_params_10_0, 
+        		"at.jku.weiner.xtexttest.XtextTest.PackageID");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+)*
+
+)?
+
+
+this_RIGHTPAREN_11=RULE_RIGHTPAREN
+    { 
+    newLeafNode(this_RIGHTPAREN_11, grammarAccess.getCodeCallAccess().getRIGHTPARENTerminalRuleCall_7_2()); 
+    }
+
+
 )
 
 )

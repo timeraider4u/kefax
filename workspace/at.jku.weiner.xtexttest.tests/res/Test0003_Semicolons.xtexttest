@@ -36,5 +36,3 @@ expected file isSameAsInputFile
 //replacePatterns file="res/Patterns.txt"
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------
-before class=at.jku.weiner.xtexttest.demo.Demo method=beforeDemo(mydemo)
-after class=at.jku.weiner.xtexttest.demo.Demo method=afterDemo(mydemo,mydemo2)

@@ -90,58 +90,42 @@ public class XtextTestSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Constraint:
-	 *     (myclass=PackageID method=PackageID)
+	 *     codeCall=CodeCall
 	 */
 	protected void sequence_After(EObject context, After semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, XtextTestPackage.Literals.AFTER__MYCLASS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, XtextTestPackage.Literals.AFTER__MYCLASS));
-			if(transientValues.isValueTransient(semanticObject, XtextTestPackage.Literals.AFTER__METHOD) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, XtextTestPackage.Literals.AFTER__METHOD));
+			if(transientValues.isValueTransient(semanticObject, XtextTestPackage.Literals.AFTER__CODE_CALL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, XtextTestPackage.Literals.AFTER__CODE_CALL));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getAfterAccess().getMyclassPackageIDParserRuleCall_3_0(), semanticObject.getMyclass());
-		feeder.accept(grammarAccess.getAfterAccess().getMethodPackageIDParserRuleCall_6_0(), semanticObject.getMethod());
+		feeder.accept(grammarAccess.getAfterAccess().getCodeCallCodeCallParserRuleCall_2_0(), semanticObject.getCodeCall());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (myclass=PackageID method=PackageID)
+	 *     codeCall=CodeCall
 	 */
 	protected void sequence_Before(EObject context, Before semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, XtextTestPackage.Literals.BEFORE__MYCLASS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, XtextTestPackage.Literals.BEFORE__MYCLASS));
-			if(transientValues.isValueTransient(semanticObject, XtextTestPackage.Literals.BEFORE__METHOD) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, XtextTestPackage.Literals.BEFORE__METHOD));
+			if(transientValues.isValueTransient(semanticObject, XtextTestPackage.Literals.BEFORE__CODE_CALL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, XtextTestPackage.Literals.BEFORE__CODE_CALL));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getBeforeAccess().getMyclassPackageIDParserRuleCall_3_0(), semanticObject.getMyclass());
-		feeder.accept(grammarAccess.getBeforeAccess().getMethodPackageIDParserRuleCall_6_0(), semanticObject.getMethod());
+		feeder.accept(grammarAccess.getBeforeAccess().getCodeCallCodeCallParserRuleCall_2_0(), semanticObject.getCodeCall());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (myclass=PackageID method=PackageID)
+	 *     (myclass=PackageID method=PackageID (params+=PackageID params+=PackageID*)?)
 	 */
 	protected void sequence_CodeCall(EObject context, CodeCall semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, XtextTestPackage.Literals.CODE_CALL__MYCLASS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, XtextTestPackage.Literals.CODE_CALL__MYCLASS));
-			if(transientValues.isValueTransient(semanticObject, XtextTestPackage.Literals.CODE_CALL__METHOD) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, XtextTestPackage.Literals.CODE_CALL__METHOD));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getCodeCallAccess().getMyclassPackageIDParserRuleCall_2_0(), semanticObject.getMyclass());
-		feeder.accept(grammarAccess.getCodeCallAccess().getMethodPackageIDParserRuleCall_5_0(), semanticObject.getMethod());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

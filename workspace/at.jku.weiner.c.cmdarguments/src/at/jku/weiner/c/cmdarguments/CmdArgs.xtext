@@ -1,0 +1,21 @@
+grammar at.jku.weiner.c.cmdarguments.CmdArgs with org.eclipse.xtext.common.Terminals
+hidden(WS)
+
+generate cmdArgs "http://www.jku.at/weiner/c/cmdarguments/CmdArgs"
+
+Model:
+	{Model}
+	arguments+=Argument*;
+	
+Argument:
+	{Argument}
+	(
+		'-D' name=Identifier
+	|
+		'-I' dir=Identifier
+	)
+;
+
+
+
+Identifier: ID;

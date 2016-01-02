@@ -33,3 +33,5 @@ source file="res/Test0002_Empty"
 		path++"${{path}}/${{plugin_id}}/${{sourceFile}}/Empty2.c"
 	)
 )
+
+before class=org.eclipse.modisco.cdt.discoverer.tests.EMFTest method=includeDirsStringIsEmpty()

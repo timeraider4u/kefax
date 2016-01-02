@@ -18,19 +18,20 @@ import org.eclipse.modisco.infra.discovery.core.exception.DiscoveryException;
 public class DiscoverCDTFromIResource extends AbstractCDTDiscoverer<IResource> {
 	private static final String ID = AbstractCDTDiscoverer.PREFIX
 			+ "DiscoverCDTFromProject"; //$NON-NLS-1$
-
+	
 	@Override
 	public boolean isApplicableTo(final IResource resource) {
-		System.out.println(DiscoverCDTFromIResource.ID + " - isAplicableTo()");
-		boolean result = super.isApplicableOn(resource);
-		System.out.println("result='" + result + "'");
+		// System.out.println(DiscoverCDTFromIResource.ID +
+		// " - isAplicableTo()");
+		final boolean result = super.isApplicableOn(resource);
+		// System.out.println("result='" + result + "'");
 		return result;
 	}
-
+	
 	@Override
 	protected void basicDiscoverElement(final IResource resource,
 			final IProgressMonitor monitor) throws DiscoveryException {
 		super.discover(resource, monitor);
 	}
-
+	
 }

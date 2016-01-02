@@ -14,10 +14,15 @@ public final class MyStore {
 	private final CommonFactory factory;
 	private final Model model;
 	private final XtextUtils parser;
+	private final boolean stdInclude;
+	private final String includeDirs;
 	
-	public MyStore(final IProgressMonitor monitor, final Resource targetModel)
+	public MyStore(final IProgressMonitor monitor, final Resource targetModel,
+			final boolean stdInclude, final String includeDirs)
 			throws DiscoveryException {
 		this.monitor = monitor;
+		this.stdInclude = stdInclude;
+		this.includeDirs = includeDirs;
 		this.factory = CommonFactory.eINSTANCE;
 		if (this.factory == null) {
 			throw new DiscoveryException("factory is null!");
@@ -40,7 +45,15 @@ public final class MyStore {
 	}
 
 	public XtextUtils getParser() {
-		return parser;
+		return this.parser;
+	}
+
+	public boolean isStdInclude() {
+		return this.stdInclude;
+	}
+
+	public String getIncludeDirs() {
+		return includeDirs;
 	}
 	
 }

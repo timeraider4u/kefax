@@ -18,6 +18,7 @@ import at.jku.weiner.c.common.ui.internal.CommonActivator;
 import at.jku.weiner.c.parser.parser.Parser;
 import at.jku.weiner.c.preprocess.generator.PreprocessGenerator;
 import at.jku.weiner.c.preprocess.preprocess.Preprocess;
+import at.jku.weiner.c.preprocess.utils.IncludeDirs;
 import at.jku.weiner.c.preprocess.utils.macros.PredefinedMacros;
 
 import com.google.inject.Injector;
@@ -109,16 +110,34 @@ public class XtextUtils {
 		final String path = uri.path();
 		final String wholeStr = path + File.separator + fileNameOnly;
 
+		this.setUpIncludeDirs();
 		final PreprocessGenerator preprocessGenerator = this.preprocessor
 				.getGenerator();
 		preprocessGenerator.setFileName(wholeStr);
 		preprocessGenerator.setInsertPredefinedMacros(true);
 		preprocessGenerator.setValidateUnit(true);
 		preprocessGenerator.setUnit(unit);
+		preprocessGenerator.setStdInclude(this.store.isStdInclude());
+		// System.out.println("setStdInclude='" + this.store.isStdInclude() +
+		// "'");
 		preprocessGenerator.setCommonInjector(this.commonInjector);
 		// preprocessGenerator.insertPredefinedMacros(this.store.getModel());
 		this.preprocessor.generate(iFile, fileNameOnly);
 		return wholeStr;
+	}
+	
+	private void setUpIncludeDirs() {
+		IncludeDirs.clearAllIncludeDirectories();
+		final String includeDirs = this.store.getIncludeDirs();
+		// System.out.println("includeDirs='" + includeDirs + "'");
+		if ((includeDirs == null) || includeDirs.isEmpty()) {
+			return;
+		}
+		final String[] dirs = includeDirs.split(File.pathSeparator);
+		for (final String dir : dirs) {
+			System.out.println("addIncludeDirectoryToList='" + dir + "'");
+			IncludeDirs.addIncludeDirectoryToList(dir);
+		}
 	}
 
 }

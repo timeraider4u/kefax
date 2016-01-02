@@ -1,6 +1,9 @@
 package org.eclipse.modisco.cdt.discoverer.tests;
 
+import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.resources.IProject;
@@ -10,13 +13,18 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.gmt.modisco.infra.common.core.internal.utils.ProjectUtils;
+import org.junit.Assert;
 import org.osgi.framework.Bundle;
 
 import at.jku.weiner.c.common.common.Model;
+import at.jku.weiner.c.preprocess.utils.IncludeDirs;
 
 @SuppressWarnings("restriction")
 public class EMFTest {
 	private static boolean firstCall = true;
+	private static boolean stdInclude = true;
+	private static String includeDirs = null;
+	private static String path3 = null;
 
 	public static Map<String, Object> getOptions(
 			final String pureJavaClassFileName, final String sourceFile) {
@@ -26,6 +34,7 @@ public class EMFTest {
 		final IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
 		final String path = root.getLocationURI().toString();
 		final String path2 = path.replace("file:", "");
+		EMFTest.path3 = path2;
 		result.put("path", path2);
 		result.put("plugin_id", Activator.PLUGIN_ID);
 		return result;
@@ -51,7 +60,14 @@ public class EMFTest {
 		EMFTest.firstCall();
 		EMFTest.cleanUpOldProject();
 		final IProject iProject = EMFTest.getProject();
-		final TestUtils utils = new TestUtils(iProject, sourceFile);
+		final String myIncludeDirs = EMFTest.includeDirs;
+		final boolean myStdInclude = EMFTest.stdInclude;
+		EMFTest.stdInclude = true;
+		EMFTest.includeDirs = null;
+
+		final TestUtils utils = new TestUtils(iProject, sourceFile,
+				myStdInclude, myIncludeDirs);
+		
 		final Model result = utils.getModel();
 		return result;
 	}
@@ -70,4 +86,23 @@ public class EMFTest {
 		return project;
 	}
 	
+	public static void setNoStdInclude() {
+		EMFTest.stdInclude = false;
+	}
+	
+	public static void includeDirsIsEmpty() {
+		final List<String> list = IncludeDirs.getListCopy();
+		Assert.assertNotNull(list);
+		Assert.assertTrue(list.isEmpty());
+	}
+
+	public static void includeDirsStringIsEmpty() {
+		Assert.assertNull(EMFTest.includeDirs);
+	}
+
+	public static void addIncludeDir() {
+		EMFTest.includeDirs = EMFTest.path3 + File.separator
+				+ Activator.PLUGIN_ID + File.separator + "res/include";
+	}
+
 }

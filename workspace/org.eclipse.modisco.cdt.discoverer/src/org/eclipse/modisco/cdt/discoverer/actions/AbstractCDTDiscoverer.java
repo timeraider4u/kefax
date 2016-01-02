@@ -28,34 +28,38 @@ import org.eclipse.modisco.cdt.discoverer.utils.FileNameSorter;
 import org.eclipse.modisco.cdt.discoverer.utils.Messages;
 import org.eclipse.modisco.cdt.discoverer.utils.MyStore;
 import org.eclipse.modisco.infra.discovery.core.AbstractModelDiscoverer;
+import org.eclipse.modisco.infra.discovery.core.annotations.Parameter;
 import org.eclipse.modisco.infra.discovery.core.exception.DiscoveryException;
 
 public abstract class AbstractCDTDiscoverer<T> extends
-AbstractModelDiscoverer<T> {
-
+		AbstractModelDiscoverer<T> {
+	
 	protected static final String PREFIX = "org.eclipse.modisco.cdt.discoverer.actions.";
 
+	private boolean setStdInclude = true;
+	private String includeDirs = "";
+	
 	protected final boolean isApplicableOn(final IResource resource) {
-		System.out.println("isApplicableOn='" + resource + "'");
-		System.out.println("isApplicableOn='" + resource.getClass() + "'");
-
+		// System.out.println("isApplicableOn='" + resource + "'");
+		// System.out.println("isApplicableOn='" + resource.getClass() + "'");
+		
 		if (resource instanceof IFile) {
 			return DiscovererUtils.checkFile((IFile) resource);
 		} else if (resource instanceof IContainer) {
 			final IContainer container = (IContainer) resource;
-			System.out.println("isContainer");
+			// System.out.println("isContainer");
 			final boolean result = container.isAccessible();
-			System.out.println("isContainer.isAccessible='" + result + "'");
+			// System.out.println("isContainer.isAccessible='" + result + "'");
 			return result;
 		} else if (resource instanceof IFolder) {
 			final IFolder folder = (IFolder) resource;
-			System.out.println("isFolder");
+			// System.out.println("isFolder");
 			final boolean result = folder.isAccessible();
 			return result;
 		}
 		return false;
 	}
-
+	
 	protected final void discover(final IResource resource,
 			final IProgressMonitor monitor) throws DiscoveryException {
 		final MyStore store = this.initialize(resource, monitor);
@@ -83,7 +87,7 @@ AbstractModelDiscoverer<T> {
 		// done
 		store.getMonitor().setTaskName(Messages.done);
 	}
-
+	
 	/***
 	 * initialize all data values
 	 *
@@ -100,10 +104,11 @@ AbstractModelDiscoverer<T> {
 		final URI targetURI = DiscovererUtils.getTargetModel(resource, monitor);
 		this.setTargetURI(targetURI);
 		final Resource targetModel = this.createTargetModel();
-		final MyStore result = new MyStore(monitor, targetModel);
+		final MyStore result = new MyStore(monitor, targetModel,
+				this.setStdInclude, this.includeDirs);
 		return result;
 	}
-
+	
 	/**
 	 * Recursively discover all files contained in the given directory into the
 	 * given model
@@ -123,18 +128,18 @@ AbstractModelDiscoverer<T> {
 				this.discoverDirectory(file, store);
 			} else {
 				final String fileExtension = new Path(file.getPath())
-				.getFileExtension();
+						.getFileExtension();
 				if (DiscovererUtils.isCdtExtension(fileExtension)) {
 					this.discoverFile(file, store);
 				}
 			}
 		}
 	}
-
+	
 	private final void discoverFile(final File file, final MyStore store)
 			throws DiscoveryException {
 		// final ParserUtils utils = new ParserUtils(store.getMonitor());
-
+		
 		try {
 			final IFile iFile = DiscovererUtils.getFileFor(file);
 			store.getParser().readFromXtextFile(file, iFile);
@@ -149,7 +154,7 @@ AbstractModelDiscoverer<T> {
 		}
 		// utils.cleanUp();
 	}
-
+	
 	/***
 	 * saving
 	 *
@@ -169,5 +174,29 @@ AbstractModelDiscoverer<T> {
 		}
 		// }
 	}
+	
+	public boolean isSetStdInclude() {
+		return this.setStdInclude;
+	}
+	
+	@Parameter(
+			name = "STD_INCLUDE",
+			requiresInputValue = false,
+			description = "Use default standard include directories (e.g. /usr/include/). Set to false for -nostdinc behaviour.")
+	public void setSetStdInclude(final boolean setStdInclude) {
+		this.setStdInclude = setStdInclude;
+	}
 
+	public String getIncludeDirs() {
+		return this.includeDirs;
+	}
+
+	@Parameter(
+			name = "INCLUDE_DIRS",
+			requiresInputValue = false,
+			description = "Add additional directories to search path. Use File.pathSeparator to add multiple directories.")
+	public void setIncludeDirs(final String includeDirs) {
+		this.includeDirs = includeDirs;
+	}
+	
 }

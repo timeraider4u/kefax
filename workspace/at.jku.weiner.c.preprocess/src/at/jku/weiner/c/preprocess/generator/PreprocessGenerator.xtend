@@ -66,6 +66,7 @@ class PreprocessGenerator implements IGenerator {
 	@Accessors boolean validateUnit = true;
 	// @Accessors boolean addToModel = false;
 	@Accessors Injector commonInjector;
+	@Accessors boolean stdInclude = true;
 	
 	@Inject
 	IResourceValidator validator;
@@ -79,7 +80,9 @@ class PreprocessGenerator implements IGenerator {
 		setUp();
 		rs = input.resourceSet;
 		uri = input.URI;
-		IncludeDirs.setUp();
+		if (stdInclude) {
+			IncludeDirs.setUp();
+		}
 		path.clear();
 		DefinitionTable.reset();
 		if (insertPredefinedMacros) {

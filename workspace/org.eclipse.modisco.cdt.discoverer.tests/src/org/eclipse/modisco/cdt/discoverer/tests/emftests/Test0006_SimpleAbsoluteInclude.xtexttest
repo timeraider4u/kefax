@@ -224,3 +224,5 @@ source file="res/Test0006_SimpleAbsoluteInclude"
 		parser isNull
 	)
 )
+
+before class=org.eclipse.modisco.cdt.discoverer.tests.EMFTest method=addIncludeDir()

@@ -31,7 +31,8 @@ final class DiscovererUtils {
 	protected static boolean isCdtExtension(final String fileExtension) {
 		final boolean result = DiscovererUtils.getExtensionList().contains(
 				fileExtension);
-		System.out.println("isCdtExtension='" + fileExtension + "'=" + result);
+		// System.out.println("isCdtExtension='" + fileExtension + "'=" +
+		// result);
 		return result;
 	}
 
@@ -51,10 +52,10 @@ final class DiscovererUtils {
 		if (ext == null) {
 			return false;
 		}
-		System.out.println("ext=" + ext);
+		// System.out.println("ext=" + ext);
 		final boolean result = DiscovererUtils.isCdtExtension(file
 				.getFileExtension());
-		System.out.println("result=" + result);
+		// System.out.println("result=" + result);
 		return result;
 	}
 
@@ -79,18 +80,18 @@ final class DiscovererUtils {
 			throw new DiscoveryException("file cannot be accessed="
 					+ file.getAbsolutePath());
 		}
-		System.out.println("filename=" + result.getFullPath().toOSString());
+		// System.out.println("filename=" + result.getFullPath().toOSString());
 		return result;
 	}
 
 	public static String getTargetDirectory(final IResource res,
 			final IProgressMonitor monitor) throws DiscoveryException {
-		IProject project = res.getProject();
-		IFolder folder = project.getFolder("tmp-discover");
+		final IProject project = res.getProject();
+		final IFolder folder = project.getFolder("tmp-discover");
 		if (!folder.exists()) {
 			try {
 				folder.create(true, true, monitor);
-			} catch (CoreException ex) {
+			} catch (final CoreException ex) {
 				throw new DiscoveryException(ex);
 			}
 		}
@@ -102,14 +103,14 @@ final class DiscovererUtils {
 	public static URI getTargetModel(final IResource res,
 			final IProgressMonitor monitor) throws DiscoveryException {
 		final String path = DiscovererUtils.getTargetDirectory(res, monitor);
-		System.out.println("targetPath='" + path + "'");
+		// System.out.println("targetPath='" + path + "'");
 		final Date dNow = new Date();
 		final SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd-hhmmss");
 		final String prefix = ft.format(dNow);
-		System.out.println("prefix='" + prefix + "'");
+		// System.out.println("prefix='" + prefix + "'");
 		final String model = path + IPath.SEPARATOR + "discover-" + prefix
 				+ Messages.modelFileSuffix;
-		System.out.println("modelURI='" + model + "'");
+		// System.out.println("modelURI='" + model + "'");
 		final URI uri = URI.createFileURI(model);
 		return uri;
 	}

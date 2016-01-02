@@ -101,12 +101,11 @@ public class Test0006_SimpleAbsoluteInclude {
 	public void initialize(){
 		options = org.eclipse.modisco.cdt.discoverer.tests.EMFTest.getOptions(
 			this.pureJavaClassFileName, this.sourceFile);
-		
+		org.eclipse.modisco.cdt.discoverer.tests.EMFTest.addIncludeDir();
 	}
 	
 	@After
 	public void cleanUp() {
-		
 	}
 	
 	private String getTextFromFile(final String fileName)

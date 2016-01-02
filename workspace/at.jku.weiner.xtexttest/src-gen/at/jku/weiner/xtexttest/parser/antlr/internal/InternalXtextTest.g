@@ -662,6 +662,48 @@ this_ASSIGNASSINGLE_12=RULE_ASSIGNASSINGLE
 )
 )
 
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getEmfTestAccess().getBeforeBeforeParserRuleCall_11_0()); 
+	    }
+		lv_before_15_0=ruleBefore		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getEmfTestRule());
+	        }
+       		set(
+       			$current, 
+       			"before",
+        		lv_before_15_0, 
+        		"at.jku.weiner.xtexttest.XtextTest.Before");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)?
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getEmfTestAccess().getAfterAfterParserRuleCall_12_0()); 
+	    }
+		lv_after_16_0=ruleAfter		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getEmfTestRule());
+	        }
+       		set(
+       			$current, 
+       			"after",
+        		lv_after_16_0, 
+        		"at.jku.weiner.xtexttest.XtextTest.After");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)?
+
 )
 
 

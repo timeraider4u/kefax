@@ -37,6 +37,8 @@ EmfTest:
 	(SOURCE FILE ASSIGNASSINGLE file=STRING)
 	
 	root=Element
+	(before=Before)?
+	(after=After)?
 ;
 
 Import:

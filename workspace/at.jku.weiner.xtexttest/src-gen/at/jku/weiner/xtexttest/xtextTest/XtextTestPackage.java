@@ -276,13 +276,31 @@ public interface XtextTestPackage extends EPackage
   int EMF_TEST__ROOT = 6;
 
   /**
+   * The feature id for the '<em><b>Before</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EMF_TEST__BEFORE = 7;
+
+  /**
+   * The feature id for the '<em><b>After</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EMF_TEST__AFTER = 8;
+
+  /**
    * The number of structural features of the '<em>Emf Test</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EMF_TEST_FEATURE_COUNT = 7;
+  int EMF_TEST_FEATURE_COUNT = 9;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.xtexttest.xtextTest.impl.ImportImpl <em>Import</em>}' class.
@@ -1031,6 +1049,28 @@ public interface XtextTestPackage extends EPackage
   EReference getEmfTest_Root();
 
   /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.xtexttest.xtextTest.EmfTest#getBefore <em>Before</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Before</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.EmfTest#getBefore()
+   * @see #getEmfTest()
+   * @generated
+   */
+  EReference getEmfTest_Before();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.xtexttest.xtextTest.EmfTest#getAfter <em>After</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>After</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.EmfTest#getAfter()
+   * @see #getEmfTest()
+   * @generated
+   */
+  EReference getEmfTest_After();
+
+  /**
    * Returns the meta object for class '{@link at.jku.weiner.xtexttest.xtextTest.Import <em>Import</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1707,6 +1747,22 @@ public interface XtextTestPackage extends EPackage
      * @generated
      */
     EReference EMF_TEST__ROOT = eINSTANCE.getEmfTest_Root();
+
+    /**
+     * The meta object literal for the '<em><b>Before</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EMF_TEST__BEFORE = eINSTANCE.getEmfTest_Before();
+
+    /**
+     * The meta object literal for the '<em><b>After</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EMF_TEST__AFTER = eINSTANCE.getEmfTest_After();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.xtexttest.xtextTest.impl.ImportImpl <em>Import</em>}' class.

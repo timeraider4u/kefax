@@ -109,12 +109,16 @@ class EmfTestGenerator {
 			public void initialize(){
 				«IF this.test.optionCall != null»options = «getClassFor(this.test.optionCall.myclass)».«this.test.optionCall.method»(
 					this.pureJavaClassFileName, this.sourceFile);«ENDIF»
-				
+				«IF this.test.before != null»
+					«this.test.before.myclass».«this.test.before.method»();
+				«ENDIF»
 			}
 			
 			@After
 			public void cleanUp() {
-				
+				«IF this.test.after != null»
+					«this.test.after.myclass».«this.test.after.method»();
+				«ENDIF»
 			}
 			
 			private String getTextFromFile(final String fileName)

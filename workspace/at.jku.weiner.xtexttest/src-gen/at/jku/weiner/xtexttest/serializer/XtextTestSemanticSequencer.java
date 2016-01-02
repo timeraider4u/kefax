@@ -163,7 +163,9 @@ public class XtextTestSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *         codeCall=CodeCall 
 	 *         optionCall=CodeCall? 
 	 *         file=STRING 
-	 *         root=Element
+	 *         root=Element 
+	 *         before=Before? 
+	 *         after=After?
 	 *     )
 	 */
 	protected void sequence_EmfTest(EObject context, EmfTest semanticObject) {

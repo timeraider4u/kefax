@@ -217,17 +217,23 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cFileSTRINGTerminalRuleCall_9_3_0 = (RuleCall)cFileAssignment_9_3.eContents().get(0);
 		private final Assignment cRootAssignment_10 = (Assignment)cGroup.eContents().get(10);
 		private final RuleCall cRootElementParserRuleCall_10_0 = (RuleCall)cRootAssignment_10.eContents().get(0);
+		private final Assignment cBeforeAssignment_11 = (Assignment)cGroup.eContents().get(11);
+		private final RuleCall cBeforeBeforeParserRuleCall_11_0 = (RuleCall)cBeforeAssignment_11.eContents().get(0);
+		private final Assignment cAfterAssignment_12 = (Assignment)cGroup.eContents().get(12);
+		private final RuleCall cAfterAfterParserRuleCall_12_0 = (RuleCall)cAfterAssignment_12.eContents().get(0);
 		
 		//EmfTest:
 		//	{EmfTest} KW_EMFTEST
 		//	PACKAGE package=PackageID
 		//	DEFAULT mydefault=PackageID
 		//	myimport+=Import*
-		//	codeCall=CodeCall (OPTIONS optionCall=CodeCall)? (SOURCE FILE ASSIGNASSINGLE file=STRING) root=Element;
+		//	codeCall=CodeCall (OPTIONS optionCall=CodeCall)? (SOURCE FILE ASSIGNASSINGLE file=STRING) root=Element
+		//	before=Before?
+		//	after=After?;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{EmfTest} KW_EMFTEST PACKAGE package=PackageID DEFAULT mydefault=PackageID myimport+=Import* codeCall=CodeCall (OPTIONS
-		//optionCall=CodeCall)? (SOURCE FILE ASSIGNASSINGLE file=STRING) root=Element
+		//optionCall=CodeCall)? (SOURCE FILE ASSIGNASSINGLE file=STRING) root=Element before=Before? after=After?
 		public Group getGroup() { return cGroup; }
 		
 		//{EmfTest}
@@ -301,6 +307,18 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Element
 		public RuleCall getRootElementParserRuleCall_10_0() { return cRootElementParserRuleCall_10_0; }
+		
+		//before=Before?
+		public Assignment getBeforeAssignment_11() { return cBeforeAssignment_11; }
+		
+		//Before
+		public RuleCall getBeforeBeforeParserRuleCall_11_0() { return cBeforeBeforeParserRuleCall_11_0; }
+		
+		//after=After?
+		public Assignment getAfterAssignment_12() { return cAfterAssignment_12; }
+		
+		//After
+		public RuleCall getAfterAfterParserRuleCall_12_0() { return cAfterAfterParserRuleCall_12_0; }
 	}
 	public class ImportElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.Import");
@@ -1309,7 +1327,9 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	//	PACKAGE package=PackageID
 	//	DEFAULT mydefault=PackageID
 	//	myimport+=Import*
-	//	codeCall=CodeCall (OPTIONS optionCall=CodeCall)? (SOURCE FILE ASSIGNASSINGLE file=STRING) root=Element;
+	//	codeCall=CodeCall (OPTIONS optionCall=CodeCall)? (SOURCE FILE ASSIGNASSINGLE file=STRING) root=Element
+	//	before=Before?
+	//	after=After?;
 	public EmfTestElements getEmfTestAccess() {
 		return pEmfTest;
 	}

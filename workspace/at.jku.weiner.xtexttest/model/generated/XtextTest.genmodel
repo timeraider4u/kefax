@@ -31,6 +31,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XtextTest.ecore#//EmfTest/optionCall"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//EmfTest/file"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XtextTest.ecore#//EmfTest/root"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XtextTest.ecore#//EmfTest/before"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XtextTest.ecore#//EmfTest/after"/>
     </genClasses>
     <genClasses ecoreClass="XtextTest.ecore#//Import">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//Import/id"/>

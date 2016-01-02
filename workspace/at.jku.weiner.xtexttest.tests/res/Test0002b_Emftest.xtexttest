@@ -26,3 +26,6 @@ source file="res/TestDiscoverer0001.c"
 		
 	)
 )
+
+before class=at.jku.weiner.xtexttest.demo.Demo method=beforeDemo()
+after class=at.jku.weiner.xtexttest.demo.Demo method=afterDemo()

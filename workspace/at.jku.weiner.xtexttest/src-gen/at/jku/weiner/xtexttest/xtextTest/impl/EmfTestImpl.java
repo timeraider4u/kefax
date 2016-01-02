@@ -2,6 +2,8 @@
  */
 package at.jku.weiner.xtexttest.xtextTest.impl;
 
+import at.jku.weiner.xtexttest.xtextTest.After;
+import at.jku.weiner.xtexttest.xtextTest.Before;
 import at.jku.weiner.xtexttest.xtextTest.CodeCall;
 import at.jku.weiner.xtexttest.xtextTest.Element;
 import at.jku.weiner.xtexttest.xtextTest.EmfTest;
@@ -39,6 +41,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.EmfTestImpl#getOptionCall <em>Option Call</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.EmfTestImpl#getFile <em>File</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.EmfTestImpl#getRoot <em>Root</em>}</li>
+ *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.EmfTestImpl#getBefore <em>Before</em>}</li>
+ *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.EmfTestImpl#getAfter <em>After</em>}</li>
  * </ul>
  *
  * @generated
@@ -144,6 +148,26 @@ public class EmfTestImpl extends MinimalEObjectImpl.Container implements EmfTest
    * @ordered
    */
   protected Element root;
+
+  /**
+   * The cached value of the '{@link #getBefore() <em>Before</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBefore()
+   * @generated
+   * @ordered
+   */
+  protected Before before;
+
+  /**
+   * The cached value of the '{@link #getAfter() <em>After</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAfter()
+   * @generated
+   * @ordered
+   */
+  protected After after;
 
   /**
    * <!-- begin-user-doc -->
@@ -398,6 +422,102 @@ public class EmfTestImpl extends MinimalEObjectImpl.Container implements EmfTest
    * <!-- end-user-doc -->
    * @generated
    */
+  public Before getBefore()
+  {
+    return before;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetBefore(Before newBefore, NotificationChain msgs)
+  {
+    Before oldBefore = before;
+    before = newBefore;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, XtextTestPackage.EMF_TEST__BEFORE, oldBefore, newBefore);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setBefore(Before newBefore)
+  {
+    if (newBefore != before)
+    {
+      NotificationChain msgs = null;
+      if (before != null)
+        msgs = ((InternalEObject)before).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - XtextTestPackage.EMF_TEST__BEFORE, null, msgs);
+      if (newBefore != null)
+        msgs = ((InternalEObject)newBefore).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - XtextTestPackage.EMF_TEST__BEFORE, null, msgs);
+      msgs = basicSetBefore(newBefore, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, XtextTestPackage.EMF_TEST__BEFORE, newBefore, newBefore));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public After getAfter()
+  {
+    return after;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetAfter(After newAfter, NotificationChain msgs)
+  {
+    After oldAfter = after;
+    after = newAfter;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, XtextTestPackage.EMF_TEST__AFTER, oldAfter, newAfter);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAfter(After newAfter)
+  {
+    if (newAfter != after)
+    {
+      NotificationChain msgs = null;
+      if (after != null)
+        msgs = ((InternalEObject)after).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - XtextTestPackage.EMF_TEST__AFTER, null, msgs);
+      if (newAfter != null)
+        msgs = ((InternalEObject)newAfter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - XtextTestPackage.EMF_TEST__AFTER, null, msgs);
+      msgs = basicSetAfter(newAfter, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, XtextTestPackage.EMF_TEST__AFTER, newAfter, newAfter));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -411,6 +531,10 @@ public class EmfTestImpl extends MinimalEObjectImpl.Container implements EmfTest
         return basicSetOptionCall(null, msgs);
       case XtextTestPackage.EMF_TEST__ROOT:
         return basicSetRoot(null, msgs);
+      case XtextTestPackage.EMF_TEST__BEFORE:
+        return basicSetBefore(null, msgs);
+      case XtextTestPackage.EMF_TEST__AFTER:
+        return basicSetAfter(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -439,6 +563,10 @@ public class EmfTestImpl extends MinimalEObjectImpl.Container implements EmfTest
         return getFile();
       case XtextTestPackage.EMF_TEST__ROOT:
         return getRoot();
+      case XtextTestPackage.EMF_TEST__BEFORE:
+        return getBefore();
+      case XtextTestPackage.EMF_TEST__AFTER:
+        return getAfter();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -476,6 +604,12 @@ public class EmfTestImpl extends MinimalEObjectImpl.Container implements EmfTest
       case XtextTestPackage.EMF_TEST__ROOT:
         setRoot((Element)newValue);
         return;
+      case XtextTestPackage.EMF_TEST__BEFORE:
+        setBefore((Before)newValue);
+        return;
+      case XtextTestPackage.EMF_TEST__AFTER:
+        setAfter((After)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -511,6 +645,12 @@ public class EmfTestImpl extends MinimalEObjectImpl.Container implements EmfTest
       case XtextTestPackage.EMF_TEST__ROOT:
         setRoot((Element)null);
         return;
+      case XtextTestPackage.EMF_TEST__BEFORE:
+        setBefore((Before)null);
+        return;
+      case XtextTestPackage.EMF_TEST__AFTER:
+        setAfter((After)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -539,6 +679,10 @@ public class EmfTestImpl extends MinimalEObjectImpl.Container implements EmfTest
         return FILE_EDEFAULT == null ? file != null : !FILE_EDEFAULT.equals(file);
       case XtextTestPackage.EMF_TEST__ROOT:
         return root != null;
+      case XtextTestPackage.EMF_TEST__BEFORE:
+        return before != null;
+      case XtextTestPackage.EMF_TEST__AFTER:
+        return after != null;
     }
     return super.eIsSet(featureID);
   }

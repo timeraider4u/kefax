@@ -64,7 +64,7 @@ class XtextTestParsingTest0002b{
 			// validate the resource
 		val	List<Issue> list = this.validator.validate(resource, 
 				CheckMode.ALL,CancelIndicator.NullImpl);
-		Assert.assertTrue(list.isEmpty());
+		Assert.assertTrue(list.toString(), list.isEmpty());
 		// configure and start the generator
 		fileAccessSystem.setOutputPath("bin");
 		this.generator.setFileName("Test0002b_Emftest.java");

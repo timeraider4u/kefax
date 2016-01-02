@@ -420,6 +420,26 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getEmfTest_Before()
+  {
+    return (EReference)emfTestEClass.getEStructuralFeatures().get(7);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getEmfTest_After()
+  {
+    return (EReference)emfTestEClass.getEStructuralFeatures().get(8);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getImport()
   {
     return importEClass;
@@ -909,6 +929,8 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
     createEReference(emfTestEClass, EMF_TEST__OPTION_CALL);
     createEAttribute(emfTestEClass, EMF_TEST__FILE);
     createEReference(emfTestEClass, EMF_TEST__ROOT);
+    createEReference(emfTestEClass, EMF_TEST__BEFORE);
+    createEReference(emfTestEClass, EMF_TEST__AFTER);
 
     importEClass = createEClass(IMPORT);
     createEAttribute(importEClass, IMPORT__ID);
@@ -1021,6 +1043,8 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
     initEReference(getEmfTest_OptionCall(), this.getCodeCall(), null, "optionCall", null, 0, 1, EmfTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getEmfTest_File(), ecorePackage.getEString(), "file", null, 0, 1, EmfTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEmfTest_Root(), this.getElement(), null, "root", null, 0, 1, EmfTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEmfTest_Before(), this.getBefore(), null, "before", null, 0, 1, EmfTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEmfTest_After(), this.getAfter(), null, "after", null, 0, 1, EmfTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(importEClass, Import.class, "Import", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getImport_Id(), ecorePackage.getEString(), "id", null, 0, 1, Import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

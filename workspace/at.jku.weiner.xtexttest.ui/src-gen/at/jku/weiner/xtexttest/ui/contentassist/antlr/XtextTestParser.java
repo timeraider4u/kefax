@@ -102,6 +102,8 @@ public class XtextTestParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEmfTestAccess().getOptionCallAssignment_8_1(), "rule__EmfTest__OptionCallAssignment_8_1");
 					put(grammarAccess.getEmfTestAccess().getFileAssignment_9_3(), "rule__EmfTest__FileAssignment_9_3");
 					put(grammarAccess.getEmfTestAccess().getRootAssignment_10(), "rule__EmfTest__RootAssignment_10");
+					put(grammarAccess.getEmfTestAccess().getBeforeAssignment_11(), "rule__EmfTest__BeforeAssignment_11");
+					put(grammarAccess.getEmfTestAccess().getAfterAssignment_12(), "rule__EmfTest__AfterAssignment_12");
 					put(grammarAccess.getImportAccess().getIdAssignment_2(), "rule__Import__IdAssignment_2");
 					put(grammarAccess.getImportAccess().getAliasAssignment_4(), "rule__Import__AliasAssignment_4");
 					put(grammarAccess.getInputAccess().getTextAssignment_2_0_2(), "rule__Input__TextAssignment_2_0_2");

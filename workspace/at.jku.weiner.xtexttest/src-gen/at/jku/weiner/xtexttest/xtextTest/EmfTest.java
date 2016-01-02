@@ -22,6 +22,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.EmfTest#getOptionCall <em>Option Call</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.EmfTest#getFile <em>File</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.EmfTest#getRoot <em>Root</em>}</li>
+ *   <li>{@link at.jku.weiner.xtexttest.xtextTest.EmfTest#getBefore <em>Before</em>}</li>
+ *   <li>{@link at.jku.weiner.xtexttest.xtextTest.EmfTest#getAfter <em>After</em>}</li>
  * </ul>
  *
  * @see at.jku.weiner.xtexttest.xtextTest.XtextTestPackage#getEmfTest()
@@ -201,5 +203,57 @@ public interface EmfTest extends EObject
    * @generated
    */
   void setRoot(Element value);
+
+  /**
+   * Returns the value of the '<em><b>Before</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Before</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Before</em>' containment reference.
+   * @see #setBefore(Before)
+   * @see at.jku.weiner.xtexttest.xtextTest.XtextTestPackage#getEmfTest_Before()
+   * @model containment="true"
+   * @generated
+   */
+  Before getBefore();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.xtexttest.xtextTest.EmfTest#getBefore <em>Before</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Before</em>' containment reference.
+   * @see #getBefore()
+   * @generated
+   */
+  void setBefore(Before value);
+
+  /**
+   * Returns the value of the '<em><b>After</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>After</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>After</em>' containment reference.
+   * @see #setAfter(After)
+   * @see at.jku.weiner.xtexttest.xtextTest.XtextTestPackage#getEmfTest_After()
+   * @model containment="true"
+   * @generated
+   */
+  After getAfter();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.xtexttest.xtextTest.EmfTest#getAfter <em>After</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>After</em>' containment reference.
+   * @see #getAfter()
+   * @generated
+   */
+  void setAfter(After value);
 
 } // EmfTest

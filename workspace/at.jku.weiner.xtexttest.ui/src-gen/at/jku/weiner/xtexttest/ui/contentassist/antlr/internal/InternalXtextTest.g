@@ -1902,6 +1902,7 @@ rule__EmfTest__Group__10
     }
 :
 	rule__EmfTest__Group__10__Impl
+	rule__EmfTest__Group__11
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -1925,6 +1926,73 @@ rule__EmfTest__Group__10__Impl
 finally {
 	restoreStackSize(stackSize);
 }
+
+
+rule__EmfTest__Group__11
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__EmfTest__Group__11__Impl
+	rule__EmfTest__Group__12
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__EmfTest__Group__11__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+
+(
+{ before(grammarAccess.getEmfTestAccess().getBeforeAssignment_11()); }
+(rule__EmfTest__BeforeAssignment_11)?
+{ after(grammarAccess.getEmfTestAccess().getBeforeAssignment_11()); }
+)
+
+
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__EmfTest__Group__12
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__EmfTest__Group__12__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__EmfTest__Group__12__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+
+(
+{ before(grammarAccess.getEmfTestAccess().getAfterAssignment_12()); }
+(rule__EmfTest__AfterAssignment_12)?
+{ after(grammarAccess.getEmfTestAccess().getAfterAssignment_12()); }
+)
+
+
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
+
 
 
 
@@ -6054,6 +6122,36 @@ rule__EmfTest__RootAssignment_10
 (
 { before(grammarAccess.getEmfTestAccess().getRootElementParserRuleCall_10_0()); }
 	ruleElement{ after(grammarAccess.getEmfTestAccess().getRootElementParserRuleCall_10_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__EmfTest__BeforeAssignment_11
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getEmfTestAccess().getBeforeBeforeParserRuleCall_11_0()); }
+	ruleBefore{ after(grammarAccess.getEmfTestAccess().getBeforeBeforeParserRuleCall_11_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__EmfTest__AfterAssignment_12
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getEmfTestAccess().getAfterAfterParserRuleCall_12_0()); }
+	ruleAfter{ after(grammarAccess.getEmfTestAccess().getAfterAfterParserRuleCall_12_0()); }
 )
 
 ;

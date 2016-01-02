@@ -1,4 +1,4 @@
-package org.eclipse.modisco.cdt.discoverer.tests.basic.emftests;
+package org.eclipse.modisco.cdt.discoverer.tests.emftests;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -24,23 +24,21 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import at.jku.weiner.c.common.common.Model;
-import at.jku.weiner.c.common.common.TranslationUnit;
-import at.jku.weiner.c.preprocess.preprocess.Preprocess;
-import at.jku.weiner.c.parser.parser.Parser;
-import at.jku.weiner.c.common.common.TranslationUnit;
 
 @SuppressWarnings("unused")
-public class Test0002_Emftest {
+public class Test0007_NoStdInclude {
 	
-	private final String pureJavaClassFileName = "Test0002_Emftest";
-	private final String sourceFile = "res/TestDiscoverer0001.c";
+	private final String pureJavaClassFileName = "Test0007_NoStdInclude";
+	private final String sourceFile = "res/Test0007_NoStdInclude";
 	
 	@Before
 	public void initialize(){
+		
 	}
 	
 	@After
 	public void cleanUp() {
+		
 	}
 	
 	private String getTextFromFile(final String fileName)
@@ -53,7 +51,7 @@ public class Test0002_Emftest {
 				
 	@Test (timeout=25000)
 	public void checkParserResult() throws Exception {
-		final EObject obj = org.eclipse.modisco.cdt.discoverer.tests.basic.EMFTest.emfTest(
+		final EObject obj = org.eclipse.modisco.cdt.discoverer.tests.EMFTest.emfTest(
 			this.pureJavaClassFileName, this.sourceFile
 		);
 		Assert.assertNotNull(obj);
@@ -62,32 +60,8 @@ public class Test0002_Emftest {
 		  =  (Model)obj;
 		Assert.assertNotNull(Model_0_Var
 		);
-		final EList<? extends EObject> Units_0_list = Model_0_Var
-		.getUnits();
-		Assert.assertNotNull(Units_0_list);
-		Assert.assertEquals(2, Units_0_list.size());
-		//0
-		final TranslationUnit TranslationUnit_1_Var
-		 = (TranslationUnit)Units_0_list.get(0);
-		Assert.assertNotNull(TranslationUnit_1_Var
-		);
-		//1
-		final Preprocess Preprocess_2_Var
-		 = (Preprocess)TranslationUnit_1_Var
-		.getPreprocess();
-		Assert.assertNotNull(Preprocess_2_Var
-		);
-		//2
-		final Parser Parser_3_Var
-		 = (Parser)TranslationUnit_1_Var
-		.getParser();
-		Assert.assertNotNull(Parser_3_Var
-		);
-		//3
-		final TranslationUnit TranslationUnit_4_Var
-		 = (TranslationUnit)Units_0_list.get(1);
-		Assert.assertNotNull(TranslationUnit_4_Var
-		);
+		Assert.assertTrue(Model_0_Var
+		.getUnits().isEmpty());
 	}
 	
 	

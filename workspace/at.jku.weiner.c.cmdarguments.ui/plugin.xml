@@ -10,7 +10,7 @@
 			default="true"
 			extensions="cmd"
 			id="at.jku.weiner.c.cmdarguments.CmdArgs"
-			name=" Editor">
+			name="at.jku.weiner.c.cmdarguments.CmdArgs Editor">
 		</editor>
 	</extension>
 	<extension

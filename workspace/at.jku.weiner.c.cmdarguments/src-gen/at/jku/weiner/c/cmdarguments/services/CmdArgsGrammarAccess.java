@@ -92,31 +92,36 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cMacroMacroParserRuleCall_1_0_1_0 = (RuleCall)cMacroAssignment_1_0_1.eContents().get(0);
 		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
 		private final Assignment cIncDirAssignment_1_1_0 = (Assignment)cGroup_1_1.eContents().get(0);
-		private final RuleCall cIncDirINCLUDETerminalRuleCall_1_1_0_0 = (RuleCall)cIncDirAssignment_1_1_0.eContents().get(0);
+		private final RuleCall cIncDirINCDIRTerminalRuleCall_1_1_0_0 = (RuleCall)cIncDirAssignment_1_1_0.eContents().get(0);
 		private final Assignment cUseIncDirAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
-		private final RuleCall cUseIncDirUseIncludeDirCmdParserRuleCall_1_1_1_0 = (RuleCall)cUseIncDirAssignment_1_1_1.eContents().get(0);
+		private final RuleCall cUseIncDirPathCmdParserRuleCall_1_1_1_0 = (RuleCall)cUseIncDirAssignment_1_1_1.eContents().get(0);
 		private final Group cGroup_1_2 = (Group)cAlternatives_1.eContents().get(2);
 		private final Assignment cIncSysAssignment_1_2_0 = (Assignment)cGroup_1_2.eContents().get(0);
 		private final RuleCall cIncSysINCSYSTerminalRuleCall_1_2_0_0 = (RuleCall)cIncSysAssignment_1_2_0.eContents().get(0);
 		private final Assignment cUseIncDirAssignment_1_2_1 = (Assignment)cGroup_1_2.eContents().get(1);
-		private final RuleCall cUseIncDirUseIncludeDirCmdParserRuleCall_1_2_1_0 = (RuleCall)cUseIncDirAssignment_1_2_1.eContents().get(0);
+		private final RuleCall cUseIncDirPathCmdParserRuleCall_1_2_1_0 = (RuleCall)cUseIncDirAssignment_1_2_1.eContents().get(0);
 		private final Assignment cNostdincAssignment_1_3 = (Assignment)cAlternatives_1.eContents().get(3);
 		private final RuleCall cNostdincNOSTDINCTerminalRuleCall_1_3_0 = (RuleCall)cNostdincAssignment_1_3.eContents().get(0);
+		private final Group cGroup_1_4 = (Group)cAlternatives_1.eContents().get(4);
+		private final RuleCall cINCLUDETerminalRuleCall_1_4_0 = (RuleCall)cGroup_1_4.eContents().get(0);
+		private final Assignment cIncludeAssignment_1_4_1 = (Assignment)cGroup_1_4.eContents().get(1);
+		private final RuleCall cIncludePathCmdParserRuleCall_1_4_1_0 = (RuleCall)cIncludeAssignment_1_4_1.eContents().get(0);
 		
 		//Argument:
 		//	{Argument} (DEFINE macro=Macro
-		//	| incDir?=INCLUDE useIncDir=UseIncludeDirCmd | incSys?=INCSYS useIncDir=UseIncludeDirCmd | nostdinc?=NOSTDINC);
+		//	| incDir?=INCDIR useIncDir=PathCmd | incSys?=INCSYS useIncDir=PathCmd | nostdinc?=NOSTDINC
+		//	| INCLUDE include=PathCmd);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Argument} (DEFINE macro=Macro | incDir?=INCLUDE useIncDir=UseIncludeDirCmd | incSys?=INCSYS useIncDir=UseIncludeDirCmd
-		//| nostdinc?=NOSTDINC)
+		//{Argument} (DEFINE macro=Macro | incDir?=INCDIR useIncDir=PathCmd | incSys?=INCSYS useIncDir=PathCmd |
+		//nostdinc?=NOSTDINC | INCLUDE include=PathCmd)
 		public Group getGroup() { return cGroup; }
 		
 		//{Argument}
 		public Action getArgumentAction_0() { return cArgumentAction_0; }
 		
-		//(DEFINE macro=Macro | incDir?=INCLUDE useIncDir=UseIncludeDirCmd | incSys?=INCSYS useIncDir=UseIncludeDirCmd |
-		//nostdinc?=NOSTDINC)
+		//(DEFINE macro=Macro | incDir?=INCDIR useIncDir=PathCmd | incSys?=INCSYS useIncDir=PathCmd | nostdinc?=NOSTDINC | INCLUDE
+		//include=PathCmd)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
 		//DEFINE macro=Macro
@@ -131,22 +136,22 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 		//Macro
 		public RuleCall getMacroMacroParserRuleCall_1_0_1_0() { return cMacroMacroParserRuleCall_1_0_1_0; }
 		
-		//incDir?=INCLUDE useIncDir=UseIncludeDirCmd
+		//incDir?=INCDIR useIncDir=PathCmd
 		public Group getGroup_1_1() { return cGroup_1_1; }
 		
-		//incDir?=INCLUDE
+		//incDir?=INCDIR
 		public Assignment getIncDirAssignment_1_1_0() { return cIncDirAssignment_1_1_0; }
 		
-		//INCLUDE
-		public RuleCall getIncDirINCLUDETerminalRuleCall_1_1_0_0() { return cIncDirINCLUDETerminalRuleCall_1_1_0_0; }
+		//INCDIR
+		public RuleCall getIncDirINCDIRTerminalRuleCall_1_1_0_0() { return cIncDirINCDIRTerminalRuleCall_1_1_0_0; }
 		
-		//useIncDir=UseIncludeDirCmd
+		//useIncDir=PathCmd
 		public Assignment getUseIncDirAssignment_1_1_1() { return cUseIncDirAssignment_1_1_1; }
 		
-		//UseIncludeDirCmd
-		public RuleCall getUseIncDirUseIncludeDirCmdParserRuleCall_1_1_1_0() { return cUseIncDirUseIncludeDirCmdParserRuleCall_1_1_1_0; }
+		//PathCmd
+		public RuleCall getUseIncDirPathCmdParserRuleCall_1_1_1_0() { return cUseIncDirPathCmdParserRuleCall_1_1_1_0; }
 		
-		//incSys?=INCSYS useIncDir=UseIncludeDirCmd
+		//incSys?=INCSYS useIncDir=PathCmd
 		public Group getGroup_1_2() { return cGroup_1_2; }
 		
 		//incSys?=INCSYS
@@ -155,17 +160,29 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 		//INCSYS
 		public RuleCall getIncSysINCSYSTerminalRuleCall_1_2_0_0() { return cIncSysINCSYSTerminalRuleCall_1_2_0_0; }
 		
-		//useIncDir=UseIncludeDirCmd
+		//useIncDir=PathCmd
 		public Assignment getUseIncDirAssignment_1_2_1() { return cUseIncDirAssignment_1_2_1; }
 		
-		//UseIncludeDirCmd
-		public RuleCall getUseIncDirUseIncludeDirCmdParserRuleCall_1_2_1_0() { return cUseIncDirUseIncludeDirCmdParserRuleCall_1_2_1_0; }
+		//PathCmd
+		public RuleCall getUseIncDirPathCmdParserRuleCall_1_2_1_0() { return cUseIncDirPathCmdParserRuleCall_1_2_1_0; }
 		
 		//nostdinc?=NOSTDINC
 		public Assignment getNostdincAssignment_1_3() { return cNostdincAssignment_1_3; }
 		
 		//NOSTDINC
 		public RuleCall getNostdincNOSTDINCTerminalRuleCall_1_3_0() { return cNostdincNOSTDINCTerminalRuleCall_1_3_0; }
+		
+		//INCLUDE include=PathCmd
+		public Group getGroup_1_4() { return cGroup_1_4; }
+		
+		//INCLUDE
+		public RuleCall getINCLUDETerminalRuleCall_1_4_0() { return cINCLUDETerminalRuleCall_1_4_0; }
+		
+		//include=PathCmd
+		public Assignment getIncludeAssignment_1_4_1() { return cIncludeAssignment_1_4_1; }
+		
+		//PathCmd
+		public RuleCall getIncludePathCmdParserRuleCall_1_4_1_0() { return cIncludePathCmdParserRuleCall_1_4_1_0; }
 	}
 	public class MacroElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.Macro");
@@ -326,12 +343,12 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 		//MyCode
 		public RuleCall getValueMyCodeParserRuleCall_6_0() { return cValueMyCodeParserRuleCall_6_0; }
 	}
-	public class UseIncludeDirCmdElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.UseIncludeDirCmd");
+	public class PathCmdElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.PathCmd");
 		private final Assignment cPathAssignment = (Assignment)rule.eContents().get(1);
 		private final RuleCall cPathPathParserRuleCall_0 = (RuleCall)cPathAssignment.eContents().get(0);
 		
-		//UseIncludeDirCmd:
+		//PathCmd:
 		//	path=Path
 		//	//name=Identifier
 		//;
@@ -441,7 +458,7 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 	private final SimpleMacroElements pSimpleMacro;
 	private final ObjectMacroElements pObjectMacro;
 	private final FunctionMacroElements pFunctionMacro;
-	private final UseIncludeDirCmdElements pUseIncludeDirCmd;
+	private final PathCmdElements pPathCmd;
 	private final IdentifierElements pIdentifier;
 	private final MyCodeElements pMyCode;
 	private final PathElements pPath;
@@ -452,9 +469,10 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tSKW_COMMA;
 	private final TerminalRule tHASH;
 	private final TerminalRule tDEFINE;
-	private final TerminalRule tINCLUDE;
+	private final TerminalRule tINCDIR;
 	private final TerminalRule tNOSTDINC;
 	private final TerminalRule tINCSYS;
+	private final TerminalRule tINCLUDE;
 	private final TerminalRule tNEWLINE;
 	
 	private final Grammar grammar;
@@ -473,7 +491,7 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 		this.pSimpleMacro = new SimpleMacroElements();
 		this.pObjectMacro = new ObjectMacroElements();
 		this.pFunctionMacro = new FunctionMacroElements();
-		this.pUseIncludeDirCmd = new UseIncludeDirCmdElements();
+		this.pPathCmd = new PathCmdElements();
 		this.pIdentifier = new IdentifierElements();
 		this.pMyCode = new MyCodeElements();
 		this.pPath = new PathElements();
@@ -484,9 +502,10 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 		this.tSKW_COMMA = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.SKW_COMMA");
 		this.tHASH = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.HASH");
 		this.tDEFINE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.DEFINE");
-		this.tINCLUDE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.INCLUDE");
+		this.tINCDIR = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.INCDIR");
 		this.tNOSTDINC = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.NOSTDINC");
 		this.tINCSYS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.INCSYS");
+		this.tINCLUDE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.INCLUDE");
 		this.tNEWLINE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.NEWLINE");
 	}
 	
@@ -539,7 +558,8 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Argument:
 	//	{Argument} (DEFINE macro=Macro
-	//	| incDir?=INCLUDE useIncDir=UseIncludeDirCmd | incSys?=INCSYS useIncDir=UseIncludeDirCmd | nostdinc?=NOSTDINC);
+	//	| incDir?=INCDIR useIncDir=PathCmd | incSys?=INCSYS useIncDir=PathCmd | nostdinc?=NOSTDINC
+	//	| INCLUDE include=PathCmd);
 	public ArgumentElements getArgumentAccess() {
 		return pArgument;
 	}
@@ -594,16 +614,16 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 		return getFunctionMacroAccess().getRule();
 	}
 	
-	//UseIncludeDirCmd:
+	//PathCmd:
 	//	path=Path
 	//	//name=Identifier
 	//;
-	public UseIncludeDirCmdElements getUseIncludeDirCmdAccess() {
-		return pUseIncludeDirCmd;
+	public PathCmdElements getPathCmdAccess() {
+		return pPathCmd;
 	}
 	
-	public ParserRule getUseIncludeDirCmdRule() {
-		return getUseIncludeDirCmdAccess().getRule();
+	public ParserRule getPathCmdRule() {
+		return getPathCmdAccess().getRule();
 	}
 	
 	//Identifier:
@@ -678,10 +698,10 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 		return tDEFINE;
 	}
 	
-	//terminal INCLUDE:
+	//terminal INCDIR:
 	//	SKW_MINUS 'I';
-	public TerminalRule getINCLUDERule() {
-		return tINCLUDE;
+	public TerminalRule getINCDIRRule() {
+		return tINCDIR;
 	}
 	
 	//terminal NOSTDINC:
@@ -694,6 +714,12 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 	//	SKW_MINUS 'isystem';
 	public TerminalRule getINCSYSRule() {
 		return tINCSYS;
+	}
+	
+	//terminal INCLUDE:
+	//	SKW_MINUS 'include';
+	public TerminalRule getINCLUDERule() {
+		return tINCLUDE;
 	}
 	
 	//terminal NEWLINE:

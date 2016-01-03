@@ -19,11 +19,13 @@ Argument:
 	(
 		DEFINE macro=Macro
 	|
-		(incDir?=INCLUDE useIncDir=UseIncludeDirCmd)
+		(incDir?=INCDIR useIncDir=PathCmd)
 	|
-		(incSys?=INCSYS useIncDir=UseIncludeDirCmd)
+		(incSys?=INCSYS useIncDir=PathCmd)
 	|
 		nostdinc?=NOSTDINC
+	|
+		INCLUDE include=PathCmd
 	)
 ;
 
@@ -54,7 +56,7 @@ FunctionMacro returns Macro:
 	value=MyCode
 ;
 
-UseIncludeDirCmd:
+PathCmd:
 	path=Path
 	//name=Identifier
 ;
@@ -76,10 +78,10 @@ terminal SKW_COMMA: ',';
 
 terminal HASH: '#';
 terminal DEFINE: SKW_MINUS 'D';
-terminal INCLUDE: SKW_MINUS 'I';
+terminal INCDIR: SKW_MINUS 'I';
 terminal NOSTDINC: SKW_MINUS 'nostdinc';
 terminal INCSYS: SKW_MINUS 'isystem';
-
+terminal INCLUDE: SKW_MINUS 'include';
 
 terminal NEWLINE: '\n' | '\r';
 //terminal END: EOF;

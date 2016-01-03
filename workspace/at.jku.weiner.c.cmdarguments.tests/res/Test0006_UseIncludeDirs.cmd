@@ -1,2 +1,3 @@
 -Ifoo/bar/include -I./foobar/bar/include -IC:\system\include
+-isystem C:\system32\include -isystem /usr/lib/gcc/x86_64-pc-linux-gnu/4.8.4/include
 -D__FOO__

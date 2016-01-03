@@ -49,20 +49,15 @@ import at.jku.weiner.c.cmdarguments.cmdArgs.Argument;
 import at.jku.weiner.c.cmdarguments.cmdArgs.PathCmd;
 import at.jku.weiner.c.cmdarguments.cmdArgs.Argument;
 import at.jku.weiner.c.cmdarguments.cmdArgs.PathCmd;
-import at.jku.weiner.c.cmdarguments.cmdArgs.Argument;
-import at.jku.weiner.c.cmdarguments.cmdArgs.PathCmd;
 import at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine;
 import at.jku.weiner.c.cmdarguments.cmdArgs.Argument;
 import at.jku.weiner.c.cmdarguments.cmdArgs.PathCmd;
 import at.jku.weiner.c.cmdarguments.cmdArgs.Argument;
 import at.jku.weiner.c.cmdarguments.cmdArgs.PathCmd;
-import at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine;
-import at.jku.weiner.c.cmdarguments.cmdArgs.Argument;
-import at.jku.weiner.c.cmdarguments.cmdArgs.SimpleMacro;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(CmdArgsInjectorProvider.class)
-public class Test0006_UseIncludeDirs {
+public class Test0007_Include {
 	@Inject
 	private ParseHelper<Model> parseHelper;
 	@Inject
@@ -108,18 +103,14 @@ public class Test0006_UseIncludeDirs {
 	@Test (timeout=1000)
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
-			"res/Test0006_UseIncludeDirs.cmd");
+			"res/Test0007_Include.cmd");
 			//System.out.println(text);
 			final String[] expected = new String[] {
-				"RULE_INCDIR", 
-				"RULE_ID", 
-				"RULE_ANY_OTHER", 
-				"RULE_ID", 
-				"RULE_ANY_OTHER", 
-				"RULE_ID", 
+				"RULE_INCLUDE", 
 				"RULE_WS", 
-				"RULE_INCDIR", 
 				"RULE_ANY_OTHER", 
+				"RULE_ANY_OTHER", 
+				"RULE_ID", 
 				"RULE_ANY_OTHER", 
 				"RULE_ID", 
 				"RULE_ANY_OTHER", 
@@ -127,15 +118,18 @@ public class Test0006_UseIncludeDirs {
 				"RULE_ANY_OTHER", 
 				"RULE_ID", 
 				"RULE_WS", 
-				"RULE_INCDIR", 
+				"RULE_INCLUDE", 
+				"RULE_WS", 
 				"RULE_ID", 
 				"RULE_ANY_OTHER", 
+				"RULE_ANY_OTHER", 
+				"RULE_ID", 
 				"RULE_ANY_OTHER", 
 				"RULE_ID", 
 				"RULE_ANY_OTHER", 
 				"RULE_ID", 
 				"RULE_NEWLINE", 
-				"RULE_INCSYS", 
+				"RULE_INCLUDE", 
 				"RULE_WS", 
 				"RULE_ID", 
 				"RULE_ANY_OTHER", 
@@ -143,34 +137,21 @@ public class Test0006_UseIncludeDirs {
 				"RULE_ID", 
 				"RULE_ANY_OTHER", 
 				"RULE_ID", 
+				"RULE_ANY_OTHER", 
+				"RULE_ID", 
 				"RULE_WS", 
-				"RULE_INCSYS", 
+				"RULE_INCLUDE", 
 				"RULE_WS", 
 				"RULE_ANY_OTHER", 
-				"RULE_ID", 
 				"RULE_ANY_OTHER", 
 				"RULE_ID", 
 				"RULE_ANY_OTHER", 
 				"RULE_ID", 
 				"RULE_ANY_OTHER", 
 				"RULE_ID", 
-				"RULE_ANY_OTHER", 
-				"RULE_ID", 
-				"RULE_ANY_OTHER", 
-				"RULE_ID", 
-				"RULE_ANY_OTHER", 
-				"RULE_ID", 
-				"RULE_ANY_OTHER", 
-				"RULE_INT", 
-				"RULE_ANY_OTHER", 
-				"RULE_INT", 
-				"RULE_ANY_OTHER", 
-				"RULE_INT", 
 				"RULE_ANY_OTHER", 
 				"RULE_ID", 
 				"RULE_NEWLINE", 
-				"RULE_DEFINE", 
-				"RULE_ID", 
 				};
 			//final List<Token> actual = testHelper.getTokens(text);
 			//testHelper.outputTokens(text);
@@ -180,7 +161,7 @@ public class Test0006_UseIncludeDirs {
 	@Test (timeout=1000)
 	public void checkParserResult() throws Exception {
 		final String text = this.getTextFromFile(
-			"res/Test0006_UseIncludeDirs.cmd");
+			"res/Test0007_Include.cmd");
 		final Model Model_0_Var
 		  = 
 			this.parseHelper.parse(text);
@@ -192,7 +173,7 @@ public class Test0006_UseIncludeDirs {
 		final EList<? extends EObject> Lines_0_list = Model_0_Var
 		.getLines();
 		Assert.assertNotNull(Lines_0_list);
-		Assert.assertEquals(3, Lines_0_list.size());
+		Assert.assertEquals(2, Lines_0_list.size());
 		//0
 		final CmdLine CmdLine_1_Var
 		 = (CmdLine)Lines_0_list.get(0);
@@ -201,121 +182,68 @@ public class Test0006_UseIncludeDirs {
 		final EList<? extends EObject> Arguments_1_list = CmdLine_1_Var
 		.getArguments();
 		Assert.assertNotNull(Arguments_1_list);
-		Assert.assertEquals(3, Arguments_1_list.size());
+		Assert.assertEquals(2, Arguments_1_list.size());
 		//1
 		final Argument Argument_2_Var
 		 = (Argument)Arguments_1_list.get(0);
 		Assert.assertNotNull(Argument_2_Var
 		);
-		Assert.assertTrue(Argument_2_Var
-		.isIncDir());
 		//2
 		final PathCmd PathCmd_3_Var
 		 = (PathCmd)Argument_2_Var
-		.getUseIncDir();
+		.getInclude();
 		Assert.assertNotNull(PathCmd_3_Var
 		);
-		Assert.assertEquals("foo/bar/include", PathCmd_3_Var
+		Assert.assertEquals("./include/std/config.h", PathCmd_3_Var
 		.getPath());
 		//3
 		final Argument Argument_4_Var
 		 = (Argument)Arguments_1_list.get(1);
 		Assert.assertNotNull(Argument_4_Var
 		);
-		Assert.assertTrue(Argument_4_Var
-		.isIncDir());
 		//4
 		final PathCmd PathCmd_5_Var
 		 = (PathCmd)Argument_4_Var
-		.getUseIncDir();
+		.getInclude();
 		Assert.assertNotNull(PathCmd_5_Var
 		);
-		Assert.assertEquals("./foobar/bar/include", PathCmd_5_Var
+		Assert.assertEquals("C:\\system\\mysystem.h", PathCmd_5_Var
 		.getPath());
 		//5
-		final Argument Argument_6_Var
-		 = (Argument)Arguments_1_list.get(2);
-		Assert.assertNotNull(Argument_6_Var
-		);
-		Assert.assertTrue(Argument_6_Var
-		.isIncDir());
-		//6
-		final PathCmd PathCmd_7_Var
-		 = (PathCmd)Argument_6_Var
-		.getUseIncDir();
-		Assert.assertNotNull(PathCmd_7_Var
-		);
-		Assert.assertEquals("C:\\system\\include", PathCmd_7_Var
-		.getPath());
-		//7
-		final CmdLine CmdLine_8_Var
+		final CmdLine CmdLine_6_Var
 		 = (CmdLine)Lines_0_list.get(1);
-		Assert.assertNotNull(CmdLine_8_Var
+		Assert.assertNotNull(CmdLine_6_Var
 		);
-		final EList<? extends EObject> Arguments_8_list = CmdLine_8_Var
+		final EList<? extends EObject> Arguments_6_list = CmdLine_6_Var
 		.getArguments();
-		Assert.assertNotNull(Arguments_8_list);
-		Assert.assertEquals(2, Arguments_8_list.size());
+		Assert.assertNotNull(Arguments_6_list);
+		Assert.assertEquals(2, Arguments_6_list.size());
+		//6
+		final Argument Argument_7_Var
+		 = (Argument)Arguments_6_list.get(0);
+		Assert.assertNotNull(Argument_7_Var
+		);
+		//7
+		final PathCmd PathCmd_8_Var
+		 = (PathCmd)Argument_7_Var
+		.getInclude();
+		Assert.assertNotNull(PathCmd_8_Var
+		);
+		Assert.assertEquals("C:\\system32\\mysystem.h", PathCmd_8_Var
+		.getPath());
 		//8
 		final Argument Argument_9_Var
-		 = (Argument)Arguments_8_list.get(0);
+		 = (Argument)Arguments_6_list.get(1);
 		Assert.assertNotNull(Argument_9_Var
 		);
-		Assert.assertFalse(Argument_9_Var
-		.isIncDir());
-		Assert.assertTrue(Argument_9_Var
-		.isIncSys());
 		//9
 		final PathCmd PathCmd_10_Var
 		 = (PathCmd)Argument_9_Var
-		.getUseIncDir();
+		.getInclude();
 		Assert.assertNotNull(PathCmd_10_Var
 		);
-		Assert.assertEquals("C:\\system32\\include", PathCmd_10_Var
+		Assert.assertEquals("./include64/std/config.h", PathCmd_10_Var
 		.getPath());
-		//10
-		final Argument Argument_11_Var
-		 = (Argument)Arguments_8_list.get(1);
-		Assert.assertNotNull(Argument_11_Var
-		);
-		Assert.assertFalse(Argument_11_Var
-		.isIncDir());
-		Assert.assertTrue(Argument_11_Var
-		.isIncSys());
-		//11
-		final PathCmd PathCmd_12_Var
-		 = (PathCmd)Argument_11_Var
-		.getUseIncDir();
-		Assert.assertNotNull(PathCmd_12_Var
-		);
-		Assert.assertEquals("/usr/lib/gcc/x86_64-pc-linux-gnu/4.8.4/include", PathCmd_12_Var
-		.getPath());
-		//12
-		final CmdLine CmdLine_13_Var
-		 = (CmdLine)Lines_0_list.get(2);
-		Assert.assertNotNull(CmdLine_13_Var
-		);
-		final EList<? extends EObject> Arguments_13_list = CmdLine_13_Var
-		.getArguments();
-		Assert.assertNotNull(Arguments_13_list);
-		Assert.assertEquals(1, Arguments_13_list.size());
-		//13
-		final Argument Argument_14_Var
-		 = (Argument)Arguments_13_list.get(0);
-		Assert.assertNotNull(Argument_14_Var
-		);
-		Assert.assertFalse(Argument_14_Var
-		.isIncDir());
-		Assert.assertFalse(Argument_14_Var
-		.isIncSys());
-		//14
-		final SimpleMacro SimpleMacro_15_Var
-		 = (SimpleMacro)Argument_14_Var
-		.getMacro();
-		Assert.assertNotNull(SimpleMacro_15_Var
-		);
-		Assert.assertEquals("__FOO__", SimpleMacro_15_Var
-		.getName());
 	}
 	
 	

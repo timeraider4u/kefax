@@ -100,10 +100,10 @@ public class CmdArgsSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case CmdArgsPackage.USE_INCLUDE_DIR_CMD:
+      case CmdArgsPackage.PATH_CMD:
       {
-        UseIncludeDirCmd useIncludeDirCmd = (UseIncludeDirCmd)theEObject;
-        T result = caseUseIncludeDirCmd(useIncludeDirCmd);
+        PathCmd pathCmd = (PathCmd)theEObject;
+        T result = casePathCmd(pathCmd);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -200,17 +200,17 @@ public class CmdArgsSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Use Include Dir Cmd</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Path Cmd</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Use Include Dir Cmd</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Path Cmd</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseUseIncludeDirCmd(UseIncludeDirCmd object)
+  public T casePathCmd(PathCmd object)
   {
     return null;
   }

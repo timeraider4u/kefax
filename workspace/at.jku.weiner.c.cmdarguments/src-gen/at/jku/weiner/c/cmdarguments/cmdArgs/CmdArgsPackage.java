@@ -168,13 +168,22 @@ public interface CmdArgsPackage extends EPackage
   int ARGUMENT__NOSTDINC = 4;
 
   /**
+   * The feature id for the '<em><b>Include</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARGUMENT__INCLUDE = 5;
+
+  /**
    * The number of structural features of the '<em>Argument</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ARGUMENT_FEATURE_COUNT = 5;
+  int ARGUMENT_FEATURE_COUNT = 6;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.MacroImpl <em>Macro</em>}' class.
@@ -205,14 +214,14 @@ public interface CmdArgsPackage extends EPackage
   int MACRO_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.UseIncludeDirCmdImpl <em>Use Include Dir Cmd</em>}' class.
+   * The meta object id for the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.PathCmdImpl <em>Path Cmd</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see at.jku.weiner.c.cmdarguments.cmdArgs.impl.UseIncludeDirCmdImpl
-   * @see at.jku.weiner.c.cmdarguments.cmdArgs.impl.CmdArgsPackageImpl#getUseIncludeDirCmd()
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.impl.PathCmdImpl
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.impl.CmdArgsPackageImpl#getPathCmd()
    * @generated
    */
-  int USE_INCLUDE_DIR_CMD = 4;
+  int PATH_CMD = 4;
 
   /**
    * The feature id for the '<em><b>Path</b></em>' attribute.
@@ -221,16 +230,16 @@ public interface CmdArgsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int USE_INCLUDE_DIR_CMD__PATH = 0;
+  int PATH_CMD__PATH = 0;
 
   /**
-   * The number of structural features of the '<em>Use Include Dir Cmd</em>' class.
+   * The number of structural features of the '<em>Path Cmd</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int USE_INCLUDE_DIR_CMD_FEATURE_COUNT = 1;
+  int PATH_CMD_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.SimpleMacroImpl <em>Simple Macro</em>}' class.
@@ -452,6 +461,17 @@ public interface CmdArgsPackage extends EPackage
   EAttribute getArgument_Nostdinc();
 
   /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#getInclude <em>Include</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Include</em>'.
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.Argument#getInclude()
+   * @see #getArgument()
+   * @generated
+   */
+  EReference getArgument_Include();
+
+  /**
    * Returns the meta object for class '{@link at.jku.weiner.c.cmdarguments.cmdArgs.Macro <em>Macro</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -473,25 +493,25 @@ public interface CmdArgsPackage extends EPackage
   EAttribute getMacro_Name();
 
   /**
-   * Returns the meta object for class '{@link at.jku.weiner.c.cmdarguments.cmdArgs.UseIncludeDirCmd <em>Use Include Dir Cmd</em>}'.
+   * Returns the meta object for class '{@link at.jku.weiner.c.cmdarguments.cmdArgs.PathCmd <em>Path Cmd</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Use Include Dir Cmd</em>'.
-   * @see at.jku.weiner.c.cmdarguments.cmdArgs.UseIncludeDirCmd
+   * @return the meta object for class '<em>Path Cmd</em>'.
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.PathCmd
    * @generated
    */
-  EClass getUseIncludeDirCmd();
+  EClass getPathCmd();
 
   /**
-   * Returns the meta object for the attribute '{@link at.jku.weiner.c.cmdarguments.cmdArgs.UseIncludeDirCmd#getPath <em>Path</em>}'.
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.cmdarguments.cmdArgs.PathCmd#getPath <em>Path</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Path</em>'.
-   * @see at.jku.weiner.c.cmdarguments.cmdArgs.UseIncludeDirCmd#getPath()
-   * @see #getUseIncludeDirCmd()
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.PathCmd#getPath()
+   * @see #getPathCmd()
    * @generated
    */
-  EAttribute getUseIncludeDirCmd_Path();
+  EAttribute getPathCmd_Path();
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.c.cmdarguments.cmdArgs.SimpleMacro <em>Simple Macro</em>}'.
@@ -666,6 +686,14 @@ public interface CmdArgsPackage extends EPackage
     EAttribute ARGUMENT__NOSTDINC = eINSTANCE.getArgument_Nostdinc();
 
     /**
+     * The meta object literal for the '<em><b>Include</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARGUMENT__INCLUDE = eINSTANCE.getArgument_Include();
+
+    /**
      * The meta object literal for the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.MacroImpl <em>Macro</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -684,14 +712,14 @@ public interface CmdArgsPackage extends EPackage
     EAttribute MACRO__NAME = eINSTANCE.getMacro_Name();
 
     /**
-     * The meta object literal for the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.UseIncludeDirCmdImpl <em>Use Include Dir Cmd</em>}' class.
+     * The meta object literal for the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.PathCmdImpl <em>Path Cmd</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see at.jku.weiner.c.cmdarguments.cmdArgs.impl.UseIncludeDirCmdImpl
-     * @see at.jku.weiner.c.cmdarguments.cmdArgs.impl.CmdArgsPackageImpl#getUseIncludeDirCmd()
+     * @see at.jku.weiner.c.cmdarguments.cmdArgs.impl.PathCmdImpl
+     * @see at.jku.weiner.c.cmdarguments.cmdArgs.impl.CmdArgsPackageImpl#getPathCmd()
      * @generated
      */
-    EClass USE_INCLUDE_DIR_CMD = eINSTANCE.getUseIncludeDirCmd();
+    EClass PATH_CMD = eINSTANCE.getPathCmd();
 
     /**
      * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
@@ -699,7 +727,7 @@ public interface CmdArgsPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute USE_INCLUDE_DIR_CMD__PATH = eINSTANCE.getUseIncludeDirCmd_Path();
+    EAttribute PATH_CMD__PATH = eINSTANCE.getPathCmd_Path();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.SimpleMacroImpl <em>Simple Macro</em>}' class.

@@ -9,8 +9,8 @@ import at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine;
 import at.jku.weiner.c.cmdarguments.cmdArgs.FunctionMacro;
 import at.jku.weiner.c.cmdarguments.cmdArgs.Model;
 import at.jku.weiner.c.cmdarguments.cmdArgs.ObjectMacro;
+import at.jku.weiner.c.cmdarguments.cmdArgs.PathCmd;
 import at.jku.weiner.c.cmdarguments.cmdArgs.SimpleMacro;
-import at.jku.weiner.c.cmdarguments.cmdArgs.UseIncludeDirCmd;
 import at.jku.weiner.c.cmdarguments.services.CmdArgsGrammarAccess;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
@@ -50,11 +50,11 @@ public class CmdArgsSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case CmdArgsPackage.OBJECT_MACRO:
 				sequence_ObjectMacro(context, (ObjectMacro) semanticObject); 
 				return; 
+			case CmdArgsPackage.PATH_CMD:
+				sequence_PathCmd(context, (PathCmd) semanticObject); 
+				return; 
 			case CmdArgsPackage.SIMPLE_MACRO:
 				sequence_SimpleMacro(context, (SimpleMacro) semanticObject); 
-				return; 
-			case CmdArgsPackage.USE_INCLUDE_DIR_CMD:
-				sequence_UseIncludeDirCmd(context, (UseIncludeDirCmd) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
@@ -62,7 +62,7 @@ public class CmdArgsSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Constraint:
-	 *     (macro=Macro | (incDir?=INCLUDE useIncDir=UseIncludeDirCmd) | (incSys?=INCSYS useIncDir=UseIncludeDirCmd) | nostdinc?=NOSTDINC)
+	 *     (macro=Macro | (incDir?=INCDIR useIncDir=PathCmd) | (incSys?=INCSYS useIncDir=PathCmd) | nostdinc?=NOSTDINC | include=PathCmd)
 	 */
 	protected void sequence_Argument(EObject context, Argument semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -117,6 +117,22 @@ public class CmdArgsSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Constraint:
+	 *     path=Path
+	 */
+	protected void sequence_PathCmd(EObject context, PathCmd semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, CmdArgsPackage.Literals.PATH_CMD__PATH) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CmdArgsPackage.Literals.PATH_CMD__PATH));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getPathCmdAccess().getPathPathParserRuleCall_0(), semanticObject.getPath());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     name=Identifier
 	 */
 	protected void sequence_SimpleMacro(EObject context, SimpleMacro semanticObject) {
@@ -127,22 +143,6 @@ public class CmdArgsSemanticSequencer extends AbstractDelegatingSemanticSequence
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getSimpleMacroAccess().getNameIdentifierParserRuleCall_1_0(), semanticObject.getName());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     path=Path
-	 */
-	protected void sequence_UseIncludeDirCmd(EObject context, UseIncludeDirCmd semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, CmdArgsPackage.Literals.USE_INCLUDE_DIR_CMD__PATH) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CmdArgsPackage.Literals.USE_INCLUDE_DIR_CMD__PATH));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getUseIncludeDirCmdAccess().getPathPathParserRuleCall_0(), semanticObject.getPath());
 		feeder.finish();
 	}
 }

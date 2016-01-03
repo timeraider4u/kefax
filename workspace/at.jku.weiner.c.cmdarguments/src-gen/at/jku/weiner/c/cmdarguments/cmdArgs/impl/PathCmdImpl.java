@@ -3,7 +3,7 @@
 package at.jku.weiner.c.cmdarguments.cmdArgs.impl;
 
 import at.jku.weiner.c.cmdarguments.cmdArgs.CmdArgsPackage;
-import at.jku.weiner.c.cmdarguments.cmdArgs.UseIncludeDirCmd;
+import at.jku.weiner.c.cmdarguments.cmdArgs.PathCmd;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -14,18 +14,18 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Use Include Dir Cmd</b></em>'.
+ * An implementation of the model object '<em><b>Path Cmd</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.UseIncludeDirCmdImpl#getPath <em>Path</em>}</li>
+ *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.PathCmdImpl#getPath <em>Path</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class UseIncludeDirCmdImpl extends MinimalEObjectImpl.Container implements UseIncludeDirCmd
+public class PathCmdImpl extends MinimalEObjectImpl.Container implements PathCmd
 {
   /**
    * The default value of the '{@link #getPath() <em>Path</em>}' attribute.
@@ -52,7 +52,7 @@ public class UseIncludeDirCmdImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  protected UseIncludeDirCmdImpl()
+  protected PathCmdImpl()
   {
     super();
   }
@@ -65,7 +65,7 @@ public class UseIncludeDirCmdImpl extends MinimalEObjectImpl.Container implement
   @Override
   protected EClass eStaticClass()
   {
-    return CmdArgsPackage.Literals.USE_INCLUDE_DIR_CMD;
+    return CmdArgsPackage.Literals.PATH_CMD;
   }
 
   /**
@@ -88,7 +88,7 @@ public class UseIncludeDirCmdImpl extends MinimalEObjectImpl.Container implement
     String oldPath = path;
     path = newPath;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, CmdArgsPackage.USE_INCLUDE_DIR_CMD__PATH, oldPath, path));
+      eNotify(new ENotificationImpl(this, Notification.SET, CmdArgsPackage.PATH_CMD__PATH, oldPath, path));
   }
 
   /**
@@ -101,7 +101,7 @@ public class UseIncludeDirCmdImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case CmdArgsPackage.USE_INCLUDE_DIR_CMD__PATH:
+      case CmdArgsPackage.PATH_CMD__PATH:
         return getPath();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -117,7 +117,7 @@ public class UseIncludeDirCmdImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case CmdArgsPackage.USE_INCLUDE_DIR_CMD__PATH:
+      case CmdArgsPackage.PATH_CMD__PATH:
         setPath((String)newValue);
         return;
     }
@@ -134,7 +134,7 @@ public class UseIncludeDirCmdImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case CmdArgsPackage.USE_INCLUDE_DIR_CMD__PATH:
+      case CmdArgsPackage.PATH_CMD__PATH:
         setPath(PATH_EDEFAULT);
         return;
     }
@@ -151,7 +151,7 @@ public class UseIncludeDirCmdImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case CmdArgsPackage.USE_INCLUDE_DIR_CMD__PATH:
+      case CmdArgsPackage.PATH_CMD__PATH:
         return PATH_EDEFAULT == null ? path != null : !PATH_EDEFAULT.equals(path);
     }
     return super.eIsSet(featureID);
@@ -174,4 +174,4 @@ public class UseIncludeDirCmdImpl extends MinimalEObjectImpl.Container implement
     return result.toString();
   }
 
-} //UseIncludeDirCmdImpl
+} //PathCmdImpl

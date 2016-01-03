@@ -259,9 +259,9 @@ this_DEFINE_1=RULE_DEFINE
 (
 (
 (
-		lv_incDir_3_0=RULE_INCLUDE
+		lv_incDir_3_0=RULE_INCDIR
 		{
-			newLeafNode(lv_incDir_3_0, grammarAccess.getArgumentAccess().getIncDirINCLUDETerminalRuleCall_1_1_0_0()); 
+			newLeafNode(lv_incDir_3_0, grammarAccess.getArgumentAccess().getIncDirINCDIRTerminalRuleCall_1_1_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -271,7 +271,7 @@ this_DEFINE_1=RULE_DEFINE
        			$current, 
        			"incDir",
         		true, 
-        		"at.jku.weiner.c.cmdarguments.CmdArgs.INCLUDE");
+        		"at.jku.weiner.c.cmdarguments.CmdArgs.INCDIR");
 	    }
 
 )
@@ -281,9 +281,9 @@ this_DEFINE_1=RULE_DEFINE
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getArgumentAccess().getUseIncDirUseIncludeDirCmdParserRuleCall_1_1_1_0()); 
+	        newCompositeNode(grammarAccess.getArgumentAccess().getUseIncDirPathCmdParserRuleCall_1_1_1_0()); 
 	    }
-		lv_useIncDir_4_0=ruleUseIncludeDirCmd		{
+		lv_useIncDir_4_0=rulePathCmd		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getArgumentRule());
 	        }
@@ -291,7 +291,7 @@ this_DEFINE_1=RULE_DEFINE
        			$current, 
        			"useIncDir",
         		lv_useIncDir_4_0, 
-        		"at.jku.weiner.c.cmdarguments.CmdArgs.UseIncludeDirCmd");
+        		"at.jku.weiner.c.cmdarguments.CmdArgs.PathCmd");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -327,9 +327,9 @@ this_DEFINE_1=RULE_DEFINE
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getArgumentAccess().getUseIncDirUseIncludeDirCmdParserRuleCall_1_2_1_0()); 
+	        newCompositeNode(grammarAccess.getArgumentAccess().getUseIncDirPathCmdParserRuleCall_1_2_1_0()); 
 	    }
-		lv_useIncDir_6_0=ruleUseIncludeDirCmd		{
+		lv_useIncDir_6_0=rulePathCmd		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getArgumentRule());
 	        }
@@ -337,7 +337,7 @@ this_DEFINE_1=RULE_DEFINE
        			$current, 
        			"useIncDir",
         		lv_useIncDir_6_0, 
-        		"at.jku.weiner.c.cmdarguments.CmdArgs.UseIncludeDirCmd");
+        		"at.jku.weiner.c.cmdarguments.CmdArgs.PathCmd");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -366,6 +366,38 @@ this_DEFINE_1=RULE_DEFINE
 	    }
 
 )
+)
+
+
+    |
+(
+this_INCLUDE_8=RULE_INCLUDE
+    { 
+    newLeafNode(this_INCLUDE_8, grammarAccess.getArgumentAccess().getINCLUDETerminalRuleCall_1_4_0()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getArgumentAccess().getIncludePathCmdParserRuleCall_1_4_1_0()); 
+	    }
+		lv_include_9_0=rulePathCmd		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getArgumentRule());
+	        }
+       		set(
+       			$current, 
+       			"include",
+        		lv_include_9_0, 
+        		"at.jku.weiner.c.cmdarguments.CmdArgs.PathCmd");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
 )
 
 )
@@ -740,17 +772,17 @@ this_SKW_ASSIGN_7=RULE_SKW_ASSIGN
 
 
 
-// Entry rule entryRuleUseIncludeDirCmd
-entryRuleUseIncludeDirCmd returns [EObject current=null] 
+// Entry rule entryRulePathCmd
+entryRulePathCmd returns [EObject current=null] 
 	:
-	{ newCompositeNode(grammarAccess.getUseIncludeDirCmdRule()); }
-	 iv_ruleUseIncludeDirCmd=ruleUseIncludeDirCmd 
-	 { $current=$iv_ruleUseIncludeDirCmd.current; } 
+	{ newCompositeNode(grammarAccess.getPathCmdRule()); }
+	 iv_rulePathCmd=rulePathCmd 
+	 { $current=$iv_rulePathCmd.current; } 
 	 EOF 
 ;
 
-// Rule UseIncludeDirCmd
-ruleUseIncludeDirCmd returns [EObject current=null] 
+// Rule PathCmd
+rulePathCmd returns [EObject current=null] 
     @init { enterRule();
    		/*no init found*/
     }
@@ -761,11 +793,11 @@ ruleUseIncludeDirCmd returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getUseIncludeDirCmdAccess().getPathPathParserRuleCall_0()); 
+	        newCompositeNode(grammarAccess.getPathCmdAccess().getPathPathParserRuleCall_0()); 
 	    }
 		lv_path_0_0=rulePath		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getUseIncludeDirCmdRule());
+	            $current = createModelElementForParent(grammarAccess.getPathCmdRule());
 	        }
        		set(
        			$current, 
@@ -979,11 +1011,13 @@ RULE_HASH : '#';
 
 RULE_DEFINE : RULE_SKW_MINUS 'D';
 
-RULE_INCLUDE : RULE_SKW_MINUS 'I';
+RULE_INCDIR : RULE_SKW_MINUS 'I';
 
 RULE_NOSTDINC : RULE_SKW_MINUS 'nostdinc';
 
 RULE_INCSYS : RULE_SKW_MINUS 'isystem';
+
+RULE_INCLUDE : RULE_SKW_MINUS 'include';
 
 RULE_NEWLINE : ('\n'|'\r');
 

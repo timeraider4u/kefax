@@ -1,0 +1,60 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.cmdarguments
+language cmdArgs
+// imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+split-lexer=false
+source file="res/Test0007_Include.cmd"
+//----------------------------------------------------------------------
+lexer-tokens
+// -include ./include/std/config.h
+INCLUDE WS ANY_OTHER+*2 ID ANY_OTHER ID ANY_OTHER ID ANY_OTHER ID WS
+	// -include C:\system\mysystem.h
+	INCLUDE WS ID ANY_OTHER+*2 ID ANY_OTHER ID ANY_OTHER ID NEWLINE
+INCLUDE WS ID ANY_OTHER+*2 ID ANY_OTHER ID ANY_OTHER ID WS
+	INCLUDE WS ANY_OTHER+*2 ID ANY_OTHER ID ANY_OTHER ID ANY_OTHER ID NEWLINE
+
+//----------------------------------------------------------------------
+
+(Model
+	lines+=
+	(CmdLine
+		arguments+=
+		(Argument
+			include=
+			(PathCmd
+				path++"./include/std/config.h"
+			)
+		),
+		(Argument
+			include=
+			(PathCmd
+				path++"C:\\\\system\\\\mysystem.h"
+			)
+		)
+	),
+	(CmdLine
+		arguments+=
+		(Argument
+			include=
+			(PathCmd
+				path++"C:\\\\system32\\\\mysystem.h"
+			)
+		),
+		(Argument
+			include=
+			(PathCmd
+				path++"./include64/std/config.h"
+			)
+		)
+	)
+)
+
+
+//----------------------------------------------------------------------
+//output file="bin/Test0000_Empty.c.i"
+//expected file="expected/Test0000_Empty.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

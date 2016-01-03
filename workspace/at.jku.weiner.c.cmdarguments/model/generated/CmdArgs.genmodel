@@ -19,12 +19,13 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CmdArgs.ecore#//Argument/useIncDir"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CmdArgs.ecore#//Argument/incSys"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CmdArgs.ecore#//Argument/nostdinc"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CmdArgs.ecore#//Argument/include"/>
     </genClasses>
     <genClasses ecoreClass="CmdArgs.ecore#//Macro">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CmdArgs.ecore#//Macro/name"/>
     </genClasses>
-    <genClasses ecoreClass="CmdArgs.ecore#//UseIncludeDirCmd">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CmdArgs.ecore#//UseIncludeDirCmd/path"/>
+    <genClasses ecoreClass="CmdArgs.ecore#//PathCmd">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CmdArgs.ecore#//PathCmd/path"/>
     </genClasses>
     <genClasses ecoreClass="CmdArgs.ecore#//SimpleMacro"/>
     <genClasses ecoreClass="CmdArgs.ecore#//ObjectMacro">

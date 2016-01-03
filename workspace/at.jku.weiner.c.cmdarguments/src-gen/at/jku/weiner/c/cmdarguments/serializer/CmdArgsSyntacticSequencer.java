@@ -34,6 +34,8 @@ public class CmdArgsSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if(ruleCall.getRule() == grammarAccess.getDEFINERule())
 			return getDEFINEToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getINCDIRRule())
+			return getINCDIRToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getINCLUDERule())
 			return getINCLUDEToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getINCSYSRule())
@@ -65,12 +67,21 @@ public class CmdArgsSyntacticSequencer extends AbstractSyntacticSequencer {
 	}
 	
 	/**
-	 * terminal INCLUDE: SKW_MINUS 'I';
+	 * terminal INCDIR: SKW_MINUS 'I';
+	 */
+	protected String getINCDIRToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "-I";
+	}
+	
+	/**
+	 * terminal INCLUDE: SKW_MINUS 'include';
 	 */
 	protected String getINCLUDEToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
-		return "-I";
+		return "-include";
 	}
 	
 	/**

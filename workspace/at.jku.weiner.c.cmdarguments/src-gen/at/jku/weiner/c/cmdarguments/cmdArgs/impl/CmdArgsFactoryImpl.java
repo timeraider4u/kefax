@@ -68,7 +68,7 @@ public class CmdArgsFactoryImpl extends EFactoryImpl implements CmdArgsFactory
       case CmdArgsPackage.CMD_LINE: return createCmdLine();
       case CmdArgsPackage.ARGUMENT: return createArgument();
       case CmdArgsPackage.MACRO: return createMacro();
-      case CmdArgsPackage.USE_INCLUDE_DIR_CMD: return createUseIncludeDirCmd();
+      case CmdArgsPackage.PATH_CMD: return createPathCmd();
       case CmdArgsPackage.SIMPLE_MACRO: return createSimpleMacro();
       case CmdArgsPackage.OBJECT_MACRO: return createObjectMacro();
       case CmdArgsPackage.FUNCTION_MACRO: return createFunctionMacro();
@@ -126,10 +126,10 @@ public class CmdArgsFactoryImpl extends EFactoryImpl implements CmdArgsFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public UseIncludeDirCmd createUseIncludeDirCmd()
+  public PathCmd createPathCmd()
   {
-    UseIncludeDirCmdImpl useIncludeDirCmd = new UseIncludeDirCmdImpl();
-    return useIncludeDirCmd;
+    PathCmdImpl pathCmd = new PathCmdImpl();
+    return pathCmd;
   }
 
   /**

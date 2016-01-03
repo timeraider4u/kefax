@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#getUseIncDir <em>Use Inc Dir</em>}</li>
  *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#isIncSys <em>Inc Sys</em>}</li>
  *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#isNostdinc <em>Nostdinc</em>}</li>
+ *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#getInclude <em>Include</em>}</li>
  * </ul>
  *
  * @see at.jku.weiner.c.cmdarguments.cmdArgs.CmdArgsPackage#getArgument()
@@ -87,12 +88,12 @@ public interface Argument extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Use Inc Dir</em>' containment reference.
-   * @see #setUseIncDir(UseIncludeDirCmd)
+   * @see #setUseIncDir(PathCmd)
    * @see at.jku.weiner.c.cmdarguments.cmdArgs.CmdArgsPackage#getArgument_UseIncDir()
    * @model containment="true"
    * @generated
    */
-  UseIncludeDirCmd getUseIncDir();
+  PathCmd getUseIncDir();
 
   /**
    * Sets the value of the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#getUseIncDir <em>Use Inc Dir</em>}' containment reference.
@@ -102,7 +103,7 @@ public interface Argument extends EObject
    * @see #getUseIncDir()
    * @generated
    */
-  void setUseIncDir(UseIncludeDirCmd value);
+  void setUseIncDir(PathCmd value);
 
   /**
    * Returns the value of the '<em><b>Inc Sys</b></em>' attribute.
@@ -155,5 +156,31 @@ public interface Argument extends EObject
    * @generated
    */
   void setNostdinc(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Include</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Include</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Include</em>' containment reference.
+   * @see #setInclude(PathCmd)
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.CmdArgsPackage#getArgument_Include()
+   * @model containment="true"
+   * @generated
+   */
+  PathCmd getInclude();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#getInclude <em>Include</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Include</em>' containment reference.
+   * @see #getInclude()
+   * @generated
+   */
+  void setInclude(PathCmd value);
 
 } // Argument

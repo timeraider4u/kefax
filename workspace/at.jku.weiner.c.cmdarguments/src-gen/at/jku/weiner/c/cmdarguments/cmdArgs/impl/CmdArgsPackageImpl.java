@@ -10,8 +10,8 @@ import at.jku.weiner.c.cmdarguments.cmdArgs.FunctionMacro;
 import at.jku.weiner.c.cmdarguments.cmdArgs.Macro;
 import at.jku.weiner.c.cmdarguments.cmdArgs.Model;
 import at.jku.weiner.c.cmdarguments.cmdArgs.ObjectMacro;
+import at.jku.weiner.c.cmdarguments.cmdArgs.PathCmd;
 import at.jku.weiner.c.cmdarguments.cmdArgs.SimpleMacro;
-import at.jku.weiner.c.cmdarguments.cmdArgs.UseIncludeDirCmd;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -61,7 +61,7 @@ public class CmdArgsPackageImpl extends EPackageImpl implements CmdArgsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass useIncludeDirCmdEClass = null;
+  private EClass pathCmdEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -252,6 +252,16 @@ public class CmdArgsPackageImpl extends EPackageImpl implements CmdArgsPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getArgument_Include()
+  {
+    return (EReference)argumentEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getMacro()
   {
     return macroEClass;
@@ -272,9 +282,9 @@ public class CmdArgsPackageImpl extends EPackageImpl implements CmdArgsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getUseIncludeDirCmd()
+  public EClass getPathCmd()
   {
-    return useIncludeDirCmdEClass;
+    return pathCmdEClass;
   }
 
   /**
@@ -282,9 +292,9 @@ public class CmdArgsPackageImpl extends EPackageImpl implements CmdArgsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getUseIncludeDirCmd_Path()
+  public EAttribute getPathCmd_Path()
   {
-    return (EAttribute)useIncludeDirCmdEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)pathCmdEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -389,12 +399,13 @@ public class CmdArgsPackageImpl extends EPackageImpl implements CmdArgsPackage
     createEReference(argumentEClass, ARGUMENT__USE_INC_DIR);
     createEAttribute(argumentEClass, ARGUMENT__INC_SYS);
     createEAttribute(argumentEClass, ARGUMENT__NOSTDINC);
+    createEReference(argumentEClass, ARGUMENT__INCLUDE);
 
     macroEClass = createEClass(MACRO);
     createEAttribute(macroEClass, MACRO__NAME);
 
-    useIncludeDirCmdEClass = createEClass(USE_INCLUDE_DIR_CMD);
-    createEAttribute(useIncludeDirCmdEClass, USE_INCLUDE_DIR_CMD__PATH);
+    pathCmdEClass = createEClass(PATH_CMD);
+    createEAttribute(pathCmdEClass, PATH_CMD__PATH);
 
     simpleMacroEClass = createEClass(SIMPLE_MACRO);
 
@@ -449,15 +460,16 @@ public class CmdArgsPackageImpl extends EPackageImpl implements CmdArgsPackage
     initEClass(argumentEClass, Argument.class, "Argument", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getArgument_Macro(), this.getMacro(), null, "macro", null, 0, 1, Argument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getArgument_IncDir(), ecorePackage.getEBoolean(), "incDir", null, 0, 1, Argument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getArgument_UseIncDir(), this.getUseIncludeDirCmd(), null, "useIncDir", null, 0, 1, Argument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getArgument_UseIncDir(), this.getPathCmd(), null, "useIncDir", null, 0, 1, Argument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getArgument_IncSys(), ecorePackage.getEBoolean(), "incSys", null, 0, 1, Argument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getArgument_Nostdinc(), ecorePackage.getEBoolean(), "nostdinc", null, 0, 1, Argument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getArgument_Include(), this.getPathCmd(), null, "include", null, 0, 1, Argument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(macroEClass, Macro.class, "Macro", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMacro_Name(), ecorePackage.getEString(), "name", null, 0, 1, Macro.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(useIncludeDirCmdEClass, UseIncludeDirCmd.class, "UseIncludeDirCmd", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getUseIncludeDirCmd_Path(), ecorePackage.getEString(), "path", null, 0, 1, UseIncludeDirCmd.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(pathCmdEClass, PathCmd.class, "PathCmd", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPathCmd_Path(), ecorePackage.getEString(), "path", null, 0, 1, PathCmd.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(simpleMacroEClass, SimpleMacro.class, "SimpleMacro", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

@@ -14,15 +14,17 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="macro" eType="#//Macro"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="incDir" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="useIncDir" eType="#//UseIncludeDirCmd"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="useIncDir" eType="#//PathCmd"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="incSys" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nostdinc" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="include" eType="#//PathCmd"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Macro">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UseIncludeDirCmd">
+  <eClassifiers xsi:type="ecore:EClass" name="PathCmd">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SimpleMacro" eSuperTypes="#//Macro"/>

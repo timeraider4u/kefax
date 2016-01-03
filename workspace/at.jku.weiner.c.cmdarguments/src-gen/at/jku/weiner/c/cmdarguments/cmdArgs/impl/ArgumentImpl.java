@@ -30,7 +30,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.ArgumentImpl#isIncSys <em>Inc Sys</em>}</li>
  *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.ArgumentImpl#isNostdinc <em>Nostdinc</em>}</li>
  *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.ArgumentImpl#getInclude <em>Include</em>}</li>
+ *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.ArgumentImpl#getOut <em>Out</em>}</li>
  *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.ArgumentImpl#getOption <em>Option</em>}</li>
+ *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.ArgumentImpl#getIn <em>In</em>}</li>
  * </ul>
  *
  * @generated
@@ -128,6 +130,16 @@ public class ArgumentImpl extends MinimalEObjectImpl.Container implements Argume
   protected PathCmd include;
 
   /**
+   * The cached value of the '{@link #getOut() <em>Out</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOut()
+   * @generated
+   * @ordered
+   */
+  protected PathCmd out;
+
+  /**
    * The default value of the '{@link #getOption() <em>Option</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -146,6 +158,26 @@ public class ArgumentImpl extends MinimalEObjectImpl.Container implements Argume
    * @ordered
    */
   protected String option = OPTION_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getIn() <em>In</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getIn()
+   * @generated
+   * @ordered
+   */
+  protected static final String IN_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getIn() <em>In</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getIn()
+   * @generated
+   * @ordered
+   */
+  protected String in = IN_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -386,6 +418,54 @@ public class ArgumentImpl extends MinimalEObjectImpl.Container implements Argume
    * <!-- end-user-doc -->
    * @generated
    */
+  public PathCmd getOut()
+  {
+    return out;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetOut(PathCmd newOut, NotificationChain msgs)
+  {
+    PathCmd oldOut = out;
+    out = newOut;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CmdArgsPackage.ARGUMENT__OUT, oldOut, newOut);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setOut(PathCmd newOut)
+  {
+    if (newOut != out)
+    {
+      NotificationChain msgs = null;
+      if (out != null)
+        msgs = ((InternalEObject)out).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CmdArgsPackage.ARGUMENT__OUT, null, msgs);
+      if (newOut != null)
+        msgs = ((InternalEObject)newOut).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CmdArgsPackage.ARGUMENT__OUT, null, msgs);
+      msgs = basicSetOut(newOut, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CmdArgsPackage.ARGUMENT__OUT, newOut, newOut));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getOption()
   {
     return option;
@@ -409,6 +489,29 @@ public class ArgumentImpl extends MinimalEObjectImpl.Container implements Argume
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getIn()
+  {
+    return in;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIn(String newIn)
+  {
+    String oldIn = in;
+    in = newIn;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CmdArgsPackage.ARGUMENT__IN, oldIn, in));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -420,6 +523,8 @@ public class ArgumentImpl extends MinimalEObjectImpl.Container implements Argume
         return basicSetUseIncDir(null, msgs);
       case CmdArgsPackage.ARGUMENT__INCLUDE:
         return basicSetInclude(null, msgs);
+      case CmdArgsPackage.ARGUMENT__OUT:
+        return basicSetOut(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -446,8 +551,12 @@ public class ArgumentImpl extends MinimalEObjectImpl.Container implements Argume
         return isNostdinc();
       case CmdArgsPackage.ARGUMENT__INCLUDE:
         return getInclude();
+      case CmdArgsPackage.ARGUMENT__OUT:
+        return getOut();
       case CmdArgsPackage.ARGUMENT__OPTION:
         return getOption();
+      case CmdArgsPackage.ARGUMENT__IN:
+        return getIn();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -480,8 +589,14 @@ public class ArgumentImpl extends MinimalEObjectImpl.Container implements Argume
       case CmdArgsPackage.ARGUMENT__INCLUDE:
         setInclude((PathCmd)newValue);
         return;
+      case CmdArgsPackage.ARGUMENT__OUT:
+        setOut((PathCmd)newValue);
+        return;
       case CmdArgsPackage.ARGUMENT__OPTION:
         setOption((String)newValue);
+        return;
+      case CmdArgsPackage.ARGUMENT__IN:
+        setIn((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -515,8 +630,14 @@ public class ArgumentImpl extends MinimalEObjectImpl.Container implements Argume
       case CmdArgsPackage.ARGUMENT__INCLUDE:
         setInclude((PathCmd)null);
         return;
+      case CmdArgsPackage.ARGUMENT__OUT:
+        setOut((PathCmd)null);
+        return;
       case CmdArgsPackage.ARGUMENT__OPTION:
         setOption(OPTION_EDEFAULT);
+        return;
+      case CmdArgsPackage.ARGUMENT__IN:
+        setIn(IN_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -544,8 +665,12 @@ public class ArgumentImpl extends MinimalEObjectImpl.Container implements Argume
         return nostdinc != NOSTDINC_EDEFAULT;
       case CmdArgsPackage.ARGUMENT__INCLUDE:
         return include != null;
+      case CmdArgsPackage.ARGUMENT__OUT:
+        return out != null;
       case CmdArgsPackage.ARGUMENT__OPTION:
         return OPTION_EDEFAULT == null ? option != null : !OPTION_EDEFAULT.equals(option);
+      case CmdArgsPackage.ARGUMENT__IN:
+        return IN_EDEFAULT == null ? in != null : !IN_EDEFAULT.equals(in);
     }
     return super.eIsSet(featureID);
   }
@@ -569,6 +694,8 @@ public class ArgumentImpl extends MinimalEObjectImpl.Container implements Argume
     result.append(nostdinc);
     result.append(", option: ");
     result.append(option);
+    result.append(", in: ");
+    result.append(in);
     result.append(')');
     return result.toString();
   }

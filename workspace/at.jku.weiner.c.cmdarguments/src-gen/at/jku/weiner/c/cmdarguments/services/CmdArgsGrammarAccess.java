@@ -141,24 +141,31 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cIncludeAssignment_1_4_2 = (Assignment)cGroup_1_4.eContents().get(2);
 		private final RuleCall cIncludePathCmdParserRuleCall_1_4_2_0 = (RuleCall)cIncludeAssignment_1_4_2.eContents().get(0);
 		private final Group cGroup_1_5 = (Group)cAlternatives_1.eContents().get(5);
-		private final RuleCall cSKW_MINUSTerminalRuleCall_1_5_0 = (RuleCall)cGroup_1_5.eContents().get(0);
-		private final Assignment cOptionAssignment_1_5_1 = (Assignment)cGroup_1_5.eContents().get(1);
-		private final RuleCall cOptionOptionParserRuleCall_1_5_1_0 = (RuleCall)cOptionAssignment_1_5_1.eContents().get(0);
+		private final RuleCall cOutputParserRuleCall_1_5_0 = (RuleCall)cGroup_1_5.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_1_5_1 = (RuleCall)cGroup_1_5.eContents().get(1);
+		private final Assignment cOutAssignment_1_5_2 = (Assignment)cGroup_1_5.eContents().get(2);
+		private final RuleCall cOutPathCmdParserRuleCall_1_5_2_0 = (RuleCall)cOutAssignment_1_5_2.eContents().get(0);
+		private final Group cGroup_1_6 = (Group)cAlternatives_1.eContents().get(6);
+		private final RuleCall cSKW_MINUSTerminalRuleCall_1_6_0 = (RuleCall)cGroup_1_6.eContents().get(0);
+		private final Assignment cOptionAssignment_1_6_1 = (Assignment)cGroup_1_6.eContents().get(1);
+		private final RuleCall cOptionOptionParserRuleCall_1_6_1_0 = (RuleCall)cOptionAssignment_1_6_1.eContents().get(0);
+		private final Assignment cInAssignment_1_7 = (Assignment)cAlternatives_1.eContents().get(7);
+		private final RuleCall cInOptionParserRuleCall_1_7_0 = (RuleCall)cInAssignment_1_7.eContents().get(0);
 		
 		//Argument:
 		//	{Argument} (Define macro=Macro | incDir?=IncDir useIncDir=PathCmd | incSys?=IncSys WS+ useIncDir=PathCmd |
-		//	nostdinc?=NoStdInc | Include WS+ include=PathCmd | SKW_MINUS option=Option);
+		//	nostdinc?=NoStdInc | Include WS+ include=PathCmd | Output WS+ out=PathCmd | SKW_MINUS option=Option | in=Option);
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Argument} (Define macro=Macro | incDir?=IncDir useIncDir=PathCmd | incSys?=IncSys WS+ useIncDir=PathCmd |
-		//nostdinc?=NoStdInc | Include WS+ include=PathCmd | SKW_MINUS option=Option)
+		//nostdinc?=NoStdInc | Include WS+ include=PathCmd | Output WS+ out=PathCmd | SKW_MINUS option=Option | in=Option)
 		public Group getGroup() { return cGroup; }
 		
 		//{Argument}
 		public Action getArgumentAction_0() { return cArgumentAction_0; }
 		
 		//(Define macro=Macro | incDir?=IncDir useIncDir=PathCmd | incSys?=IncSys WS+ useIncDir=PathCmd | nostdinc?=NoStdInc |
-		//Include WS+ include=PathCmd | SKW_MINUS option=Option)
+		//Include WS+ include=PathCmd | Output WS+ out=PathCmd | SKW_MINUS option=Option | in=Option)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
 		//Define macro=Macro
@@ -227,17 +234,38 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 		//PathCmd
 		public RuleCall getIncludePathCmdParserRuleCall_1_4_2_0() { return cIncludePathCmdParserRuleCall_1_4_2_0; }
 		
-		//SKW_MINUS option=Option
+		//Output WS+ out=PathCmd
 		public Group getGroup_1_5() { return cGroup_1_5; }
 		
+		//Output
+		public RuleCall getOutputParserRuleCall_1_5_0() { return cOutputParserRuleCall_1_5_0; }
+		
+		//WS+
+		public RuleCall getWSTerminalRuleCall_1_5_1() { return cWSTerminalRuleCall_1_5_1; }
+		
+		//out=PathCmd
+		public Assignment getOutAssignment_1_5_2() { return cOutAssignment_1_5_2; }
+		
+		//PathCmd
+		public RuleCall getOutPathCmdParserRuleCall_1_5_2_0() { return cOutPathCmdParserRuleCall_1_5_2_0; }
+		
+		//SKW_MINUS option=Option
+		public Group getGroup_1_6() { return cGroup_1_6; }
+		
 		//SKW_MINUS
-		public RuleCall getSKW_MINUSTerminalRuleCall_1_5_0() { return cSKW_MINUSTerminalRuleCall_1_5_0; }
+		public RuleCall getSKW_MINUSTerminalRuleCall_1_6_0() { return cSKW_MINUSTerminalRuleCall_1_6_0; }
 		
 		//option=Option
-		public Assignment getOptionAssignment_1_5_1() { return cOptionAssignment_1_5_1; }
+		public Assignment getOptionAssignment_1_6_1() { return cOptionAssignment_1_6_1; }
 		
 		//Option
-		public RuleCall getOptionOptionParserRuleCall_1_5_1_0() { return cOptionOptionParserRuleCall_1_5_1_0; }
+		public RuleCall getOptionOptionParserRuleCall_1_6_1_0() { return cOptionOptionParserRuleCall_1_6_1_0; }
+		
+		//in=Option
+		public Assignment getInAssignment_1_7() { return cInAssignment_1_7; }
+		
+		//Option
+		public RuleCall getInOptionParserRuleCall_1_7_0() { return cInOptionParserRuleCall_1_7_0; }
 	}
 	public class DefineElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.Define");
@@ -317,6 +345,17 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//KW_INCLUDE
 		public RuleCall getKW_INCLUDETerminalRuleCall_1() { return cKW_INCLUDETerminalRuleCall_1; }
+	}
+	public class OutputElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.Output");
+		private final RuleCall cKW_OUTPUTTerminalRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		//Output:
+		//	KW_OUTPUT;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//KW_OUTPUT
+		public RuleCall getKW_OUTPUTTerminalRuleCall() { return cKW_OUTPUTTerminalRuleCall; }
 	}
 	public class MacroElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.Macro");
@@ -643,12 +682,13 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cKW_NOSTDINCTerminalRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cKW_INCSYSTerminalRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		private final RuleCall cKW_INCLUDETerminalRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cKW_OUTPUTTerminalRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		
 		//OptionChar:
-		//	KW_DEFINE | KW_INCDIR | KW_NOSTDINC | KW_INCSYS | KW_INCLUDE;
+		//	KW_DEFINE | KW_INCDIR | KW_NOSTDINC | KW_INCSYS | KW_INCLUDE | KW_OUTPUT;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//KW_DEFINE | KW_INCDIR | KW_NOSTDINC | KW_INCSYS | KW_INCLUDE
+		//KW_DEFINE | KW_INCDIR | KW_NOSTDINC | KW_INCSYS | KW_INCLUDE | KW_OUTPUT
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//KW_DEFINE
@@ -665,6 +705,9 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//KW_INCLUDE
 		public RuleCall getKW_INCLUDETerminalRuleCall_4() { return cKW_INCLUDETerminalRuleCall_4; }
+		
+		//KW_OUTPUT
+		public RuleCall getKW_OUTPUTTerminalRuleCall_5() { return cKW_OUTPUTTerminalRuleCall_5; }
 	}
 	
 	
@@ -676,6 +719,7 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 	private final IncSysElements pIncSys;
 	private final NoStdIncElements pNoStdInc;
 	private final IncludeElements pInclude;
+	private final OutputElements pOutput;
 	private final MacroElements pMacro;
 	private final SimpleMacroElements pSimpleMacro;
 	private final ObjectMacroElements pObjectMacro;
@@ -696,6 +740,7 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tSKW_COMMA;
 	private final TerminalRule tKW_DEFINE;
 	private final TerminalRule tKW_INCDIR;
+	private final TerminalRule tKW_OUTPUT;
 	private final TerminalRule tKW_NOSTDINC;
 	private final TerminalRule tKW_INCSYS;
 	private final TerminalRule tKW_INCLUDE;
@@ -720,6 +765,7 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 		this.pIncSys = new IncSysElements();
 		this.pNoStdInc = new NoStdIncElements();
 		this.pInclude = new IncludeElements();
+		this.pOutput = new OutputElements();
 		this.pMacro = new MacroElements();
 		this.pSimpleMacro = new SimpleMacroElements();
 		this.pObjectMacro = new ObjectMacroElements();
@@ -740,6 +786,7 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 		this.tSKW_COMMA = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.SKW_COMMA");
 		this.tKW_DEFINE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.KW_DEFINE");
 		this.tKW_INCDIR = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.KW_INCDIR");
+		this.tKW_OUTPUT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.KW_OUTPUT");
 		this.tKW_NOSTDINC = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.KW_NOSTDINC");
 		this.tKW_INCSYS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.KW_INCSYS");
 		this.tKW_INCLUDE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.cmdarguments.CmdArgs.KW_INCLUDE");
@@ -798,7 +845,7 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Argument:
 	//	{Argument} (Define macro=Macro | incDir?=IncDir useIncDir=PathCmd | incSys?=IncSys WS+ useIncDir=PathCmd |
-	//	nostdinc?=NoStdInc | Include WS+ include=PathCmd | SKW_MINUS option=Option);
+	//	nostdinc?=NoStdInc | Include WS+ include=PathCmd | Output WS+ out=PathCmd | SKW_MINUS option=Option | in=Option);
 	public ArgumentElements getArgumentAccess() {
 		return pArgument;
 	}
@@ -855,6 +902,16 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getIncludeRule() {
 		return getIncludeAccess().getRule();
+	}
+	
+	//Output:
+	//	KW_OUTPUT;
+	public OutputElements getOutputAccess() {
+		return pOutput;
+	}
+	
+	public ParserRule getOutputRule() {
+		return getOutputAccess().getRule();
 	}
 	
 	//Macro:
@@ -986,7 +1043,7 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//OptionChar:
-	//	KW_DEFINE | KW_INCDIR | KW_NOSTDINC | KW_INCSYS | KW_INCLUDE;
+	//	KW_DEFINE | KW_INCDIR | KW_NOSTDINC | KW_INCSYS | KW_INCLUDE | KW_OUTPUT;
 	public OptionCharElements getOptionCharAccess() {
 		return pOptionChar;
 	}
@@ -1035,6 +1092,12 @@ public class CmdArgsGrammarAccess extends AbstractGrammarElementFinder {
 	//	SKW_MINUS 'I';
 	public TerminalRule getKW_INCDIRRule() {
 		return tKW_INCDIR;
+	}
+	
+	//terminal KW_OUTPUT:
+	//	SKW_MINUS 'o';
+	public TerminalRule getKW_OUTPUTRule() {
+		return tKW_OUTPUT;
 	}
 	
 	//terminal KW_NOSTDINC:

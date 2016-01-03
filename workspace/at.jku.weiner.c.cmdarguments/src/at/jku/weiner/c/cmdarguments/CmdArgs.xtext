@@ -30,7 +30,11 @@ Argument:
 	|
 		(Include WS+ include=PathCmd)
 	|
+		(Output WS+ out=PathCmd)
+	|
 		(SKW_MINUS option=Option)
+	|
+		in=Option
 	)
 ;
 
@@ -52,6 +56,10 @@ NoStdInc:
 
 Include:
 	SKW_MINUS KW_INCLUDE
+;
+
+Output:
+	KW_OUTPUT
 ;
 
 Macro returns Macro:
@@ -110,7 +118,7 @@ NonOptionChar:
 ;
 
 OptionChar:
-	KW_DEFINE | KW_INCDIR | KW_NOSTDINC | KW_INCSYS | KW_INCLUDE
+	KW_DEFINE | KW_INCDIR | KW_NOSTDINC | KW_INCSYS | KW_INCLUDE | KW_OUTPUT
 ;
 
 terminal SKW_MINUS: '-';
@@ -122,6 +130,7 @@ terminal SKW_COMMA: ',';
 //terminal HASH: '#';
 terminal KW_DEFINE: SKW_MINUS 'D';
 terminal KW_INCDIR: SKW_MINUS 'I';
+terminal KW_OUTPUT: SKW_MINUS 'o';
 terminal KW_NOSTDINC: 'nostdinc';
 terminal KW_INCSYS: 'isystem';
 terminal KW_INCLUDE: 'include';

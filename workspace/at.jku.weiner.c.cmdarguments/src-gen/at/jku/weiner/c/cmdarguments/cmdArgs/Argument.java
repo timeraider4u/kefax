@@ -19,7 +19,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#isIncSys <em>Inc Sys</em>}</li>
  *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#isNostdinc <em>Nostdinc</em>}</li>
  *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#getInclude <em>Include</em>}</li>
+ *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#getOut <em>Out</em>}</li>
  *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#getOption <em>Option</em>}</li>
+ *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#getIn <em>In</em>}</li>
  * </ul>
  *
  * @see at.jku.weiner.c.cmdarguments.cmdArgs.CmdArgsPackage#getArgument()
@@ -185,6 +187,32 @@ public interface Argument extends EObject
   void setInclude(PathCmd value);
 
   /**
+   * Returns the value of the '<em><b>Out</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Out</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Out</em>' containment reference.
+   * @see #setOut(PathCmd)
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.CmdArgsPackage#getArgument_Out()
+   * @model containment="true"
+   * @generated
+   */
+  PathCmd getOut();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#getOut <em>Out</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Out</em>' containment reference.
+   * @see #getOut()
+   * @generated
+   */
+  void setOut(PathCmd value);
+
+  /**
    * Returns the value of the '<em><b>Option</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
@@ -209,5 +237,31 @@ public interface Argument extends EObject
    * @generated
    */
   void setOption(String value);
+
+  /**
+   * Returns the value of the '<em><b>In</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>In</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>In</em>' attribute.
+   * @see #setIn(String)
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.CmdArgsPackage#getArgument_In()
+   * @model
+   * @generated
+   */
+  String getIn();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#getIn <em>In</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>In</em>' attribute.
+   * @see #getIn()
+   * @generated
+   */
+  void setIn(String value);
 
 } // Argument

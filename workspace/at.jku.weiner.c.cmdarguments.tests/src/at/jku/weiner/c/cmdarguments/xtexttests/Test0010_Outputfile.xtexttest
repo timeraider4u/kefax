@@ -1,0 +1,58 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.cmdarguments
+language cmdArgs
+// imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+split-lexer=true
+source file="res/Test0010_Outputfile.cmd"
+//----------------------------------------------------------------------
+lexer-tokens
+	KW_OUTPUT WS STRING WS KW_DEFINE ID NEWLINE
+	KW_DEFINE ID WS
+		// -o ./arch/file_arch.h
+		KW_OUTPUT WS ANY_OTHER +*2 ID ANY_OTHER ID ANY_OTHER ID
+		NEWLINE
+//----------------------------------------------------------------------
+
+(Model
+	lines+=
+	(CmdLine
+		arguments+=
+		(Argument
+			out=
+			(PathCmd
+				path++"\\\"C:\\\\Program Files\\\\MyApp\\\\temp\\\\temp.c\\\""
+			)
+		),
+		(Argument
+			macro=
+			(SimpleMacro
+				name++"__TEMP__"
+			)
+		)
+	),
+	(CmdLine
+		arguments+=
+		(Argument
+			macro=
+			(SimpleMacro
+				name++"FOO__"
+			)
+		),
+		(Argument
+			out=
+			(PathCmd
+				path++"./arch/file_arch.h"
+			)
+		)
+	)
+)
+
+
+//----------------------------------------------------------------------
+//output file="bin/Test0000_Empty.c.i"
+//expected file="expected/Test0000_Empty.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

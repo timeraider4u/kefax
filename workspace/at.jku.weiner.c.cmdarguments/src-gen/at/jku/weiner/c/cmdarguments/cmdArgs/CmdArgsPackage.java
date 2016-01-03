@@ -177,13 +177,31 @@ public interface CmdArgsPackage extends EPackage
   int ARGUMENT__INCLUDE = 5;
 
   /**
+   * The feature id for the '<em><b>Out</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARGUMENT__OUT = 6;
+
+  /**
    * The feature id for the '<em><b>Option</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ARGUMENT__OPTION = 6;
+  int ARGUMENT__OPTION = 7;
+
+  /**
+   * The feature id for the '<em><b>In</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARGUMENT__IN = 8;
 
   /**
    * The number of structural features of the '<em>Argument</em>' class.
@@ -192,7 +210,7 @@ public interface CmdArgsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ARGUMENT_FEATURE_COUNT = 7;
+  int ARGUMENT_FEATURE_COUNT = 9;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.MacroImpl <em>Macro</em>}' class.
@@ -481,6 +499,17 @@ public interface CmdArgsPackage extends EPackage
   EReference getArgument_Include();
 
   /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#getOut <em>Out</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Out</em>'.
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.Argument#getOut()
+   * @see #getArgument()
+   * @generated
+   */
+  EReference getArgument_Out();
+
+  /**
    * Returns the meta object for the attribute '{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#getOption <em>Option</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -490,6 +519,17 @@ public interface CmdArgsPackage extends EPackage
    * @generated
    */
   EAttribute getArgument_Option();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#getIn <em>In</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>In</em>'.
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.Argument#getIn()
+   * @see #getArgument()
+   * @generated
+   */
+  EAttribute getArgument_In();
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.c.cmdarguments.cmdArgs.Macro <em>Macro</em>}'.
@@ -714,12 +754,28 @@ public interface CmdArgsPackage extends EPackage
     EReference ARGUMENT__INCLUDE = eINSTANCE.getArgument_Include();
 
     /**
+     * The meta object literal for the '<em><b>Out</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARGUMENT__OUT = eINSTANCE.getArgument_Out();
+
+    /**
      * The meta object literal for the '<em><b>Option</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EAttribute ARGUMENT__OPTION = eINSTANCE.getArgument_Option();
+
+    /**
+     * The meta object literal for the '<em><b>In</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ARGUMENT__IN = eINSTANCE.getArgument_In();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.MacroImpl <em>Macro</em>}' class.

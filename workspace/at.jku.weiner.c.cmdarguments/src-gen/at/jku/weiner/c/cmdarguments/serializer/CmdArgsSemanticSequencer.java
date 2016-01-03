@@ -68,7 +68,9 @@ public class CmdArgsSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *         (incSys?=IncSys useIncDir=PathCmd) | 
 	 *         nostdinc?=NoStdInc | 
 	 *         include=PathCmd | 
-	 *         option=Option
+	 *         out=PathCmd | 
+	 *         option=Option | 
+	 *         in=Option
 	 *     )
 	 */
 	protected void sequence_Argument(EObject context, Argument semanticObject) {

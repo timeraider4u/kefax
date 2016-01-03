@@ -1,0 +1,2 @@
+-o "C:\Program Files\MyApp\temp\temp.c" -D__TEMP__
+-DFOO__ -o ./arch/file_arch.h

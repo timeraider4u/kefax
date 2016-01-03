@@ -10,7 +10,7 @@ source file="res/Test0000_Empty.cmd"
 //----------------------------------------------------------------------
 
 (Model
-	line isEmpty
+	lines isEmpty
 )
 
 

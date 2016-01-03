@@ -95,9 +95,9 @@ public class CmdArgsAdapterFactory extends AdapterFactoryImpl
         return createMacroAdapter();
       }
       @Override
-      public Adapter caseIncludeCmd(IncludeCmd object)
+      public Adapter caseUseIncludeDirCmd(UseIncludeDirCmd object)
       {
-        return createIncludeCmdAdapter();
+        return createUseIncludeDirCmdAdapter();
       }
       @Override
       public Adapter caseSimpleMacro(SimpleMacro object)
@@ -197,16 +197,16 @@ public class CmdArgsAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.cmdarguments.cmdArgs.IncludeCmd <em>Include Cmd</em>}'.
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.cmdarguments.cmdArgs.UseIncludeDirCmd <em>Use Include Dir Cmd</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see at.jku.weiner.c.cmdarguments.cmdArgs.IncludeCmd
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.UseIncludeDirCmd
    * @generated
    */
-  public Adapter createIncludeCmdAdapter()
+  public Adapter createUseIncludeDirCmdAdapter()
   {
     return null;
   }

@@ -17,7 +17,7 @@ class CmdArgsFormatter extends AbstractFormatter2 {
 
 	def dispatch void format(Model model, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		for (CmdLine line : model.getLine()) {
+		for (CmdLine line : model.getLines()) {
 			format(line, document);
 		}
 	}

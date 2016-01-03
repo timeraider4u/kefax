@@ -3,8 +3,8 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="cmdArgs" nsURI="http://www.jku.at/weiner/c/cmdarguments/CmdArgs"
     nsPrefix="cmdArgs">
   <eClassifiers xsi:type="ecore:EClass" name="Model">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="line" upperBound="-1" eType="#//CmdLine"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lines" upperBound="-1"
+        eType="#//CmdLine" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CmdLine">
     <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" upperBound="-1"
@@ -13,15 +13,17 @@
   <eClassifiers xsi:type="ecore:EClass" name="Argument">
     <eStructuralFeatures xsi:type="ecore:EReference" name="macro" eType="#//Macro"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="include" eType="#//IncludeCmd"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="incDir" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="useIncDir" eType="#//UseIncludeDirCmd"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="incSys" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nostdinc" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Macro">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IncludeCmd">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UseIncludeDirCmd">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SimpleMacro" eSuperTypes="#//Macro"/>
   <eClassifiers xsi:type="ecore:EClass" name="ObjectMacro" eSuperTypes="#//Macro">

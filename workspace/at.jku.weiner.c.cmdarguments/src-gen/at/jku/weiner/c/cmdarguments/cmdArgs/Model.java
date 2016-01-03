@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.Model#getLine <em>Line</em>}</li>
+ *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.Model#getLines <em>Lines</em>}</li>
  * </ul>
  *
  * @see at.jku.weiner.c.cmdarguments.cmdArgs.CmdArgsPackage#getModel()
@@ -25,19 +25,19 @@ import org.eclipse.emf.ecore.EObject;
 public interface Model extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Line</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Lines</b></em>' containment reference list.
    * The list contents are of type {@link at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Line</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Lines</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Line</em>' containment reference list.
-   * @see at.jku.weiner.c.cmdarguments.cmdArgs.CmdArgsPackage#getModel_Line()
+   * @return the value of the '<em>Lines</em>' containment reference list.
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.CmdArgsPackage#getModel_Lines()
    * @model containment="true"
    * @generated
    */
-  EList<CmdLine> getLine();
+  EList<CmdLine> getLines();
 
 } // Model

@@ -4,8 +4,8 @@ package at.jku.weiner.c.cmdarguments.cmdArgs.impl;
 
 import at.jku.weiner.c.cmdarguments.cmdArgs.Argument;
 import at.jku.weiner.c.cmdarguments.cmdArgs.CmdArgsPackage;
-import at.jku.weiner.c.cmdarguments.cmdArgs.IncludeCmd;
 import at.jku.weiner.c.cmdarguments.cmdArgs.Macro;
+import at.jku.weiner.c.cmdarguments.cmdArgs.UseIncludeDirCmd;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -25,7 +25,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.ArgumentImpl#getMacro <em>Macro</em>}</li>
- *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.ArgumentImpl#getInclude <em>Include</em>}</li>
+ *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.ArgumentImpl#isIncDir <em>Inc Dir</em>}</li>
+ *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.ArgumentImpl#getUseIncDir <em>Use Inc Dir</em>}</li>
+ *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.ArgumentImpl#isIncSys <em>Inc Sys</em>}</li>
  *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.ArgumentImpl#isNostdinc <em>Nostdinc</em>}</li>
  * </ul>
  *
@@ -44,14 +46,54 @@ public class ArgumentImpl extends MinimalEObjectImpl.Container implements Argume
   protected Macro macro;
 
   /**
-   * The cached value of the '{@link #getInclude() <em>Include</em>}' containment reference.
+   * The default value of the '{@link #isIncDir() <em>Inc Dir</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getInclude()
+   * @see #isIncDir()
    * @generated
    * @ordered
    */
-  protected IncludeCmd include;
+  protected static final boolean INC_DIR_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isIncDir() <em>Inc Dir</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isIncDir()
+   * @generated
+   * @ordered
+   */
+  protected boolean incDir = INC_DIR_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getUseIncDir() <em>Use Inc Dir</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUseIncDir()
+   * @generated
+   * @ordered
+   */
+  protected UseIncludeDirCmd useIncDir;
+
+  /**
+   * The default value of the '{@link #isIncSys() <em>Inc Sys</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isIncSys()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean INC_SYS_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isIncSys() <em>Inc Sys</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isIncSys()
+   * @generated
+   * @ordered
+   */
+  protected boolean incSys = INC_SYS_EDEFAULT;
 
   /**
    * The default value of the '{@link #isNostdinc() <em>Nostdinc</em>}' attribute.
@@ -147,9 +189,9 @@ public class ArgumentImpl extends MinimalEObjectImpl.Container implements Argume
    * <!-- end-user-doc -->
    * @generated
    */
-  public IncludeCmd getInclude()
+  public boolean isIncDir()
   {
-    return include;
+    return incDir;
   }
 
   /**
@@ -157,13 +199,36 @@ public class ArgumentImpl extends MinimalEObjectImpl.Container implements Argume
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetInclude(IncludeCmd newInclude, NotificationChain msgs)
+  public void setIncDir(boolean newIncDir)
   {
-    IncludeCmd oldInclude = include;
-    include = newInclude;
+    boolean oldIncDir = incDir;
+    incDir = newIncDir;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CmdArgsPackage.ARGUMENT__INC_DIR, oldIncDir, incDir));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public UseIncludeDirCmd getUseIncDir()
+  {
+    return useIncDir;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetUseIncDir(UseIncludeDirCmd newUseIncDir, NotificationChain msgs)
+  {
+    UseIncludeDirCmd oldUseIncDir = useIncDir;
+    useIncDir = newUseIncDir;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CmdArgsPackage.ARGUMENT__INCLUDE, oldInclude, newInclude);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CmdArgsPackage.ARGUMENT__USE_INC_DIR, oldUseIncDir, newUseIncDir);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -174,20 +239,43 @@ public class ArgumentImpl extends MinimalEObjectImpl.Container implements Argume
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setInclude(IncludeCmd newInclude)
+  public void setUseIncDir(UseIncludeDirCmd newUseIncDir)
   {
-    if (newInclude != include)
+    if (newUseIncDir != useIncDir)
     {
       NotificationChain msgs = null;
-      if (include != null)
-        msgs = ((InternalEObject)include).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CmdArgsPackage.ARGUMENT__INCLUDE, null, msgs);
-      if (newInclude != null)
-        msgs = ((InternalEObject)newInclude).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CmdArgsPackage.ARGUMENT__INCLUDE, null, msgs);
-      msgs = basicSetInclude(newInclude, msgs);
+      if (useIncDir != null)
+        msgs = ((InternalEObject)useIncDir).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CmdArgsPackage.ARGUMENT__USE_INC_DIR, null, msgs);
+      if (newUseIncDir != null)
+        msgs = ((InternalEObject)newUseIncDir).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CmdArgsPackage.ARGUMENT__USE_INC_DIR, null, msgs);
+      msgs = basicSetUseIncDir(newUseIncDir, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, CmdArgsPackage.ARGUMENT__INCLUDE, newInclude, newInclude));
+      eNotify(new ENotificationImpl(this, Notification.SET, CmdArgsPackage.ARGUMENT__USE_INC_DIR, newUseIncDir, newUseIncDir));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isIncSys()
+  {
+    return incSys;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIncSys(boolean newIncSys)
+  {
+    boolean oldIncSys = incSys;
+    incSys = newIncSys;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CmdArgsPackage.ARGUMENT__INC_SYS, oldIncSys, incSys));
   }
 
   /**
@@ -225,8 +313,8 @@ public class ArgumentImpl extends MinimalEObjectImpl.Container implements Argume
     {
       case CmdArgsPackage.ARGUMENT__MACRO:
         return basicSetMacro(null, msgs);
-      case CmdArgsPackage.ARGUMENT__INCLUDE:
-        return basicSetInclude(null, msgs);
+      case CmdArgsPackage.ARGUMENT__USE_INC_DIR:
+        return basicSetUseIncDir(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -243,8 +331,12 @@ public class ArgumentImpl extends MinimalEObjectImpl.Container implements Argume
     {
       case CmdArgsPackage.ARGUMENT__MACRO:
         return getMacro();
-      case CmdArgsPackage.ARGUMENT__INCLUDE:
-        return getInclude();
+      case CmdArgsPackage.ARGUMENT__INC_DIR:
+        return isIncDir();
+      case CmdArgsPackage.ARGUMENT__USE_INC_DIR:
+        return getUseIncDir();
+      case CmdArgsPackage.ARGUMENT__INC_SYS:
+        return isIncSys();
       case CmdArgsPackage.ARGUMENT__NOSTDINC:
         return isNostdinc();
     }
@@ -264,8 +356,14 @@ public class ArgumentImpl extends MinimalEObjectImpl.Container implements Argume
       case CmdArgsPackage.ARGUMENT__MACRO:
         setMacro((Macro)newValue);
         return;
-      case CmdArgsPackage.ARGUMENT__INCLUDE:
-        setInclude((IncludeCmd)newValue);
+      case CmdArgsPackage.ARGUMENT__INC_DIR:
+        setIncDir((Boolean)newValue);
+        return;
+      case CmdArgsPackage.ARGUMENT__USE_INC_DIR:
+        setUseIncDir((UseIncludeDirCmd)newValue);
+        return;
+      case CmdArgsPackage.ARGUMENT__INC_SYS:
+        setIncSys((Boolean)newValue);
         return;
       case CmdArgsPackage.ARGUMENT__NOSTDINC:
         setNostdinc((Boolean)newValue);
@@ -287,8 +385,14 @@ public class ArgumentImpl extends MinimalEObjectImpl.Container implements Argume
       case CmdArgsPackage.ARGUMENT__MACRO:
         setMacro((Macro)null);
         return;
-      case CmdArgsPackage.ARGUMENT__INCLUDE:
-        setInclude((IncludeCmd)null);
+      case CmdArgsPackage.ARGUMENT__INC_DIR:
+        setIncDir(INC_DIR_EDEFAULT);
+        return;
+      case CmdArgsPackage.ARGUMENT__USE_INC_DIR:
+        setUseIncDir((UseIncludeDirCmd)null);
+        return;
+      case CmdArgsPackage.ARGUMENT__INC_SYS:
+        setIncSys(INC_SYS_EDEFAULT);
         return;
       case CmdArgsPackage.ARGUMENT__NOSTDINC:
         setNostdinc(NOSTDINC_EDEFAULT);
@@ -309,8 +413,12 @@ public class ArgumentImpl extends MinimalEObjectImpl.Container implements Argume
     {
       case CmdArgsPackage.ARGUMENT__MACRO:
         return macro != null;
-      case CmdArgsPackage.ARGUMENT__INCLUDE:
-        return include != null;
+      case CmdArgsPackage.ARGUMENT__INC_DIR:
+        return incDir != INC_DIR_EDEFAULT;
+      case CmdArgsPackage.ARGUMENT__USE_INC_DIR:
+        return useIncDir != null;
+      case CmdArgsPackage.ARGUMENT__INC_SYS:
+        return incSys != INC_SYS_EDEFAULT;
       case CmdArgsPackage.ARGUMENT__NOSTDINC:
         return nostdinc != NOSTDINC_EDEFAULT;
     }
@@ -328,7 +436,11 @@ public class ArgumentImpl extends MinimalEObjectImpl.Container implements Argume
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (nostdinc: ");
+    result.append(" (incDir: ");
+    result.append(incDir);
+    result.append(", incSys: ");
+    result.append(incSys);
+    result.append(", nostdinc: ");
     result.append(nostdinc);
     result.append(')');
     return result.toString();

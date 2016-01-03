@@ -12,7 +12,7 @@ lexer-tokens
 //----------------------------------------------------------------------
 
 (Model
-	line+=
+	lines+=
 	(CmdLine
 		arguments+=
 		(Argument

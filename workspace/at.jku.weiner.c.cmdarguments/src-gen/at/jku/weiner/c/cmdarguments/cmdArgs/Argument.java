@@ -14,7 +14,9 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#getMacro <em>Macro</em>}</li>
- *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#getInclude <em>Include</em>}</li>
+ *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#isIncDir <em>Inc Dir</em>}</li>
+ *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#getUseIncDir <em>Use Inc Dir</em>}</li>
+ *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#isIncSys <em>Inc Sys</em>}</li>
  *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#isNostdinc <em>Nostdinc</em>}</li>
  * </ul>
  *
@@ -51,30 +53,82 @@ public interface Argument extends EObject
   void setMacro(Macro value);
 
   /**
-   * Returns the value of the '<em><b>Include</b></em>' containment reference.
+   * Returns the value of the '<em><b>Inc Dir</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Include</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Inc Dir</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Include</em>' containment reference.
-   * @see #setInclude(IncludeCmd)
-   * @see at.jku.weiner.c.cmdarguments.cmdArgs.CmdArgsPackage#getArgument_Include()
+   * @return the value of the '<em>Inc Dir</em>' attribute.
+   * @see #setIncDir(boolean)
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.CmdArgsPackage#getArgument_IncDir()
+   * @model
+   * @generated
+   */
+  boolean isIncDir();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#isIncDir <em>Inc Dir</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Inc Dir</em>' attribute.
+   * @see #isIncDir()
+   * @generated
+   */
+  void setIncDir(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Use Inc Dir</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Use Inc Dir</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Use Inc Dir</em>' containment reference.
+   * @see #setUseIncDir(UseIncludeDirCmd)
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.CmdArgsPackage#getArgument_UseIncDir()
    * @model containment="true"
    * @generated
    */
-  IncludeCmd getInclude();
+  UseIncludeDirCmd getUseIncDir();
 
   /**
-   * Sets the value of the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#getInclude <em>Include</em>}' containment reference.
+   * Sets the value of the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#getUseIncDir <em>Use Inc Dir</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Include</em>' containment reference.
-   * @see #getInclude()
+   * @param value the new value of the '<em>Use Inc Dir</em>' containment reference.
+   * @see #getUseIncDir()
    * @generated
    */
-  void setInclude(IncludeCmd value);
+  void setUseIncDir(UseIncludeDirCmd value);
+
+  /**
+   * Returns the value of the '<em><b>Inc Sys</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Inc Sys</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Inc Sys</em>' attribute.
+   * @see #setIncSys(boolean)
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.CmdArgsPackage#getArgument_IncSys()
+   * @model
+   * @generated
+   */
+  boolean isIncSys();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#isIncSys <em>Inc Sys</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Inc Sys</em>' attribute.
+   * @see #isIncSys()
+   * @generated
+   */
+  void setIncSys(boolean value);
 
   /**
    * Returns the value of the '<em><b>Nostdinc</b></em>' attribute.

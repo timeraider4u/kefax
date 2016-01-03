@@ -131,13 +131,13 @@ public class Test0002_SimpleDefines {
 		
 		Assert.assertNotNull(Model_0_Var
 		);
-		final EList<? extends EObject> Line_0_list = Model_0_Var
-		.getLine();
-		Assert.assertNotNull(Line_0_list);
-		Assert.assertEquals(3, Line_0_list.size());
+		final EList<? extends EObject> Lines_0_list = Model_0_Var
+		.getLines();
+		Assert.assertNotNull(Lines_0_list);
+		Assert.assertEquals(3, Lines_0_list.size());
 		//0
 		final CmdLine CmdLine_1_Var
-		 = (CmdLine)Line_0_list.get(0);
+		 = (CmdLine)Lines_0_list.get(0);
 		Assert.assertNotNull(CmdLine_1_Var
 		);
 		final EList<? extends EObject> Arguments_1_list = CmdLine_1_Var
@@ -159,7 +159,7 @@ public class Test0002_SimpleDefines {
 		.getName());
 		//3
 		final CmdLine CmdLine_4_Var
-		 = (CmdLine)Line_0_list.get(1);
+		 = (CmdLine)Lines_0_list.get(1);
 		Assert.assertNotNull(CmdLine_4_Var
 		);
 		final EList<? extends EObject> Arguments_4_list = CmdLine_4_Var
@@ -181,7 +181,7 @@ public class Test0002_SimpleDefines {
 		.getName());
 		//6
 		final CmdLine CmdLine_7_Var
-		 = (CmdLine)Line_0_list.get(2);
+		 = (CmdLine)Lines_0_list.get(2);
 		Assert.assertNotNull(CmdLine_7_Var
 		);
 		final EList<? extends EObject> Arguments_7_list = CmdLine_7_Var

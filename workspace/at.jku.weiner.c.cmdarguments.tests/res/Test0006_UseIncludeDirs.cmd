@@ -1,0 +1,2 @@
+-Ifoo/bar/include -I./foobar/bar/include -IC:\system\include
+-D__FOO__

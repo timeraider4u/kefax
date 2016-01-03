@@ -20,12 +20,14 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class CmdArgsSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected CmdArgsGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_Model_NEWLINETerminalRuleCall_1_1_q;
+	protected AbstractElementAlias match_Model_NEWLINETerminalRuleCall_1_2_q;
+	protected AbstractElementAlias match_Model_WSTerminalRuleCall_1_1_a;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (CmdArgsGrammarAccess) access;
-		match_Model_NEWLINETerminalRuleCall_1_1_q = new TokenAlias(false, true, grammarAccess.getModelAccess().getNEWLINETerminalRuleCall_1_1());
+		match_Model_NEWLINETerminalRuleCall_1_2_q = new TokenAlias(false, true, grammarAccess.getModelAccess().getNEWLINETerminalRuleCall_1_2());
+		match_Model_WSTerminalRuleCall_1_1_a = new TokenAlias(true, true, grammarAccess.getModelAccess().getWSTerminalRuleCall_1_1());
 	}
 	
 	@Override
@@ -48,6 +50,8 @@ public class CmdArgsSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getSKW_LEFTPARENToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getSKW_RIGHTPARENRule())
 			return getSKW_RIGHTPARENToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getWSRule())
+			return getWSToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
@@ -70,12 +74,12 @@ public class CmdArgsSyntacticSequencer extends AbstractSyntacticSequencer {
 	}
 	
 	/**
-	 * terminal INCSYS: SKW_MINUS '-isystem';
+	 * terminal INCSYS: SKW_MINUS 'isystem';
 	 */
 	protected String getINCSYSToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
-		return "--isystem";
+		return "-isystem";
 	}
 	
 	/**
@@ -132,14 +136,25 @@ public class CmdArgsSyntacticSequencer extends AbstractSyntacticSequencer {
 		return ")";
 	}
 	
+	/**
+	 * terminal WS			: (' '|'\t'|'\r'|'\n')+;
+	 */
+	protected String getWSToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return " ";
+	}
+	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {
 		if (transition.getAmbiguousSyntaxes().isEmpty()) return;
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if(match_Model_NEWLINETerminalRuleCall_1_1_q.equals(syntax))
-				emit_Model_NEWLINETerminalRuleCall_1_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			if(match_Model_NEWLINETerminalRuleCall_1_2_q.equals(syntax))
+				emit_Model_NEWLINETerminalRuleCall_1_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_Model_WSTerminalRuleCall_1_1_a.equals(syntax))
+				emit_Model_WSTerminalRuleCall_1_1_a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -149,10 +164,22 @@ public class CmdArgsSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     NEWLINE?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     line+=CmdLine (ambiguity) (rule end)
-	 *     line+=CmdLine (ambiguity) line+=CmdLine
+	 *     lines+=CmdLine WS* (ambiguity) (rule end)
+	 *     lines+=CmdLine WS* (ambiguity) lines+=CmdLine
 	 */
-	protected void emit_Model_NEWLINETerminalRuleCall_1_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Model_NEWLINETerminalRuleCall_1_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     WS*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     lines+=CmdLine (ambiguity) NEWLINE? (rule end)
+	 *     lines+=CmdLine (ambiguity) NEWLINE? lines+=CmdLine
+	 */
+	protected void emit_Model_WSTerminalRuleCall_1_1_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

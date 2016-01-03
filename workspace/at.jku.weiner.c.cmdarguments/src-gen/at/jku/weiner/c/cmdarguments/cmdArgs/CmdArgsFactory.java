@@ -59,13 +59,13 @@ public interface CmdArgsFactory extends EFactory
   Macro createMacro();
 
   /**
-   * Returns a new object of class '<em>Include Cmd</em>'.
+   * Returns a new object of class '<em>Use Include Dir Cmd</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Include Cmd</em>'.
+   * @return a new object of class '<em>Use Include Dir Cmd</em>'.
    * @generated
    */
-  IncludeCmd createIncludeCmd();
+  UseIncludeDirCmd createUseIncludeDirCmd();
 
   /**
    * Returns a new object of class '<em>Simple Macro</em>'.

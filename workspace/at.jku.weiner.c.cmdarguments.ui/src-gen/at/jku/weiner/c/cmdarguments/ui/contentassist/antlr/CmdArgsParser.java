@@ -40,6 +40,7 @@ public class CmdArgsParser extends AbstractContentAssistParser {
 					put(grammarAccess.getArgumentAccess().getAlternatives_1(), "rule__Argument__Alternatives_1");
 					put(grammarAccess.getMacroAccess().getAlternatives(), "rule__Macro__Alternatives");
 					put(grammarAccess.getMyCodeAccess().getAlternatives(), "rule__MyCode__Alternatives");
+					put(grammarAccess.getPathAccess().getAlternatives(), "rule__Path__Alternatives");
 					put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
 					put(grammarAccess.getModelAccess().getGroup_1(), "rule__Model__Group_1__0");
 					put(grammarAccess.getCmdLineAccess().getGroup(), "rule__CmdLine__Group__0");
@@ -52,11 +53,13 @@ public class CmdArgsParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFunctionMacroAccess().getGroup(), "rule__FunctionMacro__Group__0");
 					put(grammarAccess.getFunctionMacroAccess().getGroup_3(), "rule__FunctionMacro__Group_3__0");
 					put(grammarAccess.getFunctionMacroAccess().getGroup_3_1(), "rule__FunctionMacro__Group_3_1__0");
-					put(grammarAccess.getModelAccess().getLineAssignment_1_0(), "rule__Model__LineAssignment_1_0");
+					put(grammarAccess.getModelAccess().getLinesAssignment_1_0(), "rule__Model__LinesAssignment_1_0");
 					put(grammarAccess.getCmdLineAccess().getArgumentsAssignment_1(), "rule__CmdLine__ArgumentsAssignment_1");
 					put(grammarAccess.getArgumentAccess().getMacroAssignment_1_0_1(), "rule__Argument__MacroAssignment_1_0_1");
-					put(grammarAccess.getArgumentAccess().getIncludeAssignment_1_1_1(), "rule__Argument__IncludeAssignment_1_1_1");
-					put(grammarAccess.getArgumentAccess().getIncludeAssignment_1_2_1(), "rule__Argument__IncludeAssignment_1_2_1");
+					put(grammarAccess.getArgumentAccess().getIncDirAssignment_1_1_0(), "rule__Argument__IncDirAssignment_1_1_0");
+					put(grammarAccess.getArgumentAccess().getUseIncDirAssignment_1_1_1(), "rule__Argument__UseIncDirAssignment_1_1_1");
+					put(grammarAccess.getArgumentAccess().getIncSysAssignment_1_2_0(), "rule__Argument__IncSysAssignment_1_2_0");
+					put(grammarAccess.getArgumentAccess().getUseIncDirAssignment_1_2_1(), "rule__Argument__UseIncDirAssignment_1_2_1");
 					put(grammarAccess.getArgumentAccess().getNostdincAssignment_1_3(), "rule__Argument__NostdincAssignment_1_3");
 					put(grammarAccess.getSimpleMacroAccess().getNameAssignment_1(), "rule__SimpleMacro__NameAssignment_1");
 					put(grammarAccess.getObjectMacroAccess().getNameAssignment_1(), "rule__ObjectMacro__NameAssignment_1");
@@ -65,7 +68,7 @@ public class CmdArgsParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFunctionMacroAccess().getParamsAssignment_3_0(), "rule__FunctionMacro__ParamsAssignment_3_0");
 					put(grammarAccess.getFunctionMacroAccess().getParamsAssignment_3_1_1(), "rule__FunctionMacro__ParamsAssignment_3_1_1");
 					put(grammarAccess.getFunctionMacroAccess().getValueAssignment_6(), "rule__FunctionMacro__ValueAssignment_6");
-					put(grammarAccess.getIncludeCmdAccess().getNameAssignment(), "rule__IncludeCmd__NameAssignment");
+					put(grammarAccess.getUseIncludeDirCmdAccess().getPathAssignment(), "rule__UseIncludeDirCmd__PathAssignment");
 				}
 			};
 		}
@@ -85,7 +88,7 @@ public class CmdArgsParser extends AbstractContentAssistParser {
 	
 	@Override
 	protected String[] getInitialHiddenTokens() {
-		return new String[] { "RULE_WS" };
+		return new String[] { "RULE_WS", "RULE_ML_COMMENT", "RULE_SL_COMMENT" };
 	}
 	
 	public CmdArgsGrammarAccess getGrammarAccess() {

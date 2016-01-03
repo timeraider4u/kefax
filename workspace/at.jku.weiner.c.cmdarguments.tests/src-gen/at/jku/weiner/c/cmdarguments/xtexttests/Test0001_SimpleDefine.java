@@ -119,13 +119,13 @@ public class Test0001_SimpleDefine {
 		
 		Assert.assertNotNull(Model_0_Var
 		);
-		final EList<? extends EObject> Line_0_list = Model_0_Var
-		.getLine();
-		Assert.assertNotNull(Line_0_list);
-		Assert.assertEquals(1, Line_0_list.size());
+		final EList<? extends EObject> Lines_0_list = Model_0_Var
+		.getLines();
+		Assert.assertNotNull(Lines_0_list);
+		Assert.assertEquals(1, Lines_0_list.size());
 		//0
 		final CmdLine CmdLine_1_Var
-		 = (CmdLine)Line_0_list.get(0);
+		 = (CmdLine)Lines_0_list.get(0);
 		Assert.assertNotNull(CmdLine_1_Var
 		);
 		final EList<? extends EObject> Arguments_1_list = CmdLine_1_Var

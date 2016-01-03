@@ -67,13 +67,13 @@ public interface CmdArgsPackage extends EPackage
   int MODEL = 0;
 
   /**
-   * The feature id for the '<em><b>Line</b></em>' containment reference list.
+   * The feature id for the '<em><b>Lines</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL__LINE = 0;
+  int MODEL__LINES = 0;
 
   /**
    * The number of structural features of the '<em>Model</em>' class.
@@ -132,13 +132,31 @@ public interface CmdArgsPackage extends EPackage
   int ARGUMENT__MACRO = 0;
 
   /**
-   * The feature id for the '<em><b>Include</b></em>' containment reference.
+   * The feature id for the '<em><b>Inc Dir</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ARGUMENT__INCLUDE = 1;
+  int ARGUMENT__INC_DIR = 1;
+
+  /**
+   * The feature id for the '<em><b>Use Inc Dir</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARGUMENT__USE_INC_DIR = 2;
+
+  /**
+   * The feature id for the '<em><b>Inc Sys</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARGUMENT__INC_SYS = 3;
 
   /**
    * The feature id for the '<em><b>Nostdinc</b></em>' attribute.
@@ -147,7 +165,7 @@ public interface CmdArgsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ARGUMENT__NOSTDINC = 2;
+  int ARGUMENT__NOSTDINC = 4;
 
   /**
    * The number of structural features of the '<em>Argument</em>' class.
@@ -156,7 +174,7 @@ public interface CmdArgsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ARGUMENT_FEATURE_COUNT = 3;
+  int ARGUMENT_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.MacroImpl <em>Macro</em>}' class.
@@ -187,32 +205,32 @@ public interface CmdArgsPackage extends EPackage
   int MACRO_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.IncludeCmdImpl <em>Include Cmd</em>}' class.
+   * The meta object id for the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.UseIncludeDirCmdImpl <em>Use Include Dir Cmd</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see at.jku.weiner.c.cmdarguments.cmdArgs.impl.IncludeCmdImpl
-   * @see at.jku.weiner.c.cmdarguments.cmdArgs.impl.CmdArgsPackageImpl#getIncludeCmd()
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.impl.UseIncludeDirCmdImpl
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.impl.CmdArgsPackageImpl#getUseIncludeDirCmd()
    * @generated
    */
-  int INCLUDE_CMD = 4;
+  int USE_INCLUDE_DIR_CMD = 4;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Path</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INCLUDE_CMD__NAME = 0;
+  int USE_INCLUDE_DIR_CMD__PATH = 0;
 
   /**
-   * The number of structural features of the '<em>Include Cmd</em>' class.
+   * The number of structural features of the '<em>Use Include Dir Cmd</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INCLUDE_CMD_FEATURE_COUNT = 1;
+  int USE_INCLUDE_DIR_CMD_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.SimpleMacroImpl <em>Simple Macro</em>}' class.
@@ -337,15 +355,15 @@ public interface CmdArgsPackage extends EPackage
   EClass getModel();
 
   /**
-   * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.cmdarguments.cmdArgs.Model#getLine <em>Line</em>}'.
+   * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.cmdarguments.cmdArgs.Model#getLines <em>Lines</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Line</em>'.
-   * @see at.jku.weiner.c.cmdarguments.cmdArgs.Model#getLine()
+   * @return the meta object for the containment reference list '<em>Lines</em>'.
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.Model#getLines()
    * @see #getModel()
    * @generated
    */
-  EReference getModel_Line();
+  EReference getModel_Lines();
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine <em>Cmd Line</em>}'.
@@ -390,15 +408,37 @@ public interface CmdArgsPackage extends EPackage
   EReference getArgument_Macro();
 
   /**
-   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#getInclude <em>Include</em>}'.
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#isIncDir <em>Inc Dir</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Include</em>'.
-   * @see at.jku.weiner.c.cmdarguments.cmdArgs.Argument#getInclude()
+   * @return the meta object for the attribute '<em>Inc Dir</em>'.
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.Argument#isIncDir()
    * @see #getArgument()
    * @generated
    */
-  EReference getArgument_Include();
+  EAttribute getArgument_IncDir();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#getUseIncDir <em>Use Inc Dir</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Use Inc Dir</em>'.
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.Argument#getUseIncDir()
+   * @see #getArgument()
+   * @generated
+   */
+  EReference getArgument_UseIncDir();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#isIncSys <em>Inc Sys</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Inc Sys</em>'.
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.Argument#isIncSys()
+   * @see #getArgument()
+   * @generated
+   */
+  EAttribute getArgument_IncSys();
 
   /**
    * Returns the meta object for the attribute '{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#isNostdinc <em>Nostdinc</em>}'.
@@ -433,25 +473,25 @@ public interface CmdArgsPackage extends EPackage
   EAttribute getMacro_Name();
 
   /**
-   * Returns the meta object for class '{@link at.jku.weiner.c.cmdarguments.cmdArgs.IncludeCmd <em>Include Cmd</em>}'.
+   * Returns the meta object for class '{@link at.jku.weiner.c.cmdarguments.cmdArgs.UseIncludeDirCmd <em>Use Include Dir Cmd</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Include Cmd</em>'.
-   * @see at.jku.weiner.c.cmdarguments.cmdArgs.IncludeCmd
+   * @return the meta object for class '<em>Use Include Dir Cmd</em>'.
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.UseIncludeDirCmd
    * @generated
    */
-  EClass getIncludeCmd();
+  EClass getUseIncludeDirCmd();
 
   /**
-   * Returns the meta object for the attribute '{@link at.jku.weiner.c.cmdarguments.cmdArgs.IncludeCmd#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.cmdarguments.cmdArgs.UseIncludeDirCmd#getPath <em>Path</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see at.jku.weiner.c.cmdarguments.cmdArgs.IncludeCmd#getName()
-   * @see #getIncludeCmd()
+   * @return the meta object for the attribute '<em>Path</em>'.
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.UseIncludeDirCmd#getPath()
+   * @see #getUseIncludeDirCmd()
    * @generated
    */
-  EAttribute getIncludeCmd_Name();
+  EAttribute getUseIncludeDirCmd_Path();
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.c.cmdarguments.cmdArgs.SimpleMacro <em>Simple Macro</em>}'.
@@ -550,12 +590,12 @@ public interface CmdArgsPackage extends EPackage
     EClass MODEL = eINSTANCE.getModel();
 
     /**
-     * The meta object literal for the '<em><b>Line</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Lines</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MODEL__LINE = eINSTANCE.getModel_Line();
+    EReference MODEL__LINES = eINSTANCE.getModel_Lines();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.CmdLineImpl <em>Cmd Line</em>}' class.
@@ -594,12 +634,28 @@ public interface CmdArgsPackage extends EPackage
     EReference ARGUMENT__MACRO = eINSTANCE.getArgument_Macro();
 
     /**
-     * The meta object literal for the '<em><b>Include</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Inc Dir</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ARGUMENT__INCLUDE = eINSTANCE.getArgument_Include();
+    EAttribute ARGUMENT__INC_DIR = eINSTANCE.getArgument_IncDir();
+
+    /**
+     * The meta object literal for the '<em><b>Use Inc Dir</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARGUMENT__USE_INC_DIR = eINSTANCE.getArgument_UseIncDir();
+
+    /**
+     * The meta object literal for the '<em><b>Inc Sys</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ARGUMENT__INC_SYS = eINSTANCE.getArgument_IncSys();
 
     /**
      * The meta object literal for the '<em><b>Nostdinc</b></em>' attribute feature.
@@ -628,22 +684,22 @@ public interface CmdArgsPackage extends EPackage
     EAttribute MACRO__NAME = eINSTANCE.getMacro_Name();
 
     /**
-     * The meta object literal for the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.IncludeCmdImpl <em>Include Cmd</em>}' class.
+     * The meta object literal for the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.UseIncludeDirCmdImpl <em>Use Include Dir Cmd</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see at.jku.weiner.c.cmdarguments.cmdArgs.impl.IncludeCmdImpl
-     * @see at.jku.weiner.c.cmdarguments.cmdArgs.impl.CmdArgsPackageImpl#getIncludeCmd()
+     * @see at.jku.weiner.c.cmdarguments.cmdArgs.impl.UseIncludeDirCmdImpl
+     * @see at.jku.weiner.c.cmdarguments.cmdArgs.impl.CmdArgsPackageImpl#getUseIncludeDirCmd()
      * @generated
      */
-    EClass INCLUDE_CMD = eINSTANCE.getIncludeCmd();
+    EClass USE_INCLUDE_DIR_CMD = eINSTANCE.getUseIncludeDirCmd();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute INCLUDE_CMD__NAME = eINSTANCE.getIncludeCmd_Name();
+    EAttribute USE_INCLUDE_DIR_CMD__PATH = eINSTANCE.getUseIncludeDirCmd_Path();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.SimpleMacroImpl <em>Simple Macro</em>}' class.

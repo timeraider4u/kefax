@@ -1,0 +1,2 @@
+-nostdinc
+-DFOO

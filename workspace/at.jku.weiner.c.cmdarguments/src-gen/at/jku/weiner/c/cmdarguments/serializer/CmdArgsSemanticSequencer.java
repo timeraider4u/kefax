@@ -7,10 +7,10 @@ import at.jku.weiner.c.cmdarguments.cmdArgs.Argument;
 import at.jku.weiner.c.cmdarguments.cmdArgs.CmdArgsPackage;
 import at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine;
 import at.jku.weiner.c.cmdarguments.cmdArgs.FunctionMacro;
-import at.jku.weiner.c.cmdarguments.cmdArgs.IncludeCmd;
 import at.jku.weiner.c.cmdarguments.cmdArgs.Model;
 import at.jku.weiner.c.cmdarguments.cmdArgs.ObjectMacro;
 import at.jku.weiner.c.cmdarguments.cmdArgs.SimpleMacro;
+import at.jku.weiner.c.cmdarguments.cmdArgs.UseIncludeDirCmd;
 import at.jku.weiner.c.cmdarguments.services.CmdArgsGrammarAccess;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
@@ -44,9 +44,6 @@ public class CmdArgsSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case CmdArgsPackage.FUNCTION_MACRO:
 				sequence_FunctionMacro(context, (FunctionMacro) semanticObject); 
 				return; 
-			case CmdArgsPackage.INCLUDE_CMD:
-				sequence_IncludeCmd(context, (IncludeCmd) semanticObject); 
-				return; 
 			case CmdArgsPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
 				return; 
@@ -56,13 +53,16 @@ public class CmdArgsSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case CmdArgsPackage.SIMPLE_MACRO:
 				sequence_SimpleMacro(context, (SimpleMacro) semanticObject); 
 				return; 
+			case CmdArgsPackage.USE_INCLUDE_DIR_CMD:
+				sequence_UseIncludeDirCmd(context, (UseIncludeDirCmd) semanticObject); 
+				return; 
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
 	
 	/**
 	 * Constraint:
-	 *     (macro=Macro | include=IncludeCmd | include=IncludeCmd | nostdinc?=NOSTDINC)
+	 *     (macro=Macro | (incDir?=INCLUDE useIncDir=UseIncludeDirCmd) | (incSys?=INCSYS useIncDir=UseIncludeDirCmd) | nostdinc?=NOSTDINC)
 	 */
 	protected void sequence_Argument(EObject context, Argument semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -89,23 +89,7 @@ public class CmdArgsSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Constraint:
-	 *     name=Identifier
-	 */
-	protected void sequence_IncludeCmd(EObject context, IncludeCmd semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, CmdArgsPackage.Literals.INCLUDE_CMD__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CmdArgsPackage.Literals.INCLUDE_CMD__NAME));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getIncludeCmdAccess().getNameIdentifierParserRuleCall_0(), semanticObject.getName());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (line+=CmdLine*)
+	 *     (lines+=CmdLine*)
 	 */
 	protected void sequence_Model(EObject context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -143,6 +127,22 @@ public class CmdArgsSemanticSequencer extends AbstractDelegatingSemanticSequence
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getSimpleMacroAccess().getNameIdentifierParserRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     path=Path
+	 */
+	protected void sequence_UseIncludeDirCmd(EObject context, UseIncludeDirCmd semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, CmdArgsPackage.Literals.USE_INCLUDE_DIR_CMD__PATH) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CmdArgsPackage.Literals.USE_INCLUDE_DIR_CMD__PATH));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getUseIncludeDirCmdAccess().getPathPathParserRuleCall_0(), semanticObject.getPath());
 		feeder.finish();
 	}
 }

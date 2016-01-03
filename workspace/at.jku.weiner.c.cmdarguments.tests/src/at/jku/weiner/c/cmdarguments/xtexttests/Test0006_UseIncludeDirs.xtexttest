@@ -5,12 +5,14 @@ language cmdArgs
 // imports at.jku.weiner.c.common.common
 //----------------------------------------------------------------------
 split-lexer=false
-source file="res/Test0003_SimpleObjectDefine.cmd"
+source file="res/Test0006_UseIncludeDirs.cmd"
 //----------------------------------------------------------------------
 lexer-tokens
-	DEFINE ID SKW_ASSIGN ID NEWLINE
-	DEFINE ID SKW_ASSIGN INT NEWLINE
-	DEFINE ID SKW_ASSIGN ID NEWLINE
+	INCLUDE ID ANY_OTHER ID ANY_OTHER ID WS 
+		INCLUDE ANY_OTHER+*2 ID ANY_OTHER ID ANY_OTHER ID WS
+		INCLUDE ID ANY_OTHER+*2 ID ANY_OTHER ID
+		NEWLINE
+	DEFINE ID
 //----------------------------------------------------------------------
 
 (Model
@@ -18,30 +20,35 @@ lexer-tokens
 	(CmdLine
 		arguments+=
 		(Argument
-			macro=
-			(ObjectMacro
-				name++"FOO1",
-				value++"BAR"
+			incDir?=true,
+			useIncDir=
+			(UseIncludeDirCmd
+				path++"foo/bar/include"
+			)
+		),
+		(Argument
+			incDir?=true,
+			useIncDir=
+			(UseIncludeDirCmd
+				path++"./foobar/bar/include"
+			)
+		),
+		(Argument
+			incDir?=true,
+			useIncDir=
+			(UseIncludeDirCmd
+				path++"C:\\\\system\\\\include"
 			)
 		)
 	),
 	(CmdLine
 		arguments+=
 		(Argument
-			macro=
-			(ObjectMacro
-				name++"FOO2",
-				value++"5"
-			)
-		)
-	),
-	(CmdLine
-		arguments+=
-		(Argument
-			macro=
-			(ObjectMacro
-				name++"FOO3",
-				value++"doSomething"
+			incDir?=false,
+			incSys?=false,
+			macro=			
+			(SimpleMacro
+				name++"__FOO__"
 			)
 		)
 	)

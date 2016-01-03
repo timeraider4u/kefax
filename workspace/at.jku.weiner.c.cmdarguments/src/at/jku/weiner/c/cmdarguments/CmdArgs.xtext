@@ -1,12 +1,12 @@
 grammar at.jku.weiner.c.cmdarguments.CmdArgs 
 with org.eclipse.xtext.common.Terminals
-hidden(WS)
+// hidden(WS)
 
 generate cmdArgs "http://www.jku.at/weiner/c/cmdarguments/CmdArgs"
 
 Model:
 	{Model}
-	(line+=CmdLine NEWLINE?)*
+	(lines+=CmdLine WS* NEWLINE?)*
 ;
 
 CmdLine:
@@ -19,9 +19,9 @@ Argument:
 	(
 		DEFINE macro=Macro
 	|
-		INCLUDE include=IncludeCmd
+		(incDir?=INCLUDE useIncDir=UseIncludeDirCmd)
 	|
-		INCSYS include=IncludeCmd
+		(incSys?=INCSYS useIncDir=UseIncludeDirCmd)
 	|
 		nostdinc?=NOSTDINC
 	)
@@ -54,15 +54,19 @@ FunctionMacro returns Macro:
 	value=MyCode
 ;
 
-IncludeCmd:
-	name=Identifier
+UseIncludeDirCmd:
+	path=Path
+	//name=Identifier
 ;
 
 Identifier: ID;
 MyCode: 
-	(ID | INT | STRING | HASH | SKW_COMMA | SKW_LEFTPAREN | SKW_RIGHTPAREN)+
+	(ID | INT | STRING | HASH | SKW_COMMA | SKW_LEFTPAREN | SKW_RIGHTPAREN | ANY_OTHER)+
 ;
 
+Path:
+	(ID | INT | STRING | HASH | SKW_COMMA | ANY_OTHER)+ 
+;
 
 terminal SKW_MINUS: '-';
 terminal SKW_ASSIGN: '=';
@@ -74,7 +78,7 @@ terminal HASH: '#';
 terminal DEFINE: SKW_MINUS 'D';
 terminal INCLUDE: SKW_MINUS 'I';
 terminal NOSTDINC: SKW_MINUS 'nostdinc';
-terminal INCSYS: SKW_MINUS '-isystem';
+terminal INCSYS: SKW_MINUS 'isystem';
 
 
 terminal NEWLINE: '\n' | '\r';

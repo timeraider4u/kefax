@@ -114,7 +114,7 @@ Option:
 ;
 
 NonOptionChar:
-	ID | INT | STRING | SKW_ASSIGN | SKW_COMMA | SKW_MINUS | ANY_OTHER
+	ID | INT | STRING | SKW_ASSIGN | SKW_COMMA | ANY_OTHER
 ;
 
 OptionChar:

@@ -98,7 +98,10 @@ public class Main implements IStartup {
 					.getIncludeDirectoriesAsString();
 			System.out.println("includeDirectories='" + includeDirectories
 					+ "'");
-			// final boolean stdInclude = this.isStandardInclude(model);
+			final boolean stdInclude = !args.isNoStandardInclude();
+			System.out.println("stdInclude='" + stdInclude + "'");
+			final String inFile = args.getInFile();
+			System.out.println("inFile='" + inFile + "'");
 		}
 	}
 	

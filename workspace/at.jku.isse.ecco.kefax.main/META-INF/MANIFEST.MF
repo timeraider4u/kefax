@@ -14,7 +14,8 @@ Require-Bundle: org.eclipse.ui,
  at.jku.weiner.c.cmdarguments.ui;bundle-version="1.0.0",
  org.eclipse.modisco.cdt.discoverer;bundle-version="0.1.0",
  org.eclipse.modisco.cdt.discoverer.ui;bundle-version="0.1.0",
- org.eclipse.xtext.ui
+ org.eclipse.xtext.ui,
+ org.eclipse.modisco.infra.discovery.core;bundle-version="0.12.2"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: libs/commons-io-2.4.jar,

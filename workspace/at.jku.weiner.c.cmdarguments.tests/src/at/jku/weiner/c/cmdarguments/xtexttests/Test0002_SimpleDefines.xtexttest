@@ -5,12 +5,43 @@ language cmdArgs
 // imports at.jku.weiner.c.common.common
 //----------------------------------------------------------------------
 split-lexer=false
-source file="res/Test0000_Empty.cmd"
+source file="res/Test0002_SimpleDefines.cmd"
 //----------------------------------------------------------------------
+lexer-tokens
+	DEFINE ID NEWLINE
+	DEFINE ID NEWLINE
+	DEFINE ID
 //----------------------------------------------------------------------
 
 (Model
-	line isEmpty
+	line+=
+	(CmdLine
+		arguments+=
+		(Argument
+			macro=
+			(SimpleMacro
+				name++"__FOO__BAR__"
+			)
+		)
+	),
+	(CmdLine
+		arguments+=
+		(Argument
+			macro=
+			(SimpleMacro
+				name++"FOO2"
+			)
+		)
+	),
+	(CmdLine
+		arguments+=
+		(Argument
+			macro=
+			(SimpleMacro
+				name++"_BAR2"
+			)
+		)
+	)
 )
 
 

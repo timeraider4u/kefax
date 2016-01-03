@@ -5,12 +5,46 @@ language cmdArgs
 // imports at.jku.weiner.c.common.common
 //----------------------------------------------------------------------
 split-lexer=false
-source file="res/Test0000_Empty.cmd"
+source file="res/Test0003_SimpleObjectDefine.cmd"
 //----------------------------------------------------------------------
+lexer-tokens
+	DEFINE ID SKW_ASSIGN ID NEWLINE
+	DEFINE ID SKW_ASSIGN INT NEWLINE
+	DEFINE ID SKW_ASSIGN ID NEWLINE
 //----------------------------------------------------------------------
 
 (Model
-	line isEmpty
+	line+=
+	(CmdLine
+		arguments+=
+		(Argument
+			macro=
+			(ObjectMacro
+				name++"FOO1",
+				value++"BAR"
+			)
+		)
+	),
+	(CmdLine
+		arguments+=
+		(Argument
+			macro=
+			(ObjectMacro
+				name++"FOO2",
+				value++"5"
+			)
+		)
+	),
+	(CmdLine
+		arguments+=
+		(Argument
+			macro=
+			(ObjectMacro
+				name++"FOO3",
+				value++"doSomething"
+			)
+		)
+	)
 )
 
 

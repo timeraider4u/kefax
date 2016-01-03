@@ -32,6 +32,15 @@ public interface CmdArgsFactory extends EFactory
   Model createModel();
 
   /**
+   * Returns a new object of class '<em>Cmd Line</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Cmd Line</em>'.
+   * @generated
+   */
+  CmdLine createCmdLine();
+
+  /**
    * Returns a new object of class '<em>Argument</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -39,6 +48,51 @@ public interface CmdArgsFactory extends EFactory
    * @generated
    */
   Argument createArgument();
+
+  /**
+   * Returns a new object of class '<em>Macro</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Macro</em>'.
+   * @generated
+   */
+  Macro createMacro();
+
+  /**
+   * Returns a new object of class '<em>Include Cmd</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Include Cmd</em>'.
+   * @generated
+   */
+  IncludeCmd createIncludeCmd();
+
+  /**
+   * Returns a new object of class '<em>Simple Macro</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Simple Macro</em>'.
+   * @generated
+   */
+  SimpleMacro createSimpleMacro();
+
+  /**
+   * Returns a new object of class '<em>Object Macro</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Object Macro</em>'.
+   * @generated
+   */
+  ObjectMacro createObjectMacro();
+
+  /**
+   * Returns a new object of class '<em>Function Macro</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Function Macro</em>'.
+   * @generated
+   */
+  FunctionMacro createFunctionMacro();
 
   /**
    * Returns the package supported by this factory.

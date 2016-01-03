@@ -5,7 +5,13 @@ package at.jku.weiner.c.cmdarguments.cmdArgs.impl;
 import at.jku.weiner.c.cmdarguments.cmdArgs.Argument;
 import at.jku.weiner.c.cmdarguments.cmdArgs.CmdArgsFactory;
 import at.jku.weiner.c.cmdarguments.cmdArgs.CmdArgsPackage;
+import at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine;
+import at.jku.weiner.c.cmdarguments.cmdArgs.FunctionMacro;
+import at.jku.weiner.c.cmdarguments.cmdArgs.IncludeCmd;
+import at.jku.weiner.c.cmdarguments.cmdArgs.Macro;
 import at.jku.weiner.c.cmdarguments.cmdArgs.Model;
+import at.jku.weiner.c.cmdarguments.cmdArgs.ObjectMacro;
+import at.jku.weiner.c.cmdarguments.cmdArgs.SimpleMacro;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -34,7 +40,49 @@ public class CmdArgsPackageImpl extends EPackageImpl implements CmdArgsPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass cmdLineEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass argumentEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass macroEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass includeCmdEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass simpleMacroEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass objectMacroEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass functionMacroEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -114,9 +162,29 @@ public class CmdArgsPackageImpl extends EPackageImpl implements CmdArgsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModel_Arguments()
+  public EReference getModel_Line()
   {
     return (EReference)modelEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getCmdLine()
+  {
+    return cmdLineEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCmdLine_Arguments()
+  {
+    return (EReference)cmdLineEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -134,9 +202,9 @@ public class CmdArgsPackageImpl extends EPackageImpl implements CmdArgsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getArgument_Name()
+  public EReference getArgument_Macro()
   {
-    return (EAttribute)argumentEClass.getEStructuralFeatures().get(0);
+    return (EReference)argumentEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -144,9 +212,119 @@ public class CmdArgsPackageImpl extends EPackageImpl implements CmdArgsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getArgument_Dir()
+  public EReference getArgument_Include()
   {
-    return (EAttribute)argumentEClass.getEStructuralFeatures().get(1);
+    return (EReference)argumentEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getArgument_Nostdinc()
+  {
+    return (EAttribute)argumentEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getMacro()
+  {
+    return macroEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getMacro_Name()
+  {
+    return (EAttribute)macroEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getIncludeCmd()
+  {
+    return includeCmdEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getIncludeCmd_Name()
+  {
+    return (EAttribute)includeCmdEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getSimpleMacro()
+  {
+    return simpleMacroEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getObjectMacro()
+  {
+    return objectMacroEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getObjectMacro_Value()
+  {
+    return (EAttribute)objectMacroEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getFunctionMacro()
+  {
+    return functionMacroEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFunctionMacro_Params()
+  {
+    return (EAttribute)functionMacroEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFunctionMacro_Value()
+  {
+    return (EAttribute)functionMacroEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -180,11 +358,30 @@ public class CmdArgsPackageImpl extends EPackageImpl implements CmdArgsPackage
 
     // Create classes and their features
     modelEClass = createEClass(MODEL);
-    createEReference(modelEClass, MODEL__ARGUMENTS);
+    createEReference(modelEClass, MODEL__LINE);
+
+    cmdLineEClass = createEClass(CMD_LINE);
+    createEReference(cmdLineEClass, CMD_LINE__ARGUMENTS);
 
     argumentEClass = createEClass(ARGUMENT);
-    createEAttribute(argumentEClass, ARGUMENT__NAME);
-    createEAttribute(argumentEClass, ARGUMENT__DIR);
+    createEReference(argumentEClass, ARGUMENT__MACRO);
+    createEReference(argumentEClass, ARGUMENT__INCLUDE);
+    createEAttribute(argumentEClass, ARGUMENT__NOSTDINC);
+
+    macroEClass = createEClass(MACRO);
+    createEAttribute(macroEClass, MACRO__NAME);
+
+    includeCmdEClass = createEClass(INCLUDE_CMD);
+    createEAttribute(includeCmdEClass, INCLUDE_CMD__NAME);
+
+    simpleMacroEClass = createEClass(SIMPLE_MACRO);
+
+    objectMacroEClass = createEClass(OBJECT_MACRO);
+    createEAttribute(objectMacroEClass, OBJECT_MACRO__VALUE);
+
+    functionMacroEClass = createEClass(FUNCTION_MACRO);
+    createEAttribute(functionMacroEClass, FUNCTION_MACRO__PARAMS);
+    createEAttribute(functionMacroEClass, FUNCTION_MACRO__VALUE);
   }
 
   /**
@@ -216,14 +413,36 @@ public class CmdArgsPackageImpl extends EPackageImpl implements CmdArgsPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    simpleMacroEClass.getESuperTypes().add(this.getMacro());
+    objectMacroEClass.getESuperTypes().add(this.getMacro());
+    functionMacroEClass.getESuperTypes().add(this.getMacro());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getModel_Arguments(), this.getArgument(), null, "arguments", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Line(), this.getCmdLine(), null, "line", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(cmdLineEClass, CmdLine.class, "CmdLine", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCmdLine_Arguments(), this.getArgument(), null, "arguments", null, 0, -1, CmdLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(argumentEClass, Argument.class, "Argument", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getArgument_Name(), ecorePackage.getEString(), "name", null, 0, 1, Argument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getArgument_Dir(), ecorePackage.getEString(), "dir", null, 0, 1, Argument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getArgument_Macro(), this.getMacro(), null, "macro", null, 0, 1, Argument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getArgument_Include(), this.getIncludeCmd(), null, "include", null, 0, 1, Argument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getArgument_Nostdinc(), ecorePackage.getEBoolean(), "nostdinc", null, 0, 1, Argument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(macroEClass, Macro.class, "Macro", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getMacro_Name(), ecorePackage.getEString(), "name", null, 0, 1, Macro.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(includeCmdEClass, IncludeCmd.class, "IncludeCmd", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getIncludeCmd_Name(), ecorePackage.getEString(), "name", null, 0, 1, IncludeCmd.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(simpleMacroEClass, SimpleMacro.class, "SimpleMacro", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(objectMacroEClass, ObjectMacro.class, "ObjectMacro", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getObjectMacro_Value(), ecorePackage.getEString(), "value", null, 0, 1, ObjectMacro.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(functionMacroEClass, FunctionMacro.class, "FunctionMacro", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getFunctionMacro_Params(), ecorePackage.getEString(), "params", null, 0, -1, FunctionMacro.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFunctionMacro_Value(), ecorePackage.getEString(), "value", null, 0, 1, FunctionMacro.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

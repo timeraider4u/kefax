@@ -8,11 +8,29 @@
   <genPackages prefix="CmdArgs" basePackage="at.jku.weiner.c.cmdarguments" disposableProviderFactory="true"
       fileExtensions="cmd" ecorePackage="CmdArgs.ecore#/">
     <genClasses ecoreClass="CmdArgs.ecore#//Model">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CmdArgs.ecore#//Model/arguments"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CmdArgs.ecore#//Model/line"/>
+    </genClasses>
+    <genClasses ecoreClass="CmdArgs.ecore#//CmdLine">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CmdArgs.ecore#//CmdLine/arguments"/>
     </genClasses>
     <genClasses ecoreClass="CmdArgs.ecore#//Argument">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CmdArgs.ecore#//Argument/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CmdArgs.ecore#//Argument/dir"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CmdArgs.ecore#//Argument/macro"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CmdArgs.ecore#//Argument/include"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CmdArgs.ecore#//Argument/nostdinc"/>
+    </genClasses>
+    <genClasses ecoreClass="CmdArgs.ecore#//Macro">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CmdArgs.ecore#//Macro/name"/>
+    </genClasses>
+    <genClasses ecoreClass="CmdArgs.ecore#//IncludeCmd">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CmdArgs.ecore#//IncludeCmd/name"/>
+    </genClasses>
+    <genClasses ecoreClass="CmdArgs.ecore#//SimpleMacro"/>
+    <genClasses ecoreClass="CmdArgs.ecore#//ObjectMacro">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CmdArgs.ecore#//ObjectMacro/value"/>
+    </genClasses>
+    <genClasses ecoreClass="CmdArgs.ecore#//FunctionMacro">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CmdArgs.ecore#//FunctionMacro/params"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CmdArgs.ecore#//FunctionMacro/value"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

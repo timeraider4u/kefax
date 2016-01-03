@@ -38,13 +38,34 @@ public class CmdArgsParser extends AbstractContentAssistParser {
 				private static final long serialVersionUID = 1L;
 				{
 					put(grammarAccess.getArgumentAccess().getAlternatives_1(), "rule__Argument__Alternatives_1");
+					put(grammarAccess.getMacroAccess().getAlternatives(), "rule__Macro__Alternatives");
+					put(grammarAccess.getMyCodeAccess().getAlternatives(), "rule__MyCode__Alternatives");
 					put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
+					put(grammarAccess.getModelAccess().getGroup_1(), "rule__Model__Group_1__0");
+					put(grammarAccess.getCmdLineAccess().getGroup(), "rule__CmdLine__Group__0");
 					put(grammarAccess.getArgumentAccess().getGroup(), "rule__Argument__Group__0");
 					put(grammarAccess.getArgumentAccess().getGroup_1_0(), "rule__Argument__Group_1_0__0");
 					put(grammarAccess.getArgumentAccess().getGroup_1_1(), "rule__Argument__Group_1_1__0");
-					put(grammarAccess.getModelAccess().getArgumentsAssignment_1(), "rule__Model__ArgumentsAssignment_1");
-					put(grammarAccess.getArgumentAccess().getNameAssignment_1_0_1(), "rule__Argument__NameAssignment_1_0_1");
-					put(grammarAccess.getArgumentAccess().getDirAssignment_1_1_1(), "rule__Argument__DirAssignment_1_1_1");
+					put(grammarAccess.getArgumentAccess().getGroup_1_2(), "rule__Argument__Group_1_2__0");
+					put(grammarAccess.getSimpleMacroAccess().getGroup(), "rule__SimpleMacro__Group__0");
+					put(grammarAccess.getObjectMacroAccess().getGroup(), "rule__ObjectMacro__Group__0");
+					put(grammarAccess.getFunctionMacroAccess().getGroup(), "rule__FunctionMacro__Group__0");
+					put(grammarAccess.getFunctionMacroAccess().getGroup_3(), "rule__FunctionMacro__Group_3__0");
+					put(grammarAccess.getFunctionMacroAccess().getGroup_3_1(), "rule__FunctionMacro__Group_3_1__0");
+					put(grammarAccess.getModelAccess().getLineAssignment_1_0(), "rule__Model__LineAssignment_1_0");
+					put(grammarAccess.getCmdLineAccess().getArgumentsAssignment_1(), "rule__CmdLine__ArgumentsAssignment_1");
+					put(grammarAccess.getArgumentAccess().getMacroAssignment_1_0_1(), "rule__Argument__MacroAssignment_1_0_1");
+					put(grammarAccess.getArgumentAccess().getIncludeAssignment_1_1_1(), "rule__Argument__IncludeAssignment_1_1_1");
+					put(grammarAccess.getArgumentAccess().getIncludeAssignment_1_2_1(), "rule__Argument__IncludeAssignment_1_2_1");
+					put(grammarAccess.getArgumentAccess().getNostdincAssignment_1_3(), "rule__Argument__NostdincAssignment_1_3");
+					put(grammarAccess.getSimpleMacroAccess().getNameAssignment_1(), "rule__SimpleMacro__NameAssignment_1");
+					put(grammarAccess.getObjectMacroAccess().getNameAssignment_1(), "rule__ObjectMacro__NameAssignment_1");
+					put(grammarAccess.getObjectMacroAccess().getValueAssignment_3(), "rule__ObjectMacro__ValueAssignment_3");
+					put(grammarAccess.getFunctionMacroAccess().getNameAssignment_1(), "rule__FunctionMacro__NameAssignment_1");
+					put(grammarAccess.getFunctionMacroAccess().getParamsAssignment_3_0(), "rule__FunctionMacro__ParamsAssignment_3_0");
+					put(grammarAccess.getFunctionMacroAccess().getParamsAssignment_3_1_1(), "rule__FunctionMacro__ParamsAssignment_3_1_1");
+					put(grammarAccess.getFunctionMacroAccess().getValueAssignment_6(), "rule__FunctionMacro__ValueAssignment_6");
+					put(grammarAccess.getIncludeCmdAccess().getNameAssignment(), "rule__IncludeCmd__NameAssignment");
 				}
 			};
 		}

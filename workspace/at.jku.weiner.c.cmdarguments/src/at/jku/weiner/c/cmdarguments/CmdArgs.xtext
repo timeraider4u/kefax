@@ -1,21 +1,81 @@
-grammar at.jku.weiner.c.cmdarguments.CmdArgs with org.eclipse.xtext.common.Terminals
+grammar at.jku.weiner.c.cmdarguments.CmdArgs 
+with org.eclipse.xtext.common.Terminals
 hidden(WS)
 
 generate cmdArgs "http://www.jku.at/weiner/c/cmdarguments/CmdArgs"
 
 Model:
 	{Model}
-	arguments+=Argument*;
+	(line+=CmdLine NEWLINE?)*
+;
+
+CmdLine:
+	{CmdLine}
+	(arguments+=Argument)+
+;
 	
 Argument:
 	{Argument}
 	(
-		'-D' name=Identifier
+		DEFINE macro=Macro
 	|
-		'-I' dir=Identifier
+		INCLUDE include=IncludeCmd
+	|
+		INCSYS include=IncludeCmd
+	|
+		nostdinc?=NOSTDINC
 	)
 ;
 
+Macro returns Macro:
+	(
+		SimpleMacro
+	|	ObjectMacro
+	|	FunctionMacro
+	)
+;
 
+SimpleMacro returns Macro:
+	{SimpleMacro}
+	name=Identifier
+;
+
+ObjectMacro returns Macro:
+	{ObjectMacro}
+	name=Identifier SKW_ASSIGN
+	value=MyCode
+;
+
+FunctionMacro returns Macro:
+	{FunctionMacro}
+	name=Identifier
+	SKW_LEFTPAREN (params+=Identifier (SKW_COMMA params+=Identifier)*)? 
+	SKW_RIGHTPAREN SKW_ASSIGN
+	value=MyCode
+;
+
+IncludeCmd:
+	name=Identifier
+;
 
 Identifier: ID;
+MyCode: 
+	(ID | INT | STRING | HASH | SKW_COMMA | SKW_LEFTPAREN | SKW_RIGHTPAREN)+
+;
+
+
+terminal SKW_MINUS: '-';
+terminal SKW_ASSIGN: '=';
+terminal SKW_LEFTPAREN: '(';
+terminal SKW_RIGHTPAREN: ')';
+terminal SKW_COMMA: ',';
+
+terminal HASH: '#';
+terminal DEFINE: SKW_MINUS 'D';
+terminal INCLUDE: SKW_MINUS 'I';
+terminal NOSTDINC: SKW_MINUS 'nostdinc';
+terminal INCSYS: SKW_MINUS '-isystem';
+
+
+terminal NEWLINE: '\n' | '\r';
+//terminal END: EOF;

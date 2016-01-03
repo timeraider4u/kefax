@@ -94,12 +94,79 @@ ruleModel returns [EObject current=null]
 
 (
 (
+(
 		{ 
-	        newCompositeNode(grammarAccess.getModelAccess().getArgumentsArgumentParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getModelAccess().getLineCmdLineParserRuleCall_1_0_0()); 
+	    }
+		lv_line_1_0=ruleCmdLine		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getModelRule());
+	        }
+       		add(
+       			$current, 
+       			"line",
+        		lv_line_1_0, 
+        		"at.jku.weiner.c.cmdarguments.CmdArgs.CmdLine");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+(this_NEWLINE_2=RULE_NEWLINE
+    { 
+    newLeafNode(this_NEWLINE_2, grammarAccess.getModelAccess().getNEWLINETerminalRuleCall_1_1()); 
+    }
+)?
+
+)*
+
+)
+
+
+;
+
+
+
+
+
+// Entry rule entryRuleCmdLine
+entryRuleCmdLine returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getCmdLineRule()); }
+	 iv_ruleCmdLine=ruleCmdLine 
+	 { $current=$iv_ruleCmdLine.current; } 
+	 EOF 
+;
+
+// Rule CmdLine
+ruleCmdLine returns [EObject current=null] 
+    @init { enterRule();
+   		/*no init found*/
+    }
+    @after { leaveRule();
+    		/*no after found*/
+     }:
+
+(
+(
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getCmdLineAccess().getCmdLineAction_0(),
+            $current);
+    }
+)
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getCmdLineAccess().getArgumentsArgumentParserRuleCall_1_0()); 
 	    }
 		lv_arguments_1_0=ruleArgument		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getModelRule());
+	            $current = createModelElementForParent(grammarAccess.getCmdLineRule());
 	        }
        		add(
        			$current, 
@@ -110,7 +177,7 @@ ruleModel returns [EObject current=null]
 	    }
 
 )
-)*
+)+
 
 )
 
@@ -151,9 +218,9 @@ ruleArgument returns [EObject current=null]
 
 (
 (
-	otherlv_1='-D' 
-    {
-    	newLeafNode(otherlv_1, grammarAccess.getArgumentAccess().getDKeyword_1_0_0());
+this_DEFINE_1=RULE_DEFINE
+    { 
+    newLeafNode(this_DEFINE_1, grammarAccess.getArgumentAccess().getDEFINETerminalRuleCall_1_0_0()); 
     }
 
 
@@ -161,17 +228,17 @@ ruleArgument returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getArgumentAccess().getNameIdentifierParserRuleCall_1_0_1_0()); 
+	        newCompositeNode(grammarAccess.getArgumentAccess().getMacroMacroParserRuleCall_1_0_1_0()); 
 	    }
-		lv_name_2_0=ruleIdentifier		{
+		lv_macro_2_0=ruleMacro		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getArgumentRule());
 	        }
        		set(
        			$current, 
-       			"name",
-        		lv_name_2_0, 
-        		"at.jku.weiner.c.cmdarguments.CmdArgs.Identifier");
+       			"macro",
+        		lv_macro_2_0, 
+        		"at.jku.weiner.c.cmdarguments.CmdArgs.Macro");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -183,9 +250,9 @@ ruleArgument returns [EObject current=null]
 
     |
 (
-	otherlv_3='-I' 
-    {
-    	newLeafNode(otherlv_3, grammarAccess.getArgumentAccess().getIKeyword_1_1_0());
+this_INCLUDE_3=RULE_INCLUDE
+    { 
+    newLeafNode(this_INCLUDE_3, grammarAccess.getArgumentAccess().getINCLUDETerminalRuleCall_1_1_0()); 
     }
 
 
@@ -193,16 +260,196 @@ ruleArgument returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getArgumentAccess().getDirIdentifierParserRuleCall_1_1_1_0()); 
+	        newCompositeNode(grammarAccess.getArgumentAccess().getIncludeIncludeCmdParserRuleCall_1_1_1_0()); 
 	    }
-		lv_dir_4_0=ruleIdentifier		{
+		lv_include_4_0=ruleIncludeCmd		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getArgumentRule());
 	        }
        		set(
        			$current, 
-       			"dir",
-        		lv_dir_4_0, 
+       			"include",
+        		lv_include_4_0, 
+        		"at.jku.weiner.c.cmdarguments.CmdArgs.IncludeCmd");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+)
+
+
+    |
+(
+this_INCSYS_5=RULE_INCSYS
+    { 
+    newLeafNode(this_INCSYS_5, grammarAccess.getArgumentAccess().getINCSYSTerminalRuleCall_1_2_0()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getArgumentAccess().getIncludeIncludeCmdParserRuleCall_1_2_1_0()); 
+	    }
+		lv_include_6_0=ruleIncludeCmd		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getArgumentRule());
+	        }
+       		set(
+       			$current, 
+       			"include",
+        		lv_include_6_0, 
+        		"at.jku.weiner.c.cmdarguments.CmdArgs.IncludeCmd");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+)
+
+
+    |
+(
+(
+		lv_nostdinc_7_0=RULE_NOSTDINC
+		{
+			newLeafNode(lv_nostdinc_7_0, grammarAccess.getArgumentAccess().getNostdincNOSTDINCTerminalRuleCall_1_3_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getArgumentRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"nostdinc",
+        		true, 
+        		"at.jku.weiner.c.cmdarguments.CmdArgs.NOSTDINC");
+	    }
+
+)
+)
+
+)
+
+)
+
+
+;
+
+
+
+
+
+// Entry rule entryRuleMacro
+entryRuleMacro returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getMacroRule()); }
+	 iv_ruleMacro=ruleMacro 
+	 { $current=$iv_ruleMacro.current; } 
+	 EOF 
+;
+
+// Rule Macro
+ruleMacro returns [EObject current=null] 
+    @init { enterRule();
+   		/*no init found*/
+    }
+    @after { leaveRule();
+    		/*no after found*/
+     }:
+
+(
+
+    { 
+        newCompositeNode(grammarAccess.getMacroAccess().getSimpleMacroParserRuleCall_0()); 
+    }
+    this_SimpleMacro_0=ruleSimpleMacro
+    { 
+        $current = $this_SimpleMacro_0.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+
+
+    |
+
+    { 
+        newCompositeNode(grammarAccess.getMacroAccess().getObjectMacroParserRuleCall_1()); 
+    }
+    this_ObjectMacro_1=ruleObjectMacro
+    { 
+        $current = $this_ObjectMacro_1.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+
+
+    |
+
+    { 
+        newCompositeNode(grammarAccess.getMacroAccess().getFunctionMacroParserRuleCall_2()); 
+    }
+    this_FunctionMacro_2=ruleFunctionMacro
+    { 
+        $current = $this_FunctionMacro_2.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+
+)
+
+
+;
+
+
+
+
+
+// Entry rule entryRuleSimpleMacro
+entryRuleSimpleMacro returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getSimpleMacroRule()); }
+	 iv_ruleSimpleMacro=ruleSimpleMacro 
+	 { $current=$iv_ruleSimpleMacro.current; } 
+	 EOF 
+;
+
+// Rule SimpleMacro
+ruleSimpleMacro returns [EObject current=null] 
+    @init { enterRule();
+   		/*no init found*/
+    }
+    @after { leaveRule();
+    		/*no after found*/
+     }:
+
+(
+(
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getSimpleMacroAccess().getSimpleMacroAction_0(),
+            $current);
+    }
+)
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getSimpleMacroAccess().getNameIdentifierParserRuleCall_1_0()); 
+	    }
+		lv_name_1_0=ruleIdentifier		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getSimpleMacroRule());
+	        }
+       		set(
+       			$current, 
+       			"name",
+        		lv_name_1_0, 
         		"at.jku.weiner.c.cmdarguments.CmdArgs.Identifier");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -212,8 +459,288 @@ ruleArgument returns [EObject current=null]
 
 )
 
+
+;
+
+
+
+
+
+// Entry rule entryRuleObjectMacro
+entryRuleObjectMacro returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getObjectMacroRule()); }
+	 iv_ruleObjectMacro=ruleObjectMacro 
+	 { $current=$iv_ruleObjectMacro.current; } 
+	 EOF 
+;
+
+// Rule ObjectMacro
+ruleObjectMacro returns [EObject current=null] 
+    @init { enterRule();
+   		/*no init found*/
+    }
+    @after { leaveRule();
+    		/*no after found*/
+     }:
+
+(
+(
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getObjectMacroAccess().getObjectMacroAction_0(),
+            $current);
+    }
 )
 
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getObjectMacroAccess().getNameIdentifierParserRuleCall_1_0()); 
+	    }
+		lv_name_1_0=ruleIdentifier		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getObjectMacroRule());
+	        }
+       		set(
+       			$current, 
+       			"name",
+        		lv_name_1_0, 
+        		"at.jku.weiner.c.cmdarguments.CmdArgs.Identifier");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+this_SKW_ASSIGN_2=RULE_SKW_ASSIGN
+    { 
+    newLeafNode(this_SKW_ASSIGN_2, grammarAccess.getObjectMacroAccess().getSKW_ASSIGNTerminalRuleCall_2()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getObjectMacroAccess().getValueMyCodeParserRuleCall_3_0()); 
+	    }
+		lv_value_3_0=ruleMyCode		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getObjectMacroRule());
+	        }
+       		set(
+       			$current, 
+       			"value",
+        		lv_value_3_0, 
+        		"at.jku.weiner.c.cmdarguments.CmdArgs.MyCode");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+)
+
+
+;
+
+
+
+
+
+// Entry rule entryRuleFunctionMacro
+entryRuleFunctionMacro returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getFunctionMacroRule()); }
+	 iv_ruleFunctionMacro=ruleFunctionMacro 
+	 { $current=$iv_ruleFunctionMacro.current; } 
+	 EOF 
+;
+
+// Rule FunctionMacro
+ruleFunctionMacro returns [EObject current=null] 
+    @init { enterRule();
+   		/*no init found*/
+    }
+    @after { leaveRule();
+    		/*no after found*/
+     }:
+
+(
+(
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getFunctionMacroAccess().getFunctionMacroAction_0(),
+            $current);
+    }
+)
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getFunctionMacroAccess().getNameIdentifierParserRuleCall_1_0()); 
+	    }
+		lv_name_1_0=ruleIdentifier		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getFunctionMacroRule());
+	        }
+       		set(
+       			$current, 
+       			"name",
+        		lv_name_1_0, 
+        		"at.jku.weiner.c.cmdarguments.CmdArgs.Identifier");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+this_SKW_LEFTPAREN_2=RULE_SKW_LEFTPAREN
+    { 
+    newLeafNode(this_SKW_LEFTPAREN_2, grammarAccess.getFunctionMacroAccess().getSKW_LEFTPARENTerminalRuleCall_2()); 
+    }
+
+
+
+(
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getFunctionMacroAccess().getParamsIdentifierParserRuleCall_3_0_0()); 
+	    }
+		lv_params_3_0=ruleIdentifier		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getFunctionMacroRule());
+	        }
+       		add(
+       			$current, 
+       			"params",
+        		lv_params_3_0, 
+        		"at.jku.weiner.c.cmdarguments.CmdArgs.Identifier");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+(
+this_SKW_COMMA_4=RULE_SKW_COMMA
+    { 
+    newLeafNode(this_SKW_COMMA_4, grammarAccess.getFunctionMacroAccess().getSKW_COMMATerminalRuleCall_3_1_0()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getFunctionMacroAccess().getParamsIdentifierParserRuleCall_3_1_1_0()); 
+	    }
+		lv_params_5_0=ruleIdentifier		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getFunctionMacroRule());
+	        }
+       		add(
+       			$current, 
+       			"params",
+        		lv_params_5_0, 
+        		"at.jku.weiner.c.cmdarguments.CmdArgs.Identifier");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+)*
+
+)?
+
+
+this_SKW_RIGHTPAREN_6=RULE_SKW_RIGHTPAREN
+    { 
+    newLeafNode(this_SKW_RIGHTPAREN_6, grammarAccess.getFunctionMacroAccess().getSKW_RIGHTPARENTerminalRuleCall_4()); 
+    }
+
+
+
+this_SKW_ASSIGN_7=RULE_SKW_ASSIGN
+    { 
+    newLeafNode(this_SKW_ASSIGN_7, grammarAccess.getFunctionMacroAccess().getSKW_ASSIGNTerminalRuleCall_5()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getFunctionMacroAccess().getValueMyCodeParserRuleCall_6_0()); 
+	    }
+		lv_value_8_0=ruleMyCode		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getFunctionMacroRule());
+	        }
+       		set(
+       			$current, 
+       			"value",
+        		lv_value_8_0, 
+        		"at.jku.weiner.c.cmdarguments.CmdArgs.MyCode");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+)
+
+
+;
+
+
+
+
+
+// Entry rule entryRuleIncludeCmd
+entryRuleIncludeCmd returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getIncludeCmdRule()); }
+	 iv_ruleIncludeCmd=ruleIncludeCmd 
+	 { $current=$iv_ruleIncludeCmd.current; } 
+	 EOF 
+;
+
+// Rule IncludeCmd
+ruleIncludeCmd returns [EObject current=null] 
+    @init { enterRule();
+   		/*no init found*/
+    }
+    @after { leaveRule();
+    		/*no after found*/
+     }:
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getIncludeCmdAccess().getNameIdentifierParserRuleCall_0()); 
+	    }
+		lv_name_0_0=ruleIdentifier		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getIncludeCmdRule());
+	        }
+       		set(
+       			$current, 
+       			"name",
+        		lv_name_0_0, 
+        		"at.jku.weiner.c.cmdarguments.CmdArgs.Identifier");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
 )
 
 
@@ -250,6 +777,104 @@ ruleIdentifier returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToke
 
 
 
+
+// Entry rule entryRuleMyCode
+entryRuleMyCode returns [String current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getMyCodeRule()); } 
+	 iv_ruleMyCode=ruleMyCode 
+	 { $current=$iv_ruleMyCode.current.getText(); }  
+	 EOF 
+;
+
+// Rule MyCode
+ruleMyCode returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(    this_ID_0=RULE_ID    {
+		$current.merge(this_ID_0);
+    }
+
+    { 
+    newLeafNode(this_ID_0, grammarAccess.getMyCodeAccess().getIDTerminalRuleCall_0()); 
+    }
+
+    |    this_INT_1=RULE_INT    {
+		$current.merge(this_INT_1);
+    }
+
+    { 
+    newLeafNode(this_INT_1, grammarAccess.getMyCodeAccess().getINTTerminalRuleCall_1()); 
+    }
+
+    |    this_STRING_2=RULE_STRING    {
+		$current.merge(this_STRING_2);
+    }
+
+    { 
+    newLeafNode(this_STRING_2, grammarAccess.getMyCodeAccess().getSTRINGTerminalRuleCall_2()); 
+    }
+
+    |    this_HASH_3=RULE_HASH    {
+		$current.merge(this_HASH_3);
+    }
+
+    { 
+    newLeafNode(this_HASH_3, grammarAccess.getMyCodeAccess().getHASHTerminalRuleCall_3()); 
+    }
+
+    |    this_SKW_COMMA_4=RULE_SKW_COMMA    {
+		$current.merge(this_SKW_COMMA_4);
+    }
+
+    { 
+    newLeafNode(this_SKW_COMMA_4, grammarAccess.getMyCodeAccess().getSKW_COMMATerminalRuleCall_4()); 
+    }
+
+    |    this_SKW_LEFTPAREN_5=RULE_SKW_LEFTPAREN    {
+		$current.merge(this_SKW_LEFTPAREN_5);
+    }
+
+    { 
+    newLeafNode(this_SKW_LEFTPAREN_5, grammarAccess.getMyCodeAccess().getSKW_LEFTPARENTerminalRuleCall_5()); 
+    }
+
+    |    this_SKW_RIGHTPAREN_6=RULE_SKW_RIGHTPAREN    {
+		$current.merge(this_SKW_RIGHTPAREN_6);
+    }
+
+    { 
+    newLeafNode(this_SKW_RIGHTPAREN_6, grammarAccess.getMyCodeAccess().getSKW_RIGHTPARENTerminalRuleCall_6()); 
+    }
+)+
+    ;
+
+
+
+
+
+fragment RULE_SKW_MINUS : '-';
+
+RULE_SKW_ASSIGN : '=';
+
+RULE_SKW_LEFTPAREN : '(';
+
+RULE_SKW_RIGHTPAREN : ')';
+
+RULE_SKW_COMMA : ',';
+
+RULE_HASH : '#';
+
+RULE_DEFINE : RULE_SKW_MINUS 'D';
+
+RULE_INCLUDE : RULE_SKW_MINUS 'I';
+
+RULE_NOSTDINC : RULE_SKW_MINUS 'nostdinc';
+
+RULE_INCSYS : RULE_SKW_MINUS '-isystem';
+
+RULE_NEWLINE : ('\n'|'\r');
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 

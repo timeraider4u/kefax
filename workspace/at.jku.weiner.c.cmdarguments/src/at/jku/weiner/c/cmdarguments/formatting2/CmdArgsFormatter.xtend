@@ -9,6 +9,7 @@ import at.jku.weiner.c.cmdarguments.services.CmdArgsGrammarAccess
 import com.google.inject.Inject
 import org.eclipse.xtext.formatting2.AbstractFormatter2
 import org.eclipse.xtext.formatting2.IFormattableDocument
+import at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine
 
 class CmdArgsFormatter extends AbstractFormatter2 {
 	
@@ -16,8 +17,8 @@ class CmdArgsFormatter extends AbstractFormatter2 {
 
 	def dispatch void format(Model model, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		for (Argument arguments : model.getArguments()) {
-			format(arguments, document);
+		for (CmdLine line : model.getLine()) {
+			format(line, document);
 		}
 	}
 }

@@ -80,9 +80,39 @@ public class CmdArgsAdapterFactory extends AdapterFactoryImpl
         return createModelAdapter();
       }
       @Override
+      public Adapter caseCmdLine(CmdLine object)
+      {
+        return createCmdLineAdapter();
+      }
+      @Override
       public Adapter caseArgument(Argument object)
       {
         return createArgumentAdapter();
+      }
+      @Override
+      public Adapter caseMacro(Macro object)
+      {
+        return createMacroAdapter();
+      }
+      @Override
+      public Adapter caseIncludeCmd(IncludeCmd object)
+      {
+        return createIncludeCmdAdapter();
+      }
+      @Override
+      public Adapter caseSimpleMacro(SimpleMacro object)
+      {
+        return createSimpleMacroAdapter();
+      }
+      @Override
+      public Adapter caseObjectMacro(ObjectMacro object)
+      {
+        return createObjectMacroAdapter();
+      }
+      @Override
+      public Adapter caseFunctionMacro(FunctionMacro object)
+      {
+        return createFunctionMacroAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -122,6 +152,21 @@ public class CmdArgsAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine <em>Cmd Line</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine
+   * @generated
+   */
+  public Adapter createCmdLineAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument <em>Argument</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -132,6 +177,81 @@ public class CmdArgsAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createArgumentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.cmdarguments.cmdArgs.Macro <em>Macro</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.Macro
+   * @generated
+   */
+  public Adapter createMacroAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.cmdarguments.cmdArgs.IncludeCmd <em>Include Cmd</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.IncludeCmd
+   * @generated
+   */
+  public Adapter createIncludeCmdAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.cmdarguments.cmdArgs.SimpleMacro <em>Simple Macro</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.SimpleMacro
+   * @generated
+   */
+  public Adapter createSimpleMacroAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.cmdarguments.cmdArgs.ObjectMacro <em>Object Macro</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.ObjectMacro
+   * @generated
+   */
+  public Adapter createObjectMacroAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.cmdarguments.cmdArgs.FunctionMacro <em>Function Macro</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.FunctionMacro
+   * @generated
+   */
+  public Adapter createFunctionMacroAdapter()
   {
     return null;
   }

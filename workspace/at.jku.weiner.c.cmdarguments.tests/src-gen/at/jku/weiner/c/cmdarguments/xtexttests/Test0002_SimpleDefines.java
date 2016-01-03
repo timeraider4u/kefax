@@ -44,10 +44,19 @@ import at.jku.weiner.c.cmdarguments.parser.antlr.internal.InternalCmdArgsLexer;
 import at.jku.weiner.c.cmdarguments.xtexttests.LexerAndParserTest;
 
 import at.jku.weiner.c.cmdarguments.cmdArgs.Model;
+import at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine;
+import at.jku.weiner.c.cmdarguments.cmdArgs.Argument;
+import at.jku.weiner.c.cmdarguments.cmdArgs.SimpleMacro;
+import at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine;
+import at.jku.weiner.c.cmdarguments.cmdArgs.Argument;
+import at.jku.weiner.c.cmdarguments.cmdArgs.SimpleMacro;
+import at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine;
+import at.jku.weiner.c.cmdarguments.cmdArgs.Argument;
+import at.jku.weiner.c.cmdarguments.cmdArgs.SimpleMacro;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(CmdArgsInjectorProvider.class)
-public class Test0000_Empty {
+public class Test0002_SimpleDefines {
 	@Inject
 	private ParseHelper<Model> parseHelper;
 	@Inject
@@ -90,11 +99,30 @@ public class Test0000_Empty {
 		return content;
 	}
 	
+	@Test (timeout=1000)
+	public void checkLexerTokens() throws Exception{
+		final String text = this.getTextFromFile(
+			"res/Test0002_SimpleDefines.cmd");
+			//System.out.println(text);
+			final String[] expected = new String[] {
+				"RULE_DEFINE", 
+				"RULE_ID", 
+				"RULE_NEWLINE", 
+				"RULE_DEFINE", 
+				"RULE_ID", 
+				"RULE_NEWLINE", 
+				"RULE_DEFINE", 
+				"RULE_ID", 
+				};
+			//final List<Token> actual = testHelper.getTokens(text);
+			//testHelper.outputTokens(text);
+			testHelper.checkTokenisation(text, expected);
+	}
 	
 	@Test (timeout=1000)
 	public void checkParserResult() throws Exception {
 		final String text = this.getTextFromFile(
-			"res/Test0000_Empty.cmd");
+			"res/Test0002_SimpleDefines.cmd");
 		final Model Model_0_Var
 		  = 
 			this.parseHelper.parse(text);
@@ -103,8 +131,76 @@ public class Test0000_Empty {
 		
 		Assert.assertNotNull(Model_0_Var
 		);
-		Assert.assertTrue(Model_0_Var
-		.getLine().isEmpty());
+		final EList<? extends EObject> Line_0_list = Model_0_Var
+		.getLine();
+		Assert.assertNotNull(Line_0_list);
+		Assert.assertEquals(3, Line_0_list.size());
+		//0
+		final CmdLine CmdLine_1_Var
+		 = (CmdLine)Line_0_list.get(0);
+		Assert.assertNotNull(CmdLine_1_Var
+		);
+		final EList<? extends EObject> Arguments_1_list = CmdLine_1_Var
+		.getArguments();
+		Assert.assertNotNull(Arguments_1_list);
+		Assert.assertEquals(1, Arguments_1_list.size());
+		//1
+		final Argument Argument_2_Var
+		 = (Argument)Arguments_1_list.get(0);
+		Assert.assertNotNull(Argument_2_Var
+		);
+		//2
+		final SimpleMacro SimpleMacro_3_Var
+		 = (SimpleMacro)Argument_2_Var
+		.getMacro();
+		Assert.assertNotNull(SimpleMacro_3_Var
+		);
+		Assert.assertEquals("__FOO__BAR__", SimpleMacro_3_Var
+		.getName());
+		//3
+		final CmdLine CmdLine_4_Var
+		 = (CmdLine)Line_0_list.get(1);
+		Assert.assertNotNull(CmdLine_4_Var
+		);
+		final EList<? extends EObject> Arguments_4_list = CmdLine_4_Var
+		.getArguments();
+		Assert.assertNotNull(Arguments_4_list);
+		Assert.assertEquals(1, Arguments_4_list.size());
+		//4
+		final Argument Argument_5_Var
+		 = (Argument)Arguments_4_list.get(0);
+		Assert.assertNotNull(Argument_5_Var
+		);
+		//5
+		final SimpleMacro SimpleMacro_6_Var
+		 = (SimpleMacro)Argument_5_Var
+		.getMacro();
+		Assert.assertNotNull(SimpleMacro_6_Var
+		);
+		Assert.assertEquals("FOO2", SimpleMacro_6_Var
+		.getName());
+		//6
+		final CmdLine CmdLine_7_Var
+		 = (CmdLine)Line_0_list.get(2);
+		Assert.assertNotNull(CmdLine_7_Var
+		);
+		final EList<? extends EObject> Arguments_7_list = CmdLine_7_Var
+		.getArguments();
+		Assert.assertNotNull(Arguments_7_list);
+		Assert.assertEquals(1, Arguments_7_list.size());
+		//7
+		final Argument Argument_8_Var
+		 = (Argument)Arguments_7_list.get(0);
+		Assert.assertNotNull(Argument_8_Var
+		);
+		//8
+		final SimpleMacro SimpleMacro_9_Var
+		 = (SimpleMacro)Argument_8_Var
+		.getMacro();
+		Assert.assertNotNull(SimpleMacro_9_Var
+		);
+		Assert.assertEquals("_BAR2", SimpleMacro_9_Var
+		.getName());
 	}
 	
 	

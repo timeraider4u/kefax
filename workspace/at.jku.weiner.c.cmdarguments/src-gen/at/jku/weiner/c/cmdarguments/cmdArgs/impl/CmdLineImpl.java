@@ -2,9 +2,9 @@
  */
 package at.jku.weiner.c.cmdarguments.cmdArgs.impl;
 
+import at.jku.weiner.c.cmdarguments.cmdArgs.Argument;
 import at.jku.weiner.c.cmdarguments.cmdArgs.CmdArgsPackage;
 import at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine;
-import at.jku.weiner.c.cmdarguments.cmdArgs.Model;
 
 import java.util.Collection;
 
@@ -22,35 +22,35 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Model</b></em>'.
+ * An implementation of the model object '<em><b>Cmd Line</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.ModelImpl#getLine <em>Line</em>}</li>
+ *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.CmdLineImpl#getArguments <em>Arguments</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ModelImpl extends MinimalEObjectImpl.Container implements Model
+public class CmdLineImpl extends MinimalEObjectImpl.Container implements CmdLine
 {
   /**
-   * The cached value of the '{@link #getLine() <em>Line</em>}' containment reference list.
+   * The cached value of the '{@link #getArguments() <em>Arguments</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getLine()
+   * @see #getArguments()
    * @generated
    * @ordered
    */
-  protected EList<CmdLine> line;
+  protected EList<Argument> arguments;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ModelImpl()
+  protected CmdLineImpl()
   {
     super();
   }
@@ -63,7 +63,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   @Override
   protected EClass eStaticClass()
   {
-    return CmdArgsPackage.Literals.MODEL;
+    return CmdArgsPackage.Literals.CMD_LINE;
   }
 
   /**
@@ -71,13 +71,13 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<CmdLine> getLine()
+  public EList<Argument> getArguments()
   {
-    if (line == null)
+    if (arguments == null)
     {
-      line = new EObjectContainmentEList<CmdLine>(CmdLine.class, this, CmdArgsPackage.MODEL__LINE);
+      arguments = new EObjectContainmentEList<Argument>(Argument.class, this, CmdArgsPackage.CMD_LINE__ARGUMENTS);
     }
-    return line;
+    return arguments;
   }
 
   /**
@@ -90,8 +90,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case CmdArgsPackage.MODEL__LINE:
-        return ((InternalEList<?>)getLine()).basicRemove(otherEnd, msgs);
+      case CmdArgsPackage.CMD_LINE__ARGUMENTS:
+        return ((InternalEList<?>)getArguments()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -106,8 +106,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case CmdArgsPackage.MODEL__LINE:
-        return getLine();
+      case CmdArgsPackage.CMD_LINE__ARGUMENTS:
+        return getArguments();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -123,9 +123,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case CmdArgsPackage.MODEL__LINE:
-        getLine().clear();
-        getLine().addAll((Collection<? extends CmdLine>)newValue);
+      case CmdArgsPackage.CMD_LINE__ARGUMENTS:
+        getArguments().clear();
+        getArguments().addAll((Collection<? extends Argument>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -141,8 +141,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case CmdArgsPackage.MODEL__LINE:
-        getLine().clear();
+      case CmdArgsPackage.CMD_LINE__ARGUMENTS:
+        getArguments().clear();
         return;
     }
     super.eUnset(featureID);
@@ -158,10 +158,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case CmdArgsPackage.MODEL__LINE:
-        return line != null && !line.isEmpty();
+      case CmdArgsPackage.CMD_LINE__ARGUMENTS:
+        return arguments != null && !arguments.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //ModelImpl
+} //CmdLineImpl

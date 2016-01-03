@@ -79,10 +79,55 @@ public class CmdArgsSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case CmdArgsPackage.CMD_LINE:
+      {
+        CmdLine cmdLine = (CmdLine)theEObject;
+        T result = caseCmdLine(cmdLine);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case CmdArgsPackage.ARGUMENT:
       {
         Argument argument = (Argument)theEObject;
         T result = caseArgument(argument);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CmdArgsPackage.MACRO:
+      {
+        Macro macro = (Macro)theEObject;
+        T result = caseMacro(macro);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CmdArgsPackage.INCLUDE_CMD:
+      {
+        IncludeCmd includeCmd = (IncludeCmd)theEObject;
+        T result = caseIncludeCmd(includeCmd);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CmdArgsPackage.SIMPLE_MACRO:
+      {
+        SimpleMacro simpleMacro = (SimpleMacro)theEObject;
+        T result = caseSimpleMacro(simpleMacro);
+        if (result == null) result = caseMacro(simpleMacro);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CmdArgsPackage.OBJECT_MACRO:
+      {
+        ObjectMacro objectMacro = (ObjectMacro)theEObject;
+        T result = caseObjectMacro(objectMacro);
+        if (result == null) result = caseMacro(objectMacro);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case CmdArgsPackage.FUNCTION_MACRO:
+      {
+        FunctionMacro functionMacro = (FunctionMacro)theEObject;
+        T result = caseFunctionMacro(functionMacro);
+        if (result == null) result = caseMacro(functionMacro);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -107,6 +152,22 @@ public class CmdArgsSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Cmd Line</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Cmd Line</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCmdLine(CmdLine object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Argument</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -118,6 +179,86 @@ public class CmdArgsSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseArgument(Argument object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Macro</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Macro</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMacro(Macro object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Include Cmd</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Include Cmd</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseIncludeCmd(IncludeCmd object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Simple Macro</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Simple Macro</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSimpleMacro(SimpleMacro object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Object Macro</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Object Macro</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseObjectMacro(ObjectMacro object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Function Macro</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Function Macro</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFunctionMacro(FunctionMacro object)
   {
     return null;
   }

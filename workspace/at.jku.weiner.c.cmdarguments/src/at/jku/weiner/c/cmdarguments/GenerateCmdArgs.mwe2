@@ -166,7 +166,7 @@ Workflow {
 	}
 	
 	component = DirectoryCleaner {
-		directory = "${projectPath}.tests/src/at/jku/weiner/c/cmdargs/tests"
+		directory = "${projectPath}.tests/src/at/jku/weiner/c/cmdarguments/tests"
 		exclude = "xtexttests"
 		exclude = ".keep"
 		exclude = "LexerAndParserTest.java"

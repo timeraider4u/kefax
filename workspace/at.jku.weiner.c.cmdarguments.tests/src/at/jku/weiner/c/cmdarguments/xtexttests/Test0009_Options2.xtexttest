@@ -1,0 +1,35 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.cmdarguments
+language cmdArgs
+// imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+split-lexer=true
+source file="res/Test0009_Options2.cmd"
+//----------------------------------------------------------------------
+lexer-tokens
+	// -Wp,-MD,
+	SKW_MINUS ID SKW_COMMA SKW_MINUS ID SKW_COMMA
+		// foo/bar/foobar/.
+		ID ANY_OTHER ID ANY_OTHER ID ANY_OTHER +*2 
+		// foobar_t.o.d
+		ID ANY_OTHER ID ANY_OTHER ID 
+//----------------------------------------------------------------------
+
+(Model
+	lines+=
+	(CmdLine
+		arguments+=
+		(Argument
+			option++"Wp,-MD,foo/bar/foobar/.foobar_t.o.d"
+		)
+	)
+)
+
+
+//----------------------------------------------------------------------
+//output file="bin/Test0000_Empty.c.i"
+//expected file="expected/Test0000_Empty.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

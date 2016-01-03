@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.MyTokens#getToken <em>Token</em>}</li>
+ *   <li>{@link at.jku.weiner.xtexttest.xtextTest.MyTokens#getString <em>String</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.MyTokens#getCount <em>Count</em>}</li>
  * </ul>
  *
@@ -48,6 +49,32 @@ public interface MyTokens extends EObject
    * @generated
    */
   void setToken(String value);
+
+  /**
+   * Returns the value of the '<em><b>String</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>String</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>String</em>' attribute.
+   * @see #setString(String)
+   * @see at.jku.weiner.xtexttest.xtextTest.XtextTestPackage#getMyTokens_String()
+   * @model
+   * @generated
+   */
+  String getString();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.xtexttest.xtextTest.MyTokens#getString <em>String</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>String</em>' attribute.
+   * @see #getString()
+   * @generated
+   */
+  void setString(String value);
 
   /**
    * Returns the value of the '<em><b>Count</b></em>' attribute.

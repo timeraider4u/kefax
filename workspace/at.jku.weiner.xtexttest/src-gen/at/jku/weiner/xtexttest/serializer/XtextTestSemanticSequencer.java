@@ -232,7 +232,7 @@ public class XtextTestSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Constraint:
-	 *     (token=IDENTIFIER count=INT?)
+	 *     ((token=IDENTIFIER | string=STRING) count=INT?)
 	 */
 	protected void sequence_MyTokens(EObject context, MyTokens semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

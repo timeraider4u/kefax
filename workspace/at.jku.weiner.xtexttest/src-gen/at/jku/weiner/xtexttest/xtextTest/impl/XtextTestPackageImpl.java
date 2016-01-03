@@ -540,9 +540,19 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getMyTokens_Count()
+  public EAttribute getMyTokens_String()
   {
     return (EAttribute)myTokensEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getMyTokens_Count()
+  {
+    return (EAttribute)myTokensEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -935,6 +945,7 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
 
     myTokensEClass = createEClass(MY_TOKENS);
     createEAttribute(myTokensEClass, MY_TOKENS__TOKEN);
+    createEAttribute(myTokensEClass, MY_TOKENS__STRING);
     createEAttribute(myTokensEClass, MY_TOKENS__COUNT);
 
     elementEClass = createEClass(ELEMENT);
@@ -1048,6 +1059,7 @@ public class XtextTestPackageImpl extends EPackageImpl implements XtextTestPacka
 
     initEClass(myTokensEClass, MyTokens.class, "MyTokens", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMyTokens_Token(), ecorePackage.getEString(), "token", null, 0, 1, MyTokens.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMyTokens_String(), ecorePackage.getEString(), "string", null, 0, 1, MyTokens.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMyTokens_Count(), ecorePackage.getEInt(), "count", null, 0, 1, MyTokens.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(elementEClass, Element.class, "Element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

@@ -538,25 +538,37 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	public class MyTokensElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.xtexttest.XtextTest.MyTokens");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cTokenAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cTokenIDENTIFIERTerminalRuleCall_0_0 = (RuleCall)cTokenAssignment_0.eContents().get(0);
+		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
+		private final Assignment cTokenAssignment_0_0 = (Assignment)cAlternatives_0.eContents().get(0);
+		private final RuleCall cTokenIDENTIFIERTerminalRuleCall_0_0_0 = (RuleCall)cTokenAssignment_0_0.eContents().get(0);
+		private final Assignment cStringAssignment_0_1 = (Assignment)cAlternatives_0.eContents().get(1);
+		private final RuleCall cStringSTRINGTerminalRuleCall_0_1_0 = (RuleCall)cStringAssignment_0_1.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final RuleCall cASSIGNASDATALISTTerminalRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
 		private final Assignment cCountAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cCountINTTerminalRuleCall_1_1_0 = (RuleCall)cCountAssignment_1_1.eContents().get(0);
 		
 		//MyTokens:
-		//	token=IDENTIFIER (ASSIGNASDATALIST count=INT)?;
+		//	(token=IDENTIFIER | string=STRING) (ASSIGNASDATALIST count=INT)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//token=IDENTIFIER (ASSIGNASDATALIST count=INT)?
+		//(token=IDENTIFIER | string=STRING) (ASSIGNASDATALIST count=INT)?
 		public Group getGroup() { return cGroup; }
 		
+		//(token=IDENTIFIER | string=STRING)
+		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+		
 		//token=IDENTIFIER
-		public Assignment getTokenAssignment_0() { return cTokenAssignment_0; }
+		public Assignment getTokenAssignment_0_0() { return cTokenAssignment_0_0; }
 		
 		//IDENTIFIER
-		public RuleCall getTokenIDENTIFIERTerminalRuleCall_0_0() { return cTokenIDENTIFIERTerminalRuleCall_0_0; }
+		public RuleCall getTokenIDENTIFIERTerminalRuleCall_0_0_0() { return cTokenIDENTIFIERTerminalRuleCall_0_0_0; }
+		
+		//string=STRING
+		public Assignment getStringAssignment_0_1() { return cStringAssignment_0_1; }
+		
+		//STRING
+		public RuleCall getStringSTRINGTerminalRuleCall_0_1_0() { return cStringSTRINGTerminalRuleCall_0_1_0; }
 		
 		//(ASSIGNASDATALIST count=INT)?
 		public Group getGroup_1() { return cGroup_1; }
@@ -1394,7 +1406,7 @@ public class XtextTestGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//MyTokens:
-	//	token=IDENTIFIER (ASSIGNASDATALIST count=INT)?;
+	//	(token=IDENTIFIER | string=STRING) (ASSIGNASDATALIST count=INT)?;
 	public MyTokensElements getMyTokensAccess() {
 		return pMyTokens;
 	}

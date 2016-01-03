@@ -62,7 +62,14 @@ public class CmdArgsSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Constraint:
-	 *     (macro=Macro | (incDir?=INCDIR useIncDir=PathCmd) | (incSys?=INCSYS useIncDir=PathCmd) | nostdinc?=NOSTDINC | include=PathCmd)
+	 *     (
+	 *         macro=Macro | 
+	 *         (incDir?=IncDir useIncDir=PathCmd) | 
+	 *         (incSys?=IncSys useIncDir=PathCmd) | 
+	 *         nostdinc?=NoStdInc | 
+	 *         include=PathCmd | 
+	 *         option=Option
+	 *     )
 	 */
 	protected void sequence_Argument(EObject context, Argument semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -71,7 +78,7 @@ public class CmdArgsSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Constraint:
-	 *     arguments+=Argument+
+	 *     (arguments+=Argument arguments+=Argument*)
 	 */
 	protected void sequence_CmdLine(EObject context, CmdLine semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -89,7 +96,7 @@ public class CmdArgsSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Constraint:
-	 *     (lines+=CmdLine*)
+	 *     ((lines+=CmdLine lines+=CmdLine*)?)
 	 */
 	protected void sequence_Model(EObject context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

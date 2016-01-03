@@ -4,16 +4,16 @@ package at.jku.weiner.c.cmdarguments
 language cmdArgs
 // imports at.jku.weiner.c.common.common
 //----------------------------------------------------------------------
-split-lexer=false
+split-lexer=true
 source file="res/Test0007_Include.cmd"
 //----------------------------------------------------------------------
 lexer-tokens
 // -include ./include/std/config.h
-INCLUDE WS ANY_OTHER+*2 ID ANY_OTHER ID ANY_OTHER ID ANY_OTHER ID WS
+SKW_MINUS KW_INCLUDE WS ANY_OTHER+*2 KW_INCLUDE ANY_OTHER ID ANY_OTHER ID ANY_OTHER ID WS
 	// -include C:\system\mysystem.h
-	INCLUDE WS ID ANY_OTHER+*2 ID ANY_OTHER ID ANY_OTHER ID NEWLINE
-INCLUDE WS ID ANY_OTHER+*2 ID ANY_OTHER ID ANY_OTHER ID WS
-	INCLUDE WS ANY_OTHER+*2 ID ANY_OTHER ID ANY_OTHER ID ANY_OTHER ID NEWLINE
+	SKW_MINUS KW_INCLUDE WS ID ANY_OTHER+*2 ID ANY_OTHER ID ANY_OTHER ID NEWLINE
+SKW_MINUS KW_INCLUDE WS ID ANY_OTHER+*2 ID ANY_OTHER ID ANY_OTHER ID WS
+	SKW_MINUS KW_INCLUDE WS ANY_OTHER+*2 ID ANY_OTHER ID ANY_OTHER ID ANY_OTHER ID NEWLINE
 
 //----------------------------------------------------------------------
 

@@ -81,17 +81,17 @@ public abstract class AbstractCmdArgsUiModule extends DefaultCommonTypesUiModule
 		return Access.getJavaProjectsState();
 	}
 	
-	// contributed by org.eclipse.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment
+	// contributed by org.eclipse.xtext.generator.parser.antlr.ex.rt.AntlrGeneratorFragment
 	public Class<? extends IProposalConflictHelper> bindIProposalConflictHelper() {
 		return AntlrProposalConflictHelper.class;
 	}
 	
-	// contributed by org.eclipse.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment
+	// contributed by org.eclipse.xtext.generator.parser.antlr.ex.rt.AntlrGeneratorFragment
 	public void configureHighlightingLexer(Binder binder) {
-		binder.bind(org.eclipse.xtext.parser.antlr.Lexer.class).annotatedWith(com.google.inject.name.Names.named(org.eclipse.xtext.ui.LexerUIBindings.HIGHLIGHTING)).to(at.jku.weiner.c.cmdarguments.parser.antlr.internal.InternalCmdArgsLexer.class);
+		binder.bind(org.eclipse.xtext.parser.antlr.Lexer.class).annotatedWith(com.google.inject.name.Names.named(org.eclipse.xtext.ui.LexerUIBindings.HIGHLIGHTING)).to(at.jku.weiner.c.cmdarguments.parser.antlr.lexer.InternalCmdArgsLexer.class);
 	}
 	
-	// contributed by org.eclipse.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment
+	// contributed by org.eclipse.xtext.generator.parser.antlr.ex.rt.AntlrGeneratorFragment
 	public void configureHighlightingTokenDefProvider(Binder binder) {
 		binder.bind(org.eclipse.xtext.parser.antlr.ITokenDefProvider.class).annotatedWith(com.google.inject.name.Names.named(org.eclipse.xtext.ui.LexerUIBindings.HIGHLIGHTING)).to(org.eclipse.xtext.parser.antlr.AntlrTokenDefProvider.class);
 	}
@@ -232,24 +232,24 @@ public abstract class AbstractCmdArgsUiModule extends DefaultCommonTypesUiModule
 		return DefaultViewerCreator.class;
 	}
 	
-	// contributed by org.eclipse.xtext.generator.parser.antlr.XtextAntlrUiGeneratorFragment
+	// contributed by org.eclipse.xtext.generator.parser.antlr.ex.ca.ContentAssistParserGeneratorFragment
 	public Class<? extends ContentAssistContext.Factory> bindContentAssistContext$Factory() {
 		return ParserBasedContentAssistContextFactory.class;
 	}
 	
-	// contributed by org.eclipse.xtext.generator.parser.antlr.XtextAntlrUiGeneratorFragment
+	// contributed by org.eclipse.xtext.generator.parser.antlr.ex.ca.ContentAssistParserGeneratorFragment
 	public Class<? extends IContentAssistParser> bindIContentAssistParser() {
 		return CmdArgsParser.class;
 	}
 	
-	// contributed by org.eclipse.xtext.generator.parser.antlr.XtextAntlrUiGeneratorFragment
+	// contributed by org.eclipse.xtext.generator.parser.antlr.ex.ca.ContentAssistParserGeneratorFragment
 	public void configureContentAssistLexerProvider(Binder binder) {
-		binder.bind(at.jku.weiner.c.cmdarguments.ui.contentassist.antlr.internal.InternalCmdArgsLexer.class).toProvider(org.eclipse.xtext.parser.antlr.LexerProvider.create(at.jku.weiner.c.cmdarguments.ui.contentassist.antlr.internal.InternalCmdArgsLexer.class));
+		binder.bind(at.jku.weiner.c.cmdarguments.ui.contentassist.antlr.lexer.InternalCmdArgsLexer.class).toProvider(org.eclipse.xtext.parser.antlr.LexerProvider.create(at.jku.weiner.c.cmdarguments.ui.contentassist.antlr.lexer.InternalCmdArgsLexer.class));
 	}
 	
-	// contributed by org.eclipse.xtext.generator.parser.antlr.XtextAntlrUiGeneratorFragment
+	// contributed by org.eclipse.xtext.generator.parser.antlr.ex.ca.ContentAssistParserGeneratorFragment
 	public void configureContentAssistLexer(Binder binder) {
-		binder.bind(org.eclipse.xtext.ui.editor.contentassist.antlr.internal.Lexer.class).annotatedWith(com.google.inject.name.Names.named(org.eclipse.xtext.ui.LexerUIBindings.CONTENT_ASSIST)).to(at.jku.weiner.c.cmdarguments.ui.contentassist.antlr.internal.InternalCmdArgsLexer.class);
+		binder.bind(org.eclipse.xtext.ui.editor.contentassist.antlr.internal.Lexer.class).annotatedWith(com.google.inject.name.Names.named(org.eclipse.xtext.ui.LexerUIBindings.CONTENT_ASSIST)).to(at.jku.weiner.c.cmdarguments.ui.contentassist.antlr.lexer.InternalCmdArgsLexer.class);
 	}
 	
 	// contributed by org.eclipse.xtext.generator.types.TypesGeneratorFragment

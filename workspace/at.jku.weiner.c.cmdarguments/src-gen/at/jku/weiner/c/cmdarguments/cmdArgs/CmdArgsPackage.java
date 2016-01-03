@@ -177,13 +177,22 @@ public interface CmdArgsPackage extends EPackage
   int ARGUMENT__INCLUDE = 5;
 
   /**
+   * The feature id for the '<em><b>Option</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARGUMENT__OPTION = 6;
+
+  /**
    * The number of structural features of the '<em>Argument</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ARGUMENT_FEATURE_COUNT = 6;
+  int ARGUMENT_FEATURE_COUNT = 7;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.MacroImpl <em>Macro</em>}' class.
@@ -472,6 +481,17 @@ public interface CmdArgsPackage extends EPackage
   EReference getArgument_Include();
 
   /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#getOption <em>Option</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Option</em>'.
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.Argument#getOption()
+   * @see #getArgument()
+   * @generated
+   */
+  EAttribute getArgument_Option();
+
+  /**
    * Returns the meta object for class '{@link at.jku.weiner.c.cmdarguments.cmdArgs.Macro <em>Macro</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -692,6 +712,14 @@ public interface CmdArgsPackage extends EPackage
      * @generated
      */
     EReference ARGUMENT__INCLUDE = eINSTANCE.getArgument_Include();
+
+    /**
+     * The meta object literal for the '<em><b>Option</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ARGUMENT__OPTION = eINSTANCE.getArgument_Option();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.impl.MacroImpl <em>Macro</em>}' class.

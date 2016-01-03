@@ -40,6 +40,7 @@ public class XtextTestParser extends AbstractContentAssistParser {
 					put(grammarAccess.getModelAccess().getAlternatives_1(), "rule__Model__Alternatives_1");
 					put(grammarAccess.getBooleanAccess().getAlternatives(), "rule__Boolean__Alternatives");
 					put(grammarAccess.getInputAccess().getAlternatives_2(), "rule__Input__Alternatives_2");
+					put(grammarAccess.getMyTokensAccess().getAlternatives_0(), "rule__MyTokens__Alternatives_0");
 					put(grammarAccess.getInnerAccess().getAlternatives_2(), "rule__Inner__Alternatives_2");
 					put(grammarAccess.getInnerAccess().getAssignAsBoolAlternatives_2_4_1_0(), "rule__Inner__AssignAsBoolAlternatives_2_4_1_0");
 					put(grammarAccess.getGeneratorAccess().getAlternatives_2_2(), "rule__Generator__Alternatives_2_2");
@@ -112,7 +113,8 @@ public class XtextTestParser extends AbstractContentAssistParser {
 					put(grammarAccess.getInputAccess().getTextAssignment_2_0_2(), "rule__Input__TextAssignment_2_0_2");
 					put(grammarAccess.getInputAccess().getFileAssignment_2_1_2(), "rule__Input__FileAssignment_2_1_2");
 					put(grammarAccess.getTokensAccess().getTokensAssignment_2(), "rule__Tokens__TokensAssignment_2");
-					put(grammarAccess.getMyTokensAccess().getTokenAssignment_0(), "rule__MyTokens__TokenAssignment_0");
+					put(grammarAccess.getMyTokensAccess().getTokenAssignment_0_0(), "rule__MyTokens__TokenAssignment_0_0");
+					put(grammarAccess.getMyTokensAccess().getStringAssignment_0_1(), "rule__MyTokens__StringAssignment_0_1");
 					put(grammarAccess.getMyTokensAccess().getCountAssignment_1_1(), "rule__MyTokens__CountAssignment_1_1");
 					put(grammarAccess.getElementAccess().getImportingAssignment_2_0(), "rule__Element__ImportingAssignment_2_0");
 					put(grammarAccess.getElementAccess().getNameAssignment_3(), "rule__Element__NameAssignment_3");

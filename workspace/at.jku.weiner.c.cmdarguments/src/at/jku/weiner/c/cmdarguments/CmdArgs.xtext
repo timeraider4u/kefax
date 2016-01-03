@@ -1,32 +1,57 @@
 grammar at.jku.weiner.c.cmdarguments.CmdArgs 
-with org.eclipse.xtext.common.Terminals
-// hidden(WS)
+//with org.eclipse.xtext.common.Terminals
+hidden()
 
 generate cmdArgs "http://www.jku.at/weiner/c/cmdarguments/CmdArgs"
 
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
 Model:
 	{Model}
-	(lines+=CmdLine WS* NEWLINE?)*
+	(lines+=CmdLine (NEWLINE lines+=CmdLine)* )?
+	NEWLINE?
 ;
 
 CmdLine:
 	{CmdLine}
-	(arguments+=Argument)+
+	(arguments+=Argument (WS+ arguments+=Argument)*)
 ;
-	
+
 Argument:
 	{Argument}
 	(
-		DEFINE macro=Macro
+		(Define macro=Macro)
 	|
-		(incDir?=INCDIR useIncDir=PathCmd)
+		(incDir?=IncDir useIncDir=PathCmd)
 	|
-		(incSys?=INCSYS useIncDir=PathCmd)
+		(incSys?=IncSys WS+ useIncDir=PathCmd)
 	|
-		nostdinc?=NOSTDINC
+		(nostdinc?=NoStdInc)
 	|
-		INCLUDE include=PathCmd
+		(Include WS+ include=PathCmd)
+	|
+		(SKW_MINUS option=Option)
 	)
+;
+
+Define:
+	KW_DEFINE
+;
+
+IncDir:
+	KW_INCDIR
+;
+
+IncSys:
+	SKW_MINUS KW_INCSYS
+;
+
+NoStdInc:
+	SKW_MINUS KW_NOSTDINC
+;
+
+Include:
+	SKW_MINUS KW_INCLUDE
 ;
 
 Macro returns Macro:
@@ -62,12 +87,30 @@ PathCmd:
 ;
 
 Identifier: ID;
-MyCode: 
-	(ID | INT | STRING | HASH | SKW_COMMA | SKW_LEFTPAREN | SKW_RIGHTPAREN | ANY_OTHER)+
+
+MyCode:
+	MyCodeChar+
+;
+MyCodeChar:
+	PathChar | SKW_LEFTPAREN | SKW_RIGHTPAREN
+;
+Path: 
+	PathChar+
+;
+PathChar:
+	OptionChar | NonOptionChar
 ;
 
-Path:
-	(ID | INT | STRING | HASH | SKW_COMMA | ANY_OTHER)+ 
+Option:
+	NonOptionChar (OptionChar | NonOptionChar)*
+;
+
+NonOptionChar:
+	ID | INT | STRING | SKW_ASSIGN | SKW_COMMA | SKW_MINUS | ANY_OTHER
+;
+
+OptionChar:
+	KW_DEFINE | KW_INCDIR | KW_NOSTDINC | KW_INCSYS | KW_INCLUDE
 ;
 
 terminal SKW_MINUS: '-';
@@ -76,12 +119,32 @@ terminal SKW_LEFTPAREN: '(';
 terminal SKW_RIGHTPAREN: ')';
 terminal SKW_COMMA: ',';
 
-terminal HASH: '#';
-terminal DEFINE: SKW_MINUS 'D';
-terminal INCDIR: SKW_MINUS 'I';
-terminal NOSTDINC: SKW_MINUS 'nostdinc';
-terminal INCSYS: SKW_MINUS 'isystem';
-terminal INCLUDE: SKW_MINUS 'include';
+//terminal HASH: '#';
+terminal KW_DEFINE: SKW_MINUS 'D';
+terminal KW_INCDIR: SKW_MINUS 'I';
+terminal KW_NOSTDINC: 'nostdinc';
+terminal KW_INCSYS: 'isystem';
+terminal KW_INCLUDE: 'include';
+
+terminal ID: LETTER (LETTER|'0'..'9')*;
+
+terminal fragment LETTER:
+		'$'
+	|	'A'..'Z'
+	|	'a'..'z'
+	|	'_'
+;
+
+terminal INT: ('0'..'9')+;
+
+terminal STRING	: 
+			'"' ( '\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\'|'"') )* '"' |
+			"'" ( '\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\'|"'") )* "'"
+;
 
 terminal NEWLINE: '\n' | '\r';
+terminal WS: (' '|'\t');
+
+
+terminal ANY_OTHER: .;
 //terminal END: EOF;

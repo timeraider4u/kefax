@@ -4,7 +4,7 @@ package at.jku.weiner.c.cmdarguments
 language cmdArgs
 // imports at.jku.weiner.c.common.common
 //----------------------------------------------------------------------
-split-lexer=false
+split-lexer=true
 source file="res/Test0000_Empty.cmd"
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------

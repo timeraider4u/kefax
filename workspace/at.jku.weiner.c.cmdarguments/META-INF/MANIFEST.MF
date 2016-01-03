@@ -27,5 +27,6 @@ Export-Package: at.jku.weiner.c.cmdarguments.generator,
  at.jku.weiner.c.cmdarguments,
  at.jku.weiner.c.cmdarguments.cmdArgs.impl,
  at.jku.weiner.c.cmdarguments.serializer,
- at.jku.weiner.c.cmdarguments.cmdArgs.util
+ at.jku.weiner.c.cmdarguments.cmdArgs.util,
+ at.jku.weiner.c.cmdarguments.parser.antlr.lexer
 Import-Package: org.apache.log4j

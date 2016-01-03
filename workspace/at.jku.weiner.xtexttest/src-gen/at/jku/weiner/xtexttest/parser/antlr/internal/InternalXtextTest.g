@@ -1161,9 +1161,10 @@ ruleMyTokens returns [EObject current=null]
 (
 (
 (
+(
 		lv_token_0_0=RULE_IDENTIFIER
 		{
-			newLeafNode(lv_token_0_0, grammarAccess.getMyTokensAccess().getTokenIDENTIFIERTerminalRuleCall_0_0()); 
+			newLeafNode(lv_token_0_0, grammarAccess.getMyTokensAccess().getTokenIDENTIFIERTerminalRuleCall_0_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1180,19 +1181,43 @@ ruleMyTokens returns [EObject current=null]
 )
 
 
+    |
 (
-this_ASSIGNASDATALIST_1=RULE_ASSIGNASDATALIST
+(
+		lv_string_1_0=RULE_STRING
+		{
+			newLeafNode(lv_string_1_0, grammarAccess.getMyTokensAccess().getStringSTRINGTerminalRuleCall_0_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getMyTokensRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"string",
+        		lv_string_1_0, 
+        		"org.eclipse.xtext.common.Terminals.STRING");
+	    }
+
+)
+)
+
+)
+
+
+(
+this_ASSIGNASDATALIST_2=RULE_ASSIGNASDATALIST
     { 
-    newLeafNode(this_ASSIGNASDATALIST_1, grammarAccess.getMyTokensAccess().getASSIGNASDATALISTTerminalRuleCall_1_0()); 
+    newLeafNode(this_ASSIGNASDATALIST_2, grammarAccess.getMyTokensAccess().getASSIGNASDATALISTTerminalRuleCall_1_0()); 
     }
 
 
 
 (
 (
-		lv_count_2_0=RULE_INT
+		lv_count_3_0=RULE_INT
 		{
-			newLeafNode(lv_count_2_0, grammarAccess.getMyTokensAccess().getCountINTTerminalRuleCall_1_1_0()); 
+			newLeafNode(lv_count_3_0, grammarAccess.getMyTokensAccess().getCountINTTerminalRuleCall_1_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1201,7 +1226,7 @@ this_ASSIGNASDATALIST_1=RULE_ASSIGNASDATALIST
        		setWithLastConsumed(
        			$current, 
        			"count",
-        		lv_count_2_0, 
+        		lv_count_3_0, 
         		"org.eclipse.xtext.common.Terminals.INT");
 	    }
 

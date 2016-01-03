@@ -40,7 +40,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import at.jku.weiner.c.cmdarguments.tests.CmdArgsInjectorProvider;
 import at.jku.weiner.c.cmdarguments.parser.antlr.CmdArgsParser;
-import at.jku.weiner.c.cmdarguments.parser.antlr.internal.InternalCmdArgsLexer;
+import at.jku.weiner.c.cmdarguments.parser.antlr.lexer.InternalCmdArgsLexer;
 import at.jku.weiner.c.cmdarguments.xtexttests.LexerAndParserTest;
 
 import at.jku.weiner.c.cmdarguments.cmdArgs.Model;

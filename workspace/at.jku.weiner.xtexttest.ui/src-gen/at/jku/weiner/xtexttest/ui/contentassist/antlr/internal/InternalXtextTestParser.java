@@ -1807,73 +1807,164 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
     // $ANTLR end "rule__Input__Alternatives_2"
 
 
-    // $ANTLR start "rule__Inner__Alternatives_2"
-    // InternalXtextTest.g:757:1: rule__Inner__Alternatives_2 : ( ( ( rule__Inner__Group_2_0__0 ) ) | ( ( rule__Inner__Group_2_1__0 ) ) | ( ( rule__Inner__Group_2_2__0 ) ) | ( ( rule__Inner__Group_2_3__0 ) ) | ( ( rule__Inner__Group_2_4__0 ) ) | ( ( rule__Inner__IsNullAssignment_2_5 ) ) | ( ( rule__Inner__IsNotNullAssignment_2_6 ) ) | ( ( rule__Inner__IsEmptyAssignment_2_7 ) ) );
-    public final void rule__Inner__Alternatives_2() throws RecognitionException {
+    // $ANTLR start "rule__MyTokens__Alternatives_0"
+    // InternalXtextTest.g:757:1: rule__MyTokens__Alternatives_0 : ( ( ( rule__MyTokens__TokenAssignment_0_0 ) ) | ( ( rule__MyTokens__StringAssignment_0_1 ) ) );
+    public final void rule__MyTokens__Alternatives_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:761:1: ( ( ( rule__Inner__Group_2_0__0 ) ) | ( ( rule__Inner__Group_2_1__0 ) ) | ( ( rule__Inner__Group_2_2__0 ) ) | ( ( rule__Inner__Group_2_3__0 ) ) | ( ( rule__Inner__Group_2_4__0 ) ) | ( ( rule__Inner__IsNullAssignment_2_5 ) ) | ( ( rule__Inner__IsNotNullAssignment_2_6 ) ) | ( ( rule__Inner__IsEmptyAssignment_2_7 ) ) )
-            int alt4=8;
-            switch ( input.LA(1) ) {
-            case RULE_ASSIGNASSINGLE:
-                {
+            // InternalXtextTest.g:761:1: ( ( ( rule__MyTokens__TokenAssignment_0_0 ) ) | ( ( rule__MyTokens__StringAssignment_0_1 ) ) )
+            int alt4=2;
+            int LA4_0 = input.LA(1);
+
+            if ( (LA4_0==RULE_IDENTIFIER) ) {
                 alt4=1;
-                }
-                break;
-            case RULE_ASSIGNASLIST:
-                {
+            }
+            else if ( (LA4_0==RULE_STRING) ) {
                 alt4=2;
-                }
-                break;
-            case RULE_ASSIGNASSTRING:
-                {
-                alt4=3;
-                }
-                break;
-            case RULE_ASSIGNASDATALIST:
-                {
-                alt4=4;
-                }
-                break;
-            case RULE_ASSIGNASBOOL:
-                {
-                alt4=5;
-                }
-                break;
-            case RULE_ISNULL:
-                {
-                alt4=6;
-                }
-                break;
-            case RULE_ISNOTNULL:
-                {
-                alt4=7;
-                }
-                break;
-            case RULE_ISEMPTY:
-                {
-                alt4=8;
-                }
-                break;
-            default:
+            }
+            else {
                 NoViableAltException nvae =
                     new NoViableAltException("", 4, 0, input);
 
                 throw nvae;
             }
-
             switch (alt4) {
                 case 1 :
-                    // InternalXtextTest.g:763:1: ( ( rule__Inner__Group_2_0__0 ) )
+                    // InternalXtextTest.g:763:1: ( ( rule__MyTokens__TokenAssignment_0_0 ) )
                     {
-                    // InternalXtextTest.g:763:1: ( ( rule__Inner__Group_2_0__0 ) )
-                    // InternalXtextTest.g:764:1: ( rule__Inner__Group_2_0__0 )
+                    // InternalXtextTest.g:763:1: ( ( rule__MyTokens__TokenAssignment_0_0 ) )
+                    // InternalXtextTest.g:764:1: ( rule__MyTokens__TokenAssignment_0_0 )
+                    {
+                     before(grammarAccess.getMyTokensAccess().getTokenAssignment_0_0()); 
+                    // InternalXtextTest.g:765:1: ( rule__MyTokens__TokenAssignment_0_0 )
+                    // InternalXtextTest.g:765:2: rule__MyTokens__TokenAssignment_0_0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__MyTokens__TokenAssignment_0_0();
+
+                    state._fsp--;
+
+
+                    }
+
+                     after(grammarAccess.getMyTokensAccess().getTokenAssignment_0_0()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalXtextTest.g:772:1: ( ( rule__MyTokens__StringAssignment_0_1 ) )
+                    {
+                    // InternalXtextTest.g:772:1: ( ( rule__MyTokens__StringAssignment_0_1 ) )
+                    // InternalXtextTest.g:773:1: ( rule__MyTokens__StringAssignment_0_1 )
+                    {
+                     before(grammarAccess.getMyTokensAccess().getStringAssignment_0_1()); 
+                    // InternalXtextTest.g:774:1: ( rule__MyTokens__StringAssignment_0_1 )
+                    // InternalXtextTest.g:774:2: rule__MyTokens__StringAssignment_0_1
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__MyTokens__StringAssignment_0_1();
+
+                    state._fsp--;
+
+
+                    }
+
+                     after(grammarAccess.getMyTokensAccess().getStringAssignment_0_1()); 
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__MyTokens__Alternatives_0"
+
+
+    // $ANTLR start "rule__Inner__Alternatives_2"
+    // InternalXtextTest.g:785:1: rule__Inner__Alternatives_2 : ( ( ( rule__Inner__Group_2_0__0 ) ) | ( ( rule__Inner__Group_2_1__0 ) ) | ( ( rule__Inner__Group_2_2__0 ) ) | ( ( rule__Inner__Group_2_3__0 ) ) | ( ( rule__Inner__Group_2_4__0 ) ) | ( ( rule__Inner__IsNullAssignment_2_5 ) ) | ( ( rule__Inner__IsNotNullAssignment_2_6 ) ) | ( ( rule__Inner__IsEmptyAssignment_2_7 ) ) );
+    public final void rule__Inner__Alternatives_2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalXtextTest.g:789:1: ( ( ( rule__Inner__Group_2_0__0 ) ) | ( ( rule__Inner__Group_2_1__0 ) ) | ( ( rule__Inner__Group_2_2__0 ) ) | ( ( rule__Inner__Group_2_3__0 ) ) | ( ( rule__Inner__Group_2_4__0 ) ) | ( ( rule__Inner__IsNullAssignment_2_5 ) ) | ( ( rule__Inner__IsNotNullAssignment_2_6 ) ) | ( ( rule__Inner__IsEmptyAssignment_2_7 ) ) )
+            int alt5=8;
+            switch ( input.LA(1) ) {
+            case RULE_ASSIGNASSINGLE:
+                {
+                alt5=1;
+                }
+                break;
+            case RULE_ASSIGNASLIST:
+                {
+                alt5=2;
+                }
+                break;
+            case RULE_ASSIGNASSTRING:
+                {
+                alt5=3;
+                }
+                break;
+            case RULE_ASSIGNASDATALIST:
+                {
+                alt5=4;
+                }
+                break;
+            case RULE_ASSIGNASBOOL:
+                {
+                alt5=5;
+                }
+                break;
+            case RULE_ISNULL:
+                {
+                alt5=6;
+                }
+                break;
+            case RULE_ISNOTNULL:
+                {
+                alt5=7;
+                }
+                break;
+            case RULE_ISEMPTY:
+                {
+                alt5=8;
+                }
+                break;
+            default:
+                NoViableAltException nvae =
+                    new NoViableAltException("", 5, 0, input);
+
+                throw nvae;
+            }
+
+            switch (alt5) {
+                case 1 :
+                    // InternalXtextTest.g:791:1: ( ( rule__Inner__Group_2_0__0 ) )
+                    {
+                    // InternalXtextTest.g:791:1: ( ( rule__Inner__Group_2_0__0 ) )
+                    // InternalXtextTest.g:792:1: ( rule__Inner__Group_2_0__0 )
                     {
                      before(grammarAccess.getInnerAccess().getGroup_2_0()); 
-                    // InternalXtextTest.g:765:1: ( rule__Inner__Group_2_0__0 )
-                    // InternalXtextTest.g:765:2: rule__Inner__Group_2_0__0
+                    // InternalXtextTest.g:793:1: ( rule__Inner__Group_2_0__0 )
+                    // InternalXtextTest.g:793:2: rule__Inner__Group_2_0__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Inner__Group_2_0__0();
@@ -1891,14 +1982,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
                     }
                     break;
                 case 2 :
-                    // InternalXtextTest.g:772:1: ( ( rule__Inner__Group_2_1__0 ) )
+                    // InternalXtextTest.g:800:1: ( ( rule__Inner__Group_2_1__0 ) )
                     {
-                    // InternalXtextTest.g:772:1: ( ( rule__Inner__Group_2_1__0 ) )
-                    // InternalXtextTest.g:773:1: ( rule__Inner__Group_2_1__0 )
+                    // InternalXtextTest.g:800:1: ( ( rule__Inner__Group_2_1__0 ) )
+                    // InternalXtextTest.g:801:1: ( rule__Inner__Group_2_1__0 )
                     {
                      before(grammarAccess.getInnerAccess().getGroup_2_1()); 
-                    // InternalXtextTest.g:774:1: ( rule__Inner__Group_2_1__0 )
-                    // InternalXtextTest.g:774:2: rule__Inner__Group_2_1__0
+                    // InternalXtextTest.g:802:1: ( rule__Inner__Group_2_1__0 )
+                    // InternalXtextTest.g:802:2: rule__Inner__Group_2_1__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Inner__Group_2_1__0();
@@ -1916,14 +2007,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
                     }
                     break;
                 case 3 :
-                    // InternalXtextTest.g:781:1: ( ( rule__Inner__Group_2_2__0 ) )
+                    // InternalXtextTest.g:809:1: ( ( rule__Inner__Group_2_2__0 ) )
                     {
-                    // InternalXtextTest.g:781:1: ( ( rule__Inner__Group_2_2__0 ) )
-                    // InternalXtextTest.g:782:1: ( rule__Inner__Group_2_2__0 )
+                    // InternalXtextTest.g:809:1: ( ( rule__Inner__Group_2_2__0 ) )
+                    // InternalXtextTest.g:810:1: ( rule__Inner__Group_2_2__0 )
                     {
                      before(grammarAccess.getInnerAccess().getGroup_2_2()); 
-                    // InternalXtextTest.g:783:1: ( rule__Inner__Group_2_2__0 )
-                    // InternalXtextTest.g:783:2: rule__Inner__Group_2_2__0
+                    // InternalXtextTest.g:811:1: ( rule__Inner__Group_2_2__0 )
+                    // InternalXtextTest.g:811:2: rule__Inner__Group_2_2__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Inner__Group_2_2__0();
@@ -1941,14 +2032,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
                     }
                     break;
                 case 4 :
-                    // InternalXtextTest.g:790:1: ( ( rule__Inner__Group_2_3__0 ) )
+                    // InternalXtextTest.g:818:1: ( ( rule__Inner__Group_2_3__0 ) )
                     {
-                    // InternalXtextTest.g:790:1: ( ( rule__Inner__Group_2_3__0 ) )
-                    // InternalXtextTest.g:791:1: ( rule__Inner__Group_2_3__0 )
+                    // InternalXtextTest.g:818:1: ( ( rule__Inner__Group_2_3__0 ) )
+                    // InternalXtextTest.g:819:1: ( rule__Inner__Group_2_3__0 )
                     {
                      before(grammarAccess.getInnerAccess().getGroup_2_3()); 
-                    // InternalXtextTest.g:792:1: ( rule__Inner__Group_2_3__0 )
-                    // InternalXtextTest.g:792:2: rule__Inner__Group_2_3__0
+                    // InternalXtextTest.g:820:1: ( rule__Inner__Group_2_3__0 )
+                    // InternalXtextTest.g:820:2: rule__Inner__Group_2_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Inner__Group_2_3__0();
@@ -1966,14 +2057,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
                     }
                     break;
                 case 5 :
-                    // InternalXtextTest.g:799:1: ( ( rule__Inner__Group_2_4__0 ) )
+                    // InternalXtextTest.g:827:1: ( ( rule__Inner__Group_2_4__0 ) )
                     {
-                    // InternalXtextTest.g:799:1: ( ( rule__Inner__Group_2_4__0 ) )
-                    // InternalXtextTest.g:800:1: ( rule__Inner__Group_2_4__0 )
+                    // InternalXtextTest.g:827:1: ( ( rule__Inner__Group_2_4__0 ) )
+                    // InternalXtextTest.g:828:1: ( rule__Inner__Group_2_4__0 )
                     {
                      before(grammarAccess.getInnerAccess().getGroup_2_4()); 
-                    // InternalXtextTest.g:801:1: ( rule__Inner__Group_2_4__0 )
-                    // InternalXtextTest.g:801:2: rule__Inner__Group_2_4__0
+                    // InternalXtextTest.g:829:1: ( rule__Inner__Group_2_4__0 )
+                    // InternalXtextTest.g:829:2: rule__Inner__Group_2_4__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Inner__Group_2_4__0();
@@ -1991,14 +2082,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
                     }
                     break;
                 case 6 :
-                    // InternalXtextTest.g:808:1: ( ( rule__Inner__IsNullAssignment_2_5 ) )
+                    // InternalXtextTest.g:836:1: ( ( rule__Inner__IsNullAssignment_2_5 ) )
                     {
-                    // InternalXtextTest.g:808:1: ( ( rule__Inner__IsNullAssignment_2_5 ) )
-                    // InternalXtextTest.g:809:1: ( rule__Inner__IsNullAssignment_2_5 )
+                    // InternalXtextTest.g:836:1: ( ( rule__Inner__IsNullAssignment_2_5 ) )
+                    // InternalXtextTest.g:837:1: ( rule__Inner__IsNullAssignment_2_5 )
                     {
                      before(grammarAccess.getInnerAccess().getIsNullAssignment_2_5()); 
-                    // InternalXtextTest.g:810:1: ( rule__Inner__IsNullAssignment_2_5 )
-                    // InternalXtextTest.g:810:2: rule__Inner__IsNullAssignment_2_5
+                    // InternalXtextTest.g:838:1: ( rule__Inner__IsNullAssignment_2_5 )
+                    // InternalXtextTest.g:838:2: rule__Inner__IsNullAssignment_2_5
                     {
                     pushFollow(FOLLOW_2);
                     rule__Inner__IsNullAssignment_2_5();
@@ -2016,14 +2107,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
                     }
                     break;
                 case 7 :
-                    // InternalXtextTest.g:817:1: ( ( rule__Inner__IsNotNullAssignment_2_6 ) )
+                    // InternalXtextTest.g:845:1: ( ( rule__Inner__IsNotNullAssignment_2_6 ) )
                     {
-                    // InternalXtextTest.g:817:1: ( ( rule__Inner__IsNotNullAssignment_2_6 ) )
-                    // InternalXtextTest.g:818:1: ( rule__Inner__IsNotNullAssignment_2_6 )
+                    // InternalXtextTest.g:845:1: ( ( rule__Inner__IsNotNullAssignment_2_6 ) )
+                    // InternalXtextTest.g:846:1: ( rule__Inner__IsNotNullAssignment_2_6 )
                     {
                      before(grammarAccess.getInnerAccess().getIsNotNullAssignment_2_6()); 
-                    // InternalXtextTest.g:819:1: ( rule__Inner__IsNotNullAssignment_2_6 )
-                    // InternalXtextTest.g:819:2: rule__Inner__IsNotNullAssignment_2_6
+                    // InternalXtextTest.g:847:1: ( rule__Inner__IsNotNullAssignment_2_6 )
+                    // InternalXtextTest.g:847:2: rule__Inner__IsNotNullAssignment_2_6
                     {
                     pushFollow(FOLLOW_2);
                     rule__Inner__IsNotNullAssignment_2_6();
@@ -2041,14 +2132,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
                     }
                     break;
                 case 8 :
-                    // InternalXtextTest.g:826:1: ( ( rule__Inner__IsEmptyAssignment_2_7 ) )
+                    // InternalXtextTest.g:854:1: ( ( rule__Inner__IsEmptyAssignment_2_7 ) )
                     {
-                    // InternalXtextTest.g:826:1: ( ( rule__Inner__IsEmptyAssignment_2_7 ) )
-                    // InternalXtextTest.g:827:1: ( rule__Inner__IsEmptyAssignment_2_7 )
+                    // InternalXtextTest.g:854:1: ( ( rule__Inner__IsEmptyAssignment_2_7 ) )
+                    // InternalXtextTest.g:855:1: ( rule__Inner__IsEmptyAssignment_2_7 )
                     {
                      before(grammarAccess.getInnerAccess().getIsEmptyAssignment_2_7()); 
-                    // InternalXtextTest.g:828:1: ( rule__Inner__IsEmptyAssignment_2_7 )
-                    // InternalXtextTest.g:828:2: rule__Inner__IsEmptyAssignment_2_7
+                    // InternalXtextTest.g:856:1: ( rule__Inner__IsEmptyAssignment_2_7 )
+                    // InternalXtextTest.g:856:2: rule__Inner__IsEmptyAssignment_2_7
                     {
                     pushFollow(FOLLOW_2);
                     rule__Inner__IsEmptyAssignment_2_7();
@@ -2083,34 +2174,34 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Inner__AssignAsBoolAlternatives_2_4_1_0"
-    // InternalXtextTest.g:839:1: rule__Inner__AssignAsBoolAlternatives_2_4_1_0 : ( ( RULE_TRUE ) | ( RULE_FALSE ) );
+    // InternalXtextTest.g:867:1: rule__Inner__AssignAsBoolAlternatives_2_4_1_0 : ( ( RULE_TRUE ) | ( RULE_FALSE ) );
     public final void rule__Inner__AssignAsBoolAlternatives_2_4_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:843:1: ( ( RULE_TRUE ) | ( RULE_FALSE ) )
-            int alt5=2;
-            int LA5_0 = input.LA(1);
+            // InternalXtextTest.g:871:1: ( ( RULE_TRUE ) | ( RULE_FALSE ) )
+            int alt6=2;
+            int LA6_0 = input.LA(1);
 
-            if ( (LA5_0==RULE_TRUE) ) {
-                alt5=1;
+            if ( (LA6_0==RULE_TRUE) ) {
+                alt6=1;
             }
-            else if ( (LA5_0==RULE_FALSE) ) {
-                alt5=2;
+            else if ( (LA6_0==RULE_FALSE) ) {
+                alt6=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 5, 0, input);
+                    new NoViableAltException("", 6, 0, input);
 
                 throw nvae;
             }
-            switch (alt5) {
+            switch (alt6) {
                 case 1 :
-                    // InternalXtextTest.g:845:1: ( RULE_TRUE )
+                    // InternalXtextTest.g:873:1: ( RULE_TRUE )
                     {
-                    // InternalXtextTest.g:845:1: ( RULE_TRUE )
-                    // InternalXtextTest.g:846:1: RULE_TRUE
+                    // InternalXtextTest.g:873:1: ( RULE_TRUE )
+                    // InternalXtextTest.g:874:1: RULE_TRUE
                     {
                      before(grammarAccess.getInnerAccess().getAssignAsBoolTRUETerminalRuleCall_2_4_1_0_0()); 
                     match(input,RULE_TRUE,FOLLOW_2); 
@@ -2122,10 +2213,10 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
                     }
                     break;
                 case 2 :
-                    // InternalXtextTest.g:854:1: ( RULE_FALSE )
+                    // InternalXtextTest.g:882:1: ( RULE_FALSE )
                     {
-                    // InternalXtextTest.g:854:1: ( RULE_FALSE )
-                    // InternalXtextTest.g:855:1: RULE_FALSE
+                    // InternalXtextTest.g:882:1: ( RULE_FALSE )
+                    // InternalXtextTest.g:883:1: RULE_FALSE
                     {
                      before(grammarAccess.getInnerAccess().getAssignAsBoolFALSETerminalRuleCall_2_4_1_0_1()); 
                     match(input,RULE_FALSE,FOLLOW_2); 
@@ -2154,38 +2245,38 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Alternatives_2_2"
-    // InternalXtextTest.g:867:1: rule__Generator__Alternatives_2_2 : ( ( ( rule__Generator__Group_2_2_0__0 ) ) | ( ( rule__Generator__IsSameAsInputFileAssignment_2_2_1 ) ) );
+    // InternalXtextTest.g:895:1: rule__Generator__Alternatives_2_2 : ( ( ( rule__Generator__Group_2_2_0__0 ) ) | ( ( rule__Generator__IsSameAsInputFileAssignment_2_2_1 ) ) );
     public final void rule__Generator__Alternatives_2_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:871:1: ( ( ( rule__Generator__Group_2_2_0__0 ) ) | ( ( rule__Generator__IsSameAsInputFileAssignment_2_2_1 ) ) )
-            int alt6=2;
-            int LA6_0 = input.LA(1);
+            // InternalXtextTest.g:899:1: ( ( ( rule__Generator__Group_2_2_0__0 ) ) | ( ( rule__Generator__IsSameAsInputFileAssignment_2_2_1 ) ) )
+            int alt7=2;
+            int LA7_0 = input.LA(1);
 
-            if ( (LA6_0==RULE_ASSIGNASSINGLE) ) {
-                alt6=1;
+            if ( (LA7_0==RULE_ASSIGNASSINGLE) ) {
+                alt7=1;
             }
-            else if ( (LA6_0==RULE_ISSAMEASINPUTFILE) ) {
-                alt6=2;
+            else if ( (LA7_0==RULE_ISSAMEASINPUTFILE) ) {
+                alt7=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 6, 0, input);
+                    new NoViableAltException("", 7, 0, input);
 
                 throw nvae;
             }
-            switch (alt6) {
+            switch (alt7) {
                 case 1 :
-                    // InternalXtextTest.g:873:1: ( ( rule__Generator__Group_2_2_0__0 ) )
+                    // InternalXtextTest.g:901:1: ( ( rule__Generator__Group_2_2_0__0 ) )
                     {
-                    // InternalXtextTest.g:873:1: ( ( rule__Generator__Group_2_2_0__0 ) )
-                    // InternalXtextTest.g:874:1: ( rule__Generator__Group_2_2_0__0 )
+                    // InternalXtextTest.g:901:1: ( ( rule__Generator__Group_2_2_0__0 ) )
+                    // InternalXtextTest.g:902:1: ( rule__Generator__Group_2_2_0__0 )
                     {
                      before(grammarAccess.getGeneratorAccess().getGroup_2_2_0()); 
-                    // InternalXtextTest.g:875:1: ( rule__Generator__Group_2_2_0__0 )
-                    // InternalXtextTest.g:875:2: rule__Generator__Group_2_2_0__0
+                    // InternalXtextTest.g:903:1: ( rule__Generator__Group_2_2_0__0 )
+                    // InternalXtextTest.g:903:2: rule__Generator__Group_2_2_0__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Generator__Group_2_2_0__0();
@@ -2203,14 +2294,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
                     }
                     break;
                 case 2 :
-                    // InternalXtextTest.g:882:1: ( ( rule__Generator__IsSameAsInputFileAssignment_2_2_1 ) )
+                    // InternalXtextTest.g:910:1: ( ( rule__Generator__IsSameAsInputFileAssignment_2_2_1 ) )
                     {
-                    // InternalXtextTest.g:882:1: ( ( rule__Generator__IsSameAsInputFileAssignment_2_2_1 ) )
-                    // InternalXtextTest.g:883:1: ( rule__Generator__IsSameAsInputFileAssignment_2_2_1 )
+                    // InternalXtextTest.g:910:1: ( ( rule__Generator__IsSameAsInputFileAssignment_2_2_1 ) )
+                    // InternalXtextTest.g:911:1: ( rule__Generator__IsSameAsInputFileAssignment_2_2_1 )
                     {
                      before(grammarAccess.getGeneratorAccess().getIsSameAsInputFileAssignment_2_2_1()); 
-                    // InternalXtextTest.g:884:1: ( rule__Generator__IsSameAsInputFileAssignment_2_2_1 )
-                    // InternalXtextTest.g:884:2: rule__Generator__IsSameAsInputFileAssignment_2_2_1
+                    // InternalXtextTest.g:912:1: ( rule__Generator__IsSameAsInputFileAssignment_2_2_1 )
+                    // InternalXtextTest.g:912:2: rule__Generator__IsSameAsInputFileAssignment_2_2_1
                     {
                     pushFollow(FOLLOW_2);
                     rule__Generator__IsSameAsInputFileAssignment_2_2_1();
@@ -2245,14 +2336,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Model__Group__0"
-    // InternalXtextTest.g:897:1: rule__Model__Group__0 : rule__Model__Group__0__Impl rule__Model__Group__1 ;
+    // InternalXtextTest.g:925:1: rule__Model__Group__0 : rule__Model__Group__0__Impl rule__Model__Group__1 ;
     public final void rule__Model__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:901:1: ( rule__Model__Group__0__Impl rule__Model__Group__1 )
-            // InternalXtextTest.g:902:2: rule__Model__Group__0__Impl rule__Model__Group__1
+            // InternalXtextTest.g:929:1: ( rule__Model__Group__0__Impl rule__Model__Group__1 )
+            // InternalXtextTest.g:930:2: rule__Model__Group__0__Impl rule__Model__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__Model__Group__0__Impl();
@@ -2283,21 +2374,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Model__Group__0__Impl"
-    // InternalXtextTest.g:909:1: rule__Model__Group__0__Impl : ( () ) ;
+    // InternalXtextTest.g:937:1: rule__Model__Group__0__Impl : ( () ) ;
     public final void rule__Model__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:913:1: ( ( () ) )
-            // InternalXtextTest.g:915:1: ( () )
+            // InternalXtextTest.g:941:1: ( ( () ) )
+            // InternalXtextTest.g:943:1: ( () )
             {
-            // InternalXtextTest.g:915:1: ( () )
-            // InternalXtextTest.g:916:1: ()
+            // InternalXtextTest.g:943:1: ( () )
+            // InternalXtextTest.g:944:1: ()
             {
              before(grammarAccess.getModelAccess().getModelAction_0()); 
-            // InternalXtextTest.g:917:1: ()
-            // InternalXtextTest.g:919:1: 
+            // InternalXtextTest.g:945:1: ()
+            // InternalXtextTest.g:947:1: 
             {
             }
 
@@ -2320,14 +2411,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Model__Group__1"
-    // InternalXtextTest.g:931:1: rule__Model__Group__1 : rule__Model__Group__1__Impl ;
+    // InternalXtextTest.g:959:1: rule__Model__Group__1 : rule__Model__Group__1__Impl ;
     public final void rule__Model__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:935:1: ( rule__Model__Group__1__Impl )
-            // InternalXtextTest.g:936:2: rule__Model__Group__1__Impl
+            // InternalXtextTest.g:963:1: ( rule__Model__Group__1__Impl )
+            // InternalXtextTest.g:964:2: rule__Model__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Model__Group__1__Impl();
@@ -2353,21 +2444,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Model__Group__1__Impl"
-    // InternalXtextTest.g:942:1: rule__Model__Group__1__Impl : ( ( rule__Model__Alternatives_1 ) ) ;
+    // InternalXtextTest.g:970:1: rule__Model__Group__1__Impl : ( ( rule__Model__Alternatives_1 ) ) ;
     public final void rule__Model__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:946:1: ( ( ( rule__Model__Alternatives_1 ) ) )
-            // InternalXtextTest.g:948:1: ( ( rule__Model__Alternatives_1 ) )
+            // InternalXtextTest.g:974:1: ( ( ( rule__Model__Alternatives_1 ) ) )
+            // InternalXtextTest.g:976:1: ( ( rule__Model__Alternatives_1 ) )
             {
-            // InternalXtextTest.g:948:1: ( ( rule__Model__Alternatives_1 ) )
-            // InternalXtextTest.g:949:1: ( rule__Model__Alternatives_1 )
+            // InternalXtextTest.g:976:1: ( ( rule__Model__Alternatives_1 ) )
+            // InternalXtextTest.g:977:1: ( rule__Model__Alternatives_1 )
             {
              before(grammarAccess.getModelAccess().getAlternatives_1()); 
-            // InternalXtextTest.g:950:1: ( rule__Model__Alternatives_1 )
-            // InternalXtextTest.g:950:2: rule__Model__Alternatives_1
+            // InternalXtextTest.g:978:1: ( rule__Model__Alternatives_1 )
+            // InternalXtextTest.g:978:2: rule__Model__Alternatives_1
             {
             pushFollow(FOLLOW_2);
             rule__Model__Alternatives_1();
@@ -2400,14 +2491,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__Group__0"
-    // InternalXtextTest.g:966:1: rule__XtextTest__Group__0 : rule__XtextTest__Group__0__Impl rule__XtextTest__Group__1 ;
+    // InternalXtextTest.g:994:1: rule__XtextTest__Group__0 : rule__XtextTest__Group__0__Impl rule__XtextTest__Group__1 ;
     public final void rule__XtextTest__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:970:1: ( rule__XtextTest__Group__0__Impl rule__XtextTest__Group__1 )
-            // InternalXtextTest.g:971:2: rule__XtextTest__Group__0__Impl rule__XtextTest__Group__1
+            // InternalXtextTest.g:998:1: ( rule__XtextTest__Group__0__Impl rule__XtextTest__Group__1 )
+            // InternalXtextTest.g:999:2: rule__XtextTest__Group__0__Impl rule__XtextTest__Group__1
             {
             pushFollow(FOLLOW_4);
             rule__XtextTest__Group__0__Impl();
@@ -2438,21 +2529,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__Group__0__Impl"
-    // InternalXtextTest.g:978:1: rule__XtextTest__Group__0__Impl : ( () ) ;
+    // InternalXtextTest.g:1006:1: rule__XtextTest__Group__0__Impl : ( () ) ;
     public final void rule__XtextTest__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:982:1: ( ( () ) )
-            // InternalXtextTest.g:984:1: ( () )
+            // InternalXtextTest.g:1010:1: ( ( () ) )
+            // InternalXtextTest.g:1012:1: ( () )
             {
-            // InternalXtextTest.g:984:1: ( () )
-            // InternalXtextTest.g:985:1: ()
+            // InternalXtextTest.g:1012:1: ( () )
+            // InternalXtextTest.g:1013:1: ()
             {
              before(grammarAccess.getXtextTestAccess().getXtextTestAction_0()); 
-            // InternalXtextTest.g:986:1: ()
-            // InternalXtextTest.g:988:1: 
+            // InternalXtextTest.g:1014:1: ()
+            // InternalXtextTest.g:1016:1: 
             {
             }
 
@@ -2475,14 +2566,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__Group__1"
-    // InternalXtextTest.g:1000:1: rule__XtextTest__Group__1 : rule__XtextTest__Group__1__Impl rule__XtextTest__Group__2 ;
+    // InternalXtextTest.g:1028:1: rule__XtextTest__Group__1 : rule__XtextTest__Group__1__Impl rule__XtextTest__Group__2 ;
     public final void rule__XtextTest__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1004:1: ( rule__XtextTest__Group__1__Impl rule__XtextTest__Group__2 )
-            // InternalXtextTest.g:1005:2: rule__XtextTest__Group__1__Impl rule__XtextTest__Group__2
+            // InternalXtextTest.g:1032:1: ( rule__XtextTest__Group__1__Impl rule__XtextTest__Group__2 )
+            // InternalXtextTest.g:1033:2: rule__XtextTest__Group__1__Impl rule__XtextTest__Group__2
             {
             pushFollow(FOLLOW_5);
             rule__XtextTest__Group__1__Impl();
@@ -2513,17 +2604,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__Group__1__Impl"
-    // InternalXtextTest.g:1012:1: rule__XtextTest__Group__1__Impl : ( RULE_PACKAGE ) ;
+    // InternalXtextTest.g:1040:1: rule__XtextTest__Group__1__Impl : ( RULE_PACKAGE ) ;
     public final void rule__XtextTest__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1016:1: ( ( RULE_PACKAGE ) )
-            // InternalXtextTest.g:1018:1: ( RULE_PACKAGE )
+            // InternalXtextTest.g:1044:1: ( ( RULE_PACKAGE ) )
+            // InternalXtextTest.g:1046:1: ( RULE_PACKAGE )
             {
-            // InternalXtextTest.g:1018:1: ( RULE_PACKAGE )
-            // InternalXtextTest.g:1019:1: RULE_PACKAGE
+            // InternalXtextTest.g:1046:1: ( RULE_PACKAGE )
+            // InternalXtextTest.g:1047:1: RULE_PACKAGE
             {
              before(grammarAccess.getXtextTestAccess().getPACKAGETerminalRuleCall_1()); 
             match(input,RULE_PACKAGE,FOLLOW_2); 
@@ -2550,14 +2641,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__Group__2"
-    // InternalXtextTest.g:1032:1: rule__XtextTest__Group__2 : rule__XtextTest__Group__2__Impl rule__XtextTest__Group__3 ;
+    // InternalXtextTest.g:1060:1: rule__XtextTest__Group__2 : rule__XtextTest__Group__2__Impl rule__XtextTest__Group__3 ;
     public final void rule__XtextTest__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1036:1: ( rule__XtextTest__Group__2__Impl rule__XtextTest__Group__3 )
-            // InternalXtextTest.g:1037:2: rule__XtextTest__Group__2__Impl rule__XtextTest__Group__3
+            // InternalXtextTest.g:1064:1: ( rule__XtextTest__Group__2__Impl rule__XtextTest__Group__3 )
+            // InternalXtextTest.g:1065:2: rule__XtextTest__Group__2__Impl rule__XtextTest__Group__3
             {
             pushFollow(FOLLOW_6);
             rule__XtextTest__Group__2__Impl();
@@ -2588,21 +2679,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__Group__2__Impl"
-    // InternalXtextTest.g:1044:1: rule__XtextTest__Group__2__Impl : ( ( rule__XtextTest__PackageAssignment_2 ) ) ;
+    // InternalXtextTest.g:1072:1: rule__XtextTest__Group__2__Impl : ( ( rule__XtextTest__PackageAssignment_2 ) ) ;
     public final void rule__XtextTest__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1048:1: ( ( ( rule__XtextTest__PackageAssignment_2 ) ) )
-            // InternalXtextTest.g:1050:1: ( ( rule__XtextTest__PackageAssignment_2 ) )
+            // InternalXtextTest.g:1076:1: ( ( ( rule__XtextTest__PackageAssignment_2 ) ) )
+            // InternalXtextTest.g:1078:1: ( ( rule__XtextTest__PackageAssignment_2 ) )
             {
-            // InternalXtextTest.g:1050:1: ( ( rule__XtextTest__PackageAssignment_2 ) )
-            // InternalXtextTest.g:1051:1: ( rule__XtextTest__PackageAssignment_2 )
+            // InternalXtextTest.g:1078:1: ( ( rule__XtextTest__PackageAssignment_2 ) )
+            // InternalXtextTest.g:1079:1: ( rule__XtextTest__PackageAssignment_2 )
             {
              before(grammarAccess.getXtextTestAccess().getPackageAssignment_2()); 
-            // InternalXtextTest.g:1052:1: ( rule__XtextTest__PackageAssignment_2 )
-            // InternalXtextTest.g:1052:2: rule__XtextTest__PackageAssignment_2
+            // InternalXtextTest.g:1080:1: ( rule__XtextTest__PackageAssignment_2 )
+            // InternalXtextTest.g:1080:2: rule__XtextTest__PackageAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__XtextTest__PackageAssignment_2();
@@ -2635,14 +2726,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__Group__3"
-    // InternalXtextTest.g:1064:1: rule__XtextTest__Group__3 : rule__XtextTest__Group__3__Impl rule__XtextTest__Group__4 ;
+    // InternalXtextTest.g:1092:1: rule__XtextTest__Group__3 : rule__XtextTest__Group__3__Impl rule__XtextTest__Group__4 ;
     public final void rule__XtextTest__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1068:1: ( rule__XtextTest__Group__3__Impl rule__XtextTest__Group__4 )
-            // InternalXtextTest.g:1069:2: rule__XtextTest__Group__3__Impl rule__XtextTest__Group__4
+            // InternalXtextTest.g:1096:1: ( rule__XtextTest__Group__3__Impl rule__XtextTest__Group__4 )
+            // InternalXtextTest.g:1097:2: rule__XtextTest__Group__3__Impl rule__XtextTest__Group__4
             {
             pushFollow(FOLLOW_5);
             rule__XtextTest__Group__3__Impl();
@@ -2673,17 +2764,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__Group__3__Impl"
-    // InternalXtextTest.g:1076:1: rule__XtextTest__Group__3__Impl : ( RULE_LANGUAGE ) ;
+    // InternalXtextTest.g:1104:1: rule__XtextTest__Group__3__Impl : ( RULE_LANGUAGE ) ;
     public final void rule__XtextTest__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1080:1: ( ( RULE_LANGUAGE ) )
-            // InternalXtextTest.g:1082:1: ( RULE_LANGUAGE )
+            // InternalXtextTest.g:1108:1: ( ( RULE_LANGUAGE ) )
+            // InternalXtextTest.g:1110:1: ( RULE_LANGUAGE )
             {
-            // InternalXtextTest.g:1082:1: ( RULE_LANGUAGE )
-            // InternalXtextTest.g:1083:1: RULE_LANGUAGE
+            // InternalXtextTest.g:1110:1: ( RULE_LANGUAGE )
+            // InternalXtextTest.g:1111:1: RULE_LANGUAGE
             {
              before(grammarAccess.getXtextTestAccess().getLANGUAGETerminalRuleCall_3()); 
             match(input,RULE_LANGUAGE,FOLLOW_2); 
@@ -2710,14 +2801,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__Group__4"
-    // InternalXtextTest.g:1096:1: rule__XtextTest__Group__4 : rule__XtextTest__Group__4__Impl rule__XtextTest__Group__5 ;
+    // InternalXtextTest.g:1124:1: rule__XtextTest__Group__4 : rule__XtextTest__Group__4__Impl rule__XtextTest__Group__5 ;
     public final void rule__XtextTest__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1100:1: ( rule__XtextTest__Group__4__Impl rule__XtextTest__Group__5 )
-            // InternalXtextTest.g:1101:2: rule__XtextTest__Group__4__Impl rule__XtextTest__Group__5
+            // InternalXtextTest.g:1128:1: ( rule__XtextTest__Group__4__Impl rule__XtextTest__Group__5 )
+            // InternalXtextTest.g:1129:2: rule__XtextTest__Group__4__Impl rule__XtextTest__Group__5
             {
             pushFollow(FOLLOW_7);
             rule__XtextTest__Group__4__Impl();
@@ -2748,21 +2839,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__Group__4__Impl"
-    // InternalXtextTest.g:1108:1: rule__XtextTest__Group__4__Impl : ( ( rule__XtextTest__LangAssignment_4 ) ) ;
+    // InternalXtextTest.g:1136:1: rule__XtextTest__Group__4__Impl : ( ( rule__XtextTest__LangAssignment_4 ) ) ;
     public final void rule__XtextTest__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1112:1: ( ( ( rule__XtextTest__LangAssignment_4 ) ) )
-            // InternalXtextTest.g:1114:1: ( ( rule__XtextTest__LangAssignment_4 ) )
+            // InternalXtextTest.g:1140:1: ( ( ( rule__XtextTest__LangAssignment_4 ) ) )
+            // InternalXtextTest.g:1142:1: ( ( rule__XtextTest__LangAssignment_4 ) )
             {
-            // InternalXtextTest.g:1114:1: ( ( rule__XtextTest__LangAssignment_4 ) )
-            // InternalXtextTest.g:1115:1: ( rule__XtextTest__LangAssignment_4 )
+            // InternalXtextTest.g:1142:1: ( ( rule__XtextTest__LangAssignment_4 ) )
+            // InternalXtextTest.g:1143:1: ( rule__XtextTest__LangAssignment_4 )
             {
              before(grammarAccess.getXtextTestAccess().getLangAssignment_4()); 
-            // InternalXtextTest.g:1116:1: ( rule__XtextTest__LangAssignment_4 )
-            // InternalXtextTest.g:1116:2: rule__XtextTest__LangAssignment_4
+            // InternalXtextTest.g:1144:1: ( rule__XtextTest__LangAssignment_4 )
+            // InternalXtextTest.g:1144:2: rule__XtextTest__LangAssignment_4
             {
             pushFollow(FOLLOW_2);
             rule__XtextTest__LangAssignment_4();
@@ -2795,14 +2886,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__Group__5"
-    // InternalXtextTest.g:1128:1: rule__XtextTest__Group__5 : rule__XtextTest__Group__5__Impl rule__XtextTest__Group__6 ;
+    // InternalXtextTest.g:1156:1: rule__XtextTest__Group__5 : rule__XtextTest__Group__5__Impl rule__XtextTest__Group__6 ;
     public final void rule__XtextTest__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1132:1: ( rule__XtextTest__Group__5__Impl rule__XtextTest__Group__6 )
-            // InternalXtextTest.g:1133:2: rule__XtextTest__Group__5__Impl rule__XtextTest__Group__6
+            // InternalXtextTest.g:1160:1: ( rule__XtextTest__Group__5__Impl rule__XtextTest__Group__6 )
+            // InternalXtextTest.g:1161:2: rule__XtextTest__Group__5__Impl rule__XtextTest__Group__6
             {
             pushFollow(FOLLOW_7);
             rule__XtextTest__Group__5__Impl();
@@ -2833,29 +2924,29 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__Group__5__Impl"
-    // InternalXtextTest.g:1140:1: rule__XtextTest__Group__5__Impl : ( ( rule__XtextTest__Group_5__0 )? ) ;
+    // InternalXtextTest.g:1168:1: rule__XtextTest__Group__5__Impl : ( ( rule__XtextTest__Group_5__0 )? ) ;
     public final void rule__XtextTest__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1144:1: ( ( ( rule__XtextTest__Group_5__0 )? ) )
-            // InternalXtextTest.g:1146:1: ( ( rule__XtextTest__Group_5__0 )? )
+            // InternalXtextTest.g:1172:1: ( ( ( rule__XtextTest__Group_5__0 )? ) )
+            // InternalXtextTest.g:1174:1: ( ( rule__XtextTest__Group_5__0 )? )
             {
-            // InternalXtextTest.g:1146:1: ( ( rule__XtextTest__Group_5__0 )? )
-            // InternalXtextTest.g:1147:1: ( rule__XtextTest__Group_5__0 )?
+            // InternalXtextTest.g:1174:1: ( ( rule__XtextTest__Group_5__0 )? )
+            // InternalXtextTest.g:1175:1: ( rule__XtextTest__Group_5__0 )?
             {
              before(grammarAccess.getXtextTestAccess().getGroup_5()); 
-            // InternalXtextTest.g:1148:1: ( rule__XtextTest__Group_5__0 )?
-            int alt7=2;
-            int LA7_0 = input.LA(1);
+            // InternalXtextTest.g:1176:1: ( rule__XtextTest__Group_5__0 )?
+            int alt8=2;
+            int LA8_0 = input.LA(1);
 
-            if ( (LA7_0==RULE_IMPORTS) ) {
-                alt7=1;
+            if ( (LA8_0==RULE_IMPORTS) ) {
+                alt8=1;
             }
-            switch (alt7) {
+            switch (alt8) {
                 case 1 :
-                    // InternalXtextTest.g:1148:2: rule__XtextTest__Group_5__0
+                    // InternalXtextTest.g:1176:2: rule__XtextTest__Group_5__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__XtextTest__Group_5__0();
@@ -2891,14 +2982,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__Group__6"
-    // InternalXtextTest.g:1160:1: rule__XtextTest__Group__6 : rule__XtextTest__Group__6__Impl rule__XtextTest__Group__7 ;
+    // InternalXtextTest.g:1188:1: rule__XtextTest__Group__6 : rule__XtextTest__Group__6__Impl rule__XtextTest__Group__7 ;
     public final void rule__XtextTest__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1164:1: ( rule__XtextTest__Group__6__Impl rule__XtextTest__Group__7 )
-            // InternalXtextTest.g:1165:2: rule__XtextTest__Group__6__Impl rule__XtextTest__Group__7
+            // InternalXtextTest.g:1192:1: ( rule__XtextTest__Group__6__Impl rule__XtextTest__Group__7 )
+            // InternalXtextTest.g:1193:2: rule__XtextTest__Group__6__Impl rule__XtextTest__Group__7
             {
             pushFollow(FOLLOW_7);
             rule__XtextTest__Group__6__Impl();
@@ -2929,29 +3020,29 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__Group__6__Impl"
-    // InternalXtextTest.g:1172:1: rule__XtextTest__Group__6__Impl : ( ( rule__XtextTest__Group_6__0 )? ) ;
+    // InternalXtextTest.g:1200:1: rule__XtextTest__Group__6__Impl : ( ( rule__XtextTest__Group_6__0 )? ) ;
     public final void rule__XtextTest__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1176:1: ( ( ( rule__XtextTest__Group_6__0 )? ) )
-            // InternalXtextTest.g:1178:1: ( ( rule__XtextTest__Group_6__0 )? )
+            // InternalXtextTest.g:1204:1: ( ( ( rule__XtextTest__Group_6__0 )? ) )
+            // InternalXtextTest.g:1206:1: ( ( rule__XtextTest__Group_6__0 )? )
             {
-            // InternalXtextTest.g:1178:1: ( ( rule__XtextTest__Group_6__0 )? )
-            // InternalXtextTest.g:1179:1: ( rule__XtextTest__Group_6__0 )?
+            // InternalXtextTest.g:1206:1: ( ( rule__XtextTest__Group_6__0 )? )
+            // InternalXtextTest.g:1207:1: ( rule__XtextTest__Group_6__0 )?
             {
              before(grammarAccess.getXtextTestAccess().getGroup_6()); 
-            // InternalXtextTest.g:1180:1: ( rule__XtextTest__Group_6__0 )?
-            int alt8=2;
-            int LA8_0 = input.LA(1);
+            // InternalXtextTest.g:1208:1: ( rule__XtextTest__Group_6__0 )?
+            int alt9=2;
+            int LA9_0 = input.LA(1);
 
-            if ( (LA8_0==RULE_SPLITLEXER) ) {
-                alt8=1;
+            if ( (LA9_0==RULE_SPLITLEXER) ) {
+                alt9=1;
             }
-            switch (alt8) {
+            switch (alt9) {
                 case 1 :
-                    // InternalXtextTest.g:1180:2: rule__XtextTest__Group_6__0
+                    // InternalXtextTest.g:1208:2: rule__XtextTest__Group_6__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__XtextTest__Group_6__0();
@@ -2987,14 +3078,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__Group__7"
-    // InternalXtextTest.g:1192:1: rule__XtextTest__Group__7 : rule__XtextTest__Group__7__Impl rule__XtextTest__Group__8 ;
+    // InternalXtextTest.g:1220:1: rule__XtextTest__Group__7 : rule__XtextTest__Group__7__Impl rule__XtextTest__Group__8 ;
     public final void rule__XtextTest__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1196:1: ( rule__XtextTest__Group__7__Impl rule__XtextTest__Group__8 )
-            // InternalXtextTest.g:1197:2: rule__XtextTest__Group__7__Impl rule__XtextTest__Group__8
+            // InternalXtextTest.g:1224:1: ( rule__XtextTest__Group__7__Impl rule__XtextTest__Group__8 )
+            // InternalXtextTest.g:1225:2: rule__XtextTest__Group__7__Impl rule__XtextTest__Group__8
             {
             pushFollow(FOLLOW_8);
             rule__XtextTest__Group__7__Impl();
@@ -3025,21 +3116,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__Group__7__Impl"
-    // InternalXtextTest.g:1204:1: rule__XtextTest__Group__7__Impl : ( ( rule__XtextTest__InputAssignment_7 ) ) ;
+    // InternalXtextTest.g:1232:1: rule__XtextTest__Group__7__Impl : ( ( rule__XtextTest__InputAssignment_7 ) ) ;
     public final void rule__XtextTest__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1208:1: ( ( ( rule__XtextTest__InputAssignment_7 ) ) )
-            // InternalXtextTest.g:1210:1: ( ( rule__XtextTest__InputAssignment_7 ) )
+            // InternalXtextTest.g:1236:1: ( ( ( rule__XtextTest__InputAssignment_7 ) ) )
+            // InternalXtextTest.g:1238:1: ( ( rule__XtextTest__InputAssignment_7 ) )
             {
-            // InternalXtextTest.g:1210:1: ( ( rule__XtextTest__InputAssignment_7 ) )
-            // InternalXtextTest.g:1211:1: ( rule__XtextTest__InputAssignment_7 )
+            // InternalXtextTest.g:1238:1: ( ( rule__XtextTest__InputAssignment_7 ) )
+            // InternalXtextTest.g:1239:1: ( rule__XtextTest__InputAssignment_7 )
             {
              before(grammarAccess.getXtextTestAccess().getInputAssignment_7()); 
-            // InternalXtextTest.g:1212:1: ( rule__XtextTest__InputAssignment_7 )
-            // InternalXtextTest.g:1212:2: rule__XtextTest__InputAssignment_7
+            // InternalXtextTest.g:1240:1: ( rule__XtextTest__InputAssignment_7 )
+            // InternalXtextTest.g:1240:2: rule__XtextTest__InputAssignment_7
             {
             pushFollow(FOLLOW_2);
             rule__XtextTest__InputAssignment_7();
@@ -3072,14 +3163,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__Group__8"
-    // InternalXtextTest.g:1224:1: rule__XtextTest__Group__8 : rule__XtextTest__Group__8__Impl rule__XtextTest__Group__9 ;
+    // InternalXtextTest.g:1252:1: rule__XtextTest__Group__8 : rule__XtextTest__Group__8__Impl rule__XtextTest__Group__9 ;
     public final void rule__XtextTest__Group__8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1228:1: ( rule__XtextTest__Group__8__Impl rule__XtextTest__Group__9 )
-            // InternalXtextTest.g:1229:2: rule__XtextTest__Group__8__Impl rule__XtextTest__Group__9
+            // InternalXtextTest.g:1256:1: ( rule__XtextTest__Group__8__Impl rule__XtextTest__Group__9 )
+            // InternalXtextTest.g:1257:2: rule__XtextTest__Group__8__Impl rule__XtextTest__Group__9
             {
             pushFollow(FOLLOW_8);
             rule__XtextTest__Group__8__Impl();
@@ -3110,29 +3201,29 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__Group__8__Impl"
-    // InternalXtextTest.g:1236:1: rule__XtextTest__Group__8__Impl : ( ( rule__XtextTest__TokensAssignment_8 )? ) ;
+    // InternalXtextTest.g:1264:1: rule__XtextTest__Group__8__Impl : ( ( rule__XtextTest__TokensAssignment_8 )? ) ;
     public final void rule__XtextTest__Group__8__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1240:1: ( ( ( rule__XtextTest__TokensAssignment_8 )? ) )
-            // InternalXtextTest.g:1242:1: ( ( rule__XtextTest__TokensAssignment_8 )? )
+            // InternalXtextTest.g:1268:1: ( ( ( rule__XtextTest__TokensAssignment_8 )? ) )
+            // InternalXtextTest.g:1270:1: ( ( rule__XtextTest__TokensAssignment_8 )? )
             {
-            // InternalXtextTest.g:1242:1: ( ( rule__XtextTest__TokensAssignment_8 )? )
-            // InternalXtextTest.g:1243:1: ( rule__XtextTest__TokensAssignment_8 )?
+            // InternalXtextTest.g:1270:1: ( ( rule__XtextTest__TokensAssignment_8 )? )
+            // InternalXtextTest.g:1271:1: ( rule__XtextTest__TokensAssignment_8 )?
             {
              before(grammarAccess.getXtextTestAccess().getTokensAssignment_8()); 
-            // InternalXtextTest.g:1244:1: ( rule__XtextTest__TokensAssignment_8 )?
-            int alt9=2;
-            int LA9_0 = input.LA(1);
+            // InternalXtextTest.g:1272:1: ( rule__XtextTest__TokensAssignment_8 )?
+            int alt10=2;
+            int LA10_0 = input.LA(1);
 
-            if ( (LA9_0==RULE_LEXER) ) {
-                alt9=1;
+            if ( (LA10_0==RULE_LEXER) ) {
+                alt10=1;
             }
-            switch (alt9) {
+            switch (alt10) {
                 case 1 :
-                    // InternalXtextTest.g:1244:2: rule__XtextTest__TokensAssignment_8
+                    // InternalXtextTest.g:1272:2: rule__XtextTest__TokensAssignment_8
                     {
                     pushFollow(FOLLOW_2);
                     rule__XtextTest__TokensAssignment_8();
@@ -3168,14 +3259,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__Group__9"
-    // InternalXtextTest.g:1256:1: rule__XtextTest__Group__9 : rule__XtextTest__Group__9__Impl rule__XtextTest__Group__10 ;
+    // InternalXtextTest.g:1284:1: rule__XtextTest__Group__9 : rule__XtextTest__Group__9__Impl rule__XtextTest__Group__10 ;
     public final void rule__XtextTest__Group__9() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1260:1: ( rule__XtextTest__Group__9__Impl rule__XtextTest__Group__10 )
-            // InternalXtextTest.g:1261:2: rule__XtextTest__Group__9__Impl rule__XtextTest__Group__10
+            // InternalXtextTest.g:1288:1: ( rule__XtextTest__Group__9__Impl rule__XtextTest__Group__10 )
+            // InternalXtextTest.g:1289:2: rule__XtextTest__Group__9__Impl rule__XtextTest__Group__10
             {
             pushFollow(FOLLOW_9);
             rule__XtextTest__Group__9__Impl();
@@ -3206,21 +3297,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__Group__9__Impl"
-    // InternalXtextTest.g:1268:1: rule__XtextTest__Group__9__Impl : ( ( rule__XtextTest__RootAssignment_9 ) ) ;
+    // InternalXtextTest.g:1296:1: rule__XtextTest__Group__9__Impl : ( ( rule__XtextTest__RootAssignment_9 ) ) ;
     public final void rule__XtextTest__Group__9__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1272:1: ( ( ( rule__XtextTest__RootAssignment_9 ) ) )
-            // InternalXtextTest.g:1274:1: ( ( rule__XtextTest__RootAssignment_9 ) )
+            // InternalXtextTest.g:1300:1: ( ( ( rule__XtextTest__RootAssignment_9 ) ) )
+            // InternalXtextTest.g:1302:1: ( ( rule__XtextTest__RootAssignment_9 ) )
             {
-            // InternalXtextTest.g:1274:1: ( ( rule__XtextTest__RootAssignment_9 ) )
-            // InternalXtextTest.g:1275:1: ( rule__XtextTest__RootAssignment_9 )
+            // InternalXtextTest.g:1302:1: ( ( rule__XtextTest__RootAssignment_9 ) )
+            // InternalXtextTest.g:1303:1: ( rule__XtextTest__RootAssignment_9 )
             {
              before(grammarAccess.getXtextTestAccess().getRootAssignment_9()); 
-            // InternalXtextTest.g:1276:1: ( rule__XtextTest__RootAssignment_9 )
-            // InternalXtextTest.g:1276:2: rule__XtextTest__RootAssignment_9
+            // InternalXtextTest.g:1304:1: ( rule__XtextTest__RootAssignment_9 )
+            // InternalXtextTest.g:1304:2: rule__XtextTest__RootAssignment_9
             {
             pushFollow(FOLLOW_2);
             rule__XtextTest__RootAssignment_9();
@@ -3253,14 +3344,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__Group__10"
-    // InternalXtextTest.g:1288:1: rule__XtextTest__Group__10 : rule__XtextTest__Group__10__Impl rule__XtextTest__Group__11 ;
+    // InternalXtextTest.g:1316:1: rule__XtextTest__Group__10 : rule__XtextTest__Group__10__Impl rule__XtextTest__Group__11 ;
     public final void rule__XtextTest__Group__10() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1292:1: ( rule__XtextTest__Group__10__Impl rule__XtextTest__Group__11 )
-            // InternalXtextTest.g:1293:2: rule__XtextTest__Group__10__Impl rule__XtextTest__Group__11
+            // InternalXtextTest.g:1320:1: ( rule__XtextTest__Group__10__Impl rule__XtextTest__Group__11 )
+            // InternalXtextTest.g:1321:2: rule__XtextTest__Group__10__Impl rule__XtextTest__Group__11
             {
             pushFollow(FOLLOW_9);
             rule__XtextTest__Group__10__Impl();
@@ -3291,29 +3382,29 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__Group__10__Impl"
-    // InternalXtextTest.g:1300:1: rule__XtextTest__Group__10__Impl : ( ( rule__XtextTest__OutputAssignment_10 )? ) ;
+    // InternalXtextTest.g:1328:1: rule__XtextTest__Group__10__Impl : ( ( rule__XtextTest__OutputAssignment_10 )? ) ;
     public final void rule__XtextTest__Group__10__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1304:1: ( ( ( rule__XtextTest__OutputAssignment_10 )? ) )
-            // InternalXtextTest.g:1306:1: ( ( rule__XtextTest__OutputAssignment_10 )? )
+            // InternalXtextTest.g:1332:1: ( ( ( rule__XtextTest__OutputAssignment_10 )? ) )
+            // InternalXtextTest.g:1334:1: ( ( rule__XtextTest__OutputAssignment_10 )? )
             {
-            // InternalXtextTest.g:1306:1: ( ( rule__XtextTest__OutputAssignment_10 )? )
-            // InternalXtextTest.g:1307:1: ( rule__XtextTest__OutputAssignment_10 )?
+            // InternalXtextTest.g:1334:1: ( ( rule__XtextTest__OutputAssignment_10 )? )
+            // InternalXtextTest.g:1335:1: ( rule__XtextTest__OutputAssignment_10 )?
             {
              before(grammarAccess.getXtextTestAccess().getOutputAssignment_10()); 
-            // InternalXtextTest.g:1308:1: ( rule__XtextTest__OutputAssignment_10 )?
-            int alt10=2;
-            int LA10_0 = input.LA(1);
+            // InternalXtextTest.g:1336:1: ( rule__XtextTest__OutputAssignment_10 )?
+            int alt11=2;
+            int LA11_0 = input.LA(1);
 
-            if ( (LA10_0==RULE_OUTPUT) ) {
-                alt10=1;
+            if ( (LA11_0==RULE_OUTPUT) ) {
+                alt11=1;
             }
-            switch (alt10) {
+            switch (alt11) {
                 case 1 :
-                    // InternalXtextTest.g:1308:2: rule__XtextTest__OutputAssignment_10
+                    // InternalXtextTest.g:1336:2: rule__XtextTest__OutputAssignment_10
                     {
                     pushFollow(FOLLOW_2);
                     rule__XtextTest__OutputAssignment_10();
@@ -3349,14 +3440,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__Group__11"
-    // InternalXtextTest.g:1320:1: rule__XtextTest__Group__11 : rule__XtextTest__Group__11__Impl rule__XtextTest__Group__12 ;
+    // InternalXtextTest.g:1348:1: rule__XtextTest__Group__11 : rule__XtextTest__Group__11__Impl rule__XtextTest__Group__12 ;
     public final void rule__XtextTest__Group__11() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1324:1: ( rule__XtextTest__Group__11__Impl rule__XtextTest__Group__12 )
-            // InternalXtextTest.g:1325:2: rule__XtextTest__Group__11__Impl rule__XtextTest__Group__12
+            // InternalXtextTest.g:1352:1: ( rule__XtextTest__Group__11__Impl rule__XtextTest__Group__12 )
+            // InternalXtextTest.g:1353:2: rule__XtextTest__Group__11__Impl rule__XtextTest__Group__12
             {
             pushFollow(FOLLOW_9);
             rule__XtextTest__Group__11__Impl();
@@ -3387,29 +3478,29 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__Group__11__Impl"
-    // InternalXtextTest.g:1332:1: rule__XtextTest__Group__11__Impl : ( ( rule__XtextTest__BeforeAssignment_11 )? ) ;
+    // InternalXtextTest.g:1360:1: rule__XtextTest__Group__11__Impl : ( ( rule__XtextTest__BeforeAssignment_11 )? ) ;
     public final void rule__XtextTest__Group__11__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1336:1: ( ( ( rule__XtextTest__BeforeAssignment_11 )? ) )
-            // InternalXtextTest.g:1338:1: ( ( rule__XtextTest__BeforeAssignment_11 )? )
+            // InternalXtextTest.g:1364:1: ( ( ( rule__XtextTest__BeforeAssignment_11 )? ) )
+            // InternalXtextTest.g:1366:1: ( ( rule__XtextTest__BeforeAssignment_11 )? )
             {
-            // InternalXtextTest.g:1338:1: ( ( rule__XtextTest__BeforeAssignment_11 )? )
-            // InternalXtextTest.g:1339:1: ( rule__XtextTest__BeforeAssignment_11 )?
+            // InternalXtextTest.g:1366:1: ( ( rule__XtextTest__BeforeAssignment_11 )? )
+            // InternalXtextTest.g:1367:1: ( rule__XtextTest__BeforeAssignment_11 )?
             {
              before(grammarAccess.getXtextTestAccess().getBeforeAssignment_11()); 
-            // InternalXtextTest.g:1340:1: ( rule__XtextTest__BeforeAssignment_11 )?
-            int alt11=2;
-            int LA11_0 = input.LA(1);
+            // InternalXtextTest.g:1368:1: ( rule__XtextTest__BeforeAssignment_11 )?
+            int alt12=2;
+            int LA12_0 = input.LA(1);
 
-            if ( (LA11_0==RULE_BEFORE_KW) ) {
-                alt11=1;
+            if ( (LA12_0==RULE_BEFORE_KW) ) {
+                alt12=1;
             }
-            switch (alt11) {
+            switch (alt12) {
                 case 1 :
-                    // InternalXtextTest.g:1340:2: rule__XtextTest__BeforeAssignment_11
+                    // InternalXtextTest.g:1368:2: rule__XtextTest__BeforeAssignment_11
                     {
                     pushFollow(FOLLOW_2);
                     rule__XtextTest__BeforeAssignment_11();
@@ -3445,14 +3536,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__Group__12"
-    // InternalXtextTest.g:1352:1: rule__XtextTest__Group__12 : rule__XtextTest__Group__12__Impl ;
+    // InternalXtextTest.g:1380:1: rule__XtextTest__Group__12 : rule__XtextTest__Group__12__Impl ;
     public final void rule__XtextTest__Group__12() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1356:1: ( rule__XtextTest__Group__12__Impl )
-            // InternalXtextTest.g:1357:2: rule__XtextTest__Group__12__Impl
+            // InternalXtextTest.g:1384:1: ( rule__XtextTest__Group__12__Impl )
+            // InternalXtextTest.g:1385:2: rule__XtextTest__Group__12__Impl
             {
             pushFollow(FOLLOW_2);
             rule__XtextTest__Group__12__Impl();
@@ -3478,29 +3569,29 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__Group__12__Impl"
-    // InternalXtextTest.g:1363:1: rule__XtextTest__Group__12__Impl : ( ( rule__XtextTest__AfterAssignment_12 )? ) ;
+    // InternalXtextTest.g:1391:1: rule__XtextTest__Group__12__Impl : ( ( rule__XtextTest__AfterAssignment_12 )? ) ;
     public final void rule__XtextTest__Group__12__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1367:1: ( ( ( rule__XtextTest__AfterAssignment_12 )? ) )
-            // InternalXtextTest.g:1369:1: ( ( rule__XtextTest__AfterAssignment_12 )? )
+            // InternalXtextTest.g:1395:1: ( ( ( rule__XtextTest__AfterAssignment_12 )? ) )
+            // InternalXtextTest.g:1397:1: ( ( rule__XtextTest__AfterAssignment_12 )? )
             {
-            // InternalXtextTest.g:1369:1: ( ( rule__XtextTest__AfterAssignment_12 )? )
-            // InternalXtextTest.g:1370:1: ( rule__XtextTest__AfterAssignment_12 )?
+            // InternalXtextTest.g:1397:1: ( ( rule__XtextTest__AfterAssignment_12 )? )
+            // InternalXtextTest.g:1398:1: ( rule__XtextTest__AfterAssignment_12 )?
             {
              before(grammarAccess.getXtextTestAccess().getAfterAssignment_12()); 
-            // InternalXtextTest.g:1371:1: ( rule__XtextTest__AfterAssignment_12 )?
-            int alt12=2;
-            int LA12_0 = input.LA(1);
+            // InternalXtextTest.g:1399:1: ( rule__XtextTest__AfterAssignment_12 )?
+            int alt13=2;
+            int LA13_0 = input.LA(1);
 
-            if ( (LA12_0==RULE_AFTER_KW) ) {
-                alt12=1;
+            if ( (LA13_0==RULE_AFTER_KW) ) {
+                alt13=1;
             }
-            switch (alt12) {
+            switch (alt13) {
                 case 1 :
-                    // InternalXtextTest.g:1371:2: rule__XtextTest__AfterAssignment_12
+                    // InternalXtextTest.g:1399:2: rule__XtextTest__AfterAssignment_12
                     {
                     pushFollow(FOLLOW_2);
                     rule__XtextTest__AfterAssignment_12();
@@ -3536,14 +3627,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__Group_5__0"
-    // InternalXtextTest.g:1409:1: rule__XtextTest__Group_5__0 : rule__XtextTest__Group_5__0__Impl rule__XtextTest__Group_5__1 ;
+    // InternalXtextTest.g:1437:1: rule__XtextTest__Group_5__0 : rule__XtextTest__Group_5__0__Impl rule__XtextTest__Group_5__1 ;
     public final void rule__XtextTest__Group_5__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1413:1: ( rule__XtextTest__Group_5__0__Impl rule__XtextTest__Group_5__1 )
-            // InternalXtextTest.g:1414:2: rule__XtextTest__Group_5__0__Impl rule__XtextTest__Group_5__1
+            // InternalXtextTest.g:1441:1: ( rule__XtextTest__Group_5__0__Impl rule__XtextTest__Group_5__1 )
+            // InternalXtextTest.g:1442:2: rule__XtextTest__Group_5__0__Impl rule__XtextTest__Group_5__1
             {
             pushFollow(FOLLOW_5);
             rule__XtextTest__Group_5__0__Impl();
@@ -3574,17 +3665,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__Group_5__0__Impl"
-    // InternalXtextTest.g:1421:1: rule__XtextTest__Group_5__0__Impl : ( RULE_IMPORTS ) ;
+    // InternalXtextTest.g:1449:1: rule__XtextTest__Group_5__0__Impl : ( RULE_IMPORTS ) ;
     public final void rule__XtextTest__Group_5__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1425:1: ( ( RULE_IMPORTS ) )
-            // InternalXtextTest.g:1427:1: ( RULE_IMPORTS )
+            // InternalXtextTest.g:1453:1: ( ( RULE_IMPORTS ) )
+            // InternalXtextTest.g:1455:1: ( RULE_IMPORTS )
             {
-            // InternalXtextTest.g:1427:1: ( RULE_IMPORTS )
-            // InternalXtextTest.g:1428:1: RULE_IMPORTS
+            // InternalXtextTest.g:1455:1: ( RULE_IMPORTS )
+            // InternalXtextTest.g:1456:1: RULE_IMPORTS
             {
              before(grammarAccess.getXtextTestAccess().getIMPORTSTerminalRuleCall_5_0()); 
             match(input,RULE_IMPORTS,FOLLOW_2); 
@@ -3611,14 +3702,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__Group_5__1"
-    // InternalXtextTest.g:1441:1: rule__XtextTest__Group_5__1 : rule__XtextTest__Group_5__1__Impl ;
+    // InternalXtextTest.g:1469:1: rule__XtextTest__Group_5__1 : rule__XtextTest__Group_5__1__Impl ;
     public final void rule__XtextTest__Group_5__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1445:1: ( rule__XtextTest__Group_5__1__Impl )
-            // InternalXtextTest.g:1446:2: rule__XtextTest__Group_5__1__Impl
+            // InternalXtextTest.g:1473:1: ( rule__XtextTest__Group_5__1__Impl )
+            // InternalXtextTest.g:1474:2: rule__XtextTest__Group_5__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__XtextTest__Group_5__1__Impl();
@@ -3644,21 +3735,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__Group_5__1__Impl"
-    // InternalXtextTest.g:1452:1: rule__XtextTest__Group_5__1__Impl : ( ( rule__XtextTest__ImportsAssignment_5_1 ) ) ;
+    // InternalXtextTest.g:1480:1: rule__XtextTest__Group_5__1__Impl : ( ( rule__XtextTest__ImportsAssignment_5_1 ) ) ;
     public final void rule__XtextTest__Group_5__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1456:1: ( ( ( rule__XtextTest__ImportsAssignment_5_1 ) ) )
-            // InternalXtextTest.g:1458:1: ( ( rule__XtextTest__ImportsAssignment_5_1 ) )
+            // InternalXtextTest.g:1484:1: ( ( ( rule__XtextTest__ImportsAssignment_5_1 ) ) )
+            // InternalXtextTest.g:1486:1: ( ( rule__XtextTest__ImportsAssignment_5_1 ) )
             {
-            // InternalXtextTest.g:1458:1: ( ( rule__XtextTest__ImportsAssignment_5_1 ) )
-            // InternalXtextTest.g:1459:1: ( rule__XtextTest__ImportsAssignment_5_1 )
+            // InternalXtextTest.g:1486:1: ( ( rule__XtextTest__ImportsAssignment_5_1 ) )
+            // InternalXtextTest.g:1487:1: ( rule__XtextTest__ImportsAssignment_5_1 )
             {
              before(grammarAccess.getXtextTestAccess().getImportsAssignment_5_1()); 
-            // InternalXtextTest.g:1460:1: ( rule__XtextTest__ImportsAssignment_5_1 )
-            // InternalXtextTest.g:1460:2: rule__XtextTest__ImportsAssignment_5_1
+            // InternalXtextTest.g:1488:1: ( rule__XtextTest__ImportsAssignment_5_1 )
+            // InternalXtextTest.g:1488:2: rule__XtextTest__ImportsAssignment_5_1
             {
             pushFollow(FOLLOW_2);
             rule__XtextTest__ImportsAssignment_5_1();
@@ -3691,14 +3782,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__Group_6__0"
-    // InternalXtextTest.g:1476:1: rule__XtextTest__Group_6__0 : rule__XtextTest__Group_6__0__Impl rule__XtextTest__Group_6__1 ;
+    // InternalXtextTest.g:1504:1: rule__XtextTest__Group_6__0 : rule__XtextTest__Group_6__0__Impl rule__XtextTest__Group_6__1 ;
     public final void rule__XtextTest__Group_6__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1480:1: ( rule__XtextTest__Group_6__0__Impl rule__XtextTest__Group_6__1 )
-            // InternalXtextTest.g:1481:2: rule__XtextTest__Group_6__0__Impl rule__XtextTest__Group_6__1
+            // InternalXtextTest.g:1508:1: ( rule__XtextTest__Group_6__0__Impl rule__XtextTest__Group_6__1 )
+            // InternalXtextTest.g:1509:2: rule__XtextTest__Group_6__0__Impl rule__XtextTest__Group_6__1
             {
             pushFollow(FOLLOW_10);
             rule__XtextTest__Group_6__0__Impl();
@@ -3729,17 +3820,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__Group_6__0__Impl"
-    // InternalXtextTest.g:1488:1: rule__XtextTest__Group_6__0__Impl : ( RULE_SPLITLEXER ) ;
+    // InternalXtextTest.g:1516:1: rule__XtextTest__Group_6__0__Impl : ( RULE_SPLITLEXER ) ;
     public final void rule__XtextTest__Group_6__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1492:1: ( ( RULE_SPLITLEXER ) )
-            // InternalXtextTest.g:1494:1: ( RULE_SPLITLEXER )
+            // InternalXtextTest.g:1520:1: ( ( RULE_SPLITLEXER ) )
+            // InternalXtextTest.g:1522:1: ( RULE_SPLITLEXER )
             {
-            // InternalXtextTest.g:1494:1: ( RULE_SPLITLEXER )
-            // InternalXtextTest.g:1495:1: RULE_SPLITLEXER
+            // InternalXtextTest.g:1522:1: ( RULE_SPLITLEXER )
+            // InternalXtextTest.g:1523:1: RULE_SPLITLEXER
             {
              before(grammarAccess.getXtextTestAccess().getSPLITLEXERTerminalRuleCall_6_0()); 
             match(input,RULE_SPLITLEXER,FOLLOW_2); 
@@ -3766,14 +3857,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__Group_6__1"
-    // InternalXtextTest.g:1508:1: rule__XtextTest__Group_6__1 : rule__XtextTest__Group_6__1__Impl rule__XtextTest__Group_6__2 ;
+    // InternalXtextTest.g:1536:1: rule__XtextTest__Group_6__1 : rule__XtextTest__Group_6__1__Impl rule__XtextTest__Group_6__2 ;
     public final void rule__XtextTest__Group_6__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1512:1: ( rule__XtextTest__Group_6__1__Impl rule__XtextTest__Group_6__2 )
-            // InternalXtextTest.g:1513:2: rule__XtextTest__Group_6__1__Impl rule__XtextTest__Group_6__2
+            // InternalXtextTest.g:1540:1: ( rule__XtextTest__Group_6__1__Impl rule__XtextTest__Group_6__2 )
+            // InternalXtextTest.g:1541:2: rule__XtextTest__Group_6__1__Impl rule__XtextTest__Group_6__2
             {
             pushFollow(FOLLOW_11);
             rule__XtextTest__Group_6__1__Impl();
@@ -3804,17 +3895,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__Group_6__1__Impl"
-    // InternalXtextTest.g:1520:1: rule__XtextTest__Group_6__1__Impl : ( RULE_ASSIGNASSINGLE ) ;
+    // InternalXtextTest.g:1548:1: rule__XtextTest__Group_6__1__Impl : ( RULE_ASSIGNASSINGLE ) ;
     public final void rule__XtextTest__Group_6__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1524:1: ( ( RULE_ASSIGNASSINGLE ) )
-            // InternalXtextTest.g:1526:1: ( RULE_ASSIGNASSINGLE )
+            // InternalXtextTest.g:1552:1: ( ( RULE_ASSIGNASSINGLE ) )
+            // InternalXtextTest.g:1554:1: ( RULE_ASSIGNASSINGLE )
             {
-            // InternalXtextTest.g:1526:1: ( RULE_ASSIGNASSINGLE )
-            // InternalXtextTest.g:1527:1: RULE_ASSIGNASSINGLE
+            // InternalXtextTest.g:1554:1: ( RULE_ASSIGNASSINGLE )
+            // InternalXtextTest.g:1555:1: RULE_ASSIGNASSINGLE
             {
              before(grammarAccess.getXtextTestAccess().getASSIGNASSINGLETerminalRuleCall_6_1()); 
             match(input,RULE_ASSIGNASSINGLE,FOLLOW_2); 
@@ -3841,14 +3932,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__Group_6__2"
-    // InternalXtextTest.g:1540:1: rule__XtextTest__Group_6__2 : rule__XtextTest__Group_6__2__Impl ;
+    // InternalXtextTest.g:1568:1: rule__XtextTest__Group_6__2 : rule__XtextTest__Group_6__2__Impl ;
     public final void rule__XtextTest__Group_6__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1544:1: ( rule__XtextTest__Group_6__2__Impl )
-            // InternalXtextTest.g:1545:2: rule__XtextTest__Group_6__2__Impl
+            // InternalXtextTest.g:1572:1: ( rule__XtextTest__Group_6__2__Impl )
+            // InternalXtextTest.g:1573:2: rule__XtextTest__Group_6__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__XtextTest__Group_6__2__Impl();
@@ -3874,21 +3965,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__Group_6__2__Impl"
-    // InternalXtextTest.g:1551:1: rule__XtextTest__Group_6__2__Impl : ( ( rule__XtextTest__BooleanAssignment_6_2 ) ) ;
+    // InternalXtextTest.g:1579:1: rule__XtextTest__Group_6__2__Impl : ( ( rule__XtextTest__BooleanAssignment_6_2 ) ) ;
     public final void rule__XtextTest__Group_6__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1555:1: ( ( ( rule__XtextTest__BooleanAssignment_6_2 ) ) )
-            // InternalXtextTest.g:1557:1: ( ( rule__XtextTest__BooleanAssignment_6_2 ) )
+            // InternalXtextTest.g:1583:1: ( ( ( rule__XtextTest__BooleanAssignment_6_2 ) ) )
+            // InternalXtextTest.g:1585:1: ( ( rule__XtextTest__BooleanAssignment_6_2 ) )
             {
-            // InternalXtextTest.g:1557:1: ( ( rule__XtextTest__BooleanAssignment_6_2 ) )
-            // InternalXtextTest.g:1558:1: ( rule__XtextTest__BooleanAssignment_6_2 )
+            // InternalXtextTest.g:1585:1: ( ( rule__XtextTest__BooleanAssignment_6_2 ) )
+            // InternalXtextTest.g:1586:1: ( rule__XtextTest__BooleanAssignment_6_2 )
             {
              before(grammarAccess.getXtextTestAccess().getBooleanAssignment_6_2()); 
-            // InternalXtextTest.g:1559:1: ( rule__XtextTest__BooleanAssignment_6_2 )
-            // InternalXtextTest.g:1559:2: rule__XtextTest__BooleanAssignment_6_2
+            // InternalXtextTest.g:1587:1: ( rule__XtextTest__BooleanAssignment_6_2 )
+            // InternalXtextTest.g:1587:2: rule__XtextTest__BooleanAssignment_6_2
             {
             pushFollow(FOLLOW_2);
             rule__XtextTest__BooleanAssignment_6_2();
@@ -3921,14 +4012,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__Group__0"
-    // InternalXtextTest.g:1577:1: rule__EmfTest__Group__0 : rule__EmfTest__Group__0__Impl rule__EmfTest__Group__1 ;
+    // InternalXtextTest.g:1605:1: rule__EmfTest__Group__0 : rule__EmfTest__Group__0__Impl rule__EmfTest__Group__1 ;
     public final void rule__EmfTest__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1581:1: ( rule__EmfTest__Group__0__Impl rule__EmfTest__Group__1 )
-            // InternalXtextTest.g:1582:2: rule__EmfTest__Group__0__Impl rule__EmfTest__Group__1
+            // InternalXtextTest.g:1609:1: ( rule__EmfTest__Group__0__Impl rule__EmfTest__Group__1 )
+            // InternalXtextTest.g:1610:2: rule__EmfTest__Group__0__Impl rule__EmfTest__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__EmfTest__Group__0__Impl();
@@ -3959,21 +4050,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__Group__0__Impl"
-    // InternalXtextTest.g:1589:1: rule__EmfTest__Group__0__Impl : ( () ) ;
+    // InternalXtextTest.g:1617:1: rule__EmfTest__Group__0__Impl : ( () ) ;
     public final void rule__EmfTest__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1593:1: ( ( () ) )
-            // InternalXtextTest.g:1595:1: ( () )
+            // InternalXtextTest.g:1621:1: ( ( () ) )
+            // InternalXtextTest.g:1623:1: ( () )
             {
-            // InternalXtextTest.g:1595:1: ( () )
-            // InternalXtextTest.g:1596:1: ()
+            // InternalXtextTest.g:1623:1: ( () )
+            // InternalXtextTest.g:1624:1: ()
             {
              before(grammarAccess.getEmfTestAccess().getEmfTestAction_0()); 
-            // InternalXtextTest.g:1597:1: ()
-            // InternalXtextTest.g:1599:1: 
+            // InternalXtextTest.g:1625:1: ()
+            // InternalXtextTest.g:1627:1: 
             {
             }
 
@@ -3996,14 +4087,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__Group__1"
-    // InternalXtextTest.g:1611:1: rule__EmfTest__Group__1 : rule__EmfTest__Group__1__Impl rule__EmfTest__Group__2 ;
+    // InternalXtextTest.g:1639:1: rule__EmfTest__Group__1 : rule__EmfTest__Group__1__Impl rule__EmfTest__Group__2 ;
     public final void rule__EmfTest__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1615:1: ( rule__EmfTest__Group__1__Impl rule__EmfTest__Group__2 )
-            // InternalXtextTest.g:1616:2: rule__EmfTest__Group__1__Impl rule__EmfTest__Group__2
+            // InternalXtextTest.g:1643:1: ( rule__EmfTest__Group__1__Impl rule__EmfTest__Group__2 )
+            // InternalXtextTest.g:1644:2: rule__EmfTest__Group__1__Impl rule__EmfTest__Group__2
             {
             pushFollow(FOLLOW_4);
             rule__EmfTest__Group__1__Impl();
@@ -4034,17 +4125,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__Group__1__Impl"
-    // InternalXtextTest.g:1623:1: rule__EmfTest__Group__1__Impl : ( RULE_KW_EMFTEST ) ;
+    // InternalXtextTest.g:1651:1: rule__EmfTest__Group__1__Impl : ( RULE_KW_EMFTEST ) ;
     public final void rule__EmfTest__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1627:1: ( ( RULE_KW_EMFTEST ) )
-            // InternalXtextTest.g:1629:1: ( RULE_KW_EMFTEST )
+            // InternalXtextTest.g:1655:1: ( ( RULE_KW_EMFTEST ) )
+            // InternalXtextTest.g:1657:1: ( RULE_KW_EMFTEST )
             {
-            // InternalXtextTest.g:1629:1: ( RULE_KW_EMFTEST )
-            // InternalXtextTest.g:1630:1: RULE_KW_EMFTEST
+            // InternalXtextTest.g:1657:1: ( RULE_KW_EMFTEST )
+            // InternalXtextTest.g:1658:1: RULE_KW_EMFTEST
             {
              before(grammarAccess.getEmfTestAccess().getKW_EMFTESTTerminalRuleCall_1()); 
             match(input,RULE_KW_EMFTEST,FOLLOW_2); 
@@ -4071,14 +4162,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__Group__2"
-    // InternalXtextTest.g:1643:1: rule__EmfTest__Group__2 : rule__EmfTest__Group__2__Impl rule__EmfTest__Group__3 ;
+    // InternalXtextTest.g:1671:1: rule__EmfTest__Group__2 : rule__EmfTest__Group__2__Impl rule__EmfTest__Group__3 ;
     public final void rule__EmfTest__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1647:1: ( rule__EmfTest__Group__2__Impl rule__EmfTest__Group__3 )
-            // InternalXtextTest.g:1648:2: rule__EmfTest__Group__2__Impl rule__EmfTest__Group__3
+            // InternalXtextTest.g:1675:1: ( rule__EmfTest__Group__2__Impl rule__EmfTest__Group__3 )
+            // InternalXtextTest.g:1676:2: rule__EmfTest__Group__2__Impl rule__EmfTest__Group__3
             {
             pushFollow(FOLLOW_5);
             rule__EmfTest__Group__2__Impl();
@@ -4109,17 +4200,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__Group__2__Impl"
-    // InternalXtextTest.g:1655:1: rule__EmfTest__Group__2__Impl : ( RULE_PACKAGE ) ;
+    // InternalXtextTest.g:1683:1: rule__EmfTest__Group__2__Impl : ( RULE_PACKAGE ) ;
     public final void rule__EmfTest__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1659:1: ( ( RULE_PACKAGE ) )
-            // InternalXtextTest.g:1661:1: ( RULE_PACKAGE )
+            // InternalXtextTest.g:1687:1: ( ( RULE_PACKAGE ) )
+            // InternalXtextTest.g:1689:1: ( RULE_PACKAGE )
             {
-            // InternalXtextTest.g:1661:1: ( RULE_PACKAGE )
-            // InternalXtextTest.g:1662:1: RULE_PACKAGE
+            // InternalXtextTest.g:1689:1: ( RULE_PACKAGE )
+            // InternalXtextTest.g:1690:1: RULE_PACKAGE
             {
              before(grammarAccess.getEmfTestAccess().getPACKAGETerminalRuleCall_2()); 
             match(input,RULE_PACKAGE,FOLLOW_2); 
@@ -4146,14 +4237,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__Group__3"
-    // InternalXtextTest.g:1675:1: rule__EmfTest__Group__3 : rule__EmfTest__Group__3__Impl rule__EmfTest__Group__4 ;
+    // InternalXtextTest.g:1703:1: rule__EmfTest__Group__3 : rule__EmfTest__Group__3__Impl rule__EmfTest__Group__4 ;
     public final void rule__EmfTest__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1679:1: ( rule__EmfTest__Group__3__Impl rule__EmfTest__Group__4 )
-            // InternalXtextTest.g:1680:2: rule__EmfTest__Group__3__Impl rule__EmfTest__Group__4
+            // InternalXtextTest.g:1707:1: ( rule__EmfTest__Group__3__Impl rule__EmfTest__Group__4 )
+            // InternalXtextTest.g:1708:2: rule__EmfTest__Group__3__Impl rule__EmfTest__Group__4
             {
             pushFollow(FOLLOW_12);
             rule__EmfTest__Group__3__Impl();
@@ -4184,21 +4275,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__Group__3__Impl"
-    // InternalXtextTest.g:1687:1: rule__EmfTest__Group__3__Impl : ( ( rule__EmfTest__PackageAssignment_3 ) ) ;
+    // InternalXtextTest.g:1715:1: rule__EmfTest__Group__3__Impl : ( ( rule__EmfTest__PackageAssignment_3 ) ) ;
     public final void rule__EmfTest__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1691:1: ( ( ( rule__EmfTest__PackageAssignment_3 ) ) )
-            // InternalXtextTest.g:1693:1: ( ( rule__EmfTest__PackageAssignment_3 ) )
+            // InternalXtextTest.g:1719:1: ( ( ( rule__EmfTest__PackageAssignment_3 ) ) )
+            // InternalXtextTest.g:1721:1: ( ( rule__EmfTest__PackageAssignment_3 ) )
             {
-            // InternalXtextTest.g:1693:1: ( ( rule__EmfTest__PackageAssignment_3 ) )
-            // InternalXtextTest.g:1694:1: ( rule__EmfTest__PackageAssignment_3 )
+            // InternalXtextTest.g:1721:1: ( ( rule__EmfTest__PackageAssignment_3 ) )
+            // InternalXtextTest.g:1722:1: ( rule__EmfTest__PackageAssignment_3 )
             {
              before(grammarAccess.getEmfTestAccess().getPackageAssignment_3()); 
-            // InternalXtextTest.g:1695:1: ( rule__EmfTest__PackageAssignment_3 )
-            // InternalXtextTest.g:1695:2: rule__EmfTest__PackageAssignment_3
+            // InternalXtextTest.g:1723:1: ( rule__EmfTest__PackageAssignment_3 )
+            // InternalXtextTest.g:1723:2: rule__EmfTest__PackageAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__EmfTest__PackageAssignment_3();
@@ -4231,14 +4322,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__Group__4"
-    // InternalXtextTest.g:1707:1: rule__EmfTest__Group__4 : rule__EmfTest__Group__4__Impl rule__EmfTest__Group__5 ;
+    // InternalXtextTest.g:1735:1: rule__EmfTest__Group__4 : rule__EmfTest__Group__4__Impl rule__EmfTest__Group__5 ;
     public final void rule__EmfTest__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1711:1: ( rule__EmfTest__Group__4__Impl rule__EmfTest__Group__5 )
-            // InternalXtextTest.g:1712:2: rule__EmfTest__Group__4__Impl rule__EmfTest__Group__5
+            // InternalXtextTest.g:1739:1: ( rule__EmfTest__Group__4__Impl rule__EmfTest__Group__5 )
+            // InternalXtextTest.g:1740:2: rule__EmfTest__Group__4__Impl rule__EmfTest__Group__5
             {
             pushFollow(FOLLOW_5);
             rule__EmfTest__Group__4__Impl();
@@ -4269,17 +4360,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__Group__4__Impl"
-    // InternalXtextTest.g:1719:1: rule__EmfTest__Group__4__Impl : ( RULE_DEFAULT ) ;
+    // InternalXtextTest.g:1747:1: rule__EmfTest__Group__4__Impl : ( RULE_DEFAULT ) ;
     public final void rule__EmfTest__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1723:1: ( ( RULE_DEFAULT ) )
-            // InternalXtextTest.g:1725:1: ( RULE_DEFAULT )
+            // InternalXtextTest.g:1751:1: ( ( RULE_DEFAULT ) )
+            // InternalXtextTest.g:1753:1: ( RULE_DEFAULT )
             {
-            // InternalXtextTest.g:1725:1: ( RULE_DEFAULT )
-            // InternalXtextTest.g:1726:1: RULE_DEFAULT
+            // InternalXtextTest.g:1753:1: ( RULE_DEFAULT )
+            // InternalXtextTest.g:1754:1: RULE_DEFAULT
             {
              before(grammarAccess.getEmfTestAccess().getDEFAULTTerminalRuleCall_4()); 
             match(input,RULE_DEFAULT,FOLLOW_2); 
@@ -4306,14 +4397,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__Group__5"
-    // InternalXtextTest.g:1739:1: rule__EmfTest__Group__5 : rule__EmfTest__Group__5__Impl rule__EmfTest__Group__6 ;
+    // InternalXtextTest.g:1767:1: rule__EmfTest__Group__5 : rule__EmfTest__Group__5__Impl rule__EmfTest__Group__6 ;
     public final void rule__EmfTest__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1743:1: ( rule__EmfTest__Group__5__Impl rule__EmfTest__Group__6 )
-            // InternalXtextTest.g:1744:2: rule__EmfTest__Group__5__Impl rule__EmfTest__Group__6
+            // InternalXtextTest.g:1771:1: ( rule__EmfTest__Group__5__Impl rule__EmfTest__Group__6 )
+            // InternalXtextTest.g:1772:2: rule__EmfTest__Group__5__Impl rule__EmfTest__Group__6
             {
             pushFollow(FOLLOW_13);
             rule__EmfTest__Group__5__Impl();
@@ -4344,21 +4435,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__Group__5__Impl"
-    // InternalXtextTest.g:1751:1: rule__EmfTest__Group__5__Impl : ( ( rule__EmfTest__MydefaultAssignment_5 ) ) ;
+    // InternalXtextTest.g:1779:1: rule__EmfTest__Group__5__Impl : ( ( rule__EmfTest__MydefaultAssignment_5 ) ) ;
     public final void rule__EmfTest__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1755:1: ( ( ( rule__EmfTest__MydefaultAssignment_5 ) ) )
-            // InternalXtextTest.g:1757:1: ( ( rule__EmfTest__MydefaultAssignment_5 ) )
+            // InternalXtextTest.g:1783:1: ( ( ( rule__EmfTest__MydefaultAssignment_5 ) ) )
+            // InternalXtextTest.g:1785:1: ( ( rule__EmfTest__MydefaultAssignment_5 ) )
             {
-            // InternalXtextTest.g:1757:1: ( ( rule__EmfTest__MydefaultAssignment_5 ) )
-            // InternalXtextTest.g:1758:1: ( rule__EmfTest__MydefaultAssignment_5 )
+            // InternalXtextTest.g:1785:1: ( ( rule__EmfTest__MydefaultAssignment_5 ) )
+            // InternalXtextTest.g:1786:1: ( rule__EmfTest__MydefaultAssignment_5 )
             {
              before(grammarAccess.getEmfTestAccess().getMydefaultAssignment_5()); 
-            // InternalXtextTest.g:1759:1: ( rule__EmfTest__MydefaultAssignment_5 )
-            // InternalXtextTest.g:1759:2: rule__EmfTest__MydefaultAssignment_5
+            // InternalXtextTest.g:1787:1: ( rule__EmfTest__MydefaultAssignment_5 )
+            // InternalXtextTest.g:1787:2: rule__EmfTest__MydefaultAssignment_5
             {
             pushFollow(FOLLOW_2);
             rule__EmfTest__MydefaultAssignment_5();
@@ -4391,14 +4482,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__Group__6"
-    // InternalXtextTest.g:1771:1: rule__EmfTest__Group__6 : rule__EmfTest__Group__6__Impl rule__EmfTest__Group__7 ;
+    // InternalXtextTest.g:1799:1: rule__EmfTest__Group__6 : rule__EmfTest__Group__6__Impl rule__EmfTest__Group__7 ;
     public final void rule__EmfTest__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1775:1: ( rule__EmfTest__Group__6__Impl rule__EmfTest__Group__7 )
-            // InternalXtextTest.g:1776:2: rule__EmfTest__Group__6__Impl rule__EmfTest__Group__7
+            // InternalXtextTest.g:1803:1: ( rule__EmfTest__Group__6__Impl rule__EmfTest__Group__7 )
+            // InternalXtextTest.g:1804:2: rule__EmfTest__Group__6__Impl rule__EmfTest__Group__7
             {
             pushFollow(FOLLOW_13);
             rule__EmfTest__Group__6__Impl();
@@ -4429,33 +4520,33 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__Group__6__Impl"
-    // InternalXtextTest.g:1783:1: rule__EmfTest__Group__6__Impl : ( ( rule__EmfTest__MyimportAssignment_6 )* ) ;
+    // InternalXtextTest.g:1811:1: rule__EmfTest__Group__6__Impl : ( ( rule__EmfTest__MyimportAssignment_6 )* ) ;
     public final void rule__EmfTest__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1787:1: ( ( ( rule__EmfTest__MyimportAssignment_6 )* ) )
-            // InternalXtextTest.g:1789:1: ( ( rule__EmfTest__MyimportAssignment_6 )* )
+            // InternalXtextTest.g:1815:1: ( ( ( rule__EmfTest__MyimportAssignment_6 )* ) )
+            // InternalXtextTest.g:1817:1: ( ( rule__EmfTest__MyimportAssignment_6 )* )
             {
-            // InternalXtextTest.g:1789:1: ( ( rule__EmfTest__MyimportAssignment_6 )* )
-            // InternalXtextTest.g:1790:1: ( rule__EmfTest__MyimportAssignment_6 )*
+            // InternalXtextTest.g:1817:1: ( ( rule__EmfTest__MyimportAssignment_6 )* )
+            // InternalXtextTest.g:1818:1: ( rule__EmfTest__MyimportAssignment_6 )*
             {
              before(grammarAccess.getEmfTestAccess().getMyimportAssignment_6()); 
-            // InternalXtextTest.g:1791:1: ( rule__EmfTest__MyimportAssignment_6 )*
-            loop13:
+            // InternalXtextTest.g:1819:1: ( rule__EmfTest__MyimportAssignment_6 )*
+            loop14:
             do {
-                int alt13=2;
-                int LA13_0 = input.LA(1);
+                int alt14=2;
+                int LA14_0 = input.LA(1);
 
-                if ( (LA13_0==RULE_IMPORTS) ) {
-                    alt13=1;
+                if ( (LA14_0==RULE_IMPORTS) ) {
+                    alt14=1;
                 }
 
 
-                switch (alt13) {
+                switch (alt14) {
             	case 1 :
-            	    // InternalXtextTest.g:1791:2: rule__EmfTest__MyimportAssignment_6
+            	    // InternalXtextTest.g:1819:2: rule__EmfTest__MyimportAssignment_6
             	    {
             	    pushFollow(FOLLOW_14);
             	    rule__EmfTest__MyimportAssignment_6();
@@ -4467,7 +4558,7 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
             	    break;
 
             	default :
-            	    break loop13;
+            	    break loop14;
                 }
             } while (true);
 
@@ -4494,14 +4585,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__Group__7"
-    // InternalXtextTest.g:1803:1: rule__EmfTest__Group__7 : rule__EmfTest__Group__7__Impl rule__EmfTest__Group__8 ;
+    // InternalXtextTest.g:1831:1: rule__EmfTest__Group__7 : rule__EmfTest__Group__7__Impl rule__EmfTest__Group__8 ;
     public final void rule__EmfTest__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1807:1: ( rule__EmfTest__Group__7__Impl rule__EmfTest__Group__8 )
-            // InternalXtextTest.g:1808:2: rule__EmfTest__Group__7__Impl rule__EmfTest__Group__8
+            // InternalXtextTest.g:1835:1: ( rule__EmfTest__Group__7__Impl rule__EmfTest__Group__8 )
+            // InternalXtextTest.g:1836:2: rule__EmfTest__Group__7__Impl rule__EmfTest__Group__8
             {
             pushFollow(FOLLOW_15);
             rule__EmfTest__Group__7__Impl();
@@ -4532,21 +4623,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__Group__7__Impl"
-    // InternalXtextTest.g:1815:1: rule__EmfTest__Group__7__Impl : ( ( rule__EmfTest__CodeCallAssignment_7 ) ) ;
+    // InternalXtextTest.g:1843:1: rule__EmfTest__Group__7__Impl : ( ( rule__EmfTest__CodeCallAssignment_7 ) ) ;
     public final void rule__EmfTest__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1819:1: ( ( ( rule__EmfTest__CodeCallAssignment_7 ) ) )
-            // InternalXtextTest.g:1821:1: ( ( rule__EmfTest__CodeCallAssignment_7 ) )
+            // InternalXtextTest.g:1847:1: ( ( ( rule__EmfTest__CodeCallAssignment_7 ) ) )
+            // InternalXtextTest.g:1849:1: ( ( rule__EmfTest__CodeCallAssignment_7 ) )
             {
-            // InternalXtextTest.g:1821:1: ( ( rule__EmfTest__CodeCallAssignment_7 ) )
-            // InternalXtextTest.g:1822:1: ( rule__EmfTest__CodeCallAssignment_7 )
+            // InternalXtextTest.g:1849:1: ( ( rule__EmfTest__CodeCallAssignment_7 ) )
+            // InternalXtextTest.g:1850:1: ( rule__EmfTest__CodeCallAssignment_7 )
             {
              before(grammarAccess.getEmfTestAccess().getCodeCallAssignment_7()); 
-            // InternalXtextTest.g:1823:1: ( rule__EmfTest__CodeCallAssignment_7 )
-            // InternalXtextTest.g:1823:2: rule__EmfTest__CodeCallAssignment_7
+            // InternalXtextTest.g:1851:1: ( rule__EmfTest__CodeCallAssignment_7 )
+            // InternalXtextTest.g:1851:2: rule__EmfTest__CodeCallAssignment_7
             {
             pushFollow(FOLLOW_2);
             rule__EmfTest__CodeCallAssignment_7();
@@ -4579,14 +4670,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__Group__8"
-    // InternalXtextTest.g:1835:1: rule__EmfTest__Group__8 : rule__EmfTest__Group__8__Impl rule__EmfTest__Group__9 ;
+    // InternalXtextTest.g:1863:1: rule__EmfTest__Group__8 : rule__EmfTest__Group__8__Impl rule__EmfTest__Group__9 ;
     public final void rule__EmfTest__Group__8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1839:1: ( rule__EmfTest__Group__8__Impl rule__EmfTest__Group__9 )
-            // InternalXtextTest.g:1840:2: rule__EmfTest__Group__8__Impl rule__EmfTest__Group__9
+            // InternalXtextTest.g:1867:1: ( rule__EmfTest__Group__8__Impl rule__EmfTest__Group__9 )
+            // InternalXtextTest.g:1868:2: rule__EmfTest__Group__8__Impl rule__EmfTest__Group__9
             {
             pushFollow(FOLLOW_15);
             rule__EmfTest__Group__8__Impl();
@@ -4617,29 +4708,29 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__Group__8__Impl"
-    // InternalXtextTest.g:1847:1: rule__EmfTest__Group__8__Impl : ( ( rule__EmfTest__Group_8__0 )? ) ;
+    // InternalXtextTest.g:1875:1: rule__EmfTest__Group__8__Impl : ( ( rule__EmfTest__Group_8__0 )? ) ;
     public final void rule__EmfTest__Group__8__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1851:1: ( ( ( rule__EmfTest__Group_8__0 )? ) )
-            // InternalXtextTest.g:1853:1: ( ( rule__EmfTest__Group_8__0 )? )
+            // InternalXtextTest.g:1879:1: ( ( ( rule__EmfTest__Group_8__0 )? ) )
+            // InternalXtextTest.g:1881:1: ( ( rule__EmfTest__Group_8__0 )? )
             {
-            // InternalXtextTest.g:1853:1: ( ( rule__EmfTest__Group_8__0 )? )
-            // InternalXtextTest.g:1854:1: ( rule__EmfTest__Group_8__0 )?
+            // InternalXtextTest.g:1881:1: ( ( rule__EmfTest__Group_8__0 )? )
+            // InternalXtextTest.g:1882:1: ( rule__EmfTest__Group_8__0 )?
             {
              before(grammarAccess.getEmfTestAccess().getGroup_8()); 
-            // InternalXtextTest.g:1855:1: ( rule__EmfTest__Group_8__0 )?
-            int alt14=2;
-            int LA14_0 = input.LA(1);
+            // InternalXtextTest.g:1883:1: ( rule__EmfTest__Group_8__0 )?
+            int alt15=2;
+            int LA15_0 = input.LA(1);
 
-            if ( (LA14_0==RULE_OPTIONS) ) {
-                alt14=1;
+            if ( (LA15_0==RULE_OPTIONS) ) {
+                alt15=1;
             }
-            switch (alt14) {
+            switch (alt15) {
                 case 1 :
-                    // InternalXtextTest.g:1855:2: rule__EmfTest__Group_8__0
+                    // InternalXtextTest.g:1883:2: rule__EmfTest__Group_8__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__EmfTest__Group_8__0();
@@ -4675,14 +4766,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__Group__9"
-    // InternalXtextTest.g:1867:1: rule__EmfTest__Group__9 : rule__EmfTest__Group__9__Impl rule__EmfTest__Group__10 ;
+    // InternalXtextTest.g:1895:1: rule__EmfTest__Group__9 : rule__EmfTest__Group__9__Impl rule__EmfTest__Group__10 ;
     public final void rule__EmfTest__Group__9() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1871:1: ( rule__EmfTest__Group__9__Impl rule__EmfTest__Group__10 )
-            // InternalXtextTest.g:1872:2: rule__EmfTest__Group__9__Impl rule__EmfTest__Group__10
+            // InternalXtextTest.g:1899:1: ( rule__EmfTest__Group__9__Impl rule__EmfTest__Group__10 )
+            // InternalXtextTest.g:1900:2: rule__EmfTest__Group__9__Impl rule__EmfTest__Group__10
             {
             pushFollow(FOLLOW_8);
             rule__EmfTest__Group__9__Impl();
@@ -4713,21 +4804,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__Group__9__Impl"
-    // InternalXtextTest.g:1879:1: rule__EmfTest__Group__9__Impl : ( ( rule__EmfTest__Group_9__0 ) ) ;
+    // InternalXtextTest.g:1907:1: rule__EmfTest__Group__9__Impl : ( ( rule__EmfTest__Group_9__0 ) ) ;
     public final void rule__EmfTest__Group__9__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1883:1: ( ( ( rule__EmfTest__Group_9__0 ) ) )
-            // InternalXtextTest.g:1885:1: ( ( rule__EmfTest__Group_9__0 ) )
+            // InternalXtextTest.g:1911:1: ( ( ( rule__EmfTest__Group_9__0 ) ) )
+            // InternalXtextTest.g:1913:1: ( ( rule__EmfTest__Group_9__0 ) )
             {
-            // InternalXtextTest.g:1885:1: ( ( rule__EmfTest__Group_9__0 ) )
-            // InternalXtextTest.g:1886:1: ( rule__EmfTest__Group_9__0 )
+            // InternalXtextTest.g:1913:1: ( ( rule__EmfTest__Group_9__0 ) )
+            // InternalXtextTest.g:1914:1: ( rule__EmfTest__Group_9__0 )
             {
              before(grammarAccess.getEmfTestAccess().getGroup_9()); 
-            // InternalXtextTest.g:1887:1: ( rule__EmfTest__Group_9__0 )
-            // InternalXtextTest.g:1887:2: rule__EmfTest__Group_9__0
+            // InternalXtextTest.g:1915:1: ( rule__EmfTest__Group_9__0 )
+            // InternalXtextTest.g:1915:2: rule__EmfTest__Group_9__0
             {
             pushFollow(FOLLOW_2);
             rule__EmfTest__Group_9__0();
@@ -4760,14 +4851,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__Group__10"
-    // InternalXtextTest.g:1899:1: rule__EmfTest__Group__10 : rule__EmfTest__Group__10__Impl rule__EmfTest__Group__11 ;
+    // InternalXtextTest.g:1927:1: rule__EmfTest__Group__10 : rule__EmfTest__Group__10__Impl rule__EmfTest__Group__11 ;
     public final void rule__EmfTest__Group__10() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1903:1: ( rule__EmfTest__Group__10__Impl rule__EmfTest__Group__11 )
-            // InternalXtextTest.g:1904:2: rule__EmfTest__Group__10__Impl rule__EmfTest__Group__11
+            // InternalXtextTest.g:1931:1: ( rule__EmfTest__Group__10__Impl rule__EmfTest__Group__11 )
+            // InternalXtextTest.g:1932:2: rule__EmfTest__Group__10__Impl rule__EmfTest__Group__11
             {
             pushFollow(FOLLOW_16);
             rule__EmfTest__Group__10__Impl();
@@ -4798,21 +4889,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__Group__10__Impl"
-    // InternalXtextTest.g:1911:1: rule__EmfTest__Group__10__Impl : ( ( rule__EmfTest__RootAssignment_10 ) ) ;
+    // InternalXtextTest.g:1939:1: rule__EmfTest__Group__10__Impl : ( ( rule__EmfTest__RootAssignment_10 ) ) ;
     public final void rule__EmfTest__Group__10__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1915:1: ( ( ( rule__EmfTest__RootAssignment_10 ) ) )
-            // InternalXtextTest.g:1917:1: ( ( rule__EmfTest__RootAssignment_10 ) )
+            // InternalXtextTest.g:1943:1: ( ( ( rule__EmfTest__RootAssignment_10 ) ) )
+            // InternalXtextTest.g:1945:1: ( ( rule__EmfTest__RootAssignment_10 ) )
             {
-            // InternalXtextTest.g:1917:1: ( ( rule__EmfTest__RootAssignment_10 ) )
-            // InternalXtextTest.g:1918:1: ( rule__EmfTest__RootAssignment_10 )
+            // InternalXtextTest.g:1945:1: ( ( rule__EmfTest__RootAssignment_10 ) )
+            // InternalXtextTest.g:1946:1: ( rule__EmfTest__RootAssignment_10 )
             {
              before(grammarAccess.getEmfTestAccess().getRootAssignment_10()); 
-            // InternalXtextTest.g:1919:1: ( rule__EmfTest__RootAssignment_10 )
-            // InternalXtextTest.g:1919:2: rule__EmfTest__RootAssignment_10
+            // InternalXtextTest.g:1947:1: ( rule__EmfTest__RootAssignment_10 )
+            // InternalXtextTest.g:1947:2: rule__EmfTest__RootAssignment_10
             {
             pushFollow(FOLLOW_2);
             rule__EmfTest__RootAssignment_10();
@@ -4845,14 +4936,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__Group__11"
-    // InternalXtextTest.g:1931:1: rule__EmfTest__Group__11 : rule__EmfTest__Group__11__Impl rule__EmfTest__Group__12 ;
+    // InternalXtextTest.g:1959:1: rule__EmfTest__Group__11 : rule__EmfTest__Group__11__Impl rule__EmfTest__Group__12 ;
     public final void rule__EmfTest__Group__11() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1935:1: ( rule__EmfTest__Group__11__Impl rule__EmfTest__Group__12 )
-            // InternalXtextTest.g:1936:2: rule__EmfTest__Group__11__Impl rule__EmfTest__Group__12
+            // InternalXtextTest.g:1963:1: ( rule__EmfTest__Group__11__Impl rule__EmfTest__Group__12 )
+            // InternalXtextTest.g:1964:2: rule__EmfTest__Group__11__Impl rule__EmfTest__Group__12
             {
             pushFollow(FOLLOW_16);
             rule__EmfTest__Group__11__Impl();
@@ -4883,29 +4974,29 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__Group__11__Impl"
-    // InternalXtextTest.g:1943:1: rule__EmfTest__Group__11__Impl : ( ( rule__EmfTest__BeforeAssignment_11 )? ) ;
+    // InternalXtextTest.g:1971:1: rule__EmfTest__Group__11__Impl : ( ( rule__EmfTest__BeforeAssignment_11 )? ) ;
     public final void rule__EmfTest__Group__11__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1947:1: ( ( ( rule__EmfTest__BeforeAssignment_11 )? ) )
-            // InternalXtextTest.g:1949:1: ( ( rule__EmfTest__BeforeAssignment_11 )? )
+            // InternalXtextTest.g:1975:1: ( ( ( rule__EmfTest__BeforeAssignment_11 )? ) )
+            // InternalXtextTest.g:1977:1: ( ( rule__EmfTest__BeforeAssignment_11 )? )
             {
-            // InternalXtextTest.g:1949:1: ( ( rule__EmfTest__BeforeAssignment_11 )? )
-            // InternalXtextTest.g:1950:1: ( rule__EmfTest__BeforeAssignment_11 )?
+            // InternalXtextTest.g:1977:1: ( ( rule__EmfTest__BeforeAssignment_11 )? )
+            // InternalXtextTest.g:1978:1: ( rule__EmfTest__BeforeAssignment_11 )?
             {
              before(grammarAccess.getEmfTestAccess().getBeforeAssignment_11()); 
-            // InternalXtextTest.g:1951:1: ( rule__EmfTest__BeforeAssignment_11 )?
-            int alt15=2;
-            int LA15_0 = input.LA(1);
+            // InternalXtextTest.g:1979:1: ( rule__EmfTest__BeforeAssignment_11 )?
+            int alt16=2;
+            int LA16_0 = input.LA(1);
 
-            if ( (LA15_0==RULE_BEFORE_KW) ) {
-                alt15=1;
+            if ( (LA16_0==RULE_BEFORE_KW) ) {
+                alt16=1;
             }
-            switch (alt15) {
+            switch (alt16) {
                 case 1 :
-                    // InternalXtextTest.g:1951:2: rule__EmfTest__BeforeAssignment_11
+                    // InternalXtextTest.g:1979:2: rule__EmfTest__BeforeAssignment_11
                     {
                     pushFollow(FOLLOW_2);
                     rule__EmfTest__BeforeAssignment_11();
@@ -4941,14 +5032,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__Group__12"
-    // InternalXtextTest.g:1963:1: rule__EmfTest__Group__12 : rule__EmfTest__Group__12__Impl ;
+    // InternalXtextTest.g:1991:1: rule__EmfTest__Group__12 : rule__EmfTest__Group__12__Impl ;
     public final void rule__EmfTest__Group__12() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1967:1: ( rule__EmfTest__Group__12__Impl )
-            // InternalXtextTest.g:1968:2: rule__EmfTest__Group__12__Impl
+            // InternalXtextTest.g:1995:1: ( rule__EmfTest__Group__12__Impl )
+            // InternalXtextTest.g:1996:2: rule__EmfTest__Group__12__Impl
             {
             pushFollow(FOLLOW_2);
             rule__EmfTest__Group__12__Impl();
@@ -4974,29 +5065,29 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__Group__12__Impl"
-    // InternalXtextTest.g:1974:1: rule__EmfTest__Group__12__Impl : ( ( rule__EmfTest__AfterAssignment_12 )? ) ;
+    // InternalXtextTest.g:2002:1: rule__EmfTest__Group__12__Impl : ( ( rule__EmfTest__AfterAssignment_12 )? ) ;
     public final void rule__EmfTest__Group__12__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:1978:1: ( ( ( rule__EmfTest__AfterAssignment_12 )? ) )
-            // InternalXtextTest.g:1980:1: ( ( rule__EmfTest__AfterAssignment_12 )? )
+            // InternalXtextTest.g:2006:1: ( ( ( rule__EmfTest__AfterAssignment_12 )? ) )
+            // InternalXtextTest.g:2008:1: ( ( rule__EmfTest__AfterAssignment_12 )? )
             {
-            // InternalXtextTest.g:1980:1: ( ( rule__EmfTest__AfterAssignment_12 )? )
-            // InternalXtextTest.g:1981:1: ( rule__EmfTest__AfterAssignment_12 )?
+            // InternalXtextTest.g:2008:1: ( ( rule__EmfTest__AfterAssignment_12 )? )
+            // InternalXtextTest.g:2009:1: ( rule__EmfTest__AfterAssignment_12 )?
             {
              before(grammarAccess.getEmfTestAccess().getAfterAssignment_12()); 
-            // InternalXtextTest.g:1982:1: ( rule__EmfTest__AfterAssignment_12 )?
-            int alt16=2;
-            int LA16_0 = input.LA(1);
+            // InternalXtextTest.g:2010:1: ( rule__EmfTest__AfterAssignment_12 )?
+            int alt17=2;
+            int LA17_0 = input.LA(1);
 
-            if ( (LA16_0==RULE_AFTER_KW) ) {
-                alt16=1;
+            if ( (LA17_0==RULE_AFTER_KW) ) {
+                alt17=1;
             }
-            switch (alt16) {
+            switch (alt17) {
                 case 1 :
-                    // InternalXtextTest.g:1982:2: rule__EmfTest__AfterAssignment_12
+                    // InternalXtextTest.g:2010:2: rule__EmfTest__AfterAssignment_12
                     {
                     pushFollow(FOLLOW_2);
                     rule__EmfTest__AfterAssignment_12();
@@ -5032,14 +5123,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__Group_8__0"
-    // InternalXtextTest.g:2020:1: rule__EmfTest__Group_8__0 : rule__EmfTest__Group_8__0__Impl rule__EmfTest__Group_8__1 ;
+    // InternalXtextTest.g:2048:1: rule__EmfTest__Group_8__0 : rule__EmfTest__Group_8__0__Impl rule__EmfTest__Group_8__1 ;
     public final void rule__EmfTest__Group_8__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2024:1: ( rule__EmfTest__Group_8__0__Impl rule__EmfTest__Group_8__1 )
-            // InternalXtextTest.g:2025:2: rule__EmfTest__Group_8__0__Impl rule__EmfTest__Group_8__1
+            // InternalXtextTest.g:2052:1: ( rule__EmfTest__Group_8__0__Impl rule__EmfTest__Group_8__1 )
+            // InternalXtextTest.g:2053:2: rule__EmfTest__Group_8__0__Impl rule__EmfTest__Group_8__1
             {
             pushFollow(FOLLOW_13);
             rule__EmfTest__Group_8__0__Impl();
@@ -5070,17 +5161,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__Group_8__0__Impl"
-    // InternalXtextTest.g:2032:1: rule__EmfTest__Group_8__0__Impl : ( RULE_OPTIONS ) ;
+    // InternalXtextTest.g:2060:1: rule__EmfTest__Group_8__0__Impl : ( RULE_OPTIONS ) ;
     public final void rule__EmfTest__Group_8__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2036:1: ( ( RULE_OPTIONS ) )
-            // InternalXtextTest.g:2038:1: ( RULE_OPTIONS )
+            // InternalXtextTest.g:2064:1: ( ( RULE_OPTIONS ) )
+            // InternalXtextTest.g:2066:1: ( RULE_OPTIONS )
             {
-            // InternalXtextTest.g:2038:1: ( RULE_OPTIONS )
-            // InternalXtextTest.g:2039:1: RULE_OPTIONS
+            // InternalXtextTest.g:2066:1: ( RULE_OPTIONS )
+            // InternalXtextTest.g:2067:1: RULE_OPTIONS
             {
              before(grammarAccess.getEmfTestAccess().getOPTIONSTerminalRuleCall_8_0()); 
             match(input,RULE_OPTIONS,FOLLOW_2); 
@@ -5107,14 +5198,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__Group_8__1"
-    // InternalXtextTest.g:2052:1: rule__EmfTest__Group_8__1 : rule__EmfTest__Group_8__1__Impl ;
+    // InternalXtextTest.g:2080:1: rule__EmfTest__Group_8__1 : rule__EmfTest__Group_8__1__Impl ;
     public final void rule__EmfTest__Group_8__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2056:1: ( rule__EmfTest__Group_8__1__Impl )
-            // InternalXtextTest.g:2057:2: rule__EmfTest__Group_8__1__Impl
+            // InternalXtextTest.g:2084:1: ( rule__EmfTest__Group_8__1__Impl )
+            // InternalXtextTest.g:2085:2: rule__EmfTest__Group_8__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__EmfTest__Group_8__1__Impl();
@@ -5140,21 +5231,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__Group_8__1__Impl"
-    // InternalXtextTest.g:2063:1: rule__EmfTest__Group_8__1__Impl : ( ( rule__EmfTest__OptionCallAssignment_8_1 ) ) ;
+    // InternalXtextTest.g:2091:1: rule__EmfTest__Group_8__1__Impl : ( ( rule__EmfTest__OptionCallAssignment_8_1 ) ) ;
     public final void rule__EmfTest__Group_8__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2067:1: ( ( ( rule__EmfTest__OptionCallAssignment_8_1 ) ) )
-            // InternalXtextTest.g:2069:1: ( ( rule__EmfTest__OptionCallAssignment_8_1 ) )
+            // InternalXtextTest.g:2095:1: ( ( ( rule__EmfTest__OptionCallAssignment_8_1 ) ) )
+            // InternalXtextTest.g:2097:1: ( ( rule__EmfTest__OptionCallAssignment_8_1 ) )
             {
-            // InternalXtextTest.g:2069:1: ( ( rule__EmfTest__OptionCallAssignment_8_1 ) )
-            // InternalXtextTest.g:2070:1: ( rule__EmfTest__OptionCallAssignment_8_1 )
+            // InternalXtextTest.g:2097:1: ( ( rule__EmfTest__OptionCallAssignment_8_1 ) )
+            // InternalXtextTest.g:2098:1: ( rule__EmfTest__OptionCallAssignment_8_1 )
             {
              before(grammarAccess.getEmfTestAccess().getOptionCallAssignment_8_1()); 
-            // InternalXtextTest.g:2071:1: ( rule__EmfTest__OptionCallAssignment_8_1 )
-            // InternalXtextTest.g:2071:2: rule__EmfTest__OptionCallAssignment_8_1
+            // InternalXtextTest.g:2099:1: ( rule__EmfTest__OptionCallAssignment_8_1 )
+            // InternalXtextTest.g:2099:2: rule__EmfTest__OptionCallAssignment_8_1
             {
             pushFollow(FOLLOW_2);
             rule__EmfTest__OptionCallAssignment_8_1();
@@ -5187,14 +5278,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__Group_9__0"
-    // InternalXtextTest.g:2087:1: rule__EmfTest__Group_9__0 : rule__EmfTest__Group_9__0__Impl rule__EmfTest__Group_9__1 ;
+    // InternalXtextTest.g:2115:1: rule__EmfTest__Group_9__0 : rule__EmfTest__Group_9__0__Impl rule__EmfTest__Group_9__1 ;
     public final void rule__EmfTest__Group_9__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2091:1: ( rule__EmfTest__Group_9__0__Impl rule__EmfTest__Group_9__1 )
-            // InternalXtextTest.g:2092:2: rule__EmfTest__Group_9__0__Impl rule__EmfTest__Group_9__1
+            // InternalXtextTest.g:2119:1: ( rule__EmfTest__Group_9__0__Impl rule__EmfTest__Group_9__1 )
+            // InternalXtextTest.g:2120:2: rule__EmfTest__Group_9__0__Impl rule__EmfTest__Group_9__1
             {
             pushFollow(FOLLOW_17);
             rule__EmfTest__Group_9__0__Impl();
@@ -5225,17 +5316,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__Group_9__0__Impl"
-    // InternalXtextTest.g:2099:1: rule__EmfTest__Group_9__0__Impl : ( RULE_SOURCE ) ;
+    // InternalXtextTest.g:2127:1: rule__EmfTest__Group_9__0__Impl : ( RULE_SOURCE ) ;
     public final void rule__EmfTest__Group_9__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2103:1: ( ( RULE_SOURCE ) )
-            // InternalXtextTest.g:2105:1: ( RULE_SOURCE )
+            // InternalXtextTest.g:2131:1: ( ( RULE_SOURCE ) )
+            // InternalXtextTest.g:2133:1: ( RULE_SOURCE )
             {
-            // InternalXtextTest.g:2105:1: ( RULE_SOURCE )
-            // InternalXtextTest.g:2106:1: RULE_SOURCE
+            // InternalXtextTest.g:2133:1: ( RULE_SOURCE )
+            // InternalXtextTest.g:2134:1: RULE_SOURCE
             {
              before(grammarAccess.getEmfTestAccess().getSOURCETerminalRuleCall_9_0()); 
             match(input,RULE_SOURCE,FOLLOW_2); 
@@ -5262,14 +5353,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__Group_9__1"
-    // InternalXtextTest.g:2119:1: rule__EmfTest__Group_9__1 : rule__EmfTest__Group_9__1__Impl rule__EmfTest__Group_9__2 ;
+    // InternalXtextTest.g:2147:1: rule__EmfTest__Group_9__1 : rule__EmfTest__Group_9__1__Impl rule__EmfTest__Group_9__2 ;
     public final void rule__EmfTest__Group_9__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2123:1: ( rule__EmfTest__Group_9__1__Impl rule__EmfTest__Group_9__2 )
-            // InternalXtextTest.g:2124:2: rule__EmfTest__Group_9__1__Impl rule__EmfTest__Group_9__2
+            // InternalXtextTest.g:2151:1: ( rule__EmfTest__Group_9__1__Impl rule__EmfTest__Group_9__2 )
+            // InternalXtextTest.g:2152:2: rule__EmfTest__Group_9__1__Impl rule__EmfTest__Group_9__2
             {
             pushFollow(FOLLOW_10);
             rule__EmfTest__Group_9__1__Impl();
@@ -5300,17 +5391,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__Group_9__1__Impl"
-    // InternalXtextTest.g:2131:1: rule__EmfTest__Group_9__1__Impl : ( RULE_FILE ) ;
+    // InternalXtextTest.g:2159:1: rule__EmfTest__Group_9__1__Impl : ( RULE_FILE ) ;
     public final void rule__EmfTest__Group_9__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2135:1: ( ( RULE_FILE ) )
-            // InternalXtextTest.g:2137:1: ( RULE_FILE )
+            // InternalXtextTest.g:2163:1: ( ( RULE_FILE ) )
+            // InternalXtextTest.g:2165:1: ( RULE_FILE )
             {
-            // InternalXtextTest.g:2137:1: ( RULE_FILE )
-            // InternalXtextTest.g:2138:1: RULE_FILE
+            // InternalXtextTest.g:2165:1: ( RULE_FILE )
+            // InternalXtextTest.g:2166:1: RULE_FILE
             {
              before(grammarAccess.getEmfTestAccess().getFILETerminalRuleCall_9_1()); 
             match(input,RULE_FILE,FOLLOW_2); 
@@ -5337,14 +5428,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__Group_9__2"
-    // InternalXtextTest.g:2151:1: rule__EmfTest__Group_9__2 : rule__EmfTest__Group_9__2__Impl rule__EmfTest__Group_9__3 ;
+    // InternalXtextTest.g:2179:1: rule__EmfTest__Group_9__2 : rule__EmfTest__Group_9__2__Impl rule__EmfTest__Group_9__3 ;
     public final void rule__EmfTest__Group_9__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2155:1: ( rule__EmfTest__Group_9__2__Impl rule__EmfTest__Group_9__3 )
-            // InternalXtextTest.g:2156:2: rule__EmfTest__Group_9__2__Impl rule__EmfTest__Group_9__3
+            // InternalXtextTest.g:2183:1: ( rule__EmfTest__Group_9__2__Impl rule__EmfTest__Group_9__3 )
+            // InternalXtextTest.g:2184:2: rule__EmfTest__Group_9__2__Impl rule__EmfTest__Group_9__3
             {
             pushFollow(FOLLOW_18);
             rule__EmfTest__Group_9__2__Impl();
@@ -5375,17 +5466,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__Group_9__2__Impl"
-    // InternalXtextTest.g:2163:1: rule__EmfTest__Group_9__2__Impl : ( RULE_ASSIGNASSINGLE ) ;
+    // InternalXtextTest.g:2191:1: rule__EmfTest__Group_9__2__Impl : ( RULE_ASSIGNASSINGLE ) ;
     public final void rule__EmfTest__Group_9__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2167:1: ( ( RULE_ASSIGNASSINGLE ) )
-            // InternalXtextTest.g:2169:1: ( RULE_ASSIGNASSINGLE )
+            // InternalXtextTest.g:2195:1: ( ( RULE_ASSIGNASSINGLE ) )
+            // InternalXtextTest.g:2197:1: ( RULE_ASSIGNASSINGLE )
             {
-            // InternalXtextTest.g:2169:1: ( RULE_ASSIGNASSINGLE )
-            // InternalXtextTest.g:2170:1: RULE_ASSIGNASSINGLE
+            // InternalXtextTest.g:2197:1: ( RULE_ASSIGNASSINGLE )
+            // InternalXtextTest.g:2198:1: RULE_ASSIGNASSINGLE
             {
              before(grammarAccess.getEmfTestAccess().getASSIGNASSINGLETerminalRuleCall_9_2()); 
             match(input,RULE_ASSIGNASSINGLE,FOLLOW_2); 
@@ -5412,14 +5503,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__Group_9__3"
-    // InternalXtextTest.g:2183:1: rule__EmfTest__Group_9__3 : rule__EmfTest__Group_9__3__Impl ;
+    // InternalXtextTest.g:2211:1: rule__EmfTest__Group_9__3 : rule__EmfTest__Group_9__3__Impl ;
     public final void rule__EmfTest__Group_9__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2187:1: ( rule__EmfTest__Group_9__3__Impl )
-            // InternalXtextTest.g:2188:2: rule__EmfTest__Group_9__3__Impl
+            // InternalXtextTest.g:2215:1: ( rule__EmfTest__Group_9__3__Impl )
+            // InternalXtextTest.g:2216:2: rule__EmfTest__Group_9__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__EmfTest__Group_9__3__Impl();
@@ -5445,21 +5536,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__Group_9__3__Impl"
-    // InternalXtextTest.g:2194:1: rule__EmfTest__Group_9__3__Impl : ( ( rule__EmfTest__FileAssignment_9_3 ) ) ;
+    // InternalXtextTest.g:2222:1: rule__EmfTest__Group_9__3__Impl : ( ( rule__EmfTest__FileAssignment_9_3 ) ) ;
     public final void rule__EmfTest__Group_9__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2198:1: ( ( ( rule__EmfTest__FileAssignment_9_3 ) ) )
-            // InternalXtextTest.g:2200:1: ( ( rule__EmfTest__FileAssignment_9_3 ) )
+            // InternalXtextTest.g:2226:1: ( ( ( rule__EmfTest__FileAssignment_9_3 ) ) )
+            // InternalXtextTest.g:2228:1: ( ( rule__EmfTest__FileAssignment_9_3 ) )
             {
-            // InternalXtextTest.g:2200:1: ( ( rule__EmfTest__FileAssignment_9_3 ) )
-            // InternalXtextTest.g:2201:1: ( rule__EmfTest__FileAssignment_9_3 )
+            // InternalXtextTest.g:2228:1: ( ( rule__EmfTest__FileAssignment_9_3 ) )
+            // InternalXtextTest.g:2229:1: ( rule__EmfTest__FileAssignment_9_3 )
             {
              before(grammarAccess.getEmfTestAccess().getFileAssignment_9_3()); 
-            // InternalXtextTest.g:2202:1: ( rule__EmfTest__FileAssignment_9_3 )
-            // InternalXtextTest.g:2202:2: rule__EmfTest__FileAssignment_9_3
+            // InternalXtextTest.g:2230:1: ( rule__EmfTest__FileAssignment_9_3 )
+            // InternalXtextTest.g:2230:2: rule__EmfTest__FileAssignment_9_3
             {
             pushFollow(FOLLOW_2);
             rule__EmfTest__FileAssignment_9_3();
@@ -5492,14 +5583,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Import__Group__0"
-    // InternalXtextTest.g:2222:1: rule__Import__Group__0 : rule__Import__Group__0__Impl rule__Import__Group__1 ;
+    // InternalXtextTest.g:2250:1: rule__Import__Group__0 : rule__Import__Group__0__Impl rule__Import__Group__1 ;
     public final void rule__Import__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2226:1: ( rule__Import__Group__0__Impl rule__Import__Group__1 )
-            // InternalXtextTest.g:2227:2: rule__Import__Group__0__Impl rule__Import__Group__1
+            // InternalXtextTest.g:2254:1: ( rule__Import__Group__0__Impl rule__Import__Group__1 )
+            // InternalXtextTest.g:2255:2: rule__Import__Group__0__Impl rule__Import__Group__1
             {
             pushFollow(FOLLOW_19);
             rule__Import__Group__0__Impl();
@@ -5530,21 +5621,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Import__Group__0__Impl"
-    // InternalXtextTest.g:2234:1: rule__Import__Group__0__Impl : ( () ) ;
+    // InternalXtextTest.g:2262:1: rule__Import__Group__0__Impl : ( () ) ;
     public final void rule__Import__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2238:1: ( ( () ) )
-            // InternalXtextTest.g:2240:1: ( () )
+            // InternalXtextTest.g:2266:1: ( ( () ) )
+            // InternalXtextTest.g:2268:1: ( () )
             {
-            // InternalXtextTest.g:2240:1: ( () )
-            // InternalXtextTest.g:2241:1: ()
+            // InternalXtextTest.g:2268:1: ( () )
+            // InternalXtextTest.g:2269:1: ()
             {
              before(grammarAccess.getImportAccess().getImportAction_0()); 
-            // InternalXtextTest.g:2242:1: ()
-            // InternalXtextTest.g:2244:1: 
+            // InternalXtextTest.g:2270:1: ()
+            // InternalXtextTest.g:2272:1: 
             {
             }
 
@@ -5567,14 +5658,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Import__Group__1"
-    // InternalXtextTest.g:2256:1: rule__Import__Group__1 : rule__Import__Group__1__Impl rule__Import__Group__2 ;
+    // InternalXtextTest.g:2284:1: rule__Import__Group__1 : rule__Import__Group__1__Impl rule__Import__Group__2 ;
     public final void rule__Import__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2260:1: ( rule__Import__Group__1__Impl rule__Import__Group__2 )
-            // InternalXtextTest.g:2261:2: rule__Import__Group__1__Impl rule__Import__Group__2
+            // InternalXtextTest.g:2288:1: ( rule__Import__Group__1__Impl rule__Import__Group__2 )
+            // InternalXtextTest.g:2289:2: rule__Import__Group__1__Impl rule__Import__Group__2
             {
             pushFollow(FOLLOW_5);
             rule__Import__Group__1__Impl();
@@ -5605,17 +5696,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Import__Group__1__Impl"
-    // InternalXtextTest.g:2268:1: rule__Import__Group__1__Impl : ( RULE_IMPORTS ) ;
+    // InternalXtextTest.g:2296:1: rule__Import__Group__1__Impl : ( RULE_IMPORTS ) ;
     public final void rule__Import__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2272:1: ( ( RULE_IMPORTS ) )
-            // InternalXtextTest.g:2274:1: ( RULE_IMPORTS )
+            // InternalXtextTest.g:2300:1: ( ( RULE_IMPORTS ) )
+            // InternalXtextTest.g:2302:1: ( RULE_IMPORTS )
             {
-            // InternalXtextTest.g:2274:1: ( RULE_IMPORTS )
-            // InternalXtextTest.g:2275:1: RULE_IMPORTS
+            // InternalXtextTest.g:2302:1: ( RULE_IMPORTS )
+            // InternalXtextTest.g:2303:1: RULE_IMPORTS
             {
              before(grammarAccess.getImportAccess().getIMPORTSTerminalRuleCall_1()); 
             match(input,RULE_IMPORTS,FOLLOW_2); 
@@ -5642,14 +5733,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Import__Group__2"
-    // InternalXtextTest.g:2288:1: rule__Import__Group__2 : rule__Import__Group__2__Impl rule__Import__Group__3 ;
+    // InternalXtextTest.g:2316:1: rule__Import__Group__2 : rule__Import__Group__2__Impl rule__Import__Group__3 ;
     public final void rule__Import__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2292:1: ( rule__Import__Group__2__Impl rule__Import__Group__3 )
-            // InternalXtextTest.g:2293:2: rule__Import__Group__2__Impl rule__Import__Group__3
+            // InternalXtextTest.g:2320:1: ( rule__Import__Group__2__Impl rule__Import__Group__3 )
+            // InternalXtextTest.g:2321:2: rule__Import__Group__2__Impl rule__Import__Group__3
             {
             pushFollow(FOLLOW_20);
             rule__Import__Group__2__Impl();
@@ -5680,21 +5771,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Import__Group__2__Impl"
-    // InternalXtextTest.g:2300:1: rule__Import__Group__2__Impl : ( ( rule__Import__IdAssignment_2 ) ) ;
+    // InternalXtextTest.g:2328:1: rule__Import__Group__2__Impl : ( ( rule__Import__IdAssignment_2 ) ) ;
     public final void rule__Import__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2304:1: ( ( ( rule__Import__IdAssignment_2 ) ) )
-            // InternalXtextTest.g:2306:1: ( ( rule__Import__IdAssignment_2 ) )
+            // InternalXtextTest.g:2332:1: ( ( ( rule__Import__IdAssignment_2 ) ) )
+            // InternalXtextTest.g:2334:1: ( ( rule__Import__IdAssignment_2 ) )
             {
-            // InternalXtextTest.g:2306:1: ( ( rule__Import__IdAssignment_2 ) )
-            // InternalXtextTest.g:2307:1: ( rule__Import__IdAssignment_2 )
+            // InternalXtextTest.g:2334:1: ( ( rule__Import__IdAssignment_2 ) )
+            // InternalXtextTest.g:2335:1: ( rule__Import__IdAssignment_2 )
             {
              before(grammarAccess.getImportAccess().getIdAssignment_2()); 
-            // InternalXtextTest.g:2308:1: ( rule__Import__IdAssignment_2 )
-            // InternalXtextTest.g:2308:2: rule__Import__IdAssignment_2
+            // InternalXtextTest.g:2336:1: ( rule__Import__IdAssignment_2 )
+            // InternalXtextTest.g:2336:2: rule__Import__IdAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__Import__IdAssignment_2();
@@ -5727,14 +5818,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Import__Group__3"
-    // InternalXtextTest.g:2320:1: rule__Import__Group__3 : rule__Import__Group__3__Impl rule__Import__Group__4 ;
+    // InternalXtextTest.g:2348:1: rule__Import__Group__3 : rule__Import__Group__3__Impl rule__Import__Group__4 ;
     public final void rule__Import__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2324:1: ( rule__Import__Group__3__Impl rule__Import__Group__4 )
-            // InternalXtextTest.g:2325:2: rule__Import__Group__3__Impl rule__Import__Group__4
+            // InternalXtextTest.g:2352:1: ( rule__Import__Group__3__Impl rule__Import__Group__4 )
+            // InternalXtextTest.g:2353:2: rule__Import__Group__3__Impl rule__Import__Group__4
             {
             pushFollow(FOLLOW_5);
             rule__Import__Group__3__Impl();
@@ -5765,17 +5856,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Import__Group__3__Impl"
-    // InternalXtextTest.g:2332:1: rule__Import__Group__3__Impl : ( RULE_KW_AS ) ;
+    // InternalXtextTest.g:2360:1: rule__Import__Group__3__Impl : ( RULE_KW_AS ) ;
     public final void rule__Import__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2336:1: ( ( RULE_KW_AS ) )
-            // InternalXtextTest.g:2338:1: ( RULE_KW_AS )
+            // InternalXtextTest.g:2364:1: ( ( RULE_KW_AS ) )
+            // InternalXtextTest.g:2366:1: ( RULE_KW_AS )
             {
-            // InternalXtextTest.g:2338:1: ( RULE_KW_AS )
-            // InternalXtextTest.g:2339:1: RULE_KW_AS
+            // InternalXtextTest.g:2366:1: ( RULE_KW_AS )
+            // InternalXtextTest.g:2367:1: RULE_KW_AS
             {
              before(grammarAccess.getImportAccess().getKW_ASTerminalRuleCall_3()); 
             match(input,RULE_KW_AS,FOLLOW_2); 
@@ -5802,14 +5893,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Import__Group__4"
-    // InternalXtextTest.g:2352:1: rule__Import__Group__4 : rule__Import__Group__4__Impl ;
+    // InternalXtextTest.g:2380:1: rule__Import__Group__4 : rule__Import__Group__4__Impl ;
     public final void rule__Import__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2356:1: ( rule__Import__Group__4__Impl )
-            // InternalXtextTest.g:2357:2: rule__Import__Group__4__Impl
+            // InternalXtextTest.g:2384:1: ( rule__Import__Group__4__Impl )
+            // InternalXtextTest.g:2385:2: rule__Import__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Import__Group__4__Impl();
@@ -5835,21 +5926,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Import__Group__4__Impl"
-    // InternalXtextTest.g:2363:1: rule__Import__Group__4__Impl : ( ( rule__Import__AliasAssignment_4 ) ) ;
+    // InternalXtextTest.g:2391:1: rule__Import__Group__4__Impl : ( ( rule__Import__AliasAssignment_4 ) ) ;
     public final void rule__Import__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2367:1: ( ( ( rule__Import__AliasAssignment_4 ) ) )
-            // InternalXtextTest.g:2369:1: ( ( rule__Import__AliasAssignment_4 ) )
+            // InternalXtextTest.g:2395:1: ( ( ( rule__Import__AliasAssignment_4 ) ) )
+            // InternalXtextTest.g:2397:1: ( ( rule__Import__AliasAssignment_4 ) )
             {
-            // InternalXtextTest.g:2369:1: ( ( rule__Import__AliasAssignment_4 ) )
-            // InternalXtextTest.g:2370:1: ( rule__Import__AliasAssignment_4 )
+            // InternalXtextTest.g:2397:1: ( ( rule__Import__AliasAssignment_4 ) )
+            // InternalXtextTest.g:2398:1: ( rule__Import__AliasAssignment_4 )
             {
              before(grammarAccess.getImportAccess().getAliasAssignment_4()); 
-            // InternalXtextTest.g:2371:1: ( rule__Import__AliasAssignment_4 )
-            // InternalXtextTest.g:2371:2: rule__Import__AliasAssignment_4
+            // InternalXtextTest.g:2399:1: ( rule__Import__AliasAssignment_4 )
+            // InternalXtextTest.g:2399:2: rule__Import__AliasAssignment_4
             {
             pushFollow(FOLLOW_2);
             rule__Import__AliasAssignment_4();
@@ -5882,14 +5973,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__PackageID__Group__0"
-    // InternalXtextTest.g:2393:1: rule__PackageID__Group__0 : rule__PackageID__Group__0__Impl rule__PackageID__Group__1 ;
+    // InternalXtextTest.g:2421:1: rule__PackageID__Group__0 : rule__PackageID__Group__0__Impl rule__PackageID__Group__1 ;
     public final void rule__PackageID__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2397:1: ( rule__PackageID__Group__0__Impl rule__PackageID__Group__1 )
-            // InternalXtextTest.g:2398:2: rule__PackageID__Group__0__Impl rule__PackageID__Group__1
+            // InternalXtextTest.g:2425:1: ( rule__PackageID__Group__0__Impl rule__PackageID__Group__1 )
+            // InternalXtextTest.g:2426:2: rule__PackageID__Group__0__Impl rule__PackageID__Group__1
             {
             pushFollow(FOLLOW_21);
             rule__PackageID__Group__0__Impl();
@@ -5920,17 +6011,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__PackageID__Group__0__Impl"
-    // InternalXtextTest.g:2405:1: rule__PackageID__Group__0__Impl : ( RULE_IDENTIFIER ) ;
+    // InternalXtextTest.g:2433:1: rule__PackageID__Group__0__Impl : ( RULE_IDENTIFIER ) ;
     public final void rule__PackageID__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2409:1: ( ( RULE_IDENTIFIER ) )
-            // InternalXtextTest.g:2411:1: ( RULE_IDENTIFIER )
+            // InternalXtextTest.g:2437:1: ( ( RULE_IDENTIFIER ) )
+            // InternalXtextTest.g:2439:1: ( RULE_IDENTIFIER )
             {
-            // InternalXtextTest.g:2411:1: ( RULE_IDENTIFIER )
-            // InternalXtextTest.g:2412:1: RULE_IDENTIFIER
+            // InternalXtextTest.g:2439:1: ( RULE_IDENTIFIER )
+            // InternalXtextTest.g:2440:1: RULE_IDENTIFIER
             {
              before(grammarAccess.getPackageIDAccess().getIDENTIFIERTerminalRuleCall_0()); 
             match(input,RULE_IDENTIFIER,FOLLOW_2); 
@@ -5957,14 +6048,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__PackageID__Group__1"
-    // InternalXtextTest.g:2425:1: rule__PackageID__Group__1 : rule__PackageID__Group__1__Impl ;
+    // InternalXtextTest.g:2453:1: rule__PackageID__Group__1 : rule__PackageID__Group__1__Impl ;
     public final void rule__PackageID__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2429:1: ( rule__PackageID__Group__1__Impl )
-            // InternalXtextTest.g:2430:2: rule__PackageID__Group__1__Impl
+            // InternalXtextTest.g:2457:1: ( rule__PackageID__Group__1__Impl )
+            // InternalXtextTest.g:2458:2: rule__PackageID__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__PackageID__Group__1__Impl();
@@ -5990,33 +6081,33 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__PackageID__Group__1__Impl"
-    // InternalXtextTest.g:2436:1: rule__PackageID__Group__1__Impl : ( ( rule__PackageID__Group_1__0 )* ) ;
+    // InternalXtextTest.g:2464:1: rule__PackageID__Group__1__Impl : ( ( rule__PackageID__Group_1__0 )* ) ;
     public final void rule__PackageID__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2440:1: ( ( ( rule__PackageID__Group_1__0 )* ) )
-            // InternalXtextTest.g:2442:1: ( ( rule__PackageID__Group_1__0 )* )
+            // InternalXtextTest.g:2468:1: ( ( ( rule__PackageID__Group_1__0 )* ) )
+            // InternalXtextTest.g:2470:1: ( ( rule__PackageID__Group_1__0 )* )
             {
-            // InternalXtextTest.g:2442:1: ( ( rule__PackageID__Group_1__0 )* )
-            // InternalXtextTest.g:2443:1: ( rule__PackageID__Group_1__0 )*
+            // InternalXtextTest.g:2470:1: ( ( rule__PackageID__Group_1__0 )* )
+            // InternalXtextTest.g:2471:1: ( rule__PackageID__Group_1__0 )*
             {
              before(grammarAccess.getPackageIDAccess().getGroup_1()); 
-            // InternalXtextTest.g:2444:1: ( rule__PackageID__Group_1__0 )*
-            loop17:
+            // InternalXtextTest.g:2472:1: ( rule__PackageID__Group_1__0 )*
+            loop18:
             do {
-                int alt17=2;
-                int LA17_0 = input.LA(1);
+                int alt18=2;
+                int LA18_0 = input.LA(1);
 
-                if ( (LA17_0==RULE_POINT) ) {
-                    alt17=1;
+                if ( (LA18_0==RULE_POINT) ) {
+                    alt18=1;
                 }
 
 
-                switch (alt17) {
+                switch (alt18) {
             	case 1 :
-            	    // InternalXtextTest.g:2444:2: rule__PackageID__Group_1__0
+            	    // InternalXtextTest.g:2472:2: rule__PackageID__Group_1__0
             	    {
             	    pushFollow(FOLLOW_22);
             	    rule__PackageID__Group_1__0();
@@ -6028,7 +6119,7 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
             	    break;
 
             	default :
-            	    break loop17;
+            	    break loop18;
                 }
             } while (true);
 
@@ -6055,14 +6146,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__PackageID__Group_1__0"
-    // InternalXtextTest.g:2460:1: rule__PackageID__Group_1__0 : rule__PackageID__Group_1__0__Impl rule__PackageID__Group_1__1 ;
+    // InternalXtextTest.g:2488:1: rule__PackageID__Group_1__0 : rule__PackageID__Group_1__0__Impl rule__PackageID__Group_1__1 ;
     public final void rule__PackageID__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2464:1: ( rule__PackageID__Group_1__0__Impl rule__PackageID__Group_1__1 )
-            // InternalXtextTest.g:2465:2: rule__PackageID__Group_1__0__Impl rule__PackageID__Group_1__1
+            // InternalXtextTest.g:2492:1: ( rule__PackageID__Group_1__0__Impl rule__PackageID__Group_1__1 )
+            // InternalXtextTest.g:2493:2: rule__PackageID__Group_1__0__Impl rule__PackageID__Group_1__1
             {
             pushFollow(FOLLOW_5);
             rule__PackageID__Group_1__0__Impl();
@@ -6093,17 +6184,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__PackageID__Group_1__0__Impl"
-    // InternalXtextTest.g:2472:1: rule__PackageID__Group_1__0__Impl : ( RULE_POINT ) ;
+    // InternalXtextTest.g:2500:1: rule__PackageID__Group_1__0__Impl : ( RULE_POINT ) ;
     public final void rule__PackageID__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2476:1: ( ( RULE_POINT ) )
-            // InternalXtextTest.g:2478:1: ( RULE_POINT )
+            // InternalXtextTest.g:2504:1: ( ( RULE_POINT ) )
+            // InternalXtextTest.g:2506:1: ( RULE_POINT )
             {
-            // InternalXtextTest.g:2478:1: ( RULE_POINT )
-            // InternalXtextTest.g:2479:1: RULE_POINT
+            // InternalXtextTest.g:2506:1: ( RULE_POINT )
+            // InternalXtextTest.g:2507:1: RULE_POINT
             {
              before(grammarAccess.getPackageIDAccess().getPOINTTerminalRuleCall_1_0()); 
             match(input,RULE_POINT,FOLLOW_2); 
@@ -6130,14 +6221,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__PackageID__Group_1__1"
-    // InternalXtextTest.g:2492:1: rule__PackageID__Group_1__1 : rule__PackageID__Group_1__1__Impl ;
+    // InternalXtextTest.g:2520:1: rule__PackageID__Group_1__1 : rule__PackageID__Group_1__1__Impl ;
     public final void rule__PackageID__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2496:1: ( rule__PackageID__Group_1__1__Impl )
-            // InternalXtextTest.g:2497:2: rule__PackageID__Group_1__1__Impl
+            // InternalXtextTest.g:2524:1: ( rule__PackageID__Group_1__1__Impl )
+            // InternalXtextTest.g:2525:2: rule__PackageID__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__PackageID__Group_1__1__Impl();
@@ -6163,17 +6254,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__PackageID__Group_1__1__Impl"
-    // InternalXtextTest.g:2503:1: rule__PackageID__Group_1__1__Impl : ( RULE_IDENTIFIER ) ;
+    // InternalXtextTest.g:2531:1: rule__PackageID__Group_1__1__Impl : ( RULE_IDENTIFIER ) ;
     public final void rule__PackageID__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2507:1: ( ( RULE_IDENTIFIER ) )
-            // InternalXtextTest.g:2509:1: ( RULE_IDENTIFIER )
+            // InternalXtextTest.g:2535:1: ( ( RULE_IDENTIFIER ) )
+            // InternalXtextTest.g:2537:1: ( RULE_IDENTIFIER )
             {
-            // InternalXtextTest.g:2509:1: ( RULE_IDENTIFIER )
-            // InternalXtextTest.g:2510:1: RULE_IDENTIFIER
+            // InternalXtextTest.g:2537:1: ( RULE_IDENTIFIER )
+            // InternalXtextTest.g:2538:1: RULE_IDENTIFIER
             {
              before(grammarAccess.getPackageIDAccess().getIDENTIFIERTerminalRuleCall_1_1()); 
             match(input,RULE_IDENTIFIER,FOLLOW_2); 
@@ -6200,14 +6291,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ImportID__Group__0"
-    // InternalXtextTest.g:2527:1: rule__ImportID__Group__0 : rule__ImportID__Group__0__Impl rule__ImportID__Group__1 ;
+    // InternalXtextTest.g:2555:1: rule__ImportID__Group__0 : rule__ImportID__Group__0__Impl rule__ImportID__Group__1 ;
     public final void rule__ImportID__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2531:1: ( rule__ImportID__Group__0__Impl rule__ImportID__Group__1 )
-            // InternalXtextTest.g:2532:2: rule__ImportID__Group__0__Impl rule__ImportID__Group__1
+            // InternalXtextTest.g:2559:1: ( rule__ImportID__Group__0__Impl rule__ImportID__Group__1 )
+            // InternalXtextTest.g:2560:2: rule__ImportID__Group__0__Impl rule__ImportID__Group__1
             {
             pushFollow(FOLLOW_21);
             rule__ImportID__Group__0__Impl();
@@ -6238,17 +6329,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ImportID__Group__0__Impl"
-    // InternalXtextTest.g:2539:1: rule__ImportID__Group__0__Impl : ( RULE_IDENTIFIER ) ;
+    // InternalXtextTest.g:2567:1: rule__ImportID__Group__0__Impl : ( RULE_IDENTIFIER ) ;
     public final void rule__ImportID__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2543:1: ( ( RULE_IDENTIFIER ) )
-            // InternalXtextTest.g:2545:1: ( RULE_IDENTIFIER )
+            // InternalXtextTest.g:2571:1: ( ( RULE_IDENTIFIER ) )
+            // InternalXtextTest.g:2573:1: ( RULE_IDENTIFIER )
             {
-            // InternalXtextTest.g:2545:1: ( RULE_IDENTIFIER )
-            // InternalXtextTest.g:2546:1: RULE_IDENTIFIER
+            // InternalXtextTest.g:2573:1: ( RULE_IDENTIFIER )
+            // InternalXtextTest.g:2574:1: RULE_IDENTIFIER
             {
              before(grammarAccess.getImportIDAccess().getIDENTIFIERTerminalRuleCall_0()); 
             match(input,RULE_IDENTIFIER,FOLLOW_2); 
@@ -6275,14 +6366,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ImportID__Group__1"
-    // InternalXtextTest.g:2559:1: rule__ImportID__Group__1 : rule__ImportID__Group__1__Impl ;
+    // InternalXtextTest.g:2587:1: rule__ImportID__Group__1 : rule__ImportID__Group__1__Impl ;
     public final void rule__ImportID__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2563:1: ( rule__ImportID__Group__1__Impl )
-            // InternalXtextTest.g:2564:2: rule__ImportID__Group__1__Impl
+            // InternalXtextTest.g:2591:1: ( rule__ImportID__Group__1__Impl )
+            // InternalXtextTest.g:2592:2: rule__ImportID__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ImportID__Group__1__Impl();
@@ -6308,33 +6399,33 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ImportID__Group__1__Impl"
-    // InternalXtextTest.g:2570:1: rule__ImportID__Group__1__Impl : ( ( rule__ImportID__Group_1__0 )* ) ;
+    // InternalXtextTest.g:2598:1: rule__ImportID__Group__1__Impl : ( ( rule__ImportID__Group_1__0 )* ) ;
     public final void rule__ImportID__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2574:1: ( ( ( rule__ImportID__Group_1__0 )* ) )
-            // InternalXtextTest.g:2576:1: ( ( rule__ImportID__Group_1__0 )* )
+            // InternalXtextTest.g:2602:1: ( ( ( rule__ImportID__Group_1__0 )* ) )
+            // InternalXtextTest.g:2604:1: ( ( rule__ImportID__Group_1__0 )* )
             {
-            // InternalXtextTest.g:2576:1: ( ( rule__ImportID__Group_1__0 )* )
-            // InternalXtextTest.g:2577:1: ( rule__ImportID__Group_1__0 )*
+            // InternalXtextTest.g:2604:1: ( ( rule__ImportID__Group_1__0 )* )
+            // InternalXtextTest.g:2605:1: ( rule__ImportID__Group_1__0 )*
             {
              before(grammarAccess.getImportIDAccess().getGroup_1()); 
-            // InternalXtextTest.g:2578:1: ( rule__ImportID__Group_1__0 )*
-            loop18:
+            // InternalXtextTest.g:2606:1: ( rule__ImportID__Group_1__0 )*
+            loop19:
             do {
-                int alt18=2;
-                int LA18_0 = input.LA(1);
+                int alt19=2;
+                int LA19_0 = input.LA(1);
 
-                if ( (LA18_0==RULE_POINT) ) {
-                    alt18=1;
+                if ( (LA19_0==RULE_POINT) ) {
+                    alt19=1;
                 }
 
 
-                switch (alt18) {
+                switch (alt19) {
             	case 1 :
-            	    // InternalXtextTest.g:2578:2: rule__ImportID__Group_1__0
+            	    // InternalXtextTest.g:2606:2: rule__ImportID__Group_1__0
             	    {
             	    pushFollow(FOLLOW_22);
             	    rule__ImportID__Group_1__0();
@@ -6346,7 +6437,7 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
             	    break;
 
             	default :
-            	    break loop18;
+            	    break loop19;
                 }
             } while (true);
 
@@ -6373,14 +6464,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ImportID__Group_1__0"
-    // InternalXtextTest.g:2594:1: rule__ImportID__Group_1__0 : rule__ImportID__Group_1__0__Impl rule__ImportID__Group_1__1 ;
+    // InternalXtextTest.g:2622:1: rule__ImportID__Group_1__0 : rule__ImportID__Group_1__0__Impl rule__ImportID__Group_1__1 ;
     public final void rule__ImportID__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2598:1: ( rule__ImportID__Group_1__0__Impl rule__ImportID__Group_1__1 )
-            // InternalXtextTest.g:2599:2: rule__ImportID__Group_1__0__Impl rule__ImportID__Group_1__1
+            // InternalXtextTest.g:2626:1: ( rule__ImportID__Group_1__0__Impl rule__ImportID__Group_1__1 )
+            // InternalXtextTest.g:2627:2: rule__ImportID__Group_1__0__Impl rule__ImportID__Group_1__1
             {
             pushFollow(FOLLOW_5);
             rule__ImportID__Group_1__0__Impl();
@@ -6411,17 +6502,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ImportID__Group_1__0__Impl"
-    // InternalXtextTest.g:2606:1: rule__ImportID__Group_1__0__Impl : ( RULE_POINT ) ;
+    // InternalXtextTest.g:2634:1: rule__ImportID__Group_1__0__Impl : ( RULE_POINT ) ;
     public final void rule__ImportID__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2610:1: ( ( RULE_POINT ) )
-            // InternalXtextTest.g:2612:1: ( RULE_POINT )
+            // InternalXtextTest.g:2638:1: ( ( RULE_POINT ) )
+            // InternalXtextTest.g:2640:1: ( RULE_POINT )
             {
-            // InternalXtextTest.g:2612:1: ( RULE_POINT )
-            // InternalXtextTest.g:2613:1: RULE_POINT
+            // InternalXtextTest.g:2640:1: ( RULE_POINT )
+            // InternalXtextTest.g:2641:1: RULE_POINT
             {
              before(grammarAccess.getImportIDAccess().getPOINTTerminalRuleCall_1_0()); 
             match(input,RULE_POINT,FOLLOW_2); 
@@ -6448,14 +6539,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ImportID__Group_1__1"
-    // InternalXtextTest.g:2626:1: rule__ImportID__Group_1__1 : rule__ImportID__Group_1__1__Impl ;
+    // InternalXtextTest.g:2654:1: rule__ImportID__Group_1__1 : rule__ImportID__Group_1__1__Impl ;
     public final void rule__ImportID__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2630:1: ( rule__ImportID__Group_1__1__Impl )
-            // InternalXtextTest.g:2631:2: rule__ImportID__Group_1__1__Impl
+            // InternalXtextTest.g:2658:1: ( rule__ImportID__Group_1__1__Impl )
+            // InternalXtextTest.g:2659:2: rule__ImportID__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ImportID__Group_1__1__Impl();
@@ -6481,17 +6572,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ImportID__Group_1__1__Impl"
-    // InternalXtextTest.g:2637:1: rule__ImportID__Group_1__1__Impl : ( RULE_IDENTIFIER ) ;
+    // InternalXtextTest.g:2665:1: rule__ImportID__Group_1__1__Impl : ( RULE_IDENTIFIER ) ;
     public final void rule__ImportID__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2641:1: ( ( RULE_IDENTIFIER ) )
-            // InternalXtextTest.g:2643:1: ( RULE_IDENTIFIER )
+            // InternalXtextTest.g:2669:1: ( ( RULE_IDENTIFIER ) )
+            // InternalXtextTest.g:2671:1: ( RULE_IDENTIFIER )
             {
-            // InternalXtextTest.g:2643:1: ( RULE_IDENTIFIER )
-            // InternalXtextTest.g:2644:1: RULE_IDENTIFIER
+            // InternalXtextTest.g:2671:1: ( RULE_IDENTIFIER )
+            // InternalXtextTest.g:2672:1: RULE_IDENTIFIER
             {
              before(grammarAccess.getImportIDAccess().getIDENTIFIERTerminalRuleCall_1_1()); 
             match(input,RULE_IDENTIFIER,FOLLOW_2); 
@@ -6518,14 +6609,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Input__Group__0"
-    // InternalXtextTest.g:2661:1: rule__Input__Group__0 : rule__Input__Group__0__Impl rule__Input__Group__1 ;
+    // InternalXtextTest.g:2689:1: rule__Input__Group__0 : rule__Input__Group__0__Impl rule__Input__Group__1 ;
     public final void rule__Input__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2665:1: ( rule__Input__Group__0__Impl rule__Input__Group__1 )
-            // InternalXtextTest.g:2666:2: rule__Input__Group__0__Impl rule__Input__Group__1
+            // InternalXtextTest.g:2693:1: ( rule__Input__Group__0__Impl rule__Input__Group__1 )
+            // InternalXtextTest.g:2694:2: rule__Input__Group__0__Impl rule__Input__Group__1
             {
             pushFollow(FOLLOW_7);
             rule__Input__Group__0__Impl();
@@ -6556,21 +6647,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Input__Group__0__Impl"
-    // InternalXtextTest.g:2673:1: rule__Input__Group__0__Impl : ( () ) ;
+    // InternalXtextTest.g:2701:1: rule__Input__Group__0__Impl : ( () ) ;
     public final void rule__Input__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2677:1: ( ( () ) )
-            // InternalXtextTest.g:2679:1: ( () )
+            // InternalXtextTest.g:2705:1: ( ( () ) )
+            // InternalXtextTest.g:2707:1: ( () )
             {
-            // InternalXtextTest.g:2679:1: ( () )
-            // InternalXtextTest.g:2680:1: ()
+            // InternalXtextTest.g:2707:1: ( () )
+            // InternalXtextTest.g:2708:1: ()
             {
              before(grammarAccess.getInputAccess().getInputAction_0()); 
-            // InternalXtextTest.g:2681:1: ()
-            // InternalXtextTest.g:2683:1: 
+            // InternalXtextTest.g:2709:1: ()
+            // InternalXtextTest.g:2711:1: 
             {
             }
 
@@ -6593,14 +6684,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Input__Group__1"
-    // InternalXtextTest.g:2695:1: rule__Input__Group__1 : rule__Input__Group__1__Impl rule__Input__Group__2 ;
+    // InternalXtextTest.g:2723:1: rule__Input__Group__1 : rule__Input__Group__1__Impl rule__Input__Group__2 ;
     public final void rule__Input__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2699:1: ( rule__Input__Group__1__Impl rule__Input__Group__2 )
-            // InternalXtextTest.g:2700:2: rule__Input__Group__1__Impl rule__Input__Group__2
+            // InternalXtextTest.g:2727:1: ( rule__Input__Group__1__Impl rule__Input__Group__2 )
+            // InternalXtextTest.g:2728:2: rule__Input__Group__1__Impl rule__Input__Group__2
             {
             pushFollow(FOLLOW_23);
             rule__Input__Group__1__Impl();
@@ -6631,17 +6722,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Input__Group__1__Impl"
-    // InternalXtextTest.g:2707:1: rule__Input__Group__1__Impl : ( RULE_SOURCE ) ;
+    // InternalXtextTest.g:2735:1: rule__Input__Group__1__Impl : ( RULE_SOURCE ) ;
     public final void rule__Input__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2711:1: ( ( RULE_SOURCE ) )
-            // InternalXtextTest.g:2713:1: ( RULE_SOURCE )
+            // InternalXtextTest.g:2739:1: ( ( RULE_SOURCE ) )
+            // InternalXtextTest.g:2741:1: ( RULE_SOURCE )
             {
-            // InternalXtextTest.g:2713:1: ( RULE_SOURCE )
-            // InternalXtextTest.g:2714:1: RULE_SOURCE
+            // InternalXtextTest.g:2741:1: ( RULE_SOURCE )
+            // InternalXtextTest.g:2742:1: RULE_SOURCE
             {
              before(grammarAccess.getInputAccess().getSOURCETerminalRuleCall_1()); 
             match(input,RULE_SOURCE,FOLLOW_2); 
@@ -6668,14 +6759,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Input__Group__2"
-    // InternalXtextTest.g:2727:1: rule__Input__Group__2 : rule__Input__Group__2__Impl ;
+    // InternalXtextTest.g:2755:1: rule__Input__Group__2 : rule__Input__Group__2__Impl ;
     public final void rule__Input__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2731:1: ( rule__Input__Group__2__Impl )
-            // InternalXtextTest.g:2732:2: rule__Input__Group__2__Impl
+            // InternalXtextTest.g:2759:1: ( rule__Input__Group__2__Impl )
+            // InternalXtextTest.g:2760:2: rule__Input__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Input__Group__2__Impl();
@@ -6701,21 +6792,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Input__Group__2__Impl"
-    // InternalXtextTest.g:2738:1: rule__Input__Group__2__Impl : ( ( rule__Input__Alternatives_2 ) ) ;
+    // InternalXtextTest.g:2766:1: rule__Input__Group__2__Impl : ( ( rule__Input__Alternatives_2 ) ) ;
     public final void rule__Input__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2742:1: ( ( ( rule__Input__Alternatives_2 ) ) )
-            // InternalXtextTest.g:2744:1: ( ( rule__Input__Alternatives_2 ) )
+            // InternalXtextTest.g:2770:1: ( ( ( rule__Input__Alternatives_2 ) ) )
+            // InternalXtextTest.g:2772:1: ( ( rule__Input__Alternatives_2 ) )
             {
-            // InternalXtextTest.g:2744:1: ( ( rule__Input__Alternatives_2 ) )
-            // InternalXtextTest.g:2745:1: ( rule__Input__Alternatives_2 )
+            // InternalXtextTest.g:2772:1: ( ( rule__Input__Alternatives_2 ) )
+            // InternalXtextTest.g:2773:1: ( rule__Input__Alternatives_2 )
             {
              before(grammarAccess.getInputAccess().getAlternatives_2()); 
-            // InternalXtextTest.g:2746:1: ( rule__Input__Alternatives_2 )
-            // InternalXtextTest.g:2746:2: rule__Input__Alternatives_2
+            // InternalXtextTest.g:2774:1: ( rule__Input__Alternatives_2 )
+            // InternalXtextTest.g:2774:2: rule__Input__Alternatives_2
             {
             pushFollow(FOLLOW_2);
             rule__Input__Alternatives_2();
@@ -6748,14 +6839,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Input__Group_2_0__0"
-    // InternalXtextTest.g:2764:1: rule__Input__Group_2_0__0 : rule__Input__Group_2_0__0__Impl rule__Input__Group_2_0__1 ;
+    // InternalXtextTest.g:2792:1: rule__Input__Group_2_0__0 : rule__Input__Group_2_0__0__Impl rule__Input__Group_2_0__1 ;
     public final void rule__Input__Group_2_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2768:1: ( rule__Input__Group_2_0__0__Impl rule__Input__Group_2_0__1 )
-            // InternalXtextTest.g:2769:2: rule__Input__Group_2_0__0__Impl rule__Input__Group_2_0__1
+            // InternalXtextTest.g:2796:1: ( rule__Input__Group_2_0__0__Impl rule__Input__Group_2_0__1 )
+            // InternalXtextTest.g:2797:2: rule__Input__Group_2_0__0__Impl rule__Input__Group_2_0__1
             {
             pushFollow(FOLLOW_10);
             rule__Input__Group_2_0__0__Impl();
@@ -6786,17 +6877,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Input__Group_2_0__0__Impl"
-    // InternalXtextTest.g:2776:1: rule__Input__Group_2_0__0__Impl : ( RULE_SRCTEXT ) ;
+    // InternalXtextTest.g:2804:1: rule__Input__Group_2_0__0__Impl : ( RULE_SRCTEXT ) ;
     public final void rule__Input__Group_2_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2780:1: ( ( RULE_SRCTEXT ) )
-            // InternalXtextTest.g:2782:1: ( RULE_SRCTEXT )
+            // InternalXtextTest.g:2808:1: ( ( RULE_SRCTEXT ) )
+            // InternalXtextTest.g:2810:1: ( RULE_SRCTEXT )
             {
-            // InternalXtextTest.g:2782:1: ( RULE_SRCTEXT )
-            // InternalXtextTest.g:2783:1: RULE_SRCTEXT
+            // InternalXtextTest.g:2810:1: ( RULE_SRCTEXT )
+            // InternalXtextTest.g:2811:1: RULE_SRCTEXT
             {
              before(grammarAccess.getInputAccess().getSRCTEXTTerminalRuleCall_2_0_0()); 
             match(input,RULE_SRCTEXT,FOLLOW_2); 
@@ -6823,14 +6914,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Input__Group_2_0__1"
-    // InternalXtextTest.g:2796:1: rule__Input__Group_2_0__1 : rule__Input__Group_2_0__1__Impl rule__Input__Group_2_0__2 ;
+    // InternalXtextTest.g:2824:1: rule__Input__Group_2_0__1 : rule__Input__Group_2_0__1__Impl rule__Input__Group_2_0__2 ;
     public final void rule__Input__Group_2_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2800:1: ( rule__Input__Group_2_0__1__Impl rule__Input__Group_2_0__2 )
-            // InternalXtextTest.g:2801:2: rule__Input__Group_2_0__1__Impl rule__Input__Group_2_0__2
+            // InternalXtextTest.g:2828:1: ( rule__Input__Group_2_0__1__Impl rule__Input__Group_2_0__2 )
+            // InternalXtextTest.g:2829:2: rule__Input__Group_2_0__1__Impl rule__Input__Group_2_0__2
             {
             pushFollow(FOLLOW_18);
             rule__Input__Group_2_0__1__Impl();
@@ -6861,17 +6952,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Input__Group_2_0__1__Impl"
-    // InternalXtextTest.g:2808:1: rule__Input__Group_2_0__1__Impl : ( RULE_ASSIGNASSINGLE ) ;
+    // InternalXtextTest.g:2836:1: rule__Input__Group_2_0__1__Impl : ( RULE_ASSIGNASSINGLE ) ;
     public final void rule__Input__Group_2_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2812:1: ( ( RULE_ASSIGNASSINGLE ) )
-            // InternalXtextTest.g:2814:1: ( RULE_ASSIGNASSINGLE )
+            // InternalXtextTest.g:2840:1: ( ( RULE_ASSIGNASSINGLE ) )
+            // InternalXtextTest.g:2842:1: ( RULE_ASSIGNASSINGLE )
             {
-            // InternalXtextTest.g:2814:1: ( RULE_ASSIGNASSINGLE )
-            // InternalXtextTest.g:2815:1: RULE_ASSIGNASSINGLE
+            // InternalXtextTest.g:2842:1: ( RULE_ASSIGNASSINGLE )
+            // InternalXtextTest.g:2843:1: RULE_ASSIGNASSINGLE
             {
              before(grammarAccess.getInputAccess().getASSIGNASSINGLETerminalRuleCall_2_0_1()); 
             match(input,RULE_ASSIGNASSINGLE,FOLLOW_2); 
@@ -6898,14 +6989,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Input__Group_2_0__2"
-    // InternalXtextTest.g:2828:1: rule__Input__Group_2_0__2 : rule__Input__Group_2_0__2__Impl ;
+    // InternalXtextTest.g:2856:1: rule__Input__Group_2_0__2 : rule__Input__Group_2_0__2__Impl ;
     public final void rule__Input__Group_2_0__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2832:1: ( rule__Input__Group_2_0__2__Impl )
-            // InternalXtextTest.g:2833:2: rule__Input__Group_2_0__2__Impl
+            // InternalXtextTest.g:2860:1: ( rule__Input__Group_2_0__2__Impl )
+            // InternalXtextTest.g:2861:2: rule__Input__Group_2_0__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Input__Group_2_0__2__Impl();
@@ -6931,21 +7022,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Input__Group_2_0__2__Impl"
-    // InternalXtextTest.g:2839:1: rule__Input__Group_2_0__2__Impl : ( ( rule__Input__TextAssignment_2_0_2 ) ) ;
+    // InternalXtextTest.g:2867:1: rule__Input__Group_2_0__2__Impl : ( ( rule__Input__TextAssignment_2_0_2 ) ) ;
     public final void rule__Input__Group_2_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2843:1: ( ( ( rule__Input__TextAssignment_2_0_2 ) ) )
-            // InternalXtextTest.g:2845:1: ( ( rule__Input__TextAssignment_2_0_2 ) )
+            // InternalXtextTest.g:2871:1: ( ( ( rule__Input__TextAssignment_2_0_2 ) ) )
+            // InternalXtextTest.g:2873:1: ( ( rule__Input__TextAssignment_2_0_2 ) )
             {
-            // InternalXtextTest.g:2845:1: ( ( rule__Input__TextAssignment_2_0_2 ) )
-            // InternalXtextTest.g:2846:1: ( rule__Input__TextAssignment_2_0_2 )
+            // InternalXtextTest.g:2873:1: ( ( rule__Input__TextAssignment_2_0_2 ) )
+            // InternalXtextTest.g:2874:1: ( rule__Input__TextAssignment_2_0_2 )
             {
              before(grammarAccess.getInputAccess().getTextAssignment_2_0_2()); 
-            // InternalXtextTest.g:2847:1: ( rule__Input__TextAssignment_2_0_2 )
-            // InternalXtextTest.g:2847:2: rule__Input__TextAssignment_2_0_2
+            // InternalXtextTest.g:2875:1: ( rule__Input__TextAssignment_2_0_2 )
+            // InternalXtextTest.g:2875:2: rule__Input__TextAssignment_2_0_2
             {
             pushFollow(FOLLOW_2);
             rule__Input__TextAssignment_2_0_2();
@@ -6978,14 +7069,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Input__Group_2_1__0"
-    // InternalXtextTest.g:2865:1: rule__Input__Group_2_1__0 : rule__Input__Group_2_1__0__Impl rule__Input__Group_2_1__1 ;
+    // InternalXtextTest.g:2893:1: rule__Input__Group_2_1__0 : rule__Input__Group_2_1__0__Impl rule__Input__Group_2_1__1 ;
     public final void rule__Input__Group_2_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2869:1: ( rule__Input__Group_2_1__0__Impl rule__Input__Group_2_1__1 )
-            // InternalXtextTest.g:2870:2: rule__Input__Group_2_1__0__Impl rule__Input__Group_2_1__1
+            // InternalXtextTest.g:2897:1: ( rule__Input__Group_2_1__0__Impl rule__Input__Group_2_1__1 )
+            // InternalXtextTest.g:2898:2: rule__Input__Group_2_1__0__Impl rule__Input__Group_2_1__1
             {
             pushFollow(FOLLOW_10);
             rule__Input__Group_2_1__0__Impl();
@@ -7016,17 +7107,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Input__Group_2_1__0__Impl"
-    // InternalXtextTest.g:2877:1: rule__Input__Group_2_1__0__Impl : ( RULE_FILE ) ;
+    // InternalXtextTest.g:2905:1: rule__Input__Group_2_1__0__Impl : ( RULE_FILE ) ;
     public final void rule__Input__Group_2_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2881:1: ( ( RULE_FILE ) )
-            // InternalXtextTest.g:2883:1: ( RULE_FILE )
+            // InternalXtextTest.g:2909:1: ( ( RULE_FILE ) )
+            // InternalXtextTest.g:2911:1: ( RULE_FILE )
             {
-            // InternalXtextTest.g:2883:1: ( RULE_FILE )
-            // InternalXtextTest.g:2884:1: RULE_FILE
+            // InternalXtextTest.g:2911:1: ( RULE_FILE )
+            // InternalXtextTest.g:2912:1: RULE_FILE
             {
              before(grammarAccess.getInputAccess().getFILETerminalRuleCall_2_1_0()); 
             match(input,RULE_FILE,FOLLOW_2); 
@@ -7053,14 +7144,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Input__Group_2_1__1"
-    // InternalXtextTest.g:2897:1: rule__Input__Group_2_1__1 : rule__Input__Group_2_1__1__Impl rule__Input__Group_2_1__2 ;
+    // InternalXtextTest.g:2925:1: rule__Input__Group_2_1__1 : rule__Input__Group_2_1__1__Impl rule__Input__Group_2_1__2 ;
     public final void rule__Input__Group_2_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2901:1: ( rule__Input__Group_2_1__1__Impl rule__Input__Group_2_1__2 )
-            // InternalXtextTest.g:2902:2: rule__Input__Group_2_1__1__Impl rule__Input__Group_2_1__2
+            // InternalXtextTest.g:2929:1: ( rule__Input__Group_2_1__1__Impl rule__Input__Group_2_1__2 )
+            // InternalXtextTest.g:2930:2: rule__Input__Group_2_1__1__Impl rule__Input__Group_2_1__2
             {
             pushFollow(FOLLOW_18);
             rule__Input__Group_2_1__1__Impl();
@@ -7091,17 +7182,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Input__Group_2_1__1__Impl"
-    // InternalXtextTest.g:2909:1: rule__Input__Group_2_1__1__Impl : ( RULE_ASSIGNASSINGLE ) ;
+    // InternalXtextTest.g:2937:1: rule__Input__Group_2_1__1__Impl : ( RULE_ASSIGNASSINGLE ) ;
     public final void rule__Input__Group_2_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2913:1: ( ( RULE_ASSIGNASSINGLE ) )
-            // InternalXtextTest.g:2915:1: ( RULE_ASSIGNASSINGLE )
+            // InternalXtextTest.g:2941:1: ( ( RULE_ASSIGNASSINGLE ) )
+            // InternalXtextTest.g:2943:1: ( RULE_ASSIGNASSINGLE )
             {
-            // InternalXtextTest.g:2915:1: ( RULE_ASSIGNASSINGLE )
-            // InternalXtextTest.g:2916:1: RULE_ASSIGNASSINGLE
+            // InternalXtextTest.g:2943:1: ( RULE_ASSIGNASSINGLE )
+            // InternalXtextTest.g:2944:1: RULE_ASSIGNASSINGLE
             {
              before(grammarAccess.getInputAccess().getASSIGNASSINGLETerminalRuleCall_2_1_1()); 
             match(input,RULE_ASSIGNASSINGLE,FOLLOW_2); 
@@ -7128,14 +7219,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Input__Group_2_1__2"
-    // InternalXtextTest.g:2929:1: rule__Input__Group_2_1__2 : rule__Input__Group_2_1__2__Impl ;
+    // InternalXtextTest.g:2957:1: rule__Input__Group_2_1__2 : rule__Input__Group_2_1__2__Impl ;
     public final void rule__Input__Group_2_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2933:1: ( rule__Input__Group_2_1__2__Impl )
-            // InternalXtextTest.g:2934:2: rule__Input__Group_2_1__2__Impl
+            // InternalXtextTest.g:2961:1: ( rule__Input__Group_2_1__2__Impl )
+            // InternalXtextTest.g:2962:2: rule__Input__Group_2_1__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Input__Group_2_1__2__Impl();
@@ -7161,21 +7252,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Input__Group_2_1__2__Impl"
-    // InternalXtextTest.g:2940:1: rule__Input__Group_2_1__2__Impl : ( ( rule__Input__FileAssignment_2_1_2 ) ) ;
+    // InternalXtextTest.g:2968:1: rule__Input__Group_2_1__2__Impl : ( ( rule__Input__FileAssignment_2_1_2 ) ) ;
     public final void rule__Input__Group_2_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2944:1: ( ( ( rule__Input__FileAssignment_2_1_2 ) ) )
-            // InternalXtextTest.g:2946:1: ( ( rule__Input__FileAssignment_2_1_2 ) )
+            // InternalXtextTest.g:2972:1: ( ( ( rule__Input__FileAssignment_2_1_2 ) ) )
+            // InternalXtextTest.g:2974:1: ( ( rule__Input__FileAssignment_2_1_2 ) )
             {
-            // InternalXtextTest.g:2946:1: ( ( rule__Input__FileAssignment_2_1_2 ) )
-            // InternalXtextTest.g:2947:1: ( rule__Input__FileAssignment_2_1_2 )
+            // InternalXtextTest.g:2974:1: ( ( rule__Input__FileAssignment_2_1_2 ) )
+            // InternalXtextTest.g:2975:1: ( rule__Input__FileAssignment_2_1_2 )
             {
              before(grammarAccess.getInputAccess().getFileAssignment_2_1_2()); 
-            // InternalXtextTest.g:2948:1: ( rule__Input__FileAssignment_2_1_2 )
-            // InternalXtextTest.g:2948:2: rule__Input__FileAssignment_2_1_2
+            // InternalXtextTest.g:2976:1: ( rule__Input__FileAssignment_2_1_2 )
+            // InternalXtextTest.g:2976:2: rule__Input__FileAssignment_2_1_2
             {
             pushFollow(FOLLOW_2);
             rule__Input__FileAssignment_2_1_2();
@@ -7208,14 +7299,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Tokens__Group__0"
-    // InternalXtextTest.g:2966:1: rule__Tokens__Group__0 : rule__Tokens__Group__0__Impl rule__Tokens__Group__1 ;
+    // InternalXtextTest.g:2994:1: rule__Tokens__Group__0 : rule__Tokens__Group__0__Impl rule__Tokens__Group__1 ;
     public final void rule__Tokens__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2970:1: ( rule__Tokens__Group__0__Impl rule__Tokens__Group__1 )
-            // InternalXtextTest.g:2971:2: rule__Tokens__Group__0__Impl rule__Tokens__Group__1
+            // InternalXtextTest.g:2998:1: ( rule__Tokens__Group__0__Impl rule__Tokens__Group__1 )
+            // InternalXtextTest.g:2999:2: rule__Tokens__Group__0__Impl rule__Tokens__Group__1
             {
             pushFollow(FOLLOW_24);
             rule__Tokens__Group__0__Impl();
@@ -7246,21 +7337,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Tokens__Group__0__Impl"
-    // InternalXtextTest.g:2978:1: rule__Tokens__Group__0__Impl : ( () ) ;
+    // InternalXtextTest.g:3006:1: rule__Tokens__Group__0__Impl : ( () ) ;
     public final void rule__Tokens__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:2982:1: ( ( () ) )
-            // InternalXtextTest.g:2984:1: ( () )
+            // InternalXtextTest.g:3010:1: ( ( () ) )
+            // InternalXtextTest.g:3012:1: ( () )
             {
-            // InternalXtextTest.g:2984:1: ( () )
-            // InternalXtextTest.g:2985:1: ()
+            // InternalXtextTest.g:3012:1: ( () )
+            // InternalXtextTest.g:3013:1: ()
             {
              before(grammarAccess.getTokensAccess().getTokensAction_0()); 
-            // InternalXtextTest.g:2986:1: ()
-            // InternalXtextTest.g:2988:1: 
+            // InternalXtextTest.g:3014:1: ()
+            // InternalXtextTest.g:3016:1: 
             {
             }
 
@@ -7283,16 +7374,16 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Tokens__Group__1"
-    // InternalXtextTest.g:3000:1: rule__Tokens__Group__1 : rule__Tokens__Group__1__Impl rule__Tokens__Group__2 ;
+    // InternalXtextTest.g:3028:1: rule__Tokens__Group__1 : rule__Tokens__Group__1__Impl rule__Tokens__Group__2 ;
     public final void rule__Tokens__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3004:1: ( rule__Tokens__Group__1__Impl rule__Tokens__Group__2 )
-            // InternalXtextTest.g:3005:2: rule__Tokens__Group__1__Impl rule__Tokens__Group__2
+            // InternalXtextTest.g:3032:1: ( rule__Tokens__Group__1__Impl rule__Tokens__Group__2 )
+            // InternalXtextTest.g:3033:2: rule__Tokens__Group__1__Impl rule__Tokens__Group__2
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_25);
             rule__Tokens__Group__1__Impl();
 
             state._fsp--;
@@ -7321,17 +7412,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Tokens__Group__1__Impl"
-    // InternalXtextTest.g:3012:1: rule__Tokens__Group__1__Impl : ( RULE_LEXER ) ;
+    // InternalXtextTest.g:3040:1: rule__Tokens__Group__1__Impl : ( RULE_LEXER ) ;
     public final void rule__Tokens__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3016:1: ( ( RULE_LEXER ) )
-            // InternalXtextTest.g:3018:1: ( RULE_LEXER )
+            // InternalXtextTest.g:3044:1: ( ( RULE_LEXER ) )
+            // InternalXtextTest.g:3046:1: ( RULE_LEXER )
             {
-            // InternalXtextTest.g:3018:1: ( RULE_LEXER )
-            // InternalXtextTest.g:3019:1: RULE_LEXER
+            // InternalXtextTest.g:3046:1: ( RULE_LEXER )
+            // InternalXtextTest.g:3047:1: RULE_LEXER
             {
              before(grammarAccess.getTokensAccess().getLEXERTerminalRuleCall_1()); 
             match(input,RULE_LEXER,FOLLOW_2); 
@@ -7358,14 +7449,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Tokens__Group__2"
-    // InternalXtextTest.g:3032:1: rule__Tokens__Group__2 : rule__Tokens__Group__2__Impl ;
+    // InternalXtextTest.g:3060:1: rule__Tokens__Group__2 : rule__Tokens__Group__2__Impl ;
     public final void rule__Tokens__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3036:1: ( rule__Tokens__Group__2__Impl )
-            // InternalXtextTest.g:3037:2: rule__Tokens__Group__2__Impl
+            // InternalXtextTest.g:3064:1: ( rule__Tokens__Group__2__Impl )
+            // InternalXtextTest.g:3065:2: rule__Tokens__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Tokens__Group__2__Impl();
@@ -7391,26 +7482,26 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Tokens__Group__2__Impl"
-    // InternalXtextTest.g:3043:1: rule__Tokens__Group__2__Impl : ( ( ( rule__Tokens__TokensAssignment_2 ) ) ( ( rule__Tokens__TokensAssignment_2 )* ) ) ;
+    // InternalXtextTest.g:3071:1: rule__Tokens__Group__2__Impl : ( ( ( rule__Tokens__TokensAssignment_2 ) ) ( ( rule__Tokens__TokensAssignment_2 )* ) ) ;
     public final void rule__Tokens__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3047:1: ( ( ( ( rule__Tokens__TokensAssignment_2 ) ) ( ( rule__Tokens__TokensAssignment_2 )* ) ) )
-            // InternalXtextTest.g:3049:1: ( ( ( rule__Tokens__TokensAssignment_2 ) ) ( ( rule__Tokens__TokensAssignment_2 )* ) )
+            // InternalXtextTest.g:3075:1: ( ( ( ( rule__Tokens__TokensAssignment_2 ) ) ( ( rule__Tokens__TokensAssignment_2 )* ) ) )
+            // InternalXtextTest.g:3077:1: ( ( ( rule__Tokens__TokensAssignment_2 ) ) ( ( rule__Tokens__TokensAssignment_2 )* ) )
             {
-            // InternalXtextTest.g:3049:1: ( ( ( rule__Tokens__TokensAssignment_2 ) ) ( ( rule__Tokens__TokensAssignment_2 )* ) )
-            // InternalXtextTest.g:3050:1: ( ( rule__Tokens__TokensAssignment_2 ) ) ( ( rule__Tokens__TokensAssignment_2 )* )
+            // InternalXtextTest.g:3077:1: ( ( ( rule__Tokens__TokensAssignment_2 ) ) ( ( rule__Tokens__TokensAssignment_2 )* ) )
+            // InternalXtextTest.g:3078:1: ( ( rule__Tokens__TokensAssignment_2 ) ) ( ( rule__Tokens__TokensAssignment_2 )* )
             {
-            // InternalXtextTest.g:3050:1: ( ( rule__Tokens__TokensAssignment_2 ) )
-            // InternalXtextTest.g:3051:1: ( rule__Tokens__TokensAssignment_2 )
+            // InternalXtextTest.g:3078:1: ( ( rule__Tokens__TokensAssignment_2 ) )
+            // InternalXtextTest.g:3079:1: ( rule__Tokens__TokensAssignment_2 )
             {
              before(grammarAccess.getTokensAccess().getTokensAssignment_2()); 
-            // InternalXtextTest.g:3052:1: ( rule__Tokens__TokensAssignment_2 )
-            // InternalXtextTest.g:3052:2: rule__Tokens__TokensAssignment_2
+            // InternalXtextTest.g:3080:1: ( rule__Tokens__TokensAssignment_2 )
+            // InternalXtextTest.g:3080:2: rule__Tokens__TokensAssignment_2
             {
-            pushFollow(FOLLOW_25);
+            pushFollow(FOLLOW_26);
             rule__Tokens__TokensAssignment_2();
 
             state._fsp--;
@@ -7422,26 +7513,26 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
             }
 
-            // InternalXtextTest.g:3055:1: ( ( rule__Tokens__TokensAssignment_2 )* )
-            // InternalXtextTest.g:3056:1: ( rule__Tokens__TokensAssignment_2 )*
+            // InternalXtextTest.g:3083:1: ( ( rule__Tokens__TokensAssignment_2 )* )
+            // InternalXtextTest.g:3084:1: ( rule__Tokens__TokensAssignment_2 )*
             {
              before(grammarAccess.getTokensAccess().getTokensAssignment_2()); 
-            // InternalXtextTest.g:3057:1: ( rule__Tokens__TokensAssignment_2 )*
-            loop19:
+            // InternalXtextTest.g:3085:1: ( rule__Tokens__TokensAssignment_2 )*
+            loop20:
             do {
-                int alt19=2;
-                int LA19_0 = input.LA(1);
+                int alt20=2;
+                int LA20_0 = input.LA(1);
 
-                if ( (LA19_0==RULE_IDENTIFIER) ) {
-                    alt19=1;
+                if ( (LA20_0==RULE_IDENTIFIER||LA20_0==RULE_STRING) ) {
+                    alt20=1;
                 }
 
 
-                switch (alt19) {
+                switch (alt20) {
             	case 1 :
-            	    // InternalXtextTest.g:3057:2: rule__Tokens__TokensAssignment_2
+            	    // InternalXtextTest.g:3085:2: rule__Tokens__TokensAssignment_2
             	    {
-            	    pushFollow(FOLLOW_25);
+            	    pushFollow(FOLLOW_26);
             	    rule__Tokens__TokensAssignment_2();
 
             	    state._fsp--;
@@ -7451,7 +7542,7 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
             	    break;
 
             	default :
-            	    break loop19;
+            	    break loop20;
                 }
             } while (true);
 
@@ -7481,16 +7572,16 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MyTokens__Group__0"
-    // InternalXtextTest.g:3076:1: rule__MyTokens__Group__0 : rule__MyTokens__Group__0__Impl rule__MyTokens__Group__1 ;
+    // InternalXtextTest.g:3104:1: rule__MyTokens__Group__0 : rule__MyTokens__Group__0__Impl rule__MyTokens__Group__1 ;
     public final void rule__MyTokens__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3080:1: ( rule__MyTokens__Group__0__Impl rule__MyTokens__Group__1 )
-            // InternalXtextTest.g:3081:2: rule__MyTokens__Group__0__Impl rule__MyTokens__Group__1
+            // InternalXtextTest.g:3108:1: ( rule__MyTokens__Group__0__Impl rule__MyTokens__Group__1 )
+            // InternalXtextTest.g:3109:2: rule__MyTokens__Group__0__Impl rule__MyTokens__Group__1
             {
-            pushFollow(FOLLOW_26);
+            pushFollow(FOLLOW_27);
             rule__MyTokens__Group__0__Impl();
 
             state._fsp--;
@@ -7519,31 +7610,31 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MyTokens__Group__0__Impl"
-    // InternalXtextTest.g:3088:1: rule__MyTokens__Group__0__Impl : ( ( rule__MyTokens__TokenAssignment_0 ) ) ;
+    // InternalXtextTest.g:3116:1: rule__MyTokens__Group__0__Impl : ( ( rule__MyTokens__Alternatives_0 ) ) ;
     public final void rule__MyTokens__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3092:1: ( ( ( rule__MyTokens__TokenAssignment_0 ) ) )
-            // InternalXtextTest.g:3094:1: ( ( rule__MyTokens__TokenAssignment_0 ) )
+            // InternalXtextTest.g:3120:1: ( ( ( rule__MyTokens__Alternatives_0 ) ) )
+            // InternalXtextTest.g:3122:1: ( ( rule__MyTokens__Alternatives_0 ) )
             {
-            // InternalXtextTest.g:3094:1: ( ( rule__MyTokens__TokenAssignment_0 ) )
-            // InternalXtextTest.g:3095:1: ( rule__MyTokens__TokenAssignment_0 )
+            // InternalXtextTest.g:3122:1: ( ( rule__MyTokens__Alternatives_0 ) )
+            // InternalXtextTest.g:3123:1: ( rule__MyTokens__Alternatives_0 )
             {
-             before(grammarAccess.getMyTokensAccess().getTokenAssignment_0()); 
-            // InternalXtextTest.g:3096:1: ( rule__MyTokens__TokenAssignment_0 )
-            // InternalXtextTest.g:3096:2: rule__MyTokens__TokenAssignment_0
+             before(grammarAccess.getMyTokensAccess().getAlternatives_0()); 
+            // InternalXtextTest.g:3124:1: ( rule__MyTokens__Alternatives_0 )
+            // InternalXtextTest.g:3124:2: rule__MyTokens__Alternatives_0
             {
             pushFollow(FOLLOW_2);
-            rule__MyTokens__TokenAssignment_0();
+            rule__MyTokens__Alternatives_0();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getMyTokensAccess().getTokenAssignment_0()); 
+             after(grammarAccess.getMyTokensAccess().getAlternatives_0()); 
 
             }
 
@@ -7566,14 +7657,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MyTokens__Group__1"
-    // InternalXtextTest.g:3108:1: rule__MyTokens__Group__1 : rule__MyTokens__Group__1__Impl ;
+    // InternalXtextTest.g:3136:1: rule__MyTokens__Group__1 : rule__MyTokens__Group__1__Impl ;
     public final void rule__MyTokens__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3112:1: ( rule__MyTokens__Group__1__Impl )
-            // InternalXtextTest.g:3113:2: rule__MyTokens__Group__1__Impl
+            // InternalXtextTest.g:3140:1: ( rule__MyTokens__Group__1__Impl )
+            // InternalXtextTest.g:3141:2: rule__MyTokens__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__MyTokens__Group__1__Impl();
@@ -7599,29 +7690,29 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MyTokens__Group__1__Impl"
-    // InternalXtextTest.g:3119:1: rule__MyTokens__Group__1__Impl : ( ( rule__MyTokens__Group_1__0 )? ) ;
+    // InternalXtextTest.g:3147:1: rule__MyTokens__Group__1__Impl : ( ( rule__MyTokens__Group_1__0 )? ) ;
     public final void rule__MyTokens__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3123:1: ( ( ( rule__MyTokens__Group_1__0 )? ) )
-            // InternalXtextTest.g:3125:1: ( ( rule__MyTokens__Group_1__0 )? )
+            // InternalXtextTest.g:3151:1: ( ( ( rule__MyTokens__Group_1__0 )? ) )
+            // InternalXtextTest.g:3153:1: ( ( rule__MyTokens__Group_1__0 )? )
             {
-            // InternalXtextTest.g:3125:1: ( ( rule__MyTokens__Group_1__0 )? )
-            // InternalXtextTest.g:3126:1: ( rule__MyTokens__Group_1__0 )?
+            // InternalXtextTest.g:3153:1: ( ( rule__MyTokens__Group_1__0 )? )
+            // InternalXtextTest.g:3154:1: ( rule__MyTokens__Group_1__0 )?
             {
              before(grammarAccess.getMyTokensAccess().getGroup_1()); 
-            // InternalXtextTest.g:3127:1: ( rule__MyTokens__Group_1__0 )?
-            int alt20=2;
-            int LA20_0 = input.LA(1);
+            // InternalXtextTest.g:3155:1: ( rule__MyTokens__Group_1__0 )?
+            int alt21=2;
+            int LA21_0 = input.LA(1);
 
-            if ( (LA20_0==RULE_ASSIGNASDATALIST) ) {
-                alt20=1;
+            if ( (LA21_0==RULE_ASSIGNASDATALIST) ) {
+                alt21=1;
             }
-            switch (alt20) {
+            switch (alt21) {
                 case 1 :
-                    // InternalXtextTest.g:3127:2: rule__MyTokens__Group_1__0
+                    // InternalXtextTest.g:3155:2: rule__MyTokens__Group_1__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__MyTokens__Group_1__0();
@@ -7657,16 +7748,16 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MyTokens__Group_1__0"
-    // InternalXtextTest.g:3143:1: rule__MyTokens__Group_1__0 : rule__MyTokens__Group_1__0__Impl rule__MyTokens__Group_1__1 ;
+    // InternalXtextTest.g:3171:1: rule__MyTokens__Group_1__0 : rule__MyTokens__Group_1__0__Impl rule__MyTokens__Group_1__1 ;
     public final void rule__MyTokens__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3147:1: ( rule__MyTokens__Group_1__0__Impl rule__MyTokens__Group_1__1 )
-            // InternalXtextTest.g:3148:2: rule__MyTokens__Group_1__0__Impl rule__MyTokens__Group_1__1
+            // InternalXtextTest.g:3175:1: ( rule__MyTokens__Group_1__0__Impl rule__MyTokens__Group_1__1 )
+            // InternalXtextTest.g:3176:2: rule__MyTokens__Group_1__0__Impl rule__MyTokens__Group_1__1
             {
-            pushFollow(FOLLOW_27);
+            pushFollow(FOLLOW_28);
             rule__MyTokens__Group_1__0__Impl();
 
             state._fsp--;
@@ -7695,17 +7786,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MyTokens__Group_1__0__Impl"
-    // InternalXtextTest.g:3155:1: rule__MyTokens__Group_1__0__Impl : ( RULE_ASSIGNASDATALIST ) ;
+    // InternalXtextTest.g:3183:1: rule__MyTokens__Group_1__0__Impl : ( RULE_ASSIGNASDATALIST ) ;
     public final void rule__MyTokens__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3159:1: ( ( RULE_ASSIGNASDATALIST ) )
-            // InternalXtextTest.g:3161:1: ( RULE_ASSIGNASDATALIST )
+            // InternalXtextTest.g:3187:1: ( ( RULE_ASSIGNASDATALIST ) )
+            // InternalXtextTest.g:3189:1: ( RULE_ASSIGNASDATALIST )
             {
-            // InternalXtextTest.g:3161:1: ( RULE_ASSIGNASDATALIST )
-            // InternalXtextTest.g:3162:1: RULE_ASSIGNASDATALIST
+            // InternalXtextTest.g:3189:1: ( RULE_ASSIGNASDATALIST )
+            // InternalXtextTest.g:3190:1: RULE_ASSIGNASDATALIST
             {
              before(grammarAccess.getMyTokensAccess().getASSIGNASDATALISTTerminalRuleCall_1_0()); 
             match(input,RULE_ASSIGNASDATALIST,FOLLOW_2); 
@@ -7732,14 +7823,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MyTokens__Group_1__1"
-    // InternalXtextTest.g:3175:1: rule__MyTokens__Group_1__1 : rule__MyTokens__Group_1__1__Impl ;
+    // InternalXtextTest.g:3203:1: rule__MyTokens__Group_1__1 : rule__MyTokens__Group_1__1__Impl ;
     public final void rule__MyTokens__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3179:1: ( rule__MyTokens__Group_1__1__Impl )
-            // InternalXtextTest.g:3180:2: rule__MyTokens__Group_1__1__Impl
+            // InternalXtextTest.g:3207:1: ( rule__MyTokens__Group_1__1__Impl )
+            // InternalXtextTest.g:3208:2: rule__MyTokens__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__MyTokens__Group_1__1__Impl();
@@ -7765,21 +7856,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__MyTokens__Group_1__1__Impl"
-    // InternalXtextTest.g:3186:1: rule__MyTokens__Group_1__1__Impl : ( ( rule__MyTokens__CountAssignment_1_1 ) ) ;
+    // InternalXtextTest.g:3214:1: rule__MyTokens__Group_1__1__Impl : ( ( rule__MyTokens__CountAssignment_1_1 ) ) ;
     public final void rule__MyTokens__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3190:1: ( ( ( rule__MyTokens__CountAssignment_1_1 ) ) )
-            // InternalXtextTest.g:3192:1: ( ( rule__MyTokens__CountAssignment_1_1 ) )
+            // InternalXtextTest.g:3218:1: ( ( ( rule__MyTokens__CountAssignment_1_1 ) ) )
+            // InternalXtextTest.g:3220:1: ( ( rule__MyTokens__CountAssignment_1_1 ) )
             {
-            // InternalXtextTest.g:3192:1: ( ( rule__MyTokens__CountAssignment_1_1 ) )
-            // InternalXtextTest.g:3193:1: ( rule__MyTokens__CountAssignment_1_1 )
+            // InternalXtextTest.g:3220:1: ( ( rule__MyTokens__CountAssignment_1_1 ) )
+            // InternalXtextTest.g:3221:1: ( rule__MyTokens__CountAssignment_1_1 )
             {
              before(grammarAccess.getMyTokensAccess().getCountAssignment_1_1()); 
-            // InternalXtextTest.g:3194:1: ( rule__MyTokens__CountAssignment_1_1 )
-            // InternalXtextTest.g:3194:2: rule__MyTokens__CountAssignment_1_1
+            // InternalXtextTest.g:3222:1: ( rule__MyTokens__CountAssignment_1_1 )
+            // InternalXtextTest.g:3222:2: rule__MyTokens__CountAssignment_1_1
             {
             pushFollow(FOLLOW_2);
             rule__MyTokens__CountAssignment_1_1();
@@ -7812,14 +7903,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Element__Group__0"
-    // InternalXtextTest.g:3210:1: rule__Element__Group__0 : rule__Element__Group__0__Impl rule__Element__Group__1 ;
+    // InternalXtextTest.g:3238:1: rule__Element__Group__0 : rule__Element__Group__0__Impl rule__Element__Group__1 ;
     public final void rule__Element__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3214:1: ( rule__Element__Group__0__Impl rule__Element__Group__1 )
-            // InternalXtextTest.g:3215:2: rule__Element__Group__0__Impl rule__Element__Group__1
+            // InternalXtextTest.g:3242:1: ( rule__Element__Group__0__Impl rule__Element__Group__1 )
+            // InternalXtextTest.g:3243:2: rule__Element__Group__0__Impl rule__Element__Group__1
             {
             pushFollow(FOLLOW_8);
             rule__Element__Group__0__Impl();
@@ -7850,21 +7941,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Element__Group__0__Impl"
-    // InternalXtextTest.g:3222:1: rule__Element__Group__0__Impl : ( () ) ;
+    // InternalXtextTest.g:3250:1: rule__Element__Group__0__Impl : ( () ) ;
     public final void rule__Element__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3226:1: ( ( () ) )
-            // InternalXtextTest.g:3228:1: ( () )
+            // InternalXtextTest.g:3254:1: ( ( () ) )
+            // InternalXtextTest.g:3256:1: ( () )
             {
-            // InternalXtextTest.g:3228:1: ( () )
-            // InternalXtextTest.g:3229:1: ()
+            // InternalXtextTest.g:3256:1: ( () )
+            // InternalXtextTest.g:3257:1: ()
             {
              before(grammarAccess.getElementAccess().getElementAction_0()); 
-            // InternalXtextTest.g:3230:1: ()
-            // InternalXtextTest.g:3232:1: 
+            // InternalXtextTest.g:3258:1: ()
+            // InternalXtextTest.g:3260:1: 
             {
             }
 
@@ -7887,14 +7978,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Element__Group__1"
-    // InternalXtextTest.g:3244:1: rule__Element__Group__1 : rule__Element__Group__1__Impl rule__Element__Group__2 ;
+    // InternalXtextTest.g:3272:1: rule__Element__Group__1 : rule__Element__Group__1__Impl rule__Element__Group__2 ;
     public final void rule__Element__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3248:1: ( rule__Element__Group__1__Impl rule__Element__Group__2 )
-            // InternalXtextTest.g:3249:2: rule__Element__Group__1__Impl rule__Element__Group__2
+            // InternalXtextTest.g:3276:1: ( rule__Element__Group__1__Impl rule__Element__Group__2 )
+            // InternalXtextTest.g:3277:2: rule__Element__Group__1__Impl rule__Element__Group__2
             {
             pushFollow(FOLLOW_5);
             rule__Element__Group__1__Impl();
@@ -7925,17 +8016,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Element__Group__1__Impl"
-    // InternalXtextTest.g:3256:1: rule__Element__Group__1__Impl : ( RULE_LEFTPAREN ) ;
+    // InternalXtextTest.g:3284:1: rule__Element__Group__1__Impl : ( RULE_LEFTPAREN ) ;
     public final void rule__Element__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3260:1: ( ( RULE_LEFTPAREN ) )
-            // InternalXtextTest.g:3262:1: ( RULE_LEFTPAREN )
+            // InternalXtextTest.g:3288:1: ( ( RULE_LEFTPAREN ) )
+            // InternalXtextTest.g:3290:1: ( RULE_LEFTPAREN )
             {
-            // InternalXtextTest.g:3262:1: ( RULE_LEFTPAREN )
-            // InternalXtextTest.g:3263:1: RULE_LEFTPAREN
+            // InternalXtextTest.g:3290:1: ( RULE_LEFTPAREN )
+            // InternalXtextTest.g:3291:1: RULE_LEFTPAREN
             {
              before(grammarAccess.getElementAccess().getLEFTPARENTerminalRuleCall_1()); 
             match(input,RULE_LEFTPAREN,FOLLOW_2); 
@@ -7962,14 +8053,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Element__Group__2"
-    // InternalXtextTest.g:3276:1: rule__Element__Group__2 : rule__Element__Group__2__Impl rule__Element__Group__3 ;
+    // InternalXtextTest.g:3304:1: rule__Element__Group__2 : rule__Element__Group__2__Impl rule__Element__Group__3 ;
     public final void rule__Element__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3280:1: ( rule__Element__Group__2__Impl rule__Element__Group__3 )
-            // InternalXtextTest.g:3281:2: rule__Element__Group__2__Impl rule__Element__Group__3
+            // InternalXtextTest.g:3308:1: ( rule__Element__Group__2__Impl rule__Element__Group__3 )
+            // InternalXtextTest.g:3309:2: rule__Element__Group__2__Impl rule__Element__Group__3
             {
             pushFollow(FOLLOW_5);
             rule__Element__Group__2__Impl();
@@ -8000,33 +8091,33 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Element__Group__2__Impl"
-    // InternalXtextTest.g:3288:1: rule__Element__Group__2__Impl : ( ( rule__Element__Group_2__0 )? ) ;
+    // InternalXtextTest.g:3316:1: rule__Element__Group__2__Impl : ( ( rule__Element__Group_2__0 )? ) ;
     public final void rule__Element__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3292:1: ( ( ( rule__Element__Group_2__0 )? ) )
-            // InternalXtextTest.g:3294:1: ( ( rule__Element__Group_2__0 )? )
+            // InternalXtextTest.g:3320:1: ( ( ( rule__Element__Group_2__0 )? ) )
+            // InternalXtextTest.g:3322:1: ( ( rule__Element__Group_2__0 )? )
             {
-            // InternalXtextTest.g:3294:1: ( ( rule__Element__Group_2__0 )? )
-            // InternalXtextTest.g:3295:1: ( rule__Element__Group_2__0 )?
+            // InternalXtextTest.g:3322:1: ( ( rule__Element__Group_2__0 )? )
+            // InternalXtextTest.g:3323:1: ( rule__Element__Group_2__0 )?
             {
              before(grammarAccess.getElementAccess().getGroup_2()); 
-            // InternalXtextTest.g:3296:1: ( rule__Element__Group_2__0 )?
-            int alt21=2;
-            int LA21_0 = input.LA(1);
+            // InternalXtextTest.g:3324:1: ( rule__Element__Group_2__0 )?
+            int alt22=2;
+            int LA22_0 = input.LA(1);
 
-            if ( (LA21_0==RULE_IDENTIFIER) ) {
-                int LA21_1 = input.LA(2);
+            if ( (LA22_0==RULE_IDENTIFIER) ) {
+                int LA22_1 = input.LA(2);
 
-                if ( (LA21_1==RULE_IMPORTER) ) {
-                    alt21=1;
+                if ( (LA22_1==RULE_IMPORTER) ) {
+                    alt22=1;
                 }
             }
-            switch (alt21) {
+            switch (alt22) {
                 case 1 :
-                    // InternalXtextTest.g:3296:2: rule__Element__Group_2__0
+                    // InternalXtextTest.g:3324:2: rule__Element__Group_2__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Element__Group_2__0();
@@ -8062,16 +8153,16 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Element__Group__3"
-    // InternalXtextTest.g:3308:1: rule__Element__Group__3 : rule__Element__Group__3__Impl rule__Element__Group__4 ;
+    // InternalXtextTest.g:3336:1: rule__Element__Group__3 : rule__Element__Group__3__Impl rule__Element__Group__4 ;
     public final void rule__Element__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3312:1: ( rule__Element__Group__3__Impl rule__Element__Group__4 )
-            // InternalXtextTest.g:3313:2: rule__Element__Group__3__Impl rule__Element__Group__4
+            // InternalXtextTest.g:3340:1: ( rule__Element__Group__3__Impl rule__Element__Group__4 )
+            // InternalXtextTest.g:3341:2: rule__Element__Group__3__Impl rule__Element__Group__4
             {
-            pushFollow(FOLLOW_28);
+            pushFollow(FOLLOW_29);
             rule__Element__Group__3__Impl();
 
             state._fsp--;
@@ -8100,21 +8191,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Element__Group__3__Impl"
-    // InternalXtextTest.g:3320:1: rule__Element__Group__3__Impl : ( ( rule__Element__NameAssignment_3 ) ) ;
+    // InternalXtextTest.g:3348:1: rule__Element__Group__3__Impl : ( ( rule__Element__NameAssignment_3 ) ) ;
     public final void rule__Element__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3324:1: ( ( ( rule__Element__NameAssignment_3 ) ) )
-            // InternalXtextTest.g:3326:1: ( ( rule__Element__NameAssignment_3 ) )
+            // InternalXtextTest.g:3352:1: ( ( ( rule__Element__NameAssignment_3 ) ) )
+            // InternalXtextTest.g:3354:1: ( ( rule__Element__NameAssignment_3 ) )
             {
-            // InternalXtextTest.g:3326:1: ( ( rule__Element__NameAssignment_3 ) )
-            // InternalXtextTest.g:3327:1: ( rule__Element__NameAssignment_3 )
+            // InternalXtextTest.g:3354:1: ( ( rule__Element__NameAssignment_3 ) )
+            // InternalXtextTest.g:3355:1: ( rule__Element__NameAssignment_3 )
             {
              before(grammarAccess.getElementAccess().getNameAssignment_3()); 
-            // InternalXtextTest.g:3328:1: ( rule__Element__NameAssignment_3 )
-            // InternalXtextTest.g:3328:2: rule__Element__NameAssignment_3
+            // InternalXtextTest.g:3356:1: ( rule__Element__NameAssignment_3 )
+            // InternalXtextTest.g:3356:2: rule__Element__NameAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__Element__NameAssignment_3();
@@ -8147,16 +8238,16 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Element__Group__4"
-    // InternalXtextTest.g:3340:1: rule__Element__Group__4 : rule__Element__Group__4__Impl rule__Element__Group__5 ;
+    // InternalXtextTest.g:3368:1: rule__Element__Group__4 : rule__Element__Group__4__Impl rule__Element__Group__5 ;
     public final void rule__Element__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3344:1: ( rule__Element__Group__4__Impl rule__Element__Group__5 )
-            // InternalXtextTest.g:3345:2: rule__Element__Group__4__Impl rule__Element__Group__5
+            // InternalXtextTest.g:3372:1: ( rule__Element__Group__4__Impl rule__Element__Group__5 )
+            // InternalXtextTest.g:3373:2: rule__Element__Group__4__Impl rule__Element__Group__5
             {
-            pushFollow(FOLLOW_28);
+            pushFollow(FOLLOW_29);
             rule__Element__Group__4__Impl();
 
             state._fsp--;
@@ -8185,29 +8276,29 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Element__Group__4__Impl"
-    // InternalXtextTest.g:3352:1: rule__Element__Group__4__Impl : ( ( rule__Element__Group_4__0 )? ) ;
+    // InternalXtextTest.g:3380:1: rule__Element__Group__4__Impl : ( ( rule__Element__Group_4__0 )? ) ;
     public final void rule__Element__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3356:1: ( ( ( rule__Element__Group_4__0 )? ) )
-            // InternalXtextTest.g:3358:1: ( ( rule__Element__Group_4__0 )? )
+            // InternalXtextTest.g:3384:1: ( ( ( rule__Element__Group_4__0 )? ) )
+            // InternalXtextTest.g:3386:1: ( ( rule__Element__Group_4__0 )? )
             {
-            // InternalXtextTest.g:3358:1: ( ( rule__Element__Group_4__0 )? )
-            // InternalXtextTest.g:3359:1: ( rule__Element__Group_4__0 )?
+            // InternalXtextTest.g:3386:1: ( ( rule__Element__Group_4__0 )? )
+            // InternalXtextTest.g:3387:1: ( rule__Element__Group_4__0 )?
             {
              before(grammarAccess.getElementAccess().getGroup_4()); 
-            // InternalXtextTest.g:3360:1: ( rule__Element__Group_4__0 )?
-            int alt22=2;
-            int LA22_0 = input.LA(1);
+            // InternalXtextTest.g:3388:1: ( rule__Element__Group_4__0 )?
+            int alt23=2;
+            int LA23_0 = input.LA(1);
 
-            if ( (LA22_0==RULE_IDENTIFIER) ) {
-                alt22=1;
+            if ( (LA23_0==RULE_IDENTIFIER) ) {
+                alt23=1;
             }
-            switch (alt22) {
+            switch (alt23) {
                 case 1 :
-                    // InternalXtextTest.g:3360:2: rule__Element__Group_4__0
+                    // InternalXtextTest.g:3388:2: rule__Element__Group_4__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Element__Group_4__0();
@@ -8243,14 +8334,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Element__Group__5"
-    // InternalXtextTest.g:3372:1: rule__Element__Group__5 : rule__Element__Group__5__Impl ;
+    // InternalXtextTest.g:3400:1: rule__Element__Group__5 : rule__Element__Group__5__Impl ;
     public final void rule__Element__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3376:1: ( rule__Element__Group__5__Impl )
-            // InternalXtextTest.g:3377:2: rule__Element__Group__5__Impl
+            // InternalXtextTest.g:3404:1: ( rule__Element__Group__5__Impl )
+            // InternalXtextTest.g:3405:2: rule__Element__Group__5__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Element__Group__5__Impl();
@@ -8276,17 +8367,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Element__Group__5__Impl"
-    // InternalXtextTest.g:3383:1: rule__Element__Group__5__Impl : ( RULE_RIGHTPAREN ) ;
+    // InternalXtextTest.g:3411:1: rule__Element__Group__5__Impl : ( RULE_RIGHTPAREN ) ;
     public final void rule__Element__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3387:1: ( ( RULE_RIGHTPAREN ) )
-            // InternalXtextTest.g:3389:1: ( RULE_RIGHTPAREN )
+            // InternalXtextTest.g:3415:1: ( ( RULE_RIGHTPAREN ) )
+            // InternalXtextTest.g:3417:1: ( RULE_RIGHTPAREN )
             {
-            // InternalXtextTest.g:3389:1: ( RULE_RIGHTPAREN )
-            // InternalXtextTest.g:3390:1: RULE_RIGHTPAREN
+            // InternalXtextTest.g:3417:1: ( RULE_RIGHTPAREN )
+            // InternalXtextTest.g:3418:1: RULE_RIGHTPAREN
             {
              before(grammarAccess.getElementAccess().getRIGHTPARENTerminalRuleCall_5()); 
             match(input,RULE_RIGHTPAREN,FOLLOW_2); 
@@ -8313,16 +8404,16 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Element__Group_2__0"
-    // InternalXtextTest.g:3415:1: rule__Element__Group_2__0 : rule__Element__Group_2__0__Impl rule__Element__Group_2__1 ;
+    // InternalXtextTest.g:3443:1: rule__Element__Group_2__0 : rule__Element__Group_2__0__Impl rule__Element__Group_2__1 ;
     public final void rule__Element__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3419:1: ( rule__Element__Group_2__0__Impl rule__Element__Group_2__1 )
-            // InternalXtextTest.g:3420:2: rule__Element__Group_2__0__Impl rule__Element__Group_2__1
+            // InternalXtextTest.g:3447:1: ( rule__Element__Group_2__0__Impl rule__Element__Group_2__1 )
+            // InternalXtextTest.g:3448:2: rule__Element__Group_2__0__Impl rule__Element__Group_2__1
             {
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_30);
             rule__Element__Group_2__0__Impl();
 
             state._fsp--;
@@ -8351,21 +8442,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Element__Group_2__0__Impl"
-    // InternalXtextTest.g:3427:1: rule__Element__Group_2__0__Impl : ( ( rule__Element__ImportingAssignment_2_0 ) ) ;
+    // InternalXtextTest.g:3455:1: rule__Element__Group_2__0__Impl : ( ( rule__Element__ImportingAssignment_2_0 ) ) ;
     public final void rule__Element__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3431:1: ( ( ( rule__Element__ImportingAssignment_2_0 ) ) )
-            // InternalXtextTest.g:3433:1: ( ( rule__Element__ImportingAssignment_2_0 ) )
+            // InternalXtextTest.g:3459:1: ( ( ( rule__Element__ImportingAssignment_2_0 ) ) )
+            // InternalXtextTest.g:3461:1: ( ( rule__Element__ImportingAssignment_2_0 ) )
             {
-            // InternalXtextTest.g:3433:1: ( ( rule__Element__ImportingAssignment_2_0 ) )
-            // InternalXtextTest.g:3434:1: ( rule__Element__ImportingAssignment_2_0 )
+            // InternalXtextTest.g:3461:1: ( ( rule__Element__ImportingAssignment_2_0 ) )
+            // InternalXtextTest.g:3462:1: ( rule__Element__ImportingAssignment_2_0 )
             {
              before(grammarAccess.getElementAccess().getImportingAssignment_2_0()); 
-            // InternalXtextTest.g:3435:1: ( rule__Element__ImportingAssignment_2_0 )
-            // InternalXtextTest.g:3435:2: rule__Element__ImportingAssignment_2_0
+            // InternalXtextTest.g:3463:1: ( rule__Element__ImportingAssignment_2_0 )
+            // InternalXtextTest.g:3463:2: rule__Element__ImportingAssignment_2_0
             {
             pushFollow(FOLLOW_2);
             rule__Element__ImportingAssignment_2_0();
@@ -8398,14 +8489,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Element__Group_2__1"
-    // InternalXtextTest.g:3447:1: rule__Element__Group_2__1 : rule__Element__Group_2__1__Impl ;
+    // InternalXtextTest.g:3475:1: rule__Element__Group_2__1 : rule__Element__Group_2__1__Impl ;
     public final void rule__Element__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3451:1: ( rule__Element__Group_2__1__Impl )
-            // InternalXtextTest.g:3452:2: rule__Element__Group_2__1__Impl
+            // InternalXtextTest.g:3479:1: ( rule__Element__Group_2__1__Impl )
+            // InternalXtextTest.g:3480:2: rule__Element__Group_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Element__Group_2__1__Impl();
@@ -8431,17 +8522,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Element__Group_2__1__Impl"
-    // InternalXtextTest.g:3458:1: rule__Element__Group_2__1__Impl : ( RULE_IMPORTER ) ;
+    // InternalXtextTest.g:3486:1: rule__Element__Group_2__1__Impl : ( RULE_IMPORTER ) ;
     public final void rule__Element__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3462:1: ( ( RULE_IMPORTER ) )
-            // InternalXtextTest.g:3464:1: ( RULE_IMPORTER )
+            // InternalXtextTest.g:3490:1: ( ( RULE_IMPORTER ) )
+            // InternalXtextTest.g:3492:1: ( RULE_IMPORTER )
             {
-            // InternalXtextTest.g:3464:1: ( RULE_IMPORTER )
-            // InternalXtextTest.g:3465:1: RULE_IMPORTER
+            // InternalXtextTest.g:3492:1: ( RULE_IMPORTER )
+            // InternalXtextTest.g:3493:1: RULE_IMPORTER
             {
              before(grammarAccess.getElementAccess().getIMPORTERTerminalRuleCall_2_1()); 
             match(input,RULE_IMPORTER,FOLLOW_2); 
@@ -8468,16 +8559,16 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Element__Group_4__0"
-    // InternalXtextTest.g:3482:1: rule__Element__Group_4__0 : rule__Element__Group_4__0__Impl rule__Element__Group_4__1 ;
+    // InternalXtextTest.g:3510:1: rule__Element__Group_4__0 : rule__Element__Group_4__0__Impl rule__Element__Group_4__1 ;
     public final void rule__Element__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3486:1: ( rule__Element__Group_4__0__Impl rule__Element__Group_4__1 )
-            // InternalXtextTest.g:3487:2: rule__Element__Group_4__0__Impl rule__Element__Group_4__1
+            // InternalXtextTest.g:3514:1: ( rule__Element__Group_4__0__Impl rule__Element__Group_4__1 )
+            // InternalXtextTest.g:3515:2: rule__Element__Group_4__0__Impl rule__Element__Group_4__1
             {
-            pushFollow(FOLLOW_30);
+            pushFollow(FOLLOW_31);
             rule__Element__Group_4__0__Impl();
 
             state._fsp--;
@@ -8506,21 +8597,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Element__Group_4__0__Impl"
-    // InternalXtextTest.g:3494:1: rule__Element__Group_4__0__Impl : ( ( rule__Element__InnerAssignment_4_0 ) ) ;
+    // InternalXtextTest.g:3522:1: rule__Element__Group_4__0__Impl : ( ( rule__Element__InnerAssignment_4_0 ) ) ;
     public final void rule__Element__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3498:1: ( ( ( rule__Element__InnerAssignment_4_0 ) ) )
-            // InternalXtextTest.g:3500:1: ( ( rule__Element__InnerAssignment_4_0 ) )
+            // InternalXtextTest.g:3526:1: ( ( ( rule__Element__InnerAssignment_4_0 ) ) )
+            // InternalXtextTest.g:3528:1: ( ( rule__Element__InnerAssignment_4_0 ) )
             {
-            // InternalXtextTest.g:3500:1: ( ( rule__Element__InnerAssignment_4_0 ) )
-            // InternalXtextTest.g:3501:1: ( rule__Element__InnerAssignment_4_0 )
+            // InternalXtextTest.g:3528:1: ( ( rule__Element__InnerAssignment_4_0 ) )
+            // InternalXtextTest.g:3529:1: ( rule__Element__InnerAssignment_4_0 )
             {
              before(grammarAccess.getElementAccess().getInnerAssignment_4_0()); 
-            // InternalXtextTest.g:3502:1: ( rule__Element__InnerAssignment_4_0 )
-            // InternalXtextTest.g:3502:2: rule__Element__InnerAssignment_4_0
+            // InternalXtextTest.g:3530:1: ( rule__Element__InnerAssignment_4_0 )
+            // InternalXtextTest.g:3530:2: rule__Element__InnerAssignment_4_0
             {
             pushFollow(FOLLOW_2);
             rule__Element__InnerAssignment_4_0();
@@ -8553,14 +8644,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Element__Group_4__1"
-    // InternalXtextTest.g:3514:1: rule__Element__Group_4__1 : rule__Element__Group_4__1__Impl ;
+    // InternalXtextTest.g:3542:1: rule__Element__Group_4__1 : rule__Element__Group_4__1__Impl ;
     public final void rule__Element__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3518:1: ( rule__Element__Group_4__1__Impl )
-            // InternalXtextTest.g:3519:2: rule__Element__Group_4__1__Impl
+            // InternalXtextTest.g:3546:1: ( rule__Element__Group_4__1__Impl )
+            // InternalXtextTest.g:3547:2: rule__Element__Group_4__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Element__Group_4__1__Impl();
@@ -8586,35 +8677,35 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Element__Group_4__1__Impl"
-    // InternalXtextTest.g:3525:1: rule__Element__Group_4__1__Impl : ( ( rule__Element__Group_4_1__0 )* ) ;
+    // InternalXtextTest.g:3553:1: rule__Element__Group_4__1__Impl : ( ( rule__Element__Group_4_1__0 )* ) ;
     public final void rule__Element__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3529:1: ( ( ( rule__Element__Group_4_1__0 )* ) )
-            // InternalXtextTest.g:3531:1: ( ( rule__Element__Group_4_1__0 )* )
+            // InternalXtextTest.g:3557:1: ( ( ( rule__Element__Group_4_1__0 )* ) )
+            // InternalXtextTest.g:3559:1: ( ( rule__Element__Group_4_1__0 )* )
             {
-            // InternalXtextTest.g:3531:1: ( ( rule__Element__Group_4_1__0 )* )
-            // InternalXtextTest.g:3532:1: ( rule__Element__Group_4_1__0 )*
+            // InternalXtextTest.g:3559:1: ( ( rule__Element__Group_4_1__0 )* )
+            // InternalXtextTest.g:3560:1: ( rule__Element__Group_4_1__0 )*
             {
              before(grammarAccess.getElementAccess().getGroup_4_1()); 
-            // InternalXtextTest.g:3533:1: ( rule__Element__Group_4_1__0 )*
-            loop23:
+            // InternalXtextTest.g:3561:1: ( rule__Element__Group_4_1__0 )*
+            loop24:
             do {
-                int alt23=2;
-                int LA23_0 = input.LA(1);
+                int alt24=2;
+                int LA24_0 = input.LA(1);
 
-                if ( (LA23_0==RULE_COMMA) ) {
-                    alt23=1;
+                if ( (LA24_0==RULE_COMMA) ) {
+                    alt24=1;
                 }
 
 
-                switch (alt23) {
+                switch (alt24) {
             	case 1 :
-            	    // InternalXtextTest.g:3533:2: rule__Element__Group_4_1__0
+            	    // InternalXtextTest.g:3561:2: rule__Element__Group_4_1__0
             	    {
-            	    pushFollow(FOLLOW_31);
+            	    pushFollow(FOLLOW_32);
             	    rule__Element__Group_4_1__0();
 
             	    state._fsp--;
@@ -8624,7 +8715,7 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
             	    break;
 
             	default :
-            	    break loop23;
+            	    break loop24;
                 }
             } while (true);
 
@@ -8651,14 +8742,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Element__Group_4_1__0"
-    // InternalXtextTest.g:3549:1: rule__Element__Group_4_1__0 : rule__Element__Group_4_1__0__Impl rule__Element__Group_4_1__1 ;
+    // InternalXtextTest.g:3577:1: rule__Element__Group_4_1__0 : rule__Element__Group_4_1__0__Impl rule__Element__Group_4_1__1 ;
     public final void rule__Element__Group_4_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3553:1: ( rule__Element__Group_4_1__0__Impl rule__Element__Group_4_1__1 )
-            // InternalXtextTest.g:3554:2: rule__Element__Group_4_1__0__Impl rule__Element__Group_4_1__1
+            // InternalXtextTest.g:3581:1: ( rule__Element__Group_4_1__0__Impl rule__Element__Group_4_1__1 )
+            // InternalXtextTest.g:3582:2: rule__Element__Group_4_1__0__Impl rule__Element__Group_4_1__1
             {
             pushFollow(FOLLOW_5);
             rule__Element__Group_4_1__0__Impl();
@@ -8689,17 +8780,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Element__Group_4_1__0__Impl"
-    // InternalXtextTest.g:3561:1: rule__Element__Group_4_1__0__Impl : ( RULE_COMMA ) ;
+    // InternalXtextTest.g:3589:1: rule__Element__Group_4_1__0__Impl : ( RULE_COMMA ) ;
     public final void rule__Element__Group_4_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3565:1: ( ( RULE_COMMA ) )
-            // InternalXtextTest.g:3567:1: ( RULE_COMMA )
+            // InternalXtextTest.g:3593:1: ( ( RULE_COMMA ) )
+            // InternalXtextTest.g:3595:1: ( RULE_COMMA )
             {
-            // InternalXtextTest.g:3567:1: ( RULE_COMMA )
-            // InternalXtextTest.g:3568:1: RULE_COMMA
+            // InternalXtextTest.g:3595:1: ( RULE_COMMA )
+            // InternalXtextTest.g:3596:1: RULE_COMMA
             {
              before(grammarAccess.getElementAccess().getCOMMATerminalRuleCall_4_1_0()); 
             match(input,RULE_COMMA,FOLLOW_2); 
@@ -8726,14 +8817,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Element__Group_4_1__1"
-    // InternalXtextTest.g:3581:1: rule__Element__Group_4_1__1 : rule__Element__Group_4_1__1__Impl ;
+    // InternalXtextTest.g:3609:1: rule__Element__Group_4_1__1 : rule__Element__Group_4_1__1__Impl ;
     public final void rule__Element__Group_4_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3585:1: ( rule__Element__Group_4_1__1__Impl )
-            // InternalXtextTest.g:3586:2: rule__Element__Group_4_1__1__Impl
+            // InternalXtextTest.g:3613:1: ( rule__Element__Group_4_1__1__Impl )
+            // InternalXtextTest.g:3614:2: rule__Element__Group_4_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Element__Group_4_1__1__Impl();
@@ -8759,21 +8850,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Element__Group_4_1__1__Impl"
-    // InternalXtextTest.g:3592:1: rule__Element__Group_4_1__1__Impl : ( ( rule__Element__InnerAssignment_4_1_1 ) ) ;
+    // InternalXtextTest.g:3620:1: rule__Element__Group_4_1__1__Impl : ( ( rule__Element__InnerAssignment_4_1_1 ) ) ;
     public final void rule__Element__Group_4_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3596:1: ( ( ( rule__Element__InnerAssignment_4_1_1 ) ) )
-            // InternalXtextTest.g:3598:1: ( ( rule__Element__InnerAssignment_4_1_1 ) )
+            // InternalXtextTest.g:3624:1: ( ( ( rule__Element__InnerAssignment_4_1_1 ) ) )
+            // InternalXtextTest.g:3626:1: ( ( rule__Element__InnerAssignment_4_1_1 ) )
             {
-            // InternalXtextTest.g:3598:1: ( ( rule__Element__InnerAssignment_4_1_1 ) )
-            // InternalXtextTest.g:3599:1: ( rule__Element__InnerAssignment_4_1_1 )
+            // InternalXtextTest.g:3626:1: ( ( rule__Element__InnerAssignment_4_1_1 ) )
+            // InternalXtextTest.g:3627:1: ( rule__Element__InnerAssignment_4_1_1 )
             {
              before(grammarAccess.getElementAccess().getInnerAssignment_4_1_1()); 
-            // InternalXtextTest.g:3600:1: ( rule__Element__InnerAssignment_4_1_1 )
-            // InternalXtextTest.g:3600:2: rule__Element__InnerAssignment_4_1_1
+            // InternalXtextTest.g:3628:1: ( rule__Element__InnerAssignment_4_1_1 )
+            // InternalXtextTest.g:3628:2: rule__Element__InnerAssignment_4_1_1
             {
             pushFollow(FOLLOW_2);
             rule__Element__InnerAssignment_4_1_1();
@@ -8806,14 +8897,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Inner__Group__0"
-    // InternalXtextTest.g:3616:1: rule__Inner__Group__0 : rule__Inner__Group__0__Impl rule__Inner__Group__1 ;
+    // InternalXtextTest.g:3644:1: rule__Inner__Group__0 : rule__Inner__Group__0__Impl rule__Inner__Group__1 ;
     public final void rule__Inner__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3620:1: ( rule__Inner__Group__0__Impl rule__Inner__Group__1 )
-            // InternalXtextTest.g:3621:2: rule__Inner__Group__0__Impl rule__Inner__Group__1
+            // InternalXtextTest.g:3648:1: ( rule__Inner__Group__0__Impl rule__Inner__Group__1 )
+            // InternalXtextTest.g:3649:2: rule__Inner__Group__0__Impl rule__Inner__Group__1
             {
             pushFollow(FOLLOW_5);
             rule__Inner__Group__0__Impl();
@@ -8844,21 +8935,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Inner__Group__0__Impl"
-    // InternalXtextTest.g:3628:1: rule__Inner__Group__0__Impl : ( () ) ;
+    // InternalXtextTest.g:3656:1: rule__Inner__Group__0__Impl : ( () ) ;
     public final void rule__Inner__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3632:1: ( ( () ) )
-            // InternalXtextTest.g:3634:1: ( () )
+            // InternalXtextTest.g:3660:1: ( ( () ) )
+            // InternalXtextTest.g:3662:1: ( () )
             {
-            // InternalXtextTest.g:3634:1: ( () )
-            // InternalXtextTest.g:3635:1: ()
+            // InternalXtextTest.g:3662:1: ( () )
+            // InternalXtextTest.g:3663:1: ()
             {
              before(grammarAccess.getInnerAccess().getInnerAction_0()); 
-            // InternalXtextTest.g:3636:1: ()
-            // InternalXtextTest.g:3638:1: 
+            // InternalXtextTest.g:3664:1: ()
+            // InternalXtextTest.g:3666:1: 
             {
             }
 
@@ -8881,16 +8972,16 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Inner__Group__1"
-    // InternalXtextTest.g:3650:1: rule__Inner__Group__1 : rule__Inner__Group__1__Impl rule__Inner__Group__2 ;
+    // InternalXtextTest.g:3678:1: rule__Inner__Group__1 : rule__Inner__Group__1__Impl rule__Inner__Group__2 ;
     public final void rule__Inner__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3654:1: ( rule__Inner__Group__1__Impl rule__Inner__Group__2 )
-            // InternalXtextTest.g:3655:2: rule__Inner__Group__1__Impl rule__Inner__Group__2
+            // InternalXtextTest.g:3682:1: ( rule__Inner__Group__1__Impl rule__Inner__Group__2 )
+            // InternalXtextTest.g:3683:2: rule__Inner__Group__1__Impl rule__Inner__Group__2
             {
-            pushFollow(FOLLOW_32);
+            pushFollow(FOLLOW_33);
             rule__Inner__Group__1__Impl();
 
             state._fsp--;
@@ -8919,21 +9010,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Inner__Group__1__Impl"
-    // InternalXtextTest.g:3662:1: rule__Inner__Group__1__Impl : ( ( rule__Inner__ParameterAssignment_1 ) ) ;
+    // InternalXtextTest.g:3690:1: rule__Inner__Group__1__Impl : ( ( rule__Inner__ParameterAssignment_1 ) ) ;
     public final void rule__Inner__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3666:1: ( ( ( rule__Inner__ParameterAssignment_1 ) ) )
-            // InternalXtextTest.g:3668:1: ( ( rule__Inner__ParameterAssignment_1 ) )
+            // InternalXtextTest.g:3694:1: ( ( ( rule__Inner__ParameterAssignment_1 ) ) )
+            // InternalXtextTest.g:3696:1: ( ( rule__Inner__ParameterAssignment_1 ) )
             {
-            // InternalXtextTest.g:3668:1: ( ( rule__Inner__ParameterAssignment_1 ) )
-            // InternalXtextTest.g:3669:1: ( rule__Inner__ParameterAssignment_1 )
+            // InternalXtextTest.g:3696:1: ( ( rule__Inner__ParameterAssignment_1 ) )
+            // InternalXtextTest.g:3697:1: ( rule__Inner__ParameterAssignment_1 )
             {
              before(grammarAccess.getInnerAccess().getParameterAssignment_1()); 
-            // InternalXtextTest.g:3670:1: ( rule__Inner__ParameterAssignment_1 )
-            // InternalXtextTest.g:3670:2: rule__Inner__ParameterAssignment_1
+            // InternalXtextTest.g:3698:1: ( rule__Inner__ParameterAssignment_1 )
+            // InternalXtextTest.g:3698:2: rule__Inner__ParameterAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Inner__ParameterAssignment_1();
@@ -8966,14 +9057,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Inner__Group__2"
-    // InternalXtextTest.g:3682:1: rule__Inner__Group__2 : rule__Inner__Group__2__Impl ;
+    // InternalXtextTest.g:3710:1: rule__Inner__Group__2 : rule__Inner__Group__2__Impl ;
     public final void rule__Inner__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3686:1: ( rule__Inner__Group__2__Impl )
-            // InternalXtextTest.g:3687:2: rule__Inner__Group__2__Impl
+            // InternalXtextTest.g:3714:1: ( rule__Inner__Group__2__Impl )
+            // InternalXtextTest.g:3715:2: rule__Inner__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Inner__Group__2__Impl();
@@ -8999,21 +9090,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Inner__Group__2__Impl"
-    // InternalXtextTest.g:3693:1: rule__Inner__Group__2__Impl : ( ( rule__Inner__Alternatives_2 ) ) ;
+    // InternalXtextTest.g:3721:1: rule__Inner__Group__2__Impl : ( ( rule__Inner__Alternatives_2 ) ) ;
     public final void rule__Inner__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3697:1: ( ( ( rule__Inner__Alternatives_2 ) ) )
-            // InternalXtextTest.g:3699:1: ( ( rule__Inner__Alternatives_2 ) )
+            // InternalXtextTest.g:3725:1: ( ( ( rule__Inner__Alternatives_2 ) ) )
+            // InternalXtextTest.g:3727:1: ( ( rule__Inner__Alternatives_2 ) )
             {
-            // InternalXtextTest.g:3699:1: ( ( rule__Inner__Alternatives_2 ) )
-            // InternalXtextTest.g:3700:1: ( rule__Inner__Alternatives_2 )
+            // InternalXtextTest.g:3727:1: ( ( rule__Inner__Alternatives_2 ) )
+            // InternalXtextTest.g:3728:1: ( rule__Inner__Alternatives_2 )
             {
              before(grammarAccess.getInnerAccess().getAlternatives_2()); 
-            // InternalXtextTest.g:3701:1: ( rule__Inner__Alternatives_2 )
-            // InternalXtextTest.g:3701:2: rule__Inner__Alternatives_2
+            // InternalXtextTest.g:3729:1: ( rule__Inner__Alternatives_2 )
+            // InternalXtextTest.g:3729:2: rule__Inner__Alternatives_2
             {
             pushFollow(FOLLOW_2);
             rule__Inner__Alternatives_2();
@@ -9046,14 +9137,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Inner__Group_2_0__0"
-    // InternalXtextTest.g:3719:1: rule__Inner__Group_2_0__0 : rule__Inner__Group_2_0__0__Impl rule__Inner__Group_2_0__1 ;
+    // InternalXtextTest.g:3747:1: rule__Inner__Group_2_0__0 : rule__Inner__Group_2_0__0__Impl rule__Inner__Group_2_0__1 ;
     public final void rule__Inner__Group_2_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3723:1: ( rule__Inner__Group_2_0__0__Impl rule__Inner__Group_2_0__1 )
-            // InternalXtextTest.g:3724:2: rule__Inner__Group_2_0__0__Impl rule__Inner__Group_2_0__1
+            // InternalXtextTest.g:3751:1: ( rule__Inner__Group_2_0__0__Impl rule__Inner__Group_2_0__1 )
+            // InternalXtextTest.g:3752:2: rule__Inner__Group_2_0__0__Impl rule__Inner__Group_2_0__1
             {
             pushFollow(FOLLOW_8);
             rule__Inner__Group_2_0__0__Impl();
@@ -9084,17 +9175,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Inner__Group_2_0__0__Impl"
-    // InternalXtextTest.g:3731:1: rule__Inner__Group_2_0__0__Impl : ( RULE_ASSIGNASSINGLE ) ;
+    // InternalXtextTest.g:3759:1: rule__Inner__Group_2_0__0__Impl : ( RULE_ASSIGNASSINGLE ) ;
     public final void rule__Inner__Group_2_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3735:1: ( ( RULE_ASSIGNASSINGLE ) )
-            // InternalXtextTest.g:3737:1: ( RULE_ASSIGNASSINGLE )
+            // InternalXtextTest.g:3763:1: ( ( RULE_ASSIGNASSINGLE ) )
+            // InternalXtextTest.g:3765:1: ( RULE_ASSIGNASSINGLE )
             {
-            // InternalXtextTest.g:3737:1: ( RULE_ASSIGNASSINGLE )
-            // InternalXtextTest.g:3738:1: RULE_ASSIGNASSINGLE
+            // InternalXtextTest.g:3765:1: ( RULE_ASSIGNASSINGLE )
+            // InternalXtextTest.g:3766:1: RULE_ASSIGNASSINGLE
             {
              before(grammarAccess.getInnerAccess().getASSIGNASSINGLETerminalRuleCall_2_0_0()); 
             match(input,RULE_ASSIGNASSINGLE,FOLLOW_2); 
@@ -9121,14 +9212,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Inner__Group_2_0__1"
-    // InternalXtextTest.g:3751:1: rule__Inner__Group_2_0__1 : rule__Inner__Group_2_0__1__Impl ;
+    // InternalXtextTest.g:3779:1: rule__Inner__Group_2_0__1 : rule__Inner__Group_2_0__1__Impl ;
     public final void rule__Inner__Group_2_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3755:1: ( rule__Inner__Group_2_0__1__Impl )
-            // InternalXtextTest.g:3756:2: rule__Inner__Group_2_0__1__Impl
+            // InternalXtextTest.g:3783:1: ( rule__Inner__Group_2_0__1__Impl )
+            // InternalXtextTest.g:3784:2: rule__Inner__Group_2_0__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Inner__Group_2_0__1__Impl();
@@ -9154,21 +9245,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Inner__Group_2_0__1__Impl"
-    // InternalXtextTest.g:3762:1: rule__Inner__Group_2_0__1__Impl : ( ( rule__Inner__AssignAssignment_2_0_1 ) ) ;
+    // InternalXtextTest.g:3790:1: rule__Inner__Group_2_0__1__Impl : ( ( rule__Inner__AssignAssignment_2_0_1 ) ) ;
     public final void rule__Inner__Group_2_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3766:1: ( ( ( rule__Inner__AssignAssignment_2_0_1 ) ) )
-            // InternalXtextTest.g:3768:1: ( ( rule__Inner__AssignAssignment_2_0_1 ) )
+            // InternalXtextTest.g:3794:1: ( ( ( rule__Inner__AssignAssignment_2_0_1 ) ) )
+            // InternalXtextTest.g:3796:1: ( ( rule__Inner__AssignAssignment_2_0_1 ) )
             {
-            // InternalXtextTest.g:3768:1: ( ( rule__Inner__AssignAssignment_2_0_1 ) )
-            // InternalXtextTest.g:3769:1: ( rule__Inner__AssignAssignment_2_0_1 )
+            // InternalXtextTest.g:3796:1: ( ( rule__Inner__AssignAssignment_2_0_1 ) )
+            // InternalXtextTest.g:3797:1: ( rule__Inner__AssignAssignment_2_0_1 )
             {
              before(grammarAccess.getInnerAccess().getAssignAssignment_2_0_1()); 
-            // InternalXtextTest.g:3770:1: ( rule__Inner__AssignAssignment_2_0_1 )
-            // InternalXtextTest.g:3770:2: rule__Inner__AssignAssignment_2_0_1
+            // InternalXtextTest.g:3798:1: ( rule__Inner__AssignAssignment_2_0_1 )
+            // InternalXtextTest.g:3798:2: rule__Inner__AssignAssignment_2_0_1
             {
             pushFollow(FOLLOW_2);
             rule__Inner__AssignAssignment_2_0_1();
@@ -9201,14 +9292,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Inner__Group_2_1__0"
-    // InternalXtextTest.g:3786:1: rule__Inner__Group_2_1__0 : rule__Inner__Group_2_1__0__Impl rule__Inner__Group_2_1__1 ;
+    // InternalXtextTest.g:3814:1: rule__Inner__Group_2_1__0 : rule__Inner__Group_2_1__0__Impl rule__Inner__Group_2_1__1 ;
     public final void rule__Inner__Group_2_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3790:1: ( rule__Inner__Group_2_1__0__Impl rule__Inner__Group_2_1__1 )
-            // InternalXtextTest.g:3791:2: rule__Inner__Group_2_1__0__Impl rule__Inner__Group_2_1__1
+            // InternalXtextTest.g:3818:1: ( rule__Inner__Group_2_1__0__Impl rule__Inner__Group_2_1__1 )
+            // InternalXtextTest.g:3819:2: rule__Inner__Group_2_1__0__Impl rule__Inner__Group_2_1__1
             {
             pushFollow(FOLLOW_8);
             rule__Inner__Group_2_1__0__Impl();
@@ -9239,17 +9330,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Inner__Group_2_1__0__Impl"
-    // InternalXtextTest.g:3798:1: rule__Inner__Group_2_1__0__Impl : ( RULE_ASSIGNASLIST ) ;
+    // InternalXtextTest.g:3826:1: rule__Inner__Group_2_1__0__Impl : ( RULE_ASSIGNASLIST ) ;
     public final void rule__Inner__Group_2_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3802:1: ( ( RULE_ASSIGNASLIST ) )
-            // InternalXtextTest.g:3804:1: ( RULE_ASSIGNASLIST )
+            // InternalXtextTest.g:3830:1: ( ( RULE_ASSIGNASLIST ) )
+            // InternalXtextTest.g:3832:1: ( RULE_ASSIGNASLIST )
             {
-            // InternalXtextTest.g:3804:1: ( RULE_ASSIGNASLIST )
-            // InternalXtextTest.g:3805:1: RULE_ASSIGNASLIST
+            // InternalXtextTest.g:3832:1: ( RULE_ASSIGNASLIST )
+            // InternalXtextTest.g:3833:1: RULE_ASSIGNASLIST
             {
              before(grammarAccess.getInnerAccess().getASSIGNASLISTTerminalRuleCall_2_1_0()); 
             match(input,RULE_ASSIGNASLIST,FOLLOW_2); 
@@ -9276,16 +9367,16 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Inner__Group_2_1__1"
-    // InternalXtextTest.g:3818:1: rule__Inner__Group_2_1__1 : rule__Inner__Group_2_1__1__Impl rule__Inner__Group_2_1__2 ;
+    // InternalXtextTest.g:3846:1: rule__Inner__Group_2_1__1 : rule__Inner__Group_2_1__1__Impl rule__Inner__Group_2_1__2 ;
     public final void rule__Inner__Group_2_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3822:1: ( rule__Inner__Group_2_1__1__Impl rule__Inner__Group_2_1__2 )
-            // InternalXtextTest.g:3823:2: rule__Inner__Group_2_1__1__Impl rule__Inner__Group_2_1__2
+            // InternalXtextTest.g:3850:1: ( rule__Inner__Group_2_1__1__Impl rule__Inner__Group_2_1__2 )
+            // InternalXtextTest.g:3851:2: rule__Inner__Group_2_1__1__Impl rule__Inner__Group_2_1__2
             {
-            pushFollow(FOLLOW_30);
+            pushFollow(FOLLOW_31);
             rule__Inner__Group_2_1__1__Impl();
 
             state._fsp--;
@@ -9314,21 +9405,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Inner__Group_2_1__1__Impl"
-    // InternalXtextTest.g:3830:1: rule__Inner__Group_2_1__1__Impl : ( ( rule__Inner__AssignListAssignment_2_1_1 ) ) ;
+    // InternalXtextTest.g:3858:1: rule__Inner__Group_2_1__1__Impl : ( ( rule__Inner__AssignListAssignment_2_1_1 ) ) ;
     public final void rule__Inner__Group_2_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3834:1: ( ( ( rule__Inner__AssignListAssignment_2_1_1 ) ) )
-            // InternalXtextTest.g:3836:1: ( ( rule__Inner__AssignListAssignment_2_1_1 ) )
+            // InternalXtextTest.g:3862:1: ( ( ( rule__Inner__AssignListAssignment_2_1_1 ) ) )
+            // InternalXtextTest.g:3864:1: ( ( rule__Inner__AssignListAssignment_2_1_1 ) )
             {
-            // InternalXtextTest.g:3836:1: ( ( rule__Inner__AssignListAssignment_2_1_1 ) )
-            // InternalXtextTest.g:3837:1: ( rule__Inner__AssignListAssignment_2_1_1 )
+            // InternalXtextTest.g:3864:1: ( ( rule__Inner__AssignListAssignment_2_1_1 ) )
+            // InternalXtextTest.g:3865:1: ( rule__Inner__AssignListAssignment_2_1_1 )
             {
              before(grammarAccess.getInnerAccess().getAssignListAssignment_2_1_1()); 
-            // InternalXtextTest.g:3838:1: ( rule__Inner__AssignListAssignment_2_1_1 )
-            // InternalXtextTest.g:3838:2: rule__Inner__AssignListAssignment_2_1_1
+            // InternalXtextTest.g:3866:1: ( rule__Inner__AssignListAssignment_2_1_1 )
+            // InternalXtextTest.g:3866:2: rule__Inner__AssignListAssignment_2_1_1
             {
             pushFollow(FOLLOW_2);
             rule__Inner__AssignListAssignment_2_1_1();
@@ -9361,14 +9452,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Inner__Group_2_1__2"
-    // InternalXtextTest.g:3850:1: rule__Inner__Group_2_1__2 : rule__Inner__Group_2_1__2__Impl ;
+    // InternalXtextTest.g:3878:1: rule__Inner__Group_2_1__2 : rule__Inner__Group_2_1__2__Impl ;
     public final void rule__Inner__Group_2_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3854:1: ( rule__Inner__Group_2_1__2__Impl )
-            // InternalXtextTest.g:3855:2: rule__Inner__Group_2_1__2__Impl
+            // InternalXtextTest.g:3882:1: ( rule__Inner__Group_2_1__2__Impl )
+            // InternalXtextTest.g:3883:2: rule__Inner__Group_2_1__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Inner__Group_2_1__2__Impl();
@@ -9394,41 +9485,41 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Inner__Group_2_1__2__Impl"
-    // InternalXtextTest.g:3861:1: rule__Inner__Group_2_1__2__Impl : ( ( rule__Inner__Group_2_1_2__0 )* ) ;
+    // InternalXtextTest.g:3889:1: rule__Inner__Group_2_1__2__Impl : ( ( rule__Inner__Group_2_1_2__0 )* ) ;
     public final void rule__Inner__Group_2_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3865:1: ( ( ( rule__Inner__Group_2_1_2__0 )* ) )
-            // InternalXtextTest.g:3867:1: ( ( rule__Inner__Group_2_1_2__0 )* )
+            // InternalXtextTest.g:3893:1: ( ( ( rule__Inner__Group_2_1_2__0 )* ) )
+            // InternalXtextTest.g:3895:1: ( ( rule__Inner__Group_2_1_2__0 )* )
             {
-            // InternalXtextTest.g:3867:1: ( ( rule__Inner__Group_2_1_2__0 )* )
-            // InternalXtextTest.g:3868:1: ( rule__Inner__Group_2_1_2__0 )*
+            // InternalXtextTest.g:3895:1: ( ( rule__Inner__Group_2_1_2__0 )* )
+            // InternalXtextTest.g:3896:1: ( rule__Inner__Group_2_1_2__0 )*
             {
              before(grammarAccess.getInnerAccess().getGroup_2_1_2()); 
-            // InternalXtextTest.g:3869:1: ( rule__Inner__Group_2_1_2__0 )*
-            loop24:
+            // InternalXtextTest.g:3897:1: ( rule__Inner__Group_2_1_2__0 )*
+            loop25:
             do {
-                int alt24=2;
-                int LA24_0 = input.LA(1);
+                int alt25=2;
+                int LA25_0 = input.LA(1);
 
-                if ( (LA24_0==RULE_COMMA) ) {
-                    int LA24_2 = input.LA(2);
+                if ( (LA25_0==RULE_COMMA) ) {
+                    int LA25_2 = input.LA(2);
 
-                    if ( (LA24_2==RULE_LEFTPAREN) ) {
-                        alt24=1;
+                    if ( (LA25_2==RULE_LEFTPAREN) ) {
+                        alt25=1;
                     }
 
 
                 }
 
 
-                switch (alt24) {
+                switch (alt25) {
             	case 1 :
-            	    // InternalXtextTest.g:3869:2: rule__Inner__Group_2_1_2__0
+            	    // InternalXtextTest.g:3897:2: rule__Inner__Group_2_1_2__0
             	    {
-            	    pushFollow(FOLLOW_31);
+            	    pushFollow(FOLLOW_32);
             	    rule__Inner__Group_2_1_2__0();
 
             	    state._fsp--;
@@ -9438,7 +9529,7 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
             	    break;
 
             	default :
-            	    break loop24;
+            	    break loop25;
                 }
             } while (true);
 
@@ -9465,14 +9556,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Inner__Group_2_1_2__0"
-    // InternalXtextTest.g:3887:1: rule__Inner__Group_2_1_2__0 : rule__Inner__Group_2_1_2__0__Impl rule__Inner__Group_2_1_2__1 ;
+    // InternalXtextTest.g:3915:1: rule__Inner__Group_2_1_2__0 : rule__Inner__Group_2_1_2__0__Impl rule__Inner__Group_2_1_2__1 ;
     public final void rule__Inner__Group_2_1_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3891:1: ( rule__Inner__Group_2_1_2__0__Impl rule__Inner__Group_2_1_2__1 )
-            // InternalXtextTest.g:3892:2: rule__Inner__Group_2_1_2__0__Impl rule__Inner__Group_2_1_2__1
+            // InternalXtextTest.g:3919:1: ( rule__Inner__Group_2_1_2__0__Impl rule__Inner__Group_2_1_2__1 )
+            // InternalXtextTest.g:3920:2: rule__Inner__Group_2_1_2__0__Impl rule__Inner__Group_2_1_2__1
             {
             pushFollow(FOLLOW_8);
             rule__Inner__Group_2_1_2__0__Impl();
@@ -9503,17 +9594,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Inner__Group_2_1_2__0__Impl"
-    // InternalXtextTest.g:3899:1: rule__Inner__Group_2_1_2__0__Impl : ( RULE_COMMA ) ;
+    // InternalXtextTest.g:3927:1: rule__Inner__Group_2_1_2__0__Impl : ( RULE_COMMA ) ;
     public final void rule__Inner__Group_2_1_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3903:1: ( ( RULE_COMMA ) )
-            // InternalXtextTest.g:3905:1: ( RULE_COMMA )
+            // InternalXtextTest.g:3931:1: ( ( RULE_COMMA ) )
+            // InternalXtextTest.g:3933:1: ( RULE_COMMA )
             {
-            // InternalXtextTest.g:3905:1: ( RULE_COMMA )
-            // InternalXtextTest.g:3906:1: RULE_COMMA
+            // InternalXtextTest.g:3933:1: ( RULE_COMMA )
+            // InternalXtextTest.g:3934:1: RULE_COMMA
             {
              before(grammarAccess.getInnerAccess().getCOMMATerminalRuleCall_2_1_2_0()); 
             match(input,RULE_COMMA,FOLLOW_2); 
@@ -9540,14 +9631,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Inner__Group_2_1_2__1"
-    // InternalXtextTest.g:3919:1: rule__Inner__Group_2_1_2__1 : rule__Inner__Group_2_1_2__1__Impl ;
+    // InternalXtextTest.g:3947:1: rule__Inner__Group_2_1_2__1 : rule__Inner__Group_2_1_2__1__Impl ;
     public final void rule__Inner__Group_2_1_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3923:1: ( rule__Inner__Group_2_1_2__1__Impl )
-            // InternalXtextTest.g:3924:2: rule__Inner__Group_2_1_2__1__Impl
+            // InternalXtextTest.g:3951:1: ( rule__Inner__Group_2_1_2__1__Impl )
+            // InternalXtextTest.g:3952:2: rule__Inner__Group_2_1_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Inner__Group_2_1_2__1__Impl();
@@ -9573,21 +9664,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Inner__Group_2_1_2__1__Impl"
-    // InternalXtextTest.g:3930:1: rule__Inner__Group_2_1_2__1__Impl : ( ( rule__Inner__AssignListAssignment_2_1_2_1 ) ) ;
+    // InternalXtextTest.g:3958:1: rule__Inner__Group_2_1_2__1__Impl : ( ( rule__Inner__AssignListAssignment_2_1_2_1 ) ) ;
     public final void rule__Inner__Group_2_1_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3934:1: ( ( ( rule__Inner__AssignListAssignment_2_1_2_1 ) ) )
-            // InternalXtextTest.g:3936:1: ( ( rule__Inner__AssignListAssignment_2_1_2_1 ) )
+            // InternalXtextTest.g:3962:1: ( ( ( rule__Inner__AssignListAssignment_2_1_2_1 ) ) )
+            // InternalXtextTest.g:3964:1: ( ( rule__Inner__AssignListAssignment_2_1_2_1 ) )
             {
-            // InternalXtextTest.g:3936:1: ( ( rule__Inner__AssignListAssignment_2_1_2_1 ) )
-            // InternalXtextTest.g:3937:1: ( rule__Inner__AssignListAssignment_2_1_2_1 )
+            // InternalXtextTest.g:3964:1: ( ( rule__Inner__AssignListAssignment_2_1_2_1 ) )
+            // InternalXtextTest.g:3965:1: ( rule__Inner__AssignListAssignment_2_1_2_1 )
             {
              before(grammarAccess.getInnerAccess().getAssignListAssignment_2_1_2_1()); 
-            // InternalXtextTest.g:3938:1: ( rule__Inner__AssignListAssignment_2_1_2_1 )
-            // InternalXtextTest.g:3938:2: rule__Inner__AssignListAssignment_2_1_2_1
+            // InternalXtextTest.g:3966:1: ( rule__Inner__AssignListAssignment_2_1_2_1 )
+            // InternalXtextTest.g:3966:2: rule__Inner__AssignListAssignment_2_1_2_1
             {
             pushFollow(FOLLOW_2);
             rule__Inner__AssignListAssignment_2_1_2_1();
@@ -9620,14 +9711,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Inner__Group_2_2__0"
-    // InternalXtextTest.g:3954:1: rule__Inner__Group_2_2__0 : rule__Inner__Group_2_2__0__Impl rule__Inner__Group_2_2__1 ;
+    // InternalXtextTest.g:3982:1: rule__Inner__Group_2_2__0 : rule__Inner__Group_2_2__0__Impl rule__Inner__Group_2_2__1 ;
     public final void rule__Inner__Group_2_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3958:1: ( rule__Inner__Group_2_2__0__Impl rule__Inner__Group_2_2__1 )
-            // InternalXtextTest.g:3959:2: rule__Inner__Group_2_2__0__Impl rule__Inner__Group_2_2__1
+            // InternalXtextTest.g:3986:1: ( rule__Inner__Group_2_2__0__Impl rule__Inner__Group_2_2__1 )
+            // InternalXtextTest.g:3987:2: rule__Inner__Group_2_2__0__Impl rule__Inner__Group_2_2__1
             {
             pushFollow(FOLLOW_18);
             rule__Inner__Group_2_2__0__Impl();
@@ -9658,17 +9749,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Inner__Group_2_2__0__Impl"
-    // InternalXtextTest.g:3966:1: rule__Inner__Group_2_2__0__Impl : ( RULE_ASSIGNASSTRING ) ;
+    // InternalXtextTest.g:3994:1: rule__Inner__Group_2_2__0__Impl : ( RULE_ASSIGNASSTRING ) ;
     public final void rule__Inner__Group_2_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3970:1: ( ( RULE_ASSIGNASSTRING ) )
-            // InternalXtextTest.g:3972:1: ( RULE_ASSIGNASSTRING )
+            // InternalXtextTest.g:3998:1: ( ( RULE_ASSIGNASSTRING ) )
+            // InternalXtextTest.g:4000:1: ( RULE_ASSIGNASSTRING )
             {
-            // InternalXtextTest.g:3972:1: ( RULE_ASSIGNASSTRING )
-            // InternalXtextTest.g:3973:1: RULE_ASSIGNASSTRING
+            // InternalXtextTest.g:4000:1: ( RULE_ASSIGNASSTRING )
+            // InternalXtextTest.g:4001:1: RULE_ASSIGNASSTRING
             {
              before(grammarAccess.getInnerAccess().getASSIGNASSTRINGTerminalRuleCall_2_2_0()); 
             match(input,RULE_ASSIGNASSTRING,FOLLOW_2); 
@@ -9695,14 +9786,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Inner__Group_2_2__1"
-    // InternalXtextTest.g:3986:1: rule__Inner__Group_2_2__1 : rule__Inner__Group_2_2__1__Impl ;
+    // InternalXtextTest.g:4014:1: rule__Inner__Group_2_2__1 : rule__Inner__Group_2_2__1__Impl ;
     public final void rule__Inner__Group_2_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:3990:1: ( rule__Inner__Group_2_2__1__Impl )
-            // InternalXtextTest.g:3991:2: rule__Inner__Group_2_2__1__Impl
+            // InternalXtextTest.g:4018:1: ( rule__Inner__Group_2_2__1__Impl )
+            // InternalXtextTest.g:4019:2: rule__Inner__Group_2_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Inner__Group_2_2__1__Impl();
@@ -9728,21 +9819,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Inner__Group_2_2__1__Impl"
-    // InternalXtextTest.g:3997:1: rule__Inner__Group_2_2__1__Impl : ( ( rule__Inner__ValueAssignment_2_2_1 ) ) ;
+    // InternalXtextTest.g:4025:1: rule__Inner__Group_2_2__1__Impl : ( ( rule__Inner__ValueAssignment_2_2_1 ) ) ;
     public final void rule__Inner__Group_2_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4001:1: ( ( ( rule__Inner__ValueAssignment_2_2_1 ) ) )
-            // InternalXtextTest.g:4003:1: ( ( rule__Inner__ValueAssignment_2_2_1 ) )
+            // InternalXtextTest.g:4029:1: ( ( ( rule__Inner__ValueAssignment_2_2_1 ) ) )
+            // InternalXtextTest.g:4031:1: ( ( rule__Inner__ValueAssignment_2_2_1 ) )
             {
-            // InternalXtextTest.g:4003:1: ( ( rule__Inner__ValueAssignment_2_2_1 ) )
-            // InternalXtextTest.g:4004:1: ( rule__Inner__ValueAssignment_2_2_1 )
+            // InternalXtextTest.g:4031:1: ( ( rule__Inner__ValueAssignment_2_2_1 ) )
+            // InternalXtextTest.g:4032:1: ( rule__Inner__ValueAssignment_2_2_1 )
             {
              before(grammarAccess.getInnerAccess().getValueAssignment_2_2_1()); 
-            // InternalXtextTest.g:4005:1: ( rule__Inner__ValueAssignment_2_2_1 )
-            // InternalXtextTest.g:4005:2: rule__Inner__ValueAssignment_2_2_1
+            // InternalXtextTest.g:4033:1: ( rule__Inner__ValueAssignment_2_2_1 )
+            // InternalXtextTest.g:4033:2: rule__Inner__ValueAssignment_2_2_1
             {
             pushFollow(FOLLOW_2);
             rule__Inner__ValueAssignment_2_2_1();
@@ -9775,14 +9866,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Inner__Group_2_3__0"
-    // InternalXtextTest.g:4021:1: rule__Inner__Group_2_3__0 : rule__Inner__Group_2_3__0__Impl rule__Inner__Group_2_3__1 ;
+    // InternalXtextTest.g:4049:1: rule__Inner__Group_2_3__0 : rule__Inner__Group_2_3__0__Impl rule__Inner__Group_2_3__1 ;
     public final void rule__Inner__Group_2_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4025:1: ( rule__Inner__Group_2_3__0__Impl rule__Inner__Group_2_3__1 )
-            // InternalXtextTest.g:4026:2: rule__Inner__Group_2_3__0__Impl rule__Inner__Group_2_3__1
+            // InternalXtextTest.g:4053:1: ( rule__Inner__Group_2_3__0__Impl rule__Inner__Group_2_3__1 )
+            // InternalXtextTest.g:4054:2: rule__Inner__Group_2_3__0__Impl rule__Inner__Group_2_3__1
             {
             pushFollow(FOLLOW_18);
             rule__Inner__Group_2_3__0__Impl();
@@ -9813,17 +9904,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Inner__Group_2_3__0__Impl"
-    // InternalXtextTest.g:4033:1: rule__Inner__Group_2_3__0__Impl : ( RULE_ASSIGNASDATALIST ) ;
+    // InternalXtextTest.g:4061:1: rule__Inner__Group_2_3__0__Impl : ( RULE_ASSIGNASDATALIST ) ;
     public final void rule__Inner__Group_2_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4037:1: ( ( RULE_ASSIGNASDATALIST ) )
-            // InternalXtextTest.g:4039:1: ( RULE_ASSIGNASDATALIST )
+            // InternalXtextTest.g:4065:1: ( ( RULE_ASSIGNASDATALIST ) )
+            // InternalXtextTest.g:4067:1: ( RULE_ASSIGNASDATALIST )
             {
-            // InternalXtextTest.g:4039:1: ( RULE_ASSIGNASDATALIST )
-            // InternalXtextTest.g:4040:1: RULE_ASSIGNASDATALIST
+            // InternalXtextTest.g:4067:1: ( RULE_ASSIGNASDATALIST )
+            // InternalXtextTest.g:4068:1: RULE_ASSIGNASDATALIST
             {
              before(grammarAccess.getInnerAccess().getASSIGNASDATALISTTerminalRuleCall_2_3_0()); 
             match(input,RULE_ASSIGNASDATALIST,FOLLOW_2); 
@@ -9850,14 +9941,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Inner__Group_2_3__1"
-    // InternalXtextTest.g:4053:1: rule__Inner__Group_2_3__1 : rule__Inner__Group_2_3__1__Impl ;
+    // InternalXtextTest.g:4081:1: rule__Inner__Group_2_3__1 : rule__Inner__Group_2_3__1__Impl ;
     public final void rule__Inner__Group_2_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4057:1: ( rule__Inner__Group_2_3__1__Impl )
-            // InternalXtextTest.g:4058:2: rule__Inner__Group_2_3__1__Impl
+            // InternalXtextTest.g:4085:1: ( rule__Inner__Group_2_3__1__Impl )
+            // InternalXtextTest.g:4086:2: rule__Inner__Group_2_3__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Inner__Group_2_3__1__Impl();
@@ -9883,21 +9974,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Inner__Group_2_3__1__Impl"
-    // InternalXtextTest.g:4064:1: rule__Inner__Group_2_3__1__Impl : ( ( rule__Inner__AssignAsDataAssignment_2_3_1 ) ) ;
+    // InternalXtextTest.g:4092:1: rule__Inner__Group_2_3__1__Impl : ( ( rule__Inner__AssignAsDataAssignment_2_3_1 ) ) ;
     public final void rule__Inner__Group_2_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4068:1: ( ( ( rule__Inner__AssignAsDataAssignment_2_3_1 ) ) )
-            // InternalXtextTest.g:4070:1: ( ( rule__Inner__AssignAsDataAssignment_2_3_1 ) )
+            // InternalXtextTest.g:4096:1: ( ( ( rule__Inner__AssignAsDataAssignment_2_3_1 ) ) )
+            // InternalXtextTest.g:4098:1: ( ( rule__Inner__AssignAsDataAssignment_2_3_1 ) )
             {
-            // InternalXtextTest.g:4070:1: ( ( rule__Inner__AssignAsDataAssignment_2_3_1 ) )
-            // InternalXtextTest.g:4071:1: ( rule__Inner__AssignAsDataAssignment_2_3_1 )
+            // InternalXtextTest.g:4098:1: ( ( rule__Inner__AssignAsDataAssignment_2_3_1 ) )
+            // InternalXtextTest.g:4099:1: ( rule__Inner__AssignAsDataAssignment_2_3_1 )
             {
              before(grammarAccess.getInnerAccess().getAssignAsDataAssignment_2_3_1()); 
-            // InternalXtextTest.g:4072:1: ( rule__Inner__AssignAsDataAssignment_2_3_1 )
-            // InternalXtextTest.g:4072:2: rule__Inner__AssignAsDataAssignment_2_3_1
+            // InternalXtextTest.g:4100:1: ( rule__Inner__AssignAsDataAssignment_2_3_1 )
+            // InternalXtextTest.g:4100:2: rule__Inner__AssignAsDataAssignment_2_3_1
             {
             pushFollow(FOLLOW_2);
             rule__Inner__AssignAsDataAssignment_2_3_1();
@@ -9930,14 +10021,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Inner__Group_2_4__0"
-    // InternalXtextTest.g:4088:1: rule__Inner__Group_2_4__0 : rule__Inner__Group_2_4__0__Impl rule__Inner__Group_2_4__1 ;
+    // InternalXtextTest.g:4116:1: rule__Inner__Group_2_4__0 : rule__Inner__Group_2_4__0__Impl rule__Inner__Group_2_4__1 ;
     public final void rule__Inner__Group_2_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4092:1: ( rule__Inner__Group_2_4__0__Impl rule__Inner__Group_2_4__1 )
-            // InternalXtextTest.g:4093:2: rule__Inner__Group_2_4__0__Impl rule__Inner__Group_2_4__1
+            // InternalXtextTest.g:4120:1: ( rule__Inner__Group_2_4__0__Impl rule__Inner__Group_2_4__1 )
+            // InternalXtextTest.g:4121:2: rule__Inner__Group_2_4__0__Impl rule__Inner__Group_2_4__1
             {
             pushFollow(FOLLOW_11);
             rule__Inner__Group_2_4__0__Impl();
@@ -9968,17 +10059,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Inner__Group_2_4__0__Impl"
-    // InternalXtextTest.g:4100:1: rule__Inner__Group_2_4__0__Impl : ( RULE_ASSIGNASBOOL ) ;
+    // InternalXtextTest.g:4128:1: rule__Inner__Group_2_4__0__Impl : ( RULE_ASSIGNASBOOL ) ;
     public final void rule__Inner__Group_2_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4104:1: ( ( RULE_ASSIGNASBOOL ) )
-            // InternalXtextTest.g:4106:1: ( RULE_ASSIGNASBOOL )
+            // InternalXtextTest.g:4132:1: ( ( RULE_ASSIGNASBOOL ) )
+            // InternalXtextTest.g:4134:1: ( RULE_ASSIGNASBOOL )
             {
-            // InternalXtextTest.g:4106:1: ( RULE_ASSIGNASBOOL )
-            // InternalXtextTest.g:4107:1: RULE_ASSIGNASBOOL
+            // InternalXtextTest.g:4134:1: ( RULE_ASSIGNASBOOL )
+            // InternalXtextTest.g:4135:1: RULE_ASSIGNASBOOL
             {
              before(grammarAccess.getInnerAccess().getASSIGNASBOOLTerminalRuleCall_2_4_0()); 
             match(input,RULE_ASSIGNASBOOL,FOLLOW_2); 
@@ -10005,14 +10096,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Inner__Group_2_4__1"
-    // InternalXtextTest.g:4120:1: rule__Inner__Group_2_4__1 : rule__Inner__Group_2_4__1__Impl ;
+    // InternalXtextTest.g:4148:1: rule__Inner__Group_2_4__1 : rule__Inner__Group_2_4__1__Impl ;
     public final void rule__Inner__Group_2_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4124:1: ( rule__Inner__Group_2_4__1__Impl )
-            // InternalXtextTest.g:4125:2: rule__Inner__Group_2_4__1__Impl
+            // InternalXtextTest.g:4152:1: ( rule__Inner__Group_2_4__1__Impl )
+            // InternalXtextTest.g:4153:2: rule__Inner__Group_2_4__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Inner__Group_2_4__1__Impl();
@@ -10038,21 +10129,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Inner__Group_2_4__1__Impl"
-    // InternalXtextTest.g:4131:1: rule__Inner__Group_2_4__1__Impl : ( ( rule__Inner__AssignAsBoolAssignment_2_4_1 ) ) ;
+    // InternalXtextTest.g:4159:1: rule__Inner__Group_2_4__1__Impl : ( ( rule__Inner__AssignAsBoolAssignment_2_4_1 ) ) ;
     public final void rule__Inner__Group_2_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4135:1: ( ( ( rule__Inner__AssignAsBoolAssignment_2_4_1 ) ) )
-            // InternalXtextTest.g:4137:1: ( ( rule__Inner__AssignAsBoolAssignment_2_4_1 ) )
+            // InternalXtextTest.g:4163:1: ( ( ( rule__Inner__AssignAsBoolAssignment_2_4_1 ) ) )
+            // InternalXtextTest.g:4165:1: ( ( rule__Inner__AssignAsBoolAssignment_2_4_1 ) )
             {
-            // InternalXtextTest.g:4137:1: ( ( rule__Inner__AssignAsBoolAssignment_2_4_1 ) )
-            // InternalXtextTest.g:4138:1: ( rule__Inner__AssignAsBoolAssignment_2_4_1 )
+            // InternalXtextTest.g:4165:1: ( ( rule__Inner__AssignAsBoolAssignment_2_4_1 ) )
+            // InternalXtextTest.g:4166:1: ( rule__Inner__AssignAsBoolAssignment_2_4_1 )
             {
              before(grammarAccess.getInnerAccess().getAssignAsBoolAssignment_2_4_1()); 
-            // InternalXtextTest.g:4139:1: ( rule__Inner__AssignAsBoolAssignment_2_4_1 )
-            // InternalXtextTest.g:4139:2: rule__Inner__AssignAsBoolAssignment_2_4_1
+            // InternalXtextTest.g:4167:1: ( rule__Inner__AssignAsBoolAssignment_2_4_1 )
+            // InternalXtextTest.g:4167:2: rule__Inner__AssignAsBoolAssignment_2_4_1
             {
             pushFollow(FOLLOW_2);
             rule__Inner__AssignAsBoolAssignment_2_4_1();
@@ -10085,16 +10176,16 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group__0"
-    // InternalXtextTest.g:4155:1: rule__Generator__Group__0 : rule__Generator__Group__0__Impl rule__Generator__Group__1 ;
+    // InternalXtextTest.g:4183:1: rule__Generator__Group__0 : rule__Generator__Group__0__Impl rule__Generator__Group__1 ;
     public final void rule__Generator__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4159:1: ( rule__Generator__Group__0__Impl rule__Generator__Group__1 )
-            // InternalXtextTest.g:4160:2: rule__Generator__Group__0__Impl rule__Generator__Group__1
+            // InternalXtextTest.g:4187:1: ( rule__Generator__Group__0__Impl rule__Generator__Group__1 )
+            // InternalXtextTest.g:4188:2: rule__Generator__Group__0__Impl rule__Generator__Group__1
             {
-            pushFollow(FOLLOW_33);
+            pushFollow(FOLLOW_34);
             rule__Generator__Group__0__Impl();
 
             state._fsp--;
@@ -10123,21 +10214,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group__0__Impl"
-    // InternalXtextTest.g:4167:1: rule__Generator__Group__0__Impl : ( () ) ;
+    // InternalXtextTest.g:4195:1: rule__Generator__Group__0__Impl : ( () ) ;
     public final void rule__Generator__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4171:1: ( ( () ) )
-            // InternalXtextTest.g:4173:1: ( () )
+            // InternalXtextTest.g:4199:1: ( ( () ) )
+            // InternalXtextTest.g:4201:1: ( () )
             {
-            // InternalXtextTest.g:4173:1: ( () )
-            // InternalXtextTest.g:4174:1: ()
+            // InternalXtextTest.g:4201:1: ( () )
+            // InternalXtextTest.g:4202:1: ()
             {
              before(grammarAccess.getGeneratorAccess().getGeneratorAction_0()); 
-            // InternalXtextTest.g:4175:1: ()
-            // InternalXtextTest.g:4177:1: 
+            // InternalXtextTest.g:4203:1: ()
+            // InternalXtextTest.g:4205:1: 
             {
             }
 
@@ -10160,16 +10251,16 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group__1"
-    // InternalXtextTest.g:4189:1: rule__Generator__Group__1 : rule__Generator__Group__1__Impl rule__Generator__Group__2 ;
+    // InternalXtextTest.g:4217:1: rule__Generator__Group__1 : rule__Generator__Group__1__Impl rule__Generator__Group__2 ;
     public final void rule__Generator__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4193:1: ( rule__Generator__Group__1__Impl rule__Generator__Group__2 )
-            // InternalXtextTest.g:4194:2: rule__Generator__Group__1__Impl rule__Generator__Group__2
+            // InternalXtextTest.g:4221:1: ( rule__Generator__Group__1__Impl rule__Generator__Group__2 )
+            // InternalXtextTest.g:4222:2: rule__Generator__Group__1__Impl rule__Generator__Group__2
             {
-            pushFollow(FOLLOW_34);
+            pushFollow(FOLLOW_35);
             rule__Generator__Group__1__Impl();
 
             state._fsp--;
@@ -10198,21 +10289,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group__1__Impl"
-    // InternalXtextTest.g:4201:1: rule__Generator__Group__1__Impl : ( ( rule__Generator__Group_1__0 ) ) ;
+    // InternalXtextTest.g:4229:1: rule__Generator__Group__1__Impl : ( ( rule__Generator__Group_1__0 ) ) ;
     public final void rule__Generator__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4205:1: ( ( ( rule__Generator__Group_1__0 ) ) )
-            // InternalXtextTest.g:4207:1: ( ( rule__Generator__Group_1__0 ) )
+            // InternalXtextTest.g:4233:1: ( ( ( rule__Generator__Group_1__0 ) ) )
+            // InternalXtextTest.g:4235:1: ( ( rule__Generator__Group_1__0 ) )
             {
-            // InternalXtextTest.g:4207:1: ( ( rule__Generator__Group_1__0 ) )
-            // InternalXtextTest.g:4208:1: ( rule__Generator__Group_1__0 )
+            // InternalXtextTest.g:4235:1: ( ( rule__Generator__Group_1__0 ) )
+            // InternalXtextTest.g:4236:1: ( rule__Generator__Group_1__0 )
             {
              before(grammarAccess.getGeneratorAccess().getGroup_1()); 
-            // InternalXtextTest.g:4209:1: ( rule__Generator__Group_1__0 )
-            // InternalXtextTest.g:4209:2: rule__Generator__Group_1__0
+            // InternalXtextTest.g:4237:1: ( rule__Generator__Group_1__0 )
+            // InternalXtextTest.g:4237:2: rule__Generator__Group_1__0
             {
             pushFollow(FOLLOW_2);
             rule__Generator__Group_1__0();
@@ -10245,16 +10336,16 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group__2"
-    // InternalXtextTest.g:4221:1: rule__Generator__Group__2 : rule__Generator__Group__2__Impl rule__Generator__Group__3 ;
+    // InternalXtextTest.g:4249:1: rule__Generator__Group__2 : rule__Generator__Group__2__Impl rule__Generator__Group__3 ;
     public final void rule__Generator__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4225:1: ( rule__Generator__Group__2__Impl rule__Generator__Group__3 )
-            // InternalXtextTest.g:4226:2: rule__Generator__Group__2__Impl rule__Generator__Group__3
+            // InternalXtextTest.g:4253:1: ( rule__Generator__Group__2__Impl rule__Generator__Group__3 )
+            // InternalXtextTest.g:4254:2: rule__Generator__Group__2__Impl rule__Generator__Group__3
             {
-            pushFollow(FOLLOW_35);
+            pushFollow(FOLLOW_36);
             rule__Generator__Group__2__Impl();
 
             state._fsp--;
@@ -10283,21 +10374,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group__2__Impl"
-    // InternalXtextTest.g:4233:1: rule__Generator__Group__2__Impl : ( ( rule__Generator__Group_2__0 ) ) ;
+    // InternalXtextTest.g:4261:1: rule__Generator__Group__2__Impl : ( ( rule__Generator__Group_2__0 ) ) ;
     public final void rule__Generator__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4237:1: ( ( ( rule__Generator__Group_2__0 ) ) )
-            // InternalXtextTest.g:4239:1: ( ( rule__Generator__Group_2__0 ) )
+            // InternalXtextTest.g:4265:1: ( ( ( rule__Generator__Group_2__0 ) ) )
+            // InternalXtextTest.g:4267:1: ( ( rule__Generator__Group_2__0 ) )
             {
-            // InternalXtextTest.g:4239:1: ( ( rule__Generator__Group_2__0 ) )
-            // InternalXtextTest.g:4240:1: ( rule__Generator__Group_2__0 )
+            // InternalXtextTest.g:4267:1: ( ( rule__Generator__Group_2__0 ) )
+            // InternalXtextTest.g:4268:1: ( rule__Generator__Group_2__0 )
             {
              before(grammarAccess.getGeneratorAccess().getGroup_2()); 
-            // InternalXtextTest.g:4241:1: ( rule__Generator__Group_2__0 )
-            // InternalXtextTest.g:4241:2: rule__Generator__Group_2__0
+            // InternalXtextTest.g:4269:1: ( rule__Generator__Group_2__0 )
+            // InternalXtextTest.g:4269:2: rule__Generator__Group_2__0
             {
             pushFollow(FOLLOW_2);
             rule__Generator__Group_2__0();
@@ -10330,16 +10421,16 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group__3"
-    // InternalXtextTest.g:4253:1: rule__Generator__Group__3 : rule__Generator__Group__3__Impl rule__Generator__Group__4 ;
+    // InternalXtextTest.g:4281:1: rule__Generator__Group__3 : rule__Generator__Group__3__Impl rule__Generator__Group__4 ;
     public final void rule__Generator__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4257:1: ( rule__Generator__Group__3__Impl rule__Generator__Group__4 )
-            // InternalXtextTest.g:4258:2: rule__Generator__Group__3__Impl rule__Generator__Group__4
+            // InternalXtextTest.g:4285:1: ( rule__Generator__Group__3__Impl rule__Generator__Group__4 )
+            // InternalXtextTest.g:4286:2: rule__Generator__Group__3__Impl rule__Generator__Group__4
             {
-            pushFollow(FOLLOW_35);
+            pushFollow(FOLLOW_36);
             rule__Generator__Group__3__Impl();
 
             state._fsp--;
@@ -10368,29 +10459,29 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group__3__Impl"
-    // InternalXtextTest.g:4265:1: rule__Generator__Group__3__Impl : ( ( rule__Generator__Group_3__0 )? ) ;
+    // InternalXtextTest.g:4293:1: rule__Generator__Group__3__Impl : ( ( rule__Generator__Group_3__0 )? ) ;
     public final void rule__Generator__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4269:1: ( ( ( rule__Generator__Group_3__0 )? ) )
-            // InternalXtextTest.g:4271:1: ( ( rule__Generator__Group_3__0 )? )
+            // InternalXtextTest.g:4297:1: ( ( ( rule__Generator__Group_3__0 )? ) )
+            // InternalXtextTest.g:4299:1: ( ( rule__Generator__Group_3__0 )? )
             {
-            // InternalXtextTest.g:4271:1: ( ( rule__Generator__Group_3__0 )? )
-            // InternalXtextTest.g:4272:1: ( rule__Generator__Group_3__0 )?
+            // InternalXtextTest.g:4299:1: ( ( rule__Generator__Group_3__0 )? )
+            // InternalXtextTest.g:4300:1: ( rule__Generator__Group_3__0 )?
             {
              before(grammarAccess.getGeneratorAccess().getGroup_3()); 
-            // InternalXtextTest.g:4273:1: ( rule__Generator__Group_3__0 )?
-            int alt25=2;
-            int LA25_0 = input.LA(1);
+            // InternalXtextTest.g:4301:1: ( rule__Generator__Group_3__0 )?
+            int alt26=2;
+            int LA26_0 = input.LA(1);
 
-            if ( (LA25_0==RULE_PATTERNS) ) {
-                alt25=1;
+            if ( (LA26_0==RULE_PATTERNS) ) {
+                alt26=1;
             }
-            switch (alt25) {
+            switch (alt26) {
                 case 1 :
-                    // InternalXtextTest.g:4273:2: rule__Generator__Group_3__0
+                    // InternalXtextTest.g:4301:2: rule__Generator__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Generator__Group_3__0();
@@ -10426,14 +10517,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group__4"
-    // InternalXtextTest.g:4285:1: rule__Generator__Group__4 : rule__Generator__Group__4__Impl ;
+    // InternalXtextTest.g:4313:1: rule__Generator__Group__4 : rule__Generator__Group__4__Impl ;
     public final void rule__Generator__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4289:1: ( rule__Generator__Group__4__Impl )
-            // InternalXtextTest.g:4290:2: rule__Generator__Group__4__Impl
+            // InternalXtextTest.g:4317:1: ( rule__Generator__Group__4__Impl )
+            // InternalXtextTest.g:4318:2: rule__Generator__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Generator__Group__4__Impl();
@@ -10459,29 +10550,29 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group__4__Impl"
-    // InternalXtextTest.g:4296:1: rule__Generator__Group__4__Impl : ( ( rule__Generator__Group_4__0 )? ) ;
+    // InternalXtextTest.g:4324:1: rule__Generator__Group__4__Impl : ( ( rule__Generator__Group_4__0 )? ) ;
     public final void rule__Generator__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4300:1: ( ( ( rule__Generator__Group_4__0 )? ) )
-            // InternalXtextTest.g:4302:1: ( ( rule__Generator__Group_4__0 )? )
+            // InternalXtextTest.g:4328:1: ( ( ( rule__Generator__Group_4__0 )? ) )
+            // InternalXtextTest.g:4330:1: ( ( rule__Generator__Group_4__0 )? )
             {
-            // InternalXtextTest.g:4302:1: ( ( rule__Generator__Group_4__0 )? )
-            // InternalXtextTest.g:4303:1: ( rule__Generator__Group_4__0 )?
+            // InternalXtextTest.g:4330:1: ( ( rule__Generator__Group_4__0 )? )
+            // InternalXtextTest.g:4331:1: ( rule__Generator__Group_4__0 )?
             {
              before(grammarAccess.getGeneratorAccess().getGroup_4()); 
-            // InternalXtextTest.g:4304:1: ( rule__Generator__Group_4__0 )?
-            int alt26=2;
-            int LA26_0 = input.LA(1);
+            // InternalXtextTest.g:4332:1: ( rule__Generator__Group_4__0 )?
+            int alt27=2;
+            int LA27_0 = input.LA(1);
 
-            if ( (LA26_0==RULE_EXPECTED) ) {
-                alt26=1;
+            if ( (LA27_0==RULE_EXPECTED) ) {
+                alt27=1;
             }
-            switch (alt26) {
+            switch (alt27) {
                 case 1 :
-                    // InternalXtextTest.g:4304:2: rule__Generator__Group_4__0
+                    // InternalXtextTest.g:4332:2: rule__Generator__Group_4__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Generator__Group_4__0();
@@ -10517,14 +10608,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group_1__0"
-    // InternalXtextTest.g:4326:1: rule__Generator__Group_1__0 : rule__Generator__Group_1__0__Impl rule__Generator__Group_1__1 ;
+    // InternalXtextTest.g:4354:1: rule__Generator__Group_1__0 : rule__Generator__Group_1__0__Impl rule__Generator__Group_1__1 ;
     public final void rule__Generator__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4330:1: ( rule__Generator__Group_1__0__Impl rule__Generator__Group_1__1 )
-            // InternalXtextTest.g:4331:2: rule__Generator__Group_1__0__Impl rule__Generator__Group_1__1
+            // InternalXtextTest.g:4358:1: ( rule__Generator__Group_1__0__Impl rule__Generator__Group_1__1 )
+            // InternalXtextTest.g:4359:2: rule__Generator__Group_1__0__Impl rule__Generator__Group_1__1
             {
             pushFollow(FOLLOW_17);
             rule__Generator__Group_1__0__Impl();
@@ -10555,17 +10646,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group_1__0__Impl"
-    // InternalXtextTest.g:4338:1: rule__Generator__Group_1__0__Impl : ( RULE_OUTPUT ) ;
+    // InternalXtextTest.g:4366:1: rule__Generator__Group_1__0__Impl : ( RULE_OUTPUT ) ;
     public final void rule__Generator__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4342:1: ( ( RULE_OUTPUT ) )
-            // InternalXtextTest.g:4344:1: ( RULE_OUTPUT )
+            // InternalXtextTest.g:4370:1: ( ( RULE_OUTPUT ) )
+            // InternalXtextTest.g:4372:1: ( RULE_OUTPUT )
             {
-            // InternalXtextTest.g:4344:1: ( RULE_OUTPUT )
-            // InternalXtextTest.g:4345:1: RULE_OUTPUT
+            // InternalXtextTest.g:4372:1: ( RULE_OUTPUT )
+            // InternalXtextTest.g:4373:1: RULE_OUTPUT
             {
              before(grammarAccess.getGeneratorAccess().getOUTPUTTerminalRuleCall_1_0()); 
             match(input,RULE_OUTPUT,FOLLOW_2); 
@@ -10592,14 +10683,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group_1__1"
-    // InternalXtextTest.g:4358:1: rule__Generator__Group_1__1 : rule__Generator__Group_1__1__Impl rule__Generator__Group_1__2 ;
+    // InternalXtextTest.g:4386:1: rule__Generator__Group_1__1 : rule__Generator__Group_1__1__Impl rule__Generator__Group_1__2 ;
     public final void rule__Generator__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4362:1: ( rule__Generator__Group_1__1__Impl rule__Generator__Group_1__2 )
-            // InternalXtextTest.g:4363:2: rule__Generator__Group_1__1__Impl rule__Generator__Group_1__2
+            // InternalXtextTest.g:4390:1: ( rule__Generator__Group_1__1__Impl rule__Generator__Group_1__2 )
+            // InternalXtextTest.g:4391:2: rule__Generator__Group_1__1__Impl rule__Generator__Group_1__2
             {
             pushFollow(FOLLOW_10);
             rule__Generator__Group_1__1__Impl();
@@ -10630,17 +10721,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group_1__1__Impl"
-    // InternalXtextTest.g:4370:1: rule__Generator__Group_1__1__Impl : ( RULE_FILE ) ;
+    // InternalXtextTest.g:4398:1: rule__Generator__Group_1__1__Impl : ( RULE_FILE ) ;
     public final void rule__Generator__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4374:1: ( ( RULE_FILE ) )
-            // InternalXtextTest.g:4376:1: ( RULE_FILE )
+            // InternalXtextTest.g:4402:1: ( ( RULE_FILE ) )
+            // InternalXtextTest.g:4404:1: ( RULE_FILE )
             {
-            // InternalXtextTest.g:4376:1: ( RULE_FILE )
-            // InternalXtextTest.g:4377:1: RULE_FILE
+            // InternalXtextTest.g:4404:1: ( RULE_FILE )
+            // InternalXtextTest.g:4405:1: RULE_FILE
             {
              before(grammarAccess.getGeneratorAccess().getFILETerminalRuleCall_1_1()); 
             match(input,RULE_FILE,FOLLOW_2); 
@@ -10667,14 +10758,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group_1__2"
-    // InternalXtextTest.g:4390:1: rule__Generator__Group_1__2 : rule__Generator__Group_1__2__Impl rule__Generator__Group_1__3 ;
+    // InternalXtextTest.g:4418:1: rule__Generator__Group_1__2 : rule__Generator__Group_1__2__Impl rule__Generator__Group_1__3 ;
     public final void rule__Generator__Group_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4394:1: ( rule__Generator__Group_1__2__Impl rule__Generator__Group_1__3 )
-            // InternalXtextTest.g:4395:2: rule__Generator__Group_1__2__Impl rule__Generator__Group_1__3
+            // InternalXtextTest.g:4422:1: ( rule__Generator__Group_1__2__Impl rule__Generator__Group_1__3 )
+            // InternalXtextTest.g:4423:2: rule__Generator__Group_1__2__Impl rule__Generator__Group_1__3
             {
             pushFollow(FOLLOW_18);
             rule__Generator__Group_1__2__Impl();
@@ -10705,17 +10796,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group_1__2__Impl"
-    // InternalXtextTest.g:4402:1: rule__Generator__Group_1__2__Impl : ( RULE_ASSIGNASSINGLE ) ;
+    // InternalXtextTest.g:4430:1: rule__Generator__Group_1__2__Impl : ( RULE_ASSIGNASSINGLE ) ;
     public final void rule__Generator__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4406:1: ( ( RULE_ASSIGNASSINGLE ) )
-            // InternalXtextTest.g:4408:1: ( RULE_ASSIGNASSINGLE )
+            // InternalXtextTest.g:4434:1: ( ( RULE_ASSIGNASSINGLE ) )
+            // InternalXtextTest.g:4436:1: ( RULE_ASSIGNASSINGLE )
             {
-            // InternalXtextTest.g:4408:1: ( RULE_ASSIGNASSINGLE )
-            // InternalXtextTest.g:4409:1: RULE_ASSIGNASSINGLE
+            // InternalXtextTest.g:4436:1: ( RULE_ASSIGNASSINGLE )
+            // InternalXtextTest.g:4437:1: RULE_ASSIGNASSINGLE
             {
              before(grammarAccess.getGeneratorAccess().getASSIGNASSINGLETerminalRuleCall_1_2()); 
             match(input,RULE_ASSIGNASSINGLE,FOLLOW_2); 
@@ -10742,14 +10833,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group_1__3"
-    // InternalXtextTest.g:4422:1: rule__Generator__Group_1__3 : rule__Generator__Group_1__3__Impl ;
+    // InternalXtextTest.g:4450:1: rule__Generator__Group_1__3 : rule__Generator__Group_1__3__Impl ;
     public final void rule__Generator__Group_1__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4426:1: ( rule__Generator__Group_1__3__Impl )
-            // InternalXtextTest.g:4427:2: rule__Generator__Group_1__3__Impl
+            // InternalXtextTest.g:4454:1: ( rule__Generator__Group_1__3__Impl )
+            // InternalXtextTest.g:4455:2: rule__Generator__Group_1__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Generator__Group_1__3__Impl();
@@ -10775,21 +10866,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group_1__3__Impl"
-    // InternalXtextTest.g:4433:1: rule__Generator__Group_1__3__Impl : ( ( rule__Generator__OutputAssignment_1_3 ) ) ;
+    // InternalXtextTest.g:4461:1: rule__Generator__Group_1__3__Impl : ( ( rule__Generator__OutputAssignment_1_3 ) ) ;
     public final void rule__Generator__Group_1__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4437:1: ( ( ( rule__Generator__OutputAssignment_1_3 ) ) )
-            // InternalXtextTest.g:4439:1: ( ( rule__Generator__OutputAssignment_1_3 ) )
+            // InternalXtextTest.g:4465:1: ( ( ( rule__Generator__OutputAssignment_1_3 ) ) )
+            // InternalXtextTest.g:4467:1: ( ( rule__Generator__OutputAssignment_1_3 ) )
             {
-            // InternalXtextTest.g:4439:1: ( ( rule__Generator__OutputAssignment_1_3 ) )
-            // InternalXtextTest.g:4440:1: ( rule__Generator__OutputAssignment_1_3 )
+            // InternalXtextTest.g:4467:1: ( ( rule__Generator__OutputAssignment_1_3 ) )
+            // InternalXtextTest.g:4468:1: ( rule__Generator__OutputAssignment_1_3 )
             {
              before(grammarAccess.getGeneratorAccess().getOutputAssignment_1_3()); 
-            // InternalXtextTest.g:4441:1: ( rule__Generator__OutputAssignment_1_3 )
-            // InternalXtextTest.g:4441:2: rule__Generator__OutputAssignment_1_3
+            // InternalXtextTest.g:4469:1: ( rule__Generator__OutputAssignment_1_3 )
+            // InternalXtextTest.g:4469:2: rule__Generator__OutputAssignment_1_3
             {
             pushFollow(FOLLOW_2);
             rule__Generator__OutputAssignment_1_3();
@@ -10822,14 +10913,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group_2__0"
-    // InternalXtextTest.g:4461:1: rule__Generator__Group_2__0 : rule__Generator__Group_2__0__Impl rule__Generator__Group_2__1 ;
+    // InternalXtextTest.g:4489:1: rule__Generator__Group_2__0 : rule__Generator__Group_2__0__Impl rule__Generator__Group_2__1 ;
     public final void rule__Generator__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4465:1: ( rule__Generator__Group_2__0__Impl rule__Generator__Group_2__1 )
-            // InternalXtextTest.g:4466:2: rule__Generator__Group_2__0__Impl rule__Generator__Group_2__1
+            // InternalXtextTest.g:4493:1: ( rule__Generator__Group_2__0__Impl rule__Generator__Group_2__1 )
+            // InternalXtextTest.g:4494:2: rule__Generator__Group_2__0__Impl rule__Generator__Group_2__1
             {
             pushFollow(FOLLOW_17);
             rule__Generator__Group_2__0__Impl();
@@ -10860,17 +10951,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group_2__0__Impl"
-    // InternalXtextTest.g:4473:1: rule__Generator__Group_2__0__Impl : ( RULE_EXPECTED ) ;
+    // InternalXtextTest.g:4501:1: rule__Generator__Group_2__0__Impl : ( RULE_EXPECTED ) ;
     public final void rule__Generator__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4477:1: ( ( RULE_EXPECTED ) )
-            // InternalXtextTest.g:4479:1: ( RULE_EXPECTED )
+            // InternalXtextTest.g:4505:1: ( ( RULE_EXPECTED ) )
+            // InternalXtextTest.g:4507:1: ( RULE_EXPECTED )
             {
-            // InternalXtextTest.g:4479:1: ( RULE_EXPECTED )
-            // InternalXtextTest.g:4480:1: RULE_EXPECTED
+            // InternalXtextTest.g:4507:1: ( RULE_EXPECTED )
+            // InternalXtextTest.g:4508:1: RULE_EXPECTED
             {
              before(grammarAccess.getGeneratorAccess().getEXPECTEDTerminalRuleCall_2_0()); 
             match(input,RULE_EXPECTED,FOLLOW_2); 
@@ -10897,16 +10988,16 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group_2__1"
-    // InternalXtextTest.g:4493:1: rule__Generator__Group_2__1 : rule__Generator__Group_2__1__Impl rule__Generator__Group_2__2 ;
+    // InternalXtextTest.g:4521:1: rule__Generator__Group_2__1 : rule__Generator__Group_2__1__Impl rule__Generator__Group_2__2 ;
     public final void rule__Generator__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4497:1: ( rule__Generator__Group_2__1__Impl rule__Generator__Group_2__2 )
-            // InternalXtextTest.g:4498:2: rule__Generator__Group_2__1__Impl rule__Generator__Group_2__2
+            // InternalXtextTest.g:4525:1: ( rule__Generator__Group_2__1__Impl rule__Generator__Group_2__2 )
+            // InternalXtextTest.g:4526:2: rule__Generator__Group_2__1__Impl rule__Generator__Group_2__2
             {
-            pushFollow(FOLLOW_36);
+            pushFollow(FOLLOW_37);
             rule__Generator__Group_2__1__Impl();
 
             state._fsp--;
@@ -10935,17 +11026,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group_2__1__Impl"
-    // InternalXtextTest.g:4505:1: rule__Generator__Group_2__1__Impl : ( RULE_FILE ) ;
+    // InternalXtextTest.g:4533:1: rule__Generator__Group_2__1__Impl : ( RULE_FILE ) ;
     public final void rule__Generator__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4509:1: ( ( RULE_FILE ) )
-            // InternalXtextTest.g:4511:1: ( RULE_FILE )
+            // InternalXtextTest.g:4537:1: ( ( RULE_FILE ) )
+            // InternalXtextTest.g:4539:1: ( RULE_FILE )
             {
-            // InternalXtextTest.g:4511:1: ( RULE_FILE )
-            // InternalXtextTest.g:4512:1: RULE_FILE
+            // InternalXtextTest.g:4539:1: ( RULE_FILE )
+            // InternalXtextTest.g:4540:1: RULE_FILE
             {
              before(grammarAccess.getGeneratorAccess().getFILETerminalRuleCall_2_1()); 
             match(input,RULE_FILE,FOLLOW_2); 
@@ -10972,14 +11063,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group_2__2"
-    // InternalXtextTest.g:4525:1: rule__Generator__Group_2__2 : rule__Generator__Group_2__2__Impl ;
+    // InternalXtextTest.g:4553:1: rule__Generator__Group_2__2 : rule__Generator__Group_2__2__Impl ;
     public final void rule__Generator__Group_2__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4529:1: ( rule__Generator__Group_2__2__Impl )
-            // InternalXtextTest.g:4530:2: rule__Generator__Group_2__2__Impl
+            // InternalXtextTest.g:4557:1: ( rule__Generator__Group_2__2__Impl )
+            // InternalXtextTest.g:4558:2: rule__Generator__Group_2__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Generator__Group_2__2__Impl();
@@ -11005,21 +11096,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group_2__2__Impl"
-    // InternalXtextTest.g:4536:1: rule__Generator__Group_2__2__Impl : ( ( rule__Generator__Alternatives_2_2 ) ) ;
+    // InternalXtextTest.g:4564:1: rule__Generator__Group_2__2__Impl : ( ( rule__Generator__Alternatives_2_2 ) ) ;
     public final void rule__Generator__Group_2__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4540:1: ( ( ( rule__Generator__Alternatives_2_2 ) ) )
-            // InternalXtextTest.g:4542:1: ( ( rule__Generator__Alternatives_2_2 ) )
+            // InternalXtextTest.g:4568:1: ( ( ( rule__Generator__Alternatives_2_2 ) ) )
+            // InternalXtextTest.g:4570:1: ( ( rule__Generator__Alternatives_2_2 ) )
             {
-            // InternalXtextTest.g:4542:1: ( ( rule__Generator__Alternatives_2_2 ) )
-            // InternalXtextTest.g:4543:1: ( rule__Generator__Alternatives_2_2 )
+            // InternalXtextTest.g:4570:1: ( ( rule__Generator__Alternatives_2_2 ) )
+            // InternalXtextTest.g:4571:1: ( rule__Generator__Alternatives_2_2 )
             {
              before(grammarAccess.getGeneratorAccess().getAlternatives_2_2()); 
-            // InternalXtextTest.g:4544:1: ( rule__Generator__Alternatives_2_2 )
-            // InternalXtextTest.g:4544:2: rule__Generator__Alternatives_2_2
+            // InternalXtextTest.g:4572:1: ( rule__Generator__Alternatives_2_2 )
+            // InternalXtextTest.g:4572:2: rule__Generator__Alternatives_2_2
             {
             pushFollow(FOLLOW_2);
             rule__Generator__Alternatives_2_2();
@@ -11052,14 +11143,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group_2_2_0__0"
-    // InternalXtextTest.g:4562:1: rule__Generator__Group_2_2_0__0 : rule__Generator__Group_2_2_0__0__Impl rule__Generator__Group_2_2_0__1 ;
+    // InternalXtextTest.g:4590:1: rule__Generator__Group_2_2_0__0 : rule__Generator__Group_2_2_0__0__Impl rule__Generator__Group_2_2_0__1 ;
     public final void rule__Generator__Group_2_2_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4566:1: ( rule__Generator__Group_2_2_0__0__Impl rule__Generator__Group_2_2_0__1 )
-            // InternalXtextTest.g:4567:2: rule__Generator__Group_2_2_0__0__Impl rule__Generator__Group_2_2_0__1
+            // InternalXtextTest.g:4594:1: ( rule__Generator__Group_2_2_0__0__Impl rule__Generator__Group_2_2_0__1 )
+            // InternalXtextTest.g:4595:2: rule__Generator__Group_2_2_0__0__Impl rule__Generator__Group_2_2_0__1
             {
             pushFollow(FOLLOW_18);
             rule__Generator__Group_2_2_0__0__Impl();
@@ -11090,17 +11181,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group_2_2_0__0__Impl"
-    // InternalXtextTest.g:4574:1: rule__Generator__Group_2_2_0__0__Impl : ( RULE_ASSIGNASSINGLE ) ;
+    // InternalXtextTest.g:4602:1: rule__Generator__Group_2_2_0__0__Impl : ( RULE_ASSIGNASSINGLE ) ;
     public final void rule__Generator__Group_2_2_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4578:1: ( ( RULE_ASSIGNASSINGLE ) )
-            // InternalXtextTest.g:4580:1: ( RULE_ASSIGNASSINGLE )
+            // InternalXtextTest.g:4606:1: ( ( RULE_ASSIGNASSINGLE ) )
+            // InternalXtextTest.g:4608:1: ( RULE_ASSIGNASSINGLE )
             {
-            // InternalXtextTest.g:4580:1: ( RULE_ASSIGNASSINGLE )
-            // InternalXtextTest.g:4581:1: RULE_ASSIGNASSINGLE
+            // InternalXtextTest.g:4608:1: ( RULE_ASSIGNASSINGLE )
+            // InternalXtextTest.g:4609:1: RULE_ASSIGNASSINGLE
             {
              before(grammarAccess.getGeneratorAccess().getASSIGNASSINGLETerminalRuleCall_2_2_0_0()); 
             match(input,RULE_ASSIGNASSINGLE,FOLLOW_2); 
@@ -11127,14 +11218,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group_2_2_0__1"
-    // InternalXtextTest.g:4594:1: rule__Generator__Group_2_2_0__1 : rule__Generator__Group_2_2_0__1__Impl ;
+    // InternalXtextTest.g:4622:1: rule__Generator__Group_2_2_0__1 : rule__Generator__Group_2_2_0__1__Impl ;
     public final void rule__Generator__Group_2_2_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4598:1: ( rule__Generator__Group_2_2_0__1__Impl )
-            // InternalXtextTest.g:4599:2: rule__Generator__Group_2_2_0__1__Impl
+            // InternalXtextTest.g:4626:1: ( rule__Generator__Group_2_2_0__1__Impl )
+            // InternalXtextTest.g:4627:2: rule__Generator__Group_2_2_0__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Generator__Group_2_2_0__1__Impl();
@@ -11160,21 +11251,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group_2_2_0__1__Impl"
-    // InternalXtextTest.g:4605:1: rule__Generator__Group_2_2_0__1__Impl : ( ( rule__Generator__ExpectedAssignment_2_2_0_1 ) ) ;
+    // InternalXtextTest.g:4633:1: rule__Generator__Group_2_2_0__1__Impl : ( ( rule__Generator__ExpectedAssignment_2_2_0_1 ) ) ;
     public final void rule__Generator__Group_2_2_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4609:1: ( ( ( rule__Generator__ExpectedAssignment_2_2_0_1 ) ) )
-            // InternalXtextTest.g:4611:1: ( ( rule__Generator__ExpectedAssignment_2_2_0_1 ) )
+            // InternalXtextTest.g:4637:1: ( ( ( rule__Generator__ExpectedAssignment_2_2_0_1 ) ) )
+            // InternalXtextTest.g:4639:1: ( ( rule__Generator__ExpectedAssignment_2_2_0_1 ) )
             {
-            // InternalXtextTest.g:4611:1: ( ( rule__Generator__ExpectedAssignment_2_2_0_1 ) )
-            // InternalXtextTest.g:4612:1: ( rule__Generator__ExpectedAssignment_2_2_0_1 )
+            // InternalXtextTest.g:4639:1: ( ( rule__Generator__ExpectedAssignment_2_2_0_1 ) )
+            // InternalXtextTest.g:4640:1: ( rule__Generator__ExpectedAssignment_2_2_0_1 )
             {
              before(grammarAccess.getGeneratorAccess().getExpectedAssignment_2_2_0_1()); 
-            // InternalXtextTest.g:4613:1: ( rule__Generator__ExpectedAssignment_2_2_0_1 )
-            // InternalXtextTest.g:4613:2: rule__Generator__ExpectedAssignment_2_2_0_1
+            // InternalXtextTest.g:4641:1: ( rule__Generator__ExpectedAssignment_2_2_0_1 )
+            // InternalXtextTest.g:4641:2: rule__Generator__ExpectedAssignment_2_2_0_1
             {
             pushFollow(FOLLOW_2);
             rule__Generator__ExpectedAssignment_2_2_0_1();
@@ -11207,16 +11298,16 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group_3__0"
-    // InternalXtextTest.g:4629:1: rule__Generator__Group_3__0 : rule__Generator__Group_3__0__Impl rule__Generator__Group_3__1 ;
+    // InternalXtextTest.g:4657:1: rule__Generator__Group_3__0 : rule__Generator__Group_3__0__Impl rule__Generator__Group_3__1 ;
     public final void rule__Generator__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4633:1: ( rule__Generator__Group_3__0__Impl rule__Generator__Group_3__1 )
-            // InternalXtextTest.g:4634:2: rule__Generator__Group_3__0__Impl rule__Generator__Group_3__1
+            // InternalXtextTest.g:4661:1: ( rule__Generator__Group_3__0__Impl rule__Generator__Group_3__1 )
+            // InternalXtextTest.g:4662:2: rule__Generator__Group_3__0__Impl rule__Generator__Group_3__1
             {
-            pushFollow(FOLLOW_37);
+            pushFollow(FOLLOW_38);
             rule__Generator__Group_3__0__Impl();
 
             state._fsp--;
@@ -11245,17 +11336,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group_3__0__Impl"
-    // InternalXtextTest.g:4641:1: rule__Generator__Group_3__0__Impl : ( RULE_PATTERNS ) ;
+    // InternalXtextTest.g:4669:1: rule__Generator__Group_3__0__Impl : ( RULE_PATTERNS ) ;
     public final void rule__Generator__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4645:1: ( ( RULE_PATTERNS ) )
-            // InternalXtextTest.g:4647:1: ( RULE_PATTERNS )
+            // InternalXtextTest.g:4673:1: ( ( RULE_PATTERNS ) )
+            // InternalXtextTest.g:4675:1: ( RULE_PATTERNS )
             {
-            // InternalXtextTest.g:4647:1: ( RULE_PATTERNS )
-            // InternalXtextTest.g:4648:1: RULE_PATTERNS
+            // InternalXtextTest.g:4675:1: ( RULE_PATTERNS )
+            // InternalXtextTest.g:4676:1: RULE_PATTERNS
             {
              before(grammarAccess.getGeneratorAccess().getPATTERNSTerminalRuleCall_3_0()); 
             match(input,RULE_PATTERNS,FOLLOW_2); 
@@ -11282,16 +11373,16 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group_3__1"
-    // InternalXtextTest.g:4661:1: rule__Generator__Group_3__1 : rule__Generator__Group_3__1__Impl rule__Generator__Group_3__2 ;
+    // InternalXtextTest.g:4689:1: rule__Generator__Group_3__1 : rule__Generator__Group_3__1__Impl rule__Generator__Group_3__2 ;
     public final void rule__Generator__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4665:1: ( rule__Generator__Group_3__1__Impl rule__Generator__Group_3__2 )
-            // InternalXtextTest.g:4666:2: rule__Generator__Group_3__1__Impl rule__Generator__Group_3__2
+            // InternalXtextTest.g:4693:1: ( rule__Generator__Group_3__1__Impl rule__Generator__Group_3__2 )
+            // InternalXtextTest.g:4694:2: rule__Generator__Group_3__1__Impl rule__Generator__Group_3__2
             {
-            pushFollow(FOLLOW_37);
+            pushFollow(FOLLOW_38);
             rule__Generator__Group_3__1__Impl();
 
             state._fsp--;
@@ -11320,29 +11411,29 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group_3__1__Impl"
-    // InternalXtextTest.g:4673:1: rule__Generator__Group_3__1__Impl : ( ( rule__Generator__Group_3_1__0 )? ) ;
+    // InternalXtextTest.g:4701:1: rule__Generator__Group_3__1__Impl : ( ( rule__Generator__Group_3_1__0 )? ) ;
     public final void rule__Generator__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4677:1: ( ( ( rule__Generator__Group_3_1__0 )? ) )
-            // InternalXtextTest.g:4679:1: ( ( rule__Generator__Group_3_1__0 )? )
+            // InternalXtextTest.g:4705:1: ( ( ( rule__Generator__Group_3_1__0 )? ) )
+            // InternalXtextTest.g:4707:1: ( ( rule__Generator__Group_3_1__0 )? )
             {
-            // InternalXtextTest.g:4679:1: ( ( rule__Generator__Group_3_1__0 )? )
-            // InternalXtextTest.g:4680:1: ( rule__Generator__Group_3_1__0 )?
+            // InternalXtextTest.g:4707:1: ( ( rule__Generator__Group_3_1__0 )? )
+            // InternalXtextTest.g:4708:1: ( rule__Generator__Group_3_1__0 )?
             {
              before(grammarAccess.getGeneratorAccess().getGroup_3_1()); 
-            // InternalXtextTest.g:4681:1: ( rule__Generator__Group_3_1__0 )?
-            int alt27=2;
-            int LA27_0 = input.LA(1);
+            // InternalXtextTest.g:4709:1: ( rule__Generator__Group_3_1__0 )?
+            int alt28=2;
+            int LA28_0 = input.LA(1);
 
-            if ( (LA27_0==RULE_FILE) ) {
-                alt27=1;
+            if ( (LA28_0==RULE_FILE) ) {
+                alt28=1;
             }
-            switch (alt27) {
+            switch (alt28) {
                 case 1 :
-                    // InternalXtextTest.g:4681:2: rule__Generator__Group_3_1__0
+                    // InternalXtextTest.g:4709:2: rule__Generator__Group_3_1__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Generator__Group_3_1__0();
@@ -11378,14 +11469,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group_3__2"
-    // InternalXtextTest.g:4693:1: rule__Generator__Group_3__2 : rule__Generator__Group_3__2__Impl ;
+    // InternalXtextTest.g:4721:1: rule__Generator__Group_3__2 : rule__Generator__Group_3__2__Impl ;
     public final void rule__Generator__Group_3__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4697:1: ( rule__Generator__Group_3__2__Impl )
-            // InternalXtextTest.g:4698:2: rule__Generator__Group_3__2__Impl
+            // InternalXtextTest.g:4725:1: ( rule__Generator__Group_3__2__Impl )
+            // InternalXtextTest.g:4726:2: rule__Generator__Group_3__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Generator__Group_3__2__Impl();
@@ -11411,35 +11502,35 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group_3__2__Impl"
-    // InternalXtextTest.g:4704:1: rule__Generator__Group_3__2__Impl : ( ( rule__Generator__ReplacePatternsAssignment_3_2 )* ) ;
+    // InternalXtextTest.g:4732:1: rule__Generator__Group_3__2__Impl : ( ( rule__Generator__ReplacePatternsAssignment_3_2 )* ) ;
     public final void rule__Generator__Group_3__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4708:1: ( ( ( rule__Generator__ReplacePatternsAssignment_3_2 )* ) )
-            // InternalXtextTest.g:4710:1: ( ( rule__Generator__ReplacePatternsAssignment_3_2 )* )
+            // InternalXtextTest.g:4736:1: ( ( ( rule__Generator__ReplacePatternsAssignment_3_2 )* ) )
+            // InternalXtextTest.g:4738:1: ( ( rule__Generator__ReplacePatternsAssignment_3_2 )* )
             {
-            // InternalXtextTest.g:4710:1: ( ( rule__Generator__ReplacePatternsAssignment_3_2 )* )
-            // InternalXtextTest.g:4711:1: ( rule__Generator__ReplacePatternsAssignment_3_2 )*
+            // InternalXtextTest.g:4738:1: ( ( rule__Generator__ReplacePatternsAssignment_3_2 )* )
+            // InternalXtextTest.g:4739:1: ( rule__Generator__ReplacePatternsAssignment_3_2 )*
             {
              before(grammarAccess.getGeneratorAccess().getReplacePatternsAssignment_3_2()); 
-            // InternalXtextTest.g:4712:1: ( rule__Generator__ReplacePatternsAssignment_3_2 )*
-            loop28:
+            // InternalXtextTest.g:4740:1: ( rule__Generator__ReplacePatternsAssignment_3_2 )*
+            loop29:
             do {
-                int alt28=2;
-                int LA28_0 = input.LA(1);
+                int alt29=2;
+                int LA29_0 = input.LA(1);
 
-                if ( (LA28_0==RULE_STRING) ) {
-                    alt28=1;
+                if ( (LA29_0==RULE_STRING) ) {
+                    alt29=1;
                 }
 
 
-                switch (alt28) {
+                switch (alt29) {
             	case 1 :
-            	    // InternalXtextTest.g:4712:2: rule__Generator__ReplacePatternsAssignment_3_2
+            	    // InternalXtextTest.g:4740:2: rule__Generator__ReplacePatternsAssignment_3_2
             	    {
-            	    pushFollow(FOLLOW_38);
+            	    pushFollow(FOLLOW_39);
             	    rule__Generator__ReplacePatternsAssignment_3_2();
 
             	    state._fsp--;
@@ -11449,7 +11540,7 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
             	    break;
 
             	default :
-            	    break loop28;
+            	    break loop29;
                 }
             } while (true);
 
@@ -11476,14 +11567,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group_3_1__0"
-    // InternalXtextTest.g:4730:1: rule__Generator__Group_3_1__0 : rule__Generator__Group_3_1__0__Impl rule__Generator__Group_3_1__1 ;
+    // InternalXtextTest.g:4758:1: rule__Generator__Group_3_1__0 : rule__Generator__Group_3_1__0__Impl rule__Generator__Group_3_1__1 ;
     public final void rule__Generator__Group_3_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4734:1: ( rule__Generator__Group_3_1__0__Impl rule__Generator__Group_3_1__1 )
-            // InternalXtextTest.g:4735:2: rule__Generator__Group_3_1__0__Impl rule__Generator__Group_3_1__1
+            // InternalXtextTest.g:4762:1: ( rule__Generator__Group_3_1__0__Impl rule__Generator__Group_3_1__1 )
+            // InternalXtextTest.g:4763:2: rule__Generator__Group_3_1__0__Impl rule__Generator__Group_3_1__1
             {
             pushFollow(FOLLOW_10);
             rule__Generator__Group_3_1__0__Impl();
@@ -11514,17 +11605,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group_3_1__0__Impl"
-    // InternalXtextTest.g:4742:1: rule__Generator__Group_3_1__0__Impl : ( RULE_FILE ) ;
+    // InternalXtextTest.g:4770:1: rule__Generator__Group_3_1__0__Impl : ( RULE_FILE ) ;
     public final void rule__Generator__Group_3_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4746:1: ( ( RULE_FILE ) )
-            // InternalXtextTest.g:4748:1: ( RULE_FILE )
+            // InternalXtextTest.g:4774:1: ( ( RULE_FILE ) )
+            // InternalXtextTest.g:4776:1: ( RULE_FILE )
             {
-            // InternalXtextTest.g:4748:1: ( RULE_FILE )
-            // InternalXtextTest.g:4749:1: RULE_FILE
+            // InternalXtextTest.g:4776:1: ( RULE_FILE )
+            // InternalXtextTest.g:4777:1: RULE_FILE
             {
              before(grammarAccess.getGeneratorAccess().getFILETerminalRuleCall_3_1_0()); 
             match(input,RULE_FILE,FOLLOW_2); 
@@ -11551,14 +11642,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group_3_1__1"
-    // InternalXtextTest.g:4762:1: rule__Generator__Group_3_1__1 : rule__Generator__Group_3_1__1__Impl rule__Generator__Group_3_1__2 ;
+    // InternalXtextTest.g:4790:1: rule__Generator__Group_3_1__1 : rule__Generator__Group_3_1__1__Impl rule__Generator__Group_3_1__2 ;
     public final void rule__Generator__Group_3_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4766:1: ( rule__Generator__Group_3_1__1__Impl rule__Generator__Group_3_1__2 )
-            // InternalXtextTest.g:4767:2: rule__Generator__Group_3_1__1__Impl rule__Generator__Group_3_1__2
+            // InternalXtextTest.g:4794:1: ( rule__Generator__Group_3_1__1__Impl rule__Generator__Group_3_1__2 )
+            // InternalXtextTest.g:4795:2: rule__Generator__Group_3_1__1__Impl rule__Generator__Group_3_1__2
             {
             pushFollow(FOLLOW_18);
             rule__Generator__Group_3_1__1__Impl();
@@ -11589,17 +11680,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group_3_1__1__Impl"
-    // InternalXtextTest.g:4774:1: rule__Generator__Group_3_1__1__Impl : ( RULE_ASSIGNASSINGLE ) ;
+    // InternalXtextTest.g:4802:1: rule__Generator__Group_3_1__1__Impl : ( RULE_ASSIGNASSINGLE ) ;
     public final void rule__Generator__Group_3_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4778:1: ( ( RULE_ASSIGNASSINGLE ) )
-            // InternalXtextTest.g:4780:1: ( RULE_ASSIGNASSINGLE )
+            // InternalXtextTest.g:4806:1: ( ( RULE_ASSIGNASSINGLE ) )
+            // InternalXtextTest.g:4808:1: ( RULE_ASSIGNASSINGLE )
             {
-            // InternalXtextTest.g:4780:1: ( RULE_ASSIGNASSINGLE )
-            // InternalXtextTest.g:4781:1: RULE_ASSIGNASSINGLE
+            // InternalXtextTest.g:4808:1: ( RULE_ASSIGNASSINGLE )
+            // InternalXtextTest.g:4809:1: RULE_ASSIGNASSINGLE
             {
              before(grammarAccess.getGeneratorAccess().getASSIGNASSINGLETerminalRuleCall_3_1_1()); 
             match(input,RULE_ASSIGNASSINGLE,FOLLOW_2); 
@@ -11626,14 +11717,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group_3_1__2"
-    // InternalXtextTest.g:4794:1: rule__Generator__Group_3_1__2 : rule__Generator__Group_3_1__2__Impl ;
+    // InternalXtextTest.g:4822:1: rule__Generator__Group_3_1__2 : rule__Generator__Group_3_1__2__Impl ;
     public final void rule__Generator__Group_3_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4798:1: ( rule__Generator__Group_3_1__2__Impl )
-            // InternalXtextTest.g:4799:2: rule__Generator__Group_3_1__2__Impl
+            // InternalXtextTest.g:4826:1: ( rule__Generator__Group_3_1__2__Impl )
+            // InternalXtextTest.g:4827:2: rule__Generator__Group_3_1__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Generator__Group_3_1__2__Impl();
@@ -11659,21 +11750,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group_3_1__2__Impl"
-    // InternalXtextTest.g:4805:1: rule__Generator__Group_3_1__2__Impl : ( ( rule__Generator__PatternFileAssignment_3_1_2 ) ) ;
+    // InternalXtextTest.g:4833:1: rule__Generator__Group_3_1__2__Impl : ( ( rule__Generator__PatternFileAssignment_3_1_2 ) ) ;
     public final void rule__Generator__Group_3_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4809:1: ( ( ( rule__Generator__PatternFileAssignment_3_1_2 ) ) )
-            // InternalXtextTest.g:4811:1: ( ( rule__Generator__PatternFileAssignment_3_1_2 ) )
+            // InternalXtextTest.g:4837:1: ( ( ( rule__Generator__PatternFileAssignment_3_1_2 ) ) )
+            // InternalXtextTest.g:4839:1: ( ( rule__Generator__PatternFileAssignment_3_1_2 ) )
             {
-            // InternalXtextTest.g:4811:1: ( ( rule__Generator__PatternFileAssignment_3_1_2 ) )
-            // InternalXtextTest.g:4812:1: ( rule__Generator__PatternFileAssignment_3_1_2 )
+            // InternalXtextTest.g:4839:1: ( ( rule__Generator__PatternFileAssignment_3_1_2 ) )
+            // InternalXtextTest.g:4840:1: ( rule__Generator__PatternFileAssignment_3_1_2 )
             {
              before(grammarAccess.getGeneratorAccess().getPatternFileAssignment_3_1_2()); 
-            // InternalXtextTest.g:4813:1: ( rule__Generator__PatternFileAssignment_3_1_2 )
-            // InternalXtextTest.g:4813:2: rule__Generator__PatternFileAssignment_3_1_2
+            // InternalXtextTest.g:4841:1: ( rule__Generator__PatternFileAssignment_3_1_2 )
+            // InternalXtextTest.g:4841:2: rule__Generator__PatternFileAssignment_3_1_2
             {
             pushFollow(FOLLOW_2);
             rule__Generator__PatternFileAssignment_3_1_2();
@@ -11706,16 +11797,16 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group_4__0"
-    // InternalXtextTest.g:4831:1: rule__Generator__Group_4__0 : rule__Generator__Group_4__0__Impl rule__Generator__Group_4__1 ;
+    // InternalXtextTest.g:4859:1: rule__Generator__Group_4__0 : rule__Generator__Group_4__0__Impl rule__Generator__Group_4__1 ;
     public final void rule__Generator__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4835:1: ( rule__Generator__Group_4__0__Impl rule__Generator__Group_4__1 )
-            // InternalXtextTest.g:4836:2: rule__Generator__Group_4__0__Impl rule__Generator__Group_4__1
+            // InternalXtextTest.g:4863:1: ( rule__Generator__Group_4__0__Impl rule__Generator__Group_4__1 )
+            // InternalXtextTest.g:4864:2: rule__Generator__Group_4__0__Impl rule__Generator__Group_4__1
             {
-            pushFollow(FOLLOW_39);
+            pushFollow(FOLLOW_40);
             rule__Generator__Group_4__0__Impl();
 
             state._fsp--;
@@ -11744,17 +11835,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group_4__0__Impl"
-    // InternalXtextTest.g:4843:1: rule__Generator__Group_4__0__Impl : ( RULE_EXPECTED ) ;
+    // InternalXtextTest.g:4871:1: rule__Generator__Group_4__0__Impl : ( RULE_EXPECTED ) ;
     public final void rule__Generator__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4847:1: ( ( RULE_EXPECTED ) )
-            // InternalXtextTest.g:4849:1: ( RULE_EXPECTED )
+            // InternalXtextTest.g:4875:1: ( ( RULE_EXPECTED ) )
+            // InternalXtextTest.g:4877:1: ( RULE_EXPECTED )
             {
-            // InternalXtextTest.g:4849:1: ( RULE_EXPECTED )
-            // InternalXtextTest.g:4850:1: RULE_EXPECTED
+            // InternalXtextTest.g:4877:1: ( RULE_EXPECTED )
+            // InternalXtextTest.g:4878:1: RULE_EXPECTED
             {
              before(grammarAccess.getGeneratorAccess().getEXPECTEDTerminalRuleCall_4_0()); 
             match(input,RULE_EXPECTED,FOLLOW_2); 
@@ -11781,14 +11872,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group_4__1"
-    // InternalXtextTest.g:4863:1: rule__Generator__Group_4__1 : rule__Generator__Group_4__1__Impl rule__Generator__Group_4__2 ;
+    // InternalXtextTest.g:4891:1: rule__Generator__Group_4__1 : rule__Generator__Group_4__1__Impl rule__Generator__Group_4__2 ;
     public final void rule__Generator__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4867:1: ( rule__Generator__Group_4__1__Impl rule__Generator__Group_4__2 )
-            // InternalXtextTest.g:4868:2: rule__Generator__Group_4__1__Impl rule__Generator__Group_4__2
+            // InternalXtextTest.g:4895:1: ( rule__Generator__Group_4__1__Impl rule__Generator__Group_4__2 )
+            // InternalXtextTest.g:4896:2: rule__Generator__Group_4__1__Impl rule__Generator__Group_4__2
             {
             pushFollow(FOLLOW_5);
             rule__Generator__Group_4__1__Impl();
@@ -11819,17 +11910,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group_4__1__Impl"
-    // InternalXtextTest.g:4875:1: rule__Generator__Group_4__1__Impl : ( RULE_EXCEPTIONS ) ;
+    // InternalXtextTest.g:4903:1: rule__Generator__Group_4__1__Impl : ( RULE_EXCEPTIONS ) ;
     public final void rule__Generator__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4879:1: ( ( RULE_EXCEPTIONS ) )
-            // InternalXtextTest.g:4881:1: ( RULE_EXCEPTIONS )
+            // InternalXtextTest.g:4907:1: ( ( RULE_EXCEPTIONS ) )
+            // InternalXtextTest.g:4909:1: ( RULE_EXCEPTIONS )
             {
-            // InternalXtextTest.g:4881:1: ( RULE_EXCEPTIONS )
-            // InternalXtextTest.g:4882:1: RULE_EXCEPTIONS
+            // InternalXtextTest.g:4909:1: ( RULE_EXCEPTIONS )
+            // InternalXtextTest.g:4910:1: RULE_EXCEPTIONS
             {
              before(grammarAccess.getGeneratorAccess().getEXCEPTIONSTerminalRuleCall_4_1()); 
             match(input,RULE_EXCEPTIONS,FOLLOW_2); 
@@ -11856,14 +11947,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group_4__2"
-    // InternalXtextTest.g:4895:1: rule__Generator__Group_4__2 : rule__Generator__Group_4__2__Impl ;
+    // InternalXtextTest.g:4923:1: rule__Generator__Group_4__2 : rule__Generator__Group_4__2__Impl ;
     public final void rule__Generator__Group_4__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4899:1: ( rule__Generator__Group_4__2__Impl )
-            // InternalXtextTest.g:4900:2: rule__Generator__Group_4__2__Impl
+            // InternalXtextTest.g:4927:1: ( rule__Generator__Group_4__2__Impl )
+            // InternalXtextTest.g:4928:2: rule__Generator__Group_4__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Generator__Group_4__2__Impl();
@@ -11889,21 +11980,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__Group_4__2__Impl"
-    // InternalXtextTest.g:4906:1: rule__Generator__Group_4__2__Impl : ( ( rule__Generator__ExceptionAssignment_4_2 ) ) ;
+    // InternalXtextTest.g:4934:1: rule__Generator__Group_4__2__Impl : ( ( rule__Generator__ExceptionAssignment_4_2 ) ) ;
     public final void rule__Generator__Group_4__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4910:1: ( ( ( rule__Generator__ExceptionAssignment_4_2 ) ) )
-            // InternalXtextTest.g:4912:1: ( ( rule__Generator__ExceptionAssignment_4_2 ) )
+            // InternalXtextTest.g:4938:1: ( ( ( rule__Generator__ExceptionAssignment_4_2 ) ) )
+            // InternalXtextTest.g:4940:1: ( ( rule__Generator__ExceptionAssignment_4_2 ) )
             {
-            // InternalXtextTest.g:4912:1: ( ( rule__Generator__ExceptionAssignment_4_2 ) )
-            // InternalXtextTest.g:4913:1: ( rule__Generator__ExceptionAssignment_4_2 )
+            // InternalXtextTest.g:4940:1: ( ( rule__Generator__ExceptionAssignment_4_2 ) )
+            // InternalXtextTest.g:4941:1: ( rule__Generator__ExceptionAssignment_4_2 )
             {
              before(grammarAccess.getGeneratorAccess().getExceptionAssignment_4_2()); 
-            // InternalXtextTest.g:4914:1: ( rule__Generator__ExceptionAssignment_4_2 )
-            // InternalXtextTest.g:4914:2: rule__Generator__ExceptionAssignment_4_2
+            // InternalXtextTest.g:4942:1: ( rule__Generator__ExceptionAssignment_4_2 )
+            // InternalXtextTest.g:4942:2: rule__Generator__ExceptionAssignment_4_2
             {
             pushFollow(FOLLOW_2);
             rule__Generator__ExceptionAssignment_4_2();
@@ -11936,14 +12027,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ReplacePatterns__Group__0"
-    // InternalXtextTest.g:4932:1: rule__ReplacePatterns__Group__0 : rule__ReplacePatterns__Group__0__Impl rule__ReplacePatterns__Group__1 ;
+    // InternalXtextTest.g:4960:1: rule__ReplacePatterns__Group__0 : rule__ReplacePatterns__Group__0__Impl rule__ReplacePatterns__Group__1 ;
     public final void rule__ReplacePatterns__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4936:1: ( rule__ReplacePatterns__Group__0__Impl rule__ReplacePatterns__Group__1 )
-            // InternalXtextTest.g:4937:2: rule__ReplacePatterns__Group__0__Impl rule__ReplacePatterns__Group__1
+            // InternalXtextTest.g:4964:1: ( rule__ReplacePatterns__Group__0__Impl rule__ReplacePatterns__Group__1 )
+            // InternalXtextTest.g:4965:2: rule__ReplacePatterns__Group__0__Impl rule__ReplacePatterns__Group__1
             {
             pushFollow(FOLLOW_10);
             rule__ReplacePatterns__Group__0__Impl();
@@ -11974,21 +12065,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ReplacePatterns__Group__0__Impl"
-    // InternalXtextTest.g:4944:1: rule__ReplacePatterns__Group__0__Impl : ( ( rule__ReplacePatterns__RegexAssignment_0 ) ) ;
+    // InternalXtextTest.g:4972:1: rule__ReplacePatterns__Group__0__Impl : ( ( rule__ReplacePatterns__RegexAssignment_0 ) ) ;
     public final void rule__ReplacePatterns__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4948:1: ( ( ( rule__ReplacePatterns__RegexAssignment_0 ) ) )
-            // InternalXtextTest.g:4950:1: ( ( rule__ReplacePatterns__RegexAssignment_0 ) )
+            // InternalXtextTest.g:4976:1: ( ( ( rule__ReplacePatterns__RegexAssignment_0 ) ) )
+            // InternalXtextTest.g:4978:1: ( ( rule__ReplacePatterns__RegexAssignment_0 ) )
             {
-            // InternalXtextTest.g:4950:1: ( ( rule__ReplacePatterns__RegexAssignment_0 ) )
-            // InternalXtextTest.g:4951:1: ( rule__ReplacePatterns__RegexAssignment_0 )
+            // InternalXtextTest.g:4978:1: ( ( rule__ReplacePatterns__RegexAssignment_0 ) )
+            // InternalXtextTest.g:4979:1: ( rule__ReplacePatterns__RegexAssignment_0 )
             {
              before(grammarAccess.getReplacePatternsAccess().getRegexAssignment_0()); 
-            // InternalXtextTest.g:4952:1: ( rule__ReplacePatterns__RegexAssignment_0 )
-            // InternalXtextTest.g:4952:2: rule__ReplacePatterns__RegexAssignment_0
+            // InternalXtextTest.g:4980:1: ( rule__ReplacePatterns__RegexAssignment_0 )
+            // InternalXtextTest.g:4980:2: rule__ReplacePatterns__RegexAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__ReplacePatterns__RegexAssignment_0();
@@ -12021,14 +12112,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ReplacePatterns__Group__1"
-    // InternalXtextTest.g:4964:1: rule__ReplacePatterns__Group__1 : rule__ReplacePatterns__Group__1__Impl rule__ReplacePatterns__Group__2 ;
+    // InternalXtextTest.g:4992:1: rule__ReplacePatterns__Group__1 : rule__ReplacePatterns__Group__1__Impl rule__ReplacePatterns__Group__2 ;
     public final void rule__ReplacePatterns__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4968:1: ( rule__ReplacePatterns__Group__1__Impl rule__ReplacePatterns__Group__2 )
-            // InternalXtextTest.g:4969:2: rule__ReplacePatterns__Group__1__Impl rule__ReplacePatterns__Group__2
+            // InternalXtextTest.g:4996:1: ( rule__ReplacePatterns__Group__1__Impl rule__ReplacePatterns__Group__2 )
+            // InternalXtextTest.g:4997:2: rule__ReplacePatterns__Group__1__Impl rule__ReplacePatterns__Group__2
             {
             pushFollow(FOLLOW_18);
             rule__ReplacePatterns__Group__1__Impl();
@@ -12059,17 +12150,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ReplacePatterns__Group__1__Impl"
-    // InternalXtextTest.g:4976:1: rule__ReplacePatterns__Group__1__Impl : ( RULE_ASSIGNASSINGLE ) ;
+    // InternalXtextTest.g:5004:1: rule__ReplacePatterns__Group__1__Impl : ( RULE_ASSIGNASSINGLE ) ;
     public final void rule__ReplacePatterns__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:4980:1: ( ( RULE_ASSIGNASSINGLE ) )
-            // InternalXtextTest.g:4982:1: ( RULE_ASSIGNASSINGLE )
+            // InternalXtextTest.g:5008:1: ( ( RULE_ASSIGNASSINGLE ) )
+            // InternalXtextTest.g:5010:1: ( RULE_ASSIGNASSINGLE )
             {
-            // InternalXtextTest.g:4982:1: ( RULE_ASSIGNASSINGLE )
-            // InternalXtextTest.g:4983:1: RULE_ASSIGNASSINGLE
+            // InternalXtextTest.g:5010:1: ( RULE_ASSIGNASSINGLE )
+            // InternalXtextTest.g:5011:1: RULE_ASSIGNASSINGLE
             {
              before(grammarAccess.getReplacePatternsAccess().getASSIGNASSINGLETerminalRuleCall_1()); 
             match(input,RULE_ASSIGNASSINGLE,FOLLOW_2); 
@@ -12096,14 +12187,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ReplacePatterns__Group__2"
-    // InternalXtextTest.g:4996:1: rule__ReplacePatterns__Group__2 : rule__ReplacePatterns__Group__2__Impl ;
+    // InternalXtextTest.g:5024:1: rule__ReplacePatterns__Group__2 : rule__ReplacePatterns__Group__2__Impl ;
     public final void rule__ReplacePatterns__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5000:1: ( rule__ReplacePatterns__Group__2__Impl )
-            // InternalXtextTest.g:5001:2: rule__ReplacePatterns__Group__2__Impl
+            // InternalXtextTest.g:5028:1: ( rule__ReplacePatterns__Group__2__Impl )
+            // InternalXtextTest.g:5029:2: rule__ReplacePatterns__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ReplacePatterns__Group__2__Impl();
@@ -12129,21 +12220,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ReplacePatterns__Group__2__Impl"
-    // InternalXtextTest.g:5007:1: rule__ReplacePatterns__Group__2__Impl : ( ( rule__ReplacePatterns__ReplaceAssignment_2 ) ) ;
+    // InternalXtextTest.g:5035:1: rule__ReplacePatterns__Group__2__Impl : ( ( rule__ReplacePatterns__ReplaceAssignment_2 ) ) ;
     public final void rule__ReplacePatterns__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5011:1: ( ( ( rule__ReplacePatterns__ReplaceAssignment_2 ) ) )
-            // InternalXtextTest.g:5013:1: ( ( rule__ReplacePatterns__ReplaceAssignment_2 ) )
+            // InternalXtextTest.g:5039:1: ( ( ( rule__ReplacePatterns__ReplaceAssignment_2 ) ) )
+            // InternalXtextTest.g:5041:1: ( ( rule__ReplacePatterns__ReplaceAssignment_2 ) )
             {
-            // InternalXtextTest.g:5013:1: ( ( rule__ReplacePatterns__ReplaceAssignment_2 ) )
-            // InternalXtextTest.g:5014:1: ( rule__ReplacePatterns__ReplaceAssignment_2 )
+            // InternalXtextTest.g:5041:1: ( ( rule__ReplacePatterns__ReplaceAssignment_2 ) )
+            // InternalXtextTest.g:5042:1: ( rule__ReplacePatterns__ReplaceAssignment_2 )
             {
              before(grammarAccess.getReplacePatternsAccess().getReplaceAssignment_2()); 
-            // InternalXtextTest.g:5015:1: ( rule__ReplacePatterns__ReplaceAssignment_2 )
-            // InternalXtextTest.g:5015:2: rule__ReplacePatterns__ReplaceAssignment_2
+            // InternalXtextTest.g:5043:1: ( rule__ReplacePatterns__ReplaceAssignment_2 )
+            // InternalXtextTest.g:5043:2: rule__ReplacePatterns__ReplaceAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__ReplacePatterns__ReplaceAssignment_2();
@@ -12176,16 +12267,16 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Before__Group__0"
-    // InternalXtextTest.g:5033:1: rule__Before__Group__0 : rule__Before__Group__0__Impl rule__Before__Group__1 ;
+    // InternalXtextTest.g:5061:1: rule__Before__Group__0 : rule__Before__Group__0__Impl rule__Before__Group__1 ;
     public final void rule__Before__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5037:1: ( rule__Before__Group__0__Impl rule__Before__Group__1 )
-            // InternalXtextTest.g:5038:2: rule__Before__Group__0__Impl rule__Before__Group__1
+            // InternalXtextTest.g:5065:1: ( rule__Before__Group__0__Impl rule__Before__Group__1 )
+            // InternalXtextTest.g:5066:2: rule__Before__Group__0__Impl rule__Before__Group__1
             {
-            pushFollow(FOLLOW_40);
+            pushFollow(FOLLOW_41);
             rule__Before__Group__0__Impl();
 
             state._fsp--;
@@ -12214,21 +12305,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Before__Group__0__Impl"
-    // InternalXtextTest.g:5045:1: rule__Before__Group__0__Impl : ( () ) ;
+    // InternalXtextTest.g:5073:1: rule__Before__Group__0__Impl : ( () ) ;
     public final void rule__Before__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5049:1: ( ( () ) )
-            // InternalXtextTest.g:5051:1: ( () )
+            // InternalXtextTest.g:5077:1: ( ( () ) )
+            // InternalXtextTest.g:5079:1: ( () )
             {
-            // InternalXtextTest.g:5051:1: ( () )
-            // InternalXtextTest.g:5052:1: ()
+            // InternalXtextTest.g:5079:1: ( () )
+            // InternalXtextTest.g:5080:1: ()
             {
              before(grammarAccess.getBeforeAccess().getBeforeAction_0()); 
-            // InternalXtextTest.g:5053:1: ()
-            // InternalXtextTest.g:5055:1: 
+            // InternalXtextTest.g:5081:1: ()
+            // InternalXtextTest.g:5083:1: 
             {
             }
 
@@ -12251,14 +12342,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Before__Group__1"
-    // InternalXtextTest.g:5067:1: rule__Before__Group__1 : rule__Before__Group__1__Impl rule__Before__Group__2 ;
+    // InternalXtextTest.g:5095:1: rule__Before__Group__1 : rule__Before__Group__1__Impl rule__Before__Group__2 ;
     public final void rule__Before__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5071:1: ( rule__Before__Group__1__Impl rule__Before__Group__2 )
-            // InternalXtextTest.g:5072:2: rule__Before__Group__1__Impl rule__Before__Group__2
+            // InternalXtextTest.g:5099:1: ( rule__Before__Group__1__Impl rule__Before__Group__2 )
+            // InternalXtextTest.g:5100:2: rule__Before__Group__1__Impl rule__Before__Group__2
             {
             pushFollow(FOLLOW_13);
             rule__Before__Group__1__Impl();
@@ -12289,17 +12380,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Before__Group__1__Impl"
-    // InternalXtextTest.g:5079:1: rule__Before__Group__1__Impl : ( RULE_BEFORE_KW ) ;
+    // InternalXtextTest.g:5107:1: rule__Before__Group__1__Impl : ( RULE_BEFORE_KW ) ;
     public final void rule__Before__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5083:1: ( ( RULE_BEFORE_KW ) )
-            // InternalXtextTest.g:5085:1: ( RULE_BEFORE_KW )
+            // InternalXtextTest.g:5111:1: ( ( RULE_BEFORE_KW ) )
+            // InternalXtextTest.g:5113:1: ( RULE_BEFORE_KW )
             {
-            // InternalXtextTest.g:5085:1: ( RULE_BEFORE_KW )
-            // InternalXtextTest.g:5086:1: RULE_BEFORE_KW
+            // InternalXtextTest.g:5113:1: ( RULE_BEFORE_KW )
+            // InternalXtextTest.g:5114:1: RULE_BEFORE_KW
             {
              before(grammarAccess.getBeforeAccess().getBEFORE_KWTerminalRuleCall_1()); 
             match(input,RULE_BEFORE_KW,FOLLOW_2); 
@@ -12326,14 +12417,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Before__Group__2"
-    // InternalXtextTest.g:5099:1: rule__Before__Group__2 : rule__Before__Group__2__Impl ;
+    // InternalXtextTest.g:5127:1: rule__Before__Group__2 : rule__Before__Group__2__Impl ;
     public final void rule__Before__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5103:1: ( rule__Before__Group__2__Impl )
-            // InternalXtextTest.g:5104:2: rule__Before__Group__2__Impl
+            // InternalXtextTest.g:5131:1: ( rule__Before__Group__2__Impl )
+            // InternalXtextTest.g:5132:2: rule__Before__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Before__Group__2__Impl();
@@ -12359,21 +12450,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Before__Group__2__Impl"
-    // InternalXtextTest.g:5110:1: rule__Before__Group__2__Impl : ( ( rule__Before__CodeCallAssignment_2 ) ) ;
+    // InternalXtextTest.g:5138:1: rule__Before__Group__2__Impl : ( ( rule__Before__CodeCallAssignment_2 ) ) ;
     public final void rule__Before__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5114:1: ( ( ( rule__Before__CodeCallAssignment_2 ) ) )
-            // InternalXtextTest.g:5116:1: ( ( rule__Before__CodeCallAssignment_2 ) )
+            // InternalXtextTest.g:5142:1: ( ( ( rule__Before__CodeCallAssignment_2 ) ) )
+            // InternalXtextTest.g:5144:1: ( ( rule__Before__CodeCallAssignment_2 ) )
             {
-            // InternalXtextTest.g:5116:1: ( ( rule__Before__CodeCallAssignment_2 ) )
-            // InternalXtextTest.g:5117:1: ( rule__Before__CodeCallAssignment_2 )
+            // InternalXtextTest.g:5144:1: ( ( rule__Before__CodeCallAssignment_2 ) )
+            // InternalXtextTest.g:5145:1: ( rule__Before__CodeCallAssignment_2 )
             {
              before(grammarAccess.getBeforeAccess().getCodeCallAssignment_2()); 
-            // InternalXtextTest.g:5118:1: ( rule__Before__CodeCallAssignment_2 )
-            // InternalXtextTest.g:5118:2: rule__Before__CodeCallAssignment_2
+            // InternalXtextTest.g:5146:1: ( rule__Before__CodeCallAssignment_2 )
+            // InternalXtextTest.g:5146:2: rule__Before__CodeCallAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__Before__CodeCallAssignment_2();
@@ -12406,16 +12497,16 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__After__Group__0"
-    // InternalXtextTest.g:5136:1: rule__After__Group__0 : rule__After__Group__0__Impl rule__After__Group__1 ;
+    // InternalXtextTest.g:5164:1: rule__After__Group__0 : rule__After__Group__0__Impl rule__After__Group__1 ;
     public final void rule__After__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5140:1: ( rule__After__Group__0__Impl rule__After__Group__1 )
-            // InternalXtextTest.g:5141:2: rule__After__Group__0__Impl rule__After__Group__1
+            // InternalXtextTest.g:5168:1: ( rule__After__Group__0__Impl rule__After__Group__1 )
+            // InternalXtextTest.g:5169:2: rule__After__Group__0__Impl rule__After__Group__1
             {
-            pushFollow(FOLLOW_41);
+            pushFollow(FOLLOW_42);
             rule__After__Group__0__Impl();
 
             state._fsp--;
@@ -12444,21 +12535,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__After__Group__0__Impl"
-    // InternalXtextTest.g:5148:1: rule__After__Group__0__Impl : ( () ) ;
+    // InternalXtextTest.g:5176:1: rule__After__Group__0__Impl : ( () ) ;
     public final void rule__After__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5152:1: ( ( () ) )
-            // InternalXtextTest.g:5154:1: ( () )
+            // InternalXtextTest.g:5180:1: ( ( () ) )
+            // InternalXtextTest.g:5182:1: ( () )
             {
-            // InternalXtextTest.g:5154:1: ( () )
-            // InternalXtextTest.g:5155:1: ()
+            // InternalXtextTest.g:5182:1: ( () )
+            // InternalXtextTest.g:5183:1: ()
             {
              before(grammarAccess.getAfterAccess().getAfterAction_0()); 
-            // InternalXtextTest.g:5156:1: ()
-            // InternalXtextTest.g:5158:1: 
+            // InternalXtextTest.g:5184:1: ()
+            // InternalXtextTest.g:5186:1: 
             {
             }
 
@@ -12481,14 +12572,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__After__Group__1"
-    // InternalXtextTest.g:5170:1: rule__After__Group__1 : rule__After__Group__1__Impl rule__After__Group__2 ;
+    // InternalXtextTest.g:5198:1: rule__After__Group__1 : rule__After__Group__1__Impl rule__After__Group__2 ;
     public final void rule__After__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5174:1: ( rule__After__Group__1__Impl rule__After__Group__2 )
-            // InternalXtextTest.g:5175:2: rule__After__Group__1__Impl rule__After__Group__2
+            // InternalXtextTest.g:5202:1: ( rule__After__Group__1__Impl rule__After__Group__2 )
+            // InternalXtextTest.g:5203:2: rule__After__Group__1__Impl rule__After__Group__2
             {
             pushFollow(FOLLOW_13);
             rule__After__Group__1__Impl();
@@ -12519,17 +12610,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__After__Group__1__Impl"
-    // InternalXtextTest.g:5182:1: rule__After__Group__1__Impl : ( RULE_AFTER_KW ) ;
+    // InternalXtextTest.g:5210:1: rule__After__Group__1__Impl : ( RULE_AFTER_KW ) ;
     public final void rule__After__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5186:1: ( ( RULE_AFTER_KW ) )
-            // InternalXtextTest.g:5188:1: ( RULE_AFTER_KW )
+            // InternalXtextTest.g:5214:1: ( ( RULE_AFTER_KW ) )
+            // InternalXtextTest.g:5216:1: ( RULE_AFTER_KW )
             {
-            // InternalXtextTest.g:5188:1: ( RULE_AFTER_KW )
-            // InternalXtextTest.g:5189:1: RULE_AFTER_KW
+            // InternalXtextTest.g:5216:1: ( RULE_AFTER_KW )
+            // InternalXtextTest.g:5217:1: RULE_AFTER_KW
             {
              before(grammarAccess.getAfterAccess().getAFTER_KWTerminalRuleCall_1()); 
             match(input,RULE_AFTER_KW,FOLLOW_2); 
@@ -12556,14 +12647,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__After__Group__2"
-    // InternalXtextTest.g:5202:1: rule__After__Group__2 : rule__After__Group__2__Impl ;
+    // InternalXtextTest.g:5230:1: rule__After__Group__2 : rule__After__Group__2__Impl ;
     public final void rule__After__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5206:1: ( rule__After__Group__2__Impl )
-            // InternalXtextTest.g:5207:2: rule__After__Group__2__Impl
+            // InternalXtextTest.g:5234:1: ( rule__After__Group__2__Impl )
+            // InternalXtextTest.g:5235:2: rule__After__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__After__Group__2__Impl();
@@ -12589,21 +12680,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__After__Group__2__Impl"
-    // InternalXtextTest.g:5213:1: rule__After__Group__2__Impl : ( ( rule__After__CodeCallAssignment_2 ) ) ;
+    // InternalXtextTest.g:5241:1: rule__After__Group__2__Impl : ( ( rule__After__CodeCallAssignment_2 ) ) ;
     public final void rule__After__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5217:1: ( ( ( rule__After__CodeCallAssignment_2 ) ) )
-            // InternalXtextTest.g:5219:1: ( ( rule__After__CodeCallAssignment_2 ) )
+            // InternalXtextTest.g:5245:1: ( ( ( rule__After__CodeCallAssignment_2 ) ) )
+            // InternalXtextTest.g:5247:1: ( ( rule__After__CodeCallAssignment_2 ) )
             {
-            // InternalXtextTest.g:5219:1: ( ( rule__After__CodeCallAssignment_2 ) )
-            // InternalXtextTest.g:5220:1: ( rule__After__CodeCallAssignment_2 )
+            // InternalXtextTest.g:5247:1: ( ( rule__After__CodeCallAssignment_2 ) )
+            // InternalXtextTest.g:5248:1: ( rule__After__CodeCallAssignment_2 )
             {
              before(grammarAccess.getAfterAccess().getCodeCallAssignment_2()); 
-            // InternalXtextTest.g:5221:1: ( rule__After__CodeCallAssignment_2 )
-            // InternalXtextTest.g:5221:2: rule__After__CodeCallAssignment_2
+            // InternalXtextTest.g:5249:1: ( rule__After__CodeCallAssignment_2 )
+            // InternalXtextTest.g:5249:2: rule__After__CodeCallAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__After__CodeCallAssignment_2();
@@ -12636,14 +12727,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__CodeCall__Group__0"
-    // InternalXtextTest.g:5239:1: rule__CodeCall__Group__0 : rule__CodeCall__Group__0__Impl rule__CodeCall__Group__1 ;
+    // InternalXtextTest.g:5267:1: rule__CodeCall__Group__0 : rule__CodeCall__Group__0__Impl rule__CodeCall__Group__1 ;
     public final void rule__CodeCall__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5243:1: ( rule__CodeCall__Group__0__Impl rule__CodeCall__Group__1 )
-            // InternalXtextTest.g:5244:2: rule__CodeCall__Group__0__Impl rule__CodeCall__Group__1
+            // InternalXtextTest.g:5271:1: ( rule__CodeCall__Group__0__Impl rule__CodeCall__Group__1 )
+            // InternalXtextTest.g:5272:2: rule__CodeCall__Group__0__Impl rule__CodeCall__Group__1
             {
             pushFollow(FOLLOW_13);
             rule__CodeCall__Group__0__Impl();
@@ -12674,21 +12765,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__CodeCall__Group__0__Impl"
-    // InternalXtextTest.g:5251:1: rule__CodeCall__Group__0__Impl : ( () ) ;
+    // InternalXtextTest.g:5279:1: rule__CodeCall__Group__0__Impl : ( () ) ;
     public final void rule__CodeCall__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5255:1: ( ( () ) )
-            // InternalXtextTest.g:5257:1: ( () )
+            // InternalXtextTest.g:5283:1: ( ( () ) )
+            // InternalXtextTest.g:5285:1: ( () )
             {
-            // InternalXtextTest.g:5257:1: ( () )
-            // InternalXtextTest.g:5258:1: ()
+            // InternalXtextTest.g:5285:1: ( () )
+            // InternalXtextTest.g:5286:1: ()
             {
              before(grammarAccess.getCodeCallAccess().getCodeCallAction_0()); 
-            // InternalXtextTest.g:5259:1: ()
-            // InternalXtextTest.g:5261:1: 
+            // InternalXtextTest.g:5287:1: ()
+            // InternalXtextTest.g:5289:1: 
             {
             }
 
@@ -12711,14 +12802,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__CodeCall__Group__1"
-    // InternalXtextTest.g:5273:1: rule__CodeCall__Group__1 : rule__CodeCall__Group__1__Impl rule__CodeCall__Group__2 ;
+    // InternalXtextTest.g:5301:1: rule__CodeCall__Group__1 : rule__CodeCall__Group__1__Impl rule__CodeCall__Group__2 ;
     public final void rule__CodeCall__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5277:1: ( rule__CodeCall__Group__1__Impl rule__CodeCall__Group__2 )
-            // InternalXtextTest.g:5278:2: rule__CodeCall__Group__1__Impl rule__CodeCall__Group__2
+            // InternalXtextTest.g:5305:1: ( rule__CodeCall__Group__1__Impl rule__CodeCall__Group__2 )
+            // InternalXtextTest.g:5306:2: rule__CodeCall__Group__1__Impl rule__CodeCall__Group__2
             {
             pushFollow(FOLLOW_10);
             rule__CodeCall__Group__1__Impl();
@@ -12749,17 +12840,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__CodeCall__Group__1__Impl"
-    // InternalXtextTest.g:5285:1: rule__CodeCall__Group__1__Impl : ( RULE_CLASS_KW ) ;
+    // InternalXtextTest.g:5313:1: rule__CodeCall__Group__1__Impl : ( RULE_CLASS_KW ) ;
     public final void rule__CodeCall__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5289:1: ( ( RULE_CLASS_KW ) )
-            // InternalXtextTest.g:5291:1: ( RULE_CLASS_KW )
+            // InternalXtextTest.g:5317:1: ( ( RULE_CLASS_KW ) )
+            // InternalXtextTest.g:5319:1: ( RULE_CLASS_KW )
             {
-            // InternalXtextTest.g:5291:1: ( RULE_CLASS_KW )
-            // InternalXtextTest.g:5292:1: RULE_CLASS_KW
+            // InternalXtextTest.g:5319:1: ( RULE_CLASS_KW )
+            // InternalXtextTest.g:5320:1: RULE_CLASS_KW
             {
              before(grammarAccess.getCodeCallAccess().getCLASS_KWTerminalRuleCall_1()); 
             match(input,RULE_CLASS_KW,FOLLOW_2); 
@@ -12786,14 +12877,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__CodeCall__Group__2"
-    // InternalXtextTest.g:5305:1: rule__CodeCall__Group__2 : rule__CodeCall__Group__2__Impl rule__CodeCall__Group__3 ;
+    // InternalXtextTest.g:5333:1: rule__CodeCall__Group__2 : rule__CodeCall__Group__2__Impl rule__CodeCall__Group__3 ;
     public final void rule__CodeCall__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5309:1: ( rule__CodeCall__Group__2__Impl rule__CodeCall__Group__3 )
-            // InternalXtextTest.g:5310:2: rule__CodeCall__Group__2__Impl rule__CodeCall__Group__3
+            // InternalXtextTest.g:5337:1: ( rule__CodeCall__Group__2__Impl rule__CodeCall__Group__3 )
+            // InternalXtextTest.g:5338:2: rule__CodeCall__Group__2__Impl rule__CodeCall__Group__3
             {
             pushFollow(FOLLOW_5);
             rule__CodeCall__Group__2__Impl();
@@ -12824,17 +12915,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__CodeCall__Group__2__Impl"
-    // InternalXtextTest.g:5317:1: rule__CodeCall__Group__2__Impl : ( RULE_ASSIGNASSINGLE ) ;
+    // InternalXtextTest.g:5345:1: rule__CodeCall__Group__2__Impl : ( RULE_ASSIGNASSINGLE ) ;
     public final void rule__CodeCall__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5321:1: ( ( RULE_ASSIGNASSINGLE ) )
-            // InternalXtextTest.g:5323:1: ( RULE_ASSIGNASSINGLE )
+            // InternalXtextTest.g:5349:1: ( ( RULE_ASSIGNASSINGLE ) )
+            // InternalXtextTest.g:5351:1: ( RULE_ASSIGNASSINGLE )
             {
-            // InternalXtextTest.g:5323:1: ( RULE_ASSIGNASSINGLE )
-            // InternalXtextTest.g:5324:1: RULE_ASSIGNASSINGLE
+            // InternalXtextTest.g:5351:1: ( RULE_ASSIGNASSINGLE )
+            // InternalXtextTest.g:5352:1: RULE_ASSIGNASSINGLE
             {
              before(grammarAccess.getCodeCallAccess().getASSIGNASSINGLETerminalRuleCall_2()); 
             match(input,RULE_ASSIGNASSINGLE,FOLLOW_2); 
@@ -12861,16 +12952,16 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__CodeCall__Group__3"
-    // InternalXtextTest.g:5337:1: rule__CodeCall__Group__3 : rule__CodeCall__Group__3__Impl rule__CodeCall__Group__4 ;
+    // InternalXtextTest.g:5365:1: rule__CodeCall__Group__3 : rule__CodeCall__Group__3__Impl rule__CodeCall__Group__4 ;
     public final void rule__CodeCall__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5341:1: ( rule__CodeCall__Group__3__Impl rule__CodeCall__Group__4 )
-            // InternalXtextTest.g:5342:2: rule__CodeCall__Group__3__Impl rule__CodeCall__Group__4
+            // InternalXtextTest.g:5369:1: ( rule__CodeCall__Group__3__Impl rule__CodeCall__Group__4 )
+            // InternalXtextTest.g:5370:2: rule__CodeCall__Group__3__Impl rule__CodeCall__Group__4
             {
-            pushFollow(FOLLOW_42);
+            pushFollow(FOLLOW_43);
             rule__CodeCall__Group__3__Impl();
 
             state._fsp--;
@@ -12899,21 +12990,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__CodeCall__Group__3__Impl"
-    // InternalXtextTest.g:5349:1: rule__CodeCall__Group__3__Impl : ( ( rule__CodeCall__MyclassAssignment_3 ) ) ;
+    // InternalXtextTest.g:5377:1: rule__CodeCall__Group__3__Impl : ( ( rule__CodeCall__MyclassAssignment_3 ) ) ;
     public final void rule__CodeCall__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5353:1: ( ( ( rule__CodeCall__MyclassAssignment_3 ) ) )
-            // InternalXtextTest.g:5355:1: ( ( rule__CodeCall__MyclassAssignment_3 ) )
+            // InternalXtextTest.g:5381:1: ( ( ( rule__CodeCall__MyclassAssignment_3 ) ) )
+            // InternalXtextTest.g:5383:1: ( ( rule__CodeCall__MyclassAssignment_3 ) )
             {
-            // InternalXtextTest.g:5355:1: ( ( rule__CodeCall__MyclassAssignment_3 ) )
-            // InternalXtextTest.g:5356:1: ( rule__CodeCall__MyclassAssignment_3 )
+            // InternalXtextTest.g:5383:1: ( ( rule__CodeCall__MyclassAssignment_3 ) )
+            // InternalXtextTest.g:5384:1: ( rule__CodeCall__MyclassAssignment_3 )
             {
              before(grammarAccess.getCodeCallAccess().getMyclassAssignment_3()); 
-            // InternalXtextTest.g:5357:1: ( rule__CodeCall__MyclassAssignment_3 )
-            // InternalXtextTest.g:5357:2: rule__CodeCall__MyclassAssignment_3
+            // InternalXtextTest.g:5385:1: ( rule__CodeCall__MyclassAssignment_3 )
+            // InternalXtextTest.g:5385:2: rule__CodeCall__MyclassAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__CodeCall__MyclassAssignment_3();
@@ -12946,14 +13037,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__CodeCall__Group__4"
-    // InternalXtextTest.g:5369:1: rule__CodeCall__Group__4 : rule__CodeCall__Group__4__Impl rule__CodeCall__Group__5 ;
+    // InternalXtextTest.g:5397:1: rule__CodeCall__Group__4 : rule__CodeCall__Group__4__Impl rule__CodeCall__Group__5 ;
     public final void rule__CodeCall__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5373:1: ( rule__CodeCall__Group__4__Impl rule__CodeCall__Group__5 )
-            // InternalXtextTest.g:5374:2: rule__CodeCall__Group__4__Impl rule__CodeCall__Group__5
+            // InternalXtextTest.g:5401:1: ( rule__CodeCall__Group__4__Impl rule__CodeCall__Group__5 )
+            // InternalXtextTest.g:5402:2: rule__CodeCall__Group__4__Impl rule__CodeCall__Group__5
             {
             pushFollow(FOLLOW_10);
             rule__CodeCall__Group__4__Impl();
@@ -12984,17 +13075,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__CodeCall__Group__4__Impl"
-    // InternalXtextTest.g:5381:1: rule__CodeCall__Group__4__Impl : ( RULE_METHOD_KW ) ;
+    // InternalXtextTest.g:5409:1: rule__CodeCall__Group__4__Impl : ( RULE_METHOD_KW ) ;
     public final void rule__CodeCall__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5385:1: ( ( RULE_METHOD_KW ) )
-            // InternalXtextTest.g:5387:1: ( RULE_METHOD_KW )
+            // InternalXtextTest.g:5413:1: ( ( RULE_METHOD_KW ) )
+            // InternalXtextTest.g:5415:1: ( RULE_METHOD_KW )
             {
-            // InternalXtextTest.g:5387:1: ( RULE_METHOD_KW )
-            // InternalXtextTest.g:5388:1: RULE_METHOD_KW
+            // InternalXtextTest.g:5415:1: ( RULE_METHOD_KW )
+            // InternalXtextTest.g:5416:1: RULE_METHOD_KW
             {
              before(grammarAccess.getCodeCallAccess().getMETHOD_KWTerminalRuleCall_4()); 
             match(input,RULE_METHOD_KW,FOLLOW_2); 
@@ -13021,14 +13112,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__CodeCall__Group__5"
-    // InternalXtextTest.g:5401:1: rule__CodeCall__Group__5 : rule__CodeCall__Group__5__Impl rule__CodeCall__Group__6 ;
+    // InternalXtextTest.g:5429:1: rule__CodeCall__Group__5 : rule__CodeCall__Group__5__Impl rule__CodeCall__Group__6 ;
     public final void rule__CodeCall__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5405:1: ( rule__CodeCall__Group__5__Impl rule__CodeCall__Group__6 )
-            // InternalXtextTest.g:5406:2: rule__CodeCall__Group__5__Impl rule__CodeCall__Group__6
+            // InternalXtextTest.g:5433:1: ( rule__CodeCall__Group__5__Impl rule__CodeCall__Group__6 )
+            // InternalXtextTest.g:5434:2: rule__CodeCall__Group__5__Impl rule__CodeCall__Group__6
             {
             pushFollow(FOLLOW_5);
             rule__CodeCall__Group__5__Impl();
@@ -13059,17 +13150,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__CodeCall__Group__5__Impl"
-    // InternalXtextTest.g:5413:1: rule__CodeCall__Group__5__Impl : ( RULE_ASSIGNASSINGLE ) ;
+    // InternalXtextTest.g:5441:1: rule__CodeCall__Group__5__Impl : ( RULE_ASSIGNASSINGLE ) ;
     public final void rule__CodeCall__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5417:1: ( ( RULE_ASSIGNASSINGLE ) )
-            // InternalXtextTest.g:5419:1: ( RULE_ASSIGNASSINGLE )
+            // InternalXtextTest.g:5445:1: ( ( RULE_ASSIGNASSINGLE ) )
+            // InternalXtextTest.g:5447:1: ( RULE_ASSIGNASSINGLE )
             {
-            // InternalXtextTest.g:5419:1: ( RULE_ASSIGNASSINGLE )
-            // InternalXtextTest.g:5420:1: RULE_ASSIGNASSINGLE
+            // InternalXtextTest.g:5447:1: ( RULE_ASSIGNASSINGLE )
+            // InternalXtextTest.g:5448:1: RULE_ASSIGNASSINGLE
             {
              before(grammarAccess.getCodeCallAccess().getASSIGNASSINGLETerminalRuleCall_5()); 
             match(input,RULE_ASSIGNASSINGLE,FOLLOW_2); 
@@ -13096,16 +13187,16 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__CodeCall__Group__6"
-    // InternalXtextTest.g:5433:1: rule__CodeCall__Group__6 : rule__CodeCall__Group__6__Impl rule__CodeCall__Group__7 ;
+    // InternalXtextTest.g:5461:1: rule__CodeCall__Group__6 : rule__CodeCall__Group__6__Impl rule__CodeCall__Group__7 ;
     public final void rule__CodeCall__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5437:1: ( rule__CodeCall__Group__6__Impl rule__CodeCall__Group__7 )
-            // InternalXtextTest.g:5438:2: rule__CodeCall__Group__6__Impl rule__CodeCall__Group__7
+            // InternalXtextTest.g:5465:1: ( rule__CodeCall__Group__6__Impl rule__CodeCall__Group__7 )
+            // InternalXtextTest.g:5466:2: rule__CodeCall__Group__6__Impl rule__CodeCall__Group__7
             {
-            pushFollow(FOLLOW_43);
+            pushFollow(FOLLOW_44);
             rule__CodeCall__Group__6__Impl();
 
             state._fsp--;
@@ -13134,21 +13225,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__CodeCall__Group__6__Impl"
-    // InternalXtextTest.g:5445:1: rule__CodeCall__Group__6__Impl : ( ( rule__CodeCall__MethodAssignment_6 ) ) ;
+    // InternalXtextTest.g:5473:1: rule__CodeCall__Group__6__Impl : ( ( rule__CodeCall__MethodAssignment_6 ) ) ;
     public final void rule__CodeCall__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5449:1: ( ( ( rule__CodeCall__MethodAssignment_6 ) ) )
-            // InternalXtextTest.g:5451:1: ( ( rule__CodeCall__MethodAssignment_6 ) )
+            // InternalXtextTest.g:5477:1: ( ( ( rule__CodeCall__MethodAssignment_6 ) ) )
+            // InternalXtextTest.g:5479:1: ( ( rule__CodeCall__MethodAssignment_6 ) )
             {
-            // InternalXtextTest.g:5451:1: ( ( rule__CodeCall__MethodAssignment_6 ) )
-            // InternalXtextTest.g:5452:1: ( rule__CodeCall__MethodAssignment_6 )
+            // InternalXtextTest.g:5479:1: ( ( rule__CodeCall__MethodAssignment_6 ) )
+            // InternalXtextTest.g:5480:1: ( rule__CodeCall__MethodAssignment_6 )
             {
              before(grammarAccess.getCodeCallAccess().getMethodAssignment_6()); 
-            // InternalXtextTest.g:5453:1: ( rule__CodeCall__MethodAssignment_6 )
-            // InternalXtextTest.g:5453:2: rule__CodeCall__MethodAssignment_6
+            // InternalXtextTest.g:5481:1: ( rule__CodeCall__MethodAssignment_6 )
+            // InternalXtextTest.g:5481:2: rule__CodeCall__MethodAssignment_6
             {
             pushFollow(FOLLOW_2);
             rule__CodeCall__MethodAssignment_6();
@@ -13181,14 +13272,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__CodeCall__Group__7"
-    // InternalXtextTest.g:5465:1: rule__CodeCall__Group__7 : rule__CodeCall__Group__7__Impl ;
+    // InternalXtextTest.g:5493:1: rule__CodeCall__Group__7 : rule__CodeCall__Group__7__Impl ;
     public final void rule__CodeCall__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5469:1: ( rule__CodeCall__Group__7__Impl )
-            // InternalXtextTest.g:5470:2: rule__CodeCall__Group__7__Impl
+            // InternalXtextTest.g:5497:1: ( rule__CodeCall__Group__7__Impl )
+            // InternalXtextTest.g:5498:2: rule__CodeCall__Group__7__Impl
             {
             pushFollow(FOLLOW_2);
             rule__CodeCall__Group__7__Impl();
@@ -13214,21 +13305,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__CodeCall__Group__7__Impl"
-    // InternalXtextTest.g:5476:1: rule__CodeCall__Group__7__Impl : ( ( rule__CodeCall__Group_7__0 ) ) ;
+    // InternalXtextTest.g:5504:1: rule__CodeCall__Group__7__Impl : ( ( rule__CodeCall__Group_7__0 ) ) ;
     public final void rule__CodeCall__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5480:1: ( ( ( rule__CodeCall__Group_7__0 ) ) )
-            // InternalXtextTest.g:5482:1: ( ( rule__CodeCall__Group_7__0 ) )
+            // InternalXtextTest.g:5508:1: ( ( ( rule__CodeCall__Group_7__0 ) ) )
+            // InternalXtextTest.g:5510:1: ( ( rule__CodeCall__Group_7__0 ) )
             {
-            // InternalXtextTest.g:5482:1: ( ( rule__CodeCall__Group_7__0 ) )
-            // InternalXtextTest.g:5483:1: ( rule__CodeCall__Group_7__0 )
+            // InternalXtextTest.g:5510:1: ( ( rule__CodeCall__Group_7__0 ) )
+            // InternalXtextTest.g:5511:1: ( rule__CodeCall__Group_7__0 )
             {
              before(grammarAccess.getCodeCallAccess().getGroup_7()); 
-            // InternalXtextTest.g:5484:1: ( rule__CodeCall__Group_7__0 )
-            // InternalXtextTest.g:5484:2: rule__CodeCall__Group_7__0
+            // InternalXtextTest.g:5512:1: ( rule__CodeCall__Group_7__0 )
+            // InternalXtextTest.g:5512:2: rule__CodeCall__Group_7__0
             {
             pushFollow(FOLLOW_2);
             rule__CodeCall__Group_7__0();
@@ -13261,16 +13352,16 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__CodeCall__Group_7__0"
-    // InternalXtextTest.g:5512:1: rule__CodeCall__Group_7__0 : rule__CodeCall__Group_7__0__Impl rule__CodeCall__Group_7__1 ;
+    // InternalXtextTest.g:5540:1: rule__CodeCall__Group_7__0 : rule__CodeCall__Group_7__0__Impl rule__CodeCall__Group_7__1 ;
     public final void rule__CodeCall__Group_7__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5516:1: ( rule__CodeCall__Group_7__0__Impl rule__CodeCall__Group_7__1 )
-            // InternalXtextTest.g:5517:2: rule__CodeCall__Group_7__0__Impl rule__CodeCall__Group_7__1
+            // InternalXtextTest.g:5544:1: ( rule__CodeCall__Group_7__0__Impl rule__CodeCall__Group_7__1 )
+            // InternalXtextTest.g:5545:2: rule__CodeCall__Group_7__0__Impl rule__CodeCall__Group_7__1
             {
-            pushFollow(FOLLOW_28);
+            pushFollow(FOLLOW_29);
             rule__CodeCall__Group_7__0__Impl();
 
             state._fsp--;
@@ -13299,17 +13390,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__CodeCall__Group_7__0__Impl"
-    // InternalXtextTest.g:5524:1: rule__CodeCall__Group_7__0__Impl : ( RULE_LEFTPAREN ) ;
+    // InternalXtextTest.g:5552:1: rule__CodeCall__Group_7__0__Impl : ( RULE_LEFTPAREN ) ;
     public final void rule__CodeCall__Group_7__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5528:1: ( ( RULE_LEFTPAREN ) )
-            // InternalXtextTest.g:5530:1: ( RULE_LEFTPAREN )
+            // InternalXtextTest.g:5556:1: ( ( RULE_LEFTPAREN ) )
+            // InternalXtextTest.g:5558:1: ( RULE_LEFTPAREN )
             {
-            // InternalXtextTest.g:5530:1: ( RULE_LEFTPAREN )
-            // InternalXtextTest.g:5531:1: RULE_LEFTPAREN
+            // InternalXtextTest.g:5558:1: ( RULE_LEFTPAREN )
+            // InternalXtextTest.g:5559:1: RULE_LEFTPAREN
             {
              before(grammarAccess.getCodeCallAccess().getLEFTPARENTerminalRuleCall_7_0()); 
             match(input,RULE_LEFTPAREN,FOLLOW_2); 
@@ -13336,16 +13427,16 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__CodeCall__Group_7__1"
-    // InternalXtextTest.g:5544:1: rule__CodeCall__Group_7__1 : rule__CodeCall__Group_7__1__Impl rule__CodeCall__Group_7__2 ;
+    // InternalXtextTest.g:5572:1: rule__CodeCall__Group_7__1 : rule__CodeCall__Group_7__1__Impl rule__CodeCall__Group_7__2 ;
     public final void rule__CodeCall__Group_7__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5548:1: ( rule__CodeCall__Group_7__1__Impl rule__CodeCall__Group_7__2 )
-            // InternalXtextTest.g:5549:2: rule__CodeCall__Group_7__1__Impl rule__CodeCall__Group_7__2
+            // InternalXtextTest.g:5576:1: ( rule__CodeCall__Group_7__1__Impl rule__CodeCall__Group_7__2 )
+            // InternalXtextTest.g:5577:2: rule__CodeCall__Group_7__1__Impl rule__CodeCall__Group_7__2
             {
-            pushFollow(FOLLOW_28);
+            pushFollow(FOLLOW_29);
             rule__CodeCall__Group_7__1__Impl();
 
             state._fsp--;
@@ -13374,29 +13465,29 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__CodeCall__Group_7__1__Impl"
-    // InternalXtextTest.g:5556:1: rule__CodeCall__Group_7__1__Impl : ( ( rule__CodeCall__Group_7_1__0 )? ) ;
+    // InternalXtextTest.g:5584:1: rule__CodeCall__Group_7__1__Impl : ( ( rule__CodeCall__Group_7_1__0 )? ) ;
     public final void rule__CodeCall__Group_7__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5560:1: ( ( ( rule__CodeCall__Group_7_1__0 )? ) )
-            // InternalXtextTest.g:5562:1: ( ( rule__CodeCall__Group_7_1__0 )? )
+            // InternalXtextTest.g:5588:1: ( ( ( rule__CodeCall__Group_7_1__0 )? ) )
+            // InternalXtextTest.g:5590:1: ( ( rule__CodeCall__Group_7_1__0 )? )
             {
-            // InternalXtextTest.g:5562:1: ( ( rule__CodeCall__Group_7_1__0 )? )
-            // InternalXtextTest.g:5563:1: ( rule__CodeCall__Group_7_1__0 )?
+            // InternalXtextTest.g:5590:1: ( ( rule__CodeCall__Group_7_1__0 )? )
+            // InternalXtextTest.g:5591:1: ( rule__CodeCall__Group_7_1__0 )?
             {
              before(grammarAccess.getCodeCallAccess().getGroup_7_1()); 
-            // InternalXtextTest.g:5564:1: ( rule__CodeCall__Group_7_1__0 )?
-            int alt29=2;
-            int LA29_0 = input.LA(1);
+            // InternalXtextTest.g:5592:1: ( rule__CodeCall__Group_7_1__0 )?
+            int alt30=2;
+            int LA30_0 = input.LA(1);
 
-            if ( (LA29_0==RULE_IDENTIFIER) ) {
-                alt29=1;
+            if ( (LA30_0==RULE_IDENTIFIER) ) {
+                alt30=1;
             }
-            switch (alt29) {
+            switch (alt30) {
                 case 1 :
-                    // InternalXtextTest.g:5564:2: rule__CodeCall__Group_7_1__0
+                    // InternalXtextTest.g:5592:2: rule__CodeCall__Group_7_1__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__CodeCall__Group_7_1__0();
@@ -13432,14 +13523,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__CodeCall__Group_7__2"
-    // InternalXtextTest.g:5576:1: rule__CodeCall__Group_7__2 : rule__CodeCall__Group_7__2__Impl ;
+    // InternalXtextTest.g:5604:1: rule__CodeCall__Group_7__2 : rule__CodeCall__Group_7__2__Impl ;
     public final void rule__CodeCall__Group_7__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5580:1: ( rule__CodeCall__Group_7__2__Impl )
-            // InternalXtextTest.g:5581:2: rule__CodeCall__Group_7__2__Impl
+            // InternalXtextTest.g:5608:1: ( rule__CodeCall__Group_7__2__Impl )
+            // InternalXtextTest.g:5609:2: rule__CodeCall__Group_7__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__CodeCall__Group_7__2__Impl();
@@ -13465,17 +13556,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__CodeCall__Group_7__2__Impl"
-    // InternalXtextTest.g:5587:1: rule__CodeCall__Group_7__2__Impl : ( RULE_RIGHTPAREN ) ;
+    // InternalXtextTest.g:5615:1: rule__CodeCall__Group_7__2__Impl : ( RULE_RIGHTPAREN ) ;
     public final void rule__CodeCall__Group_7__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5591:1: ( ( RULE_RIGHTPAREN ) )
-            // InternalXtextTest.g:5593:1: ( RULE_RIGHTPAREN )
+            // InternalXtextTest.g:5619:1: ( ( RULE_RIGHTPAREN ) )
+            // InternalXtextTest.g:5621:1: ( RULE_RIGHTPAREN )
             {
-            // InternalXtextTest.g:5593:1: ( RULE_RIGHTPAREN )
-            // InternalXtextTest.g:5594:1: RULE_RIGHTPAREN
+            // InternalXtextTest.g:5621:1: ( RULE_RIGHTPAREN )
+            // InternalXtextTest.g:5622:1: RULE_RIGHTPAREN
             {
              before(grammarAccess.getCodeCallAccess().getRIGHTPARENTerminalRuleCall_7_2()); 
             match(input,RULE_RIGHTPAREN,FOLLOW_2); 
@@ -13502,16 +13593,16 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__CodeCall__Group_7_1__0"
-    // InternalXtextTest.g:5613:1: rule__CodeCall__Group_7_1__0 : rule__CodeCall__Group_7_1__0__Impl rule__CodeCall__Group_7_1__1 ;
+    // InternalXtextTest.g:5641:1: rule__CodeCall__Group_7_1__0 : rule__CodeCall__Group_7_1__0__Impl rule__CodeCall__Group_7_1__1 ;
     public final void rule__CodeCall__Group_7_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5617:1: ( rule__CodeCall__Group_7_1__0__Impl rule__CodeCall__Group_7_1__1 )
-            // InternalXtextTest.g:5618:2: rule__CodeCall__Group_7_1__0__Impl rule__CodeCall__Group_7_1__1
+            // InternalXtextTest.g:5645:1: ( rule__CodeCall__Group_7_1__0__Impl rule__CodeCall__Group_7_1__1 )
+            // InternalXtextTest.g:5646:2: rule__CodeCall__Group_7_1__0__Impl rule__CodeCall__Group_7_1__1
             {
-            pushFollow(FOLLOW_30);
+            pushFollow(FOLLOW_31);
             rule__CodeCall__Group_7_1__0__Impl();
 
             state._fsp--;
@@ -13540,21 +13631,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__CodeCall__Group_7_1__0__Impl"
-    // InternalXtextTest.g:5625:1: rule__CodeCall__Group_7_1__0__Impl : ( ( rule__CodeCall__ParamsAssignment_7_1_0 ) ) ;
+    // InternalXtextTest.g:5653:1: rule__CodeCall__Group_7_1__0__Impl : ( ( rule__CodeCall__ParamsAssignment_7_1_0 ) ) ;
     public final void rule__CodeCall__Group_7_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5629:1: ( ( ( rule__CodeCall__ParamsAssignment_7_1_0 ) ) )
-            // InternalXtextTest.g:5631:1: ( ( rule__CodeCall__ParamsAssignment_7_1_0 ) )
+            // InternalXtextTest.g:5657:1: ( ( ( rule__CodeCall__ParamsAssignment_7_1_0 ) ) )
+            // InternalXtextTest.g:5659:1: ( ( rule__CodeCall__ParamsAssignment_7_1_0 ) )
             {
-            // InternalXtextTest.g:5631:1: ( ( rule__CodeCall__ParamsAssignment_7_1_0 ) )
-            // InternalXtextTest.g:5632:1: ( rule__CodeCall__ParamsAssignment_7_1_0 )
+            // InternalXtextTest.g:5659:1: ( ( rule__CodeCall__ParamsAssignment_7_1_0 ) )
+            // InternalXtextTest.g:5660:1: ( rule__CodeCall__ParamsAssignment_7_1_0 )
             {
              before(grammarAccess.getCodeCallAccess().getParamsAssignment_7_1_0()); 
-            // InternalXtextTest.g:5633:1: ( rule__CodeCall__ParamsAssignment_7_1_0 )
-            // InternalXtextTest.g:5633:2: rule__CodeCall__ParamsAssignment_7_1_0
+            // InternalXtextTest.g:5661:1: ( rule__CodeCall__ParamsAssignment_7_1_0 )
+            // InternalXtextTest.g:5661:2: rule__CodeCall__ParamsAssignment_7_1_0
             {
             pushFollow(FOLLOW_2);
             rule__CodeCall__ParamsAssignment_7_1_0();
@@ -13587,14 +13678,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__CodeCall__Group_7_1__1"
-    // InternalXtextTest.g:5645:1: rule__CodeCall__Group_7_1__1 : rule__CodeCall__Group_7_1__1__Impl ;
+    // InternalXtextTest.g:5673:1: rule__CodeCall__Group_7_1__1 : rule__CodeCall__Group_7_1__1__Impl ;
     public final void rule__CodeCall__Group_7_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5649:1: ( rule__CodeCall__Group_7_1__1__Impl )
-            // InternalXtextTest.g:5650:2: rule__CodeCall__Group_7_1__1__Impl
+            // InternalXtextTest.g:5677:1: ( rule__CodeCall__Group_7_1__1__Impl )
+            // InternalXtextTest.g:5678:2: rule__CodeCall__Group_7_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__CodeCall__Group_7_1__1__Impl();
@@ -13620,35 +13711,35 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__CodeCall__Group_7_1__1__Impl"
-    // InternalXtextTest.g:5656:1: rule__CodeCall__Group_7_1__1__Impl : ( ( rule__CodeCall__Group_7_1_1__0 )* ) ;
+    // InternalXtextTest.g:5684:1: rule__CodeCall__Group_7_1__1__Impl : ( ( rule__CodeCall__Group_7_1_1__0 )* ) ;
     public final void rule__CodeCall__Group_7_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5660:1: ( ( ( rule__CodeCall__Group_7_1_1__0 )* ) )
-            // InternalXtextTest.g:5662:1: ( ( rule__CodeCall__Group_7_1_1__0 )* )
+            // InternalXtextTest.g:5688:1: ( ( ( rule__CodeCall__Group_7_1_1__0 )* ) )
+            // InternalXtextTest.g:5690:1: ( ( rule__CodeCall__Group_7_1_1__0 )* )
             {
-            // InternalXtextTest.g:5662:1: ( ( rule__CodeCall__Group_7_1_1__0 )* )
-            // InternalXtextTest.g:5663:1: ( rule__CodeCall__Group_7_1_1__0 )*
+            // InternalXtextTest.g:5690:1: ( ( rule__CodeCall__Group_7_1_1__0 )* )
+            // InternalXtextTest.g:5691:1: ( rule__CodeCall__Group_7_1_1__0 )*
             {
              before(grammarAccess.getCodeCallAccess().getGroup_7_1_1()); 
-            // InternalXtextTest.g:5664:1: ( rule__CodeCall__Group_7_1_1__0 )*
-            loop30:
+            // InternalXtextTest.g:5692:1: ( rule__CodeCall__Group_7_1_1__0 )*
+            loop31:
             do {
-                int alt30=2;
-                int LA30_0 = input.LA(1);
+                int alt31=2;
+                int LA31_0 = input.LA(1);
 
-                if ( (LA30_0==RULE_COMMA) ) {
-                    alt30=1;
+                if ( (LA31_0==RULE_COMMA) ) {
+                    alt31=1;
                 }
 
 
-                switch (alt30) {
+                switch (alt31) {
             	case 1 :
-            	    // InternalXtextTest.g:5664:2: rule__CodeCall__Group_7_1_1__0
+            	    // InternalXtextTest.g:5692:2: rule__CodeCall__Group_7_1_1__0
             	    {
-            	    pushFollow(FOLLOW_31);
+            	    pushFollow(FOLLOW_32);
             	    rule__CodeCall__Group_7_1_1__0();
 
             	    state._fsp--;
@@ -13658,7 +13749,7 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
             	    break;
 
             	default :
-            	    break loop30;
+            	    break loop31;
                 }
             } while (true);
 
@@ -13685,14 +13776,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__CodeCall__Group_7_1_1__0"
-    // InternalXtextTest.g:5680:1: rule__CodeCall__Group_7_1_1__0 : rule__CodeCall__Group_7_1_1__0__Impl rule__CodeCall__Group_7_1_1__1 ;
+    // InternalXtextTest.g:5708:1: rule__CodeCall__Group_7_1_1__0 : rule__CodeCall__Group_7_1_1__0__Impl rule__CodeCall__Group_7_1_1__1 ;
     public final void rule__CodeCall__Group_7_1_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5684:1: ( rule__CodeCall__Group_7_1_1__0__Impl rule__CodeCall__Group_7_1_1__1 )
-            // InternalXtextTest.g:5685:2: rule__CodeCall__Group_7_1_1__0__Impl rule__CodeCall__Group_7_1_1__1
+            // InternalXtextTest.g:5712:1: ( rule__CodeCall__Group_7_1_1__0__Impl rule__CodeCall__Group_7_1_1__1 )
+            // InternalXtextTest.g:5713:2: rule__CodeCall__Group_7_1_1__0__Impl rule__CodeCall__Group_7_1_1__1
             {
             pushFollow(FOLLOW_5);
             rule__CodeCall__Group_7_1_1__0__Impl();
@@ -13723,17 +13814,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__CodeCall__Group_7_1_1__0__Impl"
-    // InternalXtextTest.g:5692:1: rule__CodeCall__Group_7_1_1__0__Impl : ( RULE_COMMA ) ;
+    // InternalXtextTest.g:5720:1: rule__CodeCall__Group_7_1_1__0__Impl : ( RULE_COMMA ) ;
     public final void rule__CodeCall__Group_7_1_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5696:1: ( ( RULE_COMMA ) )
-            // InternalXtextTest.g:5698:1: ( RULE_COMMA )
+            // InternalXtextTest.g:5724:1: ( ( RULE_COMMA ) )
+            // InternalXtextTest.g:5726:1: ( RULE_COMMA )
             {
-            // InternalXtextTest.g:5698:1: ( RULE_COMMA )
-            // InternalXtextTest.g:5699:1: RULE_COMMA
+            // InternalXtextTest.g:5726:1: ( RULE_COMMA )
+            // InternalXtextTest.g:5727:1: RULE_COMMA
             {
              before(grammarAccess.getCodeCallAccess().getCOMMATerminalRuleCall_7_1_1_0()); 
             match(input,RULE_COMMA,FOLLOW_2); 
@@ -13760,14 +13851,14 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__CodeCall__Group_7_1_1__1"
-    // InternalXtextTest.g:5712:1: rule__CodeCall__Group_7_1_1__1 : rule__CodeCall__Group_7_1_1__1__Impl ;
+    // InternalXtextTest.g:5740:1: rule__CodeCall__Group_7_1_1__1 : rule__CodeCall__Group_7_1_1__1__Impl ;
     public final void rule__CodeCall__Group_7_1_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5716:1: ( rule__CodeCall__Group_7_1_1__1__Impl )
-            // InternalXtextTest.g:5717:2: rule__CodeCall__Group_7_1_1__1__Impl
+            // InternalXtextTest.g:5744:1: ( rule__CodeCall__Group_7_1_1__1__Impl )
+            // InternalXtextTest.g:5745:2: rule__CodeCall__Group_7_1_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__CodeCall__Group_7_1_1__1__Impl();
@@ -13793,21 +13884,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__CodeCall__Group_7_1_1__1__Impl"
-    // InternalXtextTest.g:5723:1: rule__CodeCall__Group_7_1_1__1__Impl : ( ( rule__CodeCall__ParamsAssignment_7_1_1_1 ) ) ;
+    // InternalXtextTest.g:5751:1: rule__CodeCall__Group_7_1_1__1__Impl : ( ( rule__CodeCall__ParamsAssignment_7_1_1_1 ) ) ;
     public final void rule__CodeCall__Group_7_1_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5727:1: ( ( ( rule__CodeCall__ParamsAssignment_7_1_1_1 ) ) )
-            // InternalXtextTest.g:5729:1: ( ( rule__CodeCall__ParamsAssignment_7_1_1_1 ) )
+            // InternalXtextTest.g:5755:1: ( ( ( rule__CodeCall__ParamsAssignment_7_1_1_1 ) ) )
+            // InternalXtextTest.g:5757:1: ( ( rule__CodeCall__ParamsAssignment_7_1_1_1 ) )
             {
-            // InternalXtextTest.g:5729:1: ( ( rule__CodeCall__ParamsAssignment_7_1_1_1 ) )
-            // InternalXtextTest.g:5730:1: ( rule__CodeCall__ParamsAssignment_7_1_1_1 )
+            // InternalXtextTest.g:5757:1: ( ( rule__CodeCall__ParamsAssignment_7_1_1_1 ) )
+            // InternalXtextTest.g:5758:1: ( rule__CodeCall__ParamsAssignment_7_1_1_1 )
             {
              before(grammarAccess.getCodeCallAccess().getParamsAssignment_7_1_1_1()); 
-            // InternalXtextTest.g:5731:1: ( rule__CodeCall__ParamsAssignment_7_1_1_1 )
-            // InternalXtextTest.g:5731:2: rule__CodeCall__ParamsAssignment_7_1_1_1
+            // InternalXtextTest.g:5759:1: ( rule__CodeCall__ParamsAssignment_7_1_1_1 )
+            // InternalXtextTest.g:5759:2: rule__CodeCall__ParamsAssignment_7_1_1_1
             {
             pushFollow(FOLLOW_2);
             rule__CodeCall__ParamsAssignment_7_1_1_1();
@@ -13840,17 +13931,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Model__XtextTestAssignment_1_0"
-    // InternalXtextTest.g:5748:1: rule__Model__XtextTestAssignment_1_0 : ( ruleXtextTest ) ;
+    // InternalXtextTest.g:5776:1: rule__Model__XtextTestAssignment_1_0 : ( ruleXtextTest ) ;
     public final void rule__Model__XtextTestAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5752:1: ( ( ruleXtextTest ) )
-            // InternalXtextTest.g:5753:1: ( ruleXtextTest )
+            // InternalXtextTest.g:5780:1: ( ( ruleXtextTest ) )
+            // InternalXtextTest.g:5781:1: ( ruleXtextTest )
             {
-            // InternalXtextTest.g:5753:1: ( ruleXtextTest )
-            // InternalXtextTest.g:5754:1: ruleXtextTest
+            // InternalXtextTest.g:5781:1: ( ruleXtextTest )
+            // InternalXtextTest.g:5782:1: ruleXtextTest
             {
              before(grammarAccess.getModelAccess().getXtextTestXtextTestParserRuleCall_1_0_0()); 
             pushFollow(FOLLOW_2);
@@ -13881,17 +13972,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Model__EmfTestAssignment_1_1"
-    // InternalXtextTest.g:5763:1: rule__Model__EmfTestAssignment_1_1 : ( ruleEmfTest ) ;
+    // InternalXtextTest.g:5791:1: rule__Model__EmfTestAssignment_1_1 : ( ruleEmfTest ) ;
     public final void rule__Model__EmfTestAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5767:1: ( ( ruleEmfTest ) )
-            // InternalXtextTest.g:5768:1: ( ruleEmfTest )
+            // InternalXtextTest.g:5795:1: ( ( ruleEmfTest ) )
+            // InternalXtextTest.g:5796:1: ( ruleEmfTest )
             {
-            // InternalXtextTest.g:5768:1: ( ruleEmfTest )
-            // InternalXtextTest.g:5769:1: ruleEmfTest
+            // InternalXtextTest.g:5796:1: ( ruleEmfTest )
+            // InternalXtextTest.g:5797:1: ruleEmfTest
             {
              before(grammarAccess.getModelAccess().getEmfTestEmfTestParserRuleCall_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -13922,17 +14013,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__PackageAssignment_2"
-    // InternalXtextTest.g:5778:1: rule__XtextTest__PackageAssignment_2 : ( rulePackageID ) ;
+    // InternalXtextTest.g:5806:1: rule__XtextTest__PackageAssignment_2 : ( rulePackageID ) ;
     public final void rule__XtextTest__PackageAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5782:1: ( ( rulePackageID ) )
-            // InternalXtextTest.g:5783:1: ( rulePackageID )
+            // InternalXtextTest.g:5810:1: ( ( rulePackageID ) )
+            // InternalXtextTest.g:5811:1: ( rulePackageID )
             {
-            // InternalXtextTest.g:5783:1: ( rulePackageID )
-            // InternalXtextTest.g:5784:1: rulePackageID
+            // InternalXtextTest.g:5811:1: ( rulePackageID )
+            // InternalXtextTest.g:5812:1: rulePackageID
             {
              before(grammarAccess.getXtextTestAccess().getPackagePackageIDParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -13963,17 +14054,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__LangAssignment_4"
-    // InternalXtextTest.g:5793:1: rule__XtextTest__LangAssignment_4 : ( ruleLangID ) ;
+    // InternalXtextTest.g:5821:1: rule__XtextTest__LangAssignment_4 : ( ruleLangID ) ;
     public final void rule__XtextTest__LangAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5797:1: ( ( ruleLangID ) )
-            // InternalXtextTest.g:5798:1: ( ruleLangID )
+            // InternalXtextTest.g:5825:1: ( ( ruleLangID ) )
+            // InternalXtextTest.g:5826:1: ( ruleLangID )
             {
-            // InternalXtextTest.g:5798:1: ( ruleLangID )
-            // InternalXtextTest.g:5799:1: ruleLangID
+            // InternalXtextTest.g:5826:1: ( ruleLangID )
+            // InternalXtextTest.g:5827:1: ruleLangID
             {
              before(grammarAccess.getXtextTestAccess().getLangLangIDParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -14004,17 +14095,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__ImportsAssignment_5_1"
-    // InternalXtextTest.g:5808:1: rule__XtextTest__ImportsAssignment_5_1 : ( ruleImportID ) ;
+    // InternalXtextTest.g:5836:1: rule__XtextTest__ImportsAssignment_5_1 : ( ruleImportID ) ;
     public final void rule__XtextTest__ImportsAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5812:1: ( ( ruleImportID ) )
-            // InternalXtextTest.g:5813:1: ( ruleImportID )
+            // InternalXtextTest.g:5840:1: ( ( ruleImportID ) )
+            // InternalXtextTest.g:5841:1: ( ruleImportID )
             {
-            // InternalXtextTest.g:5813:1: ( ruleImportID )
-            // InternalXtextTest.g:5814:1: ruleImportID
+            // InternalXtextTest.g:5841:1: ( ruleImportID )
+            // InternalXtextTest.g:5842:1: ruleImportID
             {
              before(grammarAccess.getXtextTestAccess().getImportsImportIDParserRuleCall_5_1_0()); 
             pushFollow(FOLLOW_2);
@@ -14045,17 +14136,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__BooleanAssignment_6_2"
-    // InternalXtextTest.g:5823:1: rule__XtextTest__BooleanAssignment_6_2 : ( ruleBoolean ) ;
+    // InternalXtextTest.g:5851:1: rule__XtextTest__BooleanAssignment_6_2 : ( ruleBoolean ) ;
     public final void rule__XtextTest__BooleanAssignment_6_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5827:1: ( ( ruleBoolean ) )
-            // InternalXtextTest.g:5828:1: ( ruleBoolean )
+            // InternalXtextTest.g:5855:1: ( ( ruleBoolean ) )
+            // InternalXtextTest.g:5856:1: ( ruleBoolean )
             {
-            // InternalXtextTest.g:5828:1: ( ruleBoolean )
-            // InternalXtextTest.g:5829:1: ruleBoolean
+            // InternalXtextTest.g:5856:1: ( ruleBoolean )
+            // InternalXtextTest.g:5857:1: ruleBoolean
             {
              before(grammarAccess.getXtextTestAccess().getBooleanBooleanParserRuleCall_6_2_0()); 
             pushFollow(FOLLOW_2);
@@ -14086,17 +14177,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__InputAssignment_7"
-    // InternalXtextTest.g:5838:1: rule__XtextTest__InputAssignment_7 : ( ruleInput ) ;
+    // InternalXtextTest.g:5866:1: rule__XtextTest__InputAssignment_7 : ( ruleInput ) ;
     public final void rule__XtextTest__InputAssignment_7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5842:1: ( ( ruleInput ) )
-            // InternalXtextTest.g:5843:1: ( ruleInput )
+            // InternalXtextTest.g:5870:1: ( ( ruleInput ) )
+            // InternalXtextTest.g:5871:1: ( ruleInput )
             {
-            // InternalXtextTest.g:5843:1: ( ruleInput )
-            // InternalXtextTest.g:5844:1: ruleInput
+            // InternalXtextTest.g:5871:1: ( ruleInput )
+            // InternalXtextTest.g:5872:1: ruleInput
             {
              before(grammarAccess.getXtextTestAccess().getInputInputParserRuleCall_7_0()); 
             pushFollow(FOLLOW_2);
@@ -14127,17 +14218,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__TokensAssignment_8"
-    // InternalXtextTest.g:5853:1: rule__XtextTest__TokensAssignment_8 : ( ruleTokens ) ;
+    // InternalXtextTest.g:5881:1: rule__XtextTest__TokensAssignment_8 : ( ruleTokens ) ;
     public final void rule__XtextTest__TokensAssignment_8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5857:1: ( ( ruleTokens ) )
-            // InternalXtextTest.g:5858:1: ( ruleTokens )
+            // InternalXtextTest.g:5885:1: ( ( ruleTokens ) )
+            // InternalXtextTest.g:5886:1: ( ruleTokens )
             {
-            // InternalXtextTest.g:5858:1: ( ruleTokens )
-            // InternalXtextTest.g:5859:1: ruleTokens
+            // InternalXtextTest.g:5886:1: ( ruleTokens )
+            // InternalXtextTest.g:5887:1: ruleTokens
             {
              before(grammarAccess.getXtextTestAccess().getTokensTokensParserRuleCall_8_0()); 
             pushFollow(FOLLOW_2);
@@ -14168,17 +14259,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__RootAssignment_9"
-    // InternalXtextTest.g:5868:1: rule__XtextTest__RootAssignment_9 : ( ruleElement ) ;
+    // InternalXtextTest.g:5896:1: rule__XtextTest__RootAssignment_9 : ( ruleElement ) ;
     public final void rule__XtextTest__RootAssignment_9() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5872:1: ( ( ruleElement ) )
-            // InternalXtextTest.g:5873:1: ( ruleElement )
+            // InternalXtextTest.g:5900:1: ( ( ruleElement ) )
+            // InternalXtextTest.g:5901:1: ( ruleElement )
             {
-            // InternalXtextTest.g:5873:1: ( ruleElement )
-            // InternalXtextTest.g:5874:1: ruleElement
+            // InternalXtextTest.g:5901:1: ( ruleElement )
+            // InternalXtextTest.g:5902:1: ruleElement
             {
              before(grammarAccess.getXtextTestAccess().getRootElementParserRuleCall_9_0()); 
             pushFollow(FOLLOW_2);
@@ -14209,17 +14300,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__OutputAssignment_10"
-    // InternalXtextTest.g:5883:1: rule__XtextTest__OutputAssignment_10 : ( ruleGenerator ) ;
+    // InternalXtextTest.g:5911:1: rule__XtextTest__OutputAssignment_10 : ( ruleGenerator ) ;
     public final void rule__XtextTest__OutputAssignment_10() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5887:1: ( ( ruleGenerator ) )
-            // InternalXtextTest.g:5888:1: ( ruleGenerator )
+            // InternalXtextTest.g:5915:1: ( ( ruleGenerator ) )
+            // InternalXtextTest.g:5916:1: ( ruleGenerator )
             {
-            // InternalXtextTest.g:5888:1: ( ruleGenerator )
-            // InternalXtextTest.g:5889:1: ruleGenerator
+            // InternalXtextTest.g:5916:1: ( ruleGenerator )
+            // InternalXtextTest.g:5917:1: ruleGenerator
             {
              before(grammarAccess.getXtextTestAccess().getOutputGeneratorParserRuleCall_10_0()); 
             pushFollow(FOLLOW_2);
@@ -14250,17 +14341,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__BeforeAssignment_11"
-    // InternalXtextTest.g:5898:1: rule__XtextTest__BeforeAssignment_11 : ( ruleBefore ) ;
+    // InternalXtextTest.g:5926:1: rule__XtextTest__BeforeAssignment_11 : ( ruleBefore ) ;
     public final void rule__XtextTest__BeforeAssignment_11() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5902:1: ( ( ruleBefore ) )
-            // InternalXtextTest.g:5903:1: ( ruleBefore )
+            // InternalXtextTest.g:5930:1: ( ( ruleBefore ) )
+            // InternalXtextTest.g:5931:1: ( ruleBefore )
             {
-            // InternalXtextTest.g:5903:1: ( ruleBefore )
-            // InternalXtextTest.g:5904:1: ruleBefore
+            // InternalXtextTest.g:5931:1: ( ruleBefore )
+            // InternalXtextTest.g:5932:1: ruleBefore
             {
              before(grammarAccess.getXtextTestAccess().getBeforeBeforeParserRuleCall_11_0()); 
             pushFollow(FOLLOW_2);
@@ -14291,17 +14382,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__XtextTest__AfterAssignment_12"
-    // InternalXtextTest.g:5913:1: rule__XtextTest__AfterAssignment_12 : ( ruleAfter ) ;
+    // InternalXtextTest.g:5941:1: rule__XtextTest__AfterAssignment_12 : ( ruleAfter ) ;
     public final void rule__XtextTest__AfterAssignment_12() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5917:1: ( ( ruleAfter ) )
-            // InternalXtextTest.g:5918:1: ( ruleAfter )
+            // InternalXtextTest.g:5945:1: ( ( ruleAfter ) )
+            // InternalXtextTest.g:5946:1: ( ruleAfter )
             {
-            // InternalXtextTest.g:5918:1: ( ruleAfter )
-            // InternalXtextTest.g:5919:1: ruleAfter
+            // InternalXtextTest.g:5946:1: ( ruleAfter )
+            // InternalXtextTest.g:5947:1: ruleAfter
             {
              before(grammarAccess.getXtextTestAccess().getAfterAfterParserRuleCall_12_0()); 
             pushFollow(FOLLOW_2);
@@ -14332,17 +14423,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__PackageAssignment_3"
-    // InternalXtextTest.g:5928:1: rule__EmfTest__PackageAssignment_3 : ( rulePackageID ) ;
+    // InternalXtextTest.g:5956:1: rule__EmfTest__PackageAssignment_3 : ( rulePackageID ) ;
     public final void rule__EmfTest__PackageAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5932:1: ( ( rulePackageID ) )
-            // InternalXtextTest.g:5933:1: ( rulePackageID )
+            // InternalXtextTest.g:5960:1: ( ( rulePackageID ) )
+            // InternalXtextTest.g:5961:1: ( rulePackageID )
             {
-            // InternalXtextTest.g:5933:1: ( rulePackageID )
-            // InternalXtextTest.g:5934:1: rulePackageID
+            // InternalXtextTest.g:5961:1: ( rulePackageID )
+            // InternalXtextTest.g:5962:1: rulePackageID
             {
              before(grammarAccess.getEmfTestAccess().getPackagePackageIDParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -14373,17 +14464,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__MydefaultAssignment_5"
-    // InternalXtextTest.g:5943:1: rule__EmfTest__MydefaultAssignment_5 : ( rulePackageID ) ;
+    // InternalXtextTest.g:5971:1: rule__EmfTest__MydefaultAssignment_5 : ( rulePackageID ) ;
     public final void rule__EmfTest__MydefaultAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5947:1: ( ( rulePackageID ) )
-            // InternalXtextTest.g:5948:1: ( rulePackageID )
+            // InternalXtextTest.g:5975:1: ( ( rulePackageID ) )
+            // InternalXtextTest.g:5976:1: ( rulePackageID )
             {
-            // InternalXtextTest.g:5948:1: ( rulePackageID )
-            // InternalXtextTest.g:5949:1: rulePackageID
+            // InternalXtextTest.g:5976:1: ( rulePackageID )
+            // InternalXtextTest.g:5977:1: rulePackageID
             {
              before(grammarAccess.getEmfTestAccess().getMydefaultPackageIDParserRuleCall_5_0()); 
             pushFollow(FOLLOW_2);
@@ -14414,17 +14505,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__MyimportAssignment_6"
-    // InternalXtextTest.g:5958:1: rule__EmfTest__MyimportAssignment_6 : ( ruleImport ) ;
+    // InternalXtextTest.g:5986:1: rule__EmfTest__MyimportAssignment_6 : ( ruleImport ) ;
     public final void rule__EmfTest__MyimportAssignment_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5962:1: ( ( ruleImport ) )
-            // InternalXtextTest.g:5963:1: ( ruleImport )
+            // InternalXtextTest.g:5990:1: ( ( ruleImport ) )
+            // InternalXtextTest.g:5991:1: ( ruleImport )
             {
-            // InternalXtextTest.g:5963:1: ( ruleImport )
-            // InternalXtextTest.g:5964:1: ruleImport
+            // InternalXtextTest.g:5991:1: ( ruleImport )
+            // InternalXtextTest.g:5992:1: ruleImport
             {
              before(grammarAccess.getEmfTestAccess().getMyimportImportParserRuleCall_6_0()); 
             pushFollow(FOLLOW_2);
@@ -14455,17 +14546,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__CodeCallAssignment_7"
-    // InternalXtextTest.g:5973:1: rule__EmfTest__CodeCallAssignment_7 : ( ruleCodeCall ) ;
+    // InternalXtextTest.g:6001:1: rule__EmfTest__CodeCallAssignment_7 : ( ruleCodeCall ) ;
     public final void rule__EmfTest__CodeCallAssignment_7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5977:1: ( ( ruleCodeCall ) )
-            // InternalXtextTest.g:5978:1: ( ruleCodeCall )
+            // InternalXtextTest.g:6005:1: ( ( ruleCodeCall ) )
+            // InternalXtextTest.g:6006:1: ( ruleCodeCall )
             {
-            // InternalXtextTest.g:5978:1: ( ruleCodeCall )
-            // InternalXtextTest.g:5979:1: ruleCodeCall
+            // InternalXtextTest.g:6006:1: ( ruleCodeCall )
+            // InternalXtextTest.g:6007:1: ruleCodeCall
             {
              before(grammarAccess.getEmfTestAccess().getCodeCallCodeCallParserRuleCall_7_0()); 
             pushFollow(FOLLOW_2);
@@ -14496,17 +14587,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__OptionCallAssignment_8_1"
-    // InternalXtextTest.g:5988:1: rule__EmfTest__OptionCallAssignment_8_1 : ( ruleCodeCall ) ;
+    // InternalXtextTest.g:6016:1: rule__EmfTest__OptionCallAssignment_8_1 : ( ruleCodeCall ) ;
     public final void rule__EmfTest__OptionCallAssignment_8_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:5992:1: ( ( ruleCodeCall ) )
-            // InternalXtextTest.g:5993:1: ( ruleCodeCall )
+            // InternalXtextTest.g:6020:1: ( ( ruleCodeCall ) )
+            // InternalXtextTest.g:6021:1: ( ruleCodeCall )
             {
-            // InternalXtextTest.g:5993:1: ( ruleCodeCall )
-            // InternalXtextTest.g:5994:1: ruleCodeCall
+            // InternalXtextTest.g:6021:1: ( ruleCodeCall )
+            // InternalXtextTest.g:6022:1: ruleCodeCall
             {
              before(grammarAccess.getEmfTestAccess().getOptionCallCodeCallParserRuleCall_8_1_0()); 
             pushFollow(FOLLOW_2);
@@ -14537,17 +14628,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__FileAssignment_9_3"
-    // InternalXtextTest.g:6003:1: rule__EmfTest__FileAssignment_9_3 : ( RULE_STRING ) ;
+    // InternalXtextTest.g:6031:1: rule__EmfTest__FileAssignment_9_3 : ( RULE_STRING ) ;
     public final void rule__EmfTest__FileAssignment_9_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:6007:1: ( ( RULE_STRING ) )
-            // InternalXtextTest.g:6008:1: ( RULE_STRING )
+            // InternalXtextTest.g:6035:1: ( ( RULE_STRING ) )
+            // InternalXtextTest.g:6036:1: ( RULE_STRING )
             {
-            // InternalXtextTest.g:6008:1: ( RULE_STRING )
-            // InternalXtextTest.g:6009:1: RULE_STRING
+            // InternalXtextTest.g:6036:1: ( RULE_STRING )
+            // InternalXtextTest.g:6037:1: RULE_STRING
             {
              before(grammarAccess.getEmfTestAccess().getFileSTRINGTerminalRuleCall_9_3_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -14574,17 +14665,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__RootAssignment_10"
-    // InternalXtextTest.g:6018:1: rule__EmfTest__RootAssignment_10 : ( ruleElement ) ;
+    // InternalXtextTest.g:6046:1: rule__EmfTest__RootAssignment_10 : ( ruleElement ) ;
     public final void rule__EmfTest__RootAssignment_10() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:6022:1: ( ( ruleElement ) )
-            // InternalXtextTest.g:6023:1: ( ruleElement )
+            // InternalXtextTest.g:6050:1: ( ( ruleElement ) )
+            // InternalXtextTest.g:6051:1: ( ruleElement )
             {
-            // InternalXtextTest.g:6023:1: ( ruleElement )
-            // InternalXtextTest.g:6024:1: ruleElement
+            // InternalXtextTest.g:6051:1: ( ruleElement )
+            // InternalXtextTest.g:6052:1: ruleElement
             {
              before(grammarAccess.getEmfTestAccess().getRootElementParserRuleCall_10_0()); 
             pushFollow(FOLLOW_2);
@@ -14615,17 +14706,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__BeforeAssignment_11"
-    // InternalXtextTest.g:6033:1: rule__EmfTest__BeforeAssignment_11 : ( ruleBefore ) ;
+    // InternalXtextTest.g:6061:1: rule__EmfTest__BeforeAssignment_11 : ( ruleBefore ) ;
     public final void rule__EmfTest__BeforeAssignment_11() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:6037:1: ( ( ruleBefore ) )
-            // InternalXtextTest.g:6038:1: ( ruleBefore )
+            // InternalXtextTest.g:6065:1: ( ( ruleBefore ) )
+            // InternalXtextTest.g:6066:1: ( ruleBefore )
             {
-            // InternalXtextTest.g:6038:1: ( ruleBefore )
-            // InternalXtextTest.g:6039:1: ruleBefore
+            // InternalXtextTest.g:6066:1: ( ruleBefore )
+            // InternalXtextTest.g:6067:1: ruleBefore
             {
              before(grammarAccess.getEmfTestAccess().getBeforeBeforeParserRuleCall_11_0()); 
             pushFollow(FOLLOW_2);
@@ -14656,17 +14747,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__EmfTest__AfterAssignment_12"
-    // InternalXtextTest.g:6048:1: rule__EmfTest__AfterAssignment_12 : ( ruleAfter ) ;
+    // InternalXtextTest.g:6076:1: rule__EmfTest__AfterAssignment_12 : ( ruleAfter ) ;
     public final void rule__EmfTest__AfterAssignment_12() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:6052:1: ( ( ruleAfter ) )
-            // InternalXtextTest.g:6053:1: ( ruleAfter )
+            // InternalXtextTest.g:6080:1: ( ( ruleAfter ) )
+            // InternalXtextTest.g:6081:1: ( ruleAfter )
             {
-            // InternalXtextTest.g:6053:1: ( ruleAfter )
-            // InternalXtextTest.g:6054:1: ruleAfter
+            // InternalXtextTest.g:6081:1: ( ruleAfter )
+            // InternalXtextTest.g:6082:1: ruleAfter
             {
              before(grammarAccess.getEmfTestAccess().getAfterAfterParserRuleCall_12_0()); 
             pushFollow(FOLLOW_2);
@@ -14697,17 +14788,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Import__IdAssignment_2"
-    // InternalXtextTest.g:6063:1: rule__Import__IdAssignment_2 : ( ruleImportID ) ;
+    // InternalXtextTest.g:6091:1: rule__Import__IdAssignment_2 : ( ruleImportID ) ;
     public final void rule__Import__IdAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:6067:1: ( ( ruleImportID ) )
-            // InternalXtextTest.g:6068:1: ( ruleImportID )
+            // InternalXtextTest.g:6095:1: ( ( ruleImportID ) )
+            // InternalXtextTest.g:6096:1: ( ruleImportID )
             {
-            // InternalXtextTest.g:6068:1: ( ruleImportID )
-            // InternalXtextTest.g:6069:1: ruleImportID
+            // InternalXtextTest.g:6096:1: ( ruleImportID )
+            // InternalXtextTest.g:6097:1: ruleImportID
             {
              before(grammarAccess.getImportAccess().getIdImportIDParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -14738,17 +14829,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Import__AliasAssignment_4"
-    // InternalXtextTest.g:6078:1: rule__Import__AliasAssignment_4 : ( RULE_IDENTIFIER ) ;
+    // InternalXtextTest.g:6106:1: rule__Import__AliasAssignment_4 : ( RULE_IDENTIFIER ) ;
     public final void rule__Import__AliasAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:6082:1: ( ( RULE_IDENTIFIER ) )
-            // InternalXtextTest.g:6083:1: ( RULE_IDENTIFIER )
+            // InternalXtextTest.g:6110:1: ( ( RULE_IDENTIFIER ) )
+            // InternalXtextTest.g:6111:1: ( RULE_IDENTIFIER )
             {
-            // InternalXtextTest.g:6083:1: ( RULE_IDENTIFIER )
-            // InternalXtextTest.g:6084:1: RULE_IDENTIFIER
+            // InternalXtextTest.g:6111:1: ( RULE_IDENTIFIER )
+            // InternalXtextTest.g:6112:1: RULE_IDENTIFIER
             {
              before(grammarAccess.getImportAccess().getAliasIDENTIFIERTerminalRuleCall_4_0()); 
             match(input,RULE_IDENTIFIER,FOLLOW_2); 
@@ -14775,17 +14866,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Input__TextAssignment_2_0_2"
-    // InternalXtextTest.g:6093:1: rule__Input__TextAssignment_2_0_2 : ( RULE_STRING ) ;
+    // InternalXtextTest.g:6121:1: rule__Input__TextAssignment_2_0_2 : ( RULE_STRING ) ;
     public final void rule__Input__TextAssignment_2_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:6097:1: ( ( RULE_STRING ) )
-            // InternalXtextTest.g:6098:1: ( RULE_STRING )
+            // InternalXtextTest.g:6125:1: ( ( RULE_STRING ) )
+            // InternalXtextTest.g:6126:1: ( RULE_STRING )
             {
-            // InternalXtextTest.g:6098:1: ( RULE_STRING )
-            // InternalXtextTest.g:6099:1: RULE_STRING
+            // InternalXtextTest.g:6126:1: ( RULE_STRING )
+            // InternalXtextTest.g:6127:1: RULE_STRING
             {
              before(grammarAccess.getInputAccess().getTextSTRINGTerminalRuleCall_2_0_2_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -14812,17 +14903,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Input__FileAssignment_2_1_2"
-    // InternalXtextTest.g:6108:1: rule__Input__FileAssignment_2_1_2 : ( RULE_STRING ) ;
+    // InternalXtextTest.g:6136:1: rule__Input__FileAssignment_2_1_2 : ( RULE_STRING ) ;
     public final void rule__Input__FileAssignment_2_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:6112:1: ( ( RULE_STRING ) )
-            // InternalXtextTest.g:6113:1: ( RULE_STRING )
+            // InternalXtextTest.g:6140:1: ( ( RULE_STRING ) )
+            // InternalXtextTest.g:6141:1: ( RULE_STRING )
             {
-            // InternalXtextTest.g:6113:1: ( RULE_STRING )
-            // InternalXtextTest.g:6114:1: RULE_STRING
+            // InternalXtextTest.g:6141:1: ( RULE_STRING )
+            // InternalXtextTest.g:6142:1: RULE_STRING
             {
              before(grammarAccess.getInputAccess().getFileSTRINGTerminalRuleCall_2_1_2_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -14849,17 +14940,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Tokens__TokensAssignment_2"
-    // InternalXtextTest.g:6123:1: rule__Tokens__TokensAssignment_2 : ( ruleMyTokens ) ;
+    // InternalXtextTest.g:6151:1: rule__Tokens__TokensAssignment_2 : ( ruleMyTokens ) ;
     public final void rule__Tokens__TokensAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:6127:1: ( ( ruleMyTokens ) )
-            // InternalXtextTest.g:6128:1: ( ruleMyTokens )
+            // InternalXtextTest.g:6155:1: ( ( ruleMyTokens ) )
+            // InternalXtextTest.g:6156:1: ( ruleMyTokens )
             {
-            // InternalXtextTest.g:6128:1: ( ruleMyTokens )
-            // InternalXtextTest.g:6129:1: ruleMyTokens
+            // InternalXtextTest.g:6156:1: ( ruleMyTokens )
+            // InternalXtextTest.g:6157:1: ruleMyTokens
             {
              before(grammarAccess.getTokensAccess().getTokensMyTokensParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -14889,22 +14980,22 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
     // $ANTLR end "rule__Tokens__TokensAssignment_2"
 
 
-    // $ANTLR start "rule__MyTokens__TokenAssignment_0"
-    // InternalXtextTest.g:6138:1: rule__MyTokens__TokenAssignment_0 : ( RULE_IDENTIFIER ) ;
-    public final void rule__MyTokens__TokenAssignment_0() throws RecognitionException {
+    // $ANTLR start "rule__MyTokens__TokenAssignment_0_0"
+    // InternalXtextTest.g:6166:1: rule__MyTokens__TokenAssignment_0_0 : ( RULE_IDENTIFIER ) ;
+    public final void rule__MyTokens__TokenAssignment_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:6142:1: ( ( RULE_IDENTIFIER ) )
-            // InternalXtextTest.g:6143:1: ( RULE_IDENTIFIER )
+            // InternalXtextTest.g:6170:1: ( ( RULE_IDENTIFIER ) )
+            // InternalXtextTest.g:6171:1: ( RULE_IDENTIFIER )
             {
-            // InternalXtextTest.g:6143:1: ( RULE_IDENTIFIER )
-            // InternalXtextTest.g:6144:1: RULE_IDENTIFIER
+            // InternalXtextTest.g:6171:1: ( RULE_IDENTIFIER )
+            // InternalXtextTest.g:6172:1: RULE_IDENTIFIER
             {
-             before(grammarAccess.getMyTokensAccess().getTokenIDENTIFIERTerminalRuleCall_0_0()); 
+             before(grammarAccess.getMyTokensAccess().getTokenIDENTIFIERTerminalRuleCall_0_0_0()); 
             match(input,RULE_IDENTIFIER,FOLLOW_2); 
-             after(grammarAccess.getMyTokensAccess().getTokenIDENTIFIERTerminalRuleCall_0_0()); 
+             after(grammarAccess.getMyTokensAccess().getTokenIDENTIFIERTerminalRuleCall_0_0_0()); 
 
             }
 
@@ -14923,21 +15014,58 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__MyTokens__TokenAssignment_0"
+    // $ANTLR end "rule__MyTokens__TokenAssignment_0_0"
+
+
+    // $ANTLR start "rule__MyTokens__StringAssignment_0_1"
+    // InternalXtextTest.g:6181:1: rule__MyTokens__StringAssignment_0_1 : ( RULE_STRING ) ;
+    public final void rule__MyTokens__StringAssignment_0_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalXtextTest.g:6185:1: ( ( RULE_STRING ) )
+            // InternalXtextTest.g:6186:1: ( RULE_STRING )
+            {
+            // InternalXtextTest.g:6186:1: ( RULE_STRING )
+            // InternalXtextTest.g:6187:1: RULE_STRING
+            {
+             before(grammarAccess.getMyTokensAccess().getStringSTRINGTerminalRuleCall_0_1_0()); 
+            match(input,RULE_STRING,FOLLOW_2); 
+             after(grammarAccess.getMyTokensAccess().getStringSTRINGTerminalRuleCall_0_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__MyTokens__StringAssignment_0_1"
 
 
     // $ANTLR start "rule__MyTokens__CountAssignment_1_1"
-    // InternalXtextTest.g:6153:1: rule__MyTokens__CountAssignment_1_1 : ( RULE_INT ) ;
+    // InternalXtextTest.g:6196:1: rule__MyTokens__CountAssignment_1_1 : ( RULE_INT ) ;
     public final void rule__MyTokens__CountAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:6157:1: ( ( RULE_INT ) )
-            // InternalXtextTest.g:6158:1: ( RULE_INT )
+            // InternalXtextTest.g:6200:1: ( ( RULE_INT ) )
+            // InternalXtextTest.g:6201:1: ( RULE_INT )
             {
-            // InternalXtextTest.g:6158:1: ( RULE_INT )
-            // InternalXtextTest.g:6159:1: RULE_INT
+            // InternalXtextTest.g:6201:1: ( RULE_INT )
+            // InternalXtextTest.g:6202:1: RULE_INT
             {
              before(grammarAccess.getMyTokensAccess().getCountINTTerminalRuleCall_1_1_0()); 
             match(input,RULE_INT,FOLLOW_2); 
@@ -14964,17 +15092,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Element__ImportingAssignment_2_0"
-    // InternalXtextTest.g:6168:1: rule__Element__ImportingAssignment_2_0 : ( RULE_IDENTIFIER ) ;
+    // InternalXtextTest.g:6211:1: rule__Element__ImportingAssignment_2_0 : ( RULE_IDENTIFIER ) ;
     public final void rule__Element__ImportingAssignment_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:6172:1: ( ( RULE_IDENTIFIER ) )
-            // InternalXtextTest.g:6173:1: ( RULE_IDENTIFIER )
+            // InternalXtextTest.g:6215:1: ( ( RULE_IDENTIFIER ) )
+            // InternalXtextTest.g:6216:1: ( RULE_IDENTIFIER )
             {
-            // InternalXtextTest.g:6173:1: ( RULE_IDENTIFIER )
-            // InternalXtextTest.g:6174:1: RULE_IDENTIFIER
+            // InternalXtextTest.g:6216:1: ( RULE_IDENTIFIER )
+            // InternalXtextTest.g:6217:1: RULE_IDENTIFIER
             {
              before(grammarAccess.getElementAccess().getImportingIDENTIFIERTerminalRuleCall_2_0_0()); 
             match(input,RULE_IDENTIFIER,FOLLOW_2); 
@@ -15001,17 +15129,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Element__NameAssignment_3"
-    // InternalXtextTest.g:6183:1: rule__Element__NameAssignment_3 : ( RULE_IDENTIFIER ) ;
+    // InternalXtextTest.g:6226:1: rule__Element__NameAssignment_3 : ( RULE_IDENTIFIER ) ;
     public final void rule__Element__NameAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:6187:1: ( ( RULE_IDENTIFIER ) )
-            // InternalXtextTest.g:6188:1: ( RULE_IDENTIFIER )
+            // InternalXtextTest.g:6230:1: ( ( RULE_IDENTIFIER ) )
+            // InternalXtextTest.g:6231:1: ( RULE_IDENTIFIER )
             {
-            // InternalXtextTest.g:6188:1: ( RULE_IDENTIFIER )
-            // InternalXtextTest.g:6189:1: RULE_IDENTIFIER
+            // InternalXtextTest.g:6231:1: ( RULE_IDENTIFIER )
+            // InternalXtextTest.g:6232:1: RULE_IDENTIFIER
             {
              before(grammarAccess.getElementAccess().getNameIDENTIFIERTerminalRuleCall_3_0()); 
             match(input,RULE_IDENTIFIER,FOLLOW_2); 
@@ -15038,17 +15166,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Element__InnerAssignment_4_0"
-    // InternalXtextTest.g:6198:1: rule__Element__InnerAssignment_4_0 : ( ruleInner ) ;
+    // InternalXtextTest.g:6241:1: rule__Element__InnerAssignment_4_0 : ( ruleInner ) ;
     public final void rule__Element__InnerAssignment_4_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:6202:1: ( ( ruleInner ) )
-            // InternalXtextTest.g:6203:1: ( ruleInner )
+            // InternalXtextTest.g:6245:1: ( ( ruleInner ) )
+            // InternalXtextTest.g:6246:1: ( ruleInner )
             {
-            // InternalXtextTest.g:6203:1: ( ruleInner )
-            // InternalXtextTest.g:6204:1: ruleInner
+            // InternalXtextTest.g:6246:1: ( ruleInner )
+            // InternalXtextTest.g:6247:1: ruleInner
             {
              before(grammarAccess.getElementAccess().getInnerInnerParserRuleCall_4_0_0()); 
             pushFollow(FOLLOW_2);
@@ -15079,17 +15207,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Element__InnerAssignment_4_1_1"
-    // InternalXtextTest.g:6213:1: rule__Element__InnerAssignment_4_1_1 : ( ruleInner ) ;
+    // InternalXtextTest.g:6256:1: rule__Element__InnerAssignment_4_1_1 : ( ruleInner ) ;
     public final void rule__Element__InnerAssignment_4_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:6217:1: ( ( ruleInner ) )
-            // InternalXtextTest.g:6218:1: ( ruleInner )
+            // InternalXtextTest.g:6260:1: ( ( ruleInner ) )
+            // InternalXtextTest.g:6261:1: ( ruleInner )
             {
-            // InternalXtextTest.g:6218:1: ( ruleInner )
-            // InternalXtextTest.g:6219:1: ruleInner
+            // InternalXtextTest.g:6261:1: ( ruleInner )
+            // InternalXtextTest.g:6262:1: ruleInner
             {
              before(grammarAccess.getElementAccess().getInnerInnerParserRuleCall_4_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -15120,17 +15248,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Inner__ParameterAssignment_1"
-    // InternalXtextTest.g:6228:1: rule__Inner__ParameterAssignment_1 : ( RULE_IDENTIFIER ) ;
+    // InternalXtextTest.g:6271:1: rule__Inner__ParameterAssignment_1 : ( RULE_IDENTIFIER ) ;
     public final void rule__Inner__ParameterAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:6232:1: ( ( RULE_IDENTIFIER ) )
-            // InternalXtextTest.g:6233:1: ( RULE_IDENTIFIER )
+            // InternalXtextTest.g:6275:1: ( ( RULE_IDENTIFIER ) )
+            // InternalXtextTest.g:6276:1: ( RULE_IDENTIFIER )
             {
-            // InternalXtextTest.g:6233:1: ( RULE_IDENTIFIER )
-            // InternalXtextTest.g:6234:1: RULE_IDENTIFIER
+            // InternalXtextTest.g:6276:1: ( RULE_IDENTIFIER )
+            // InternalXtextTest.g:6277:1: RULE_IDENTIFIER
             {
              before(grammarAccess.getInnerAccess().getParameterIDENTIFIERTerminalRuleCall_1_0()); 
             match(input,RULE_IDENTIFIER,FOLLOW_2); 
@@ -15157,17 +15285,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Inner__AssignAssignment_2_0_1"
-    // InternalXtextTest.g:6243:1: rule__Inner__AssignAssignment_2_0_1 : ( ruleElement ) ;
+    // InternalXtextTest.g:6286:1: rule__Inner__AssignAssignment_2_0_1 : ( ruleElement ) ;
     public final void rule__Inner__AssignAssignment_2_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:6247:1: ( ( ruleElement ) )
-            // InternalXtextTest.g:6248:1: ( ruleElement )
+            // InternalXtextTest.g:6290:1: ( ( ruleElement ) )
+            // InternalXtextTest.g:6291:1: ( ruleElement )
             {
-            // InternalXtextTest.g:6248:1: ( ruleElement )
-            // InternalXtextTest.g:6249:1: ruleElement
+            // InternalXtextTest.g:6291:1: ( ruleElement )
+            // InternalXtextTest.g:6292:1: ruleElement
             {
              before(grammarAccess.getInnerAccess().getAssignElementParserRuleCall_2_0_1_0()); 
             pushFollow(FOLLOW_2);
@@ -15198,17 +15326,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Inner__AssignListAssignment_2_1_1"
-    // InternalXtextTest.g:6258:1: rule__Inner__AssignListAssignment_2_1_1 : ( ruleElement ) ;
+    // InternalXtextTest.g:6301:1: rule__Inner__AssignListAssignment_2_1_1 : ( ruleElement ) ;
     public final void rule__Inner__AssignListAssignment_2_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:6262:1: ( ( ruleElement ) )
-            // InternalXtextTest.g:6263:1: ( ruleElement )
+            // InternalXtextTest.g:6305:1: ( ( ruleElement ) )
+            // InternalXtextTest.g:6306:1: ( ruleElement )
             {
-            // InternalXtextTest.g:6263:1: ( ruleElement )
-            // InternalXtextTest.g:6264:1: ruleElement
+            // InternalXtextTest.g:6306:1: ( ruleElement )
+            // InternalXtextTest.g:6307:1: ruleElement
             {
              before(grammarAccess.getInnerAccess().getAssignListElementParserRuleCall_2_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -15239,17 +15367,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Inner__AssignListAssignment_2_1_2_1"
-    // InternalXtextTest.g:6273:1: rule__Inner__AssignListAssignment_2_1_2_1 : ( ruleElement ) ;
+    // InternalXtextTest.g:6316:1: rule__Inner__AssignListAssignment_2_1_2_1 : ( ruleElement ) ;
     public final void rule__Inner__AssignListAssignment_2_1_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:6277:1: ( ( ruleElement ) )
-            // InternalXtextTest.g:6278:1: ( ruleElement )
+            // InternalXtextTest.g:6320:1: ( ( ruleElement ) )
+            // InternalXtextTest.g:6321:1: ( ruleElement )
             {
-            // InternalXtextTest.g:6278:1: ( ruleElement )
-            // InternalXtextTest.g:6279:1: ruleElement
+            // InternalXtextTest.g:6321:1: ( ruleElement )
+            // InternalXtextTest.g:6322:1: ruleElement
             {
              before(grammarAccess.getInnerAccess().getAssignListElementParserRuleCall_2_1_2_1_0()); 
             pushFollow(FOLLOW_2);
@@ -15280,17 +15408,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Inner__ValueAssignment_2_2_1"
-    // InternalXtextTest.g:6288:1: rule__Inner__ValueAssignment_2_2_1 : ( RULE_STRING ) ;
+    // InternalXtextTest.g:6331:1: rule__Inner__ValueAssignment_2_2_1 : ( RULE_STRING ) ;
     public final void rule__Inner__ValueAssignment_2_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:6292:1: ( ( RULE_STRING ) )
-            // InternalXtextTest.g:6293:1: ( RULE_STRING )
+            // InternalXtextTest.g:6335:1: ( ( RULE_STRING ) )
+            // InternalXtextTest.g:6336:1: ( RULE_STRING )
             {
-            // InternalXtextTest.g:6293:1: ( RULE_STRING )
-            // InternalXtextTest.g:6294:1: RULE_STRING
+            // InternalXtextTest.g:6336:1: ( RULE_STRING )
+            // InternalXtextTest.g:6337:1: RULE_STRING
             {
              before(grammarAccess.getInnerAccess().getValueSTRINGTerminalRuleCall_2_2_1_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -15317,17 +15445,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Inner__AssignAsDataAssignment_2_3_1"
-    // InternalXtextTest.g:6303:1: rule__Inner__AssignAsDataAssignment_2_3_1 : ( RULE_STRING ) ;
+    // InternalXtextTest.g:6346:1: rule__Inner__AssignAsDataAssignment_2_3_1 : ( RULE_STRING ) ;
     public final void rule__Inner__AssignAsDataAssignment_2_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:6307:1: ( ( RULE_STRING ) )
-            // InternalXtextTest.g:6308:1: ( RULE_STRING )
+            // InternalXtextTest.g:6350:1: ( ( RULE_STRING ) )
+            // InternalXtextTest.g:6351:1: ( RULE_STRING )
             {
-            // InternalXtextTest.g:6308:1: ( RULE_STRING )
-            // InternalXtextTest.g:6309:1: RULE_STRING
+            // InternalXtextTest.g:6351:1: ( RULE_STRING )
+            // InternalXtextTest.g:6352:1: RULE_STRING
             {
              before(grammarAccess.getInnerAccess().getAssignAsDataSTRINGTerminalRuleCall_2_3_1_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -15354,21 +15482,21 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Inner__AssignAsBoolAssignment_2_4_1"
-    // InternalXtextTest.g:6318:1: rule__Inner__AssignAsBoolAssignment_2_4_1 : ( ( rule__Inner__AssignAsBoolAlternatives_2_4_1_0 ) ) ;
+    // InternalXtextTest.g:6361:1: rule__Inner__AssignAsBoolAssignment_2_4_1 : ( ( rule__Inner__AssignAsBoolAlternatives_2_4_1_0 ) ) ;
     public final void rule__Inner__AssignAsBoolAssignment_2_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:6322:1: ( ( ( rule__Inner__AssignAsBoolAlternatives_2_4_1_0 ) ) )
-            // InternalXtextTest.g:6323:1: ( ( rule__Inner__AssignAsBoolAlternatives_2_4_1_0 ) )
+            // InternalXtextTest.g:6365:1: ( ( ( rule__Inner__AssignAsBoolAlternatives_2_4_1_0 ) ) )
+            // InternalXtextTest.g:6366:1: ( ( rule__Inner__AssignAsBoolAlternatives_2_4_1_0 ) )
             {
-            // InternalXtextTest.g:6323:1: ( ( rule__Inner__AssignAsBoolAlternatives_2_4_1_0 ) )
-            // InternalXtextTest.g:6324:1: ( rule__Inner__AssignAsBoolAlternatives_2_4_1_0 )
+            // InternalXtextTest.g:6366:1: ( ( rule__Inner__AssignAsBoolAlternatives_2_4_1_0 ) )
+            // InternalXtextTest.g:6367:1: ( rule__Inner__AssignAsBoolAlternatives_2_4_1_0 )
             {
              before(grammarAccess.getInnerAccess().getAssignAsBoolAlternatives_2_4_1_0()); 
-            // InternalXtextTest.g:6325:1: ( rule__Inner__AssignAsBoolAlternatives_2_4_1_0 )
-            // InternalXtextTest.g:6325:2: rule__Inner__AssignAsBoolAlternatives_2_4_1_0
+            // InternalXtextTest.g:6368:1: ( rule__Inner__AssignAsBoolAlternatives_2_4_1_0 )
+            // InternalXtextTest.g:6368:2: rule__Inner__AssignAsBoolAlternatives_2_4_1_0
             {
             pushFollow(FOLLOW_2);
             rule__Inner__AssignAsBoolAlternatives_2_4_1_0();
@@ -15401,17 +15529,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Inner__IsNullAssignment_2_5"
-    // InternalXtextTest.g:6334:1: rule__Inner__IsNullAssignment_2_5 : ( RULE_ISNULL ) ;
+    // InternalXtextTest.g:6377:1: rule__Inner__IsNullAssignment_2_5 : ( RULE_ISNULL ) ;
     public final void rule__Inner__IsNullAssignment_2_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:6338:1: ( ( RULE_ISNULL ) )
-            // InternalXtextTest.g:6339:1: ( RULE_ISNULL )
+            // InternalXtextTest.g:6381:1: ( ( RULE_ISNULL ) )
+            // InternalXtextTest.g:6382:1: ( RULE_ISNULL )
             {
-            // InternalXtextTest.g:6339:1: ( RULE_ISNULL )
-            // InternalXtextTest.g:6340:1: RULE_ISNULL
+            // InternalXtextTest.g:6382:1: ( RULE_ISNULL )
+            // InternalXtextTest.g:6383:1: RULE_ISNULL
             {
              before(grammarAccess.getInnerAccess().getIsNullISNULLTerminalRuleCall_2_5_0()); 
             match(input,RULE_ISNULL,FOLLOW_2); 
@@ -15438,17 +15566,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Inner__IsNotNullAssignment_2_6"
-    // InternalXtextTest.g:6349:1: rule__Inner__IsNotNullAssignment_2_6 : ( RULE_ISNOTNULL ) ;
+    // InternalXtextTest.g:6392:1: rule__Inner__IsNotNullAssignment_2_6 : ( RULE_ISNOTNULL ) ;
     public final void rule__Inner__IsNotNullAssignment_2_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:6353:1: ( ( RULE_ISNOTNULL ) )
-            // InternalXtextTest.g:6354:1: ( RULE_ISNOTNULL )
+            // InternalXtextTest.g:6396:1: ( ( RULE_ISNOTNULL ) )
+            // InternalXtextTest.g:6397:1: ( RULE_ISNOTNULL )
             {
-            // InternalXtextTest.g:6354:1: ( RULE_ISNOTNULL )
-            // InternalXtextTest.g:6355:1: RULE_ISNOTNULL
+            // InternalXtextTest.g:6397:1: ( RULE_ISNOTNULL )
+            // InternalXtextTest.g:6398:1: RULE_ISNOTNULL
             {
              before(grammarAccess.getInnerAccess().getIsNotNullISNOTNULLTerminalRuleCall_2_6_0()); 
             match(input,RULE_ISNOTNULL,FOLLOW_2); 
@@ -15475,17 +15603,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Inner__IsEmptyAssignment_2_7"
-    // InternalXtextTest.g:6364:1: rule__Inner__IsEmptyAssignment_2_7 : ( RULE_ISEMPTY ) ;
+    // InternalXtextTest.g:6407:1: rule__Inner__IsEmptyAssignment_2_7 : ( RULE_ISEMPTY ) ;
     public final void rule__Inner__IsEmptyAssignment_2_7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:6368:1: ( ( RULE_ISEMPTY ) )
-            // InternalXtextTest.g:6369:1: ( RULE_ISEMPTY )
+            // InternalXtextTest.g:6411:1: ( ( RULE_ISEMPTY ) )
+            // InternalXtextTest.g:6412:1: ( RULE_ISEMPTY )
             {
-            // InternalXtextTest.g:6369:1: ( RULE_ISEMPTY )
-            // InternalXtextTest.g:6370:1: RULE_ISEMPTY
+            // InternalXtextTest.g:6412:1: ( RULE_ISEMPTY )
+            // InternalXtextTest.g:6413:1: RULE_ISEMPTY
             {
              before(grammarAccess.getInnerAccess().getIsEmptyISEMPTYTerminalRuleCall_2_7_0()); 
             match(input,RULE_ISEMPTY,FOLLOW_2); 
@@ -15512,17 +15640,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__OutputAssignment_1_3"
-    // InternalXtextTest.g:6379:1: rule__Generator__OutputAssignment_1_3 : ( RULE_STRING ) ;
+    // InternalXtextTest.g:6422:1: rule__Generator__OutputAssignment_1_3 : ( RULE_STRING ) ;
     public final void rule__Generator__OutputAssignment_1_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:6383:1: ( ( RULE_STRING ) )
-            // InternalXtextTest.g:6384:1: ( RULE_STRING )
+            // InternalXtextTest.g:6426:1: ( ( RULE_STRING ) )
+            // InternalXtextTest.g:6427:1: ( RULE_STRING )
             {
-            // InternalXtextTest.g:6384:1: ( RULE_STRING )
-            // InternalXtextTest.g:6385:1: RULE_STRING
+            // InternalXtextTest.g:6427:1: ( RULE_STRING )
+            // InternalXtextTest.g:6428:1: RULE_STRING
             {
              before(grammarAccess.getGeneratorAccess().getOutputSTRINGTerminalRuleCall_1_3_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -15549,17 +15677,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__ExpectedAssignment_2_2_0_1"
-    // InternalXtextTest.g:6394:1: rule__Generator__ExpectedAssignment_2_2_0_1 : ( RULE_STRING ) ;
+    // InternalXtextTest.g:6437:1: rule__Generator__ExpectedAssignment_2_2_0_1 : ( RULE_STRING ) ;
     public final void rule__Generator__ExpectedAssignment_2_2_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:6398:1: ( ( RULE_STRING ) )
-            // InternalXtextTest.g:6399:1: ( RULE_STRING )
+            // InternalXtextTest.g:6441:1: ( ( RULE_STRING ) )
+            // InternalXtextTest.g:6442:1: ( RULE_STRING )
             {
-            // InternalXtextTest.g:6399:1: ( RULE_STRING )
-            // InternalXtextTest.g:6400:1: RULE_STRING
+            // InternalXtextTest.g:6442:1: ( RULE_STRING )
+            // InternalXtextTest.g:6443:1: RULE_STRING
             {
              before(grammarAccess.getGeneratorAccess().getExpectedSTRINGTerminalRuleCall_2_2_0_1_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -15586,17 +15714,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__IsSameAsInputFileAssignment_2_2_1"
-    // InternalXtextTest.g:6409:1: rule__Generator__IsSameAsInputFileAssignment_2_2_1 : ( RULE_ISSAMEASINPUTFILE ) ;
+    // InternalXtextTest.g:6452:1: rule__Generator__IsSameAsInputFileAssignment_2_2_1 : ( RULE_ISSAMEASINPUTFILE ) ;
     public final void rule__Generator__IsSameAsInputFileAssignment_2_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:6413:1: ( ( RULE_ISSAMEASINPUTFILE ) )
-            // InternalXtextTest.g:6414:1: ( RULE_ISSAMEASINPUTFILE )
+            // InternalXtextTest.g:6456:1: ( ( RULE_ISSAMEASINPUTFILE ) )
+            // InternalXtextTest.g:6457:1: ( RULE_ISSAMEASINPUTFILE )
             {
-            // InternalXtextTest.g:6414:1: ( RULE_ISSAMEASINPUTFILE )
-            // InternalXtextTest.g:6415:1: RULE_ISSAMEASINPUTFILE
+            // InternalXtextTest.g:6457:1: ( RULE_ISSAMEASINPUTFILE )
+            // InternalXtextTest.g:6458:1: RULE_ISSAMEASINPUTFILE
             {
              before(grammarAccess.getGeneratorAccess().getIsSameAsInputFileISSAMEASINPUTFILETerminalRuleCall_2_2_1_0()); 
             match(input,RULE_ISSAMEASINPUTFILE,FOLLOW_2); 
@@ -15623,17 +15751,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__PatternFileAssignment_3_1_2"
-    // InternalXtextTest.g:6424:1: rule__Generator__PatternFileAssignment_3_1_2 : ( RULE_STRING ) ;
+    // InternalXtextTest.g:6467:1: rule__Generator__PatternFileAssignment_3_1_2 : ( RULE_STRING ) ;
     public final void rule__Generator__PatternFileAssignment_3_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:6428:1: ( ( RULE_STRING ) )
-            // InternalXtextTest.g:6429:1: ( RULE_STRING )
+            // InternalXtextTest.g:6471:1: ( ( RULE_STRING ) )
+            // InternalXtextTest.g:6472:1: ( RULE_STRING )
             {
-            // InternalXtextTest.g:6429:1: ( RULE_STRING )
-            // InternalXtextTest.g:6430:1: RULE_STRING
+            // InternalXtextTest.g:6472:1: ( RULE_STRING )
+            // InternalXtextTest.g:6473:1: RULE_STRING
             {
              before(grammarAccess.getGeneratorAccess().getPatternFileSTRINGTerminalRuleCall_3_1_2_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -15660,17 +15788,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__ReplacePatternsAssignment_3_2"
-    // InternalXtextTest.g:6439:1: rule__Generator__ReplacePatternsAssignment_3_2 : ( ruleReplacePatterns ) ;
+    // InternalXtextTest.g:6482:1: rule__Generator__ReplacePatternsAssignment_3_2 : ( ruleReplacePatterns ) ;
     public final void rule__Generator__ReplacePatternsAssignment_3_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:6443:1: ( ( ruleReplacePatterns ) )
-            // InternalXtextTest.g:6444:1: ( ruleReplacePatterns )
+            // InternalXtextTest.g:6486:1: ( ( ruleReplacePatterns ) )
+            // InternalXtextTest.g:6487:1: ( ruleReplacePatterns )
             {
-            // InternalXtextTest.g:6444:1: ( ruleReplacePatterns )
-            // InternalXtextTest.g:6445:1: ruleReplacePatterns
+            // InternalXtextTest.g:6487:1: ( ruleReplacePatterns )
+            // InternalXtextTest.g:6488:1: ruleReplacePatterns
             {
              before(grammarAccess.getGeneratorAccess().getReplacePatternsReplacePatternsParserRuleCall_3_2_0()); 
             pushFollow(FOLLOW_2);
@@ -15701,17 +15829,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Generator__ExceptionAssignment_4_2"
-    // InternalXtextTest.g:6454:1: rule__Generator__ExceptionAssignment_4_2 : ( rulePackageID ) ;
+    // InternalXtextTest.g:6497:1: rule__Generator__ExceptionAssignment_4_2 : ( rulePackageID ) ;
     public final void rule__Generator__ExceptionAssignment_4_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:6458:1: ( ( rulePackageID ) )
-            // InternalXtextTest.g:6459:1: ( rulePackageID )
+            // InternalXtextTest.g:6501:1: ( ( rulePackageID ) )
+            // InternalXtextTest.g:6502:1: ( rulePackageID )
             {
-            // InternalXtextTest.g:6459:1: ( rulePackageID )
-            // InternalXtextTest.g:6460:1: rulePackageID
+            // InternalXtextTest.g:6502:1: ( rulePackageID )
+            // InternalXtextTest.g:6503:1: rulePackageID
             {
              before(grammarAccess.getGeneratorAccess().getExceptionPackageIDParserRuleCall_4_2_0()); 
             pushFollow(FOLLOW_2);
@@ -15742,17 +15870,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ReplacePatterns__RegexAssignment_0"
-    // InternalXtextTest.g:6469:1: rule__ReplacePatterns__RegexAssignment_0 : ( RULE_STRING ) ;
+    // InternalXtextTest.g:6512:1: rule__ReplacePatterns__RegexAssignment_0 : ( RULE_STRING ) ;
     public final void rule__ReplacePatterns__RegexAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:6473:1: ( ( RULE_STRING ) )
-            // InternalXtextTest.g:6474:1: ( RULE_STRING )
+            // InternalXtextTest.g:6516:1: ( ( RULE_STRING ) )
+            // InternalXtextTest.g:6517:1: ( RULE_STRING )
             {
-            // InternalXtextTest.g:6474:1: ( RULE_STRING )
-            // InternalXtextTest.g:6475:1: RULE_STRING
+            // InternalXtextTest.g:6517:1: ( RULE_STRING )
+            // InternalXtextTest.g:6518:1: RULE_STRING
             {
              before(grammarAccess.getReplacePatternsAccess().getRegexSTRINGTerminalRuleCall_0_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -15779,17 +15907,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ReplacePatterns__ReplaceAssignment_2"
-    // InternalXtextTest.g:6484:1: rule__ReplacePatterns__ReplaceAssignment_2 : ( RULE_STRING ) ;
+    // InternalXtextTest.g:6527:1: rule__ReplacePatterns__ReplaceAssignment_2 : ( RULE_STRING ) ;
     public final void rule__ReplacePatterns__ReplaceAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:6488:1: ( ( RULE_STRING ) )
-            // InternalXtextTest.g:6489:1: ( RULE_STRING )
+            // InternalXtextTest.g:6531:1: ( ( RULE_STRING ) )
+            // InternalXtextTest.g:6532:1: ( RULE_STRING )
             {
-            // InternalXtextTest.g:6489:1: ( RULE_STRING )
-            // InternalXtextTest.g:6490:1: RULE_STRING
+            // InternalXtextTest.g:6532:1: ( RULE_STRING )
+            // InternalXtextTest.g:6533:1: RULE_STRING
             {
              before(grammarAccess.getReplacePatternsAccess().getReplaceSTRINGTerminalRuleCall_2_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -15816,17 +15944,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Before__CodeCallAssignment_2"
-    // InternalXtextTest.g:6499:1: rule__Before__CodeCallAssignment_2 : ( ruleCodeCall ) ;
+    // InternalXtextTest.g:6542:1: rule__Before__CodeCallAssignment_2 : ( ruleCodeCall ) ;
     public final void rule__Before__CodeCallAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:6503:1: ( ( ruleCodeCall ) )
-            // InternalXtextTest.g:6504:1: ( ruleCodeCall )
+            // InternalXtextTest.g:6546:1: ( ( ruleCodeCall ) )
+            // InternalXtextTest.g:6547:1: ( ruleCodeCall )
             {
-            // InternalXtextTest.g:6504:1: ( ruleCodeCall )
-            // InternalXtextTest.g:6505:1: ruleCodeCall
+            // InternalXtextTest.g:6547:1: ( ruleCodeCall )
+            // InternalXtextTest.g:6548:1: ruleCodeCall
             {
              before(grammarAccess.getBeforeAccess().getCodeCallCodeCallParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -15857,17 +15985,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__After__CodeCallAssignment_2"
-    // InternalXtextTest.g:6514:1: rule__After__CodeCallAssignment_2 : ( ruleCodeCall ) ;
+    // InternalXtextTest.g:6557:1: rule__After__CodeCallAssignment_2 : ( ruleCodeCall ) ;
     public final void rule__After__CodeCallAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:6518:1: ( ( ruleCodeCall ) )
-            // InternalXtextTest.g:6519:1: ( ruleCodeCall )
+            // InternalXtextTest.g:6561:1: ( ( ruleCodeCall ) )
+            // InternalXtextTest.g:6562:1: ( ruleCodeCall )
             {
-            // InternalXtextTest.g:6519:1: ( ruleCodeCall )
-            // InternalXtextTest.g:6520:1: ruleCodeCall
+            // InternalXtextTest.g:6562:1: ( ruleCodeCall )
+            // InternalXtextTest.g:6563:1: ruleCodeCall
             {
              before(grammarAccess.getAfterAccess().getCodeCallCodeCallParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -15898,17 +16026,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__CodeCall__MyclassAssignment_3"
-    // InternalXtextTest.g:6529:1: rule__CodeCall__MyclassAssignment_3 : ( rulePackageID ) ;
+    // InternalXtextTest.g:6572:1: rule__CodeCall__MyclassAssignment_3 : ( rulePackageID ) ;
     public final void rule__CodeCall__MyclassAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:6533:1: ( ( rulePackageID ) )
-            // InternalXtextTest.g:6534:1: ( rulePackageID )
+            // InternalXtextTest.g:6576:1: ( ( rulePackageID ) )
+            // InternalXtextTest.g:6577:1: ( rulePackageID )
             {
-            // InternalXtextTest.g:6534:1: ( rulePackageID )
-            // InternalXtextTest.g:6535:1: rulePackageID
+            // InternalXtextTest.g:6577:1: ( rulePackageID )
+            // InternalXtextTest.g:6578:1: rulePackageID
             {
              before(grammarAccess.getCodeCallAccess().getMyclassPackageIDParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -15939,17 +16067,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__CodeCall__MethodAssignment_6"
-    // InternalXtextTest.g:6544:1: rule__CodeCall__MethodAssignment_6 : ( rulePackageID ) ;
+    // InternalXtextTest.g:6587:1: rule__CodeCall__MethodAssignment_6 : ( rulePackageID ) ;
     public final void rule__CodeCall__MethodAssignment_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:6548:1: ( ( rulePackageID ) )
-            // InternalXtextTest.g:6549:1: ( rulePackageID )
+            // InternalXtextTest.g:6591:1: ( ( rulePackageID ) )
+            // InternalXtextTest.g:6592:1: ( rulePackageID )
             {
-            // InternalXtextTest.g:6549:1: ( rulePackageID )
-            // InternalXtextTest.g:6550:1: rulePackageID
+            // InternalXtextTest.g:6592:1: ( rulePackageID )
+            // InternalXtextTest.g:6593:1: rulePackageID
             {
              before(grammarAccess.getCodeCallAccess().getMethodPackageIDParserRuleCall_6_0()); 
             pushFollow(FOLLOW_2);
@@ -15980,17 +16108,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__CodeCall__ParamsAssignment_7_1_0"
-    // InternalXtextTest.g:6559:1: rule__CodeCall__ParamsAssignment_7_1_0 : ( rulePackageID ) ;
+    // InternalXtextTest.g:6602:1: rule__CodeCall__ParamsAssignment_7_1_0 : ( rulePackageID ) ;
     public final void rule__CodeCall__ParamsAssignment_7_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:6563:1: ( ( rulePackageID ) )
-            // InternalXtextTest.g:6564:1: ( rulePackageID )
+            // InternalXtextTest.g:6606:1: ( ( rulePackageID ) )
+            // InternalXtextTest.g:6607:1: ( rulePackageID )
             {
-            // InternalXtextTest.g:6564:1: ( rulePackageID )
-            // InternalXtextTest.g:6565:1: rulePackageID
+            // InternalXtextTest.g:6607:1: ( rulePackageID )
+            // InternalXtextTest.g:6608:1: rulePackageID
             {
              before(grammarAccess.getCodeCallAccess().getParamsPackageIDParserRuleCall_7_1_0_0()); 
             pushFollow(FOLLOW_2);
@@ -16021,17 +16149,17 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__CodeCall__ParamsAssignment_7_1_1_1"
-    // InternalXtextTest.g:6574:1: rule__CodeCall__ParamsAssignment_7_1_1_1 : ( rulePackageID ) ;
+    // InternalXtextTest.g:6617:1: rule__CodeCall__ParamsAssignment_7_1_1_1 : ( rulePackageID ) ;
     public final void rule__CodeCall__ParamsAssignment_7_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalXtextTest.g:6578:1: ( ( rulePackageID ) )
-            // InternalXtextTest.g:6579:1: ( rulePackageID )
+            // InternalXtextTest.g:6621:1: ( ( rulePackageID ) )
+            // InternalXtextTest.g:6622:1: ( rulePackageID )
             {
-            // InternalXtextTest.g:6579:1: ( rulePackageID )
-            // InternalXtextTest.g:6580:1: rulePackageID
+            // InternalXtextTest.g:6622:1: ( rulePackageID )
+            // InternalXtextTest.g:6623:1: rulePackageID
             {
              before(grammarAccess.getCodeCallAccess().getParamsPackageIDParserRuleCall_7_1_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -16089,24 +16217,25 @@ public class InternalXtextTestParser extends AbstractInternalContentAssistParser
     public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000000040002L});
     public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000000090000L});
     public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000004000000000L});
-    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000000000800010L});
-    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000000002000002L});
-    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x000003801C200800L});
-    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000000040000000L});
-    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x00000000C0000000L});
-    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0000040000000800L});
-    public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0000002000010000L});
-    public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0000002000000002L});
-    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0000000200000000L});
-    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0000000400000000L});
-    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000002000000010L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000002000000012L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000004000000000L});
+    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000000000800010L});
+    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000000002000002L});
+    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x000003801C200800L});
+    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0000000040000000L});
+    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x00000000C0000000L});
+    public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0000040000000800L});
+    public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0000002000010000L});
+    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0000002000000002L});
+    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0000000400000000L});
+    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x0000000000400000L});
 
 }

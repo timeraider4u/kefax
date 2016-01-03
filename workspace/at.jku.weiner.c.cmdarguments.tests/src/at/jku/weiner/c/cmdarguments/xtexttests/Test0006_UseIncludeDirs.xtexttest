@@ -4,26 +4,30 @@ package at.jku.weiner.c.cmdarguments
 language cmdArgs
 // imports at.jku.weiner.c.common.common
 //----------------------------------------------------------------------
-split-lexer=false
+split-lexer=true
 source file="res/Test0006_UseIncludeDirs.cmd"
 //----------------------------------------------------------------------
 lexer-tokens
-	INCDIR ID ANY_OTHER ID ANY_OTHER ID WS 
-		INCDIR ANY_OTHER+*2 ID ANY_OTHER ID ANY_OTHER ID WS
-		INCDIR ID ANY_OTHER+*2 ID ANY_OTHER ID
+	// foo/bar/include
+	KW_INCDIR ID ANY_OTHER ID ANY_OTHER KW_INCLUDE WS 
+		// ./foobar/bar/include
+		KW_INCDIR ANY_OTHER+*2 ID ANY_OTHER ID ANY_OTHER KW_INCLUDE WS
+		// C:\system\include
+		KW_INCDIR ID ANY_OTHER+*2 ID ANY_OTHER KW_INCLUDE
 		NEWLINE
-	INCSYS WS ID ANY_OTHER+*2 ID ANY_OTHER ID WS
-		INCSYS WS
+	// C:\system32\include
+	SKW_MINUS KW_INCSYS WS ID ANY_OTHER+*2 ID ANY_OTHER KW_INCLUDE WS
+		SKW_MINUS KW_INCSYS WS
 			// /usr/lib/gcc 
 			ANY_OTHER ID ANY_OTHER ID ANY_OTHER ID
 			// /x86_64-pc-linux
-			ANY_OTHER ID ANY_OTHER ID ANY_OTHER ID
+			ANY_OTHER ID SKW_MINUS ID SKW_MINUS ID
 			// -gnu/4.8.4
-			ANY_OTHER ID ANY_OTHER INT ANY_OTHER INT ANY_OTHER INT
+			SKW_MINUS ID ANY_OTHER INT ANY_OTHER INT ANY_OTHER INT
 			// /include
-			ANY_OTHER ID
+			ANY_OTHER KW_INCLUDE
 		NEWLINE
-	DEFINE ID
+	KW_DEFINE ID
 //----------------------------------------------------------------------
 
 (Model

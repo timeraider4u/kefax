@@ -7,7 +7,7 @@ import at.jku.weiner.c.cmdarguments.formatting2.CmdArgsFormatter;
 import at.jku.weiner.c.cmdarguments.generator.CmdArgsGenerator;
 import at.jku.weiner.c.cmdarguments.parser.antlr.CmdArgsAntlrTokenFileProvider;
 import at.jku.weiner.c.cmdarguments.parser.antlr.CmdArgsParser;
-import at.jku.weiner.c.cmdarguments.parser.antlr.internal.InternalCmdArgsLexer;
+import at.jku.weiner.c.cmdarguments.parser.antlr.lexer.InternalCmdArgsLexer;
 import at.jku.weiner.c.cmdarguments.scoping.CmdArgsScopeProvider;
 import at.jku.weiner.c.cmdarguments.serializer.CmdArgsSemanticSequencer;
 import at.jku.weiner.c.cmdarguments.serializer.CmdArgsSyntacticSequencer;
@@ -98,37 +98,37 @@ public abstract class AbstractCmdArgsRuntimeModule extends DefaultCommonTypesRun
 		return Serializer.class;
 	}
 	
-	// contributed by org.eclipse.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment
+	// contributed by org.eclipse.xtext.generator.parser.antlr.ex.rt.AntlrGeneratorFragment
 	public Class<? extends IParser> bindIParser() {
 		return CmdArgsParser.class;
 	}
 	
-	// contributed by org.eclipse.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment
+	// contributed by org.eclipse.xtext.generator.parser.antlr.ex.rt.AntlrGeneratorFragment
 	public Class<? extends ITokenToStringConverter> bindITokenToStringConverter() {
 		return AntlrTokenToStringConverter.class;
 	}
 	
-	// contributed by org.eclipse.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment
+	// contributed by org.eclipse.xtext.generator.parser.antlr.ex.rt.AntlrGeneratorFragment
 	public Class<? extends IAntlrTokenFileProvider> bindIAntlrTokenFileProvider() {
 		return CmdArgsAntlrTokenFileProvider.class;
 	}
 	
-	// contributed by org.eclipse.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment
+	// contributed by org.eclipse.xtext.generator.parser.antlr.ex.rt.AntlrGeneratorFragment
 	public Class<? extends Lexer> bindLexer() {
 		return InternalCmdArgsLexer.class;
 	}
 	
-	// contributed by org.eclipse.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment
+	// contributed by org.eclipse.xtext.generator.parser.antlr.ex.rt.AntlrGeneratorFragment
 	public Provider<InternalCmdArgsLexer> provideInternalCmdArgsLexer() {
-		return org.eclipse.xtext.parser.antlr.LexerProvider.create(at.jku.weiner.c.cmdarguments.parser.antlr.internal.InternalCmdArgsLexer.class);
+		return org.eclipse.xtext.parser.antlr.LexerProvider.create(at.jku.weiner.c.cmdarguments.parser.antlr.lexer.InternalCmdArgsLexer.class);
 	}
 	
-	// contributed by org.eclipse.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment
+	// contributed by org.eclipse.xtext.generator.parser.antlr.ex.rt.AntlrGeneratorFragment
 	public void configureRuntimeLexer(Binder binder) {
-		binder.bind(org.eclipse.xtext.parser.antlr.Lexer.class).annotatedWith(com.google.inject.name.Names.named(org.eclipse.xtext.parser.antlr.LexerBindings.RUNTIME)).to(at.jku.weiner.c.cmdarguments.parser.antlr.internal.InternalCmdArgsLexer.class);
+		binder.bind(org.eclipse.xtext.parser.antlr.Lexer.class).annotatedWith(com.google.inject.name.Names.named(org.eclipse.xtext.parser.antlr.LexerBindings.RUNTIME)).to(at.jku.weiner.c.cmdarguments.parser.antlr.lexer.InternalCmdArgsLexer.class);
 	}
 	
-	// contributed by org.eclipse.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment
+	// contributed by org.eclipse.xtext.generator.parser.antlr.ex.rt.AntlrGeneratorFragment
 	public Class<? extends ITokenDefProvider> bindITokenDefProvider() {
 		return AntlrTokenDefProvider.class;
 	}

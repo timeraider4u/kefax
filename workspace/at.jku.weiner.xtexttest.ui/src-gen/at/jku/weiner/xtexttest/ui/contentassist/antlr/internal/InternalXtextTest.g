@@ -754,6 +754,34 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+rule__MyTokens__Alternatives_0
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+
+(
+{ before(grammarAccess.getMyTokensAccess().getTokenAssignment_0_0()); }
+(rule__MyTokens__TokenAssignment_0_0)
+{ after(grammarAccess.getMyTokensAccess().getTokenAssignment_0_0()); }
+)
+
+
+
+    |
+(
+{ before(grammarAccess.getMyTokensAccess().getStringAssignment_0_1()); }
+(rule__MyTokens__StringAssignment_0_1)
+{ after(grammarAccess.getMyTokensAccess().getStringAssignment_0_1()); }
+)
+
+
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__Inner__Alternatives_2
     @init {
 		int stackSize = keepStackSize();
@@ -3092,9 +3120,9 @@ rule__MyTokens__Group__0__Impl
 :
 
 (
-{ before(grammarAccess.getMyTokensAccess().getTokenAssignment_0()); }
-(rule__MyTokens__TokenAssignment_0)
-{ after(grammarAccess.getMyTokensAccess().getTokenAssignment_0()); }
+{ before(grammarAccess.getMyTokensAccess().getAlternatives_0()); }
+(rule__MyTokens__Alternatives_0)
+{ after(grammarAccess.getMyTokensAccess().getAlternatives_0()); }
 )
 
 
@@ -6135,14 +6163,29 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__MyTokens__TokenAssignment_0
+rule__MyTokens__TokenAssignment_0_0
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getMyTokensAccess().getTokenIDENTIFIERTerminalRuleCall_0_0()); }
-	RULE_IDENTIFIER{ after(grammarAccess.getMyTokensAccess().getTokenIDENTIFIERTerminalRuleCall_0_0()); }
+{ before(grammarAccess.getMyTokensAccess().getTokenIDENTIFIERTerminalRuleCall_0_0_0()); }
+	RULE_IDENTIFIER{ after(grammarAccess.getMyTokensAccess().getTokenIDENTIFIERTerminalRuleCall_0_0_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__MyTokens__StringAssignment_0_1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getMyTokensAccess().getStringSTRINGTerminalRuleCall_0_1_0()); }
+	RULE_STRING{ after(grammarAccess.getMyTokensAccess().getStringSTRINGTerminalRuleCall_0_1_0()); }
 )
 
 ;

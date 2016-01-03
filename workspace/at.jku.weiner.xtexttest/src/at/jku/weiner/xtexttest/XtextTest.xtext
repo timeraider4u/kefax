@@ -77,7 +77,7 @@ Tokens:
 ;
 
 MyTokens:
-	token=IDENTIFIER 
+	(token=IDENTIFIER|string=STRING) 
 	(ASSIGNASDATALIST count=INT)? 
 ;
 

@@ -103,20 +103,22 @@ public class Test0001_Semicolons {
 			"res/Test0001_Semicolons.c");
 			//System.out.println(text);
 			final String[] expected = new String[] {
-				"RULE_MYCODE", 
-				"RULE_NEWLINE", 
-				"RULE_MYCODE", 
-				"RULE_MYCODE", 
-				"RULE_MYCODE", 
-				"RULE_MYCODE", 
-				"RULE_MYCODE", 
-				"RULE_MYCODE", 
-				"RULE_NEWLINE", 
-				"RULE_NEWLINE", 
-				"RULE_MYCODE", 
-				"RULE_MYCODE", 
-				"RULE_MYCODE", 
-				"RULE_NEWLINE", 
+				"include",
+				"RULE_NEWLINE",
+				"RULE_MYCODE",
+				"RULE_NEWLINE",
+				"RULE_MYCODE",
+				"RULE_MYCODE",
+				"RULE_MYCODE",
+				"RULE_MYCODE",
+				"RULE_MYCODE",
+				"RULE_MYCODE",
+				"RULE_NEWLINE",
+				"RULE_NEWLINE",
+				"RULE_MYCODE",
+				"RULE_MYCODE",
+				"RULE_MYCODE",
+				"RULE_NEWLINE",
 				};
 			//final List<Token> actual = testHelper.getTokens(text);
 			//testHelper.outputTokens(text);

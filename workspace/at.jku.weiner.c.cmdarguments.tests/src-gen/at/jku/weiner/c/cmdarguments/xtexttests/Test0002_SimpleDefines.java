@@ -40,7 +40,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import at.jku.weiner.c.cmdarguments.tests.CmdArgsInjectorProvider;
 import at.jku.weiner.c.cmdarguments.parser.antlr.CmdArgsParser;
-import at.jku.weiner.c.cmdarguments.parser.antlr.internal.InternalCmdArgsLexer;
+import at.jku.weiner.c.cmdarguments.parser.antlr.lexer.InternalCmdArgsLexer;
 import at.jku.weiner.c.cmdarguments.xtexttests.LexerAndParserTest;
 
 import at.jku.weiner.c.cmdarguments.cmdArgs.Model;
@@ -105,14 +105,14 @@ public class Test0002_SimpleDefines {
 			"res/Test0002_SimpleDefines.cmd");
 			//System.out.println(text);
 			final String[] expected = new String[] {
-				"RULE_DEFINE", 
-				"RULE_ID", 
-				"RULE_NEWLINE", 
-				"RULE_DEFINE", 
-				"RULE_ID", 
-				"RULE_NEWLINE", 
-				"RULE_DEFINE", 
-				"RULE_ID", 
+				"RULE_KW_DEFINE",
+				"RULE_ID",
+				"RULE_NEWLINE",
+				"RULE_KW_DEFINE",
+				"RULE_ID",
+				"RULE_NEWLINE",
+				"RULE_KW_DEFINE",
+				"RULE_ID",
 				};
 			//final List<Token> actual = testHelper.getTokens(text);
 			//testHelper.outputTokens(text);

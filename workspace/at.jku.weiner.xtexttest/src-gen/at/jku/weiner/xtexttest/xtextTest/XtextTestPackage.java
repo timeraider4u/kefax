@@ -424,13 +424,22 @@ public interface XtextTestPackage extends EPackage
   int MY_TOKENS__TOKEN = 0;
 
   /**
+   * The feature id for the '<em><b>String</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MY_TOKENS__STRING = 1;
+
+  /**
    * The feature id for the '<em><b>Count</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MY_TOKENS__COUNT = 1;
+  int MY_TOKENS__COUNT = 2;
 
   /**
    * The number of structural features of the '<em>My Tokens</em>' class.
@@ -439,7 +448,7 @@ public interface XtextTestPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MY_TOKENS_FEATURE_COUNT = 2;
+  int MY_TOKENS_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.xtexttest.xtextTest.impl.ElementImpl <em>Element</em>}' class.
@@ -1168,6 +1177,17 @@ public interface XtextTestPackage extends EPackage
   EAttribute getMyTokens_Token();
 
   /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.xtexttest.xtextTest.MyTokens#getString <em>String</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>String</em>'.
+   * @see at.jku.weiner.xtexttest.xtextTest.MyTokens#getString()
+   * @see #getMyTokens()
+   * @generated
+   */
+  EAttribute getMyTokens_String();
+
+  /**
    * Returns the meta object for the attribute '{@link at.jku.weiner.xtexttest.xtextTest.MyTokens#getCount <em>Count</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1831,6 +1851,14 @@ public interface XtextTestPackage extends EPackage
      * @generated
      */
     EAttribute MY_TOKENS__TOKEN = eINSTANCE.getMyTokens_Token();
+
+    /**
+     * The meta object literal for the '<em><b>String</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MY_TOKENS__STRING = eINSTANCE.getMyTokens_String();
 
     /**
      * The meta object literal for the '<em><b>Count</b></em>' attribute feature.

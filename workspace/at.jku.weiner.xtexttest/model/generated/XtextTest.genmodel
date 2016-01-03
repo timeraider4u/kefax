@@ -47,6 +47,7 @@
     </genClasses>
     <genClasses ecoreClass="XtextTest.ecore#//MyTokens">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//MyTokens/token"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//MyTokens/string"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XtextTest.ecore#//MyTokens/count"/>
     </genClasses>
     <genClasses ecoreClass="XtextTest.ecore#//Element">

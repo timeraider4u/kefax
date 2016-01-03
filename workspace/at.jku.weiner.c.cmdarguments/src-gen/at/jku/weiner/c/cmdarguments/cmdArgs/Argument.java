@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#isIncSys <em>Inc Sys</em>}</li>
  *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#isNostdinc <em>Nostdinc</em>}</li>
  *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#getInclude <em>Include</em>}</li>
+ *   <li>{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#getOption <em>Option</em>}</li>
  * </ul>
  *
  * @see at.jku.weiner.c.cmdarguments.cmdArgs.CmdArgsPackage#getArgument()
@@ -182,5 +183,31 @@ public interface Argument extends EObject
    * @generated
    */
   void setInclude(PathCmd value);
+
+  /**
+   * Returns the value of the '<em><b>Option</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Option</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Option</em>' attribute.
+   * @see #setOption(String)
+   * @see at.jku.weiner.c.cmdarguments.cmdArgs.CmdArgsPackage#getArgument_Option()
+   * @model
+   * @generated
+   */
+  String getOption();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.cmdarguments.cmdArgs.Argument#getOption <em>Option</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Option</em>' attribute.
+   * @see #getOption()
+   * @generated
+   */
+  void setOption(String value);
 
 } // Argument

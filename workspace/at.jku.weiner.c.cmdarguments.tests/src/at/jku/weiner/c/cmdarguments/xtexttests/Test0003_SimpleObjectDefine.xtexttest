@@ -4,13 +4,13 @@ package at.jku.weiner.c.cmdarguments
 language cmdArgs
 // imports at.jku.weiner.c.common.common
 //----------------------------------------------------------------------
-split-lexer=false
+split-lexer=true
 source file="res/Test0003_SimpleObjectDefine.cmd"
 //----------------------------------------------------------------------
 lexer-tokens
-	DEFINE ID SKW_ASSIGN ID NEWLINE
-	DEFINE ID SKW_ASSIGN INT NEWLINE
-	DEFINE ID SKW_ASSIGN ID NEWLINE
+	KW_DEFINE ID SKW_ASSIGN ID NEWLINE
+	KW_DEFINE ID SKW_ASSIGN INT NEWLINE
+	KW_DEFINE ID SKW_ASSIGN ID NEWLINE
 //----------------------------------------------------------------------
 
 (Model

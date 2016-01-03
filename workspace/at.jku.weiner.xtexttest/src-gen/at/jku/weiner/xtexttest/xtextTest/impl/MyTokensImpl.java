@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.MyTokensImpl#getToken <em>Token</em>}</li>
+ *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.MyTokensImpl#getString <em>String</em>}</li>
  *   <li>{@link at.jku.weiner.xtexttest.xtextTest.impl.MyTokensImpl#getCount <em>Count</em>}</li>
  * </ul>
  *
@@ -47,6 +48,26 @@ public class MyTokensImpl extends MinimalEObjectImpl.Container implements MyToke
    * @ordered
    */
   protected String token = TOKEN_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getString() <em>String</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getString()
+   * @generated
+   * @ordered
+   */
+  protected static final String STRING_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getString() <em>String</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getString()
+   * @generated
+   * @ordered
+   */
+  protected String string = STRING_EDEFAULT;
 
   /**
    * The default value of the '{@link #getCount() <em>Count</em>}' attribute.
@@ -117,6 +138,29 @@ public class MyTokensImpl extends MinimalEObjectImpl.Container implements MyToke
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getString()
+  {
+    return string;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setString(String newString)
+  {
+    String oldString = string;
+    string = newString;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, XtextTestPackage.MY_TOKENS__STRING, oldString, string));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public int getCount()
   {
     return count;
@@ -147,6 +191,8 @@ public class MyTokensImpl extends MinimalEObjectImpl.Container implements MyToke
     {
       case XtextTestPackage.MY_TOKENS__TOKEN:
         return getToken();
+      case XtextTestPackage.MY_TOKENS__STRING:
+        return getString();
       case XtextTestPackage.MY_TOKENS__COUNT:
         return getCount();
     }
@@ -165,6 +211,9 @@ public class MyTokensImpl extends MinimalEObjectImpl.Container implements MyToke
     {
       case XtextTestPackage.MY_TOKENS__TOKEN:
         setToken((String)newValue);
+        return;
+      case XtextTestPackage.MY_TOKENS__STRING:
+        setString((String)newValue);
         return;
       case XtextTestPackage.MY_TOKENS__COUNT:
         setCount((Integer)newValue);
@@ -186,6 +235,9 @@ public class MyTokensImpl extends MinimalEObjectImpl.Container implements MyToke
       case XtextTestPackage.MY_TOKENS__TOKEN:
         setToken(TOKEN_EDEFAULT);
         return;
+      case XtextTestPackage.MY_TOKENS__STRING:
+        setString(STRING_EDEFAULT);
+        return;
       case XtextTestPackage.MY_TOKENS__COUNT:
         setCount(COUNT_EDEFAULT);
         return;
@@ -205,6 +257,8 @@ public class MyTokensImpl extends MinimalEObjectImpl.Container implements MyToke
     {
       case XtextTestPackage.MY_TOKENS__TOKEN:
         return TOKEN_EDEFAULT == null ? token != null : !TOKEN_EDEFAULT.equals(token);
+      case XtextTestPackage.MY_TOKENS__STRING:
+        return STRING_EDEFAULT == null ? string != null : !STRING_EDEFAULT.equals(string);
       case XtextTestPackage.MY_TOKENS__COUNT:
         return count != COUNT_EDEFAULT;
     }
@@ -224,6 +278,8 @@ public class MyTokensImpl extends MinimalEObjectImpl.Container implements MyToke
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (token: ");
     result.append(token);
+    result.append(", string: ");
+    result.append(string);
     result.append(", count: ");
     result.append(count);
     result.append(')');

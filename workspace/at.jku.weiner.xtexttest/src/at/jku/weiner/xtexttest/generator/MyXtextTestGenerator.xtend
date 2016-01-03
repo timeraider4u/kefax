@@ -13,6 +13,8 @@ import at.jku.weiner.xtexttest.xtextTest.Inner
 import org.eclipse.emf.common.util.EList
 import org.eclipse.xtend.lib.annotations.Accessors
 import at.jku.weiner.xtexttest.xtextTest.Model
+import at.jku.weiner.xtexttest.xtextTest.Tokens
+import at.jku.weiner.xtexttest.xtextTest.MyTokens
 
 class MyXtextTestGenerator {
 	private static final String PKG_PREFIX = "xtexttests";
@@ -222,14 +224,7 @@ class MyXtextTestGenerator {
 				"«IF shouldGenerateTextSourceDataFile»src-gen/«ENDIF»«getSourceFile»");
 				//System.out.println(text);
 				final String[] expected = new String[] {
-					«FOR token: test.tokens.tokens»
-						"RULE_«token.token»", 
-						«IF token.count > 1»
-						«FOR i : 2 .. token.count»
-						"RULE_«token.token»", 
-						«ENDFOR»
-						«ENDIF»
-					«ENDFOR»
+					«outputFor(test.tokens.tokens)»
 					};
 				//final List<Token> actual = testHelper.getTokens(text);
 				//testHelper.outputTokens(text);
@@ -237,6 +232,33 @@ class MyXtextTestGenerator {
 		}
 		«ENDIF»
 	'''
+	
+	def String outputFor(EList<MyTokens> list) {
+		var boolean isFirst=true;
+		val StringBuffer result = new StringBuffer("");
+		for (var int i = 0; i < list.size(); i++) {
+			val MyTokens token = list.get(i);
+			val String tVal = token.token;
+			var int j = 0;
+			do {
+				if (tVal != null) {
+					result.append("\"RULE_");
+					result.append(tVal);
+					result.append("\"");
+				}
+				val String sVal = token.string;
+				if (sVal != null) {
+					result.append("\"");
+					result.append(sVal);
+					result.append("\"");
+				}
+				result.append(",");
+				result.append(System.lineSeparator);
+				j = j+1;
+			} while (j < token.count)
+		}
+		return result.toString();
+	}
 	
 	def parserJUnitTest() '''
 		@Test (timeout=«TIMEOUT»)

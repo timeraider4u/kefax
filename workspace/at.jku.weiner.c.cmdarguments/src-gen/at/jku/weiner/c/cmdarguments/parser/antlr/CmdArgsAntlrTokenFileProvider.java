@@ -11,6 +11,6 @@ public class CmdArgsAntlrTokenFileProvider implements IAntlrTokenFileProvider {
 	@Override
 	public InputStream getAntlrTokenFile() {
 		ClassLoader classLoader = getClass().getClassLoader();
-    	return classLoader.getResourceAsStream("at/jku/weiner/c/cmdarguments/parser/antlr/internal/InternalCmdArgs.tokens");
+    	return classLoader.getResourceAsStream("at/jku/weiner/c/cmdarguments/parser/antlr/internal/InternalCmdArgsParser.tokens");
 	}
 }

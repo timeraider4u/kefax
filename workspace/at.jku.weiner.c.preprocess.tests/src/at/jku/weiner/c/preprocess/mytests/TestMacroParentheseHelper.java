@@ -1,22 +1,23 @@
 package at.jku.weiner.c.preprocess.mytests;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.junit.Assert;
 import org.junit.Test;
 
+import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
+import at.jku.weiner.c.preprocess.preprocess.PreprocessFactory;
 import at.jku.weiner.c.preprocess.utils.macros.DefinitionFunctionMacro;
 import at.jku.weiner.c.preprocess.utils.macros.MacroParentheseNotClosedYetException;
 
 public class TestMacroParentheseHelper {
-	
+
 	private final static String MACRO_NAME = "foo";
 	private final static String VALUE = "X Y Z";
+	private final static PreprocessFactory factory = PreprocessFactory.eINSTANCE;
 
 	@Test
 	public void test00() {
-		final List<String> params = new ArrayList<String>();
+		final IdentifierList params = TestMacroParentheseHelper.factory
+				.createIdentifierList();
 		final DefinitionFunctionMacro macro = new DefinitionFunctionMacro(
 				TestMacroParentheseHelper.MACRO_NAME,
 				TestMacroParentheseHelper.VALUE, params);
@@ -27,11 +28,12 @@ public class TestMacroParentheseHelper {
 		final String expected = "pre;X Y Z;post";
 		Assert.assertEquals(expected, actual);
 	}
-	
+
 	@Test
 	public void test01() {
-		final List<String> params = new ArrayList<String>();
-		params.add("X");
+		final IdentifierList params = TestMacroParentheseHelper.factory
+				.createIdentifierList();
+		params.getId().add("X");
 		final DefinitionFunctionMacro macro = new DefinitionFunctionMacro(
 				TestMacroParentheseHelper.MACRO_NAME,
 				TestMacroParentheseHelper.VALUE, params);
@@ -44,9 +46,10 @@ public class TestMacroParentheseHelper {
 
 	@Test
 	public void test02() {
-		final List<String> params = new ArrayList<String>();
-		params.add("X");
-		params.add("Y");
+		final IdentifierList params = TestMacroParentheseHelper.factory
+				.createIdentifierList();
+		params.getId().add("X");
+		params.getId().add("Y");
 		final DefinitionFunctionMacro macro = new DefinitionFunctionMacro(
 				TestMacroParentheseHelper.MACRO_NAME,
 				TestMacroParentheseHelper.VALUE, params);
@@ -56,13 +59,14 @@ public class TestMacroParentheseHelper {
 		final String expected = "pre;3 (5) Z;post";
 		Assert.assertEquals(expected, actual);
 	}
-	
+
 	@Test
 	public void test03Params() {
-		final List<String> params = new ArrayList<String>();
-		params.add("X");
-		params.add("Y");
-		params.add("Z");
+		final IdentifierList params = TestMacroParentheseHelper.factory
+				.createIdentifierList();
+		params.getId().add("X");
+		params.getId().add("Y");
+		params.getId().add("Z");
 		final DefinitionFunctionMacro macro = new DefinitionFunctionMacro(
 				TestMacroParentheseHelper.MACRO_NAME,
 				TestMacroParentheseHelper.VALUE, params);
@@ -75,8 +79,9 @@ public class TestMacroParentheseHelper {
 
 	@Test(expected = MacroParentheseNotClosedYetException.class)
 	public void test03() {
-		final List<String> params = new ArrayList<String>();
-		params.add("X");
+		final IdentifierList params = TestMacroParentheseHelper.factory
+				.createIdentifierList();
+		params.getId().add("X");
 		final DefinitionFunctionMacro macro = new DefinitionFunctionMacro(
 				TestMacroParentheseHelper.MACRO_NAME,
 				TestMacroParentheseHelper.VALUE, params);
@@ -87,9 +92,10 @@ public class TestMacroParentheseHelper {
 
 	@Test
 	public void test04() {
-		final List<String> params = new ArrayList<String>();
-		params.add("X");
-		params.add("Y");
+		final IdentifierList params = TestMacroParentheseHelper.factory
+				.createIdentifierList();
+		params.getId().add("X");
+		params.getId().add("Y");
 		final DefinitionFunctionMacro macro = new DefinitionFunctionMacro(
 				TestMacroParentheseHelper.MACRO_NAME,
 				TestMacroParentheseHelper.VALUE, params);
@@ -102,8 +108,9 @@ public class TestMacroParentheseHelper {
 
 	@Test
 	public void testA() {
-		final List<String> params = new ArrayList<String>();
-		params.add("X");
+		final IdentifierList params = TestMacroParentheseHelper.factory
+				.createIdentifierList();
+		params.getId().add("X");
 		final DefinitionFunctionMacro macro = new DefinitionFunctionMacro(
 				TestMacroParentheseHelper.MACRO_NAME,
 				TestMacroParentheseHelper.VALUE, params);
@@ -116,9 +123,10 @@ public class TestMacroParentheseHelper {
 
 	@Test
 	public void testB() {
-		final List<String> params = new ArrayList<String>();
-		params.add("X");
-		params.add("Y");
+		final IdentifierList params = TestMacroParentheseHelper.factory
+				.createIdentifierList();
+		params.getId().add("X");
+		params.getId().add("Y");
 		final DefinitionFunctionMacro macro = new DefinitionFunctionMacro(
 				TestMacroParentheseHelper.MACRO_NAME,
 				TestMacroParentheseHelper.VALUE, params);
@@ -131,8 +139,9 @@ public class TestMacroParentheseHelper {
 
 	@Test
 	public void testC() {
-		final List<String> params = new ArrayList<String>();
-		params.add("X");
+		final IdentifierList params = TestMacroParentheseHelper.factory
+				.createIdentifierList();
+		params.getId().add("X");
 		final DefinitionFunctionMacro macro = new DefinitionFunctionMacro(
 				TestMacroParentheseHelper.MACRO_NAME,
 				TestMacroParentheseHelper.VALUE, params);
@@ -145,9 +154,10 @@ public class TestMacroParentheseHelper {
 
 	@Test
 	public void testD() {
-		final List<String> params = new ArrayList<String>();
-		params.add("X");
-		params.add("Y");
+		final IdentifierList params = TestMacroParentheseHelper.factory
+				.createIdentifierList();
+		params.getId().add("X");
+		params.getId().add("Y");
 		final DefinitionFunctionMacro macro = new DefinitionFunctionMacro(
 				TestMacroParentheseHelper.MACRO_NAME,
 				TestMacroParentheseHelper.VALUE, params);
@@ -160,9 +170,10 @@ public class TestMacroParentheseHelper {
 
 	@Test
 	public void testE() {
-		final List<String> params = new ArrayList<String>();
-		params.add("X");
-		params.add("Y");
+		final IdentifierList params = TestMacroParentheseHelper.factory
+				.createIdentifierList();
+		params.getId().add("X");
+		params.getId().add("Y");
 		final DefinitionFunctionMacro macro = new DefinitionFunctionMacro(
 				TestMacroParentheseHelper.MACRO_NAME,
 				TestMacroParentheseHelper.VALUE, params);
@@ -175,8 +186,9 @@ public class TestMacroParentheseHelper {
 
 	@Test
 	public void testF() {
-		final List<String> params = new ArrayList<String>();
-		params.add("X");
+		final IdentifierList params = TestMacroParentheseHelper.factory
+				.createIdentifierList();
+		params.getId().add("X");
 		final DefinitionFunctionMacro macro = new DefinitionFunctionMacro(
 				TestMacroParentheseHelper.MACRO_NAME,
 				TestMacroParentheseHelper.VALUE, params);
@@ -189,9 +201,10 @@ public class TestMacroParentheseHelper {
 
 	@Test
 	public void testG() {
-		final List<String> params = new ArrayList<String>();
-		params.add("X");
-		params.add("Y");
+		final IdentifierList params = TestMacroParentheseHelper.factory
+				.createIdentifierList();
+		params.getId().add("X");
+		params.getId().add("Y");
 		final DefinitionFunctionMacro macro = new DefinitionFunctionMacro(
 				TestMacroParentheseHelper.MACRO_NAME,
 				TestMacroParentheseHelper.VALUE, params);
@@ -204,9 +217,10 @@ public class TestMacroParentheseHelper {
 
 	@Test
 	public void testH() {
-		final List<String> params = new ArrayList<String>();
-		params.add("X");
-		params.add("Y");
+		final IdentifierList params = TestMacroParentheseHelper.factory
+				.createIdentifierList();
+		params.getId().add("X");
+		params.getId().add("Y");
 		final DefinitionFunctionMacro macro = new DefinitionFunctionMacro(
 				TestMacroParentheseHelper.MACRO_NAME,
 				TestMacroParentheseHelper.VALUE, params);
@@ -219,9 +233,10 @@ public class TestMacroParentheseHelper {
 
 	@Test
 	public void testI() {
-		final List<String> params = new ArrayList<String>();
-		params.add("X");
-		params.add("Y");
+		final IdentifierList params = TestMacroParentheseHelper.factory
+				.createIdentifierList();
+		params.getId().add("X");
+		params.getId().add("Y");
 		final DefinitionFunctionMacro macro = new DefinitionFunctionMacro(
 				TestMacroParentheseHelper.MACRO_NAME,
 				TestMacroParentheseHelper.VALUE, params);
@@ -234,10 +249,11 @@ public class TestMacroParentheseHelper {
 
 	@Test
 	public void testJ() {
-		final List<String> params = new ArrayList<String>();
-		params.add("X");
-		params.add("Y");
-		params.add("Z");
+		final IdentifierList params = TestMacroParentheseHelper.factory
+				.createIdentifierList();
+		params.getId().add("X");
+		params.getId().add("Y");
+		params.getId().add("Z");
 		final DefinitionFunctionMacro macro = new DefinitionFunctionMacro(
 				TestMacroParentheseHelper.MACRO_NAME,
 				TestMacroParentheseHelper.VALUE, params);

@@ -16,15 +16,17 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 	private final List<String> list;
 	private final Pattern pattern;
 	private int openParens = 0;
+	private final boolean isVariadic;
 
 	public DefinitionFunctionMacro(final String key, final String value,
-			final IdentifierList list) {
-		this(key, value, ((list == null) ? null : list.getId()));
-	}
-
-	public DefinitionFunctionMacro(final String key, final String value,
-			final List<String> list) {
-		this.list = list;
+			final IdentifierList idList) {
+		if (idList == null) {
+			this.list = null;
+			this.isVariadic = false;
+		} else {
+			this.list = idList.getId();
+			this.isVariadic = idList.isVariadic();
+		}
 		this.key = key;
 		this.value = this.getValue(value);
 		this.pattern = Pattern.compile("\\b" + this.key + "\\b"
@@ -166,6 +168,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		}
 
 		temp = this.resolveConcatenationAndStringification(temp);
+
 		result.append(temp);
 	}
 

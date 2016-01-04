@@ -11,14 +11,8 @@ source file="res/Test0007_NoStdInclude"
 
 (Model
 	units+=
-	// Predefined
-	(TranslationUnit
-		path++"platform:/plugin/at.jku.weiner.c.preprocess/res/predefined/gcc_4.8.4.h",
-		preprocess=
-		(preprocess::Preprocess
-			
-		)
-	),
+	// Predefined not loaded with NoStdInclude
+	// Empty.c
 	(TranslationUnit
 		preprocess=
 		(preprocess::Preprocess
@@ -26,7 +20,34 @@ source file="res/Test0007_NoStdInclude"
 		),
 		parser=
 		(parser::Parser
-			
+			external+=
+			(parser::ExternalDeclaration 
+				declaration=
+				(parser::Declaration
+					specifiers=
+					(parser::DeclarationSpecifiers
+						declarationSpecifier+=
+						(parser::TypeSpecifier
+							name++"int"
+						)
+					),
+					initDeclaratorList+=
+					(parser::InitDeclaratorList
+						initDeclarator+=
+						(parser::InitDeclarator
+							declarator=
+							(parser::Declarator
+								declarator=
+								(parser::DirectDeclarator
+									id++"__STDC__",
+									declaratorSuffix isEmpty
+								)
+							)
+						)
+					),
+					semi++";"
+				)	
+			)
 		),
 		path++"${{path}}/${{plugin_id}}/${{sourceFile}}/Empty.c"
 	)

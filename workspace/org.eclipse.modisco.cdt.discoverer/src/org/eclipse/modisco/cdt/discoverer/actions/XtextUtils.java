@@ -36,7 +36,9 @@ public class XtextUtils {
 		this.commonInjector = this.setupCommon();
 		this.preprocessor = new XtextPreprocessor(store);
 		this.parser = new XtextParser(store);
-		this.setUpPredefinedMacros();
+		if (this.store.isStdInclude()) {
+			this.setUpPredefinedMacros();
+		}
 	}
 	
 	private Injector setupCommon() {
@@ -110,7 +112,8 @@ public class XtextUtils {
 		final PreprocessGenerator preprocessGenerator = this.preprocessor
 				.getGenerator();
 		preprocessGenerator.setFileName(wholeStr);
-		preprocessGenerator.setInsertPredefinedMacros(true);
+		preprocessGenerator
+		.setInsertPredefinedMacros(this.store.isStdInclude());
 		preprocessGenerator.setValidateUnit(true);
 		preprocessGenerator.setUnit(unit);
 		preprocessGenerator.setStdInclude(this.store.isStdInclude());

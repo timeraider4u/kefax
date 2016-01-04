@@ -105,13 +105,13 @@ public class Test0050_Extension {
 			"res/Test0050_Extension.c");
 			//System.out.println(text);
 			final String[] expected = new String[] {
-				"RULE_KW_EXTENSION", 
-				"RULE_WHITESPACE", 
-				"RULE_KW_INT", 
-				"RULE_WHITESPACE", 
-				"RULE_ID", 
-				"RULE_SKW_SEMI", 
-				"RULE_NEWLINE", 
+				"RULE_KW_EXTENSION",
+				"RULE_WHITESPACE",
+				"RULE_KW_INT",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_SEMI",
+				"RULE_NEWLINE",
 				};
 			//final List<Token> actual = testHelper.getTokens(text);
 			//testHelper.outputTokens(text);

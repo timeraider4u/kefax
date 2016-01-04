@@ -100,22 +100,22 @@ public class Test0086_AdditionalDef {
 			"res/Test0086_AdditionalDef.c");
 			//System.out.println(text);
 			final String[] expected = new String[] {
-				"RULE_ID", 
-				"RULE_WHITESPACE", 
-				"RULE_SKW_STAR", 
-				"RULE_WHITESPACE", 
-				"RULE_ID", 
-				"RULE_WHITESPACE", 
-				"RULE_SKW_ASSIGN", 
-				"RULE_WHITESPACE", 
-				"RULE_ID", 
-				"RULE_SKW_LEFTPAREN", 
-				"RULE_ID", 
-				"RULE_SKW_RIGHTPAREN", 
-				"RULE_SKW_SEMI", 
-				"RULE_NEWLINE", 
-				"RULE_ID", 
-				"RULE_NEWLINE", 
+				"RULE_ID",
+				"RULE_WHITESPACE",
+				"RULE_SKW_STAR",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_WHITESPACE",
+				"RULE_SKW_ASSIGN",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_SKW_SEMI",
+				"RULE_NEWLINE",
+				"RULE_ID",
+				"RULE_NEWLINE",
 				};
 			//final List<Token> actual = testHelper.getTokens(text);
 			//testHelper.outputTokens(text);

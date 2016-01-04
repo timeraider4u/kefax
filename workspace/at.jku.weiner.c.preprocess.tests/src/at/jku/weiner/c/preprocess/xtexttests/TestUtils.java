@@ -59,7 +59,7 @@ public final class TestUtils {
 		additionalDefines.append(System.lineSeparator());
 		gen.setAdditionalPreprocessingDirectives(additionalDefines.toString());
 	}
-	
+
 	public static void setUpTest0088(final IGenerator generator) {
 		final PreprocessGenerator gen = (PreprocessGenerator) generator;
 		final StringBuffer additionalDefines = new StringBuffer("");
@@ -76,4 +76,20 @@ public final class TestUtils {
 		IncludeDirs.clearAllIncludeDirectories();
 		IncludeDirs.addIncludeDirectoryToList(prjDir + "myinclude");
 	}
+
+	public static void setUpTest0090() {
+		final File file = new File(""); // dummy file
+		final String prjDir = file.getAbsolutePath() + File.separator;
+		IncludeDirs.clearAllIncludeDirectories();
+		IncludeDirs.addIncludeDirectoryToList(prjDir + "myinclude");
+	}
+
+	public static void setUpTest0091() {
+		final File file = new File(""); // dummy file
+		final String prjDir = file.getAbsolutePath() + File.separator;
+		IncludeDirs.clearAllIncludeDirectories();
+		IncludeDirs.addIncludeDirectoryToList(prjDir + "myinclude"
+				+ File.separator);
+	}
+
 }

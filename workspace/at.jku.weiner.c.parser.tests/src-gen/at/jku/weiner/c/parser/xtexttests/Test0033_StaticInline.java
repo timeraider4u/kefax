@@ -106,21 +106,21 @@ public class Test0033_StaticInline {
 			"res/Test0033_StaticInline.c");
 			//System.out.println(text);
 			final String[] expected = new String[] {
-				"RULE_KW_STATIC", 
-				"RULE_WHITESPACE", 
-				"RULE_KW_INLINE1", 
-				"RULE_WHITESPACE", 
-				"RULE_KW_VOID", 
-				"RULE_WHITESPACE", 
-				"RULE_ID", 
-				"RULE_SKW_LEFTPAREN", 
-				"RULE_SKW_RIGHTPAREN", 
-				"RULE_WHITESPACE", 
-				"RULE_SKW_LEFTBRACE", 
-				"RULE_NEWLINE", 
-				"RULE_NEWLINE", 
-				"RULE_SKW_RIGHTBRACE", 
-				"RULE_NEWLINE", 
+				"RULE_KW_STATIC",
+				"RULE_WHITESPACE",
+				"RULE_KW_INLINE1",
+				"RULE_WHITESPACE",
+				"RULE_KW_VOID",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_WHITESPACE",
+				"RULE_SKW_LEFTBRACE",
+				"RULE_NEWLINE",
+				"RULE_NEWLINE",
+				"RULE_SKW_RIGHTBRACE",
+				"RULE_NEWLINE",
 				};
 			//final List<Token> actual = testHelper.getTokens(text);
 			//testHelper.outputTokens(text);

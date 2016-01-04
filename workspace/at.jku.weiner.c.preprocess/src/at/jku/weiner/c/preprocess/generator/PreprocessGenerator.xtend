@@ -430,11 +430,7 @@ class PreprocessGenerator implements IGenerator {
 	}
 	
 	def String resolve(String code) {
-		var String result = code;
-		while (DefinitionTable.containsAKey(result)) {
-			result = DefinitionTable.resolve(result);
-		}
-		return result;
+		DefinitionTable.fullResolve(code);
 	}
 	
 }

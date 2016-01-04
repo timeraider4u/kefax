@@ -9,43 +9,55 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.URIConverter;
 
+import at.jku.weiner.c.preprocess.utils.macros.DefinitionTable;
+
 public final class IncludeUtils {
 	private final String URI_PREFIX = "file://";
-
+	
 	private final ResourceSet rs;
 	private final String fileName;
 	private final URI uri;
 	private final String currentURIString;
-
-	private final boolean isAbsoluteInclude;
 	
-	// private final String uriStr;
+	private PathState pathState = PathState.Unresolved;
 
-	public IncludeUtils(final ResourceSet set, final URI uri,
-			final String fileName) {
-		this.isAbsoluteInclude = this.isAbsoluteFileName(fileName);
+	// private final String uriStr;
+	private enum PathState {
+		Absolute, Relative, Unresolved
+	}
+	
+	public IncludeUtils(final ResourceSet set, final URI uri, String fileName) {
+		this.pathState = this.initializePathState(fileName, false);
+		if (this.pathState == PathState.Unresolved) {
+			fileName = DefinitionTable.fullResolve(fileName);
+		}
+		this.pathState = this.initializePathState(fileName, true);
 		this.fileName = this.replace(fileName);
 		this.rs = set;
 		this.uri = uri;
 		this.currentURIString = uri.toFileString();
 		// this.uriStr = this.uri.toFileString();
 	}
-
-	private boolean isAbsoluteFileName(final String fileName) {
+	
+	private PathState initializePathState(final String fileName,
+			final boolean shouldBeResolved) {
 		if (fileName.startsWith("\"") && fileName.endsWith("\"")) {
-			return false;
+			return PathState.Relative;
 		}
 		if (fileName.startsWith("<") && fileName.endsWith(">")) {
-			return true;
+			return PathState.Absolute;
+		}
+		if (!shouldBeResolved) {
+			return PathState.Unresolved;
 		}
 		throw new IllegalArgumentException("include fileName='" + fileName
 				+ "' is not a valid path");
 	}
-
+	
 	private String replace(final String fileName) {
 		return fileName.substring(1, fileName.length() - 1);
 	}
-
+	
 	public Resource getResource() throws IOException {
 		// load the resource
 		final ResourceSet set = this.rs; // this.resourceSetProvider.get();
@@ -61,14 +73,14 @@ public final class IncludeUtils {
 		// }
 		return resource;
 	}
-
+	
 	private URI createURI() {
-		if (this.isAbsoluteInclude) {
+		if (this.pathState == PathState.Absolute) {
 			return this.createAbsoluteURI();
 		}
 		return this.createRelativeURI();
 	}
-
+	
 	private URI createAbsoluteURI() {
 		if (this.fileName.startsWith(File.separator)) {
 			return URI.createFileURI(this.fileName);
@@ -90,7 +102,7 @@ public final class IncludeUtils {
 				+ "') not found in directories='" + includeDirs.toString()
 				+ "'!");
 	}
-
+	
 	private URI createRelativeURI() {
 		final URI relative = URI.createFileURI(this.fileName);
 		final URIConverter converter = this.rs.getURIConverter();
@@ -98,5 +110,5 @@ public final class IncludeUtils {
 		final URI result = relative.resolve(normalized);
 		return result;
 	}
-
+	
 }

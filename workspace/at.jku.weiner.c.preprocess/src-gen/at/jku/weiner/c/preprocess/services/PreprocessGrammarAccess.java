@@ -453,69 +453,114 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.IdentifierList");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cIdentifierListAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cIdIDTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final RuleCall cSKW_COMMATerminalRuleCall_2_0 = (RuleCall)cGroup_2.eContents().get(0);
-		private final RuleCall cWHITESPACETerminalRuleCall_2_1 = (RuleCall)cGroup_2.eContents().get(1);
-		private final Assignment cIdAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
-		private final RuleCall cIdIDTerminalRuleCall_2_2_0 = (RuleCall)cIdAssignment_2_2.eContents().get(0);
-		private final RuleCall cWHITESPACETerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final RuleCall cSKW_COMMATerminalRuleCall_4_0 = (RuleCall)cGroup_4.eContents().get(0);
-		private final RuleCall cWHITESPACETerminalRuleCall_4_1 = (RuleCall)cGroup_4.eContents().get(1);
-		private final Assignment cVariadicAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
-		private final RuleCall cVariadicSKW_ELLIPSISTerminalRuleCall_4_2_0 = (RuleCall)cVariadicAssignment_4_2.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
+		private final Assignment cIdAssignment_1_0_0 = (Assignment)cGroup_1_0.eContents().get(0);
+		private final RuleCall cIdIDTerminalRuleCall_1_0_0_0 = (RuleCall)cIdAssignment_1_0_0.eContents().get(0);
+		private final Group cGroup_1_0_1 = (Group)cGroup_1_0.eContents().get(1);
+		private final RuleCall cSKW_COMMATerminalRuleCall_1_0_1_0 = (RuleCall)cGroup_1_0_1.eContents().get(0);
+		private final RuleCall cWHITESPACETerminalRuleCall_1_0_1_1 = (RuleCall)cGroup_1_0_1.eContents().get(1);
+		private final Assignment cIdAssignment_1_0_1_2 = (Assignment)cGroup_1_0_1.eContents().get(2);
+		private final RuleCall cIdIDTerminalRuleCall_1_0_1_2_0 = (RuleCall)cIdAssignment_1_0_1_2.eContents().get(0);
+		private final RuleCall cWHITESPACETerminalRuleCall_1_0_2 = (RuleCall)cGroup_1_0.eContents().get(2);
+		private final Group cGroup_1_0_3 = (Group)cGroup_1_0.eContents().get(3);
+		private final RuleCall cSKW_COMMATerminalRuleCall_1_0_3_0 = (RuleCall)cGroup_1_0_3.eContents().get(0);
+		private final RuleCall cWHITESPACETerminalRuleCall_1_0_3_1 = (RuleCall)cGroup_1_0_3.eContents().get(1);
+		private final Alternatives cAlternatives_1_0_3_2 = (Alternatives)cGroup_1_0_3.eContents().get(2);
+		private final Assignment cVariadicAssignment_1_0_3_2_0 = (Assignment)cAlternatives_1_0_3_2.eContents().get(0);
+		private final RuleCall cVariadicSKW_ELLIPSISTerminalRuleCall_1_0_3_2_0_0 = (RuleCall)cVariadicAssignment_1_0_3_2_0.eContents().get(0);
+		private final Group cGroup_1_0_3_2_1 = (Group)cAlternatives_1_0_3_2.eContents().get(1);
+		private final Assignment cVarIDAssignment_1_0_3_2_1_0 = (Assignment)cGroup_1_0_3_2_1.eContents().get(0);
+		private final RuleCall cVarIDIDTerminalRuleCall_1_0_3_2_1_0_0 = (RuleCall)cVarIDAssignment_1_0_3_2_1_0.eContents().get(0);
+		private final Assignment cVariadicAssignment_1_0_3_2_1_1 = (Assignment)cGroup_1_0_3_2_1.eContents().get(1);
+		private final RuleCall cVariadicSKW_ELLIPSISTerminalRuleCall_1_0_3_2_1_1_0 = (RuleCall)cVariadicAssignment_1_0_3_2_1_1.eContents().get(0);
+		private final Assignment cVariadicAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
+		private final RuleCall cVariadicSKW_ELLIPSISTerminalRuleCall_1_1_0 = (RuleCall)cVariadicAssignment_1_1.eContents().get(0);
 		
 		//IdentifierList:
-		//	{IdentifierList} id+=ID (SKW_COMMA WHITESPACE* id+=ID)*
-		//	WHITESPACE* (SKW_COMMA WHITESPACE* variadic?=SKW_ELLIPSIS)?;
+		//	{IdentifierList} (id+=ID (SKW_COMMA WHITESPACE* id+=ID)*
+		//	WHITESPACE* (SKW_COMMA WHITESPACE* (variadic?=SKW_ELLIPSIS
+		//	| varID=ID variadic?=SKW_ELLIPSIS))?
+		//	| variadic?=SKW_ELLIPSIS);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{IdentifierList} id+=ID (SKW_COMMA WHITESPACE* id+=ID)* WHITESPACE* (SKW_COMMA WHITESPACE* variadic?=SKW_ELLIPSIS)?
+		//{IdentifierList} (id+=ID (SKW_COMMA WHITESPACE* id+=ID)* WHITESPACE* (SKW_COMMA WHITESPACE* (variadic?=SKW_ELLIPSIS |
+		//varID=ID variadic?=SKW_ELLIPSIS))? | variadic?=SKW_ELLIPSIS)
 		public Group getGroup() { return cGroup; }
 		
 		//{IdentifierList}
 		public Action getIdentifierListAction_0() { return cIdentifierListAction_0; }
 		
+		//(id+=ID (SKW_COMMA WHITESPACE* id+=ID)* WHITESPACE* (SKW_COMMA WHITESPACE* (variadic?=SKW_ELLIPSIS | varID=ID
+		//variadic?=SKW_ELLIPSIS))? | variadic?=SKW_ELLIPSIS)
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		
+		//id+=ID (SKW_COMMA WHITESPACE* id+=ID)* WHITESPACE* (SKW_COMMA WHITESPACE* (variadic?=SKW_ELLIPSIS | varID=ID
+		//variadic?=SKW_ELLIPSIS))?
+		public Group getGroup_1_0() { return cGroup_1_0; }
+		
 		//id+=ID
-		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
+		public Assignment getIdAssignment_1_0_0() { return cIdAssignment_1_0_0; }
 		
 		//ID
-		public RuleCall getIdIDTerminalRuleCall_1_0() { return cIdIDTerminalRuleCall_1_0; }
+		public RuleCall getIdIDTerminalRuleCall_1_0_0_0() { return cIdIDTerminalRuleCall_1_0_0_0; }
 		
 		//(SKW_COMMA WHITESPACE* id+=ID)*
-		public Group getGroup_2() { return cGroup_2; }
+		public Group getGroup_1_0_1() { return cGroup_1_0_1; }
 		
 		//SKW_COMMA
-		public RuleCall getSKW_COMMATerminalRuleCall_2_0() { return cSKW_COMMATerminalRuleCall_2_0; }
+		public RuleCall getSKW_COMMATerminalRuleCall_1_0_1_0() { return cSKW_COMMATerminalRuleCall_1_0_1_0; }
 		
 		//WHITESPACE*
-		public RuleCall getWHITESPACETerminalRuleCall_2_1() { return cWHITESPACETerminalRuleCall_2_1; }
+		public RuleCall getWHITESPACETerminalRuleCall_1_0_1_1() { return cWHITESPACETerminalRuleCall_1_0_1_1; }
 		
 		//id+=ID
-		public Assignment getIdAssignment_2_2() { return cIdAssignment_2_2; }
+		public Assignment getIdAssignment_1_0_1_2() { return cIdAssignment_1_0_1_2; }
 		
 		//ID
-		public RuleCall getIdIDTerminalRuleCall_2_2_0() { return cIdIDTerminalRuleCall_2_2_0; }
+		public RuleCall getIdIDTerminalRuleCall_1_0_1_2_0() { return cIdIDTerminalRuleCall_1_0_1_2_0; }
 		
 		//WHITESPACE*
-		public RuleCall getWHITESPACETerminalRuleCall_3() { return cWHITESPACETerminalRuleCall_3; }
+		public RuleCall getWHITESPACETerminalRuleCall_1_0_2() { return cWHITESPACETerminalRuleCall_1_0_2; }
 		
-		//(SKW_COMMA WHITESPACE* variadic?=SKW_ELLIPSIS)?
-		public Group getGroup_4() { return cGroup_4; }
+		//(SKW_COMMA WHITESPACE* (variadic?=SKW_ELLIPSIS | varID=ID variadic?=SKW_ELLIPSIS))?
+		public Group getGroup_1_0_3() { return cGroup_1_0_3; }
 		
 		//SKW_COMMA
-		public RuleCall getSKW_COMMATerminalRuleCall_4_0() { return cSKW_COMMATerminalRuleCall_4_0; }
+		public RuleCall getSKW_COMMATerminalRuleCall_1_0_3_0() { return cSKW_COMMATerminalRuleCall_1_0_3_0; }
 		
 		//WHITESPACE*
-		public RuleCall getWHITESPACETerminalRuleCall_4_1() { return cWHITESPACETerminalRuleCall_4_1; }
+		public RuleCall getWHITESPACETerminalRuleCall_1_0_3_1() { return cWHITESPACETerminalRuleCall_1_0_3_1; }
+		
+		//(variadic?=SKW_ELLIPSIS | varID=ID variadic?=SKW_ELLIPSIS)
+		public Alternatives getAlternatives_1_0_3_2() { return cAlternatives_1_0_3_2; }
 		
 		//variadic?=SKW_ELLIPSIS
-		public Assignment getVariadicAssignment_4_2() { return cVariadicAssignment_4_2; }
+		public Assignment getVariadicAssignment_1_0_3_2_0() { return cVariadicAssignment_1_0_3_2_0; }
 		
 		//SKW_ELLIPSIS
-		public RuleCall getVariadicSKW_ELLIPSISTerminalRuleCall_4_2_0() { return cVariadicSKW_ELLIPSISTerminalRuleCall_4_2_0; }
+		public RuleCall getVariadicSKW_ELLIPSISTerminalRuleCall_1_0_3_2_0_0() { return cVariadicSKW_ELLIPSISTerminalRuleCall_1_0_3_2_0_0; }
+		
+		//varID=ID variadic?=SKW_ELLIPSIS
+		public Group getGroup_1_0_3_2_1() { return cGroup_1_0_3_2_1; }
+		
+		//varID=ID
+		public Assignment getVarIDAssignment_1_0_3_2_1_0() { return cVarIDAssignment_1_0_3_2_1_0; }
+		
+		//ID
+		public RuleCall getVarIDIDTerminalRuleCall_1_0_3_2_1_0_0() { return cVarIDIDTerminalRuleCall_1_0_3_2_1_0_0; }
+		
+		//variadic?=SKW_ELLIPSIS
+		public Assignment getVariadicAssignment_1_0_3_2_1_1() { return cVariadicAssignment_1_0_3_2_1_1; }
+		
+		//SKW_ELLIPSIS
+		public RuleCall getVariadicSKW_ELLIPSISTerminalRuleCall_1_0_3_2_1_1_0() { return cVariadicSKW_ELLIPSISTerminalRuleCall_1_0_3_2_1_1_0; }
+		
+		//variadic?=SKW_ELLIPSIS
+		public Assignment getVariadicAssignment_1_1() { return cVariadicAssignment_1_1; }
+		
+		//SKW_ELLIPSIS
+		public RuleCall getVariadicSKW_ELLIPSISTerminalRuleCall_1_1_0() { return cVariadicSKW_ELLIPSISTerminalRuleCall_1_1_0; }
 	}
 	public class ErrorDirectiveElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.ErrorDirective");
@@ -1561,8 +1606,10 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//IdentifierList:
-	//	{IdentifierList} id+=ID (SKW_COMMA WHITESPACE* id+=ID)*
-	//	WHITESPACE* (SKW_COMMA WHITESPACE* variadic?=SKW_ELLIPSIS)?;
+	//	{IdentifierList} (id+=ID (SKW_COMMA WHITESPACE* id+=ID)*
+	//	WHITESPACE* (SKW_COMMA WHITESPACE* (variadic?=SKW_ELLIPSIS
+	//	| varID=ID variadic?=SKW_ELLIPSIS))?
+	//	| variadic?=SKW_ELLIPSIS);
 	public IdentifierListElements getIdentifierListAccess() {
 		return pIdentifierList;
 	}

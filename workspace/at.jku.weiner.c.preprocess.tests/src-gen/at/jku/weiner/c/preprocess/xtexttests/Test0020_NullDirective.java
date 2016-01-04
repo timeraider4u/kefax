@@ -99,8 +99,8 @@ public class Test0020_NullDirective {
 			"res/Test0020_NullDirective.c");
 			//System.out.println(text);
 			final String[] expected = new String[] {
-				"RULE_HASH", 
-				"RULE_NEWLINE", 
+				"RULE_HASH",
+				"RULE_NEWLINE",
 				};
 			//final List<Token> actual = testHelper.getTokens(text);
 			//testHelper.outputTokens(text);

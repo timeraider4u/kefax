@@ -17,15 +17,18 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 	private final Pattern pattern;
 	private int openParens = 0;
 	private final boolean isVariadic;
+	private final String varID;
 
 	public DefinitionFunctionMacro(final String key, final String value,
 			final IdentifierList idList) {
 		if (idList == null) {
 			this.list = null;
 			this.isVariadic = false;
+			this.varID = null;
 		} else {
 			this.list = idList.getId();
 			this.isVariadic = idList.isVariadic();
+			this.varID = idList.getVarID();
 		}
 		this.key = key;
 		this.value = this.getValue(value);
@@ -169,7 +172,12 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		}
 
 		if (this.isVariadic) {
-			final String key = "__VA_ARGS__";
+			String key = null;
+			if (this.varID == null) {
+				key = "__VA_ARGS__";
+			} else {
+				key = this.varID;
+			}
 			final StringBuffer variadic = new StringBuffer("");
 			boolean isFirst = true;
 			for (; i < params.size(); i++) {

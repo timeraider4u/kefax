@@ -101,19 +101,19 @@ public class Test0067_SimpleIncWithComment {
 			"res/Test0067_SimpleIncWithComment.c");
 			//System.out.println(text);
 			final String[] expected = new String[] {
-				"RULE_HASH", 
-				"RULE_INCLUDE", 
-				"RULE_WHITESPACE", 
-				"RULE_STRING_LITERAL", 
-				"RULE_WHITESPACE", 
-				"RULE_BLOCK_COMMENT", 
-				"RULE_NEWLINE", 
-				"RULE_HASH", 
-				"RULE_INCLUDE", 
-				"RULE_WHITESPACE", 
-				"RULE_STRING_LITERAL", 
-				"RULE_LINE_COMMENT", 
-				"RULE_NEWLINE", 
+				"RULE_HASH",
+				"RULE_INCLUDE",
+				"RULE_WHITESPACE",
+				"RULE_STRING_LITERAL",
+				"RULE_WHITESPACE",
+				"RULE_BLOCK_COMMENT",
+				"RULE_NEWLINE",
+				"RULE_HASH",
+				"RULE_INCLUDE",
+				"RULE_WHITESPACE",
+				"RULE_STRING_LITERAL",
+				"RULE_LINE_COMMENT",
+				"RULE_NEWLINE",
 				};
 			//final List<Token> actual = testHelper.getTokens(text);
 			//testHelper.outputTokens(text);

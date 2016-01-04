@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.IdentifierListImpl#getId <em>Id</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.IdentifierListImpl#isVariadic <em>Variadic</em>}</li>
+ *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.IdentifierListImpl#getVarID <em>Var ID</em>}</li>
  * </ul>
  * </p>
  *
@@ -63,6 +64,26 @@ public class IdentifierListImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected boolean variadic = VARIADIC_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getVarID() <em>Var ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVarID()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String VAR_ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getVarID() <em>Var ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVarID()
+	 * @generated
+	 * @ordered
+	 */
+	protected String varID = VAR_ID_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -127,6 +148,29 @@ public class IdentifierListImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getVarID()
+	{
+		return varID;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setVarID(String newVarID)
+	{
+		String oldVarID = varID;
+		varID = newVarID;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PreprocessPackage.IDENTIFIER_LIST__VAR_ID, oldVarID, varID));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
@@ -136,6 +180,8 @@ public class IdentifierListImpl extends MinimalEObjectImpl.Container implements 
 				return getId();
 			case PreprocessPackage.IDENTIFIER_LIST__VARIADIC:
 				return isVariadic();
+			case PreprocessPackage.IDENTIFIER_LIST__VAR_ID:
+				return getVarID();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -158,6 +204,9 @@ public class IdentifierListImpl extends MinimalEObjectImpl.Container implements 
 			case PreprocessPackage.IDENTIFIER_LIST__VARIADIC:
 				setVariadic((Boolean)newValue);
 				return;
+			case PreprocessPackage.IDENTIFIER_LIST__VAR_ID:
+				setVarID((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -178,6 +227,9 @@ public class IdentifierListImpl extends MinimalEObjectImpl.Container implements 
 			case PreprocessPackage.IDENTIFIER_LIST__VARIADIC:
 				setVariadic(VARIADIC_EDEFAULT);
 				return;
+			case PreprocessPackage.IDENTIFIER_LIST__VAR_ID:
+				setVarID(VAR_ID_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -196,6 +248,8 @@ public class IdentifierListImpl extends MinimalEObjectImpl.Container implements 
 				return id != null && !id.isEmpty();
 			case PreprocessPackage.IDENTIFIER_LIST__VARIADIC:
 				return variadic != VARIADIC_EDEFAULT;
+			case PreprocessPackage.IDENTIFIER_LIST__VAR_ID:
+				return VAR_ID_EDEFAULT == null ? varID != null : !VAR_ID_EDEFAULT.equals(varID);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -215,6 +269,8 @@ public class IdentifierListImpl extends MinimalEObjectImpl.Container implements 
 		result.append(id);
 		result.append(", variadic: ");
 		result.append(variadic);
+		result.append(", varID: ");
+		result.append(varID);
 		result.append(')');
 		return result.toString();
 	}

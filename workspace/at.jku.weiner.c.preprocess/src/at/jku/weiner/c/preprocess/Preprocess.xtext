@@ -128,9 +128,22 @@ DefineFunctionLikeMacro returns DefineDirective:
 
 IdentifierList:
 	{IdentifierList}
-	id+=ID (SKW_COMMA WHITESPACE* id+=ID)*
-	WHITESPACE*
-	(SKW_COMMA WHITESPACE* variadic?=SKW_ELLIPSIS)?
+	(	
+		(
+			id+=ID (SKW_COMMA WHITESPACE* id+=ID)*
+			WHITESPACE*
+			(SKW_COMMA WHITESPACE* 
+				(
+					variadic?=SKW_ELLIPSIS
+					| varID=ID variadic?=SKW_ELLIPSIS
+				)
+			)?
+		)
+		|
+		(
+			variadic?=SKW_ELLIPSIS
+		)
+	)
 ;
 
 ErrorDirective:

@@ -101,16 +101,16 @@ public class Test0006_SimpleInc {
 			"res/Test0006_SimpleInc.c");
 			//System.out.println(text);
 			final String[] expected = new String[] {
-				"RULE_HASH", 
-				"RULE_INCLUDE", 
-				"RULE_WHITESPACE", 
-				"RULE_STRING_LITERAL", 
-				"RULE_NEWLINE", 
-				"RULE_HASH", 
-				"RULE_INCLUDE", 
-				"RULE_WHITESPACE", 
-				"RULE_STRING_LITERAL", 
-				"RULE_NEWLINE", 
+				"RULE_HASH",
+				"RULE_INCLUDE",
+				"RULE_WHITESPACE",
+				"RULE_STRING_LITERAL",
+				"RULE_NEWLINE",
+				"RULE_HASH",
+				"RULE_INCLUDE",
+				"RULE_WHITESPACE",
+				"RULE_STRING_LITERAL",
+				"RULE_NEWLINE",
 				};
 			//final List<Token> actual = testHelper.getTokens(text);
 			//testHelper.outputTokens(text);

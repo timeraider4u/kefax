@@ -45,15 +45,20 @@ import at.jku.weiner.c.preprocess.xtexttests.LexerAndParserTest;
 
 import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
+import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
+import at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro;
+import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.Code;
-import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
+import at.jku.weiner.c.preprocess.preprocess.Code;
+import at.jku.weiner.c.preprocess.preprocess.Code;
+import at.jku.weiner.c.preprocess.preprocess.Code;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(PreprocessInjectorProvider.class)
-public class Test0011_Code {
+public class Test0099_Ellipsis8 {
 	@Inject
 	private ParseHelper<Preprocess> parseHelper;
 	@Inject
@@ -99,32 +104,100 @@ public class Test0011_Code {
 	@Test (timeout=1000)
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
-			"res/Test0011_Code.c");
+			"res/Test0099_Ellipsis8.c");
 			//System.out.println(text);
 			final String[] expected = new String[] {
-				"RULE_ID",
+				"RULE_HASH",
+				"RULE_DEFINE",
 				"RULE_WHITESPACE",
 				"RULE_ID",
 				"RULE_SKW_LEFTPAREN",
 				"RULE_ID",
+				"RULE_SKW_COMMA",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_ELLIPSIS",
 				"RULE_SKW_RIGHTPAREN",
-				"RULE_WHITESPACE",
-				"RULE_SKW_LEFTBRACE",
-				"RULE_NEWLINE",
-				"RULE_WHITESPACE",
-				"RULE_WHITESPACE",
-				"RULE_WHITESPACE",
-				"RULE_WHITESPACE",
-				"RULE_WHITESPACE",
-				"RULE_NEWLINE",
 				"RULE_WHITESPACE",
 				"RULE_ID",
 				"RULE_WHITESPACE",
-				"RULE_DECIMAL_LITERAL",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_SKW_SEMI",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_WHITESPACE",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_NEWLINE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
 				"RULE_SKW_SEMI",
 				"RULE_NEWLINE",
-				"RULE_SKW_RIGHTBRACE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_ID",
+				"RULE_SKW_COMMA",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_SKW_SEMI",
 				"RULE_NEWLINE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_ID",
+				"RULE_SKW_COMMA",
+				"RULE_WHITESPACE",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_SKW_SEMI",
+				"RULE_NEWLINE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_ID",
+				"RULE_SKW_COMMA",
+				"RULE_WHITESPACE",
+				"RULE_SKW_COMMA",
+				"RULE_WHITESPACE",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_SKW_SEMI",
+				"RULE_NEWLINE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_ID",
+				"RULE_SKW_COMMA",
+				"RULE_WHITESPACE",
+				"RULE_STRING_LITERAL",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_SKW_SEMI",
+				"RULE_NEWLINE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_ID",
+				"RULE_SKW_COMMA",
+				"RULE_WHITESPACE",
+				"RULE_STRING_LITERAL",
+				"RULE_SKW_COMMA",
+				"RULE_WHITESPACE",
+				"RULE_STRING_LITERAL",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_SKW_SEMI",
+				"RULE_NEWLINE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_ID",
+				"RULE_SKW_COMMA",
+				"RULE_WHITESPACE",
+				"RULE_STRING_LITERAL",
+				"RULE_SKW_COMMA",
+				"RULE_WHITESPACE",
+				"RULE_STRING_LITERAL",
+				"RULE_SKW_COMMA",
+				"RULE_WHITESPACE",
+				"RULE_STRING_LITERAL",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_SKW_SEMI",
 				"RULE_NEWLINE",
 				};
 			//final List<Token> actual = testHelper.getTokens(text);
@@ -135,7 +208,7 @@ public class Test0011_Code {
 	@Test (timeout=1000)
 	public void checkParserResult() throws Exception {
 		final String text = this.getTextFromFile(
-			"res/Test0011_Code.c");
+			"res/Test0099_Ellipsis8.c");
 		final Preprocess Preprocess_0_Var
 		  = 
 			this.parseHelper.parse(text);
@@ -153,40 +226,83 @@ public class Test0011_Code {
 		final EList<? extends EObject> Lines_1_list = GroupOpt_1_Var
 		.getLines();
 		Assert.assertNotNull(Lines_1_list);
-		Assert.assertEquals(5, Lines_1_list.size());
+		Assert.assertEquals(8, Lines_1_list.size());
 		//1
-		final Code Code_2_Var
-		 = (Code)Lines_1_list.get(0);
-		Assert.assertNotNull(Code_2_Var
+		final PreprocessorDirectives PreprocessorDirectives_2_Var
+		 = (PreprocessorDirectives)Lines_1_list.get(0);
+		Assert.assertNotNull(PreprocessorDirectives_2_Var
 		);
-		Assert.assertEquals("int main(void) {", Code_2_Var
-		.getCode());
 		//2
-		final Code Code_3_Var
-		 = (Code)Lines_1_list.get(1);
-		Assert.assertNotNull(Code_3_Var
+		final DefineFunctionLikeMacro DefineFunctionLikeMacro_3_Var
+		 = (DefineFunctionLikeMacro)PreprocessorDirectives_2_Var
+		.getDirective();
+		Assert.assertNotNull(DefineFunctionLikeMacro_3_Var
 		);
-		Assert.assertEquals("	 	 	", Code_3_Var
-		.getCode());
+		Assert.assertEquals("FOO", DefineFunctionLikeMacro_3_Var
+		.getId());
 		//3
-		final Code Code_4_Var
-		 = (Code)Lines_1_list.get(2);
-		Assert.assertNotNull(Code_4_Var
+		final IdentifierList IdentifierList_4_Var
+		 = (IdentifierList)DefineFunctionLikeMacro_3_Var
+		.getList();
+		Assert.assertNotNull(IdentifierList_4_Var
 		);
-		Assert.assertEquals("	return 0;", Code_4_Var
-		.getCode());
+		Assert.assertEquals("[x]", IdentifierList_4_Var
+		.getId().toString());
+		Assert.assertEquals("y", IdentifierList_4_Var
+		.getVarID());
+		Assert.assertTrue(IdentifierList_4_Var
+		.isVariadic());
+		Assert.assertEquals("x (y); x (y)", DefineFunctionLikeMacro_3_Var
+		.getString());
 		//4
 		final Code Code_5_Var
-		 = (Code)Lines_1_list.get(3);
+		 = (Code)Lines_1_list.get(1);
 		Assert.assertNotNull(Code_5_Var
 		);
-		Assert.assertEquals("}", Code_5_Var
+		Assert.assertEquals("FOO(fprintf);", Code_5_Var
 		.getCode());
 		//5
-		final NewLineLine NewLineLine_6_Var
-		 = (NewLineLine)Lines_1_list.get(4);
-		Assert.assertNotNull(NewLineLine_6_Var
+		final Code Code_6_Var
+		 = (Code)Lines_1_list.get(2);
+		Assert.assertNotNull(Code_6_Var
 		);
+		Assert.assertEquals("FOO(fprintf,);", Code_6_Var
+		.getCode());
+		//6
+		final Code Code_7_Var
+		 = (Code)Lines_1_list.get(3);
+		Assert.assertNotNull(Code_7_Var
+		);
+		Assert.assertEquals("FOO(fprintf, );", Code_7_Var
+		.getCode());
+		//7
+		final Code Code_8_Var
+		 = (Code)Lines_1_list.get(4);
+		Assert.assertNotNull(Code_8_Var
+		);
+		Assert.assertEquals("FOO(fprintf, , );", Code_8_Var
+		.getCode());
+		//8
+		final Code Code_9_Var
+		 = (Code)Lines_1_list.get(5);
+		Assert.assertNotNull(Code_9_Var
+		);
+		Assert.assertEquals("FOO(printf, \"abc\");", Code_9_Var
+		.getCode());
+		//9
+		final Code Code_10_Var
+		 = (Code)Lines_1_list.get(6);
+		Assert.assertNotNull(Code_10_Var
+		);
+		Assert.assertEquals("FOO(printf, \"abc\", \"def\");", Code_10_Var
+		.getCode());
+		//10
+		final Code Code_11_Var
+		 = (Code)Lines_1_list.get(7);
+		Assert.assertNotNull(Code_11_Var
+		);
+		Assert.assertEquals("FOO(printf, \"abc\", \"def\", \"ghi\");", Code_11_Var
+		.getCode());
 	}
 	
 	@Test
@@ -196,7 +312,7 @@ public class Test0011_Code {
 		// load the resource
 		ResourceSet set = this.resourceSetProvider.get();
 		URI uri = URI.createURI(
-			"res/Test0011_Code.c");
+			"res/Test0099_Ellipsis8.c");
 		Resource resource = set.getResource(uri, true);
 		// validate the resource
 		List<Issue> list = this.validator.validate(resource, 
@@ -210,7 +326,7 @@ public class Test0011_Code {
 			final Method method = clazz.getMethod("setFileName",
 					String.class);
 			if (method != null) {
-				method.invoke(this.generator, "Test0011_Code.c.i");
+				method.invoke(this.generator, "Test0099_Ellipsis8.c.i");
 			}
 		} catch (NoSuchMethodException | SecurityException
 			| IllegalAccessException | IllegalArgumentException
@@ -219,9 +335,9 @@ public class Test0011_Code {
 			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
-		final String actual = this.getTextFromFile("bin/Test0011_Code.c.i");
+		final String actual = this.getTextFromFile("bin/Test0099_Ellipsis8.c.i");
 		final String expected = this.getTextFromFile(
-			"expected/Test0011_Code.c"
+			"expected/Test0099_Ellipsis8.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
 		// System.out.println("Code generation finished.");

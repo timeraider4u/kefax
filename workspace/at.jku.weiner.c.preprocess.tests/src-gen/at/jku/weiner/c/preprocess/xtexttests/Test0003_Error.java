@@ -105,22 +105,22 @@ public class Test0003_Error {
 			"res/Test0003_Error.h");
 			//System.out.println(text);
 			final String[] expected = new String[] {
-				"RULE_HASH", 
-				"RULE_WARNING", 
-				"RULE_WHITESPACE", 
-				"RULE_STRING_LITERAL", 
-				"RULE_NEWLINE", 
-				"RULE_HASH", 
-				"RULE_WARNING", 
-				"RULE_NEWLINE", 
-				"RULE_HASH", 
-				"RULE_ERROR", 
-				"RULE_WHITESPACE", 
-				"RULE_STRING_LITERAL", 
-				"RULE_NEWLINE", 
-				"RULE_HASH", 
-				"RULE_ERROR", 
-				"RULE_NEWLINE", 
+				"RULE_HASH",
+				"RULE_WARNING",
+				"RULE_WHITESPACE",
+				"RULE_STRING_LITERAL",
+				"RULE_NEWLINE",
+				"RULE_HASH",
+				"RULE_WARNING",
+				"RULE_NEWLINE",
+				"RULE_HASH",
+				"RULE_ERROR",
+				"RULE_WHITESPACE",
+				"RULE_STRING_LITERAL",
+				"RULE_NEWLINE",
+				"RULE_HASH",
+				"RULE_ERROR",
+				"RULE_NEWLINE",
 				};
 			//final List<Token> actual = testHelper.getTokens(text);
 			//testHelper.outputTokens(text);

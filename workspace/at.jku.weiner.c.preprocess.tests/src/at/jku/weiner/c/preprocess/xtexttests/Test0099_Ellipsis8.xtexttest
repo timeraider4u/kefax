@@ -1,0 +1,87 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language preprocess
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+split-lexer=false
+source file="res/Test0099_Ellipsis8.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN 
+		ID SKW_COMMA WHITESPACE
+		ID SKW_ELLIPSIS
+		SKW_RIGHTPAREN WHITESPACE
+		// x (y); x (y) 
+		ID WHITESPACE SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_SEMI
+		WHITESPACE 
+		ID WHITESPACE SKW_LEFTPAREN ID SKW_RIGHTPAREN
+		NEWLINE
+	// FOO(fprintf);
+	ID SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_SEMI NEWLINE
+	// FOO(fprintf,);
+	ID SKW_LEFTPAREN ID SKW_COMMA SKW_RIGHTPAREN SKW_SEMI NEWLINE
+	// FOO(fprintf, );
+	ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE SKW_RIGHTPAREN SKW_SEMI NEWLINE
+	// FOO(fprintf, , );
+	ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE SKW_COMMA WHITESPACE SKW_RIGHTPAREN SKW_SEMI NEWLINE
+	ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE STRING_LITERAL SKW_RIGHTPAREN SKW_SEMI NEWLINE
+	ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE STRING_LITERAL
+		SKW_COMMA WHITESPACE STRING_LITERAL
+		SKW_RIGHTPAREN SKW_SEMI NEWLINE
+	ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE STRING_LITERAL
+		SKW_COMMA WHITESPACE  STRING_LITERAL
+		SKW_COMMA WHITESPACE  STRING_LITERAL
+		SKW_RIGHTPAREN SKW_SEMI NEWLINE
+//----------------------------------------------------------------------
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"FOO",
+					list =
+					(IdentifierList
+						id+*"[x]",
+						varID++"y",
+						variadic?=true
+					),
+					string++"x (y); x (y)"
+				)
+			),
+			(Code
+				code++"FOO(fprintf);"
+			),
+			(Code
+				code++"FOO(fprintf,);"
+			),
+			(Code
+				code++"FOO(fprintf, );"
+			),
+			(Code
+				code++"FOO(fprintf, , );"
+			),
+			(Code
+				code++"FOO(printf, \\\"abc\\\");"
+			),
+			(Code
+				code++"FOO(printf, \\\"abc\\\", \\\"def\\\");"
+			),
+			(Code
+				code++"FOO(printf, \\\"abc\\\", \\\"def\\\", \\\"ghi\\\");"
+			)
+		)
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0099_Ellipsis8.c.i"
+expected file="expected/Test0099_Ellipsis8.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

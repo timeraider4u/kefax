@@ -99,11 +99,11 @@ public class Test0007_SymbolInInclude {
 			"res/Test0007_SymbolInInclude.h");
 			//System.out.println(text);
 			final String[] expected = new String[] {
-				"RULE_HASH", 
-				"RULE_INCLUDE", 
-				"RULE_WHITESPACE", 
-				"RULE_ID", 
-				"RULE_NEWLINE", 
+				"RULE_HASH",
+				"RULE_INCLUDE",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_NEWLINE",
 				};
 			//final List<Token> actual = testHelper.getTokens(text);
 			//testHelper.outputTokens(text);

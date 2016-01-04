@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.IdentifierList#getId <em>Id</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.IdentifierList#isVariadic <em>Variadic</em>}</li>
+ *   <li>{@link at.jku.weiner.c.preprocess.preprocess.IdentifierList#getVarID <em>Var ID</em>}</li>
  * </ul>
  * </p>
  *
@@ -66,5 +67,31 @@ public interface IdentifierList extends EObject
 	 * @generated
 	 */
 	void setVariadic(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Var ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Var ID</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Var ID</em>' attribute.
+	 * @see #setVarID(String)
+	 * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getIdentifierList_VarID()
+	 * @model
+	 * @generated
+	 */
+	String getVarID();
+
+	/**
+	 * Sets the value of the '{@link at.jku.weiner.c.preprocess.preprocess.IdentifierList#getVarID <em>Var ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Var ID</em>' attribute.
+	 * @see #getVarID()
+	 * @generated
+	 */
+	void setVarID(String value);
 
 } // IdentifierList

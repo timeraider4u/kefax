@@ -1078,9 +1078,11 @@ ruleIdentifierList returns [EObject current=null]
 
 (
 (
+(
+(
 		lv_id_1_0=RULE_ID
 		{
-			newLeafNode(lv_id_1_0, grammarAccess.getIdentifierListAccess().getIdIDTerminalRuleCall_1_0()); 
+			newLeafNode(lv_id_1_0, grammarAccess.getIdentifierListAccess().getIdIDTerminalRuleCall_1_0_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1100,14 +1102,14 @@ ruleIdentifierList returns [EObject current=null]
 (
 this_SKW_COMMA_2=RULE_SKW_COMMA
     { 
-    newLeafNode(this_SKW_COMMA_2, grammarAccess.getIdentifierListAccess().getSKW_COMMATerminalRuleCall_2_0()); 
+    newLeafNode(this_SKW_COMMA_2, grammarAccess.getIdentifierListAccess().getSKW_COMMATerminalRuleCall_1_0_1_0()); 
     }
 
 
 
 (this_WHITESPACE_3=RULE_WHITESPACE
     { 
-    newLeafNode(this_WHITESPACE_3, grammarAccess.getIdentifierListAccess().getWHITESPACETerminalRuleCall_2_1()); 
+    newLeafNode(this_WHITESPACE_3, grammarAccess.getIdentifierListAccess().getWHITESPACETerminalRuleCall_1_0_1_1()); 
     }
 )*
 
@@ -1116,7 +1118,7 @@ this_SKW_COMMA_2=RULE_SKW_COMMA
 (
 		lv_id_4_0=RULE_ID
 		{
-			newLeafNode(lv_id_4_0, grammarAccess.getIdentifierListAccess().getIdIDTerminalRuleCall_2_2_0()); 
+			newLeafNode(lv_id_4_0, grammarAccess.getIdentifierListAccess().getIdIDTerminalRuleCall_1_0_1_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1137,7 +1139,7 @@ this_SKW_COMMA_2=RULE_SKW_COMMA
 
 (this_WHITESPACE_5=RULE_WHITESPACE
     { 
-    newLeafNode(this_WHITESPACE_5, grammarAccess.getIdentifierListAccess().getWHITESPACETerminalRuleCall_3()); 
+    newLeafNode(this_WHITESPACE_5, grammarAccess.getIdentifierListAccess().getWHITESPACETerminalRuleCall_1_0_2()); 
     }
 )*
 
@@ -1145,23 +1147,24 @@ this_SKW_COMMA_2=RULE_SKW_COMMA
 (
 this_SKW_COMMA_6=RULE_SKW_COMMA
     { 
-    newLeafNode(this_SKW_COMMA_6, grammarAccess.getIdentifierListAccess().getSKW_COMMATerminalRuleCall_4_0()); 
+    newLeafNode(this_SKW_COMMA_6, grammarAccess.getIdentifierListAccess().getSKW_COMMATerminalRuleCall_1_0_3_0()); 
     }
 
 
 
 (this_WHITESPACE_7=RULE_WHITESPACE
     { 
-    newLeafNode(this_WHITESPACE_7, grammarAccess.getIdentifierListAccess().getWHITESPACETerminalRuleCall_4_1()); 
+    newLeafNode(this_WHITESPACE_7, grammarAccess.getIdentifierListAccess().getWHITESPACETerminalRuleCall_1_0_3_1()); 
     }
 )*
 
 
 (
 (
+(
 		lv_variadic_8_0=RULE_SKW_ELLIPSIS
 		{
-			newLeafNode(lv_variadic_8_0, grammarAccess.getIdentifierListAccess().getVariadicSKW_ELLIPSISTerminalRuleCall_4_2_0()); 
+			newLeafNode(lv_variadic_8_0, grammarAccess.getIdentifierListAccess().getVariadicSKW_ELLIPSISTerminalRuleCall_1_0_3_2_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1177,7 +1180,81 @@ this_SKW_COMMA_6=RULE_SKW_COMMA
 )
 )
 
+
+    |
+(
+(
+(
+		lv_varID_9_0=RULE_ID
+		{
+			newLeafNode(lv_varID_9_0, grammarAccess.getIdentifierListAccess().getVarIDIDTerminalRuleCall_1_0_3_2_1_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getIdentifierListRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"varID",
+        		lv_varID_9_0, 
+        		"at.jku.weiner.c.common.Common.ID");
+	    }
+
+)
+)
+
+
+(
+(
+		lv_variadic_10_0=RULE_SKW_ELLIPSIS
+		{
+			newLeafNode(lv_variadic_10_0, grammarAccess.getIdentifierListAccess().getVariadicSKW_ELLIPSISTerminalRuleCall_1_0_3_2_1_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getIdentifierListRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"variadic",
+        		true, 
+        		"at.jku.weiner.c.common.Common.SKW_ELLIPSIS");
+	    }
+
+)
+)
+
+)
+
+)
+
 )?
+
+)
+
+
+    |
+(
+(
+		lv_variadic_11_0=RULE_SKW_ELLIPSIS
+		{
+			newLeafNode(lv_variadic_11_0, grammarAccess.getIdentifierListAccess().getVariadicSKW_ELLIPSISTerminalRuleCall_1_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getIdentifierListRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"variadic",
+        		true, 
+        		"at.jku.weiner.c.common.Common.SKW_ELLIPSIS");
+	    }
+
+)
+)
+
+)
 
 )
 

@@ -199,13 +199,22 @@ public interface PreprocessPackage extends EPackage
 	int IDENTIFIER_LIST__VARIADIC = 1;
 
 	/**
+	 * The feature id for the '<em><b>Var ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IDENTIFIER_LIST__VAR_ID = 2;
+
+	/**
 	 * The number of structural features of the '<em>Identifier List</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IDENTIFIER_LIST_FEATURE_COUNT = 2;
+	int IDENTIFIER_LIST_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.ErrorDirectiveImpl <em>Error Directive</em>}' class.
@@ -1057,6 +1066,17 @@ public interface PreprocessPackage extends EPackage
 	EAttribute getIdentifierList_Variadic();
 
 	/**
+	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.preprocess.preprocess.IdentifierList#getVarID <em>Var ID</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Var ID</em>'.
+	 * @see at.jku.weiner.c.preprocess.preprocess.IdentifierList#getVarID()
+	 * @see #getIdentifierList()
+	 * @generated
+	 */
+	EAttribute getIdentifierList_VarID();
+
+	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.preprocess.preprocess.ErrorDirective <em>Error Directive</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1661,6 +1681,14 @@ public interface PreprocessPackage extends EPackage
 		 * @generated
 		 */
 		EAttribute IDENTIFIER_LIST__VARIADIC = eINSTANCE.getIdentifierList_Variadic();
+
+		/**
+		 * The meta object literal for the '<em><b>Var ID</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute IDENTIFIER_LIST__VAR_ID = eINSTANCE.getIdentifierList_VarID();
 
 		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.ErrorDirectiveImpl <em>Error Directive</em>}' class.

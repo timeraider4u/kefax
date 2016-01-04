@@ -77,19 +77,29 @@ public final class TestUtils {
 		IncludeDirs.addIncludeDirectoryToList(prjDir + "myinclude");
 	}
 
-	public static void setUpTest0090() {
+	public static void setUpTest0090(final IGenerator generator) {
+		final PreprocessGenerator gen = (PreprocessGenerator) generator;
 		final File file = new File(""); // dummy file
 		final String prjDir = file.getAbsolutePath() + File.separator;
 		IncludeDirs.clearAllIncludeDirectories();
-		IncludeDirs.addIncludeDirectoryToList(prjDir + "myinclude");
+		IncludeDirs.addIncludeDirectoryToList(prjDir);
+		final StringBuffer additionalDefines = new StringBuffer("");
+		additionalDefines.append("#include <./myinclude/include/foo/foo.h>");
+		additionalDefines.append(System.lineSeparator());
+		gen.setAdditionalPreprocessingDirectives(additionalDefines.toString());
+
 	}
 
-	public static void setUpTest0091() {
+	public static void setUpTest0091(final IGenerator generator) {
+		final PreprocessGenerator gen = (PreprocessGenerator) generator;
 		final File file = new File(""); // dummy file
-		final String prjDir = file.getAbsolutePath() + File.separator;
+		final String prjDir = file.getAbsolutePath();
 		IncludeDirs.clearAllIncludeDirectories();
-		IncludeDirs.addIncludeDirectoryToList(prjDir + "myinclude"
-				+ File.separator);
+		IncludeDirs.addIncludeDirectoryToList(prjDir);
+		final StringBuffer additionalDefines = new StringBuffer("");
+		additionalDefines.append("#include <myinclude/include/foo/foo.h>");
+		additionalDefines.append(System.lineSeparator());
+		gen.setAdditionalPreprocessingDirectives(additionalDefines.toString());
 	}
 
 }

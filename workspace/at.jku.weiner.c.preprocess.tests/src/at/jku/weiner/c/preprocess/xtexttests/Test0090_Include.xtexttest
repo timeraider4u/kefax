@@ -8,10 +8,7 @@ split-lexer=false
 source file="res/Test0090_Include.c"
 //----------------------------------------------------------------------
 lexer-tokens
-	HASH INCLUDE WHITESPACE SKW_LESS INCLUDE SKW_DIV ID
-		SKW_DIV ID SKW_DOT ID SKW_GREATER NEWLINE
-	HASH INCLUDE WHITESPACE SKW_LESS ID
-		SKW_DIV ID SKW_DOT ID SKW_GREATER NEWLINE
+	LINE_COMMENT NEWLINE
 //----------------------------------------------------------------------
 //(common::Model
 	//units+=
@@ -20,18 +17,7 @@ lexer-tokens
 		group=
 		(GroupOpt
 			lines+=
-			(PreprocessorDirectives
-				directive=
-				(IncludeDirective
-					string++"<include/foo/foo.h>"
-				)
-			),
-			(PreprocessorDirectives
-				directive=
-				(IncludeDirective
-					string++"<foo/foo.h>"
-				)
-			)
+			(NewLineLine)
 		)
 	)
 //)
@@ -44,5 +30,5 @@ expected file="expected/Test0090_Include.c"
 before
 	class= at.jku.weiner.c.preprocess.xtexttests.TestUtils
 	method=setUpTest0090
-	()
+	(generator)
 //----------------------------------------------------------------------

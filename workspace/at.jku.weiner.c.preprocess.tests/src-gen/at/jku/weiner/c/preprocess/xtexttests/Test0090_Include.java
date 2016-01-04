@@ -45,10 +45,7 @@ import at.jku.weiner.c.preprocess.xtexttests.LexerAndParserTest;
 
 import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
-import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
-import at.jku.weiner.c.preprocess.preprocess.IncludeDirective;
-import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
-import at.jku.weiner.c.preprocess.preprocess.IncludeDirective;
+import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(PreprocessInjectorProvider.class)
@@ -82,7 +79,7 @@ public class Test0090_Include {
 			parser, tokenDefProvider);
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("c",
 						this.resourceFactory);
-		at.jku.weiner.c.preprocess.xtexttests.TestUtils.setUpTest0090();
+		at.jku.weiner.c.preprocess.xtexttests.TestUtils.setUpTest0090(generator);
 	}
 	
 	@After
@@ -102,29 +99,7 @@ public class Test0090_Include {
 			"res/Test0090_Include.c");
 			//System.out.println(text);
 			final String[] expected = new String[] {
-				"RULE_HASH",
-				"RULE_INCLUDE",
-				"RULE_WHITESPACE",
-				"RULE_SKW_LESS",
-				"RULE_INCLUDE",
-				"RULE_SKW_DIV",
-				"RULE_ID",
-				"RULE_SKW_DIV",
-				"RULE_ID",
-				"RULE_SKW_DOT",
-				"RULE_ID",
-				"RULE_SKW_GREATER",
-				"RULE_NEWLINE",
-				"RULE_HASH",
-				"RULE_INCLUDE",
-				"RULE_WHITESPACE",
-				"RULE_SKW_LESS",
-				"RULE_ID",
-				"RULE_SKW_DIV",
-				"RULE_ID",
-				"RULE_SKW_DOT",
-				"RULE_ID",
-				"RULE_SKW_GREATER",
+				"RULE_LINE_COMMENT",
 				"RULE_NEWLINE",
 				};
 			//final List<Token> actual = testHelper.getTokens(text);
@@ -153,33 +128,12 @@ public class Test0090_Include {
 		final EList<? extends EObject> Lines_1_list = GroupOpt_1_Var
 		.getLines();
 		Assert.assertNotNull(Lines_1_list);
-		Assert.assertEquals(2, Lines_1_list.size());
+		Assert.assertEquals(1, Lines_1_list.size());
 		//1
-		final PreprocessorDirectives PreprocessorDirectives_2_Var
-		 = (PreprocessorDirectives)Lines_1_list.get(0);
-		Assert.assertNotNull(PreprocessorDirectives_2_Var
+		final NewLineLine NewLineLine_2_Var
+		 = (NewLineLine)Lines_1_list.get(0);
+		Assert.assertNotNull(NewLineLine_2_Var
 		);
-		//2
-		final IncludeDirective IncludeDirective_3_Var
-		 = (IncludeDirective)PreprocessorDirectives_2_Var
-		.getDirective();
-		Assert.assertNotNull(IncludeDirective_3_Var
-		);
-		Assert.assertEquals("<include/foo/foo.h>", IncludeDirective_3_Var
-		.getString());
-		//3
-		final PreprocessorDirectives PreprocessorDirectives_4_Var
-		 = (PreprocessorDirectives)Lines_1_list.get(1);
-		Assert.assertNotNull(PreprocessorDirectives_4_Var
-		);
-		//4
-		final IncludeDirective IncludeDirective_5_Var
-		 = (IncludeDirective)PreprocessorDirectives_4_Var
-		.getDirective();
-		Assert.assertNotNull(IncludeDirective_5_Var
-		);
-		Assert.assertEquals("<foo/foo.h>", IncludeDirective_5_Var
-		.getString());
 	}
 	
 	@Test

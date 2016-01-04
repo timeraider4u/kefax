@@ -1,2 +1,1 @@
-#include <include/foo/foo.h>
-#include <foo/foo.h>
+// -include myinclude/include/foo/foo.h

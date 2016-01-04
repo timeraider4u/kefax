@@ -308,7 +308,6 @@ SpecialKeywords returns ecore::EString:
 	|	SKW_DOT
 	|	SKW_DOUBLEQUOTE
 	|	SKW_EQUAL
-	|	SKW_ELLIPSIS
 	|	SKW_GREATER
 	|	SKW_GREATEREQUAL
 	|	SKW_LEFTBRACE
@@ -337,6 +336,10 @@ SpecialKeywords returns ecore::EString:
 	|	SKW_TILDE
 ;
 
+Ellipsis:
+	SKW_DOT SKW_DOT SKW_DOT
+;
+
 // special keywords
 terminal SKW_AND: '&';
 terminal SKW_ANDAND: SKW_AND SKW_AND;
@@ -349,7 +352,6 @@ terminal SKW_DIV: '/';
 terminal fragment SKW_DOLLAR: '$';
 terminal SKW_DOT: '.';
 terminal SKW_DOUBLEQUOTE: '"';
-terminal SKW_ELLIPSIS: SKW_DOT SKW_DOT SKW_DOT;
 terminal SKW_EQUAL: SKW_ASSIGN SKW_ASSIGN;
 terminal SKW_GREATER: '>';
 terminal SKW_GREATEREQUAL: SKW_GREATER SKW_ASSIGN;

@@ -1168,33 +1168,32 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSKW_DOTTerminalRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
 		private final RuleCall cSKW_DOUBLEQUOTETerminalRuleCall_9 = (RuleCall)cAlternatives.eContents().get(9);
 		private final RuleCall cSKW_EQUALTerminalRuleCall_10 = (RuleCall)cAlternatives.eContents().get(10);
-		private final RuleCall cSKW_ELLIPSISTerminalRuleCall_11 = (RuleCall)cAlternatives.eContents().get(11);
-		private final RuleCall cSKW_GREATERTerminalRuleCall_12 = (RuleCall)cAlternatives.eContents().get(12);
-		private final RuleCall cSKW_GREATEREQUALTerminalRuleCall_13 = (RuleCall)cAlternatives.eContents().get(13);
-		private final RuleCall cSKW_LEFTBRACETerminalRuleCall_14 = (RuleCall)cAlternatives.eContents().get(14);
-		private final RuleCall cSKW_LEFTBRACKETTerminalRuleCall_15 = (RuleCall)cAlternatives.eContents().get(15);
-		private final RuleCall cSKW_LEFTPARENTerminalRuleCall_16 = (RuleCall)cAlternatives.eContents().get(16);
-		private final RuleCall cSKW_LEFTSHIFTTerminalRuleCall_17 = (RuleCall)cAlternatives.eContents().get(17);
-		private final RuleCall cSKW_LESSTerminalRuleCall_18 = (RuleCall)cAlternatives.eContents().get(18);
-		private final RuleCall cSKW_LESSEQUALTerminalRuleCall_19 = (RuleCall)cAlternatives.eContents().get(19);
-		private final RuleCall cSKW_MINUSTerminalRuleCall_20 = (RuleCall)cAlternatives.eContents().get(20);
-		private final RuleCall cSKW_MINUSMINUSTerminalRuleCall_21 = (RuleCall)cAlternatives.eContents().get(21);
-		private final RuleCall cSKW_MODTerminalRuleCall_22 = (RuleCall)cAlternatives.eContents().get(22);
-		private final RuleCall cSKW_NOTTerminalRuleCall_23 = (RuleCall)cAlternatives.eContents().get(23);
-		private final RuleCall cSKW_NOTEQUALTerminalRuleCall_24 = (RuleCall)cAlternatives.eContents().get(24);
-		private final RuleCall cSKW_ORTerminalRuleCall_25 = (RuleCall)cAlternatives.eContents().get(25);
-		private final RuleCall cSKW_ORORTerminalRuleCall_26 = (RuleCall)cAlternatives.eContents().get(26);
-		private final RuleCall cSKW_PLUSTerminalRuleCall_27 = (RuleCall)cAlternatives.eContents().get(27);
-		private final RuleCall cSKW_PLUSPLUSTerminalRuleCall_28 = (RuleCall)cAlternatives.eContents().get(28);
-		private final RuleCall cSKW_QUESTIONTerminalRuleCall_29 = (RuleCall)cAlternatives.eContents().get(29);
-		private final RuleCall cSKW_RIGHTBRACETerminalRuleCall_30 = (RuleCall)cAlternatives.eContents().get(30);
-		private final RuleCall cSKW_RIGHTBRACKETTerminalRuleCall_31 = (RuleCall)cAlternatives.eContents().get(31);
-		private final RuleCall cSKW_RIGHTPARENTerminalRuleCall_32 = (RuleCall)cAlternatives.eContents().get(32);
-		private final RuleCall cSKW_RIGHTSHIFTTerminalRuleCall_33 = (RuleCall)cAlternatives.eContents().get(33);
-		private final RuleCall cSKW_SEMITerminalRuleCall_34 = (RuleCall)cAlternatives.eContents().get(34);
-		private final RuleCall cSKW_SINGLEQUOTETerminalRuleCall_35 = (RuleCall)cAlternatives.eContents().get(35);
-		private final RuleCall cSKW_STARTerminalRuleCall_36 = (RuleCall)cAlternatives.eContents().get(36);
-		private final RuleCall cSKW_TILDETerminalRuleCall_37 = (RuleCall)cAlternatives.eContents().get(37);
+		private final RuleCall cSKW_GREATERTerminalRuleCall_11 = (RuleCall)cAlternatives.eContents().get(11);
+		private final RuleCall cSKW_GREATEREQUALTerminalRuleCall_12 = (RuleCall)cAlternatives.eContents().get(12);
+		private final RuleCall cSKW_LEFTBRACETerminalRuleCall_13 = (RuleCall)cAlternatives.eContents().get(13);
+		private final RuleCall cSKW_LEFTBRACKETTerminalRuleCall_14 = (RuleCall)cAlternatives.eContents().get(14);
+		private final RuleCall cSKW_LEFTPARENTerminalRuleCall_15 = (RuleCall)cAlternatives.eContents().get(15);
+		private final RuleCall cSKW_LEFTSHIFTTerminalRuleCall_16 = (RuleCall)cAlternatives.eContents().get(16);
+		private final RuleCall cSKW_LESSTerminalRuleCall_17 = (RuleCall)cAlternatives.eContents().get(17);
+		private final RuleCall cSKW_LESSEQUALTerminalRuleCall_18 = (RuleCall)cAlternatives.eContents().get(18);
+		private final RuleCall cSKW_MINUSTerminalRuleCall_19 = (RuleCall)cAlternatives.eContents().get(19);
+		private final RuleCall cSKW_MINUSMINUSTerminalRuleCall_20 = (RuleCall)cAlternatives.eContents().get(20);
+		private final RuleCall cSKW_MODTerminalRuleCall_21 = (RuleCall)cAlternatives.eContents().get(21);
+		private final RuleCall cSKW_NOTTerminalRuleCall_22 = (RuleCall)cAlternatives.eContents().get(22);
+		private final RuleCall cSKW_NOTEQUALTerminalRuleCall_23 = (RuleCall)cAlternatives.eContents().get(23);
+		private final RuleCall cSKW_ORTerminalRuleCall_24 = (RuleCall)cAlternatives.eContents().get(24);
+		private final RuleCall cSKW_ORORTerminalRuleCall_25 = (RuleCall)cAlternatives.eContents().get(25);
+		private final RuleCall cSKW_PLUSTerminalRuleCall_26 = (RuleCall)cAlternatives.eContents().get(26);
+		private final RuleCall cSKW_PLUSPLUSTerminalRuleCall_27 = (RuleCall)cAlternatives.eContents().get(27);
+		private final RuleCall cSKW_QUESTIONTerminalRuleCall_28 = (RuleCall)cAlternatives.eContents().get(28);
+		private final RuleCall cSKW_RIGHTBRACETerminalRuleCall_29 = (RuleCall)cAlternatives.eContents().get(29);
+		private final RuleCall cSKW_RIGHTBRACKETTerminalRuleCall_30 = (RuleCall)cAlternatives.eContents().get(30);
+		private final RuleCall cSKW_RIGHTPARENTerminalRuleCall_31 = (RuleCall)cAlternatives.eContents().get(31);
+		private final RuleCall cSKW_RIGHTSHIFTTerminalRuleCall_32 = (RuleCall)cAlternatives.eContents().get(32);
+		private final RuleCall cSKW_SEMITerminalRuleCall_33 = (RuleCall)cAlternatives.eContents().get(33);
+		private final RuleCall cSKW_SINGLEQUOTETerminalRuleCall_34 = (RuleCall)cAlternatives.eContents().get(34);
+		private final RuleCall cSKW_STARTerminalRuleCall_35 = (RuleCall)cAlternatives.eContents().get(35);
+		private final RuleCall cSKW_TILDETerminalRuleCall_36 = (RuleCall)cAlternatives.eContents().get(36);
 		
 		//// keywords
 		//// special keywords
@@ -1210,7 +1209,6 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		//	| SKW_DOT
 		//	| SKW_DOUBLEQUOTE
 		//	| SKW_EQUAL
-		//	| SKW_ELLIPSIS
 		//	| SKW_GREATER
 		//	| SKW_GREATEREQUAL
 		//	| SKW_LEFTBRACE
@@ -1240,10 +1238,10 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		@Override public ParserRule getRule() { return rule; }
 		
 		//SKW_AND | SKW_ANDAND | SKW_ASSIGN | SKW_BACKSLASH | SKW_CARET | SKW_COMMA | SKW_COLON | SKW_DIV | SKW_DOT |
-		//SKW_DOUBLEQUOTE | SKW_EQUAL | SKW_ELLIPSIS | SKW_GREATER | SKW_GREATEREQUAL | SKW_LEFTBRACE | SKW_LEFTBRACKET |
-		//SKW_LEFTPAREN | SKW_LEFTSHIFT | SKW_LESS | SKW_LESSEQUAL | SKW_MINUS | SKW_MINUSMINUS | SKW_MOD | SKW_NOT |
-		//SKW_NOTEQUAL | SKW_OR | SKW_OROR | SKW_PLUS | SKW_PLUSPLUS | SKW_QUESTION | SKW_RIGHTBRACE | SKW_RIGHTBRACKET |
-		//SKW_RIGHTPAREN | SKW_RIGHTSHIFT | SKW_SEMI | SKW_SINGLEQUOTE | SKW_STAR | SKW_TILDE
+		//SKW_DOUBLEQUOTE | SKW_EQUAL | SKW_GREATER | SKW_GREATEREQUAL | SKW_LEFTBRACE | SKW_LEFTBRACKET | SKW_LEFTPAREN |
+		//SKW_LEFTSHIFT | SKW_LESS | SKW_LESSEQUAL | SKW_MINUS | SKW_MINUSMINUS | SKW_MOD | SKW_NOT | SKW_NOTEQUAL | SKW_OR |
+		//SKW_OROR | SKW_PLUS | SKW_PLUSPLUS | SKW_QUESTION | SKW_RIGHTBRACE | SKW_RIGHTBRACKET | SKW_RIGHTPAREN | SKW_RIGHTSHIFT
+		//| SKW_SEMI | SKW_SINGLEQUOTE | SKW_STAR | SKW_TILDE
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//SKW_AND
@@ -1279,86 +1277,106 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		//SKW_EQUAL
 		public RuleCall getSKW_EQUALTerminalRuleCall_10() { return cSKW_EQUALTerminalRuleCall_10; }
 		
-		//SKW_ELLIPSIS
-		public RuleCall getSKW_ELLIPSISTerminalRuleCall_11() { return cSKW_ELLIPSISTerminalRuleCall_11; }
-		
 		//SKW_GREATER
-		public RuleCall getSKW_GREATERTerminalRuleCall_12() { return cSKW_GREATERTerminalRuleCall_12; }
+		public RuleCall getSKW_GREATERTerminalRuleCall_11() { return cSKW_GREATERTerminalRuleCall_11; }
 		
 		//SKW_GREATEREQUAL
-		public RuleCall getSKW_GREATEREQUALTerminalRuleCall_13() { return cSKW_GREATEREQUALTerminalRuleCall_13; }
+		public RuleCall getSKW_GREATEREQUALTerminalRuleCall_12() { return cSKW_GREATEREQUALTerminalRuleCall_12; }
 		
 		//SKW_LEFTBRACE
-		public RuleCall getSKW_LEFTBRACETerminalRuleCall_14() { return cSKW_LEFTBRACETerminalRuleCall_14; }
+		public RuleCall getSKW_LEFTBRACETerminalRuleCall_13() { return cSKW_LEFTBRACETerminalRuleCall_13; }
 		
 		//SKW_LEFTBRACKET
-		public RuleCall getSKW_LEFTBRACKETTerminalRuleCall_15() { return cSKW_LEFTBRACKETTerminalRuleCall_15; }
+		public RuleCall getSKW_LEFTBRACKETTerminalRuleCall_14() { return cSKW_LEFTBRACKETTerminalRuleCall_14; }
 		
 		//SKW_LEFTPAREN
-		public RuleCall getSKW_LEFTPARENTerminalRuleCall_16() { return cSKW_LEFTPARENTerminalRuleCall_16; }
+		public RuleCall getSKW_LEFTPARENTerminalRuleCall_15() { return cSKW_LEFTPARENTerminalRuleCall_15; }
 		
 		//SKW_LEFTSHIFT
-		public RuleCall getSKW_LEFTSHIFTTerminalRuleCall_17() { return cSKW_LEFTSHIFTTerminalRuleCall_17; }
+		public RuleCall getSKW_LEFTSHIFTTerminalRuleCall_16() { return cSKW_LEFTSHIFTTerminalRuleCall_16; }
 		
 		//SKW_LESS
-		public RuleCall getSKW_LESSTerminalRuleCall_18() { return cSKW_LESSTerminalRuleCall_18; }
+		public RuleCall getSKW_LESSTerminalRuleCall_17() { return cSKW_LESSTerminalRuleCall_17; }
 		
 		//SKW_LESSEQUAL
-		public RuleCall getSKW_LESSEQUALTerminalRuleCall_19() { return cSKW_LESSEQUALTerminalRuleCall_19; }
+		public RuleCall getSKW_LESSEQUALTerminalRuleCall_18() { return cSKW_LESSEQUALTerminalRuleCall_18; }
 		
 		//SKW_MINUS
-		public RuleCall getSKW_MINUSTerminalRuleCall_20() { return cSKW_MINUSTerminalRuleCall_20; }
+		public RuleCall getSKW_MINUSTerminalRuleCall_19() { return cSKW_MINUSTerminalRuleCall_19; }
 		
 		//SKW_MINUSMINUS
-		public RuleCall getSKW_MINUSMINUSTerminalRuleCall_21() { return cSKW_MINUSMINUSTerminalRuleCall_21; }
+		public RuleCall getSKW_MINUSMINUSTerminalRuleCall_20() { return cSKW_MINUSMINUSTerminalRuleCall_20; }
 		
 		//SKW_MOD
-		public RuleCall getSKW_MODTerminalRuleCall_22() { return cSKW_MODTerminalRuleCall_22; }
+		public RuleCall getSKW_MODTerminalRuleCall_21() { return cSKW_MODTerminalRuleCall_21; }
 		
 		//SKW_NOT
-		public RuleCall getSKW_NOTTerminalRuleCall_23() { return cSKW_NOTTerminalRuleCall_23; }
+		public RuleCall getSKW_NOTTerminalRuleCall_22() { return cSKW_NOTTerminalRuleCall_22; }
 		
 		//SKW_NOTEQUAL
-		public RuleCall getSKW_NOTEQUALTerminalRuleCall_24() { return cSKW_NOTEQUALTerminalRuleCall_24; }
+		public RuleCall getSKW_NOTEQUALTerminalRuleCall_23() { return cSKW_NOTEQUALTerminalRuleCall_23; }
 		
 		//SKW_OR
-		public RuleCall getSKW_ORTerminalRuleCall_25() { return cSKW_ORTerminalRuleCall_25; }
+		public RuleCall getSKW_ORTerminalRuleCall_24() { return cSKW_ORTerminalRuleCall_24; }
 		
 		//SKW_OROR
-		public RuleCall getSKW_ORORTerminalRuleCall_26() { return cSKW_ORORTerminalRuleCall_26; }
+		public RuleCall getSKW_ORORTerminalRuleCall_25() { return cSKW_ORORTerminalRuleCall_25; }
 		
 		//SKW_PLUS
-		public RuleCall getSKW_PLUSTerminalRuleCall_27() { return cSKW_PLUSTerminalRuleCall_27; }
+		public RuleCall getSKW_PLUSTerminalRuleCall_26() { return cSKW_PLUSTerminalRuleCall_26; }
 		
 		//SKW_PLUSPLUS
-		public RuleCall getSKW_PLUSPLUSTerminalRuleCall_28() { return cSKW_PLUSPLUSTerminalRuleCall_28; }
+		public RuleCall getSKW_PLUSPLUSTerminalRuleCall_27() { return cSKW_PLUSPLUSTerminalRuleCall_27; }
 		
 		//SKW_QUESTION
-		public RuleCall getSKW_QUESTIONTerminalRuleCall_29() { return cSKW_QUESTIONTerminalRuleCall_29; }
+		public RuleCall getSKW_QUESTIONTerminalRuleCall_28() { return cSKW_QUESTIONTerminalRuleCall_28; }
 		
 		//SKW_RIGHTBRACE
-		public RuleCall getSKW_RIGHTBRACETerminalRuleCall_30() { return cSKW_RIGHTBRACETerminalRuleCall_30; }
+		public RuleCall getSKW_RIGHTBRACETerminalRuleCall_29() { return cSKW_RIGHTBRACETerminalRuleCall_29; }
 		
 		//SKW_RIGHTBRACKET
-		public RuleCall getSKW_RIGHTBRACKETTerminalRuleCall_31() { return cSKW_RIGHTBRACKETTerminalRuleCall_31; }
+		public RuleCall getSKW_RIGHTBRACKETTerminalRuleCall_30() { return cSKW_RIGHTBRACKETTerminalRuleCall_30; }
 		
 		//SKW_RIGHTPAREN
-		public RuleCall getSKW_RIGHTPARENTerminalRuleCall_32() { return cSKW_RIGHTPARENTerminalRuleCall_32; }
+		public RuleCall getSKW_RIGHTPARENTerminalRuleCall_31() { return cSKW_RIGHTPARENTerminalRuleCall_31; }
 		
 		//SKW_RIGHTSHIFT
-		public RuleCall getSKW_RIGHTSHIFTTerminalRuleCall_33() { return cSKW_RIGHTSHIFTTerminalRuleCall_33; }
+		public RuleCall getSKW_RIGHTSHIFTTerminalRuleCall_32() { return cSKW_RIGHTSHIFTTerminalRuleCall_32; }
 		
 		//SKW_SEMI
-		public RuleCall getSKW_SEMITerminalRuleCall_34() { return cSKW_SEMITerminalRuleCall_34; }
+		public RuleCall getSKW_SEMITerminalRuleCall_33() { return cSKW_SEMITerminalRuleCall_33; }
 		
 		//SKW_SINGLEQUOTE
-		public RuleCall getSKW_SINGLEQUOTETerminalRuleCall_35() { return cSKW_SINGLEQUOTETerminalRuleCall_35; }
+		public RuleCall getSKW_SINGLEQUOTETerminalRuleCall_34() { return cSKW_SINGLEQUOTETerminalRuleCall_34; }
 		
 		//SKW_STAR
-		public RuleCall getSKW_STARTerminalRuleCall_36() { return cSKW_STARTerminalRuleCall_36; }
+		public RuleCall getSKW_STARTerminalRuleCall_35() { return cSKW_STARTerminalRuleCall_35; }
 		
 		//SKW_TILDE
-		public RuleCall getSKW_TILDETerminalRuleCall_37() { return cSKW_TILDETerminalRuleCall_37; }
+		public RuleCall getSKW_TILDETerminalRuleCall_36() { return cSKW_TILDETerminalRuleCall_36; }
+	}
+	public class EllipsisElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.Ellipsis");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cSKW_DOTTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final RuleCall cSKW_DOTTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final RuleCall cSKW_DOTTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		
+		//Ellipsis:
+		//	SKW_DOT SKW_DOT SKW_DOT;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//SKW_DOT SKW_DOT SKW_DOT
+		public Group getGroup() { return cGroup; }
+		
+		//SKW_DOT
+		public RuleCall getSKW_DOTTerminalRuleCall_0() { return cSKW_DOTTerminalRuleCall_0; }
+		
+		//SKW_DOT
+		public RuleCall getSKW_DOTTerminalRuleCall_1() { return cSKW_DOTTerminalRuleCall_1; }
+		
+		//SKW_DOT
+		public RuleCall getSKW_DOTTerminalRuleCall_2() { return cSKW_DOTTerminalRuleCall_2; }
 	}
 	
 	
@@ -1385,6 +1403,7 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 	private final Constant1Elements pConstant1;
 	private final Constant2Elements pConstant2;
 	private final SpecialKeywordsElements pSpecialKeywords;
+	private final EllipsisElements pEllipsis;
 	private final TerminalRule tSKW_AND;
 	private final TerminalRule tSKW_ANDAND;
 	private final TerminalRule tSKW_ASSIGN;
@@ -1396,7 +1415,6 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tSKW_DOLLAR;
 	private final TerminalRule tSKW_DOT;
 	private final TerminalRule tSKW_DOUBLEQUOTE;
-	private final TerminalRule tSKW_ELLIPSIS;
 	private final TerminalRule tSKW_EQUAL;
 	private final TerminalRule tSKW_GREATER;
 	private final TerminalRule tSKW_GREATEREQUAL;
@@ -1482,6 +1500,7 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		this.pConstant1 = new Constant1Elements();
 		this.pConstant2 = new Constant2Elements();
 		this.pSpecialKeywords = new SpecialKeywordsElements();
+		this.pEllipsis = new EllipsisElements();
 		this.tSKW_AND = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.SKW_AND");
 		this.tSKW_ANDAND = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.SKW_ANDAND");
 		this.tSKW_ASSIGN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.SKW_ASSIGN");
@@ -1493,7 +1512,6 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		this.tSKW_DOLLAR = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.SKW_DOLLAR");
 		this.tSKW_DOT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.SKW_DOT");
 		this.tSKW_DOUBLEQUOTE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.SKW_DOUBLEQUOTE");
-		this.tSKW_ELLIPSIS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.SKW_ELLIPSIS");
 		this.tSKW_EQUAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.SKW_EQUAL");
 		this.tSKW_GREATER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.SKW_GREATER");
 		this.tSKW_GREATEREQUAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.SKW_GREATEREQUAL");
@@ -1902,7 +1920,6 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 	//	| SKW_DOT
 	//	| SKW_DOUBLEQUOTE
 	//	| SKW_EQUAL
-	//	| SKW_ELLIPSIS
 	//	| SKW_GREATER
 	//	| SKW_GREATEREQUAL
 	//	| SKW_LEFTBRACE
@@ -1935,6 +1952,16 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getSpecialKeywordsRule() {
 		return getSpecialKeywordsAccess().getRule();
+	}
+	
+	//Ellipsis:
+	//	SKW_DOT SKW_DOT SKW_DOT;
+	public EllipsisElements getEllipsisAccess() {
+		return pEllipsis;
+	}
+	
+	public ParserRule getEllipsisRule() {
+		return getEllipsisAccess().getRule();
 	}
 	
 	//terminal SKW_AND:
@@ -2001,12 +2028,6 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 	//	'"';
 	public TerminalRule getSKW_DOUBLEQUOTERule() {
 		return tSKW_DOUBLEQUOTE;
-	}
-	
-	//terminal SKW_ELLIPSIS:
-	//	SKW_DOT SKW_DOT SKW_DOT;
-	public TerminalRule getSKW_ELLIPSISRule() {
-		return tSKW_ELLIPSIS;
 	}
 	
 	//terminal SKW_EQUAL:

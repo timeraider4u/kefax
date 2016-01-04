@@ -9,7 +9,7 @@ source file="res/Test0051_Ellipses.c"
 lexer-tokens
 KW_INT WHITESPACE ID SKW_LEFTPAREN
 	KW_INT WHITESPACE ID SKW_COMMA WHITESPACE
-	SKW_ELLIPSIS
+	SKW_DOT SKW_DOT SKW_DOT
 	SKW_RIGHTPAREN SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
 //(common::Model units+=

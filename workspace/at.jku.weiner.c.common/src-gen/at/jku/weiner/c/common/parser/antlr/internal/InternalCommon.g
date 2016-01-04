@@ -2155,6 +2155,8 @@ ruleConstant1 returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken
 
 
 
+
+
 RULE_SKW_AND : '&';
 
 RULE_SKW_ANDAND : RULE_SKW_AND RULE_SKW_AND;
@@ -2176,8 +2178,6 @@ fragment RULE_SKW_DOLLAR : '$';
 RULE_SKW_DOT : '.';
 
 RULE_SKW_DOUBLEQUOTE : '"';
-
-RULE_SKW_ELLIPSIS : RULE_SKW_DOT RULE_SKW_DOT RULE_SKW_DOT;
 
 RULE_SKW_EQUAL : RULE_SKW_ASSIGN RULE_SKW_ASSIGN;
 

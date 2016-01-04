@@ -128,6 +128,7 @@ public class PreprocessParser extends AbstractContentAssistParser {
 					put(grammarAccess.getArgumentExpressionListAccess().getGroup(), "rule__ArgumentExpressionList__Group__0");
 					put(grammarAccess.getArgumentExpressionListAccess().getGroup_1(), "rule__ArgumentExpressionList__Group_1__0");
 					put(grammarAccess.getConstant2Access().getGroup(), "rule__Constant2__Group__0");
+					put(grammarAccess.getEllipsisAccess().getGroup(), "rule__Ellipsis__Group__0");
 					put(grammarAccess.getPreprocessAccess().getGroupAssignment_1(), "rule__Preprocess__GroupAssignment_1");
 					put(grammarAccess.getGroupOptAccess().getLinesAssignment_1_0(), "rule__GroupOpt__LinesAssignment_1_0");
 					put(grammarAccess.getGroupOpt2Access().getLinesAssignment_1_0(), "rule__GroupOpt2__LinesAssignment_1_0");

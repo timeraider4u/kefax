@@ -84,6 +84,7 @@ public class CommonParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPrimaryExpressionAccess().getGroup(), "rule__PrimaryExpression__Group__0");
 					put(grammarAccess.getPrimaryExpressionAccess().getGroup_1_2(), "rule__PrimaryExpression__Group_1_2__0");
 					put(grammarAccess.getConstant2Access().getGroup(), "rule__Constant2__Group__0");
+					put(grammarAccess.getEllipsisAccess().getGroup(), "rule__Ellipsis__Group__0");
 					put(grammarAccess.getExpressionAccess().getExpressionAssignment_1(), "rule__Expression__ExpressionAssignment_1");
 					put(grammarAccess.getConstantExpressionAccess().getExprAssignment_1(), "rule__ConstantExpression__ExprAssignment_1");
 					put(grammarAccess.getConditionalExpressionAccess().getExprAssignment_1(), "rule__ConditionalExpression__ExprAssignment_1");

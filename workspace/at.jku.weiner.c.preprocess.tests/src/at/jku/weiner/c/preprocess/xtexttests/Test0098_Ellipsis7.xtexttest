@@ -9,7 +9,7 @@ source file="res/Test0098_Ellipsis7.c"
 //----------------------------------------------------------------------
 lexer-tokens
 	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN 
-		SKW_ELLIPSIS
+		SKW_DOT SKW_DOT SKW_DOT
 		SKW_RIGHTPAREN WHITESPACE
 		// fprintf (stdout, __VA_ARGS__) 
 		ID WHITESPACE SKW_LEFTPAREN 

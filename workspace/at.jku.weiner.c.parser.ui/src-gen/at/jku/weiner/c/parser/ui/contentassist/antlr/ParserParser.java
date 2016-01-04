@@ -234,6 +234,7 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPrimaryExpressionAccess().getGroup_1_2(), "rule__PrimaryExpression__Group_1_2__0");
 					put(grammarAccess.getConstantExpressionAccess().getGroup(), "rule__ConstantExpression__Group__0");
 					put(grammarAccess.getConstant2Access().getGroup(), "rule__Constant2__Group__0");
+					put(grammarAccess.getEllipsisAccess().getGroup(), "rule__Ellipsis__Group__0");
 					put(grammarAccess.getParserAccess().getExternalAssignment_1(), "rule__Parser__ExternalAssignment_1");
 					put(grammarAccess.getExternalDeclarationAccess().getFunctiondefHeadAssignment_1_0_0_0(), "rule__ExternalDeclaration__FunctiondefHeadAssignment_1_0_0_0");
 					put(grammarAccess.getExternalDeclarationAccess().getFunctionDefinitionAssignment_1_0_1(), "rule__ExternalDeclaration__FunctionDefinitionAssignment_1_0_1");

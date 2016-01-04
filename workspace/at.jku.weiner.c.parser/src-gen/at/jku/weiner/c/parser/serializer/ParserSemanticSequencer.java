@@ -913,7 +913,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (list=ParameterList ellipsis?=SKW_ELLIPSIS?)
+	 *     (list=ParameterList ellipsis?=Ellipsis?)
 	 */
 	protected void sequence_ParameterTypeList(EObject context, ParameterTypeList semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

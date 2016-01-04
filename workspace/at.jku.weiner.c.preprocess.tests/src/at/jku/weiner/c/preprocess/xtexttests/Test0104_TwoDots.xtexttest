@@ -5,23 +5,11 @@ language preprocess
 imports at.jku.weiner.c.common.common
 //----------------------------------------------------------------------
 split-lexer=false
-source file="res/Test0097_Ellipsis6.c"
+source file="res/Test0104_TwoDots.c"
 //----------------------------------------------------------------------
 lexer-tokens
-	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN 
-		ID SKW_COMMA WHITESPACE ID SKW_COMMA WHITESPACE SKW_DOT SKW_DOT SKW_DOT
-		SKW_RIGHTPAREN WHITESPACE
-		// fprintf(stdout, __VA_ARGS__) 
-		ID SKW_LEFTPAREN 
-		ID SKW_COMMA WHITESPACE VA_ARGS 
-		SKW_RIGHTPAREN NEWLINE
-	ID SKW_LEFTPAREN 
-		ID SKW_COMMA WHITESPACE 
-		ID SKW_COMMA WHITESPACE 
-		ID SKW_COMMA WHITESPACE
-		ID SKW_COMMA WHITESPACE
-		ID 
-		SKW_RIGHTPAREN SKW_SEMI NEWLINE
+	ID WHITESPACE SKW_ASSIGN WHITESPACE SKW_DOT ID SKW_DOT SKW_DOT ID 
+	NEWLINE
 //----------------------------------------------------------------------
 //(common::Model
 	//units+=
@@ -30,29 +18,17 @@ lexer-tokens
 		group=
 		(GroupOpt
 			lines+=
-			(PreprocessorDirectives
-				directive=
-				(DefineFunctionLikeMacro
-					id++"FOO",
-					list =
-					(IdentifierList
-						id+*"[x, y]",
-						variadic?=true
-					),
-					string++"fprintf(stdout, __VA_ARGS__)"
-				)
-			),
-			
 			(Code
-				code++"FOO(foo, bar, foobar, foo_bar, bar);"
+				code++"name = .foo..bar"
 			)
+			
 		)
 	)
 //)
 //)
 //----------------------------------------------------------------------
-output file="bin/Test0097_Ellipsis6.c.i"
-expected file="expected/Test0097_Ellipsis6.c"
+output file="bin/Test0104_TwoDots.c.i"
+expected file="expected/Test0104_TwoDots.c"
 //replacePatterns file="res/Patterns.txt"
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------

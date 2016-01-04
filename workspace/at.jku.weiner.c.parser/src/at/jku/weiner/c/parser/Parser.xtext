@@ -411,7 +411,7 @@ TypeQualifierList: {TypeQualifierList} (typeQualifier+=TypeQualifier)+;
 ParameterTypeList:
 	{ParameterTypeList}
 	list=ParameterList
-	(SKW_COMMA ellipsis?=SKW_ELLIPSIS)?
+	(SKW_COMMA ellipsis?=Ellipsis)?
 ;
 
 ParameterList:

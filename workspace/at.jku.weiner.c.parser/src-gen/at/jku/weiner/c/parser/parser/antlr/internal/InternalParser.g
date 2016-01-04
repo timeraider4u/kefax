@@ -4471,19 +4471,19 @@ this_SKW_COMMA_2=RULE_SKW_COMMA
 
 (
 (
-		lv_ellipsis_3_0=RULE_SKW_ELLIPSIS
-		{
-			newLeafNode(lv_ellipsis_3_0, grammarAccess.getParameterTypeListAccess().getEllipsisSKW_ELLIPSISTerminalRuleCall_2_1_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getParameterTypeListAccess().getEllipsisEllipsisParserRuleCall_2_1_0()); 
+	    }
+		lv_ellipsis_3_0=ruleEllipsis		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getParameterTypeListRule());
+	            $current = createModelElementForParent(grammarAccess.getParameterTypeListRule());
 	        }
-       		setWithLastConsumed(
+       		set(
        			$current, 
        			"ellipsis",
         		true, 
-        		"at.jku.weiner.c.common.Common.SKW_ELLIPSIS");
+        		"at.jku.weiner.c.common.Common.Ellipsis");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
@@ -10893,6 +10893,48 @@ ruleConstant2 returns [EObject current=null]
 
 
 
+// Entry rule entryRuleEllipsis
+entryRuleEllipsis returns [String current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getEllipsisRule()); } 
+	 iv_ruleEllipsis=ruleEllipsis 
+	 { $current=$iv_ruleEllipsis.current.getText(); }  
+	 EOF 
+;
+
+// Rule Ellipsis
+ruleEllipsis returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(    this_SKW_DOT_0=RULE_SKW_DOT    {
+		$current.merge(this_SKW_DOT_0);
+    }
+
+    { 
+    newLeafNode(this_SKW_DOT_0, grammarAccess.getEllipsisAccess().getSKW_DOTTerminalRuleCall_0()); 
+    }
+    this_SKW_DOT_1=RULE_SKW_DOT    {
+		$current.merge(this_SKW_DOT_1);
+    }
+
+    { 
+    newLeafNode(this_SKW_DOT_1, grammarAccess.getEllipsisAccess().getSKW_DOTTerminalRuleCall_1()); 
+    }
+    this_SKW_DOT_2=RULE_SKW_DOT    {
+		$current.merge(this_SKW_DOT_2);
+    }
+
+    { 
+    newLeafNode(this_SKW_DOT_2, grammarAccess.getEllipsisAccess().getSKW_DOTTerminalRuleCall_2()); 
+    }
+)
+    ;
+
+
+
+
+
 RULE_KW_ATOMIC : RULE_SKW_UNDERSCORE 'Atomic';
 
 RULE_KW_ATTRIBUTE : RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE 'attribute' RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE;
@@ -11056,8 +11098,6 @@ fragment RULE_SKW_DOLLAR : '$';
 RULE_SKW_DOT : '.';
 
 RULE_SKW_DOUBLEQUOTE : '"';
-
-RULE_SKW_ELLIPSIS : RULE_SKW_DOT RULE_SKW_DOT RULE_SKW_DOT;
 
 RULE_SKW_EQUAL : RULE_SKW_ASSIGN RULE_SKW_ASSIGN;
 

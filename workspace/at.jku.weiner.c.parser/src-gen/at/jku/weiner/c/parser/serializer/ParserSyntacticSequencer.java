@@ -35,6 +35,8 @@ public class ParserSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if(ruleCall.getRule() == grammarAccess.getARROWRule())
 			return getARROWToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getEllipsisRule())
+			return getEllipsisToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getKW_ATTRIBUTERule())
 			return getKW_ATTRIBUTEToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getKW_ENUMRule())
@@ -55,8 +57,6 @@ public class ParserSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getSKW_COMMAToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getSKW_DOTRule())
 			return getSKW_DOTToken(semanticObject, ruleCall, node);
-		else if(ruleCall.getRule() == grammarAccess.getSKW_ELLIPSISRule())
-			return getSKW_ELLIPSISToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getSKW_LEFTBRACERule())
 			return getSKW_LEFTBRACEToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getSKW_LEFTBRACKETRule())
@@ -91,6 +91,17 @@ public class ParserSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return "->";
+	}
+	
+	/**
+	 * Ellipsis:
+	 * 	SKW_DOT SKW_DOT SKW_DOT
+	 * ;
+	 */
+	protected String getEllipsisToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return ".";
 	}
 	
 	/**
@@ -178,15 +189,6 @@ public class ParserSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * terminal SKW_DOT: '.';
 	 */
 	protected String getSKW_DOTToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return ".";
-	}
-	
-	/**
-	 * terminal SKW_ELLIPSIS: SKW_DOT SKW_DOT SKW_DOT;
-	 */
-	protected String getSKW_ELLIPSISToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
 		return ".";

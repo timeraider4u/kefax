@@ -3,5 +3,8 @@ High priority:
 
 Low priority:
 	- Fixes for failing JUnit tests in at.jku.weiner.c.preprocess.tests
+			- Test0102_DefSamePattern
+			
 			- Test0087_Stringification
 			- Test0035_Stringification2
+

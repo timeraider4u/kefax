@@ -752,6 +752,8 @@ finally {
 
 
 
+
+
 rule__EqualityExpression__Alternatives_2_0
     @init {
 		int stackSize = keepStackSize();
@@ -3986,6 +3988,7 @@ finally {
 
 
 
+
 rule__Expression__ExpressionAssignment_1
     @init {
 		int stackSize = keepStackSize();
@@ -4841,8 +4844,6 @@ fragment RULE_SKW_DOLLAR : '$';
 RULE_SKW_DOT : '.';
 
 RULE_SKW_DOUBLEQUOTE : '"';
-
-RULE_SKW_ELLIPSIS : RULE_SKW_DOT RULE_SKW_DOT RULE_SKW_DOT;
 
 RULE_SKW_EQUAL : RULE_SKW_ASSIGN RULE_SKW_ASSIGN;
 

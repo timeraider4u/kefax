@@ -134,14 +134,14 @@ IdentifierList:
 			WHITESPACE*
 			(SKW_COMMA WHITESPACE* 
 				(
-					variadic?=SKW_ELLIPSIS
-					| varID=ID variadic?=SKW_ELLIPSIS
+					variadic?=Ellipsis
+					| varID=ID variadic?=Ellipsis
 				)
 			)?
 		)
 		|
 		(
-			(varID=ID)? variadic?=SKW_ELLIPSIS
+			(varID=ID)? variadic?=Ellipsis
 		)
 	)
 ;

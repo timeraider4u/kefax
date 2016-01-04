@@ -102,6 +102,8 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getENDIFToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getERRORRule())
 			return getERRORToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getEllipsisRule())
+			return getEllipsisToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getHASHRule())
 			return getHASHToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getIFRule())
@@ -126,8 +128,6 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getSKW_COLONToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getSKW_COMMARule())
 			return getSKW_COMMAToken(semanticObject, ruleCall, node);
-		else if(ruleCall.getRule() == grammarAccess.getSKW_ELLIPSISRule())
-			return getSKW_ELLIPSISToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getSKW_LEFTPARENRule())
 			return getSKW_LEFTPARENToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getSKW_ORRule())
@@ -199,6 +199,17 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return "error";
+	}
+	
+	/**
+	 * Ellipsis:
+	 * 	SKW_DOT SKW_DOT SKW_DOT
+	 * ;
+	 */
+	protected String getEllipsisToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return ".";
 	}
 	
 	/**
@@ -307,15 +318,6 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return ",";
-	}
-	
-	/**
-	 * terminal SKW_ELLIPSIS: SKW_DOT SKW_DOT SKW_DOT;
-	 */
-	protected String getSKW_ELLIPSISToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return ".";
 	}
 	
 	/**
@@ -672,7 +674,7 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * This ambiguous syntax occurs at:
 	 *     id+=ID (ambiguity) (rule end)
 	 *     id+=ID (ambiguity) SKW_COMMA WHITESPACE* varID=ID
-	 *     id+=ID (ambiguity) SKW_COMMA WHITESPACE* variadic?=SKW_ELLIPSIS
+	 *     id+=ID (ambiguity) SKW_COMMA WHITESPACE* variadic?=Ellipsis
 	 */
 	protected void emit_IdentifierList_WHITESPACETerminalRuleCall_1_0_2_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -684,7 +686,7 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     id+=ID WHITESPACE* SKW_COMMA (ambiguity) varID=ID
-	 *     id+=ID WHITESPACE* SKW_COMMA (ambiguity) variadic?=SKW_ELLIPSIS
+	 *     id+=ID WHITESPACE* SKW_COMMA (ambiguity) variadic?=Ellipsis
 	 */
 	protected void emit_IdentifierList_WHITESPACETerminalRuleCall_1_0_3_1_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

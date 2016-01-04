@@ -10,7 +10,7 @@ source file="res/Test0103_Ellipsis9.c"
 lexer-tokens
 	// #define FOO(x...) 
 	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN 
-		ID SKW_ELLIPSIS
+		ID SKW_DOT SKW_DOT SKW_DOT
 		SKW_RIGHTPAREN WHITESPACE
 		// printf(x) 
 		ID SKW_LEFTPAREN ID SKW_RIGHTPAREN

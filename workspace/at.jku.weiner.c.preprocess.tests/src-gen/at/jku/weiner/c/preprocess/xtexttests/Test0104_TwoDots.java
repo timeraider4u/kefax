@@ -45,14 +45,11 @@ import at.jku.weiner.c.preprocess.xtexttests.LexerAndParserTest;
 
 import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
-import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
-import at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro;
-import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(PreprocessInjectorProvider.class)
-public class Test0094_Ellipsis3 {
+public class Test0104_TwoDots {
 	@Inject
 	private ParseHelper<Preprocess> parseHelper;
 	@Inject
@@ -98,44 +95,18 @@ public class Test0094_Ellipsis3 {
 	@Test (timeout=1000)
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
-			"res/Test0094_Ellipsis3.c");
+			"res/Test0104_TwoDots.c");
 			//System.out.println(text);
 			final String[] expected = new String[] {
-				"RULE_HASH",
-				"RULE_DEFINE",
+				"RULE_ID",
 				"RULE_WHITESPACE",
-				"RULE_ID",
-				"RULE_SKW_LEFTPAREN",
-				"RULE_ID",
-				"RULE_SKW_COMMA",
-				"RULE_WHITESPACE",
-				"RULE_ID",
-				"RULE_SKW_COMMA",
+				"RULE_SKW_ASSIGN",
 				"RULE_WHITESPACE",
 				"RULE_SKW_DOT",
+				"RULE_ID",
 				"RULE_SKW_DOT",
 				"RULE_SKW_DOT",
-				"RULE_SKW_RIGHTPAREN",
-				"RULE_WHITESPACE",
 				"RULE_ID",
-				"RULE_SKW_LEFTPAREN",
-				"RULE_ID",
-				"RULE_SKW_COMMA",
-				"RULE_WHITESPACE",
-				"RULE_VA_ARGS",
-				"RULE_SKW_RIGHTPAREN",
-				"RULE_NEWLINE",
-				"RULE_ID",
-				"RULE_SKW_LEFTPAREN",
-				"RULE_ID",
-				"RULE_SKW_COMMA",
-				"RULE_WHITESPACE",
-				"RULE_ID",
-				"RULE_SKW_COMMA",
-				"RULE_WHITESPACE",
-				"RULE_ID",
-				"RULE_SKW_RIGHTPAREN",
-				"RULE_SKW_SEMI",
 				"RULE_NEWLINE",
 				};
 			//final List<Token> actual = testHelper.getTokens(text);
@@ -146,7 +117,7 @@ public class Test0094_Ellipsis3 {
 	@Test (timeout=1000)
 	public void checkParserResult() throws Exception {
 		final String text = this.getTextFromFile(
-			"res/Test0094_Ellipsis3.c");
+			"res/Test0104_TwoDots.c");
 		final Preprocess Preprocess_0_Var
 		  = 
 			this.parseHelper.parse(text);
@@ -164,38 +135,13 @@ public class Test0094_Ellipsis3 {
 		final EList<? extends EObject> Lines_1_list = GroupOpt_1_Var
 		.getLines();
 		Assert.assertNotNull(Lines_1_list);
-		Assert.assertEquals(2, Lines_1_list.size());
+		Assert.assertEquals(1, Lines_1_list.size());
 		//1
-		final PreprocessorDirectives PreprocessorDirectives_2_Var
-		 = (PreprocessorDirectives)Lines_1_list.get(0);
-		Assert.assertNotNull(PreprocessorDirectives_2_Var
+		final Code Code_2_Var
+		 = (Code)Lines_1_list.get(0);
+		Assert.assertNotNull(Code_2_Var
 		);
-		//2
-		final DefineFunctionLikeMacro DefineFunctionLikeMacro_3_Var
-		 = (DefineFunctionLikeMacro)PreprocessorDirectives_2_Var
-		.getDirective();
-		Assert.assertNotNull(DefineFunctionLikeMacro_3_Var
-		);
-		Assert.assertEquals("FOO", DefineFunctionLikeMacro_3_Var
-		.getId());
-		//3
-		final IdentifierList IdentifierList_4_Var
-		 = (IdentifierList)DefineFunctionLikeMacro_3_Var
-		.getList();
-		Assert.assertNotNull(IdentifierList_4_Var
-		);
-		Assert.assertEquals("[x, y]", IdentifierList_4_Var
-		.getId().toString());
-		Assert.assertTrue(IdentifierList_4_Var
-		.isVariadic());
-		Assert.assertEquals("fprintf(stdout, __VA_ARGS__)", DefineFunctionLikeMacro_3_Var
-		.getString());
-		//4
-		final Code Code_5_Var
-		 = (Code)Lines_1_list.get(1);
-		Assert.assertNotNull(Code_5_Var
-		);
-		Assert.assertEquals("FOO(foo, bar, foobar);", Code_5_Var
+		Assert.assertEquals("name = .foo..bar", Code_2_Var
 		.getCode());
 	}
 	
@@ -206,7 +152,7 @@ public class Test0094_Ellipsis3 {
 		// load the resource
 		ResourceSet set = this.resourceSetProvider.get();
 		URI uri = URI.createURI(
-			"res/Test0094_Ellipsis3.c");
+			"res/Test0104_TwoDots.c");
 		Resource resource = set.getResource(uri, true);
 		// validate the resource
 		List<Issue> list = this.validator.validate(resource, 
@@ -220,7 +166,7 @@ public class Test0094_Ellipsis3 {
 			final Method method = clazz.getMethod("setFileName",
 					String.class);
 			if (method != null) {
-				method.invoke(this.generator, "Test0094_Ellipsis3.c.i");
+				method.invoke(this.generator, "Test0104_TwoDots.c.i");
 			}
 		} catch (NoSuchMethodException | SecurityException
 			| IllegalAccessException | IllegalArgumentException
@@ -229,9 +175,9 @@ public class Test0094_Ellipsis3 {
 			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
-		final String actual = this.getTextFromFile("bin/Test0094_Ellipsis3.c.i");
+		final String actual = this.getTextFromFile("bin/Test0104_TwoDots.c.i");
 		final String expected = this.getTextFromFile(
-			"expected/Test0094_Ellipsis3.c"
+			"expected/Test0104_TwoDots.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
 		// System.out.println("Code generation finished.");

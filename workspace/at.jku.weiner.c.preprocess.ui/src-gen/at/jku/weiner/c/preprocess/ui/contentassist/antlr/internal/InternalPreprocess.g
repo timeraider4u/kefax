@@ -10671,8 +10671,8 @@ rule__DefineObjectMacro__IdAssignment_3
     }
 :
 (
-{ before(grammarAccess.getDefineObjectMacroAccess().getIdIDTerminalRuleCall_3_0()); }
-	RULE_ID{ after(grammarAccess.getDefineObjectMacroAccess().getIdIDTerminalRuleCall_3_0()); }
+{ before(grammarAccess.getDefineObjectMacroAccess().getIdMyCodeParserRuleCall_3_0()); }
+	ruleMyCode{ after(grammarAccess.getDefineObjectMacroAccess().getIdMyCodeParserRuleCall_3_0()); }
 )
 
 ;
@@ -10701,8 +10701,8 @@ rule__DefineFunctionLikeMacro__IdAssignment_3
     }
 :
 (
-{ before(grammarAccess.getDefineFunctionLikeMacroAccess().getIdIDTerminalRuleCall_3_0()); }
-	RULE_ID{ after(grammarAccess.getDefineFunctionLikeMacroAccess().getIdIDTerminalRuleCall_3_0()); }
+{ before(grammarAccess.getDefineFunctionLikeMacroAccess().getIdMyCodeParserRuleCall_3_0()); }
+	ruleMyCode{ after(grammarAccess.getDefineFunctionLikeMacroAccess().getIdMyCodeParserRuleCall_3_0()); }
 )
 
 ;

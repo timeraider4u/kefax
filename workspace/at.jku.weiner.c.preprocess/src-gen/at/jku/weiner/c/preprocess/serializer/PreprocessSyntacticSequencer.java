@@ -512,7 +512,7 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     WHITESPACE+
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) DEFINE (ambiguity) id=ID
+	 *     (rule start) DEFINE (ambiguity) id=MyCode
 	 */
 	protected void emit_DefineFunctionLikeMacro_WHITESPACETerminalRuleCall_2_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -523,9 +523,9 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     WHITESPACE*
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     id=ID SKW_LEFTPAREN (ambiguity) SKW_RIGHTPAREN (rule end)
-	 *     id=ID SKW_LEFTPAREN (ambiguity) SKW_RIGHTPAREN WHITESPACE+ string=MyDefineLine
-	 *     id=ID SKW_LEFTPAREN (ambiguity) list=IdentifierList
+	 *     id=MyCode SKW_LEFTPAREN (ambiguity) SKW_RIGHTPAREN (rule end)
+	 *     id=MyCode SKW_LEFTPAREN (ambiguity) SKW_RIGHTPAREN WHITESPACE+ string=MyDefineLine
+	 *     id=MyCode SKW_LEFTPAREN (ambiguity) list=IdentifierList
 	 */
 	protected void emit_DefineFunctionLikeMacro_WHITESPACETerminalRuleCall_5_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -536,7 +536,7 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     WHITESPACE+
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     id=ID SKW_LEFTPAREN WHITESPACE* SKW_RIGHTPAREN (ambiguity) string=MyDefineLine
+	 *     id=MyCode SKW_LEFTPAREN WHITESPACE* SKW_RIGHTPAREN (ambiguity) string=MyDefineLine
 	 *     list=IdentifierList SKW_RIGHTPAREN (ambiguity) string=MyDefineLine
 	 */
 	protected void emit_DefineFunctionLikeMacro_WHITESPACETerminalRuleCall_8_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
@@ -548,7 +548,7 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     WHITESPACE+
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) DEFINE (ambiguity) id=ID
+	 *     (rule start) DEFINE (ambiguity) id=MyCode
 	 */
 	protected void emit_DefineObjectMacro_WHITESPACETerminalRuleCall_2_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -559,7 +559,7 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     WHITESPACE+
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     id=ID (ambiguity) string=MyDefineLine
+	 *     id=MyCode (ambiguity) string=MyDefineLine
 	 */
 	protected void emit_DefineObjectMacro_WHITESPACETerminalRuleCall_4_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

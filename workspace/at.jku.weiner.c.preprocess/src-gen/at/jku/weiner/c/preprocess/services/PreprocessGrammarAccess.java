@@ -337,17 +337,17 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cDEFINETerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		private final RuleCall cWHITESPACETerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		private final Assignment cIdAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cIdIDTerminalRuleCall_3_0 = (RuleCall)cIdAssignment_3.eContents().get(0);
+		private final RuleCall cIdMyCodeParserRuleCall_3_0 = (RuleCall)cIdAssignment_3.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final RuleCall cWHITESPACETerminalRuleCall_4_0 = (RuleCall)cGroup_4.eContents().get(0);
 		private final Assignment cStringAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
 		private final RuleCall cStringMyDefineLineParserRuleCall_4_1_0 = (RuleCall)cStringAssignment_4_1.eContents().get(0);
 		
 		//DefineObjectMacro DefineDirective:
-		//	{DefineObjectMacro} DEFINE WHITESPACE+ id=ID (WHITESPACE+ string=MyDefineLine)?
+		//	{DefineObjectMacro} DEFINE WHITESPACE+ id=MyCode (WHITESPACE+ string=MyDefineLine)?
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{DefineObjectMacro} DEFINE WHITESPACE+ id=ID (WHITESPACE+ string=MyDefineLine)?
+		//{DefineObjectMacro} DEFINE WHITESPACE+ id=MyCode (WHITESPACE+ string=MyDefineLine)?
 		public Group getGroup() { return cGroup; }
 		
 		//{DefineObjectMacro}
@@ -359,11 +359,11 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//WHITESPACE+
 		public RuleCall getWHITESPACETerminalRuleCall_2() { return cWHITESPACETerminalRuleCall_2; }
 		
-		//id=ID
+		//id=MyCode
 		public Assignment getIdAssignment_3() { return cIdAssignment_3; }
 		
-		//ID
-		public RuleCall getIdIDTerminalRuleCall_3_0() { return cIdIDTerminalRuleCall_3_0; }
+		//MyCode
+		public RuleCall getIdMyCodeParserRuleCall_3_0() { return cIdMyCodeParserRuleCall_3_0; }
 		
 		//(WHITESPACE+ string=MyDefineLine)?
 		public Group getGroup_4() { return cGroup_4; }
@@ -384,7 +384,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cDEFINETerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		private final RuleCall cWHITESPACETerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		private final Assignment cIdAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cIdIDTerminalRuleCall_3_0 = (RuleCall)cIdAssignment_3.eContents().get(0);
+		private final RuleCall cIdMyCodeParserRuleCall_3_0 = (RuleCall)cIdAssignment_3.eContents().get(0);
 		private final RuleCall cSKW_LEFTPARENTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
 		private final RuleCall cWHITESPACETerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
 		private final Assignment cListAssignment_6 = (Assignment)cGroup.eContents().get(6);
@@ -396,14 +396,14 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cStringMyDefineLineParserRuleCall_8_1_0 = (RuleCall)cStringAssignment_8_1.eContents().get(0);
 		
 		//DefineFunctionLikeMacro DefineDirective:
-		//	{DefineFunctionLikeMacro} DEFINE WHITESPACE+ id=ID
+		//	{DefineFunctionLikeMacro} DEFINE WHITESPACE+ id=MyCode
 		//	SKW_LEFTPAREN WHITESPACE*
 		//	list=IdentifierList?
 		//	SKW_RIGHTPAREN (WHITESPACE+
 		//	string=MyDefineLine)?
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{DefineFunctionLikeMacro} DEFINE WHITESPACE+ id=ID SKW_LEFTPAREN WHITESPACE* list=IdentifierList? SKW_RIGHTPAREN
+		//{DefineFunctionLikeMacro} DEFINE WHITESPACE+ id=MyCode SKW_LEFTPAREN WHITESPACE* list=IdentifierList? SKW_RIGHTPAREN
 		//(WHITESPACE+ string=MyDefineLine)?
 		public Group getGroup() { return cGroup; }
 		
@@ -416,11 +416,11 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//WHITESPACE+
 		public RuleCall getWHITESPACETerminalRuleCall_2() { return cWHITESPACETerminalRuleCall_2; }
 		
-		//id=ID
+		//id=MyCode
 		public Assignment getIdAssignment_3() { return cIdAssignment_3; }
 		
-		//ID
-		public RuleCall getIdIDTerminalRuleCall_3_0() { return cIdIDTerminalRuleCall_3_0; }
+		//MyCode
+		public RuleCall getIdMyCodeParserRuleCall_3_0() { return cIdMyCodeParserRuleCall_3_0; }
 		
 		//SKW_LEFTPAREN
 		public RuleCall getSKW_LEFTPARENTerminalRuleCall_4() { return cSKW_LEFTPARENTerminalRuleCall_4; }
@@ -1582,7 +1582,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DefineObjectMacro DefineDirective:
-	//	{DefineObjectMacro} DEFINE WHITESPACE+ id=ID (WHITESPACE+ string=MyDefineLine)?
+	//	{DefineObjectMacro} DEFINE WHITESPACE+ id=MyCode (WHITESPACE+ string=MyDefineLine)?
 	public DefineObjectMacroElements getDefineObjectMacroAccess() {
 		return pDefineObjectMacro;
 	}
@@ -1592,7 +1592,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DefineFunctionLikeMacro DefineDirective:
-	//	{DefineFunctionLikeMacro} DEFINE WHITESPACE+ id=ID
+	//	{DefineFunctionLikeMacro} DEFINE WHITESPACE+ id=MyCode
 	//	SKW_LEFTPAREN WHITESPACE*
 	//	list=IdentifierList?
 	//	SKW_RIGHTPAREN (WHITESPACE+

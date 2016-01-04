@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class InternalPreprocessLexer extends Lexer {
     public static final int RULE_PRAGMA=23;
-    public static final int RULE_ID=9;
+    public static final int RULE_ID=11;
     public static final int RULE_OCTAL_ESCAPE=78;
     public static final int RULE_SKW_NOT=48;
     public static final int RULE_SKW_RIGHTSHIFT=41;
@@ -26,7 +26,7 @@ public class InternalPreprocessLexer extends Lexer {
     public static final int EOF=-1;
     public static final int RULE_SKW_LESS=36;
     public static final int RULE_VA_ARGS=26;
-    public static final int RULE_SKW_RIGHTPAREN=11;
+    public static final int RULE_SKW_RIGHTPAREN=10;
     public static final int RULE_SKW_STAR=44;
     public static final int RULE_ENDIF=17;
     public static final int RULE_LINEBREAK=83;
@@ -49,7 +49,7 @@ public class InternalPreprocessLexer extends Lexer {
     public static final int RULE_BLOCK_COMMENT=86;
     public static final int RULE_LINEFEED=80;
     public static final int RULE_SKW_COLON=28;
-    public static final int RULE_SKW_LEFTPAREN=10;
+    public static final int RULE_SKW_LEFTPAREN=9;
     public static final int RULE_BIN_LITERAL=55;
     public static final int RULE_SKW_ELLIPSIS=13;
     public static final int RULE_SKW_MINUS=43;

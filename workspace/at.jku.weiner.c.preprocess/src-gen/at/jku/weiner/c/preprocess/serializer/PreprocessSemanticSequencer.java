@@ -230,7 +230,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (id=ID list=IdentifierList? string=MyDefineLine?)
+	 *     (id=MyCode list=IdentifierList? string=MyDefineLine?)
 	 */
 	protected void sequence_DefineFunctionLikeMacro(EObject context, DefineFunctionLikeMacro semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -239,7 +239,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (id=ID string=MyDefineLine?)
+	 *     (id=MyCode string=MyDefineLine?)
 	 */
 	protected void sequence_DefineObjectMacro(EObject context, DefineObjectMacro semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

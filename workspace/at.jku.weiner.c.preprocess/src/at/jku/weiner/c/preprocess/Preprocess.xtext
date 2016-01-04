@@ -109,13 +109,13 @@ DefineDirective:
 
 DefineObjectMacro returns DefineDirective:
 	{DefineObjectMacro}
-	DEFINE WHITESPACE+ id=ID
+	DEFINE WHITESPACE+ id=MyCode
 		(WHITESPACE+ string=MyDefineLine)?
 ;
 
 DefineFunctionLikeMacro returns DefineDirective:
 	{DefineFunctionLikeMacro}
-	DEFINE WHITESPACE+ id=ID 
+	DEFINE WHITESPACE+ id=MyCode 
 	SKW_LEFTPAREN WHITESPACE*
 		(list=IdentifierList
 		)?

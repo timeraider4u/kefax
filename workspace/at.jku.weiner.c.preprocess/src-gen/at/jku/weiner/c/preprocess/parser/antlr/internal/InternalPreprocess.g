@@ -840,19 +840,19 @@ this_DEFINE_1=RULE_DEFINE
 
 (
 (
-		lv_id_3_0=RULE_ID
-		{
-			newLeafNode(lv_id_3_0, grammarAccess.getDefineObjectMacroAccess().getIdIDTerminalRuleCall_3_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getDefineObjectMacroAccess().getIdMyCodeParserRuleCall_3_0()); 
+	    }
+		lv_id_3_0=ruleMyCode		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getDefineObjectMacroRule());
+	            $current = createModelElementForParent(grammarAccess.getDefineObjectMacroRule());
 	        }
-       		setWithLastConsumed(
+       		set(
        			$current, 
        			"id",
         		lv_id_3_0, 
-        		"at.jku.weiner.c.common.Common.ID");
+        		"at.jku.weiner.c.preprocess.Preprocess.MyCode");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
@@ -945,19 +945,19 @@ this_DEFINE_1=RULE_DEFINE
 
 (
 (
-		lv_id_3_0=RULE_ID
-		{
-			newLeafNode(lv_id_3_0, grammarAccess.getDefineFunctionLikeMacroAccess().getIdIDTerminalRuleCall_3_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getDefineFunctionLikeMacroAccess().getIdMyCodeParserRuleCall_3_0()); 
+	    }
+		lv_id_3_0=ruleMyCode		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getDefineFunctionLikeMacroRule());
+	            $current = createModelElementForParent(grammarAccess.getDefineFunctionLikeMacroRule());
 	        }
-       		setWithLastConsumed(
+       		set(
        			$current, 
        			"id",
         		lv_id_3_0, 
-        		"at.jku.weiner.c.common.Common.ID");
+        		"at.jku.weiner.c.preprocess.Preprocess.MyCode");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )

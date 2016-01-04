@@ -474,25 +474,28 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cVarIDIDTerminalRuleCall_1_0_3_2_1_0_0 = (RuleCall)cVarIDAssignment_1_0_3_2_1_0.eContents().get(0);
 		private final Assignment cVariadicAssignment_1_0_3_2_1_1 = (Assignment)cGroup_1_0_3_2_1.eContents().get(1);
 		private final RuleCall cVariadicSKW_ELLIPSISTerminalRuleCall_1_0_3_2_1_1_0 = (RuleCall)cVariadicAssignment_1_0_3_2_1_1.eContents().get(0);
-		private final Assignment cVariadicAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
-		private final RuleCall cVariadicSKW_ELLIPSISTerminalRuleCall_1_1_0 = (RuleCall)cVariadicAssignment_1_1.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
+		private final Assignment cVarIDAssignment_1_1_0 = (Assignment)cGroup_1_1.eContents().get(0);
+		private final RuleCall cVarIDIDTerminalRuleCall_1_1_0_0 = (RuleCall)cVarIDAssignment_1_1_0.eContents().get(0);
+		private final Assignment cVariadicAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
+		private final RuleCall cVariadicSKW_ELLIPSISTerminalRuleCall_1_1_1_0 = (RuleCall)cVariadicAssignment_1_1_1.eContents().get(0);
 		
 		//IdentifierList:
 		//	{IdentifierList} (id+=ID (SKW_COMMA WHITESPACE* id+=ID)*
 		//	WHITESPACE* (SKW_COMMA WHITESPACE* (variadic?=SKW_ELLIPSIS
 		//	| varID=ID variadic?=SKW_ELLIPSIS))?
-		//	| variadic?=SKW_ELLIPSIS);
+		//	| varID=ID? variadic?=SKW_ELLIPSIS);
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{IdentifierList} (id+=ID (SKW_COMMA WHITESPACE* id+=ID)* WHITESPACE* (SKW_COMMA WHITESPACE* (variadic?=SKW_ELLIPSIS |
-		//varID=ID variadic?=SKW_ELLIPSIS))? | variadic?=SKW_ELLIPSIS)
+		//varID=ID variadic?=SKW_ELLIPSIS))? | varID=ID? variadic?=SKW_ELLIPSIS)
 		public Group getGroup() { return cGroup; }
 		
 		//{IdentifierList}
 		public Action getIdentifierListAction_0() { return cIdentifierListAction_0; }
 		
 		//(id+=ID (SKW_COMMA WHITESPACE* id+=ID)* WHITESPACE* (SKW_COMMA WHITESPACE* (variadic?=SKW_ELLIPSIS | varID=ID
-		//variadic?=SKW_ELLIPSIS))? | variadic?=SKW_ELLIPSIS)
+		//variadic?=SKW_ELLIPSIS))? | varID=ID? variadic?=SKW_ELLIPSIS)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
 		//id+=ID (SKW_COMMA WHITESPACE* id+=ID)* WHITESPACE* (SKW_COMMA WHITESPACE* (variadic?=SKW_ELLIPSIS | varID=ID
@@ -556,11 +559,20 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//SKW_ELLIPSIS
 		public RuleCall getVariadicSKW_ELLIPSISTerminalRuleCall_1_0_3_2_1_1_0() { return cVariadicSKW_ELLIPSISTerminalRuleCall_1_0_3_2_1_1_0; }
 		
+		//varID=ID? variadic?=SKW_ELLIPSIS
+		public Group getGroup_1_1() { return cGroup_1_1; }
+		
+		//varID=ID?
+		public Assignment getVarIDAssignment_1_1_0() { return cVarIDAssignment_1_1_0; }
+		
+		//ID
+		public RuleCall getVarIDIDTerminalRuleCall_1_1_0_0() { return cVarIDIDTerminalRuleCall_1_1_0_0; }
+		
 		//variadic?=SKW_ELLIPSIS
-		public Assignment getVariadicAssignment_1_1() { return cVariadicAssignment_1_1; }
+		public Assignment getVariadicAssignment_1_1_1() { return cVariadicAssignment_1_1_1; }
 		
 		//SKW_ELLIPSIS
-		public RuleCall getVariadicSKW_ELLIPSISTerminalRuleCall_1_1_0() { return cVariadicSKW_ELLIPSISTerminalRuleCall_1_1_0; }
+		public RuleCall getVariadicSKW_ELLIPSISTerminalRuleCall_1_1_1_0() { return cVariadicSKW_ELLIPSISTerminalRuleCall_1_1_1_0; }
 	}
 	public class ErrorDirectiveElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.ErrorDirective");
@@ -1609,7 +1621,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//	{IdentifierList} (id+=ID (SKW_COMMA WHITESPACE* id+=ID)*
 	//	WHITESPACE* (SKW_COMMA WHITESPACE* (variadic?=SKW_ELLIPSIS
 	//	| varID=ID variadic?=SKW_ELLIPSIS))?
-	//	| variadic?=SKW_ELLIPSIS);
+	//	| varID=ID? variadic?=SKW_ELLIPSIS);
 	public IdentifierListElements getIdentifierListAccess() {
 		return pIdentifierList;
 	}

@@ -141,7 +141,7 @@ IdentifierList:
 		)
 		|
 		(
-			variadic?=SKW_ELLIPSIS
+			(varID=ID)? variadic?=SKW_ELLIPSIS
 		)
 	)
 ;

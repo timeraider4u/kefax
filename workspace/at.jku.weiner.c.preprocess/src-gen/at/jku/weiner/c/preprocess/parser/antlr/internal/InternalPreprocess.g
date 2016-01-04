@@ -1236,9 +1236,31 @@ this_SKW_COMMA_6=RULE_SKW_COMMA
     |
 (
 (
-		lv_variadic_11_0=RULE_SKW_ELLIPSIS
+(
+		lv_varID_11_0=RULE_ID
 		{
-			newLeafNode(lv_variadic_11_0, grammarAccess.getIdentifierListAccess().getVariadicSKW_ELLIPSISTerminalRuleCall_1_1_0()); 
+			newLeafNode(lv_varID_11_0, grammarAccess.getIdentifierListAccess().getVarIDIDTerminalRuleCall_1_1_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getIdentifierListRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"varID",
+        		lv_varID_11_0, 
+        		"at.jku.weiner.c.common.Common.ID");
+	    }
+
+)
+)?
+
+
+(
+(
+		lv_variadic_12_0=RULE_SKW_ELLIPSIS
+		{
+			newLeafNode(lv_variadic_12_0, grammarAccess.getIdentifierListAccess().getVariadicSKW_ELLIPSISTerminalRuleCall_1_1_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1252,6 +1274,8 @@ this_SKW_COMMA_6=RULE_SKW_COMMA
 	    }
 
 )
+)
+
 )
 
 )

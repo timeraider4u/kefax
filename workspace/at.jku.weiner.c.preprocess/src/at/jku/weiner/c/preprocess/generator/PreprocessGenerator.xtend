@@ -200,10 +200,13 @@ class PreprocessGenerator implements IGenerator {
 	}
 	
 	def String outputFor(Preprocess preprocess) {
-		return outputFor(preprocess.group);
+		val String result= outputFor(preprocess.group);
+		return result;
 	}
 	
 	def String outputFor(GroupOpt group) {
+		System.out.println("outputFor path='" + path + "'");
+		
 		val StringBuffer result = new StringBuffer("");
 		for (var int i = 0; i < group.lines.size; i++) {
 			var SourceCodeLine obj = group.lines.get(i);
@@ -235,6 +238,7 @@ class PreprocessGenerator implements IGenerator {
 			}
 		}
 		path.remove(path.length() - 1);
+		System.out.println("back in path='" + path + "'");
 		return result.toString();
 	}
 

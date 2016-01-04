@@ -16,10 +16,10 @@ import at.jku.weiner.c.cmdarguments.cmdArgs.PathCmd;
 import at.jku.weiner.c.cmdarguments.cmdArgs.SimpleMacro;
 
 public class CmdArgs {
-	
+
 	private final String path;
 	private final CmdLine line;
-	
+
 	private final StringBuffer additionalDirectives;
 	private final StringBuffer useIncludeDirs;
 
@@ -34,6 +34,7 @@ public class CmdArgs {
 		this.linux = linux;
 		this.additionalDirectives = new StringBuffer("");
 		this.useIncludeDirs = new StringBuffer("");
+		this.addUseIncDir(null, false);
 		this.visit(this.line.getArguments());
 	}
 
@@ -56,7 +57,7 @@ public class CmdArgs {
 		final boolean isNoStdInc = arg.isNostdinc();
 		final PathCmd include = arg.getInclude();
 		final String in = arg.getIn();
-		
+
 		if (macro != null) {
 			this.visit(macro);
 		}
@@ -76,7 +77,7 @@ public class CmdArgs {
 			this.visitForInFile(in);
 		}
 	}
-	
+
 	private final void visit(final Macro macro) {
 		// System.out.println("visitMacro='" + macro + "'");
 		if (macro instanceof SimpleMacro) {
@@ -101,7 +102,7 @@ public class CmdArgs {
 		this.additionalDirectives.append(macro.getValue());
 		this.additionalDirectives.append(System.lineSeparator());
 	}
-	
+
 	private final void visitFor(final FunctionMacro macro) {
 		this.additionalDirectives.append("#define ");
 		this.additionalDirectives.append(macro.getName());
@@ -124,9 +125,21 @@ public class CmdArgs {
 
 	private final void visitForUseIncDir(final PathCmd pathCmd) {
 		final String str = pathCmd.getPath();
-		final String absPath = this.getAbsolutePath(str);
+		this.addUseIncDir(str, true);
+	}
+
+	private final void addUseIncDir(final String str, final boolean useAbsPath) {
+		final String absPath = this.getPathFor(str, useAbsPath);
 		this.useIncludeDirs.append(absPath);
 		this.useIncludeDirs.append(File.pathSeparator);
+	}
+
+	private final String getPathFor(final String str, final boolean useAbsPath) {
+		if (useAbsPath) {
+			String absPath = this.getAbsolutePath(str);
+			return absPath;
+		}
+		return this.getLinuxAbsolutePath();
 	}
 
 	private final void visitForInclude(final PathCmd pathCmd) {
@@ -140,30 +153,38 @@ public class CmdArgs {
 		this.additionalDirectives.append(">");
 		this.additionalDirectives.append(System.lineSeparator());
 	}
-	
+
 	private final void visitForInFile(final String inFile) {
 		this.inFile = inFile;
 	}
-	
+
 	private final void error(final String text) {
 		System.err.println("at.jku.weiner.kefax.main: text='" + text + "'");
 		throw new RuntimeException(text);
 	}
-	
-	private final String getAbsolutePath(String path) {
-		final URI uri = URI.createFileURI(path);
+
+	private final String getAbsolutePath(String result) {
+		final URI uri = URI.createFileURI(result);
 		if (uri.isRelative()) {
-			final IResource res = this.linux.findMember(path);
+			final IResource res = this.linux.findMember(result);
 			final String newStr = res.getLocationURI().toString();
-			path = newStr.replace("file:", "");
+			result = newStr.replace("file:", "");
 		}
-		return path;
+		return result;
+	}
+
+	private final String getLinuxAbsolutePath() {
+		final IResource res = this.linux;
+		final String newStr = res.getLocationURI().toString();
+		final String result = newStr.replace("file:", "");
+
+		return result;
 	}
 
 	public String getAdditionalDirectivesAsString() {
 		return this.additionalDirectives.toString();
 	}
-	
+
 	public String getIncludeDirectoriesAsString() {
 		return this.useIncludeDirs.toString();
 	}

@@ -25,11 +25,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.common.common.impl.EqualityExpressionImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.common.common.impl.EqualityExpressionImpl#getOp <em>Op</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -83,7 +83,8 @@ public class EqualityExpressionImpl extends ExpressionImpl implements EqualityEx
 	 */
 	public EList<Expression> getExpr()
 	{
-		if (expr == null) {
+		if (expr == null)
+		{
 			expr = new EObjectContainmentEList<Expression>(Expression.class, this, CommonPackage.EQUALITY_EXPRESSION__EXPR);
 		}
 		return expr;
@@ -96,7 +97,8 @@ public class EqualityExpressionImpl extends ExpressionImpl implements EqualityEx
 	 */
 	public EList<String> getOp()
 	{
-		if (op == null) {
+		if (op == null)
+		{
 			op = new EDataTypeEList<String>(String.class, this, CommonPackage.EQUALITY_EXPRESSION__OP);
 		}
 		return op;
@@ -110,7 +112,8 @@ public class EqualityExpressionImpl extends ExpressionImpl implements EqualityEx
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.EQUALITY_EXPRESSION__EXPR:
 				return ((InternalEList<?>)getExpr()).basicRemove(otherEnd, msgs);
 		}
@@ -125,7 +128,8 @@ public class EqualityExpressionImpl extends ExpressionImpl implements EqualityEx
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.EQUALITY_EXPRESSION__EXPR:
 				return getExpr();
 			case CommonPackage.EQUALITY_EXPRESSION__OP:
@@ -143,7 +147,8 @@ public class EqualityExpressionImpl extends ExpressionImpl implements EqualityEx
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.EQUALITY_EXPRESSION__EXPR:
 				getExpr().clear();
 				getExpr().addAll((Collection<? extends Expression>)newValue);
@@ -164,7 +169,8 @@ public class EqualityExpressionImpl extends ExpressionImpl implements EqualityEx
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.EQUALITY_EXPRESSION__EXPR:
 				getExpr().clear();
 				return;
@@ -183,7 +189,8 @@ public class EqualityExpressionImpl extends ExpressionImpl implements EqualityEx
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.EQUALITY_EXPRESSION__EXPR:
 				return expr != null && !expr.isEmpty();
 			case CommonPackage.EQUALITY_EXPRESSION__OP:

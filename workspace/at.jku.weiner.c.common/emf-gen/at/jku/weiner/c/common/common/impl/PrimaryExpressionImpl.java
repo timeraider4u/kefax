@@ -20,12 +20,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.common.common.impl.PrimaryExpressionImpl#getConst <em>Const</em>}</li>
  *   <li>{@link at.jku.weiner.c.common.common.impl.PrimaryExpressionImpl#getId <em>Id</em>}</li>
  *   <li>{@link at.jku.weiner.c.common.common.impl.PrimaryExpressionImpl#getExpr <em>Expr</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -167,7 +167,8 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
 	{
 		Expression oldExpr = expr;
 		expr = newExpr;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
+		{
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CommonPackage.PRIMARY_EXPRESSION__EXPR, oldExpr, newExpr);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -181,7 +182,8 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
 	 */
 	public void setExpr(Expression newExpr)
 	{
-		if (newExpr != expr) {
+		if (newExpr != expr)
+		{
 			NotificationChain msgs = null;
 			if (expr != null)
 				msgs = ((InternalEObject)expr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CommonPackage.PRIMARY_EXPRESSION__EXPR, null, msgs);
@@ -202,7 +204,8 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.PRIMARY_EXPRESSION__EXPR:
 				return basicSetExpr(null, msgs);
 		}
@@ -217,7 +220,8 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.PRIMARY_EXPRESSION__CONST:
 				return getConst();
 			case CommonPackage.PRIMARY_EXPRESSION__ID:
@@ -236,7 +240,8 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.PRIMARY_EXPRESSION__CONST:
 				setConst((String)newValue);
 				return;
@@ -258,7 +263,8 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.PRIMARY_EXPRESSION__CONST:
 				setConst(CONST_EDEFAULT);
 				return;
@@ -280,7 +286,8 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.PRIMARY_EXPRESSION__CONST:
 				return CONST_EDEFAULT == null ? const_ != null : !CONST_EDEFAULT.equals(const_);
 			case CommonPackage.PRIMARY_EXPRESSION__ID:

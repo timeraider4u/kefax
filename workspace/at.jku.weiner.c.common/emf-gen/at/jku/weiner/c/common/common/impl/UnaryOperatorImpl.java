@@ -18,10 +18,10 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.common.common.impl.UnaryOperatorImpl#getOp <em>Op</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -99,7 +99,8 @@ public class UnaryOperatorImpl extends MinimalEObjectImpl.Container implements U
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.UNARY_OPERATOR__OP:
 				return getOp();
 		}
@@ -114,7 +115,8 @@ public class UnaryOperatorImpl extends MinimalEObjectImpl.Container implements U
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.UNARY_OPERATOR__OP:
 				setOp((String)newValue);
 				return;
@@ -130,7 +132,8 @@ public class UnaryOperatorImpl extends MinimalEObjectImpl.Container implements U
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.UNARY_OPERATOR__OP:
 				setOp(OP_EDEFAULT);
 				return;
@@ -146,7 +149,8 @@ public class UnaryOperatorImpl extends MinimalEObjectImpl.Container implements U
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.UNARY_OPERATOR__OP:
 				return OP_EDEFAULT == null ? op != null : !OP_EDEFAULT.equals(op);
 		}

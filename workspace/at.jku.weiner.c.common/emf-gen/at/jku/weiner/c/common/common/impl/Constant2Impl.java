@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.common.common.impl.Constant2Impl#getHex <em>Hex</em>}</li>
  *   <li>{@link at.jku.weiner.c.common.common.impl.Constant2Impl#getOct <em>Oct</em>}</li>
@@ -28,6 +27,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link at.jku.weiner.c.common.common.impl.Constant2Impl#getFloat <em>Float</em>}</li>
  *   <li>{@link at.jku.weiner.c.common.common.impl.Constant2Impl#getBin <em>Bin</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -363,7 +363,8 @@ public class Constant2Impl extends MinimalEObjectImpl.Container implements Const
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.CONSTANT2__HEX:
 				return getHex();
 			case CommonPackage.CONSTANT2__OCT:
@@ -390,7 +391,8 @@ public class Constant2Impl extends MinimalEObjectImpl.Container implements Const
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.CONSTANT2__HEX:
 				setHex((String)newValue);
 				return;
@@ -424,7 +426,8 @@ public class Constant2Impl extends MinimalEObjectImpl.Container implements Const
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.CONSTANT2__HEX:
 				setHex(HEX_EDEFAULT);
 				return;
@@ -458,7 +461,8 @@ public class Constant2Impl extends MinimalEObjectImpl.Container implements Const
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.CONSTANT2__HEX:
 				return HEX_EDEFAULT == null ? hex != null : !HEX_EDEFAULT.equals(hex);
 			case CommonPackage.CONSTANT2__OCT:

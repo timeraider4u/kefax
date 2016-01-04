@@ -913,17 +913,10 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     list=ParameterList
+	 *     (list=ParameterList ellipsis?=SKW_ELLIPSIS?)
 	 */
 	protected void sequence_ParameterTypeList(EObject context, ParameterTypeList semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, ParserPackage.Literals.PARAMETER_TYPE_LIST__LIST) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ParserPackage.Literals.PARAMETER_TYPE_LIST__LIST));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getParameterTypeListAccess().getListParameterListParserRuleCall_1_0(), semanticObject.getList());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

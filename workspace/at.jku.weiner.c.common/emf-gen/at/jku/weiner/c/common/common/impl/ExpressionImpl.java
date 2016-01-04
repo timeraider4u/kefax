@@ -20,10 +20,10 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.common.common.impl.ExpressionImpl#getExpression <em>Expression</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -79,7 +79,8 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
 	{
 		Expression oldExpression = expression;
 		expression = newExpression;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
+		{
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CommonPackage.EXPRESSION__EXPRESSION, oldExpression, newExpression);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -93,7 +94,8 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
 	 */
 	public void setExpression(Expression newExpression)
 	{
-		if (newExpression != expression) {
+		if (newExpression != expression)
+		{
 			NotificationChain msgs = null;
 			if (expression != null)
 				msgs = ((InternalEObject)expression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CommonPackage.EXPRESSION__EXPRESSION, null, msgs);
@@ -114,7 +116,8 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.EXPRESSION__EXPRESSION:
 				return basicSetExpression(null, msgs);
 		}
@@ -129,7 +132,8 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.EXPRESSION__EXPRESSION:
 				return getExpression();
 		}
@@ -144,7 +148,8 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.EXPRESSION__EXPRESSION:
 				setExpression((Expression)newValue);
 				return;
@@ -160,7 +165,8 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.EXPRESSION__EXPRESSION:
 				setExpression((Expression)null);
 				return;
@@ -176,7 +182,8 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.EXPRESSION__EXPRESSION:
 				return expression != null;
 		}

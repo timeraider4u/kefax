@@ -11,12 +11,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.GccAttribute#getId <em>Id</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.GccAttribute#getConst <em>Const</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.GccAttribute#getList <em>List</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.parser.parser.ParserPackage#getGccAttribute()
  * @model

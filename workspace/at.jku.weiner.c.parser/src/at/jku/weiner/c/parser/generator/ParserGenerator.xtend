@@ -350,6 +350,9 @@ class ParserGenerator implements IGenerator {
 	«IF obj != null»
 		«outputFor(obj.list)»
 	«ENDIF»
+	«IF obj.ellipsis»
+		,...
+	«ENDIF»
 	'''
 	
 	def String outputFor(ParameterList obj) '''

@@ -348,6 +348,7 @@ terminal SKW_DIV: '/';
 terminal fragment SKW_DOLLAR: '$';
 terminal SKW_DOT: '.';
 terminal SKW_DOUBLEQUOTE: '"';
+terminal SKW_ELLIPSIS: SKW_DOT SKW_DOT SKW_DOT;
 terminal SKW_EQUAL: SKW_ASSIGN SKW_ASSIGN;
 terminal SKW_GREATER: '>';
 terminal SKW_GREATEREQUAL: SKW_GREATER SKW_ASSIGN;

@@ -20,10 +20,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.common.common.impl.CastExpressionImpl#getExpr <em>Expr</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -79,7 +79,8 @@ public class CastExpressionImpl extends ExpressionImpl implements CastExpression
 	{
 		Expression oldExpr = expr;
 		expr = newExpr;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
+		{
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CommonPackage.CAST_EXPRESSION__EXPR, oldExpr, newExpr);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -93,7 +94,8 @@ public class CastExpressionImpl extends ExpressionImpl implements CastExpression
 	 */
 	public void setExpr(Expression newExpr)
 	{
-		if (newExpr != expr) {
+		if (newExpr != expr)
+		{
 			NotificationChain msgs = null;
 			if (expr != null)
 				msgs = ((InternalEObject)expr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CommonPackage.CAST_EXPRESSION__EXPR, null, msgs);
@@ -114,7 +116,8 @@ public class CastExpressionImpl extends ExpressionImpl implements CastExpression
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.CAST_EXPRESSION__EXPR:
 				return basicSetExpr(null, msgs);
 		}
@@ -129,7 +132,8 @@ public class CastExpressionImpl extends ExpressionImpl implements CastExpression
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.CAST_EXPRESSION__EXPR:
 				return getExpr();
 		}
@@ -144,7 +148,8 @@ public class CastExpressionImpl extends ExpressionImpl implements CastExpression
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.CAST_EXPRESSION__EXPR:
 				setExpr((Expression)newValue);
 				return;
@@ -160,7 +165,8 @@ public class CastExpressionImpl extends ExpressionImpl implements CastExpression
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.CAST_EXPRESSION__EXPR:
 				setExpr((Expression)null);
 				return;
@@ -176,7 +182,8 @@ public class CastExpressionImpl extends ExpressionImpl implements CastExpression
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.CAST_EXPRESSION__EXPR:
 				return expr != null;
 		}

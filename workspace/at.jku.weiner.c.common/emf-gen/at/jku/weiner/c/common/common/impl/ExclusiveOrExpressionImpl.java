@@ -24,10 +24,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.common.common.impl.ExclusiveOrExpressionImpl#getExpr <em>Expr</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -71,7 +71,8 @@ public class ExclusiveOrExpressionImpl extends ExpressionImpl implements Exclusi
 	 */
 	public EList<Expression> getExpr()
 	{
-		if (expr == null) {
+		if (expr == null)
+		{
 			expr = new EObjectContainmentEList<Expression>(Expression.class, this, CommonPackage.EXCLUSIVE_OR_EXPRESSION__EXPR);
 		}
 		return expr;
@@ -85,7 +86,8 @@ public class ExclusiveOrExpressionImpl extends ExpressionImpl implements Exclusi
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.EXCLUSIVE_OR_EXPRESSION__EXPR:
 				return ((InternalEList<?>)getExpr()).basicRemove(otherEnd, msgs);
 		}
@@ -100,7 +102,8 @@ public class ExclusiveOrExpressionImpl extends ExpressionImpl implements Exclusi
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.EXCLUSIVE_OR_EXPRESSION__EXPR:
 				return getExpr();
 		}
@@ -116,7 +119,8 @@ public class ExclusiveOrExpressionImpl extends ExpressionImpl implements Exclusi
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.EXCLUSIVE_OR_EXPRESSION__EXPR:
 				getExpr().clear();
 				getExpr().addAll((Collection<? extends Expression>)newValue);
@@ -133,7 +137,8 @@ public class ExclusiveOrExpressionImpl extends ExpressionImpl implements Exclusi
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.EXCLUSIVE_OR_EXPRESSION__EXPR:
 				getExpr().clear();
 				return;
@@ -149,7 +154,8 @@ public class ExclusiveOrExpressionImpl extends ExpressionImpl implements Exclusi
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.EXCLUSIVE_OR_EXPRESSION__EXPR:
 				return expr != null && !expr.isEmpty();
 		}

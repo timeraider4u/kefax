@@ -10598,9 +10598,9 @@ rule__ParameterTypeList__Group_2__1__Impl
 :
 
 (
-{ before(grammarAccess.getParameterTypeListAccess().getELLIPSISTerminalRuleCall_2_1()); }
-	RULE_ELLIPSIS
-{ after(grammarAccess.getParameterTypeListAccess().getELLIPSISTerminalRuleCall_2_1()); }
+{ before(grammarAccess.getParameterTypeListAccess().getEllipsisAssignment_2_1()); }
+(rule__ParameterTypeList__EllipsisAssignment_2_1)
+{ after(grammarAccess.getParameterTypeListAccess().getEllipsisAssignment_2_1()); }
 )
 
 
@@ -21188,6 +21188,21 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+rule__ParameterTypeList__EllipsisAssignment_2_1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getParameterTypeListAccess().getEllipsisSKW_ELLIPSISTerminalRuleCall_2_1_0()); }
+	RULE_SKW_ELLIPSIS{ after(grammarAccess.getParameterTypeListAccess().getEllipsisSKW_ELLIPSISTerminalRuleCall_2_1_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__ParameterList__ParameterDeclarationAssignment_1
     @init {
 		int stackSize = keepStackSize();
@@ -24027,8 +24042,6 @@ RULE_ORASSIGN : RULE_SKW_OR RULE_SKW_ASSIGN;
 
 RULE_ARROW : RULE_SKW_MINUS RULE_SKW_GREATER;
 
-RULE_ELLIPSIS : RULE_SKW_DOT RULE_SKW_DOT RULE_SKW_DOT;
-
 RULE_LINEDIRECTIVE : '#' (~(RULE_NEWLINE)|RULE_SKW_BACKSLASH RULE_NEWLINE)*;
 
 RULE_WHITESPACE : (' '|'\t')+;
@@ -24054,6 +24067,8 @@ fragment RULE_SKW_DOLLAR : '$';
 RULE_SKW_DOT : '.';
 
 RULE_SKW_DOUBLEQUOTE : '"';
+
+RULE_SKW_ELLIPSIS : RULE_SKW_DOT RULE_SKW_DOT RULE_SKW_DOT;
 
 RULE_SKW_EQUAL : RULE_SKW_ASSIGN RULE_SKW_ASSIGN;
 

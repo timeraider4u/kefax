@@ -2014,13 +2014,14 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cListParameterListParserRuleCall_1_0 = (RuleCall)cListAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final RuleCall cSKW_COMMATerminalRuleCall_2_0 = (RuleCall)cGroup_2.eContents().get(0);
-		private final RuleCall cELLIPSISTerminalRuleCall_2_1 = (RuleCall)cGroup_2.eContents().get(1);
+		private final Assignment cEllipsisAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cEllipsisSKW_ELLIPSISTerminalRuleCall_2_1_0 = (RuleCall)cEllipsisAssignment_2_1.eContents().get(0);
 		
 		//ParameterTypeList:
-		//	{ParameterTypeList} list=ParameterList (SKW_COMMA ELLIPSIS)?;
+		//	{ParameterTypeList} list=ParameterList (SKW_COMMA ellipsis?=SKW_ELLIPSIS)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{ParameterTypeList} list=ParameterList (SKW_COMMA ELLIPSIS)?
+		//{ParameterTypeList} list=ParameterList (SKW_COMMA ellipsis?=SKW_ELLIPSIS)?
 		public Group getGroup() { return cGroup; }
 		
 		//{ParameterTypeList}
@@ -2032,14 +2033,17 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//ParameterList
 		public RuleCall getListParameterListParserRuleCall_1_0() { return cListParameterListParserRuleCall_1_0; }
 		
-		//(SKW_COMMA ELLIPSIS)?
+		//(SKW_COMMA ellipsis?=SKW_ELLIPSIS)?
 		public Group getGroup_2() { return cGroup_2; }
 		
 		//SKW_COMMA
 		public RuleCall getSKW_COMMATerminalRuleCall_2_0() { return cSKW_COMMATerminalRuleCall_2_0; }
 		
-		//ELLIPSIS
-		public RuleCall getELLIPSISTerminalRuleCall_2_1() { return cELLIPSISTerminalRuleCall_2_1; }
+		//ellipsis?=SKW_ELLIPSIS
+		public Assignment getEllipsisAssignment_2_1() { return cEllipsisAssignment_2_1; }
+		
+		//SKW_ELLIPSIS
+		public RuleCall getEllipsisSKW_ELLIPSISTerminalRuleCall_2_1_0() { return cEllipsisSKW_ELLIPSISTerminalRuleCall_2_1_0; }
 	}
 	public class ParameterListElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.ParameterList");
@@ -4928,7 +4932,6 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tXORASSIGN;
 	private final TerminalRule tORASSIGN;
 	private final TerminalRule tARROW;
-	private final TerminalRule tELLIPSIS;
 	private final TerminalRule tLINEDIRECTIVE;
 	private final TerminalRule tWHITESPACE;
 	
@@ -5094,7 +5097,6 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		this.tXORASSIGN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.XORASSIGN");
 		this.tORASSIGN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.ORASSIGN");
 		this.tARROW = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.ARROW");
-		this.tELLIPSIS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.ELLIPSIS");
 		this.tLINEDIRECTIVE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.LINEDIRECTIVE");
 		this.tWHITESPACE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.WHITESPACE");
 	}
@@ -5596,7 +5598,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ParameterTypeList:
-	//	{ParameterTypeList} list=ParameterList (SKW_COMMA ELLIPSIS)?;
+	//	{ParameterTypeList} list=ParameterList (SKW_COMMA ellipsis?=SKW_ELLIPSIS)?;
 	public ParameterTypeListElements getParameterTypeListAccess() {
 		return pParameterTypeList;
 	}
@@ -6610,12 +6612,6 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return tARROW;
 	}
 	
-	//terminal ELLIPSIS:
-	//	SKW_DOT SKW_DOT SKW_DOT;
-	public TerminalRule getELLIPSISRule() {
-		return tELLIPSIS;
-	}
-	
 	//terminal LINEDIRECTIVE:
 	//	'#' (!NEWLINE | SKW_BACKSLASH NEWLINE)*;
 	public TerminalRule getLINEDIRECTIVERule() {
@@ -6772,6 +6768,12 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//	'"';
 	public TerminalRule getSKW_DOUBLEQUOTERule() {
 		return gaCommon.getSKW_DOUBLEQUOTERule();
+	}
+	
+	//terminal SKW_ELLIPSIS:
+	//	SKW_DOT SKW_DOT SKW_DOT;
+	public TerminalRule getSKW_ELLIPSISRule() {
+		return gaCommon.getSKW_ELLIPSISRule();
 	}
 	
 	//terminal SKW_EQUAL:

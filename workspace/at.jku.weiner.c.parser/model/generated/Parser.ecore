@@ -184,6 +184,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="ParameterTypeList">
     <eStructuralFeatures xsi:type="ecore:EReference" name="list" eType="#//ParameterList"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ellipsis" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ParameterList">
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameterDeclaration" upperBound="-1"

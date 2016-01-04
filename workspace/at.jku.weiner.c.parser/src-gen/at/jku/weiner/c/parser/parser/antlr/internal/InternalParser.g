@@ -4469,11 +4469,25 @@ this_SKW_COMMA_2=RULE_SKW_COMMA
 
 
 
-this_ELLIPSIS_3=RULE_ELLIPSIS
-    { 
-    newLeafNode(this_ELLIPSIS_3, grammarAccess.getParameterTypeListAccess().getELLIPSISTerminalRuleCall_2_1()); 
-    }
+(
+(
+		lv_ellipsis_3_0=RULE_SKW_ELLIPSIS
+		{
+			newLeafNode(lv_ellipsis_3_0, grammarAccess.getParameterTypeListAccess().getEllipsisSKW_ELLIPSISTerminalRuleCall_2_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getParameterTypeListRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"ellipsis",
+        		true, 
+        		"at.jku.weiner.c.common.Common.SKW_ELLIPSIS");
+	    }
 
+)
+)
 
 )?
 
@@ -11017,8 +11031,6 @@ RULE_ORASSIGN : RULE_SKW_OR RULE_SKW_ASSIGN;
 
 RULE_ARROW : RULE_SKW_MINUS RULE_SKW_GREATER;
 
-RULE_ELLIPSIS : RULE_SKW_DOT RULE_SKW_DOT RULE_SKW_DOT;
-
 RULE_LINEDIRECTIVE : '#' (~(RULE_NEWLINE)|RULE_SKW_BACKSLASH RULE_NEWLINE)*;
 
 RULE_WHITESPACE : (' '|'\t')+;
@@ -11044,6 +11056,8 @@ fragment RULE_SKW_DOLLAR : '$';
 RULE_SKW_DOT : '.';
 
 RULE_SKW_DOUBLEQUOTE : '"';
+
+RULE_SKW_ELLIPSIS : RULE_SKW_DOT RULE_SKW_DOT RULE_SKW_DOT;
 
 RULE_SKW_EQUAL : RULE_SKW_ASSIGN RULE_SKW_ASSIGN;
 

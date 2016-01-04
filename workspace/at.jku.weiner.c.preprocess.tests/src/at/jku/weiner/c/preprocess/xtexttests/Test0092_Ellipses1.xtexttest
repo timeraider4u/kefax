@@ -1,0 +1,187 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language preprocess
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+split-lexer=false
+source file="res/Test0092_Ellipses1.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN 
+		ID SKW_COMMA WHITESPACE ID SKW_COMMA WHITESPACE 
+		SKW_RIGHTPAREN WHITESPACE 
+		ID WHITESPACE ID NEWLINE
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WHITESPACE WHITESPACE WHITESPACE
+		SKW_LEFTBRACE ID SKW_RIGHTBRACE NEWLINE
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN WHITESPACE WHITESPACE
+		ID WHITESPACE SKW_PLUS WHITESPACE ID NEWLINE
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_COMMA ID SKW_RIGHTPAREN WHITESPACE WHITESPACE
+		ID WHITESPACE SKW_STAR WHITESPACE ID WHITESPACE SKW_MINUS WHITESPACE ID NEWLINE
+	HASH UNDEF WHITESPACE ID NEWLINE
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN WHITESPACE SKW_RIGHTPAREN WHITESPACE WHITESPACE WHITESPACE
+		ID NEWLINE
+	NEWLINE
+	// z
+	ID WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE
+		ID WHITESPACE SKW_LEFTPAREN WHITESPACE SKW_RIGHTPAREN
+		SKW_SEMI NEWLINE
+	// a
+	ID WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE
+		ID SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_SEMI
+		NEWLINE
+	// b
+	ID WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE
+		ID SKW_LEFTPAREN DECIMAL_LITERAL SKW_COMMA ID WHITESPACE SKW_RIGHTPAREN
+		SKW_SEMI NEWLINE
+	// c
+	ID WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE
+		ID WHITESPACE SKW_LEFTPAREN SKW_LEFTPAREN SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_RIGHTPAREN SKW_RIGHTPAREN
+		SKW_SEMI NEWLINE
+	// d
+	ID WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE
+		ID SKW_LEFTPAREN SKW_LEFTPAREN DECIMAL_LITERAL SKW_RIGHTPAREN WHITESPACE SKW_COMMA WHITESPACE SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_RIGHTPAREN
+		SKW_SEMI NEWLINE
+	// e
+	ID WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE
+		ID SKW_LEFTPAREN DECIMAL_LITERAL SKW_COMMA ID SKW_RIGHTPAREN WHITESPACE SKW_LEFTPAREN SKW_STAR WHITESPACE SKW_LEFTPAREN DECIMAL_LITERAL
+		SKW_RIGHTPAREN SKW_RIGHTPAREN
+		SKW_SEMI NEWLINE
+	// f
+	ID WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE
+		ID SKW_LEFTPAREN DECIMAL_LITERAL SKW_RIGHTPAREN SKW_LEFTPAREN DECIMAL_LITERAL SKW_RIGHTPAREN
+		SKW_SEMI NEWLINE
+	// g
+	ID WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE
+		ID SKW_LEFTPAREN WHITESPACE SKW_LEFTPAREN ID SKW_COMMA SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_RIGHTPAREN SKW_RIGHTPAREN 
+		SKW_SEMI NEWLINE
+	// h
+	ID WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE
+		ID SKW_LEFTPAREN WHITESPACE SKW_LEFTPAREN DECIMAL_LITERAL SKW_COMMA ID SKW_RIGHTPAREN SKW_COMMA ID SKW_RIGHTPAREN 
+		SKW_SEMI NEWLINE
+	// i
+	ID WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE
+		ID SKW_LEFTPAREN DECIMAL_LITERAL SKW_COMMA WHITESPACE SKW_LEFTPAREN ID SKW_COMMA ID SKW_RIGHTPAREN SKW_RIGHTPAREN
+		SKW_SEMI NEWLINE
+	// j
+	ID WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE
+		ID SKW_LEFTPAREN DECIMAL_LITERAL SKW_COMMA SKW_LEFTPAREN DECIMAL_LITERAL SKW_RIGHTPAREN SKW_COMMA 
+		SKW_LEFTPAREN DECIMAL_LITERAL SKW_COMMA DECIMAL_LITERAL SKW_RIGHTPAREN SKW_RIGHTPAREN
+		SKW_SEMI NEWLINE
+	// k
+	ID WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE
+		ID SKW_LEFTPAREN SKW_RIGHTPAREN WHITESPACE SKW_PLUS WHITESPACE
+		SKW_LEFTPAREN ID SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_RIGHTPAREN WHITESPACE SKW_MINUS WHITESPACE
+		ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN WHITESPACE SKW_STAR WHITESPACE
+		ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN 
+		SKW_SEMI NEWLINE
+//----------------------------------------------------------------------
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"foo0",
+					list isNull,
+					string++"bar_foo"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"foo1",
+					list=
+					(IdentifierList
+						id+*"[X]"
+					),
+					string++"{X}"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"foo2",
+					list=
+					(IdentifierList
+						id+*"[X, Y]"
+					),
+					string++"X + Y"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"foo3",
+					list=
+					(IdentifierList
+						id+*"[X, Y, Z]"
+					),
+					string++"X * Y - Z"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(UnDefineDirective
+					id++"foo0"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"foo0",
+					list isNull,
+					string++"foo_bar"
+				)
+			),
+			(NewLineLine),
+			(Code
+				code++"int z = foo0 ( );"
+			),
+			(Code
+				code++"int a = foo1(bar);"
+			),
+			(Code
+				code++"int b = foo2(0,bar );"
+			),
+			(Code
+				code++"int c = foo1 (((bar)));"
+			),
+			(Code
+				code++"int d = foo2((0) , (bar));"
+			),
+			(Code
+				code++"int e = foo2(0,bar) (* (1));"
+			),
+			(Code
+				code++"int f = foo1(0)(1);"
+			),
+			(Code
+				code++"int g = foo1( (a,(b)));"
+			),
+			(Code
+				code++"int h = foo2( (0,b),bar);"
+			),
+			(Code
+				code++"int i = foo2(1, (bar,b));"
+			),
+			(Code
+				code++"int j = foo3(1,(1),(1,1));"
+			),
+			(Code
+				code++"int k = foo0() + (foo1(a)) - foo2(foo, bar) * foo3(foo, bar, baaar);"
+			)
+		)
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0027_FunctionMacroMultipleArguments.c.i"
+expected file="expected/Test0027_FunctionMacroMultipleArguments.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

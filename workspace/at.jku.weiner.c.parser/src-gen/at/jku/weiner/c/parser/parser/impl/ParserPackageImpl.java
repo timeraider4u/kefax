@@ -1782,6 +1782,16 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getParameterTypeList_Ellipsis()
+  {
+    return (EAttribute)parameterTypeListEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getParameterList()
   {
     return parameterListEClass;
@@ -3450,6 +3460,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 
     parameterTypeListEClass = createEClass(PARAMETER_TYPE_LIST);
     createEReference(parameterTypeListEClass, PARAMETER_TYPE_LIST__LIST);
+    createEAttribute(parameterTypeListEClass, PARAMETER_TYPE_LIST__ELLIPSIS);
 
     parameterListEClass = createEClass(PARAMETER_LIST);
     createEReference(parameterListEClass, PARAMETER_LIST__PARAMETER_DECLARATION);
@@ -3863,6 +3874,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 
     initEClass(parameterTypeListEClass, ParameterTypeList.class, "ParameterTypeList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getParameterTypeList_List(), this.getParameterList(), null, "list", null, 0, 1, ParameterTypeList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getParameterTypeList_Ellipsis(), theEcorePackage.getEBoolean(), "ellipsis", null, 0, 1, ParameterTypeList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(parameterListEClass, ParameterList.class, "ParameterList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getParameterList_ParameterDeclaration(), this.getParameterDeclaration(), null, "parameterDeclaration", null, 0, -1, ParameterList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

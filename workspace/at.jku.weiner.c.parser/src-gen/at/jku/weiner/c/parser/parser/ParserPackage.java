@@ -1290,13 +1290,22 @@ public interface ParserPackage extends EPackage
   int PARAMETER_TYPE_LIST__LIST = 0;
 
   /**
+   * The feature id for the '<em><b>Ellipsis</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETER_TYPE_LIST__ELLIPSIS = 1;
+
+  /**
    * The number of structural features of the '<em>Parameter Type List</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARAMETER_TYPE_LIST_FEATURE_COUNT = 1;
+  int PARAMETER_TYPE_LIST_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.ParameterListImpl <em>Parameter List</em>}' class.
@@ -4686,6 +4695,17 @@ public interface ParserPackage extends EPackage
   EReference getParameterTypeList_List();
 
   /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.ParameterTypeList#isEllipsis <em>Ellipsis</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Ellipsis</em>'.
+   * @see at.jku.weiner.c.parser.parser.ParameterTypeList#isEllipsis()
+   * @see #getParameterTypeList()
+   * @generated
+   */
+  EAttribute getParameterTypeList_Ellipsis();
+
+  /**
    * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.ParameterList <em>Parameter List</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7184,6 +7204,14 @@ public interface ParserPackage extends EPackage
      * @generated
      */
     EReference PARAMETER_TYPE_LIST__LIST = eINSTANCE.getParameterTypeList_List();
+
+    /**
+     * The meta object literal for the '<em><b>Ellipsis</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PARAMETER_TYPE_LIST__ELLIPSIS = eINSTANCE.getParameterTypeList_Ellipsis();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.ParameterListImpl <em>Parameter List</em>}' class.

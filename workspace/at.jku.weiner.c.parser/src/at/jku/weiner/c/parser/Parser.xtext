@@ -411,7 +411,7 @@ TypeQualifierList: {TypeQualifierList} (typeQualifier+=TypeQualifier)+;
 ParameterTypeList:
 	{ParameterTypeList}
 	list=ParameterList
-	(SKW_COMMA ELLIPSIS)?
+	(SKW_COMMA ellipsis?=SKW_ELLIPSIS)?
 ;
 
 ParameterList:
@@ -939,7 +939,6 @@ terminal XORASSIGN: SKW_CARET SKW_ASSIGN;
 terminal ORASSIGN: SKW_OR SKW_ASSIGN;
 
 terminal ARROW: SKW_MINUS SKW_GREATER;
-terminal ELLIPSIS: SKW_DOT SKW_DOT SKW_DOT;
 
 /*** Whitespace specifics ***/
 terminal LINEDIRECTIVE: '#' (!NEWLINE | SKW_BACKSLASH NEWLINE)*;

@@ -360,7 +360,8 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTranslationUnit_AdditionalPreprocessingDirectives() {
+	public EReference getTranslationUnit_AdditionalPreprocessingDirectives()
+	{
 		return (EReference)translationUnitEClass.getEStructuralFeatures().get(3);
 	}
 

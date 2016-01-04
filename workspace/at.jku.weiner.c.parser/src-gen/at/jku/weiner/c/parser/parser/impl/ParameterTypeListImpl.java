@@ -21,10 +21,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.ParameterTypeListImpl#getList <em>List</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.ParameterTypeListImpl#isEllipsis <em>Ellipsis</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -39,6 +40,26 @@ public class ParameterTypeListImpl extends MinimalEObjectImpl.Container implemen
    * @ordered
    */
   protected ParameterList list;
+
+  /**
+   * The default value of the '{@link #isEllipsis() <em>Ellipsis</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isEllipsis()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean ELLIPSIS_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isEllipsis() <em>Ellipsis</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isEllipsis()
+   * @generated
+   * @ordered
+   */
+  protected boolean ellipsis = ELLIPSIS_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -114,6 +135,29 @@ public class ParameterTypeListImpl extends MinimalEObjectImpl.Container implemen
    * <!-- end-user-doc -->
    * @generated
    */
+  public boolean isEllipsis()
+  {
+    return ellipsis;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setEllipsis(boolean newEllipsis)
+  {
+    boolean oldEllipsis = ellipsis;
+    ellipsis = newEllipsis;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.PARAMETER_TYPE_LIST__ELLIPSIS, oldEllipsis, ellipsis));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -137,6 +181,8 @@ public class ParameterTypeListImpl extends MinimalEObjectImpl.Container implemen
     {
       case ParserPackage.PARAMETER_TYPE_LIST__LIST:
         return getList();
+      case ParserPackage.PARAMETER_TYPE_LIST__ELLIPSIS:
+        return isEllipsis();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -153,6 +199,9 @@ public class ParameterTypeListImpl extends MinimalEObjectImpl.Container implemen
     {
       case ParserPackage.PARAMETER_TYPE_LIST__LIST:
         setList((ParameterList)newValue);
+        return;
+      case ParserPackage.PARAMETER_TYPE_LIST__ELLIPSIS:
+        setEllipsis((Boolean)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -171,6 +220,9 @@ public class ParameterTypeListImpl extends MinimalEObjectImpl.Container implemen
       case ParserPackage.PARAMETER_TYPE_LIST__LIST:
         setList((ParameterList)null);
         return;
+      case ParserPackage.PARAMETER_TYPE_LIST__ELLIPSIS:
+        setEllipsis(ELLIPSIS_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -187,8 +239,27 @@ public class ParameterTypeListImpl extends MinimalEObjectImpl.Container implemen
     {
       case ParserPackage.PARAMETER_TYPE_LIST__LIST:
         return list != null;
+      case ParserPackage.PARAMETER_TYPE_LIST__ELLIPSIS:
+        return ellipsis != ELLIPSIS_EDEFAULT;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (ellipsis: ");
+    result.append(ellipsis);
+    result.append(')');
+    return result.toString();
   }
 
 } //ParameterTypeListImpl

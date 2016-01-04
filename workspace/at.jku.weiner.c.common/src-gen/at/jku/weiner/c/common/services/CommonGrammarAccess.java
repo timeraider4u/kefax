@@ -1391,6 +1391,7 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tSKW_DOLLAR;
 	private final TerminalRule tSKW_DOT;
 	private final TerminalRule tSKW_DOUBLEQUOTE;
+	private final TerminalRule tSKW_ELLIPSIS;
 	private final TerminalRule tSKW_EQUAL;
 	private final TerminalRule tSKW_GREATER;
 	private final TerminalRule tSKW_GREATEREQUAL;
@@ -1487,6 +1488,7 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		this.tSKW_DOLLAR = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.SKW_DOLLAR");
 		this.tSKW_DOT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.SKW_DOT");
 		this.tSKW_DOUBLEQUOTE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.SKW_DOUBLEQUOTE");
+		this.tSKW_ELLIPSIS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.SKW_ELLIPSIS");
 		this.tSKW_EQUAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.SKW_EQUAL");
 		this.tSKW_GREATER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.SKW_GREATER");
 		this.tSKW_GREATEREQUAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.SKW_GREATEREQUAL");
@@ -1993,6 +1995,12 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 	//	'"';
 	public TerminalRule getSKW_DOUBLEQUOTERule() {
 		return tSKW_DOUBLEQUOTE;
+	}
+	
+	//terminal SKW_ELLIPSIS:
+	//	SKW_DOT SKW_DOT SKW_DOT;
+	public TerminalRule getSKW_ELLIPSISRule() {
+		return tSKW_ELLIPSIS;
 	}
 	
 	//terminal SKW_EQUAL:

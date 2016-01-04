@@ -13,12 +13,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.FunctionDefHead#getFunDeclSpecifiers <em>Fun Decl Specifiers</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.FunctionDefHead#getFunDeclarator <em>Fun Declarator</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.FunctionDefHead#getFunDeclaration <em>Fun Declaration</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.parser.parser.ParserPackage#getFunctionDefHead()
  * @model

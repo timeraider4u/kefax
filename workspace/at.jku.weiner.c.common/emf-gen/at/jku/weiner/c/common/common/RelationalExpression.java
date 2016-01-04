@@ -11,11 +11,11 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.common.common.RelationalExpression#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.common.common.RelationalExpression#getOp <em>Op</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.common.common.CommonPackage#getRelationalExpression()
  * @model

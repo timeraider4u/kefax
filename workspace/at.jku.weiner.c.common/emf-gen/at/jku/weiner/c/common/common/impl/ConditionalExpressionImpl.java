@@ -20,12 +20,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.common.common.impl.ConditionalExpressionImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.common.common.impl.ConditionalExpressionImpl#getQExpr <em>QExpr</em>}</li>
  *   <li>{@link at.jku.weiner.c.common.common.impl.ConditionalExpressionImpl#getCExpr <em>CExpr</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -101,7 +101,8 @@ public class ConditionalExpressionImpl extends ExpressionImpl implements Conditi
 	{
 		Expression oldExpr = expr;
 		expr = newExpr;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
+		{
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CommonPackage.CONDITIONAL_EXPRESSION__EXPR, oldExpr, newExpr);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -115,7 +116,8 @@ public class ConditionalExpressionImpl extends ExpressionImpl implements Conditi
 	 */
 	public void setExpr(Expression newExpr)
 	{
-		if (newExpr != expr) {
+		if (newExpr != expr)
+		{
 			NotificationChain msgs = null;
 			if (expr != null)
 				msgs = ((InternalEObject)expr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CommonPackage.CONDITIONAL_EXPRESSION__EXPR, null, msgs);
@@ -147,7 +149,8 @@ public class ConditionalExpressionImpl extends ExpressionImpl implements Conditi
 	{
 		Expression oldQExpr = qExpr;
 		qExpr = newQExpr;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
+		{
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CommonPackage.CONDITIONAL_EXPRESSION__QEXPR, oldQExpr, newQExpr);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -161,7 +164,8 @@ public class ConditionalExpressionImpl extends ExpressionImpl implements Conditi
 	 */
 	public void setQExpr(Expression newQExpr)
 	{
-		if (newQExpr != qExpr) {
+		if (newQExpr != qExpr)
+		{
 			NotificationChain msgs = null;
 			if (qExpr != null)
 				msgs = ((InternalEObject)qExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CommonPackage.CONDITIONAL_EXPRESSION__QEXPR, null, msgs);
@@ -193,7 +197,8 @@ public class ConditionalExpressionImpl extends ExpressionImpl implements Conditi
 	{
 		Expression oldCExpr = cExpr;
 		cExpr = newCExpr;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
+		{
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CommonPackage.CONDITIONAL_EXPRESSION__CEXPR, oldCExpr, newCExpr);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -207,7 +212,8 @@ public class ConditionalExpressionImpl extends ExpressionImpl implements Conditi
 	 */
 	public void setCExpr(Expression newCExpr)
 	{
-		if (newCExpr != cExpr) {
+		if (newCExpr != cExpr)
+		{
 			NotificationChain msgs = null;
 			if (cExpr != null)
 				msgs = ((InternalEObject)cExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CommonPackage.CONDITIONAL_EXPRESSION__CEXPR, null, msgs);
@@ -228,7 +234,8 @@ public class ConditionalExpressionImpl extends ExpressionImpl implements Conditi
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.CONDITIONAL_EXPRESSION__EXPR:
 				return basicSetExpr(null, msgs);
 			case CommonPackage.CONDITIONAL_EXPRESSION__QEXPR:
@@ -247,7 +254,8 @@ public class ConditionalExpressionImpl extends ExpressionImpl implements Conditi
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.CONDITIONAL_EXPRESSION__EXPR:
 				return getExpr();
 			case CommonPackage.CONDITIONAL_EXPRESSION__QEXPR:
@@ -266,7 +274,8 @@ public class ConditionalExpressionImpl extends ExpressionImpl implements Conditi
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.CONDITIONAL_EXPRESSION__EXPR:
 				setExpr((Expression)newValue);
 				return;
@@ -288,7 +297,8 @@ public class ConditionalExpressionImpl extends ExpressionImpl implements Conditi
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.CONDITIONAL_EXPRESSION__EXPR:
 				setExpr((Expression)null);
 				return;
@@ -310,7 +320,8 @@ public class ConditionalExpressionImpl extends ExpressionImpl implements Conditi
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case CommonPackage.CONDITIONAL_EXPRESSION__EXPR:
 				return expr != null;
 			case CommonPackage.CONDITIONAL_EXPRESSION__QEXPR:

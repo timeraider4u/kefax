@@ -99,7 +99,8 @@ public class IncludeDirectiveImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.INCLUDE_DIRECTIVE__STRING:
 				return getString();
 		}
@@ -114,7 +115,8 @@ public class IncludeDirectiveImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.INCLUDE_DIRECTIVE__STRING:
 				setString((String)newValue);
 				return;
@@ -130,7 +132,8 @@ public class IncludeDirectiveImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.INCLUDE_DIRECTIVE__STRING:
 				setString(STRING_EDEFAULT);
 				return;
@@ -146,7 +149,8 @@ public class IncludeDirectiveImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.INCLUDE_DIRECTIVE__STRING:
 				return STRING_EDEFAULT == null ? string != null : !STRING_EDEFAULT.equals(string);
 		}

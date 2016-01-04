@@ -6670,6 +6670,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//	| SKW_DOT
 	//	| SKW_DOUBLEQUOTE
 	//	| SKW_EQUAL
+	//	| SKW_ELLIPSIS
 	//	| SKW_GREATER
 	//	| SKW_GREATEREQUAL
 	//	| SKW_LEFTBRACE

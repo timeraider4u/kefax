@@ -99,7 +99,8 @@ public class IfAbstractConditionalImpl extends MinimalEObjectImpl.Container impl
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.IF_ABSTRACT_CONDITIONAL__BRANCH_TAKEN:
 				return isBranchTaken();
 		}
@@ -114,7 +115,8 @@ public class IfAbstractConditionalImpl extends MinimalEObjectImpl.Container impl
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.IF_ABSTRACT_CONDITIONAL__BRANCH_TAKEN:
 				setBranchTaken((Boolean)newValue);
 				return;
@@ -130,7 +132,8 @@ public class IfAbstractConditionalImpl extends MinimalEObjectImpl.Container impl
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.IF_ABSTRACT_CONDITIONAL__BRANCH_TAKEN:
 				setBranchTaken(BRANCH_TAKEN_EDEFAULT);
 				return;
@@ -146,7 +149,8 @@ public class IfAbstractConditionalImpl extends MinimalEObjectImpl.Container impl
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.IF_ABSTRACT_CONDITIONAL__BRANCH_TAKEN:
 				return branchTaken != BRANCH_TAKEN_EDEFAULT;
 		}

@@ -13,87 +13,89 @@ import java.util.ArrayList;
 public class InternalPreprocessLexer extends Lexer {
     public static final int RULE_PRAGMA=10;
     public static final int RULE_ID=5;
-    public static final int RULE_OCTAL_ESCAPE=76;
-    public static final int RULE_SKW_NOT=48;
-    public static final int RULE_SKW_RIGHTSHIFT=58;
-    public static final int RULE_ESCAPE_SEQUENCE=71;
-    public static final int RULE_SKW_DOT=34;
+    public static final int RULE_OCTAL_ESCAPE=78;
+    public static final int RULE_SKW_NOT=50;
+    public static final int RULE_SKW_RIGHTSHIFT=60;
+    public static final int RULE_ESCAPE_SEQUENCE=73;
+    public static final int RULE_SKW_DOT=35;
     public static final int RULE_DEFINED=15;
-    public static final int RULE_SKW_GREATEREQUAL=38;
-    public static final int RULE_SKW_NOTEQUAL=49;
-    public static final int RULE_SKW_PLUS=52;
-    public static final int RULE_SKW_RIGHTBRACE=55;
+    public static final int RULE_SKW_GREATEREQUAL=40;
+    public static final int RULE_SKW_NOTEQUAL=51;
+    public static final int RULE_SKW_PLUS=54;
+    public static final int RULE_SKW_RIGHTBRACE=57;
     public static final int EOF=-1;
-    public static final int RULE_SKW_LESS=43;
-    public static final int RULE_SKW_RIGHTPAREN=57;
-    public static final int RULE_SKW_STAR=61;
+    public static final int RULE_SKW_LESS=45;
+    public static final int RULE_VA_ARGS=19;
+    public static final int RULE_SKW_RIGHTPAREN=59;
+    public static final int RULE_SKW_STAR=63;
     public static final int RULE_ENDIF=12;
-    public static final int RULE_LINEBREAK=81;
-    public static final int RULE_STRING_LITERAL=23;
-    public static final int RULE_SKW_PLUSPLUS=53;
-    public static final int RULE_SKW_LESSEQUAL=44;
-    public static final int RULE_SKW_DOUBLEQUOTE=35;
-    public static final int RULE_DECIMAL_LITERAL=21;
-    public static final int RULE_HEX_LITERAL=19;
-    public static final int RULE_SKW_OROR=51;
-    public static final int RULE_WARNING=64;
-    public static final int RULE_SKW_AND=26;
-    public static final int RULE_SKW_CARET=30;
+    public static final int RULE_LINEBREAK=83;
+    public static final int RULE_STRING_LITERAL=24;
+    public static final int RULE_SKW_PLUSPLUS=55;
+    public static final int RULE_SKW_LESSEQUAL=46;
+    public static final int RULE_SKW_DOUBLEQUOTE=36;
+    public static final int RULE_DECIMAL_LITERAL=22;
+    public static final int RULE_HEX_LITERAL=20;
+    public static final int RULE_SKW_OROR=53;
+    public static final int RULE_WARNING=66;
+    public static final int RULE_SKW_AND=27;
+    public static final int RULE_SKW_CARET=31;
     public static final int RULE_WHITESPACE=4;
-    public static final int RULE_OCTAL_LITERAL=20;
-    public static final int RULE_SKW_COMMA=31;
-    public static final int RULE_SKW_RIGHTBRACKET=56;
-    public static final int RULE_SPACE=82;
-    public static final int SUPER_NEWLINE=66;
-    public static final int RULE_BLOCK_COMMENT=84;
-    public static final int RULE_LINEFEED=78;
-    public static final int RULE_SKW_COLON=32;
-    public static final int RULE_BIN_LITERAL=25;
-    public static final int RULE_SKW_LEFTPAREN=41;
-    public static final int RULE_SKW_MINUS=45;
+    public static final int RULE_OCTAL_LITERAL=21;
+    public static final int RULE_SKW_COMMA=32;
+    public static final int RULE_SKW_RIGHTBRACKET=58;
+    public static final int RULE_SPACE=84;
+    public static final int SUPER_NEWLINE=69;
+    public static final int RULE_BLOCK_COMMENT=86;
+    public static final int RULE_LINEFEED=80;
+    public static final int RULE_SKW_COLON=33;
+    public static final int RULE_SKW_ELLIPSIS=38;
+    public static final int RULE_SKW_LEFTPAREN=43;
+    public static final int RULE_BIN_LITERAL=26;
+    public static final int RULE_SKW_MINUS=47;
     public static final int RULE_IFDEF=11;
-    public static final int RULE_SKW_SEMI=59;
-    public static final int RULE_NEWLINE=63;
-    public static final int RULE_SKW_DOLLAR=67;
-    public static final int RULE_SKW_EQUAL=36;
-    public static final int RULE_SKW_LEFTSHIFT=42;
-    public static final int RULE_SKW_DIV=33;
-    public static final int RULE_SKW_ANDAND=27;
-    public static final int RULE_SKW_QUESTION=54;
+    public static final int RULE_SKW_SEMI=61;
+    public static final int RULE_NEWLINE=65;
+    public static final int RULE_SKW_DOLLAR=70;
+    public static final int RULE_SKW_EQUAL=37;
+    public static final int RULE_SKW_LEFTSHIFT=44;
+    public static final int RULE_SKW_DIV=34;
+    public static final int RULE_SKW_ANDAND=28;
+    public static final int RULE_SKW_QUESTION=56;
     public static final int RULE_ERROR=9;
-    public static final int RULE_SKW_GREATER=37;
-    public static final int RULE_HEX_DIGIT=72;
+    public static final int RULE_SKW_GREATER=39;
+    public static final int RULE_HEX_DIGIT=74;
     public static final int RULE_HASH=18;
-    public static final int RULE_IDENTIFIER=69;
-    public static final int RULE_SKW_LEFTBRACKET=40;
-    public static final int RULE_HEX_ESCAPE=77;
-    public static final int RULE_TAB=83;
-    public static final int RULE_SKW_SINGLEQUOTE=60;
-    public static final int RULE_SKW_MOD=47;
-    public static final int RULE_UNDEF=65;
-    public static final int RULE_LETTER=70;
-    public static final int RULE_SKW_MINUSMINUS=46;
+    public static final int RULE_IDENTIFIER=71;
+    public static final int RULE_SKW_LEFTBRACKET=42;
+    public static final int RULE_HEX_ESCAPE=79;
+    public static final int RULE_TAB=85;
+    public static final int RULE_SKW_SINGLEQUOTE=62;
+    public static final int RULE_SKW_MOD=49;
+    public static final int RULE_UNDEF=67;
+    public static final int RULE_LETTER=72;
+    public static final int RULE_SKW_MINUSMINUS=48;
     public static final int RULE_IFNOTDEF=13;
-    public static final int RULE_FLOAT_TYPE_SUFFIX=75;
+    public static final int RULE_FLOAT_TYPE_SUFFIX=77;
     public static final int RULE_DEFINE=8;
-    public static final int RULE_INTEGER_TYPE_SUFFIX=73;
-    public static final int RULE_EXPONENT=74;
+    public static final int RULE_INTEGER_TYPE_SUFFIX=75;
+    public static final int RULE_EXPONENT=76;
     public static final int RULE_SPECIAL=6;
-    public static final int RULE_CARRIAGERETURN=79;
-    public static final int RULE_SKW_TILDE=62;
-    public static final int RULE_LINE_COMMENT=85;
+    public static final int RULE_CARRIAGERETURN=81;
+    public static final int RULE_SKW_TILDE=64;
+    public static final int RULE_LINE_COMMENT=87;
     public static final int RULE_INCLUDE=7;
-    public static final int RULE_SKW_BACKSLASH=29;
-    public static final int RULE_SKW_OR=50;
+    public static final int RULE_SKW_BACKSLASH=30;
+    public static final int RULE_SKW_OR=52;
     public static final int RULE_SKW_UNDERSCORE=68;
-    public static final int RULE_CHAR_LITERAL=22;
+    public static final int RULE_CHAR_LITERAL=23;
     public static final int RULE_ELIF=16;
-    public static final int RULE_LINE_END=80;
+    public static final int RULE_LINE_END=82;
     public static final int RULE_IF=14;
-    public static final int RULE_SKW_LEFTBRACE=39;
-    public static final int RULE_FLOAT_LITERAL=24;
+    public static final int RULE_SKW_LEFTBRACE=41;
+    public static final int RULE_FLOAT_LITERAL=25;
     public static final int RULE_ELSE=17;
-    public static final int RULE_SKW_ASSIGN=28;
+    public static final int RULE_SKW_ASSIGN=29;
 
     // delegates
     // delegators
@@ -113,8 +115,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_HASH;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11564:11: ( '#' )
-            // InternalPreprocess.g:11564:13: '#'
+            // InternalPreprocess.g:11766:11: ( '#' )
+            // InternalPreprocess.g:11766:13: '#'
             {
             match('#'); 
 
@@ -133,8 +135,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_INCLUDE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11566:14: ( 'include' )
-            // InternalPreprocess.g:11566:16: 'include'
+            // InternalPreprocess.g:11768:14: ( 'include' )
+            // InternalPreprocess.g:11768:16: 'include'
             {
             match("include"); 
 
@@ -154,8 +156,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_DEFINE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11568:13: ( 'define' )
-            // InternalPreprocess.g:11568:15: 'define'
+            // InternalPreprocess.g:11770:13: ( 'define' )
+            // InternalPreprocess.g:11770:15: 'define'
             {
             match("define"); 
 
@@ -175,8 +177,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_ERROR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11570:12: ( 'error' )
-            // InternalPreprocess.g:11570:14: 'error'
+            // InternalPreprocess.g:11772:12: ( 'error' )
+            // InternalPreprocess.g:11772:14: 'error'
             {
             match("error"); 
 
@@ -196,8 +198,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_WARNING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11572:14: ( 'warning' )
-            // InternalPreprocess.g:11572:16: 'warning'
+            // InternalPreprocess.g:11774:14: ( 'warning' )
+            // InternalPreprocess.g:11774:16: 'warning'
             {
             match("warning"); 
 
@@ -217,8 +219,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_UNDEF;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11574:12: ( 'undef' )
-            // InternalPreprocess.g:11574:14: 'undef'
+            // InternalPreprocess.g:11776:12: ( 'undef' )
+            // InternalPreprocess.g:11776:14: 'undef'
             {
             match("undef"); 
 
@@ -238,8 +240,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_IF;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11576:9: ( 'if' )
-            // InternalPreprocess.g:11576:11: 'if'
+            // InternalPreprocess.g:11778:9: ( 'if' )
+            // InternalPreprocess.g:11778:11: 'if'
             {
             match("if"); 
 
@@ -259,8 +261,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_DEFINED;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11578:14: ( 'defined' )
-            // InternalPreprocess.g:11578:16: 'defined'
+            // InternalPreprocess.g:11780:14: ( 'defined' )
+            // InternalPreprocess.g:11780:16: 'defined'
             {
             match("defined"); 
 
@@ -280,8 +282,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_IFDEF;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11580:12: ( 'ifdef' )
-            // InternalPreprocess.g:11580:14: 'ifdef'
+            // InternalPreprocess.g:11782:12: ( 'ifdef' )
+            // InternalPreprocess.g:11782:14: 'ifdef'
             {
             match("ifdef"); 
 
@@ -301,8 +303,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_IFNOTDEF;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11582:15: ( 'ifndef' )
-            // InternalPreprocess.g:11582:17: 'ifndef'
+            // InternalPreprocess.g:11784:15: ( 'ifndef' )
+            // InternalPreprocess.g:11784:17: 'ifndef'
             {
             match("ifndef"); 
 
@@ -322,8 +324,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_ELIF;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11584:11: ( 'elif' )
-            // InternalPreprocess.g:11584:13: 'elif'
+            // InternalPreprocess.g:11786:11: ( 'elif' )
+            // InternalPreprocess.g:11786:13: 'elif'
             {
             match("elif"); 
 
@@ -343,8 +345,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_ELSE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11586:11: ( 'else' )
-            // InternalPreprocess.g:11586:13: 'else'
+            // InternalPreprocess.g:11788:11: ( 'else' )
+            // InternalPreprocess.g:11788:13: 'else'
             {
             match("else"); 
 
@@ -364,8 +366,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_ENDIF;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11588:12: ( 'endif' )
-            // InternalPreprocess.g:11588:14: 'endif'
+            // InternalPreprocess.g:11790:12: ( 'endif' )
+            // InternalPreprocess.g:11790:14: 'endif'
             {
             match("endif"); 
 
@@ -385,8 +387,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_PRAGMA;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11590:13: ( 'pragma' )
-            // InternalPreprocess.g:11590:15: 'pragma'
+            // InternalPreprocess.g:11792:13: ( 'pragma' )
+            // InternalPreprocess.g:11792:15: 'pragma'
             {
             match("pragma"); 
 
@@ -401,13 +403,38 @@ public class InternalPreprocessLexer extends Lexer {
     }
     // $ANTLR end "RULE_PRAGMA"
 
+    // $ANTLR start "RULE_VA_ARGS"
+    public final void mRULE_VA_ARGS() throws RecognitionException {
+        try {
+            int _type = RULE_VA_ARGS;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalPreprocess.g:11794:14: ( RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE 'VA_ARGS' RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE )
+            // InternalPreprocess.g:11794:16: RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE 'VA_ARGS' RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE
+            {
+            mRULE_SKW_UNDERSCORE(); 
+            mRULE_SKW_UNDERSCORE(); 
+            match("VA_ARGS"); 
+
+            mRULE_SKW_UNDERSCORE(); 
+            mRULE_SKW_UNDERSCORE(); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "RULE_VA_ARGS"
+
     // $ANTLR start "RULE_NEWLINE"
     public final void mRULE_NEWLINE() throws RecognitionException {
         try {
             int _type = RULE_NEWLINE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11592:14: ( SUPER_NEWLINE )
-            // InternalPreprocess.g:11592:16: SUPER_NEWLINE
+            // InternalPreprocess.g:11796:14: ( SUPER_NEWLINE )
+            // InternalPreprocess.g:11796:16: SUPER_NEWLINE
             {
             mSUPER_NEWLINE(); 
 
@@ -426,8 +453,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_SKW_AND;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11594:14: ( '&' )
-            // InternalPreprocess.g:11594:16: '&'
+            // InternalPreprocess.g:11798:14: ( '&' )
+            // InternalPreprocess.g:11798:16: '&'
             {
             match('&'); 
 
@@ -446,8 +473,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_SKW_ANDAND;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11596:17: ( RULE_SKW_AND RULE_SKW_AND )
-            // InternalPreprocess.g:11596:19: RULE_SKW_AND RULE_SKW_AND
+            // InternalPreprocess.g:11800:17: ( RULE_SKW_AND RULE_SKW_AND )
+            // InternalPreprocess.g:11800:19: RULE_SKW_AND RULE_SKW_AND
             {
             mRULE_SKW_AND(); 
             mRULE_SKW_AND(); 
@@ -467,8 +494,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_SKW_ASSIGN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11598:17: ( '=' )
-            // InternalPreprocess.g:11598:19: '='
+            // InternalPreprocess.g:11802:17: ( '=' )
+            // InternalPreprocess.g:11802:19: '='
             {
             match('='); 
 
@@ -487,8 +514,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_SKW_BACKSLASH;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11600:20: ( '\\\\' )
-            // InternalPreprocess.g:11600:22: '\\\\'
+            // InternalPreprocess.g:11804:20: ( '\\\\' )
+            // InternalPreprocess.g:11804:22: '\\\\'
             {
             match('\\'); 
 
@@ -507,8 +534,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_SKW_CARET;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11602:16: ( '^' )
-            // InternalPreprocess.g:11602:18: '^'
+            // InternalPreprocess.g:11806:16: ( '^' )
+            // InternalPreprocess.g:11806:18: '^'
             {
             match('^'); 
 
@@ -527,8 +554,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_SKW_COMMA;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11604:16: ( ',' )
-            // InternalPreprocess.g:11604:18: ','
+            // InternalPreprocess.g:11808:16: ( ',' )
+            // InternalPreprocess.g:11808:18: ','
             {
             match(','); 
 
@@ -547,8 +574,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_SKW_COLON;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11606:16: ( ':' )
-            // InternalPreprocess.g:11606:18: ':'
+            // InternalPreprocess.g:11810:16: ( ':' )
+            // InternalPreprocess.g:11810:18: ':'
             {
             match(':'); 
 
@@ -567,8 +594,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_SKW_DIV;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11608:14: ( '/' )
-            // InternalPreprocess.g:11608:16: '/'
+            // InternalPreprocess.g:11812:14: ( '/' )
+            // InternalPreprocess.g:11812:16: '/'
             {
             match('/'); 
 
@@ -585,8 +612,8 @@ public class InternalPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_SKW_DOLLAR"
     public final void mRULE_SKW_DOLLAR() throws RecognitionException {
         try {
-            // InternalPreprocess.g:11610:26: ( '$' )
-            // InternalPreprocess.g:11610:28: '$'
+            // InternalPreprocess.g:11814:26: ( '$' )
+            // InternalPreprocess.g:11814:28: '$'
             {
             match('$'); 
 
@@ -603,8 +630,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_SKW_DOT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11612:14: ( '.' )
-            // InternalPreprocess.g:11612:16: '.'
+            // InternalPreprocess.g:11816:14: ( '.' )
+            // InternalPreprocess.g:11816:16: '.'
             {
             match('.'); 
 
@@ -623,8 +650,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_SKW_DOUBLEQUOTE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11614:22: ( '\"' )
-            // InternalPreprocess.g:11614:24: '\"'
+            // InternalPreprocess.g:11818:22: ( '\"' )
+            // InternalPreprocess.g:11818:24: '\"'
             {
             match('\"'); 
 
@@ -638,13 +665,35 @@ public class InternalPreprocessLexer extends Lexer {
     }
     // $ANTLR end "RULE_SKW_DOUBLEQUOTE"
 
+    // $ANTLR start "RULE_SKW_ELLIPSIS"
+    public final void mRULE_SKW_ELLIPSIS() throws RecognitionException {
+        try {
+            int _type = RULE_SKW_ELLIPSIS;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalPreprocess.g:11820:19: ( RULE_SKW_DOT RULE_SKW_DOT RULE_SKW_DOT )
+            // InternalPreprocess.g:11820:21: RULE_SKW_DOT RULE_SKW_DOT RULE_SKW_DOT
+            {
+            mRULE_SKW_DOT(); 
+            mRULE_SKW_DOT(); 
+            mRULE_SKW_DOT(); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "RULE_SKW_ELLIPSIS"
+
     // $ANTLR start "RULE_SKW_EQUAL"
     public final void mRULE_SKW_EQUAL() throws RecognitionException {
         try {
             int _type = RULE_SKW_EQUAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11616:16: ( RULE_SKW_ASSIGN RULE_SKW_ASSIGN )
-            // InternalPreprocess.g:11616:18: RULE_SKW_ASSIGN RULE_SKW_ASSIGN
+            // InternalPreprocess.g:11822:16: ( RULE_SKW_ASSIGN RULE_SKW_ASSIGN )
+            // InternalPreprocess.g:11822:18: RULE_SKW_ASSIGN RULE_SKW_ASSIGN
             {
             mRULE_SKW_ASSIGN(); 
             mRULE_SKW_ASSIGN(); 
@@ -664,8 +713,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_SKW_GREATER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11618:18: ( '>' )
-            // InternalPreprocess.g:11618:20: '>'
+            // InternalPreprocess.g:11824:18: ( '>' )
+            // InternalPreprocess.g:11824:20: '>'
             {
             match('>'); 
 
@@ -684,8 +733,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_SKW_GREATEREQUAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11620:23: ( RULE_SKW_GREATER RULE_SKW_ASSIGN )
-            // InternalPreprocess.g:11620:25: RULE_SKW_GREATER RULE_SKW_ASSIGN
+            // InternalPreprocess.g:11826:23: ( RULE_SKW_GREATER RULE_SKW_ASSIGN )
+            // InternalPreprocess.g:11826:25: RULE_SKW_GREATER RULE_SKW_ASSIGN
             {
             mRULE_SKW_GREATER(); 
             mRULE_SKW_ASSIGN(); 
@@ -705,8 +754,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_SKW_LEFTBRACE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11622:20: ( '{' )
-            // InternalPreprocess.g:11622:22: '{'
+            // InternalPreprocess.g:11828:20: ( '{' )
+            // InternalPreprocess.g:11828:22: '{'
             {
             match('{'); 
 
@@ -725,8 +774,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_SKW_LEFTBRACKET;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11624:22: ( '[' )
-            // InternalPreprocess.g:11624:24: '['
+            // InternalPreprocess.g:11830:22: ( '[' )
+            // InternalPreprocess.g:11830:24: '['
             {
             match('['); 
 
@@ -745,8 +794,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_SKW_LEFTPAREN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11626:20: ( '(' )
-            // InternalPreprocess.g:11626:22: '('
+            // InternalPreprocess.g:11832:20: ( '(' )
+            // InternalPreprocess.g:11832:22: '('
             {
             match('('); 
 
@@ -765,8 +814,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_SKW_LEFTSHIFT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11628:20: ( RULE_SKW_LESS RULE_SKW_LESS )
-            // InternalPreprocess.g:11628:22: RULE_SKW_LESS RULE_SKW_LESS
+            // InternalPreprocess.g:11834:20: ( RULE_SKW_LESS RULE_SKW_LESS )
+            // InternalPreprocess.g:11834:22: RULE_SKW_LESS RULE_SKW_LESS
             {
             mRULE_SKW_LESS(); 
             mRULE_SKW_LESS(); 
@@ -786,8 +835,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_SKW_LESS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11630:15: ( '<' )
-            // InternalPreprocess.g:11630:17: '<'
+            // InternalPreprocess.g:11836:15: ( '<' )
+            // InternalPreprocess.g:11836:17: '<'
             {
             match('<'); 
 
@@ -806,8 +855,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_SKW_LESSEQUAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11632:20: ( RULE_SKW_LESS RULE_SKW_ASSIGN )
-            // InternalPreprocess.g:11632:22: RULE_SKW_LESS RULE_SKW_ASSIGN
+            // InternalPreprocess.g:11838:20: ( RULE_SKW_LESS RULE_SKW_ASSIGN )
+            // InternalPreprocess.g:11838:22: RULE_SKW_LESS RULE_SKW_ASSIGN
             {
             mRULE_SKW_LESS(); 
             mRULE_SKW_ASSIGN(); 
@@ -827,8 +876,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_SKW_MINUS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11634:16: ( '-' )
-            // InternalPreprocess.g:11634:18: '-'
+            // InternalPreprocess.g:11840:16: ( '-' )
+            // InternalPreprocess.g:11840:18: '-'
             {
             match('-'); 
 
@@ -847,8 +896,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_SKW_MINUSMINUS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11636:21: ( RULE_SKW_MINUS RULE_SKW_MINUS )
-            // InternalPreprocess.g:11636:23: RULE_SKW_MINUS RULE_SKW_MINUS
+            // InternalPreprocess.g:11842:21: ( RULE_SKW_MINUS RULE_SKW_MINUS )
+            // InternalPreprocess.g:11842:23: RULE_SKW_MINUS RULE_SKW_MINUS
             {
             mRULE_SKW_MINUS(); 
             mRULE_SKW_MINUS(); 
@@ -868,8 +917,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_SKW_MOD;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11638:14: ( '%' )
-            // InternalPreprocess.g:11638:16: '%'
+            // InternalPreprocess.g:11844:14: ( '%' )
+            // InternalPreprocess.g:11844:16: '%'
             {
             match('%'); 
 
@@ -888,8 +937,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_SKW_NOT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11640:14: ( '!' )
-            // InternalPreprocess.g:11640:16: '!'
+            // InternalPreprocess.g:11846:14: ( '!' )
+            // InternalPreprocess.g:11846:16: '!'
             {
             match('!'); 
 
@@ -908,8 +957,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_SKW_NOTEQUAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11642:19: ( RULE_SKW_NOT RULE_SKW_ASSIGN )
-            // InternalPreprocess.g:11642:21: RULE_SKW_NOT RULE_SKW_ASSIGN
+            // InternalPreprocess.g:11848:19: ( RULE_SKW_NOT RULE_SKW_ASSIGN )
+            // InternalPreprocess.g:11848:21: RULE_SKW_NOT RULE_SKW_ASSIGN
             {
             mRULE_SKW_NOT(); 
             mRULE_SKW_ASSIGN(); 
@@ -929,8 +978,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_SKW_OR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11644:13: ( '|' )
-            // InternalPreprocess.g:11644:15: '|'
+            // InternalPreprocess.g:11850:13: ( '|' )
+            // InternalPreprocess.g:11850:15: '|'
             {
             match('|'); 
 
@@ -949,8 +998,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_SKW_OROR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11646:15: ( RULE_SKW_OR RULE_SKW_OR )
-            // InternalPreprocess.g:11646:17: RULE_SKW_OR RULE_SKW_OR
+            // InternalPreprocess.g:11852:15: ( RULE_SKW_OR RULE_SKW_OR )
+            // InternalPreprocess.g:11852:17: RULE_SKW_OR RULE_SKW_OR
             {
             mRULE_SKW_OR(); 
             mRULE_SKW_OR(); 
@@ -970,8 +1019,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_SKW_PLUS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11648:15: ( '+' )
-            // InternalPreprocess.g:11648:17: '+'
+            // InternalPreprocess.g:11854:15: ( '+' )
+            // InternalPreprocess.g:11854:17: '+'
             {
             match('+'); 
 
@@ -990,8 +1039,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_SKW_PLUSPLUS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11650:19: ( RULE_SKW_PLUS RULE_SKW_PLUS )
-            // InternalPreprocess.g:11650:21: RULE_SKW_PLUS RULE_SKW_PLUS
+            // InternalPreprocess.g:11856:19: ( RULE_SKW_PLUS RULE_SKW_PLUS )
+            // InternalPreprocess.g:11856:21: RULE_SKW_PLUS RULE_SKW_PLUS
             {
             mRULE_SKW_PLUS(); 
             mRULE_SKW_PLUS(); 
@@ -1011,8 +1060,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_SKW_QUESTION;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11652:19: ( '?' )
-            // InternalPreprocess.g:11652:21: '?'
+            // InternalPreprocess.g:11858:19: ( '?' )
+            // InternalPreprocess.g:11858:21: '?'
             {
             match('?'); 
 
@@ -1031,8 +1080,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_SKW_RIGHTBRACE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11654:21: ( '}' )
-            // InternalPreprocess.g:11654:23: '}'
+            // InternalPreprocess.g:11860:21: ( '}' )
+            // InternalPreprocess.g:11860:23: '}'
             {
             match('}'); 
 
@@ -1051,8 +1100,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_SKW_RIGHTBRACKET;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11656:23: ( ']' )
-            // InternalPreprocess.g:11656:25: ']'
+            // InternalPreprocess.g:11862:23: ( ']' )
+            // InternalPreprocess.g:11862:25: ']'
             {
             match(']'); 
 
@@ -1071,8 +1120,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_SKW_RIGHTPAREN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11658:21: ( ')' )
-            // InternalPreprocess.g:11658:23: ')'
+            // InternalPreprocess.g:11864:21: ( ')' )
+            // InternalPreprocess.g:11864:23: ')'
             {
             match(')'); 
 
@@ -1091,8 +1140,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_SKW_RIGHTSHIFT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11660:21: ( RULE_SKW_GREATER RULE_SKW_GREATER )
-            // InternalPreprocess.g:11660:23: RULE_SKW_GREATER RULE_SKW_GREATER
+            // InternalPreprocess.g:11866:21: ( RULE_SKW_GREATER RULE_SKW_GREATER )
+            // InternalPreprocess.g:11866:23: RULE_SKW_GREATER RULE_SKW_GREATER
             {
             mRULE_SKW_GREATER(); 
             mRULE_SKW_GREATER(); 
@@ -1112,8 +1161,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_SKW_SEMI;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11662:15: ( ';' )
-            // InternalPreprocess.g:11662:17: ';'
+            // InternalPreprocess.g:11868:15: ( ';' )
+            // InternalPreprocess.g:11868:17: ';'
             {
             match(';'); 
 
@@ -1132,8 +1181,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_SKW_SINGLEQUOTE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11664:22: ( '\\'' )
-            // InternalPreprocess.g:11664:24: '\\''
+            // InternalPreprocess.g:11870:22: ( '\\'' )
+            // InternalPreprocess.g:11870:24: '\\''
             {
             match('\''); 
 
@@ -1152,8 +1201,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_SKW_STAR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11666:15: ( '*' )
-            // InternalPreprocess.g:11666:17: '*'
+            // InternalPreprocess.g:11872:15: ( '*' )
+            // InternalPreprocess.g:11872:17: '*'
             {
             match('*'); 
 
@@ -1172,8 +1221,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_SKW_TILDE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11668:16: ( '~' )
-            // InternalPreprocess.g:11668:18: '~'
+            // InternalPreprocess.g:11874:16: ( '~' )
+            // InternalPreprocess.g:11874:18: '~'
             {
             match('~'); 
 
@@ -1190,8 +1239,8 @@ public class InternalPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_SKW_UNDERSCORE"
     public final void mRULE_SKW_UNDERSCORE() throws RecognitionException {
         try {
-            // InternalPreprocess.g:11670:30: ( '_' )
-            // InternalPreprocess.g:11670:32: '_'
+            // InternalPreprocess.g:11876:30: ( '_' )
+            // InternalPreprocess.g:11876:32: '_'
             {
             match('_'); 
 
@@ -1208,8 +1257,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11672:9: ( RULE_IDENTIFIER )
-            // InternalPreprocess.g:11672:11: RULE_IDENTIFIER
+            // InternalPreprocess.g:11878:9: ( RULE_IDENTIFIER )
+            // InternalPreprocess.g:11878:11: RULE_IDENTIFIER
             {
             mRULE_IDENTIFIER(); 
 
@@ -1226,11 +1275,11 @@ public class InternalPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_IDENTIFIER"
     public final void mRULE_IDENTIFIER() throws RecognitionException {
         try {
-            // InternalPreprocess.g:11674:26: ( RULE_LETTER ( RULE_LETTER | '0' .. '9' )* )
-            // InternalPreprocess.g:11674:28: RULE_LETTER ( RULE_LETTER | '0' .. '9' )*
+            // InternalPreprocess.g:11880:26: ( RULE_LETTER ( RULE_LETTER | '0' .. '9' )* )
+            // InternalPreprocess.g:11880:28: RULE_LETTER ( RULE_LETTER | '0' .. '9' )*
             {
             mRULE_LETTER(); 
-            // InternalPreprocess.g:11674:40: ( RULE_LETTER | '0' .. '9' )*
+            // InternalPreprocess.g:11880:40: ( RULE_LETTER | '0' .. '9' )*
             loop1:
             do {
                 int alt1=2;
@@ -1275,8 +1324,8 @@ public class InternalPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_LETTER"
     public final void mRULE_LETTER() throws RecognitionException {
         try {
-            // InternalPreprocess.g:11676:22: ( ( RULE_SKW_DOLLAR | 'A' .. 'Z' | 'a' .. 'z' | RULE_SKW_UNDERSCORE ) )
-            // InternalPreprocess.g:11676:24: ( RULE_SKW_DOLLAR | 'A' .. 'Z' | 'a' .. 'z' | RULE_SKW_UNDERSCORE )
+            // InternalPreprocess.g:11882:22: ( ( RULE_SKW_DOLLAR | 'A' .. 'Z' | 'a' .. 'z' | RULE_SKW_UNDERSCORE ) )
+            // InternalPreprocess.g:11882:24: ( RULE_SKW_DOLLAR | 'A' .. 'Z' | 'a' .. 'z' | RULE_SKW_UNDERSCORE )
             {
             if ( input.LA(1)=='$'||(input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                 input.consume();
@@ -1301,11 +1350,11 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_CHAR_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11678:19: ( RULE_SKW_SINGLEQUOTE ( RULE_ESCAPE_SEQUENCE | ~ ( ( RULE_SKW_SINGLEQUOTE | RULE_SKW_BACKSLASH ) ) ) RULE_SKW_SINGLEQUOTE )
-            // InternalPreprocess.g:11678:21: RULE_SKW_SINGLEQUOTE ( RULE_ESCAPE_SEQUENCE | ~ ( ( RULE_SKW_SINGLEQUOTE | RULE_SKW_BACKSLASH ) ) ) RULE_SKW_SINGLEQUOTE
+            // InternalPreprocess.g:11884:19: ( RULE_SKW_SINGLEQUOTE ( RULE_ESCAPE_SEQUENCE | ~ ( ( RULE_SKW_SINGLEQUOTE | RULE_SKW_BACKSLASH ) ) ) RULE_SKW_SINGLEQUOTE )
+            // InternalPreprocess.g:11884:21: RULE_SKW_SINGLEQUOTE ( RULE_ESCAPE_SEQUENCE | ~ ( ( RULE_SKW_SINGLEQUOTE | RULE_SKW_BACKSLASH ) ) ) RULE_SKW_SINGLEQUOTE
             {
             mRULE_SKW_SINGLEQUOTE(); 
-            // InternalPreprocess.g:11678:42: ( RULE_ESCAPE_SEQUENCE | ~ ( ( RULE_SKW_SINGLEQUOTE | RULE_SKW_BACKSLASH ) ) )
+            // InternalPreprocess.g:11884:42: ( RULE_ESCAPE_SEQUENCE | ~ ( ( RULE_SKW_SINGLEQUOTE | RULE_SKW_BACKSLASH ) ) )
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -1323,14 +1372,14 @@ public class InternalPreprocessLexer extends Lexer {
             }
             switch (alt2) {
                 case 1 :
-                    // InternalPreprocess.g:11678:43: RULE_ESCAPE_SEQUENCE
+                    // InternalPreprocess.g:11884:43: RULE_ESCAPE_SEQUENCE
                     {
                     mRULE_ESCAPE_SEQUENCE(); 
 
                     }
                     break;
                 case 2 :
-                    // InternalPreprocess.g:11678:64: ~ ( ( RULE_SKW_SINGLEQUOTE | RULE_SKW_BACKSLASH ) )
+                    // InternalPreprocess.g:11884:64: ~ ( ( RULE_SKW_SINGLEQUOTE | RULE_SKW_BACKSLASH ) )
                     {
                     if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                         input.consume();
@@ -1364,11 +1413,11 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_STRING_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11680:21: ( RULE_SKW_DOUBLEQUOTE ( RULE_ESCAPE_SEQUENCE | ~ ( ( RULE_SKW_BACKSLASH | RULE_SKW_DOUBLEQUOTE ) ) )* RULE_SKW_DOUBLEQUOTE )
-            // InternalPreprocess.g:11680:23: RULE_SKW_DOUBLEQUOTE ( RULE_ESCAPE_SEQUENCE | ~ ( ( RULE_SKW_BACKSLASH | RULE_SKW_DOUBLEQUOTE ) ) )* RULE_SKW_DOUBLEQUOTE
+            // InternalPreprocess.g:11886:21: ( RULE_SKW_DOUBLEQUOTE ( RULE_ESCAPE_SEQUENCE | ~ ( ( RULE_SKW_BACKSLASH | RULE_SKW_DOUBLEQUOTE ) ) )* RULE_SKW_DOUBLEQUOTE )
+            // InternalPreprocess.g:11886:23: RULE_SKW_DOUBLEQUOTE ( RULE_ESCAPE_SEQUENCE | ~ ( ( RULE_SKW_BACKSLASH | RULE_SKW_DOUBLEQUOTE ) ) )* RULE_SKW_DOUBLEQUOTE
             {
             mRULE_SKW_DOUBLEQUOTE(); 
-            // InternalPreprocess.g:11680:44: ( RULE_ESCAPE_SEQUENCE | ~ ( ( RULE_SKW_BACKSLASH | RULE_SKW_DOUBLEQUOTE ) ) )*
+            // InternalPreprocess.g:11886:44: ( RULE_ESCAPE_SEQUENCE | ~ ( ( RULE_SKW_BACKSLASH | RULE_SKW_DOUBLEQUOTE ) ) )*
             loop3:
             do {
                 int alt3=3;
@@ -1384,14 +1433,14 @@ public class InternalPreprocessLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalPreprocess.g:11680:45: RULE_ESCAPE_SEQUENCE
+            	    // InternalPreprocess.g:11886:45: RULE_ESCAPE_SEQUENCE
             	    {
             	    mRULE_ESCAPE_SEQUENCE(); 
 
             	    }
             	    break;
             	case 2 :
-            	    // InternalPreprocess.g:11680:66: ~ ( ( RULE_SKW_BACKSLASH | RULE_SKW_DOUBLEQUOTE ) )
+            	    // InternalPreprocess.g:11886:66: ~ ( ( RULE_SKW_BACKSLASH | RULE_SKW_DOUBLEQUOTE ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1428,8 +1477,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_HEX_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11682:18: ( '0' ( 'x' | 'X' ) ( RULE_HEX_DIGIT )+ ( RULE_INTEGER_TYPE_SUFFIX )? )
-            // InternalPreprocess.g:11682:20: '0' ( 'x' | 'X' ) ( RULE_HEX_DIGIT )+ ( RULE_INTEGER_TYPE_SUFFIX )?
+            // InternalPreprocess.g:11888:18: ( '0' ( 'x' | 'X' ) ( RULE_HEX_DIGIT )+ ( RULE_INTEGER_TYPE_SUFFIX )? )
+            // InternalPreprocess.g:11888:20: '0' ( 'x' | 'X' ) ( RULE_HEX_DIGIT )+ ( RULE_INTEGER_TYPE_SUFFIX )?
             {
             match('0'); 
             if ( input.LA(1)=='X'||input.LA(1)=='x' ) {
@@ -1441,7 +1490,7 @@ public class InternalPreprocessLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalPreprocess.g:11682:34: ( RULE_HEX_DIGIT )+
+            // InternalPreprocess.g:11888:34: ( RULE_HEX_DIGIT )+
             int cnt4=0;
             loop4:
             do {
@@ -1455,7 +1504,7 @@ public class InternalPreprocessLexer extends Lexer {
 
                 switch (alt4) {
             	case 1 :
-            	    // InternalPreprocess.g:11682:34: RULE_HEX_DIGIT
+            	    // InternalPreprocess.g:11888:34: RULE_HEX_DIGIT
             	    {
             	    mRULE_HEX_DIGIT(); 
 
@@ -1471,7 +1520,7 @@ public class InternalPreprocessLexer extends Lexer {
                 cnt4++;
             } while (true);
 
-            // InternalPreprocess.g:11682:50: ( RULE_INTEGER_TYPE_SUFFIX )?
+            // InternalPreprocess.g:11888:50: ( RULE_INTEGER_TYPE_SUFFIX )?
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -1480,7 +1529,7 @@ public class InternalPreprocessLexer extends Lexer {
             }
             switch (alt5) {
                 case 1 :
-                    // InternalPreprocess.g:11682:50: RULE_INTEGER_TYPE_SUFFIX
+                    // InternalPreprocess.g:11888:50: RULE_INTEGER_TYPE_SUFFIX
                     {
                     mRULE_INTEGER_TYPE_SUFFIX(); 
 
@@ -1505,10 +1554,10 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_DECIMAL_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11684:22: ( ( '0' | '1' .. '9' ( '0' .. '9' )* ) ( RULE_INTEGER_TYPE_SUFFIX )? )
-            // InternalPreprocess.g:11684:24: ( '0' | '1' .. '9' ( '0' .. '9' )* ) ( RULE_INTEGER_TYPE_SUFFIX )?
+            // InternalPreprocess.g:11890:22: ( ( '0' | '1' .. '9' ( '0' .. '9' )* ) ( RULE_INTEGER_TYPE_SUFFIX )? )
+            // InternalPreprocess.g:11890:24: ( '0' | '1' .. '9' ( '0' .. '9' )* ) ( RULE_INTEGER_TYPE_SUFFIX )?
             {
-            // InternalPreprocess.g:11684:24: ( '0' | '1' .. '9' ( '0' .. '9' )* )
+            // InternalPreprocess.g:11890:24: ( '0' | '1' .. '9' ( '0' .. '9' )* )
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -1526,17 +1575,17 @@ public class InternalPreprocessLexer extends Lexer {
             }
             switch (alt7) {
                 case 1 :
-                    // InternalPreprocess.g:11684:25: '0'
+                    // InternalPreprocess.g:11890:25: '0'
                     {
                     match('0'); 
 
                     }
                     break;
                 case 2 :
-                    // InternalPreprocess.g:11684:29: '1' .. '9' ( '0' .. '9' )*
+                    // InternalPreprocess.g:11890:29: '1' .. '9' ( '0' .. '9' )*
                     {
                     matchRange('1','9'); 
-                    // InternalPreprocess.g:11684:38: ( '0' .. '9' )*
+                    // InternalPreprocess.g:11890:38: ( '0' .. '9' )*
                     loop6:
                     do {
                         int alt6=2;
@@ -1549,7 +1598,7 @@ public class InternalPreprocessLexer extends Lexer {
 
                         switch (alt6) {
                     	case 1 :
-                    	    // InternalPreprocess.g:11684:39: '0' .. '9'
+                    	    // InternalPreprocess.g:11890:39: '0' .. '9'
                     	    {
                     	    matchRange('0','9'); 
 
@@ -1567,7 +1616,7 @@ public class InternalPreprocessLexer extends Lexer {
 
             }
 
-            // InternalPreprocess.g:11684:51: ( RULE_INTEGER_TYPE_SUFFIX )?
+            // InternalPreprocess.g:11890:51: ( RULE_INTEGER_TYPE_SUFFIX )?
             int alt8=2;
             int LA8_0 = input.LA(1);
 
@@ -1576,7 +1625,7 @@ public class InternalPreprocessLexer extends Lexer {
             }
             switch (alt8) {
                 case 1 :
-                    // InternalPreprocess.g:11684:51: RULE_INTEGER_TYPE_SUFFIX
+                    // InternalPreprocess.g:11890:51: RULE_INTEGER_TYPE_SUFFIX
                     {
                     mRULE_INTEGER_TYPE_SUFFIX(); 
 
@@ -1601,11 +1650,11 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_OCTAL_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11686:20: ( '0' ( '0' .. '7' )+ ( RULE_INTEGER_TYPE_SUFFIX )? )
-            // InternalPreprocess.g:11686:22: '0' ( '0' .. '7' )+ ( RULE_INTEGER_TYPE_SUFFIX )?
+            // InternalPreprocess.g:11892:20: ( '0' ( '0' .. '7' )+ ( RULE_INTEGER_TYPE_SUFFIX )? )
+            // InternalPreprocess.g:11892:22: '0' ( '0' .. '7' )+ ( RULE_INTEGER_TYPE_SUFFIX )?
             {
             match('0'); 
-            // InternalPreprocess.g:11686:26: ( '0' .. '7' )+
+            // InternalPreprocess.g:11892:26: ( '0' .. '7' )+
             int cnt9=0;
             loop9:
             do {
@@ -1619,7 +1668,7 @@ public class InternalPreprocessLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // InternalPreprocess.g:11686:27: '0' .. '7'
+            	    // InternalPreprocess.g:11892:27: '0' .. '7'
             	    {
             	    matchRange('0','7'); 
 
@@ -1635,7 +1684,7 @@ public class InternalPreprocessLexer extends Lexer {
                 cnt9++;
             } while (true);
 
-            // InternalPreprocess.g:11686:38: ( RULE_INTEGER_TYPE_SUFFIX )?
+            // InternalPreprocess.g:11892:38: ( RULE_INTEGER_TYPE_SUFFIX )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -1644,7 +1693,7 @@ public class InternalPreprocessLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // InternalPreprocess.g:11686:38: RULE_INTEGER_TYPE_SUFFIX
+                    // InternalPreprocess.g:11892:38: RULE_INTEGER_TYPE_SUFFIX
                     {
                     mRULE_INTEGER_TYPE_SUFFIX(); 
 
@@ -1669,10 +1718,10 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_BIN_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11688:18: ( ( '0b' | '0B' ) ( '0' .. '1' )+ )
-            // InternalPreprocess.g:11688:20: ( '0b' | '0B' ) ( '0' .. '1' )+
+            // InternalPreprocess.g:11894:18: ( ( '0b' | '0B' ) ( '0' .. '1' )+ )
+            // InternalPreprocess.g:11894:20: ( '0b' | '0B' ) ( '0' .. '1' )+
             {
-            // InternalPreprocess.g:11688:20: ( '0b' | '0B' )
+            // InternalPreprocess.g:11894:20: ( '0b' | '0B' )
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -1700,7 +1749,7 @@ public class InternalPreprocessLexer extends Lexer {
             }
             switch (alt11) {
                 case 1 :
-                    // InternalPreprocess.g:11688:21: '0b'
+                    // InternalPreprocess.g:11894:21: '0b'
                     {
                     match("0b"); 
 
@@ -1708,7 +1757,7 @@ public class InternalPreprocessLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalPreprocess.g:11688:26: '0B'
+                    // InternalPreprocess.g:11894:26: '0B'
                     {
                     match("0B"); 
 
@@ -1718,7 +1767,7 @@ public class InternalPreprocessLexer extends Lexer {
 
             }
 
-            // InternalPreprocess.g:11688:32: ( '0' .. '1' )+
+            // InternalPreprocess.g:11894:32: ( '0' .. '1' )+
             int cnt12=0;
             loop12:
             do {
@@ -1732,7 +1781,7 @@ public class InternalPreprocessLexer extends Lexer {
 
                 switch (alt12) {
             	case 1 :
-            	    // InternalPreprocess.g:11688:33: '0' .. '1'
+            	    // InternalPreprocess.g:11894:33: '0' .. '1'
             	    {
             	    matchRange('0','1'); 
 
@@ -1762,8 +1811,8 @@ public class InternalPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_HEX_DIGIT"
     public final void mRULE_HEX_DIGIT() throws RecognitionException {
         try {
-            // InternalPreprocess.g:11690:25: ( ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) )
-            // InternalPreprocess.g:11690:27: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )
+            // InternalPreprocess.g:11896:25: ( ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) )
+            // InternalPreprocess.g:11896:27: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )
             {
             if ( (input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='F')||(input.LA(1)>='a' && input.LA(1)<='f') ) {
                 input.consume();
@@ -1786,10 +1835,10 @@ public class InternalPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_INTEGER_TYPE_SUFFIX"
     public final void mRULE_INTEGER_TYPE_SUFFIX() throws RecognitionException {
         try {
-            // InternalPreprocess.g:11692:35: ( ( ( 'u' | 'U' )? ( 'l' | 'L' ) | ( 'u' | 'U' ) ( 'l' | 'L' )? ) )
-            // InternalPreprocess.g:11692:37: ( ( 'u' | 'U' )? ( 'l' | 'L' ) | ( 'u' | 'U' ) ( 'l' | 'L' )? )
+            // InternalPreprocess.g:11898:35: ( ( ( 'u' | 'U' )? ( 'l' | 'L' ) | ( 'u' | 'U' ) ( 'l' | 'L' )? ) )
+            // InternalPreprocess.g:11898:37: ( ( 'u' | 'U' )? ( 'l' | 'L' ) | ( 'u' | 'U' ) ( 'l' | 'L' )? )
             {
-            // InternalPreprocess.g:11692:37: ( ( 'u' | 'U' )? ( 'l' | 'L' ) | ( 'u' | 'U' ) ( 'l' | 'L' )? )
+            // InternalPreprocess.g:11898:37: ( ( 'u' | 'U' )? ( 'l' | 'L' ) | ( 'u' | 'U' ) ( 'l' | 'L' )? )
             int alt15=2;
             int LA15_0 = input.LA(1);
 
@@ -1813,9 +1862,9 @@ public class InternalPreprocessLexer extends Lexer {
             }
             switch (alt15) {
                 case 1 :
-                    // InternalPreprocess.g:11692:38: ( 'u' | 'U' )? ( 'l' | 'L' )
+                    // InternalPreprocess.g:11898:38: ( 'u' | 'U' )? ( 'l' | 'L' )
                     {
-                    // InternalPreprocess.g:11692:38: ( 'u' | 'U' )?
+                    // InternalPreprocess.g:11898:38: ( 'u' | 'U' )?
                     int alt13=2;
                     int LA13_0 = input.LA(1);
 
@@ -1854,7 +1903,7 @@ public class InternalPreprocessLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalPreprocess.g:11692:59: ( 'u' | 'U' ) ( 'l' | 'L' )?
+                    // InternalPreprocess.g:11898:59: ( 'u' | 'U' ) ( 'l' | 'L' )?
                     {
                     if ( input.LA(1)=='U'||input.LA(1)=='u' ) {
                         input.consume();
@@ -1865,7 +1914,7 @@ public class InternalPreprocessLexer extends Lexer {
                         recover(mse);
                         throw mse;}
 
-                    // InternalPreprocess.g:11692:69: ( 'l' | 'L' )?
+                    // InternalPreprocess.g:11898:69: ( 'l' | 'L' )?
                     int alt14=2;
                     int LA14_0 = input.LA(1);
 
@@ -1911,17 +1960,17 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_FLOAT_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11694:20: ( ( ( '0' .. '9' )+ RULE_SKW_DOT ( '0' .. '9' )* ( RULE_EXPONENT )? ( RULE_FLOAT_TYPE_SUFFIX )? | RULE_SKW_DOT ( '0' .. '9' )+ ( RULE_EXPONENT )? ( RULE_FLOAT_TYPE_SUFFIX )? | ( '0' .. '9' )+ RULE_EXPONENT ( RULE_FLOAT_TYPE_SUFFIX )? | ( '0' .. '9' )+ ( RULE_EXPONENT )? RULE_FLOAT_TYPE_SUFFIX ) )
-            // InternalPreprocess.g:11694:22: ( ( '0' .. '9' )+ RULE_SKW_DOT ( '0' .. '9' )* ( RULE_EXPONENT )? ( RULE_FLOAT_TYPE_SUFFIX )? | RULE_SKW_DOT ( '0' .. '9' )+ ( RULE_EXPONENT )? ( RULE_FLOAT_TYPE_SUFFIX )? | ( '0' .. '9' )+ RULE_EXPONENT ( RULE_FLOAT_TYPE_SUFFIX )? | ( '0' .. '9' )+ ( RULE_EXPONENT )? RULE_FLOAT_TYPE_SUFFIX )
+            // InternalPreprocess.g:11900:20: ( ( ( '0' .. '9' )+ RULE_SKW_DOT ( '0' .. '9' )* ( RULE_EXPONENT )? ( RULE_FLOAT_TYPE_SUFFIX )? | RULE_SKW_DOT ( '0' .. '9' )+ ( RULE_EXPONENT )? ( RULE_FLOAT_TYPE_SUFFIX )? | ( '0' .. '9' )+ RULE_EXPONENT ( RULE_FLOAT_TYPE_SUFFIX )? | ( '0' .. '9' )+ ( RULE_EXPONENT )? RULE_FLOAT_TYPE_SUFFIX ) )
+            // InternalPreprocess.g:11900:22: ( ( '0' .. '9' )+ RULE_SKW_DOT ( '0' .. '9' )* ( RULE_EXPONENT )? ( RULE_FLOAT_TYPE_SUFFIX )? | RULE_SKW_DOT ( '0' .. '9' )+ ( RULE_EXPONENT )? ( RULE_FLOAT_TYPE_SUFFIX )? | ( '0' .. '9' )+ RULE_EXPONENT ( RULE_FLOAT_TYPE_SUFFIX )? | ( '0' .. '9' )+ ( RULE_EXPONENT )? RULE_FLOAT_TYPE_SUFFIX )
             {
-            // InternalPreprocess.g:11694:22: ( ( '0' .. '9' )+ RULE_SKW_DOT ( '0' .. '9' )* ( RULE_EXPONENT )? ( RULE_FLOAT_TYPE_SUFFIX )? | RULE_SKW_DOT ( '0' .. '9' )+ ( RULE_EXPONENT )? ( RULE_FLOAT_TYPE_SUFFIX )? | ( '0' .. '9' )+ RULE_EXPONENT ( RULE_FLOAT_TYPE_SUFFIX )? | ( '0' .. '9' )+ ( RULE_EXPONENT )? RULE_FLOAT_TYPE_SUFFIX )
+            // InternalPreprocess.g:11900:22: ( ( '0' .. '9' )+ RULE_SKW_DOT ( '0' .. '9' )* ( RULE_EXPONENT )? ( RULE_FLOAT_TYPE_SUFFIX )? | RULE_SKW_DOT ( '0' .. '9' )+ ( RULE_EXPONENT )? ( RULE_FLOAT_TYPE_SUFFIX )? | ( '0' .. '9' )+ RULE_EXPONENT ( RULE_FLOAT_TYPE_SUFFIX )? | ( '0' .. '9' )+ ( RULE_EXPONENT )? RULE_FLOAT_TYPE_SUFFIX )
             int alt27=4;
             alt27 = dfa27.predict(input);
             switch (alt27) {
                 case 1 :
-                    // InternalPreprocess.g:11694:23: ( '0' .. '9' )+ RULE_SKW_DOT ( '0' .. '9' )* ( RULE_EXPONENT )? ( RULE_FLOAT_TYPE_SUFFIX )?
+                    // InternalPreprocess.g:11900:23: ( '0' .. '9' )+ RULE_SKW_DOT ( '0' .. '9' )* ( RULE_EXPONENT )? ( RULE_FLOAT_TYPE_SUFFIX )?
                     {
-                    // InternalPreprocess.g:11694:23: ( '0' .. '9' )+
+                    // InternalPreprocess.g:11900:23: ( '0' .. '9' )+
                     int cnt16=0;
                     loop16:
                     do {
@@ -1935,7 +1984,7 @@ public class InternalPreprocessLexer extends Lexer {
 
                         switch (alt16) {
                     	case 1 :
-                    	    // InternalPreprocess.g:11694:24: '0' .. '9'
+                    	    // InternalPreprocess.g:11900:24: '0' .. '9'
                     	    {
                     	    matchRange('0','9'); 
 
@@ -1952,7 +2001,7 @@ public class InternalPreprocessLexer extends Lexer {
                     } while (true);
 
                     mRULE_SKW_DOT(); 
-                    // InternalPreprocess.g:11694:48: ( '0' .. '9' )*
+                    // InternalPreprocess.g:11900:48: ( '0' .. '9' )*
                     loop17:
                     do {
                         int alt17=2;
@@ -1965,7 +2014,7 @@ public class InternalPreprocessLexer extends Lexer {
 
                         switch (alt17) {
                     	case 1 :
-                    	    // InternalPreprocess.g:11694:49: '0' .. '9'
+                    	    // InternalPreprocess.g:11900:49: '0' .. '9'
                     	    {
                     	    matchRange('0','9'); 
 
@@ -1977,7 +2026,7 @@ public class InternalPreprocessLexer extends Lexer {
                         }
                     } while (true);
 
-                    // InternalPreprocess.g:11694:60: ( RULE_EXPONENT )?
+                    // InternalPreprocess.g:11900:60: ( RULE_EXPONENT )?
                     int alt18=2;
                     int LA18_0 = input.LA(1);
 
@@ -1986,7 +2035,7 @@ public class InternalPreprocessLexer extends Lexer {
                     }
                     switch (alt18) {
                         case 1 :
-                            // InternalPreprocess.g:11694:60: RULE_EXPONENT
+                            // InternalPreprocess.g:11900:60: RULE_EXPONENT
                             {
                             mRULE_EXPONENT(); 
 
@@ -1995,7 +2044,7 @@ public class InternalPreprocessLexer extends Lexer {
 
                     }
 
-                    // InternalPreprocess.g:11694:75: ( RULE_FLOAT_TYPE_SUFFIX )?
+                    // InternalPreprocess.g:11900:75: ( RULE_FLOAT_TYPE_SUFFIX )?
                     int alt19=2;
                     int LA19_0 = input.LA(1);
 
@@ -2004,7 +2053,7 @@ public class InternalPreprocessLexer extends Lexer {
                     }
                     switch (alt19) {
                         case 1 :
-                            // InternalPreprocess.g:11694:75: RULE_FLOAT_TYPE_SUFFIX
+                            // InternalPreprocess.g:11900:75: RULE_FLOAT_TYPE_SUFFIX
                             {
                             mRULE_FLOAT_TYPE_SUFFIX(); 
 
@@ -2017,10 +2066,10 @@ public class InternalPreprocessLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalPreprocess.g:11694:99: RULE_SKW_DOT ( '0' .. '9' )+ ( RULE_EXPONENT )? ( RULE_FLOAT_TYPE_SUFFIX )?
+                    // InternalPreprocess.g:11900:99: RULE_SKW_DOT ( '0' .. '9' )+ ( RULE_EXPONENT )? ( RULE_FLOAT_TYPE_SUFFIX )?
                     {
                     mRULE_SKW_DOT(); 
-                    // InternalPreprocess.g:11694:112: ( '0' .. '9' )+
+                    // InternalPreprocess.g:11900:112: ( '0' .. '9' )+
                     int cnt20=0;
                     loop20:
                     do {
@@ -2034,7 +2083,7 @@ public class InternalPreprocessLexer extends Lexer {
 
                         switch (alt20) {
                     	case 1 :
-                    	    // InternalPreprocess.g:11694:113: '0' .. '9'
+                    	    // InternalPreprocess.g:11900:113: '0' .. '9'
                     	    {
                     	    matchRange('0','9'); 
 
@@ -2050,7 +2099,7 @@ public class InternalPreprocessLexer extends Lexer {
                         cnt20++;
                     } while (true);
 
-                    // InternalPreprocess.g:11694:124: ( RULE_EXPONENT )?
+                    // InternalPreprocess.g:11900:124: ( RULE_EXPONENT )?
                     int alt21=2;
                     int LA21_0 = input.LA(1);
 
@@ -2059,7 +2108,7 @@ public class InternalPreprocessLexer extends Lexer {
                     }
                     switch (alt21) {
                         case 1 :
-                            // InternalPreprocess.g:11694:124: RULE_EXPONENT
+                            // InternalPreprocess.g:11900:124: RULE_EXPONENT
                             {
                             mRULE_EXPONENT(); 
 
@@ -2068,7 +2117,7 @@ public class InternalPreprocessLexer extends Lexer {
 
                     }
 
-                    // InternalPreprocess.g:11694:139: ( RULE_FLOAT_TYPE_SUFFIX )?
+                    // InternalPreprocess.g:11900:139: ( RULE_FLOAT_TYPE_SUFFIX )?
                     int alt22=2;
                     int LA22_0 = input.LA(1);
 
@@ -2077,7 +2126,7 @@ public class InternalPreprocessLexer extends Lexer {
                     }
                     switch (alt22) {
                         case 1 :
-                            // InternalPreprocess.g:11694:139: RULE_FLOAT_TYPE_SUFFIX
+                            // InternalPreprocess.g:11900:139: RULE_FLOAT_TYPE_SUFFIX
                             {
                             mRULE_FLOAT_TYPE_SUFFIX(); 
 
@@ -2090,9 +2139,9 @@ public class InternalPreprocessLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // InternalPreprocess.g:11694:163: ( '0' .. '9' )+ RULE_EXPONENT ( RULE_FLOAT_TYPE_SUFFIX )?
+                    // InternalPreprocess.g:11900:163: ( '0' .. '9' )+ RULE_EXPONENT ( RULE_FLOAT_TYPE_SUFFIX )?
                     {
-                    // InternalPreprocess.g:11694:163: ( '0' .. '9' )+
+                    // InternalPreprocess.g:11900:163: ( '0' .. '9' )+
                     int cnt23=0;
                     loop23:
                     do {
@@ -2106,7 +2155,7 @@ public class InternalPreprocessLexer extends Lexer {
 
                         switch (alt23) {
                     	case 1 :
-                    	    // InternalPreprocess.g:11694:164: '0' .. '9'
+                    	    // InternalPreprocess.g:11900:164: '0' .. '9'
                     	    {
                     	    matchRange('0','9'); 
 
@@ -2123,7 +2172,7 @@ public class InternalPreprocessLexer extends Lexer {
                     } while (true);
 
                     mRULE_EXPONENT(); 
-                    // InternalPreprocess.g:11694:189: ( RULE_FLOAT_TYPE_SUFFIX )?
+                    // InternalPreprocess.g:11900:189: ( RULE_FLOAT_TYPE_SUFFIX )?
                     int alt24=2;
                     int LA24_0 = input.LA(1);
 
@@ -2132,7 +2181,7 @@ public class InternalPreprocessLexer extends Lexer {
                     }
                     switch (alt24) {
                         case 1 :
-                            // InternalPreprocess.g:11694:189: RULE_FLOAT_TYPE_SUFFIX
+                            // InternalPreprocess.g:11900:189: RULE_FLOAT_TYPE_SUFFIX
                             {
                             mRULE_FLOAT_TYPE_SUFFIX(); 
 
@@ -2145,9 +2194,9 @@ public class InternalPreprocessLexer extends Lexer {
                     }
                     break;
                 case 4 :
-                    // InternalPreprocess.g:11694:213: ( '0' .. '9' )+ ( RULE_EXPONENT )? RULE_FLOAT_TYPE_SUFFIX
+                    // InternalPreprocess.g:11900:213: ( '0' .. '9' )+ ( RULE_EXPONENT )? RULE_FLOAT_TYPE_SUFFIX
                     {
-                    // InternalPreprocess.g:11694:213: ( '0' .. '9' )+
+                    // InternalPreprocess.g:11900:213: ( '0' .. '9' )+
                     int cnt25=0;
                     loop25:
                     do {
@@ -2161,7 +2210,7 @@ public class InternalPreprocessLexer extends Lexer {
 
                         switch (alt25) {
                     	case 1 :
-                    	    // InternalPreprocess.g:11694:214: '0' .. '9'
+                    	    // InternalPreprocess.g:11900:214: '0' .. '9'
                     	    {
                     	    matchRange('0','9'); 
 
@@ -2177,7 +2226,7 @@ public class InternalPreprocessLexer extends Lexer {
                         cnt25++;
                     } while (true);
 
-                    // InternalPreprocess.g:11694:225: ( RULE_EXPONENT )?
+                    // InternalPreprocess.g:11900:225: ( RULE_EXPONENT )?
                     int alt26=2;
                     int LA26_0 = input.LA(1);
 
@@ -2186,7 +2235,7 @@ public class InternalPreprocessLexer extends Lexer {
                     }
                     switch (alt26) {
                         case 1 :
-                            // InternalPreprocess.g:11694:225: RULE_EXPONENT
+                            // InternalPreprocess.g:11900:225: RULE_EXPONENT
                             {
                             mRULE_EXPONENT(); 
 
@@ -2216,8 +2265,8 @@ public class InternalPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_EXPONENT"
     public final void mRULE_EXPONENT() throws RecognitionException {
         try {
-            // InternalPreprocess.g:11696:24: ( ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ )
-            // InternalPreprocess.g:11696:26: ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+
+            // InternalPreprocess.g:11902:24: ( ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ )
+            // InternalPreprocess.g:11902:26: ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+
             {
             if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
                 input.consume();
@@ -2228,7 +2277,7 @@ public class InternalPreprocessLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalPreprocess.g:11696:36: ( '+' | '-' )?
+            // InternalPreprocess.g:11902:36: ( '+' | '-' )?
             int alt28=2;
             int LA28_0 = input.LA(1);
 
@@ -2254,7 +2303,7 @@ public class InternalPreprocessLexer extends Lexer {
 
             }
 
-            // InternalPreprocess.g:11696:47: ( '0' .. '9' )+
+            // InternalPreprocess.g:11902:47: ( '0' .. '9' )+
             int cnt29=0;
             loop29:
             do {
@@ -2268,7 +2317,7 @@ public class InternalPreprocessLexer extends Lexer {
 
                 switch (alt29) {
             	case 1 :
-            	    // InternalPreprocess.g:11696:48: '0' .. '9'
+            	    // InternalPreprocess.g:11902:48: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -2296,8 +2345,8 @@ public class InternalPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_FLOAT_TYPE_SUFFIX"
     public final void mRULE_FLOAT_TYPE_SUFFIX() throws RecognitionException {
         try {
-            // InternalPreprocess.g:11698:33: ( ( 'f' | 'F' | 'd' | 'D' ) )
-            // InternalPreprocess.g:11698:35: ( 'f' | 'F' | 'd' | 'D' )
+            // InternalPreprocess.g:11904:33: ( ( 'f' | 'F' | 'd' | 'D' ) )
+            // InternalPreprocess.g:11904:35: ( 'f' | 'F' | 'd' | 'D' )
             {
             if ( input.LA(1)=='D'||input.LA(1)=='F'||input.LA(1)=='d'||input.LA(1)=='f' ) {
                 input.consume();
@@ -2320,10 +2369,10 @@ public class InternalPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_ESCAPE_SEQUENCE"
     public final void mRULE_ESCAPE_SEQUENCE() throws RecognitionException {
         try {
-            // InternalPreprocess.g:11700:31: ( ( RULE_SKW_BACKSLASH ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | RULE_SKW_SINGLEQUOTE | RULE_SKW_BACKSLASH ) | RULE_OCTAL_ESCAPE | RULE_HEX_ESCAPE ) )
-            // InternalPreprocess.g:11700:33: ( RULE_SKW_BACKSLASH ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | RULE_SKW_SINGLEQUOTE | RULE_SKW_BACKSLASH ) | RULE_OCTAL_ESCAPE | RULE_HEX_ESCAPE )
+            // InternalPreprocess.g:11906:31: ( ( RULE_SKW_BACKSLASH ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | RULE_SKW_SINGLEQUOTE | RULE_SKW_BACKSLASH ) | RULE_OCTAL_ESCAPE | RULE_HEX_ESCAPE ) )
+            // InternalPreprocess.g:11906:33: ( RULE_SKW_BACKSLASH ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | RULE_SKW_SINGLEQUOTE | RULE_SKW_BACKSLASH ) | RULE_OCTAL_ESCAPE | RULE_HEX_ESCAPE )
             {
-            // InternalPreprocess.g:11700:33: ( RULE_SKW_BACKSLASH ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | RULE_SKW_SINGLEQUOTE | RULE_SKW_BACKSLASH ) | RULE_OCTAL_ESCAPE | RULE_HEX_ESCAPE )
+            // InternalPreprocess.g:11906:33: ( RULE_SKW_BACKSLASH ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | RULE_SKW_SINGLEQUOTE | RULE_SKW_BACKSLASH ) | RULE_OCTAL_ESCAPE | RULE_HEX_ESCAPE )
             int alt30=3;
             int LA30_0 = input.LA(1);
 
@@ -2374,7 +2423,7 @@ public class InternalPreprocessLexer extends Lexer {
             }
             switch (alt30) {
                 case 1 :
-                    // InternalPreprocess.g:11700:34: RULE_SKW_BACKSLASH ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | RULE_SKW_SINGLEQUOTE | RULE_SKW_BACKSLASH )
+                    // InternalPreprocess.g:11906:34: RULE_SKW_BACKSLASH ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | RULE_SKW_SINGLEQUOTE | RULE_SKW_BACKSLASH )
                     {
                     mRULE_SKW_BACKSLASH(); 
                     if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||input.LA(1)=='t' ) {
@@ -2390,14 +2439,14 @@ public class InternalPreprocessLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalPreprocess.g:11700:119: RULE_OCTAL_ESCAPE
+                    // InternalPreprocess.g:11906:119: RULE_OCTAL_ESCAPE
                     {
                     mRULE_OCTAL_ESCAPE(); 
 
                     }
                     break;
                 case 3 :
-                    // InternalPreprocess.g:11700:137: RULE_HEX_ESCAPE
+                    // InternalPreprocess.g:11906:137: RULE_HEX_ESCAPE
                     {
                     mRULE_HEX_ESCAPE(); 
 
@@ -2418,10 +2467,10 @@ public class InternalPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_OCTAL_ESCAPE"
     public final void mRULE_OCTAL_ESCAPE() throws RecognitionException {
         try {
-            // InternalPreprocess.g:11702:28: ( ( RULE_SKW_BACKSLASH '0' .. '3' '0' .. '7' '0' .. '7' | RULE_SKW_BACKSLASH '0' .. '7' '0' .. '7' | RULE_SKW_BACKSLASH '0' .. '7' ) )
-            // InternalPreprocess.g:11702:30: ( RULE_SKW_BACKSLASH '0' .. '3' '0' .. '7' '0' .. '7' | RULE_SKW_BACKSLASH '0' .. '7' '0' .. '7' | RULE_SKW_BACKSLASH '0' .. '7' )
+            // InternalPreprocess.g:11908:28: ( ( RULE_SKW_BACKSLASH '0' .. '3' '0' .. '7' '0' .. '7' | RULE_SKW_BACKSLASH '0' .. '7' '0' .. '7' | RULE_SKW_BACKSLASH '0' .. '7' ) )
+            // InternalPreprocess.g:11908:30: ( RULE_SKW_BACKSLASH '0' .. '3' '0' .. '7' '0' .. '7' | RULE_SKW_BACKSLASH '0' .. '7' '0' .. '7' | RULE_SKW_BACKSLASH '0' .. '7' )
             {
-            // InternalPreprocess.g:11702:30: ( RULE_SKW_BACKSLASH '0' .. '3' '0' .. '7' '0' .. '7' | RULE_SKW_BACKSLASH '0' .. '7' '0' .. '7' | RULE_SKW_BACKSLASH '0' .. '7' )
+            // InternalPreprocess.g:11908:30: ( RULE_SKW_BACKSLASH '0' .. '3' '0' .. '7' '0' .. '7' | RULE_SKW_BACKSLASH '0' .. '7' '0' .. '7' | RULE_SKW_BACKSLASH '0' .. '7' )
             int alt31=3;
             int LA31_0 = input.LA(1);
 
@@ -2467,7 +2516,7 @@ public class InternalPreprocessLexer extends Lexer {
             }
             switch (alt31) {
                 case 1 :
-                    // InternalPreprocess.g:11702:31: RULE_SKW_BACKSLASH '0' .. '3' '0' .. '7' '0' .. '7'
+                    // InternalPreprocess.g:11908:31: RULE_SKW_BACKSLASH '0' .. '3' '0' .. '7' '0' .. '7'
                     {
                     mRULE_SKW_BACKSLASH(); 
                     matchRange('0','3'); 
@@ -2477,7 +2526,7 @@ public class InternalPreprocessLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalPreprocess.g:11702:77: RULE_SKW_BACKSLASH '0' .. '7' '0' .. '7'
+                    // InternalPreprocess.g:11908:77: RULE_SKW_BACKSLASH '0' .. '7' '0' .. '7'
                     {
                     mRULE_SKW_BACKSLASH(); 
                     matchRange('0','7'); 
@@ -2486,7 +2535,7 @@ public class InternalPreprocessLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // InternalPreprocess.g:11702:114: RULE_SKW_BACKSLASH '0' .. '7'
+                    // InternalPreprocess.g:11908:114: RULE_SKW_BACKSLASH '0' .. '7'
                     {
                     mRULE_SKW_BACKSLASH(); 
                     matchRange('0','7'); 
@@ -2508,12 +2557,12 @@ public class InternalPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_HEX_ESCAPE"
     public final void mRULE_HEX_ESCAPE() throws RecognitionException {
         try {
-            // InternalPreprocess.g:11704:26: ( RULE_SKW_BACKSLASH 'x' ( RULE_HEX_DIGIT )+ )
-            // InternalPreprocess.g:11704:28: RULE_SKW_BACKSLASH 'x' ( RULE_HEX_DIGIT )+
+            // InternalPreprocess.g:11910:26: ( RULE_SKW_BACKSLASH 'x' ( RULE_HEX_DIGIT )+ )
+            // InternalPreprocess.g:11910:28: RULE_SKW_BACKSLASH 'x' ( RULE_HEX_DIGIT )+
             {
             mRULE_SKW_BACKSLASH(); 
             match('x'); 
-            // InternalPreprocess.g:11704:51: ( RULE_HEX_DIGIT )+
+            // InternalPreprocess.g:11910:51: ( RULE_HEX_DIGIT )+
             int cnt32=0;
             loop32:
             do {
@@ -2527,7 +2576,7 @@ public class InternalPreprocessLexer extends Lexer {
 
                 switch (alt32) {
             	case 1 :
-            	    // InternalPreprocess.g:11704:51: RULE_HEX_DIGIT
+            	    // InternalPreprocess.g:11910:51: RULE_HEX_DIGIT
             	    {
             	    mRULE_HEX_DIGIT(); 
 
@@ -2555,8 +2604,8 @@ public class InternalPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_LINEFEED"
     public final void mRULE_LINEFEED() throws RecognitionException {
         try {
-            // InternalPreprocess.g:11706:24: ( '\\n' )
-            // InternalPreprocess.g:11706:26: '\\n'
+            // InternalPreprocess.g:11912:24: ( '\\n' )
+            // InternalPreprocess.g:11912:26: '\\n'
             {
             match('\n'); 
 
@@ -2571,8 +2620,8 @@ public class InternalPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_CARRIAGERETURN"
     public final void mRULE_CARRIAGERETURN() throws RecognitionException {
         try {
-            // InternalPreprocess.g:11708:30: ( '\\r' )
-            // InternalPreprocess.g:11708:32: '\\r'
+            // InternalPreprocess.g:11914:30: ( '\\r' )
+            // InternalPreprocess.g:11914:32: '\\r'
             {
             match('\r'); 
 
@@ -2587,8 +2636,8 @@ public class InternalPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_LINE_END"
     public final void mRULE_LINE_END() throws RecognitionException {
         try {
-            // InternalPreprocess.g:11710:24: ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) )
-            // InternalPreprocess.g:11710:26: ( RULE_CARRIAGERETURN | RULE_LINEFEED )
+            // InternalPreprocess.g:11916:24: ( ( RULE_CARRIAGERETURN | RULE_LINEFEED ) )
+            // InternalPreprocess.g:11916:26: ( RULE_CARRIAGERETURN | RULE_LINEFEED )
             {
             if ( input.LA(1)=='\n'||input.LA(1)=='\r' ) {
                 input.consume();
@@ -2613,8 +2662,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_LINEBREAK;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11712:16: ( RULE_SKW_BACKSLASH RULE_LINE_END )
-            // InternalPreprocess.g:11712:18: RULE_SKW_BACKSLASH RULE_LINE_END
+            // InternalPreprocess.g:11918:16: ( RULE_SKW_BACKSLASH RULE_LINE_END )
+            // InternalPreprocess.g:11918:18: RULE_SKW_BACKSLASH RULE_LINE_END
             {
             mRULE_SKW_BACKSLASH(); 
             mRULE_LINE_END(); 
@@ -2632,8 +2681,8 @@ public class InternalPreprocessLexer extends Lexer {
     // $ANTLR start "SUPER_NEWLINE"
     public final void mSUPER_NEWLINE() throws RecognitionException {
         try {
-            // InternalPreprocess.g:11714:24: ( RULE_LINE_END )
-            // InternalPreprocess.g:11714:26: RULE_LINE_END
+            // InternalPreprocess.g:11920:24: ( RULE_LINE_END )
+            // InternalPreprocess.g:11920:26: RULE_LINE_END
             {
             mRULE_LINE_END(); 
 
@@ -2648,8 +2697,8 @@ public class InternalPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_SPACE"
     public final void mRULE_SPACE() throws RecognitionException {
         try {
-            // InternalPreprocess.g:11716:21: ( ' ' )
-            // InternalPreprocess.g:11716:23: ' '
+            // InternalPreprocess.g:11922:21: ( ' ' )
+            // InternalPreprocess.g:11922:23: ' '
             {
             match(' '); 
 
@@ -2664,8 +2713,8 @@ public class InternalPreprocessLexer extends Lexer {
     // $ANTLR start "RULE_TAB"
     public final void mRULE_TAB() throws RecognitionException {
         try {
-            // InternalPreprocess.g:11718:19: ( '\\t' )
-            // InternalPreprocess.g:11718:21: '\\t'
+            // InternalPreprocess.g:11924:19: ( '\\t' )
+            // InternalPreprocess.g:11924:21: '\\t'
             {
             match('\t'); 
 
@@ -2682,8 +2731,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_WHITESPACE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11720:17: ( ( RULE_SPACE | RULE_TAB ) )
-            // InternalPreprocess.g:11720:19: ( RULE_SPACE | RULE_TAB )
+            // InternalPreprocess.g:11926:17: ( ( RULE_SPACE | RULE_TAB ) )
+            // InternalPreprocess.g:11926:19: ( RULE_SPACE | RULE_TAB )
             {
             if ( input.LA(1)=='\t'||input.LA(1)==' ' ) {
                 input.consume();
@@ -2710,12 +2759,12 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_BLOCK_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11722:20: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalPreprocess.g:11722:22: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalPreprocess.g:11928:20: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalPreprocess.g:11928:22: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalPreprocess.g:11722:27: ( options {greedy=false; } : . )*
+            // InternalPreprocess.g:11928:27: ( options {greedy=false; } : . )*
             loop33:
             do {
                 int alt33=2;
@@ -2740,7 +2789,7 @@ public class InternalPreprocessLexer extends Lexer {
 
                 switch (alt33) {
             	case 1 :
-            	    // InternalPreprocess.g:11722:55: .
+            	    // InternalPreprocess.g:11928:55: .
             	    {
             	    matchAny(); 
 
@@ -2770,12 +2819,12 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_LINE_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11724:19: ( '//' (~ ( RULE_LINE_END ) )* )
-            // InternalPreprocess.g:11724:21: '//' (~ ( RULE_LINE_END ) )*
+            // InternalPreprocess.g:11930:19: ( '//' (~ ( RULE_LINE_END ) )* )
+            // InternalPreprocess.g:11930:21: '//' (~ ( RULE_LINE_END ) )*
             {
             match("//"); 
 
-            // InternalPreprocess.g:11724:26: (~ ( RULE_LINE_END ) )*
+            // InternalPreprocess.g:11930:26: (~ ( RULE_LINE_END ) )*
             loop34:
             do {
                 int alt34=2;
@@ -2788,7 +2837,7 @@ public class InternalPreprocessLexer extends Lexer {
 
                 switch (alt34) {
             	case 1 :
-            	    // InternalPreprocess.g:11724:26: ~ ( RULE_LINE_END )
+            	    // InternalPreprocess.g:11930:26: ~ ( RULE_LINE_END )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -2824,8 +2873,8 @@ public class InternalPreprocessLexer extends Lexer {
         try {
             int _type = RULE_SPECIAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPreprocess.g:11726:14: ( . )
-            // InternalPreprocess.g:11726:16: .
+            // InternalPreprocess.g:11932:14: ( . )
+            // InternalPreprocess.g:11932:16: .
             {
             matchAny(); 
 
@@ -2840,8 +2889,8 @@ public class InternalPreprocessLexer extends Lexer {
     // $ANTLR end "RULE_SPECIAL"
 
     public void mTokens() throws RecognitionException {
-        // InternalPreprocess.g:1:8: ( RULE_HASH | RULE_INCLUDE | RULE_DEFINE | RULE_ERROR | RULE_WARNING | RULE_UNDEF | RULE_IF | RULE_DEFINED | RULE_IFDEF | RULE_IFNOTDEF | RULE_ELIF | RULE_ELSE | RULE_ENDIF | RULE_PRAGMA | RULE_NEWLINE | RULE_SKW_AND | RULE_SKW_ANDAND | RULE_SKW_ASSIGN | RULE_SKW_BACKSLASH | RULE_SKW_CARET | RULE_SKW_COMMA | RULE_SKW_COLON | RULE_SKW_DIV | RULE_SKW_DOT | RULE_SKW_DOUBLEQUOTE | RULE_SKW_EQUAL | RULE_SKW_GREATER | RULE_SKW_GREATEREQUAL | RULE_SKW_LEFTBRACE | RULE_SKW_LEFTBRACKET | RULE_SKW_LEFTPAREN | RULE_SKW_LEFTSHIFT | RULE_SKW_LESS | RULE_SKW_LESSEQUAL | RULE_SKW_MINUS | RULE_SKW_MINUSMINUS | RULE_SKW_MOD | RULE_SKW_NOT | RULE_SKW_NOTEQUAL | RULE_SKW_OR | RULE_SKW_OROR | RULE_SKW_PLUS | RULE_SKW_PLUSPLUS | RULE_SKW_QUESTION | RULE_SKW_RIGHTBRACE | RULE_SKW_RIGHTBRACKET | RULE_SKW_RIGHTPAREN | RULE_SKW_RIGHTSHIFT | RULE_SKW_SEMI | RULE_SKW_SINGLEQUOTE | RULE_SKW_STAR | RULE_SKW_TILDE | RULE_ID | RULE_CHAR_LITERAL | RULE_STRING_LITERAL | RULE_HEX_LITERAL | RULE_DECIMAL_LITERAL | RULE_OCTAL_LITERAL | RULE_BIN_LITERAL | RULE_FLOAT_LITERAL | RULE_LINEBREAK | RULE_WHITESPACE | RULE_BLOCK_COMMENT | RULE_LINE_COMMENT | RULE_SPECIAL )
-        int alt35=65;
+        // InternalPreprocess.g:1:8: ( RULE_HASH | RULE_INCLUDE | RULE_DEFINE | RULE_ERROR | RULE_WARNING | RULE_UNDEF | RULE_IF | RULE_DEFINED | RULE_IFDEF | RULE_IFNOTDEF | RULE_ELIF | RULE_ELSE | RULE_ENDIF | RULE_PRAGMA | RULE_VA_ARGS | RULE_NEWLINE | RULE_SKW_AND | RULE_SKW_ANDAND | RULE_SKW_ASSIGN | RULE_SKW_BACKSLASH | RULE_SKW_CARET | RULE_SKW_COMMA | RULE_SKW_COLON | RULE_SKW_DIV | RULE_SKW_DOT | RULE_SKW_DOUBLEQUOTE | RULE_SKW_ELLIPSIS | RULE_SKW_EQUAL | RULE_SKW_GREATER | RULE_SKW_GREATEREQUAL | RULE_SKW_LEFTBRACE | RULE_SKW_LEFTBRACKET | RULE_SKW_LEFTPAREN | RULE_SKW_LEFTSHIFT | RULE_SKW_LESS | RULE_SKW_LESSEQUAL | RULE_SKW_MINUS | RULE_SKW_MINUSMINUS | RULE_SKW_MOD | RULE_SKW_NOT | RULE_SKW_NOTEQUAL | RULE_SKW_OR | RULE_SKW_OROR | RULE_SKW_PLUS | RULE_SKW_PLUSPLUS | RULE_SKW_QUESTION | RULE_SKW_RIGHTBRACE | RULE_SKW_RIGHTBRACKET | RULE_SKW_RIGHTPAREN | RULE_SKW_RIGHTSHIFT | RULE_SKW_SEMI | RULE_SKW_SINGLEQUOTE | RULE_SKW_STAR | RULE_SKW_TILDE | RULE_ID | RULE_CHAR_LITERAL | RULE_STRING_LITERAL | RULE_HEX_LITERAL | RULE_DECIMAL_LITERAL | RULE_OCTAL_LITERAL | RULE_BIN_LITERAL | RULE_FLOAT_LITERAL | RULE_LINEBREAK | RULE_WHITESPACE | RULE_BLOCK_COMMENT | RULE_LINE_COMMENT | RULE_SPECIAL )
+        int alt35=67;
         alt35 = dfa35.predict(input);
         switch (alt35) {
             case 1 :
@@ -2943,357 +2992,371 @@ public class InternalPreprocessLexer extends Lexer {
                 }
                 break;
             case 15 :
-                // InternalPreprocess.g:1:169: RULE_NEWLINE
+                // InternalPreprocess.g:1:169: RULE_VA_ARGS
+                {
+                mRULE_VA_ARGS(); 
+
+                }
+                break;
+            case 16 :
+                // InternalPreprocess.g:1:182: RULE_NEWLINE
                 {
                 mRULE_NEWLINE(); 
 
                 }
                 break;
-            case 16 :
-                // InternalPreprocess.g:1:182: RULE_SKW_AND
+            case 17 :
+                // InternalPreprocess.g:1:195: RULE_SKW_AND
                 {
                 mRULE_SKW_AND(); 
 
                 }
                 break;
-            case 17 :
-                // InternalPreprocess.g:1:195: RULE_SKW_ANDAND
+            case 18 :
+                // InternalPreprocess.g:1:208: RULE_SKW_ANDAND
                 {
                 mRULE_SKW_ANDAND(); 
 
                 }
                 break;
-            case 18 :
-                // InternalPreprocess.g:1:211: RULE_SKW_ASSIGN
+            case 19 :
+                // InternalPreprocess.g:1:224: RULE_SKW_ASSIGN
                 {
                 mRULE_SKW_ASSIGN(); 
 
                 }
                 break;
-            case 19 :
-                // InternalPreprocess.g:1:227: RULE_SKW_BACKSLASH
+            case 20 :
+                // InternalPreprocess.g:1:240: RULE_SKW_BACKSLASH
                 {
                 mRULE_SKW_BACKSLASH(); 
 
                 }
                 break;
-            case 20 :
-                // InternalPreprocess.g:1:246: RULE_SKW_CARET
+            case 21 :
+                // InternalPreprocess.g:1:259: RULE_SKW_CARET
                 {
                 mRULE_SKW_CARET(); 
 
                 }
                 break;
-            case 21 :
-                // InternalPreprocess.g:1:261: RULE_SKW_COMMA
+            case 22 :
+                // InternalPreprocess.g:1:274: RULE_SKW_COMMA
                 {
                 mRULE_SKW_COMMA(); 
 
                 }
                 break;
-            case 22 :
-                // InternalPreprocess.g:1:276: RULE_SKW_COLON
+            case 23 :
+                // InternalPreprocess.g:1:289: RULE_SKW_COLON
                 {
                 mRULE_SKW_COLON(); 
 
                 }
                 break;
-            case 23 :
-                // InternalPreprocess.g:1:291: RULE_SKW_DIV
+            case 24 :
+                // InternalPreprocess.g:1:304: RULE_SKW_DIV
                 {
                 mRULE_SKW_DIV(); 
 
                 }
                 break;
-            case 24 :
-                // InternalPreprocess.g:1:304: RULE_SKW_DOT
+            case 25 :
+                // InternalPreprocess.g:1:317: RULE_SKW_DOT
                 {
                 mRULE_SKW_DOT(); 
 
                 }
                 break;
-            case 25 :
-                // InternalPreprocess.g:1:317: RULE_SKW_DOUBLEQUOTE
+            case 26 :
+                // InternalPreprocess.g:1:330: RULE_SKW_DOUBLEQUOTE
                 {
                 mRULE_SKW_DOUBLEQUOTE(); 
 
                 }
                 break;
-            case 26 :
-                // InternalPreprocess.g:1:338: RULE_SKW_EQUAL
+            case 27 :
+                // InternalPreprocess.g:1:351: RULE_SKW_ELLIPSIS
+                {
+                mRULE_SKW_ELLIPSIS(); 
+
+                }
+                break;
+            case 28 :
+                // InternalPreprocess.g:1:369: RULE_SKW_EQUAL
                 {
                 mRULE_SKW_EQUAL(); 
 
                 }
                 break;
-            case 27 :
-                // InternalPreprocess.g:1:353: RULE_SKW_GREATER
+            case 29 :
+                // InternalPreprocess.g:1:384: RULE_SKW_GREATER
                 {
                 mRULE_SKW_GREATER(); 
 
                 }
                 break;
-            case 28 :
-                // InternalPreprocess.g:1:370: RULE_SKW_GREATEREQUAL
+            case 30 :
+                // InternalPreprocess.g:1:401: RULE_SKW_GREATEREQUAL
                 {
                 mRULE_SKW_GREATEREQUAL(); 
 
                 }
                 break;
-            case 29 :
-                // InternalPreprocess.g:1:392: RULE_SKW_LEFTBRACE
+            case 31 :
+                // InternalPreprocess.g:1:423: RULE_SKW_LEFTBRACE
                 {
                 mRULE_SKW_LEFTBRACE(); 
 
                 }
                 break;
-            case 30 :
-                // InternalPreprocess.g:1:411: RULE_SKW_LEFTBRACKET
+            case 32 :
+                // InternalPreprocess.g:1:442: RULE_SKW_LEFTBRACKET
                 {
                 mRULE_SKW_LEFTBRACKET(); 
 
                 }
                 break;
-            case 31 :
-                // InternalPreprocess.g:1:432: RULE_SKW_LEFTPAREN
+            case 33 :
+                // InternalPreprocess.g:1:463: RULE_SKW_LEFTPAREN
                 {
                 mRULE_SKW_LEFTPAREN(); 
 
                 }
                 break;
-            case 32 :
-                // InternalPreprocess.g:1:451: RULE_SKW_LEFTSHIFT
+            case 34 :
+                // InternalPreprocess.g:1:482: RULE_SKW_LEFTSHIFT
                 {
                 mRULE_SKW_LEFTSHIFT(); 
 
                 }
                 break;
-            case 33 :
-                // InternalPreprocess.g:1:470: RULE_SKW_LESS
+            case 35 :
+                // InternalPreprocess.g:1:501: RULE_SKW_LESS
                 {
                 mRULE_SKW_LESS(); 
 
                 }
                 break;
-            case 34 :
-                // InternalPreprocess.g:1:484: RULE_SKW_LESSEQUAL
+            case 36 :
+                // InternalPreprocess.g:1:515: RULE_SKW_LESSEQUAL
                 {
                 mRULE_SKW_LESSEQUAL(); 
 
                 }
                 break;
-            case 35 :
-                // InternalPreprocess.g:1:503: RULE_SKW_MINUS
+            case 37 :
+                // InternalPreprocess.g:1:534: RULE_SKW_MINUS
                 {
                 mRULE_SKW_MINUS(); 
 
                 }
                 break;
-            case 36 :
-                // InternalPreprocess.g:1:518: RULE_SKW_MINUSMINUS
+            case 38 :
+                // InternalPreprocess.g:1:549: RULE_SKW_MINUSMINUS
                 {
                 mRULE_SKW_MINUSMINUS(); 
 
                 }
                 break;
-            case 37 :
-                // InternalPreprocess.g:1:538: RULE_SKW_MOD
+            case 39 :
+                // InternalPreprocess.g:1:569: RULE_SKW_MOD
                 {
                 mRULE_SKW_MOD(); 
 
                 }
                 break;
-            case 38 :
-                // InternalPreprocess.g:1:551: RULE_SKW_NOT
+            case 40 :
+                // InternalPreprocess.g:1:582: RULE_SKW_NOT
                 {
                 mRULE_SKW_NOT(); 
 
                 }
                 break;
-            case 39 :
-                // InternalPreprocess.g:1:564: RULE_SKW_NOTEQUAL
+            case 41 :
+                // InternalPreprocess.g:1:595: RULE_SKW_NOTEQUAL
                 {
                 mRULE_SKW_NOTEQUAL(); 
 
                 }
                 break;
-            case 40 :
-                // InternalPreprocess.g:1:582: RULE_SKW_OR
+            case 42 :
+                // InternalPreprocess.g:1:613: RULE_SKW_OR
                 {
                 mRULE_SKW_OR(); 
 
                 }
                 break;
-            case 41 :
-                // InternalPreprocess.g:1:594: RULE_SKW_OROR
+            case 43 :
+                // InternalPreprocess.g:1:625: RULE_SKW_OROR
                 {
                 mRULE_SKW_OROR(); 
 
                 }
                 break;
-            case 42 :
-                // InternalPreprocess.g:1:608: RULE_SKW_PLUS
+            case 44 :
+                // InternalPreprocess.g:1:639: RULE_SKW_PLUS
                 {
                 mRULE_SKW_PLUS(); 
 
                 }
                 break;
-            case 43 :
-                // InternalPreprocess.g:1:622: RULE_SKW_PLUSPLUS
+            case 45 :
+                // InternalPreprocess.g:1:653: RULE_SKW_PLUSPLUS
                 {
                 mRULE_SKW_PLUSPLUS(); 
 
                 }
                 break;
-            case 44 :
-                // InternalPreprocess.g:1:640: RULE_SKW_QUESTION
+            case 46 :
+                // InternalPreprocess.g:1:671: RULE_SKW_QUESTION
                 {
                 mRULE_SKW_QUESTION(); 
 
                 }
                 break;
-            case 45 :
-                // InternalPreprocess.g:1:658: RULE_SKW_RIGHTBRACE
+            case 47 :
+                // InternalPreprocess.g:1:689: RULE_SKW_RIGHTBRACE
                 {
                 mRULE_SKW_RIGHTBRACE(); 
 
                 }
                 break;
-            case 46 :
-                // InternalPreprocess.g:1:678: RULE_SKW_RIGHTBRACKET
+            case 48 :
+                // InternalPreprocess.g:1:709: RULE_SKW_RIGHTBRACKET
                 {
                 mRULE_SKW_RIGHTBRACKET(); 
 
                 }
                 break;
-            case 47 :
-                // InternalPreprocess.g:1:700: RULE_SKW_RIGHTPAREN
+            case 49 :
+                // InternalPreprocess.g:1:731: RULE_SKW_RIGHTPAREN
                 {
                 mRULE_SKW_RIGHTPAREN(); 
 
                 }
                 break;
-            case 48 :
-                // InternalPreprocess.g:1:720: RULE_SKW_RIGHTSHIFT
+            case 50 :
+                // InternalPreprocess.g:1:751: RULE_SKW_RIGHTSHIFT
                 {
                 mRULE_SKW_RIGHTSHIFT(); 
 
                 }
                 break;
-            case 49 :
-                // InternalPreprocess.g:1:740: RULE_SKW_SEMI
+            case 51 :
+                // InternalPreprocess.g:1:771: RULE_SKW_SEMI
                 {
                 mRULE_SKW_SEMI(); 
 
                 }
                 break;
-            case 50 :
-                // InternalPreprocess.g:1:754: RULE_SKW_SINGLEQUOTE
+            case 52 :
+                // InternalPreprocess.g:1:785: RULE_SKW_SINGLEQUOTE
                 {
                 mRULE_SKW_SINGLEQUOTE(); 
 
                 }
                 break;
-            case 51 :
-                // InternalPreprocess.g:1:775: RULE_SKW_STAR
+            case 53 :
+                // InternalPreprocess.g:1:806: RULE_SKW_STAR
                 {
                 mRULE_SKW_STAR(); 
 
                 }
                 break;
-            case 52 :
-                // InternalPreprocess.g:1:789: RULE_SKW_TILDE
+            case 54 :
+                // InternalPreprocess.g:1:820: RULE_SKW_TILDE
                 {
                 mRULE_SKW_TILDE(); 
 
                 }
                 break;
-            case 53 :
-                // InternalPreprocess.g:1:804: RULE_ID
+            case 55 :
+                // InternalPreprocess.g:1:835: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 54 :
-                // InternalPreprocess.g:1:812: RULE_CHAR_LITERAL
+            case 56 :
+                // InternalPreprocess.g:1:843: RULE_CHAR_LITERAL
                 {
                 mRULE_CHAR_LITERAL(); 
 
                 }
                 break;
-            case 55 :
-                // InternalPreprocess.g:1:830: RULE_STRING_LITERAL
+            case 57 :
+                // InternalPreprocess.g:1:861: RULE_STRING_LITERAL
                 {
                 mRULE_STRING_LITERAL(); 
 
                 }
                 break;
-            case 56 :
-                // InternalPreprocess.g:1:850: RULE_HEX_LITERAL
+            case 58 :
+                // InternalPreprocess.g:1:881: RULE_HEX_LITERAL
                 {
                 mRULE_HEX_LITERAL(); 
 
                 }
                 break;
-            case 57 :
-                // InternalPreprocess.g:1:867: RULE_DECIMAL_LITERAL
+            case 59 :
+                // InternalPreprocess.g:1:898: RULE_DECIMAL_LITERAL
                 {
                 mRULE_DECIMAL_LITERAL(); 
 
                 }
                 break;
-            case 58 :
-                // InternalPreprocess.g:1:888: RULE_OCTAL_LITERAL
+            case 60 :
+                // InternalPreprocess.g:1:919: RULE_OCTAL_LITERAL
                 {
                 mRULE_OCTAL_LITERAL(); 
 
                 }
                 break;
-            case 59 :
-                // InternalPreprocess.g:1:907: RULE_BIN_LITERAL
+            case 61 :
+                // InternalPreprocess.g:1:938: RULE_BIN_LITERAL
                 {
                 mRULE_BIN_LITERAL(); 
 
                 }
                 break;
-            case 60 :
-                // InternalPreprocess.g:1:924: RULE_FLOAT_LITERAL
+            case 62 :
+                // InternalPreprocess.g:1:955: RULE_FLOAT_LITERAL
                 {
                 mRULE_FLOAT_LITERAL(); 
 
                 }
                 break;
-            case 61 :
-                // InternalPreprocess.g:1:943: RULE_LINEBREAK
+            case 63 :
+                // InternalPreprocess.g:1:974: RULE_LINEBREAK
                 {
                 mRULE_LINEBREAK(); 
 
                 }
                 break;
-            case 62 :
-                // InternalPreprocess.g:1:958: RULE_WHITESPACE
+            case 64 :
+                // InternalPreprocess.g:1:989: RULE_WHITESPACE
                 {
                 mRULE_WHITESPACE(); 
 
                 }
                 break;
-            case 63 :
-                // InternalPreprocess.g:1:974: RULE_BLOCK_COMMENT
+            case 65 :
+                // InternalPreprocess.g:1:1005: RULE_BLOCK_COMMENT
                 {
                 mRULE_BLOCK_COMMENT(); 
 
                 }
                 break;
-            case 64 :
-                // InternalPreprocess.g:1:993: RULE_LINE_COMMENT
+            case 66 :
+                // InternalPreprocess.g:1:1024: RULE_LINE_COMMENT
                 {
                 mRULE_LINE_COMMENT(); 
 
                 }
                 break;
-            case 65 :
-                // InternalPreprocess.g:1:1011: RULE_SPECIAL
+            case 67 :
+                // InternalPreprocess.g:1:1042: RULE_SPECIAL
                 {
                 mRULE_SPECIAL(); 
 
@@ -3362,176 +3425,189 @@ public class InternalPreprocessLexer extends Lexer {
             this.transition = DFA27_transition;
         }
         public String getDescription() {
-            return "11694:22: ( ( '0' .. '9' )+ RULE_SKW_DOT ( '0' .. '9' )* ( RULE_EXPONENT )? ( RULE_FLOAT_TYPE_SUFFIX )? | RULE_SKW_DOT ( '0' .. '9' )+ ( RULE_EXPONENT )? ( RULE_FLOAT_TYPE_SUFFIX )? | ( '0' .. '9' )+ RULE_EXPONENT ( RULE_FLOAT_TYPE_SUFFIX )? | ( '0' .. '9' )+ ( RULE_EXPONENT )? RULE_FLOAT_TYPE_SUFFIX )";
+            return "11900:22: ( ( '0' .. '9' )+ RULE_SKW_DOT ( '0' .. '9' )* ( RULE_EXPONENT )? ( RULE_FLOAT_TYPE_SUFFIX )? | RULE_SKW_DOT ( '0' .. '9' )+ ( RULE_EXPONENT )? ( RULE_FLOAT_TYPE_SUFFIX )? | ( '0' .. '9' )+ RULE_EXPONENT ( RULE_FLOAT_TYPE_SUFFIX )? | ( '0' .. '9' )+ ( RULE_EXPONENT )? RULE_FLOAT_TYPE_SUFFIX )";
         }
     }
     static final String DFA35_eotS =
-        "\2\uffff\6\54\1\uffff\1\65\1\67\1\71\3\uffff\1\100\1\101\1\103\1\105\3\uffff\1\113\1\116\1\uffff\1\121\1\123\1\125\5\uffff\1\134\3\uffff\2\143\3\uffff\1\54\1\151\1\uffff\7\54\56\uffff\1\162\1\uffff\1\143\1\uffff\3\54\1\uffff\10\54\1\uffff\5\54\1\u0083\1\u0084\5\54\1\u008a\2\54\1\u008d\2\uffff\1\u008e\1\54\1\u0090\2\54\1\uffff\1\u0093\1\u0095\2\uffff\1\54\1\uffff\1\u0097\1\u0098\1\uffff\1\u0099\1\uffff\1\u009a\4\uffff";
+        "\2\uffff\7\55\1\uffff\1\67\1\71\1\73\3\uffff\1\102\1\103\1\106\1\110\3\uffff\1\116\1\121\1\uffff\1\124\1\126\1\130\5\uffff\1\137\3\uffff\2\145\3\uffff\1\55\1\154\1\uffff\10\55\60\uffff\1\166\1\145\1\uffff\3\55\1\uffff\11\55\1\uffff\5\55\1\u0088\1\u0089\6\55\1\u0090\2\55\1\u0093\2\uffff\1\u0094\1\55\1\u0096\3\55\1\uffff\1\u009a\1\u009c\2\uffff\1\55\1\uffff\1\u009e\1\55\1\u00a0\1\uffff\1\u00a1\1\uffff\1\u00a2\1\uffff\1\55\3\uffff\3\55\1\u00a7\1\uffff";
     static final String DFA35_eofS =
-        "\u009b\uffff";
+        "\u00a8\uffff";
     static final String DFA35_minS =
-        "\1\0\1\uffff\1\146\1\145\1\154\1\141\1\156\1\162\1\uffff\1\46\1\75\1\12\3\uffff\1\52\1\60\1\0\1\75\3\uffff\1\74\1\55\1\uffff\1\75\1\174\1\53\5\uffff\1\0\3\uffff\2\56\3\uffff\1\143\1\44\1\uffff\1\146\1\162\1\151\1\144\1\162\1\144\1\141\56\uffff\1\56\1\uffff\1\56\1\uffff\1\154\1\145\1\144\1\uffff\1\151\1\157\1\146\1\145\1\151\1\156\1\145\1\147\1\uffff\1\165\1\146\1\145\1\156\1\162\2\44\1\146\1\151\1\146\1\155\1\144\1\44\1\146\1\145\1\44\2\uffff\1\44\1\156\1\44\1\141\1\145\1\uffff\2\44\2\uffff\1\147\1\uffff\2\44\1\uffff\1\44\1\uffff\1\44\4\uffff";
+        "\1\0\1\uffff\1\146\1\145\1\154\1\141\1\156\1\162\1\137\1\uffff\1\46\1\75\1\12\3\uffff\1\52\1\56\1\0\1\75\3\uffff\1\74\1\55\1\uffff\1\75\1\174\1\53\5\uffff\1\0\3\uffff\2\56\3\uffff\1\143\1\44\1\uffff\1\146\1\162\1\151\1\144\1\162\1\144\1\141\1\126\60\uffff\2\56\1\uffff\1\154\1\145\1\144\1\uffff\1\151\1\157\1\146\1\145\1\151\1\156\1\145\1\147\1\101\1\uffff\1\165\1\146\1\145\1\156\1\162\2\44\1\146\1\151\1\146\1\155\1\137\1\144\1\44\1\146\1\145\1\44\2\uffff\1\44\1\156\1\44\1\141\1\101\1\145\1\uffff\2\44\2\uffff\1\147\1\uffff\1\44\1\122\1\44\1\uffff\1\44\1\uffff\1\44\1\uffff\1\107\3\uffff\1\123\2\137\1\44\1\uffff";
     static final String DFA35_maxS =
-        "\1\uffff\1\uffff\1\156\1\145\1\162\1\141\1\156\1\162\1\uffff\1\46\1\75\1\15\3\uffff\1\57\1\71\1\uffff\1\76\3\uffff\1\75\1\55\1\uffff\1\75\1\174\1\53\5\uffff\1\uffff\3\uffff\1\170\1\146\3\uffff\1\143\1\172\1\uffff\1\146\1\162\1\163\1\144\1\162\1\144\1\141\56\uffff\1\146\1\uffff\1\146\1\uffff\1\154\1\145\1\144\1\uffff\1\151\1\157\1\146\1\145\1\151\1\156\1\145\1\147\1\uffff\1\165\1\146\1\145\1\156\1\162\2\172\1\146\1\151\1\146\1\155\1\144\1\172\1\146\1\145\1\172\2\uffff\1\172\1\156\1\172\1\141\1\145\1\uffff\2\172\2\uffff\1\147\1\uffff\2\172\1\uffff\1\172\1\uffff\1\172\4\uffff";
+        "\1\uffff\1\uffff\1\156\1\145\1\162\1\141\1\156\1\162\1\137\1\uffff\1\46\1\75\1\15\3\uffff\1\57\1\71\1\uffff\1\76\3\uffff\1\75\1\55\1\uffff\1\75\1\174\1\53\5\uffff\1\uffff\3\uffff\1\170\1\146\3\uffff\1\143\1\172\1\uffff\1\146\1\162\1\163\1\144\1\162\1\144\1\141\1\126\60\uffff\2\146\1\uffff\1\154\1\145\1\144\1\uffff\1\151\1\157\1\146\1\145\1\151\1\156\1\145\1\147\1\101\1\uffff\1\165\1\146\1\145\1\156\1\162\2\172\1\146\1\151\1\146\1\155\1\137\1\144\1\172\1\146\1\145\1\172\2\uffff\1\172\1\156\1\172\1\141\1\101\1\145\1\uffff\2\172\2\uffff\1\147\1\uffff\1\172\1\122\1\172\1\uffff\1\172\1\uffff\1\172\1\uffff\1\107\3\uffff\1\123\2\137\1\172\1\uffff";
     static final String DFA35_acceptS =
-        "\1\uffff\1\1\6\uffff\1\17\3\uffff\1\24\1\25\1\26\4\uffff\1\35\1\36\1\37\2\uffff\1\45\3\uffff\1\54\1\55\1\56\1\57\1\61\1\uffff\1\63\1\64\1\65\2\uffff\1\76\1\101\1\1\2\uffff\1\65\7\uffff\1\17\1\20\1\21\1\22\1\32\1\23\1\75\1\24\1\25\1\26\1\77\1\100\1\27\1\30\1\74\1\31\1\67\1\33\1\34\1\60\1\35\1\36\1\37\1\41\1\40\1\42\1\43\1\44\1\45\1\46\1\47\1\50\1\51\1\52\1\53\1\54\1\55\1\56\1\57\1\61\1\62\1\66\1\63\1\64\1\70\1\73\1\uffff\1\71\1\uffff\1\76\3\uffff\1\7\10\uffff\1\72\20\uffff\1\13\1\14\5\uffff\1\11\2\uffff\1\4\1\15\1\uffff\1\6\2\uffff\1\12\1\uffff\1\3\1\uffff\1\16\1\2\1\10\1\5";
+        "\1\uffff\1\1\7\uffff\1\20\3\uffff\1\25\1\26\1\27\4\uffff\1\37\1\40\1\41\2\uffff\1\47\3\uffff\1\56\1\57\1\60\1\61\1\63\1\uffff\1\65\1\66\1\67\2\uffff\1\100\1\103\1\1\2\uffff\1\67\10\uffff\1\20\1\21\1\22\1\23\1\34\1\24\1\77\1\25\1\26\1\27\1\101\1\102\1\30\1\31\1\33\1\76\1\32\1\71\1\35\1\62\1\36\1\37\1\40\1\41\1\43\1\42\1\44\1\45\1\46\1\47\1\50\1\51\1\52\1\53\1\54\1\55\1\56\1\57\1\60\1\61\1\63\1\64\1\70\1\65\1\66\1\72\1\75\1\73\2\uffff\1\100\3\uffff\1\7\11\uffff\1\74\21\uffff\1\13\1\14\6\uffff\1\11\2\uffff\1\4\1\15\1\uffff\1\6\3\uffff\1\12\1\uffff\1\3\1\uffff\1\16\1\uffff\1\2\1\10\1\5\4\uffff\1\17";
     static final String DFA35_specialS =
-        "\1\0\20\uffff\1\1\17\uffff\1\2\171\uffff}>";
+        "\1\1\21\uffff\1\0\17\uffff\1\2\u0085\uffff}>";
     static final String[] DFA35_transitionS = {
-            "\11\50\1\47\1\10\2\50\1\10\22\50\1\47\1\31\1\21\1\1\1\44\1\30\1\11\1\41\1\25\1\37\1\42\1\33\1\15\1\27\1\20\1\17\1\45\11\46\1\16\1\40\1\26\1\12\1\22\1\34\1\50\32\44\1\24\1\13\1\36\1\14\1\44\1\50\3\44\1\3\1\4\3\44\1\2\6\44\1\7\4\44\1\6\1\44\1\5\3\44\1\23\1\32\1\35\1\43\uff81\50",
+            "\11\51\1\50\1\11\2\51\1\11\22\51\1\50\1\32\1\22\1\1\1\45\1\31\1\12\1\42\1\26\1\40\1\43\1\34\1\16\1\30\1\21\1\20\1\46\11\47\1\17\1\41\1\27\1\13\1\23\1\35\1\51\32\45\1\25\1\14\1\37\1\15\1\10\1\51\3\45\1\3\1\4\3\45\1\2\6\45\1\7\4\45\1\6\1\45\1\5\3\45\1\24\1\33\1\36\1\44\uff81\51",
             "",
-            "\1\53\7\uffff\1\52",
-            "\1\55",
-            "\1\57\1\uffff\1\60\3\uffff\1\56",
-            "\1\61",
+            "\1\54\7\uffff\1\53",
+            "\1\56",
+            "\1\60\1\uffff\1\61\3\uffff\1\57",
             "\1\62",
             "\1\63",
+            "\1\64",
+            "\1\65",
             "",
-            "\1\66",
             "\1\70",
-            "\1\72\2\uffff\1\72",
+            "\1\72",
+            "\1\74\2\uffff\1\74",
             "",
             "",
             "",
-            "\1\76\4\uffff\1\77",
-            "\12\102",
-            "\0\104",
-            "\1\106\1\107",
+            "\1\100\4\uffff\1\101",
+            "\1\104\1\uffff\12\105",
+            "\0\107",
+            "\1\112\1\111",
             "",
             "",
             "",
-            "\1\114\1\115",
-            "\1\117",
-            "",
+            "\1\117\1\120",
             "\1\122",
-            "\1\124",
-            "\1\126",
+            "",
+            "\1\125",
+            "\1\127",
+            "\1\131",
             "",
             "",
             "",
             "",
             "",
-            "\47\135\1\uffff\uffd8\135",
+            "\47\140\1\uffff\uffd8\140",
             "",
             "",
             "",
-            "\1\102\1\uffff\10\142\2\102\10\uffff\1\141\1\uffff\3\102\21\uffff\1\140\11\uffff\1\141\1\uffff\3\102\21\uffff\1\140",
-            "\1\102\1\uffff\12\144\12\uffff\3\102\35\uffff\3\102",
+            "\1\105\1\uffff\10\146\2\105\10\uffff\1\144\1\uffff\3\105\21\uffff\1\143\11\uffff\1\144\1\uffff\3\105\21\uffff\1\143",
+            "\1\105\1\uffff\12\147\12\uffff\3\105\35\uffff\3\105",
             "",
             "",
             "",
-            "\1\146",
-            "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\3\54\1\147\11\54\1\150\14\54",
+            "\1\151",
+            "\1\55\13\uffff\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\3\55\1\152\11\55\1\153\14\55",
             "",
-            "\1\152",
-            "\1\153",
-            "\1\154\11\uffff\1\155",
+            "\1\155",
             "\1\156",
-            "\1\157",
-            "\1\160",
+            "\1\157\11\uffff\1\160",
             "\1\161",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "\1\102\1\uffff\10\142\2\102\12\uffff\3\102\35\uffff\3\102",
-            "",
-            "\1\102\1\uffff\12\144\12\uffff\3\102\35\uffff\3\102",
-            "",
+            "\1\162",
             "\1\163",
             "\1\164",
             "\1\165",
             "",
-            "\1\166",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "\1\105\1\uffff\10\146\2\105\12\uffff\3\105\35\uffff\3\105",
+            "\1\105\1\uffff\12\147\12\uffff\3\105\35\uffff\3\105",
+            "",
             "\1\167",
             "\1\170",
             "\1\171",
+            "",
             "\1\172",
             "\1\173",
             "\1\174",
             "\1\175",
-            "",
             "\1\176",
             "\1\177",
             "\1\u0080",
             "\1\u0081",
             "\1\u0082",
-            "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
-            "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
+            "",
+            "\1\u0083",
+            "\1\u0084",
             "\1\u0085",
             "\1\u0086",
             "\1\u0087",
-            "\1\u0088",
-            "\1\u0089",
-            "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
+            "\1\55\13\uffff\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
+            "\1\55\13\uffff\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
+            "\1\u008a",
             "\1\u008b",
             "\1\u008c",
-            "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
-            "",
-            "",
-            "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
+            "\1\u008d",
+            "\1\u008e",
             "\1\u008f",
-            "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
+            "\1\55\13\uffff\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
             "\1\u0091",
             "\1\u0092",
-            "",
-            "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
-            "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\3\54\1\u0094\26\54",
+            "\1\55\13\uffff\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
             "",
             "",
-            "\1\u0096",
+            "\1\55\13\uffff\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
+            "\1\u0095",
+            "\1\55\13\uffff\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
+            "\1\u0097",
+            "\1\u0098",
+            "\1\u0099",
             "",
-            "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
-            "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
-            "",
-            "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
-            "",
-            "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32\54",
+            "\1\55\13\uffff\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
+            "\1\55\13\uffff\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\3\55\1\u009b\26\55",
             "",
             "",
+            "\1\u009d",
             "",
+            "\1\55\13\uffff\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
+            "\1\u009f",
+            "\1\55\13\uffff\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
+            "",
+            "\1\55\13\uffff\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
+            "",
+            "\1\55\13\uffff\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
+            "",
+            "\1\u00a3",
+            "",
+            "",
+            "",
+            "\1\u00a4",
+            "\1\u00a5",
+            "\1\u00a6",
+            "\1\55\13\uffff\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
             ""
     };
 
@@ -3565,13 +3641,23 @@ public class InternalPreprocessLexer extends Lexer {
             this.transition = DFA35_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( RULE_HASH | RULE_INCLUDE | RULE_DEFINE | RULE_ERROR | RULE_WARNING | RULE_UNDEF | RULE_IF | RULE_DEFINED | RULE_IFDEF | RULE_IFNOTDEF | RULE_ELIF | RULE_ELSE | RULE_ENDIF | RULE_PRAGMA | RULE_NEWLINE | RULE_SKW_AND | RULE_SKW_ANDAND | RULE_SKW_ASSIGN | RULE_SKW_BACKSLASH | RULE_SKW_CARET | RULE_SKW_COMMA | RULE_SKW_COLON | RULE_SKW_DIV | RULE_SKW_DOT | RULE_SKW_DOUBLEQUOTE | RULE_SKW_EQUAL | RULE_SKW_GREATER | RULE_SKW_GREATEREQUAL | RULE_SKW_LEFTBRACE | RULE_SKW_LEFTBRACKET | RULE_SKW_LEFTPAREN | RULE_SKW_LEFTSHIFT | RULE_SKW_LESS | RULE_SKW_LESSEQUAL | RULE_SKW_MINUS | RULE_SKW_MINUSMINUS | RULE_SKW_MOD | RULE_SKW_NOT | RULE_SKW_NOTEQUAL | RULE_SKW_OR | RULE_SKW_OROR | RULE_SKW_PLUS | RULE_SKW_PLUSPLUS | RULE_SKW_QUESTION | RULE_SKW_RIGHTBRACE | RULE_SKW_RIGHTBRACKET | RULE_SKW_RIGHTPAREN | RULE_SKW_RIGHTSHIFT | RULE_SKW_SEMI | RULE_SKW_SINGLEQUOTE | RULE_SKW_STAR | RULE_SKW_TILDE | RULE_ID | RULE_CHAR_LITERAL | RULE_STRING_LITERAL | RULE_HEX_LITERAL | RULE_DECIMAL_LITERAL | RULE_OCTAL_LITERAL | RULE_BIN_LITERAL | RULE_FLOAT_LITERAL | RULE_LINEBREAK | RULE_WHITESPACE | RULE_BLOCK_COMMENT | RULE_LINE_COMMENT | RULE_SPECIAL );";
+            return "1:1: Tokens : ( RULE_HASH | RULE_INCLUDE | RULE_DEFINE | RULE_ERROR | RULE_WARNING | RULE_UNDEF | RULE_IF | RULE_DEFINED | RULE_IFDEF | RULE_IFNOTDEF | RULE_ELIF | RULE_ELSE | RULE_ENDIF | RULE_PRAGMA | RULE_VA_ARGS | RULE_NEWLINE | RULE_SKW_AND | RULE_SKW_ANDAND | RULE_SKW_ASSIGN | RULE_SKW_BACKSLASH | RULE_SKW_CARET | RULE_SKW_COMMA | RULE_SKW_COLON | RULE_SKW_DIV | RULE_SKW_DOT | RULE_SKW_DOUBLEQUOTE | RULE_SKW_ELLIPSIS | RULE_SKW_EQUAL | RULE_SKW_GREATER | RULE_SKW_GREATEREQUAL | RULE_SKW_LEFTBRACE | RULE_SKW_LEFTBRACKET | RULE_SKW_LEFTPAREN | RULE_SKW_LEFTSHIFT | RULE_SKW_LESS | RULE_SKW_LESSEQUAL | RULE_SKW_MINUS | RULE_SKW_MINUSMINUS | RULE_SKW_MOD | RULE_SKW_NOT | RULE_SKW_NOTEQUAL | RULE_SKW_OR | RULE_SKW_OROR | RULE_SKW_PLUS | RULE_SKW_PLUSPLUS | RULE_SKW_QUESTION | RULE_SKW_RIGHTBRACE | RULE_SKW_RIGHTBRACKET | RULE_SKW_RIGHTPAREN | RULE_SKW_RIGHTSHIFT | RULE_SKW_SEMI | RULE_SKW_SINGLEQUOTE | RULE_SKW_STAR | RULE_SKW_TILDE | RULE_ID | RULE_CHAR_LITERAL | RULE_STRING_LITERAL | RULE_HEX_LITERAL | RULE_DECIMAL_LITERAL | RULE_OCTAL_LITERAL | RULE_BIN_LITERAL | RULE_FLOAT_LITERAL | RULE_LINEBREAK | RULE_WHITESPACE | RULE_BLOCK_COMMENT | RULE_LINE_COMMENT | RULE_SPECIAL );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
+                        int LA35_18 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA35_18>='\u0000' && LA35_18<='\uFFFF')) ) {s = 71;}
+
+                        else s = 70;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 1 : 
                         int LA35_0 = input.LA(1);
 
                         s = -1;
@@ -3589,91 +3675,83 @@ public class InternalPreprocessLexer extends Lexer {
 
                         else if ( (LA35_0=='p') ) {s = 7;}
 
-                        else if ( (LA35_0=='\n'||LA35_0=='\r') ) {s = 8;}
+                        else if ( (LA35_0=='_') ) {s = 8;}
 
-                        else if ( (LA35_0=='&') ) {s = 9;}
+                        else if ( (LA35_0=='\n'||LA35_0=='\r') ) {s = 9;}
 
-                        else if ( (LA35_0=='=') ) {s = 10;}
+                        else if ( (LA35_0=='&') ) {s = 10;}
 
-                        else if ( (LA35_0=='\\') ) {s = 11;}
+                        else if ( (LA35_0=='=') ) {s = 11;}
 
-                        else if ( (LA35_0=='^') ) {s = 12;}
+                        else if ( (LA35_0=='\\') ) {s = 12;}
 
-                        else if ( (LA35_0==',') ) {s = 13;}
+                        else if ( (LA35_0=='^') ) {s = 13;}
 
-                        else if ( (LA35_0==':') ) {s = 14;}
+                        else if ( (LA35_0==',') ) {s = 14;}
 
-                        else if ( (LA35_0=='/') ) {s = 15;}
+                        else if ( (LA35_0==':') ) {s = 15;}
 
-                        else if ( (LA35_0=='.') ) {s = 16;}
+                        else if ( (LA35_0=='/') ) {s = 16;}
 
-                        else if ( (LA35_0=='\"') ) {s = 17;}
+                        else if ( (LA35_0=='.') ) {s = 17;}
 
-                        else if ( (LA35_0=='>') ) {s = 18;}
+                        else if ( (LA35_0=='\"') ) {s = 18;}
 
-                        else if ( (LA35_0=='{') ) {s = 19;}
+                        else if ( (LA35_0=='>') ) {s = 19;}
 
-                        else if ( (LA35_0=='[') ) {s = 20;}
+                        else if ( (LA35_0=='{') ) {s = 20;}
 
-                        else if ( (LA35_0=='(') ) {s = 21;}
+                        else if ( (LA35_0=='[') ) {s = 21;}
 
-                        else if ( (LA35_0=='<') ) {s = 22;}
+                        else if ( (LA35_0=='(') ) {s = 22;}
 
-                        else if ( (LA35_0=='-') ) {s = 23;}
+                        else if ( (LA35_0=='<') ) {s = 23;}
 
-                        else if ( (LA35_0=='%') ) {s = 24;}
+                        else if ( (LA35_0=='-') ) {s = 24;}
 
-                        else if ( (LA35_0=='!') ) {s = 25;}
+                        else if ( (LA35_0=='%') ) {s = 25;}
 
-                        else if ( (LA35_0=='|') ) {s = 26;}
+                        else if ( (LA35_0=='!') ) {s = 26;}
 
-                        else if ( (LA35_0=='+') ) {s = 27;}
+                        else if ( (LA35_0=='|') ) {s = 27;}
 
-                        else if ( (LA35_0=='?') ) {s = 28;}
+                        else if ( (LA35_0=='+') ) {s = 28;}
 
-                        else if ( (LA35_0=='}') ) {s = 29;}
+                        else if ( (LA35_0=='?') ) {s = 29;}
 
-                        else if ( (LA35_0==']') ) {s = 30;}
+                        else if ( (LA35_0=='}') ) {s = 30;}
 
-                        else if ( (LA35_0==')') ) {s = 31;}
+                        else if ( (LA35_0==']') ) {s = 31;}
 
-                        else if ( (LA35_0==';') ) {s = 32;}
+                        else if ( (LA35_0==')') ) {s = 32;}
 
-                        else if ( (LA35_0=='\'') ) {s = 33;}
+                        else if ( (LA35_0==';') ) {s = 33;}
 
-                        else if ( (LA35_0=='*') ) {s = 34;}
+                        else if ( (LA35_0=='\'') ) {s = 34;}
 
-                        else if ( (LA35_0=='~') ) {s = 35;}
+                        else if ( (LA35_0=='*') ) {s = 35;}
 
-                        else if ( (LA35_0=='$'||(LA35_0>='A' && LA35_0<='Z')||LA35_0=='_'||(LA35_0>='a' && LA35_0<='c')||(LA35_0>='f' && LA35_0<='h')||(LA35_0>='j' && LA35_0<='o')||(LA35_0>='q' && LA35_0<='t')||LA35_0=='v'||(LA35_0>='x' && LA35_0<='z')) ) {s = 36;}
+                        else if ( (LA35_0=='~') ) {s = 36;}
 
-                        else if ( (LA35_0=='0') ) {s = 37;}
+                        else if ( (LA35_0=='$'||(LA35_0>='A' && LA35_0<='Z')||(LA35_0>='a' && LA35_0<='c')||(LA35_0>='f' && LA35_0<='h')||(LA35_0>='j' && LA35_0<='o')||(LA35_0>='q' && LA35_0<='t')||LA35_0=='v'||(LA35_0>='x' && LA35_0<='z')) ) {s = 37;}
 
-                        else if ( ((LA35_0>='1' && LA35_0<='9')) ) {s = 38;}
+                        else if ( (LA35_0=='0') ) {s = 38;}
 
-                        else if ( (LA35_0=='\t'||LA35_0==' ') ) {s = 39;}
+                        else if ( ((LA35_0>='1' && LA35_0<='9')) ) {s = 39;}
 
-                        else if ( ((LA35_0>='\u0000' && LA35_0<='\b')||(LA35_0>='\u000B' && LA35_0<='\f')||(LA35_0>='\u000E' && LA35_0<='\u001F')||LA35_0=='@'||LA35_0=='`'||(LA35_0>='\u007F' && LA35_0<='\uFFFF')) ) {s = 40;}
+                        else if ( (LA35_0=='\t'||LA35_0==' ') ) {s = 40;}
 
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
-                        int LA35_17 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA35_17>='\u0000' && LA35_17<='\uFFFF')) ) {s = 68;}
-
-                        else s = 67;
+                        else if ( ((LA35_0>='\u0000' && LA35_0<='\b')||(LA35_0>='\u000B' && LA35_0<='\f')||(LA35_0>='\u000E' && LA35_0<='\u001F')||LA35_0=='@'||LA35_0=='`'||(LA35_0>='\u007F' && LA35_0<='\uFFFF')) ) {s = 41;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 2 : 
-                        int LA35_33 = input.LA(1);
+                        int LA35_34 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA35_33>='\u0000' && LA35_33<='&')||(LA35_33>='(' && LA35_33<='\uFFFF')) ) {s = 93;}
+                        if ( ((LA35_34>='\u0000' && LA35_34<='&')||(LA35_34>='(' && LA35_34<='\uFFFF')) ) {s = 96;}
 
-                        else s = 92;
+                        else s = 95;
 
                         if ( s>=0 ) return s;
                         break;

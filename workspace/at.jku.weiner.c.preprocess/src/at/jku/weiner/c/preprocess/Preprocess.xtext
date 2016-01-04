@@ -117,7 +117,9 @@ DefineFunctionLikeMacro returns DefineDirective:
 	{DefineFunctionLikeMacro}
 	DEFINE WHITESPACE+ id=ID 
 	SKW_LEFTPAREN WHITESPACE*
-		(list=IdentifierList)?
+		(list=IdentifierList
+		)?
+		
 	SKW_RIGHTPAREN
 	
 	(WHITESPACE+
@@ -127,6 +129,8 @@ DefineFunctionLikeMacro returns DefineDirective:
 IdentifierList:
 	{IdentifierList}
 	id+=ID (SKW_COMMA WHITESPACE* id+=ID)*
+	WHITESPACE*
+	(SKW_COMMA WHITESPACE* variadic?=SKW_ELLIPSIS)?
 ;
 
 ErrorDirective:
@@ -215,7 +219,7 @@ MyCode returns ecore::EString:
 ;
 
 MyDefineLine returns ecore::EString:
-	(MyCode|WHITESPACE|HASH)*
+	(MyCode|WHITESPACE|HASH|VA_ARGS)*
 ;
 
 MyCodeLine returns ecore::EString:
@@ -262,6 +266,7 @@ terminal ELIF: 'elif';
 terminal ELSE: 'else';
 terminal ENDIF: 'endif';
 terminal PRAGMA: 'pragma';
+terminal VA_ARGS: SKW_UNDERSCORE SKW_UNDERSCORE 'VA_ARGS' SKW_UNDERSCORE SKW_UNDERSCORE;
 
 // special keywords
 // ... see common

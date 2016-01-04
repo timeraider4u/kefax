@@ -79,7 +79,8 @@ public class PreprocessImpl extends at.jku.weiner.c.common.common.impl.Preproces
 	{
 		GroupOpt oldGroup = group;
 		group = newGroup;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
+		{
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PreprocessPackage.PREPROCESS__GROUP, oldGroup, newGroup);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -93,7 +94,8 @@ public class PreprocessImpl extends at.jku.weiner.c.common.common.impl.Preproces
 	 */
 	public void setGroup(GroupOpt newGroup)
 	{
-		if (newGroup != group) {
+		if (newGroup != group)
+		{
 			NotificationChain msgs = null;
 			if (group != null)
 				msgs = ((InternalEObject)group).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PreprocessPackage.PREPROCESS__GROUP, null, msgs);
@@ -114,7 +116,8 @@ public class PreprocessImpl extends at.jku.weiner.c.common.common.impl.Preproces
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.PREPROCESS__GROUP:
 				return basicSetGroup(null, msgs);
 		}
@@ -129,7 +132,8 @@ public class PreprocessImpl extends at.jku.weiner.c.common.common.impl.Preproces
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.PREPROCESS__GROUP:
 				return getGroup();
 		}
@@ -144,7 +148,8 @@ public class PreprocessImpl extends at.jku.weiner.c.common.common.impl.Preproces
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.PREPROCESS__GROUP:
 				setGroup((GroupOpt)newValue);
 				return;
@@ -160,7 +165,8 @@ public class PreprocessImpl extends at.jku.weiner.c.common.common.impl.Preproces
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.PREPROCESS__GROUP:
 				setGroup((GroupOpt)null);
 				return;
@@ -176,7 +182,8 @@ public class PreprocessImpl extends at.jku.weiner.c.common.common.impl.Preproces
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.PREPROCESS__GROUP:
 				return group != null;
 		}

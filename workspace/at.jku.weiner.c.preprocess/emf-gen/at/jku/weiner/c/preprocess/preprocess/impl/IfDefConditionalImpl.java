@@ -123,7 +123,8 @@ public class IfDefConditionalImpl extends IfAbstractConditionalImpl implements I
 	{
 		GroupOpt oldGroup = group;
 		group = newGroup;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
+		{
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PreprocessPackage.IF_DEF_CONDITIONAL__GROUP, oldGroup, newGroup);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -137,7 +138,8 @@ public class IfDefConditionalImpl extends IfAbstractConditionalImpl implements I
 	 */
 	public void setGroup(GroupOpt newGroup)
 	{
-		if (newGroup != group) {
+		if (newGroup != group)
+		{
 			NotificationChain msgs = null;
 			if (group != null)
 				msgs = ((InternalEObject)group).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PreprocessPackage.IF_DEF_CONDITIONAL__GROUP, null, msgs);
@@ -158,7 +160,8 @@ public class IfDefConditionalImpl extends IfAbstractConditionalImpl implements I
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.IF_DEF_CONDITIONAL__GROUP:
 				return basicSetGroup(null, msgs);
 		}
@@ -173,7 +176,8 @@ public class IfDefConditionalImpl extends IfAbstractConditionalImpl implements I
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.IF_DEF_CONDITIONAL__ID:
 				return getId();
 			case PreprocessPackage.IF_DEF_CONDITIONAL__GROUP:
@@ -190,7 +194,8 @@ public class IfDefConditionalImpl extends IfAbstractConditionalImpl implements I
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.IF_DEF_CONDITIONAL__ID:
 				setId((String)newValue);
 				return;
@@ -209,7 +214,8 @@ public class IfDefConditionalImpl extends IfAbstractConditionalImpl implements I
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.IF_DEF_CONDITIONAL__ID:
 				setId(ID_EDEFAULT);
 				return;
@@ -228,7 +234,8 @@ public class IfDefConditionalImpl extends IfAbstractConditionalImpl implements I
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.IF_DEF_CONDITIONAL__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case PreprocessPackage.IF_DEF_CONDITIONAL__GROUP:

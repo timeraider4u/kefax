@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.IdentifierList#getId <em>Id</em>}</li>
+ *   <li>{@link at.jku.weiner.c.preprocess.preprocess.IdentifierList#isVariadic <em>Variadic</em>}</li>
  * </ul>
  * </p>
  *
@@ -39,5 +40,31 @@ public interface IdentifierList extends EObject
 	 * @generated
 	 */
 	EList<String> getId();
+
+	/**
+	 * Returns the value of the '<em><b>Variadic</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Variadic</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Variadic</em>' attribute.
+	 * @see #setVariadic(boolean)
+	 * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getIdentifierList_Variadic()
+	 * @model
+	 * @generated
+	 */
+	boolean isVariadic();
+
+	/**
+	 * Sets the value of the '{@link at.jku.weiner.c.preprocess.preprocess.IdentifierList#isVariadic <em>Variadic</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Variadic</em>' attribute.
+	 * @see #isVariadic()
+	 * @generated
+	 */
+	void setVariadic(boolean value);
 
 } // IdentifierList

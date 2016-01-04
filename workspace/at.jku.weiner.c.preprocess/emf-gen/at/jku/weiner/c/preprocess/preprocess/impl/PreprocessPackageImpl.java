@@ -402,6 +402,16 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getIdentifierList_Variadic()
+	{
+		return (EAttribute)identifierListEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getErrorDirective()
 	{
 		return errorDirectiveEClass;
@@ -502,7 +512,8 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getConditionalDirective_BranchTaken() {
+	public EReference getConditionalDirective_BranchTaken()
+	{
 		return (EReference)conditionalDirectiveEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -900,6 +911,7 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 
 		identifierListEClass = createEClass(IDENTIFIER_LIST);
 		createEAttribute(identifierListEClass, IDENTIFIER_LIST__ID);
+		createEAttribute(identifierListEClass, IDENTIFIER_LIST__VARIADIC);
 
 		errorDirectiveEClass = createEClass(ERROR_DIRECTIVE);
 		createEAttribute(errorDirectiveEClass, ERROR_DIRECTIVE__MSG);
@@ -1032,6 +1044,7 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 
 		initEClass(identifierListEClass, IdentifierList.class, "IdentifierList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIdentifierList_Id(), theEcorePackage.getEString(), "id", null, 0, -1, IdentifierList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIdentifierList_Variadic(), theEcorePackage.getEBoolean(), "variadic", null, 0, 1, IdentifierList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(errorDirectiveEClass, ErrorDirective.class, "ErrorDirective", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getErrorDirective_Msg(), theEcorePackage.getEString(), "msg", null, 0, 1, ErrorDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

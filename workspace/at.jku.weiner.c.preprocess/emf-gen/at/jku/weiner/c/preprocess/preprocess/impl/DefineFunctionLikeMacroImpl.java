@@ -79,7 +79,8 @@ public class DefineFunctionLikeMacroImpl extends DefineDirectiveImpl implements 
 	{
 		IdentifierList oldList = list;
 		list = newList;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
+		{
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PreprocessPackage.DEFINE_FUNCTION_LIKE_MACRO__LIST, oldList, newList);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -93,7 +94,8 @@ public class DefineFunctionLikeMacroImpl extends DefineDirectiveImpl implements 
 	 */
 	public void setList(IdentifierList newList)
 	{
-		if (newList != list) {
+		if (newList != list)
+		{
 			NotificationChain msgs = null;
 			if (list != null)
 				msgs = ((InternalEObject)list).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PreprocessPackage.DEFINE_FUNCTION_LIKE_MACRO__LIST, null, msgs);
@@ -114,7 +116,8 @@ public class DefineFunctionLikeMacroImpl extends DefineDirectiveImpl implements 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.DEFINE_FUNCTION_LIKE_MACRO__LIST:
 				return basicSetList(null, msgs);
 		}
@@ -129,7 +132,8 @@ public class DefineFunctionLikeMacroImpl extends DefineDirectiveImpl implements 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.DEFINE_FUNCTION_LIKE_MACRO__LIST:
 				return getList();
 		}
@@ -144,7 +148,8 @@ public class DefineFunctionLikeMacroImpl extends DefineDirectiveImpl implements 
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.DEFINE_FUNCTION_LIKE_MACRO__LIST:
 				setList((IdentifierList)newValue);
 				return;
@@ -160,7 +165,8 @@ public class DefineFunctionLikeMacroImpl extends DefineDirectiveImpl implements 
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.DEFINE_FUNCTION_LIKE_MACRO__LIST:
 				setList((IdentifierList)null);
 				return;
@@ -176,7 +182,8 @@ public class DefineFunctionLikeMacroImpl extends DefineDirectiveImpl implements 
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.DEFINE_FUNCTION_LIKE_MACRO__LIST:
 				return list != null;
 		}

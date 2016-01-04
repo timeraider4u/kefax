@@ -99,7 +99,8 @@ public class WarningDirectiveImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.WARNING_DIRECTIVE__MSG:
 				return getMsg();
 		}
@@ -114,7 +115,8 @@ public class WarningDirectiveImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.WARNING_DIRECTIVE__MSG:
 				setMsg((String)newValue);
 				return;
@@ -130,7 +132,8 @@ public class WarningDirectiveImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.WARNING_DIRECTIVE__MSG:
 				setMsg(MSG_EDEFAULT);
 				return;
@@ -146,7 +149,8 @@ public class WarningDirectiveImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.WARNING_DIRECTIVE__MSG:
 				return MSG_EDEFAULT == null ? msg != null : !MSG_EDEFAULT.equals(msg);
 		}

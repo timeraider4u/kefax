@@ -293,7 +293,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (id+=ID id+=ID*)
+	 *     (id+=ID id+=ID* variadic?=SKW_ELLIPSIS?)
 	 */
 	protected void sequence_IdentifierList(EObject context, IdentifierList semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

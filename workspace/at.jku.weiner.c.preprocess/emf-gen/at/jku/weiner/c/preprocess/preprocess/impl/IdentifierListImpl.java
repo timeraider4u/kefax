@@ -7,10 +7,13 @@ import at.jku.weiner.c.preprocess.preprocess.PreprocessPackage;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeEList;
@@ -23,6 +26,7 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.IdentifierListImpl#getId <em>Id</em>}</li>
+ *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.IdentifierListImpl#isVariadic <em>Variadic</em>}</li>
  * </ul>
  * </p>
  *
@@ -39,6 +43,26 @@ public class IdentifierListImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected EList<String> id;
+
+	/**
+	 * The default value of the '{@link #isVariadic() <em>Variadic</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isVariadic()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean VARIADIC_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isVariadic() <em>Variadic</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isVariadic()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean variadic = VARIADIC_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -68,7 +92,8 @@ public class IdentifierListImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	public EList<String> getId()
 	{
-		if (id == null) {
+		if (id == null)
+		{
 			id = new EDataTypeEList<String>(String.class, this, PreprocessPackage.IDENTIFIER_LIST__ID);
 		}
 		return id;
@@ -79,12 +104,38 @@ public class IdentifierListImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isVariadic()
+	{
+		return variadic;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setVariadic(boolean newVariadic)
+	{
+		boolean oldVariadic = variadic;
+		variadic = newVariadic;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PreprocessPackage.IDENTIFIER_LIST__VARIADIC, oldVariadic, variadic));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.IDENTIFIER_LIST__ID:
 				return getId();
+			case PreprocessPackage.IDENTIFIER_LIST__VARIADIC:
+				return isVariadic();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -98,10 +149,14 @@ public class IdentifierListImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.IDENTIFIER_LIST__ID:
 				getId().clear();
 				getId().addAll((Collection<? extends String>)newValue);
+				return;
+			case PreprocessPackage.IDENTIFIER_LIST__VARIADIC:
+				setVariadic((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -115,9 +170,13 @@ public class IdentifierListImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.IDENTIFIER_LIST__ID:
 				getId().clear();
+				return;
+			case PreprocessPackage.IDENTIFIER_LIST__VARIADIC:
+				setVariadic(VARIADIC_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -131,9 +190,12 @@ public class IdentifierListImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.IDENTIFIER_LIST__ID:
 				return id != null && !id.isEmpty();
+			case PreprocessPackage.IDENTIFIER_LIST__VARIADIC:
+				return variadic != VARIADIC_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -151,6 +213,8 @@ public class IdentifierListImpl extends MinimalEObjectImpl.Container implements 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (id: ");
 		result.append(id);
+		result.append(", variadic: ");
+		result.append(variadic);
 		result.append(')');
 		return result.toString();
 	}

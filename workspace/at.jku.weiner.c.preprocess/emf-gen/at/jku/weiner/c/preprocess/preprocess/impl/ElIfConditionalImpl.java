@@ -92,7 +92,8 @@ public class ElIfConditionalImpl extends IfAbstractConditionalImpl implements El
 	{
 		Expression oldExpression = expression;
 		expression = newExpression;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
+		{
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PreprocessPackage.EL_IF_CONDITIONAL__EXPRESSION, oldExpression, newExpression);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -106,7 +107,8 @@ public class ElIfConditionalImpl extends IfAbstractConditionalImpl implements El
 	 */
 	public void setExpression(Expression newExpression)
 	{
-		if (newExpression != expression) {
+		if (newExpression != expression)
+		{
 			NotificationChain msgs = null;
 			if (expression != null)
 				msgs = ((InternalEObject)expression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PreprocessPackage.EL_IF_CONDITIONAL__EXPRESSION, null, msgs);
@@ -138,7 +140,8 @@ public class ElIfConditionalImpl extends IfAbstractConditionalImpl implements El
 	{
 		GroupOpt oldGroup = group;
 		group = newGroup;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
+		{
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PreprocessPackage.EL_IF_CONDITIONAL__GROUP, oldGroup, newGroup);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -152,7 +155,8 @@ public class ElIfConditionalImpl extends IfAbstractConditionalImpl implements El
 	 */
 	public void setGroup(GroupOpt newGroup)
 	{
-		if (newGroup != group) {
+		if (newGroup != group)
+		{
 			NotificationChain msgs = null;
 			if (group != null)
 				msgs = ((InternalEObject)group).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PreprocessPackage.EL_IF_CONDITIONAL__GROUP, null, msgs);
@@ -173,7 +177,8 @@ public class ElIfConditionalImpl extends IfAbstractConditionalImpl implements El
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.EL_IF_CONDITIONAL__EXPRESSION:
 				return basicSetExpression(null, msgs);
 			case PreprocessPackage.EL_IF_CONDITIONAL__GROUP:
@@ -190,7 +195,8 @@ public class ElIfConditionalImpl extends IfAbstractConditionalImpl implements El
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.EL_IF_CONDITIONAL__EXPRESSION:
 				return getExpression();
 			case PreprocessPackage.EL_IF_CONDITIONAL__GROUP:
@@ -207,7 +213,8 @@ public class ElIfConditionalImpl extends IfAbstractConditionalImpl implements El
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.EL_IF_CONDITIONAL__EXPRESSION:
 				setExpression((Expression)newValue);
 				return;
@@ -226,7 +233,8 @@ public class ElIfConditionalImpl extends IfAbstractConditionalImpl implements El
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.EL_IF_CONDITIONAL__EXPRESSION:
 				setExpression((Expression)null);
 				return;
@@ -245,7 +253,8 @@ public class ElIfConditionalImpl extends IfAbstractConditionalImpl implements El
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.EL_IF_CONDITIONAL__EXPRESSION:
 				return expression != null;
 			case PreprocessPackage.EL_IF_CONDITIONAL__GROUP:

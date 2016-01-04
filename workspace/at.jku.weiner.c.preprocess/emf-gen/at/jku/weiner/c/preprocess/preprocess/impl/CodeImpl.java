@@ -98,7 +98,8 @@ public class CodeImpl extends SourceCodeLineImpl implements Code
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.CODE__CODE:
 				return getCode();
 		}
@@ -113,7 +114,8 @@ public class CodeImpl extends SourceCodeLineImpl implements Code
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.CODE__CODE:
 				setCode((String)newValue);
 				return;
@@ -129,7 +131,8 @@ public class CodeImpl extends SourceCodeLineImpl implements Code
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.CODE__CODE:
 				setCode(CODE_EDEFAULT);
 				return;
@@ -145,7 +148,8 @@ public class CodeImpl extends SourceCodeLineImpl implements Code
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.CODE__CODE:
 				return CODE_EDEFAULT == null ? code != null : !CODE_EDEFAULT.equals(code);
 		}

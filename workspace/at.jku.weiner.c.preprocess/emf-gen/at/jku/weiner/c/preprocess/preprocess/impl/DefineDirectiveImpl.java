@@ -143,7 +143,8 @@ public class DefineDirectiveImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.DEFINE_DIRECTIVE__ID:
 				return getId();
 			case PreprocessPackage.DEFINE_DIRECTIVE__STRING:
@@ -160,7 +161,8 @@ public class DefineDirectiveImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.DEFINE_DIRECTIVE__ID:
 				setId((String)newValue);
 				return;
@@ -179,7 +181,8 @@ public class DefineDirectiveImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.DEFINE_DIRECTIVE__ID:
 				setId(ID_EDEFAULT);
 				return;
@@ -198,7 +201,8 @@ public class DefineDirectiveImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case PreprocessPackage.DEFINE_DIRECTIVE__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case PreprocessPackage.DEFINE_DIRECTIVE__STRING:

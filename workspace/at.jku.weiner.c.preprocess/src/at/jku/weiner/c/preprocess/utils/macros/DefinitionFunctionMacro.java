@@ -158,12 +158,31 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		}
 
 		String temp = this.value;
-		for (int i = 0; i < this.list.size(); i++) {
+		int i;
+		for (i = 0; i < this.list.size(); i++) {
 			final String key = this.list.get(i).trim();
 			String val = params.get(i).trim();
 			val = DefinitionTable.resolve(val);
 			final DefinitionObjectMacro macro = new DefinitionObjectMacro(key,
 					val);
+			temp = macro.resolve(temp);
+		}
+
+		if (this.isVariadic) {
+			final String key = "__VA_ARGS__";
+			final StringBuffer variadic = new StringBuffer("");
+			boolean isFirst = true;
+			for (; i < params.size(); i++) {
+				if (!isFirst) {
+					variadic.append(", ");
+				}
+				String val = params.get(i).trim();
+				val = DefinitionTable.resolve(val);
+				variadic.append(val);
+				isFirst = false;
+			}
+			final DefinitionObjectMacro macro = new DefinitionObjectMacro(key,
+					variadic.toString());
 			temp = macro.resolve(temp);
 		}
 

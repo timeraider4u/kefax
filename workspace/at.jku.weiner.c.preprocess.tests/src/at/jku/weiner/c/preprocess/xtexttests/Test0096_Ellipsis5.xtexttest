@@ -1,0 +1,55 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language preprocess
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+split-lexer=false
+source file="res/Test0096_Ellipsis5.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN 
+		ID SKW_COMMA WHITESPACE ID SKW_COMMA WHITESPACE SKW_ELLIPSIS
+		SKW_RIGHTPAREN WHITESPACE
+		// fprintf(stdout, __VA_ARGS__) 
+		ID SKW_LEFTPAREN 
+		ID SKW_COMMA WHITESPACE VA_ARGS 
+		SKW_RIGHTPAREN NEWLINE
+	ID SKW_LEFTPAREN 
+		ID SKW_COMMA WHITESPACE 
+		ID SKW_COMMA WHITESPACE 
+		SKW_RIGHTPAREN SKW_SEMI NEWLINE
+//----------------------------------------------------------------------
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"FOO",
+					list =
+					(IdentifierList
+						id+*"[x, y]",
+						variadic?=true
+					),
+					string++"fprintf(stdout, __VA_ARGS__)"
+				)
+			),
+			
+			(Code
+				code++"FOO(foo, bar, );"
+			)
+		)
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0096_Ellipsis5.c.i"
+expected file="expected/Test0096_Ellipsis5.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

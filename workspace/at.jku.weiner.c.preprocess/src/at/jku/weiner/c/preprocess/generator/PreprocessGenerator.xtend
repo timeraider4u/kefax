@@ -78,6 +78,7 @@ class PreprocessGenerator implements IGenerator {
 	URI uri;
 	List<String> path = new ArrayList<String>();
 	boolean standAlone = false;
+	boolean logging = false;
 	
 	override void doGenerate(Resource input, IFileSystemAccess fsa) {
 		setUp();
@@ -205,7 +206,9 @@ class PreprocessGenerator implements IGenerator {
 	}
 	
 	def String outputFor(GroupOpt group) {
-		System.out.println("outputFor path='" + path + "'");
+		if (logging) {
+			System.out.println("outputFor path='" + path + "'");
+		}
 		
 		val StringBuffer result = new StringBuffer("");
 		for (var int i = 0; i < group.lines.size; i++) {
@@ -238,7 +241,9 @@ class PreprocessGenerator implements IGenerator {
 			}
 		}
 		path.remove(path.length() - 1);
-		System.out.println("back in path='" + path + "'");
+		if (logging) {
+			System.out.println("back in path='" + path + "'");
+		}
 		return result.toString();
 	}
 

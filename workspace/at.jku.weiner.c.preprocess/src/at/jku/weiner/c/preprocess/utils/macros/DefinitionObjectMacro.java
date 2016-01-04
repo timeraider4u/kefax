@@ -4,19 +4,25 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public final class DefinitionObjectMacro implements DefinitionMacro {
-	
+
 	private final String macroID;
 	private final String replacement;
 	private final String regex;
 	private final Pattern pattern;
-	
+	private final boolean isIdentical;
+
 	public DefinitionObjectMacro(final String key, final String value) {
 		this.macroID = key;
 		this.replacement = this.getValue(value);
 		this.regex = "\\b" + key + "\\b";
 		this.pattern = Pattern.compile(this.regex);
+		if (key.equals(value)) {
+			this.isIdentical = true;
+		} else {
+			this.isIdentical = false;
+		}
 	}
-	
+
 	@Override
 	public boolean equals(final Object obj) {
 		if (!(obj instanceof DefinitionObjectMacro)) {
@@ -28,19 +34,22 @@ public final class DefinitionObjectMacro implements DefinitionMacro {
 		}
 		return this.replacement.equals(other.replacement);
 	}
-	
+
 	private String getValue(String value2) {
 		if (value2 == null) {
 			value2 = "";
 		}
 		return value2;
 	}
-	
+
 	@Override
 	public boolean matches(final String code) {
+		if (this.isIdentical) {
+			return false;
+		}
 		return MatchUtils.matches(code, this.pattern);
 	}
-	
+
 	@Override
 	public String resolve(final String code) {
 		final Matcher matcher = this.pattern.matcher(code);
@@ -60,7 +69,7 @@ public final class DefinitionObjectMacro implements DefinitionMacro {
 			} else if (!matcher.find(i)) {
 				result.append(code.substring(i));
 				return result.toString();
-				
+
 			} else {
 				result.append(c);
 			}
@@ -69,10 +78,10 @@ public final class DefinitionObjectMacro implements DefinitionMacro {
 		}
 		return result.toString();
 	}
-	
+
 	@Override
 	public String getName() {
 		return this.macroID;
 	}
-	
+
 }

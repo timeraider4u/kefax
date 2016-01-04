@@ -1,0 +1,3 @@
+
+BAR(foo)
+BAR(x)

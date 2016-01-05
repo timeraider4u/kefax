@@ -2,6 +2,7 @@ package at.jku.isse.ecco.kefax.main.startup;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
@@ -26,17 +27,18 @@ import org.eclipse.xtext.validation.CheckMode;
 import org.eclipse.xtext.validation.IResourceValidator;
 import org.eclipse.xtext.validation.Issue;
 
-import com.google.inject.Injector;
-
 import at.jku.isse.ecco.kefax.dotconfig.dotconfig.Config;
 import at.jku.weiner.c.cmdarguments.cmdArgs.CmdLine;
 import at.jku.weiner.c.cmdarguments.cmdArgs.Model;
 import at.jku.weiner.c.cmdarguments.ui.internal.CmdArgsActivator;
 
+import com.google.inject.Injector;
+
 public class Main implements IStartup {
-	
+
 	@Override
 	public void earlyStartup() {
+		final Date start = new Date();
 		try {
 			Thread.sleep(1000);
 			System.out.println("at.jku.weiner.kefax.main - Start of program!");
@@ -45,6 +47,13 @@ public class Main implements IStartup {
 		} catch (final Exception ex) {
 			ex.printStackTrace();
 		}
+		final Date end = new Date();
+		final long difference = end.getTime() - start.getTime();
+		final long sec = difference / 1000;
+		final long min = sec / 60;
+		final long seconds = sec % 60;
+		System.out.println("took '" + min + "' minutes and '" + seconds
+				+ "' seconds for parsing!");
 		System.out.println("at.jku.weiner.kefax.main - End of program!");
 	}
 
@@ -146,7 +155,7 @@ public class Main implements IStartup {
 		final Resource resource = resourceSet.getResource(uri, true);
 		return resource;
 	}
-	
+
 	private final void validateResource(final Injector injector,
 			final Resource resource) throws Exception {
 		// validate the resource

@@ -100,7 +100,7 @@ public class XtextUtils {
 
 	private final String generateIntermediateFile(final IFile iFile,
 			final String fileNameOnly, final TranslationUnit unit)
-					throws DiscoveryException {
+			throws DiscoveryException {
 		// configure and start the generator
 		final URI whole = URI.createURI(iFile.getLocationURI().toString());
 		final URI uri = whole.trimSegments(1);
@@ -111,8 +111,7 @@ public class XtextUtils {
 		final PreprocessGenerator preprocessGenerator = this.preprocessor
 				.getGenerator();
 		preprocessGenerator.setFileName(wholeStr);
-		preprocessGenerator
-				.setInsertPredefinedMacros(this.store.isStdInclude());
+		preprocessGenerator.setInsertPredefinedMacros(true);
 		preprocessGenerator.setValidateUnit(true);
 		preprocessGenerator.setUnit(unit);
 		preprocessGenerator.setStdInclude(this.store.isStdInclude());

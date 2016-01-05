@@ -363,7 +363,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     {PragmaDirective}
+	 *     (pragma=MyCodeLine?)
 	 */
 	protected void sequence_PragmaDirective(EObject context, PragmaDirective semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

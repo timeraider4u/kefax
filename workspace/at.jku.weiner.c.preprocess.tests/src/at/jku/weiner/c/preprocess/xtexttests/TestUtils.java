@@ -102,4 +102,17 @@ public final class TestUtils {
 		gen.setAdditionalPreprocessingDirectives(additionalDefines.toString());
 	}
 
+	public static void setUpTest0108(final IGenerator generator) {
+		final PreprocessGenerator gen = (PreprocessGenerator) generator;
+		gen.setInsertPredefinedMacros(true);
+		gen.setStdInclude(true);
+	}
+
+	public static void setUpTest0109(final IGenerator generator) {
+		final PreprocessGenerator gen = (PreprocessGenerator) generator;
+		gen.setInsertPredefinedMacros(true);
+		gen.setStdInclude(false);
+
+	}
+
 }

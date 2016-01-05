@@ -135,7 +135,7 @@ public class Test0003_SimpleInclude {
 		 = (TranslationUnit)Units_0_list.get(0);
 		Assert.assertNotNull(TranslationUnit_1_Var
 		);
-		Assert.assertEquals("platform:/plugin/at.jku.weiner.c.preprocess/res/predefined/gcc_4.8.4.h", TranslationUnit_1_Var
+		Assert.assertEquals("platform:/plugin/at.jku.weiner.c.preprocess/res/predefined/gcc_4.8.4_default.h", TranslationUnit_1_Var
 		.getPath());
 		//1
 		final Preprocess Preprocess_2_Var

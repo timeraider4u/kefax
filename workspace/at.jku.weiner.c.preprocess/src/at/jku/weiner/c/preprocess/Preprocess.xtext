@@ -130,7 +130,7 @@ IdentifierList:
 	{IdentifierList}
 	(	
 		(
-			id+=ID (SKW_COMMA WHITESPACE* id+=ID)*
+			id+=ID (WHITESPACE* SKW_COMMA WHITESPACE* id+=ID)*
 			WHITESPACE*
 			(SKW_COMMA WHITESPACE* 
 				(
@@ -207,6 +207,7 @@ ElseConditional:
 PragmaDirective:
 	{PragmaDirective}
 	PRAGMA
+	WHITESPACE* (pragma=MyCodeLine)?
 ;
 
 NullDirective:

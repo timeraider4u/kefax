@@ -1100,25 +1100,32 @@ ruleIdentifierList returns [EObject current=null]
 
 
 (
-this_SKW_COMMA_2=RULE_SKW_COMMA
+(this_WHITESPACE_2=RULE_WHITESPACE
     { 
-    newLeafNode(this_SKW_COMMA_2, grammarAccess.getIdentifierListAccess().getSKW_COMMATerminalRuleCall_1_0_1_0()); 
+    newLeafNode(this_WHITESPACE_2, grammarAccess.getIdentifierListAccess().getWHITESPACETerminalRuleCall_1_0_1_0()); 
+    }
+)*
+
+
+this_SKW_COMMA_3=RULE_SKW_COMMA
+    { 
+    newLeafNode(this_SKW_COMMA_3, grammarAccess.getIdentifierListAccess().getSKW_COMMATerminalRuleCall_1_0_1_1()); 
     }
 
 
 
-(this_WHITESPACE_3=RULE_WHITESPACE
+(this_WHITESPACE_4=RULE_WHITESPACE
     { 
-    newLeafNode(this_WHITESPACE_3, grammarAccess.getIdentifierListAccess().getWHITESPACETerminalRuleCall_1_0_1_1()); 
+    newLeafNode(this_WHITESPACE_4, grammarAccess.getIdentifierListAccess().getWHITESPACETerminalRuleCall_1_0_1_2()); 
     }
 )*
 
 
 (
 (
-		lv_id_4_0=RULE_ID
+		lv_id_5_0=RULE_ID
 		{
-			newLeafNode(lv_id_4_0, grammarAccess.getIdentifierListAccess().getIdIDTerminalRuleCall_1_0_1_2_0()); 
+			newLeafNode(lv_id_5_0, grammarAccess.getIdentifierListAccess().getIdIDTerminalRuleCall_1_0_1_3_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1127,7 +1134,7 @@ this_SKW_COMMA_2=RULE_SKW_COMMA
        		addWithLastConsumed(
        			$current, 
        			"id",
-        		lv_id_4_0, 
+        		lv_id_5_0, 
         		"at.jku.weiner.c.common.Common.ID");
 	    }
 
@@ -1137,24 +1144,24 @@ this_SKW_COMMA_2=RULE_SKW_COMMA
 )*
 
 
-(this_WHITESPACE_5=RULE_WHITESPACE
+(this_WHITESPACE_6=RULE_WHITESPACE
     { 
-    newLeafNode(this_WHITESPACE_5, grammarAccess.getIdentifierListAccess().getWHITESPACETerminalRuleCall_1_0_2()); 
+    newLeafNode(this_WHITESPACE_6, grammarAccess.getIdentifierListAccess().getWHITESPACETerminalRuleCall_1_0_2()); 
     }
 )*
 
 
 (
-this_SKW_COMMA_6=RULE_SKW_COMMA
+this_SKW_COMMA_7=RULE_SKW_COMMA
     { 
-    newLeafNode(this_SKW_COMMA_6, grammarAccess.getIdentifierListAccess().getSKW_COMMATerminalRuleCall_1_0_3_0()); 
+    newLeafNode(this_SKW_COMMA_7, grammarAccess.getIdentifierListAccess().getSKW_COMMATerminalRuleCall_1_0_3_0()); 
     }
 
 
 
-(this_WHITESPACE_7=RULE_WHITESPACE
+(this_WHITESPACE_8=RULE_WHITESPACE
     { 
-    newLeafNode(this_WHITESPACE_7, grammarAccess.getIdentifierListAccess().getWHITESPACETerminalRuleCall_1_0_3_1()); 
+    newLeafNode(this_WHITESPACE_8, grammarAccess.getIdentifierListAccess().getWHITESPACETerminalRuleCall_1_0_3_1()); 
     }
 )*
 
@@ -1165,7 +1172,7 @@ this_SKW_COMMA_6=RULE_SKW_COMMA
 		{ 
 	        newCompositeNode(grammarAccess.getIdentifierListAccess().getVariadicEllipsisParserRuleCall_1_0_3_2_0_0()); 
 	    }
-		lv_variadic_8_0=ruleEllipsis		{
+		lv_variadic_9_0=ruleEllipsis		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getIdentifierListRule());
 	        }
@@ -1185,9 +1192,9 @@ this_SKW_COMMA_6=RULE_SKW_COMMA
 (
 (
 (
-		lv_varID_9_0=RULE_ID
+		lv_varID_10_0=RULE_ID
 		{
-			newLeafNode(lv_varID_9_0, grammarAccess.getIdentifierListAccess().getVarIDIDTerminalRuleCall_1_0_3_2_1_0_0()); 
+			newLeafNode(lv_varID_10_0, grammarAccess.getIdentifierListAccess().getVarIDIDTerminalRuleCall_1_0_3_2_1_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1196,7 +1203,7 @@ this_SKW_COMMA_6=RULE_SKW_COMMA
        		setWithLastConsumed(
        			$current, 
        			"varID",
-        		lv_varID_9_0, 
+        		lv_varID_10_0, 
         		"at.jku.weiner.c.common.Common.ID");
 	    }
 
@@ -1209,7 +1216,7 @@ this_SKW_COMMA_6=RULE_SKW_COMMA
 		{ 
 	        newCompositeNode(grammarAccess.getIdentifierListAccess().getVariadicEllipsisParserRuleCall_1_0_3_2_1_1_0()); 
 	    }
-		lv_variadic_10_0=ruleEllipsis		{
+		lv_variadic_11_0=ruleEllipsis		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getIdentifierListRule());
 	        }
@@ -1237,9 +1244,9 @@ this_SKW_COMMA_6=RULE_SKW_COMMA
 (
 (
 (
-		lv_varID_11_0=RULE_ID
+		lv_varID_12_0=RULE_ID
 		{
-			newLeafNode(lv_varID_11_0, grammarAccess.getIdentifierListAccess().getVarIDIDTerminalRuleCall_1_1_0_0()); 
+			newLeafNode(lv_varID_12_0, grammarAccess.getIdentifierListAccess().getVarIDIDTerminalRuleCall_1_1_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1248,7 +1255,7 @@ this_SKW_COMMA_6=RULE_SKW_COMMA
        		setWithLastConsumed(
        			$current, 
        			"varID",
-        		lv_varID_11_0, 
+        		lv_varID_12_0, 
         		"at.jku.weiner.c.common.Common.ID");
 	    }
 
@@ -1261,7 +1268,7 @@ this_SKW_COMMA_6=RULE_SKW_COMMA
 		{ 
 	        newCompositeNode(grammarAccess.getIdentifierListAccess().getVariadicEllipsisParserRuleCall_1_1_1_0()); 
 	    }
-		lv_variadic_12_0=ruleEllipsis		{
+		lv_variadic_13_0=ruleEllipsis		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getIdentifierListRule());
 	        }
@@ -2286,6 +2293,34 @@ this_PRAGMA_1=RULE_PRAGMA
     newLeafNode(this_PRAGMA_1, grammarAccess.getPragmaDirectiveAccess().getPRAGMATerminalRuleCall_1()); 
     }
 
+
+
+(this_WHITESPACE_2=RULE_WHITESPACE
+    { 
+    newLeafNode(this_WHITESPACE_2, grammarAccess.getPragmaDirectiveAccess().getWHITESPACETerminalRuleCall_2()); 
+    }
+)*
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getPragmaDirectiveAccess().getPragmaMyCodeLineParserRuleCall_3_0()); 
+	    }
+		lv_pragma_3_0=ruleMyCodeLine		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getPragmaDirectiveRule());
+	        }
+       		set(
+       			$current, 
+       			"pragma",
+        		lv_pragma_3_0, 
+        		"at.jku.weiner.c.preprocess.Preprocess.MyCodeLine");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)?
 
 )
 

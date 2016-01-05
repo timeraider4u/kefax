@@ -36,7 +36,8 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_ElseConditional_WHITESPACETerminalRuleCall_3_a;
 	protected AbstractElementAlias match_ElseConditional_WHITESPACETerminalRuleCall_5_a;
 	protected AbstractElementAlias match_ErrorDirective_WHITESPACETerminalRuleCall_2_a;
-	protected AbstractElementAlias match_IdentifierList_WHITESPACETerminalRuleCall_1_0_1_1_a;
+	protected AbstractElementAlias match_IdentifierList_WHITESPACETerminalRuleCall_1_0_1_0_a;
+	protected AbstractElementAlias match_IdentifierList_WHITESPACETerminalRuleCall_1_0_1_2_a;
 	protected AbstractElementAlias match_IdentifierList_WHITESPACETerminalRuleCall_1_0_2_a;
 	protected AbstractElementAlias match_IdentifierList_WHITESPACETerminalRuleCall_1_0_3_1_a;
 	protected AbstractElementAlias match_IfConditional_WHITESPACETerminalRuleCall_2_p;
@@ -46,6 +47,7 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_IfNotDefConditional_WHITESPACETerminalRuleCall_2_p;
 	protected AbstractElementAlias match_IfNotDefConditional_WHITESPACETerminalRuleCall_4_a;
 	protected AbstractElementAlias match_IncludeDirective_WHITESPACETerminalRuleCall_2_p;
+	protected AbstractElementAlias match_PragmaDirective_WHITESPACETerminalRuleCall_2_a;
 	protected AbstractElementAlias match_PreprocessorDirectives_WHITESPACETerminalRuleCall_1_a;
 	protected AbstractElementAlias match_PreprocessorDirectives_WHITESPACETerminalRuleCall_3_a;
 	protected AbstractElementAlias match_UnDefineDirective_WHITESPACETerminalRuleCall_2_p;
@@ -71,7 +73,8 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_ElseConditional_WHITESPACETerminalRuleCall_3_a = new TokenAlias(true, true, grammarAccess.getElseConditionalAccess().getWHITESPACETerminalRuleCall_3());
 		match_ElseConditional_WHITESPACETerminalRuleCall_5_a = new TokenAlias(true, true, grammarAccess.getElseConditionalAccess().getWHITESPACETerminalRuleCall_5());
 		match_ErrorDirective_WHITESPACETerminalRuleCall_2_a = new TokenAlias(true, true, grammarAccess.getErrorDirectiveAccess().getWHITESPACETerminalRuleCall_2());
-		match_IdentifierList_WHITESPACETerminalRuleCall_1_0_1_1_a = new TokenAlias(true, true, grammarAccess.getIdentifierListAccess().getWHITESPACETerminalRuleCall_1_0_1_1());
+		match_IdentifierList_WHITESPACETerminalRuleCall_1_0_1_0_a = new TokenAlias(true, true, grammarAccess.getIdentifierListAccess().getWHITESPACETerminalRuleCall_1_0_1_0());
+		match_IdentifierList_WHITESPACETerminalRuleCall_1_0_1_2_a = new TokenAlias(true, true, grammarAccess.getIdentifierListAccess().getWHITESPACETerminalRuleCall_1_0_1_2());
 		match_IdentifierList_WHITESPACETerminalRuleCall_1_0_2_a = new TokenAlias(true, true, grammarAccess.getIdentifierListAccess().getWHITESPACETerminalRuleCall_1_0_2());
 		match_IdentifierList_WHITESPACETerminalRuleCall_1_0_3_1_a = new TokenAlias(true, true, grammarAccess.getIdentifierListAccess().getWHITESPACETerminalRuleCall_1_0_3_1());
 		match_IfConditional_WHITESPACETerminalRuleCall_2_p = new TokenAlias(true, false, grammarAccess.getIfConditionalAccess().getWHITESPACETerminalRuleCall_2());
@@ -81,6 +84,7 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_IfNotDefConditional_WHITESPACETerminalRuleCall_2_p = new TokenAlias(true, false, grammarAccess.getIfNotDefConditionalAccess().getWHITESPACETerminalRuleCall_2());
 		match_IfNotDefConditional_WHITESPACETerminalRuleCall_4_a = new TokenAlias(true, true, grammarAccess.getIfNotDefConditionalAccess().getWHITESPACETerminalRuleCall_4());
 		match_IncludeDirective_WHITESPACETerminalRuleCall_2_p = new TokenAlias(true, false, grammarAccess.getIncludeDirectiveAccess().getWHITESPACETerminalRuleCall_2());
+		match_PragmaDirective_WHITESPACETerminalRuleCall_2_a = new TokenAlias(true, true, grammarAccess.getPragmaDirectiveAccess().getWHITESPACETerminalRuleCall_2());
 		match_PreprocessorDirectives_WHITESPACETerminalRuleCall_1_a = new TokenAlias(true, true, grammarAccess.getPreprocessorDirectivesAccess().getWHITESPACETerminalRuleCall_1());
 		match_PreprocessorDirectives_WHITESPACETerminalRuleCall_3_a = new TokenAlias(true, true, grammarAccess.getPreprocessorDirectivesAccess().getWHITESPACETerminalRuleCall_3());
 		match_UnDefineDirective_WHITESPACETerminalRuleCall_2_p = new TokenAlias(true, false, grammarAccess.getUnDefineDirectiveAccess().getWHITESPACETerminalRuleCall_2());
@@ -430,8 +434,10 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_ElseConditional_WHITESPACETerminalRuleCall_5_a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_ErrorDirective_WHITESPACETerminalRuleCall_2_a.equals(syntax))
 				emit_ErrorDirective_WHITESPACETerminalRuleCall_2_a(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_IdentifierList_WHITESPACETerminalRuleCall_1_0_1_1_a.equals(syntax))
-				emit_IdentifierList_WHITESPACETerminalRuleCall_1_0_1_1_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_IdentifierList_WHITESPACETerminalRuleCall_1_0_1_0_a.equals(syntax))
+				emit_IdentifierList_WHITESPACETerminalRuleCall_1_0_1_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_IdentifierList_WHITESPACETerminalRuleCall_1_0_1_2_a.equals(syntax))
+				emit_IdentifierList_WHITESPACETerminalRuleCall_1_0_1_2_a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_IdentifierList_WHITESPACETerminalRuleCall_1_0_2_a.equals(syntax))
 				emit_IdentifierList_WHITESPACETerminalRuleCall_1_0_2_a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_IdentifierList_WHITESPACETerminalRuleCall_1_0_3_1_a.equals(syntax))
@@ -450,6 +456,8 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_IfNotDefConditional_WHITESPACETerminalRuleCall_4_a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_IncludeDirective_WHITESPACETerminalRuleCall_2_p.equals(syntax))
 				emit_IncludeDirective_WHITESPACETerminalRuleCall_2_p(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_PragmaDirective_WHITESPACETerminalRuleCall_2_a.equals(syntax))
+				emit_PragmaDirective_WHITESPACETerminalRuleCall_2_a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_PreprocessorDirectives_WHITESPACETerminalRuleCall_1_a.equals(syntax))
 				emit_PreprocessorDirectives_WHITESPACETerminalRuleCall_1_a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_PreprocessorDirectives_WHITESPACETerminalRuleCall_3_a.equals(syntax))
@@ -661,9 +669,20 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     WHITESPACE*
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     id+=ID SKW_COMMA (ambiguity) id+=ID
+	 *     id+=ID (ambiguity) SKW_COMMA WHITESPACE* id+=ID
 	 */
-	protected void emit_IdentifierList_WHITESPACETerminalRuleCall_1_0_1_1_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_IdentifierList_WHITESPACETerminalRuleCall_1_0_1_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     WHITESPACE*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     id+=ID WHITESPACE* SKW_COMMA (ambiguity) id+=ID
+	 */
+	protected void emit_IdentifierList_WHITESPACETerminalRuleCall_1_0_1_2_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -766,6 +785,18 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) INCLUDE (ambiguity) string=MyCodeLine
 	 */
 	protected void emit_IncludeDirective_WHITESPACETerminalRuleCall_2_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     WHITESPACE*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) PRAGMA (ambiguity) (rule start)
+	 *     (rule start) PRAGMA (ambiguity) pragma=MyCodeLine
+	 */
+	protected void emit_PragmaDirective_WHITESPACETerminalRuleCall_2_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

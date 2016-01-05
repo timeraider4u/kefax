@@ -148,7 +148,7 @@ public class PreprocessParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDefineFunctionLikeMacroAccess().getListAssignment_6(), "rule__DefineFunctionLikeMacro__ListAssignment_6");
 					put(grammarAccess.getDefineFunctionLikeMacroAccess().getStringAssignment_8_1(), "rule__DefineFunctionLikeMacro__StringAssignment_8_1");
 					put(grammarAccess.getIdentifierListAccess().getIdAssignment_1_0_0(), "rule__IdentifierList__IdAssignment_1_0_0");
-					put(grammarAccess.getIdentifierListAccess().getIdAssignment_1_0_1_2(), "rule__IdentifierList__IdAssignment_1_0_1_2");
+					put(grammarAccess.getIdentifierListAccess().getIdAssignment_1_0_1_3(), "rule__IdentifierList__IdAssignment_1_0_1_3");
 					put(grammarAccess.getIdentifierListAccess().getVariadicAssignment_1_0_3_2_0(), "rule__IdentifierList__VariadicAssignment_1_0_3_2_0");
 					put(grammarAccess.getIdentifierListAccess().getVarIDAssignment_1_0_3_2_1_0(), "rule__IdentifierList__VarIDAssignment_1_0_3_2_1_0");
 					put(grammarAccess.getIdentifierListAccess().getVariadicAssignment_1_0_3_2_1_1(), "rule__IdentifierList__VariadicAssignment_1_0_3_2_1_1");
@@ -169,6 +169,7 @@ public class PreprocessParser extends AbstractContentAssistParser {
 					put(grammarAccess.getElIfConditionalAccess().getExpressionAssignment_3(), "rule__ElIfConditional__ExpressionAssignment_3");
 					put(grammarAccess.getElIfConditionalAccess().getGroupAssignment_6(), "rule__ElIfConditional__GroupAssignment_6");
 					put(grammarAccess.getElseConditionalAccess().getGroupAssignment_7(), "rule__ElseConditional__GroupAssignment_7");
+					put(grammarAccess.getPragmaDirectiveAccess().getPragmaAssignment_3(), "rule__PragmaDirective__PragmaAssignment_3");
 					put(grammarAccess.getCodeAccess().getCodeAssignment_1(), "rule__Code__CodeAssignment_1");
 					put(grammarAccess.getPrimaryExpressionAccess().getDefinedAssignment_1_0_0(), "rule__PrimaryExpression__DefinedAssignment_1_0_0");
 					put(grammarAccess.getPrimaryExpressionAccess().getIdAssignment_1_0_1(), "rule__PrimaryExpression__IdAssignment_1_0_1");

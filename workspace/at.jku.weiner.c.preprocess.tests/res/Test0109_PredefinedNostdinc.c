@@ -1,0 +1,2 @@
+__GNUC__
+_STDC_PREDEF_H

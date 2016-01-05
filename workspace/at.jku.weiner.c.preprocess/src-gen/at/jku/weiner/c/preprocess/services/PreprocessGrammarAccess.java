@@ -458,10 +458,11 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cIdAssignment_1_0_0 = (Assignment)cGroup_1_0.eContents().get(0);
 		private final RuleCall cIdIDTerminalRuleCall_1_0_0_0 = (RuleCall)cIdAssignment_1_0_0.eContents().get(0);
 		private final Group cGroup_1_0_1 = (Group)cGroup_1_0.eContents().get(1);
-		private final RuleCall cSKW_COMMATerminalRuleCall_1_0_1_0 = (RuleCall)cGroup_1_0_1.eContents().get(0);
-		private final RuleCall cWHITESPACETerminalRuleCall_1_0_1_1 = (RuleCall)cGroup_1_0_1.eContents().get(1);
-		private final Assignment cIdAssignment_1_0_1_2 = (Assignment)cGroup_1_0_1.eContents().get(2);
-		private final RuleCall cIdIDTerminalRuleCall_1_0_1_2_0 = (RuleCall)cIdAssignment_1_0_1_2.eContents().get(0);
+		private final RuleCall cWHITESPACETerminalRuleCall_1_0_1_0 = (RuleCall)cGroup_1_0_1.eContents().get(0);
+		private final RuleCall cSKW_COMMATerminalRuleCall_1_0_1_1 = (RuleCall)cGroup_1_0_1.eContents().get(1);
+		private final RuleCall cWHITESPACETerminalRuleCall_1_0_1_2 = (RuleCall)cGroup_1_0_1.eContents().get(2);
+		private final Assignment cIdAssignment_1_0_1_3 = (Assignment)cGroup_1_0_1.eContents().get(3);
+		private final RuleCall cIdIDTerminalRuleCall_1_0_1_3_0 = (RuleCall)cIdAssignment_1_0_1_3.eContents().get(0);
 		private final RuleCall cWHITESPACETerminalRuleCall_1_0_2 = (RuleCall)cGroup_1_0.eContents().get(2);
 		private final Group cGroup_1_0_3 = (Group)cGroup_1_0.eContents().get(3);
 		private final RuleCall cSKW_COMMATerminalRuleCall_1_0_3_0 = (RuleCall)cGroup_1_0_3.eContents().get(0);
@@ -481,24 +482,24 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cVariadicEllipsisParserRuleCall_1_1_1_0 = (RuleCall)cVariadicAssignment_1_1_1.eContents().get(0);
 		
 		//IdentifierList:
-		//	{IdentifierList} (id+=ID (SKW_COMMA WHITESPACE* id+=ID)*
+		//	{IdentifierList} (id+=ID (WHITESPACE* SKW_COMMA WHITESPACE* id+=ID)*
 		//	WHITESPACE* (SKW_COMMA WHITESPACE* (variadic?=Ellipsis
 		//	| varID=ID variadic?=Ellipsis))?
 		//	| varID=ID? variadic?=Ellipsis);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{IdentifierList} (id+=ID (SKW_COMMA WHITESPACE* id+=ID)* WHITESPACE* (SKW_COMMA WHITESPACE* (variadic?=Ellipsis |
-		//varID=ID variadic?=Ellipsis))? | varID=ID? variadic?=Ellipsis)
+		//{IdentifierList} (id+=ID (WHITESPACE* SKW_COMMA WHITESPACE* id+=ID)* WHITESPACE* (SKW_COMMA WHITESPACE*
+		//(variadic?=Ellipsis | varID=ID variadic?=Ellipsis))? | varID=ID? variadic?=Ellipsis)
 		public Group getGroup() { return cGroup; }
 		
 		//{IdentifierList}
 		public Action getIdentifierListAction_0() { return cIdentifierListAction_0; }
 		
-		//(id+=ID (SKW_COMMA WHITESPACE* id+=ID)* WHITESPACE* (SKW_COMMA WHITESPACE* (variadic?=Ellipsis | varID=ID
+		//(id+=ID (WHITESPACE* SKW_COMMA WHITESPACE* id+=ID)* WHITESPACE* (SKW_COMMA WHITESPACE* (variadic?=Ellipsis | varID=ID
 		//variadic?=Ellipsis))? | varID=ID? variadic?=Ellipsis)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		//id+=ID (SKW_COMMA WHITESPACE* id+=ID)* WHITESPACE* (SKW_COMMA WHITESPACE* (variadic?=Ellipsis | varID=ID
+		//id+=ID (WHITESPACE* SKW_COMMA WHITESPACE* id+=ID)* WHITESPACE* (SKW_COMMA WHITESPACE* (variadic?=Ellipsis | varID=ID
 		//variadic?=Ellipsis))?
 		public Group getGroup_1_0() { return cGroup_1_0; }
 		
@@ -508,20 +509,23 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getIdIDTerminalRuleCall_1_0_0_0() { return cIdIDTerminalRuleCall_1_0_0_0; }
 		
-		//(SKW_COMMA WHITESPACE* id+=ID)*
+		//(WHITESPACE* SKW_COMMA WHITESPACE* id+=ID)*
 		public Group getGroup_1_0_1() { return cGroup_1_0_1; }
 		
+		//WHITESPACE*
+		public RuleCall getWHITESPACETerminalRuleCall_1_0_1_0() { return cWHITESPACETerminalRuleCall_1_0_1_0; }
+		
 		//SKW_COMMA
-		public RuleCall getSKW_COMMATerminalRuleCall_1_0_1_0() { return cSKW_COMMATerminalRuleCall_1_0_1_0; }
+		public RuleCall getSKW_COMMATerminalRuleCall_1_0_1_1() { return cSKW_COMMATerminalRuleCall_1_0_1_1; }
 		
 		//WHITESPACE*
-		public RuleCall getWHITESPACETerminalRuleCall_1_0_1_1() { return cWHITESPACETerminalRuleCall_1_0_1_1; }
+		public RuleCall getWHITESPACETerminalRuleCall_1_0_1_2() { return cWHITESPACETerminalRuleCall_1_0_1_2; }
 		
 		//id+=ID
-		public Assignment getIdAssignment_1_0_1_2() { return cIdAssignment_1_0_1_2; }
+		public Assignment getIdAssignment_1_0_1_3() { return cIdAssignment_1_0_1_3; }
 		
 		//ID
-		public RuleCall getIdIDTerminalRuleCall_1_0_1_2_0() { return cIdIDTerminalRuleCall_1_0_1_2_0; }
+		public RuleCall getIdIDTerminalRuleCall_1_0_1_3_0() { return cIdIDTerminalRuleCall_1_0_1_3_0; }
 		
 		//WHITESPACE*
 		public RuleCall getWHITESPACETerminalRuleCall_1_0_2() { return cWHITESPACETerminalRuleCall_1_0_2; }
@@ -1010,12 +1014,16 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cPragmaDirectiveAction_0 = (Action)cGroup.eContents().get(0);
 		private final RuleCall cPRAGMATerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final RuleCall cWHITESPACETerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cPragmaAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cPragmaMyCodeLineParserRuleCall_3_0 = (RuleCall)cPragmaAssignment_3.eContents().get(0);
 		
 		//PragmaDirective:
-		//	{PragmaDirective} PRAGMA;
+		//	{PragmaDirective} PRAGMA
+		//	WHITESPACE* pragma=MyCodeLine?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{PragmaDirective} PRAGMA
+		//{PragmaDirective} PRAGMA WHITESPACE* pragma=MyCodeLine?
 		public Group getGroup() { return cGroup; }
 		
 		//{PragmaDirective}
@@ -1023,6 +1031,15 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//PRAGMA
 		public RuleCall getPRAGMATerminalRuleCall_1() { return cPRAGMATerminalRuleCall_1; }
+		
+		//WHITESPACE*
+		public RuleCall getWHITESPACETerminalRuleCall_2() { return cWHITESPACETerminalRuleCall_2; }
+		
+		//pragma=MyCodeLine?
+		public Assignment getPragmaAssignment_3() { return cPragmaAssignment_3; }
+		
+		//MyCodeLine
+		public RuleCall getPragmaMyCodeLineParserRuleCall_3_0() { return cPragmaMyCodeLineParserRuleCall_3_0; }
 	}
 	public class NullDirectiveElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.NullDirective");
@@ -1618,7 +1635,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//IdentifierList:
-	//	{IdentifierList} (id+=ID (SKW_COMMA WHITESPACE* id+=ID)*
+	//	{IdentifierList} (id+=ID (WHITESPACE* SKW_COMMA WHITESPACE* id+=ID)*
 	//	WHITESPACE* (SKW_COMMA WHITESPACE* (variadic?=Ellipsis
 	//	| varID=ID variadic?=Ellipsis))?
 	//	| varID=ID? variadic?=Ellipsis);
@@ -1731,7 +1748,8 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//PragmaDirective:
-	//	{PragmaDirective} PRAGMA;
+	//	{PragmaDirective} PRAGMA
+	//	WHITESPACE* pragma=MyCodeLine?;
 	public PragmaDirectiveElements getPragmaDirectiveAccess() {
 		return pPragmaDirective;
 	}

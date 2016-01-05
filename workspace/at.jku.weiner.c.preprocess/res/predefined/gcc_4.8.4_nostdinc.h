@@ -1,7 +1,10 @@
+// generated with command 'gcc -nostdinc -dM -E - < /dev/null'
+#define __SSP_STRONG__ 3
 #define __DBL_MIN_EXP__ (-1021)
 #define __UINT_LEAST16_MAX__ 65535
 #define __ATOMIC_ACQUIRE 2
 #define __FLT_MIN__ 1.17549435082228750797e-38F
+#define __GCC_IEC_559_COMPLEX 2
 #define __UINT_LEAST8_TYPE__ unsigned char
 #define __INTMAX_C(c) c ## L
 #define __CHAR_BIT__ 8
@@ -16,6 +19,7 @@
 #define __DBL_DENORM_MIN__ ((double)4.94065645841246544177e-324L)
 #define __GCC_HAVE_SYNC_COMPARE_AND_SWAP_8 1
 #define __GCC_ATOMIC_CHAR_LOCK_FREE 2
+#define __GCC_IEC_559 2
 #define __FLT_EVAL_METHOD__ 0
 #define __unix__ 1
 #define __GCC_ATOMIC_CHAR32_T_LOCK_FREE 2
@@ -24,8 +28,9 @@
 #define __SIG_ATOMIC_TYPE__ int
 #define __DBL_MIN_10_EXP__ (-307)
 #define __FINITE_MATH_ONLY__ 0
-#define __GNUC_PATCHLEVEL__ 4
+#define __GNUC_PATCHLEVEL__ 3
 #define __UINT_FAST8_MAX__ 255
+#define __has_include(STR) __has_include__(STR)
 #define __DEC64_MAX_EXP__ 385
 #define __INT8_C(c) c
 #define __UINT_LEAST64_MAX__ 18446744073709551615UL
@@ -57,11 +62,10 @@
 #define __DEC32_MAX__ 9.999999E96DF
 #define __INT32_MAX__ 2147483647
 #define __SIZEOF_LONG__ 8
-#define __STDC_IEC_559__ 1
-#define __STDC_ISO_10646__ 201103L
 #define __UINT16_C(c) c
 #define __DECIMAL_DIG__ 21
 #define __gnu_linux__ 1
+#define __has_include_next(STR) __has_include_next__(STR)
 #define __LDBL_HAS_QUIET_NAN__ 1
 #define __GNUC__ 4
 #define __MMX__ 1
@@ -83,7 +87,6 @@
 #define __ATOMIC_HLE_RELEASE 131072
 #define __PTRDIFF_MAX__ 9223372036854775807L
 #define __amd64 1
-#define __STDC_NO_THREADS__ 1
 #define __ATOMIC_HLE_ACQUIRE 65536
 #define __LONG_LONG_MAX__ 9223372036854775807LL
 #define __SIZEOF_SIZE_T__ 8
@@ -102,12 +105,10 @@
 #define __UINT8_TYPE__ unsigned char
 #define __NO_INLINE__ 1
 #define __FLT_MANT_DIG__ 24
-#define __VERSION__ "4.8.4"
+#define __VERSION__ "4.9.3"
 #define __UINT64_C(c) c ## UL
-#define _STDC_PREDEF_H 1
 #define __GCC_ATOMIC_INT_LOCK_FREE 2
 #define __FLOAT_WORD_ORDER__ __ORDER_LITTLE_ENDIAN__
-#define __STDC_IEC_559_COMPLEX__ 1
 #define __INT32_C(c) c
 #define __DEC64_EPSILON__ 1E-15DD
 #define __ORDER_PDP_ENDIAN__ 3412
@@ -186,7 +187,6 @@
 #define __SSE__ 1
 #define __LDBL_MIN_EXP__ (-16381)
 #define __INT_LEAST8_MAX__ 127
-#define __SSP__ 1
 #define __SIZEOF_INT128__ 16
 #define __LDBL_MAX_10_EXP__ 4932
 #define __ATOMIC_RELAXED 0
@@ -214,7 +214,7 @@
 #define __INTMAX_TYPE__ long int
 #define __DEC128_MAX_EXP__ 6145
 #define __ATOMIC_CONSUME 1
-#define __GNUC_MINOR__ 8
+#define __GNUC_MINOR__ 9
 #define __UINTMAX_MAX__ 18446744073709551615UL
 #define __DEC32_MANT_DIG__ 7
 #define __DBL_MAX_10_EXP__ 308

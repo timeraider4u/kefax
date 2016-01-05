@@ -1,0 +1,51 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language preprocess
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+split-lexer=false
+source file="res/Test0107_FunctionMacroTwoArgumentsWithSpaces.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID WHITESPACE SKW_COMMA ID SKW_RIGHTPAREN WHITESPACE
+		SKW_LEFTPAREN SKW_LEFTPAREN ID SKW_RIGHTPAREN WHITESPACE SKW_LESS WHITESPACE
+		SKW_LEFTPAREN ID SKW_RIGHTPAREN WHITESPACE SKW_QUESTION WHITESPACE
+		SKW_LEFTPAREN ID SKW_RIGHTPAREN WHITESPACE SKW_COLON WHITESPACE
+		SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_RIGHTPAREN 
+		NEWLINE
+	// a
+	ID WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE ID SKW_LEFTPAREN DECIMAL_LITERAL SKW_COMMA DECIMAL_LITERAL SKW_RIGHTPAREN SKW_SEMI NEWLINE
+	
+//----------------------------------------------------------------------
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"MIN",
+					list=
+					(IdentifierList
+						id+*"[X, Y]"
+					),
+					string++"((X) < (Y) ? (X) : (Y))"
+				)
+			),
+			(Code
+				code++"int a = MIN(5,8);"
+			)
+		)
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0107_FunctionMacroTwoArgumentsWithSpaces.c.i"
+expected file="expected/Test0107_FunctionMacroTwoArgumentsWithSpaces.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

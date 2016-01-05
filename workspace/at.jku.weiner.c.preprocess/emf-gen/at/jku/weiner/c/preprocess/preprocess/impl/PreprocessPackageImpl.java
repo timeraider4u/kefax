@@ -682,6 +682,16 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getPragmaDirective_Pragma()
+	{
+		return (EAttribute)pragmaDirectiveEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getNullDirective()
 	{
 		return nullDirectiveEClass;
@@ -959,6 +969,7 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 		createEReference(elseConditionalEClass, ELSE_CONDITIONAL__GROUP);
 
 		pragmaDirectiveEClass = createEClass(PRAGMA_DIRECTIVE);
+		createEAttribute(pragmaDirectiveEClass, PRAGMA_DIRECTIVE__PRAGMA);
 
 		nullDirectiveEClass = createEClass(NULL_DIRECTIVE);
 
@@ -1093,6 +1104,7 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 		initEReference(getElseConditional_Group(), this.getGroupOpt(), null, "group", null, 0, 1, ElseConditional.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(pragmaDirectiveEClass, PragmaDirective.class, "PragmaDirective", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPragmaDirective_Pragma(), theEcorePackage.getEString(), "pragma", null, 0, 1, PragmaDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(nullDirectiveEClass, NullDirective.class, "NullDirective", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

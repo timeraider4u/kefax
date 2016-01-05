@@ -53,7 +53,7 @@ public class TestPredefined {
 	private IResourceFactory resourceFactory;
 	@Inject
 	private ValidationTestHelper valHelper;
-	
+
 	@Test(timeout = 1000)
 	public void loadPredefined() throws Exception {
 		// load the resource
@@ -72,7 +72,7 @@ public class TestPredefined {
 		this.valHelper.assertNoErrors(preprocess);
 		Assert.assertNotNull(preprocess);
 	}
-	
+
 	@Test(timeout = 1000)
 	public void testGenerator() throws Exception {
 		// load the resource
@@ -93,8 +93,8 @@ public class TestPredefined {
 		final Model model = CommonFactory.eINSTANCE.createModel();
 		final TranslationUnit unitPredefined = CommonFactory.eINSTANCE
 				.createTranslationUnit();
-		final Preprocess predefined = PredefinedMacros
-				.loadPreDefinedMacros(true);
+		final Preprocess predefined = PredefinedMacros.loadPreDefinedMacros(
+				true, true);
 		Assert.assertNotNull(predefined);
 		Assert.assertNotNull(predefined.getGroup());
 
@@ -141,7 +141,7 @@ public class TestPredefined {
 		string = this.preprocessForPatterns(string);
 		return string;
 	}
-	
+
 	private String preprocessForPatterns(final String string) {
 		return string;
 	}

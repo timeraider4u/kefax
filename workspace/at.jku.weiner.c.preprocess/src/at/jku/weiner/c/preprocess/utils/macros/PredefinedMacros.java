@@ -11,21 +11,25 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.xtext.resource.XtextResourceSet;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 
-import com.google.common.collect.Iterators;
-
 import at.jku.weiner.c.preprocess.preprocess.Preprocess;
+
+import com.google.common.collect.Iterators;
 
 public class PredefinedMacros {
 
 	private static final String BUNDLE_NAME = "at.jku.weiner.c.preprocess";
-	
+
 	private static Preprocess predefined = null;
-	
-	public static Preprocess loadPreDefinedMacros(final boolean standAlone) {
-		if (PredefinedMacros.predefined != null) {
+	private static boolean stdPreInclude;
+
+	public static Preprocess loadPreDefinedMacros(final boolean standAlone,
+			final boolean stdInclude) {
+		if ((PredefinedMacros.predefined != null)
+				&& (PredefinedMacros.stdPreInclude == stdInclude)) {
 			return PredefinedMacros.predefined;
 		}
-		final URI predefinedURI = PredefinedMacros.getPredefinedURI(standAlone);
+		final URI predefinedURI = PredefinedMacros.getPredefinedURI(standAlone,
+				stdInclude);
 		final ResourceSet rs = new XtextResourceSet();
 		final Resource predefinedRes = rs.getResource(predefinedURI, true);
 		final TreeIterator<EObject> _allContents = predefinedRes
@@ -34,20 +38,30 @@ public class PredefinedMacros {
 				_allContents, Preprocess.class);
 		final Preprocess _head = IteratorExtensions.<Preprocess> head(_filter);
 		PredefinedMacros.predefined = _head;
+		PredefinedMacros.stdPreInclude = stdInclude;
 		return PredefinedMacros.predefined;
 	}
 
 	/***
 	 * insert pre-defined macros
 	 */
-	public static URI getPredefinedURI(final boolean standAlone) {
-		final String fileName = "res/predefined/gcc_4.8.4.h";
+	public static URI getPredefinedURI(final boolean standAlone,
+			final boolean stdInclude) {
+		final String suffix = PredefinedMacros.getSuffix(stdInclude);
+		final String fileName = "res/predefined/gcc_4.8.4_" + suffix + ".h";
 		if (standAlone) {
 			return PredefinedMacros.getURIFromFile(fileName);
 		}
 		final URI uri = URI.createPlatformPluginURI("/"
 				+ PredefinedMacros.BUNDLE_NAME + "/" + fileName, true);
 		return uri;
+	}
+
+	private static String getSuffix(final boolean stdInclude) {
+		if (stdInclude) {
+			return "default";
+		}
+		return "nostdinc";
 	}
 
 	private static URI getURIFromFile(final String fileName) {

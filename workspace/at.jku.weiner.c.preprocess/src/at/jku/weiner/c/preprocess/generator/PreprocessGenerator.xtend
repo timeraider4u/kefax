@@ -50,8 +50,6 @@ import at.jku.weiner.c.common.common.CommonFactory
 import at.jku.weiner.c.preprocess.preprocess.IfAbstractConditional
 
 import at.jku.weiner.c.preprocess.utils.macros.PredefinedMacros
-import java.io.InputStream
-import java.io.ByteArrayInputStream
 import at.jku.weiner.c.preprocess.utils.macros.AdditionalPreprocessingDirectives
 
 /**
@@ -78,7 +76,7 @@ class PreprocessGenerator implements IGenerator {
 	URI uri;
 	List<String> path = new ArrayList<String>();
 	boolean standAlone = false;
-	boolean logging = false;
+	boolean logging = true;
 	
 	override void doGenerate(Resource input, IFileSystemAccess fsa) {
 		setUp();
@@ -113,7 +111,7 @@ class PreprocessGenerator implements IGenerator {
 	}
 	
 	def void insertPredefinedMacros() {
-		val Preprocess predefined = PredefinedMacros.loadPreDefinedMacros(standAlone);
+		val Preprocess predefined = PredefinedMacros.loadPreDefinedMacros(standAlone, this.stdInclude);
 		path.add("/predefined/");
 		val String output = outputFor(predefined);
 		output.trim();

@@ -12,7 +12,7 @@ source file="res/Test0001_Empty"
 	units+=
 	// Predefined
 	(TranslationUnit
-		path++"platform:/plugin/at.jku.weiner.c.preprocess/res/predefined/gcc_4.8.4.h",
+		path++"platform:/plugin/at.jku.weiner.c.preprocess/res/predefined/gcc_4.8.4_default.h",
 		preprocess=
 		(preprocess::Preprocess
 			

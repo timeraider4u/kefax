@@ -1,0 +1,38 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language preprocess
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+split-lexer=false
+source file="res/Test0108_PredefinedDefault.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	ID NEWLINE
+	ID NEWLINE
+//----------------------------------------------------------------------
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
+		group=
+		(GroupOpt
+			lines+=
+			(Code
+				code++"__GNUC__"
+			),
+			(Code
+				code++"_STDC_PREDEF_H"
+			)
+			
+		)
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0108_PredefinedDefault.c.i"
+expected file="expected/Test0108_PredefinedDefault.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+before class=at.jku.weiner.c.preprocess.xtexttests.TestUtils method=setUpTest0108(generator)

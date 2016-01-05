@@ -615,13 +615,22 @@ public interface PreprocessPackage extends EPackage
 	int PRAGMA_DIRECTIVE = 14;
 
 	/**
+	 * The feature id for the '<em><b>Pragma</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRAGMA_DIRECTIVE__PRAGMA = 0;
+
+	/**
 	 * The number of structural features of the '<em>Pragma Directive</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PRAGMA_DIRECTIVE_FEATURE_COUNT = 0;
+	int PRAGMA_DIRECTIVE_FEATURE_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.NullDirectiveImpl <em>Null Directive</em>}' class.
@@ -1353,6 +1362,17 @@ public interface PreprocessPackage extends EPackage
 	EClass getPragmaDirective();
 
 	/**
+	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.preprocess.preprocess.PragmaDirective#getPragma <em>Pragma</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Pragma</em>'.
+	 * @see at.jku.weiner.c.preprocess.preprocess.PragmaDirective#getPragma()
+	 * @see #getPragmaDirective()
+	 * @generated
+	 */
+	EAttribute getPragmaDirective_Pragma();
+
+	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.preprocess.preprocess.NullDirective <em>Null Directive</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1917,6 +1937,14 @@ public interface PreprocessPackage extends EPackage
 		 * @generated
 		 */
 		EClass PRAGMA_DIRECTIVE = eINSTANCE.getPragmaDirective();
+
+		/**
+		 * The meta object literal for the '<em><b>Pragma</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PRAGMA_DIRECTIVE__PRAGMA = eINSTANCE.getPragmaDirective_Pragma();
 
 		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.NullDirectiveImpl <em>Null Directive</em>}' class.

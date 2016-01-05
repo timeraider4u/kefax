@@ -399,12 +399,12 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//	{DefineFunctionLikeMacro} DEFINE WHITESPACE+ id=MyCode
 		//	SKW_LEFTPAREN WHITESPACE*
 		//	list=IdentifierList?
-		//	SKW_RIGHTPAREN (WHITESPACE+
+		//	SKW_RIGHTPAREN (WHITESPACE*
 		//	string=MyDefineLine)?
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{DefineFunctionLikeMacro} DEFINE WHITESPACE+ id=MyCode SKW_LEFTPAREN WHITESPACE* list=IdentifierList? SKW_RIGHTPAREN
-		//(WHITESPACE+ string=MyDefineLine)?
+		//(WHITESPACE* string=MyDefineLine)?
 		public Group getGroup() { return cGroup; }
 		
 		//{DefineFunctionLikeMacro}
@@ -437,10 +437,10 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//SKW_RIGHTPAREN
 		public RuleCall getSKW_RIGHTPARENTerminalRuleCall_7() { return cSKW_RIGHTPARENTerminalRuleCall_7; }
 		
-		//(WHITESPACE+ string=MyDefineLine)?
+		//(WHITESPACE* string=MyDefineLine)?
 		public Group getGroup_8() { return cGroup_8; }
 		
-		//WHITESPACE+
+		//WHITESPACE*
 		public RuleCall getWHITESPACETerminalRuleCall_8_0() { return cWHITESPACETerminalRuleCall_8_0; }
 		
 		//string=MyDefineLine
@@ -1607,7 +1607,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//	{DefineFunctionLikeMacro} DEFINE WHITESPACE+ id=MyCode
 	//	SKW_LEFTPAREN WHITESPACE*
 	//	list=IdentifierList?
-	//	SKW_RIGHTPAREN (WHITESPACE+
+	//	SKW_RIGHTPAREN (WHITESPACE*
 	//	string=MyDefineLine)?
 	public DefineFunctionLikeMacroElements getDefineFunctionLikeMacroAccess() {
 		return pDefineFunctionLikeMacro;

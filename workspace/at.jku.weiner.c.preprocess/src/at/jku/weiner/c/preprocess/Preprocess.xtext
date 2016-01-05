@@ -122,7 +122,7 @@ DefineFunctionLikeMacro returns DefineDirective:
 		
 	SKW_RIGHTPAREN
 	
-	(WHITESPACE+
+	(WHITESPACE*
 	string=MyDefineLine)? 
 ;
 

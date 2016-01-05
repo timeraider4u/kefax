@@ -1011,7 +1011,7 @@ this_SKW_RIGHTPAREN_7=RULE_SKW_RIGHTPAREN
     { 
     newLeafNode(this_WHITESPACE_8, grammarAccess.getDefineFunctionLikeMacroAccess().getWHITESPACETerminalRuleCall_8_0()); 
     }
-)+
+)*
 
 
 (

@@ -198,8 +198,8 @@ public class Test0075_IfDefinedEmptyFunctionMacro {
 		);
 		Assert.assertEquals("[bar]", IdentifierList_4_Var
 		.getId().toString());
-		Assert.assertNull(DefineFunctionLikeMacro_3_Var
-		.getString());
+		Assert.assertTrue(DefineFunctionLikeMacro_3_Var
+		.getString().isEmpty());
 		//4
 		final PreprocessorDirectives PreprocessorDirectives_5_Var
 		 = (PreprocessorDirectives)Lines_1_list.get(1);

@@ -4439,16 +4439,9 @@ rule__DefineFunctionLikeMacro__Group_8__0__Impl
 :
 
 (
-(
-{ before(grammarAccess.getDefineFunctionLikeMacroAccess().getWHITESPACETerminalRuleCall_8_0()); }
-(	RULE_WHITESPACE)
-{ after(grammarAccess.getDefineFunctionLikeMacroAccess().getWHITESPACETerminalRuleCall_8_0()); }
-)
-(
 { before(grammarAccess.getDefineFunctionLikeMacroAccess().getWHITESPACETerminalRuleCall_8_0()); }
 (	RULE_WHITESPACE)*
 { after(grammarAccess.getDefineFunctionLikeMacroAccess().getWHITESPACETerminalRuleCall_8_0()); }
-)
 )
 
 

@@ -1,0 +1,2 @@
+INCLUDE_SLASH_TEST0112_BAR_H
+#include "foo.h"

@@ -77,12 +77,18 @@ public final class IncludeUtils {
 	}
 
 	private URI createURI() {
-		if (this.pathState == PathState.Absolute) {
-			return this.createAbsoluteURI();
+		if (this.pathState == PathState.Relative) {
+			final URI uri = this.createRelativeURI();
+			final String str = uri.toFileString();
+			final String str2 = str.replaceFirst("file:", "");
+			final File file = new File(str2);
+			if (file.canRead()) {
+				return uri;
+			}
 		}
-		return this.createRelativeURI();
+		return this.createAbsoluteURI();
 	}
-
+	
 	private URI createAbsoluteURI() {
 		if (this.fileName.startsWith(File.separator)) {
 			return URI.createFileURI(this.fileName);
@@ -104,7 +110,7 @@ public final class IncludeUtils {
 				+ "') not found in directories='" + includeDirs.toString()
 				+ "'!");
 	}
-
+	
 	private URI createRelativeURI() {
 		final URI relative = URI.createFileURI(this.fileName);
 		final URIConverter converter = this.rs.getURIConverter();
@@ -112,5 +118,5 @@ public final class IncludeUtils {
 		final URI result = relative.resolve(normalized);
 		return result;
 	}
-
+	
 }

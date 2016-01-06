@@ -115,4 +115,12 @@ public final class TestUtils {
 
 	}
 
+	public static void setUpTest0112(final IGenerator generator) {
+		final File file = new File(""); // dummy file
+		final String prjDir = file.getAbsolutePath() + File.separator;
+		IncludeDirs.clearAllIncludeDirectories();
+		IncludeDirs.addIncludeDirectoryToList(prjDir + "myinclude"
+				+ File.separator + "include");
+	}
+
 }

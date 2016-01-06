@@ -9,7 +9,7 @@ import org.junit.Test;
 import at.jku.weiner.c.preprocess.utils.macros.DefinitionObjectMacro;
 
 public class TestStringReplaceSymbolsHelper {
-	
+
 	@Test
 	public void testSimplePattern() {
 		final String text = "FOO \"FOO\" FOO \"FOO\" FOO";
@@ -33,7 +33,7 @@ public class TestStringReplaceSymbolsHelper {
 		Assert.assertEquals(20, index);
 		Assert.assertFalse(matcher.find(21));
 	}
-	
+
 	@Test
 	public void test00() {
 		final String text = "A little penguin looks at you!";
@@ -41,24 +41,24 @@ public class TestStringReplaceSymbolsHelper {
 		final String replacement = "red fox";
 		final DefinitionObjectMacro macro = new DefinitionObjectMacro(symbol,
 				replacement);
-		final String actual = macro.resolve(text);
+		final String actual = macro.resolve(text, text);
 		Assert.assertEquals("A little red fox looks at you!", actual);
 	}
-	
+
 	@Test
 	public void test01() {
 		final String text = "\"A little penguin looks at you!\", said a penguin researcher.";
 		final String symbol = "penguin";
 		final String replacement = "red fox";
-		
+
 		final DefinitionObjectMacro macro = new DefinitionObjectMacro(symbol,
 				replacement);
-		final String actual = macro.resolve(text);
+		final String actual = macro.resolve(text, text);
 		Assert.assertEquals(
 				"\"A little penguin looks at you!\", said a red fox researcher.",
 				actual);
 	}
-	
+
 	@Test
 	public void test02() {
 		final String text = "Foo bar, \"\\\"Foo bar\\\"\", \\Foo bar";
@@ -66,10 +66,10 @@ public class TestStringReplaceSymbolsHelper {
 		final String replacement = "Bar";
 		final DefinitionObjectMacro macro = new DefinitionObjectMacro(symbol,
 				replacement);
-		final String actual = macro.resolve(text);
+		final String actual = macro.resolve(text, text);
 		Assert.assertEquals("Bar bar, \"\\\"Foo bar\\\"\", \\Bar bar", actual);
 	}
-	
+
 	@Test
 	public void test04() {
 		final String text = "Foo bar, \"\"Foo bar\"\", \\\\Foo bar";
@@ -77,10 +77,10 @@ public class TestStringReplaceSymbolsHelper {
 		final String replacement = "Bar";
 		final DefinitionObjectMacro macro = new DefinitionObjectMacro(symbol,
 				replacement);
-		final String actual = macro.resolve(text);
+		final String actual = macro.resolve(text, text);
 		Assert.assertEquals("Bar bar, \"\"Bar bar\"\", \\\\Bar bar", actual);
 	}
-	
+
 	@Test
 	public void test05() {
 		final String text = "foo = \"foo\" + \"with \\\"escaped foo\" + \"foo\" and foo;";
@@ -88,12 +88,12 @@ public class TestStringReplaceSymbolsHelper {
 		final String replacement = "Bar";
 		final DefinitionObjectMacro macro = new DefinitionObjectMacro(symbol,
 				replacement);
-		final String actual = macro.resolve(text);
+		final String actual = macro.resolve(text, text);
 		Assert.assertEquals(
 				"Bar = \"foo\" + \"with \\\"escaped foo\" + \"foo\" and Bar;",
 				actual);
 	}
-	
+
 	@Test
 	public void test06() {
 		final String text = "A little penguin looks at äöüÄÖÜß?!";
@@ -101,10 +101,10 @@ public class TestStringReplaceSymbolsHelper {
 		final String replacement = "you";
 		final DefinitionObjectMacro macro = new DefinitionObjectMacro(symbol,
 				replacement);
-		final String actual = macro.resolve(text);
+		final String actual = macro.resolve(text, text);
 		Assert.assertEquals("A little penguin looks at you?!", actual);
 	}
-	
+
 	@Test
 	public void test07() {
 		final String text = "A little penguin2 looks at you!";
@@ -112,10 +112,10 @@ public class TestStringReplaceSymbolsHelper {
 		final String replacement = "red fox";
 		final DefinitionObjectMacro macro = new DefinitionObjectMacro(symbol,
 				replacement);
-		final String actual = macro.resolve(text);
+		final String actual = macro.resolve(text, text);
 		Assert.assertEquals("A little penguin2 looks at you!", actual);
 	}
-	
+
 	@Test
 	public void test08() {
 		final String text = "A little penguin looks at you!";
@@ -123,10 +123,10 @@ public class TestStringReplaceSymbolsHelper {
 		final String replacement = "red fox";
 		final DefinitionObjectMacro macro = new DefinitionObjectMacro(symbol,
 				replacement);
-		final String actual = macro.resolve(text);
+		final String actual = macro.resolve(text, text);
 		Assert.assertEquals("A little penguin looks at you!", actual);
 	}
-	
+
 	@Test
 	public void test09() {
 		final String text = "A little penguin looks at äöüÄÖÜ_ß1!";
@@ -134,10 +134,10 @@ public class TestStringReplaceSymbolsHelper {
 		final String replacement = "you";
 		final DefinitionObjectMacro macro = new DefinitionObjectMacro(symbol,
 				replacement);
-		final String actual = macro.resolve(text);
+		final String actual = macro.resolve(text, text);
 		Assert.assertEquals("A little penguin looks at you!", actual);
 	}
-	
+
 	@Test
 	public void test10() {
 		final String text = "A little penguin2 looks at you!";
@@ -145,8 +145,8 @@ public class TestStringReplaceSymbolsHelper {
 		final String replacement = "red fox";
 		final DefinitionObjectMacro macro = new DefinitionObjectMacro(symbol,
 				replacement);
-		final String actual = macro.resolve(text);
+		final String actual = macro.resolve(text, text);
 		Assert.assertEquals("A little red fox looks at you!", actual);
 	}
-	
+
 }

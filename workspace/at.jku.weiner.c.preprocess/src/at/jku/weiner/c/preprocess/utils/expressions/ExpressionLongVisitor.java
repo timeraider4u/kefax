@@ -225,10 +225,7 @@ public class ExpressionLongVisitor implements IExpressionVisitor<Long> {
 	private Long evaluateForString(final String macroName,
 			final boolean isConst, final PostfixExpression postfix) {
 		final String code = this.getCode(macroName, postfix);
-		String macro = code;
-		while (DefinitionTable.containsAKey(macro)) {
-			macro = DefinitionTable.resolve(macro);
-		}
+		final String macro = DefinitionTable.fullResolve(code);
 		try {
 			if (macro.matches(".*[+\\-*/%><|&^]+.*")) {
 				final ExpressionParser parser = new ExpressionParser(

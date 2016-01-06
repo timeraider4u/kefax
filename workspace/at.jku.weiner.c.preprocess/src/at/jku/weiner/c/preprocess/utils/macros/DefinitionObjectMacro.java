@@ -10,6 +10,9 @@ public final class DefinitionObjectMacro implements DefinitionMacro {
 	private final String regex;
 	private final Pattern pattern;
 	private final boolean isIdentical;
+	private final boolean valueContainsKey;
+	private String lastExpansion = null;
+	private String lastOriginal = null;
 
 	public DefinitionObjectMacro(final String key, final String value) {
 		this.macroID = key;
@@ -20,6 +23,11 @@ public final class DefinitionObjectMacro implements DefinitionMacro {
 			this.isIdentical = true;
 		} else {
 			this.isIdentical = false;
+		}
+		if (this.replacement.contains(key)) {
+			this.valueContainsKey = true;
+		} else {
+			this.valueContainsKey = false;
 		}
 	}
 
@@ -43,15 +51,31 @@ public final class DefinitionObjectMacro implements DefinitionMacro {
 	}
 
 	@Override
-	public boolean matches(final String code) {
-		if (this.isIdentical) {
+	public boolean matches(final String originalText, final String code) {
+		if (!this.preCheck(originalText, code)) {
 			return false;
 		}
 		return MatchUtils.matches(code, this.pattern);
 	}
 
+	private boolean preCheck(final String originalText, final String code) {
+		if (this.isIdentical) {
+			return false;
+		}
+		if ((this.valueContainsKey) && code.equals(this.lastExpansion)) {
+			return false;
+		}
+		if ((this.valueContainsKey) && originalText.equals(this.lastOriginal)) {
+			return false;
+		}
+		return true;
+	}
+
 	@Override
-	public String resolve(final String code) {
+	public String resolve(final String originalText, final String code) {
+		if (!this.preCheck(originalText, code)) {
+			return code;
+		}
 		final Matcher matcher = this.pattern.matcher(code);
 		if (!matcher.find()) {
 			return code;
@@ -76,7 +100,9 @@ public final class DefinitionObjectMacro implements DefinitionMacro {
 			nextMatchStartIndex = matcher.start();
 			nextMatchEndIndex = matcher.end();
 		}
-		return result.toString();
+		this.lastExpansion = result.toString();
+		this.lastOriginal = originalText;
+		return this.lastExpansion;
 	}
 
 	@Override

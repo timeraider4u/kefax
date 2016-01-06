@@ -24,16 +24,17 @@ public final class DefinitionTable {
 		return DefinitionTable.macros.size();
 	}
 	
-	public static String resolve(String code) {
+	protected static String resolve(final String originalText, final String code) {
+		String result = code;
 		for (int i = 0; i < DefinitionTable.funcMacros.size(); i++) {
 			final DefinitionEntry entry = DefinitionTable.funcMacros.get(i);
-			code = entry.resolve(code);
+			result = entry.resolve(originalText, result);
 		}
 		for (int i = 0; i < DefinitionTable.objMacros.size(); i++) {
 			final DefinitionEntry entry = DefinitionTable.objMacros.get(i);
-			code = entry.resolve(code);
+			result = entry.resolve(originalText, result);
 		}
-		return code;
+		return result;
 	}
 	
 	public static boolean isDefined(final String macroName) {
@@ -47,9 +48,10 @@ public final class DefinitionTable {
 		return result;
 	}
 	
-	public static boolean containsAKey(final String code) {
+	public static boolean containsAKey(final String originalText,
+			final String code) {
 		for (final DefinitionEntry entry : DefinitionTable.macros) {
-			if (entry.matches(code)) {
+			if (entry.matches(originalText, code)) {
 				return true;
 			}
 		}
@@ -113,8 +115,8 @@ public final class DefinitionTable {
 	
 	public static String fullResolve(final String code) {
 		String result = code;
-		while (DefinitionTable.containsAKey(result)) {
-			result = DefinitionTable.resolve(result);
+		while (DefinitionTable.containsAKey(code, result)) {
+			result = DefinitionTable.resolve(code, result);
 		}
 		return result;
 	}

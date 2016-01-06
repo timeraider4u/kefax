@@ -1,0 +1,48 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language preprocess
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+split-lexer=false
+source file="res/Test0115_StupidReplacements.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH DEFINE WHITESPACE ID WHITESPACE DECIMAL_LITERAL NEWLINE
+	HASH DEFINE WHITESPACE ID WHITESPACE ID WHITESPACE ID NEWLINE
+	ID NEWLINE
+//----------------------------------------------------------------------
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineObjectMacro
+					id++"bar",
+					string++"1"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineObjectMacro
+					id++"FOO",
+					string++"FOO bar"
+				)
+			),
+			(Code
+				code++"FOO"
+			)
+		)
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0115_StupidReplacements.c.i"
+expected file="expected/Test0115_StupidReplacements.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

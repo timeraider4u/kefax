@@ -4,8 +4,8 @@ interface DefinitionMacro {
 
 	public String getName();
 
-	public boolean matches(String code);
+	public boolean matches(String originalText, String code);
 
-	public String resolve(String code);
+	public String resolve(String originalText, String code);
 
 }

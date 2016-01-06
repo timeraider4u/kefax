@@ -1,4 +1,4 @@
-package at.jku.weiner.c.preprocess.mytests;
+package at.jku.weiner.c.preprocess.utils.macros;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -39,7 +39,7 @@ public class TestStringification {
 		this.replaceLines.add(line);
 		DefinitionTable.addFunctionMacro("FOO", list, this.replaceLines);
 		final String code = "FOO(5)";
-		final String replace = DefinitionTable.resolve(code);
+		final String replace = DefinitionTable.fullResolve(code);
 		Assert.assertEquals("5 \"5\"", replace);
 	}
 
@@ -63,7 +63,7 @@ public class TestStringification {
 		this.replaceLines.add(line3);
 		DefinitionTable.addFunctionMacro("FOO", list, this.replaceLines);
 		final String code = "FOO( 56 )";
-		final String replace = DefinitionTable.resolve(code);
+		final String replace = DefinitionTable.fullResolve(code);
 		Assert.assertEquals("56 \"56\" 56 \"56\" 56 \"56\"", replace);
 	}
 
@@ -83,7 +83,7 @@ public class TestStringification {
 		this.replaceLines.add(line2);
 		DefinitionTable.addFunctionMacro("FOO", list, this.replaceLines);
 		final String code = "FOO(57)";
-		final String replace = DefinitionTable.resolve(code);
+		final String replace = DefinitionTable.fullResolve(code);
 		Assert.assertEquals("57 \"57\" 57 \"57\"", replace);
 	}
 	
@@ -130,7 +130,7 @@ public class TestStringification {
 		this.replaceLines.add(line7);
 		// ...
 		final String code = "FOO(57)";
-		final String replace = DefinitionTable.resolve(code);
+		final String replace = DefinitionTable.fullResolve(code);
 		Assert.assertEquals(
 				"5757, 57-\"57\" (5757), \"57\", \"# AB, AB ## AB\", 57 \"57\", 5757",
 				replace);

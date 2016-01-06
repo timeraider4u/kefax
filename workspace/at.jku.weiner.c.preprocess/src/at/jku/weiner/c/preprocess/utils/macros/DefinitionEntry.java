@@ -18,12 +18,12 @@ public class DefinitionEntry {
 		return this.macro.equals(newMacro);
 	}
 
-	public String resolve(final String text) {
-		return this.macro.resolve(text);
+	public String resolve(final String originalText, final String text) {
+		return this.macro.resolve(originalText, text);
 	}
 
-	public boolean matches(final String text) {
-		return this.macro.matches(text);
+	public boolean matches(final String originalText, final String text) {
+		return this.macro.matches(originalText, text);
 	}
 
 	public DefinitionMacro getMacro() {

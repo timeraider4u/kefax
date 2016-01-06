@@ -1,0 +1,3 @@
+"fooFOO"
+"FOOFOO"
+"1FOO"

@@ -1,0 +1,104 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language preprocess
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+split-lexer=false
+source file="res/Test0110_DefineAndDefine.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH DEFINE WHITESPACE ID WHITESPACE DECIMAL_LITERAL NEWLINE
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WHITESPACE
+		HASH ID NEWLINE
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WHITESPACE
+		ID SKW_LEFTPAREN ID HASH HASH ID SKW_RIGHTPAREN NEWLINE
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WHITESPACE
+		ID SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
+	ID SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
+	ID SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
+	ID SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
+//----------------------------------------------------------------------
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineObjectMacro
+					id++"FOO",
+					string++"1"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"BAR",
+					list=
+					(IdentifierList
+						id+*"[X]"
+					),
+					replacement+=
+					(ReplaceLine
+						string++" ",
+						id++"X",
+						concatenate?=false
+					)
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"BAZ",
+					list=
+					(IdentifierList
+						id+*"[X]"
+					),
+					replacement+=
+					(ReplaceLine
+						string++" BAR(X",
+						concatenate?=true
+					),
+					(ReplaceLine
+						string++"FOO)",
+						concatenate?=false
+					)
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"FOOBAR",
+					list=
+					(IdentifierList
+						id+*"[X]"
+					),
+					replacement+=
+					(ReplaceLine
+						string++" BAZ(X)",
+						concatenate?=false
+					)
+				)
+			),
+			(Code
+				code++"BAZ(foo)"
+			),
+			(Code
+				code++"BAZ(FOO)"
+			),
+			(Code
+				code++"FOOBAR(FOO)"
+			)
+		)
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0110_DefineAndDefine.c.i"
+expected file="expected/Test0110_DefineAndDefine.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

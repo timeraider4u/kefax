@@ -30,7 +30,7 @@ lexer-tokens
 					),
 					replacement+=
 					(ReplaceLine
-						string++"FOO(x)"
+						string++" FOO(x)"
 					)
 				)
 			),
@@ -44,7 +44,7 @@ lexer-tokens
 					),
 					replacement+=
 					(ReplaceLine
-						string++"",
+						string++" ",
 						id++"x"
 					)
 				)

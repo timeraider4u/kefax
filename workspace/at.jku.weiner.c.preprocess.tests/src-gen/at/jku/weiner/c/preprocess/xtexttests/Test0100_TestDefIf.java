@@ -232,7 +232,7 @@ public class Test0100_TestDefIf {
 		 = (ReplaceLine)Replacement_4_list.get(0);
 		Assert.assertNotNull(ReplaceLine_5_Var
 		);
-		Assert.assertEquals("trace_if(__VA_ARGS__)", ReplaceLine_5_Var
+		Assert.assertEquals("	trace_if(__VA_ARGS__)", ReplaceLine_5_Var
 		.getString());
 		//5
 		final PreprocessorDirectives PreprocessorDirectives_6_Var

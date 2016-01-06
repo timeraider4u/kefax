@@ -205,7 +205,7 @@ public class Test0083_EmptyStringification {
 		 = (ReplaceLine)Replacement_4_list.get(0);
 		Assert.assertNotNull(ReplaceLine_5_Var
 		);
-		Assert.assertEquals("", ReplaceLine_5_Var
+		Assert.assertEquals("	", ReplaceLine_5_Var
 		.getString());
 		Assert.assertEquals("A", ReplaceLine_5_Var
 		.getId());
@@ -214,7 +214,7 @@ public class Test0083_EmptyStringification {
 		 = (ReplaceLine)Replacement_4_list.get(1);
 		Assert.assertNotNull(ReplaceLine_6_Var
 		);
-		Assert.assertEquals("", ReplaceLine_6_Var
+		Assert.assertEquals(" ", ReplaceLine_6_Var
 		.getString());
 		Assert.assertEquals("B", ReplaceLine_6_Var
 		.getId());

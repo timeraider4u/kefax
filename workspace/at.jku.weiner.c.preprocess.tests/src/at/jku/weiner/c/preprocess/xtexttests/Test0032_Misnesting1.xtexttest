@@ -29,7 +29,7 @@ lexer-tokens
 					),
 					replacement+=
 					(ReplaceLine
-						string++"(3+(x))"
+						string++" (3+(x))"
 					)
 				)
 			),
@@ -43,7 +43,7 @@ lexer-tokens
 					),
 					replacement+=
 					(ReplaceLine
-						string++"x(1)"
+						string++" x(1)"
 					)
 				)
 			),

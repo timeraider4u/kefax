@@ -202,7 +202,7 @@ public class Test0078_DefFuncAndObject {
 		 = (ReplaceLine)Replacement_6_list.get(0);
 		Assert.assertNotNull(ReplaceLine_7_Var
 		);
-		Assert.assertEquals("a", ReplaceLine_7_Var
+		Assert.assertEquals(" a", ReplaceLine_7_Var
 		.getString());
 		//7
 		final Code Code_8_Var

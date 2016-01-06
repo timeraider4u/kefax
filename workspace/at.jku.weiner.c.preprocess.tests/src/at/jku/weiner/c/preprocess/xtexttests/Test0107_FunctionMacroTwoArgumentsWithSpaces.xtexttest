@@ -35,7 +35,7 @@ lexer-tokens
 					),
 					replacement+=
 					(ReplaceLine
-						string++"((X) < (Y) ? (X) : (Y))"
+						string++"	((X) < (Y) ? (X) : (Y))"
 					)
 				)
 			),

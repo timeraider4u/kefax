@@ -53,7 +53,7 @@ lexer-tokens
 					),
 					replacement+=
 					(ReplaceLine
-						string++"x (y); x (y)"
+						string++" x (y); x (y)"
 					)
 				)
 			),

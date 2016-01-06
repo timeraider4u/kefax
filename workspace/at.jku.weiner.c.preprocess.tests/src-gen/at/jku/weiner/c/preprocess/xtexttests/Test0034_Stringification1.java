@@ -203,7 +203,7 @@ public class Test0034_Stringification1 {
 		 = (ReplaceLine)Replacement_4_list.get(0);
 		Assert.assertNotNull(ReplaceLine_5_Var
 		);
-		Assert.assertEquals("printf(", ReplaceLine_5_Var
+		Assert.assertEquals(" printf(", ReplaceLine_5_Var
 		.getString());
 		Assert.assertEquals("X", ReplaceLine_5_Var
 		.getId());
@@ -212,7 +212,7 @@ public class Test0034_Stringification1 {
 		 = (ReplaceLine)Replacement_4_list.get(1);
 		Assert.assertNotNull(ReplaceLine_6_Var
 		);
-		Assert.assertEquals("\"=%d\\n\", X)", ReplaceLine_6_Var
+		Assert.assertEquals(" \"=%d\\n\", X)", ReplaceLine_6_Var
 		.getString());
 		//6
 		final Code Code_7_Var

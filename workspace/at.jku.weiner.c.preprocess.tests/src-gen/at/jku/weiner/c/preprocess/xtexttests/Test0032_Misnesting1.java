@@ -199,7 +199,7 @@ public class Test0032_Misnesting1 {
 		 = (ReplaceLine)Replacement_4_list.get(0);
 		Assert.assertNotNull(ReplaceLine_5_Var
 		);
-		Assert.assertEquals("(3+(x))", ReplaceLine_5_Var
+		Assert.assertEquals(" (3+(x))", ReplaceLine_5_Var
 		.getString());
 		//5
 		final PreprocessorDirectives PreprocessorDirectives_6_Var
@@ -231,7 +231,7 @@ public class Test0032_Misnesting1 {
 		 = (ReplaceLine)Replacement_8_list.get(0);
 		Assert.assertNotNull(ReplaceLine_9_Var
 		);
-		Assert.assertEquals("x(1)", ReplaceLine_9_Var
+		Assert.assertEquals(" x(1)", ReplaceLine_9_Var
 		.getString());
 		//9
 		final Code Code_10_Var

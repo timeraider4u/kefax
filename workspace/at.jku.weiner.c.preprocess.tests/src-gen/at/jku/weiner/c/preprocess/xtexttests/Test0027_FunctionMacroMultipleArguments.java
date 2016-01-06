@@ -504,7 +504,7 @@ public class Test0027_FunctionMacroMultipleArguments {
 		 = (ReplaceLine)Replacement_3_list.get(0);
 		Assert.assertNotNull(ReplaceLine_4_Var
 		);
-		Assert.assertEquals("bar_foo", ReplaceLine_4_Var
+		Assert.assertEquals("			bar_foo", ReplaceLine_4_Var
 		.getString());
 		//4
 		final PreprocessorDirectives PreprocessorDirectives_5_Var
@@ -536,7 +536,7 @@ public class Test0027_FunctionMacroMultipleArguments {
 		 = (ReplaceLine)Replacement_7_list.get(0);
 		Assert.assertNotNull(ReplaceLine_8_Var
 		);
-		Assert.assertEquals("{X}", ReplaceLine_8_Var
+		Assert.assertEquals("			{X}", ReplaceLine_8_Var
 		.getString());
 		//8
 		final PreprocessorDirectives PreprocessorDirectives_9_Var
@@ -568,7 +568,7 @@ public class Test0027_FunctionMacroMultipleArguments {
 		 = (ReplaceLine)Replacement_11_list.get(0);
 		Assert.assertNotNull(ReplaceLine_12_Var
 		);
-		Assert.assertEquals("X + Y", ReplaceLine_12_Var
+		Assert.assertEquals("		X + Y", ReplaceLine_12_Var
 		.getString());
 		//12
 		final PreprocessorDirectives PreprocessorDirectives_13_Var
@@ -600,7 +600,7 @@ public class Test0027_FunctionMacroMultipleArguments {
 		 = (ReplaceLine)Replacement_15_list.get(0);
 		Assert.assertNotNull(ReplaceLine_16_Var
 		);
-		Assert.assertEquals("X * Y - Z", ReplaceLine_16_Var
+		Assert.assertEquals("		X * Y - Z", ReplaceLine_16_Var
 		.getString());
 		//16
 		final PreprocessorDirectives PreprocessorDirectives_17_Var
@@ -639,7 +639,7 @@ public class Test0027_FunctionMacroMultipleArguments {
 		 = (ReplaceLine)Replacement_20_list.get(0);
 		Assert.assertNotNull(ReplaceLine_21_Var
 		);
-		Assert.assertEquals("foo_bar", ReplaceLine_21_Var
+		Assert.assertEquals("			foo_bar", ReplaceLine_21_Var
 		.getString());
 		//21
 		final NewLineLine NewLineLine_22_Var

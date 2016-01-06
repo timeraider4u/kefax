@@ -47,6 +47,7 @@ public class PreprocessParser extends AbstractContentAssistParser {
 					put(grammarAccess.getConditionalDirectiveAccess().getConditionalAlternatives_1_0(), "rule__ConditionalDirective__ConditionalAlternatives_1_0");
 					put(grammarAccess.getMyCodeAccess().getAlternatives(), "rule__MyCode__Alternatives");
 					put(grammarAccess.getMyDefineLineAccess().getAlternatives(), "rule__MyDefineLine__Alternatives");
+					put(grammarAccess.getMyDefineLine2Access().getAlternatives(), "rule__MyDefineLine2__Alternatives");
 					put(grammarAccess.getMyCodeLineAccess().getAlternatives(), "rule__MyCodeLine__Alternatives");
 					put(grammarAccess.getMyCodeLineExtendedAccess().getAlternatives(), "rule__MyCodeLineExtended__Alternatives");
 					put(grammarAccess.getMyCodeLineExtendedNormalAccess().getAlternatives_2(), "rule__MyCodeLineExtendedNormal__Alternatives_2");

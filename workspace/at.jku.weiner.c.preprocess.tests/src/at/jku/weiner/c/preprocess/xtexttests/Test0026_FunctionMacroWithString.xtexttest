@@ -33,7 +33,7 @@ lexer-tokens
 					),
 					replacement+=
 					(ReplaceLine
-						string++"x, \\\"x\\\", x, \\\"abc \\\\\\\"x def \\\\\\\"\\\", x"
+						string++"	x, \\\"x\\\", x, \\\"abc \\\\\\\"x def \\\\\\\"\\\", x"
 					)
 				)
 			),

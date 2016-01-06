@@ -32,7 +32,7 @@ lexer-tokens
 					id++"foo",
 					replacement+=
 					(ReplaceLine
-						string++"bar()"
+						string++" bar()"
 					)
 				)
 			),

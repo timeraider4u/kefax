@@ -71,7 +71,7 @@ lexer-tokens
 					),
 					replacement+=
 					(ReplaceLine
-						string++"((major << 32) + minor >= ((REQ_MAJOR) << 32) + (REQ_MINOR))"
+						string++" ((major << 32) + minor >= ((REQ_MAJOR) << 32) + (REQ_MINOR))"
 					)
 				)
 			),

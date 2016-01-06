@@ -35,11 +35,11 @@ lexer-tokens
 					),
 					replacement+=
 					(ReplaceLine
-						string++"",
+						string++" ",
 						id++"X"
 					),
 					(ReplaceLine
-						string++"BAR(",
+						string++" BAR(",
 						id++"X"
 					),
 					(ReplaceLine
@@ -57,7 +57,7 @@ lexer-tokens
 					),
 					replacement+=
 					(ReplaceLine
-						string++"FOO(",
+						string++" FOO(",
 						id++"X"
 					),
 					(ReplaceLine
@@ -75,7 +75,7 @@ lexer-tokens
 					),
 					replacement+=
 					(ReplaceLine
-						string++"",
+						string++" ",
 						id++"X"
 					)
 				)

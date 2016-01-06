@@ -31,7 +31,7 @@ lexer-tokens
 					),
 					replacement+=
 					(ReplaceLine
-						string++"BAZ(X)"
+						string++" BAZ(X)"
 					)
 				)
 			),
@@ -45,7 +45,7 @@ lexer-tokens
 					),
 					replacement+=
 					(ReplaceLine
-						string++"",
+						string++" ",
 						id++"X"
 					)
 				)

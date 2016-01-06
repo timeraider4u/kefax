@@ -37,7 +37,7 @@ lexer-tokens
 					),
 					replacement+=
 					(ReplaceLine
-						string++"trace_if(__VA_ARGS__)"
+						string++"	trace_if(__VA_ARGS__)"
 					)
 				)			
 			),

@@ -30,7 +30,7 @@ lexer-tokens
 					),
 					replacement+=
 					(ReplaceLine
-						string++"BAR(x)"
+						string++" BAR(x)"
 					)
 				)
 			),

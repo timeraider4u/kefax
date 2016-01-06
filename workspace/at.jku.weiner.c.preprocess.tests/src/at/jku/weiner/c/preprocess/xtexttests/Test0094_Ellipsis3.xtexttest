@@ -39,7 +39,7 @@ lexer-tokens
 					),
 					replacement+=
 					(ReplaceLine
-						string++"fprintf(stdout, __VA_ARGS__)"
+						string++" fprintf(stdout, __VA_ARGS__)"
 					)
 				)
 			),

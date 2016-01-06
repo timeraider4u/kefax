@@ -264,7 +264,7 @@ public class Test0099_Ellipsis8 {
 		 = (ReplaceLine)Replacement_4_list.get(0);
 		Assert.assertNotNull(ReplaceLine_5_Var
 		);
-		Assert.assertEquals("x (y); x (y)", ReplaceLine_5_Var
+		Assert.assertEquals(" x (y); x (y)", ReplaceLine_5_Var
 		.getString());
 		//5
 		final Code Code_6_Var

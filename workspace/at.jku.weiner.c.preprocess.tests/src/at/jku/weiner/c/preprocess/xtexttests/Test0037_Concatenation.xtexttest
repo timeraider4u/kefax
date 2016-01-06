@@ -29,10 +29,10 @@ lexer-tokens
 					replacement+=
 					(ReplaceLine
 						concatenate?=true,
-						string++"x"
+						string++" x "
 					),
 					(ReplaceLine
-						string++"BAR"
+						string++" BAR"
 					)
 				)
 			),

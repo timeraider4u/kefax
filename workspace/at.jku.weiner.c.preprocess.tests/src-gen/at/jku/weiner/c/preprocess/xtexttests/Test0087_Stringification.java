@@ -205,7 +205,7 @@ public class Test0087_Stringification {
 		 = (ReplaceLine)Replacement_4_list.get(0);
 		Assert.assertNotNull(ReplaceLine_5_Var
 		);
-		Assert.assertEquals("FOO(x)", ReplaceLine_5_Var
+		Assert.assertEquals(" FOO(x)", ReplaceLine_5_Var
 		.getString());
 		//5
 		final PreprocessorDirectives PreprocessorDirectives_6_Var
@@ -237,7 +237,7 @@ public class Test0087_Stringification {
 		 = (ReplaceLine)Replacement_8_list.get(0);
 		Assert.assertNotNull(ReplaceLine_9_Var
 		);
-		Assert.assertEquals("", ReplaceLine_9_Var
+		Assert.assertEquals(" ", ReplaceLine_9_Var
 		.getString());
 		Assert.assertEquals("x", ReplaceLine_9_Var
 		.getId());

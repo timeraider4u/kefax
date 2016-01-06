@@ -235,7 +235,7 @@ public class Test0082_Stringification4 {
 		 = (ReplaceLine)Replacement_4_list.get(0);
 		Assert.assertNotNull(ReplaceLine_5_Var
 		);
-		Assert.assertEquals("", ReplaceLine_5_Var
+		Assert.assertEquals(" ", ReplaceLine_5_Var
 		.getString());
 		Assert.assertEquals("X", ReplaceLine_5_Var
 		.getId());
@@ -244,7 +244,7 @@ public class Test0082_Stringification4 {
 		 = (ReplaceLine)Replacement_4_list.get(1);
 		Assert.assertNotNull(ReplaceLine_6_Var
 		);
-		Assert.assertEquals("BAR(", ReplaceLine_6_Var
+		Assert.assertEquals(" BAR(", ReplaceLine_6_Var
 		.getString());
 		Assert.assertEquals("X", ReplaceLine_6_Var
 		.getId());
@@ -285,7 +285,7 @@ public class Test0082_Stringification4 {
 		 = (ReplaceLine)Replacement_10_list.get(0);
 		Assert.assertNotNull(ReplaceLine_11_Var
 		);
-		Assert.assertEquals("FOO(", ReplaceLine_11_Var
+		Assert.assertEquals(" FOO(", ReplaceLine_11_Var
 		.getString());
 		Assert.assertEquals("X", ReplaceLine_11_Var
 		.getId());
@@ -326,7 +326,7 @@ public class Test0082_Stringification4 {
 		 = (ReplaceLine)Replacement_15_list.get(0);
 		Assert.assertNotNull(ReplaceLine_16_Var
 		);
-		Assert.assertEquals("", ReplaceLine_16_Var
+		Assert.assertEquals(" ", ReplaceLine_16_Var
 		.getString());
 		Assert.assertEquals("X", ReplaceLine_16_Var
 		.getId());

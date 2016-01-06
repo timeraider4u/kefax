@@ -208,7 +208,7 @@ public class Test0035_Stringification2 {
 		 = (ReplaceLine)Replacement_4_list.get(0);
 		Assert.assertNotNull(ReplaceLine_5_Var
 		);
-		Assert.assertEquals("BAZ(X)", ReplaceLine_5_Var
+		Assert.assertEquals(" BAZ(X)", ReplaceLine_5_Var
 		.getString());
 		//5
 		final PreprocessorDirectives PreprocessorDirectives_6_Var
@@ -240,7 +240,7 @@ public class Test0035_Stringification2 {
 		 = (ReplaceLine)Replacement_8_list.get(0);
 		Assert.assertNotNull(ReplaceLine_9_Var
 		);
-		Assert.assertEquals("", ReplaceLine_9_Var
+		Assert.assertEquals(" ", ReplaceLine_9_Var
 		.getString());
 		Assert.assertEquals("X", ReplaceLine_9_Var
 		.getId());

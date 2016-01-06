@@ -388,7 +388,7 @@ public class Test0077_IfComplexExpression {
 		 = (ReplaceLine)Replacement_14_list.get(0);
 		Assert.assertNotNull(ReplaceLine_15_Var
 		);
-		Assert.assertEquals("((major << 32) + minor >= ((REQ_MAJOR) << 32) + (REQ_MINOR))", ReplaceLine_15_Var
+		Assert.assertEquals(" ((major << 32) + minor >= ((REQ_MAJOR) << 32) + (REQ_MINOR))", ReplaceLine_15_Var
 		.getString());
 		//15
 		final NewLineLine NewLineLine_16_Var

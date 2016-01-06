@@ -987,6 +987,47 @@ finally {
 
 
 
+// Entry rule entryRuleMyDefineLine2
+entryRuleMyDefineLine2 
+:
+{ before(grammarAccess.getMyDefineLine2Rule()); }
+	 ruleMyDefineLine2
+{ after(grammarAccess.getMyDefineLine2Rule()); } 
+	 EOF 
+;
+
+// Rule MyDefineLine2
+ruleMyDefineLine2
+    @init {
+		int stackSize = keepStackSize();
+		/*no init found*/
+    }
+	@after {
+    		/*no after found*/
+     }:
+
+(
+(
+{ before(grammarAccess.getMyDefineLine2Access().getAlternatives()); }
+(rule__MyDefineLine2__Alternatives)
+{ after(grammarAccess.getMyDefineLine2Access().getAlternatives()); }
+)
+(
+{ before(grammarAccess.getMyDefineLine2Access().getAlternatives()); }
+(rule__MyDefineLine2__Alternatives)*
+{ after(grammarAccess.getMyDefineLine2Access().getAlternatives()); }
+)
+)
+
+
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
 // Entry rule entryRuleMyCodeLine
 entryRuleMyCodeLine 
 :
@@ -2407,6 +2448,34 @@ rule__MyDefineLine__Alternatives
 { before(grammarAccess.getMyDefineLineAccess().getVA_ARGSTerminalRuleCall_2()); }
 	RULE_VA_ARGS
 { after(grammarAccess.getMyDefineLineAccess().getVA_ARGSTerminalRuleCall_2()); }
+)
+
+
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__MyDefineLine2__Alternatives
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+
+(
+{ before(grammarAccess.getMyDefineLine2Access().getMyCodeParserRuleCall_0()); }
+	ruleMyCode
+{ after(grammarAccess.getMyDefineLine2Access().getMyCodeParserRuleCall_0()); }
+)
+
+
+
+    |
+(
+{ before(grammarAccess.getMyDefineLine2Access().getWHITESPACETerminalRuleCall_1()); }
+	RULE_WHITESPACE
+{ after(grammarAccess.getMyDefineLine2Access().getWHITESPACETerminalRuleCall_1()); }
 )
 
 
@@ -11238,8 +11307,8 @@ rule__DefineObjectMacro__StringAssignment_4_1
     }
 :
 (
-{ before(grammarAccess.getDefineObjectMacroAccess().getStringMyDefineLineParserRuleCall_4_1_0()); }
-	ruleMyDefineLine{ after(grammarAccess.getDefineObjectMacroAccess().getStringMyDefineLineParserRuleCall_4_1_0()); }
+{ before(grammarAccess.getDefineObjectMacroAccess().getStringMyDefineLine2ParserRuleCall_4_1_0()); }
+	ruleMyDefineLine2{ after(grammarAccess.getDefineObjectMacroAccess().getStringMyDefineLine2ParserRuleCall_4_1_0()); }
 )
 
 ;

@@ -32,11 +32,11 @@ lexer-tokens
 					),
 					replacement+=
 					(ReplaceLine
-						string++"",
+						string++"	",
 						id++"A"
 					),
 					(ReplaceLine
-						string++"",
+						string++" ",
 						id++"B"
 					)
 				)

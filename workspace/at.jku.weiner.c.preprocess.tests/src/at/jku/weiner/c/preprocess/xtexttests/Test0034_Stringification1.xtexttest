@@ -34,11 +34,11 @@ lexer-tokens
 					),
 					replacement+=
 					(ReplaceLine
-						string++"printf(",
+						string++" printf(",
 						id++"X"
 					),
 					(ReplaceLine
-						string++"\\\"=%d\\\\n\\\", X)"
+						string++" \\\"=%d\\\\n\\\", X)"
 					)
 				)
 			),

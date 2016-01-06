@@ -561,7 +561,7 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     WHITESPACE+
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     id=MyCode (ambiguity) string=MyDefineLine
+	 *     id=MyCode (ambiguity) string=MyDefineLine2
 	 */
 	protected void emit_DefineObjectMacro_WHITESPACETerminalRuleCall_4_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -573,7 +573,7 @@ public class PreprocessSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     id=MyCode (ambiguity) (rule end)
-	 *     string=MyDefineLine (ambiguity) (rule end)
+	 *     string=MyDefineLine2 (ambiguity) (rule end)
 	 */
 	protected void emit_DefineObjectMacro_WHITESPACETerminalRuleCall_5_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

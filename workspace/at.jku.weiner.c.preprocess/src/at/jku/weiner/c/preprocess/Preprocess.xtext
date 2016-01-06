@@ -110,7 +110,7 @@ DefineDirective:
 DefineObjectMacro returns DefineDirective:
 	{DefineObjectMacro}
 	DEFINE WHITESPACE+ id=MyCode
-	(WHITESPACE+ string=MyDefineLine)?
+	(WHITESPACE+ string=MyDefineLine2)?
 	WHITESPACE*
 ;
 
@@ -264,6 +264,10 @@ MyCode returns ecore::EString:
 
 MyDefineLine returns ecore::EString:
 	(MyCode|WHITESPACE|VA_ARGS)+
+;
+
+MyDefineLine2 returns ecore::EString:
+	(MyCode|WHITESPACE)+
 ;
 
 MyCodeLine returns ecore::EString:

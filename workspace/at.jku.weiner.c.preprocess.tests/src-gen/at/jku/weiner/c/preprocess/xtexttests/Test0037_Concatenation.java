@@ -183,14 +183,14 @@ public class Test0037_Concatenation {
 		);
 		Assert.assertTrue(ReplaceLine_5_Var
 		.isConcatenate());
-		Assert.assertEquals("x", ReplaceLine_5_Var
+		Assert.assertEquals(" x ", ReplaceLine_5_Var
 		.getString());
 		//5
 		final ReplaceLine ReplaceLine_6_Var
 		 = (ReplaceLine)Replacement_4_list.get(1);
 		Assert.assertNotNull(ReplaceLine_6_Var
 		);
-		Assert.assertEquals("BAR", ReplaceLine_6_Var
+		Assert.assertEquals(" BAR", ReplaceLine_6_Var
 		.getString());
 		//6
 		final Code Code_7_Var

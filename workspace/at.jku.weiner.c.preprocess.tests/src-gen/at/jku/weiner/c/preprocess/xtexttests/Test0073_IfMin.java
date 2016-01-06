@@ -279,7 +279,7 @@ public class Test0073_IfMin {
 		 = (ReplaceLine)Replacement_4_list.get(0);
 		Assert.assertNotNull(ReplaceLine_5_Var
 		);
-		Assert.assertEquals("((X) < (Y) ? (X) : (Y))", ReplaceLine_5_Var
+		Assert.assertEquals("	((X) < (Y) ? (X) : (Y))", ReplaceLine_5_Var
 		.getString());
 		//5
 		final PreprocessorDirectives PreprocessorDirectives_6_Var

@@ -290,7 +290,7 @@ public class Test0024_FunctionMacroTwoArguments {
 		 = (ReplaceLine)Replacement_4_list.get(0);
 		Assert.assertNotNull(ReplaceLine_5_Var
 		);
-		Assert.assertEquals("((X) < (Y) ? (X) : (Y))", ReplaceLine_5_Var
+		Assert.assertEquals("	((X) < (Y) ? (X) : (Y))", ReplaceLine_5_Var
 		.getString());
 		//5
 		final Code Code_6_Var

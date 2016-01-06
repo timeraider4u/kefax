@@ -238,14 +238,14 @@ public class Test0038_Concatenation {
 		);
 		Assert.assertTrue(ReplaceLine_5_Var
 		.isConcatenate());
-		Assert.assertEquals("x", ReplaceLine_5_Var
+		Assert.assertEquals(" x ", ReplaceLine_5_Var
 		.getString());
 		//5
 		final ReplaceLine ReplaceLine_6_Var
 		 = (ReplaceLine)Replacement_4_list.get(1);
 		Assert.assertNotNull(ReplaceLine_6_Var
 		);
-		Assert.assertEquals("y,", ReplaceLine_6_Var
+		Assert.assertEquals(" y, ", ReplaceLine_6_Var
 		.getString());
 		Assert.assertEquals("x", ReplaceLine_6_Var
 		.getId());
@@ -254,7 +254,7 @@ public class Test0038_Concatenation {
 		 = (ReplaceLine)Replacement_4_list.get(2);
 		Assert.assertNotNull(ReplaceLine_7_Var
 		);
-		Assert.assertEquals("", ReplaceLine_7_Var
+		Assert.assertEquals(" ", ReplaceLine_7_Var
 		.getString());
 		Assert.assertEquals("y", ReplaceLine_7_Var
 		.getId());
@@ -288,7 +288,7 @@ public class Test0038_Concatenation {
 		 = (ReplaceLine)Replacement_10_list.get(0);
 		Assert.assertNotNull(ReplaceLine_11_Var
 		);
-		Assert.assertEquals("", ReplaceLine_11_Var
+		Assert.assertEquals(" ", ReplaceLine_11_Var
 		.getString());
 		Assert.assertEquals("x", ReplaceLine_11_Var
 		.getId());
@@ -297,7 +297,7 @@ public class Test0038_Concatenation {
 		 = (ReplaceLine)Replacement_10_list.get(1);
 		Assert.assertNotNull(ReplaceLine_12_Var
 		);
-		Assert.assertEquals("", ReplaceLine_12_Var
+		Assert.assertEquals(" ", ReplaceLine_12_Var
 		.getString());
 		Assert.assertEquals("y", ReplaceLine_12_Var
 		.getId());
@@ -308,14 +308,14 @@ public class Test0038_Concatenation {
 		);
 		Assert.assertTrue(ReplaceLine_13_Var
 		.isConcatenate());
-		Assert.assertEquals(", x", ReplaceLine_13_Var
+		Assert.assertEquals(", x ", ReplaceLine_13_Var
 		.getString());
 		//13
 		final ReplaceLine ReplaceLine_14_Var
 		 = (ReplaceLine)Replacement_10_list.get(3);
 		Assert.assertNotNull(ReplaceLine_14_Var
 		);
-		Assert.assertEquals("y", ReplaceLine_14_Var
+		Assert.assertEquals(" y", ReplaceLine_14_Var
 		.getString());
 		//14
 		final Code Code_15_Var

@@ -870,9 +870,9 @@ this_DEFINE_1=RULE_DEFINE
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getDefineObjectMacroAccess().getStringMyDefineLineParserRuleCall_4_1_0()); 
+	        newCompositeNode(grammarAccess.getDefineObjectMacroAccess().getStringMyDefineLine2ParserRuleCall_4_1_0()); 
 	    }
-		lv_string_5_0=ruleMyDefineLine		{
+		lv_string_5_0=ruleMyDefineLine2		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getDefineObjectMacroRule());
 	        }
@@ -880,7 +880,7 @@ this_DEFINE_1=RULE_DEFINE
        			$current, 
        			"string",
         		lv_string_5_0, 
-        		"at.jku.weiner.c.preprocess.Preprocess.MyDefineLine");
+        		"at.jku.weiner.c.preprocess.Preprocess.MyDefineLine2");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2774,6 +2774,46 @@ ruleMyDefineLine returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleTo
 
     { 
     newLeafNode(this_VA_ARGS_2, grammarAccess.getMyDefineLineAccess().getVA_ARGSTerminalRuleCall_2()); 
+    }
+)+
+    ;
+
+
+
+
+
+// Entry rule entryRuleMyDefineLine2
+entryRuleMyDefineLine2 returns [String current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getMyDefineLine2Rule()); } 
+	 iv_ruleMyDefineLine2=ruleMyDefineLine2 
+	 { $current=$iv_ruleMyDefineLine2.current.getText(); }  
+	 EOF 
+;
+
+// Rule MyDefineLine2
+ruleMyDefineLine2 returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(
+    { 
+        newCompositeNode(grammarAccess.getMyDefineLine2Access().getMyCodeParserRuleCall_0()); 
+    }
+    this_MyCode_0=ruleMyCode    {
+		$current.merge(this_MyCode_0);
+    }
+
+    { 
+        afterParserOrEnumRuleCall();
+    }
+
+    |    this_WHITESPACE_1=RULE_WHITESPACE    {
+		$current.merge(this_WHITESPACE_1);
+    }
+
+    { 
+    newLeafNode(this_WHITESPACE_1, grammarAccess.getMyDefineLine2Access().getWHITESPACETerminalRuleCall_1()); 
     }
 )+
     ;

@@ -195,7 +195,7 @@ public class Test0095_Ellipsis4 {
 		 = (ReplaceLine)Replacement_4_list.get(0);
 		Assert.assertNotNull(ReplaceLine_5_Var
 		);
-		Assert.assertEquals("fprintf(stdout, __VA_ARGS__)", ReplaceLine_5_Var
+		Assert.assertEquals(" fprintf(stdout, __VA_ARGS__)", ReplaceLine_5_Var
 		.getString());
 		//5
 		final Code Code_6_Var

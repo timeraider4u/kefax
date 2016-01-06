@@ -39,14 +39,14 @@ lexer-tokens
 					replacement+=
 					(ReplaceLine
 						concatenate?=true,
-						string++"x"
+						string++" x "
 					),
 					(ReplaceLine
-						string++"y,",
+						string++" y, ",
 						id++"x"
 					),
 					(ReplaceLine
-						string++"",
+						string++" ",
 						id++"y"
 					)
 				)
@@ -61,19 +61,19 @@ lexer-tokens
 					),
 					replacement+=
 					(ReplaceLine
-						string++"",
+						string++" ",
 						id++"x"
 					),
 					(ReplaceLine
-						string++"",
+						string++" ",
 						id++"y"
 					),
 					(ReplaceLine
 						concatenate?=true,
-						string++", x"
+						string++", x "
 					),
 					(ReplaceLine
-						string++"y"
+						string++" y"
 					)
 				)
 			),

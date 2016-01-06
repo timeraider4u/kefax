@@ -235,7 +235,7 @@ public class Test0081_Stringification3 {
 		 = (ReplaceLine)Replacement_4_list.get(0);
 		Assert.assertNotNull(ReplaceLine_5_Var
 		);
-		Assert.assertEquals("", ReplaceLine_5_Var
+		Assert.assertEquals(" ", ReplaceLine_5_Var
 		.getString());
 		Assert.assertEquals("X", ReplaceLine_5_Var
 		.getId());
@@ -269,7 +269,7 @@ public class Test0081_Stringification3 {
 		 = (ReplaceLine)Replacement_8_list.get(0);
 		Assert.assertNotNull(ReplaceLine_9_Var
 		);
-		Assert.assertEquals("FOO(", ReplaceLine_9_Var
+		Assert.assertEquals(" FOO(", ReplaceLine_9_Var
 		.getString());
 		Assert.assertEquals("X", ReplaceLine_9_Var
 		.getId());
@@ -310,7 +310,7 @@ public class Test0081_Stringification3 {
 		 = (ReplaceLine)Replacement_13_list.get(0);
 		Assert.assertNotNull(ReplaceLine_14_Var
 		);
-		Assert.assertEquals("", ReplaceLine_14_Var
+		Assert.assertEquals(" ", ReplaceLine_14_Var
 		.getString());
 		Assert.assertEquals("X", ReplaceLine_14_Var
 		.getId());
@@ -319,7 +319,7 @@ public class Test0081_Stringification3 {
 		 = (ReplaceLine)Replacement_13_list.get(1);
 		Assert.assertNotNull(ReplaceLine_15_Var
 		);
-		Assert.assertEquals("BAR(", ReplaceLine_15_Var
+		Assert.assertEquals(" BAR(", ReplaceLine_15_Var
 		.getString());
 		Assert.assertEquals("X", ReplaceLine_15_Var
 		.getId());

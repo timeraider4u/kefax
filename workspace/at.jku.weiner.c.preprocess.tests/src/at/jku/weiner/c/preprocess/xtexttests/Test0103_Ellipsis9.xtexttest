@@ -54,7 +54,7 @@ lexer-tokens
 					),
 					replacement+=
 					(ReplaceLine
-						string++"printf(x)"
+						string++" printf(x)"
 					)
 				)
 			),

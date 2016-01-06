@@ -88,7 +88,7 @@ lexer-tokens
 					list isNull,
 					replacement+=
 					(ReplaceLine
-						string++"bar_foo"
+						string++"			bar_foo"
 					)
 				)
 			),
@@ -102,7 +102,7 @@ lexer-tokens
 					),
 					replacement+=
 					(ReplaceLine
-						string++"{X}"
+						string++"			{X}"
 					)
 				)
 			),
@@ -116,7 +116,7 @@ lexer-tokens
 					),
 					replacement+=
 					(ReplaceLine
-						string++"X + Y"
+						string++"		X + Y"
 					)
 				)
 			),
@@ -130,7 +130,7 @@ lexer-tokens
 					),
 					replacement+=
 					(ReplaceLine
-						string++"X * Y - Z"
+						string++"		X * Y - Z"
 					)
 				)
 			),
@@ -147,7 +147,7 @@ lexer-tokens
 					list isNull,
 					replacement+=
 					(ReplaceLine
-						string++"foo_bar"
+						string++"			foo_bar"
 					)
 				)
 			),

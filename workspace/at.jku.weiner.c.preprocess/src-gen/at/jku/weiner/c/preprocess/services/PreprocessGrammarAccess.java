@@ -341,15 +341,15 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final RuleCall cWHITESPACETerminalRuleCall_4_0 = (RuleCall)cGroup_4.eContents().get(0);
 		private final Assignment cStringAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cStringMyDefineLineParserRuleCall_4_1_0 = (RuleCall)cStringAssignment_4_1.eContents().get(0);
+		private final RuleCall cStringMyDefineLine2ParserRuleCall_4_1_0 = (RuleCall)cStringAssignment_4_1.eContents().get(0);
 		private final RuleCall cWHITESPACETerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
 		
 		//DefineObjectMacro DefineDirective:
-		//	{DefineObjectMacro} DEFINE WHITESPACE+ id=MyCode (WHITESPACE+ string=MyDefineLine)?
+		//	{DefineObjectMacro} DEFINE WHITESPACE+ id=MyCode (WHITESPACE+ string=MyDefineLine2)?
 		//	WHITESPACE*
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{DefineObjectMacro} DEFINE WHITESPACE+ id=MyCode (WHITESPACE+ string=MyDefineLine)? WHITESPACE*
+		//{DefineObjectMacro} DEFINE WHITESPACE+ id=MyCode (WHITESPACE+ string=MyDefineLine2)? WHITESPACE*
 		public Group getGroup() { return cGroup; }
 		
 		//{DefineObjectMacro}
@@ -367,17 +367,17 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//MyCode
 		public RuleCall getIdMyCodeParserRuleCall_3_0() { return cIdMyCodeParserRuleCall_3_0; }
 		
-		//(WHITESPACE+ string=MyDefineLine)?
+		//(WHITESPACE+ string=MyDefineLine2)?
 		public Group getGroup_4() { return cGroup_4; }
 		
 		//WHITESPACE+
 		public RuleCall getWHITESPACETerminalRuleCall_4_0() { return cWHITESPACETerminalRuleCall_4_0; }
 		
-		//string=MyDefineLine
+		//string=MyDefineLine2
 		public Assignment getStringAssignment_4_1() { return cStringAssignment_4_1; }
 		
-		//MyDefineLine
-		public RuleCall getStringMyDefineLineParserRuleCall_4_1_0() { return cStringMyDefineLineParserRuleCall_4_1_0; }
+		//MyDefineLine2
+		public RuleCall getStringMyDefineLine2ParserRuleCall_4_1_0() { return cStringMyDefineLine2ParserRuleCall_4_1_0; }
 		
 		//WHITESPACE*
 		public RuleCall getWHITESPACETerminalRuleCall_5() { return cWHITESPACETerminalRuleCall_5; }
@@ -1252,6 +1252,25 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//VA_ARGS
 		public RuleCall getVA_ARGSTerminalRuleCall_2() { return cVA_ARGSTerminalRuleCall_2; }
 	}
+	public class MyDefineLine2Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.MyDefineLine2");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cMyCodeParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cWHITESPACETerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//MyDefineLine2 ecore::EString:
+		//	MyCode | WHITESPACE+
+		@Override public ParserRule getRule() { return rule; }
+		
+		//MyCode | WHITESPACE+
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//MyCode
+		public RuleCall getMyCodeParserRuleCall_0() { return cMyCodeParserRuleCall_0; }
+		
+		//WHITESPACE
+		public RuleCall getWHITESPACETerminalRuleCall_1() { return cWHITESPACETerminalRuleCall_1; }
+	}
 	public class MyCodeLineElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.MyCodeLine");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -1464,6 +1483,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	private final CodeElements pCode;
 	private final MyCodeElements pMyCode;
 	private final MyDefineLineElements pMyDefineLine;
+	private final MyDefineLine2Elements pMyDefineLine2;
 	private final MyCodeLineElements pMyCodeLine;
 	private final MyCodeLineExtendedElements pMyCodeLineExtended;
 	private final MyCodeLineExtendedWSOnlyElements pMyCodeLineExtendedWSOnly;
@@ -1522,6 +1542,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		this.pCode = new CodeElements();
 		this.pMyCode = new MyCodeElements();
 		this.pMyDefineLine = new MyDefineLineElements();
+		this.pMyDefineLine2 = new MyDefineLine2Elements();
 		this.pMyCodeLine = new MyCodeLineElements();
 		this.pMyCodeLineExtended = new MyCodeLineExtendedElements();
 		this.pMyCodeLineExtendedWSOnly = new MyCodeLineExtendedWSOnlyElements();
@@ -1677,7 +1698,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DefineObjectMacro DefineDirective:
-	//	{DefineObjectMacro} DEFINE WHITESPACE+ id=MyCode (WHITESPACE+ string=MyDefineLine)?
+	//	{DefineObjectMacro} DEFINE WHITESPACE+ id=MyCode (WHITESPACE+ string=MyDefineLine2)?
 	//	WHITESPACE*
 	public DefineObjectMacroElements getDefineObjectMacroAccess() {
 		return pDefineObjectMacro;
@@ -1898,6 +1919,16 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getMyDefineLineRule() {
 		return getMyDefineLineAccess().getRule();
+	}
+	
+	//MyDefineLine2 ecore::EString:
+	//	MyCode | WHITESPACE+
+	public MyDefineLine2Elements getMyDefineLine2Access() {
+		return pMyDefineLine2;
+	}
+	
+	public ParserRule getMyDefineLine2Rule() {
+		return getMyDefineLine2Access().getRule();
 	}
 	
 	//MyCodeLine ecore::EString:

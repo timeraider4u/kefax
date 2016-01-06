@@ -243,7 +243,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (id=MyCode string=MyDefineLine?)
+	 *     (id=MyCode string=MyDefineLine2?)
 	 */
 	protected void sequence_DefineObjectMacro(EObject context, DefineObjectMacro semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

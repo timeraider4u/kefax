@@ -186,7 +186,7 @@ public class Test0023_FunctionMacroOneArgument {
 		 = (ReplaceLine)Replacement_4_list.get(0);
 		Assert.assertNotNull(ReplaceLine_5_Var
 		);
-		Assert.assertEquals("x + 1", ReplaceLine_5_Var
+		Assert.assertEquals("	x + 1", ReplaceLine_5_Var
 		.getString());
 		//5
 		final Code Code_6_Var

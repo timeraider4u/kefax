@@ -21,7 +21,8 @@ public class MyValueConverter extends DefaultTerminalConverters {
 							"Couldn't convert empty MyCodeLine to String",
 							node, null);
 				}
-				return MyValueConverter.replace(string);
+				final String result = MyValueConverter.replaceNewline(string);
+				return result.trim();
 			}
 
 			@Override
@@ -43,7 +44,33 @@ public class MyValueConverter extends DefaultTerminalConverters {
 				if (Strings.isEmpty(string)) {
 					return "";
 				}
-				final String replace = MyValueConverter.replace(string);
+				final String replace = MyValueConverter.replaceNewline(string);
+				// final String result = replace.replaceAll("\\s+", " ");
+				// return result;
+				return replace;
+			}
+
+			@Override
+			public String toString(final String value)
+					throws ValueConverterException {
+				// return " " + value;
+				return value;
+			}
+
+		};
+	}
+
+	@ValueConverter(rule = "MyDefineLine2")
+	public IValueConverter<String> MyDefineLine2() {
+		return new IValueConverter<String>() {
+
+			@Override
+			public String toValue(final String string, final INode node)
+					throws ValueConverterException {
+				if (Strings.isEmpty(string)) {
+					return "";
+				}
+				final String replace = MyValueConverter.replaceNewline(string);
 				final String result = replace.replaceAll("\\s+", " ");
 				return result;
 			}
@@ -51,14 +78,14 @@ public class MyValueConverter extends DefaultTerminalConverters {
 			@Override
 			public String toString(final String value)
 					throws ValueConverterException {
-				return " " + value;
+				// return " " + value;
+				return value;
 			}
-
 		};
 	}
 
-	public static String replace(final String input) {
+	private static String replaceNewline(final String input) {
 		final String string = input.replace("\\\n", " ");
-		return string.trim();
+		return string;
 	}
 }

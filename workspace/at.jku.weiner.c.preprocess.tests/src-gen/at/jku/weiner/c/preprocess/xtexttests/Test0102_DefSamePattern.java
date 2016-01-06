@@ -186,7 +186,7 @@ public class Test0102_DefSamePattern {
 		 = (ReplaceLine)Replacement_4_list.get(0);
 		Assert.assertNotNull(ReplaceLine_5_Var
 		);
-		Assert.assertEquals("BAR(x)", ReplaceLine_5_Var
+		Assert.assertEquals(" BAR(x)", ReplaceLine_5_Var
 		.getString());
 		//5
 		final NewLineLine NewLineLine_6_Var

@@ -183,7 +183,7 @@ public class Test0019_SimpleFunctionMacro {
 		 = (ReplaceLine)Replacement_3_list.get(0);
 		Assert.assertNotNull(ReplaceLine_4_Var
 		);
-		Assert.assertEquals("stop()", ReplaceLine_4_Var
+		Assert.assertEquals(" stop()", ReplaceLine_4_Var
 		.getString());
 		//4
 		final NewLineLine NewLineLine_5_Var

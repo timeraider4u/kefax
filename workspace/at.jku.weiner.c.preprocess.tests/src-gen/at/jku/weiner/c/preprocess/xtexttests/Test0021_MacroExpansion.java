@@ -217,7 +217,7 @@ public class Test0021_MacroExpansion {
 		 = (ReplaceLine)Replacement_3_list.get(0);
 		Assert.assertNotNull(ReplaceLine_4_Var
 		);
-		Assert.assertEquals("bar()", ReplaceLine_4_Var
+		Assert.assertEquals(" bar()", ReplaceLine_4_Var
 		.getString());
 		//4
 		final NewLineLine NewLineLine_5_Var

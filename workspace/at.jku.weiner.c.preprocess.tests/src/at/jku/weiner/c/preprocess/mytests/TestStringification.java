@@ -5,7 +5,6 @@ import org.eclipse.emf.common.util.EList;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import at.jku.weiner.c.preprocess.preprocess.PreprocessFactory;
@@ -35,7 +34,7 @@ public class TestStringification {
 				.createIdentifierList();
 		list.getId().add("X");
 		final ReplaceLine line = this.factory.createReplaceLine();
-		line.setString("X");
+		line.setString("X ");
 		line.setId("X");
 		this.replaceLines.add(line);
 		DefinitionTable.addFunctionMacro("FOO", list, this.replaceLines);
@@ -49,17 +48,17 @@ public class TestStringification {
 		final IdentifierList list = PreprocessFactory.eINSTANCE
 				.createIdentifierList();
 		list.getId().add("X");
-
+		// define FOO(X) X #X X #X X #X
 		final ReplaceLine line1 = this.factory.createReplaceLine();
-		line1.setString("X");
+		line1.setString("X ");
 		line1.setId("X");
 		this.replaceLines.add(line1);
 		final ReplaceLine line2 = this.factory.createReplaceLine();
-		line2.setString("X");
+		line2.setString(" X ");
 		line2.setId("X");
 		this.replaceLines.add(line2);
 		final ReplaceLine line3 = this.factory.createReplaceLine();
-		line3.setString("X");
+		line3.setString(" X ");
 		line3.setId("X");
 		this.replaceLines.add(line3);
 		DefinitionTable.addFunctionMacro("FOO", list, this.replaceLines);
@@ -75,11 +74,11 @@ public class TestStringification {
 		list.getId().add("AB");
 
 		final ReplaceLine line1 = this.factory.createReplaceLine();
-		line1.setString("AB");
+		line1.setString("AB ");
 		line1.setId("AB");
 		this.replaceLines.add(line1);
 		final ReplaceLine line2 = this.factory.createReplaceLine();
-		line2.setString("AB");
+		line2.setString(" AB ");
 		line2.setId("AB");
 		this.replaceLines.add(line2);
 		DefinitionTable.addFunctionMacro("FOO", list, this.replaceLines);
@@ -89,21 +88,51 @@ public class TestStringification {
 	}
 	
 	@Test
-	@Ignore
 	public void testStringification4() {
-		final IdentifierList list = PreprocessFactory.eINSTANCE
-				.createIdentifierList();
+		final IdentifierList list = this.factory.createIdentifierList();
 		list.getId().add("AB");
-		// DefinitionTable
-		// .addFunctionMacro(
-		// "FOO",
-		// "AB##AB, AB-#AB (AB##AB), #AB, \"# AB, AB ## AB\", AB # AB, AB ## AB",
-		// list);
+		// AB##AB, AB-#AB (AB##AB), #AB, "# AB, AB ## AB", AB # AB, AB ## AB
+
+		// AB##
+		final ReplaceLine line1 = this.factory.createReplaceLine();
+		line1.setString("AB");
+		line1.setConcatenate(true);
+		this.replaceLines.add(line1);
+		// AB, AB-#AB
+		final ReplaceLine line2 = this.factory.createReplaceLine();
+		line2.setString("AB, AB-");
+		line2.setId("AB");
+		this.replaceLines.add(line2);
+		// (AB##
+		final ReplaceLine line3 = this.factory.createReplaceLine();
+		line3.setString(" (AB");
+		line3.setConcatenate(true);
+		this.replaceLines.add(line3);
+		// AB), #AB
+		final ReplaceLine line4 = this.factory.createReplaceLine();
+		line4.setString("AB), ");
+		line4.setId("AB");
+		this.replaceLines.add(line4);
+		DefinitionTable.addFunctionMacro("FOO", list, this.replaceLines);
+		// , "# AB, AB ## AB", AB # AB
+		final ReplaceLine line5 = this.factory.createReplaceLine();
+		line5.setString(", \"# AB, AB ## AB\", AB ");
+		line5.setId("AB");
+		this.replaceLines.add(line5);
+		// , AB ##
+		final ReplaceLine line6 = this.factory.createReplaceLine();
+		line6.setString(", AB ");
+		line6.setConcatenate(true);
+		this.replaceLines.add(line6);
+		// AB
+		final ReplaceLine line7 = this.factory.createReplaceLine();
+		line7.setString(" AB");
+		this.replaceLines.add(line7);
+		// ...
 		final String code = "FOO(57)";
 		final String replace = DefinitionTable.resolve(code);
 		Assert.assertEquals(
 				"5757, 57-\"57\" (5757), \"57\", \"# AB, AB ## AB\", 57 \"57\", 5757",
 				replace);
 	}
-	
 }

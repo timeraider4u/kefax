@@ -258,7 +258,7 @@ Code returns SourceCodeLine:
 MyCode returns ecore::EString:
 	ID|SPECIAL|INCLUDE|DEFINE|ERROR|PRAGMA
 	|IFDEF|ENDIF|IFNOTDEF|IF|DEFINED
-	|ELIF|ELSE
+	|ELIF|ELSE|WARNING|UNDEF
 	|SpecialKeywords|Constant1
 ;
 

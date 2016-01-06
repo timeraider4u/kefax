@@ -2399,18 +2399,36 @@ rule__MyCode__Alternatives
 
     |
 (
-{ before(grammarAccess.getMyCodeAccess().getSpecialKeywordsParserRuleCall_13()); }
-	ruleSpecialKeywords
-{ after(grammarAccess.getMyCodeAccess().getSpecialKeywordsParserRuleCall_13()); }
+{ before(grammarAccess.getMyCodeAccess().getWARNINGTerminalRuleCall_13()); }
+	RULE_WARNING
+{ after(grammarAccess.getMyCodeAccess().getWARNINGTerminalRuleCall_13()); }
 )
 
 
 
     |
 (
-{ before(grammarAccess.getMyCodeAccess().getConstant1ParserRuleCall_14()); }
+{ before(grammarAccess.getMyCodeAccess().getUNDEFTerminalRuleCall_14()); }
+	RULE_UNDEF
+{ after(grammarAccess.getMyCodeAccess().getUNDEFTerminalRuleCall_14()); }
+)
+
+
+
+    |
+(
+{ before(grammarAccess.getMyCodeAccess().getSpecialKeywordsParserRuleCall_15()); }
+	ruleSpecialKeywords
+{ after(grammarAccess.getMyCodeAccess().getSpecialKeywordsParserRuleCall_15()); }
+)
+
+
+
+    |
+(
+{ before(grammarAccess.getMyCodeAccess().getConstant1ParserRuleCall_16()); }
 	ruleConstant1
-{ after(grammarAccess.getMyCodeAccess().getConstant1ParserRuleCall_14()); }
+{ after(grammarAccess.getMyCodeAccess().getConstant1ParserRuleCall_16()); }
 )
 
 

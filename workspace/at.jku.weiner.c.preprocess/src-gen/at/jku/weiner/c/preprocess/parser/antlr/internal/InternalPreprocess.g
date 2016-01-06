@@ -2704,12 +2704,28 @@ ruleMyCode returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
     newLeafNode(this_ELSE_12, grammarAccess.getMyCodeAccess().getELSETerminalRuleCall_12()); 
     }
 
+    |    this_WARNING_13=RULE_WARNING    {
+		$current.merge(this_WARNING_13);
+    }
+
+    { 
+    newLeafNode(this_WARNING_13, grammarAccess.getMyCodeAccess().getWARNINGTerminalRuleCall_13()); 
+    }
+
+    |    this_UNDEF_14=RULE_UNDEF    {
+		$current.merge(this_UNDEF_14);
+    }
+
+    { 
+    newLeafNode(this_UNDEF_14, grammarAccess.getMyCodeAccess().getUNDEFTerminalRuleCall_14()); 
+    }
+
     |
     { 
-        newCompositeNode(grammarAccess.getMyCodeAccess().getSpecialKeywordsParserRuleCall_13()); 
+        newCompositeNode(grammarAccess.getMyCodeAccess().getSpecialKeywordsParserRuleCall_15()); 
     }
-    this_SpecialKeywords_13=ruleSpecialKeywords    {
-		$current.merge(this_SpecialKeywords_13);
+    this_SpecialKeywords_15=ruleSpecialKeywords    {
+		$current.merge(this_SpecialKeywords_15);
     }
 
     { 
@@ -2718,10 +2734,10 @@ ruleMyCode returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 
     |
     { 
-        newCompositeNode(grammarAccess.getMyCodeAccess().getConstant1ParserRuleCall_14()); 
+        newCompositeNode(grammarAccess.getMyCodeAccess().getConstant1ParserRuleCall_16()); 
     }
-    this_Constant1_14=ruleConstant1    {
-		$current.merge(this_Constant1_14);
+    this_Constant1_16=ruleConstant1    {
+		$current.merge(this_Constant1_16);
     }
 
     { 

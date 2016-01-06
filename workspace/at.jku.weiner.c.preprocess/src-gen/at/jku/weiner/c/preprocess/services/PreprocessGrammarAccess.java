@@ -1170,18 +1170,20 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cDEFINEDTerminalRuleCall_10 = (RuleCall)cAlternatives.eContents().get(10);
 		private final RuleCall cELIFTerminalRuleCall_11 = (RuleCall)cAlternatives.eContents().get(11);
 		private final RuleCall cELSETerminalRuleCall_12 = (RuleCall)cAlternatives.eContents().get(12);
-		private final RuleCall cSpecialKeywordsParserRuleCall_13 = (RuleCall)cAlternatives.eContents().get(13);
-		private final RuleCall cConstant1ParserRuleCall_14 = (RuleCall)cAlternatives.eContents().get(14);
+		private final RuleCall cWARNINGTerminalRuleCall_13 = (RuleCall)cAlternatives.eContents().get(13);
+		private final RuleCall cUNDEFTerminalRuleCall_14 = (RuleCall)cAlternatives.eContents().get(14);
+		private final RuleCall cSpecialKeywordsParserRuleCall_15 = (RuleCall)cAlternatives.eContents().get(15);
+		private final RuleCall cConstant1ParserRuleCall_16 = (RuleCall)cAlternatives.eContents().get(16);
 		
 		//MyCode ecore::EString:
 		//	ID | SPECIAL | INCLUDE | DEFINE | ERROR | PRAGMA
 		//	| IFDEF | ENDIF | IFNOTDEF | IF | DEFINED
-		//	| ELIF | ELSE
+		//	| ELIF | ELSE | WARNING | UNDEF
 		//	| SpecialKeywords | Constant1
 		@Override public ParserRule getRule() { return rule; }
 		
-		//ID | SPECIAL | INCLUDE | DEFINE | ERROR | PRAGMA | IFDEF | ENDIF | IFNOTDEF | IF | DEFINED | ELIF | ELSE |
-		//SpecialKeywords | Constant1
+		//ID | SPECIAL | INCLUDE | DEFINE | ERROR | PRAGMA | IFDEF | ENDIF | IFNOTDEF | IF | DEFINED | ELIF | ELSE | WARNING |
+		//UNDEF | SpecialKeywords | Constant1
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//ID
@@ -1223,11 +1225,17 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//ELSE
 		public RuleCall getELSETerminalRuleCall_12() { return cELSETerminalRuleCall_12; }
 		
+		//WARNING
+		public RuleCall getWARNINGTerminalRuleCall_13() { return cWARNINGTerminalRuleCall_13; }
+		
+		//UNDEF
+		public RuleCall getUNDEFTerminalRuleCall_14() { return cUNDEFTerminalRuleCall_14; }
+		
 		//SpecialKeywords
-		public RuleCall getSpecialKeywordsParserRuleCall_13() { return cSpecialKeywordsParserRuleCall_13; }
+		public RuleCall getSpecialKeywordsParserRuleCall_15() { return cSpecialKeywordsParserRuleCall_15; }
 		
 		//Constant1
-		public RuleCall getConstant1ParserRuleCall_14() { return cConstant1ParserRuleCall_14; }
+		public RuleCall getConstant1ParserRuleCall_16() { return cConstant1ParserRuleCall_16; }
 	}
 	public class MyDefineLineElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.MyDefineLine");
@@ -1901,7 +1909,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//MyCode ecore::EString:
 	//	ID | SPECIAL | INCLUDE | DEFINE | ERROR | PRAGMA
 	//	| IFDEF | ENDIF | IFNOTDEF | IF | DEFINED
-	//	| ELIF | ELSE
+	//	| ELIF | ELSE | WARNING | UNDEF
 	//	| SpecialKeywords | Constant1
 	public MyCodeElements getMyCodeAccess() {
 		return pMyCode;

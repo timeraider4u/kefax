@@ -1,0 +1,58 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language preprocess
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+split-lexer=false
+source file="res/Test0113_SimpleDefWithWarning.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WHITESPACE 
+		WARNING SKW_LEFTPAREN ID SKW_RIGHTPAREN 
+		NEWLINE
+	WARNING SKW_LEFTPAREN STRING_LITERAL SKW_RIGHTPAREN NEWLINE
+	ID SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
+	UNDEF SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
+//----------------------------------------------------------------------
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"FOO",
+					list=
+					(IdentifierList
+						id+*"[X]"
+					),
+					replacement+=
+					(ReplaceLine
+						string++"	warning(X)"
+					)
+				)
+			),
+			(Code
+				code++"warning(\\\"foo\\\")"
+			),
+			(Code
+				code++"FOO(foo)"
+			),
+			(Code
+				code++"undef(x)"
+			)
+			
+		)
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0113_SimpleDefWithWarning.c.i"
+expected file="expected/Test0113_SimpleDefWithWarning.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

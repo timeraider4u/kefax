@@ -23,7 +23,7 @@ lexer-tokens
 			lines+=
 			(PreprocessorDirectives
 				directive=
-				(DefineDirective
+				(DefineObjectMacro
 					id++"EMPTY",
 					string isNull
 				)
@@ -34,9 +34,9 @@ lexer-tokens
 			(NewLineLine),
 			(PreprocessorDirectives
 				directive=
-				(DefineDirective
+				(DefineObjectMacro
 					id++"EMPTY2",
-					string++""
+					string isNull
 				)
 			),
 			(Code

@@ -48,6 +48,7 @@ import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro;
 import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
+import at.jku.weiner.c.preprocess.preprocess.ReplaceLine;
 import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.Code;
@@ -176,26 +177,35 @@ public class Test0102_DefSamePattern {
 		);
 		Assert.assertEquals("[x]", IdentifierList_4_Var
 		.getId().toString());
-		Assert.assertEquals("BAR(x)", DefineFunctionLikeMacro_3_Var
-		.getString());
+		final EList<? extends EObject> Replacement_4_list = DefineFunctionLikeMacro_3_Var
+		.getReplacement();
+		Assert.assertNotNull(Replacement_4_list);
+		Assert.assertEquals(1, Replacement_4_list.size());
 		//4
-		final NewLineLine NewLineLine_5_Var
-		 = (NewLineLine)Lines_1_list.get(1);
-		Assert.assertNotNull(NewLineLine_5_Var
+		final ReplaceLine ReplaceLine_5_Var
+		 = (ReplaceLine)Replacement_4_list.get(0);
+		Assert.assertNotNull(ReplaceLine_5_Var
 		);
+		Assert.assertEquals("BAR(x)", ReplaceLine_5_Var
+		.getString());
 		//5
-		final Code Code_6_Var
-		 = (Code)Lines_1_list.get(2);
-		Assert.assertNotNull(Code_6_Var
+		final NewLineLine NewLineLine_6_Var
+		 = (NewLineLine)Lines_1_list.get(1);
+		Assert.assertNotNull(NewLineLine_6_Var
 		);
-		Assert.assertEquals("BAR(foo)", Code_6_Var
-		.getCode());
 		//6
 		final Code Code_7_Var
-		 = (Code)Lines_1_list.get(3);
+		 = (Code)Lines_1_list.get(2);
 		Assert.assertNotNull(Code_7_Var
 		);
-		Assert.assertEquals("BAR(x)", Code_7_Var
+		Assert.assertEquals("BAR(foo)", Code_7_Var
+		.getCode());
+		//7
+		final Code Code_8_Var
+		 = (Code)Lines_1_list.get(3);
+		Assert.assertNotNull(Code_8_Var
+		);
+		Assert.assertEquals("BAR(x)", Code_8_Var
 		.getCode());
 	}
 	

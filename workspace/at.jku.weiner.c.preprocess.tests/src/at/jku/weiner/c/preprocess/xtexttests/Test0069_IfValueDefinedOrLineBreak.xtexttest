@@ -24,7 +24,7 @@ lexer-tokens
 			lines+=
 			(PreprocessorDirectives
 				directive=
-				(DefineDirective
+				(DefineObjectMacro
 					id++"__STDC_VERSION__",
 					string++"201300UL"
 				)

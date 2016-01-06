@@ -32,7 +32,7 @@ lexer-tokens
 //			),
 			(PreprocessorDirectives
 				directive=
-				(DefineDirective
+				(DefineObjectMacro
 					id++"FOO",
 					string++"50"
 				)
@@ -42,7 +42,7 @@ lexer-tokens
 //			),
 			(PreprocessorDirectives
 				directive=
-				(DefineDirective
+				(DefineObjectMacro
 					id++"BAR",
 					string++"0"
 				)

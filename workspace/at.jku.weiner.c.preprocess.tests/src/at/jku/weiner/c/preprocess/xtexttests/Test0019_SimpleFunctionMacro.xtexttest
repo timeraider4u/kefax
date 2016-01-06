@@ -22,9 +22,13 @@ lexer-tokens
 			lines+=
 			(PreprocessorDirectives
 				directive=
-				(DefineDirective
+				(DefineFunctionLikeMacro
 					id++"halt",
-					string++"stop()"
+					list isNull,
+					replacement+=
+					(ReplaceLine
+						string++"stop()"
+					)
 				)
 			),
 			(NewLineLine),

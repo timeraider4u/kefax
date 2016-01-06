@@ -25,28 +25,28 @@ lexer-tokens
 			lines+=
 			(PreprocessorDirectives
 				directive=
-				(DefineDirective
+				(DefineObjectMacro
 					id++"X",
 					string++"x"
 				)
 			),
 			(PreprocessorDirectives
 				directive=
-				(DefineDirective
+				(DefineObjectMacro
 					id++"Y",
 					string++"y"
 				)
 			),
 			(PreprocessorDirectives
 				directive=
-				(DefineDirective
+				(DefineObjectMacro
 					id++"DECLARATION",
 					string++"INT X = 4"
 				)
 			),
 			(PreprocessorDirectives
 				directive=
-				(DefineDirective
+				(DefineObjectMacro
 					id++"Z",
 					string++"1 + 1"
 				)

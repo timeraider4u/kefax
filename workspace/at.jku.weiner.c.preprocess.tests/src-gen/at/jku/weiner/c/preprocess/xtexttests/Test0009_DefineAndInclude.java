@@ -46,9 +46,9 @@ import at.jku.weiner.c.preprocess.xtexttests.LexerAndParserTest;
 import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
-import at.jku.weiner.c.preprocess.preprocess.DefineDirective;
+import at.jku.weiner.c.preprocess.preprocess.DefineObjectMacro;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
-import at.jku.weiner.c.preprocess.preprocess.DefineDirective;
+import at.jku.weiner.c.preprocess.preprocess.DefineObjectMacro;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.IncludeDirective;
 import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
@@ -192,14 +192,14 @@ public class Test0009_DefineAndInclude {
 		Assert.assertNotNull(PreprocessorDirectives_2_Var
 		);
 		//2
-		final DefineDirective DefineDirective_3_Var
-		 = (DefineDirective)PreprocessorDirectives_2_Var
+		final DefineObjectMacro DefineObjectMacro_3_Var
+		 = (DefineObjectMacro)PreprocessorDirectives_2_Var
 		.getDirective();
-		Assert.assertNotNull(DefineDirective_3_Var
+		Assert.assertNotNull(DefineObjectMacro_3_Var
 		);
-		Assert.assertEquals("INT", DefineDirective_3_Var
+		Assert.assertEquals("INT", DefineObjectMacro_3_Var
 		.getId());
-		Assert.assertEquals("int", DefineDirective_3_Var
+		Assert.assertEquals("int", DefineObjectMacro_3_Var
 		.getString());
 		//3
 		final PreprocessorDirectives PreprocessorDirectives_4_Var
@@ -207,14 +207,14 @@ public class Test0009_DefineAndInclude {
 		Assert.assertNotNull(PreprocessorDirectives_4_Var
 		);
 		//4
-		final DefineDirective DefineDirective_5_Var
-		 = (DefineDirective)PreprocessorDirectives_4_Var
+		final DefineObjectMacro DefineObjectMacro_5_Var
+		 = (DefineObjectMacro)PreprocessorDirectives_4_Var
 		.getDirective();
-		Assert.assertNotNull(DefineDirective_5_Var
+		Assert.assertNotNull(DefineObjectMacro_5_Var
 		);
-		Assert.assertEquals("MAIN", DefineDirective_5_Var
+		Assert.assertEquals("MAIN", DefineObjectMacro_5_Var
 		.getId());
-		Assert.assertEquals("main", DefineDirective_5_Var
+		Assert.assertEquals("main", DefineObjectMacro_5_Var
 		.getString());
 		//5
 		final PreprocessorDirectives PreprocessorDirectives_6_Var

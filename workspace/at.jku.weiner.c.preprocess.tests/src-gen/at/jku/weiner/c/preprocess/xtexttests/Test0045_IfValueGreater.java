@@ -46,7 +46,7 @@ import at.jku.weiner.c.preprocess.xtexttests.LexerAndParserTest;
 import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
-import at.jku.weiner.c.preprocess.preprocess.DefineDirective;
+import at.jku.weiner.c.preprocess.preprocess.DefineObjectMacro;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.ConditionalDirective;
 import at.jku.weiner.c.preprocess.preprocess.IfConditional;
@@ -188,14 +188,14 @@ public class Test0045_IfValueGreater {
 		Assert.assertNotNull(PreprocessorDirectives_2_Var
 		);
 		//2
-		final DefineDirective DefineDirective_3_Var
-		 = (DefineDirective)PreprocessorDirectives_2_Var
+		final DefineObjectMacro DefineObjectMacro_3_Var
+		 = (DefineObjectMacro)PreprocessorDirectives_2_Var
 		.getDirective();
-		Assert.assertNotNull(DefineDirective_3_Var
+		Assert.assertNotNull(DefineObjectMacro_3_Var
 		);
-		Assert.assertEquals("VERSION", DefineDirective_3_Var
+		Assert.assertEquals("VERSION", DefineObjectMacro_3_Var
 		.getId());
-		Assert.assertEquals("290", DefineDirective_3_Var
+		Assert.assertEquals("290", DefineObjectMacro_3_Var
 		.getString());
 		//3
 		final PreprocessorDirectives PreprocessorDirectives_4_Var

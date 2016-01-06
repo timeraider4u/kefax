@@ -26,7 +26,14 @@ lexer-tokens
 					(IdentifierList
 						id+*"[x]"
 					),
-					string++"x ## BAR"
+					replacement+=
+					(ReplaceLine
+						concatenate?=true,
+						string++"x"
+					),
+					(ReplaceLine
+						string++"BAR"
+					)
 				)
 			),
 			(Code

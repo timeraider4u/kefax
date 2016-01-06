@@ -46,15 +46,15 @@ import at.jku.weiner.c.preprocess.xtexttests.LexerAndParserTest;
 import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
-import at.jku.weiner.c.preprocess.preprocess.DefineDirective;
+import at.jku.weiner.c.preprocess.preprocess.DefineObjectMacro;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
-import at.jku.weiner.c.preprocess.preprocess.DefineDirective;
+import at.jku.weiner.c.preprocess.preprocess.DefineObjectMacro;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.UnDefineDirective;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
-import at.jku.weiner.c.preprocess.preprocess.DefineDirective;
+import at.jku.weiner.c.preprocess.preprocess.DefineObjectMacro;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 @SuppressWarnings("unused")
@@ -205,14 +205,14 @@ public class Test0031_ObjectLikeMacro {
 		Assert.assertNotNull(PreprocessorDirectives_2_Var
 		);
 		//2
-		final DefineDirective DefineDirective_3_Var
-		 = (DefineDirective)PreprocessorDirectives_2_Var
+		final DefineObjectMacro DefineObjectMacro_3_Var
+		 = (DefineObjectMacro)PreprocessorDirectives_2_Var
 		.getDirective();
-		Assert.assertNotNull(DefineDirective_3_Var
+		Assert.assertNotNull(DefineObjectMacro_3_Var
 		);
-		Assert.assertEquals("FOO", DefineDirective_3_Var
+		Assert.assertEquals("FOO", DefineObjectMacro_3_Var
 		.getId());
-		Assert.assertEquals("1024", DefineDirective_3_Var
+		Assert.assertEquals("1024", DefineObjectMacro_3_Var
 		.getString());
 		//3
 		final PreprocessorDirectives PreprocessorDirectives_4_Var
@@ -220,14 +220,14 @@ public class Test0031_ObjectLikeMacro {
 		Assert.assertNotNull(PreprocessorDirectives_4_Var
 		);
 		//4
-		final DefineDirective DefineDirective_5_Var
-		 = (DefineDirective)PreprocessorDirectives_4_Var
+		final DefineObjectMacro DefineObjectMacro_5_Var
+		 = (DefineObjectMacro)PreprocessorDirectives_4_Var
 		.getDirective();
-		Assert.assertNotNull(DefineDirective_5_Var
+		Assert.assertNotNull(DefineObjectMacro_5_Var
 		);
-		Assert.assertEquals("BAR", DefineDirective_5_Var
+		Assert.assertEquals("BAR", DefineObjectMacro_5_Var
 		.getId());
-		Assert.assertEquals("FOO", DefineDirective_5_Var
+		Assert.assertEquals("FOO", DefineObjectMacro_5_Var
 		.getString());
 		//5
 		final Code Code_6_Var
@@ -262,14 +262,14 @@ public class Test0031_ObjectLikeMacro {
 		Assert.assertNotNull(PreprocessorDirectives_10_Var
 		);
 		//10
-		final DefineDirective DefineDirective_11_Var
-		 = (DefineDirective)PreprocessorDirectives_10_Var
+		final DefineObjectMacro DefineObjectMacro_11_Var
+		 = (DefineObjectMacro)PreprocessorDirectives_10_Var
 		.getDirective();
-		Assert.assertNotNull(DefineDirective_11_Var
+		Assert.assertNotNull(DefineObjectMacro_11_Var
 		);
-		Assert.assertEquals("FOO", DefineDirective_11_Var
+		Assert.assertEquals("FOO", DefineObjectMacro_11_Var
 		.getId());
-		Assert.assertEquals("64", DefineDirective_11_Var
+		Assert.assertEquals("64", DefineObjectMacro_11_Var
 		.getString());
 		//11
 		final Code Code_12_Var

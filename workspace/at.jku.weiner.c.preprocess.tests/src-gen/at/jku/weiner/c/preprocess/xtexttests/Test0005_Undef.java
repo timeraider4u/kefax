@@ -47,13 +47,13 @@ import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
-import at.jku.weiner.c.preprocess.preprocess.DefineDirective;
+import at.jku.weiner.c.preprocess.preprocess.DefineObjectMacro;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.UnDefineDirective;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
-import at.jku.weiner.c.preprocess.preprocess.DefineDirective;
+import at.jku.weiner.c.preprocess.preprocess.DefineObjectMacro;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.UnDefineDirective;
 import at.jku.weiner.c.preprocess.preprocess.Code;
@@ -222,14 +222,14 @@ public class Test0005_Undef {
 		Assert.assertNotNull(PreprocessorDirectives_3_Var
 		);
 		//3
-		final DefineDirective DefineDirective_4_Var
-		 = (DefineDirective)PreprocessorDirectives_3_Var
+		final DefineObjectMacro DefineObjectMacro_4_Var
+		 = (DefineObjectMacro)PreprocessorDirectives_3_Var
 		.getDirective();
-		Assert.assertNotNull(DefineDirective_4_Var
+		Assert.assertNotNull(DefineObjectMacro_4_Var
 		);
-		Assert.assertEquals("int", DefineDirective_4_Var
+		Assert.assertEquals("int", DefineObjectMacro_4_Var
 		.getId());
-		Assert.assertEquals("double", DefineDirective_4_Var
+		Assert.assertEquals("double", DefineObjectMacro_4_Var
 		.getString());
 		//4
 		final Code Code_5_Var
@@ -264,14 +264,14 @@ public class Test0005_Undef {
 		Assert.assertNotNull(PreprocessorDirectives_9_Var
 		);
 		//9
-		final DefineDirective DefineDirective_10_Var
-		 = (DefineDirective)PreprocessorDirectives_9_Var
+		final DefineObjectMacro DefineObjectMacro_10_Var
+		 = (DefineObjectMacro)PreprocessorDirectives_9_Var
 		.getDirective();
-		Assert.assertNotNull(DefineDirective_10_Var
+		Assert.assertNotNull(DefineObjectMacro_10_Var
 		);
-		Assert.assertEquals("int", DefineDirective_10_Var
+		Assert.assertEquals("int", DefineObjectMacro_10_Var
 		.getId());
-		Assert.assertEquals("long", DefineDirective_10_Var
+		Assert.assertEquals("long", DefineObjectMacro_10_Var
 		.getString());
 		//10
 		final PreprocessorDirectives PreprocessorDirectives_11_Var

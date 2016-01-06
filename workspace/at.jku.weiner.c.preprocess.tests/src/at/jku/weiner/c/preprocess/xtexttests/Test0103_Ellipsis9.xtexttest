@@ -52,7 +52,10 @@ lexer-tokens
 						varID++"x",
 						variadic?=true
 					),
-					string++"printf(x)"
+					replacement+=
+					(ReplaceLine
+						string++"printf(x)"
+					)
 				)
 			),
 			(Code

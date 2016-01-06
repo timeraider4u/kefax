@@ -18,11 +18,10 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.DefineDirectiveImpl#getId <em>Id</em>}</li>
- *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.DefineDirectiveImpl#getString <em>String</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -47,26 +46,6 @@ public class DefineDirectiveImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected String id = ID_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getString() <em>String</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getString()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String STRING_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getString() <em>String</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getString()
-	 * @generated
-	 * @ordered
-	 */
-	protected String string = STRING_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -117,29 +96,6 @@ public class DefineDirectiveImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getString()
-	{
-		return string;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setString(String newString)
-	{
-		String oldString = string;
-		string = newString;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PreprocessPackage.DEFINE_DIRECTIVE__STRING, oldString, string));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
@@ -147,8 +103,6 @@ public class DefineDirectiveImpl extends MinimalEObjectImpl.Container implements
 		{
 			case PreprocessPackage.DEFINE_DIRECTIVE__ID:
 				return getId();
-			case PreprocessPackage.DEFINE_DIRECTIVE__STRING:
-				return getString();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -165,9 +119,6 @@ public class DefineDirectiveImpl extends MinimalEObjectImpl.Container implements
 		{
 			case PreprocessPackage.DEFINE_DIRECTIVE__ID:
 				setId((String)newValue);
-				return;
-			case PreprocessPackage.DEFINE_DIRECTIVE__STRING:
-				setString((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -186,9 +137,6 @@ public class DefineDirectiveImpl extends MinimalEObjectImpl.Container implements
 			case PreprocessPackage.DEFINE_DIRECTIVE__ID:
 				setId(ID_EDEFAULT);
 				return;
-			case PreprocessPackage.DEFINE_DIRECTIVE__STRING:
-				setString(STRING_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -205,8 +153,6 @@ public class DefineDirectiveImpl extends MinimalEObjectImpl.Container implements
 		{
 			case PreprocessPackage.DEFINE_DIRECTIVE__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-			case PreprocessPackage.DEFINE_DIRECTIVE__STRING:
-				return STRING_EDEFAULT == null ? string != null : !STRING_EDEFAULT.equals(string);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -224,8 +170,6 @@ public class DefineDirectiveImpl extends MinimalEObjectImpl.Container implements
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (id: ");
 		result.append(id);
-		result.append(", string: ");
-		result.append(string);
 		result.append(')');
 		return result.toString();
 	}

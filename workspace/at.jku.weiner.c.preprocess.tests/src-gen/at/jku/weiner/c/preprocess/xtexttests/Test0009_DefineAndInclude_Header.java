@@ -46,13 +46,13 @@ import at.jku.weiner.c.preprocess.xtexttests.LexerAndParserTest;
 import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
-import at.jku.weiner.c.preprocess.preprocess.DefineDirective;
+import at.jku.weiner.c.preprocess.preprocess.DefineObjectMacro;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
-import at.jku.weiner.c.preprocess.preprocess.DefineDirective;
+import at.jku.weiner.c.preprocess.preprocess.DefineObjectMacro;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
-import at.jku.weiner.c.preprocess.preprocess.DefineDirective;
+import at.jku.weiner.c.preprocess.preprocess.DefineObjectMacro;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
-import at.jku.weiner.c.preprocess.preprocess.DefineDirective;
+import at.jku.weiner.c.preprocess.preprocess.DefineObjectMacro;
 import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 @SuppressWarnings("unused")
@@ -190,14 +190,14 @@ public class Test0009_DefineAndInclude_Header {
 		Assert.assertNotNull(PreprocessorDirectives_2_Var
 		);
 		//2
-		final DefineDirective DefineDirective_3_Var
-		 = (DefineDirective)PreprocessorDirectives_2_Var
+		final DefineObjectMacro DefineObjectMacro_3_Var
+		 = (DefineObjectMacro)PreprocessorDirectives_2_Var
 		.getDirective();
-		Assert.assertNotNull(DefineDirective_3_Var
+		Assert.assertNotNull(DefineObjectMacro_3_Var
 		);
-		Assert.assertEquals("X", DefineDirective_3_Var
+		Assert.assertEquals("X", DefineObjectMacro_3_Var
 		.getId());
-		Assert.assertEquals("x", DefineDirective_3_Var
+		Assert.assertEquals("x", DefineObjectMacro_3_Var
 		.getString());
 		//3
 		final PreprocessorDirectives PreprocessorDirectives_4_Var
@@ -205,14 +205,14 @@ public class Test0009_DefineAndInclude_Header {
 		Assert.assertNotNull(PreprocessorDirectives_4_Var
 		);
 		//4
-		final DefineDirective DefineDirective_5_Var
-		 = (DefineDirective)PreprocessorDirectives_4_Var
+		final DefineObjectMacro DefineObjectMacro_5_Var
+		 = (DefineObjectMacro)PreprocessorDirectives_4_Var
 		.getDirective();
-		Assert.assertNotNull(DefineDirective_5_Var
+		Assert.assertNotNull(DefineObjectMacro_5_Var
 		);
-		Assert.assertEquals("Y", DefineDirective_5_Var
+		Assert.assertEquals("Y", DefineObjectMacro_5_Var
 		.getId());
-		Assert.assertEquals("y", DefineDirective_5_Var
+		Assert.assertEquals("y", DefineObjectMacro_5_Var
 		.getString());
 		//5
 		final PreprocessorDirectives PreprocessorDirectives_6_Var
@@ -220,14 +220,14 @@ public class Test0009_DefineAndInclude_Header {
 		Assert.assertNotNull(PreprocessorDirectives_6_Var
 		);
 		//6
-		final DefineDirective DefineDirective_7_Var
-		 = (DefineDirective)PreprocessorDirectives_6_Var
+		final DefineObjectMacro DefineObjectMacro_7_Var
+		 = (DefineObjectMacro)PreprocessorDirectives_6_Var
 		.getDirective();
-		Assert.assertNotNull(DefineDirective_7_Var
+		Assert.assertNotNull(DefineObjectMacro_7_Var
 		);
-		Assert.assertEquals("DECLARATION", DefineDirective_7_Var
+		Assert.assertEquals("DECLARATION", DefineObjectMacro_7_Var
 		.getId());
-		Assert.assertEquals("INT X = 4", DefineDirective_7_Var
+		Assert.assertEquals("INT X = 4", DefineObjectMacro_7_Var
 		.getString());
 		//7
 		final PreprocessorDirectives PreprocessorDirectives_8_Var
@@ -235,14 +235,14 @@ public class Test0009_DefineAndInclude_Header {
 		Assert.assertNotNull(PreprocessorDirectives_8_Var
 		);
 		//8
-		final DefineDirective DefineDirective_9_Var
-		 = (DefineDirective)PreprocessorDirectives_8_Var
+		final DefineObjectMacro DefineObjectMacro_9_Var
+		 = (DefineObjectMacro)PreprocessorDirectives_8_Var
 		.getDirective();
-		Assert.assertNotNull(DefineDirective_9_Var
+		Assert.assertNotNull(DefineObjectMacro_9_Var
 		);
-		Assert.assertEquals("Z", DefineDirective_9_Var
+		Assert.assertEquals("Z", DefineObjectMacro_9_Var
 		.getId());
-		Assert.assertEquals("1 + 1", DefineDirective_9_Var
+		Assert.assertEquals("1 + 1", DefineObjectMacro_9_Var
 		.getString());
 		//9
 		final NewLineLine NewLineLine_10_Var

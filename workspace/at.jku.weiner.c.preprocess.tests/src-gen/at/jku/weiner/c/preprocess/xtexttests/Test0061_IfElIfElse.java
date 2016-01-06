@@ -46,9 +46,9 @@ import at.jku.weiner.c.preprocess.xtexttests.LexerAndParserTest;
 import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
-import at.jku.weiner.c.preprocess.preprocess.DefineDirective;
+import at.jku.weiner.c.preprocess.preprocess.DefineObjectMacro;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
-import at.jku.weiner.c.preprocess.preprocess.DefineDirective;
+import at.jku.weiner.c.preprocess.preprocess.DefineObjectMacro;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.ConditionalDirective;
 import at.jku.weiner.c.preprocess.preprocess.IfConditional;
@@ -236,14 +236,14 @@ public class Test0061_IfElIfElse {
 		Assert.assertNotNull(PreprocessorDirectives_2_Var
 		);
 		//2
-		final DefineDirective DefineDirective_3_Var
-		 = (DefineDirective)PreprocessorDirectives_2_Var
+		final DefineObjectMacro DefineObjectMacro_3_Var
+		 = (DefineObjectMacro)PreprocessorDirectives_2_Var
 		.getDirective();
-		Assert.assertNotNull(DefineDirective_3_Var
+		Assert.assertNotNull(DefineObjectMacro_3_Var
 		);
-		Assert.assertEquals("FOO", DefineDirective_3_Var
+		Assert.assertEquals("FOO", DefineObjectMacro_3_Var
 		.getId());
-		Assert.assertEquals("50", DefineDirective_3_Var
+		Assert.assertEquals("50", DefineObjectMacro_3_Var
 		.getString());
 		//3
 		final PreprocessorDirectives PreprocessorDirectives_4_Var
@@ -251,14 +251,14 @@ public class Test0061_IfElIfElse {
 		Assert.assertNotNull(PreprocessorDirectives_4_Var
 		);
 		//4
-		final DefineDirective DefineDirective_5_Var
-		 = (DefineDirective)PreprocessorDirectives_4_Var
+		final DefineObjectMacro DefineObjectMacro_5_Var
+		 = (DefineObjectMacro)PreprocessorDirectives_4_Var
 		.getDirective();
-		Assert.assertNotNull(DefineDirective_5_Var
+		Assert.assertNotNull(DefineObjectMacro_5_Var
 		);
-		Assert.assertEquals("BAR", DefineDirective_5_Var
+		Assert.assertEquals("BAR", DefineObjectMacro_5_Var
 		.getId());
-		Assert.assertEquals("0", DefineDirective_5_Var
+		Assert.assertEquals("0", DefineObjectMacro_5_Var
 		.getString());
 		//5
 		final PreprocessorDirectives PreprocessorDirectives_6_Var

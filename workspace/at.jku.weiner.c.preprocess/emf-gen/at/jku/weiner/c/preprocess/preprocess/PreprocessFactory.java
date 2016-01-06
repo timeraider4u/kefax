@@ -257,6 +257,15 @@ public interface PreprocessFactory extends EFactory
 	IfAbstractConditional createIfAbstractConditional();
 
 	/**
+	 * Returns a new object of class '<em>Replace Line</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Replace Line</em>'.
+	 * @generated
+	 */
+	ReplaceLine createReplaceLine();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -28,7 +28,7 @@ lexer-tokens
 					(IdentifierList
 						id+*"[bar]"
 					),
-					string isEmpty
+					replacement isEmpty
 				)
 			),
 			(PreprocessorDirectives

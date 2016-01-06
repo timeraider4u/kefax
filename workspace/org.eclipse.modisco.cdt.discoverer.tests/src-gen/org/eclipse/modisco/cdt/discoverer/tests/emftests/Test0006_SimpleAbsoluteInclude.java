@@ -87,7 +87,7 @@ import at.jku.weiner.c.common.common.TranslationUnit;
 import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
-import at.jku.weiner.c.preprocess.preprocess.DefineDirective;
+import at.jku.weiner.c.preprocess.preprocess.DefineObjectMacro;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 
 @SuppressWarnings("unused")
@@ -620,14 +620,14 @@ public class Test0006_SimpleAbsoluteInclude {
 		Assert.assertNotNull(PreprocessorDirectives_63_Var
 		);
 		//63
-		final DefineDirective DefineDirective_64_Var
-		 = (DefineDirective)PreprocessorDirectives_63_Var
+		final DefineObjectMacro DefineObjectMacro_64_Var
+		 = (DefineObjectMacro)PreprocessorDirectives_63_Var
 		.getDirective();
-		Assert.assertNotNull(DefineDirective_64_Var
+		Assert.assertNotNull(DefineObjectMacro_64_Var
 		);
-		Assert.assertEquals("NUMBER", DefineDirective_64_Var
+		Assert.assertEquals("NUMBER", DefineObjectMacro_64_Var
 		.getId());
-		Assert.assertEquals("int", DefineDirective_64_Var
+		Assert.assertEquals("int", DefineObjectMacro_64_Var
 		.getString());
 		//64
 		final Code Code_65_Var

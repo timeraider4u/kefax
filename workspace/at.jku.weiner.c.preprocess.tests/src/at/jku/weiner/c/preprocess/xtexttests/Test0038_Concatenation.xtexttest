@@ -36,7 +36,19 @@ lexer-tokens
 					(IdentifierList
 						id+*"[x, y]"
 					),
-					string++"x ## y, #x #y"
+					replacement+=
+					(ReplaceLine
+						concatenate?=true,
+						string++"x"
+					),
+					(ReplaceLine
+						string++"y,",
+						id++"x"
+					),
+					(ReplaceLine
+						string++"",
+						id++"y"
+					)
 				)
 			),
 			(PreprocessorDirectives
@@ -47,7 +59,22 @@ lexer-tokens
 					(IdentifierList
 						id+*"[x, y]"
 					),
-					string++"#x #y, x ## y"
+					replacement+=
+					(ReplaceLine
+						string++"",
+						id++"x"
+					),
+					(ReplaceLine
+						string++"",
+						id++"y"
+					),
+					(ReplaceLine
+						concatenate?=true,
+						string++", x"
+					),
+					(ReplaceLine
+						string++"y"
+					)
 				)
 			),
 			(Code

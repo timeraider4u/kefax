@@ -5,22 +5,27 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.eclipse.emf.common.util.EList;
+
 import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
+import at.jku.weiner.c.preprocess.preprocess.ReplaceLine;
 
 public final class DefinitionFunctionMacro implements DefinitionMacro {
-
+	
 	private static final String REGEX = "\\s*\\(";
-
+	
 	private final String key;
-	private final String value;
 	private final List<String> list;
 	private final Pattern pattern;
 	private int openParens = 0;
 	private final boolean isVariadic;
 	private final String varID;
 
-	public DefinitionFunctionMacro(final String key, final String value,
-			final IdentifierList idList) {
+	private final EList<ReplaceLine> replacements;
+	private final String defaultValue;
+	
+	public DefinitionFunctionMacro(final String key,
+			final IdentifierList idList, final EList<ReplaceLine> replacements) {
 		if (idList == null) {
 			this.list = null;
 			this.isVariadic = false;
@@ -31,23 +36,28 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			this.varID = idList.getVarID();
 		}
 		this.key = key;
-		this.value = this.getValue(value);
+		this.replacements = replacements;
 		this.pattern = Pattern.compile("\\b" + this.key + "\\b"
 				+ DefinitionFunctionMacro.REGEX);
+		this.defaultValue = this.getDefaultValue();
 	}
-
-	private String getValue(String value2) {
-		if (value2 == null) {
-			value2 = "";
+	
+	private String getDefaultValue() {
+		if (this.replacements == null) {
+			return "";
 		}
-		return value2;
+		final StringBuffer buffer = new StringBuffer("");
+		for (final ReplaceLine line : this.replacements) {
+			buffer.append(line.getString());
+		}
+		return buffer.toString();
 	}
-
+	
 	@Override
 	public String getName() {
 		return this.key;
 	}
-
+	
 	@Override
 	public boolean equals(final Object obj) {
 		if (!(obj instanceof DefinitionFunctionMacro)) {
@@ -57,36 +67,60 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		if (!this.key.equals(other.key)) {
 			return false;
 		}
-		if (!this.value.equals(other.value)) {
-			return false;
-		}
 		if ((this.list == null) && (other.list != null)) {
 			return false;
 		}
 		if ((this.list != null) && (other.list == null)) {
 			return false;
 		}
-		if ((this.list == null) && (other.list == null)) {
-			return true;
-		}
-		if (this.list.size() != other.list.size()) {
+		if ((this.replacements == null) && (other.replacements != null)) {
 			return false;
 		}
-		for (int i = 0; i < this.list.size(); i++) {
-			final String param1 = this.list.get(i);
-			final String param2 = other.list.get(i);
-			if (!(param1.equals(param2))) {
+		if ((this.replacements != null) && (other.replacements == null)) {
+			return false;
+		}
+		if (this.list != null) {
+			if (this.list.size() != other.list.size()) {
+				return false;
+			}
+			for (int i = 0; i < this.list.size(); i++) {
+				final String param1 = this.list.get(i);
+				final String param2 = other.list.get(i);
+				if (!(param1.equals(param2))) {
+					return false;
+				}
+			}
+		}
+		if (this.replacements != null) {
+			if ((this.replacements.size() != other.replacements.size())) {
+				return false;
+			}
+			final StringBuffer buffer1 = new StringBuffer("");
+			final StringBuffer buffer2 = new StringBuffer("");
+			for (int i = 0; i < this.replacements.size(); i++) {
+				final ReplaceLine line1 = this.replacements.get(i);
+				final ReplaceLine line2 = other.replacements.get(i);
+				buffer1.append(line1.getString());
+				buffer1.append(line1.getId());
+				buffer1.append(line1.isConcatenate());
+				buffer2.append(line2.getString());
+				buffer2.append(line2.getId());
+				buffer2.append(line2.isConcatenate());
+			}
+			final String str1 = buffer1.toString();
+			final String str2 = buffer2.toString();
+			if (!str1.equals(str2)) {
 				return false;
 			}
 		}
 		return true;
 	}
-
+	
 	@Override
 	public boolean matches(final String code) {
 		return MatchUtils.matches(code, this.pattern);
 	}
-
+	
 	@Override
 	public String resolve(final String code) {
 		final Matcher matcher = this.pattern.matcher(code);
@@ -115,7 +149,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		}
 		return result.toString();
 	}
-
+	
 	private int searchForClosingParen(final String code,
 			final StringBuffer result, int i) {
 		MatchState state = MatchState.Normal;
@@ -152,53 +186,86 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		// should never get here
 		throw new MacroParentheseNotClosedYetException(code, i);
 	}
-
+	
 	private void startReplacement(final StringBuffer result,
 			final List<String> params) {
 		if (this.list == null) {
-			result.append(this.value);
+			result.append(this.defaultValue);
+			return;
+		}
+		if (this.replacements == null) {
+			result.append(this.defaultValue);
 			return;
 		}
 
-		String temp = this.value;
-		int i;
-		for (i = 0; i < this.list.size(); i++) {
-			final String key = this.list.get(i).trim();
-			String val = params.get(i).trim();
-			val = DefinitionTable.resolve(val);
-			final DefinitionObjectMacro macro = new DefinitionObjectMacro(key,
-					val);
-			temp = macro.resolve(temp);
-		}
-
-		if (this.isVariadic) {
-			String key = null;
-			if (this.varID == null) {
-				key = "__VA_ARGS__";
-			} else {
-				key = this.varID;
-			}
-			final StringBuffer variadic = new StringBuffer("");
-			boolean isFirst = true;
-			for (; i < params.size(); i++) {
-				if (!isFirst) {
-					variadic.append(", ");
+		final StringBuffer temp = new StringBuffer("");
+		for (int i = 0; i < this.replacements.size(); i++) {
+			final ReplaceLine line = this.replacements.get(i);
+			String string = line.getString();
+			String id = line.getId();
+			
+			int j;
+			for (j = 0; j < this.list.size(); j++) {
+				final String key = this.list.get(j).trim();
+				final String orig = params.get(j).trim();
+				final String val = DefinitionTable.resolve(orig);
+				final DefinitionObjectMacro macro = new DefinitionObjectMacro(
+						key, val);
+				string = macro.resolve(string);
+				if (id != null) {
+					if (id.equals(key)) {
+						id = orig;
+					}
+					// id = macro.resolve(id);
 				}
-				String val = params.get(i).trim();
-				val = DefinitionTable.resolve(val);
-				variadic.append(val);
-				isFirst = false;
 			}
-			final DefinitionObjectMacro macro = new DefinitionObjectMacro(key,
-					variadic.toString());
-			temp = macro.resolve(temp);
+			
+			if (this.isVariadic) {
+				String key = null;
+				if (this.varID == null) {
+					key = "__VA_ARGS__";
+				} else {
+					key = this.varID;
+				}
+				final StringBuffer orig = new StringBuffer("");
+				final StringBuffer variadic = new StringBuffer("");
+				boolean isFirst = true;
+				for (; j < params.size(); j++) {
+					if (!isFirst) {
+						orig.append(", ");
+						variadic.append(", ");
+					}
+					final String origVal = params.get(j).trim();
+					final String val = DefinitionTable.resolve(origVal);
+					variadic.append(val);
+					orig.append(origVal);
+					isFirst = false;
+				}
+				final DefinitionObjectMacro macro = new DefinitionObjectMacro(
+						key, variadic.toString());
+				string = macro.resolve(string);
+				if (id != null) {
+					if (id.equals(key)) {
+						id = orig.toString();
+					}
+				}
+			}
+
+			temp.append(string);
+			if (id != null) {
+				temp.append("\"" + id.replace("\"", "\\\"") + "\"");
+			}
+
+			if (!line.isConcatenate()) {
+				temp.append(" ");
+			}
+			
 		}
-
-		temp = this.resolveConcatenationAndStringification(temp);
-
-		result.append(temp);
+		
+		final String myTemp = temp.toString().trim();
+		result.append(myTemp);
 	}
-
+	
 	private String resolveConcatenationAndStringification(final String temp) {
 		if (!temp.contains("#")) {
 			return temp;
@@ -217,7 +284,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		int nextStrMatchEndIndex = -1;
 		int nextConMatchStartIndex = -1;
 		int nextConMatchEndIndex = -1;
-
+		
 		if (strMatcher.find(0)) {
 			nextStrMatchStartIndex = strMatcher.start();
 			nextStrMatchEndIndex = strMatcher.end();
@@ -254,7 +321,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			} else {
 				result.append(c);
 			}
-
+			
 			if (strMatcher.find(i)) {
 				nextStrMatchStartIndex = strMatcher.start();
 				nextStrMatchEndIndex = strMatcher.end();

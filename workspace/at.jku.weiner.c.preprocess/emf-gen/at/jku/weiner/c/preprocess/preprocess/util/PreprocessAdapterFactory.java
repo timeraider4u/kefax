@@ -205,6 +205,11 @@ public class PreprocessAdapterFactory extends AdapterFactoryImpl
 				return createIfAbstractConditionalAdapter();
 			}
 			@Override
+			public Adapter caseReplaceLine(ReplaceLine object)
+			{
+				return createReplaceLineAdapter();
+			}
+			@Override
 			public Adapter caseCommon_Expression(at.jku.weiner.c.common.common.Expression object)
 			{
 				return createCommon_ExpressionAdapter();
@@ -622,6 +627,21 @@ public class PreprocessAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createIfAbstractConditionalAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link at.jku.weiner.c.preprocess.preprocess.ReplaceLine <em>Replace Line</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see at.jku.weiner.c.preprocess.preprocess.ReplaceLine
+	 * @generated
+	 */
+	public Adapter createReplaceLineAdapter()
 	{
 		return null;
 	}

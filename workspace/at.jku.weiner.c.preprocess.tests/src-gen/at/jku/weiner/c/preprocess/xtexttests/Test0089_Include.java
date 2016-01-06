@@ -46,13 +46,13 @@ import at.jku.weiner.c.preprocess.xtexttests.LexerAndParserTest;
 import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
-import at.jku.weiner.c.preprocess.preprocess.DefineDirective;
+import at.jku.weiner.c.preprocess.preprocess.DefineObjectMacro;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
-import at.jku.weiner.c.preprocess.preprocess.DefineDirective;
+import at.jku.weiner.c.preprocess.preprocess.DefineObjectMacro;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.IncludeDirective;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
-import at.jku.weiner.c.preprocess.preprocess.DefineDirective;
+import at.jku.weiner.c.preprocess.preprocess.DefineObjectMacro;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.IncludeDirective;
 import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
@@ -205,14 +205,14 @@ public class Test0089_Include {
 		Assert.assertNotNull(PreprocessorDirectives_2_Var
 		);
 		//2
-		final DefineDirective DefineDirective_3_Var
-		 = (DefineDirective)PreprocessorDirectives_2_Var
+		final DefineObjectMacro DefineObjectMacro_3_Var
+		 = (DefineObjectMacro)PreprocessorDirectives_2_Var
 		.getDirective();
-		Assert.assertNotNull(DefineDirective_3_Var
+		Assert.assertNotNull(DefineObjectMacro_3_Var
 		);
-		Assert.assertEquals("foo", DefineDirective_3_Var
+		Assert.assertEquals("foo", DefineObjectMacro_3_Var
 		.getId());
-		Assert.assertEquals("1", DefineDirective_3_Var
+		Assert.assertEquals("1", DefineObjectMacro_3_Var
 		.getString());
 		//3
 		final PreprocessorDirectives PreprocessorDirectives_4_Var
@@ -220,14 +220,14 @@ public class Test0089_Include {
 		Assert.assertNotNull(PreprocessorDirectives_4_Var
 		);
 		//4
-		final DefineDirective DefineDirective_5_Var
-		 = (DefineDirective)PreprocessorDirectives_4_Var
+		final DefineObjectMacro DefineObjectMacro_5_Var
+		 = (DefineObjectMacro)PreprocessorDirectives_4_Var
 		.getDirective();
-		Assert.assertNotNull(DefineDirective_5_Var
+		Assert.assertNotNull(DefineObjectMacro_5_Var
 		);
-		Assert.assertEquals("LIN", DefineDirective_5_Var
+		Assert.assertEquals("LIN", DefineObjectMacro_5_Var
 		.getId());
-		Assert.assertEquals("<include/file-foo.h>", DefineDirective_5_Var
+		Assert.assertEquals("<include/file-foo.h>", DefineObjectMacro_5_Var
 		.getString());
 		//5
 		final PreprocessorDirectives PreprocessorDirectives_6_Var
@@ -248,14 +248,14 @@ public class Test0089_Include {
 		Assert.assertNotNull(PreprocessorDirectives_8_Var
 		);
 		//8
-		final DefineDirective DefineDirective_9_Var
-		 = (DefineDirective)PreprocessorDirectives_8_Var
+		final DefineObjectMacro DefineObjectMacro_9_Var
+		 = (DefineObjectMacro)PreprocessorDirectives_8_Var
 		.getDirective();
-		Assert.assertNotNull(DefineDirective_9_Var
+		Assert.assertNotNull(DefineObjectMacro_9_Var
 		);
-		Assert.assertEquals("LIN2", DefineDirective_9_Var
+		Assert.assertEquals("LIN2", DefineObjectMacro_9_Var
 		.getId());
-		Assert.assertEquals("\"../myinclude/include/foo.h\"", DefineDirective_9_Var
+		Assert.assertEquals("\"../myinclude/include/foo.h\"", DefineObjectMacro_9_Var
 		.getString());
 		//9
 		final PreprocessorDirectives PreprocessorDirectives_10_Var

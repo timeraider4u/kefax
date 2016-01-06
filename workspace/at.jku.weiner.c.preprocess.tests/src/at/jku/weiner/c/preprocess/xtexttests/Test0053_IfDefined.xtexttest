@@ -23,7 +23,7 @@ lexer-tokens
 			lines+=
 			(PreprocessorDirectives
 				directive=
-				(DefineDirective
+				(DefineObjectMacro
 					id++"FOO",
 					string++"50"
 				)

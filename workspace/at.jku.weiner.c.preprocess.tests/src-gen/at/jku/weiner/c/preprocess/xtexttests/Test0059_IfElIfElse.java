@@ -47,7 +47,7 @@ import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
-import at.jku.weiner.c.preprocess.preprocess.DefineDirective;
+import at.jku.weiner.c.preprocess.preprocess.DefineObjectMacro;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.ConditionalDirective;
 import at.jku.weiner.c.preprocess.preprocess.IfConditional;
@@ -239,14 +239,14 @@ public class Test0059_IfElIfElse {
 		Assert.assertNotNull(PreprocessorDirectives_3_Var
 		);
 		//3
-		final DefineDirective DefineDirective_4_Var
-		 = (DefineDirective)PreprocessorDirectives_3_Var
+		final DefineObjectMacro DefineObjectMacro_4_Var
+		 = (DefineObjectMacro)PreprocessorDirectives_3_Var
 		.getDirective();
-		Assert.assertNotNull(DefineDirective_4_Var
+		Assert.assertNotNull(DefineObjectMacro_4_Var
 		);
-		Assert.assertEquals("BAR", DefineDirective_4_Var
+		Assert.assertEquals("BAR", DefineObjectMacro_4_Var
 		.getId());
-		Assert.assertEquals("0", DefineDirective_4_Var
+		Assert.assertEquals("0", DefineObjectMacro_4_Var
 		.getString());
 		//4
 		final PreprocessorDirectives PreprocessorDirectives_5_Var

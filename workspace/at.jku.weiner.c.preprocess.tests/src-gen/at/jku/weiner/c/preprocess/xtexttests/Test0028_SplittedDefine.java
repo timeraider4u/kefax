@@ -56,7 +56,7 @@ import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
 import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
 import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
-import at.jku.weiner.c.preprocess.preprocess.DefineDirective;
+import at.jku.weiner.c.preprocess.preprocess.DefineObjectMacro;
 import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 @SuppressWarnings("unused")
@@ -241,14 +241,14 @@ public class Test0028_SplittedDefine {
 		Assert.assertNotNull(PreprocessorDirectives_12_Var
 		);
 		//12
-		final DefineDirective DefineDirective_13_Var
-		 = (DefineDirective)PreprocessorDirectives_12_Var
+		final DefineObjectMacro DefineObjectMacro_13_Var
+		 = (DefineObjectMacro)PreprocessorDirectives_12_Var
 		.getDirective();
-		Assert.assertNotNull(DefineDirective_13_Var
+		Assert.assertNotNull(DefineObjectMacro_13_Var
 		);
-		Assert.assertEquals("FOO", DefineDirective_13_Var
+		Assert.assertEquals("FOO", DefineObjectMacro_13_Var
 		.getId());
-		Assert.assertEquals("1024", DefineDirective_13_Var
+		Assert.assertEquals("1024", DefineObjectMacro_13_Var
 		.getString());
 		//13
 		final NewLineLine NewLineLine_14_Var

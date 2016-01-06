@@ -5,14 +5,22 @@ package at.jku.weiner.c.preprocess.preprocess.impl;
 import at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro;
 import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessPackage;
+import at.jku.weiner.c.preprocess.preprocess.ReplaceLine;
+
+import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,10 +28,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.DefineFunctionLikeMacroImpl#getList <em>List</em>}</li>
+ *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.DefineFunctionLikeMacroImpl#getReplacement <em>Replacement</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -38,6 +47,16 @@ public class DefineFunctionLikeMacroImpl extends DefineDirectiveImpl implements 
 	 * @ordered
 	 */
 	protected IdentifierList list;
+
+	/**
+	 * The cached value of the '{@link #getReplacement() <em>Replacement</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReplacement()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ReplaceLine> replacement;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -113,6 +132,20 @@ public class DefineFunctionLikeMacroImpl extends DefineDirectiveImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ReplaceLine> getReplacement()
+	{
+		if (replacement == null)
+		{
+			replacement = new EObjectContainmentEList<ReplaceLine>(ReplaceLine.class, this, PreprocessPackage.DEFINE_FUNCTION_LIKE_MACRO__REPLACEMENT);
+		}
+		return replacement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
@@ -120,6 +153,8 @@ public class DefineFunctionLikeMacroImpl extends DefineDirectiveImpl implements 
 		{
 			case PreprocessPackage.DEFINE_FUNCTION_LIKE_MACRO__LIST:
 				return basicSetList(null, msgs);
+			case PreprocessPackage.DEFINE_FUNCTION_LIKE_MACRO__REPLACEMENT:
+				return ((InternalEList<?>)getReplacement()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -136,6 +171,8 @@ public class DefineFunctionLikeMacroImpl extends DefineDirectiveImpl implements 
 		{
 			case PreprocessPackage.DEFINE_FUNCTION_LIKE_MACRO__LIST:
 				return getList();
+			case PreprocessPackage.DEFINE_FUNCTION_LIKE_MACRO__REPLACEMENT:
+				return getReplacement();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -145,6 +182,7 @@ public class DefineFunctionLikeMacroImpl extends DefineDirectiveImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
@@ -152,6 +190,10 @@ public class DefineFunctionLikeMacroImpl extends DefineDirectiveImpl implements 
 		{
 			case PreprocessPackage.DEFINE_FUNCTION_LIKE_MACRO__LIST:
 				setList((IdentifierList)newValue);
+				return;
+			case PreprocessPackage.DEFINE_FUNCTION_LIKE_MACRO__REPLACEMENT:
+				getReplacement().clear();
+				getReplacement().addAll((Collection<? extends ReplaceLine>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -170,6 +212,9 @@ public class DefineFunctionLikeMacroImpl extends DefineDirectiveImpl implements 
 			case PreprocessPackage.DEFINE_FUNCTION_LIKE_MACRO__LIST:
 				setList((IdentifierList)null);
 				return;
+			case PreprocessPackage.DEFINE_FUNCTION_LIKE_MACRO__REPLACEMENT:
+				getReplacement().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -186,6 +231,8 @@ public class DefineFunctionLikeMacroImpl extends DefineDirectiveImpl implements 
 		{
 			case PreprocessPackage.DEFINE_FUNCTION_LIKE_MACRO__LIST:
 				return list != null;
+			case PreprocessPackage.DEFINE_FUNCTION_LIKE_MACRO__REPLACEMENT:
+				return replacement != null && !replacement.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

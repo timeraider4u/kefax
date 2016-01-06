@@ -29,6 +29,7 @@ import at.jku.weiner.c.preprocess.preprocess.PreprocessFactory;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessPackage;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.PrimaryExpression;
+import at.jku.weiner.c.preprocess.preprocess.ReplaceLine;
 import at.jku.weiner.c.preprocess.preprocess.SourceCodeLine;
 import at.jku.weiner.c.preprocess.preprocess.UnDefineDirective;
 import at.jku.weiner.c.preprocess.preprocess.WarningDirective;
@@ -232,6 +233,13 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 	private EClass ifAbstractConditionalEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass replaceLineEClass = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -365,16 +373,6 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 	public EAttribute getDefineDirective_Id()
 	{
 		return (EAttribute)defineDirectiveEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDefineDirective_String()
-	{
-		return (EAttribute)defineDirectiveEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -772,6 +770,16 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getDefineObjectMacro_String()
+	{
+		return (EAttribute)defineObjectMacroEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDefineFunctionLikeMacro()
 	{
 		return defineFunctionLikeMacroEClass;
@@ -785,6 +793,16 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 	public EReference getDefineFunctionLikeMacro_List()
 	{
 		return (EReference)defineFunctionLikeMacroEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDefineFunctionLikeMacro_Replacement()
+	{
+		return (EReference)defineFunctionLikeMacroEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -892,6 +910,46 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getReplaceLine()
+	{
+		return replaceLineEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getReplaceLine_String()
+	{
+		return (EAttribute)replaceLineEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getReplaceLine_Id()
+	{
+		return (EAttribute)replaceLineEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getReplaceLine_Concatenate()
+	{
+		return (EAttribute)replaceLineEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public PreprocessFactory getPreprocessFactory()
 	{
 		return (PreprocessFactory)getEFactoryInstance();
@@ -927,7 +985,6 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 
 		defineDirectiveEClass = createEClass(DEFINE_DIRECTIVE);
 		createEAttribute(defineDirectiveEClass, DEFINE_DIRECTIVE__ID);
-		createEAttribute(defineDirectiveEClass, DEFINE_DIRECTIVE__STRING);
 
 		identifierListEClass = createEClass(IDENTIFIER_LIST);
 		createEAttribute(identifierListEClass, IDENTIFIER_LIST__ID);
@@ -984,9 +1041,11 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 		createEReference(preprocessorDirectivesEClass, PREPROCESSOR_DIRECTIVES__DIRECTIVE);
 
 		defineObjectMacroEClass = createEClass(DEFINE_OBJECT_MACRO);
+		createEAttribute(defineObjectMacroEClass, DEFINE_OBJECT_MACRO__STRING);
 
 		defineFunctionLikeMacroEClass = createEClass(DEFINE_FUNCTION_LIKE_MACRO);
 		createEReference(defineFunctionLikeMacroEClass, DEFINE_FUNCTION_LIKE_MACRO__LIST);
+		createEReference(defineFunctionLikeMacroEClass, DEFINE_FUNCTION_LIKE_MACRO__REPLACEMENT);
 
 		newLineLineEClass = createEClass(NEW_LINE_LINE);
 
@@ -1001,6 +1060,11 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 
 		ifAbstractConditionalEClass = createEClass(IF_ABSTRACT_CONDITIONAL);
 		createEAttribute(ifAbstractConditionalEClass, IF_ABSTRACT_CONDITIONAL__BRANCH_TAKEN);
+
+		replaceLineEClass = createEClass(REPLACE_LINE);
+		createEAttribute(replaceLineEClass, REPLACE_LINE__STRING);
+		createEAttribute(replaceLineEClass, REPLACE_LINE__ID);
+		createEAttribute(replaceLineEClass, REPLACE_LINE__CONCATENATE);
 	}
 
 	/**
@@ -1062,7 +1126,6 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 
 		initEClass(defineDirectiveEClass, DefineDirective.class, "DefineDirective", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDefineDirective_Id(), theEcorePackage.getEString(), "id", null, 0, 1, DefineDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDefineDirective_String(), theEcorePackage.getEString(), "string", null, 0, 1, DefineDirective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(identifierListEClass, IdentifierList.class, "IdentifierList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIdentifierList_Id(), theEcorePackage.getEString(), "id", null, 0, -1, IdentifierList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1119,9 +1182,11 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 		initEReference(getPreprocessorDirectives_Directive(), theEcorePackage.getEObject(), null, "directive", null, 0, 1, PreprocessorDirectives.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(defineObjectMacroEClass, DefineObjectMacro.class, "DefineObjectMacro", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDefineObjectMacro_String(), theEcorePackage.getEString(), "string", null, 0, 1, DefineObjectMacro.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(defineFunctionLikeMacroEClass, DefineFunctionLikeMacro.class, "DefineFunctionLikeMacro", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDefineFunctionLikeMacro_List(), this.getIdentifierList(), null, "list", null, 0, 1, DefineFunctionLikeMacro.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDefineFunctionLikeMacro_Replacement(), this.getReplaceLine(), null, "replacement", null, 0, -1, DefineFunctionLikeMacro.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(newLineLineEClass, NewLineLine.class, "NewLineLine", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1136,6 +1201,11 @@ public class PreprocessPackageImpl extends EPackageImpl implements PreprocessPac
 
 		initEClass(ifAbstractConditionalEClass, IfAbstractConditional.class, "IfAbstractConditional", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIfAbstractConditional_BranchTaken(), theEcorePackage.getEBoolean(), "branchTaken", null, 0, 1, IfAbstractConditional.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(replaceLineEClass, ReplaceLine.class, "ReplaceLine", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getReplaceLine_String(), theEcorePackage.getEString(), "string", null, 0, 1, ReplaceLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getReplaceLine_Id(), theEcorePackage.getEString(), "id", null, 0, 1, ReplaceLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getReplaceLine_Concatenate(), theEcorePackage.getEBoolean(), "concatenate", null, 0, 1, ReplaceLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

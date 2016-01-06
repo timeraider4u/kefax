@@ -22,7 +22,7 @@ lexer-tokens
 			lines+=
 			(PreprocessorDirectives
 				directive=
-				(DefineDirective
+				(DefineObjectMacro
 					id++"FOO",
 					string++"BAR"
 				)
@@ -35,7 +35,10 @@ lexer-tokens
 					(IdentifierList
 						id+*"[a]"
 					),
-					string++"a"
+					replacement+=
+					(ReplaceLine
+						string++"a"
+					)
 				)
 			),
 			(Code

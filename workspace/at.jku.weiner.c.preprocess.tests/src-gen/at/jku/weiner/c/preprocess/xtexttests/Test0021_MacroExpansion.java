@@ -46,7 +46,8 @@ import at.jku.weiner.c.preprocess.xtexttests.LexerAndParserTest;
 import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
-import at.jku.weiner.c.preprocess.preprocess.DefineDirective;
+import at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro;
+import at.jku.weiner.c.preprocess.preprocess.ReplaceLine;
 import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.Code;
@@ -200,73 +201,82 @@ public class Test0021_MacroExpansion {
 		Assert.assertNotNull(PreprocessorDirectives_2_Var
 		);
 		//2
-		final DefineDirective DefineDirective_3_Var
-		 = (DefineDirective)PreprocessorDirectives_2_Var
+		final DefineFunctionLikeMacro DefineFunctionLikeMacro_3_Var
+		 = (DefineFunctionLikeMacro)PreprocessorDirectives_2_Var
 		.getDirective();
-		Assert.assertNotNull(DefineDirective_3_Var
+		Assert.assertNotNull(DefineFunctionLikeMacro_3_Var
 		);
-		Assert.assertEquals("foo", DefineDirective_3_Var
+		Assert.assertEquals("foo", DefineFunctionLikeMacro_3_Var
 		.getId());
-		Assert.assertEquals("bar()", DefineDirective_3_Var
-		.getString());
+		final EList<? extends EObject> Replacement_3_list = DefineFunctionLikeMacro_3_Var
+		.getReplacement();
+		Assert.assertNotNull(Replacement_3_list);
+		Assert.assertEquals(1, Replacement_3_list.size());
 		//3
-		final NewLineLine NewLineLine_4_Var
-		 = (NewLineLine)Lines_1_list.get(1);
-		Assert.assertNotNull(NewLineLine_4_Var
+		final ReplaceLine ReplaceLine_4_Var
+		 = (ReplaceLine)Replacement_3_list.get(0);
+		Assert.assertNotNull(ReplaceLine_4_Var
 		);
+		Assert.assertEquals("bar()", ReplaceLine_4_Var
+		.getString());
 		//4
-		final Code Code_5_Var
-		 = (Code)Lines_1_list.get(2);
-		Assert.assertNotNull(Code_5_Var
+		final NewLineLine NewLineLine_5_Var
+		 = (NewLineLine)Lines_1_list.get(1);
+		Assert.assertNotNull(NewLineLine_5_Var
 		);
-		Assert.assertEquals("int bar() {", Code_5_Var
-		.getCode());
 		//5
 		final Code Code_6_Var
-		 = (Code)Lines_1_list.get(3);
+		 = (Code)Lines_1_list.get(2);
 		Assert.assertNotNull(Code_6_Var
 		);
-		Assert.assertEquals("	return 0;", Code_6_Var
+		Assert.assertEquals("int bar() {", Code_6_Var
 		.getCode());
 		//6
 		final Code Code_7_Var
-		 = (Code)Lines_1_list.get(4);
+		 = (Code)Lines_1_list.get(3);
 		Assert.assertNotNull(Code_7_Var
 		);
-		Assert.assertEquals("}", Code_7_Var
+		Assert.assertEquals("	return 0;", Code_7_Var
 		.getCode());
 		//7
-		final NewLineLine NewLineLine_8_Var
-		 = (NewLineLine)Lines_1_list.get(5);
-		Assert.assertNotNull(NewLineLine_8_Var
+		final Code Code_8_Var
+		 = (Code)Lines_1_list.get(4);
+		Assert.assertNotNull(Code_8_Var
 		);
-		//8
-		final Code Code_9_Var
-		 = (Code)Lines_1_list.get(6);
-		Assert.assertNotNull(Code_9_Var
-		);
-		Assert.assertEquals("int main(void) {", Code_9_Var
+		Assert.assertEquals("}", Code_8_Var
 		.getCode());
+		//8
+		final NewLineLine NewLineLine_9_Var
+		 = (NewLineLine)Lines_1_list.get(5);
+		Assert.assertNotNull(NewLineLine_9_Var
+		);
 		//9
 		final Code Code_10_Var
-		 = (Code)Lines_1_list.get(7);
+		 = (Code)Lines_1_list.get(6);
 		Assert.assertNotNull(Code_10_Var
 		);
-		Assert.assertEquals("	int foo = foo();", Code_10_Var
+		Assert.assertEquals("int main(void) {", Code_10_Var
 		.getCode());
 		//10
 		final Code Code_11_Var
-		 = (Code)Lines_1_list.get(8);
+		 = (Code)Lines_1_list.get(7);
 		Assert.assertNotNull(Code_11_Var
 		);
-		Assert.assertEquals("	return foo;", Code_11_Var
+		Assert.assertEquals("	int foo = foo();", Code_11_Var
 		.getCode());
 		//11
 		final Code Code_12_Var
-		 = (Code)Lines_1_list.get(9);
+		 = (Code)Lines_1_list.get(8);
 		Assert.assertNotNull(Code_12_Var
 		);
-		Assert.assertEquals("}", Code_12_Var
+		Assert.assertEquals("	return foo;", Code_12_Var
+		.getCode());
+		//12
+		final Code Code_13_Var
+		 = (Code)Lines_1_list.get(9);
+		Assert.assertNotNull(Code_13_Var
+		);
+		Assert.assertEquals("}", Code_13_Var
 		.getCode());
 	}
 	

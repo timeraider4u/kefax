@@ -90,6 +90,7 @@ public class PreprocessFactoryImpl extends EFactoryImpl implements PreprocessFac
 			case PreprocessPackage.CODE: return createCode();
 			case PreprocessPackage.PRIMARY_EXPRESSION: return createPrimaryExpression();
 			case PreprocessPackage.IF_ABSTRACT_CONDITIONAL: return createIfAbstractConditional();
+			case PreprocessPackage.REPLACE_LINE: return createReplaceLine();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -379,6 +380,17 @@ public class PreprocessFactoryImpl extends EFactoryImpl implements PreprocessFac
 	{
 		IfAbstractConditionalImpl ifAbstractConditional = new IfAbstractConditionalImpl();
 		return ifAbstractConditional;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ReplaceLine createReplaceLine()
+	{
+		ReplaceLineImpl replaceLine = new ReplaceLineImpl();
+		return replaceLine;
 	}
 
 	/**

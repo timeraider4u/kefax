@@ -30,7 +30,15 @@ lexer-tokens
 					(IdentifierList
 						id+*"[A, B]"
 					),
-					string++"#A #B"
+					replacement+=
+					(ReplaceLine
+						string++"",
+						id++"A"
+					),
+					(ReplaceLine
+						string++"",
+						id++"B"
+					)
 				)
 			),
 			(Code

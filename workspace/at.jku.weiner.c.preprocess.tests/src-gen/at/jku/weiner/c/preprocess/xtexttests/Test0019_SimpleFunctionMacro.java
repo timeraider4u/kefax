@@ -46,7 +46,8 @@ import at.jku.weiner.c.preprocess.xtexttests.LexerAndParserTest;
 import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
-import at.jku.weiner.c.preprocess.preprocess.DefineDirective;
+import at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro;
+import at.jku.weiner.c.preprocess.preprocess.ReplaceLine;
 import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.Code;
@@ -164,33 +165,44 @@ public class Test0019_SimpleFunctionMacro {
 		Assert.assertNotNull(PreprocessorDirectives_2_Var
 		);
 		//2
-		final DefineDirective DefineDirective_3_Var
-		 = (DefineDirective)PreprocessorDirectives_2_Var
+		final DefineFunctionLikeMacro DefineFunctionLikeMacro_3_Var
+		 = (DefineFunctionLikeMacro)PreprocessorDirectives_2_Var
 		.getDirective();
-		Assert.assertNotNull(DefineDirective_3_Var
+		Assert.assertNotNull(DefineFunctionLikeMacro_3_Var
 		);
-		Assert.assertEquals("halt", DefineDirective_3_Var
+		Assert.assertEquals("halt", DefineFunctionLikeMacro_3_Var
 		.getId());
-		Assert.assertEquals("stop()", DefineDirective_3_Var
-		.getString());
+		Assert.assertNull(DefineFunctionLikeMacro_3_Var
+		.getList());
+		final EList<? extends EObject> Replacement_3_list = DefineFunctionLikeMacro_3_Var
+		.getReplacement();
+		Assert.assertNotNull(Replacement_3_list);
+		Assert.assertEquals(1, Replacement_3_list.size());
 		//3
-		final NewLineLine NewLineLine_4_Var
-		 = (NewLineLine)Lines_1_list.get(1);
-		Assert.assertNotNull(NewLineLine_4_Var
+		final ReplaceLine ReplaceLine_4_Var
+		 = (ReplaceLine)Replacement_3_list.get(0);
+		Assert.assertNotNull(ReplaceLine_4_Var
 		);
+		Assert.assertEquals("stop()", ReplaceLine_4_Var
+		.getString());
 		//4
-		final Code Code_5_Var
-		 = (Code)Lines_1_list.get(2);
-		Assert.assertNotNull(Code_5_Var
+		final NewLineLine NewLineLine_5_Var
+		 = (NewLineLine)Lines_1_list.get(1);
+		Assert.assertNotNull(NewLineLine_5_Var
 		);
-		Assert.assertEquals("void halt();", Code_5_Var
-		.getCode());
 		//5
 		final Code Code_6_Var
-		 = (Code)Lines_1_list.get(3);
+		 = (Code)Lines_1_list.get(2);
 		Assert.assertNotNull(Code_6_Var
 		);
-		Assert.assertEquals("void halt (	);", Code_6_Var
+		Assert.assertEquals("void halt();", Code_6_Var
+		.getCode());
+		//6
+		final Code Code_7_Var
+		 = (Code)Lines_1_list.get(3);
+		Assert.assertNotNull(Code_7_Var
+		);
+		Assert.assertEquals("void halt (	);", Code_7_Var
 		.getCode());
 	}
 	

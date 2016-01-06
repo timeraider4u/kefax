@@ -3,6 +3,8 @@ package at.jku.weiner.c.preprocess.mytests;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -10,18 +12,25 @@ import org.junit.Test;
 
 import at.jku.weiner.c.preprocess.preprocess.PreprocessFactory;
 import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
+import at.jku.weiner.c.preprocess.preprocess.ReplaceLine;
 import at.jku.weiner.c.preprocess.utils.macros.DefinitionTable;
 
 public class TestDefinitionTable {
+	private final PreprocessFactory factory = PreprocessFactory.eINSTANCE;
 	private IdentifierList list1;
 	private IdentifierList list2;
-	
+	private EList<ReplaceLine> replaceLines1;
+	private EList<ReplaceLine> replaceLines2;
+
 	@Before
 	public void setUp() {
 		DefinitionTable.reset();
 		Assert.assertEquals(0, DefinitionTable.size());
-		this.list1 = PreprocessFactory.eINSTANCE.createIdentifierList();
-		this.list2 = PreprocessFactory.eINSTANCE.createIdentifierList();
+		this.list1 = this.factory.createIdentifierList();
+		this.list2 = this.factory.createIdentifierList();
+		this.replaceLines1 = new BasicEList<ReplaceLine>();
+		this.replaceLines2 = new BasicEList<ReplaceLine>();
+
 	}
 	
 	@After
@@ -63,10 +72,12 @@ public class TestDefinitionTable {
 	public void test03() {
 		final String id = "ID";
 		final String replaceWith = "replace with";
-		
-		DefinitionTable.addFunctionMacro(id, replaceWith, this.list1);
+		final ReplaceLine line = this.factory.createReplaceLine();
+		line.setString(replaceWith);
+		this.replaceLines1.add(line);
+		DefinitionTable.addFunctionMacro(id, this.list1, this.replaceLines1);
 		Assert.assertEquals(1, DefinitionTable.size());
-		DefinitionTable.addFunctionMacro(id, replaceWith, this.list2);
+		DefinitionTable.addFunctionMacro(id, this.list2, this.replaceLines1);
 		Assert.assertEquals(1, DefinitionTable.size());
 	}
 	
@@ -78,9 +89,13 @@ public class TestDefinitionTable {
 		this.list1.getId().add(paramName);
 		this.list2.getId().add(paramName);
 		
-		DefinitionTable.addFunctionMacro(id, replaceWith, this.list1);
+		final ReplaceLine line = this.factory.createReplaceLine();
+		line.setString(replaceWith);
+		this.replaceLines1.add(line);
+		
+		DefinitionTable.addFunctionMacro(id, this.list1, this.replaceLines1);
 		Assert.assertEquals(1, DefinitionTable.size());
-		DefinitionTable.addFunctionMacro(id, replaceWith, this.list2);
+		DefinitionTable.addFunctionMacro(id, this.list2, this.replaceLines1);
 		Assert.assertEquals(1, DefinitionTable.size());
 	}
 	
@@ -88,18 +103,25 @@ public class TestDefinitionTable {
 	public void test05() {
 		final String id = "ID";
 		final String replace = "replace with";
-		
+
 		DefinitionTable.add(id, replace);
 		Assert.assertEquals(1, DefinitionTable.size());
-		DefinitionTable.addFunctionMacro(id, replace, this.list1);
+		
+		final ReplaceLine line = this.factory.createReplaceLine();
+		line.setString(replace);
+		this.replaceLines1.add(line);
+		DefinitionTable.addFunctionMacro(id, this.list1, this.replaceLines1);
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void test06() {
 		final String id = "ID";
 		final String replace = "replace with";
+		final ReplaceLine line = this.factory.createReplaceLine();
+		line.setString(replace);
+		this.replaceLines1.add(line);
 		
-		DefinitionTable.addFunctionMacro(id, replace, this.list1);
+		DefinitionTable.addFunctionMacro(id, this.list1, this.replaceLines1);
 		Assert.assertEquals(1, DefinitionTable.size());
 		DefinitionTable.add(id, replace);
 	}
@@ -108,10 +130,19 @@ public class TestDefinitionTable {
 	public void test07() {
 		final String id = "ID";
 		
-		DefinitionTable.addFunctionMacro(id, "replace with", this.list1);
+		final ReplaceLine line = this.factory.createReplaceLine();
+		line.setString("replace with");
+		this.replaceLines1.add(line);
+		
+		DefinitionTable.addFunctionMacro(id, this.list1, this.replaceLines1);
 		Assert.assertEquals(1, DefinitionTable.size());
-		DefinitionTable.addFunctionMacro(id, "replace with something else",
-				this.list2);
+		this.replaceLines1 = new BasicEList<ReplaceLine>();
+
+		final ReplaceLine line2 = this.factory.createReplaceLine();
+		line2.setString("replace with something else");
+		this.replaceLines2.add(line2);
+		
+		DefinitionTable.addFunctionMacro(id, this.list2, this.replaceLines2);
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
@@ -120,11 +151,14 @@ public class TestDefinitionTable {
 		final String replace = "replace with";
 		
 		this.list2.getId().add("aParam");
+
+		final ReplaceLine line1 = this.factory.createReplaceLine();
+		line1.setString(replace);
+		this.replaceLines1.add(line1);
 		
-		DefinitionTable.addFunctionMacro(id, replace, this.list1);
+		DefinitionTable.addFunctionMacro(id, this.list1, this.replaceLines1);
 		Assert.assertEquals(1, DefinitionTable.size());
-		
-		DefinitionTable.addFunctionMacro(id, replace, this.list2);
+		DefinitionTable.addFunctionMacro(id, this.list2, this.replaceLines1);
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
@@ -135,9 +169,13 @@ public class TestDefinitionTable {
 		this.list1.getId().add("aParam");
 		this.list2.getId().add("bParam");
 		
-		DefinitionTable.addFunctionMacro(id, replace, this.list1);
+		final ReplaceLine line1 = this.factory.createReplaceLine();
+		line1.setString(replace);
+		this.replaceLines1.add(line1);
+
+		DefinitionTable.addFunctionMacro(id, this.list1, this.replaceLines1);
 		Assert.assertEquals(1, DefinitionTable.size());
-		DefinitionTable.addFunctionMacro(id, replace, this.list2);
+		DefinitionTable.addFunctionMacro(id, this.list2, this.replaceLines1);
 	}
 	
 	@Test
@@ -151,10 +189,14 @@ public class TestDefinitionTable {
 		this.list2.getId().add("bParam");
 		this.list1.getId().add("cParam");
 		this.list2.getId().add("cParam");
+
+		final ReplaceLine line1 = this.factory.createReplaceLine();
+		line1.setString(replace);
+		this.replaceLines1.add(line1);
 		
-		DefinitionTable.addFunctionMacro(id, replace, this.list1);
+		DefinitionTable.addFunctionMacro(id, this.list1, this.replaceLines1);
 		Assert.assertEquals(1, DefinitionTable.size());
-		DefinitionTable.addFunctionMacro(id, replace, this.list2);
+		DefinitionTable.addFunctionMacro(id, this.list2, this.replaceLines1);
 		Assert.assertEquals(1, DefinitionTable.size());
 	}
 	
@@ -166,9 +208,13 @@ public class TestDefinitionTable {
 		this.list1 = null;
 		this.list2 = null;
 		
-		DefinitionTable.addFunctionMacro(id, replace, this.list1);
+		final ReplaceLine line1 = this.factory.createReplaceLine();
+		line1.setString(replace);
+		this.replaceLines1.add(line1);
+		
+		DefinitionTable.addFunctionMacro(id, this.list1, this.replaceLines1);
 		Assert.assertEquals(1, DefinitionTable.size());
-		DefinitionTable.addFunctionMacro(id, replace, this.list2);
+		DefinitionTable.addFunctionMacro(id, this.list2, this.replaceLines1);
 		Assert.assertEquals(1, DefinitionTable.size());
 	}
 	
@@ -233,7 +279,10 @@ public class TestDefinitionTable {
 	public void testContainsAKeyAndResolve4() {
 		final String code = "a little penguin() looks at you!";
 		DefinitionTable.add("fox", "cat");
-		DefinitionTable.addFunctionMacro("penguin", "red fox", null);
+		final ReplaceLine line1 = this.factory.createReplaceLine();
+		line1.setString("red fox");
+		this.replaceLines1.add(line1);
+		DefinitionTable.addFunctionMacro("penguin", null, this.replaceLines1);
 		Assert.assertTrue(DefinitionTable.containsAKey(code));
 		final String resolve = DefinitionTable.resolve(code);
 		Assert.assertEquals("a little red fox looks at you!", resolve);
@@ -267,7 +316,10 @@ public class TestDefinitionTable {
 	public void testContainsAKeyAndResolve6() {
 		final String code = "a little penguin looks at you!";
 		final String code2 = "a little penguin() looks at you!";
-		DefinitionTable.addFunctionMacro("penguin", "red fox", null);
+		final ReplaceLine line1 = this.factory.createReplaceLine();
+		line1.setString("red fox");
+		this.replaceLines1.add(line1);
+		DefinitionTable.addFunctionMacro("penguin", null, this.replaceLines1);
 		DefinitionTable.add("fox", "firefox");
 		Assert.assertFalse(DefinitionTable.containsAKey(code));
 		Assert.assertTrue(DefinitionTable.containsAKey(code2));
@@ -304,7 +356,10 @@ public class TestDefinitionTable {
 	public void testContainsAKeyAndResolve8() {
 		final String code = "a little penguin looks at you!";
 		final String code2 = "a little penguin() looks at you!";
-		DefinitionTable.addFunctionMacro("penguin", "red fox", null);
+		final ReplaceLine line1 = this.factory.createReplaceLine();
+		line1.setString("red fox");
+		this.replaceLines1.add(line1);
+		DefinitionTable.addFunctionMacro("penguin", null, this.replaceLines1);
 		DefinitionTable.add("fox", "cat");
 		
 		Assert.assertFalse(DefinitionTable.containsAKey(code));
@@ -338,7 +393,10 @@ public class TestDefinitionTable {
 		// note the substring "penguin" which is a string literal
 		// inside this string literal
 		final String code = "a little \"penguin()\" looks at you!";
-		DefinitionTable.addFunctionMacro("penguin", "firefox", null);
+		final ReplaceLine line1 = this.factory.createReplaceLine();
+		line1.setString("firefox");
+		this.replaceLines1.add(line1);
+		DefinitionTable.addFunctionMacro("penguin", null, this.replaceLines1);
 		Assert.assertFalse(DefinitionTable.containsAKey(code));
 		final String result = DefinitionTable.resolve(code);
 		Assert.assertFalse(DefinitionTable.containsAKey(code));
@@ -352,7 +410,10 @@ public class TestDefinitionTable {
 		final IdentifierList list = PreprocessFactory.eINSTANCE
 				.createIdentifierList();
 		list.getId().add("x");
-		DefinitionTable.addFunctionMacro("penguin", "x", list);
+		final ReplaceLine line1 = this.factory.createReplaceLine();
+		line1.setString("x");
+		this.replaceLines1.add(line1);
+		DefinitionTable.addFunctionMacro("penguin", list, this.replaceLines1);
 		Assert.assertFalse(DefinitionTable.containsAKey(code));
 		final String result = DefinitionTable.resolve(code);
 		Assert.assertEquals(code, result);
@@ -364,7 +425,10 @@ public class TestDefinitionTable {
 		final IdentifierList list = PreprocessFactory.eINSTANCE
 				.createIdentifierList();
 		list.getId().add("x");
-		DefinitionTable.addFunctionMacro("penguin", "x \"penguin()\"", list);
+		final ReplaceLine line1 = this.factory.createReplaceLine();
+		line1.setString("x \"penguin()\"");
+		this.replaceLines1.add(line1);
+		DefinitionTable.addFunctionMacro("penguin", list, this.replaceLines1);
 		Assert.assertTrue(DefinitionTable.containsAKey(code));
 		final String result = DefinitionTable.resolve(code);
 		Assert.assertEquals("a little firefox \"penguin()\" looks at you!",
@@ -378,7 +442,10 @@ public class TestDefinitionTable {
 		final IdentifierList list = PreprocessFactory.eINSTANCE
 				.createIdentifierList();
 		list.getId().add("x");
-		DefinitionTable.addFunctionMacro("penguin", "x \"x\"", list);
+		final ReplaceLine line1 = this.factory.createReplaceLine();
+		line1.setString("x \"x\"");
+		this.replaceLines1.add(line1);
+		DefinitionTable.addFunctionMacro("penguin", list, this.replaceLines1);
 		Assert.assertTrue(DefinitionTable.containsAKey(code));
 		final String result = DefinitionTable.resolve(code);
 		Assert.assertEquals(

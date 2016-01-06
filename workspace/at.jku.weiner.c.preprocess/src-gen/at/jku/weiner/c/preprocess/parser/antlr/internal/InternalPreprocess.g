@@ -889,6 +889,13 @@ this_DEFINE_1=RULE_DEFINE
 
 )?
 
+
+(this_WHITESPACE_6=RULE_WHITESPACE
+    { 
+    newLeafNode(this_WHITESPACE_6, grammarAccess.getDefineObjectMacroAccess().getWHITESPACETerminalRuleCall_5()); 
+    }
+)*
+
 )
 
 
@@ -1007,34 +1014,24 @@ this_SKW_RIGHTPAREN_7=RULE_SKW_RIGHTPAREN
 
 
 (
-(this_WHITESPACE_8=RULE_WHITESPACE
-    { 
-    newLeafNode(this_WHITESPACE_8, grammarAccess.getDefineFunctionLikeMacroAccess().getWHITESPACETerminalRuleCall_8_0()); 
-    }
-)*
-
-
-(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getDefineFunctionLikeMacroAccess().getStringMyDefineLineParserRuleCall_8_1_0()); 
+	        newCompositeNode(grammarAccess.getDefineFunctionLikeMacroAccess().getReplacementReplaceLineParserRuleCall_8_0()); 
 	    }
-		lv_string_9_0=ruleMyDefineLine		{
+		lv_replacement_8_0=ruleReplaceLine		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getDefineFunctionLikeMacroRule());
 	        }
-       		set(
+       		add(
        			$current, 
-       			"string",
-        		lv_string_9_0, 
-        		"at.jku.weiner.c.preprocess.Preprocess.MyDefineLine");
+       			"replacement",
+        		lv_replacement_8_0, 
+        		"at.jku.weiner.c.preprocess.Preprocess.ReplaceLine");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)
-
-)?
+)*
 
 )
 
@@ -1286,6 +1283,132 @@ this_SKW_COMMA_7=RULE_SKW_COMMA
 )
 
 )
+
+)
+
+
+;
+
+
+
+
+
+// Entry rule entryRuleReplaceLine
+entryRuleReplaceLine returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getReplaceLineRule()); }
+	 iv_ruleReplaceLine=ruleReplaceLine 
+	 { $current=$iv_ruleReplaceLine.current; } 
+	 EOF 
+;
+
+// Rule ReplaceLine
+ruleReplaceLine returns [EObject current=null] 
+    @init { enterRule();
+   		/*no init found*/
+    }
+    @after { leaveRule();
+    		/*no after found*/
+     }:
+
+(
+(
+	{ 
+	  /* */ 
+	}
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getReplaceLineAccess().getReplaceLineAction_0(),
+            $current);
+    }
+)
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getReplaceLineAccess().getStringMyDefineLineParserRuleCall_1_0()); 
+	    }
+		lv_string_1_0=ruleMyDefineLine		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getReplaceLineRule());
+	        }
+       		set(
+       			$current, 
+       			"string",
+        		lv_string_1_0, 
+        		"at.jku.weiner.c.preprocess.Preprocess.MyDefineLine");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+(
+this_HASH_2=RULE_HASH
+    { 
+    newLeafNode(this_HASH_2, grammarAccess.getReplaceLineAccess().getHASHTerminalRuleCall_2_0()); 
+    }
+
+
+
+(
+(
+(this_WHITESPACE_3=RULE_WHITESPACE
+    { 
+    newLeafNode(this_WHITESPACE_3, grammarAccess.getReplaceLineAccess().getWHITESPACETerminalRuleCall_2_1_0_0()); 
+    }
+)*
+
+
+(
+(
+		lv_id_4_0=RULE_ID
+		{
+			newLeafNode(lv_id_4_0, grammarAccess.getReplaceLineAccess().getIdIDTerminalRuleCall_2_1_0_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getReplaceLineRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"id",
+        		lv_id_4_0, 
+        		"at.jku.weiner.c.common.Common.ID");
+	    }
+
+)
+)
+
+)
+
+
+    |
+(
+(
+		lv_concatenate_5_0=RULE_HASH
+		{
+			newLeafNode(lv_concatenate_5_0, grammarAccess.getReplaceLineAccess().getConcatenateHASHTerminalRuleCall_2_1_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getReplaceLineRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"concatenate",
+        		true, 
+        		"at.jku.weiner.c.preprocess.Preprocess.HASH");
+	    }
+
+)
+)
+
+)
+
+)?
 
 )
 
@@ -2645,22 +2768,14 @@ ruleMyDefineLine returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleTo
     newLeafNode(this_WHITESPACE_1, grammarAccess.getMyDefineLineAccess().getWHITESPACETerminalRuleCall_1()); 
     }
 
-    |    this_HASH_2=RULE_HASH    {
-		$current.merge(this_HASH_2);
+    |    this_VA_ARGS_2=RULE_VA_ARGS    {
+		$current.merge(this_VA_ARGS_2);
     }
 
     { 
-    newLeafNode(this_HASH_2, grammarAccess.getMyDefineLineAccess().getHASHTerminalRuleCall_2()); 
+    newLeafNode(this_VA_ARGS_2, grammarAccess.getMyDefineLineAccess().getVA_ARGSTerminalRuleCall_2()); 
     }
-
-    |    this_VA_ARGS_3=RULE_VA_ARGS    {
-		$current.merge(this_VA_ARGS_3);
-    }
-
-    { 
-    newLeafNode(this_VA_ARGS_3, grammarAccess.getMyDefineLineAccess().getVA_ARGSTerminalRuleCall_3()); 
-    }
-)*
+)+
     ;
 
 

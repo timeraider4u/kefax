@@ -46,11 +46,11 @@ import at.jku.weiner.c.preprocess.xtexttests.LexerAndParserTest;
 import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
-import at.jku.weiner.c.preprocess.preprocess.DefineDirective;
+import at.jku.weiner.c.preprocess.preprocess.DefineObjectMacro;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
-import at.jku.weiner.c.preprocess.preprocess.DefineDirective;
+import at.jku.weiner.c.preprocess.preprocess.DefineObjectMacro;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
@@ -173,14 +173,14 @@ public class Test0018_EmptyInc {
 		Assert.assertNotNull(PreprocessorDirectives_2_Var
 		);
 		//2
-		final DefineDirective DefineDirective_3_Var
-		 = (DefineDirective)PreprocessorDirectives_2_Var
+		final DefineObjectMacro DefineObjectMacro_3_Var
+		 = (DefineObjectMacro)PreprocessorDirectives_2_Var
 		.getDirective();
-		Assert.assertNotNull(DefineDirective_3_Var
+		Assert.assertNotNull(DefineObjectMacro_3_Var
 		);
-		Assert.assertEquals("EMPTY", DefineDirective_3_Var
+		Assert.assertEquals("EMPTY", DefineObjectMacro_3_Var
 		.getId());
-		Assert.assertNull(DefineDirective_3_Var
+		Assert.assertNull(DefineObjectMacro_3_Var
 		.getString());
 		//3
 		final Code Code_4_Var
@@ -200,14 +200,14 @@ public class Test0018_EmptyInc {
 		Assert.assertNotNull(PreprocessorDirectives_6_Var
 		);
 		//6
-		final DefineDirective DefineDirective_7_Var
-		 = (DefineDirective)PreprocessorDirectives_6_Var
+		final DefineObjectMacro DefineObjectMacro_7_Var
+		 = (DefineObjectMacro)PreprocessorDirectives_6_Var
 		.getDirective();
-		Assert.assertNotNull(DefineDirective_7_Var
+		Assert.assertNotNull(DefineObjectMacro_7_Var
 		);
-		Assert.assertEquals("EMPTY2", DefineDirective_7_Var
+		Assert.assertEquals("EMPTY2", DefineObjectMacro_7_Var
 		.getId());
-		Assert.assertEquals("", DefineDirective_7_Var
+		Assert.assertNull(DefineObjectMacro_7_Var
 		.getString());
 		//7
 		final Code Code_8_Var

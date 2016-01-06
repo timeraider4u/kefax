@@ -211,7 +211,7 @@ source file="res/Test0003_SimpleInclude"
 				lines+=
 				(preprocess::PreprocessorDirectives
 					directive=
-					(preprocess::DefineDirective
+					(preprocess::DefineObjectMacro
 						id++"NUMBER",
 						string++"int"
 					)

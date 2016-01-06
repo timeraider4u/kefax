@@ -48,12 +48,18 @@ import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro;
 import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
+import at.jku.weiner.c.preprocess.preprocess.ReplaceLine;
+import at.jku.weiner.c.preprocess.preprocess.ReplaceLine;
+import at.jku.weiner.c.preprocess.preprocess.ReplaceLine;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro;
 import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
+import at.jku.weiner.c.preprocess.preprocess.ReplaceLine;
+import at.jku.weiner.c.preprocess.preprocess.ReplaceLine;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro;
 import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
+import at.jku.weiner.c.preprocess.preprocess.ReplaceLine;
 import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.Code;
@@ -220,34 +226,38 @@ public class Test0082_Stringification4 {
 		);
 		Assert.assertEquals("[X]", IdentifierList_4_Var
 		.getId().toString());
-		Assert.assertEquals("#X BAR(#X)", DefineFunctionLikeMacro_3_Var
-		.getString());
+		final EList<? extends EObject> Replacement_4_list = DefineFunctionLikeMacro_3_Var
+		.getReplacement();
+		Assert.assertNotNull(Replacement_4_list);
+		Assert.assertEquals(3, Replacement_4_list.size());
 		//4
-		final PreprocessorDirectives PreprocessorDirectives_5_Var
-		 = (PreprocessorDirectives)Lines_1_list.get(1);
-		Assert.assertNotNull(PreprocessorDirectives_5_Var
+		final ReplaceLine ReplaceLine_5_Var
+		 = (ReplaceLine)Replacement_4_list.get(0);
+		Assert.assertNotNull(ReplaceLine_5_Var
 		);
+		Assert.assertEquals("", ReplaceLine_5_Var
+		.getString());
+		Assert.assertEquals("X", ReplaceLine_5_Var
+		.getId());
 		//5
-		final DefineFunctionLikeMacro DefineFunctionLikeMacro_6_Var
-		 = (DefineFunctionLikeMacro)PreprocessorDirectives_5_Var
-		.getDirective();
-		Assert.assertNotNull(DefineFunctionLikeMacro_6_Var
+		final ReplaceLine ReplaceLine_6_Var
+		 = (ReplaceLine)Replacement_4_list.get(1);
+		Assert.assertNotNull(ReplaceLine_6_Var
 		);
-		Assert.assertEquals("BAR", DefineFunctionLikeMacro_6_Var
+		Assert.assertEquals("BAR(", ReplaceLine_6_Var
+		.getString());
+		Assert.assertEquals("X", ReplaceLine_6_Var
 		.getId());
 		//6
-		final IdentifierList IdentifierList_7_Var
-		 = (IdentifierList)DefineFunctionLikeMacro_6_Var
-		.getList();
-		Assert.assertNotNull(IdentifierList_7_Var
+		final ReplaceLine ReplaceLine_7_Var
+		 = (ReplaceLine)Replacement_4_list.get(2);
+		Assert.assertNotNull(ReplaceLine_7_Var
 		);
-		Assert.assertEquals("[X]", IdentifierList_7_Var
-		.getId().toString());
-		Assert.assertEquals("FOO(#X)", DefineFunctionLikeMacro_6_Var
+		Assert.assertEquals(")", ReplaceLine_7_Var
 		.getString());
 		//7
 		final PreprocessorDirectives PreprocessorDirectives_8_Var
-		 = (PreprocessorDirectives)Lines_1_list.get(2);
+		 = (PreprocessorDirectives)Lines_1_list.get(1);
 		Assert.assertNotNull(PreprocessorDirectives_8_Var
 		);
 		//8
@@ -256,7 +266,7 @@ public class Test0082_Stringification4 {
 		.getDirective();
 		Assert.assertNotNull(DefineFunctionLikeMacro_9_Var
 		);
-		Assert.assertEquals("FOO", DefineFunctionLikeMacro_9_Var
+		Assert.assertEquals("BAR", DefineFunctionLikeMacro_9_Var
 		.getId());
 		//9
 		final IdentifierList IdentifierList_10_Var
@@ -266,33 +276,85 @@ public class Test0082_Stringification4 {
 		);
 		Assert.assertEquals("[X]", IdentifierList_10_Var
 		.getId().toString());
-		Assert.assertEquals("#X", DefineFunctionLikeMacro_9_Var
-		.getString());
+		final EList<? extends EObject> Replacement_10_list = DefineFunctionLikeMacro_9_Var
+		.getReplacement();
+		Assert.assertNotNull(Replacement_10_list);
+		Assert.assertEquals(2, Replacement_10_list.size());
 		//10
-		final NewLineLine NewLineLine_11_Var
-		 = (NewLineLine)Lines_1_list.get(3);
-		Assert.assertNotNull(NewLineLine_11_Var
+		final ReplaceLine ReplaceLine_11_Var
+		 = (ReplaceLine)Replacement_10_list.get(0);
+		Assert.assertNotNull(ReplaceLine_11_Var
 		);
+		Assert.assertEquals("FOO(", ReplaceLine_11_Var
+		.getString());
+		Assert.assertEquals("X", ReplaceLine_11_Var
+		.getId());
 		//11
-		final Code Code_12_Var
-		 = (Code)Lines_1_list.get(4);
-		Assert.assertNotNull(Code_12_Var
+		final ReplaceLine ReplaceLine_12_Var
+		 = (ReplaceLine)Replacement_10_list.get(1);
+		Assert.assertNotNull(ReplaceLine_12_Var
 		);
-		Assert.assertEquals("FOO(abc);", Code_12_Var
-		.getCode());
+		Assert.assertEquals(")", ReplaceLine_12_Var
+		.getString());
 		//12
-		final Code Code_13_Var
-		 = (Code)Lines_1_list.get(5);
-		Assert.assertNotNull(Code_13_Var
+		final PreprocessorDirectives PreprocessorDirectives_13_Var
+		 = (PreprocessorDirectives)Lines_1_list.get(2);
+		Assert.assertNotNull(PreprocessorDirectives_13_Var
 		);
-		Assert.assertEquals("BAR(abc);", Code_13_Var
-		.getCode());
 		//13
-		final Code Code_14_Var
-		 = (Code)Lines_1_list.get(6);
-		Assert.assertNotNull(Code_14_Var
+		final DefineFunctionLikeMacro DefineFunctionLikeMacro_14_Var
+		 = (DefineFunctionLikeMacro)PreprocessorDirectives_13_Var
+		.getDirective();
+		Assert.assertNotNull(DefineFunctionLikeMacro_14_Var
 		);
-		Assert.assertEquals("FOOBAR(abc);", Code_14_Var
+		Assert.assertEquals("FOO", DefineFunctionLikeMacro_14_Var
+		.getId());
+		//14
+		final IdentifierList IdentifierList_15_Var
+		 = (IdentifierList)DefineFunctionLikeMacro_14_Var
+		.getList();
+		Assert.assertNotNull(IdentifierList_15_Var
+		);
+		Assert.assertEquals("[X]", IdentifierList_15_Var
+		.getId().toString());
+		final EList<? extends EObject> Replacement_15_list = DefineFunctionLikeMacro_14_Var
+		.getReplacement();
+		Assert.assertNotNull(Replacement_15_list);
+		Assert.assertEquals(1, Replacement_15_list.size());
+		//15
+		final ReplaceLine ReplaceLine_16_Var
+		 = (ReplaceLine)Replacement_15_list.get(0);
+		Assert.assertNotNull(ReplaceLine_16_Var
+		);
+		Assert.assertEquals("", ReplaceLine_16_Var
+		.getString());
+		Assert.assertEquals("X", ReplaceLine_16_Var
+		.getId());
+		//16
+		final NewLineLine NewLineLine_17_Var
+		 = (NewLineLine)Lines_1_list.get(3);
+		Assert.assertNotNull(NewLineLine_17_Var
+		);
+		//17
+		final Code Code_18_Var
+		 = (Code)Lines_1_list.get(4);
+		Assert.assertNotNull(Code_18_Var
+		);
+		Assert.assertEquals("FOO(abc);", Code_18_Var
+		.getCode());
+		//18
+		final Code Code_19_Var
+		 = (Code)Lines_1_list.get(5);
+		Assert.assertNotNull(Code_19_Var
+		);
+		Assert.assertEquals("BAR(abc);", Code_19_Var
+		.getCode());
+		//19
+		final Code Code_20_Var
+		 = (Code)Lines_1_list.get(6);
+		Assert.assertNotNull(Code_20_Var
+		);
+		Assert.assertEquals("FOOBAR(abc);", Code_20_Var
 		.getCode());
 	}
 	

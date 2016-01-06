@@ -28,7 +28,10 @@ lexer-tokens
 					(IdentifierList
 						id+*"[x]"
 					),
-					string++"printf(\\\"%d%d\\\\n\\\", x"
+					replacement+=
+					(ReplaceLine
+						string++"printf(\\\"%d%d\\\\n\\\", x"
+					)
 				)
 			),
 			(Code

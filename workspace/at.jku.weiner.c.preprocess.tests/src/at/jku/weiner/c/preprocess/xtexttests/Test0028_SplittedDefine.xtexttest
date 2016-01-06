@@ -42,7 +42,7 @@ lexer-tokens
 			(NewLineLine),
 			(PreprocessorDirectives
 				directive=
-				(DefineDirective
+				(DefineObjectMacro
 					id++"FOO",
 					string++"1024"
 				)

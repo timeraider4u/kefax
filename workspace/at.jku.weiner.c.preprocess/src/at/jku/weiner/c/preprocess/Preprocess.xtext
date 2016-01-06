@@ -110,7 +110,8 @@ DefineDirective:
 DefineObjectMacro returns DefineDirective:
 	{DefineObjectMacro}
 	DEFINE WHITESPACE+ id=MyCode
-		(WHITESPACE+ string=MyDefineLine)?
+	(WHITESPACE+ string=MyDefineLine)?
+	WHITESPACE*
 ;
 
 DefineFunctionLikeMacro returns DefineDirective:
@@ -122,8 +123,11 @@ DefineFunctionLikeMacro returns DefineDirective:
 		
 	SKW_RIGHTPAREN
 	
-	(WHITESPACE*
-	string=MyDefineLine)? 
+	(
+		// WHITESPACE*
+		// string=MyDefineLine
+		(replacement+=ReplaceLine)*
+	)
 ;
 
 IdentifierList:
@@ -145,6 +149,32 @@ IdentifierList:
 		)
 	)
 ;
+
+ReplaceLine:
+	{ReplaceLine}
+	(string=MyDefineLine)
+	
+	(HASH
+		(
+				(WHITESPACE* id=ID)
+			|	concatenate?=(HASH)
+		)
+	)?
+;
+
+//ReplacementStringify:
+//	WHITESPACE* id=ID
+//;
+
+//ReplacementStringify returns ReplaceLine:
+//	{ReplacementStringify}
+//	HASH WHITESPACE* id=ID
+//;
+//
+//ReplacementConcate returns ReplaceLine:
+//	{ReplacementConcate}
+//	string=MyDefineLine HASH HASH
+//;
 
 ErrorDirective:
 	{ErrorDirective}
@@ -233,7 +263,7 @@ MyCode returns ecore::EString:
 ;
 
 MyDefineLine returns ecore::EString:
-	(MyCode|WHITESPACE|HASH|VA_ARGS)*
+	(MyCode|WHITESPACE|VA_ARGS)+
 ;
 
 MyCodeLine returns ecore::EString:

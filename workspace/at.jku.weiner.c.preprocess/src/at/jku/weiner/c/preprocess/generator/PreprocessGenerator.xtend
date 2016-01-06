@@ -306,7 +306,7 @@ class PreprocessGenerator implements IGenerator {
 			DefinitionTable.add(obj.id, obj.string);
 		}
 		else if (obj instanceof DefineFunctionLikeMacro) {
-			DefinitionTable.addFunctionMacro(obj.id, obj.string, obj.list);
+			DefinitionTable.addFunctionMacro(obj.id, obj.list, obj.replacement);
 		}
 		return "";
 	}

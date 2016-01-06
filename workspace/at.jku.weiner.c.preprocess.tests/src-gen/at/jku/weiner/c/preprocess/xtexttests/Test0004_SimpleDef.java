@@ -46,21 +46,21 @@ import at.jku.weiner.c.preprocess.xtexttests.LexerAndParserTest;
 import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
-import at.jku.weiner.c.preprocess.preprocess.DefineDirective;
+import at.jku.weiner.c.preprocess.preprocess.DefineObjectMacro;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
-import at.jku.weiner.c.preprocess.preprocess.DefineDirective;
+import at.jku.weiner.c.preprocess.preprocess.DefineObjectMacro;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
-import at.jku.weiner.c.preprocess.preprocess.DefineDirective;
+import at.jku.weiner.c.preprocess.preprocess.DefineObjectMacro;
 import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
-import at.jku.weiner.c.preprocess.preprocess.DefineDirective;
+import at.jku.weiner.c.preprocess.preprocess.DefineObjectMacro;
 import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
-import at.jku.weiner.c.preprocess.preprocess.DefineDirective;
+import at.jku.weiner.c.preprocess.preprocess.DefineObjectMacro;
 import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
 import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
-import at.jku.weiner.c.preprocess.preprocess.DefineDirective;
+import at.jku.weiner.c.preprocess.preprocess.DefineObjectMacro;
 import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.Code;
@@ -233,14 +233,14 @@ public class Test0004_SimpleDef {
 		Assert.assertNotNull(PreprocessorDirectives_2_Var
 		);
 		//2
-		final DefineDirective DefineDirective_3_Var
-		 = (DefineDirective)PreprocessorDirectives_2_Var
+		final DefineObjectMacro DefineObjectMacro_3_Var
+		 = (DefineObjectMacro)PreprocessorDirectives_2_Var
 		.getDirective();
-		Assert.assertNotNull(DefineDirective_3_Var
+		Assert.assertNotNull(DefineObjectMacro_3_Var
 		);
-		Assert.assertEquals("PI", DefineDirective_3_Var
+		Assert.assertEquals("PI", DefineObjectMacro_3_Var
 		.getId());
-		Assert.assertEquals("3.1415926535897932", DefineDirective_3_Var
+		Assert.assertEquals("3.1415926535897932", DefineObjectMacro_3_Var
 		.getString());
 		//3
 		final PreprocessorDirectives PreprocessorDirectives_4_Var
@@ -248,14 +248,14 @@ public class Test0004_SimpleDef {
 		Assert.assertNotNull(PreprocessorDirectives_4_Var
 		);
 		//4
-		final DefineDirective DefineDirective_5_Var
-		 = (DefineDirective)PreprocessorDirectives_4_Var
+		final DefineObjectMacro DefineObjectMacro_5_Var
+		 = (DefineObjectMacro)PreprocessorDirectives_4_Var
 		.getDirective();
-		Assert.assertNotNull(DefineDirective_5_Var
+		Assert.assertNotNull(DefineObjectMacro_5_Var
 		);
-		Assert.assertEquals("NAME", DefineDirective_5_Var
+		Assert.assertEquals("NAME", DefineObjectMacro_5_Var
 		.getId());
-		Assert.assertEquals("\"Nobody\"", DefineDirective_5_Var
+		Assert.assertEquals("\"Nobody\"", DefineObjectMacro_5_Var
 		.getString());
 		//5
 		final PreprocessorDirectives PreprocessorDirectives_6_Var
@@ -263,14 +263,14 @@ public class Test0004_SimpleDef {
 		Assert.assertNotNull(PreprocessorDirectives_6_Var
 		);
 		//6
-		final DefineDirective DefineDirective_7_Var
-		 = (DefineDirective)PreprocessorDirectives_6_Var
+		final DefineObjectMacro DefineObjectMacro_7_Var
+		 = (DefineObjectMacro)PreprocessorDirectives_6_Var
 		.getDirective();
-		Assert.assertNotNull(DefineDirective_7_Var
+		Assert.assertNotNull(DefineObjectMacro_7_Var
 		);
-		Assert.assertEquals("NUMBER", DefineDirective_7_Var
+		Assert.assertEquals("NUMBER", DefineObjectMacro_7_Var
 		.getId());
-		Assert.assertEquals("2", DefineDirective_7_Var
+		Assert.assertEquals("2", DefineObjectMacro_7_Var
 		.getString());
 		//7
 		final NewLineLine NewLineLine_8_Var
@@ -283,14 +283,14 @@ public class Test0004_SimpleDef {
 		Assert.assertNotNull(PreprocessorDirectives_9_Var
 		);
 		//9
-		final DefineDirective DefineDirective_10_Var
-		 = (DefineDirective)PreprocessorDirectives_9_Var
+		final DefineObjectMacro DefineObjectMacro_10_Var
+		 = (DefineObjectMacro)PreprocessorDirectives_9_Var
 		.getDirective();
-		Assert.assertNotNull(DefineDirective_10_Var
+		Assert.assertNotNull(DefineObjectMacro_10_Var
 		);
-		Assert.assertEquals("X", DefineDirective_10_Var
+		Assert.assertEquals("X", DefineObjectMacro_10_Var
 		.getId());
-		Assert.assertEquals("NUMBER", DefineDirective_10_Var
+		Assert.assertEquals("NUMBER", DefineObjectMacro_10_Var
 		.getString());
 		//10
 		final NewLineLine NewLineLine_11_Var
@@ -303,14 +303,14 @@ public class Test0004_SimpleDef {
 		Assert.assertNotNull(PreprocessorDirectives_12_Var
 		);
 		//12
-		final DefineDirective DefineDirective_13_Var
-		 = (DefineDirective)PreprocessorDirectives_12_Var
+		final DefineObjectMacro DefineObjectMacro_13_Var
+		 = (DefineObjectMacro)PreprocessorDirectives_12_Var
 		.getDirective();
-		Assert.assertNotNull(DefineDirective_13_Var
+		Assert.assertNotNull(DefineObjectMacro_13_Var
 		);
-		Assert.assertEquals("MAIN", DefineDirective_13_Var
+		Assert.assertEquals("MAIN", DefineObjectMacro_13_Var
 		.getId());
-		Assert.assertEquals("int main(void)", DefineDirective_13_Var
+		Assert.assertEquals("int main(void)", DefineObjectMacro_13_Var
 		.getString());
 		//13
 		final NewLineLine NewLineLine_14_Var
@@ -328,14 +328,14 @@ public class Test0004_SimpleDef {
 		Assert.assertNotNull(PreprocessorDirectives_16_Var
 		);
 		//16
-		final DefineDirective DefineDirective_17_Var
-		 = (DefineDirective)PreprocessorDirectives_16_Var
+		final DefineObjectMacro DefineObjectMacro_17_Var
+		 = (DefineObjectMacro)PreprocessorDirectives_16_Var
 		.getDirective();
-		Assert.assertNotNull(DefineDirective_17_Var
+		Assert.assertNotNull(DefineObjectMacro_17_Var
 		);
-		Assert.assertEquals("long", DefineDirective_17_Var
+		Assert.assertEquals("long", DefineObjectMacro_17_Var
 		.getId());
-		Assert.assertEquals("int", DefineDirective_17_Var
+		Assert.assertEquals("int", DefineObjectMacro_17_Var
 		.getString());
 		//17
 		final NewLineLine NewLineLine_18_Var

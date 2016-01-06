@@ -35,7 +35,10 @@ lexer-tokens
 						id isEmpty,
 						variadic?=true
 					),
-					string++"trace_if(__VA_ARGS__)"
+					replacement+=
+					(ReplaceLine
+						string++"trace_if(__VA_ARGS__)"
+					)
 				)			
 			),
 			(PreprocessorDirectives

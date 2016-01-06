@@ -34,21 +34,21 @@ lexer-tokens
 			lines+=
 			(PreprocessorDirectives
 				directive=
-				(DefineDirective
+				(DefineObjectMacro
 					id++"PI",
 					string++"3.1415926535897932"
 				)
 			),
 			(PreprocessorDirectives
 				directive=
-				(DefineDirective
+				(DefineObjectMacro
 					id++"NAME",
 					string++"\\\"Nobody\\\""
 				)
 			),
 			(PreprocessorDirectives
 				directive=
-				(DefineDirective
+				(DefineObjectMacro
 					id++"NUMBER",
 					string++"2"
 				)
@@ -56,7 +56,7 @@ lexer-tokens
 			(NewLineLine),
 			(PreprocessorDirectives
 				directive=
-				(DefineDirective
+				(DefineObjectMacro
 					id++"X",
 					string++"NUMBER"
 				)
@@ -64,7 +64,7 @@ lexer-tokens
 			(NewLineLine),
 			(PreprocessorDirectives
 				directive=
-				(DefineDirective
+				(DefineObjectMacro
 					id++"MAIN",
 					string++"int main(void)"
 				)
@@ -73,7 +73,7 @@ lexer-tokens
 			(NewLineLine),
 			(PreprocessorDirectives
 				directive=
-				(DefineDirective
+				(DefineObjectMacro
 					id++"long",
 					string++"int"
 				)

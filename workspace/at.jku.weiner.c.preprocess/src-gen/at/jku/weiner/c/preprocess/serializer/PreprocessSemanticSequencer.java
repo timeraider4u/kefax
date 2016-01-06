@@ -46,6 +46,7 @@ import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessPackage;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.PrimaryExpression;
+import at.jku.weiner.c.preprocess.preprocess.ReplaceLine;
 import at.jku.weiner.c.preprocess.preprocess.UnDefineDirective;
 import at.jku.weiner.c.preprocess.preprocess.WarningDirective;
 import at.jku.weiner.c.preprocess.services.PreprocessGrammarAccess;
@@ -193,6 +194,9 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 			case PreprocessPackage.PRIMARY_EXPRESSION:
 				sequence_PrimaryExpression(context, (PrimaryExpression) semanticObject); 
 				return; 
+			case PreprocessPackage.REPLACE_LINE:
+				sequence_ReplaceLine(context, (ReplaceLine) semanticObject); 
+				return; 
 			case PreprocessPackage.UN_DEFINE_DIRECTIVE:
 				sequence_UnDefineDirective(context, (UnDefineDirective) semanticObject); 
 				return; 
@@ -230,7 +234,7 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (id=MyCode list=IdentifierList? string=MyDefineLine?)
+	 *     (id=MyCode list=IdentifierList? replacement+=ReplaceLine*)
 	 */
 	protected void sequence_DefineFunctionLikeMacro(EObject context, DefineFunctionLikeMacro semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -409,6 +413,15 @@ public class PreprocessSemanticSequencer extends CommonSemanticSequencer {
 	 *     ((defined?=DEFINED? id=ID) | (defined?=DEFINED? id=ID) | const=Constant1 | expr=Expression)
 	 */
 	protected void sequence_PrimaryExpression(EObject context, PrimaryExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (string=MyDefineLine (id=ID | concatenate?=HASH)?)
+	 */
+	protected void sequence_ReplaceLine(EObject context, ReplaceLine semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

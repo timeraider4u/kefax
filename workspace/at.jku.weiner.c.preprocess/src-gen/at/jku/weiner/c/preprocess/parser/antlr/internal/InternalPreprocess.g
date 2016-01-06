@@ -1313,12 +1313,13 @@ ruleReplaceLine returns [EObject current=null]
 
 (
 (
+(
 	{ 
 	  /* */ 
 	}
     {
         $current = forceCreateModelElement(
-            grammarAccess.getReplaceLineAccess().getReplaceLineAction_0(),
+            grammarAccess.getReplaceLineAccess().getReplaceLineAction_0_0(),
             $current);
     }
 )
@@ -1326,8 +1327,9 @@ ruleReplaceLine returns [EObject current=null]
 
 (
 (
+(
 		{ 
-	        newCompositeNode(grammarAccess.getReplaceLineAccess().getStringMyDefineLineParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getReplaceLineAccess().getStringMyDefineLineParserRuleCall_0_1_0_0()); 
 	    }
 		lv_string_1_0=ruleMyDefineLine		{
 	        if ($current==null) {
@@ -1348,7 +1350,7 @@ ruleReplaceLine returns [EObject current=null]
 (
 this_HASH_2=RULE_HASH
     { 
-    newLeafNode(this_HASH_2, grammarAccess.getReplaceLineAccess().getHASHTerminalRuleCall_2_0()); 
+    newLeafNode(this_HASH_2, grammarAccess.getReplaceLineAccess().getHASHTerminalRuleCall_0_1_1_0()); 
     }
 
 
@@ -1357,7 +1359,7 @@ this_HASH_2=RULE_HASH
 (
 (this_WHITESPACE_3=RULE_WHITESPACE
     { 
-    newLeafNode(this_WHITESPACE_3, grammarAccess.getReplaceLineAccess().getWHITESPACETerminalRuleCall_2_1_0_0()); 
+    newLeafNode(this_WHITESPACE_3, grammarAccess.getReplaceLineAccess().getWHITESPACETerminalRuleCall_0_1_1_1_0_0()); 
     }
 )*
 
@@ -1366,7 +1368,7 @@ this_HASH_2=RULE_HASH
 (
 		lv_id_4_0=RULE_ID
 		{
-			newLeafNode(lv_id_4_0, grammarAccess.getReplaceLineAccess().getIdIDTerminalRuleCall_2_1_0_1_0()); 
+			newLeafNode(lv_id_4_0, grammarAccess.getReplaceLineAccess().getIdIDTerminalRuleCall_0_1_1_1_0_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1390,7 +1392,7 @@ this_HASH_2=RULE_HASH
 (
 		lv_concatenate_5_0=RULE_HASH
 		{
-			newLeafNode(lv_concatenate_5_0, grammarAccess.getReplaceLineAccess().getConcatenateHASHTerminalRuleCall_2_1_1_0()); 
+			newLeafNode(lv_concatenate_5_0, grammarAccess.getReplaceLineAccess().getConcatenateHASHTerminalRuleCall_0_1_1_1_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1409,6 +1411,49 @@ this_HASH_2=RULE_HASH
 )
 
 )?
+
+)
+
+)
+
+
+    |
+(
+this_HASH_6=RULE_HASH
+    { 
+    newLeafNode(this_HASH_6, grammarAccess.getReplaceLineAccess().getHASHTerminalRuleCall_1_0()); 
+    }
+
+
+
+(this_WHITESPACE_7=RULE_WHITESPACE
+    { 
+    newLeafNode(this_WHITESPACE_7, grammarAccess.getReplaceLineAccess().getWHITESPACETerminalRuleCall_1_1()); 
+    }
+)*
+
+
+(
+(
+		lv_id_8_0=RULE_ID
+		{
+			newLeafNode(lv_id_8_0, grammarAccess.getReplaceLineAccess().getIdIDTerminalRuleCall_1_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getReplaceLineRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"id",
+        		lv_id_8_0, 
+        		"at.jku.weiner.c.common.Common.ID");
+	    }
+
+)
+)
+
+)
 
 )
 

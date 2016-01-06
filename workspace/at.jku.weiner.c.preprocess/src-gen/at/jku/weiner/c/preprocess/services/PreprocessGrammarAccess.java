@@ -577,62 +577,90 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class ReplaceLineElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.ReplaceLine");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cReplaceLineAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cStringAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cStringMyDefineLineParserRuleCall_1_0 = (RuleCall)cStringAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final RuleCall cHASHTerminalRuleCall_2_0 = (RuleCall)cGroup_2.eContents().get(0);
-		private final Alternatives cAlternatives_2_1 = (Alternatives)cGroup_2.eContents().get(1);
-		private final Group cGroup_2_1_0 = (Group)cAlternatives_2_1.eContents().get(0);
-		private final RuleCall cWHITESPACETerminalRuleCall_2_1_0_0 = (RuleCall)cGroup_2_1_0.eContents().get(0);
-		private final Assignment cIdAssignment_2_1_0_1 = (Assignment)cGroup_2_1_0.eContents().get(1);
-		private final RuleCall cIdIDTerminalRuleCall_2_1_0_1_0 = (RuleCall)cIdAssignment_2_1_0_1.eContents().get(0);
-		private final Assignment cConcatenateAssignment_2_1_1 = (Assignment)cAlternatives_2_1.eContents().get(1);
-		private final RuleCall cConcatenateHASHTerminalRuleCall_2_1_1_0 = (RuleCall)cConcatenateAssignment_2_1_1.eContents().get(0);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Action cReplaceLineAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final Group cGroup_0_1 = (Group)cGroup_0.eContents().get(1);
+		private final Assignment cStringAssignment_0_1_0 = (Assignment)cGroup_0_1.eContents().get(0);
+		private final RuleCall cStringMyDefineLineParserRuleCall_0_1_0_0 = (RuleCall)cStringAssignment_0_1_0.eContents().get(0);
+		private final Group cGroup_0_1_1 = (Group)cGroup_0_1.eContents().get(1);
+		private final RuleCall cHASHTerminalRuleCall_0_1_1_0 = (RuleCall)cGroup_0_1_1.eContents().get(0);
+		private final Alternatives cAlternatives_0_1_1_1 = (Alternatives)cGroup_0_1_1.eContents().get(1);
+		private final Group cGroup_0_1_1_1_0 = (Group)cAlternatives_0_1_1_1.eContents().get(0);
+		private final RuleCall cWHITESPACETerminalRuleCall_0_1_1_1_0_0 = (RuleCall)cGroup_0_1_1_1_0.eContents().get(0);
+		private final Assignment cIdAssignment_0_1_1_1_0_1 = (Assignment)cGroup_0_1_1_1_0.eContents().get(1);
+		private final RuleCall cIdIDTerminalRuleCall_0_1_1_1_0_1_0 = (RuleCall)cIdAssignment_0_1_1_1_0_1.eContents().get(0);
+		private final Assignment cConcatenateAssignment_0_1_1_1_1 = (Assignment)cAlternatives_0_1_1_1.eContents().get(1);
+		private final RuleCall cConcatenateHASHTerminalRuleCall_0_1_1_1_1_0 = (RuleCall)cConcatenateAssignment_0_1_1_1_1.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final RuleCall cHASHTerminalRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
+		private final RuleCall cWHITESPACETerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		private final Assignment cIdAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cIdIDTerminalRuleCall_1_2_0 = (RuleCall)cIdAssignment_1_2.eContents().get(0);
 		
 		//ReplaceLine:
-		//	{ReplaceLine} string=MyDefineLine (HASH (WHITESPACE* id=ID | concatenate?=HASH))?;
+		//	{ReplaceLine} (string=MyDefineLine (HASH (WHITESPACE* id=ID | concatenate?=HASH))?) | HASH WHITESPACE* id=ID;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{ReplaceLine} string=MyDefineLine (HASH (WHITESPACE* id=ID | concatenate?=HASH))?
-		public Group getGroup() { return cGroup; }
+		//{ReplaceLine} (string=MyDefineLine (HASH (WHITESPACE* id=ID | concatenate?=HASH))?) | HASH WHITESPACE* id=ID
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//{ReplaceLine} (string=MyDefineLine (HASH (WHITESPACE* id=ID | concatenate?=HASH))?)
+		public Group getGroup_0() { return cGroup_0; }
 		
 		//{ReplaceLine}
-		public Action getReplaceLineAction_0() { return cReplaceLineAction_0; }
+		public Action getReplaceLineAction_0_0() { return cReplaceLineAction_0_0; }
+		
+		//(string=MyDefineLine (HASH (WHITESPACE* id=ID | concatenate?=HASH))?)
+		public Group getGroup_0_1() { return cGroup_0_1; }
 		
 		//string=MyDefineLine
-		public Assignment getStringAssignment_1() { return cStringAssignment_1; }
+		public Assignment getStringAssignment_0_1_0() { return cStringAssignment_0_1_0; }
 		
 		//MyDefineLine
-		public RuleCall getStringMyDefineLineParserRuleCall_1_0() { return cStringMyDefineLineParserRuleCall_1_0; }
+		public RuleCall getStringMyDefineLineParserRuleCall_0_1_0_0() { return cStringMyDefineLineParserRuleCall_0_1_0_0; }
 		
 		//(HASH (WHITESPACE* id=ID | concatenate?=HASH))?
-		public Group getGroup_2() { return cGroup_2; }
+		public Group getGroup_0_1_1() { return cGroup_0_1_1; }
 		
 		//HASH
-		public RuleCall getHASHTerminalRuleCall_2_0() { return cHASHTerminalRuleCall_2_0; }
+		public RuleCall getHASHTerminalRuleCall_0_1_1_0() { return cHASHTerminalRuleCall_0_1_1_0; }
 		
 		//(WHITESPACE* id=ID | concatenate?=HASH)
-		public Alternatives getAlternatives_2_1() { return cAlternatives_2_1; }
+		public Alternatives getAlternatives_0_1_1_1() { return cAlternatives_0_1_1_1; }
 		
 		//WHITESPACE* id=ID
-		public Group getGroup_2_1_0() { return cGroup_2_1_0; }
+		public Group getGroup_0_1_1_1_0() { return cGroup_0_1_1_1_0; }
 		
 		//WHITESPACE*
-		public RuleCall getWHITESPACETerminalRuleCall_2_1_0_0() { return cWHITESPACETerminalRuleCall_2_1_0_0; }
+		public RuleCall getWHITESPACETerminalRuleCall_0_1_1_1_0_0() { return cWHITESPACETerminalRuleCall_0_1_1_1_0_0; }
 		
 		//id=ID
-		public Assignment getIdAssignment_2_1_0_1() { return cIdAssignment_2_1_0_1; }
+		public Assignment getIdAssignment_0_1_1_1_0_1() { return cIdAssignment_0_1_1_1_0_1; }
 		
 		//ID
-		public RuleCall getIdIDTerminalRuleCall_2_1_0_1_0() { return cIdIDTerminalRuleCall_2_1_0_1_0; }
+		public RuleCall getIdIDTerminalRuleCall_0_1_1_1_0_1_0() { return cIdIDTerminalRuleCall_0_1_1_1_0_1_0; }
 		
 		//concatenate?=HASH
-		public Assignment getConcatenateAssignment_2_1_1() { return cConcatenateAssignment_2_1_1; }
+		public Assignment getConcatenateAssignment_0_1_1_1_1() { return cConcatenateAssignment_0_1_1_1_1; }
 		
 		//HASH
-		public RuleCall getConcatenateHASHTerminalRuleCall_2_1_1_0() { return cConcatenateHASHTerminalRuleCall_2_1_1_0; }
+		public RuleCall getConcatenateHASHTerminalRuleCall_0_1_1_1_1_0() { return cConcatenateHASHTerminalRuleCall_0_1_1_1_1_0; }
+		
+		//HASH WHITESPACE* id=ID
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//HASH
+		public RuleCall getHASHTerminalRuleCall_1_0() { return cHASHTerminalRuleCall_1_0; }
+		
+		//WHITESPACE*
+		public RuleCall getWHITESPACETerminalRuleCall_1_1() { return cWHITESPACETerminalRuleCall_1_1; }
+		
+		//id=ID
+		public Assignment getIdAssignment_1_2() { return cIdAssignment_1_2; }
+		
+		//ID
+		public RuleCall getIdIDTerminalRuleCall_1_2_0() { return cIdIDTerminalRuleCall_1_2_0; }
 	}
 	public class ErrorDirectiveElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.ErrorDirective");
@@ -1744,7 +1772,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ReplaceLine:
-	//	{ReplaceLine} string=MyDefineLine (HASH (WHITESPACE* id=ID | concatenate?=HASH))?;
+	//	{ReplaceLine} (string=MyDefineLine (HASH (WHITESPACE* id=ID | concatenate?=HASH))?) | HASH WHITESPACE* id=ID;
 	public ReplaceLineElements getReplaceLineAccess() {
 		return pReplaceLine;
 	}

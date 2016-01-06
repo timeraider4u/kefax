@@ -152,6 +152,7 @@ IdentifierList:
 
 ReplaceLine:
 	{ReplaceLine}
+	(
 	(string=MyDefineLine)
 	
 	(HASH
@@ -160,6 +161,8 @@ ReplaceLine:
 			|	concatenate?=(HASH)
 		)
 	)?
+	)
+	| (HASH WHITESPACE* id=ID)
 ;
 
 //ReplacementStringify:

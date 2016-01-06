@@ -24,7 +24,7 @@ public final class DefinitionObjectMacro implements DefinitionMacro {
 		} else {
 			this.isIdentical = false;
 		}
-		if (this.replacement.contains(key)) {
+		if (this.replacement.matches(".*" + this.regex + ".*")) {
 			this.valueContainsKey = true;
 		} else {
 			this.valueContainsKey = false;
@@ -59,6 +59,9 @@ public final class DefinitionObjectMacro implements DefinitionMacro {
 	}
 
 	private boolean preCheck(final String originalText, final String code) {
+		if ((code == null) || code.isEmpty()) {
+			return false;
+		}
 		if (this.isIdentical) {
 			return false;
 		}
@@ -76,6 +79,7 @@ public final class DefinitionObjectMacro implements DefinitionMacro {
 		if (!this.preCheck(originalText, code)) {
 			return code;
 		}
+		this.lastOriginal = originalText;
 		final Matcher matcher = this.pattern.matcher(code);
 		if (!matcher.find()) {
 			return code;
@@ -101,7 +105,6 @@ public final class DefinitionObjectMacro implements DefinitionMacro {
 			nextMatchEndIndex = matcher.end();
 		}
 		this.lastExpansion = result.toString();
-		this.lastOriginal = originalText;
 		return this.lastExpansion;
 	}
 

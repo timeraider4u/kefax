@@ -285,13 +285,13 @@ public class TestDefinitionTable {
 		DefinitionTable.addFunctionMacro("penguin", null, this.replaceLines1);
 		Assert.assertTrue(DefinitionTable.containsAKey(code));
 		final String resolve = DefinitionTable.resolve(code);
-		Assert.assertEquals("a little red fox looks at you!", resolve);
+		Assert.assertEquals("a little red cat looks at you!", resolve);
 		Assert.assertTrue(DefinitionTable.containsAKey(code));
-		Assert.assertTrue(DefinitionTable.containsAKey(resolve));
+		Assert.assertFalse(DefinitionTable.containsAKey(resolve));
 		final String resolve2 = DefinitionTable.resolve(resolve);
 		Assert.assertEquals("a little red cat looks at you!", resolve2);
 		Assert.assertTrue(DefinitionTable.containsAKey(code));
-		Assert.assertTrue(DefinitionTable.containsAKey(resolve));
+		Assert.assertFalse(DefinitionTable.containsAKey(resolve));
 		Assert.assertFalse(DefinitionTable.containsAKey(resolve2));
 	}
 	

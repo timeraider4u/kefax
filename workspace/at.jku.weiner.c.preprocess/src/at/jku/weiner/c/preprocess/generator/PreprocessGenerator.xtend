@@ -51,6 +51,7 @@ import at.jku.weiner.c.preprocess.preprocess.IfAbstractConditional
 
 import at.jku.weiner.c.preprocess.utils.macros.PredefinedMacros
 import at.jku.weiner.c.preprocess.utils.macros.AdditionalPreprocessingDirectives
+import java.util.Stack
 
 /**
  * Generates code from your model files on save.
@@ -74,6 +75,7 @@ class PreprocessGenerator implements IGenerator {
 	
 	ResourceSet rs;
 	URI uri;
+	Stack<URI> currUri;
 	List<String> path = new ArrayList<String>();
 	boolean standAlone = false;
 	boolean logging = true;
@@ -82,6 +84,8 @@ class PreprocessGenerator implements IGenerator {
 		setUp();
 		rs = input.resourceSet;
 		uri = input.URI;
+		currUri = new Stack<URI>;
+		currUri.push(uri);
 		if (stdInclude) {
 			IncludeDirs.setUp();
 		}
@@ -162,6 +166,7 @@ class PreprocessGenerator implements IGenerator {
 	def String getFileName(Resource input) {
 		val URI uri = input.URI;
 		var String fileName = uri.toFileString;
+		this.currUri.push(uri);
 		if (fileName == null) {
 			fileName = uri.toPlatformString(false);
 		}
@@ -275,7 +280,7 @@ class PreprocessGenerator implements IGenerator {
 	
 	def String outputForLegacyMode(IncludeDirective obj) {
 		val String inc = obj.string;
-		val IncludeUtils includeUtils = new IncludeUtils(rs, this.uri, inc);
+		val IncludeUtils includeUtils = new IncludeUtils(rs, this.currUri.peek(), inc);
 		val Resource res = includeUtils.getResource();
 		//val TranslationUnit unit = this.getUnitFor(res);
 		//val String output = outputFor(unit);
@@ -296,7 +301,7 @@ class PreprocessGenerator implements IGenerator {
 		val String output = outputFor(preprocess);
 		
 		
-		
+		currUri.pop();
 		//path.remove(path.length() -1);
 		return output;
 	}

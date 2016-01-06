@@ -1,0 +1,36 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language preprocess
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+split-lexer=false
+source file="res/Test0111_RelativeInclude.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH INCLUDE WHITESPACE STRING_LITERAL NEWLINE
+//----------------------------------------------------------------------
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(IncludeDirective
+					string++"\\\"../myinclude/include/bar.h\\\""
+				)
+			)
+			
+		)
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0111_RelativeInclude.c"
+expected file="expected/Test0111_RelativeInclude.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

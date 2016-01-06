@@ -11,9 +11,13 @@ import at.jku.weiner.c.preprocess.preprocess.ReplaceLine;
 public final class DefinitionTable {
 	
 	private static final List<DefinitionEntry> macros = new ArrayList<DefinitionEntry>();
-	
+	private static final List<DefinitionEntry> objMacros = new ArrayList<DefinitionEntry>();
+	private static final List<DefinitionEntry> funcMacros = new ArrayList<DefinitionEntry>();
+
 	public static void reset() {
 		DefinitionTable.macros.clear();
+		DefinitionTable.objMacros.clear();
+		DefinitionTable.funcMacros.clear();
 	}
 
 	public static int size() {
@@ -21,8 +25,12 @@ public final class DefinitionTable {
 	}
 	
 	public static String resolve(String code) {
-		for (int i = 0; i < DefinitionTable.macros.size(); i++) {
-			final DefinitionEntry entry = DefinitionTable.macros.get(i);
+		for (int i = 0; i < DefinitionTable.funcMacros.size(); i++) {
+			final DefinitionEntry entry = DefinitionTable.funcMacros.get(i);
+			code = entry.resolve(code);
+		}
+		for (int i = 0; i < DefinitionTable.objMacros.size(); i++) {
+			final DefinitionEntry entry = DefinitionTable.objMacros.get(i);
 			code = entry.resolve(code);
 		}
 		return code;
@@ -57,6 +65,7 @@ public final class DefinitionTable {
 		
 		final DefinitionEntry entry = new DefinitionEntry(key, newMacro);
 		DefinitionTable.macros.add(entry);
+		DefinitionTable.objMacros.add(entry);
 	}
 	
 	private static void checkForExistence(final String key,
@@ -66,6 +75,8 @@ public final class DefinitionTable {
 			if (entry.equalsKey(newMacro.getName())) {
 				if (entry.equalsMacro(newMacro)) {
 					DefinitionTable.macros.remove(entry);
+					DefinitionTable.objMacros.remove(entry);
+					DefinitionTable.funcMacros.remove(DefinitionTable.macros);
 				} else {
 					throw new IllegalArgumentException(
 							"re-definition is not possible!!!");
@@ -85,6 +96,7 @@ public final class DefinitionTable {
 		
 		final DefinitionEntry entry = new DefinitionEntry(key, newMacro);
 		DefinitionTable.macros.add(entry);
+		DefinitionTable.funcMacros.add(entry);
 	}
 	
 	public static void remove(final String key) {
@@ -93,6 +105,8 @@ public final class DefinitionTable {
 			
 			if (entry.equalsKey(key)) {
 				DefinitionTable.macros.remove(entry);
+				DefinitionTable.objMacros.remove(entry);
+				DefinitionTable.funcMacros.remove(entry);
 			}
 		}
 	}

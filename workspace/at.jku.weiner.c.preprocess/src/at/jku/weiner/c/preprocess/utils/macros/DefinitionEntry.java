@@ -8,7 +8,6 @@ public class DefinitionEntry {
 	public DefinitionEntry(final String macroID, final DefinitionMacro macro) {
 		this.macroID = macroID;
 		this.macro = macro;
-
 	}
 
 	public boolean equalsKey(final String key) {
@@ -25,5 +24,9 @@ public class DefinitionEntry {
 
 	public boolean matches(final String text) {
 		return this.macro.matches(text);
+	}
+
+	public DefinitionMacro getMacro() {
+		return this.macro;
 	}
 }

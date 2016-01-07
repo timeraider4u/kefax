@@ -295,9 +295,19 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
         return createStatementAdapter();
       }
       @Override
+      public Adapter caseAsmLineWithoutColon(AsmLineWithoutColon object)
+      {
+        return createAsmLineWithoutColonAdapter();
+      }
+      @Override
       public Adapter caseAsmLine(AsmLine object)
       {
         return createAsmLineAdapter();
+      }
+      @Override
+      public Adapter caseAsmLineWithColon(AsmLineWithColon object)
+      {
+        return createAsmLineWithColonAdapter();
       }
       @Override
       public Adapter caseExpression(Expression object)
@@ -378,16 +388,6 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
       public Adapter caseAsmStatement(AsmStatement object)
       {
         return createAsmStatementAdapter();
-      }
-      @Override
-      public Adapter caseAsmLineWithColon(AsmLineWithColon object)
-      {
-        return createAsmLineWithColonAdapter();
-      }
-      @Override
-      public Adapter caseAsmLineWithComma(AsmLineWithComma object)
-      {
-        return createAsmLineWithCommaAdapter();
       }
       @Override
       public Adapter caseAssignmentExpression(AssignmentExpression object)
@@ -1212,6 +1212,21 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.parser.parser.AsmLineWithoutColon <em>Asm Line Without Colon</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.parser.parser.AsmLineWithoutColon
+   * @generated
+   */
+  public Adapter createAsmLineWithoutColonAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link at.jku.weiner.c.parser.parser.AsmLine <em>Asm Line</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1222,6 +1237,21 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createAsmLineAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.parser.parser.AsmLineWithColon <em>Asm Line With Colon</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.parser.parser.AsmLineWithColon
+   * @generated
+   */
+  public Adapter createAsmLineWithColonAdapter()
   {
     return null;
   }
@@ -1462,36 +1492,6 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createAsmStatementAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.parser.parser.AsmLineWithColon <em>Asm Line With Colon</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see at.jku.weiner.c.parser.parser.AsmLineWithColon
-   * @generated
-   */
-  public Adapter createAsmLineWithColonAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.parser.parser.AsmLineWithComma <em>Asm Line With Comma</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see at.jku.weiner.c.parser.parser.AsmLineWithComma
-   * @generated
-   */
-  public Adapter createAsmLineWithCommaAdapter()
   {
     return null;
   }

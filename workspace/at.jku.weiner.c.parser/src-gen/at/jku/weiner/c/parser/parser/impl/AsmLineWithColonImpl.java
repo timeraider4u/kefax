@@ -3,13 +3,17 @@
 package at.jku.weiner.c.parser.parser.impl;
 
 import at.jku.weiner.c.parser.parser.AsmLineWithColon;
+import at.jku.weiner.c.parser.parser.AsmLineWithoutColon;
 import at.jku.weiner.c.parser.parser.ParserPackage;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,33 +22,23 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link at.jku.weiner.c.parser.parser.impl.AsmLineWithColonImpl#isColon <em>Colon</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.AsmLineWithColonImpl#getAsmLine <em>Asm Line</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class AsmLineWithColonImpl extends AsmLineImpl implements AsmLineWithColon
+public class AsmLineWithColonImpl extends MinimalEObjectImpl.Container implements AsmLineWithColon
 {
   /**
-   * The default value of the '{@link #isColon() <em>Colon</em>}' attribute.
+   * The cached value of the '{@link #getAsmLine() <em>Asm Line</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isColon()
+   * @see #getAsmLine()
    * @generated
    * @ordered
    */
-  protected static final boolean COLON_EDEFAULT = false;
-
-  /**
-   * The cached value of the '{@link #isColon() <em>Colon</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isColon()
-   * @generated
-   * @ordered
-   */
-  protected boolean colon = COLON_EDEFAULT;
+  protected AsmLineWithoutColon asmLine;
 
   /**
    * <!-- begin-user-doc -->
@@ -72,9 +66,9 @@ public class AsmLineWithColonImpl extends AsmLineImpl implements AsmLineWithColo
    * <!-- end-user-doc -->
    * @generated
    */
-  public boolean isColon()
+  public AsmLineWithoutColon getAsmLine()
   {
-    return colon;
+    return asmLine;
   }
 
   /**
@@ -82,12 +76,53 @@ public class AsmLineWithColonImpl extends AsmLineImpl implements AsmLineWithColo
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setColon(boolean newColon)
+  public NotificationChain basicSetAsmLine(AsmLineWithoutColon newAsmLine, NotificationChain msgs)
   {
-    boolean oldColon = colon;
-    colon = newColon;
+    AsmLineWithoutColon oldAsmLine = asmLine;
+    asmLine = newAsmLine;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.ASM_LINE_WITH_COLON__COLON, oldColon, colon));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ParserPackage.ASM_LINE_WITH_COLON__ASM_LINE, oldAsmLine, newAsmLine);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAsmLine(AsmLineWithoutColon newAsmLine)
+  {
+    if (newAsmLine != asmLine)
+    {
+      NotificationChain msgs = null;
+      if (asmLine != null)
+        msgs = ((InternalEObject)asmLine).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ParserPackage.ASM_LINE_WITH_COLON__ASM_LINE, null, msgs);
+      if (newAsmLine != null)
+        msgs = ((InternalEObject)newAsmLine).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ParserPackage.ASM_LINE_WITH_COLON__ASM_LINE, null, msgs);
+      msgs = basicSetAsmLine(newAsmLine, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.ASM_LINE_WITH_COLON__ASM_LINE, newAsmLine, newAsmLine));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case ParserPackage.ASM_LINE_WITH_COLON__ASM_LINE:
+        return basicSetAsmLine(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -100,8 +135,8 @@ public class AsmLineWithColonImpl extends AsmLineImpl implements AsmLineWithColo
   {
     switch (featureID)
     {
-      case ParserPackage.ASM_LINE_WITH_COLON__COLON:
-        return isColon();
+      case ParserPackage.ASM_LINE_WITH_COLON__ASM_LINE:
+        return getAsmLine();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -116,8 +151,8 @@ public class AsmLineWithColonImpl extends AsmLineImpl implements AsmLineWithColo
   {
     switch (featureID)
     {
-      case ParserPackage.ASM_LINE_WITH_COLON__COLON:
-        setColon((Boolean)newValue);
+      case ParserPackage.ASM_LINE_WITH_COLON__ASM_LINE:
+        setAsmLine((AsmLineWithoutColon)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -133,8 +168,8 @@ public class AsmLineWithColonImpl extends AsmLineImpl implements AsmLineWithColo
   {
     switch (featureID)
     {
-      case ParserPackage.ASM_LINE_WITH_COLON__COLON:
-        setColon(COLON_EDEFAULT);
+      case ParserPackage.ASM_LINE_WITH_COLON__ASM_LINE:
+        setAsmLine((AsmLineWithoutColon)null);
         return;
     }
     super.eUnset(featureID);
@@ -150,27 +185,10 @@ public class AsmLineWithColonImpl extends AsmLineImpl implements AsmLineWithColo
   {
     switch (featureID)
     {
-      case ParserPackage.ASM_LINE_WITH_COLON__COLON:
-        return colon != COLON_EDEFAULT;
+      case ParserPackage.ASM_LINE_WITH_COLON__ASM_LINE:
+        return asmLine != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (colon: ");
-    result.append(colon);
-    result.append(')');
-    return result.toString();
   }
 
 } //AsmLineWithColonImpl

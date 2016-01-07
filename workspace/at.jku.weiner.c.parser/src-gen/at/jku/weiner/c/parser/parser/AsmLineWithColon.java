@@ -2,6 +2,7 @@
  */
 package at.jku.weiner.c.parser.parser;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -11,7 +12,7 @@ package at.jku.weiner.c.parser.parser;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link at.jku.weiner.c.parser.parser.AsmLineWithColon#isColon <em>Colon</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.AsmLineWithColon#getAsmLine <em>Asm Line</em>}</li>
  * </ul>
  * </p>
  *
@@ -19,32 +20,32 @@ package at.jku.weiner.c.parser.parser;
  * @model
  * @generated
  */
-public interface AsmLineWithColon extends AsmLine
+public interface AsmLineWithColon extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Colon</b></em>' attribute.
+   * Returns the value of the '<em><b>Asm Line</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Colon</em>' attribute isn't clear,
+   * If the meaning of the '<em>Asm Line</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Colon</em>' attribute.
-   * @see #setColon(boolean)
-   * @see at.jku.weiner.c.parser.parser.ParserPackage#getAsmLineWithColon_Colon()
-   * @model
+   * @return the value of the '<em>Asm Line</em>' containment reference.
+   * @see #setAsmLine(AsmLineWithoutColon)
+   * @see at.jku.weiner.c.parser.parser.ParserPackage#getAsmLineWithColon_AsmLine()
+   * @model containment="true"
    * @generated
    */
-  boolean isColon();
+  AsmLineWithoutColon getAsmLine();
 
   /**
-   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.AsmLineWithColon#isColon <em>Colon</em>}' attribute.
+   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.AsmLineWithColon#getAsmLine <em>Asm Line</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Colon</em>' attribute.
-   * @see #isColon()
+   * @param value the new value of the '<em>Asm Line</em>' containment reference.
+   * @see #getAsmLine()
    * @generated
    */
-  void setColon(boolean value);
+  void setAsmLine(AsmLineWithoutColon value);
 
 } // AsmLineWithColon

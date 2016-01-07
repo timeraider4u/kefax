@@ -72,7 +72,6 @@ import at.jku.weiner.c.parser.parser.TypeQualifierList
 import at.jku.weiner.c.parser.parser.Initializer
 import at.jku.weiner.c.parser.parser.InitializerList
 import at.jku.weiner.c.parser.parser.AsmLineWithColon
-import at.jku.weiner.c.parser.parser.AsmLineWithComma
 import at.jku.weiner.c.parser.parser.FunctionSpecifier
 import at.jku.weiner.c.parser.parser.EnumSpecifier
 import at.jku.weiner.c.parser.parser.EnumeratorList
@@ -90,6 +89,8 @@ import at.jku.weiner.c.parser.parser.GccAttributeSpecifier
 import at.jku.weiner.c.parser.parser.GccAttributeList
 import at.jku.weiner.c.parser.parser.GccAttribute
 import org.eclipse.emf.common.util.EList
+import at.jku.weiner.c.parser.parser.AsmLineWithoutColon
+import at.jku.weiner.c.parser.parser.AsmLine
 
 /**
  * Generates code from your model files on save.
@@ -551,24 +552,29 @@ class ParserGenerator implements IGenerator {
 			«obj.volatile» 
 		«ENDIF»
 		(
-			«FOR l: obj.asmLine»
-				«IF l instanceof AsmLineWithColon»
-					«outputFor(l as AsmLineWithColon)»
-				«ELSE»
-					«outputFor(l as AsmLineWithComma)»
-				«ENDIF»
+			«IF obj.asmLine1 != null»
+				«outputFor(obj.asmLine1)»
+			«ENDIF»
+			«FOR i : 0 ..< obj.asmLines.size()»
+				«outputFor(obj.asmLines.get(i))»
 			«ENDFOR»
 		);
 	'''
 	
-	def String outputFor(AsmLineWithColon obj) '''
-		«IF obj.colon»: «ENDIF»
+	def String outputFor(AsmLineWithoutColon obj) '''
+		«outputForLogicalOrExpression(obj.expr as LogicalOrExpression)»
+		«FOR i : 0 ..< obj.asmLines.size()»
+			«outputFor(obj.asmLines.get(i))»
+		«ENDFOR»
+	'''
+	
+	def String outputFor(AsmLine obj) '''
+		«IF obj.comma»,«ENDIF»
 		«outputForLogicalOrExpression(obj.expr as LogicalOrExpression)»
 	'''
 	
-	def String outputFor(AsmLineWithComma obj) '''
-		,
-		«outputForLogicalOrExpression(obj.expr as LogicalOrExpression)»
+	def String outputFor(AsmLineWithColon obj) '''
+		: «IF obj.asmLine != null»«outputFor(obj.asmLine)»«ENDIF»
 	'''
 	
 	def String outputFor(Expression obj) '''

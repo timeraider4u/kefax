@@ -624,21 +624,30 @@ AsmStatement returns Statement:
 	(volatile=KW_VOLATILE | volatile=KW_VOLATILE2)? 
 		SKW_LEFTPAREN
 			(
-				asmLine+=AsmLineWithColon
-				(asmLine+=AsmLineWithComma)*
-			)+
+				// (logicalOrExpression (',' logicalOrExpression)*)? 
+				// (':' (logicalOrExpression (',' logicalOrExpression)*)?)*
+				(asmLine1=AsmLineWithoutColon)?
+				(asmLines+=AsmLineWithColon)*
+			)
 		SKW_RIGHTPAREN semi=SKW_SEMI
 ;
 
-AsmLineWithColon returns AsmLine:
-	{AsmLineWithColon}
-	colon?=SKW_COLON? expr=LogicalOrExpression
+AsmLineWithoutColon:
+	{AsmLineWithoutColon}
+	expr=LogicalOrExpression (asmLines+=AsmLine)*
 ;
 
-AsmLineWithComma returns AsmLine:
-	{AsmLineWithComma}
-	SKW_COMMA expr=LogicalOrExpression
+AsmLine:
+	{AsmLine}
+	comma?=SKW_COMMA? expr=LogicalOrExpression
 ;
+
+AsmLineWithColon:
+	{AsmLineWithColon}
+	SKW_COLON (asmLine=AsmLineWithoutColon)?
+;
+
+
 
 //designation: designatorList ASSIGN;
 

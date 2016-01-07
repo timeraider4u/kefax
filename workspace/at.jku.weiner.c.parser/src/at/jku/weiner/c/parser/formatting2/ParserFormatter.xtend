@@ -3,15 +3,14 @@
  */
 package at.jku.weiner.c.parser.formatting2
 
-import at.jku.weiner.c.common.common.Model
-import at.jku.weiner.c.common.common.TranslationUnit
 import at.jku.weiner.c.common.formatting2.CommonFormatter
+import at.jku.weiner.c.parser.parser.AbstractDeclarator
 import at.jku.weiner.c.parser.parser.AdditiveExpression
 import at.jku.weiner.c.parser.parser.AndExpression
 import at.jku.weiner.c.parser.parser.ArgumentExpressionList
 import at.jku.weiner.c.parser.parser.AsmLine
 import at.jku.weiner.c.parser.parser.AsmLineWithColon
-import at.jku.weiner.c.parser.parser.AsmLineWithComma
+import at.jku.weiner.c.parser.parser.AsmLineWithoutColon
 import at.jku.weiner.c.parser.parser.AsmStatement
 import at.jku.weiner.c.parser.parser.AssignmentExpression
 import at.jku.weiner.c.parser.parser.BlockList
@@ -38,6 +37,11 @@ import at.jku.weiner.c.parser.parser.ExternalDeclaration
 import at.jku.weiner.c.parser.parser.FunctionDeclarationSpecifiers
 import at.jku.weiner.c.parser.parser.FunctionDefHead
 import at.jku.weiner.c.parser.parser.FunctionDefinition
+import at.jku.weiner.c.parser.parser.FunctionSpecifier
+import at.jku.weiner.c.parser.parser.GccAttribute
+import at.jku.weiner.c.parser.parser.GccAttributeList
+import at.jku.weiner.c.parser.parser.GccAttributeSpecifier
+import at.jku.weiner.c.parser.parser.GccDeclaratorExtension
 import at.jku.weiner.c.parser.parser.IdentifierList
 import at.jku.weiner.c.parser.parser.InclusiveOrExpression
 import at.jku.weiner.c.parser.parser.InitDeclarator
@@ -84,18 +88,6 @@ import org.eclipse.xtext.formatting2.IFormattableDocument
 class ParserFormatter extends CommonFormatter {
 	
 	@Inject extension ParserGrammarAccess
-
-	def dispatch void format(Model model, extension IFormattableDocument document) {
-		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		for (TranslationUnit units : model.getUnits()) {
-			format(units, document);
-		}
-	}
-
-	def dispatch void format(TranslationUnit translationUnit, extension IFormattableDocument document) {
-		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		format(translationUnit.getParser(), document);
-	}
 
 	def dispatch void format(Parser parser, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
@@ -164,6 +156,7 @@ class ParserFormatter extends CommonFormatter {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
 		format(typeSpecifier.getSpecifier(), document);
 		format(typeSpecifier.getType(), document);
+		format(typeSpecifier.getStruct(), document);
 	}
 
 	def dispatch void format(StructOrUnionSpecifier structOrUnionSpecifier, extension IFormattableDocument document) {
@@ -230,10 +223,18 @@ class ParserFormatter extends CommonFormatter {
 		format(enumerator.getExpr(), document);
 	}
 
+	def dispatch void format(FunctionSpecifier functionSpecifier, extension IFormattableDocument document) {
+		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+		format(functionSpecifier.getGccAttributeSpecifier(), document);
+	}
+
 	def dispatch void format(Declarator declarator, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
 		format(declarator.getPointer(), document);
 		format(declarator.getDeclarator(), document);
+		for (GccDeclaratorExtension gccDeclExt : declarator.getGccDeclExt()) {
+			format(gccDeclExt, document);
+		}
 	}
 
 	def dispatch void format(DirectDeclarator directDeclarator, extension IFormattableDocument document) {
@@ -257,6 +258,28 @@ class ParserFormatter extends CommonFormatter {
 			format(parameterTypeList, document);
 		}
 		format(directDeclaratorLastSuffix.getIdentifierList(), document);
+	}
+
+	def dispatch void format(GccDeclaratorExtension gccDeclaratorExtension, extension IFormattableDocument document) {
+		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+		format(gccDeclaratorExtension.getGccAttributeSpecifier(), document);
+	}
+
+	def dispatch void format(GccAttributeSpecifier gccAttributeSpecifier, extension IFormattableDocument document) {
+		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+		format(gccAttributeSpecifier.getList(), document);
+	}
+
+	def dispatch void format(GccAttributeList gccAttributeList, extension IFormattableDocument document) {
+		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+		for (GccAttribute gccAttribute : gccAttributeList.getGccAttribute()) {
+			format(gccAttribute, document);
+		}
+	}
+
+	def dispatch void format(GccAttribute gccAttribute, extension IFormattableDocument document) {
+		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+		format(gccAttribute.getList(), document);
 	}
 
 	def dispatch void format(Pointer pointer, extension IFormattableDocument document) {
@@ -289,6 +312,7 @@ class ParserFormatter extends CommonFormatter {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
 		format(parameterDeclaration.getDeclSpecifiers(), document);
 		format(parameterDeclaration.getDeclarator(), document);
+		format(parameterDeclaration.getAbstractDeclator(), document);
 	}
 
 	def dispatch void format(IdentifierList identifierList, extension IFormattableDocument document) {
@@ -301,6 +325,12 @@ class ParserFormatter extends CommonFormatter {
 	def dispatch void format(TypeName typeName, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
 		format(typeName.getList(), document);
+		format(typeName.getAbstractDeclarator(), document);
+	}
+
+	def dispatch void format(AbstractDeclarator abstractDeclarator, extension IFormattableDocument document) {
+		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+		format(abstractDeclarator.getPointer(), document);
 	}
 
 	def dispatch void format(Initializer initializer, extension IFormattableDocument document) {
@@ -378,19 +408,28 @@ class ParserFormatter extends CommonFormatter {
 
 	def dispatch void format(AsmStatement asmStatement, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		for (AsmLine asmLine : asmStatement.getAsmLine()) {
-			format(asmLine, document);
+		format(asmStatement.getAsmLine1(), document);
+		for (AsmLineWithColon asmLines : asmStatement.getAsmLines()) {
+			format(asmLines, document);
 		}
+	}
+
+	def dispatch void format(AsmLineWithoutColon asmLineWithoutColon, extension IFormattableDocument document) {
+		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+		format(asmLineWithoutColon.getExpr(), document);
+		for (AsmLine asmLines : asmLineWithoutColon.getAsmLines()) {
+			format(asmLines, document);
+		}
+	}
+
+	def dispatch void format(AsmLine asmLine, extension IFormattableDocument document) {
+		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+		format(asmLine.getExpr(), document);
 	}
 
 	def dispatch void format(AsmLineWithColon asmLineWithColon, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		format(asmLineWithColon.getExpr(), document);
-	}
-
-	def dispatch void format(AsmLineWithComma asmLineWithComma, extension IFormattableDocument document) {
-		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		format(asmLineWithComma.getExpr(), document);
+		format(asmLineWithColon.getAsmLine(), document);
 	}
 
 	def dispatch void format(Expression expression, extension IFormattableDocument document) {
@@ -486,8 +525,8 @@ class ParserFormatter extends CommonFormatter {
 
 	def dispatch void format(CastExpression castExpression, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		format(castExpression.getExpr(), document);
 		format(castExpression.getType(), document);
+		format(castExpression.getExpr(), document);
 	}
 
 	def dispatch void format(UnaryExpression unaryExpression, extension IFormattableDocument document) {
@@ -528,6 +567,7 @@ class ParserFormatter extends CommonFormatter {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
 		format(primaryExpression.getConst(), document);
 		format(primaryExpression.getExpr(), document);
+		format(primaryExpression.getTypeName(), document);
 	}
 
 	def dispatch void format(ConstantExpression constantExpression, extension IFormattableDocument document) {

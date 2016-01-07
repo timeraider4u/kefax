@@ -7149,45 +7149,45 @@ this_SKW_LEFTPAREN_6=RULE_SKW_LEFTPAREN
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getAsmStatementAccess().getAsmLineAsmLineWithColonParserRuleCall_4_0_0()); 
+	        newCompositeNode(grammarAccess.getAsmStatementAccess().getAsmLine1AsmLineWithoutColonParserRuleCall_4_0_0()); 
 	    }
-		lv_asmLine_7_0=ruleAsmLineWithColon		{
+		lv_asmLine1_7_0=ruleAsmLineWithoutColon		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getAsmStatementRule());
 	        }
-       		add(
+       		set(
        			$current, 
-       			"asmLine",
-        		lv_asmLine_7_0, 
-        		"at.jku.weiner.c.parser.Parser.AsmLineWithColon");
+       			"asmLine1",
+        		lv_asmLine1_7_0, 
+        		"at.jku.weiner.c.parser.Parser.AsmLineWithoutColon");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)
+)?
 
 
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getAsmStatementAccess().getAsmLineAsmLineWithCommaParserRuleCall_4_1_0()); 
+	        newCompositeNode(grammarAccess.getAsmStatementAccess().getAsmLinesAsmLineWithColonParserRuleCall_4_1_0()); 
 	    }
-		lv_asmLine_8_0=ruleAsmLineWithComma		{
+		lv_asmLines_8_0=ruleAsmLineWithColon		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getAsmStatementRule());
 	        }
        		add(
        			$current, 
-       			"asmLine",
-        		lv_asmLine_8_0, 
-        		"at.jku.weiner.c.parser.Parser.AsmLineWithComma");
+       			"asmLines",
+        		lv_asmLines_8_0, 
+        		"at.jku.weiner.c.parser.Parser.AsmLineWithColon");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
 )*
 
-)+
+)
 
 
 this_SKW_RIGHTPAREN_9=RULE_SKW_RIGHTPAREN
@@ -7212,6 +7212,168 @@ this_SKW_RIGHTPAREN_9=RULE_SKW_RIGHTPAREN
        			"semi",
         		lv_semi_10_0, 
         		"at.jku.weiner.c.common.Common.SKW_SEMI");
+	    }
+
+)
+)
+
+)
+
+
+;
+
+
+
+
+
+// Entry rule entryRuleAsmLineWithoutColon
+entryRuleAsmLineWithoutColon returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getAsmLineWithoutColonRule()); }
+	 iv_ruleAsmLineWithoutColon=ruleAsmLineWithoutColon 
+	 { $current=$iv_ruleAsmLineWithoutColon.current; } 
+	 EOF 
+;
+
+// Rule AsmLineWithoutColon
+ruleAsmLineWithoutColon returns [EObject current=null] 
+    @init { enterRule();
+   		/*no init found*/
+    }
+    @after { leaveRule();
+    		/*no after found*/
+     }:
+
+(
+(
+	{ 
+	  /* */ 
+	}
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getAsmLineWithoutColonAccess().getAsmLineWithoutColonAction_0(),
+            $current);
+    }
+)
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getAsmLineWithoutColonAccess().getExprLogicalOrExpressionParserRuleCall_1_0()); 
+	    }
+		lv_expr_1_0=ruleLogicalOrExpression		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getAsmLineWithoutColonRule());
+	        }
+       		set(
+       			$current, 
+       			"expr",
+        		lv_expr_1_0, 
+        		"at.jku.weiner.c.parser.Parser.LogicalOrExpression");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getAsmLineWithoutColonAccess().getAsmLinesAsmLineParserRuleCall_2_0()); 
+	    }
+		lv_asmLines_2_0=ruleAsmLine		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getAsmLineWithoutColonRule());
+	        }
+       		add(
+       			$current, 
+       			"asmLines",
+        		lv_asmLines_2_0, 
+        		"at.jku.weiner.c.parser.Parser.AsmLine");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*
+
+)
+
+
+;
+
+
+
+
+
+// Entry rule entryRuleAsmLine
+entryRuleAsmLine returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getAsmLineRule()); }
+	 iv_ruleAsmLine=ruleAsmLine 
+	 { $current=$iv_ruleAsmLine.current; } 
+	 EOF 
+;
+
+// Rule AsmLine
+ruleAsmLine returns [EObject current=null] 
+    @init { enterRule();
+   		/*no init found*/
+    }
+    @after { leaveRule();
+    		/*no after found*/
+     }:
+
+(
+(
+	{ 
+	  /* */ 
+	}
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getAsmLineAccess().getAsmLineAction_0(),
+            $current);
+    }
+)
+
+
+(
+(
+		lv_comma_1_0=RULE_SKW_COMMA
+		{
+			newLeafNode(lv_comma_1_0, grammarAccess.getAsmLineAccess().getCommaSKW_COMMATerminalRuleCall_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getAsmLineRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"comma",
+        		true, 
+        		"at.jku.weiner.c.common.Common.SKW_COMMA");
+	    }
+
+)
+)?
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getAsmLineAccess().getExprLogicalOrExpressionParserRuleCall_2_0()); 
+	    }
+		lv_expr_2_0=ruleLogicalOrExpression		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getAsmLineRule());
+	        }
+       		set(
+       			$current, 
+       			"expr",
+        		lv_expr_2_0, 
+        		"at.jku.weiner.c.parser.Parser.LogicalOrExpression");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
@@ -7257,113 +7419,32 @@ ruleAsmLineWithColon returns [EObject current=null]
 )
 
 
-(
-(
-		lv_colon_1_0=RULE_SKW_COLON
-		{
-			newLeafNode(lv_colon_1_0, grammarAccess.getAsmLineWithColonAccess().getColonSKW_COLONTerminalRuleCall_1_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getAsmLineWithColonRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"colon",
-        		true, 
-        		"at.jku.weiner.c.common.Common.SKW_COLON");
-	    }
+this_SKW_COLON_1=RULE_SKW_COLON
+    { 
+    newLeafNode(this_SKW_COLON_1, grammarAccess.getAsmLineWithColonAccess().getSKW_COLONTerminalRuleCall_1()); 
+    }
 
-)
-)?
 
 
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getAsmLineWithColonAccess().getExprLogicalOrExpressionParserRuleCall_2_0()); 
+	        newCompositeNode(grammarAccess.getAsmLineWithColonAccess().getAsmLineAsmLineWithoutColonParserRuleCall_2_0()); 
 	    }
-		lv_expr_2_0=ruleLogicalOrExpression		{
+		lv_asmLine_2_0=ruleAsmLineWithoutColon		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getAsmLineWithColonRule());
 	        }
        		set(
        			$current, 
-       			"expr",
-        		lv_expr_2_0, 
-        		"at.jku.weiner.c.parser.Parser.LogicalOrExpression");
+       			"asmLine",
+        		lv_asmLine_2_0, 
+        		"at.jku.weiner.c.parser.Parser.AsmLineWithoutColon");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)
-
-)
-
-
-;
-
-
-
-
-
-// Entry rule entryRuleAsmLineWithComma
-entryRuleAsmLineWithComma returns [EObject current=null] 
-	:
-	{ newCompositeNode(grammarAccess.getAsmLineWithCommaRule()); }
-	 iv_ruleAsmLineWithComma=ruleAsmLineWithComma 
-	 { $current=$iv_ruleAsmLineWithComma.current; } 
-	 EOF 
-;
-
-// Rule AsmLineWithComma
-ruleAsmLineWithComma returns [EObject current=null] 
-    @init { enterRule();
-   		/*no init found*/
-    }
-    @after { leaveRule();
-    		/*no after found*/
-     }:
-
-(
-(
-	{ 
-	  /* */ 
-	}
-    {
-        $current = forceCreateModelElement(
-            grammarAccess.getAsmLineWithCommaAccess().getAsmLineWithCommaAction_0(),
-            $current);
-    }
-)
-
-
-this_SKW_COMMA_1=RULE_SKW_COMMA
-    { 
-    newLeafNode(this_SKW_COMMA_1, grammarAccess.getAsmLineWithCommaAccess().getSKW_COMMATerminalRuleCall_1()); 
-    }
-
-
-
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getAsmLineWithCommaAccess().getExprLogicalOrExpressionParserRuleCall_2_0()); 
-	    }
-		lv_expr_2_0=ruleLogicalOrExpression		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getAsmLineWithCommaRule());
-	        }
-       		set(
-       			$current, 
-       			"expr",
-        		lv_expr_2_0, 
-        		"at.jku.weiner.c.parser.Parser.LogicalOrExpression");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)
+)?
 
 )
 

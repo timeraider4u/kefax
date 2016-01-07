@@ -33,6 +33,7 @@ int main(void)
 		:	"cc"			/* Tells the compiler that the state has been changed
 							 * (through the commands add and inc).
 							 */
+		:					/* do nothing more */
 	);
 
 	/* Here the C code continues */

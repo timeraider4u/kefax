@@ -14,7 +14,8 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.AsmStatement#getAsm <em>Asm</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.AsmStatement#getVolatile <em>Volatile</em>}</li>
- *   <li>{@link at.jku.weiner.c.parser.parser.AsmStatement#getAsmLine <em>Asm Line</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.AsmStatement#getAsmLine1 <em>Asm Line1</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.AsmStatement#getAsmLines <em>Asm Lines</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.AsmStatement#getSemi <em>Semi</em>}</li>
  * </ul>
  * </p>
@@ -78,20 +79,46 @@ public interface AsmStatement extends Statement
   void setVolatile(String value);
 
   /**
-   * Returns the value of the '<em><b>Asm Line</b></em>' containment reference list.
-   * The list contents are of type {@link at.jku.weiner.c.parser.parser.AsmLine}.
+   * Returns the value of the '<em><b>Asm Line1</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Asm Line</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Asm Line1</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Asm Line</em>' containment reference list.
-   * @see at.jku.weiner.c.parser.parser.ParserPackage#getAsmStatement_AsmLine()
+   * @return the value of the '<em>Asm Line1</em>' containment reference.
+   * @see #setAsmLine1(AsmLineWithoutColon)
+   * @see at.jku.weiner.c.parser.parser.ParserPackage#getAsmStatement_AsmLine1()
    * @model containment="true"
    * @generated
    */
-  EList<AsmLine> getAsmLine();
+  AsmLineWithoutColon getAsmLine1();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.AsmStatement#getAsmLine1 <em>Asm Line1</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Asm Line1</em>' containment reference.
+   * @see #getAsmLine1()
+   * @generated
+   */
+  void setAsmLine1(AsmLineWithoutColon value);
+
+  /**
+   * Returns the value of the '<em><b>Asm Lines</b></em>' containment reference list.
+   * The list contents are of type {@link at.jku.weiner.c.parser.parser.AsmLineWithColon}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Asm Lines</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Asm Lines</em>' containment reference list.
+   * @see at.jku.weiner.c.parser.parser.ParserPackage#getAsmStatement_AsmLines()
+   * @model containment="true"
+   * @generated
+   */
+  EList<AsmLineWithColon> getAsmLines();
 
   /**
    * Returns the value of the '<em><b>Semi</b></em>' attribute.

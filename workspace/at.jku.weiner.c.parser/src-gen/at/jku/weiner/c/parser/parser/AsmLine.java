@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link at.jku.weiner.c.parser.parser.AsmLine#isComma <em>Comma</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.AsmLine#getExpr <em>Expr</em>}</li>
  * </ul>
  * </p>
@@ -22,6 +23,32 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface AsmLine extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Comma</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Comma</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Comma</em>' attribute.
+   * @see #setComma(boolean)
+   * @see at.jku.weiner.c.parser.parser.ParserPackage#getAsmLine_Comma()
+   * @model
+   * @generated
+   */
+  boolean isComma();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.AsmLine#isComma <em>Comma</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Comma</em>' attribute.
+   * @see #isComma()
+   * @generated
+   */
+  void setComma(boolean value);
+
   /**
    * Returns the value of the '<em><b>Expr</b></em>' containment reference.
    * <!-- begin-user-doc -->

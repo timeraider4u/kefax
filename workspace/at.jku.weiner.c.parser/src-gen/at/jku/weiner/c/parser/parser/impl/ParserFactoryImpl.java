@@ -108,7 +108,9 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
       case ParserPackage.INITIALIZER_LIST: return createInitializerList();
       case ParserPackage.BLOCK_LIST: return createBlockList();
       case ParserPackage.STATEMENT: return createStatement();
+      case ParserPackage.ASM_LINE_WITHOUT_COLON: return createAsmLineWithoutColon();
       case ParserPackage.ASM_LINE: return createAsmLine();
+      case ParserPackage.ASM_LINE_WITH_COLON: return createAsmLineWithColon();
       case ParserPackage.EXPRESSION: return createExpression();
       case ParserPackage.ASSIGNMENT_OPERATOR: return createAssignmentOperator();
       case ParserPackage.UNARY_OPERATOR: return createUnaryOperator();
@@ -125,8 +127,6 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
       case ParserPackage.ITERATION_STATEMENT: return createIterationStatement();
       case ParserPackage.JUMP_STATEMENT: return createJumpStatement();
       case ParserPackage.ASM_STATEMENT: return createAsmStatement();
-      case ParserPackage.ASM_LINE_WITH_COLON: return createAsmLineWithColon();
-      case ParserPackage.ASM_LINE_WITH_COMMA: return createAsmLineWithComma();
       case ParserPackage.ASSIGNMENT_EXPRESSION: return createAssignmentExpression();
       case ParserPackage.CONDITIONAL_EXPRESSION: return createConditionalExpression();
       case ParserPackage.LOGICAL_OR_EXPRESSION: return createLogicalOrExpression();
@@ -644,10 +644,32 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public AsmLineWithoutColon createAsmLineWithoutColon()
+  {
+    AsmLineWithoutColonImpl asmLineWithoutColon = new AsmLineWithoutColonImpl();
+    return asmLineWithoutColon;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public AsmLine createAsmLine()
   {
     AsmLineImpl asmLine = new AsmLineImpl();
     return asmLine;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AsmLineWithColon createAsmLineWithColon()
+  {
+    AsmLineWithColonImpl asmLineWithColon = new AsmLineWithColonImpl();
+    return asmLineWithColon;
   }
 
   /**
@@ -824,28 +846,6 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
   {
     AsmStatementImpl asmStatement = new AsmStatementImpl();
     return asmStatement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public AsmLineWithColon createAsmLineWithColon()
-  {
-    AsmLineWithColonImpl asmLineWithColon = new AsmLineWithColonImpl();
-    return asmLineWithColon;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public AsmLineWithComma createAsmLineWithComma()
-  {
-    AsmLineWithCommaImpl asmLineWithComma = new AsmLineWithCommaImpl();
-    return asmLineWithComma;
   }
 
   /**

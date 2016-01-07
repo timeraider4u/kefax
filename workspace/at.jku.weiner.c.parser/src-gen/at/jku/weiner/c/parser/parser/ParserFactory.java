@@ -419,6 +419,15 @@ public interface ParserFactory extends EFactory
   Statement createStatement();
 
   /**
+   * Returns a new object of class '<em>Asm Line Without Colon</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Asm Line Without Colon</em>'.
+   * @generated
+   */
+  AsmLineWithoutColon createAsmLineWithoutColon();
+
+  /**
    * Returns a new object of class '<em>Asm Line</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -426,6 +435,15 @@ public interface ParserFactory extends EFactory
    * @generated
    */
   AsmLine createAsmLine();
+
+  /**
+   * Returns a new object of class '<em>Asm Line With Colon</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Asm Line With Colon</em>'.
+   * @generated
+   */
+  AsmLineWithColon createAsmLineWithColon();
 
   /**
    * Returns a new object of class '<em>Expression</em>'.
@@ -570,24 +588,6 @@ public interface ParserFactory extends EFactory
    * @generated
    */
   AsmStatement createAsmStatement();
-
-  /**
-   * Returns a new object of class '<em>Asm Line With Colon</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Asm Line With Colon</em>'.
-   * @generated
-   */
-  AsmLineWithColon createAsmLineWithColon();
-
-  /**
-   * Returns a new object of class '<em>Asm Line With Comma</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Asm Line With Comma</em>'.
-   * @generated
-   */
-  AsmLineWithComma createAsmLineWithComma();
 
   /**
    * Returns a new object of class '<em>Assignment Expression</em>'.

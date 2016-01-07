@@ -10,8 +10,9 @@ import at.jku.weiner.c.parser.parser.AbstractDeclarator;
 import at.jku.weiner.c.parser.parser.AdditiveExpression;
 import at.jku.weiner.c.parser.parser.AndExpression;
 import at.jku.weiner.c.parser.parser.ArgumentExpressionList;
+import at.jku.weiner.c.parser.parser.AsmLine;
 import at.jku.weiner.c.parser.parser.AsmLineWithColon;
-import at.jku.weiner.c.parser.parser.AsmLineWithComma;
+import at.jku.weiner.c.parser.parser.AsmLineWithoutColon;
 import at.jku.weiner.c.parser.parser.AsmStatement;
 import at.jku.weiner.c.parser.parser.AssignmentExpression;
 import at.jku.weiner.c.parser.parser.AssignmentOperator;
@@ -130,11 +131,14 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 			case ParserPackage.ARGUMENT_EXPRESSION_LIST:
 				sequence_ArgumentExpressionList(context, (ArgumentExpressionList) semanticObject); 
 				return; 
+			case ParserPackage.ASM_LINE:
+				sequence_AsmLine(context, (AsmLine) semanticObject); 
+				return; 
 			case ParserPackage.ASM_LINE_WITH_COLON:
 				sequence_AsmLineWithColon(context, (AsmLineWithColon) semanticObject); 
 				return; 
-			case ParserPackage.ASM_LINE_WITH_COMMA:
-				sequence_AsmLineWithComma(context, (AsmLineWithComma) semanticObject); 
+			case ParserPackage.ASM_LINE_WITHOUT_COLON:
+				sequence_AsmLineWithoutColon(context, (AsmLineWithoutColon) semanticObject); 
 				return; 
 			case ParserPackage.ASM_STATEMENT:
 				sequence_AsmStatement(context, (AsmStatement) semanticObject); 
@@ -416,7 +420,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (colon?=SKW_COLON? expr=LogicalOrExpression)
+	 *     (asmLine=AsmLineWithoutColon?)
 	 */
 	protected void sequence_AsmLineWithColon(EObject context, AsmLineWithColon semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -425,17 +429,19 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     expr=LogicalOrExpression
+	 *     (expr=LogicalOrExpression asmLines+=AsmLine*)
 	 */
-	protected void sequence_AsmLineWithComma(EObject context, AsmLineWithComma semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, ParserPackage.Literals.ASM_LINE__EXPR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ParserPackage.Literals.ASM_LINE__EXPR));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getAsmLineWithCommaAccess().getExprLogicalOrExpressionParserRuleCall_2_0(), semanticObject.getExpr());
-		feeder.finish();
+	protected void sequence_AsmLineWithoutColon(EObject context, AsmLineWithoutColon semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (comma?=SKW_COMMA? expr=LogicalOrExpression)
+	 */
+	protected void sequence_AsmLine(EObject context, AsmLine semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -444,7 +450,8 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	 *     (
 	 *         (asm=KW_ASM1 | asm=KW_ASM2 | asm=KW_ASM3) 
 	 *         (volatile=KW_VOLATILE | volatile=KW_VOLATILE2)? 
-	 *         (asmLine+=AsmLineWithColon asmLine+=AsmLineWithComma*)+ 
+	 *         asmLine1=AsmLineWithoutColon? 
+	 *         asmLines+=AsmLineWithColon* 
 	 *         semi=SKW_SEMI
 	 *     )
 	 */

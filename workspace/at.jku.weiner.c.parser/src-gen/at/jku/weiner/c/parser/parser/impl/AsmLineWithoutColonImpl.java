@@ -3,11 +3,16 @@
 package at.jku.weiner.c.parser.parser.impl;
 
 import at.jku.weiner.c.parser.parser.AsmLine;
+import at.jku.weiner.c.parser.parser.AsmLineWithoutColon;
 import at.jku.weiner.c.parser.parser.Expression;
 import at.jku.weiner.c.parser.parser.ParserPackage;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -15,42 +20,25 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Asm Line</b></em>'.
+ * An implementation of the model object '<em><b>Asm Line Without Colon</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link at.jku.weiner.c.parser.parser.impl.AsmLineImpl#isComma <em>Comma</em>}</li>
- *   <li>{@link at.jku.weiner.c.parser.parser.impl.AsmLineImpl#getExpr <em>Expr</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.AsmLineWithoutColonImpl#getExpr <em>Expr</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.AsmLineWithoutColonImpl#getAsmLines <em>Asm Lines</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class AsmLineImpl extends MinimalEObjectImpl.Container implements AsmLine
+public class AsmLineWithoutColonImpl extends MinimalEObjectImpl.Container implements AsmLineWithoutColon
 {
-  /**
-   * The default value of the '{@link #isComma() <em>Comma</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isComma()
-   * @generated
-   * @ordered
-   */
-  protected static final boolean COMMA_EDEFAULT = false;
-
-  /**
-   * The cached value of the '{@link #isComma() <em>Comma</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isComma()
-   * @generated
-   * @ordered
-   */
-  protected boolean comma = COMMA_EDEFAULT;
-
   /**
    * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -62,11 +50,21 @@ public class AsmLineImpl extends MinimalEObjectImpl.Container implements AsmLine
   protected Expression expr;
 
   /**
+   * The cached value of the '{@link #getAsmLines() <em>Asm Lines</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAsmLines()
+   * @generated
+   * @ordered
+   */
+  protected EList<AsmLine> asmLines;
+
+  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected AsmLineImpl()
+  protected AsmLineWithoutColonImpl()
   {
     super();
   }
@@ -79,30 +77,7 @@ public class AsmLineImpl extends MinimalEObjectImpl.Container implements AsmLine
   @Override
   protected EClass eStaticClass()
   {
-    return ParserPackage.Literals.ASM_LINE;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public boolean isComma()
-  {
-    return comma;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setComma(boolean newComma)
-  {
-    boolean oldComma = comma;
-    comma = newComma;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.ASM_LINE__COMMA, oldComma, comma));
+    return ParserPackage.Literals.ASM_LINE_WITHOUT_COLON;
   }
 
   /**
@@ -126,7 +101,7 @@ public class AsmLineImpl extends MinimalEObjectImpl.Container implements AsmLine
     expr = newExpr;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ParserPackage.ASM_LINE__EXPR, oldExpr, newExpr);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ParserPackage.ASM_LINE_WITHOUT_COLON__EXPR, oldExpr, newExpr);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -143,14 +118,28 @@ public class AsmLineImpl extends MinimalEObjectImpl.Container implements AsmLine
     {
       NotificationChain msgs = null;
       if (expr != null)
-        msgs = ((InternalEObject)expr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ParserPackage.ASM_LINE__EXPR, null, msgs);
+        msgs = ((InternalEObject)expr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ParserPackage.ASM_LINE_WITHOUT_COLON__EXPR, null, msgs);
       if (newExpr != null)
-        msgs = ((InternalEObject)newExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ParserPackage.ASM_LINE__EXPR, null, msgs);
+        msgs = ((InternalEObject)newExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ParserPackage.ASM_LINE_WITHOUT_COLON__EXPR, null, msgs);
       msgs = basicSetExpr(newExpr, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.ASM_LINE__EXPR, newExpr, newExpr));
+      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.ASM_LINE_WITHOUT_COLON__EXPR, newExpr, newExpr));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<AsmLine> getAsmLines()
+  {
+    if (asmLines == null)
+    {
+      asmLines = new EObjectContainmentEList<AsmLine>(AsmLine.class, this, ParserPackage.ASM_LINE_WITHOUT_COLON__ASM_LINES);
+    }
+    return asmLines;
   }
 
   /**
@@ -163,8 +152,10 @@ public class AsmLineImpl extends MinimalEObjectImpl.Container implements AsmLine
   {
     switch (featureID)
     {
-      case ParserPackage.ASM_LINE__EXPR:
+      case ParserPackage.ASM_LINE_WITHOUT_COLON__EXPR:
         return basicSetExpr(null, msgs);
+      case ParserPackage.ASM_LINE_WITHOUT_COLON__ASM_LINES:
+        return ((InternalEList<?>)getAsmLines()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -179,10 +170,10 @@ public class AsmLineImpl extends MinimalEObjectImpl.Container implements AsmLine
   {
     switch (featureID)
     {
-      case ParserPackage.ASM_LINE__COMMA:
-        return isComma();
-      case ParserPackage.ASM_LINE__EXPR:
+      case ParserPackage.ASM_LINE_WITHOUT_COLON__EXPR:
         return getExpr();
+      case ParserPackage.ASM_LINE_WITHOUT_COLON__ASM_LINES:
+        return getAsmLines();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -192,16 +183,18 @@ public class AsmLineImpl extends MinimalEObjectImpl.Container implements AsmLine
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case ParserPackage.ASM_LINE__COMMA:
-        setComma((Boolean)newValue);
-        return;
-      case ParserPackage.ASM_LINE__EXPR:
+      case ParserPackage.ASM_LINE_WITHOUT_COLON__EXPR:
         setExpr((Expression)newValue);
+        return;
+      case ParserPackage.ASM_LINE_WITHOUT_COLON__ASM_LINES:
+        getAsmLines().clear();
+        getAsmLines().addAll((Collection<? extends AsmLine>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -217,11 +210,11 @@ public class AsmLineImpl extends MinimalEObjectImpl.Container implements AsmLine
   {
     switch (featureID)
     {
-      case ParserPackage.ASM_LINE__COMMA:
-        setComma(COMMA_EDEFAULT);
-        return;
-      case ParserPackage.ASM_LINE__EXPR:
+      case ParserPackage.ASM_LINE_WITHOUT_COLON__EXPR:
         setExpr((Expression)null);
+        return;
+      case ParserPackage.ASM_LINE_WITHOUT_COLON__ASM_LINES:
+        getAsmLines().clear();
         return;
     }
     super.eUnset(featureID);
@@ -237,29 +230,12 @@ public class AsmLineImpl extends MinimalEObjectImpl.Container implements AsmLine
   {
     switch (featureID)
     {
-      case ParserPackage.ASM_LINE__COMMA:
-        return comma != COMMA_EDEFAULT;
-      case ParserPackage.ASM_LINE__EXPR:
+      case ParserPackage.ASM_LINE_WITHOUT_COLON__EXPR:
         return expr != null;
+      case ParserPackage.ASM_LINE_WITHOUT_COLON__ASM_LINES:
+        return asmLines != null && !asmLines.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (comma: ");
-    result.append(comma);
-    result.append(')');
-    return result.toString();
-  }
-
-} //AsmLineImpl
+} //AsmLineWithoutColonImpl

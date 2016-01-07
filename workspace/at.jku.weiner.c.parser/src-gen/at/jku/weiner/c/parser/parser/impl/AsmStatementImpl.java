@@ -2,7 +2,8 @@
  */
 package at.jku.weiner.c.parser.parser.impl;
 
-import at.jku.weiner.c.parser.parser.AsmLine;
+import at.jku.weiner.c.parser.parser.AsmLineWithColon;
+import at.jku.weiner.c.parser.parser.AsmLineWithoutColon;
 import at.jku.weiner.c.parser.parser.AsmStatement;
 import at.jku.weiner.c.parser.parser.ParserPackage;
 
@@ -30,7 +31,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.AsmStatementImpl#getAsm <em>Asm</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.AsmStatementImpl#getVolatile <em>Volatile</em>}</li>
- *   <li>{@link at.jku.weiner.c.parser.parser.impl.AsmStatementImpl#getAsmLine <em>Asm Line</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.AsmStatementImpl#getAsmLine1 <em>Asm Line1</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.AsmStatementImpl#getAsmLines <em>Asm Lines</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.AsmStatementImpl#getSemi <em>Semi</em>}</li>
  * </ul>
  * </p>
@@ -80,14 +82,24 @@ public class AsmStatementImpl extends StatementImpl implements AsmStatement
   protected String volatile_ = VOLATILE_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getAsmLine() <em>Asm Line</em>}' containment reference list.
+   * The cached value of the '{@link #getAsmLine1() <em>Asm Line1</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getAsmLine()
+   * @see #getAsmLine1()
    * @generated
    * @ordered
    */
-  protected EList<AsmLine> asmLine;
+  protected AsmLineWithoutColon asmLine1;
+
+  /**
+   * The cached value of the '{@link #getAsmLines() <em>Asm Lines</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAsmLines()
+   * @generated
+   * @ordered
+   */
+  protected EList<AsmLineWithColon> asmLines;
 
   /**
    * The default value of the '{@link #getSemi() <em>Semi</em>}' attribute.
@@ -181,13 +193,61 @@ public class AsmStatementImpl extends StatementImpl implements AsmStatement
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<AsmLine> getAsmLine()
+  public AsmLineWithoutColon getAsmLine1()
   {
-    if (asmLine == null)
+    return asmLine1;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetAsmLine1(AsmLineWithoutColon newAsmLine1, NotificationChain msgs)
+  {
+    AsmLineWithoutColon oldAsmLine1 = asmLine1;
+    asmLine1 = newAsmLine1;
+    if (eNotificationRequired())
     {
-      asmLine = new EObjectContainmentEList<AsmLine>(AsmLine.class, this, ParserPackage.ASM_STATEMENT__ASM_LINE);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ParserPackage.ASM_STATEMENT__ASM_LINE1, oldAsmLine1, newAsmLine1);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
-    return asmLine;
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAsmLine1(AsmLineWithoutColon newAsmLine1)
+  {
+    if (newAsmLine1 != asmLine1)
+    {
+      NotificationChain msgs = null;
+      if (asmLine1 != null)
+        msgs = ((InternalEObject)asmLine1).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ParserPackage.ASM_STATEMENT__ASM_LINE1, null, msgs);
+      if (newAsmLine1 != null)
+        msgs = ((InternalEObject)newAsmLine1).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ParserPackage.ASM_STATEMENT__ASM_LINE1, null, msgs);
+      msgs = basicSetAsmLine1(newAsmLine1, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.ASM_STATEMENT__ASM_LINE1, newAsmLine1, newAsmLine1));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<AsmLineWithColon> getAsmLines()
+  {
+    if (asmLines == null)
+    {
+      asmLines = new EObjectContainmentEList<AsmLineWithColon>(AsmLineWithColon.class, this, ParserPackage.ASM_STATEMENT__ASM_LINES);
+    }
+    return asmLines;
   }
 
   /**
@@ -223,8 +283,10 @@ public class AsmStatementImpl extends StatementImpl implements AsmStatement
   {
     switch (featureID)
     {
-      case ParserPackage.ASM_STATEMENT__ASM_LINE:
-        return ((InternalEList<?>)getAsmLine()).basicRemove(otherEnd, msgs);
+      case ParserPackage.ASM_STATEMENT__ASM_LINE1:
+        return basicSetAsmLine1(null, msgs);
+      case ParserPackage.ASM_STATEMENT__ASM_LINES:
+        return ((InternalEList<?>)getAsmLines()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -243,8 +305,10 @@ public class AsmStatementImpl extends StatementImpl implements AsmStatement
         return getAsm();
       case ParserPackage.ASM_STATEMENT__VOLATILE:
         return getVolatile();
-      case ParserPackage.ASM_STATEMENT__ASM_LINE:
-        return getAsmLine();
+      case ParserPackage.ASM_STATEMENT__ASM_LINE1:
+        return getAsmLine1();
+      case ParserPackage.ASM_STATEMENT__ASM_LINES:
+        return getAsmLines();
       case ParserPackage.ASM_STATEMENT__SEMI:
         return getSemi();
     }
@@ -268,9 +332,12 @@ public class AsmStatementImpl extends StatementImpl implements AsmStatement
       case ParserPackage.ASM_STATEMENT__VOLATILE:
         setVolatile((String)newValue);
         return;
-      case ParserPackage.ASM_STATEMENT__ASM_LINE:
-        getAsmLine().clear();
-        getAsmLine().addAll((Collection<? extends AsmLine>)newValue);
+      case ParserPackage.ASM_STATEMENT__ASM_LINE1:
+        setAsmLine1((AsmLineWithoutColon)newValue);
+        return;
+      case ParserPackage.ASM_STATEMENT__ASM_LINES:
+        getAsmLines().clear();
+        getAsmLines().addAll((Collection<? extends AsmLineWithColon>)newValue);
         return;
       case ParserPackage.ASM_STATEMENT__SEMI:
         setSemi((String)newValue);
@@ -295,8 +362,11 @@ public class AsmStatementImpl extends StatementImpl implements AsmStatement
       case ParserPackage.ASM_STATEMENT__VOLATILE:
         setVolatile(VOLATILE_EDEFAULT);
         return;
-      case ParserPackage.ASM_STATEMENT__ASM_LINE:
-        getAsmLine().clear();
+      case ParserPackage.ASM_STATEMENT__ASM_LINE1:
+        setAsmLine1((AsmLineWithoutColon)null);
+        return;
+      case ParserPackage.ASM_STATEMENT__ASM_LINES:
+        getAsmLines().clear();
         return;
       case ParserPackage.ASM_STATEMENT__SEMI:
         setSemi(SEMI_EDEFAULT);
@@ -319,8 +389,10 @@ public class AsmStatementImpl extends StatementImpl implements AsmStatement
         return ASM_EDEFAULT == null ? asm != null : !ASM_EDEFAULT.equals(asm);
       case ParserPackage.ASM_STATEMENT__VOLATILE:
         return VOLATILE_EDEFAULT == null ? volatile_ != null : !VOLATILE_EDEFAULT.equals(volatile_);
-      case ParserPackage.ASM_STATEMENT__ASM_LINE:
-        return asmLine != null && !asmLine.isEmpty();
+      case ParserPackage.ASM_STATEMENT__ASM_LINE1:
+        return asmLine1 != null;
+      case ParserPackage.ASM_STATEMENT__ASM_LINES:
+        return asmLines != null && !asmLines.isEmpty();
       case ParserPackage.ASM_STATEMENT__SEMI:
         return SEMI_EDEFAULT == null ? semi != null : !SEMI_EDEFAULT.equals(semi);
     }

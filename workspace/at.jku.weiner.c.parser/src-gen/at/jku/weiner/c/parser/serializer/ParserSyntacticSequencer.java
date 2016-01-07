@@ -39,6 +39,8 @@ public class ParserSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getEllipsisToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getKW_ATTRIBUTERule())
 			return getKW_ATTRIBUTEToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getKW_BUILTIN_OFFSETOFRule())
+			return getKW_BUILTIN_OFFSETOFToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getKW_ENUMRule())
 			return getKW_ENUMToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getKW_WHILERule())
@@ -111,6 +113,15 @@ public class ParserSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return "_attribute";
+	}
+	
+	/**
+	 * terminal KW_BUILTIN_OFFSETOF: SKW_UNDERSCORE SKW_UNDERSCORE 'builtin_offsetof';
+	 */
+	protected String getKW_BUILTIN_OFFSETOFToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "_builtin_offsetof";
 	}
 	
 	/**

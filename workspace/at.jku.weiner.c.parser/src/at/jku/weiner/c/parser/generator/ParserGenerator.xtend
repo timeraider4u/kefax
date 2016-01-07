@@ -786,7 +786,8 @@ class ParserGenerator implements IGenerator {
 	def String outputForPrimaryExpression(PrimaryExpression obj) '''
 		«IF obj.id != null»«obj.id»«ENDIF»
 		«IF obj.const != null»«outputFor(obj.const)»«ENDIF»
-		«IF obj.expr != null»(«outputFor(obj.expr)»)«ENDIF»
+		«IF obj.expr != null && !obj.builtin_offsetof»(«outputFor(obj.expr)»)«ENDIF»
+		«IF obj.builtin_offsetof»__builtin_offsetof(«outputFor(obj.typeName)»,«outputForUnaryExpression(obj.expr as UnaryExpression)»)«ENDIF»
 	'''
 	
 	def String outputFor(Constant2 obj) '''

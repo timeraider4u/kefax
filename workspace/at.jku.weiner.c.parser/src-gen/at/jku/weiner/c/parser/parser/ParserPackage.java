@@ -3582,13 +3582,31 @@ public interface ParserPackage extends EPackage
   int PRIMARY_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 2;
 
   /**
+   * The feature id for the '<em><b>Builtin offsetof</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_EXPRESSION__BUILTIN_OFFSETOF = EXPRESSION_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Type Name</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_EXPRESSION__TYPE_NAME = EXPRESSION_FEATURE_COUNT + 4;
+
+  /**
    * The number of structural features of the '<em>Primary Expression</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PRIMARY_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
+  int PRIMARY_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.ConstantExpressionImpl <em>Constant Expression</em>}' class.
@@ -6314,6 +6332,28 @@ public interface ParserPackage extends EPackage
   EReference getPrimaryExpression_Expr();
 
   /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.PrimaryExpression#isBuiltin_offsetof <em>Builtin offsetof</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Builtin offsetof</em>'.
+   * @see at.jku.weiner.c.parser.parser.PrimaryExpression#isBuiltin_offsetof()
+   * @see #getPrimaryExpression()
+   * @generated
+   */
+  EAttribute getPrimaryExpression_Builtin_offsetof();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getTypeName <em>Type Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type Name</em>'.
+   * @see at.jku.weiner.c.parser.parser.PrimaryExpression#getTypeName()
+   * @see #getPrimaryExpression()
+   * @generated
+   */
+  EReference getPrimaryExpression_TypeName();
+
+  /**
    * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.ConstantExpression <em>Constant Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8534,6 +8574,22 @@ public interface ParserPackage extends EPackage
      * @generated
      */
     EReference PRIMARY_EXPRESSION__EXPR = eINSTANCE.getPrimaryExpression_Expr();
+
+    /**
+     * The meta object literal for the '<em><b>Builtin offsetof</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PRIMARY_EXPRESSION__BUILTIN_OFFSETOF = eINSTANCE.getPrimaryExpression_Builtin_offsetof();
+
+    /**
+     * The meta object literal for the '<em><b>Type Name</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PRIMARY_EXPRESSION__TYPE_NAME = eINSTANCE.getPrimaryExpression_TypeName();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.ConstantExpressionImpl <em>Constant Expression</em>}' class.

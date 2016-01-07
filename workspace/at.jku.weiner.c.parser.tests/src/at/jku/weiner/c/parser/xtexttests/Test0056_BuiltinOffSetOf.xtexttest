@@ -1,0 +1,236 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.parser
+language parser
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+source file="res/Test0056_BuiltinOffSetOf.c"
+//----------------------------------------------------------------------
+lexer-tokens
+
+KW_STRUCT WHITESPACE ID WHITESPACE SKW_LEFTBRACE NEWLINE
+	WHITESPACE KW_INT WHITESPACE ID SKW_SEMI NEWLINE
+SKW_RIGHTBRACE SKW_SEMI NEWLINE
+NEWLINE
+
+KW_VOID WHITESPACE ID SKW_LEFTPAREN 
+	KW_STRUCT WHITESPACE ID WHITESPACE ID SKW_RIGHTPAREN WHITESPACE SKW_LEFTBRACE NEWLINE
+	
+	WHITESPACE KW_BUILTIN_OFFSETOF SKW_LEFTPAREN KW_STRUCT WHITESPACE ID SKW_COMMA WHITESPACE
+		ID SKW_RIGHTPAREN SKW_SEMI NEWLINE
+SKW_RIGHTBRACE NEWLINE
+
+//----------------------------------------------------------------------
+//(common::Model units+=
+	//(common::TranslationUnit 
+	(Parser
+		external+=
+		// struct ;
+		(ExternalDeclaration
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(StructOrUnionSpecifier
+						type=
+						(StructOrUnion
+							name++"struct"
+						),
+						id++"foo",
+						structDeclList=
+						(StructDeclarationList
+							structDeclaration+=
+							// int i
+							(StructDeclaration
+								list=
+								(SpecifierQualifierList
+									typeSpecifier+=
+									(TypeSpecifier
+										name++"int"
+									)
+								),
+								structDeclarationList=
+								(StructDeclaratorList
+									structDeclarator+=
+									(StructDeclarator
+										declarator=
+										(Declarator
+											declarator=
+											(DirectDeclarator
+												id++"i"
+											)
+										)
+									)
+								)
+							)
+						)
+					)
+				)	
+			)
+		),
+		// void bar(...)
+		(ExternalDeclaration 
+			functiondefHead=
+			(FunctionDefHead
+				funDeclSpecifiers=
+				(FunctionDeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"void"
+					)
+				),
+				funDeclarator=
+				(Declarator
+					declarator=
+					(DirectDeclarator
+						id++"bar",
+						declaratorSuffix+=
+						(DeclaratorSuffix
+							lastSuffix=
+							(DirectDeclaratorLastSuffix
+								parameterTypeList+=
+								(ParameterTypeList
+									list=
+									(ParameterList
+										parameterDeclaration+=
+										(ParameterDeclaration
+											declSpecifiers=
+											(DeclarationSpecifiers
+												declarationSpecifier+=
+												(StructOrUnionSpecifier
+													type=
+													(StructOrUnion
+														name++"struct"
+													),
+													id++"foo"
+												)
+											),
+											declarator=
+											(Declarator
+												declarator=
+												(DirectDeclarator
+													id++"foobar"
+												)
+											)
+										) 
+									) // end parameter list
+								)
+							)
+						) // DeclaratorSuffix
+					)
+				)
+			),
+			functionDefinition=
+			(FunctionDefinition
+				body=
+				(BodyStatement
+					blockList+=
+					(BlockList
+						statement+=
+						// __builtin_offsetof(...);
+						(Statement
+							stmt=
+							(ExpressionStatement
+								expression=
+								(Expression
+									exprExpr+=
+									(AssignmentExpression
+										expr=
+										(ConditionalExpression
+											expr=
+											(LogicalOrExpression
+												expr+=
+												(LogicalAndExpression
+													expr+=
+													(InclusiveOrExpression
+														expr+=
+														(ExclusiveOrExpression
+															expr+=
+															(AndExpression
+																expr+=
+																(EqualityExpression
+																	expr+=
+																	(RelationalExpression
+																		expr+=
+																		(ShiftExpression
+																			expr+=
+																			(AdditiveExpression
+																				expr+=
+																				(MultiplicativeExpression
+																					expr+=
+																					(CastExpression
+																						expr=
+																						(UnaryExpression
+																							expr=
+																							(PostfixExpression
+																								expr+=
+																								(PrimaryExpression
+																									builtin_offsetof?=true,
+																									typeName=
+																									(TypeName
+																										list=
+																										(SpecifierQualifierList
+																											structOrUnionSpecifier+=
+																											(StructOrUnionSpecifier
+																												type=
+																												(StructOrUnion
+																													name++"struct"
+																												),
+																												id++"foo"
+																											)
+																										)
+																									),
+																									expr=
+																									(UnaryExpression
+																										expr=
+																										(PostfixExpression
+																											expr+=
+																											(PrimaryExpression
+																												id++"i"
+																											)
+																										)
+																									)
+																								)
+																							)
+																						)
+																					)
+																				)
+																			)
+																		)
+																	)
+																	
+																)
+															)
+														)
+													)
+												)
+											)
+										)
+									)
+								), // end expression
+								semi++";"
+							) // end expression statement
+						) // end statement
+					) // end block list
+				) // end body statement
+			)
+		) // end external declaration		  
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0056_BuiltinOffSetOf.c"
+expected file isSameAsInputFile
+replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+before
+	class = at.jku.weiner.c.parser.xtexttests.TestSuite_Structs
+	method = testSize
+	()
+after
+	class = at.jku.weiner.c.parser.xtexttests.TestSuite_Structs
+	method = testSize
+	()
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

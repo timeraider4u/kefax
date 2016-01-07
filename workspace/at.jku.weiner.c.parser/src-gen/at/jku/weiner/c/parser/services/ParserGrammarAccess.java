@@ -4731,6 +4731,16 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cExprAssignment_1_2_1 = (Assignment)cGroup_1_2.eContents().get(1);
 		private final RuleCall cExprExpressionParserRuleCall_1_2_1_0 = (RuleCall)cExprAssignment_1_2_1.eContents().get(0);
 		private final RuleCall cSKW_RIGHTPARENTerminalRuleCall_1_2_2 = (RuleCall)cGroup_1_2.eContents().get(2);
+		private final Group cGroup_1_3 = (Group)cAlternatives_1.eContents().get(3);
+		private final Assignment cBuiltin_offsetofAssignment_1_3_0 = (Assignment)cGroup_1_3.eContents().get(0);
+		private final RuleCall cBuiltin_offsetofKW_BUILTIN_OFFSETOFTerminalRuleCall_1_3_0_0 = (RuleCall)cBuiltin_offsetofAssignment_1_3_0.eContents().get(0);
+		private final RuleCall cSKW_LEFTPARENTerminalRuleCall_1_3_1 = (RuleCall)cGroup_1_3.eContents().get(1);
+		private final Assignment cTypeNameAssignment_1_3_2 = (Assignment)cGroup_1_3.eContents().get(2);
+		private final RuleCall cTypeNameTypeNameParserRuleCall_1_3_2_0 = (RuleCall)cTypeNameAssignment_1_3_2.eContents().get(0);
+		private final RuleCall cSKW_COMMATerminalRuleCall_1_3_3 = (RuleCall)cGroup_1_3.eContents().get(3);
+		private final Assignment cExprAssignment_1_3_4 = (Assignment)cGroup_1_3.eContents().get(4);
+		private final RuleCall cExprUnaryExpressionParserRuleCall_1_3_4_0 = (RuleCall)cExprAssignment_1_3_4.eContents().get(0);
+		private final RuleCall cSKW_RIGHTPARENTerminalRuleCall_1_3_5 = (RuleCall)cGroup_1_3.eContents().get(5);
 		
 		//PrimaryExpression Expression:
 		//	{PrimaryExpression} (id=ID
@@ -4740,16 +4750,14 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//	//|	genericSelection=genericSelection
 		//	// |	'__extension__'? LEFTPAREN compoundStmt=compoundStatement RIGHTPAREN // Blocks (GCC extension)
 		//	//|	'__builtin_va_arg' LEFTPAREN expr=unaryExpression COMMA typeName=typeName RIGHTPAREN
-		//	//|	'__builtin_offsetof' LEFTPAREN typeName=typeName COMMA expr=unaryExpression RIGHTPAREN
-		//)
+		//	| builtin_offsetof?=KW_BUILTIN_OFFSETOF SKW_LEFTPAREN typeName=TypeName SKW_COMMA expr=UnaryExpression SKW_RIGHTPAREN)
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{PrimaryExpression} (id=ID | const=Constant2 //|	string+=STRING_LITERAL+ // reachable over Constant!
 		//| SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN //|	genericSelection=genericSelection
 		//// |	'__extension__'? LEFTPAREN compoundStmt=compoundStatement RIGHTPAREN // Blocks (GCC extension)
 		////|	'__builtin_va_arg' LEFTPAREN expr=unaryExpression COMMA typeName=typeName RIGHTPAREN
-		////|	'__builtin_offsetof' LEFTPAREN typeName=typeName COMMA expr=unaryExpression RIGHTPAREN
-		//)
+		//| builtin_offsetof?=KW_BUILTIN_OFFSETOF SKW_LEFTPAREN typeName=TypeName SKW_COMMA expr=UnaryExpression SKW_RIGHTPAREN)
 		public Group getGroup() { return cGroup; }
 		
 		//{PrimaryExpression}
@@ -4759,8 +4767,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//| SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN //|	genericSelection=genericSelection
 		//// |	'__extension__'? LEFTPAREN compoundStmt=compoundStatement RIGHTPAREN // Blocks (GCC extension)
 		////|	'__builtin_va_arg' LEFTPAREN expr=unaryExpression COMMA typeName=typeName RIGHTPAREN
-		////|	'__builtin_offsetof' LEFTPAREN typeName=typeName COMMA expr=unaryExpression RIGHTPAREN
-		//)
+		//| builtin_offsetof?=KW_BUILTIN_OFFSETOF SKW_LEFTPAREN typeName=TypeName SKW_COMMA expr=UnaryExpression SKW_RIGHTPAREN)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
 		//id=ID
@@ -4789,6 +4796,36 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//SKW_RIGHTPAREN
 		public RuleCall getSKW_RIGHTPARENTerminalRuleCall_1_2_2() { return cSKW_RIGHTPARENTerminalRuleCall_1_2_2; }
+		
+		//builtin_offsetof?=KW_BUILTIN_OFFSETOF SKW_LEFTPAREN typeName=TypeName SKW_COMMA expr=UnaryExpression SKW_RIGHTPAREN
+		public Group getGroup_1_3() { return cGroup_1_3; }
+		
+		//builtin_offsetof?=KW_BUILTIN_OFFSETOF
+		public Assignment getBuiltin_offsetofAssignment_1_3_0() { return cBuiltin_offsetofAssignment_1_3_0; }
+		
+		//KW_BUILTIN_OFFSETOF
+		public RuleCall getBuiltin_offsetofKW_BUILTIN_OFFSETOFTerminalRuleCall_1_3_0_0() { return cBuiltin_offsetofKW_BUILTIN_OFFSETOFTerminalRuleCall_1_3_0_0; }
+		
+		//SKW_LEFTPAREN
+		public RuleCall getSKW_LEFTPARENTerminalRuleCall_1_3_1() { return cSKW_LEFTPARENTerminalRuleCall_1_3_1; }
+		
+		//typeName=TypeName
+		public Assignment getTypeNameAssignment_1_3_2() { return cTypeNameAssignment_1_3_2; }
+		
+		//TypeName
+		public RuleCall getTypeNameTypeNameParserRuleCall_1_3_2_0() { return cTypeNameTypeNameParserRuleCall_1_3_2_0; }
+		
+		//SKW_COMMA
+		public RuleCall getSKW_COMMATerminalRuleCall_1_3_3() { return cSKW_COMMATerminalRuleCall_1_3_3; }
+		
+		//expr=UnaryExpression
+		public Assignment getExprAssignment_1_3_4() { return cExprAssignment_1_3_4; }
+		
+		//UnaryExpression
+		public RuleCall getExprUnaryExpressionParserRuleCall_1_3_4_0() { return cExprUnaryExpressionParserRuleCall_1_3_4_0; }
+		
+		//SKW_RIGHTPAREN
+		public RuleCall getSKW_RIGHTPARENTerminalRuleCall_1_3_5() { return cSKW_RIGHTPARENTerminalRuleCall_1_3_5; }
 	}
 	public class ConstantExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.ConstantExpression");
@@ -4910,6 +4947,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tKW_BOOL;
 	private final TerminalRule tKW_BREAK;
 	private final TerminalRule tKW_BUILTIN_VA_LIST;
+	private final TerminalRule tKW_BUILTIN_OFFSETOF;
 	private final TerminalRule tKW_CASE;
 	private final TerminalRule tKW_CHAR;
 	private final TerminalRule tKW_COMPLEX;
@@ -5077,6 +5115,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		this.tKW_BOOL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_BOOL");
 		this.tKW_BREAK = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_BREAK");
 		this.tKW_BUILTIN_VA_LIST = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_BUILTIN_VA_LIST");
+		this.tKW_BUILTIN_OFFSETOF = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_BUILTIN_OFFSETOF");
 		this.tKW_CASE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_CASE");
 		this.tKW_CHAR = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_CHAR");
 		this.tKW_COMPLEX = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_COMPLEX");
@@ -6222,8 +6261,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//	//|	genericSelection=genericSelection
 	//	// |	'__extension__'? LEFTPAREN compoundStmt=compoundStatement RIGHTPAREN // Blocks (GCC extension)
 	//	//|	'__builtin_va_arg' LEFTPAREN expr=unaryExpression COMMA typeName=typeName RIGHTPAREN
-	//	//|	'__builtin_offsetof' LEFTPAREN typeName=typeName COMMA expr=unaryExpression RIGHTPAREN
-	//)
+	//	| builtin_offsetof?=KW_BUILTIN_OFFSETOF SKW_LEFTPAREN typeName=TypeName SKW_COMMA expr=UnaryExpression SKW_RIGHTPAREN)
 	public PrimaryExpressionElements getPrimaryExpressionAccess() {
 		return pPrimaryExpression;
 	}
@@ -6306,6 +6344,12 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//	SKW_UNDERSCORE SKW_UNDERSCORE 'builtin_va_list';
 	public TerminalRule getKW_BUILTIN_VA_LISTRule() {
 		return tKW_BUILTIN_VA_LIST;
+	}
+	
+	//terminal KW_BUILTIN_OFFSETOF:
+	//	SKW_UNDERSCORE SKW_UNDERSCORE 'builtin_offsetof';
+	public TerminalRule getKW_BUILTIN_OFFSETOFRule() {
+		return tKW_BUILTIN_OFFSETOF;
 	}
 	
 	//terminal KW_CASE:

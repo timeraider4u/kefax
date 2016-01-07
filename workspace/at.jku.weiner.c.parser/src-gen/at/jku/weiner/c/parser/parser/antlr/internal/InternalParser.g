@@ -10618,6 +10618,94 @@ this_SKW_RIGHTPAREN_5=RULE_SKW_RIGHTPAREN
 
 )
 
+
+    |
+(
+(
+(
+		lv_builtin_offsetof_6_0=RULE_KW_BUILTIN_OFFSETOF
+		{
+			newLeafNode(lv_builtin_offsetof_6_0, grammarAccess.getPrimaryExpressionAccess().getBuiltin_offsetofKW_BUILTIN_OFFSETOFTerminalRuleCall_1_3_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getPrimaryExpressionRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"builtin_offsetof",
+        		true, 
+        		"at.jku.weiner.c.parser.Parser.KW_BUILTIN_OFFSETOF");
+	    }
+
+)
+)
+
+
+this_SKW_LEFTPAREN_7=RULE_SKW_LEFTPAREN
+    { 
+    newLeafNode(this_SKW_LEFTPAREN_7, grammarAccess.getPrimaryExpressionAccess().getSKW_LEFTPARENTerminalRuleCall_1_3_1()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getTypeNameTypeNameParserRuleCall_1_3_2_0()); 
+	    }
+		lv_typeName_8_0=ruleTypeName		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getPrimaryExpressionRule());
+	        }
+       		set(
+       			$current, 
+       			"typeName",
+        		lv_typeName_8_0, 
+        		"at.jku.weiner.c.parser.Parser.TypeName");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+this_SKW_COMMA_9=RULE_SKW_COMMA
+    { 
+    newLeafNode(this_SKW_COMMA_9, grammarAccess.getPrimaryExpressionAccess().getSKW_COMMATerminalRuleCall_1_3_3()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getExprUnaryExpressionParserRuleCall_1_3_4_0()); 
+	    }
+		lv_expr_10_0=ruleUnaryExpression		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getPrimaryExpressionRule());
+	        }
+       		set(
+       			$current, 
+       			"expr",
+        		lv_expr_10_0, 
+        		"at.jku.weiner.c.parser.Parser.UnaryExpression");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+this_SKW_RIGHTPAREN_11=RULE_SKW_RIGHTPAREN
+    { 
+    newLeafNode(this_SKW_RIGHTPAREN_11, grammarAccess.getPrimaryExpressionAccess().getSKW_RIGHTPARENTerminalRuleCall_1_3_5()); 
+    }
+
+
+)
+
 )
 
 )
@@ -11025,6 +11113,8 @@ RULE_KW_BOOL : RULE_SKW_UNDERSCORE 'Bool';
 RULE_KW_BREAK : 'break';
 
 RULE_KW_BUILTIN_VA_LIST : RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE 'builtin_va_list';
+
+RULE_KW_BUILTIN_OFFSETOF : RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE 'builtin_offsetof';
 
 RULE_KW_CASE : 'case';
 

@@ -845,7 +845,7 @@ PrimaryExpression returns Expression:
 	//|	genericSelection=genericSelection
 	// |	'__extension__'? LEFTPAREN compoundStmt=compoundStatement RIGHTPAREN // Blocks (GCC extension)
 	//|	'__builtin_va_arg' LEFTPAREN expr=unaryExpression COMMA typeName=typeName RIGHTPAREN
-	//|	'__builtin_offsetof' LEFTPAREN typeName=typeName COMMA expr=unaryExpression RIGHTPAREN
+	|	builtin_offsetof?=KW_BUILTIN_OFFSETOF SKW_LEFTPAREN typeName=TypeName SKW_COMMA expr=UnaryExpression SKW_RIGHTPAREN
 	)
 ;
 
@@ -881,6 +881,7 @@ terminal KW_ASM3: KW_ASM2 SKW_UNDERSCORE SKW_UNDERSCORE;
 terminal KW_BOOL : SKW_UNDERSCORE 'Bool';
 terminal KW_BREAK : 'break';
 terminal KW_BUILTIN_VA_LIST: SKW_UNDERSCORE SKW_UNDERSCORE 'builtin_va_list';
+terminal KW_BUILTIN_OFFSETOF: SKW_UNDERSCORE SKW_UNDERSCORE 'builtin_offsetof';
 terminal KW_CASE : 'case';
 terminal KW_CHAR : 'char';
 terminal KW_COMPLEX : SKW_UNDERSCORE 'Complex';

@@ -7,6 +7,7 @@ import at.jku.weiner.c.common.common.Constant2;
 import at.jku.weiner.c.parser.parser.Expression;
 import at.jku.weiner.c.parser.parser.ParserPackage;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
+import at.jku.weiner.c.parser.parser.TypeName;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -26,6 +27,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.PrimaryExpressionImpl#getId <em>Id</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.PrimaryExpressionImpl#getConst <em>Const</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.PrimaryExpressionImpl#getExpr <em>Expr</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.PrimaryExpressionImpl#isBuiltin_offsetof <em>Builtin offsetof</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.PrimaryExpressionImpl#getTypeName <em>Type Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -72,6 +75,36 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
    * @ordered
    */
   protected Expression expr;
+
+  /**
+   * The default value of the '{@link #isBuiltin_offsetof() <em>Builtin offsetof</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isBuiltin_offsetof()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean BUILTIN_OFFSETOF_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isBuiltin_offsetof() <em>Builtin offsetof</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isBuiltin_offsetof()
+   * @generated
+   * @ordered
+   */
+  protected boolean builtin_offsetof = BUILTIN_OFFSETOF_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getTypeName() <em>Type Name</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTypeName()
+   * @generated
+   * @ordered
+   */
+  protected TypeName typeName;
 
   /**
    * <!-- begin-user-doc -->
@@ -218,6 +251,77 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
    * <!-- end-user-doc -->
    * @generated
    */
+  public boolean isBuiltin_offsetof()
+  {
+    return builtin_offsetof;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setBuiltin_offsetof(boolean newBuiltin_offsetof)
+  {
+    boolean oldBuiltin_offsetof = builtin_offsetof;
+    builtin_offsetof = newBuiltin_offsetof;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.PRIMARY_EXPRESSION__BUILTIN_OFFSETOF, oldBuiltin_offsetof, builtin_offsetof));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TypeName getTypeName()
+  {
+    return typeName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetTypeName(TypeName newTypeName, NotificationChain msgs)
+  {
+    TypeName oldTypeName = typeName;
+    typeName = newTypeName;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ParserPackage.PRIMARY_EXPRESSION__TYPE_NAME, oldTypeName, newTypeName);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTypeName(TypeName newTypeName)
+  {
+    if (newTypeName != typeName)
+    {
+      NotificationChain msgs = null;
+      if (typeName != null)
+        msgs = ((InternalEObject)typeName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ParserPackage.PRIMARY_EXPRESSION__TYPE_NAME, null, msgs);
+      if (newTypeName != null)
+        msgs = ((InternalEObject)newTypeName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ParserPackage.PRIMARY_EXPRESSION__TYPE_NAME, null, msgs);
+      msgs = basicSetTypeName(newTypeName, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.PRIMARY_EXPRESSION__TYPE_NAME, newTypeName, newTypeName));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -227,6 +331,8 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
         return basicSetConst(null, msgs);
       case ParserPackage.PRIMARY_EXPRESSION__EXPR:
         return basicSetExpr(null, msgs);
+      case ParserPackage.PRIMARY_EXPRESSION__TYPE_NAME:
+        return basicSetTypeName(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -247,6 +353,10 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
         return getConst();
       case ParserPackage.PRIMARY_EXPRESSION__EXPR:
         return getExpr();
+      case ParserPackage.PRIMARY_EXPRESSION__BUILTIN_OFFSETOF:
+        return isBuiltin_offsetof();
+      case ParserPackage.PRIMARY_EXPRESSION__TYPE_NAME:
+        return getTypeName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -269,6 +379,12 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
         return;
       case ParserPackage.PRIMARY_EXPRESSION__EXPR:
         setExpr((Expression)newValue);
+        return;
+      case ParserPackage.PRIMARY_EXPRESSION__BUILTIN_OFFSETOF:
+        setBuiltin_offsetof((Boolean)newValue);
+        return;
+      case ParserPackage.PRIMARY_EXPRESSION__TYPE_NAME:
+        setTypeName((TypeName)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -293,6 +409,12 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
       case ParserPackage.PRIMARY_EXPRESSION__EXPR:
         setExpr((Expression)null);
         return;
+      case ParserPackage.PRIMARY_EXPRESSION__BUILTIN_OFFSETOF:
+        setBuiltin_offsetof(BUILTIN_OFFSETOF_EDEFAULT);
+        return;
+      case ParserPackage.PRIMARY_EXPRESSION__TYPE_NAME:
+        setTypeName((TypeName)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -313,6 +435,10 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
         return const_ != null;
       case ParserPackage.PRIMARY_EXPRESSION__EXPR:
         return expr != null;
+      case ParserPackage.PRIMARY_EXPRESSION__BUILTIN_OFFSETOF:
+        return builtin_offsetof != BUILTIN_OFFSETOF_EDEFAULT;
+      case ParserPackage.PRIMARY_EXPRESSION__TYPE_NAME:
+        return typeName != null;
     }
     return super.eIsSet(featureID);
   }
@@ -330,6 +456,8 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (id: ");
     result.append(id);
+    result.append(", builtin_offsetof: ");
+    result.append(builtin_offsetof);
     result.append(')');
     return result.toString();
   }

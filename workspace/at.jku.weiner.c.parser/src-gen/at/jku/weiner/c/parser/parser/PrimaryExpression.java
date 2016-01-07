@@ -15,6 +15,8 @@ import at.jku.weiner.c.common.common.Constant2;
  *   <li>{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getId <em>Id</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getConst <em>Const</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getExpr <em>Expr</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.PrimaryExpression#isBuiltin_offsetof <em>Builtin offsetof</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getTypeName <em>Type Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -101,5 +103,57 @@ public interface PrimaryExpression extends Expression
    * @generated
    */
   void setExpr(Expression value);
+
+  /**
+   * Returns the value of the '<em><b>Builtin offsetof</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Builtin offsetof</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Builtin offsetof</em>' attribute.
+   * @see #setBuiltin_offsetof(boolean)
+   * @see at.jku.weiner.c.parser.parser.ParserPackage#getPrimaryExpression_Builtin_offsetof()
+   * @model
+   * @generated
+   */
+  boolean isBuiltin_offsetof();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.PrimaryExpression#isBuiltin_offsetof <em>Builtin offsetof</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Builtin offsetof</em>' attribute.
+   * @see #isBuiltin_offsetof()
+   * @generated
+   */
+  void setBuiltin_offsetof(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Type Name</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Type Name</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Type Name</em>' containment reference.
+   * @see #setTypeName(TypeName)
+   * @see at.jku.weiner.c.parser.parser.ParserPackage#getPrimaryExpression_TypeName()
+   * @model containment="true"
+   * @generated
+   */
+  TypeName getTypeName();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getTypeName <em>Type Name</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Type Name</em>' containment reference.
+   * @see #getTypeName()
+   * @generated
+   */
+  void setTypeName(TypeName value);
 
 } // PrimaryExpression

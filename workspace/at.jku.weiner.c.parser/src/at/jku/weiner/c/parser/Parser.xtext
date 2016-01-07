@@ -315,7 +315,8 @@ FunctionSpecifier:
 	(
 		(
 			name=KW_INLINE1
-			|	name=KW_INLINE2 // GCC extension	
+			|	name=KW_INLINE2 // GCC extension
+			|	name=KW_INLINE3 // GCC extension?
 			|	name=KW_NORETURN
 			//|	'__stdcall'
 		)
@@ -330,10 +331,11 @@ alignmentSpecifier: ALIGNAS LEFTPAREN (typeName | constantExpression) RIGHTPAREN
 */
 
 Declarator:
-	{Declarator}	
+	{Declarator}
 	(pointer=Pointer)?
+	(gccDeclExt1+=GccDeclaratorExtension)*
 	(declarator=DirectDeclarator)
-	(gccDeclExt+=GccDeclaratorExtension)*
+	(gccDeclExt2+=GccDeclaratorExtension)*
 ;
 
 DirectDeclarator:
@@ -952,6 +954,7 @@ terminal KW_IF : 'if';
 terminal KW_IMAGINARY : SKW_UNDERSCORE 'Imaginary';
 terminal KW_INLINE1 : 'inline';
 terminal KW_INLINE2 : SKW_UNDERSCORE SKW_UNDERSCORE KW_INLINE1;
+terminal KW_INLINE3: KW_INLINE2 SKW_UNDERSCORE SKW_UNDERSCORE;
 terminal KW_INT : 'int';
 terminal KW_LONG : 'long';
 terminal KW_M128: SKW_UNDERSCORE SKW_UNDERSCORE 'm128';

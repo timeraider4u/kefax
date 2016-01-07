@@ -101,7 +101,7 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN
 									)
 								)
 							),
-							gccDeclExt+=
+							gccDeclExt2+=
 							(GccDeclaratorExtension
 								gccAttributeSpecifier=
 								(GccAttributeSpecifier
@@ -177,7 +177,7 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN
 									)
 								)
 							),
-							gccDeclExt+=
+							gccDeclExt2+=
 							(GccDeclaratorExtension
 								gccAttributeSpecifier=
 								(GccAttributeSpecifier
@@ -250,7 +250,7 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN
 									)
 								)
 							),
-							gccDeclExt+=
+							gccDeclExt2+=
 							(GccDeclaratorExtension
 								asm++"asm",
 								string+*"[\\\"\\\", \\\"something\\\"]"
@@ -315,7 +315,7 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN
 									)
 								)
 							),
-							gccDeclExt+=
+							gccDeclExt2+=
 							(GccDeclaratorExtension
 								asm++"__asm",
 								string+*"[\\\"\\\", \\\"something\\\"]"
@@ -380,7 +380,7 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN
 									)
 								)
 							),
-							gccDeclExt+=
+							gccDeclExt2+=
 							(GccDeclaratorExtension
 								asm++"__asm__",
 								string+*"[\\\"\\\", \\\"something\\\"]"

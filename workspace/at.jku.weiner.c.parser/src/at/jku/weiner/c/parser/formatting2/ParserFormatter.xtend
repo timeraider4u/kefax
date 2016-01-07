@@ -231,9 +231,12 @@ class ParserFormatter extends CommonFormatter {
 	def dispatch void format(Declarator declarator, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
 		format(declarator.getPointer(), document);
+		for (GccDeclaratorExtension gccDeclExt1 : declarator.getGccDeclExt1()) {
+			format(gccDeclExt1, document);
+		}
 		format(declarator.getDeclarator(), document);
-		for (GccDeclaratorExtension gccDeclExt : declarator.getGccDeclExt()) {
-			format(gccDeclExt, document);
+		for (GccDeclaratorExtension gccDeclExt2 : declarator.getGccDeclExt2()) {
+			format(gccDeclExt2, document);
 		}
 	}
 

@@ -1,0 +1,84 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.parser
+language parser
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+source file="res/Test0059_AttributeAfterPointer.c"
+//----------------------------------------------------------------------
+lexer-tokens
+KW_EXTERN WHITESPACE KW_VOID WHITESPACE SKW_STAR WHITESPACE
+	KW_ATTRIBUTE SKW_LEFTPAREN SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_RIGHTPAREN 
+	WHITESPACE ID SKW_LEFTPAREN SKW_RIGHTPAREN SKW_SEMI NEWLINE
+
+//----------------------------------------------------------------------
+//(common::Model units+=
+	//(common::TranslationUnit 
+	(Parser
+		external+=
+		// char do2();
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(StorageClassSpecifier
+						name++"extern"
+					),
+					(TypeSpecifier
+						name++"void"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							pointer=
+							(Pointer
+								star+*"[*]"
+							),
+							gccDeclExt1+=
+							(GccDeclaratorExtension
+								gccAttributeSpecifier=
+								(GccAttributeSpecifier
+									list=
+									(GccAttributeList
+										gccAttribute+=
+										(GccAttribute
+											id++"warn_unused_result"
+										)
+									)
+								)
+							),
+							declarator=
+							(DirectDeclarator
+								id++"doSomething",
+								declaratorSuffix+=
+								(DeclaratorSuffix
+									lastSuffix=
+									(DirectDeclaratorLastSuffix
+										
+									)
+								)
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+		)
+		
+		
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0059_AttributeAfterPointer.c"
+expected file isSameAsInputFile
+
+replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

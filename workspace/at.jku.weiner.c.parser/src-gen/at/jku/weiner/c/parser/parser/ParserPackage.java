@@ -884,22 +884,31 @@ public interface ParserPackage extends EPackage
   int DECLARATOR__POINTER = 0;
 
   /**
+   * The feature id for the '<em><b>Gcc Decl Ext1</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DECLARATOR__GCC_DECL_EXT1 = 1;
+
+  /**
    * The feature id for the '<em><b>Declarator</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DECLARATOR__DECLARATOR = 1;
+  int DECLARATOR__DECLARATOR = 2;
 
   /**
-   * The feature id for the '<em><b>Gcc Decl Ext</b></em>' containment reference list.
+   * The feature id for the '<em><b>Gcc Decl Ext2</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DECLARATOR__GCC_DECL_EXT = 2;
+  int DECLARATOR__GCC_DECL_EXT2 = 3;
 
   /**
    * The number of structural features of the '<em>Declarator</em>' class.
@@ -908,7 +917,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DECLARATOR_FEATURE_COUNT = 3;
+  int DECLARATOR_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.DirectDeclaratorImpl <em>Direct Declarator</em>}' class.
@@ -4376,6 +4385,17 @@ public interface ParserPackage extends EPackage
   EReference getDeclarator_Pointer();
 
   /**
+   * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.parser.parser.Declarator#getGccDeclExt1 <em>Gcc Decl Ext1</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Gcc Decl Ext1</em>'.
+   * @see at.jku.weiner.c.parser.parser.Declarator#getGccDeclExt1()
+   * @see #getDeclarator()
+   * @generated
+   */
+  EReference getDeclarator_GccDeclExt1();
+
+  /**
    * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.Declarator#getDeclarator <em>Declarator</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4387,15 +4407,15 @@ public interface ParserPackage extends EPackage
   EReference getDeclarator_Declarator();
 
   /**
-   * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.parser.parser.Declarator#getGccDeclExt <em>Gcc Decl Ext</em>}'.
+   * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.parser.parser.Declarator#getGccDeclExt2 <em>Gcc Decl Ext2</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Gcc Decl Ext</em>'.
-   * @see at.jku.weiner.c.parser.parser.Declarator#getGccDeclExt()
+   * @return the meta object for the containment reference list '<em>Gcc Decl Ext2</em>'.
+   * @see at.jku.weiner.c.parser.parser.Declarator#getGccDeclExt2()
    * @see #getDeclarator()
    * @generated
    */
-  EReference getDeclarator_GccDeclExt();
+  EReference getDeclarator_GccDeclExt2();
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.DirectDeclarator <em>Direct Declarator</em>}'.
@@ -7036,6 +7056,14 @@ public interface ParserPackage extends EPackage
     EReference DECLARATOR__POINTER = eINSTANCE.getDeclarator_Pointer();
 
     /**
+     * The meta object literal for the '<em><b>Gcc Decl Ext1</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DECLARATOR__GCC_DECL_EXT1 = eINSTANCE.getDeclarator_GccDeclExt1();
+
+    /**
      * The meta object literal for the '<em><b>Declarator</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7044,12 +7072,12 @@ public interface ParserPackage extends EPackage
     EReference DECLARATOR__DECLARATOR = eINSTANCE.getDeclarator_Declarator();
 
     /**
-     * The meta object literal for the '<em><b>Gcc Decl Ext</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Gcc Decl Ext2</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference DECLARATOR__GCC_DECL_EXT = eINSTANCE.getDeclarator_GccDeclExt();
+    EReference DECLARATOR__GCC_DECL_EXT2 = eINSTANCE.getDeclarator_GccDeclExt2();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.DirectDeclaratorImpl <em>Direct Declarator</em>}' class.

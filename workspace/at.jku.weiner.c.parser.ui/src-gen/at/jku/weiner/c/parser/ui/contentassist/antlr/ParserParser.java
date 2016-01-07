@@ -328,10 +328,12 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFunctionSpecifierAccess().getNameAssignment_1_0_0(), "rule__FunctionSpecifier__NameAssignment_1_0_0");
 					put(grammarAccess.getFunctionSpecifierAccess().getNameAssignment_1_0_1(), "rule__FunctionSpecifier__NameAssignment_1_0_1");
 					put(grammarAccess.getFunctionSpecifierAccess().getNameAssignment_1_0_2(), "rule__FunctionSpecifier__NameAssignment_1_0_2");
+					put(grammarAccess.getFunctionSpecifierAccess().getNameAssignment_1_0_3(), "rule__FunctionSpecifier__NameAssignment_1_0_3");
 					put(grammarAccess.getFunctionSpecifierAccess().getGccAttributeSpecifierAssignment_1_1(), "rule__FunctionSpecifier__GccAttributeSpecifierAssignment_1_1");
 					put(grammarAccess.getDeclaratorAccess().getPointerAssignment_1(), "rule__Declarator__PointerAssignment_1");
-					put(grammarAccess.getDeclaratorAccess().getDeclaratorAssignment_2(), "rule__Declarator__DeclaratorAssignment_2");
-					put(grammarAccess.getDeclaratorAccess().getGccDeclExtAssignment_3(), "rule__Declarator__GccDeclExtAssignment_3");
+					put(grammarAccess.getDeclaratorAccess().getGccDeclExt1Assignment_2(), "rule__Declarator__GccDeclExt1Assignment_2");
+					put(grammarAccess.getDeclaratorAccess().getDeclaratorAssignment_3(), "rule__Declarator__DeclaratorAssignment_3");
+					put(grammarAccess.getDeclaratorAccess().getGccDeclExt2Assignment_4(), "rule__Declarator__GccDeclExt2Assignment_4");
 					put(grammarAccess.getDirectDeclaratorAccess().getIdAssignment_1_0(), "rule__DirectDeclarator__IdAssignment_1_0");
 					put(grammarAccess.getDirectDeclaratorAccess().getDeclaratorAssignment_1_1_1(), "rule__DirectDeclarator__DeclaratorAssignment_1_1_1");
 					put(grammarAccess.getDirectDeclaratorAccess().getDeclaratorSuffixAssignment_2(), "rule__DirectDeclarator__DeclaratorSuffixAssignment_2");

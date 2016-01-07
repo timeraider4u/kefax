@@ -3132,9 +3132,9 @@ ruleFunctionSpecifier returns [EObject current=null]
     |
 (
 (
-		lv_name_3_0=RULE_KW_NORETURN
+		lv_name_3_0=RULE_KW_INLINE3
 		{
-			newLeafNode(lv_name_3_0, grammarAccess.getFunctionSpecifierAccess().getNameKW_NORETURNTerminalRuleCall_1_0_2_0()); 
+			newLeafNode(lv_name_3_0, grammarAccess.getFunctionSpecifierAccess().getNameKW_INLINE3TerminalRuleCall_1_0_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -3144,6 +3144,28 @@ ruleFunctionSpecifier returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_3_0, 
+        		"at.jku.weiner.c.parser.Parser.KW_INLINE3");
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		lv_name_4_0=RULE_KW_NORETURN
+		{
+			newLeafNode(lv_name_4_0, grammarAccess.getFunctionSpecifierAccess().getNameKW_NORETURNTerminalRuleCall_1_0_3_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getFunctionSpecifierRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_4_0, 
         		"at.jku.weiner.c.parser.Parser.KW_NORETURN");
 	    }
 
@@ -3159,14 +3181,14 @@ ruleFunctionSpecifier returns [EObject current=null]
 		{ 
 	        newCompositeNode(grammarAccess.getFunctionSpecifierAccess().getGccAttributeSpecifierGccAttributeSpecifierParserRuleCall_1_1_0()); 
 	    }
-		lv_gccAttributeSpecifier_4_0=ruleGccAttributeSpecifier		{
+		lv_gccAttributeSpecifier_5_0=ruleGccAttributeSpecifier		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getFunctionSpecifierRule());
 	        }
        		set(
        			$current, 
        			"gccAttributeSpecifier",
-        		lv_gccAttributeSpecifier_4_0, 
+        		lv_gccAttributeSpecifier_5_0, 
         		"at.jku.weiner.c.parser.Parser.GccAttributeSpecifier");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -3240,16 +3262,37 @@ ruleDeclarator returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getDeclaratorAccess().getDeclaratorDirectDeclaratorParserRuleCall_2_0()); 
+	        newCompositeNode(grammarAccess.getDeclaratorAccess().getGccDeclExt1GccDeclaratorExtensionParserRuleCall_2_0()); 
 	    }
-		lv_declarator_2_0=ruleDirectDeclarator		{
+		lv_gccDeclExt1_2_0=ruleGccDeclaratorExtension		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getDeclaratorRule());
+	        }
+       		add(
+       			$current, 
+       			"gccDeclExt1",
+        		lv_gccDeclExt1_2_0, 
+        		"at.jku.weiner.c.parser.Parser.GccDeclaratorExtension");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getDeclaratorAccess().getDeclaratorDirectDeclaratorParserRuleCall_3_0()); 
+	    }
+		lv_declarator_3_0=ruleDirectDeclarator		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getDeclaratorRule());
 	        }
        		set(
        			$current, 
        			"declarator",
-        		lv_declarator_2_0, 
+        		lv_declarator_3_0, 
         		"at.jku.weiner.c.parser.Parser.DirectDeclarator");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -3261,16 +3304,16 @@ ruleDeclarator returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getDeclaratorAccess().getGccDeclExtGccDeclaratorExtensionParserRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getDeclaratorAccess().getGccDeclExt2GccDeclaratorExtensionParserRuleCall_4_0()); 
 	    }
-		lv_gccDeclExt_3_0=ruleGccDeclaratorExtension		{
+		lv_gccDeclExt2_4_0=ruleGccDeclaratorExtension		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getDeclaratorRule());
 	        }
        		add(
        			$current, 
-       			"gccDeclExt",
-        		lv_gccDeclExt_3_0, 
+       			"gccDeclExt2",
+        		lv_gccDeclExt2_4_0, 
         		"at.jku.weiner.c.parser.Parser.GccDeclaratorExtension");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -11237,6 +11280,8 @@ RULE_KW_IMAGINARY : RULE_SKW_UNDERSCORE 'Imaginary';
 RULE_KW_INLINE1 : 'inline';
 
 RULE_KW_INLINE2 : RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE RULE_KW_INLINE1;
+
+RULE_KW_INLINE3 : RULE_KW_INLINE2 RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE;
 
 RULE_KW_INT : 'int';
 

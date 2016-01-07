@@ -1442,7 +1442,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDeclarator_Declarator()
+  public EReference getDeclarator_GccDeclExt1()
   {
     return (EReference)declaratorEClass.getEStructuralFeatures().get(1);
   }
@@ -1452,9 +1452,19 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDeclarator_GccDeclExt()
+  public EReference getDeclarator_Declarator()
   {
     return (EReference)declaratorEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDeclarator_GccDeclExt2()
+  {
+    return (EReference)declaratorEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -3486,8 +3496,9 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 
     declaratorEClass = createEClass(DECLARATOR);
     createEReference(declaratorEClass, DECLARATOR__POINTER);
+    createEReference(declaratorEClass, DECLARATOR__GCC_DECL_EXT1);
     createEReference(declaratorEClass, DECLARATOR__DECLARATOR);
-    createEReference(declaratorEClass, DECLARATOR__GCC_DECL_EXT);
+    createEReference(declaratorEClass, DECLARATOR__GCC_DECL_EXT2);
 
     directDeclaratorEClass = createEClass(DIRECT_DECLARATOR);
     createEAttribute(directDeclaratorEClass, DIRECT_DECLARATOR__ID);
@@ -3905,8 +3916,9 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 
     initEClass(declaratorEClass, Declarator.class, "Declarator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDeclarator_Pointer(), this.getPointer(), null, "pointer", null, 0, 1, Declarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDeclarator_GccDeclExt1(), this.getGccDeclaratorExtension(), null, "gccDeclExt1", null, 0, -1, Declarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDeclarator_Declarator(), this.getDirectDeclarator(), null, "declarator", null, 0, 1, Declarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDeclarator_GccDeclExt(), this.getGccDeclaratorExtension(), null, "gccDeclExt", null, 0, -1, Declarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDeclarator_GccDeclExt2(), this.getGccDeclaratorExtension(), null, "gccDeclExt2", null, 0, -1, Declarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(directDeclaratorEClass, DirectDeclarator.class, "DirectDeclarator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDirectDeclarator_Id(), theEcorePackage.getEString(), "id", null, 0, 1, DirectDeclarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

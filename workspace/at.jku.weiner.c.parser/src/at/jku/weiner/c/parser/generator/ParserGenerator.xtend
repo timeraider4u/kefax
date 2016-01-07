@@ -293,8 +293,9 @@ class ParserGenerator implements IGenerator {
 	
 	def String outputFor(Declarator decl) '''
 		«IF decl.pointer != null»«outputFor(decl.pointer)»«ENDIF»
+		«IF decl.gccDeclExt1 != null»«outputFor(decl.gccDeclExt1)»«ENDIF»
 		«outputFor(decl.declarator)»
-		«IF decl.gccDeclExt != null»«outputFor(decl.gccDeclExt)»«ENDIF»
+		«IF decl.gccDeclExt2 != null»«outputFor(decl.gccDeclExt2)»«ENDIF»
 	'''
 	
 	def String outputFor(DirectDeclarator decl) '''

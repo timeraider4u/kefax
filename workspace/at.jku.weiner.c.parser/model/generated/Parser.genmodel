@@ -96,8 +96,9 @@
     </genClasses>
     <genClasses ecoreClass="Parser.ecore#//Declarator">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//Declarator/pointer"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//Declarator/gccDeclExt1"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//Declarator/declarator"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//Declarator/gccDeclExt"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//Declarator/gccDeclExt2"/>
     </genClasses>
     <genClasses ecoreClass="Parser.ecore#//DirectDeclarator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//DirectDeclarator/id"/>

@@ -198,100 +198,100 @@ public class Test0046_FunctionDeclsWithGccExts {
 			"res/Test0046_FunctionDeclsWithGccExts.c");
 			//System.out.println(text);
 			final String[] expected = new String[] {
-				"RULE_KW_CHAR", 
-				"RULE_WHITESPACE", 
-				"RULE_ID", 
-				"RULE_SKW_LEFTPAREN", 
-				"RULE_KW_INT", 
-				"RULE_WHITESPACE", 
-				"RULE_ID", 
-				"RULE_SKW_RIGHTPAREN", 
-				"RULE_WHITESPACE", 
-				"RULE_KW_ATTRIBUTE", 
-				"RULE_WHITESPACE", 
-				"RULE_SKW_LEFTPAREN", 
-				"RULE_SKW_LEFTPAREN", 
-				"RULE_ID", 
-				"RULE_WHITESPACE", 
-				"RULE_SKW_COMMA", 
-				"RULE_WHITESPACE", 
-				"RULE_ID", 
-				"RULE_SKW_RIGHTPAREN", 
-				"RULE_SKW_RIGHTPAREN", 
-				"RULE_SKW_SEMI", 
-				"RULE_NEWLINE", 
-				"RULE_KW_CHAR", 
-				"RULE_WHITESPACE", 
-				"RULE_ID", 
-				"RULE_SKW_LEFTPAREN", 
-				"RULE_KW_INT", 
-				"RULE_WHITESPACE", 
-				"RULE_ID", 
-				"RULE_SKW_RIGHTPAREN", 
-				"RULE_WHITESPACE", 
-				"RULE_KW_ATTRIBUTE", 
-				"RULE_WHITESPACE", 
-				"RULE_SKW_LEFTPAREN", 
-				"RULE_SKW_LEFTPAREN", 
-				"RULE_ID", 
-				"RULE_SKW_RIGHTPAREN", 
-				"RULE_SKW_RIGHTPAREN", 
-				"RULE_SKW_SEMI", 
-				"RULE_NEWLINE", 
-				"RULE_KW_CHAR", 
-				"RULE_WHITESPACE", 
-				"RULE_ID", 
-				"RULE_SKW_LEFTPAREN", 
-				"RULE_KW_INT", 
-				"RULE_WHITESPACE", 
-				"RULE_ID", 
-				"RULE_SKW_RIGHTPAREN", 
-				"RULE_WHITESPACE", 
-				"RULE_KW_ASM1", 
-				"RULE_WHITESPACE", 
-				"RULE_SKW_LEFTPAREN", 
-				"RULE_STRING_LITERAL", 
-				"RULE_WHITESPACE", 
-				"RULE_STRING_LITERAL", 
-				"RULE_SKW_RIGHTPAREN", 
-				"RULE_SKW_SEMI", 
-				"RULE_NEWLINE", 
-				"RULE_KW_CHAR", 
-				"RULE_WHITESPACE", 
-				"RULE_ID", 
-				"RULE_SKW_LEFTPAREN", 
-				"RULE_KW_INT", 
-				"RULE_WHITESPACE", 
-				"RULE_ID", 
-				"RULE_SKW_RIGHTPAREN", 
-				"RULE_WHITESPACE", 
-				"RULE_KW_ASM2", 
-				"RULE_WHITESPACE", 
-				"RULE_SKW_LEFTPAREN", 
-				"RULE_STRING_LITERAL", 
-				"RULE_WHITESPACE", 
-				"RULE_STRING_LITERAL", 
-				"RULE_SKW_RIGHTPAREN", 
-				"RULE_SKW_SEMI", 
-				"RULE_NEWLINE", 
-				"RULE_KW_CHAR", 
-				"RULE_WHITESPACE", 
-				"RULE_ID", 
-				"RULE_SKW_LEFTPAREN", 
-				"RULE_KW_INT", 
-				"RULE_WHITESPACE", 
-				"RULE_ID", 
-				"RULE_SKW_RIGHTPAREN", 
-				"RULE_WHITESPACE", 
-				"RULE_KW_ASM3", 
-				"RULE_WHITESPACE", 
-				"RULE_SKW_LEFTPAREN", 
-				"RULE_STRING_LITERAL", 
-				"RULE_WHITESPACE", 
-				"RULE_STRING_LITERAL", 
-				"RULE_SKW_RIGHTPAREN", 
-				"RULE_SKW_SEMI", 
-				"RULE_NEWLINE", 
+				"RULE_KW_CHAR",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_KW_INT",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_WHITESPACE",
+				"RULE_KW_ATTRIBUTE",
+				"RULE_WHITESPACE",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_ID",
+				"RULE_WHITESPACE",
+				"RULE_SKW_COMMA",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_SKW_SEMI",
+				"RULE_NEWLINE",
+				"RULE_KW_CHAR",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_KW_INT",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_WHITESPACE",
+				"RULE_KW_ATTRIBUTE",
+				"RULE_WHITESPACE",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_SKW_SEMI",
+				"RULE_NEWLINE",
+				"RULE_KW_CHAR",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_KW_INT",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_WHITESPACE",
+				"RULE_KW_ASM1",
+				"RULE_WHITESPACE",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_STRING_LITERAL",
+				"RULE_WHITESPACE",
+				"RULE_STRING_LITERAL",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_SKW_SEMI",
+				"RULE_NEWLINE",
+				"RULE_KW_CHAR",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_KW_INT",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_WHITESPACE",
+				"RULE_KW_ASM2",
+				"RULE_WHITESPACE",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_STRING_LITERAL",
+				"RULE_WHITESPACE",
+				"RULE_STRING_LITERAL",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_SKW_SEMI",
+				"RULE_NEWLINE",
+				"RULE_KW_CHAR",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_KW_INT",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_WHITESPACE",
+				"RULE_KW_ASM3",
+				"RULE_WHITESPACE",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_STRING_LITERAL",
+				"RULE_WHITESPACE",
+				"RULE_STRING_LITERAL",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_SKW_SEMI",
+				"RULE_NEWLINE",
 				};
 			//final List<Token> actual = testHelper.getTokens(text);
 			//testHelper.outputTokens(text);
@@ -450,13 +450,13 @@ public class Test0046_FunctionDeclsWithGccExts {
 		);
 		Assert.assertEquals("c", DirectDeclarator_18_Var
 		.getId());
-		final EList<? extends EObject> GccDeclExt_18_list = Declarator_7_Var
-		.getGccDeclExt();
-		Assert.assertNotNull(GccDeclExt_18_list);
-		Assert.assertEquals(1, GccDeclExt_18_list.size());
+		final EList<? extends EObject> GccDeclExt2_18_list = Declarator_7_Var
+		.getGccDeclExt2();
+		Assert.assertNotNull(GccDeclExt2_18_list);
+		Assert.assertEquals(1, GccDeclExt2_18_list.size());
 		//18
 		final GccDeclaratorExtension GccDeclaratorExtension_19_Var
-		 = (GccDeclaratorExtension)GccDeclExt_18_list.get(0);
+		 = (GccDeclaratorExtension)GccDeclExt2_18_list.get(0);
 		Assert.assertNotNull(GccDeclaratorExtension_19_Var
 		);
 		//19
@@ -627,13 +627,13 @@ public class Test0046_FunctionDeclsWithGccExts {
 		);
 		Assert.assertEquals("c", DirectDeclarator_41_Var
 		.getId());
-		final EList<? extends EObject> GccDeclExt_41_list = Declarator_30_Var
-		.getGccDeclExt();
-		Assert.assertNotNull(GccDeclExt_41_list);
-		Assert.assertEquals(1, GccDeclExt_41_list.size());
+		final EList<? extends EObject> GccDeclExt2_41_list = Declarator_30_Var
+		.getGccDeclExt2();
+		Assert.assertNotNull(GccDeclExt2_41_list);
+		Assert.assertEquals(1, GccDeclExt2_41_list.size());
 		//41
 		final GccDeclaratorExtension GccDeclaratorExtension_42_Var
-		 = (GccDeclaratorExtension)GccDeclExt_41_list.get(0);
+		 = (GccDeclaratorExtension)GccDeclExt2_41_list.get(0);
 		Assert.assertNotNull(GccDeclaratorExtension_42_Var
 		);
 		//42
@@ -797,13 +797,13 @@ public class Test0046_FunctionDeclsWithGccExts {
 		);
 		Assert.assertEquals("c", DirectDeclarator_63_Var
 		.getId());
-		final EList<? extends EObject> GccDeclExt_63_list = Declarator_52_Var
-		.getGccDeclExt();
-		Assert.assertNotNull(GccDeclExt_63_list);
-		Assert.assertEquals(1, GccDeclExt_63_list.size());
+		final EList<? extends EObject> GccDeclExt2_63_list = Declarator_52_Var
+		.getGccDeclExt2();
+		Assert.assertNotNull(GccDeclExt2_63_list);
+		Assert.assertEquals(1, GccDeclExt2_63_list.size());
 		//63
 		final GccDeclaratorExtension GccDeclaratorExtension_64_Var
-		 = (GccDeclaratorExtension)GccDeclExt_63_list.get(0);
+		 = (GccDeclaratorExtension)GccDeclExt2_63_list.get(0);
 		Assert.assertNotNull(GccDeclaratorExtension_64_Var
 		);
 		Assert.assertEquals("asm", GccDeclaratorExtension_64_Var
@@ -948,13 +948,13 @@ public class Test0046_FunctionDeclsWithGccExts {
 		);
 		Assert.assertEquals("c", DirectDeclarator_82_Var
 		.getId());
-		final EList<? extends EObject> GccDeclExt_82_list = Declarator_71_Var
-		.getGccDeclExt();
-		Assert.assertNotNull(GccDeclExt_82_list);
-		Assert.assertEquals(1, GccDeclExt_82_list.size());
+		final EList<? extends EObject> GccDeclExt2_82_list = Declarator_71_Var
+		.getGccDeclExt2();
+		Assert.assertNotNull(GccDeclExt2_82_list);
+		Assert.assertEquals(1, GccDeclExt2_82_list.size());
 		//82
 		final GccDeclaratorExtension GccDeclaratorExtension_83_Var
-		 = (GccDeclaratorExtension)GccDeclExt_82_list.get(0);
+		 = (GccDeclaratorExtension)GccDeclExt2_82_list.get(0);
 		Assert.assertNotNull(GccDeclaratorExtension_83_Var
 		);
 		Assert.assertEquals("__asm", GccDeclaratorExtension_83_Var
@@ -1099,13 +1099,13 @@ public class Test0046_FunctionDeclsWithGccExts {
 		);
 		Assert.assertEquals("c", DirectDeclarator_101_Var
 		.getId());
-		final EList<? extends EObject> GccDeclExt_101_list = Declarator_90_Var
-		.getGccDeclExt();
-		Assert.assertNotNull(GccDeclExt_101_list);
-		Assert.assertEquals(1, GccDeclExt_101_list.size());
+		final EList<? extends EObject> GccDeclExt2_101_list = Declarator_90_Var
+		.getGccDeclExt2();
+		Assert.assertNotNull(GccDeclExt2_101_list);
+		Assert.assertEquals(1, GccDeclExt2_101_list.size());
 		//101
 		final GccDeclaratorExtension GccDeclaratorExtension_102_Var
-		 = (GccDeclaratorExtension)GccDeclExt_101_list.get(0);
+		 = (GccDeclaratorExtension)GccDeclExt2_101_list.get(0);
 		Assert.assertNotNull(GccDeclaratorExtension_102_Var
 		);
 		Assert.assertEquals("__asm__", GccDeclaratorExtension_102_Var

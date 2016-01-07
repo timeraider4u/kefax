@@ -1382,13 +1382,16 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_1_0_1 = (Assignment)cAlternatives_1_0.eContents().get(1);
 		private final RuleCall cNameKW_INLINE2TerminalRuleCall_1_0_1_0 = (RuleCall)cNameAssignment_1_0_1.eContents().get(0);
 		private final Assignment cNameAssignment_1_0_2 = (Assignment)cAlternatives_1_0.eContents().get(2);
-		private final RuleCall cNameKW_NORETURNTerminalRuleCall_1_0_2_0 = (RuleCall)cNameAssignment_1_0_2.eContents().get(0);
+		private final RuleCall cNameKW_INLINE3TerminalRuleCall_1_0_2_0 = (RuleCall)cNameAssignment_1_0_2.eContents().get(0);
+		private final Assignment cNameAssignment_1_0_3 = (Assignment)cAlternatives_1_0.eContents().get(3);
+		private final RuleCall cNameKW_NORETURNTerminalRuleCall_1_0_3_0 = (RuleCall)cNameAssignment_1_0_3.eContents().get(0);
 		private final Assignment cGccAttributeSpecifierAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
 		private final RuleCall cGccAttributeSpecifierGccAttributeSpecifierParserRuleCall_1_1_0 = (RuleCall)cGccAttributeSpecifierAssignment_1_1.eContents().get(0);
 		
 		//FunctionSpecifier:
 		//	{FunctionSpecifier} ((name=KW_INLINE1
-		//	| name=KW_INLINE2 // GCC extension	
+		//	| name=KW_INLINE2 // GCC extension
+		//	| name=KW_INLINE3 // GCC extension?
 		//	| name=KW_NORETURN
 		//	//|	'__stdcall'
 		//) | gccAttributeSpecifier=GccAttributeSpecifier
@@ -1396,7 +1399,8 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{FunctionSpecifier} ((name=KW_INLINE1 | name=KW_INLINE2 // GCC extension	
+		//{FunctionSpecifier} ((name=KW_INLINE1 | name=KW_INLINE2 // GCC extension
+		//| name=KW_INLINE3 // GCC extension?
 		//| name=KW_NORETURN //|	'__stdcall'
 		//) | gccAttributeSpecifier=GccAttributeSpecifier //|	'__declspec' LEFTPAREN IDENTIFIER RIGHTPAREN
 		//)
@@ -1405,13 +1409,15 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//{FunctionSpecifier}
 		public Action getFunctionSpecifierAction_0() { return cFunctionSpecifierAction_0; }
 		
-		//((name=KW_INLINE1 | name=KW_INLINE2 // GCC extension	
+		//((name=KW_INLINE1 | name=KW_INLINE2 // GCC extension
+		//| name=KW_INLINE3 // GCC extension?
 		//| name=KW_NORETURN //|	'__stdcall'
 		//) | gccAttributeSpecifier=GccAttributeSpecifier //|	'__declspec' LEFTPAREN IDENTIFIER RIGHTPAREN
 		//)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		//(name=KW_INLINE1 | name=KW_INLINE2 // GCC extension	
+		//(name=KW_INLINE1 | name=KW_INLINE2 // GCC extension
+		//| name=KW_INLINE3 // GCC extension?
 		//| name=KW_NORETURN //|	'__stdcall'
 		//)
 		public Alternatives getAlternatives_1_0() { return cAlternatives_1_0; }
@@ -1428,11 +1434,17 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//KW_INLINE2
 		public RuleCall getNameKW_INLINE2TerminalRuleCall_1_0_1_0() { return cNameKW_INLINE2TerminalRuleCall_1_0_1_0; }
 		
-		//name=KW_NORETURN
+		//name=KW_INLINE3
 		public Assignment getNameAssignment_1_0_2() { return cNameAssignment_1_0_2; }
 		
+		//KW_INLINE3
+		public RuleCall getNameKW_INLINE3TerminalRuleCall_1_0_2_0() { return cNameKW_INLINE3TerminalRuleCall_1_0_2_0; }
+		
+		//name=KW_NORETURN
+		public Assignment getNameAssignment_1_0_3() { return cNameAssignment_1_0_3; }
+		
 		//KW_NORETURN
-		public RuleCall getNameKW_NORETURNTerminalRuleCall_1_0_2_0() { return cNameKW_NORETURNTerminalRuleCall_1_0_2_0; }
+		public RuleCall getNameKW_NORETURNTerminalRuleCall_1_0_3_0() { return cNameKW_NORETURNTerminalRuleCall_1_0_3_0; }
 		
 		//gccAttributeSpecifier=GccAttributeSpecifier
 		public Assignment getGccAttributeSpecifierAssignment_1_1() { return cGccAttributeSpecifierAssignment_1_1; }
@@ -1446,19 +1458,23 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cDeclaratorAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cPointerAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cPointerPointerParserRuleCall_1_0 = (RuleCall)cPointerAssignment_1.eContents().get(0);
-		private final Assignment cDeclaratorAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cDeclaratorDirectDeclaratorParserRuleCall_2_0 = (RuleCall)cDeclaratorAssignment_2.eContents().get(0);
-		private final Assignment cGccDeclExtAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cGccDeclExtGccDeclaratorExtensionParserRuleCall_3_0 = (RuleCall)cGccDeclExtAssignment_3.eContents().get(0);
+		private final Assignment cGccDeclExt1Assignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cGccDeclExt1GccDeclaratorExtensionParserRuleCall_2_0 = (RuleCall)cGccDeclExt1Assignment_2.eContents().get(0);
+		private final Assignment cDeclaratorAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cDeclaratorDirectDeclaratorParserRuleCall_3_0 = (RuleCall)cDeclaratorAssignment_3.eContents().get(0);
+		private final Assignment cGccDeclExt2Assignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cGccDeclExt2GccDeclaratorExtensionParserRuleCall_4_0 = (RuleCall)cGccDeclExt2Assignment_4.eContents().get(0);
 		
 		/// *
 		//alignmentSpecifier: ALIGNAS LEFTPAREN (typeName | constantExpression) RIGHTPAREN;
 		// * / Declarator:
 		//	{Declarator} pointer=Pointer?
-		//	declarator=DirectDeclarator gccDeclExt+=GccDeclaratorExtension*;
+		//	gccDeclExt1+=GccDeclaratorExtension*
+		//	declarator=DirectDeclarator gccDeclExt2+=GccDeclaratorExtension*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Declarator} pointer=Pointer? declarator=DirectDeclarator gccDeclExt+=GccDeclaratorExtension*
+		//{Declarator} pointer=Pointer? gccDeclExt1+=GccDeclaratorExtension* declarator=DirectDeclarator
+		//gccDeclExt2+=GccDeclaratorExtension*
 		public Group getGroup() { return cGroup; }
 		
 		//{Declarator}
@@ -1470,17 +1486,23 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//Pointer
 		public RuleCall getPointerPointerParserRuleCall_1_0() { return cPointerPointerParserRuleCall_1_0; }
 		
-		//declarator=DirectDeclarator
-		public Assignment getDeclaratorAssignment_2() { return cDeclaratorAssignment_2; }
-		
-		//DirectDeclarator
-		public RuleCall getDeclaratorDirectDeclaratorParserRuleCall_2_0() { return cDeclaratorDirectDeclaratorParserRuleCall_2_0; }
-		
-		//gccDeclExt+=GccDeclaratorExtension*
-		public Assignment getGccDeclExtAssignment_3() { return cGccDeclExtAssignment_3; }
+		//gccDeclExt1+=GccDeclaratorExtension*
+		public Assignment getGccDeclExt1Assignment_2() { return cGccDeclExt1Assignment_2; }
 		
 		//GccDeclaratorExtension
-		public RuleCall getGccDeclExtGccDeclaratorExtensionParserRuleCall_3_0() { return cGccDeclExtGccDeclaratorExtensionParserRuleCall_3_0; }
+		public RuleCall getGccDeclExt1GccDeclaratorExtensionParserRuleCall_2_0() { return cGccDeclExt1GccDeclaratorExtensionParserRuleCall_2_0; }
+		
+		//declarator=DirectDeclarator
+		public Assignment getDeclaratorAssignment_3() { return cDeclaratorAssignment_3; }
+		
+		//DirectDeclarator
+		public RuleCall getDeclaratorDirectDeclaratorParserRuleCall_3_0() { return cDeclaratorDirectDeclaratorParserRuleCall_3_0; }
+		
+		//gccDeclExt2+=GccDeclaratorExtension*
+		public Assignment getGccDeclExt2Assignment_4() { return cGccDeclExt2Assignment_4; }
+		
+		//GccDeclaratorExtension
+		public RuleCall getGccDeclExt2GccDeclaratorExtensionParserRuleCall_4_0() { return cGccDeclExt2GccDeclaratorExtensionParserRuleCall_4_0; }
 	}
 	public class DirectDeclaratorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.DirectDeclarator");
@@ -5003,6 +5025,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tKW_IMAGINARY;
 	private final TerminalRule tKW_INLINE1;
 	private final TerminalRule tKW_INLINE2;
+	private final TerminalRule tKW_INLINE3;
 	private final TerminalRule tKW_INT;
 	private final TerminalRule tKW_LONG;
 	private final TerminalRule tKW_M128;
@@ -5172,6 +5195,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		this.tKW_IMAGINARY = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_IMAGINARY");
 		this.tKW_INLINE1 = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_INLINE1");
 		this.tKW_INLINE2 = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_INLINE2");
+		this.tKW_INLINE3 = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_INLINE3");
 		this.tKW_INT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_INT");
 		this.tKW_LONG = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_LONG");
 		this.tKW_M128 = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_M128");
@@ -5576,7 +5600,8 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//FunctionSpecifier:
 	//	{FunctionSpecifier} ((name=KW_INLINE1
-	//	| name=KW_INLINE2 // GCC extension	
+	//	| name=KW_INLINE2 // GCC extension
+	//	| name=KW_INLINE3 // GCC extension?
 	//	| name=KW_NORETURN
 	//	//|	'__stdcall'
 	//) | gccAttributeSpecifier=GccAttributeSpecifier
@@ -5594,7 +5619,8 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//alignmentSpecifier: ALIGNAS LEFTPAREN (typeName | constantExpression) RIGHTPAREN;
 	// * / Declarator:
 	//	{Declarator} pointer=Pointer?
-	//	declarator=DirectDeclarator gccDeclExt+=GccDeclaratorExtension*;
+	//	gccDeclExt1+=GccDeclaratorExtension*
+	//	declarator=DirectDeclarator gccDeclExt2+=GccDeclaratorExtension*;
 	public DeclaratorElements getDeclaratorAccess() {
 		return pDeclarator;
 	}
@@ -6516,6 +6542,12 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//	SKW_UNDERSCORE SKW_UNDERSCORE KW_INLINE1;
 	public TerminalRule getKW_INLINE2Rule() {
 		return tKW_INLINE2;
+	}
+	
+	//terminal KW_INLINE3:
+	//	KW_INLINE2 SKW_UNDERSCORE SKW_UNDERSCORE;
+	public TerminalRule getKW_INLINE3Rule() {
+		return tKW_INLINE3;
 	}
 	
 	//terminal KW_INT:

@@ -1,9 +1,14 @@
-inline void doSomething1();
+inline void doSomethingA1();
 
-__inline void doSomething2();
+__inline void doSomethingA2();
 
-static inline void doSomething3() {
+__inline__ void doSomethingA3();
+
+static inline void doSomethingB1() {
 }
 
-static __inline void doSomething4() {
+static __inline void doSomethingB2() {
+}
+
+static __inline__ void doSomethingB3() {
 }

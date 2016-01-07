@@ -122,9 +122,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="Declarator">
     <eStructuralFeatures xsi:type="ecore:EReference" name="pointer" eType="#//Pointer"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="gccDeclExt1" upperBound="-1"
+        eType="#//GccDeclaratorExtension" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="declarator" eType="#//DirectDeclarator"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="gccDeclExt" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="gccDeclExt2" upperBound="-1"
         eType="#//GccDeclaratorExtension" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DirectDeclarator">

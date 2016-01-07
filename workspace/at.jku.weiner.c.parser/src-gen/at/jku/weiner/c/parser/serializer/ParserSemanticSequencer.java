@@ -585,7 +585,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (pointer=Pointer? declarator=DirectDeclarator gccDeclExt+=GccDeclaratorExtension*)
+	 *     (pointer=Pointer? gccDeclExt1+=GccDeclaratorExtension* declarator=DirectDeclarator gccDeclExt2+=GccDeclaratorExtension*)
 	 */
 	protected void sequence_Declarator(EObject context, Declarator semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -723,7 +723,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=KW_INLINE1 | name=KW_INLINE2 | name=KW_NORETURN | gccAttributeSpecifier=GccAttributeSpecifier)
+	 *     (name=KW_INLINE1 | name=KW_INLINE2 | name=KW_INLINE3 | name=KW_NORETURN | gccAttributeSpecifier=GccAttributeSpecifier)
 	 */
 	protected void sequence_FunctionSpecifier(EObject context, FunctionSpecifier semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

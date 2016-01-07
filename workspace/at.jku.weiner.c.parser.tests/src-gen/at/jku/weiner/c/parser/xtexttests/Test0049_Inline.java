@@ -67,6 +67,27 @@ import at.jku.weiner.c.parser.parser.DirectDeclarator;
 import at.jku.weiner.c.parser.parser.DeclaratorSuffix;
 import at.jku.weiner.c.parser.parser.DirectDeclaratorLastSuffix;
 import at.jku.weiner.c.parser.parser.ExternalDeclaration;
+import at.jku.weiner.c.parser.parser.Declaration;
+import at.jku.weiner.c.parser.parser.DeclarationSpecifiers;
+import at.jku.weiner.c.parser.parser.FunctionSpecifier;
+import at.jku.weiner.c.parser.parser.TypeSpecifier;
+import at.jku.weiner.c.parser.parser.InitDeclaratorList;
+import at.jku.weiner.c.parser.parser.InitDeclarator;
+import at.jku.weiner.c.parser.parser.Declarator;
+import at.jku.weiner.c.parser.parser.DirectDeclarator;
+import at.jku.weiner.c.parser.parser.DeclaratorSuffix;
+import at.jku.weiner.c.parser.parser.DirectDeclaratorLastSuffix;
+import at.jku.weiner.c.parser.parser.ExternalDeclaration;
+import at.jku.weiner.c.parser.parser.FunctionDefHead;
+import at.jku.weiner.c.parser.parser.FunctionDeclarationSpecifiers;
+import at.jku.weiner.c.parser.parser.StorageClassSpecifier;
+import at.jku.weiner.c.parser.parser.FunctionSpecifier;
+import at.jku.weiner.c.parser.parser.TypeSpecifier;
+import at.jku.weiner.c.parser.parser.Declarator;
+import at.jku.weiner.c.parser.parser.DirectDeclarator;
+import at.jku.weiner.c.parser.parser.FunctionDefinition;
+import at.jku.weiner.c.parser.parser.BodyStatement;
+import at.jku.weiner.c.parser.parser.ExternalDeclaration;
 import at.jku.weiner.c.parser.parser.FunctionDefHead;
 import at.jku.weiner.c.parser.parser.FunctionDeclarationSpecifiers;
 import at.jku.weiner.c.parser.parser.StorageClassSpecifier;
@@ -158,6 +179,16 @@ public class Test0049_Inline {
 				"RULE_SKW_SEMI",
 				"RULE_NEWLINE",
 				"RULE_NEWLINE",
+				"RULE_KW_INLINE3",
+				"RULE_WHITESPACE",
+				"RULE_KW_VOID",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_SKW_SEMI",
+				"RULE_NEWLINE",
+				"RULE_NEWLINE",
 				"RULE_KW_STATIC",
 				"RULE_WHITESPACE",
 				"RULE_KW_INLINE1",
@@ -176,6 +207,21 @@ public class Test0049_Inline {
 				"RULE_KW_STATIC",
 				"RULE_WHITESPACE",
 				"RULE_KW_INLINE2",
+				"RULE_WHITESPACE",
+				"RULE_KW_VOID",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_WHITESPACE",
+				"RULE_SKW_LEFTBRACE",
+				"RULE_NEWLINE",
+				"RULE_SKW_RIGHTBRACE",
+				"RULE_NEWLINE",
+				"RULE_NEWLINE",
+				"RULE_KW_STATIC",
+				"RULE_WHITESPACE",
+				"RULE_KW_INLINE3",
 				"RULE_WHITESPACE",
 				"RULE_KW_VOID",
 				"RULE_WHITESPACE",
@@ -208,7 +254,7 @@ public class Test0049_Inline {
 		final EList<? extends EObject> External_0_list = Parser_0_Var
 		.getExternal();
 		Assert.assertNotNull(External_0_list);
-		Assert.assertEquals(4, External_0_list.size());
+		Assert.assertEquals(6, External_0_list.size());
 		//0
 		final ExternalDeclaration ExternalDeclaration_1_Var
 		 = (ExternalDeclaration)External_0_list.get(0);
@@ -274,7 +320,7 @@ public class Test0049_Inline {
 		.getDeclarator();
 		Assert.assertNotNull(DirectDeclarator_9_Var
 		);
-		Assert.assertEquals("doSomething1", DirectDeclarator_9_Var
+		Assert.assertEquals("doSomethingA1", DirectDeclarator_9_Var
 		.getId());
 		final EList<? extends EObject> DeclaratorSuffix_9_list = DirectDeclarator_9_Var
 		.getDeclaratorSuffix();
@@ -358,7 +404,7 @@ public class Test0049_Inline {
 		.getDeclarator();
 		Assert.assertNotNull(DirectDeclarator_20_Var
 		);
-		Assert.assertEquals("doSomething2", DirectDeclarator_20_Var
+		Assert.assertEquals("doSomethingA2", DirectDeclarator_20_Var
 		.getId());
 		final EList<? extends EObject> DeclaratorSuffix_20_list = DirectDeclarator_20_Var
 		.getDeclaratorSuffix();
@@ -383,135 +429,287 @@ public class Test0049_Inline {
 		Assert.assertNotNull(ExternalDeclaration_23_Var
 		);
 		//23
-		final FunctionDefHead FunctionDefHead_24_Var
-		 = (FunctionDefHead)ExternalDeclaration_23_Var
-		.getFunctiondefHead();
-		Assert.assertNotNull(FunctionDefHead_24_Var
+		final Declaration Declaration_24_Var
+		 = (Declaration)ExternalDeclaration_23_Var
+		.getDeclaration();
+		Assert.assertNotNull(Declaration_24_Var
 		);
 		//24
-		final FunctionDeclarationSpecifiers FunctionDeclarationSpecifiers_25_Var
-		 = (FunctionDeclarationSpecifiers)FunctionDefHead_24_Var
-		.getFunDeclSpecifiers();
-		Assert.assertNotNull(FunctionDeclarationSpecifiers_25_Var
+		final DeclarationSpecifiers DeclarationSpecifiers_25_Var
+		 = (DeclarationSpecifiers)Declaration_24_Var
+		.getSpecifiers();
+		Assert.assertNotNull(DeclarationSpecifiers_25_Var
 		);
-		final EList<? extends EObject> DeclarationSpecifier_25_list = FunctionDeclarationSpecifiers_25_Var
+		final EList<? extends EObject> DeclarationSpecifier_25_list = DeclarationSpecifiers_25_Var
 		.getDeclarationSpecifier();
 		Assert.assertNotNull(DeclarationSpecifier_25_list);
-		Assert.assertEquals(3, DeclarationSpecifier_25_list.size());
+		Assert.assertEquals(2, DeclarationSpecifier_25_list.size());
 		//25
-		final StorageClassSpecifier StorageClassSpecifier_26_Var
-		 = (StorageClassSpecifier)DeclarationSpecifier_25_list.get(0);
-		Assert.assertNotNull(StorageClassSpecifier_26_Var
+		final FunctionSpecifier FunctionSpecifier_26_Var
+		 = (FunctionSpecifier)DeclarationSpecifier_25_list.get(0);
+		Assert.assertNotNull(FunctionSpecifier_26_Var
 		);
-		Assert.assertEquals("static", StorageClassSpecifier_26_Var
+		Assert.assertEquals("__inline__", FunctionSpecifier_26_Var
 		.getName());
 		//26
-		final FunctionSpecifier FunctionSpecifier_27_Var
-		 = (FunctionSpecifier)DeclarationSpecifier_25_list.get(1);
-		Assert.assertNotNull(FunctionSpecifier_27_Var
+		final TypeSpecifier TypeSpecifier_27_Var
+		 = (TypeSpecifier)DeclarationSpecifier_25_list.get(1);
+		Assert.assertNotNull(TypeSpecifier_27_Var
 		);
-		Assert.assertEquals("inline", FunctionSpecifier_27_Var
+		Assert.assertEquals("void", TypeSpecifier_27_Var
 		.getName());
+		final EList<? extends EObject> InitDeclaratorList_27_list = Declaration_24_Var
+		.getInitDeclaratorList();
+		Assert.assertNotNull(InitDeclaratorList_27_list);
+		Assert.assertEquals(1, InitDeclaratorList_27_list.size());
 		//27
-		final TypeSpecifier TypeSpecifier_28_Var
-		 = (TypeSpecifier)DeclarationSpecifier_25_list.get(2);
-		Assert.assertNotNull(TypeSpecifier_28_Var
+		final InitDeclaratorList InitDeclaratorList_28_Var
+		 = (InitDeclaratorList)InitDeclaratorList_27_list.get(0);
+		Assert.assertNotNull(InitDeclaratorList_28_Var
 		);
-		Assert.assertEquals("void", TypeSpecifier_28_Var
-		.getName());
+		final EList<? extends EObject> InitDeclarator_28_list = InitDeclaratorList_28_Var
+		.getInitDeclarator();
+		Assert.assertNotNull(InitDeclarator_28_list);
+		Assert.assertEquals(1, InitDeclarator_28_list.size());
 		//28
-		final Declarator Declarator_29_Var
-		 = (Declarator)FunctionDefHead_24_Var
-		.getFunDeclarator();
-		Assert.assertNotNull(Declarator_29_Var
+		final InitDeclarator InitDeclarator_29_Var
+		 = (InitDeclarator)InitDeclarator_28_list.get(0);
+		Assert.assertNotNull(InitDeclarator_29_Var
 		);
 		//29
-		final DirectDeclarator DirectDeclarator_30_Var
-		 = (DirectDeclarator)Declarator_29_Var
+		final Declarator Declarator_30_Var
+		 = (Declarator)InitDeclarator_29_Var
 		.getDeclarator();
-		Assert.assertNotNull(DirectDeclarator_30_Var
+		Assert.assertNotNull(Declarator_30_Var
 		);
-		Assert.assertEquals("doSomething3", DirectDeclarator_30_Var
-		.getId());
 		//30
-		final FunctionDefinition FunctionDefinition_31_Var
-		 = (FunctionDefinition)ExternalDeclaration_23_Var
-		.getFunctionDefinition();
-		Assert.assertNotNull(FunctionDefinition_31_Var
+		final DirectDeclarator DirectDeclarator_31_Var
+		 = (DirectDeclarator)Declarator_30_Var
+		.getDeclarator();
+		Assert.assertNotNull(DirectDeclarator_31_Var
 		);
+		Assert.assertEquals("doSomethingA3", DirectDeclarator_31_Var
+		.getId());
+		final EList<? extends EObject> DeclaratorSuffix_31_list = DirectDeclarator_31_Var
+		.getDeclaratorSuffix();
+		Assert.assertNotNull(DeclaratorSuffix_31_list);
+		Assert.assertEquals(1, DeclaratorSuffix_31_list.size());
 		//31
-		final BodyStatement BodyStatement_32_Var
-		 = (BodyStatement)FunctionDefinition_31_Var
-		.getBody();
-		Assert.assertNotNull(BodyStatement_32_Var
+		final DeclaratorSuffix DeclaratorSuffix_32_Var
+		 = (DeclaratorSuffix)DeclaratorSuffix_31_list.get(0);
+		Assert.assertNotNull(DeclaratorSuffix_32_Var
 		);
 		//32
-		final ExternalDeclaration ExternalDeclaration_33_Var
-		 = (ExternalDeclaration)External_0_list.get(3);
-		Assert.assertNotNull(ExternalDeclaration_33_Var
+		final DirectDeclaratorLastSuffix DirectDeclaratorLastSuffix_33_Var
+		 = (DirectDeclaratorLastSuffix)DeclaratorSuffix_32_Var
+		.getLastSuffix();
+		Assert.assertNotNull(DirectDeclaratorLastSuffix_33_Var
 		);
+		Assert.assertEquals(";", Declaration_24_Var
+		.getSemi());
 		//33
-		final FunctionDefHead FunctionDefHead_34_Var
-		 = (FunctionDefHead)ExternalDeclaration_33_Var
-		.getFunctiondefHead();
-		Assert.assertNotNull(FunctionDefHead_34_Var
+		final ExternalDeclaration ExternalDeclaration_34_Var
+		 = (ExternalDeclaration)External_0_list.get(3);
+		Assert.assertNotNull(ExternalDeclaration_34_Var
 		);
 		//34
-		final FunctionDeclarationSpecifiers FunctionDeclarationSpecifiers_35_Var
-		 = (FunctionDeclarationSpecifiers)FunctionDefHead_34_Var
-		.getFunDeclSpecifiers();
-		Assert.assertNotNull(FunctionDeclarationSpecifiers_35_Var
+		final FunctionDefHead FunctionDefHead_35_Var
+		 = (FunctionDefHead)ExternalDeclaration_34_Var
+		.getFunctiondefHead();
+		Assert.assertNotNull(FunctionDefHead_35_Var
 		);
-		final EList<? extends EObject> DeclarationSpecifier_35_list = FunctionDeclarationSpecifiers_35_Var
-		.getDeclarationSpecifier();
-		Assert.assertNotNull(DeclarationSpecifier_35_list);
-		Assert.assertEquals(3, DeclarationSpecifier_35_list.size());
 		//35
-		final StorageClassSpecifier StorageClassSpecifier_36_Var
-		 = (StorageClassSpecifier)DeclarationSpecifier_35_list.get(0);
-		Assert.assertNotNull(StorageClassSpecifier_36_Var
+		final FunctionDeclarationSpecifiers FunctionDeclarationSpecifiers_36_Var
+		 = (FunctionDeclarationSpecifiers)FunctionDefHead_35_Var
+		.getFunDeclSpecifiers();
+		Assert.assertNotNull(FunctionDeclarationSpecifiers_36_Var
 		);
-		Assert.assertEquals("static", StorageClassSpecifier_36_Var
-		.getName());
+		final EList<? extends EObject> DeclarationSpecifier_36_list = FunctionDeclarationSpecifiers_36_Var
+		.getDeclarationSpecifier();
+		Assert.assertNotNull(DeclarationSpecifier_36_list);
+		Assert.assertEquals(3, DeclarationSpecifier_36_list.size());
 		//36
-		final FunctionSpecifier FunctionSpecifier_37_Var
-		 = (FunctionSpecifier)DeclarationSpecifier_35_list.get(1);
-		Assert.assertNotNull(FunctionSpecifier_37_Var
+		final StorageClassSpecifier StorageClassSpecifier_37_Var
+		 = (StorageClassSpecifier)DeclarationSpecifier_36_list.get(0);
+		Assert.assertNotNull(StorageClassSpecifier_37_Var
 		);
-		Assert.assertEquals("__inline", FunctionSpecifier_37_Var
+		Assert.assertEquals("static", StorageClassSpecifier_37_Var
 		.getName());
 		//37
-		final TypeSpecifier TypeSpecifier_38_Var
-		 = (TypeSpecifier)DeclarationSpecifier_35_list.get(2);
-		Assert.assertNotNull(TypeSpecifier_38_Var
+		final FunctionSpecifier FunctionSpecifier_38_Var
+		 = (FunctionSpecifier)DeclarationSpecifier_36_list.get(1);
+		Assert.assertNotNull(FunctionSpecifier_38_Var
 		);
-		Assert.assertEquals("void", TypeSpecifier_38_Var
+		Assert.assertEquals("inline", FunctionSpecifier_38_Var
 		.getName());
 		//38
-		final Declarator Declarator_39_Var
-		 = (Declarator)FunctionDefHead_34_Var
-		.getFunDeclarator();
-		Assert.assertNotNull(Declarator_39_Var
+		final TypeSpecifier TypeSpecifier_39_Var
+		 = (TypeSpecifier)DeclarationSpecifier_36_list.get(2);
+		Assert.assertNotNull(TypeSpecifier_39_Var
 		);
+		Assert.assertEquals("void", TypeSpecifier_39_Var
+		.getName());
 		//39
-		final DirectDeclarator DirectDeclarator_40_Var
-		 = (DirectDeclarator)Declarator_39_Var
-		.getDeclarator();
-		Assert.assertNotNull(DirectDeclarator_40_Var
+		final Declarator Declarator_40_Var
+		 = (Declarator)FunctionDefHead_35_Var
+		.getFunDeclarator();
+		Assert.assertNotNull(Declarator_40_Var
 		);
-		Assert.assertEquals("doSomething4", DirectDeclarator_40_Var
-		.getId());
 		//40
-		final FunctionDefinition FunctionDefinition_41_Var
-		 = (FunctionDefinition)ExternalDeclaration_33_Var
-		.getFunctionDefinition();
-		Assert.assertNotNull(FunctionDefinition_41_Var
+		final DirectDeclarator DirectDeclarator_41_Var
+		 = (DirectDeclarator)Declarator_40_Var
+		.getDeclarator();
+		Assert.assertNotNull(DirectDeclarator_41_Var
 		);
+		Assert.assertEquals("doSomethingB1", DirectDeclarator_41_Var
+		.getId());
 		//41
-		final BodyStatement BodyStatement_42_Var
-		 = (BodyStatement)FunctionDefinition_41_Var
+		final FunctionDefinition FunctionDefinition_42_Var
+		 = (FunctionDefinition)ExternalDeclaration_34_Var
+		.getFunctionDefinition();
+		Assert.assertNotNull(FunctionDefinition_42_Var
+		);
+		//42
+		final BodyStatement BodyStatement_43_Var
+		 = (BodyStatement)FunctionDefinition_42_Var
 		.getBody();
-		Assert.assertNotNull(BodyStatement_42_Var
+		Assert.assertNotNull(BodyStatement_43_Var
+		);
+		//43
+		final ExternalDeclaration ExternalDeclaration_44_Var
+		 = (ExternalDeclaration)External_0_list.get(4);
+		Assert.assertNotNull(ExternalDeclaration_44_Var
+		);
+		//44
+		final FunctionDefHead FunctionDefHead_45_Var
+		 = (FunctionDefHead)ExternalDeclaration_44_Var
+		.getFunctiondefHead();
+		Assert.assertNotNull(FunctionDefHead_45_Var
+		);
+		//45
+		final FunctionDeclarationSpecifiers FunctionDeclarationSpecifiers_46_Var
+		 = (FunctionDeclarationSpecifiers)FunctionDefHead_45_Var
+		.getFunDeclSpecifiers();
+		Assert.assertNotNull(FunctionDeclarationSpecifiers_46_Var
+		);
+		final EList<? extends EObject> DeclarationSpecifier_46_list = FunctionDeclarationSpecifiers_46_Var
+		.getDeclarationSpecifier();
+		Assert.assertNotNull(DeclarationSpecifier_46_list);
+		Assert.assertEquals(3, DeclarationSpecifier_46_list.size());
+		//46
+		final StorageClassSpecifier StorageClassSpecifier_47_Var
+		 = (StorageClassSpecifier)DeclarationSpecifier_46_list.get(0);
+		Assert.assertNotNull(StorageClassSpecifier_47_Var
+		);
+		Assert.assertEquals("static", StorageClassSpecifier_47_Var
+		.getName());
+		//47
+		final FunctionSpecifier FunctionSpecifier_48_Var
+		 = (FunctionSpecifier)DeclarationSpecifier_46_list.get(1);
+		Assert.assertNotNull(FunctionSpecifier_48_Var
+		);
+		Assert.assertEquals("__inline", FunctionSpecifier_48_Var
+		.getName());
+		//48
+		final TypeSpecifier TypeSpecifier_49_Var
+		 = (TypeSpecifier)DeclarationSpecifier_46_list.get(2);
+		Assert.assertNotNull(TypeSpecifier_49_Var
+		);
+		Assert.assertEquals("void", TypeSpecifier_49_Var
+		.getName());
+		//49
+		final Declarator Declarator_50_Var
+		 = (Declarator)FunctionDefHead_45_Var
+		.getFunDeclarator();
+		Assert.assertNotNull(Declarator_50_Var
+		);
+		//50
+		final DirectDeclarator DirectDeclarator_51_Var
+		 = (DirectDeclarator)Declarator_50_Var
+		.getDeclarator();
+		Assert.assertNotNull(DirectDeclarator_51_Var
+		);
+		Assert.assertEquals("doSomethingB2", DirectDeclarator_51_Var
+		.getId());
+		//51
+		final FunctionDefinition FunctionDefinition_52_Var
+		 = (FunctionDefinition)ExternalDeclaration_44_Var
+		.getFunctionDefinition();
+		Assert.assertNotNull(FunctionDefinition_52_Var
+		);
+		//52
+		final BodyStatement BodyStatement_53_Var
+		 = (BodyStatement)FunctionDefinition_52_Var
+		.getBody();
+		Assert.assertNotNull(BodyStatement_53_Var
+		);
+		//53
+		final ExternalDeclaration ExternalDeclaration_54_Var
+		 = (ExternalDeclaration)External_0_list.get(5);
+		Assert.assertNotNull(ExternalDeclaration_54_Var
+		);
+		//54
+		final FunctionDefHead FunctionDefHead_55_Var
+		 = (FunctionDefHead)ExternalDeclaration_54_Var
+		.getFunctiondefHead();
+		Assert.assertNotNull(FunctionDefHead_55_Var
+		);
+		//55
+		final FunctionDeclarationSpecifiers FunctionDeclarationSpecifiers_56_Var
+		 = (FunctionDeclarationSpecifiers)FunctionDefHead_55_Var
+		.getFunDeclSpecifiers();
+		Assert.assertNotNull(FunctionDeclarationSpecifiers_56_Var
+		);
+		final EList<? extends EObject> DeclarationSpecifier_56_list = FunctionDeclarationSpecifiers_56_Var
+		.getDeclarationSpecifier();
+		Assert.assertNotNull(DeclarationSpecifier_56_list);
+		Assert.assertEquals(3, DeclarationSpecifier_56_list.size());
+		//56
+		final StorageClassSpecifier StorageClassSpecifier_57_Var
+		 = (StorageClassSpecifier)DeclarationSpecifier_56_list.get(0);
+		Assert.assertNotNull(StorageClassSpecifier_57_Var
+		);
+		Assert.assertEquals("static", StorageClassSpecifier_57_Var
+		.getName());
+		//57
+		final FunctionSpecifier FunctionSpecifier_58_Var
+		 = (FunctionSpecifier)DeclarationSpecifier_56_list.get(1);
+		Assert.assertNotNull(FunctionSpecifier_58_Var
+		);
+		Assert.assertEquals("__inline__", FunctionSpecifier_58_Var
+		.getName());
+		//58
+		final TypeSpecifier TypeSpecifier_59_Var
+		 = (TypeSpecifier)DeclarationSpecifier_56_list.get(2);
+		Assert.assertNotNull(TypeSpecifier_59_Var
+		);
+		Assert.assertEquals("void", TypeSpecifier_59_Var
+		.getName());
+		//59
+		final Declarator Declarator_60_Var
+		 = (Declarator)FunctionDefHead_55_Var
+		.getFunDeclarator();
+		Assert.assertNotNull(Declarator_60_Var
+		);
+		//60
+		final DirectDeclarator DirectDeclarator_61_Var
+		 = (DirectDeclarator)Declarator_60_Var
+		.getDeclarator();
+		Assert.assertNotNull(DirectDeclarator_61_Var
+		);
+		Assert.assertEquals("doSomethingB3", DirectDeclarator_61_Var
+		.getId());
+		//61
+		final FunctionDefinition FunctionDefinition_62_Var
+		 = (FunctionDefinition)ExternalDeclaration_54_Var
+		.getFunctionDefinition();
+		Assert.assertNotNull(FunctionDefinition_62_Var
+		);
+		//62
+		final BodyStatement BodyStatement_63_Var
+		 = (BodyStatement)FunctionDefinition_62_Var
+		.getBody();
+		Assert.assertNotNull(BodyStatement_63_Var
 		);
 	}
 	

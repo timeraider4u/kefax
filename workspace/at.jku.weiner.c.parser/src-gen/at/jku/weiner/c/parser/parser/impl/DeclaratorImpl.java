@@ -32,8 +32,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.DeclaratorImpl#getPointer <em>Pointer</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.DeclaratorImpl#getGccDeclExt1 <em>Gcc Decl Ext1</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.DeclaratorImpl#getDeclarator <em>Declarator</em>}</li>
- *   <li>{@link at.jku.weiner.c.parser.parser.impl.DeclaratorImpl#getGccDeclExt <em>Gcc Decl Ext</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.DeclaratorImpl#getGccDeclExt2 <em>Gcc Decl Ext2</em>}</li>
  * </ul>
  * </p>
  *
@@ -52,6 +53,16 @@ public class DeclaratorImpl extends MinimalEObjectImpl.Container implements Decl
   protected Pointer pointer;
 
   /**
+   * The cached value of the '{@link #getGccDeclExt1() <em>Gcc Decl Ext1</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getGccDeclExt1()
+   * @generated
+   * @ordered
+   */
+  protected EList<GccDeclaratorExtension> gccDeclExt1;
+
+  /**
    * The cached value of the '{@link #getDeclarator() <em>Declarator</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -62,14 +73,14 @@ public class DeclaratorImpl extends MinimalEObjectImpl.Container implements Decl
   protected DirectDeclarator declarator;
 
   /**
-   * The cached value of the '{@link #getGccDeclExt() <em>Gcc Decl Ext</em>}' containment reference list.
+   * The cached value of the '{@link #getGccDeclExt2() <em>Gcc Decl Ext2</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getGccDeclExt()
+   * @see #getGccDeclExt2()
    * @generated
    * @ordered
    */
-  protected EList<GccDeclaratorExtension> gccDeclExt;
+  protected EList<GccDeclaratorExtension> gccDeclExt2;
 
   /**
    * <!-- begin-user-doc -->
@@ -145,6 +156,20 @@ public class DeclaratorImpl extends MinimalEObjectImpl.Container implements Decl
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<GccDeclaratorExtension> getGccDeclExt1()
+  {
+    if (gccDeclExt1 == null)
+    {
+      gccDeclExt1 = new EObjectContainmentEList<GccDeclaratorExtension>(GccDeclaratorExtension.class, this, ParserPackage.DECLARATOR__GCC_DECL_EXT1);
+    }
+    return gccDeclExt1;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public DirectDeclarator getDeclarator()
   {
     return declarator;
@@ -193,13 +218,13 @@ public class DeclaratorImpl extends MinimalEObjectImpl.Container implements Decl
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<GccDeclaratorExtension> getGccDeclExt()
+  public EList<GccDeclaratorExtension> getGccDeclExt2()
   {
-    if (gccDeclExt == null)
+    if (gccDeclExt2 == null)
     {
-      gccDeclExt = new EObjectContainmentEList<GccDeclaratorExtension>(GccDeclaratorExtension.class, this, ParserPackage.DECLARATOR__GCC_DECL_EXT);
+      gccDeclExt2 = new EObjectContainmentEList<GccDeclaratorExtension>(GccDeclaratorExtension.class, this, ParserPackage.DECLARATOR__GCC_DECL_EXT2);
     }
-    return gccDeclExt;
+    return gccDeclExt2;
   }
 
   /**
@@ -214,10 +239,12 @@ public class DeclaratorImpl extends MinimalEObjectImpl.Container implements Decl
     {
       case ParserPackage.DECLARATOR__POINTER:
         return basicSetPointer(null, msgs);
+      case ParserPackage.DECLARATOR__GCC_DECL_EXT1:
+        return ((InternalEList<?>)getGccDeclExt1()).basicRemove(otherEnd, msgs);
       case ParserPackage.DECLARATOR__DECLARATOR:
         return basicSetDeclarator(null, msgs);
-      case ParserPackage.DECLARATOR__GCC_DECL_EXT:
-        return ((InternalEList<?>)getGccDeclExt()).basicRemove(otherEnd, msgs);
+      case ParserPackage.DECLARATOR__GCC_DECL_EXT2:
+        return ((InternalEList<?>)getGccDeclExt2()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -234,10 +261,12 @@ public class DeclaratorImpl extends MinimalEObjectImpl.Container implements Decl
     {
       case ParserPackage.DECLARATOR__POINTER:
         return getPointer();
+      case ParserPackage.DECLARATOR__GCC_DECL_EXT1:
+        return getGccDeclExt1();
       case ParserPackage.DECLARATOR__DECLARATOR:
         return getDeclarator();
-      case ParserPackage.DECLARATOR__GCC_DECL_EXT:
-        return getGccDeclExt();
+      case ParserPackage.DECLARATOR__GCC_DECL_EXT2:
+        return getGccDeclExt2();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -256,12 +285,16 @@ public class DeclaratorImpl extends MinimalEObjectImpl.Container implements Decl
       case ParserPackage.DECLARATOR__POINTER:
         setPointer((Pointer)newValue);
         return;
+      case ParserPackage.DECLARATOR__GCC_DECL_EXT1:
+        getGccDeclExt1().clear();
+        getGccDeclExt1().addAll((Collection<? extends GccDeclaratorExtension>)newValue);
+        return;
       case ParserPackage.DECLARATOR__DECLARATOR:
         setDeclarator((DirectDeclarator)newValue);
         return;
-      case ParserPackage.DECLARATOR__GCC_DECL_EXT:
-        getGccDeclExt().clear();
-        getGccDeclExt().addAll((Collection<? extends GccDeclaratorExtension>)newValue);
+      case ParserPackage.DECLARATOR__GCC_DECL_EXT2:
+        getGccDeclExt2().clear();
+        getGccDeclExt2().addAll((Collection<? extends GccDeclaratorExtension>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -280,11 +313,14 @@ public class DeclaratorImpl extends MinimalEObjectImpl.Container implements Decl
       case ParserPackage.DECLARATOR__POINTER:
         setPointer((Pointer)null);
         return;
+      case ParserPackage.DECLARATOR__GCC_DECL_EXT1:
+        getGccDeclExt1().clear();
+        return;
       case ParserPackage.DECLARATOR__DECLARATOR:
         setDeclarator((DirectDeclarator)null);
         return;
-      case ParserPackage.DECLARATOR__GCC_DECL_EXT:
-        getGccDeclExt().clear();
+      case ParserPackage.DECLARATOR__GCC_DECL_EXT2:
+        getGccDeclExt2().clear();
         return;
     }
     super.eUnset(featureID);
@@ -302,10 +338,12 @@ public class DeclaratorImpl extends MinimalEObjectImpl.Container implements Decl
     {
       case ParserPackage.DECLARATOR__POINTER:
         return pointer != null;
+      case ParserPackage.DECLARATOR__GCC_DECL_EXT1:
+        return gccDeclExt1 != null && !gccDeclExt1.isEmpty();
       case ParserPackage.DECLARATOR__DECLARATOR:
         return declarator != null;
-      case ParserPackage.DECLARATOR__GCC_DECL_EXT:
-        return gccDeclExt != null && !gccDeclExt.isEmpty();
+      case ParserPackage.DECLARATOR__GCC_DECL_EXT2:
+        return gccDeclExt2 != null && !gccDeclExt2.isEmpty();
     }
     return super.eIsSet(featureID);
   }

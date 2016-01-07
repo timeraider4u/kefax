@@ -15,8 +15,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.Declarator#getPointer <em>Pointer</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.Declarator#getGccDeclExt1 <em>Gcc Decl Ext1</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.Declarator#getDeclarator <em>Declarator</em>}</li>
- *   <li>{@link at.jku.weiner.c.parser.parser.Declarator#getGccDeclExt <em>Gcc Decl Ext</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.Declarator#getGccDeclExt2 <em>Gcc Decl Ext2</em>}</li>
  * </ul>
  * </p>
  *
@@ -53,6 +54,22 @@ public interface Declarator extends EObject
   void setPointer(Pointer value);
 
   /**
+   * Returns the value of the '<em><b>Gcc Decl Ext1</b></em>' containment reference list.
+   * The list contents are of type {@link at.jku.weiner.c.parser.parser.GccDeclaratorExtension}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Gcc Decl Ext1</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Gcc Decl Ext1</em>' containment reference list.
+   * @see at.jku.weiner.c.parser.parser.ParserPackage#getDeclarator_GccDeclExt1()
+   * @model containment="true"
+   * @generated
+   */
+  EList<GccDeclaratorExtension> getGccDeclExt1();
+
+  /**
    * Returns the value of the '<em><b>Declarator</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
@@ -79,19 +96,19 @@ public interface Declarator extends EObject
   void setDeclarator(DirectDeclarator value);
 
   /**
-   * Returns the value of the '<em><b>Gcc Decl Ext</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Gcc Decl Ext2</b></em>' containment reference list.
    * The list contents are of type {@link at.jku.weiner.c.parser.parser.GccDeclaratorExtension}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Gcc Decl Ext</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Gcc Decl Ext2</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Gcc Decl Ext</em>' containment reference list.
-   * @see at.jku.weiner.c.parser.parser.ParserPackage#getDeclarator_GccDeclExt()
+   * @return the value of the '<em>Gcc Decl Ext2</em>' containment reference list.
+   * @see at.jku.weiner.c.parser.parser.ParserPackage#getDeclarator_GccDeclExt2()
    * @model containment="true"
    * @generated
    */
-  EList<GccDeclaratorExtension> getGccDeclExt();
+  EList<GccDeclaratorExtension> getGccDeclExt2();
 
 } // Declarator

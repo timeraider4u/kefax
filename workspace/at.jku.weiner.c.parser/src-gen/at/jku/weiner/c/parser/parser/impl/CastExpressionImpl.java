@@ -22,8 +22,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link at.jku.weiner.c.parser.parser.impl.CastExpressionImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.CastExpressionImpl#getType <em>Type</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.CastExpressionImpl#getExpr <em>Expr</em>}</li>
  * </ul>
  * </p>
  *
@@ -31,16 +31,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class CastExpressionImpl extends ExpressionImpl implements CastExpression
 {
-  /**
-   * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getExpr()
-   * @generated
-   * @ordered
-   */
-  protected Expression expr;
-
   /**
    * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -50,6 +40,16 @@ public class CastExpressionImpl extends ExpressionImpl implements CastExpression
    * @ordered
    */
   protected TypeName type;
+
+  /**
+   * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExpr()
+   * @generated
+   * @ordered
+   */
+  protected Expression expr;
 
   /**
    * <!-- begin-user-doc -->
@@ -70,54 +70,6 @@ public class CastExpressionImpl extends ExpressionImpl implements CastExpression
   protected EClass eStaticClass()
   {
     return ParserPackage.Literals.CAST_EXPRESSION;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Expression getExpr()
-  {
-    return expr;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetExpr(Expression newExpr, NotificationChain msgs)
-  {
-    Expression oldExpr = expr;
-    expr = newExpr;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ParserPackage.CAST_EXPRESSION__EXPR, oldExpr, newExpr);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setExpr(Expression newExpr)
-  {
-    if (newExpr != expr)
-    {
-      NotificationChain msgs = null;
-      if (expr != null)
-        msgs = ((InternalEObject)expr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ParserPackage.CAST_EXPRESSION__EXPR, null, msgs);
-      if (newExpr != null)
-        msgs = ((InternalEObject)newExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ParserPackage.CAST_EXPRESSION__EXPR, null, msgs);
-      msgs = basicSetExpr(newExpr, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.CAST_EXPRESSION__EXPR, newExpr, newExpr));
   }
 
   /**
@@ -173,15 +125,63 @@ public class CastExpressionImpl extends ExpressionImpl implements CastExpression
    * <!-- end-user-doc -->
    * @generated
    */
+  public Expression getExpr()
+  {
+    return expr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetExpr(Expression newExpr, NotificationChain msgs)
+  {
+    Expression oldExpr = expr;
+    expr = newExpr;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ParserPackage.CAST_EXPRESSION__EXPR, oldExpr, newExpr);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExpr(Expression newExpr)
+  {
+    if (newExpr != expr)
+    {
+      NotificationChain msgs = null;
+      if (expr != null)
+        msgs = ((InternalEObject)expr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ParserPackage.CAST_EXPRESSION__EXPR, null, msgs);
+      if (newExpr != null)
+        msgs = ((InternalEObject)newExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ParserPackage.CAST_EXPRESSION__EXPR, null, msgs);
+      msgs = basicSetExpr(newExpr, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.CAST_EXPRESSION__EXPR, newExpr, newExpr));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
     {
-      case ParserPackage.CAST_EXPRESSION__EXPR:
-        return basicSetExpr(null, msgs);
       case ParserPackage.CAST_EXPRESSION__TYPE:
         return basicSetType(null, msgs);
+      case ParserPackage.CAST_EXPRESSION__EXPR:
+        return basicSetExpr(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -196,10 +196,10 @@ public class CastExpressionImpl extends ExpressionImpl implements CastExpression
   {
     switch (featureID)
     {
-      case ParserPackage.CAST_EXPRESSION__EXPR:
-        return getExpr();
       case ParserPackage.CAST_EXPRESSION__TYPE:
         return getType();
+      case ParserPackage.CAST_EXPRESSION__EXPR:
+        return getExpr();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -214,11 +214,11 @@ public class CastExpressionImpl extends ExpressionImpl implements CastExpression
   {
     switch (featureID)
     {
-      case ParserPackage.CAST_EXPRESSION__EXPR:
-        setExpr((Expression)newValue);
-        return;
       case ParserPackage.CAST_EXPRESSION__TYPE:
         setType((TypeName)newValue);
+        return;
+      case ParserPackage.CAST_EXPRESSION__EXPR:
+        setExpr((Expression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -234,11 +234,11 @@ public class CastExpressionImpl extends ExpressionImpl implements CastExpression
   {
     switch (featureID)
     {
-      case ParserPackage.CAST_EXPRESSION__EXPR:
-        setExpr((Expression)null);
-        return;
       case ParserPackage.CAST_EXPRESSION__TYPE:
         setType((TypeName)null);
+        return;
+      case ParserPackage.CAST_EXPRESSION__EXPR:
+        setExpr((Expression)null);
         return;
     }
     super.eUnset(featureID);
@@ -254,10 +254,10 @@ public class CastExpressionImpl extends ExpressionImpl implements CastExpression
   {
     switch (featureID)
     {
-      case ParserPackage.CAST_EXPRESSION__EXPR:
-        return expr != null;
       case ParserPackage.CAST_EXPRESSION__TYPE:
         return type != null;
+      case ParserPackage.CAST_EXPRESSION__EXPR:
+        return expr != null;
     }
     return super.eIsSet(featureID);
   }

@@ -589,7 +589,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cStructAssignment_20 = (Assignment)cAlternatives.eContents().get(20);
 		private final RuleCall cStructStructOrUnionNameParserRuleCall_20_0 = (RuleCall)cStructAssignment_20.eContents().get(0);
 		
-		//TypeSpecifier:
+		//TypeSpecifier initRuleAction { at.jku.weiner.c.parser.Log.log("In typeSpecifier "); }:
 		//	{TypeSpecifier} name=KW_BOOL
 		//	| name=KW_BUILTIN_VA_LIST
 		//	| name=KW_CHAR
@@ -797,18 +797,18 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cIdIDTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
 		
-		//TypedefName:
+		//TypedefName initRuleAction { at.jku.weiner.c.parser.Log.log("In typedefname "); }:
 		//	{TypedefName} id=ID
-		//	preAction{ { at.jku.weiner.c.parser.Scope.isTypeName(input.LT(1).getText()) } ? };
+		//	preAction{ { at.jku.weiner.c.parser.Scope.isTypeName(input) } ? };
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{TypedefName} id=ID preAction{ { at.jku.weiner.c.parser.Scope.isTypeName(input.LT(1).getText()) } ? }
+		//{TypedefName} id=ID preAction{ { at.jku.weiner.c.parser.Scope.isTypeName(input) } ? }
 		public Group getGroup() { return cGroup; }
 		
 		//{TypedefName}
 		public Action getTypedefNameAction_0() { return cTypedefNameAction_0; }
 		
-		//id=ID preAction{ { at.jku.weiner.c.parser.Scope.isTypeName(input.LT(1).getText()) } ? }
+		//id=ID preAction{ { at.jku.weiner.c.parser.Scope.isTypeName(input) } ? }
 		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
 		
 		//ID
@@ -823,16 +823,16 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//StructOrUnionName:
 		//	{StructOrUnionName} id=ID
-		//	preAction{ { at.jku.weiner.c.parser.Scope.isStructName(input.LT(1).getText()) } ? };
+		//	preAction{ { at.jku.weiner.c.parser.Scope.isStructName(input) } ? };
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{StructOrUnionName} id=ID preAction{ { at.jku.weiner.c.parser.Scope.isStructName(input.LT(1).getText()) } ? }
+		//{StructOrUnionName} id=ID preAction{ { at.jku.weiner.c.parser.Scope.isStructName(input) } ? }
 		public Group getGroup() { return cGroup; }
 		
 		//{StructOrUnionName}
 		public Action getStructOrUnionNameAction_0() { return cStructOrUnionNameAction_0; }
 		
-		//id=ID preAction{ { at.jku.weiner.c.parser.Scope.isStructName(input.LT(1).getText()) } ? }
+		//id=ID preAction{ { at.jku.weiner.c.parser.Scope.isStructName(input) } ? }
 		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
 		
 		//ID
@@ -1014,7 +1014,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cStructOrUnionSpecifierAssignment_1_2 = (Assignment)cAlternatives_1.eContents().get(2);
 		private final RuleCall cStructOrUnionSpecifierStructOrUnionSpecifierParserRuleCall_1_2_0 = (RuleCall)cStructOrUnionSpecifierAssignment_1_2.eContents().get(0);
 		
-		//SpecifierQualifierList:
+		//SpecifierQualifierList initRuleAction { at.jku.weiner.c.parser.Log.log("In SpecifierQualifierList "); }:
 		//	{SpecifierQualifierList} (typeSpecifier+=TypeSpecifier | typeQualifier+=TypeQualifier |
 		//	structOrUnionSpecifier+=StructOrUnionSpecifier)+;
 		@Override public ParserRule getRule() { return rule; }
@@ -2236,18 +2236,20 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cAbstractDeclaratorAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cAbstractDeclaratorAbstractDeclaratorParserRuleCall_2_0 = (RuleCall)cAbstractDeclaratorAssignment_2.eContents().get(0);
 		
-		//TypeName:
+		//TypeName initRuleAction { at.jku.weiner.c.parser.Log.log("In type name"); }:
 		//	{TypeName} list=SpecifierQualifierList
-		//	abstractDeclarator=AbstractDeclarator?;
+		//	preAction{ { at.jku.weiner.c.parser.Log.error("In typeName");
+		//	} } abstractDeclarator=AbstractDeclarator?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{TypeName} list=SpecifierQualifierList abstractDeclarator=AbstractDeclarator?
+		//{TypeName} list=SpecifierQualifierList preAction{ { at.jku.weiner.c.parser.Log.error("In typeName"); } }
+		//abstractDeclarator=AbstractDeclarator?
 		public Group getGroup() { return cGroup; }
 		
 		//{TypeName}
 		public Action getTypeNameAction_0() { return cTypeNameAction_0; }
 		
-		//list=SpecifierQualifierList
+		//list=SpecifierQualifierList preAction{ { at.jku.weiner.c.parser.Log.error("In typeName"); } }
 		public Assignment getListAssignment_1() { return cListAssignment_1; }
 		
 		//SpecifierQualifierList
@@ -2458,7 +2460,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cStmtAssignment_1_6 = (Assignment)cAlternatives_1.eContents().get(6);
 		private final RuleCall cStmtAsmStatementParserRuleCall_1_6_0 = (RuleCall)cStmtAssignment_1_6.eContents().get(0);
 		
-		//Statement:
+		//Statement initRuleAction { at.jku.weiner.c.parser.Log.error("in statement"); }:
 		//	{Statement} (stmt=LabeledStatement
 		//	| stmt=CompoundStatement
 		//	| stmt=ExpressionStatement
@@ -2665,7 +2667,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cBlockListAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cBlockListBlockListParserRuleCall_1_0 = (RuleCall)cBlockListAssignment_1.eContents().get(0);
 		
-		//BodyStatement Statement:
+		//BodyStatement Statement initRuleAction { at.jku.weiner.c.parser.Log.log("In body statement"); }:
 		//	{BodyStatement} blockList+=BlockList?
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -4140,60 +4142,60 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cCastExpressionAction_0 = (Action)cGroup.eContents().get(0);
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final Assignment cExprAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
-		private final RuleCall cExprUnaryExpressionParserRuleCall_1_0_0 = (RuleCall)cExprAssignment_1_0.eContents().get(0);
-		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
-		private final RuleCall cSKW_LEFTPARENTerminalRuleCall_1_1_0 = (RuleCall)cGroup_1_1.eContents().get(0);
-		private final Assignment cTypeAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
-		private final RuleCall cTypeTypeNameParserRuleCall_1_1_1_0 = (RuleCall)cTypeAssignment_1_1_1.eContents().get(0);
-		private final RuleCall cSKW_RIGHTPARENTerminalRuleCall_1_1_2 = (RuleCall)cGroup_1_1.eContents().get(2);
-		private final Assignment cExprAssignment_1_1_3 = (Assignment)cGroup_1_1.eContents().get(3);
-		private final RuleCall cExprCastExpressionParserRuleCall_1_1_3_0 = (RuleCall)cExprAssignment_1_1_3.eContents().get(0);
+		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
+		private final RuleCall cSKW_LEFTPARENTerminalRuleCall_1_0_0 = (RuleCall)cGroup_1_0.eContents().get(0);
+		private final Assignment cTypeAssignment_1_0_1 = (Assignment)cGroup_1_0.eContents().get(1);
+		private final RuleCall cTypeTypeNameParserRuleCall_1_0_1_0 = (RuleCall)cTypeAssignment_1_0_1.eContents().get(0);
+		private final RuleCall cSKW_RIGHTPARENTerminalRuleCall_1_0_2 = (RuleCall)cGroup_1_0.eContents().get(2);
+		private final Assignment cExprAssignment_1_0_3 = (Assignment)cGroup_1_0.eContents().get(3);
+		private final RuleCall cExprCastExpressionParserRuleCall_1_0_3_0 = (RuleCall)cExprAssignment_1_0_3.eContents().get(0);
+		private final Assignment cExprAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
+		private final RuleCall cExprUnaryExpressionParserRuleCall_1_1_0 = (RuleCall)cExprAssignment_1_1.eContents().get(0);
 		
-		//CastExpression Expression:
-		//	{CastExpression} (expr=UnaryExpression
-		//	| SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN expr=CastExpression
+		//CastExpression Expression initRuleAction { at.jku.weiner.c.parser.Log.log("In cast expression"); }:
+		//	{CastExpression} (SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN expr=CastExpression
+		//	| expr=UnaryExpression
 		//	//|	'__extension__' SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN castExpr=CastExpression
 		//)
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{CastExpression} (expr=UnaryExpression | SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN expr=CastExpression //|	'__extension__' SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN castExpr=CastExpression
+		//{CastExpression} (SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN expr=CastExpression | expr=UnaryExpression //|	'__extension__' SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN castExpr=CastExpression
 		//)
 		public Group getGroup() { return cGroup; }
 		
 		//{CastExpression}
 		public Action getCastExpressionAction_0() { return cCastExpressionAction_0; }
 		
-		//(expr=UnaryExpression | SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN expr=CastExpression //|	'__extension__' SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN castExpr=CastExpression
+		//(SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN expr=CastExpression | expr=UnaryExpression //|	'__extension__' SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN castExpr=CastExpression
 		//)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		//expr=UnaryExpression
-		public Assignment getExprAssignment_1_0() { return cExprAssignment_1_0; }
-		
-		//UnaryExpression
-		public RuleCall getExprUnaryExpressionParserRuleCall_1_0_0() { return cExprUnaryExpressionParserRuleCall_1_0_0; }
-		
 		//SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN expr=CastExpression
-		public Group getGroup_1_1() { return cGroup_1_1; }
+		public Group getGroup_1_0() { return cGroup_1_0; }
 		
 		//SKW_LEFTPAREN
-		public RuleCall getSKW_LEFTPARENTerminalRuleCall_1_1_0() { return cSKW_LEFTPARENTerminalRuleCall_1_1_0; }
+		public RuleCall getSKW_LEFTPARENTerminalRuleCall_1_0_0() { return cSKW_LEFTPARENTerminalRuleCall_1_0_0; }
 		
 		//type=TypeName
-		public Assignment getTypeAssignment_1_1_1() { return cTypeAssignment_1_1_1; }
+		public Assignment getTypeAssignment_1_0_1() { return cTypeAssignment_1_0_1; }
 		
 		//TypeName
-		public RuleCall getTypeTypeNameParserRuleCall_1_1_1_0() { return cTypeTypeNameParserRuleCall_1_1_1_0; }
+		public RuleCall getTypeTypeNameParserRuleCall_1_0_1_0() { return cTypeTypeNameParserRuleCall_1_0_1_0; }
 		
 		//SKW_RIGHTPAREN
-		public RuleCall getSKW_RIGHTPARENTerminalRuleCall_1_1_2() { return cSKW_RIGHTPARENTerminalRuleCall_1_1_2; }
+		public RuleCall getSKW_RIGHTPARENTerminalRuleCall_1_0_2() { return cSKW_RIGHTPARENTerminalRuleCall_1_0_2; }
 		
 		//expr=CastExpression
-		public Assignment getExprAssignment_1_1_3() { return cExprAssignment_1_1_3; }
+		public Assignment getExprAssignment_1_0_3() { return cExprAssignment_1_0_3; }
 		
 		//CastExpression
-		public RuleCall getExprCastExpressionParserRuleCall_1_1_3_0() { return cExprCastExpressionParserRuleCall_1_1_3_0; }
+		public RuleCall getExprCastExpressionParserRuleCall_1_0_3_0() { return cExprCastExpressionParserRuleCall_1_0_3_0; }
+		
+		//expr=UnaryExpression
+		public Assignment getExprAssignment_1_1() { return cExprAssignment_1_1; }
+		
+		//UnaryExpression
+		public RuleCall getExprUnaryExpressionParserRuleCall_1_1_0() { return cExprUnaryExpressionParserRuleCall_1_1_0; }
 	}
 	public class UnaryExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.UnaryExpression");
@@ -4235,7 +4237,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cIdAssignment_1_6_1 = (Assignment)cGroup_1_6.eContents().get(1);
 		private final RuleCall cIdIDTerminalRuleCall_1_6_1_0 = (RuleCall)cIdAssignment_1_6_1.eContents().get(0);
 		
-		//UnaryExpression Expression:
+		//UnaryExpression Expression initRuleAction { at.jku.weiner.c.parser.Log.log("In unary expression"); }:
 		//	{UnaryExpression} (expr=PostfixExpression
 		//	| plusplus=SKW_PLUSPLUS expr=UnaryExpression
 		//	| minusminus=SKW_MINUSMINUS expr=UnaryExpression
@@ -4459,7 +4461,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cSuffixAssignment_1_1_5 = (Assignment)cAlternatives_1_1.eContents().get(5);
 		private final RuleCall cSuffixPostfixExpressionSuffixMinusMinusParserRuleCall_1_1_5_0 = (RuleCall)cSuffixAssignment_1_1_5.eContents().get(0);
 		
-		//PostfixExpression Expression:
+		//PostfixExpression Expression initRuleAction { at.jku.weiner.c.parser.Log.log("In postfix expression"); }:
 		//	{PostfixExpression} (expr+=PrimaryExpression (suffix+=PostfixExpressionSuffixArray
 		//	| suffix+=PostfixExpressionSuffixArgument
 		//	| suffix+=PostfixExpressionSuffixDot
@@ -4742,7 +4744,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cExprUnaryExpressionParserRuleCall_1_3_4_0 = (RuleCall)cExprAssignment_1_3_4.eContents().get(0);
 		private final RuleCall cSKW_RIGHTPARENTerminalRuleCall_1_3_5 = (RuleCall)cGroup_1_3.eContents().get(5);
 		
-		//PrimaryExpression Expression:
+		//PrimaryExpression Expression initRuleAction { at.jku.weiner.c.parser.Log.log("In primary expression"); }:
 		//	{PrimaryExpression} (id=ID
 		//	| const=Constant2
 		//	//|	string+=STRING_LITERAL+ // reachable over Constant!
@@ -5349,7 +5351,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return getStorageClassSpecifierAccess().getRule();
 	}
 	
-	//TypeSpecifier:
+	//TypeSpecifier initRuleAction { at.jku.weiner.c.parser.Log.log("In typeSpecifier "); }:
 	//	{TypeSpecifier} name=KW_BOOL
 	//	| name=KW_BUILTIN_VA_LIST
 	//	| name=KW_CHAR
@@ -5383,9 +5385,9 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return getTypeSpecifierAccess().getRule();
 	}
 	
-	//TypedefName:
+	//TypedefName initRuleAction { at.jku.weiner.c.parser.Log.log("In typedefname "); }:
 	//	{TypedefName} id=ID
-	//	preAction{ { at.jku.weiner.c.parser.Scope.isTypeName(input.LT(1).getText()) } ? };
+	//	preAction{ { at.jku.weiner.c.parser.Scope.isTypeName(input) } ? };
 	public TypedefNameElements getTypedefNameAccess() {
 		return pTypedefName;
 	}
@@ -5396,7 +5398,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//StructOrUnionName:
 	//	{StructOrUnionName} id=ID
-	//	preAction{ { at.jku.weiner.c.parser.Scope.isStructName(input.LT(1).getText()) } ? };
+	//	preAction{ { at.jku.weiner.c.parser.Scope.isStructName(input) } ? };
 	public StructOrUnionNameElements getStructOrUnionNameAccess() {
 		return pStructOrUnionName;
 	}
@@ -5456,7 +5458,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return getStructDeclarationAccess().getRule();
 	}
 	
-	//SpecifierQualifierList:
+	//SpecifierQualifierList initRuleAction { at.jku.weiner.c.parser.Log.log("In SpecifierQualifierList "); }:
 	//	{SpecifierQualifierList} (typeSpecifier+=TypeSpecifier | typeQualifier+=TypeQualifier |
 	//	structOrUnionSpecifier+=StructOrUnionSpecifier)+;
 	public SpecifierQualifierListElements getSpecifierQualifierListAccess() {
@@ -5731,9 +5733,10 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return getMyIdentifierAccess().getRule();
 	}
 	
-	//TypeName:
+	//TypeName initRuleAction { at.jku.weiner.c.parser.Log.log("In type name"); }:
 	//	{TypeName} list=SpecifierQualifierList
-	//	abstractDeclarator=AbstractDeclarator?;
+	//	preAction{ { at.jku.weiner.c.parser.Log.error("In typeName");
+	//	} } abstractDeclarator=AbstractDeclarator?;
 	public TypeNameElements getTypeNameAccess() {
 		return pTypeName;
 	}
@@ -5809,7 +5812,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return getBlockListAccess().getRule();
 	}
 	
-	//Statement:
+	//Statement initRuleAction { at.jku.weiner.c.parser.Log.error("in statement"); }:
 	//	{Statement} (stmt=LabeledStatement
 	//	| stmt=CompoundStatement
 	//	| stmt=ExpressionStatement
@@ -5850,7 +5853,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return getCompoundStatementAccess().getRule();
 	}
 	
-	//BodyStatement Statement:
+	//BodyStatement Statement initRuleAction { at.jku.weiner.c.parser.Log.log("In body statement"); }:
 	//	{BodyStatement} blockList+=BlockList?
 	public BodyStatementElements getBodyStatementAccess() {
 		return pBodyStatement;
@@ -6122,9 +6125,9 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return getMultiplicativeExpressionAccess().getRule();
 	}
 	
-	//CastExpression Expression:
-	//	{CastExpression} (expr=UnaryExpression
-	//	| SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN expr=CastExpression
+	//CastExpression Expression initRuleAction { at.jku.weiner.c.parser.Log.log("In cast expression"); }:
+	//	{CastExpression} (SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN expr=CastExpression
+	//	| expr=UnaryExpression
 	//	//|	'__extension__' SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN castExpr=CastExpression
 	//)
 	public CastExpressionElements getCastExpressionAccess() {
@@ -6135,7 +6138,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return getCastExpressionAccess().getRule();
 	}
 	
-	//UnaryExpression Expression:
+	//UnaryExpression Expression initRuleAction { at.jku.weiner.c.parser.Log.log("In unary expression"); }:
 	//	{UnaryExpression} (expr=PostfixExpression
 	//	| plusplus=SKW_PLUSPLUS expr=UnaryExpression
 	//	| minusminus=SKW_MINUSMINUS expr=UnaryExpression
@@ -6168,7 +6171,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return getUnaryOperatorAccess().getRule();
 	}
 	
-	//PostfixExpression Expression:
+	//PostfixExpression Expression initRuleAction { at.jku.weiner.c.parser.Log.log("In postfix expression"); }:
 	//	{PostfixExpression} (expr+=PrimaryExpression (suffix+=PostfixExpressionSuffixArray
 	//	| suffix+=PostfixExpressionSuffixArgument
 	//	| suffix+=PostfixExpressionSuffixDot
@@ -6253,7 +6256,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return getArgumentExpressionListAccess().getRule();
 	}
 	
-	//PrimaryExpression Expression:
+	//PrimaryExpression Expression initRuleAction { at.jku.weiner.c.parser.Log.log("In primary expression"); }:
 	//	{PrimaryExpression} (id=ID
 	//	| const=Constant2
 	//	//|	string+=STRING_LITERAL+ // reachable over Constant!

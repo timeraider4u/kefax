@@ -503,7 +503,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (expr=UnaryExpression | (type=TypeName expr=CastExpression))
+	 *     ((type=TypeName expr=CastExpression) | expr=UnaryExpression)
 	 */
 	protected void sequence_CastExpression(EObject context, CastExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

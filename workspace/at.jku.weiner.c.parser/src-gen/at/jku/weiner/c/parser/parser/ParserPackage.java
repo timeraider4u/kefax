@@ -3186,22 +3186,22 @@ public interface ParserPackage extends EPackage
   int CAST_EXPRESSION__EXPR_EXPR = EXPRESSION__EXPR_EXPR;
 
   /**
-   * The feature id for the '<em><b>Expr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CAST_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 0;
-
-  /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CAST_EXPRESSION__TYPE = EXPRESSION_FEATURE_COUNT + 1;
+  int CAST_EXPRESSION__TYPE = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CAST_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Cast Expression</em>' class.
@@ -6033,17 +6033,6 @@ public interface ParserPackage extends EPackage
   EClass getCastExpression();
 
   /**
-   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.CastExpression#getExpr <em>Expr</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expr</em>'.
-   * @see at.jku.weiner.c.parser.parser.CastExpression#getExpr()
-   * @see #getCastExpression()
-   * @generated
-   */
-  EReference getCastExpression_Expr();
-
-  /**
    * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.CastExpression#getType <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6053,6 +6042,17 @@ public interface ParserPackage extends EPackage
    * @generated
    */
   EReference getCastExpression_Type();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.CastExpression#getExpr <em>Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expr</em>'.
+   * @see at.jku.weiner.c.parser.parser.CastExpression#getExpr()
+   * @see #getCastExpression()
+   * @generated
+   */
+  EReference getCastExpression_Expr();
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.UnaryExpression <em>Unary Expression</em>}'.
@@ -8334,20 +8334,20 @@ public interface ParserPackage extends EPackage
     EClass CAST_EXPRESSION = eINSTANCE.getCastExpression();
 
     /**
-     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CAST_EXPRESSION__EXPR = eINSTANCE.getCastExpression_Expr();
-
-    /**
      * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference CAST_EXPRESSION__TYPE = eINSTANCE.getCastExpression_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CAST_EXPRESSION__EXPR = eINSTANCE.getCastExpression_Expr();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.UnaryExpressionImpl <em>Unary Expression</em>}' class.

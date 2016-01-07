@@ -1202,7 +1202,7 @@ entryRuleTypeSpecifier returns [EObject current=null]
 // Rule TypeSpecifier
 ruleTypeSpecifier returns [EObject current=null] 
     @init { enterRule();
-   		/*no init found*/
+   		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.Log.log("In typeSpecifier ");}
     }
     @after { leaveRule();
     		/*no after found*/
@@ -1793,7 +1793,7 @@ entryRuleTypedefName returns [EObject current=null]
 // Rule TypedefName
 ruleTypedefName returns [EObject current=null] 
     @init { enterRule();
-   		/*no init found*/
+   		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.Log.log("In typedefname ");}
     }
     @after { leaveRule();
     		/*no after found*/
@@ -1811,7 +1811,7 @@ ruleTypedefName returns [EObject current=null]
     }
 )
 
-{at.jku.weiner.c.parser.Scope.isTypeName(input.LT(1).getText())}?
+{at.jku.weiner.c.parser.Scope.isTypeName(input)}?
 
 (
 (
@@ -1872,7 +1872,7 @@ ruleStructOrUnionName returns [EObject current=null]
     }
 )
 
-{at.jku.weiner.c.parser.Scope.isStructName(input.LT(1).getText())}?
+{at.jku.weiner.c.parser.Scope.isStructName(input)}?
 
 (
 (
@@ -2269,7 +2269,7 @@ entryRuleSpecifierQualifierList returns [EObject current=null]
 // Rule SpecifierQualifierList
 ruleSpecifierQualifierList returns [EObject current=null] 
     @init { enterRule();
-   		/*no init found*/
+   		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.Log.log("In SpecifierQualifierList ");}
     }
     @after { leaveRule();
     		/*no after found*/
@@ -4929,7 +4929,7 @@ entryRuleTypeName returns [EObject current=null]
 // Rule TypeName
 ruleTypeName returns [EObject current=null] 
     @init { enterRule();
-   		/*no init found*/
+   		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.Log.log("In type name");}
     }
     @after { leaveRule();
     		/*no after found*/
@@ -4947,6 +4947,7 @@ ruleTypeName returns [EObject current=null]
     }
 )
 
+{at.jku.weiner.c.parser.Log.error("In typeName");}
 
 (
 (
@@ -5355,7 +5356,7 @@ entryRuleStatement returns [EObject current=null]
 // Rule Statement
 ruleStatement returns [EObject current=null] 
     @init { enterRule();
-   		/*no init found*/
+   		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.Log.error("in statement");}
     }
     @after { leaveRule();
     		/*no after found*/
@@ -5845,7 +5846,7 @@ entryRuleBodyStatement returns [EObject current=null]
 // Rule BodyStatement
 ruleBodyStatement returns [EObject current=null] 
     @init { enterRule();
-   		/*no init found*/
+   		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.Log.log("In body statement");}
     }
     @after { leaveRule();
     		/*no after found*/
@@ -9218,7 +9219,7 @@ entryRuleCastExpression returns [EObject current=null]
 // Rule CastExpression
 ruleCastExpression returns [EObject current=null] 
     @init { enterRule();
-   		/*no init found*/
+   		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.Log.log("In cast expression");}
     }
     @after { leaveRule();
     		/*no after found*/
@@ -9239,31 +9240,9 @@ ruleCastExpression returns [EObject current=null]
 
 (
 (
-(
-		{ 
-	        newCompositeNode(grammarAccess.getCastExpressionAccess().getExprUnaryExpressionParserRuleCall_1_0_0()); 
-	    }
-		lv_expr_1_0=ruleUnaryExpression		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getCastExpressionRule());
-	        }
-       		set(
-       			$current, 
-       			"expr",
-        		lv_expr_1_0, 
-        		"at.jku.weiner.c.parser.Parser.UnaryExpression");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)
-
-
-    |
-(
-this_SKW_LEFTPAREN_2=RULE_SKW_LEFTPAREN
+this_SKW_LEFTPAREN_1=RULE_SKW_LEFTPAREN
     { 
-    newLeafNode(this_SKW_LEFTPAREN_2, grammarAccess.getCastExpressionAccess().getSKW_LEFTPARENTerminalRuleCall_1_1_0()); 
+    newLeafNode(this_SKW_LEFTPAREN_1, grammarAccess.getCastExpressionAccess().getSKW_LEFTPARENTerminalRuleCall_1_0_0()); 
     }
 
 
@@ -9271,16 +9250,16 @@ this_SKW_LEFTPAREN_2=RULE_SKW_LEFTPAREN
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getCastExpressionAccess().getTypeTypeNameParserRuleCall_1_1_1_0()); 
+	        newCompositeNode(grammarAccess.getCastExpressionAccess().getTypeTypeNameParserRuleCall_1_0_1_0()); 
 	    }
-		lv_type_3_0=ruleTypeName		{
+		lv_type_2_0=ruleTypeName		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getCastExpressionRule());
 	        }
        		set(
        			$current, 
        			"type",
-        		lv_type_3_0, 
+        		lv_type_2_0, 
         		"at.jku.weiner.c.parser.Parser.TypeName");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -9289,9 +9268,9 @@ this_SKW_LEFTPAREN_2=RULE_SKW_LEFTPAREN
 )
 
 
-this_SKW_RIGHTPAREN_4=RULE_SKW_RIGHTPAREN
+this_SKW_RIGHTPAREN_3=RULE_SKW_RIGHTPAREN
     { 
-    newLeafNode(this_SKW_RIGHTPAREN_4, grammarAccess.getCastExpressionAccess().getSKW_RIGHTPARENTerminalRuleCall_1_1_2()); 
+    newLeafNode(this_SKW_RIGHTPAREN_3, grammarAccess.getCastExpressionAccess().getSKW_RIGHTPARENTerminalRuleCall_1_0_2()); 
     }
 
 
@@ -9299,16 +9278,16 @@ this_SKW_RIGHTPAREN_4=RULE_SKW_RIGHTPAREN
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getCastExpressionAccess().getExprCastExpressionParserRuleCall_1_1_3_0()); 
+	        newCompositeNode(grammarAccess.getCastExpressionAccess().getExprCastExpressionParserRuleCall_1_0_3_0()); 
 	    }
-		lv_expr_5_0=ruleCastExpression		{
+		lv_expr_4_0=ruleCastExpression		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getCastExpressionRule());
 	        }
        		set(
        			$current, 
        			"expr",
-        		lv_expr_5_0, 
+        		lv_expr_4_0, 
         		"at.jku.weiner.c.parser.Parser.CastExpression");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -9316,6 +9295,28 @@ this_SKW_RIGHTPAREN_4=RULE_SKW_RIGHTPAREN
 )
 )
 
+)
+
+
+    |
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getCastExpressionAccess().getExprUnaryExpressionParserRuleCall_1_1_0()); 
+	    }
+		lv_expr_5_0=ruleUnaryExpression		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getCastExpressionRule());
+	        }
+       		set(
+       			$current, 
+       			"expr",
+        		lv_expr_5_0, 
+        		"at.jku.weiner.c.parser.Parser.UnaryExpression");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
 )
 
 )
@@ -9341,7 +9342,7 @@ entryRuleUnaryExpression returns [EObject current=null]
 // Rule UnaryExpression
 ruleUnaryExpression returns [EObject current=null] 
     @init { enterRule();
-   		/*no init found*/
+   		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.Log.log("In unary expression");}
     }
     @after { leaveRule();
     		/*no after found*/
@@ -9867,7 +9868,7 @@ entryRulePostfixExpression returns [EObject current=null]
 // Rule PostfixExpression
 rulePostfixExpression returns [EObject current=null] 
     @init { enterRule();
-   		/*no init found*/
+   		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.Log.log("In postfix expression");}
     }
     @after { leaveRule();
     		/*no after found*/
@@ -10517,7 +10518,7 @@ entryRulePrimaryExpression returns [EObject current=null]
 // Rule PrimaryExpression
 rulePrimaryExpression returns [EObject current=null] 
     @init { enterRule();
-   		/*no init found*/
+   		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.Log.log("In primary expression");}
     }
     @after { leaveRule();
     		/*no after found*/

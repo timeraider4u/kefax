@@ -164,7 +164,10 @@ StorageClassSpecifier:
 	)
 ;
 
-TypeSpecifier:
+TypeSpecifier
+initRuleAction {
+		at.jku.weiner.c.parser.Log.log("In typeSpecifier ");
+	}:
 	{TypeSpecifier}
 		name=KW_BOOL
 	|	name=KW_BUILTIN_VA_LIST
@@ -196,16 +199,20 @@ TypeSpecifier:
 	// |	'__typeof__' LEFTPAREN constExrp=constantExpression RIGHTPAREN // GCC extension
 ;
 
-TypedefName:
+TypedefName
+initRuleAction {
+		at.jku.weiner.c.parser.Log.log("In typedefname ");
+	}
+:
 	{TypedefName}
 	id=ID
-		preAction{ { at.jku.weiner.c.parser.Scope.isTypeName(input.LT(1).getText()) }? }
+		preAction{ { at.jku.weiner.c.parser.Scope.isTypeName(input) }? }
 ;
 
 StructOrUnionName:
 	{StructOrUnionName}
 	id=ID
-		preAction{ { at.jku.weiner.c.parser.Scope.isStructName(input.LT(1).getText()) }? }
+		preAction{ { at.jku.weiner.c.parser.Scope.isStructName(input) }? }
 ;
 
 StructOrUnionSpecifier returns DeclarationSpecifier
@@ -249,7 +256,11 @@ StructDeclaration:
 	//|	staticAssertDeclaration
 ;
 
-SpecifierQualifierList:
+SpecifierQualifierList
+initRuleAction {
+		at.jku.weiner.c.parser.Log.log("In SpecifierQualifierList ");
+	}
+	:
 	{SpecifierQualifierList} 
 	(typeSpecifier+=TypeSpecifier | typeQualifier+=TypeQualifier| 
 		structOrUnionSpecifier+=StructOrUnionSpecifier
@@ -444,9 +455,19 @@ MyIdentifier:
 	id=ID
 ;
 
-TypeName:
+TypeName
+initRuleAction {
+		at.jku.weiner.c.parser.Log.log("In type name");
+	}
+:
+	
 	{TypeName}
-	list=SpecifierQualifierList 
+	
+	list=SpecifierQualifierList
+	preAction{ {
+			at.jku.weiner.c.parser.Log.error("In typeName");
+		} }
+		
 	(abstractDeclarator=AbstractDeclarator)?
 ;
 
@@ -513,7 +534,9 @@ BlockList:
 	(declaration+=Declaration | statement+=Statement)+
 ;
 
-Statement:
+Statement
+initRuleAction { at.jku.weiner.c.parser.Log.error("in statement"); }
+:
 	{Statement}
 	(
 		stmt=LabeledStatement
@@ -549,7 +572,10 @@ CompoundStatement returns Statement
 	SKW_RIGHTBRACE
 ;
 
-BodyStatement returns Statement:
+BodyStatement returns Statement
+initRuleAction {
+		at.jku.weiner.c.parser.Log.log("In body statement");
+	}:
 	{BodyStatement}
 	(blockList+=BlockList)?
 ;
@@ -748,16 +774,23 @@ MultiplicativeExpression returns Expression:
 	)*
 ;
 
-CastExpression returns Expression:
+CastExpression returns Expression
+initRuleAction {
+		at.jku.weiner.c.parser.Log.log("In cast expression");
+	}:
 	{CastExpression}
 	(
-	expr=UnaryExpression
-	|	SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN expr=CastExpression
+		SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN expr=CastExpression
+	|	expr=UnaryExpression
 	//|	'__extension__' SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN castExpr=CastExpression
 	)
 ;
 
-UnaryExpression returns Expression:
+UnaryExpression returns Expression
+initRuleAction {
+		at.jku.weiner.c.parser.Log.log("In unary expression");
+	}
+:
 	{UnaryExpression}	
 	(
 		expr=PostfixExpression
@@ -783,7 +816,11 @@ UnaryOperator:
 	)
 ;
 
-PostfixExpression returns Expression:
+PostfixExpression returns Expression
+initRuleAction {
+		at.jku.weiner.c.parser.Log.log("In postfix expression");
+	}
+:
 	{PostfixExpression}
 	(expr+=PrimaryExpression
 	/*	(
@@ -836,7 +873,11 @@ PostfixExpressionSuffixMinusMinus returns PostfixExpressionSuffix:
 
 ArgumentExpressionList: expr+=AssignmentExpression (SKW_COMMA expr+=AssignmentExpression)*;
 
-PrimaryExpression returns Expression:
+PrimaryExpression returns Expression
+initRuleAction {
+		at.jku.weiner.c.parser.Log.log("In primary expression");
+	}
+:
 	{PrimaryExpression}
 	(id=ID
 	|	const=Constant2

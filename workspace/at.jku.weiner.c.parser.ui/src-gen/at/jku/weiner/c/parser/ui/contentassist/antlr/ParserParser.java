@@ -212,7 +212,7 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getMultiplicativeExpressionAccess().getGroup(), "rule__MultiplicativeExpression__Group__0");
 					put(grammarAccess.getMultiplicativeExpressionAccess().getGroup_2(), "rule__MultiplicativeExpression__Group_2__0");
 					put(grammarAccess.getCastExpressionAccess().getGroup(), "rule__CastExpression__Group__0");
-					put(grammarAccess.getCastExpressionAccess().getGroup_1_1(), "rule__CastExpression__Group_1_1__0");
+					put(grammarAccess.getCastExpressionAccess().getGroup_1_0(), "rule__CastExpression__Group_1_0__0");
 					put(grammarAccess.getUnaryExpressionAccess().getGroup(), "rule__UnaryExpression__Group__0");
 					put(grammarAccess.getUnaryExpressionAccess().getGroup_1_1(), "rule__UnaryExpression__Group_1_1__0");
 					put(grammarAccess.getUnaryExpressionAccess().getGroup_1_2(), "rule__UnaryExpression__Group_1_2__0");
@@ -496,9 +496,9 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getMultiplicativeExpressionAccess().getOpAssignment_2_0_1(), "rule__MultiplicativeExpression__OpAssignment_2_0_1");
 					put(grammarAccess.getMultiplicativeExpressionAccess().getOpAssignment_2_0_2(), "rule__MultiplicativeExpression__OpAssignment_2_0_2");
 					put(grammarAccess.getMultiplicativeExpressionAccess().getExprAssignment_2_1(), "rule__MultiplicativeExpression__ExprAssignment_2_1");
-					put(grammarAccess.getCastExpressionAccess().getExprAssignment_1_0(), "rule__CastExpression__ExprAssignment_1_0");
-					put(grammarAccess.getCastExpressionAccess().getTypeAssignment_1_1_1(), "rule__CastExpression__TypeAssignment_1_1_1");
-					put(grammarAccess.getCastExpressionAccess().getExprAssignment_1_1_3(), "rule__CastExpression__ExprAssignment_1_1_3");
+					put(grammarAccess.getCastExpressionAccess().getTypeAssignment_1_0_1(), "rule__CastExpression__TypeAssignment_1_0_1");
+					put(grammarAccess.getCastExpressionAccess().getExprAssignment_1_0_3(), "rule__CastExpression__ExprAssignment_1_0_3");
+					put(grammarAccess.getCastExpressionAccess().getExprAssignment_1_1(), "rule__CastExpression__ExprAssignment_1_1");
 					put(grammarAccess.getUnaryExpressionAccess().getExprAssignment_1_0(), "rule__UnaryExpression__ExprAssignment_1_0");
 					put(grammarAccess.getUnaryExpressionAccess().getPlusplusAssignment_1_1_0(), "rule__UnaryExpression__PlusplusAssignment_1_1_0");
 					put(grammarAccess.getUnaryExpressionAccess().getExprAssignment_1_1_1(), "rule__UnaryExpression__ExprAssignment_1_1_1");

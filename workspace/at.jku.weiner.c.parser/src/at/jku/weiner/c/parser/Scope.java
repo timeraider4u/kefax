@@ -29,7 +29,13 @@ public final class Scope {
 	// protected static Symbols currScope = null;
 
 	public static final boolean isTypeName(final TokenStream input) {
-		return Scope.isTypeName(input.LT(1).getText());
+		String token = input.LT(1).getText();
+		Log.log("token(LT1)='" + token + "'");
+		if ("(".equals(token)) {
+			token = input.LT(2).getText();
+		}
+		Log.log("token(choosen)='" + token + "'");
+		return Scope.isTypeName(token);
 	}
 
 	public static final boolean isTypeName(final String name) {
@@ -45,6 +51,16 @@ public final class Scope {
 		}
 		Log.log("isTypeName='false'");
 		return false;
+	}
+
+	public static final boolean isStructName(final TokenStream input) {
+		String token = input.LT(1).getText();
+		Log.log("token(LT1)='" + token + "'");
+		if ("(".equals(token)) {
+			token = input.LT(2).getText();
+		}
+		Log.log("token(choosen)='" + token + "'");
+		return Scope.isStructName(token);
 	}
 
 	public static final boolean isStructName(final String name) {

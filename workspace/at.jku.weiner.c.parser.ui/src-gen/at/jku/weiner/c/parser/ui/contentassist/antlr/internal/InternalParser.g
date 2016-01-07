@@ -416,7 +416,7 @@ entryRuleTypeSpecifier
 ruleTypeSpecifier
     @init {
 		int stackSize = keepStackSize();
-		/*no init found*/
+		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.Log.log("In typeSpecifier ");}
     }
 	@after {
     		/*no after found*/
@@ -450,7 +450,7 @@ entryRuleTypedefName
 ruleTypedefName
     @init {
 		int stackSize = keepStackSize();
-		/*no init found*/
+		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.Log.log("In typedefname ");}
     }
 	@after {
     		/*no after found*/
@@ -661,7 +661,7 @@ entryRuleSpecifierQualifierList
 ruleSpecifierQualifierList
     @init {
 		int stackSize = keepStackSize();
-		/*no init found*/
+		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.Log.log("In SpecifierQualifierList ");}
     }
 	@after {
     		/*no after found*/
@@ -1443,7 +1443,7 @@ entryRuleTypeName
 ruleTypeName
     @init {
 		int stackSize = keepStackSize();
-		/*no init found*/
+		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.Log.log("In type name");}
     }
 	@after {
     		/*no after found*/
@@ -1613,7 +1613,7 @@ entryRuleStatement
 ruleStatement
     @init {
 		int stackSize = keepStackSize();
-		/*no init found*/
+		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.Log.error("in statement");}
     }
 	@after {
     		/*no after found*/
@@ -1715,7 +1715,7 @@ entryRuleBodyStatement
 ruleBodyStatement
     @init {
 		int stackSize = keepStackSize();
-		/*no init found*/
+		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.Log.log("In body statement");}
     }
 	@after {
     		/*no after found*/
@@ -2497,7 +2497,7 @@ entryRuleCastExpression
 ruleCastExpression
     @init {
 		int stackSize = keepStackSize();
-		/*no init found*/
+		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.Log.log("In cast expression");}
     }
 	@after {
     		/*no after found*/
@@ -2531,7 +2531,7 @@ entryRuleUnaryExpression
 ruleUnaryExpression
     @init {
 		int stackSize = keepStackSize();
-		/*no init found*/
+		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.Log.log("In unary expression");}
     }
 	@after {
     		/*no after found*/
@@ -2599,7 +2599,7 @@ entryRulePostfixExpression
 rulePostfixExpression
     @init {
 		int stackSize = keepStackSize();
-		/*no init found*/
+		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.Log.log("In postfix expression");}
     }
 	@after {
     		/*no after found*/
@@ -2871,7 +2871,7 @@ entryRulePrimaryExpression
 rulePrimaryExpression
     @init {
 		int stackSize = keepStackSize();
-		/*no init found*/
+		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.Log.log("In primary expression");}
     }
 	@after {
     		/*no after found*/
@@ -4674,18 +4674,18 @@ rule__CastExpression__Alternatives_1
 :
 
 (
-{ before(grammarAccess.getCastExpressionAccess().getExprAssignment_1_0()); }
-(rule__CastExpression__ExprAssignment_1_0)
-{ after(grammarAccess.getCastExpressionAccess().getExprAssignment_1_0()); }
+{ before(grammarAccess.getCastExpressionAccess().getGroup_1_0()); }
+(rule__CastExpression__Group_1_0__0)
+{ after(grammarAccess.getCastExpressionAccess().getGroup_1_0()); }
 )
 
 
 
     |
 (
-{ before(grammarAccess.getCastExpressionAccess().getGroup_1_1()); }
-(rule__CastExpression__Group_1_1__0)
-{ after(grammarAccess.getCastExpressionAccess().getGroup_1_1()); }
+{ before(grammarAccess.getCastExpressionAccess().getExprAssignment_1_1()); }
+(rule__CastExpression__ExprAssignment_1_1)
+{ after(grammarAccess.getCastExpressionAccess().getExprAssignment_1_1()); }
 )
 
 
@@ -6621,7 +6621,7 @@ rule__TypedefName__Group__1__Impl
 		int stackSize = keepStackSize();
     }
 :
-{at.jku.weiner.c.parser.Scope.isTypeName(input.LT(1).getText())}?
+{at.jku.weiner.c.parser.Scope.isTypeName(input)}?
 
 (
 { before(grammarAccess.getTypedefNameAccess().getIdAssignment_1()); }
@@ -6691,7 +6691,7 @@ rule__StructOrUnionName__Group__1__Impl
 		int stackSize = keepStackSize();
     }
 :
-{at.jku.weiner.c.parser.Scope.isStructName(input.LT(1).getText())}?
+{at.jku.weiner.c.parser.Scope.isStructName(input)}?
 
 (
 { before(grammarAccess.getStructOrUnionNameAccess().getIdAssignment_1()); }
@@ -11267,6 +11267,7 @@ rule__TypeName__Group__1__Impl
 		int stackSize = keepStackSize();
     }
 :
+{at.jku.weiner.c.parser.Log.error("In typeName");}
 
 (
 { before(grammarAccess.getTypeNameAccess().getListAssignment_1()); }
@@ -17521,28 +17522,28 @@ finally {
 
 
 
-rule__CastExpression__Group_1_1__0
+rule__CastExpression__Group_1_0__0
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__CastExpression__Group_1_1__0__Impl
-	rule__CastExpression__Group_1_1__1
+	rule__CastExpression__Group_1_0__0__Impl
+	rule__CastExpression__Group_1_0__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__CastExpression__Group_1_1__0__Impl
+rule__CastExpression__Group_1_0__0__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 
 (
-{ before(grammarAccess.getCastExpressionAccess().getSKW_LEFTPARENTerminalRuleCall_1_1_0()); }
+{ before(grammarAccess.getCastExpressionAccess().getSKW_LEFTPARENTerminalRuleCall_1_0_0()); }
 	RULE_SKW_LEFTPAREN
-{ after(grammarAccess.getCastExpressionAccess().getSKW_LEFTPARENTerminalRuleCall_1_1_0()); }
+{ after(grammarAccess.getCastExpressionAccess().getSKW_LEFTPARENTerminalRuleCall_1_0_0()); }
 )
 
 
@@ -17553,28 +17554,28 @@ finally {
 }
 
 
-rule__CastExpression__Group_1_1__1
+rule__CastExpression__Group_1_0__1
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__CastExpression__Group_1_1__1__Impl
-	rule__CastExpression__Group_1_1__2
+	rule__CastExpression__Group_1_0__1__Impl
+	rule__CastExpression__Group_1_0__2
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__CastExpression__Group_1_1__1__Impl
+rule__CastExpression__Group_1_0__1__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 
 (
-{ before(grammarAccess.getCastExpressionAccess().getTypeAssignment_1_1_1()); }
-(rule__CastExpression__TypeAssignment_1_1_1)
-{ after(grammarAccess.getCastExpressionAccess().getTypeAssignment_1_1_1()); }
+{ before(grammarAccess.getCastExpressionAccess().getTypeAssignment_1_0_1()); }
+(rule__CastExpression__TypeAssignment_1_0_1)
+{ after(grammarAccess.getCastExpressionAccess().getTypeAssignment_1_0_1()); }
 )
 
 
@@ -17585,28 +17586,28 @@ finally {
 }
 
 
-rule__CastExpression__Group_1_1__2
+rule__CastExpression__Group_1_0__2
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__CastExpression__Group_1_1__2__Impl
-	rule__CastExpression__Group_1_1__3
+	rule__CastExpression__Group_1_0__2__Impl
+	rule__CastExpression__Group_1_0__3
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__CastExpression__Group_1_1__2__Impl
+rule__CastExpression__Group_1_0__2__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 
 (
-{ before(grammarAccess.getCastExpressionAccess().getSKW_RIGHTPARENTerminalRuleCall_1_1_2()); }
+{ before(grammarAccess.getCastExpressionAccess().getSKW_RIGHTPARENTerminalRuleCall_1_0_2()); }
 	RULE_SKW_RIGHTPAREN
-{ after(grammarAccess.getCastExpressionAccess().getSKW_RIGHTPARENTerminalRuleCall_1_1_2()); }
+{ after(grammarAccess.getCastExpressionAccess().getSKW_RIGHTPARENTerminalRuleCall_1_0_2()); }
 )
 
 
@@ -17617,27 +17618,27 @@ finally {
 }
 
 
-rule__CastExpression__Group_1_1__3
+rule__CastExpression__Group_1_0__3
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__CastExpression__Group_1_1__3__Impl
+	rule__CastExpression__Group_1_0__3__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__CastExpression__Group_1_1__3__Impl
+rule__CastExpression__Group_1_0__3__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 
 (
-{ before(grammarAccess.getCastExpressionAccess().getExprAssignment_1_1_3()); }
-(rule__CastExpression__ExprAssignment_1_1_3)
-{ after(grammarAccess.getCastExpressionAccess().getExprAssignment_1_1_3()); }
+{ before(grammarAccess.getCastExpressionAccess().getExprAssignment_1_0_3()); }
+(rule__CastExpression__ExprAssignment_1_0_3)
+{ after(grammarAccess.getCastExpressionAccess().getExprAssignment_1_0_3()); }
 )
 
 
@@ -23651,14 +23652,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__CastExpression__ExprAssignment_1_0
+rule__CastExpression__TypeAssignment_1_0_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getCastExpressionAccess().getExprUnaryExpressionParserRuleCall_1_0_0()); }
-	ruleUnaryExpression{ after(grammarAccess.getCastExpressionAccess().getExprUnaryExpressionParserRuleCall_1_0_0()); }
+{ before(grammarAccess.getCastExpressionAccess().getTypeTypeNameParserRuleCall_1_0_1_0()); }
+	ruleTypeName{ after(grammarAccess.getCastExpressionAccess().getTypeTypeNameParserRuleCall_1_0_1_0()); }
 )
 
 ;
@@ -23666,14 +23667,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__CastExpression__TypeAssignment_1_1_1
+rule__CastExpression__ExprAssignment_1_0_3
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getCastExpressionAccess().getTypeTypeNameParserRuleCall_1_1_1_0()); }
-	ruleTypeName{ after(grammarAccess.getCastExpressionAccess().getTypeTypeNameParserRuleCall_1_1_1_0()); }
+{ before(grammarAccess.getCastExpressionAccess().getExprCastExpressionParserRuleCall_1_0_3_0()); }
+	ruleCastExpression{ after(grammarAccess.getCastExpressionAccess().getExprCastExpressionParserRuleCall_1_0_3_0()); }
 )
 
 ;
@@ -23681,14 +23682,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__CastExpression__ExprAssignment_1_1_3
+rule__CastExpression__ExprAssignment_1_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getCastExpressionAccess().getExprCastExpressionParserRuleCall_1_1_3_0()); }
-	ruleCastExpression{ after(grammarAccess.getCastExpressionAccess().getExprCastExpressionParserRuleCall_1_1_3_0()); }
+{ before(grammarAccess.getCastExpressionAccess().getExprUnaryExpressionParserRuleCall_1_1_0()); }
+	ruleUnaryExpression{ after(grammarAccess.getCastExpressionAccess().getExprUnaryExpressionParserRuleCall_1_1_0()); }
 )
 
 ;

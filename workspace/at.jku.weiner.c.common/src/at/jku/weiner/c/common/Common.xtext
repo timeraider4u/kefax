@@ -412,10 +412,29 @@ terminal BIN_LITERAL: ('0b' | '0B') ('0'..'1')+;
 
 terminal fragment HEX_DIGIT: ('0'..'9'|'a'..'f'|'A'..'F');
 
-terminal fragment INTEGER_TYPE_SUFFIX:
-	('u'|'U')? ('l'|'L')
-	|	('u'|'U')  ('l'|'L')?
-;
+//terminal fragment INTEGER_TYPE_SUFFIX:
+//	('u'|'U')? ('l'|'L')
+//	|	('u'|'U')  ('l'|'L')?
+//;
+
+terminal fragment INTEGER_TYPE_SUFFIX
+    :   UNSIGNED_SUFFIX LONG_SUFFIX?
+    |   UNSIGNED_SUFFIX LONG_LONG_SUFFIX
+    |   LONG_SUFFIX UNSIGNED_SUFFIX?
+    |   LONG_LONG_SUFFIX UNSIGNED_SUFFIX?
+    ;
+
+terminal fragment UNSIGNED_SUFFIX
+    :   'u' | 'U'
+    ;
+
+terminal fragment LONG_SUFFIX
+    :   'l' | 'L'
+    ;
+
+terminal fragment LONG_LONG_SUFFIX
+    :   'll' | 'LL'
+    ;
 
 terminal FLOAT_LITERAL:
 	('0'..'9')+ SKW_DOT ('0'..'9')* EXPONENT? FLOAT_TYPE_SUFFIX?

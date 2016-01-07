@@ -1454,6 +1454,9 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tBIN_LITERAL;
 	private final TerminalRule tHEX_DIGIT;
 	private final TerminalRule tINTEGER_TYPE_SUFFIX;
+	private final TerminalRule tUNSIGNED_SUFFIX;
+	private final TerminalRule tLONG_SUFFIX;
+	private final TerminalRule tLONG_LONG_SUFFIX;
 	private final TerminalRule tFLOAT_LITERAL;
 	private final TerminalRule tEXPONENT;
 	private final TerminalRule tFLOAT_TYPE_SUFFIX;
@@ -1551,6 +1554,9 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		this.tBIN_LITERAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.BIN_LITERAL");
 		this.tHEX_DIGIT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.HEX_DIGIT");
 		this.tINTEGER_TYPE_SUFFIX = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.INTEGER_TYPE_SUFFIX");
+		this.tUNSIGNED_SUFFIX = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.UNSIGNED_SUFFIX");
+		this.tLONG_SUFFIX = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.LONG_SUFFIX");
+		this.tLONG_LONG_SUFFIX = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.LONG_LONG_SUFFIX");
 		this.tFLOAT_LITERAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.FLOAT_LITERAL");
 		this.tEXPONENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.EXPONENT");
 		this.tFLOAT_TYPE_SUFFIX = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.FLOAT_TYPE_SUFFIX");
@@ -2262,9 +2268,30 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal fragment INTEGER_TYPE_SUFFIX:
-	//	('u' | 'U')? ('l' | 'L') | ('u' | 'U') ('l' | 'L')?;
+	//	UNSIGNED_SUFFIX LONG_SUFFIX?
+	//	| UNSIGNED_SUFFIX LONG_LONG_SUFFIX
+	//	| LONG_SUFFIX UNSIGNED_SUFFIX?
+	//	| LONG_LONG_SUFFIX UNSIGNED_SUFFIX?;
 	public TerminalRule getINTEGER_TYPE_SUFFIXRule() {
 		return tINTEGER_TYPE_SUFFIX;
+	}
+	
+	//terminal fragment UNSIGNED_SUFFIX:
+	//	'u' | 'U';
+	public TerminalRule getUNSIGNED_SUFFIXRule() {
+		return tUNSIGNED_SUFFIX;
+	}
+	
+	//terminal fragment LONG_SUFFIX:
+	//	'l' | 'L';
+	public TerminalRule getLONG_SUFFIXRule() {
+		return tLONG_SUFFIX;
+	}
+	
+	//terminal fragment LONG_LONG_SUFFIX:
+	//	'll' | 'LL';
+	public TerminalRule getLONG_LONG_SUFFIXRule() {
+		return tLONG_LONG_SUFFIX;
 	}
 	
 	//terminal FLOAT_LITERAL:

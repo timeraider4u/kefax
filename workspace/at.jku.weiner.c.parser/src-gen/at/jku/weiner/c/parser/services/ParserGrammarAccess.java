@@ -7158,9 +7158,30 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal fragment INTEGER_TYPE_SUFFIX:
-	//	('u' | 'U')? ('l' | 'L') | ('u' | 'U') ('l' | 'L')?;
+	//	UNSIGNED_SUFFIX LONG_SUFFIX?
+	//	| UNSIGNED_SUFFIX LONG_LONG_SUFFIX
+	//	| LONG_SUFFIX UNSIGNED_SUFFIX?
+	//	| LONG_LONG_SUFFIX UNSIGNED_SUFFIX?;
 	public TerminalRule getINTEGER_TYPE_SUFFIXRule() {
 		return gaCommon.getINTEGER_TYPE_SUFFIXRule();
+	}
+	
+	//terminal fragment UNSIGNED_SUFFIX:
+	//	'u' | 'U';
+	public TerminalRule getUNSIGNED_SUFFIXRule() {
+		return gaCommon.getUNSIGNED_SUFFIXRule();
+	}
+	
+	//terminal fragment LONG_SUFFIX:
+	//	'l' | 'L';
+	public TerminalRule getLONG_SUFFIXRule() {
+		return gaCommon.getLONG_SUFFIXRule();
+	}
+	
+	//terminal fragment LONG_LONG_SUFFIX:
+	//	'll' | 'LL';
+	public TerminalRule getLONG_LONG_SUFFIXRule() {
+		return gaCommon.getLONG_LONG_SUFFIXRule();
 	}
 	
 	//terminal FLOAT_LITERAL:

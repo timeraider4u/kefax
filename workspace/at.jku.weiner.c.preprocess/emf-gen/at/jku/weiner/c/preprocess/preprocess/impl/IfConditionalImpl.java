@@ -22,11 +22,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.IfConditionalImpl#getExpression <em>Expression</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.IfConditionalImpl#getGroup <em>Group</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

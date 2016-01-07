@@ -11,12 +11,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.ReplaceLine#getString <em>String</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.ReplaceLine#getId <em>Id</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.ReplaceLine#isConcatenate <em>Concatenate</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getReplaceLine()
  * @model

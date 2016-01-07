@@ -1026,10 +1026,10 @@ SKW_RIGHTBRACE NEWLINE
 																																								(PostfixExpression
 																																									expr+=
 																																									(PrimaryExpression
-																																										const=
-																																										(common::Constant2
-																																											str++"\\\"Monday is %d. day of week\\\\n\\\""
-																																										)
+																																										//const=
+																																										//(common::Constant2
+																																											string+*"[\\\"Monday is %d. day of week\\\\n\\\"]"
+																																										//)
 																																									)
 																																								)
 																																							)
@@ -1191,10 +1191,10 @@ SKW_RIGHTBRACE NEWLINE
 																																								(PostfixExpression
 																																									expr+=
 																																									(PrimaryExpression
-																																										const=
-																																										(common::Constant2
-																																											str++"\\\"Monday is %d. day of week\\\\n\\\""
-																																										)
+																																										//const=
+																																										//(common::Constant2
+																																											string+*"[\\\"Monday is %d. day of week\\\\n\\\"]"
+																																										//)
 																																									)
 																																								)
 																																							)
@@ -1356,10 +1356,10 @@ SKW_RIGHTBRACE NEWLINE
 																																								(PostfixExpression
 																																									expr+=
 																																									(PrimaryExpression
-																																										const=
-																																										(common::Constant2
-																																											str++"\\\"Sunday is %d. day of week\\\\n\\\""
-																																										)
+																																										//const=
+																																										//(common::Constant2
+																																											string+*"[\\\"Sunday is %d. day of week\\\\n\\\"]"
+																																										//)
 																																									)
 																																								)
 																																							)
@@ -1521,10 +1521,10 @@ SKW_RIGHTBRACE NEWLINE
 																																								(PostfixExpression
 																																									expr+=
 																																									(PrimaryExpression
-																																										const=
-																																										(common::Constant2
-																																											str++"\\\"Sunday is %d. day of week\\\\n\\\""
-																																										)
+																																										//const=
+																																										//(common::Constant2
+																																											string+*"[\\\"Sunday is %d. day of week\\\\n\\\"]"
+																																										//)
 																																									)
 																																								)
 																																							)
@@ -1763,10 +1763,10 @@ SKW_RIGHTBRACE NEWLINE
 																																								(PostfixExpression
 																																									expr+=
 																																									(PrimaryExpression
-																																										const=
-																																										(common::Constant2
-																																											str++"\\\"The %d. day of the week is my favourite!\\\\n\\\""
-																																										)
+																																										//const=
+																																										//(common::Constant2
+																																											string+*"[\\\"The %d. day of the week is my favourite!\\\\n\\\"]"
+																																										//)
 																																									)
 																																								)
 																																							)
@@ -1928,10 +1928,10 @@ SKW_RIGHTBRACE NEWLINE
 																																								(PostfixExpression
 																																									expr+=
 																																									(PrimaryExpression
-																																										const=
-																																										(common::Constant2
-																																											str++"\\\"The %d. day of the week is my favourite!\\\\n\\\""
-																																										)
+																																										//const=
+																																										//(common::Constant2
+																																											string+*"[\\\"The %d. day of the week is my favourite!\\\\n\\\"]"
+																																										//)
 																																									)
 																																								)
 																																							)

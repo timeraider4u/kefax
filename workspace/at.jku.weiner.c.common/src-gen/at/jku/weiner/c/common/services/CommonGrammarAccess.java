@@ -1084,32 +1084,30 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cDecDECIMAL_LITERALTerminalRuleCall_1_2_0 = (RuleCall)cDecAssignment_1_2.eContents().get(0);
 		private final Assignment cChAssignment_1_3 = (Assignment)cAlternatives_1.eContents().get(3);
 		private final RuleCall cChCHAR_LITERALTerminalRuleCall_1_3_0 = (RuleCall)cChAssignment_1_3.eContents().get(0);
-		private final Assignment cStrAssignment_1_4 = (Assignment)cAlternatives_1.eContents().get(4);
-		private final RuleCall cStrSTRING_LITERALTerminalRuleCall_1_4_0 = (RuleCall)cStrAssignment_1_4.eContents().get(0);
-		private final Assignment cFloatAssignment_1_5 = (Assignment)cAlternatives_1.eContents().get(5);
-		private final RuleCall cFloatFLOAT_LITERALTerminalRuleCall_1_5_0 = (RuleCall)cFloatAssignment_1_5.eContents().get(0);
-		private final Assignment cBinAssignment_1_6 = (Assignment)cAlternatives_1.eContents().get(6);
-		private final RuleCall cBinBIN_LITERALTerminalRuleCall_1_6_0 = (RuleCall)cBinAssignment_1_6.eContents().get(0);
+		private final Assignment cFloatAssignment_1_4 = (Assignment)cAlternatives_1.eContents().get(4);
+		private final RuleCall cFloatFLOAT_LITERALTerminalRuleCall_1_4_0 = (RuleCall)cFloatAssignment_1_4.eContents().get(0);
+		private final Assignment cBinAssignment_1_5 = (Assignment)cAlternatives_1.eContents().get(5);
+		private final RuleCall cBinBIN_LITERALTerminalRuleCall_1_5_0 = (RuleCall)cBinAssignment_1_5.eContents().get(0);
 		
 		//Constant2:
 		//	{Constant2} (hex=HEX_LITERAL
 		//	| oct=OCTAL_LITERAL
 		//	| dec=DECIMAL_LITERAL
 		//	| ch=CHAR_LITERAL
-		//	| str=STRING_LITERAL
+		//	//|	str=STRING_LITERAL
 		//	| float=FLOAT_LITERAL
 		//	| bin=BIN_LITERAL);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Constant2} (hex=HEX_LITERAL | oct=OCTAL_LITERAL | dec=DECIMAL_LITERAL | ch=CHAR_LITERAL | str=STRING_LITERAL |
-		//float=FLOAT_LITERAL | bin=BIN_LITERAL)
+		//{Constant2} (hex=HEX_LITERAL | oct=OCTAL_LITERAL | dec=DECIMAL_LITERAL | ch=CHAR_LITERAL //|	str=STRING_LITERAL
+		//| float=FLOAT_LITERAL | bin=BIN_LITERAL)
 		public Group getGroup() { return cGroup; }
 		
 		//{Constant2}
 		public Action getConstant2Action_0() { return cConstant2Action_0; }
 		
-		//(hex=HEX_LITERAL | oct=OCTAL_LITERAL | dec=DECIMAL_LITERAL | ch=CHAR_LITERAL | str=STRING_LITERAL | float=FLOAT_LITERAL
-		//| bin=BIN_LITERAL)
+		//(hex=HEX_LITERAL | oct=OCTAL_LITERAL | dec=DECIMAL_LITERAL | ch=CHAR_LITERAL //|	str=STRING_LITERAL
+		//| float=FLOAT_LITERAL | bin=BIN_LITERAL)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
 		//hex=HEX_LITERAL
@@ -1136,23 +1134,17 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 		//CHAR_LITERAL
 		public RuleCall getChCHAR_LITERALTerminalRuleCall_1_3_0() { return cChCHAR_LITERALTerminalRuleCall_1_3_0; }
 		
-		//str=STRING_LITERAL
-		public Assignment getStrAssignment_1_4() { return cStrAssignment_1_4; }
-		
-		//STRING_LITERAL
-		public RuleCall getStrSTRING_LITERALTerminalRuleCall_1_4_0() { return cStrSTRING_LITERALTerminalRuleCall_1_4_0; }
-		
 		//float=FLOAT_LITERAL
-		public Assignment getFloatAssignment_1_5() { return cFloatAssignment_1_5; }
+		public Assignment getFloatAssignment_1_4() { return cFloatAssignment_1_4; }
 		
 		//FLOAT_LITERAL
-		public RuleCall getFloatFLOAT_LITERALTerminalRuleCall_1_5_0() { return cFloatFLOAT_LITERALTerminalRuleCall_1_5_0; }
+		public RuleCall getFloatFLOAT_LITERALTerminalRuleCall_1_4_0() { return cFloatFLOAT_LITERALTerminalRuleCall_1_4_0; }
 		
 		//bin=BIN_LITERAL
-		public Assignment getBinAssignment_1_6() { return cBinAssignment_1_6; }
+		public Assignment getBinAssignment_1_5() { return cBinAssignment_1_5; }
 		
 		//BIN_LITERAL
-		public RuleCall getBinBIN_LITERALTerminalRuleCall_1_6_0() { return cBinBIN_LITERALTerminalRuleCall_1_6_0; }
+		public RuleCall getBinBIN_LITERALTerminalRuleCall_1_5_0() { return cBinBIN_LITERALTerminalRuleCall_1_5_0; }
 	}
 	public class SpecialKeywordsElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.common.Common.SpecialKeywords");
@@ -1901,7 +1893,7 @@ public class CommonGrammarAccess extends AbstractGrammarElementFinder {
 	//	| oct=OCTAL_LITERAL
 	//	| dec=DECIMAL_LITERAL
 	//	| ch=CHAR_LITERAL
-	//	| str=STRING_LITERAL
+	//	//|	str=STRING_LITERAL
 	//	| float=FLOAT_LITERAL
 	//	| bin=BIN_LITERAL);
 	public Constant2Elements getConstant2Access() {

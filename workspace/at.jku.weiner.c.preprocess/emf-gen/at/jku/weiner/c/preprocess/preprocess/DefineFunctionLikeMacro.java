@@ -11,11 +11,11 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro#getList <em>List</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro#getReplacement <em>Replacement</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getDefineFunctionLikeMacro()
  * @model

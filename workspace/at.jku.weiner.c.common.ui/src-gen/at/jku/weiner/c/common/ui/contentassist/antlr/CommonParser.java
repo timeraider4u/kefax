@@ -145,9 +145,8 @@ public class CommonParser extends AbstractContentAssistParser {
 					put(grammarAccess.getConstant2Access().getOctAssignment_1_1(), "rule__Constant2__OctAssignment_1_1");
 					put(grammarAccess.getConstant2Access().getDecAssignment_1_2(), "rule__Constant2__DecAssignment_1_2");
 					put(grammarAccess.getConstant2Access().getChAssignment_1_3(), "rule__Constant2__ChAssignment_1_3");
-					put(grammarAccess.getConstant2Access().getStrAssignment_1_4(), "rule__Constant2__StrAssignment_1_4");
-					put(grammarAccess.getConstant2Access().getFloatAssignment_1_5(), "rule__Constant2__FloatAssignment_1_5");
-					put(grammarAccess.getConstant2Access().getBinAssignment_1_6(), "rule__Constant2__BinAssignment_1_6");
+					put(grammarAccess.getConstant2Access().getFloatAssignment_1_4(), "rule__Constant2__FloatAssignment_1_4");
+					put(grammarAccess.getConstant2Access().getBinAssignment_1_5(), "rule__Constant2__BinAssignment_1_5");
 				}
 			};
 		}

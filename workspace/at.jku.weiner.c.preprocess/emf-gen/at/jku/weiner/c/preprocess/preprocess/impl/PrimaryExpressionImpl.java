@@ -21,13 +21,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.PrimaryExpressionImpl#isDefined <em>Defined</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.PrimaryExpressionImpl#getId <em>Id</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.PrimaryExpressionImpl#getConst <em>Const</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.PrimaryExpressionImpl#getExpr <em>Expr</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

@@ -570,10 +570,10 @@ SKW_RIGHTBRACE NEWLINE
 																																								(PostfixExpression
 																																									expr+=
 																																									(PrimaryExpression
-																																										const=
-																																										(common::Constant2
-																																											str++"\\\"%d\\\\n\\\""
-																																										)
+																																										//const=
+																																										//(common::Constant2
+																																											string+*"[\\\"%d\\\\n\\\"]"
+																																										//)
 																																									)
 																																								)
 																																							)

@@ -282,10 +282,10 @@ SKW_RIGHTBRACE NEWLINE
 																					(PostfixExpression
 																						expr+=
 																						(PrimaryExpression
-																							const=
-																							(common::Constant2
-																								str++"\\\"add %1, %0\\\\n\\\\t\\\""
-																							)
+																							//const=
+																							//(common::Constant2
+																								string+*"[\\\"add %1, %0\\\\n\\\\t\\\", \\\"inc %0\\\"]"
+																							//)
 																						)
 																					)
 																				)
@@ -299,57 +299,7 @@ SKW_RIGHTBRACE NEWLINE
 												)
 											)
 										)
-									), // end LogicalOrExpression
-									asmLines+=
-									(AsmLine
-										comma?=false,
-										expr=
-										(LogicalOrExpression
-											expr+=
-											(LogicalAndExpression
-												expr+=
-												(InclusiveOrExpression
-													expr+=
-													(ExclusiveOrExpression
-														expr+=
-														(AndExpression
-															expr+=
-															(EqualityExpression
-																expr+=
-																(RelationalExpression
-																	expr+=
-																	(ShiftExpression
-																		expr+=
-																		(AdditiveExpression
-																			expr+=
-																			(MultiplicativeExpression
-																				expr+=
-																				(CastExpression
-																					expr=
-																					(UnaryExpression
-																						expr=
-																						(PostfixExpression
-																							expr+=
-																							(PrimaryExpression
-																								const=
-																								(common::Constant2
-																									str++"\\\"inc %0\\\""
-																								)
-																							)
-																						)
-																					)
-																				)
-																			)
-																		)
-																	)
-																)
-															)
-														)
-													)
-												)
-											)
-										) // end LogicalOrExpression
-									)
+									) // end LogicalOrExpression
 								),
 								asmLines+=
 								// : "+r" (bar)
@@ -384,10 +334,10 @@ SKW_RIGHTBRACE NEWLINE
 																						(PostfixExpression
 																							expr+=
 																							(PrimaryExpression
-																								const=
-																								(common::Constant2
-																									str++"\\\"+r\\\""
-																								)
+																								//const=
+																								//(common::Constant2
+																									string+*"[\\\"+r\\\"]"
+																								//)
 																							),
 																							suffix+=
 																							(PostfixExpressionSuffixArgument
@@ -491,10 +441,10 @@ SKW_RIGHTBRACE NEWLINE
 																						(PostfixExpression
 																							expr+=
 																							(PrimaryExpression
-																								const=
-																								(common::Constant2
-																									str++"\\\"g\\\""
-																								)
+																								//const=
+																								//(common::Constant2
+																									string+*"[\\\"g\\\"]"
+																								//)
 																							),
 																							suffix+=
 																							(PostfixExpressionSuffixArgument
@@ -598,10 +548,10 @@ SKW_RIGHTBRACE NEWLINE
 																						(PostfixExpression
 																							expr+=
 																							(PrimaryExpression
-																								const=
-																								(common::Constant2
-																									str++"\\\"cc\\\""
-																								)
+																								//const=
+																								//(common::Constant2
+																									string+*"[\\\"cc\\\"]"
+																								//)
 																							)
 																						)
 																					)
@@ -699,10 +649,10 @@ SKW_RIGHTBRACE NEWLINE
 																																								(PostfixExpression
 																																									expr+=
 																																									(PrimaryExpression
-																																										const=
-																																										(common::Constant2
-																																											str++"\\\"Ergebnis: %i\\\\n\\\""
-																																										)
+																																										//const=
+																																										//(common::Constant2
+																																											string+*"[\\\"Ergebnis: %i\\\\n\\\"]"
+																																										//)
 																																									)
 																																								)
 																																							)

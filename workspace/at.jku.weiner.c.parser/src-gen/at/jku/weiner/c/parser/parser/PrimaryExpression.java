@@ -4,6 +4,8 @@ package at.jku.weiner.c.parser.parser;
 
 import at.jku.weiner.c.common.common.Constant2;
 
+import org.eclipse.emf.common.util.EList;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Primary Expression</b></em>'.
@@ -14,6 +16,7 @@ import at.jku.weiner.c.common.common.Constant2;
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getId <em>Id</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getConst <em>Const</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getString <em>String</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.PrimaryExpression#isBuiltin_offsetof <em>Builtin offsetof</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getTypeName <em>Type Name</em>}</li>
@@ -77,6 +80,22 @@ public interface PrimaryExpression extends Expression
    * @generated
    */
   void setConst(Constant2 value);
+
+  /**
+   * Returns the value of the '<em><b>String</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>String</em>' attribute list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>String</em>' attribute list.
+   * @see at.jku.weiner.c.parser.parser.ParserPackage#getPrimaryExpression_String()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getString();
 
   /**
    * Returns the value of the '<em><b>Expr</b></em>' containment reference.

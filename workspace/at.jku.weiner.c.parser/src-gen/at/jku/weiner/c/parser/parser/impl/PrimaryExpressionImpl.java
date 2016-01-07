@@ -9,13 +9,19 @@ import at.jku.weiner.c.parser.parser.ParserPackage;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
 import at.jku.weiner.c.parser.parser.TypeName;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,6 +32,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.PrimaryExpressionImpl#getId <em>Id</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.PrimaryExpressionImpl#getConst <em>Const</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.PrimaryExpressionImpl#getString <em>String</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.PrimaryExpressionImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.PrimaryExpressionImpl#isBuiltin_offsetof <em>Builtin offsetof</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.PrimaryExpressionImpl#getTypeName <em>Type Name</em>}</li>
@@ -65,6 +72,16 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
    * @ordered
    */
   protected Constant2 const_;
+
+  /**
+   * The cached value of the '{@link #getString() <em>String</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getString()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> string;
 
   /**
    * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
@@ -196,6 +213,20 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
     }
     else if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.PRIMARY_EXPRESSION__CONST, newConst, newConst));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<String> getString()
+  {
+    if (string == null)
+    {
+      string = new EDataTypeEList<String>(String.class, this, ParserPackage.PRIMARY_EXPRESSION__STRING);
+    }
+    return string;
   }
 
   /**
@@ -351,6 +382,8 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
         return getId();
       case ParserPackage.PRIMARY_EXPRESSION__CONST:
         return getConst();
+      case ParserPackage.PRIMARY_EXPRESSION__STRING:
+        return getString();
       case ParserPackage.PRIMARY_EXPRESSION__EXPR:
         return getExpr();
       case ParserPackage.PRIMARY_EXPRESSION__BUILTIN_OFFSETOF:
@@ -366,6 +399,7 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -376,6 +410,10 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
         return;
       case ParserPackage.PRIMARY_EXPRESSION__CONST:
         setConst((Constant2)newValue);
+        return;
+      case ParserPackage.PRIMARY_EXPRESSION__STRING:
+        getString().clear();
+        getString().addAll((Collection<? extends String>)newValue);
         return;
       case ParserPackage.PRIMARY_EXPRESSION__EXPR:
         setExpr((Expression)newValue);
@@ -406,6 +444,9 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
       case ParserPackage.PRIMARY_EXPRESSION__CONST:
         setConst((Constant2)null);
         return;
+      case ParserPackage.PRIMARY_EXPRESSION__STRING:
+        getString().clear();
+        return;
       case ParserPackage.PRIMARY_EXPRESSION__EXPR:
         setExpr((Expression)null);
         return;
@@ -433,6 +474,8 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
         return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
       case ParserPackage.PRIMARY_EXPRESSION__CONST:
         return const_ != null;
+      case ParserPackage.PRIMARY_EXPRESSION__STRING:
+        return string != null && !string.isEmpty();
       case ParserPackage.PRIMARY_EXPRESSION__EXPR:
         return expr != null;
       case ParserPackage.PRIMARY_EXPRESSION__BUILTIN_OFFSETOF:
@@ -456,6 +499,8 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (id: ");
     result.append(id);
+    result.append(", string: ");
+    result.append(string);
     result.append(", builtin_offsetof: ");
     result.append(builtin_offsetof);
     result.append(')');

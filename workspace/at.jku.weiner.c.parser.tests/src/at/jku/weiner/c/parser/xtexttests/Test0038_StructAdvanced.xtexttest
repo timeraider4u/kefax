@@ -322,10 +322,10 @@ SKW_RIGHTBRACE NEWLINE
 																							(PostfixExpression
 																								expr+=
 																								(PrimaryExpression
-																									const=
-																									(common::Constant2
-																										str++"\\\"Joe Nobody\\\""
-																									)
+																									//const=
+																									//(common::Constant2
+																										string+*"[\\\"Joe Nobody\\\"]"
+																									//)
 																								)
 																							)
 																						)
@@ -467,10 +467,10 @@ SKW_RIGHTBRACE NEWLINE
 																							(PostfixExpression
 																								expr+=
 																								(PrimaryExpression
-																									const=
-																									(common::Constant2
-																										str++"\\\"Phil Morrison\\\""
-																									)
+																									//const=
+																									//(common::Constant2
+																										string+*"[\\\"Phil Morrison\\\"]"
+																									//)
 																								)
 																							)
 																						)
@@ -632,10 +632,10 @@ SKW_RIGHTBRACE NEWLINE
 																																								(PostfixExpression
 																																									expr+=
 																																									(PrimaryExpression
-																																										const=
-																																										(common::Constant2
-																																											str++"\\\"(*employee).id=%d\\\\n\\\""
-																																										)
+																																										//const=
+																																										//(common::Constant2
+																																											string+*"[\\\"(*employee).id=%d\\\\n\\\"]"
+																																										//)
 																																									)
 																																								)
 																																							)
@@ -864,10 +864,10 @@ SKW_RIGHTBRACE NEWLINE
 																																								(PostfixExpression
 																																									expr+=
 																																									(PrimaryExpression
-																																										const=
-																																										(common::Constant2
-																																											str++"\\\"employee->name=%s\\\\n\\\""
-																																										)
+																																										//const=
+																																										//(common::Constant2
+																																											string+*"[\\\"employee->name=%s\\\\n\\\"]"
+																																										//)
 																																									)
 																																								)
 																																							)
@@ -1323,10 +1323,10 @@ SKW_RIGHTBRACE NEWLINE
 																																														(PostfixExpression
 																																															expr+=
 																																															(PrimaryExpression
-																																																const=
-																																																(common::Constant2
-																																																	str++"\\\"Could not reserve space for new employee!\\\\n\\\""
-																																																)
+																																																//const=
+																																																//(common::Constant2
+																																																	string+*"[\\\"Could not reserve space for new employee!\\\\n\\\"]"
+																																																//)
 																																															)
 																																														)
 																																													)
@@ -1906,10 +1906,10 @@ SKW_RIGHTBRACE NEWLINE
 																																								(PostfixExpression
 																																									expr+=
 																																									(PrimaryExpression
-																																										const=
-																																										(common::Constant2
-																																											str++"\\\"Billy The Kid\\\""
-																																										)
+																																										//const=
+																																										//(common::Constant2
+																																											string+*"[\\\"Billy The Kid\\\"]"
+																																										//)
 																																									)
 																																								)
 																																							)

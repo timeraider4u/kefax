@@ -438,10 +438,20 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (comma?=SKW_COMMA? expr=LogicalOrExpression)
+	 *     (comma?=SKW_COMMA expr=LogicalOrExpression)
 	 */
 	protected void sequence_AsmLine(EObject context, AsmLine semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, ParserPackage.Literals.ASM_LINE__COMMA) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ParserPackage.Literals.ASM_LINE__COMMA));
+			if(transientValues.isValueTransient(semanticObject, ParserPackage.Literals.ASM_LINE__EXPR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ParserPackage.Literals.ASM_LINE__EXPR));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getAsmLineAccess().getCommaSKW_COMMATerminalRuleCall_1_0(), semanticObject.isComma());
+		feeder.accept(grammarAccess.getAsmLineAccess().getExprLogicalOrExpressionParserRuleCall_2_0(), semanticObject.getExpr());
+		feeder.finish();
 	}
 	
 	
@@ -1041,7 +1051,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (id=ID | const=Constant2 | expr=Expression | (builtin_offsetof?=KW_BUILTIN_OFFSETOF typeName=TypeName expr=UnaryExpression))
+	 *     (id=ID | const=Constant2 | string+=STRING_LITERAL+ | expr=Expression | (builtin_offsetof?=KW_BUILTIN_OFFSETOF typeName=TypeName expr=UnaryExpression))
 	 */
 	protected void sequence_PrimaryExpression(EObject context, PrimaryExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

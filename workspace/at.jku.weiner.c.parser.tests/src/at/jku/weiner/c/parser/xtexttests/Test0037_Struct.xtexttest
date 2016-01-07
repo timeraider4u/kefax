@@ -302,10 +302,10 @@ SKW_RIGHTBRACE NEWLINE
 																							(PostfixExpression
 																								expr+=
 																								(PrimaryExpression
-																									const=
-																									(common::Constant2
-																										str++"\\\"Joe Nobody\\\""
-																									)
+																									//const=
+																									//(common::Constant2
+																										string+*"[\\\"Joe Nobody\\\"]"
+																									//)
 																								)
 																							)
 																						)
@@ -453,10 +453,10 @@ SKW_RIGHTBRACE NEWLINE
 																																								(PostfixExpression
 																																									expr+=
 																																									(PrimaryExpression
-																																										const=
-																																										(common::Constant2
-																																											str++"\\\"sizeof(joe.id)=%lu\\\\n\\\""
-																																										)
+																																										//const=
+																																										//(common::Constant2
+																																											string+*"[\\\"sizeof(joe.id)=%lu\\\\n\\\"]"
+																																										//)
 																																									)
 																																								)
 																																							)
@@ -679,10 +679,10 @@ SKW_RIGHTBRACE NEWLINE
 																																								(PostfixExpression
 																																									expr+=
 																																									(PrimaryExpression
-																																										const=
-																																										(common::Constant2
-																																											str++"\\\"sizeof(joe.name)=%lu\\\\n\\\""
-																																										)
+																																										//const=
+																																										//(common::Constant2
+																																											string+*"[\\\"sizeof(joe.name)=%lu\\\\n\\\"]"
+																																										//)
 																																									)
 																																								)
 																																							)
@@ -905,10 +905,10 @@ SKW_RIGHTBRACE NEWLINE
 																																								(PostfixExpression
 																																									expr+=
 																																									(PrimaryExpression
-																																										const=
-																																										(common::Constant2
-																																											str++"\\\"sizeof(joe)=%lu\\\\n\\\""
-																																										)
+																																										//const=
+																																										//(common::Constant2
+																																											string+*"[\\\"sizeof(joe)=%lu\\\\n\\\"]"
+																																										//)
 																																									)
 																																								)
 																																							)
@@ -1265,10 +1265,10 @@ SKW_RIGHTBRACE NEWLINE
 																																								(PostfixExpression
 																																									expr+=
 																																									(PrimaryExpression
-																																										const=
-																																										(common::Constant2
-																																											str++"\\\"Phil Morrison\\\""
-																																										)
+																																										//const=
+																																										//(common::Constant2
+																																											string+*"[\\\"Phil Morrison\\\"]"
+																																										//)
 																																									)
 																																								)
 																																							)
@@ -1383,10 +1383,10 @@ SKW_RIGHTBRACE NEWLINE
 																																								(PostfixExpression
 																																									expr+=
 																																									(PrimaryExpression
-																																										const=
-																																										(common::Constant2
-																																											str++"\\\"joe.id=%d\\\\n\\\""
-																																										)
+																																										//const=
+																																										//(common::Constant2
+																																											string+*"[\\\"joe.id=%d\\\\n\\\"]"
+																																										//)
 																																									)
 																																								)
 																																							)
@@ -1553,10 +1553,10 @@ SKW_RIGHTBRACE NEWLINE
 																																								(PostfixExpression
 																																									expr+=
 																																									(PrimaryExpression
-																																										const=
-																																										(common::Constant2
-																																											str++"\\\"joe.name=%s\\\\n\\\""
-																																										)
+																																										//const=
+																																										//(common::Constant2
+																																											string+*"[\\\"joe.name=%s\\\\n\\\"]"
+																																										//)
 																																									)
 																																								)
 																																							)
@@ -1723,10 +1723,10 @@ SKW_RIGHTBRACE NEWLINE
 																																								(PostfixExpression
 																																									expr+=
 																																									(PrimaryExpression
-																																										const=
-																																										(common::Constant2
-																																											str++"\\\"phil.id=%d\\\\n\\\""
-																																										)
+																																										//const=
+																																										//(common::Constant2
+																																											string+*"[\\\"phil.id=%d\\\\n\\\"]"
+																																										//)
 																																									)
 																																								)
 																																							)
@@ -1893,10 +1893,10 @@ SKW_RIGHTBRACE NEWLINE
 																																								(PostfixExpression
 																																									expr+=
 																																									(PrimaryExpression
-																																										const=
-																																										(common::Constant2
-																																											str++"\\\"phil.name=%s\\\\n\\\""
-																																										)
+																																										//const=
+																																										//(common::Constant2
+																																											string+*"[\\\"phil.name=%s\\\\n\\\"]"
+																																										//)
 																																									)
 																																								)
 																																							)

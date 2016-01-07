@@ -135,10 +135,10 @@ SKW_RIGHTBRACE NEWLINE
 																																								(PostfixExpression
 																																									expr+=
 																																									(PrimaryExpression
-																																										const=
-																																										(common::Constant2
-																																											str++"\\\"will never be reached\\\\n\\\""
-																																										)
+																																										//const=
+																																										//(common::Constant2
+																																											string+*"[\\\"will never be reached\\\\n\\\"]"
+																																										//)
 																																									)
 																																								)
 																																							)
@@ -257,10 +257,10 @@ SKW_RIGHTBRACE NEWLINE
 																																										(PostfixExpression
 																																											expr+=
 																																											(PrimaryExpression
-																																												const=
-																																												(common::Constant2
-																																													str++"\\\"reached target\\\\n\\\""
-																																												)
+																																												//const=
+																																												//(common::Constant2
+																																													string+*"[\\\"reached target\\\\n\\\"]"
+																																												//)
 																																											)
 																																										)
 																																									)

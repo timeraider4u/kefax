@@ -166,22 +166,25 @@ StorageClassSpecifier:
 
 TypeSpecifier:
 	{TypeSpecifier}
-		name=KW_VOID
+		name=KW_BOOL
+	|	name=KW_BUILTIN_VA_LIST
 	|	name=KW_CHAR
-	|	name=KW_SHORT
+	|	name=KW_COMPLEX
+	|	name=KW_DOUBLE
+	|	name=KW_FLOAT
 	|	name=KW_INT
 	|	name=KW_LONG
-	|	name=KW_FLOAT
-	|	name=KW_DOUBLE
-	|	name=KW_SIGNED
-	|	name=KW_UNSIGNED
-	|	name=KW_BOOL
-	|	name=KW_COMPLEX
-	|	name=KW_BUILTIN_VA_LIST
+	|	name=KW_SHORT
 	|	name=KW_M128
 	|	name=KW_M128D
 	|	name=KW_M128I
+	|	name=KW_SIGNED1
+	|	name=KW_SIGNED2
+	|	name=KW_SIGNED3
+	|	name=KW_UNSIGNED
+	|	name=KW_VOID
 	
+
 	|	name=KW_EXTENSION (SKW_LEFTPAREN 
 			(extType=KW_M128 | extType=KW_M128D | extType=KW_M128I) 
 			SKW_RIGHTPAREN)?
@@ -299,12 +302,14 @@ TypeQualifier:
 FunctionSpecifier:
 	{FunctionSpecifier} 
 	(
-		(	name=KW_INLINE1
-		|	name=KW_INLINE2 // GCC extension	
-		|	name=KW_NORETURN
-		//|	'__stdcall'
+		(
+			name=KW_INLINE1
+			|	name=KW_INLINE2 // GCC extension	
+			|	name=KW_NORETURN
+			//|	'__stdcall'
 		)
-		//|	gccAttributeSpecifier=gccAttributeSpecifier
+		
+		|	gccAttributeSpecifier=GccAttributeSpecifier
 		//|	'__declspec' LEFTPAREN IDENTIFIER RIGHTPAREN
 	)
 ;
@@ -909,7 +914,10 @@ terminal KW_RESTRICT2: SKW_UNDERSCORE SKW_UNDERSCORE KW_RESTRICT;
 terminal KW_RESTRICT3: KW_RESTRICT2 SKW_UNDERSCORE SKW_UNDERSCORE;
 terminal KW_RETURN : 'return';
 terminal KW_SHORT : 'short';
-terminal KW_SIGNED : 'signed';
+terminal KW_SIGNED1 : 'signed';
+terminal KW_SIGNED2 : SKW_UNDERSCORE SKW_UNDERSCORE KW_SIGNED1;
+terminal KW_SIGNED3 : KW_SIGNED2 SKW_UNDERSCORE SKW_UNDERSCORE;
+
 terminal KW_SIZEOF : 'sizeof';
 terminal KW_STATIC : 'static';
 terminal KW_STATICASSERT : SKW_UNDERSCORE 'Static_assert';

@@ -1412,6 +1412,16 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getFunctionSpecifier_GccAttributeSpecifier()
+  {
+    return (EReference)functionSpecifierEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getDeclarator()
   {
     return declaratorEClass;
@@ -3412,6 +3422,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 
     functionSpecifierEClass = createEClass(FUNCTION_SPECIFIER);
     createEAttribute(functionSpecifierEClass, FUNCTION_SPECIFIER__NAME);
+    createEReference(functionSpecifierEClass, FUNCTION_SPECIFIER__GCC_ATTRIBUTE_SPECIFIER);
 
     declaratorEClass = createEClass(DECLARATOR);
     createEReference(declaratorEClass, DECLARATOR__POINTER);
@@ -3826,6 +3837,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 
     initEClass(functionSpecifierEClass, FunctionSpecifier.class, "FunctionSpecifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getFunctionSpecifier_Name(), theEcorePackage.getEString(), "name", null, 0, 1, FunctionSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunctionSpecifier_GccAttributeSpecifier(), this.getGccAttributeSpecifier(), null, "gccAttributeSpecifier", null, 0, 1, FunctionSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(declaratorEClass, Declarator.class, "Declarator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDeclarator_Pointer(), this.getPointer(), null, "pointer", null, 0, 1, Declarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

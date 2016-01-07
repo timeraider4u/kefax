@@ -1224,9 +1224,9 @@ ruleTypeSpecifier returns [EObject current=null]
 
 (
 (
-		lv_name_1_0=RULE_KW_VOID
+		lv_name_1_0=RULE_KW_BOOL
 		{
-			newLeafNode(lv_name_1_0, grammarAccess.getTypeSpecifierAccess().getNameKW_VOIDTerminalRuleCall_0_1_0()); 
+			newLeafNode(lv_name_1_0, grammarAccess.getTypeSpecifierAccess().getNameKW_BOOLTerminalRuleCall_0_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1236,7 +1236,7 @@ ruleTypeSpecifier returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"at.jku.weiner.c.parser.Parser.KW_VOID");
+        		"at.jku.weiner.c.parser.Parser.KW_BOOL");
 	    }
 
 )
@@ -1248,9 +1248,9 @@ ruleTypeSpecifier returns [EObject current=null]
     |
 (
 (
-		lv_name_2_0=RULE_KW_CHAR
+		lv_name_2_0=RULE_KW_BUILTIN_VA_LIST
 		{
-			newLeafNode(lv_name_2_0, grammarAccess.getTypeSpecifierAccess().getNameKW_CHARTerminalRuleCall_1_0()); 
+			newLeafNode(lv_name_2_0, grammarAccess.getTypeSpecifierAccess().getNameKW_BUILTIN_VA_LISTTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1260,6 +1260,28 @@ ruleTypeSpecifier returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_2_0, 
+        		"at.jku.weiner.c.parser.Parser.KW_BUILTIN_VA_LIST");
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		lv_name_3_0=RULE_KW_CHAR
+		{
+			newLeafNode(lv_name_3_0, grammarAccess.getTypeSpecifierAccess().getNameKW_CHARTerminalRuleCall_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTypeSpecifierRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_3_0, 
         		"at.jku.weiner.c.parser.Parser.KW_CHAR");
 	    }
 
@@ -1270,31 +1292,9 @@ ruleTypeSpecifier returns [EObject current=null]
     |
 (
 (
-		lv_name_3_0=RULE_KW_SHORT
+		lv_name_4_0=RULE_KW_COMPLEX
 		{
-			newLeafNode(lv_name_3_0, grammarAccess.getTypeSpecifierAccess().getNameKW_SHORTTerminalRuleCall_2_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getTypeSpecifierRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"name",
-        		lv_name_3_0, 
-        		"at.jku.weiner.c.parser.Parser.KW_SHORT");
-	    }
-
-)
-)
-
-
-    |
-(
-(
-		lv_name_4_0=RULE_KW_INT
-		{
-			newLeafNode(lv_name_4_0, grammarAccess.getTypeSpecifierAccess().getNameKW_INTTerminalRuleCall_3_0()); 
+			newLeafNode(lv_name_4_0, grammarAccess.getTypeSpecifierAccess().getNameKW_COMPLEXTerminalRuleCall_3_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1304,7 +1304,7 @@ ruleTypeSpecifier returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_4_0, 
-        		"at.jku.weiner.c.parser.Parser.KW_INT");
+        		"at.jku.weiner.c.parser.Parser.KW_COMPLEX");
 	    }
 
 )
@@ -1314,9 +1314,9 @@ ruleTypeSpecifier returns [EObject current=null]
     |
 (
 (
-		lv_name_5_0=RULE_KW_LONG
+		lv_name_5_0=RULE_KW_DOUBLE
 		{
-			newLeafNode(lv_name_5_0, grammarAccess.getTypeSpecifierAccess().getNameKW_LONGTerminalRuleCall_4_0()); 
+			newLeafNode(lv_name_5_0, grammarAccess.getTypeSpecifierAccess().getNameKW_DOUBLETerminalRuleCall_4_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1326,7 +1326,7 @@ ruleTypeSpecifier returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_5_0, 
-        		"at.jku.weiner.c.parser.Parser.KW_LONG");
+        		"at.jku.weiner.c.parser.Parser.KW_DOUBLE");
 	    }
 
 )
@@ -1358,9 +1358,9 @@ ruleTypeSpecifier returns [EObject current=null]
     |
 (
 (
-		lv_name_7_0=RULE_KW_DOUBLE
+		lv_name_7_0=RULE_KW_INT
 		{
-			newLeafNode(lv_name_7_0, grammarAccess.getTypeSpecifierAccess().getNameKW_DOUBLETerminalRuleCall_6_0()); 
+			newLeafNode(lv_name_7_0, grammarAccess.getTypeSpecifierAccess().getNameKW_INTTerminalRuleCall_6_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1370,7 +1370,7 @@ ruleTypeSpecifier returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_7_0, 
-        		"at.jku.weiner.c.parser.Parser.KW_DOUBLE");
+        		"at.jku.weiner.c.parser.Parser.KW_INT");
 	    }
 
 )
@@ -1380,9 +1380,9 @@ ruleTypeSpecifier returns [EObject current=null]
     |
 (
 (
-		lv_name_8_0=RULE_KW_SIGNED
+		lv_name_8_0=RULE_KW_LONG
 		{
-			newLeafNode(lv_name_8_0, grammarAccess.getTypeSpecifierAccess().getNameKW_SIGNEDTerminalRuleCall_7_0()); 
+			newLeafNode(lv_name_8_0, grammarAccess.getTypeSpecifierAccess().getNameKW_LONGTerminalRuleCall_7_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1392,7 +1392,7 @@ ruleTypeSpecifier returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_8_0, 
-        		"at.jku.weiner.c.parser.Parser.KW_SIGNED");
+        		"at.jku.weiner.c.parser.Parser.KW_LONG");
 	    }
 
 )
@@ -1402,9 +1402,9 @@ ruleTypeSpecifier returns [EObject current=null]
     |
 (
 (
-		lv_name_9_0=RULE_KW_UNSIGNED
+		lv_name_9_0=RULE_KW_SHORT
 		{
-			newLeafNode(lv_name_9_0, grammarAccess.getTypeSpecifierAccess().getNameKW_UNSIGNEDTerminalRuleCall_8_0()); 
+			newLeafNode(lv_name_9_0, grammarAccess.getTypeSpecifierAccess().getNameKW_SHORTTerminalRuleCall_8_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1414,6 +1414,160 @@ ruleTypeSpecifier returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_9_0, 
+        		"at.jku.weiner.c.parser.Parser.KW_SHORT");
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		lv_name_10_0=RULE_KW_M128
+		{
+			newLeafNode(lv_name_10_0, grammarAccess.getTypeSpecifierAccess().getNameKW_M128TerminalRuleCall_9_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTypeSpecifierRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_10_0, 
+        		"at.jku.weiner.c.parser.Parser.KW_M128");
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		lv_name_11_0=RULE_KW_M128D
+		{
+			newLeafNode(lv_name_11_0, grammarAccess.getTypeSpecifierAccess().getNameKW_M128DTerminalRuleCall_10_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTypeSpecifierRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_11_0, 
+        		"at.jku.weiner.c.parser.Parser.KW_M128D");
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		lv_name_12_0=RULE_KW_M128I
+		{
+			newLeafNode(lv_name_12_0, grammarAccess.getTypeSpecifierAccess().getNameKW_M128ITerminalRuleCall_11_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTypeSpecifierRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_12_0, 
+        		"at.jku.weiner.c.parser.Parser.KW_M128I");
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		lv_name_13_0=RULE_KW_SIGNED1
+		{
+			newLeafNode(lv_name_13_0, grammarAccess.getTypeSpecifierAccess().getNameKW_SIGNED1TerminalRuleCall_12_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTypeSpecifierRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_13_0, 
+        		"at.jku.weiner.c.parser.Parser.KW_SIGNED1");
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		lv_name_14_0=RULE_KW_SIGNED2
+		{
+			newLeafNode(lv_name_14_0, grammarAccess.getTypeSpecifierAccess().getNameKW_SIGNED2TerminalRuleCall_13_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTypeSpecifierRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_14_0, 
+        		"at.jku.weiner.c.parser.Parser.KW_SIGNED2");
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		lv_name_15_0=RULE_KW_SIGNED3
+		{
+			newLeafNode(lv_name_15_0, grammarAccess.getTypeSpecifierAccess().getNameKW_SIGNED3TerminalRuleCall_14_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTypeSpecifierRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_15_0, 
+        		"at.jku.weiner.c.parser.Parser.KW_SIGNED3");
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		lv_name_16_0=RULE_KW_UNSIGNED
+		{
+			newLeafNode(lv_name_16_0, grammarAccess.getTypeSpecifierAccess().getNameKW_UNSIGNEDTerminalRuleCall_15_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTypeSpecifierRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_16_0, 
         		"at.jku.weiner.c.parser.Parser.KW_UNSIGNED");
 	    }
 
@@ -1424,9 +1578,9 @@ ruleTypeSpecifier returns [EObject current=null]
     |
 (
 (
-		lv_name_10_0=RULE_KW_BOOL
+		lv_name_17_0=RULE_KW_VOID
 		{
-			newLeafNode(lv_name_10_0, grammarAccess.getTypeSpecifierAccess().getNameKW_BOOLTerminalRuleCall_9_0()); 
+			newLeafNode(lv_name_17_0, grammarAccess.getTypeSpecifierAccess().getNameKW_VOIDTerminalRuleCall_16_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1435,118 +1589,8 @@ ruleTypeSpecifier returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"name",
-        		lv_name_10_0, 
-        		"at.jku.weiner.c.parser.Parser.KW_BOOL");
-	    }
-
-)
-)
-
-
-    |
-(
-(
-		lv_name_11_0=RULE_KW_COMPLEX
-		{
-			newLeafNode(lv_name_11_0, grammarAccess.getTypeSpecifierAccess().getNameKW_COMPLEXTerminalRuleCall_10_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getTypeSpecifierRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"name",
-        		lv_name_11_0, 
-        		"at.jku.weiner.c.parser.Parser.KW_COMPLEX");
-	    }
-
-)
-)
-
-
-    |
-(
-(
-		lv_name_12_0=RULE_KW_BUILTIN_VA_LIST
-		{
-			newLeafNode(lv_name_12_0, grammarAccess.getTypeSpecifierAccess().getNameKW_BUILTIN_VA_LISTTerminalRuleCall_11_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getTypeSpecifierRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"name",
-        		lv_name_12_0, 
-        		"at.jku.weiner.c.parser.Parser.KW_BUILTIN_VA_LIST");
-	    }
-
-)
-)
-
-
-    |
-(
-(
-		lv_name_13_0=RULE_KW_M128
-		{
-			newLeafNode(lv_name_13_0, grammarAccess.getTypeSpecifierAccess().getNameKW_M128TerminalRuleCall_12_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getTypeSpecifierRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"name",
-        		lv_name_13_0, 
-        		"at.jku.weiner.c.parser.Parser.KW_M128");
-	    }
-
-)
-)
-
-
-    |
-(
-(
-		lv_name_14_0=RULE_KW_M128D
-		{
-			newLeafNode(lv_name_14_0, grammarAccess.getTypeSpecifierAccess().getNameKW_M128DTerminalRuleCall_13_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getTypeSpecifierRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"name",
-        		lv_name_14_0, 
-        		"at.jku.weiner.c.parser.Parser.KW_M128D");
-	    }
-
-)
-)
-
-
-    |
-(
-(
-		lv_name_15_0=RULE_KW_M128I
-		{
-			newLeafNode(lv_name_15_0, grammarAccess.getTypeSpecifierAccess().getNameKW_M128ITerminalRuleCall_14_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getTypeSpecifierRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"name",
-        		lv_name_15_0, 
-        		"at.jku.weiner.c.parser.Parser.KW_M128I");
+        		lv_name_17_0, 
+        		"at.jku.weiner.c.parser.Parser.KW_VOID");
 	    }
 
 )
@@ -1557,9 +1601,9 @@ ruleTypeSpecifier returns [EObject current=null]
 (
 (
 (
-		lv_name_16_0=RULE_KW_EXTENSION
+		lv_name_18_0=RULE_KW_EXTENSION
 		{
-			newLeafNode(lv_name_16_0, grammarAccess.getTypeSpecifierAccess().getNameKW_EXTENSIONTerminalRuleCall_15_0_0()); 
+			newLeafNode(lv_name_18_0, grammarAccess.getTypeSpecifierAccess().getNameKW_EXTENSIONTerminalRuleCall_17_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1568,7 +1612,7 @@ ruleTypeSpecifier returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"name",
-        		lv_name_16_0, 
+        		lv_name_18_0, 
         		"at.jku.weiner.c.parser.Parser.KW_EXTENSION");
 	    }
 
@@ -1577,9 +1621,9 @@ ruleTypeSpecifier returns [EObject current=null]
 
 
 (
-this_SKW_LEFTPAREN_17=RULE_SKW_LEFTPAREN
+this_SKW_LEFTPAREN_19=RULE_SKW_LEFTPAREN
     { 
-    newLeafNode(this_SKW_LEFTPAREN_17, grammarAccess.getTypeSpecifierAccess().getSKW_LEFTPARENTerminalRuleCall_15_1_0()); 
+    newLeafNode(this_SKW_LEFTPAREN_19, grammarAccess.getTypeSpecifierAccess().getSKW_LEFTPARENTerminalRuleCall_17_1_0()); 
     }
 
 
@@ -1587,53 +1631,9 @@ this_SKW_LEFTPAREN_17=RULE_SKW_LEFTPAREN
 (
 (
 (
-		lv_extType_18_0=RULE_KW_M128
+		lv_extType_20_0=RULE_KW_M128
 		{
-			newLeafNode(lv_extType_18_0, grammarAccess.getTypeSpecifierAccess().getExtTypeKW_M128TerminalRuleCall_15_1_1_0_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getTypeSpecifierRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"extType",
-        		lv_extType_18_0, 
-        		"at.jku.weiner.c.parser.Parser.KW_M128");
-	    }
-
-)
-)
-
-
-    |
-(
-(
-		lv_extType_19_0=RULE_KW_M128D
-		{
-			newLeafNode(lv_extType_19_0, grammarAccess.getTypeSpecifierAccess().getExtTypeKW_M128DTerminalRuleCall_15_1_1_1_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getTypeSpecifierRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"extType",
-        		lv_extType_19_0, 
-        		"at.jku.weiner.c.parser.Parser.KW_M128D");
-	    }
-
-)
-)
-
-
-    |
-(
-(
-		lv_extType_20_0=RULE_KW_M128I
-		{
-			newLeafNode(lv_extType_20_0, grammarAccess.getTypeSpecifierAccess().getExtTypeKW_M128ITerminalRuleCall_15_1_1_2_0()); 
+			newLeafNode(lv_extType_20_0, grammarAccess.getTypeSpecifierAccess().getExtTypeKW_M128TerminalRuleCall_17_1_1_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1643,6 +1643,50 @@ this_SKW_LEFTPAREN_17=RULE_SKW_LEFTPAREN
        			$current, 
        			"extType",
         		lv_extType_20_0, 
+        		"at.jku.weiner.c.parser.Parser.KW_M128");
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		lv_extType_21_0=RULE_KW_M128D
+		{
+			newLeafNode(lv_extType_21_0, grammarAccess.getTypeSpecifierAccess().getExtTypeKW_M128DTerminalRuleCall_17_1_1_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTypeSpecifierRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"extType",
+        		lv_extType_21_0, 
+        		"at.jku.weiner.c.parser.Parser.KW_M128D");
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		lv_extType_22_0=RULE_KW_M128I
+		{
+			newLeafNode(lv_extType_22_0, grammarAccess.getTypeSpecifierAccess().getExtTypeKW_M128ITerminalRuleCall_17_1_1_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTypeSpecifierRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"extType",
+        		lv_extType_22_0, 
         		"at.jku.weiner.c.parser.Parser.KW_M128I");
 	    }
 
@@ -1652,9 +1696,9 @@ this_SKW_LEFTPAREN_17=RULE_SKW_LEFTPAREN
 )
 
 
-this_SKW_RIGHTPAREN_21=RULE_SKW_RIGHTPAREN
+this_SKW_RIGHTPAREN_23=RULE_SKW_RIGHTPAREN
     { 
-    newLeafNode(this_SKW_RIGHTPAREN_21, grammarAccess.getTypeSpecifierAccess().getSKW_RIGHTPARENTerminalRuleCall_15_1_2()); 
+    newLeafNode(this_SKW_RIGHTPAREN_23, grammarAccess.getTypeSpecifierAccess().getSKW_RIGHTPARENTerminalRuleCall_17_1_2()); 
     }
 
 
@@ -1667,16 +1711,16 @@ this_SKW_RIGHTPAREN_21=RULE_SKW_RIGHTPAREN
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getTypeSpecifierAccess().getSpecifierEnumSpecifierParserRuleCall_16_0()); 
+	        newCompositeNode(grammarAccess.getTypeSpecifierAccess().getSpecifierEnumSpecifierParserRuleCall_18_0()); 
 	    }
-		lv_specifier_22_0=ruleEnumSpecifier		{
+		lv_specifier_24_0=ruleEnumSpecifier		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getTypeSpecifierRule());
 	        }
        		set(
        			$current, 
        			"specifier",
-        		lv_specifier_22_0, 
+        		lv_specifier_24_0, 
         		"at.jku.weiner.c.parser.Parser.EnumSpecifier");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -1689,16 +1733,16 @@ this_SKW_RIGHTPAREN_21=RULE_SKW_RIGHTPAREN
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getTypeSpecifierAccess().getTypeTypedefNameParserRuleCall_17_0()); 
+	        newCompositeNode(grammarAccess.getTypeSpecifierAccess().getTypeTypedefNameParserRuleCall_19_0()); 
 	    }
-		lv_type_23_0=ruleTypedefName		{
+		lv_type_25_0=ruleTypedefName		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getTypeSpecifierRule());
 	        }
        		set(
        			$current, 
        			"type",
-        		lv_type_23_0, 
+        		lv_type_25_0, 
         		"at.jku.weiner.c.parser.Parser.TypedefName");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -1711,16 +1755,16 @@ this_SKW_RIGHTPAREN_21=RULE_SKW_RIGHTPAREN
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getTypeSpecifierAccess().getStructStructOrUnionNameParserRuleCall_18_0()); 
+	        newCompositeNode(grammarAccess.getTypeSpecifierAccess().getStructStructOrUnionNameParserRuleCall_20_0()); 
 	    }
-		lv_struct_24_0=ruleStructOrUnionName		{
+		lv_struct_26_0=ruleStructOrUnionName		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getTypeSpecifierRule());
 	        }
        		set(
        			$current, 
        			"struct",
-        		lv_struct_24_0, 
+        		lv_struct_26_0, 
         		"at.jku.weiner.c.parser.Parser.StructOrUnionName");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -3043,9 +3087,10 @@ ruleFunctionSpecifier returns [EObject current=null]
 (
 (
 (
+(
 		lv_name_1_0=RULE_KW_INLINE1
 		{
-			newLeafNode(lv_name_1_0, grammarAccess.getFunctionSpecifierAccess().getNameKW_INLINE1TerminalRuleCall_1_0_0()); 
+			newLeafNode(lv_name_1_0, grammarAccess.getFunctionSpecifierAccess().getNameKW_INLINE1TerminalRuleCall_1_0_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -3067,7 +3112,7 @@ ruleFunctionSpecifier returns [EObject current=null]
 (
 		lv_name_2_0=RULE_KW_INLINE2
 		{
-			newLeafNode(lv_name_2_0, grammarAccess.getFunctionSpecifierAccess().getNameKW_INLINE2TerminalRuleCall_1_1_0()); 
+			newLeafNode(lv_name_2_0, grammarAccess.getFunctionSpecifierAccess().getNameKW_INLINE2TerminalRuleCall_1_0_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -3089,7 +3134,7 @@ ruleFunctionSpecifier returns [EObject current=null]
 (
 		lv_name_3_0=RULE_KW_NORETURN
 		{
-			newLeafNode(lv_name_3_0, grammarAccess.getFunctionSpecifierAccess().getNameKW_NORETURNTerminalRuleCall_1_2_0()); 
+			newLeafNode(lv_name_3_0, grammarAccess.getFunctionSpecifierAccess().getNameKW_NORETURNTerminalRuleCall_1_0_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -3100,6 +3145,30 @@ ruleFunctionSpecifier returns [EObject current=null]
        			"name",
         		lv_name_3_0, 
         		"at.jku.weiner.c.parser.Parser.KW_NORETURN");
+	    }
+
+)
+)
+
+)
+
+
+    |
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getFunctionSpecifierAccess().getGccAttributeSpecifierGccAttributeSpecifierParserRuleCall_1_1_0()); 
+	    }
+		lv_gccAttributeSpecifier_4_0=ruleGccAttributeSpecifier		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getFunctionSpecifierRule());
+	        }
+       		set(
+       			$current, 
+       			"gccAttributeSpecifier",
+        		lv_gccAttributeSpecifier_4_0, 
+        		"at.jku.weiner.c.parser.Parser.GccAttributeSpecifier");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
@@ -11023,7 +11092,11 @@ RULE_KW_RETURN : 'return';
 
 RULE_KW_SHORT : 'short';
 
-RULE_KW_SIGNED : 'signed';
+RULE_KW_SIGNED1 : 'signed';
+
+RULE_KW_SIGNED2 : RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE RULE_KW_SIGNED1;
+
+RULE_KW_SIGNED3 : RULE_KW_SIGNED2 RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE;
 
 RULE_KW_SIZEOF : 'sizeof';
 

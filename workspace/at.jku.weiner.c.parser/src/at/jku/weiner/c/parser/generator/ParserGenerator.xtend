@@ -199,7 +199,8 @@ class ParserGenerator implements IGenerator {
 	'''
 	
 	def String outputFor(FunctionSpecifier spec) '''
-		«spec.name»
+	«IF spec.name != null»«spec.name»«ENDIF»
+	«IF spec.gccAttributeSpecifier != null»«outputFor(spec.gccAttributeSpecifier)»«ENDIF»
 	'''
 	
 	def String outputFor(TypeSpecifier spec) '''

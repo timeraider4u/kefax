@@ -1,0 +1,105 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.parser
+language parser
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+source file="res/Test0053_AttributeInFunction.c"
+//----------------------------------------------------------------------
+lexer-tokens
+KW_STATIC WHITESPACE KW_INLINE1 WHITESPACE
+	KW_ATTRIBUTE SKW_LEFTPAREN SKW_LEFTPAREN ID
+	SKW_RIGHTPAREN SKW_RIGHTPAREN WHITESPACE 
+	KW_VOID WHITESPACE ID SKW_LEFTPAREN KW_INT WHITESPACE ID SKW_RIGHTPAREN NEWLINE
+SKW_LEFTBRACE NEWLINE
+NEWLINE
+SKW_RIGHTBRACE NEWLINE
+//----------------------------------------------------------------------
+//(common::Model units+=
+	//(common::TranslationUnit 
+	(Parser
+		external+=
+		(ExternalDeclaration 
+			functiondefHead=
+			(FunctionDefHead
+				funDeclSpecifiers=
+				(FunctionDeclarationSpecifiers
+					declarationSpecifier+=
+					(StorageClassSpecifier
+						name++"static"
+					),
+					(FunctionSpecifier
+						name++"inline"
+					),
+					(FunctionSpecifier
+						gccAttributeSpecifier=
+						(GccAttributeSpecifier
+							list=
+							(GccAttributeList
+								gccAttribute+=
+								(GccAttribute
+									id++"no_instrument_function"
+								)
+							)
+						)
+					),
+					(TypeSpecifier
+						name++"void"
+					)
+				),
+				funDeclarator=
+				(Declarator
+					declarator=
+					(DirectDeclarator
+						id++"foo",
+						declaratorSuffix+=
+						(DeclaratorSuffix
+							lastSuffix=
+							(DirectDeclaratorLastSuffix
+								parameterTypeList+=
+								(ParameterTypeList
+									list=
+									(ParameterList
+										parameterDeclaration+=
+										(ParameterDeclaration
+											declSpecifiers=
+											(DeclarationSpecifiers
+												declarationSpecifier+=
+												(TypeSpecifier
+													name++"int"
+												)
+											),
+											declarator=
+											(Declarator
+												declarator=
+												(DirectDeclarator
+													id++"bar"
+												)
+											)
+										)
+									)
+								)
+							)
+						) // DeclaratorSuffix
+					)
+				)
+			),
+			functionDefinition=
+			(FunctionDefinition
+				body=
+				(BodyStatement
+					
+				)
+			)
+		)
+		
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0053_AttributeInFunction.c"
+expected file isSameAsInputFile
+
+replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

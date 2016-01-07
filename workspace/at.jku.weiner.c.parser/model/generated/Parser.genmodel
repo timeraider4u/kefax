@@ -92,6 +92,7 @@
     </genClasses>
     <genClasses ecoreClass="Parser.ecore#//FunctionSpecifier">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//FunctionSpecifier/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//FunctionSpecifier/gccAttributeSpecifier"/>
     </genClasses>
     <genClasses ecoreClass="Parser.ecore#//Declarator">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//Declarator/pointer"/>

@@ -847,13 +847,22 @@ public interface ParserPackage extends EPackage
   int FUNCTION_SPECIFIER__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Gcc Attribute Specifier</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_SPECIFIER__GCC_ATTRIBUTE_SPECIFIER = 1;
+
+  /**
    * The number of structural features of the '<em>Function Specifier</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FUNCTION_SPECIFIER_FEATURE_COUNT = 1;
+  int FUNCTION_SPECIFIER_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.DeclaratorImpl <em>Declarator</em>}' class.
@@ -4299,6 +4308,17 @@ public interface ParserPackage extends EPackage
   EAttribute getFunctionSpecifier_Name();
 
   /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.FunctionSpecifier#getGccAttributeSpecifier <em>Gcc Attribute Specifier</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Gcc Attribute Specifier</em>'.
+   * @see at.jku.weiner.c.parser.parser.FunctionSpecifier#getGccAttributeSpecifier()
+   * @see #getFunctionSpecifier()
+   * @generated
+   */
+  EReference getFunctionSpecifier_GccAttributeSpecifier();
+
+  /**
    * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.Declarator <em>Declarator</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6886,6 +6906,14 @@ public interface ParserPackage extends EPackage
      * @generated
      */
     EAttribute FUNCTION_SPECIFIER__NAME = eINSTANCE.getFunctionSpecifier_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Gcc Attribute Specifier</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FUNCTION_SPECIFIER__GCC_ATTRIBUTE_SPECIFIER = eINSTANCE.getFunctionSpecifier_GccAttributeSpecifier();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.DeclaratorImpl <em>Declarator</em>}' class.

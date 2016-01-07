@@ -1,0 +1,117 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.parser
+language parser
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+source file="res/Test0052_Signed.c"
+//----------------------------------------------------------------------
+lexer-tokens
+KW_SIGNED1 WHITESPACE KW_INT WHITESPACE ID SKW_SEMI NEWLINE
+KW_SIGNED2 WHITESPACE KW_INT WHITESPACE ID SKW_SEMI NEWLINE
+KW_SIGNED3 WHITESPACE KW_INT WHITESPACE ID SKW_SEMI NEWLINE
+//----------------------------------------------------------------------
+//(common::Model units+=
+	//(common::TranslationUnit 
+	(Parser
+		external+=
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"signed"
+					),
+					(TypeSpecifier
+						name++"int"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"i"
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+		),
+		(ExternalDeclaration
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"__signed"
+					),
+					(TypeSpecifier
+						name++"int"
+					)
+				)
+				,
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"j"
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+			
+		),
+		(ExternalDeclaration
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"__signed__"
+					),
+					(TypeSpecifier
+						name++"int"
+					)
+				)
+				,
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"k"
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+			
+		)
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0052_Signed.c"
+expected file isSameAsInputFile
+replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

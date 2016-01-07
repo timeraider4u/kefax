@@ -716,7 +716,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=KW_INLINE1 | name=KW_INLINE2 | name=KW_NORETURN)
+	 *     (name=KW_INLINE1 | name=KW_INLINE2 | name=KW_NORETURN | gccAttributeSpecifier=GccAttributeSpecifier)
 	 */
 	protected void sequence_FunctionSpecifier(EObject context, FunctionSpecifier semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1226,7 +1226,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     name=KW_VOID
+	 *     name=KW_BOOL
 	 */
 	protected void sequence_TypeSpecifier(EObject context, TypeSpecifier semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

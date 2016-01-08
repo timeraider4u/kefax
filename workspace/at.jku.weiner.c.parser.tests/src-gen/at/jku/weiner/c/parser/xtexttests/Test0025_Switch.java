@@ -241,92 +241,92 @@ public class Test0025_Switch {
 		return content;
 	}
 	
-	@Test
+	@Test (timeout=1000)
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0025_Switch.c");
 			//System.out.println(text);
 			final String[] expected = new String[] {
-				"RULE_KW_INT", 
-				"RULE_WHITESPACE", 
-				"RULE_ID", 
-				"RULE_SKW_LEFTPAREN", 
-				"RULE_KW_INT", 
-				"RULE_WHITESPACE", 
-				"RULE_ID", 
-				"RULE_SKW_RIGHTPAREN", 
-				"RULE_WHITESPACE", 
-				"RULE_SKW_LEFTBRACE", 
-				"RULE_NEWLINE", 
-				"RULE_WHITESPACE", 
-				"RULE_KW_SWITCH", 
-				"RULE_WHITESPACE", 
-				"RULE_SKW_LEFTPAREN", 
-				"RULE_ID", 
-				"RULE_SKW_RIGHTPAREN", 
-				"RULE_WHITESPACE", 
-				"RULE_SKW_LEFTBRACE", 
-				"RULE_NEWLINE", 
-				"RULE_WHITESPACE", 
-				"RULE_KW_CASE", 
-				"RULE_WHITESPACE", 
-				"RULE_DECIMAL_LITERAL", 
-				"RULE_SKW_COLON", 
-				"RULE_NEWLINE", 
-				"RULE_WHITESPACE", 
-				"RULE_KW_RETURN", 
-				"RULE_WHITESPACE", 
-				"RULE_DECIMAL_LITERAL", 
-				"RULE_SKW_SEMI", 
-				"RULE_NEWLINE", 
-				"RULE_WHITESPACE", 
-				"RULE_KW_CASE", 
-				"RULE_WHITESPACE", 
-				"RULE_DECIMAL_LITERAL", 
-				"RULE_SKW_COLON", 
-				"RULE_WHITESPACE", 
-				"RULE_SKW_LEFTBRACE", 
-				"RULE_NEWLINE", 
-				"RULE_WHITESPACE", 
-				"RULE_KW_BREAK", 
-				"RULE_SKW_SEMI", 
-				"RULE_NEWLINE", 
-				"RULE_WHITESPACE", 
-				"RULE_SKW_RIGHTBRACE", 
-				"RULE_NEWLINE", 
-				"RULE_WHITESPACE", 
-				"RULE_KW_DEFAULT", 
-				"RULE_SKW_COLON", 
-				"RULE_WHITESPACE", 
-				"RULE_SKW_LEFTBRACE", 
-				"RULE_NEWLINE", 
-				"RULE_WHITESPACE", 
-				"RULE_KW_RETURN", 
-				"RULE_WHITESPACE", 
-				"RULE_DECIMAL_LITERAL", 
-				"RULE_SKW_SEMI", 
-				"RULE_NEWLINE", 
-				"RULE_WHITESPACE", 
-				"RULE_SKW_RIGHTBRACE", 
-				"RULE_NEWLINE", 
-				"RULE_WHITESPACE", 
-				"RULE_SKW_RIGHTBRACE", 
-				"RULE_NEWLINE", 
-				"RULE_WHITESPACE", 
-				"RULE_KW_RETURN", 
-				"RULE_WHITESPACE", 
-				"RULE_DECIMAL_LITERAL", 
-				"RULE_SKW_SEMI", 
-				"RULE_NEWLINE", 
-				"RULE_SKW_RIGHTBRACE", 
-				"RULE_NEWLINE", 
+				"RULE_KW_INT",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_KW_INT",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_WHITESPACE",
+				"RULE_SKW_LEFTBRACE",
+				"RULE_NEWLINE",
+				"RULE_WHITESPACE",
+				"RULE_KW_SWITCH",
+				"RULE_WHITESPACE",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_WHITESPACE",
+				"RULE_SKW_LEFTBRACE",
+				"RULE_NEWLINE",
+				"RULE_WHITESPACE",
+				"RULE_KW_CASE",
+				"RULE_WHITESPACE",
+				"RULE_DECIMAL_LITERAL",
+				"RULE_SKW_COLON",
+				"RULE_NEWLINE",
+				"RULE_WHITESPACE",
+				"RULE_KW_RETURN",
+				"RULE_WHITESPACE",
+				"RULE_DECIMAL_LITERAL",
+				"RULE_SKW_SEMI",
+				"RULE_NEWLINE",
+				"RULE_WHITESPACE",
+				"RULE_KW_CASE",
+				"RULE_WHITESPACE",
+				"RULE_DECIMAL_LITERAL",
+				"RULE_SKW_COLON",
+				"RULE_WHITESPACE",
+				"RULE_SKW_LEFTBRACE",
+				"RULE_NEWLINE",
+				"RULE_WHITESPACE",
+				"RULE_KW_BREAK",
+				"RULE_SKW_SEMI",
+				"RULE_NEWLINE",
+				"RULE_WHITESPACE",
+				"RULE_SKW_RIGHTBRACE",
+				"RULE_NEWLINE",
+				"RULE_WHITESPACE",
+				"RULE_KW_DEFAULT",
+				"RULE_SKW_COLON",
+				"RULE_WHITESPACE",
+				"RULE_SKW_LEFTBRACE",
+				"RULE_NEWLINE",
+				"RULE_WHITESPACE",
+				"RULE_KW_RETURN",
+				"RULE_WHITESPACE",
+				"RULE_DECIMAL_LITERAL",
+				"RULE_SKW_SEMI",
+				"RULE_NEWLINE",
+				"RULE_WHITESPACE",
+				"RULE_SKW_RIGHTBRACE",
+				"RULE_NEWLINE",
+				"RULE_WHITESPACE",
+				"RULE_SKW_RIGHTBRACE",
+				"RULE_NEWLINE",
+				"RULE_WHITESPACE",
+				"RULE_KW_RETURN",
+				"RULE_WHITESPACE",
+				"RULE_DECIMAL_LITERAL",
+				"RULE_SKW_SEMI",
+				"RULE_NEWLINE",
+				"RULE_SKW_RIGHTBRACE",
+				"RULE_NEWLINE",
 				};
 			//final List<Token> actual = testHelper.getTokens(text);
 			//testHelper.outputTokens(text);
 			testHelper.checkTokenisation(text, expected);
 	}
 	
-	@Test
+	@Test (timeout=1000)
 	public void checkParserResult() throws Exception {
 		final String text = this.getTextFromFile(
 			"res/Test0025_Switch.c");
@@ -1182,8 +1182,8 @@ public class Test0025_Switch {
 		.getStmt();
 		Assert.assertNotNull(LabeledStatement_107_Var
 		);
-		Assert.assertEquals("default", LabeledStatement_107_Var
-		.getDefault());
+		Assert.assertTrue(LabeledStatement_107_Var
+		.isMydefault());
 		//107
 		final Statement Statement_108_Var
 		 = (Statement)LabeledStatement_107_Var
@@ -1540,6 +1540,8 @@ public class Test0025_Switch {
 	}
 	
 	@Test
+	(timeout=1000
+	)
 	public void testGenerator() throws Exception {
 		// load the resource
 		ResourceSet set = this.resourceSetProvider.get();

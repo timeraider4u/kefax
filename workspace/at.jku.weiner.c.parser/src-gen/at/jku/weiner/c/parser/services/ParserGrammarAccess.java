@@ -2578,33 +2578,40 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
 		private final Assignment cCaseAssignment_1_1_0 = (Assignment)cGroup_1_1.eContents().get(0);
 		private final RuleCall cCaseKW_CASETerminalRuleCall_1_1_0_0 = (RuleCall)cCaseAssignment_1_1_0.eContents().get(0);
-		private final Assignment cExprAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
-		private final RuleCall cExprConstantExpressionParserRuleCall_1_1_1_0 = (RuleCall)cExprAssignment_1_1_1.eContents().get(0);
+		private final Alternatives cAlternatives_1_1_1 = (Alternatives)cGroup_1_1.eContents().get(1);
+		private final Group cGroup_1_1_1_0 = (Group)cAlternatives_1_1_1.eContents().get(0);
+		private final Assignment cLowerAssignment_1_1_1_0_0 = (Assignment)cGroup_1_1_1_0.eContents().get(0);
+		private final RuleCall cLowerConstant1ParserRuleCall_1_1_1_0_0_0 = (RuleCall)cLowerAssignment_1_1_1_0_0.eContents().get(0);
+		private final RuleCall cEllipsisParserRuleCall_1_1_1_0_1 = (RuleCall)cGroup_1_1_1_0.eContents().get(1);
+		private final Assignment cHigherAssignment_1_1_1_0_2 = (Assignment)cGroup_1_1_1_0.eContents().get(2);
+		private final RuleCall cHigherConstant1ParserRuleCall_1_1_1_0_2_0 = (RuleCall)cHigherAssignment_1_1_1_0_2.eContents().get(0);
+		private final Assignment cExprAssignment_1_1_1_1 = (Assignment)cAlternatives_1_1_1.eContents().get(1);
+		private final RuleCall cExprConstantExpressionParserRuleCall_1_1_1_1_0 = (RuleCall)cExprAssignment_1_1_1_1.eContents().get(0);
 		private final RuleCall cSKW_COLONTerminalRuleCall_1_1_2 = (RuleCall)cGroup_1_1.eContents().get(2);
 		private final Assignment cLStmtAssignment_1_1_3 = (Assignment)cGroup_1_1.eContents().get(3);
 		private final RuleCall cLStmtStatementParserRuleCall_1_1_3_0 = (RuleCall)cLStmtAssignment_1_1_3.eContents().get(0);
 		private final Group cGroup_1_2 = (Group)cAlternatives_1.eContents().get(2);
-		private final Assignment cDefaultAssignment_1_2_0 = (Assignment)cGroup_1_2.eContents().get(0);
-		private final RuleCall cDefaultKW_DEFAULTTerminalRuleCall_1_2_0_0 = (RuleCall)cDefaultAssignment_1_2_0.eContents().get(0);
+		private final Assignment cMydefaultAssignment_1_2_0 = (Assignment)cGroup_1_2.eContents().get(0);
+		private final RuleCall cMydefaultKW_DEFAULTTerminalRuleCall_1_2_0_0 = (RuleCall)cMydefaultAssignment_1_2_0.eContents().get(0);
 		private final RuleCall cSKW_COLONTerminalRuleCall_1_2_1 = (RuleCall)cGroup_1_2.eContents().get(1);
 		private final Assignment cLStmtAssignment_1_2_2 = (Assignment)cGroup_1_2.eContents().get(2);
 		private final RuleCall cLStmtStatementParserRuleCall_1_2_2_0 = (RuleCall)cLStmtAssignment_1_2_2.eContents().get(0);
 		
 		//LabeledStatement Statement:
 		//	{LabeledStatement} (id=ID SKW_COLON lStmt=Statement
-		//	| case=KW_CASE expr=ConstantExpression SKW_COLON lStmt=Statement
-		//	| default=KW_DEFAULT SKW_COLON lStmt=Statement)
+		//	| case=KW_CASE (lower=Constant1 Ellipsis higher=Constant1 | expr=ConstantExpression) SKW_COLON lStmt=Statement
+		//	| mydefault?=KW_DEFAULT SKW_COLON lStmt=Statement)
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{LabeledStatement} (id=ID SKW_COLON lStmt=Statement | case=KW_CASE expr=ConstantExpression SKW_COLON lStmt=Statement |
-		//default=KW_DEFAULT SKW_COLON lStmt=Statement)
+		//{LabeledStatement} (id=ID SKW_COLON lStmt=Statement | case=KW_CASE (lower=Constant1 Ellipsis higher=Constant1 |
+		//expr=ConstantExpression) SKW_COLON lStmt=Statement | mydefault?=KW_DEFAULT SKW_COLON lStmt=Statement)
 		public Group getGroup() { return cGroup; }
 		
 		//{LabeledStatement}
 		public Action getLabeledStatementAction_0() { return cLabeledStatementAction_0; }
 		
-		//(id=ID SKW_COLON lStmt=Statement | case=KW_CASE expr=ConstantExpression SKW_COLON lStmt=Statement | default=KW_DEFAULT
-		//SKW_COLON lStmt=Statement)
+		//(id=ID SKW_COLON lStmt=Statement | case=KW_CASE (lower=Constant1 Ellipsis higher=Constant1 | expr=ConstantExpression)
+		//SKW_COLON lStmt=Statement | mydefault?=KW_DEFAULT SKW_COLON lStmt=Statement)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
 		//id=ID SKW_COLON lStmt=Statement
@@ -2625,7 +2632,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//Statement
 		public RuleCall getLStmtStatementParserRuleCall_1_0_2_0() { return cLStmtStatementParserRuleCall_1_0_2_0; }
 		
-		//case=KW_CASE expr=ConstantExpression SKW_COLON lStmt=Statement
+		//case=KW_CASE (lower=Constant1 Ellipsis higher=Constant1 | expr=ConstantExpression) SKW_COLON lStmt=Statement
 		public Group getGroup_1_1() { return cGroup_1_1; }
 		
 		//case=KW_CASE
@@ -2634,11 +2641,32 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//KW_CASE
 		public RuleCall getCaseKW_CASETerminalRuleCall_1_1_0_0() { return cCaseKW_CASETerminalRuleCall_1_1_0_0; }
 		
+		//(lower=Constant1 Ellipsis higher=Constant1 | expr=ConstantExpression)
+		public Alternatives getAlternatives_1_1_1() { return cAlternatives_1_1_1; }
+		
+		//lower=Constant1 Ellipsis higher=Constant1
+		public Group getGroup_1_1_1_0() { return cGroup_1_1_1_0; }
+		
+		//lower=Constant1
+		public Assignment getLowerAssignment_1_1_1_0_0() { return cLowerAssignment_1_1_1_0_0; }
+		
+		//Constant1
+		public RuleCall getLowerConstant1ParserRuleCall_1_1_1_0_0_0() { return cLowerConstant1ParserRuleCall_1_1_1_0_0_0; }
+		
+		//Ellipsis
+		public RuleCall getEllipsisParserRuleCall_1_1_1_0_1() { return cEllipsisParserRuleCall_1_1_1_0_1; }
+		
+		//higher=Constant1
+		public Assignment getHigherAssignment_1_1_1_0_2() { return cHigherAssignment_1_1_1_0_2; }
+		
+		//Constant1
+		public RuleCall getHigherConstant1ParserRuleCall_1_1_1_0_2_0() { return cHigherConstant1ParserRuleCall_1_1_1_0_2_0; }
+		
 		//expr=ConstantExpression
-		public Assignment getExprAssignment_1_1_1() { return cExprAssignment_1_1_1; }
+		public Assignment getExprAssignment_1_1_1_1() { return cExprAssignment_1_1_1_1; }
 		
 		//ConstantExpression
-		public RuleCall getExprConstantExpressionParserRuleCall_1_1_1_0() { return cExprConstantExpressionParserRuleCall_1_1_1_0; }
+		public RuleCall getExprConstantExpressionParserRuleCall_1_1_1_1_0() { return cExprConstantExpressionParserRuleCall_1_1_1_1_0; }
 		
 		//SKW_COLON
 		public RuleCall getSKW_COLONTerminalRuleCall_1_1_2() { return cSKW_COLONTerminalRuleCall_1_1_2; }
@@ -2649,14 +2677,14 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//Statement
 		public RuleCall getLStmtStatementParserRuleCall_1_1_3_0() { return cLStmtStatementParserRuleCall_1_1_3_0; }
 		
-		//default=KW_DEFAULT SKW_COLON lStmt=Statement
+		//mydefault?=KW_DEFAULT SKW_COLON lStmt=Statement
 		public Group getGroup_1_2() { return cGroup_1_2; }
 		
-		//default=KW_DEFAULT
-		public Assignment getDefaultAssignment_1_2_0() { return cDefaultAssignment_1_2_0; }
+		//mydefault?=KW_DEFAULT
+		public Assignment getMydefaultAssignment_1_2_0() { return cMydefaultAssignment_1_2_0; }
 		
 		//KW_DEFAULT
-		public RuleCall getDefaultKW_DEFAULTTerminalRuleCall_1_2_0_0() { return cDefaultKW_DEFAULTTerminalRuleCall_1_2_0_0; }
+		public RuleCall getMydefaultKW_DEFAULTTerminalRuleCall_1_2_0_0() { return cMydefaultKW_DEFAULTTerminalRuleCall_1_2_0_0; }
 		
 		//SKW_COLON
 		public RuleCall getSKW_COLONTerminalRuleCall_1_2_1() { return cSKW_COLONTerminalRuleCall_1_2_1; }
@@ -6059,8 +6087,8 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//LabeledStatement Statement:
 	//	{LabeledStatement} (id=ID SKW_COLON lStmt=Statement
-	//	| case=KW_CASE expr=ConstantExpression SKW_COLON lStmt=Statement
-	//	| default=KW_DEFAULT SKW_COLON lStmt=Statement)
+	//	| case=KW_CASE (lower=Constant1 Ellipsis higher=Constant1 | expr=ConstantExpression) SKW_COLON lStmt=Statement
+	//	| mydefault?=KW_DEFAULT SKW_COLON lStmt=Statement)
 	public LabeledStatementElements getLabeledStatementAccess() {
 		return pLabeledStatement;
 	}

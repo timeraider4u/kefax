@@ -26,8 +26,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.LabeledStatementImpl#getId <em>Id</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.LabeledStatementImpl#getLStmt <em>LStmt</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.LabeledStatementImpl#getCase <em>Case</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.LabeledStatementImpl#getLower <em>Lower</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.LabeledStatementImpl#getHigher <em>Higher</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.LabeledStatementImpl#getExpr <em>Expr</em>}</li>
- *   <li>{@link at.jku.weiner.c.parser.parser.impl.LabeledStatementImpl#getDefault <em>Default</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.LabeledStatementImpl#isMydefault <em>Mydefault</em>}</li>
  * </ul>
  *
  * @generated
@@ -85,6 +87,46 @@ public class LabeledStatementImpl extends StatementImpl implements LabeledStatem
   protected String case_ = CASE_EDEFAULT;
 
   /**
+   * The default value of the '{@link #getLower() <em>Lower</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLower()
+   * @generated
+   * @ordered
+   */
+  protected static final String LOWER_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getLower() <em>Lower</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLower()
+   * @generated
+   * @ordered
+   */
+  protected String lower = LOWER_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getHigher() <em>Higher</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getHigher()
+   * @generated
+   * @ordered
+   */
+  protected static final String HIGHER_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getHigher() <em>Higher</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getHigher()
+   * @generated
+   * @ordered
+   */
+  protected String higher = HIGHER_EDEFAULT;
+
+  /**
    * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -95,24 +137,24 @@ public class LabeledStatementImpl extends StatementImpl implements LabeledStatem
   protected Expression expr;
 
   /**
-   * The default value of the '{@link #getDefault() <em>Default</em>}' attribute.
+   * The default value of the '{@link #isMydefault() <em>Mydefault</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDefault()
+   * @see #isMydefault()
    * @generated
    * @ordered
    */
-  protected static final String DEFAULT_EDEFAULT = null;
+  protected static final boolean MYDEFAULT_EDEFAULT = false;
 
   /**
-   * The cached value of the '{@link #getDefault() <em>Default</em>}' attribute.
+   * The cached value of the '{@link #isMydefault() <em>Mydefault</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDefault()
+   * @see #isMydefault()
    * @generated
    * @ordered
    */
-  protected String default_ = DEFAULT_EDEFAULT;
+  protected boolean mydefault = MYDEFAULT_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -234,6 +276,52 @@ public class LabeledStatementImpl extends StatementImpl implements LabeledStatem
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getLower()
+  {
+    return lower;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setLower(String newLower)
+  {
+    String oldLower = lower;
+    lower = newLower;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.LABELED_STATEMENT__LOWER, oldLower, lower));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getHigher()
+  {
+    return higher;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setHigher(String newHigher)
+  {
+    String oldHigher = higher;
+    higher = newHigher;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.LABELED_STATEMENT__HIGHER, oldHigher, higher));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Expression getExpr()
   {
     return expr;
@@ -282,9 +370,9 @@ public class LabeledStatementImpl extends StatementImpl implements LabeledStatem
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getDefault()
+  public boolean isMydefault()
   {
-    return default_;
+    return mydefault;
   }
 
   /**
@@ -292,12 +380,12 @@ public class LabeledStatementImpl extends StatementImpl implements LabeledStatem
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDefault(String newDefault)
+  public void setMydefault(boolean newMydefault)
   {
-    String oldDefault = default_;
-    default_ = newDefault;
+    boolean oldMydefault = mydefault;
+    mydefault = newMydefault;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.LABELED_STATEMENT__DEFAULT, oldDefault, default_));
+      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.LABELED_STATEMENT__MYDEFAULT, oldMydefault, mydefault));
   }
 
   /**
@@ -334,10 +422,14 @@ public class LabeledStatementImpl extends StatementImpl implements LabeledStatem
         return getLStmt();
       case ParserPackage.LABELED_STATEMENT__CASE:
         return getCase();
+      case ParserPackage.LABELED_STATEMENT__LOWER:
+        return getLower();
+      case ParserPackage.LABELED_STATEMENT__HIGHER:
+        return getHigher();
       case ParserPackage.LABELED_STATEMENT__EXPR:
         return getExpr();
-      case ParserPackage.LABELED_STATEMENT__DEFAULT:
-        return getDefault();
+      case ParserPackage.LABELED_STATEMENT__MYDEFAULT:
+        return isMydefault();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -361,11 +453,17 @@ public class LabeledStatementImpl extends StatementImpl implements LabeledStatem
       case ParserPackage.LABELED_STATEMENT__CASE:
         setCase((String)newValue);
         return;
+      case ParserPackage.LABELED_STATEMENT__LOWER:
+        setLower((String)newValue);
+        return;
+      case ParserPackage.LABELED_STATEMENT__HIGHER:
+        setHigher((String)newValue);
+        return;
       case ParserPackage.LABELED_STATEMENT__EXPR:
         setExpr((Expression)newValue);
         return;
-      case ParserPackage.LABELED_STATEMENT__DEFAULT:
-        setDefault((String)newValue);
+      case ParserPackage.LABELED_STATEMENT__MYDEFAULT:
+        setMydefault((Boolean)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -390,11 +488,17 @@ public class LabeledStatementImpl extends StatementImpl implements LabeledStatem
       case ParserPackage.LABELED_STATEMENT__CASE:
         setCase(CASE_EDEFAULT);
         return;
+      case ParserPackage.LABELED_STATEMENT__LOWER:
+        setLower(LOWER_EDEFAULT);
+        return;
+      case ParserPackage.LABELED_STATEMENT__HIGHER:
+        setHigher(HIGHER_EDEFAULT);
+        return;
       case ParserPackage.LABELED_STATEMENT__EXPR:
         setExpr((Expression)null);
         return;
-      case ParserPackage.LABELED_STATEMENT__DEFAULT:
-        setDefault(DEFAULT_EDEFAULT);
+      case ParserPackage.LABELED_STATEMENT__MYDEFAULT:
+        setMydefault(MYDEFAULT_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -416,10 +520,14 @@ public class LabeledStatementImpl extends StatementImpl implements LabeledStatem
         return lStmt != null;
       case ParserPackage.LABELED_STATEMENT__CASE:
         return CASE_EDEFAULT == null ? case_ != null : !CASE_EDEFAULT.equals(case_);
+      case ParserPackage.LABELED_STATEMENT__LOWER:
+        return LOWER_EDEFAULT == null ? lower != null : !LOWER_EDEFAULT.equals(lower);
+      case ParserPackage.LABELED_STATEMENT__HIGHER:
+        return HIGHER_EDEFAULT == null ? higher != null : !HIGHER_EDEFAULT.equals(higher);
       case ParserPackage.LABELED_STATEMENT__EXPR:
         return expr != null;
-      case ParserPackage.LABELED_STATEMENT__DEFAULT:
-        return DEFAULT_EDEFAULT == null ? default_ != null : !DEFAULT_EDEFAULT.equals(default_);
+      case ParserPackage.LABELED_STATEMENT__MYDEFAULT:
+        return mydefault != MYDEFAULT_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -439,8 +547,12 @@ public class LabeledStatementImpl extends StatementImpl implements LabeledStatem
     result.append(id);
     result.append(", case: ");
     result.append(case_);
-    result.append(", default: ");
-    result.append(default_);
+    result.append(", lower: ");
+    result.append(lower);
+    result.append(", higher: ");
+    result.append(higher);
+    result.append(", mydefault: ");
+    result.append(mydefault);
     result.append(')');
     return result.toString();
   }

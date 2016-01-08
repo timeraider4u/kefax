@@ -2068,22 +2068,40 @@ public interface ParserPackage extends EPackage
   int LABELED_STATEMENT__CASE = STATEMENT_FEATURE_COUNT + 2;
 
   /**
+   * The feature id for the '<em><b>Lower</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LABELED_STATEMENT__LOWER = STATEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Higher</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LABELED_STATEMENT__HIGHER = STATEMENT_FEATURE_COUNT + 4;
+
+  /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LABELED_STATEMENT__EXPR = STATEMENT_FEATURE_COUNT + 3;
+  int LABELED_STATEMENT__EXPR = STATEMENT_FEATURE_COUNT + 5;
 
   /**
-   * The feature id for the '<em><b>Default</b></em>' attribute.
+   * The feature id for the '<em><b>Mydefault</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LABELED_STATEMENT__DEFAULT = STATEMENT_FEATURE_COUNT + 4;
+  int LABELED_STATEMENT__MYDEFAULT = STATEMENT_FEATURE_COUNT + 6;
 
   /**
    * The number of structural features of the '<em>Labeled Statement</em>' class.
@@ -2092,7 +2110,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LABELED_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 5;
+  int LABELED_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 7;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.CompoundStatementImpl <em>Compound Statement</em>}' class.
@@ -5379,6 +5397,28 @@ public interface ParserPackage extends EPackage
   EAttribute getLabeledStatement_Case();
 
   /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.LabeledStatement#getLower <em>Lower</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Lower</em>'.
+   * @see at.jku.weiner.c.parser.parser.LabeledStatement#getLower()
+   * @see #getLabeledStatement()
+   * @generated
+   */
+  EAttribute getLabeledStatement_Lower();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.LabeledStatement#getHigher <em>Higher</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Higher</em>'.
+   * @see at.jku.weiner.c.parser.parser.LabeledStatement#getHigher()
+   * @see #getLabeledStatement()
+   * @generated
+   */
+  EAttribute getLabeledStatement_Higher();
+
+  /**
    * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.LabeledStatement#getExpr <em>Expr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5390,15 +5430,15 @@ public interface ParserPackage extends EPackage
   EReference getLabeledStatement_Expr();
 
   /**
-   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.LabeledStatement#getDefault <em>Default</em>}'.
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.LabeledStatement#isMydefault <em>Mydefault</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Default</em>'.
-   * @see at.jku.weiner.c.parser.parser.LabeledStatement#getDefault()
+   * @return the meta object for the attribute '<em>Mydefault</em>'.
+   * @see at.jku.weiner.c.parser.parser.LabeledStatement#isMydefault()
    * @see #getLabeledStatement()
    * @generated
    */
-  EAttribute getLabeledStatement_Default();
+  EAttribute getLabeledStatement_Mydefault();
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.CompoundStatement <em>Compound Statement</em>}'.
@@ -7920,6 +7960,22 @@ public interface ParserPackage extends EPackage
     EAttribute LABELED_STATEMENT__CASE = eINSTANCE.getLabeledStatement_Case();
 
     /**
+     * The meta object literal for the '<em><b>Lower</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LABELED_STATEMENT__LOWER = eINSTANCE.getLabeledStatement_Lower();
+
+    /**
+     * The meta object literal for the '<em><b>Higher</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LABELED_STATEMENT__HIGHER = eINSTANCE.getLabeledStatement_Higher();
+
+    /**
      * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7928,12 +7984,12 @@ public interface ParserPackage extends EPackage
     EReference LABELED_STATEMENT__EXPR = eINSTANCE.getLabeledStatement_Expr();
 
     /**
-     * The meta object literal for the '<em><b>Default</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Mydefault</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute LABELED_STATEMENT__DEFAULT = eINSTANCE.getLabeledStatement_Default();
+    EAttribute LABELED_STATEMENT__MYDEFAULT = eINSTANCE.getLabeledStatement_Mydefault();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.CompoundStatementImpl <em>Compound Statement</em>}' class.

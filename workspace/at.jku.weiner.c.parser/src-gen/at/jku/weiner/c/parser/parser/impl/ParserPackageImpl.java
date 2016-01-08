@@ -2342,9 +2342,9 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getLabeledStatement_Expr()
+  public EAttribute getLabeledStatement_Lower()
   {
-    return (EReference)labeledStatementEClass.getEStructuralFeatures().get(3);
+    return (EAttribute)labeledStatementEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -2352,9 +2352,29 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getLabeledStatement_Default()
+  public EAttribute getLabeledStatement_Higher()
   {
     return (EAttribute)labeledStatementEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLabeledStatement_Expr()
+  {
+    return (EReference)labeledStatementEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getLabeledStatement_Mydefault()
+  {
+    return (EAttribute)labeledStatementEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -3658,8 +3678,10 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     createEAttribute(labeledStatementEClass, LABELED_STATEMENT__ID);
     createEReference(labeledStatementEClass, LABELED_STATEMENT__LSTMT);
     createEAttribute(labeledStatementEClass, LABELED_STATEMENT__CASE);
+    createEAttribute(labeledStatementEClass, LABELED_STATEMENT__LOWER);
+    createEAttribute(labeledStatementEClass, LABELED_STATEMENT__HIGHER);
     createEReference(labeledStatementEClass, LABELED_STATEMENT__EXPR);
-    createEAttribute(labeledStatementEClass, LABELED_STATEMENT__DEFAULT);
+    createEAttribute(labeledStatementEClass, LABELED_STATEMENT__MYDEFAULT);
 
     compoundStatementEClass = createEClass(COMPOUND_STATEMENT);
     createEReference(compoundStatementEClass, COMPOUND_STATEMENT__BODY);
@@ -4082,8 +4104,10 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     initEAttribute(getLabeledStatement_Id(), theEcorePackage.getEString(), "id", null, 0, 1, LabeledStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLabeledStatement_LStmt(), this.getStatement(), null, "lStmt", null, 0, 1, LabeledStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getLabeledStatement_Case(), theEcorePackage.getEString(), "case", null, 0, 1, LabeledStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getLabeledStatement_Lower(), theEcorePackage.getEString(), "lower", null, 0, 1, LabeledStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getLabeledStatement_Higher(), theEcorePackage.getEString(), "higher", null, 0, 1, LabeledStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLabeledStatement_Expr(), this.getExpression(), null, "expr", null, 0, 1, LabeledStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getLabeledStatement_Default(), theEcorePackage.getEString(), "default", null, 0, 1, LabeledStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getLabeledStatement_Mydefault(), theEcorePackage.getEBoolean(), "mydefault", null, 0, 1, LabeledStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(compoundStatementEClass, CompoundStatement.class, "CompoundStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getCompoundStatement_Body(), this.getStatement(), null, "body", null, 0, 1, CompoundStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

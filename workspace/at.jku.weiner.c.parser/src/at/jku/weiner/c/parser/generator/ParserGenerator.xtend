@@ -467,8 +467,11 @@ class ParserGenerator implements IGenerator {
 	
 	def String outputForLabeledStatement(LabeledStatement obj) '''
 		«IF obj.id != null»«obj.id»:«outputFor(obj.LStmt)»«ENDIF»
-		«IF obj.getCase() != null»case «outputForConstantExpression(obj.expr as ConstantExpression)»:«outputFor(obj.LStmt)»«ENDIF»
-		«IF obj.getDefault() != null»default: «outputFor(obj.LStmt)»«ENDIF»
+		«IF obj.getCase() != null»case 
+			«IF obj.expr != null»«outputForConstantExpression(obj.expr as ConstantExpression)»
+			«ELSE»«obj.lower»...«obj.higher»«ENDIF»
+			:«outputFor(obj.LStmt)»«ENDIF»
+		«IF obj.mydefault»default: «outputFor(obj.LStmt)»«ENDIF»
 	'''
 	
 	def String outputForCompoundStatement(CompoundStatement obj) '''

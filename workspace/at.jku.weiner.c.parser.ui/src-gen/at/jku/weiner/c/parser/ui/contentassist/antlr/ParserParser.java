@@ -63,6 +63,7 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBlockListAccess().getAlternatives_1(), "rule__BlockList__Alternatives_1");
 					put(grammarAccess.getStatementAccess().getAlternatives_1(), "rule__Statement__Alternatives_1");
 					put(grammarAccess.getLabeledStatementAccess().getAlternatives_1(), "rule__LabeledStatement__Alternatives_1");
+					put(grammarAccess.getLabeledStatementAccess().getAlternatives_1_1_1(), "rule__LabeledStatement__Alternatives_1_1_1");
 					put(grammarAccess.getSelectionStatementAccess().getAlternatives_1(), "rule__SelectionStatement__Alternatives_1");
 					put(grammarAccess.getIterationStatementAccess().getAlternatives_1(), "rule__IterationStatement__Alternatives_1");
 					put(grammarAccess.getJumpStatementAccess().getAlternatives_1(), "rule__JumpStatement__Alternatives_1");
@@ -164,6 +165,7 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getLabeledStatementAccess().getGroup(), "rule__LabeledStatement__Group__0");
 					put(grammarAccess.getLabeledStatementAccess().getGroup_1_0(), "rule__LabeledStatement__Group_1_0__0");
 					put(grammarAccess.getLabeledStatementAccess().getGroup_1_1(), "rule__LabeledStatement__Group_1_1__0");
+					put(grammarAccess.getLabeledStatementAccess().getGroup_1_1_1_0(), "rule__LabeledStatement__Group_1_1_1_0__0");
 					put(grammarAccess.getLabeledStatementAccess().getGroup_1_2(), "rule__LabeledStatement__Group_1_2__0");
 					put(grammarAccess.getCompoundStatementAccess().getGroup(), "rule__CompoundStatement__Group__0");
 					put(grammarAccess.getBodyStatementAccess().getGroup(), "rule__BodyStatement__Group__0");
@@ -397,9 +399,11 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getLabeledStatementAccess().getIdAssignment_1_0_0(), "rule__LabeledStatement__IdAssignment_1_0_0");
 					put(grammarAccess.getLabeledStatementAccess().getLStmtAssignment_1_0_2(), "rule__LabeledStatement__LStmtAssignment_1_0_2");
 					put(grammarAccess.getLabeledStatementAccess().getCaseAssignment_1_1_0(), "rule__LabeledStatement__CaseAssignment_1_1_0");
-					put(grammarAccess.getLabeledStatementAccess().getExprAssignment_1_1_1(), "rule__LabeledStatement__ExprAssignment_1_1_1");
+					put(grammarAccess.getLabeledStatementAccess().getLowerAssignment_1_1_1_0_0(), "rule__LabeledStatement__LowerAssignment_1_1_1_0_0");
+					put(grammarAccess.getLabeledStatementAccess().getHigherAssignment_1_1_1_0_2(), "rule__LabeledStatement__HigherAssignment_1_1_1_0_2");
+					put(grammarAccess.getLabeledStatementAccess().getExprAssignment_1_1_1_1(), "rule__LabeledStatement__ExprAssignment_1_1_1_1");
 					put(grammarAccess.getLabeledStatementAccess().getLStmtAssignment_1_1_3(), "rule__LabeledStatement__LStmtAssignment_1_1_3");
-					put(grammarAccess.getLabeledStatementAccess().getDefaultAssignment_1_2_0(), "rule__LabeledStatement__DefaultAssignment_1_2_0");
+					put(grammarAccess.getLabeledStatementAccess().getMydefaultAssignment_1_2_0(), "rule__LabeledStatement__MydefaultAssignment_1_2_0");
 					put(grammarAccess.getLabeledStatementAccess().getLStmtAssignment_1_2_2(), "rule__LabeledStatement__LStmtAssignment_1_2_2");
 					put(grammarAccess.getCompoundStatementAccess().getBodyAssignment_2(), "rule__CompoundStatement__BodyAssignment_2");
 					put(grammarAccess.getBodyStatementAccess().getBlockListAssignment_1(), "rule__BodyStatement__BlockListAssignment_1");

@@ -860,7 +860,11 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     ((id=ID lStmt=Statement) | (case=KW_CASE expr=ConstantExpression lStmt=Statement) | (default=KW_DEFAULT lStmt=Statement))
+	 *     (
+	 *         (id=ID lStmt=Statement) | 
+	 *         (case=KW_CASE ((lower=Constant1 higher=Constant1) | expr=ConstantExpression) lStmt=Statement) | 
+	 *         (mydefault?=KW_DEFAULT lStmt=Statement)
+	 *     )
 	 */
 	protected void sequence_LabeledStatement(EObject context, LabeledStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -5734,18 +5734,20 @@ this_SKW_COLON_2=RULE_SKW_COLON
 
 (
 (
+(
+(
 		{ 
-	        newCompositeNode(grammarAccess.getLabeledStatementAccess().getExprConstantExpressionParserRuleCall_1_1_1_0()); 
+	        newCompositeNode(grammarAccess.getLabeledStatementAccess().getLowerConstant1ParserRuleCall_1_1_1_0_0_0()); 
 	    }
-		lv_expr_5_0=ruleConstantExpression		{
+		lv_lower_5_0=ruleConstant1		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getLabeledStatementRule());
 	        }
        		set(
        			$current, 
-       			"expr",
-        		lv_expr_5_0, 
-        		"at.jku.weiner.c.parser.Parser.ConstantExpression");
+       			"lower",
+        		lv_lower_5_0, 
+        		"at.jku.weiner.c.common.Common.Constant1");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5753,9 +5755,70 @@ this_SKW_COLON_2=RULE_SKW_COLON
 )
 
 
-this_SKW_COLON_6=RULE_SKW_COLON
+
+	{ 
+	  /* */ 
+	}
     { 
-    newLeafNode(this_SKW_COLON_6, grammarAccess.getLabeledStatementAccess().getSKW_COLONTerminalRuleCall_1_1_2()); 
+        newCompositeNode(grammarAccess.getLabeledStatementAccess().getEllipsisParserRuleCall_1_1_1_0_1()); 
+    }
+ruleEllipsis
+    { 
+        afterParserOrEnumRuleCall();
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getLabeledStatementAccess().getHigherConstant1ParserRuleCall_1_1_1_0_2_0()); 
+	    }
+		lv_higher_7_0=ruleConstant1		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getLabeledStatementRule());
+	        }
+       		set(
+       			$current, 
+       			"higher",
+        		lv_higher_7_0, 
+        		"at.jku.weiner.c.common.Common.Constant1");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+)
+
+
+    |
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getLabeledStatementAccess().getExprConstantExpressionParserRuleCall_1_1_1_1_0()); 
+	    }
+		lv_expr_8_0=ruleConstantExpression		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getLabeledStatementRule());
+	        }
+       		set(
+       			$current, 
+       			"expr",
+        		lv_expr_8_0, 
+        		"at.jku.weiner.c.parser.Parser.ConstantExpression");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+)
+
+
+this_SKW_COLON_9=RULE_SKW_COLON
+    { 
+    newLeafNode(this_SKW_COLON_9, grammarAccess.getLabeledStatementAccess().getSKW_COLONTerminalRuleCall_1_1_2()); 
     }
 
 
@@ -5765,14 +5828,14 @@ this_SKW_COLON_6=RULE_SKW_COLON
 		{ 
 	        newCompositeNode(grammarAccess.getLabeledStatementAccess().getLStmtStatementParserRuleCall_1_1_3_0()); 
 	    }
-		lv_lStmt_7_0=ruleStatement		{
+		lv_lStmt_10_0=ruleStatement		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getLabeledStatementRule());
 	        }
        		set(
        			$current, 
        			"lStmt",
-        		lv_lStmt_7_0, 
+        		lv_lStmt_10_0, 
         		"at.jku.weiner.c.parser.Parser.Statement");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -5787,9 +5850,9 @@ this_SKW_COLON_6=RULE_SKW_COLON
 (
 (
 (
-		lv_default_8_0=RULE_KW_DEFAULT
+		lv_mydefault_11_0=RULE_KW_DEFAULT
 		{
-			newLeafNode(lv_default_8_0, grammarAccess.getLabeledStatementAccess().getDefaultKW_DEFAULTTerminalRuleCall_1_2_0_0()); 
+			newLeafNode(lv_mydefault_11_0, grammarAccess.getLabeledStatementAccess().getMydefaultKW_DEFAULTTerminalRuleCall_1_2_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -5797,8 +5860,8 @@ this_SKW_COLON_6=RULE_SKW_COLON
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"default",
-        		lv_default_8_0, 
+       			"mydefault",
+        		true, 
         		"at.jku.weiner.c.parser.Parser.KW_DEFAULT");
 	    }
 
@@ -5806,9 +5869,9 @@ this_SKW_COLON_6=RULE_SKW_COLON
 )
 
 
-this_SKW_COLON_9=RULE_SKW_COLON
+this_SKW_COLON_12=RULE_SKW_COLON
     { 
-    newLeafNode(this_SKW_COLON_9, grammarAccess.getLabeledStatementAccess().getSKW_COLONTerminalRuleCall_1_2_1()); 
+    newLeafNode(this_SKW_COLON_12, grammarAccess.getLabeledStatementAccess().getSKW_COLONTerminalRuleCall_1_2_1()); 
     }
 
 
@@ -5818,14 +5881,14 @@ this_SKW_COLON_9=RULE_SKW_COLON
 		{ 
 	        newCompositeNode(grammarAccess.getLabeledStatementAccess().getLStmtStatementParserRuleCall_1_2_2_0()); 
 	    }
-		lv_lStmt_10_0=ruleStatement		{
+		lv_lStmt_13_0=ruleStatement		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getLabeledStatementRule());
 	        }
        		set(
        			$current, 
        			"lStmt",
-        		lv_lStmt_10_0, 
+        		lv_lStmt_13_0, 
         		"at.jku.weiner.c.parser.Parser.Statement");
 	        afterParserOrEnumRuleCall();
 	    }

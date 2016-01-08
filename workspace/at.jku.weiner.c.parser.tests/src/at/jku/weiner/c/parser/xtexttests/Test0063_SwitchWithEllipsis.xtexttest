@@ -4,18 +4,18 @@ package at.jku.weiner.c.parser
 language parser
 imports at.jku.weiner.c.common.common
 //----------------------------------------------------------------------
-source file="res/Test0025_Switch.c"
+source file="res/Test0063_SwitchWithEllipsis.c"
 //----------------------------------------------------------------------
 lexer-tokens
-KW_INT WHITESPACE ID SKW_LEFTPAREN KW_INT WHITESPACE ID SKW_RIGHTPAREN 
+KW_INT WHITESPACE ID SKW_LEFTPAREN KW_CHAR WHITESPACE ID SKW_RIGHTPAREN 
 WHITESPACE SKW_LEFTBRACE NEWLINE
 	WHITESPACE KW_SWITCH WHITESPACE SKW_LEFTPAREN ID SKW_RIGHTPAREN 
 	WHITESPACE SKW_LEFTBRACE NEWLINE 
 
-		WHITESPACE KW_CASE WHITESPACE DECIMAL_LITERAL SKW_COLON  NEWLINE
+		WHITESPACE KW_CASE WHITESPACE DECIMAL_LITERAL WHITESPACE SKW_DOT SKW_DOT SKW_DOT WHITESPACE DECIMAL_LITERAL SKW_COLON  NEWLINE
 		WHITESPACE KW_RETURN WHITESPACE DECIMAL_LITERAL SKW_SEMI NEWLINE
 			
-		WHITESPACE KW_CASE WHITESPACE DECIMAL_LITERAL SKW_COLON
+		WHITESPACE KW_CASE WHITESPACE CHAR_LITERAL WHITESPACE SKW_DOT SKW_DOT SKW_DOT WHITESPACE CHAR_LITERAL SKW_COLON
 		WHITESPACE SKW_LEFTBRACE NEWLINE
 		WHITESPACE KW_BREAK SKW_SEMI NEWLINE
 		WHITESPACE SKW_RIGHTBRACE NEWLINE
@@ -60,7 +60,7 @@ SKW_RIGHTBRACE NEWLINE
 											(DeclarationSpecifiers
 												declarationSpecifier+=
 												(TypeSpecifier
-													name++"int"
+													name++"char"
 												)
 											),
 											declarator=
@@ -150,63 +150,13 @@ SKW_RIGHTBRACE NEWLINE
 											blockList+=
 											(BlockList
 												statement+=
-												// case 0: ...
+												// case 0 ... :
 												(Statement
 													stmt=	
 													(LabeledStatement
 														case++"case",
-														expr=
-														(ConstantExpression
-															expr=
-															(ConditionalExpression
-																expr=
-																(LogicalOrExpression
-																	expr+=
-																	(LogicalAndExpression
-																		expr+=
-																		(InclusiveOrExpression
-																			expr+=
-																			(ExclusiveOrExpression
-																				expr+=
-																				(AndExpression
-																					expr+=
-																					(EqualityExpression
-																						expr+=
-																						(RelationalExpression
-																							expr+=
-																							(ShiftExpression
-																								expr+=
-																								(AdditiveExpression
-																									expr+=
-																									(MultiplicativeExpression
-																										expr+=
-																										(CastExpression
-																											expr=
-																											(UnaryExpression
-																												expr=
-																												(PostfixExpression
-																													expr+=
-																													(PrimaryExpression
-																														const=
-																														(common::Constant2
-																															dec++"0"
-																														)
-																													)
-																												)
-																											)
-																										)
-																									)
-																								)
-																							)
-																						)
-																					)
-																				)
-																			)
-																		)
-																	)
-																)
-															) // end conditional expression of case-expr
-														), // end constant expression of case
+														lower++"0",
+														higher++"28",
 														lStmt=
 														(Statement
 															stmt=
@@ -278,58 +228,8 @@ SKW_RIGHTBRACE NEWLINE
 													stmt=	
 													(LabeledStatement
 														case++"case",
-														expr=
-														(ConstantExpression
-															expr=
-															(ConditionalExpression
-																expr=
-																(LogicalOrExpression
-																	expr+=
-																	(LogicalAndExpression
-																		expr+=
-																		(InclusiveOrExpression
-																			expr+=
-																			(ExclusiveOrExpression
-																				expr+=
-																				(AndExpression
-																					expr+=
-																					(EqualityExpression
-																						expr+=
-																						(RelationalExpression
-																							expr+=
-																							(ShiftExpression
-																								expr+=
-																								(AdditiveExpression
-																									expr+=
-																									(MultiplicativeExpression
-																										expr+=
-																										(CastExpression
-																											expr=
-																											(UnaryExpression
-																												expr=
-																												(PostfixExpression
-																													expr+=
-																													(PrimaryExpression
-																														const=
-																														(common::Constant2
-																															dec++"1"
-																														)
-																													)
-																												)
-																											)
-																										)
-																									)
-																								)
-																							)
-																						)
-																					)
-																				)
-																			)
-																		)
-																	)
-																)
-															) // end conditional expression of case-expr
-														), // end constant expression of case
+														lower++"'0'",
+														higher++"'7'",
 														lStmt=
 														(Statement
 															stmt=
@@ -513,7 +413,7 @@ SKW_RIGHTBRACE NEWLINE
 //)
 //)
 //----------------------------------------------------------------------
-output file="bin/Test0025_Switch.c"
+output file="bin/Test0063_SwitchWithEllipsis.c"
 expected file isSameAsInputFile
 replacePatterns file="res/Patterns.txt"
 //----------------------------------------------------------------------

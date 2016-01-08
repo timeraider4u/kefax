@@ -122,15 +122,6 @@ public interface ParserFactory extends EFactory
   TypedefName createTypedefName();
 
   /**
-   * Returns a new object of class '<em>Struct Or Union Name</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Struct Or Union Name</em>'.
-   * @generated
-   */
-  StructOrUnionName createStructOrUnionName();
-
-  /**
    * Returns a new object of class '<em>Declaration Specifier</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

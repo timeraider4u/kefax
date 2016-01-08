@@ -20,7 +20,6 @@ import at.jku.weiner.c.parser.parser.CompoundStatement
 import at.jku.weiner.c.parser.parser.ConditionalExpression
 import at.jku.weiner.c.parser.parser.ConstantExpression
 import at.jku.weiner.c.parser.parser.Declaration
-import at.jku.weiner.c.parser.parser.DeclarationSpecifier
 import at.jku.weiner.c.parser.parser.DeclarationSpecifiers
 import at.jku.weiner.c.parser.parser.Declarator
 import at.jku.weiner.c.parser.parser.DeclaratorSuffix
@@ -156,7 +155,8 @@ class ParserFormatter extends CommonFormatter {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
 		format(typeSpecifier.getSpecifier(), document);
 		format(typeSpecifier.getType(), document);
-		format(typeSpecifier.getStruct(), document);
+		format(typeSpecifier.getTypeName(), document);
+		format(typeSpecifier.getConstExpr(), document);
 	}
 
 	def dispatch void format(StructOrUnionSpecifier structOrUnionSpecifier, extension IFormattableDocument document) {
@@ -185,9 +185,6 @@ class ParserFormatter extends CommonFormatter {
 		}
 		for (TypeQualifier typeQualifier : specifierQualifierList.getTypeQualifier()) {
 			format(typeQualifier, document);
-		}
-		for (DeclarationSpecifier structOrUnionSpecifier : specifierQualifierList.getStructOrUnionSpecifier()) {
-			format(structOrUnionSpecifier, document);
 		}
 	}
 
@@ -570,6 +567,7 @@ class ParserFormatter extends CommonFormatter {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
 		format(primaryExpression.getConst(), document);
 		format(primaryExpression.getExpr(), document);
+		format(primaryExpression.getCompoundStmt(), document);
 		format(primaryExpression.getTypeName(), document);
 	}
 

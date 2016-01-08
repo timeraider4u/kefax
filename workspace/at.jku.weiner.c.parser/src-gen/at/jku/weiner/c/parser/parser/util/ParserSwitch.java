@@ -149,13 +149,6 @@ public class ParserSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case ParserPackage.STRUCT_OR_UNION_NAME:
-      {
-        StructOrUnionName structOrUnionName = (StructOrUnionName)theEObject;
-        T result = caseStructOrUnionName(structOrUnionName);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case ParserPackage.DECLARATION_SPECIFIER:
       {
         DeclarationSpecifier declarationSpecifier = (DeclarationSpecifier)theEObject;
@@ -911,22 +904,6 @@ public class ParserSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseTypedefName(TypedefName object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Struct Or Union Name</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Struct Or Union Name</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseStructOrUnionName(StructOrUnionName object)
   {
     return null;
   }

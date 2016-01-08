@@ -5,7 +5,7 @@ package at.jku.weiner.c.parser.parser.impl;
 import at.jku.weiner.c.parser.parser.DeclarationSpecifier;
 import at.jku.weiner.c.parser.parser.Expression;
 import at.jku.weiner.c.parser.parser.ParserPackage;
-import at.jku.weiner.c.parser.parser.StructOrUnionName;
+import at.jku.weiner.c.parser.parser.TypeName;
 import at.jku.weiner.c.parser.parser.TypeSpecifier;
 import at.jku.weiner.c.parser.parser.TypedefName;
 
@@ -30,8 +30,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.TypeSpecifierImpl#getExtType <em>Ext Type</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.TypeSpecifierImpl#getSpecifier <em>Specifier</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.TypeSpecifierImpl#getType <em>Type</em>}</li>
- *   <li>{@link at.jku.weiner.c.parser.parser.impl.TypeSpecifierImpl#getStruct <em>Struct</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.TypeSpecifierImpl#getTypeOf <em>Type Of</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.TypeSpecifierImpl#getTypeName <em>Type Name</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.TypeSpecifierImpl#getConstExpr <em>Const Expr</em>}</li>
  * </ul>
  *
@@ -100,16 +100,6 @@ public class TypeSpecifierImpl extends MinimalEObjectImpl.Container implements T
   protected TypedefName type;
 
   /**
-   * The cached value of the '{@link #getStruct() <em>Struct</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getStruct()
-   * @generated
-   * @ordered
-   */
-  protected StructOrUnionName struct;
-
-  /**
    * The default value of the '{@link #getTypeOf() <em>Type Of</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -128,6 +118,16 @@ public class TypeSpecifierImpl extends MinimalEObjectImpl.Container implements T
    * @ordered
    */
   protected String typeOf = TYPE_OF_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getTypeName() <em>Type Name</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTypeName()
+   * @generated
+   * @ordered
+   */
+  protected TypeName typeName;
 
   /**
    * The cached value of the '{@link #getConstExpr() <em>Const Expr</em>}' containment reference.
@@ -307,54 +307,6 @@ public class TypeSpecifierImpl extends MinimalEObjectImpl.Container implements T
    * <!-- end-user-doc -->
    * @generated
    */
-  public StructOrUnionName getStruct()
-  {
-    return struct;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetStruct(StructOrUnionName newStruct, NotificationChain msgs)
-  {
-    StructOrUnionName oldStruct = struct;
-    struct = newStruct;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ParserPackage.TYPE_SPECIFIER__STRUCT, oldStruct, newStruct);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setStruct(StructOrUnionName newStruct)
-  {
-    if (newStruct != struct)
-    {
-      NotificationChain msgs = null;
-      if (struct != null)
-        msgs = ((InternalEObject)struct).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ParserPackage.TYPE_SPECIFIER__STRUCT, null, msgs);
-      if (newStruct != null)
-        msgs = ((InternalEObject)newStruct).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ParserPackage.TYPE_SPECIFIER__STRUCT, null, msgs);
-      msgs = basicSetStruct(newStruct, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.TYPE_SPECIFIER__STRUCT, newStruct, newStruct));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public String getTypeOf()
   {
     return typeOf;
@@ -371,6 +323,54 @@ public class TypeSpecifierImpl extends MinimalEObjectImpl.Container implements T
     typeOf = newTypeOf;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.TYPE_SPECIFIER__TYPE_OF, oldTypeOf, typeOf));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TypeName getTypeName()
+  {
+    return typeName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetTypeName(TypeName newTypeName, NotificationChain msgs)
+  {
+    TypeName oldTypeName = typeName;
+    typeName = newTypeName;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ParserPackage.TYPE_SPECIFIER__TYPE_NAME, oldTypeName, newTypeName);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTypeName(TypeName newTypeName)
+  {
+    if (newTypeName != typeName)
+    {
+      NotificationChain msgs = null;
+      if (typeName != null)
+        msgs = ((InternalEObject)typeName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ParserPackage.TYPE_SPECIFIER__TYPE_NAME, null, msgs);
+      if (newTypeName != null)
+        msgs = ((InternalEObject)newTypeName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ParserPackage.TYPE_SPECIFIER__TYPE_NAME, null, msgs);
+      msgs = basicSetTypeName(newTypeName, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.TYPE_SPECIFIER__TYPE_NAME, newTypeName, newTypeName));
   }
 
   /**
@@ -435,8 +435,8 @@ public class TypeSpecifierImpl extends MinimalEObjectImpl.Container implements T
         return basicSetSpecifier(null, msgs);
       case ParserPackage.TYPE_SPECIFIER__TYPE:
         return basicSetType(null, msgs);
-      case ParserPackage.TYPE_SPECIFIER__STRUCT:
-        return basicSetStruct(null, msgs);
+      case ParserPackage.TYPE_SPECIFIER__TYPE_NAME:
+        return basicSetTypeName(null, msgs);
       case ParserPackage.TYPE_SPECIFIER__CONST_EXPR:
         return basicSetConstExpr(null, msgs);
     }
@@ -461,10 +461,10 @@ public class TypeSpecifierImpl extends MinimalEObjectImpl.Container implements T
         return getSpecifier();
       case ParserPackage.TYPE_SPECIFIER__TYPE:
         return getType();
-      case ParserPackage.TYPE_SPECIFIER__STRUCT:
-        return getStruct();
       case ParserPackage.TYPE_SPECIFIER__TYPE_OF:
         return getTypeOf();
+      case ParserPackage.TYPE_SPECIFIER__TYPE_NAME:
+        return getTypeName();
       case ParserPackage.TYPE_SPECIFIER__CONST_EXPR:
         return getConstExpr();
     }
@@ -493,11 +493,11 @@ public class TypeSpecifierImpl extends MinimalEObjectImpl.Container implements T
       case ParserPackage.TYPE_SPECIFIER__TYPE:
         setType((TypedefName)newValue);
         return;
-      case ParserPackage.TYPE_SPECIFIER__STRUCT:
-        setStruct((StructOrUnionName)newValue);
-        return;
       case ParserPackage.TYPE_SPECIFIER__TYPE_OF:
         setTypeOf((String)newValue);
+        return;
+      case ParserPackage.TYPE_SPECIFIER__TYPE_NAME:
+        setTypeName((TypeName)newValue);
         return;
       case ParserPackage.TYPE_SPECIFIER__CONST_EXPR:
         setConstExpr((Expression)newValue);
@@ -528,11 +528,11 @@ public class TypeSpecifierImpl extends MinimalEObjectImpl.Container implements T
       case ParserPackage.TYPE_SPECIFIER__TYPE:
         setType((TypedefName)null);
         return;
-      case ParserPackage.TYPE_SPECIFIER__STRUCT:
-        setStruct((StructOrUnionName)null);
-        return;
       case ParserPackage.TYPE_SPECIFIER__TYPE_OF:
         setTypeOf(TYPE_OF_EDEFAULT);
+        return;
+      case ParserPackage.TYPE_SPECIFIER__TYPE_NAME:
+        setTypeName((TypeName)null);
         return;
       case ParserPackage.TYPE_SPECIFIER__CONST_EXPR:
         setConstExpr((Expression)null);
@@ -559,10 +559,10 @@ public class TypeSpecifierImpl extends MinimalEObjectImpl.Container implements T
         return specifier != null;
       case ParserPackage.TYPE_SPECIFIER__TYPE:
         return type != null;
-      case ParserPackage.TYPE_SPECIFIER__STRUCT:
-        return struct != null;
       case ParserPackage.TYPE_SPECIFIER__TYPE_OF:
         return TYPE_OF_EDEFAULT == null ? typeOf != null : !TYPE_OF_EDEFAULT.equals(typeOf);
+      case ParserPackage.TYPE_SPECIFIER__TYPE_NAME:
+        return typeName != null;
       case ParserPackage.TYPE_SPECIFIER__CONST_EXPR:
         return constExpr != null;
     }

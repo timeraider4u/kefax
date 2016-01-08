@@ -82,7 +82,6 @@ import at.jku.weiner.c.parser.parser.StructDeclarationList;
 import at.jku.weiner.c.parser.parser.StructDeclarator;
 import at.jku.weiner.c.parser.parser.StructDeclaratorList;
 import at.jku.weiner.c.parser.parser.StructOrUnion;
-import at.jku.weiner.c.parser.parser.StructOrUnionName;
 import at.jku.weiner.c.parser.parser.StructOrUnionSpecifier;
 import at.jku.weiner.c.parser.parser.TypeName;
 import at.jku.weiner.c.parser.parser.TypeQualifier;
@@ -344,9 +343,6 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 			case ParserPackage.STRUCT_OR_UNION:
 				sequence_StructOrUnion(context, (StructOrUnion) semanticObject); 
 				return; 
-			case ParserPackage.STRUCT_OR_UNION_NAME:
-				sequence_StructOrUnionName(context, (StructOrUnionName) semanticObject); 
-				return; 
 			case ParserPackage.STRUCT_OR_UNION_SPECIFIER:
 				sequence_StructOrUnionSpecifier(context, (StructOrUnionSpecifier) semanticObject); 
 				return; 
@@ -560,7 +556,6 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	 *         declarationSpecifier+=StorageClassSpecifier | 
 	 *         declarationSpecifier+=TypeSpecifier | 
 	 *         declarationSpecifier+=TypeQualifier | 
-	 *         declarationSpecifier+=StructOrUnionSpecifier | 
 	 *         declarationSpecifier+=FunctionSpecifier
 	 *     )+
 	 */
@@ -1101,7 +1096,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (typeSpecifier+=TypeSpecifier | typeQualifier+=TypeQualifier | structOrUnionSpecifier+=StructOrUnionSpecifier)+
+	 *     (typeSpecifier+=TypeSpecifier | typeQualifier+=TypeQualifier)+
 	 */
 	protected void sequence_SpecifierQualifierList(EObject context, SpecifierQualifierList semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1174,22 +1169,6 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	 */
 	protected void sequence_StructDeclarator(EObject context, StructDeclarator semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     id=ID
-	 */
-	protected void sequence_StructOrUnionName(EObject context, StructOrUnionName semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, ParserPackage.Literals.STRUCT_OR_UNION_NAME__ID) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ParserPackage.Literals.STRUCT_OR_UNION_NAME__ID));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getStructOrUnionNameAccess().getIdIDTerminalRuleCall_1_0(), semanticObject.getId());
-		feeder.finish();
 	}
 	
 	

@@ -1,0 +1,113 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.parser
+language parser
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+source file="res/Test0067_FunctionDefWithStruct.c"
+//----------------------------------------------------------------------
+lexer-tokens
+KW_STRUCT WHITESPACE ID WHITESPACE SKW_LEFTBRACE NEWLINE
+	WHITESPACE KW_INT WHITESPACE ID SKW_SEMI NEWLINE
+SKW_RIGHTBRACE SKW_SEMI NEWLINE
+NEWLINE
+KW_STRUCT WHITESPACE ID WHITESPACE ID SKW_LEFTPAREN SKW_RIGHTPAREN 
+	WHITESPACE SKW_LEFTBRACE NEWLINE
+	NEWLINE
+SKW_RIGHTBRACE NEWLINE
+//----------------------------------------------------------------------
+//(common::Model units+=
+	//(common::TranslationUnit 
+	(Parser
+		external+=
+		// struct ;
+		(ExternalDeclaration
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						specifier=
+						(StructOrUnionSpecifier
+							type=
+							(StructOrUnion
+								name++"struct"
+							),
+							id++"foo",
+							structDeclList=
+							(StructDeclarationList
+								structDeclaration+=
+								// int i
+								(StructDeclaration
+									list=
+									(SpecifierQualifierList
+										typeSpecifier+=
+										(TypeSpecifier
+											name++"int"
+										)
+									),
+									structDeclarationList=
+									(StructDeclaratorList
+										structDeclarator+=
+										(StructDeclarator
+											declarator=
+											(Declarator
+												declarator=
+												(DirectDeclarator
+													id++"i"
+												)
+											)
+										)
+									)
+								)
+							)
+						) // end struct or union specifier
+					) // end type specifier
+				)	
+			)
+		),
+		// struct foo do1();
+		(ExternalDeclaration 
+			functiondefHead=
+			(FunctionDefHead
+				funDeclSpecifiers=
+				(FunctionDeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						specifier=
+						(StructOrUnionSpecifier
+							type=
+							(StructOrUnion
+								name++"struct"
+							),
+							id++"foo"
+						)
+					)
+				),
+				funDeclarator=
+				(Declarator
+					declarator=
+					(DirectDeclarator
+						id++"do1",
+						declaratorSuffix+=
+						(DeclaratorSuffix
+							lastSuffix=
+							(DirectDeclaratorLastSuffix
+								parameterTypeList isEmpty
+							)
+						) // DeclaratorSuffix
+					)
+				)
+			)
+		)
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0067_FunctionDefWithStruct.c"
+expected file isSameAsInputFile
+
+replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

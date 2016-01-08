@@ -47,6 +47,7 @@ import at.jku.weiner.c.parser.parser.Parser;
 import at.jku.weiner.c.parser.parser.ExternalDeclaration;
 import at.jku.weiner.c.parser.parser.Declaration;
 import at.jku.weiner.c.parser.parser.DeclarationSpecifiers;
+import at.jku.weiner.c.parser.parser.TypeSpecifier;
 import at.jku.weiner.c.parser.parser.StructOrUnionSpecifier;
 import at.jku.weiner.c.parser.parser.StructOrUnion;
 import at.jku.weiner.c.parser.parser.StructDeclarationList;
@@ -60,11 +61,13 @@ import at.jku.weiner.c.parser.parser.DirectDeclarator;
 import at.jku.weiner.c.parser.parser.ExternalDeclaration;
 import at.jku.weiner.c.parser.parser.Declaration;
 import at.jku.weiner.c.parser.parser.DeclarationSpecifiers;
+import at.jku.weiner.c.parser.parser.TypeSpecifier;
 import at.jku.weiner.c.parser.parser.StructOrUnionSpecifier;
 import at.jku.weiner.c.parser.parser.StructOrUnion;
 import at.jku.weiner.c.parser.parser.StructDeclarationList;
 import at.jku.weiner.c.parser.parser.StructDeclaration;
 import at.jku.weiner.c.parser.parser.SpecifierQualifierList;
+import at.jku.weiner.c.parser.parser.TypeSpecifier;
 import at.jku.weiner.c.parser.parser.StructOrUnionSpecifier;
 import at.jku.weiner.c.parser.parser.StructOrUnion;
 import at.jku.weiner.c.parser.parser.StructDeclaratorList;
@@ -74,6 +77,7 @@ import at.jku.weiner.c.parser.parser.Pointer;
 import at.jku.weiner.c.parser.parser.DirectDeclarator;
 import at.jku.weiner.c.parser.parser.StructDeclaration;
 import at.jku.weiner.c.parser.parser.SpecifierQualifierList;
+import at.jku.weiner.c.parser.parser.TypeSpecifier;
 import at.jku.weiner.c.parser.parser.StructOrUnionSpecifier;
 import at.jku.weiner.c.parser.parser.StructOrUnion;
 import at.jku.weiner.c.parser.parser.StructDeclaratorList;
@@ -82,11 +86,13 @@ import at.jku.weiner.c.parser.parser.Declarator;
 import at.jku.weiner.c.parser.parser.DirectDeclarator;
 import at.jku.weiner.c.parser.parser.StructDeclaration;
 import at.jku.weiner.c.parser.parser.SpecifierQualifierList;
+import at.jku.weiner.c.parser.parser.TypeSpecifier;
 import at.jku.weiner.c.parser.parser.StructOrUnionSpecifier;
 import at.jku.weiner.c.parser.parser.StructOrUnion;
 import at.jku.weiner.c.parser.parser.StructDeclarationList;
 import at.jku.weiner.c.parser.parser.StructDeclaration;
 import at.jku.weiner.c.parser.parser.SpecifierQualifierList;
+import at.jku.weiner.c.parser.parser.TypeSpecifier;
 import at.jku.weiner.c.parser.parser.StructOrUnionSpecifier;
 import at.jku.weiner.c.parser.parser.StructOrUnion;
 import at.jku.weiner.c.parser.parser.StructDeclaratorList;
@@ -143,83 +149,83 @@ public class Test0040_ComplexStruct {
 		return content;
 	}
 	
-	@Test
+	@Test (timeout=1000)
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0040_ComplexStruct.c");
 			//System.out.println(text);
 			final String[] expected = new String[] {
-				"RULE_KW_STRUCT", 
-				"RULE_WHITESPACE", 
-				"RULE_ID", 
-				"RULE_WHITESPACE", 
-				"RULE_SKW_LEFTBRACE", 
-				"RULE_NEWLINE", 
-				"RULE_WHITESPACE", 
-				"RULE_KW_INT", 
-				"RULE_WHITESPACE", 
-				"RULE_ID", 
-				"RULE_SKW_SEMI", 
-				"RULE_NEWLINE", 
-				"RULE_SKW_RIGHTBRACE", 
-				"RULE_SKW_SEMI", 
-				"RULE_NEWLINE", 
-				"RULE_NEWLINE", 
-				"RULE_KW_STRUCT", 
-				"RULE_WHITESPACE", 
-				"RULE_ID", 
-				"RULE_WHITESPACE", 
-				"RULE_SKW_LEFTBRACE", 
-				"RULE_NEWLINE", 
-				"RULE_WHITESPACE", 
-				"RULE_LINE_COMMENT", 
-				"RULE_NEWLINE", 
-				"RULE_WHITESPACE", 
-				"RULE_KW_STRUCT", 
-				"RULE_WHITESPACE", 
-				"RULE_ID", 
-				"RULE_WHITESPACE", 
-				"RULE_SKW_STAR", 
-				"RULE_ID", 
-				"RULE_SKW_SEMI", 
-				"RULE_NEWLINE", 
-				"RULE_WHITESPACE", 
-				"RULE_KW_STRUCT", 
-				"RULE_WHITESPACE", 
-				"RULE_ID", 
-				"RULE_WHITESPACE", 
-				"RULE_ID", 
-				"RULE_SKW_SEMI", 
-				"RULE_NEWLINE", 
-				"RULE_WHITESPACE", 
-				"RULE_KW_UNION", 
-				"RULE_WHITESPACE", 
-				"RULE_SKW_LEFTBRACE", 
-				"RULE_NEWLINE", 
-				"RULE_WHITESPACE", 
-				"RULE_KW_STRUCT", 
-				"RULE_WHITESPACE", 
-				"RULE_ID", 
-				"RULE_WHITESPACE", 
-				"RULE_ID", 
-				"RULE_SKW_SEMI", 
-				"RULE_NEWLINE", 
-				"RULE_WHITESPACE", 
-				"RULE_SKW_RIGHTBRACE", 
-				"RULE_WHITESPACE", 
-				"RULE_ID", 
-				"RULE_SKW_SEMI", 
-				"RULE_NEWLINE", 
-				"RULE_SKW_RIGHTBRACE", 
-				"RULE_SKW_SEMI", 
-				"RULE_NEWLINE", 
+				"RULE_KW_STRUCT",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_WHITESPACE",
+				"RULE_SKW_LEFTBRACE",
+				"RULE_NEWLINE",
+				"RULE_WHITESPACE",
+				"RULE_KW_INT",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_SEMI",
+				"RULE_NEWLINE",
+				"RULE_SKW_RIGHTBRACE",
+				"RULE_SKW_SEMI",
+				"RULE_NEWLINE",
+				"RULE_NEWLINE",
+				"RULE_KW_STRUCT",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_WHITESPACE",
+				"RULE_SKW_LEFTBRACE",
+				"RULE_NEWLINE",
+				"RULE_WHITESPACE",
+				"RULE_LINE_COMMENT",
+				"RULE_NEWLINE",
+				"RULE_WHITESPACE",
+				"RULE_KW_STRUCT",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_WHITESPACE",
+				"RULE_SKW_STAR",
+				"RULE_ID",
+				"RULE_SKW_SEMI",
+				"RULE_NEWLINE",
+				"RULE_WHITESPACE",
+				"RULE_KW_STRUCT",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_SEMI",
+				"RULE_NEWLINE",
+				"RULE_WHITESPACE",
+				"RULE_KW_UNION",
+				"RULE_WHITESPACE",
+				"RULE_SKW_LEFTBRACE",
+				"RULE_NEWLINE",
+				"RULE_WHITESPACE",
+				"RULE_KW_STRUCT",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_SEMI",
+				"RULE_NEWLINE",
+				"RULE_WHITESPACE",
+				"RULE_SKW_RIGHTBRACE",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_SEMI",
+				"RULE_NEWLINE",
+				"RULE_SKW_RIGHTBRACE",
+				"RULE_SKW_SEMI",
+				"RULE_NEWLINE",
 				};
 			//final List<Token> actual = testHelper.getTokens(text);
 			//testHelper.outputTokens(text);
 			testHelper.checkTokenisation(text, expected);
 	}
 	
-	@Test
+	@Test (timeout=1000)
 	public void checkParserResult() throws Exception {
 		final String text = this.getTextFromFile(
 			"res/Test0040_ComplexStruct.c");
@@ -257,309 +263,301 @@ public class Test0040_ComplexStruct {
 		Assert.assertNotNull(DeclarationSpecifier_3_list);
 		Assert.assertEquals(1, DeclarationSpecifier_3_list.size());
 		//3
-		final StructOrUnionSpecifier StructOrUnionSpecifier_4_Var
-		 = (StructOrUnionSpecifier)DeclarationSpecifier_3_list.get(0);
-		Assert.assertNotNull(StructOrUnionSpecifier_4_Var
+		final TypeSpecifier TypeSpecifier_4_Var
+		 = (TypeSpecifier)DeclarationSpecifier_3_list.get(0);
+		Assert.assertNotNull(TypeSpecifier_4_Var
 		);
 		//4
-		final StructOrUnion StructOrUnion_5_Var
-		 = (StructOrUnion)StructOrUnionSpecifier_4_Var
-		.getType();
-		Assert.assertNotNull(StructOrUnion_5_Var
+		final StructOrUnionSpecifier StructOrUnionSpecifier_5_Var
+		 = (StructOrUnionSpecifier)TypeSpecifier_4_Var
+		.getSpecifier();
+		Assert.assertNotNull(StructOrUnionSpecifier_5_Var
 		);
-		Assert.assertEquals("struct", StructOrUnion_5_Var
-		.getName());
-		Assert.assertEquals("temp", StructOrUnionSpecifier_4_Var
-		.getId());
 		//5
-		final StructDeclarationList StructDeclarationList_6_Var
-		 = (StructDeclarationList)StructOrUnionSpecifier_4_Var
-		.getStructDeclList();
-		Assert.assertNotNull(StructDeclarationList_6_Var
+		final StructOrUnion StructOrUnion_6_Var
+		 = (StructOrUnion)StructOrUnionSpecifier_5_Var
+		.getType();
+		Assert.assertNotNull(StructOrUnion_6_Var
 		);
-		final EList<? extends EObject> StructDeclaration_6_list = StructDeclarationList_6_Var
-		.getStructDeclaration();
-		Assert.assertNotNull(StructDeclaration_6_list);
-		Assert.assertEquals(1, StructDeclaration_6_list.size());
-		//6
-		final StructDeclaration StructDeclaration_7_Var
-		 = (StructDeclaration)StructDeclaration_6_list.get(0);
-		Assert.assertNotNull(StructDeclaration_7_Var
-		);
-		//7
-		final SpecifierQualifierList SpecifierQualifierList_8_Var
-		 = (SpecifierQualifierList)StructDeclaration_7_Var
-		.getList();
-		Assert.assertNotNull(SpecifierQualifierList_8_Var
-		);
-		final EList<? extends EObject> TypeSpecifier_8_list = SpecifierQualifierList_8_Var
-		.getTypeSpecifier();
-		Assert.assertNotNull(TypeSpecifier_8_list);
-		Assert.assertEquals(1, TypeSpecifier_8_list.size());
-		//8
-		final TypeSpecifier TypeSpecifier_9_Var
-		 = (TypeSpecifier)TypeSpecifier_8_list.get(0);
-		Assert.assertNotNull(TypeSpecifier_9_Var
-		);
-		Assert.assertEquals("int", TypeSpecifier_9_Var
+		Assert.assertEquals("struct", StructOrUnion_6_Var
 		.getName());
+		Assert.assertEquals("temp", StructOrUnionSpecifier_5_Var
+		.getId());
+		//6
+		final StructDeclarationList StructDeclarationList_7_Var
+		 = (StructDeclarationList)StructOrUnionSpecifier_5_Var
+		.getStructDeclList();
+		Assert.assertNotNull(StructDeclarationList_7_Var
+		);
+		final EList<? extends EObject> StructDeclaration_7_list = StructDeclarationList_7_Var
+		.getStructDeclaration();
+		Assert.assertNotNull(StructDeclaration_7_list);
+		Assert.assertEquals(1, StructDeclaration_7_list.size());
+		//7
+		final StructDeclaration StructDeclaration_8_Var
+		 = (StructDeclaration)StructDeclaration_7_list.get(0);
+		Assert.assertNotNull(StructDeclaration_8_Var
+		);
+		//8
+		final SpecifierQualifierList SpecifierQualifierList_9_Var
+		 = (SpecifierQualifierList)StructDeclaration_8_Var
+		.getList();
+		Assert.assertNotNull(SpecifierQualifierList_9_Var
+		);
+		final EList<? extends EObject> TypeSpecifier_9_list = SpecifierQualifierList_9_Var
+		.getTypeSpecifier();
+		Assert.assertNotNull(TypeSpecifier_9_list);
+		Assert.assertEquals(1, TypeSpecifier_9_list.size());
 		//9
-		final StructDeclaratorList StructDeclaratorList_10_Var
-		 = (StructDeclaratorList)StructDeclaration_7_Var
-		.getStructDeclarationList();
-		Assert.assertNotNull(StructDeclaratorList_10_Var
+		final TypeSpecifier TypeSpecifier_10_Var
+		 = (TypeSpecifier)TypeSpecifier_9_list.get(0);
+		Assert.assertNotNull(TypeSpecifier_10_Var
 		);
-		final EList<? extends EObject> StructDeclarator_10_list = StructDeclaratorList_10_Var
-		.getStructDeclarator();
-		Assert.assertNotNull(StructDeclarator_10_list);
-		Assert.assertEquals(1, StructDeclarator_10_list.size());
+		Assert.assertEquals("int", TypeSpecifier_10_Var
+		.getName());
 		//10
-		final StructDeclarator StructDeclarator_11_Var
-		 = (StructDeclarator)StructDeclarator_10_list.get(0);
-		Assert.assertNotNull(StructDeclarator_11_Var
+		final StructDeclaratorList StructDeclaratorList_11_Var
+		 = (StructDeclaratorList)StructDeclaration_8_Var
+		.getStructDeclarationList();
+		Assert.assertNotNull(StructDeclaratorList_11_Var
 		);
+		final EList<? extends EObject> StructDeclarator_11_list = StructDeclaratorList_11_Var
+		.getStructDeclarator();
+		Assert.assertNotNull(StructDeclarator_11_list);
+		Assert.assertEquals(1, StructDeclarator_11_list.size());
 		//11
-		final Declarator Declarator_12_Var
-		 = (Declarator)StructDeclarator_11_Var
-		.getDeclarator();
-		Assert.assertNotNull(Declarator_12_Var
+		final StructDeclarator StructDeclarator_12_Var
+		 = (StructDeclarator)StructDeclarator_11_list.get(0);
+		Assert.assertNotNull(StructDeclarator_12_Var
 		);
 		//12
-		final DirectDeclarator DirectDeclarator_13_Var
-		 = (DirectDeclarator)Declarator_12_Var
+		final Declarator Declarator_13_Var
+		 = (Declarator)StructDeclarator_12_Var
 		.getDeclarator();
-		Assert.assertNotNull(DirectDeclarator_13_Var
+		Assert.assertNotNull(Declarator_13_Var
 		);
-		Assert.assertEquals("i", DirectDeclarator_13_Var
-		.getId());
 		//13
-		final ExternalDeclaration ExternalDeclaration_14_Var
-		 = (ExternalDeclaration)External_0_list.get(1);
-		Assert.assertNotNull(ExternalDeclaration_14_Var
+		final DirectDeclarator DirectDeclarator_14_Var
+		 = (DirectDeclarator)Declarator_13_Var
+		.getDeclarator();
+		Assert.assertNotNull(DirectDeclarator_14_Var
 		);
+		Assert.assertEquals("i", DirectDeclarator_14_Var
+		.getId());
 		//14
-		final Declaration Declaration_15_Var
-		 = (Declaration)ExternalDeclaration_14_Var
-		.getDeclaration();
-		Assert.assertNotNull(Declaration_15_Var
+		final ExternalDeclaration ExternalDeclaration_15_Var
+		 = (ExternalDeclaration)External_0_list.get(1);
+		Assert.assertNotNull(ExternalDeclaration_15_Var
 		);
 		//15
-		final DeclarationSpecifiers DeclarationSpecifiers_16_Var
-		 = (DeclarationSpecifiers)Declaration_15_Var
-		.getSpecifiers();
-		Assert.assertNotNull(DeclarationSpecifiers_16_Var
+		final Declaration Declaration_16_Var
+		 = (Declaration)ExternalDeclaration_15_Var
+		.getDeclaration();
+		Assert.assertNotNull(Declaration_16_Var
 		);
-		final EList<? extends EObject> DeclarationSpecifier_16_list = DeclarationSpecifiers_16_Var
-		.getDeclarationSpecifier();
-		Assert.assertNotNull(DeclarationSpecifier_16_list);
-		Assert.assertEquals(1, DeclarationSpecifier_16_list.size());
 		//16
-		final StructOrUnionSpecifier StructOrUnionSpecifier_17_Var
-		 = (StructOrUnionSpecifier)DeclarationSpecifier_16_list.get(0);
-		Assert.assertNotNull(StructOrUnionSpecifier_17_Var
+		final DeclarationSpecifiers DeclarationSpecifiers_17_Var
+		 = (DeclarationSpecifiers)Declaration_16_Var
+		.getSpecifiers();
+		Assert.assertNotNull(DeclarationSpecifiers_17_Var
 		);
+		final EList<? extends EObject> DeclarationSpecifier_17_list = DeclarationSpecifiers_17_Var
+		.getDeclarationSpecifier();
+		Assert.assertNotNull(DeclarationSpecifier_17_list);
+		Assert.assertEquals(1, DeclarationSpecifier_17_list.size());
 		//17
-		final StructOrUnion StructOrUnion_18_Var
-		 = (StructOrUnion)StructOrUnionSpecifier_17_Var
-		.getType();
-		Assert.assertNotNull(StructOrUnion_18_Var
+		final TypeSpecifier TypeSpecifier_18_Var
+		 = (TypeSpecifier)DeclarationSpecifier_17_list.get(0);
+		Assert.assertNotNull(TypeSpecifier_18_Var
 		);
-		Assert.assertEquals("struct", StructOrUnion_18_Var
-		.getName());
-		Assert.assertEquals("outer", StructOrUnionSpecifier_17_Var
-		.getId());
 		//18
-		final StructDeclarationList StructDeclarationList_19_Var
-		 = (StructDeclarationList)StructOrUnionSpecifier_17_Var
-		.getStructDeclList();
-		Assert.assertNotNull(StructDeclarationList_19_Var
+		final StructOrUnionSpecifier StructOrUnionSpecifier_19_Var
+		 = (StructOrUnionSpecifier)TypeSpecifier_18_Var
+		.getSpecifier();
+		Assert.assertNotNull(StructOrUnionSpecifier_19_Var
 		);
-		final EList<? extends EObject> StructDeclaration_19_list = StructDeclarationList_19_Var
-		.getStructDeclaration();
-		Assert.assertNotNull(StructDeclaration_19_list);
-		Assert.assertEquals(3, StructDeclaration_19_list.size());
 		//19
-		final StructDeclaration StructDeclaration_20_Var
-		 = (StructDeclaration)StructDeclaration_19_list.get(0);
-		Assert.assertNotNull(StructDeclaration_20_Var
+		final StructOrUnion StructOrUnion_20_Var
+		 = (StructOrUnion)StructOrUnionSpecifier_19_Var
+		.getType();
+		Assert.assertNotNull(StructOrUnion_20_Var
 		);
+		Assert.assertEquals("struct", StructOrUnion_20_Var
+		.getName());
+		Assert.assertEquals("outer", StructOrUnionSpecifier_19_Var
+		.getId());
 		//20
-		final SpecifierQualifierList SpecifierQualifierList_21_Var
-		 = (SpecifierQualifierList)StructDeclaration_20_Var
-		.getList();
-		Assert.assertNotNull(SpecifierQualifierList_21_Var
+		final StructDeclarationList StructDeclarationList_21_Var
+		 = (StructDeclarationList)StructOrUnionSpecifier_19_Var
+		.getStructDeclList();
+		Assert.assertNotNull(StructDeclarationList_21_Var
 		);
-		final EList<? extends EObject> StructOrUnionSpecifier_21_list = SpecifierQualifierList_21_Var
-		.getStructOrUnionSpecifier();
-		Assert.assertNotNull(StructOrUnionSpecifier_21_list);
-		Assert.assertEquals(1, StructOrUnionSpecifier_21_list.size());
+		final EList<? extends EObject> StructDeclaration_21_list = StructDeclarationList_21_Var
+		.getStructDeclaration();
+		Assert.assertNotNull(StructDeclaration_21_list);
+		Assert.assertEquals(3, StructDeclaration_21_list.size());
 		//21
-		final StructOrUnionSpecifier StructOrUnionSpecifier_22_Var
-		 = (StructOrUnionSpecifier)StructOrUnionSpecifier_21_list.get(0);
-		Assert.assertNotNull(StructOrUnionSpecifier_22_Var
+		final StructDeclaration StructDeclaration_22_Var
+		 = (StructDeclaration)StructDeclaration_21_list.get(0);
+		Assert.assertNotNull(StructDeclaration_22_Var
 		);
 		//22
-		final StructOrUnion StructOrUnion_23_Var
-		 = (StructOrUnion)StructOrUnionSpecifier_22_Var
-		.getType();
-		Assert.assertNotNull(StructOrUnion_23_Var
+		final SpecifierQualifierList SpecifierQualifierList_23_Var
+		 = (SpecifierQualifierList)StructDeclaration_22_Var
+		.getList();
+		Assert.assertNotNull(SpecifierQualifierList_23_Var
 		);
-		Assert.assertEquals("struct", StructOrUnion_23_Var
-		.getName());
-		Assert.assertEquals("temp", StructOrUnionSpecifier_22_Var
-		.getId());
+		final EList<? extends EObject> TypeSpecifier_23_list = SpecifierQualifierList_23_Var
+		.getTypeSpecifier();
+		Assert.assertNotNull(TypeSpecifier_23_list);
+		Assert.assertEquals(1, TypeSpecifier_23_list.size());
 		//23
-		final StructDeclaratorList StructDeclaratorList_24_Var
-		 = (StructDeclaratorList)StructDeclaration_20_Var
-		.getStructDeclarationList();
-		Assert.assertNotNull(StructDeclaratorList_24_Var
+		final TypeSpecifier TypeSpecifier_24_Var
+		 = (TypeSpecifier)TypeSpecifier_23_list.get(0);
+		Assert.assertNotNull(TypeSpecifier_24_Var
 		);
-		final EList<? extends EObject> StructDeclarator_24_list = StructDeclaratorList_24_Var
-		.getStructDeclarator();
-		Assert.assertNotNull(StructDeclarator_24_list);
-		Assert.assertEquals(1, StructDeclarator_24_list.size());
 		//24
-		final StructDeclarator StructDeclarator_25_Var
-		 = (StructDeclarator)StructDeclarator_24_list.get(0);
-		Assert.assertNotNull(StructDeclarator_25_Var
+		final StructOrUnionSpecifier StructOrUnionSpecifier_25_Var
+		 = (StructOrUnionSpecifier)TypeSpecifier_24_Var
+		.getSpecifier();
+		Assert.assertNotNull(StructOrUnionSpecifier_25_Var
 		);
 		//25
-		final Declarator Declarator_26_Var
-		 = (Declarator)StructDeclarator_25_Var
-		.getDeclarator();
-		Assert.assertNotNull(Declarator_26_Var
+		final StructOrUnion StructOrUnion_26_Var
+		 = (StructOrUnion)StructOrUnionSpecifier_25_Var
+		.getType();
+		Assert.assertNotNull(StructOrUnion_26_Var
 		);
-		//26
-		final Pointer Pointer_27_Var
-		 = (Pointer)Declarator_26_Var
-		.getPointer();
-		Assert.assertNotNull(Pointer_27_Var
-		);
-		Assert.assertEquals("[*]", Pointer_27_Var
-		.getStar().toString());
-		//27
-		final DirectDeclarator DirectDeclarator_28_Var
-		 = (DirectDeclarator)Declarator_26_Var
-		.getDeclarator();
-		Assert.assertNotNull(DirectDeclarator_28_Var
-		);
-		Assert.assertEquals("in1", DirectDeclarator_28_Var
+		Assert.assertEquals("struct", StructOrUnion_26_Var
+		.getName());
+		Assert.assertEquals("temp", StructOrUnionSpecifier_25_Var
 		.getId());
+		//26
+		final StructDeclaratorList StructDeclaratorList_27_Var
+		 = (StructDeclaratorList)StructDeclaration_22_Var
+		.getStructDeclarationList();
+		Assert.assertNotNull(StructDeclaratorList_27_Var
+		);
+		final EList<? extends EObject> StructDeclarator_27_list = StructDeclaratorList_27_Var
+		.getStructDeclarator();
+		Assert.assertNotNull(StructDeclarator_27_list);
+		Assert.assertEquals(1, StructDeclarator_27_list.size());
+		//27
+		final StructDeclarator StructDeclarator_28_Var
+		 = (StructDeclarator)StructDeclarator_27_list.get(0);
+		Assert.assertNotNull(StructDeclarator_28_Var
+		);
 		//28
-		final StructDeclaration StructDeclaration_29_Var
-		 = (StructDeclaration)StructDeclaration_19_list.get(1);
-		Assert.assertNotNull(StructDeclaration_29_Var
+		final Declarator Declarator_29_Var
+		 = (Declarator)StructDeclarator_28_Var
+		.getDeclarator();
+		Assert.assertNotNull(Declarator_29_Var
 		);
 		//29
-		final SpecifierQualifierList SpecifierQualifierList_30_Var
-		 = (SpecifierQualifierList)StructDeclaration_29_Var
-		.getList();
-		Assert.assertNotNull(SpecifierQualifierList_30_Var
+		final Pointer Pointer_30_Var
+		 = (Pointer)Declarator_29_Var
+		.getPointer();
+		Assert.assertNotNull(Pointer_30_Var
 		);
-		final EList<? extends EObject> StructOrUnionSpecifier_30_list = SpecifierQualifierList_30_Var
-		.getStructOrUnionSpecifier();
-		Assert.assertNotNull(StructOrUnionSpecifier_30_list);
-		Assert.assertEquals(1, StructOrUnionSpecifier_30_list.size());
+		Assert.assertEquals("[*]", Pointer_30_Var
+		.getStar().toString());
 		//30
-		final StructOrUnionSpecifier StructOrUnionSpecifier_31_Var
-		 = (StructOrUnionSpecifier)StructOrUnionSpecifier_30_list.get(0);
-		Assert.assertNotNull(StructOrUnionSpecifier_31_Var
+		final DirectDeclarator DirectDeclarator_31_Var
+		 = (DirectDeclarator)Declarator_29_Var
+		.getDeclarator();
+		Assert.assertNotNull(DirectDeclarator_31_Var
 		);
-		//31
-		final StructOrUnion StructOrUnion_32_Var
-		 = (StructOrUnion)StructOrUnionSpecifier_31_Var
-		.getType();
-		Assert.assertNotNull(StructOrUnion_32_Var
-		);
-		Assert.assertEquals("struct", StructOrUnion_32_Var
-		.getName());
-		Assert.assertEquals("temp", StructOrUnionSpecifier_31_Var
+		Assert.assertEquals("in1", DirectDeclarator_31_Var
 		.getId());
-		//32
-		final StructDeclaratorList StructDeclaratorList_33_Var
-		 = (StructDeclaratorList)StructDeclaration_29_Var
-		.getStructDeclarationList();
-		Assert.assertNotNull(StructDeclaratorList_33_Var
+		//31
+		final StructDeclaration StructDeclaration_32_Var
+		 = (StructDeclaration)StructDeclaration_21_list.get(1);
+		Assert.assertNotNull(StructDeclaration_32_Var
 		);
-		final EList<? extends EObject> StructDeclarator_33_list = StructDeclaratorList_33_Var
-		.getStructDeclarator();
-		Assert.assertNotNull(StructDeclarator_33_list);
-		Assert.assertEquals(1, StructDeclarator_33_list.size());
+		//32
+		final SpecifierQualifierList SpecifierQualifierList_33_Var
+		 = (SpecifierQualifierList)StructDeclaration_32_Var
+		.getList();
+		Assert.assertNotNull(SpecifierQualifierList_33_Var
+		);
+		final EList<? extends EObject> TypeSpecifier_33_list = SpecifierQualifierList_33_Var
+		.getTypeSpecifier();
+		Assert.assertNotNull(TypeSpecifier_33_list);
+		Assert.assertEquals(1, TypeSpecifier_33_list.size());
 		//33
-		final StructDeclarator StructDeclarator_34_Var
-		 = (StructDeclarator)StructDeclarator_33_list.get(0);
-		Assert.assertNotNull(StructDeclarator_34_Var
+		final TypeSpecifier TypeSpecifier_34_Var
+		 = (TypeSpecifier)TypeSpecifier_33_list.get(0);
+		Assert.assertNotNull(TypeSpecifier_34_Var
 		);
 		//34
-		final Declarator Declarator_35_Var
-		 = (Declarator)StructDeclarator_34_Var
-		.getDeclarator();
-		Assert.assertNotNull(Declarator_35_Var
+		final StructOrUnionSpecifier StructOrUnionSpecifier_35_Var
+		 = (StructOrUnionSpecifier)TypeSpecifier_34_Var
+		.getSpecifier();
+		Assert.assertNotNull(StructOrUnionSpecifier_35_Var
 		);
 		//35
-		final DirectDeclarator DirectDeclarator_36_Var
-		 = (DirectDeclarator)Declarator_35_Var
-		.getDeclarator();
-		Assert.assertNotNull(DirectDeclarator_36_Var
+		final StructOrUnion StructOrUnion_36_Var
+		 = (StructOrUnion)StructOrUnionSpecifier_35_Var
+		.getType();
+		Assert.assertNotNull(StructOrUnion_36_Var
 		);
-		Assert.assertEquals("in2", DirectDeclarator_36_Var
+		Assert.assertEquals("struct", StructOrUnion_36_Var
+		.getName());
+		Assert.assertEquals("temp", StructOrUnionSpecifier_35_Var
 		.getId());
 		//36
-		final StructDeclaration StructDeclaration_37_Var
-		 = (StructDeclaration)StructDeclaration_19_list.get(2);
-		Assert.assertNotNull(StructDeclaration_37_Var
+		final StructDeclaratorList StructDeclaratorList_37_Var
+		 = (StructDeclaratorList)StructDeclaration_32_Var
+		.getStructDeclarationList();
+		Assert.assertNotNull(StructDeclaratorList_37_Var
 		);
+		final EList<? extends EObject> StructDeclarator_37_list = StructDeclaratorList_37_Var
+		.getStructDeclarator();
+		Assert.assertNotNull(StructDeclarator_37_list);
+		Assert.assertEquals(1, StructDeclarator_37_list.size());
 		//37
-		final SpecifierQualifierList SpecifierQualifierList_38_Var
-		 = (SpecifierQualifierList)StructDeclaration_37_Var
-		.getList();
-		Assert.assertNotNull(SpecifierQualifierList_38_Var
+		final StructDeclarator StructDeclarator_38_Var
+		 = (StructDeclarator)StructDeclarator_37_list.get(0);
+		Assert.assertNotNull(StructDeclarator_38_Var
 		);
-		final EList<? extends EObject> StructOrUnionSpecifier_38_list = SpecifierQualifierList_38_Var
-		.getStructOrUnionSpecifier();
-		Assert.assertNotNull(StructOrUnionSpecifier_38_list);
-		Assert.assertEquals(1, StructOrUnionSpecifier_38_list.size());
 		//38
-		final StructOrUnionSpecifier StructOrUnionSpecifier_39_Var
-		 = (StructOrUnionSpecifier)StructOrUnionSpecifier_38_list.get(0);
-		Assert.assertNotNull(StructOrUnionSpecifier_39_Var
+		final Declarator Declarator_39_Var
+		 = (Declarator)StructDeclarator_38_Var
+		.getDeclarator();
+		Assert.assertNotNull(Declarator_39_Var
 		);
 		//39
-		final StructOrUnion StructOrUnion_40_Var
-		 = (StructOrUnion)StructOrUnionSpecifier_39_Var
-		.getType();
-		Assert.assertNotNull(StructOrUnion_40_Var
+		final DirectDeclarator DirectDeclarator_40_Var
+		 = (DirectDeclarator)Declarator_39_Var
+		.getDeclarator();
+		Assert.assertNotNull(DirectDeclarator_40_Var
 		);
-		Assert.assertEquals("union", StructOrUnion_40_Var
-		.getName());
+		Assert.assertEquals("in2", DirectDeclarator_40_Var
+		.getId());
 		//40
-		final StructDeclarationList StructDeclarationList_41_Var
-		 = (StructDeclarationList)StructOrUnionSpecifier_39_Var
-		.getStructDeclList();
-		Assert.assertNotNull(StructDeclarationList_41_Var
+		final StructDeclaration StructDeclaration_41_Var
+		 = (StructDeclaration)StructDeclaration_21_list.get(2);
+		Assert.assertNotNull(StructDeclaration_41_Var
 		);
-		final EList<? extends EObject> StructDeclaration_41_list = StructDeclarationList_41_Var
-		.getStructDeclaration();
-		Assert.assertNotNull(StructDeclaration_41_list);
-		Assert.assertEquals(1, StructDeclaration_41_list.size());
 		//41
-		final StructDeclaration StructDeclaration_42_Var
-		 = (StructDeclaration)StructDeclaration_41_list.get(0);
-		Assert.assertNotNull(StructDeclaration_42_Var
-		);
-		//42
-		final SpecifierQualifierList SpecifierQualifierList_43_Var
-		 = (SpecifierQualifierList)StructDeclaration_42_Var
+		final SpecifierQualifierList SpecifierQualifierList_42_Var
+		 = (SpecifierQualifierList)StructDeclaration_41_Var
 		.getList();
-		Assert.assertNotNull(SpecifierQualifierList_43_Var
+		Assert.assertNotNull(SpecifierQualifierList_42_Var
 		);
-		final EList<? extends EObject> StructOrUnionSpecifier_43_list = SpecifierQualifierList_43_Var
-		.getStructOrUnionSpecifier();
-		Assert.assertNotNull(StructOrUnionSpecifier_43_list);
-		Assert.assertEquals(1, StructOrUnionSpecifier_43_list.size());
+		final EList<? extends EObject> TypeSpecifier_42_list = SpecifierQualifierList_42_Var
+		.getTypeSpecifier();
+		Assert.assertNotNull(TypeSpecifier_42_list);
+		Assert.assertEquals(1, TypeSpecifier_42_list.size());
+		//42
+		final TypeSpecifier TypeSpecifier_43_Var
+		 = (TypeSpecifier)TypeSpecifier_42_list.get(0);
+		Assert.assertNotNull(TypeSpecifier_43_Var
+		);
 		//43
 		final StructOrUnionSpecifier StructOrUnionSpecifier_44_Var
-		 = (StructOrUnionSpecifier)StructOrUnionSpecifier_43_list.get(0);
+		 = (StructOrUnionSpecifier)TypeSpecifier_43_Var
+		.getSpecifier();
 		Assert.assertNotNull(StructOrUnionSpecifier_44_Var
 		);
 		//44
@@ -568,71 +566,117 @@ public class Test0040_ComplexStruct {
 		.getType();
 		Assert.assertNotNull(StructOrUnion_45_Var
 		);
-		Assert.assertEquals("struct", StructOrUnion_45_Var
+		Assert.assertEquals("union", StructOrUnion_45_Var
 		.getName());
-		Assert.assertEquals("temp", StructOrUnionSpecifier_44_Var
-		.getId());
 		//45
-		final StructDeclaratorList StructDeclaratorList_46_Var
-		 = (StructDeclaratorList)StructDeclaration_42_Var
-		.getStructDeclarationList();
-		Assert.assertNotNull(StructDeclaratorList_46_Var
+		final StructDeclarationList StructDeclarationList_46_Var
+		 = (StructDeclarationList)StructOrUnionSpecifier_44_Var
+		.getStructDeclList();
+		Assert.assertNotNull(StructDeclarationList_46_Var
 		);
-		final EList<? extends EObject> StructDeclarator_46_list = StructDeclaratorList_46_Var
-		.getStructDeclarator();
-		Assert.assertNotNull(StructDeclarator_46_list);
-		Assert.assertEquals(1, StructDeclarator_46_list.size());
+		final EList<? extends EObject> StructDeclaration_46_list = StructDeclarationList_46_Var
+		.getStructDeclaration();
+		Assert.assertNotNull(StructDeclaration_46_list);
+		Assert.assertEquals(1, StructDeclaration_46_list.size());
 		//46
-		final StructDeclarator StructDeclarator_47_Var
-		 = (StructDeclarator)StructDeclarator_46_list.get(0);
-		Assert.assertNotNull(StructDeclarator_47_Var
+		final StructDeclaration StructDeclaration_47_Var
+		 = (StructDeclaration)StructDeclaration_46_list.get(0);
+		Assert.assertNotNull(StructDeclaration_47_Var
 		);
 		//47
-		final Declarator Declarator_48_Var
-		 = (Declarator)StructDeclarator_47_Var
-		.getDeclarator();
-		Assert.assertNotNull(Declarator_48_Var
+		final SpecifierQualifierList SpecifierQualifierList_48_Var
+		 = (SpecifierQualifierList)StructDeclaration_47_Var
+		.getList();
+		Assert.assertNotNull(SpecifierQualifierList_48_Var
 		);
+		final EList<? extends EObject> TypeSpecifier_48_list = SpecifierQualifierList_48_Var
+		.getTypeSpecifier();
+		Assert.assertNotNull(TypeSpecifier_48_list);
+		Assert.assertEquals(1, TypeSpecifier_48_list.size());
 		//48
-		final DirectDeclarator DirectDeclarator_49_Var
-		 = (DirectDeclarator)Declarator_48_Var
-		.getDeclarator();
-		Assert.assertNotNull(DirectDeclarator_49_Var
+		final TypeSpecifier TypeSpecifier_49_Var
+		 = (TypeSpecifier)TypeSpecifier_48_list.get(0);
+		Assert.assertNotNull(TypeSpecifier_49_Var
 		);
-		Assert.assertEquals("in3", DirectDeclarator_49_Var
-		.getId());
 		//49
-		final StructDeclaratorList StructDeclaratorList_50_Var
-		 = (StructDeclaratorList)StructDeclaration_37_Var
-		.getStructDeclarationList();
-		Assert.assertNotNull(StructDeclaratorList_50_Var
+		final StructOrUnionSpecifier StructOrUnionSpecifier_50_Var
+		 = (StructOrUnionSpecifier)TypeSpecifier_49_Var
+		.getSpecifier();
+		Assert.assertNotNull(StructOrUnionSpecifier_50_Var
 		);
-		final EList<? extends EObject> StructDeclarator_50_list = StructDeclaratorList_50_Var
-		.getStructDeclarator();
-		Assert.assertNotNull(StructDeclarator_50_list);
-		Assert.assertEquals(1, StructDeclarator_50_list.size());
 		//50
-		final StructDeclarator StructDeclarator_51_Var
-		 = (StructDeclarator)StructDeclarator_50_list.get(0);
-		Assert.assertNotNull(StructDeclarator_51_Var
+		final StructOrUnion StructOrUnion_51_Var
+		 = (StructOrUnion)StructOrUnionSpecifier_50_Var
+		.getType();
+		Assert.assertNotNull(StructOrUnion_51_Var
 		);
+		Assert.assertEquals("struct", StructOrUnion_51_Var
+		.getName());
+		Assert.assertEquals("temp", StructOrUnionSpecifier_50_Var
+		.getId());
 		//51
-		final Declarator Declarator_52_Var
-		 = (Declarator)StructDeclarator_51_Var
-		.getDeclarator();
-		Assert.assertNotNull(Declarator_52_Var
+		final StructDeclaratorList StructDeclaratorList_52_Var
+		 = (StructDeclaratorList)StructDeclaration_47_Var
+		.getStructDeclarationList();
+		Assert.assertNotNull(StructDeclaratorList_52_Var
 		);
+		final EList<? extends EObject> StructDeclarator_52_list = StructDeclaratorList_52_Var
+		.getStructDeclarator();
+		Assert.assertNotNull(StructDeclarator_52_list);
+		Assert.assertEquals(1, StructDeclarator_52_list.size());
 		//52
-		final DirectDeclarator DirectDeclarator_53_Var
-		 = (DirectDeclarator)Declarator_52_Var
-		.getDeclarator();
-		Assert.assertNotNull(DirectDeclarator_53_Var
+		final StructDeclarator StructDeclarator_53_Var
+		 = (StructDeclarator)StructDeclarator_52_list.get(0);
+		Assert.assertNotNull(StructDeclarator_53_Var
 		);
-		Assert.assertEquals("inner4", DirectDeclarator_53_Var
+		//53
+		final Declarator Declarator_54_Var
+		 = (Declarator)StructDeclarator_53_Var
+		.getDeclarator();
+		Assert.assertNotNull(Declarator_54_Var
+		);
+		//54
+		final DirectDeclarator DirectDeclarator_55_Var
+		 = (DirectDeclarator)Declarator_54_Var
+		.getDeclarator();
+		Assert.assertNotNull(DirectDeclarator_55_Var
+		);
+		Assert.assertEquals("in3", DirectDeclarator_55_Var
+		.getId());
+		//55
+		final StructDeclaratorList StructDeclaratorList_56_Var
+		 = (StructDeclaratorList)StructDeclaration_41_Var
+		.getStructDeclarationList();
+		Assert.assertNotNull(StructDeclaratorList_56_Var
+		);
+		final EList<? extends EObject> StructDeclarator_56_list = StructDeclaratorList_56_Var
+		.getStructDeclarator();
+		Assert.assertNotNull(StructDeclarator_56_list);
+		Assert.assertEquals(1, StructDeclarator_56_list.size());
+		//56
+		final StructDeclarator StructDeclarator_57_Var
+		 = (StructDeclarator)StructDeclarator_56_list.get(0);
+		Assert.assertNotNull(StructDeclarator_57_Var
+		);
+		//57
+		final Declarator Declarator_58_Var
+		 = (Declarator)StructDeclarator_57_Var
+		.getDeclarator();
+		Assert.assertNotNull(Declarator_58_Var
+		);
+		//58
+		final DirectDeclarator DirectDeclarator_59_Var
+		 = (DirectDeclarator)Declarator_58_Var
+		.getDeclarator();
+		Assert.assertNotNull(DirectDeclarator_59_Var
+		);
+		Assert.assertEquals("inner4", DirectDeclarator_59_Var
 		.getId());
 	}
 	
 	@Test
+	(timeout=1000
+	)
 	public void testGenerator() throws Exception {
 		// load the resource
 		ResourceSet set = this.resourceSetProvider.get();

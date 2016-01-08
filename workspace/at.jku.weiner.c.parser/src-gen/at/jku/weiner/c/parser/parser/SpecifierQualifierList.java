@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.SpecifierQualifierList#getTypeSpecifier <em>Type Specifier</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.SpecifierQualifierList#getTypeQualifier <em>Type Qualifier</em>}</li>
- *   <li>{@link at.jku.weiner.c.parser.parser.SpecifierQualifierList#getStructOrUnionSpecifier <em>Struct Or Union Specifier</em>}</li>
  * </ul>
  *
  * @see at.jku.weiner.c.parser.parser.ParserPackage#getSpecifierQualifierList()
@@ -57,21 +56,5 @@ public interface SpecifierQualifierList extends EObject
    * @generated
    */
   EList<TypeQualifier> getTypeQualifier();
-
-  /**
-   * Returns the value of the '<em><b>Struct Or Union Specifier</b></em>' containment reference list.
-   * The list contents are of type {@link at.jku.weiner.c.parser.parser.DeclarationSpecifier}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Struct Or Union Specifier</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Struct Or Union Specifier</em>' containment reference list.
-   * @see at.jku.weiner.c.parser.parser.ParserPackage#getSpecifierQualifierList_StructOrUnionSpecifier()
-   * @model containment="true"
-   * @generated
-   */
-  EList<DeclarationSpecifier> getStructOrUnionSpecifier();
 
 } // SpecifierQualifierList

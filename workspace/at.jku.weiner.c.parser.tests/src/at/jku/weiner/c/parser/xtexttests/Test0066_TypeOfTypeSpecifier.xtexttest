@@ -1,0 +1,123 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.parser
+language parser
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+source file="res/Test0066_TypeOfTypeSpecifier.c"
+//----------------------------------------------------------------------
+lexer-tokens
+KW_TYPEOF1 SKW_LEFTPAREN 
+	KW_UNSIGNED WHITESPACE KW_LONG
+	SKW_RIGHTPAREN WHITESPACE ID SKW_SEMI NEWLINE
+KW_TYPEOF3 SKW_LEFTPAREN 
+	KW_UNSIGNED WHITESPACE KW_LONG WHITESPACE SKW_STAR
+	SKW_RIGHTPAREN WHITESPACE ID SKW_SEMI NEWLINE
+//----------------------------------------------------------------------
+//(common::Model units+=
+	//(common::TranslationUnit 
+	(Parser
+		external+=
+		(ExternalDeclaration
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						typeOf++"typeof",
+						typeName=
+						(TypeName
+							list=
+							(SpecifierQualifierList
+								typeSpecifier+=
+								(TypeSpecifier
+									name++"unsigned"
+								),
+								(TypeSpecifier
+									name++"long"
+								)
+							),
+							abstractDeclarator=
+							(AbstractDeclarator
+								pointer=
+								(Pointer
+									star isEmpty
+								)
+							)
+						)
+					)
+				)
+				,
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"j"
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+			
+		),
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						typeOf++"__typeof__",
+						typeName=
+						(TypeName
+							list=
+							(SpecifierQualifierList
+								typeSpecifier+=
+								(TypeSpecifier
+									name++"unsigned"
+								),
+								(TypeSpecifier
+									name++"long"
+								)
+							),
+							abstractDeclarator=
+							(AbstractDeclarator
+								pointer=
+								(Pointer
+									star+*"[*]"
+								)
+							)
+						)
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"k"
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+		)
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0065_TypeOf.c"
+expected file isSameAsInputFile
+replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

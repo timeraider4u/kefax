@@ -132,7 +132,6 @@ DeclarationSpecifiers:
 	(declarationSpecifier+=StorageClassSpecifier
 	|	declarationSpecifier+=TypeSpecifier
 	|	declarationSpecifier+=TypeQualifier
-	|	declarationSpecifier+=StructOrUnionSpecifier
 	|	declarationSpecifier+=FunctionSpecifier
 	//|	declarationSpecifier+=alignmentSpecifier
 	)+
@@ -192,11 +191,13 @@ initRuleAction {
 			(extType=KW_M128 | extType=KW_M128D | extType=KW_M128I) 
 			SKW_RIGHTPAREN)?
 	//  |	specifier=atomicTypeSpecifier
-	//|	specifier=StructOrUnionSpecifier
+	|	specifier=StructOrUnionSpecifier
 	|	specifier=EnumSpecifier
 	|	type=TypedefName
-	|	struct=StructOrUnionName
-	|	typeOf=(KW_TYPEOF1 | KW_TYPEOF3) SKW_LEFTPAREN constExpr=ConstantExpression SKW_RIGHTPAREN // GCC extension
+	|	typeOf=(KW_TYPEOF1 | KW_TYPEOF3)
+			SKW_LEFTPAREN 
+			(typeName=TypeName | constExpr=ConstantExpression) 
+			SKW_RIGHTPAREN // GCC extension
 ;
 
 TypedefName
@@ -207,12 +208,6 @@ initRuleAction {
 	{TypedefName}
 	id=ID
 		preAction{ { at.jku.weiner.c.parser.Scope.isTypeName(input) }? }
-;
-
-StructOrUnionName:
-	{StructOrUnionName}
-	id=ID
-		preAction{ { at.jku.weiner.c.parser.Scope.isStructName(input) }? }
 ;
 
 StructOrUnionSpecifier returns DeclarationSpecifier
@@ -227,19 +222,7 @@ StructOrUnionSpecifier returns DeclarationSpecifier
 	{StructOrUnionSpecifier}
 	type=StructOrUnion
 	(	(id=ID)? SKW_LEFTBRACE structDeclList=StructDeclarationList SKW_RIGHTBRACE
-		preAction{ {
-			at.jku.weiner.c.parser.Scope.setTemp(input);
-		} }
-		postAction{ {
-			at.jku.weiner.c.parser.Scope.addStructOrUnion();
-		} }
 	|	id=ID
-		preAction{ {
-			at.jku.weiner.c.parser.Scope.setTemp(input);
-		} }
-		postAction{ {
-			at.jku.weiner.c.parser.Scope.addStructOrUnion();
-		} }
 	)
 ;
 
@@ -262,8 +245,7 @@ initRuleAction {
 	}
 	:
 	{SpecifierQualifierList} 
-	(typeSpecifier+=TypeSpecifier | typeQualifier+=TypeQualifier| 
-		structOrUnionSpecifier+=StructOrUnionSpecifier
+	(typeSpecifier+=TypeSpecifier | typeQualifier+=TypeQualifier 
 	)+
 ;
 

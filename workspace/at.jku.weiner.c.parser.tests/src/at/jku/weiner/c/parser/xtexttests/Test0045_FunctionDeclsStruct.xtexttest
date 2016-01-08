@@ -7,12 +7,12 @@ imports at.jku.weiner.c.common.common
 source file="res/Test0045_FunctionDeclsStruct.c"
 //----------------------------------------------------------------------
 lexer-tokens
-KW_STRUCT WHITESPACE ID WHITESPACE SKW_SEMI NEWLINE
-KW_CHAR WHITESPACE ID SKW_LEFTPAREN
+KW_STRUCT WHITESPACE ID SKW_SEMI NEWLINE
+KW_CHAR WHITESPACE ID SKW_LEFTPAREN KW_STRUCT WHITESPACE
 	ID WHITESPACE ID SKW_RIGHTPAREN SKW_SEMI NEWLINE
-KW_CHAR WHITESPACE ID SKW_LEFTPAREN
+KW_CHAR WHITESPACE ID SKW_LEFTPAREN KW_STRUCT WHITESPACE
 	ID WHITESPACE SKW_STAR WHITESPACE ID SKW_RIGHTPAREN SKW_SEMI NEWLINE
-KW_CHAR WHITESPACE ID SKW_LEFTPAREN
+KW_CHAR WHITESPACE ID SKW_LEFTPAREN KW_STRUCT WHITESPACE
 	ID WHITESPACE SKW_STAR SKW_RIGHTPAREN SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
 //(common::Model units+=
@@ -26,13 +26,16 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN
 				specifiers=
 				(DeclarationSpecifiers
 					declarationSpecifier+=
-					(StructOrUnionSpecifier
-						type=
-						(StructOrUnion
-							name++"struct"
-						),
-						id++"STRUCT",
-						structDeclList isNull
+					(TypeSpecifier
+						specifier=
+						(StructOrUnionSpecifier
+							type=
+							(StructOrUnion
+								name++"struct"
+							),
+							id++"STRUCT",
+							structDeclList isNull
+						)
 					)
 				)
 			)
@@ -71,9 +74,14 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN
 													(DeclarationSpecifiers
 														declarationSpecifier+=
 														(TypeSpecifier
-															struct=
-															(StructOrUnionName
-																id++"STRUCT"
+															specifier=
+															(StructOrUnionSpecifier
+																type=
+																(StructOrUnion
+																	name++"struct"
+																),
+																id++"STRUCT",
+																structDeclList isNull
 															)
 														)
 													),
@@ -134,9 +142,14 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN
 													(DeclarationSpecifiers
 														declarationSpecifier+=
 														(TypeSpecifier
-															struct=
-															(StructOrUnionName
-																id++"STRUCT"
+															specifier=
+															(StructOrUnionSpecifier
+																type=
+																(StructOrUnion
+																	name++"struct"
+																),
+																id++"STRUCT",
+																structDeclList isNull
 															)
 														)
 													),
@@ -197,9 +210,14 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN
 													(DeclarationSpecifiers
 														declarationSpecifier+=
 														(TypeSpecifier
-															struct=
-															(StructOrUnionName
-																id++"STRUCT"
+															specifier=
+															(StructOrUnionSpecifier
+																type=
+																(StructOrUnion
+																	name++"struct"
+																),
+																id++"STRUCT",
+																structDeclList isNull
 															)
 														)
 													),

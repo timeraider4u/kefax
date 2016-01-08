@@ -2,7 +2,6 @@
  */
 package at.jku.weiner.c.parser.parser.impl;
 
-import at.jku.weiner.c.parser.parser.DeclarationSpecifier;
 import at.jku.weiner.c.parser.parser.ParserPackage;
 import at.jku.weiner.c.parser.parser.SpecifierQualifierList;
 import at.jku.weiner.c.parser.parser.TypeQualifier;
@@ -32,7 +31,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.SpecifierQualifierListImpl#getTypeSpecifier <em>Type Specifier</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.SpecifierQualifierListImpl#getTypeQualifier <em>Type Qualifier</em>}</li>
- *   <li>{@link at.jku.weiner.c.parser.parser.impl.SpecifierQualifierListImpl#getStructOrUnionSpecifier <em>Struct Or Union Specifier</em>}</li>
  * </ul>
  *
  * @generated
@@ -58,16 +56,6 @@ public class SpecifierQualifierListImpl extends MinimalEObjectImpl.Container imp
    * @ordered
    */
   protected EList<TypeQualifier> typeQualifier;
-
-  /**
-   * The cached value of the '{@link #getStructOrUnionSpecifier() <em>Struct Or Union Specifier</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getStructOrUnionSpecifier()
-   * @generated
-   * @ordered
-   */
-  protected EList<DeclarationSpecifier> structOrUnionSpecifier;
 
   /**
    * <!-- begin-user-doc -->
@@ -123,20 +111,6 @@ public class SpecifierQualifierListImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<DeclarationSpecifier> getStructOrUnionSpecifier()
-  {
-    if (structOrUnionSpecifier == null)
-    {
-      structOrUnionSpecifier = new EObjectContainmentEList<DeclarationSpecifier>(DeclarationSpecifier.class, this, ParserPackage.SPECIFIER_QUALIFIER_LIST__STRUCT_OR_UNION_SPECIFIER);
-    }
-    return structOrUnionSpecifier;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -146,8 +120,6 @@ public class SpecifierQualifierListImpl extends MinimalEObjectImpl.Container imp
         return ((InternalEList<?>)getTypeSpecifier()).basicRemove(otherEnd, msgs);
       case ParserPackage.SPECIFIER_QUALIFIER_LIST__TYPE_QUALIFIER:
         return ((InternalEList<?>)getTypeQualifier()).basicRemove(otherEnd, msgs);
-      case ParserPackage.SPECIFIER_QUALIFIER_LIST__STRUCT_OR_UNION_SPECIFIER:
-        return ((InternalEList<?>)getStructOrUnionSpecifier()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -166,8 +138,6 @@ public class SpecifierQualifierListImpl extends MinimalEObjectImpl.Container imp
         return getTypeSpecifier();
       case ParserPackage.SPECIFIER_QUALIFIER_LIST__TYPE_QUALIFIER:
         return getTypeQualifier();
-      case ParserPackage.SPECIFIER_QUALIFIER_LIST__STRUCT_OR_UNION_SPECIFIER:
-        return getStructOrUnionSpecifier();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -191,10 +161,6 @@ public class SpecifierQualifierListImpl extends MinimalEObjectImpl.Container imp
         getTypeQualifier().clear();
         getTypeQualifier().addAll((Collection<? extends TypeQualifier>)newValue);
         return;
-      case ParserPackage.SPECIFIER_QUALIFIER_LIST__STRUCT_OR_UNION_SPECIFIER:
-        getStructOrUnionSpecifier().clear();
-        getStructOrUnionSpecifier().addAll((Collection<? extends DeclarationSpecifier>)newValue);
-        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -215,9 +181,6 @@ public class SpecifierQualifierListImpl extends MinimalEObjectImpl.Container imp
       case ParserPackage.SPECIFIER_QUALIFIER_LIST__TYPE_QUALIFIER:
         getTypeQualifier().clear();
         return;
-      case ParserPackage.SPECIFIER_QUALIFIER_LIST__STRUCT_OR_UNION_SPECIFIER:
-        getStructOrUnionSpecifier().clear();
-        return;
     }
     super.eUnset(featureID);
   }
@@ -236,8 +199,6 @@ public class SpecifierQualifierListImpl extends MinimalEObjectImpl.Container imp
         return typeSpecifier != null && !typeSpecifier.isEmpty();
       case ParserPackage.SPECIFIER_QUALIFIER_LIST__TYPE_QUALIFIER:
         return typeQualifier != null && !typeQualifier.isEmpty();
-      case ParserPackage.SPECIFIER_QUALIFIER_LIST__STRUCT_OR_UNION_SPECIFIER:
-        return structOrUnionSpecifier != null && !structOrUnionSpecifier.isEmpty();
     }
     return super.eIsSet(featureID);
   }

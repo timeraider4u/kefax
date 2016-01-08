@@ -209,6 +209,9 @@ class ParserGenerator implements IGenerator {
 			«IF spec.specifier instanceof EnumSpecifier»
 				«outputFor(spec.specifier as EnumSpecifier)»
 			«ENDIF»
+			«IF spec.specifier instanceof StructOrUnionSpecifier»
+				«outputFor(spec.specifier as StructOrUnionSpecifier)»
+			«ENDIF»
 		«ENDIF»
 		«IF spec.type != null»
 			«spec.type.id»
@@ -216,10 +219,10 @@ class ParserGenerator implements IGenerator {
 		«IF spec.name != null»
 			«spec.name»
 		«ENDIF»
-		«IF spec.struct != null»
-			«spec.struct.id»
-		«ENDIF»
-		«IF spec.typeOf != null»«spec.typeOf»(«outputForConstantExpression(spec.constExpr as ConstantExpression)»)«ENDIF»
+		«IF spec.typeOf != null»«spec.typeOf»(
+			«IF spec.constExpr != null»«outputForConstantExpression(spec.constExpr as ConstantExpression)»«ENDIF»
+			«IF spec.typeName != null»«outputFor(spec.typeName)»«ENDIF»
+		)«ENDIF»
 	'''
 	
 	def String outputFor(StructOrUnionSpecifier obj) '''
@@ -706,9 +709,6 @@ class ParserGenerator implements IGenerator {
 		«ENDFOR»
 		«FOR x : obj.typeQualifier»
 			«outputFor(x as TypeQualifier)»
-		«ENDFOR»
-		«FOR x : obj.structOrUnionSpecifier»
-			«outputFor(x as StructOrUnionSpecifier)»
 		«ENDFOR»
 	'''
 	

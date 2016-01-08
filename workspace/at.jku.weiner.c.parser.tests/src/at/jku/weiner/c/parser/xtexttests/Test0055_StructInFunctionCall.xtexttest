@@ -34,33 +34,36 @@ SKW_RIGHTBRACE NEWLINE
 				specifiers=
 				(DeclarationSpecifiers
 					declarationSpecifier+=
-					(StructOrUnionSpecifier
-						type=
-						(StructOrUnion
-							name++"struct"
-						),
-						id++"foo",
-						structDeclList=
-						(StructDeclarationList
-							structDeclaration+=
-							// int i
-							(StructDeclaration
-								list=
-								(SpecifierQualifierList
-									typeSpecifier+=
-									(TypeSpecifier
-										name++"int"
-									)
-								),
-								structDeclarationList=
-								(StructDeclaratorList
-									structDeclarator+=
-									(StructDeclarator
-										declarator=
-										(Declarator
+					(TypeSpecifier
+						specifier=
+						(StructOrUnionSpecifier
+							type=
+							(StructOrUnion
+								name++"struct"
+							),
+							id++"foo",
+							structDeclList=
+							(StructDeclarationList
+								structDeclaration+=
+								// int i
+								(StructDeclaration
+									list=
+									(SpecifierQualifierList
+										typeSpecifier+=
+										(TypeSpecifier
+											name++"int"
+										)
+									),
+									structDeclarationList=
+									(StructDeclaratorList
+										structDeclarator+=
+										(StructDeclarator
 											declarator=
-											(DirectDeclarator
-												id++"i"
+											(Declarator
+												declarator=
+												(DirectDeclarator
+													id++"i"
+												)
 											)
 										)
 									)
@@ -106,12 +109,15 @@ SKW_RIGHTBRACE NEWLINE
 													declSpecifiers=
 													(DeclarationSpecifiers
 														declarationSpecifier+=
-														(StructOrUnionSpecifier
-															type=
-															(StructOrUnion
-																name++"struct"
-															),
-															id++"foo"
+														(TypeSpecifier
+															specifier=
+															(StructOrUnionSpecifier
+																type=
+																(StructOrUnion
+																	name++"struct"
+																),
+																id++"foo"
+															)
 														)
 													),
 													declarator=
@@ -162,12 +168,15 @@ SKW_RIGHTBRACE NEWLINE
 											declSpecifiers=
 											(DeclarationSpecifiers
 												declarationSpecifier+=
-												(StructOrUnionSpecifier
-													type=
-													(StructOrUnion
-														name++"struct"
-													),
-													id++"foo"
+												(TypeSpecifier
+													specifier=
+													(StructOrUnionSpecifier
+														type=
+														(StructOrUnion
+															name++"struct"
+														),
+														id++"foo"
+													)
 												)
 											),
 											declarator=

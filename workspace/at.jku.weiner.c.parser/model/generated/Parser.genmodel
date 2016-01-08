@@ -47,15 +47,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//TypeSpecifier/extType"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//TypeSpecifier/specifier"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//TypeSpecifier/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//TypeSpecifier/struct"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//TypeSpecifier/typeOf"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//TypeSpecifier/typeName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//TypeSpecifier/constExpr"/>
     </genClasses>
     <genClasses ecoreClass="Parser.ecore#//TypedefName">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//TypedefName/id"/>
-    </genClasses>
-    <genClasses ecoreClass="Parser.ecore#//StructOrUnionName">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//StructOrUnionName/id"/>
     </genClasses>
     <genClasses ecoreClass="Parser.ecore#//DeclarationSpecifier">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//DeclarationSpecifier/id"/>
@@ -73,7 +70,6 @@
     <genClasses ecoreClass="Parser.ecore#//SpecifierQualifierList">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//SpecifierQualifierList/typeSpecifier"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//SpecifierQualifierList/typeQualifier"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//SpecifierQualifierList/structOrUnionSpecifier"/>
     </genClasses>
     <genClasses ecoreClass="Parser.ecore#//StructDeclaratorList">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//StructDeclaratorList/structDeclarator"/>

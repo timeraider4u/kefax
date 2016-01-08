@@ -130,11 +130,6 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
         return createTypedefNameAdapter();
       }
       @Override
-      public Adapter caseStructOrUnionName(StructOrUnionName object)
-      {
-        return createStructOrUnionNameAdapter();
-      }
-      @Override
       public Adapter caseDeclarationSpecifier(DeclarationSpecifier object)
       {
         return createDeclarationSpecifierAdapter();
@@ -712,21 +707,6 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createTypedefNameAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.parser.parser.StructOrUnionName <em>Struct Or Union Name</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see at.jku.weiner.c.parser.parser.StructOrUnionName
-   * @generated
-   */
-  public Adapter createStructOrUnionNameAdapter()
   {
     return null;
   }

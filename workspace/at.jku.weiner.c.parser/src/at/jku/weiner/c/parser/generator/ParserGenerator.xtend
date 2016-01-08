@@ -728,6 +728,7 @@ class ParserGenerator implements IGenerator {
 		«ENDIF»
 		«IF obj.andand != null»«obj.andand»«obj.id»
 		«ENDIF»
+		«IF obj.alignOf != null»«obj.alignOf»(«outputFor(obj.typeName)»)«ENDIF»
 	'''
 	
 	def String outputFor(UnaryOperator obj) '''

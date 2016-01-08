@@ -18,6 +18,7 @@ package at.jku.weiner.c.parser.parser;
  *   <li>{@link at.jku.weiner.c.parser.parser.UnaryExpression#getOp <em>Op</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.UnaryExpression#getSizeOf <em>Size Of</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.UnaryExpression#getTypeName <em>Type Name</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.UnaryExpression#getAlignOf <em>Align Of</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.UnaryExpression#getAndand <em>Andand</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.UnaryExpression#getId <em>Id</em>}</li>
  * </ul>
@@ -183,6 +184,32 @@ public interface UnaryExpression extends Expression
    * @generated
    */
   void setTypeName(TypeName value);
+
+  /**
+   * Returns the value of the '<em><b>Align Of</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Align Of</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Align Of</em>' attribute.
+   * @see #setAlignOf(String)
+   * @see at.jku.weiner.c.parser.parser.ParserPackage#getUnaryExpression_AlignOf()
+   * @model
+   * @generated
+   */
+  String getAlignOf();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.UnaryExpression#getAlignOf <em>Align Of</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Align Of</em>' attribute.
+   * @see #getAlignOf()
+   * @generated
+   */
+  void setAlignOf(String value);
 
   /**
    * Returns the value of the '<em><b>Andand</b></em>' attribute.

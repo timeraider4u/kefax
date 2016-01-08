@@ -77,6 +77,7 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getMultiplicativeExpressionAccess().getAlternatives_2_0(), "rule__MultiplicativeExpression__Alternatives_2_0");
 					put(grammarAccess.getCastExpressionAccess().getAlternatives_1(), "rule__CastExpression__Alternatives_1");
 					put(grammarAccess.getUnaryExpressionAccess().getAlternatives_1(), "rule__UnaryExpression__Alternatives_1");
+					put(grammarAccess.getUnaryExpressionAccess().getAlignOfAlternatives_1_6_0_0(), "rule__UnaryExpression__AlignOfAlternatives_1_6_0_0");
 					put(grammarAccess.getUnaryOperatorAccess().getAlternatives_1(), "rule__UnaryOperator__Alternatives_1");
 					put(grammarAccess.getPostfixExpressionAccess().getAlternatives_1_1(), "rule__PostfixExpression__Alternatives_1_1");
 					put(grammarAccess.getPrimaryExpressionAccess().getAlternatives_1(), "rule__PrimaryExpression__Alternatives_1");
@@ -222,6 +223,7 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUnaryExpressionAccess().getGroup_1_4(), "rule__UnaryExpression__Group_1_4__0");
 					put(grammarAccess.getUnaryExpressionAccess().getGroup_1_5(), "rule__UnaryExpression__Group_1_5__0");
 					put(grammarAccess.getUnaryExpressionAccess().getGroup_1_6(), "rule__UnaryExpression__Group_1_6__0");
+					put(grammarAccess.getUnaryExpressionAccess().getGroup_1_7(), "rule__UnaryExpression__Group_1_7__0");
 					put(grammarAccess.getUnaryOperatorAccess().getGroup(), "rule__UnaryOperator__Group__0");
 					put(grammarAccess.getPostfixExpressionAccess().getGroup(), "rule__PostfixExpression__Group__0");
 					put(grammarAccess.getPostfixExpressionAccess().getGroup_1(), "rule__PostfixExpression__Group_1__0");
@@ -517,8 +519,10 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUnaryExpressionAccess().getTypeNameAssignment_1_4_2(), "rule__UnaryExpression__TypeNameAssignment_1_4_2");
 					put(grammarAccess.getUnaryExpressionAccess().getSizeOfAssignment_1_5_0(), "rule__UnaryExpression__SizeOfAssignment_1_5_0");
 					put(grammarAccess.getUnaryExpressionAccess().getExprAssignment_1_5_1(), "rule__UnaryExpression__ExprAssignment_1_5_1");
-					put(grammarAccess.getUnaryExpressionAccess().getAndandAssignment_1_6_0(), "rule__UnaryExpression__AndandAssignment_1_6_0");
-					put(grammarAccess.getUnaryExpressionAccess().getIdAssignment_1_6_1(), "rule__UnaryExpression__IdAssignment_1_6_1");
+					put(grammarAccess.getUnaryExpressionAccess().getAlignOfAssignment_1_6_0(), "rule__UnaryExpression__AlignOfAssignment_1_6_0");
+					put(grammarAccess.getUnaryExpressionAccess().getTypeNameAssignment_1_6_2(), "rule__UnaryExpression__TypeNameAssignment_1_6_2");
+					put(grammarAccess.getUnaryExpressionAccess().getAndandAssignment_1_7_0(), "rule__UnaryExpression__AndandAssignment_1_7_0");
+					put(grammarAccess.getUnaryExpressionAccess().getIdAssignment_1_7_1(), "rule__UnaryExpression__IdAssignment_1_7_1");
 					put(grammarAccess.getUnaryOperatorAccess().getOpAssignment_1_0(), "rule__UnaryOperator__OpAssignment_1_0");
 					put(grammarAccess.getUnaryOperatorAccess().getOpAssignment_1_1(), "rule__UnaryOperator__OpAssignment_1_1");
 					put(grammarAccess.getUnaryOperatorAccess().getOpAssignment_1_2(), "rule__UnaryOperator__OpAssignment_1_2");

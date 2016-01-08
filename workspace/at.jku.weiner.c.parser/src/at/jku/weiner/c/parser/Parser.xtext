@@ -811,7 +811,7 @@ initRuleAction {
 	|	op=UnaryOperator expr=CastExpression
 	|	sizeOf=KW_SIZEOF SKW_LEFTPAREN typeName=TypeName SKW_RIGHTPAREN
 	|	sizeOf=KW_SIZEOF expr=UnaryExpression 
-	//|	KW_ALIGNOF SKW_LEFTPAREN typeName=typeName SKW_RIGHTPAREN
+	|	alignOf=(KW_ALIGNOF1|KW_ALIGNOF2|KW_ALIGNOF3) SKW_LEFTPAREN typeName=TypeName SKW_RIGHTPAREN
 	|	andand=SKW_ANDAND id=ID // GCC extension address of label
 	)
 ;
@@ -940,7 +940,9 @@ terminal KW_ATOMIC : SKW_UNDERSCORE 'Atomic';
 terminal KW_ATTRIBUTE: SKW_UNDERSCORE SKW_UNDERSCORE 'attribute' SKW_UNDERSCORE SKW_UNDERSCORE;
 terminal KW_AUTO : 'auto';
 terminal KW_ALIGNAS : SKW_UNDERSCORE 'Alignas';
-terminal KW_ALIGNOF : SKW_UNDERSCORE 'Alignof';
+terminal KW_ALIGNOF1: 'alignof';
+terminal KW_ALIGNOF2: SKW_UNDERSCORE SKW_UNDERSCORE KW_ALIGNOF1;
+terminal KW_ALIGNOF3: KW_ALIGNOF2 SKW_UNDERSCORE SKW_UNDERSCORE;
 terminal KW_ASM1: 'asm';
 terminal KW_ASM2: SKW_UNDERSCORE SKW_UNDERSCORE KW_ASM1;
 terminal KW_ASM3: KW_ASM2 SKW_UNDERSCORE SKW_UNDERSCORE;

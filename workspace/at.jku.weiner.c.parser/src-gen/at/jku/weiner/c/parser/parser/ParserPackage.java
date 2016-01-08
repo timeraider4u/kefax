@@ -3331,13 +3331,22 @@ public interface ParserPackage extends EPackage
   int UNARY_EXPRESSION__TYPE_NAME = EXPRESSION_FEATURE_COUNT + 5;
 
   /**
+   * The feature id for the '<em><b>Align Of</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNARY_EXPRESSION__ALIGN_OF = EXPRESSION_FEATURE_COUNT + 6;
+
+  /**
    * The feature id for the '<em><b>Andand</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int UNARY_EXPRESSION__ANDAND = EXPRESSION_FEATURE_COUNT + 6;
+  int UNARY_EXPRESSION__ANDAND = EXPRESSION_FEATURE_COUNT + 7;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3346,7 +3355,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int UNARY_EXPRESSION__ID = EXPRESSION_FEATURE_COUNT + 7;
+  int UNARY_EXPRESSION__ID = EXPRESSION_FEATURE_COUNT + 8;
 
   /**
    * The number of structural features of the '<em>Unary Expression</em>' class.
@@ -3355,7 +3364,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int UNARY_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 8;
+  int UNARY_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 9;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.PostfixExpressionImpl <em>Postfix Expression</em>}' class.
@@ -6242,6 +6251,17 @@ public interface ParserPackage extends EPackage
   EReference getUnaryExpression_TypeName();
 
   /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.UnaryExpression#getAlignOf <em>Align Of</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Align Of</em>'.
+   * @see at.jku.weiner.c.parser.parser.UnaryExpression#getAlignOf()
+   * @see #getUnaryExpression()
+   * @generated
+   */
+  EAttribute getUnaryExpression_AlignOf();
+
+  /**
    * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.UnaryExpression#getAndand <em>Andand</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8576,6 +8596,14 @@ public interface ParserPackage extends EPackage
      * @generated
      */
     EReference UNARY_EXPRESSION__TYPE_NAME = eINSTANCE.getUnaryExpression_TypeName();
+
+    /**
+     * The meta object literal for the '<em><b>Align Of</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute UNARY_EXPRESSION__ALIGN_OF = eINSTANCE.getUnaryExpression_AlignOf();
 
     /**
      * The meta object literal for the '<em><b>Andand</b></em>' attribute feature.

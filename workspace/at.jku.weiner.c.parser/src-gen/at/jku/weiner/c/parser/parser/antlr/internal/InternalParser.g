@@ -9777,9 +9777,102 @@ this_SKW_RIGHTPAREN_11=RULE_SKW_RIGHTPAREN
 (
 (
 (
-		lv_andand_14_0=RULE_SKW_ANDAND
+(
+		lv_alignOf_14_1=RULE_KW_ALIGNOF1
 		{
-			newLeafNode(lv_andand_14_0, grammarAccess.getUnaryExpressionAccess().getAndandSKW_ANDANDTerminalRuleCall_1_6_0_0()); 
+			newLeafNode(lv_alignOf_14_1, grammarAccess.getUnaryExpressionAccess().getAlignOfKW_ALIGNOF1TerminalRuleCall_1_6_0_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUnaryExpressionRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"alignOf",
+        		lv_alignOf_14_1, 
+        		"at.jku.weiner.c.parser.Parser.KW_ALIGNOF1");
+	    }
+
+    |		lv_alignOf_14_2=RULE_KW_ALIGNOF2
+		{
+			newLeafNode(lv_alignOf_14_2, grammarAccess.getUnaryExpressionAccess().getAlignOfKW_ALIGNOF2TerminalRuleCall_1_6_0_0_1()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUnaryExpressionRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"alignOf",
+        		lv_alignOf_14_2, 
+        		"at.jku.weiner.c.parser.Parser.KW_ALIGNOF2");
+	    }
+
+    |		lv_alignOf_14_3=RULE_KW_ALIGNOF3
+		{
+			newLeafNode(lv_alignOf_14_3, grammarAccess.getUnaryExpressionAccess().getAlignOfKW_ALIGNOF3TerminalRuleCall_1_6_0_0_2()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUnaryExpressionRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"alignOf",
+        		lv_alignOf_14_3, 
+        		"at.jku.weiner.c.parser.Parser.KW_ALIGNOF3");
+	    }
+
+)
+
+)
+)
+
+
+this_SKW_LEFTPAREN_15=RULE_SKW_LEFTPAREN
+    { 
+    newLeafNode(this_SKW_LEFTPAREN_15, grammarAccess.getUnaryExpressionAccess().getSKW_LEFTPARENTerminalRuleCall_1_6_1()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getUnaryExpressionAccess().getTypeNameTypeNameParserRuleCall_1_6_2_0()); 
+	    }
+		lv_typeName_16_0=ruleTypeName		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getUnaryExpressionRule());
+	        }
+       		set(
+       			$current, 
+       			"typeName",
+        		lv_typeName_16_0, 
+        		"at.jku.weiner.c.parser.Parser.TypeName");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+this_SKW_RIGHTPAREN_17=RULE_SKW_RIGHTPAREN
+    { 
+    newLeafNode(this_SKW_RIGHTPAREN_17, grammarAccess.getUnaryExpressionAccess().getSKW_RIGHTPARENTerminalRuleCall_1_6_3()); 
+    }
+
+
+)
+
+
+    |
+(
+(
+(
+		lv_andand_18_0=RULE_SKW_ANDAND
+		{
+			newLeafNode(lv_andand_18_0, grammarAccess.getUnaryExpressionAccess().getAndandSKW_ANDANDTerminalRuleCall_1_7_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -9788,7 +9881,7 @@ this_SKW_RIGHTPAREN_11=RULE_SKW_RIGHTPAREN
        		setWithLastConsumed(
        			$current, 
        			"andand",
-        		lv_andand_14_0, 
+        		lv_andand_18_0, 
         		"at.jku.weiner.c.common.Common.SKW_ANDAND");
 	    }
 
@@ -9798,9 +9891,9 @@ this_SKW_RIGHTPAREN_11=RULE_SKW_RIGHTPAREN
 
 (
 (
-		lv_id_15_0=RULE_ID
+		lv_id_19_0=RULE_ID
 		{
-			newLeafNode(lv_id_15_0, grammarAccess.getUnaryExpressionAccess().getIdIDTerminalRuleCall_1_6_1_0()); 
+			newLeafNode(lv_id_19_0, grammarAccess.getUnaryExpressionAccess().getIdIDTerminalRuleCall_1_7_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -9809,7 +9902,7 @@ this_SKW_RIGHTPAREN_11=RULE_SKW_RIGHTPAREN
        		setWithLastConsumed(
        			$current, 
        			"id",
-        		lv_id_15_0, 
+        		lv_id_19_0, 
         		"at.jku.weiner.c.common.Common.ID");
 	    }
 
@@ -11403,7 +11496,11 @@ RULE_KW_AUTO : 'auto';
 
 RULE_KW_ALIGNAS : RULE_SKW_UNDERSCORE 'Alignas';
 
-RULE_KW_ALIGNOF : RULE_SKW_UNDERSCORE 'Alignof';
+RULE_KW_ALIGNOF1 : 'alignof';
+
+RULE_KW_ALIGNOF2 : RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE RULE_KW_ALIGNOF1;
+
+RULE_KW_ALIGNOF3 : RULE_KW_ALIGNOF2 RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE;
 
 RULE_KW_ASM1 : 'asm';
 

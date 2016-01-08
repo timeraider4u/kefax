@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.UnaryExpressionImpl#getOp <em>Op</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.UnaryExpressionImpl#getSizeOf <em>Size Of</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.UnaryExpressionImpl#getTypeName <em>Type Name</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.UnaryExpressionImpl#getAlignOf <em>Align Of</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.UnaryExpressionImpl#getAndand <em>Andand</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.UnaryExpressionImpl#getId <em>Id</em>}</li>
  * </ul>
@@ -127,6 +128,26 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
    * @ordered
    */
   protected TypeName typeName;
+
+  /**
+   * The default value of the '{@link #getAlignOf() <em>Align Of</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAlignOf()
+   * @generated
+   * @ordered
+   */
+  protected static final String ALIGN_OF_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getAlignOf() <em>Align Of</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAlignOf()
+   * @generated
+   * @ordered
+   */
+  protected String alignOf = ALIGN_OF_EDEFAULT;
 
   /**
    * The default value of the '{@link #getAndand() <em>Andand</em>}' attribute.
@@ -407,6 +428,29 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getAlignOf()
+  {
+    return alignOf;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAlignOf(String newAlignOf)
+  {
+    String oldAlignOf = alignOf;
+    alignOf = newAlignOf;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.UNARY_EXPRESSION__ALIGN_OF, oldAlignOf, alignOf));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getAndand()
   {
     return andand;
@@ -490,6 +534,8 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
         return getSizeOf();
       case ParserPackage.UNARY_EXPRESSION__TYPE_NAME:
         return getTypeName();
+      case ParserPackage.UNARY_EXPRESSION__ALIGN_OF:
+        return getAlignOf();
       case ParserPackage.UNARY_EXPRESSION__ANDAND:
         return getAndand();
       case ParserPackage.UNARY_EXPRESSION__ID:
@@ -525,6 +571,9 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
         return;
       case ParserPackage.UNARY_EXPRESSION__TYPE_NAME:
         setTypeName((TypeName)newValue);
+        return;
+      case ParserPackage.UNARY_EXPRESSION__ALIGN_OF:
+        setAlignOf((String)newValue);
         return;
       case ParserPackage.UNARY_EXPRESSION__ANDAND:
         setAndand((String)newValue);
@@ -564,6 +613,9 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
       case ParserPackage.UNARY_EXPRESSION__TYPE_NAME:
         setTypeName((TypeName)null);
         return;
+      case ParserPackage.UNARY_EXPRESSION__ALIGN_OF:
+        setAlignOf(ALIGN_OF_EDEFAULT);
+        return;
       case ParserPackage.UNARY_EXPRESSION__ANDAND:
         setAndand(ANDAND_EDEFAULT);
         return;
@@ -596,6 +648,8 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
         return SIZE_OF_EDEFAULT == null ? sizeOf != null : !SIZE_OF_EDEFAULT.equals(sizeOf);
       case ParserPackage.UNARY_EXPRESSION__TYPE_NAME:
         return typeName != null;
+      case ParserPackage.UNARY_EXPRESSION__ALIGN_OF:
+        return ALIGN_OF_EDEFAULT == null ? alignOf != null : !ALIGN_OF_EDEFAULT.equals(alignOf);
       case ParserPackage.UNARY_EXPRESSION__ANDAND:
         return ANDAND_EDEFAULT == null ? andand != null : !ANDAND_EDEFAULT.equals(andand);
       case ParserPackage.UNARY_EXPRESSION__ID:
@@ -621,6 +675,8 @@ public class UnaryExpressionImpl extends ExpressionImpl implements UnaryExpressi
     result.append(minusminus);
     result.append(", sizeOf: ");
     result.append(sizeOf);
+    result.append(", alignOf: ");
+    result.append(alignOf);
     result.append(", andand: ");
     result.append(andand);
     result.append(", id: ");

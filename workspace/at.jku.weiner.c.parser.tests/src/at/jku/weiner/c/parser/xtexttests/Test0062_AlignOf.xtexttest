@@ -1,0 +1,107 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.parser
+language parser
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+source file="res/Test0062_AlignOf.c"
+//----------------------------------------------------------------------
+lexer-tokens
+KW_LONG WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE KW_ALIGNOF3 SKW_LEFTPAREN
+	KW_INT SKW_RIGHTPAREN SKW_SEMI NEWLINE
+//----------------------------------------------------------------------
+//(common::Model units+=
+	//(common::TranslationUnit 
+	(Parser
+		external+=
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"long"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"l"
+							)
+						),
+						initializer=
+						(Initializer
+							expr=
+							(AssignmentExpression
+								expr=
+								(ConditionalExpression
+									expr=
+									(LogicalOrExpression
+										expr+=
+										(LogicalAndExpression
+											expr+=
+											(InclusiveOrExpression
+												expr+=
+												(ExclusiveOrExpression
+													expr+=
+													(AndExpression
+														expr+=
+														(EqualityExpression
+															expr+=
+															(RelationalExpression
+																expr+=
+																(ShiftExpression
+																	expr+=
+																	(AdditiveExpression
+																		expr+=
+																		(MultiplicativeExpression
+																			expr+=
+																			(CastExpression
+																				expr=
+																				(UnaryExpression
+																					alignOf++"__alignof__",
+																					typeName=
+																					(TypeName
+																						list=
+																						(SpecifierQualifierList
+																							typeSpecifier+=
+																							(TypeSpecifier
+																								name++"int"
+																							)
+																						)
+																					)
+																				)
+																			)
+																		)
+																	)
+																)
+															)
+														)
+													)
+												)
+											)
+										)
+									)
+								)
+							) // end assignment expression
+						) // end initializer
+						
+					)					
+				)
+			)
+		)
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0062_AlignOf.c"
+expected file isSameAsInputFile
+replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

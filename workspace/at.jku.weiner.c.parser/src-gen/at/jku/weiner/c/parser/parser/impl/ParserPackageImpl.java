@@ -3162,7 +3162,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getUnaryExpression_Andand()
+  public EAttribute getUnaryExpression_AlignOf()
   {
     return (EAttribute)unaryExpressionEClass.getEStructuralFeatures().get(6);
   }
@@ -3172,9 +3172,19 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getUnaryExpression_Id()
+  public EAttribute getUnaryExpression_Andand()
   {
     return (EAttribute)unaryExpressionEClass.getEStructuralFeatures().get(7);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getUnaryExpression_Id()
+  {
+    return (EAttribute)unaryExpressionEClass.getEStructuralFeatures().get(8);
   }
 
   /**
@@ -3741,6 +3751,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     createEReference(unaryExpressionEClass, UNARY_EXPRESSION__OP);
     createEAttribute(unaryExpressionEClass, UNARY_EXPRESSION__SIZE_OF);
     createEReference(unaryExpressionEClass, UNARY_EXPRESSION__TYPE_NAME);
+    createEAttribute(unaryExpressionEClass, UNARY_EXPRESSION__ALIGN_OF);
     createEAttribute(unaryExpressionEClass, UNARY_EXPRESSION__ANDAND);
     createEAttribute(unaryExpressionEClass, UNARY_EXPRESSION__ID);
 
@@ -4163,6 +4174,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     initEReference(getUnaryExpression_Op(), this.getUnaryOperator(), null, "op", null, 0, 1, UnaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getUnaryExpression_SizeOf(), theEcorePackage.getEString(), "sizeOf", null, 0, 1, UnaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getUnaryExpression_TypeName(), this.getTypeName(), null, "typeName", null, 0, 1, UnaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getUnaryExpression_AlignOf(), theEcorePackage.getEString(), "alignOf", null, 0, 1, UnaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getUnaryExpression_Andand(), theEcorePackage.getEString(), "andand", null, 0, 1, UnaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getUnaryExpression_Id(), theEcorePackage.getEString(), "id", null, 0, 1, UnaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

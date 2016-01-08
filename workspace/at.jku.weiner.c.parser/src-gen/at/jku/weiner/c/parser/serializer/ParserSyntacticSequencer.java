@@ -45,6 +45,8 @@ public class ParserSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getKW_DEFAULTToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getKW_ENUMRule())
 			return getKW_ENUMToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getKW_EXTENSIONRule())
+			return getKW_EXTENSIONToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getKW_WHILERule())
 			return getKW_WHILEToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getSKW_ANDRule())
@@ -142,6 +144,15 @@ public class ParserSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return "enum";
+	}
+	
+	/**
+	 * terminal KW_EXTENSION: SKW_UNDERSCORE SKW_UNDERSCORE 'extension' SKW_UNDERSCORE SKW_UNDERSCORE;
+	 */
+	protected String getKW_EXTENSIONToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "_extension";
 	}
 	
 	/**

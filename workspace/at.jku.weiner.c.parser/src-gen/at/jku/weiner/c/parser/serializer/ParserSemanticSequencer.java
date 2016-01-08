@@ -1055,7 +1055,14 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (id=ID | const=Constant2 | string+=STRING_LITERAL+ | expr=Expression | (builtin_offsetof?=KW_BUILTIN_OFFSETOF typeName=TypeName expr=UnaryExpression))
+	 *     (
+	 *         id=ID | 
+	 *         const=Constant2 | 
+	 *         string+=STRING_LITERAL+ | 
+	 *         expr=Expression | 
+	 *         (ext?=KW_EXTENSION? compoundStmt=CompoundStatement) | 
+	 *         (builtin_offsetof?=KW_BUILTIN_OFFSETOF typeName=TypeName expr=UnaryExpression)
+	 *     )
 	 */
 	protected void sequence_PrimaryExpression(EObject context, PrimaryExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

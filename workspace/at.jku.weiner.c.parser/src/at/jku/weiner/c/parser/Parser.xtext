@@ -902,7 +902,7 @@ initRuleAction {
 	|	string+=STRING_LITERAL+
 	|	SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN
 	//|	genericSelection=genericSelection
-	// |	'__extension__'? LEFTPAREN compoundStmt=compoundStatement RIGHTPAREN // Blocks (GCC extension)
+	|	ext?=KW_EXTENSION? SKW_LEFTPAREN compoundStmt=CompoundStatement SKW_RIGHTPAREN // Blocks (GCC extension)
 	//|	'__builtin_va_arg' LEFTPAREN expr=unaryExpression COMMA typeName=typeName RIGHTPAREN
 	|	builtin_offsetof?=KW_BUILTIN_OFFSETOF SKW_LEFTPAREN typeName=TypeName SKW_COMMA expr=UnaryExpression SKW_RIGHTPAREN
 	)

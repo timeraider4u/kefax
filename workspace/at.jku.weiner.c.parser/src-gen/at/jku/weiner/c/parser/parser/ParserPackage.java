@@ -3663,13 +3663,31 @@ public interface ParserPackage extends EPackage
   int PRIMARY_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 3;
 
   /**
+   * The feature id for the '<em><b>Ext</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_EXPRESSION__EXT = EXPRESSION_FEATURE_COUNT + 4;
+
+  /**
+   * The feature id for the '<em><b>Compound Stmt</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_EXPRESSION__COMPOUND_STMT = EXPRESSION_FEATURE_COUNT + 5;
+
+  /**
    * The feature id for the '<em><b>Builtin offsetof</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PRIMARY_EXPRESSION__BUILTIN_OFFSETOF = EXPRESSION_FEATURE_COUNT + 4;
+  int PRIMARY_EXPRESSION__BUILTIN_OFFSETOF = EXPRESSION_FEATURE_COUNT + 6;
 
   /**
    * The feature id for the '<em><b>Type Name</b></em>' containment reference.
@@ -3678,7 +3696,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRIMARY_EXPRESSION__TYPE_NAME = EXPRESSION_FEATURE_COUNT + 5;
+  int PRIMARY_EXPRESSION__TYPE_NAME = EXPRESSION_FEATURE_COUNT + 7;
 
   /**
    * The number of structural features of the '<em>Primary Expression</em>' class.
@@ -3687,7 +3705,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRIMARY_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 6;
+  int PRIMARY_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 8;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.ConstantExpressionImpl <em>Constant Expression</em>}' class.
@@ -6534,6 +6552,28 @@ public interface ParserPackage extends EPackage
   EReference getPrimaryExpression_Expr();
 
   /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.PrimaryExpression#isExt <em>Ext</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Ext</em>'.
+   * @see at.jku.weiner.c.parser.parser.PrimaryExpression#isExt()
+   * @see #getPrimaryExpression()
+   * @generated
+   */
+  EAttribute getPrimaryExpression_Ext();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getCompoundStmt <em>Compound Stmt</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Compound Stmt</em>'.
+   * @see at.jku.weiner.c.parser.parser.PrimaryExpression#getCompoundStmt()
+   * @see #getPrimaryExpression()
+   * @generated
+   */
+  EReference getPrimaryExpression_CompoundStmt();
+
+  /**
    * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.PrimaryExpression#isBuiltin_offsetof <em>Builtin offsetof</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8864,6 +8904,22 @@ public interface ParserPackage extends EPackage
      * @generated
      */
     EReference PRIMARY_EXPRESSION__EXPR = eINSTANCE.getPrimaryExpression_Expr();
+
+    /**
+     * The meta object literal for the '<em><b>Ext</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PRIMARY_EXPRESSION__EXT = eINSTANCE.getPrimaryExpression_Ext();
+
+    /**
+     * The meta object literal for the '<em><b>Compound Stmt</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PRIMARY_EXPRESSION__COMPOUND_STMT = eINSTANCE.getPrimaryExpression_CompoundStmt();
 
     /**
      * The meta object literal for the '<em><b>Builtin offsetof</b></em>' attribute feature.

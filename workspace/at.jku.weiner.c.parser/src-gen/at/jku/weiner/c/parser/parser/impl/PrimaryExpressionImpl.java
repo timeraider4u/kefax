@@ -7,6 +7,7 @@ import at.jku.weiner.c.common.common.Constant2;
 import at.jku.weiner.c.parser.parser.Expression;
 import at.jku.weiner.c.parser.parser.ParserPackage;
 import at.jku.weiner.c.parser.parser.PrimaryExpression;
+import at.jku.weiner.c.parser.parser.Statement;
 import at.jku.weiner.c.parser.parser.TypeName;
 
 import java.util.Collection;
@@ -35,6 +36,8 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.PrimaryExpressionImpl#getConst <em>Const</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.PrimaryExpressionImpl#getString <em>String</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.PrimaryExpressionImpl#getExpr <em>Expr</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.PrimaryExpressionImpl#isExt <em>Ext</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.PrimaryExpressionImpl#getCompoundStmt <em>Compound Stmt</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.PrimaryExpressionImpl#isBuiltin_offsetof <em>Builtin offsetof</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.PrimaryExpressionImpl#getTypeName <em>Type Name</em>}</li>
  * </ul>
@@ -92,6 +95,36 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
    * @ordered
    */
   protected Expression expr;
+
+  /**
+   * The default value of the '{@link #isExt() <em>Ext</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isExt()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean EXT_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isExt() <em>Ext</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isExt()
+   * @generated
+   * @ordered
+   */
+  protected boolean ext = EXT_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getCompoundStmt() <em>Compound Stmt</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCompoundStmt()
+   * @generated
+   * @ordered
+   */
+  protected Statement compoundStmt;
 
   /**
    * The default value of the '{@link #isBuiltin_offsetof() <em>Builtin offsetof</em>}' attribute.
@@ -282,6 +315,77 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
    * <!-- end-user-doc -->
    * @generated
    */
+  public boolean isExt()
+  {
+    return ext;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExt(boolean newExt)
+  {
+    boolean oldExt = ext;
+    ext = newExt;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.PRIMARY_EXPRESSION__EXT, oldExt, ext));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Statement getCompoundStmt()
+  {
+    return compoundStmt;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetCompoundStmt(Statement newCompoundStmt, NotificationChain msgs)
+  {
+    Statement oldCompoundStmt = compoundStmt;
+    compoundStmt = newCompoundStmt;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ParserPackage.PRIMARY_EXPRESSION__COMPOUND_STMT, oldCompoundStmt, newCompoundStmt);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setCompoundStmt(Statement newCompoundStmt)
+  {
+    if (newCompoundStmt != compoundStmt)
+    {
+      NotificationChain msgs = null;
+      if (compoundStmt != null)
+        msgs = ((InternalEObject)compoundStmt).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ParserPackage.PRIMARY_EXPRESSION__COMPOUND_STMT, null, msgs);
+      if (newCompoundStmt != null)
+        msgs = ((InternalEObject)newCompoundStmt).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ParserPackage.PRIMARY_EXPRESSION__COMPOUND_STMT, null, msgs);
+      msgs = basicSetCompoundStmt(newCompoundStmt, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.PRIMARY_EXPRESSION__COMPOUND_STMT, newCompoundStmt, newCompoundStmt));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public boolean isBuiltin_offsetof()
   {
     return builtin_offsetof;
@@ -362,6 +466,8 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
         return basicSetConst(null, msgs);
       case ParserPackage.PRIMARY_EXPRESSION__EXPR:
         return basicSetExpr(null, msgs);
+      case ParserPackage.PRIMARY_EXPRESSION__COMPOUND_STMT:
+        return basicSetCompoundStmt(null, msgs);
       case ParserPackage.PRIMARY_EXPRESSION__TYPE_NAME:
         return basicSetTypeName(null, msgs);
     }
@@ -386,6 +492,10 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
         return getString();
       case ParserPackage.PRIMARY_EXPRESSION__EXPR:
         return getExpr();
+      case ParserPackage.PRIMARY_EXPRESSION__EXT:
+        return isExt();
+      case ParserPackage.PRIMARY_EXPRESSION__COMPOUND_STMT:
+        return getCompoundStmt();
       case ParserPackage.PRIMARY_EXPRESSION__BUILTIN_OFFSETOF:
         return isBuiltin_offsetof();
       case ParserPackage.PRIMARY_EXPRESSION__TYPE_NAME:
@@ -417,6 +527,12 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
         return;
       case ParserPackage.PRIMARY_EXPRESSION__EXPR:
         setExpr((Expression)newValue);
+        return;
+      case ParserPackage.PRIMARY_EXPRESSION__EXT:
+        setExt((Boolean)newValue);
+        return;
+      case ParserPackage.PRIMARY_EXPRESSION__COMPOUND_STMT:
+        setCompoundStmt((Statement)newValue);
         return;
       case ParserPackage.PRIMARY_EXPRESSION__BUILTIN_OFFSETOF:
         setBuiltin_offsetof((Boolean)newValue);
@@ -450,6 +566,12 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
       case ParserPackage.PRIMARY_EXPRESSION__EXPR:
         setExpr((Expression)null);
         return;
+      case ParserPackage.PRIMARY_EXPRESSION__EXT:
+        setExt(EXT_EDEFAULT);
+        return;
+      case ParserPackage.PRIMARY_EXPRESSION__COMPOUND_STMT:
+        setCompoundStmt((Statement)null);
+        return;
       case ParserPackage.PRIMARY_EXPRESSION__BUILTIN_OFFSETOF:
         setBuiltin_offsetof(BUILTIN_OFFSETOF_EDEFAULT);
         return;
@@ -478,6 +600,10 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
         return string != null && !string.isEmpty();
       case ParserPackage.PRIMARY_EXPRESSION__EXPR:
         return expr != null;
+      case ParserPackage.PRIMARY_EXPRESSION__EXT:
+        return ext != EXT_EDEFAULT;
+      case ParserPackage.PRIMARY_EXPRESSION__COMPOUND_STMT:
+        return compoundStmt != null;
       case ParserPackage.PRIMARY_EXPRESSION__BUILTIN_OFFSETOF:
         return builtin_offsetof != BUILTIN_OFFSETOF_EDEFAULT;
       case ParserPackage.PRIMARY_EXPRESSION__TYPE_NAME:
@@ -501,6 +627,8 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
     result.append(id);
     result.append(", string: ");
     result.append(string);
+    result.append(", ext: ");
+    result.append(ext);
     result.append(", builtin_offsetof: ");
     result.append(builtin_offsetof);
     result.append(')');

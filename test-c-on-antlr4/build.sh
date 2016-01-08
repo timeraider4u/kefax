@@ -4,7 +4,8 @@
 #FILE="../tests/test0051.c"
 #FILE="../tests/test0059.c"
 #FILE="../tests/test0060.c"
-FILE="../tests/test0063.c"
+#FILE="../tests/test0063.c"
+FILE="../tests/test0064.c"
 
 CP="../libs/antlr-4.5.1-complete.jar:."
 java -cp ${CP} org.antlr.v4.Tool C.g4 && \

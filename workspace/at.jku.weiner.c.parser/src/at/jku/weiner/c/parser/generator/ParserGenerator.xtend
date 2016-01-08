@@ -801,6 +801,7 @@ class ParserGenerator implements IGenerator {
 		«IF obj.string != null»«outputForString(obj.string)»«ENDIF»
 		«IF obj.expr != null && !obj.builtin_offsetof»(«outputFor(obj.expr)»)«ENDIF»
 		«IF obj.builtin_offsetof»__builtin_offsetof(«outputFor(obj.typeName)»,«outputForUnaryExpression(obj.expr as UnaryExpression)»)«ENDIF»
+		«IF obj.compoundStmt != null»«IF obj.ext»__extension__«ENDIF»(«outputFor(obj.compoundStmt)»)«ENDIF»
 	'''
 	
 	def String outputForString(EList<String> obj) '''

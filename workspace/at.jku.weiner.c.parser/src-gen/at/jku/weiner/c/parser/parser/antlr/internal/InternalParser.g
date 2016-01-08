@@ -10969,9 +10969,69 @@ this_SKW_RIGHTPAREN_6=RULE_SKW_RIGHTPAREN
 (
 (
 (
-		lv_builtin_offsetof_7_0=RULE_KW_BUILTIN_OFFSETOF
+		lv_ext_7_0=RULE_KW_EXTENSION
 		{
-			newLeafNode(lv_builtin_offsetof_7_0, grammarAccess.getPrimaryExpressionAccess().getBuiltin_offsetofKW_BUILTIN_OFFSETOFTerminalRuleCall_1_4_0_0()); 
+			newLeafNode(lv_ext_7_0, grammarAccess.getPrimaryExpressionAccess().getExtKW_EXTENSIONTerminalRuleCall_1_4_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getPrimaryExpressionRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"ext",
+        		true, 
+        		"at.jku.weiner.c.parser.Parser.KW_EXTENSION");
+	    }
+
+)
+)?
+
+
+this_SKW_LEFTPAREN_8=RULE_SKW_LEFTPAREN
+    { 
+    newLeafNode(this_SKW_LEFTPAREN_8, grammarAccess.getPrimaryExpressionAccess().getSKW_LEFTPARENTerminalRuleCall_1_4_1()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getCompoundStmtCompoundStatementParserRuleCall_1_4_2_0()); 
+	    }
+		lv_compoundStmt_9_0=ruleCompoundStatement		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getPrimaryExpressionRule());
+	        }
+       		set(
+       			$current, 
+       			"compoundStmt",
+        		lv_compoundStmt_9_0, 
+        		"at.jku.weiner.c.parser.Parser.CompoundStatement");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+this_SKW_RIGHTPAREN_10=RULE_SKW_RIGHTPAREN
+    { 
+    newLeafNode(this_SKW_RIGHTPAREN_10, grammarAccess.getPrimaryExpressionAccess().getSKW_RIGHTPARENTerminalRuleCall_1_4_3()); 
+    }
+
+
+)
+
+
+    |
+(
+(
+(
+		lv_builtin_offsetof_11_0=RULE_KW_BUILTIN_OFFSETOF
+		{
+			newLeafNode(lv_builtin_offsetof_11_0, grammarAccess.getPrimaryExpressionAccess().getBuiltin_offsetofKW_BUILTIN_OFFSETOFTerminalRuleCall_1_5_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -10988,9 +11048,9 @@ this_SKW_RIGHTPAREN_6=RULE_SKW_RIGHTPAREN
 )
 
 
-this_SKW_LEFTPAREN_8=RULE_SKW_LEFTPAREN
+this_SKW_LEFTPAREN_12=RULE_SKW_LEFTPAREN
     { 
-    newLeafNode(this_SKW_LEFTPAREN_8, grammarAccess.getPrimaryExpressionAccess().getSKW_LEFTPARENTerminalRuleCall_1_4_1()); 
+    newLeafNode(this_SKW_LEFTPAREN_12, grammarAccess.getPrimaryExpressionAccess().getSKW_LEFTPARENTerminalRuleCall_1_5_1()); 
     }
 
 
@@ -10998,16 +11058,16 @@ this_SKW_LEFTPAREN_8=RULE_SKW_LEFTPAREN
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getTypeNameTypeNameParserRuleCall_1_4_2_0()); 
+	        newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getTypeNameTypeNameParserRuleCall_1_5_2_0()); 
 	    }
-		lv_typeName_9_0=ruleTypeName		{
+		lv_typeName_13_0=ruleTypeName		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getPrimaryExpressionRule());
 	        }
        		set(
        			$current, 
        			"typeName",
-        		lv_typeName_9_0, 
+        		lv_typeName_13_0, 
         		"at.jku.weiner.c.parser.Parser.TypeName");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -11016,9 +11076,9 @@ this_SKW_LEFTPAREN_8=RULE_SKW_LEFTPAREN
 )
 
 
-this_SKW_COMMA_10=RULE_SKW_COMMA
+this_SKW_COMMA_14=RULE_SKW_COMMA
     { 
-    newLeafNode(this_SKW_COMMA_10, grammarAccess.getPrimaryExpressionAccess().getSKW_COMMATerminalRuleCall_1_4_3()); 
+    newLeafNode(this_SKW_COMMA_14, grammarAccess.getPrimaryExpressionAccess().getSKW_COMMATerminalRuleCall_1_5_3()); 
     }
 
 
@@ -11026,16 +11086,16 @@ this_SKW_COMMA_10=RULE_SKW_COMMA
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getExprUnaryExpressionParserRuleCall_1_4_4_0()); 
+	        newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getExprUnaryExpressionParserRuleCall_1_5_4_0()); 
 	    }
-		lv_expr_11_0=ruleUnaryExpression		{
+		lv_expr_15_0=ruleUnaryExpression		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getPrimaryExpressionRule());
 	        }
        		set(
        			$current, 
        			"expr",
-        		lv_expr_11_0, 
+        		lv_expr_15_0, 
         		"at.jku.weiner.c.parser.Parser.UnaryExpression");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -11044,9 +11104,9 @@ this_SKW_COMMA_10=RULE_SKW_COMMA
 )
 
 
-this_SKW_RIGHTPAREN_12=RULE_SKW_RIGHTPAREN
+this_SKW_RIGHTPAREN_16=RULE_SKW_RIGHTPAREN
     { 
-    newLeafNode(this_SKW_RIGHTPAREN_12, grammarAccess.getPrimaryExpressionAccess().getSKW_RIGHTPARENTerminalRuleCall_1_4_5()); 
+    newLeafNode(this_SKW_RIGHTPAREN_16, grammarAccess.getPrimaryExpressionAccess().getSKW_RIGHTPARENTerminalRuleCall_1_5_5()); 
     }
 
 

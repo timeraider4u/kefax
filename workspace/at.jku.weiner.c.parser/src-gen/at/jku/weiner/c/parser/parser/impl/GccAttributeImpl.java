@@ -21,12 +21,13 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.GccAttributeImpl#getId <em>Id</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.GccAttributeImpl#getConst <em>Const</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.GccAttributeImpl#getKeyword <em>Keyword</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.GccAttributeImpl#getList <em>List</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -71,6 +72,26 @@ public class GccAttributeImpl extends MinimalEObjectImpl.Container implements Gc
    * @ordered
    */
   protected String const_ = CONST_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getKeyword() <em>Keyword</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getKeyword()
+   * @generated
+   * @ordered
+   */
+  protected static final String KEYWORD_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getKeyword() <em>Keyword</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getKeyword()
+   * @generated
+   * @ordered
+   */
+  protected String keyword = KEYWORD_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getList() <em>List</em>}' containment reference.
@@ -154,6 +175,29 @@ public class GccAttributeImpl extends MinimalEObjectImpl.Container implements Gc
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getKeyword()
+  {
+    return keyword;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setKeyword(String newKeyword)
+  {
+    String oldKeyword = keyword;
+    keyword = newKeyword;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.GCC_ATTRIBUTE__KEYWORD, oldKeyword, keyword));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public ArgumentExpressionList getList()
   {
     return list;
@@ -227,6 +271,8 @@ public class GccAttributeImpl extends MinimalEObjectImpl.Container implements Gc
         return getId();
       case ParserPackage.GCC_ATTRIBUTE__CONST:
         return getConst();
+      case ParserPackage.GCC_ATTRIBUTE__KEYWORD:
+        return getKeyword();
       case ParserPackage.GCC_ATTRIBUTE__LIST:
         return getList();
     }
@@ -248,6 +294,9 @@ public class GccAttributeImpl extends MinimalEObjectImpl.Container implements Gc
         return;
       case ParserPackage.GCC_ATTRIBUTE__CONST:
         setConst((String)newValue);
+        return;
+      case ParserPackage.GCC_ATTRIBUTE__KEYWORD:
+        setKeyword((String)newValue);
         return;
       case ParserPackage.GCC_ATTRIBUTE__LIST:
         setList((ArgumentExpressionList)newValue);
@@ -272,6 +321,9 @@ public class GccAttributeImpl extends MinimalEObjectImpl.Container implements Gc
       case ParserPackage.GCC_ATTRIBUTE__CONST:
         setConst(CONST_EDEFAULT);
         return;
+      case ParserPackage.GCC_ATTRIBUTE__KEYWORD:
+        setKeyword(KEYWORD_EDEFAULT);
+        return;
       case ParserPackage.GCC_ATTRIBUTE__LIST:
         setList((ArgumentExpressionList)null);
         return;
@@ -293,6 +345,8 @@ public class GccAttributeImpl extends MinimalEObjectImpl.Container implements Gc
         return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
       case ParserPackage.GCC_ATTRIBUTE__CONST:
         return CONST_EDEFAULT == null ? const_ != null : !CONST_EDEFAULT.equals(const_);
+      case ParserPackage.GCC_ATTRIBUTE__KEYWORD:
+        return KEYWORD_EDEFAULT == null ? keyword != null : !KEYWORD_EDEFAULT.equals(keyword);
       case ParserPackage.GCC_ATTRIBUTE__LIST:
         return list != null;
     }
@@ -314,6 +368,8 @@ public class GccAttributeImpl extends MinimalEObjectImpl.Container implements Gc
     result.append(id);
     result.append(", const: ");
     result.append(const_);
+    result.append(", keyword: ");
+    result.append(keyword);
     result.append(')');
     return result.toString();
   }

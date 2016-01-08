@@ -448,6 +448,7 @@ class ParserGenerator implements IGenerator {
 	def String outputFor(GccAttribute attr) '''
 		«IF attr.id != null»«attr.id»«ENDIF»
 		«IF attr.const != null»«attr.const»«ENDIF»
+		«IF attr.keyword != null»«attr.keyword»«ENDIF»
 		«IF attr.list != null»(«outputFor(attr.list)»)«ENDIF»
 	'''
 	

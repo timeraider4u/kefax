@@ -404,6 +404,7 @@ GccAttribute: {GccAttribute}
 	(
 			id=ID
 		|	const = Constant1
+		|	keyword = ParserKeywords
 	)
 	(SKW_LEFTPAREN list=ArgumentExpressionList? SKW_RIGHTPAREN)?
 ;
@@ -921,6 +922,19 @@ genericAssociation:
 
 /*** lexer ***/
 /*** start with keywords ;-) */
+ParserKeywords:
+	KW_ATOMIC | KW_AUTO 
+	| KW_BOOL | KW_CONST
+	| KW_CHAR | KW_DOUBLE
+	| KW_EXTERN  
+	| KW_FLOAT
+	| KW_INT
+	| KW_LONG
+	| KW_RESTRICT
+	| KW_SHORT | KW_SIGNED1 | KW_SIGNED2
+	| KW_SIGNED3 | KW_VOID | KW_UNSIGNED 
+;
+
 
 terminal KW_ATOMIC : SKW_UNDERSCORE 'Atomic';
 terminal KW_ATTRIBUTE: SKW_UNDERSCORE SKW_UNDERSCORE 'attribute' SKW_UNDERSCORE SKW_UNDERSCORE;

@@ -1197,13 +1197,22 @@ public interface ParserPackage extends EPackage
   int GCC_ATTRIBUTE__CONST = 1;
 
   /**
+   * The feature id for the '<em><b>Keyword</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GCC_ATTRIBUTE__KEYWORD = 2;
+
+  /**
    * The feature id for the '<em><b>List</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int GCC_ATTRIBUTE__LIST = 2;
+  int GCC_ATTRIBUTE__LIST = 3;
 
   /**
    * The number of structural features of the '<em>Gcc Attribute</em>' class.
@@ -1212,7 +1221,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GCC_ATTRIBUTE_FEATURE_COUNT = 3;
+  int GCC_ATTRIBUTE_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.PointerImpl <em>Pointer</em>}' class.
@@ -4684,6 +4693,17 @@ public interface ParserPackage extends EPackage
   EAttribute getGccAttribute_Const();
 
   /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.GccAttribute#getKeyword <em>Keyword</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Keyword</em>'.
+   * @see at.jku.weiner.c.parser.parser.GccAttribute#getKeyword()
+   * @see #getGccAttribute()
+   * @generated
+   */
+  EAttribute getGccAttribute_Keyword();
+
+  /**
    * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.GccAttribute#getList <em>List</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7304,6 +7324,14 @@ public interface ParserPackage extends EPackage
      * @generated
      */
     EAttribute GCC_ATTRIBUTE__CONST = eINSTANCE.getGccAttribute_Const();
+
+    /**
+     * The meta object literal for the '<em><b>Keyword</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute GCC_ATTRIBUTE__KEYWORD = eINSTANCE.getGccAttribute_Keyword();
 
     /**
      * The meta object literal for the '<em><b>List</b></em>' containment reference feature.

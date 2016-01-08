@@ -760,7 +760,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     ((id=ID | const=Constant1) list=ArgumentExpressionList?)
+	 *     ((id=ID | const=Constant1 | keyword=ParserKeywords) list=ArgumentExpressionList?)
 	 */
 	protected void sequence_GccAttribute(EObject context, GccAttribute semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

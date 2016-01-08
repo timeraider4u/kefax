@@ -334,6 +334,7 @@ public class ParserSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * This ambiguous syntax occurs at:
 	 *     const=Constant1 (ambiguity) (rule end)
 	 *     id=ID (ambiguity) (rule end)
+	 *     keyword=ParserKeywords (ambiguity) (rule end)
 	 */
 	protected void emit_GccAttribute___SKW_LEFTPARENTerminalRuleCall_2_0_SKW_RIGHTPARENTerminalRuleCall_2_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

@@ -29,11 +29,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.AsmLineWithoutColonImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.AsmLineWithoutColonImpl#getAsmLines <em>Asm Lines</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

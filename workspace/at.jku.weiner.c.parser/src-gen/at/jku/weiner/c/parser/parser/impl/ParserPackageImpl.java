@@ -1712,9 +1712,19 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getGccAttribute_Keyword()
+  {
+    return (EAttribute)gccAttributeEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getGccAttribute_List()
   {
-    return (EReference)gccAttributeEClass.getEStructuralFeatures().get(2);
+    return (EReference)gccAttributeEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -3540,6 +3550,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     gccAttributeEClass = createEClass(GCC_ATTRIBUTE);
     createEAttribute(gccAttributeEClass, GCC_ATTRIBUTE__ID);
     createEAttribute(gccAttributeEClass, GCC_ATTRIBUTE__CONST);
+    createEAttribute(gccAttributeEClass, GCC_ATTRIBUTE__KEYWORD);
     createEReference(gccAttributeEClass, GCC_ATTRIBUTE__LIST);
 
     pointerEClass = createEClass(POINTER);
@@ -3961,6 +3972,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     initEClass(gccAttributeEClass, GccAttribute.class, "GccAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getGccAttribute_Id(), theEcorePackage.getEString(), "id", null, 0, 1, GccAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getGccAttribute_Const(), theEcorePackage.getEString(), "const", null, 0, 1, GccAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getGccAttribute_Keyword(), theEcorePackage.getEString(), "keyword", null, 0, 1, GccAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getGccAttribute_List(), this.getArgumentExpressionList(), null, "list", null, 0, 1, GccAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(pointerEClass, Pointer.class, "Pointer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

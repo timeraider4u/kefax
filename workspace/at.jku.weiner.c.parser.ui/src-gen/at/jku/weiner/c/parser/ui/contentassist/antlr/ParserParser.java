@@ -80,6 +80,7 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUnaryOperatorAccess().getAlternatives_1(), "rule__UnaryOperator__Alternatives_1");
 					put(grammarAccess.getPostfixExpressionAccess().getAlternatives_1_1(), "rule__PostfixExpression__Alternatives_1_1");
 					put(grammarAccess.getPrimaryExpressionAccess().getAlternatives_1(), "rule__PrimaryExpression__Alternatives_1");
+					put(grammarAccess.getParserKeywordsAccess().getAlternatives(), "rule__ParserKeywords__Alternatives");
 					put(grammarAccess.getConstant1Access().getAlternatives(), "rule__Constant1__Alternatives");
 					put(grammarAccess.getConstant2Access().getAlternatives_1(), "rule__Constant2__Alternatives_1");
 					put(grammarAccess.getSpecialKeywordsAccess().getAlternatives(), "rule__SpecialKeywords__Alternatives");
@@ -358,6 +359,7 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getGccAttributeListAccess().getGccAttributeAssignment_1_1(), "rule__GccAttributeList__GccAttributeAssignment_1_1");
 					put(grammarAccess.getGccAttributeAccess().getIdAssignment_1_0(), "rule__GccAttribute__IdAssignment_1_0");
 					put(grammarAccess.getGccAttributeAccess().getConstAssignment_1_1(), "rule__GccAttribute__ConstAssignment_1_1");
+					put(grammarAccess.getGccAttributeAccess().getKeywordAssignment_1_2(), "rule__GccAttribute__KeywordAssignment_1_2");
 					put(grammarAccess.getGccAttributeAccess().getListAssignment_2_1(), "rule__GccAttribute__ListAssignment_2_1");
 					put(grammarAccess.getPointerAccess().getStarAssignment_1_0_0(), "rule__Pointer__StarAssignment_1_0_0");
 					put(grammarAccess.getPointerAccess().getCaretAssignment_1_0_1(), "rule__Pointer__CaretAssignment_1_0_1");

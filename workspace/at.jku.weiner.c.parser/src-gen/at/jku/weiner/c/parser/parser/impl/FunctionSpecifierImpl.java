@@ -21,11 +21,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.FunctionSpecifierImpl#getName <em>Name</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.FunctionSpecifierImpl#getGccAttributeSpecifier <em>Gcc Attribute Specifier</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

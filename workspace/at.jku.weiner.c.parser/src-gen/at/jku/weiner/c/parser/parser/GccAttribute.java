@@ -11,12 +11,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.GccAttribute#getId <em>Id</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.GccAttribute#getConst <em>Const</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.GccAttribute#getKeyword <em>Keyword</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.GccAttribute#getList <em>List</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.c.parser.parser.ParserPackage#getGccAttribute()
  * @model
@@ -75,6 +76,32 @@ public interface GccAttribute extends EObject
    * @generated
    */
   void setConst(String value);
+
+  /**
+   * Returns the value of the '<em><b>Keyword</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Keyword</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Keyword</em>' attribute.
+   * @see #setKeyword(String)
+   * @see at.jku.weiner.c.parser.parser.ParserPackage#getGccAttribute_Keyword()
+   * @model
+   * @generated
+   */
+  String getKeyword();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.GccAttribute#getKeyword <em>Keyword</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Keyword</em>' attribute.
+   * @see #getKeyword()
+   * @generated
+   */
+  void setKeyword(String value);
 
   /**
    * Returns the value of the '<em><b>List</b></em>' containment reference.

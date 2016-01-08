@@ -23,12 +23,12 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.ParameterDeclarationImpl#getDeclSpecifiers <em>Decl Specifiers</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.ParameterDeclarationImpl#getDeclarator <em>Declarator</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.ParameterDeclarationImpl#getAbstractDeclator <em>Abstract Declator</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

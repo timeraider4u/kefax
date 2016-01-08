@@ -10,12 +10,12 @@ package at.jku.weiner.c.parser.parser;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.AssignmentExpression#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.AssignmentExpression#getOp <em>Op</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.AssignmentExpression#getAssignmentExpr <em>Assignment Expr</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.c.parser.parser.ParserPackage#getAssignmentExpression()
  * @model

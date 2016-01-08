@@ -1939,6 +1939,8 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cIdIDTerminalRuleCall_1_0_0 = (RuleCall)cIdAssignment_1_0.eContents().get(0);
 		private final Assignment cConstAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
 		private final RuleCall cConstConstant1ParserRuleCall_1_1_0 = (RuleCall)cConstAssignment_1_1.eContents().get(0);
+		private final Assignment cKeywordAssignment_1_2 = (Assignment)cAlternatives_1.eContents().get(2);
+		private final RuleCall cKeywordParserKeywordsParserRuleCall_1_2_0 = (RuleCall)cKeywordAssignment_1_2.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final RuleCall cSKW_LEFTPARENTerminalRuleCall_2_0 = (RuleCall)cGroup_2.eContents().get(0);
 		private final Assignment cListAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
@@ -1947,16 +1949,18 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//GccAttribute:
 		//	{GccAttribute} (id=ID
-		//	| const=Constant1) (SKW_LEFTPAREN list=ArgumentExpressionList? SKW_RIGHTPAREN)?;
+		//	| const=Constant1
+		//	| keyword=ParserKeywords) (SKW_LEFTPAREN list=ArgumentExpressionList? SKW_RIGHTPAREN)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{GccAttribute} (id=ID | const=Constant1) (SKW_LEFTPAREN list=ArgumentExpressionList? SKW_RIGHTPAREN)?
+		//{GccAttribute} (id=ID | const=Constant1 | keyword=ParserKeywords) (SKW_LEFTPAREN list=ArgumentExpressionList?
+		//SKW_RIGHTPAREN)?
 		public Group getGroup() { return cGroup; }
 		
 		//{GccAttribute}
 		public Action getGccAttributeAction_0() { return cGccAttributeAction_0; }
 		
-		//(id=ID | const=Constant1)
+		//(id=ID | const=Constant1 | keyword=ParserKeywords)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
 		//id=ID
@@ -1970,6 +1974,12 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Constant1
 		public RuleCall getConstConstant1ParserRuleCall_1_1_0() { return cConstConstant1ParserRuleCall_1_1_0; }
+		
+		//keyword=ParserKeywords
+		public Assignment getKeywordAssignment_1_2() { return cKeywordAssignment_1_2; }
+		
+		//ParserKeywords
+		public RuleCall getKeywordParserKeywordsParserRuleCall_1_2_0() { return cKeywordParserKeywordsParserRuleCall_1_2_0; }
 		
 		//(SKW_LEFTPAREN list=ArgumentExpressionList? SKW_RIGHTPAREN)?
 		public Group getGroup_2() { return cGroup_2; }
@@ -4912,6 +4922,102 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//ConditionalExpression
 		public RuleCall getExprConditionalExpressionParserRuleCall_1_0() { return cExprConditionalExpressionParserRuleCall_1_0; }
 	}
+	public class ParserKeywordsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.ParserKeywords");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cKW_ATOMICTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cKW_AUTOTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cKW_BOOLTerminalRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cKW_CONSTTerminalRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cKW_CHARTerminalRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cKW_DOUBLETerminalRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cKW_EXTERNTerminalRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		private final RuleCall cKW_FLOATTerminalRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
+		private final RuleCall cKW_INTTerminalRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
+		private final RuleCall cKW_LONGTerminalRuleCall_9 = (RuleCall)cAlternatives.eContents().get(9);
+		private final RuleCall cKW_RESTRICTTerminalRuleCall_10 = (RuleCall)cAlternatives.eContents().get(10);
+		private final RuleCall cKW_SHORTTerminalRuleCall_11 = (RuleCall)cAlternatives.eContents().get(11);
+		private final RuleCall cKW_SIGNED1TerminalRuleCall_12 = (RuleCall)cAlternatives.eContents().get(12);
+		private final RuleCall cKW_SIGNED2TerminalRuleCall_13 = (RuleCall)cAlternatives.eContents().get(13);
+		private final RuleCall cKW_SIGNED3TerminalRuleCall_14 = (RuleCall)cAlternatives.eContents().get(14);
+		private final RuleCall cKW_VOIDTerminalRuleCall_15 = (RuleCall)cAlternatives.eContents().get(15);
+		private final RuleCall cKW_UNSIGNEDTerminalRuleCall_16 = (RuleCall)cAlternatives.eContents().get(16);
+		
+		/// *** UNKNOWN!!! *** / //genericSelection: GENERIC LEFTPAREN assignmentExpression COMMA genericAssocList=genericAssocList RIGHTPAREN;
+		////genericAssocList: genericAssociation (COMMA genericAssociation+=genericAssociation)*;
+		/// *
+		//genericAssociation:
+		//	(typeName | DEFAULT) COLON
+		//	(assignmentExpression=assignmentExpression)
+		//;
+		// * / / *** lexer *** / / *** start with keywords ;-) * / ParserKeywords:
+		//	KW_ATOMIC | KW_AUTO
+		//	| KW_BOOL | KW_CONST
+		//	| KW_CHAR | KW_DOUBLE
+		//	| KW_EXTERN
+		//	| KW_FLOAT
+		//	| KW_INT
+		//	| KW_LONG
+		//	| KW_RESTRICT
+		//	| KW_SHORT | KW_SIGNED1 | KW_SIGNED2
+		//	| KW_SIGNED3 | KW_VOID | KW_UNSIGNED;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//KW_ATOMIC | KW_AUTO | KW_BOOL | KW_CONST | KW_CHAR | KW_DOUBLE | KW_EXTERN | KW_FLOAT | KW_INT | KW_LONG | KW_RESTRICT |
+		//KW_SHORT | KW_SIGNED1 | KW_SIGNED2 | KW_SIGNED3 | KW_VOID | KW_UNSIGNED
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//KW_ATOMIC
+		public RuleCall getKW_ATOMICTerminalRuleCall_0() { return cKW_ATOMICTerminalRuleCall_0; }
+		
+		//KW_AUTO
+		public RuleCall getKW_AUTOTerminalRuleCall_1() { return cKW_AUTOTerminalRuleCall_1; }
+		
+		//KW_BOOL
+		public RuleCall getKW_BOOLTerminalRuleCall_2() { return cKW_BOOLTerminalRuleCall_2; }
+		
+		//KW_CONST
+		public RuleCall getKW_CONSTTerminalRuleCall_3() { return cKW_CONSTTerminalRuleCall_3; }
+		
+		//KW_CHAR
+		public RuleCall getKW_CHARTerminalRuleCall_4() { return cKW_CHARTerminalRuleCall_4; }
+		
+		//KW_DOUBLE
+		public RuleCall getKW_DOUBLETerminalRuleCall_5() { return cKW_DOUBLETerminalRuleCall_5; }
+		
+		//KW_EXTERN
+		public RuleCall getKW_EXTERNTerminalRuleCall_6() { return cKW_EXTERNTerminalRuleCall_6; }
+		
+		//KW_FLOAT
+		public RuleCall getKW_FLOATTerminalRuleCall_7() { return cKW_FLOATTerminalRuleCall_7; }
+		
+		//KW_INT
+		public RuleCall getKW_INTTerminalRuleCall_8() { return cKW_INTTerminalRuleCall_8; }
+		
+		//KW_LONG
+		public RuleCall getKW_LONGTerminalRuleCall_9() { return cKW_LONGTerminalRuleCall_9; }
+		
+		//KW_RESTRICT
+		public RuleCall getKW_RESTRICTTerminalRuleCall_10() { return cKW_RESTRICTTerminalRuleCall_10; }
+		
+		//KW_SHORT
+		public RuleCall getKW_SHORTTerminalRuleCall_11() { return cKW_SHORTTerminalRuleCall_11; }
+		
+		//KW_SIGNED1
+		public RuleCall getKW_SIGNED1TerminalRuleCall_12() { return cKW_SIGNED1TerminalRuleCall_12; }
+		
+		//KW_SIGNED2
+		public RuleCall getKW_SIGNED2TerminalRuleCall_13() { return cKW_SIGNED2TerminalRuleCall_13; }
+		
+		//KW_SIGNED3
+		public RuleCall getKW_SIGNED3TerminalRuleCall_14() { return cKW_SIGNED3TerminalRuleCall_14; }
+		
+		//KW_VOID
+		public RuleCall getKW_VOIDTerminalRuleCall_15() { return cKW_VOIDTerminalRuleCall_15; }
+		
+		//KW_UNSIGNED
+		public RuleCall getKW_UNSIGNEDTerminalRuleCall_16() { return cKW_UNSIGNEDTerminalRuleCall_16; }
+	}
 	
 	
 	private final ParserElements pParser;
@@ -4999,6 +5105,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	private final ArgumentExpressionListElements pArgumentExpressionList;
 	private final PrimaryExpressionElements pPrimaryExpression;
 	private final ConstantExpressionElements pConstantExpression;
+	private final ParserKeywordsElements pParserKeywords;
 	private final TerminalRule tKW_ATOMIC;
 	private final TerminalRule tKW_ATTRIBUTE;
 	private final TerminalRule tKW_AUTO;
@@ -5169,6 +5276,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		this.pArgumentExpressionList = new ArgumentExpressionListElements();
 		this.pPrimaryExpression = new PrimaryExpressionElements();
 		this.pConstantExpression = new ConstantExpressionElements();
+		this.pParserKeywords = new ParserKeywordsElements();
 		this.tKW_ATOMIC = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_ATOMIC");
 		this.tKW_ATTRIBUTE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_ATTRIBUTE");
 		this.tKW_AUTO = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_AUTO");
@@ -5711,7 +5819,8 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//GccAttribute:
 	//	{GccAttribute} (id=ID
-	//	| const=Constant1) (SKW_LEFTPAREN list=ArgumentExpressionList? SKW_RIGHTPAREN)?;
+	//	| const=Constant1
+	//	| keyword=ParserKeywords) (SKW_LEFTPAREN list=ArgumentExpressionList? SKW_RIGHTPAREN)?;
 	public GccAttributeElements getGccAttributeAccess() {
 		return pGccAttribute;
 	}
@@ -6356,6 +6465,32 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getConstantExpressionRule() {
 		return getConstantExpressionAccess().getRule();
+	}
+	
+	/// *** UNKNOWN!!! *** / //genericSelection: GENERIC LEFTPAREN assignmentExpression COMMA genericAssocList=genericAssocList RIGHTPAREN;
+	////genericAssocList: genericAssociation (COMMA genericAssociation+=genericAssociation)*;
+	/// *
+	//genericAssociation:
+	//	(typeName | DEFAULT) COLON
+	//	(assignmentExpression=assignmentExpression)
+	//;
+	// * / / *** lexer *** / / *** start with keywords ;-) * / ParserKeywords:
+	//	KW_ATOMIC | KW_AUTO
+	//	| KW_BOOL | KW_CONST
+	//	| KW_CHAR | KW_DOUBLE
+	//	| KW_EXTERN
+	//	| KW_FLOAT
+	//	| KW_INT
+	//	| KW_LONG
+	//	| KW_RESTRICT
+	//	| KW_SHORT | KW_SIGNED1 | KW_SIGNED2
+	//	| KW_SIGNED3 | KW_VOID | KW_UNSIGNED;
+	public ParserKeywordsElements getParserKeywordsAccess() {
+		return pParserKeywords;
+	}
+	
+	public ParserRule getParserKeywordsRule() {
+		return getParserKeywordsAccess().getRule();
 	}
 	
 	//terminal KW_ATOMIC:

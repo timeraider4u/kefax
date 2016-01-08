@@ -2780,6 +2780,27 @@ this_SKW_COMMA_1=RULE_SKW_COMMA
 
 )*
 
+
+(
+(
+		lv_lastComma_3_0=RULE_SKW_COMMA
+		{
+			newLeafNode(lv_lastComma_3_0, grammarAccess.getEnumeratorListAccess().getLastCommaSKW_COMMATerminalRuleCall_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getEnumeratorListRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"lastComma",
+        		true, 
+        		"at.jku.weiner.c.common.Common.SKW_COMMA");
+	    }
+
+)
+)?
+
 )
 
 

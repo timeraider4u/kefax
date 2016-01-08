@@ -1229,12 +1229,15 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSKW_COMMATerminalRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
 		private final Assignment cEnumeratorAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cEnumeratorEnumeratorParserRuleCall_1_1_0 = (RuleCall)cEnumeratorAssignment_1_1.eContents().get(0);
+		private final Assignment cLastCommaAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cLastCommaSKW_COMMATerminalRuleCall_2_0 = (RuleCall)cLastCommaAssignment_2.eContents().get(0);
 		
 		//EnumeratorList:
-		//	enumerator+=Enumerator (SKW_COMMA enumerator+=Enumerator)*;
+		//	enumerator+=Enumerator (SKW_COMMA enumerator+=Enumerator)*
+		//	lastComma?=SKW_COMMA?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//enumerator+=Enumerator (SKW_COMMA enumerator+=Enumerator)*
+		//enumerator+=Enumerator (SKW_COMMA enumerator+=Enumerator)* lastComma?=SKW_COMMA?
 		public Group getGroup() { return cGroup; }
 		
 		//enumerator+=Enumerator
@@ -1254,6 +1257,12 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Enumerator
 		public RuleCall getEnumeratorEnumeratorParserRuleCall_1_1_0() { return cEnumeratorEnumeratorParserRuleCall_1_1_0; }
+		
+		//lastComma?=SKW_COMMA?
+		public Assignment getLastCommaAssignment_2() { return cLastCommaAssignment_2; }
+		
+		//SKW_COMMA
+		public RuleCall getLastCommaSKW_COMMATerminalRuleCall_2_0() { return cLastCommaSKW_COMMATerminalRuleCall_2_0; }
 	}
 	public class EnumeratorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.Enumerator");
@@ -5718,7 +5727,8 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//EnumeratorList:
-	//	enumerator+=Enumerator (SKW_COMMA enumerator+=Enumerator)*;
+	//	enumerator+=Enumerator (SKW_COMMA enumerator+=Enumerator)*
+	//	lastComma?=SKW_COMMA?;
 	public EnumeratorListElements getEnumeratorListAccess() {
 		return pEnumeratorList;
 	}

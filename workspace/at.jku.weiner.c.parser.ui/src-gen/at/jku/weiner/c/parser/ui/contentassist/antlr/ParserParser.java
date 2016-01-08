@@ -320,6 +320,7 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEnumSpecifierAccess().getEnumListAssignment_1_1_1_1_1(), "rule__EnumSpecifier__EnumListAssignment_1_1_1_1_1");
 					put(grammarAccess.getEnumeratorListAccess().getEnumeratorAssignment_0(), "rule__EnumeratorList__EnumeratorAssignment_0");
 					put(grammarAccess.getEnumeratorListAccess().getEnumeratorAssignment_1_1(), "rule__EnumeratorList__EnumeratorAssignment_1_1");
+					put(grammarAccess.getEnumeratorListAccess().getLastCommaAssignment_2(), "rule__EnumeratorList__LastCommaAssignment_2");
 					put(grammarAccess.getEnumeratorAccess().getIdAssignment_1(), "rule__Enumerator__IdAssignment_1");
 					put(grammarAccess.getEnumeratorAccess().getExprAssignment_2_1(), "rule__Enumerator__ExprAssignment_2_1");
 					put(grammarAccess.getTypeQualifierAccess().getTypeAssignment_1_0(), "rule__TypeQualifier__TypeAssignment_1_0");

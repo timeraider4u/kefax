@@ -833,6 +833,8 @@ public class Test0031_Enums {
 				"RULE_NEWLINE",
 				"RULE_WHITESPACE",
 				"RULE_ID",
+				"RULE_SKW_COMMA",
+				"RULE_WHITESPACE",
 				"RULE_SKW_RIGHTBRACE",
 				"RULE_SKW_SEMI",
 				"RULE_NEWLINE",

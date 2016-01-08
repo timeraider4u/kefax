@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.EnumeratorList#getEnumerator <em>Enumerator</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.EnumeratorList#isLastComma <em>Last Comma</em>}</li>
  * </ul>
  *
  * @see at.jku.weiner.c.parser.parser.ParserPackage#getEnumeratorList()
@@ -39,5 +40,31 @@ public interface EnumeratorList extends EObject
    * @generated
    */
   EList<Enumerator> getEnumerator();
+
+  /**
+   * Returns the value of the '<em><b>Last Comma</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Last Comma</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Last Comma</em>' attribute.
+   * @see #setLastComma(boolean)
+   * @see at.jku.weiner.c.parser.parser.ParserPackage#getEnumeratorList_LastComma()
+   * @model
+   * @generated
+   */
+  boolean isLastComma();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.EnumeratorList#isLastComma <em>Last Comma</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Last Comma</em>' attribute.
+   * @see #isLastComma()
+   * @generated
+   */
+  void setLastComma(boolean value);
 
 } // EnumeratorList

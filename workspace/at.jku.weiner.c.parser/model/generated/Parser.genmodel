@@ -82,6 +82,7 @@
     </genClasses>
     <genClasses ecoreClass="Parser.ecore#//EnumeratorList">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//EnumeratorList/enumerator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//EnumeratorList/lastComma"/>
     </genClasses>
     <genClasses ecoreClass="Parser.ecore#//Enumerator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//Enumerator/id"/>

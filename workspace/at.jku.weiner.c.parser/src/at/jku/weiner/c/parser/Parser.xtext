@@ -284,7 +284,8 @@ EnumSpecifier returns DeclarationSpecifier:
 ;
 
 EnumeratorList: enumerator+=Enumerator
-	(SKW_COMMA enumerator+=Enumerator)*
+	(SKW_COMMA enumerator+=Enumerator)* 
+	(lastComma?=SKW_COMMA?)
 ;
 
 Enumerator:

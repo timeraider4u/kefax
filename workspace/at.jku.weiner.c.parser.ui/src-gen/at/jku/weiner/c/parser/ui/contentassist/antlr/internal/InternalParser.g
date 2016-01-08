@@ -8277,6 +8277,7 @@ rule__EnumeratorList__Group__1
     }
 :
 	rule__EnumeratorList__Group__1__Impl
+	rule__EnumeratorList__Group__2
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -8300,6 +8301,39 @@ rule__EnumeratorList__Group__1__Impl
 finally {
 	restoreStackSize(stackSize);
 }
+
+
+rule__EnumeratorList__Group__2
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__EnumeratorList__Group__2__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__EnumeratorList__Group__2__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+
+(
+{ before(grammarAccess.getEnumeratorListAccess().getLastCommaAssignment_2()); }
+(rule__EnumeratorList__LastCommaAssignment_2)?
+{ after(grammarAccess.getEnumeratorListAccess().getLastCommaAssignment_2()); }
+)
+
+
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
 
 
 
@@ -21511,6 +21545,21 @@ rule__EnumeratorList__EnumeratorAssignment_1_1
 (
 { before(grammarAccess.getEnumeratorListAccess().getEnumeratorEnumeratorParserRuleCall_1_1_0()); }
 	ruleEnumerator{ after(grammarAccess.getEnumeratorListAccess().getEnumeratorEnumeratorParserRuleCall_1_1_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__EnumeratorList__LastCommaAssignment_2
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getEnumeratorListAccess().getLastCommaSKW_COMMATerminalRuleCall_2_0()); }
+	RULE_SKW_COMMA{ after(grammarAccess.getEnumeratorListAccess().getLastCommaSKW_COMMATerminalRuleCall_2_0()); }
 )
 
 ;

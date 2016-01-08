@@ -1342,6 +1342,16 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getEnumeratorList_LastComma()
+  {
+    return (EAttribute)enumeratorListEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getEnumerator()
   {
     return enumeratorEClass;
@@ -3512,6 +3522,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 
     enumeratorListEClass = createEClass(ENUMERATOR_LIST);
     createEReference(enumeratorListEClass, ENUMERATOR_LIST__ENUMERATOR);
+    createEAttribute(enumeratorListEClass, ENUMERATOR_LIST__LAST_COMMA);
 
     enumeratorEClass = createEClass(ENUMERATOR);
     createEAttribute(enumeratorEClass, ENUMERATOR__ID);
@@ -3935,6 +3946,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 
     initEClass(enumeratorListEClass, EnumeratorList.class, "EnumeratorList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getEnumeratorList_Enumerator(), this.getEnumerator(), null, "enumerator", null, 0, -1, EnumeratorList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getEnumeratorList_LastComma(), theEcorePackage.getEBoolean(), "lastComma", null, 0, 1, EnumeratorList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(enumeratorEClass, Enumerator.class, "Enumerator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getEnumerator_Id(), theEcorePackage.getEString(), "id", null, 0, 1, Enumerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

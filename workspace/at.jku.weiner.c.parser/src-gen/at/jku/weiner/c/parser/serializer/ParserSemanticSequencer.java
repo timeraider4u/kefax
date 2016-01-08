@@ -1055,7 +1055,8 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	 *         const=Constant2 | 
 	 *         string+=STRING_LITERAL+ | 
 	 *         expr=Expression | 
-	 *         (ext?=KW_EXTENSION? compoundStmt=CompoundStatement) | 
+	 *         compoundStmt=CompoundStatement | 
+	 *         (ext?=KW_EXTENSION compoundStmt=CompoundStatement) | 
 	 *         (builtin_offsetof?=KW_BUILTIN_OFFSETOF typeName=TypeName expr=UnaryExpression)
 	 *     )
 	 */

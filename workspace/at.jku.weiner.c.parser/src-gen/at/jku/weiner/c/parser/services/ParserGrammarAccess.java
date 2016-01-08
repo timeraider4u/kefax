@@ -4866,23 +4866,25 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cExprAssignment_1_3_1 = (Assignment)cGroup_1_3.eContents().get(1);
 		private final RuleCall cExprExpressionParserRuleCall_1_3_1_0 = (RuleCall)cExprAssignment_1_3_1.eContents().get(0);
 		private final RuleCall cSKW_RIGHTPARENTerminalRuleCall_1_3_2 = (RuleCall)cGroup_1_3.eContents().get(2);
-		private final Group cGroup_1_4 = (Group)cAlternatives_1.eContents().get(4);
-		private final Assignment cExtAssignment_1_4_0 = (Assignment)cGroup_1_4.eContents().get(0);
-		private final RuleCall cExtKW_EXTENSIONTerminalRuleCall_1_4_0_0 = (RuleCall)cExtAssignment_1_4_0.eContents().get(0);
-		private final RuleCall cSKW_LEFTPARENTerminalRuleCall_1_4_1 = (RuleCall)cGroup_1_4.eContents().get(1);
-		private final Assignment cCompoundStmtAssignment_1_4_2 = (Assignment)cGroup_1_4.eContents().get(2);
-		private final RuleCall cCompoundStmtCompoundStatementParserRuleCall_1_4_2_0 = (RuleCall)cCompoundStmtAssignment_1_4_2.eContents().get(0);
-		private final RuleCall cSKW_RIGHTPARENTerminalRuleCall_1_4_3 = (RuleCall)cGroup_1_4.eContents().get(3);
+		private final Assignment cCompoundStmtAssignment_1_4 = (Assignment)cAlternatives_1.eContents().get(4);
+		private final RuleCall cCompoundStmtCompoundStatementParserRuleCall_1_4_0 = (RuleCall)cCompoundStmtAssignment_1_4.eContents().get(0);
 		private final Group cGroup_1_5 = (Group)cAlternatives_1.eContents().get(5);
-		private final Assignment cBuiltin_offsetofAssignment_1_5_0 = (Assignment)cGroup_1_5.eContents().get(0);
-		private final RuleCall cBuiltin_offsetofKW_BUILTIN_OFFSETOFTerminalRuleCall_1_5_0_0 = (RuleCall)cBuiltin_offsetofAssignment_1_5_0.eContents().get(0);
+		private final Assignment cExtAssignment_1_5_0 = (Assignment)cGroup_1_5.eContents().get(0);
+		private final RuleCall cExtKW_EXTENSIONTerminalRuleCall_1_5_0_0 = (RuleCall)cExtAssignment_1_5_0.eContents().get(0);
 		private final RuleCall cSKW_LEFTPARENTerminalRuleCall_1_5_1 = (RuleCall)cGroup_1_5.eContents().get(1);
-		private final Assignment cTypeNameAssignment_1_5_2 = (Assignment)cGroup_1_5.eContents().get(2);
-		private final RuleCall cTypeNameTypeNameParserRuleCall_1_5_2_0 = (RuleCall)cTypeNameAssignment_1_5_2.eContents().get(0);
-		private final RuleCall cSKW_COMMATerminalRuleCall_1_5_3 = (RuleCall)cGroup_1_5.eContents().get(3);
-		private final Assignment cExprAssignment_1_5_4 = (Assignment)cGroup_1_5.eContents().get(4);
-		private final RuleCall cExprUnaryExpressionParserRuleCall_1_5_4_0 = (RuleCall)cExprAssignment_1_5_4.eContents().get(0);
-		private final RuleCall cSKW_RIGHTPARENTerminalRuleCall_1_5_5 = (RuleCall)cGroup_1_5.eContents().get(5);
+		private final Assignment cCompoundStmtAssignment_1_5_2 = (Assignment)cGroup_1_5.eContents().get(2);
+		private final RuleCall cCompoundStmtCompoundStatementParserRuleCall_1_5_2_0 = (RuleCall)cCompoundStmtAssignment_1_5_2.eContents().get(0);
+		private final RuleCall cSKW_RIGHTPARENTerminalRuleCall_1_5_3 = (RuleCall)cGroup_1_5.eContents().get(3);
+		private final Group cGroup_1_6 = (Group)cAlternatives_1.eContents().get(6);
+		private final Assignment cBuiltin_offsetofAssignment_1_6_0 = (Assignment)cGroup_1_6.eContents().get(0);
+		private final RuleCall cBuiltin_offsetofKW_BUILTIN_OFFSETOFTerminalRuleCall_1_6_0_0 = (RuleCall)cBuiltin_offsetofAssignment_1_6_0.eContents().get(0);
+		private final RuleCall cSKW_LEFTPARENTerminalRuleCall_1_6_1 = (RuleCall)cGroup_1_6.eContents().get(1);
+		private final Assignment cTypeNameAssignment_1_6_2 = (Assignment)cGroup_1_6.eContents().get(2);
+		private final RuleCall cTypeNameTypeNameParserRuleCall_1_6_2_0 = (RuleCall)cTypeNameAssignment_1_6_2.eContents().get(0);
+		private final RuleCall cSKW_COMMATerminalRuleCall_1_6_3 = (RuleCall)cGroup_1_6.eContents().get(3);
+		private final Assignment cExprAssignment_1_6_4 = (Assignment)cGroup_1_6.eContents().get(4);
+		private final RuleCall cExprUnaryExpressionParserRuleCall_1_6_4_0 = (RuleCall)cExprAssignment_1_6_4.eContents().get(0);
+		private final RuleCall cSKW_RIGHTPARENTerminalRuleCall_1_6_5 = (RuleCall)cGroup_1_6.eContents().get(5);
 		
 		//PrimaryExpression Expression initRuleAction { at.jku.weiner.c.parser.Log.log("In primary expression"); }:
 		//	{PrimaryExpression} (id=ID
@@ -4890,13 +4892,15 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//	| string+=STRING_LITERAL+
 		//	| SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN
 		//	//|	genericSelection=genericSelection
-		//	| ext?=KW_EXTENSION? SKW_LEFTPAREN compoundStmt=CompoundStatement SKW_RIGHTPAREN // Blocks (GCC extension)
+		//	| compoundStmt=CompoundStatement // Blocks (GCC extension)
+		//	| ext?=KW_EXTENSION SKW_LEFTPAREN compoundStmt=CompoundStatement SKW_RIGHTPAREN // Blocks (GCC extension)
 		//	//|	'__builtin_va_arg' LEFTPAREN expr=unaryExpression COMMA typeName=typeName RIGHTPAREN
 		//	| builtin_offsetof?=KW_BUILTIN_OFFSETOF SKW_LEFTPAREN typeName=TypeName SKW_COMMA expr=UnaryExpression SKW_RIGHTPAREN)
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{PrimaryExpression} (id=ID | const=Constant2 | string+=STRING_LITERAL+ | SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN //|	genericSelection=genericSelection
-		//| ext?=KW_EXTENSION? SKW_LEFTPAREN compoundStmt=CompoundStatement SKW_RIGHTPAREN // Blocks (GCC extension)
+		//| compoundStmt=CompoundStatement // Blocks (GCC extension)
+		//| ext?=KW_EXTENSION SKW_LEFTPAREN compoundStmt=CompoundStatement SKW_RIGHTPAREN // Blocks (GCC extension)
 		////|	'__builtin_va_arg' LEFTPAREN expr=unaryExpression COMMA typeName=typeName RIGHTPAREN
 		//| builtin_offsetof?=KW_BUILTIN_OFFSETOF SKW_LEFTPAREN typeName=TypeName SKW_COMMA expr=UnaryExpression SKW_RIGHTPAREN)
 		public Group getGroup() { return cGroup; }
@@ -4905,7 +4909,8 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		public Action getPrimaryExpressionAction_0() { return cPrimaryExpressionAction_0; }
 		
 		//(id=ID | const=Constant2 | string+=STRING_LITERAL+ | SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN //|	genericSelection=genericSelection
-		//| ext?=KW_EXTENSION? SKW_LEFTPAREN compoundStmt=CompoundStatement SKW_RIGHTPAREN // Blocks (GCC extension)
+		//| compoundStmt=CompoundStatement // Blocks (GCC extension)
+		//| ext?=KW_EXTENSION SKW_LEFTPAREN compoundStmt=CompoundStatement SKW_RIGHTPAREN // Blocks (GCC extension)
 		////|	'__builtin_va_arg' LEFTPAREN expr=unaryExpression COMMA typeName=typeName RIGHTPAREN
 		//| builtin_offsetof?=KW_BUILTIN_OFFSETOF SKW_LEFTPAREN typeName=TypeName SKW_COMMA expr=UnaryExpression SKW_RIGHTPAREN)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
@@ -4943,56 +4948,62 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//SKW_RIGHTPAREN
 		public RuleCall getSKW_RIGHTPARENTerminalRuleCall_1_3_2() { return cSKW_RIGHTPARENTerminalRuleCall_1_3_2; }
 		
-		//ext?=KW_EXTENSION? SKW_LEFTPAREN compoundStmt=CompoundStatement SKW_RIGHTPAREN
-		public Group getGroup_1_4() { return cGroup_1_4; }
-		
-		//ext?=KW_EXTENSION?
-		public Assignment getExtAssignment_1_4_0() { return cExtAssignment_1_4_0; }
-		
-		//KW_EXTENSION
-		public RuleCall getExtKW_EXTENSIONTerminalRuleCall_1_4_0_0() { return cExtKW_EXTENSIONTerminalRuleCall_1_4_0_0; }
-		
-		//SKW_LEFTPAREN
-		public RuleCall getSKW_LEFTPARENTerminalRuleCall_1_4_1() { return cSKW_LEFTPARENTerminalRuleCall_1_4_1; }
-		
 		//compoundStmt=CompoundStatement
-		public Assignment getCompoundStmtAssignment_1_4_2() { return cCompoundStmtAssignment_1_4_2; }
+		public Assignment getCompoundStmtAssignment_1_4() { return cCompoundStmtAssignment_1_4; }
 		
 		//CompoundStatement
-		public RuleCall getCompoundStmtCompoundStatementParserRuleCall_1_4_2_0() { return cCompoundStmtCompoundStatementParserRuleCall_1_4_2_0; }
+		public RuleCall getCompoundStmtCompoundStatementParserRuleCall_1_4_0() { return cCompoundStmtCompoundStatementParserRuleCall_1_4_0; }
 		
-		//SKW_RIGHTPAREN
-		public RuleCall getSKW_RIGHTPARENTerminalRuleCall_1_4_3() { return cSKW_RIGHTPARENTerminalRuleCall_1_4_3; }
-		
-		//builtin_offsetof?=KW_BUILTIN_OFFSETOF SKW_LEFTPAREN typeName=TypeName SKW_COMMA expr=UnaryExpression SKW_RIGHTPAREN
+		//ext?=KW_EXTENSION SKW_LEFTPAREN compoundStmt=CompoundStatement SKW_RIGHTPAREN
 		public Group getGroup_1_5() { return cGroup_1_5; }
 		
-		//builtin_offsetof?=KW_BUILTIN_OFFSETOF
-		public Assignment getBuiltin_offsetofAssignment_1_5_0() { return cBuiltin_offsetofAssignment_1_5_0; }
+		//ext?=KW_EXTENSION
+		public Assignment getExtAssignment_1_5_0() { return cExtAssignment_1_5_0; }
 		
-		//KW_BUILTIN_OFFSETOF
-		public RuleCall getBuiltin_offsetofKW_BUILTIN_OFFSETOFTerminalRuleCall_1_5_0_0() { return cBuiltin_offsetofKW_BUILTIN_OFFSETOFTerminalRuleCall_1_5_0_0; }
+		//KW_EXTENSION
+		public RuleCall getExtKW_EXTENSIONTerminalRuleCall_1_5_0_0() { return cExtKW_EXTENSIONTerminalRuleCall_1_5_0_0; }
 		
 		//SKW_LEFTPAREN
 		public RuleCall getSKW_LEFTPARENTerminalRuleCall_1_5_1() { return cSKW_LEFTPARENTerminalRuleCall_1_5_1; }
 		
-		//typeName=TypeName
-		public Assignment getTypeNameAssignment_1_5_2() { return cTypeNameAssignment_1_5_2; }
+		//compoundStmt=CompoundStatement
+		public Assignment getCompoundStmtAssignment_1_5_2() { return cCompoundStmtAssignment_1_5_2; }
 		
-		//TypeName
-		public RuleCall getTypeNameTypeNameParserRuleCall_1_5_2_0() { return cTypeNameTypeNameParserRuleCall_1_5_2_0; }
-		
-		//SKW_COMMA
-		public RuleCall getSKW_COMMATerminalRuleCall_1_5_3() { return cSKW_COMMATerminalRuleCall_1_5_3; }
-		
-		//expr=UnaryExpression
-		public Assignment getExprAssignment_1_5_4() { return cExprAssignment_1_5_4; }
-		
-		//UnaryExpression
-		public RuleCall getExprUnaryExpressionParserRuleCall_1_5_4_0() { return cExprUnaryExpressionParserRuleCall_1_5_4_0; }
+		//CompoundStatement
+		public RuleCall getCompoundStmtCompoundStatementParserRuleCall_1_5_2_0() { return cCompoundStmtCompoundStatementParserRuleCall_1_5_2_0; }
 		
 		//SKW_RIGHTPAREN
-		public RuleCall getSKW_RIGHTPARENTerminalRuleCall_1_5_5() { return cSKW_RIGHTPARENTerminalRuleCall_1_5_5; }
+		public RuleCall getSKW_RIGHTPARENTerminalRuleCall_1_5_3() { return cSKW_RIGHTPARENTerminalRuleCall_1_5_3; }
+		
+		//builtin_offsetof?=KW_BUILTIN_OFFSETOF SKW_LEFTPAREN typeName=TypeName SKW_COMMA expr=UnaryExpression SKW_RIGHTPAREN
+		public Group getGroup_1_6() { return cGroup_1_6; }
+		
+		//builtin_offsetof?=KW_BUILTIN_OFFSETOF
+		public Assignment getBuiltin_offsetofAssignment_1_6_0() { return cBuiltin_offsetofAssignment_1_6_0; }
+		
+		//KW_BUILTIN_OFFSETOF
+		public RuleCall getBuiltin_offsetofKW_BUILTIN_OFFSETOFTerminalRuleCall_1_6_0_0() { return cBuiltin_offsetofKW_BUILTIN_OFFSETOFTerminalRuleCall_1_6_0_0; }
+		
+		//SKW_LEFTPAREN
+		public RuleCall getSKW_LEFTPARENTerminalRuleCall_1_6_1() { return cSKW_LEFTPARENTerminalRuleCall_1_6_1; }
+		
+		//typeName=TypeName
+		public Assignment getTypeNameAssignment_1_6_2() { return cTypeNameAssignment_1_6_2; }
+		
+		//TypeName
+		public RuleCall getTypeNameTypeNameParserRuleCall_1_6_2_0() { return cTypeNameTypeNameParserRuleCall_1_6_2_0; }
+		
+		//SKW_COMMA
+		public RuleCall getSKW_COMMATerminalRuleCall_1_6_3() { return cSKW_COMMATerminalRuleCall_1_6_3; }
+		
+		//expr=UnaryExpression
+		public Assignment getExprAssignment_1_6_4() { return cExprAssignment_1_6_4; }
+		
+		//UnaryExpression
+		public RuleCall getExprUnaryExpressionParserRuleCall_1_6_4_0() { return cExprUnaryExpressionParserRuleCall_1_6_4_0; }
+		
+		//SKW_RIGHTPAREN
+		public RuleCall getSKW_RIGHTPARENTerminalRuleCall_1_6_5() { return cSKW_RIGHTPARENTerminalRuleCall_1_6_5; }
 	}
 	public class ConstantExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.ConstantExpression");
@@ -6529,7 +6540,8 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//	| string+=STRING_LITERAL+
 	//	| SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN
 	//	//|	genericSelection=genericSelection
-	//	| ext?=KW_EXTENSION? SKW_LEFTPAREN compoundStmt=CompoundStatement SKW_RIGHTPAREN // Blocks (GCC extension)
+	//	| compoundStmt=CompoundStatement // Blocks (GCC extension)
+	//	| ext?=KW_EXTENSION SKW_LEFTPAREN compoundStmt=CompoundStatement SKW_RIGHTPAREN // Blocks (GCC extension)
 	//	//|	'__builtin_va_arg' LEFTPAREN expr=unaryExpression COMMA typeName=typeName RIGHTPAREN
 	//	| builtin_offsetof?=KW_BUILTIN_OFFSETOF SKW_LEFTPAREN typeName=TypeName SKW_COMMA expr=UnaryExpression SKW_RIGHTPAREN)
 	public PrimaryExpressionElements getPrimaryExpressionAccess() {

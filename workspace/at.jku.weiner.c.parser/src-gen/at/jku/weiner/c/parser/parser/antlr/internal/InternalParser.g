@@ -1772,6 +1772,84 @@ this_SKW_RIGHTPAREN_23=RULE_SKW_RIGHTPAREN
 )
 )
 
+
+    |
+(
+(
+(
+(
+		lv_typeOf_27_1=RULE_KW_TYPEOF1
+		{
+			newLeafNode(lv_typeOf_27_1, grammarAccess.getTypeSpecifierAccess().getTypeOfKW_TYPEOF1TerminalRuleCall_21_0_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTypeSpecifierRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"typeOf",
+        		lv_typeOf_27_1, 
+        		"at.jku.weiner.c.parser.Parser.KW_TYPEOF1");
+	    }
+
+    |		lv_typeOf_27_2=RULE_KW_TYPEOF3
+		{
+			newLeafNode(lv_typeOf_27_2, grammarAccess.getTypeSpecifierAccess().getTypeOfKW_TYPEOF3TerminalRuleCall_21_0_0_1()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTypeSpecifierRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"typeOf",
+        		lv_typeOf_27_2, 
+        		"at.jku.weiner.c.parser.Parser.KW_TYPEOF3");
+	    }
+
+)
+
+)
+)
+
+
+this_SKW_LEFTPAREN_28=RULE_SKW_LEFTPAREN
+    { 
+    newLeafNode(this_SKW_LEFTPAREN_28, grammarAccess.getTypeSpecifierAccess().getSKW_LEFTPARENTerminalRuleCall_21_1()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getTypeSpecifierAccess().getConstExprConstantExpressionParserRuleCall_21_2_0()); 
+	    }
+		lv_constExpr_29_0=ruleConstantExpression		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getTypeSpecifierRule());
+	        }
+       		set(
+       			$current, 
+       			"constExpr",
+        		lv_constExpr_29_0, 
+        		"at.jku.weiner.c.parser.Parser.ConstantExpression");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+this_SKW_RIGHTPAREN_30=RULE_SKW_RIGHTPAREN
+    { 
+    newLeafNode(this_SKW_RIGHTPAREN_30, grammarAccess.getTypeSpecifierAccess().getSKW_RIGHTPARENTerminalRuleCall_21_3()); 
+    }
+
+
+)
+
 )
 
 
@@ -11747,6 +11825,10 @@ RULE_KW_SWITCH : 'switch';
 RULE_KW_THREADLOCAL : RULE_SKW_UNDERSCORE 'Thread_local';
 
 RULE_KW_TYPEDEF : 'typedef';
+
+RULE_KW_TYPEOF1 : 'typeof';
+
+RULE_KW_TYPEOF3 : RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE RULE_KW_TYPEOF1 RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE;
 
 RULE_KW_UNION : 'union';
 

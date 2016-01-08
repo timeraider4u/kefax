@@ -18,6 +18,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link at.jku.weiner.c.parser.parser.TypeSpecifier#getSpecifier <em>Specifier</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.TypeSpecifier#getType <em>Type</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.TypeSpecifier#getStruct <em>Struct</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.TypeSpecifier#getTypeOf <em>Type Of</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.TypeSpecifier#getConstExpr <em>Const Expr</em>}</li>
  * </ul>
  *
  * @see at.jku.weiner.c.parser.parser.ParserPackage#getTypeSpecifier()
@@ -155,5 +157,57 @@ public interface TypeSpecifier extends EObject
    * @generated
    */
   void setStruct(StructOrUnionName value);
+
+  /**
+   * Returns the value of the '<em><b>Type Of</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Type Of</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Type Of</em>' attribute.
+   * @see #setTypeOf(String)
+   * @see at.jku.weiner.c.parser.parser.ParserPackage#getTypeSpecifier_TypeOf()
+   * @model
+   * @generated
+   */
+  String getTypeOf();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.TypeSpecifier#getTypeOf <em>Type Of</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Type Of</em>' attribute.
+   * @see #getTypeOf()
+   * @generated
+   */
+  void setTypeOf(String value);
+
+  /**
+   * Returns the value of the '<em><b>Const Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Const Expr</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Const Expr</em>' containment reference.
+   * @see #setConstExpr(Expression)
+   * @see at.jku.weiner.c.parser.parser.ParserPackage#getTypeSpecifier_ConstExpr()
+   * @model containment="true"
+   * @generated
+   */
+  Expression getConstExpr();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.TypeSpecifier#getConstExpr <em>Const Expr</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Const Expr</em>' containment reference.
+   * @see #getConstExpr()
+   * @generated
+   */
+  void setConstExpr(Expression value);
 
 } // TypeSpecifier

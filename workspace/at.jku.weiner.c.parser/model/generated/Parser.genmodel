@@ -48,6 +48,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//TypeSpecifier/specifier"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//TypeSpecifier/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//TypeSpecifier/struct"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//TypeSpecifier/typeOf"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//TypeSpecifier/constExpr"/>
     </genClasses>
     <genClasses ecoreClass="Parser.ecore#//TypedefName">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//TypedefName/id"/>

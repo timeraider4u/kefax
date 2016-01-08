@@ -3,6 +3,7 @@
 package at.jku.weiner.c.parser.parser.impl;
 
 import at.jku.weiner.c.parser.parser.DeclarationSpecifier;
+import at.jku.weiner.c.parser.parser.Expression;
 import at.jku.weiner.c.parser.parser.ParserPackage;
 import at.jku.weiner.c.parser.parser.StructOrUnionName;
 import at.jku.weiner.c.parser.parser.TypeSpecifier;
@@ -30,6 +31,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.TypeSpecifierImpl#getSpecifier <em>Specifier</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.TypeSpecifierImpl#getType <em>Type</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.TypeSpecifierImpl#getStruct <em>Struct</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.TypeSpecifierImpl#getTypeOf <em>Type Of</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.TypeSpecifierImpl#getConstExpr <em>Const Expr</em>}</li>
  * </ul>
  *
  * @generated
@@ -105,6 +108,36 @@ public class TypeSpecifierImpl extends MinimalEObjectImpl.Container implements T
    * @ordered
    */
   protected StructOrUnionName struct;
+
+  /**
+   * The default value of the '{@link #getTypeOf() <em>Type Of</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTypeOf()
+   * @generated
+   * @ordered
+   */
+  protected static final String TYPE_OF_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getTypeOf() <em>Type Of</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTypeOf()
+   * @generated
+   * @ordered
+   */
+  protected String typeOf = TYPE_OF_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getConstExpr() <em>Const Expr</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getConstExpr()
+   * @generated
+   * @ordered
+   */
+  protected Expression constExpr;
 
   /**
    * <!-- begin-user-doc -->
@@ -322,6 +355,77 @@ public class TypeSpecifierImpl extends MinimalEObjectImpl.Container implements T
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getTypeOf()
+  {
+    return typeOf;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTypeOf(String newTypeOf)
+  {
+    String oldTypeOf = typeOf;
+    typeOf = newTypeOf;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.TYPE_SPECIFIER__TYPE_OF, oldTypeOf, typeOf));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Expression getConstExpr()
+  {
+    return constExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetConstExpr(Expression newConstExpr, NotificationChain msgs)
+  {
+    Expression oldConstExpr = constExpr;
+    constExpr = newConstExpr;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ParserPackage.TYPE_SPECIFIER__CONST_EXPR, oldConstExpr, newConstExpr);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setConstExpr(Expression newConstExpr)
+  {
+    if (newConstExpr != constExpr)
+    {
+      NotificationChain msgs = null;
+      if (constExpr != null)
+        msgs = ((InternalEObject)constExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ParserPackage.TYPE_SPECIFIER__CONST_EXPR, null, msgs);
+      if (newConstExpr != null)
+        msgs = ((InternalEObject)newConstExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ParserPackage.TYPE_SPECIFIER__CONST_EXPR, null, msgs);
+      msgs = basicSetConstExpr(newConstExpr, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.TYPE_SPECIFIER__CONST_EXPR, newConstExpr, newConstExpr));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -333,6 +437,8 @@ public class TypeSpecifierImpl extends MinimalEObjectImpl.Container implements T
         return basicSetType(null, msgs);
       case ParserPackage.TYPE_SPECIFIER__STRUCT:
         return basicSetStruct(null, msgs);
+      case ParserPackage.TYPE_SPECIFIER__CONST_EXPR:
+        return basicSetConstExpr(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -357,6 +463,10 @@ public class TypeSpecifierImpl extends MinimalEObjectImpl.Container implements T
         return getType();
       case ParserPackage.TYPE_SPECIFIER__STRUCT:
         return getStruct();
+      case ParserPackage.TYPE_SPECIFIER__TYPE_OF:
+        return getTypeOf();
+      case ParserPackage.TYPE_SPECIFIER__CONST_EXPR:
+        return getConstExpr();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -385,6 +495,12 @@ public class TypeSpecifierImpl extends MinimalEObjectImpl.Container implements T
         return;
       case ParserPackage.TYPE_SPECIFIER__STRUCT:
         setStruct((StructOrUnionName)newValue);
+        return;
+      case ParserPackage.TYPE_SPECIFIER__TYPE_OF:
+        setTypeOf((String)newValue);
+        return;
+      case ParserPackage.TYPE_SPECIFIER__CONST_EXPR:
+        setConstExpr((Expression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -415,6 +531,12 @@ public class TypeSpecifierImpl extends MinimalEObjectImpl.Container implements T
       case ParserPackage.TYPE_SPECIFIER__STRUCT:
         setStruct((StructOrUnionName)null);
         return;
+      case ParserPackage.TYPE_SPECIFIER__TYPE_OF:
+        setTypeOf(TYPE_OF_EDEFAULT);
+        return;
+      case ParserPackage.TYPE_SPECIFIER__CONST_EXPR:
+        setConstExpr((Expression)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -439,6 +561,10 @@ public class TypeSpecifierImpl extends MinimalEObjectImpl.Container implements T
         return type != null;
       case ParserPackage.TYPE_SPECIFIER__STRUCT:
         return struct != null;
+      case ParserPackage.TYPE_SPECIFIER__TYPE_OF:
+        return TYPE_OF_EDEFAULT == null ? typeOf != null : !TYPE_OF_EDEFAULT.equals(typeOf);
+      case ParserPackage.TYPE_SPECIFIER__CONST_EXPR:
+        return constExpr != null;
     }
     return super.eIsSet(featureID);
   }
@@ -458,6 +584,8 @@ public class TypeSpecifierImpl extends MinimalEObjectImpl.Container implements T
     result.append(name);
     result.append(", extType: ");
     result.append(extType);
+    result.append(", typeOf: ");
+    result.append(typeOf);
     result.append(')');
     return result.toString();
   }

@@ -438,13 +438,31 @@ public interface ParserPackage extends EPackage
   int TYPE_SPECIFIER__STRUCT = 4;
 
   /**
+   * The feature id for the '<em><b>Type Of</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_SPECIFIER__TYPE_OF = 5;
+
+  /**
+   * The feature id for the '<em><b>Const Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_SPECIFIER__CONST_EXPR = 6;
+
+  /**
    * The number of structural features of the '<em>Type Specifier</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE_SPECIFIER_FEATURE_COUNT = 5;
+  int TYPE_SPECIFIER_FEATURE_COUNT = 7;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.TypedefNameImpl <em>Typedef Name</em>}' class.
@@ -4097,6 +4115,28 @@ public interface ParserPackage extends EPackage
   EReference getTypeSpecifier_Struct();
 
   /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.TypeSpecifier#getTypeOf <em>Type Of</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Type Of</em>'.
+   * @see at.jku.weiner.c.parser.parser.TypeSpecifier#getTypeOf()
+   * @see #getTypeSpecifier()
+   * @generated
+   */
+  EAttribute getTypeSpecifier_TypeOf();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.TypeSpecifier#getConstExpr <em>Const Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Const Expr</em>'.
+   * @see at.jku.weiner.c.parser.parser.TypeSpecifier#getConstExpr()
+   * @see #getTypeSpecifier()
+   * @generated
+   */
+  EReference getTypeSpecifier_ConstExpr();
+
+  /**
    * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.TypedefName <em>Typedef Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6914,6 +6954,22 @@ public interface ParserPackage extends EPackage
      * @generated
      */
     EReference TYPE_SPECIFIER__STRUCT = eINSTANCE.getTypeSpecifier_Struct();
+
+    /**
+     * The meta object literal for the '<em><b>Type Of</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TYPE_SPECIFIER__TYPE_OF = eINSTANCE.getTypeSpecifier_TypeOf();
+
+    /**
+     * The meta object literal for the '<em><b>Const Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE_SPECIFIER__CONST_EXPR = eINSTANCE.getTypeSpecifier_ConstExpr();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.TypedefNameImpl <em>Typedef Name</em>}' class.

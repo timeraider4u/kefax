@@ -219,6 +219,7 @@ class ParserGenerator implements IGenerator {
 		«IF spec.struct != null»
 			«spec.struct.id»
 		«ENDIF»
+		«IF spec.typeOf != null»«spec.typeOf»(«outputForConstantExpression(spec.constExpr as ConstantExpression)»)«ENDIF»
 	'''
 	
 	def String outputFor(StructOrUnionSpecifier obj) '''

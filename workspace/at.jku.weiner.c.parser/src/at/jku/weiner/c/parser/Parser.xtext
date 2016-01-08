@@ -196,7 +196,7 @@ initRuleAction {
 	|	specifier=EnumSpecifier
 	|	type=TypedefName
 	|	struct=StructOrUnionName
-	// |	'__typeof__' LEFTPAREN constExrp=constantExpression RIGHTPAREN // GCC extension
+	|	typeOf=(KW_TYPEOF1 | KW_TYPEOF3) SKW_LEFTPAREN constExpr=ConstantExpression SKW_RIGHTPAREN // GCC extension
 ;
 
 TypedefName
@@ -1001,6 +1001,8 @@ terminal KW_STRUCT : 'struct';
 terminal KW_SWITCH : 'switch';
 terminal KW_THREADLOCAL : SKW_UNDERSCORE 'Thread_local';
 terminal KW_TYPEDEF : 'typedef';
+terminal KW_TYPEOF1: 'typeof';
+terminal KW_TYPEOF3: SKW_UNDERSCORE SKW_UNDERSCORE KW_TYPEOF1 SKW_UNDERSCORE SKW_UNDERSCORE;
 terminal KW_UNION : 'union';
 terminal KW_UNSIGNED : 'unsigned';
 terminal KW_VOID : 'void';

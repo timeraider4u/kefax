@@ -293,7 +293,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 
 
 				int stackSize = keepStackSize();
-				if ( state.backtracking==0 ) {at.jku.weiner.c.parser.Scope.createNewScope("Parser");}
+				if ( state.backtracking==0 ) {at.jku.weiner.c.parser.Scope.createFirstScope("Parser");}
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 2) ) { return; }
@@ -320,7 +320,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 			}
 
 			if ( state.backtracking==0 ) {
-			    		at.jku.weiner.c.parser.Scope.removeScope(0);
+			    		at.jku.weiner.c.parser.Scope.removeScope();
 			     }
 		}
 		catch (RecognitionException re) {

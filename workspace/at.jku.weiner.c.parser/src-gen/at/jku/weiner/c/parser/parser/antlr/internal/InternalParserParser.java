@@ -308,7 +308,7 @@ public class InternalParserParser extends AbstractInternalAntlrParser {
 		EObject lv_external_1_0 =null;
 
 		 enterRule();
-		   		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.Scope.createNewScope("Parser");}
+		   		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.Scope.createFirstScope("Parser");}
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 2) ) { return current; }
@@ -381,7 +381,7 @@ public class InternalParserParser extends AbstractInternalAntlrParser {
 			}
 
 			if ( state.backtracking==0 ) { leaveRule();
-			    		at.jku.weiner.c.parser.Scope.removeScope(0);
+			    		at.jku.weiner.c.parser.Scope.removeScope();
 			     }
 		}
 		 

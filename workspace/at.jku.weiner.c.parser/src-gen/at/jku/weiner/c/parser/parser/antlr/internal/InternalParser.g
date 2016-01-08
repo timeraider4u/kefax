@@ -87,10 +87,10 @@ entryRuleParser returns [EObject current=null]
 // Rule Parser
 ruleParser returns [EObject current=null] 
     @init { enterRule();
-   		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.Scope.createNewScope("Parser");}
+   		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.Scope.createFirstScope("Parser");}
     }
     @after { leaveRule();
-    		at.jku.weiner.c.parser.Scope.removeScope(0);
+    		at.jku.weiner.c.parser.Scope.removeScope();
      }:
 
 (

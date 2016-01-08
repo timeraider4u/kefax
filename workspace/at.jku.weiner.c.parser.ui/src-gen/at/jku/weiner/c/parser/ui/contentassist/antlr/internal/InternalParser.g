@@ -76,10 +76,10 @@ entryRuleParser
 ruleParser
     @init {
 		int stackSize = keepStackSize();
-		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.Scope.createNewScope("Parser");}
+		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.Scope.createFirstScope("Parser");}
     }
 	@after {
-    		at.jku.weiner.c.parser.Scope.removeScope(0);
+    		at.jku.weiner.c.parser.Scope.removeScope();
      }:
 
 (

@@ -39,8 +39,8 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		////	{common::TranslationUnit}
 		////	parser=Parser
 		////;
-		//Parser common::Parser initRuleAction { at.jku.weiner.c.parser.Scope.createNewScope("Parser"); } afterRuleAction {
-		//at.jku.weiner.c.parser.Scope.removeScope(0); }:
+		//Parser common::Parser initRuleAction { at.jku.weiner.c.parser.Scope.createFirstScope("Parser"); } afterRuleAction {
+		//at.jku.weiner.c.parser.Scope.removeScope(); }:
 		//	{Parser} external+=ExternalDeclaration*
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -5499,8 +5499,8 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	////	{common::TranslationUnit}
 	////	parser=Parser
 	////;
-	//Parser common::Parser initRuleAction { at.jku.weiner.c.parser.Scope.createNewScope("Parser"); } afterRuleAction {
-	//at.jku.weiner.c.parser.Scope.removeScope(0); }:
+	//Parser common::Parser initRuleAction { at.jku.weiner.c.parser.Scope.createFirstScope("Parser"); } afterRuleAction {
+	//at.jku.weiner.c.parser.Scope.removeScope(); }:
 	//	{Parser} external+=ExternalDeclaration*
 	public ParserElements getParserAccess() {
 		return pParser;

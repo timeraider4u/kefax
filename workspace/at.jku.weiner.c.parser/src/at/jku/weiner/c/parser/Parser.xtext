@@ -51,10 +51,10 @@ generate parser "http://www.jku.at/weiner/c/parser/Parser"
 
 Parser returns common::Parser
 	initRuleAction{
-		at.jku.weiner.c.parser.Scope.createNewScope("Parser");
+		at.jku.weiner.c.parser.Scope.createFirstScope("Parser");
 	}
 	afterRuleAction{
-		at.jku.weiner.c.parser.Scope.removeScope(0);
+		at.jku.weiner.c.parser.Scope.removeScope();
 	}
 	:
 	{Parser}

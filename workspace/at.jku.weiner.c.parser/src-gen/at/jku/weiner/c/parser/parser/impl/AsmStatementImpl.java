@@ -2,8 +2,8 @@
  */
 package at.jku.weiner.c.parser.parser.impl;
 
+import at.jku.weiner.c.parser.parser.AsmLine;
 import at.jku.weiner.c.parser.parser.AsmLineWithColon;
-import at.jku.weiner.c.parser.parser.AsmLineWithoutColon;
 import at.jku.weiner.c.parser.parser.AsmStatement;
 import at.jku.weiner.c.parser.parser.ParserPackage;
 
@@ -34,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.AsmStatementImpl#getVolatile <em>Volatile</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.AsmStatementImpl#getAsmLine1 <em>Asm Line1</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.AsmStatementImpl#getAsmLines <em>Asm Lines</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.AsmStatementImpl#isLastComma <em>Last Comma</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.AsmStatementImpl#getSemi <em>Semi</em>}</li>
  * </ul>
  *
@@ -89,7 +90,7 @@ public class AsmStatementImpl extends StatementImpl implements AsmStatement
    * @generated
    * @ordered
    */
-  protected AsmLineWithoutColon asmLine1;
+  protected AsmLine asmLine1;
 
   /**
    * The cached value of the '{@link #getAsmLines() <em>Asm Lines</em>}' containment reference list.
@@ -100,6 +101,26 @@ public class AsmStatementImpl extends StatementImpl implements AsmStatement
    * @ordered
    */
   protected EList<AsmLineWithColon> asmLines;
+
+  /**
+   * The default value of the '{@link #isLastComma() <em>Last Comma</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isLastComma()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean LAST_COMMA_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isLastComma() <em>Last Comma</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isLastComma()
+   * @generated
+   * @ordered
+   */
+  protected boolean lastComma = LAST_COMMA_EDEFAULT;
 
   /**
    * The default value of the '{@link #getSemi() <em>Semi</em>}' attribute.
@@ -193,7 +214,7 @@ public class AsmStatementImpl extends StatementImpl implements AsmStatement
    * <!-- end-user-doc -->
    * @generated
    */
-  public AsmLineWithoutColon getAsmLine1()
+  public AsmLine getAsmLine1()
   {
     return asmLine1;
   }
@@ -203,9 +224,9 @@ public class AsmStatementImpl extends StatementImpl implements AsmStatement
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetAsmLine1(AsmLineWithoutColon newAsmLine1, NotificationChain msgs)
+  public NotificationChain basicSetAsmLine1(AsmLine newAsmLine1, NotificationChain msgs)
   {
-    AsmLineWithoutColon oldAsmLine1 = asmLine1;
+    AsmLine oldAsmLine1 = asmLine1;
     asmLine1 = newAsmLine1;
     if (eNotificationRequired())
     {
@@ -220,7 +241,7 @@ public class AsmStatementImpl extends StatementImpl implements AsmStatement
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setAsmLine1(AsmLineWithoutColon newAsmLine1)
+  public void setAsmLine1(AsmLine newAsmLine1)
   {
     if (newAsmLine1 != asmLine1)
     {
@@ -248,6 +269,29 @@ public class AsmStatementImpl extends StatementImpl implements AsmStatement
       asmLines = new EObjectContainmentEList<AsmLineWithColon>(AsmLineWithColon.class, this, ParserPackage.ASM_STATEMENT__ASM_LINES);
     }
     return asmLines;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isLastComma()
+  {
+    return lastComma;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setLastComma(boolean newLastComma)
+  {
+    boolean oldLastComma = lastComma;
+    lastComma = newLastComma;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.ASM_STATEMENT__LAST_COMMA, oldLastComma, lastComma));
   }
 
   /**
@@ -309,6 +353,8 @@ public class AsmStatementImpl extends StatementImpl implements AsmStatement
         return getAsmLine1();
       case ParserPackage.ASM_STATEMENT__ASM_LINES:
         return getAsmLines();
+      case ParserPackage.ASM_STATEMENT__LAST_COMMA:
+        return isLastComma();
       case ParserPackage.ASM_STATEMENT__SEMI:
         return getSemi();
     }
@@ -333,11 +379,14 @@ public class AsmStatementImpl extends StatementImpl implements AsmStatement
         setVolatile((String)newValue);
         return;
       case ParserPackage.ASM_STATEMENT__ASM_LINE1:
-        setAsmLine1((AsmLineWithoutColon)newValue);
+        setAsmLine1((AsmLine)newValue);
         return;
       case ParserPackage.ASM_STATEMENT__ASM_LINES:
         getAsmLines().clear();
         getAsmLines().addAll((Collection<? extends AsmLineWithColon>)newValue);
+        return;
+      case ParserPackage.ASM_STATEMENT__LAST_COMMA:
+        setLastComma((Boolean)newValue);
         return;
       case ParserPackage.ASM_STATEMENT__SEMI:
         setSemi((String)newValue);
@@ -363,10 +412,13 @@ public class AsmStatementImpl extends StatementImpl implements AsmStatement
         setVolatile(VOLATILE_EDEFAULT);
         return;
       case ParserPackage.ASM_STATEMENT__ASM_LINE1:
-        setAsmLine1((AsmLineWithoutColon)null);
+        setAsmLine1((AsmLine)null);
         return;
       case ParserPackage.ASM_STATEMENT__ASM_LINES:
         getAsmLines().clear();
+        return;
+      case ParserPackage.ASM_STATEMENT__LAST_COMMA:
+        setLastComma(LAST_COMMA_EDEFAULT);
         return;
       case ParserPackage.ASM_STATEMENT__SEMI:
         setSemi(SEMI_EDEFAULT);
@@ -393,6 +445,8 @@ public class AsmStatementImpl extends StatementImpl implements AsmStatement
         return asmLine1 != null;
       case ParserPackage.ASM_STATEMENT__ASM_LINES:
         return asmLines != null && !asmLines.isEmpty();
+      case ParserPackage.ASM_STATEMENT__LAST_COMMA:
+        return lastComma != LAST_COMMA_EDEFAULT;
       case ParserPackage.ASM_STATEMENT__SEMI:
         return SEMI_EDEFAULT == null ? semi != null : !SEMI_EDEFAULT.equals(semi);
     }
@@ -414,6 +468,8 @@ public class AsmStatementImpl extends StatementImpl implements AsmStatement
     result.append(asm);
     result.append(", volatile: ");
     result.append(volatile_);
+    result.append(", lastComma: ");
+    result.append(lastComma);
     result.append(", semi: ");
     result.append(semi);
     result.append(')');

@@ -418,14 +418,14 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass asmLineWithoutColonEClass = null;
+  private EClass asmLineEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass asmLineEClass = null;
+  private EClass asmSymbolicNameEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -439,7 +439,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass asmSymbolicNameEClass = null;
+  private EClass asmLineWithoutColonEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -2106,46 +2106,6 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getAsmLineWithoutColon()
-  {
-    return asmLineWithoutColonEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getAsmLineWithoutColon_Sym()
-  {
-    return (EReference)asmLineWithoutColonEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getAsmLineWithoutColon_Expr()
-  {
-    return (EReference)asmLineWithoutColonEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getAsmLineWithoutColon_AsmLines()
-  {
-    return (EReference)asmLineWithoutColonEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getAsmLine()
   {
     return asmLineEClass;
@@ -2156,19 +2116,9 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAsmLine_Comma()
-  {
-    return (EAttribute)asmLineEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getAsmLine_Sym()
   {
-    return (EReference)asmLineEClass.getEStructuralFeatures().get(1);
+    return (EReference)asmLineEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2178,7 +2128,27 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    */
   public EReference getAsmLine_Expr()
   {
-    return (EReference)asmLineEClass.getEStructuralFeatures().get(2);
+    return (EReference)asmLineEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getAsmSymbolicName()
+  {
+    return asmSymbolicNameEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAsmSymbolicName_Id()
+  {
+    return (EAttribute)asmSymbolicNameEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2206,9 +2176,9 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getAsmSymbolicName()
+  public EClass getAsmLineWithoutColon()
   {
-    return asmSymbolicNameEClass;
+    return asmLineWithoutColonEClass;
   }
 
   /**
@@ -2216,9 +2186,9 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAsmSymbolicName_Id()
+  public EReference getAsmLineWithoutColon_AsmLines()
   {
-    return (EAttribute)asmSymbolicNameEClass.getEStructuralFeatures().get(0);
+    return (EReference)asmLineWithoutColonEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2886,9 +2856,19 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAsmStatement_Semi()
+  public EAttribute getAsmStatement_LastComma()
   {
     return (EAttribute)asmStatementEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAsmStatement_Semi()
+  {
+    return (EAttribute)asmStatementEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -3834,21 +3814,18 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     statementEClass = createEClass(STATEMENT);
     createEReference(statementEClass, STATEMENT__STMT);
 
-    asmLineWithoutColonEClass = createEClass(ASM_LINE_WITHOUT_COLON);
-    createEReference(asmLineWithoutColonEClass, ASM_LINE_WITHOUT_COLON__SYM);
-    createEReference(asmLineWithoutColonEClass, ASM_LINE_WITHOUT_COLON__EXPR);
-    createEReference(asmLineWithoutColonEClass, ASM_LINE_WITHOUT_COLON__ASM_LINES);
-
     asmLineEClass = createEClass(ASM_LINE);
-    createEAttribute(asmLineEClass, ASM_LINE__COMMA);
     createEReference(asmLineEClass, ASM_LINE__SYM);
     createEReference(asmLineEClass, ASM_LINE__EXPR);
+
+    asmSymbolicNameEClass = createEClass(ASM_SYMBOLIC_NAME);
+    createEAttribute(asmSymbolicNameEClass, ASM_SYMBOLIC_NAME__ID);
 
     asmLineWithColonEClass = createEClass(ASM_LINE_WITH_COLON);
     createEReference(asmLineWithColonEClass, ASM_LINE_WITH_COLON__ASM_LINE);
 
-    asmSymbolicNameEClass = createEClass(ASM_SYMBOLIC_NAME);
-    createEAttribute(asmSymbolicNameEClass, ASM_SYMBOLIC_NAME__ID);
+    asmLineWithoutColonEClass = createEClass(ASM_LINE_WITHOUT_COLON);
+    createEReference(asmLineWithoutColonEClass, ASM_LINE_WITHOUT_COLON__ASM_LINES);
 
     designationEClass = createEClass(DESIGNATION);
     createEReference(designationEClass, DESIGNATION__LIST);
@@ -3934,6 +3911,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     createEAttribute(asmStatementEClass, ASM_STATEMENT__VOLATILE);
     createEReference(asmStatementEClass, ASM_STATEMENT__ASM_LINE1);
     createEReference(asmStatementEClass, ASM_STATEMENT__ASM_LINES);
+    createEAttribute(asmStatementEClass, ASM_STATEMENT__LAST_COMMA);
     createEAttribute(asmStatementEClass, ASM_STATEMENT__SEMI);
 
     assignmentExpressionEClass = createEClass(ASSIGNMENT_EXPRESSION);
@@ -4280,21 +4258,18 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     initEClass(statementEClass, Statement.class, "Statement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getStatement_Stmt(), this.getStatement(), null, "stmt", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(asmLineWithoutColonEClass, AsmLineWithoutColon.class, "AsmLineWithoutColon", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getAsmLineWithoutColon_Sym(), this.getAsmSymbolicName(), null, "sym", null, 0, 1, AsmLineWithoutColon.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAsmLineWithoutColon_Expr(), this.getExpression(), null, "expr", null, 0, 1, AsmLineWithoutColon.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAsmLineWithoutColon_AsmLines(), this.getAsmLine(), null, "asmLines", null, 0, -1, AsmLineWithoutColon.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
     initEClass(asmLineEClass, AsmLine.class, "AsmLine", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getAsmLine_Comma(), theEcorePackage.getEBoolean(), "comma", null, 0, 1, AsmLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAsmLine_Sym(), this.getAsmSymbolicName(), null, "sym", null, 0, 1, AsmLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAsmLine_Expr(), this.getExpression(), null, "expr", null, 0, 1, AsmLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(asmSymbolicNameEClass, AsmSymbolicName.class, "AsmSymbolicName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getAsmSymbolicName_Id(), theEcorePackage.getEString(), "id", null, 0, 1, AsmSymbolicName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(asmLineWithColonEClass, AsmLineWithColon.class, "AsmLineWithColon", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAsmLineWithColon_AsmLine(), this.getAsmLineWithoutColon(), null, "asmLine", null, 0, 1, AsmLineWithColon.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(asmSymbolicNameEClass, AsmSymbolicName.class, "AsmSymbolicName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getAsmSymbolicName_Id(), theEcorePackage.getEString(), "id", null, 0, 1, AsmSymbolicName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(asmLineWithoutColonEClass, AsmLineWithoutColon.class, "AsmLineWithoutColon", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAsmLineWithoutColon_AsmLines(), this.getAsmLine(), null, "asmLines", null, 0, -1, AsmLineWithoutColon.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(designationEClass, Designation.class, "Designation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDesignation_List(), this.getDesignatorList(), null, "list", null, 0, 1, Designation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4378,8 +4353,9 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     initEClass(asmStatementEClass, AsmStatement.class, "AsmStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAsmStatement_Asm(), theEcorePackage.getEString(), "asm", null, 0, 1, AsmStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAsmStatement_Volatile(), theEcorePackage.getEString(), "volatile", null, 0, 1, AsmStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAsmStatement_AsmLine1(), this.getAsmLineWithoutColon(), null, "asmLine1", null, 0, 1, AsmStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAsmStatement_AsmLine1(), this.getAsmLine(), null, "asmLine1", null, 0, 1, AsmStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAsmStatement_AsmLines(), this.getAsmLineWithColon(), null, "asmLines", null, 0, -1, AsmStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAsmStatement_LastComma(), theEcorePackage.getEBoolean(), "lastComma", null, 0, 1, AsmStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAsmStatement_Semi(), theEcorePackage.getEString(), "semi", null, 0, 1, AsmStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(assignmentExpressionEClass, AssignmentExpression.class, "AssignmentExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

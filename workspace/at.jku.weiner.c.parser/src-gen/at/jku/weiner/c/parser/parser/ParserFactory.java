@@ -410,15 +410,6 @@ public interface ParserFactory extends EFactory
   Statement createStatement();
 
   /**
-   * Returns a new object of class '<em>Asm Line Without Colon</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Asm Line Without Colon</em>'.
-   * @generated
-   */
-  AsmLineWithoutColon createAsmLineWithoutColon();
-
-  /**
    * Returns a new object of class '<em>Asm Line</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -426,6 +417,15 @@ public interface ParserFactory extends EFactory
    * @generated
    */
   AsmLine createAsmLine();
+
+  /**
+   * Returns a new object of class '<em>Asm Symbolic Name</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Asm Symbolic Name</em>'.
+   * @generated
+   */
+  AsmSymbolicName createAsmSymbolicName();
 
   /**
    * Returns a new object of class '<em>Asm Line With Colon</em>'.
@@ -437,13 +437,13 @@ public interface ParserFactory extends EFactory
   AsmLineWithColon createAsmLineWithColon();
 
   /**
-   * Returns a new object of class '<em>Asm Symbolic Name</em>'.
+   * Returns a new object of class '<em>Asm Line Without Colon</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Asm Symbolic Name</em>'.
+   * @return a new object of class '<em>Asm Line Without Colon</em>'.
    * @generated
    */
-  AsmSymbolicName createAsmSymbolicName();
+  AsmLineWithoutColon createAsmLineWithoutColon();
 
   /**
    * Returns a new object of class '<em>Designation</em>'.

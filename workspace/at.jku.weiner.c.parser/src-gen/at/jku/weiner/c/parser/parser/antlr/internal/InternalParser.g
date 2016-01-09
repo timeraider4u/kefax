@@ -7335,9 +7335,9 @@ this_SKW_LEFTPAREN_6=RULE_SKW_LEFTPAREN
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getAsmStatementAccess().getAsmLine1AsmLineWithoutColonParserRuleCall_4_0_0()); 
+	        newCompositeNode(grammarAccess.getAsmStatementAccess().getAsmLine1AsmLineParserRuleCall_4_0_0()); 
 	    }
-		lv_asmLine1_7_0=ruleAsmLineWithoutColon		{
+		lv_asmLine1_7_0=ruleAsmLine		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getAsmStatementRule());
 	        }
@@ -7345,7 +7345,7 @@ this_SKW_LEFTPAREN_6=RULE_SKW_LEFTPAREN
        			$current, 
        			"asmLine1",
         		lv_asmLine1_7_0, 
-        		"at.jku.weiner.c.parser.Parser.AsmLineWithoutColon");
+        		"at.jku.weiner.c.parser.Parser.AsmLine");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -7373,21 +7373,42 @@ this_SKW_LEFTPAREN_6=RULE_SKW_LEFTPAREN
 )
 )*
 
+
+(
+(
+		lv_lastComma_9_0=RULE_SKW_COMMA
+		{
+			newLeafNode(lv_lastComma_9_0, grammarAccess.getAsmStatementAccess().getLastCommaSKW_COMMATerminalRuleCall_4_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getAsmStatementRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"lastComma",
+        		true, 
+        		"at.jku.weiner.c.common.Common.SKW_COMMA");
+	    }
+
+)
+)?
+
 )
 
 
-this_SKW_RIGHTPAREN_9=RULE_SKW_RIGHTPAREN
+this_SKW_RIGHTPAREN_10=RULE_SKW_RIGHTPAREN
     { 
-    newLeafNode(this_SKW_RIGHTPAREN_9, grammarAccess.getAsmStatementAccess().getSKW_RIGHTPARENTerminalRuleCall_5()); 
+    newLeafNode(this_SKW_RIGHTPAREN_10, grammarAccess.getAsmStatementAccess().getSKW_RIGHTPARENTerminalRuleCall_5()); 
     }
 
 
 
 (
 (
-		lv_semi_10_0=RULE_SKW_SEMI
+		lv_semi_11_0=RULE_SKW_SEMI
 		{
-			newLeafNode(lv_semi_10_0, grammarAccess.getAsmStatementAccess().getSemiSKW_SEMITerminalRuleCall_6_0()); 
+			newLeafNode(lv_semi_11_0, grammarAccess.getAsmStatementAccess().getSemiSKW_SEMITerminalRuleCall_6_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -7396,114 +7417,12 @@ this_SKW_RIGHTPAREN_9=RULE_SKW_RIGHTPAREN
        		setWithLastConsumed(
        			$current, 
        			"semi",
-        		lv_semi_10_0, 
+        		lv_semi_11_0, 
         		"at.jku.weiner.c.common.Common.SKW_SEMI");
 	    }
 
 )
 )
-
-)
-
-
-;
-
-
-
-
-
-// Entry rule entryRuleAsmLineWithoutColon
-entryRuleAsmLineWithoutColon returns [EObject current=null] 
-	:
-	{ newCompositeNode(grammarAccess.getAsmLineWithoutColonRule()); }
-	 iv_ruleAsmLineWithoutColon=ruleAsmLineWithoutColon 
-	 { $current=$iv_ruleAsmLineWithoutColon.current; } 
-	 EOF 
-;
-
-// Rule AsmLineWithoutColon
-ruleAsmLineWithoutColon returns [EObject current=null] 
-    @init { enterRule();
-   		/*no init found*/
-    }
-    @after { leaveRule();
-    		/*no after found*/
-     }:
-
-(
-(
-	{ 
-	  /* */ 
-	}
-    {
-        $current = forceCreateModelElement(
-            grammarAccess.getAsmLineWithoutColonAccess().getAsmLineWithoutColonAction_0(),
-            $current);
-    }
-)
-
-
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getAsmLineWithoutColonAccess().getSymAsmSymbolicNameParserRuleCall_1_0()); 
-	    }
-		lv_sym_1_0=ruleAsmSymbolicName		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getAsmLineWithoutColonRule());
-	        }
-       		set(
-       			$current, 
-       			"sym",
-        		lv_sym_1_0, 
-        		"at.jku.weiner.c.parser.Parser.AsmSymbolicName");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)?
-
-
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getAsmLineWithoutColonAccess().getExprLogicalOrExpressionParserRuleCall_2_0()); 
-	    }
-		lv_expr_2_0=ruleLogicalOrExpression		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getAsmLineWithoutColonRule());
-	        }
-       		set(
-       			$current, 
-       			"expr",
-        		lv_expr_2_0, 
-        		"at.jku.weiner.c.parser.Parser.LogicalOrExpression");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)
-
-
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getAsmLineWithoutColonAccess().getAsmLinesAsmLineParserRuleCall_3_0()); 
-	    }
-		lv_asmLines_3_0=ruleAsmLine		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getAsmLineWithoutColonRule());
-	        }
-       		add(
-       			$current, 
-       			"asmLines",
-        		lv_asmLines_3_0, 
-        		"at.jku.weiner.c.parser.Parser.AsmLine");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)*
 
 )
 
@@ -7547,38 +7466,17 @@ ruleAsmLine returns [EObject current=null]
 
 (
 (
-		lv_comma_1_0=RULE_SKW_COMMA
-		{
-			newLeafNode(lv_comma_1_0, grammarAccess.getAsmLineAccess().getCommaSKW_COMMATerminalRuleCall_1_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getAsmLineRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"comma",
-        		true, 
-        		"at.jku.weiner.c.common.Common.SKW_COMMA");
-	    }
-
-)
-)
-
-
-(
-(
 		{ 
-	        newCompositeNode(grammarAccess.getAsmLineAccess().getSymAsmSymbolicNameParserRuleCall_2_0()); 
+	        newCompositeNode(grammarAccess.getAsmLineAccess().getSymAsmSymbolicNameParserRuleCall_1_0()); 
 	    }
-		lv_sym_2_0=ruleAsmSymbolicName		{
+		lv_sym_1_0=ruleAsmSymbolicName		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getAsmLineRule());
 	        }
        		set(
        			$current, 
        			"sym",
-        		lv_sym_2_0, 
+        		lv_sym_1_0, 
         		"at.jku.weiner.c.parser.Parser.AsmSymbolicName");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -7590,22 +7488,96 @@ ruleAsmLine returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getAsmLineAccess().getExprLogicalOrExpressionParserRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getAsmLineAccess().getExprLogicalOrExpressionParserRuleCall_2_0()); 
 	    }
-		lv_expr_3_0=ruleLogicalOrExpression		{
+		lv_expr_2_0=ruleLogicalOrExpression		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getAsmLineRule());
 	        }
        		set(
        			$current, 
        			"expr",
-        		lv_expr_3_0, 
+        		lv_expr_2_0, 
         		"at.jku.weiner.c.parser.Parser.LogicalOrExpression");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
 )
+
+)
+
+
+;
+
+
+
+
+
+// Entry rule entryRuleAsmSymbolicName
+entryRuleAsmSymbolicName returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getAsmSymbolicNameRule()); }
+	 iv_ruleAsmSymbolicName=ruleAsmSymbolicName 
+	 { $current=$iv_ruleAsmSymbolicName.current; } 
+	 EOF 
+;
+
+// Rule AsmSymbolicName
+ruleAsmSymbolicName returns [EObject current=null] 
+    @init { enterRule();
+   		/*no init found*/
+    }
+    @after { leaveRule();
+    		/*no after found*/
+     }:
+
+(
+(
+	{ 
+	  /* */ 
+	}
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getAsmSymbolicNameAccess().getAsmSymbolicNameAction_0(),
+            $current);
+    }
+)
+
+
+this_SKW_LEFTBRACKET_1=RULE_SKW_LEFTBRACKET
+    { 
+    newLeafNode(this_SKW_LEFTBRACKET_1, grammarAccess.getAsmSymbolicNameAccess().getSKW_LEFTBRACKETTerminalRuleCall_1()); 
+    }
+
+
+
+(
+(
+		lv_id_2_0=RULE_ID
+		{
+			newLeafNode(lv_id_2_0, grammarAccess.getAsmSymbolicNameAccess().getIdIDTerminalRuleCall_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getAsmSymbolicNameRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"id",
+        		lv_id_2_0, 
+        		"at.jku.weiner.c.common.Common.ID");
+	    }
+
+)
+)
+
+
+this_SKW_RIGHTBRACKET_3=RULE_SKW_RIGHTBRACKET
+    { 
+    newLeafNode(this_SKW_RIGHTBRACKET_3, grammarAccess.getAsmSymbolicNameAccess().getSKW_RIGHTBRACKETTerminalRuleCall_3()); 
+    }
+
 
 )
 
@@ -7683,17 +7655,17 @@ this_SKW_COLON_1=RULE_SKW_COLON
 
 
 
-// Entry rule entryRuleAsmSymbolicName
-entryRuleAsmSymbolicName returns [EObject current=null] 
+// Entry rule entryRuleAsmLineWithoutColon
+entryRuleAsmLineWithoutColon returns [EObject current=null] 
 	:
-	{ newCompositeNode(grammarAccess.getAsmSymbolicNameRule()); }
-	 iv_ruleAsmSymbolicName=ruleAsmSymbolicName 
-	 { $current=$iv_ruleAsmSymbolicName.current; } 
+	{ newCompositeNode(grammarAccess.getAsmLineWithoutColonRule()); }
+	 iv_ruleAsmLineWithoutColon=ruleAsmLineWithoutColon 
+	 { $current=$iv_ruleAsmLineWithoutColon.current; } 
 	 EOF 
 ;
 
-// Rule AsmSymbolicName
-ruleAsmSymbolicName returns [EObject current=null] 
+// Rule AsmLineWithoutColon
+ruleAsmLineWithoutColon returns [EObject current=null] 
     @init { enterRule();
    		/*no init found*/
     }
@@ -7708,45 +7680,62 @@ ruleAsmSymbolicName returns [EObject current=null]
 	}
     {
         $current = forceCreateModelElement(
-            grammarAccess.getAsmSymbolicNameAccess().getAsmSymbolicNameAction_0(),
+            grammarAccess.getAsmLineWithoutColonAccess().getAsmLineWithoutColonAction_0(),
             $current);
     }
 )
 
 
-this_SKW_LEFTBRACKET_1=RULE_SKW_LEFTBRACKET
-    { 
-    newLeafNode(this_SKW_LEFTBRACKET_1, grammarAccess.getAsmSymbolicNameAccess().getSKW_LEFTBRACKETTerminalRuleCall_1()); 
-    }
-
-
-
 (
 (
-		lv_id_2_0=RULE_ID
-		{
-			newLeafNode(lv_id_2_0, grammarAccess.getAsmSymbolicNameAccess().getIdIDTerminalRuleCall_2_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getAsmLineWithoutColonAccess().getAsmLinesAsmLineParserRuleCall_1_0()); 
+	    }
+		lv_asmLines_1_0=ruleAsmLine		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getAsmSymbolicNameRule());
+	            $current = createModelElementForParent(grammarAccess.getAsmLineWithoutColonRule());
 	        }
-       		setWithLastConsumed(
+       		add(
        			$current, 
-       			"id",
-        		lv_id_2_0, 
-        		"at.jku.weiner.c.common.Common.ID");
+       			"asmLines",
+        		lv_asmLines_1_0, 
+        		"at.jku.weiner.c.parser.Parser.AsmLine");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
 )
 
 
-this_SKW_RIGHTBRACKET_3=RULE_SKW_RIGHTBRACKET
+(
+this_SKW_COMMA_2=RULE_SKW_COMMA
     { 
-    newLeafNode(this_SKW_RIGHTBRACKET_3, grammarAccess.getAsmSymbolicNameAccess().getSKW_RIGHTBRACKETTerminalRuleCall_3()); 
+    newLeafNode(this_SKW_COMMA_2, grammarAccess.getAsmLineWithoutColonAccess().getSKW_COMMATerminalRuleCall_2_0()); 
     }
 
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getAsmLineWithoutColonAccess().getAsmLinesAsmLineParserRuleCall_2_1_0()); 
+	    }
+		lv_asmLines_3_0=ruleAsmLine		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getAsmLineWithoutColonRule());
+	        }
+       		add(
+       			$current, 
+       			"asmLines",
+        		lv_asmLines_3_0, 
+        		"at.jku.weiner.c.parser.Parser.AsmLine");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+)*
 
 )
 

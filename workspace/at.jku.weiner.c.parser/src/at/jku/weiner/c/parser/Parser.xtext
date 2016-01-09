@@ -610,20 +610,21 @@ AsmStatement returns Statement:
 			(
 				// (logicalOrExpression (',' logicalOrExpression)*)? 
 				// (':' (logicalOrExpression (',' logicalOrExpression)*)?)*
-				(asmLine1=AsmLineWithoutColon)?
+				(asmLine1=AsmLine)?
 				(asmLines+=AsmLineWithColon)*
+				lastComma?=SKW_COMMA?
 			)
 		SKW_RIGHTPAREN semi=SKW_SEMI
 ;
 
-AsmLineWithoutColon:
-	{AsmLineWithoutColon}
-	sym=AsmSymbolicName? expr=LogicalOrExpression (asmLines+=AsmLine)*
-;
-
 AsmLine:
 	{AsmLine}
-	comma?=SKW_COMMA sym=AsmSymbolicName? expr=LogicalOrExpression
+	sym=AsmSymbolicName? expr=LogicalOrExpression
+;
+
+AsmSymbolicName: // GCC assembler extension
+	{AsmSymbolicName}
+	SKW_LEFTBRACKET id=ID SKW_RIGHTBRACKET
 ;
 
 AsmLineWithColon:
@@ -631,10 +632,11 @@ AsmLineWithColon:
 	SKW_COLON (asmLine=AsmLineWithoutColon)?
 ;
 
-AsmSymbolicName: // GCC assembler extension
-	{AsmSymbolicName}
-	SKW_LEFTBRACKET id=ID SKW_RIGHTBRACKET
+AsmLineWithoutColon:
+	{AsmLineWithoutColon}
+	asmLines+=AsmLine (SKW_COMMA asmLines+=AsmLine)*
 ;
+
 
 Designation:
 	{Designation} list=DesignatorList SKW_ASSIGN

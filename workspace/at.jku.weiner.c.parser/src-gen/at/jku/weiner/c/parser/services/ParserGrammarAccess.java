@@ -3278,21 +3278,24 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSKW_LEFTPARENTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Assignment cAsmLine1Assignment_4_0 = (Assignment)cGroup_4.eContents().get(0);
-		private final RuleCall cAsmLine1AsmLineWithoutColonParserRuleCall_4_0_0 = (RuleCall)cAsmLine1Assignment_4_0.eContents().get(0);
+		private final RuleCall cAsmLine1AsmLineParserRuleCall_4_0_0 = (RuleCall)cAsmLine1Assignment_4_0.eContents().get(0);
 		private final Assignment cAsmLinesAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
 		private final RuleCall cAsmLinesAsmLineWithColonParserRuleCall_4_1_0 = (RuleCall)cAsmLinesAssignment_4_1.eContents().get(0);
+		private final Assignment cLastCommaAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
+		private final RuleCall cLastCommaSKW_COMMATerminalRuleCall_4_2_0 = (RuleCall)cLastCommaAssignment_4_2.eContents().get(0);
 		private final RuleCall cSKW_RIGHTPARENTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
 		private final Assignment cSemiAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cSemiSKW_SEMITerminalRuleCall_6_0 = (RuleCall)cSemiAssignment_6.eContents().get(0);
 		
 		//AsmStatement Statement:
 		//	{AsmStatement} (asm=KW_ASM1 | asm=KW_ASM2 | asm=KW_ASM3) (volatile=KW_VOLATILE | volatile=KW_VOLATILE2)?
-		//	SKW_LEFTPAREN (asmLine1=AsmLineWithoutColon?
-		//	asmLines+=AsmLineWithColon*) SKW_RIGHTPAREN semi=SKW_SEMI
+		//	SKW_LEFTPAREN (asmLine1=AsmLine?
+		//	asmLines+=AsmLineWithColon*
+		//	lastComma?=SKW_COMMA?) SKW_RIGHTPAREN semi=SKW_SEMI
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{AsmStatement} (asm=KW_ASM1 | asm=KW_ASM2 | asm=KW_ASM3) (volatile=KW_VOLATILE | volatile=KW_VOLATILE2)? SKW_LEFTPAREN
-		//(asmLine1=AsmLineWithoutColon? asmLines+=AsmLineWithColon*) SKW_RIGHTPAREN semi=SKW_SEMI
+		//(asmLine1=AsmLine? asmLines+=AsmLineWithColon* lastComma?=SKW_COMMA?) SKW_RIGHTPAREN semi=SKW_SEMI
 		public Group getGroup() { return cGroup; }
 		
 		//{AsmStatement}
@@ -3337,22 +3340,28 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//SKW_LEFTPAREN
 		public RuleCall getSKW_LEFTPARENTerminalRuleCall_3() { return cSKW_LEFTPARENTerminalRuleCall_3; }
 		
-		//(asmLine1=AsmLineWithoutColon? asmLines+=AsmLineWithColon*)
+		//(asmLine1=AsmLine? asmLines+=AsmLineWithColon* lastComma?=SKW_COMMA?)
 		public Group getGroup_4() { return cGroup_4; }
 		
 		//// (logicalOrExpression (',' logicalOrExpression)*)? 
 		//// (':' (logicalOrExpression (',' logicalOrExpression)*)?)*
-		//asmLine1=AsmLineWithoutColon?
+		//asmLine1=AsmLine?
 		public Assignment getAsmLine1Assignment_4_0() { return cAsmLine1Assignment_4_0; }
 		
-		//AsmLineWithoutColon
-		public RuleCall getAsmLine1AsmLineWithoutColonParserRuleCall_4_0_0() { return cAsmLine1AsmLineWithoutColonParserRuleCall_4_0_0; }
+		//AsmLine
+		public RuleCall getAsmLine1AsmLineParserRuleCall_4_0_0() { return cAsmLine1AsmLineParserRuleCall_4_0_0; }
 		
 		//asmLines+=AsmLineWithColon*
 		public Assignment getAsmLinesAssignment_4_1() { return cAsmLinesAssignment_4_1; }
 		
 		//AsmLineWithColon
 		public RuleCall getAsmLinesAsmLineWithColonParserRuleCall_4_1_0() { return cAsmLinesAsmLineWithColonParserRuleCall_4_1_0; }
+		
+		//lastComma?=SKW_COMMA?
+		public Assignment getLastCommaAssignment_4_2() { return cLastCommaAssignment_4_2; }
+		
+		//SKW_COMMA
+		public RuleCall getLastCommaSKW_COMMATerminalRuleCall_4_2_0() { return cLastCommaSKW_COMMATerminalRuleCall_4_2_0; }
 		
 		//SKW_RIGHTPAREN
 		public RuleCall getSKW_RIGHTPARENTerminalRuleCall_5() { return cSKW_RIGHTPARENTerminalRuleCall_5; }
@@ -3363,26 +3372,24 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//SKW_SEMI
 		public RuleCall getSemiSKW_SEMITerminalRuleCall_6_0() { return cSemiSKW_SEMITerminalRuleCall_6_0; }
 	}
-	public class AsmLineWithoutColonElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.AsmLineWithoutColon");
+	public class AsmLineElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.AsmLine");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cAsmLineWithoutColonAction_0 = (Action)cGroup.eContents().get(0);
+		private final Action cAsmLineAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cSymAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cSymAsmSymbolicNameParserRuleCall_1_0 = (RuleCall)cSymAssignment_1.eContents().get(0);
 		private final Assignment cExprAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cExprLogicalOrExpressionParserRuleCall_2_0 = (RuleCall)cExprAssignment_2.eContents().get(0);
-		private final Assignment cAsmLinesAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cAsmLinesAsmLineParserRuleCall_3_0 = (RuleCall)cAsmLinesAssignment_3.eContents().get(0);
 		
-		//AsmLineWithoutColon:
-		//	{AsmLineWithoutColon} sym=AsmSymbolicName? expr=LogicalOrExpression asmLines+=AsmLine*;
+		//AsmLine:
+		//	{AsmLine} sym=AsmSymbolicName? expr=LogicalOrExpression;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{AsmLineWithoutColon} sym=AsmSymbolicName? expr=LogicalOrExpression asmLines+=AsmLine*
+		//{AsmLine} sym=AsmSymbolicName? expr=LogicalOrExpression
 		public Group getGroup() { return cGroup; }
 		
-		//{AsmLineWithoutColon}
-		public Action getAsmLineWithoutColonAction_0() { return cAsmLineWithoutColonAction_0; }
+		//{AsmLine}
+		public Action getAsmLineAction_0() { return cAsmLineAction_0; }
 		
 		//sym=AsmSymbolicName?
 		public Assignment getSymAssignment_1() { return cSymAssignment_1; }
@@ -3395,78 +3402,6 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//LogicalOrExpression
 		public RuleCall getExprLogicalOrExpressionParserRuleCall_2_0() { return cExprLogicalOrExpressionParserRuleCall_2_0; }
-		
-		//asmLines+=AsmLine*
-		public Assignment getAsmLinesAssignment_3() { return cAsmLinesAssignment_3; }
-		
-		//AsmLine
-		public RuleCall getAsmLinesAsmLineParserRuleCall_3_0() { return cAsmLinesAsmLineParserRuleCall_3_0; }
-	}
-	public class AsmLineElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.AsmLine");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cAsmLineAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cCommaAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cCommaSKW_COMMATerminalRuleCall_1_0 = (RuleCall)cCommaAssignment_1.eContents().get(0);
-		private final Assignment cSymAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cSymAsmSymbolicNameParserRuleCall_2_0 = (RuleCall)cSymAssignment_2.eContents().get(0);
-		private final Assignment cExprAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cExprLogicalOrExpressionParserRuleCall_3_0 = (RuleCall)cExprAssignment_3.eContents().get(0);
-		
-		//AsmLine:
-		//	{AsmLine} comma?=SKW_COMMA sym=AsmSymbolicName? expr=LogicalOrExpression;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{AsmLine} comma?=SKW_COMMA sym=AsmSymbolicName? expr=LogicalOrExpression
-		public Group getGroup() { return cGroup; }
-		
-		//{AsmLine}
-		public Action getAsmLineAction_0() { return cAsmLineAction_0; }
-		
-		//comma?=SKW_COMMA
-		public Assignment getCommaAssignment_1() { return cCommaAssignment_1; }
-		
-		//SKW_COMMA
-		public RuleCall getCommaSKW_COMMATerminalRuleCall_1_0() { return cCommaSKW_COMMATerminalRuleCall_1_0; }
-		
-		//sym=AsmSymbolicName?
-		public Assignment getSymAssignment_2() { return cSymAssignment_2; }
-		
-		//AsmSymbolicName
-		public RuleCall getSymAsmSymbolicNameParserRuleCall_2_0() { return cSymAsmSymbolicNameParserRuleCall_2_0; }
-		
-		//expr=LogicalOrExpression
-		public Assignment getExprAssignment_3() { return cExprAssignment_3; }
-		
-		//LogicalOrExpression
-		public RuleCall getExprLogicalOrExpressionParserRuleCall_3_0() { return cExprLogicalOrExpressionParserRuleCall_3_0; }
-	}
-	public class AsmLineWithColonElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.AsmLineWithColon");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cAsmLineWithColonAction_0 = (Action)cGroup.eContents().get(0);
-		private final RuleCall cSKW_COLONTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
-		private final Assignment cAsmLineAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cAsmLineAsmLineWithoutColonParserRuleCall_2_0 = (RuleCall)cAsmLineAssignment_2.eContents().get(0);
-		
-		//AsmLineWithColon:
-		//	{AsmLineWithColon} SKW_COLON asmLine=AsmLineWithoutColon?;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{AsmLineWithColon} SKW_COLON asmLine=AsmLineWithoutColon?
-		public Group getGroup() { return cGroup; }
-		
-		//{AsmLineWithColon}
-		public Action getAsmLineWithColonAction_0() { return cAsmLineWithColonAction_0; }
-		
-		//SKW_COLON
-		public RuleCall getSKW_COLONTerminalRuleCall_1() { return cSKW_COLONTerminalRuleCall_1; }
-		
-		//asmLine=AsmLineWithoutColon?
-		public Assignment getAsmLineAssignment_2() { return cAsmLineAssignment_2; }
-		
-		//AsmLineWithoutColon
-		public RuleCall getAsmLineAsmLineWithoutColonParserRuleCall_2_0() { return cAsmLineAsmLineWithoutColonParserRuleCall_2_0; }
 	}
 	public class AsmSymbolicNameElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.AsmSymbolicName");
@@ -3498,6 +3433,72 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//SKW_RIGHTBRACKET
 		public RuleCall getSKW_RIGHTBRACKETTerminalRuleCall_3() { return cSKW_RIGHTBRACKETTerminalRuleCall_3; }
+	}
+	public class AsmLineWithColonElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.AsmLineWithColon");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cAsmLineWithColonAction_0 = (Action)cGroup.eContents().get(0);
+		private final RuleCall cSKW_COLONTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cAsmLineAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cAsmLineAsmLineWithoutColonParserRuleCall_2_0 = (RuleCall)cAsmLineAssignment_2.eContents().get(0);
+		
+		//AsmLineWithColon:
+		//	{AsmLineWithColon} SKW_COLON asmLine=AsmLineWithoutColon?;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{AsmLineWithColon} SKW_COLON asmLine=AsmLineWithoutColon?
+		public Group getGroup() { return cGroup; }
+		
+		//{AsmLineWithColon}
+		public Action getAsmLineWithColonAction_0() { return cAsmLineWithColonAction_0; }
+		
+		//SKW_COLON
+		public RuleCall getSKW_COLONTerminalRuleCall_1() { return cSKW_COLONTerminalRuleCall_1; }
+		
+		//asmLine=AsmLineWithoutColon?
+		public Assignment getAsmLineAssignment_2() { return cAsmLineAssignment_2; }
+		
+		//AsmLineWithoutColon
+		public RuleCall getAsmLineAsmLineWithoutColonParserRuleCall_2_0() { return cAsmLineAsmLineWithoutColonParserRuleCall_2_0; }
+	}
+	public class AsmLineWithoutColonElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.AsmLineWithoutColon");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cAsmLineWithoutColonAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cAsmLinesAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cAsmLinesAsmLineParserRuleCall_1_0 = (RuleCall)cAsmLinesAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final RuleCall cSKW_COMMATerminalRuleCall_2_0 = (RuleCall)cGroup_2.eContents().get(0);
+		private final Assignment cAsmLinesAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cAsmLinesAsmLineParserRuleCall_2_1_0 = (RuleCall)cAsmLinesAssignment_2_1.eContents().get(0);
+		
+		//AsmLineWithoutColon:
+		//	{AsmLineWithoutColon} asmLines+=AsmLine (SKW_COMMA asmLines+=AsmLine)*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{AsmLineWithoutColon} asmLines+=AsmLine (SKW_COMMA asmLines+=AsmLine)*
+		public Group getGroup() { return cGroup; }
+		
+		//{AsmLineWithoutColon}
+		public Action getAsmLineWithoutColonAction_0() { return cAsmLineWithoutColonAction_0; }
+		
+		//asmLines+=AsmLine
+		public Assignment getAsmLinesAssignment_1() { return cAsmLinesAssignment_1; }
+		
+		//AsmLine
+		public RuleCall getAsmLinesAsmLineParserRuleCall_1_0() { return cAsmLinesAsmLineParserRuleCall_1_0; }
+		
+		//(SKW_COMMA asmLines+=AsmLine)*
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//SKW_COMMA
+		public RuleCall getSKW_COMMATerminalRuleCall_2_0() { return cSKW_COMMATerminalRuleCall_2_0; }
+		
+		//asmLines+=AsmLine
+		public Assignment getAsmLinesAssignment_2_1() { return cAsmLinesAssignment_2_1; }
+		
+		//AsmLine
+		public RuleCall getAsmLinesAsmLineParserRuleCall_2_1_0() { return cAsmLinesAsmLineParserRuleCall_2_1_0; }
 	}
 	public class DesignationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.Designation");
@@ -5388,10 +5389,10 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	private final IterationStatementElements pIterationStatement;
 	private final JumpStatementElements pJumpStatement;
 	private final AsmStatementElements pAsmStatement;
-	private final AsmLineWithoutColonElements pAsmLineWithoutColon;
 	private final AsmLineElements pAsmLine;
-	private final AsmLineWithColonElements pAsmLineWithColon;
 	private final AsmSymbolicNameElements pAsmSymbolicName;
+	private final AsmLineWithColonElements pAsmLineWithColon;
+	private final AsmLineWithoutColonElements pAsmLineWithoutColon;
 	private final DesignationElements pDesignation;
 	private final DesignatorListElements pDesignatorList;
 	private final DesignatorElements pDesignator;
@@ -5567,10 +5568,10 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		this.pIterationStatement = new IterationStatementElements();
 		this.pJumpStatement = new JumpStatementElements();
 		this.pAsmStatement = new AsmStatementElements();
-		this.pAsmLineWithoutColon = new AsmLineWithoutColonElements();
 		this.pAsmLine = new AsmLineElements();
-		this.pAsmLineWithColon = new AsmLineWithColonElements();
 		this.pAsmSymbolicName = new AsmSymbolicNameElements();
+		this.pAsmLineWithColon = new AsmLineWithColonElements();
+		this.pAsmLineWithoutColon = new AsmLineWithoutColonElements();
 		this.pDesignation = new DesignationElements();
 		this.pDesignatorList = new DesignatorListElements();
 		this.pDesignator = new DesignatorElements();
@@ -6402,8 +6403,9 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//AsmStatement Statement:
 	//	{AsmStatement} (asm=KW_ASM1 | asm=KW_ASM2 | asm=KW_ASM3) (volatile=KW_VOLATILE | volatile=KW_VOLATILE2)?
-	//	SKW_LEFTPAREN (asmLine1=AsmLineWithoutColon?
-	//	asmLines+=AsmLineWithColon*) SKW_RIGHTPAREN semi=SKW_SEMI
+	//	SKW_LEFTPAREN (asmLine1=AsmLine?
+	//	asmLines+=AsmLineWithColon*
+	//	lastComma?=SKW_COMMA?) SKW_RIGHTPAREN semi=SKW_SEMI
 	public AsmStatementElements getAsmStatementAccess() {
 		return pAsmStatement;
 	}
@@ -6412,24 +6414,24 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return getAsmStatementAccess().getRule();
 	}
 	
-	//AsmLineWithoutColon:
-	//	{AsmLineWithoutColon} sym=AsmSymbolicName? expr=LogicalOrExpression asmLines+=AsmLine*;
-	public AsmLineWithoutColonElements getAsmLineWithoutColonAccess() {
-		return pAsmLineWithoutColon;
-	}
-	
-	public ParserRule getAsmLineWithoutColonRule() {
-		return getAsmLineWithoutColonAccess().getRule();
-	}
-	
 	//AsmLine:
-	//	{AsmLine} comma?=SKW_COMMA sym=AsmSymbolicName? expr=LogicalOrExpression;
+	//	{AsmLine} sym=AsmSymbolicName? expr=LogicalOrExpression;
 	public AsmLineElements getAsmLineAccess() {
 		return pAsmLine;
 	}
 	
 	public ParserRule getAsmLineRule() {
 		return getAsmLineAccess().getRule();
+	}
+	
+	//AsmSymbolicName:
+	//	{AsmSymbolicName} SKW_LEFTBRACKET id=ID SKW_RIGHTBRACKET;
+	public AsmSymbolicNameElements getAsmSymbolicNameAccess() {
+		return pAsmSymbolicName;
+	}
+	
+	public ParserRule getAsmSymbolicNameRule() {
+		return getAsmSymbolicNameAccess().getRule();
 	}
 	
 	//AsmLineWithColon:
@@ -6442,14 +6444,14 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return getAsmLineWithColonAccess().getRule();
 	}
 	
-	//AsmSymbolicName:
-	//	{AsmSymbolicName} SKW_LEFTBRACKET id=ID SKW_RIGHTBRACKET;
-	public AsmSymbolicNameElements getAsmSymbolicNameAccess() {
-		return pAsmSymbolicName;
+	//AsmLineWithoutColon:
+	//	{AsmLineWithoutColon} asmLines+=AsmLine (SKW_COMMA asmLines+=AsmLine)*;
+	public AsmLineWithoutColonElements getAsmLineWithoutColonAccess() {
+		return pAsmLineWithoutColon;
 	}
 	
-	public ParserRule getAsmSymbolicNameRule() {
-		return getAsmSymbolicNameAccess().getRule();
+	public ParserRule getAsmLineWithoutColonRule() {
+		return getAsmLineWithoutColonAccess().getRule();
 	}
 	
 	//Designation:

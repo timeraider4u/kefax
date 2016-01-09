@@ -290,14 +290,14 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
         return createStatementAdapter();
       }
       @Override
-      public Adapter caseAsmLineWithoutColon(AsmLineWithoutColon object)
-      {
-        return createAsmLineWithoutColonAdapter();
-      }
-      @Override
       public Adapter caseAsmLine(AsmLine object)
       {
         return createAsmLineAdapter();
+      }
+      @Override
+      public Adapter caseAsmSymbolicName(AsmSymbolicName object)
+      {
+        return createAsmSymbolicNameAdapter();
       }
       @Override
       public Adapter caseAsmLineWithColon(AsmLineWithColon object)
@@ -305,9 +305,9 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
         return createAsmLineWithColonAdapter();
       }
       @Override
-      public Adapter caseAsmSymbolicName(AsmSymbolicName object)
+      public Adapter caseAsmLineWithoutColon(AsmLineWithoutColon object)
       {
-        return createAsmSymbolicNameAdapter();
+        return createAsmLineWithoutColonAdapter();
       }
       @Override
       public Adapter caseDesignation(Designation object)
@@ -1212,21 +1212,6 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.parser.parser.AsmLineWithoutColon <em>Asm Line Without Colon</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see at.jku.weiner.c.parser.parser.AsmLineWithoutColon
-   * @generated
-   */
-  public Adapter createAsmLineWithoutColonAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link at.jku.weiner.c.parser.parser.AsmLine <em>Asm Line</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1237,6 +1222,21 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createAsmLineAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.parser.parser.AsmSymbolicName <em>Asm Symbolic Name</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.parser.parser.AsmSymbolicName
+   * @generated
+   */
+  public Adapter createAsmSymbolicNameAdapter()
   {
     return null;
   }
@@ -1257,16 +1257,16 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.parser.parser.AsmSymbolicName <em>Asm Symbolic Name</em>}'.
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.parser.parser.AsmLineWithoutColon <em>Asm Line Without Colon</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see at.jku.weiner.c.parser.parser.AsmSymbolicName
+   * @see at.jku.weiner.c.parser.parser.AsmLineWithoutColon
    * @generated
    */
-  public Adapter createAsmSymbolicNameAdapter()
+  public Adapter createAsmLineWithoutColonAdapter()
   {
     return null;
   }

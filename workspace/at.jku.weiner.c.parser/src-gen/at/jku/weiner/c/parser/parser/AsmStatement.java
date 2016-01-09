@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link at.jku.weiner.c.parser.parser.AsmStatement#getVolatile <em>Volatile</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.AsmStatement#getAsmLine1 <em>Asm Line1</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.AsmStatement#getAsmLines <em>Asm Lines</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.AsmStatement#isLastComma <em>Last Comma</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.AsmStatement#getSemi <em>Semi</em>}</li>
  * </ul>
  *
@@ -87,12 +88,12 @@ public interface AsmStatement extends Statement
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Asm Line1</em>' containment reference.
-   * @see #setAsmLine1(AsmLineWithoutColon)
+   * @see #setAsmLine1(AsmLine)
    * @see at.jku.weiner.c.parser.parser.ParserPackage#getAsmStatement_AsmLine1()
    * @model containment="true"
    * @generated
    */
-  AsmLineWithoutColon getAsmLine1();
+  AsmLine getAsmLine1();
 
   /**
    * Sets the value of the '{@link at.jku.weiner.c.parser.parser.AsmStatement#getAsmLine1 <em>Asm Line1</em>}' containment reference.
@@ -102,7 +103,7 @@ public interface AsmStatement extends Statement
    * @see #getAsmLine1()
    * @generated
    */
-  void setAsmLine1(AsmLineWithoutColon value);
+  void setAsmLine1(AsmLine value);
 
   /**
    * Returns the value of the '<em><b>Asm Lines</b></em>' containment reference list.
@@ -119,6 +120,32 @@ public interface AsmStatement extends Statement
    * @generated
    */
   EList<AsmLineWithColon> getAsmLines();
+
+  /**
+   * Returns the value of the '<em><b>Last Comma</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Last Comma</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Last Comma</em>' attribute.
+   * @see #setLastComma(boolean)
+   * @see at.jku.weiner.c.parser.parser.ParserPackage#getAsmStatement_LastComma()
+   * @model
+   * @generated
+   */
+  boolean isLastComma();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.AsmStatement#isLastComma <em>Last Comma</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Last Comma</em>' attribute.
+   * @see #isLastComma()
+   * @generated
+   */
+  void setLastComma(boolean value);
 
   /**
    * Returns the value of the '<em><b>Semi</b></em>' attribute.

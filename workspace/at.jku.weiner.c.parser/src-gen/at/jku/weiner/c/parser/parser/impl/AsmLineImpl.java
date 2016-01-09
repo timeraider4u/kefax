@@ -24,7 +24,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link at.jku.weiner.c.parser.parser.impl.AsmLineImpl#isComma <em>Comma</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.AsmLineImpl#getSym <em>Sym</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.AsmLineImpl#getExpr <em>Expr</em>}</li>
  * </ul>
@@ -33,26 +32,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class AsmLineImpl extends MinimalEObjectImpl.Container implements AsmLine
 {
-  /**
-   * The default value of the '{@link #isComma() <em>Comma</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isComma()
-   * @generated
-   * @ordered
-   */
-  protected static final boolean COMMA_EDEFAULT = false;
-
-  /**
-   * The cached value of the '{@link #isComma() <em>Comma</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isComma()
-   * @generated
-   * @ordered
-   */
-  protected boolean comma = COMMA_EDEFAULT;
-
   /**
    * The cached value of the '{@link #getSym() <em>Sym</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -92,29 +71,6 @@ public class AsmLineImpl extends MinimalEObjectImpl.Container implements AsmLine
   protected EClass eStaticClass()
   {
     return ParserPackage.Literals.ASM_LINE;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public boolean isComma()
-  {
-    return comma;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setComma(boolean newComma)
-  {
-    boolean oldComma = comma;
-    comma = newComma;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.ASM_LINE__COMMA, oldComma, comma));
   }
 
   /**
@@ -241,8 +197,6 @@ public class AsmLineImpl extends MinimalEObjectImpl.Container implements AsmLine
   {
     switch (featureID)
     {
-      case ParserPackage.ASM_LINE__COMMA:
-        return isComma();
       case ParserPackage.ASM_LINE__SYM:
         return getSym();
       case ParserPackage.ASM_LINE__EXPR:
@@ -261,9 +215,6 @@ public class AsmLineImpl extends MinimalEObjectImpl.Container implements AsmLine
   {
     switch (featureID)
     {
-      case ParserPackage.ASM_LINE__COMMA:
-        setComma((Boolean)newValue);
-        return;
       case ParserPackage.ASM_LINE__SYM:
         setSym((AsmSymbolicName)newValue);
         return;
@@ -284,9 +235,6 @@ public class AsmLineImpl extends MinimalEObjectImpl.Container implements AsmLine
   {
     switch (featureID)
     {
-      case ParserPackage.ASM_LINE__COMMA:
-        setComma(COMMA_EDEFAULT);
-        return;
       case ParserPackage.ASM_LINE__SYM:
         setSym((AsmSymbolicName)null);
         return;
@@ -307,31 +255,12 @@ public class AsmLineImpl extends MinimalEObjectImpl.Container implements AsmLine
   {
     switch (featureID)
     {
-      case ParserPackage.ASM_LINE__COMMA:
-        return comma != COMMA_EDEFAULT;
       case ParserPackage.ASM_LINE__SYM:
         return sym != null;
       case ParserPackage.ASM_LINE__EXPR:
         return expr != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (comma: ");
-    result.append(comma);
-    result.append(')');
-    return result.toString();
   }
 
 } //AsmLineImpl

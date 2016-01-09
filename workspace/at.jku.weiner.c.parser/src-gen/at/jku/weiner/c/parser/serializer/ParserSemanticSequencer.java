@@ -441,7 +441,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (sym=AsmSymbolicName? expr=LogicalOrExpression asmLines+=AsmLine*)
+	 *     (asmLines+=AsmLine asmLines+=AsmLine*)
 	 */
 	protected void sequence_AsmLineWithoutColon(EObject context, AsmLineWithoutColon semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -450,7 +450,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (comma?=SKW_COMMA sym=AsmSymbolicName? expr=LogicalOrExpression)
+	 *     (sym=AsmSymbolicName? expr=LogicalOrExpression)
 	 */
 	protected void sequence_AsmLine(EObject context, AsmLine semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -462,8 +462,9 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	 *     (
 	 *         (asm=KW_ASM1 | asm=KW_ASM2 | asm=KW_ASM3) 
 	 *         (volatile=KW_VOLATILE | volatile=KW_VOLATILE2)? 
-	 *         asmLine1=AsmLineWithoutColon? 
+	 *         asmLine1=AsmLine? 
 	 *         asmLines+=AsmLineWithColon* 
+	 *         lastComma?=SKW_COMMA? 
 	 *         semi=SKW_SEMI
 	 *     )
 	 */

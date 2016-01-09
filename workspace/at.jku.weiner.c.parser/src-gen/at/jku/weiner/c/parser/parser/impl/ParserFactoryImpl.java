@@ -107,10 +107,10 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
       case ParserPackage.INITIALIZER_LIST: return createInitializerList();
       case ParserPackage.BLOCK_LIST: return createBlockList();
       case ParserPackage.STATEMENT: return createStatement();
-      case ParserPackage.ASM_LINE_WITHOUT_COLON: return createAsmLineWithoutColon();
       case ParserPackage.ASM_LINE: return createAsmLine();
-      case ParserPackage.ASM_LINE_WITH_COLON: return createAsmLineWithColon();
       case ParserPackage.ASM_SYMBOLIC_NAME: return createAsmSymbolicName();
+      case ParserPackage.ASM_LINE_WITH_COLON: return createAsmLineWithColon();
+      case ParserPackage.ASM_LINE_WITHOUT_COLON: return createAsmLineWithoutColon();
       case ParserPackage.DESIGNATION: return createDesignation();
       case ParserPackage.DESIGNATOR_LIST: return createDesignatorList();
       case ParserPackage.DESIGNATOR: return createDesignator();
@@ -636,10 +636,10 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public AsmLineWithoutColon createAsmLineWithoutColon()
+  public AsmLine createAsmLine()
   {
-    AsmLineWithoutColonImpl asmLineWithoutColon = new AsmLineWithoutColonImpl();
-    return asmLineWithoutColon;
+    AsmLineImpl asmLine = new AsmLineImpl();
+    return asmLine;
   }
 
   /**
@@ -647,10 +647,10 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public AsmLine createAsmLine()
+  public AsmSymbolicName createAsmSymbolicName()
   {
-    AsmLineImpl asmLine = new AsmLineImpl();
-    return asmLine;
+    AsmSymbolicNameImpl asmSymbolicName = new AsmSymbolicNameImpl();
+    return asmSymbolicName;
   }
 
   /**
@@ -669,10 +669,10 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public AsmSymbolicName createAsmSymbolicName()
+  public AsmLineWithoutColon createAsmLineWithoutColon()
   {
-    AsmSymbolicNameImpl asmSymbolicName = new AsmSymbolicNameImpl();
-    return asmSymbolicName;
+    AsmLineWithoutColonImpl asmLineWithoutColon = new AsmLineWithoutColonImpl();
+    return asmLineWithoutColon;
   }
 
   /**

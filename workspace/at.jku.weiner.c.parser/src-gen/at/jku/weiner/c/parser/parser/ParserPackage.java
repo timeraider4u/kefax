@@ -1659,52 +1659,6 @@ public interface ParserPackage extends EPackage
   int STATEMENT_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.AsmLineWithoutColonImpl <em>Asm Line Without Colon</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see at.jku.weiner.c.parser.parser.impl.AsmLineWithoutColonImpl
-   * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getAsmLineWithoutColon()
-   * @generated
-   */
-  int ASM_LINE_WITHOUT_COLON = 43;
-
-  /**
-   * The feature id for the '<em><b>Sym</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ASM_LINE_WITHOUT_COLON__SYM = 0;
-
-  /**
-   * The feature id for the '<em><b>Expr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ASM_LINE_WITHOUT_COLON__EXPR = 1;
-
-  /**
-   * The feature id for the '<em><b>Asm Lines</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ASM_LINE_WITHOUT_COLON__ASM_LINES = 2;
-
-  /**
-   * The number of structural features of the '<em>Asm Line Without Colon</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ASM_LINE_WITHOUT_COLON_FEATURE_COUNT = 3;
-
-  /**
    * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.AsmLineImpl <em>Asm Line</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1712,16 +1666,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getAsmLine()
    * @generated
    */
-  int ASM_LINE = 44;
-
-  /**
-   * The feature id for the '<em><b>Comma</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ASM_LINE__COMMA = 0;
+  int ASM_LINE = 43;
 
   /**
    * The feature id for the '<em><b>Sym</b></em>' containment reference.
@@ -1730,7 +1675,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASM_LINE__SYM = 1;
+  int ASM_LINE__SYM = 0;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -1739,7 +1684,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASM_LINE__EXPR = 2;
+  int ASM_LINE__EXPR = 1;
 
   /**
    * The number of structural features of the '<em>Asm Line</em>' class.
@@ -1748,7 +1693,35 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASM_LINE_FEATURE_COUNT = 3;
+  int ASM_LINE_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.AsmSymbolicNameImpl <em>Asm Symbolic Name</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.c.parser.parser.impl.AsmSymbolicNameImpl
+   * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getAsmSymbolicName()
+   * @generated
+   */
+  int ASM_SYMBOLIC_NAME = 44;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASM_SYMBOLIC_NAME__ID = 0;
+
+  /**
+   * The number of structural features of the '<em>Asm Symbolic Name</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASM_SYMBOLIC_NAME_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.AsmLineWithColonImpl <em>Asm Line With Colon</em>}' class.
@@ -1779,32 +1752,32 @@ public interface ParserPackage extends EPackage
   int ASM_LINE_WITH_COLON_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.AsmSymbolicNameImpl <em>Asm Symbolic Name</em>}' class.
+   * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.AsmLineWithoutColonImpl <em>Asm Line Without Colon</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see at.jku.weiner.c.parser.parser.impl.AsmSymbolicNameImpl
-   * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getAsmSymbolicName()
+   * @see at.jku.weiner.c.parser.parser.impl.AsmLineWithoutColonImpl
+   * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getAsmLineWithoutColon()
    * @generated
    */
-  int ASM_SYMBOLIC_NAME = 46;
+  int ASM_LINE_WITHOUT_COLON = 46;
 
   /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * The feature id for the '<em><b>Asm Lines</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ASM_SYMBOLIC_NAME__ID = 0;
+  int ASM_LINE_WITHOUT_COLON__ASM_LINES = 0;
 
   /**
-   * The number of structural features of the '<em>Asm Symbolic Name</em>' class.
+   * The number of structural features of the '<em>Asm Line Without Colon</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ASM_SYMBOLIC_NAME_FEATURE_COUNT = 1;
+  int ASM_LINE_WITHOUT_COLON_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.DesignationImpl <em>Designation</em>}' class.
@@ -2699,13 +2672,22 @@ public interface ParserPackage extends EPackage
   int ASM_STATEMENT__ASM_LINES = STATEMENT_FEATURE_COUNT + 3;
 
   /**
+   * The feature id for the '<em><b>Last Comma</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASM_STATEMENT__LAST_COMMA = STATEMENT_FEATURE_COUNT + 4;
+
+  /**
    * The feature id for the '<em><b>Semi</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ASM_STATEMENT__SEMI = STATEMENT_FEATURE_COUNT + 4;
+  int ASM_STATEMENT__SEMI = STATEMENT_FEATURE_COUNT + 5;
 
   /**
    * The number of structural features of the '<em>Asm Statement</em>' class.
@@ -2714,7 +2696,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASM_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 5;
+  int ASM_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 6;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.AssignmentExpressionImpl <em>Assignment Expression</em>}' class.
@@ -5307,49 +5289,6 @@ public interface ParserPackage extends EPackage
   EReference getStatement_Stmt();
 
   /**
-   * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.AsmLineWithoutColon <em>Asm Line Without Colon</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Asm Line Without Colon</em>'.
-   * @see at.jku.weiner.c.parser.parser.AsmLineWithoutColon
-   * @generated
-   */
-  EClass getAsmLineWithoutColon();
-
-  /**
-   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.AsmLineWithoutColon#getSym <em>Sym</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Sym</em>'.
-   * @see at.jku.weiner.c.parser.parser.AsmLineWithoutColon#getSym()
-   * @see #getAsmLineWithoutColon()
-   * @generated
-   */
-  EReference getAsmLineWithoutColon_Sym();
-
-  /**
-   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.AsmLineWithoutColon#getExpr <em>Expr</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expr</em>'.
-   * @see at.jku.weiner.c.parser.parser.AsmLineWithoutColon#getExpr()
-   * @see #getAsmLineWithoutColon()
-   * @generated
-   */
-  EReference getAsmLineWithoutColon_Expr();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.parser.parser.AsmLineWithoutColon#getAsmLines <em>Asm Lines</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Asm Lines</em>'.
-   * @see at.jku.weiner.c.parser.parser.AsmLineWithoutColon#getAsmLines()
-   * @see #getAsmLineWithoutColon()
-   * @generated
-   */
-  EReference getAsmLineWithoutColon_AsmLines();
-
-  /**
    * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.AsmLine <em>Asm Line</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5358,17 +5297,6 @@ public interface ParserPackage extends EPackage
    * @generated
    */
   EClass getAsmLine();
-
-  /**
-   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.AsmLine#isComma <em>Comma</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Comma</em>'.
-   * @see at.jku.weiner.c.parser.parser.AsmLine#isComma()
-   * @see #getAsmLine()
-   * @generated
-   */
-  EAttribute getAsmLine_Comma();
 
   /**
    * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.AsmLine#getSym <em>Sym</em>}'.
@@ -5393,6 +5321,27 @@ public interface ParserPackage extends EPackage
   EReference getAsmLine_Expr();
 
   /**
+   * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.AsmSymbolicName <em>Asm Symbolic Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Asm Symbolic Name</em>'.
+   * @see at.jku.weiner.c.parser.parser.AsmSymbolicName
+   * @generated
+   */
+  EClass getAsmSymbolicName();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.AsmSymbolicName#getId <em>Id</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Id</em>'.
+   * @see at.jku.weiner.c.parser.parser.AsmSymbolicName#getId()
+   * @see #getAsmSymbolicName()
+   * @generated
+   */
+  EAttribute getAsmSymbolicName_Id();
+
+  /**
    * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.AsmLineWithColon <em>Asm Line With Colon</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5414,25 +5363,25 @@ public interface ParserPackage extends EPackage
   EReference getAsmLineWithColon_AsmLine();
 
   /**
-   * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.AsmSymbolicName <em>Asm Symbolic Name</em>}'.
+   * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.AsmLineWithoutColon <em>Asm Line Without Colon</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Asm Symbolic Name</em>'.
-   * @see at.jku.weiner.c.parser.parser.AsmSymbolicName
+   * @return the meta object for class '<em>Asm Line Without Colon</em>'.
+   * @see at.jku.weiner.c.parser.parser.AsmLineWithoutColon
    * @generated
    */
-  EClass getAsmSymbolicName();
+  EClass getAsmLineWithoutColon();
 
   /**
-   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.AsmSymbolicName#getId <em>Id</em>}'.
+   * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.parser.parser.AsmLineWithoutColon#getAsmLines <em>Asm Lines</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Id</em>'.
-   * @see at.jku.weiner.c.parser.parser.AsmSymbolicName#getId()
-   * @see #getAsmSymbolicName()
+   * @return the meta object for the containment reference list '<em>Asm Lines</em>'.
+   * @see at.jku.weiner.c.parser.parser.AsmLineWithoutColon#getAsmLines()
+   * @see #getAsmLineWithoutColon()
    * @generated
    */
-  EAttribute getAsmSymbolicName_Id();
+  EReference getAsmLineWithoutColon_AsmLines();
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.Designation <em>Designation</em>}'.
@@ -6140,6 +6089,17 @@ public interface ParserPackage extends EPackage
    * @generated
    */
   EReference getAsmStatement_AsmLines();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.AsmStatement#isLastComma <em>Last Comma</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Last Comma</em>'.
+   * @see at.jku.weiner.c.parser.parser.AsmStatement#isLastComma()
+   * @see #getAsmStatement()
+   * @generated
+   */
+  EAttribute getAsmStatement_LastComma();
 
   /**
    * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.AsmStatement#getSemi <em>Semi</em>}'.
@@ -8093,40 +8053,6 @@ public interface ParserPackage extends EPackage
     EReference STATEMENT__STMT = eINSTANCE.getStatement_Stmt();
 
     /**
-     * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.AsmLineWithoutColonImpl <em>Asm Line Without Colon</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see at.jku.weiner.c.parser.parser.impl.AsmLineWithoutColonImpl
-     * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getAsmLineWithoutColon()
-     * @generated
-     */
-    EClass ASM_LINE_WITHOUT_COLON = eINSTANCE.getAsmLineWithoutColon();
-
-    /**
-     * The meta object literal for the '<em><b>Sym</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ASM_LINE_WITHOUT_COLON__SYM = eINSTANCE.getAsmLineWithoutColon_Sym();
-
-    /**
-     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ASM_LINE_WITHOUT_COLON__EXPR = eINSTANCE.getAsmLineWithoutColon_Expr();
-
-    /**
-     * The meta object literal for the '<em><b>Asm Lines</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ASM_LINE_WITHOUT_COLON__ASM_LINES = eINSTANCE.getAsmLineWithoutColon_AsmLines();
-
-    /**
      * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.AsmLineImpl <em>Asm Line</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8135,14 +8061,6 @@ public interface ParserPackage extends EPackage
      * @generated
      */
     EClass ASM_LINE = eINSTANCE.getAsmLine();
-
-    /**
-     * The meta object literal for the '<em><b>Comma</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ASM_LINE__COMMA = eINSTANCE.getAsmLine_Comma();
 
     /**
      * The meta object literal for the '<em><b>Sym</b></em>' containment reference feature.
@@ -8159,6 +8077,24 @@ public interface ParserPackage extends EPackage
      * @generated
      */
     EReference ASM_LINE__EXPR = eINSTANCE.getAsmLine_Expr();
+
+    /**
+     * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.AsmSymbolicNameImpl <em>Asm Symbolic Name</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.c.parser.parser.impl.AsmSymbolicNameImpl
+     * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getAsmSymbolicName()
+     * @generated
+     */
+    EClass ASM_SYMBOLIC_NAME = eINSTANCE.getAsmSymbolicName();
+
+    /**
+     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ASM_SYMBOLIC_NAME__ID = eINSTANCE.getAsmSymbolicName_Id();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.AsmLineWithColonImpl <em>Asm Line With Colon</em>}' class.
@@ -8179,22 +8115,22 @@ public interface ParserPackage extends EPackage
     EReference ASM_LINE_WITH_COLON__ASM_LINE = eINSTANCE.getAsmLineWithColon_AsmLine();
 
     /**
-     * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.AsmSymbolicNameImpl <em>Asm Symbolic Name</em>}' class.
+     * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.AsmLineWithoutColonImpl <em>Asm Line Without Colon</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see at.jku.weiner.c.parser.parser.impl.AsmSymbolicNameImpl
-     * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getAsmSymbolicName()
+     * @see at.jku.weiner.c.parser.parser.impl.AsmLineWithoutColonImpl
+     * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getAsmLineWithoutColon()
      * @generated
      */
-    EClass ASM_SYMBOLIC_NAME = eINSTANCE.getAsmSymbolicName();
+    EClass ASM_LINE_WITHOUT_COLON = eINSTANCE.getAsmLineWithoutColon();
 
     /**
-     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Asm Lines</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ASM_SYMBOLIC_NAME__ID = eINSTANCE.getAsmSymbolicName_Id();
+    EReference ASM_LINE_WITHOUT_COLON__ASM_LINES = eINSTANCE.getAsmLineWithoutColon_AsmLines();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.DesignationImpl <em>Designation</em>}' class.
@@ -8761,6 +8697,14 @@ public interface ParserPackage extends EPackage
      * @generated
      */
     EReference ASM_STATEMENT__ASM_LINES = eINSTANCE.getAsmStatement_AsmLines();
+
+    /**
+     * The meta object literal for the '<em><b>Last Comma</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ASM_STATEMENT__LAST_COMMA = eINSTANCE.getAsmStatement_LastComma();
 
     /**
      * The meta object literal for the '<em><b>Semi</b></em>' attribute feature.

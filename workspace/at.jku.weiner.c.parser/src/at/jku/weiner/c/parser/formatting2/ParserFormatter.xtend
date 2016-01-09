@@ -23,6 +23,9 @@ import at.jku.weiner.c.parser.parser.Declaration
 import at.jku.weiner.c.parser.parser.DeclarationSpecifiers
 import at.jku.weiner.c.parser.parser.Declarator
 import at.jku.weiner.c.parser.parser.DeclaratorSuffix
+import at.jku.weiner.c.parser.parser.Designation
+import at.jku.weiner.c.parser.parser.Designator
+import at.jku.weiner.c.parser.parser.DesignatorList
 import at.jku.weiner.c.parser.parser.DirectDeclarator
 import at.jku.weiner.c.parser.parser.DirectDeclaratorLastSuffix
 import at.jku.weiner.c.parser.parser.EnumSpecifier
@@ -341,6 +344,9 @@ class ParserFormatter extends CommonFormatter {
 
 	def dispatch void format(InitializerList initializerList, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+		for (Designation designation : initializerList.getDesignation()) {
+			format(designation, document);
+		}
 		for (Initializer initializer : initializerList.getInitializer()) {
 			format(initializer, document);
 		}
@@ -414,22 +420,39 @@ class ParserFormatter extends CommonFormatter {
 		}
 	}
 
-	def dispatch void format(AsmLineWithoutColon asmLineWithoutColon, extension IFormattableDocument document) {
-		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		format(asmLineWithoutColon.getExpr(), document);
-		for (AsmLine asmLines : asmLineWithoutColon.getAsmLines()) {
-			format(asmLines, document);
-		}
-	}
-
 	def dispatch void format(AsmLine asmLine, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+		format(asmLine.getSym(), document);
 		format(asmLine.getExpr(), document);
 	}
 
 	def dispatch void format(AsmLineWithColon asmLineWithColon, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
 		format(asmLineWithColon.getAsmLine(), document);
+	}
+
+	def dispatch void format(AsmLineWithoutColon asmLineWithoutColon, extension IFormattableDocument document) {
+		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+		for (AsmLine asmLines : asmLineWithoutColon.getAsmLines()) {
+			format(asmLines, document);
+		}
+	}
+
+	def dispatch void format(Designation designation, extension IFormattableDocument document) {
+		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+		format(designation.getList(), document);
+	}
+
+	def dispatch void format(DesignatorList designatorList, extension IFormattableDocument document) {
+		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+		for (Designator designator : designatorList.getDesignator()) {
+			format(designator, document);
+		}
+	}
+
+	def dispatch void format(Designator designator, extension IFormattableDocument document) {
+		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+		format(designator.getExpr(), document);
 	}
 
 	def dispatch void format(Expression expression, extension IFormattableDocument document) {
@@ -538,6 +561,8 @@ class ParserFormatter extends CommonFormatter {
 
 	def dispatch void format(PostfixExpression postfixExpression, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+		format(postfixExpression.getTypeName(), document);
+		format(postfixExpression.getInitializerList(), document);
 		for (Expression expr : postfixExpression.getExpr()) {
 			format(expr, document);
 		}

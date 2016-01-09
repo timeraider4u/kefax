@@ -591,29 +591,28 @@ class ParserGenerator implements IGenerator {
 			«FOR i : 0 ..< obj.asmLines.size()»
 				«outputFor(obj.asmLines.get(i))»
 			«ENDFOR»
+			«IF obj.lastComma»,«ENDIF»
 		);
 	'''
 	
-	def String outputFor(AsmLineWithoutColon obj) '''
+	def String outputFor(AsmLine obj) '''
 		«IF obj.sym != null»«outputFor(obj.sym)»«ENDIF»
 		«outputForLogicalOrExpression(obj.expr as LogicalOrExpression)»
-		«FOR i : 0 ..< obj.asmLines.size()»
-			«outputFor(obj.asmLines.get(i))»
-		«ENDFOR»
 	'''
 	
-	def String outputFor(AsmLine obj) '''
-		«IF obj.comma»,«ENDIF»
-		«IF obj.sym != null»«outputFor(obj.sym)»«ENDIF»
-		«outputForLogicalOrExpression(obj.expr as LogicalOrExpression)»
+	def String outputFor(AsmSymbolicName obj) '''
+		[«obj.id»]
 	'''
 	
 	def String outputFor(AsmLineWithColon obj) '''
 		: «IF obj.asmLine != null»«outputFor(obj.asmLine)»«ENDIF»
 	'''
 	
-	def String outputFor(AsmSymbolicName obj) '''
-		[«obj.id»]
+	def String outputFor(AsmLineWithoutColon obj) '''
+		«FOR i : 0 ..< obj.asmLines.size()»
+			«IF i > 0»,«ENDIF»
+			«outputFor(obj.asmLines.get(i))»
+		«ENDFOR»
 	'''
 	
 	def String outputFor(Expression obj) '''

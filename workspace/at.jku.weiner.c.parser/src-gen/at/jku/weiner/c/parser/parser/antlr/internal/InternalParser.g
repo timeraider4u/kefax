@@ -1358,9 +1358,9 @@ ruleTypeSpecifier returns [EObject current=null]
     |
 (
 (
-		lv_name_8_0=RULE_KW_LONG
+		lv_name_8_0=RULE_KW_INT128_3
 		{
-			newLeafNode(lv_name_8_0, grammarAccess.getTypeSpecifierAccess().getNameKW_LONGTerminalRuleCall_7_0()); 
+			newLeafNode(lv_name_8_0, grammarAccess.getTypeSpecifierAccess().getNameKW_INT128_3TerminalRuleCall_7_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1370,6 +1370,28 @@ ruleTypeSpecifier returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_8_0, 
+        		"at.jku.weiner.c.parser.Parser.KW_INT128_3");
+	    }
+
+)
+)
+
+
+    |
+(
+(
+		lv_name_9_0=RULE_KW_LONG
+		{
+			newLeafNode(lv_name_9_0, grammarAccess.getTypeSpecifierAccess().getNameKW_LONGTerminalRuleCall_8_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTypeSpecifierRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_9_0, 
         		"at.jku.weiner.c.parser.Parser.KW_LONG");
 	    }
 
@@ -1380,9 +1402,9 @@ ruleTypeSpecifier returns [EObject current=null]
     |
 (
 (
-		lv_name_9_0=RULE_KW_SHORT
+		lv_name_10_0=RULE_KW_SHORT
 		{
-			newLeafNode(lv_name_9_0, grammarAccess.getTypeSpecifierAccess().getNameKW_SHORTTerminalRuleCall_8_0()); 
+			newLeafNode(lv_name_10_0, grammarAccess.getTypeSpecifierAccess().getNameKW_SHORTTerminalRuleCall_9_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1391,7 +1413,7 @@ ruleTypeSpecifier returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"name",
-        		lv_name_9_0, 
+        		lv_name_10_0, 
         		"at.jku.weiner.c.parser.Parser.KW_SHORT");
 	    }
 
@@ -1402,9 +1424,9 @@ ruleTypeSpecifier returns [EObject current=null]
     |
 (
 (
-		lv_name_10_0=RULE_KW_M128
+		lv_name_11_0=RULE_KW_M128
 		{
-			newLeafNode(lv_name_10_0, grammarAccess.getTypeSpecifierAccess().getNameKW_M128TerminalRuleCall_9_0()); 
+			newLeafNode(lv_name_11_0, grammarAccess.getTypeSpecifierAccess().getNameKW_M128TerminalRuleCall_10_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1413,7 +1435,7 @@ ruleTypeSpecifier returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"name",
-        		lv_name_10_0, 
+        		lv_name_11_0, 
         		"at.jku.weiner.c.parser.Parser.KW_M128");
 	    }
 
@@ -1424,9 +1446,9 @@ ruleTypeSpecifier returns [EObject current=null]
     |
 (
 (
-		lv_name_11_0=RULE_KW_M128D
+		lv_name_12_0=RULE_KW_M128D
 		{
-			newLeafNode(lv_name_11_0, grammarAccess.getTypeSpecifierAccess().getNameKW_M128DTerminalRuleCall_10_0()); 
+			newLeafNode(lv_name_12_0, grammarAccess.getTypeSpecifierAccess().getNameKW_M128DTerminalRuleCall_11_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1435,7 +1457,7 @@ ruleTypeSpecifier returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"name",
-        		lv_name_11_0, 
+        		lv_name_12_0, 
         		"at.jku.weiner.c.parser.Parser.KW_M128D");
 	    }
 
@@ -1446,9 +1468,9 @@ ruleTypeSpecifier returns [EObject current=null]
     |
 (
 (
-		lv_name_12_0=RULE_KW_M128I
+		lv_name_13_0=RULE_KW_M128I
 		{
-			newLeafNode(lv_name_12_0, grammarAccess.getTypeSpecifierAccess().getNameKW_M128ITerminalRuleCall_11_0()); 
+			newLeafNode(lv_name_13_0, grammarAccess.getTypeSpecifierAccess().getNameKW_M128ITerminalRuleCall_12_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1457,7 +1479,7 @@ ruleTypeSpecifier returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"name",
-        		lv_name_12_0, 
+        		lv_name_13_0, 
         		"at.jku.weiner.c.parser.Parser.KW_M128I");
 	    }
 
@@ -1468,9 +1490,9 @@ ruleTypeSpecifier returns [EObject current=null]
     |
 (
 (
-		lv_name_13_0=RULE_KW_SIGNED1
+		lv_name_14_0=RULE_KW_SIGNED1
 		{
-			newLeafNode(lv_name_13_0, grammarAccess.getTypeSpecifierAccess().getNameKW_SIGNED1TerminalRuleCall_12_0()); 
+			newLeafNode(lv_name_14_0, grammarAccess.getTypeSpecifierAccess().getNameKW_SIGNED1TerminalRuleCall_13_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1479,7 +1501,7 @@ ruleTypeSpecifier returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"name",
-        		lv_name_13_0, 
+        		lv_name_14_0, 
         		"at.jku.weiner.c.parser.Parser.KW_SIGNED1");
 	    }
 
@@ -1490,9 +1512,9 @@ ruleTypeSpecifier returns [EObject current=null]
     |
 (
 (
-		lv_name_14_0=RULE_KW_SIGNED2
+		lv_name_15_0=RULE_KW_SIGNED2
 		{
-			newLeafNode(lv_name_14_0, grammarAccess.getTypeSpecifierAccess().getNameKW_SIGNED2TerminalRuleCall_13_0()); 
+			newLeafNode(lv_name_15_0, grammarAccess.getTypeSpecifierAccess().getNameKW_SIGNED2TerminalRuleCall_14_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1501,7 +1523,7 @@ ruleTypeSpecifier returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"name",
-        		lv_name_14_0, 
+        		lv_name_15_0, 
         		"at.jku.weiner.c.parser.Parser.KW_SIGNED2");
 	    }
 
@@ -1512,9 +1534,9 @@ ruleTypeSpecifier returns [EObject current=null]
     |
 (
 (
-		lv_name_15_0=RULE_KW_SIGNED3
+		lv_name_16_0=RULE_KW_SIGNED3
 		{
-			newLeafNode(lv_name_15_0, grammarAccess.getTypeSpecifierAccess().getNameKW_SIGNED3TerminalRuleCall_14_0()); 
+			newLeafNode(lv_name_16_0, grammarAccess.getTypeSpecifierAccess().getNameKW_SIGNED3TerminalRuleCall_15_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1523,7 +1545,7 @@ ruleTypeSpecifier returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"name",
-        		lv_name_15_0, 
+        		lv_name_16_0, 
         		"at.jku.weiner.c.parser.Parser.KW_SIGNED3");
 	    }
 
@@ -1534,9 +1556,9 @@ ruleTypeSpecifier returns [EObject current=null]
     |
 (
 (
-		lv_name_16_0=RULE_KW_UNSIGNED
+		lv_name_17_0=RULE_KW_UNSIGNED
 		{
-			newLeafNode(lv_name_16_0, grammarAccess.getTypeSpecifierAccess().getNameKW_UNSIGNEDTerminalRuleCall_15_0()); 
+			newLeafNode(lv_name_17_0, grammarAccess.getTypeSpecifierAccess().getNameKW_UNSIGNEDTerminalRuleCall_16_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1545,7 +1567,7 @@ ruleTypeSpecifier returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"name",
-        		lv_name_16_0, 
+        		lv_name_17_0, 
         		"at.jku.weiner.c.parser.Parser.KW_UNSIGNED");
 	    }
 
@@ -1556,9 +1578,9 @@ ruleTypeSpecifier returns [EObject current=null]
     |
 (
 (
-		lv_name_17_0=RULE_KW_VOID
+		lv_name_18_0=RULE_KW_VOID
 		{
-			newLeafNode(lv_name_17_0, grammarAccess.getTypeSpecifierAccess().getNameKW_VOIDTerminalRuleCall_16_0()); 
+			newLeafNode(lv_name_18_0, grammarAccess.getTypeSpecifierAccess().getNameKW_VOIDTerminalRuleCall_17_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1567,7 +1589,7 @@ ruleTypeSpecifier returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"name",
-        		lv_name_17_0, 
+        		lv_name_18_0, 
         		"at.jku.weiner.c.parser.Parser.KW_VOID");
 	    }
 
@@ -1579,9 +1601,9 @@ ruleTypeSpecifier returns [EObject current=null]
 (
 (
 (
-		lv_name_18_0=RULE_KW_EXTENSION
+		lv_name_19_0=RULE_KW_EXTENSION
 		{
-			newLeafNode(lv_name_18_0, grammarAccess.getTypeSpecifierAccess().getNameKW_EXTENSIONTerminalRuleCall_17_0_0()); 
+			newLeafNode(lv_name_19_0, grammarAccess.getTypeSpecifierAccess().getNameKW_EXTENSIONTerminalRuleCall_18_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1590,7 +1612,7 @@ ruleTypeSpecifier returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"name",
-        		lv_name_18_0, 
+        		lv_name_19_0, 
         		"at.jku.weiner.c.parser.Parser.KW_EXTENSION");
 	    }
 
@@ -1599,9 +1621,9 @@ ruleTypeSpecifier returns [EObject current=null]
 
 
 (
-this_SKW_LEFTPAREN_19=RULE_SKW_LEFTPAREN
+this_SKW_LEFTPAREN_20=RULE_SKW_LEFTPAREN
     { 
-    newLeafNode(this_SKW_LEFTPAREN_19, grammarAccess.getTypeSpecifierAccess().getSKW_LEFTPARENTerminalRuleCall_17_1_0()); 
+    newLeafNode(this_SKW_LEFTPAREN_20, grammarAccess.getTypeSpecifierAccess().getSKW_LEFTPARENTerminalRuleCall_18_1_0()); 
     }
 
 
@@ -1609,9 +1631,9 @@ this_SKW_LEFTPAREN_19=RULE_SKW_LEFTPAREN
 (
 (
 (
-		lv_extType_20_0=RULE_KW_M128
+		lv_extType_21_0=RULE_KW_M128
 		{
-			newLeafNode(lv_extType_20_0, grammarAccess.getTypeSpecifierAccess().getExtTypeKW_M128TerminalRuleCall_17_1_1_0_0()); 
+			newLeafNode(lv_extType_21_0, grammarAccess.getTypeSpecifierAccess().getExtTypeKW_M128TerminalRuleCall_18_1_1_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1620,7 +1642,7 @@ this_SKW_LEFTPAREN_19=RULE_SKW_LEFTPAREN
        		setWithLastConsumed(
        			$current, 
        			"extType",
-        		lv_extType_20_0, 
+        		lv_extType_21_0, 
         		"at.jku.weiner.c.parser.Parser.KW_M128");
 	    }
 
@@ -1631,9 +1653,9 @@ this_SKW_LEFTPAREN_19=RULE_SKW_LEFTPAREN
     |
 (
 (
-		lv_extType_21_0=RULE_KW_M128D
+		lv_extType_22_0=RULE_KW_M128D
 		{
-			newLeafNode(lv_extType_21_0, grammarAccess.getTypeSpecifierAccess().getExtTypeKW_M128DTerminalRuleCall_17_1_1_1_0()); 
+			newLeafNode(lv_extType_22_0, grammarAccess.getTypeSpecifierAccess().getExtTypeKW_M128DTerminalRuleCall_18_1_1_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1642,7 +1664,7 @@ this_SKW_LEFTPAREN_19=RULE_SKW_LEFTPAREN
        		setWithLastConsumed(
        			$current, 
        			"extType",
-        		lv_extType_21_0, 
+        		lv_extType_22_0, 
         		"at.jku.weiner.c.parser.Parser.KW_M128D");
 	    }
 
@@ -1653,9 +1675,9 @@ this_SKW_LEFTPAREN_19=RULE_SKW_LEFTPAREN
     |
 (
 (
-		lv_extType_22_0=RULE_KW_M128I
+		lv_extType_23_0=RULE_KW_M128I
 		{
-			newLeafNode(lv_extType_22_0, grammarAccess.getTypeSpecifierAccess().getExtTypeKW_M128ITerminalRuleCall_17_1_1_2_0()); 
+			newLeafNode(lv_extType_23_0, grammarAccess.getTypeSpecifierAccess().getExtTypeKW_M128ITerminalRuleCall_18_1_1_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1664,7 +1686,7 @@ this_SKW_LEFTPAREN_19=RULE_SKW_LEFTPAREN
        		setWithLastConsumed(
        			$current, 
        			"extType",
-        		lv_extType_22_0, 
+        		lv_extType_23_0, 
         		"at.jku.weiner.c.parser.Parser.KW_M128I");
 	    }
 
@@ -1674,9 +1696,9 @@ this_SKW_LEFTPAREN_19=RULE_SKW_LEFTPAREN
 )
 
 
-this_SKW_RIGHTPAREN_23=RULE_SKW_RIGHTPAREN
+this_SKW_RIGHTPAREN_24=RULE_SKW_RIGHTPAREN
     { 
-    newLeafNode(this_SKW_RIGHTPAREN_23, grammarAccess.getTypeSpecifierAccess().getSKW_RIGHTPARENTerminalRuleCall_17_1_2()); 
+    newLeafNode(this_SKW_RIGHTPAREN_24, grammarAccess.getTypeSpecifierAccess().getSKW_RIGHTPARENTerminalRuleCall_18_1_2()); 
     }
 
 
@@ -1689,16 +1711,16 @@ this_SKW_RIGHTPAREN_23=RULE_SKW_RIGHTPAREN
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getTypeSpecifierAccess().getSpecifierStructOrUnionSpecifierParserRuleCall_18_0()); 
+	        newCompositeNode(grammarAccess.getTypeSpecifierAccess().getSpecifierStructOrUnionSpecifierParserRuleCall_19_0()); 
 	    }
-		lv_specifier_24_0=ruleStructOrUnionSpecifier		{
+		lv_specifier_25_0=ruleStructOrUnionSpecifier		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getTypeSpecifierRule());
 	        }
        		set(
        			$current, 
        			"specifier",
-        		lv_specifier_24_0, 
+        		lv_specifier_25_0, 
         		"at.jku.weiner.c.parser.Parser.StructOrUnionSpecifier");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -1711,16 +1733,16 @@ this_SKW_RIGHTPAREN_23=RULE_SKW_RIGHTPAREN
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getTypeSpecifierAccess().getSpecifierEnumSpecifierParserRuleCall_19_0()); 
+	        newCompositeNode(grammarAccess.getTypeSpecifierAccess().getSpecifierEnumSpecifierParserRuleCall_20_0()); 
 	    }
-		lv_specifier_25_0=ruleEnumSpecifier		{
+		lv_specifier_26_0=ruleEnumSpecifier		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getTypeSpecifierRule());
 	        }
        		set(
        			$current, 
        			"specifier",
-        		lv_specifier_25_0, 
+        		lv_specifier_26_0, 
         		"at.jku.weiner.c.parser.Parser.EnumSpecifier");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -1733,16 +1755,16 @@ this_SKW_RIGHTPAREN_23=RULE_SKW_RIGHTPAREN
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getTypeSpecifierAccess().getTypeTypedefNameParserRuleCall_20_0()); 
+	        newCompositeNode(grammarAccess.getTypeSpecifierAccess().getTypeTypedefNameParserRuleCall_21_0()); 
 	    }
-		lv_type_26_0=ruleTypedefName		{
+		lv_type_27_0=ruleTypedefName		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getTypeSpecifierRule());
 	        }
        		set(
        			$current, 
        			"type",
-        		lv_type_26_0, 
+        		lv_type_27_0, 
         		"at.jku.weiner.c.parser.Parser.TypedefName");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -1756,9 +1778,9 @@ this_SKW_RIGHTPAREN_23=RULE_SKW_RIGHTPAREN
 (
 (
 (
-		lv_typeOf_27_1=RULE_KW_TYPEOF1
+		lv_typeOf_28_1=RULE_KW_TYPEOF1
 		{
-			newLeafNode(lv_typeOf_27_1, grammarAccess.getTypeSpecifierAccess().getTypeOfKW_TYPEOF1TerminalRuleCall_21_0_0_0()); 
+			newLeafNode(lv_typeOf_28_1, grammarAccess.getTypeSpecifierAccess().getTypeOfKW_TYPEOF1TerminalRuleCall_22_0_0_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1767,13 +1789,13 @@ this_SKW_RIGHTPAREN_23=RULE_SKW_RIGHTPAREN
        		setWithLastConsumed(
        			$current, 
        			"typeOf",
-        		lv_typeOf_27_1, 
+        		lv_typeOf_28_1, 
         		"at.jku.weiner.c.parser.Parser.KW_TYPEOF1");
 	    }
 
-    |		lv_typeOf_27_2=RULE_KW_TYPEOF3
+    |		lv_typeOf_28_2=RULE_KW_TYPEOF3
 		{
-			newLeafNode(lv_typeOf_27_2, grammarAccess.getTypeSpecifierAccess().getTypeOfKW_TYPEOF3TerminalRuleCall_21_0_0_1()); 
+			newLeafNode(lv_typeOf_28_2, grammarAccess.getTypeSpecifierAccess().getTypeOfKW_TYPEOF3TerminalRuleCall_22_0_0_1()); 
 		}
 		{
 	        if ($current==null) {
@@ -1782,7 +1804,7 @@ this_SKW_RIGHTPAREN_23=RULE_SKW_RIGHTPAREN
        		setWithLastConsumed(
        			$current, 
        			"typeOf",
-        		lv_typeOf_27_2, 
+        		lv_typeOf_28_2, 
         		"at.jku.weiner.c.parser.Parser.KW_TYPEOF3");
 	    }
 
@@ -1792,9 +1814,9 @@ this_SKW_RIGHTPAREN_23=RULE_SKW_RIGHTPAREN
 )
 
 
-this_SKW_LEFTPAREN_28=RULE_SKW_LEFTPAREN
+this_SKW_LEFTPAREN_29=RULE_SKW_LEFTPAREN
     { 
-    newLeafNode(this_SKW_LEFTPAREN_28, grammarAccess.getTypeSpecifierAccess().getSKW_LEFTPARENTerminalRuleCall_21_1()); 
+    newLeafNode(this_SKW_LEFTPAREN_29, grammarAccess.getTypeSpecifierAccess().getSKW_LEFTPARENTerminalRuleCall_22_1()); 
     }
 
 
@@ -1803,16 +1825,16 @@ this_SKW_LEFTPAREN_28=RULE_SKW_LEFTPAREN
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getTypeSpecifierAccess().getTypeNameTypeNameParserRuleCall_21_2_0_0()); 
+	        newCompositeNode(grammarAccess.getTypeSpecifierAccess().getTypeNameTypeNameParserRuleCall_22_2_0_0()); 
 	    }
-		lv_typeName_29_0=ruleTypeName		{
+		lv_typeName_30_0=ruleTypeName		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getTypeSpecifierRule());
 	        }
        		set(
        			$current, 
        			"typeName",
-        		lv_typeName_29_0, 
+        		lv_typeName_30_0, 
         		"at.jku.weiner.c.parser.Parser.TypeName");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -1825,16 +1847,16 @@ this_SKW_LEFTPAREN_28=RULE_SKW_LEFTPAREN
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getTypeSpecifierAccess().getConstExprConstantExpressionParserRuleCall_21_2_1_0()); 
+	        newCompositeNode(grammarAccess.getTypeSpecifierAccess().getConstExprConstantExpressionParserRuleCall_22_2_1_0()); 
 	    }
-		lv_constExpr_30_0=ruleConstantExpression		{
+		lv_constExpr_31_0=ruleConstantExpression		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getTypeSpecifierRule());
 	        }
        		set(
        			$current, 
        			"constExpr",
-        		lv_constExpr_30_0, 
+        		lv_constExpr_31_0, 
         		"at.jku.weiner.c.parser.Parser.ConstantExpression");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -1845,9 +1867,9 @@ this_SKW_LEFTPAREN_28=RULE_SKW_LEFTPAREN
 )
 
 
-this_SKW_RIGHTPAREN_31=RULE_SKW_RIGHTPAREN
+this_SKW_RIGHTPAREN_32=RULE_SKW_RIGHTPAREN
     { 
-    newLeafNode(this_SKW_RIGHTPAREN_31, grammarAccess.getTypeSpecifierAccess().getSKW_RIGHTPARENTerminalRuleCall_21_3()); 
+    newLeafNode(this_SKW_RIGHTPAREN_32, grammarAccess.getTypeSpecifierAccess().getSKW_RIGHTPARENTerminalRuleCall_22_3()); 
     }
 
 
@@ -11813,6 +11835,8 @@ RULE_KW_INLINE2 : RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE RULE_KW_INLINE1;
 RULE_KW_INLINE3 : RULE_KW_INLINE2 RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE;
 
 RULE_KW_INT : 'int';
+
+RULE_KW_INT128_3 : '__int128';
 
 RULE_KW_LONG : 'long';
 

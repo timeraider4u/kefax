@@ -540,56 +540,58 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_6 = (Assignment)cAlternatives.eContents().get(6);
 		private final RuleCall cNameKW_INTTerminalRuleCall_6_0 = (RuleCall)cNameAssignment_6.eContents().get(0);
 		private final Assignment cNameAssignment_7 = (Assignment)cAlternatives.eContents().get(7);
-		private final RuleCall cNameKW_LONGTerminalRuleCall_7_0 = (RuleCall)cNameAssignment_7.eContents().get(0);
+		private final RuleCall cNameKW_INT128_3TerminalRuleCall_7_0 = (RuleCall)cNameAssignment_7.eContents().get(0);
 		private final Assignment cNameAssignment_8 = (Assignment)cAlternatives.eContents().get(8);
-		private final RuleCall cNameKW_SHORTTerminalRuleCall_8_0 = (RuleCall)cNameAssignment_8.eContents().get(0);
+		private final RuleCall cNameKW_LONGTerminalRuleCall_8_0 = (RuleCall)cNameAssignment_8.eContents().get(0);
 		private final Assignment cNameAssignment_9 = (Assignment)cAlternatives.eContents().get(9);
-		private final RuleCall cNameKW_M128TerminalRuleCall_9_0 = (RuleCall)cNameAssignment_9.eContents().get(0);
+		private final RuleCall cNameKW_SHORTTerminalRuleCall_9_0 = (RuleCall)cNameAssignment_9.eContents().get(0);
 		private final Assignment cNameAssignment_10 = (Assignment)cAlternatives.eContents().get(10);
-		private final RuleCall cNameKW_M128DTerminalRuleCall_10_0 = (RuleCall)cNameAssignment_10.eContents().get(0);
+		private final RuleCall cNameKW_M128TerminalRuleCall_10_0 = (RuleCall)cNameAssignment_10.eContents().get(0);
 		private final Assignment cNameAssignment_11 = (Assignment)cAlternatives.eContents().get(11);
-		private final RuleCall cNameKW_M128ITerminalRuleCall_11_0 = (RuleCall)cNameAssignment_11.eContents().get(0);
+		private final RuleCall cNameKW_M128DTerminalRuleCall_11_0 = (RuleCall)cNameAssignment_11.eContents().get(0);
 		private final Assignment cNameAssignment_12 = (Assignment)cAlternatives.eContents().get(12);
-		private final RuleCall cNameKW_SIGNED1TerminalRuleCall_12_0 = (RuleCall)cNameAssignment_12.eContents().get(0);
+		private final RuleCall cNameKW_M128ITerminalRuleCall_12_0 = (RuleCall)cNameAssignment_12.eContents().get(0);
 		private final Assignment cNameAssignment_13 = (Assignment)cAlternatives.eContents().get(13);
-		private final RuleCall cNameKW_SIGNED2TerminalRuleCall_13_0 = (RuleCall)cNameAssignment_13.eContents().get(0);
+		private final RuleCall cNameKW_SIGNED1TerminalRuleCall_13_0 = (RuleCall)cNameAssignment_13.eContents().get(0);
 		private final Assignment cNameAssignment_14 = (Assignment)cAlternatives.eContents().get(14);
-		private final RuleCall cNameKW_SIGNED3TerminalRuleCall_14_0 = (RuleCall)cNameAssignment_14.eContents().get(0);
+		private final RuleCall cNameKW_SIGNED2TerminalRuleCall_14_0 = (RuleCall)cNameAssignment_14.eContents().get(0);
 		private final Assignment cNameAssignment_15 = (Assignment)cAlternatives.eContents().get(15);
-		private final RuleCall cNameKW_UNSIGNEDTerminalRuleCall_15_0 = (RuleCall)cNameAssignment_15.eContents().get(0);
+		private final RuleCall cNameKW_SIGNED3TerminalRuleCall_15_0 = (RuleCall)cNameAssignment_15.eContents().get(0);
 		private final Assignment cNameAssignment_16 = (Assignment)cAlternatives.eContents().get(16);
-		private final RuleCall cNameKW_VOIDTerminalRuleCall_16_0 = (RuleCall)cNameAssignment_16.eContents().get(0);
-		private final Group cGroup_17 = (Group)cAlternatives.eContents().get(17);
-		private final Assignment cNameAssignment_17_0 = (Assignment)cGroup_17.eContents().get(0);
-		private final RuleCall cNameKW_EXTENSIONTerminalRuleCall_17_0_0 = (RuleCall)cNameAssignment_17_0.eContents().get(0);
-		private final Group cGroup_17_1 = (Group)cGroup_17.eContents().get(1);
-		private final RuleCall cSKW_LEFTPARENTerminalRuleCall_17_1_0 = (RuleCall)cGroup_17_1.eContents().get(0);
-		private final Alternatives cAlternatives_17_1_1 = (Alternatives)cGroup_17_1.eContents().get(1);
-		private final Assignment cExtTypeAssignment_17_1_1_0 = (Assignment)cAlternatives_17_1_1.eContents().get(0);
-		private final RuleCall cExtTypeKW_M128TerminalRuleCall_17_1_1_0_0 = (RuleCall)cExtTypeAssignment_17_1_1_0.eContents().get(0);
-		private final Assignment cExtTypeAssignment_17_1_1_1 = (Assignment)cAlternatives_17_1_1.eContents().get(1);
-		private final RuleCall cExtTypeKW_M128DTerminalRuleCall_17_1_1_1_0 = (RuleCall)cExtTypeAssignment_17_1_1_1.eContents().get(0);
-		private final Assignment cExtTypeAssignment_17_1_1_2 = (Assignment)cAlternatives_17_1_1.eContents().get(2);
-		private final RuleCall cExtTypeKW_M128ITerminalRuleCall_17_1_1_2_0 = (RuleCall)cExtTypeAssignment_17_1_1_2.eContents().get(0);
-		private final RuleCall cSKW_RIGHTPARENTerminalRuleCall_17_1_2 = (RuleCall)cGroup_17_1.eContents().get(2);
-		private final Assignment cSpecifierAssignment_18 = (Assignment)cAlternatives.eContents().get(18);
-		private final RuleCall cSpecifierStructOrUnionSpecifierParserRuleCall_18_0 = (RuleCall)cSpecifierAssignment_18.eContents().get(0);
+		private final RuleCall cNameKW_UNSIGNEDTerminalRuleCall_16_0 = (RuleCall)cNameAssignment_16.eContents().get(0);
+		private final Assignment cNameAssignment_17 = (Assignment)cAlternatives.eContents().get(17);
+		private final RuleCall cNameKW_VOIDTerminalRuleCall_17_0 = (RuleCall)cNameAssignment_17.eContents().get(0);
+		private final Group cGroup_18 = (Group)cAlternatives.eContents().get(18);
+		private final Assignment cNameAssignment_18_0 = (Assignment)cGroup_18.eContents().get(0);
+		private final RuleCall cNameKW_EXTENSIONTerminalRuleCall_18_0_0 = (RuleCall)cNameAssignment_18_0.eContents().get(0);
+		private final Group cGroup_18_1 = (Group)cGroup_18.eContents().get(1);
+		private final RuleCall cSKW_LEFTPARENTerminalRuleCall_18_1_0 = (RuleCall)cGroup_18_1.eContents().get(0);
+		private final Alternatives cAlternatives_18_1_1 = (Alternatives)cGroup_18_1.eContents().get(1);
+		private final Assignment cExtTypeAssignment_18_1_1_0 = (Assignment)cAlternatives_18_1_1.eContents().get(0);
+		private final RuleCall cExtTypeKW_M128TerminalRuleCall_18_1_1_0_0 = (RuleCall)cExtTypeAssignment_18_1_1_0.eContents().get(0);
+		private final Assignment cExtTypeAssignment_18_1_1_1 = (Assignment)cAlternatives_18_1_1.eContents().get(1);
+		private final RuleCall cExtTypeKW_M128DTerminalRuleCall_18_1_1_1_0 = (RuleCall)cExtTypeAssignment_18_1_1_1.eContents().get(0);
+		private final Assignment cExtTypeAssignment_18_1_1_2 = (Assignment)cAlternatives_18_1_1.eContents().get(2);
+		private final RuleCall cExtTypeKW_M128ITerminalRuleCall_18_1_1_2_0 = (RuleCall)cExtTypeAssignment_18_1_1_2.eContents().get(0);
+		private final RuleCall cSKW_RIGHTPARENTerminalRuleCall_18_1_2 = (RuleCall)cGroup_18_1.eContents().get(2);
 		private final Assignment cSpecifierAssignment_19 = (Assignment)cAlternatives.eContents().get(19);
-		private final RuleCall cSpecifierEnumSpecifierParserRuleCall_19_0 = (RuleCall)cSpecifierAssignment_19.eContents().get(0);
-		private final Assignment cTypeAssignment_20 = (Assignment)cAlternatives.eContents().get(20);
-		private final RuleCall cTypeTypedefNameParserRuleCall_20_0 = (RuleCall)cTypeAssignment_20.eContents().get(0);
-		private final Group cGroup_21 = (Group)cAlternatives.eContents().get(21);
-		private final Assignment cTypeOfAssignment_21_0 = (Assignment)cGroup_21.eContents().get(0);
-		private final Alternatives cTypeOfAlternatives_21_0_0 = (Alternatives)cTypeOfAssignment_21_0.eContents().get(0);
-		private final RuleCall cTypeOfKW_TYPEOF1TerminalRuleCall_21_0_0_0 = (RuleCall)cTypeOfAlternatives_21_0_0.eContents().get(0);
-		private final RuleCall cTypeOfKW_TYPEOF3TerminalRuleCall_21_0_0_1 = (RuleCall)cTypeOfAlternatives_21_0_0.eContents().get(1);
-		private final RuleCall cSKW_LEFTPARENTerminalRuleCall_21_1 = (RuleCall)cGroup_21.eContents().get(1);
-		private final Alternatives cAlternatives_21_2 = (Alternatives)cGroup_21.eContents().get(2);
-		private final Assignment cTypeNameAssignment_21_2_0 = (Assignment)cAlternatives_21_2.eContents().get(0);
-		private final RuleCall cTypeNameTypeNameParserRuleCall_21_2_0_0 = (RuleCall)cTypeNameAssignment_21_2_0.eContents().get(0);
-		private final Assignment cConstExprAssignment_21_2_1 = (Assignment)cAlternatives_21_2.eContents().get(1);
-		private final RuleCall cConstExprConstantExpressionParserRuleCall_21_2_1_0 = (RuleCall)cConstExprAssignment_21_2_1.eContents().get(0);
-		private final RuleCall cSKW_RIGHTPARENTerminalRuleCall_21_3 = (RuleCall)cGroup_21.eContents().get(3);
+		private final RuleCall cSpecifierStructOrUnionSpecifierParserRuleCall_19_0 = (RuleCall)cSpecifierAssignment_19.eContents().get(0);
+		private final Assignment cSpecifierAssignment_20 = (Assignment)cAlternatives.eContents().get(20);
+		private final RuleCall cSpecifierEnumSpecifierParserRuleCall_20_0 = (RuleCall)cSpecifierAssignment_20.eContents().get(0);
+		private final Assignment cTypeAssignment_21 = (Assignment)cAlternatives.eContents().get(21);
+		private final RuleCall cTypeTypedefNameParserRuleCall_21_0 = (RuleCall)cTypeAssignment_21.eContents().get(0);
+		private final Group cGroup_22 = (Group)cAlternatives.eContents().get(22);
+		private final Assignment cTypeOfAssignment_22_0 = (Assignment)cGroup_22.eContents().get(0);
+		private final Alternatives cTypeOfAlternatives_22_0_0 = (Alternatives)cTypeOfAssignment_22_0.eContents().get(0);
+		private final RuleCall cTypeOfKW_TYPEOF1TerminalRuleCall_22_0_0_0 = (RuleCall)cTypeOfAlternatives_22_0_0.eContents().get(0);
+		private final RuleCall cTypeOfKW_TYPEOF3TerminalRuleCall_22_0_0_1 = (RuleCall)cTypeOfAlternatives_22_0_0.eContents().get(1);
+		private final RuleCall cSKW_LEFTPARENTerminalRuleCall_22_1 = (RuleCall)cGroup_22.eContents().get(1);
+		private final Alternatives cAlternatives_22_2 = (Alternatives)cGroup_22.eContents().get(2);
+		private final Assignment cTypeNameAssignment_22_2_0 = (Assignment)cAlternatives_22_2.eContents().get(0);
+		private final RuleCall cTypeNameTypeNameParserRuleCall_22_2_0_0 = (RuleCall)cTypeNameAssignment_22_2_0.eContents().get(0);
+		private final Assignment cConstExprAssignment_22_2_1 = (Assignment)cAlternatives_22_2.eContents().get(1);
+		private final RuleCall cConstExprConstantExpressionParserRuleCall_22_2_1_0 = (RuleCall)cConstExprAssignment_22_2_1.eContents().get(0);
+		private final RuleCall cSKW_RIGHTPARENTerminalRuleCall_22_3 = (RuleCall)cGroup_22.eContents().get(3);
 		
 		//TypeSpecifier initRuleAction { at.jku.weiner.c.parser.utils.Log.log("In typeSpecifier "); }:
 		//	{TypeSpecifier} name=KW_BOOL
@@ -599,6 +601,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//	| name=KW_DOUBLE
 		//	| name=KW_FLOAT
 		//	| name=KW_INT
+		//	| name=KW_INT128_3
 		//	| name=KW_LONG
 		//	| name=KW_SHORT
 		//	| name=KW_M128
@@ -619,9 +622,9 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{TypeSpecifier} name=KW_BOOL | name=KW_BUILTIN_VA_LIST | name=KW_CHAR | name=KW_COMPLEX | name=KW_DOUBLE | name=KW_FLOAT
-		//| name=KW_INT | name=KW_LONG | name=KW_SHORT | name=KW_M128 | name=KW_M128D | name=KW_M128I | name=KW_SIGNED1 |
-		//name=KW_SIGNED2 | name=KW_SIGNED3 | name=KW_UNSIGNED | name=KW_VOID | name=KW_EXTENSION (SKW_LEFTPAREN (extType=KW_M128
-		//| extType=KW_M128D | extType=KW_M128I) SKW_RIGHTPAREN)? //  |	specifier=atomicTypeSpecifier
+		//| name=KW_INT | name=KW_INT128_3 | name=KW_LONG | name=KW_SHORT | name=KW_M128 | name=KW_M128D | name=KW_M128I |
+		//name=KW_SIGNED1 | name=KW_SIGNED2 | name=KW_SIGNED3 | name=KW_UNSIGNED | name=KW_VOID | name=KW_EXTENSION
+		//(SKW_LEFTPAREN (extType=KW_M128 | extType=KW_M128D | extType=KW_M128I) SKW_RIGHTPAREN)? //  |	specifier=atomicTypeSpecifier
 		//| specifier=StructOrUnionSpecifier | specifier=EnumSpecifier | type=TypedefName | typeOf=(KW_TYPEOF1 | KW_TYPEOF3)
 		//SKW_LEFTPAREN (typeName=TypeName | constExpr=ConstantExpression) SKW_RIGHTPAREN
 		public Alternatives getAlternatives() { return cAlternatives; }
@@ -674,158 +677,164 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//KW_INT
 		public RuleCall getNameKW_INTTerminalRuleCall_6_0() { return cNameKW_INTTerminalRuleCall_6_0; }
 		
-		//name=KW_LONG
+		//name=KW_INT128_3
 		public Assignment getNameAssignment_7() { return cNameAssignment_7; }
 		
-		//KW_LONG
-		public RuleCall getNameKW_LONGTerminalRuleCall_7_0() { return cNameKW_LONGTerminalRuleCall_7_0; }
+		//KW_INT128_3
+		public RuleCall getNameKW_INT128_3TerminalRuleCall_7_0() { return cNameKW_INT128_3TerminalRuleCall_7_0; }
 		
-		//name=KW_SHORT
+		//name=KW_LONG
 		public Assignment getNameAssignment_8() { return cNameAssignment_8; }
 		
-		//KW_SHORT
-		public RuleCall getNameKW_SHORTTerminalRuleCall_8_0() { return cNameKW_SHORTTerminalRuleCall_8_0; }
+		//KW_LONG
+		public RuleCall getNameKW_LONGTerminalRuleCall_8_0() { return cNameKW_LONGTerminalRuleCall_8_0; }
 		
-		//name=KW_M128
+		//name=KW_SHORT
 		public Assignment getNameAssignment_9() { return cNameAssignment_9; }
 		
-		//KW_M128
-		public RuleCall getNameKW_M128TerminalRuleCall_9_0() { return cNameKW_M128TerminalRuleCall_9_0; }
+		//KW_SHORT
+		public RuleCall getNameKW_SHORTTerminalRuleCall_9_0() { return cNameKW_SHORTTerminalRuleCall_9_0; }
 		
-		//name=KW_M128D
+		//name=KW_M128
 		public Assignment getNameAssignment_10() { return cNameAssignment_10; }
 		
-		//KW_M128D
-		public RuleCall getNameKW_M128DTerminalRuleCall_10_0() { return cNameKW_M128DTerminalRuleCall_10_0; }
+		//KW_M128
+		public RuleCall getNameKW_M128TerminalRuleCall_10_0() { return cNameKW_M128TerminalRuleCall_10_0; }
 		
-		//name=KW_M128I
+		//name=KW_M128D
 		public Assignment getNameAssignment_11() { return cNameAssignment_11; }
 		
-		//KW_M128I
-		public RuleCall getNameKW_M128ITerminalRuleCall_11_0() { return cNameKW_M128ITerminalRuleCall_11_0; }
+		//KW_M128D
+		public RuleCall getNameKW_M128DTerminalRuleCall_11_0() { return cNameKW_M128DTerminalRuleCall_11_0; }
 		
-		//name=KW_SIGNED1
+		//name=KW_M128I
 		public Assignment getNameAssignment_12() { return cNameAssignment_12; }
 		
-		//KW_SIGNED1
-		public RuleCall getNameKW_SIGNED1TerminalRuleCall_12_0() { return cNameKW_SIGNED1TerminalRuleCall_12_0; }
+		//KW_M128I
+		public RuleCall getNameKW_M128ITerminalRuleCall_12_0() { return cNameKW_M128ITerminalRuleCall_12_0; }
 		
-		//name=KW_SIGNED2
+		//name=KW_SIGNED1
 		public Assignment getNameAssignment_13() { return cNameAssignment_13; }
 		
-		//KW_SIGNED2
-		public RuleCall getNameKW_SIGNED2TerminalRuleCall_13_0() { return cNameKW_SIGNED2TerminalRuleCall_13_0; }
+		//KW_SIGNED1
+		public RuleCall getNameKW_SIGNED1TerminalRuleCall_13_0() { return cNameKW_SIGNED1TerminalRuleCall_13_0; }
 		
-		//name=KW_SIGNED3
+		//name=KW_SIGNED2
 		public Assignment getNameAssignment_14() { return cNameAssignment_14; }
 		
-		//KW_SIGNED3
-		public RuleCall getNameKW_SIGNED3TerminalRuleCall_14_0() { return cNameKW_SIGNED3TerminalRuleCall_14_0; }
+		//KW_SIGNED2
+		public RuleCall getNameKW_SIGNED2TerminalRuleCall_14_0() { return cNameKW_SIGNED2TerminalRuleCall_14_0; }
 		
-		//name=KW_UNSIGNED
+		//name=KW_SIGNED3
 		public Assignment getNameAssignment_15() { return cNameAssignment_15; }
 		
-		//KW_UNSIGNED
-		public RuleCall getNameKW_UNSIGNEDTerminalRuleCall_15_0() { return cNameKW_UNSIGNEDTerminalRuleCall_15_0; }
+		//KW_SIGNED3
+		public RuleCall getNameKW_SIGNED3TerminalRuleCall_15_0() { return cNameKW_SIGNED3TerminalRuleCall_15_0; }
 		
-		//name=KW_VOID
+		//name=KW_UNSIGNED
 		public Assignment getNameAssignment_16() { return cNameAssignment_16; }
 		
+		//KW_UNSIGNED
+		public RuleCall getNameKW_UNSIGNEDTerminalRuleCall_16_0() { return cNameKW_UNSIGNEDTerminalRuleCall_16_0; }
+		
+		//name=KW_VOID
+		public Assignment getNameAssignment_17() { return cNameAssignment_17; }
+		
 		//KW_VOID
-		public RuleCall getNameKW_VOIDTerminalRuleCall_16_0() { return cNameKW_VOIDTerminalRuleCall_16_0; }
+		public RuleCall getNameKW_VOIDTerminalRuleCall_17_0() { return cNameKW_VOIDTerminalRuleCall_17_0; }
 		
 		//name=KW_EXTENSION (SKW_LEFTPAREN (extType=KW_M128 | extType=KW_M128D | extType=KW_M128I) SKW_RIGHTPAREN)?
-		public Group getGroup_17() { return cGroup_17; }
+		public Group getGroup_18() { return cGroup_18; }
 		
 		//name=KW_EXTENSION
-		public Assignment getNameAssignment_17_0() { return cNameAssignment_17_0; }
+		public Assignment getNameAssignment_18_0() { return cNameAssignment_18_0; }
 		
 		//KW_EXTENSION
-		public RuleCall getNameKW_EXTENSIONTerminalRuleCall_17_0_0() { return cNameKW_EXTENSIONTerminalRuleCall_17_0_0; }
+		public RuleCall getNameKW_EXTENSIONTerminalRuleCall_18_0_0() { return cNameKW_EXTENSIONTerminalRuleCall_18_0_0; }
 		
 		//(SKW_LEFTPAREN (extType=KW_M128 | extType=KW_M128D | extType=KW_M128I) SKW_RIGHTPAREN)?
-		public Group getGroup_17_1() { return cGroup_17_1; }
+		public Group getGroup_18_1() { return cGroup_18_1; }
 		
 		//SKW_LEFTPAREN
-		public RuleCall getSKW_LEFTPARENTerminalRuleCall_17_1_0() { return cSKW_LEFTPARENTerminalRuleCall_17_1_0; }
+		public RuleCall getSKW_LEFTPARENTerminalRuleCall_18_1_0() { return cSKW_LEFTPARENTerminalRuleCall_18_1_0; }
 		
 		//(extType=KW_M128 | extType=KW_M128D | extType=KW_M128I)
-		public Alternatives getAlternatives_17_1_1() { return cAlternatives_17_1_1; }
+		public Alternatives getAlternatives_18_1_1() { return cAlternatives_18_1_1; }
 		
 		//extType=KW_M128
-		public Assignment getExtTypeAssignment_17_1_1_0() { return cExtTypeAssignment_17_1_1_0; }
+		public Assignment getExtTypeAssignment_18_1_1_0() { return cExtTypeAssignment_18_1_1_0; }
 		
 		//KW_M128
-		public RuleCall getExtTypeKW_M128TerminalRuleCall_17_1_1_0_0() { return cExtTypeKW_M128TerminalRuleCall_17_1_1_0_0; }
+		public RuleCall getExtTypeKW_M128TerminalRuleCall_18_1_1_0_0() { return cExtTypeKW_M128TerminalRuleCall_18_1_1_0_0; }
 		
 		//extType=KW_M128D
-		public Assignment getExtTypeAssignment_17_1_1_1() { return cExtTypeAssignment_17_1_1_1; }
+		public Assignment getExtTypeAssignment_18_1_1_1() { return cExtTypeAssignment_18_1_1_1; }
 		
 		//KW_M128D
-		public RuleCall getExtTypeKW_M128DTerminalRuleCall_17_1_1_1_0() { return cExtTypeKW_M128DTerminalRuleCall_17_1_1_1_0; }
+		public RuleCall getExtTypeKW_M128DTerminalRuleCall_18_1_1_1_0() { return cExtTypeKW_M128DTerminalRuleCall_18_1_1_1_0; }
 		
 		//extType=KW_M128I
-		public Assignment getExtTypeAssignment_17_1_1_2() { return cExtTypeAssignment_17_1_1_2; }
+		public Assignment getExtTypeAssignment_18_1_1_2() { return cExtTypeAssignment_18_1_1_2; }
 		
 		//KW_M128I
-		public RuleCall getExtTypeKW_M128ITerminalRuleCall_17_1_1_2_0() { return cExtTypeKW_M128ITerminalRuleCall_17_1_1_2_0; }
+		public RuleCall getExtTypeKW_M128ITerminalRuleCall_18_1_1_2_0() { return cExtTypeKW_M128ITerminalRuleCall_18_1_1_2_0; }
 		
 		//SKW_RIGHTPAREN
-		public RuleCall getSKW_RIGHTPARENTerminalRuleCall_17_1_2() { return cSKW_RIGHTPARENTerminalRuleCall_17_1_2; }
+		public RuleCall getSKW_RIGHTPARENTerminalRuleCall_18_1_2() { return cSKW_RIGHTPARENTerminalRuleCall_18_1_2; }
 		
 		//specifier=StructOrUnionSpecifier
-		public Assignment getSpecifierAssignment_18() { return cSpecifierAssignment_18; }
-		
-		//StructOrUnionSpecifier
-		public RuleCall getSpecifierStructOrUnionSpecifierParserRuleCall_18_0() { return cSpecifierStructOrUnionSpecifierParserRuleCall_18_0; }
-		
-		//specifier=EnumSpecifier
 		public Assignment getSpecifierAssignment_19() { return cSpecifierAssignment_19; }
 		
+		//StructOrUnionSpecifier
+		public RuleCall getSpecifierStructOrUnionSpecifierParserRuleCall_19_0() { return cSpecifierStructOrUnionSpecifierParserRuleCall_19_0; }
+		
+		//specifier=EnumSpecifier
+		public Assignment getSpecifierAssignment_20() { return cSpecifierAssignment_20; }
+		
 		//EnumSpecifier
-		public RuleCall getSpecifierEnumSpecifierParserRuleCall_19_0() { return cSpecifierEnumSpecifierParserRuleCall_19_0; }
+		public RuleCall getSpecifierEnumSpecifierParserRuleCall_20_0() { return cSpecifierEnumSpecifierParserRuleCall_20_0; }
 		
 		//type=TypedefName
-		public Assignment getTypeAssignment_20() { return cTypeAssignment_20; }
+		public Assignment getTypeAssignment_21() { return cTypeAssignment_21; }
 		
 		//TypedefName
-		public RuleCall getTypeTypedefNameParserRuleCall_20_0() { return cTypeTypedefNameParserRuleCall_20_0; }
+		public RuleCall getTypeTypedefNameParserRuleCall_21_0() { return cTypeTypedefNameParserRuleCall_21_0; }
 		
 		//typeOf=(KW_TYPEOF1 | KW_TYPEOF3) SKW_LEFTPAREN (typeName=TypeName | constExpr=ConstantExpression) SKW_RIGHTPAREN
-		public Group getGroup_21() { return cGroup_21; }
+		public Group getGroup_22() { return cGroup_22; }
 		
 		//typeOf=(KW_TYPEOF1 | KW_TYPEOF3)
-		public Assignment getTypeOfAssignment_21_0() { return cTypeOfAssignment_21_0; }
+		public Assignment getTypeOfAssignment_22_0() { return cTypeOfAssignment_22_0; }
 		
 		//(KW_TYPEOF1 | KW_TYPEOF3)
-		public Alternatives getTypeOfAlternatives_21_0_0() { return cTypeOfAlternatives_21_0_0; }
+		public Alternatives getTypeOfAlternatives_22_0_0() { return cTypeOfAlternatives_22_0_0; }
 		
 		//KW_TYPEOF1
-		public RuleCall getTypeOfKW_TYPEOF1TerminalRuleCall_21_0_0_0() { return cTypeOfKW_TYPEOF1TerminalRuleCall_21_0_0_0; }
+		public RuleCall getTypeOfKW_TYPEOF1TerminalRuleCall_22_0_0_0() { return cTypeOfKW_TYPEOF1TerminalRuleCall_22_0_0_0; }
 		
 		//KW_TYPEOF3
-		public RuleCall getTypeOfKW_TYPEOF3TerminalRuleCall_21_0_0_1() { return cTypeOfKW_TYPEOF3TerminalRuleCall_21_0_0_1; }
+		public RuleCall getTypeOfKW_TYPEOF3TerminalRuleCall_22_0_0_1() { return cTypeOfKW_TYPEOF3TerminalRuleCall_22_0_0_1; }
 		
 		//SKW_LEFTPAREN
-		public RuleCall getSKW_LEFTPARENTerminalRuleCall_21_1() { return cSKW_LEFTPARENTerminalRuleCall_21_1; }
+		public RuleCall getSKW_LEFTPARENTerminalRuleCall_22_1() { return cSKW_LEFTPARENTerminalRuleCall_22_1; }
 		
 		//(typeName=TypeName | constExpr=ConstantExpression)
-		public Alternatives getAlternatives_21_2() { return cAlternatives_21_2; }
+		public Alternatives getAlternatives_22_2() { return cAlternatives_22_2; }
 		
 		//typeName=TypeName
-		public Assignment getTypeNameAssignment_21_2_0() { return cTypeNameAssignment_21_2_0; }
+		public Assignment getTypeNameAssignment_22_2_0() { return cTypeNameAssignment_22_2_0; }
 		
 		//TypeName
-		public RuleCall getTypeNameTypeNameParserRuleCall_21_2_0_0() { return cTypeNameTypeNameParserRuleCall_21_2_0_0; }
+		public RuleCall getTypeNameTypeNameParserRuleCall_22_2_0_0() { return cTypeNameTypeNameParserRuleCall_22_2_0_0; }
 		
 		//constExpr=ConstantExpression
-		public Assignment getConstExprAssignment_21_2_1() { return cConstExprAssignment_21_2_1; }
+		public Assignment getConstExprAssignment_22_2_1() { return cConstExprAssignment_22_2_1; }
 		
 		//ConstantExpression
-		public RuleCall getConstExprConstantExpressionParserRuleCall_21_2_1_0() { return cConstExprConstantExpressionParserRuleCall_21_2_1_0; }
+		public RuleCall getConstExprConstantExpressionParserRuleCall_22_2_1_0() { return cConstExprConstantExpressionParserRuleCall_22_2_1_0; }
 		
 		//SKW_RIGHTPAREN
-		public RuleCall getSKW_RIGHTPARENTerminalRuleCall_21_3() { return cSKW_RIGHTPARENTerminalRuleCall_21_3; }
+		public RuleCall getSKW_RIGHTPARENTerminalRuleCall_22_3() { return cSKW_RIGHTPARENTerminalRuleCall_22_3; }
 	}
 	public class TypedefNameElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.TypedefName");
@@ -5294,6 +5303,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tKW_INLINE2;
 	private final TerminalRule tKW_INLINE3;
 	private final TerminalRule tKW_INT;
+	private final TerminalRule tKW_INT128_3;
 	private final TerminalRule tKW_LONG;
 	private final TerminalRule tKW_M128;
 	private final TerminalRule tKW_M128D;
@@ -5468,6 +5478,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		this.tKW_INLINE2 = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_INLINE2");
 		this.tKW_INLINE3 = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_INLINE3");
 		this.tKW_INT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_INT");
+		this.tKW_INT128_3 = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_INT128_3");
 		this.tKW_LONG = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_LONG");
 		this.tKW_M128 = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_M128");
 		this.tKW_M128D = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.KW_M128D");
@@ -5689,6 +5700,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//	| name=KW_DOUBLE
 	//	| name=KW_FLOAT
 	//	| name=KW_INT
+	//	| name=KW_INT128_3
 	//	| name=KW_LONG
 	//	| name=KW_SHORT
 	//	| name=KW_M128
@@ -6851,6 +6863,12 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//	'int';
 	public TerminalRule getKW_INTRule() {
 		return tKW_INT;
+	}
+	
+	//terminal KW_INT128_3:
+	//	'__int128';
+	public TerminalRule getKW_INT128_3Rule() {
+		return tKW_INT128_3;
 	}
 	
 	//terminal KW_LONG:

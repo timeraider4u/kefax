@@ -175,6 +175,7 @@ initRuleAction {
 	|	name=KW_DOUBLE
 	|	name=KW_FLOAT
 	|	name=KW_INT
+	|	name=KW_INT128_3
 	|	name=KW_LONG
 	|	name=KW_SHORT
 	|	name=KW_M128
@@ -186,7 +187,6 @@ initRuleAction {
 	|	name=KW_UNSIGNED
 	|	name=KW_VOID
 	
-
 	|	name=KW_EXTENSION (SKW_LEFTPAREN 
 			(extType=KW_M128 | extType=KW_M128D | extType=KW_M128I) 
 			SKW_RIGHTPAREN)?
@@ -959,6 +959,7 @@ terminal KW_INLINE1 : 'inline';
 terminal KW_INLINE2 : SKW_UNDERSCORE SKW_UNDERSCORE KW_INLINE1;
 terminal KW_INLINE3: KW_INLINE2 SKW_UNDERSCORE SKW_UNDERSCORE;
 terminal KW_INT : 'int';
+terminal KW_INT128_3: '__int128';
 terminal KW_LONG : 'long';
 terminal KW_M128: SKW_UNDERSCORE SKW_UNDERSCORE 'm128';
 terminal KW_M128D: KW_M128 'd';

@@ -1032,7 +1032,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	/**
 	 * Constraint:
 	 *     (
-	 *         expr+=PrimaryExpression 
+	 *         ((ext?=KW_EXTENSION? typeName=TypeName initializerList=InitializerList comma?=SKW_COMMA?) | expr+=PrimaryExpression) 
 	 *         (
 	 *             suffix+=PostfixExpressionSuffixArray | 
 	 *             suffix+=PostfixExpressionSuffixArgument | 
@@ -1055,8 +1055,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	 *         const=Constant2 | 
 	 *         string+=STRING_LITERAL+ | 
 	 *         expr=Expression | 
-	 *         compoundStmt=CompoundStatement | 
-	 *         (ext?=KW_EXTENSION compoundStmt=CompoundStatement) | 
+	 *         (ext?=KW_EXTENSION? compoundStmt=CompoundStatement) | 
 	 *         (builtin_offsetof?=KW_BUILTIN_OFFSETOF typeName=TypeName expr=UnaryExpression)
 	 *     )
 	 */

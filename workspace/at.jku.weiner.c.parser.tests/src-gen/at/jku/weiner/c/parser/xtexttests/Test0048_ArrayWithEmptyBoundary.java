@@ -105,13 +105,13 @@ public class Test0048_ArrayWithEmptyBoundary {
 			"res/Test0048_ArrayWithEmptyBoundary.c");
 			//System.out.println(text);
 			final String[] expected = new String[] {
-				"RULE_KW_CHAR", 
-				"RULE_WHITESPACE", 
-				"RULE_ID", 
-				"RULE_SKW_LEFTBRACKET", 
-				"RULE_SKW_RIGHTBRACKET", 
-				"RULE_SKW_SEMI", 
-				"RULE_NEWLINE", 
+				"RULE_KW_CHAR",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_LEFTBRACKET",
+				"RULE_SKW_RIGHTBRACKET",
+				"RULE_SKW_SEMI",
+				"RULE_NEWLINE",
 				};
 			//final List<Token> actual = testHelper.getTokens(text);
 			//testHelper.outputTokens(text);

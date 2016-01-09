@@ -91,7 +91,7 @@ public class Test0000_Empty {
 	}
 	
 	
-	@Test
+	@Test (timeout=1000)
 	public void checkParserResult() throws Exception {
 		final String text = this.getTextFromFile(
 			"res/Test0000_Empty.c");
@@ -106,6 +106,8 @@ public class Test0000_Empty {
 	}
 	
 	@Test
+	(timeout=1000
+	)
 	public void testGenerator() throws Exception {
 		// load the resource
 		ResourceSet set = this.resourceSetProvider.get();

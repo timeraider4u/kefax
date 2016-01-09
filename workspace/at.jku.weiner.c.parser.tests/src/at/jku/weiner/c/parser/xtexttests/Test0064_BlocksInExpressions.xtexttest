@@ -4,13 +4,14 @@ package at.jku.weiner.c.parser
 language parser
 imports at.jku.weiner.c.common.common
 //----------------------------------------------------------------------
-source file="res/Test0064_BlocksInPrimaryExpression.c"
+source file="res/Test0064_BlocksInExpressions.c"
 //----------------------------------------------------------------------
 lexer-tokens
 KW_INT WHITESPACE ID SKW_LEFTPAREN SKW_RIGHTPAREN WHITESPACE SKW_LEFTBRACE NEWLINE
-	// 1 + { 7; };
+	// 1 + (int) { 7 };
 	WHITESPACE DECIMAL_LITERAL WHITESPACE SKW_PLUS WHITESPACE
-		SKW_LEFTBRACE WHITESPACE DECIMAL_LITERAL SKW_SEMI WHITESPACE SKW_RIGHTBRACE SKW_SEMI NEWLINE
+		SKW_LEFTPAREN KW_INT SKW_RIGHTPAREN WHITESPACE
+		SKW_LEFTBRACE WHITESPACE DECIMAL_LITERAL WHITESPACE SKW_RIGHTBRACE SKW_SEMI NEWLINE
 	// return ...
 	WHITESPACE KW_RETURN WHITESPACE SKW_LEFTPAREN DECIMAL_LITERAL WHITESPACE 
 	SKW_OROR WHITESPACE SKW_LEFTPAREN SKW_LEFTBRACE NEWLINE
@@ -48,7 +49,7 @@ SKW_RIGHTBRACE NEWLINE
 					blockList+=
 					(BlockList
 						statement+=
-						// statement { 7 };
+						// statement 1 + (int) { 7 };
 						(Statement
 							stmt=
 							(ExpressionStatement
@@ -103,60 +104,57 @@ SKW_RIGHTBRACE NEWLINE
 																						(UnaryExpression
 																							expr=
 																							(PostfixExpression
-																								expr+=
-																								(PrimaryExpression
-																									compoundStmt=
-																									(CompoundStatement
-																										body=
-																										(BodyStatement
-																											blockList+=
-																											(BlockList
-																												statement+=
-																												(Statement
-																													stmt=
-																													(ExpressionStatement
-																														expression=
-																														(Expression
-																															exprExpr+=
-																															(AssignmentExpression
-																																expr=
-																																(ConditionalExpression
-																																	expr=
-																																	(LogicalOrExpression
+																								expr isEmpty,
+																								ext?=false,
+																								typeName=
+																								(TypeName
+																									list=
+																									(SpecifierQualifierList
+																										typeSpecifier+=
+																										(TypeSpecifier
+																											name++"int"
+																										)
+																									)
+																								),
+																								initializerList=
+																								(InitializerList
+																									initializer+=
+																									(Initializer
+																										expr=
+																										(AssignmentExpression
+																											expr=
+																											(ConditionalExpression
+																												expr=
+																												(LogicalOrExpression
+																													expr+=
+																													(LogicalAndExpression
+																														expr+=
+																														(InclusiveOrExpression
+																															expr+=
+																															(ExclusiveOrExpression
+																																expr+=
+																																(AndExpression
+																																	expr+=
+																																	(EqualityExpression
 																																		expr+=
-																																		(LogicalAndExpression
+																																		(RelationalExpression
 																																			expr+=
-																																			(InclusiveOrExpression
+																																			(ShiftExpression
 																																				expr+=
-																																				(ExclusiveOrExpression
+																																				(AdditiveExpression
 																																					expr+=
-																																					(AndExpression
+																																					(MultiplicativeExpression
 																																						expr+=
-																																						(EqualityExpression
-																																							expr+=
-																																							(RelationalExpression
-																																								expr+=
-																																								(ShiftExpression
+																																						(CastExpression
+																																							expr=
+																																							(UnaryExpression
+																																								expr=
+																																								(PostfixExpression
 																																									expr+=
-																																									(AdditiveExpression
-																																										expr+=
-																																										(MultiplicativeExpression
-																																											expr+=
-																																											(CastExpression
-																																												expr=
-																																												(UnaryExpression
-																																													expr=
-																																													(PostfixExpression
-																																														expr+=
-																																														(PrimaryExpression
-																																															const=
-																																															(common::Constant2
-																																																dec++"7"
-																																															)
-																																														)
-																																													)
-																																												)
-																																											)
+																																									(PrimaryExpression
+																																										const=
+																																										(common::Constant2
+																																											dec++"7"
 																																										)
 																																									)
 																																								)
@@ -169,13 +167,14 @@ SKW_RIGHTBRACE NEWLINE
 																																	)
 																																)
 																															)
-																														) // end expression
-																													) // end expression statement
-																												) // end statement
+																														)
+																													)
+																												)
 																											)
 																										)
-																									) // end compound statement
-																								)
+																									) // end initializer
+																								),
+																								comma?=false
 																							)
 																						)
 																					)
@@ -193,7 +192,7 @@ SKW_RIGHTBRACE NEWLINE
 									)
 								)
 							) // end expression statement
-						), // end statement { 7 };
+						), // end statement (int) { 7 };
 						// return ...
 						(Statement
 							stmt=
@@ -308,111 +307,60 @@ SKW_RIGHTBRACE NEWLINE
 																																								(PostfixExpression
 																																									expr+=
 																																									(PrimaryExpression
-																																										expr=
-																																										(Expression
-																																											exprExpr+=
-																																											(AssignmentExpression
-																																												expr=
-																																												(ConditionalExpression
-																																													expr=
-																																													(LogicalOrExpression
-																																														expr+=
-																																														(LogicalAndExpression
-																																															expr+=
-																																															(InclusiveOrExpression
-																																																expr+=
-																																																(ExclusiveOrExpression
-																																																	expr+=
-																																																	(AndExpression
-																																																		expr+=
-																																																		(EqualityExpression
+																																										ext?=false,
+																																										compoundStmt=
+																																										(CompoundStatement
+																																											body=
+																																											(BodyStatement
+																																												blockList+=
+																																												(BlockList
+																																													statement+=
+																																													(Statement
+																																														stmt=
+																																														(ExpressionStatement
+																																															expression=
+																																															(Expression
+																																																exprExpr+=
+																																																(AssignmentExpression
+																																																	expr=
+																																																	(ConditionalExpression
+																																																		expr=
+																																																		(LogicalOrExpression
 																																																			expr+=
-																																																			(RelationalExpression
+																																																			(LogicalAndExpression
 																																																				expr+=
-																																																				(ShiftExpression
+																																																				(InclusiveOrExpression
 																																																					expr+=
-																																																					(AdditiveExpression
+																																																					(ExclusiveOrExpression
 																																																						expr+=
-																																																						(MultiplicativeExpression
+																																																						(AndExpression
 																																																							expr+=
-																																																							(CastExpression
-																																																								expr=
-																																																								(UnaryExpression
-																																																									expr=
-																																																									(PostfixExpression
+																																																							(EqualityExpression
+																																																								expr+=
+																																																								(RelationalExpression
+																																																									expr+=
+																																																									(ShiftExpression
 																																																										expr+=
-																																																										(PrimaryExpression
-																																																											ext?=false,
-																																																											compoundStmt=
-																																																											(CompoundStatement
-																																																												body=
-																																																												(BodyStatement
-																																																													blockList+=
-																																																													(BlockList
-																																																														statement+=
-																																																														(Statement
-																																																															stmt=
-																																																															(ExpressionStatement
-																																																																expression=
-																																																																(Expression
-																																																																	exprExpr+=
-																																																																	(AssignmentExpression
-																																																																		expr=
-																																																																		(ConditionalExpression
-																																																																			expr=
-																																																																			(LogicalOrExpression
-																																																																				expr+=
-																																																																				(LogicalAndExpression
-																																																																					expr+=
-																																																																					(InclusiveOrExpression
-																																																																						expr+=
-																																																																						(ExclusiveOrExpression
-																																																																							expr+=
-																																																																							(AndExpression
-																																																																								expr+=
-																																																																								(EqualityExpression
-																																																																									expr+=
-																																																																									(RelationalExpression
-																																																																										expr+=
-																																																																										(ShiftExpression
-																																																																											expr+=
-																																																																											(AdditiveExpression
-																																																																												expr+=
-																																																																												(MultiplicativeExpression
-																																																																													expr+=
-																																																																													(CastExpression
-																																																																														expr=
-																																																																														(UnaryExpression
-																																																																															expr=
-																																																																															(PostfixExpression
-																																																																																expr+=
-																																																																																(PrimaryExpression
-																																																																																	const=
-																																																																																	(common::Constant2
-																																																																																		dec++"5"
-																																																																																	)
-																																																																																)
-																																																																															)
-																																																																														)
-																																																																													)
-																																																																												)
-																																																																											)
-																																																																										)
-																																																																									)
-																																																																								)
-																																																																							)
-																																																																						)
-																																																																					)
-																																																																				)
-																																																																			)
-																																																																		)
-																																																																	)
-																																																																) // end expression
-																																																															) // end expression statement
-																																																														) // end statement
+																																																										(AdditiveExpression
+																																																											expr+=
+																																																											(MultiplicativeExpression
+																																																												expr+=
+																																																												(CastExpression
+																																																													expr=
+																																																													(UnaryExpression
+																																																														expr=
+																																																														(PostfixExpression
+																																																															expr+=
+																																																															(PrimaryExpression
+																																																																const=
+																																																																(common::Constant2
+																																																																	dec++"5"
+																																																																)
+																																																															)
+																																																														)
 																																																													)
 																																																												)
-																																																											) // end compound statement
+																																																											)
 																																																										)
 																																																									)
 																																																								)
@@ -424,12 +372,12 @@ SKW_RIGHTBRACE NEWLINE
 																																																		)
 																																																	)
 																																																)
-																																															)
-																																														)
-																																													)
+																																															) // end expression
+																																														) // end expression statement
+																																													) // end statement
 																																												)
 																																											)
-																																										)		
+																																										) // end compound statement
 																																									)
 																																								)
 																																							)
@@ -476,7 +424,7 @@ SKW_RIGHTBRACE NEWLINE
 //)
 //)
 //----------------------------------------------------------------------
-output file="bin/Test0064_BlocksInPrimaryExpression.c"
+output file="bin/Test0064_BlocksInExpressions.c"
 expected file isSameAsInputFile
 
 replacePatterns file="res/Patterns.txt"

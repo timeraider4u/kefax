@@ -3403,13 +3403,49 @@ public interface ParserPackage extends EPackage
   int POSTFIX_EXPRESSION__EXPR_EXPR = EXPRESSION__EXPR_EXPR;
 
   /**
+   * The feature id for the '<em><b>Ext</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POSTFIX_EXPRESSION__EXT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Type Name</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POSTFIX_EXPRESSION__TYPE_NAME = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Initializer List</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POSTFIX_EXPRESSION__INITIALIZER_LIST = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Comma</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POSTFIX_EXPRESSION__COMMA = EXPRESSION_FEATURE_COUNT + 3;
+
+  /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int POSTFIX_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 0;
+  int POSTFIX_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 4;
 
   /**
    * The feature id for the '<em><b>Suffix</b></em>' containment reference list.
@@ -3418,7 +3454,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int POSTFIX_EXPRESSION__SUFFIX = EXPRESSION_FEATURE_COUNT + 1;
+  int POSTFIX_EXPRESSION__SUFFIX = EXPRESSION_FEATURE_COUNT + 5;
 
   /**
    * The number of structural features of the '<em>Postfix Expression</em>' class.
@@ -3427,7 +3463,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int POSTFIX_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+  int POSTFIX_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 6;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.PostfixExpressionSuffixArrayImpl <em>Postfix Expression Suffix Array</em>}' class.
@@ -3644,22 +3680,22 @@ public interface ParserPackage extends EPackage
   int PRIMARY_EXPRESSION__EXPR = EXPRESSION_FEATURE_COUNT + 3;
 
   /**
-   * The feature id for the '<em><b>Compound Stmt</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMARY_EXPRESSION__COMPOUND_STMT = EXPRESSION_FEATURE_COUNT + 4;
-
-  /**
    * The feature id for the '<em><b>Ext</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PRIMARY_EXPRESSION__EXT = EXPRESSION_FEATURE_COUNT + 5;
+  int PRIMARY_EXPRESSION__EXT = EXPRESSION_FEATURE_COUNT + 4;
+
+  /**
+   * The feature id for the '<em><b>Compound Stmt</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_EXPRESSION__COMPOUND_STMT = EXPRESSION_FEATURE_COUNT + 5;
 
   /**
    * The feature id for the '<em><b>Builtin offsetof</b></em>' attribute.
@@ -6343,6 +6379,50 @@ public interface ParserPackage extends EPackage
   EClass getPostfixExpression();
 
   /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.PostfixExpression#isExt <em>Ext</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Ext</em>'.
+   * @see at.jku.weiner.c.parser.parser.PostfixExpression#isExt()
+   * @see #getPostfixExpression()
+   * @generated
+   */
+  EAttribute getPostfixExpression_Ext();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.PostfixExpression#getTypeName <em>Type Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type Name</em>'.
+   * @see at.jku.weiner.c.parser.parser.PostfixExpression#getTypeName()
+   * @see #getPostfixExpression()
+   * @generated
+   */
+  EReference getPostfixExpression_TypeName();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.PostfixExpression#getInitializerList <em>Initializer List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Initializer List</em>'.
+   * @see at.jku.weiner.c.parser.parser.PostfixExpression#getInitializerList()
+   * @see #getPostfixExpression()
+   * @generated
+   */
+  EReference getPostfixExpression_InitializerList();
+
+  /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.PostfixExpression#isComma <em>Comma</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Comma</em>'.
+   * @see at.jku.weiner.c.parser.parser.PostfixExpression#isComma()
+   * @see #getPostfixExpression()
+   * @generated
+   */
+  EAttribute getPostfixExpression_Comma();
+
+  /**
    * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.parser.parser.PostfixExpression#getExpr <em>Expr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6523,17 +6603,6 @@ public interface ParserPackage extends EPackage
   EReference getPrimaryExpression_Expr();
 
   /**
-   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getCompoundStmt <em>Compound Stmt</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Compound Stmt</em>'.
-   * @see at.jku.weiner.c.parser.parser.PrimaryExpression#getCompoundStmt()
-   * @see #getPrimaryExpression()
-   * @generated
-   */
-  EReference getPrimaryExpression_CompoundStmt();
-
-  /**
    * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.PrimaryExpression#isExt <em>Ext</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6543,6 +6612,17 @@ public interface ParserPackage extends EPackage
    * @generated
    */
   EAttribute getPrimaryExpression_Ext();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getCompoundStmt <em>Compound Stmt</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Compound Stmt</em>'.
+   * @see at.jku.weiner.c.parser.parser.PrimaryExpression#getCompoundStmt()
+   * @see #getPrimaryExpression()
+   * @generated
+   */
+  EReference getPrimaryExpression_CompoundStmt();
 
   /**
    * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.PrimaryExpression#isBuiltin_offsetof <em>Builtin offsetof</em>}'.
@@ -8717,6 +8797,38 @@ public interface ParserPackage extends EPackage
     EClass POSTFIX_EXPRESSION = eINSTANCE.getPostfixExpression();
 
     /**
+     * The meta object literal for the '<em><b>Ext</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute POSTFIX_EXPRESSION__EXT = eINSTANCE.getPostfixExpression_Ext();
+
+    /**
+     * The meta object literal for the '<em><b>Type Name</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference POSTFIX_EXPRESSION__TYPE_NAME = eINSTANCE.getPostfixExpression_TypeName();
+
+    /**
+     * The meta object literal for the '<em><b>Initializer List</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference POSTFIX_EXPRESSION__INITIALIZER_LIST = eINSTANCE.getPostfixExpression_InitializerList();
+
+    /**
+     * The meta object literal for the '<em><b>Comma</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute POSTFIX_EXPRESSION__COMMA = eINSTANCE.getPostfixExpression_Comma();
+
+    /**
      * The meta object literal for the '<em><b>Expr</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -8867,20 +8979,20 @@ public interface ParserPackage extends EPackage
     EReference PRIMARY_EXPRESSION__EXPR = eINSTANCE.getPrimaryExpression_Expr();
 
     /**
-     * The meta object literal for the '<em><b>Compound Stmt</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PRIMARY_EXPRESSION__COMPOUND_STMT = eINSTANCE.getPrimaryExpression_CompoundStmt();
-
-    /**
      * The meta object literal for the '<em><b>Ext</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EAttribute PRIMARY_EXPRESSION__EXT = eINSTANCE.getPrimaryExpression_Ext();
+
+    /**
+     * The meta object literal for the '<em><b>Compound Stmt</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PRIMARY_EXPRESSION__COMPOUND_STMT = eINSTANCE.getPrimaryExpression_CompoundStmt();
 
     /**
      * The meta object literal for the '<em><b>Builtin offsetof</b></em>' attribute feature.

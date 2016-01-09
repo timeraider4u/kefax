@@ -18,15 +18,16 @@ Require-Bundle: org.eclipse.xtext,
  org.antlr.runtime,
  at.jku.weiner.c.common;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: at.jku.weiner.c.parser.parser.antlr.internal,
+Export-Package: at.jku.weiner.c.parser,
+ at.jku.weiner.c.parser.generator,
+ at.jku.weiner.c.parser.parser,
  at.jku.weiner.c.parser.parser.antlr,
+ at.jku.weiner.c.parser.parser.antlr.internal,
+ at.jku.weiner.c.parser.parser.impl,
+ at.jku.weiner.c.parser.parser.util,
+ at.jku.weiner.c.parser.scoping,
  at.jku.weiner.c.parser.serializer,
  at.jku.weiner.c.parser.services,
- at.jku.weiner.c.parser.generator,
- at.jku.weiner.c.parser.validation,
- at.jku.weiner.c.parser.parser.impl,
- at.jku.weiner.c.parser.scoping,
- at.jku.weiner.c.parser.parser,
- at.jku.weiner.c.parser,
- at.jku.weiner.c.parser.parser.util
+ at.jku.weiner.c.parser.utils,
+ at.jku.weiner.c.parser.validation
 Import-Package: org.apache.log4j

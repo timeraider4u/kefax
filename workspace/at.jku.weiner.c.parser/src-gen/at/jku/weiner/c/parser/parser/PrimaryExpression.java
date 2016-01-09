@@ -19,8 +19,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getConst <em>Const</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getString <em>String</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getExpr <em>Expr</em>}</li>
- *   <li>{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getCompoundStmt <em>Compound Stmt</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.PrimaryExpression#isExt <em>Ext</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getCompoundStmt <em>Compound Stmt</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.PrimaryExpression#isBuiltin_offsetof <em>Builtin offsetof</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getTypeName <em>Type Name</em>}</li>
  * </ul>
@@ -126,32 +126,6 @@ public interface PrimaryExpression extends Expression
   void setExpr(Expression value);
 
   /**
-   * Returns the value of the '<em><b>Compound Stmt</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Compound Stmt</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Compound Stmt</em>' containment reference.
-   * @see #setCompoundStmt(Statement)
-   * @see at.jku.weiner.c.parser.parser.ParserPackage#getPrimaryExpression_CompoundStmt()
-   * @model containment="true"
-   * @generated
-   */
-  Statement getCompoundStmt();
-
-  /**
-   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getCompoundStmt <em>Compound Stmt</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Compound Stmt</em>' containment reference.
-   * @see #getCompoundStmt()
-   * @generated
-   */
-  void setCompoundStmt(Statement value);
-
-  /**
    * Returns the value of the '<em><b>Ext</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
@@ -176,6 +150,32 @@ public interface PrimaryExpression extends Expression
    * @generated
    */
   void setExt(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Compound Stmt</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Compound Stmt</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Compound Stmt</em>' containment reference.
+   * @see #setCompoundStmt(Statement)
+   * @see at.jku.weiner.c.parser.parser.ParserPackage#getPrimaryExpression_CompoundStmt()
+   * @model containment="true"
+   * @generated
+   */
+  Statement getCompoundStmt();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getCompoundStmt <em>Compound Stmt</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Compound Stmt</em>' containment reference.
+   * @see #getCompoundStmt()
+   * @generated
+   */
+  void setCompoundStmt(Statement value);
 
   /**
    * Returns the value of the '<em><b>Builtin offsetof</b></em>' attribute.

@@ -324,6 +324,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//UnaryExpression/id"/>
     </genClasses>
     <genClasses ecoreClass="Parser.ecore#//PostfixExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//PostfixExpression/ext"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//PostfixExpression/typeName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//PostfixExpression/initializerList"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//PostfixExpression/comma"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//PostfixExpression/expr"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//PostfixExpression/suffix"/>
     </genClasses>
@@ -346,8 +350,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//PrimaryExpression/const"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//PrimaryExpression/string"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//PrimaryExpression/expr"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//PrimaryExpression/compoundStmt"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//PrimaryExpression/ext"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//PrimaryExpression/compoundStmt"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//PrimaryExpression/builtin_offsetof"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//PrimaryExpression/typeName"/>
     </genClasses>

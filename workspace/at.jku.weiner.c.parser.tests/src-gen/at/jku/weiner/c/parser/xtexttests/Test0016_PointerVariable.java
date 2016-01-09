@@ -110,37 +110,37 @@ public class Test0016_PointerVariable {
 		return content;
 	}
 	
-	@Test
+	@Test (timeout=1000)
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
 			"res/Test0016_PointerVariable.c");
 			//System.out.println(text);
 			final String[] expected = new String[] {
-				"RULE_KW_FLOAT", 
-				"RULE_WHITESPACE", 
-				"RULE_SKW_STAR", 
-				"RULE_WHITESPACE", 
-				"RULE_KW_CONST", 
-				"RULE_WHITESPACE", 
-				"RULE_ID", 
-				"RULE_SKW_SEMI", 
-				"RULE_NEWLINE", 
-				"RULE_KW_DOUBLE", 
-				"RULE_WHITESPACE", 
-				"RULE_SKW_STAR", 
-				"RULE_WHITESPACE", 
-				"RULE_SKW_STAR", 
-				"RULE_WHITESPACE", 
-				"RULE_ID", 
-				"RULE_SKW_SEMI", 
-				"RULE_NEWLINE", 
+				"RULE_KW_FLOAT",
+				"RULE_WHITESPACE",
+				"RULE_SKW_STAR",
+				"RULE_WHITESPACE",
+				"RULE_KW_CONST",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_SEMI",
+				"RULE_NEWLINE",
+				"RULE_KW_DOUBLE",
+				"RULE_WHITESPACE",
+				"RULE_SKW_STAR",
+				"RULE_WHITESPACE",
+				"RULE_SKW_STAR",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_SEMI",
+				"RULE_NEWLINE",
 				};
 			//final List<Token> actual = testHelper.getTokens(text);
 			//testHelper.outputTokens(text);
 			testHelper.checkTokenisation(text, expected);
 	}
 	
-	@Test
+	@Test (timeout=1000)
 	public void checkParserResult() throws Exception {
 		final String text = this.getTextFromFile(
 			"res/Test0016_PointerVariable.c");
@@ -319,6 +319,8 @@ public class Test0016_PointerVariable {
 	}
 	
 	@Test
+	(timeout=1000
+	)
 	public void testGenerator() throws Exception {
 		// load the resource
 		ResourceSet set = this.resourceSetProvider.get();

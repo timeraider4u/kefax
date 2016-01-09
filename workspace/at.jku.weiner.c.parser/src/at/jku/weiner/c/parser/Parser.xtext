@@ -51,10 +51,10 @@ generate parser "http://www.jku.at/weiner/c/parser/Parser"
 
 Parser returns common::Parser
 	initRuleAction{
-		at.jku.weiner.c.parser.Scope.createFirstScope("Parser");
+		at.jku.weiner.c.parser.utils.Scope.createFirstScope("Parser");
 	}
 	afterRuleAction{
-		at.jku.weiner.c.parser.Scope.removeScope();
+		at.jku.weiner.c.parser.utils.Scope.removeScope();
 	}
 	:
 	{Parser}
@@ -86,10 +86,10 @@ FunctionDefHead:
 
 FunctionDefinition
 	initRuleAction{
-		at.jku.weiner.c.parser.Scope.createNewScope("FunctionDefinition");
+		at.jku.weiner.c.parser.utils.Scope.createNewScope("FunctionDefinition");
 	} 
 	afterRuleAction{
-		at.jku.weiner.c.parser.Scope.removeScope();
+		at.jku.weiner.c.parser.utils.Scope.removeScope();
 	}
 	:
 	{FunctionDefinition}
@@ -103,7 +103,7 @@ FunctionDefinition
 // 2.)initDeclaratorList->initDeclarator->declarator->directDeclarator->IDENTIFIER
 Declaration
 	initRuleAction{
-		at.jku.weiner.c.parser.Scope.setTypedef(false);
+		at.jku.weiner.c.parser.utils.Scope.setTypedef(false);
 	}
 	:
 	{Declaration}
@@ -154,7 +154,7 @@ InitDeclarator:
 StorageClassSpecifier:
 	{StorageClassSpecifier}
 	(	name=KW_TYPEDEF
-			postAction{{ at.jku.weiner.c.parser.Scope.setTypedef(true);  }}
+			postAction{{ at.jku.weiner.c.parser.utils.Scope.setTypedef(true);  }}
 	|	name=KW_EXTERN
 	|	name=KW_STATIC
 	|	name=KW_THREADLOCAL
@@ -165,7 +165,7 @@ StorageClassSpecifier:
 
 TypeSpecifier
 initRuleAction {
-		at.jku.weiner.c.parser.Log.log("In typeSpecifier ");
+		at.jku.weiner.c.parser.utils.Log.log("In typeSpecifier ");
 	}:
 	{TypeSpecifier}
 		name=KW_BOOL
@@ -202,21 +202,21 @@ initRuleAction {
 
 TypedefName
 initRuleAction {
-		at.jku.weiner.c.parser.Log.log("In typedefname ");
+		at.jku.weiner.c.parser.utils.Log.log("In typedefname ");
 	}
 :
 	{TypedefName}
 	id=ID
-		preAction{ { at.jku.weiner.c.parser.Scope.isTypeName(input) }? }
+		preAction{ { at.jku.weiner.c.parser.utils.Scope.isTypeName(input) }? }
 ;
 
 StructOrUnionSpecifier returns DeclarationSpecifier
 	// structs are scopes
 	initRuleAction {
-		at.jku.weiner.c.parser.Scope.createNewScope("StructOrUnion");
+		at.jku.weiner.c.parser.utils.Scope.createNewScope("StructOrUnion");
 	}
 	afterRuleAction {
-		at.jku.weiner.c.parser.Scope.removeScope();
+		at.jku.weiner.c.parser.utils.Scope.removeScope();
 	}
 	:
 	{StructOrUnionSpecifier}
@@ -241,7 +241,7 @@ StructDeclaration:
 
 SpecifierQualifierList
 initRuleAction {
-		at.jku.weiner.c.parser.Log.log("In SpecifierQualifierList ");
+		at.jku.weiner.c.parser.utils.Log.log("In SpecifierQualifierList ");
 	}
 	:
 	{SpecifierQualifierList} 
@@ -325,10 +325,10 @@ DirectDeclarator:
 	{DirectDeclarator}
 	(id=ID
 		preAction{ {
-			at.jku.weiner.c.parser.Scope.setTemp(input);
+			at.jku.weiner.c.parser.utils.Scope.setTemp(input);
 		} }
 		postAction{ {
-			at.jku.weiner.c.parser.Scope.addTypedefIfIsTypedef();
+			at.jku.weiner.c.parser.utils.Scope.addTypedefIfIsTypedef();
 		} }
 	| SKW_LEFTPAREN declarator=Declarator SKW_RIGHTPAREN
 	)
@@ -443,7 +443,7 @@ MyIdentifier:
 
 TypeName
 initRuleAction {
-		at.jku.weiner.c.parser.Log.log("In type name");
+		at.jku.weiner.c.parser.utils.Log.log("In type name");
 	}
 :
 	
@@ -451,7 +451,7 @@ initRuleAction {
 	
 	list=SpecifierQualifierList
 	preAction{ {
-			at.jku.weiner.c.parser.Log.error("In typeName");
+			at.jku.weiner.c.parser.utils.Log.error("In typeName");
 		} }
 		
 	(abstractDeclarator=AbstractDeclarator)?
@@ -521,7 +521,7 @@ BlockList:
 ;
 
 Statement
-initRuleAction { at.jku.weiner.c.parser.Log.error("in statement"); }
+initRuleAction { at.jku.weiner.c.parser.utils.Log.error("in statement"); }
 :
 	{Statement}
 	(
@@ -551,10 +551,10 @@ LabeledStatement returns Statement:
 
 CompoundStatement returns Statement
 	initRuleAction {
-		at.jku.weiner.c.parser.Scope.createNewScope("CompoundStatement");
+		at.jku.weiner.c.parser.utils.Scope.createNewScope("CompoundStatement");
 	}
 	afterRuleAction {
-		at.jku.weiner.c.parser.Scope.removeScope();
+		at.jku.weiner.c.parser.utils.Scope.removeScope();
 	}
 	:
 	{CompoundStatement}
@@ -565,7 +565,7 @@ CompoundStatement returns Statement
 
 BodyStatement returns Statement
 initRuleAction {
-		at.jku.weiner.c.parser.Log.log("In body statement");
+		at.jku.weiner.c.parser.utils.Log.log("In body statement");
 	}:
 	{BodyStatement}
 	(blockList+=BlockList)?
@@ -776,11 +776,12 @@ MultiplicativeExpression returns Expression:
 
 CastExpression returns Expression
 initRuleAction {
-		at.jku.weiner.c.parser.Log.log("In cast expression");
+		at.jku.weiner.c.parser.utils.Log.log("In cast expression");
 	}:
 	{CastExpression}
 	(
-		SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN expr=CastExpression
+		SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN
+			expr=CastExpression
 	|	expr=UnaryExpression
 	//|	'__extension__' SKW_LEFTPAREN type=TypeName SKW_RIGHTPAREN castExpr=CastExpression
 	)
@@ -788,7 +789,7 @@ initRuleAction {
 
 UnaryExpression returns Expression
 initRuleAction {
-		at.jku.weiner.c.parser.Log.log("In unary expression");
+		at.jku.weiner.c.parser.utils.Log.log("In unary expression");
 	}
 :
 	{UnaryExpression}	
@@ -818,17 +819,17 @@ UnaryOperator:
 
 PostfixExpression returns Expression
 initRuleAction {
-		at.jku.weiner.c.parser.Log.log("In postfix expression");
+		at.jku.weiner.c.parser.utils.Log.log("In postfix expression");
 	}
 :
 	{PostfixExpression}
-	(expr+=PrimaryExpression
-	/*	(
-	|	('__extension__' LEFTPAREN typeName RIGHTPAREN LEFTBRACE initializerList=initializerList) 
-			(COMMA? RIGHTBRACE)
+	(		
+			// compound literal
+			(ext?=KW_EXTENSION? SKW_LEFTPAREN typeName=TypeName SKW_RIGHTPAREN 
+				SKW_LEFTBRACE initializerList=InitializerList 
+				comma?=SKW_COMMA? SKW_RIGHTBRACE)
+		|	expr+=PrimaryExpression
 	)
-	*/
-	
 	(
 			suffix+=PostfixExpressionSuffixArray
 		|	suffix+=PostfixExpressionSuffixArgument
@@ -837,8 +838,6 @@ initRuleAction {
 		|	suffix+=PostfixExpressionSuffixPlusPlus
 		|	suffix+=PostfixExpressionSuffixMinusMinus
 	)*
-	
-	)
 ;
 
 PostfixExpressionSuffixArray returns PostfixExpressionSuffix:
@@ -875,7 +874,7 @@ ArgumentExpressionList: expr+=AssignmentExpression (SKW_COMMA expr+=AssignmentEx
 
 PrimaryExpression returns Expression
 initRuleAction {
-		at.jku.weiner.c.parser.Log.log("In primary expression");
+		at.jku.weiner.c.parser.utils.Log.log("In primary expression");
 	}
 :
 	{PrimaryExpression}
@@ -884,8 +883,7 @@ initRuleAction {
 	|	string+=STRING_LITERAL+
 	|	SKW_LEFTPAREN expr=Expression SKW_RIGHTPAREN
 	//|	genericSelection=genericSelection
-	|	compoundStmt=CompoundStatement // Blocks (GCC extension)
-	|	ext?=KW_EXTENSION SKW_LEFTPAREN compoundStmt=CompoundStatement SKW_RIGHTPAREN // Blocks (GCC extension)
+	|	ext?=KW_EXTENSION? SKW_LEFTPAREN compoundStmt=CompoundStatement SKW_RIGHTPAREN // Blocks (GCC extension)
 	//|	'__builtin_va_arg' LEFTPAREN expr=unaryExpression COMMA typeName=typeName RIGHTPAREN
 	|	builtin_offsetof?=KW_BUILTIN_OFFSETOF SKW_LEFTPAREN typeName=TypeName SKW_COMMA expr=UnaryExpression SKW_RIGHTPAREN
 	)

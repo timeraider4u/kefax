@@ -743,6 +743,13 @@ class ParserGenerator implements IGenerator {
 		«FOR e : obj.expr»
 			«outputForPrimaryExpression(e as PrimaryExpression)»
 		«ENDFOR»
+		«IF obj.typeName != null»
+			«IF obj.ext»__extension__«ENDIF»
+			(«outputFor(obj.typeName)»){
+			«outputFor(obj.initializerList)»
+			«IF obj.comma»,«ENDIF»
+			}
+		«ENDIF»
 		«FOR s : obj.suffix»
 			«IF s instanceof PostfixExpressionSuffixArray»
 				«outputFor(s as PostfixExpressionSuffixArray)»
@@ -802,8 +809,7 @@ class ParserGenerator implements IGenerator {
 		«IF obj.string != null»«outputForString(obj.string)»«ENDIF»
 		«IF obj.expr != null && !obj.builtin_offsetof»(«outputFor(obj.expr)»)«ENDIF»
 		«IF obj.builtin_offsetof»__builtin_offsetof(«outputFor(obj.typeName)»,«outputForUnaryExpression(obj.expr as UnaryExpression)»)«ENDIF»
-		«IF obj.compoundStmt != null && !obj.ext»«outputFor(obj.compoundStmt)»«ENDIF»
-		«IF obj.ext»__extension__(«outputFor(obj.compoundStmt)»)«ENDIF»
+		«IF obj.compoundStmt != null»«IF obj.ext»__extension__«ENDIF»(«outputFor(obj.compoundStmt)»)«ENDIF»
 	'''
 	
 	def String outputForString(EList<String> obj) '''

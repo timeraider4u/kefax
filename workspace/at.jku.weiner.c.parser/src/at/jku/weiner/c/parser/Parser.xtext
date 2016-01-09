@@ -37,8 +37,7 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 generate parser "http://www.jku.at/weiner/c/parser/Parser"
 
-/*** parser ***/
-
+/*** handled by discoverer  ***/
 //Model returns common::Model: 
 //	{common::Model} 
 //	(units+=TranslationUnit)
@@ -48,6 +47,8 @@ generate parser "http://www.jku.at/weiner/c/parser/Parser"
 //	{common::TranslationUnit}
 //	parser=Parser
 //;
+
+/*** parser ***/
 
 Parser returns common::Parser
 	initRuleAction{
@@ -392,14 +393,6 @@ GccAttribute: {GccAttribute}
 	(SKW_LEFTPAREN list=ArgumentExpressionList? SKW_RIGHTPAREN)?
 ;
 
-///* */
-//nestedParenthesesBlock: (	NOPAREN
-//		|	LEFTPAREN nestedParenthesesBlock RIGHTPAREN
-//		)*
-//;
-//*/
-
-
 Pointer:
 	{Pointer} 
 	(
@@ -650,12 +643,6 @@ designator: {designator} LEFTBRACKET expr=constantExpression RIGHTBRACKET
 */
 
 //staticAssertDeclaration: STATICASSERT LEFTPAREN constantExpression COMMA STRINGLITERAL+ RIGHTPAREN SEMI;
-
-/*
-declarationList: 
-	(declaration+=declaration)+
-;
-*/
 
 /*** Expressions ***/
 Expression:

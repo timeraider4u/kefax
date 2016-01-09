@@ -94,6 +94,7 @@ import at.jku.weiner.c.parser.parser.AsmLine
 import at.jku.weiner.c.parser.parser.Designation
 import at.jku.weiner.c.parser.parser.DesignatorList
 import at.jku.weiner.c.parser.parser.Designator
+import at.jku.weiner.c.parser.parser.AsmSymbolicName
 
 /**
  * Generates code from your model files on save.
@@ -594,6 +595,7 @@ class ParserGenerator implements IGenerator {
 	'''
 	
 	def String outputFor(AsmLineWithoutColon obj) '''
+		«IF obj.sym != null»«outputFor(obj.sym)»«ENDIF»
 		«outputForLogicalOrExpression(obj.expr as LogicalOrExpression)»
 		«FOR i : 0 ..< obj.asmLines.size()»
 			«outputFor(obj.asmLines.get(i))»
@@ -602,11 +604,16 @@ class ParserGenerator implements IGenerator {
 	
 	def String outputFor(AsmLine obj) '''
 		«IF obj.comma»,«ENDIF»
+		«IF obj.sym != null»«outputFor(obj.sym)»«ENDIF»
 		«outputForLogicalOrExpression(obj.expr as LogicalOrExpression)»
 	'''
 	
 	def String outputFor(AsmLineWithColon obj) '''
 		: «IF obj.asmLine != null»«outputFor(obj.asmLine)»«ENDIF»
+	'''
+	
+	def String outputFor(AsmSymbolicName obj) '''
+		[«obj.id»]
 	'''
 	
 	def String outputFor(Expression obj) '''

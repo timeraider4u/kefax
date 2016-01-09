@@ -618,12 +618,12 @@ AsmStatement returns Statement:
 
 AsmLineWithoutColon:
 	{AsmLineWithoutColon}
-	expr=LogicalOrExpression (asmLines+=AsmLine)*
+	sym=AsmSymbolicName? expr=LogicalOrExpression (asmLines+=AsmLine)*
 ;
 
 AsmLine:
 	{AsmLine}
-	comma?=SKW_COMMA expr=LogicalOrExpression
+	comma?=SKW_COMMA sym=AsmSymbolicName? expr=LogicalOrExpression
 ;
 
 AsmLineWithColon:
@@ -631,7 +631,10 @@ AsmLineWithColon:
 	SKW_COLON (asmLine=AsmLineWithoutColon)?
 ;
 
-
+AsmSymbolicName: // GCC assembler extension
+	{AsmSymbolicName}
+	SKW_LEFTBRACKET id=ID SKW_RIGHTBRACKET
+;
 
 Designation:
 	{Designation} list=DesignatorList SKW_ASSIGN

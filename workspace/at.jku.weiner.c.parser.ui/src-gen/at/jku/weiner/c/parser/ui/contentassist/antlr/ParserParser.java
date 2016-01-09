@@ -193,6 +193,7 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAsmLineWithoutColonAccess().getGroup(), "rule__AsmLineWithoutColon__Group__0");
 					put(grammarAccess.getAsmLineAccess().getGroup(), "rule__AsmLine__Group__0");
 					put(grammarAccess.getAsmLineWithColonAccess().getGroup(), "rule__AsmLineWithColon__Group__0");
+					put(grammarAccess.getAsmSymbolicNameAccess().getGroup(), "rule__AsmSymbolicName__Group__0");
 					put(grammarAccess.getDesignationAccess().getGroup(), "rule__Designation__Group__0");
 					put(grammarAccess.getDesignatorListAccess().getGroup(), "rule__DesignatorList__Group__0");
 					put(grammarAccess.getDesignatorAccess().getGroup(), "rule__Designator__Group__0");
@@ -464,11 +465,14 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAsmStatementAccess().getAsmLine1Assignment_4_0(), "rule__AsmStatement__AsmLine1Assignment_4_0");
 					put(grammarAccess.getAsmStatementAccess().getAsmLinesAssignment_4_1(), "rule__AsmStatement__AsmLinesAssignment_4_1");
 					put(grammarAccess.getAsmStatementAccess().getSemiAssignment_6(), "rule__AsmStatement__SemiAssignment_6");
-					put(grammarAccess.getAsmLineWithoutColonAccess().getExprAssignment_1(), "rule__AsmLineWithoutColon__ExprAssignment_1");
-					put(grammarAccess.getAsmLineWithoutColonAccess().getAsmLinesAssignment_2(), "rule__AsmLineWithoutColon__AsmLinesAssignment_2");
+					put(grammarAccess.getAsmLineWithoutColonAccess().getSymAssignment_1(), "rule__AsmLineWithoutColon__SymAssignment_1");
+					put(grammarAccess.getAsmLineWithoutColonAccess().getExprAssignment_2(), "rule__AsmLineWithoutColon__ExprAssignment_2");
+					put(grammarAccess.getAsmLineWithoutColonAccess().getAsmLinesAssignment_3(), "rule__AsmLineWithoutColon__AsmLinesAssignment_3");
 					put(grammarAccess.getAsmLineAccess().getCommaAssignment_1(), "rule__AsmLine__CommaAssignment_1");
-					put(grammarAccess.getAsmLineAccess().getExprAssignment_2(), "rule__AsmLine__ExprAssignment_2");
+					put(grammarAccess.getAsmLineAccess().getSymAssignment_2(), "rule__AsmLine__SymAssignment_2");
+					put(grammarAccess.getAsmLineAccess().getExprAssignment_3(), "rule__AsmLine__ExprAssignment_3");
 					put(grammarAccess.getAsmLineWithColonAccess().getAsmLineAssignment_2(), "rule__AsmLineWithColon__AsmLineAssignment_2");
+					put(grammarAccess.getAsmSymbolicNameAccess().getIdAssignment_2(), "rule__AsmSymbolicName__IdAssignment_2");
 					put(grammarAccess.getDesignationAccess().getListAssignment_1(), "rule__Designation__ListAssignment_1");
 					put(grammarAccess.getDesignatorListAccess().getDesignatorAssignment_1(), "rule__DesignatorList__DesignatorAssignment_1");
 					put(grammarAccess.getDesignatorListAccess().getDesignatorAssignment_2(), "rule__DesignatorList__DesignatorAssignment_2");

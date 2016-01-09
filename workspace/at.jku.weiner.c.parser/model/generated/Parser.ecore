@@ -242,6 +242,8 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AsmLineWithoutColon">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sym" eType="#//AsmSymbolicName"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="asmLines" upperBound="-1"
@@ -249,12 +251,17 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AsmLine">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="comma" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sym" eType="#//AsmSymbolicName"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expression"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AsmLineWithColon">
     <eStructuralFeatures xsi:type="ecore:EReference" name="asmLine" eType="#//AsmLineWithoutColon"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AsmSymbolicName">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Designation">
     <eStructuralFeatures xsi:type="ecore:EReference" name="list" eType="#//DesignatorList"

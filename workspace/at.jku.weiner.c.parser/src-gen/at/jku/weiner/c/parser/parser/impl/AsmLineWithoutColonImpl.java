@@ -4,6 +4,7 @@ package at.jku.weiner.c.parser.parser.impl;
 
 import at.jku.weiner.c.parser.parser.AsmLine;
 import at.jku.weiner.c.parser.parser.AsmLineWithoutColon;
+import at.jku.weiner.c.parser.parser.AsmSymbolicName;
 import at.jku.weiner.c.parser.parser.Expression;
 import at.jku.weiner.c.parser.parser.ParserPackage;
 
@@ -31,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.AsmLineWithoutColonImpl#getSym <em>Sym</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.AsmLineWithoutColonImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.AsmLineWithoutColonImpl#getAsmLines <em>Asm Lines</em>}</li>
  * </ul>
@@ -39,6 +41,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class AsmLineWithoutColonImpl extends MinimalEObjectImpl.Container implements AsmLineWithoutColon
 {
+  /**
+   * The cached value of the '{@link #getSym() <em>Sym</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSym()
+   * @generated
+   * @ordered
+   */
+  protected AsmSymbolicName sym;
+
   /**
    * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -78,6 +90,54 @@ public class AsmLineWithoutColonImpl extends MinimalEObjectImpl.Container implem
   protected EClass eStaticClass()
   {
     return ParserPackage.Literals.ASM_LINE_WITHOUT_COLON;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AsmSymbolicName getSym()
+  {
+    return sym;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetSym(AsmSymbolicName newSym, NotificationChain msgs)
+  {
+    AsmSymbolicName oldSym = sym;
+    sym = newSym;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ParserPackage.ASM_LINE_WITHOUT_COLON__SYM, oldSym, newSym);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSym(AsmSymbolicName newSym)
+  {
+    if (newSym != sym)
+    {
+      NotificationChain msgs = null;
+      if (sym != null)
+        msgs = ((InternalEObject)sym).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ParserPackage.ASM_LINE_WITHOUT_COLON__SYM, null, msgs);
+      if (newSym != null)
+        msgs = ((InternalEObject)newSym).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ParserPackage.ASM_LINE_WITHOUT_COLON__SYM, null, msgs);
+      msgs = basicSetSym(newSym, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.ASM_LINE_WITHOUT_COLON__SYM, newSym, newSym));
   }
 
   /**
@@ -152,6 +212,8 @@ public class AsmLineWithoutColonImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
+      case ParserPackage.ASM_LINE_WITHOUT_COLON__SYM:
+        return basicSetSym(null, msgs);
       case ParserPackage.ASM_LINE_WITHOUT_COLON__EXPR:
         return basicSetExpr(null, msgs);
       case ParserPackage.ASM_LINE_WITHOUT_COLON__ASM_LINES:
@@ -170,6 +232,8 @@ public class AsmLineWithoutColonImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
+      case ParserPackage.ASM_LINE_WITHOUT_COLON__SYM:
+        return getSym();
       case ParserPackage.ASM_LINE_WITHOUT_COLON__EXPR:
         return getExpr();
       case ParserPackage.ASM_LINE_WITHOUT_COLON__ASM_LINES:
@@ -189,6 +253,9 @@ public class AsmLineWithoutColonImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
+      case ParserPackage.ASM_LINE_WITHOUT_COLON__SYM:
+        setSym((AsmSymbolicName)newValue);
+        return;
       case ParserPackage.ASM_LINE_WITHOUT_COLON__EXPR:
         setExpr((Expression)newValue);
         return;
@@ -210,6 +277,9 @@ public class AsmLineWithoutColonImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
+      case ParserPackage.ASM_LINE_WITHOUT_COLON__SYM:
+        setSym((AsmSymbolicName)null);
+        return;
       case ParserPackage.ASM_LINE_WITHOUT_COLON__EXPR:
         setExpr((Expression)null);
         return;
@@ -230,6 +300,8 @@ public class AsmLineWithoutColonImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
+      case ParserPackage.ASM_LINE_WITHOUT_COLON__SYM:
+        return sym != null;
       case ParserPackage.ASM_LINE_WITHOUT_COLON__EXPR:
         return expr != null;
       case ParserPackage.ASM_LINE_WITHOUT_COLON__ASM_LINES:

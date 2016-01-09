@@ -110,6 +110,7 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
       case ParserPackage.ASM_LINE_WITHOUT_COLON: return createAsmLineWithoutColon();
       case ParserPackage.ASM_LINE: return createAsmLine();
       case ParserPackage.ASM_LINE_WITH_COLON: return createAsmLineWithColon();
+      case ParserPackage.ASM_SYMBOLIC_NAME: return createAsmSymbolicName();
       case ParserPackage.DESIGNATION: return createDesignation();
       case ParserPackage.DESIGNATOR_LIST: return createDesignatorList();
       case ParserPackage.DESIGNATOR: return createDesignator();
@@ -661,6 +662,17 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
   {
     AsmLineWithColonImpl asmLineWithColon = new AsmLineWithColonImpl();
     return asmLineWithColon;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AsmSymbolicName createAsmSymbolicName()
+  {
+    AsmSymbolicNameImpl asmSymbolicName = new AsmSymbolicNameImpl();
+    return asmSymbolicName;
   }
 
   /**

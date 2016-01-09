@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link at.jku.weiner.c.parser.parser.AsmLineWithoutColon#getSym <em>Sym</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.AsmLineWithoutColon#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.AsmLineWithoutColon#getAsmLines <em>Asm Lines</em>}</li>
  * </ul>
@@ -25,6 +26,32 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface AsmLineWithoutColon extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Sym</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Sym</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Sym</em>' containment reference.
+   * @see #setSym(AsmSymbolicName)
+   * @see at.jku.weiner.c.parser.parser.ParserPackage#getAsmLineWithoutColon_Sym()
+   * @model containment="true"
+   * @generated
+   */
+  AsmSymbolicName getSym();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.AsmLineWithoutColon#getSym <em>Sym</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Sym</em>' containment reference.
+   * @see #getSym()
+   * @generated
+   */
+  void setSym(AsmSymbolicName value);
+
   /**
    * Returns the value of the '<em><b>Expr</b></em>' containment reference.
    * <!-- begin-user-doc -->

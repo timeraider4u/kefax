@@ -453,8 +453,18 @@ statement
     |   selectionStatement
     |   iterationStatement
     |   jumpStatement
-    |   ('asm' | '__asm' | '__asm__') ('volatile' | '__volatile__') '(' (logicalOrExpression (',' logicalOrExpression)*)? (':' (logicalOrExpression (',' logicalOrExpression)*)?)* ')' ';'
+    |   ('asm' | '__asm' | '__asm__') ('volatile' | '__volatile__') '(' 
+				(	asmSymbolicName? 
+					logicalOrExpression (',' asmSymbolicName? logicalOrExpression)*)?
+				(':' 
+					('[' Identifier ']')? 
+					(logicalOrExpression (',' asmSymbolicName? logicalOrExpression)*)?
+				)* ')' ';'
     ;
+
+asmSymbolicName: // Asm GCC extension: symbolic name
+	('[' Identifier ']')
+	;
 
 labeledStatement
     :   Identifier ':' statement

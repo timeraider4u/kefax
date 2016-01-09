@@ -181,15 +181,20 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//Statement/stmt"/>
     </genClasses>
     <genClasses ecoreClass="Parser.ecore#//AsmLineWithoutColon">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//AsmLineWithoutColon/sym"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//AsmLineWithoutColon/expr"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//AsmLineWithoutColon/asmLines"/>
     </genClasses>
     <genClasses ecoreClass="Parser.ecore#//AsmLine">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//AsmLine/comma"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//AsmLine/sym"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//AsmLine/expr"/>
     </genClasses>
     <genClasses ecoreClass="Parser.ecore#//AsmLineWithColon">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//AsmLineWithColon/asmLine"/>
+    </genClasses>
+    <genClasses ecoreClass="Parser.ecore#//AsmSymbolicName">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//AsmSymbolicName/id"/>
     </genClasses>
     <genClasses ecoreClass="Parser.ecore#//Designation">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//Designation/list"/>

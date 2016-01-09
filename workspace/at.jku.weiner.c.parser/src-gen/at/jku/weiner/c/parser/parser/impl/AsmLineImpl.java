@@ -3,6 +3,7 @@
 package at.jku.weiner.c.parser.parser.impl;
 
 import at.jku.weiner.c.parser.parser.AsmLine;
+import at.jku.weiner.c.parser.parser.AsmSymbolicName;
 import at.jku.weiner.c.parser.parser.Expression;
 import at.jku.weiner.c.parser.parser.ParserPackage;
 
@@ -24,6 +25,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.AsmLineImpl#isComma <em>Comma</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.AsmLineImpl#getSym <em>Sym</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.AsmLineImpl#getExpr <em>Expr</em>}</li>
  * </ul>
  *
@@ -50,6 +52,16 @@ public class AsmLineImpl extends MinimalEObjectImpl.Container implements AsmLine
    * @ordered
    */
   protected boolean comma = COMMA_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getSym() <em>Sym</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSym()
+   * @generated
+   * @ordered
+   */
+  protected AsmSymbolicName sym;
 
   /**
    * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
@@ -110,6 +122,54 @@ public class AsmLineImpl extends MinimalEObjectImpl.Container implements AsmLine
    * <!-- end-user-doc -->
    * @generated
    */
+  public AsmSymbolicName getSym()
+  {
+    return sym;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetSym(AsmSymbolicName newSym, NotificationChain msgs)
+  {
+    AsmSymbolicName oldSym = sym;
+    sym = newSym;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ParserPackage.ASM_LINE__SYM, oldSym, newSym);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSym(AsmSymbolicName newSym)
+  {
+    if (newSym != sym)
+    {
+      NotificationChain msgs = null;
+      if (sym != null)
+        msgs = ((InternalEObject)sym).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ParserPackage.ASM_LINE__SYM, null, msgs);
+      if (newSym != null)
+        msgs = ((InternalEObject)newSym).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ParserPackage.ASM_LINE__SYM, null, msgs);
+      msgs = basicSetSym(newSym, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.ASM_LINE__SYM, newSym, newSym));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Expression getExpr()
   {
     return expr;
@@ -163,6 +223,8 @@ public class AsmLineImpl extends MinimalEObjectImpl.Container implements AsmLine
   {
     switch (featureID)
     {
+      case ParserPackage.ASM_LINE__SYM:
+        return basicSetSym(null, msgs);
       case ParserPackage.ASM_LINE__EXPR:
         return basicSetExpr(null, msgs);
     }
@@ -181,6 +243,8 @@ public class AsmLineImpl extends MinimalEObjectImpl.Container implements AsmLine
     {
       case ParserPackage.ASM_LINE__COMMA:
         return isComma();
+      case ParserPackage.ASM_LINE__SYM:
+        return getSym();
       case ParserPackage.ASM_LINE__EXPR:
         return getExpr();
     }
@@ -199,6 +263,9 @@ public class AsmLineImpl extends MinimalEObjectImpl.Container implements AsmLine
     {
       case ParserPackage.ASM_LINE__COMMA:
         setComma((Boolean)newValue);
+        return;
+      case ParserPackage.ASM_LINE__SYM:
+        setSym((AsmSymbolicName)newValue);
         return;
       case ParserPackage.ASM_LINE__EXPR:
         setExpr((Expression)newValue);
@@ -220,6 +287,9 @@ public class AsmLineImpl extends MinimalEObjectImpl.Container implements AsmLine
       case ParserPackage.ASM_LINE__COMMA:
         setComma(COMMA_EDEFAULT);
         return;
+      case ParserPackage.ASM_LINE__SYM:
+        setSym((AsmSymbolicName)null);
+        return;
       case ParserPackage.ASM_LINE__EXPR:
         setExpr((Expression)null);
         return;
@@ -239,6 +309,8 @@ public class AsmLineImpl extends MinimalEObjectImpl.Container implements AsmLine
     {
       case ParserPackage.ASM_LINE__COMMA:
         return comma != COMMA_EDEFAULT;
+      case ParserPackage.ASM_LINE__SYM:
+        return sym != null;
       case ParserPackage.ASM_LINE__EXPR:
         return expr != null;
     }

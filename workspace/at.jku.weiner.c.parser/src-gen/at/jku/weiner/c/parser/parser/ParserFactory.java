@@ -437,6 +437,15 @@ public interface ParserFactory extends EFactory
   AsmLineWithColon createAsmLineWithColon();
 
   /**
+   * Returns a new object of class '<em>Asm Symbolic Name</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Asm Symbolic Name</em>'.
+   * @generated
+   */
+  AsmSymbolicName createAsmSymbolicName();
+
+  /**
    * Returns a new object of class '<em>Designation</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

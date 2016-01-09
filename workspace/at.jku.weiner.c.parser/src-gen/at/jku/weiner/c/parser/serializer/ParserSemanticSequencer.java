@@ -14,6 +14,7 @@ import at.jku.weiner.c.parser.parser.AsmLine;
 import at.jku.weiner.c.parser.parser.AsmLineWithColon;
 import at.jku.weiner.c.parser.parser.AsmLineWithoutColon;
 import at.jku.weiner.c.parser.parser.AsmStatement;
+import at.jku.weiner.c.parser.parser.AsmSymbolicName;
 import at.jku.weiner.c.parser.parser.AssignmentExpression;
 import at.jku.weiner.c.parser.parser.AssignmentOperator;
 import at.jku.weiner.c.parser.parser.BlockList;
@@ -144,6 +145,9 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 				return; 
 			case ParserPackage.ASM_STATEMENT:
 				sequence_AsmStatement(context, (AsmStatement) semanticObject); 
+				return; 
+			case ParserPackage.ASM_SYMBOLIC_NAME:
+				sequence_AsmSymbolicName(context, (AsmSymbolicName) semanticObject); 
 				return; 
 			case ParserPackage.ASSIGNMENT_EXPRESSION:
 				sequence_AssignmentExpression(context, (AssignmentExpression) semanticObject); 
@@ -437,7 +441,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (expr=LogicalOrExpression asmLines+=AsmLine*)
+	 *     (sym=AsmSymbolicName? expr=LogicalOrExpression asmLines+=AsmLine*)
 	 */
 	protected void sequence_AsmLineWithoutColon(EObject context, AsmLineWithoutColon semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -446,20 +450,10 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (comma?=SKW_COMMA expr=LogicalOrExpression)
+	 *     (comma?=SKW_COMMA sym=AsmSymbolicName? expr=LogicalOrExpression)
 	 */
 	protected void sequence_AsmLine(EObject context, AsmLine semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, ParserPackage.Literals.ASM_LINE__COMMA) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ParserPackage.Literals.ASM_LINE__COMMA));
-			if(transientValues.isValueTransient(semanticObject, ParserPackage.Literals.ASM_LINE__EXPR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ParserPackage.Literals.ASM_LINE__EXPR));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getAsmLineAccess().getCommaSKW_COMMATerminalRuleCall_1_0(), semanticObject.isComma());
-		feeder.accept(grammarAccess.getAsmLineAccess().getExprLogicalOrExpressionParserRuleCall_2_0(), semanticObject.getExpr());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -475,6 +469,22 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	 */
 	protected void sequence_AsmStatement(EObject context, AsmStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     id=ID
+	 */
+	protected void sequence_AsmSymbolicName(EObject context, AsmSymbolicName semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, ParserPackage.Literals.ASM_SYMBOLIC_NAME__ID) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ParserPackage.Literals.ASM_SYMBOLIC_NAME__ID));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getAsmSymbolicNameAccess().getIdIDTerminalRuleCall_2_0(), semanticObject.getId());
+		feeder.finish();
 	}
 	
 	

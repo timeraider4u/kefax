@@ -12,6 +12,7 @@ import at.jku.weiner.c.parser.parser.AsmLine;
 import at.jku.weiner.c.parser.parser.AsmLineWithColon;
 import at.jku.weiner.c.parser.parser.AsmLineWithoutColon;
 import at.jku.weiner.c.parser.parser.AsmStatement;
+import at.jku.weiner.c.parser.parser.AsmSymbolicName;
 import at.jku.weiner.c.parser.parser.AssignmentExpression;
 import at.jku.weiner.c.parser.parser.AssignmentOperator;
 import at.jku.weiner.c.parser.parser.BlockList;
@@ -432,6 +433,13 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * @generated
    */
   private EClass asmLineWithColonEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass asmSymbolicNameEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -2108,7 +2116,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAsmLineWithoutColon_Expr()
+  public EReference getAsmLineWithoutColon_Sym()
   {
     return (EReference)asmLineWithoutColonEClass.getEStructuralFeatures().get(0);
   }
@@ -2118,9 +2126,19 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAsmLineWithoutColon_AsmLines()
+  public EReference getAsmLineWithoutColon_Expr()
   {
     return (EReference)asmLineWithoutColonEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAsmLineWithoutColon_AsmLines()
+  {
+    return (EReference)asmLineWithoutColonEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -2148,9 +2166,19 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAsmLine_Expr()
+  public EReference getAsmLine_Sym()
   {
     return (EReference)asmLineEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAsmLine_Expr()
+  {
+    return (EReference)asmLineEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -2171,6 +2199,26 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
   public EReference getAsmLineWithColon_AsmLine()
   {
     return (EReference)asmLineWithColonEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getAsmSymbolicName()
+  {
+    return asmSymbolicNameEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAsmSymbolicName_Id()
+  {
+    return (EAttribute)asmSymbolicNameEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3787,15 +3835,20 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     createEReference(statementEClass, STATEMENT__STMT);
 
     asmLineWithoutColonEClass = createEClass(ASM_LINE_WITHOUT_COLON);
+    createEReference(asmLineWithoutColonEClass, ASM_LINE_WITHOUT_COLON__SYM);
     createEReference(asmLineWithoutColonEClass, ASM_LINE_WITHOUT_COLON__EXPR);
     createEReference(asmLineWithoutColonEClass, ASM_LINE_WITHOUT_COLON__ASM_LINES);
 
     asmLineEClass = createEClass(ASM_LINE);
     createEAttribute(asmLineEClass, ASM_LINE__COMMA);
+    createEReference(asmLineEClass, ASM_LINE__SYM);
     createEReference(asmLineEClass, ASM_LINE__EXPR);
 
     asmLineWithColonEClass = createEClass(ASM_LINE_WITH_COLON);
     createEReference(asmLineWithColonEClass, ASM_LINE_WITH_COLON__ASM_LINE);
+
+    asmSymbolicNameEClass = createEClass(ASM_SYMBOLIC_NAME);
+    createEAttribute(asmSymbolicNameEClass, ASM_SYMBOLIC_NAME__ID);
 
     designationEClass = createEClass(DESIGNATION);
     createEReference(designationEClass, DESIGNATION__LIST);
@@ -4228,15 +4281,20 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     initEReference(getStatement_Stmt(), this.getStatement(), null, "stmt", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(asmLineWithoutColonEClass, AsmLineWithoutColon.class, "AsmLineWithoutColon", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAsmLineWithoutColon_Sym(), this.getAsmSymbolicName(), null, "sym", null, 0, 1, AsmLineWithoutColon.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAsmLineWithoutColon_Expr(), this.getExpression(), null, "expr", null, 0, 1, AsmLineWithoutColon.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAsmLineWithoutColon_AsmLines(), this.getAsmLine(), null, "asmLines", null, 0, -1, AsmLineWithoutColon.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(asmLineEClass, AsmLine.class, "AsmLine", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAsmLine_Comma(), theEcorePackage.getEBoolean(), "comma", null, 0, 1, AsmLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAsmLine_Sym(), this.getAsmSymbolicName(), null, "sym", null, 0, 1, AsmLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAsmLine_Expr(), this.getExpression(), null, "expr", null, 0, 1, AsmLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(asmLineWithColonEClass, AsmLineWithColon.class, "AsmLineWithColon", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAsmLineWithColon_AsmLine(), this.getAsmLineWithoutColon(), null, "asmLine", null, 0, 1, AsmLineWithColon.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(asmSymbolicNameEClass, AsmSymbolicName.class, "AsmSymbolicName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getAsmSymbolicName_Id(), theEcorePackage.getEString(), "id", null, 0, 1, AsmSymbolicName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(designationEClass, Designation.class, "Designation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDesignation_List(), this.getDesignatorList(), null, "list", null, 0, 1, Designation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

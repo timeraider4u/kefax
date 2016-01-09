@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.AsmLine#isComma <em>Comma</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.AsmLine#getSym <em>Sym</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.AsmLine#getExpr <em>Expr</em>}</li>
  * </ul>
  *
@@ -48,6 +49,32 @@ public interface AsmLine extends EObject
    * @generated
    */
   void setComma(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Sym</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Sym</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Sym</em>' containment reference.
+   * @see #setSym(AsmSymbolicName)
+   * @see at.jku.weiner.c.parser.parser.ParserPackage#getAsmLine_Sym()
+   * @model containment="true"
+   * @generated
+   */
+  AsmSymbolicName getSym();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.AsmLine#getSym <em>Sym</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Sym</em>' containment reference.
+   * @see #getSym()
+   * @generated
+   */
+  void setSym(AsmSymbolicName value);
 
   /**
    * Returns the value of the '<em><b>Expr</b></em>' containment reference.

@@ -91,6 +91,9 @@ import at.jku.weiner.c.parser.parser.GccAttribute
 import org.eclipse.emf.common.util.EList
 import at.jku.weiner.c.parser.parser.AsmLineWithoutColon
 import at.jku.weiner.c.parser.parser.AsmLine
+import at.jku.weiner.c.parser.parser.Designation
+import at.jku.weiner.c.parser.parser.DesignatorList
+import at.jku.weiner.c.parser.parser.Designator
 
 /**
  * Generates code from your model files on save.
@@ -396,10 +399,30 @@ class ParserGenerator implements IGenerator {
 	'''
 	
 	def String outputFor(InitializerList obj) '''
+		«IF obj.designation != null
+			»«FOR d : obj.designation»
+				«outputFor(d)»
+			«ENDFOR»
+		«ENDIF»
 		«FOR i : obj.initializer»
 			«IF obj.initializer.indexOf(i) > 0», «ENDIF»
 			«outputFor(i)»
 		«ENDFOR»
+	'''
+	
+	def String outputFor(Designation obj)'''
+		«outputFor(obj.list)»=
+	'''
+	
+	def String outputFor(DesignatorList obj) '''
+		«FOR d : obj.designator»
+			«outputFor(d)»
+		«ENDFOR»
+	'''
+	
+	def String outputFor(Designator obj) '''
+		«IF obj.expr != null»[«outputForConstantExpression(obj.expr as ConstantExpression)»]«ENDIF»
+		«IF obj.id != null».«obj.id»«ENDIF»
 	'''
 	
 	def String outputFor(EList<GccDeclaratorExtension> obj) {

@@ -26,6 +26,9 @@ import at.jku.weiner.c.parser.parser.Declaration;
 import at.jku.weiner.c.parser.parser.DeclarationSpecifiers;
 import at.jku.weiner.c.parser.parser.Declarator;
 import at.jku.weiner.c.parser.parser.DeclaratorSuffix;
+import at.jku.weiner.c.parser.parser.Designation;
+import at.jku.weiner.c.parser.parser.Designator;
+import at.jku.weiner.c.parser.parser.DesignatorList;
 import at.jku.weiner.c.parser.parser.DirectDeclarator;
 import at.jku.weiner.c.parser.parser.DirectDeclaratorLastSuffix;
 import at.jku.weiner.c.parser.parser.EnumSpecifier;
@@ -177,6 +180,15 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 				return; 
 			case ParserPackage.DECLARATOR_SUFFIX:
 				sequence_DeclaratorSuffix(context, (DeclaratorSuffix) semanticObject); 
+				return; 
+			case ParserPackage.DESIGNATION:
+				sequence_Designation(context, (Designation) semanticObject); 
+				return; 
+			case ParserPackage.DESIGNATOR:
+				sequence_Designator(context, (Designator) semanticObject); 
+				return; 
+			case ParserPackage.DESIGNATOR_LIST:
+				sequence_DesignatorList(context, (DesignatorList) semanticObject); 
 				return; 
 			case ParserPackage.DIRECT_DECLARATOR:
 				sequence_DirectDeclarator(context, (DirectDeclarator) semanticObject); 
@@ -599,6 +611,40 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     list=DesignatorList
+	 */
+	protected void sequence_Designation(EObject context, Designation semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, ParserPackage.Literals.DESIGNATION__LIST) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ParserPackage.Literals.DESIGNATION__LIST));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getDesignationAccess().getListDesignatorListParserRuleCall_1_0(), semanticObject.getList());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (designator+=Designator designator+=Designator*)
+	 */
+	protected void sequence_DesignatorList(EObject context, DesignatorList semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (expr=ConstantExpression | id=ID)
+	 */
+	protected void sequence_Designator(EObject context, Designator semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (parameterTypeList+=ParameterTypeList | identifierList=IdentifierList?)
 	 */
 	protected void sequence_DirectDeclaratorLastSuffix(EObject context, DirectDeclaratorLastSuffix semanticObject) {
@@ -809,7 +855,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (initializer+=Initializer initializer+=Initializer*)
+	 *     (designation+=Designation? initializer+=Initializer initializer+=Initializer*)
 	 */
 	protected void sequence_InitializerList(EObject context, InitializerList semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

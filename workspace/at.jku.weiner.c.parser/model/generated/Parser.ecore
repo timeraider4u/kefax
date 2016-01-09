@@ -226,6 +226,8 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InitializerList">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="designation" upperBound="-1"
+        eType="#//Designation" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="initializer" upperBound="-1"
         eType="#//Initializer" containment="true"/>
   </eClassifiers>
@@ -253,6 +255,19 @@
   <eClassifiers xsi:type="ecore:EClass" name="AsmLineWithColon">
     <eStructuralFeatures xsi:type="ecore:EReference" name="asmLine" eType="#//AsmLineWithoutColon"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Designation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="list" eType="#//DesignatorList"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DesignatorList">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="designator" upperBound="-1"
+        eType="#//Designator" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Designator">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Expression" eSuperTypes="platform:/resource/at.jku.weiner.c.common/model/custom/Common.ecore#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="exprExpr" upperBound="-1"

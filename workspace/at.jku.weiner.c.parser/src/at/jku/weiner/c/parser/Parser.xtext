@@ -498,7 +498,7 @@ Initializer:
 
 InitializerList:
 	{InitializerList}
-	//designation+=Designation?
+	designation+=Designation?
 	(initializer+=Initializer)
 	(SKW_COMMA 
 		//(designation+=Designation)?
@@ -633,14 +633,22 @@ AsmLineWithColon:
 
 
 
-//designation: designatorList ASSIGN;
-
-//designatorList: designator (designator+=designator)*;
-/*
-designator: {designator} LEFTBRACKET expr=constantExpression RIGHTBRACKET
-	|	{designator} DOT IDENTIFIER
+Designation:
+	{Designation} list=DesignatorList SKW_ASSIGN
 ;
-*/
+
+DesignatorList:
+	{DesignatorList}
+	designator+=Designator (designator+=Designator)*
+;
+
+Designator: 
+	{Designator}
+	(		
+			SKW_LEFTBRACKET expr=ConstantExpression SKW_RIGHTBRACKET
+		|	SKW_DOT id=ID
+	)
+;
 
 //staticAssertDeclaration: STATICASSERT LEFTPAREN constantExpression COMMA STRINGLITERAL+ RIGHTPAREN SEMI;
 

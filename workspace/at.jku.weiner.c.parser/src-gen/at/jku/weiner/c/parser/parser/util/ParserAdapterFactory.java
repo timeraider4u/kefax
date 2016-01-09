@@ -305,6 +305,21 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
         return createAsmLineWithColonAdapter();
       }
       @Override
+      public Adapter caseDesignation(Designation object)
+      {
+        return createDesignationAdapter();
+      }
+      @Override
+      public Adapter caseDesignatorList(DesignatorList object)
+      {
+        return createDesignatorListAdapter();
+      }
+      @Override
+      public Adapter caseDesignator(Designator object)
+      {
+        return createDesignatorAdapter();
+      }
+      @Override
       public Adapter caseExpression(Expression object)
       {
         return createExpressionAdapter();
@@ -1232,6 +1247,51 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createAsmLineWithColonAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.parser.parser.Designation <em>Designation</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.parser.parser.Designation
+   * @generated
+   */
+  public Adapter createDesignationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.parser.parser.DesignatorList <em>Designator List</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.parser.parser.DesignatorList
+   * @generated
+   */
+  public Adapter createDesignatorListAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.parser.parser.Designator <em>Designator</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.parser.parser.Designator
+   * @generated
+   */
+  public Adapter createDesignatorAdapter()
   {
     return null;
   }

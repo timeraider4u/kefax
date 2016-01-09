@@ -437,6 +437,33 @@ public interface ParserFactory extends EFactory
   AsmLineWithColon createAsmLineWithColon();
 
   /**
+   * Returns a new object of class '<em>Designation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Designation</em>'.
+   * @generated
+   */
+  Designation createDesignation();
+
+  /**
+   * Returns a new object of class '<em>Designator List</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Designator List</em>'.
+   * @generated
+   */
+  DesignatorList createDesignatorList();
+
+  /**
+   * Returns a new object of class '<em>Designator</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Designator</em>'.
+   * @generated
+   */
+  Designator createDesignator();
+
+  /**
    * Returns a new object of class '<em>Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

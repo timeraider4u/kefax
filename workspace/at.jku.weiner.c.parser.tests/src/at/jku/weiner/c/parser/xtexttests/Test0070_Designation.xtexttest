@@ -1,0 +1,303 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.parser
+language parser
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+source file="res/Test0070_Designation.c"
+//----------------------------------------------------------------------
+lexer-tokens
+KW_TYPEDEF WHITESPACE KW_STRUCT WHITESPACE ID WHITESPACE SKW_LEFTBRACE NEWLINE
+	WHITESPACE KW_INT WHITESPACE ID SKW_SEMI NEWLINE
+SKW_RIGHTBRACE WHITESPACE ID SKW_SEMI NEWLINE
+NEWLINE
+
+// bar my(...) { ... }
+ID WHITESPACE ID SKW_LEFTPAREN KW_INT WHITESPACE ID SKW_RIGHTPAREN WHITESPACE 
+SKW_LEFTBRACE NEWLINE
+	// return
+	WHITESPACE KW_RETURN WHITESPACE SKW_LEFTPAREN ID SKW_RIGHTPAREN WHITESPACE
+		SKW_LEFTBRACE WHITESPACE SKW_DOT ID WHITESPACE SKW_ASSIGN WHITESPACE ID
+		WHITESPACE SKW_RIGHTBRACE SKW_SEMI NEWLINE
+SKW_RIGHTBRACE NEWLINE
+
+//----------------------------------------------------------------------
+//(common::Model units+=
+	//(common::TranslationUnit 
+	(Parser
+		external+=
+		// typedef struct ... ;
+		(ExternalDeclaration
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(StorageClassSpecifier
+						name++"typedef"
+					),
+					(TypeSpecifier
+						specifier=
+						(StructOrUnionSpecifier
+							type=
+							(StructOrUnion
+								name++"struct"
+							),
+							id++"foo",
+							structDeclList=
+							(StructDeclarationList
+								structDeclaration+=
+								// int i
+								(StructDeclaration
+									list=
+									(SpecifierQualifierList
+										typeSpecifier+=
+										(TypeSpecifier
+											name++"int"
+										)
+									),
+									structDeclarationList=
+									(StructDeclaratorList
+										structDeclarator+=
+										(StructDeclarator
+											declarator=
+											(Declarator
+												declarator=
+												(DirectDeclarator
+													id++"i"
+												)
+											)
+										)
+									)
+								)
+							)
+						) // end struct or union specifier
+					)
+				), // end declaration specifiers
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"bar"
+							)
+						)
+					)
+				)
+			)
+		),
+		// bar main(...)
+		(ExternalDeclaration 
+			functiondefHead=
+			(FunctionDefHead
+				funDeclSpecifiers=
+				(FunctionDeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						type=
+						(TypedefName
+							id++"bar"
+						)
+					)
+				),
+				funDeclarator=
+				(Declarator
+					declarator=
+					(DirectDeclarator
+						id++"my",
+						declaratorSuffix+=
+						(DeclaratorSuffix
+							lastSuffix=
+							(DirectDeclaratorLastSuffix
+								parameterTypeList+=
+								(ParameterTypeList
+									list=
+									(ParameterList
+										parameterDeclaration+=
+										(ParameterDeclaration
+											declSpecifiers=
+											(DeclarationSpecifiers
+												declarationSpecifier+=
+												(TypeSpecifier
+													name++"int"
+												)
+											), // end declaration specifiers
+											declarator=
+											(Declarator
+												declarator=
+												(DirectDeclarator
+													id++"arg"
+												),
+												pointer=
+												(Pointer
+													star isEmpty
+												)
+											)
+										) 
+									) // end parameter list
+								)
+							)
+						) // DeclaratorSuffix
+					)
+				)
+			),
+			functionDefinition=
+			(FunctionDefinition
+				body=
+				(BodyStatement
+					blockList+=
+					(BlockList
+						declaration isEmpty,
+						statement+=
+						(Statement
+							stmt=
+							(JumpStatement
+								expr=
+								(Expression
+									exprExpr+=
+									(AssignmentExpression
+										expr=
+										(ConditionalExpression
+											expr=
+											(LogicalOrExpression
+												expr+=
+												(LogicalAndExpression
+													expr+=
+													(InclusiveOrExpression
+														expr+=
+														(ExclusiveOrExpression
+															expr+=
+															(AndExpression
+																expr+=
+																(EqualityExpression
+																	expr+=
+																	(RelationalExpression
+																		expr+=
+																		(ShiftExpression
+																			expr+=
+																			(AdditiveExpression
+																				expr+=
+																				(MultiplicativeExpression
+																					expr+=
+																					(CastExpression
+																						expr=
+																						(UnaryExpression
+																							expr=
+																							(PostfixExpression
+																								ext?=false,
+																								typeName=
+																								(TypeName
+																									list=
+																									(SpecifierQualifierList
+																										typeSpecifier+=
+																										(TypeSpecifier
+																											type=
+																											(TypedefName
+																												id++"bar"
+																											)
+																										)
+																									)
+																								),
+																								initializerList=
+																								(InitializerList
+																									designation+=
+																									(Designation
+																										list=
+																										(DesignatorList
+																											designator+=
+																											(Designator
+																												id++"i"
+																											)
+																										)
+																									),
+																									initializer+=
+																									(Initializer
+																										expr=
+																										(AssignmentExpression
+																											expr=
+																											(ConditionalExpression
+																												expr=
+																												(LogicalOrExpression
+																													expr+=
+																													(LogicalAndExpression
+																														expr+=
+																														(InclusiveOrExpression
+																															expr+=
+																															(ExclusiveOrExpression
+																																expr+=
+																																(AndExpression
+																																	expr+=
+																																	(EqualityExpression
+																																		expr+=
+																																		(RelationalExpression
+																																			expr+=
+																																			(ShiftExpression
+																																				expr+=
+																																				(AdditiveExpression
+																																					expr+=
+																																					(MultiplicativeExpression
+																																						expr+=
+																																						(CastExpression
+																																							expr=
+																																							(UnaryExpression
+																																								expr=
+																																								(PostfixExpression
+																																									expr+=
+																																									(PrimaryExpression
+																																										id++"arg"
+																																									)
+																																								)
+																																							)
+																																						)
+																																					)
+																																				)
+																																			)
+																																		)
+																																	)
+																																)
+																															)
+																														)
+																													)
+																												)
+																											)
+																										) // end assignment expression
+																									) // end initializer
+																								)
+																							)
+																						)
+																					) // end cast expression
+																				)
+																			)
+																		)
+																	)
+																)
+															)
+														)
+													)
+												)
+											)
+										)
+									)
+								), // end expression
+								return++"return",
+								semi++";"
+							)// end jump statement
+						)//end statement
+					) // end block list
+				) // end body statement
+			)
+		) // end external declaration		  
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0070_Designation.c"
+expected file isSameAsInputFile
+replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

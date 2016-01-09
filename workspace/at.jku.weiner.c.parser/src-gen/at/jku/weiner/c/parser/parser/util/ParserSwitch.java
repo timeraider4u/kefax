@@ -394,6 +394,27 @@ public class ParserSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case ParserPackage.DESIGNATION:
+      {
+        Designation designation = (Designation)theEObject;
+        T result = caseDesignation(designation);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ParserPackage.DESIGNATOR_LIST:
+      {
+        DesignatorList designatorList = (DesignatorList)theEObject;
+        T result = caseDesignatorList(designatorList);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ParserPackage.DESIGNATOR:
+      {
+        Designator designator = (Designator)theEObject;
+        T result = caseDesignator(designator);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case ParserPackage.EXPRESSION:
       {
         Expression expression = (Expression)theEObject;
@@ -1464,6 +1485,54 @@ public class ParserSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseAsmLineWithColon(AsmLineWithColon object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Designation</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Designation</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDesignation(Designation object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Designator List</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Designator List</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDesignatorList(DesignatorList object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Designator</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Designator</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDesignator(Designator object)
   {
     return null;
   }

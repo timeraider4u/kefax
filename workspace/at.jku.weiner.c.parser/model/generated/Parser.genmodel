@@ -170,6 +170,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//Initializer/list"/>
     </genClasses>
     <genClasses ecoreClass="Parser.ecore#//InitializerList">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//InitializerList/designation"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//InitializerList/initializer"/>
     </genClasses>
     <genClasses ecoreClass="Parser.ecore#//BlockList">
@@ -189,6 +190,16 @@
     </genClasses>
     <genClasses ecoreClass="Parser.ecore#//AsmLineWithColon">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//AsmLineWithColon/asmLine"/>
+    </genClasses>
+    <genClasses ecoreClass="Parser.ecore#//Designation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//Designation/list"/>
+    </genClasses>
+    <genClasses ecoreClass="Parser.ecore#//DesignatorList">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//DesignatorList/designator"/>
+    </genClasses>
+    <genClasses ecoreClass="Parser.ecore#//Designator">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//Designator/expr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//Designator/id"/>
     </genClasses>
     <genClasses ecoreClass="Parser.ecore#//Expression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//Expression/exprExpr"/>

@@ -203,12 +203,15 @@ initRuleAction {
 
 TypedefName
 initRuleAction {
-		at.jku.weiner.c.parser.utils.Log.log("In typedefname ");
+		at.jku.weiner.c.parser.utils.Scope.enterTypeDefName();
+	}
+afterRuleAction {
+		at.jku.weiner.c.parser.utils.Scope.leaveTypeDefName();
 	}
 :
 	{TypedefName}
 	id=ID
-		preAction{ { at.jku.weiner.c.parser.utils.Scope.isTypeName(input) }? }
+		preAction{ { at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input) }? }
 ;
 
 StructOrUnionSpecifier returns DeclarationSpecifier
@@ -326,8 +329,11 @@ DirectDeclarator:
 	{DirectDeclarator}
 	(id=ID
 		preAction{ {
-			at.jku.weiner.c.parser.utils.Scope.setTemp(input);
-		} }
+			at.jku.weiner.c.parser.utils.Scope.checkThatNoTypeIDAndSetTemp(input)
+		}? }
+//		preAction{ {
+//			at.jku.weiner.c.parser.utils.Scope.setTemp(input);
+//		} }
 		postAction{ {
 			at.jku.weiner.c.parser.utils.Scope.addTypedefIfIsTypedef();
 		} }
@@ -564,7 +570,11 @@ initRuleAction {
 	(blockList+=BlockList)?
 ;
 
-ExpressionStatement returns Statement:
+ExpressionStatement returns Statement
+initRuleAction {
+		at.jku.weiner.c.parser.utils.Log.log("In expression statement");
+	}
+:
 	{ExpressionStatement} 
 	(expression = Expression)? 
 	semi=SKW_SEMI

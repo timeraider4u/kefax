@@ -63,6 +63,7 @@ import at.jku.weiner.c.parser.services.ParserGrammarAccess;
 
 
 
+
 // Entry rule entryRuleParser
 entryRuleParser 
 :
@@ -94,6 +95,7 @@ ruleParser
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -131,6 +133,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleFunctionDefHead
 entryRuleFunctionDefHead 
 :
@@ -162,6 +165,7 @@ ruleFunctionDefHead
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -199,6 +203,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleDeclaration
 entryRuleDeclaration 
 :
@@ -230,6 +235,7 @@ ruleDeclaration
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -267,6 +273,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleDeclarationSpecifiers
 entryRuleDeclarationSpecifiers 
 :
@@ -298,6 +305,7 @@ ruleDeclarationSpecifiers
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -335,6 +343,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleInitDeclarator
 entryRuleInitDeclarator 
 :
@@ -366,6 +375,7 @@ ruleInitDeclarator
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -403,6 +413,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleTypeSpecifier
 entryRuleTypeSpecifier 
 :
@@ -437,6 +448,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleTypedefName
 entryRuleTypedefName 
 :
@@ -450,10 +462,10 @@ entryRuleTypedefName
 ruleTypedefName
     @init {
 		int stackSize = keepStackSize();
-		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Log.log("In typedefname ");}
+		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Scope.enterTypeDefName();}
     }
 	@after {
-    		/*no after found*/
+    		at.jku.weiner.c.parser.utils.Scope.leaveTypeDefName();
      }:
 
 (
@@ -468,6 +480,7 @@ ruleTypedefName
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -505,6 +518,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleStructOrUnion
 entryRuleStructOrUnion 
 :
@@ -536,6 +550,7 @@ ruleStructOrUnion
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -580,6 +595,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleStructDeclaration
 entryRuleStructDeclaration 
 :
@@ -611,6 +627,7 @@ ruleStructDeclaration
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -648,6 +665,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleStructDeclaratorList
 entryRuleStructDeclaratorList 
 :
@@ -679,6 +697,7 @@ ruleStructDeclaratorList
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -716,6 +735,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleEnumSpecifier
 entryRuleEnumSpecifier 
 :
@@ -747,6 +767,7 @@ ruleEnumSpecifier
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -784,6 +805,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleEnumerator
 entryRuleEnumerator 
 :
@@ -815,6 +837,7 @@ ruleEnumerator
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -852,6 +875,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleFunctionSpecifier
 entryRuleFunctionSpecifier 
 :
@@ -883,6 +907,7 @@ ruleFunctionSpecifier
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -920,6 +945,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleDirectDeclarator
 entryRuleDirectDeclarator 
 :
@@ -951,6 +977,7 @@ ruleDirectDeclarator
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -988,6 +1015,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleDirectDeclaratorLastSuffix
 entryRuleDirectDeclaratorLastSuffix 
 :
@@ -1019,6 +1047,7 @@ ruleDirectDeclaratorLastSuffix
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -1056,6 +1085,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleGccAttributeSpecifier
 entryRuleGccAttributeSpecifier 
 :
@@ -1087,6 +1117,7 @@ ruleGccAttributeSpecifier
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -1124,6 +1155,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleGccAttribute
 entryRuleGccAttribute 
 :
@@ -1155,6 +1187,7 @@ ruleGccAttribute
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -1192,6 +1225,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleTypeQualifierList
 entryRuleTypeQualifierList 
 :
@@ -1223,6 +1257,7 @@ ruleTypeQualifierList
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -1260,6 +1295,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleParameterList
 entryRuleParameterList 
 :
@@ -1291,6 +1327,7 @@ ruleParameterList
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -1328,6 +1365,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleIdentifierList
 entryRuleIdentifierList 
 :
@@ -1359,6 +1397,7 @@ ruleIdentifierList
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -1396,6 +1435,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleTypeName
 entryRuleTypeName 
 :
@@ -1427,6 +1467,7 @@ ruleTypeName
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -1464,6 +1505,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleInitializer
 entryRuleInitializer 
 :
@@ -1495,6 +1537,7 @@ ruleInitializer
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -1532,6 +1575,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleBlockList
 entryRuleBlockList 
 :
@@ -1563,6 +1607,7 @@ ruleBlockList
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -1600,6 +1645,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleLabeledStatement
 entryRuleLabeledStatement 
 :
@@ -1631,6 +1677,7 @@ ruleLabeledStatement
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -1668,6 +1715,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleBodyStatement
 entryRuleBodyStatement 
 :
@@ -1702,6 +1750,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleExpressionStatement
 entryRuleExpressionStatement 
 :
@@ -1715,7 +1764,7 @@ entryRuleExpressionStatement
 ruleExpressionStatement
     @init {
 		int stackSize = keepStackSize();
-		/*no init found*/
+		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Log.log("In expression statement");}
     }
 	@after {
     		/*no after found*/
@@ -1733,6 +1782,7 @@ ruleExpressionStatement
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -1770,6 +1820,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleIterationStatement
 entryRuleIterationStatement 
 :
@@ -1801,6 +1852,7 @@ ruleIterationStatement
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -1838,6 +1890,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleAsmStatement
 entryRuleAsmStatement 
 :
@@ -1869,6 +1922,7 @@ ruleAsmStatement
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -1906,6 +1960,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleAsmSymbolicName
 entryRuleAsmSymbolicName 
 :
@@ -1937,6 +1992,7 @@ ruleAsmSymbolicName
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -1974,6 +2030,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleAsmLineWithoutColon
 entryRuleAsmLineWithoutColon 
 :
@@ -2005,6 +2062,7 @@ ruleAsmLineWithoutColon
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -2042,6 +2100,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleDesignatorList
 entryRuleDesignatorList 
 :
@@ -2073,6 +2132,7 @@ ruleDesignatorList
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -2110,6 +2170,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleExpression
 entryRuleExpression 
 :
@@ -2141,6 +2202,7 @@ ruleExpression
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -2178,6 +2240,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleLvalue
 entryRuleLvalue 
 :
@@ -2209,6 +2272,7 @@ ruleLvalue
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -2246,6 +2310,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleConditionalExpression
 entryRuleConditionalExpression 
 :
@@ -2277,6 +2342,7 @@ ruleConditionalExpression
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -2314,6 +2380,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleLogicalAndExpression
 entryRuleLogicalAndExpression 
 :
@@ -2345,6 +2412,7 @@ ruleLogicalAndExpression
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -2382,6 +2450,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleExclusiveOrExpression
 entryRuleExclusiveOrExpression 
 :
@@ -2413,6 +2482,7 @@ ruleExclusiveOrExpression
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -2450,6 +2520,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleEqualityExpression
 entryRuleEqualityExpression 
 :
@@ -2481,6 +2552,7 @@ ruleEqualityExpression
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -2518,6 +2590,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleShiftExpression
 entryRuleShiftExpression 
 :
@@ -2549,6 +2622,7 @@ ruleShiftExpression
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -2586,6 +2660,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleMultiplicativeExpression
 entryRuleMultiplicativeExpression 
 :
@@ -2617,6 +2692,7 @@ ruleMultiplicativeExpression
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -2654,6 +2730,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleUnaryExpression
 entryRuleUnaryExpression 
 :
@@ -2685,6 +2762,7 @@ ruleUnaryExpression
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -2722,6 +2800,7 @@ finally {
 
 
 
+
 // Entry rule entryRulePostfixExpression
 entryRulePostfixExpression 
 :
@@ -2753,6 +2832,7 @@ rulePostfixExpression
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -2790,6 +2870,7 @@ finally {
 
 
 
+
 // Entry rule entryRulePostfixExpressionSuffixArgument
 entryRulePostfixExpressionSuffixArgument 
 :
@@ -2821,6 +2902,7 @@ rulePostfixExpressionSuffixArgument
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -2858,6 +2940,7 @@ finally {
 
 
 
+
 // Entry rule entryRulePostfixExpressionSuffixArrow
 entryRulePostfixExpressionSuffixArrow 
 :
@@ -2889,6 +2972,7 @@ rulePostfixExpressionSuffixArrow
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -2926,6 +3010,7 @@ finally {
 
 
 
+
 // Entry rule entryRulePostfixExpressionSuffixMinusMinus
 entryRulePostfixExpressionSuffixMinusMinus 
 :
@@ -2957,6 +3042,7 @@ rulePostfixExpressionSuffixMinusMinus
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -2994,6 +3080,7 @@ finally {
 
 
 
+
 // Entry rule entryRulePrimaryExpression
 entryRulePrimaryExpression 
 :
@@ -3025,6 +3112,7 @@ rulePrimaryExpression
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -3062,6 +3150,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleParserKeywords
 entryRuleParserKeywords 
 :
@@ -3093,6 +3182,7 @@ ruleParserKeywords
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -3130,6 +3220,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleConstant2
 entryRuleConstant2 
 :
@@ -3161,6 +3252,8 @@ ruleConstant2
 finally {
 	restoreStackSize(stackSize);
 }
+
+
 
 
 
@@ -3988,7 +4081,7 @@ rule__DirectDeclarator__Alternatives_1
 		int stackSize = keepStackSize();
     }
 :
-{at.jku.weiner.c.parser.utils.Scope.setTemp(input);}
+{at.jku.weiner.c.parser.utils.Scope.checkThatNoTypeIDAndSetTemp(input)}?
 
 (
 { before(grammarAccess.getDirectDeclaratorAccess().getIdAssignment_1_0()); }
@@ -7307,7 +7400,7 @@ rule__TypedefName__Group__1__Impl
 		int stackSize = keepStackSize();
     }
 :
-{at.jku.weiner.c.parser.utils.Scope.isTypeName(input)}?
+{at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)}?
 
 (
 { before(grammarAccess.getTypedefNameAccess().getIdAssignment_1()); }

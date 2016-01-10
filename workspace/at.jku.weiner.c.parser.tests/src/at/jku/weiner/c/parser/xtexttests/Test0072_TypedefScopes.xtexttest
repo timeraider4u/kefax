@@ -1,0 +1,209 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.parser
+language parser
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+source file="res/Test0072_TypedefScopes.c"
+//----------------------------------------------------------------------
+lexer-tokens
+KW_TYPEDEF WHITESPACE KW_INT WHITESPACE ID SKW_SEMI NEWLINE
+ID WHITESPACE ID SKW_SEMI NEWLINE
+NEWLINE
+KW_VOID WHITESPACE ID SKW_LEFTPAREN SKW_RIGHTPAREN WHITESPACE SKW_LEFTBRACE NEWLINE
+	WHITESPACE KW_TYPEDEF WHITESPACE KW_INT WHITESPACE ID SKW_SEMI NEWLINE
+	WHITESPACE ID WHITESPACE ID SKW_SEMI NEWLINE
+	WHITESPACE ID WHITESPACE ID SKW_SEMI NEWLINE
+	WHITESPACE SKW_LEFTBRACE NEWLINE
+		WHITESPACE KW_TYPEDEF WHITESPACE KW_INT WHITESPACE ID SKW_SEMI NEWLINE
+		WHITESPACE ID WHITESPACE ID SKW_SEMI NEWLINE
+		WHITESPACE ID WHITESPACE ID SKW_SEMI NEWLINE
+		WHITESPACE ID WHITESPACE ID SKW_SEMI NEWLINE
+		
+		WHITESPACE SKW_LEFTBRACE NEWLINE
+			WHITESPACE KW_TYPEDEF WHITESPACE KW_INT WHITESPACE ID SKW_SEMI NEWLINE
+			WHITESPACE ID WHITESPACE ID SKW_SEMI NEWLINE
+			WHITESPACE ID WHITESPACE ID SKW_SEMI NEWLINE
+			WHITESPACE ID WHITESPACE ID SKW_SEMI NEWLINE
+			WHITESPACE ID WHITESPACE ID SKW_SEMI NEWLINE
+			
+		WHITESPACE SKW_RIGHTBRACE NEWLINE
+	WHITESPACE SKW_RIGHTBRACE NEWLINE
+SKW_RIGHTBRACE NEWLINE
+//----------------------------------------------------------------------
+//(common::Model units+=
+	//(common::TranslationUnit 
+	(Parser
+		external+=
+		// typedef int fooA;
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(StorageClassSpecifier
+						name++"typedef"
+					),
+					(TypeSpecifier
+						name++"int"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"fooA"
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+		),
+		// fooA barA_1;
+		(ExternalDeclaration
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						type=
+						(TypedefName
+							id++"fooA"
+						)
+					)
+				)
+				,
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"barA_1"
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+		),
+		(ExternalDeclaration 
+			functiondefHead=
+			(FunctionDefHead
+				funDeclSpecifiers=
+				(FunctionDeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"void"
+					)
+				),
+				funDeclarator=
+				(Declarator
+					declarator=
+					(DirectDeclarator
+						id++"foobar"
+					)
+				)
+			),
+			functionDefinition=
+			(FunctionDefinition
+				body=
+				(BodyStatement
+					blockList+=
+					(BlockList
+						declaration+=
+						// typedef int fooB;
+						(Declaration
+							specifiers=
+							(DeclarationSpecifiers
+								declarationSpecifier+=
+								(StorageClassSpecifier
+									name++"typedef"
+								),
+								(TypeSpecifier
+									name++"int"
+								)
+							), // end declarationSpecifiers
+							initDeclaratorList+=
+							(InitDeclaratorList
+								initDeclarator+=
+								(InitDeclarator
+									declarator=
+									(Declarator
+										declarator=
+										(DirectDeclarator
+											id++"fooB"
+										)
+									)
+								)
+							)
+						),
+						(Declaration
+							specifiers=
+							(DeclarationSpecifiers
+								declarationSpecifier+=
+								(TypeSpecifier
+									type=
+									(TypedefName
+										id++"fooA"
+									)
+								)
+							), // end declarationSpecifiers
+							initDeclaratorList+=
+							(InitDeclaratorList
+								initDeclarator+=
+								(InitDeclarator
+									declarator=
+									(Declarator
+										declarator=
+										(DirectDeclarator
+											id++"barA_2"
+										)
+									)
+								)
+							)
+						),
+						statement+=
+						(Statement
+							stmt=
+							(CompoundStatement
+								body=
+								(BodyStatement
+									blockList+=
+									(BlockList
+										statement+=
+										(Statement
+											stmt=
+											(CompoundStatement
+												body=
+												(BodyStatement
+													
+												)
+											) // end compound statement
+										)
+									)
+								)
+							) // end compound statement
+						) // end statement
+					) // end block list
+				) // end body statement
+			)
+		) // end external declaration
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0072_TypedefScopes.c"
+expected file isSameAsInputFile
+replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

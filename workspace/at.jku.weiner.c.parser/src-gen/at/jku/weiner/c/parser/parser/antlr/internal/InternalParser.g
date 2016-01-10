@@ -1896,10 +1896,10 @@ entryRuleTypedefName returns [EObject current=null]
 // Rule TypedefName
 ruleTypedefName returns [EObject current=null] 
     @init { enterRule();
-   		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Log.log("In typedefname ");}
+   		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Scope.enterTypeDefName();}
     }
     @after { leaveRule();
-    		/*no after found*/
+    		at.jku.weiner.c.parser.utils.Scope.leaveTypeDefName();
      }:
 
 (
@@ -1914,7 +1914,7 @@ ruleTypedefName returns [EObject current=null]
     }
 )
 
-{at.jku.weiner.c.parser.utils.Scope.isTypeName(input)}?
+{at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)}?
 
 (
 (
@@ -3398,7 +3398,7 @@ ruleDirectDeclarator returns [EObject current=null]
 )
 
 
-({at.jku.weiner.c.parser.utils.Scope.setTemp(input);}
+({at.jku.weiner.c.parser.utils.Scope.checkThatNoTypeIDAndSetTemp(input)}?
 
 (
 (
@@ -6092,7 +6092,7 @@ entryRuleExpressionStatement returns [EObject current=null]
 // Rule ExpressionStatement
 ruleExpressionStatement returns [EObject current=null] 
     @init { enterRule();
-   		/*no init found*/
+   		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Log.log("In expression statement");}
     }
     @after { leaveRule();
     		/*no after found*/

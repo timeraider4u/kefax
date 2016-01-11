@@ -2257,7 +2257,8 @@ public class InternalParserParser extends AbstractInternalAntlrParser {
 
 					}
 
-					if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Scope.setTypedef(true);}
+					if ( state.backtracking==0 ) {}
+					at.jku.weiner.c.parser.utils.Scope.setTypedef(true);
 					}
 					break;
 				case 2 :
@@ -6887,7 +6888,8 @@ public class InternalParserParser extends AbstractInternalAntlrParser {
 
 					}
 
-					if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Scope.addTypedefIfIsTypedef();}
+					if ( state.backtracking==0 ) {}
+					at.jku.weiner.c.parser.utils.Scope.addTypedefIfIsTypedef();
 					}
 					break;
 				case 2 :

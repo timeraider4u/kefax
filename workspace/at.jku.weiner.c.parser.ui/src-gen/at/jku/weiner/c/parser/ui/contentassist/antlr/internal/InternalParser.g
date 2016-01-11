@@ -77,7 +77,7 @@ entryRuleParser
 ruleParser
     @init {
 		int stackSize = keepStackSize();
-		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Scope.createFirstScope("Parser");}
+		at.jku.weiner.c.parser.utils.Scope.createFirstScope("Parser");
     }
 	@after {
     		at.jku.weiner.c.parser.utils.Scope.removeScope();
@@ -182,7 +182,7 @@ entryRuleFunctionDefinition
 ruleFunctionDefinition
     @init {
 		int stackSize = keepStackSize();
-		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Scope.createNewScope("FunctionDefinition");}
+		at.jku.weiner.c.parser.utils.Scope.createNewScope("FunctionDefinition");
     }
 	@after {
     		at.jku.weiner.c.parser.utils.Scope.removeScope();
@@ -217,7 +217,7 @@ entryRuleDeclaration
 ruleDeclaration
     @init {
 		int stackSize = keepStackSize();
-		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Scope.setTypedef(false);}
+		at.jku.weiner.c.parser.utils.Scope.setTypedef(false);
     }
 	@after {
     		/*no after found*/
@@ -427,7 +427,7 @@ entryRuleTypeSpecifier
 ruleTypeSpecifier
     @init {
 		int stackSize = keepStackSize();
-		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Log.log("In typeSpecifier ");}
+		at.jku.weiner.c.parser.utils.Log.log("In typeSpecifier ");
     }
 	@after {
     		/*no after found*/
@@ -462,7 +462,7 @@ entryRuleTypedefName
 ruleTypedefName
     @init {
 		int stackSize = keepStackSize();
-		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Scope.enterTypeDefName();}
+		at.jku.weiner.c.parser.utils.Scope.enterTypeDefName();
     }
 	@after {
     		at.jku.weiner.c.parser.utils.Scope.leaveTypeDefName();
@@ -497,7 +497,7 @@ entryRuleStructOrUnionSpecifier
 ruleStructOrUnionSpecifier
     @init {
 		int stackSize = keepStackSize();
-		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Scope.createNewScope("StructOrUnion");}
+		at.jku.weiner.c.parser.utils.Scope.createNewScope("StructOrUnion");
     }
 	@after {
     		at.jku.weiner.c.parser.utils.Scope.removeScope();
@@ -644,7 +644,7 @@ entryRuleSpecifierQualifierList
 ruleSpecifierQualifierList
     @init {
 		int stackSize = keepStackSize();
-		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Log.log("In SpecifierQualifierList ");}
+		at.jku.weiner.c.parser.utils.Log.log("In SpecifierQualifierList ");
     }
 	@after {
     		/*no after found*/
@@ -1449,7 +1449,7 @@ entryRuleTypeName
 ruleTypeName
     @init {
 		int stackSize = keepStackSize();
-		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Log.log("In type name");}
+		at.jku.weiner.c.parser.utils.Log.log("In type name");
     }
 	@after {
     		/*no after found*/
@@ -1624,7 +1624,7 @@ entryRuleStatement
 ruleStatement
     @init {
 		int stackSize = keepStackSize();
-		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Log.error("in statement");}
+		at.jku.weiner.c.parser.utils.Log.error("in statement");
     }
 	@after {
     		/*no after found*/
@@ -1694,7 +1694,7 @@ entryRuleCompoundStatement
 ruleCompoundStatement
     @init {
 		int stackSize = keepStackSize();
-		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Scope.createNewScope("CompoundStatement");}
+		at.jku.weiner.c.parser.utils.Scope.createNewScope("CompoundStatement");
     }
 	@after {
     		at.jku.weiner.c.parser.utils.Scope.removeScope();
@@ -1729,7 +1729,7 @@ entryRuleBodyStatement
 ruleBodyStatement
     @init {
 		int stackSize = keepStackSize();
-		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Log.log("In body statement");}
+		at.jku.weiner.c.parser.utils.Log.log("In body statement");
     }
 	@after {
     		/*no after found*/
@@ -1764,7 +1764,7 @@ entryRuleExpressionStatement
 ruleExpressionStatement
     @init {
 		int stackSize = keepStackSize();
-		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Log.log("In expression statement");}
+		at.jku.weiner.c.parser.utils.Log.log("In expression statement");
     }
 	@after {
     		/*no after found*/
@@ -2709,7 +2709,7 @@ entryRuleCastExpression
 ruleCastExpression
     @init {
 		int stackSize = keepStackSize();
-		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Log.log("In cast expression");}
+		at.jku.weiner.c.parser.utils.Log.log("In cast expression");
     }
 	@after {
     		/*no after found*/
@@ -2744,7 +2744,7 @@ entryRuleUnaryExpression
 ruleUnaryExpression
     @init {
 		int stackSize = keepStackSize();
-		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Log.log("In unary expression");}
+		at.jku.weiner.c.parser.utils.Log.log("In unary expression");
     }
 	@after {
     		/*no after found*/
@@ -2814,7 +2814,7 @@ entryRulePostfixExpression
 rulePostfixExpression
     @init {
 		int stackSize = keepStackSize();
-		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Log.log("In postfix expression");}
+		at.jku.weiner.c.parser.utils.Log.log("In postfix expression");
     }
 	@after {
     		/*no after found*/
@@ -3094,7 +3094,7 @@ entryRulePrimaryExpression
 rulePrimaryExpression
     @init {
 		int stackSize = keepStackSize();
-		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Log.log("In primary expression");}
+		at.jku.weiner.c.parser.utils.Log.log("In primary expression");
     }
 	@after {
     		/*no after found*/

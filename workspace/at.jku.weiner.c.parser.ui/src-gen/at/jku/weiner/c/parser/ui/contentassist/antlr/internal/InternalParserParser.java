@@ -297,7 +297,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 
 
 				int stackSize = keepStackSize();
-				if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Scope.createFirstScope("Parser");}
+				at.jku.weiner.c.parser.utils.Scope.createFirstScope("Parser");
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 2) ) { return; }
@@ -564,7 +564,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 
 
 				int stackSize = keepStackSize();
-				if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Scope.createNewScope("FunctionDefinition");}
+				at.jku.weiner.c.parser.utils.Scope.createNewScope("FunctionDefinition");
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 8) ) { return; }
@@ -653,7 +653,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 
 
 				int stackSize = keepStackSize();
-				if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Scope.setTypedef(false);}
+				at.jku.weiner.c.parser.utils.Scope.setTypedef(false);
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 10) ) { return; }
@@ -1187,7 +1187,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 
 
 				int stackSize = keepStackSize();
-				if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Log.log("In typeSpecifier ");}
+				at.jku.weiner.c.parser.utils.Log.log("In typeSpecifier ");
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 22) ) { return; }
@@ -1276,7 +1276,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 
 
 				int stackSize = keepStackSize();
-				if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Scope.enterTypeDefName();}
+				at.jku.weiner.c.parser.utils.Scope.enterTypeDefName();
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 24) ) { return; }
@@ -1365,7 +1365,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 
 
 				int stackSize = keepStackSize();
-				if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Scope.createNewScope("StructOrUnion");}
+				at.jku.weiner.c.parser.utils.Scope.createNewScope("StructOrUnion");
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 26) ) { return; }
@@ -1758,7 +1758,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 
 
 				int stackSize = keepStackSize();
-				if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Log.log("In SpecifierQualifierList ");}
+				at.jku.weiner.c.parser.utils.Log.log("In SpecifierQualifierList ");
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 34) ) { return; }
@@ -3805,7 +3805,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 
 
 				int stackSize = keepStackSize();
-				if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Log.log("In type name");}
+				at.jku.weiner.c.parser.utils.Log.log("In type name");
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 80) ) { return; }
@@ -4250,7 +4250,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 
 
 				int stackSize = keepStackSize();
-				if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Log.error("in statement");}
+				at.jku.weiner.c.parser.utils.Log.error("in statement");
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 90) ) { return; }
@@ -4428,7 +4428,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 
 
 				int stackSize = keepStackSize();
-				if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Scope.createNewScope("CompoundStatement");}
+				at.jku.weiner.c.parser.utils.Scope.createNewScope("CompoundStatement");
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 94) ) { return; }
@@ -4517,7 +4517,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 
 
 				int stackSize = keepStackSize();
-				if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Log.log("In body statement");}
+				at.jku.weiner.c.parser.utils.Log.log("In body statement");
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 96) ) { return; }
@@ -4606,7 +4606,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 
 
 				int stackSize = keepStackSize();
-				if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Log.log("In expression statement");}
+				at.jku.weiner.c.parser.utils.Log.log("In expression statement");
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 98) ) { return; }
@@ -7004,7 +7004,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 
 
 				int stackSize = keepStackSize();
-				if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Log.log("In cast expression");}
+				at.jku.weiner.c.parser.utils.Log.log("In cast expression");
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 152) ) { return; }
@@ -7093,7 +7093,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 
 
 				int stackSize = keepStackSize();
-				if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Log.log("In unary expression");}
+				at.jku.weiner.c.parser.utils.Log.log("In unary expression");
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 154) ) { return; }
@@ -7271,7 +7271,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 
 
 				int stackSize = keepStackSize();
-				if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Log.log("In postfix expression");}
+				at.jku.weiner.c.parser.utils.Log.log("In postfix expression");
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 158) ) { return; }
@@ -7983,7 +7983,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 
 
 				int stackSize = keepStackSize();
-				if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Log.log("In primary expression");}
+				at.jku.weiner.c.parser.utils.Log.log("In primary expression");
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 174) ) { return; }

@@ -14,4 +14,4 @@ add "src-gen" ".keep_src_gen"
 add "xtend-gen" ".keep_xtend_gen"
 
 #rm -r ${DIR}/at.jku.weiner.c.{parser,preprocess}.{ui,ui.tests}
-rm -r "test-c-on-antlr/classes"
+rm -r "test-c-on-antlr/classes" &> /dev/null

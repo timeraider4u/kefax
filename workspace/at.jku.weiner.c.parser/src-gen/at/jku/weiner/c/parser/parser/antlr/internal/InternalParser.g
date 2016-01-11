@@ -87,10 +87,10 @@ entryRuleParser returns [EObject current=null]
 // Rule Parser
 ruleParser returns [EObject current=null] 
     @init { enterRule();
-   		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Scope.createFirstScope("Parser");}
+   		at.jku.weiner.c.parser.utils.Scope.createFirstScope("Parser");
     }
     @after { leaveRule();
-    		at.jku.weiner.c.parser.utils.Scope.removeScope();
+    		
      }:
 
 (
@@ -130,6 +130,11 @@ ruleParser returns [EObject current=null]
 
 
 ;
+finally {
+
+	at.jku.weiner.c.parser.utils.Scope.removeScope();
+
+}
 
 
 
@@ -150,7 +155,7 @@ ruleExternalDeclaration returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -282,6 +287,11 @@ this_SKW_RIGHTBRACE_4=RULE_SKW_RIGHTBRACE
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -302,7 +312,7 @@ ruleFunctionDefHead returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -384,6 +394,11 @@ ruleFunctionDefHead returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -401,10 +416,10 @@ entryRuleFunctionDefinition returns [EObject current=null]
 // Rule FunctionDefinition
 ruleFunctionDefinition returns [EObject current=null] 
     @init { enterRule();
-   		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Scope.createNewScope("FunctionDefinition");}
+   		at.jku.weiner.c.parser.utils.Scope.createNewScope("FunctionDefinition");
     }
     @after { leaveRule();
-    		at.jku.weiner.c.parser.utils.Scope.removeScope();
+    		
      }:
 
 (
@@ -444,6 +459,11 @@ ruleFunctionDefinition returns [EObject current=null]
 
 
 ;
+finally {
+
+	at.jku.weiner.c.parser.utils.Scope.removeScope();
+
+}
 
 
 
@@ -461,10 +481,10 @@ entryRuleDeclaration returns [EObject current=null]
 // Rule Declaration
 ruleDeclaration returns [EObject current=null] 
     @init { enterRule();
-   		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Scope.setTypedef(false);}
+   		at.jku.weiner.c.parser.utils.Scope.setTypedef(false);
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -549,6 +569,11 @@ ruleDeclaration returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -569,7 +594,7 @@ ruleFunctionDeclarationSpecifiers returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -678,6 +703,11 @@ ruleFunctionDeclarationSpecifiers returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -698,7 +728,7 @@ ruleDeclarationSpecifiers returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -807,6 +837,11 @@ ruleDeclarationSpecifiers returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -827,7 +862,7 @@ ruleInitDeclaratorList returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -898,6 +933,11 @@ this_SKW_COMMA_2=RULE_SKW_COMMA
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -918,7 +958,7 @@ ruleInitDeclarator returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -989,6 +1029,11 @@ this_SKW_ASSIGN_2=RULE_SKW_ASSIGN
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -1009,7 +1054,7 @@ ruleStorageClassSpecifier returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -1163,6 +1208,11 @@ ruleStorageClassSpecifier returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -1180,10 +1230,10 @@ entryRuleTypeSpecifier returns [EObject current=null]
 // Rule TypeSpecifier
 ruleTypeSpecifier returns [EObject current=null] 
     @init { enterRule();
-   		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Log.log("In typeSpecifier ");}
+   		at.jku.weiner.c.parser.utils.Log.log("In typeSpecifier ");
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -1879,6 +1929,11 @@ this_SKW_RIGHTPAREN_32=RULE_SKW_RIGHTPAREN
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -1896,10 +1951,10 @@ entryRuleTypedefName returns [EObject current=null]
 // Rule TypedefName
 ruleTypedefName returns [EObject current=null] 
     @init { enterRule();
-   		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Scope.enterTypeDefName();}
+   		at.jku.weiner.c.parser.utils.Scope.enterTypeDefName();
     }
     @after { leaveRule();
-    		at.jku.weiner.c.parser.utils.Scope.leaveTypeDefName();
+    		
      }:
 
 (
@@ -1940,6 +1995,11 @@ ruleTypedefName returns [EObject current=null]
 
 
 ;
+finally {
+
+	at.jku.weiner.c.parser.utils.Scope.leaveTypeDefName();
+
+}
 
 
 
@@ -1957,10 +2017,10 @@ entryRuleStructOrUnionSpecifier returns [EObject current=null]
 // Rule StructOrUnionSpecifier
 ruleStructOrUnionSpecifier returns [EObject current=null] 
     @init { enterRule();
-   		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Scope.createNewScope("StructOrUnion");}
+   		at.jku.weiner.c.parser.utils.Scope.createNewScope("StructOrUnion");
     }
     @after { leaveRule();
-    		at.jku.weiner.c.parser.utils.Scope.removeScope();
+    		
      }:
 
 (
@@ -2084,6 +2144,11 @@ this_SKW_RIGHTBRACE_5=RULE_SKW_RIGHTBRACE
 
 
 ;
+finally {
+
+	at.jku.weiner.c.parser.utils.Scope.removeScope();
+
+}
 
 
 
@@ -2104,7 +2169,7 @@ ruleStructOrUnion returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -2169,6 +2234,11 @@ ruleStructOrUnion returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -2189,7 +2259,7 @@ ruleStructDeclarationList returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -2214,6 +2284,11 @@ ruleStructDeclarationList returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -2234,7 +2309,7 @@ ruleStructDeclaration returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -2290,6 +2365,11 @@ this_SKW_SEMI_2=RULE_SKW_SEMI
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -2307,10 +2387,10 @@ entryRuleSpecifierQualifierList returns [EObject current=null]
 // Rule SpecifierQualifierList
 ruleSpecifierQualifierList returns [EObject current=null] 
     @init { enterRule();
-   		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Log.log("In SpecifierQualifierList ");}
+   		at.jku.weiner.c.parser.utils.Log.log("In SpecifierQualifierList ");
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -2375,6 +2455,11 @@ ruleSpecifierQualifierList returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -2395,7 +2480,7 @@ ruleStructDeclaratorList returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -2454,6 +2539,11 @@ this_SKW_COMMA_1=RULE_SKW_COMMA
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -2474,7 +2564,7 @@ ruleStructDeclarator returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -2568,6 +2658,11 @@ this_SKW_COLON_3=RULE_SKW_COLON
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -2588,7 +2683,7 @@ ruleEnumSpecifier returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -2721,6 +2816,11 @@ this_SKW_RIGHTBRACE_8=RULE_SKW_RIGHTBRACE
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -2741,7 +2841,7 @@ ruleEnumeratorList returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -2821,6 +2921,11 @@ this_SKW_COMMA_1=RULE_SKW_COMMA
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -2841,7 +2946,7 @@ ruleEnumerator returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -2912,6 +3017,11 @@ this_SKW_ASSIGN_2=RULE_SKW_ASSIGN
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -2932,7 +3042,7 @@ ruleTypeQualifier returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -3085,6 +3195,11 @@ ruleTypeQualifier returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -3105,7 +3220,7 @@ ruleFunctionSpecifier returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -3239,6 +3354,11 @@ ruleFunctionSpecifier returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -3259,7 +3379,7 @@ ruleDeclarator returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -3362,6 +3482,11 @@ ruleDeclarator returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -3382,7 +3507,7 @@ ruleDirectDeclarator returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -3487,6 +3612,11 @@ this_SKW_RIGHTPAREN_4=RULE_SKW_RIGHTPAREN
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -3507,7 +3637,7 @@ ruleDeclaratorSuffix returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -3832,6 +3962,11 @@ this_SKW_RIGHTBRACKET_18=RULE_SKW_RIGHTBRACKET
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -3852,7 +3987,7 @@ ruleDirectDeclaratorLastSuffix returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -3931,6 +4066,11 @@ this_SKW_RIGHTPAREN_4=RULE_SKW_RIGHTPAREN
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -3951,7 +4091,7 @@ ruleGccDeclaratorExtension returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -4087,6 +4227,11 @@ this_SKW_RIGHTPAREN_4=RULE_SKW_RIGHTPAREN
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -4107,7 +4252,7 @@ ruleGccAttributeSpecifier returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -4182,6 +4327,11 @@ this_SKW_RIGHTPAREN_6=RULE_SKW_RIGHTPAREN
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -4202,7 +4352,7 @@ ruleGccAttributeList returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -4261,6 +4411,11 @@ this_SKW_COMMA_1=RULE_SKW_COMMA
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -4281,7 +4436,7 @@ ruleGccAttribute returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -4406,6 +4561,11 @@ this_SKW_RIGHTPAREN_6=RULE_SKW_RIGHTPAREN
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -4426,7 +4586,7 @@ rulePointer returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -4515,6 +4675,11 @@ rulePointer returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -4535,7 +4700,7 @@ ruleTypeQualifierList returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -4575,6 +4740,11 @@ ruleTypeQualifierList returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -4595,7 +4765,7 @@ ruleParameterTypeList returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -4666,6 +4836,11 @@ this_SKW_COMMA_2=RULE_SKW_COMMA
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -4686,7 +4861,7 @@ ruleParameterList returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -4757,6 +4932,11 @@ this_SKW_COMMA_2=RULE_SKW_COMMA
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -4777,7 +4957,7 @@ ruleParameterDeclaration returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -4863,6 +5043,11 @@ ruleParameterDeclaration returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -4883,7 +5068,7 @@ ruleIdentifierList returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -4954,6 +5139,11 @@ this_SKW_COMMA_2=RULE_SKW_COMMA
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -4974,7 +5164,7 @@ ruleMyIdentifier returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -5014,6 +5204,11 @@ ruleMyIdentifier returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -5031,10 +5226,10 @@ entryRuleTypeName returns [EObject current=null]
 // Rule TypeName
 ruleTypeName returns [EObject current=null] 
     @init { enterRule();
-   		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Log.log("In type name");}
+   		at.jku.weiner.c.parser.utils.Log.log("In type name");
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -5096,6 +5291,11 @@ ruleTypeName returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -5116,7 +5316,7 @@ ruleAbstractDeclarator returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -5156,6 +5356,11 @@ ruleAbstractDeclarator returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -5176,7 +5381,7 @@ ruleInitializer returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -5265,6 +5470,11 @@ this_SKW_RIGHTBRACE_5=RULE_SKW_RIGHTBRACE
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -5285,7 +5495,7 @@ ruleInitializerList returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -5377,6 +5587,11 @@ this_SKW_COMMA_3=RULE_SKW_COMMA
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -5397,7 +5612,7 @@ ruleBlockList returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -5462,6 +5677,11 @@ ruleBlockList returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -5479,10 +5699,10 @@ entryRuleStatement returns [EObject current=null]
 // Rule Statement
 ruleStatement returns [EObject current=null] 
     @init { enterRule();
-   		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Log.error("in statement");}
+   		at.jku.weiner.c.parser.utils.Log.error("in statement");
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -5657,6 +5877,11 @@ ruleStatement returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -5677,7 +5902,7 @@ ruleLabeledStatement returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -5941,6 +6166,11 @@ this_SKW_COLON_12=RULE_SKW_COLON
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -5958,10 +6188,10 @@ entryRuleCompoundStatement returns [EObject current=null]
 // Rule CompoundStatement
 ruleCompoundStatement returns [EObject current=null] 
     @init { enterRule();
-   		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Scope.createNewScope("CompoundStatement");}
+   		at.jku.weiner.c.parser.utils.Scope.createNewScope("CompoundStatement");
     }
     @after { leaveRule();
-    		at.jku.weiner.c.parser.utils.Scope.removeScope();
+    		
      }:
 
 (
@@ -6015,6 +6245,11 @@ this_SKW_RIGHTBRACE_3=RULE_SKW_RIGHTBRACE
 
 
 ;
+finally {
+
+	at.jku.weiner.c.parser.utils.Scope.removeScope();
+
+}
 
 
 
@@ -6032,10 +6267,10 @@ entryRuleBodyStatement returns [EObject current=null]
 // Rule BodyStatement
 ruleBodyStatement returns [EObject current=null] 
     @init { enterRule();
-   		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Log.log("In body statement");}
+   		at.jku.weiner.c.parser.utils.Log.log("In body statement");
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -6075,6 +6310,11 @@ ruleBodyStatement returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -6092,10 +6332,10 @@ entryRuleExpressionStatement returns [EObject current=null]
 // Rule ExpressionStatement
 ruleExpressionStatement returns [EObject current=null] 
     @init { enterRule();
-   		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Log.log("In expression statement");}
+   		at.jku.weiner.c.parser.utils.Log.log("In expression statement");
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -6156,6 +6396,11 @@ ruleExpressionStatement returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -6176,7 +6421,7 @@ ruleSelectionStatement returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -6409,6 +6654,11 @@ this_SKW_RIGHTPAREN_11=RULE_SKW_RIGHTPAREN
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -6429,7 +6679,7 @@ ruleIterationStatement returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -6907,6 +7157,11 @@ this_SKW_RIGHTPAREN_28=RULE_SKW_RIGHTPAREN
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -6927,7 +7182,7 @@ ruleJumpStatement returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -7174,6 +7429,11 @@ ruleJumpStatement returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -7194,7 +7454,7 @@ ruleAsmStatement returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -7428,6 +7688,11 @@ this_SKW_RIGHTPAREN_10=RULE_SKW_RIGHTPAREN
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -7448,7 +7713,7 @@ ruleAsmLine returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -7509,6 +7774,11 @@ ruleAsmLine returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -7529,7 +7799,7 @@ ruleAsmSymbolicName returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -7583,6 +7853,11 @@ this_SKW_RIGHTBRACKET_3=RULE_SKW_RIGHTBRACKET
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -7603,7 +7878,7 @@ ruleAsmLineWithColon returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -7650,6 +7925,11 @@ this_SKW_COLON_1=RULE_SKW_COLON
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -7670,7 +7950,7 @@ ruleAsmLineWithoutColon returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -7741,6 +8021,11 @@ this_SKW_COMMA_2=RULE_SKW_COMMA
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -7761,7 +8046,7 @@ ruleDesignation returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -7808,6 +8093,11 @@ this_SKW_ASSIGN_2=RULE_SKW_ASSIGN
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -7828,7 +8118,7 @@ ruleDesignatorList returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -7889,6 +8179,11 @@ ruleDesignatorList returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -7909,7 +8204,7 @@ ruleDesignator returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -8001,6 +8296,11 @@ this_SKW_DOT_4=RULE_SKW_DOT
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -8021,7 +8321,7 @@ ruleExpression returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -8092,6 +8392,11 @@ this_SKW_COMMA_2=RULE_SKW_COMMA
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -8112,7 +8417,7 @@ ruleAssignmentExpression returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -8222,6 +8527,11 @@ ruleAssignmentExpression returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -8242,7 +8552,7 @@ ruleLvalue returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 
@@ -8261,6 +8571,11 @@ ruleLvalue returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -8281,7 +8596,7 @@ ruleAssignmentOperator returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -8544,6 +8859,11 @@ ruleAssignmentOperator returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -8564,7 +8884,7 @@ ruleConditionalExpression returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -8663,6 +8983,11 @@ this_SKW_COLON_4=RULE_SKW_COLON
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -8683,7 +9008,7 @@ ruleLogicalOrExpression returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -8754,6 +9079,11 @@ this_SKW_OROR_2=RULE_SKW_OROR
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -8774,7 +9104,7 @@ ruleLogicalAndExpression returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -8845,6 +9175,11 @@ this_SKW_ANDAND_2=RULE_SKW_ANDAND
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -8865,7 +9200,7 @@ ruleInclusiveOrExpression returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -8936,6 +9271,11 @@ this_SKW_OR_2=RULE_SKW_OR
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -8956,7 +9296,7 @@ ruleExclusiveOrExpression returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -9027,6 +9367,11 @@ this_SKW_CARET_2=RULE_SKW_CARET
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -9047,7 +9392,7 @@ ruleAndExpression returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -9118,6 +9463,11 @@ this_SKW_AND_2=RULE_SKW_AND
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -9138,7 +9488,7 @@ ruleEqualityExpression returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -9248,6 +9598,11 @@ ruleEqualityExpression returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -9268,7 +9623,7 @@ ruleRelationalExpression returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -9422,6 +9777,11 @@ ruleRelationalExpression returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -9442,7 +9802,7 @@ ruleShiftExpression returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -9552,6 +9912,11 @@ ruleShiftExpression returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -9572,7 +9937,7 @@ ruleAdditiveExpression returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -9682,6 +10047,11 @@ ruleAdditiveExpression returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -9702,7 +10072,7 @@ ruleMultiplicativeExpression returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -9834,6 +10204,11 @@ ruleMultiplicativeExpression returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -9851,10 +10226,10 @@ entryRuleCastExpression returns [EObject current=null]
 // Rule CastExpression
 ruleCastExpression returns [EObject current=null] 
     @init { enterRule();
-   		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Log.log("In cast expression");}
+   		at.jku.weiner.c.parser.utils.Log.log("In cast expression");
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -9957,6 +10332,11 @@ this_SKW_RIGHTPAREN_3=RULE_SKW_RIGHTPAREN
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -9974,10 +10354,10 @@ entryRuleUnaryExpression returns [EObject current=null]
 // Rule UnaryExpression
 ruleUnaryExpression returns [EObject current=null] 
     @init { enterRule();
-   		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Log.log("In unary expression");}
+   		at.jku.weiner.c.parser.utils.Log.log("In unary expression");
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -10403,6 +10783,11 @@ this_SKW_RIGHTPAREN_17=RULE_SKW_RIGHTPAREN
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -10423,7 +10808,7 @@ ruleUnaryOperator returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -10576,6 +10961,11 @@ ruleUnaryOperator returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -10593,10 +10983,10 @@ entryRulePostfixExpression returns [EObject current=null]
 // Rule PostfixExpression
 rulePostfixExpression returns [EObject current=null] 
     @init { enterRule();
-   		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Log.log("In postfix expression");}
+   		at.jku.weiner.c.parser.utils.Log.log("In postfix expression");
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -10889,6 +11279,11 @@ this_SKW_RIGHTBRACE_8=RULE_SKW_RIGHTBRACE
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -10909,7 +11304,7 @@ rulePostfixExpressionSuffixArray returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -10963,6 +11358,11 @@ this_SKW_RIGHTBRACKET_3=RULE_SKW_RIGHTBRACKET
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -10983,7 +11383,7 @@ rulePostfixExpressionSuffixArgument returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -11037,6 +11437,11 @@ this_SKW_RIGHTPAREN_3=RULE_SKW_RIGHTPAREN
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -11057,7 +11462,7 @@ rulePostfixExpressionSuffixDot returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -11104,6 +11509,11 @@ this_SKW_DOT_1=RULE_SKW_DOT
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -11124,7 +11534,7 @@ rulePostfixExpressionSuffixArrow returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -11171,6 +11581,11 @@ this_ARROW_1=RULE_ARROW
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -11191,7 +11606,7 @@ rulePostfixExpressionSuffixPlusPlus returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -11217,6 +11632,11 @@ this_SKW_PLUSPLUS_1=RULE_SKW_PLUSPLUS
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -11237,7 +11657,7 @@ rulePostfixExpressionSuffixMinusMinus returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -11263,6 +11683,11 @@ this_SKW_MINUSMINUS_1=RULE_SKW_MINUSMINUS
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -11283,7 +11708,7 @@ ruleArgumentExpressionList returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -11342,6 +11767,11 @@ this_SKW_COMMA_1=RULE_SKW_COMMA
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -11359,10 +11789,10 @@ entryRulePrimaryExpression returns [EObject current=null]
 // Rule PrimaryExpression
 rulePrimaryExpression returns [EObject current=null] 
     @init { enterRule();
-   		if ( state.backtracking==0 ) {at.jku.weiner.c.parser.utils.Log.log("In primary expression");}
+   		at.jku.weiner.c.parser.utils.Log.log("In primary expression");
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -11636,6 +12066,11 @@ this_SKW_RIGHTPAREN_16=RULE_SKW_RIGHTPAREN
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -11656,7 +12091,7 @@ ruleConstantExpression returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -11696,6 +12131,11 @@ ruleConstantExpression returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -11948,7 +12388,7 @@ ruleConstant2 returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -12101,6 +12541,11 @@ ruleConstant2 returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 

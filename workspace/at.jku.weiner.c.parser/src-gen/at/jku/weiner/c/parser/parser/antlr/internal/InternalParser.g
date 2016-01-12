@@ -1969,9 +1969,7 @@ ruleTypedefName returns [EObject current=null]
     }
 )
 
-
 {at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)}?
-
 
 (
 (
@@ -3525,9 +3523,7 @@ ruleDirectDeclarator returns [EObject current=null]
 )
 
 
-(
-{at.jku.weiner.c.parser.utils.Scope.checkThatNoTypeIDAndSetTemp(input)}?
-
+({{at.jku.weiner.c.parser.utils.Scope.setTemp(input);}}
 
 (
 (
@@ -5248,9 +5244,7 @@ ruleTypeName returns [EObject current=null]
     }
 )
 
-{
-{at.jku.weiner.c.parser.utils.Log.error("In typeName");}
-}
+{{at.jku.weiner.c.parser.utils.Log.error("In typeName");}}
 
 (
 (

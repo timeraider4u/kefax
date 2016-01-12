@@ -11,12 +11,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.ParameterDeclaration#getDeclSpecifiers <em>Decl Specifiers</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.ParameterDeclaration#getDeclarator <em>Declarator</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.ParameterDeclaration#getAbstractDeclator <em>Abstract Declator</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.c.parser.parser.ParserPackage#getParameterDeclaration()
  * @model

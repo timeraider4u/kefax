@@ -1530,24 +1530,36 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//DirectDeclarator:
 		//	{DirectDeclarator} (id=ID
-		//	preAction{ { at.jku.weiner.c.parser.utils.Scope.checkThatNoTypeIDAndSetTemp(input)
-		//	} ? } postAction{ { at.jku.weiner.c.parser.utils.Scope.addTypedefIfIsTypedef();
+		//	//		preAction{ {
+		//	//			at.jku.weiner.c.parser.utils.Scope.checkThatNoTypeIDAndSetTemp(input)
+		//	//		}? }
+		//	preAction{ { at.jku.weiner.c.parser.utils.Scope.setTemp(input);
+		//	} } postAction{ { at.jku.weiner.c.parser.utils.Scope.addTypedefIfIsTypedef();
 		//	} } | SKW_LEFTPAREN declarator=Declarator SKW_RIGHTPAREN) declaratorSuffix+=DeclaratorSuffix*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{DirectDeclarator} (id=ID preAction{ { at.jku.weiner.c.parser.utils.Scope.checkThatNoTypeIDAndSetTemp(input) } ? }
-		//postAction{ { at.jku.weiner.c.parser.utils.Scope.addTypedefIfIsTypedef(); } } | SKW_LEFTPAREN declarator=Declarator
-		//SKW_RIGHTPAREN) declaratorSuffix+=DeclaratorSuffix*
+		//{DirectDeclarator} (id=ID //		preAction{ {
+		////			at.jku.weiner.c.parser.utils.Scope.checkThatNoTypeIDAndSetTemp(input)
+		////		}? }
+		//preAction{ { at.jku.weiner.c.parser.utils.Scope.setTemp(input); } } postAction{ {
+		//at.jku.weiner.c.parser.utils.Scope.addTypedefIfIsTypedef(); } } | SKW_LEFTPAREN declarator=Declarator SKW_RIGHTPAREN)
+		//declaratorSuffix+=DeclaratorSuffix*
 		public Group getGroup() { return cGroup; }
 		
 		//{DirectDeclarator}
 		public Action getDirectDeclaratorAction_0() { return cDirectDeclaratorAction_0; }
 		
-		//(id=ID preAction{ { at.jku.weiner.c.parser.utils.Scope.checkThatNoTypeIDAndSetTemp(input) } ? } postAction{ {
+		//(id=ID //		preAction{ {
+		////			at.jku.weiner.c.parser.utils.Scope.checkThatNoTypeIDAndSetTemp(input)
+		////		}? }
+		//preAction{ { at.jku.weiner.c.parser.utils.Scope.setTemp(input); } } postAction{ {
 		//at.jku.weiner.c.parser.utils.Scope.addTypedefIfIsTypedef(); } } | SKW_LEFTPAREN declarator=Declarator SKW_RIGHTPAREN)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		//id=ID preAction{ { at.jku.weiner.c.parser.utils.Scope.checkThatNoTypeIDAndSetTemp(input) } ? } postAction{ {
+		//id=ID //		preAction{ {
+		////			at.jku.weiner.c.parser.utils.Scope.checkThatNoTypeIDAndSetTemp(input)
+		////		}? }
+		//preAction{ { at.jku.weiner.c.parser.utils.Scope.setTemp(input); } } postAction{ {
 		//at.jku.weiner.c.parser.utils.Scope.addTypedefIfIsTypedef(); } }
 		public Assignment getIdAssignment_1_0() { return cIdAssignment_1_0; }
 		
@@ -6062,8 +6074,11 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//DirectDeclarator:
 	//	{DirectDeclarator} (id=ID
-	//	preAction{ { at.jku.weiner.c.parser.utils.Scope.checkThatNoTypeIDAndSetTemp(input)
-	//	} ? } postAction{ { at.jku.weiner.c.parser.utils.Scope.addTypedefIfIsTypedef();
+	//	//		preAction{ {
+	//	//			at.jku.weiner.c.parser.utils.Scope.checkThatNoTypeIDAndSetTemp(input)
+	//	//		}? }
+	//	preAction{ { at.jku.weiner.c.parser.utils.Scope.setTemp(input);
+	//	} } postAction{ { at.jku.weiner.c.parser.utils.Scope.addTypedefIfIsTypedef();
 	//	} } | SKW_LEFTPAREN declarator=Declarator SKW_RIGHTPAREN) declaratorSuffix+=DeclaratorSuffix*;
 	public DirectDeclaratorElements getDirectDeclaratorAccess() {
 		return pDirectDeclarator;

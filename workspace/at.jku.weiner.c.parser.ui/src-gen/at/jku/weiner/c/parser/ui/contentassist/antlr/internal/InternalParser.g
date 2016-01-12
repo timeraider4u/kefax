@@ -4081,9 +4081,7 @@ rule__DirectDeclarator__Alternatives_1
 		int stackSize = keepStackSize();
     }
 :
-
-{at.jku.weiner.c.parser.utils.Scope.checkThatNoTypeIDAndSetTemp(input)}?
-
+{{at.jku.weiner.c.parser.utils.Scope.setTemp(input);}}
 
 (
 { before(grammarAccess.getDirectDeclaratorAccess().getIdAssignment_1_0()); }
@@ -7402,9 +7400,7 @@ rule__TypedefName__Group__1__Impl
 		int stackSize = keepStackSize();
     }
 :
-
 {at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)}?
-
 
 (
 { before(grammarAccess.getTypedefNameAccess().getIdAssignment_1()); }
@@ -12046,9 +12042,7 @@ rule__TypeName__Group__1__Impl
 		int stackSize = keepStackSize();
     }
 :
-{
-{at.jku.weiner.c.parser.utils.Log.error("In typeName");}
-}
+{{at.jku.weiner.c.parser.utils.Log.error("In typeName");}}
 
 (
 { before(grammarAccess.getTypeNameAccess().getListAssignment_1()); }

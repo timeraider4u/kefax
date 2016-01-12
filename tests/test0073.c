@@ -1,1 +1,2 @@
-int x[5]; 
+int a, b;
+int x[], y[]; 

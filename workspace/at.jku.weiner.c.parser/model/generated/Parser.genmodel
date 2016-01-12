@@ -105,10 +105,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//DirectDeclarator/declaratorSuffix"/>
     </genClasses>
     <genClasses ecoreClass="Parser.ecore#//DeclaratorSuffix">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//DeclaratorSuffix/typeQualifierList"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//DeclaratorSuffix/expr"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//DeclaratorSuffix/static"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//DeclaratorSuffix/star"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//DeclaratorSuffix/lastSuffix"/>
     </genClasses>
     <genClasses ecoreClass="Parser.ecore#//DirectDeclaratorLastSuffix">

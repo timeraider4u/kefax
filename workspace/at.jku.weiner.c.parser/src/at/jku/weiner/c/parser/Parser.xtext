@@ -345,13 +345,8 @@ DirectDeclarator:
 DeclaratorSuffix:
 	{DeclaratorSuffix}
 	(
-		SKW_LEFTBRACKET  (typeQualifierList=TypeQualifierList)?
-			(expr=AssignmentExpression)? SKW_RIGHTBRACKET
-	|	SKW_LEFTBRACKET static=KW_STATIC (typeQualifierList=TypeQualifierList)?
-			(expr=AssignmentExpression) SKW_RIGHTBRACKET
-	|	SKW_LEFTBRACKET (typeQualifierList=TypeQualifierList) static=KW_STATIC
-			(expr=AssignmentExpression) SKW_RIGHTBRACKET
-	|	SKW_LEFTBRACKET (typeQualifierList=TypeQualifierList)? star=SKW_STAR SKW_RIGHTBRACKET
+		SKW_LEFTBRACKET  expr=ConstantExpression SKW_RIGHTBRACKET
+	|	SKW_LEFTBRACKET SKW_RIGHTBRACKET
 	|	lastSuffix=DirectDeclaratorLastSuffix
 	)
 ;

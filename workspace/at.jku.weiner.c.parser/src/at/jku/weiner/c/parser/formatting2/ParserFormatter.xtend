@@ -250,7 +250,6 @@ class ParserFormatter extends CommonFormatter {
 
 	def dispatch void format(DeclaratorSuffix declaratorSuffix, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		format(declaratorSuffix.getTypeQualifierList(), document);
 		format(declaratorSuffix.getExpr(), document);
 		format(declaratorSuffix.getLastSuffix(), document);
 	}

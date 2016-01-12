@@ -598,13 +598,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (
-	 *         (typeQualifierList=TypeQualifierList? expr=AssignmentExpression?) | 
-	 *         (static=KW_STATIC typeQualifierList=TypeQualifierList? expr=AssignmentExpression) | 
-	 *         (typeQualifierList=TypeQualifierList static=KW_STATIC expr=AssignmentExpression) | 
-	 *         (typeQualifierList=TypeQualifierList? star=SKW_STAR) | 
-	 *         lastSuffix=DirectDeclaratorLastSuffix
-	 *     )
+	 *     ((expr=ConstantExpression | lastSuffix=DirectDeclaratorLastSuffix)?)
 	 */
 	protected void sequence_DeclaratorSuffix(EObject context, DeclaratorSuffix semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

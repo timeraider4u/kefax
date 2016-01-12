@@ -137,8 +137,6 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDeclaratorSuffixAccess().getGroup(), "rule__DeclaratorSuffix__Group__0");
 					put(grammarAccess.getDeclaratorSuffixAccess().getGroup_1_0(), "rule__DeclaratorSuffix__Group_1_0__0");
 					put(grammarAccess.getDeclaratorSuffixAccess().getGroup_1_1(), "rule__DeclaratorSuffix__Group_1_1__0");
-					put(grammarAccess.getDeclaratorSuffixAccess().getGroup_1_2(), "rule__DeclaratorSuffix__Group_1_2__0");
-					put(grammarAccess.getDeclaratorSuffixAccess().getGroup_1_3(), "rule__DeclaratorSuffix__Group_1_3__0");
 					put(grammarAccess.getDirectDeclaratorLastSuffixAccess().getGroup(), "rule__DirectDeclaratorLastSuffix__Group__0");
 					put(grammarAccess.getGccDeclaratorExtensionAccess().getGroup(), "rule__GccDeclaratorExtension__Group__0");
 					put(grammarAccess.getGccDeclaratorExtensionAccess().getGroup_1_0(), "rule__GccDeclaratorExtension__Group_1_0__0");
@@ -356,17 +354,8 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDirectDeclaratorAccess().getIdAssignment_1_0(), "rule__DirectDeclarator__IdAssignment_1_0");
 					put(grammarAccess.getDirectDeclaratorAccess().getDeclaratorAssignment_1_1_1(), "rule__DirectDeclarator__DeclaratorAssignment_1_1_1");
 					put(grammarAccess.getDirectDeclaratorAccess().getDeclaratorSuffixAssignment_2(), "rule__DirectDeclarator__DeclaratorSuffixAssignment_2");
-					put(grammarAccess.getDeclaratorSuffixAccess().getTypeQualifierListAssignment_1_0_1(), "rule__DeclaratorSuffix__TypeQualifierListAssignment_1_0_1");
-					put(grammarAccess.getDeclaratorSuffixAccess().getExprAssignment_1_0_2(), "rule__DeclaratorSuffix__ExprAssignment_1_0_2");
-					put(grammarAccess.getDeclaratorSuffixAccess().getStaticAssignment_1_1_1(), "rule__DeclaratorSuffix__StaticAssignment_1_1_1");
-					put(grammarAccess.getDeclaratorSuffixAccess().getTypeQualifierListAssignment_1_1_2(), "rule__DeclaratorSuffix__TypeQualifierListAssignment_1_1_2");
-					put(grammarAccess.getDeclaratorSuffixAccess().getExprAssignment_1_1_3(), "rule__DeclaratorSuffix__ExprAssignment_1_1_3");
-					put(grammarAccess.getDeclaratorSuffixAccess().getTypeQualifierListAssignment_1_2_1(), "rule__DeclaratorSuffix__TypeQualifierListAssignment_1_2_1");
-					put(grammarAccess.getDeclaratorSuffixAccess().getStaticAssignment_1_2_2(), "rule__DeclaratorSuffix__StaticAssignment_1_2_2");
-					put(grammarAccess.getDeclaratorSuffixAccess().getExprAssignment_1_2_3(), "rule__DeclaratorSuffix__ExprAssignment_1_2_3");
-					put(grammarAccess.getDeclaratorSuffixAccess().getTypeQualifierListAssignment_1_3_1(), "rule__DeclaratorSuffix__TypeQualifierListAssignment_1_3_1");
-					put(grammarAccess.getDeclaratorSuffixAccess().getStarAssignment_1_3_2(), "rule__DeclaratorSuffix__StarAssignment_1_3_2");
-					put(grammarAccess.getDeclaratorSuffixAccess().getLastSuffixAssignment_1_4(), "rule__DeclaratorSuffix__LastSuffixAssignment_1_4");
+					put(grammarAccess.getDeclaratorSuffixAccess().getExprAssignment_1_0_1(), "rule__DeclaratorSuffix__ExprAssignment_1_0_1");
+					put(grammarAccess.getDeclaratorSuffixAccess().getLastSuffixAssignment_1_2(), "rule__DeclaratorSuffix__LastSuffixAssignment_1_2");
 					put(grammarAccess.getDirectDeclaratorLastSuffixAccess().getParameterTypeListAssignment_2_0(), "rule__DirectDeclaratorLastSuffix__ParameterTypeListAssignment_2_0");
 					put(grammarAccess.getDirectDeclaratorLastSuffixAccess().getIdentifierListAssignment_2_1(), "rule__DirectDeclaratorLastSuffix__IdentifierListAssignment_2_1");
 					put(grammarAccess.getGccDeclaratorExtensionAccess().getAsmAssignment_1_0_0(), "rule__GccDeclaratorExtension__AsmAssignment_1_0_0");

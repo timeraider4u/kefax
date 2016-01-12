@@ -3665,48 +3665,27 @@ this_SKW_LEFTBRACKET_1=RULE_SKW_LEFTBRACKET
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getDeclaratorSuffixAccess().getTypeQualifierListTypeQualifierListParserRuleCall_1_0_1_0()); 
+	        newCompositeNode(grammarAccess.getDeclaratorSuffixAccess().getExprConstantExpressionParserRuleCall_1_0_1_0()); 
 	    }
-		lv_typeQualifierList_2_0=ruleTypeQualifierList		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getDeclaratorSuffixRule());
-	        }
-       		set(
-       			$current, 
-       			"typeQualifierList",
-        		lv_typeQualifierList_2_0, 
-        		"at.jku.weiner.c.parser.Parser.TypeQualifierList");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)?
-
-
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getDeclaratorSuffixAccess().getExprAssignmentExpressionParserRuleCall_1_0_2_0()); 
-	    }
-		lv_expr_3_0=ruleAssignmentExpression		{
+		lv_expr_2_0=ruleConstantExpression		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getDeclaratorSuffixRule());
 	        }
        		set(
        			$current, 
        			"expr",
-        		lv_expr_3_0, 
-        		"at.jku.weiner.c.parser.Parser.AssignmentExpression");
+        		lv_expr_2_0, 
+        		"at.jku.weiner.c.parser.Parser.ConstantExpression");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)?
+)
 
 
-this_SKW_RIGHTBRACKET_4=RULE_SKW_RIGHTBRACKET
+this_SKW_RIGHTBRACKET_3=RULE_SKW_RIGHTBRACKET
     { 
-    newLeafNode(this_SKW_RIGHTBRACKET_4, grammarAccess.getDeclaratorSuffixAccess().getSKW_RIGHTBRACKETTerminalRuleCall_1_0_3()); 
+    newLeafNode(this_SKW_RIGHTBRACKET_3, grammarAccess.getDeclaratorSuffixAccess().getSKW_RIGHTBRACKETTerminalRuleCall_1_0_2()); 
     }
 
 
@@ -3715,220 +3694,16 @@ this_SKW_RIGHTBRACKET_4=RULE_SKW_RIGHTBRACKET
 
     |
 (
-this_SKW_LEFTBRACKET_5=RULE_SKW_LEFTBRACKET
+this_SKW_LEFTBRACKET_4=RULE_SKW_LEFTBRACKET
     { 
-    newLeafNode(this_SKW_LEFTBRACKET_5, grammarAccess.getDeclaratorSuffixAccess().getSKW_LEFTBRACKETTerminalRuleCall_1_1_0()); 
+    newLeafNode(this_SKW_LEFTBRACKET_4, grammarAccess.getDeclaratorSuffixAccess().getSKW_LEFTBRACKETTerminalRuleCall_1_1_0()); 
     }
 
 
 
-(
-(
-		lv_static_6_0=RULE_KW_STATIC
-		{
-			newLeafNode(lv_static_6_0, grammarAccess.getDeclaratorSuffixAccess().getStaticKW_STATICTerminalRuleCall_1_1_1_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getDeclaratorSuffixRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"static",
-        		lv_static_6_0, 
-        		"at.jku.weiner.c.parser.Parser.KW_STATIC");
-	    }
-
-)
-)
-
-
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getDeclaratorSuffixAccess().getTypeQualifierListTypeQualifierListParserRuleCall_1_1_2_0()); 
-	    }
-		lv_typeQualifierList_7_0=ruleTypeQualifierList		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getDeclaratorSuffixRule());
-	        }
-       		set(
-       			$current, 
-       			"typeQualifierList",
-        		lv_typeQualifierList_7_0, 
-        		"at.jku.weiner.c.parser.Parser.TypeQualifierList");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)?
-
-
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getDeclaratorSuffixAccess().getExprAssignmentExpressionParserRuleCall_1_1_3_0()); 
-	    }
-		lv_expr_8_0=ruleAssignmentExpression		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getDeclaratorSuffixRule());
-	        }
-       		set(
-       			$current, 
-       			"expr",
-        		lv_expr_8_0, 
-        		"at.jku.weiner.c.parser.Parser.AssignmentExpression");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)
-
-
-this_SKW_RIGHTBRACKET_9=RULE_SKW_RIGHTBRACKET
+this_SKW_RIGHTBRACKET_5=RULE_SKW_RIGHTBRACKET
     { 
-    newLeafNode(this_SKW_RIGHTBRACKET_9, grammarAccess.getDeclaratorSuffixAccess().getSKW_RIGHTBRACKETTerminalRuleCall_1_1_4()); 
-    }
-
-
-)
-
-
-    |
-(
-this_SKW_LEFTBRACKET_10=RULE_SKW_LEFTBRACKET
-    { 
-    newLeafNode(this_SKW_LEFTBRACKET_10, grammarAccess.getDeclaratorSuffixAccess().getSKW_LEFTBRACKETTerminalRuleCall_1_2_0()); 
-    }
-
-
-
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getDeclaratorSuffixAccess().getTypeQualifierListTypeQualifierListParserRuleCall_1_2_1_0()); 
-	    }
-		lv_typeQualifierList_11_0=ruleTypeQualifierList		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getDeclaratorSuffixRule());
-	        }
-       		set(
-       			$current, 
-       			"typeQualifierList",
-        		lv_typeQualifierList_11_0, 
-        		"at.jku.weiner.c.parser.Parser.TypeQualifierList");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)
-
-
-(
-(
-		lv_static_12_0=RULE_KW_STATIC
-		{
-			newLeafNode(lv_static_12_0, grammarAccess.getDeclaratorSuffixAccess().getStaticKW_STATICTerminalRuleCall_1_2_2_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getDeclaratorSuffixRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"static",
-        		lv_static_12_0, 
-        		"at.jku.weiner.c.parser.Parser.KW_STATIC");
-	    }
-
-)
-)
-
-
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getDeclaratorSuffixAccess().getExprAssignmentExpressionParserRuleCall_1_2_3_0()); 
-	    }
-		lv_expr_13_0=ruleAssignmentExpression		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getDeclaratorSuffixRule());
-	        }
-       		set(
-       			$current, 
-       			"expr",
-        		lv_expr_13_0, 
-        		"at.jku.weiner.c.parser.Parser.AssignmentExpression");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)
-
-
-this_SKW_RIGHTBRACKET_14=RULE_SKW_RIGHTBRACKET
-    { 
-    newLeafNode(this_SKW_RIGHTBRACKET_14, grammarAccess.getDeclaratorSuffixAccess().getSKW_RIGHTBRACKETTerminalRuleCall_1_2_4()); 
-    }
-
-
-)
-
-
-    |
-(
-this_SKW_LEFTBRACKET_15=RULE_SKW_LEFTBRACKET
-    { 
-    newLeafNode(this_SKW_LEFTBRACKET_15, grammarAccess.getDeclaratorSuffixAccess().getSKW_LEFTBRACKETTerminalRuleCall_1_3_0()); 
-    }
-
-
-
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getDeclaratorSuffixAccess().getTypeQualifierListTypeQualifierListParserRuleCall_1_3_1_0()); 
-	    }
-		lv_typeQualifierList_16_0=ruleTypeQualifierList		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getDeclaratorSuffixRule());
-	        }
-       		set(
-       			$current, 
-       			"typeQualifierList",
-        		lv_typeQualifierList_16_0, 
-        		"at.jku.weiner.c.parser.Parser.TypeQualifierList");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)?
-
-
-(
-(
-		lv_star_17_0=RULE_SKW_STAR
-		{
-			newLeafNode(lv_star_17_0, grammarAccess.getDeclaratorSuffixAccess().getStarSKW_STARTerminalRuleCall_1_3_2_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getDeclaratorSuffixRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"star",
-        		lv_star_17_0, 
-        		"at.jku.weiner.c.common.Common.SKW_STAR");
-	    }
-
-)
-)
-
-
-this_SKW_RIGHTBRACKET_18=RULE_SKW_RIGHTBRACKET
-    { 
-    newLeafNode(this_SKW_RIGHTBRACKET_18, grammarAccess.getDeclaratorSuffixAccess().getSKW_RIGHTBRACKETTerminalRuleCall_1_3_3()); 
+    newLeafNode(this_SKW_RIGHTBRACKET_5, grammarAccess.getDeclaratorSuffixAccess().getSKW_RIGHTBRACKETTerminalRuleCall_1_1_1()); 
     }
 
 
@@ -3939,16 +3714,16 @@ this_SKW_RIGHTBRACKET_18=RULE_SKW_RIGHTBRACKET
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getDeclaratorSuffixAccess().getLastSuffixDirectDeclaratorLastSuffixParserRuleCall_1_4_0()); 
+	        newCompositeNode(grammarAccess.getDeclaratorSuffixAccess().getLastSuffixDirectDeclaratorLastSuffixParserRuleCall_1_2_0()); 
 	    }
-		lv_lastSuffix_19_0=ruleDirectDeclaratorLastSuffix		{
+		lv_lastSuffix_6_0=ruleDirectDeclaratorLastSuffix		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getDeclaratorSuffixRule());
 	        }
        		set(
        			$current, 
        			"lastSuffix",
-        		lv_lastSuffix_19_0, 
+        		lv_lastSuffix_6_0, 
         		"at.jku.weiner.c.parser.Parser.DirectDeclaratorLastSuffix");
 	        afterParserOrEnumRuleCall();
 	    }

@@ -322,9 +322,9 @@ class ParserGenerator implements IGenerator {
 			«outputFor(obj.lastSuffix)»
 		«ELSE»
 			[
-			«IF obj.typeQualifierList != null»
-				«outputFor(obj.typeQualifierList)»
-			«ENDIF»
+«««			«IF obj.typeQualifierList != null»
+«««				«outputFor(obj.typeQualifierList)»
+«««			«ENDIF»
 			«IF obj.expr != null»
 				«outputForAssignmentExpression(obj.expr as AssignmentExpression)»
 			«ENDIF»

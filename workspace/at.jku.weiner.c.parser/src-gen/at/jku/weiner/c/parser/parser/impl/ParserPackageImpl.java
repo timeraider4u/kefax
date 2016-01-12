@@ -1546,7 +1546,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDeclaratorSuffix_TypeQualifierList()
+  public EReference getDeclaratorSuffix_Expr()
   {
     return (EReference)declaratorSuffixEClass.getEStructuralFeatures().get(0);
   }
@@ -1556,39 +1556,9 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDeclaratorSuffix_Expr()
-  {
-    return (EReference)declaratorSuffixEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getDeclaratorSuffix_Static()
-  {
-    return (EAttribute)declaratorSuffixEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getDeclaratorSuffix_Star()
-  {
-    return (EAttribute)declaratorSuffixEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getDeclaratorSuffix_LastSuffix()
   {
-    return (EReference)declaratorSuffixEClass.getEStructuralFeatures().get(4);
+    return (EReference)declaratorSuffixEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -3739,10 +3709,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     createEReference(directDeclaratorEClass, DIRECT_DECLARATOR__DECLARATOR_SUFFIX);
 
     declaratorSuffixEClass = createEClass(DECLARATOR_SUFFIX);
-    createEReference(declaratorSuffixEClass, DECLARATOR_SUFFIX__TYPE_QUALIFIER_LIST);
     createEReference(declaratorSuffixEClass, DECLARATOR_SUFFIX__EXPR);
-    createEAttribute(declaratorSuffixEClass, DECLARATOR_SUFFIX__STATIC);
-    createEAttribute(declaratorSuffixEClass, DECLARATOR_SUFFIX__STAR);
     createEReference(declaratorSuffixEClass, DECLARATOR_SUFFIX__LAST_SUFFIX);
 
     directDeclaratorLastSuffixEClass = createEClass(DIRECT_DECLARATOR_LAST_SUFFIX);
@@ -4183,10 +4150,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     initEReference(getDirectDeclarator_DeclaratorSuffix(), this.getDeclaratorSuffix(), null, "declaratorSuffix", null, 0, -1, DirectDeclarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(declaratorSuffixEClass, DeclaratorSuffix.class, "DeclaratorSuffix", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDeclaratorSuffix_TypeQualifierList(), this.getTypeQualifierList(), null, "typeQualifierList", null, 0, 1, DeclaratorSuffix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDeclaratorSuffix_Expr(), this.getExpression(), null, "expr", null, 0, 1, DeclaratorSuffix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getDeclaratorSuffix_Static(), theEcorePackage.getEString(), "static", null, 0, 1, DeclaratorSuffix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getDeclaratorSuffix_Star(), theEcorePackage.getEString(), "star", null, 0, 1, DeclaratorSuffix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDeclaratorSuffix_LastSuffix(), this.getDirectDeclaratorLastSuffix(), null, "lastSuffix", null, 0, 1, DeclaratorSuffix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(directDeclaratorLastSuffixEClass, DirectDeclaratorLastSuffix.class, "DirectDeclaratorLastSuffix", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

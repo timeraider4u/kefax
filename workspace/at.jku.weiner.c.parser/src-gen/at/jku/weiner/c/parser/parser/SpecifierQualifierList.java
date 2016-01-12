@@ -13,11 +13,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.SpecifierQualifierList#getTypeSpecifier <em>Type Specifier</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.SpecifierQualifierList#getTypeQualifier <em>Type Qualifier</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.parser.parser.ParserPackage#getSpecifierQualifierList()
  * @model

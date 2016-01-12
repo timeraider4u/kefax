@@ -80,7 +80,7 @@ ruleParser
 		at.jku.weiner.c.parser.utils.Scope.createFirstScope("Parser");
     }
 	@after {
-    		at.jku.weiner.c.parser.utils.Scope.removeScope();
+    		{at.jku.weiner.c.parser.utils.Scope.removeScope();}
      }:
 
 (
@@ -185,7 +185,7 @@ ruleFunctionDefinition
 		at.jku.weiner.c.parser.utils.Scope.createNewScope("FunctionDefinition");
     }
 	@after {
-    		at.jku.weiner.c.parser.utils.Scope.removeScope();
+    		{at.jku.weiner.c.parser.utils.Scope.removeScope();}
      }:
 
 (
@@ -465,7 +465,7 @@ ruleTypedefName
 		at.jku.weiner.c.parser.utils.Scope.enterTypeDefName();
     }
 	@after {
-    		at.jku.weiner.c.parser.utils.Scope.leaveTypeDefName();
+    		{at.jku.weiner.c.parser.utils.Scope.leaveTypeDefName();}
      }:
 
 (
@@ -500,7 +500,7 @@ ruleStructOrUnionSpecifier
 		at.jku.weiner.c.parser.utils.Scope.createNewScope("StructOrUnion");
     }
 	@after {
-    		at.jku.weiner.c.parser.utils.Scope.removeScope();
+    		{at.jku.weiner.c.parser.utils.Scope.removeScope();}
      }:
 
 (
@@ -1697,7 +1697,7 @@ ruleCompoundStatement
 		at.jku.weiner.c.parser.utils.Scope.createNewScope("CompoundStatement");
     }
 	@after {
-    		at.jku.weiner.c.parser.utils.Scope.removeScope();
+    		{at.jku.weiner.c.parser.utils.Scope.removeScope();}
      }:
 
 (
@@ -3435,7 +3435,7 @@ rule__StorageClassSpecifier__Alternatives_1
 { after(grammarAccess.getStorageClassSpecifierAccess().getNameAssignment_1_0()); }
 )
 
-{at.jku.weiner.c.parser.utils.Scope.setTypedef(true);}
+{{at.jku.weiner.c.parser.utils.Scope.setTypedef(true);}}
 
 
     |
@@ -4081,7 +4081,9 @@ rule__DirectDeclarator__Alternatives_1
 		int stackSize = keepStackSize();
     }
 :
+
 {at.jku.weiner.c.parser.utils.Scope.checkThatNoTypeIDAndSetTemp(input)}?
+
 
 (
 { before(grammarAccess.getDirectDeclaratorAccess().getIdAssignment_1_0()); }
@@ -4089,7 +4091,7 @@ rule__DirectDeclarator__Alternatives_1
 { after(grammarAccess.getDirectDeclaratorAccess().getIdAssignment_1_0()); }
 )
 
-{at.jku.weiner.c.parser.utils.Scope.addTypedefIfIsTypedef();}
+{{at.jku.weiner.c.parser.utils.Scope.addTypedefIfIsTypedef();}}
 
 
     |
@@ -7400,7 +7402,9 @@ rule__TypedefName__Group__1__Impl
 		int stackSize = keepStackSize();
     }
 :
+
 {at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)}?
+
 
 (
 { before(grammarAccess.getTypedefNameAccess().getIdAssignment_1()); }
@@ -12042,7 +12046,9 @@ rule__TypeName__Group__1__Impl
 		int stackSize = keepStackSize();
     }
 :
+{
 {at.jku.weiner.c.parser.utils.Log.error("In typeName");}
+}
 
 (
 { before(grammarAccess.getTypeNameAccess().getListAssignment_1()); }

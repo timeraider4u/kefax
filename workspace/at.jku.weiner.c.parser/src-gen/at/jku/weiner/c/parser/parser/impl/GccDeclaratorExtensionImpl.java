@@ -27,12 +27,12 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.GccDeclaratorExtensionImpl#getAsm <em>Asm</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.GccDeclaratorExtensionImpl#getString <em>String</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.GccDeclaratorExtensionImpl#getGccAttributeSpecifier <em>Gcc Attribute Specifier</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

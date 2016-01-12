@@ -132,7 +132,7 @@ ruleParser returns [EObject current=null]
 ;
 finally {
 
-	at.jku.weiner.c.parser.utils.Scope.removeScope();
+	{at.jku.weiner.c.parser.utils.Scope.removeScope();}
 
 }
 
@@ -461,7 +461,7 @@ ruleFunctionDefinition returns [EObject current=null]
 ;
 finally {
 
-	at.jku.weiner.c.parser.utils.Scope.removeScope();
+	{at.jku.weiner.c.parser.utils.Scope.removeScope();}
 
 }
 
@@ -1090,7 +1090,7 @@ ruleStorageClassSpecifier returns [EObject current=null]
 
 )
 )
-{at.jku.weiner.c.parser.utils.Scope.setTypedef(true);}
+{{at.jku.weiner.c.parser.utils.Scope.setTypedef(true);}}
 
 
     |
@@ -1969,7 +1969,9 @@ ruleTypedefName returns [EObject current=null]
     }
 )
 
+
 {at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)}?
+
 
 (
 (
@@ -1997,7 +1999,7 @@ ruleTypedefName returns [EObject current=null]
 ;
 finally {
 
-	at.jku.weiner.c.parser.utils.Scope.leaveTypeDefName();
+	{at.jku.weiner.c.parser.utils.Scope.leaveTypeDefName();}
 
 }
 
@@ -2146,7 +2148,7 @@ this_SKW_RIGHTBRACE_5=RULE_SKW_RIGHTBRACE
 ;
 finally {
 
-	at.jku.weiner.c.parser.utils.Scope.removeScope();
+	{at.jku.weiner.c.parser.utils.Scope.removeScope();}
 
 }
 
@@ -3523,7 +3525,9 @@ ruleDirectDeclarator returns [EObject current=null]
 )
 
 
-({at.jku.weiner.c.parser.utils.Scope.checkThatNoTypeIDAndSetTemp(input)}?
+(
+{at.jku.weiner.c.parser.utils.Scope.checkThatNoTypeIDAndSetTemp(input)}?
+
 
 (
 (
@@ -3544,7 +3548,7 @@ ruleDirectDeclarator returns [EObject current=null]
 
 )
 )
-{at.jku.weiner.c.parser.utils.Scope.addTypedefIfIsTypedef();}
+{{at.jku.weiner.c.parser.utils.Scope.addTypedefIfIsTypedef();}}
 
 
     |
@@ -5244,7 +5248,9 @@ ruleTypeName returns [EObject current=null]
     }
 )
 
+{
 {at.jku.weiner.c.parser.utils.Log.error("In typeName");}
+}
 
 (
 (
@@ -6247,7 +6253,7 @@ this_SKW_RIGHTBRACE_3=RULE_SKW_RIGHTBRACE
 ;
 finally {
 
-	at.jku.weiner.c.parser.utils.Scope.removeScope();
+	{at.jku.weiner.c.parser.utils.Scope.removeScope();}
 
 }
 

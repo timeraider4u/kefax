@@ -11,11 +11,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.TypeName#getList <em>List</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.TypeName#getAbstractDeclarator <em>Abstract Declarator</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.parser.parser.ParserPackage#getTypeName()
  * @model

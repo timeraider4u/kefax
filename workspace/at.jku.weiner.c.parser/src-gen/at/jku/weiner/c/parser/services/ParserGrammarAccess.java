@@ -1595,7 +1595,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
 		private final RuleCall cSKW_LEFTBRACKETTerminalRuleCall_1_0_0 = (RuleCall)cGroup_1_0.eContents().get(0);
 		private final Assignment cExprAssignment_1_0_1 = (Assignment)cGroup_1_0.eContents().get(1);
-		private final RuleCall cExprConstantExpressionParserRuleCall_1_0_1_0 = (RuleCall)cExprAssignment_1_0_1.eContents().get(0);
+		private final RuleCall cExprAssignmentExpressionParserRuleCall_1_0_1_0 = (RuleCall)cExprAssignment_1_0_1.eContents().get(0);
 		private final RuleCall cSKW_RIGHTBRACKETTerminalRuleCall_1_0_2 = (RuleCall)cGroup_1_0.eContents().get(2);
 		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
 		private final RuleCall cSKW_LEFTBRACKETTerminalRuleCall_1_1_0 = (RuleCall)cGroup_1_1.eContents().get(0);
@@ -1604,33 +1604,33 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cLastSuffixDirectDeclaratorLastSuffixParserRuleCall_1_2_0 = (RuleCall)cLastSuffixAssignment_1_2.eContents().get(0);
 		
 		//DeclaratorSuffix:
-		//	{DeclaratorSuffix} (SKW_LEFTBRACKET expr=ConstantExpression SKW_RIGHTBRACKET
+		//	{DeclaratorSuffix} (SKW_LEFTBRACKET expr=AssignmentExpression SKW_RIGHTBRACKET
 		//	| SKW_LEFTBRACKET SKW_RIGHTBRACKET
 		//	| lastSuffix=DirectDeclaratorLastSuffix);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{DeclaratorSuffix} (SKW_LEFTBRACKET expr=ConstantExpression SKW_RIGHTBRACKET | SKW_LEFTBRACKET SKW_RIGHTBRACKET |
+		//{DeclaratorSuffix} (SKW_LEFTBRACKET expr=AssignmentExpression SKW_RIGHTBRACKET | SKW_LEFTBRACKET SKW_RIGHTBRACKET |
 		//lastSuffix=DirectDeclaratorLastSuffix)
 		public Group getGroup() { return cGroup; }
 		
 		//{DeclaratorSuffix}
 		public Action getDeclaratorSuffixAction_0() { return cDeclaratorSuffixAction_0; }
 		
-		//(SKW_LEFTBRACKET expr=ConstantExpression SKW_RIGHTBRACKET | SKW_LEFTBRACKET SKW_RIGHTBRACKET |
+		//(SKW_LEFTBRACKET expr=AssignmentExpression SKW_RIGHTBRACKET | SKW_LEFTBRACKET SKW_RIGHTBRACKET |
 		//lastSuffix=DirectDeclaratorLastSuffix)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		//SKW_LEFTBRACKET expr=ConstantExpression SKW_RIGHTBRACKET
+		//SKW_LEFTBRACKET expr=AssignmentExpression SKW_RIGHTBRACKET
 		public Group getGroup_1_0() { return cGroup_1_0; }
 		
 		//SKW_LEFTBRACKET
 		public RuleCall getSKW_LEFTBRACKETTerminalRuleCall_1_0_0() { return cSKW_LEFTBRACKETTerminalRuleCall_1_0_0; }
 		
-		//expr=ConstantExpression
+		//expr=AssignmentExpression
 		public Assignment getExprAssignment_1_0_1() { return cExprAssignment_1_0_1; }
 		
-		//ConstantExpression
-		public RuleCall getExprConstantExpressionParserRuleCall_1_0_1_0() { return cExprConstantExpressionParserRuleCall_1_0_1_0; }
+		//AssignmentExpression
+		public RuleCall getExprAssignmentExpressionParserRuleCall_1_0_1_0() { return cExprAssignmentExpressionParserRuleCall_1_0_1_0; }
 		
 		//SKW_RIGHTBRACKET
 		public RuleCall getSKW_RIGHTBRACKETTerminalRuleCall_1_0_2() { return cSKW_RIGHTBRACKETTerminalRuleCall_1_0_2; }
@@ -5983,7 +5983,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DeclaratorSuffix:
-	//	{DeclaratorSuffix} (SKW_LEFTBRACKET expr=ConstantExpression SKW_RIGHTBRACKET
+	//	{DeclaratorSuffix} (SKW_LEFTBRACKET expr=AssignmentExpression SKW_RIGHTBRACKET
 	//	| SKW_LEFTBRACKET SKW_RIGHTBRACKET
 	//	| lastSuffix=DirectDeclaratorLastSuffix);
 	public DeclaratorSuffixElements getDeclaratorSuffixAccess() {

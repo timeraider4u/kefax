@@ -8,14 +8,42 @@ source file="res/Test0073_ArrayTypes.c"
 //----------------------------------------------------------------------
 lexer-tokens
 KW_TYPEDEF WHITESPACE KW_INT WHITESPACE ID SKW_SEMI NEWLINE
-KW_INT WHITESPACE ID SKW_SEMI NEWLINE
-KW_INT WHITESPACE ID SKW_LEFTBRACKET SKW_RIGHTBRACKET SKW_COMMA WHITESPACE 
-	ID SKW_LEFTBRACKET SKW_RIGHTBRACKET SKW_SEMI NEWLINE
+KW_INT WHITESPACE ID SKW_LEFTBRACKET SKW_RIGHTBRACKET SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
 //(common::Model units+=
 	//(common::TranslationUnit 
 	(Parser
 		external+=
+		// typedef int fooA;
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(StorageClassSpecifier
+						name++"typedef"
+					),
+					(TypeSpecifier
+						name++"int"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"mytype"
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+		),
 		(ExternalDeclaration 
 			declaration=
 			(Declaration
@@ -34,41 +62,19 @@ KW_INT WHITESPACE ID SKW_LEFTBRACKET SKW_RIGHTBRACKET SKW_COMMA WHITESPACE
 						(Declarator
 							declarator=
 							(DirectDeclarator
-								id++"a"
+								id++"a",
+								declaratorSuffix+=
+								(DeclaratorSuffix
+									expr isNull,
+									lastSuffix isNull
+								)
 							)
+							
 						)
 					)
 				),
 				semi++";"
 			)
-		),
-		(ExternalDeclaration
-			declaration=
-			(Declaration
-				specifiers=
-				(DeclarationSpecifiers
-					declarationSpecifier+=
-					(TypeSpecifier
-						name++"int"
-					)
-				)
-				,
-				initDeclaratorList+=
-				(InitDeclaratorList
-					initDeclarator+=
-					(InitDeclarator
-						declarator=
-						(Declarator
-							declarator=
-							(DirectDeclarator
-								id++"x"
-							)
-						)
-					)
-				),
-				semi++";"
-			)
-			
 		)
 	)
 //)

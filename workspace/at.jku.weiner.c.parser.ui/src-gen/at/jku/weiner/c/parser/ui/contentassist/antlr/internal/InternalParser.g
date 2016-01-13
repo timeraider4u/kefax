@@ -23025,8 +23025,8 @@ rule__DeclaratorSuffix__ExprAssignment_1_0_1
     }
 :
 (
-{ before(grammarAccess.getDeclaratorSuffixAccess().getExprConstantExpressionParserRuleCall_1_0_1_0()); }
-	ruleConstantExpression{ after(grammarAccess.getDeclaratorSuffixAccess().getExprConstantExpressionParserRuleCall_1_0_1_0()); }
+{ before(grammarAccess.getDeclaratorSuffixAccess().getExprAssignmentExpressionParserRuleCall_1_0_1_0()); }
+	ruleAssignmentExpression{ after(grammarAccess.getDeclaratorSuffixAccess().getExprAssignmentExpressionParserRuleCall_1_0_1_0()); }
 )
 
 ;

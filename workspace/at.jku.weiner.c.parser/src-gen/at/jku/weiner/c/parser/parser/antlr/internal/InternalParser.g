@@ -3665,9 +3665,9 @@ this_SKW_LEFTBRACKET_1=RULE_SKW_LEFTBRACKET
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getDeclaratorSuffixAccess().getExprConstantExpressionParserRuleCall_1_0_1_0()); 
+	        newCompositeNode(grammarAccess.getDeclaratorSuffixAccess().getExprAssignmentExpressionParserRuleCall_1_0_1_0()); 
 	    }
-		lv_expr_2_0=ruleConstantExpression		{
+		lv_expr_2_0=ruleAssignmentExpression		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getDeclaratorSuffixRule());
 	        }
@@ -3675,7 +3675,7 @@ this_SKW_LEFTBRACKET_1=RULE_SKW_LEFTBRACKET
        			$current, 
        			"expr",
         		lv_expr_2_0, 
-        		"at.jku.weiner.c.parser.Parser.ConstantExpression");
+        		"at.jku.weiner.c.parser.Parser.AssignmentExpression");
 	        afterParserOrEnumRuleCall();
 	    }
 

@@ -11,7 +11,6 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.PostfixExpression#isExt <em>Ext</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.PostfixExpression#getTypeName <em>Type Name</em>}</li>
@@ -20,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link at.jku.weiner.c.parser.parser.PostfixExpression#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.PostfixExpression#getSuffix <em>Suffix</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.parser.parser.ParserPackage#getPostfixExpression()
  * @model

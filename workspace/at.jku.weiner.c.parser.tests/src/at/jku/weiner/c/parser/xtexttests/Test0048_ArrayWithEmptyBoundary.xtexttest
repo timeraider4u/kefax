@@ -35,8 +35,9 @@ KW_CHAR WHITESPACE ID SKW_LEFTBRACKET SKW_RIGHTBRACKET SKW_SEMI NEWLINE
 								id++"out",
 								declaratorSuffix+=
 								(DeclaratorSuffix
-									typeQualifierList isNull,
-									expr isNull
+									// typeQualifierList isNull,
+									expr isNull,
+									lastSuffix isNull
 								)
 							)
 						) // end declarator

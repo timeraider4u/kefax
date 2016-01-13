@@ -10,7 +10,6 @@ package at.jku.weiner.c.parser.parser;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.LabeledStatement#getId <em>Id</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.LabeledStatement#getLStmt <em>LStmt</em>}</li>
@@ -20,6 +19,7 @@ package at.jku.weiner.c.parser.parser;
  *   <li>{@link at.jku.weiner.c.parser.parser.LabeledStatement#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.LabeledStatement#isMydefault <em>Mydefault</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.parser.parser.ParserPackage#getLabeledStatement()
  * @model

@@ -172,6 +172,31 @@ SKW_RIGHTBRACE NEWLINE
 								)
 							)
 						),
+						(Declaration
+							specifiers=
+							(DeclarationSpecifiers
+								declarationSpecifier+=
+								(TypeSpecifier
+									type=
+									(TypedefName
+										id++"fooB"
+									)
+								)
+							), // end declarationSpecifiers
+							initDeclaratorList+=
+							(InitDeclaratorList
+								initDeclarator+=
+								(InitDeclarator
+									declarator=
+									(Declarator
+										declarator=
+										(DirectDeclarator
+											id++"barB_1"
+										)
+									)
+								)
+							)
+						),
 						statement+=
 						(Statement
 							stmt=
@@ -180,20 +205,252 @@ SKW_RIGHTBRACE NEWLINE
 								(BodyStatement
 									blockList+=
 									(BlockList
+										declaration+=
+										// typedef int fooC;
+										(Declaration
+											specifiers=
+											(DeclarationSpecifiers
+												declarationSpecifier+=
+												(StorageClassSpecifier
+													name++"typedef"
+												),
+												(TypeSpecifier
+													name++"int"
+												)
+											), // end declarationSpecifiers
+											initDeclaratorList+=
+											(InitDeclaratorList
+												initDeclarator+=
+												(InitDeclarator
+													declarator=
+													(Declarator
+														declarator=
+														(DirectDeclarator
+															id++"fooC"
+														)
+													)
+												)
+											)
+										),
+										(Declaration
+											specifiers=
+											(DeclarationSpecifiers
+												declarationSpecifier+=
+												(TypeSpecifier
+													type=
+													(TypedefName
+														id++"fooA"
+													)
+												)
+											), // end declarationSpecifiers
+											initDeclaratorList+=
+											(InitDeclaratorList
+												initDeclarator+=
+												(InitDeclarator
+													declarator=
+													(Declarator
+														declarator=
+														(DirectDeclarator
+															id++"barA_3"
+														)
+													)
+												)
+											)
+										),
+										(Declaration
+											specifiers=
+											(DeclarationSpecifiers
+												declarationSpecifier+=
+												(TypeSpecifier
+													type=
+													(TypedefName
+														id++"fooB"
+													)
+												)
+											), // end declarationSpecifiers
+											initDeclaratorList+=
+											(InitDeclaratorList
+												initDeclarator+=
+												(InitDeclarator
+													declarator=
+													(Declarator
+														declarator=
+														(DirectDeclarator
+															id++"barB_2"
+														)
+													)
+												)
+											)
+										),
+										(Declaration
+											specifiers=
+											(DeclarationSpecifiers
+												declarationSpecifier+=
+												(TypeSpecifier
+													type=
+													(TypedefName
+														id++"fooC"
+													)
+												)
+											), // end declarationSpecifiers
+											initDeclaratorList+=
+											(InitDeclaratorList
+												initDeclarator+=
+												(InitDeclarator
+													declarator=
+													(Declarator
+														declarator=
+														(DirectDeclarator
+															id++"barC_1"
+														)
+													)
+												)
+											)
+										),
 										statement+=
 										(Statement
 											stmt=
 											(CompoundStatement
 												body=
 												(BodyStatement
-													
+													blockList+=
+													(BlockList
+														declaration+=
+														// typedef int fooD;
+														(Declaration
+															specifiers=
+															(DeclarationSpecifiers
+																declarationSpecifier+=
+																(StorageClassSpecifier
+																	name++"typedef"
+																),
+																(TypeSpecifier
+																	name++"int"
+																)
+															), // end declarationSpecifiers
+															initDeclaratorList+=
+															(InitDeclaratorList
+																initDeclarator+=
+																(InitDeclarator
+																	declarator=
+																	(Declarator
+																		declarator=
+																		(DirectDeclarator
+																			id++"fooD"
+																		)
+																	)
+																)
+															)
+														),
+														(Declaration
+															specifiers=
+															(DeclarationSpecifiers
+																declarationSpecifier+=
+																(TypeSpecifier
+																	type=
+																	(TypedefName
+																		id++"fooA"
+																	)
+																)
+															), // end declarationSpecifiers
+															initDeclaratorList+=
+															(InitDeclaratorList
+																initDeclarator+=
+																(InitDeclarator
+																	declarator=
+																	(Declarator
+																		declarator=
+																		(DirectDeclarator
+																			id++"barA_4"
+																		)
+																	)
+																)
+															)
+														),
+														(Declaration
+															specifiers=
+															(DeclarationSpecifiers
+																declarationSpecifier+=
+																(TypeSpecifier
+																	type=
+																	(TypedefName
+																		id++"fooB"
+																	)
+																)
+															), // end declarationSpecifiers
+															initDeclaratorList+=
+															(InitDeclaratorList
+																initDeclarator+=
+																(InitDeclarator
+																	declarator=
+																	(Declarator
+																		declarator=
+																		(DirectDeclarator
+																			id++"barB_3"
+																		)
+																	)
+																)
+															)
+														),
+														(Declaration
+															specifiers=
+															(DeclarationSpecifiers
+																declarationSpecifier+=
+																(TypeSpecifier
+																	type=
+																	(TypedefName
+																		id++"fooC"
+																	)
+																)
+															), // end declarationSpecifiers
+															initDeclaratorList+=
+															(InitDeclaratorList
+																initDeclarator+=
+																(InitDeclarator
+																	declarator=
+																	(Declarator
+																		declarator=
+																		(DirectDeclarator
+																			id++"barC_2"
+																		)
+																	)
+																)
+															)
+														),
+														(Declaration
+															specifiers=
+															(DeclarationSpecifiers
+																declarationSpecifier+=
+																(TypeSpecifier
+																	type=
+																	(TypedefName
+																		id++"fooD"
+																	)
+																)
+															), // end declarationSpecifiers
+															initDeclaratorList+=
+															(InitDeclaratorList
+																initDeclarator+=
+																(InitDeclarator
+																	declarator=
+																	(Declarator
+																		declarator=
+																		(DirectDeclarator
+																			id++"barD_1"
+																		)
+																	)
+																)
+															)
+														),
+														statement isEmpty
+													)
 												)
 											) // end compound statement
 										)
-									)
-								)
+									) // end block list
+								) // end statement
 							) // end compound statement
-						) // end statement
+						)
 					) // end block list
 				) // end body statement
 			)

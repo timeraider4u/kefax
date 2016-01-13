@@ -598,7 +598,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     ((expr=ConstantExpression | lastSuffix=DirectDeclaratorLastSuffix)?)
+	 *     ((expr=AssignmentExpression | lastSuffix=DirectDeclaratorLastSuffix)?)
 	 */
 	protected void sequence_DeclaratorSuffix(EObject context, DeclaratorSuffix semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

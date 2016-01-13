@@ -62010,7 +62010,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 
 
 	// $ANTLR start "rule__DeclaratorSuffix__ExprAssignment_1_0_1"
-	// InternalParser.g:23022:1: rule__DeclaratorSuffix__ExprAssignment_1_0_1 : ( ruleConstantExpression ) ;
+	// InternalParser.g:23022:1: rule__DeclaratorSuffix__ExprAssignment_1_0_1 : ( ruleAssignmentExpression ) ;
 	public final void rule__DeclaratorSuffix__ExprAssignment_1_0_1() throws RecognitionException {
 		int rule__DeclaratorSuffix__ExprAssignment_1_0_1_StartIndex = input.index();
 
@@ -62020,18 +62020,18 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 1264) ) { return; }
 
-			// InternalParser.g:23026:1: ( ( ruleConstantExpression ) )
-			// InternalParser.g:23027:1: ( ruleConstantExpression )
+			// InternalParser.g:23026:1: ( ( ruleAssignmentExpression ) )
+			// InternalParser.g:23027:1: ( ruleAssignmentExpression )
 			{
-			// InternalParser.g:23027:1: ( ruleConstantExpression )
-			// InternalParser.g:23028:1: ruleConstantExpression
+			// InternalParser.g:23027:1: ( ruleAssignmentExpression )
+			// InternalParser.g:23028:1: ruleAssignmentExpression
 			{
-			if ( state.backtracking==0 ) { before(grammarAccess.getDeclaratorSuffixAccess().getExprConstantExpressionParserRuleCall_1_0_1_0()); }
+			if ( state.backtracking==0 ) { before(grammarAccess.getDeclaratorSuffixAccess().getExprAssignmentExpressionParserRuleCall_1_0_1_0()); }
 			pushFollow(FollowSets000.FOLLOW_2);
-			ruleConstantExpression();
+			ruleAssignmentExpression();
 			state._fsp--;
 			if (state.failed) return;
-			if ( state.backtracking==0 ) { after(grammarAccess.getDeclaratorSuffixAccess().getExprConstantExpressionParserRuleCall_1_0_1_0()); }
+			if ( state.backtracking==0 ) { after(grammarAccess.getDeclaratorSuffixAccess().getExprAssignmentExpressionParserRuleCall_1_0_1_0()); }
 			}
 
 			}

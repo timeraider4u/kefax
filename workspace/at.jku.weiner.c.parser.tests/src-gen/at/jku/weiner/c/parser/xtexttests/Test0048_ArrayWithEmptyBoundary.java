@@ -204,9 +204,9 @@ public class Test0048_ArrayWithEmptyBoundary {
 		Assert.assertNotNull(DeclaratorSuffix_9_Var
 		);
 		Assert.assertNull(DeclaratorSuffix_9_Var
-		.getTypeQualifierList());
-		Assert.assertNull(DeclaratorSuffix_9_Var
 		.getExpr());
+		Assert.assertNull(DeclaratorSuffix_9_Var
+		.getLastSuffix());
 	}
 	
 	@Test

@@ -345,7 +345,7 @@ DirectDeclarator:
 DeclaratorSuffix:
 	{DeclaratorSuffix}
 	(
-		SKW_LEFTBRACKET  expr=ConstantExpression SKW_RIGHTBRACKET
+		SKW_LEFTBRACKET  expr=AssignmentExpression SKW_RIGHTBRACKET
 	|	SKW_LEFTBRACKET SKW_RIGHTBRACKET
 	|	lastSuffix=DirectDeclaratorLastSuffix
 	)

@@ -201,14 +201,7 @@ initRuleAction {
 			SKW_RIGHTPAREN // GCC extension
 ;
 
-TypedefName
-initRuleAction {
-		at.jku.weiner.c.parser.utils.Scope.enterTypeDefName();
-	}
-afterRuleAction {
-		at.jku.weiner.c.parser.utils.Scope.leaveTypeDefName();
-	}
-:
+TypedefName:
 	{TypedefName}
 	id=ID
 		preAction{ { at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input) }? }

@@ -1,7 +1,10 @@
 package at.jku.weiner.c.parser.utils;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
+import java.util.Map;
 import java.util.Stack;
 
 import org.antlr.runtime.RecognizerSharedState;
@@ -9,29 +12,50 @@ import org.antlr.runtime.TokenStream;
 
 public final class Scope {
 
+	private static final class Types {
+		private final HashSet<String> types = new HashSet<String>();
+
+		public void addType(final String type) {
+			this.types.add(type);
+		}
+
+		public void removeType(final String type) {
+			this.types.remove(type);
+		}
+
+		public boolean containsType(final String type) {
+			final boolean result = this.types.contains(type);
+			return result;
+		}
+	}
+
 	private static final class Symbols {
 		public final String scopeName;
-		public final Set<String> types = new HashSet<String>();
+		public final List<Types> types2 = new ArrayList<Types>();
+		public final Map<Integer, Types> types = new HashMap<Integer, Types>();
 		public boolean isTypeDefValue = false;
 		public String temp = null;
-		public String lastOp = null;
 
 		public Symbols(final String scopeName) {
 			this.scopeName = scopeName;
 		}
+
+		public void cleanUp(final int level) {
+		}
+
+		public void addType(final int level, final String type) {
+			this.cleanUp(level);
+			for (int i = this.types.size(); i <= level; i++) {
+				this.types.add(new Types());
+			}
+		}
+
+		public boolean containsType(final int level, final String type) {
+
+		}
 	}
 
 	protected static final Stack<Symbols> scope = new Stack<Symbols>();
-	private static boolean outOfLevel = true;
-
-	public static void enterTypeDefName() {
-		Log.log("In typedefname ");
-		Scope.outOfLevel = false;
-	}
-
-	public static void leaveTypeDefName() {
-		Scope.outOfLevel = true;
-	}
 
 	public static int size() {
 		return Scope.scope.size();
@@ -49,8 +73,6 @@ public final class Scope {
 		Log.debug("isTypeName state.backtracking=" + state.backtracking
 				+ ", token(choosen)='" + token + "'");
 		Log.debug("token(choosen)='" + token + "'");
-		Log.debug("Out of level='" + Scope.outOfLevel + "'");
-		// return (Scope.outOfLevel || Scope.isTypeName(token));
 		// if (state.backtracking != 0) {
 		// return true;
 		// }
@@ -108,20 +130,6 @@ public final class Scope {
 				+ "' newType='" + name + "'");
 		Scope.scope.peek().types.add(name);
 		Scope.setTypedef(false);
-		Scope.scope.peek().lastOp = name;
-	}
-
-	public static final void undoLastOp() {
-		String name = Scope.scope.peek().lastOp;
-		if (name != null) {
-			System.out.println("undoLastOp='" + name + "'");
-			Scope.scope.peek().types.remove(name);
-			name = null;
-		}
-	}
-
-	public static final void finalizeLastOp() {
-		Scope.scope.peek().lastOp = null;
 	}
 
 	public static final void setTypedef(final boolean newTypeDef) {

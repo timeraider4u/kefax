@@ -1,0 +1,112 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.parser
+language parser
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+source file="res/Test0074_TypedefSpecial.c"
+//----------------------------------------------------------------------
+lexer-tokens
+KW_TYPEDEF WHITESPACE KW_INT WHITESPACE ID SKW_LEFTBRACKET DECIMAL_LITERAL SKW_RIGHTBRACKET SKW_SEMI NEWLINE
+//----------------------------------------------------------------------
+//(common::Model units+=
+	//(common::TranslationUnit 
+	(Parser
+		external+=
+		// typedef int fooA;
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(StorageClassSpecifier
+						name++"typedef"
+					),
+					(TypeSpecifier
+						name++"int"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"a",
+								declaratorSuffix+=
+								(DeclaratorSuffix
+									expr=
+									(AssignmentExpression
+										expr=
+										(ConditionalExpression
+											expr=
+											(LogicalOrExpression
+												expr+=
+												(LogicalAndExpression
+													expr+=
+													(InclusiveOrExpression
+														expr+=
+														(InclusiveOrExpression
+															expr+=
+															(ExclusiveOrExpression
+																expr+=
+																(AndExpression
+																	expr+=
+																	(EqualityExpression
+																		expr+=
+																		(RelationalExpression
+																			expr+=
+																			(ShiftExpression
+																				expr+=
+																				(AdditiveExpression
+																					expr+=
+																					(MultiplicativeExpression
+																						expr+=
+																						(CastExpression
+																							expr=
+																							(UnaryExpression
+																								expr=
+																								(PostfixExpression
+																									expr+=
+																									(PrimaryExpression
+																										const=
+																										(common::Constant2
+																											dec++"5"
+																										)
+																									)
+																								)
+																							)
+																						)
+																					)
+																				)
+																			)
+																		)
+																	)
+																)
+															)
+														)
+													)
+												)
+											)
+										)
+									)
+								)
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+		)
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0074_TypedefSpecial.c"
+expected file isSameAsInputFile
+replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

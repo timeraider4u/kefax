@@ -120,6 +120,10 @@ public final class Scope {
 		}
 	}
 
+	public static final void finalizeLastOp() {
+		Scope.scope.peek().lastOp = null;
+	}
+
 	public static final void setTypedef(final boolean newTypeDef) {
 		Log.debug("setTypedef='" + newTypeDef + "'");
 		Scope.scope.peek().isTypeDefValue = newTypeDef;

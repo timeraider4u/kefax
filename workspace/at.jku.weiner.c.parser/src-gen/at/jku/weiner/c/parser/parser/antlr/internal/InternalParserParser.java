@@ -24881,6 +24881,9 @@ public class InternalParserParser extends AbstractInternalAntlrParser {
 			System.err.println("impossible: "+re);
 		}
 		boolean success = !state.failed;
+		if (state.failed) {
+			at.jku.weiner.c.parser.utils.Scope.undoLastOp();
+		}
 		input.rewind(start);
 		state.backtracking--;
 		state.failed=false;

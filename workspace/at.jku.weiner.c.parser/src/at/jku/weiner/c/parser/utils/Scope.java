@@ -1,98 +1,11 @@
 package at.jku.weiner.c.parser.utils;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
 import java.util.Stack;
-
-import org.antlr.runtime.RecognizerSharedState;
 import org.antlr.runtime.TokenStream;
 
 public final class Scope {
-
-	private static final class Types {
-		private final HashSet<String> types = new HashSet<String>();
-
-		public void addType(final String type) {
-			this.types.add(type);
-		}
-
-		public void removeType(final String type) {
-			this.types.remove(type);
-		}
-
-		public boolean containsType(final String type) {
-			final boolean result = this.types.contains(type);
-			return result;
-		}
-	}
-
-	private static final class Symbols {
-		public final String scopeName;
-		public final List<Types> types2 = new ArrayList<Types>();
-		public final Map<Integer, Types> types = new HashMap<Integer, Types>();
-		public boolean isTypeDefValue = false;
-		public String temp = null;
-
-		public Symbols(final String scopeName) {
-			this.scopeName = scopeName;
-		}
-
-		public void cleanUp(final int level) {
-		}
-
-		public void addType(final int level, final String type) {
-			this.cleanUp(level);
-			for (int i = this.types.size(); i <= level; i++) {
-				this.types.add(new Types());
-			}
-		}
-
-		public boolean containsType(final int level, final String type) {
-
-		}
-	}
-
-	protected static final Stack<Symbols> scope = new Stack<Symbols>();
-
-	public static int size() {
-		return Scope.scope.size();
-	}
-
-	// protected static Symbols currScope = null;
-
-	public static final boolean isTypeName(final RecognizerSharedState state,
-			final TokenStream input) {
-		String token = input.LT(1).getText();
-		Log.debug("token(LT1)='" + token + "'");
-		if ("(".equals(token)) {
-			token = input.LT(2).getText();
-		}
-		Log.debug("isTypeName state.backtracking=" + state.backtracking
-				+ ", token(choosen)='" + token + "'");
-		Log.debug("token(choosen)='" + token + "'");
-		// if (state.backtracking != 0) {
-		// return true;
-		// }
-		return Scope.isTypeName(token);
-	}
-
-	private static final boolean isTypeName(final String name) {
-		Log.log("searching for typeName='" + name + "', scopeSize='"
-				+ Scope.scope.size() + "'");
-		for (int i = 0; i < Scope.scope.size(); i++) {
-			final Symbols symbols = Scope.scope.get(i);
-			if (symbols.types.contains(name)) {
-				Log.log("found in scope='" + symbols.scopeName + "'");
-				return true;
-			}
-			Log.debug("no type found in scope='" + symbols.scopeName + "'");
-		}
-		Log.log("isTypeName='false'");
-		return false;
-	}
+	
+	protected static final Stack<ScopeSymbols> scope = new Stack<ScopeSymbols>();
 
 	public static final void createFirstScope(final String scopeName) {
 		Scope.scope.clear();
@@ -101,17 +14,16 @@ public final class Scope {
 
 	public static final void createNewScope(final String scopeName) {
 		Log.log("createNewScope='" + scopeName + "'");
-		final Symbols symbols = new Symbols(scopeName);
+		final ScopeSymbols symbols = new ScopeSymbols(scopeName);
 		Scope.scope.push(symbols);
 		Log.debug("Scope.size()='" + Scope.scope.size() + "'");
 	}
 
 	public static final void removeScope() {
 		if (Scope.scope.size() > 0) {
-			Log.log("removeScope='" + Scope.scope.peek().scopeName + "'");
+			Log.log("removeScope='" + Scope.scope.peek().getScopeName() + "'");
 			Scope.scope.pop();
 		}
-		// Scope.setTypedef(false);
 		Log.debug("Scope.size()='" + Scope.scope.size() + "'");
 	}
 
@@ -124,78 +36,54 @@ public final class Scope {
 					+ "', but was '" + actualSize + "'!");
 		}
 	}
-
-	protected static final void addTypedef(final String name) {
-		Log.log("define in currScope='" + Scope.scope.peek().scopeName
-				+ "' newType='" + name + "'");
-		Scope.scope.peek().types.add(name);
-		Scope.setTypedef(false);
+	
+	public static int size() {
+		return Scope.scope.size();
 	}
 
-	public static final void setTypedef(final boolean newTypeDef) {
-		Log.debug("setTypedef='" + newTypeDef + "'");
-		Scope.scope.peek().isTypeDefValue = newTypeDef;
-	}
-
-	protected static final boolean isTypedef() {
-		Log.debug("isTypeDef='" + Scope.scope.peek().isTypeDefValue + "'");
-		return Scope.scope.peek().isTypeDefValue;
-	}
-
-	public static final boolean checkThatNoTypeIDAndSetTemp(
+	public static final boolean isTypeName(final int backtracking,
 			final TokenStream input) {
-		final String token = input.LT(1).getText();
-		Log.debug("token(LT1)='" + token + "'");
-		boolean result = true;
-		result = (!Scope.isTypeName(token));
-		Log.debug("checkThatNoTypeIDAndSetTemp('" + result + "')");
-		Scope.setTemp(input);
-		// return result;
-		return true;
-	}
-
-	public static final void addTypedefIfIsTypedef(final TokenStream input) {
-		Log.debug("addTypedefIfIsTypedef('')");
-		final String token = input.LT(1).getText();
-		Log.debug("token(LT1)='" + token + "'");
-		if (Scope.isTypedef()) {
-			Scope.addTypedef(token);
+		String token = input.LT(1).getText();
+		if ("(".equals(token)) {
+			token = input.LT(2).getText();
 		}
+		Log.debug("backtracking='" + backtracking + "', token(choosen)='"
+				+ token + "'");
+		return Scope.isTypeName(backtracking, token);
 	}
 
-	public static final void addTypedefIfIsTypedef(final String name) {
-		Log.debug("addTypedefIfIsTypedef('" + name + "')");
-		if (Scope.isTypedef()) {
-			Scope.addTypedef(name);
+	private static final boolean isTypeName(final int backtracking,
+			final String name) {
+		Log.log("searching for typeName='" + name + "', scopeSize='"
+				+ Scope.scope.size() + "'");
+		for (int i = 0; i < Scope.scope.size(); i++) {
+			final ScopeSymbols symbols = Scope.scope.get(i);
+			if (symbols.containsType(backtracking, name)) {
+				Log.log("found in scope='" + symbols.getScopeName() + "'");
+				Log.log(symbols.debug());
+				return true;
+			}
+			Log.debug("no type found in scope='" + symbols.getScopeName() + "'");
 		}
+		Log.log("isTypeName='false'");
+		return false;
 	}
-
-	// protected static boolean isTypedefValue = false;
-
-	// protected static String temp = "";
-
+	
 	public static final void setTemp(final TokenStream stream) {
-		Log.debug("Token.LT(0)='" + stream.LT(0) + "'");
-		Log.debug("Token.LT(1)='" + stream.LT(1).getText() + "'");
-		Log.debug("Token.LT(2)='" + stream.LT(2).getText() + "'");
-		Scope.setTemp(stream.LT(1).getText());
+		final String string = stream.LT(1).getText();
+		Scope.scope.peek().setTemp(string);
 	}
 
-	protected static final void setTemp(final String newTemp) {
-		Log.debug("setTemp='" + newTemp + "'");
-		Scope.scope.peek().temp = newTemp;
+	public static final void setTypedef(final int backtracking,
+			final boolean newTypeDef) {
+		if (!newTypeDef) {
+			Scope.scope.peek().clear(backtracking);
+		}
+		Scope.scope.peek().setTypeDefValue(newTypeDef);
 	}
 
-	public static final void addTypedefIfIsTypedef() {
-		Scope.addTypedefIfIsTypedef(Scope.scope.peek().temp);
+	public static final void addTypedefIfIsTypedef(final int backtracking) {
+		Scope.scope.peek().addType(backtracking);
 	}
-
-	public static final void debug(final TokenStream stream) {
-		/*
-		 * for (int i = 0; i < stream.size(); i++) { final Token token =
-		 * stream.get(i); final String tokenText = token.getText();
-		 * Log.log("i='" + i + "', token='" + tokenText + "'"); }
-		 */
-
-	}
+	
 }

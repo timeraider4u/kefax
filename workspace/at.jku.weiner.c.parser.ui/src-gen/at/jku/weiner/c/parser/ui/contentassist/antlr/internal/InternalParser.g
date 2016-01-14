@@ -217,7 +217,7 @@ entryRuleDeclaration
 ruleDeclaration
     @init {
 		int stackSize = keepStackSize();
-		at.jku.weiner.c.parser.utils.Scope.setTypedef(false);
+		at.jku.weiner.c.parser.utils.Scope.setTypedef(state.backtracking, false);
     }
 	@after {
     		/*no after found*/
@@ -462,10 +462,10 @@ entryRuleTypedefName
 ruleTypedefName
     @init {
 		int stackSize = keepStackSize();
-		at.jku.weiner.c.parser.utils.Scope.enterTypeDefName();
+		/*no init found*/
     }
 	@after {
-    		{at.jku.weiner.c.parser.utils.Scope.leaveTypeDefName();}
+    		/*no after found*/
      }:
 
 (
@@ -3435,7 +3435,7 @@ rule__StorageClassSpecifier__Alternatives_1
 { after(grammarAccess.getStorageClassSpecifierAccess().getNameAssignment_1_0()); }
 )
 
-{{at.jku.weiner.c.parser.utils.Scope.setTypedef(true);}}
+{{at.jku.weiner.c.parser.utils.Scope.setTypedef(state.backtracking, true);}}
 
 
     |
@@ -4089,7 +4089,7 @@ rule__DirectDeclarator__Alternatives_1
 { after(grammarAccess.getDirectDeclaratorAccess().getIdAssignment_1_0()); }
 )
 
-{{at.jku.weiner.c.parser.utils.Scope.addTypedefIfIsTypedef();}}
+{{at.jku.weiner.c.parser.utils.Scope.addTypedefIfIsTypedef(state.backtracking);}}
 
 
     |
@@ -7382,7 +7382,7 @@ rule__TypedefName__Group__1__Impl
 		int stackSize = keepStackSize();
     }
 :
-{at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)}?
+{at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)}?
 
 (
 { before(grammarAccess.getTypedefNameAccess().getIdAssignment_1()); }

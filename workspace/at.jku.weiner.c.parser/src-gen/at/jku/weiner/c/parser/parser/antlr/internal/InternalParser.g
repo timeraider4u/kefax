@@ -481,7 +481,7 @@ entryRuleDeclaration returns [EObject current=null]
 // Rule Declaration
 ruleDeclaration returns [EObject current=null] 
     @init { enterRule();
-   		at.jku.weiner.c.parser.utils.Scope.setTypedef(false);
+   		at.jku.weiner.c.parser.utils.Scope.setTypedef(state.backtracking, false);
     }
     @after { leaveRule();
     		
@@ -1090,7 +1090,7 @@ ruleStorageClassSpecifier returns [EObject current=null]
 
 )
 )
-{{at.jku.weiner.c.parser.utils.Scope.setTypedef(true);}}
+{{at.jku.weiner.c.parser.utils.Scope.setTypedef(state.backtracking, true);}}
 
 
     |
@@ -1951,7 +1951,7 @@ entryRuleTypedefName returns [EObject current=null]
 // Rule TypedefName
 ruleTypedefName returns [EObject current=null] 
     @init { enterRule();
-   		at.jku.weiner.c.parser.utils.Scope.enterTypeDefName();
+   		/*no init found*/
     }
     @after { leaveRule();
     		
@@ -1969,7 +1969,7 @@ ruleTypedefName returns [EObject current=null]
     }
 )
 
-{at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)}?
+{at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)}?
 
 (
 (
@@ -1997,7 +1997,7 @@ ruleTypedefName returns [EObject current=null]
 ;
 finally {
 
-	{at.jku.weiner.c.parser.utils.Scope.leaveTypeDefName();}
+	/*no after found*/
 
 }
 
@@ -3544,7 +3544,7 @@ ruleDirectDeclarator returns [EObject current=null]
 
 )
 )
-{{at.jku.weiner.c.parser.utils.Scope.addTypedefIfIsTypedef();}}
+{{at.jku.weiner.c.parser.utils.Scope.addTypedefIfIsTypedef(state.backtracking);}}
 
 
     |

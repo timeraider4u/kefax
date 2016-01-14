@@ -211,7 +211,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//// ambiguity:
 		//// 1.)declarationSpecifiers->declarationSpecifier->typeSpecifier->typedefName->IDENTIFIER
 		//// 2.)initDeclaratorList->initDeclarator->declarator->directDeclarator->IDENTIFIER
-		//Declaration initRuleAction { at.jku.weiner.c.parser.utils.Scope.setTypedef(false); }:
+		//Declaration initRuleAction { at.jku.weiner.c.parser.utils.Scope.setTypedef(state.backtracking, false); }:
 		//	{Declaration} (specifiers=DeclarationSpecifiers
 		//	initDeclaratorList+=InitDeclaratorList?
 		//	semi=SKW_SEMI
@@ -466,25 +466,26 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//StorageClassSpecifier:
 		//	{StorageClassSpecifier} (name=KW_TYPEDEF
-		//	postAction{ { at.jku.weiner.c.parser.utils.Scope.setTypedef(true); } } | name=KW_EXTERN
+		//	postAction{ { at.jku.weiner.c.parser.utils.Scope.setTypedef(state.backtracking, true); } } | name=KW_EXTERN
 		//	| name=KW_STATIC
 		//	| name=KW_THREADLOCAL
 		//	| name=KW_AUTO
 		//	| name=KW_REGISTER);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{StorageClassSpecifier} (name=KW_TYPEDEF postAction{ { at.jku.weiner.c.parser.utils.Scope.setTypedef(true); } } |
-		//name=KW_EXTERN | name=KW_STATIC | name=KW_THREADLOCAL | name=KW_AUTO | name=KW_REGISTER)
+		//{StorageClassSpecifier} (name=KW_TYPEDEF postAction{ {
+		//at.jku.weiner.c.parser.utils.Scope.setTypedef(state.backtracking, true); } } | name=KW_EXTERN | name=KW_STATIC |
+		//name=KW_THREADLOCAL | name=KW_AUTO | name=KW_REGISTER)
 		public Group getGroup() { return cGroup; }
 		
 		//{StorageClassSpecifier}
 		public Action getStorageClassSpecifierAction_0() { return cStorageClassSpecifierAction_0; }
 		
-		//(name=KW_TYPEDEF postAction{ { at.jku.weiner.c.parser.utils.Scope.setTypedef(true); } } | name=KW_EXTERN |
-		//name=KW_STATIC | name=KW_THREADLOCAL | name=KW_AUTO | name=KW_REGISTER)
+		//(name=KW_TYPEDEF postAction{ { at.jku.weiner.c.parser.utils.Scope.setTypedef(state.backtracking, true); } } |
+		//name=KW_EXTERN | name=KW_STATIC | name=KW_THREADLOCAL | name=KW_AUTO | name=KW_REGISTER)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		//name=KW_TYPEDEF postAction{ { at.jku.weiner.c.parser.utils.Scope.setTypedef(true); } }
+		//name=KW_TYPEDEF postAction{ { at.jku.weiner.c.parser.utils.Scope.setTypedef(state.backtracking, true); } }
 		public Assignment getNameAssignment_1_0() { return cNameAssignment_1_0; }
 		
 		//KW_TYPEDEF
@@ -843,19 +844,18 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cIdIDTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
 		
-		//TypedefName initRuleAction { at.jku.weiner.c.parser.utils.Scope.enterTypeDefName(); } afterRuleAction {
-		//at.jku.weiner.c.parser.utils.Scope.leaveTypeDefName(); }:
+		//TypedefName:
 		//	{TypedefName} id=ID
-		//	preAction{ { at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input) } ? };
+		//	preAction{ { at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input) } ? };
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{TypedefName} id=ID preAction{ { at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input) } ? }
+		//{TypedefName} id=ID preAction{ { at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input) } ? }
 		public Group getGroup() { return cGroup; }
 		
 		//{TypedefName}
 		public Action getTypedefNameAction_0() { return cTypedefNameAction_0; }
 		
-		//id=ID preAction{ { at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input) } ? }
+		//id=ID preAction{ { at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input) } ? }
 		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
 		
 		//ID
@@ -1534,7 +1534,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//	//			at.jku.weiner.c.parser.utils.Scope.checkThatNoTypeIDAndSetTemp(input)
 		//	//		}? }
 		//	preAction{ { at.jku.weiner.c.parser.utils.Scope.setTemp(input);
-		//	} } postAction{ { at.jku.weiner.c.parser.utils.Scope.addTypedefIfIsTypedef();
+		//	} } postAction{ { at.jku.weiner.c.parser.utils.Scope.addTypedefIfIsTypedef(state.backtracking);
 		//	} } | SKW_LEFTPAREN declarator=Declarator SKW_RIGHTPAREN) declaratorSuffix+=DeclaratorSuffix*;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -1542,8 +1542,8 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		////			at.jku.weiner.c.parser.utils.Scope.checkThatNoTypeIDAndSetTemp(input)
 		////		}? }
 		//preAction{ { at.jku.weiner.c.parser.utils.Scope.setTemp(input); } } postAction{ {
-		//at.jku.weiner.c.parser.utils.Scope.addTypedefIfIsTypedef(); } } | SKW_LEFTPAREN declarator=Declarator SKW_RIGHTPAREN)
-		//declaratorSuffix+=DeclaratorSuffix*
+		//at.jku.weiner.c.parser.utils.Scope.addTypedefIfIsTypedef(state.backtracking); } } | SKW_LEFTPAREN declarator=Declarator
+		//SKW_RIGHTPAREN) declaratorSuffix+=DeclaratorSuffix*
 		public Group getGroup() { return cGroup; }
 		
 		//{DirectDeclarator}
@@ -1553,14 +1553,15 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		////			at.jku.weiner.c.parser.utils.Scope.checkThatNoTypeIDAndSetTemp(input)
 		////		}? }
 		//preAction{ { at.jku.weiner.c.parser.utils.Scope.setTemp(input); } } postAction{ {
-		//at.jku.weiner.c.parser.utils.Scope.addTypedefIfIsTypedef(); } } | SKW_LEFTPAREN declarator=Declarator SKW_RIGHTPAREN)
+		//at.jku.weiner.c.parser.utils.Scope.addTypedefIfIsTypedef(state.backtracking); } } | SKW_LEFTPAREN declarator=Declarator
+		//SKW_RIGHTPAREN)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
 		//id=ID //		preAction{ {
 		////			at.jku.weiner.c.parser.utils.Scope.checkThatNoTypeIDAndSetTemp(input)
 		////		}? }
 		//preAction{ { at.jku.weiner.c.parser.utils.Scope.setTemp(input); } } postAction{ {
-		//at.jku.weiner.c.parser.utils.Scope.addTypedefIfIsTypedef(); } }
+		//at.jku.weiner.c.parser.utils.Scope.addTypedefIfIsTypedef(state.backtracking); } }
 		public Assignment getIdAssignment_1_0() { return cIdAssignment_1_0; }
 		
 		//ID
@@ -5682,7 +5683,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//// ambiguity:
 	//// 1.)declarationSpecifiers->declarationSpecifier->typeSpecifier->typedefName->IDENTIFIER
 	//// 2.)initDeclaratorList->initDeclarator->declarator->directDeclarator->IDENTIFIER
-	//Declaration initRuleAction { at.jku.weiner.c.parser.utils.Scope.setTypedef(false); }:
+	//Declaration initRuleAction { at.jku.weiner.c.parser.utils.Scope.setTypedef(state.backtracking, false); }:
 	//	{Declaration} (specifiers=DeclarationSpecifiers
 	//	initDeclaratorList+=InitDeclaratorList?
 	//	semi=SKW_SEMI
@@ -5748,7 +5749,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//StorageClassSpecifier:
 	//	{StorageClassSpecifier} (name=KW_TYPEDEF
-	//	postAction{ { at.jku.weiner.c.parser.utils.Scope.setTypedef(true); } } | name=KW_EXTERN
+	//	postAction{ { at.jku.weiner.c.parser.utils.Scope.setTypedef(state.backtracking, true); } } | name=KW_EXTERN
 	//	| name=KW_STATIC
 	//	| name=KW_THREADLOCAL
 	//	| name=KW_AUTO
@@ -5795,10 +5796,9 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return getTypeSpecifierAccess().getRule();
 	}
 	
-	//TypedefName initRuleAction { at.jku.weiner.c.parser.utils.Scope.enterTypeDefName(); } afterRuleAction {
-	//at.jku.weiner.c.parser.utils.Scope.leaveTypeDefName(); }:
+	//TypedefName:
 	//	{TypedefName} id=ID
-	//	preAction{ { at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input) } ? };
+	//	preAction{ { at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input) } ? };
 	public TypedefNameElements getTypedefNameAccess() {
 		return pTypedefName;
 	}
@@ -5972,7 +5972,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//	//			at.jku.weiner.c.parser.utils.Scope.checkThatNoTypeIDAndSetTemp(input)
 	//	//		}? }
 	//	preAction{ { at.jku.weiner.c.parser.utils.Scope.setTemp(input);
-	//	} } postAction{ { at.jku.weiner.c.parser.utils.Scope.addTypedefIfIsTypedef();
+	//	} } postAction{ { at.jku.weiner.c.parser.utils.Scope.addTypedefIfIsTypedef(state.backtracking);
 	//	} } | SKW_LEFTPAREN declarator=Declarator SKW_RIGHTPAREN) declaratorSuffix+=DeclaratorSuffix*;
 	public DirectDeclaratorElements getDirectDeclaratorAccess() {
 		return pDirectDeclarator;

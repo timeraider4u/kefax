@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.PostfixExpressionImpl#isExt <em>Ext</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.PostfixExpressionImpl#getTypeName <em>Type Name</em>}</li>
@@ -38,7 +39,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.PostfixExpressionImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.PostfixExpressionImpl#getSuffix <em>Suffix</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

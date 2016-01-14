@@ -41,7 +41,7 @@ Workflow {
 		directory = "${projectPath}.ui/src-gen"
 	}
 	component = DirectoryCleaner {
-		directory = "${projectPath}.tests/src-gen/at/jku/weiner/c/parser/tests"
+		directory = "${projectPath}.tests/src-gen/at/jku/weiner/c/parser/tests/"
 		// exclude = "xtexttests"
 	}
 	component = DirectoryCleaner {
@@ -198,7 +198,7 @@ Workflow {
 	}
 	
 	component = DirectoryCleaner {
-		directory = "${projectPath}.tests/src"
+		directory = "${projectPath}.tests/src/at/jku/weiner/c/parser/tests"
 		exclude = "xtexttests"
 		exclude = "LexerAndParserTest.java"
 	}

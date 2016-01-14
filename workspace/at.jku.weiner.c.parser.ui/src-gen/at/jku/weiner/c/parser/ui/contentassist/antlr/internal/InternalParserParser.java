@@ -653,7 +653,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 
 
 				int stackSize = keepStackSize();
-				at.jku.weiner.c.parser.utils.Scope.setTypedef(false);
+				at.jku.weiner.c.parser.utils.Scope.setTypedef(state.backtracking, false);
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 10) ) { return; }
@@ -1276,7 +1276,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 
 
 				int stackSize = keepStackSize();
-				at.jku.weiner.c.parser.utils.Scope.enterTypeDefName();
+				/*no init found*/
 		    
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 24) ) { return; }
@@ -1303,7 +1303,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 			}
 
 			if ( state.backtracking==0 ) {
-			    		{at.jku.weiner.c.parser.utils.Scope.leaveTypeDefName();}
+			    		/*no after found*/
 			     }
 		}
 		catch (RecognitionException re) {
@@ -9009,7 +9009,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 					if ( state.backtracking==0 ) { after(grammarAccess.getStorageClassSpecifierAccess().getNameAssignment_1_0()); }
 					}
 
-					at.jku.weiner.c.parser.utils.Scope.setTypedef(true);
+					at.jku.weiner.c.parser.utils.Scope.setTypedef(state.backtracking, true);
 					}
 					break;
 				case 2 :
@@ -11006,7 +11006,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 					if ( state.backtracking==0 ) { after(grammarAccess.getDirectDeclaratorAccess().getIdAssignment_1_0()); }
 					}
 
-					at.jku.weiner.c.parser.utils.Scope.addTypedefIfIsTypedef();
+					at.jku.weiner.c.parser.utils.Scope.addTypedefIfIsTypedef(state.backtracking);
 					}
 					break;
 				case 2 :
@@ -20538,9 +20538,9 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 			// InternalParser.g:7384:1: ({...}? ( ( rule__TypedefName__IdAssignment_1 ) ) )
 			// InternalParser.g:7385:1: {...}? ( ( rule__TypedefName__IdAssignment_1 ) )
 			{
-			if ( !((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))) ) {
+			if ( !((at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input))) ) {
 				if (state.backtracking>0) {state.failed=true; return;}
-				throw new FailedPredicateException(input, "rule__TypedefName__Group__1__Impl", "at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)");
+				throw new FailedPredicateException(input, "rule__TypedefName__Group__1__Impl", "at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)");
 			}
 			// InternalParser.g:7387:1: ( ( rule__TypedefName__IdAssignment_1 ) )
 			// InternalParser.g:7388:1: ( rule__TypedefName__IdAssignment_1 )
@@ -102443,7 +102443,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1281);
 				//if ( s>=0 ) return s;
@@ -102459,7 +102459,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1282);
 				//if ( s>=0 ) return s;
@@ -102475,7 +102475,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1283);
 				//if ( s>=0 ) return s;
@@ -102491,7 +102491,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1284);
 				//if ( s>=0 ) return s;
@@ -102507,7 +102507,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1285);
 				//if ( s>=0 ) return s;
@@ -102523,7 +102523,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1286);
 				//if ( s>=0 ) return s;
@@ -102539,7 +102539,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1287);
 				//if ( s>=0 ) return s;
@@ -102555,7 +102555,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1288);
 				//if ( s>=0 ) return s;
@@ -102571,7 +102571,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1289);
 				//if ( s>=0 ) return s;
@@ -102587,7 +102587,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1290);
 				//if ( s>=0 ) return s;
@@ -102603,7 +102603,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1291);
 				//if ( s>=0 ) return s;
@@ -102619,7 +102619,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1292);
 				//if ( s>=0 ) return s;
@@ -102635,7 +102635,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1293);
 				//if ( s>=0 ) return s;
@@ -102651,7 +102651,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1294);
 				//if ( s>=0 ) return s;
@@ -102667,7 +102667,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1295);
 				//if ( s>=0 ) return s;
@@ -102683,7 +102683,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1296);
 				//if ( s>=0 ) return s;
@@ -102699,7 +102699,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1297);
 				//if ( s>=0 ) return s;
@@ -102715,7 +102715,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1298);
 				//if ( s>=0 ) return s;
@@ -102731,7 +102731,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1299);
 				//if ( s>=0 ) return s;
@@ -102747,7 +102747,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1300);
 				//if ( s>=0 ) return s;
@@ -102763,7 +102763,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1301);
 				//if ( s>=0 ) return s;
@@ -102779,7 +102779,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1302);
 				//if ( s>=0 ) return s;
@@ -102795,7 +102795,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1303);
 				//if ( s>=0 ) return s;
@@ -102811,7 +102811,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1304);
 				//if ( s>=0 ) return s;
@@ -102827,7 +102827,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1305);
 				//if ( s>=0 ) return s;
@@ -102843,7 +102843,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1306);
 				//if ( s>=0 ) return s;
@@ -102859,7 +102859,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1307);
 				//if ( s>=0 ) return s;
@@ -102875,7 +102875,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1308);
 				//if ( s>=0 ) return s;
@@ -102890,8 +102890,8 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index2_1309 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred2_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				if ( ((synpred2_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 43;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1309);
 				//if ( s>=0 ) return s;
@@ -102907,7 +102907,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1310);
 				//if ( s>=0 ) return s;
@@ -102923,7 +102923,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1311);
 				//if ( s>=0 ) return s;
@@ -102939,7 +102939,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1312);
 				//if ( s>=0 ) return s;
@@ -102955,7 +102955,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1313);
 				//if ( s>=0 ) return s;
@@ -102971,7 +102971,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1314);
 				//if ( s>=0 ) return s;
@@ -102987,7 +102987,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1315);
 				//if ( s>=0 ) return s;
@@ -103003,7 +103003,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1316);
 				//if ( s>=0 ) return s;
@@ -103019,7 +103019,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1317);
 				//if ( s>=0 ) return s;
@@ -103035,7 +103035,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1318);
 				//if ( s>=0 ) return s;
@@ -103051,7 +103051,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1319);
 				//if ( s>=0 ) return s;
@@ -103067,7 +103067,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1320);
 				//if ( s>=0 ) return s;
@@ -103083,7 +103083,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1321);
 				//if ( s>=0 ) return s;
@@ -103099,7 +103099,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1322);
 				//if ( s>=0 ) return s;
@@ -103114,8 +103114,8 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index2_1323 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred2_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				if ( ((synpred2_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 43;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1323);
 				//if ( s>=0 ) return s;
@@ -103130,8 +103130,8 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index2_1324 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred2_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				if ( ((synpred2_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 43;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1324);
 				//if ( s>=0 ) return s;
@@ -103147,7 +103147,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1325);
 				//if ( s>=0 ) return s;
@@ -103163,7 +103163,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1326);
 				//if ( s>=0 ) return s;
@@ -103179,7 +103179,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1327);
 				//if ( s>=0 ) return s;
@@ -103195,7 +103195,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				input.rewind();
 				s = -1;
 				if ( (synpred2_InternalParser()) ) {s = 43;}
-				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 98;}
+				else if ( ((synpred3_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 98;}
 				 
 				input.seek(index2_1328);
 				//if ( s>=0 ) return s;
@@ -111156,7 +111156,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index9_23 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred40_InternalParser())) ) {s = 1;}
+				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input))&&synpred40_InternalParser())) ) {s = 1;}
 				else if ( (true) ) {s = 32;}
 				 
 				input.seek(index9_23);
@@ -111349,7 +111349,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index21_29 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred58_InternalParser())) ) {s = 1;}
+				if ( ((synpred58_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index21_29);
@@ -111912,7 +111912,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index29_172 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred69_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 1;}
+				if ( ((synpred69_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index29_172);
@@ -111928,7 +111928,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index29_173 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred69_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 1;}
+				if ( ((synpred69_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index29_173);
@@ -111944,7 +111944,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index29_177 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred69_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 1;}
+				if ( ((synpred69_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index29_177);
@@ -111960,7 +111960,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index29_178 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred69_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 1;}
+				if ( ((synpred69_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index29_178);
@@ -120707,7 +120707,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index46_47 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred109_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 79;}
+				if ( ((synpred109_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 79;}
 				else if ( (true) ) {s = 2;}
 				 
 				input.seek(index46_47);
@@ -121027,7 +121027,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index50_35 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred124_InternalParser())) ) {s = 13;}
+				if ( ((synpred124_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 13;}
 				else if ( (true) ) {s = 3;}
 				 
 				input.seek(index50_35);
@@ -121441,7 +121441,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_49 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_49);
@@ -121457,7 +121457,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_50 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_50);
@@ -121473,7 +121473,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_51 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_51);
@@ -121489,7 +121489,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_52 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_52);
@@ -121505,7 +121505,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_53 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_53);
@@ -121521,7 +121521,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_54 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_54);
@@ -121537,7 +121537,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_55 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_55);
@@ -121553,7 +121553,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_56 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_56);
@@ -121569,7 +121569,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_57 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_57);
@@ -121585,7 +121585,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_58 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_58);
@@ -121601,7 +121601,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_59 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_59);
@@ -121617,7 +121617,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_60 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_60);
@@ -121633,7 +121633,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_61 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_61);
@@ -121649,7 +121649,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_62 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_62);
@@ -121665,7 +121665,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_63 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_63);
@@ -121681,7 +121681,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_64 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_64);
@@ -121697,7 +121697,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_65 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_65);
@@ -121713,7 +121713,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_66 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_66);
@@ -121729,7 +121729,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_67 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_67);
@@ -121745,7 +121745,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_68 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_68);
@@ -121761,7 +121761,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_69 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_69);
@@ -121777,7 +121777,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_70 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_70);
@@ -121793,7 +121793,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_71 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_71);
@@ -121809,7 +121809,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_72 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_72);
@@ -121825,7 +121825,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_73 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_73);
@@ -121841,7 +121841,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_74 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_74);
@@ -121857,7 +121857,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_75 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_75);
@@ -121873,7 +121873,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_76 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_76);
@@ -121889,8 +121889,8 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_77 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
-				else if ( ((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))) ) {s = 43;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
+				else if ( ((at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input))) ) {s = 43;}
 				 
 				input.seek(index58_77);
 				//if ( s>=0 ) return s;
@@ -121905,7 +121905,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_78 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_78);
@@ -121921,7 +121921,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_79 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_79);
@@ -121937,7 +121937,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_80 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_80);
@@ -121953,7 +121953,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_81 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_81);
@@ -121969,7 +121969,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_82 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_82);
@@ -121985,7 +121985,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_83 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_83);
@@ -122001,7 +122001,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_84 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_84);
@@ -122017,7 +122017,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_85 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_85);
@@ -122033,7 +122033,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_86 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_86);
@@ -122049,7 +122049,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_87 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_87);
@@ -122065,7 +122065,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_88 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_88);
@@ -122081,7 +122081,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_89 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_89);
@@ -122097,7 +122097,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_90 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_90);
@@ -122113,7 +122113,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_93 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_93);
@@ -122129,7 +122129,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_94 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_94);
@@ -122145,7 +122145,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_95 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_95);
@@ -122161,7 +122161,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index58_96 = input.index();
 				input.rewind();
 				s = -1;
-				if ( (((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))&&synpred164_InternalParser())) ) {s = 1;}
+				if ( ((synpred164_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 1;}
 				else if ( (true) ) {s = 43;}
 				 
 				input.seek(index58_96);
@@ -122613,7 +122613,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_52 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_52);
@@ -122629,7 +122629,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_53 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_53);
@@ -122645,7 +122645,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_54 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_54);
@@ -122661,7 +122661,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_55 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_55);
@@ -122677,7 +122677,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_56 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_56);
@@ -122693,7 +122693,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_57 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_57);
@@ -122709,7 +122709,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_58 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_58);
@@ -122725,7 +122725,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_59 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_59);
@@ -122741,7 +122741,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_60 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_60);
@@ -122757,7 +122757,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_61 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_61);
@@ -122773,7 +122773,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_62 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_62);
@@ -122789,7 +122789,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_63 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_63);
@@ -122805,7 +122805,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_64 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_64);
@@ -122821,7 +122821,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_65 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_65);
@@ -122837,7 +122837,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_66 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_66);
@@ -122853,7 +122853,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_67 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_67);
@@ -122869,7 +122869,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_68 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_68);
@@ -122885,7 +122885,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_69 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_69);
@@ -122901,7 +122901,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_70 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_70);
@@ -122917,7 +122917,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_71 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_71);
@@ -122933,7 +122933,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_72 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_72);
@@ -122949,7 +122949,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_73 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_73);
@@ -122965,7 +122965,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_74 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_74);
@@ -122981,7 +122981,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_75 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_75);
@@ -122997,7 +122997,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_76 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_76);
@@ -123013,7 +123013,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_77 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_77);
@@ -123029,7 +123029,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_78 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_78);
@@ -123045,7 +123045,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_79 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_79);
@@ -123061,7 +123061,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_80 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_80);
@@ -123077,7 +123077,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_81 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_81);
@@ -123093,7 +123093,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_82 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_82);
@@ -123109,7 +123109,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_83 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_83);
@@ -123125,7 +123125,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_84 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_84);
@@ -123141,8 +123141,8 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_85 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
-				else if ( ((at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input))) ) {s = 1;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
+				else if ( ((at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input))) ) {s = 1;}
 				 
 				input.seek(index61_85);
 				//if ( s>=0 ) return s;
@@ -123157,7 +123157,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_86 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_86);
@@ -123173,7 +123173,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_87 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_87);
@@ -123189,7 +123189,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_88 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_88);
@@ -123205,7 +123205,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_89 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_89);
@@ -123221,7 +123221,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_90 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_90);
@@ -123237,7 +123237,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_91 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_91);
@@ -123253,7 +123253,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_92 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_92);
@@ -123269,7 +123269,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_93 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_93);
@@ -123285,7 +123285,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_94 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_94);
@@ -123301,7 +123301,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_95 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_95);
@@ -123317,7 +123317,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_96 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_96);
@@ -123333,7 +123333,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_97 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_97);
@@ -123349,7 +123349,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index61_98 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 10;}
+				if ( ((synpred167_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 10;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index61_98);
@@ -123545,7 +123545,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index62_8 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred168_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 13;}
+				if ( ((synpred168_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 13;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index62_8);
@@ -123848,7 +123848,7 @@ public class InternalParserParser extends AbstractInternalContentAssistParser {
 				int index68_8 = input.index();
 				input.rewind();
 				s = -1;
-				if ( ((synpred174_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input)))) ) {s = 14;}
+				if ( ((synpred174_InternalParser()&&(at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input)))) ) {s = 14;}
 				else if ( (true) ) {s = 1;}
 				 
 				input.seek(index68_8);

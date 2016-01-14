@@ -104,7 +104,7 @@ FunctionDefinition
 // 2.)initDeclaratorList->initDeclarator->declarator->directDeclarator->IDENTIFIER
 Declaration
 	initRuleAction{
-		at.jku.weiner.c.parser.utils.Scope.setTypedef(false);
+		at.jku.weiner.c.parser.utils.Scope.setTypedef(state.backtracking, false);
 	}
 	:
 	{Declaration}
@@ -155,7 +155,7 @@ InitDeclarator:
 StorageClassSpecifier:
 	{StorageClassSpecifier}
 	(	name=KW_TYPEDEF
-			postAction{{ at.jku.weiner.c.parser.utils.Scope.setTypedef(true);  }}
+			postAction{{ at.jku.weiner.c.parser.utils.Scope.setTypedef(state.backtracking, true);  }}
 	|	name=KW_EXTERN
 	|	name=KW_STATIC
 	|	name=KW_THREADLOCAL
@@ -204,7 +204,7 @@ initRuleAction {
 TypedefName:
 	{TypedefName}
 	id=ID
-		preAction{ { at.jku.weiner.c.parser.utils.Scope.isTypeName(state, input) }? }
+		preAction{ { at.jku.weiner.c.parser.utils.Scope.isTypeName(state.backtracking, input) }? }
 ;
 
 StructOrUnionSpecifier returns DeclarationSpecifier
@@ -328,7 +328,7 @@ DirectDeclarator:
 			at.jku.weiner.c.parser.utils.Scope.setTemp(input);
 		} }
 		postAction{ {
-			at.jku.weiner.c.parser.utils.Scope.addTypedefIfIsTypedef();
+			at.jku.weiner.c.parser.utils.Scope.addTypedefIfIsTypedef(state.backtracking);
 		} }
 	| SKW_LEFTPAREN declarator=Declarator SKW_RIGHTPAREN
 	)

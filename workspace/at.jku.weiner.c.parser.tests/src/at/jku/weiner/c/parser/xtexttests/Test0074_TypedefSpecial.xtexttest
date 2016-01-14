@@ -49,33 +49,30 @@ KW_TYPEDEF WHITESPACE KW_INT WHITESPACE ID SKW_LEFTBRACKET DECIMAL_LITERAL SKW_R
 													expr+=
 													(InclusiveOrExpression
 														expr+=
-														(InclusiveOrExpression
+														(ExclusiveOrExpression
 															expr+=
-															(ExclusiveOrExpression
+															(AndExpression
 																expr+=
-																(AndExpression
+																(EqualityExpression
 																	expr+=
-																	(EqualityExpression
+																	(RelationalExpression
 																		expr+=
-																		(RelationalExpression
+																		(ShiftExpression
 																			expr+=
-																			(ShiftExpression
+																			(AdditiveExpression
 																				expr+=
-																				(AdditiveExpression
+																				(MultiplicativeExpression
 																					expr+=
-																					(MultiplicativeExpression
-																						expr+=
-																						(CastExpression
+																					(CastExpression
+																						expr=
+																						(UnaryExpression
 																							expr=
-																							(UnaryExpression
-																								expr=
-																								(PostfixExpression
-																									expr+=
-																									(PrimaryExpression
-																										const=
-																										(common::Constant2
-																											dec++"5"
-																										)
+																							(PostfixExpression
+																								expr+=
+																								(PrimaryExpression
+																									const=
+																									(common::Constant2
+																										dec++"5"
 																									)
 																								)
 																							)

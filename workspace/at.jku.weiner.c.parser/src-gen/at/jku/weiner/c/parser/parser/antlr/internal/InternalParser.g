@@ -2102,11 +2102,25 @@ ruleStructOrUnionSpecifier returns [EObject current=null]
 )?
 
 
-this_SKW_LEFTBRACE_3=RULE_SKW_LEFTBRACE
-    { 
-    newLeafNode(this_SKW_LEFTBRACE_3, grammarAccess.getStructOrUnionSpecifierAccess().getSKW_LEFTBRACETerminalRuleCall_2_0_1()); 
-    }
+(
+(
+		lv_braces_3_0=RULE_SKW_LEFTBRACE
+		{
+			newLeafNode(lv_braces_3_0, grammarAccess.getStructOrUnionSpecifierAccess().getBracesSKW_LEFTBRACETerminalRuleCall_2_0_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getStructOrUnionSpecifierRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"braces",
+        		true, 
+        		"at.jku.weiner.c.common.Common.SKW_LEFTBRACE");
+	    }
 
+)
+)
 
 
 (
@@ -2127,7 +2141,7 @@ this_SKW_LEFTBRACE_3=RULE_SKW_LEFTBRACE
 	    }
 
 )
-)
+)?
 
 
 this_SKW_RIGHTBRACE_5=RULE_SKW_RIGHTBRACE

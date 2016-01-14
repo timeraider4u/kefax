@@ -13,6 +13,7 @@ package at.jku.weiner.c.parser.parser;
  * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.StructOrUnionSpecifier#getType <em>Type</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.StructOrUnionSpecifier#isBraces <em>Braces</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.StructOrUnionSpecifier#getStructDeclList <em>Struct Decl List</em>}</li>
  * </ul>
  *
@@ -47,6 +48,32 @@ public interface StructOrUnionSpecifier extends DeclarationSpecifier
    * @generated
    */
   void setType(StructOrUnion value);
+
+  /**
+   * Returns the value of the '<em><b>Braces</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Braces</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Braces</em>' attribute.
+   * @see #setBraces(boolean)
+   * @see at.jku.weiner.c.parser.parser.ParserPackage#getStructOrUnionSpecifier_Braces()
+   * @model
+   * @generated
+   */
+  boolean isBraces();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.StructOrUnionSpecifier#isBraces <em>Braces</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Braces</em>' attribute.
+   * @see #isBraces()
+   * @generated
+   */
+  void setBraces(boolean value);
 
   /**
    * Returns the value of the '<em><b>Struct Decl List</b></em>' containment reference.

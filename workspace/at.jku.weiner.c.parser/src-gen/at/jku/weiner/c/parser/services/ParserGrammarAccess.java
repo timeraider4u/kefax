@@ -883,7 +883,8 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_2_0 = (Group)cAlternatives_2.eContents().get(0);
 		private final Assignment cIdAssignment_2_0_0 = (Assignment)cGroup_2_0.eContents().get(0);
 		private final RuleCall cIdIDTerminalRuleCall_2_0_0_0 = (RuleCall)cIdAssignment_2_0_0.eContents().get(0);
-		private final RuleCall cSKW_LEFTBRACETerminalRuleCall_2_0_1 = (RuleCall)cGroup_2_0.eContents().get(1);
+		private final Assignment cBracesAssignment_2_0_1 = (Assignment)cGroup_2_0.eContents().get(1);
+		private final RuleCall cBracesSKW_LEFTBRACETerminalRuleCall_2_0_1_0 = (RuleCall)cBracesAssignment_2_0_1.eContents().get(0);
 		private final Assignment cStructDeclListAssignment_2_0_2 = (Assignment)cGroup_2_0.eContents().get(2);
 		private final RuleCall cStructDeclListStructDeclarationListParserRuleCall_2_0_2_0 = (RuleCall)cStructDeclListAssignment_2_0_2.eContents().get(0);
 		private final RuleCall cSKW_RIGHTBRACETerminalRuleCall_2_0_3 = (RuleCall)cGroup_2_0.eContents().get(3);
@@ -893,12 +894,15 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//StructOrUnionSpecifier DeclarationSpecifier initRuleAction {
 		//at.jku.weiner.c.parser.utils.Scope.createNewScope("StructOrUnion"); } afterRuleAction {
 		//at.jku.weiner.c.parser.utils.Scope.removeScope(); }:
-		//	{StructOrUnionSpecifier} type=StructOrUnion (id=ID? SKW_LEFTBRACE structDeclList=StructDeclarationList SKW_RIGHTBRACE
+		//	{StructOrUnionSpecifier} type=StructOrUnion (id=ID?
+		//	braces?=SKW_LEFTBRACE
+		//	structDeclList=StructDeclarationList? // empty structs permitted by GNU gcc 
+		//	SKW_RIGHTBRACE
 		//	| id=ID)
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{StructOrUnionSpecifier} type=StructOrUnion (id=ID? SKW_LEFTBRACE structDeclList=StructDeclarationList SKW_RIGHTBRACE |
-		//id=ID)
+		//{StructOrUnionSpecifier} type=StructOrUnion (id=ID? braces?=SKW_LEFTBRACE structDeclList=StructDeclarationList? // empty structs permitted by GNU gcc 
+		//SKW_RIGHTBRACE | id=ID)
 		public Group getGroup() { return cGroup; }
 		
 		//{StructOrUnionSpecifier}
@@ -910,10 +914,12 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//StructOrUnion
 		public RuleCall getTypeStructOrUnionParserRuleCall_1_0() { return cTypeStructOrUnionParserRuleCall_1_0; }
 		
-		//(id=ID? SKW_LEFTBRACE structDeclList=StructDeclarationList SKW_RIGHTBRACE | id=ID)
+		//(id=ID? braces?=SKW_LEFTBRACE structDeclList=StructDeclarationList? // empty structs permitted by GNU gcc 
+		//SKW_RIGHTBRACE | id=ID)
 		public Alternatives getAlternatives_2() { return cAlternatives_2; }
 		
-		//id=ID? SKW_LEFTBRACE structDeclList=StructDeclarationList SKW_RIGHTBRACE
+		//id=ID? braces?=SKW_LEFTBRACE structDeclList=StructDeclarationList? // empty structs permitted by GNU gcc 
+		//SKW_RIGHTBRACE
 		public Group getGroup_2_0() { return cGroup_2_0; }
 		
 		//id=ID?
@@ -922,15 +928,19 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getIdIDTerminalRuleCall_2_0_0_0() { return cIdIDTerminalRuleCall_2_0_0_0; }
 		
-		//SKW_LEFTBRACE
-		public RuleCall getSKW_LEFTBRACETerminalRuleCall_2_0_1() { return cSKW_LEFTBRACETerminalRuleCall_2_0_1; }
+		//braces?=SKW_LEFTBRACE
+		public Assignment getBracesAssignment_2_0_1() { return cBracesAssignment_2_0_1; }
 		
-		//structDeclList=StructDeclarationList
+		//SKW_LEFTBRACE
+		public RuleCall getBracesSKW_LEFTBRACETerminalRuleCall_2_0_1_0() { return cBracesSKW_LEFTBRACETerminalRuleCall_2_0_1_0; }
+		
+		//structDeclList=StructDeclarationList?
 		public Assignment getStructDeclListAssignment_2_0_2() { return cStructDeclListAssignment_2_0_2; }
 		
 		//StructDeclarationList
 		public RuleCall getStructDeclListStructDeclarationListParserRuleCall_2_0_2_0() { return cStructDeclListStructDeclarationListParserRuleCall_2_0_2_0; }
 		
+		//// empty structs permitted by GNU gcc 
 		//SKW_RIGHTBRACE
 		public RuleCall getSKW_RIGHTBRACETerminalRuleCall_2_0_3() { return cSKW_RIGHTBRACETerminalRuleCall_2_0_3; }
 		
@@ -5826,7 +5836,10 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	//StructOrUnionSpecifier DeclarationSpecifier initRuleAction {
 	//at.jku.weiner.c.parser.utils.Scope.createNewScope("StructOrUnion"); } afterRuleAction {
 	//at.jku.weiner.c.parser.utils.Scope.removeScope(); }:
-	//	{StructOrUnionSpecifier} type=StructOrUnion (id=ID? SKW_LEFTBRACE structDeclList=StructDeclarationList SKW_RIGHTBRACE
+	//	{StructOrUnionSpecifier} type=StructOrUnion (id=ID?
+	//	braces?=SKW_LEFTBRACE
+	//	structDeclList=StructDeclarationList? // empty structs permitted by GNU gcc 
+	//	SKW_RIGHTBRACE
 	//	| id=ID)
 	public StructOrUnionSpecifierElements getStructOrUnionSpecifierAccess() {
 		return pStructOrUnionSpecifier;

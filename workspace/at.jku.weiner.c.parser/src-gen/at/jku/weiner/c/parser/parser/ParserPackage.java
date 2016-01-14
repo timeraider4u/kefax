@@ -2042,13 +2042,22 @@ public interface ParserPackage extends EPackage
   int STRUCT_OR_UNION_SPECIFIER__TYPE = DECLARATION_SPECIFIER_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Braces</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRUCT_OR_UNION_SPECIFIER__BRACES = DECLARATION_SPECIFIER_FEATURE_COUNT + 1;
+
+  /**
    * The feature id for the '<em><b>Struct Decl List</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STRUCT_OR_UNION_SPECIFIER__STRUCT_DECL_LIST = DECLARATION_SPECIFIER_FEATURE_COUNT + 1;
+  int STRUCT_OR_UNION_SPECIFIER__STRUCT_DECL_LIST = DECLARATION_SPECIFIER_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Struct Or Union Specifier</em>' class.
@@ -2057,7 +2066,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STRUCT_OR_UNION_SPECIFIER_FEATURE_COUNT = DECLARATION_SPECIFIER_FEATURE_COUNT + 2;
+  int STRUCT_OR_UNION_SPECIFIER_FEATURE_COUNT = DECLARATION_SPECIFIER_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.EnumSpecifierImpl <em>Enum Specifier</em>}' class.
@@ -5512,6 +5521,17 @@ public interface ParserPackage extends EPackage
   EReference getStructOrUnionSpecifier_Type();
 
   /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.StructOrUnionSpecifier#isBraces <em>Braces</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Braces</em>'.
+   * @see at.jku.weiner.c.parser.parser.StructOrUnionSpecifier#isBraces()
+   * @see #getStructOrUnionSpecifier()
+   * @generated
+   */
+  EAttribute getStructOrUnionSpecifier_Braces();
+
+  /**
    * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.StructOrUnionSpecifier#getStructDeclList <em>Struct Decl List</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8211,6 +8231,14 @@ public interface ParserPackage extends EPackage
      * @generated
      */
     EReference STRUCT_OR_UNION_SPECIFIER__TYPE = eINSTANCE.getStructOrUnionSpecifier_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Braces</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STRUCT_OR_UNION_SPECIFIER__BRACES = eINSTANCE.getStructOrUnionSpecifier_Braces();
 
     /**
      * The meta object literal for the '<em><b>Struct Decl List</b></em>' containment reference feature.

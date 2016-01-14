@@ -2346,9 +2346,19 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getStructOrUnionSpecifier_Braces()
+  {
+    return (EAttribute)structOrUnionSpecifierEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getStructOrUnionSpecifier_StructDeclList()
   {
-    return (EReference)structOrUnionSpecifierEClass.getEStructuralFeatures().get(1);
+    return (EReference)structOrUnionSpecifierEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -3821,6 +3831,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 
     structOrUnionSpecifierEClass = createEClass(STRUCT_OR_UNION_SPECIFIER);
     createEReference(structOrUnionSpecifierEClass, STRUCT_OR_UNION_SPECIFIER__TYPE);
+    createEAttribute(structOrUnionSpecifierEClass, STRUCT_OR_UNION_SPECIFIER__BRACES);
     createEReference(structOrUnionSpecifierEClass, STRUCT_OR_UNION_SPECIFIER__STRUCT_DECL_LIST);
 
     enumSpecifierEClass = createEClass(ENUM_SPECIFIER);
@@ -4262,6 +4273,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 
     initEClass(structOrUnionSpecifierEClass, StructOrUnionSpecifier.class, "StructOrUnionSpecifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getStructOrUnionSpecifier_Type(), this.getStructOrUnion(), null, "type", null, 0, 1, StructOrUnionSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getStructOrUnionSpecifier_Braces(), theEcorePackage.getEBoolean(), "braces", null, 0, 1, StructOrUnionSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getStructOrUnionSpecifier_StructDeclList(), this.getStructDeclarationList(), null, "structDeclList", null, 0, 1, StructOrUnionSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(enumSpecifierEClass, EnumSpecifier.class, "EnumSpecifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

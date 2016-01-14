@@ -1226,7 +1226,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (type=StructOrUnion ((id=ID? structDeclList=StructDeclarationList) | id=ID))
+	 *     (type=StructOrUnion ((id=ID? braces?=SKW_LEFTBRACE structDeclList=StructDeclarationList?) | id=ID))
 	 */
 	protected void sequence_StructOrUnionSpecifier(EObject context, StructOrUnionSpecifier semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

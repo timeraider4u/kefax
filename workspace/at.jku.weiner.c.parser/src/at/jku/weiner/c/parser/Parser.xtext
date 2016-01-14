@@ -223,7 +223,10 @@ StructOrUnionSpecifier returns DeclarationSpecifier
 	:
 	{StructOrUnionSpecifier}
 	type=StructOrUnion
-	(	(id=ID)? SKW_LEFTBRACE structDeclList=StructDeclarationList SKW_RIGHTBRACE
+	(	(id=ID)?
+			braces?=SKW_LEFTBRACE 
+				(structDeclList=StructDeclarationList)? // empty structs permitted by GNU gcc 
+			SKW_RIGHTBRACE
 	|	id=ID
 	)
 ;

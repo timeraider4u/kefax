@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.StructOrUnionSpecifierImpl#getType <em>Type</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.StructOrUnionSpecifierImpl#isBraces <em>Braces</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.StructOrUnionSpecifierImpl#getStructDeclList <em>Struct Decl List</em>}</li>
  * </ul>
  *
@@ -40,6 +41,26 @@ public class StructOrUnionSpecifierImpl extends DeclarationSpecifierImpl impleme
    * @ordered
    */
   protected StructOrUnion type;
+
+  /**
+   * The default value of the '{@link #isBraces() <em>Braces</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isBraces()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean BRACES_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isBraces() <em>Braces</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isBraces()
+   * @generated
+   * @ordered
+   */
+  protected boolean braces = BRACES_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getStructDeclList() <em>Struct Decl List</em>}' containment reference.
@@ -125,6 +146,29 @@ public class StructOrUnionSpecifierImpl extends DeclarationSpecifierImpl impleme
    * <!-- end-user-doc -->
    * @generated
    */
+  public boolean isBraces()
+  {
+    return braces;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setBraces(boolean newBraces)
+  {
+    boolean oldBraces = braces;
+    braces = newBraces;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.STRUCT_OR_UNION_SPECIFIER__BRACES, oldBraces, braces));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public StructDeclarationList getStructDeclList()
   {
     return structDeclList;
@@ -198,6 +242,8 @@ public class StructOrUnionSpecifierImpl extends DeclarationSpecifierImpl impleme
     {
       case ParserPackage.STRUCT_OR_UNION_SPECIFIER__TYPE:
         return getType();
+      case ParserPackage.STRUCT_OR_UNION_SPECIFIER__BRACES:
+        return isBraces();
       case ParserPackage.STRUCT_OR_UNION_SPECIFIER__STRUCT_DECL_LIST:
         return getStructDeclList();
     }
@@ -216,6 +262,9 @@ public class StructOrUnionSpecifierImpl extends DeclarationSpecifierImpl impleme
     {
       case ParserPackage.STRUCT_OR_UNION_SPECIFIER__TYPE:
         setType((StructOrUnion)newValue);
+        return;
+      case ParserPackage.STRUCT_OR_UNION_SPECIFIER__BRACES:
+        setBraces((Boolean)newValue);
         return;
       case ParserPackage.STRUCT_OR_UNION_SPECIFIER__STRUCT_DECL_LIST:
         setStructDeclList((StructDeclarationList)newValue);
@@ -237,6 +286,9 @@ public class StructOrUnionSpecifierImpl extends DeclarationSpecifierImpl impleme
       case ParserPackage.STRUCT_OR_UNION_SPECIFIER__TYPE:
         setType((StructOrUnion)null);
         return;
+      case ParserPackage.STRUCT_OR_UNION_SPECIFIER__BRACES:
+        setBraces(BRACES_EDEFAULT);
+        return;
       case ParserPackage.STRUCT_OR_UNION_SPECIFIER__STRUCT_DECL_LIST:
         setStructDeclList((StructDeclarationList)null);
         return;
@@ -256,10 +308,29 @@ public class StructOrUnionSpecifierImpl extends DeclarationSpecifierImpl impleme
     {
       case ParserPackage.STRUCT_OR_UNION_SPECIFIER__TYPE:
         return type != null;
+      case ParserPackage.STRUCT_OR_UNION_SPECIFIER__BRACES:
+        return braces != BRACES_EDEFAULT;
       case ParserPackage.STRUCT_OR_UNION_SPECIFIER__STRUCT_DECL_LIST:
         return structDeclList != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (braces: ");
+    result.append(braces);
+    result.append(')');
+    return result.toString();
   }
 
 } //StructOrUnionSpecifierImpl

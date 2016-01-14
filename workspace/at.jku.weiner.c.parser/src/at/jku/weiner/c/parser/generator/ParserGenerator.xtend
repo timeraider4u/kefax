@@ -231,7 +231,7 @@ class ParserGenerator implements IGenerator {
 	
 	def String outputFor(StructOrUnionSpecifier obj) '''
 		«obj.type.name» «IF obj.id != null»«obj.id»«ENDIF»
-		«IF obj.structDeclList != null»{«outputFor(obj.structDeclList)»}«ENDIF»
+		«IF obj.braces»{«IF obj.structDeclList != null»«outputFor(obj.structDeclList)»«ENDIF»}«ENDIF»
 	'''
 	
 	def String outputFor(StructDeclarationList obj) '''

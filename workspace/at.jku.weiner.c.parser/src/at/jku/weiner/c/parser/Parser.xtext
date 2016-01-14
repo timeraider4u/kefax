@@ -165,6 +165,7 @@ StorageClassSpecifier:
 	|	name=KW_THREADLOCAL
 	|	name=KW_AUTO
 	|	name=KW_REGISTER
+	|	name=KW_LABEL3
 	)
 ;
 
@@ -961,7 +962,8 @@ terminal KW_INLINE1 : 'inline';
 terminal KW_INLINE2 : SKW_UNDERSCORE SKW_UNDERSCORE KW_INLINE1;
 terminal KW_INLINE3: KW_INLINE2 SKW_UNDERSCORE SKW_UNDERSCORE;
 terminal KW_INT : 'int';
-terminal KW_INT128_3: '__int128';
+terminal KW_INT128_3: SKW_UNDERSCORE SKW_UNDERSCORE 'int128';
+terminal KW_LABEL3: SKW_UNDERSCORE SKW_UNDERSCORE 'label' SKW_UNDERSCORE SKW_UNDERSCORE;
 terminal KW_LONG : 'long';
 terminal KW_M128: SKW_UNDERSCORE SKW_UNDERSCORE 'm128';
 terminal KW_M128D: KW_M128 'd';

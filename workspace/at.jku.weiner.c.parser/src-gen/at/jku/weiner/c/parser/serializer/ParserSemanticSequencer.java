@@ -1179,7 +1179,8 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	 *         name=KW_STATIC | 
 	 *         name=KW_THREADLOCAL | 
 	 *         name=KW_AUTO | 
-	 *         name=KW_REGISTER
+	 *         name=KW_REGISTER | 
+	 *         name=KW_LABEL3
 	 *     )
 	 */
 	protected void sequence_StorageClassSpecifier(EObject context, StorageClassSpecifier semanticObject) {

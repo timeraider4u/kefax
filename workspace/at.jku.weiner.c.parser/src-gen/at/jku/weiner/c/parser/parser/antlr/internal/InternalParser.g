@@ -1202,6 +1202,28 @@ ruleStorageClassSpecifier returns [EObject current=null]
 )
 )
 
+
+    |
+(
+(
+		lv_name_7_0=RULE_KW_LABEL3
+		{
+			newLeafNode(lv_name_7_0, grammarAccess.getStorageClassSpecifierAccess().getNameKW_LABEL3TerminalRuleCall_1_6_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getStorageClassSpecifierRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_7_0, 
+        		"at.jku.weiner.c.parser.Parser.KW_LABEL3");
+	    }
+
+)
+)
+
 )
 
 )
@@ -12442,7 +12464,9 @@ RULE_KW_INLINE3 : RULE_KW_INLINE2 RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE;
 
 RULE_KW_INT : 'int';
 
-RULE_KW_INT128_3 : '__int128';
+RULE_KW_INT128_3 : RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE 'int128';
+
+RULE_KW_LABEL3 : RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE 'label' RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE;
 
 RULE_KW_LONG : 'long';
 

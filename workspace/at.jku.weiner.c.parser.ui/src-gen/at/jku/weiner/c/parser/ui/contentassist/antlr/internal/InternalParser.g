@@ -11,8 +11,6 @@ options {
 	 k=2;
 	
 	
-	 forceHoisting=true;
-	
 }
 
 @lexer::header {
@@ -3481,6 +3479,15 @@ rule__StorageClassSpecifier__Alternatives_1
 { before(grammarAccess.getStorageClassSpecifierAccess().getNameAssignment_1_5()); }
 (rule__StorageClassSpecifier__NameAssignment_1_5)
 { after(grammarAccess.getStorageClassSpecifierAccess().getNameAssignment_1_5()); }
+)
+
+
+
+    |
+(
+{ before(grammarAccess.getStorageClassSpecifierAccess().getNameAssignment_1_6()); }
+(rule__StorageClassSpecifier__NameAssignment_1_6)
+{ after(grammarAccess.getStorageClassSpecifierAccess().getNameAssignment_1_6()); }
 )
 
 
@@ -21955,6 +21962,21 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+rule__StorageClassSpecifier__NameAssignment_1_6
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getStorageClassSpecifierAccess().getNameKW_LABEL3TerminalRuleCall_1_6_0()); }
+	RULE_KW_LABEL3{ after(grammarAccess.getStorageClassSpecifierAccess().getNameKW_LABEL3TerminalRuleCall_1_6_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__TypeSpecifier__NameAssignment_0_1
     @init {
 		int stackSize = keepStackSize();
@@ -26441,7 +26463,9 @@ RULE_KW_INLINE3 : RULE_KW_INLINE2 RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE;
 
 RULE_KW_INT : 'int';
 
-RULE_KW_INT128_3 : '__int128';
+RULE_KW_INT128_3 : RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE 'int128';
+
+RULE_KW_LABEL3 : RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE 'label' RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE;
 
 RULE_KW_LONG : 'long';
 

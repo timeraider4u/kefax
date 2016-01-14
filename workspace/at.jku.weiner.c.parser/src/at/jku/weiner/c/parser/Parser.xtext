@@ -62,19 +62,23 @@ Parser returns common::Parser
 	(external+=ExternalDeclaration)*
 ;
 
-ExternalDeclaration:
+ExternalDeclaration
+	initRuleAction { at.jku.weiner.c.parser.utils.Scope.saveState(); }
+:
 	{ExternalDeclaration}
 	(
 		(
-			(=>
+			(
 				functiondefHead=FunctionDefHead 
 				SKW_LEFTBRACE
-			)
+			)=>
 			functionDefinition=FunctionDefinition
 			SKW_RIGHTBRACE
 		)
 	|	declaration=Declaration
+			preAction{ { at.jku.weiner.c.parser.utils.Scope.restoreState(); } }
 	|	semi=SKW_SEMI
+			preAction{ { at.jku.weiner.c.parser.utils.Scope.restoreState(); } }
 	)
 ;
 

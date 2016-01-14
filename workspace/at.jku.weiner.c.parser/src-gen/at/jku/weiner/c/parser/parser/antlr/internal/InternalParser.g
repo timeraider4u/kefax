@@ -11,8 +11,6 @@ options {
 	 k=2;
 	
 	
-	 forceHoisting=true;
-	
 }
 
 @lexer::header {
@@ -152,7 +150,7 @@ entryRuleExternalDeclaration returns [EObject current=null]
 // Rule ExternalDeclaration
 ruleExternalDeclaration returns [EObject current=null] 
     @init { enterRule();
-   		/*no init found*/
+   		at.jku.weiner.c.parser.utils.Scope.saveState();
     }
     @after { leaveRule();
     		
@@ -174,11 +172,7 @@ ruleExternalDeclaration returns [EObject current=null]
 (
 (
 (
-((
 (
-ruleFunctionDefHead
-)
-)=>
 (
 		{ 
 	        newCompositeNode(grammarAccess.getExternalDeclarationAccess().getFunctiondefHeadFunctionDefHeadParserRuleCall_1_0_0_0_0()); 
@@ -208,7 +202,11 @@ this_SKW_LEFTBRACE_2=RULE_SKW_LEFTBRACE
 )
 
 
+((
 (
+ruleFunctionDefinition
+)
+)=>
 (
 		{ 
 	        newCompositeNode(grammarAccess.getExternalDeclarationAccess().getFunctionDefinitionFunctionDefinitionParserRuleCall_1_0_1_0()); 
@@ -238,7 +236,8 @@ this_SKW_RIGHTBRACE_4=RULE_SKW_RIGHTBRACE
 )
 
 
-    |
+    |{{at.jku.weiner.c.parser.utils.Scope.restoreState();}}
+
 (
 (
 		{ 
@@ -260,7 +259,8 @@ this_SKW_RIGHTBRACE_4=RULE_SKW_RIGHTBRACE
 )
 
 
-    |
+    |{{at.jku.weiner.c.parser.utils.Scope.restoreState();}}
+
 (
 (
 		lv_semi_6_0=RULE_SKW_SEMI

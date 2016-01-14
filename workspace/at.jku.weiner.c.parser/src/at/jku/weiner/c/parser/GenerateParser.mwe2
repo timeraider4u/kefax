@@ -94,13 +94,13 @@ Workflow {
 					options = {
 						backtrack = true
 						actionInBacktrackingZero = false
-						forceHoisting = true
+						//forceHoisting = true
 						memoize=true
     					kAsString="2"
-    					classSplitting = true 
+    					//classSplitting = true 
   						// lower number means more aggressive splitting
 						// default was 2500, is now 1000
-						fieldsPerClass = "500" 
+						//fieldsPerClass = "500" 
 					}
 				}
 			}

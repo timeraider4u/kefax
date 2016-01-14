@@ -3,11 +3,9 @@ package at.jku.weiner.c.parser.utils;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class ScopeSymbols {
+public final class ScopeSymbols implements Cloneable {
 	private final String scopeName;
 	private final List<ScopeTypes> types = new ArrayList<ScopeTypes>();
-	// public final Map<Integer, Types> types = new HashMap<Integer,
-	// Types>();
 	private boolean isTypeDefValue = false;
 	private String temp = null;
 
@@ -87,4 +85,18 @@ public final class ScopeSymbols {
 	public String getScopeName() {
 		return this.scopeName;
 	}
+
+	@Override
+	protected Object clone() {
+		final ScopeSymbols result = new ScopeSymbols(this.scopeName);
+		result.isTypeDefValue = this.isTypeDefValue;
+		result.temp = this.temp;
+		result.types.clear();
+		for (int i = 0; i < this.types.size(); i++) {
+			final ScopeTypes type = (ScopeTypes) this.types.get(i).clone();
+			result.types.add(type);
+		}
+		return result;
+	}
+
 }

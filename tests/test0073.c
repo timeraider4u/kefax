@@ -1,2 +1,2 @@
-int a, b;
-int x[], y[]; 
+typedef int mytype;
+int a[];

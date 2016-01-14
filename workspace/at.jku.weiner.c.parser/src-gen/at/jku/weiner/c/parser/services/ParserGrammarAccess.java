@@ -74,33 +74,36 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cSemiAssignment_1_2 = (Assignment)cAlternatives_1.eContents().get(2);
 		private final RuleCall cSemiSKW_SEMITerminalRuleCall_1_2_0 = (RuleCall)cSemiAssignment_1_2.eContents().get(0);
 		
-		//ExternalDeclaration:
-		//	{ExternalDeclaration} ((=>
-		//	functiondefHead=FunctionDefHead
-		//	SKW_LEFTBRACE) functionDefinition=FunctionDefinition
+		//ExternalDeclaration initRuleAction { at.jku.weiner.c.parser.utils.Scope.saveState(); }:
+		//	{ExternalDeclaration} ((functiondefHead=FunctionDefHead
+		//	SKW_LEFTBRACE) =>
+		//	functionDefinition=FunctionDefinition
 		//	SKW_RIGHTBRACE
 		//	| declaration=Declaration
-		//	| semi=SKW_SEMI);
+		//	preAction{ { at.jku.weiner.c.parser.utils.Scope.restoreState(); } } | semi=SKW_SEMI
+		//	preAction{ { at.jku.weiner.c.parser.utils.Scope.restoreState(); } });
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{ExternalDeclaration} ((=> functiondefHead=FunctionDefHead SKW_LEFTBRACE) functionDefinition=FunctionDefinition
-		//SKW_RIGHTBRACE | declaration=Declaration | semi=SKW_SEMI)
+		//{ExternalDeclaration} ((functiondefHead=FunctionDefHead SKW_LEFTBRACE) => functionDefinition=FunctionDefinition
+		//SKW_RIGHTBRACE | declaration=Declaration preAction{ { at.jku.weiner.c.parser.utils.Scope.restoreState(); } } |
+		//semi=SKW_SEMI preAction{ { at.jku.weiner.c.parser.utils.Scope.restoreState(); } })
 		public Group getGroup() { return cGroup; }
 		
 		//{ExternalDeclaration}
 		public Action getExternalDeclarationAction_0() { return cExternalDeclarationAction_0; }
 		
-		//((=> functiondefHead=FunctionDefHead SKW_LEFTBRACE) functionDefinition=FunctionDefinition SKW_RIGHTBRACE |
-		//declaration=Declaration | semi=SKW_SEMI)
+		//((functiondefHead=FunctionDefHead SKW_LEFTBRACE) => functionDefinition=FunctionDefinition SKW_RIGHTBRACE |
+		//declaration=Declaration preAction{ { at.jku.weiner.c.parser.utils.Scope.restoreState(); } } | semi=SKW_SEMI preAction{
+		//{ at.jku.weiner.c.parser.utils.Scope.restoreState(); } })
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		//(=> functiondefHead=FunctionDefHead SKW_LEFTBRACE) functionDefinition=FunctionDefinition SKW_RIGHTBRACE
+		//(functiondefHead=FunctionDefHead SKW_LEFTBRACE) => functionDefinition=FunctionDefinition SKW_RIGHTBRACE
 		public Group getGroup_1_0() { return cGroup_1_0; }
 		
-		//(=> functiondefHead=FunctionDefHead SKW_LEFTBRACE)
+		//(functiondefHead=FunctionDefHead SKW_LEFTBRACE)
 		public Group getGroup_1_0_0() { return cGroup_1_0_0; }
 		
-		//=> functiondefHead=FunctionDefHead
+		//functiondefHead=FunctionDefHead
 		public Assignment getFunctiondefHeadAssignment_1_0_0_0() { return cFunctiondefHeadAssignment_1_0_0_0; }
 		
 		//FunctionDefHead
@@ -109,7 +112,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//SKW_LEFTBRACE
 		public RuleCall getSKW_LEFTBRACETerminalRuleCall_1_0_0_1() { return cSKW_LEFTBRACETerminalRuleCall_1_0_0_1; }
 		
-		//functionDefinition=FunctionDefinition
+		//=> functionDefinition=FunctionDefinition
 		public Assignment getFunctionDefinitionAssignment_1_0_1() { return cFunctionDefinitionAssignment_1_0_1; }
 		
 		//FunctionDefinition
@@ -118,13 +121,13 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//SKW_RIGHTBRACE
 		public RuleCall getSKW_RIGHTBRACETerminalRuleCall_1_0_2() { return cSKW_RIGHTBRACETerminalRuleCall_1_0_2; }
 		
-		//declaration=Declaration
+		//declaration=Declaration preAction{ { at.jku.weiner.c.parser.utils.Scope.restoreState(); } }
 		public Assignment getDeclarationAssignment_1_1() { return cDeclarationAssignment_1_1; }
 		
 		//Declaration
 		public RuleCall getDeclarationDeclarationParserRuleCall_1_1_0() { return cDeclarationDeclarationParserRuleCall_1_1_0; }
 		
-		//semi=SKW_SEMI
+		//semi=SKW_SEMI preAction{ { at.jku.weiner.c.parser.utils.Scope.restoreState(); } }
 		public Assignment getSemiAssignment_1_2() { return cSemiAssignment_1_2; }
 		
 		//SKW_SEMI
@@ -5641,13 +5644,14 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		return getParserAccess().getRule();
 	}
 	
-	//ExternalDeclaration:
-	//	{ExternalDeclaration} ((=>
-	//	functiondefHead=FunctionDefHead
-	//	SKW_LEFTBRACE) functionDefinition=FunctionDefinition
+	//ExternalDeclaration initRuleAction { at.jku.weiner.c.parser.utils.Scope.saveState(); }:
+	//	{ExternalDeclaration} ((functiondefHead=FunctionDefHead
+	//	SKW_LEFTBRACE) =>
+	//	functionDefinition=FunctionDefinition
 	//	SKW_RIGHTBRACE
 	//	| declaration=Declaration
-	//	| semi=SKW_SEMI);
+	//	preAction{ { at.jku.weiner.c.parser.utils.Scope.restoreState(); } } | semi=SKW_SEMI
+	//	preAction{ { at.jku.weiner.c.parser.utils.Scope.restoreState(); } });
 	public ExternalDeclarationElements getExternalDeclarationAccess() {
 		return pExternalDeclaration;
 	}

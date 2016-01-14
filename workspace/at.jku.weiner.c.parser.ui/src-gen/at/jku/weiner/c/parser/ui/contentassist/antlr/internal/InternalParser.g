@@ -112,7 +112,7 @@ entryRuleExternalDeclaration
 ruleExternalDeclaration
     @init {
 		int stackSize = keepStackSize();
-		/*no init found*/
+		at.jku.weiner.c.parser.utils.Scope.saveState();
     }
 	@after {
     		/*no after found*/
@@ -3308,7 +3308,8 @@ rule__ExternalDeclaration__Alternatives_1
 
 
 
-    |
+    |{{at.jku.weiner.c.parser.utils.Scope.restoreState();}}
+
 (
 { before(grammarAccess.getExternalDeclarationAccess().getDeclarationAssignment_1_1()); }
 (rule__ExternalDeclaration__DeclarationAssignment_1_1)
@@ -3317,7 +3318,8 @@ rule__ExternalDeclaration__Alternatives_1
 
 
 
-    |
+    |{{at.jku.weiner.c.parser.utils.Scope.restoreState();}}
+
 (
 { before(grammarAccess.getExternalDeclarationAccess().getSemiAssignment_1_2()); }
 (rule__ExternalDeclaration__SemiAssignment_1_2)

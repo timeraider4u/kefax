@@ -375,7 +375,7 @@ GccDeclaratorExtension:
 
 GccAttributeSpecifier:
 	{GccAttributeSpecifier} 
-	KW_ATTRIBUTE SKW_LEFTPAREN SKW_LEFTPAREN 
+	attribute=(KW_ATTRIBUTE2 | KW_ATTRIBUTE3) SKW_LEFTPAREN SKW_LEFTPAREN 
 		(list=GccAttributeList)? 
 	SKW_RIGHTPAREN SKW_RIGHTPAREN
 ;
@@ -928,7 +928,8 @@ ParserKeywords:
 
 
 terminal KW_ATOMIC : SKW_UNDERSCORE 'Atomic';
-terminal KW_ATTRIBUTE: SKW_UNDERSCORE SKW_UNDERSCORE 'attribute' SKW_UNDERSCORE SKW_UNDERSCORE;
+terminal KW_ATTRIBUTE2: SKW_UNDERSCORE SKW_UNDERSCORE 'attribute';
+terminal KW_ATTRIBUTE3: KW_ATTRIBUTE2 SKW_UNDERSCORE SKW_UNDERSCORE;
 terminal KW_AUTO : 'auto';
 terminal KW_ALIGNAS : SKW_UNDERSCORE 'Alignas';
 terminal KW_ALIGNOF1: 'alignof';

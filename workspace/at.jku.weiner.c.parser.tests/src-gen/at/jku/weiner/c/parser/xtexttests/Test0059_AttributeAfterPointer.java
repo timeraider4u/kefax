@@ -118,7 +118,7 @@ public class Test0059_AttributeAfterPointer {
 				"RULE_WHITESPACE",
 				"RULE_SKW_STAR",
 				"RULE_WHITESPACE",
-				"RULE_KW_ATTRIBUTE",
+				"RULE_KW_ATTRIBUTE3",
 				"RULE_SKW_LEFTPAREN",
 				"RULE_SKW_LEFTPAREN",
 				"RULE_ID",

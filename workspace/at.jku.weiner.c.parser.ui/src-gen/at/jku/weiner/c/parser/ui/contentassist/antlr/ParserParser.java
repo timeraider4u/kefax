@@ -58,6 +58,7 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDirectDeclaratorLastSuffixAccess().getAlternatives_2(), "rule__DirectDeclaratorLastSuffix__Alternatives_2");
 					put(grammarAccess.getGccDeclaratorExtensionAccess().getAlternatives_1(), "rule__GccDeclaratorExtension__Alternatives_1");
 					put(grammarAccess.getGccDeclaratorExtensionAccess().getAsmAlternatives_1_0_0_0(), "rule__GccDeclaratorExtension__AsmAlternatives_1_0_0_0");
+					put(grammarAccess.getGccAttributeSpecifierAccess().getAttributeAlternatives_1_0(), "rule__GccAttributeSpecifier__AttributeAlternatives_1_0");
 					put(grammarAccess.getGccAttributeAccess().getAlternatives_1(), "rule__GccAttribute__Alternatives_1");
 					put(grammarAccess.getPointerAccess().getAlternatives_1_0(), "rule__Pointer__Alternatives_1_0");
 					put(grammarAccess.getParameterDeclarationAccess().getAlternatives_2(), "rule__ParameterDeclaration__Alternatives_2");
@@ -377,6 +378,7 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getGccDeclaratorExtensionAccess().getAsmAssignment_1_0_0(), "rule__GccDeclaratorExtension__AsmAssignment_1_0_0");
 					put(grammarAccess.getGccDeclaratorExtensionAccess().getStringAssignment_1_0_2(), "rule__GccDeclaratorExtension__StringAssignment_1_0_2");
 					put(grammarAccess.getGccDeclaratorExtensionAccess().getGccAttributeSpecifierAssignment_1_1(), "rule__GccDeclaratorExtension__GccAttributeSpecifierAssignment_1_1");
+					put(grammarAccess.getGccAttributeSpecifierAccess().getAttributeAssignment_1(), "rule__GccAttributeSpecifier__AttributeAssignment_1");
 					put(grammarAccess.getGccAttributeSpecifierAccess().getListAssignment_4(), "rule__GccAttributeSpecifier__ListAssignment_4");
 					put(grammarAccess.getGccAttributeListAccess().getGccAttributeAssignment_0(), "rule__GccAttributeList__GccAttributeAssignment_0");
 					put(grammarAccess.getGccAttributeListAccess().getGccAttributeAssignment_1_1(), "rule__GccAttributeList__GccAttributeAssignment_1_1");

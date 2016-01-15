@@ -4350,6 +4350,34 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+rule__GccAttributeSpecifier__AttributeAlternatives_1_0
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+
+(
+{ before(grammarAccess.getGccAttributeSpecifierAccess().getAttributeKW_ATTRIBUTE2TerminalRuleCall_1_0_0()); }
+	RULE_KW_ATTRIBUTE2
+{ after(grammarAccess.getGccAttributeSpecifierAccess().getAttributeKW_ATTRIBUTE2TerminalRuleCall_1_0_0()); }
+)
+
+
+
+    |
+(
+{ before(grammarAccess.getGccAttributeSpecifierAccess().getAttributeKW_ATTRIBUTE3TerminalRuleCall_1_0_1()); }
+	RULE_KW_ATTRIBUTE3
+{ after(grammarAccess.getGccAttributeSpecifierAccess().getAttributeKW_ATTRIBUTE3TerminalRuleCall_1_0_1()); }
+)
+
+
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__GccAttribute__Alternatives_1
     @init {
 		int stackSize = keepStackSize();
@@ -10340,9 +10368,9 @@ rule__GccAttributeSpecifier__Group__1__Impl
 :
 
 (
-{ before(grammarAccess.getGccAttributeSpecifierAccess().getKW_ATTRIBUTETerminalRuleCall_1()); }
-	RULE_KW_ATTRIBUTE
-{ after(grammarAccess.getGccAttributeSpecifierAccess().getKW_ATTRIBUTETerminalRuleCall_1()); }
+{ before(grammarAccess.getGccAttributeSpecifierAccess().getAttributeAssignment_1()); }
+(rule__GccAttributeSpecifier__AttributeAssignment_1)
+{ after(grammarAccess.getGccAttributeSpecifierAccess().getAttributeAssignment_1()); }
 )
 
 
@@ -24667,6 +24695,22 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+rule__GccAttributeSpecifier__AttributeAssignment_1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getGccAttributeSpecifierAccess().getAttributeAlternatives_1_0()); }
+(rule__GccAttributeSpecifier__AttributeAlternatives_1_0)
+{ after(grammarAccess.getGccAttributeSpecifierAccess().getAttributeAlternatives_1_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__GccAttributeSpecifier__ListAssignment_4
     @init {
 		int stackSize = keepStackSize();
@@ -28181,7 +28225,9 @@ finally {
 
 RULE_KW_ATOMIC : RULE_SKW_UNDERSCORE 'Atomic';
 
-RULE_KW_ATTRIBUTE : RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE 'attribute' RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE;
+RULE_KW_ATTRIBUTE2 : RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE 'attribute';
+
+RULE_KW_ATTRIBUTE3 : RULE_KW_ATTRIBUTE2 RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE;
 
 RULE_KW_AUTO : 'auto';
 

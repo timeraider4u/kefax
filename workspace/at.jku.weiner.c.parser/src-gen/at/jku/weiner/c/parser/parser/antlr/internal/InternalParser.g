@@ -4079,11 +4079,43 @@ ruleGccAttributeSpecifier returns [EObject current=null]
 )
 
 
-this_KW_ATTRIBUTE_1=RULE_KW_ATTRIBUTE
-    { 
-    newLeafNode(this_KW_ATTRIBUTE_1, grammarAccess.getGccAttributeSpecifierAccess().getKW_ATTRIBUTETerminalRuleCall_1()); 
-    }
+(
+(
+(
+		lv_attribute_1_1=RULE_KW_ATTRIBUTE2
+		{
+			newLeafNode(lv_attribute_1_1, grammarAccess.getGccAttributeSpecifierAccess().getAttributeKW_ATTRIBUTE2TerminalRuleCall_1_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getGccAttributeSpecifierRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"attribute",
+        		lv_attribute_1_1, 
+        		"at.jku.weiner.c.parser.Parser.KW_ATTRIBUTE2");
+	    }
 
+    |		lv_attribute_1_2=RULE_KW_ATTRIBUTE3
+		{
+			newLeafNode(lv_attribute_1_2, grammarAccess.getGccAttributeSpecifierAccess().getAttributeKW_ATTRIBUTE3TerminalRuleCall_1_0_1()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getGccAttributeSpecifierRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"attribute",
+        		lv_attribute_1_2, 
+        		"at.jku.weiner.c.parser.Parser.KW_ATTRIBUTE3");
+	    }
+
+)
+
+)
+)
 
 
 this_SKW_LEFTPAREN_2=RULE_SKW_LEFTPAREN
@@ -13069,7 +13101,9 @@ ruleEllipsis returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken(
 
 RULE_KW_ATOMIC : RULE_SKW_UNDERSCORE 'Atomic';
 
-RULE_KW_ATTRIBUTE : RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE 'attribute' RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE;
+RULE_KW_ATTRIBUTE2 : RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE 'attribute';
+
+RULE_KW_ATTRIBUTE3 : RULE_KW_ATTRIBUTE2 RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE;
 
 RULE_KW_AUTO : 'auto';
 

@@ -123,7 +123,7 @@ public class Test0061_AttributeWithKeyword {
 				"RULE_WHITESPACE",
 				"RULE_KW_INLINE1",
 				"RULE_WHITESPACE",
-				"RULE_KW_ATTRIBUTE",
+				"RULE_KW_ATTRIBUTE3",
 				"RULE_SKW_LEFTPAREN",
 				"RULE_SKW_LEFTPAREN",
 				"RULE_KW_CONST",

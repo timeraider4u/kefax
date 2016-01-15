@@ -1086,13 +1086,22 @@ public interface ParserPackage extends EPackage
   int GCC_ATTRIBUTE_SPECIFIER = 27;
 
   /**
+   * The feature id for the '<em><b>Attribute</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GCC_ATTRIBUTE_SPECIFIER__ATTRIBUTE = 0;
+
+  /**
    * The feature id for the '<em><b>List</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int GCC_ATTRIBUTE_SPECIFIER__LIST = 0;
+  int GCC_ATTRIBUTE_SPECIFIER__LIST = 1;
 
   /**
    * The number of structural features of the '<em>Gcc Attribute Specifier</em>' class.
@@ -1101,7 +1110,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GCC_ATTRIBUTE_SPECIFIER_FEATURE_COUNT = 1;
+  int GCC_ATTRIBUTE_SPECIFIER_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.GccAttributeListImpl <em>Gcc Attribute List</em>}' class.
@@ -4954,6 +4963,17 @@ public interface ParserPackage extends EPackage
   EClass getGccAttributeSpecifier();
 
   /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.GccAttributeSpecifier#getAttribute <em>Attribute</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Attribute</em>'.
+   * @see at.jku.weiner.c.parser.parser.GccAttributeSpecifier#getAttribute()
+   * @see #getGccAttributeSpecifier()
+   * @generated
+   */
+  EAttribute getGccAttributeSpecifier_Attribute();
+
+  /**
    * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.GccAttributeSpecifier#getList <em>List</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -7960,6 +7980,14 @@ public interface ParserPackage extends EPackage
      * @generated
      */
     EClass GCC_ATTRIBUTE_SPECIFIER = eINSTANCE.getGccAttributeSpecifier();
+
+    /**
+     * The meta object literal for the '<em><b>Attribute</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute GCC_ATTRIBUTE_SPECIFIER__ATTRIBUTE = eINSTANCE.getGccAttributeSpecifier_Attribute();
 
     /**
      * The meta object literal for the '<em><b>List</b></em>' containment reference feature.

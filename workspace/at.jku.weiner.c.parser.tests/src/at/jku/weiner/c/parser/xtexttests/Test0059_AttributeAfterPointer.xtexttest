@@ -8,7 +8,7 @@ source file="res/Test0059_AttributeAfterPointer.c"
 //----------------------------------------------------------------------
 lexer-tokens
 KW_EXTERN WHITESPACE KW_VOID WHITESPACE SKW_STAR WHITESPACE
-	KW_ATTRIBUTE SKW_LEFTPAREN SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_RIGHTPAREN 
+	KW_ATTRIBUTE3 SKW_LEFTPAREN SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_RIGHTPAREN 
 	WHITESPACE ID SKW_LEFTPAREN SKW_RIGHTPAREN SKW_SEMI NEWLINE
 
 //----------------------------------------------------------------------

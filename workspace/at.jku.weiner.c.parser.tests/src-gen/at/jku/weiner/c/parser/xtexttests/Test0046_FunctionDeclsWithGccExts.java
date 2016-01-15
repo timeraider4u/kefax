@@ -207,7 +207,7 @@ public class Test0046_FunctionDeclsWithGccExts {
 				"RULE_ID",
 				"RULE_SKW_RIGHTPAREN",
 				"RULE_WHITESPACE",
-				"RULE_KW_ATTRIBUTE",
+				"RULE_KW_ATTRIBUTE2",
 				"RULE_WHITESPACE",
 				"RULE_SKW_LEFTPAREN",
 				"RULE_SKW_LEFTPAREN",
@@ -229,7 +229,7 @@ public class Test0046_FunctionDeclsWithGccExts {
 				"RULE_ID",
 				"RULE_SKW_RIGHTPAREN",
 				"RULE_WHITESPACE",
-				"RULE_KW_ATTRIBUTE",
+				"RULE_KW_ATTRIBUTE3",
 				"RULE_WHITESPACE",
 				"RULE_SKW_LEFTPAREN",
 				"RULE_SKW_LEFTPAREN",
@@ -465,6 +465,8 @@ public class Test0046_FunctionDeclsWithGccExts {
 		.getGccAttributeSpecifier();
 		Assert.assertNotNull(GccAttributeSpecifier_20_Var
 		);
+		Assert.assertEquals("__attribute", GccAttributeSpecifier_20_Var
+		.getAttribute());
 		//20
 		final GccAttributeList GccAttributeList_21_Var
 		 = (GccAttributeList)GccAttributeSpecifier_20_Var
@@ -642,6 +644,8 @@ public class Test0046_FunctionDeclsWithGccExts {
 		.getGccAttributeSpecifier();
 		Assert.assertNotNull(GccAttributeSpecifier_43_Var
 		);
+		Assert.assertEquals("__attribute__", GccAttributeSpecifier_43_Var
+		.getAttribute());
 		//43
 		final GccAttributeList GccAttributeList_44_Var
 		 = (GccAttributeList)GccAttributeSpecifier_43_Var

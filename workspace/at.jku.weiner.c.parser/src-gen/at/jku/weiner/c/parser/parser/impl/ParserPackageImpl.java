@@ -1670,9 +1670,19 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getGccAttributeSpecifier_Attribute()
+  {
+    return (EAttribute)gccAttributeSpecifierEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getGccAttributeSpecifier_List()
   {
-    return (EReference)gccAttributeSpecifierEClass.getEStructuralFeatures().get(0);
+    return (EReference)gccAttributeSpecifierEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -3916,6 +3926,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     createEReference(gccDeclaratorExtensionEClass, GCC_DECLARATOR_EXTENSION__GCC_ATTRIBUTE_SPECIFIER);
 
     gccAttributeSpecifierEClass = createEClass(GCC_ATTRIBUTE_SPECIFIER);
+    createEAttribute(gccAttributeSpecifierEClass, GCC_ATTRIBUTE_SPECIFIER__ATTRIBUTE);
     createEReference(gccAttributeSpecifierEClass, GCC_ATTRIBUTE_SPECIFIER__LIST);
 
     gccAttributeListEClass = createEClass(GCC_ATTRIBUTE_LIST);
@@ -4377,6 +4388,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     initEReference(getGccDeclaratorExtension_GccAttributeSpecifier(), this.getGccAttributeSpecifier(), null, "gccAttributeSpecifier", null, 0, 1, GccDeclaratorExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(gccAttributeSpecifierEClass, GccAttributeSpecifier.class, "GccAttributeSpecifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getGccAttributeSpecifier_Attribute(), theEcorePackage.getEString(), "attribute", null, 0, 1, GccAttributeSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getGccAttributeSpecifier_List(), this.getGccAttributeList(), null, "list", null, 0, 1, GccAttributeSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(gccAttributeListEClass, GccAttributeList.class, "GccAttributeList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

@@ -118,6 +118,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//GccDeclaratorExtension/gccAttributeSpecifier"/>
     </genClasses>
     <genClasses ecoreClass="Parser.ecore#//GccAttributeSpecifier">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//GccAttributeSpecifier/attribute"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//GccAttributeSpecifier/list"/>
     </genClasses>
     <genClasses ecoreClass="Parser.ecore#//GccAttributeList">

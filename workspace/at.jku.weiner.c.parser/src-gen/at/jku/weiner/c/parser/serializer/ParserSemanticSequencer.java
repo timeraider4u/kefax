@@ -830,7 +830,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (list=GccAttributeList?)
+	 *     ((attribute=KW_ATTRIBUTE2 | attribute=KW_ATTRIBUTE3) list=GccAttributeList?)
 	 */
 	protected void sequence_GccAttributeSpecifier(EObject context, GccAttributeSpecifier semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

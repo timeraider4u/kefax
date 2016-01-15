@@ -460,7 +460,7 @@ class ParserGenerator implements IGenerator {
 	}
 	
 	def String outputFor(GccAttributeSpecifier obj) '''
-		__attribute__ ((«IF obj.list != null»«outputFor(obj.list)»«ENDIF»))
+		«obj.attribute»((«IF obj.list != null»«outputFor(obj.list)»«ENDIF»))
 	'''
 	
 	def String outputFor(GccAttributeList obj) {

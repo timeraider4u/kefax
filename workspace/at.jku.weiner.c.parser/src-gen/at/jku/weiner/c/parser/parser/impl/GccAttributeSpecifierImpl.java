@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.GccAttributeSpecifierImpl#getAttribute <em>Attribute</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.GccAttributeSpecifierImpl#getList <em>List</em>}</li>
  * </ul>
  *
@@ -30,6 +31,26 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class GccAttributeSpecifierImpl extends MinimalEObjectImpl.Container implements GccAttributeSpecifier
 {
+  /**
+   * The default value of the '{@link #getAttribute() <em>Attribute</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAttribute()
+   * @generated
+   * @ordered
+   */
+  protected static final String ATTRIBUTE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getAttribute() <em>Attribute</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAttribute()
+   * @generated
+   * @ordered
+   */
+  protected String attribute = ATTRIBUTE_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getList() <em>List</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -59,6 +80,29 @@ public class GccAttributeSpecifierImpl extends MinimalEObjectImpl.Container impl
   protected EClass eStaticClass()
   {
     return ParserPackage.Literals.GCC_ATTRIBUTE_SPECIFIER;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getAttribute()
+  {
+    return attribute;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAttribute(String newAttribute)
+  {
+    String oldAttribute = attribute;
+    attribute = newAttribute;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.GCC_ATTRIBUTE_SPECIFIER__ATTRIBUTE, oldAttribute, attribute));
   }
 
   /**
@@ -135,6 +179,8 @@ public class GccAttributeSpecifierImpl extends MinimalEObjectImpl.Container impl
   {
     switch (featureID)
     {
+      case ParserPackage.GCC_ATTRIBUTE_SPECIFIER__ATTRIBUTE:
+        return getAttribute();
       case ParserPackage.GCC_ATTRIBUTE_SPECIFIER__LIST:
         return getList();
     }
@@ -151,6 +197,9 @@ public class GccAttributeSpecifierImpl extends MinimalEObjectImpl.Container impl
   {
     switch (featureID)
     {
+      case ParserPackage.GCC_ATTRIBUTE_SPECIFIER__ATTRIBUTE:
+        setAttribute((String)newValue);
+        return;
       case ParserPackage.GCC_ATTRIBUTE_SPECIFIER__LIST:
         setList((GccAttributeList)newValue);
         return;
@@ -168,6 +217,9 @@ public class GccAttributeSpecifierImpl extends MinimalEObjectImpl.Container impl
   {
     switch (featureID)
     {
+      case ParserPackage.GCC_ATTRIBUTE_SPECIFIER__ATTRIBUTE:
+        setAttribute(ATTRIBUTE_EDEFAULT);
+        return;
       case ParserPackage.GCC_ATTRIBUTE_SPECIFIER__LIST:
         setList((GccAttributeList)null);
         return;
@@ -185,10 +237,29 @@ public class GccAttributeSpecifierImpl extends MinimalEObjectImpl.Container impl
   {
     switch (featureID)
     {
+      case ParserPackage.GCC_ATTRIBUTE_SPECIFIER__ATTRIBUTE:
+        return ATTRIBUTE_EDEFAULT == null ? attribute != null : !ATTRIBUTE_EDEFAULT.equals(attribute);
       case ParserPackage.GCC_ATTRIBUTE_SPECIFIER__LIST:
         return list != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (attribute: ");
+    result.append(attribute);
+    result.append(')');
+    return result.toString();
   }
 
 } //GccAttributeSpecifierImpl

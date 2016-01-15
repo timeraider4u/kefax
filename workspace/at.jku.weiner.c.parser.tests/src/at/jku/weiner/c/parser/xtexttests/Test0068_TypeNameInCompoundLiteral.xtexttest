@@ -125,43 +125,46 @@ SKW_RIGHTBRACE NEWLINE
 																								),
 																								initializerList=
 																								(InitializerList
-																									initializer+=
-																									(Initializer
-																										expr=
-																										(AssignmentExpression
+																									init+=
+																									(Init
+																										initializer=
+																										(Initializer
 																											expr=
-																											(ConditionalExpression
+																											(AssignmentExpression
 																												expr=
-																												(LogicalOrExpression
-																													expr+=
-																													(LogicalAndExpression
+																												(ConditionalExpression
+																													expr=
+																													(LogicalOrExpression
 																														expr+=
-																														(InclusiveOrExpression
+																														(LogicalAndExpression
 																															expr+=
-																															(ExclusiveOrExpression
+																															(InclusiveOrExpression
 																																expr+=
-																																(AndExpression
+																																(ExclusiveOrExpression
 																																	expr+=
-																																	(EqualityExpression
+																																	(AndExpression
 																																		expr+=
-																																		(RelationalExpression
+																																		(EqualityExpression
 																																			expr+=
-																																			(ShiftExpression
+																																			(RelationalExpression
 																																				expr+=
-																																				(AdditiveExpression
+																																				(ShiftExpression
 																																					expr+=
-																																					(MultiplicativeExpression
+																																					(AdditiveExpression
 																																						expr+=
-																																						(CastExpression
-																																							expr=
-																																							(UnaryExpression
+																																						(MultiplicativeExpression
+																																							expr+=
+																																							(CastExpression
 																																								expr=
-																																								(PostfixExpression
-																																									expr+=
-																																									(PrimaryExpression
-																																										const=
-																																										(common::Constant2
-																																											dec++"0"
+																																								(UnaryExpression
+																																									expr=
+																																									(PostfixExpression
+																																										expr+=
+																																										(PrimaryExpression
+																																											const=
+																																											(common::Constant2
+																																												dec++"0"
+																																											)
 																																										)
 																																									)
 																																								)
@@ -177,9 +180,9 @@ SKW_RIGHTBRACE NEWLINE
 																														)
 																													)
 																												)
-																											)
-																										) // end assignment expression
-																									) // end initializer
+																											) // end assignment expression
+																										) // end initializer
+																									)
 																								)
 																							)
 																						)

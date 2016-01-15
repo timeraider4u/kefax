@@ -97,6 +97,7 @@ import at.jku.weiner.c.parser.parser.Designator
 import at.jku.weiner.c.parser.parser.AsmSymbolicName
 import at.jku.weiner.c.parser.parser.DirectAbstractDeclarator
 import at.jku.weiner.c.parser.parser.AbstractDeclaratorSuffix
+import at.jku.weiner.c.parser.parser.Init
 
 /**
  * Generates code from your model files on save.
@@ -402,15 +403,15 @@ class ParserGenerator implements IGenerator {
 	'''
 	
 	def String outputFor(InitializerList obj) '''
-		«IF obj.designation != null
-			»«FOR d : obj.designation»
-				«outputFor(d)»
-			«ENDFOR»
-		«ENDIF»
-		«FOR i : obj.initializer»
-			«IF obj.initializer.indexOf(i) > 0», «ENDIF»
+		«FOR i : obj.init»
+			«IF obj.init.indexOf(i) > 0», «ENDIF»
 			«outputFor(i)»
 		«ENDFOR»
+	'''
+	
+	def String outputFor(Init obj) '''
+		«IF obj.designation != null»«outputFor(obj.designation)»«ENDIF»
+		«IF obj.initializer != null»«outputFor(obj.initializer)»«ENDIF»
 	'''
 	
 	def String outputFor(Designation obj)'''
@@ -424,7 +425,9 @@ class ParserGenerator implements IGenerator {
 	'''
 	
 	def String outputFor(Designator obj) '''
-		«IF obj.expr != null»[«outputForConstantExpression(obj.expr as ConstantExpression)»]«ENDIF»
+		«IF obj.expr != null»[«outputForConstantExpression(obj.expr as ConstantExpression)»
+			«IF obj.to != null»...«outputForConstantExpression(obj.to as ConstantExpression)»«ENDIF»
+			]«ENDIF»
 		«IF obj.id != null».«obj.id»«ENDIF»
 	'''
 	

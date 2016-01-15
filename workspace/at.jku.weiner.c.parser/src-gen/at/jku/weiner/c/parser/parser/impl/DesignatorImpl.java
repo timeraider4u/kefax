@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.DesignatorImpl#getExpr <em>Expr</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.DesignatorImpl#getTo <em>To</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.DesignatorImpl#getId <em>Id</em>}</li>
  * </ul>
  *
@@ -40,6 +41,16 @@ public class DesignatorImpl extends MinimalEObjectImpl.Container implements Desi
    * @ordered
    */
   protected Expression expr;
+
+  /**
+   * The cached value of the '{@link #getTo() <em>To</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTo()
+   * @generated
+   * @ordered
+   */
+  protected Expression to;
 
   /**
    * The default value of the '{@link #getId() <em>Id</em>}' attribute.
@@ -135,6 +146,54 @@ public class DesignatorImpl extends MinimalEObjectImpl.Container implements Desi
    * <!-- end-user-doc -->
    * @generated
    */
+  public Expression getTo()
+  {
+    return to;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetTo(Expression newTo, NotificationChain msgs)
+  {
+    Expression oldTo = to;
+    to = newTo;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ParserPackage.DESIGNATOR__TO, oldTo, newTo);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTo(Expression newTo)
+  {
+    if (newTo != to)
+    {
+      NotificationChain msgs = null;
+      if (to != null)
+        msgs = ((InternalEObject)to).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ParserPackage.DESIGNATOR__TO, null, msgs);
+      if (newTo != null)
+        msgs = ((InternalEObject)newTo).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ParserPackage.DESIGNATOR__TO, null, msgs);
+      msgs = basicSetTo(newTo, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.DESIGNATOR__TO, newTo, newTo));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getId()
   {
     return id;
@@ -165,6 +224,8 @@ public class DesignatorImpl extends MinimalEObjectImpl.Container implements Desi
     {
       case ParserPackage.DESIGNATOR__EXPR:
         return basicSetExpr(null, msgs);
+      case ParserPackage.DESIGNATOR__TO:
+        return basicSetTo(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -181,6 +242,8 @@ public class DesignatorImpl extends MinimalEObjectImpl.Container implements Desi
     {
       case ParserPackage.DESIGNATOR__EXPR:
         return getExpr();
+      case ParserPackage.DESIGNATOR__TO:
+        return getTo();
       case ParserPackage.DESIGNATOR__ID:
         return getId();
     }
@@ -199,6 +262,9 @@ public class DesignatorImpl extends MinimalEObjectImpl.Container implements Desi
     {
       case ParserPackage.DESIGNATOR__EXPR:
         setExpr((Expression)newValue);
+        return;
+      case ParserPackage.DESIGNATOR__TO:
+        setTo((Expression)newValue);
         return;
       case ParserPackage.DESIGNATOR__ID:
         setId((String)newValue);
@@ -220,6 +286,9 @@ public class DesignatorImpl extends MinimalEObjectImpl.Container implements Desi
       case ParserPackage.DESIGNATOR__EXPR:
         setExpr((Expression)null);
         return;
+      case ParserPackage.DESIGNATOR__TO:
+        setTo((Expression)null);
+        return;
       case ParserPackage.DESIGNATOR__ID:
         setId(ID_EDEFAULT);
         return;
@@ -239,6 +308,8 @@ public class DesignatorImpl extends MinimalEObjectImpl.Container implements Desi
     {
       case ParserPackage.DESIGNATOR__EXPR:
         return expr != null;
+      case ParserPackage.DESIGNATOR__TO:
+        return to != null;
       case ParserPackage.DESIGNATOR__ID:
         return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
     }

@@ -24,14 +24,12 @@ public class ParserSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected ParserGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_AbstractDeclaratorSuffix___SKW_LEFTBRACKETTerminalRuleCall_1_3_0_SKW_STARTerminalRuleCall_1_3_1_SKW_RIGHTBRACKETTerminalRuleCall_1_3_2___or_____SKW_LEFTBRACKETTerminalRuleCall_1_0_0_SKW_RIGHTBRACKETTerminalRuleCall_1_0_3___or___SKW_LEFTPARENTerminalRuleCall_1_4_0_SKW_RIGHTPARENTerminalRuleCall_1_4_2____;
 	protected AbstractElementAlias match_GccAttribute___SKW_LEFTPARENTerminalRuleCall_2_0_SKW_RIGHTPARENTerminalRuleCall_2_2__q;
-	protected AbstractElementAlias match_Initializer_SKW_COMMATerminalRuleCall_1_1_2_q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (ParserGrammarAccess) access;
 		match_AbstractDeclaratorSuffix___SKW_LEFTBRACKETTerminalRuleCall_1_3_0_SKW_STARTerminalRuleCall_1_3_1_SKW_RIGHTBRACKETTerminalRuleCall_1_3_2___or_____SKW_LEFTBRACKETTerminalRuleCall_1_0_0_SKW_RIGHTBRACKETTerminalRuleCall_1_0_3___or___SKW_LEFTPARENTerminalRuleCall_1_4_0_SKW_RIGHTPARENTerminalRuleCall_1_4_2____ = new AlternativeAlias(false, false, new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getAbstractDeclaratorSuffixAccess().getSKW_LEFTBRACKETTerminalRuleCall_1_0_0()), new TokenAlias(false, false, grammarAccess.getAbstractDeclaratorSuffixAccess().getSKW_RIGHTBRACKETTerminalRuleCall_1_0_3())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getAbstractDeclaratorSuffixAccess().getSKW_LEFTPARENTerminalRuleCall_1_4_0()), new TokenAlias(false, false, grammarAccess.getAbstractDeclaratorSuffixAccess().getSKW_RIGHTPARENTerminalRuleCall_1_4_2()))), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getAbstractDeclaratorSuffixAccess().getSKW_LEFTBRACKETTerminalRuleCall_1_3_0()), new TokenAlias(false, false, grammarAccess.getAbstractDeclaratorSuffixAccess().getSKW_STARTerminalRuleCall_1_3_1()), new TokenAlias(false, false, grammarAccess.getAbstractDeclaratorSuffixAccess().getSKW_RIGHTBRACKETTerminalRuleCall_1_3_2())));
 		match_GccAttribute___SKW_LEFTPARENTerminalRuleCall_2_0_SKW_RIGHTPARENTerminalRuleCall_2_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getGccAttributeAccess().getSKW_LEFTPARENTerminalRuleCall_2_0()), new TokenAlias(false, false, grammarAccess.getGccAttributeAccess().getSKW_RIGHTPARENTerminalRuleCall_2_2()));
-		match_Initializer_SKW_COMMATerminalRuleCall_1_1_2_q = new TokenAlias(false, true, grammarAccess.getInitializerAccess().getSKW_COMMATerminalRuleCall_1_1_2());
 	}
 	
 	@Override
@@ -370,8 +368,6 @@ public class ParserSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_AbstractDeclaratorSuffix___SKW_LEFTBRACKETTerminalRuleCall_1_3_0_SKW_STARTerminalRuleCall_1_3_1_SKW_RIGHTBRACKETTerminalRuleCall_1_3_2___or_____SKW_LEFTBRACKETTerminalRuleCall_1_0_0_SKW_RIGHTBRACKETTerminalRuleCall_1_0_3___or___SKW_LEFTPARENTerminalRuleCall_1_4_0_SKW_RIGHTPARENTerminalRuleCall_1_4_2____(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_GccAttribute___SKW_LEFTPARENTerminalRuleCall_2_0_SKW_RIGHTPARENTerminalRuleCall_2_2__q.equals(syntax))
 				emit_GccAttribute___SKW_LEFTPARENTerminalRuleCall_2_0_SKW_RIGHTPARENTerminalRuleCall_2_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_Initializer_SKW_COMMATerminalRuleCall_1_1_2_q.equals(syntax))
-				emit_Initializer_SKW_COMMATerminalRuleCall_1_1_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -397,17 +393,6 @@ public class ParserSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     keyword=ParserKeywords (ambiguity) (rule end)
 	 */
 	protected void emit_GccAttribute___SKW_LEFTPARENTerminalRuleCall_2_0_SKW_RIGHTPARENTerminalRuleCall_2_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     SKW_COMMA?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     list=InitializerList (ambiguity) SKW_RIGHTBRACE (rule end)
-	 */
-	protected void emit_Initializer_SKW_COMMATerminalRuleCall_1_1_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

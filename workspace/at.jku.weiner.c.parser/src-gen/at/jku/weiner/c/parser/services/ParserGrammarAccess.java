@@ -2533,21 +2533,22 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSKW_LEFTBRACETerminalRuleCall_1_1_0 = (RuleCall)cGroup_1_1.eContents().get(0);
 		private final Assignment cListAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
 		private final RuleCall cListInitializerListParserRuleCall_1_1_1_0 = (RuleCall)cListAssignment_1_1_1.eContents().get(0);
-		private final RuleCall cSKW_COMMATerminalRuleCall_1_1_2 = (RuleCall)cGroup_1_1.eContents().get(2);
+		private final Assignment cLastCommaAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
+		private final RuleCall cLastCommaSKW_COMMATerminalRuleCall_1_1_2_0 = (RuleCall)cLastCommaAssignment_1_1_2.eContents().get(0);
 		private final RuleCall cSKW_RIGHTBRACETerminalRuleCall_1_1_3 = (RuleCall)cGroup_1_1.eContents().get(3);
 		
 		//Initializer:
 		//	{Initializer} (expr=AssignmentExpression
-		//	| SKW_LEFTBRACE list=InitializerList SKW_COMMA? SKW_RIGHTBRACE);
+		//	| SKW_LEFTBRACE list=InitializerList lastComma?=SKW_COMMA? SKW_RIGHTBRACE);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Initializer} (expr=AssignmentExpression | SKW_LEFTBRACE list=InitializerList SKW_COMMA? SKW_RIGHTBRACE)
+		//{Initializer} (expr=AssignmentExpression | SKW_LEFTBRACE list=InitializerList lastComma?=SKW_COMMA? SKW_RIGHTBRACE)
 		public Group getGroup() { return cGroup; }
 		
 		//{Initializer}
 		public Action getInitializerAction_0() { return cInitializerAction_0; }
 		
-		//(expr=AssignmentExpression | SKW_LEFTBRACE list=InitializerList SKW_COMMA? SKW_RIGHTBRACE)
+		//(expr=AssignmentExpression | SKW_LEFTBRACE list=InitializerList lastComma?=SKW_COMMA? SKW_RIGHTBRACE)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
 		//expr=AssignmentExpression
@@ -2556,7 +2557,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//AssignmentExpression
 		public RuleCall getExprAssignmentExpressionParserRuleCall_1_0_0() { return cExprAssignmentExpressionParserRuleCall_1_0_0; }
 		
-		//SKW_LEFTBRACE list=InitializerList SKW_COMMA? SKW_RIGHTBRACE
+		//SKW_LEFTBRACE list=InitializerList lastComma?=SKW_COMMA? SKW_RIGHTBRACE
 		public Group getGroup_1_1() { return cGroup_1_1; }
 		
 		//SKW_LEFTBRACE
@@ -2568,8 +2569,11 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//InitializerList
 		public RuleCall getListInitializerListParserRuleCall_1_1_1_0() { return cListInitializerListParserRuleCall_1_1_1_0; }
 		
-		//SKW_COMMA?
-		public RuleCall getSKW_COMMATerminalRuleCall_1_1_2() { return cSKW_COMMATerminalRuleCall_1_1_2; }
+		//lastComma?=SKW_COMMA?
+		public Assignment getLastCommaAssignment_1_1_2() { return cLastCommaAssignment_1_1_2; }
+		
+		//SKW_COMMA
+		public RuleCall getLastCommaSKW_COMMATerminalRuleCall_1_1_2_0() { return cLastCommaSKW_COMMATerminalRuleCall_1_1_2_0; }
 		
 		//SKW_RIGHTBRACE
 		public RuleCall getSKW_RIGHTBRACETerminalRuleCall_1_1_3() { return cSKW_RIGHTBRACETerminalRuleCall_1_1_3; }
@@ -2578,54 +2582,73 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.InitializerList");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cInitializerListAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cDesignationAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cDesignationDesignationParserRuleCall_1_0 = (RuleCall)cDesignationAssignment_1.eContents().get(0);
-		private final Assignment cInitializerAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cInitializerInitializerParserRuleCall_2_0 = (RuleCall)cInitializerAssignment_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final RuleCall cSKW_COMMATerminalRuleCall_3_0 = (RuleCall)cGroup_3.eContents().get(0);
-		private final Assignment cInitializerAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cInitializerInitializerParserRuleCall_3_1_0 = (RuleCall)cInitializerAssignment_3_1.eContents().get(0);
+		private final Assignment cInitAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cInitInitParserRuleCall_1_0 = (RuleCall)cInitAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final RuleCall cSKW_COMMATerminalRuleCall_2_0 = (RuleCall)cGroup_2.eContents().get(0);
+		private final Assignment cInitAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cInitInitParserRuleCall_2_1_0 = (RuleCall)cInitAssignment_2_1.eContents().get(0);
 		
 		//InitializerList:
-		//	{InitializerList} designation+=Designation?
-		//	initializer+=Initializer (SKW_COMMA
-		//	//(designation+=Designation)?
-		//	initializer+=Initializer)*;
+		//	{InitializerList} init+=Init (SKW_COMMA
+		//	init+=Init)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{InitializerList} designation+=Designation? initializer+=Initializer (SKW_COMMA //(designation+=Designation)?
-		//initializer+=Initializer)*
+		//{InitializerList} init+=Init (SKW_COMMA init+=Init)*
 		public Group getGroup() { return cGroup; }
 		
 		//{InitializerList}
 		public Action getInitializerListAction_0() { return cInitializerListAction_0; }
 		
-		//designation+=Designation?
+		//init+=Init
+		public Assignment getInitAssignment_1() { return cInitAssignment_1; }
+		
+		//Init
+		public RuleCall getInitInitParserRuleCall_1_0() { return cInitInitParserRuleCall_1_0; }
+		
+		//(SKW_COMMA init+=Init)*
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//SKW_COMMA
+		public RuleCall getSKW_COMMATerminalRuleCall_2_0() { return cSKW_COMMATerminalRuleCall_2_0; }
+		
+		//init+=Init
+		public Assignment getInitAssignment_2_1() { return cInitAssignment_2_1; }
+		
+		//Init
+		public RuleCall getInitInitParserRuleCall_2_1_0() { return cInitInitParserRuleCall_2_1_0; }
+	}
+	public class InitElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.Init");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cInitAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cDesignationAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cDesignationDesignationParserRuleCall_1_0 = (RuleCall)cDesignationAssignment_1.eContents().get(0);
+		private final Assignment cInitializerAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cInitializerInitializerParserRuleCall_2_0 = (RuleCall)cInitializerAssignment_2.eContents().get(0);
+		
+		//Init:
+		//	{Init} designation=Designation?
+		//	initializer=Initializer;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{Init} designation=Designation? initializer=Initializer
+		public Group getGroup() { return cGroup; }
+		
+		//{Init}
+		public Action getInitAction_0() { return cInitAction_0; }
+		
+		//designation=Designation?
 		public Assignment getDesignationAssignment_1() { return cDesignationAssignment_1; }
 		
 		//Designation
 		public RuleCall getDesignationDesignationParserRuleCall_1_0() { return cDesignationDesignationParserRuleCall_1_0; }
 		
-		//initializer+=Initializer
+		//initializer=Initializer
 		public Assignment getInitializerAssignment_2() { return cInitializerAssignment_2; }
 		
 		//Initializer
 		public RuleCall getInitializerInitializerParserRuleCall_2_0() { return cInitializerInitializerParserRuleCall_2_0; }
-		
-		//(SKW_COMMA //(designation+=Designation)?
-		//initializer+=Initializer)*
-		public Group getGroup_3() { return cGroup_3; }
-		
-		//SKW_COMMA
-		public RuleCall getSKW_COMMATerminalRuleCall_3_0() { return cSKW_COMMATerminalRuleCall_3_0; }
-		
-		////(designation+=Designation)?
-		//initializer+=Initializer
-		public Assignment getInitializerAssignment_3_1() { return cInitializerAssignment_3_1; }
-		
-		//Initializer
-		public RuleCall getInitializerInitializerParserRuleCall_3_1_0() { return cInitializerInitializerParserRuleCall_3_1_0; }
 	}
 	public class BlockListElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.BlockList");
@@ -3747,27 +3770,32 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSKW_LEFTBRACKETTerminalRuleCall_1_0_0 = (RuleCall)cGroup_1_0.eContents().get(0);
 		private final Assignment cExprAssignment_1_0_1 = (Assignment)cGroup_1_0.eContents().get(1);
 		private final RuleCall cExprConstantExpressionParserRuleCall_1_0_1_0 = (RuleCall)cExprAssignment_1_0_1.eContents().get(0);
-		private final RuleCall cSKW_RIGHTBRACKETTerminalRuleCall_1_0_2 = (RuleCall)cGroup_1_0.eContents().get(2);
+		private final Group cGroup_1_0_2 = (Group)cGroup_1_0.eContents().get(2);
+		private final RuleCall cEllipsisParserRuleCall_1_0_2_0 = (RuleCall)cGroup_1_0_2.eContents().get(0);
+		private final Assignment cToAssignment_1_0_2_1 = (Assignment)cGroup_1_0_2.eContents().get(1);
+		private final RuleCall cToConstantExpressionParserRuleCall_1_0_2_1_0 = (RuleCall)cToAssignment_1_0_2_1.eContents().get(0);
+		private final RuleCall cSKW_RIGHTBRACKETTerminalRuleCall_1_0_3 = (RuleCall)cGroup_1_0.eContents().get(3);
 		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
 		private final RuleCall cSKW_DOTTerminalRuleCall_1_1_0 = (RuleCall)cGroup_1_1.eContents().get(0);
 		private final Assignment cIdAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
 		private final RuleCall cIdIDTerminalRuleCall_1_1_1_0 = (RuleCall)cIdAssignment_1_1_1.eContents().get(0);
 		
 		//Designator:
-		//	{Designator} (SKW_LEFTBRACKET expr=ConstantExpression SKW_RIGHTBRACKET
+		//	{Designator} (SKW_LEFTBRACKET expr=ConstantExpression (Ellipsis to=ConstantExpression)? SKW_RIGHTBRACKET
 		//	| SKW_DOT id=ID);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Designator} (SKW_LEFTBRACKET expr=ConstantExpression SKW_RIGHTBRACKET | SKW_DOT id=ID)
+		//{Designator} (SKW_LEFTBRACKET expr=ConstantExpression (Ellipsis to=ConstantExpression)? SKW_RIGHTBRACKET | SKW_DOT
+		//id=ID)
 		public Group getGroup() { return cGroup; }
 		
 		//{Designator}
 		public Action getDesignatorAction_0() { return cDesignatorAction_0; }
 		
-		//(SKW_LEFTBRACKET expr=ConstantExpression SKW_RIGHTBRACKET | SKW_DOT id=ID)
+		//(SKW_LEFTBRACKET expr=ConstantExpression (Ellipsis to=ConstantExpression)? SKW_RIGHTBRACKET | SKW_DOT id=ID)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		//SKW_LEFTBRACKET expr=ConstantExpression SKW_RIGHTBRACKET
+		//SKW_LEFTBRACKET expr=ConstantExpression (Ellipsis to=ConstantExpression)? SKW_RIGHTBRACKET
 		public Group getGroup_1_0() { return cGroup_1_0; }
 		
 		//SKW_LEFTBRACKET
@@ -3779,8 +3807,20 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		//ConstantExpression
 		public RuleCall getExprConstantExpressionParserRuleCall_1_0_1_0() { return cExprConstantExpressionParserRuleCall_1_0_1_0; }
 		
+		//(Ellipsis to=ConstantExpression)?
+		public Group getGroup_1_0_2() { return cGroup_1_0_2; }
+		
+		//Ellipsis
+		public RuleCall getEllipsisParserRuleCall_1_0_2_0() { return cEllipsisParserRuleCall_1_0_2_0; }
+		
+		//to=ConstantExpression
+		public Assignment getToAssignment_1_0_2_1() { return cToAssignment_1_0_2_1; }
+		
+		//ConstantExpression
+		public RuleCall getToConstantExpressionParserRuleCall_1_0_2_1_0() { return cToConstantExpressionParserRuleCall_1_0_2_1_0; }
+		
 		//SKW_RIGHTBRACKET
-		public RuleCall getSKW_RIGHTBRACKETTerminalRuleCall_1_0_2() { return cSKW_RIGHTBRACKETTerminalRuleCall_1_0_2; }
+		public RuleCall getSKW_RIGHTBRACKETTerminalRuleCall_1_0_3() { return cSKW_RIGHTBRACKETTerminalRuleCall_1_0_3; }
 		
 		//SKW_DOT id=ID
 		public Group getGroup_1_1() { return cGroup_1_1; }
@@ -5561,6 +5601,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	private final AbstractDeclaratorSuffixElements pAbstractDeclaratorSuffix;
 	private final InitializerElements pInitializer;
 	private final InitializerListElements pInitializerList;
+	private final InitElements pInit;
 	private final BlockListElements pBlockList;
 	private final StatementElements pStatement;
 	private final LabeledStatementElements pLabeledStatement;
@@ -5743,6 +5784,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 		this.pAbstractDeclaratorSuffix = new AbstractDeclaratorSuffixElements();
 		this.pInitializer = new InitializerElements();
 		this.pInitializerList = new InitializerListElements();
+		this.pInit = new InitElements();
 		this.pBlockList = new BlockListElements();
 		this.pStatement = new StatementElements();
 		this.pLabeledStatement = new LabeledStatementElements();
@@ -6461,7 +6503,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Initializer:
 	//	{Initializer} (expr=AssignmentExpression
-	//	| SKW_LEFTBRACE list=InitializerList SKW_COMMA? SKW_RIGHTBRACE);
+	//	| SKW_LEFTBRACE list=InitializerList lastComma?=SKW_COMMA? SKW_RIGHTBRACE);
 	public InitializerElements getInitializerAccess() {
 		return pInitializer;
 	}
@@ -6471,16 +6513,25 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//InitializerList:
-	//	{InitializerList} designation+=Designation?
-	//	initializer+=Initializer (SKW_COMMA
-	//	//(designation+=Designation)?
-	//	initializer+=Initializer)*;
+	//	{InitializerList} init+=Init (SKW_COMMA
+	//	init+=Init)*;
 	public InitializerListElements getInitializerListAccess() {
 		return pInitializerList;
 	}
 	
 	public ParserRule getInitializerListRule() {
 		return getInitializerListAccess().getRule();
+	}
+	
+	//Init:
+	//	{Init} designation=Designation?
+	//	initializer=Initializer;
+	public InitElements getInitAccess() {
+		return pInit;
+	}
+	
+	public ParserRule getInitRule() {
+		return getInitAccess().getRule();
 	}
 	
 	/// *** Statements * / BlockList:
@@ -6671,7 +6722,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Designator:
-	//	{Designator} (SKW_LEFTBRACKET expr=ConstantExpression SKW_RIGHTBRACKET
+	//	{Designator} (SKW_LEFTBRACKET expr=ConstantExpression (Ellipsis to=ConstantExpression)? SKW_RIGHTBRACKET
 	//	| SKW_DOT id=ID);
 	public DesignatorElements getDesignatorAccess() {
 		return pDesignator;

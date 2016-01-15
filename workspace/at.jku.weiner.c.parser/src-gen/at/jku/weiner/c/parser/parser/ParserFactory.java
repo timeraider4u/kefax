@@ -410,6 +410,15 @@ public interface ParserFactory extends EFactory
   InitializerList createInitializerList();
 
   /**
+   * Returns a new object of class '<em>Init</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Init</em>'.
+   * @generated
+   */
+  Init createInit();
+
+  /**
    * Returns a new object of class '<em>Block List</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

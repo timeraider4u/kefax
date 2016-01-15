@@ -51,6 +51,7 @@ import at.jku.weiner.c.parser.parser.GccAttributeSpecifier;
 import at.jku.weiner.c.parser.parser.GccDeclaratorExtension;
 import at.jku.weiner.c.parser.parser.IdentifierList;
 import at.jku.weiner.c.parser.parser.InclusiveOrExpression;
+import at.jku.weiner.c.parser.parser.Init;
 import at.jku.weiner.c.parser.parser.InitDeclarator;
 import at.jku.weiner.c.parser.parser.InitDeclaratorList;
 import at.jku.weiner.c.parser.parser.Initializer;
@@ -414,6 +415,13 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * @generated
    */
   private EClass initializerListEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass initEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -2132,6 +2140,16 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getInitializer_LastComma()
+  {
+    return (EAttribute)initializerEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getInitializerList()
   {
     return initializerListEClass;
@@ -2142,7 +2160,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getInitializerList_Designation()
+  public EReference getInitializerList_Init()
   {
     return (EReference)initializerListEClass.getEStructuralFeatures().get(0);
   }
@@ -2152,9 +2170,29 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getInitializerList_Initializer()
+  public EClass getInit()
   {
-    return (EReference)initializerListEClass.getEStructuralFeatures().get(1);
+    return initEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getInit_Designation()
+  {
+    return (EReference)initEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getInit_Initializer()
+  {
+    return (EReference)initEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2362,9 +2400,19 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getDesignator_To()
+  {
+    return (EReference)designatorEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EAttribute getDesignator_Id()
   {
-    return (EAttribute)designatorEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)designatorEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -3929,10 +3977,14 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     initializerEClass = createEClass(INITIALIZER);
     createEReference(initializerEClass, INITIALIZER__EXPR);
     createEReference(initializerEClass, INITIALIZER__LIST);
+    createEAttribute(initializerEClass, INITIALIZER__LAST_COMMA);
 
     initializerListEClass = createEClass(INITIALIZER_LIST);
-    createEReference(initializerListEClass, INITIALIZER_LIST__DESIGNATION);
-    createEReference(initializerListEClass, INITIALIZER_LIST__INITIALIZER);
+    createEReference(initializerListEClass, INITIALIZER_LIST__INIT);
+
+    initEClass = createEClass(INIT);
+    createEReference(initEClass, INIT__DESIGNATION);
+    createEReference(initEClass, INIT__INITIALIZER);
 
     blockListEClass = createEClass(BLOCK_LIST);
     createEReference(blockListEClass, BLOCK_LIST__DECLARATION);
@@ -3962,6 +4014,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 
     designatorEClass = createEClass(DESIGNATOR);
     createEReference(designatorEClass, DESIGNATOR__EXPR);
+    createEReference(designatorEClass, DESIGNATOR__TO);
     createEAttribute(designatorEClass, DESIGNATOR__ID);
 
     expressionEClass = createEClass(EXPRESSION);
@@ -4385,10 +4438,14 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     initEClass(initializerEClass, Initializer.class, "Initializer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getInitializer_Expr(), this.getExpression(), null, "expr", null, 0, 1, Initializer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getInitializer_List(), this.getInitializerList(), null, "list", null, 0, 1, Initializer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getInitializer_LastComma(), theEcorePackage.getEBoolean(), "lastComma", null, 0, 1, Initializer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(initializerListEClass, InitializerList.class, "InitializerList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getInitializerList_Designation(), this.getDesignation(), null, "designation", null, 0, -1, InitializerList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getInitializerList_Initializer(), this.getInitializer(), null, "initializer", null, 0, -1, InitializerList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getInitializerList_Init(), this.getInit(), null, "init", null, 0, -1, InitializerList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(initEClass, Init.class, "Init", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getInit_Designation(), this.getDesignation(), null, "designation", null, 0, 1, Init.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getInit_Initializer(), this.getInitializer(), null, "initializer", null, 0, 1, Init.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(blockListEClass, BlockList.class, "BlockList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getBlockList_Declaration(), this.getDeclaration(), null, "declaration", null, 0, -1, BlockList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4418,6 +4475,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 
     initEClass(designatorEClass, Designator.class, "Designator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDesignator_Expr(), this.getExpression(), null, "expr", null, 0, 1, Designator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDesignator_To(), this.getExpression(), null, "to", null, 0, 1, Designator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getDesignator_Id(), theEcorePackage.getEString(), "id", null, 0, 1, Designator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

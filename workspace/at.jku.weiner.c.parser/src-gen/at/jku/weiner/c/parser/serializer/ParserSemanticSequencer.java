@@ -52,6 +52,7 @@ import at.jku.weiner.c.parser.parser.GccAttributeSpecifier;
 import at.jku.weiner.c.parser.parser.GccDeclaratorExtension;
 import at.jku.weiner.c.parser.parser.IdentifierList;
 import at.jku.weiner.c.parser.parser.InclusiveOrExpression;
+import at.jku.weiner.c.parser.parser.Init;
 import at.jku.weiner.c.parser.parser.InitDeclarator;
 import at.jku.weiner.c.parser.parser.InitDeclaratorList;
 import at.jku.weiner.c.parser.parser.Initializer;
@@ -261,6 +262,9 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 				return; 
 			case ParserPackage.INCLUSIVE_OR_EXPRESSION:
 				sequence_InclusiveOrExpression(context, (InclusiveOrExpression) semanticObject); 
+				return; 
+			case ParserPackage.INIT:
+				sequence_Init(context, (Init) semanticObject); 
 				return; 
 			case ParserPackage.INIT_DECLARATOR:
 				sequence_InitDeclarator(context, (InitDeclarator) semanticObject); 
@@ -658,7 +662,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (expr=ConstantExpression | id=ID)
+	 *     ((expr=ConstantExpression to=ConstantExpression?) | id=ID)
 	 */
 	protected void sequence_Designator(EObject context, Designator semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -889,7 +893,16 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (designation+=Designation? initializer+=Initializer initializer+=Initializer*)
+	 *     (designation=Designation? initializer=Initializer)
+	 */
+	protected void sequence_Init(EObject context, Init semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (init+=Init init+=Init*)
 	 */
 	protected void sequence_InitializerList(EObject context, InitializerList semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -898,7 +911,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (expr=AssignmentExpression | list=InitializerList)
+	 *     (expr=AssignmentExpression | (list=InitializerList lastComma?=SKW_COMMA?))
 	 */
 	protected void sequence_Initializer(EObject context, Initializer semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

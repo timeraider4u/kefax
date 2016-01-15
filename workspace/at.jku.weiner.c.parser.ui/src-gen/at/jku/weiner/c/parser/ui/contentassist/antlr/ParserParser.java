@@ -173,7 +173,8 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getInitializerAccess().getGroup(), "rule__Initializer__Group__0");
 					put(grammarAccess.getInitializerAccess().getGroup_1_1(), "rule__Initializer__Group_1_1__0");
 					put(grammarAccess.getInitializerListAccess().getGroup(), "rule__InitializerList__Group__0");
-					put(grammarAccess.getInitializerListAccess().getGroup_3(), "rule__InitializerList__Group_3__0");
+					put(grammarAccess.getInitializerListAccess().getGroup_2(), "rule__InitializerList__Group_2__0");
+					put(grammarAccess.getInitAccess().getGroup(), "rule__Init__Group__0");
 					put(grammarAccess.getBlockListAccess().getGroup(), "rule__BlockList__Group__0");
 					put(grammarAccess.getStatementAccess().getGroup(), "rule__Statement__Group__0");
 					put(grammarAccess.getLabeledStatementAccess().getGroup(), "rule__LabeledStatement__Group__0");
@@ -209,6 +210,7 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDesignatorListAccess().getGroup(), "rule__DesignatorList__Group__0");
 					put(grammarAccess.getDesignatorAccess().getGroup(), "rule__Designator__Group__0");
 					put(grammarAccess.getDesignatorAccess().getGroup_1_0(), "rule__Designator__Group_1_0__0");
+					put(grammarAccess.getDesignatorAccess().getGroup_1_0_2(), "rule__Designator__Group_1_0_2__0");
 					put(grammarAccess.getDesignatorAccess().getGroup_1_1(), "rule__Designator__Group_1_1__0");
 					put(grammarAccess.getExpressionAccess().getGroup(), "rule__Expression__Group__0");
 					put(grammarAccess.getExpressionAccess().getGroup_2(), "rule__Expression__Group_2__0");
@@ -416,9 +418,11 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAbstractDeclaratorSuffixAccess().getGccDeclExtAssignment_1_4_3(), "rule__AbstractDeclaratorSuffix__GccDeclExtAssignment_1_4_3");
 					put(grammarAccess.getInitializerAccess().getExprAssignment_1_0(), "rule__Initializer__ExprAssignment_1_0");
 					put(grammarAccess.getInitializerAccess().getListAssignment_1_1_1(), "rule__Initializer__ListAssignment_1_1_1");
-					put(grammarAccess.getInitializerListAccess().getDesignationAssignment_1(), "rule__InitializerList__DesignationAssignment_1");
-					put(grammarAccess.getInitializerListAccess().getInitializerAssignment_2(), "rule__InitializerList__InitializerAssignment_2");
-					put(grammarAccess.getInitializerListAccess().getInitializerAssignment_3_1(), "rule__InitializerList__InitializerAssignment_3_1");
+					put(grammarAccess.getInitializerAccess().getLastCommaAssignment_1_1_2(), "rule__Initializer__LastCommaAssignment_1_1_2");
+					put(grammarAccess.getInitializerListAccess().getInitAssignment_1(), "rule__InitializerList__InitAssignment_1");
+					put(grammarAccess.getInitializerListAccess().getInitAssignment_2_1(), "rule__InitializerList__InitAssignment_2_1");
+					put(grammarAccess.getInitAccess().getDesignationAssignment_1(), "rule__Init__DesignationAssignment_1");
+					put(grammarAccess.getInitAccess().getInitializerAssignment_2(), "rule__Init__InitializerAssignment_2");
 					put(grammarAccess.getBlockListAccess().getDeclarationAssignment_1_0(), "rule__BlockList__DeclarationAssignment_1_0");
 					put(grammarAccess.getBlockListAccess().getStatementAssignment_1_1(), "rule__BlockList__StatementAssignment_1_1");
 					put(grammarAccess.getStatementAccess().getStmtAssignment_1_0(), "rule__Statement__StmtAssignment_1_0");
@@ -495,6 +499,7 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDesignatorListAccess().getDesignatorAssignment_1(), "rule__DesignatorList__DesignatorAssignment_1");
 					put(grammarAccess.getDesignatorListAccess().getDesignatorAssignment_2(), "rule__DesignatorList__DesignatorAssignment_2");
 					put(grammarAccess.getDesignatorAccess().getExprAssignment_1_0_1(), "rule__Designator__ExprAssignment_1_0_1");
+					put(grammarAccess.getDesignatorAccess().getToAssignment_1_0_2_1(), "rule__Designator__ToAssignment_1_0_2_1");
 					put(grammarAccess.getDesignatorAccess().getIdAssignment_1_1_1(), "rule__Designator__IdAssignment_1_1_1");
 					put(grammarAccess.getExpressionAccess().getExprExprAssignment_1(), "rule__Expression__ExprExprAssignment_1");
 					put(grammarAccess.getExpressionAccess().getExprExprAssignment_2_1(), "rule__Expression__ExprExprAssignment_2_1");

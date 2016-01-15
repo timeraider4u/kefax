@@ -5,6 +5,7 @@ package at.jku.weiner.c.parser.formatting2
 
 import at.jku.weiner.c.common.formatting2.CommonFormatter
 import at.jku.weiner.c.parser.parser.AbstractDeclarator
+import at.jku.weiner.c.parser.parser.AbstractDeclaratorSuffix
 import at.jku.weiner.c.parser.parser.AdditiveExpression
 import at.jku.weiner.c.parser.parser.AndExpression
 import at.jku.weiner.c.parser.parser.ArgumentExpressionList
@@ -26,6 +27,7 @@ import at.jku.weiner.c.parser.parser.DeclaratorSuffix
 import at.jku.weiner.c.parser.parser.Designation
 import at.jku.weiner.c.parser.parser.Designator
 import at.jku.weiner.c.parser.parser.DesignatorList
+import at.jku.weiner.c.parser.parser.DirectAbstractDeclarator
 import at.jku.weiner.c.parser.parser.DirectDeclarator
 import at.jku.weiner.c.parser.parser.DirectDeclaratorLastSuffix
 import at.jku.weiner.c.parser.parser.EnumSpecifier
@@ -46,6 +48,7 @@ import at.jku.weiner.c.parser.parser.GccAttributeSpecifier
 import at.jku.weiner.c.parser.parser.GccDeclaratorExtension
 import at.jku.weiner.c.parser.parser.IdentifierList
 import at.jku.weiner.c.parser.parser.InclusiveOrExpression
+import at.jku.weiner.c.parser.parser.Init
 import at.jku.weiner.c.parser.parser.InitDeclarator
 import at.jku.weiner.c.parser.parser.InitDeclaratorList
 import at.jku.weiner.c.parser.parser.Initializer
@@ -333,6 +336,34 @@ class ParserFormatter extends CommonFormatter {
 	def dispatch void format(AbstractDeclarator abstractDeclarator, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
 		format(abstractDeclarator.getPointer(), document);
+		format(abstractDeclarator.getDirectAbstractDeclarator(), document);
+		for (GccDeclaratorExtension gccDeclExtAbstract : abstractDeclarator.getGccDeclExtAbstract()) {
+			format(gccDeclExtAbstract, document);
+		}
+	}
+
+	def dispatch void format(DirectAbstractDeclarator directAbstractDeclarator, extension IFormattableDocument document) {
+		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+		format(directAbstractDeclarator.getDeclarator(), document);
+		for (GccDeclaratorExtension gccDeclExt : directAbstractDeclarator.getGccDeclExt()) {
+			format(gccDeclExt, document);
+		}
+		for (AbstractDeclaratorSuffix abstractDeclaratorSuffix : directAbstractDeclarator.getAbstractDeclaratorSuffix()) {
+			format(abstractDeclaratorSuffix, document);
+		}
+	}
+
+	def dispatch void format(AbstractDeclaratorSuffix abstractDeclaratorSuffix, extension IFormattableDocument document) {
+		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+		format(abstractDeclaratorSuffix.getTypeQualifierList(), document);
+		for (Expression assignmentExpr : abstractDeclaratorSuffix.getAssignmentExpr()) {
+			format(assignmentExpr, document);
+		}
+		format(abstractDeclaratorSuffix.getTypeQualifierListOrig(), document);
+		format(abstractDeclaratorSuffix.getParameterTypeList(), document);
+		for (GccDeclaratorExtension gccDeclExt : abstractDeclaratorSuffix.getGccDeclExt()) {
+			format(gccDeclExt, document);
+		}
 	}
 
 	def dispatch void format(Initializer initializer, extension IFormattableDocument document) {
@@ -343,12 +374,15 @@ class ParserFormatter extends CommonFormatter {
 
 	def dispatch void format(InitializerList initializerList, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		for (Designation designation : initializerList.getDesignation()) {
-			format(designation, document);
+		for (Init init : initializerList.getInit()) {
+			format(init, document);
 		}
-		for (Initializer initializer : initializerList.getInitializer()) {
-			format(initializer, document);
-		}
+	}
+
+	def dispatch void format(Init init, extension IFormattableDocument document) {
+		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+		format(init.getDesignation(), document);
+		format(init.getInitializer(), document);
 	}
 
 	def dispatch void format(BlockList blockList, extension IFormattableDocument document) {

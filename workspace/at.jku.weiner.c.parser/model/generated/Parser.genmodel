@@ -179,10 +179,14 @@
     <genClasses ecoreClass="Parser.ecore#//Initializer">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//Initializer/expr"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//Initializer/list"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//Initializer/lastComma"/>
     </genClasses>
     <genClasses ecoreClass="Parser.ecore#//InitializerList">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//InitializerList/designation"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//InitializerList/initializer"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//InitializerList/init"/>
+    </genClasses>
+    <genClasses ecoreClass="Parser.ecore#//Init">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//Init/designation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//Init/initializer"/>
     </genClasses>
     <genClasses ecoreClass="Parser.ecore#//BlockList">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//BlockList/declaration"/>
@@ -212,6 +216,7 @@
     </genClasses>
     <genClasses ecoreClass="Parser.ecore#//Designator">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//Designator/expr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//Designator/to"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//Designator/id"/>
     </genClasses>
     <genClasses ecoreClass="Parser.ecore#//Expression">

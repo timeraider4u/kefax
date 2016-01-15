@@ -488,18 +488,22 @@ Initializer:
 	{Initializer}
 	(
 		expr=AssignmentExpression
-	|	SKW_LEFTBRACE list=InitializerList SKW_COMMA? SKW_RIGHTBRACE
+	|	SKW_LEFTBRACE list=InitializerList lastComma?=SKW_COMMA? SKW_RIGHTBRACE
 	)
 ;
 
 InitializerList:
 	{InitializerList}
-	designation+=Designation?
-	(initializer+=Initializer)
-	(SKW_COMMA 
-		//(designation+=Designation)?
-		(initializer+=Initializer)
+	init+=Init
+	(SKW_COMMA
+		init+=Init
 	)*
+;
+
+Init:
+	{Init}
+	designation=Designation?
+	initializer=Initializer
 ;
 
 
@@ -650,7 +654,7 @@ DesignatorList:
 Designator:
 	{Designator}
 	(
-			SKW_LEFTBRACKET expr=ConstantExpression SKW_RIGHTBRACKET
+			SKW_LEFTBRACKET expr=ConstantExpression (Ellipsis to=ConstantExpression)? SKW_RIGHTBRACKET
 		|	SKW_DOT id=ID
 	)
 ;

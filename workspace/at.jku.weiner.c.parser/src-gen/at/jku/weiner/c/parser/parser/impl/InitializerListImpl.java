@@ -2,8 +2,7 @@
  */
 package at.jku.weiner.c.parser.parser.impl;
 
-import at.jku.weiner.c.parser.parser.Designation;
-import at.jku.weiner.c.parser.parser.Initializer;
+import at.jku.weiner.c.parser.parser.Init;
 import at.jku.weiner.c.parser.parser.InitializerList;
 import at.jku.weiner.c.parser.parser.ParserPackage;
 
@@ -29,8 +28,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link at.jku.weiner.c.parser.parser.impl.InitializerListImpl#getDesignation <em>Designation</em>}</li>
- *   <li>{@link at.jku.weiner.c.parser.parser.impl.InitializerListImpl#getInitializer <em>Initializer</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.InitializerListImpl#getInit <em>Init</em>}</li>
  * </ul>
  *
  * @generated
@@ -38,24 +36,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class InitializerListImpl extends MinimalEObjectImpl.Container implements InitializerList
 {
   /**
-   * The cached value of the '{@link #getDesignation() <em>Designation</em>}' containment reference list.
+   * The cached value of the '{@link #getInit() <em>Init</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDesignation()
+   * @see #getInit()
    * @generated
    * @ordered
    */
-  protected EList<Designation> designation;
-
-  /**
-   * The cached value of the '{@link #getInitializer() <em>Initializer</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getInitializer()
-   * @generated
-   * @ordered
-   */
-  protected EList<Initializer> initializer;
+  protected EList<Init> init;
 
   /**
    * <!-- begin-user-doc -->
@@ -83,27 +71,13 @@ public class InitializerListImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Designation> getDesignation()
+  public EList<Init> getInit()
   {
-    if (designation == null)
+    if (init == null)
     {
-      designation = new EObjectContainmentEList<Designation>(Designation.class, this, ParserPackage.INITIALIZER_LIST__DESIGNATION);
+      init = new EObjectContainmentEList<Init>(Init.class, this, ParserPackage.INITIALIZER_LIST__INIT);
     }
-    return designation;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Initializer> getInitializer()
-  {
-    if (initializer == null)
-    {
-      initializer = new EObjectContainmentEList<Initializer>(Initializer.class, this, ParserPackage.INITIALIZER_LIST__INITIALIZER);
-    }
-    return initializer;
+    return init;
   }
 
   /**
@@ -116,10 +90,8 @@ public class InitializerListImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case ParserPackage.INITIALIZER_LIST__DESIGNATION:
-        return ((InternalEList<?>)getDesignation()).basicRemove(otherEnd, msgs);
-      case ParserPackage.INITIALIZER_LIST__INITIALIZER:
-        return ((InternalEList<?>)getInitializer()).basicRemove(otherEnd, msgs);
+      case ParserPackage.INITIALIZER_LIST__INIT:
+        return ((InternalEList<?>)getInit()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -134,10 +106,8 @@ public class InitializerListImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case ParserPackage.INITIALIZER_LIST__DESIGNATION:
-        return getDesignation();
-      case ParserPackage.INITIALIZER_LIST__INITIALIZER:
-        return getInitializer();
+      case ParserPackage.INITIALIZER_LIST__INIT:
+        return getInit();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -153,13 +123,9 @@ public class InitializerListImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case ParserPackage.INITIALIZER_LIST__DESIGNATION:
-        getDesignation().clear();
-        getDesignation().addAll((Collection<? extends Designation>)newValue);
-        return;
-      case ParserPackage.INITIALIZER_LIST__INITIALIZER:
-        getInitializer().clear();
-        getInitializer().addAll((Collection<? extends Initializer>)newValue);
+      case ParserPackage.INITIALIZER_LIST__INIT:
+        getInit().clear();
+        getInit().addAll((Collection<? extends Init>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -175,11 +141,8 @@ public class InitializerListImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case ParserPackage.INITIALIZER_LIST__DESIGNATION:
-        getDesignation().clear();
-        return;
-      case ParserPackage.INITIALIZER_LIST__INITIALIZER:
-        getInitializer().clear();
+      case ParserPackage.INITIALIZER_LIST__INIT:
+        getInit().clear();
         return;
     }
     super.eUnset(featureID);
@@ -195,10 +158,8 @@ public class InitializerListImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case ParserPackage.INITIALIZER_LIST__DESIGNATION:
-        return designation != null && !designation.isEmpty();
-      case ParserPackage.INITIALIZER_LIST__INITIALIZER:
-        return initializer != null && !initializer.isEmpty();
+      case ParserPackage.INITIALIZER_LIST__INIT:
+        return init != null && !init.isEmpty();
     }
     return super.eIsSet(featureID);
   }

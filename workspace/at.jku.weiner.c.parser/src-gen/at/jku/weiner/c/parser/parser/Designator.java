@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.Designator#getExpr <em>Expr</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.Designator#getTo <em>To</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.Designator#getId <em>Id</em>}</li>
  * </ul>
  *
@@ -48,6 +49,32 @@ public interface Designator extends EObject
    * @generated
    */
   void setExpr(Expression value);
+
+  /**
+   * Returns the value of the '<em><b>To</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>To</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>To</em>' containment reference.
+   * @see #setTo(Expression)
+   * @see at.jku.weiner.c.parser.parser.ParserPackage#getDesignator_To()
+   * @model containment="true"
+   * @generated
+   */
+  Expression getTo();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.Designator#getTo <em>To</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>To</em>' containment reference.
+   * @see #getTo()
+   * @generated
+   */
+  void setTo(Expression value);
 
   /**
    * Returns the value of the '<em><b>Id</b></em>' attribute.

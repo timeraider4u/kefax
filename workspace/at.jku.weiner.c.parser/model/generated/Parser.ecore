@@ -244,12 +244,17 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="list" eType="#//InitializerList"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lastComma" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InitializerList">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="designation" upperBound="-1"
-        eType="#//Designation" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="initializer" upperBound="-1"
-        eType="#//Initializer" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="init" upperBound="-1" eType="#//Init"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Init">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="designation" eType="#//Designation"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="initializer" eType="#//Initializer"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BlockList">
     <eStructuralFeatures xsi:type="ecore:EReference" name="declaration" upperBound="-1"
@@ -288,6 +293,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Designator">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="to" eType="#//Expression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
   </eClassifiers>

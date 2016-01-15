@@ -107,6 +107,7 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
       case ParserPackage.ABSTRACT_DECLARATOR_SUFFIX: return createAbstractDeclaratorSuffix();
       case ParserPackage.INITIALIZER: return createInitializer();
       case ParserPackage.INITIALIZER_LIST: return createInitializerList();
+      case ParserPackage.INIT: return createInit();
       case ParserPackage.BLOCK_LIST: return createBlockList();
       case ParserPackage.STATEMENT: return createStatement();
       case ParserPackage.ASM_LINE: return createAsmLine();
@@ -631,6 +632,17 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
   {
     InitializerListImpl initializerList = new InitializerListImpl();
     return initializerList;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Init createInit()
+  {
+    InitImpl init = new InitImpl();
+    return init;
   }
 
   /**

@@ -290,6 +290,11 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
         return createInitializerListAdapter();
       }
       @Override
+      public Adapter caseInit(Init object)
+      {
+        return createInitAdapter();
+      }
+      @Override
       public Adapter caseBlockList(BlockList object)
       {
         return createBlockListAdapter();
@@ -1217,6 +1222,21 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createInitializerListAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.parser.parser.Init <em>Init</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.parser.parser.Init
+   * @generated
+   */
+  public Adapter createInitAdapter()
   {
     return null;
   }

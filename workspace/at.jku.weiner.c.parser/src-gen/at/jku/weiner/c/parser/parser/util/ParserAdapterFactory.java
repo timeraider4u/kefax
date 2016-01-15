@@ -270,6 +270,16 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
         return createAbstractDeclaratorAdapter();
       }
       @Override
+      public Adapter caseDirectAbstractDeclarator(DirectAbstractDeclarator object)
+      {
+        return createDirectAbstractDeclaratorAdapter();
+      }
+      @Override
+      public Adapter caseAbstractDeclaratorSuffix(AbstractDeclaratorSuffix object)
+      {
+        return createAbstractDeclaratorSuffixAdapter();
+      }
+      @Override
       public Adapter caseInitializer(Initializer object)
       {
         return createInitializerAdapter();
@@ -1147,6 +1157,36 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createAbstractDeclaratorAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.parser.parser.DirectAbstractDeclarator <em>Direct Abstract Declarator</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.parser.parser.DirectAbstractDeclarator
+   * @generated
+   */
+  public Adapter createDirectAbstractDeclaratorAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link at.jku.weiner.c.parser.parser.AbstractDeclaratorSuffix <em>Abstract Declarator Suffix</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see at.jku.weiner.c.parser.parser.AbstractDeclaratorSuffix
+   * @generated
+   */
+  public Adapter createAbstractDeclaratorSuffixAdapter()
   {
     return null;
   }

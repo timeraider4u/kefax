@@ -5,6 +5,7 @@ package at.jku.weiner.c.parser.parser.impl;
 import at.jku.weiner.c.common.common.CommonPackage;
 
 import at.jku.weiner.c.parser.parser.AbstractDeclarator;
+import at.jku.weiner.c.parser.parser.AbstractDeclaratorSuffix;
 import at.jku.weiner.c.parser.parser.AdditiveExpression;
 import at.jku.weiner.c.parser.parser.AndExpression;
 import at.jku.weiner.c.parser.parser.ArgumentExpressionList;
@@ -29,6 +30,7 @@ import at.jku.weiner.c.parser.parser.DeclaratorSuffix;
 import at.jku.weiner.c.parser.parser.Designation;
 import at.jku.weiner.c.parser.parser.Designator;
 import at.jku.weiner.c.parser.parser.DesignatorList;
+import at.jku.weiner.c.parser.parser.DirectAbstractDeclarator;
 import at.jku.weiner.c.parser.parser.DirectDeclarator;
 import at.jku.weiner.c.parser.parser.DirectDeclaratorLastSuffix;
 import at.jku.weiner.c.parser.parser.EnumSpecifier;
@@ -384,6 +386,20 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * @generated
    */
   private EClass abstractDeclaratorEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass directAbstractDeclaratorEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass abstractDeclaratorSuffixEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1959,6 +1975,126 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
   public EReference getAbstractDeclarator_Pointer()
   {
     return (EReference)abstractDeclaratorEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAbstractDeclarator_DirectAbstractDeclarator()
+  {
+    return (EReference)abstractDeclaratorEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAbstractDeclarator_GccDeclExtAbstract()
+  {
+    return (EReference)abstractDeclaratorEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDirectAbstractDeclarator()
+  {
+    return directAbstractDeclaratorEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDirectAbstractDeclarator_Declarator()
+  {
+    return (EReference)directAbstractDeclaratorEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDirectAbstractDeclarator_GccDeclExt()
+  {
+    return (EReference)directAbstractDeclaratorEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDirectAbstractDeclarator_AbstractDeclaratorSuffix()
+  {
+    return (EReference)directAbstractDeclaratorEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getAbstractDeclaratorSuffix()
+  {
+    return abstractDeclaratorSuffixEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAbstractDeclaratorSuffix_TypeQualifierList()
+  {
+    return (EReference)abstractDeclaratorSuffixEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAbstractDeclaratorSuffix_AssignmentExpr()
+  {
+    return (EReference)abstractDeclaratorSuffixEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAbstractDeclaratorSuffix_TypeQualifierListOrig()
+  {
+    return (EReference)abstractDeclaratorSuffixEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAbstractDeclaratorSuffix_ParameterTypeList()
+  {
+    return (EReference)abstractDeclaratorSuffixEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAbstractDeclaratorSuffix_GccDeclExt()
+  {
+    return (EReference)abstractDeclaratorSuffixEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -3775,6 +3911,20 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 
     abstractDeclaratorEClass = createEClass(ABSTRACT_DECLARATOR);
     createEReference(abstractDeclaratorEClass, ABSTRACT_DECLARATOR__POINTER);
+    createEReference(abstractDeclaratorEClass, ABSTRACT_DECLARATOR__DIRECT_ABSTRACT_DECLARATOR);
+    createEReference(abstractDeclaratorEClass, ABSTRACT_DECLARATOR__GCC_DECL_EXT_ABSTRACT);
+
+    directAbstractDeclaratorEClass = createEClass(DIRECT_ABSTRACT_DECLARATOR);
+    createEReference(directAbstractDeclaratorEClass, DIRECT_ABSTRACT_DECLARATOR__DECLARATOR);
+    createEReference(directAbstractDeclaratorEClass, DIRECT_ABSTRACT_DECLARATOR__GCC_DECL_EXT);
+    createEReference(directAbstractDeclaratorEClass, DIRECT_ABSTRACT_DECLARATOR__ABSTRACT_DECLARATOR_SUFFIX);
+
+    abstractDeclaratorSuffixEClass = createEClass(ABSTRACT_DECLARATOR_SUFFIX);
+    createEReference(abstractDeclaratorSuffixEClass, ABSTRACT_DECLARATOR_SUFFIX__TYPE_QUALIFIER_LIST);
+    createEReference(abstractDeclaratorSuffixEClass, ABSTRACT_DECLARATOR_SUFFIX__ASSIGNMENT_EXPR);
+    createEReference(abstractDeclaratorSuffixEClass, ABSTRACT_DECLARATOR_SUFFIX__TYPE_QUALIFIER_LIST_ORIG);
+    createEReference(abstractDeclaratorSuffixEClass, ABSTRACT_DECLARATOR_SUFFIX__PARAMETER_TYPE_LIST);
+    createEReference(abstractDeclaratorSuffixEClass, ABSTRACT_DECLARATOR_SUFFIX__GCC_DECL_EXT);
 
     initializerEClass = createEClass(INITIALIZER);
     createEReference(initializerEClass, INITIALIZER__EXPR);
@@ -4217,6 +4367,20 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 
     initEClass(abstractDeclaratorEClass, AbstractDeclarator.class, "AbstractDeclarator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAbstractDeclarator_Pointer(), this.getPointer(), null, "pointer", null, 0, 1, AbstractDeclarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAbstractDeclarator_DirectAbstractDeclarator(), this.getDirectAbstractDeclarator(), null, "directAbstractDeclarator", null, 0, 1, AbstractDeclarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAbstractDeclarator_GccDeclExtAbstract(), this.getGccDeclaratorExtension(), null, "gccDeclExtAbstract", null, 0, -1, AbstractDeclarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(directAbstractDeclaratorEClass, DirectAbstractDeclarator.class, "DirectAbstractDeclarator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDirectAbstractDeclarator_Declarator(), this.getAbstractDeclarator(), null, "declarator", null, 0, 1, DirectAbstractDeclarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDirectAbstractDeclarator_GccDeclExt(), this.getGccDeclaratorExtension(), null, "gccDeclExt", null, 0, -1, DirectAbstractDeclarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDirectAbstractDeclarator_AbstractDeclaratorSuffix(), this.getAbstractDeclaratorSuffix(), null, "abstractDeclaratorSuffix", null, 0, -1, DirectAbstractDeclarator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(abstractDeclaratorSuffixEClass, AbstractDeclaratorSuffix.class, "AbstractDeclaratorSuffix", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAbstractDeclaratorSuffix_TypeQualifierList(), this.getTypeQualifierList(), null, "typeQualifierList", null, 0, 1, AbstractDeclaratorSuffix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAbstractDeclaratorSuffix_AssignmentExpr(), this.getExpression(), null, "assignmentExpr", null, 0, -1, AbstractDeclaratorSuffix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAbstractDeclaratorSuffix_TypeQualifierListOrig(), this.getTypeQualifierList(), null, "typeQualifierListOrig", null, 0, 1, AbstractDeclaratorSuffix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAbstractDeclaratorSuffix_ParameterTypeList(), this.getParameterTypeList(), null, "parameterTypeList", null, 0, 1, AbstractDeclaratorSuffix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAbstractDeclaratorSuffix_GccDeclExt(), this.getGccDeclaratorExtension(), null, "gccDeclExt", null, 0, -1, AbstractDeclaratorSuffix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(initializerEClass, Initializer.class, "Initializer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getInitializer_Expr(), this.getExpression(), null, "expr", null, 0, 1, Initializer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

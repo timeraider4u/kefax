@@ -374,6 +374,24 @@ public interface ParserFactory extends EFactory
   AbstractDeclarator createAbstractDeclarator();
 
   /**
+   * Returns a new object of class '<em>Direct Abstract Declarator</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Direct Abstract Declarator</em>'.
+   * @generated
+   */
+  DirectAbstractDeclarator createDirectAbstractDeclarator();
+
+  /**
+   * Returns a new object of class '<em>Abstract Declarator Suffix</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Abstract Declarator Suffix</em>'.
+   * @generated
+   */
+  AbstractDeclaratorSuffix createAbstractDeclaratorSuffix();
+
+  /**
    * Returns a new object of class '<em>Initializer</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

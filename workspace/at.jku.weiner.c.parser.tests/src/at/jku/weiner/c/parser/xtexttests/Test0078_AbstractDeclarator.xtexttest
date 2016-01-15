@@ -1,0 +1,202 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.parser
+language parser
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+source file="res/Test0078_AbstractDeclarator.c"
+//----------------------------------------------------------------------
+lexer-tokens
+KW_TYPEDEF WHITESPACE KW_INT WHITESPACE ID SKW_SEMI NEWLINE
+NEWLINE
+KW_EXTERN WHITESPACE KW_INT WHITESPACE ID SKW_LEFTPAREN 
+	ID WHITESPACE SKW_STAR SKW_COMMA WHITESPACE
+	KW_INT SKW_COMMA WHITESPACE
+	KW_VOID WHITESPACE SKW_STAR SKW_COMMA WHITESPACE
+	ID WHITESPACE SKW_LEFTPAREN SKW_STAR SKW_RIGHTPAREN 
+		SKW_LEFTPAREN KW_STRUCT WHITESPACE ID SKW_RIGHTPAREN   
+	SKW_RIGHTPAREN SKW_SEMI NEWLINE
+//----------------------------------------------------------------------
+//(common::Model units+=
+	//(common::TranslationUnit 
+	(Parser
+		external+=
+		// typedef int abc
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(StorageClassSpecifier
+						name++"typedef"
+					),
+					(TypeSpecifier
+						name++"int"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"foo"
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+		),
+		// extern int bar(foo *, int, void *, foo (*)(struct foobar));
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(StorageClassSpecifier
+						name++"extern"
+					),
+					(TypeSpecifier
+						name++"int"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"bar",
+								declaratorSuffix+=
+								(DeclaratorSuffix
+									lastSuffix=
+									(DirectDeclaratorLastSuffix
+										parameterTypeList+=
+										(ParameterTypeList
+											list=
+											(ParameterList
+												parameterDeclaration+=
+												(ParameterDeclaration
+													declSpecifiers=
+													(DeclarationSpecifiers
+														declarationSpecifier+=
+														(TypeSpecifier
+															type=
+															(TypedefName
+																id++"foo"
+															)
+														)
+													),
+													abstractDeclator=
+													(AbstractDeclarator
+														pointer=
+														(Pointer
+															star+*"[*]"
+														)
+													)
+												),
+												(ParameterDeclaration
+													declSpecifiers=
+													(DeclarationSpecifiers
+														declarationSpecifier+=
+														(TypeSpecifier
+															name++"int"
+														)
+													)
+												),
+												(ParameterDeclaration
+													declSpecifiers=
+													(DeclarationSpecifiers
+														declarationSpecifier+=
+														(TypeSpecifier
+															name++"void"
+														)
+													),
+													abstractDeclator=
+													(AbstractDeclarator
+														pointer=
+														(Pointer
+															star+*"[*]"
+														)
+													)
+												),
+												(ParameterDeclaration
+													declSpecifiers=
+													(DeclarationSpecifiers
+														declarationSpecifier+=
+														(TypeSpecifier
+															type=
+															(TypedefName
+																id++"foo"
+															)
+														)
+													),
+													abstractDeclator=
+													(AbstractDeclarator
+														directAbstractDeclarator=
+														(DirectAbstractDeclarator
+															declarator=
+															(AbstractDeclarator
+																pointer=
+																(Pointer
+																	star+*"[*]"
+																)
+															),
+															abstractDeclaratorSuffix+=
+															(AbstractDeclaratorSuffix
+																parameterTypeList=
+																(ParameterTypeList
+																	list=
+																	(ParameterList
+																		parameterDeclaration+=
+																		(ParameterDeclaration
+																			declSpecifiers=
+																			(DeclarationSpecifiers
+																				declarationSpecifier+=
+																				(TypeSpecifier
+																					specifier=
+																					(StructOrUnionSpecifier
+																						type=
+																						(StructOrUnion
+																							name++"struct"
+																						),
+																						id++"foobar",
+																						braces?=false,
+																						structDeclList isNull
+																					)
+																				)
+																			)
+																		)
+																	)
+																)
+															)
+														)
+													)
+												)
+											)
+										)
+									)
+								)
+							)
+						)
+					)
+				),
+				semi++";"
+			)
+		)
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0078_AbstractDeclarator.c"
+expected file isSameAsInputFile
+replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

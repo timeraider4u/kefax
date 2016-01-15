@@ -1484,13 +1484,141 @@ public interface ParserPackage extends EPackage
   int ABSTRACT_DECLARATOR__POINTER = 0;
 
   /**
+   * The feature id for the '<em><b>Direct Abstract Declarator</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ABSTRACT_DECLARATOR__DIRECT_ABSTRACT_DECLARATOR = 1;
+
+  /**
+   * The feature id for the '<em><b>Gcc Decl Ext Abstract</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ABSTRACT_DECLARATOR__GCC_DECL_EXT_ABSTRACT = 2;
+
+  /**
    * The number of structural features of the '<em>Abstract Declarator</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ABSTRACT_DECLARATOR_FEATURE_COUNT = 1;
+  int ABSTRACT_DECLARATOR_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.DirectAbstractDeclaratorImpl <em>Direct Abstract Declarator</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.c.parser.parser.impl.DirectAbstractDeclaratorImpl
+   * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getDirectAbstractDeclarator()
+   * @generated
+   */
+  int DIRECT_ABSTRACT_DECLARATOR = 39;
+
+  /**
+   * The feature id for the '<em><b>Declarator</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIRECT_ABSTRACT_DECLARATOR__DECLARATOR = 0;
+
+  /**
+   * The feature id for the '<em><b>Gcc Decl Ext</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIRECT_ABSTRACT_DECLARATOR__GCC_DECL_EXT = 1;
+
+  /**
+   * The feature id for the '<em><b>Abstract Declarator Suffix</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIRECT_ABSTRACT_DECLARATOR__ABSTRACT_DECLARATOR_SUFFIX = 2;
+
+  /**
+   * The number of structural features of the '<em>Direct Abstract Declarator</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIRECT_ABSTRACT_DECLARATOR_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.AbstractDeclaratorSuffixImpl <em>Abstract Declarator Suffix</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see at.jku.weiner.c.parser.parser.impl.AbstractDeclaratorSuffixImpl
+   * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getAbstractDeclaratorSuffix()
+   * @generated
+   */
+  int ABSTRACT_DECLARATOR_SUFFIX = 40;
+
+  /**
+   * The feature id for the '<em><b>Type Qualifier List</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ABSTRACT_DECLARATOR_SUFFIX__TYPE_QUALIFIER_LIST = 0;
+
+  /**
+   * The feature id for the '<em><b>Assignment Expr</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ABSTRACT_DECLARATOR_SUFFIX__ASSIGNMENT_EXPR = 1;
+
+  /**
+   * The feature id for the '<em><b>Type Qualifier List Orig</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ABSTRACT_DECLARATOR_SUFFIX__TYPE_QUALIFIER_LIST_ORIG = 2;
+
+  /**
+   * The feature id for the '<em><b>Parameter Type List</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ABSTRACT_DECLARATOR_SUFFIX__PARAMETER_TYPE_LIST = 3;
+
+  /**
+   * The feature id for the '<em><b>Gcc Decl Ext</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ABSTRACT_DECLARATOR_SUFFIX__GCC_DECL_EXT = 4;
+
+  /**
+   * The number of structural features of the '<em>Abstract Declarator Suffix</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ABSTRACT_DECLARATOR_SUFFIX_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.InitializerImpl <em>Initializer</em>}' class.
@@ -1500,7 +1628,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getInitializer()
    * @generated
    */
-  int INITIALIZER = 39;
+  int INITIALIZER = 41;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -1537,7 +1665,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getInitializerList()
    * @generated
    */
-  int INITIALIZER_LIST = 40;
+  int INITIALIZER_LIST = 42;
 
   /**
    * The feature id for the '<em><b>Designation</b></em>' containment reference list.
@@ -1574,7 +1702,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getBlockList()
    * @generated
    */
-  int BLOCK_LIST = 41;
+  int BLOCK_LIST = 43;
 
   /**
    * The feature id for the '<em><b>Declaration</b></em>' containment reference list.
@@ -1611,7 +1739,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getStatement()
    * @generated
    */
-  int STATEMENT = 42;
+  int STATEMENT = 44;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -1639,7 +1767,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getAsmLine()
    * @generated
    */
-  int ASM_LINE = 43;
+  int ASM_LINE = 45;
 
   /**
    * The feature id for the '<em><b>Sym</b></em>' containment reference.
@@ -1676,7 +1804,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getAsmSymbolicName()
    * @generated
    */
-  int ASM_SYMBOLIC_NAME = 44;
+  int ASM_SYMBOLIC_NAME = 46;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1704,7 +1832,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getAsmLineWithColon()
    * @generated
    */
-  int ASM_LINE_WITH_COLON = 45;
+  int ASM_LINE_WITH_COLON = 47;
 
   /**
    * The feature id for the '<em><b>Asm Line</b></em>' containment reference.
@@ -1732,7 +1860,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getAsmLineWithoutColon()
    * @generated
    */
-  int ASM_LINE_WITHOUT_COLON = 46;
+  int ASM_LINE_WITHOUT_COLON = 48;
 
   /**
    * The feature id for the '<em><b>Asm Lines</b></em>' containment reference list.
@@ -1760,7 +1888,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getDesignation()
    * @generated
    */
-  int DESIGNATION = 47;
+  int DESIGNATION = 49;
 
   /**
    * The feature id for the '<em><b>List</b></em>' containment reference.
@@ -1788,7 +1916,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getDesignatorList()
    * @generated
    */
-  int DESIGNATOR_LIST = 48;
+  int DESIGNATOR_LIST = 50;
 
   /**
    * The feature id for the '<em><b>Designator</b></em>' containment reference list.
@@ -1816,7 +1944,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getDesignator()
    * @generated
    */
-  int DESIGNATOR = 49;
+  int DESIGNATOR = 51;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -1853,7 +1981,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 50;
+  int EXPRESSION = 52;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1890,7 +2018,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getAssignmentOperator()
    * @generated
    */
-  int ASSIGNMENT_OPERATOR = 51;
+  int ASSIGNMENT_OPERATOR = 53;
 
   /**
    * The feature id for the '<em><b>Op</b></em>' attribute.
@@ -1918,7 +2046,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getUnaryOperator()
    * @generated
    */
-  int UNARY_OPERATOR = 52;
+  int UNARY_OPERATOR = 54;
 
   /**
    * The feature id for the '<em><b>Op</b></em>' attribute.
@@ -1946,7 +2074,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getPostfixExpressionSuffix()
    * @generated
    */
-  int POSTFIX_EXPRESSION_SUFFIX = 53;
+  int POSTFIX_EXPRESSION_SUFFIX = 55;
 
   /**
    * The number of structural features of the '<em>Postfix Expression Suffix</em>' class.
@@ -1965,7 +2093,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getArgumentExpressionList()
    * @generated
    */
-  int ARGUMENT_EXPRESSION_LIST = 54;
+  int ARGUMENT_EXPRESSION_LIST = 56;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference list.
@@ -1993,7 +2121,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getParser()
    * @generated
    */
-  int PARSER = 55;
+  int PARSER = 57;
 
   /**
    * The feature id for the '<em><b>External</b></em>' containment reference list.
@@ -2021,7 +2149,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getStructOrUnionSpecifier()
    * @generated
    */
-  int STRUCT_OR_UNION_SPECIFIER = 56;
+  int STRUCT_OR_UNION_SPECIFIER = 58;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2076,7 +2204,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getEnumSpecifier()
    * @generated
    */
-  int ENUM_SPECIFIER = 57;
+  int ENUM_SPECIFIER = 59;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2113,7 +2241,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getLabeledStatement()
    * @generated
    */
-  int LABELED_STATEMENT = 58;
+  int LABELED_STATEMENT = 60;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -2204,7 +2332,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getCompoundStatement()
    * @generated
    */
-  int COMPOUND_STATEMENT = 59;
+  int COMPOUND_STATEMENT = 61;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -2241,7 +2369,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getBodyStatement()
    * @generated
    */
-  int BODY_STATEMENT = 60;
+  int BODY_STATEMENT = 62;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -2278,7 +2406,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getExpressionStatement()
    * @generated
    */
-  int EXPRESSION_STATEMENT = 61;
+  int EXPRESSION_STATEMENT = 63;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -2324,7 +2452,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getSelectionStatement()
    * @generated
    */
-  int SELECTION_STATEMENT = 62;
+  int SELECTION_STATEMENT = 64;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -2415,7 +2543,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getIterationStatement()
    * @generated
    */
-  int ITERATION_STATEMENT = 63;
+  int ITERATION_STATEMENT = 65;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -2524,7 +2652,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getJumpStatement()
    * @generated
    */
-  int JUMP_STATEMENT = 64;
+  int JUMP_STATEMENT = 66;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -2606,7 +2734,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getAsmStatement()
    * @generated
    */
-  int ASM_STATEMENT = 65;
+  int ASM_STATEMENT = 67;
 
   /**
    * The feature id for the '<em><b>Stmt</b></em>' containment reference.
@@ -2688,7 +2816,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getAssignmentExpression()
    * @generated
    */
-  int ASSIGNMENT_EXPRESSION = 66;
+  int ASSIGNMENT_EXPRESSION = 68;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -2752,7 +2880,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getConditionalExpression()
    * @generated
    */
-  int CONDITIONAL_EXPRESSION = 67;
+  int CONDITIONAL_EXPRESSION = 69;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -2816,7 +2944,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getLogicalOrExpression()
    * @generated
    */
-  int LOGICAL_OR_EXPRESSION = 68;
+  int LOGICAL_OR_EXPRESSION = 70;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -2862,7 +2990,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getLogicalAndExpression()
    * @generated
    */
-  int LOGICAL_AND_EXPRESSION = 69;
+  int LOGICAL_AND_EXPRESSION = 71;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -2908,7 +3036,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getInclusiveOrExpression()
    * @generated
    */
-  int INCLUSIVE_OR_EXPRESSION = 70;
+  int INCLUSIVE_OR_EXPRESSION = 72;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -2954,7 +3082,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getExclusiveOrExpression()
    * @generated
    */
-  int EXCLUSIVE_OR_EXPRESSION = 71;
+  int EXCLUSIVE_OR_EXPRESSION = 73;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -3000,7 +3128,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getAndExpression()
    * @generated
    */
-  int AND_EXPRESSION = 72;
+  int AND_EXPRESSION = 74;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -3046,7 +3174,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getEqualityExpression()
    * @generated
    */
-  int EQUALITY_EXPRESSION = 73;
+  int EQUALITY_EXPRESSION = 75;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -3101,7 +3229,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getRelationalExpression()
    * @generated
    */
-  int RELATIONAL_EXPRESSION = 74;
+  int RELATIONAL_EXPRESSION = 76;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -3156,7 +3284,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getShiftExpression()
    * @generated
    */
-  int SHIFT_EXPRESSION = 75;
+  int SHIFT_EXPRESSION = 77;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -3211,7 +3339,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getAdditiveExpression()
    * @generated
    */
-  int ADDITIVE_EXPRESSION = 76;
+  int ADDITIVE_EXPRESSION = 78;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -3266,7 +3394,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getMultiplicativeExpression()
    * @generated
    */
-  int MULTIPLICATIVE_EXPRESSION = 77;
+  int MULTIPLICATIVE_EXPRESSION = 79;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -3321,7 +3449,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getCastExpression()
    * @generated
    */
-  int CAST_EXPRESSION = 78;
+  int CAST_EXPRESSION = 80;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -3376,7 +3504,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getUnaryExpression()
    * @generated
    */
-  int UNARY_EXPRESSION = 79;
+  int UNARY_EXPRESSION = 81;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -3494,7 +3622,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getPostfixExpression()
    * @generated
    */
-  int POSTFIX_EXPRESSION = 80;
+  int POSTFIX_EXPRESSION = 82;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -3585,7 +3713,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getPostfixExpressionSuffixArray()
    * @generated
    */
-  int POSTFIX_EXPRESSION_SUFFIX_ARRAY = 81;
+  int POSTFIX_EXPRESSION_SUFFIX_ARRAY = 83;
 
   /**
    * The feature id for the '<em><b>Array Expr</b></em>' containment reference.
@@ -3613,7 +3741,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getPostfixExpressionSuffixArgument()
    * @generated
    */
-  int POSTFIX_EXPRESSION_SUFFIX_ARGUMENT = 82;
+  int POSTFIX_EXPRESSION_SUFFIX_ARGUMENT = 84;
 
   /**
    * The feature id for the '<em><b>Argument Expression List</b></em>' containment reference.
@@ -3641,7 +3769,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getPostfixExpressionSuffixDot()
    * @generated
    */
-  int POSTFIX_EXPRESSION_SUFFIX_DOT = 83;
+  int POSTFIX_EXPRESSION_SUFFIX_DOT = 85;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3669,7 +3797,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getPostfixExpressionSuffixArrow()
    * @generated
    */
-  int POSTFIX_EXPRESSION_SUFFIX_ARROW = 84;
+  int POSTFIX_EXPRESSION_SUFFIX_ARROW = 86;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3697,7 +3825,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getPostfixExpressionSuffixPlusPlus()
    * @generated
    */
-  int POSTFIX_EXPRESSION_SUFFIX_PLUS_PLUS = 85;
+  int POSTFIX_EXPRESSION_SUFFIX_PLUS_PLUS = 87;
 
   /**
    * The number of structural features of the '<em>Postfix Expression Suffix Plus Plus</em>' class.
@@ -3716,7 +3844,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getPostfixExpressionSuffixMinusMinus()
    * @generated
    */
-  int POSTFIX_EXPRESSION_SUFFIX_MINUS_MINUS = 86;
+  int POSTFIX_EXPRESSION_SUFFIX_MINUS_MINUS = 88;
 
   /**
    * The number of structural features of the '<em>Postfix Expression Suffix Minus Minus</em>' class.
@@ -3735,7 +3863,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getPrimaryExpression()
    * @generated
    */
-  int PRIMARY_EXPRESSION = 87;
+  int PRIMARY_EXPRESSION = 89;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -3844,7 +3972,7 @@ public interface ParserPackage extends EPackage
    * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getConstantExpression()
    * @generated
    */
-  int CONSTANT_EXPRESSION = 88;
+  int CONSTANT_EXPRESSION = 90;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -5119,6 +5247,136 @@ public interface ParserPackage extends EPackage
    * @generated
    */
   EReference getAbstractDeclarator_Pointer();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.AbstractDeclarator#getDirectAbstractDeclarator <em>Direct Abstract Declarator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Direct Abstract Declarator</em>'.
+   * @see at.jku.weiner.c.parser.parser.AbstractDeclarator#getDirectAbstractDeclarator()
+   * @see #getAbstractDeclarator()
+   * @generated
+   */
+  EReference getAbstractDeclarator_DirectAbstractDeclarator();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.parser.parser.AbstractDeclarator#getGccDeclExtAbstract <em>Gcc Decl Ext Abstract</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Gcc Decl Ext Abstract</em>'.
+   * @see at.jku.weiner.c.parser.parser.AbstractDeclarator#getGccDeclExtAbstract()
+   * @see #getAbstractDeclarator()
+   * @generated
+   */
+  EReference getAbstractDeclarator_GccDeclExtAbstract();
+
+  /**
+   * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.DirectAbstractDeclarator <em>Direct Abstract Declarator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Direct Abstract Declarator</em>'.
+   * @see at.jku.weiner.c.parser.parser.DirectAbstractDeclarator
+   * @generated
+   */
+  EClass getDirectAbstractDeclarator();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.DirectAbstractDeclarator#getDeclarator <em>Declarator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Declarator</em>'.
+   * @see at.jku.weiner.c.parser.parser.DirectAbstractDeclarator#getDeclarator()
+   * @see #getDirectAbstractDeclarator()
+   * @generated
+   */
+  EReference getDirectAbstractDeclarator_Declarator();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.parser.parser.DirectAbstractDeclarator#getGccDeclExt <em>Gcc Decl Ext</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Gcc Decl Ext</em>'.
+   * @see at.jku.weiner.c.parser.parser.DirectAbstractDeclarator#getGccDeclExt()
+   * @see #getDirectAbstractDeclarator()
+   * @generated
+   */
+  EReference getDirectAbstractDeclarator_GccDeclExt();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.parser.parser.DirectAbstractDeclarator#getAbstractDeclaratorSuffix <em>Abstract Declarator Suffix</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Abstract Declarator Suffix</em>'.
+   * @see at.jku.weiner.c.parser.parser.DirectAbstractDeclarator#getAbstractDeclaratorSuffix()
+   * @see #getDirectAbstractDeclarator()
+   * @generated
+   */
+  EReference getDirectAbstractDeclarator_AbstractDeclaratorSuffix();
+
+  /**
+   * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.AbstractDeclaratorSuffix <em>Abstract Declarator Suffix</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Abstract Declarator Suffix</em>'.
+   * @see at.jku.weiner.c.parser.parser.AbstractDeclaratorSuffix
+   * @generated
+   */
+  EClass getAbstractDeclaratorSuffix();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.AbstractDeclaratorSuffix#getTypeQualifierList <em>Type Qualifier List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type Qualifier List</em>'.
+   * @see at.jku.weiner.c.parser.parser.AbstractDeclaratorSuffix#getTypeQualifierList()
+   * @see #getAbstractDeclaratorSuffix()
+   * @generated
+   */
+  EReference getAbstractDeclaratorSuffix_TypeQualifierList();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.parser.parser.AbstractDeclaratorSuffix#getAssignmentExpr <em>Assignment Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Assignment Expr</em>'.
+   * @see at.jku.weiner.c.parser.parser.AbstractDeclaratorSuffix#getAssignmentExpr()
+   * @see #getAbstractDeclaratorSuffix()
+   * @generated
+   */
+  EReference getAbstractDeclaratorSuffix_AssignmentExpr();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.AbstractDeclaratorSuffix#getTypeQualifierListOrig <em>Type Qualifier List Orig</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type Qualifier List Orig</em>'.
+   * @see at.jku.weiner.c.parser.parser.AbstractDeclaratorSuffix#getTypeQualifierListOrig()
+   * @see #getAbstractDeclaratorSuffix()
+   * @generated
+   */
+  EReference getAbstractDeclaratorSuffix_TypeQualifierListOrig();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.AbstractDeclaratorSuffix#getParameterTypeList <em>Parameter Type List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Parameter Type List</em>'.
+   * @see at.jku.weiner.c.parser.parser.AbstractDeclaratorSuffix#getParameterTypeList()
+   * @see #getAbstractDeclaratorSuffix()
+   * @generated
+   */
+  EReference getAbstractDeclaratorSuffix_ParameterTypeList();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.parser.parser.AbstractDeclaratorSuffix#getGccDeclExt <em>Gcc Decl Ext</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Gcc Decl Ext</em>'.
+   * @see at.jku.weiner.c.parser.parser.AbstractDeclaratorSuffix#getGccDeclExt()
+   * @see #getAbstractDeclaratorSuffix()
+   * @generated
+   */
+  EReference getAbstractDeclaratorSuffix_GccDeclExt();
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.Initializer <em>Initializer</em>}'.
@@ -7891,6 +8149,106 @@ public interface ParserPackage extends EPackage
      * @generated
      */
     EReference ABSTRACT_DECLARATOR__POINTER = eINSTANCE.getAbstractDeclarator_Pointer();
+
+    /**
+     * The meta object literal for the '<em><b>Direct Abstract Declarator</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ABSTRACT_DECLARATOR__DIRECT_ABSTRACT_DECLARATOR = eINSTANCE.getAbstractDeclarator_DirectAbstractDeclarator();
+
+    /**
+     * The meta object literal for the '<em><b>Gcc Decl Ext Abstract</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ABSTRACT_DECLARATOR__GCC_DECL_EXT_ABSTRACT = eINSTANCE.getAbstractDeclarator_GccDeclExtAbstract();
+
+    /**
+     * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.DirectAbstractDeclaratorImpl <em>Direct Abstract Declarator</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.c.parser.parser.impl.DirectAbstractDeclaratorImpl
+     * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getDirectAbstractDeclarator()
+     * @generated
+     */
+    EClass DIRECT_ABSTRACT_DECLARATOR = eINSTANCE.getDirectAbstractDeclarator();
+
+    /**
+     * The meta object literal for the '<em><b>Declarator</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DIRECT_ABSTRACT_DECLARATOR__DECLARATOR = eINSTANCE.getDirectAbstractDeclarator_Declarator();
+
+    /**
+     * The meta object literal for the '<em><b>Gcc Decl Ext</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DIRECT_ABSTRACT_DECLARATOR__GCC_DECL_EXT = eINSTANCE.getDirectAbstractDeclarator_GccDeclExt();
+
+    /**
+     * The meta object literal for the '<em><b>Abstract Declarator Suffix</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DIRECT_ABSTRACT_DECLARATOR__ABSTRACT_DECLARATOR_SUFFIX = eINSTANCE.getDirectAbstractDeclarator_AbstractDeclaratorSuffix();
+
+    /**
+     * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.AbstractDeclaratorSuffixImpl <em>Abstract Declarator Suffix</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see at.jku.weiner.c.parser.parser.impl.AbstractDeclaratorSuffixImpl
+     * @see at.jku.weiner.c.parser.parser.impl.ParserPackageImpl#getAbstractDeclaratorSuffix()
+     * @generated
+     */
+    EClass ABSTRACT_DECLARATOR_SUFFIX = eINSTANCE.getAbstractDeclaratorSuffix();
+
+    /**
+     * The meta object literal for the '<em><b>Type Qualifier List</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ABSTRACT_DECLARATOR_SUFFIX__TYPE_QUALIFIER_LIST = eINSTANCE.getAbstractDeclaratorSuffix_TypeQualifierList();
+
+    /**
+     * The meta object literal for the '<em><b>Assignment Expr</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ABSTRACT_DECLARATOR_SUFFIX__ASSIGNMENT_EXPR = eINSTANCE.getAbstractDeclaratorSuffix_AssignmentExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Type Qualifier List Orig</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ABSTRACT_DECLARATOR_SUFFIX__TYPE_QUALIFIER_LIST_ORIG = eINSTANCE.getAbstractDeclaratorSuffix_TypeQualifierListOrig();
+
+    /**
+     * The meta object literal for the '<em><b>Parameter Type List</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ABSTRACT_DECLARATOR_SUFFIX__PARAMETER_TYPE_LIST = eINSTANCE.getAbstractDeclaratorSuffix_ParameterTypeList();
+
+    /**
+     * The meta object literal for the '<em><b>Gcc Decl Ext</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ABSTRACT_DECLARATOR_SUFFIX__GCC_DECL_EXT = eINSTANCE.getAbstractDeclaratorSuffix_GccDeclExt();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.InitializerImpl <em>Initializer</em>}' class.

@@ -7,6 +7,7 @@ import at.jku.weiner.c.common.common.CommonPackage;
 import at.jku.weiner.c.common.common.Constant2;
 import at.jku.weiner.c.common.serializer.CommonSemanticSequencer;
 import at.jku.weiner.c.parser.parser.AbstractDeclarator;
+import at.jku.weiner.c.parser.parser.AbstractDeclaratorSuffix;
 import at.jku.weiner.c.parser.parser.AdditiveExpression;
 import at.jku.weiner.c.parser.parser.AndExpression;
 import at.jku.weiner.c.parser.parser.ArgumentExpressionList;
@@ -30,6 +31,7 @@ import at.jku.weiner.c.parser.parser.DeclaratorSuffix;
 import at.jku.weiner.c.parser.parser.Designation;
 import at.jku.weiner.c.parser.parser.Designator;
 import at.jku.weiner.c.parser.parser.DesignatorList;
+import at.jku.weiner.c.parser.parser.DirectAbstractDeclarator;
 import at.jku.weiner.c.parser.parser.DirectDeclarator;
 import at.jku.weiner.c.parser.parser.DirectDeclaratorLastSuffix;
 import at.jku.weiner.c.parser.parser.EnumSpecifier;
@@ -125,6 +127,9 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 			case ParserPackage.ABSTRACT_DECLARATOR:
 				sequence_AbstractDeclarator(context, (AbstractDeclarator) semanticObject); 
 				return; 
+			case ParserPackage.ABSTRACT_DECLARATOR_SUFFIX:
+				sequence_AbstractDeclaratorSuffix(context, (AbstractDeclaratorSuffix) semanticObject); 
+				return; 
 			case ParserPackage.ADDITIVE_EXPRESSION:
 				sequence_AdditiveExpression(context, (AdditiveExpression) semanticObject); 
 				return; 
@@ -193,6 +198,9 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 				return; 
 			case ParserPackage.DESIGNATOR_LIST:
 				sequence_DesignatorList(context, (DesignatorList) semanticObject); 
+				return; 
+			case ParserPackage.DIRECT_ABSTRACT_DECLARATOR:
+				sequence_DirectAbstractDeclarator(context, (DirectAbstractDeclarator) semanticObject); 
 				return; 
 			case ParserPackage.DIRECT_DECLARATOR:
 				sequence_DirectDeclarator(context, (DirectDeclarator) semanticObject); 
@@ -389,17 +397,26 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     pointer=Pointer
+	 *     (
+	 *         (
+	 *             (typeQualifierList=TypeQualifierList? assignmentExpr+=AssignmentExpression?) | 
+	 *             (typeQualifierList=TypeQualifierList? assignmentExpr+=AssignmentExpression) | 
+	 *             (typeQualifierListOrig=TypeQualifierList assignmentExpr+=AssignmentExpression) | 
+	 *             (parameterTypeList=ParameterTypeList? gccDeclExt+=GccDeclaratorExtension*)
+	 *         )?
+	 *     )
+	 */
+	protected void sequence_AbstractDeclaratorSuffix(EObject context, AbstractDeclaratorSuffix semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (pointer=Pointer | (pointer=Pointer? directAbstractDeclarator=DirectAbstractDeclarator gccDeclExtAbstract+=GccDeclaratorExtension*))
 	 */
 	protected void sequence_AbstractDeclarator(EObject context, AbstractDeclarator semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, ParserPackage.Literals.ABSTRACT_DECLARATOR__POINTER) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ParserPackage.Literals.ABSTRACT_DECLARATOR__POINTER));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getAbstractDeclaratorAccess().getPointerPointerParserRuleCall_1_0(), semanticObject.getPointer());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -644,6 +661,18 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	 *     (expr=ConstantExpression | id=ID)
 	 */
 	protected void sequence_Designator(EObject context, Designator semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
+	 *         ((declarator=AbstractDeclarator gccDeclExt+=GccDeclaratorExtension*) | abstractDeclaratorSuffix+=AbstractDeclaratorSuffix) 
+	 *         abstractDeclaratorSuffix+=AbstractDeclaratorSuffix*
+	 *     )
+	 */
+	protected void sequence_DirectAbstractDeclarator(EObject context, DirectAbstractDeclarator semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

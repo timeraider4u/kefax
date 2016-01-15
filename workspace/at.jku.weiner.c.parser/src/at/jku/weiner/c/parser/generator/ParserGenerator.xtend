@@ -95,6 +95,8 @@ import at.jku.weiner.c.parser.parser.Designation
 import at.jku.weiner.c.parser.parser.DesignatorList
 import at.jku.weiner.c.parser.parser.Designator
 import at.jku.weiner.c.parser.parser.AsmSymbolicName
+import at.jku.weiner.c.parser.parser.DirectAbstractDeclarator
+import at.jku.weiner.c.parser.parser.AbstractDeclaratorSuffix
 
 /**
  * Generates code from your model files on save.
@@ -742,9 +744,30 @@ class ParserGenerator implements IGenerator {
 	'''
 	
 	def String outputFor(AbstractDeclarator obj) '''
-		«outputFor(obj.pointer)»
+		«IF obj.pointer != null»«outputFor(obj.pointer)»«ENDIF»
+		«IF obj.directAbstractDeclarator != null»«outputFor(obj.directAbstractDeclarator)»«ENDIF»
+		«IF obj.gccDeclExtAbstract != null»«outputFor(obj.gccDeclExtAbstract)»«ENDIF»
 	'''
 	
+	def String outputFor(DirectAbstractDeclarator obj) '''
+		«IF obj.declarator != null»(«outputFor(obj.declarator)»)
+			«IF obj.gccDeclExt != null»«outputFor(obj.gccDeclExt)»«ENDIF»
+		«ENDIF»
+		«IF obj.abstractDeclaratorSuffix != null»«outputForAbstractDeclSuff(obj.abstractDeclaratorSuffix)»«ENDIF»
+	'''
+	
+	def String outputForAbstractDeclSuff(EList<AbstractDeclaratorSuffix> obj) {
+		val StringBuffer result = new StringBuffer("");
+		for (var i = 0; i < obj.size(); i++) {
+			result.append(outputFor(obj.get(i)));
+		}
+		return result.toString();
+	}
+	
+	def String outputFor(AbstractDeclaratorSuffix obj) '''
+		«IF obj.parameterTypeList != null»(«outputFor(obj.parameterTypeList)»)«ENDIF»
+	'''
+		
 	def String outputForUnaryExpression(UnaryExpression obj) '''
 		«IF obj.plusplus != null»«obj.plusplus»«outputForUnaryExpression(obj.expr as UnaryExpression)»
 		«ENDIF»

@@ -103,6 +103,8 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
       case ParserPackage.MY_IDENTIFIER: return createMyIdentifier();
       case ParserPackage.TYPE_NAME: return createTypeName();
       case ParserPackage.ABSTRACT_DECLARATOR: return createAbstractDeclarator();
+      case ParserPackage.DIRECT_ABSTRACT_DECLARATOR: return createDirectAbstractDeclarator();
+      case ParserPackage.ABSTRACT_DECLARATOR_SUFFIX: return createAbstractDeclaratorSuffix();
       case ParserPackage.INITIALIZER: return createInitializer();
       case ParserPackage.INITIALIZER_LIST: return createInitializerList();
       case ParserPackage.BLOCK_LIST: return createBlockList();
@@ -585,6 +587,28 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
   {
     AbstractDeclaratorImpl abstractDeclarator = new AbstractDeclaratorImpl();
     return abstractDeclarator;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DirectAbstractDeclarator createDirectAbstractDeclarator()
+  {
+    DirectAbstractDeclaratorImpl directAbstractDeclarator = new DirectAbstractDeclaratorImpl();
+    return directAbstractDeclarator;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AbstractDeclaratorSuffix createAbstractDeclaratorSuffix()
+  {
+    AbstractDeclaratorSuffixImpl abstractDeclaratorSuffix = new AbstractDeclaratorSuffixImpl();
+    return abstractDeclaratorSuffix;
   }
 
   /**

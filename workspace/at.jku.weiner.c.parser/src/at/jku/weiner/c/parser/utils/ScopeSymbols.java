@@ -35,8 +35,10 @@ public final class ScopeSymbols implements Cloneable {
 		this.cleanUp(level);
 		if (this.isTypeDefValue && (this.temp != null)) {
 			this.types.get(level).addType(this.temp);
-			Log.log("add type, level='" + level + "'");
+			Log.log("add type, temp='" + this.temp + "', level='" + level + "'");
 			Log.log(this.debug());
+			this.setTemp(null);
+			this.setTypeDefValue(false);
 		}
 	}
 
@@ -75,6 +77,7 @@ public final class ScopeSymbols implements Cloneable {
 	}
 	
 	public void setTypeDefValue(final boolean isTypeDefValue) {
+		Log.log("setTypedefValue='" + isTypeDefValue + "'");
 		this.isTypeDefValue = isTypeDefValue;
 	}
 
@@ -89,8 +92,10 @@ public final class ScopeSymbols implements Cloneable {
 	@Override
 	protected Object clone() {
 		final ScopeSymbols result = new ScopeSymbols(this.scopeName);
-		result.isTypeDefValue = this.isTypeDefValue;
-		result.temp = this.temp;
+		// result.isTypeDefValue = this.isTypeDefValue;
+		// result.temp = this.temp;
+		result.isTypeDefValue = false;
+		result.temp = null;
 		result.types.clear();
 		for (int i = 0; i < this.types.size(); i++) {
 			final ScopeTypes type = (ScopeTypes) this.types.get(i).clone();

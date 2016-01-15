@@ -452,43 +452,37 @@ initRuleAction {
 	(abstractDeclarator=AbstractDeclarator)?
 ;
 
-
 AbstractDeclarator:
 	{AbstractDeclarator}
 	(
-	pointer=Pointer
-	//(directAbstractDeclarator=DirectAbstractDeclarator)?
-	//(gccDeclExtAbstract+=gccDeclaratorExtension)*
-	//| 
-	//(directAbstractDeclarator=DirectAbstractDeclarator)?
-	//(gccDeclExtAbstract+=gccDeclaratorExtension)*
+		pointer=Pointer
+		|
+		(
+			(pointer=Pointer)?
+			directAbstractDeclarator=DirectAbstractDeclarator
+			(gccDeclExtAbstract+=GccDeclaratorExtension)*	
+		)
 	)
 ;
 
+DirectAbstractDeclarator:
+	{DirectAbstractDeclarator}
+	(SKW_LEFTPAREN declarator=AbstractDeclarator SKW_RIGHTPAREN
+		(gccDeclExt+=GccDeclaratorExtension)*
+	|	abstractDeclaratorSuffix+=AbstractDeclaratorSuffix
+	)	
+	(abstractDeclaratorSuffix+=AbstractDeclaratorSuffix)*
+;
 
-//DirectAbstractDeclarator returns AbstractDeclarator:
-//	{DirectAbstractDeclarator}
-//	(SKW_LEFTPAREN declarator=AbstractDeclarator SKW_RIGHTPAREN
-//		//(gccDeclExt+=gccDeclaratorExtension)*
-//	|	abstractDeclaratorSuffix+=AbstractDeclaratorSuffix
-//	)
-//	
-//	//(abstractDeclaratorSuffix+=abstractDeclaratorSuffix)*
-//;
-
-
-
-//AbstractDeclaratorSuffix:
-//	{AbstractDeclaratorSuffix}
-//	(SKW_LEFTBRACKET typeQualifierList=TypeQualifierList? (assignmentExpr+=AssignmentExpression)? SKW_RIGHTBRACKET
-//	|	SKW_LEFTBRACKET KW_STATIC typeQualifierList=TypeQualifierList? (assignmentExpr+=AssignmentExpression) SKW_RIGHTBRACKET
-//	|	SKW_LEFTBRACKET typeQualifierListOrig=TypeQualifierList KW_STATIC assignmentExpr+=AssignmentExpression SKW_RIGHTBRACKET
-//	|	SKW_LEFTBRACKET SKW_STAR SKW_RIGHTBRACKET
-//	//|	SKW_LEFTPAREN parameterTypeList=ParameterTypeList? SKW_RIGHTPAREN (gccDeclExt+=gccDeclaratorExtension)*
-//	)
-//;
-
-
+AbstractDeclaratorSuffix:
+	{AbstractDeclaratorSuffix}
+	(SKW_LEFTBRACKET typeQualifierList=TypeQualifierList? (assignmentExpr+=AssignmentExpression)? SKW_RIGHTBRACKET
+	|	SKW_LEFTBRACKET KW_STATIC typeQualifierList=TypeQualifierList? (assignmentExpr+=AssignmentExpression) SKW_RIGHTBRACKET
+	|	SKW_LEFTBRACKET typeQualifierListOrig=TypeQualifierList KW_STATIC assignmentExpr+=AssignmentExpression SKW_RIGHTBRACKET
+	|	SKW_LEFTBRACKET SKW_STAR SKW_RIGHTBRACKET
+	|	SKW_LEFTPAREN parameterTypeList=ParameterTypeList? SKW_RIGHTPAREN (gccDeclExt+=GccDeclaratorExtension)*
+	)
+;
 
 Initializer:
 	{Initializer}

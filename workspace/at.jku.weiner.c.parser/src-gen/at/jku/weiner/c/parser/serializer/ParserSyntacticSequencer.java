@@ -11,6 +11,7 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.GroupAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
@@ -21,12 +22,14 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class ParserSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected ParserGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_AbstractDeclaratorSuffix___SKW_LEFTBRACKETTerminalRuleCall_1_3_0_SKW_STARTerminalRuleCall_1_3_1_SKW_RIGHTBRACKETTerminalRuleCall_1_3_2___or_____SKW_LEFTBRACKETTerminalRuleCall_1_0_0_SKW_RIGHTBRACKETTerminalRuleCall_1_0_3___or___SKW_LEFTPARENTerminalRuleCall_1_4_0_SKW_RIGHTPARENTerminalRuleCall_1_4_2____;
 	protected AbstractElementAlias match_GccAttribute___SKW_LEFTPARENTerminalRuleCall_2_0_SKW_RIGHTPARENTerminalRuleCall_2_2__q;
 	protected AbstractElementAlias match_Initializer_SKW_COMMATerminalRuleCall_1_1_2_q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (ParserGrammarAccess) access;
+		match_AbstractDeclaratorSuffix___SKW_LEFTBRACKETTerminalRuleCall_1_3_0_SKW_STARTerminalRuleCall_1_3_1_SKW_RIGHTBRACKETTerminalRuleCall_1_3_2___or_____SKW_LEFTBRACKETTerminalRuleCall_1_0_0_SKW_RIGHTBRACKETTerminalRuleCall_1_0_3___or___SKW_LEFTPARENTerminalRuleCall_1_4_0_SKW_RIGHTPARENTerminalRuleCall_1_4_2____ = new AlternativeAlias(false, false, new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getAbstractDeclaratorSuffixAccess().getSKW_LEFTBRACKETTerminalRuleCall_1_0_0()), new TokenAlias(false, false, grammarAccess.getAbstractDeclaratorSuffixAccess().getSKW_RIGHTBRACKETTerminalRuleCall_1_0_3())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getAbstractDeclaratorSuffixAccess().getSKW_LEFTPARENTerminalRuleCall_1_4_0()), new TokenAlias(false, false, grammarAccess.getAbstractDeclaratorSuffixAccess().getSKW_RIGHTPARENTerminalRuleCall_1_4_2()))), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getAbstractDeclaratorSuffixAccess().getSKW_LEFTBRACKETTerminalRuleCall_1_3_0()), new TokenAlias(false, false, grammarAccess.getAbstractDeclaratorSuffixAccess().getSKW_STARTerminalRuleCall_1_3_1()), new TokenAlias(false, false, grammarAccess.getAbstractDeclaratorSuffixAccess().getSKW_RIGHTBRACKETTerminalRuleCall_1_3_2())));
 		match_GccAttribute___SKW_LEFTPARENTerminalRuleCall_2_0_SKW_RIGHTPARENTerminalRuleCall_2_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getGccAttributeAccess().getSKW_LEFTPARENTerminalRuleCall_2_0()), new TokenAlias(false, false, grammarAccess.getGccAttributeAccess().getSKW_RIGHTPARENTerminalRuleCall_2_2()));
 		match_Initializer_SKW_COMMATerminalRuleCall_1_1_2_q = new TokenAlias(false, true, grammarAccess.getInitializerAccess().getSKW_COMMATerminalRuleCall_1_1_2());
 	}
@@ -47,6 +50,8 @@ public class ParserSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getKW_ENUMToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getKW_EXTENSIONRule())
 			return getKW_EXTENSIONToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getKW_STATICRule())
+			return getKW_STATICToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getKW_WHILERule())
 			return getKW_WHILEToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getSKW_ANDRule())
@@ -87,6 +92,8 @@ public class ParserSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getSKW_RIGHTPARENToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getSKW_SEMIRule())
 			return getSKW_SEMIToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getSKW_STARRule())
+			return getSKW_STARToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
@@ -153,6 +160,15 @@ public class ParserSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return "_extension";
+	}
+	
+	/**
+	 * terminal KW_STATIC : 'static';
+	 */
+	protected String getKW_STATICToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "static";
 	}
 	
 	/**
@@ -335,13 +351,24 @@ public class ParserSyntacticSequencer extends AbstractSyntacticSequencer {
 		return ";";
 	}
 	
+	/**
+	 * terminal SKW_STAR: '*';
+	 */
+	protected String getSKW_STARToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "*";
+	}
+	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {
 		if (transition.getAmbiguousSyntaxes().isEmpty()) return;
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if(match_GccAttribute___SKW_LEFTPARENTerminalRuleCall_2_0_SKW_RIGHTPARENTerminalRuleCall_2_2__q.equals(syntax))
+			if(match_AbstractDeclaratorSuffix___SKW_LEFTBRACKETTerminalRuleCall_1_3_0_SKW_STARTerminalRuleCall_1_3_1_SKW_RIGHTBRACKETTerminalRuleCall_1_3_2___or_____SKW_LEFTBRACKETTerminalRuleCall_1_0_0_SKW_RIGHTBRACKETTerminalRuleCall_1_0_3___or___SKW_LEFTPARENTerminalRuleCall_1_4_0_SKW_RIGHTPARENTerminalRuleCall_1_4_2____.equals(syntax))
+				emit_AbstractDeclaratorSuffix___SKW_LEFTBRACKETTerminalRuleCall_1_3_0_SKW_STARTerminalRuleCall_1_3_1_SKW_RIGHTBRACKETTerminalRuleCall_1_3_2___or_____SKW_LEFTBRACKETTerminalRuleCall_1_0_0_SKW_RIGHTBRACKETTerminalRuleCall_1_0_3___or___SKW_LEFTPARENTerminalRuleCall_1_4_0_SKW_RIGHTPARENTerminalRuleCall_1_4_2____(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_GccAttribute___SKW_LEFTPARENTerminalRuleCall_2_0_SKW_RIGHTPARENTerminalRuleCall_2_2__q.equals(syntax))
 				emit_GccAttribute___SKW_LEFTPARENTerminalRuleCall_2_0_SKW_RIGHTPARENTerminalRuleCall_2_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Initializer_SKW_COMMATerminalRuleCall_1_1_2_q.equals(syntax))
 				emit_Initializer_SKW_COMMATerminalRuleCall_1_1_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
@@ -349,6 +376,17 @@ public class ParserSyntacticSequencer extends AbstractSyntacticSequencer {
 		}
 	}
 
+	/**
+	 * Ambiguous syntax:
+	 *     (SKW_LEFTBRACKET SKW_STAR SKW_RIGHTBRACKET) | ((SKW_LEFTBRACKET SKW_RIGHTBRACKET) | (SKW_LEFTPAREN SKW_RIGHTPAREN))
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) (rule start)
+	 */
+	protected void emit_AbstractDeclaratorSuffix___SKW_LEFTBRACKETTerminalRuleCall_1_3_0_SKW_STARTerminalRuleCall_1_3_1_SKW_RIGHTBRACKETTerminalRuleCall_1_3_2___or_____SKW_LEFTBRACKETTerminalRuleCall_1_0_0_SKW_RIGHTBRACKETTerminalRuleCall_1_0_3___or___SKW_LEFTPARENTerminalRuleCall_1_4_0_SKW_RIGHTPARENTerminalRuleCall_1_4_2____(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 	/**
 	 * Ambiguous syntax:
 	 *     (SKW_LEFTPAREN SKW_RIGHTPAREN)?

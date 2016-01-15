@@ -345,6 +345,20 @@ public class ParserSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case ParserPackage.DIRECT_ABSTRACT_DECLARATOR:
+      {
+        DirectAbstractDeclarator directAbstractDeclarator = (DirectAbstractDeclarator)theEObject;
+        T result = caseDirectAbstractDeclarator(directAbstractDeclarator);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ParserPackage.ABSTRACT_DECLARATOR_SUFFIX:
+      {
+        AbstractDeclaratorSuffix abstractDeclaratorSuffix = (AbstractDeclaratorSuffix)theEObject;
+        T result = caseAbstractDeclaratorSuffix(abstractDeclaratorSuffix);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case ParserPackage.INITIALIZER:
       {
         Initializer initializer = (Initializer)theEObject;
@@ -1380,6 +1394,38 @@ public class ParserSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseAbstractDeclarator(AbstractDeclarator object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Direct Abstract Declarator</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Direct Abstract Declarator</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDirectAbstractDeclarator(DirectAbstractDeclarator object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Abstract Declarator Suffix</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Abstract Declarator Suffix</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAbstractDeclaratorSuffix(AbstractDeclaratorSuffix object)
   {
     return null;
   }

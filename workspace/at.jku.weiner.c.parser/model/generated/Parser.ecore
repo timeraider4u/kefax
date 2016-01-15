@@ -214,6 +214,30 @@
   <eClassifiers xsi:type="ecore:EClass" name="AbstractDeclarator">
     <eStructuralFeatures xsi:type="ecore:EReference" name="pointer" eType="#//Pointer"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="directAbstractDeclarator"
+        eType="#//DirectAbstractDeclarator" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="gccDeclExtAbstract" upperBound="-1"
+        eType="#//GccDeclaratorExtension" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DirectAbstractDeclarator">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="declarator" eType="#//AbstractDeclarator"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="gccDeclExt" upperBound="-1"
+        eType="#//GccDeclaratorExtension" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="abstractDeclaratorSuffix"
+        upperBound="-1" eType="#//AbstractDeclaratorSuffix" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractDeclaratorSuffix">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeQualifierList" eType="#//TypeQualifierList"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assignmentExpr" upperBound="-1"
+        eType="#//Expression" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeQualifierListOrig"
+        eType="#//TypeQualifierList" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameterTypeList" eType="#//ParameterTypeList"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="gccDeclExt" upperBound="-1"
+        eType="#//GccDeclaratorExtension" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Initializer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expression"

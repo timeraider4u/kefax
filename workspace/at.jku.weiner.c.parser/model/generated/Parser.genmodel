@@ -161,6 +161,20 @@
     </genClasses>
     <genClasses ecoreClass="Parser.ecore#//AbstractDeclarator">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//AbstractDeclarator/pointer"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//AbstractDeclarator/directAbstractDeclarator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//AbstractDeclarator/gccDeclExtAbstract"/>
+    </genClasses>
+    <genClasses ecoreClass="Parser.ecore#//DirectAbstractDeclarator">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//DirectAbstractDeclarator/declarator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//DirectAbstractDeclarator/gccDeclExt"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//DirectAbstractDeclarator/abstractDeclaratorSuffix"/>
+    </genClasses>
+    <genClasses ecoreClass="Parser.ecore#//AbstractDeclaratorSuffix">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//AbstractDeclaratorSuffix/typeQualifierList"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//AbstractDeclaratorSuffix/assignmentExpr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//AbstractDeclaratorSuffix/typeQualifierListOrig"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//AbstractDeclaratorSuffix/parameterTypeList"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//AbstractDeclaratorSuffix/gccDeclExt"/>
     </genClasses>
     <genClasses ecoreClass="Parser.ecore#//Initializer">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//Initializer/expr"/>

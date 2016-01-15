@@ -647,9 +647,9 @@ DesignatorList:
 	designator+=Designator (designator+=Designator)*
 ;
 
-Designator: 
+Designator:
 	{Designator}
-	(		
+	(
 			SKW_LEFTBRACKET expr=ConstantExpression SKW_RIGHTBRACKET
 		|	SKW_DOT id=ID
 	)

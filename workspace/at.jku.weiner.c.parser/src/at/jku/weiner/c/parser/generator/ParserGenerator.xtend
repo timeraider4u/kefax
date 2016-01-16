@@ -244,7 +244,7 @@ class ParserGenerator implements IGenerator {
 	'''
 	
 	def String outputFor(StructDeclaration obj) '''
-		«outputFor(obj.list)»
+		«IF obj.list != null»«outputFor(obj.list)»«ENDIF»
 		«IF obj.structDeclarationList != null»«outputFor(obj.structDeclarationList)»«ENDIF»;
 	'''
 	

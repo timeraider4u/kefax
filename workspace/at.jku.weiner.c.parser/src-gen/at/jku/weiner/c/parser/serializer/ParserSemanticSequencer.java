@@ -1241,7 +1241,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (list=SpecifierQualifierList structDeclarationList=StructDeclaratorList?)
+	 *     ((list=SpecifierQualifierList structDeclarationList=StructDeclaratorList?)?)
 	 */
 	protected void sequence_StructDeclaration(EObject context, StructDeclaration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

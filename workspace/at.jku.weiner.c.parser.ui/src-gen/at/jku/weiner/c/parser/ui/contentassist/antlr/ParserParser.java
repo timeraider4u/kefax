@@ -118,6 +118,7 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getStructOrUnionSpecifierAccess().getGroup_2_0(), "rule__StructOrUnionSpecifier__Group_2_0__0");
 					put(grammarAccess.getStructOrUnionAccess().getGroup_0(), "rule__StructOrUnion__Group_0__0");
 					put(grammarAccess.getStructDeclarationAccess().getGroup(), "rule__StructDeclaration__Group__0");
+					put(grammarAccess.getStructDeclarationAccess().getGroup_1(), "rule__StructDeclaration__Group_1__0");
 					put(grammarAccess.getSpecifierQualifierListAccess().getGroup(), "rule__SpecifierQualifierList__Group__0");
 					put(grammarAccess.getStructDeclaratorListAccess().getGroup(), "rule__StructDeclaratorList__Group__0");
 					put(grammarAccess.getStructDeclaratorListAccess().getGroup_1(), "rule__StructDeclaratorList__Group_1__0");
@@ -336,8 +337,8 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getStructOrUnionAccess().getNameAssignment_0_1(), "rule__StructOrUnion__NameAssignment_0_1");
 					put(grammarAccess.getStructOrUnionAccess().getNameAssignment_1(), "rule__StructOrUnion__NameAssignment_1");
 					put(grammarAccess.getStructDeclarationListAccess().getStructDeclarationAssignment(), "rule__StructDeclarationList__StructDeclarationAssignment");
-					put(grammarAccess.getStructDeclarationAccess().getListAssignment_0(), "rule__StructDeclaration__ListAssignment_0");
-					put(grammarAccess.getStructDeclarationAccess().getStructDeclarationListAssignment_1(), "rule__StructDeclaration__StructDeclarationListAssignment_1");
+					put(grammarAccess.getStructDeclarationAccess().getListAssignment_1_0(), "rule__StructDeclaration__ListAssignment_1_0");
+					put(grammarAccess.getStructDeclarationAccess().getStructDeclarationListAssignment_1_1(), "rule__StructDeclaration__StructDeclarationListAssignment_1_1");
 					put(grammarAccess.getSpecifierQualifierListAccess().getTypeSpecifierAssignment_1_0(), "rule__SpecifierQualifierList__TypeSpecifierAssignment_1_0");
 					put(grammarAccess.getSpecifierQualifierListAccess().getTypeQualifierAssignment_1_1(), "rule__SpecifierQualifierList__TypeQualifierAssignment_1_1");
 					put(grammarAccess.getStructDeclaratorListAccess().getStructDeclaratorAssignment_0(), "rule__StructDeclaratorList__StructDeclaratorAssignment_0");

@@ -1,0 +1,77 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.parser
+language parser
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+source file="res/Test0080_StructWithEmptyDecl.c"
+//----------------------------------------------------------------------
+lexer-tokens
+KW_STRUCT WHITESPACE ID WHITESPACE SKW_LEFTBRACE NEWLINE
+	WHITESPACE KW_INT WHITESPACE ID SKW_SEMI NEWLINE
+	WHITESPACE SKW_SEMI WHITESPACE LINE_COMMENT NEWLINE
+SKW_RIGHTBRACE SKW_SEMI NEWLINE
+//----------------------------------------------------------------------
+//(common::Model units+=
+	//(common::TranslationUnit 
+	(Parser
+		external+=
+		// struct temp { ... };
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						specifier=
+						(StructOrUnionSpecifier
+							type=
+							(StructOrUnion
+								name++"struct"
+							),
+							id++"temp",
+							structDeclList=
+							(StructDeclarationList
+								structDeclaration+=
+								(StructDeclaration
+									list=
+									(SpecifierQualifierList
+										typeSpecifier+=
+										(TypeSpecifier
+											name++"int"
+										)
+									),
+									structDeclarationList=
+									(StructDeclaratorList
+										structDeclarator+=
+										(StructDeclarator
+											declarator=
+											(Declarator
+												declarator=
+												(DirectDeclarator
+													id++"i"
+												)
+											)
+										)
+									)
+								),
+								(StructDeclaration
+									list isNull,
+									structDeclarationList isNull
+								)
+							)
+						) // end struct or union specifier
+					)
+				)
+			)
+		)
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0080_StructWithEmptyDecl.c"
+expected file isSameAsInputFile
+replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

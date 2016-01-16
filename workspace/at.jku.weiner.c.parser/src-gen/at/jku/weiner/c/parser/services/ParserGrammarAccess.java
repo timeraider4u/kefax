@@ -1004,32 +1004,40 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	public class StructDeclarationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.parser.Parser.StructDeclaration");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cListAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cListSpecifierQualifierListParserRuleCall_0_0 = (RuleCall)cListAssignment_0.eContents().get(0);
-		private final Assignment cStructDeclarationListAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cStructDeclarationListStructDeclaratorListParserRuleCall_1_0 = (RuleCall)cStructDeclarationListAssignment_1.eContents().get(0);
+		private final Action cStructDeclarationAction_0 = (Action)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Assignment cListAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final RuleCall cListSpecifierQualifierListParserRuleCall_1_0_0 = (RuleCall)cListAssignment_1_0.eContents().get(0);
+		private final Assignment cStructDeclarationListAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cStructDeclarationListStructDeclaratorListParserRuleCall_1_1_0 = (RuleCall)cStructDeclarationListAssignment_1_1.eContents().get(0);
 		private final RuleCall cSKW_SEMITerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		
 		//StructDeclaration:
-		//	list=SpecifierQualifierList structDeclarationList=StructDeclaratorList? SKW_SEMI
+		//	{StructDeclaration} (list=SpecifierQualifierList structDeclarationList=StructDeclaratorList?)? SKW_SEMI
 		//	//|	staticAssertDeclaration
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//list=SpecifierQualifierList structDeclarationList=StructDeclaratorList? SKW_SEMI
+		//{StructDeclaration} (list=SpecifierQualifierList structDeclarationList=StructDeclaratorList?)? SKW_SEMI
 		public Group getGroup() { return cGroup; }
 		
+		//{StructDeclaration}
+		public Action getStructDeclarationAction_0() { return cStructDeclarationAction_0; }
+		
+		//(list=SpecifierQualifierList structDeclarationList=StructDeclaratorList?)?
+		public Group getGroup_1() { return cGroup_1; }
+		
 		//list=SpecifierQualifierList
-		public Assignment getListAssignment_0() { return cListAssignment_0; }
+		public Assignment getListAssignment_1_0() { return cListAssignment_1_0; }
 		
 		//SpecifierQualifierList
-		public RuleCall getListSpecifierQualifierListParserRuleCall_0_0() { return cListSpecifierQualifierListParserRuleCall_0_0; }
+		public RuleCall getListSpecifierQualifierListParserRuleCall_1_0_0() { return cListSpecifierQualifierListParserRuleCall_1_0_0; }
 		
 		//structDeclarationList=StructDeclaratorList?
-		public Assignment getStructDeclarationListAssignment_1() { return cStructDeclarationListAssignment_1; }
+		public Assignment getStructDeclarationListAssignment_1_1() { return cStructDeclarationListAssignment_1_1; }
 		
 		//StructDeclaratorList
-		public RuleCall getStructDeclarationListStructDeclaratorListParserRuleCall_1_0() { return cStructDeclarationListStructDeclaratorListParserRuleCall_1_0; }
+		public RuleCall getStructDeclarationListStructDeclaratorListParserRuleCall_1_1_0() { return cStructDeclarationListStructDeclaratorListParserRuleCall_1_1_0; }
 		
 		//SKW_SEMI
 		public RuleCall getSKW_SEMITerminalRuleCall_2() { return cSKW_SEMITerminalRuleCall_2; }
@@ -6182,7 +6190,7 @@ public class ParserGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//StructDeclaration:
-	//	list=SpecifierQualifierList structDeclarationList=StructDeclaratorList? SKW_SEMI
+	//	{StructDeclaration} (list=SpecifierQualifierList structDeclarationList=StructDeclaratorList?)? SKW_SEMI
 	//	//|	staticAssertDeclaration
 	//;
 	public StructDeclarationElements getStructDeclarationAccess() {

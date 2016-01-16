@@ -2350,18 +2350,31 @@ ruleStructDeclaration returns [EObject current=null]
 
 (
 (
+	{ 
+	  /* */ 
+	}
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getStructDeclarationAccess().getStructDeclarationAction_0(),
+            $current);
+    }
+)
+
+
+(
+(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getStructDeclarationAccess().getListSpecifierQualifierListParserRuleCall_0_0()); 
+	        newCompositeNode(grammarAccess.getStructDeclarationAccess().getListSpecifierQualifierListParserRuleCall_1_0_0()); 
 	    }
-		lv_list_0_0=ruleSpecifierQualifierList		{
+		lv_list_1_0=ruleSpecifierQualifierList		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getStructDeclarationRule());
 	        }
        		set(
        			$current, 
        			"list",
-        		lv_list_0_0, 
+        		lv_list_1_0, 
         		"at.jku.weiner.c.parser.Parser.SpecifierQualifierList");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -2373,16 +2386,16 @@ ruleStructDeclaration returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getStructDeclarationAccess().getStructDeclarationListStructDeclaratorListParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getStructDeclarationAccess().getStructDeclarationListStructDeclaratorListParserRuleCall_1_1_0()); 
 	    }
-		lv_structDeclarationList_1_0=ruleStructDeclaratorList		{
+		lv_structDeclarationList_2_0=ruleStructDeclaratorList		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getStructDeclarationRule());
 	        }
        		set(
        			$current, 
        			"structDeclarationList",
-        		lv_structDeclarationList_1_0, 
+        		lv_structDeclarationList_2_0, 
         		"at.jku.weiner.c.parser.Parser.StructDeclaratorList");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -2390,10 +2403,12 @@ ruleStructDeclaration returns [EObject current=null]
 )
 )?
 
+)?
 
-this_SKW_SEMI_2=RULE_SKW_SEMI
+
+this_SKW_SEMI_3=RULE_SKW_SEMI
     { 
-    newLeafNode(this_SKW_SEMI_2, grammarAccess.getStructDeclarationAccess().getSKW_SEMITerminalRuleCall_2()); 
+    newLeafNode(this_SKW_SEMI_3, grammarAccess.getStructDeclarationAccess().getSKW_SEMITerminalRuleCall_2()); 
     }
 
 

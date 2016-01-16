@@ -240,7 +240,8 @@ StructOrUnion:
 StructDeclarationList: (structDeclaration+=StructDeclaration)+;
 
 StructDeclaration:
-	list=SpecifierQualifierList (structDeclarationList=StructDeclaratorList)? SKW_SEMI
+	{StructDeclaration}
+	(list=SpecifierQualifierList (structDeclarationList=StructDeclaratorList)?)? SKW_SEMI
 	//|	staticAssertDeclaration
 ;
 

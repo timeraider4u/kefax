@@ -524,6 +524,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="builtin_offsetof" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="typeName" eType="#//TypeName"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="builtin_typescompatiblep"
+        eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeName2" eType="#//TypeName"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConstantExpression" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expression"

@@ -891,6 +891,8 @@ initRuleAction {
 	|	ext?=KW_EXTENSION? SKW_LEFTPAREN compoundStmt=CompoundStatement SKW_RIGHTPAREN // Blocks (GCC extension)
 	//|	'__builtin_va_arg' LEFTPAREN expr=unaryExpression COMMA typeName=typeName RIGHTPAREN
 	|	builtin_offsetof?=KW_BUILTIN_OFFSETOF SKW_LEFTPAREN typeName=TypeName SKW_COMMA expr=UnaryExpression SKW_RIGHTPAREN
+	|	builtin_typescompatiblep?=KW_BUILTIN_TYPESCOMPATIBLEP 
+			SKW_LEFTPAREN typeName=TypeName SKW_COMMA typeName2=TypeName SKW_RIGHTPAREN
 	)
 ;
 
@@ -943,6 +945,7 @@ terminal KW_BOOL : SKW_UNDERSCORE 'Bool';
 terminal KW_BREAK : 'break';
 terminal KW_BUILTIN_VA_LIST: SKW_UNDERSCORE SKW_UNDERSCORE 'builtin_va_list';
 terminal KW_BUILTIN_OFFSETOF: SKW_UNDERSCORE SKW_UNDERSCORE 'builtin_offsetof';
+terminal KW_BUILTIN_TYPESCOMPATIBLEP: SKW_UNDERSCORE SKW_UNDERSCORE 'builtin_types_compatible_p';
 terminal KW_CASE : 'case';
 terminal KW_CHAR : 'char';
 terminal KW_COMPLEX : SKW_UNDERSCORE 'Complex';

@@ -12579,6 +12579,94 @@ this_SKW_RIGHTPAREN_16=RULE_SKW_RIGHTPAREN
 
 )
 
+
+    |
+(
+(
+(
+		lv_builtin_typescompatiblep_17_0=RULE_KW_BUILTIN_TYPESCOMPATIBLEP
+		{
+			newLeafNode(lv_builtin_typescompatiblep_17_0, grammarAccess.getPrimaryExpressionAccess().getBuiltin_typescompatiblepKW_BUILTIN_TYPESCOMPATIBLEPTerminalRuleCall_1_6_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getPrimaryExpressionRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"builtin_typescompatiblep",
+        		true, 
+        		"at.jku.weiner.c.parser.Parser.KW_BUILTIN_TYPESCOMPATIBLEP");
+	    }
+
+)
+)
+
+
+this_SKW_LEFTPAREN_18=RULE_SKW_LEFTPAREN
+    { 
+    newLeafNode(this_SKW_LEFTPAREN_18, grammarAccess.getPrimaryExpressionAccess().getSKW_LEFTPARENTerminalRuleCall_1_6_1()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getTypeNameTypeNameParserRuleCall_1_6_2_0()); 
+	    }
+		lv_typeName_19_0=ruleTypeName		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getPrimaryExpressionRule());
+	        }
+       		set(
+       			$current, 
+       			"typeName",
+        		lv_typeName_19_0, 
+        		"at.jku.weiner.c.parser.Parser.TypeName");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+this_SKW_COMMA_20=RULE_SKW_COMMA
+    { 
+    newLeafNode(this_SKW_COMMA_20, grammarAccess.getPrimaryExpressionAccess().getSKW_COMMATerminalRuleCall_1_6_3()); 
+    }
+
+
+
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getPrimaryExpressionAccess().getTypeName2TypeNameParserRuleCall_1_6_4_0()); 
+	    }
+		lv_typeName2_21_0=ruleTypeName		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getPrimaryExpressionRule());
+	        }
+       		set(
+       			$current, 
+       			"typeName2",
+        		lv_typeName2_21_0, 
+        		"at.jku.weiner.c.parser.Parser.TypeName");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+
+
+this_SKW_RIGHTPAREN_22=RULE_SKW_RIGHTPAREN
+    { 
+    newLeafNode(this_SKW_RIGHTPAREN_22, grammarAccess.getPrimaryExpressionAccess().getSKW_RIGHTPARENTerminalRuleCall_1_6_5()); 
+    }
+
+
+)
+
 )
 
 )
@@ -13143,6 +13231,8 @@ RULE_KW_BREAK : 'break';
 RULE_KW_BUILTIN_VA_LIST : RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE 'builtin_va_list';
 
 RULE_KW_BUILTIN_OFFSETOF : RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE 'builtin_offsetof';
+
+RULE_KW_BUILTIN_TYPESCOMPATIBLEP : RULE_SKW_UNDERSCORE RULE_SKW_UNDERSCORE 'builtin_types_compatible_p';
 
 RULE_KW_CASE : 'case';
 

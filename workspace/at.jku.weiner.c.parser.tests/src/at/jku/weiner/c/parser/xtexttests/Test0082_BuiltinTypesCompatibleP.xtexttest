@@ -1,0 +1,132 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.parser
+language parser
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+source file="res/Test0082_BuiltinTypesCompatibleP.c"
+//----------------------------------------------------------------------
+lexer-tokens
+KW_INT WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE 
+	// DECIMAL_LITERAL
+	KW_BUILTIN_TYPESCOMPATIBLEP SKW_LEFTPAREN 
+		KW_CONST WHITESPACE KW_INT SKW_COMMA WHITESPACE
+		KW_INT
+	SKW_RIGHTPAREN 
+SKW_SEMI NEWLINE
+//----------------------------------------------------------------------
+//(common::Model units+=
+	//(common::TranslationUnit 
+	(Parser
+		external+=
+		(ExternalDeclaration 
+			declaration=
+			(Declaration
+				specifiers=
+				(DeclarationSpecifiers
+					declarationSpecifier+=
+					(TypeSpecifier
+						name++"int"
+					)
+				),
+				initDeclaratorList+=
+				(InitDeclaratorList
+					initDeclarator+=
+					(InitDeclarator
+						declarator=
+						(Declarator
+							declarator=
+							(DirectDeclarator
+								id++"a"
+							)
+						),
+						initializer=
+						(Initializer
+							expr=
+							(AssignmentExpression
+								expr=
+								(ConditionalExpression
+									expr=
+									(LogicalOrExpression
+										expr+=
+										(LogicalAndExpression
+											expr+=
+											(InclusiveOrExpression
+												expr+=
+												(ExclusiveOrExpression
+													expr+=
+													(AndExpression
+														expr+=
+														(EqualityExpression
+															expr+=
+															(RelationalExpression
+																expr+=
+																(ShiftExpression
+																	expr+=
+																	(AdditiveExpression
+																		expr+=
+																		(MultiplicativeExpression
+																			expr+=
+																			(CastExpression
+																				expr=
+																				(UnaryExpression
+																					expr=
+																					(PostfixExpression
+																						expr+=
+																						(PrimaryExpression
+																							builtin_typescompatiblep?=true,
+																							typeName=
+																							(TypeName
+																								list=
+																								(SpecifierQualifierList
+																									typeQualifier+=
+																									(TypeQualifier
+																										type++"const"
+																									),
+																									typeSpecifier+=
+																									(TypeSpecifier
+																										name++"int"
+																									)
+																								)
+																							),
+																							typeName2=
+																							(TypeName
+																								list=
+																								(SpecifierQualifierList
+																									typeSpecifier+=
+																									(TypeSpecifier
+																										name++"int"
+																									)
+																								)
+																							)
+																						)
+																					)
+																				)
+																			)
+																		)
+																	)
+																)
+															)
+														)
+													)
+												)
+											)
+										)
+									)
+								)
+							) // end assignment expression
+						) // end initializer
+					)
+				),
+				semi++";"
+			)
+		)
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0082_BuiltinTypesCompatibleP.c"
+expected file isSameAsInputFile
+replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

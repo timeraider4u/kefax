@@ -738,11 +738,11 @@ class ParserGenerator implements IGenerator {
 	'''
 	
 	def String outputFor(SpecifierQualifierList obj) '''
+		«FOR x : obj.typeQualifier»
+				«outputFor(x as TypeQualifier)»
+			«ENDFOR»
 		«FOR x : obj.typeSpecifier»
 			«outputFor(x as TypeSpecifier)»
-		«ENDFOR»
-		«FOR x : obj.typeQualifier»
-			«outputFor(x as TypeQualifier)»
 		«ENDFOR»
 	'''
 	
@@ -865,6 +865,8 @@ class ParserGenerator implements IGenerator {
 		«IF obj.expr != null && !obj.builtin_offsetof»(«outputFor(obj.expr)»)«ENDIF»
 		«IF obj.builtin_offsetof»__builtin_offsetof(«outputFor(obj.typeName)»,«outputForUnaryExpression(obj.expr as UnaryExpression)»)«ENDIF»
 		«IF obj.compoundStmt != null»«IF obj.ext»__extension__«ENDIF»(«outputFor(obj.compoundStmt)»)«ENDIF»
+		«IF obj.builtin_typescompatiblep»__builtin_types_compatible_p(«outputFor(obj.typeName)», 
+			«outputFor(obj.typeName2)»)«ENDIF»
 	'''
 	
 	def String outputForString(EList<String> obj) '''

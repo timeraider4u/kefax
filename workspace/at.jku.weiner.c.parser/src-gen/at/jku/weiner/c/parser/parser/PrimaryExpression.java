@@ -23,6 +23,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getCompoundStmt <em>Compound Stmt</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.PrimaryExpression#isBuiltin_offsetof <em>Builtin offsetof</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getTypeName <em>Type Name</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.PrimaryExpression#isBuiltin_typescompatiblep <em>Builtin typescompatiblep</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getTypeName2 <em>Type Name2</em>}</li>
  * </ul>
  *
  * @see at.jku.weiner.c.parser.parser.ParserPackage#getPrimaryExpression()
@@ -228,5 +230,57 @@ public interface PrimaryExpression extends Expression
    * @generated
    */
   void setTypeName(TypeName value);
+
+  /**
+   * Returns the value of the '<em><b>Builtin typescompatiblep</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Builtin typescompatiblep</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Builtin typescompatiblep</em>' attribute.
+   * @see #setBuiltin_typescompatiblep(boolean)
+   * @see at.jku.weiner.c.parser.parser.ParserPackage#getPrimaryExpression_Builtin_typescompatiblep()
+   * @model
+   * @generated
+   */
+  boolean isBuiltin_typescompatiblep();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.PrimaryExpression#isBuiltin_typescompatiblep <em>Builtin typescompatiblep</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Builtin typescompatiblep</em>' attribute.
+   * @see #isBuiltin_typescompatiblep()
+   * @generated
+   */
+  void setBuiltin_typescompatiblep(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Type Name2</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Type Name2</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Type Name2</em>' containment reference.
+   * @see #setTypeName2(TypeName)
+   * @see at.jku.weiner.c.parser.parser.ParserPackage#getPrimaryExpression_TypeName2()
+   * @model containment="true"
+   * @generated
+   */
+  TypeName getTypeName2();
+
+  /**
+   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getTypeName2 <em>Type Name2</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Type Name2</em>' containment reference.
+   * @see #getTypeName2()
+   * @generated
+   */
+  void setTypeName2(TypeName value);
 
 } // PrimaryExpression

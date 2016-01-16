@@ -386,6 +386,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//PrimaryExpression/compoundStmt"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//PrimaryExpression/builtin_offsetof"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//PrimaryExpression/typeName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//PrimaryExpression/builtin_typescompatiblep"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//PrimaryExpression/typeName2"/>
     </genClasses>
     <genClasses ecoreClass="Parser.ecore#//ConstantExpression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//ConstantExpression/expr"/>

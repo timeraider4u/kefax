@@ -40,6 +40,8 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.PrimaryExpressionImpl#getCompoundStmt <em>Compound Stmt</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.PrimaryExpressionImpl#isBuiltin_offsetof <em>Builtin offsetof</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.PrimaryExpressionImpl#getTypeName <em>Type Name</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.PrimaryExpressionImpl#isBuiltin_typescompatiblep <em>Builtin typescompatiblep</em>}</li>
+ *   <li>{@link at.jku.weiner.c.parser.parser.impl.PrimaryExpressionImpl#getTypeName2 <em>Type Name2</em>}</li>
  * </ul>
  *
  * @generated
@@ -155,6 +157,36 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
    * @ordered
    */
   protected TypeName typeName;
+
+  /**
+   * The default value of the '{@link #isBuiltin_typescompatiblep() <em>Builtin typescompatiblep</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isBuiltin_typescompatiblep()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean BUILTIN_TYPESCOMPATIBLEP_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isBuiltin_typescompatiblep() <em>Builtin typescompatiblep</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isBuiltin_typescompatiblep()
+   * @generated
+   * @ordered
+   */
+  protected boolean builtin_typescompatiblep = BUILTIN_TYPESCOMPATIBLEP_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getTypeName2() <em>Type Name2</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTypeName2()
+   * @generated
+   * @ordered
+   */
+  protected TypeName typeName2;
 
   /**
    * <!-- begin-user-doc -->
@@ -457,6 +489,77 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
    * <!-- end-user-doc -->
    * @generated
    */
+  public boolean isBuiltin_typescompatiblep()
+  {
+    return builtin_typescompatiblep;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setBuiltin_typescompatiblep(boolean newBuiltin_typescompatiblep)
+  {
+    boolean oldBuiltin_typescompatiblep = builtin_typescompatiblep;
+    builtin_typescompatiblep = newBuiltin_typescompatiblep;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.PRIMARY_EXPRESSION__BUILTIN_TYPESCOMPATIBLEP, oldBuiltin_typescompatiblep, builtin_typescompatiblep));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TypeName getTypeName2()
+  {
+    return typeName2;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetTypeName2(TypeName newTypeName2, NotificationChain msgs)
+  {
+    TypeName oldTypeName2 = typeName2;
+    typeName2 = newTypeName2;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ParserPackage.PRIMARY_EXPRESSION__TYPE_NAME2, oldTypeName2, newTypeName2);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTypeName2(TypeName newTypeName2)
+  {
+    if (newTypeName2 != typeName2)
+    {
+      NotificationChain msgs = null;
+      if (typeName2 != null)
+        msgs = ((InternalEObject)typeName2).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ParserPackage.PRIMARY_EXPRESSION__TYPE_NAME2, null, msgs);
+      if (newTypeName2 != null)
+        msgs = ((InternalEObject)newTypeName2).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ParserPackage.PRIMARY_EXPRESSION__TYPE_NAME2, null, msgs);
+      msgs = basicSetTypeName2(newTypeName2, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.PRIMARY_EXPRESSION__TYPE_NAME2, newTypeName2, newTypeName2));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -470,6 +573,8 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
         return basicSetCompoundStmt(null, msgs);
       case ParserPackage.PRIMARY_EXPRESSION__TYPE_NAME:
         return basicSetTypeName(null, msgs);
+      case ParserPackage.PRIMARY_EXPRESSION__TYPE_NAME2:
+        return basicSetTypeName2(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -500,6 +605,10 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
         return isBuiltin_offsetof();
       case ParserPackage.PRIMARY_EXPRESSION__TYPE_NAME:
         return getTypeName();
+      case ParserPackage.PRIMARY_EXPRESSION__BUILTIN_TYPESCOMPATIBLEP:
+        return isBuiltin_typescompatiblep();
+      case ParserPackage.PRIMARY_EXPRESSION__TYPE_NAME2:
+        return getTypeName2();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -540,6 +649,12 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
       case ParserPackage.PRIMARY_EXPRESSION__TYPE_NAME:
         setTypeName((TypeName)newValue);
         return;
+      case ParserPackage.PRIMARY_EXPRESSION__BUILTIN_TYPESCOMPATIBLEP:
+        setBuiltin_typescompatiblep((Boolean)newValue);
+        return;
+      case ParserPackage.PRIMARY_EXPRESSION__TYPE_NAME2:
+        setTypeName2((TypeName)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -578,6 +693,12 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
       case ParserPackage.PRIMARY_EXPRESSION__TYPE_NAME:
         setTypeName((TypeName)null);
         return;
+      case ParserPackage.PRIMARY_EXPRESSION__BUILTIN_TYPESCOMPATIBLEP:
+        setBuiltin_typescompatiblep(BUILTIN_TYPESCOMPATIBLEP_EDEFAULT);
+        return;
+      case ParserPackage.PRIMARY_EXPRESSION__TYPE_NAME2:
+        setTypeName2((TypeName)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -608,6 +729,10 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
         return builtin_offsetof != BUILTIN_OFFSETOF_EDEFAULT;
       case ParserPackage.PRIMARY_EXPRESSION__TYPE_NAME:
         return typeName != null;
+      case ParserPackage.PRIMARY_EXPRESSION__BUILTIN_TYPESCOMPATIBLEP:
+        return builtin_typescompatiblep != BUILTIN_TYPESCOMPATIBLEP_EDEFAULT;
+      case ParserPackage.PRIMARY_EXPRESSION__TYPE_NAME2:
+        return typeName2 != null;
     }
     return super.eIsSet(featureID);
   }
@@ -631,6 +756,8 @@ public class PrimaryExpressionImpl extends ExpressionImpl implements PrimaryExpr
     result.append(ext);
     result.append(", builtin_offsetof: ");
     result.append(builtin_offsetof);
+    result.append(", builtin_typescompatiblep: ");
+    result.append(builtin_typescompatiblep);
     result.append(')');
     return result.toString();
   }

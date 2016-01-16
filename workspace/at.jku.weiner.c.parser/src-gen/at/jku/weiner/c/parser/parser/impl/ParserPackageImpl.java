@@ -3770,6 +3770,26 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getPrimaryExpression_Builtin_typescompatiblep()
+  {
+    return (EAttribute)primaryExpressionEClass.getEStructuralFeatures().get(8);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPrimaryExpression_TypeName2()
+  {
+    return (EReference)primaryExpressionEClass.getEStructuralFeatures().get(9);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getConstantExpression()
   {
     return constantExpressionEClass;
@@ -4199,6 +4219,8 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     createEReference(primaryExpressionEClass, PRIMARY_EXPRESSION__COMPOUND_STMT);
     createEAttribute(primaryExpressionEClass, PRIMARY_EXPRESSION__BUILTIN_OFFSETOF);
     createEReference(primaryExpressionEClass, PRIMARY_EXPRESSION__TYPE_NAME);
+    createEAttribute(primaryExpressionEClass, PRIMARY_EXPRESSION__BUILTIN_TYPESCOMPATIBLEP);
+    createEReference(primaryExpressionEClass, PRIMARY_EXPRESSION__TYPE_NAME2);
 
     constantExpressionEClass = createEClass(CONSTANT_EXPRESSION);
     createEReference(constantExpressionEClass, CONSTANT_EXPRESSION__EXPR);
@@ -4661,6 +4683,8 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     initEReference(getPrimaryExpression_CompoundStmt(), this.getStatement(), null, "compoundStmt", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getPrimaryExpression_Builtin_offsetof(), theEcorePackage.getEBoolean(), "builtin_offsetof", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPrimaryExpression_TypeName(), this.getTypeName(), null, "typeName", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPrimaryExpression_Builtin_typescompatiblep(), theEcorePackage.getEBoolean(), "builtin_typescompatiblep", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPrimaryExpression_TypeName2(), this.getTypeName(), null, "typeName2", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(constantExpressionEClass, ConstantExpression.class, "ConstantExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getConstantExpression_Expr(), this.getExpression(), null, "expr", null, 0, 1, ConstantExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

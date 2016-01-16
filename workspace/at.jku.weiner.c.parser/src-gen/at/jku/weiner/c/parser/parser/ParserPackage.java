@@ -4011,13 +4011,31 @@ public interface ParserPackage extends EPackage
   int PRIMARY_EXPRESSION__TYPE_NAME = EXPRESSION_FEATURE_COUNT + 7;
 
   /**
+   * The feature id for the '<em><b>Builtin typescompatiblep</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_EXPRESSION__BUILTIN_TYPESCOMPATIBLEP = EXPRESSION_FEATURE_COUNT + 8;
+
+  /**
+   * The feature id for the '<em><b>Type Name2</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_EXPRESSION__TYPE_NAME2 = EXPRESSION_FEATURE_COUNT + 9;
+
+  /**
    * The number of structural features of the '<em>Primary Expression</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PRIMARY_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 8;
+  int PRIMARY_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 10;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.ConstantExpressionImpl <em>Constant Expression</em>}' class.
@@ -7210,6 +7228,28 @@ public interface ParserPackage extends EPackage
   EReference getPrimaryExpression_TypeName();
 
   /**
+   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.PrimaryExpression#isBuiltin_typescompatiblep <em>Builtin typescompatiblep</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Builtin typescompatiblep</em>'.
+   * @see at.jku.weiner.c.parser.parser.PrimaryExpression#isBuiltin_typescompatiblep()
+   * @see #getPrimaryExpression()
+   * @generated
+   */
+  EAttribute getPrimaryExpression_Builtin_typescompatiblep();
+
+  /**
+   * Returns the meta object for the containment reference '{@link at.jku.weiner.c.parser.parser.PrimaryExpression#getTypeName2 <em>Type Name2</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type Name2</em>'.
+   * @see at.jku.weiner.c.parser.parser.PrimaryExpression#getTypeName2()
+   * @see #getPrimaryExpression()
+   * @generated
+   */
+  EReference getPrimaryExpression_TypeName2();
+
+  /**
    * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.ConstantExpression <em>Constant Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -9786,6 +9826,22 @@ public interface ParserPackage extends EPackage
      * @generated
      */
     EReference PRIMARY_EXPRESSION__TYPE_NAME = eINSTANCE.getPrimaryExpression_TypeName();
+
+    /**
+     * The meta object literal for the '<em><b>Builtin typescompatiblep</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PRIMARY_EXPRESSION__BUILTIN_TYPESCOMPATIBLEP = eINSTANCE.getPrimaryExpression_Builtin_typescompatiblep();
+
+    /**
+     * The meta object literal for the '<em><b>Type Name2</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PRIMARY_EXPRESSION__TYPE_NAME2 = eINSTANCE.getPrimaryExpression_TypeName2();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.ConstantExpressionImpl <em>Constant Expression</em>}' class.

@@ -1149,7 +1149,8 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	 *         string+=STRING_LITERAL+ | 
 	 *         expr=Expression | 
 	 *         (ext?=KW_EXTENSION? compoundStmt=CompoundStatement) | 
-	 *         (builtin_offsetof?=KW_BUILTIN_OFFSETOF typeName=TypeName expr=UnaryExpression)
+	 *         (builtin_offsetof?=KW_BUILTIN_OFFSETOF typeName=TypeName expr=UnaryExpression) | 
+	 *         (builtin_typescompatiblep?=KW_BUILTIN_TYPESCOMPATIBLEP typeName=TypeName typeName2=TypeName)
 	 *     )
 	 */
 	protected void sequence_PrimaryExpression(EObject context, PrimaryExpression semanticObject) {

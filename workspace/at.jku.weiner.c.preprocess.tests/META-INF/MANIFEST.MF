@@ -14,10 +14,11 @@ Require-Bundle: at.jku.weiner.c.common;bundle-version="1.0.0",
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: at.jku.weiner.c.preprocess.tests,
  at.jku.weiner.c.preprocess.xtexttests
-Import-Package: org.junit.runners;version="4.5.0",
- org.junit.runners.model;version="4.5.0",
+Import-Package: org.antlr.runtime,
  org.hamcrest.core,
+ org.junit;version="4.5.0",
+ org.junit.runner;version="4.5.0",
  org.junit.runner.manipulation;version="4.5.0",
  org.junit.runner.notification;version="4.5.0",
- org.junit;version="4.5.0",
- org.junit.runner;version="4.5.0"
+ org.junit.runners;version="4.5.0",
+ org.junit.runners.model;version="4.5.0"

@@ -64,7 +64,7 @@ public final class IncludeUtils {
 		// load the resource
 		final ResourceSet set = this.rs; // this.resourceSetProvider.get();
 		final URI uri = this.createURI();
-		// System.out.println("resource='" + uri + "'");
+		MyLog.debug("resource='" + uri + "'");
 		final Resource resource = set.getResource(uri, true);
 		// validate the resource
 		// final List<Issue> list = this.validator.validate(resource,
@@ -99,9 +99,9 @@ public final class IncludeUtils {
 			final MyPath pathInInclude = new MyPath(include);
 			final String searchForFile = pathInInclude.combine(pathInURI);
 			final File file = new File(searchForFile);
-			// System.out.println("searchForFile='" + searchForFile + "'");
-			// System.out.println("fileExists='" + file.exists() + "'");
-			// System.out.println("canRead='" + file.canRead() + "'");
+			MyLog.debug("searchForFile='" + searchForFile + "'");
+			MyLog.debug("fileExists='" + file.exists() + "'");
+			MyLog.debug("canRead='" + file.canRead() + "'");
 			if (file.exists() && file.canRead()) {
 				return URI.createFileURI(searchForFile);
 			}

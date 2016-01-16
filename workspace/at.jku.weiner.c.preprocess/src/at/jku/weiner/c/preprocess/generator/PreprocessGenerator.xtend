@@ -52,6 +52,7 @@ import at.jku.weiner.c.preprocess.preprocess.IfAbstractConditional
 import at.jku.weiner.c.preprocess.utils.macros.PredefinedMacros
 import at.jku.weiner.c.preprocess.utils.macros.AdditionalPreprocessingDirectives
 import java.util.Stack
+import at.jku.weiner.c.preprocess.utils.MyLog
 
 /**
  * Generates code from your model files on save.
@@ -78,7 +79,6 @@ class PreprocessGenerator implements IGenerator {
 	Stack<URI> currUri;
 	List<String> path = new ArrayList<String>();
 	boolean standAlone = false;
-	boolean logging = true;
 	
 	override void doGenerate(Resource input, IFileSystemAccess fsa) {
 		setUp();
@@ -99,7 +99,7 @@ class PreprocessGenerator implements IGenerator {
 		val Preprocess preprocess = getPreprocessFor(input, false);
 		val String output = outputFor(preprocess);
 		val String result = additional + output;
-		// System.out.println("generating output file='" + fileName + "'");
+		MyLog.debug("generating output file='" + fileName + "'");
 		fsa.generateFile(fileName, result);
 	}
 	
@@ -139,16 +139,16 @@ class PreprocessGenerator implements IGenerator {
 		val String fileName = getFileName(input);
 		if (this.unit == null) {
 			preprocess = input.allContents.filter(typeof(Preprocess)).head;
-			//System.out.println("unit-null: preprocess='" + preprocess + "'" + fileName + "'");
+			MyLog.debug("unit-null: preprocess='" + preprocess + "'" + fileName + "'");
 		}
 		else {
 			preprocess = unit.preprocess as Preprocess;
 			if (preprocess == null || forceLoading) {
 				preprocess = loadExistingPreprocess(fileName);
-				//System.out.println("force-loading: preprocess='" + preprocess + "'" + fileName + "'");
+				MyLog.debug("force-loading: preprocess='" + preprocess + "'" + fileName + "'");
 				if (preprocess == null) {
 					preprocess = input.allContents.filter(typeof(Preprocess)).head;
-					//System.out.println("filtering: preprocess='" + preprocess + "'" + fileName + "'");
+					MyLog.debug("filtering: preprocess='" + preprocess + "'" + fileName + "'");
 				}
 			}
 		}
@@ -209,9 +209,7 @@ class PreprocessGenerator implements IGenerator {
 	}
 	
 	def String outputFor(GroupOpt group) {
-		if (logging) {
-			System.out.println("outputFor path='" + path + "'");
-		}
+		MyLog.log("outputFor path='" + path + "'");
 		
 		val StringBuffer result = new StringBuffer("");
 		for (var int i = 0; i < group.lines.size; i++) {
@@ -233,7 +231,7 @@ class PreprocessGenerator implements IGenerator {
 						codeResult = outputFor(codeList);
 						fullResolved = true;
 					} catch (MacroParentheseNotClosedYetException ex) {
-						// System.out.println("not fully resolved at='" + i + "'");
+						MyLog.debug("not fully resolved at='" + i + "'");
 						i++; 
 						obj = group.lines.get(i);
 						//fullResolved = true;
@@ -244,9 +242,7 @@ class PreprocessGenerator implements IGenerator {
 			}
 		}
 		path.remove(path.length() - 1);
-		if (logging) {
-			System.out.println("back in path='" + path + "'");
-		}
+		MyLog.log("back in path='" + path + "'");
 		return result.toString();
 	}
 

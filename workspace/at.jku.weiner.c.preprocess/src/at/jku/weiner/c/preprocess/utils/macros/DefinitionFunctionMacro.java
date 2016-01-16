@@ -9,6 +9,7 @@ import org.eclipse.emf.common.util.EList;
 
 import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
 import at.jku.weiner.c.preprocess.preprocess.ReplaceLine;
+import at.jku.weiner.c.preprocess.utils.MyLog;
 
 public final class DefinitionFunctionMacro implements DefinitionMacro {
 
@@ -224,9 +225,8 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			if (string == null) {
 				string = "";
 			}
-			// System.out.println("id='" + this.key + "' i='" + i +
-			// "', string=' "
-			// + string + "', temp='" + temp.toString() + "'");
+			MyLog.debug("id='" + this.key + "' i='" + i + "', string=' "
+					+ string + "', temp='" + temp.toString() + "'");
 			String id = line.getId();
 
 			int j;
@@ -236,14 +236,13 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 				final String val = DefinitionTable.fullResolve(orig);
 				final DefinitionObjectMacro macro = new DefinitionObjectMacro(
 						key, val);
-				// System.out.println("key='" + key + "', orig='" + orig
-				// + "', val='" + val + "'");
-				// string = macro.resolve(string);
+				MyLog.debug("key='" + key + "', orig='" + orig + "', val='"
+						+ val + "'");
 				string = this.resolveWithRespectToConcate(originalText, macro,
 						string, line.isConcatenate(), concatenate, orig);
-				// System.out.println("id='" + this.key + "' i='" + i
-				// + "', string-after-resolve=' " + string + "', temp='"
-				// + temp.toString() + "'");
+				MyLog.debug("id='" + this.key + "' i='" + i
+						+ "', string-after-resolve=' " + string + "', temp='"
+						+ temp.toString() + "'");
 				if (id != null) {
 					if (id.equals(key)) {
 						id = orig;
@@ -323,7 +322,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		final DefinitionObjectMacro macro2 = new DefinitionObjectMacro(myKey,
 				orig);
 		if (concatFirst) {
-			// System.out.println("concatFirst!");
+			MyLog.debug("concatFirst!");
 			final Pattern pattern = Pattern.compile("\\b" + macro.getName()
 					+ "\\s*$");
 			final Matcher matcher = pattern.matcher(string);
@@ -335,16 +334,15 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			String string2 = string.substring(matcher.start(), matcher.end());
 			string2 = macro2.resolve(original, string2);
 			result = string1 + string2;
-			// System.out.println("key='" + this.key + "', orig='" + orig +
-			// "'");
-			// System.out.println("string1='" + string1 + "'");
-			// System.out.println("string2='" + string2 + "'");
-			// System.out.println("result='" + result + "'");
+			MyLog.debug("key='" + this.key + "', orig='" + orig + "'");
+			MyLog.debug("string1='" + string1 + "'");
+			MyLog.debug("string2='" + string2 + "'");
+			MyLog.debug("result='" + result + "'");
 		}
 
 		if (concatSecond) {
-			// System.out.println("concatSecond!");
-			// System.out.println("string='" + string + "'");
+			MyLog.debug("concatSecond!");
+			MyLog.debug("string='" + string + "'");
 			final Pattern pattern = Pattern.compile("^\\s*" + macro.getName()
 					+ "\\b");
 			final Matcher matcher = pattern.matcher(string);
@@ -353,8 +351,8 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			}
 			String string1 = string.substring(matcher.start(), matcher.end());
 			string1 = macro2.resolve(original, string1);
-			// System.out.println("matcher.end()='" + matcher.end() + "'");
-			// System.out.println("string.length()='" + string.length() + "'");
+			MyLog.debug("matcher.end()='" + matcher.end() + "'");
+			MyLog.debug("string.length()='" + string.length() + "'");
 			final String string2 = macro.resolve(original,
 					string.substring(matcher.end(), string.length()));
 			result = string1 + string2;
@@ -366,7 +364,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		if (!temp.contains("#")) {
 			return temp;
 		}
-		// System.out.println("temp='" + temp + "'");
+		MyLog.debug("temp='" + temp + "'");
 		final Pattern strPattern = Pattern.compile("#[\\s]*([\\w\\\"\\\\]*)");
 		final Matcher strMatcher = strPattern.matcher(temp);
 		final Pattern conPattern = Pattern.compile("[\\s]*##[\\s]*");

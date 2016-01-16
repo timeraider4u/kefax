@@ -1,0 +1,50 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language preprocess
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+split-lexer=false
+source file="res/Test0117_Replacement.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_COMMA ID SKW_RIGHTPAREN WHITESPACE LINEBREAK
+		WHITESPACE ID WHITESPACE ID SKW_LEFTBRACKET ID SKW_RIGHTBRACKET NEWLINE
+	NEWLINE
+	ID SKW_LEFTPAREN ID SKW_COMMA DECIMAL_LITERAL SKW_RIGHTPAREN SKW_SEMI NEWLINE
+//----------------------------------------------------------------------
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"FOO",
+					list=
+					(IdentifierList
+						id+*"[bar, bax]"
+					),
+					replacement+=
+					(ReplaceLine
+						string++"  	int bar[bax]"
+					)
+				)
+			),
+			(NewLineLine),
+			(Code
+				code++"FOO(bax,5);"
+			)
+		)
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0117_Replacement.c.i"
+expected file="expected/Test0117_Replacement.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

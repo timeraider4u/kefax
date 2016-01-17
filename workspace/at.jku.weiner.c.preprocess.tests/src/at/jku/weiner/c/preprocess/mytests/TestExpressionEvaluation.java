@@ -1,19 +1,29 @@
 package at.jku.weiner.c.preprocess.mytests;
 
+import org.eclipse.xtext.junit4.InjectWith;
+import org.eclipse.xtext.junit4.XtextRunner;
+import org.eclipse.xtext.parser.antlr.ITokenDefProvider;
+import org.eclipse.xtext.parser.antlr.Lexer;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import at.jku.weiner.c.common.CommonStandaloneSetup;
 import at.jku.weiner.c.common.common.UnaryOperator;
+import at.jku.weiner.c.preprocess.tests.PreprocessInjectorProvider;
+import at.jku.weiner.c.preprocess.utils.LexerUtils;
 import at.jku.weiner.c.preprocess.utils.expressions.ExpressionEvaluation;
 import at.jku.weiner.c.preprocess.utils.expressions.ExpressionLongVisitor;
 import at.jku.weiner.c.preprocess.utils.expressions.IExpressionVisitor;
 import at.jku.weiner.c.preprocess.utils.macros.DefinitionTable;
 
+import com.google.inject.Inject;
 import com.google.inject.Injector;
 
+@RunWith(XtextRunner.class)
+@InjectWith(PreprocessInjectorProvider.class)
 public class TestExpressionEvaluation {
 	
 	private UnaryOperator unaryOperatorPlus;
@@ -27,11 +37,21 @@ public class TestExpressionEvaluation {
 	private TestExpressionHelper helperFour;
 	
 	private ExpressionEvaluation<Long> evaluater;
+
+	@Inject
+	private Lexer lexer;
+	@Inject
+	private ITokenDefProvider tokenDefProvider;
+	
+	private DefinitionTable definitionTable;
 	
 	@Before
 	public void setUp() throws Exception {
-		DefinitionTable.reset();
-		Assert.assertEquals(0, DefinitionTable.size());
+		final LexerUtils lexerUtils = new LexerUtils(this.lexer,
+				this.tokenDefProvider);
+		this.definitionTable = new DefinitionTable(lexerUtils);
+		this.definitionTable.reset();
+		Assert.assertEquals(0, this.definitionTable.size());
 		this.helperZero = new TestExpressionHelper(ExpressionLongVisitor.FALSE);
 		this.helperOne = new TestExpressionHelper(ExpressionLongVisitor.TRUE);
 		this.helperTwo = new TestExpressionHelper(2);
@@ -48,7 +68,7 @@ public class TestExpressionEvaluation {
 		
 		final Injector injector = this.getInjector();
 		final IExpressionVisitor<Long> visitor = new ExpressionLongVisitor(
-				injector);
+				injector, this.definitionTable);
 		this.evaluater = new ExpressionEvaluation<Long>(visitor);
 	}
 	
@@ -63,61 +83,61 @@ public class TestExpressionEvaluation {
 	
 	@After
 	public void tearDown() throws Exception {
-		DefinitionTable.reset();
-		Assert.assertEquals(0, DefinitionTable.size());
+		this.definitionTable.reset();
+		Assert.assertEquals(0, this.definitionTable.size());
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testPrimaryExpressionTrue() {
 		Assert.assertEquals(ExpressionLongVisitor.TRUE,
 				this.evaluater.walkTo(this.helperOne.primaryExpression));
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testPrimaryExpressionFalse() {
 		Assert.assertEquals(ExpressionLongVisitor.FALSE,
 				this.evaluater.walkTo(this.helperZero.primaryExpression));
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testPostfixExpressionTrue() {
 		Assert.assertEquals(ExpressionLongVisitor.TRUE,
 				this.evaluater.walkTo(this.helperOne.postfixExpression));
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testPostfixExpressionFalse() {
 		Assert.assertEquals(ExpressionLongVisitor.FALSE,
 				this.evaluater.walkTo(this.helperZero.unaryExpression1));
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testUnaryExpressionWithoutOperatorTrue() {
 		Assert.assertEquals(ExpressionLongVisitor.TRUE,
 				this.evaluater.walkTo(this.helperOne.unaryExpression1));
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testUnaryExpressionWithoutOperatorFalse() {
 		Assert.assertEquals(ExpressionLongVisitor.FALSE,
 				this.evaluater.walkTo(this.helperZero.unaryExpression1));
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testUnaryExpressionTrue1() {
 		this.helperOne.unaryExpression2.setOp(this.unaryOperatorPlus);
 		Assert.assertEquals(ExpressionLongVisitor.TRUE,
 				this.evaluater.walkTo(this.helperOne.unaryExpression2));
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testUnaryExpressionFalse1() {
 		this.helperZero.unaryExpression2.setOp(this.unaryOperatorPlus);
 		Assert.assertEquals(ExpressionLongVisitor.FALSE,
 				this.evaluater.walkTo(this.helperZero.unaryExpression2));
 	}
 	
-	@Test(expected = UnsupportedOperationException.class)
+	@Test(expected = UnsupportedOperationException.class, timeout = 1000)
 	public void testUnaryExpressionIllegalOperator1() {
 		final UnaryOperator op = this.helperZero.factory2.createUnaryOperator();
 		op.setOp("&");
@@ -125,7 +145,7 @@ public class TestExpressionEvaluation {
 		this.evaluater.walkTo(this.helperZero.unaryExpression2);
 	}
 	
-	@Test(expected = UnsupportedOperationException.class)
+	@Test(expected = UnsupportedOperationException.class, timeout = 1000)
 	public void testUnaryExpressionIllegalOperator2() {
 		final UnaryOperator op = this.helperZero.factory2.createUnaryOperator();
 		op.setOp("*");
@@ -133,7 +153,7 @@ public class TestExpressionEvaluation {
 		this.evaluater.walkTo(this.helperZero.unaryExpression2);
 	}
 	
-	@Test(expected = UnsupportedOperationException.class)
+	@Test(expected = UnsupportedOperationException.class, timeout = 1000)
 	public void testUnaryExpressionIllegalOperator3() {
 		final UnaryOperator op = this.helperZero.factory2.createUnaryOperator();
 		op.setOp("~");
@@ -141,7 +161,7 @@ public class TestExpressionEvaluation {
 		this.evaluater.walkTo(this.helperZero.unaryExpression2);
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testUnaryExpressionTrue2() {
 		this.helperOne.unaryExpression2.setOp(this.unaryOperatorMinus);
 		final Long expected = new Long(-1);
@@ -149,28 +169,28 @@ public class TestExpressionEvaluation {
 				this.evaluater.walkTo(this.helperOne.unaryExpression2));
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testUnaryExpressionFalse2() {
 		this.helperZero.unaryExpression2.setOp(this.unaryOperatorMinus);
 		Assert.assertEquals(ExpressionLongVisitor.FALSE,
 				this.evaluater.walkTo(this.helperZero.unaryExpression2));
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testUnaryExpressionTrue3() {
 		this.helperZero.unaryExpression2.setOp(this.unaryOperatorNot);
 		Assert.assertEquals(ExpressionLongVisitor.TRUE,
 				this.evaluater.walkTo(this.helperZero.unaryExpression2));
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testUnaryExpressionFalse3a() {
 		this.helperOne.unaryExpression2.setOp(this.unaryOperatorNot);
 		Assert.assertEquals(ExpressionLongVisitor.FALSE,
 				this.evaluater.walkTo(this.helperOne.unaryExpression2));
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testUnaryExpressionFalse3b() {
 		this.helperOne.primaryExpression.setConst("-1");
 		this.helperOne.unaryExpression2.setOp(this.unaryOperatorNot);
@@ -178,33 +198,33 @@ public class TestExpressionEvaluation {
 				this.evaluater.walkTo(this.helperOne.unaryExpression2));
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testCastExpressionTrue() {
 		this.helperOne.unaryExpression2.setOp(this.unaryOperatorPlus);
 		Assert.assertEquals(ExpressionLongVisitor.TRUE,
 				this.evaluater.walkTo(this.helperOne.castExpression2));
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testCastExpressionFalse() {
 		this.helperZero.unaryExpression2.setOp(this.unaryOperatorPlus);
 		Assert.assertEquals(ExpressionLongVisitor.FALSE,
 				this.evaluater.walkTo(this.helperZero.castExpression2));
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testMultiSimpleTrue() {
 		Assert.assertEquals(ExpressionLongVisitor.TRUE,
 				this.evaluater.walkTo(this.helperOne.multiplicateExpression));
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testMultiSimpleFalse() {
 		Assert.assertEquals(ExpressionLongVisitor.FALSE,
 				this.evaluater.walkTo(this.helperZero.multiplicateExpression));
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testMultiExpressionTrue() {
 		this.helperThree.multiplicateExpression.getExpr().add(
 				this.helperTwo.castExpression2);
@@ -213,7 +233,7 @@ public class TestExpressionEvaluation {
 				this.evaluater.walkTo(this.helperThree.multiplicateExpression));
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testMultiExpressionFalse() {
 		this.helperThree.multiplicateExpression.getExpr().add(
 				this.helperTwo.castExpression2);
@@ -222,7 +242,7 @@ public class TestExpressionEvaluation {
 				this.evaluater.walkTo(this.helperThree.multiplicateExpression));
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testMultiMulti() {
 		this.helperFour.multiplicateExpression.getExpr().add(
 				this.helperTwo.castExpression2);
@@ -251,19 +271,19 @@ public class TestExpressionEvaluation {
 				this.evaluater.walkTo(this.helperFour.multiplicateExpression));
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testAddTrue() {
 		Assert.assertEquals(ExpressionLongVisitor.TRUE,
 				this.evaluater.walkTo(this.helperOne.additiveExpression));
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testAddFalse() {
 		Assert.assertEquals(ExpressionLongVisitor.FALSE,
 				this.evaluater.walkTo(this.helperZero.additiveExpression));
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testAddMulti() {
 		this.helperFour.additiveExpression.getExpr().add(
 				this.helperTwo.multiplicateExpression);
@@ -285,13 +305,13 @@ public class TestExpressionEvaluation {
 				this.evaluater.walkTo(this.helperFour.additiveExpression));
 	}
 	
-	@Test(expected = IllegalArgumentException.class)
+	@Test(expected = IllegalArgumentException.class, timeout = 1000)
 	public void testAddWithNotEnoughOperators() {
 		this.helperFour.additiveExpression.getOp().add("-");
 		this.evaluater.walkTo(this.helperFour.additiveExpression);
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testShift() {
 		this.helperTwo.additiveExpression.getExpr().add(
 				this.helperThree.multiplicateExpression);
@@ -309,21 +329,21 @@ public class TestExpressionEvaluation {
 				this.evaluater.walkTo(this.helperTwo.shiftExpression));
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testPlainRelational() {
 		final Long expected = new Long(4);
 		Assert.assertEquals(expected,
 				this.evaluater.walkTo(this.helperFour.shiftExpression));
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testRelationalSimple() {
 		final Long expected = new Long(2);
 		Assert.assertEquals(expected,
 				this.evaluater.walkTo(this.helperTwo.relationalExpression));
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testRelationalSmallerThan() {
 		this.helperTwo.relationalExpression.getExpr().add(
 				this.helperThree.shiftExpression);
@@ -332,7 +352,7 @@ public class TestExpressionEvaluation {
 				this.evaluater.walkTo(this.helperTwo.relationalExpression));
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testRelationalMulti() {
 		this.helperThree.additiveExpression.getExpr().add(
 				this.helperOne.multiplicateExpression);
@@ -355,14 +375,14 @@ public class TestExpressionEvaluation {
 				this.evaluater.walkTo(this.helperFour.relationalExpression));
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testEqualitySimple() {
 		final Long expected = new Long(4);
 		Assert.assertEquals(expected,
 				this.evaluater.walkTo(this.helperFour.equalityExpression));
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testEquality() {
 		final TestExpressionHelper myFour = new TestExpressionHelper(4);
 		myFour.equalityExpression.getExpr().add(
@@ -382,7 +402,7 @@ public class TestExpressionEvaluation {
 				this.evaluater.walkTo(myFour.equalityExpression));
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testLogicalSimple() {
 		final Long expected1 = new Long(3);
 		Assert.assertEquals(expected1,
@@ -392,7 +412,7 @@ public class TestExpressionEvaluation {
 				this.evaluater.walkTo(this.helperFour.logicalAndExpression));
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testLogical() {
 		final TestExpressionHelper myZero = new TestExpressionHelper(0);
 		this.helperZero.logicalOrExpression.getExpr().add(
@@ -415,7 +435,7 @@ public class TestExpressionEvaluation {
 				this.evaluater.walkTo(this.helperZero.logicalOrExpression));
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testLong1() {
 		final Long zero = new Long(0);
 		Assert.assertEquals(ExpressionLongVisitor.FALSE, zero);
@@ -425,7 +445,7 @@ public class TestExpressionEvaluation {
 		Assert.assertFalse(ExpressionLongVisitor.TRUE.equals(zero));
 	}
 	
-	@Test
+	@Test(timeout = 1000)
 	public void testLong2() {
 		final Long one = new Long(1);
 		Assert.assertEquals(ExpressionLongVisitor.TRUE, one);

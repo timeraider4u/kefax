@@ -2,12 +2,10 @@ package at.jku.weiner.c.preprocess.mytests;
 
 import java.util.List;
 
-import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.Token;
 import org.eclipse.xtext.junit4.InjectWith;
 import org.eclipse.xtext.junit4.XtextRunner;
 import org.eclipse.xtext.parser.antlr.ITokenDefProvider;
-import org.eclipse.xtext.parser.antlr.Lexer;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -38,7 +36,7 @@ public class TestLexerCall {
 		Assert.assertNotNull(this.utils);
 	}
 
-	@Test
+	@Test(timeout = 1000)
 	public void test() {
 		final String text = "FOO (bax,5);";
 		final List<Token> tokens = this.utils.getTokens(text);

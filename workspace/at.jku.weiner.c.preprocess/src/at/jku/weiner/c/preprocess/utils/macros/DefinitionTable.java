@@ -1,124 +1,120 @@
 package at.jku.weiner.c.preprocess.utils.macros;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import org.antlr.runtime.Token;
 import org.eclipse.emf.common.util.EList;
 
+import at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer;
 import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
 import at.jku.weiner.c.preprocess.preprocess.ReplaceLine;
+import at.jku.weiner.c.preprocess.utils.LexerUtils;
+import at.jku.weiner.c.preprocess.utils.MyLog;
 
 public final class DefinitionTable {
-	
-	private static final List<DefinitionEntry> macros = new ArrayList<DefinitionEntry>();
-	private static final List<DefinitionEntry> objMacros = new ArrayList<DefinitionEntry>();
-	private static final List<DefinitionEntry> funcMacros = new ArrayList<DefinitionEntry>();
 
-	public static void reset() {
-		DefinitionTable.macros.clear();
-		DefinitionTable.objMacros.clear();
-		DefinitionTable.funcMacros.clear();
+	private final Map<String, DefinitionMacro> macros = new HashMap<String, DefinitionMacro>();
+	private final LexerUtils lexer;
+	
+	public DefinitionTable(final LexerUtils lexer) {
+		this.lexer = lexer;
+	}
+	
+	public void reset() {
+		this.macros.clear();
+		MyLog.debug("DefinitionTable.reset()");
+	}
+	
+	public int size() {
+		return this.macros.size();
 	}
 
-	public static int size() {
-		return DefinitionTable.macros.size();
-	}
-	
-	protected static String resolve(final String originalText, final String code) {
-		String result = code;
-		for (int i = 0; i < DefinitionTable.funcMacros.size(); i++) {
-			final DefinitionEntry entry = DefinitionTable.funcMacros.get(i);
-			result = entry.resolve(originalText, result);
-		}
-		for (int i = 0; i < DefinitionTable.objMacros.size(); i++) {
-			final DefinitionEntry entry = DefinitionTable.objMacros.get(i);
-			result = entry.resolve(originalText, result);
-		}
-		return result;
-	}
-	
-	public static boolean isDefined(final String macroName) {
+	public boolean isDefined(final String macroName) {
 		boolean result = false;
-		for (int i = 0; i < DefinitionTable.macros.size(); i++) {
-			final DefinitionEntry entry = DefinitionTable.macros.get(i);
-			if (entry.equalsKey(macroName)) {
-				result = true;
-			}
-		}
+		result = this.macros.containsKey(macroName);
 		return result;
 	}
-	
-	public static boolean containsAKey(final String originalText,
-			final String code) {
-		for (final DefinitionEntry entry : DefinitionTable.macros) {
-			if (entry.matches(originalText, code)) {
-				return true;
-			}
-		}
-		return false;
-	}
-	
-	public static void add(final String id, final String replaceWith) {
+
+	public void add(final String id, final String replaceWith) {
 		final String key = id;
 		final String val = replaceWith;
-		final DefinitionMacro newMacro = new DefinitionObjectMacro(key, val);
-		
-		DefinitionTable.checkForExistence(key, newMacro);
-		
-		final DefinitionEntry entry = new DefinitionEntry(key, newMacro);
-		DefinitionTable.macros.add(entry);
-		DefinitionTable.objMacros.add(entry);
+		MyLog.debug("add new object-like macro with key='" + id
+				+ "' and replaceWith='" + replaceWith + "'");
+		final DefinitionMacro newMacro = new DefinitionObjectMacro(this.lexer,
+				key, val);
+		this.checkForExistence(key, newMacro);
+		this.macros.put(id, newMacro);
 	}
-	
-	private static void checkForExistence(final String key,
+
+	private void checkForExistence(final String key,
 			final DefinitionMacro newMacro) {
-		for (int i = 0; i < DefinitionTable.macros.size(); i++) {
-			final DefinitionEntry entry = DefinitionTable.macros.get(i);
-			if (entry.equalsKey(newMacro.getName())) {
-				if (entry.equalsMacro(newMacro)) {
-					DefinitionTable.macros.remove(entry);
-					DefinitionTable.objMacros.remove(entry);
-					DefinitionTable.funcMacros.remove(DefinitionTable.macros);
-				} else {
-					throw new IllegalArgumentException(
-							"re-definition is not possible!!!");
+		if (this.macros.containsKey(key)) {
+			final DefinitionMacro entry = this.macros.get(key);
+			if (entry.equalsMacro(newMacro)) {
+				this.macros.remove(entry);
+			} else {
+				throw new IllegalArgumentException(
+						"re-definition is not possible!!!");
+			}
+		}
+	}
+
+	public void addFunctionMacro(final String id, final IdentifierList list,
+			final EList<ReplaceLine> replaceWith) {
+		final String key = id;
+		final DefinitionMacro newMacro = new DefinitionFunctionMacro(key, list,
+				replaceWith);
+		this.checkForExistence(key, newMacro);
+
+		this.macros.put(id, newMacro);
+	}
+
+	public void remove(final String key) {
+		this.macros.remove(key);
+	}
+
+	public boolean containsAKey(final String code) {
+		final boolean result = false;
+		final List<Token> list = this.lexer.getTokens(code);
+		for (int i = 0; i < list.size(); i++) {
+			final Token next = list.get(i);
+			final int type = next.getType();
+			final String text = next.getText();
+			if (type == InternalPreprocessLexer.RULE_ID) {
+				if (this.macros.containsKey(text)) {
+					return true;
 				}
 			}
 		}
-	}
-	
-	public static void addFunctionMacro(final String id,
-			final IdentifierList list, final EList<ReplaceLine> replaceWith) {
-		final String key = id;
-		// final String val = DefinitionTable.resolve(replaceWith);
-		// final String val = replaceWith;
-		final DefinitionMacro newMacro = new DefinitionFunctionMacro(key, list,
-				replaceWith);
-		DefinitionTable.checkForExistence(key, newMacro);
-		
-		final DefinitionEntry entry = new DefinitionEntry(key, newMacro);
-		DefinitionTable.macros.add(entry);
-		DefinitionTable.funcMacros.add(entry);
-	}
-	
-	public static void remove(final String key) {
-		for (int i = 0; i < DefinitionTable.macros.size(); i++) {
-			final DefinitionEntry entry = DefinitionTable.macros.get(i);
-			
-			if (entry.equalsKey(key)) {
-				DefinitionTable.macros.remove(entry);
-				DefinitionTable.objMacros.remove(entry);
-				DefinitionTable.funcMacros.remove(entry);
-			}
-		}
-	}
-	
-	public static String fullResolve(final String code) {
-		String result = code;
-		while (DefinitionTable.containsAKey(code, result)) {
-			result = DefinitionTable.resolve(code, result);
-		}
 		return result;
 	}
-	
+
+	public String fullResolve(final String code) {
+		final StringBuffer result = new StringBuffer("");
+		final List<Token> list = this.lexer.getTokens(code);
+		MyLog.debug("fullResolve: code='" + code + "'");
+		for (int i = 0; i < list.size(); i++) {
+			final Token next = list.get(i);
+			final int type = next.getType();
+			final String text = next.getText();
+			MyLog.debug("fullResolve: token('" + i + "')='" + text
+					+ "', result='" + result.toString() + "'");
+			if (type == InternalPreprocessLexer.RULE_ID) {
+				if (this.macros.containsKey(text)) {
+					// resolve macro
+					final DefinitionMacro macro = this.macros.get(text);
+					final int j = macro.resolve(result, list, i);
+					i--;
+				} else {
+					result.append(text);
+				}
+			} else {
+				result.append(text);
+			}
+		}
+		return result.toString();
+	}
+
 }

@@ -53,6 +53,9 @@ import at.jku.weiner.c.preprocess.utils.macros.PredefinedMacros
 import at.jku.weiner.c.preprocess.utils.macros.AdditionalPreprocessingDirectives
 import java.util.Stack
 import at.jku.weiner.c.preprocess.utils.MyLog
+import org.eclipse.xtext.parser.antlr.ITokenDefProvider
+import at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer
+import at.jku.weiner.c.preprocess.utils.LexerUtils
 
 /**
  * Generates code from your model files on save.
@@ -73,12 +76,17 @@ class PreprocessGenerator implements IGenerator {
 	
 	@Inject
 	IResourceValidator validator;
+	@Inject
+	ITokenDefProvider tokenDefProvider;
+	@Inject
+	InternalPreprocessLexer lexer;
 	
 	ResourceSet rs;
 	URI uri;
 	Stack<URI> currUri;
 	List<String> path = new ArrayList<String>();
 	boolean standAlone = false;
+	DefinitionTable definitionTable;
 	
 	override void doGenerate(Resource input, IFileSystemAccess fsa) {
 		setUp();
@@ -90,7 +98,7 @@ class PreprocessGenerator implements IGenerator {
 			IncludeDirs.setUp();
 		}
 		path.clear();
-		DefinitionTable.reset();
+		definitionTable.reset();
 		if (insertPredefinedMacros) {
 			insertPredefinedMacros();
 		}
@@ -112,6 +120,8 @@ class PreprocessGenerator implements IGenerator {
 			val Injector injector = setup.createInjectorAndDoEMFRegistration();
 			commonInjector = injector;
 		}
+		val LexerUtils utils = new LexerUtils(this.lexer, this.tokenDefProvider);
+		definitionTable = new DefinitionTable(utils);
 	}
 	
 	def void insertPredefinedMacros() {
@@ -276,7 +286,7 @@ class PreprocessGenerator implements IGenerator {
 	
 	def String outputForLegacyMode(IncludeDirective obj) {
 		val String inc = obj.string;
-		val IncludeUtils includeUtils = new IncludeUtils(rs, this.currUri.peek(), inc);
+		val IncludeUtils includeUtils = new IncludeUtils(rs, this.currUri.peek(), inc, definitionTable);
 		val Resource res = includeUtils.getResource();
 		//val TranslationUnit unit = this.getUnitFor(res);
 		//val String output = outputFor(unit);
@@ -304,16 +314,16 @@ class PreprocessGenerator implements IGenerator {
 	
 	def String outputFor(DefineDirective obj) {
 		if (obj instanceof DefineObjectMacro) {
-			DefinitionTable.add(obj.id, obj.string);
+			definitionTable.add(obj.id, obj.string);
 		}
 		else if (obj instanceof DefineFunctionLikeMacro) {
-			DefinitionTable.addFunctionMacro(obj.id, obj.list, obj.replacement);
+			definitionTable.addFunctionMacro(obj.id, obj.list, obj.replacement);
 		}
 		return "";
 	}
 	
 	def String outputFor(UnDefineDirective obj) {
-		DefinitionTable.remove(obj.id);
+		definitionTable.remove(obj.id);
 		return "";
 	}
 	
@@ -336,7 +346,7 @@ class PreprocessGenerator implements IGenerator {
 	}
 	
 	def String outputFor(ConditionalDirective condDirective, IfDefConditional obj) {
-		if (DefinitionTable.isDefined(obj.id)) {
+		if (definitionTable.isDefined(obj.id)) {
 			condDirective.branchTaken = obj;
 			obj.branchTaken = true;
 			
@@ -347,7 +357,7 @@ class PreprocessGenerator implements IGenerator {
 	}
 	
 	def String outputFor(ConditionalDirective condDirective, IfNotDefConditional obj) {
-		if (!(DefinitionTable.isDefined(obj.id))) {
+		if (!(definitionTable.isDefined(obj.id))) {
 			condDirective.branchTaken = obj;
 			obj.branchTaken = true;
 			
@@ -360,7 +370,7 @@ class PreprocessGenerator implements IGenerator {
 	def String outputFor(ConditionalDirective condDirective, IfConditional obj) {
 		val ConstantExpression expr = obj.expression as ConstantExpression;
 		val String string = ExpressionEvaluation.evaluateFor(expr);
-		if (ExpressionEvaluation.evaluateFor(expr, commonInjector)) {
+		if (ExpressionEvaluation.evaluateFor(expr, commonInjector, definitionTable)) {
 			path.add("if " + string + "/");
 			condDirective.branchTaken = obj;
 			obj.branchTaken = true;
@@ -390,7 +400,7 @@ class PreprocessGenerator implements IGenerator {
  			return "";
  		}
  		val ConstantExpression expr = obj.expression as ConstantExpression;
- 		if (ExpressionEvaluation.evaluateFor(expr, commonInjector)) {
+ 		if (ExpressionEvaluation.evaluateFor(expr, commonInjector, definitionTable)) {
  			val String string = ExpressionEvaluation.evaluateFor(expr);
 			path.add("elif" + string + "/");
 			condDirective.branchTaken = obj;
@@ -438,7 +448,7 @@ class PreprocessGenerator implements IGenerator {
 	}
 	
 	def String resolve(String code) {
-		DefinitionTable.fullResolve(code);
+		definitionTable.fullResolve(code);
 	}
 	
 }

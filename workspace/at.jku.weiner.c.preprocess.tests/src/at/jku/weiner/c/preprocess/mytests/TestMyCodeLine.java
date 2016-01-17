@@ -8,8 +8,8 @@ import org.junit.Test;
 import at.jku.weiner.c.preprocess.utils.MyValueConverter;
 
 public class TestMyCodeLine {
-
-	@Test
+	
+	@Test(timeout = 1000)
 	public void testToValue() {
 		final MyValueConverter c = new MyValueConverter();
 		final IValueConverter<String> converter = c.MyCodeLine();
@@ -18,21 +18,21 @@ public class TestMyCodeLine {
 		Assert.assertEquals("abc", converter.toValue(" 	abc	\n", null));
 		Assert.assertEquals("abc", converter.toValue("abc", null));
 	}
-
-	@Test(expected = ValueConverterException.class)
+	
+	@Test(expected = ValueConverterException.class, timeout = 1000)
 	public void testToValueNullPointer() {
 		final MyValueConverter c = new MyValueConverter();
 		final IValueConverter<String> converter = c.MyCodeLine();
 		Assert.assertNotNull(converter);
 		converter.toValue(null, null);
 	}
-
-	@Test(expected = ValueConverterException.class)
+	
+	@Test(expected = ValueConverterException.class, timeout = 1000)
 	public void testToValueException() {
 		final MyValueConverter c = new MyValueConverter();
 		final IValueConverter<String> converter = c.MyCodeLine();
 		Assert.assertNotNull(converter);
 		converter.toValue("", null);
 	}
-
+	
 }

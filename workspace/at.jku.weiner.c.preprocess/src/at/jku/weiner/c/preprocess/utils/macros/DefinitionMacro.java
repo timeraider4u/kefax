@@ -1,11 +1,13 @@
 package at.jku.weiner.c.preprocess.utils.macros;
 
-interface DefinitionMacro {
+import java.util.List;
 
-	public String getName();
+import org.antlr.runtime.Token;
 
-	public boolean matches(String originalText, String code);
+public interface DefinitionMacro {
+	
+	public boolean equalsMacro(DefinitionMacro other);
 
-	public String resolve(String originalText, String code);
+	public int resolve(StringBuffer result, List<Token> code, int currPosition);
 
 }

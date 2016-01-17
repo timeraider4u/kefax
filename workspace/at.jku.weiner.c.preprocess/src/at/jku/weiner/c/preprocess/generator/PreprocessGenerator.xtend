@@ -242,7 +242,7 @@ class PreprocessGenerator implements IGenerator {
 						fullResolved = true;
 					} catch (MacroParentheseNotClosedYetException ex) {
 						MyLog.debug("not fully resolved at='" + i + "'");
-						i++; 
+						i++;
 						obj = group.lines.get(i);
 						//fullResolved = true;
 					}
@@ -317,7 +317,7 @@ class PreprocessGenerator implements IGenerator {
 			definitionTable.add(obj.id, obj.string);
 		}
 		else if (obj instanceof DefineFunctionLikeMacro) {
-			definitionTable.addFunctionMacro(obj.id, obj.list, obj.replacement);
+			definitionTable.addFunctionMacro(obj.id, obj.list, obj.string);
 		}
 		return "";
 	}

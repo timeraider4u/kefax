@@ -85,7 +85,7 @@ rulePreprocess returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -125,6 +125,11 @@ rulePreprocess returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -145,7 +150,7 @@ ruleGroupOpt returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -195,6 +200,11 @@ this_NEWLINE_2=RULE_NEWLINE
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -215,7 +225,7 @@ ruleGroupOpt2 returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -286,6 +296,11 @@ this_NEWLINE_2=RULE_NEWLINE
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -306,7 +321,7 @@ ruleGroupOptTemp1 returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -360,6 +375,11 @@ ruleGroupOptTemp1 returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -380,7 +400,7 @@ ruleGroupOptTemp2 returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -418,6 +438,11 @@ ruleGroupOptTemp2 returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -438,7 +463,7 @@ rulePreprocessorDirectives returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -656,6 +681,11 @@ this_HASH_2=RULE_HASH
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -676,7 +706,7 @@ ruleIncludeDirective returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -730,6 +760,11 @@ this_INCLUDE_1=RULE_INCLUDE
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -750,7 +785,7 @@ ruleDefineDirective returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -788,6 +823,11 @@ ruleDefineDirective returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -808,7 +848,7 @@ ruleDefineObjectMacro returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -870,9 +910,9 @@ this_DEFINE_1=RULE_DEFINE
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getDefineObjectMacroAccess().getStringMyDefineLine2ParserRuleCall_4_1_0()); 
+	        newCompositeNode(grammarAccess.getDefineObjectMacroAccess().getStringMyDefineLineObjectParserRuleCall_4_1_0()); 
 	    }
-		lv_string_5_0=ruleMyDefineLine2		{
+		lv_string_5_0=ruleMyDefineLineObject		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getDefineObjectMacroRule());
 	        }
@@ -880,7 +920,7 @@ this_DEFINE_1=RULE_DEFINE
        			$current, 
        			"string",
         		lv_string_5_0, 
-        		"at.jku.weiner.c.preprocess.Preprocess.MyDefineLine2");
+        		"at.jku.weiner.c.preprocess.Preprocess.MyDefineLineObject");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -900,6 +940,11 @@ this_DEFINE_1=RULE_DEFINE
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -920,7 +965,7 @@ ruleDefineFunctionLikeMacro returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -1016,27 +1061,32 @@ this_SKW_RIGHTPAREN_7=RULE_SKW_RIGHTPAREN
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getDefineFunctionLikeMacroAccess().getReplacementReplaceLineParserRuleCall_8_0()); 
+	        newCompositeNode(grammarAccess.getDefineFunctionLikeMacroAccess().getStringMyDefineLineFunctionParserRuleCall_8_0()); 
 	    }
-		lv_replacement_8_0=ruleReplaceLine		{
+		lv_string_8_0=ruleMyDefineLineFunction		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getDefineFunctionLikeMacroRule());
 	        }
-       		add(
+       		set(
        			$current, 
-       			"replacement",
-        		lv_replacement_8_0, 
-        		"at.jku.weiner.c.preprocess.Preprocess.ReplaceLine");
+       			"string",
+        		lv_string_8_0, 
+        		"at.jku.weiner.c.preprocess.Preprocess.MyDefineLineFunction");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)*
+)?
 
 )
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -1057,7 +1107,7 @@ ruleIdentifierList returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -1288,177 +1338,11 @@ this_SKW_COMMA_7=RULE_SKW_COMMA
 
 
 ;
+finally {
 
+	/*no after found*/
 
-
-
-
-// Entry rule entryRuleReplaceLine
-entryRuleReplaceLine returns [EObject current=null] 
-	:
-	{ newCompositeNode(grammarAccess.getReplaceLineRule()); }
-	 iv_ruleReplaceLine=ruleReplaceLine 
-	 { $current=$iv_ruleReplaceLine.current; } 
-	 EOF 
-;
-
-// Rule ReplaceLine
-ruleReplaceLine returns [EObject current=null] 
-    @init { enterRule();
-   		/*no init found*/
-    }
-    @after { leaveRule();
-    		/*no after found*/
-     }:
-
-(
-(
-(
-	{ 
-	  /* */ 
-	}
-    {
-        $current = forceCreateModelElement(
-            grammarAccess.getReplaceLineAccess().getReplaceLineAction_0_0(),
-            $current);
-    }
-)
-
-
-(
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getReplaceLineAccess().getStringMyDefineLineParserRuleCall_0_1_0_0()); 
-	    }
-		lv_string_1_0=ruleMyDefineLine		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getReplaceLineRule());
-	        }
-       		set(
-       			$current, 
-       			"string",
-        		lv_string_1_0, 
-        		"at.jku.weiner.c.preprocess.Preprocess.MyDefineLine");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)
-
-
-(
-this_HASH_2=RULE_HASH
-    { 
-    newLeafNode(this_HASH_2, grammarAccess.getReplaceLineAccess().getHASHTerminalRuleCall_0_1_1_0()); 
-    }
-
-
-
-(
-(
-(this_WHITESPACE_3=RULE_WHITESPACE
-    { 
-    newLeafNode(this_WHITESPACE_3, grammarAccess.getReplaceLineAccess().getWHITESPACETerminalRuleCall_0_1_1_1_0_0()); 
-    }
-)*
-
-
-(
-(
-		lv_id_4_0=RULE_ID
-		{
-			newLeafNode(lv_id_4_0, grammarAccess.getReplaceLineAccess().getIdIDTerminalRuleCall_0_1_1_1_0_1_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getReplaceLineRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"id",
-        		lv_id_4_0, 
-        		"at.jku.weiner.c.common.Common.ID");
-	    }
-
-)
-)
-
-)
-
-
-    |
-(
-(
-		lv_concatenate_5_0=RULE_HASH
-		{
-			newLeafNode(lv_concatenate_5_0, grammarAccess.getReplaceLineAccess().getConcatenateHASHTerminalRuleCall_0_1_1_1_1_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getReplaceLineRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"concatenate",
-        		true, 
-        		"at.jku.weiner.c.preprocess.Preprocess.HASH");
-	    }
-
-)
-)
-
-)
-
-)?
-
-)
-
-)
-
-
-    |
-(
-this_HASH_6=RULE_HASH
-    { 
-    newLeafNode(this_HASH_6, grammarAccess.getReplaceLineAccess().getHASHTerminalRuleCall_1_0()); 
-    }
-
-
-
-(this_WHITESPACE_7=RULE_WHITESPACE
-    { 
-    newLeafNode(this_WHITESPACE_7, grammarAccess.getReplaceLineAccess().getWHITESPACETerminalRuleCall_1_1()); 
-    }
-)*
-
-
-(
-(
-		lv_id_8_0=RULE_ID
-		{
-			newLeafNode(lv_id_8_0, grammarAccess.getReplaceLineAccess().getIdIDTerminalRuleCall_1_2_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getReplaceLineRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"id",
-        		lv_id_8_0, 
-        		"at.jku.weiner.c.common.Common.ID");
-	    }
-
-)
-)
-
-)
-
-)
-
-
-;
+}
 
 
 
@@ -1479,7 +1363,7 @@ ruleErrorDirective returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -1533,6 +1417,11 @@ this_ERROR_1=RULE_ERROR
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -1553,7 +1442,7 @@ ruleWarningDirective returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -1607,6 +1496,11 @@ this_WARNING_1=RULE_WARNING
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -1627,7 +1521,7 @@ ruleUnDefineDirective returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -1688,6 +1582,11 @@ this_UNDEF_1=RULE_UNDEF
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -1708,7 +1607,7 @@ ruleConditionalDirective returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -1858,6 +1757,11 @@ this_ENDIF_7=RULE_ENDIF
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -1878,7 +1782,7 @@ ruleIfConditional returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -1967,6 +1871,11 @@ this_NEWLINE_5=RULE_NEWLINE
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -1987,7 +1896,7 @@ ruleIfDefConditional returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -2076,6 +1985,11 @@ this_NEWLINE_5=RULE_NEWLINE
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -2096,7 +2010,7 @@ ruleIfNotDefConditional returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -2185,6 +2099,11 @@ this_NEWLINE_5=RULE_NEWLINE
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -2205,7 +2124,7 @@ ruleElIfConditional returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -2318,6 +2237,11 @@ this_NEWLINE_8=RULE_NEWLINE
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -2338,7 +2262,7 @@ ruleElseConditional returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -2420,6 +2344,11 @@ this_NEWLINE_6=RULE_NEWLINE
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -2440,7 +2369,7 @@ rulePragmaDirective returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -2494,6 +2423,11 @@ this_PRAGMA_1=RULE_PRAGMA
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -2514,7 +2448,7 @@ ruleNullDirective returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -2530,6 +2464,11 @@ ruleNullDirective returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -2550,7 +2489,7 @@ ruleNewLineLine returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -2566,6 +2505,11 @@ ruleNewLineLine returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -2586,7 +2530,7 @@ ruleCode returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -2626,6 +2570,11 @@ ruleCode returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -2795,38 +2744,38 @@ ruleMyCode returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 
 
 
-// Entry rule entryRuleMyDefineLine
-entryRuleMyDefineLine returns [String current=null] 
+// Entry rule entryRuleMyDefineLineFunction
+entryRuleMyDefineLineFunction returns [String current=null] 
 	:
-	{ newCompositeNode(grammarAccess.getMyDefineLineRule()); } 
-	 iv_ruleMyDefineLine=ruleMyDefineLine 
-	 { $current=$iv_ruleMyDefineLine.current.getText(); }  
+	{ newCompositeNode(grammarAccess.getMyDefineLineFunctionRule()); } 
+	 iv_ruleMyDefineLineFunction=ruleMyDefineLineFunction 
+	 { $current=$iv_ruleMyDefineLineFunction.current.getText(); }  
 	 EOF 
 ;
 
-// Rule MyDefineLine
-ruleMyDefineLine returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+// Rule MyDefineLineFunction
+ruleMyDefineLineFunction returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
 (
     { 
-        newCompositeNode(grammarAccess.getMyDefineLineAccess().getMyCodeParserRuleCall_0()); 
+        newCompositeNode(grammarAccess.getMyDefineLineFunctionAccess().getMyDefineLineObjectParserRuleCall_0()); 
     }
-    this_MyCode_0=ruleMyCode    {
-		$current.merge(this_MyCode_0);
+    this_MyDefineLineObject_0=ruleMyDefineLineObject    {
+		$current.merge(this_MyDefineLineObject_0);
     }
 
     { 
         afterParserOrEnumRuleCall();
     }
 
-    |    this_WHITESPACE_1=RULE_WHITESPACE    {
-		$current.merge(this_WHITESPACE_1);
+    |    this_HASH_1=RULE_HASH    {
+		$current.merge(this_HASH_1);
     }
 
     { 
-    newLeafNode(this_WHITESPACE_1, grammarAccess.getMyDefineLineAccess().getWHITESPACETerminalRuleCall_1()); 
+    newLeafNode(this_HASH_1, grammarAccess.getMyDefineLineFunctionAccess().getHASHTerminalRuleCall_1()); 
     }
 
     |    this_VA_ARGS_2=RULE_VA_ARGS    {
@@ -2834,7 +2783,7 @@ ruleMyDefineLine returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleTo
     }
 
     { 
-    newLeafNode(this_VA_ARGS_2, grammarAccess.getMyDefineLineAccess().getVA_ARGSTerminalRuleCall_2()); 
+    newLeafNode(this_VA_ARGS_2, grammarAccess.getMyDefineLineFunctionAccess().getVA_ARGSTerminalRuleCall_2()); 
     }
 )+
     ;
@@ -2843,23 +2792,23 @@ ruleMyDefineLine returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleTo
 
 
 
-// Entry rule entryRuleMyDefineLine2
-entryRuleMyDefineLine2 returns [String current=null] 
+// Entry rule entryRuleMyDefineLineObject
+entryRuleMyDefineLineObject returns [String current=null] 
 	:
-	{ newCompositeNode(grammarAccess.getMyDefineLine2Rule()); } 
-	 iv_ruleMyDefineLine2=ruleMyDefineLine2 
-	 { $current=$iv_ruleMyDefineLine2.current.getText(); }  
+	{ newCompositeNode(grammarAccess.getMyDefineLineObjectRule()); } 
+	 iv_ruleMyDefineLineObject=ruleMyDefineLineObject 
+	 { $current=$iv_ruleMyDefineLineObject.current.getText(); }  
 	 EOF 
 ;
 
-// Rule MyDefineLine2
-ruleMyDefineLine2 returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+// Rule MyDefineLineObject
+ruleMyDefineLineObject returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
 (
     { 
-        newCompositeNode(grammarAccess.getMyDefineLine2Access().getMyCodeParserRuleCall_0()); 
+        newCompositeNode(grammarAccess.getMyDefineLineObjectAccess().getMyCodeParserRuleCall_0()); 
     }
     this_MyCode_0=ruleMyCode    {
 		$current.merge(this_MyCode_0);
@@ -2874,7 +2823,7 @@ ruleMyDefineLine2 returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleT
     }
 
     { 
-    newLeafNode(this_WHITESPACE_1, grammarAccess.getMyDefineLine2Access().getWHITESPACETerminalRuleCall_1()); 
+    newLeafNode(this_WHITESPACE_1, grammarAccess.getMyDefineLineObjectAccess().getWHITESPACETerminalRuleCall_1()); 
     }
 )+
     ;
@@ -3068,7 +3017,7 @@ rulePrimaryExpression returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -3256,6 +3205,11 @@ this_SKW_RIGHTPAREN_10=RULE_SKW_RIGHTPAREN
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -3283,7 +3237,7 @@ ruleExpression returns [EObject current=null]
 		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WHITESPACE", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT", "RULE_LINEBREAK");
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -3325,6 +3279,9 @@ ruleExpression returns [EObject current=null]
 ;
 finally {
 	myHiddenTokenState.restore();
+
+	/*no after found*/
+
 }
 
 
@@ -3353,7 +3310,7 @@ ruleConstantExpression returns [EObject current=null]
 		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WHITESPACE", "RULE_BLOCK_COMMENT", "RULE_LINE_COMMENT", "RULE_LINEBREAK");
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -3395,6 +3352,9 @@ ruleConstantExpression returns [EObject current=null]
 ;
 finally {
 	myHiddenTokenState.restore();
+
+	/*no after found*/
+
 }
 
 
@@ -3416,7 +3376,7 @@ ruleConditionalExpression returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -3515,6 +3475,11 @@ this_SKW_COLON_4=RULE_SKW_COLON
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -3535,7 +3500,7 @@ ruleLogicalOrExpression returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -3606,6 +3571,11 @@ this_SKW_OROR_2=RULE_SKW_OROR
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -3626,7 +3596,7 @@ ruleLogicalAndExpression returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -3697,6 +3667,11 @@ this_SKW_ANDAND_2=RULE_SKW_ANDAND
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -3717,7 +3692,7 @@ ruleInclusiveOrExpression returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -3788,6 +3763,11 @@ this_SKW_OR_2=RULE_SKW_OR
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -3808,7 +3788,7 @@ ruleExclusiveOrExpression returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -3879,6 +3859,11 @@ this_SKW_CARET_2=RULE_SKW_CARET
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -3899,7 +3884,7 @@ ruleAndExpression returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -3970,6 +3955,11 @@ this_SKW_AND_2=RULE_SKW_AND
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -3990,7 +3980,7 @@ ruleEqualityExpression returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -4100,6 +4090,11 @@ ruleEqualityExpression returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -4120,7 +4115,7 @@ ruleRelationalExpression returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -4274,6 +4269,11 @@ ruleRelationalExpression returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -4294,7 +4294,7 @@ ruleShiftExpression returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -4404,6 +4404,11 @@ ruleShiftExpression returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -4424,7 +4429,7 @@ ruleAdditiveExpression returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -4534,6 +4539,11 @@ ruleAdditiveExpression returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -4554,7 +4564,7 @@ ruleMultiplicativeExpression returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -4686,6 +4696,11 @@ ruleMultiplicativeExpression returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -4706,7 +4721,7 @@ ruleCastExpression returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -4746,6 +4761,11 @@ ruleCastExpression returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -4766,7 +4786,7 @@ ruleUnaryExpression returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -4855,6 +4875,11 @@ ruleUnaryExpression returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -4875,7 +4900,7 @@ ruleUnaryOperator returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -5028,6 +5053,11 @@ ruleUnaryOperator returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -5048,7 +5078,7 @@ rulePostfixExpression returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -5112,6 +5142,11 @@ rulePostfixExpression returns [EObject current=null]
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -5132,7 +5167,7 @@ rulePostfixExpressionSuffixArgument returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -5186,6 +5221,11 @@ this_SKW_RIGHTPAREN_3=RULE_SKW_RIGHTPAREN
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 
@@ -5206,7 +5246,7 @@ ruleArgumentExpressionList returns [EObject current=null]
    		/*no init found*/
     }
     @after { leaveRule();
-    		/*no after found*/
+    		
      }:
 
 (
@@ -5265,6 +5305,11 @@ this_SKW_COMMA_1=RULE_SKW_COMMA
 
 
 ;
+finally {
+
+	/*no after found*/
+
+}
 
 
 

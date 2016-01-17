@@ -48,7 +48,6 @@ import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro;
 import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
-import at.jku.weiner.c.preprocess.preprocess.ReplaceLine;
 import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 @SuppressWarnings("unused")
@@ -180,28 +179,19 @@ public class Test0117_Replacement {
 		);
 		Assert.assertEquals("[bar, bax]", IdentifierList_4_Var
 		.getId().toString());
-		final EList<? extends EObject> Replacement_4_list = DefineFunctionLikeMacro_3_Var
-		.getReplacement();
-		Assert.assertNotNull(Replacement_4_list);
-		Assert.assertEquals(1, Replacement_4_list.size());
-		//4
-		final ReplaceLine ReplaceLine_5_Var
-		 = (ReplaceLine)Replacement_4_list.get(0);
-		Assert.assertNotNull(ReplaceLine_5_Var
-		);
-		Assert.assertEquals("  	int bar[bax]", ReplaceLine_5_Var
+		Assert.assertEquals("int bar[bax]", DefineFunctionLikeMacro_3_Var
 		.getString());
-		//5
-		final NewLineLine NewLineLine_6_Var
+		//4
+		final NewLineLine NewLineLine_5_Var
 		 = (NewLineLine)Lines_1_list.get(1);
-		Assert.assertNotNull(NewLineLine_6_Var
+		Assert.assertNotNull(NewLineLine_5_Var
 		);
-		//6
-		final Code Code_7_Var
+		//5
+		final Code Code_6_Var
 		 = (Code)Lines_1_list.get(2);
-		Assert.assertNotNull(Code_7_Var
+		Assert.assertNotNull(Code_6_Var
 		);
-		Assert.assertEquals("FOO(bax,5);", Code_7_Var
+		Assert.assertEquals("FOO(bax,5);", Code_6_Var
 		.getCode());
 	}
 	

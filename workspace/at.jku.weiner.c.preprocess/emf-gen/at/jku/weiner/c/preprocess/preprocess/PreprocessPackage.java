@@ -820,13 +820,13 @@ public interface PreprocessPackage extends EPackage
 	int DEFINE_FUNCTION_LIKE_MACRO__LIST = DEFINE_DIRECTIVE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Replacement</b></em>' containment reference list.
+	 * The feature id for the '<em><b>String</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEFINE_FUNCTION_LIKE_MACRO__REPLACEMENT = DEFINE_DIRECTIVE_FEATURE_COUNT + 1;
+	int DEFINE_FUNCTION_LIKE_MACRO__STRING = DEFINE_DIRECTIVE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Define Function Like Macro</em>' class.
@@ -947,52 +947,6 @@ public interface PreprocessPackage extends EPackage
 	 * @ordered
 	 */
 	int PRIMARY_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 4;
-
-	/**
-	 * The meta object id for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.ReplaceLineImpl <em>Replace Line</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see at.jku.weiner.c.preprocess.preprocess.impl.ReplaceLineImpl
-	 * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getReplaceLine()
-	 * @generated
-	 */
-	int REPLACE_LINE = 26;
-
-	/**
-	 * The feature id for the '<em><b>String</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REPLACE_LINE__STRING = 0;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REPLACE_LINE__ID = 1;
-
-	/**
-	 * The feature id for the '<em><b>Concatenate</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REPLACE_LINE__CONCATENATE = 2;
-
-	/**
-	 * The number of structural features of the '<em>Replace Line</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REPLACE_LINE_FEATURE_COUNT = 3;
 
 
 	/**
@@ -1513,15 +1467,15 @@ public interface PreprocessPackage extends EPackage
 	EReference getDefineFunctionLikeMacro_List();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro#getReplacement <em>Replacement</em>}'.
+	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro#getString <em>String</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Replacement</em>'.
-	 * @see at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro#getReplacement()
+	 * @return the meta object for the attribute '<em>String</em>'.
+	 * @see at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro#getString()
 	 * @see #getDefineFunctionLikeMacro()
 	 * @generated
 	 */
-	EReference getDefineFunctionLikeMacro_Replacement();
+	EAttribute getDefineFunctionLikeMacro_String();
 
 	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.preprocess.preprocess.NewLineLine <em>New Line Line</em>}'.
@@ -1628,49 +1582,6 @@ public interface PreprocessPackage extends EPackage
 	 * @generated
 	 */
 	EAttribute getIfAbstractConditional_BranchTaken();
-
-	/**
-	 * Returns the meta object for class '{@link at.jku.weiner.c.preprocess.preprocess.ReplaceLine <em>Replace Line</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Replace Line</em>'.
-	 * @see at.jku.weiner.c.preprocess.preprocess.ReplaceLine
-	 * @generated
-	 */
-	EClass getReplaceLine();
-
-	/**
-	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.preprocess.preprocess.ReplaceLine#getString <em>String</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>String</em>'.
-	 * @see at.jku.weiner.c.preprocess.preprocess.ReplaceLine#getString()
-	 * @see #getReplaceLine()
-	 * @generated
-	 */
-	EAttribute getReplaceLine_String();
-
-	/**
-	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.preprocess.preprocess.ReplaceLine#getId <em>Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see at.jku.weiner.c.preprocess.preprocess.ReplaceLine#getId()
-	 * @see #getReplaceLine()
-	 * @generated
-	 */
-	EAttribute getReplaceLine_Id();
-
-	/**
-	 * Returns the meta object for the attribute '{@link at.jku.weiner.c.preprocess.preprocess.ReplaceLine#isConcatenate <em>Concatenate</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Concatenate</em>'.
-	 * @see at.jku.weiner.c.preprocess.preprocess.ReplaceLine#isConcatenate()
-	 * @see #getReplaceLine()
-	 * @generated
-	 */
-	EAttribute getReplaceLine_Concatenate();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2132,12 +2043,12 @@ public interface PreprocessPackage extends EPackage
 		EReference DEFINE_FUNCTION_LIKE_MACRO__LIST = eINSTANCE.getDefineFunctionLikeMacro_List();
 
 		/**
-		 * The meta object literal for the '<em><b>Replacement</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>String</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DEFINE_FUNCTION_LIKE_MACRO__REPLACEMENT = eINSTANCE.getDefineFunctionLikeMacro_Replacement();
+		EAttribute DEFINE_FUNCTION_LIKE_MACRO__STRING = eINSTANCE.getDefineFunctionLikeMacro_String();
 
 		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.NewLineLineImpl <em>New Line Line</em>}' class.
@@ -2226,40 +2137,6 @@ public interface PreprocessPackage extends EPackage
 		 * @generated
 		 */
 		EAttribute IF_ABSTRACT_CONDITIONAL__BRANCH_TAKEN = eINSTANCE.getIfAbstractConditional_BranchTaken();
-
-		/**
-		 * The meta object literal for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.ReplaceLineImpl <em>Replace Line</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see at.jku.weiner.c.preprocess.preprocess.impl.ReplaceLineImpl
-		 * @see at.jku.weiner.c.preprocess.preprocess.impl.PreprocessPackageImpl#getReplaceLine()
-		 * @generated
-		 */
-		EClass REPLACE_LINE = eINSTANCE.getReplaceLine();
-
-		/**
-		 * The meta object literal for the '<em><b>String</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute REPLACE_LINE__STRING = eINSTANCE.getReplaceLine_String();
-
-		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute REPLACE_LINE__ID = eINSTANCE.getReplaceLine_Id();
-
-		/**
-		 * The meta object literal for the '<em><b>Concatenate</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute REPLACE_LINE__CONCATENATE = eINSTANCE.getReplaceLine_Concatenate();
 
 	}
 

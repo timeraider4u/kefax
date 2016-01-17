@@ -35,10 +35,10 @@ lexer-tokens
 						id+*"[x, y]",
 						variadic?=true
 					),
-					replacement+=
-					(ReplaceLine
-						string++" int y"
-					)
+//					replacement+=
+//					(ReplaceLine
+						string++"int y"
+//					)
 				)
 			),
 			

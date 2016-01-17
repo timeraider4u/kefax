@@ -28,15 +28,15 @@ lexer-tokens
 					(IdentifierList
 						id+*"[X, Y]"
 					),
-					replacement+=
-					(ReplaceLine
-						string++" ",
-						id++"X"
-					),
-					(ReplaceLine
-						string isNull,
-						id++"Y"
-					)
+//					replacement+=
+//					(ReplaceLine
+						string++"#X#Y"
+//						id++"X"
+//					),
+//					(ReplaceLine
+//						string isNull,
+//						id++"Y"
+//					)
 				)
 			),
 			(Code

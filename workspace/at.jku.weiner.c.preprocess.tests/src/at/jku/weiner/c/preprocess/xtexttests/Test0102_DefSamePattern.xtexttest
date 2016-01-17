@@ -28,10 +28,10 @@ lexer-tokens
 					(IdentifierList
 						id+*"[x]"
 					),
-					replacement+=
-					(ReplaceLine
-						string++" BAR(x)"
-					)
+//					replacement+=
+//					(ReplaceLine
+						string++"BAR(x)"
+//					)
 				)
 			),
 			(NewLineLine),

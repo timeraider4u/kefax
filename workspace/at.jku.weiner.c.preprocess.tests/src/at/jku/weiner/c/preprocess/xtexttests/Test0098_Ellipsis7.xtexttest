@@ -42,10 +42,10 @@ lexer-tokens
 						id+*"[]",
 						variadic?=true
 					),
-					replacement+=
-					(ReplaceLine
-						string++" fprintf (stderr, __VA_ARGS__)"
-					)
+//					replacement+=
+//					(ReplaceLine
+						string++"fprintf (stderr, __VA_ARGS__)"
+//					)
 				)
 			),
 			(Code

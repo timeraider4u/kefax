@@ -25,10 +25,7 @@ lexer-tokens
 				(DefineFunctionLikeMacro
 					id++"halt",
 					list isNull,
-					replacement+=
-					(ReplaceLine
-						string++" stop()"
-					)
+					string++"stop()"
 				)
 			),
 			(NewLineLine),

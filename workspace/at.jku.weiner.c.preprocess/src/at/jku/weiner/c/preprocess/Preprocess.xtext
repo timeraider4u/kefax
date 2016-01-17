@@ -110,7 +110,7 @@ DefineDirective:
 DefineObjectMacro returns DefineDirective:
 	{DefineObjectMacro}
 	DEFINE WHITESPACE+ id=MyCode
-	(WHITESPACE+ string=MyDefineLine2)?
+	(WHITESPACE+ string=MyDefineLineObject)?
 	WHITESPACE*
 ;
 
@@ -120,14 +120,12 @@ DefineFunctionLikeMacro returns DefineDirective:
 	SKW_LEFTPAREN WHITESPACE*
 		(list=IdentifierList
 		)?
-		
 	SKW_RIGHTPAREN
-	
 	(
 		// WHITESPACE*
-		// string=MyDefineLine
-		(replacement+=ReplaceLine)*
-	)
+		string=MyDefineLineFunction
+		//(replacement+=ReplaceLine)*
+	)?
 ;
 
 IdentifierList:
@@ -150,20 +148,20 @@ IdentifierList:
 	)
 ;
 
-ReplaceLine:
-	{ReplaceLine}
-	(
-	(string=MyDefineLine)
-	
-	(HASH
-		(
-				(WHITESPACE* id=ID)
-			|	concatenate?=(HASH)
-		)
-	)?
-	)
-	| (HASH WHITESPACE* id=ID)
-;
+//ReplaceLine:
+//	{ReplaceLine}
+//	(
+//	(string=MyDefineLine)
+//	
+//	(HASH
+//		(
+//				(WHITESPACE* id=ID)
+//			|	concatenate?=(HASH)
+//		)
+//	)?
+//	)
+//	| (HASH WHITESPACE* id=ID)
+//;
 
 //ReplacementStringify:
 //	WHITESPACE* id=ID
@@ -265,11 +263,11 @@ MyCode returns ecore::EString:
 	|SpecialKeywords|Constant1
 ;
 
-MyDefineLine returns ecore::EString:
-	(MyCode|WHITESPACE|VA_ARGS)+
+MyDefineLineFunction returns ecore::EString:
+	(MyDefineLineObject|HASH|VA_ARGS)+
 ;
 
-MyDefineLine2 returns ecore::EString:
+MyDefineLineObject returns ecore::EString:
 	(MyCode|WHITESPACE)+
 ;
 

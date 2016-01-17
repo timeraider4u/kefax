@@ -51,10 +51,10 @@ lexer-tokens
 						varID++"y",
 						variadic?=true
 					),
-					replacement+=
-					(ReplaceLine
-						string++" x (y); x (y)"
-					)
+//					replacement+=
+//					(ReplaceLine
+						string++"x (y); x (y)"
+//					)
 				)
 			),
 			(Code

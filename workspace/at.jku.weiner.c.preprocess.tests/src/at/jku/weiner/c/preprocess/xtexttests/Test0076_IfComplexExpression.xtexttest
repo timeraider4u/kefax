@@ -69,10 +69,10 @@ lexer-tokens
 					(IdentifierList
 						id+*"[major, minor]"
 					),
-					replacement+=
-					(ReplaceLine
-						string++" ((major << 32) + minor >= ((REQ_MAJOR) << 32) + (REQ_MINOR))"
-					)
+//					replacement+=
+//					(ReplaceLine
+						string++"((major << 32) + minor >= ((REQ_MAJOR) << 32) + (REQ_MINOR))"
+//					)
 				)
 			),
 			(NewLineLine),

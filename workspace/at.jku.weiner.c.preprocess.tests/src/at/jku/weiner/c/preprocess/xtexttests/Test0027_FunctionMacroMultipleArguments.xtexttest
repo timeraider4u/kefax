@@ -86,10 +86,10 @@ lexer-tokens
 				(DefineFunctionLikeMacro
 					id++"foo0",
 					list isNull,
-					replacement+=
-					(ReplaceLine
-						string++"			bar_foo"
-					)
+//					replacement+=
+//					(ReplaceLine
+						string++"bar_foo"
+//					)
 				)
 			),
 			(PreprocessorDirectives
@@ -100,10 +100,10 @@ lexer-tokens
 					(IdentifierList
 						id+*"[X]"
 					),
-					replacement+=
-					(ReplaceLine
+//					replacement+=
+//					(ReplaceLine
 						string++"			{X}"
-					)
+//					)
 				)
 			),
 			(PreprocessorDirectives
@@ -114,10 +114,10 @@ lexer-tokens
 					(IdentifierList
 						id+*"[X, Y]"
 					),
-					replacement+=
-					(ReplaceLine
+//					replacement+=
+//					(ReplaceLine
 						string++"		X + Y"
-					)
+//					)
 				)
 			),
 			(PreprocessorDirectives
@@ -128,10 +128,10 @@ lexer-tokens
 					(IdentifierList
 						id+*"[X, Y, Z]"
 					),
-					replacement+=
-					(ReplaceLine
+//					replacement+=
+//					(ReplaceLine
 						string++"		X * Y - Z"
-					)
+//					)
 				)
 			),
 			(PreprocessorDirectives
@@ -145,10 +145,10 @@ lexer-tokens
 				(DefineFunctionLikeMacro
 					id++"foo0",
 					list isNull,
-					replacement+=
-					(ReplaceLine
+//					replacement+=
+//					(ReplaceLine
 						string++"			foo_bar"
-					)
+//					)
 				)
 			),
 			(NewLineLine),

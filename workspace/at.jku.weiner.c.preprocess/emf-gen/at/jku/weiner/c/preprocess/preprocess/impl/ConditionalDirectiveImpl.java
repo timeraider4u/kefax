@@ -30,13 +30,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.ConditionalDirectiveImpl#getConditional <em>Conditional</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.ConditionalDirectiveImpl#getElifs <em>Elifs</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.ConditionalDirectiveImpl#getElse <em>Else</em>}</li>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.impl.ConditionalDirectiveImpl#getBranchTaken <em>Branch Taken</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -48,7 +48,6 @@ import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro;
 import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
-import at.jku.weiner.c.preprocess.preprocess.ReplaceLine;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.Code;
@@ -281,51 +280,42 @@ public class Test0025_FunctionMacroTwoArguments {
 		);
 		Assert.assertEquals("[X, Y]", IdentifierList_4_Var
 		.getId().toString());
-		final EList<? extends EObject> Replacement_4_list = DefineFunctionLikeMacro_3_Var
-		.getReplacement();
-		Assert.assertNotNull(Replacement_4_list);
-		Assert.assertEquals(1, Replacement_4_list.size());
-		//4
-		final ReplaceLine ReplaceLine_5_Var
-		 = (ReplaceLine)Replacement_4_list.get(0);
-		Assert.assertNotNull(ReplaceLine_5_Var
-		);
-		Assert.assertEquals("	((X) < (Y) ? (X) : (Y))", ReplaceLine_5_Var
+		Assert.assertEquals("((X) < (Y) ? (X) : (Y))", DefineFunctionLikeMacro_3_Var
 		.getString());
+		//4
+		final Code Code_5_Var
+		 = (Code)Lines_1_list.get(1);
+		Assert.assertNotNull(Code_5_Var
+		);
+		Assert.assertEquals("int a = MIN(, 5) + MIN( 1 , 2 );", Code_5_Var
+		.getCode());
 		//5
 		final Code Code_6_Var
-		 = (Code)Lines_1_list.get(1);
+		 = (Code)Lines_1_list.get(2);
 		Assert.assertNotNull(Code_6_Var
 		);
-		Assert.assertEquals("int a = MIN(, 5) + MIN( 1 , 2 );", Code_6_Var
+		Assert.assertEquals("int b = MIN(a, );", Code_6_Var
 		.getCode());
 		//6
 		final Code Code_7_Var
-		 = (Code)Lines_1_list.get(2);
+		 = (Code)Lines_1_list.get(3);
 		Assert.assertNotNull(Code_7_Var
 		);
-		Assert.assertEquals("int b = MIN(a, );", Code_7_Var
+		Assert.assertEquals("int c = MIN(,);", Code_7_Var
 		.getCode());
 		//7
 		final Code Code_8_Var
-		 = (Code)Lines_1_list.get(3);
+		 = (Code)Lines_1_list.get(4);
 		Assert.assertNotNull(Code_8_Var
 		);
-		Assert.assertEquals("int c = MIN(,);", Code_8_Var
+		Assert.assertEquals("int d = MIN((,),);", Code_8_Var
 		.getCode());
 		//8
 		final Code Code_9_Var
-		 = (Code)Lines_1_list.get(4);
+		 = (Code)Lines_1_list.get(5);
 		Assert.assertNotNull(Code_9_Var
 		);
-		Assert.assertEquals("int d = MIN((,),);", Code_9_Var
-		.getCode());
-		//9
-		final Code Code_10_Var
-		 = (Code)Lines_1_list.get(5);
-		Assert.assertNotNull(Code_10_Var
-		);
-		Assert.assertEquals("int e = MIN (MIN (a, b), c);", Code_10_Var
+		Assert.assertEquals("int e = MIN (MIN (a, b), c);", Code_9_Var
 		.getCode());
 	}
 	

@@ -36,10 +36,10 @@ lexer-tokens
 						id+*"[x, y]",
 						variadic?=true
 					),
-					replacement+=
-					(ReplaceLine
-						string++" fprintf(stdout, __VA_ARGS__)"
-					)
+//					replacement+=
+//					(ReplaceLine
+						string++"fprintf(stdout, __VA_ARGS__)"
+//					)
 				)
 			),
 			

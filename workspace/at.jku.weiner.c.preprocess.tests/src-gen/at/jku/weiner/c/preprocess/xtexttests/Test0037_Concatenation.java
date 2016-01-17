@@ -48,8 +48,6 @@ import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro;
 import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
-import at.jku.weiner.c.preprocess.preprocess.ReplaceLine;
-import at.jku.weiner.c.preprocess.preprocess.ReplaceLine;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
@@ -172,32 +170,14 @@ public class Test0037_Concatenation {
 		);
 		Assert.assertEquals("[x]", IdentifierList_4_Var
 		.getId().toString());
-		final EList<? extends EObject> Replacement_4_list = DefineFunctionLikeMacro_3_Var
-		.getReplacement();
-		Assert.assertNotNull(Replacement_4_list);
-		Assert.assertEquals(2, Replacement_4_list.size());
+		Assert.assertEquals("x ## BAR", DefineFunctionLikeMacro_3_Var
+		.getString());
 		//4
-		final ReplaceLine ReplaceLine_5_Var
-		 = (ReplaceLine)Replacement_4_list.get(0);
-		Assert.assertNotNull(ReplaceLine_5_Var
-		);
-		Assert.assertTrue(ReplaceLine_5_Var
-		.isConcatenate());
-		Assert.assertEquals(" x ", ReplaceLine_5_Var
-		.getString());
-		//5
-		final ReplaceLine ReplaceLine_6_Var
-		 = (ReplaceLine)Replacement_4_list.get(1);
-		Assert.assertNotNull(ReplaceLine_6_Var
-		);
-		Assert.assertEquals(" BAR", ReplaceLine_6_Var
-		.getString());
-		//6
-		final Code Code_7_Var
+		final Code Code_5_Var
 		 = (Code)Lines_1_list.get(1);
-		Assert.assertNotNull(Code_7_Var
+		Assert.assertNotNull(Code_5_Var
 		);
-		Assert.assertEquals("FOO(foo)", Code_7_Var
+		Assert.assertEquals("FOO(foo)", Code_5_Var
 		.getCode());
 	}
 	

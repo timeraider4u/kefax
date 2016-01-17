@@ -31,10 +31,10 @@ lexer-tokens
 					(IdentifierList
 						id+*"[x]"
 					),
-					replacement+=
-					(ReplaceLine
-						string++"	x, \\\"x\\\", x, \\\"abc \\\\\\\"x def \\\\\\\"\\\", x"
-					)
+//					replacement+=
+//					(ReplaceLine
+						string++"x, \\\"x\\\", x, \\\"abc \\\\\\\"x def \\\\\\\"\\\", x"
+//					)
 				)
 			),
 			(Code

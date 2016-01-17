@@ -33,10 +33,10 @@ lexer-tokens
 					(IdentifierList
 						id+*"[X, Y]"
 					),
-					replacement+=
-					(ReplaceLine
-						string++"	((X) < (Y) ? (X) : (Y))"
-					)
+//					replacement+=
+//					(ReplaceLine
+						string++"((X) < (Y) ? (X) : (Y))"
+//					)
 				)
 			),
 			(Code

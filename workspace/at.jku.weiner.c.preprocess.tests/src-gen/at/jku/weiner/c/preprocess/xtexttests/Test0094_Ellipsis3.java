@@ -48,7 +48,6 @@ import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro;
 import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
-import at.jku.weiner.c.preprocess.preprocess.ReplaceLine;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
@@ -189,23 +188,14 @@ public class Test0094_Ellipsis3 {
 		.getId().toString());
 		Assert.assertTrue(IdentifierList_4_Var
 		.isVariadic());
-		final EList<? extends EObject> Replacement_4_list = DefineFunctionLikeMacro_3_Var
-		.getReplacement();
-		Assert.assertNotNull(Replacement_4_list);
-		Assert.assertEquals(1, Replacement_4_list.size());
-		//4
-		final ReplaceLine ReplaceLine_5_Var
-		 = (ReplaceLine)Replacement_4_list.get(0);
-		Assert.assertNotNull(ReplaceLine_5_Var
-		);
-		Assert.assertEquals(" fprintf(stdout, __VA_ARGS__)", ReplaceLine_5_Var
+		Assert.assertEquals("fprintf(stdout, __VA_ARGS__)", DefineFunctionLikeMacro_3_Var
 		.getString());
-		//5
-		final Code Code_6_Var
+		//4
+		final Code Code_5_Var
 		 = (Code)Lines_1_list.get(1);
-		Assert.assertNotNull(Code_6_Var
+		Assert.assertNotNull(Code_5_Var
 		);
-		Assert.assertEquals("FOO(foo, bar, foobar);", Code_6_Var
+		Assert.assertEquals("FOO(foo, bar, foobar);", Code_5_Var
 		.getCode());
 	}
 	

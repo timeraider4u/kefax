@@ -30,10 +30,10 @@ lexer-tokens
 				directive=
 				(DefineFunctionLikeMacro
 					id++"foo",
-					replacement+=
-					(ReplaceLine
-						string++" bar()"
-					)
+					//replacement+=
+					//(ReplaceLine
+						string++"bar()"
+					//)
 				)
 			),
 			(NewLineLine),

@@ -50,16 +50,12 @@ import at.jku.weiner.c.preprocess.preprocess.DefineObjectMacro;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro;
 import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
-import at.jku.weiner.c.preprocess.preprocess.ReplaceLine;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro;
 import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
-import at.jku.weiner.c.preprocess.preprocess.ReplaceLine;
-import at.jku.weiner.c.preprocess.preprocess.ReplaceLine;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro;
 import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
-import at.jku.weiner.c.preprocess.preprocess.ReplaceLine;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.Code;
@@ -241,118 +237,74 @@ public class Test0110_DefineAndDefine {
 		);
 		Assert.assertEquals("[X]", IdentifierList_6_Var
 		.getId().toString());
-		final EList<? extends EObject> Replacement_6_list = DefineFunctionLikeMacro_5_Var
-		.getReplacement();
-		Assert.assertNotNull(Replacement_6_list);
-		Assert.assertEquals(1, Replacement_6_list.size());
+		Assert.assertEquals("#X", DefineFunctionLikeMacro_5_Var
+		.getString());
 		//6
-		final ReplaceLine ReplaceLine_7_Var
-		 = (ReplaceLine)Replacement_6_list.get(0);
-		Assert.assertNotNull(ReplaceLine_7_Var
-		);
-		Assert.assertEquals(" ", ReplaceLine_7_Var
-		.getString());
-		Assert.assertEquals("X", ReplaceLine_7_Var
-		.getId());
-		Assert.assertFalse(ReplaceLine_7_Var
-		.isConcatenate());
-		//7
-		final PreprocessorDirectives PreprocessorDirectives_8_Var
+		final PreprocessorDirectives PreprocessorDirectives_7_Var
 		 = (PreprocessorDirectives)Lines_1_list.get(2);
-		Assert.assertNotNull(PreprocessorDirectives_8_Var
+		Assert.assertNotNull(PreprocessorDirectives_7_Var
 		);
+		//7
+		final DefineFunctionLikeMacro DefineFunctionLikeMacro_8_Var
+		 = (DefineFunctionLikeMacro)PreprocessorDirectives_7_Var
+		.getDirective();
+		Assert.assertNotNull(DefineFunctionLikeMacro_8_Var
+		);
+		Assert.assertEquals("BAZ", DefineFunctionLikeMacro_8_Var
+		.getId());
 		//8
-		final DefineFunctionLikeMacro DefineFunctionLikeMacro_9_Var
-		 = (DefineFunctionLikeMacro)PreprocessorDirectives_8_Var
-		.getDirective();
-		Assert.assertNotNull(DefineFunctionLikeMacro_9_Var
+		final IdentifierList IdentifierList_9_Var
+		 = (IdentifierList)DefineFunctionLikeMacro_8_Var
+		.getList();
+		Assert.assertNotNull(IdentifierList_9_Var
 		);
-		Assert.assertEquals("BAZ", DefineFunctionLikeMacro_9_Var
-		.getId());
+		Assert.assertEquals("[X]", IdentifierList_9_Var
+		.getId().toString());
+		Assert.assertEquals(" BAR(X##FOO)", DefineFunctionLikeMacro_8_Var
+		.getString());
 		//9
-		final IdentifierList IdentifierList_10_Var
-		 = (IdentifierList)DefineFunctionLikeMacro_9_Var
-		.getList();
-		Assert.assertNotNull(IdentifierList_10_Var
-		);
-		Assert.assertEquals("[X]", IdentifierList_10_Var
-		.getId().toString());
-		final EList<? extends EObject> Replacement_10_list = DefineFunctionLikeMacro_9_Var
-		.getReplacement();
-		Assert.assertNotNull(Replacement_10_list);
-		Assert.assertEquals(2, Replacement_10_list.size());
-		//10
-		final ReplaceLine ReplaceLine_11_Var
-		 = (ReplaceLine)Replacement_10_list.get(0);
-		Assert.assertNotNull(ReplaceLine_11_Var
-		);
-		Assert.assertEquals(" BAR(X", ReplaceLine_11_Var
-		.getString());
-		Assert.assertTrue(ReplaceLine_11_Var
-		.isConcatenate());
-		//11
-		final ReplaceLine ReplaceLine_12_Var
-		 = (ReplaceLine)Replacement_10_list.get(1);
-		Assert.assertNotNull(ReplaceLine_12_Var
-		);
-		Assert.assertEquals("FOO)", ReplaceLine_12_Var
-		.getString());
-		Assert.assertFalse(ReplaceLine_12_Var
-		.isConcatenate());
-		//12
-		final PreprocessorDirectives PreprocessorDirectives_13_Var
+		final PreprocessorDirectives PreprocessorDirectives_10_Var
 		 = (PreprocessorDirectives)Lines_1_list.get(3);
-		Assert.assertNotNull(PreprocessorDirectives_13_Var
+		Assert.assertNotNull(PreprocessorDirectives_10_Var
 		);
-		//13
-		final DefineFunctionLikeMacro DefineFunctionLikeMacro_14_Var
-		 = (DefineFunctionLikeMacro)PreprocessorDirectives_13_Var
+		//10
+		final DefineFunctionLikeMacro DefineFunctionLikeMacro_11_Var
+		 = (DefineFunctionLikeMacro)PreprocessorDirectives_10_Var
 		.getDirective();
-		Assert.assertNotNull(DefineFunctionLikeMacro_14_Var
+		Assert.assertNotNull(DefineFunctionLikeMacro_11_Var
 		);
-		Assert.assertEquals("FOOBAR", DefineFunctionLikeMacro_14_Var
+		Assert.assertEquals("FOOBAR", DefineFunctionLikeMacro_11_Var
 		.getId());
-		//14
-		final IdentifierList IdentifierList_15_Var
-		 = (IdentifierList)DefineFunctionLikeMacro_14_Var
+		//11
+		final IdentifierList IdentifierList_12_Var
+		 = (IdentifierList)DefineFunctionLikeMacro_11_Var
 		.getList();
-		Assert.assertNotNull(IdentifierList_15_Var
+		Assert.assertNotNull(IdentifierList_12_Var
 		);
-		Assert.assertEquals("[X]", IdentifierList_15_Var
+		Assert.assertEquals("[X]", IdentifierList_12_Var
 		.getId().toString());
-		final EList<? extends EObject> Replacement_15_list = DefineFunctionLikeMacro_14_Var
-		.getReplacement();
-		Assert.assertNotNull(Replacement_15_list);
-		Assert.assertEquals(1, Replacement_15_list.size());
-		//15
-		final ReplaceLine ReplaceLine_16_Var
-		 = (ReplaceLine)Replacement_15_list.get(0);
-		Assert.assertNotNull(ReplaceLine_16_Var
-		);
-		Assert.assertEquals(" BAZ(X)", ReplaceLine_16_Var
+		Assert.assertEquals(" BAZ(X)", DefineFunctionLikeMacro_11_Var
 		.getString());
-		Assert.assertFalse(ReplaceLine_16_Var
-		.isConcatenate());
-		//16
-		final Code Code_17_Var
+		//12
+		final Code Code_13_Var
 		 = (Code)Lines_1_list.get(4);
-		Assert.assertNotNull(Code_17_Var
+		Assert.assertNotNull(Code_13_Var
 		);
-		Assert.assertEquals("BAZ(foo)", Code_17_Var
+		Assert.assertEquals("BAZ(foo)", Code_13_Var
 		.getCode());
-		//17
-		final Code Code_18_Var
+		//13
+		final Code Code_14_Var
 		 = (Code)Lines_1_list.get(5);
-		Assert.assertNotNull(Code_18_Var
+		Assert.assertNotNull(Code_14_Var
 		);
-		Assert.assertEquals("BAZ(FOO)", Code_18_Var
+		Assert.assertEquals("BAZ(FOO)", Code_14_Var
 		.getCode());
-		//18
-		final Code Code_19_Var
+		//14
+		final Code Code_15_Var
 		 = (Code)Lines_1_list.get(6);
-		Assert.assertNotNull(Code_19_Var
+		Assert.assertNotNull(Code_15_Var
 		);
-		Assert.assertEquals("FOOBAR(FOO)", Code_19_Var
+		Assert.assertEquals("FOOBAR(FOO)", Code_15_Var
 		.getCode());
 	}
 	

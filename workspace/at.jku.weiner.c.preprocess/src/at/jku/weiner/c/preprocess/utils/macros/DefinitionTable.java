@@ -5,16 +5,15 @@ import java.util.List;
 import java.util.Map;
 
 import org.antlr.runtime.Token;
-import org.eclipse.emf.common.util.EList;
 
 import at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer;
 import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
-import at.jku.weiner.c.preprocess.preprocess.ReplaceLine;
 import at.jku.weiner.c.preprocess.utils.LexerUtils;
 import at.jku.weiner.c.preprocess.utils.MyLog;
 
 public final class DefinitionTable {
 
+	private long id = -1;
 	private final Map<String, DefinitionMacro> macros = new HashMap<String, DefinitionMacro>();
 	private final LexerUtils lexer;
 	
@@ -62,10 +61,10 @@ public final class DefinitionTable {
 	}
 
 	public void addFunctionMacro(final String id, final IdentifierList list,
-			final EList<ReplaceLine> replaceWith) {
+			final String replaceWith) {
 		final String key = id;
-		final DefinitionMacro newMacro = new DefinitionFunctionMacro(key, list,
-				replaceWith);
+		final DefinitionMacro newMacro = new DefinitionFunctionMacro(
+				this.lexer, key, list, replaceWith);
 		this.checkForExistence(key, newMacro);
 
 		this.macros.put(id, newMacro);
@@ -95,6 +94,7 @@ public final class DefinitionTable {
 		final StringBuffer result = new StringBuffer("");
 		final List<Token> list = this.lexer.getTokens(code);
 		MyLog.debug("fullResolve: code='" + code + "'");
+		this.id++;
 		for (int i = 0; i < list.size(); i++) {
 			final Token next = list.get(i);
 			final int type = next.getType();
@@ -105,8 +105,12 @@ public final class DefinitionTable {
 				if (this.macros.containsKey(text)) {
 					// resolve macro
 					final DefinitionMacro macro = this.macros.get(text);
-					final int j = macro.resolve(result, list, i);
-					i--;
+					final boolean replaced = macro.resolve(this.id, list, i);
+					if (replaced) {
+						i--;
+					} else {
+						result.append(text);
+					}
 				} else {
 					result.append(text);
 				}

@@ -29,10 +29,10 @@ lexer-tokens
 					(IdentifierList
 						id+*"[X]"
 					),
-					replacement+=
-					(ReplaceLine
-						string++" BAZ(X)"
-					)
+//					replacement+=
+//					(ReplaceLine
+						string++"BAZ(X)"
+//					)
 				)
 			),
 			(PreprocessorDirectives
@@ -43,11 +43,11 @@ lexer-tokens
 					(IdentifierList
 						id+*"[X]"
 					),
-					replacement+=
-					(ReplaceLine
-						string++" ",
-						id++"X"
-					)
+//					replacement+=
+//					(ReplaceLine
+						string++" #X"
+//						id++"X"
+//					)
 				)
 			),
 			(PreprocessorDirectives

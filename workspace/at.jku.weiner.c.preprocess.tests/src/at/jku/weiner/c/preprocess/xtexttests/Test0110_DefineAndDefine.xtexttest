@@ -41,12 +41,12 @@ lexer-tokens
 					(IdentifierList
 						id+*"[X]"
 					),
-					replacement+=
-					(ReplaceLine
-						string++" ",
-						id++"X",
-						concatenate?=false
-					)
+//					replacement+=
+//					(ReplaceLine
+						string++"#X"
+//						id++"X",
+//						concatenate?=false
+//					)
 				)
 			),
 			(PreprocessorDirectives
@@ -57,15 +57,15 @@ lexer-tokens
 					(IdentifierList
 						id+*"[X]"
 					),
-					replacement+=
-					(ReplaceLine
-						string++" BAR(X",
-						concatenate?=true
-					),
-					(ReplaceLine
-						string++"FOO)",
-						concatenate?=false
-					)
+//					replacement+=
+//					(ReplaceLine
+						string++" BAR(X##FOO)"
+//						concatenate?=true
+//					),
+//					(ReplaceLine
+//						string++"FOO)",
+//						concatenate?=false
+//					)
 				)
 			),
 			(PreprocessorDirectives
@@ -76,11 +76,11 @@ lexer-tokens
 					(IdentifierList
 						id+*"[X]"
 					),
-					replacement+=
-					(ReplaceLine
-						string++" BAZ(X)",
-						concatenate?=false
-					)
+//					replacement+=
+//					(ReplaceLine
+						string++" BAZ(X)"
+//						concatenate?=false
+//					)
 				)
 			),
 			(Code

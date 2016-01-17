@@ -1,58 +1,34 @@
 package at.jku.weiner.c.preprocess.utils.macros;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Pattern;
 
 import org.antlr.runtime.Token;
-import org.eclipse.emf.common.util.EList;
 
+import at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer;
 import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
-import at.jku.weiner.c.preprocess.preprocess.ReplaceLine;
+import at.jku.weiner.c.preprocess.utils.LexerUtils;
 import at.jku.weiner.c.preprocess.utils.MyLog;
 
 public final class DefinitionFunctionMacro implements DefinitionMacro {
-	
-	private static final String REGEX = "\\s*\\(";
-	
-	private final String key;
-	private final List<String> list;
-	private final Pattern pattern;
-	private final int openParens = 0;
-	private final boolean isVariadic;
-	private final String varID;
 
-	private final EList<ReplaceLine> replacements;
-	private final String defaultValue;
-	
-	public DefinitionFunctionMacro(final String key,
-			final IdentifierList idList, final EList<ReplaceLine> replacements) {
-		if (idList == null) {
-			this.list = null;
-			this.isVariadic = false;
-			this.varID = null;
-		} else {
-			this.list = idList.getId();
-			this.isVariadic = idList.isVariadic();
-			this.varID = idList.getVarID();
-		}
+	private final String key;
+	private final List<String> idList;
+	private final String value;
+	private final List<Token> replacements;
+
+	private long lastId = -1;
+	private int lastIndex = -1;
+
+	public DefinitionFunctionMacro(final LexerUtils lexerUtils,
+			final String key, final IdentifierList idList, final String replace) {
 		this.key = key;
-		this.replacements = replacements;
-		this.pattern = Pattern.compile("\\b" + this.key + "\\b"
-				+ DefinitionFunctionMacro.REGEX);
-		this.defaultValue = this.getDefaultValue();
+		this.value = (replace == null) ? "" : replace;
+		this.replacements = lexerUtils.getTokens(this.value);
+		this.idList = ((idList == null) ? new ArrayList<String>() : idList
+				.getId());
 	}
-	
-	private String getDefaultValue() {
-		if (this.replacements == null) {
-			return "";
-		}
-		final StringBuffer buffer = new StringBuffer("");
-		for (final ReplaceLine line : this.replacements) {
-			buffer.append(line.getString());
-		}
-		return buffer.toString().trim();
-	}
-	
+
 	@Override
 	public boolean equalsMacro(final DefinitionMacro obj) {
 		if (!(obj instanceof DefinitionFunctionMacro)) {
@@ -62,103 +38,147 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		if (!this.key.equals(other.key)) {
 			return false;
 		}
-		if ((this.list == null) && (other.list != null)) {
+		if (this.idList.size() != other.idList.size()) {
 			return false;
 		}
-		if ((this.list != null) && (other.list == null)) {
-			return false;
-		}
-		if ((this.replacements == null) && (other.replacements != null)) {
-			return false;
-		}
-		if ((this.replacements != null) && (other.replacements == null)) {
-			return false;
-		}
-		if (this.list != null) {
-			if (this.list.size() != other.list.size()) {
-				return false;
-			}
-			for (int i = 0; i < this.list.size(); i++) {
-				final String param1 = this.list.get(i);
-				final String param2 = other.list.get(i);
-				if (!(param1.equals(param2))) {
-					return false;
-				}
-			}
-		}
-		if (this.replacements != null) {
-			if ((this.replacements.size() != other.replacements.size())) {
-				return false;
-			}
-			final StringBuffer buffer1 = new StringBuffer("");
-			final StringBuffer buffer2 = new StringBuffer("");
-			for (int i = 0; i < this.replacements.size(); i++) {
-				final ReplaceLine line1 = this.replacements.get(i);
-				final ReplaceLine line2 = other.replacements.get(i);
-				String str1 = line1.getString();
-				if (str1 != null) {
-					str1 = str1.trim();
-				}
-				String id1 = line1.getId();
-				if (id1 != null) {
-					id1 = id1.trim();
-				}
-				
-				String str2 = line2.getString();
-				if (str2 != null) {
-					str2 = str2.trim();
-				}
-				String id2 = line2.getId();
-				if (id2 != null) {
-					id2 = id2.trim();
-				}
-				buffer1.append(str1);
-				buffer2.append(str2);
-				buffer1.append(id1);
-				buffer2.append(id2);
-				buffer1.append(line1.isConcatenate());
-				buffer2.append(line2.isConcatenate());
-			}
-			final String str1 = buffer1.toString();
-			final String str2 = buffer2.toString();
-			if (!str1.equals(str2)) {
+		for (int i = 0; i < this.idList.size(); i++) {
+			final String param1 = this.idList.get(i);
+			final String param2 = other.idList.get(i);
+			if (!(param1.equals(param2))) {
 				return false;
 			}
 		}
-		return true;
+
+		final String val1 = this.value.replaceAll("\\s", "");
+		final String val2 = other.value.replaceAll("\\s", "");
+		final boolean result = val1.equals(val2);
+		return result;
 	}
 	
 	@Override
-	public int resolve(final StringBuffer result, final List<Token> code,
+	public boolean resolve(final long id, final List<Token> code,
 			final int currPosition) {
-		code.remove(currPosition);
-		// final Matcher matcher = this.pattern.matcher(code);
-		// if (!matcher.find()) {
-		// return code;
-		// }
-		// final StringBuffer result = new StringBuffer("");
-		// MatchState state = MatchState.Normal;
-		// this.openParens = 0;
-		// int nextMatchStartIndex = matcher.start();
-		// int nextMatchEndIndex = matcher.end();
-		// for (int i = 0; i < code.length(); i++) {
-		// final char c = code.charAt(i);
-		// state = MatchUtils.calculateNextState(c, state);
-		// if ((state == MatchState.Normal) && (i == nextMatchStartIndex)) {
-		// this.openParens++;
-		// i = this.searchForClosingParen(originalText, code, result,
-		// nextMatchEndIndex);
-		// } else if (!matcher.find(i)) {
-		// result.append(code.substring(i));
-		// return result.toString();
-		// } else {
-		// result.append(c);
-		// }
-		// nextMatchStartIndex = matcher.start();
-		// nextMatchEndIndex = matcher.end();
-		// }
-		// return result.toString();
-		return currPosition + 1;
+		if (this.lastId != id) {
+			this.lastIndex = -1;
+		}
+		this.lastId = id;
+		if (currPosition < this.lastIndex) {
+			// prevent endless replacement loops
+			return false;
+		}
+		final List<ArrayList<Token>> replace = new ArrayList<ArrayList<Token>>();
+		for (int i = 0; i < this.idList.size(); i++) {
+			final ArrayList<Token> list = new ArrayList<Token>();
+			replace.add(list);
+		}
+		
+		final int closingParenPosition = this.searchForClosingParen(code,
+				currPosition, replace);
+		MyLog.debug("closingParenPosition='" + closingParenPosition + "'");
+		if (currPosition == closingParenPosition) {
+			return false;
+		}
+		// remove tokens of function-like invocation
+		for (int i = closingParenPosition; (i >= currPosition); i--) {
+			code.remove(i);
+		}
+		// add replacement tokens
+		int index = currPosition;
+		for (int i = 0; i < this.replacements.size(); i++) {
+			final Token token = this.replacements.get(i);
+			final String text = token.getText();
+			if (this.idList.contains(text)) {
+				final int argIndex = this.idList.indexOf(text);
+				final ArrayList<Token> list = replace.get(argIndex);
+				for (int j = 0; j < list.size(); j++) {
+					final Token other = list.get(j);
+					code.add(index, other);
+					index++;
+				}
+			} else {
+				code.add(index, token);
+				index++;
+			}
+		}
+		
+		this.lastIndex = index;
+		return true;
+	}
+	
+	private enum MatchState {
+		Invalid, LookingForOpenLeftParen, LeftParen, LookingForRightParen, Done,
+	}
+	
+	private class State {
+		public MatchState state = MatchState.LookingForOpenLeftParen;
+		public int openParens = 0;
+	}
+	
+	private int searchForClosingParen(final List<Token> code,
+			final int currPosition, final List<ArrayList<Token>> replace) {
+		State currState = new State();
+		int paramCount = 0;
+		ArrayList<Token> list = replace.get(paramCount);
+
+		for (int i = currPosition + 1; i < code.size(); i++) {
+			final Token token = code.get(i);
+			final int tokenType = token.getType();
+			currState = this.getNextState(currState, tokenType);
+			if (currState.state == MatchState.Invalid) {
+				return currPosition;
+			} else if (currState.state == MatchState.Done) {
+				return i;
+			} else if (currState.state == MatchState.LookingForRightParen) {
+				// looking for right parenthese
+				if ((currState.openParens == 1)
+						&& (tokenType == InternalPreprocessLexer.RULE_SKW_COMMA)) {
+					paramCount++;
+					list = replace.get(paramCount);
+				} else {
+					list.add(token);
+				}
+			}
+		}
+		throw new MacroParentheseNotClosedYetException(code, code.size());
+	}
+	
+	private State getNextState(final State currState, final int tokenType) {
+		switch (currState.state) {
+			case LookingForOpenLeftParen: {
+				if (tokenType == InternalPreprocessLexer.RULE_SKW_LEFTPAREN) {
+					currState.state = MatchState.LeftParen;
+					currState.openParens++;
+				} else if (tokenType == InternalPreprocessLexer.RULE_WHITESPACE) {
+					currState.state = MatchState.LookingForOpenLeftParen;
+				} else {
+					currState.state = MatchState.Invalid;
+				}
+				break;
+			}
+			case LeftParen: {
+				if (tokenType == InternalPreprocessLexer.RULE_SKW_RIGHTPAREN) {
+					currState.state = MatchState.Done;
+					currState.openParens--;
+				} else {
+					currState.state = MatchState.LookingForRightParen;
+				}
+				break;
+			}
+			case LookingForRightParen: {
+				if (tokenType == InternalPreprocessLexer.RULE_SKW_LEFTPAREN) {
+					currState.openParens++;
+				} else if (tokenType == InternalPreprocessLexer.RULE_SKW_RIGHTPAREN) {
+					currState.openParens--;
+					if (currState.openParens == 0) {
+						currState.state = MatchState.Done;
+					}
+				}
+				break;
+			}
+			default:
+				break;
+		}
+		return currState;
 	}
 	
 	// private int searchForClosingParen(final String originalText,
@@ -420,4 +440,5 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 	// }
 	// return result.toString().trim();
 	// }
+
 }

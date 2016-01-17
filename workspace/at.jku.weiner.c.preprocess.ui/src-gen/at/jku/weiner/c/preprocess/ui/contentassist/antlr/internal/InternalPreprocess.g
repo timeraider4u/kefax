@@ -58,6 +58,7 @@ import at.jku.weiner.c.preprocess.services.PreprocessGrammarAccess;
 
 
 
+
 // Entry rule entryRulePreprocess
 entryRulePreprocess 
 :
@@ -89,6 +90,7 @@ rulePreprocess
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -126,6 +128,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleGroupOpt2
 entryRuleGroupOpt2 
 :
@@ -157,6 +160,7 @@ ruleGroupOpt2
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -194,6 +198,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleGroupOptTemp2
 entryRuleGroupOptTemp2 
 :
@@ -225,6 +230,7 @@ ruleGroupOptTemp2
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -262,6 +268,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleIncludeDirective
 entryRuleIncludeDirective 
 :
@@ -293,6 +300,7 @@ ruleIncludeDirective
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -330,6 +338,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleDefineObjectMacro
 entryRuleDefineObjectMacro 
 :
@@ -361,6 +370,7 @@ ruleDefineObjectMacro
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -398,6 +408,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleIdentifierList
 entryRuleIdentifierList 
 :
@@ -430,39 +441,6 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-
-
-// Entry rule entryRuleReplaceLine
-entryRuleReplaceLine 
-:
-{ before(grammarAccess.getReplaceLineRule()); }
-	 ruleReplaceLine
-{ after(grammarAccess.getReplaceLineRule()); } 
-	 EOF 
-;
-
-// Rule ReplaceLine
-ruleReplaceLine
-    @init {
-		int stackSize = keepStackSize();
-		/*no init found*/
-    }
-	@after {
-    		/*no after found*/
-     }:
-
-(
-{ before(grammarAccess.getReplaceLineAccess().getAlternatives()); }
-(rule__ReplaceLine__Alternatives)
-{ after(grammarAccess.getReplaceLineAccess().getAlternatives()); }
-)
-
-
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
 
 
 
@@ -500,6 +478,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleWarningDirective
 entryRuleWarningDirective 
 :
@@ -531,6 +510,7 @@ ruleWarningDirective
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -568,6 +548,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleConditionalDirective
 entryRuleConditionalDirective 
 :
@@ -599,6 +580,7 @@ ruleConditionalDirective
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -636,6 +618,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleIfDefConditional
 entryRuleIfDefConditional 
 :
@@ -667,6 +650,7 @@ ruleIfDefConditional
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -704,6 +688,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleElIfConditional
 entryRuleElIfConditional 
 :
@@ -735,6 +720,7 @@ ruleElIfConditional
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -772,6 +758,7 @@ finally {
 
 
 
+
 // Entry rule entryRulePragmaDirective
 entryRulePragmaDirective 
 :
@@ -803,6 +790,7 @@ rulePragmaDirective
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -842,6 +830,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleNewLineLine
 entryRuleNewLineLine 
 :
@@ -875,6 +864,7 @@ ruleNewLineLine
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -912,6 +902,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleMyCode
 entryRuleMyCode 
 :
@@ -946,17 +937,18 @@ finally {
 
 
 
-// Entry rule entryRuleMyDefineLine
-entryRuleMyDefineLine 
+
+// Entry rule entryRuleMyDefineLineFunction
+entryRuleMyDefineLineFunction 
 :
-{ before(grammarAccess.getMyDefineLineRule()); }
-	 ruleMyDefineLine
-{ after(grammarAccess.getMyDefineLineRule()); } 
+{ before(grammarAccess.getMyDefineLineFunctionRule()); }
+	 ruleMyDefineLineFunction
+{ after(grammarAccess.getMyDefineLineFunctionRule()); } 
 	 EOF 
 ;
 
-// Rule MyDefineLine
-ruleMyDefineLine
+// Rule MyDefineLineFunction
+ruleMyDefineLineFunction
     @init {
 		int stackSize = keepStackSize();
 		/*no init found*/
@@ -967,14 +959,14 @@ ruleMyDefineLine
 
 (
 (
-{ before(grammarAccess.getMyDefineLineAccess().getAlternatives()); }
-(rule__MyDefineLine__Alternatives)
-{ after(grammarAccess.getMyDefineLineAccess().getAlternatives()); }
+{ before(grammarAccess.getMyDefineLineFunctionAccess().getAlternatives()); }
+(rule__MyDefineLineFunction__Alternatives)
+{ after(grammarAccess.getMyDefineLineFunctionAccess().getAlternatives()); }
 )
 (
-{ before(grammarAccess.getMyDefineLineAccess().getAlternatives()); }
-(rule__MyDefineLine__Alternatives)*
-{ after(grammarAccess.getMyDefineLineAccess().getAlternatives()); }
+{ before(grammarAccess.getMyDefineLineFunctionAccess().getAlternatives()); }
+(rule__MyDefineLineFunction__Alternatives)*
+{ after(grammarAccess.getMyDefineLineFunctionAccess().getAlternatives()); }
 )
 )
 
@@ -987,17 +979,18 @@ finally {
 
 
 
-// Entry rule entryRuleMyDefineLine2
-entryRuleMyDefineLine2 
+
+// Entry rule entryRuleMyDefineLineObject
+entryRuleMyDefineLineObject 
 :
-{ before(grammarAccess.getMyDefineLine2Rule()); }
-	 ruleMyDefineLine2
-{ after(grammarAccess.getMyDefineLine2Rule()); } 
+{ before(grammarAccess.getMyDefineLineObjectRule()); }
+	 ruleMyDefineLineObject
+{ after(grammarAccess.getMyDefineLineObjectRule()); } 
 	 EOF 
 ;
 
-// Rule MyDefineLine2
-ruleMyDefineLine2
+// Rule MyDefineLineObject
+ruleMyDefineLineObject
     @init {
 		int stackSize = keepStackSize();
 		/*no init found*/
@@ -1008,14 +1001,14 @@ ruleMyDefineLine2
 
 (
 (
-{ before(grammarAccess.getMyDefineLine2Access().getAlternatives()); }
-(rule__MyDefineLine2__Alternatives)
-{ after(grammarAccess.getMyDefineLine2Access().getAlternatives()); }
+{ before(grammarAccess.getMyDefineLineObjectAccess().getAlternatives()); }
+(rule__MyDefineLineObject__Alternatives)
+{ after(grammarAccess.getMyDefineLineObjectAccess().getAlternatives()); }
 )
 (
-{ before(grammarAccess.getMyDefineLine2Access().getAlternatives()); }
-(rule__MyDefineLine2__Alternatives)*
-{ after(grammarAccess.getMyDefineLine2Access().getAlternatives()); }
+{ before(grammarAccess.getMyDefineLineObjectAccess().getAlternatives()); }
+(rule__MyDefineLineObject__Alternatives)*
+{ after(grammarAccess.getMyDefineLineObjectAccess().getAlternatives()); }
 )
 )
 
@@ -1025,6 +1018,7 @@ ruleMyDefineLine2
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -1069,6 +1063,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleMyCodeLineExtended
 entryRuleMyCodeLineExtended 
 :
@@ -1100,6 +1095,7 @@ ruleMyCodeLineExtended
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -1144,6 +1140,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleMyCodeLineExtendedNormal
 entryRuleMyCodeLineExtendedNormal 
 :
@@ -1178,6 +1175,7 @@ finally {
 
 
 
+
 // Entry rule entryRulePrimaryExpression
 entryRulePrimaryExpression 
 :
@@ -1209,6 +1207,7 @@ rulePrimaryExpression
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -1254,6 +1253,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleConstantExpression
 entryRuleConstantExpression 
 @init {
@@ -1296,6 +1296,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleConditionalExpression
 entryRuleConditionalExpression 
 :
@@ -1327,6 +1328,7 @@ ruleConditionalExpression
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -1364,6 +1366,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleLogicalAndExpression
 entryRuleLogicalAndExpression 
 :
@@ -1395,6 +1398,7 @@ ruleLogicalAndExpression
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -1432,6 +1436,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleExclusiveOrExpression
 entryRuleExclusiveOrExpression 
 :
@@ -1463,6 +1468,7 @@ ruleExclusiveOrExpression
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -1500,6 +1506,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleEqualityExpression
 entryRuleEqualityExpression 
 :
@@ -1531,6 +1538,7 @@ ruleEqualityExpression
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -1568,6 +1576,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleShiftExpression
 entryRuleShiftExpression 
 :
@@ -1599,6 +1608,7 @@ ruleShiftExpression
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -1636,6 +1646,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleMultiplicativeExpression
 entryRuleMultiplicativeExpression 
 :
@@ -1667,6 +1678,7 @@ ruleMultiplicativeExpression
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -1704,6 +1716,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleUnaryExpression
 entryRuleUnaryExpression 
 :
@@ -1735,6 +1748,7 @@ ruleUnaryExpression
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -1772,6 +1786,7 @@ finally {
 
 
 
+
 // Entry rule entryRulePostfixExpression
 entryRulePostfixExpression 
 :
@@ -1803,6 +1818,7 @@ rulePostfixExpression
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -1840,6 +1856,7 @@ finally {
 
 
 
+
 // Entry rule entryRuleArgumentExpressionList
 entryRuleArgumentExpressionList 
 :
@@ -1871,6 +1888,7 @@ ruleArgumentExpressionList
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -1910,6 +1928,8 @@ finally {
 
 
 
+
+
 // Entry rule entryRuleSpecialKeywords
 entryRuleSpecialKeywords 
 :
@@ -1941,6 +1961,7 @@ ruleSpecialKeywords
 finally {
 	restoreStackSize(stackSize);
 }
+
 
 
 
@@ -2210,62 +2231,6 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ReplaceLine__Alternatives
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-
-(
-{ before(grammarAccess.getReplaceLineAccess().getGroup_0()); }
-(rule__ReplaceLine__Group_0__0)
-{ after(grammarAccess.getReplaceLineAccess().getGroup_0()); }
-)
-
-
-
-    |
-(
-{ before(grammarAccess.getReplaceLineAccess().getGroup_1()); }
-(rule__ReplaceLine__Group_1__0)
-{ after(grammarAccess.getReplaceLineAccess().getGroup_1()); }
-)
-
-
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__ReplaceLine__Alternatives_0_1_1_1
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-
-(
-{ before(grammarAccess.getReplaceLineAccess().getGroup_0_1_1_1_0()); }
-(rule__ReplaceLine__Group_0_1_1_1_0__0)
-{ after(grammarAccess.getReplaceLineAccess().getGroup_0_1_1_1_0()); }
-)
-
-
-
-    |
-(
-{ before(grammarAccess.getReplaceLineAccess().getConcatenateAssignment_0_1_1_1_1()); }
-(rule__ReplaceLine__ConcatenateAssignment_0_1_1_1_1)
-{ after(grammarAccess.getReplaceLineAccess().getConcatenateAssignment_0_1_1_1_1()); }
-)
-
-
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
 rule__ConditionalDirective__ConditionalAlternatives_1_0
     @init {
 		int stackSize = keepStackSize();
@@ -2466,34 +2431,34 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__MyDefineLine__Alternatives
+rule__MyDefineLineFunction__Alternatives
     @init {
 		int stackSize = keepStackSize();
     }
 :
 
 (
-{ before(grammarAccess.getMyDefineLineAccess().getMyCodeParserRuleCall_0()); }
-	ruleMyCode
-{ after(grammarAccess.getMyDefineLineAccess().getMyCodeParserRuleCall_0()); }
+{ before(grammarAccess.getMyDefineLineFunctionAccess().getMyDefineLineObjectParserRuleCall_0()); }
+	ruleMyDefineLineObject
+{ after(grammarAccess.getMyDefineLineFunctionAccess().getMyDefineLineObjectParserRuleCall_0()); }
 )
 
 
 
     |
 (
-{ before(grammarAccess.getMyDefineLineAccess().getWHITESPACETerminalRuleCall_1()); }
-	RULE_WHITESPACE
-{ after(grammarAccess.getMyDefineLineAccess().getWHITESPACETerminalRuleCall_1()); }
+{ before(grammarAccess.getMyDefineLineFunctionAccess().getHASHTerminalRuleCall_1()); }
+	RULE_HASH
+{ after(grammarAccess.getMyDefineLineFunctionAccess().getHASHTerminalRuleCall_1()); }
 )
 
 
 
     |
 (
-{ before(grammarAccess.getMyDefineLineAccess().getVA_ARGSTerminalRuleCall_2()); }
+{ before(grammarAccess.getMyDefineLineFunctionAccess().getVA_ARGSTerminalRuleCall_2()); }
 	RULE_VA_ARGS
-{ after(grammarAccess.getMyDefineLineAccess().getVA_ARGSTerminalRuleCall_2()); }
+{ after(grammarAccess.getMyDefineLineFunctionAccess().getVA_ARGSTerminalRuleCall_2()); }
 )
 
 
@@ -2503,25 +2468,25 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__MyDefineLine2__Alternatives
+rule__MyDefineLineObject__Alternatives
     @init {
 		int stackSize = keepStackSize();
     }
 :
 
 (
-{ before(grammarAccess.getMyDefineLine2Access().getMyCodeParserRuleCall_0()); }
+{ before(grammarAccess.getMyDefineLineObjectAccess().getMyCodeParserRuleCall_0()); }
 	ruleMyCode
-{ after(grammarAccess.getMyDefineLine2Access().getMyCodeParserRuleCall_0()); }
+{ after(grammarAccess.getMyDefineLineObjectAccess().getMyCodeParserRuleCall_0()); }
 )
 
 
 
     |
 (
-{ before(grammarAccess.getMyDefineLine2Access().getWHITESPACETerminalRuleCall_1()); }
+{ before(grammarAccess.getMyDefineLineObjectAccess().getWHITESPACETerminalRuleCall_1()); }
 	RULE_WHITESPACE
-{ after(grammarAccess.getMyDefineLine2Access().getWHITESPACETerminalRuleCall_1()); }
+{ after(grammarAccess.getMyDefineLineObjectAccess().getWHITESPACETerminalRuleCall_1()); }
 )
 
 
@@ -4598,9 +4563,9 @@ rule__DefineFunctionLikeMacro__Group__8__Impl
 :
 
 (
-{ before(grammarAccess.getDefineFunctionLikeMacroAccess().getReplacementAssignment_8()); }
-(rule__DefineFunctionLikeMacro__ReplacementAssignment_8)*
-{ after(grammarAccess.getDefineFunctionLikeMacroAccess().getReplacementAssignment_8()); }
+{ before(grammarAccess.getDefineFunctionLikeMacroAccess().getStringAssignment_8()); }
+(rule__DefineFunctionLikeMacro__StringAssignment_8)?
+{ after(grammarAccess.getDefineFunctionLikeMacroAccess().getStringAssignment_8()); }
 )
 
 
@@ -5197,377 +5162,6 @@ rule__IdentifierList__Group_1_1__1__Impl
 finally {
 	restoreStackSize(stackSize);
 }
-
-
-
-
-
-
-rule__ReplaceLine__Group_0__0
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-	rule__ReplaceLine__Group_0__0__Impl
-	rule__ReplaceLine__Group_0__1
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__ReplaceLine__Group_0__0__Impl
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-
-(
-{ before(grammarAccess.getReplaceLineAccess().getReplaceLineAction_0_0()); }
-(
-
-)
-{ after(grammarAccess.getReplaceLineAccess().getReplaceLineAction_0_0()); }
-)
-
-
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-rule__ReplaceLine__Group_0__1
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-	rule__ReplaceLine__Group_0__1__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__ReplaceLine__Group_0__1__Impl
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-
-(
-{ before(grammarAccess.getReplaceLineAccess().getGroup_0_1()); }
-(rule__ReplaceLine__Group_0_1__0)
-{ after(grammarAccess.getReplaceLineAccess().getGroup_0_1()); }
-)
-
-
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-
-
-
-
-rule__ReplaceLine__Group_0_1__0
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-	rule__ReplaceLine__Group_0_1__0__Impl
-	rule__ReplaceLine__Group_0_1__1
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__ReplaceLine__Group_0_1__0__Impl
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-
-(
-{ before(grammarAccess.getReplaceLineAccess().getStringAssignment_0_1_0()); }
-(rule__ReplaceLine__StringAssignment_0_1_0)
-{ after(grammarAccess.getReplaceLineAccess().getStringAssignment_0_1_0()); }
-)
-
-
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-rule__ReplaceLine__Group_0_1__1
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-	rule__ReplaceLine__Group_0_1__1__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__ReplaceLine__Group_0_1__1__Impl
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-
-(
-{ before(grammarAccess.getReplaceLineAccess().getGroup_0_1_1()); }
-(rule__ReplaceLine__Group_0_1_1__0)?
-{ after(grammarAccess.getReplaceLineAccess().getGroup_0_1_1()); }
-)
-
-
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-
-
-
-
-rule__ReplaceLine__Group_0_1_1__0
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-	rule__ReplaceLine__Group_0_1_1__0__Impl
-	rule__ReplaceLine__Group_0_1_1__1
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__ReplaceLine__Group_0_1_1__0__Impl
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-
-(
-{ before(grammarAccess.getReplaceLineAccess().getHASHTerminalRuleCall_0_1_1_0()); }
-	RULE_HASH
-{ after(grammarAccess.getReplaceLineAccess().getHASHTerminalRuleCall_0_1_1_0()); }
-)
-
-
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-rule__ReplaceLine__Group_0_1_1__1
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-	rule__ReplaceLine__Group_0_1_1__1__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__ReplaceLine__Group_0_1_1__1__Impl
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-
-(
-{ before(grammarAccess.getReplaceLineAccess().getAlternatives_0_1_1_1()); }
-(rule__ReplaceLine__Alternatives_0_1_1_1)
-{ after(grammarAccess.getReplaceLineAccess().getAlternatives_0_1_1_1()); }
-)
-
-
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-
-
-
-
-rule__ReplaceLine__Group_0_1_1_1_0__0
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-	rule__ReplaceLine__Group_0_1_1_1_0__0__Impl
-	rule__ReplaceLine__Group_0_1_1_1_0__1
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__ReplaceLine__Group_0_1_1_1_0__0__Impl
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-
-(
-{ before(grammarAccess.getReplaceLineAccess().getWHITESPACETerminalRuleCall_0_1_1_1_0_0()); }
-(	RULE_WHITESPACE)*
-{ after(grammarAccess.getReplaceLineAccess().getWHITESPACETerminalRuleCall_0_1_1_1_0_0()); }
-)
-
-
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-rule__ReplaceLine__Group_0_1_1_1_0__1
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-	rule__ReplaceLine__Group_0_1_1_1_0__1__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__ReplaceLine__Group_0_1_1_1_0__1__Impl
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-
-(
-{ before(grammarAccess.getReplaceLineAccess().getIdAssignment_0_1_1_1_0_1()); }
-(rule__ReplaceLine__IdAssignment_0_1_1_1_0_1)
-{ after(grammarAccess.getReplaceLineAccess().getIdAssignment_0_1_1_1_0_1()); }
-)
-
-
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-
-
-
-
-rule__ReplaceLine__Group_1__0
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-	rule__ReplaceLine__Group_1__0__Impl
-	rule__ReplaceLine__Group_1__1
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__ReplaceLine__Group_1__0__Impl
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-
-(
-{ before(grammarAccess.getReplaceLineAccess().getHASHTerminalRuleCall_1_0()); }
-	RULE_HASH
-{ after(grammarAccess.getReplaceLineAccess().getHASHTerminalRuleCall_1_0()); }
-)
-
-
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-rule__ReplaceLine__Group_1__1
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-	rule__ReplaceLine__Group_1__1__Impl
-	rule__ReplaceLine__Group_1__2
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__ReplaceLine__Group_1__1__Impl
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-
-(
-{ before(grammarAccess.getReplaceLineAccess().getWHITESPACETerminalRuleCall_1_1()); }
-(	RULE_WHITESPACE)*
-{ after(grammarAccess.getReplaceLineAccess().getWHITESPACETerminalRuleCall_1_1()); }
-)
-
-
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-rule__ReplaceLine__Group_1__2
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-	rule__ReplaceLine__Group_1__2__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__ReplaceLine__Group_1__2__Impl
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-
-(
-{ before(grammarAccess.getReplaceLineAccess().getIdAssignment_1_2()); }
-(rule__ReplaceLine__IdAssignment_1_2)
-{ after(grammarAccess.getReplaceLineAccess().getIdAssignment_1_2()); }
-)
-
-
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
 
 
 
@@ -11487,8 +11081,8 @@ rule__DefineObjectMacro__StringAssignment_4_1
     }
 :
 (
-{ before(grammarAccess.getDefineObjectMacroAccess().getStringMyDefineLine2ParserRuleCall_4_1_0()); }
-	ruleMyDefineLine2{ after(grammarAccess.getDefineObjectMacroAccess().getStringMyDefineLine2ParserRuleCall_4_1_0()); }
+{ before(grammarAccess.getDefineObjectMacroAccess().getStringMyDefineLineObjectParserRuleCall_4_1_0()); }
+	ruleMyDefineLineObject{ after(grammarAccess.getDefineObjectMacroAccess().getStringMyDefineLineObjectParserRuleCall_4_1_0()); }
 )
 
 ;
@@ -11526,14 +11120,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__DefineFunctionLikeMacro__ReplacementAssignment_8
+rule__DefineFunctionLikeMacro__StringAssignment_8
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getDefineFunctionLikeMacroAccess().getReplacementReplaceLineParserRuleCall_8_0()); }
-	ruleReplaceLine{ after(grammarAccess.getDefineFunctionLikeMacroAccess().getReplacementReplaceLineParserRuleCall_8_0()); }
+{ before(grammarAccess.getDefineFunctionLikeMacroAccess().getStringMyDefineLineFunctionParserRuleCall_8_0()); }
+	ruleMyDefineLineFunction{ after(grammarAccess.getDefineFunctionLikeMacroAccess().getStringMyDefineLineFunctionParserRuleCall_8_0()); }
 )
 
 ;
@@ -11639,66 +11233,6 @@ rule__IdentifierList__VariadicAssignment_1_1_1
 (
 { before(grammarAccess.getIdentifierListAccess().getVariadicEllipsisParserRuleCall_1_1_1_0()); }
 	ruleEllipsis{ after(grammarAccess.getIdentifierListAccess().getVariadicEllipsisParserRuleCall_1_1_1_0()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__ReplaceLine__StringAssignment_0_1_0
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getReplaceLineAccess().getStringMyDefineLineParserRuleCall_0_1_0_0()); }
-	ruleMyDefineLine{ after(grammarAccess.getReplaceLineAccess().getStringMyDefineLineParserRuleCall_0_1_0_0()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__ReplaceLine__IdAssignment_0_1_1_1_0_1
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getReplaceLineAccess().getIdIDTerminalRuleCall_0_1_1_1_0_1_0()); }
-	RULE_ID{ after(grammarAccess.getReplaceLineAccess().getIdIDTerminalRuleCall_0_1_1_1_0_1_0()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__ReplaceLine__ConcatenateAssignment_0_1_1_1_1
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getReplaceLineAccess().getConcatenateHASHTerminalRuleCall_0_1_1_1_1_0()); }
-	RULE_HASH{ after(grammarAccess.getReplaceLineAccess().getConcatenateHASHTerminalRuleCall_0_1_1_1_1_0()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__ReplaceLine__IdAssignment_1_2
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getReplaceLineAccess().getIdIDTerminalRuleCall_1_2_0()); }
-	RULE_ID{ after(grammarAccess.getReplaceLineAccess().getIdIDTerminalRuleCall_1_2_0()); }
 )
 
 ;

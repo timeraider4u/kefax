@@ -1,7 +1,6 @@
 package at.jku.weiner.c.preprocess.utils.macros;
 
 import java.util.List;
-import java.util.regex.Pattern;
 
 import org.antlr.runtime.Token;
 
@@ -12,19 +11,14 @@ public final class DefinitionObjectMacro implements DefinitionMacro {
 	private final String macroID;
 	private final String value;
 	private final List<Token> replacement;
+	private long lastId = -1;
+	private int lastIndex = -1;
 
 	public DefinitionObjectMacro(final LexerUtils lexerUtils, final String key,
 			final String replace) {
 		this.macroID = key;
-		this.value = this.getValue(replace);
+		this.value = (replace == null) ? "" : replace;
 		this.replacement = lexerUtils.getTokens(this.value);
-	}
-
-	private String getValue(String value2) {
-		if (value2 == null) {
-			value2 = "";
-		}
-		return value2;
 	}
 
 	@Override
@@ -40,8 +34,16 @@ public final class DefinitionObjectMacro implements DefinitionMacro {
 	}
 
 	@Override
-	public int resolve(final StringBuffer result, final List<Token> code,
+	public boolean resolve(final long id, final List<Token> code,
 			final int currPosition) {
+		if (this.lastId != id) {
+			this.lastIndex = -1;
+		}
+		this.lastId = id;
+		if (currPosition < this.lastIndex) {
+			// prevent endless replacement loops
+			return false;
+		}
 		code.remove(currPosition);
 		code.addAll(currPosition, this.replacement);
 		// if (!this.preCheck(originalText, code)) {
@@ -75,7 +77,8 @@ public final class DefinitionObjectMacro implements DefinitionMacro {
 		// this.lastExpansion = result.toString();
 		// return this.lastExpansion;
 		final int size = this.replacement.size();
-		return currPosition + size;
+		this.lastIndex = currPosition + size;
+		return true;
 	}
 
 }

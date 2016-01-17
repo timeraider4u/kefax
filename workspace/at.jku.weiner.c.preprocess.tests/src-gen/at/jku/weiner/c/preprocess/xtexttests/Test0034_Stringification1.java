@@ -48,8 +48,6 @@ import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro;
 import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
-import at.jku.weiner.c.preprocess.preprocess.ReplaceLine;
-import at.jku.weiner.c.preprocess.preprocess.ReplaceLine;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.Code;
@@ -194,46 +192,28 @@ public class Test0034_Stringification1 {
 		);
 		Assert.assertEquals("[X]", IdentifierList_4_Var
 		.getId().toString());
-		final EList<? extends EObject> Replacement_4_list = DefineFunctionLikeMacro_3_Var
-		.getReplacement();
-		Assert.assertNotNull(Replacement_4_list);
-		Assert.assertEquals(2, Replacement_4_list.size());
+		Assert.assertEquals("printf(#X \"=%d\\n\", X)", DefineFunctionLikeMacro_3_Var
+		.getString());
 		//4
-		final ReplaceLine ReplaceLine_5_Var
-		 = (ReplaceLine)Replacement_4_list.get(0);
-		Assert.assertNotNull(ReplaceLine_5_Var
+		final Code Code_5_Var
+		 = (Code)Lines_1_list.get(1);
+		Assert.assertNotNull(Code_5_Var
 		);
-		Assert.assertEquals(" printf(", ReplaceLine_5_Var
-		.getString());
-		Assert.assertEquals("X", ReplaceLine_5_Var
-		.getId());
+		Assert.assertEquals("DEBUG(5);", Code_5_Var
+		.getCode());
 		//5
-		final ReplaceLine ReplaceLine_6_Var
-		 = (ReplaceLine)Replacement_4_list.get(1);
-		Assert.assertNotNull(ReplaceLine_6_Var
+		final Code Code_6_Var
+		 = (Code)Lines_1_list.get(2);
+		Assert.assertNotNull(Code_6_Var
 		);
-		Assert.assertEquals(" \"=%d\\n\", X)", ReplaceLine_6_Var
-		.getString());
+		Assert.assertEquals("int x = 5;", Code_6_Var
+		.getCode());
 		//6
 		final Code Code_7_Var
-		 = (Code)Lines_1_list.get(1);
+		 = (Code)Lines_1_list.get(3);
 		Assert.assertNotNull(Code_7_Var
 		);
-		Assert.assertEquals("DEBUG(5);", Code_7_Var
-		.getCode());
-		//7
-		final Code Code_8_Var
-		 = (Code)Lines_1_list.get(2);
-		Assert.assertNotNull(Code_8_Var
-		);
-		Assert.assertEquals("int x = 5;", Code_8_Var
-		.getCode());
-		//8
-		final Code Code_9_Var
-		 = (Code)Lines_1_list.get(3);
-		Assert.assertNotNull(Code_9_Var
-		);
-		Assert.assertEquals("DEBUG(x);", Code_9_Var
+		Assert.assertEquals("DEBUG(x);", Code_7_Var
 		.getCode());
 	}
 	

@@ -2,7 +2,6 @@
  */
 package at.jku.weiner.c.preprocess.preprocess;
 
-import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -11,11 +10,11 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro#getList <em>List</em>}</li>
- *   <li>{@link at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro#getReplacement <em>Replacement</em>}</li>
+ *   <li>{@link at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro#getString <em>String</em>}</li>
  * </ul>
- * </p>
  *
  * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getDefineFunctionLikeMacro()
  * @model
@@ -50,19 +49,29 @@ public interface DefineFunctionLikeMacro extends DefineDirective
 	void setList(IdentifierList value);
 
 	/**
-	 * Returns the value of the '<em><b>Replacement</b></em>' containment reference list.
-	 * The list contents are of type {@link at.jku.weiner.c.preprocess.preprocess.ReplaceLine}.
+	 * Returns the value of the '<em><b>String</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Replacement</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>String</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Replacement</em>' containment reference list.
-	 * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getDefineFunctionLikeMacro_Replacement()
-	 * @model containment="true"
+	 * @return the value of the '<em>String</em>' attribute.
+	 * @see #setString(String)
+	 * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getDefineFunctionLikeMacro_String()
+	 * @model
 	 * @generated
 	 */
-	EList<ReplaceLine> getReplacement();
+	String getString();
+
+	/**
+	 * Sets the value of the '{@link at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro#getString <em>String</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>String</em>' attribute.
+	 * @see #getString()
+	 * @generated
+	 */
+	void setString(String value);
 
 } // DefineFunctionLikeMacro

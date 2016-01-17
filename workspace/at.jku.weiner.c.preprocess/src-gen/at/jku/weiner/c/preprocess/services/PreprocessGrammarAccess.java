@@ -341,15 +341,15 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final RuleCall cWHITESPACETerminalRuleCall_4_0 = (RuleCall)cGroup_4.eContents().get(0);
 		private final Assignment cStringAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cStringMyDefineLine2ParserRuleCall_4_1_0 = (RuleCall)cStringAssignment_4_1.eContents().get(0);
+		private final RuleCall cStringMyDefineLineObjectParserRuleCall_4_1_0 = (RuleCall)cStringAssignment_4_1.eContents().get(0);
 		private final RuleCall cWHITESPACETerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
 		
 		//DefineObjectMacro DefineDirective:
-		//	{DefineObjectMacro} DEFINE WHITESPACE+ id=MyCode (WHITESPACE+ string=MyDefineLine2)?
+		//	{DefineObjectMacro} DEFINE WHITESPACE+ id=MyCode (WHITESPACE+ string=MyDefineLineObject)?
 		//	WHITESPACE*
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{DefineObjectMacro} DEFINE WHITESPACE+ id=MyCode (WHITESPACE+ string=MyDefineLine2)? WHITESPACE*
+		//{DefineObjectMacro} DEFINE WHITESPACE+ id=MyCode (WHITESPACE+ string=MyDefineLineObject)? WHITESPACE*
 		public Group getGroup() { return cGroup; }
 		
 		//{DefineObjectMacro}
@@ -367,17 +367,17 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//MyCode
 		public RuleCall getIdMyCodeParserRuleCall_3_0() { return cIdMyCodeParserRuleCall_3_0; }
 		
-		//(WHITESPACE+ string=MyDefineLine2)?
+		//(WHITESPACE+ string=MyDefineLineObject)?
 		public Group getGroup_4() { return cGroup_4; }
 		
 		//WHITESPACE+
 		public RuleCall getWHITESPACETerminalRuleCall_4_0() { return cWHITESPACETerminalRuleCall_4_0; }
 		
-		//string=MyDefineLine2
+		//string=MyDefineLineObject
 		public Assignment getStringAssignment_4_1() { return cStringAssignment_4_1; }
 		
-		//MyDefineLine2
-		public RuleCall getStringMyDefineLine2ParserRuleCall_4_1_0() { return cStringMyDefineLine2ParserRuleCall_4_1_0; }
+		//MyDefineLineObject
+		public RuleCall getStringMyDefineLineObjectParserRuleCall_4_1_0() { return cStringMyDefineLineObjectParserRuleCall_4_1_0; }
 		
 		//WHITESPACE*
 		public RuleCall getWHITESPACETerminalRuleCall_5() { return cWHITESPACETerminalRuleCall_5; }
@@ -395,19 +395,22 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cListAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cListIdentifierListParserRuleCall_6_0 = (RuleCall)cListAssignment_6.eContents().get(0);
 		private final RuleCall cSKW_RIGHTPARENTerminalRuleCall_7 = (RuleCall)cGroup.eContents().get(7);
-		private final Assignment cReplacementAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cReplacementReplaceLineParserRuleCall_8_0 = (RuleCall)cReplacementAssignment_8.eContents().get(0);
+		private final Assignment cStringAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cStringMyDefineLineFunctionParserRuleCall_8_0 = (RuleCall)cStringAssignment_8.eContents().get(0);
 		
 		//DefineFunctionLikeMacro DefineDirective:
 		//	{DefineFunctionLikeMacro} DEFINE WHITESPACE+ id=MyCode
 		//	SKW_LEFTPAREN WHITESPACE*
 		//	list=IdentifierList?
 		//	SKW_RIGHTPAREN
-		//	replacement+=ReplaceLine*
+		//	string=MyDefineLineFunction
+		//	//(replacement+=ReplaceLine)*
+		//?
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{DefineFunctionLikeMacro} DEFINE WHITESPACE+ id=MyCode SKW_LEFTPAREN WHITESPACE* list=IdentifierList? SKW_RIGHTPAREN
-		//replacement+=ReplaceLine*
+		//string=MyDefineLineFunction //(replacement+=ReplaceLine)*
+		//?
 		public Group getGroup() { return cGroup; }
 		
 		//{DefineFunctionLikeMacro}
@@ -440,11 +443,12 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//SKW_RIGHTPAREN
 		public RuleCall getSKW_RIGHTPARENTerminalRuleCall_7() { return cSKW_RIGHTPARENTerminalRuleCall_7; }
 		
-		//replacement+=ReplaceLine*
-		public Assignment getReplacementAssignment_8() { return cReplacementAssignment_8; }
+		//string=MyDefineLineFunction //(replacement+=ReplaceLine)*
+		//?
+		public Assignment getStringAssignment_8() { return cStringAssignment_8; }
 		
-		//ReplaceLine
-		public RuleCall getReplacementReplaceLineParserRuleCall_8_0() { return cReplacementReplaceLineParserRuleCall_8_0; }
+		//MyDefineLineFunction
+		public RuleCall getStringMyDefineLineFunctionParserRuleCall_8_0() { return cStringMyDefineLineFunctionParserRuleCall_8_0; }
 	}
 	public class IdentifierListElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.IdentifierList");
@@ -575,93 +579,6 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//Ellipsis
 		public RuleCall getVariadicEllipsisParserRuleCall_1_1_1_0() { return cVariadicEllipsisParserRuleCall_1_1_1_0; }
 	}
-	public class ReplaceLineElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.ReplaceLine");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Action cReplaceLineAction_0_0 = (Action)cGroup_0.eContents().get(0);
-		private final Group cGroup_0_1 = (Group)cGroup_0.eContents().get(1);
-		private final Assignment cStringAssignment_0_1_0 = (Assignment)cGroup_0_1.eContents().get(0);
-		private final RuleCall cStringMyDefineLineParserRuleCall_0_1_0_0 = (RuleCall)cStringAssignment_0_1_0.eContents().get(0);
-		private final Group cGroup_0_1_1 = (Group)cGroup_0_1.eContents().get(1);
-		private final RuleCall cHASHTerminalRuleCall_0_1_1_0 = (RuleCall)cGroup_0_1_1.eContents().get(0);
-		private final Alternatives cAlternatives_0_1_1_1 = (Alternatives)cGroup_0_1_1.eContents().get(1);
-		private final Group cGroup_0_1_1_1_0 = (Group)cAlternatives_0_1_1_1.eContents().get(0);
-		private final RuleCall cWHITESPACETerminalRuleCall_0_1_1_1_0_0 = (RuleCall)cGroup_0_1_1_1_0.eContents().get(0);
-		private final Assignment cIdAssignment_0_1_1_1_0_1 = (Assignment)cGroup_0_1_1_1_0.eContents().get(1);
-		private final RuleCall cIdIDTerminalRuleCall_0_1_1_1_0_1_0 = (RuleCall)cIdAssignment_0_1_1_1_0_1.eContents().get(0);
-		private final Assignment cConcatenateAssignment_0_1_1_1_1 = (Assignment)cAlternatives_0_1_1_1.eContents().get(1);
-		private final RuleCall cConcatenateHASHTerminalRuleCall_0_1_1_1_1_0 = (RuleCall)cConcatenateAssignment_0_1_1_1_1.eContents().get(0);
-		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final RuleCall cHASHTerminalRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
-		private final RuleCall cWHITESPACETerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
-		private final Assignment cIdAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cIdIDTerminalRuleCall_1_2_0 = (RuleCall)cIdAssignment_1_2.eContents().get(0);
-		
-		//ReplaceLine:
-		//	{ReplaceLine} (string=MyDefineLine (HASH (WHITESPACE* id=ID | concatenate?=HASH))?) | HASH WHITESPACE* id=ID;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{ReplaceLine} (string=MyDefineLine (HASH (WHITESPACE* id=ID | concatenate?=HASH))?) | HASH WHITESPACE* id=ID
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//{ReplaceLine} (string=MyDefineLine (HASH (WHITESPACE* id=ID | concatenate?=HASH))?)
-		public Group getGroup_0() { return cGroup_0; }
-		
-		//{ReplaceLine}
-		public Action getReplaceLineAction_0_0() { return cReplaceLineAction_0_0; }
-		
-		//(string=MyDefineLine (HASH (WHITESPACE* id=ID | concatenate?=HASH))?)
-		public Group getGroup_0_1() { return cGroup_0_1; }
-		
-		//string=MyDefineLine
-		public Assignment getStringAssignment_0_1_0() { return cStringAssignment_0_1_0; }
-		
-		//MyDefineLine
-		public RuleCall getStringMyDefineLineParserRuleCall_0_1_0_0() { return cStringMyDefineLineParserRuleCall_0_1_0_0; }
-		
-		//(HASH (WHITESPACE* id=ID | concatenate?=HASH))?
-		public Group getGroup_0_1_1() { return cGroup_0_1_1; }
-		
-		//HASH
-		public RuleCall getHASHTerminalRuleCall_0_1_1_0() { return cHASHTerminalRuleCall_0_1_1_0; }
-		
-		//(WHITESPACE* id=ID | concatenate?=HASH)
-		public Alternatives getAlternatives_0_1_1_1() { return cAlternatives_0_1_1_1; }
-		
-		//WHITESPACE* id=ID
-		public Group getGroup_0_1_1_1_0() { return cGroup_0_1_1_1_0; }
-		
-		//WHITESPACE*
-		public RuleCall getWHITESPACETerminalRuleCall_0_1_1_1_0_0() { return cWHITESPACETerminalRuleCall_0_1_1_1_0_0; }
-		
-		//id=ID
-		public Assignment getIdAssignment_0_1_1_1_0_1() { return cIdAssignment_0_1_1_1_0_1; }
-		
-		//ID
-		public RuleCall getIdIDTerminalRuleCall_0_1_1_1_0_1_0() { return cIdIDTerminalRuleCall_0_1_1_1_0_1_0; }
-		
-		//concatenate?=HASH
-		public Assignment getConcatenateAssignment_0_1_1_1_1() { return cConcatenateAssignment_0_1_1_1_1; }
-		
-		//HASH
-		public RuleCall getConcatenateHASHTerminalRuleCall_0_1_1_1_1_0() { return cConcatenateHASHTerminalRuleCall_0_1_1_1_1_0; }
-		
-		//HASH WHITESPACE* id=ID
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//HASH
-		public RuleCall getHASHTerminalRuleCall_1_0() { return cHASHTerminalRuleCall_1_0; }
-		
-		//WHITESPACE*
-		public RuleCall getWHITESPACETerminalRuleCall_1_1() { return cWHITESPACETerminalRuleCall_1_1; }
-		
-		//id=ID
-		public Assignment getIdAssignment_1_2() { return cIdAssignment_1_2; }
-		
-		//ID
-		public RuleCall getIdIDTerminalRuleCall_1_2_0() { return cIdIDTerminalRuleCall_1_2_0; }
-	}
 	public class ErrorDirectiveElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.ErrorDirective");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -671,6 +588,20 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cMsgAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cMsgMyCodeLineParserRuleCall_3_0 = (RuleCall)cMsgAssignment_3.eContents().get(0);
 		
+		////ReplaceLine:
+		////	{ReplaceLine}
+		////	(
+		////	(string=MyDefineLine)
+		////	
+		////	(HASH
+		////		(
+		////				(WHITESPACE* id=ID)
+		////			|	concatenate?=(HASH)
+		////		)
+		////	)?
+		////	)
+		////	| (HASH WHITESPACE* id=ID)
+		////;
 		////ReplacementStringify:
 		////	WHITESPACE* id=ID
 		////;
@@ -1265,36 +1196,36 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		//Constant1
 		public RuleCall getConstant1ParserRuleCall_16() { return cConstant1ParserRuleCall_16; }
 	}
-	public class MyDefineLineElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.MyDefineLine");
+	public class MyDefineLineFunctionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.MyDefineLineFunction");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cMyCodeParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cWHITESPACETerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cMyDefineLineObjectParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cHASHTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cVA_ARGSTerminalRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
-		//MyDefineLine ecore::EString:
-		//	MyCode | WHITESPACE | VA_ARGS+
+		//MyDefineLineFunction ecore::EString:
+		//	MyDefineLineObject | HASH | VA_ARGS+
 		@Override public ParserRule getRule() { return rule; }
 		
-		//MyCode | WHITESPACE | VA_ARGS+
+		//MyDefineLineObject | HASH | VA_ARGS+
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//MyCode
-		public RuleCall getMyCodeParserRuleCall_0() { return cMyCodeParserRuleCall_0; }
+		//MyDefineLineObject
+		public RuleCall getMyDefineLineObjectParserRuleCall_0() { return cMyDefineLineObjectParserRuleCall_0; }
 		
-		//WHITESPACE
-		public RuleCall getWHITESPACETerminalRuleCall_1() { return cWHITESPACETerminalRuleCall_1; }
+		//HASH
+		public RuleCall getHASHTerminalRuleCall_1() { return cHASHTerminalRuleCall_1; }
 		
 		//VA_ARGS
 		public RuleCall getVA_ARGSTerminalRuleCall_2() { return cVA_ARGSTerminalRuleCall_2; }
 	}
-	public class MyDefineLine2Elements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.MyDefineLine2");
+	public class MyDefineLineObjectElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.weiner.c.preprocess.Preprocess.MyDefineLineObject");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cMyCodeParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cWHITESPACETerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
-		//MyDefineLine2 ecore::EString:
+		//MyDefineLineObject ecore::EString:
 		//	MyCode | WHITESPACE+
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -1503,7 +1434,6 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	private final DefineObjectMacroElements pDefineObjectMacro;
 	private final DefineFunctionLikeMacroElements pDefineFunctionLikeMacro;
 	private final IdentifierListElements pIdentifierList;
-	private final ReplaceLineElements pReplaceLine;
 	private final ErrorDirectiveElements pErrorDirective;
 	private final WarningDirectiveElements pWarningDirective;
 	private final UnDefineDirectiveElements pUnDefineDirective;
@@ -1518,8 +1448,8 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	private final NewLineLineElements pNewLineLine;
 	private final CodeElements pCode;
 	private final MyCodeElements pMyCode;
-	private final MyDefineLineElements pMyDefineLine;
-	private final MyDefineLine2Elements pMyDefineLine2;
+	private final MyDefineLineFunctionElements pMyDefineLineFunction;
+	private final MyDefineLineObjectElements pMyDefineLineObject;
 	private final MyCodeLineElements pMyCodeLine;
 	private final MyCodeLineExtendedElements pMyCodeLineExtended;
 	private final MyCodeLineExtendedWSOnlyElements pMyCodeLineExtendedWSOnly;
@@ -1562,7 +1492,6 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		this.pDefineObjectMacro = new DefineObjectMacroElements();
 		this.pDefineFunctionLikeMacro = new DefineFunctionLikeMacroElements();
 		this.pIdentifierList = new IdentifierListElements();
-		this.pReplaceLine = new ReplaceLineElements();
 		this.pErrorDirective = new ErrorDirectiveElements();
 		this.pWarningDirective = new WarningDirectiveElements();
 		this.pUnDefineDirective = new UnDefineDirectiveElements();
@@ -1577,8 +1506,8 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		this.pNewLineLine = new NewLineLineElements();
 		this.pCode = new CodeElements();
 		this.pMyCode = new MyCodeElements();
-		this.pMyDefineLine = new MyDefineLineElements();
-		this.pMyDefineLine2 = new MyDefineLine2Elements();
+		this.pMyDefineLineFunction = new MyDefineLineFunctionElements();
+		this.pMyDefineLineObject = new MyDefineLineObjectElements();
 		this.pMyCodeLine = new MyCodeLineElements();
 		this.pMyCodeLineExtended = new MyCodeLineExtendedElements();
 		this.pMyCodeLineExtendedWSOnly = new MyCodeLineExtendedWSOnlyElements();
@@ -1734,7 +1663,7 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DefineObjectMacro DefineDirective:
-	//	{DefineObjectMacro} DEFINE WHITESPACE+ id=MyCode (WHITESPACE+ string=MyDefineLine2)?
+	//	{DefineObjectMacro} DEFINE WHITESPACE+ id=MyCode (WHITESPACE+ string=MyDefineLineObject)?
 	//	WHITESPACE*
 	public DefineObjectMacroElements getDefineObjectMacroAccess() {
 		return pDefineObjectMacro;
@@ -1749,7 +1678,9 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	//	SKW_LEFTPAREN WHITESPACE*
 	//	list=IdentifierList?
 	//	SKW_RIGHTPAREN
-	//	replacement+=ReplaceLine*
+	//	string=MyDefineLineFunction
+	//	//(replacement+=ReplaceLine)*
+	//?
 	public DefineFunctionLikeMacroElements getDefineFunctionLikeMacroAccess() {
 		return pDefineFunctionLikeMacro;
 	}
@@ -1771,16 +1702,20 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		return getIdentifierListAccess().getRule();
 	}
 	
-	//ReplaceLine:
-	//	{ReplaceLine} (string=MyDefineLine (HASH (WHITESPACE* id=ID | concatenate?=HASH))?) | HASH WHITESPACE* id=ID;
-	public ReplaceLineElements getReplaceLineAccess() {
-		return pReplaceLine;
-	}
-	
-	public ParserRule getReplaceLineRule() {
-		return getReplaceLineAccess().getRule();
-	}
-	
+	////ReplaceLine:
+	////	{ReplaceLine}
+	////	(
+	////	(string=MyDefineLine)
+	////	
+	////	(HASH
+	////		(
+	////				(WHITESPACE* id=ID)
+	////			|	concatenate?=(HASH)
+	////		)
+	////	)?
+	////	)
+	////	| (HASH WHITESPACE* id=ID)
+	////;
 	////ReplacementStringify:
 	////	WHITESPACE* id=ID
 	////;
@@ -1947,24 +1882,24 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 		return getMyCodeAccess().getRule();
 	}
 	
-	//MyDefineLine ecore::EString:
-	//	MyCode | WHITESPACE | VA_ARGS+
-	public MyDefineLineElements getMyDefineLineAccess() {
-		return pMyDefineLine;
+	//MyDefineLineFunction ecore::EString:
+	//	MyDefineLineObject | HASH | VA_ARGS+
+	public MyDefineLineFunctionElements getMyDefineLineFunctionAccess() {
+		return pMyDefineLineFunction;
 	}
 	
-	public ParserRule getMyDefineLineRule() {
-		return getMyDefineLineAccess().getRule();
+	public ParserRule getMyDefineLineFunctionRule() {
+		return getMyDefineLineFunctionAccess().getRule();
 	}
 	
-	//MyDefineLine2 ecore::EString:
+	//MyDefineLineObject ecore::EString:
 	//	MyCode | WHITESPACE+
-	public MyDefineLine2Elements getMyDefineLine2Access() {
-		return pMyDefineLine2;
+	public MyDefineLineObjectElements getMyDefineLineObjectAccess() {
+		return pMyDefineLineObject;
 	}
 	
-	public ParserRule getMyDefineLine2Rule() {
-		return getMyDefineLine2Access().getRule();
+	public ParserRule getMyDefineLineObjectRule() {
+		return getMyDefineLineObjectAccess().getRule();
 	}
 	
 	//MyCodeLine ecore::EString:
@@ -2526,10 +2461,10 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
-	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) alternatives=TerminalAlternatives null
-	//Values: name(1), type(1), alternatives(1), fragment(1)
+	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
+	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[32]->TerminalRule'SKW_DOLLAR'
-	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getSKW_DOLLARRule() {
 		return gaCommon.getSKW_DOLLARRule();
@@ -2710,10 +2645,10 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
-	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) alternatives=TerminalAlternatives null
-	//Values: name(1), type(1), alternatives(1), fragment(1)
+	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
+	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[62]->TerminalRule'SKW_UNDERSCORE'
-	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getSKW_UNDERSCORERule() {
 		return gaCommon.getSKW_UNDERSCORERule();
@@ -2726,20 +2661,20 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
-	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) alternatives=TerminalAlternatives null
-	//Values: name(1), type(1), alternatives(1), fragment(1)
+	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
+	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[64]->TerminalRule'IDENTIFIER'
-	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getIDENTIFIERRule() {
 		return gaCommon.getIDENTIFIERRule();
 	}
 	
 	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
-	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) alternatives=TerminalAlternatives null
-	//Values: name(1), type(1), alternatives(1), fragment(1)
+	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
+	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[65]->TerminalRule'LETTER'
-	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getLETTERRule() {
 		return gaCommon.getLETTERRule();
@@ -2782,50 +2717,50 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
-	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) alternatives=TerminalAlternatives null
-	//Values: name(1), type(1), alternatives(1), fragment(1)
+	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
+	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[72]->TerminalRule'HEX_DIGIT'
-	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getHEX_DIGITRule() {
 		return gaCommon.getHEX_DIGITRule();
 	}
 	
 	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
-	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) alternatives=TerminalAlternatives null
-	//Values: name(1), type(1), alternatives(1), fragment(1)
+	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
+	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[73]->TerminalRule'INTEGER_TYPE_SUFFIX'
-	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getINTEGER_TYPE_SUFFIXRule() {
 		return gaCommon.getINTEGER_TYPE_SUFFIXRule();
 	}
 	
 	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
-	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) alternatives=TerminalAlternatives null
-	//Values: name(1), type(1), alternatives(1), fragment(1)
+	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
+	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[74]->TerminalRule'UNSIGNED_SUFFIX'
-	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getUNSIGNED_SUFFIXRule() {
 		return gaCommon.getUNSIGNED_SUFFIXRule();
 	}
 	
 	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
-	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) alternatives=TerminalAlternatives null
-	//Values: name(1), type(1), alternatives(1), fragment(1)
+	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
+	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[75]->TerminalRule'LONG_SUFFIX'
-	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getLONG_SUFFIXRule() {
 		return gaCommon.getLONG_SUFFIXRule();
 	}
 	
 	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
-	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) alternatives=TerminalAlternatives null
-	//Values: name(1), type(1), alternatives(1), fragment(1)
+	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
+	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[76]->TerminalRule'LONG_LONG_SUFFIX'
-	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getLONG_LONG_SUFFIXRule() {
 		return gaCommon.getLONG_LONG_SUFFIXRule();
@@ -2841,70 +2776,70 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
-	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) alternatives=TerminalAlternatives null
-	//Values: name(1), type(1), alternatives(1), fragment(1)
+	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
+	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[78]->TerminalRule'EXPONENT'
-	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getEXPONENTRule() {
 		return gaCommon.getEXPONENTRule();
 	}
 	
 	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
-	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) alternatives=TerminalAlternatives null
-	//Values: name(1), type(1), alternatives(1), fragment(1)
+	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
+	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[79]->TerminalRule'FLOAT_TYPE_SUFFIX'
-	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getFLOAT_TYPE_SUFFIXRule() {
 		return gaCommon.getFLOAT_TYPE_SUFFIXRule();
 	}
 	
 	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
-	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) alternatives=TerminalAlternatives null
-	//Values: name(1), type(1), alternatives(1), fragment(1)
+	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
+	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[80]->TerminalRule'ESCAPE_SEQUENCE'
-	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getESCAPE_SEQUENCERule() {
 		return gaCommon.getESCAPE_SEQUENCERule();
 	}
 	
 	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
-	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) alternatives=TerminalAlternatives null
-	//Values: name(1), type(1), alternatives(1), fragment(1)
+	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
+	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[81]->TerminalRule'OCTAL_ESCAPE'
-	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getOCTAL_ESCAPERule() {
 		return gaCommon.getOCTAL_ESCAPERule();
 	}
 	
 	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
-	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) alternatives=TerminalAlternatives null
-	//Values: name(1), type(1), alternatives(1), fragment(1)
+	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
+	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[82]->TerminalRule'HEX_ESCAPE'
-	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getHEX_ESCAPERule() {
 		return gaCommon.getHEX_ESCAPERule();
 	}
 	
 	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
-	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) alternatives=TerminalAlternatives null
-	//Values: name(1), type(1), alternatives(1), fragment(1)
+	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
+	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[83]->TerminalRule'LINEFEED'
-	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getLINEFEEDRule() {
 		return gaCommon.getLINEFEEDRule();
 	}
 	
 	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
-	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) alternatives=TerminalAlternatives null
-	//Values: name(1), type(1), alternatives(1), fragment(1)
+	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
+	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[84]->TerminalRule'CARRIAGERETURN'
-	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getCARRIAGERETURNRule() {
 		return gaCommon.getCARRIAGERETURNRule();
@@ -2929,20 +2864,20 @@ public class PreprocessGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
-	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) alternatives=TerminalAlternatives null
-	//Values: name(1), type(1), alternatives(1), fragment(1)
+	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
+	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[88]->TerminalRule'SPACE'
-	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getSPACERule() {
 		return gaCommon.getSPACERule();
 	}
 	
 	//java.lang.RuntimeException: Could not serialize EObject via backtracking.
-	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) alternatives=TerminalAlternatives null
-	//Values: name(1), type(1), alternatives(1), fragment(1)
+	//Constraint: null (fragment?='fragment' name=ValidID | name=ValidID type=TypeRef?) (preAntlrAction=ActionCall isSemanticPredicate?='?'?)? alternatives=TerminalAlternatives postAntlrAction=ActionCall? null
+	//Values: name(1), type(1), alternatives(1), fragment(1), isSemanticPredicate(0-1)
 	//Semantic Object: Grammar'at.jku.weiner.c.common.Common'.rules[89]->TerminalRule'TAB'
-	//URI: file:/home/adalgrim/weiner/Private/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
+	//URI: file:/home/harry/workspace/xtext-predicates/workspace/at.jku.weiner.c.common/bin/at/jku/weiner/c/common/Common.xtext
 	//Context: AbstractRule
 	public TerminalRule getTABRule() {
 		return gaCommon.getTABRule();

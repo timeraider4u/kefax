@@ -32,14 +32,14 @@ lexer-tokens
 					(IdentifierList
 						id+*"[X]"
 					),
-					replacement+=
-					(ReplaceLine
-						string++" printf(",
-						id++"X"
-					),
-					(ReplaceLine
-						string++" \\\"=%d\\\\n\\\", X)"
-					)
+//					replacement+=
+//					(ReplaceLine
+						string++"printf(#X \\\"=%d\\\\n\\\", X)"
+//						id++"X"
+//					),
+//					(ReplaceLine
+//						string++" )"
+//					)
 				)
 			),
 			(Code

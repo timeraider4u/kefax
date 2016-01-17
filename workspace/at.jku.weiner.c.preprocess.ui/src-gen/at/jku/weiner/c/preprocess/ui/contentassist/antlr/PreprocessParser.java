@@ -43,12 +43,10 @@ public class PreprocessParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDefineDirectiveAccess().getAlternatives(), "rule__DefineDirective__Alternatives");
 					put(grammarAccess.getIdentifierListAccess().getAlternatives_1(), "rule__IdentifierList__Alternatives_1");
 					put(grammarAccess.getIdentifierListAccess().getAlternatives_1_0_3_2(), "rule__IdentifierList__Alternatives_1_0_3_2");
-					put(grammarAccess.getReplaceLineAccess().getAlternatives(), "rule__ReplaceLine__Alternatives");
-					put(grammarAccess.getReplaceLineAccess().getAlternatives_0_1_1_1(), "rule__ReplaceLine__Alternatives_0_1_1_1");
 					put(grammarAccess.getConditionalDirectiveAccess().getConditionalAlternatives_1_0(), "rule__ConditionalDirective__ConditionalAlternatives_1_0");
 					put(grammarAccess.getMyCodeAccess().getAlternatives(), "rule__MyCode__Alternatives");
-					put(grammarAccess.getMyDefineLineAccess().getAlternatives(), "rule__MyDefineLine__Alternatives");
-					put(grammarAccess.getMyDefineLine2Access().getAlternatives(), "rule__MyDefineLine2__Alternatives");
+					put(grammarAccess.getMyDefineLineFunctionAccess().getAlternatives(), "rule__MyDefineLineFunction__Alternatives");
+					put(grammarAccess.getMyDefineLineObjectAccess().getAlternatives(), "rule__MyDefineLineObject__Alternatives");
 					put(grammarAccess.getMyCodeLineAccess().getAlternatives(), "rule__MyCodeLine__Alternatives");
 					put(grammarAccess.getMyCodeLineExtendedAccess().getAlternatives(), "rule__MyCodeLineExtended__Alternatives");
 					put(grammarAccess.getMyCodeLineExtendedNormalAccess().getAlternatives_2(), "rule__MyCodeLineExtendedNormal__Alternatives_2");
@@ -79,11 +77,6 @@ public class PreprocessParser extends AbstractContentAssistParser {
 					put(grammarAccess.getIdentifierListAccess().getGroup_1_0_3(), "rule__IdentifierList__Group_1_0_3__0");
 					put(grammarAccess.getIdentifierListAccess().getGroup_1_0_3_2_1(), "rule__IdentifierList__Group_1_0_3_2_1__0");
 					put(grammarAccess.getIdentifierListAccess().getGroup_1_1(), "rule__IdentifierList__Group_1_1__0");
-					put(grammarAccess.getReplaceLineAccess().getGroup_0(), "rule__ReplaceLine__Group_0__0");
-					put(grammarAccess.getReplaceLineAccess().getGroup_0_1(), "rule__ReplaceLine__Group_0_1__0");
-					put(grammarAccess.getReplaceLineAccess().getGroup_0_1_1(), "rule__ReplaceLine__Group_0_1_1__0");
-					put(grammarAccess.getReplaceLineAccess().getGroup_0_1_1_1_0(), "rule__ReplaceLine__Group_0_1_1_1_0__0");
-					put(grammarAccess.getReplaceLineAccess().getGroup_1(), "rule__ReplaceLine__Group_1__0");
 					put(grammarAccess.getErrorDirectiveAccess().getGroup(), "rule__ErrorDirective__Group__0");
 					put(grammarAccess.getWarningDirectiveAccess().getGroup(), "rule__WarningDirective__Group__0");
 					put(grammarAccess.getUnDefineDirectiveAccess().getGroup(), "rule__UnDefineDirective__Group__0");
@@ -153,7 +146,7 @@ public class PreprocessParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDefineObjectMacroAccess().getStringAssignment_4_1(), "rule__DefineObjectMacro__StringAssignment_4_1");
 					put(grammarAccess.getDefineFunctionLikeMacroAccess().getIdAssignment_3(), "rule__DefineFunctionLikeMacro__IdAssignment_3");
 					put(grammarAccess.getDefineFunctionLikeMacroAccess().getListAssignment_6(), "rule__DefineFunctionLikeMacro__ListAssignment_6");
-					put(grammarAccess.getDefineFunctionLikeMacroAccess().getReplacementAssignment_8(), "rule__DefineFunctionLikeMacro__ReplacementAssignment_8");
+					put(grammarAccess.getDefineFunctionLikeMacroAccess().getStringAssignment_8(), "rule__DefineFunctionLikeMacro__StringAssignment_8");
 					put(grammarAccess.getIdentifierListAccess().getIdAssignment_1_0_0(), "rule__IdentifierList__IdAssignment_1_0_0");
 					put(grammarAccess.getIdentifierListAccess().getIdAssignment_1_0_1_3(), "rule__IdentifierList__IdAssignment_1_0_1_3");
 					put(grammarAccess.getIdentifierListAccess().getVariadicAssignment_1_0_3_2_0(), "rule__IdentifierList__VariadicAssignment_1_0_3_2_0");
@@ -161,10 +154,6 @@ public class PreprocessParser extends AbstractContentAssistParser {
 					put(grammarAccess.getIdentifierListAccess().getVariadicAssignment_1_0_3_2_1_1(), "rule__IdentifierList__VariadicAssignment_1_0_3_2_1_1");
 					put(grammarAccess.getIdentifierListAccess().getVarIDAssignment_1_1_0(), "rule__IdentifierList__VarIDAssignment_1_1_0");
 					put(grammarAccess.getIdentifierListAccess().getVariadicAssignment_1_1_1(), "rule__IdentifierList__VariadicAssignment_1_1_1");
-					put(grammarAccess.getReplaceLineAccess().getStringAssignment_0_1_0(), "rule__ReplaceLine__StringAssignment_0_1_0");
-					put(grammarAccess.getReplaceLineAccess().getIdAssignment_0_1_1_1_0_1(), "rule__ReplaceLine__IdAssignment_0_1_1_1_0_1");
-					put(grammarAccess.getReplaceLineAccess().getConcatenateAssignment_0_1_1_1_1(), "rule__ReplaceLine__ConcatenateAssignment_0_1_1_1_1");
-					put(grammarAccess.getReplaceLineAccess().getIdAssignment_1_2(), "rule__ReplaceLine__IdAssignment_1_2");
 					put(grammarAccess.getErrorDirectiveAccess().getMsgAssignment_3(), "rule__ErrorDirective__MsgAssignment_3");
 					put(grammarAccess.getWarningDirectiveAccess().getMsgAssignment_3(), "rule__WarningDirective__MsgAssignment_3");
 					put(grammarAccess.getUnDefineDirectiveAccess().getIdAssignment_3(), "rule__UnDefineDirective__IdAssignment_3");

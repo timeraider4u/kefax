@@ -11,15 +11,15 @@ import at.jku.weiner.c.preprocess.utils.LexerUtils;
 import at.jku.weiner.c.preprocess.utils.MyLog;
 
 public final class DefinitionFunctionMacro implements DefinitionMacro {
-
+	
 	private final String key;
 	private final List<String> idList;
 	private final String value;
 	private final List<Token> replacements;
-
+	
 	private long lastId = -1;
 	private int lastIndex = -1;
-
+	
 	public DefinitionFunctionMacro(final LexerUtils lexerUtils,
 			final String key, final IdentifierList idList, final String replace) {
 		this.key = key;
@@ -28,7 +28,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		this.idList = ((idList == null) ? new ArrayList<String>() : idList
 				.getId());
 	}
-
+	
 	@Override
 	public boolean equalsMacro(final DefinitionMacro obj) {
 		if (!(obj instanceof DefinitionFunctionMacro)) {
@@ -48,13 +48,13 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 				return false;
 			}
 		}
-
+		
 		final String val1 = this.value.replaceAll("\\s", "");
 		final String val2 = other.value.replaceAll("\\s", "");
 		final boolean result = val1.equals(val2);
 		return result;
 	}
-	
+
 	@Override
 	public boolean resolve(final long id, final List<Token> code,
 			final int currPosition) {
@@ -71,7 +71,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			final ArrayList<Token> list = new ArrayList<Token>();
 			replace.add(list);
 		}
-		
+
 		final int closingParenPosition = this.searchForClosingParen(code,
 				currPosition, replace);
 		MyLog.debug("closingParenPosition='" + closingParenPosition + "'");
@@ -100,26 +100,25 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 				index++;
 			}
 		}
-		
+
 		this.lastIndex = index;
 		return true;
 	}
-	
+
 	private enum MatchState {
 		Invalid, LookingForOpenLeftParen, LeftParen, LookingForRightParen, Done,
 	}
-	
+
 	private class State {
 		public MatchState state = MatchState.LookingForOpenLeftParen;
 		public int openParens = 0;
 	}
-	
+
 	private int searchForClosingParen(final List<Token> code,
 			final int currPosition, final List<ArrayList<Token>> replace) {
 		State currState = new State();
 		int paramCount = 0;
-		ArrayList<Token> list = replace.get(paramCount);
-
+		ArrayList<Token> list = this.getListForParamCount(replace, paramCount);
 		for (int i = currPosition + 1; i < code.size(); i++) {
 			final Token token = code.get(i);
 			final int tokenType = token.getType();
@@ -133,15 +132,15 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 				if ((currState.openParens == 1)
 						&& (tokenType == InternalPreprocessLexer.RULE_SKW_COMMA)) {
 					paramCount++;
-					list = replace.get(paramCount);
-				} else {
+					list = this.getListForParamCount(replace, paramCount);
+				} else if (tokenType != InternalPreprocessLexer.RULE_WHITESPACE) {
 					list.add(token);
 				}
 			}
 		}
 		throw new MacroParentheseNotClosedYetException(code, code.size());
 	}
-	
+
 	private State getNextState(final State currState, final int tokenType) {
 		switch (currState.state) {
 			case LookingForOpenLeftParen: {
@@ -181,6 +180,14 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		return currState;
 	}
 	
+	private ArrayList<Token> getListForParamCount(
+			final List<ArrayList<Token>> replace, final int paramCount) {
+		if (paramCount >= replace.size()) {
+			return new ArrayList<Token>();
+		}
+		return replace.get(paramCount);
+	}
+
 	// private int searchForClosingParen(final String originalText,
 	// final String code, final StringBuffer result, int i) {
 	// MatchState state = MatchState.Normal;
@@ -440,5 +447,5 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 	// }
 	// return result.toString().trim();
 	// }
-
+	
 }

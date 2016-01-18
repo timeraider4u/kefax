@@ -17,7 +17,6 @@ import org.osgi.framework.Bundle;
 
 import at.jku.weiner.c.common.common.Model;
 import at.jku.weiner.c.preprocess.utils.IncludeDirs;
-import at.jku.weiner.c.preprocess.utils.macros.DefinitionTable;
 
 @SuppressWarnings("restriction")
 public class EMFTest {
@@ -26,7 +25,7 @@ public class EMFTest {
 	private static String includeDirs = null;
 	private static String path3 = null;
 	private static String additionalDirectives = null;
-	
+
 	public static Map<String, Object> getOptions(
 			final String pureJavaClassFileName, final String sourceFile) {
 		EMFTest.firstCall();
@@ -55,7 +54,7 @@ public class EMFTest {
 			}
 		}
 	}
-	
+
 	public static Model emfTest(final String pureJavaClassFileName,
 			final String sourceFile) throws Exception {
 		EMFTest.firstCall();
@@ -67,14 +66,14 @@ public class EMFTest {
 		EMFTest.stdInclude = true;
 		EMFTest.includeDirs = null;
 		EMFTest.additionalDirectives = null;
-		
+
 		final TestUtils utils = new TestUtils(iProject, sourceFile,
 				myStdInclude, myIncludeDirs, myDefines);
 
 		final Model result = utils.getModel();
 		return result;
 	}
-	
+
 	private static void cleanUpOldProject() throws CoreException {
 		final IProject oldProject = ResourcesPlugin.getWorkspace().getRoot()
 				.getProject(Activator.PLUGIN_ID);
@@ -98,21 +97,20 @@ public class EMFTest {
 		Assert.assertNotNull(list);
 		Assert.assertTrue(list.isEmpty());
 	}
-	
+
 	public static void includeDirsStringIsEmpty() {
 		Assert.assertNull(EMFTest.includeDirs);
 	}
-	
+
 	public static void addIncludeDir() {
 		EMFTest.includeDirs = EMFTest.path3 + File.separator
 				+ Activator.PLUGIN_ID + File.separator + "res/";
 	}
 
 	public static void addDefine() {
-		Assert.assertEquals(0, DefinitionTable.size());
 		EMFTest.additionalDirectives = "#define __MY_TYPE__ unsigned int";
 	}
-	
+
 	public static void addInclude() {
 		EMFTest.additionalDirectives = "#include \"../include/SimpleInclude.h\"";
 	}

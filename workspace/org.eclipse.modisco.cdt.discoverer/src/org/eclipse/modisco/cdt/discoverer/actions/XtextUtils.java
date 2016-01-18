@@ -18,7 +18,6 @@ import at.jku.weiner.c.preprocess.generator.PreprocessGenerator;
 import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 import at.jku.weiner.c.preprocess.utils.IncludeDirs;
 import at.jku.weiner.c.preprocess.utils.macros.AdditionalPreprocessingDirectives;
-import at.jku.weiner.c.preprocess.utils.macros.DefinitionTable;
 import at.jku.weiner.c.preprocess.utils.macros.PredefinedMacros;
 
 import com.google.inject.Injector;
@@ -100,7 +99,7 @@ public class XtextUtils {
 
 	private final String generateIntermediateFile(final IFile iFile,
 			final String fileNameOnly, final TranslationUnit unit)
-			throws DiscoveryException {
+					throws DiscoveryException {
 		// configure and start the generator
 		final URI whole = URI.createURI(iFile.getLocationURI().toString());
 		final URI uri = whole.trimSegments(1);
@@ -140,7 +139,6 @@ public class XtextUtils {
 
 	public void cleanUp() {
 		IncludeDirs.clearAllIncludeDirectories();
-		DefinitionTable.reset();
 	}
 
 	private void setUpAdditionalPreprocessingDirectives(

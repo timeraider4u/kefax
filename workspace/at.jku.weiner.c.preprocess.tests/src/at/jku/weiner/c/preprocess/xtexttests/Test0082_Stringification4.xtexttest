@@ -57,7 +57,7 @@ lexer-tokens
 					),
 //					replacement+=
 //					(ReplaceLine
-						string++" FOO(#X)"
+						string++"FOO(#X)"
 //						id++"X"
 //					),
 //					(ReplaceLine

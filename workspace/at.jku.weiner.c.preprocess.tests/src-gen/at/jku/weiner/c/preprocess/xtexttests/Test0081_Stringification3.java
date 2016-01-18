@@ -243,7 +243,7 @@ public class Test0081_Stringification3 {
 		);
 		Assert.assertEquals("[X]", IdentifierList_7_Var
 		.getId().toString());
-		Assert.assertEquals(" FOO(#X)", DefineFunctionLikeMacro_6_Var
+		Assert.assertEquals("FOO(#X)", DefineFunctionLikeMacro_6_Var
 		.getString());
 		//7
 		final PreprocessorDirectives PreprocessorDirectives_8_Var
@@ -266,7 +266,7 @@ public class Test0081_Stringification3 {
 		);
 		Assert.assertEquals("[X]", IdentifierList_10_Var
 		.getId().toString());
-		Assert.assertEquals(" #X BAR(#X)", DefineFunctionLikeMacro_9_Var
+		Assert.assertEquals("#X BAR(#X)", DefineFunctionLikeMacro_9_Var
 		.getString());
 		//10
 		final NewLineLine NewLineLine_11_Var

@@ -260,7 +260,7 @@ public class Test0110_DefineAndDefine {
 		);
 		Assert.assertEquals("[X]", IdentifierList_9_Var
 		.getId().toString());
-		Assert.assertEquals(" BAR(X##FOO)", DefineFunctionLikeMacro_8_Var
+		Assert.assertEquals("BAR(X##FOO)", DefineFunctionLikeMacro_8_Var
 		.getString());
 		//9
 		final PreprocessorDirectives PreprocessorDirectives_10_Var
@@ -283,7 +283,7 @@ public class Test0110_DefineAndDefine {
 		);
 		Assert.assertEquals("[X]", IdentifierList_12_Var
 		.getId().toString());
-		Assert.assertEquals(" BAZ(X)", DefineFunctionLikeMacro_11_Var
+		Assert.assertEquals("BAZ(X)", DefineFunctionLikeMacro_11_Var
 		.getString());
 		//12
 		final Code Code_13_Var

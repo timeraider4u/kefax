@@ -513,7 +513,7 @@ public class Test0027_FunctionMacroMultipleArguments {
 		);
 		Assert.assertEquals("[X]", IdentifierList_6_Var
 		.getId().toString());
-		Assert.assertEquals("			{X}", DefineFunctionLikeMacro_5_Var
+		Assert.assertEquals("{X}", DefineFunctionLikeMacro_5_Var
 		.getString());
 		//6
 		final PreprocessorDirectives PreprocessorDirectives_7_Var
@@ -536,7 +536,7 @@ public class Test0027_FunctionMacroMultipleArguments {
 		);
 		Assert.assertEquals("[X, Y]", IdentifierList_9_Var
 		.getId().toString());
-		Assert.assertEquals("		X + Y", DefineFunctionLikeMacro_8_Var
+		Assert.assertEquals("X + Y", DefineFunctionLikeMacro_8_Var
 		.getString());
 		//9
 		final PreprocessorDirectives PreprocessorDirectives_10_Var

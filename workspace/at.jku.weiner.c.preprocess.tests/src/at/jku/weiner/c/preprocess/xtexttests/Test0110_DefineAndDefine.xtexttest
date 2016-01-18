@@ -59,7 +59,7 @@ lexer-tokens
 					),
 //					replacement+=
 //					(ReplaceLine
-						string++" BAR(X##FOO)"
+						string++"BAR(X##FOO)"
 //						concatenate?=true
 //					),
 //					(ReplaceLine
@@ -78,7 +78,7 @@ lexer-tokens
 					),
 //					replacement+=
 //					(ReplaceLine
-						string++" BAZ(X)"
+						string++"BAZ(X)"
 //						concatenate?=false
 //					)
 				)

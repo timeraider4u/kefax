@@ -220,7 +220,7 @@ public class Test0035_Stringification2 {
 		);
 		Assert.assertEquals("[X]", IdentifierList_7_Var
 		.getId().toString());
-		Assert.assertEquals(" #X", DefineFunctionLikeMacro_6_Var
+		Assert.assertEquals("#X", DefineFunctionLikeMacro_6_Var
 		.getString());
 		//7
 		final PreprocessorDirectives PreprocessorDirectives_8_Var

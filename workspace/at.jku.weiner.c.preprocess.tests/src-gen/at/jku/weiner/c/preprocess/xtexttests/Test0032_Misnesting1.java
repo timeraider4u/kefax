@@ -211,7 +211,7 @@ public class Test0032_Misnesting1 {
 		);
 		Assert.assertEquals("[x]", IdentifierList_7_Var
 		.getId().toString());
-		Assert.assertEquals(" x(1)", DefineFunctionLikeMacro_6_Var
+		Assert.assertEquals("x(1)", DefineFunctionLikeMacro_6_Var
 		.getString());
 		//7
 		final Code Code_8_Var

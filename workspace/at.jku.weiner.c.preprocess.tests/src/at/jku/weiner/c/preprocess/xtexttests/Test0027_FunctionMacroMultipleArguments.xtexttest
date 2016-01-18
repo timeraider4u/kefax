@@ -102,7 +102,7 @@ lexer-tokens
 					),
 //					replacement+=
 //					(ReplaceLine
-						string++"			{X}"
+						string++"{X}"
 //					)
 				)
 			),
@@ -116,7 +116,7 @@ lexer-tokens
 					),
 //					replacement+=
 //					(ReplaceLine
-						string++"		X + Y"
+						string++"X + Y"
 //					)
 				)
 			),

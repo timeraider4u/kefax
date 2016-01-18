@@ -43,7 +43,7 @@ lexer-tokens
 					),
 //					replacement+=
 //					(ReplaceLine
-						string++" x(1)"
+						string++"x(1)"
 //					)
 				)
 			),

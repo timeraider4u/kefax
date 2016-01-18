@@ -1,0 +1,104 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language preprocess
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+split-lexer=false
+source file="res/Test0122_ExpansionOfArgs.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH DEFINE WHITESPACE ID WHITESPACE ID NEWLINE
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN WHITESPACE
+		ID WHITESPACE ID NEWLINE
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN WHITESPACE
+		ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN NEWLINE
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN WHITESPACE
+		ID SKW_LEFTPAREN HASH ID SKW_COMMA WHITESPACE HASH ID SKW_RIGHTPAREN NEWLINE
+	ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN NEWLINE
+	ID SKW_LEFTPAREN SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_COMMA WHITESPACE SKW_MINUS ID SKW_MINUS SKW_RIGHTPAREN NEWLINE
+	ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN NEWLINE
+	ID SKW_LEFTPAREN SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_COMMA WHITESPACE SKW_LEFTPAREN SKW_MINUS ID SKW_MINUS SKW_RIGHTPAREN SKW_RIGHTPAREN NEWLINE
+	ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN NEWLINE
+	ID SKW_LEFTPAREN SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_COMMA WHITESPACE SKW_MINUS ID SKW_MINUS SKW_RIGHTPAREN NEWLINE
+	ID SKW_LEFTPAREN SKW_LEFTPAREN ID SKW_COMMA ID SKW_RIGHTPAREN SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN NEWLINE
+	
+//----------------------------------------------------------------------
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineObjectMacro
+					id++"FOO",
+					string++"foo"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"BAR",
+					list=
+					(IdentifierList
+						id+*"[X, Y]"
+					),
+					string++"X Y"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"BAZ",
+					list=
+					(IdentifierList
+						id+*"[X, Y]"
+					),
+					string++"BAR(X, Y)"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"FOO2",
+					list=
+					(IdentifierList
+						id+*"[X, Y]"
+					),
+					string++"BAR(#X, #Y)"
+				)
+			),
+			(Code
+				code++"BAR(FOO, FOO)"
+			),
+			(Code
+				code++"BAR((FOO), -FOO-)"
+			),
+			(Code
+				code++"BAZ(FOO, FOO)"
+			),
+			(Code
+				code++"BAZ((FOO), (-FOO-))"
+			),
+			(Code
+				code++"FOO2(FOO, FOO)"
+			),
+			(Code
+				code++"FOO2((FOO), -FOO-)"
+			),
+			(Code
+				code++"FOO2((FOO,FOO), FOO$FOO)"
+			)
+		)
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0122_ExpansionOfArgs.c.i"
+expected file="expected/Test0122_ExpansionOfArgs.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

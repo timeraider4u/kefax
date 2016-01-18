@@ -46,12 +46,17 @@ import at.jku.weiner.c.preprocess.xtexttests.LexerAndParserTest;
 import at.jku.weiner.c.preprocess.preprocess.Preprocess;
 import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
+import at.jku.weiner.c.preprocess.preprocess.DefineObjectMacro;
+import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
+import at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro;
+import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
+import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
+import at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro;
+import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
+import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro;
 import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
 import at.jku.weiner.c.preprocess.preprocess.Code;
-import at.jku.weiner.c.preprocess.preprocess.Code;
-import at.jku.weiner.c.preprocess.preprocess.Code;
-import at.jku.weiner.c.preprocess.preprocess.NewLineLine;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.Code;
@@ -61,7 +66,7 @@ import at.jku.weiner.c.preprocess.preprocess.Code;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(PreprocessInjectorProvider.class)
-public class Test0080_FunctionMacroSeveralLines {
+public class Test0122_ExpansionOfArgs {
 	@Inject
 	private ParseHelper<Preprocess> parseHelper;
 	@Inject
@@ -107,9 +112,16 @@ public class Test0080_FunctionMacroSeveralLines {
 	@Test (timeout=1000)
 	public void checkLexerTokens() throws Exception{
 		final String text = this.getTextFromFile(
-			"res/Test0080_FunctionMacroSeveralLines.c");
+			"res/Test0122_ExpansionOfArgs.c");
 			//System.out.println(text);
 			final String[] expected = new String[] {
+				"RULE_HASH",
+				"RULE_DEFINE",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_NEWLINE",
 				"RULE_HASH",
 				"RULE_DEFINE",
 				"RULE_WHITESPACE",
@@ -121,113 +133,123 @@ public class Test0080_FunctionMacroSeveralLines {
 				"RULE_ID",
 				"RULE_SKW_RIGHTPAREN",
 				"RULE_WHITESPACE",
-				"RULE_SKW_LEFTPAREN",
-				"RULE_SKW_LEFTPAREN",
 				"RULE_ID",
-				"RULE_SKW_RIGHTPAREN",
 				"RULE_WHITESPACE",
-				"RULE_SKW_LESS",
-				"RULE_WHITESPACE",
-				"RULE_SKW_LEFTPAREN",
 				"RULE_ID",
-				"RULE_SKW_RIGHTPAREN",
-				"RULE_WHITESPACE",
-				"RULE_SKW_QUESTION",
-				"RULE_WHITESPACE",
-				"RULE_SKW_LEFTPAREN",
-				"RULE_ID",
-				"RULE_SKW_RIGHTPAREN",
-				"RULE_WHITESPACE",
-				"RULE_SKW_COLON",
-				"RULE_WHITESPACE",
-				"RULE_SKW_LEFTPAREN",
-				"RULE_ID",
-				"RULE_SKW_RIGHTPAREN",
-				"RULE_SKW_RIGHTPAREN",
 				"RULE_NEWLINE",
-				"RULE_ID",
-				"RULE_WHITESPACE",
-				"RULE_ID",
-				"RULE_WHITESPACE",
-				"RULE_SKW_ASSIGN",
+				"RULE_HASH",
+				"RULE_DEFINE",
 				"RULE_WHITESPACE",
 				"RULE_ID",
 				"RULE_SKW_LEFTPAREN",
-				"RULE_DECIMAL_LITERAL",
+				"RULE_ID",
 				"RULE_SKW_COMMA",
 				"RULE_WHITESPACE",
-				"RULE_DECIMAL_LITERAL",
+				"RULE_ID",
 				"RULE_SKW_RIGHTPAREN",
-				"RULE_WHITESPACE",
-				"RULE_SKW_PLUS",
 				"RULE_WHITESPACE",
 				"RULE_ID",
 				"RULE_SKW_LEFTPAREN",
-				"RULE_NEWLINE",
-				"RULE_WHITESPACE",
-				"RULE_WHITESPACE",
-				"RULE_DECIMAL_LITERAL",
-				"RULE_WHITESPACE",
+				"RULE_ID",
 				"RULE_SKW_COMMA",
-				"RULE_NEWLINE",
 				"RULE_WHITESPACE",
-				"RULE_WHITESPACE",
-				"RULE_DECIMAL_LITERAL",
-				"RULE_WHITESPACE",
+				"RULE_ID",
 				"RULE_SKW_RIGHTPAREN",
-				"RULE_WHITESPACE",
-				"RULE_SKW_PLUS",
+				"RULE_NEWLINE",
+				"RULE_HASH",
+				"RULE_DEFINE",
 				"RULE_WHITESPACE",
 				"RULE_ID",
 				"RULE_SKW_LEFTPAREN",
+				"RULE_ID",
 				"RULE_SKW_COMMA",
-				"RULE_NEWLINE",
-				"RULE_NEWLINE",
 				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
 				"RULE_WHITESPACE",
-				"RULE_DECIMAL_LITERAL",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_HASH",
+				"RULE_ID",
+				"RULE_SKW_COMMA",
+				"RULE_WHITESPACE",
+				"RULE_HASH",
+				"RULE_ID",
 				"RULE_SKW_RIGHTPAREN",
 				"RULE_NEWLINE",
-				"RULE_WHITESPACE",
-				"RULE_WHITESPACE",
-				"RULE_SKW_PLUS",
-				"RULE_WHITESPACE",
-				"RULE_DECIMAL_LITERAL",
-				"RULE_SKW_SEMI",
-				"RULE_NEWLINE",
 				"RULE_ID",
-				"RULE_WHITESPACE",
-				"RULE_ID",
-				"RULE_WHITESPACE",
-				"RULE_SKW_ASSIGN",
-				"RULE_WHITESPACE",
-				"RULE_ID",
-				"RULE_WHITESPACE",
 				"RULE_SKW_LEFTPAREN",
 				"RULE_ID",
-				"RULE_NEWLINE",
+				"RULE_SKW_COMMA",
 				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_NEWLINE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_SKW_COMMA",
+				"RULE_WHITESPACE",
+				"RULE_SKW_MINUS",
+				"RULE_ID",
+				"RULE_SKW_MINUS",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_NEWLINE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_ID",
+				"RULE_SKW_COMMA",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_NEWLINE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_SKW_COMMA",
 				"RULE_WHITESPACE",
 				"RULE_SKW_LEFTPAREN",
-				"RULE_DECIMAL_LITERAL",
-				"RULE_SKW_COMMA",
+				"RULE_SKW_MINUS",
+				"RULE_ID",
+				"RULE_SKW_MINUS",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_SKW_RIGHTPAREN",
 				"RULE_NEWLINE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_ID",
+				"RULE_SKW_COMMA",
 				"RULE_WHITESPACE",
-				"RULE_WHITESPACE",
-				"RULE_WHITESPACE",
-				"RULE_DECIMAL_LITERAL",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_NEWLINE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_ID",
 				"RULE_SKW_RIGHTPAREN",
 				"RULE_SKW_COMMA",
-				"RULE_NEWLINE",
 				"RULE_WHITESPACE",
-				"RULE_WHITESPACE",
-				"RULE_DECIMAL_LITERAL",
+				"RULE_SKW_MINUS",
+				"RULE_ID",
+				"RULE_SKW_MINUS",
 				"RULE_SKW_RIGHTPAREN",
+				"RULE_NEWLINE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_ID",
+				"RULE_SKW_COMMA",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_SKW_COMMA",
 				"RULE_WHITESPACE",
-				"RULE_SKW_PLUS",
-				"RULE_WHITESPACE",
-				"RULE_DECIMAL_LITERAL",
-				"RULE_SKW_SEMI",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
 				"RULE_NEWLINE",
 				};
 			//final List<Token> actual = testHelper.getTokens(text);
@@ -238,7 +260,7 @@ public class Test0080_FunctionMacroSeveralLines {
 	@Test (timeout=1000)
 	public void checkParserResult() throws Exception {
 		final String text = this.getTextFromFile(
-			"res/Test0080_FunctionMacroSeveralLines.c");
+			"res/Test0122_ExpansionOfArgs.c");
 		final Preprocess Preprocess_0_Var
 		  = 
 			this.parseHelper.parse(text);
@@ -263,90 +285,132 @@ public class Test0080_FunctionMacroSeveralLines {
 		Assert.assertNotNull(PreprocessorDirectives_2_Var
 		);
 		//2
-		final DefineFunctionLikeMacro DefineFunctionLikeMacro_3_Var
-		 = (DefineFunctionLikeMacro)PreprocessorDirectives_2_Var
+		final DefineObjectMacro DefineObjectMacro_3_Var
+		 = (DefineObjectMacro)PreprocessorDirectives_2_Var
 		.getDirective();
-		Assert.assertNotNull(DefineFunctionLikeMacro_3_Var
+		Assert.assertNotNull(DefineObjectMacro_3_Var
 		);
-		Assert.assertEquals("MIN", DefineFunctionLikeMacro_3_Var
+		Assert.assertEquals("FOO", DefineObjectMacro_3_Var
 		.getId());
-		//3
-		final IdentifierList IdentifierList_4_Var
-		 = (IdentifierList)DefineFunctionLikeMacro_3_Var
-		.getList();
-		Assert.assertNotNull(IdentifierList_4_Var
-		);
-		Assert.assertEquals("[X, Y]", IdentifierList_4_Var
-		.getId().toString());
-		Assert.assertEquals("((X) < (Y) ? (X) : (Y))", DefineFunctionLikeMacro_3_Var
+		Assert.assertEquals("foo", DefineObjectMacro_3_Var
 		.getString());
+		//3
+		final PreprocessorDirectives PreprocessorDirectives_4_Var
+		 = (PreprocessorDirectives)Lines_1_list.get(1);
+		Assert.assertNotNull(PreprocessorDirectives_4_Var
+		);
 		//4
-		final Code Code_5_Var
-		 = (Code)Lines_1_list.get(1);
-		Assert.assertNotNull(Code_5_Var
+		final DefineFunctionLikeMacro DefineFunctionLikeMacro_5_Var
+		 = (DefineFunctionLikeMacro)PreprocessorDirectives_4_Var
+		.getDirective();
+		Assert.assertNotNull(DefineFunctionLikeMacro_5_Var
 		);
-		Assert.assertEquals("int a = MIN(0, 5) + MIN(", Code_5_Var
-		.getCode());
+		Assert.assertEquals("BAR", DefineFunctionLikeMacro_5_Var
+		.getId());
 		//5
-		final Code Code_6_Var
-		 = (Code)Lines_1_list.get(2);
-		Assert.assertNotNull(Code_6_Var
+		final IdentifierList IdentifierList_6_Var
+		 = (IdentifierList)DefineFunctionLikeMacro_5_Var
+		.getList();
+		Assert.assertNotNull(IdentifierList_6_Var
 		);
-		Assert.assertEquals("		1 ,", Code_6_Var
-		.getCode());
+		Assert.assertEquals("[X, Y]", IdentifierList_6_Var
+		.getId().toString());
+		Assert.assertEquals("X Y", DefineFunctionLikeMacro_5_Var
+		.getString());
 		//6
-		final Code Code_7_Var
-		 = (Code)Lines_1_list.get(3);
-		Assert.assertNotNull(Code_7_Var
+		final PreprocessorDirectives PreprocessorDirectives_7_Var
+		 = (PreprocessorDirectives)Lines_1_list.get(2);
+		Assert.assertNotNull(PreprocessorDirectives_7_Var
 		);
-		Assert.assertEquals("		2 ) + MIN(,", Code_7_Var
-		.getCode());
 		//7
-		final NewLineLine NewLineLine_8_Var
-		 = (NewLineLine)Lines_1_list.get(4);
-		Assert.assertNotNull(NewLineLine_8_Var
+		final DefineFunctionLikeMacro DefineFunctionLikeMacro_8_Var
+		 = (DefineFunctionLikeMacro)PreprocessorDirectives_7_Var
+		.getDirective();
+		Assert.assertNotNull(DefineFunctionLikeMacro_8_Var
 		);
+		Assert.assertEquals("BAZ", DefineFunctionLikeMacro_8_Var
+		.getId());
 		//8
-		final Code Code_9_Var
-		 = (Code)Lines_1_list.get(5);
-		Assert.assertNotNull(Code_9_Var
+		final IdentifierList IdentifierList_9_Var
+		 = (IdentifierList)DefineFunctionLikeMacro_8_Var
+		.getList();
+		Assert.assertNotNull(IdentifierList_9_Var
 		);
-		Assert.assertEquals("		5)", Code_9_Var
-		.getCode());
+		Assert.assertEquals("[X, Y]", IdentifierList_9_Var
+		.getId().toString());
+		Assert.assertEquals("BAR(X, Y)", DefineFunctionLikeMacro_8_Var
+		.getString());
 		//9
-		final Code Code_10_Var
-		 = (Code)Lines_1_list.get(6);
-		Assert.assertNotNull(Code_10_Var
+		final PreprocessorDirectives PreprocessorDirectives_10_Var
+		 = (PreprocessorDirectives)Lines_1_list.get(3);
+		Assert.assertNotNull(PreprocessorDirectives_10_Var
 		);
-		Assert.assertEquals("		+ 5;", Code_10_Var
-		.getCode());
 		//10
-		final Code Code_11_Var
-		 = (Code)Lines_1_list.get(7);
-		Assert.assertNotNull(Code_11_Var
+		final DefineFunctionLikeMacro DefineFunctionLikeMacro_11_Var
+		 = (DefineFunctionLikeMacro)PreprocessorDirectives_10_Var
+		.getDirective();
+		Assert.assertNotNull(DefineFunctionLikeMacro_11_Var
 		);
-		Assert.assertEquals("int b = MIN (MIN", Code_11_Var
-		.getCode());
+		Assert.assertEquals("FOO2", DefineFunctionLikeMacro_11_Var
+		.getId());
 		//11
-		final Code Code_12_Var
-		 = (Code)Lines_1_list.get(8);
-		Assert.assertNotNull(Code_12_Var
+		final IdentifierList IdentifierList_12_Var
+		 = (IdentifierList)DefineFunctionLikeMacro_11_Var
+		.getList();
+		Assert.assertNotNull(IdentifierList_12_Var
 		);
-		Assert.assertEquals("		(1,", Code_12_Var
-		.getCode());
+		Assert.assertEquals("[X, Y]", IdentifierList_12_Var
+		.getId().toString());
+		Assert.assertEquals("BAR(#X, #Y)", DefineFunctionLikeMacro_11_Var
+		.getString());
 		//12
 		final Code Code_13_Var
-		 = (Code)Lines_1_list.get(9);
+		 = (Code)Lines_1_list.get(4);
 		Assert.assertNotNull(Code_13_Var
 		);
-		Assert.assertEquals("			2),", Code_13_Var
+		Assert.assertEquals("BAR(FOO, FOO)", Code_13_Var
 		.getCode());
 		//13
 		final Code Code_14_Var
-		 = (Code)Lines_1_list.get(10);
+		 = (Code)Lines_1_list.get(5);
 		Assert.assertNotNull(Code_14_Var
 		);
-		Assert.assertEquals("		3) + 5;", Code_14_Var
+		Assert.assertEquals("BAR((FOO), -FOO-)", Code_14_Var
+		.getCode());
+		//14
+		final Code Code_15_Var
+		 = (Code)Lines_1_list.get(6);
+		Assert.assertNotNull(Code_15_Var
+		);
+		Assert.assertEquals("BAZ(FOO, FOO)", Code_15_Var
+		.getCode());
+		//15
+		final Code Code_16_Var
+		 = (Code)Lines_1_list.get(7);
+		Assert.assertNotNull(Code_16_Var
+		);
+		Assert.assertEquals("BAZ((FOO), (-FOO-))", Code_16_Var
+		.getCode());
+		//16
+		final Code Code_17_Var
+		 = (Code)Lines_1_list.get(8);
+		Assert.assertNotNull(Code_17_Var
+		);
+		Assert.assertEquals("FOO2(FOO, FOO)", Code_17_Var
+		.getCode());
+		//17
+		final Code Code_18_Var
+		 = (Code)Lines_1_list.get(9);
+		Assert.assertNotNull(Code_18_Var
+		);
+		Assert.assertEquals("FOO2((FOO), -FOO-)", Code_18_Var
+		.getCode());
+		//18
+		final Code Code_19_Var
+		 = (Code)Lines_1_list.get(10);
+		Assert.assertNotNull(Code_19_Var
+		);
+		Assert.assertEquals("FOO2((FOO,FOO), FOO$FOO)", Code_19_Var
 		.getCode());
 	}
 	
@@ -357,7 +421,7 @@ public class Test0080_FunctionMacroSeveralLines {
 		// load the resource
 		ResourceSet set = this.resourceSetProvider.get();
 		URI uri = URI.createURI(
-			"res/Test0080_FunctionMacroSeveralLines.c");
+			"res/Test0122_ExpansionOfArgs.c");
 		Resource resource = set.getResource(uri, true);
 		// validate the resource
 		List<Issue> list = this.validator.validate(resource, 
@@ -371,7 +435,7 @@ public class Test0080_FunctionMacroSeveralLines {
 			final Method method = clazz.getMethod("setFileName",
 					String.class);
 			if (method != null) {
-				method.invoke(this.generator, "Test0080_FunctionMacroSeveralLines.c.i");
+				method.invoke(this.generator, "Test0122_ExpansionOfArgs.c.i");
 			}
 		} catch (NoSuchMethodException | SecurityException
 			| IllegalAccessException | IllegalArgumentException
@@ -380,9 +444,9 @@ public class Test0080_FunctionMacroSeveralLines {
 			// System.out.println("do nothing!");
 		}
 		this.generator.doGenerate(resource, this.fileAccessSystem);
-		final String actual = this.getTextFromFile("bin/Test0080_FunctionMacroSeveralLines.c.i");
+		final String actual = this.getTextFromFile("bin/Test0122_ExpansionOfArgs.c.i");
 		final String expected = this.getTextFromFile(
-			"expected/Test0080_FunctionMacroSeveralLines.c"
+			"expected/Test0122_ExpansionOfArgs.c"
 			);
 		Assert.assertEquals(preprocess(expected), preprocess(actual));
 		// System.out.println("Code generation finished.");

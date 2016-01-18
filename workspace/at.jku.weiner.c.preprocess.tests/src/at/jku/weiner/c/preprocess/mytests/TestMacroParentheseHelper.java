@@ -9,14 +9,14 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import com.google.inject.Inject;
-
 import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessFactory;
 import at.jku.weiner.c.preprocess.tests.PreprocessInjectorProvider;
 import at.jku.weiner.c.preprocess.utils.LexerUtils;
 import at.jku.weiner.c.preprocess.utils.macros.DefinitionTable;
 import at.jku.weiner.c.preprocess.utils.macros.MacroParentheseNotClosedYetException;
+
+import com.google.inject.Inject;
 
 @RunWith(XtextRunner.class)
 @InjectWith(PreprocessInjectorProvider.class)
@@ -31,16 +31,16 @@ public class TestMacroParentheseHelper {
 	private Lexer lexer;
 	@Inject
 	private ITokenDefProvider tokenDefProvider;
-	
+
 	private DefinitionTable definitionTable;
-	
+
 	@Before
 	public void setUp() {
 		final LexerUtils lexerUtils = new LexerUtils(this.lexer,
 				this.tokenDefProvider);
 		this.definitionTable = new DefinitionTable(lexerUtils);
 		this.definitionTable.reset();
-		
+
 		this.replaceLine = TestMacroParentheseHelper.VALUE;
 	}
 
@@ -275,6 +275,23 @@ public class TestMacroParentheseHelper {
 				+ "(foobar1,(foo1,bar2),(foobar2)) (foo2,bar2);post";
 		final String actual = this.definitionTable.fullResolve(code);
 		final String expected = "pre;foobar1 (foo1,bar2) (foobar2) (foo2,bar2);post";
+		Assert.assertEquals(expected, actual);
+	}
+
+	@Test(timeout = 1000)
+	public void testK() {
+		final IdentifierList params = TestMacroParentheseHelper.factory
+				.createIdentifierList();
+		params.getId().add("X");
+		params.getId().add("Y");
+		params.getId().add("Z");
+		this.definitionTable.addFunctionMacro(
+				TestMacroParentheseHelper.MACRO_NAME, params, this.replaceLine);
+		final String code = "pre;"
+				+ TestMacroParentheseHelper.MACRO_NAME
+				+ "(((((foobar1)))),((((foo1,bar2)))),((((foobar2) (foo2,bar2)))));post";
+		final String actual = this.definitionTable.fullResolve(code);
+		final String expected = "pre;((((foobar1)))) ((((foo1,bar2)))) ((((foobar2) (foo2,bar2))));post";
 		Assert.assertEquals(expected, actual);
 	}
 

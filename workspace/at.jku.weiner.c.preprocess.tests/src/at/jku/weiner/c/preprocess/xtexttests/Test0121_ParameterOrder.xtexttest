@@ -1,0 +1,52 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language preprocess
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+split-lexer=false
+source file="res/Test0121_ParameterOrder.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH DEFINE WHITESPACE ID WHITESPACE ID WHITESPACE ID NEWLINE
+	HASH DEFINE WHITESPACE ID WHITESPACE 
+		SKW_LEFTPAREN 
+		ID WHITESPACE ID WHITESPACE ID WHITESPACE
+		ID WHITESPACE ID WHITESPACE ID WHITESPACE ID 
+		SKW_RIGHTPAREN NEWLINE
+	ID WHITESPACE ID WHITESPACE ID WHITESPACE ID WHITESPACE ID NEWLINE
+//----------------------------------------------------------------------
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineObjectMacro
+					id++"FOO",
+					string++"bar bar"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineObjectMacro
+					id++"BAZ",
+					string++"(FOO baz FOO baz FOO BAR FOO)"
+				)
+			),
+			(Code
+				code++"FOO FOO FOO BAZ FOO"
+			)
+		)
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0121_ParameterOrder.c.i"
+expected file="expected/Test0121_ParameterOrder.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

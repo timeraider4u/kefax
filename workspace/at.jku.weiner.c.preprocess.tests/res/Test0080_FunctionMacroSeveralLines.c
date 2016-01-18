@@ -2,6 +2,7 @@
 int a = MIN(0, 5) + MIN(
 		1 ,
 		2 ) + MIN(,
+
 		5)
 		+ 5;
 int b = MIN (MIN

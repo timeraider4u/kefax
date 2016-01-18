@@ -4,10 +4,10 @@ import java.util.List;
 
 import org.antlr.runtime.Token;
 
-import at.jku.weiner.c.preprocess.utils.LexerUtils;
+import at.jku.weiner.c.preprocess.utils.MyLog;
 
 public final class DefinitionObjectMacro implements DefinitionMacro {
-	
+
 	private final DefinitionTable definitionTable;
 	private final String macroID;
 	private final String value;
@@ -44,6 +44,9 @@ public final class DefinitionObjectMacro implements DefinitionMacro {
 		this.lastId = id;
 		if (currPosition < this.lastIndex) {
 			// prevent endless replacement loops
+			MyLog.trace("prevent endless replacement loops with'"
+					+ this.macroID + "', id='" + id + "', lastIndex='"
+					+ this.lastIndex + "', currPos='" + currPosition + "'");
 			return false;
 		}
 		code.remove(currPosition);

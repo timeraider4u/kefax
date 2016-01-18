@@ -1,0 +1,95 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language preprocess
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+split-lexer=false
+source file="res/Test0119_DefineAndInclude.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	LINE_COMMENT NEWLINE
+	HASH DEFINE WHITESPACE ID WHITESPACE DECIMAL_LITERAL NEWLINE
+	HASH DEFINE WHITESPACE ID WHITESPACE DECIMAL_LITERAL NEWLINE
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WHITESPACE HASH ID NEWLINE
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WHITESPACE ID SKW_LEFTPAREN ID SKW_DIV INCLUDE SKW_DIV ID 
+			SKW_DIV ID HASH HASH ID SKW_DOT ID SKW_RIGHTPAREN NEWLINE
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
+	ID SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
+	HASH INCLUDE WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
+//----------------------------------------------------------------------
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
+		group=
+		(GroupOpt
+			lines+=
+			(NewLineLine),
+			(PreprocessorDirectives
+				directive=
+				(DefineObjectMacro
+					id++"xyz",
+					string++"4"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineObjectMacro
+					id++"bar",
+					string++"1"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"__foo",
+					list=
+					(IdentifierList
+						id+*"[x]"
+					),
+					string++"#x"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"_foo",
+					list=
+					(IdentifierList
+						id+*"[x]"
+					),
+					string++"__foo(myinclude/include/bar/baz##x.h)"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"foo",
+					list=
+					(IdentifierList
+						id+*"[x]"
+					),
+					string++"_foo(x)"
+				)
+			),
+			(Code
+				code++"foo(xyz)"
+			),
+			(PreprocessorDirectives
+				directive=
+				(IncludeDirective
+					string++"foo(xyz)"
+				)
+			)
+			
+		)
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0119_DefineAndInclude.c.i"
+expected file="expected/Test0119_DefineAndInclude.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

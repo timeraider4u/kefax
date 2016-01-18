@@ -1,0 +1,144 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language preprocess
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+split-lexer=false
+source file="res/Test0118_ReplaceCaseSensitive.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH DEFINE WHITESPACE ID WHITESPACE ID NEWLINE
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WHITESPACE HASH ID NEWLINE
+	ID NEWLINE
+	ID SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
+	ID NEWLINE
+	ID SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
+	ID NEWLINE
+	ID SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
+	ID NEWLINE
+	ID SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
+	ID NEWLINE
+	ID SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
+	ID NEWLINE
+	ID SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
+	NEWLINE
+	ID WHITESPACE ID NEWLINE
+	ID SKW_LEFTPAREN ID SKW_LEFTPAREN ID SKW_RIGHTPAREN SKW_RIGHTPAREN NEWLINE
+	ID SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
+	ID SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
+	NEWLINE
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WHITESPACE ID WHITESPACE ID WHITESPACE ID WHITESPACE ID WHITESPACE HASH ID NEWLINE
+	ID SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
+	ID SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
+	ID SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
+	ID SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
+//----------------------------------------------------------------------
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineObjectMacro
+					id++"FOO",
+					string++"x"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"BAR",
+					list=
+					(IdentifierList
+						id+*"[x]"
+					),
+					string++"#x"
+				)
+			),
+			(Code
+				code++"foo"
+			),
+			(Code
+				code++"foo(y)"
+			),
+			(Code
+				code++"bar"
+			),
+			(Code
+				code++"bar(y)"
+			),
+			(Code
+				code++"Foo"
+			),
+			(Code
+				code++"Foo(y)"
+			),
+			(Code
+				code++"Bar"
+			),
+			(Code
+				code++"Bar(y)"
+			),
+			(Code
+				code++"FOO"
+			),
+			(Code
+				code++"FOO(y)"
+			),
+			(Code
+				code++"BAR"
+			),
+			(Code
+				code++"BAR(y)"
+			),
+			(NewLineLine),
+			(Code
+				code++"BAR FOO"
+			),
+			(Code
+				code++"BAR(FOO(y))"
+			),
+			(Code
+				code++"BAR(Foo)"
+			),
+			(Code
+				code++"BAR(foo)"
+			),
+			(NewLineLine),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"BAZ",
+					list=
+					(IdentifierList
+						id+*"[z]"
+					),
+					string++"FOO foo z Foo #z"
+				)
+			),
+			(Code
+				code++"baz(y)"
+			),
+			(Code
+				code++"BAZ(Foo)"
+			),
+			(Code
+				code++"BAZ(foo)"
+			),
+			(Code
+				code++"BAZ(FOO)"
+			)
+		)
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0118_ReplaceCaseSensitive.c.i"
+expected file="expected/Test0118_ReplaceCaseSensitive.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

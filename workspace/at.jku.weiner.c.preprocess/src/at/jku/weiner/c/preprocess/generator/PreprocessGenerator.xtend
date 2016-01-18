@@ -149,7 +149,7 @@ class PreprocessGenerator implements IGenerator {
 		val String fileName = getFileName(input);
 		if (this.unit == null) {
 			preprocess = input.allContents.filter(typeof(Preprocess)).head;
-			MyLog.debug("unit-null: preprocess='" + preprocess + "'" + fileName + "'");
+			MyLog.trace("unit-null: preprocess='" + preprocess + "'" + fileName + "'");
 		}
 		else {
 			preprocess = unit.preprocess as Preprocess;
@@ -236,10 +236,20 @@ class PreprocessGenerator implements IGenerator {
 				val List<Code> codeList = new ArrayList<Code>();
 				do {
 					try {
-						val Code code = obj as Code;
-						codeList.add(code);
-						codeResult = outputFor(codeList);
-						fullResolved = true;
+						val SourceCodeLine line = obj as SourceCodeLine;
+						if (line instanceof Code) {
+							val Code code = obj as Code;
+							codeList.add(code);
+							codeResult = outputFor(codeList);
+							fullResolved = true;
+						}
+						else if (line instanceof NewLineLine) {
+							i++;
+							obj = group.lines.get(i);
+						}
+						else {
+							throw new IllegalArgumentException("Can not nest a preprocessor directive while looking of a closing parentheses!");
+						}
 					} catch (MacroParentheseNotClosedYetException ex) {
 						MyLog.debug("not fully resolved at='" + i + "'");
 						i++;

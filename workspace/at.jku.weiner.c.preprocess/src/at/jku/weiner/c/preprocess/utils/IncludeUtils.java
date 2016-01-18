@@ -13,19 +13,19 @@ import at.jku.weiner.c.preprocess.utils.macros.DefinitionTable;
 
 public final class IncludeUtils {
 	private final String URI_PREFIX = "file://";
-	
+
 	private final ResourceSet rs;
 	private final String fileName;
 	private final URI uri;
 	private final String currentURIString;
-	
+
 	private PathState pathState = PathState.Unresolved;
-	
+
 	// private final String uriStr;
 	private enum PathState {
 		Absolute, Relative, Unresolved
 	}
-	
+
 	public IncludeUtils(final ResourceSet set, final URI uri,
 			final String fileName, final DefinitionTable definitionTable) {
 		String newFileName = fileName;
@@ -40,7 +40,7 @@ public final class IncludeUtils {
 		this.currentURIString = uri.toFileString();
 		// this.uriStr = this.uri.toFileString();
 	}
-	
+
 	private PathState initializePathState(final String fileName,
 			final boolean shouldBeResolved) {
 		if (fileName.startsWith("\"") && fileName.endsWith("\"")) {
@@ -55,16 +55,16 @@ public final class IncludeUtils {
 		throw new IllegalArgumentException("include fileName='" + fileName
 				+ "' is not a valid path");
 	}
-	
+
 	private String replace(final String fileName) {
 		return fileName.substring(1, fileName.length() - 1);
 	}
-	
+
 	public Resource getResource() throws IOException {
 		// load the resource
 		final ResourceSet set = this.rs; // this.resourceSetProvider.get();
 		final URI uri = this.createURI();
-		MyLog.debug("resource='" + uri + "'");
+		MyLog.trace("resource='" + uri + "'");
 		final Resource resource = set.getResource(uri, true);
 		// validate the resource
 		// final List<Issue> list = this.validator.validate(resource,
@@ -75,7 +75,7 @@ public final class IncludeUtils {
 		// }
 		return resource;
 	}
-	
+
 	private URI createURI() {
 		if (this.pathState == PathState.Relative) {
 			final URI uri = this.createRelativeURI();
@@ -99,9 +99,9 @@ public final class IncludeUtils {
 			final MyPath pathInInclude = new MyPath(include);
 			final String searchForFile = pathInInclude.combine(pathInURI);
 			final File file = new File(searchForFile);
-			MyLog.debug("searchForFile='" + searchForFile + "'");
-			MyLog.debug("fileExists='" + file.exists() + "'");
-			MyLog.debug("canRead='" + file.canRead() + "'");
+			MyLog.trace("searchForFile='" + searchForFile + "'");
+			MyLog.trace("fileExists='" + file.exists() + "'");
+			MyLog.trace("canRead='" + file.canRead() + "'");
 			if (file.exists() && file.canRead()) {
 				return URI.createFileURI(searchForFile);
 			}

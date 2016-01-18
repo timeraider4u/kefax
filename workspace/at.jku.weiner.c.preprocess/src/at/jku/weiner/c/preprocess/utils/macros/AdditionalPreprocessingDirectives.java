@@ -16,11 +16,11 @@ public class AdditionalPreprocessingDirectives {
 
 	public static Preprocess getAdditionalDirectivesFor(
 			final String additionalPreprocessorDirectives) throws IOException {
-		
+
 		final ResourceSet resourceSet = new XtextResourceSet();
 		final Resource resource = resourceSet.createResource(URI
 				.createURI("dummy:/additionalDefines.c"));
-		MyLog.debug("Resource='" + resource + "'");
+		MyLog.trace("Resource='" + resource + "'");
 		final InputStream in = new ByteArrayInputStream(
 				additionalPreprocessorDirectives.getBytes());
 		resource.load(in, resourceSet.getLoadOptions());
@@ -28,5 +28,5 @@ public class AdditionalPreprocessingDirectives {
 				.get(0);
 		return preprocess;
 	}
-	
+
 }

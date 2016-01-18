@@ -24,7 +24,7 @@ public final class DefinitionTable {
 
 	public void reset() {
 		this.macros.clear();
-		MyLog.debug("DefinitionTable.reset()");
+		MyLog.trace("DefinitionTable.reset()");
 	}
 
 	public int size() {
@@ -40,7 +40,7 @@ public final class DefinitionTable {
 	public void add(final String id, final String replaceWith) {
 		final String key = id;
 		final String val = replaceWith;
-		MyLog.debug("add new object-like macro with key='" + id
+		MyLog.trace("add new object-like macro with key='" + id
 				+ "' and replaceWith='" + replaceWith + "'");
 		final DefinitionMacro newMacro = new DefinitionObjectMacro(this, key,
 				val);
@@ -103,7 +103,7 @@ public final class DefinitionTable {
 			result.append(text);
 		}
 		final String resultStr = result.toString();
-		MyLog.debug("fullResolve(id='" + this.id + "'), code='" + code
+		MyLog.trace("fullResolve(id='" + this.id + "'), code='" + code
 				+ "', result='" + resultStr + "'");
 		return resultStr;
 	}
@@ -114,7 +114,7 @@ public final class DefinitionTable {
 			final Token next = list.get(i);
 			// final int type = next.getType();
 			final String text = next.getText();
-			MyLog.debug("resolve: parenID=" + parenID + "', token('" + i
+			MyLog.trace("resolve: parenID=" + parenID + "', token('" + i
 					+ "')='" + text + "', result='" + result.toString() + "'");
 			// if (type == InternalPreprocessLexer.RULE_ID) {
 			if (this.macros.containsKey(text)) {

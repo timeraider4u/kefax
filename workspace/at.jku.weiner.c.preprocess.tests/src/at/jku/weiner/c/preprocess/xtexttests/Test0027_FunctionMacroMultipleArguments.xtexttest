@@ -147,7 +147,7 @@ lexer-tokens
 					list isNull,
 //					replacement+=
 //					(ReplaceLine
-						string++"			foo_bar"
+						string++"foo_bar"
 //					)
 				)
 			),

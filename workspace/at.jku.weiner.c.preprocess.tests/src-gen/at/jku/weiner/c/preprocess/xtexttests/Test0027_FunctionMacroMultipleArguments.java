@@ -589,7 +589,7 @@ public class Test0027_FunctionMacroMultipleArguments {
 		.getId());
 		Assert.assertNull(DefineFunctionLikeMacro_16_Var
 		.getList());
-		Assert.assertEquals("			foo_bar", DefineFunctionLikeMacro_16_Var
+		Assert.assertEquals("foo_bar", DefineFunctionLikeMacro_16_Var
 		.getString());
 		//16
 		final NewLineLine NewLineLine_17_Var

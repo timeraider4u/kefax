@@ -130,7 +130,7 @@ lexer-tokens
 					),
 //					replacement+=
 //					(ReplaceLine
-						string++"		X * Y - Z"
+						string++"X * Y - Z"
 //					)
 				)
 			),

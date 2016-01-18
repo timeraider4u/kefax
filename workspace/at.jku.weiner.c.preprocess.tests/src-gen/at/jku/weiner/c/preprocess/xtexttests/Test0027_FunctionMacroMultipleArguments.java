@@ -559,7 +559,7 @@ public class Test0027_FunctionMacroMultipleArguments {
 		);
 		Assert.assertEquals("[X, Y, Z]", IdentifierList_12_Var
 		.getId().toString());
-		Assert.assertEquals("		X * Y - Z", DefineFunctionLikeMacro_11_Var
+		Assert.assertEquals("X * Y - Z", DefineFunctionLikeMacro_11_Var
 		.getString());
 		//12
 		final PreprocessorDirectives PreprocessorDirectives_13_Var

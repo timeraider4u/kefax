@@ -75,7 +75,7 @@ lexer-tokens
 					),
 //					replacement+=
 //					(ReplaceLine
-						string++" #X"
+						string++"#X"
 //						id++"X"
 //					)
 				)

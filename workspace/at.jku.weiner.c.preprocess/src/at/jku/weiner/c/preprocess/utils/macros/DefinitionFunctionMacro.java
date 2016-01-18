@@ -265,6 +265,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			final String text = token.getText();
 			final int tokenType = token.getType();
 			state = this.calculateNextState(state, code, tokenType);
+			MyLog.debug("state='" + state + "', text='" + text + "'");
 			switch (state) {
 				case Normal:
 					index = this.addNormalReplacement(code, index, token, text,
@@ -273,13 +274,18 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 				case StringifyEnd:
 					index = this.addStringifyReplacement(code, index, token,
 							text, replace);
+					break;
+				case ConcatenateEnd:
+					index = this.addConcatenReplacement(code, index, token,
+							text, replace);
+					break;
 				default:
 					break;
 			}
 		}
 		return index;
 	}
-	
+
 	private ReplacementState calculateNextState(ReplacementState currState,
 			final List<Token> code, final int tokenType) {
 		switch (currState) {
@@ -388,6 +394,22 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		final Token token = new CommonToken(
 				InternalPreprocessLexer.RULE_SKW_DOUBLEQUOTE, text2);
 		return token;
+	}
+	
+	private int addConcatenReplacement(final List<Token> code, int index,
+			final Token token, final String text,
+			final List<ArrayList<Token>> replace) {
+		MyLog.debug("addConcatenReplacement at '" + index + "' on token='"
+				+ text + "'");
+		for (int i = index; (i > 0) && (i < code.size()); i--) {
+			final Token prev = code.get(i);
+			final int type = prev.getType();
+			if (type == InternalPreprocessLexer.RULE_WHITESPACE) {
+				code.remove(i);
+				index--;
+			}
+		}
+		return this.addNormalReplacement(code, index, token, text, replace);
 	}
 	
 }

@@ -21,17 +21,17 @@ import at.jku.weiner.c.preprocess.utils.macros.DefinitionTable;
 @RunWith(XtextRunner.class)
 @InjectWith(PreprocessInjectorProvider.class)
 public class TestStringification {
-	
+
 	private final PreprocessFactory factory = PreprocessFactory.eINSTANCE;
 	private String replaceLine;
-	
+
 	@Inject
 	private Lexer lexer;
 	@Inject
 	private ITokenDefProvider tokenDefProvider;
-	
-	private DefinitionTable definitionTable;
 
+	private DefinitionTable definitionTable;
+	
 	@Before
 	public void setUp() {
 		final LexerUtils lexerUtils = new LexerUtils(this.lexer,
@@ -40,12 +40,12 @@ public class TestStringification {
 		this.definitionTable.reset();
 		this.replaceLine = "something";
 	}
-
+	
 	@After
 	public void cleanUp() {
 		this.definitionTable.reset();
 	}
-
+	
 	@Test(timeout = 1000)
 	public void testStringification1() {
 		final IdentifierList list = PreprocessFactory.eINSTANCE
@@ -57,7 +57,7 @@ public class TestStringification {
 		final String replace = this.definitionTable.fullResolve(code);
 		Assert.assertEquals("5 \"5\"", replace);
 	}
-
+	
 	@Test(timeout = 1000)
 	public void testStringification2() {
 		final IdentifierList list = PreprocessFactory.eINSTANCE
@@ -70,7 +70,7 @@ public class TestStringification {
 		final String replace = this.definitionTable.fullResolve(code);
 		Assert.assertEquals("56 \"56\" 56 \"56\" 56 \"56\"", replace);
 	}
-
+	
 	@Test(timeout = 1000)
 	public void testStringification3() {
 		final IdentifierList list = PreprocessFactory.eINSTANCE
@@ -82,13 +82,14 @@ public class TestStringification {
 		final String replace = this.definitionTable.fullResolve(code);
 		Assert.assertEquals("57 \"57\" 57 \"57\"", replace);
 	}
-	
+
 	@Test(timeout = 1000)
 	public void testStringification4() {
 		final IdentifierList list = this.factory.createIdentifierList();
 		list.getId().add("AB");
 		// AB##AB, AB-#AB (AB##AB), #AB, "# AB, AB ## AB", AB # AB, AB ## AB
 		this.replaceLine = " AB##AB, AB-#AB (AB##AB), #AB, \"# AB, AB ## AB\", AB # AB, AB ## AB";
+		this.definitionTable.addFunctionMacro("FOO", list, this.replaceLine);
 		final String code = "FOO(57)";
 		final String replace = this.definitionTable.fullResolve(code);
 		Assert.assertEquals(

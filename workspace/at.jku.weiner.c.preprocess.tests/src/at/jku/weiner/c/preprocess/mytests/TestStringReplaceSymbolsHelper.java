@@ -118,8 +118,8 @@ public class TestStringReplaceSymbolsHelper {
 
 	@Test(timeout = 1000)
 	public void test06() {
-		final String text = "A little penguin looks at äöüÄÖÜß?!";
-		final String symbol = "äöüÄÖÜß";
+		final String text = "A little penguin looks at aeo_oe?!";
+		final String symbol = "aeo_oe";
 		final String replacement = "you";
 		this.definitionTable.add(symbol, replacement);
 		final String actual = this.definitionTable.fullResolve(text);
@@ -148,8 +148,8 @@ public class TestStringReplaceSymbolsHelper {
 
 	@Test(timeout = 1000)
 	public void test09() {
-		final String text = "A little penguin looks at äöüÄÖÜ_ß1!";
-		final String symbol = "äöüÄÖÜ_ß1";
+		final String text = "A little penguin looks at ae1_2_b_3!";
+		final String symbol = "ae1_2_b_3";
 		final String replacement = "you";
 		this.definitionTable.add(symbol, replacement);
 		final String actual = this.definitionTable.fullResolve(text);

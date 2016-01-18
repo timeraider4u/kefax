@@ -7,18 +7,20 @@ import org.antlr.runtime.Token;
 import at.jku.weiner.c.preprocess.utils.LexerUtils;
 
 public final class DefinitionObjectMacro implements DefinitionMacro {
-
+	
+	private final DefinitionTable definitionTable;
 	private final String macroID;
 	private final String value;
 	private final List<Token> replacement;
 	private long lastId = -1;
 	private int lastIndex = -1;
 
-	public DefinitionObjectMacro(final LexerUtils lexerUtils, final String key,
-			final String replace) {
+	public DefinitionObjectMacro(final DefinitionTable definitionTable,
+			final String key, final String replace) {
+		this.definitionTable = definitionTable;
 		this.macroID = key;
 		this.value = (replace == null) ? "" : replace;
-		this.replacement = lexerUtils.getTokens(this.value);
+		this.replacement = definitionTable.lexer.getTokens(this.value);
 	}
 
 	@Override

@@ -6,8 +6,10 @@ import org.antlr.runtime.Token;
 
 public interface DefinitionMacro {
 
+	public String getKey();
+
 	public boolean equalsMacro(DefinitionMacro other);
-	
-	public boolean resolve(long id, List<Token> code, int currPosition);
-	
+
+	public int resolve(long id, List<Token> code, int currPosition);
+
 }

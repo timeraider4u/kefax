@@ -1,6 +1,5 @@
 package at.jku.weiner.c.preprocess.utils.macros;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -96,9 +95,9 @@ public final class DefinitionTable {
 		final List<Token> list = this.lexer.getTokens(code);
 		this.id++;
 		MyLog.debug("fullResolve(id='" + this.id + "'), code='" + code + "'");
-		final List<Token> newList = this.resolve(this.id, list);
-		for (int i = 0; i < newList.size(); i++) {
-			final Token next = newList.get(i);
+		this.resolve(this.id, list, 0, list.size());
+		for (int i = 0; i < list.size(); i++) {
+			final Token next = list.get(i);
 			final String text = next.getText();
 			result.append(text);
 		}
@@ -108,32 +107,28 @@ public final class DefinitionTable {
 		return resultStr;
 	}
 
-	protected List<Token> resolve(final long parenID, final List<Token> list) {
-		final List<Token> result = new ArrayList<Token>();
-		for (int i = 0; i < list.size(); i++) {
+	protected int resolve(final long parenID, final List<Token> list,
+			final int start, final int stop) {
+		int i = start;
+		for (i = start; (i < stop); i++) {
 			final Token next = list.get(i);
-			// final int type = next.getType();
 			final String text = next.getText();
 			MyLog.trace("resolve: parenID=" + parenID + "', token('" + i
-					+ "')='" + text + "', result='" + result.toString() + "'");
-			// if (type == InternalPreprocessLexer.RULE_ID) {
+					+ "')='" + text + "'");
 			if (this.macros.containsKey(text)) {
 				// resolve macro
 				final DefinitionMacro macro = this.macros.get(text);
-				final boolean replaced = macro.resolve(parenID, list, i);
-				if (replaced) {
-					i--;
-				} else {
-					result.add(next);
+				final int newIndex = macro.resolve(parenID, list, i);
+				MyLog.trace("i='" + i + "', newIndex='" + newIndex
+						+ "', macroID='" + macro.getKey() + "', size='"
+						+ list.size() + "'");
+				if (newIndex != i) {
+					i = newIndex;
+					// i--;
 				}
-			} else {
-				result.add(next);
 			}
-			// } else {
-			// result.add(next);
-			// }
 		}
-		return result;
+		return i;
 	}
 
 }

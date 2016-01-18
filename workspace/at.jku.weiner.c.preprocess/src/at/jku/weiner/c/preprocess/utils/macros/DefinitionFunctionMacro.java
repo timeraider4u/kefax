@@ -19,8 +19,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 	private final List<Token> replacements;
 	private final boolean variadic;
 
-	private long lastId = -1;
-	private int lastIndex = -1;
+	private boolean enabled = true;
 
 	public DefinitionFunctionMacro(final DefinitionTable definitionTable,
 			final String key, final IdentifierList idList2, final String replace) {
@@ -51,6 +50,11 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 	}
 
 	@Override
+	public String getKey() {
+		return this.key;
+	}
+
+	@Override
 	public boolean equalsMacro(final DefinitionMacro obj) {
 		if (!(obj instanceof DefinitionFunctionMacro)) {
 			return false;
@@ -77,12 +81,11 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 	}
 
 	@Override
-	public boolean resolve(final long id, final List<Token> code,
+	public int resolve(final long id, final List<Token> code,
 			final int currPosition) {
-		this.initializeLastIdAndLastIndex(id);
-		if (currPosition < this.lastIndex) {
+		if (!this.enabled) {
 			// prevent endless replacement loops
-			return false;
+			return currPosition;
 		}
 		final List<ArrayList<Token>> replace = this.initializeReplaceList();
 
@@ -90,7 +93,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 				currPosition, replace);
 		MyLog.trace("closingParenPosition='" + closingParenPosition + "'");
 		if (currPosition == closingParenPosition) {
-			return false;
+			return currPosition;
 		}
 		this.removeWhitespaceFromList(replace);
 		// remove tokens of function-like invocation
@@ -99,15 +102,12 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		final int index = this.addReplacementTokensToCode(code, currPosition,
 				replace);
 		// this.removeWhitespaceFromList(code, currPosition, index);
-		this.lastIndex = index;
-		return true;
-	}
-
-	private void initializeLastIdAndLastIndex(final long id) {
-		if (this.lastId != id) {
-			this.lastIndex = -1;
-		}
-		this.lastId = id;
+		// rescan
+		this.enabled = false;
+		int lastIndex = this.definitionTable.resolve(id, code, currPosition,
+				index);
+		this.enabled = true;
+		return lastIndex;
 	}
 
 	private List<ArrayList<Token>> initializeReplaceList() {

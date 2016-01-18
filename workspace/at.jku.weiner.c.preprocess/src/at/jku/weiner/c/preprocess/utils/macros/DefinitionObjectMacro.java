@@ -12,8 +12,7 @@ public final class DefinitionObjectMacro implements DefinitionMacro {
 	private final String macroID;
 	private final String value;
 	private final List<Token> replacement;
-	private long lastId = -1;
-	private int lastIndex = -1;
+	private boolean enabled = true;
 
 	public DefinitionObjectMacro(final DefinitionTable definitionTable,
 			final String key, final String replace) {
@@ -21,6 +20,11 @@ public final class DefinitionObjectMacro implements DefinitionMacro {
 		this.macroID = key;
 		this.value = (replace == null) ? "" : replace;
 		this.replacement = definitionTable.lexer.getTokens(this.value);
+	}
+
+	@Override
+	public String getKey() {
+		return this.macroID;
 	}
 
 	@Override
@@ -36,54 +40,23 @@ public final class DefinitionObjectMacro implements DefinitionMacro {
 	}
 
 	@Override
-	public boolean resolve(final long id, final List<Token> code,
+	public int resolve(final long parenID, final List<Token> code,
 			final int currPosition) {
-		if (this.lastId != id) {
-			this.lastIndex = -1;
-		}
-		this.lastId = id;
-		if (currPosition < this.lastIndex) {
+		if (!this.enabled) {
 			// prevent endless replacement loops
 			MyLog.trace("prevent endless replacement loops with'"
-					+ this.macroID + "', id='" + id + "', lastIndex='"
-					+ this.lastIndex + "', currPos='" + currPosition + "'");
-			return false;
+					+ this.macroID + "', currPos='" + currPosition + "'");
+			return currPosition;
 		}
 		code.remove(currPosition);
 		code.addAll(currPosition, this.replacement);
-		// if (!this.preCheck(originalText, code)) {
-		// return code;
-		// }
-		// this.lastOriginal = originalText;
-		// final Matcher matcher = this.pattern.matcher(code);
-		// if (!matcher.find()) {
-		// return code;
-		// }
-		// final StringBuffer result = new StringBuffer("");
-		// MatchState state = MatchState.Normal;
-		// int nextMatchStartIndex = matcher.start();
-		// int nextMatchEndIndex = matcher.end();
-		// for (int i = 0; i < code.length(); i++) {
-		// final char c = code.charAt(i);
-		// state = MatchUtils.calculateNextState(c, state);
-		// if ((state == MatchState.Normal) && (i == nextMatchStartIndex)) {
-		// result.append(this.replacement);
-		// i = nextMatchEndIndex - 1;
-		// } else if (!matcher.find(i)) {
-		// result.append(code.substring(i));
-		// return result.toString();
-		//
-		// } else {
-		// result.append(c);
-		// }
-		// nextMatchStartIndex = matcher.start();
-		// nextMatchEndIndex = matcher.end();
-		// }
-		// this.lastExpansion = result.toString();
-		// return this.lastExpansion;
-		final int size = this.replacement.size();
-		this.lastIndex = currPosition + size;
-		return true;
+		// rescan
+		this.enabled = false;
+		int lastIndex = currPosition + this.replacement.size();
+		int newIndex = this.definitionTable.resolve(parenID, code,
+				currPosition, lastIndex);
+		this.enabled = true;
+		return newIndex;
 	}
 
 }

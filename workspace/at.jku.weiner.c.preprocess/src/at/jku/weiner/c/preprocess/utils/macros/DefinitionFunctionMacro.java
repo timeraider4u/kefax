@@ -12,24 +12,40 @@ import at.jku.weiner.c.preprocess.utils.LexerUtils;
 import at.jku.weiner.c.preprocess.utils.MyLog;
 
 public final class DefinitionFunctionMacro implements DefinitionMacro {
-	
+
 	private final String key;
+	private final IdentifierList ident;
 	private final List<String> idList;
 	private final String value;
 	private final List<Token> replacements;
-	
+	private final boolean variadic;
+
 	private long lastId = -1;
 	private int lastIndex = -1;
-	
+
 	public DefinitionFunctionMacro(final LexerUtils lexerUtils,
-			final String key, final IdentifierList idList, final String replace) {
+			final String key, final IdentifierList idList2, final String replace) {
 		this.key = key;
+		this.ident = idList2;
 		this.value = (replace == null) ? "" : replace;
 		this.replacements = lexerUtils.getTokens(this.value);
-		this.idList = ((idList == null) ? new ArrayList<String>() : idList
+		this.idList = ((idList2 == null) ? new ArrayList<String>() : idList2
 				.getId());
+		this.variadic = this.isVariadic(idList2);
+		if (this.variadic) {
+			String varID = idList2.getVarID();
+			if (varID == null) {
+				varID = "__VA_ARGS__";
+			}
+			this.idList.add(varID);
+		}
 	}
 	
+	private boolean isVariadic(final IdentifierList idList2) {
+		final boolean result = idList2.isVariadic();
+		return result;
+	}
+
 	@Override
 	public boolean equalsMacro(final DefinitionMacro obj) {
 		if (!(obj instanceof DefinitionFunctionMacro)) {
@@ -49,13 +65,13 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 				return false;
 			}
 		}
-		
+
 		final String val1 = this.value.replaceAll("\\s", "");
 		final String val2 = other.value.replaceAll("\\s", "");
 		final boolean result = val1.equals(val2);
 		return result;
 	}
-
+	
 	@Override
 	public boolean resolve(final long id, final List<Token> code,
 			final int currPosition) {
@@ -65,7 +81,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			return false;
 		}
 		final List<ArrayList<Token>> replace = this.initializeReplaceList();
-
+		
 		final int closingParenPosition = this.searchForClosingParen(code,
 				currPosition, replace);
 		this.removeWhitespaceFromList(replace);
@@ -78,18 +94,18 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		// add replacement tokens
 		final int index = this.addReplacementTokensToCode(code, currPosition,
 				replace);
-
+		
 		this.lastIndex = index;
 		return true;
 	}
-	
+
 	private void initializeLastIdAndLastIndex(final long id) {
 		if (this.lastId != id) {
 			this.lastIndex = -1;
 		}
 		this.lastId = id;
 	}
-	
+
 	private List<ArrayList<Token>> initializeReplaceList() {
 		final List<ArrayList<Token>> replace = new ArrayList<ArrayList<Token>>();
 		for (int i = 0; i < this.idList.size(); i++) {
@@ -98,16 +114,16 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		}
 		return replace;
 	}
-
+	
 	private enum MatchState {
 		Invalid, LookingForOpenLeftParen, LeftParen, LookingForRightParen, Done,
 	}
-
+	
 	private class State {
 		public MatchState state = MatchState.LookingForOpenLeftParen;
 		public int openParens = 0;
 	}
-
+	
 	private int searchForClosingParen(final List<Token> code,
 			final int currPosition, final List<ArrayList<Token>> replace) {
 		State currState = new State();
@@ -127,6 +143,9 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 					if (tokenType == InternalPreprocessLexer.RULE_SKW_COMMA) {
 						paramCount++;
 						list = this.getListForParamCount(replace, paramCount);
+						if (this.variadic && (paramCount >= replace.size())) {
+							list.add(token);
+						}
 					} else {
 						list.add(token);
 					}
@@ -137,7 +156,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		}
 		throw new MacroParentheseNotClosedYetException(code, code.size());
 	}
-
+	
 	private State getNextState(final State currState, final int tokenType) {
 		switch (currState.state) {
 			case LookingForOpenLeftParen: {
@@ -179,22 +198,28 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		}
 		return currState;
 	}
-
+	
 	private ArrayList<Token> getListForParamCount(
 			final List<ArrayList<Token>> replace, final int paramCount) {
 		if (paramCount >= replace.size()) {
-			return new ArrayList<Token>();
+			if (this.variadic) {
+				final int index = replace.size() - 1;
+				return replace.get(index);
+			} else {
+				return new ArrayList<Token>();
+			}
+		} else {
+			return replace.get(paramCount);
 		}
-		return replace.get(paramCount);
 	}
-
+	
 	private void removeTokens(final List<Token> code, final int currPosition,
 			final int closingParenPosition) {
 		for (int i = closingParenPosition; (i >= currPosition); i--) {
 			code.remove(i);
 		}
 	}
-
+	
 	private void removeWhitespaceFromList(final List<ArrayList<Token>> replace) {
 		for (int i = 0; i < replace.size(); i++) {
 			final ArrayList<Token> list = replace.get(i);
@@ -220,17 +245,17 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			}
 		}
 	}
-
+	
 	private boolean isWhitespace(final ArrayList<Token> list, final int index) {
 		final Token token = list.get(index);
 		final int type = token.getType();
 		return (type == InternalPreprocessLexer.RULE_WHITESPACE);
 	}
-
+	
 	private enum ReplacementState {
 		Invalid, Normal, Stringify, StringifyEnd, Concatenate, ConcatenateEnd,
 	}
-
+	
 	private int addReplacementTokensToCode(final List<Token> code,
 			final int currPosition, final List<ArrayList<Token>> replace) {
 		int index = currPosition;
@@ -246,7 +271,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 							replace);
 					break;
 				case StringifyEnd:
-					index = this.addStrinifyReplacement(code, index, token,
+					index = this.addStringifyReplacement(code, index, token,
 							text, replace);
 				default:
 					break;
@@ -254,7 +279,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		}
 		return index;
 	}
-
+	
 	private ReplacementState calculateNextState(ReplacementState currState,
 			final List<Token> code, final int tokenType) {
 		switch (currState) {
@@ -303,13 +328,12 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		}
 		return currState;
 	}
-
+	
 	private int addNormalReplacement(final List<Token> code, int index,
 			final Token token, final String text,
 			final List<ArrayList<Token>> replace) {
-		if (this.idList.contains(text)) {
-			final int argIndex = this.idList.indexOf(text);
-			final ArrayList<Token> list = replace.get(argIndex);
+		if (this.contains(text)) {
+			final ArrayList<Token> list = this.getList(text, replace);
 			for (int j = 0; j < list.size(); j++) {
 				final Token other = list.get(j);
 				code.add(index, other);
@@ -322,13 +346,26 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		return index;
 	}
 
-	private int addStrinifyReplacement(final List<Token> code, int index,
+	private boolean contains(final String text) {
+		if (this.idList.contains(text)) {
+			return true;
+		}
+		return false;
+	}
+	
+	private ArrayList<Token> getList(final String text,
+			final List<ArrayList<Token>> replace) {
+		final int argIndex = this.idList.indexOf(text);
+		final ArrayList<Token> list = replace.get(argIndex);
+		return list;
+	}
+	
+	private int addStringifyReplacement(final List<Token> code, int index,
 			final Token token, final String text,
 			final List<ArrayList<Token>> replace) {
 		final StringBuffer buffer = new StringBuffer("");
-		if (this.idList.contains(text)) {
-			final int argIndex = this.idList.indexOf(text);
-			final ArrayList<Token> list = replace.get(argIndex);
+		if (this.contains(text)) {
+			final ArrayList<Token> list = this.getList(text, replace);
 			for (int j = 0; j < list.size(); j++) {
 				final Token other = list.get(j);
 				final String otherText = other.getText();
@@ -342,7 +379,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		index++;
 		return index;
 	}
-
+	
 	private Token getDoubleQuoteToken(final StringBuffer buffer) {
 		buffer.insert(0, '"');
 		buffer.append('"');
@@ -352,5 +389,5 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 				InternalPreprocessLexer.RULE_SKW_DOUBLEQUOTE, text2);
 		return token;
 	}
-
+	
 }

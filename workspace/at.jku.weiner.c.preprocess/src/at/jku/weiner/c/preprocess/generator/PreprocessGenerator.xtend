@@ -450,5 +450,8 @@ class PreprocessGenerator implements IGenerator {
 	def String resolve(String code) {
 		definitionTable.fullResolve(code);
 	}
-	
+
+	def DefinitionTable getDefinitionTable() {
+		return this.definitionTable;
+	}
 }

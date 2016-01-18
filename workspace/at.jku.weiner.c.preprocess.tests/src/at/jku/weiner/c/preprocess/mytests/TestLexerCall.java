@@ -2,6 +2,7 @@ package at.jku.weiner.c.preprocess.mytests;
 
 import java.util.List;
 
+import org.antlr.runtime.CommonToken;
 import org.antlr.runtime.Token;
 import org.eclipse.xtext.junit4.InjectWith;
 import org.eclipse.xtext.junit4.XtextRunner;
@@ -66,6 +67,15 @@ public class TestLexerCall {
 		final Token semi = tokens.get(7);
 		Assert.assertEquals(InternalPreprocessLexer.RULE_SKW_SEMI,
 				semi.getType());
+	}
+	
+	@Test
+	public void createToken() {
+		final Token token = new CommonToken(
+				InternalPreprocessLexer.RULE_SKW_DOUBLEQUOTE, "\"");
+		Assert.assertEquals("\"", token.getText());
+		Assert.assertEquals(InternalPreprocessLexer.RULE_SKW_DOUBLEQUOTE,
+				token.getType());
 	}
 
 }

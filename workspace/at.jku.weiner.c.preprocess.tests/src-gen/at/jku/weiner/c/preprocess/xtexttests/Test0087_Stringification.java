@@ -217,7 +217,7 @@ public class Test0087_Stringification {
 		);
 		Assert.assertEquals("[x]", IdentifierList_7_Var
 		.getId().toString());
-		Assert.assertEquals(" #x", DefineFunctionLikeMacro_6_Var
+		Assert.assertEquals("#x", DefineFunctionLikeMacro_6_Var
 		.getString());
 		//7
 		final Code Code_8_Var

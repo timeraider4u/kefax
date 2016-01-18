@@ -121,7 +121,7 @@ public final class DefinitionTable {
 				final int newIndex = macro.resolve(parenID, list, i);
 				MyLog.trace("i='" + i + "', newIndex='" + newIndex
 						+ "', macroID='" + macro.getKey() + "', size='"
-						+ list.size() + "'");
+						+ list.size() + "', stop='" + stop + "'");
 				if (newIndex != i) {
 					i = newIndex;
 					// i--;

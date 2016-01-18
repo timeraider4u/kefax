@@ -1,0 +1,47 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language preprocess
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+split-lexer=false
+source file="res/Test0123_ExpansionOfArgs.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WHITESPACE ID WHITESPACE ID NEWLINE
+	
+	ID SKW_LEFTPAREN ID SKW_RIGHTPAREN WHITESPACE SKW_LEFTPAREN DECIMAL_LITERAL SKW_RIGHTPAREN NEWLINE
+	
+//----------------------------------------------------------------------
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"foo",
+					list=
+					(IdentifierList
+						id+*"[x]"
+					),
+					string++"bar x"
+				)
+			),
+		
+			(Code
+				code++"foo(foo) (2)"
+			)
+		)
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0123_ExpansionOfArgs.c.i"
+expected file="expected/Test0123_ExpansionOfArgs.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

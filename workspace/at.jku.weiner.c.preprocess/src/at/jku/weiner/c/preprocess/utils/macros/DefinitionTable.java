@@ -13,7 +13,7 @@ import at.jku.weiner.c.preprocess.utils.LexerUtils;
 import at.jku.weiner.c.preprocess.utils.MyLog;
 
 public final class DefinitionTable {
-	
+
 	private long id = -1;
 	private final Map<String, DefinitionMacro> macros = new HashMap<String, DefinitionMacro>();
 	protected final LexerUtils lexer;
@@ -30,13 +30,13 @@ public final class DefinitionTable {
 	public int size() {
 		return this.macros.size();
 	}
-	
+
 	public boolean isDefined(final String macroName) {
 		boolean result = false;
 		result = this.macros.containsKey(macroName);
 		return result;
 	}
-	
+
 	public void add(final String id, final String replaceWith) {
 		final String key = id;
 		final String val = replaceWith;
@@ -47,7 +47,7 @@ public final class DefinitionTable {
 		this.checkForExistence(key, newMacro);
 		this.macros.put(id, newMacro);
 	}
-	
+
 	private void checkForExistence(final String key,
 			final DefinitionMacro newMacro) {
 		if (this.macros.containsKey(key)) {
@@ -60,21 +60,21 @@ public final class DefinitionTable {
 			}
 		}
 	}
-	
+
 	public void addFunctionMacro(final String id, final IdentifierList list,
 			final String replaceWith) {
 		final String key = id;
 		final DefinitionMacro newMacro = new DefinitionFunctionMacro(this, key,
 				list, replaceWith);
 		this.checkForExistence(key, newMacro);
-		
+
 		this.macros.put(id, newMacro);
 	}
-	
+
 	public void remove(final String key) {
 		this.macros.remove(key);
 	}
-	
+
 	public boolean containsAKey(final String code) {
 		final boolean result = false;
 		final List<Token> list = this.lexer.getTokens(code);
@@ -90,7 +90,7 @@ public final class DefinitionTable {
 		}
 		return result;
 	}
-	
+
 	public String fullResolve(final String code) {
 		final StringBuffer result = new StringBuffer("");
 		final List<Token> list = this.lexer.getTokens(code);
@@ -112,28 +112,28 @@ public final class DefinitionTable {
 		final List<Token> result = new ArrayList<Token>();
 		for (int i = 0; i < list.size(); i++) {
 			final Token next = list.get(i);
-			final int type = next.getType();
+			// final int type = next.getType();
 			final String text = next.getText();
 			MyLog.debug("resolve: parenID=" + parenID + "', token('" + i
 					+ "')='" + text + "', result='" + result.toString() + "'");
-			if (type == InternalPreprocessLexer.RULE_ID) {
-				if (this.macros.containsKey(text)) {
-					// resolve macro
-					final DefinitionMacro macro = this.macros.get(text);
-					final boolean replaced = macro.resolve(parenID, list, i);
-					if (replaced) {
-						i--;
-					} else {
-						result.add(next);
-					}
+			// if (type == InternalPreprocessLexer.RULE_ID) {
+			if (this.macros.containsKey(text)) {
+				// resolve macro
+				final DefinitionMacro macro = this.macros.get(text);
+				final boolean replaced = macro.resolve(parenID, list, i);
+				if (replaced) {
+					i--;
 				} else {
 					result.add(next);
 				}
 			} else {
 				result.add(next);
 			}
+			// } else {
+			// result.add(next);
+			// }
 		}
 		return result;
 	}
-	
+
 }

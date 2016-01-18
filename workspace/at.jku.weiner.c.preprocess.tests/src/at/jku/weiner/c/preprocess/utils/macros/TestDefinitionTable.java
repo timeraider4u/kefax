@@ -13,13 +13,12 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import com.google.inject.Inject;
-
-import at.jku.weiner.c.preprocess.preprocess.PreprocessFactory;
 import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
+import at.jku.weiner.c.preprocess.preprocess.PreprocessFactory;
 import at.jku.weiner.c.preprocess.tests.PreprocessInjectorProvider;
 import at.jku.weiner.c.preprocess.utils.LexerUtils;
-import at.jku.weiner.c.preprocess.utils.macros.DefinitionTable;
+
+import com.google.inject.Inject;
 
 @RunWith(XtextRunner.class)
 @InjectWith(PreprocessInjectorProvider.class)
@@ -38,7 +37,7 @@ public class TestDefinitionTable {
 	private ITokenDefProvider tokenDefProvider;
 
 	private DefinitionTable definitionTable;
-	
+
 	@Before
 	public void setUp() {
 		final LexerUtils lexerUtils = new LexerUtils(this.lexer,
@@ -52,7 +51,7 @@ public class TestDefinitionTable {
 		this.id2 = "ID2";
 		this.replaceLine1 = "replace with";
 		this.replaceLine2 = "something else";
-		
+
 	}
 
 	@After
@@ -111,7 +110,7 @@ public class TestDefinitionTable {
 
 	@Test(expected = IllegalArgumentException.class, timeout = 1000)
 	public void test05() {
-		
+
 		this.definitionTable.add(this.id1, this.replaceLine1);
 		Assert.assertEquals(1, this.definitionTable.size());
 		this.definitionTable.addFunctionMacro(this.id1, this.list1,
@@ -149,7 +148,7 @@ public class TestDefinitionTable {
 	public void test09() {
 		this.list1.getId().add("aParam");
 		this.list2.getId().add("bParam");
-		
+
 		this.definitionTable.addFunctionMacro(this.id1, this.list1,
 				this.replaceLine1);
 		Assert.assertEquals(1, this.definitionTable.size());
@@ -233,14 +232,9 @@ public class TestDefinitionTable {
 		this.definitionTable.add("fox", "cat");
 		this.definitionTable.add("penguin", "red fox");
 		Assert.assertTrue(this.definitionTable.containsAKey(code));
-		final String resolve = this.definitionTable.fullResolve(code);
-		Assert.assertEquals("a little red fox looks at you!", resolve);
-		Assert.assertTrue(this.definitionTable.containsAKey(code));
-		Assert.assertTrue(this.definitionTable.containsAKey(resolve));
-		final String resolve2 = this.definitionTable.fullResolve(resolve);
+		final String resolve2 = this.definitionTable.fullResolve(code);
 		Assert.assertEquals("a little red cat looks at you!", resolve2);
 		Assert.assertTrue(this.definitionTable.containsAKey(code));
-		Assert.assertTrue(this.definitionTable.containsAKey(resolve));
 		Assert.assertFalse(this.definitionTable.containsAKey(resolve2));
 	}
 
@@ -269,14 +263,10 @@ public class TestDefinitionTable {
 		this.definitionTable.add("fox", "firefox");
 		this.definitionTable.add("penguin", "red fox");
 		Assert.assertTrue(this.definitionTable.containsAKey(code));
-		final String resolve = this.definitionTable.fullResolve(code);
-		Assert.assertEquals("a little red fox looks at you!", resolve);
 		Assert.assertTrue(this.definitionTable.containsAKey(code));
-		Assert.assertTrue(this.definitionTable.containsAKey(resolve));
-		final String resolve2 = this.definitionTable.fullResolve(resolve);
+		final String resolve2 = this.definitionTable.fullResolve(code);
 		Assert.assertEquals("a little red firefox looks at you!", resolve2);
 		Assert.assertTrue(this.definitionTable.containsAKey(code));
-		Assert.assertTrue(this.definitionTable.containsAKey(resolve));
 		Assert.assertFalse(this.definitionTable.containsAKey(resolve2));
 	}
 
@@ -288,18 +278,12 @@ public class TestDefinitionTable {
 		this.definitionTable.addFunctionMacro("penguin", null,
 				this.replaceLine1);
 		this.definitionTable.add("fox", "firefox");
-		Assert.assertFalse(this.definitionTable.containsAKey(code));
+		Assert.assertTrue(this.definitionTable.containsAKey(code));
 		Assert.assertTrue(this.definitionTable.containsAKey(code2));
-		final String resolve = this.definitionTable.fullResolve(code2);
-		Assert.assertFalse(this.definitionTable.containsAKey(code));
 		Assert.assertTrue(this.definitionTable.containsAKey(code2));
-		Assert.assertFalse(this.definitionTable.containsAKey(resolve));
-		final String resolve2 = this.definitionTable.fullResolve(resolve);
-		Assert.assertEquals(resolve, resolve2);
-		Assert.assertFalse(this.definitionTable.containsAKey(code));
+		this.definitionTable.fullResolve(code);
+		Assert.assertTrue(this.definitionTable.containsAKey(code));
 		Assert.assertTrue(this.definitionTable.containsAKey(code2));
-		Assert.assertFalse(this.definitionTable.containsAKey(resolve));
-		Assert.assertFalse(this.definitionTable.containsAKey(resolve2));
 	}
 
 	@Test(timeout = 1000)
@@ -328,21 +312,12 @@ public class TestDefinitionTable {
 				this.replaceLine1);
 		this.definitionTable.add("fox", "cat");
 
-		Assert.assertFalse(this.definitionTable.containsAKey(code));
+		Assert.assertTrue(this.definitionTable.containsAKey(code));
 		Assert.assertTrue(this.definitionTable.containsAKey(code2));
-		final String resolve0 = this.definitionTable.fullResolve(code);
-		Assert.assertEquals("a little penguin looks at you!", resolve0);
-		final String resolve1 = this.definitionTable.fullResolve(code2);
-		Assert.assertEquals("a little red cat looks at you!", resolve1);
-		Assert.assertFalse(this.definitionTable.containsAKey(code));
+		final String resolve2 = this.definitionTable.fullResolve(code);
+		Assert.assertTrue(this.definitionTable.containsAKey(code));
 		Assert.assertTrue(this.definitionTable.containsAKey(code2));
-		Assert.assertFalse(this.definitionTable.containsAKey(resolve1));
-		final String resolve2 = this.definitionTable.fullResolve(resolve1);
-		Assert.assertFalse(this.definitionTable.containsAKey(code));
-		Assert.assertTrue(this.definitionTable.containsAKey(code2));
-		Assert.assertFalse(this.definitionTable.containsAKey(resolve1));
-		Assert.assertFalse(this.definitionTable.containsAKey(resolve2));
-		Assert.assertEquals(resolve1, resolve2);
+		Assert.assertTrue(this.definitionTable.containsAKey(resolve2));
 	}
 
 	@Test(timeout = 1000)

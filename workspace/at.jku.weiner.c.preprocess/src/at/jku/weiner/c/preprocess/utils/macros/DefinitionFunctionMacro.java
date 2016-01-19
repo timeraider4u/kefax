@@ -118,10 +118,13 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		// this.enabled = false;
 		// int lastIndex = currPosition;
 		point.y += size;
+		TokenListUtils.print("resolveFor-rescan('" + id + "'), x='" + point.x
+				+ "', y='" + point.y + "', code='", code);
 		this.definitionTable.resolve(id, code, new Point(point.x, point.x
 				+ size));
 		TokenListUtils.print("resolveFor-end('" + id + "'), x='" + point.x
 				+ "', y='" + point.y + "', code='", code);
+		point.x += size - 1;
 		this.enabled = true;
 		return;
 	}
@@ -243,6 +246,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			final int closingParenPosition) {
 		for (int i = closingParenPosition; (i >= point.x); i--) {
 			code.remove(i);
+			point.y--;
 		}
 	}
 

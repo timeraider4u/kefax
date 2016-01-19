@@ -1,5 +1,6 @@
 package at.jku.weiner.c.preprocess.utils.macros;
 
+import java.awt.Point;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -97,7 +98,7 @@ public final class DefinitionTable {
 		MyLog.debug("fullResolve-start(id='" + this.id + "'), code='" + code
 				+ "'");
 		TokenListUtils.print(list);
-		this.resolve(this.id, list, 0, Integer.MAX_VALUE);
+		this.resolve(this.id, list, new Point(0, list.size()));
 		for (int i = 0; i < list.size(); i++) {
 			final Token next = list.get(i);
 			final String text = next.getText();
@@ -109,14 +110,14 @@ public final class DefinitionTable {
 		return resultStr;
 	}
 
-	protected int resolve(final long parenID, final List<Token> list,
-			final int start, final int stop) {
-		int i = start;
-		MyLog.trace("resolve-start('" + parenID + "'), start='" + start
-				+ "', stop='" + stop + "'");
+	protected void resolve(final long parenID, final List<Token> list,
+			final Point point) {
+		int i = point.x;
+		MyLog.trace("resolve-start('" + parenID + "'), start='" + point.x
+				+ "', stop='" + point.y + "'");
 		TokenListUtils.print(list);
-
-		for (i = start; (i < stop) && (i < list.size()); i++) {
+		for (i = point.x; (i < point.y) && (i < list.size()); i++) {
+			point.x = i;
 			final Token next = list.get(i);
 			final String text = next.getText();
 			MyLog.trace("resolve-loop1('" + parenID + "'), token('" + i
@@ -124,20 +125,18 @@ public final class DefinitionTable {
 			if (this.macros.containsKey(text)) {
 				// resolve macro
 				final DefinitionMacro macro = this.macros.get(text);
-				final int newIndex = macro.resolve(parenID, list, i);
+				macro.resolve(parenID, list, point);
 				MyLog.trace("resolve-loop2('" + parenID + "'), i='" + i
-						+ "', newIndex='" + newIndex + "', macroID='"
-						+ macro.getKey() + "', size='" + list.size()
-						+ "', stop='" + stop + "'");
-				if (newIndex != i) {
-					i = newIndex;
-					// i--;
+						+ "', newIndex='" + point.x + ", stop='" + point.y
+						+ "', macroID='" + macro.getKey() + "', size='"
+						+ list.size() + "', stop='" + point.y + "'");
+				if (point.x != i) {
+					i = point.x;
 				}
 			}
 		}
 		MyLog.trace("resolve-end('" + parenID + "'), i='" + i + "'");
 		TokenListUtils.print(list);
-		return i;
 	}
 
 }

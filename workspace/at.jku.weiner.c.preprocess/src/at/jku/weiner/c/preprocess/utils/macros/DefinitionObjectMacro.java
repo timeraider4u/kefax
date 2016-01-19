@@ -1,5 +1,6 @@
 package at.jku.weiner.c.preprocess.utils.macros;
 
+import java.awt.Point;
 import java.util.List;
 
 import org.antlr.runtime.Token;
@@ -40,23 +41,23 @@ public final class DefinitionObjectMacro implements DefinitionMacro {
 	}
 
 	@Override
-	public int resolve(final long parenID, final List<Token> code,
-			final int currPosition) {
+	public void resolve(final long parenID, final List<Token> code,
+			final Point point) {
 		if (!this.enabled) {
 			// prevent endless replacement loops
 			MyLog.trace("prevent endless replacement loops with'"
-					+ this.macroID + "', currPos='" + currPosition + "'");
-			return currPosition;
+					+ this.macroID + "', currPos='" + point.x + "'");
+			return;
 		}
-		code.remove(currPosition);
-		code.addAll(currPosition, this.replacement);
+		code.remove(point.x);
+		code.addAll(point.x, this.replacement);
 		// rescan
 		this.enabled = false;
-		int lastIndex = currPosition + this.replacement.size();
-		int newIndex = this.definitionTable.resolve(parenID, code,
-				currPosition, lastIndex);
+		final int size = this.replacement.size();
+		point.y += size;
+		this.definitionTable.resolve(parenID, code, new Point(point.x, point.x
+				+ size));
 		this.enabled = true;
-		return newIndex;
 	}
 
 }

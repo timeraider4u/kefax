@@ -113,15 +113,16 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		// remove tokens of function-like invocation
 		this.removeTokens(code, point, closingParenPosition);
 		// add replacement tokens
-		final Point replacePoint = new Point(point.x, point.y);
-		int size = this.addReplacementTokensToCode(id, code, replacePoint, replace);
+		final Point replacePoint = new Point(point.x, 0);
+		this.addReplacementTokensToCode(id, code, replacePoint, replace);
+		int size = replacePoint.y;
 		// this.removeWhitespaceFromList(code, currPosition, index);
 		// rescan
 		// this.enabled = false;
 		// int lastIndex = currPosition;
 		point.y += size;
-		this.definitionTable.resolve(id, code, new Point(point.x,
-				point.x + size));
+		this.definitionTable.resolve(id, code, new Point(point.x, point.x
+				+ size));
 		this.enabled = true;
 		return;
 	}

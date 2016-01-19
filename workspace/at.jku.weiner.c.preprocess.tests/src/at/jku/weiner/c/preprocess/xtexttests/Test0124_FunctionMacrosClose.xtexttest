@@ -1,0 +1,96 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language preprocess
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+split-lexer=false
+source file="res/Test0124_FunctionMacrosClose.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN SKW_RIGHTPAREN ID NEWLINE
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN ID NEWLINE
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_COMMA ID SKW_RIGHTPAREN ID SKW_COMMA ID NEWLINE
+	ID SKW_LEFTPAREN SKW_RIGHTPAREN 
+		ID SKW_LEFTPAREN SKW_RIGHTPAREN SKW_COMMA 
+		ID SKW_LEFTPAREN SKW_RIGHTPAREN 
+		ID SKW_RIGHTPAREN 
+		NEWLINE
+	ID SKW_LEFTPAREN DECIMAL_LITERAL SKW_RIGHTPAREN 
+		ID SKW_LEFTPAREN DECIMAL_LITERAL SKW_RIGHTPAREN
+		ID SKW_LEFTPAREN DECIMAL_LITERAL SKW_RIGHTPAREN 
+		ID SKW_LEFTPAREN DECIMAL_LITERAL SKW_RIGHTPAREN
+		SKW_SEMI
+		NEWLINE
+	ID SKW_LEFTPAREN ID SKW_COMMA ID SKW_RIGHTPAREN 
+		ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN
+		ID SKW_LEFTPAREN ID SKW_COMMA ID SKW_RIGHTPAREN
+		ID SKW_LEFTPAREN ID SKW_COMMA ID SKW_RIGHTPAREN  
+		NEWLINE	
+//----------------------------------------------------------------------
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"bar",
+					list isNull,
+					//replacement+=
+					//(ReplaceLine
+						string++"x"
+					//)
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"foo",
+					list=
+					(IdentifierList
+						id+*"[x]"
+					),
+					//replacement+=
+					//(ReplaceLine
+						string++"x"
+					//)
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"baz",
+					list=
+					(IdentifierList
+						id+*"[x, y]"
+					),
+					//replacement+=
+					//(ReplaceLine
+						string++"x,y"
+					//)
+				)
+			),
+			(Code
+				code++"bar()bar(),bar()bar)"
+			),
+			(Code
+				code++"foo(5)foo(5)foo(5)foo(5);"
+			),
+			(Code
+				code++"baz(x,y)baz(X, Y)baz(XX,YY)baz(x,y)"
+			)
+			
+		)
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0124_FunctionMacrosClose.c.i"
+expected file="expected/Test0124_FunctionMacrosClose.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

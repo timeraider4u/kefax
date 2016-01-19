@@ -95,6 +95,7 @@ public class Test0119_DefineAndInclude {
 			parser, tokenDefProvider);
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("c",
 						this.resourceFactory);
+		at.jku.weiner.c.preprocess.xtexttests.TestUtils.setUpTest0119();
 	}
 	
 	@After
@@ -151,6 +152,9 @@ public class Test0119_DefineAndInclude {
 				"RULE_WHITESPACE",
 				"RULE_ID",
 				"RULE_SKW_LEFTPAREN",
+				"RULE_SKW_DOT",
+				"RULE_SKW_DOT",
+				"RULE_SKW_DIV",
 				"RULE_ID",
 				"RULE_SKW_DIV",
 				"RULE_INCLUDE",
@@ -298,7 +302,7 @@ public class Test0119_DefineAndInclude {
 		);
 		Assert.assertEquals("[x]", IdentifierList_12_Var
 		.getId().toString());
-		Assert.assertEquals("__foo(myinclude/include/bar/baz##x.h)", DefineFunctionLikeMacro_11_Var
+		Assert.assertEquals("__foo(../myinclude/include/bar/baz##x.h)", DefineFunctionLikeMacro_11_Var
 		.getString());
 		//12
 		final PreprocessorDirectives PreprocessorDirectives_13_Var

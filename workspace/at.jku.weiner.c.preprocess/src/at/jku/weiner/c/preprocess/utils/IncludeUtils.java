@@ -34,6 +34,8 @@ public final class IncludeUtils {
 			newFileName = definitionTable.fullResolve(newFileName);
 		}
 		this.pathState = this.initializePathState(newFileName, true);
+		MyLog.trace("IncludeUtils state='" + this.pathState
+				+ "', newFileName='" + newFileName + "'");
 		this.fileName = this.replace(newFileName);
 		this.rs = set;
 		this.uri = uri;
@@ -45,11 +47,9 @@ public final class IncludeUtils {
 			final boolean shouldBeResolved) {
 		if (fileName.startsWith("\"") && fileName.endsWith("\"")) {
 			return PathState.Relative;
-		}
-		if (fileName.startsWith("<") && fileName.endsWith(">")) {
+		} else if (fileName.startsWith("<") && fileName.endsWith(">")) {
 			return PathState.Absolute;
-		}
-		if (!shouldBeResolved) {
+		} else if (!shouldBeResolved) {
 			return PathState.Unresolved;
 		}
 		throw new IllegalArgumentException("include fileName='" + fileName

@@ -90,6 +90,9 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		this.lastID = id;
 		if (!this.enabled) {
 			// prevent endless replacement loops
+			MyLog.debug("resolveFor-disabled('" + id + "'), currPosition='"
+					+ currPosition + ")");
+			TokenListUtils.print(code);
 			return currPosition;
 		}
 		MyLog.trace("resolveFor-start('" + id + "', '" + this.key + "')");
@@ -104,6 +107,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 
 		if (currPosition == closingParenPosition) {
 			return currPosition;
+			// return -1;
 		}
 		this.removeWhitespaceFromList(replace);
 		// remove tokens of function-like invocation
@@ -114,6 +118,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		// this.removeWhitespaceFromList(code, currPosition, index);
 		// rescan
 		this.enabled = false;
+		// int lastIndex = currPosition;
 		int lastIndex = this.definitionTable.resolve(id, code, currPosition,
 				index);
 		this.enabled = true;

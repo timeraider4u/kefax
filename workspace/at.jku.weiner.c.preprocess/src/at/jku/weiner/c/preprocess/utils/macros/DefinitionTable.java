@@ -95,9 +95,8 @@ public final class DefinitionTable {
 		final StringBuffer result = new StringBuffer("");
 		final List<Token> list = this.lexer.getTokens(code);
 		this.id++;
-		MyLog.debug("fullResolve-start(id='" + this.id + "'), code='" + code
-				+ "'");
-		TokenListUtils.print(list);
+		TokenListUtils.print("fullResolve-start(id='" + this.id + "'), code='"
+				+ code + "', list='", list);
 		this.resolve(this.id, list, new Point(0, list.size()));
 		for (int i = 0; i < list.size(); i++) {
 			final Token next = list.get(i);
@@ -112,31 +111,25 @@ public final class DefinitionTable {
 
 	protected void resolve(final long parenID, final List<Token> list,
 			final Point point) {
-		int i = point.x;
-		MyLog.trace("resolve-start('" + parenID + "'), start='" + point.x
-				+ "', stop='" + point.y + "'");
-		TokenListUtils.print(list);
-		for (i = point.x; (i < point.y) && (i < list.size()); i++) {
-			point.x = i;
-			final Token next = list.get(i);
+		TokenListUtils.print("resolve-start('" + parenID + "'), start='"
+				+ point.x + "', stop='" + point.y + "'", list);
+		for (; (point.x < point.y) && (point.x < list.size()); point.x++) {
+			final Token next = list.get(point.x);
 			final String text = next.getText();
-			MyLog.trace("resolve-loop1('" + parenID + "'), token('" + i
+			MyLog.trace("resolve-loop1('" + parenID + "'), token('" + point.x
 					+ "')='" + text + "'");
 			if (this.macros.containsKey(text)) {
 				// resolve macro
 				final DefinitionMacro macro = this.macros.get(text);
 				macro.resolve(parenID, list, point);
-				MyLog.trace("resolve-loop2('" + parenID + "'), i='" + i
-						+ "', newIndex='" + point.x + ", stop='" + point.y
-						+ "', macroID='" + macro.getKey() + "', size='"
-						+ list.size() + "', stop='" + point.y + "'");
-				if (point.x != i) {
-					i = point.x;
-				}
+				MyLog.trace("resolve-loop2('" + parenID + "'), i='" + point.x
+						+ "', stop='" + point.y + "', macroID='"
+						+ macro.getKey() + "', size='" + list.size()
+						+ "', stop='" + point.y + "'");
 			}
 		}
-		MyLog.trace("resolve-end('" + parenID + "'), i='" + i + "'");
-		TokenListUtils.print(list);
+		TokenListUtils.print("resolve-end('" + parenID + "'), i='" + point.x
+				+ "', list='", list);
 	}
 
 }

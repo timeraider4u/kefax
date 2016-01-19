@@ -3,20 +3,19 @@ package at.jku.weiner.c.preprocess.utils.macros;
 import org.eclipse.xtext.junit4.InjectWith;
 import org.eclipse.xtext.junit4.XtextRunner;
 import org.eclipse.xtext.parser.antlr.ITokenDefProvider;
-import org.eclipse.xtext.parser.antlr.Lexer;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import com.google.inject.Inject;
-
-import at.jku.weiner.c.preprocess.preprocess.PreprocessFactory;
+import at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer;
 import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
+import at.jku.weiner.c.preprocess.preprocess.PreprocessFactory;
 import at.jku.weiner.c.preprocess.tests.PreprocessInjectorProvider;
 import at.jku.weiner.c.preprocess.utils.LexerUtils;
-import at.jku.weiner.c.preprocess.utils.macros.DefinitionTable;
+
+import com.google.inject.Inject;
 
 @RunWith(XtextRunner.class)
 @InjectWith(PreprocessInjectorProvider.class)
@@ -26,12 +25,12 @@ public class TestStringification {
 	private String replaceLine;
 
 	@Inject
-	private Lexer lexer;
+	private InternalPreprocessLexer lexer;
 	@Inject
 	private ITokenDefProvider tokenDefProvider;
 
 	private DefinitionTable definitionTable;
-	
+
 	@Before
 	public void setUp() {
 		final LexerUtils lexerUtils = new LexerUtils(this.lexer,
@@ -40,12 +39,12 @@ public class TestStringification {
 		this.definitionTable.reset();
 		this.replaceLine = "something";
 	}
-	
+
 	@After
 	public void cleanUp() {
 		this.definitionTable.reset();
 	}
-	
+
 	@Test(timeout = 1000)
 	public void testStringification1() {
 		final IdentifierList list = PreprocessFactory.eINSTANCE
@@ -57,7 +56,7 @@ public class TestStringification {
 		final String replace = this.definitionTable.fullResolve(code);
 		Assert.assertEquals("5 \"5\"", replace);
 	}
-	
+
 	@Test(timeout = 1000)
 	public void testStringification2() {
 		final IdentifierList list = PreprocessFactory.eINSTANCE
@@ -70,7 +69,7 @@ public class TestStringification {
 		final String replace = this.definitionTable.fullResolve(code);
 		Assert.assertEquals("56 \"56\" 56 \"56\" 56 \"56\"", replace);
 	}
-	
+
 	@Test(timeout = 1000)
 	public void testStringification3() {
 		final IdentifierList list = PreprocessFactory.eINSTANCE

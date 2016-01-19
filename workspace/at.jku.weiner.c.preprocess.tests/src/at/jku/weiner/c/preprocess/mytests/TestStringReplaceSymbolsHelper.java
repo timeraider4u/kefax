@@ -6,29 +6,29 @@ import java.util.regex.Pattern;
 import org.eclipse.xtext.junit4.InjectWith;
 import org.eclipse.xtext.junit4.XtextRunner;
 import org.eclipse.xtext.parser.antlr.ITokenDefProvider;
-import org.eclipse.xtext.parser.antlr.Lexer;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import com.google.inject.Inject;
-
+import at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer;
 import at.jku.weiner.c.preprocess.tests.PreprocessInjectorProvider;
 import at.jku.weiner.c.preprocess.utils.LexerUtils;
 import at.jku.weiner.c.preprocess.utils.macros.DefinitionTable;
+
+import com.google.inject.Inject;
 
 @RunWith(XtextRunner.class)
 @InjectWith(PreprocessInjectorProvider.class)
 public class TestStringReplaceSymbolsHelper {
 
 	@Inject
-	private Lexer lexer;
+	private InternalPreprocessLexer lexer;
 	@Inject
 	private ITokenDefProvider tokenDefProvider;
-	
+
 	private DefinitionTable definitionTable;
-	
+
 	@Before
 	public void setUp() {
 		final LexerUtils lexerUtils = new LexerUtils(this.lexer,

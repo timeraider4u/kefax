@@ -6,13 +6,13 @@ import java.util.regex.Pattern;
 import org.eclipse.xtext.junit4.InjectWith;
 import org.eclipse.xtext.junit4.XtextRunner;
 import org.eclipse.xtext.parser.antlr.ITokenDefProvider;
-import org.eclipse.xtext.parser.antlr.Lexer;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer;
 import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessFactory;
 import at.jku.weiner.c.preprocess.tests.PreprocessInjectorProvider;
@@ -32,7 +32,7 @@ public class TestDefinitionTable {
 	private String replaceLine2;
 
 	@Inject
-	private Lexer lexer;
+	private InternalPreprocessLexer lexer;
 	@Inject
 	private ITokenDefProvider tokenDefProvider;
 

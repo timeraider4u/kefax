@@ -50,6 +50,7 @@ public final class DefinitionObjectMacro implements DefinitionMacro {
 			return;
 		}
 		code.remove(point.x);
+		point.y--;
 		code.addAll(point.x, this.replacement);
 		// rescan
 		this.enabled = false;
@@ -57,6 +58,7 @@ public final class DefinitionObjectMacro implements DefinitionMacro {
 		point.y += size;
 		this.definitionTable.resolve(parenID, code, new Point(point.x, point.x
 				+ size));
+		point.x += size - 1;
 		this.enabled = true;
 	}
 

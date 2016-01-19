@@ -90,20 +90,17 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		this.lastID = id;
 		if (!this.enabled) {
 			// prevent endless replacement loops
-			MyLog.debug("resolveFor-disabled('" + id + "'), currPosition='"
-					+ point.x + ")");
-			TokenListUtils.print(code);
+			TokenListUtils.print("resolveFor-disabled('" + id
+					+ "'), currPosition='" + point.x + "), code='", code);
 			return;
 		}
 		MyLog.trace("resolveFor-start('" + id + "', '" + this.key + "')");
 		final List<ArrayList<Token>> replace = this.initializeReplaceList();
-		TokenListUtils.printList(replace);
-
 		final int closingParenPosition = this.searchForClosingParen(code,
 				point, replace);
 		MyLog.trace("closingParenPosition='" + closingParenPosition + "'");
-		MyLog.trace("resolveFor-intermediate('" + id + "', '" + this.key + "')");
-		TokenListUtils.printList(replace);
+		TokenListUtils.printList("resolveFor-intermediate('" + id + "', '"
+				+ this.key + "')", replace);
 
 		if (point.x == closingParenPosition) {
 			return;
@@ -123,6 +120,8 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		point.y += size;
 		this.definitionTable.resolve(id, code, new Point(point.x, point.x
 				+ size));
+		TokenListUtils.print("resolveFor-end('" + id + "'), x='" + point.x
+				+ "', y='" + point.y + "', code='", code);
 		this.enabled = true;
 		return;
 	}
@@ -256,25 +255,21 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 
 	private void removeWhitespaceFromList(final List<Token> list,
 			final int start, final int stop) {
-		MyLog.trace("removeWS Back, start='" + start + "', stop='" + stop
-				+ "', size='" + list.size() + "'");
 		for (int j = stop; ((j > 0) && (j < list.size()) && this.isWhitespace(
 				list, j)); j--) {
 			MyLog.trace("remove at stop index='" + j + "'");
 			list.remove(j);
 		}
-		MyLog.trace("removeWS Front, start='" + start + "', stop='" + stop
-				+ "', size='" + list.size() + "'");
 		for (final int j = start; (j <= stop)
 				&& ((j < list.size()) && this.isWhitespace(list, j));) {
 			MyLog.trace("remove at start index='" + j + "'");
 			list.remove(j);
 		}
-		MyLog.trace("removeWS Doubles");
 		boolean isWs = false;
 		for (int j = 0; j < list.size(); j++) {
 			if (this.isWhitespace(list, j)) {
 				if (isWs) {
+					MyLog.trace("remove at middle index='" + j + "'");
 					list.remove(j);
 					j--;
 				}
@@ -289,8 +284,6 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		final Token token = list.get(index);
 		final int type = token.getType();
 		final boolean result = (type == InternalPreprocessLexer.RULE_WHITESPACE);
-		MyLog.trace("index='" + index + "', token='" + token.getText()
-				+ "', isWs='" + result + "', size='" + list.size() + "'");
 		return result;
 	}
 
@@ -307,10 +300,11 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			final String text = token.getText();
 			final int tokenType = token.getType();
 			state = this.calculateNextState(state, code, tokenType, i);
-			MyLog.trace("addReplacementTokensToCode('" + parenID
-					+ "'), state='" + state + "', text='" + text + "'");
-			TokenListUtils.printList(replace);
-			TokenListUtils.print(code);
+			TokenListUtils.printList("addReplacementTokensToCode-loop('"
+					+ parenID + "'), state='" + state + "', text='" + text
+					+ "', replace='", replace);
+			TokenListUtils.print("addReplacementTokensToCode-loop('" + parenID
+					+ "'), code='", code);
 			switch (state) {
 			case Normal:
 				this.addNormalReplacement(parenID, code, point, token, text,
@@ -331,7 +325,8 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			default:
 				break;
 			}
-			TokenListUtils.print(code);
+			TokenListUtils.print("addReplacementTokensToCode-done('" + parenID
+					+ "') code='", code);
 		}
 	}
 
@@ -424,7 +419,6 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 						new Point(0, list.size()));
 				this.enabled = true;
 			}
-			TokenListUtils.print(newList);
 			for (int j = 0; j < newList.size(); j++) {
 				final Token other = newList.get(j);
 				code.add(point.x, other);
@@ -473,13 +467,10 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			final String text, final List<ArrayList<Token>> replace) {
 		MyLog.trace("addStringifyReplacement-start('" + parenID + "'), text='"
 				+ text + "'");
-		TokenListUtils.printList(replace);
-		TokenListUtils.print(this.replacements);
 
 		final StringBuffer buffer = new StringBuffer("");
 		if (this.contains(text)) {
 			final ArrayList<Token> list = this.getList(text, replace);
-			TokenListUtils.print(list);
 			for (int j = 0; j < list.size(); j++) {
 				final Token other = list.get(j);
 				final String otherText = other.getText();

@@ -6,15 +6,16 @@ import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CharStream;
 import org.antlr.runtime.Token;
 import org.eclipse.xtext.parser.antlr.ITokenDefProvider;
-import org.eclipse.xtext.parser.antlr.Lexer;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream;
+
+import at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer;
 
 public class LexerUtils {
 
-	private final Lexer lexer;
+	private final InternalPreprocessLexer lexer;
 	private final ITokenDefProvider tokenDefProvider;
-	
-	public LexerUtils(final Lexer lexer,
+
+	public LexerUtils(final InternalPreprocessLexer lexer,
 			final ITokenDefProvider tokenDefProvider) {
 		this.lexer = lexer;
 		this.tokenDefProvider = tokenDefProvider;

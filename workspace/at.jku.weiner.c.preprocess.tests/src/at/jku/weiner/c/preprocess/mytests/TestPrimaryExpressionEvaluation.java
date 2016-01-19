@@ -3,13 +3,13 @@ package at.jku.weiner.c.preprocess.mytests;
 import org.eclipse.xtext.junit4.InjectWith;
 import org.eclipse.xtext.junit4.XtextRunner;
 import org.eclipse.xtext.parser.antlr.ITokenDefProvider;
-import org.eclipse.xtext.parser.antlr.Lexer;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessFactory;
 import at.jku.weiner.c.preprocess.preprocess.PrimaryExpression;
 import at.jku.weiner.c.preprocess.tests.PreprocessInjectorProvider;
@@ -27,14 +27,14 @@ import com.google.inject.Injector;
 public class TestPrimaryExpressionEvaluation {
 	private PreprocessFactory factory = PreprocessFactory.eINSTANCE;
 	private ExpressionEvaluation<Long> evaluater;
-	
+
 	@Inject
-	private Lexer lexer;
+	private InternalPreprocessLexer lexer;
 	@Inject
 	private ITokenDefProvider tokenDefProvider;
 
 	private DefinitionTable definitionTable;
-	
+
 	@Before
 	public void setUp() throws Exception {
 		final LexerUtils lexerUtils = new LexerUtils(this.lexer,
@@ -49,13 +49,13 @@ public class TestPrimaryExpressionEvaluation {
 				injector, this.definitionTable);
 		this.evaluater = new ExpressionEvaluation<Long>(visitor);
 	}
-	
+
 	@After
 	public void tearDown() throws Exception {
 		this.definitionTable.reset();
 		Assert.assertEquals(0, this.definitionTable.size());
 	}
-	
+
 	@Test(timeout = 1000)
 	public void testIDWhichIsEmpty() {
 		final PrimaryExpression expression = this.factory
@@ -64,7 +64,7 @@ public class TestPrimaryExpressionEvaluation {
 		Assert.assertEquals(ExpressionLongVisitor.FALSE,
 				this.evaluater.walkTo(expression));
 	}
-	
+
 	@Test(timeout = 1000)
 	public void testIDWhichIsDefined() {
 		final PrimaryExpression expression = this.factory
@@ -74,7 +74,7 @@ public class TestPrimaryExpressionEvaluation {
 		Assert.assertEquals(ExpressionLongVisitor.TRUE,
 				this.evaluater.walkTo(expression));
 	}
-	
+
 	@Test(timeout = 1000)
 	public void testIDWhichIsEmpty2() {
 		final PrimaryExpression expression = this.factory
@@ -85,7 +85,7 @@ public class TestPrimaryExpressionEvaluation {
 		Assert.assertEquals(ExpressionLongVisitor.FALSE,
 				this.evaluater.walkTo(expression));
 	}
-	
+
 	@Test(timeout = 1000)
 	public void testIDWhichIsDefined2() {
 		final PrimaryExpression expression = this.factory
@@ -96,7 +96,7 @@ public class TestPrimaryExpressionEvaluation {
 		Assert.assertEquals(ExpressionLongVisitor.TRUE,
 				this.evaluater.walkTo(expression));
 	}
-	
+
 	@Test(timeout = 1000)
 	public void testConstantWhichIsDecimalAndIsFalse() {
 		final PrimaryExpression expression = this.factory
@@ -105,7 +105,7 @@ public class TestPrimaryExpressionEvaluation {
 		Assert.assertEquals(ExpressionLongVisitor.FALSE,
 				this.evaluater.walkTo(expression));
 	}
-	
+
 	@Test(timeout = 1000)
 	public void testConstantWhichIsDecimalAndIsTrue() {
 		final PrimaryExpression expression = this.factory
@@ -114,7 +114,7 @@ public class TestPrimaryExpressionEvaluation {
 		Assert.assertEquals(ExpressionLongVisitor.TRUE,
 				this.evaluater.walkTo(expression));
 	}
-	
+
 	@Test(timeout = 1000)
 	// (expected = NumberFormatException.class)
 	public void testConstantWhichIsFloat() {
@@ -125,7 +125,7 @@ public class TestPrimaryExpressionEvaluation {
 		final Long expected = ExpressionLongVisitor.FALSE;
 		Assert.assertEquals(expected, result);
 	}
-	
+
 	@Test(timeout = 1000)
 	// (expected = NumberFormatException.class)
 	public void testConstantWhichIsFloat2() {
@@ -136,7 +136,7 @@ public class TestPrimaryExpressionEvaluation {
 		final Long expected = ExpressionLongVisitor.FALSE;
 		Assert.assertEquals(expected, result);
 	}
-	
+
 	@Test(timeout = 1000)
 	// (expected = NumberFormatException.class)
 	public void testConstantWhichIsString() {
@@ -147,7 +147,7 @@ public class TestPrimaryExpressionEvaluation {
 		final Long expected = ExpressionLongVisitor.FALSE;
 		Assert.assertEquals(expected, result);
 	}
-	
+
 	@Test(timeout = 1000)
 	public void testConstantWhichIsBinary() {
 		final PrimaryExpression expression = this.factory
@@ -156,5 +156,5 @@ public class TestPrimaryExpressionEvaluation {
 		final Long result = this.evaluater.walkTo(expression);
 		Assert.assertEquals(ExpressionLongVisitor.TRUE, result);
 	}
-	
+
 }

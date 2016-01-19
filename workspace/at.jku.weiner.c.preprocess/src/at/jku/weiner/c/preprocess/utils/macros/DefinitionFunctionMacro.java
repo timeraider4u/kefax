@@ -117,7 +117,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 				currPosition, replace);
 		// this.removeWhitespaceFromList(code, currPosition, index);
 		// rescan
-		this.enabled = false;
+		// this.enabled = false;
 		// int lastIndex = currPosition;
 		int lastIndex = this.definitionTable.resolve(id, code, currPosition,
 				index);

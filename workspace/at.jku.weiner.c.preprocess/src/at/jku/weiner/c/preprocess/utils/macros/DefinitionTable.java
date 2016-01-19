@@ -97,7 +97,7 @@ public final class DefinitionTable {
 		MyLog.debug("fullResolve-start(id='" + this.id + "'), code='" + code
 				+ "'");
 		TokenListUtils.print(list);
-		this.resolve(this.id, list, 0, list.size());
+		this.resolve(this.id, list, 0, Integer.MAX_VALUE);
 		for (int i = 0; i < list.size(); i++) {
 			final Token next = list.get(i);
 			final String text = next.getText();

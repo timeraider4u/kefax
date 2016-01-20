@@ -115,7 +115,7 @@ public final class DefinitionTable {
 		for (int i = ranges.startIndex; (i < ranges.stopIndex)
 		// && (ranges.currIndex < list.size())
 		; i++) {
-			MyLog.trace("resolve-loop0('" + parenID + "'), '"
+			MyLog.trace("resolve-loop0('" + parenID + "'), ', i='" + i + "', "
 					+ ranges.toString() + ", size='" + list.size() + "'");
 			final Token next = list.get(i);
 			final String text = next.getText();
@@ -127,9 +127,14 @@ public final class DefinitionTable {
 				final MacroRanges newRange = new MacroRanges(i,
 						ranges.stopIndex);
 				macro.resolve(parenID, list, newRange);
+				MyLog.trace("resolve-loop2('" + parenID + "'), i='" + i
+						+ "', ranges=" + ranges.toString() + ", newRanges='"
+						+ newRange.toString() + "', macroID='" + macro.getKey()
+						+ "', size='" + list.size() + "'");
 				ranges.update(newRange);
-				i = newRange.getCurrentIndex();
-				MyLog.trace("resolve-loop2('" + parenID + "'), "
+				i += newRange.addedElements;
+				// i += Math.abs(ranges.addedElements - newRange.addedElements);
+				MyLog.trace("resolve-loop3('" + parenID + "'), i='" + i + "', "
 						+ ranges.toString() + ", macroID='" + macro.getKey()
 						+ "', size='" + list.size() + "'");
 			}

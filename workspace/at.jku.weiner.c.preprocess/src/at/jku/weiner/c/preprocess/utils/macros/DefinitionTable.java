@@ -1,6 +1,5 @@
 package at.jku.weiner.c.preprocess.utils.macros;
 
-import java.awt.Point;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -97,7 +96,7 @@ public final class DefinitionTable {
 		this.id++;
 		TokenListUtils.print("fullResolve-start(id='" + this.id + "'), code='"
 				+ code + "', list='", list);
-		this.resolve(this.id, list, new Point(0, list.size()));
+		this.resolve(this.id, list, new MacroRanges(0, list.size()));
 		for (int i = 0; i < list.size(); i++) {
 			final Token next = list.get(i);
 			final String text = next.getText();
@@ -110,26 +109,34 @@ public final class DefinitionTable {
 	}
 
 	protected void resolve(final long parenID, final List<Token> list,
-			final Point point) {
-		TokenListUtils.print("resolve-start('" + parenID + "'), start='"
-				+ point.x + "', stop='" + point.y + "'", list);
-		for (; (point.x < point.y) && (point.x < list.size()); point.x++) {
-			final Token next = list.get(point.x);
+			final MacroRanges ranges) {
+		TokenListUtils.print(
+				"resolve-start('" + parenID + "'), " + ranges.toString(), list);
+		for (ranges.currIndex = ranges.startIndex; (ranges.currIndex >= 0)
+				&& (ranges.currIndex < ranges.stopIndex)
+				// && (ranges.currIndex < list.size())
+				; ranges.currIndex++) {
+			MyLog.trace("resolve-loop0('" + parenID + "'), '"
+					+ ranges.toString() + ", size='" + list.size() + "'");
+			final Token next = list.get(ranges.currIndex);
 			final String text = next.getText();
-			MyLog.trace("resolve-loop1('" + parenID + "'), token('" + point.x
-					+ "')='" + text + "'");
+			MyLog.trace("resolve-loop1('" + parenID + "'), token('"
+					+ ranges.currIndex + "')='" + text + "'");
 			if (this.macros.containsKey(text)) {
 				// resolve macro
 				final DefinitionMacro macro = this.macros.get(text);
-				macro.resolve(parenID, list, point);
-				MyLog.trace("resolve-loop2('" + parenID + "'), i='" + point.x
-						+ "', stop='" + point.y + "', macroID='"
-						+ macro.getKey() + "', size='" + list.size()
-						+ "', stop='" + point.y + "'");
+				final MacroRanges newRange = new MacroRanges(ranges.currIndex,
+						ranges.stopIndex);
+				macro.resolve(parenID, list, newRange);
+				ranges.addElements(true, newRange.changedElements);
+				MyLog.trace("resolve-loop2('" + parenID + "'), "
+						+ ranges.toString() + ", macroID='" + macro.getKey()
+						+ "', size='" + list.size() + "'");
 			}
 		}
-		TokenListUtils.print("resolve-end('" + parenID + "'), i='" + point.x
-				+ "', list='", list);
+		TokenListUtils.print(
+				"resolve-end('" + parenID + "'), " + ranges.toString()
+				+ ", list='", list);
 	}
 
 }

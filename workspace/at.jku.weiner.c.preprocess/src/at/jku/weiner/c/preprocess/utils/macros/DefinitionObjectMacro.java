@@ -1,6 +1,5 @@
 package at.jku.weiner.c.preprocess.utils.macros;
 
-import java.awt.Point;
 import java.util.List;
 
 import org.antlr.runtime.Token;
@@ -13,6 +12,7 @@ public final class DefinitionObjectMacro implements DefinitionMacro {
 	private final String macroID;
 	private final String value;
 	private final List<Token> replacement;
+	private final int size;
 	private boolean enabled = true;
 
 	public DefinitionObjectMacro(final DefinitionTable definitionTable,
@@ -21,6 +21,7 @@ public final class DefinitionObjectMacro implements DefinitionMacro {
 		this.macroID = key;
 		this.value = (replace == null) ? "" : replace;
 		this.replacement = definitionTable.lexer.getTokens(this.value);
+		this.size = this.replacement.size();
 	}
 
 	@Override
@@ -42,24 +43,24 @@ public final class DefinitionObjectMacro implements DefinitionMacro {
 
 	@Override
 	public void resolve(final long parenID, final List<Token> code,
-			final Point point) {
+			final MacroRanges ranges) {
 		if (!this.enabled) {
 			// prevent endless replacement loops
 			MyLog.trace("prevent endless replacement loops with'"
-					+ this.macroID + "', currPos='" + point.x + "'");
+					+ this.macroID + "', " + ranges.toString());
 			return;
 		}
-		code.remove(point.x);
-		point.y--;
-		code.addAll(point.x, this.replacement);
+		// do replacement
+		code.remove(ranges.startIndex);
+		ranges.removeElement(true);
+		code.addAll(ranges.startIndex, this.replacement);
+		ranges.addElements(true, this.size);
 		// rescan
 		this.enabled = false;
-		final int size = this.replacement.size();
-		point.y += size;
-		this.definitionTable.resolve(parenID, code, new Point(point.x, point.x
-				+ size));
-		point.x += size - 1;
+		final MacroRanges newRanges = new MacroRanges(ranges.startIndex,
+				ranges.startIndex + this.size);
+		this.definitionTable.resolve(parenID, code, newRanges);
+		ranges.addElements(true, newRanges.changedElements);
 		this.enabled = true;
 	}
-
 }

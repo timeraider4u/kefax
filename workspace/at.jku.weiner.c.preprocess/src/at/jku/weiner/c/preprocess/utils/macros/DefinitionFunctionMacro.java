@@ -1,6 +1,5 @@
 package at.jku.weiner.c.preprocess.utils.macros;
 
-import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -83,50 +82,49 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 	}
 
 	@Override
-	public void resolve(final long id, final List<Token> code, final Point point) {
+	public void resolve(final long id, final List<Token> code,
+			final MacroRanges ranges) {
 		if (this.lastID != id) {
 			this.enabled = true;
 		}
 		this.lastID = id;
 		if (!this.enabled) {
 			// prevent endless replacement loops
-			TokenListUtils.print("resolveFor-disabled('" + id
-					+ "'), currPosition='" + point.x + "), code='", code);
+			TokenListUtils.print(
+					"resolveFor-disabled('" + id + "'), " + ranges.toString()
+							+ ", code='", code);
 			return;
 		}
 		MyLog.trace("resolveFor-start('" + id + "', '" + this.key + "')");
 		final List<ArrayList<Token>> replace = this.initializeReplaceList();
 		final int closingParenPosition = this.searchForClosingParen(code,
-				point, replace);
+				ranges, replace);
 		MyLog.trace("closingParenPosition='" + closingParenPosition + "'");
 		TokenListUtils.printList("resolveFor-intermediate('" + id + "', '"
 				+ this.key + "')", replace);
 
-		if (point.x == closingParenPosition) {
+		if (ranges.startIndex == closingParenPosition) {
 			return;
-			// return -1;
 		}
 		this.removeWhitespaceFromList(replace);
 		// remove tokens of function-like invocation
-		this.removeTokens(code, point, closingParenPosition);
+		this.removeTokens(code, ranges, closingParenPosition);
 		// add replacement tokens
-		final Point replacePoint = new Point(point.x, 0);
-		this.addReplacementTokensToCode(id, code, replacePoint, replace);
-		int size = replacePoint.y;
-		// this.removeWhitespaceFromList(code, currPosition, index);
+		this.addReplacementTokensToCode(id, code, ranges, replace);
 		// rescan
 		// this.enabled = false;
 		// int lastIndex = currPosition;
-		point.y += size;
-		TokenListUtils.print("resolveFor-rescan('" + id + "'), x='" + point.x
-				+ "', y='" + point.y + "', code='", code);
-		this.definitionTable.resolve(id, code, new Point(point.x, point.x
-				+ size));
-		TokenListUtils.print("resolveFor-end('" + id + "'), x='" + point.x
-				+ "', y='" + point.y + "', code='", code);
-		point.x += size - 1;
+		TokenListUtils.print(
+				"resolveFor-rescan('" + id + "'), '" + ranges.toString()
+				+ ", code='", code);
+		final MacroRanges newRanges = new MacroRanges(ranges.startIndex,
+				ranges.startIndex + ranges.changedElements);
+		this.definitionTable.resolve(id, code, newRanges);
+		TokenListUtils.print(
+				"resolveFor-end('" + id + "'), '" + ranges.toString()
+				+ "', code='", code);
+		ranges.addElements(true, newRanges.changedElements);
 		this.enabled = true;
-		return;
 	}
 
 	private List<ArrayList<Token>> initializeReplaceList() {
@@ -148,18 +146,18 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 	}
 
 	private int searchForClosingParen(final List<Token> code,
-			final Point point, final List<ArrayList<Token>> replace) {
+			final MacroRanges ranges, final List<ArrayList<Token>> replace) {
 		State currState = new State();
 		int paramCount = 0;
 		ArrayList<Token> list = this.getListForParamCount(replace, paramCount);
-		for (int i = point.x + 1; ((i < code.size()) && (i < point.y)); i++) {
+		for (int i = ranges.startIndex + 1; ((i < code.size()) && (i < ranges.stopIndex)); i++) {
 			final Token token = code.get(i);
 			final int tokenType = token.getType();
 			currState = this.getNextState(currState, tokenType);
 			MyLog.trace("currState='" + currState.state + "', openParens='"
 					+ currState.openParens + "'");
 			if (currState.state == MatchState.Invalid) {
-				return point.x;
+				return ranges.startIndex;
 			} else if (currState.state == MatchState.Done) {
 				return i;
 			} else if (currState.state == MatchState.LookingForRightParen) {
@@ -183,7 +181,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 				|| (currState.state == MatchState.LookingForRightParen)) {
 			throw new MacroParentheseNotClosedYetException(code, code.size());
 		}
-		return point.x;
+		return ranges.startIndex;
 	}
 
 	private State getNextState(final State currState, final int tokenType) {
@@ -242,11 +240,11 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		}
 	}
 
-	private void removeTokens(final List<Token> code, final Point point,
+	private void removeTokens(final List<Token> code, final MacroRanges ranges,
 			final int closingParenPosition) {
-		for (int i = closingParenPosition; (i >= point.x); i--) {
+		for (int i = closingParenPosition; (i >= ranges.startIndex); i--) {
 			code.remove(i);
-			point.y--;
+			ranges.removeElement(false);
 		}
 	}
 
@@ -296,7 +294,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 	}
 
 	private void addReplacementTokensToCode(final long parenID,
-			final List<Token> code, final Point point,
+			final List<Token> code, final MacroRanges ranges,
 			final List<ArrayList<Token>> replace) {
 		ReplacementState state = ReplacementState.Normal;
 		for (int i = 0; i < this.replacements.size(); i++) {
@@ -311,19 +309,19 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 					+ "'), code='", code);
 			switch (state) {
 			case Normal:
-				this.addNormalReplacement(parenID, code, point, token, text,
+				this.addNormalReplacement(parenID, code, ranges, token, text,
 						replace, true);
 				break;
 			case StringifyEnd:
-				this.addStringifyReplacement(parenID, code, point, token, text,
-						replace);
+				this.addStringifyReplacement(parenID, code, ranges, token,
+						text, replace);
 				break;
 			case ConcatenateEnd:
-				this.addConcatenReplacement(parenID, code, point, token, text,
+				this.addConcatenReplacement(parenID, code, ranges, token, text,
 						replace);
 				break;
 			case ConcatenateLookAhead:
-				this.addNormalReplacement(parenID, code, point, token, text,
+				this.addNormalReplacement(parenID, code, ranges, token, text,
 						replace, false);
 				break;
 			default:
@@ -411,23 +409,22 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 	}
 
 	private void addNormalReplacement(final long parenID,
-			final List<Token> code, final Point point, final Token token,
-			final String text, final List<ArrayList<Token>> replace,
-			final boolean normal) {
+			final List<Token> code, final MacroRanges ranges,
+			final Token token, final String text,
+			final List<ArrayList<Token>> replace, final boolean normal) {
 		if (this.contains(text)) {
 			final ArrayList<Token> list = this.getList(text, replace);
 			List<Token> newList = list;
 			if (normal) {
 				this.enabled = false;
-				this.definitionTable.resolve(parenID, list,
-						new Point(0, list.size()));
+				final MacroRanges newRange = new MacroRanges(0, list.size());
+				this.definitionTable.resolve(parenID, list, newRange);
 				this.enabled = true;
 			}
 			for (int j = 0; j < newList.size(); j++) {
 				final Token other = newList.get(j);
-				code.add(point.x, other);
-				point.x++;
-				point.y++;
+				code.add(ranges.currIndex, other);
+				ranges.addElement(true);
 			}
 		} else {
 			final int type = token.getType();
@@ -439,9 +436,8 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 				}
 				for (int i = 0; i < list.size(); i++) {
 					final Token newToken = list.get(i);
-					code.add(point.x, newToken);
-					point.x++;
-					point.y++;
+					code.add(ranges.currIndex, newToken);
+					ranges.addElement(true);
 				}
 			}
 		}
@@ -467,8 +463,9 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 	}
 
 	private void addStringifyReplacement(final long parenID,
-			final List<Token> code, final Point point, final Token token,
-			final String text, final List<ArrayList<Token>> replace) {
+			final List<Token> code, final MacroRanges ranges,
+			final Token token, final String text,
+			final List<ArrayList<Token>> replace) {
 		MyLog.trace("addStringifyReplacement-start('" + parenID + "'), text='"
 				+ text + "'");
 
@@ -486,9 +483,8 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		MyLog.trace("addStringifyReplacement-end('" + parenID + "'), text='"
 				+ text + "', buffer='" + buffer.toString() + "'");
 		final Token newToken = this.getDoubleQuoteToken(buffer);
-		code.add(point.x, newToken);
-		point.x++;
-		point.y++;
+		code.add(ranges.currIndex, newToken);
+		ranges.addElement(true);
 	}
 
 	private Token getDoubleQuoteToken(final StringBuffer buffer) {
@@ -503,20 +499,20 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 	}
 
 	private void addConcatenReplacement(final long parenID,
-			final List<Token> code, final Point point, final Token token,
-			final String text, final List<ArrayList<Token>> replace) {
-		MyLog.trace("addConcatenReplacement at '" + point.x + "' on token='"
-				+ text + "'");
-		for (int i = point.x; (i > 0) && (i < code.size()); i--) {
+			final List<Token> code, final MacroRanges ranges,
+			final Token token, final String text,
+			final List<ArrayList<Token>> replace) {
+		MyLog.trace("addConcatenReplacement at '" + ranges.toString()
+				+ "' on token='" + text + "'");
+		for (int i = ranges.currIndex; (i > 0) && (i < code.size()); i--) {
 			final Token prev = code.get(i);
 			final int type = prev.getType();
 			if (type == InternalPreprocessLexer.RULE_WHITESPACE) {
 				code.remove(i);
-				point.x--;
-				point.y--;
+				ranges.removeElement(true);
 			}
 		}
-		this.addNormalReplacement(parenID, code, point, token, text, replace,
+		this.addNormalReplacement(parenID, code, ranges, token, text, replace,
 				false);
 	}
 

@@ -1,0 +1,68 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language preprocess
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+split-lexer=false
+source file="res/Test0125_ConcatenationWithoutWS.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_COMMA ID SKW_RIGHTPAREN WHITESPACE 
+		SKW_LEFTPAREN ID HASH HASH ID SKW_RIGHTPAREN NEWLINE
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_COMMA ID SKW_RIGHTPAREN WHITESPACE 
+		ID SKW_LEFTPAREN ID SKW_COMMA ID SKW_RIGHTPAREN NEWLINE
+	ID SKW_LEFTPAREN DECIMAL_LITERAL SKW_COMMA ID SKW_RIGHTPAREN
+		WHITESPACE
+		ID SKW_LEFTPAREN DECIMAL_LITERAL SKW_COMMA ID SKW_RIGHTPAREN  
+		NEWLINE
+	ID SKW_LEFTPAREN DECIMAL_LITERAL SKW_COMMA ID SKW_RIGHTPAREN
+		WHITESPACE
+		ID SKW_LEFTPAREN DECIMAL_LITERAL SKW_COMMA ID SKW_RIGHTPAREN
+		NEWLINE
+//----------------------------------------------------------------------
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"__FOO",
+					list=
+					(IdentifierList
+						id+*"[X, Y]"
+					),
+					string++"(X##Y)"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"_FOO",
+					list=
+					(IdentifierList
+						id+*"[X, Y]"
+					),
+					string++"__FOO(X,Y)"
+				)
+			),
+			(Code
+				code++"__FOO(1,A) __FOO(1,A)"
+			),
+			(Code
+				code++"_FOO(1,A) _FOO(1,A)"
+			)
+		)
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0125_ConcatenationWithoutWS.c.i"
+expected file="expected/Test0125_ConcatenationWithoutWS.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

@@ -90,7 +90,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		this.lastID = id;
 		if (!this.enabled) {
 			// prevent endless replacement loops
-			TokenListUtils.print(
+			TokenUtils.print(
 					"resolveFor-disabled('" + id + "'), " + ranges.toString()
 					+ ", code='", code);
 			return;
@@ -100,7 +100,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		final int closingParenPosition = this.searchForClosingParen(code,
 				ranges, replace);
 		MyLog.trace("closingParenPosition='" + closingParenPosition + "'");
-		TokenListUtils.printList("resolveFor-intermediate('" + id + "', '"
+		TokenUtils.printList("resolveFor-intermediate('" + id + "', '"
 				+ this.key + "')", replace);
 		
 		if (ranges.startIndex == closingParenPosition) {
@@ -113,13 +113,13 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		this.addReplacementTokensToCode(id, code, ranges, replace);
 		// rescan
 		this.enabled = false;
-		TokenListUtils.print(
+		TokenUtils.print(
 				"resolveFor-rescan('" + id + "'), '" + ranges.toString()
 						+ ", code='", code);
 		final MacroRanges newRanges = new MacroRanges(ranges.startIndex,
 				ranges.startIndex + ranges.addedElements);
 		this.definitionTable.resolve(id, code, newRanges);
-		TokenListUtils.print(
+		TokenUtils.print(
 				"resolveFor-end('" + id + "'), '" + ranges.toString()
 						+ "', code='", code);
 		ranges.update(newRanges);
@@ -301,10 +301,10 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			final String text = token.getText();
 			final int tokenType = token.getType();
 			state = this.calculateNextState(state, code, tokenType, i);
-			TokenListUtils.printList("addReplacementTokensToCode-loop('"
+			TokenUtils.printList("addReplacementTokensToCode-loop('"
 					+ parenID + "'), state='" + state + "', text='" + text
 					+ "', replace='", replace);
-			TokenListUtils.print("addReplacementTokensToCode-loop('" + parenID
+			TokenUtils.print("addReplacementTokensToCode-loop('" + parenID
 					+ "'), code='", code);
 			switch (state) {
 				case Normal:
@@ -326,7 +326,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 				default:
 					break;
 			}
-			TokenListUtils.print("addReplacementTokensToCode-done('" + parenID
+			TokenUtils.print("addReplacementTokensToCode-done('" + parenID
 					+ "') code='", code);
 		}
 	}

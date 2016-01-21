@@ -20,6 +20,14 @@ lexer-tokens
 		WHITESPACE
 		ID SKW_LEFTPAREN DECIMAL_LITERAL SKW_COMMA ID SKW_RIGHTPAREN
 		NEWLINE
+	ID SKW_LEFTPAREN DECIMAL_LITERAL SKW_COMMA ID SKW_RIGHTPAREN
+		WHITESPACE
+		ID SKW_LEFTPAREN DECIMAL_LITERAL SKW_COMMA ID SKW_RIGHTPAREN
+		NEWLINE
+	ID SKW_LEFTPAREN DECIMAL_LITERAL SKW_COMMA ID SKW_RIGHTPAREN
+		WHITESPACE
+		ID SKW_LEFTPAREN DECIMAL_LITERAL SKW_COMMA ID SKW_RIGHTPAREN
+		NEWLINE
 //----------------------------------------------------------------------
 //(common::Model
 	//units+=
@@ -55,6 +63,12 @@ lexer-tokens
 			),
 			(Code
 				code++"_FOO(1,A) _FOO(1,A)"
+			),
+			(Code
+				code++"__FOO(1,A) _FOO(1,A)"
+			),
+			(Code
+				code++"_FOO(1,A) __FOO(1,A)"
 			)
 		)
 	)

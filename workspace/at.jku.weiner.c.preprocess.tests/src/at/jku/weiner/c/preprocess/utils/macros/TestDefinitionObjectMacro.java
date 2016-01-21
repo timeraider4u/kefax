@@ -43,7 +43,7 @@ public class TestDefinitionObjectMacro {
 		final MacroRanges ranges = new MacroRanges(0, code.size());
 		Assert.assertEquals(5, code.size());
 		Assert.assertEquals(0, ranges.startIndex);
-		// Assert.assertEquals(0, ranges.getCurrentIndex());
+		Assert.assertEquals(0, ranges.getCurrentIndex());
 		Assert.assertEquals(5, ranges.stopIndex);
 		Assert.assertEquals(0, ranges.addedElements);
 		Assert.assertEquals(0, ranges.removedElements);
@@ -52,7 +52,7 @@ public class TestDefinitionObjectMacro {
 		final List<Token> expected = this.lexerUtils.getTokens("FOO X Y Z BAZ");
 		TestUtils.assertEqualsList(expected, code);
 		Assert.assertEquals(0, ranges.startIndex);
-		// Assert.assertEquals(5, ranges.getCurrentIndex());
+		Assert.assertEquals(5, ranges.getCurrentIndex());
 		Assert.assertEquals(9, ranges.stopIndex);
 		Assert.assertEquals(5, ranges.addedElements);
 		Assert.assertEquals(1, ranges.removedElements);

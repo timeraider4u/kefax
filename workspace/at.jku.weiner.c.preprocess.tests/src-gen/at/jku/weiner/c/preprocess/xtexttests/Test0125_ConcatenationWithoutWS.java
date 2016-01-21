@@ -53,6 +53,8 @@ import at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro;
 import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.Code;
+import at.jku.weiner.c.preprocess.preprocess.Code;
+import at.jku.weiner.c.preprocess.preprocess.Code;
 @SuppressWarnings("unused")
 @RunWith(XtextRunner.class)
 @InjectWith(PreprocessInjectorProvider.class)
@@ -167,6 +169,34 @@ public class Test0125_ConcatenationWithoutWS {
 				"RULE_ID",
 				"RULE_SKW_RIGHTPAREN",
 				"RULE_NEWLINE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_DECIMAL_LITERAL",
+				"RULE_SKW_COMMA",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_DECIMAL_LITERAL",
+				"RULE_SKW_COMMA",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_NEWLINE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_DECIMAL_LITERAL",
+				"RULE_SKW_COMMA",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_DECIMAL_LITERAL",
+				"RULE_SKW_COMMA",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_NEWLINE",
 				};
 			//final List<Token> actual = testHelper.getTokens(text);
 			//testHelper.outputTokens(text);
@@ -194,7 +224,7 @@ public class Test0125_ConcatenationWithoutWS {
 		final EList<? extends EObject> Lines_1_list = GroupOpt_1_Var
 		.getLines();
 		Assert.assertNotNull(Lines_1_list);
-		Assert.assertEquals(4, Lines_1_list.size());
+		Assert.assertEquals(6, Lines_1_list.size());
 		//1
 		final PreprocessorDirectives PreprocessorDirectives_2_Var
 		 = (PreprocessorDirectives)Lines_1_list.get(0);
@@ -254,6 +284,20 @@ public class Test0125_ConcatenationWithoutWS {
 		Assert.assertNotNull(Code_9_Var
 		);
 		Assert.assertEquals("_FOO(1,A) _FOO(1,A)", Code_9_Var
+		.getCode());
+		//9
+		final Code Code_10_Var
+		 = (Code)Lines_1_list.get(4);
+		Assert.assertNotNull(Code_10_Var
+		);
+		Assert.assertEquals("__FOO(1,A) _FOO(1,A)", Code_10_Var
+		.getCode());
+		//10
+		final Code Code_11_Var
+		 = (Code)Lines_1_list.get(5);
+		Assert.assertNotNull(Code_11_Var
+		);
+		Assert.assertEquals("_FOO(1,A) __FOO(1,A)", Code_11_Var
 		.getCode());
 	}
 	

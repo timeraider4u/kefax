@@ -10,19 +10,19 @@ import at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer;
 import at.jku.weiner.c.preprocess.utils.MyLog;
 
 final class TokenUtils {
-	
+
 	protected static Token getWSToken() {
 		final Token token = new CommonToken(
 				InternalPreprocessLexer.RULE_WHITESPACE, " ");
 		return token;
 	}
-	
+
 	protected static boolean isWhitespaceAt(final int i, final List<Token> list) {
 		final Token token = list.get(i);
 		final boolean result = TokenUtils.isWhitespace(token);
 		return result;
 	}
-	
+
 	protected static boolean isWhitespace(final Token token) {
 		final int type = token.getType();
 		final boolean result = (type == InternalPreprocessLexer.RULE_WHITESPACE);
@@ -38,15 +38,20 @@ final class TokenUtils {
 	}
 
 	protected static void print(final String start, final List<Token> tokens) {
-		final StringBuffer buffer = new StringBuffer(start);
+		final StringBuffer buffer = TokenUtils.getStringBufferFor(tokens);
+		buffer.insert(0, start);
+		buffer.append("'");
+		MyLog.trace(buffer.toString());
+	}
+
+	protected static StringBuffer getStringBufferFor(final List<Token> tokens) {
+		final StringBuffer buffer = new StringBuffer("");
 		for (int i = 0; i < tokens.size(); i++) {
 			final Token token = tokens.get(i);
 			final String text = token.getText();
 			buffer.append(text);
-			// buffer.append("i='" + i + "', token='" + text + "' ");
 		}
-		buffer.append("'");
-		MyLog.trace(buffer.toString());
+		return buffer;
 	}
 
 }

@@ -157,11 +157,11 @@ public class TestDefinitionFunctionMacro {
 		final List<Token> expected = this.lexerUtils
 				.getTokens("(5Y)BAR(X,5,Z)");
 		TestUtils.assertEqualsList(expected, code);
-		Assert.assertEquals(16, code.size());
+		Assert.assertEquals(12, code.size());
 		Assert.assertEquals(0, ranges.startIndex);
-		Assert.assertEquals(0, ranges.getCurrentIndex());
-		Assert.assertEquals(2, ranges.stopIndex);
-		Assert.assertEquals(2, ranges.addedElements);
+		Assert.assertEquals(4, ranges.getCurrentIndex());
+		Assert.assertEquals(4, ranges.stopIndex);
+		Assert.assertEquals(4, ranges.addedElements);
 		Assert.assertEquals(8, ranges.removedElements);
 	}
 
@@ -174,20 +174,21 @@ public class TestDefinitionFunctionMacro {
 				.getTokens("BAR(5,Y,Z)BAR(X,5,Z)");
 		final MacroRanges ranges = new MacroRanges(8, code.size());
 		Assert.assertEquals(16, code.size());
-		Assert.assertEquals(0, ranges.startIndex);
-		Assert.assertEquals(0, ranges.getCurrentIndex());
+		Assert.assertEquals(8, ranges.startIndex);
+		Assert.assertEquals(8, ranges.getCurrentIndex());
 		Assert.assertEquals(16, ranges.stopIndex);
 		Assert.assertEquals(0, ranges.addedElements);
 		Assert.assertEquals(0, ranges.removedElements);
 		this.definitionTable.resolve(0, code, ranges);
 		this.definitionTable.resolve(0, code, ranges);
-		final List<Token> expected = this.lexerUtils.getTokens("BAR(5,Y,ZX5");
+		final List<Token> expected = this.lexerUtils
+				.getTokens("BAR(5,Y,Z)(X5)");
 		TestUtils.assertEqualsList(expected, code);
-		Assert.assertEquals(16, code.size());
+		Assert.assertEquals(12, code.size());
 		Assert.assertEquals(8, ranges.startIndex);
-		Assert.assertEquals(8, ranges.getCurrentIndex());
-		Assert.assertEquals(16, ranges.stopIndex);
-		Assert.assertEquals(2, ranges.addedElements);
+		Assert.assertEquals(12, ranges.getCurrentIndex());
+		Assert.assertEquals(12, ranges.stopIndex);
+		Assert.assertEquals(4, ranges.addedElements);
 		Assert.assertEquals(8, ranges.removedElements);
 	}
 
@@ -207,13 +208,13 @@ public class TestDefinitionFunctionMacro {
 		Assert.assertEquals(0, ranges.removedElements);
 		this.definitionTable.resolve(0, code, ranges);
 		this.definitionTable.resolve(0, code, ranges);
-		final List<Token> expected = this.lexerUtils.getTokens("5YX5");
+		final List<Token> expected = this.lexerUtils.getTokens("(5Y)(X5)");
 		TestUtils.assertEqualsList(expected, code);
-		Assert.assertEquals(4, code.size());
+		Assert.assertEquals(8, code.size());
 		Assert.assertEquals(0, ranges.startIndex);
-		Assert.assertEquals(0, ranges.getCurrentIndex());
-		Assert.assertEquals(4, ranges.stopIndex);
-		Assert.assertEquals(4, ranges.addedElements);
+		Assert.assertEquals(8, ranges.getCurrentIndex());
+		Assert.assertEquals(8, ranges.stopIndex);
+		Assert.assertEquals(8, ranges.addedElements);
 		Assert.assertEquals(16, ranges.removedElements);
 	}
 
@@ -224,22 +225,23 @@ public class TestDefinitionFunctionMacro {
 		this.definitionTable.addFunctionMacro("BAR", this.idList, "(X##Y)");
 		final List<Token> code = this.lexerUtils
 				.getTokens("BAR(5,Y,Z) BAR(X,5,Z)");
-		final MacroRanges ranges = new MacroRanges(0, code.size());
-		Assert.assertEquals(16, code.size());
+		final MacroRanges ranges = new MacroRanges(0, 8);
+		Assert.assertEquals(17, code.size());
 		Assert.assertEquals(0, ranges.startIndex);
 		Assert.assertEquals(0, ranges.getCurrentIndex());
-		Assert.assertEquals(16, ranges.stopIndex);
+		Assert.assertEquals(8, ranges.stopIndex);
 		Assert.assertEquals(0, ranges.addedElements);
 		Assert.assertEquals(0, ranges.removedElements);
 		this.definitionTable.resolve(0, code, ranges);
 		this.definitionTable.resolve(0, code, ranges);
-		final List<Token> expected = this.lexerUtils.getTokens("5YX5");
+		final List<Token> expected = this.lexerUtils
+				.getTokens("(5Y) BAR(X,5,Z)");
 		TestUtils.assertEqualsList(expected, code);
-		Assert.assertEquals(4, code.size());
+		Assert.assertEquals(13, code.size());
 		Assert.assertEquals(0, ranges.startIndex);
-		Assert.assertEquals(0, ranges.getCurrentIndex());
+		Assert.assertEquals(4, ranges.getCurrentIndex());
 		Assert.assertEquals(4, ranges.stopIndex);
-		Assert.assertEquals(2, ranges.addedElements);
+		Assert.assertEquals(4, ranges.addedElements);
 		Assert.assertEquals(8, ranges.removedElements);
 	}
 
@@ -251,21 +253,154 @@ public class TestDefinitionFunctionMacro {
 		final List<Token> code = this.lexerUtils
 				.getTokens("BAR(5,Y,Z) BAR(X,5,Z)");
 		final MacroRanges ranges = new MacroRanges(8, code.size());
-		Assert.assertEquals(16, code.size());
-		Assert.assertEquals(0, ranges.startIndex);
-		Assert.assertEquals(0, ranges.getCurrentIndex());
-		Assert.assertEquals(16, ranges.stopIndex);
+		Assert.assertEquals(17, code.size());
+		Assert.assertEquals(8, ranges.startIndex);
+		Assert.assertEquals(8, ranges.getCurrentIndex());
+		Assert.assertEquals(17, ranges.stopIndex);
 		Assert.assertEquals(0, ranges.addedElements);
 		Assert.assertEquals(0, ranges.removedElements);
 		this.definitionTable.resolve(0, code, ranges);
 		this.definitionTable.resolve(0, code, ranges);
-		final List<Token> expected = this.lexerUtils.getTokens("5YX5");
+		final List<Token> expected = this.lexerUtils
+				.getTokens("BAR(5,Y,Z) (X5)");
 		TestUtils.assertEqualsList(expected, code);
-		Assert.assertEquals(4, code.size());
+		Assert.assertEquals(13, code.size());
 		Assert.assertEquals(8, ranges.startIndex);
-		Assert.assertEquals(10, ranges.getCurrentIndex());
-		Assert.assertEquals(4, ranges.stopIndex);
-		Assert.assertEquals(2, ranges.addedElements);
+		Assert.assertEquals(12, ranges.getCurrentIndex());
+		Assert.assertEquals(13, ranges.stopIndex);
+		Assert.assertEquals(4, ranges.addedElements);
 		Assert.assertEquals(8, ranges.removedElements);
+	}
+
+	@Test
+	public void complexReplacement7() {
+		this.idList.getId().add("Y");
+		this.idList.getId().add("Z");
+		this.definitionTable.addFunctionMacro("BAR", this.idList, "(X##Y)");
+		final List<Token> code = this.lexerUtils
+				.getTokens("BAR(5,Y,Z) BAR(X,5,Z)");
+		final MacroRanges ranges = new MacroRanges(0, code.size());
+		Assert.assertEquals(17, code.size());
+		Assert.assertEquals(0, ranges.startIndex);
+		Assert.assertEquals(0, ranges.getCurrentIndex());
+		Assert.assertEquals(17, ranges.stopIndex);
+		Assert.assertEquals(0, ranges.addedElements);
+		Assert.assertEquals(0, ranges.removedElements);
+		this.definitionTable.resolve(0, code, ranges);
+		this.definitionTable.resolve(0, code, ranges);
+		final List<Token> expected = this.lexerUtils.getTokens("(5Y) (X5)");
+		TestUtils.assertEqualsList(expected, code);
+		Assert.assertEquals(9, code.size());
+		Assert.assertEquals(0, ranges.startIndex);
+		Assert.assertEquals(8, ranges.getCurrentIndex());
+		Assert.assertEquals(9, ranges.stopIndex);
+		Assert.assertEquals(8, ranges.addedElements);
+		Assert.assertEquals(16, ranges.removedElements);
+	}
+
+	@Test
+	public void complexReplacement8() {
+		this.idList.getId().add("Y");
+		this.idList.getId().add("Z");
+		this.definitionTable.addFunctionMacro("BAR", this.idList, "(X##Y)");
+		final List<Token> code = this.lexerUtils
+				.getTokens(" BAR(5,Y,Z) BAR(X,5,Z) ");
+		final MacroRanges ranges = new MacroRanges(0, 9);
+		Assert.assertEquals(19, code.size());
+		Assert.assertEquals(0, ranges.startIndex);
+		Assert.assertEquals(0, ranges.getCurrentIndex());
+		Assert.assertEquals(9, ranges.stopIndex);
+		Assert.assertEquals(0, ranges.addedElements);
+		Assert.assertEquals(0, ranges.removedElements);
+		this.definitionTable.resolve(0, code, ranges);
+		this.definitionTable.resolve(0, code, ranges);
+		final List<Token> expected = this.lexerUtils
+				.getTokens(" (5Y) BAR(X,5,Z) ");
+		TestUtils.assertEqualsList(expected, code);
+		Assert.assertEquals(15, code.size());
+		Assert.assertEquals(0, ranges.startIndex);
+		Assert.assertEquals(4, ranges.getCurrentIndex());
+		Assert.assertEquals(5, ranges.stopIndex);
+		Assert.assertEquals(4, ranges.addedElements);
+		Assert.assertEquals(8, ranges.removedElements);
+	}
+
+	@Test
+	public void complexReplacement9() {
+		this.idList.getId().add("Y");
+		this.idList.getId().add("Z");
+		this.definitionTable.addFunctionMacro("BAR", this.idList, "(X##Y)");
+		final List<Token> code = this.lexerUtils
+				.getTokens(" BAR(5,Y,Z) BAR(X,5,Z) ");
+		final MacroRanges ranges = new MacroRanges(9, code.size());
+		Assert.assertEquals(19, code.size());
+		Assert.assertEquals(9, ranges.startIndex);
+		Assert.assertEquals(9, ranges.getCurrentIndex());
+		Assert.assertEquals(19, ranges.stopIndex);
+		Assert.assertEquals(0, ranges.addedElements);
+		Assert.assertEquals(0, ranges.removedElements);
+		this.definitionTable.resolve(0, code, ranges);
+		this.definitionTable.resolve(0, code, ranges);
+		final List<Token> expected = this.lexerUtils
+				.getTokens(" BAR(5,Y,Z) (X5) ");
+		TestUtils.assertEqualsList(expected, code);
+		Assert.assertEquals(15, code.size());
+		Assert.assertEquals(9, ranges.startIndex);
+		Assert.assertEquals(13, ranges.getCurrentIndex());
+		Assert.assertEquals(15, ranges.stopIndex);
+		Assert.assertEquals(4, ranges.addedElements);
+		Assert.assertEquals(8, ranges.removedElements);
+	}
+
+	@Test
+	public void complexReplacement10() {
+		this.idList.getId().add("Y");
+		this.idList.getId().add("Z");
+		this.definitionTable.addFunctionMacro("BAR", this.idList, "(X##Y)");
+		final List<Token> code = this.lexerUtils
+				.getTokens(" BAR(5,Y,Z) BAR(X,5,Z) ");
+		final MacroRanges ranges = new MacroRanges(0, code.size());
+		Assert.assertEquals(19, code.size());
+		Assert.assertEquals(0, ranges.startIndex);
+		Assert.assertEquals(0, ranges.getCurrentIndex());
+		Assert.assertEquals(19, ranges.stopIndex);
+		Assert.assertEquals(0, ranges.addedElements);
+		Assert.assertEquals(0, ranges.removedElements);
+		this.definitionTable.resolve(0, code, ranges);
+		this.definitionTable.resolve(0, code, ranges);
+		final List<Token> expected = this.lexerUtils.getTokens(" (5Y) (X5) ");
+		TestUtils.assertEqualsList(expected, code);
+		Assert.assertEquals(11, code.size());
+		Assert.assertEquals(0, ranges.startIndex);
+		Assert.assertEquals(8, ranges.getCurrentIndex());
+		Assert.assertEquals(11, ranges.stopIndex);
+		Assert.assertEquals(8, ranges.addedElements);
+		Assert.assertEquals(16, ranges.removedElements);
+	}
+
+	@Test
+	public void complexReplacement11() {
+		this.idList.getId().add("Y");
+		this.idList.getId().add("Z");
+		this.definitionTable.addFunctionMacro("BAR", this.idList, "(X##Y)");
+		final List<Token> code = this.lexerUtils
+				.getTokens(" BAR(5,Y,Z) BAR(X,5,Z) ");
+		final MacroRanges ranges = new MacroRanges(0, code.size());
+		Assert.assertEquals(19, code.size());
+		Assert.assertEquals(0, ranges.startIndex);
+		Assert.assertEquals(0, ranges.getCurrentIndex());
+		Assert.assertEquals(19, ranges.stopIndex);
+		Assert.assertEquals(0, ranges.addedElements);
+		Assert.assertEquals(0, ranges.removedElements);
+		this.definitionTable.resolve(0, code, ranges);
+		this.definitionTable.resolve(0, code, ranges);
+		final List<Token> expected = this.lexerUtils.getTokens(" (5Y) (X5) ");
+		TestUtils.assertEqualsList(expected, code);
+		Assert.assertEquals(11, code.size());
+		Assert.assertEquals(0, ranges.startIndex);
+		Assert.assertEquals(8, ranges.getCurrentIndex());
+		Assert.assertEquals(11, ranges.stopIndex);
+		Assert.assertEquals(8, ranges.addedElements);
+		Assert.assertEquals(16, ranges.removedElements);
 	}
 }

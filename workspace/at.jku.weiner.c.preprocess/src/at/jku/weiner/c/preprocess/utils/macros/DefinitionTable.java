@@ -12,30 +12,30 @@ import at.jku.weiner.c.preprocess.utils.LexerUtils;
 import at.jku.weiner.c.preprocess.utils.MyLog;
 
 public final class DefinitionTable {
-	
+
 	private long id = -1;
 	private final Map<String, DefinitionMacro> macros = new HashMap<String, DefinitionMacro>();
 	protected final LexerUtils lexer;
-	
+
 	public DefinitionTable(final LexerUtils lexer) {
 		this.lexer = lexer;
 	}
-	
+
 	public void reset() {
 		this.macros.clear();
 		MyLog.trace("DefinitionTable.reset()");
 	}
-	
+
 	public int size() {
 		return this.macros.size();
 	}
-	
+
 	public boolean isDefined(final String macroName) {
 		boolean result = false;
 		result = this.macros.containsKey(macroName);
 		return result;
 	}
-	
+
 	public void add(final String id, final String replaceWith) {
 		final String key = id;
 		final String val = replaceWith;
@@ -46,7 +46,7 @@ public final class DefinitionTable {
 		this.checkForExistence(key, newMacro);
 		this.macros.put(id, newMacro);
 	}
-	
+
 	private void checkForExistence(final String key,
 			final DefinitionMacro newMacro) {
 		if (this.macros.containsKey(key)) {
@@ -59,21 +59,21 @@ public final class DefinitionTable {
 			}
 		}
 	}
-	
+
 	public void addFunctionMacro(final String id, final IdentifierList list,
 			final String replaceWith) {
 		final String key = id;
 		final DefinitionMacro newMacro = new DefinitionFunctionMacro(this, key,
 				list, replaceWith);
 		this.checkForExistence(key, newMacro);
-		
+
 		this.macros.put(id, newMacro);
 	}
-	
+
 	public void remove(final String key) {
 		this.macros.remove(key);
 	}
-	
+
 	public boolean containsAKey(final String code) {
 		final boolean result = false;
 		final List<Token> list = this.lexer.getTokens(code);
@@ -89,14 +89,14 @@ public final class DefinitionTable {
 		}
 		return result;
 	}
-	
+
 	public String fullResolve(final String code) {
 		final StringBuffer result = new StringBuffer("");
 		final List<Token> list = this.lexer.getTokens(code);
 		this.id++;
 		TokenUtils.print("fullResolve-start(id='" + this.id + "'), code='"
 				+ code + "', list='", list);
-		this.resolve(this.id, list, new MacroRanges(0, list.size()));
+		this.resolve(this.id, list, new MacroRanges(0, list.size(), 0, true));
 		for (int i = 0; i < list.size(); i++) {
 			final Token next = list.get(i);
 			final String text = next.getText();
@@ -107,7 +107,7 @@ public final class DefinitionTable {
 				+ "', result='" + resultStr + "'");
 		return resultStr;
 	}
-	
+
 	protected void resolve(final long parenID, final List<Token> list,
 			final MacroRanges ranges) {
 		TokenUtils.print(
@@ -125,22 +125,14 @@ public final class DefinitionTable {
 				// resolve macro
 				final DefinitionMacro macro = this.macros.get(text);
 				final MacroRanges newRange = new MacroRanges(i,
-						ranges.stopIndex);
+						ranges.stopIndex, i, false);
 				macro.resolve(parenID, list, newRange);
 				MyLog.trace("resolve-loop2('" + parenID + "'), i='" + i
 						+ "', ranges=" + ranges.toString() + ", newRanges='"
 						+ newRange.toString() + "', macroID='" + macro.getKey()
 						+ "', size='" + list.size() + "'");
-				// int newI = (i + newRange.addedElements);
-				// // - ranges.removedElements;
-				// if (i != newI) {
-				// newI--;
-				// }
-				// if (newI >= 0) {
-				// i = newI;
-				// }
-				i = ranges.update(newRange);
-				// i = ranges.getCurrentIndex();
+				ranges.update(newRange);
+				i = ranges.getNextIndex();
 				// this.addWhitespaceIfFunctionMacro(macro, list, i, ranges);
 				// i += Math.abs(ranges.addedElements - newRange.addedElements);
 				MyLog.trace("resolve-loop3('" + parenID + "'), i='" + i + "', "
@@ -151,7 +143,7 @@ public final class DefinitionTable {
 		TokenUtils.print("resolve-end('" + parenID + "'), " + ranges.toString()
 				+ ", list='", list);
 	}
-	
+
 	private void addWhitespaceIfFunctionMacro(final DefinitionMacro macro,
 			final List<Token> code, final int currIndex,
 			final MacroRanges ranges) {

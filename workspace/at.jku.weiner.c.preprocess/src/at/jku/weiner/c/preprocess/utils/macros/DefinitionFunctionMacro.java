@@ -11,17 +11,17 @@ import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
 import at.jku.weiner.c.preprocess.utils.MyLog;
 
 public final class DefinitionFunctionMacro implements DefinitionMacro {
-	
+
 	private final DefinitionTable definitionTable;
 	private final String key;
 	private final List<String> idList;
 	private final String value;
 	private final List<Token> replacements;
 	private final boolean variadic;
-	
+
 	private boolean enabled = true;
 	private long lastID = -1;
-	
+
 	public DefinitionFunctionMacro(final DefinitionTable definitionTable,
 			final String key, final IdentifierList idList2, final String replace) {
 		this.definitionTable = definitionTable;
@@ -41,7 +41,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			this.idList.add(varID);
 		}
 	}
-	
+
 	private boolean isVariadic(final IdentifierList idList2) {
 		if (idList2 == null) {
 			return false;
@@ -49,12 +49,12 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		final boolean result = idList2.isVariadic();
 		return result;
 	}
-	
+
 	@Override
 	public String getKey() {
 		return this.key;
 	}
-	
+
 	@Override
 	public boolean equalsMacro(final DefinitionMacro obj) {
 		if (!(obj instanceof DefinitionFunctionMacro)) {
@@ -74,13 +74,13 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 				return false;
 			}
 		}
-		
+
 		final String val1 = this.value.replaceAll("\\s", "");
 		final String val2 = other.value.replaceAll("\\s", "");
 		final boolean result = val1.equals(val2);
 		return result;
 	}
-	
+
 	@Override
 	public void resolve(final long id, final List<Token> code,
 			final MacroRanges ranges) {
@@ -102,7 +102,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		MyLog.trace("closingParenPosition='" + closingParenPosition + "'");
 		TokenUtils.printList("resolveFor-intermediate('" + id + "', '"
 				+ this.key + "')", replace);
-		
+
 		if (ranges.startIndex == closingParenPosition) {
 			return;
 		}
@@ -117,14 +117,15 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 				"resolveFor-rescan('" + id + "'), '" + ranges.toString()
 						+ ", code='", code);
 		final MacroRanges newRanges = new MacroRanges(ranges.startIndex,
-				ranges.startIndex + ranges.addedElements);
+				ranges.startIndex + ranges.addedElements,
+				ranges.getNextIndex(), true);
 		this.definitionTable.resolve(id, code, newRanges);
 		TokenUtils.print("resolveFor-end('" + id + "'), '" + ranges.toString()
 				+ "', code='", code);
 		ranges.update(newRanges);
 		this.enabled = true;
 	}
-	
+
 	private List<ArrayList<Token>> initializeReplaceList() {
 		final List<ArrayList<Token>> replace = new ArrayList<ArrayList<Token>>();
 		for (int i = 0; i < this.idList.size(); i++) {
@@ -133,16 +134,16 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		}
 		return replace;
 	}
-	
+
 	private enum MatchState {
 		Invalid, LookingForOpenLeftParen, LeftParen, LookingForRightParen, Done,
 	}
-	
+
 	private class State {
 		public MatchState state = MatchState.LookingForOpenLeftParen;
 		public int openParens = 0;
 	}
-	
+
 	private int searchForClosingParen(final List<Token> code,
 			final MacroRanges ranges, final List<ArrayList<Token>> replace) {
 		State currState = new State();
@@ -181,49 +182,49 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		}
 		return ranges.startIndex;
 	}
-	
+
 	private State getNextState(final State currState, final int tokenType) {
 		switch (currState.state) {
-			case LookingForOpenLeftParen: {
-				if (tokenType == InternalPreprocessLexer.RULE_SKW_LEFTPAREN) {
-					currState.state = MatchState.LeftParen;
-					currState.openParens++;
-				} else if (tokenType == InternalPreprocessLexer.RULE_WHITESPACE) {
-					currState.state = MatchState.LookingForOpenLeftParen;
-				} else {
-					currState.state = MatchState.Invalid;
-				}
-				break;
+		case LookingForOpenLeftParen: {
+			if (tokenType == InternalPreprocessLexer.RULE_SKW_LEFTPAREN) {
+				currState.state = MatchState.LeftParen;
+				currState.openParens++;
+			} else if (tokenType == InternalPreprocessLexer.RULE_WHITESPACE) {
+				currState.state = MatchState.LookingForOpenLeftParen;
+			} else {
+				currState.state = MatchState.Invalid;
 			}
-			case LeftParen: {
-				if (tokenType == InternalPreprocessLexer.RULE_SKW_RIGHTPAREN) {
+			break;
+		}
+		case LeftParen: {
+			if (tokenType == InternalPreprocessLexer.RULE_SKW_RIGHTPAREN) {
+				currState.state = MatchState.Done;
+				currState.openParens--;
+			} else if (tokenType == InternalPreprocessLexer.RULE_SKW_LEFTPAREN) {
+				currState.state = MatchState.LookingForRightParen;
+				currState.openParens++;
+			} else {
+				currState.state = MatchState.LookingForRightParen;
+			}
+			break;
+		}
+		case LookingForRightParen: {
+			if (tokenType == InternalPreprocessLexer.RULE_SKW_LEFTPAREN) {
+				currState.openParens++;
+			} else if (tokenType == InternalPreprocessLexer.RULE_SKW_RIGHTPAREN) {
+				currState.openParens--;
+				if (currState.openParens == 0) {
 					currState.state = MatchState.Done;
-					currState.openParens--;
-				} else if (tokenType == InternalPreprocessLexer.RULE_SKW_LEFTPAREN) {
-					currState.state = MatchState.LookingForRightParen;
-					currState.openParens++;
-				} else {
-					currState.state = MatchState.LookingForRightParen;
 				}
-				break;
 			}
-			case LookingForRightParen: {
-				if (tokenType == InternalPreprocessLexer.RULE_SKW_LEFTPAREN) {
-					currState.openParens++;
-				} else if (tokenType == InternalPreprocessLexer.RULE_SKW_RIGHTPAREN) {
-					currState.openParens--;
-					if (currState.openParens == 0) {
-						currState.state = MatchState.Done;
-					}
-				}
-				break;
-			}
-			default:
-				break;
+			break;
+		}
+		default:
+			break;
 		}
 		return currState;
 	}
-	
+
 	private ArrayList<Token> getListForParamCount(
 			final List<ArrayList<Token>> replace, final int paramCount) {
 		if (paramCount >= replace.size()) {
@@ -237,7 +238,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			return replace.get(paramCount);
 		}
 	}
-	
+
 	private void removeTokens(final List<Token> code, final MacroRanges ranges,
 			final int closingParenPosition) {
 		for (int i = closingParenPosition; (i >= ranges.startIndex); i--) {
@@ -245,14 +246,14 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			ranges.removeElement();
 		}
 	}
-	
+
 	private void removeWhitespaceFromList(final List<ArrayList<Token>> replace) {
 		for (int i = 0; i < replace.size(); i++) {
 			final ArrayList<Token> list = replace.get(i);
 			this.removeWhitespaceFromList(list, 0, list.size() - 1);
 		}
 	}
-	
+
 	private void removeWhitespaceFromList(final List<Token> list,
 			final int start, final int stop) {
 		for (int j = stop; ((j > 0) && (j < list.size()) && this.isWhitespace(
@@ -279,18 +280,18 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			}
 		}
 	}
-	
+
 	private boolean isWhitespace(final List<Token> list, final int index) {
 		final Token token = list.get(index);
 		final int type = token.getType();
 		final boolean result = (type == InternalPreprocessLexer.RULE_WHITESPACE);
 		return result;
 	}
-	
+
 	private enum ReplacementState {
 		Invalid, Normal, Stringify, StringifyEnd, ConcatenateLookAhead, Concatenate, ConcatenateEnd,
 	}
-	
+
 	private void addReplacementTokensToCode(final long parenID,
 			final List<Token> code, final MacroRanges ranges,
 			final List<ArrayList<Token>> replace) {
@@ -306,108 +307,106 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			TokenUtils.print("addReplacementTokensToCode-loop('" + parenID
 					+ "'), code='", code);
 			switch (state) {
-				case Normal:
-					this.addNormalReplacement(parenID, code, ranges, token,
-							text, replace, true);
-					break;
-				case StringifyEnd:
-					this.addStringifyReplacement(parenID, code, ranges, token,
-							text, replace);
-					break;
-				case ConcatenateEnd:
-					this.addConcatenReplacement(parenID, code, ranges, token,
-							text, replace);
-					break;
-				case ConcatenateLookAhead:
-					this.addNormalReplacement(parenID, code, ranges, token,
-							text, replace, false);
-					break;
-				default:
-					break;
+			case Normal:
+				this.addNormalReplacement(parenID, code, ranges, token, text,
+						replace, true);
+				break;
+			case StringifyEnd:
+				this.addStringifyReplacement(parenID, code, ranges, token,
+						text, replace);
+				break;
+			case ConcatenateEnd:
+				this.addConcatenReplacement(parenID, code, ranges, token, text,
+						replace);
+				break;
+			case ConcatenateLookAhead:
+				this.addNormalReplacement(parenID, code, ranges, token, text,
+						replace, false);
+				break;
+			default:
+				break;
 			}
 			TokenUtils.print("addReplacementTokensToCode-done('" + parenID
 					+ "') code='", code);
 		}
 	}
-	
+
 	private ReplacementState calculateNextState(ReplacementState currState,
 			final List<Token> code, final int tokenType, final int i) {
 		switch (currState) {
-			case Normal: {
-				if (tokenType == InternalPreprocessLexer.RULE_HASH) {
-					currState = ReplacementState.Stringify;
-				} else {
-					int hashes = 0;
-					for (int j = i + 1; j < this.replacements.size(); j++) {
-						final Token token = this.replacements.get(j);
-						final int type = token.getType();
-						MyLog.trace("j='" + j + "', nextToken='"
-								+ token.getText() + "', hashes='" + hashes
-								+ "'");
-						if (type == InternalPreprocessLexer.RULE_HASH) {
-							hashes++;
-						} else if (type != InternalPreprocessLexer.RULE_WHITESPACE) {
-							if (hashes == 2) {
-								currState = ReplacementState.ConcatenateLookAhead;
-								break;
-							} else {
-								currState = ReplacementState.Normal;
-								break;
-							}
+		case Normal: {
+			if (tokenType == InternalPreprocessLexer.RULE_HASH) {
+				currState = ReplacementState.Stringify;
+			} else {
+				int hashes = 0;
+				for (int j = i + 1; j < this.replacements.size(); j++) {
+					final Token token = this.replacements.get(j);
+					final int type = token.getType();
+					MyLog.trace("j='" + j + "', nextToken='" + token.getText()
+							+ "', hashes='" + hashes + "'");
+					if (type == InternalPreprocessLexer.RULE_HASH) {
+						hashes++;
+					} else if (type != InternalPreprocessLexer.RULE_WHITESPACE) {
+						if (hashes == 2) {
+							currState = ReplacementState.ConcatenateLookAhead;
+							break;
+						} else {
+							currState = ReplacementState.Normal;
+							break;
 						}
-						MyLog.trace("j='" + j + "', nextToken='"
-								+ token.getText() + "', hashes='" + hashes
-								+ "'");
 					}
+					MyLog.trace("j='" + j + "', nextToken='" + token.getText()
+							+ "', hashes='" + hashes + "'");
 				}
-				break;
 			}
-			case Stringify: {
-				if (tokenType == InternalPreprocessLexer.RULE_HASH) {
-					currState = ReplacementState.Concatenate;
-				} else if (tokenType == InternalPreprocessLexer.RULE_WHITESPACE) {
-					currState = ReplacementState.Stringify;
-				} else {
-					currState = ReplacementState.StringifyEnd;
-				}
-				break;
+			break;
+		}
+		case Stringify: {
+			if (tokenType == InternalPreprocessLexer.RULE_HASH) {
+				currState = ReplacementState.Concatenate;
+			} else if (tokenType == InternalPreprocessLexer.RULE_WHITESPACE) {
+				currState = ReplacementState.Stringify;
+			} else {
+				currState = ReplacementState.StringifyEnd;
 			}
-			case StringifyEnd: {
-				if (tokenType == InternalPreprocessLexer.RULE_HASH) {
-					currState = ReplacementState.Stringify;
-				} else {
-					currState = ReplacementState.Normal;
-				}
-				break;
+			break;
+		}
+		case StringifyEnd: {
+			if (tokenType == InternalPreprocessLexer.RULE_HASH) {
+				currState = ReplacementState.Stringify;
+			} else {
+				currState = ReplacementState.Normal;
 			}
-			case ConcatenateLookAhead: {
-				if (tokenType == InternalPreprocessLexer.RULE_HASH) {
-					currState = ReplacementState.Stringify;
-				}
-				break;
+			break;
+		}
+		case ConcatenateLookAhead: {
+			if (tokenType == InternalPreprocessLexer.RULE_HASH) {
+				currState = ReplacementState.Stringify;
 			}
-			case Concatenate: {
-				if (tokenType == InternalPreprocessLexer.RULE_WHITESPACE) {
-					currState = ReplacementState.Concatenate;
-				} else {
-					currState = ReplacementState.ConcatenateEnd;
-				}
-				break;
+			break;
+		}
+		case Concatenate: {
+			if (tokenType == InternalPreprocessLexer.RULE_WHITESPACE) {
+				currState = ReplacementState.Concatenate;
+			} else {
+				currState = ReplacementState.ConcatenateEnd;
 			}
-			case ConcatenateEnd: {
-				if (tokenType == InternalPreprocessLexer.RULE_HASH) {
-					currState = ReplacementState.Stringify;
-				} else {
-					currState = ReplacementState.Normal;
-				}
-				break;
+			break;
+		}
+		case ConcatenateEnd: {
+			if (tokenType == InternalPreprocessLexer.RULE_HASH) {
+				currState = ReplacementState.Stringify;
+			} else {
+				currState = ReplacementState.Normal;
 			}
-			default:
-				break;
+			break;
+		}
+		default:
+			break;
 		}
 		return currState;
 	}
-	
+
 	private void addNormalReplacement(final long parenID,
 			final List<Token> code, final MacroRanges ranges,
 			final Token token, final String text,
@@ -417,13 +416,14 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			final List<Token> newList = list;
 			if (normal) {
 				// this.enabled = false;
-				final MacroRanges newRange = new MacroRanges(0, list.size());
+				final MacroRanges newRange = new MacroRanges(0, list.size(),
+						ranges.getNextIndex(), true);
 				this.definitionTable.resolve(parenID, list, newRange);
 				this.enabled = true;
 			}
 			for (int j = 0; j < newList.size(); j++) {
 				final Token other = newList.get(j);
-				final int index = ranges.getCurrentIndex();
+				final int index = ranges.getCurrentInsertionIndex();
 				code.add(index, other);
 				ranges.addElement();
 			}
@@ -437,21 +437,21 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 				// }
 				for (int i = 0; i < list.size(); i++) {
 					final Token newToken = list.get(i);
-					final int index = ranges.getCurrentIndex();
+					final int index = ranges.getCurrentInsertionIndex();
 					code.add(index, newToken);
 					ranges.addElement();
 				}
 			}
 		}
 	}
-	
+
 	private boolean contains(final String text) {
 		if (this.idList.contains(text)) {
 			return true;
 		}
 		return false;
 	}
-	
+
 	private ArrayList<Token> getList(final String text,
 			final List<ArrayList<Token>> replace) {
 		final int argIndex = this.idList.indexOf(text);
@@ -463,14 +463,14 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		}
 		return result;
 	}
-	
+
 	private void addStringifyReplacement(final long parenID,
 			final List<Token> code, final MacroRanges ranges,
 			final Token token, final String text,
 			final List<ArrayList<Token>> replace) {
 		MyLog.trace("addStringifyReplacement-start('" + parenID + "'), text='"
 				+ text + "'");
-		
+
 		final StringBuffer buffer = new StringBuffer("");
 		if (this.contains(text)) {
 			final ArrayList<Token> list = this.getList(text, replace);
@@ -485,11 +485,11 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		MyLog.trace("addStringifyReplacement-end('" + parenID + "'), text='"
 				+ text + "', buffer='" + buffer.toString() + "'");
 		final Token newToken = this.getDoubleQuoteToken(buffer);
-		final int index = ranges.getCurrentIndex();
+		final int index = ranges.getCurrentInsertionIndex();
 		code.add(index, newToken);
 		ranges.addElement();
 	}
-	
+
 	private Token getDoubleQuoteToken(final StringBuffer buffer) {
 		final String text = buffer.toString();
 		final String text2 = text.replace("\\\"", "\\\\\"");
@@ -500,14 +500,14 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 				InternalPreprocessLexer.RULE_SKW_DOUBLEQUOTE, text5);
 		return token;
 	}
-	
+
 	private void addConcatenReplacement(final long parenID,
 			final List<Token> code, final MacroRanges ranges,
 			final Token token, final String text,
 			final List<ArrayList<Token>> replace) {
 		MyLog.trace("addConcatenReplacement at '" + ranges.toString()
 				+ "' on token='" + text + "'");
-		final int index = ranges.getCurrentIndex();
+		final int index = ranges.getCurrentInsertionIndex();
 		for (int i = index - 1; (i > 0) && (i >= ranges.startIndex)
 				&& (i < code.size()); i--) {
 			final Token prev = code.get(i);
@@ -520,5 +520,5 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		this.addNormalReplacement(parenID, code, ranges, token, text, replace,
 				false);
 	}
-	
+
 }

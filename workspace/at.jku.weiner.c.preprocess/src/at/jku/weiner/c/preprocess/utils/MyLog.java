@@ -9,13 +9,13 @@ public class MyLog {
 	public static final int LOG_DEBUG = 4;
 	public static final int LOG_TRACE = 5;
 
-	// private static final int log_level = MyLog.LOG_NONE;
+	private static final int log_level = MyLog.LOG_NONE;
 
 	// private static final int log_level = MyLog.LOG_INFO;
 
 	// private static final int log_level = MyLog.LOG_DEBUG;
 
-	private static final int log_level = MyLog.LOG_TRACE;
+	// private static final int log_level = MyLog.LOG_TRACE;
 
 	public static void log(final String msg) {
 		if (MyLog.log_level >= MyLog.LOG_INFO) {

@@ -58,10 +58,11 @@ public final class DefinitionObjectMacro implements DefinitionMacro {
 		// rescan
 		this.enabled = false;
 		final MacroRanges newRanges = new MacroRanges(ranges.startIndex,
-				ranges.startIndex + ranges.addedElements);
+				ranges.startIndex + ranges.addedElements,
+				ranges.getNextIndex(), true);
 		this.definitionTable.resolve(parenID, code, newRanges);
 		ranges.update(newRanges);
 		this.enabled = true;
 	}
-	
+
 }

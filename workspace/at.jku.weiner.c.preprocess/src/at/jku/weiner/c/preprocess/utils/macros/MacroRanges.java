@@ -5,19 +5,22 @@ public class MacroRanges {
 	public int stopIndex;
 	public int addedElements;
 	public int removedElements;
+	public int levels;
 
 	public MacroRanges(final int startIndex, final int stopIndex) {
 		this.startIndex = startIndex;
 		this.stopIndex = stopIndex;
 		this.addedElements = 0;
 		this.removedElements = 0;
+		this.levels = 1;
 	}
 
 	@Override
 	public String toString() {
 		return "data(start='" + this.startIndex + "', stopIndex='"
 				+ this.stopIndex + "', added='" + this.addedElements
-				+ ", removed='" + this.removedElements + "')";
+				+ ", removed='" + this.removedElements + "', levels='"
+				+ this.levels + "')";
 	}
 
 	public void addElement() {
@@ -55,15 +58,22 @@ public class MacroRanges {
 		this.stopIndex--;
 	}
 	
-	public void update(final MacroRanges newRange) {
+	public int update(final MacroRanges newRange) {
+		final int current = this.stopIndex;
 		this.stopIndex += newRange.addedElements;
 		this.stopIndex -= newRange.removedElements;
 		// this.addElements(newRange.addedElements);
 		// this.removeElements(newRange.removedElements);
+		if (this.stopIndex != current) {
+			this.levels++;
+		}
+		final int result = (newRange.startIndex + newRange.addedElements)
+				- this.levels;
+		return result;
 	}
 	
 	protected int getCurrentIndex() {
-		return this.startIndex + this.addedElements;
+		return (this.startIndex + this.addedElements) - this.levels;
 	}
 	
 }

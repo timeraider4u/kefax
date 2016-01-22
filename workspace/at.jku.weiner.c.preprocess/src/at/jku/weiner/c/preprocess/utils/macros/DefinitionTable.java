@@ -131,15 +131,16 @@ public final class DefinitionTable {
 						+ "', ranges=" + ranges.toString() + ", newRanges='"
 						+ newRange.toString() + "', macroID='" + macro.getKey()
 						+ "', size='" + list.size() + "'");
-				int newI = (i + newRange.addedElements);
-				// - ranges.removedElements;
-				if (i != newI) {
-					newI--;
-				}
-				if (newI >= 0) {
-					i = newI;
-				}
-				ranges.update(newRange);
+				// int newI = (i + newRange.addedElements);
+				// // - ranges.removedElements;
+				// if (i != newI) {
+				// newI--;
+				// }
+				// if (newI >= 0) {
+				// i = newI;
+				// }
+				i = ranges.update(newRange);
+				// i = ranges.getCurrentIndex();
 				// this.addWhitespaceIfFunctionMacro(macro, list, i, ranges);
 				// i += Math.abs(ranges.addedElements - newRange.addedElements);
 				MyLog.trace("resolve-loop3('" + parenID + "'), i='" + i + "', "

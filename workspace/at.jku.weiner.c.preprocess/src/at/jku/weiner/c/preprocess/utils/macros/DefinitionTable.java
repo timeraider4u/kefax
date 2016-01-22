@@ -96,7 +96,7 @@ public final class DefinitionTable {
 		this.id++;
 		TokenUtils.print("fullResolve-start(id='" + this.id + "'), code='"
 				+ code + "', list='", list);
-		this.resolve(this.id, list, new MacroRanges(0, list.size(), 0, true));
+		this.resolve(this.id, list, new MacroRanges(0, list.size(), 0));
 		for (int i = 0; i < list.size(); i++) {
 			final Token next = list.get(i);
 			final String text = next.getText();
@@ -112,32 +112,31 @@ public final class DefinitionTable {
 			final MacroRanges ranges) {
 		TokenUtils.print(
 				"resolve-start('" + parenID + "'), " + ranges.toString(), list);
-		for (int i = ranges.startIndex; (i < ranges.stopIndex)
-		// && (ranges.currIndex < list.size())
-		; i++) {
-			MyLog.trace("resolve-loop0('" + parenID + "'), ', i='" + i + "', "
-					+ ranges.toString() + ", size='" + list.size() + "'");
-			final Token next = list.get(i);
+		for (ranges.nextIndex = ranges.startIndex; (ranges.nextIndex < ranges.stopIndex); ranges.nextIndex++) {
+			MyLog.trace("resolve-loop0('" + parenID + "'), ', i='"
+					+ ranges.nextIndex + "', " + ranges.toString() + ", size='"
+					+ list.size() + "'");
+			final Token next = list.get(ranges.nextIndex);
 			final String text = next.getText();
-			MyLog.trace("resolve-loop1('" + parenID + "'), token('" + i
-					+ "')='" + text + "'");
+			MyLog.trace("resolve-loop1('" + parenID + "'), token('"
+					+ ranges.nextIndex + "')='" + text + "'");
 			if (this.macros.containsKey(text)) {
 				// resolve macro
 				final DefinitionMacro macro = this.macros.get(text);
-				final MacroRanges newRange = new MacroRanges(i,
-						ranges.stopIndex, i, false);
+				final MacroRanges newRange = new MacroRanges(ranges.nextIndex,
+						ranges.stopIndex, ranges.level + 1);
 				macro.resolve(parenID, list, newRange);
-				MyLog.trace("resolve-loop2('" + parenID + "'), i='" + i
-						+ "', ranges=" + ranges.toString() + ", newRanges='"
+				MyLog.trace("resolve-loop2('" + parenID + "'), ranges="
+						+ ranges.toString() + ", newRanges='"
 						+ newRange.toString() + "', macroID='" + macro.getKey()
 						+ "', size='" + list.size() + "'");
 				ranges.update(newRange);
-				i = ranges.getNextIndex();
 				// this.addWhitespaceIfFunctionMacro(macro, list, i, ranges);
 				// i += Math.abs(ranges.addedElements - newRange.addedElements);
-				MyLog.trace("resolve-loop3('" + parenID + "'), i='" + i + "', "
-						+ ranges.toString() + ", macroID='" + macro.getKey()
-						+ "', size='" + list.size() + "'");
+				MyLog.trace("resolve-loop3('" + parenID + "'), i='"
+						+ ranges.nextIndex + "', " + ranges.toString()
+						+ ", macroID='" + macro.getKey() + "', size='"
+						+ list.size() + "'");
 			}
 		}
 		TokenUtils.print("resolve-end('" + parenID + "'), " + ranges.toString()

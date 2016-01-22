@@ -117,8 +117,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 				"resolveFor-rescan('" + id + "'), '" + ranges.toString()
 						+ ", code='", code);
 		final MacroRanges newRanges = new MacroRanges(ranges.startIndex,
-				ranges.startIndex + ranges.addedElements,
-				ranges.getNextIndex(), true);
+				ranges.startIndex + ranges.addedElements, ranges.level + 1);
 		this.definitionTable.resolve(id, code, newRanges);
 		TokenUtils.print("resolveFor-end('" + id + "'), '" + ranges.toString()
 				+ "', code='", code);
@@ -417,7 +416,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			if (normal) {
 				// this.enabled = false;
 				final MacroRanges newRange = new MacroRanges(0, list.size(),
-						ranges.getNextIndex(), true);
+						ranges.level + 1);
 				this.definitionTable.resolve(parenID, list, newRange);
 				this.enabled = true;
 			}

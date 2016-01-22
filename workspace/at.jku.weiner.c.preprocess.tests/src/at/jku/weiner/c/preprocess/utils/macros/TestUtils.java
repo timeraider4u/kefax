@@ -19,7 +19,8 @@ public class TestUtils {
 
 	public static MacroRanges getMacroRange(final int startIndex,
 			final int stopIndex) {
-		MacroRanges result = new MacroRanges(startIndex, stopIndex, 0, true);
+		MacroRanges result = new MacroRanges(startIndex, stopIndex, 0);
 		return result;
 	}
+
 }

@@ -6,7 +6,7 @@ import org.antlr.runtime.Token;
 import org.junit.Assert;
 
 public class TestUtils {
-
+	
 	public static void assertEqualsList(final List<Token> expected,
 			final List<Token> actual) {
 		final StringBuffer bufferExpected = TokenUtils
@@ -16,11 +16,11 @@ public class TestUtils {
 		final String textActual = bufferActual.toString();
 		Assert.assertEquals(textExpected, textActual);
 	}
-
+	
 	public static MacroRanges getMacroRange(final int startIndex,
 			final int stopIndex) {
-		MacroRanges result = new MacroRanges(startIndex, stopIndex, 0);
+		final MacroRanges result = new MacroRanges(startIndex, stopIndex);
 		return result;
 	}
-
+	
 }

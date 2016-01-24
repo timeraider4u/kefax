@@ -131,7 +131,6 @@ public final class DefinitionTable {
 						+ "', size='" + list.size() + "'");
 
 				i = ranges.update(newRange, true);
-				
 				// this.addWhitespaceIfFunctionMacro(macro, list, i, ranges);
 				// i += Math.abs(ranges.addedElements - newRange.addedElements);
 				MyLog.trace("resolve-loop3('" + parenID + "'), i='" + i + "', "

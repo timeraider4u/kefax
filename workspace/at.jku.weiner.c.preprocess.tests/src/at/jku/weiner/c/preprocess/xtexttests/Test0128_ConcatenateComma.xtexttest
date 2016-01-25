@@ -1,0 +1,58 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language preprocess
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+split-lexer=false
+source file="res/Test0128_ConcatenateComma.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH DEFINE WHITESPACE ID 
+		SKW_LEFTPAREN ID SKW_COMMA ID SKW_COMMA ID SKW_DOT SKW_DOT SKW_DOT SKW_RIGHTPAREN 
+		WHITESPACE ID SKW_LEFTPAREN
+			ID HASH HASH ID SKW_COMMA WHITESPACE ID SKW_COMMA WHITESPACE HASH HASH ID
+		SKW_RIGHTPAREN NEWLINE
+	ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN SKW_SEMI NEWLINE
+	ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN SKW_SEMI NEWLINE
+	ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_COMMA WHITESPACE ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN SKW_SEMI NEWLINE
+//----------------------------------------------------------------------
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"FOO",
+					list=
+					(IdentifierList
+						id+*"[X, Y]",
+						varID++"Z",
+						variadic?=true
+					),
+					string++"printf(X##z, Y, ##Z)"
+				)
+			),
+			(Code
+				code++"FOO(a, b);"
+			),
+			(Code
+				code++"FOO(a, b, c);"
+			),
+			(Code
+				code++"FOO(a, b, c, d);"
+			)
+		)
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0128_ConcatenateComma.c.i"
+expected file="expected/Test0128_ConcatenateComma.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

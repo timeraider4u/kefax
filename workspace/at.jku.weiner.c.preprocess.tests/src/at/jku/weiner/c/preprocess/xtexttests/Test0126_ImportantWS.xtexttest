@@ -1,0 +1,45 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language preprocess
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+split-lexer=false
+source file="res/Test0126_ImportantWS.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH WHITESPACE DEFINE WHITESPACE ID 
+		WHITESPACE+*2 ID WHITESPACE+*2 ID 
+		NEWLINE
+	ID WHITESPACE ID WHITESPACE ID 
+		SKW_LEFTPAREN ID WHITESPACE ID SKW_RIGHTPAREN SKW_SEMI 
+		NEWLINE
+//----------------------------------------------------------------------
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineObjectMacro
+					id++"foo",
+					string++"foo bar"
+				)
+			),
+			(Code
+				code++"static foo foobar(int i);"
+			)
+			
+		)
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0126_ImportantWS.c.i"
+expected file="expected/Test0126_ImportantWS.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

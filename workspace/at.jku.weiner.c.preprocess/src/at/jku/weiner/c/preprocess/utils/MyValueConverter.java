@@ -8,11 +8,11 @@ import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.util.Strings;
 
 public class MyValueConverter extends DefaultTerminalConverters {
-	
+
 	@ValueConverter(rule = "MyCodeLine")
 	public IValueConverter<String> MyCodeLine() {
 		return new IValueConverter<String>() {
-			
+
 			@Override
 			public String toValue(final String string, final INode node)
 					throws ValueConverterException {
@@ -24,45 +24,45 @@ public class MyValueConverter extends DefaultTerminalConverters {
 				final String result = MyValueConverter.replaceNewline(string);
 				return result.trim();
 			}
-			
+
 			@Override
 			public String toString(final String value)
 					throws ValueConverterException {
 				return " " + value;
 			}
-			
+
 		};
 	}
-	
+
 	@ValueConverter(rule = "MyDefineLineObject")
 	public IValueConverter<String> MyDefineLine() {
 		return new IValueConverter<String>() {
-			
+
 			@Override
 			public String toValue(final String string, final INode node)
 					throws ValueConverterException {
 				return MyValueConverter.replaceAll(string);
 			}
-			
+
 			@Override
 			public String toString(final String value)
 					throws ValueConverterException {
 				return value;
 			}
-			
+
 		};
 	}
-	
+
 	@ValueConverter(rule = "MyDefineLineFunction")
 	public IValueConverter<String> MyDefineLine2() {
 		return new IValueConverter<String>() {
-			
+
 			@Override
 			public String toValue(final String string, final INode node)
 					throws ValueConverterException {
 				return MyValueConverter.replaceAll(string);
 			}
-			
+
 			@Override
 			public String toString(final String value)
 					throws ValueConverterException {
@@ -70,7 +70,7 @@ public class MyValueConverter extends DefaultTerminalConverters {
 			}
 		};
 	}
-	
+
 	private static String replaceAll(final String input) {
 		if (Strings.isEmpty(input)) {
 			return "";
@@ -81,17 +81,17 @@ public class MyValueConverter extends DefaultTerminalConverters {
 		final String replace4 = replace3.trim();
 		return replace4;
 	}
-	
+
 	private static String replaceDoubleWS(final String input) {
 		final String string = input.replaceAll("\\s+", " ");
 		return string;
 	}
 
 	private static String replaceTabs(final String input) {
-		final String string = input.replaceAll("\t", "");
+		final String string = input.replaceAll("\t", " ");
 		return string;
 	}
-	
+
 	private static String replaceNewline(final String input) {
 		final String string = input.replace("\\\n", " ");
 		return string;

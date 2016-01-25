@@ -1,0 +1,72 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language preprocess
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+split-lexer=false
+source file="res/Test0127_ObjectAndFunctionMacro.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN 
+		WHITESPACE
+		ID WHITESPACE ID SKW_SEMI NEWLINE
+	HASH DEFINE WHITESPACE ID WHITESPACE ID NEWLINE
+	HASH DEFINE WHITESPACE ID SKW_LEFTPAREN ID SKW_RIGHTPAREN 
+		WHITESPACE
+		ID SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
+	ID SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
+	ID SKW_LEFTPAREN ID SKW_RIGHTPAREN NEWLINE
+//----------------------------------------------------------------------
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"FOO",
+					list=
+					(IdentifierList
+						id+*"[X]"
+					),
+					string++"int X;"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineObjectMacro
+					id++"BAR",
+					string++"FOO"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"BAZ",
+					list=
+					(IdentifierList
+						id+*"[X]"
+					),
+					string++"BAR(X)"
+				)
+			),
+			(Code
+				code++"BAR(i)"
+			),
+			(Code
+				code++"BAZ(j)"
+			)
+		)
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0127_ObjectAndFunctionMacro.c.i"
+expected file="expected/Test0127_ObjectAndFunctionMacro.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

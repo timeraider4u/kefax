@@ -184,42 +184,42 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 
 	private State getNextState(final State currState, final int tokenType) {
 		switch (currState.state) {
-			case LookingForOpenLeftParen: {
-				if (tokenType == InternalPreprocessLexer.RULE_SKW_LEFTPAREN) {
-					currState.state = MatchState.LeftParen;
-					currState.openParens++;
-				} else if (tokenType == InternalPreprocessLexer.RULE_WHITESPACE) {
-					currState.state = MatchState.LookingForOpenLeftParen;
-				} else {
-					currState.state = MatchState.Invalid;
-				}
-				break;
+		case LookingForOpenLeftParen: {
+			if (tokenType == InternalPreprocessLexer.RULE_SKW_LEFTPAREN) {
+				currState.state = MatchState.LeftParen;
+				currState.openParens++;
+			} else if (tokenType == InternalPreprocessLexer.RULE_WHITESPACE) {
+				currState.state = MatchState.LookingForOpenLeftParen;
+			} else {
+				currState.state = MatchState.Invalid;
 			}
-			case LeftParen: {
-				if (tokenType == InternalPreprocessLexer.RULE_SKW_RIGHTPAREN) {
+			break;
+		}
+		case LeftParen: {
+			if (tokenType == InternalPreprocessLexer.RULE_SKW_RIGHTPAREN) {
+				currState.state = MatchState.Done;
+				currState.openParens--;
+			} else if (tokenType == InternalPreprocessLexer.RULE_SKW_LEFTPAREN) {
+				currState.state = MatchState.LookingForRightParen;
+				currState.openParens++;
+			} else {
+				currState.state = MatchState.LookingForRightParen;
+			}
+			break;
+		}
+		case LookingForRightParen: {
+			if (tokenType == InternalPreprocessLexer.RULE_SKW_LEFTPAREN) {
+				currState.openParens++;
+			} else if (tokenType == InternalPreprocessLexer.RULE_SKW_RIGHTPAREN) {
+				currState.openParens--;
+				if (currState.openParens == 0) {
 					currState.state = MatchState.Done;
-					currState.openParens--;
-				} else if (tokenType == InternalPreprocessLexer.RULE_SKW_LEFTPAREN) {
-					currState.state = MatchState.LookingForRightParen;
-					currState.openParens++;
-				} else {
-					currState.state = MatchState.LookingForRightParen;
 				}
-				break;
 			}
-			case LookingForRightParen: {
-				if (tokenType == InternalPreprocessLexer.RULE_SKW_LEFTPAREN) {
-					currState.openParens++;
-				} else if (tokenType == InternalPreprocessLexer.RULE_SKW_RIGHTPAREN) {
-					currState.openParens--;
-					if (currState.openParens == 0) {
-						currState.state = MatchState.Done;
-					}
-				}
-				break;
-			}
-			default:
-				break;
+			break;
+		}
+		default:
+			break;
 		}
 		return currState;
 	}
@@ -300,30 +300,30 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			final String text = token.getText();
 			final int tokenType = token.getType();
 			state = this.calculateNextState(state, code, tokenType, i);
-			TokenUtils.printList("addReplacementTokensToCode-loop('" + parenID
-					+ "'), state='" + state + "', text='" + text
-					+ "', replace='", replace);
+			TokenUtils.printList("addReplacementTokensToCode-loop(parenID='"
+					+ parenID + "', i='" + i + "'), state='" + state
+					+ "', text='" + text + "', replace='", replace);
 			TokenUtils.print("addReplacementTokensToCode-loop('" + parenID
 					+ "'), code='", code);
 			switch (state) {
-				case Normal:
-					this.addNormalReplacement(parenID, code, ranges, token,
-							text, replace, true);
-					break;
-				case StringifyEnd:
-					this.addStringifyReplacement(parenID, code, ranges, token,
-							text, replace);
-					break;
-				case ConcatenateEnd:
-					this.addConcatenReplacement(parenID, code, ranges, token,
-							text, replace);
-					break;
-				case ConcatenateLookAhead:
-					this.addNormalReplacement(parenID, code, ranges, token,
-							text, replace, false);
-					break;
-				default:
-					break;
+			case Normal:
+				this.addNormalReplacement(parenID, code, ranges, token, text,
+						replace, true);
+				break;
+			case StringifyEnd:
+				this.addStringifyReplacement(parenID, code, ranges, token,
+						text, replace);
+				break;
+			case ConcatenateEnd:
+				this.addConcatenReplacement(parenID, code, ranges, token, text,
+						replace);
+				break;
+			case ConcatenateLookAhead:
+				this.addNormalReplacement(parenID, code, ranges, token, text,
+						replace, false);
+				break;
+			default:
+				break;
 			}
 			TokenUtils.print("addReplacementTokensToCode-done('" + parenID
 					+ "') code='", code);
@@ -333,77 +333,75 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 	private ReplacementState calculateNextState(ReplacementState currState,
 			final List<Token> code, final int tokenType, final int i) {
 		switch (currState) {
-			case Normal: {
-				if (tokenType == InternalPreprocessLexer.RULE_HASH) {
-					currState = ReplacementState.Stringify;
-				} else {
-					int hashes = 0;
-					for (int j = i + 1; j < this.replacements.size(); j++) {
-						final Token token = this.replacements.get(j);
-						final int type = token.getType();
-						MyLog.trace("j='" + j + "', nextToken='"
-								+ token.getText() + "', hashes='" + hashes
-								+ "'");
-						if (type == InternalPreprocessLexer.RULE_HASH) {
-							hashes++;
-						} else if (type != InternalPreprocessLexer.RULE_WHITESPACE) {
-							if (hashes == 2) {
-								currState = ReplacementState.ConcatenateLookAhead;
-								break;
-							} else {
-								currState = ReplacementState.Normal;
-								break;
-							}
+		case Normal: {
+			if (tokenType == InternalPreprocessLexer.RULE_HASH) {
+				currState = ReplacementState.Stringify;
+			} else {
+				int hashes = 0;
+				for (int j = i + 1; j < this.replacements.size(); j++) {
+					final Token token = this.replacements.get(j);
+					final int type = token.getType();
+					MyLog.trace("j='" + j + "', nextToken='" + token.getText()
+							+ "', hashes='" + hashes + "'");
+					if (type == InternalPreprocessLexer.RULE_HASH) {
+						hashes++;
+					} else if (type != InternalPreprocessLexer.RULE_WHITESPACE) {
+						if (hashes == 2) {
+							currState = ReplacementState.ConcatenateLookAhead;
+							break;
+						} else {
+							currState = ReplacementState.Normal;
+							break;
 						}
-						MyLog.trace("j='" + j + "', nextToken='"
-								+ token.getText() + "', hashes='" + hashes
-								+ "'");
 					}
+					MyLog.trace("j='" + j + "', nextToken='" + token.getText()
+							+ "', hashes='" + hashes + "'");
 				}
-				break;
 			}
-			case Stringify: {
-				if (tokenType == InternalPreprocessLexer.RULE_HASH) {
-					currState = ReplacementState.Concatenate;
-				} else if (tokenType == InternalPreprocessLexer.RULE_WHITESPACE) {
-					currState = ReplacementState.Stringify;
-				} else {
-					currState = ReplacementState.StringifyEnd;
-				}
-				break;
+			break;
+		}
+		case Stringify: {
+			if (tokenType == InternalPreprocessLexer.RULE_HASH) {
+				currState = ReplacementState.Concatenate;
+			} else if (tokenType == InternalPreprocessLexer.RULE_WHITESPACE) {
+				currState = ReplacementState.Stringify;
+			} else {
+				currState = ReplacementState.StringifyEnd;
 			}
-			case StringifyEnd: {
-				if (tokenType == InternalPreprocessLexer.RULE_HASH) {
-					currState = ReplacementState.Stringify;
-				} else {
-					currState = ReplacementState.Normal;
-				}
-				break;
+			break;
+		}
+		case StringifyEnd: {
+			if (tokenType == InternalPreprocessLexer.RULE_HASH) {
+				currState = ReplacementState.Stringify;
+			} else {
+				currState = ReplacementState.Normal;
 			}
-			case ConcatenateLookAhead: {
-				if (tokenType == InternalPreprocessLexer.RULE_HASH) {
-					currState = ReplacementState.Stringify;
-				}
-				break;
+			break;
+		}
+		case ConcatenateLookAhead: {
+			if (tokenType == InternalPreprocessLexer.RULE_HASH) {
+				currState = ReplacementState.Stringify;
 			}
-			case Concatenate: {
-				if (tokenType == InternalPreprocessLexer.RULE_WHITESPACE) {
-					currState = ReplacementState.Concatenate;
-				} else {
-					currState = ReplacementState.ConcatenateEnd;
-				}
-				break;
+			break;
+		}
+		case Concatenate: {
+			if (tokenType == InternalPreprocessLexer.RULE_WHITESPACE) {
+				currState = ReplacementState.Concatenate;
+			} else {
+				currState = ReplacementState.ConcatenateEnd;
 			}
-			case ConcatenateEnd: {
-				if (tokenType == InternalPreprocessLexer.RULE_HASH) {
-					currState = ReplacementState.Stringify;
-				} else {
-					currState = ReplacementState.Normal;
-				}
-				break;
+			break;
+		}
+		case ConcatenateEnd: {
+			if (tokenType == InternalPreprocessLexer.RULE_HASH) {
+				currState = ReplacementState.Stringify;
+			} else {
+				currState = ReplacementState.Normal;
 			}
-			default:
-				break;
+			break;
+		}
+		default:
+			break;
 		}
 		return currState;
 	}
@@ -515,6 +513,8 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			if (type == InternalPreprocessLexer.RULE_WHITESPACE) {
 				code.remove(i);
 				ranges.undoInsertion();
+			} else {
+				break;
 			}
 		}
 		this.addNormalReplacement(parenID, code, ranges, token, text, replace,

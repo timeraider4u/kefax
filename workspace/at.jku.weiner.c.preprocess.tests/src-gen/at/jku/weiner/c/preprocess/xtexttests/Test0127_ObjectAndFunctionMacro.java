@@ -126,6 +126,8 @@ public class Test0127_ObjectAndFunctionMacro {
 				"RULE_ID",
 				"RULE_WHITESPACE",
 				"RULE_ID",
+				"RULE_WHITESPACE",
+				"RULE_ID",
 				"RULE_NEWLINE",
 				"RULE_HASH",
 				"RULE_DEFINE",
@@ -214,7 +216,7 @@ public class Test0127_ObjectAndFunctionMacro {
 		);
 		Assert.assertEquals("BAR", DefineObjectMacro_6_Var
 		.getId());
-		Assert.assertEquals("FOO", DefineObjectMacro_6_Var
+		Assert.assertEquals("unsigned FOO", DefineObjectMacro_6_Var
 		.getString());
 		//6
 		final PreprocessorDirectives PreprocessorDirectives_7_Var

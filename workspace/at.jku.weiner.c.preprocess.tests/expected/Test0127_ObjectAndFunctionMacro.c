@@ -1,2 +1,2 @@
-int i;
-int j;
+unsigned int i;
+unsigned int j;

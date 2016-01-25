@@ -92,7 +92,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			// prevent endless replacement loops
 			TokenUtils.print(
 					"resolveFor-disabled('" + id + "'), " + ranges.toString()
-					+ ", code='", code);
+							+ ", code='", code);
 			return;
 		}
 		MyLog.trace("resolveFor-start('" + id + "', '" + this.key + "')");
@@ -115,7 +115,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		this.enabled = false;
 		TokenUtils.print(
 				"resolveFor-rescan('" + id + "'), '" + ranges.toString()
-						+ ", code='", code);
+				+ ", code='", code);
 		final MacroRanges newRanges = new MacroRanges(ranges.startIndex,
 				ranges.startIndex + ranges.addedElements);
 		this.definitionTable.resolve(id, code, newRanges);
@@ -148,7 +148,8 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		State currState = new State();
 		int paramCount = 0;
 		ArrayList<Token> list = this.getListForParamCount(replace, paramCount);
-		for (int i = ranges.startIndex + 1; ((i < code.size()) && (i < ranges.stopIndex)); i++) {
+		for (int i = ranges.startIndex + 1; ((i < code.size()) && (i < code
+				.size())); i++) {
 			final Token token = code.get(i);
 			final int tokenType = token.getType();
 			currState = this.getNextState(currState, tokenType);

@@ -45,11 +45,22 @@ final class TokenUtils {
 	}
 
 	protected static StringBuffer getStringBufferFor(final List<Token> tokens) {
+		return TokenUtils.getStringBufferFor(tokens, false);
+	}
+
+	protected static StringBuffer getStringBufferFor(final List<Token> tokens,
+			final boolean quote) {
 		final StringBuffer buffer = new StringBuffer("");
 		for (int i = 0; i < tokens.size(); i++) {
 			final Token token = tokens.get(i);
 			final String text = token.getText();
+			if (quote) {
+				buffer.append("'");
+			}
 			buffer.append(text);
+			if (quote) {
+				buffer.append("'");
+			}
 		}
 		return buffer;
 	}

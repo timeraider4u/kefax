@@ -1,7 +1,9 @@
 package at.jku.weiner.c.preprocess.utils.macros;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.antlr.runtime.CommonToken;
 import org.antlr.runtime.Token;
 import org.eclipse.xtext.junit4.InjectWith;
 import org.eclipse.xtext.junit4.XtextRunner;
@@ -512,5 +514,31 @@ public class TestDefinitionFunctionMacro {
 		Assert.assertEquals(11, ranges.stopIndex);
 		Assert.assertEquals(4, ranges.addedElements);
 		Assert.assertEquals(6, ranges.removedElements);
+	}
+
+	@Test
+	public void testConcatenation1() {
+		this.idList.getId().add("Y");
+		this.definitionTable.addFunctionMacro("FOO", this.idList, "X:X ## Y");
+		final List<Token> code = this.lexerUtils.getTokens("FOO(foo, bar)");
+		final MacroRanges ranges = TestUtils.getMacroRange(0, code.size());
+		this.definitionTable.resolve(0, code, ranges);
+		final List<Token> expected = new ArrayList<Token>();
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "foo"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_SKW_COLON,
+				":"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "foobar"));
+		TestUtils.assertEqualsList(expected, code);
+	}
+
+	@Test
+	public void testConcatenation2() {
+		this.definitionTable.addFunctionMacro("FOO", this.idList, "foo_ ## X");
+		final List<Token> code = this.lexerUtils.getTokens("FOO(bar)");
+		final MacroRanges ranges = TestUtils.getMacroRange(0, code.size());
+		this.definitionTable.resolve(0, code, ranges);
+		final List<Token> expected = new ArrayList<Token>();
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "foo_bar"));
+		TestUtils.assertEqualsList(expected, code);
 	}
 }

@@ -1,4 +1,8 @@
 High priority:
+	- Conditional break-point in DefinitionTable.resolve -> "nv_debug".equals(text)
+	
+
+
 	-	Test case 0074 -> seems to be caused by
 		synpred3_InternalParser ->
 		synpred3_InternalParser_fragment

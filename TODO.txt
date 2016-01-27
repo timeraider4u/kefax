@@ -1,12 +1,24 @@
 High priority:
-	# - Conditional break-point in DefinitionTable.resolve -> "nv_debug".equals(text)
-	-./arch/x86/include/asm/cmpxchg.h - line 67 - #define __xchg_op
+	- kate arch/x86/include/asm/asm.h
+	- kate arch/x86/include/asm/alternative.h
+	- kate ./arch/x86/include/asm/rwsem.h
 
+	actual		".popsection\n" "671:" "\n\tlock; " " " "" " "incqincl "(%1)\n\t"
+!=	expected	" " "incq" " "
 
-	-	Test case 0074 -> seems to be caused by
-		synpred3_InternalParser ->
-		synpred3_InternalParser_fragment
+_ASM_INC
+#define _ASM_INC	__ASM_SIZE(inc)
+#define __ASM_SIZE(inst, ...)	__ASM_SEL(inst##l##__VA_ARGS__, \
+					  inst##q##__VA_ARGS__)
+__ASM_SIZE(inc) = __ASM_SEL(incl, \
+					  incq)
+# define __ASM_SEL(a,b) __ASM_FORM(b)
 
+__ASM_SEL(incl, incq) => __ASM_FORM(incq)
+
+# define __ASM_FORM(x)	" " #x " "
+
+" " "incq" " "
 
 
 	- http://slps.github.io/zoo/c/malton-dahn.html#attribute_spec

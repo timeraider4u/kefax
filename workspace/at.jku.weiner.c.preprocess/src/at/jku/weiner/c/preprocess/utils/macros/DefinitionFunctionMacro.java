@@ -289,7 +289,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 	}
 
 	private enum ReplacementState {
-		Invalid, Normal, Stringify, StringifyEnd, ConcatenateLookAhead, Concatenate, ConcatenateEnd,
+		Invalid, Normal, Stringify, StringifyEnd, ConcatenateLookAheadA, ConcatenateLookAheadB, Concatenate1a, Concatenate1b, Concatenate2, ConcatenateEnd,
 	}
 
 	private void addReplacementTokensToCode(final long parenID,
@@ -297,6 +297,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			final List<ArrayList<Token>> replace) {
 		ReplacementState state = ReplacementState.Normal;
 		Token temp = null;
+		boolean addTemporary = true;
 		for (int i = 0; i < this.replacements.size(); i++) {
 			final Token token = this.replacements.get(i);
 			final String text = token.getText();
@@ -311,21 +312,31 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			case Normal:
 				this.addNormalReplacement(parenID, code, ranges, token, text,
 						replace, true);
+				temp = null;
 				break;
 			case StringifyEnd:
 				this.addStringifyReplacement(parenID, code, ranges, token,
 						text, replace);
+				temp = null;
+				break;
+			case Concatenate1a:
+				addTemporary = true;
+				break;
+			case Concatenate1b:
+				addTemporary = false;
 				break;
 			case ConcatenateEnd:
 				this.addConcatenReplacement(parenID, code, ranges, token, text,
-						replace, temp);
-				temp = null;
+						replace, temp, addTemporary);
+				final int insertionIndex = ranges.getCurrentInsertionIndex();
+				final Token current = code.get(insertionIndex - 1);
+				// temp = current;
+				temp = TokenUtils.copy(current);
 				break;
-			case ConcatenateLookAhead:
+			case ConcatenateLookAheadA:
+			case ConcatenateLookAheadB:
 				if (temp == null) {
-					final String tempText = token.getText();
-					final int tempType = token.getType();
-					temp = new CommonToken(tempType, tempText);
+					temp = TokenUtils.copy(token);
 				}
 				break;
 			default:
@@ -343,9 +354,9 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			if (tokenType == InternalPreprocessLexer.RULE_HASH) {
 				currState = ReplacementState.Stringify;
 			} else {
-				boolean lookAHead = this.lookAHead(i, currState);
+				boolean lookAHead = this.lookAHead(i, currState, true);
 				if (lookAHead) {
-					currState = ReplacementState.ConcatenateLookAhead;
+					currState = ReplacementState.ConcatenateLookAheadA;
 				} else {
 					currState = ReplacementState.Normal;
 				}
@@ -353,9 +364,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			break;
 		}
 		case Stringify: {
-			if (tokenType == InternalPreprocessLexer.RULE_HASH) {
-				currState = ReplacementState.Concatenate;
-			} else if (tokenType == InternalPreprocessLexer.RULE_WHITESPACE) {
+			if (tokenType == InternalPreprocessLexer.RULE_WHITESPACE) {
 				currState = ReplacementState.Stringify;
 			} else {
 				currState = ReplacementState.StringifyEnd;
@@ -370,32 +379,57 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			}
 			break;
 		}
-		case ConcatenateLookAhead: {
+		case ConcatenateLookAheadA: {
 			if (tokenType == InternalPreprocessLexer.RULE_HASH) {
-				currState = ReplacementState.Stringify;
+				currState = ReplacementState.Concatenate1a;
 			}
 			break;
 		}
-		case Concatenate: {
+		case ConcatenateLookAheadB: {
+			if (tokenType == InternalPreprocessLexer.RULE_HASH) {
+				currState = ReplacementState.Concatenate1b;
+			}
+			break;
+		}
+		case Concatenate1a: {
 			if (tokenType == InternalPreprocessLexer.RULE_WHITESPACE) {
-				currState = ReplacementState.Concatenate;
+				currState = ReplacementState.Concatenate1a;
+			} else if (tokenType == InternalPreprocessLexer.RULE_HASH) {
+				currState = ReplacementState.Concatenate2;
+			}
+			break;
+		}
+		case Concatenate1b: {
+			if (tokenType == InternalPreprocessLexer.RULE_WHITESPACE) {
+				currState = ReplacementState.Concatenate1b;
+			} else if (tokenType == InternalPreprocessLexer.RULE_HASH) {
+				currState = ReplacementState.Concatenate2;
+			}
+			break;
+		}
+		case Concatenate2: {
+			if (tokenType == InternalPreprocessLexer.RULE_WHITESPACE) {
+				currState = ReplacementState.Concatenate2;
 			} else {
 				currState = ReplacementState.ConcatenateEnd;
 			}
 			break;
 		}
 		case ConcatenateEnd: {
-			boolean lookAHead = this.lookAHead(i, currState);
+			boolean incI = true;
+			if (tokenType == InternalPreprocessLexer.RULE_HASH) {
+				incI = false;
+			}
+			boolean lookAHead = this.lookAHead(i, currState, incI);
 			if (lookAHead) {
-				currState = ReplacementState.ConcatenateLookAhead;
+				if (tokenType == InternalPreprocessLexer.RULE_HASH) {
+					currState = ReplacementState.Concatenate1b;
+				} else {
+					currState = ReplacementState.ConcatenateLookAheadB;
+				}
 			} else {
 				currState = ReplacementState.Normal;
 			}
-			// if (tokenType == InternalPreprocessLexer.RULE_HASH) {
-			// currState = ReplacementState.ConcatenateLookAhead;
-			// } else {
-			// currState = ReplacementState.Normal;
-			// }
 			break;
 		}
 		default:
@@ -404,9 +438,14 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		return currState;
 	}
 
-	private boolean lookAHead(final int i, final ReplacementState currState) {
+	private boolean lookAHead(final int i, final ReplacementState currState,
+			final boolean incI) {
+		int start = i;
+		if (incI) {
+			start++;
+		}
 		int hashes = 0;
-		for (int j = i + 1; j < this.replacements.size(); j++) {
+		for (int j = start; j < this.replacements.size(); j++) {
 			final Token token = this.replacements.get(j);
 			final int type = token.getType();
 			MyLog.trace("j='" + j + "', nextToken='" + token.getText()
@@ -525,12 +564,15 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 	private void addConcatenReplacement(final long parenID,
 			final List<Token> code, final MacroRanges ranges,
 			final Token token, final String text,
-			final List<ArrayList<Token>> replace, final Token temp) {
+			final List<ArrayList<Token>> replace, final Token temp,
+			final boolean addTemporary) {
 		final String oldText = temp.getText();
 		MyLog.trace("addConcatenReplacement at '" + ranges.toString()
 				+ "' on token='" + text + "', temp='" + oldText + "'");
-		this.addNormalReplacement(parenID, code, ranges, temp, oldText,
-				replace, false);
+		if (addTemporary) {
+			this.addNormalReplacement(parenID, code, ranges, temp, oldText,
+					replace, false);
+		}
 		final int insertionIndex = ranges.getCurrentInsertionIndex();
 		this.addNormalReplacement(parenID, code, ranges, token, text, replace,
 				false);

@@ -48,6 +48,16 @@ import at.jku.weiner.c.preprocess.preprocess.GroupOpt;
 import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
 import at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro;
 import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
+import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
+import at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro;
+import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
+import at.jku.weiner.c.preprocess.preprocess.PreprocessorDirectives;
+import at.jku.weiner.c.preprocess.preprocess.DefineFunctionLikeMacro;
+import at.jku.weiner.c.preprocess.preprocess.IdentifierList;
+import at.jku.weiner.c.preprocess.preprocess.Code;
+import at.jku.weiner.c.preprocess.preprocess.Code;
+import at.jku.weiner.c.preprocess.preprocess.Code;
+import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 import at.jku.weiner.c.preprocess.preprocess.Code;
 @SuppressWarnings("unused")
@@ -129,6 +139,100 @@ public class Test0129_ConcatenateDouble {
 				"RULE_ID",
 				"RULE_SKW_RIGHTPAREN",
 				"RULE_NEWLINE",
+				"RULE_HASH",
+				"RULE_DEFINE",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_ID",
+				"RULE_SKW_COMMA",
+				"RULE_ID",
+				"RULE_SKW_COMMA",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_ID",
+				"RULE_WHITESPACE",
+				"RULE_HASH",
+				"RULE_HASH",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_HASH",
+				"RULE_HASH",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_NEWLINE",
+				"RULE_HASH",
+				"RULE_DEFINE",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_ID",
+				"RULE_SKW_COMMA",
+				"RULE_ID",
+				"RULE_SKW_COMMA",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_ID",
+				"RULE_HASH",
+				"RULE_HASH",
+				"RULE_ID",
+				"RULE_HASH",
+				"RULE_HASH",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_NEWLINE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_ID",
+				"RULE_SKW_COMMA",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_COMMA",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_SKW_SEMI",
+				"RULE_NEWLINE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_ID",
+				"RULE_SKW_COMMA",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_COMMA",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_SKW_SEMI",
+				"RULE_NEWLINE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_ID",
+				"RULE_SKW_COMMA",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_COMMA",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_SKW_SEMI",
+				"RULE_NEWLINE",
+				"RULE_ID",
+				"RULE_SKW_LEFTPAREN",
+				"RULE_ID",
+				"RULE_SKW_COMMA",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_COMMA",
+				"RULE_WHITESPACE",
+				"RULE_ID",
+				"RULE_SKW_RIGHTPAREN",
+				"RULE_SKW_SEMI",
+				"RULE_NEWLINE",
 				"RULE_ID",
 				"RULE_SKW_LEFTPAREN",
 				"RULE_ID",
@@ -180,7 +284,7 @@ public class Test0129_ConcatenateDouble {
 		final EList<? extends EObject> Lines_1_list = GroupOpt_1_Var
 		.getLines();
 		Assert.assertNotNull(Lines_1_list);
-		Assert.assertEquals(3, Lines_1_list.size());
+		Assert.assertEquals(9, Lines_1_list.size());
 		//1
 		final PreprocessorDirectives PreprocessorDirectives_2_Var
 		 = (PreprocessorDirectives)Lines_1_list.get(0);
@@ -207,18 +311,96 @@ public class Test0129_ConcatenateDouble {
 		Assert.assertEquals("printf(X##Y ## Z)", DefineFunctionLikeMacro_3_Var
 		.getString());
 		//4
-		final Code Code_5_Var
-		 = (Code)Lines_1_list.get(1);
-		Assert.assertNotNull(Code_5_Var
+		final PreprocessorDirectives PreprocessorDirectives_5_Var
+		 = (PreprocessorDirectives)Lines_1_list.get(1);
+		Assert.assertNotNull(PreprocessorDirectives_5_Var
 		);
-		Assert.assertEquals("FOO(a, b, c);", Code_5_Var
-		.getCode());
 		//5
-		final Code Code_6_Var
-		 = (Code)Lines_1_list.get(2);
-		Assert.assertNotNull(Code_6_Var
+		final DefineFunctionLikeMacro DefineFunctionLikeMacro_6_Var
+		 = (DefineFunctionLikeMacro)PreprocessorDirectives_5_Var
+		.getDirective();
+		Assert.assertNotNull(DefineFunctionLikeMacro_6_Var
 		);
-		Assert.assertEquals("FOO(foo, bar, baz);", Code_6_Var
+		Assert.assertEquals("BAR", DefineFunctionLikeMacro_6_Var
+		.getId());
+		//6
+		final IdentifierList IdentifierList_7_Var
+		 = (IdentifierList)DefineFunctionLikeMacro_6_Var
+		.getList();
+		Assert.assertNotNull(IdentifierList_7_Var
+		);
+		Assert.assertEquals("[X, Y, Z]", IdentifierList_7_Var
+		.getId().toString());
+		Assert.assertFalse(IdentifierList_7_Var
+		.isVariadic());
+		Assert.assertEquals("printf(X ## Y##Z)", DefineFunctionLikeMacro_6_Var
+		.getString());
+		//7
+		final PreprocessorDirectives PreprocessorDirectives_8_Var
+		 = (PreprocessorDirectives)Lines_1_list.get(2);
+		Assert.assertNotNull(PreprocessorDirectives_8_Var
+		);
+		//8
+		final DefineFunctionLikeMacro DefineFunctionLikeMacro_9_Var
+		 = (DefineFunctionLikeMacro)PreprocessorDirectives_8_Var
+		.getDirective();
+		Assert.assertNotNull(DefineFunctionLikeMacro_9_Var
+		);
+		Assert.assertEquals("BAZ", DefineFunctionLikeMacro_9_Var
+		.getId());
+		//9
+		final IdentifierList IdentifierList_10_Var
+		 = (IdentifierList)DefineFunctionLikeMacro_9_Var
+		.getList();
+		Assert.assertNotNull(IdentifierList_10_Var
+		);
+		Assert.assertEquals("[X, Y, Z]", IdentifierList_10_Var
+		.getId().toString());
+		Assert.assertFalse(IdentifierList_10_Var
+		.isVariadic());
+		Assert.assertEquals("printf(X##Y##Z)", DefineFunctionLikeMacro_9_Var
+		.getString());
+		//10
+		final Code Code_11_Var
+		 = (Code)Lines_1_list.get(3);
+		Assert.assertNotNull(Code_11_Var
+		);
+		Assert.assertEquals("FOO(a, b, c);", Code_11_Var
+		.getCode());
+		//11
+		final Code Code_12_Var
+		 = (Code)Lines_1_list.get(4);
+		Assert.assertNotNull(Code_12_Var
+		);
+		Assert.assertEquals("FOO(foo, bar, baz);", Code_12_Var
+		.getCode());
+		//12
+		final Code Code_13_Var
+		 = (Code)Lines_1_list.get(5);
+		Assert.assertNotNull(Code_13_Var
+		);
+		Assert.assertEquals("BAR(a, b, c);", Code_13_Var
+		.getCode());
+		//13
+		final Code Code_14_Var
+		 = (Code)Lines_1_list.get(6);
+		Assert.assertNotNull(Code_14_Var
+		);
+		Assert.assertEquals("BAR(foo, bar, baz);", Code_14_Var
+		.getCode());
+		//14
+		final Code Code_15_Var
+		 = (Code)Lines_1_list.get(7);
+		Assert.assertNotNull(Code_15_Var
+		);
+		Assert.assertEquals("BAZ(a, b, c);", Code_15_Var
+		.getCode());
+		//15
+		final Code Code_16_Var
+		 = (Code)Lines_1_list.get(8);
+		Assert.assertNotNull(Code_16_Var
+		);
+		Assert.assertEquals("BAZ(foo, bar, baz);", Code_16_Var
 		.getCode());
 	}
 	

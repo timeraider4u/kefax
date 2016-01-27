@@ -13,6 +13,20 @@ lexer-tokens
 		WHITESPACE ID SKW_LEFTPAREN
 			ID HASH HASH ID WHITESPACE HASH HASH WHITESPACE ID
 		SKW_RIGHTPAREN NEWLINE
+	HASH DEFINE WHITESPACE ID 
+		SKW_LEFTPAREN ID SKW_COMMA ID SKW_COMMA ID SKW_RIGHTPAREN 
+		ID SKW_LEFTPAREN
+			ID WHITESPACE HASH HASH WHITESPACE ID HASH HASH ID
+		SKW_RIGHTPAREN NEWLINE
+	HASH DEFINE WHITESPACE ID 
+		SKW_LEFTPAREN ID SKW_COMMA ID SKW_COMMA ID SKW_RIGHTPAREN 
+		ID SKW_LEFTPAREN
+			ID HASH HASH ID HASH HASH ID
+		SKW_RIGHTPAREN NEWLINE
+	ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN SKW_SEMI NEWLINE
+	ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN SKW_SEMI NEWLINE
+	ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN SKW_SEMI NEWLINE
+	ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN SKW_SEMI NEWLINE
 	ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN SKW_SEMI NEWLINE
 	ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN SKW_SEMI NEWLINE
 //----------------------------------------------------------------------
@@ -35,11 +49,47 @@ lexer-tokens
 					string++"printf(X##Y ## Z)"
 				)
 			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"BAR",
+					list=
+					(IdentifierList
+						id+*"[X, Y, Z]",
+						variadic?=false
+					),
+					string++"printf(X ## Y##Z)"
+				)
+			),
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"BAZ",
+					list=
+					(IdentifierList
+						id+*"[X, Y, Z]",
+						variadic?=false
+					),
+					string++"printf(X##Y##Z)"
+				)
+			),
 			(Code
 				code++"FOO(a, b, c);"
 			),
 			(Code
 				code++"FOO(foo, bar, baz);"
+			),
+			(Code
+				code++"BAR(a, b, c);"
+			),
+			(Code
+				code++"BAR(foo, bar, baz);"
+			),
+			(Code
+				code++"BAZ(a, b, c);"
+			),
+			(Code
+				code++"BAZ(foo, bar, baz);"
 			)
 		)
 	)

@@ -541,4 +541,17 @@ public class TestDefinitionFunctionMacro {
 		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "foo_bar"));
 		TestUtils.assertEqualsList(expected, code);
 	}
+
+	@Test
+	public void testConcatenation3() {
+		this.definitionTable.addFunctionMacro("FOO", this.idList,
+				"foo##bar##baz");
+		final List<Token> code = this.lexerUtils.getTokens("FOO(a)");
+		final MacroRanges ranges = TestUtils.getMacroRange(0, code.size());
+		this.definitionTable.resolve(0, code, ranges);
+		final List<Token> expected = new ArrayList<Token>();
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID,
+				"foobarbaz"));
+		TestUtils.assertEqualsList(expected, code);
+	}
 }

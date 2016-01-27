@@ -1,0 +1,2 @@
+printf(abc);
+printf(foobarbaz);

@@ -1,0 +1,53 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.preprocess
+language preprocess
+imports at.jku.weiner.c.common.common
+//----------------------------------------------------------------------
+split-lexer=false
+source file="res/Test0129_ConcatenateDouble.c"
+//----------------------------------------------------------------------
+lexer-tokens
+	HASH DEFINE WHITESPACE ID 
+		SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN 
+		WHITESPACE ID SKW_LEFTPAREN
+			ID HASH HASH ID WHITESPACE HASH HASH WHITESPACE ID
+		SKW_RIGHTPAREN NEWLINE
+	ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN SKW_SEMI NEWLINE
+	ID SKW_LEFTPAREN ID SKW_COMMA WHITESPACE ID SKW_COMMA WHITESPACE ID SKW_RIGHTPAREN SKW_SEMI NEWLINE
+//----------------------------------------------------------------------
+//(common::Model
+	//units+=
+	//(common::TranslationUnit
+	(Preprocess
+		group=
+		(GroupOpt
+			lines+=
+			(PreprocessorDirectives
+				directive=
+				(DefineFunctionLikeMacro
+					id++"FOO",
+					list=
+					(IdentifierList
+						id+*"[X, Y, Z]",
+						variadic?=false
+					),
+					string++"printf(X##Y ## Z)"
+				)
+			),
+			(Code
+				code++"FOO(a, b, c);"
+			),
+			(Code
+				code++"FOO(foo, bar, baz);"
+			)
+		)
+	)
+//)
+//)
+//----------------------------------------------------------------------
+output file="bin/Test0129_ConcatenateDouble.c.i"
+expected file="expected/Test0129_ConcatenateDouble.c"
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

@@ -520,25 +520,39 @@ public class TestDefinitionFunctionMacro {
 	public void testConcatenation1() {
 		this.idList.getId().add("Y");
 		this.definitionTable.addFunctionMacro("FOO", this.idList, "X:X ## Y");
-		final List<Token> code = this.lexerUtils.getTokens("FOO(foo, bar)");
+		final List<Token> code = this.lexerUtils
+				.getTokens("mystart FOO(foo, bar) myend");
 		final MacroRanges ranges = TestUtils.getMacroRange(0, code.size());
 		this.definitionTable.resolve(0, code, ranges);
 		final List<Token> expected = new ArrayList<Token>();
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "mystart"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
 		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "foo"));
 		expected.add(new CommonToken(InternalPreprocessLexer.RULE_SKW_COLON,
 				":"));
 		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "foobar"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "myend"));
 		TestUtils.assertEqualsList(expected, code);
 	}
 
 	@Test
 	public void testConcatenation2() {
 		this.definitionTable.addFunctionMacro("FOO", this.idList, "foo_ ## X");
-		final List<Token> code = this.lexerUtils.getTokens("FOO(bar)");
+		final List<Token> code = this.lexerUtils
+				.getTokens("mystart FOO(bar) myend");
 		final MacroRanges ranges = TestUtils.getMacroRange(0, code.size());
 		this.definitionTable.resolve(0, code, ranges);
 		final List<Token> expected = new ArrayList<Token>();
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "mystart"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
 		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "foo_bar"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "myend"));
 		TestUtils.assertEqualsList(expected, code);
 	}
 
@@ -546,12 +560,258 @@ public class TestDefinitionFunctionMacro {
 	public void testConcatenation3() {
 		this.definitionTable.addFunctionMacro("FOO", this.idList,
 				"foo##bar##baz");
-		final List<Token> code = this.lexerUtils.getTokens("FOO(a)");
+		final List<Token> code = this.lexerUtils
+				.getTokens("mystart FOO(a) myend");
 		final MacroRanges ranges = TestUtils.getMacroRange(0, code.size());
 		this.definitionTable.resolve(0, code, ranges);
 		final List<Token> expected = new ArrayList<Token>();
 		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID,
 				"foobarbaz"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "mystart"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "myend"));
+		TestUtils.assertEqualsList(expected, code);
+	}
+
+	@Test
+	public void testConcatenation4() {
+		this.definitionTable.addFunctionMacro("FOO", this.idList,
+				"foo##bar##baz ## my");
+		final List<Token> code = this.lexerUtils
+				.getTokens("mystart FOO(a) myend");
+		final MacroRanges ranges = TestUtils.getMacroRange(0, code.size());
+		this.definitionTable.resolve(0, code, ranges);
+		final List<Token> expected = new ArrayList<Token>();
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID,
+				"foobarbazmy"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "mystart"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "myend"));
+		TestUtils.assertEqualsList(expected, code);
+	}
+
+	@Test
+	public void testConcatenation5() {
+		this.definitionTable.addFunctionMacro("FOO", this.idList,
+				"foo##bar##baz## my");
+		final List<Token> code = this.lexerUtils
+				.getTokens("mystart FOO(a) myend");
+		final MacroRanges ranges = TestUtils.getMacroRange(0, code.size());
+		this.definitionTable.resolve(0, code, ranges);
+		final List<Token> expected = new ArrayList<Token>();
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "mystart"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID,
+				"foobarbazmy"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "myend"));
+		TestUtils.assertEqualsList(expected, code);
+	}
+
+	@Test
+	public void testConcatenation6() {
+		this.definitionTable.addFunctionMacro("FOO", this.idList,
+				"foo##bar##baz ##my");
+		final List<Token> code = this.lexerUtils
+				.getTokens("mystart FOO(a) myend");
+		final MacroRanges ranges = TestUtils.getMacroRange(0, code.size());
+		this.definitionTable.resolve(0, code, ranges);
+		final List<Token> expected = new ArrayList<Token>();
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "mystart"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID,
+				"foobarbazmy"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "myend"));
+		TestUtils.assertEqualsList(expected, code);
+	}
+
+	@Test
+	public void testConcatenation7() {
+		this.definitionTable.addFunctionMacro("FOO", this.idList,
+				"foo##bar##baz##my");
+		final List<Token> code = this.lexerUtils
+				.getTokens("mystart FOO(a) myend");
+		final MacroRanges ranges = TestUtils.getMacroRange(0, code.size());
+		this.definitionTable.resolve(0, code, ranges);
+		final List<Token> expected = new ArrayList<Token>();
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "mystart"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID,
+				"foobarbazmy"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "myend"));
+		TestUtils.assertEqualsList(expected, code);
+	}
+
+	@Test
+	public void testConcatenation8() {
+		this.definitionTable.addFunctionMacro("FOO", this.idList,
+				"foo##bar##baz middle my##iam##us");
+		final List<Token> code = this.lexerUtils.getTokens("mystart FOO(a)");
+		final MacroRanges ranges = TestUtils.getMacroRange(0, code.size());
+		this.definitionTable.resolve(0, code, ranges);
+		final List<Token> expected = new ArrayList<Token>();
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "mystart"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID,
+				"foobarbaz"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "middle"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "myiamus"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "myend"));
+		TestUtils.assertEqualsList(expected, code);
+	}
+
+	@Test
+	public void testConcatenation9() {
+		this.definitionTable
+				.addFunctionMacro("FOO", this.idList,
+						"start X##bar##baz middle1 foo##X##that middle2 my##iam##X stop");
+		final List<Token> code = this.lexerUtils
+				.getTokens("mystart FOO(a) myend");
+		final MacroRanges ranges = TestUtils.getMacroRange(0, code.size());
+		this.definitionTable.resolve(0, code, ranges);
+		final List<Token> expected = new ArrayList<Token>();
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "mystart"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "start"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "abarbaz"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "middle1"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID,
+				"fooathat"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "middle2"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "myiama"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "stop"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "myend"));
+		TestUtils.assertEqualsList(expected, code);
+	}
+
+	@Test
+	public void testConcatenationVar1() {
+		this.idList.setVariadic(true);
+		this.definitionTable
+		.addFunctionMacro(
+				"FOO",
+				this.idList,
+				"start __VA_ARGS__##foo##bar middle1 begin##__VA_ARGS__##end, middle2 my##iam##__VA_ARGS__, stop");
+		final List<Token> code = this.lexerUtils
+				.getTokens("mystart FOO(a) myend");
+		final MacroRanges ranges = TestUtils.getMacroRange(0, code.size());
+		this.definitionTable.resolve(0, code, ranges);
+		final List<Token> expected = new ArrayList<Token>();
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "mystart"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "start"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "foobar"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "middle1"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID,
+				"beginend"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_SKW_COMMA,
+				","));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "middle2"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "myiam"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_SKW_COMMA,
+				","));
+
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "stop"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "myend"));
+
+		TestUtils.assertEqualsList(expected, code);
+	}
+
+	@Test
+	public void testConcatenationVar2() {
+		this.idList.setVariadic(true);
+		this.definitionTable
+		.addFunctionMacro(
+				"FOO",
+				this.idList,
+				"start __VA_ARGS__##X##bar middle1 begin##__VA_ARGS__##X, middle2 X##iam##__VA_ARGS__, stop");
+		final List<Token> code = this.lexerUtils
+				.getTokens("mystart FOO(foo) myend");
+		final MacroRanges ranges = TestUtils.getMacroRange(0, code.size());
+		this.definitionTable.resolve(0, code, ranges);
+		final List<Token> expected = new ArrayList<Token>();
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "mystart"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "start"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "foobar"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "middle1"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID,
+				"beginfoo"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_SKW_COMMA,
+				","));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "middle2"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "fooiam"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_SKW_COMMA,
+				","));
+
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "stop"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "myend"));
 		TestUtils.assertEqualsList(expected, code);
 	}
 }

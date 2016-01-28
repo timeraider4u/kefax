@@ -676,8 +676,8 @@ public class TestDefinitionFunctionMacro {
 	@Test
 	public void testConcatenation9() {
 		this.definitionTable
-		.addFunctionMacro("FOO", this.idList,
-				"start X##bar##baz middle1 foo##X##that middle2 my##iam##X stop");
+				.addFunctionMacro("FOO", this.idList,
+						"start X##bar##baz middle1 foo##X##that middle2 my##iam##X stop");
 		final List<Token> code = this.lexerUtils
 				.getTokens("mystart FOO(a) myend");
 		final MacroRanges ranges = TestUtils.getMacroRange(0, code.size());
@@ -716,10 +716,10 @@ public class TestDefinitionFunctionMacro {
 	public void testConcatenationVar1() {
 		this.idList.setVariadic(true);
 		this.definitionTable
-				.addFunctionMacro(
-						"FOO",
-						this.idList,
-						"start __VA_ARGS__##foo##bar middle1 begin##__VA_ARGS__##end, middle2 my##iam##__VA_ARGS__, stop");
+		.addFunctionMacro(
+				"FOO",
+				this.idList,
+				"start __VA_ARGS__##foo##bar middle1 begin##__VA_ARGS__##end, middle2 my##iam##__VA_ARGS__, stop");
 		final List<Token> code = this.lexerUtils
 				.getTokens("mystart FOO(a) myend");
 		final MacroRanges ranges = TestUtils.getMacroRange(0, code.size());
@@ -764,10 +764,10 @@ public class TestDefinitionFunctionMacro {
 	public void testConcatenationVar2() {
 		this.idList.setVariadic(true);
 		this.definitionTable
-				.addFunctionMacro(
-						"FOO",
-						this.idList,
-						"start __VA_ARGS__##X##bar middle1 begin##__VA_ARGS__##X, middle2 X##iam##__VA_ARGS__, stop");
+		.addFunctionMacro(
+				"FOO",
+				this.idList,
+				"start __VA_ARGS__##X##bar middle1 begin##__VA_ARGS__##X, middle2 X##iam##__VA_ARGS__, stop");
 		final List<Token> code = this.lexerUtils
 				.getTokens("mystart FOO(foo) myend");
 		final MacroRanges ranges = TestUtils.getMacroRange(0, code.size());
@@ -801,6 +801,66 @@ public class TestDefinitionFunctionMacro {
 		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
 				" "));
 		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "stop"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "myend"));
+		TestUtils.assertEqualsList(expected, code);
+	}
+
+	@Test
+	public void testConcatenationVarWithComma1() {
+		// see
+		// https://gcc.gnu.org/onlinedocs/gcc-4.5.1/gcc/Variadic-Macros.html#Variadic-Macros
+		// at the bottom: "if the variable arguments are omitted or empty,
+		// the `##' operator causes the preprocessor to remove the comma before
+		// it"
+		this.idList.setVariadic(true);
+		this.idList.setVarID("Y");
+		this.definitionTable.addFunctionMacro("FOO", this.idList,
+				"printf(X, ##Y)");
+		final List<Token> code = this.lexerUtils
+				.getTokens("mystart FOO(foo) myend");
+		final MacroRanges ranges = TestUtils.getMacroRange(0, code.size());
+		this.definitionTable.resolve(0, code, ranges);
+		final List<Token> expected = new ArrayList<Token>();
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "mystart"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "printf"));
+		expected.add(new CommonToken(
+				InternalPreprocessLexer.RULE_SKW_LEFTPAREN, "("));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "foo"));
+		expected.add(new CommonToken(
+				InternalPreprocessLexer.RULE_SKW_RIGHTPAREN, ")"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "myend"));
+		TestUtils.assertEqualsList(expected, code);
+	}
+
+	@Test
+	public void testConcatenationVarWithComma2() {
+		this.idList.setVariadic(true);
+		this.idList.setVarID("Y");
+		this.definitionTable.addFunctionMacro("FOO", this.idList,
+				"printf(X, ##Y)");
+		final List<Token> code = this.lexerUtils
+				.getTokens("mystart FOO(foo, bar) myend");
+		final MacroRanges ranges = TestUtils.getMacroRange(0, code.size());
+		this.definitionTable.resolve(0, code, ranges);
+		final List<Token> expected = new ArrayList<Token>();
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "mystart"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
+				" "));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "printf"));
+		expected.add(new CommonToken(
+				InternalPreprocessLexer.RULE_SKW_LEFTPAREN, "("));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "foo"));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_SKW_COMMA,
+				","));
+		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "bar"));
+		expected.add(new CommonToken(
+				InternalPreprocessLexer.RULE_SKW_RIGHTPAREN, ")"));
 		expected.add(new CommonToken(InternalPreprocessLexer.RULE_WHITESPACE,
 				" "));
 		expected.add(new CommonToken(InternalPreprocessLexer.RULE_ID, "myend"));

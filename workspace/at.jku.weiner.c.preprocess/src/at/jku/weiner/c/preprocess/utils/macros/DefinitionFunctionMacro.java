@@ -92,7 +92,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			// prevent endless replacement loops
 			TokenUtils.print(
 					"resolveFor-disabled('" + id + "'), " + ranges.toString()
-							+ ", code='", code);
+					+ ", code='", code);
 			return;
 		}
 		MyLog.trace("resolveFor-start('" + id + "', '" + this.key + "')");
@@ -115,7 +115,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		this.enabled = false;
 		TokenUtils.print(
 				"resolveFor-rescan('" + id + "'), '" + ranges.toString()
-				+ ", code='", code);
+						+ ", code='", code);
 		final MacroRanges newRanges = new MacroRanges(ranges.startIndex,
 				ranges.startIndex + ranges.addedElements);
 		this.definitionTable.resolve(id, code, newRanges);
@@ -158,10 +158,15 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			if (currState.state == MatchState.Invalid) {
 				return ranges.startIndex;
 			} else if (currState.state == MatchState.Done) {
-				list = this.getListForParamCount(replace, paramCount);
-				if (this.variadic && list.isEmpty()) {
-					Token t = TokenUtils.getWSToken();
-					list.add(t);
+				if (this.variadic) {
+					int index = replace.size() - 1;
+					list = this.getListForParamCount(replace, index);
+					TokenUtils.print("variadicAddToken, list='", list);
+					if (list.isEmpty()) {
+						Token t = TokenUtils.getIDTokenForText("");
+						list.add(t);
+					}
+					TokenUtils.print("variadicAddToken, list='", list);
 				}
 				return i;
 			} else if (currState.state == MatchState.LookingForRightParen) {
@@ -261,9 +266,6 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 
 	private void removeWhitespaceFromList(final List<Token> list,
 			final int start, final int stop) {
-		if (list.size() <= 1) {
-			return;
-		}
 		for (int j = stop; ((j > 0) && (j < list.size()) && this.isWhitespace(
 				list, j)); j--) {
 			MyLog.trace("remove at stop index='" + j + "'");
@@ -310,10 +312,12 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			final Token token = this.replacements.get(i);
 			final String text = token.getText();
 			final int tokenType = token.getType();
+			final int currIndex = ranges.getCurrentInsertionIndex();
 			state = this.calculateNextState(state, code, tokenType, i);
 			TokenUtils.printList("addReplacementTokensToCode-loop(parenID='"
 					+ parenID + "', i='" + i + "'), state='" + state
-					+ "', text='" + text + "', replace='", replace);
+					+ "', text='" + text + ", index='" + currIndex + "'"
+					+ "', replace='", replace);
 			TokenUtils.print("addReplacementTokensToCode-loop('" + parenID
 					+ "'), code='", code);
 			switch (state) {
@@ -486,9 +490,13 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 				this.definitionTable.resolve(parenID, list, newRange);
 				this.enabled = true;
 			}
+			TokenUtils.print("addNormalReplacement-containsText, list='", list);
 			for (int j = 0; j < newList.size(); j++) {
 				final Token other = newList.get(j);
 				final int index = ranges.getCurrentInsertionIndex();
+				MyLog.trace("addNormalReplacement('" + parenID
+						+ "')-for1, add token='" + other.getText() + "' at '"
+						+ index + "'");
 				code.add(index, other);
 				ranges.addElement();
 			}
@@ -503,6 +511,9 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 				for (int i = 0; i < list.size(); i++) {
 					final Token newToken = list.get(i);
 					final int index = ranges.getCurrentInsertionIndex();
+					MyLog.trace("addNormalReplacement('" + parenID
+							+ "')-for2, add token='" + newToken.getText()
+							+ "' at '" + index + "'");
 					code.add(index, newToken);
 					ranges.addElement();
 				}
@@ -590,6 +601,9 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 				+ insertionIndex + "'");
 		this.addNormalReplacement(parenID, code, ranges, token, text, replace,
 				false);
+		TokenUtils.print(
+				"addConcatenReplacement - afterSecondAddition, tempCode='",
+				code);
 		if ((insertionIndex < 0) || (insertionIndex >= code.size())) {
 			return;
 		}

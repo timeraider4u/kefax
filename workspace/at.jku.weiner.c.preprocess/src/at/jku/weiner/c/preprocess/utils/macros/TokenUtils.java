@@ -18,6 +18,12 @@ final class TokenUtils {
 		return result;
 	}
 
+	protected static Token getIDTokenForText(final String text) {
+		final Token token = new CommonToken(InternalPreprocessLexer.RULE_ID,
+				text);
+		return token;
+	}
+
 	protected static Token getWSToken() {
 		final Token token = new CommonToken(
 				InternalPreprocessLexer.RULE_WHITESPACE, " ");

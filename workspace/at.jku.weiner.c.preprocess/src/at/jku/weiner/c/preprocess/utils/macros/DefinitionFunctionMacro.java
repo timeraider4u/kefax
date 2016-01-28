@@ -92,7 +92,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			// prevent endless replacement loops
 			TokenUtils.print(
 					"resolveFor-disabled('" + id + "'), " + ranges.toString()
-					+ ", code='", code);
+							+ ", code='", code);
 			return;
 		}
 		MyLog.trace("resolveFor-start('" + id + "', '" + this.key + "')");
@@ -115,7 +115,7 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 		this.enabled = false;
 		TokenUtils.print(
 				"resolveFor-rescan('" + id + "'), '" + ranges.toString()
-						+ ", code='", code);
+				+ ", code='", code);
 		final MacroRanges newRanges = new MacroRanges(ranges.startIndex,
 				ranges.startIndex + ranges.addedElements);
 		this.definitionTable.resolve(id, code, newRanges);
@@ -158,6 +158,11 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			if (currState.state == MatchState.Invalid) {
 				return ranges.startIndex;
 			} else if (currState.state == MatchState.Done) {
+				list = this.getListForParamCount(replace, paramCount);
+				if (this.variadic && list.isEmpty()) {
+					Token t = TokenUtils.getWSToken();
+					list.add(t);
+				}
 				return i;
 			} else if (currState.state == MatchState.LookingForRightParen) {
 				// looking for right parentheses
@@ -256,6 +261,9 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 
 	private void removeWhitespaceFromList(final List<Token> list,
 			final int start, final int stop) {
+		if (list.size() <= 1) {
+			return;
+		}
 		for (int j = stop; ((j > 0) && (j < list.size()) && this.isWhitespace(
 				list, j)); j--) {
 			MyLog.trace("remove at stop index='" + j + "'");
@@ -568,20 +576,23 @@ public final class DefinitionFunctionMacro implements DefinitionMacro {
 			final boolean addTemporary) {
 		final String oldText = temp.getText();
 		MyLog.trace("addConcatenReplacement at '" + ranges.toString()
-				+ "' on token='" + text + "', temp='" + oldText + "'");
+				+ "' on token='" + text + "', temp='" + oldText
+				+ "', temporary='" + addTemporary + "'");
+		TokenUtils.print("addConcatenReplacement - begin, tempCode='", code);
 		if (addTemporary) {
 			this.addNormalReplacement(parenID, code, ranges, temp, oldText,
 					replace, false);
 		}
+		TokenUtils.print(
+				"addConcatenReplacement - afterAddTemporary, tempCode='", code);
 		final int insertionIndex = ranges.getCurrentInsertionIndex();
+		MyLog.trace("addConcatenReplacement, temp insertionIndex='"
+				+ insertionIndex + "'");
 		this.addNormalReplacement(parenID, code, ranges, token, text, replace,
 				false);
 		if ((insertionIndex < 0) || (insertionIndex >= code.size())) {
 			return;
 		}
-
-		MyLog.trace("addConcatenReplacement, temp insertionIndex='"
-				+ insertionIndex + "'");
 		TokenUtils.print("addConcatenReplacement, tempCode='", code);
 		final Token prev = code.get(insertionIndex - 1);
 		final Token next = code.get(insertionIndex);

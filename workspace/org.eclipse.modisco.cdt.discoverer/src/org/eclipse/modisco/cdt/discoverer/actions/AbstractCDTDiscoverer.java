@@ -40,6 +40,7 @@ public abstract class AbstractCDTDiscoverer<T> extends
 	private boolean setStdInclude = true;
 	private String includeDirs = "";
 	private String additionalDirectives = "";
+	private boolean trimPreprocessModel = false;
 	
 	protected final boolean isApplicableOn(final IResource resource) {
 		// System.out.println("isApplicableOn='" + resource + "'");
@@ -110,7 +111,7 @@ public abstract class AbstractCDTDiscoverer<T> extends
 		final Resource targetModel = this.createTargetModel();
 		final MyStore result = new MyStore(monitor, targetModel, resource,
 				this.setStdInclude, this.includeDirs,
-				this.getAdditionalDirectives());
+				this.getAdditionalDirectives(), this.trimPreprocessModel);
 		return result;
 	}
 	
@@ -218,6 +219,16 @@ public abstract class AbstractCDTDiscoverer<T> extends
 					+ "(e.g., <br/>#define FOO BAR<br/>#define BAR(x) #x<br/>#include &quot;include/myinclude.h&quot;")
 	public void setAdditionalDirectives(final String defines) {
 		this.additionalDirectives = defines;
+	}
+	
+	public boolean isTrimPreprocessModel() {
+		return this.trimPreprocessModel;
+	}
+	
+	@Parameter(name = "TRIM_PREPROCESS_MODEL", requiresInputValue = false,
+			description = "Remove code and empty lines from preprocessor model")
+	public void setTrimPreprocessModel(final boolean trimPreprocessModel) {
+		this.trimPreprocessModel = trimPreprocessModel;
 	}
 	
 }

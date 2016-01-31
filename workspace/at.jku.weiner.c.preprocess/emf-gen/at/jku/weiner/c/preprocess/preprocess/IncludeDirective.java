@@ -2,6 +2,7 @@
  */
 package at.jku.weiner.c.preprocess.preprocess;
 
+import at.jku.weiner.c.common.common.TranslationUnit;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.preprocess.preprocess.IncludeDirective#getString <em>String</em>}</li>
+ *   <li>{@link at.jku.weiner.c.preprocess.preprocess.IncludeDirective#getUnit <em>Unit</em>}</li>
  * </ul>
  *
  * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getIncludeDirective()
@@ -47,5 +49,31 @@ public interface IncludeDirective extends EObject
 	 * @generated
 	 */
 	void setString(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Unit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Unit</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Unit</em>' reference.
+	 * @see #setUnit(TranslationUnit)
+	 * @see at.jku.weiner.c.preprocess.preprocess.PreprocessPackage#getIncludeDirective_Unit()
+	 * @model
+	 * @generated
+	 */
+	TranslationUnit getUnit();
+
+	/**
+	 * Sets the value of the '{@link at.jku.weiner.c.preprocess.preprocess.IncludeDirective#getUnit <em>Unit</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Unit</em>' reference.
+	 * @see #getUnit()
+	 * @generated
+	 */
+	void setUnit(TranslationUnit value);
 
 } // IncludeDirective

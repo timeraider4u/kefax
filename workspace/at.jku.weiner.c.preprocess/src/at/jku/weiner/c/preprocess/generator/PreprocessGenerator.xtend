@@ -56,6 +56,7 @@ import at.jku.weiner.c.preprocess.utils.MyLog
 import org.eclipse.xtext.parser.antlr.ITokenDefProvider
 import at.jku.weiner.c.preprocess.parser.antlr.internal.InternalPreprocessLexer
 import at.jku.weiner.c.preprocess.utils.LexerUtils
+import at.jku.weiner.c.preprocess.utils.Trimmer
 
 /**
  * Generates code from your model files on save.
@@ -73,6 +74,7 @@ class PreprocessGenerator implements IGenerator {
 	@Accessors Injector commonInjector;
 	@Accessors boolean stdInclude = true;
 	@Accessors String additionalPreprocessingDirectives = null;
+	@Accessors boolean trimPreprocessModel = false;
 	
 	@Inject
 	IResourceValidator validator;
@@ -109,6 +111,7 @@ class PreprocessGenerator implements IGenerator {
 		val String result = additional + output;
 		MyLog.debug("generating output file='" + fileName + "'");
 		fsa.generateFile(fileName, result);
+		trimPreprocess(preprocess);
 	}
 	
 	def void setUp() {
@@ -301,8 +304,6 @@ class PreprocessGenerator implements IGenerator {
 		//val TranslationUnit unit = this.getUnitFor(res);
 		//val String output = outputFor(unit);
 		
-		
-
 		val Preprocess preprocess = this.getPreprocessFor(res, true);
 		if (this.unit != null && preprocess.eContainer == null) {
 			val Model model = this.unit.eContainer as Model;
@@ -313,6 +314,7 @@ class PreprocessGenerator implements IGenerator {
 			unit2.path = path;
 			model.units.add(unit2);
 			unit2.preprocess = preprocess;
+			obj.unit = unit2;
 		}
 		val String output = outputFor(preprocess);
 		
@@ -464,4 +466,12 @@ class PreprocessGenerator implements IGenerator {
 	def DefinitionTable getDefinitionTable() {
 		return this.definitionTable;
 	}
+	
+	def trimPreprocess(Preprocess preprocess) {
+		if (!this.trimPreprocessModel) {
+			return;
+		}
+		Trimmer.trimPreprocess(preprocess);
+	}
+	
 }

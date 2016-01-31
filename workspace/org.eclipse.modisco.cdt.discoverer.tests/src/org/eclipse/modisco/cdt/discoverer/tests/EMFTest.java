@@ -25,7 +25,8 @@ public class EMFTest {
 	private static String includeDirs = null;
 	private static String path3 = null;
 	private static String additionalDirectives = null;
-
+	private static boolean trimPreprocessModel = false;
+	
 	public static Map<String, Object> getOptions(
 			final String pureJavaClassFileName, final String sourceFile) {
 		EMFTest.firstCall();
@@ -39,11 +40,11 @@ public class EMFTest {
 		result.put("plugin_id", Activator.PLUGIN_ID);
 		return result;
 	}
-
+	
 	private static void firstCall() {
 		EMFTest.sleep();
 	}
-
+	
 	private static void sleep() {
 		if (EMFTest.firstCall) {
 			try {
@@ -54,7 +55,7 @@ public class EMFTest {
 			}
 		}
 	}
-
+	
 	public static Model emfTest(final String pureJavaClassFileName,
 			final String sourceFile) throws Exception {
 		EMFTest.firstCall();
@@ -63,17 +64,18 @@ public class EMFTest {
 		final String myIncludeDirs = EMFTest.includeDirs;
 		final boolean myStdInclude = EMFTest.stdInclude;
 		final String myDefines = EMFTest.additionalDirectives;
+		final boolean trimPreprocess = EMFTest.trimPreprocessModel;
 		EMFTest.stdInclude = true;
 		EMFTest.includeDirs = null;
 		EMFTest.additionalDirectives = null;
-
+		EMFTest.trimPreprocessModel = false;
+		
 		final TestUtils utils = new TestUtils(iProject, sourceFile,
-				myStdInclude, myIncludeDirs, myDefines);
-
+				myStdInclude, myIncludeDirs, myDefines, trimPreprocess);
 		final Model result = utils.getModel();
 		return result;
 	}
-
+	
 	private static void cleanUpOldProject() throws CoreException {
 		final IProject oldProject = ResourcesPlugin.getWorkspace().getRoot()
 				.getProject(Activator.PLUGIN_ID);
@@ -81,38 +83,43 @@ public class EMFTest {
 			oldProject.delete(true, true, new NullProgressMonitor());
 		}
 	}
-
+	
 	private static IProject getProject() throws Exception {
 		final Bundle bundle = Platform.getBundle(Activator.PLUGIN_ID);
 		final IProject project = ProjectUtils.importPlugin(bundle);
 		return project;
 	}
-
+	
 	public static void setNoStdInclude() {
 		EMFTest.stdInclude = false;
 	}
-
+	
 	public static void includeDirsIsEmpty() {
 		final List<String> list = IncludeDirs.getListCopy();
 		Assert.assertNotNull(list);
 		Assert.assertTrue(list.isEmpty());
 	}
-
+	
 	public static void includeDirsStringIsEmpty() {
 		Assert.assertNull(EMFTest.includeDirs);
 	}
-
+	
 	public static void addIncludeDir() {
 		EMFTest.includeDirs = EMFTest.path3 + File.separator
 				+ Activator.PLUGIN_ID + File.separator + "res/";
 	}
-
+	
 	public static void addDefine() {
 		EMFTest.additionalDirectives = "#define __MY_TYPE__ unsigned int";
 	}
-
+	
 	public static void addInclude() {
 		EMFTest.additionalDirectives = "#include \"../include/SimpleInclude.h\"";
 	}
-
+	
+	public static void doTrim() {
+		EMFTest.trimPreprocessModel = true;
+		EMFTest.stdInclude = false;
+	}
+	
 }

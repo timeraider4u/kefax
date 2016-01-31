@@ -19,17 +19,19 @@ public final class MyStore {
 	private final String includeDirs;
 	private final IResource resource;
 	private final String additionalPreprocessingDirectives;
+	private final boolean trimPreprocessModel;
 
 	public MyStore(final IProgressMonitor monitor, final Resource targetModel,
 			final IResource resource, final boolean stdInclude,
 			final String includeDirs,
-			final String additionalPreprocessingDirectives)
-			throws DiscoveryException {
+			final String additionalPreprocessingDirectives,
+			final boolean trimPreprocessModel) throws DiscoveryException {
 		this.monitor = monitor;
 		this.resource = resource;
 		this.stdInclude = stdInclude;
 		this.includeDirs = includeDirs;
 		this.additionalPreprocessingDirectives = additionalPreprocessingDirectives;
+		this.trimPreprocessModel = trimPreprocessModel;
 		this.factory = CommonFactory.eINSTANCE;
 		if (this.factory == null) {
 			throw new DiscoveryException("factory is null!");
@@ -69,6 +71,10 @@ public final class MyStore {
 	
 	public String getAdditionalPreprocessingDirectives() {
 		return this.additionalPreprocessingDirectives;
+	}
+
+	public boolean isTrimPreprocessModel() {
+		return trimPreprocessModel;
 	}
 
 }

@@ -1,0 +1,68 @@
+emftest
+package org.eclipse.modisco.cdt.discoverer.tests
+default at.jku.weiner.c.common.common
+imports at.jku.weiner.c.preprocess.preprocess as preprocess
+imports at.jku.weiner.c.parser.parser as parser
+
+class=EMFTest method=emfTest()
+options class=EMFTest method=getOptions() 
+
+source file="res/Test0010_TrimPreprocessModel"
+
+(Model
+	units+=
+	// Another predefined is loaded with -nostdinc
+	(TranslationUnit
+		
+	),
+	// File.c
+	(TranslationUnit
+		preprocess=
+		(preprocess::Preprocess
+			group=
+			(preprocess::GroupOpt
+				lines+=
+				(preprocess::PreprocessorDirectives
+					directive=
+					(preprocess::DefineObjectMacro
+						id++"FOO",
+						string++"bar"
+					)
+				)
+			)
+		),
+		parser=
+		(parser::Parser
+			external+=
+			(parser::ExternalDeclaration 
+				declaration=
+				(parser::Declaration
+					specifiers=
+					(parser::DeclarationSpecifiers
+						declarationSpecifier+=
+						(parser::TypeSpecifier
+							name++"int"
+						)
+					),
+					initDeclaratorList+=
+					(parser::InitDeclaratorList
+						initDeclarator+=
+						(parser::InitDeclarator
+							declarator=
+							(parser::Declarator
+								declarator=
+								(parser::DirectDeclarator
+									id++"bar"
+								)
+							)
+						)
+					),
+					semi++";"
+				)	
+			)
+		),
+		path++"${{path}}/${{plugin_id}}/${{sourceFile}}/File.c"
+	)
+)
+
+before class=org.eclipse.modisco.cdt.discoverer.tests.EMFTest method=doTrim()

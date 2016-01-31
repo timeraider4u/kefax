@@ -125,13 +125,22 @@ public interface PreprocessPackage extends EPackage
 	int INCLUDE_DIRECTIVE__STRING = 0;
 
 	/**
+	 * The feature id for the '<em><b>Unit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INCLUDE_DIRECTIVE__UNIT = 1;
+
+	/**
 	 * The number of structural features of the '<em>Include Directive</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INCLUDE_DIRECTIVE_FEATURE_COUNT = 1;
+	int INCLUDE_DIRECTIVE_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.DefineDirectiveImpl <em>Define Directive</em>}' class.
@@ -366,13 +375,22 @@ public interface PreprocessPackage extends EPackage
 	int IF_ABSTRACT_CONDITIONAL__BRANCH_TAKEN = 0;
 
 	/**
+	 * The feature id for the '<em><b>Group</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IF_ABSTRACT_CONDITIONAL__GROUP = 1;
+
+	/**
 	 * The number of structural features of the '<em>If Abstract Conditional</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IF_ABSTRACT_CONDITIONAL_FEATURE_COUNT = 1;
+	int IF_ABSTRACT_CONDITIONAL_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.IfConditionalImpl <em>If Conditional</em>}' class.
@@ -394,6 +412,15 @@ public interface PreprocessPackage extends EPackage
 	int IF_CONDITIONAL__BRANCH_TAKEN = IF_ABSTRACT_CONDITIONAL__BRANCH_TAKEN;
 
 	/**
+	 * The feature id for the '<em><b>Group</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IF_CONDITIONAL__GROUP = IF_ABSTRACT_CONDITIONAL__GROUP;
+
+	/**
 	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -403,22 +430,13 @@ public interface PreprocessPackage extends EPackage
 	int IF_CONDITIONAL__EXPRESSION = IF_ABSTRACT_CONDITIONAL_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Group</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IF_CONDITIONAL__GROUP = IF_ABSTRACT_CONDITIONAL_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>If Conditional</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IF_CONDITIONAL_FEATURE_COUNT = IF_ABSTRACT_CONDITIONAL_FEATURE_COUNT + 2;
+	int IF_CONDITIONAL_FEATURE_COUNT = IF_ABSTRACT_CONDITIONAL_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.IfDefConditionalImpl <em>If Def Conditional</em>}' class.
@@ -440,6 +458,15 @@ public interface PreprocessPackage extends EPackage
 	int IF_DEF_CONDITIONAL__BRANCH_TAKEN = IF_ABSTRACT_CONDITIONAL__BRANCH_TAKEN;
 
 	/**
+	 * The feature id for the '<em><b>Group</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IF_DEF_CONDITIONAL__GROUP = IF_ABSTRACT_CONDITIONAL__GROUP;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -449,22 +476,13 @@ public interface PreprocessPackage extends EPackage
 	int IF_DEF_CONDITIONAL__ID = IF_ABSTRACT_CONDITIONAL_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Group</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IF_DEF_CONDITIONAL__GROUP = IF_ABSTRACT_CONDITIONAL_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>If Def Conditional</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IF_DEF_CONDITIONAL_FEATURE_COUNT = IF_ABSTRACT_CONDITIONAL_FEATURE_COUNT + 2;
+	int IF_DEF_CONDITIONAL_FEATURE_COUNT = IF_ABSTRACT_CONDITIONAL_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.IfNotDefConditionalImpl <em>If Not Def Conditional</em>}' class.
@@ -486,6 +504,15 @@ public interface PreprocessPackage extends EPackage
 	int IF_NOT_DEF_CONDITIONAL__BRANCH_TAKEN = IF_ABSTRACT_CONDITIONAL__BRANCH_TAKEN;
 
 	/**
+	 * The feature id for the '<em><b>Group</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IF_NOT_DEF_CONDITIONAL__GROUP = IF_ABSTRACT_CONDITIONAL__GROUP;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -495,22 +522,13 @@ public interface PreprocessPackage extends EPackage
 	int IF_NOT_DEF_CONDITIONAL__ID = IF_ABSTRACT_CONDITIONAL_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Group</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IF_NOT_DEF_CONDITIONAL__GROUP = IF_ABSTRACT_CONDITIONAL_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>If Not Def Conditional</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IF_NOT_DEF_CONDITIONAL_FEATURE_COUNT = IF_ABSTRACT_CONDITIONAL_FEATURE_COUNT + 2;
+	int IF_NOT_DEF_CONDITIONAL_FEATURE_COUNT = IF_ABSTRACT_CONDITIONAL_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.ElIfConditionalImpl <em>El If Conditional</em>}' class.
@@ -532,6 +550,15 @@ public interface PreprocessPackage extends EPackage
 	int EL_IF_CONDITIONAL__BRANCH_TAKEN = IF_ABSTRACT_CONDITIONAL__BRANCH_TAKEN;
 
 	/**
+	 * The feature id for the '<em><b>Group</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EL_IF_CONDITIONAL__GROUP = IF_ABSTRACT_CONDITIONAL__GROUP;
+
+	/**
 	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -541,22 +568,13 @@ public interface PreprocessPackage extends EPackage
 	int EL_IF_CONDITIONAL__EXPRESSION = IF_ABSTRACT_CONDITIONAL_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Group</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EL_IF_CONDITIONAL__GROUP = IF_ABSTRACT_CONDITIONAL_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>El If Conditional</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EL_IF_CONDITIONAL_FEATURE_COUNT = IF_ABSTRACT_CONDITIONAL_FEATURE_COUNT + 2;
+	int EL_IF_CONDITIONAL_FEATURE_COUNT = IF_ABSTRACT_CONDITIONAL_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.ElseConditionalImpl <em>Else Conditional</em>}' class.
@@ -584,7 +602,7 @@ public interface PreprocessPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int ELSE_CONDITIONAL__GROUP = IF_ABSTRACT_CONDITIONAL_FEATURE_COUNT + 0;
+	int ELSE_CONDITIONAL__GROUP = IF_ABSTRACT_CONDITIONAL__GROUP;
 
 	/**
 	 * The number of structural features of the '<em>Else Conditional</em>' class.
@@ -593,7 +611,7 @@ public interface PreprocessPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int ELSE_CONDITIONAL_FEATURE_COUNT = IF_ABSTRACT_CONDITIONAL_FEATURE_COUNT + 1;
+	int ELSE_CONDITIONAL_FEATURE_COUNT = IF_ABSTRACT_CONDITIONAL_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.PragmaDirectiveImpl <em>Pragma Directive</em>}' class.
@@ -1002,6 +1020,17 @@ public interface PreprocessPackage extends EPackage
 	EAttribute getIncludeDirective_String();
 
 	/**
+	 * Returns the meta object for the reference '{@link at.jku.weiner.c.preprocess.preprocess.IncludeDirective#getUnit <em>Unit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Unit</em>'.
+	 * @see at.jku.weiner.c.preprocess.preprocess.IncludeDirective#getUnit()
+	 * @see #getIncludeDirective()
+	 * @generated
+	 */
+	EReference getIncludeDirective_Unit();
+
+	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.preprocess.preprocess.DefineDirective <em>Define Directive</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1204,17 +1233,6 @@ public interface PreprocessPackage extends EPackage
 	EReference getIfConditional_Expression();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link at.jku.weiner.c.preprocess.preprocess.IfConditional#getGroup <em>Group</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Group</em>'.
-	 * @see at.jku.weiner.c.preprocess.preprocess.IfConditional#getGroup()
-	 * @see #getIfConditional()
-	 * @generated
-	 */
-	EReference getIfConditional_Group();
-
-	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.preprocess.preprocess.IfDefConditional <em>If Def Conditional</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1234,17 +1252,6 @@ public interface PreprocessPackage extends EPackage
 	 * @generated
 	 */
 	EAttribute getIfDefConditional_Id();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link at.jku.weiner.c.preprocess.preprocess.IfDefConditional#getGroup <em>Group</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Group</em>'.
-	 * @see at.jku.weiner.c.preprocess.preprocess.IfDefConditional#getGroup()
-	 * @see #getIfDefConditional()
-	 * @generated
-	 */
-	EReference getIfDefConditional_Group();
 
 	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.preprocess.preprocess.IfNotDefConditional <em>If Not Def Conditional</em>}'.
@@ -1268,17 +1275,6 @@ public interface PreprocessPackage extends EPackage
 	EAttribute getIfNotDefConditional_Id();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link at.jku.weiner.c.preprocess.preprocess.IfNotDefConditional#getGroup <em>Group</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Group</em>'.
-	 * @see at.jku.weiner.c.preprocess.preprocess.IfNotDefConditional#getGroup()
-	 * @see #getIfNotDefConditional()
-	 * @generated
-	 */
-	EReference getIfNotDefConditional_Group();
-
-	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.preprocess.preprocess.ElIfConditional <em>El If Conditional</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1300,17 +1296,6 @@ public interface PreprocessPackage extends EPackage
 	EReference getElIfConditional_Expression();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link at.jku.weiner.c.preprocess.preprocess.ElIfConditional#getGroup <em>Group</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Group</em>'.
-	 * @see at.jku.weiner.c.preprocess.preprocess.ElIfConditional#getGroup()
-	 * @see #getElIfConditional()
-	 * @generated
-	 */
-	EReference getElIfConditional_Group();
-
-	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.preprocess.preprocess.ElseConditional <em>Else Conditional</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1319,17 +1304,6 @@ public interface PreprocessPackage extends EPackage
 	 * @generated
 	 */
 	EClass getElseConditional();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link at.jku.weiner.c.preprocess.preprocess.ElseConditional#getGroup <em>Group</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Group</em>'.
-	 * @see at.jku.weiner.c.preprocess.preprocess.ElseConditional#getGroup()
-	 * @see #getElseConditional()
-	 * @generated
-	 */
-	EReference getElseConditional_Group();
 
 	/**
 	 * Returns the meta object for class '{@link at.jku.weiner.c.preprocess.preprocess.PragmaDirective <em>Pragma Directive</em>}'.
@@ -1584,6 +1558,17 @@ public interface PreprocessPackage extends EPackage
 	EAttribute getIfAbstractConditional_BranchTaken();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link at.jku.weiner.c.preprocess.preprocess.IfAbstractConditional#getGroup <em>Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Group</em>'.
+	 * @see at.jku.weiner.c.preprocess.preprocess.IfAbstractConditional#getGroup()
+	 * @see #getIfAbstractConditional()
+	 * @generated
+	 */
+	EReference getIfAbstractConditional_Group();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1651,6 +1636,14 @@ public interface PreprocessPackage extends EPackage
 		 * @generated
 		 */
 		EAttribute INCLUDE_DIRECTIVE__STRING = eINSTANCE.getIncludeDirective_String();
+
+		/**
+		 * The meta object literal for the '<em><b>Unit</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INCLUDE_DIRECTIVE__UNIT = eINSTANCE.getIncludeDirective_Unit();
 
 		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.DefineDirectiveImpl <em>Define Directive</em>}' class.
@@ -1819,14 +1812,6 @@ public interface PreprocessPackage extends EPackage
 		EReference IF_CONDITIONAL__EXPRESSION = eINSTANCE.getIfConditional_Expression();
 
 		/**
-		 * The meta object literal for the '<em><b>Group</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference IF_CONDITIONAL__GROUP = eINSTANCE.getIfConditional_Group();
-
-		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.IfDefConditionalImpl <em>If Def Conditional</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1843,14 +1828,6 @@ public interface PreprocessPackage extends EPackage
 		 * @generated
 		 */
 		EAttribute IF_DEF_CONDITIONAL__ID = eINSTANCE.getIfDefConditional_Id();
-
-		/**
-		 * The meta object literal for the '<em><b>Group</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference IF_DEF_CONDITIONAL__GROUP = eINSTANCE.getIfDefConditional_Group();
 
 		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.IfNotDefConditionalImpl <em>If Not Def Conditional</em>}' class.
@@ -1871,14 +1848,6 @@ public interface PreprocessPackage extends EPackage
 		EAttribute IF_NOT_DEF_CONDITIONAL__ID = eINSTANCE.getIfNotDefConditional_Id();
 
 		/**
-		 * The meta object literal for the '<em><b>Group</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference IF_NOT_DEF_CONDITIONAL__GROUP = eINSTANCE.getIfNotDefConditional_Group();
-
-		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.ElIfConditionalImpl <em>El If Conditional</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1897,14 +1866,6 @@ public interface PreprocessPackage extends EPackage
 		EReference EL_IF_CONDITIONAL__EXPRESSION = eINSTANCE.getElIfConditional_Expression();
 
 		/**
-		 * The meta object literal for the '<em><b>Group</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference EL_IF_CONDITIONAL__GROUP = eINSTANCE.getElIfConditional_Group();
-
-		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.ElseConditionalImpl <em>Else Conditional</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1913,14 +1874,6 @@ public interface PreprocessPackage extends EPackage
 		 * @generated
 		 */
 		EClass ELSE_CONDITIONAL = eINSTANCE.getElseConditional();
-
-		/**
-		 * The meta object literal for the '<em><b>Group</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ELSE_CONDITIONAL__GROUP = eINSTANCE.getElseConditional_Group();
 
 		/**
 		 * The meta object literal for the '{@link at.jku.weiner.c.preprocess.preprocess.impl.PragmaDirectiveImpl <em>Pragma Directive</em>}' class.
@@ -2137,6 +2090,14 @@ public interface PreprocessPackage extends EPackage
 		 * @generated
 		 */
 		EAttribute IF_ABSTRACT_CONDITIONAL__BRANCH_TAKEN = eINSTANCE.getIfAbstractConditional_BranchTaken();
+
+		/**
+		 * The meta object literal for the '<em><b>Group</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IF_ABSTRACT_CONDITIONAL__GROUP = eINSTANCE.getIfAbstractConditional_Group();
 
 	}
 

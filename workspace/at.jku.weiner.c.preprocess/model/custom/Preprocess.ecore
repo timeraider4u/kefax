@@ -9,6 +9,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="SourceCodeLine"/>
   <eClassifiers xsi:type="ecore:EClass" name="IncludeDirective">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="string" eType="ecore:EDataType ../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unit" eType="ecore:EClass ../../../at.jku.weiner.c.common/model/custom/Common.ecore#//TranslationUnit"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DefineDirective">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType ../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
@@ -40,29 +41,18 @@
   <eClassifiers xsi:type="ecore:EClass" name="IfConditional" eSuperTypes="#//IfAbstractConditional">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="ecore:EClass ../../../at.jku.weiner.c.common/model/custom/Common.ecore#//Expression"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="group" eType="#//GroupOpt"
-        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IfDefConditional" eSuperTypes="#//IfAbstractConditional">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType ../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="group" eType="#//GroupOpt"
-        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IfNotDefConditional" eSuperTypes="#//IfAbstractConditional">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType ../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="group" eType="#//GroupOpt"
-        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ElIfConditional" eSuperTypes="#//IfAbstractConditional">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="ecore:EClass ../../../at.jku.weiner.c.common/model/custom/Common.ecore#//Expression"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="group" eType="#//GroupOpt"
-        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ElseConditional" eSuperTypes="#//IfAbstractConditional">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="group" eType="#//GroupOpt"
-        containment="true"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ElseConditional" eSuperTypes="#//IfAbstractConditional"/>
   <eClassifiers xsi:type="ecore:EClass" name="PragmaDirective">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pragma" eType="ecore:EDataType ../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
   </eClassifiers>
@@ -98,5 +88,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IfAbstractConditional">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="branchTaken" eType="ecore:EDataType ../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="group" eType="#//GroupOpt"
+        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

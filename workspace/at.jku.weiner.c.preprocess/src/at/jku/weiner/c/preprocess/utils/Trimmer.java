@@ -19,6 +19,7 @@ public class Trimmer {
 		if (preprocess == null) {
 			return;
 		}
+		MyLog.log("trimPreprocess");
 		final GroupOpt group = preprocess.getGroup();
 		Trimmer.trimGroup(group);
 	}
@@ -47,6 +48,7 @@ public class Trimmer {
 		if (unit == null) {
 			return;
 		}
+		MyLog.log("TrimInclude='" + unit.getPath() + "'");
 		final Preprocess preprocess = (Preprocess) unit.getPreprocess();
 		Trimmer.trimPreprocess(preprocess);
 	}

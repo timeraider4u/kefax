@@ -135,6 +135,9 @@ public class Main {
 			System.out.println("stdInclude='" + stdInclude + "'");
 			final String inFile = args.getInFile();
 			System.out.println("inFile='" + inFile + "'");
+			if (inFile == null) {
+				continue;
+			}
 			// get discoverer resource input file
 			final IResource inFileRes = linux.findMember(inFile);
 			if ((inFileRes == null) || !inFileRes.isAccessible()) {

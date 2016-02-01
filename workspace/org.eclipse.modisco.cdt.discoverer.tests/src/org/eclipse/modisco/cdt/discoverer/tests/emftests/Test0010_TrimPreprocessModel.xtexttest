@@ -24,6 +24,12 @@ source file="res/Test0010_TrimPreprocessModel"
 				lines+=
 				(preprocess::PreprocessorDirectives
 					directive=
+					(preprocess::IncludeDirective
+						string++"\\\"../include/SimpleInclude.h\\\""
+					)
+				),
+				(preprocess::PreprocessorDirectives
+					directive=
 					(preprocess::DefineObjectMacro
 						id++"FOO",
 						string++"bar"
@@ -34,6 +40,44 @@ source file="res/Test0010_TrimPreprocessModel"
 		parser=
 		(parser::Parser
 			external+=
+			// comes from SimpleInclude.h
+			(parser::ExternalDeclaration 
+				declaration=
+				(parser::Declaration
+					specifiers=
+					(parser::DeclarationSpecifiers
+						declarationSpecifier+=
+						(parser::StorageClassSpecifier
+							name++"extern"
+						),
+						(parser::TypeSpecifier
+							name++"int"
+						)
+					),
+					initDeclaratorList+=
+					(parser::InitDeclaratorList
+						initDeclarator+=
+						(parser::InitDeclarator
+							declarator=
+							(parser::Declarator
+								declarator=
+								(parser::DirectDeclarator
+									id++"getValue",
+									declaratorSuffix+=
+									(parser::DeclaratorSuffix
+										lastSuffix=
+										(parser::DirectDeclaratorLastSuffix
+											
+										)
+									)
+								)
+							)
+						)
+					),
+					semi++";"
+				)	
+			),
+			// comes from File.c
 			(parser::ExternalDeclaration 
 				declaration=
 				(parser::Declaration
@@ -59,9 +103,55 @@ source file="res/Test0010_TrimPreprocessModel"
 					),
 					semi++";"
 				)	
+			),
+			(parser::ExternalDeclaration 
+				declaration=
+				(parser::Declaration
+					specifiers=
+					(parser::DeclarationSpecifiers
+						declarationSpecifier+=
+						(parser::TypeSpecifier
+							// macro expanded
+							name++"int"
+						)
+					),
+					initDeclaratorList+=
+					(parser::InitDeclaratorList
+						initDeclarator+=
+						(parser::InitDeclarator
+							declarator=
+							(parser::Declarator
+								declarator=
+								(parser::DirectDeclarator
+									id++"foobar"
+								)
+							)
+						)
+					),
+					semi++";"
+				)	
 			)
 		),
 		path++"${{path}}/${{plugin_id}}/${{sourceFile}}/File.c"
+	),
+	// SimpleInclude.h
+	(TranslationUnit
+		path++"${{path}}/${{plugin_id}}/res/include/SimpleInclude.h",
+		preprocess=
+		(preprocess::Preprocess
+			group=
+			(preprocess::GroupOpt
+				lines+=
+				(preprocess::PreprocessorDirectives
+					directive=
+					(preprocess::DefineObjectMacro
+						id++"NUMBER",
+						string++"int"
+					)
+				)
+			)
+		),
+		parser isNull
 	)
 )
 

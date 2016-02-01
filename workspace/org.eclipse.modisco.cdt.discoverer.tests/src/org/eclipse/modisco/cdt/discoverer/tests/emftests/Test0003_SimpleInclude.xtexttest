@@ -47,6 +47,7 @@ source file="res/Test0003_SimpleInclude"
 		parser=
 		(parser::Parser
 			external+=
+			// comes from SimpleInclude.h
 			(parser::ExternalDeclaration 
 				declaration=
 				(parser::Declaration
@@ -83,6 +84,7 @@ source file="res/Test0003_SimpleInclude"
 					semi++";"
 				)	
 			),
+			// comes from SimpleInclude.c
 			(parser::ExternalDeclaration 
 				functiondefHead=
 				(parser::FunctionDefHead

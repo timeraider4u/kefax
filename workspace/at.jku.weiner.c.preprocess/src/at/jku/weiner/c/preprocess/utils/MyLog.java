@@ -10,7 +10,7 @@ public class MyLog {
 	public static final int LOG_TRACE = 5;
 
 	// private static final int log_level = MyLog.LOG_NONE;
-	
+
 	private static final int log_level = MyLog.LOG_INFO;
 
 	// private static final int log_level = MyLog.LOG_DEBUG;

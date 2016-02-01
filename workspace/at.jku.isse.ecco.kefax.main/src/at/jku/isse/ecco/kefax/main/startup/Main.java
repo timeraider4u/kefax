@@ -11,13 +11,16 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.modisco.cdt.discoverer.actions.DiscoverCDTFromIResource;
-import org.eclipse.ui.IStartup;
 import org.eclipse.xtext.resource.IResourceFactory;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
@@ -34,10 +37,22 @@ import at.jku.weiner.c.cmdarguments.ui.internal.CmdArgsActivator;
 
 import com.google.inject.Injector;
 
-public class Main implements IStartup {
-	
-	@Override
-	public void earlyStartup() {
+public class Main {
+
+	public void start() {
+		Job job = new Job("at.jku.weiner.kefax.job") {
+			@Override
+			protected IStatus run(final IProgressMonitor monitor) {
+				Main.this.run1();
+				return Status.OK_STATUS;
+			}
+		};
+
+		// Start the Job
+		job.schedule();
+	}
+
+	private void run1() {
 		final Date start = new Date();
 		try {
 			Thread.sleep(1000);
@@ -56,7 +71,7 @@ public class Main implements IStartup {
 				+ "' seconds for parsing!");
 		System.out.println("at.jku.weiner.kefax.main - End of program!");
 	}
-	
+
 	private void run2() throws Exception {
 		final IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
 		final IProject project = root.getProject("HelloC");
@@ -135,14 +150,14 @@ public class Main implements IStartup {
 			discoverer.discoverElement(inFileRes, new NullProgressMonitor());
 		}
 	}
-	
+
 	private final Resource loadResource(final Injector injector,
 			final IFile iFile) throws Exception {
 		final IResourceFactory resourceFactory = injector
 				.getInstance(IResourceFactory.class);
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(
 				".cmd", resourceFactory);
-		
+
 		final IProject iProject = iFile.getProject();
 		final XtextResourceSetProvider provider = injector
 				.getInstance(XtextResourceSetProvider.class);
@@ -157,7 +172,7 @@ public class Main implements IStartup {
 		final Resource resource = resourceSet.getResource(uri, true);
 		return resource;
 	}
-	
+
 	private final void validateResource(final Injector injector,
 			final Resource resource) throws Exception {
 		// validate the resource
@@ -171,12 +186,12 @@ public class Main implements IStartup {
 					+ "': " + list.toString());
 		}
 	}
-	
+
 	private void error(final String text) {
 		System.err.println("at.jku.weiner.kefax.main: text='" + text + "'");
 		throw new RuntimeException(text);
 	}
-	
+
 	@SuppressWarnings("unused")
 	private void run() throws IOException {
 		final File linuxSrcDir = Settings.DEFAULT_LINUX_DIR;
@@ -196,7 +211,7 @@ public class Main implements IStartup {
 		System.out.println("Using '" + linuxSrcDirPath
 				+ "' as linux source directory!");
 		System.out.println("Using '" + outDirPath + "' as output directory!");
-		
+
 		final File dotConfigFile = DotConfig.getDotConfigFile(linuxSrcDir,
 				linuxSrcDirPath);
 		final String dotConfig = dotConfigFile.getAbsolutePath();
@@ -210,7 +225,7 @@ public class Main implements IStartup {
 		DotConfig.createDefineFile(defineFile, defineFilePath, configs);
 		ReadLinuxBuildFilesLog.run();
 	}
-	
+
 	@SuppressWarnings("unused")
 	private static File parseLinuxSourceDir(final String[] args) {
 		if ((args == null) || (args.length <= 0)) {
@@ -226,5 +241,5 @@ public class Main implements IStartup {
 		}
 		return srcDir;
 	}
-	
+
 }

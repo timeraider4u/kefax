@@ -1,8 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
- 	<extension point="org.eclipse.ui.startup">
- 		<startup class="at.jku.isse.ecco.kefax.main.startup.Main"/>
- 	</extension>
+  <extension
+        point="org.eclipse.ui.commands">
+     <command
+           defaultHandler="at.jku.weiner.kefax.main.MainHandler"
+           id="at.jku.weiner.kefax.main.command"
+           name="MainCommand">
+     </command>
+  </extension>
+  <extension
+        point="org.eclipse.ui.menus">
+     <menuContribution
+           allPopups="false"
+           locationURI="menu:org.eclipse.ui.main.menu">
+        <menu
+              id="at.jku.weiner.kefax.main.filemenu"
+              label="KeFaX">
+           <command
+                 commandId="at.jku.weiner.kefax.main.command"
+                 label="Discovering KeFaX"
+                 style="push"
+                 tooltip="Start discovering">
+           </command>
+        </menu>
+     </menuContribution>
+  </extension>
  	
 </plugin>

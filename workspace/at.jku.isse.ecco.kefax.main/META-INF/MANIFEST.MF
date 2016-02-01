@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: MyTestPlugin
-Bundle-SymbolicName: MyTestPlugin;singleton:=true
+Bundle-Name: at.jku.weiner.kefax.main
+Bundle-SymbolicName: at.jku.weiner.kefax.main;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: at.jku.isse.ecco.kefax.main.Activator
 Require-Bundle: org.eclipse.ui,

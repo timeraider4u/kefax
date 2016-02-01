@@ -34,6 +34,33 @@ source file="res/Test0010_TrimPreprocessModel"
 						id++"FOO",
 						string++"bar"
 					)
+				),
+				(preprocess::PreprocessorDirectives
+					directive=
+					(preprocess::ConditionalDirective
+						conditional=
+						(preprocess::IfDefConditional
+							id++"FOO",
+							group=
+							(preprocess::GroupOpt
+								lines+=
+								(preprocess::PreprocessorDirectives
+									directive=
+									(preprocess::DefineObjectMacro
+										id++"SOMETHING",
+										string++"baz"
+									)
+								)
+							)
+						),
+						else=
+						(preprocess::ElseConditional
+							group=
+							(preprocess::GroupOpt
+								lines isEmpty
+							)
+						)
+					)
 				)
 			)
 		),

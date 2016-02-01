@@ -4,3 +4,10 @@
 
 int FOO;
 NUMBER foobar;
+
+#ifdef FOO
+	// something
+	#define SOMETHING baz
+#else
+	// something else
+#endif

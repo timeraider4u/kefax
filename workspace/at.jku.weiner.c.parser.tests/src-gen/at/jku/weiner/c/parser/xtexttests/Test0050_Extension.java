@@ -203,8 +203,6 @@ public class Test0050_Extension {
 		);
 		Assert.assertEquals("i", DirectDeclarator_9_Var
 		.getId());
-		Assert.assertEquals(";", Declaration_2_Var
-		.getSemi());
 	}
 	
 	@Test

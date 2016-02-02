@@ -87,8 +87,7 @@ source file="res/Test0009_SimpleIncludeWithAdditionalInclude"
 								)
 							)
 						)
-					),
-					semi++";"
+					)
 				)	
 			),
 			(parser::ExternalDeclaration 
@@ -198,8 +197,7 @@ source file="res/Test0009_SimpleIncludeWithAdditionalInclude"
 											)
 										)
 									), // end expression
-									return++"return",
-									semi++";"
+									return++"return"
 								) // end jump statement
 							) // end return statement
 						)

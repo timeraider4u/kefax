@@ -216,22 +216,13 @@ public interface ParserPackage extends EPackage
   int DECLARATION__INIT_DECLARATOR_LIST = 1;
 
   /**
-   * The feature id for the '<em><b>Semi</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DECLARATION__SEMI = 2;
-
-  /**
    * The number of structural features of the '<em>Declaration</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DECLARATION_FEATURE_COUNT = 3;
+  int DECLARATION_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.FunctionDeclarationSpecifiersImpl <em>Function Declaration Specifiers</em>}' class.
@@ -2482,22 +2473,13 @@ public interface ParserPackage extends EPackage
   int EXPRESSION_STATEMENT__EXPRESSION = STATEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Semi</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION_STATEMENT__SEMI = STATEMENT_FEATURE_COUNT + 1;
-
-  /**
    * The number of structural features of the '<em>Expression Statement</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRESSION_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
+  int EXPRESSION_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.SelectionStatementImpl <em>Selection Statement</em>}' class.
@@ -2728,22 +2710,13 @@ public interface ParserPackage extends EPackage
   int JUMP_STATEMENT__CONTINUE = STATEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Semi</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int JUMP_STATEMENT__SEMI = STATEMENT_FEATURE_COUNT + 1;
-
-  /**
    * The feature id for the '<em><b>Break</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int JUMP_STATEMENT__BREAK = STATEMENT_FEATURE_COUNT + 2;
+  int JUMP_STATEMENT__BREAK = STATEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Return</b></em>' attribute.
@@ -2752,7 +2725,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int JUMP_STATEMENT__RETURN = STATEMENT_FEATURE_COUNT + 3;
+  int JUMP_STATEMENT__RETURN = STATEMENT_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -2761,7 +2734,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int JUMP_STATEMENT__EXPR = STATEMENT_FEATURE_COUNT + 4;
+  int JUMP_STATEMENT__EXPR = STATEMENT_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Goto</b></em>' attribute.
@@ -2770,7 +2743,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int JUMP_STATEMENT__GOTO = STATEMENT_FEATURE_COUNT + 5;
+  int JUMP_STATEMENT__GOTO = STATEMENT_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>Jump Statement</em>' class.
@@ -2779,7 +2752,7 @@ public interface ParserPackage extends EPackage
    * @generated
    * @ordered
    */
-  int JUMP_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 6;
+  int JUMP_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.AsmStatementImpl <em>Asm Statement</em>}' class.
@@ -2846,22 +2819,13 @@ public interface ParserPackage extends EPackage
   int ASM_STATEMENT__LAST_COMMA = STATEMENT_FEATURE_COUNT + 4;
 
   /**
-   * The feature id for the '<em><b>Semi</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ASM_STATEMENT__SEMI = STATEMENT_FEATURE_COUNT + 5;
-
-  /**
    * The number of structural features of the '<em>Asm Statement</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ASM_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 6;
+  int ASM_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link at.jku.weiner.c.parser.parser.impl.AssignmentExpressionImpl <em>Assignment Expression</em>}' class.
@@ -4233,17 +4197,6 @@ public interface ParserPackage extends EPackage
    * @generated
    */
   EReference getDeclaration_InitDeclaratorList();
-
-  /**
-   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.Declaration#getSemi <em>Semi</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Semi</em>'.
-   * @see at.jku.weiner.c.parser.parser.Declaration#getSemi()
-   * @see #getDeclaration()
-   * @generated
-   */
-  EAttribute getDeclaration_Semi();
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.FunctionDeclarationSpecifiers <em>Function Declaration Specifiers</em>}'.
@@ -6099,17 +6052,6 @@ public interface ParserPackage extends EPackage
   EReference getExpressionStatement_Expression();
 
   /**
-   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.ExpressionStatement#getSemi <em>Semi</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Semi</em>'.
-   * @see at.jku.weiner.c.parser.parser.ExpressionStatement#getSemi()
-   * @see #getExpressionStatement()
-   * @generated
-   */
-  EAttribute getExpressionStatement_Semi();
-
-  /**
    * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.SelectionStatement <em>Selection Statement</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6327,17 +6269,6 @@ public interface ParserPackage extends EPackage
   EAttribute getJumpStatement_Continue();
 
   /**
-   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.JumpStatement#getSemi <em>Semi</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Semi</em>'.
-   * @see at.jku.weiner.c.parser.parser.JumpStatement#getSemi()
-   * @see #getJumpStatement()
-   * @generated
-   */
-  EAttribute getJumpStatement_Semi();
-
-  /**
    * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.JumpStatement#getBreak <em>Break</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6445,17 +6376,6 @@ public interface ParserPackage extends EPackage
    * @generated
    */
   EAttribute getAsmStatement_LastComma();
-
-  /**
-   * Returns the meta object for the attribute '{@link at.jku.weiner.c.parser.parser.AsmStatement#getSemi <em>Semi</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Semi</em>'.
-   * @see at.jku.weiner.c.parser.parser.AsmStatement#getSemi()
-   * @see #getAsmStatement()
-   * @generated
-   */
-  EAttribute getAsmStatement_Semi();
 
   /**
    * Returns the meta object for class '{@link at.jku.weiner.c.parser.parser.AssignmentExpression <em>Assignment Expression</em>}'.
@@ -7412,14 +7332,6 @@ public interface ParserPackage extends EPackage
      * @generated
      */
     EReference DECLARATION__INIT_DECLARATOR_LIST = eINSTANCE.getDeclaration_InitDeclaratorList();
-
-    /**
-     * The meta object literal for the '<em><b>Semi</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute DECLARATION__SEMI = eINSTANCE.getDeclaration_Semi();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.FunctionDeclarationSpecifiersImpl <em>Function Declaration Specifiers</em>}' class.
@@ -8936,14 +8848,6 @@ public interface ParserPackage extends EPackage
     EReference EXPRESSION_STATEMENT__EXPRESSION = eINSTANCE.getExpressionStatement_Expression();
 
     /**
-     * The meta object literal for the '<em><b>Semi</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute EXPRESSION_STATEMENT__SEMI = eINSTANCE.getExpressionStatement_Semi();
-
-    /**
      * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.SelectionStatementImpl <em>Selection Statement</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -9110,14 +9014,6 @@ public interface ParserPackage extends EPackage
     EAttribute JUMP_STATEMENT__CONTINUE = eINSTANCE.getJumpStatement_Continue();
 
     /**
-     * The meta object literal for the '<em><b>Semi</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute JUMP_STATEMENT__SEMI = eINSTANCE.getJumpStatement_Semi();
-
-    /**
      * The meta object literal for the '<em><b>Break</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -9198,14 +9094,6 @@ public interface ParserPackage extends EPackage
      * @generated
      */
     EAttribute ASM_STATEMENT__LAST_COMMA = eINSTANCE.getAsmStatement_LastComma();
-
-    /**
-     * The meta object literal for the '<em><b>Semi</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ASM_STATEMENT__SEMI = eINSTANCE.getAsmStatement_Semi();
 
     /**
      * The meta object literal for the '{@link at.jku.weiner.c.parser.parser.impl.AssignmentExpressionImpl <em>Assignment Expression</em>}' class.

@@ -569,8 +569,6 @@ public class Test0060_MultipleStringsInArgument {
 		);
 		Assert.assertEquals("[\"abc\", \"def\"]", PrimaryExpression_48_Var
 		.getString().toString());
-		Assert.assertEquals(";", ExpressionStatement_13_Var
-		.getSemi());
 	}
 	
 	@Test

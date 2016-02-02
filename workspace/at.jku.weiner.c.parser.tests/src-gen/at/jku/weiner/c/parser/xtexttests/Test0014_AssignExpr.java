@@ -1101,8 +1101,6 @@ public class Test0014_AssignExpr {
 		);
 		Assert.assertEquals("21", Constant2_106_Var
 		.getDec());
-		Assert.assertEquals(";", ExpressionStatement_61_Var
-		.getSemi());
 	}
 	
 	@Test

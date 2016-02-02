@@ -200,8 +200,6 @@ public class Test0008_AddDefine {
 		);
 		Assert.assertEquals("var1", DirectDeclarator_16_Var
 		.getId());
-		Assert.assertEquals(";", Declaration_9_Var
-		.getSemi());
 		Assert.assertEquals("" + options.get("path") + "/" + options.get("plugin_id") + "/" + options.get("sourceFile") + "/Simple.c", TranslationUnit_3_Var
 		.getPath());
 	}

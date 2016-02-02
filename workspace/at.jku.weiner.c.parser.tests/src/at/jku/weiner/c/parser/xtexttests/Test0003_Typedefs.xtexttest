@@ -44,8 +44,7 @@ KW_INT WHITESPACE ID SKW_SEMI NEWLINE
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		),
 		// typedef int NUMBER1
@@ -74,8 +73,7 @@ KW_INT WHITESPACE ID SKW_SEMI NEWLINE
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		),
 		// int b;
@@ -102,8 +100,7 @@ KW_INT WHITESPACE ID SKW_SEMI NEWLINE
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		),
 		// NUMBER1 c;
@@ -133,8 +130,7 @@ KW_INT WHITESPACE ID SKW_SEMI NEWLINE
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		),
 		// typedef double NUMBER2;
@@ -163,8 +159,7 @@ KW_INT WHITESPACE ID SKW_SEMI NEWLINE
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		),
 		// NUMBER2 d;
@@ -194,8 +189,7 @@ KW_INT WHITESPACE ID SKW_SEMI NEWLINE
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		),
 		// NUMBER1 e;
@@ -225,8 +219,7 @@ KW_INT WHITESPACE ID SKW_SEMI NEWLINE
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		),
 		// NUMBER2 f;
@@ -256,8 +249,7 @@ KW_INT WHITESPACE ID SKW_SEMI NEWLINE
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		),
 		// int g;
@@ -283,8 +275,7 @@ KW_INT WHITESPACE ID SKW_SEMI NEWLINE
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		)
 		

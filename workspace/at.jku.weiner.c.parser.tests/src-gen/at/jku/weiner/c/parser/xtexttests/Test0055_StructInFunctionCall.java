@@ -518,8 +518,6 @@ public class Test0055_StructInFunctionCall {
 		);
 		Assert.assertEquals("foobar", DirectDeclarator_34_Var
 		.getId());
-		Assert.assertEquals(";", Declaration_16_Var
-		.getSemi());
 		//34
 		final ExternalDeclaration ExternalDeclaration_35_Var
 		 = (ExternalDeclaration)External_0_list.get(2);
@@ -971,8 +969,6 @@ public class Test0055_StructInFunctionCall {
 		);
 		Assert.assertEquals("foobar", PrimaryExpression_91_Var
 		.getId());
-		Assert.assertEquals(";", ExpressionStatement_56_Var
-		.getSemi());
 	}
 	
 	@Test

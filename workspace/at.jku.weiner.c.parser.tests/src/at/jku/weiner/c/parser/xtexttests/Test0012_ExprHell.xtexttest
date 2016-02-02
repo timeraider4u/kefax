@@ -110,8 +110,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								),//end expression
-								semi++";"
+								)//end expression
 							)
 						), // end statement
 						// (1);
@@ -225,8 +224,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								),//end expression
-								semi++";"
+								)//end expression
 							)
 						), // end statement
 						// 1 * 2;
@@ -304,8 +302,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								),//end expression
-								semi++";"
+								)//end expression
 							)
 						), // end statement
 						// 1 << 2;
@@ -389,8 +386,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								),//end expression
-								semi++";"
+								)//end expression
 							)
 						), // end statement
 						// 1 < 2;
@@ -476,8 +472,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								),//end expression
-								semi++";"
+								)//end expression
 							)
 						), // end statement
 						// 1 == 2;
@@ -566,8 +561,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								),//end expression
-								semi++";"
+								)//end expression
 							)
 						), // end statement
 						// 1 & 2;
@@ -660,8 +654,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								),//end expression
-								semi++";"
+								)//end expression
 							)
 						), // end statement
 						// 1 | 2;
@@ -760,8 +753,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								),//end expression
-								semi++";"
+								)//end expression
 							)
 						), // end statement
 						// 1 ^ 2;
@@ -857,8 +849,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								),//end expression
-								semi++";"
+								)//end expression
 							)
 						), // end statement
 						// 1 && 2;
@@ -960,8 +951,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								),//end expression
-								semi++";"
+								)//end expression
 							)
 						), // end statement
 						// 1 || 2;
@@ -1066,8 +1056,7 @@ SKW_RIGHTBRACE NEWLINE
 											) // end logical or
 										)
 									)
-								),//end expression
-								semi++";"
+								)//end expression
 							)
 						), // end statement
 						// 1 ? 2 : 3
@@ -1235,8 +1224,7 @@ SKW_RIGHTBRACE NEWLINE
 											) // end cExpr-expression
 										)
 									)
-								),//end expression
-								semi++";"
+								)//end expression
 							)
 						) // end statement
 						

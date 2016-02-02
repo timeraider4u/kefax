@@ -233,8 +233,6 @@ public class Test0052_Signed {
 		);
 		Assert.assertEquals("i", DirectDeclarator_9_Var
 		.getId());
-		Assert.assertEquals(";", Declaration_2_Var
-		.getSemi());
 		//9
 		final ExternalDeclaration ExternalDeclaration_10_Var
 		 = (ExternalDeclaration)External_0_list.get(1);
@@ -302,8 +300,6 @@ public class Test0052_Signed {
 		);
 		Assert.assertEquals("j", DirectDeclarator_18_Var
 		.getId());
-		Assert.assertEquals(";", Declaration_11_Var
-		.getSemi());
 		//18
 		final ExternalDeclaration ExternalDeclaration_19_Var
 		 = (ExternalDeclaration)External_0_list.get(2);
@@ -371,8 +367,6 @@ public class Test0052_Signed {
 		);
 		Assert.assertEquals("k", DirectDeclarator_27_Var
 		.getId());
-		Assert.assertEquals(";", Declaration_20_Var
-		.getSemi());
 	}
 	
 	@Test

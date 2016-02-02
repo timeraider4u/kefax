@@ -66,8 +66,7 @@ source file="res/Test0004_Predef"
 								)
 							)
 						)
-					),
-					semi++";"
+					)
 				)	
 			),
 			(parser::ExternalDeclaration 
@@ -95,8 +94,7 @@ source file="res/Test0004_Predef"
 								)
 							)
 						)
-					),
-					semi++";"
+					)
 				)	
 			)
 		),

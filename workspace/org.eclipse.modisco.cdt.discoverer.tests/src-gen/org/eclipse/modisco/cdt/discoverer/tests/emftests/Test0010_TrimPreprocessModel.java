@@ -319,8 +319,6 @@ public class Test0010_TrimPreprocessModel {
 		.getLastSuffix();
 		Assert.assertNotNull(DirectDeclaratorLastSuffix_28_Var
 		);
-		Assert.assertEquals(";", Declaration_19_Var
-		.getSemi());
 		//28
 		final ExternalDeclaration ExternalDeclaration_29_Var
 		 = (ExternalDeclaration)External_17_list.get(1);
@@ -381,8 +379,6 @@ public class Test0010_TrimPreprocessModel {
 		);
 		Assert.assertEquals("bar", DirectDeclarator_36_Var
 		.getId());
-		Assert.assertEquals(";", Declaration_30_Var
-		.getSemi());
 		//36
 		final ExternalDeclaration ExternalDeclaration_37_Var
 		 = (ExternalDeclaration)External_17_list.get(2);
@@ -443,8 +439,6 @@ public class Test0010_TrimPreprocessModel {
 		);
 		Assert.assertEquals("foobar", DirectDeclarator_44_Var
 		.getId());
-		Assert.assertEquals(";", Declaration_38_Var
-		.getSemi());
 		Assert.assertEquals("" + options.get("path") + "/" + options.get("plugin_id") + "/" + options.get("sourceFile") + "/File.c", TranslationUnit_2_Var
 		.getPath());
 		//44

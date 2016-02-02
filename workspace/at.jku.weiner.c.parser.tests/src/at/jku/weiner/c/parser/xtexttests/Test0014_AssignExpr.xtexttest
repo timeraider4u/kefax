@@ -346,8 +346,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										) // end assignment expression
 									) // end assignment expression
-								),//end expression
-								semi++";"
+								)//end expression
 							)
 						) // end statement
 					) // end block list

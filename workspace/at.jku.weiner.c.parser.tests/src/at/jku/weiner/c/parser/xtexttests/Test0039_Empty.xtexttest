@@ -43,8 +43,7 @@ KW_VOID WHITESPACE ID SKW_LEFTPAREN  SKW_RIGHTPAREN SKW_SEMI NEWLINE
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		)
 		

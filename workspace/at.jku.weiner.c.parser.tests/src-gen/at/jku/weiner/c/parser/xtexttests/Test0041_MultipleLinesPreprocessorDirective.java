@@ -352,8 +352,6 @@ public class Test0041_MultipleLinesPreprocessorDirective {
 		);
 		Assert.assertEquals("MYDEF", PrimaryExpression_25_Var
 		.getId());
-		Assert.assertEquals(";", Declaration_2_Var
-		.getSemi());
 	}
 	
 	@Test

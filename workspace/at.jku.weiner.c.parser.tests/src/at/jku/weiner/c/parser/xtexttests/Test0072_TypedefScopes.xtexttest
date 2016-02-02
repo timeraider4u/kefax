@@ -61,8 +61,7 @@ SKW_RIGHTBRACE NEWLINE
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		),
 		// fooA barA_1;
@@ -92,8 +91,7 @@ SKW_RIGHTBRACE NEWLINE
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		),
 		(ExternalDeclaration 

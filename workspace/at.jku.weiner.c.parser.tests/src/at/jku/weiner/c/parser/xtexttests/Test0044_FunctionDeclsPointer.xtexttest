@@ -72,8 +72,7 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		),
 		// char do3(void *);
@@ -128,8 +127,7 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		)
 		

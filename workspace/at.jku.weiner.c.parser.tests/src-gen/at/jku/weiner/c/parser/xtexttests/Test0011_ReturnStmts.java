@@ -557,8 +557,6 @@ public class Test0011_ReturnStmts {
 		.getCh());
 		Assert.assertEquals("return", JumpStatement_11_Var
 		.getReturn());
-		Assert.assertEquals(";", JumpStatement_11_Var
-		.getSemi());
 		//29
 		final ExternalDeclaration ExternalDeclaration_30_Var
 		 = (ExternalDeclaration)External_0_list.get(1);
@@ -805,8 +803,6 @@ public class Test0011_ReturnStmts {
 		.getOp());
 		Assert.assertEquals("return", JumpStatement_40_Var
 		.getReturn());
-		Assert.assertEquals(";", JumpStatement_40_Var
-		.getSemi());
 		//61
 		final ExternalDeclaration ExternalDeclaration_62_Var
 		 = (ExternalDeclaration)External_0_list.get(2);
@@ -1033,8 +1029,6 @@ public class Test0011_ReturnStmts {
 		.getFloat());
 		Assert.assertEquals("return", JumpStatement_72_Var
 		.getReturn());
-		Assert.assertEquals(";", JumpStatement_72_Var
-		.getSemi());
 		//90
 		final ExternalDeclaration ExternalDeclaration_91_Var
 		 = (ExternalDeclaration)External_0_list.get(3);
@@ -1261,8 +1255,6 @@ public class Test0011_ReturnStmts {
 		.getHex());
 		Assert.assertEquals("return", JumpStatement_101_Var
 		.getReturn());
-		Assert.assertEquals(";", JumpStatement_101_Var
-		.getSemi());
 		//119
 		final ExternalDeclaration ExternalDeclaration_120_Var
 		 = (ExternalDeclaration)External_0_list.get(4);
@@ -1343,8 +1335,6 @@ public class Test0011_ReturnStmts {
 		);
 		Assert.assertEquals("return", JumpStatement_130_Var
 		.getReturn());
-		Assert.assertEquals(";", JumpStatement_130_Var
-		.getSemi());
 	}
 	
 	@Test

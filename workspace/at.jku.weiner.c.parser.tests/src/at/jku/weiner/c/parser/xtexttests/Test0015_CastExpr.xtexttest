@@ -111,8 +111,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								),//end expression
-								semi++";"
+								)//end expression
 							)
 						)
 					)

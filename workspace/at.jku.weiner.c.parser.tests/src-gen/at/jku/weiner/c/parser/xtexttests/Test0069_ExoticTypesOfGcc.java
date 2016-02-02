@@ -204,8 +204,6 @@ public class Test0069_ExoticTypesOfGcc {
 		);
 		Assert.assertEquals("i", DirectDeclarator_8_Var
 		.getId());
-		Assert.assertEquals(";", Declaration_2_Var
-		.getSemi());
 		//8
 		final ExternalDeclaration ExternalDeclaration_9_Var
 		 = (ExternalDeclaration)External_0_list.get(1);
@@ -266,8 +264,6 @@ public class Test0069_ExoticTypesOfGcc {
 		);
 		Assert.assertEquals("j", DirectDeclarator_16_Var
 		.getId());
-		Assert.assertEquals(";", Declaration_10_Var
-		.getSemi());
 	}
 	
 	@Test

@@ -2253,8 +2253,6 @@ public class Test0036_SimpleIntArray {
 		);
 		Assert.assertEquals("3", Constant2_230_Var
 		.getDec());
-		Assert.assertEquals(";", ExpressionStatement_160_Var
-		.getSemi());
 		//230
 		final Statement Statement_231_Var
 		 = (Statement)Statement_158_list.get(1);
@@ -2414,8 +2412,6 @@ public class Test0036_SimpleIntArray {
 		.getDec());
 		Assert.assertEquals("return", JumpStatement_232_Var
 		.getReturn());
-		Assert.assertEquals(";", JumpStatement_232_Var
-		.getSemi());
 	}
 	
 	@Test

@@ -274,8 +274,6 @@ public class Test0059_AttributeAfterPointer {
 		.getLastSuffix();
 		Assert.assertNotNull(DirectDeclaratorLastSuffix_16_Var
 		);
-		Assert.assertEquals(";", Declaration_2_Var
-		.getSemi());
 	}
 	
 	@Test

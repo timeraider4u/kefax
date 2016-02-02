@@ -296,8 +296,6 @@ public class Test0006_SimpleAbsoluteInclude {
 		.getLastSuffix();
 		Assert.assertNotNull(DirectDeclaratorLastSuffix_23_Var
 		);
-		Assert.assertEquals(";", Declaration_14_Var
-		.getSemi());
 		//23
 		final ExternalDeclaration ExternalDeclaration_24_Var
 		 = (ExternalDeclaration)External_12_list.get(1);
@@ -587,8 +585,6 @@ public class Test0006_SimpleAbsoluteInclude {
 		.getArgumentExpressionList());
 		Assert.assertEquals("return", JumpStatement_41_Var
 		.getReturn());
-		Assert.assertEquals(";", JumpStatement_41_Var
-		.getSemi());
 		Assert.assertEquals("" + options.get("path") + "/" + options.get("plugin_id") + "/" + options.get("sourceFile") + "/SimpleInclude.c", TranslationUnit_3_Var
 		.getPath());
 		//59

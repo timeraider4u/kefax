@@ -746,8 +746,6 @@ public class Test0029_Assembler {
 		);
 		Assert.assertEquals("errno", DirectDeclarator_9_Var
 		.getId());
-		Assert.assertEquals(";", Declaration_2_Var
-		.getSemi());
 		//9
 		final ExternalDeclaration ExternalDeclaration_10_Var
 		 = (ExternalDeclaration)External_0_list.get(1);
@@ -1019,8 +1017,6 @@ public class Test0029_Assembler {
 		);
 		Assert.assertEquals("res", DirectDeclarator_45_Var
 		.getId());
-		Assert.assertEquals(";", Declaration_39_Var
-		.getSemi());
 		final EList<? extends EObject> Statement_45_list = BlockList_38_Var
 		.getStatement();
 		Assert.assertNotNull(Statement_45_list);
@@ -2829,8 +2825,6 @@ public class Test0029_Assembler {
 		);
 		Assert.assertEquals("[\"cc\"]", PrimaryExpression_264_Var
 		.getString().toString());
-		Assert.assertEquals(";", AsmStatement_47_Var
-		.getSemi());
 		//264
 		final Statement Statement_265_Var
 		 = (Statement)Statement_45_list.get(1);
@@ -3836,8 +3830,6 @@ public class Test0029_Assembler {
 		.getId());
 		Assert.assertEquals("return", JumpStatement_375_Var
 		.getReturn());
-		Assert.assertEquals(";", JumpStatement_375_Var
-		.getSemi());
 	}
 	
 	@Test

@@ -43,8 +43,7 @@ ID WHITESPACE ID SKW_SEMI NEWLINE
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		),
 		// my_list a;
@@ -74,8 +73,7 @@ ID WHITESPACE ID SKW_SEMI NEWLINE
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		)
 		

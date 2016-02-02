@@ -107,8 +107,7 @@ LINE_COMMENT NEWLINE
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		),
 		// void do2(int, int, int);
@@ -174,8 +173,7 @@ LINE_COMMENT NEWLINE
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		)
 		

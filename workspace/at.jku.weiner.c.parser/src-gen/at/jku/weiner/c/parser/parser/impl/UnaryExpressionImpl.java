@@ -22,7 +22,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.UnaryExpressionImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.UnaryExpressionImpl#getPlusplus <em>Plusplus</em>}</li>
@@ -34,6 +33,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.UnaryExpressionImpl#getAndand <em>Andand</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.UnaryExpressionImpl#getId <em>Id</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

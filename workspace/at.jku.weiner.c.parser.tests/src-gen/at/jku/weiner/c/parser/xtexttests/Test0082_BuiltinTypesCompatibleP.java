@@ -421,8 +421,6 @@ public class Test0082_BuiltinTypesCompatibleP {
 		);
 		Assert.assertEquals("int", TypeSpecifier_32_Var
 		.getName());
-		Assert.assertEquals(";", Declaration_2_Var
-		.getSemi());
 	}
 	
 	@Test

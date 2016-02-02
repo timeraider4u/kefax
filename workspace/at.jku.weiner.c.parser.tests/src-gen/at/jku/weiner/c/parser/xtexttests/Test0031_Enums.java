@@ -2205,8 +2205,6 @@ public class Test0031_Enums {
 		);
 		Assert.assertEquals("7", Constant2_153_Var
 		.getDec());
-		Assert.assertEquals(";", Declaration_2_Var
-		.getSemi());
 		//153
 		final ExternalDeclaration ExternalDeclaration_154_Var
 		 = (ExternalDeclaration)External_0_list.get(1);
@@ -3649,8 +3647,6 @@ public class Test0031_Enums {
 		);
 		Assert.assertEquals("W_MONDAY", PrimaryExpression_338_Var
 		.getId());
-		Assert.assertEquals(";", ExpressionStatement_287_Var
-		.getSemi());
 		//338
 		final Statement Statement_339_Var
 		 = (Statement)Statement_285_list.get(1);
@@ -4081,8 +4077,6 @@ public class Test0031_Enums {
 		);
 		Assert.assertEquals("MONDAY", PrimaryExpression_391_Var
 		.getId());
-		Assert.assertEquals(";", ExpressionStatement_340_Var
-		.getSemi());
 		//391
 		final Statement Statement_392_Var
 		 = (Statement)Statement_285_list.get(2);
@@ -4513,8 +4507,6 @@ public class Test0031_Enums {
 		);
 		Assert.assertEquals("W_SUNDAY", PrimaryExpression_444_Var
 		.getId());
-		Assert.assertEquals(";", ExpressionStatement_393_Var
-		.getSemi());
 		//444
 		final Statement Statement_445_Var
 		 = (Statement)Statement_285_list.get(3);
@@ -4945,8 +4937,6 @@ public class Test0031_Enums {
 		);
 		Assert.assertEquals("SUNDAY", PrimaryExpression_497_Var
 		.getId());
-		Assert.assertEquals(";", ExpressionStatement_446_Var
-		.getSemi());
 		//497
 		final Statement Statement_498_Var
 		 = (Statement)Statement_285_list.get(4);
@@ -5135,8 +5125,6 @@ public class Test0031_Enums {
 		);
 		Assert.assertEquals("I_FRIDAY", PrimaryExpression_521_Var
 		.getId());
-		Assert.assertEquals(";", ExpressionStatement_499_Var
-		.getSemi());
 		//521
 		final Statement Statement_522_Var
 		 = (Statement)Statement_285_list.get(5);
@@ -5567,8 +5555,6 @@ public class Test0031_Enums {
 		);
 		Assert.assertEquals("iAmInLove", PrimaryExpression_574_Var
 		.getId());
-		Assert.assertEquals(";", ExpressionStatement_523_Var
-		.getSemi());
 		//574
 		final Statement Statement_575_Var
 		 = (Statement)Statement_285_list.get(6);
@@ -5999,8 +5985,6 @@ public class Test0031_Enums {
 		);
 		Assert.assertEquals("my_weekday", PrimaryExpression_627_Var
 		.getId());
-		Assert.assertEquals(";", ExpressionStatement_576_Var
-		.getSemi());
 		//627
 		final Statement Statement_628_Var
 		 = (Statement)Statement_285_list.get(7);
@@ -6160,8 +6144,6 @@ public class Test0031_Enums {
 		.getDec());
 		Assert.assertEquals("return", JumpStatement_629_Var
 		.getReturn());
-		Assert.assertEquals(";", JumpStatement_629_Var
-		.getSemi());
 	}
 	
 	@Test

@@ -1153,8 +1153,6 @@ public class Test0027_For {
 		 = (PostfixExpressionSuffixMinusMinus)Suffix_109_list.get(0);
 		Assert.assertNotNull(PostfixExpressionSuffixMinusMinus_110_Var
 		);
-		Assert.assertEquals(";", ExpressionStatement_92_Var
-		.getSemi());
 		//110
 		final Statement Statement_111_Var
 		 = (Statement)Statement_90_list.get(1);

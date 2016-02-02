@@ -592,8 +592,6 @@ public class Test0043_ArraySize {
 		);
 		Assert.assertEquals("int", TypeSpecifier_50_Var
 		.getName());
-		Assert.assertEquals(";", Declaration_2_Var
-		.getSemi());
 	}
 	
 	@Test

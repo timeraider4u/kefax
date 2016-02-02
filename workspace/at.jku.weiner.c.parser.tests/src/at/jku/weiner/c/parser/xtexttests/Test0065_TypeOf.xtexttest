@@ -40,8 +40,7 @@ KW_TYPEOF3 SKW_LEFTPAREN
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		),
 		(ExternalDeclaration
@@ -117,8 +116,7 @@ KW_TYPEOF3 SKW_LEFTPAREN
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 			
 		),
@@ -194,8 +192,7 @@ KW_TYPEOF3 SKW_LEFTPAREN
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		)
 	)

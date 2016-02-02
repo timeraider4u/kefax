@@ -4,7 +4,7 @@
     editorDirectory="/at.jku.weiner.c.parser.editor/src" modelPluginID="at.jku.weiner.c.parser"
     forceOverwrite="true" modelName="Parser" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="6.0" copyrightFields="false" editPluginID="at.jku.weiner.c.parser.edit"
-    editorPluginID="at.jku.weiner.c.parser.editor" runtimeVersion="2.11" usedGenPackages="platform:/resource/at.jku.weiner.c.common/model/custom/Common.genmodel#//common platform:/resource/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore">
+    editorPluginID="at.jku.weiner.c.parser.editor" runtimeVersion="2.10" usedGenPackages="platform:/resource/at.jku.weiner.c.common/model/custom/Common.genmodel#//common platform:/resource/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore">
   <genPackages prefix="Parser" basePackage="at.jku.weiner.c.parser" disposableProviderFactory="true"
       fileExtensions="cdt.i" ecorePackage="Parser.ecore#/">
     <genClasses ecoreClass="Parser.ecore#//ExternalDeclaration">
@@ -24,7 +24,6 @@
     <genClasses ecoreClass="Parser.ecore#//Declaration">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//Declaration/specifiers"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//Declaration/initDeclaratorList"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//Declaration/semi"/>
     </genClasses>
     <genClasses ecoreClass="Parser.ecore#//FunctionDeclarationSpecifiers">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//FunctionDeclarationSpecifiers/declarationSpecifier"/>
@@ -257,7 +256,6 @@
     </genClasses>
     <genClasses ecoreClass="Parser.ecore#//ExpressionStatement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//ExpressionStatement/expression"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//ExpressionStatement/semi"/>
     </genClasses>
     <genClasses ecoreClass="Parser.ecore#//SelectionStatement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//SelectionStatement/if"/>
@@ -281,7 +279,6 @@
     </genClasses>
     <genClasses ecoreClass="Parser.ecore#//JumpStatement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//JumpStatement/continue"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//JumpStatement/semi"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//JumpStatement/break"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//JumpStatement/return"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//JumpStatement/expr"/>
@@ -293,7 +290,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//AsmStatement/asmLine1"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//AsmStatement/asmLines"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//AsmStatement/lastComma"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Parser.ecore#//AsmStatement/semi"/>
     </genClasses>
     <genClasses ecoreClass="Parser.ecore#//AssignmentExpression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Parser.ecore#//AssignmentExpression/expr"/>

@@ -813,8 +813,6 @@ public class Test0012_ExprHell {
 		);
 		Assert.assertEquals("1", Constant2_29_Var
 		.getDec());
-		Assert.assertEquals(";", ExpressionStatement_11_Var
-		.getSemi());
 		//29
 		final Statement Statement_30_Var
 		 = (Statement)Statement_9_list.get(1);
@@ -1110,8 +1108,6 @@ public class Test0012_ExprHell {
 		);
 		Assert.assertEquals("2", Constant2_66_Var
 		.getDec());
-		Assert.assertEquals(";", ExpressionStatement_31_Var
-		.getSemi());
 		//66
 		final Statement Statement_67_Var
 		 = (Statement)Statement_9_list.get(2);
@@ -1305,8 +1301,6 @@ public class Test0012_ExprHell {
 		.getDec());
 		Assert.assertEquals("[*]", MultiplicativeExpression_81_Var
 		.getOp().toString());
-		Assert.assertEquals(";", ExpressionStatement_68_Var
-		.getSemi());
 		//91
 		final Statement Statement_92_Var
 		 = (Statement)Statement_9_list.get(3);
@@ -1518,8 +1512,6 @@ public class Test0012_ExprHell {
 		.getDec());
 		Assert.assertEquals("[<<]", ShiftExpression_104_Var
 		.getOp().toString());
-		Assert.assertEquals(";", ExpressionStatement_93_Var
-		.getSemi());
 		//118
 		final Statement Statement_119_Var
 		 = (Statement)Statement_9_list.get(4);
@@ -1740,8 +1732,6 @@ public class Test0012_ExprHell {
 		.getDec());
 		Assert.assertEquals("[<]", RelationalExpression_130_Var
 		.getOp().toString());
-		Assert.assertEquals(";", ExpressionStatement_120_Var
-		.getSemi());
 		//146
 		final Statement Statement_147_Var
 		 = (Statement)Statement_9_list.get(5);
@@ -1971,8 +1961,6 @@ public class Test0012_ExprHell {
 		.getDec());
 		Assert.assertEquals("[==]", EqualityExpression_157_Var
 		.getOp().toString());
-		Assert.assertEquals(";", ExpressionStatement_148_Var
-		.getSemi());
 		//175
 		final Statement Statement_176_Var
 		 = (Statement)Statement_9_list.get(6);
@@ -2209,8 +2197,6 @@ public class Test0012_ExprHell {
 		);
 		Assert.assertEquals("2", Constant2_205_Var
 		.getDec());
-		Assert.assertEquals(";", ExpressionStatement_177_Var
-		.getSemi());
 		//205
 		final Statement Statement_206_Var
 		 = (Statement)Statement_9_list.get(7);
@@ -2465,8 +2451,6 @@ public class Test0012_ExprHell {
 		);
 		Assert.assertEquals("2", Constant2_237_Var
 		.getDec());
-		Assert.assertEquals(";", ExpressionStatement_207_Var
-		.getSemi());
 		//237
 		final Statement Statement_238_Var
 		 = (Statement)Statement_9_list.get(8);
@@ -2712,8 +2696,6 @@ public class Test0012_ExprHell {
 		);
 		Assert.assertEquals("2", Constant2_268_Var
 		.getDec());
-		Assert.assertEquals(";", ExpressionStatement_239_Var
-		.getSemi());
 		//268
 		final Statement Statement_269_Var
 		 = (Statement)Statement_9_list.get(9);
@@ -2977,8 +2959,6 @@ public class Test0012_ExprHell {
 		);
 		Assert.assertEquals("2", Constant2_301_Var
 		.getDec());
-		Assert.assertEquals(";", ExpressionStatement_270_Var
-		.getSemi());
 		//301
 		final Statement Statement_302_Var
 		 = (Statement)Statement_9_list.get(10);
@@ -3251,8 +3231,6 @@ public class Test0012_ExprHell {
 		);
 		Assert.assertEquals("2", Constant2_335_Var
 		.getDec());
-		Assert.assertEquals(";", ExpressionStatement_303_Var
-		.getSemi());
 		//335
 		final Statement Statement_336_Var
 		 = (Statement)Statement_9_list.get(11);
@@ -3687,8 +3665,6 @@ public class Test0012_ExprHell {
 		);
 		Assert.assertEquals("3", Constant2_389_Var
 		.getDec());
-		Assert.assertEquals(";", ExpressionStatement_337_Var
-		.getSemi());
 	}
 	
 	@Test

@@ -343,8 +343,6 @@ public class Test0017_PointerInFunctionDecl {
 		);
 		Assert.assertEquals("[*, *]", Pointer_24_Var
 		.getStar().toString());
-		Assert.assertEquals(";", Declaration_2_Var
-		.getSemi());
 	}
 	
 	@Test

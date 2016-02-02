@@ -356,8 +356,7 @@ SKW_RIGHTBRACE NEWLINE
 																	)
 																)
 															)
-														), // end expression
-														semi++";"
+														) // end expression
 													) // end expression statement
 												),
 												(Statement

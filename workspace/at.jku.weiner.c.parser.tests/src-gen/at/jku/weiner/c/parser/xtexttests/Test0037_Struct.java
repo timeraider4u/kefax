@@ -2360,8 +2360,6 @@ public class Test0037_Struct {
 		);
 		Assert.assertEquals("id", PostfixExpressionSuffixDot_180_Var
 		.getId());
-		Assert.assertEquals(";", ExpressionStatement_110_Var
-		.getSemi());
 		//180
 		final Statement Statement_181_Var
 		 = (Statement)Statement_108_list.get(1);
@@ -2949,8 +2947,6 @@ public class Test0037_Struct {
 		);
 		Assert.assertEquals("name", PostfixExpressionSuffixDot_252_Var
 		.getId());
-		Assert.assertEquals(";", ExpressionStatement_182_Var
-		.getSemi());
 		//252
 		final Statement Statement_253_Var
 		 = (Statement)Statement_108_list.get(2);
@@ -3527,8 +3523,6 @@ public class Test0037_Struct {
 		);
 		Assert.assertEquals("joe", PrimaryExpression_323_Var
 		.getId());
-		Assert.assertEquals(";", ExpressionStatement_254_Var
-		.getSemi());
 		//323
 		final Statement Statement_324_Var
 		 = (Statement)Statement_108_list.get(3);
@@ -3734,8 +3728,6 @@ public class Test0037_Struct {
 		);
 		Assert.assertEquals("0x008", Constant2_349_Var
 		.getHex());
-		Assert.assertEquals(";", ExpressionStatement_325_Var
-		.getSemi());
 		//349
 		final Statement Statement_350_Var
 		 = (Statement)Statement_108_list.get(4);
@@ -4177,8 +4169,6 @@ public class Test0037_Struct {
 		);
 		Assert.assertEquals("[\"Phil Morrison\"]", PrimaryExpression_403_Var
 		.getString().toString());
-		Assert.assertEquals(";", ExpressionStatement_351_Var
-		.getSemi());
 		//403
 		final Statement Statement_404_Var
 		 = (Statement)Statement_108_list.get(5);
@@ -4620,8 +4610,6 @@ public class Test0037_Struct {
 		);
 		Assert.assertEquals("id", PostfixExpressionSuffixDot_457_Var
 		.getId());
-		Assert.assertEquals(";", ExpressionStatement_405_Var
-		.getSemi());
 		//457
 		final Statement Statement_458_Var
 		 = (Statement)Statement_108_list.get(6);
@@ -5063,8 +5051,6 @@ public class Test0037_Struct {
 		);
 		Assert.assertEquals("name", PostfixExpressionSuffixDot_511_Var
 		.getId());
-		Assert.assertEquals(";", ExpressionStatement_459_Var
-		.getSemi());
 		//511
 		final Statement Statement_512_Var
 		 = (Statement)Statement_108_list.get(7);
@@ -5506,8 +5492,6 @@ public class Test0037_Struct {
 		);
 		Assert.assertEquals("id", PostfixExpressionSuffixDot_565_Var
 		.getId());
-		Assert.assertEquals(";", ExpressionStatement_513_Var
-		.getSemi());
 		//565
 		final Statement Statement_566_Var
 		 = (Statement)Statement_108_list.get(8);
@@ -5949,8 +5933,6 @@ public class Test0037_Struct {
 		);
 		Assert.assertEquals("name", PostfixExpressionSuffixDot_619_Var
 		.getId());
-		Assert.assertEquals(";", ExpressionStatement_567_Var
-		.getSemi());
 		//619
 		final Statement Statement_620_Var
 		 = (Statement)Statement_108_list.get(9);
@@ -6110,8 +6092,6 @@ public class Test0037_Struct {
 		.getDec());
 		Assert.assertEquals("return", JumpStatement_621_Var
 		.getReturn());
-		Assert.assertEquals(";", JumpStatement_621_Var
-		.getSemi());
 	}
 	
 	@Test

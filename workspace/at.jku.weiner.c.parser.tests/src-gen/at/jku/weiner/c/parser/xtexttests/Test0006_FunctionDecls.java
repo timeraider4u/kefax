@@ -404,8 +404,6 @@ public class Test0006_FunctionDecls {
 		);
 		Assert.assertEquals("i", DirectDeclarator_27_Var
 		.getId());
-		Assert.assertEquals(";", Declaration_2_Var
-		.getSemi());
 		//27
 		final ExternalDeclaration ExternalDeclaration_28_Var
 		 = (ExternalDeclaration)External_0_list.get(1);
@@ -566,8 +564,6 @@ public class Test0006_FunctionDecls {
 		);
 		Assert.assertEquals("int", TypeSpecifier_48_Var
 		.getName());
-		Assert.assertEquals(";", Declaration_29_Var
-		.getSemi());
 	}
 	
 	@Test

@@ -765,8 +765,6 @@ public class Test0023_While {
 		 = (PostfixExpressionSuffixMinusMinus)Suffix_68_list.get(0);
 		Assert.assertNotNull(PostfixExpressionSuffixMinusMinus_69_Var
 		);
-		Assert.assertEquals(";", ExpressionStatement_51_Var
-		.getSemi());
 	}
 	
 	@Test

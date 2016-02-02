@@ -267,8 +267,7 @@ SKW_RIGHTBRACE NEWLINE
 																			)
 																		)
 																	)
-																), // end expression
-																semi++";"
+																) // end expression
 															) // end jump statement
 														)
 													) // end labeled statement
@@ -342,8 +341,7 @@ SKW_RIGHTBRACE NEWLINE
 																		(Statement
 																			stmt=	
 																			(JumpStatement
-																				break++"break",
-																				semi++";"
+																				break++"break"
 																			) // end jump statement
 																		)
 																	)
@@ -425,8 +423,7 @@ SKW_RIGHTBRACE NEWLINE
 																							)
 																						)
 																					)
-																				), // end expression
-																				semi++";"
+																				) // end expression
 																			) // end jump statement
 																		)
 																	)
@@ -501,8 +498,7 @@ SKW_RIGHTBRACE NEWLINE
 										)
 									)
 								), // end expression
-								return++"return",
-								semi++";"
+								return++"return"
 							)// end jump statement
 						)//end statement
 					)

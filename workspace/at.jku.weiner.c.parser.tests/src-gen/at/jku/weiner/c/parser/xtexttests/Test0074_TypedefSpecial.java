@@ -368,8 +368,6 @@ public class Test0074_TypedefSpecial {
 		);
 		Assert.assertEquals("5", Constant2_27_Var
 		.getDec());
-		Assert.assertEquals(";", Declaration_2_Var
-		.getSemi());
 	}
 	
 	@Test

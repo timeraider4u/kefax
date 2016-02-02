@@ -42,8 +42,7 @@ ID WHITESPACE ID SKW_SEMI NEWLINE
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		),
 		// typedef NUMBER1 NUMBER2;
@@ -75,8 +74,7 @@ ID WHITESPACE ID SKW_SEMI NEWLINE
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		),
 		// NUMBER1 a;
@@ -106,8 +104,7 @@ ID WHITESPACE ID SKW_SEMI NEWLINE
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		),
 		// NUMBER2 b;
@@ -137,8 +134,7 @@ ID WHITESPACE ID SKW_SEMI NEWLINE
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		)
 		

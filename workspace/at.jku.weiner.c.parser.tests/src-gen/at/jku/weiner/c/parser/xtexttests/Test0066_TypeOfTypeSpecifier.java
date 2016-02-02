@@ -272,8 +272,6 @@ public class Test0066_TypeOfTypeSpecifier {
 		);
 		Assert.assertEquals("j", DirectDeclarator_14_Var
 		.getId());
-		Assert.assertEquals(";", Declaration_2_Var
-		.getSemi());
 		//14
 		final ExternalDeclaration ExternalDeclaration_15_Var
 		 = (ExternalDeclaration)External_0_list.get(1);
@@ -378,8 +376,6 @@ public class Test0066_TypeOfTypeSpecifier {
 		);
 		Assert.assertEquals("k", DirectDeclarator_28_Var
 		.getId());
-		Assert.assertEquals(";", Declaration_16_Var
-		.getSemi());
 	}
 	
 	@Test

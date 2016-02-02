@@ -2087,8 +2087,6 @@ public class Test0034_Union {
 		);
 		Assert.assertEquals("size", PrimaryExpression_148_Var
 		.getId());
-		Assert.assertEquals(";", ExpressionStatement_97_Var
-		.getSemi());
 		//148
 		final Statement Statement_149_Var
 		 = (Statement)Statement_95_list.get(1);
@@ -2676,8 +2674,6 @@ public class Test0034_Union {
 		);
 		Assert.assertEquals("numChar", PostfixExpressionSuffixDot_220_Var
 		.getId());
-		Assert.assertEquals(";", ExpressionStatement_150_Var
-		.getSemi());
 		//220
 		final Statement Statement_221_Var
 		 = (Statement)Statement_95_list.get(2);
@@ -3116,8 +3112,6 @@ public class Test0034_Union {
 		);
 		Assert.assertEquals("float", TypeSpecifier_274_Var
 		.getName());
-		Assert.assertEquals(";", ExpressionStatement_222_Var
-		.getSemi());
 		//274
 		final Statement Statement_275_Var
 		 = (Statement)Statement_95_list.get(3);
@@ -3323,8 +3317,6 @@ public class Test0034_Union {
 		);
 		Assert.assertEquals("65", Constant2_300_Var
 		.getDec());
-		Assert.assertEquals(";", ExpressionStatement_276_Var
-		.getSemi());
 		//300
 		final Statement Statement_301_Var
 		 = (Statement)Statement_95_list.get(4);
@@ -3766,8 +3758,6 @@ public class Test0034_Union {
 		);
 		Assert.assertEquals("numChar", PostfixExpressionSuffixDot_354_Var
 		.getId());
-		Assert.assertEquals(";", ExpressionStatement_302_Var
-		.getSemi());
 		//354
 		final Statement Statement_355_Var
 		 = (Statement)Statement_95_list.get(5);
@@ -4209,8 +4199,6 @@ public class Test0034_Union {
 		);
 		Assert.assertEquals("numChar", PostfixExpressionSuffixDot_408_Var
 		.getId());
-		Assert.assertEquals(";", ExpressionStatement_356_Var
-		.getSemi());
 		//408
 		final Statement Statement_409_Var
 		 = (Statement)Statement_95_list.get(6);
@@ -4652,8 +4640,6 @@ public class Test0034_Union {
 		);
 		Assert.assertEquals("numFloat", PostfixExpressionSuffixDot_462_Var
 		.getId());
-		Assert.assertEquals(";", ExpressionStatement_410_Var
-		.getSemi());
 		//462
 		final Statement Statement_463_Var
 		 = (Statement)Statement_95_list.get(7);
@@ -4859,8 +4845,6 @@ public class Test0034_Union {
 		);
 		Assert.assertEquals("0.56789", Constant2_488_Var
 		.getFloat());
-		Assert.assertEquals(";", ExpressionStatement_464_Var
-		.getSemi());
 		//488
 		final Statement Statement_489_Var
 		 = (Statement)Statement_95_list.get(8);
@@ -5302,8 +5286,6 @@ public class Test0034_Union {
 		);
 		Assert.assertEquals("numChar", PostfixExpressionSuffixDot_542_Var
 		.getId());
-		Assert.assertEquals(";", ExpressionStatement_490_Var
-		.getSemi());
 		//542
 		final Statement Statement_543_Var
 		 = (Statement)Statement_95_list.get(9);
@@ -5745,8 +5727,6 @@ public class Test0034_Union {
 		);
 		Assert.assertEquals("numFloat", PostfixExpressionSuffixDot_596_Var
 		.getId());
-		Assert.assertEquals(";", ExpressionStatement_544_Var
-		.getSemi());
 		//596
 		final Statement Statement_597_Var
 		 = (Statement)Statement_95_list.get(10);
@@ -5906,8 +5886,6 @@ public class Test0034_Union {
 		.getDec());
 		Assert.assertEquals("return", JumpStatement_598_Var
 		.getReturn());
-		Assert.assertEquals(";", JumpStatement_598_Var
-		.getSemi());
 	}
 	
 	@Test

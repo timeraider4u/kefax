@@ -281,7 +281,6 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFunctionDefinitionAccess().getBodyAssignment_1(), "rule__FunctionDefinition__BodyAssignment_1");
 					put(grammarAccess.getDeclarationAccess().getSpecifiersAssignment_1_0(), "rule__Declaration__SpecifiersAssignment_1_0");
 					put(grammarAccess.getDeclarationAccess().getInitDeclaratorListAssignment_1_1(), "rule__Declaration__InitDeclaratorListAssignment_1_1");
-					put(grammarAccess.getDeclarationAccess().getSemiAssignment_1_2(), "rule__Declaration__SemiAssignment_1_2");
 					put(grammarAccess.getFunctionDeclarationSpecifiersAccess().getDeclarationSpecifierAssignment_1_0(), "rule__FunctionDeclarationSpecifiers__DeclarationSpecifierAssignment_1_0");
 					put(grammarAccess.getFunctionDeclarationSpecifiersAccess().getDeclarationSpecifierAssignment_1_1(), "rule__FunctionDeclarationSpecifiers__DeclarationSpecifierAssignment_1_1");
 					put(grammarAccess.getFunctionDeclarationSpecifiersAccess().getDeclarationSpecifierAssignment_1_2(), "rule__FunctionDeclarationSpecifiers__DeclarationSpecifierAssignment_1_2");
@@ -448,7 +447,6 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getCompoundStatementAccess().getBodyAssignment_2(), "rule__CompoundStatement__BodyAssignment_2");
 					put(grammarAccess.getBodyStatementAccess().getBlockListAssignment_1(), "rule__BodyStatement__BlockListAssignment_1");
 					put(grammarAccess.getExpressionStatementAccess().getExpressionAssignment_1(), "rule__ExpressionStatement__ExpressionAssignment_1");
-					put(grammarAccess.getExpressionStatementAccess().getSemiAssignment_2(), "rule__ExpressionStatement__SemiAssignment_2");
 					put(grammarAccess.getSelectionStatementAccess().getIfAssignment_1_0_0(), "rule__SelectionStatement__IfAssignment_1_0_0");
 					put(grammarAccess.getSelectionStatementAccess().getExprAssignment_1_0_2(), "rule__SelectionStatement__ExprAssignment_1_0_2");
 					put(grammarAccess.getSelectionStatementAccess().getIfStatementAssignment_1_0_4(), "rule__SelectionStatement__IfStatementAssignment_1_0_4");
@@ -475,15 +473,11 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getIterationStatementAccess().getIncExprAssignment_1_3_5(), "rule__IterationStatement__IncExprAssignment_1_3_5");
 					put(grammarAccess.getIterationStatementAccess().getStatementAssignment_1_3_7(), "rule__IterationStatement__StatementAssignment_1_3_7");
 					put(grammarAccess.getJumpStatementAccess().getContinueAssignment_1_0_0(), "rule__JumpStatement__ContinueAssignment_1_0_0");
-					put(grammarAccess.getJumpStatementAccess().getSemiAssignment_1_0_1(), "rule__JumpStatement__SemiAssignment_1_0_1");
 					put(grammarAccess.getJumpStatementAccess().getBreakAssignment_1_1_0(), "rule__JumpStatement__BreakAssignment_1_1_0");
-					put(grammarAccess.getJumpStatementAccess().getSemiAssignment_1_1_1(), "rule__JumpStatement__SemiAssignment_1_1_1");
 					put(grammarAccess.getJumpStatementAccess().getReturnAssignment_1_2_0(), "rule__JumpStatement__ReturnAssignment_1_2_0");
 					put(grammarAccess.getJumpStatementAccess().getExprAssignment_1_2_1(), "rule__JumpStatement__ExprAssignment_1_2_1");
-					put(grammarAccess.getJumpStatementAccess().getSemiAssignment_1_2_2(), "rule__JumpStatement__SemiAssignment_1_2_2");
 					put(grammarAccess.getJumpStatementAccess().getGotoAssignment_1_3_0(), "rule__JumpStatement__GotoAssignment_1_3_0");
 					put(grammarAccess.getJumpStatementAccess().getExprAssignment_1_3_1(), "rule__JumpStatement__ExprAssignment_1_3_1");
-					put(grammarAccess.getJumpStatementAccess().getSemiAssignment_1_3_2(), "rule__JumpStatement__SemiAssignment_1_3_2");
 					put(grammarAccess.getAsmStatementAccess().getAsmAssignment_1_0(), "rule__AsmStatement__AsmAssignment_1_0");
 					put(grammarAccess.getAsmStatementAccess().getAsmAssignment_1_1(), "rule__AsmStatement__AsmAssignment_1_1");
 					put(grammarAccess.getAsmStatementAccess().getAsmAssignment_1_2(), "rule__AsmStatement__AsmAssignment_1_2");
@@ -492,7 +486,6 @@ public class ParserParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAsmStatementAccess().getAsmLine1Assignment_4_0(), "rule__AsmStatement__AsmLine1Assignment_4_0");
 					put(grammarAccess.getAsmStatementAccess().getAsmLinesAssignment_4_1(), "rule__AsmStatement__AsmLinesAssignment_4_1");
 					put(grammarAccess.getAsmStatementAccess().getLastCommaAssignment_4_2(), "rule__AsmStatement__LastCommaAssignment_4_2");
-					put(grammarAccess.getAsmStatementAccess().getSemiAssignment_6(), "rule__AsmStatement__SemiAssignment_6");
 					put(grammarAccess.getAsmLineAccess().getSymAssignment_1(), "rule__AsmLine__SymAssignment_1");
 					put(grammarAccess.getAsmLineAccess().getExprAssignment_2(), "rule__AsmLine__ExprAssignment_2");
 					put(grammarAccess.getAsmSymbolicNameAccess().getIdAssignment_2(), "rule__AsmSymbolicName__IdAssignment_2");

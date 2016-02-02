@@ -356,8 +356,6 @@ public class Test0013_Assign {
 		);
 		Assert.assertEquals("0", Constant2_26_Var
 		.getDec());
-		Assert.assertEquals(";", Declaration_2_Var
-		.getSemi());
 	}
 	
 	@Test

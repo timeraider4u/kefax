@@ -68,8 +68,7 @@ KW_INT WHITESPACE ID SKW_LEFTPAREN
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		)
 	)

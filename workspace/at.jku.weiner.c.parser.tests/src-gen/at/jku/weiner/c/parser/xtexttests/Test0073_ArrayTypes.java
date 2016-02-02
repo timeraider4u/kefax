@@ -217,8 +217,6 @@ public class Test0073_ArrayTypes {
 		);
 		Assert.assertEquals("mytype", DirectDeclarator_9_Var
 		.getId());
-		Assert.assertEquals(";", Declaration_2_Var
-		.getSemi());
 		//9
 		final ExternalDeclaration ExternalDeclaration_10_Var
 		 = (ExternalDeclaration)External_0_list.get(1);
@@ -292,8 +290,6 @@ public class Test0073_ArrayTypes {
 		.getExpr());
 		Assert.assertNull(DeclaratorSuffix_18_Var
 		.getLastSuffix());
-		Assert.assertEquals(";", Declaration_11_Var
-		.getSemi());
 	}
 	
 	@Test

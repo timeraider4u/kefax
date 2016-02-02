@@ -2883,8 +2883,6 @@ public class Test0038_StructAdvanced {
 		);
 		Assert.assertEquals("id", PostfixExpressionSuffixDot_235_Var
 		.getId());
-		Assert.assertEquals(";", ExpressionStatement_163_Var
-		.getSemi());
 		//235
 		final Statement Statement_236_Var
 		 = (Statement)Statement_161_list.get(1);
@@ -3326,8 +3324,6 @@ public class Test0038_StructAdvanced {
 		);
 		Assert.assertEquals("name", PostfixExpressionSuffixArrow_289_Var
 		.getId());
-		Assert.assertEquals(";", ExpressionStatement_237_Var
-		.getSemi());
 		//289
 		final ExternalDeclaration ExternalDeclaration_290_Var
 		 = (ExternalDeclaration)External_0_list.get(4);
@@ -4373,8 +4369,6 @@ public class Test0038_StructAdvanced {
 		);
 		Assert.assertEquals("[\"Could not reserve space for new employee!\\n\"]", PrimaryExpression_419_Var
 		.getString().toString());
-		Assert.assertEquals(";", ExpressionStatement_384_Var
-		.getSemi());
 		//419
 		final Statement Statement_420_Var
 		 = (Statement)Statement_382_list.get(1);
@@ -4554,8 +4548,6 @@ public class Test0038_StructAdvanced {
 		.getDec());
 		Assert.assertEquals("return", JumpStatement_421_Var
 		.getReturn());
-		Assert.assertEquals(";", JumpStatement_421_Var
-		.getSemi());
 		//442
 		final Statement Statement_443_Var
 		 = (Statement)Statement_351_list.get(1);
@@ -4876,8 +4868,6 @@ public class Test0038_StructAdvanced {
 		);
 		Assert.assertEquals("joe", PrimaryExpression_482_Var
 		.getId());
-		Assert.assertEquals(";", ExpressionStatement_444_Var
-		.getSemi());
 		//482
 		final Statement Statement_483_Var
 		 = (Statement)Statement_351_list.get(2);
@@ -5198,8 +5188,6 @@ public class Test0038_StructAdvanced {
 		);
 		Assert.assertEquals("phil", PrimaryExpression_522_Var
 		.getId());
-		Assert.assertEquals(";", ExpressionStatement_484_Var
-		.getSemi());
 		//522
 		final Statement Statement_523_Var
 		 = (Statement)Statement_351_list.get(3);
@@ -5405,8 +5393,6 @@ public class Test0038_StructAdvanced {
 		);
 		Assert.assertEquals("0x009", Constant2_548_Var
 		.getHex());
-		Assert.assertEquals(";", ExpressionStatement_524_Var
-		.getSemi());
 		//548
 		final Statement Statement_549_Var
 		 = (Statement)Statement_351_list.get(4);
@@ -5848,8 +5834,6 @@ public class Test0038_StructAdvanced {
 		);
 		Assert.assertEquals("[\"Billy The Kid\"]", PrimaryExpression_602_Var
 		.getString().toString());
-		Assert.assertEquals(";", ExpressionStatement_550_Var
-		.getSemi());
 		//602
 		final Statement Statement_603_Var
 		 = (Statement)Statement_351_list.get(5);
@@ -6150,8 +6134,6 @@ public class Test0038_StructAdvanced {
 		);
 		Assert.assertEquals("newEmployee", PrimaryExpression_639_Var
 		.getId());
-		Assert.assertEquals(";", ExpressionStatement_604_Var
-		.getSemi());
 		//639
 		final Statement Statement_640_Var
 		 = (Statement)Statement_351_list.get(6);
@@ -6452,8 +6434,6 @@ public class Test0038_StructAdvanced {
 		);
 		Assert.assertEquals("newEmployee", PrimaryExpression_676_Var
 		.getId());
-		Assert.assertEquals(";", ExpressionStatement_641_Var
-		.getSemi());
 		//676
 		final Statement Statement_677_Var
 		 = (Statement)Statement_351_list.get(7);
@@ -6613,8 +6593,6 @@ public class Test0038_StructAdvanced {
 		.getDec());
 		Assert.assertEquals("return", JumpStatement_678_Var
 		.getReturn());
-		Assert.assertEquals(";", JumpStatement_678_Var
-		.getSemi());
 	}
 	
 	@Test

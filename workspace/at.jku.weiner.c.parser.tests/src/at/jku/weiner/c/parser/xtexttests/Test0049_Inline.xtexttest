@@ -61,8 +61,7 @@ SKW_RIGHTBRACE NEWLINE
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		),
 		// doSomethingA2
@@ -98,8 +97,7 @@ SKW_RIGHTBRACE NEWLINE
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		),
 		// doSomethingA3
@@ -135,8 +133,7 @@ SKW_RIGHTBRACE NEWLINE
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		),
 		// doSomethingB1

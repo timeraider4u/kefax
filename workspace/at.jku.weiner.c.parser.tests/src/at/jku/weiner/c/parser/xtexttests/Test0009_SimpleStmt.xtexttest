@@ -43,7 +43,7 @@ SKW_RIGHTBRACE NEWLINE
 						(Statement
 							stmt=
 							(ExpressionStatement
-								semi++";"
+								
 							)
 						)
 					)

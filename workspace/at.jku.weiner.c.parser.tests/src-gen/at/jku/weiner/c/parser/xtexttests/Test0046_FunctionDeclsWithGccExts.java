@@ -491,8 +491,6 @@ public class Test0046_FunctionDeclsWithGccExts {
 		);
 		Assert.assertEquals("__leaf__", GccAttribute_23_Var
 		.getId());
-		Assert.assertEquals(";", Declaration_2_Var
-		.getSemi());
 		//23
 		final ExternalDeclaration ExternalDeclaration_24_Var
 		 = (ExternalDeclaration)External_0_list.get(1);
@@ -663,8 +661,6 @@ public class Test0046_FunctionDeclsWithGccExts {
 		);
 		Assert.assertEquals("__nothrow__", GccAttribute_45_Var
 		.getId());
-		Assert.assertEquals(";", Declaration_25_Var
-		.getSemi());
 		//45
 		final ExternalDeclaration ExternalDeclaration_46_Var
 		 = (ExternalDeclaration)External_0_list.get(2);
@@ -814,8 +810,6 @@ public class Test0046_FunctionDeclsWithGccExts {
 		.getAsm());
 		Assert.assertEquals("[\"\", \"something\"]", GccDeclaratorExtension_64_Var
 		.getString().toString());
-		Assert.assertEquals(";", Declaration_47_Var
-		.getSemi());
 		//64
 		final ExternalDeclaration ExternalDeclaration_65_Var
 		 = (ExternalDeclaration)External_0_list.get(3);
@@ -965,8 +959,6 @@ public class Test0046_FunctionDeclsWithGccExts {
 		.getAsm());
 		Assert.assertEquals("[\"\", \"something\"]", GccDeclaratorExtension_83_Var
 		.getString().toString());
-		Assert.assertEquals(";", Declaration_66_Var
-		.getSemi());
 		//83
 		final ExternalDeclaration ExternalDeclaration_84_Var
 		 = (ExternalDeclaration)External_0_list.get(4);
@@ -1116,8 +1108,6 @@ public class Test0046_FunctionDeclsWithGccExts {
 		.getAsm());
 		Assert.assertEquals("[\"\", \"something\"]", GccDeclaratorExtension_102_Var
 		.getString().toString());
-		Assert.assertEquals(";", Declaration_85_Var
-		.getSemi());
 	}
 	
 	@Test

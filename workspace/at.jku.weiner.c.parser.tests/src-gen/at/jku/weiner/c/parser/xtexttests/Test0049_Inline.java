@@ -337,8 +337,6 @@ public class Test0049_Inline {
 		.getLastSuffix();
 		Assert.assertNotNull(DirectDeclaratorLastSuffix_11_Var
 		);
-		Assert.assertEquals(";", Declaration_2_Var
-		.getSemi());
 		//11
 		final ExternalDeclaration ExternalDeclaration_12_Var
 		 = (ExternalDeclaration)External_0_list.get(1);
@@ -421,8 +419,6 @@ public class Test0049_Inline {
 		.getLastSuffix();
 		Assert.assertNotNull(DirectDeclaratorLastSuffix_22_Var
 		);
-		Assert.assertEquals(";", Declaration_13_Var
-		.getSemi());
 		//22
 		final ExternalDeclaration ExternalDeclaration_23_Var
 		 = (ExternalDeclaration)External_0_list.get(2);
@@ -505,8 +501,6 @@ public class Test0049_Inline {
 		.getLastSuffix();
 		Assert.assertNotNull(DirectDeclaratorLastSuffix_33_Var
 		);
-		Assert.assertEquals(";", Declaration_24_Var
-		.getSemi());
 		//33
 		final ExternalDeclaration ExternalDeclaration_34_Var
 		 = (ExternalDeclaration)External_0_list.get(3);

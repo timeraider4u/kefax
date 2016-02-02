@@ -106,8 +106,7 @@ source file="res/Test0007_NoStdInclude"
 								) // end assignment expression
 							)
 						)
-					),
-					semi++";"
+					)
 				)	
 			),
 			(parser::ExternalDeclaration 
@@ -133,8 +132,7 @@ source file="res/Test0007_NoStdInclude"
 								)
 							)
 						)
-					),
-					semi++";"
+					)
 				)	
 			)
 		),

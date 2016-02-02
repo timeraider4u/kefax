@@ -421,8 +421,6 @@ public class Test0015_CastExpr {
 		);
 		Assert.assertEquals("int", TypeSpecifier_33_Var
 		.getName());
-		Assert.assertEquals(";", ExpressionStatement_11_Var
-		.getSemi());
 	}
 	
 	@Test

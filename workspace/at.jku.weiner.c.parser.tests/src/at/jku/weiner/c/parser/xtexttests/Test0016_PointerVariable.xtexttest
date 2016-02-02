@@ -47,8 +47,7 @@ KW_DOUBLE WHITESPACE SKW_STAR WHITESPACE SKW_STAR WHITESPACE ID SKW_SEMI NEWLINE
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		),
 		(ExternalDeclaration
@@ -78,8 +77,7 @@ KW_DOUBLE WHITESPACE SKW_STAR WHITESPACE SKW_STAR WHITESPACE ID SKW_SEMI NEWLINE
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 			
 		)

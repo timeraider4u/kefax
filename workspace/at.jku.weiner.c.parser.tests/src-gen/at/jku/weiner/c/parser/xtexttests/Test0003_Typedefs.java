@@ -305,8 +305,6 @@ public class Test0003_Typedefs {
 		);
 		Assert.assertEquals("a", DirectDeclarator_8_Var
 		.getId());
-		Assert.assertEquals(";", Declaration_2_Var
-		.getSemi());
 		//8
 		final ExternalDeclaration ExternalDeclaration_9_Var
 		 = (ExternalDeclaration)External_0_list.get(1);
@@ -374,8 +372,6 @@ public class Test0003_Typedefs {
 		);
 		Assert.assertEquals("NUMBER1", DirectDeclarator_17_Var
 		.getId());
-		Assert.assertEquals(";", Declaration_10_Var
-		.getSemi());
 		//17
 		final ExternalDeclaration ExternalDeclaration_18_Var
 		 = (ExternalDeclaration)External_0_list.get(2);
@@ -436,8 +432,6 @@ public class Test0003_Typedefs {
 		);
 		Assert.assertEquals("b", DirectDeclarator_25_Var
 		.getId());
-		Assert.assertEquals(";", Declaration_19_Var
-		.getSemi());
 		//25
 		final ExternalDeclaration ExternalDeclaration_26_Var
 		 = (ExternalDeclaration)External_0_list.get(3);
@@ -504,8 +498,6 @@ public class Test0003_Typedefs {
 		);
 		Assert.assertEquals("c", DirectDeclarator_34_Var
 		.getId());
-		Assert.assertEquals(";", Declaration_27_Var
-		.getSemi());
 		//34
 		final ExternalDeclaration ExternalDeclaration_35_Var
 		 = (ExternalDeclaration)External_0_list.get(4);
@@ -573,8 +565,6 @@ public class Test0003_Typedefs {
 		);
 		Assert.assertEquals("NUMBER2", DirectDeclarator_43_Var
 		.getId());
-		Assert.assertEquals(";", Declaration_36_Var
-		.getSemi());
 		//43
 		final ExternalDeclaration ExternalDeclaration_44_Var
 		 = (ExternalDeclaration)External_0_list.get(5);
@@ -641,8 +631,6 @@ public class Test0003_Typedefs {
 		);
 		Assert.assertEquals("d", DirectDeclarator_52_Var
 		.getId());
-		Assert.assertEquals(";", Declaration_45_Var
-		.getSemi());
 		//52
 		final ExternalDeclaration ExternalDeclaration_53_Var
 		 = (ExternalDeclaration)External_0_list.get(6);
@@ -709,8 +697,6 @@ public class Test0003_Typedefs {
 		);
 		Assert.assertEquals("e", DirectDeclarator_61_Var
 		.getId());
-		Assert.assertEquals(";", Declaration_54_Var
-		.getSemi());
 		//61
 		final ExternalDeclaration ExternalDeclaration_62_Var
 		 = (ExternalDeclaration)External_0_list.get(7);
@@ -777,8 +763,6 @@ public class Test0003_Typedefs {
 		);
 		Assert.assertEquals("f", DirectDeclarator_70_Var
 		.getId());
-		Assert.assertEquals(";", Declaration_63_Var
-		.getSemi());
 		//70
 		final ExternalDeclaration ExternalDeclaration_71_Var
 		 = (ExternalDeclaration)External_0_list.get(8);
@@ -839,8 +823,6 @@ public class Test0003_Typedefs {
 		);
 		Assert.assertEquals("g", DirectDeclarator_78_Var
 		.getId());
-		Assert.assertEquals(";", Declaration_72_Var
-		.getSemi());
 	}
 	
 	@Test

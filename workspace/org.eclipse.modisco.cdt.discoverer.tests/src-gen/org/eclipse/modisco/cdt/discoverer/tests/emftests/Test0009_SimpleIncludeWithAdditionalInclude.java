@@ -316,8 +316,6 @@ public class Test0009_SimpleIncludeWithAdditionalInclude {
 		.getLastSuffix();
 		Assert.assertNotNull(DirectDeclaratorLastSuffix_25_Var
 		);
-		Assert.assertEquals(";", Declaration_16_Var
-		.getSemi());
 		//25
 		final ExternalDeclaration ExternalDeclaration_26_Var
 		 = (ExternalDeclaration)External_14_list.get(1);
@@ -607,8 +605,6 @@ public class Test0009_SimpleIncludeWithAdditionalInclude {
 		.getArgumentExpressionList());
 		Assert.assertEquals("return", JumpStatement_43_Var
 		.getReturn());
-		Assert.assertEquals(";", JumpStatement_43_Var
-		.getSemi());
 		//61
 		final TranslationUnit TranslationUnit_62_Var
 		 = (TranslationUnit)Units_0_list.get(2);

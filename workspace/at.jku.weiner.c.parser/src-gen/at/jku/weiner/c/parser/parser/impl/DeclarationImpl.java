@@ -29,12 +29,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.DeclarationImpl#getSpecifiers <em>Specifiers</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.DeclarationImpl#getInitDeclaratorList <em>Init Declarator List</em>}</li>
- *   <li>{@link at.jku.weiner.c.parser.parser.impl.DeclarationImpl#getSemi <em>Semi</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -59,26 +58,6 @@ public class DeclarationImpl extends MinimalEObjectImpl.Container implements Dec
    * @ordered
    */
   protected EList<InitDeclaratorList> initDeclaratorList;
-
-  /**
-   * The default value of the '{@link #getSemi() <em>Semi</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getSemi()
-   * @generated
-   * @ordered
-   */
-  protected static final String SEMI_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getSemi() <em>Semi</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getSemi()
-   * @generated
-   * @ordered
-   */
-  protected String semi = SEMI_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -168,29 +147,6 @@ public class DeclarationImpl extends MinimalEObjectImpl.Container implements Dec
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getSemi()
-  {
-    return semi;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setSemi(String newSemi)
-  {
-    String oldSemi = semi;
-    semi = newSemi;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.DECLARATION__SEMI, oldSemi, semi));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -218,8 +174,6 @@ public class DeclarationImpl extends MinimalEObjectImpl.Container implements Dec
         return getSpecifiers();
       case ParserPackage.DECLARATION__INIT_DECLARATOR_LIST:
         return getInitDeclaratorList();
-      case ParserPackage.DECLARATION__SEMI:
-        return getSemi();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -242,9 +196,6 @@ public class DeclarationImpl extends MinimalEObjectImpl.Container implements Dec
         getInitDeclaratorList().clear();
         getInitDeclaratorList().addAll((Collection<? extends InitDeclaratorList>)newValue);
         return;
-      case ParserPackage.DECLARATION__SEMI:
-        setSemi((String)newValue);
-        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -265,9 +216,6 @@ public class DeclarationImpl extends MinimalEObjectImpl.Container implements Dec
       case ParserPackage.DECLARATION__INIT_DECLARATOR_LIST:
         getInitDeclaratorList().clear();
         return;
-      case ParserPackage.DECLARATION__SEMI:
-        setSemi(SEMI_EDEFAULT);
-        return;
     }
     super.eUnset(featureID);
   }
@@ -286,27 +234,8 @@ public class DeclarationImpl extends MinimalEObjectImpl.Container implements Dec
         return specifiers != null;
       case ParserPackage.DECLARATION__INIT_DECLARATOR_LIST:
         return initDeclaratorList != null && !initDeclaratorList.isEmpty();
-      case ParserPackage.DECLARATION__SEMI:
-        return SEMI_EDEFAULT == null ? semi != null : !SEMI_EDEFAULT.equals(semi);
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (semi: ");
-    result.append(semi);
-    result.append(')');
-    return result.toString();
   }
 
 } //DeclarationImpl

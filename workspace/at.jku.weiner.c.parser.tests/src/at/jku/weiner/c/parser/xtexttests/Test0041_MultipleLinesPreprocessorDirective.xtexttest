@@ -90,8 +90,7 @@ KW_INT WHITESPACE ID WHITESPACE SKW_ASSIGN WHITESPACE ID SKW_SEMI NEWLINE
 							) // end assignment expression
 						) // end initializer
 					)
-				),
-				semi++";"
+				)
 			)
 		)
 	)

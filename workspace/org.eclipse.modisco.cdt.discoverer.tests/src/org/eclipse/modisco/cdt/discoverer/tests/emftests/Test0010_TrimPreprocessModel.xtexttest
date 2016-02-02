@@ -100,8 +100,7 @@ source file="res/Test0010_TrimPreprocessModel"
 								)
 							)
 						)
-					),
-					semi++";"
+					)
 				)	
 			),
 			// comes from File.c
@@ -127,8 +126,7 @@ source file="res/Test0010_TrimPreprocessModel"
 								)
 							)
 						)
-					),
-					semi++";"
+					)
 				)	
 			),
 			(parser::ExternalDeclaration 
@@ -154,8 +152,7 @@ source file="res/Test0010_TrimPreprocessModel"
 								)
 							)
 						)
-					),
-					semi++";"
+					)
 				)	
 			)
 		),

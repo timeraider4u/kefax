@@ -233,8 +233,6 @@ public class Test0004_Predef {
 		);
 		Assert.assertEquals("myVar1", DirectDeclarator_19_Var
 		.getId());
-		Assert.assertEquals(";", Declaration_12_Var
-		.getSemi());
 		//19
 		final ExternalDeclaration ExternalDeclaration_20_Var
 		 = (ExternalDeclaration)External_10_list.get(1);
@@ -302,8 +300,6 @@ public class Test0004_Predef {
 		);
 		Assert.assertEquals("anotherVar2", DirectDeclarator_28_Var
 		.getId());
-		Assert.assertEquals(";", Declaration_21_Var
-		.getSemi());
 		Assert.assertEquals("" + options.get("path") + "/" + options.get("plugin_id") + "/" + options.get("sourceFile") + "/Simple.c", TranslationUnit_3_Var
 		.getPath());
 		//28

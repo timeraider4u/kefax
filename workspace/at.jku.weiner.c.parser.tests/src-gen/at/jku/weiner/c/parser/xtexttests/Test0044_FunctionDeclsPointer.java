@@ -313,8 +313,6 @@ public class Test0044_FunctionDeclsPointer {
 		);
 		Assert.assertEquals("c", DirectDeclarator_18_Var
 		.getId());
-		Assert.assertEquals(";", Declaration_2_Var
-		.getSemi());
 		//18
 		final ExternalDeclaration ExternalDeclaration_19_Var
 		 = (ExternalDeclaration)External_0_list.get(1);
@@ -445,8 +443,6 @@ public class Test0044_FunctionDeclsPointer {
 		);
 		Assert.assertEquals("[*]", Pointer_35_Var
 		.getStar().toString());
-		Assert.assertEquals(";", Declaration_20_Var
-		.getSemi());
 	}
 	
 	@Test

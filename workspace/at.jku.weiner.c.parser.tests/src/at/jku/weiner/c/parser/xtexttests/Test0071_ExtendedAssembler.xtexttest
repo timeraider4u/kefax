@@ -113,8 +113,7 @@ SKW_RIGHTBRACE NEWLINE
 							) // end assignment expression
 						) // end initializer
 					)
-				),
-				semi++";"
+				)
 			)
 		), // end external declaration
 		(ExternalDeclaration 
@@ -142,8 +141,7 @@ SKW_RIGHTBRACE NEWLINE
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		), // end external declaration
 		(ExternalDeclaration 
@@ -237,8 +235,7 @@ SKW_RIGHTBRACE NEWLINE
 							) // end assignment expression
 						) // end initializer
 					)
-				),
-				semi++";"
+				)
 			)
 		),
 		// void foo()

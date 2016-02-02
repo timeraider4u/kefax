@@ -443,8 +443,6 @@ public class Test0010_SimpleExpr {
 		.getDec());
 		Assert.assertEquals("[+]", AdditiveExpression_23_Var
 		.getOp().toString());
-		Assert.assertEquals(";", ExpressionStatement_11_Var
-		.getSemi());
 	}
 	
 	@Test

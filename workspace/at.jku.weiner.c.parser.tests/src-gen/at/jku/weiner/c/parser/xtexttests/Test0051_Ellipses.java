@@ -282,8 +282,6 @@ public class Test0051_Ellipses {
 		.getId());
 		Assert.assertTrue(ParameterTypeList_11_Var
 		.isEllipsis());
-		Assert.assertEquals(";", Declaration_2_Var
-		.getSemi());
 	}
 	
 	@Test

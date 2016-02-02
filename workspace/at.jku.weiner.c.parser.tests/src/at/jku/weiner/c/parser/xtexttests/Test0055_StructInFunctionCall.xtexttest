@@ -135,8 +135,7 @@ SKW_RIGHTBRACE NEWLINE
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		),
 		// void bar(...)
@@ -312,8 +311,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								), // end expression
-								semi++";"
+								) // end expression
 							) // end expression statement
 						) // end statement
 					) // end block list

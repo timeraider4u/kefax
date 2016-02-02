@@ -512,8 +512,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								), // end expression
-								semi++";"
+								) // end expression
 							) // end expression statement
 						), // end statement
 						// printf(..., sizeof(number.numChar);
@@ -738,8 +737,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								), // end expression
-								semi++";"
+								) // end expression
 							) // end expression statement
 						), // end statement
 						// printf(..., sizeof(float);
@@ -908,8 +906,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								), // end expression
-								semi++";"
+								) // end expression
 							) // end expression statement
 						), // end statement
 						// number.numChar = 65;
@@ -992,8 +989,7 @@ SKW_RIGHTBRACE NEWLINE
 											) // end conditional expression
 										) // end assignment expression
 									) // end assignment expression
-								),//end expression
-								semi++";"
+								)//end expression
 							)
 						), // end statement
 						// printf(..., number.numFloat);
@@ -1162,8 +1158,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								), // end expression
-								semi++";"
+								) // end expression
 							) // end expression statement
 						), // end statement
 						// printf(..., number.numFloat);
@@ -1332,8 +1327,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								), // end expression
-								semi++";"
+								) // end expression
 							) // end expression statement
 						), // end statement
 						// printf(..., number.numFloat);
@@ -1502,8 +1496,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								), // end expression
-								semi++";"
+								) // end expression
 							) // end expression statement
 						), // end statement
 						// number.numFloat = 0.56789;
@@ -1586,8 +1579,7 @@ SKW_RIGHTBRACE NEWLINE
 											) // end conditional expression
 										) // end assignment expression
 									) // end assignment expression
-								),//end expression
-								semi++";"
+								)//end expression
 							)
 						), // end statement
 						// printf(..., number.numFloat);
@@ -1755,8 +1747,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								), // end expression
-								semi++";"
+								) // end expression
 							) // end expression statement
 						), // end statement
 						// printf(..., number.numFloat);
@@ -1925,8 +1916,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								), // end expression
-								semi++";"
+								) // end expression
 							) // end expression statement
 						), // end statement
 						// return statement
@@ -1989,8 +1979,7 @@ SKW_RIGHTBRACE NEWLINE
 										)
 									)
 								), // end expression
-								return++"return",
-								semi++";"
+								return++"return"
 							) // end jump statement
 						) // end second statement
 					) // end block list

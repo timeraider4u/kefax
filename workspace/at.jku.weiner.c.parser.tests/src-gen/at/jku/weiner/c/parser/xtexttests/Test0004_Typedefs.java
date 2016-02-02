@@ -246,8 +246,6 @@ public class Test0004_Typedefs {
 		);
 		Assert.assertEquals("NUMBER1", DirectDeclarator_9_Var
 		.getId());
-		Assert.assertEquals(";", Declaration_2_Var
-		.getSemi());
 		//9
 		final ExternalDeclaration ExternalDeclaration_10_Var
 		 = (ExternalDeclaration)External_0_list.get(1);
@@ -321,8 +319,6 @@ public class Test0004_Typedefs {
 		);
 		Assert.assertEquals("NUMBER2", DirectDeclarator_19_Var
 		.getId());
-		Assert.assertEquals(";", Declaration_11_Var
-		.getSemi());
 		//19
 		final ExternalDeclaration ExternalDeclaration_20_Var
 		 = (ExternalDeclaration)External_0_list.get(2);
@@ -389,8 +385,6 @@ public class Test0004_Typedefs {
 		);
 		Assert.assertEquals("a", DirectDeclarator_28_Var
 		.getId());
-		Assert.assertEquals(";", Declaration_21_Var
-		.getSemi());
 		//28
 		final ExternalDeclaration ExternalDeclaration_29_Var
 		 = (ExternalDeclaration)External_0_list.get(3);
@@ -457,8 +451,6 @@ public class Test0004_Typedefs {
 		);
 		Assert.assertEquals("b", DirectDeclarator_37_Var
 		.getId());
-		Assert.assertEquals(";", Declaration_30_Var
-		.getSemi());
 	}
 	
 	@Test

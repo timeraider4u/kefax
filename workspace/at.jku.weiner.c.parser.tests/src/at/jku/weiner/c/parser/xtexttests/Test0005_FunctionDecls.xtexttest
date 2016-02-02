@@ -47,8 +47,7 @@ KW_VOID WHITESPACE ID SKW_LEFTPAREN  SKW_RIGHTPAREN SKW_SEMI NEWLINE
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		),
 		// double do3();
@@ -81,8 +80,7 @@ KW_VOID WHITESPACE ID SKW_LEFTPAREN  SKW_RIGHTPAREN SKW_SEMI NEWLINE
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		),
 		// float do4();
@@ -115,8 +113,7 @@ KW_VOID WHITESPACE ID SKW_LEFTPAREN  SKW_RIGHTPAREN SKW_SEMI NEWLINE
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		),
 		// int do5();
@@ -149,8 +146,7 @@ KW_VOID WHITESPACE ID SKW_LEFTPAREN  SKW_RIGHTPAREN SKW_SEMI NEWLINE
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		),
 		// void do6();
@@ -183,8 +179,7 @@ KW_VOID WHITESPACE ID SKW_LEFTPAREN  SKW_RIGHTPAREN SKW_SEMI NEWLINE
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		)
 		

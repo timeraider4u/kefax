@@ -179,8 +179,7 @@ KW_CHAR WHITESPACE ID SKW_LEFTBRACKET
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		)
 	)

@@ -81,8 +81,7 @@ SKW_RIGHTBRACE NEWLINE
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		), // end external declaration (extern int errno;)
 		(ExternalDeclaration 
@@ -195,8 +194,7 @@ SKW_RIGHTBRACE NEWLINE
 										)
 									)
 								)
-							),
-							semi++";"
+							)
 						), // end declaration
 						statement+=
 						// __asm (...)
@@ -893,8 +891,7 @@ SKW_RIGHTBRACE NEWLINE
 											) // end LogicalOrExpression
 										)
 									)
-								),
-								semi++";"
+								)
 							) // end AsmStatement
 						),
 						// if (...) { }
@@ -1302,8 +1299,7 @@ SKW_RIGHTBRACE NEWLINE
 										)
 									)
 								), // end expression
-							return++"return",
-							semi++";"
+							return++"return"
 							) // end jump statement
 						) // end statement
 					) // end block list

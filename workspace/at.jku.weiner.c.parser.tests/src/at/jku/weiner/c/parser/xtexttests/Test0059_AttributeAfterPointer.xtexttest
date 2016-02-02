@@ -66,8 +66,7 @@ KW_EXTERN WHITESPACE KW_VOID WHITESPACE SKW_STAR WHITESPACE
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		)
 		

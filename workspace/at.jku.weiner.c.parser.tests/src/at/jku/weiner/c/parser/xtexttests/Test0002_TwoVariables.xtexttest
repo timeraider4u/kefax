@@ -36,8 +36,7 @@ KW_INT WHITESPACE ID SKW_SEMI
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		),
 		(ExternalDeclaration
@@ -63,8 +62,7 @@ KW_INT WHITESPACE ID SKW_SEMI
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 			
 		)

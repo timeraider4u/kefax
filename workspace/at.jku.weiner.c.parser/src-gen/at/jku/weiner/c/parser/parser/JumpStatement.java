@@ -10,15 +10,14 @@ package at.jku.weiner.c.parser.parser;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.JumpStatement#getContinue <em>Continue</em>}</li>
- *   <li>{@link at.jku.weiner.c.parser.parser.JumpStatement#getSemi <em>Semi</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.JumpStatement#getBreak <em>Break</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.JumpStatement#getReturn <em>Return</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.JumpStatement#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.JumpStatement#getGoto <em>Goto</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.parser.parser.ParserPackage#getJumpStatement()
  * @model
@@ -51,32 +50,6 @@ public interface JumpStatement extends Statement
    * @generated
    */
   void setContinue(String value);
-
-  /**
-   * Returns the value of the '<em><b>Semi</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Semi</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Semi</em>' attribute.
-   * @see #setSemi(String)
-   * @see at.jku.weiner.c.parser.parser.ParserPackage#getJumpStatement_Semi()
-   * @model
-   * @generated
-   */
-  String getSemi();
-
-  /**
-   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.JumpStatement#getSemi <em>Semi</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Semi</em>' attribute.
-   * @see #getSemi()
-   * @generated
-   */
-  void setSemi(String value);
 
   /**
    * Returns the value of the '<em><b>Break</b></em>' attribute.

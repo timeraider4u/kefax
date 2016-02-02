@@ -156,8 +156,7 @@ SKW_RIGHTBRACE NEWLINE
 												) // end assignment expression
 											)
 										)
-									),
-									semi++";"
+									)
 								), // end init declaration
 								// i < 5
 								expr=

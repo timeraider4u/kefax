@@ -970,16 +970,6 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getDeclaration_Semi()
-  {
-    return (EAttribute)declarationEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getFunctionDeclarationSpecifiers()
   {
     return functionDeclarationSpecifiersEClass;
@@ -2720,16 +2710,6 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getExpressionStatement_Semi()
-  {
-    return (EAttribute)expressionStatementEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getSelectionStatement()
   {
     return selectionStatementEClass;
@@ -2930,7 +2910,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getJumpStatement_Semi()
+  public EAttribute getJumpStatement_Break()
   {
     return (EAttribute)jumpStatementEClass.getEStructuralFeatures().get(1);
   }
@@ -2940,7 +2920,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getJumpStatement_Break()
+  public EAttribute getJumpStatement_Return()
   {
     return (EAttribute)jumpStatementEClass.getEStructuralFeatures().get(2);
   }
@@ -2950,19 +2930,9 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getJumpStatement_Return()
-  {
-    return (EAttribute)jumpStatementEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getJumpStatement_Expr()
   {
-    return (EReference)jumpStatementEClass.getEStructuralFeatures().get(4);
+    return (EReference)jumpStatementEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -2972,7 +2942,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
    */
   public EAttribute getJumpStatement_Goto()
   {
-    return (EAttribute)jumpStatementEClass.getEStructuralFeatures().get(5);
+    return (EAttribute)jumpStatementEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -3033,16 +3003,6 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
   public EAttribute getAsmStatement_LastComma()
   {
     return (EAttribute)asmStatementEClass.getEStructuralFeatures().get(4);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getAsmStatement_Semi()
-  {
-    return (EAttribute)asmStatementEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -3852,7 +3812,6 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     declarationEClass = createEClass(DECLARATION);
     createEReference(declarationEClass, DECLARATION__SPECIFIERS);
     createEReference(declarationEClass, DECLARATION__INIT_DECLARATOR_LIST);
-    createEAttribute(declarationEClass, DECLARATION__SEMI);
 
     functionDeclarationSpecifiersEClass = createEClass(FUNCTION_DECLARATION_SPECIFIERS);
     createEReference(functionDeclarationSpecifiersEClass, FUNCTION_DECLARATION_SPECIFIERS__DECLARATION_SPECIFIER);
@@ -4088,7 +4047,6 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 
     expressionStatementEClass = createEClass(EXPRESSION_STATEMENT);
     createEReference(expressionStatementEClass, EXPRESSION_STATEMENT__EXPRESSION);
-    createEAttribute(expressionStatementEClass, EXPRESSION_STATEMENT__SEMI);
 
     selectionStatementEClass = createEClass(SELECTION_STATEMENT);
     createEAttribute(selectionStatementEClass, SELECTION_STATEMENT__IF);
@@ -4112,7 +4070,6 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 
     jumpStatementEClass = createEClass(JUMP_STATEMENT);
     createEAttribute(jumpStatementEClass, JUMP_STATEMENT__CONTINUE);
-    createEAttribute(jumpStatementEClass, JUMP_STATEMENT__SEMI);
     createEAttribute(jumpStatementEClass, JUMP_STATEMENT__BREAK);
     createEAttribute(jumpStatementEClass, JUMP_STATEMENT__RETURN);
     createEReference(jumpStatementEClass, JUMP_STATEMENT__EXPR);
@@ -4124,7 +4081,6 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     createEReference(asmStatementEClass, ASM_STATEMENT__ASM_LINE1);
     createEReference(asmStatementEClass, ASM_STATEMENT__ASM_LINES);
     createEAttribute(asmStatementEClass, ASM_STATEMENT__LAST_COMMA);
-    createEAttribute(asmStatementEClass, ASM_STATEMENT__SEMI);
 
     assignmentExpressionEClass = createEClass(ASSIGNMENT_EXPRESSION);
     createEReference(assignmentExpressionEClass, ASSIGNMENT_EXPRESSION__EXPR);
@@ -4316,7 +4272,6 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     initEClass(declarationEClass, Declaration.class, "Declaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDeclaration_Specifiers(), this.getDeclarationSpecifiers(), null, "specifiers", null, 0, 1, Declaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDeclaration_InitDeclaratorList(), this.getInitDeclaratorList(), null, "initDeclaratorList", null, 0, -1, Declaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getDeclaration_Semi(), theEcorePackage.getEString(), "semi", null, 0, 1, Declaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(functionDeclarationSpecifiersEClass, FunctionDeclarationSpecifiers.class, "FunctionDeclarationSpecifiers", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getFunctionDeclarationSpecifiers_DeclarationSpecifier(), theEcorePackage.getEObject(), null, "declarationSpecifier", null, 0, -1, FunctionDeclarationSpecifiers.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4552,7 +4507,6 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 
     initEClass(expressionStatementEClass, ExpressionStatement.class, "ExpressionStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getExpressionStatement_Expression(), this.getExpression(), null, "expression", null, 0, 1, ExpressionStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getExpressionStatement_Semi(), theEcorePackage.getEString(), "semi", null, 0, 1, ExpressionStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(selectionStatementEClass, SelectionStatement.class, "SelectionStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSelectionStatement_If(), theEcorePackage.getEString(), "if", null, 0, 1, SelectionStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4576,7 +4530,6 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 
     initEClass(jumpStatementEClass, JumpStatement.class, "JumpStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getJumpStatement_Continue(), theEcorePackage.getEString(), "continue", null, 0, 1, JumpStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getJumpStatement_Semi(), theEcorePackage.getEString(), "semi", null, 0, 1, JumpStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getJumpStatement_Break(), theEcorePackage.getEString(), "break", null, 0, 1, JumpStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getJumpStatement_Return(), theEcorePackage.getEString(), "return", null, 0, 1, JumpStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getJumpStatement_Expr(), this.getExpression(), null, "expr", null, 0, 1, JumpStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4588,7 +4541,6 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     initEReference(getAsmStatement_AsmLine1(), this.getAsmLine(), null, "asmLine1", null, 0, 1, AsmStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAsmStatement_AsmLines(), this.getAsmLineWithColon(), null, "asmLines", null, 0, -1, AsmStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAsmStatement_LastComma(), theEcorePackage.getEBoolean(), "lastComma", null, 0, 1, AsmStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getAsmStatement_Semi(), theEcorePackage.getEString(), "semi", null, 0, 1, AsmStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(assignmentExpressionEClass, AssignmentExpression.class, "AssignmentExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAssignmentExpression_Expr(), this.getExpression(), null, "expr", null, 0, 1, AssignmentExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

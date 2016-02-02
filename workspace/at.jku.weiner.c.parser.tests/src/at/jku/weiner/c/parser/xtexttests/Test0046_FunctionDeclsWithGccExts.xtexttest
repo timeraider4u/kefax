@@ -120,8 +120,7 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		),
 		// char do1(int c) __attribute__ ((__nothrow__));
@@ -194,8 +193,7 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		),
 		// asm
@@ -259,8 +257,7 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		),
 		// __asm
@@ -324,8 +321,7 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		),
 		// __asm__
@@ -389,8 +385,7 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		)
 	)

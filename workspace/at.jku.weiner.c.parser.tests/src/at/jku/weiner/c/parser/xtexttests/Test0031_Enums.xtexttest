@@ -517,8 +517,7 @@ SKW_RIGHTBRACE NEWLINE
 							) // end assignment expression
 						) // end initializer
 					) // end init declarator
-				),
-				semi++";"
+				)
 			)
 		),
 		// enum { ... };
@@ -1112,8 +1111,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								), // end expression
-								semi++";"
+								) // end expression
 							) // end expression statement
 						), // end statement
 						(Statement
@@ -1277,8 +1275,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								), // end expression
-								semi++";"
+								) // end expression
 							) // end expression statement
 						), // end statement
 						(Statement
@@ -1442,8 +1439,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								), // end expression
-								semi++";"
+								) // end expression
 							) // end expression statement
 						), // end statement
 						(Statement
@@ -1607,8 +1603,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								), // end expression
-								semi++";"
+								) // end expression
 							) // end expression statement
 						), // end statement
 						(Statement
@@ -1684,8 +1679,7 @@ SKW_RIGHTBRACE NEWLINE
 											) // end conditional expression
 										) // end assignment expression
 									) // end assignment expression
-								),//end expression
-								semi++";"
+								)//end expression
 							)
 						), // end statement
 						(Statement
@@ -1849,8 +1843,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								), // end expression
-								semi++";"
+								) // end expression
 							) // end expression statement
 						), // end statement
 						(Statement
@@ -2014,8 +2007,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								), // end expression
-								semi++";"
+								) // end expression
 							) // end expression statement
 						), // end statement
 						(Statement
@@ -2077,8 +2069,7 @@ SKW_RIGHTBRACE NEWLINE
 										)
 									)
 								), // end expression
-								return++"return",
-								semi++";"
+								return++"return"
 							) // end jump statement
 						) // end second statement
 					) // end block list

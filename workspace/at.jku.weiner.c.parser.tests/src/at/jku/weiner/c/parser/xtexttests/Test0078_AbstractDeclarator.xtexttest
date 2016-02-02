@@ -47,8 +47,7 @@ KW_EXTERN WHITESPACE KW_INT WHITESPACE ID SKW_LEFTPAREN
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		),
 		// extern int bar(foo *, int, void *, foo (*)(struct foobar));
@@ -187,8 +186,7 @@ KW_EXTERN WHITESPACE KW_INT WHITESPACE ID SKW_LEFTPAREN
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		)
 	)

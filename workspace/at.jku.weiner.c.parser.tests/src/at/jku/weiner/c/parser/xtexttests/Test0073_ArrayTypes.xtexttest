@@ -40,8 +40,7 @@ KW_INT WHITESPACE ID SKW_LEFTBRACKET SKW_RIGHTBRACKET SKW_SEMI NEWLINE
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		),
 		(ExternalDeclaration 
@@ -72,8 +71,7 @@ KW_INT WHITESPACE ID SKW_LEFTBRACKET SKW_RIGHTBRACKET SKW_SEMI NEWLINE
 							
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		)
 	)

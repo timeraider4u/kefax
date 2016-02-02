@@ -220,8 +220,6 @@ public class Test0009_SimpleStmt {
 		.getStmt();
 		Assert.assertNotNull(ExpressionStatement_11_Var
 		);
-		Assert.assertEquals(";", ExpressionStatement_11_Var
-		.getSemi());
 	}
 	
 	@Test

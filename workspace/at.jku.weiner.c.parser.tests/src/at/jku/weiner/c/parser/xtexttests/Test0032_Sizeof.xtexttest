@@ -109,8 +109,7 @@ SKW_RIGHTBRACE NEWLINE
 										)
 									)
 								), // end expression
-								return++"return",
-								semi++";"
+								return++"return"
 							)// end jump statement
 						)//end statement
 					)
@@ -221,8 +220,7 @@ SKW_RIGHTBRACE NEWLINE
 										)
 									)
 								), // end expression
-								return++"return",
-								semi++";"
+								return++"return"
 							)// end jump statement
 						)//end statement
 					)

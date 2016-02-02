@@ -344,8 +344,6 @@ public class Test0020_Goto {
 		.getId());
 		Assert.assertEquals("goto", JumpStatement_11_Var
 		.getGoto());
-		Assert.assertEquals(";", JumpStatement_11_Var
-		.getSemi());
 		//14
 		final Statement Statement_15_Var
 		 = (Statement)Statement_9_list.get(1);
@@ -646,8 +644,6 @@ public class Test0020_Goto {
 		);
 		Assert.assertEquals("[\"will never be reached\\n\"]", PrimaryExpression_51_Var
 		.getString().toString());
-		Assert.assertEquals(";", ExpressionStatement_16_Var
-		.getSemi());
 		//51
 		final Statement Statement_52_Var
 		 = (Statement)Statement_9_list.get(2);
@@ -962,8 +958,6 @@ public class Test0020_Goto {
 		);
 		Assert.assertEquals("[\"reached target\\n\"]", PrimaryExpression_90_Var
 		.getString().toString());
-		Assert.assertEquals(";", ExpressionStatement_55_Var
-		.getSemi());
 	}
 	
 	@Test

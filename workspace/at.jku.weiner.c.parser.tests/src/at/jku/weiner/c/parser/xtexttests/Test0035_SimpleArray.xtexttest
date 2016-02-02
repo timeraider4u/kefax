@@ -381,8 +381,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								), // end expression
-								semi++";"
+								) // end expression
 							) // end expression statement
 						), // end statement
 						// strcpy(out, ...);
@@ -546,8 +545,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								), // end expression
-								semi++";"
+								) // end expression
 							) // end expression statement
 						), // end statement
 						// printf(..., out);
@@ -711,8 +709,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								), // end expression
-								semi++";"
+								) // end expression
 							) // end expression statement
 						), // end statement
 						// out[...] = ...;
@@ -849,8 +846,7 @@ SKW_RIGHTBRACE NEWLINE
 											) // end conditional expression
 										) // end assignment expression
 									) // end assignment expression
-								),//end expression
-								semi++";"
+								)//end expression
 							)
 						), // end statement
 						// printf(..., out);
@@ -1014,8 +1010,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								), // end expression
-								semi++";"
+								) // end expression
 							) // end expression statement
 						), // end statement
 						// return statement
@@ -1078,8 +1073,7 @@ SKW_RIGHTBRACE NEWLINE
 										)
 									)
 								), // end expression
-								return++"return",
-								semi++";"
+								return++"return"
 							) // end jump statement
 						) // end second statement
 					) // end block list

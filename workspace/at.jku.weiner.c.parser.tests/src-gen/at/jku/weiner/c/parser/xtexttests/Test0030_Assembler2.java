@@ -798,8 +798,6 @@ public class Test0030_Assembler2 {
 		);
 		Assert.assertEquals("5", Constant2_41_Var
 		.getDec());
-		Assert.assertEquals(";", Declaration_17_Var
-		.getSemi());
 		//41
 		final Declaration Declaration_42_Var
 		 = (Declaration)Declaration_16_list.get(1);
@@ -997,8 +995,6 @@ public class Test0030_Assembler2 {
 		);
 		Assert.assertEquals("4", Constant2_66_Var
 		.getDec());
-		Assert.assertEquals(";", Declaration_42_Var
-		.getSemi());
 		final EList<? extends EObject> Statement_66_list = BlockList_16_Var
 		.getStatement();
 		Assert.assertNotNull(Statement_66_list);
@@ -2295,8 +2291,6 @@ public class Test0030_Assembler2 {
 		);
 		Assert.assertEquals("bar", PrimaryExpression_224_Var
 		.getId());
-		Assert.assertEquals(";", ExpressionStatement_173_Var
-		.getSemi());
 		//224
 		final Statement Statement_225_Var
 		 = (Statement)Statement_66_list.get(2);
@@ -2456,8 +2450,6 @@ public class Test0030_Assembler2 {
 		.getDec());
 		Assert.assertEquals("return", JumpStatement_226_Var
 		.getReturn());
-		Assert.assertEquals(";", JumpStatement_226_Var
-		.getSemi());
 	}
 	
 	@Test

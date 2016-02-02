@@ -94,8 +94,7 @@ KW_TYPEDEF WHITESPACE KW_INT WHITESPACE ID SKW_LEFTBRACKET DECIMAL_LITERAL SKW_R
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		)
 	)

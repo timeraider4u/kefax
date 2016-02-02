@@ -846,8 +846,6 @@ public class Test0021_IfElse {
 		.getDec());
 		Assert.assertEquals("return", JumpStatement_47_Var
 		.getReturn());
-		Assert.assertEquals(";", JumpStatement_47_Var
-		.getSemi());
 		//65
 		final Statement Statement_66_Var
 		 = (Statement)SelectionStatement_20_Var
@@ -1266,8 +1264,6 @@ public class Test0021_IfElse {
 		.getDec());
 		Assert.assertEquals("return", JumpStatement_99_Var
 		.getReturn());
-		Assert.assertEquals(";", JumpStatement_99_Var
-		.getSemi());
 		//117
 		final Statement Statement_118_Var
 		 = (Statement)SelectionStatement_67_Var
@@ -1458,8 +1454,6 @@ public class Test0021_IfElse {
 		.getDec());
 		Assert.assertEquals("return", JumpStatement_123_Var
 		.getReturn());
-		Assert.assertEquals(";", JumpStatement_123_Var
-		.getSemi());
 	}
 	
 	@Test

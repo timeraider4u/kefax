@@ -79,8 +79,7 @@ source file="res/Test0006_SimpleAbsoluteInclude"
 								)
 							)
 						)
-					),
-					semi++";"
+					)
 				)	
 			),
 			(parser::ExternalDeclaration 
@@ -190,8 +189,7 @@ source file="res/Test0006_SimpleAbsoluteInclude"
 											)
 										)
 									), // end expression
-									return++"return",
-									semi++";"
+									return++"return"
 								) // end jump statement
 							) // end return statement
 						)

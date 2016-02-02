@@ -224,15 +224,13 @@ SKW_RIGHTBRACE NEWLINE
 																	)
 																)
 															)
-														), // end expression
-														semi++";"
+														) // end expression
 													) // end expression statement
 												)
 											)
 										)
 									) // end compound statement
-								), // end statement
-								semi++";"
+								) // end statement
 							) // end iteration statement
 						) // end statement
 					) // end block list

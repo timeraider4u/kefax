@@ -456,8 +456,6 @@ public class Test0032_Sizeof {
 		.getName());
 		Assert.assertEquals("return", JumpStatement_11_Var
 		.getReturn());
-		Assert.assertEquals(";", JumpStatement_11_Var
-		.getSemi());
 		//29
 		final ExternalDeclaration ExternalDeclaration_30_Var
 		 = (ExternalDeclaration)External_0_list.get(1);
@@ -729,8 +727,6 @@ public class Test0032_Sizeof {
 		.getName());
 		Assert.assertEquals("return", JumpStatement_41_Var
 		.getReturn());
-		Assert.assertEquals(";", JumpStatement_41_Var
-		.getSemi());
 	}
 	
 	@Test

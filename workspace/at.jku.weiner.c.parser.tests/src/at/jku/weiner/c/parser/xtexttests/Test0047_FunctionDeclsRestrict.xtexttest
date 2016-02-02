@@ -81,8 +81,7 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN KW_CONST WHITESPACE
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		),
 		(ExternalDeclaration),

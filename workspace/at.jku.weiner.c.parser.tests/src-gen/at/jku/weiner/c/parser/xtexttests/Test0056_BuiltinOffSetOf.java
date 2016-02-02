@@ -689,8 +689,6 @@ public class Test0056_BuiltinOffSetOf {
 		);
 		Assert.assertEquals("i", PrimaryExpression_61_Var
 		.getId());
-		Assert.assertEquals(";", ExpressionStatement_36_Var
-		.getSemi());
 	}
 	
 	@Test

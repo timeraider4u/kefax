@@ -91,8 +91,7 @@ SKW_RIGHTPAREN SKW_SEMI NEWLINE
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		)
 		

@@ -210,8 +210,6 @@ public class Test0039_Empty {
 		.getLastSuffix();
 		Assert.assertNotNull(DirectDeclaratorLastSuffix_10_Var
 		);
-		Assert.assertEquals(";", Declaration_2_Var
-		.getSemi());
 	}
 	
 	@Test

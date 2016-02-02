@@ -543,25 +543,11 @@ ruleDeclaration returns [EObject current=null]
 )?
 
 
-(
-(
-		lv_semi_3_0=RULE_SKW_SEMI
-		{
-			newLeafNode(lv_semi_3_0, grammarAccess.getDeclarationAccess().getSemiSKW_SEMITerminalRuleCall_1_2_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getDeclarationRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"semi",
-        		lv_semi_3_0, 
-        		"at.jku.weiner.c.common.Common.SKW_SEMI");
-	    }
+this_SKW_SEMI_3=RULE_SKW_SEMI
+    { 
+    newLeafNode(this_SKW_SEMI_3, grammarAccess.getDeclarationAccess().getSKW_SEMITerminalRuleCall_1_2()); 
+    }
 
-)
-)
 
 )
 
@@ -6853,25 +6839,11 @@ ruleExpressionStatement returns [EObject current=null]
 )?
 
 
-(
-(
-		lv_semi_2_0=RULE_SKW_SEMI
-		{
-			newLeafNode(lv_semi_2_0, grammarAccess.getExpressionStatementAccess().getSemiSKW_SEMITerminalRuleCall_2_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getExpressionStatementRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"semi",
-        		lv_semi_2_0, 
-        		"at.jku.weiner.c.common.Common.SKW_SEMI");
-	    }
+this_SKW_SEMI_2=RULE_SKW_SEMI
+    { 
+    newLeafNode(this_SKW_SEMI_2, grammarAccess.getExpressionStatementAccess().getSKW_SEMITerminalRuleCall_2()); 
+    }
 
-)
-)
 
 )
 
@@ -7702,25 +7674,11 @@ ruleJumpStatement returns [EObject current=null]
 )
 
 
-(
-(
-		lv_semi_2_0=RULE_SKW_SEMI
-		{
-			newLeafNode(lv_semi_2_0, grammarAccess.getJumpStatementAccess().getSemiSKW_SEMITerminalRuleCall_1_0_1_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getJumpStatementRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"semi",
-        		lv_semi_2_0, 
-        		"at.jku.weiner.c.common.Common.SKW_SEMI");
-	    }
+this_SKW_SEMI_2=RULE_SKW_SEMI
+    { 
+    newLeafNode(this_SKW_SEMI_2, grammarAccess.getJumpStatementAccess().getSKW_SEMITerminalRuleCall_1_0_1()); 
+    }
 
-)
-)
 
 )
 
@@ -7748,25 +7706,11 @@ ruleJumpStatement returns [EObject current=null]
 )
 
 
-(
-(
-		lv_semi_4_0=RULE_SKW_SEMI
-		{
-			newLeafNode(lv_semi_4_0, grammarAccess.getJumpStatementAccess().getSemiSKW_SEMITerminalRuleCall_1_1_1_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getJumpStatementRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"semi",
-        		lv_semi_4_0, 
-        		"at.jku.weiner.c.common.Common.SKW_SEMI");
-	    }
+this_SKW_SEMI_4=RULE_SKW_SEMI
+    { 
+    newLeafNode(this_SKW_SEMI_4, grammarAccess.getJumpStatementAccess().getSKW_SEMITerminalRuleCall_1_1_1()); 
+    }
 
-)
-)
 
 )
 
@@ -7815,25 +7759,11 @@ ruleJumpStatement returns [EObject current=null]
 )?
 
 
-(
-(
-		lv_semi_7_0=RULE_SKW_SEMI
-		{
-			newLeafNode(lv_semi_7_0, grammarAccess.getJumpStatementAccess().getSemiSKW_SEMITerminalRuleCall_1_2_2_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getJumpStatementRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"semi",
-        		lv_semi_7_0, 
-        		"at.jku.weiner.c.common.Common.SKW_SEMI");
-	    }
+this_SKW_SEMI_7=RULE_SKW_SEMI
+    { 
+    newLeafNode(this_SKW_SEMI_7, grammarAccess.getJumpStatementAccess().getSKW_SEMITerminalRuleCall_1_2_2()); 
+    }
 
-)
-)
 
 )
 
@@ -7882,25 +7812,11 @@ ruleJumpStatement returns [EObject current=null]
 )
 
 
-(
-(
-		lv_semi_10_0=RULE_SKW_SEMI
-		{
-			newLeafNode(lv_semi_10_0, grammarAccess.getJumpStatementAccess().getSemiSKW_SEMITerminalRuleCall_1_3_2_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getJumpStatementRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"semi",
-        		lv_semi_10_0, 
-        		"at.jku.weiner.c.common.Common.SKW_SEMI");
-	    }
+this_SKW_SEMI_10=RULE_SKW_SEMI
+    { 
+    newLeafNode(this_SKW_SEMI_10, grammarAccess.getJumpStatementAccess().getSKW_SEMITerminalRuleCall_1_3_2()); 
+    }
 
-)
-)
 
 )
 
@@ -8145,25 +8061,11 @@ this_SKW_RIGHTPAREN_10=RULE_SKW_RIGHTPAREN
 
 
 
-(
-(
-		lv_semi_11_0=RULE_SKW_SEMI
-		{
-			newLeafNode(lv_semi_11_0, grammarAccess.getAsmStatementAccess().getSemiSKW_SEMITerminalRuleCall_6_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getAsmStatementRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"semi",
-        		lv_semi_11_0, 
-        		"at.jku.weiner.c.common.Common.SKW_SEMI");
-	    }
+this_SKW_SEMI_11=RULE_SKW_SEMI
+    { 
+    newLeafNode(this_SKW_SEMI_11, grammarAccess.getAsmStatementAccess().getSKW_SEMITerminalRuleCall_6()); 
+    }
 
-)
-)
 
 )
 

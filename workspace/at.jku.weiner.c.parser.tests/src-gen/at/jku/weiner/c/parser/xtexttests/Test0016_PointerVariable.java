@@ -244,8 +244,6 @@ public class Test0016_PointerVariable {
 		);
 		Assert.assertEquals("const", TypeQualifier_11_Var
 		.getType());
-		Assert.assertEquals(";", Declaration_2_Var
-		.getSemi());
 		//11
 		final ExternalDeclaration ExternalDeclaration_12_Var
 		 = (ExternalDeclaration)External_0_list.get(1);
@@ -314,8 +312,6 @@ public class Test0016_PointerVariable {
 		);
 		Assert.assertEquals("[*, *]", Pointer_20_Var
 		.getStar().toString());
-		Assert.assertEquals(";", Declaration_13_Var
-		.getSemi());
 	}
 	
 	@Test

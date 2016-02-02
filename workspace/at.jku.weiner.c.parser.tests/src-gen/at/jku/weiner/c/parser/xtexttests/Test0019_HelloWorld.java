@@ -865,8 +865,6 @@ public class Test0019_HelloWorld {
 		);
 		Assert.assertEquals("[\"Hello World!\"]", PrimaryExpression_77_Var
 		.getString().toString());
-		Assert.assertEquals(";", ExpressionStatement_26_Var
-		.getSemi());
 		//77
 		final Statement Statement_78_Var
 		 = (Statement)Statement_24_list.get(1);
@@ -1026,8 +1024,6 @@ public class Test0019_HelloWorld {
 		.getDec());
 		Assert.assertEquals("return", JumpStatement_79_Var
 		.getReturn());
-		Assert.assertEquals(";", JumpStatement_79_Var
-		.getSemi());
 	}
 	
 	@Test

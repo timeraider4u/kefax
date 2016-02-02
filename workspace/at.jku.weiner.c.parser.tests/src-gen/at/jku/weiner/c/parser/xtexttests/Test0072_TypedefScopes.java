@@ -429,8 +429,6 @@ public class Test0072_TypedefScopes {
 		);
 		Assert.assertEquals("fooA", DirectDeclarator_9_Var
 		.getId());
-		Assert.assertEquals(";", Declaration_2_Var
-		.getSemi());
 		//9
 		final ExternalDeclaration ExternalDeclaration_10_Var
 		 = (ExternalDeclaration)External_0_list.get(1);
@@ -497,8 +495,6 @@ public class Test0072_TypedefScopes {
 		);
 		Assert.assertEquals("barA_1", DirectDeclarator_18_Var
 		.getId());
-		Assert.assertEquals(";", Declaration_11_Var
-		.getSemi());
 		//18
 		final ExternalDeclaration ExternalDeclaration_19_Var
 		 = (ExternalDeclaration)External_0_list.get(2);

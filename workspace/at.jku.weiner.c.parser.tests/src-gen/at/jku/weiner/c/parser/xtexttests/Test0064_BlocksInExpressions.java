@@ -1321,8 +1321,6 @@ public class Test0064_BlocksInExpressions {
 		.getDec());
 		Assert.assertEquals("return", JumpStatement_58_Var
 		.getReturn());
-		Assert.assertEquals(";", JumpStatement_58_Var
-		.getSemi());
 	}
 	
 	@Test

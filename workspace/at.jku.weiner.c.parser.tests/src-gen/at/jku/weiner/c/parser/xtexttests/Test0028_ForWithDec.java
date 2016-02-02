@@ -604,8 +604,6 @@ public class Test0028_ForWithDec {
 		);
 		Assert.assertEquals("0", Constant2_45_Var
 		.getDec());
-		Assert.assertEquals(";", Declaration_21_Var
-		.getSemi());
 		//45
 		final Expression Expression_46_Var
 		 = (Expression)IterationStatement_20_Var

@@ -345,8 +345,6 @@ public class Test0007_NoStdInclude {
 		);
 		Assert.assertEquals("1", Constant2_31_Var
 		.getDec());
-		Assert.assertEquals(";", Declaration_7_Var
-		.getSemi());
 		//31
 		final ExternalDeclaration ExternalDeclaration_32_Var
 		 = (ExternalDeclaration)External_5_list.get(1);
@@ -409,8 +407,6 @@ public class Test0007_NoStdInclude {
 		.getId());
 		Assert.assertTrue(DirectDeclarator_39_Var
 		.getDeclaratorSuffix().isEmpty());
-		Assert.assertEquals(";", Declaration_33_Var
-		.getSemi());
 		Assert.assertEquals("" + options.get("path") + "/" + options.get("plugin_id") + "/" + options.get("sourceFile") + "/Empty.c", TranslationUnit_3_Var
 		.getPath());
 	}

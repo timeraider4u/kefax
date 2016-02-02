@@ -1435,8 +1435,6 @@ public class Test0035_SimpleArray {
 		);
 		Assert.assertEquals("out", PrimaryExpression_112_Var
 		.getId());
-		Assert.assertEquals(";", ExpressionStatement_61_Var
-		.getSemi());
 		//112
 		final Statement Statement_113_Var
 		 = (Statement)Statement_59_list.get(1);
@@ -1867,8 +1865,6 @@ public class Test0035_SimpleArray {
 		);
 		Assert.assertEquals("[\"Hello World!\"]", PrimaryExpression_165_Var
 		.getString().toString());
-		Assert.assertEquals(";", ExpressionStatement_114_Var
-		.getSemi());
 		//165
 		final Statement Statement_166_Var
 		 = (Statement)Statement_59_list.get(2);
@@ -2299,8 +2295,6 @@ public class Test0035_SimpleArray {
 		);
 		Assert.assertEquals("out", PrimaryExpression_218_Var
 		.getId());
-		Assert.assertEquals(";", ExpressionStatement_167_Var
-		.getSemi());
 		//218
 		final Statement Statement_219_Var
 		 = (Statement)Statement_59_list.get(3);
@@ -2650,8 +2644,6 @@ public class Test0035_SimpleArray {
 		);
 		Assert.assertEquals("'w'", Constant2_262_Var
 		.getCh());
-		Assert.assertEquals(";", ExpressionStatement_220_Var
-		.getSemi());
 		//262
 		final Statement Statement_263_Var
 		 = (Statement)Statement_59_list.get(4);
@@ -3082,8 +3074,6 @@ public class Test0035_SimpleArray {
 		);
 		Assert.assertEquals("out", PrimaryExpression_315_Var
 		.getId());
-		Assert.assertEquals(";", ExpressionStatement_264_Var
-		.getSemi());
 		//315
 		final Statement Statement_316_Var
 		 = (Statement)Statement_59_list.get(5);
@@ -3243,8 +3233,6 @@ public class Test0035_SimpleArray {
 		.getDec());
 		Assert.assertEquals("return", JumpStatement_317_Var
 		.getReturn());
-		Assert.assertEquals(";", JumpStatement_317_Var
-		.getSemi());
 	}
 	
 	@Test

@@ -80,8 +80,7 @@ SKW_RIGHTBRACE NEWLINE
 										)
 									)
 								), // end expression
-								goto++"goto",
-								semi++";"
+								goto++"goto"
 							) // end expression statement
 						), // end first statement
 						(Statement
@@ -197,8 +196,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								), // end expression
-								semi++";"
+								) // end expression
 							) // end expression statement
 						), // end second statement
 						(Statement
@@ -319,8 +317,7 @@ SKW_RIGHTBRACE NEWLINE
 													)
 												)
 											)
-										), // end expression
-										semi++";"
+										) // end expression
 									)
 								)
 							) // end labeled statement

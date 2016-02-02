@@ -172,9 +172,7 @@ class ParserGenerator implements IGenerator {
 			«FOR list : dec.initDeclaratorList»
 				«outputFor(list)»
 			«ENDFOR»
-			«IF dec.semi != null»
-				«dec.semi»
-			«ENDIF»
+			;
 		«ENDIF»
 	'''
 	

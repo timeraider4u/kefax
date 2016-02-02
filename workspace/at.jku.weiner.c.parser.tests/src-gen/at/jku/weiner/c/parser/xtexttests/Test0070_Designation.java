@@ -896,8 +896,6 @@ public class Test0070_Designation {
 		.getId());
 		Assert.assertEquals("return", JumpStatement_41_Var
 		.getReturn());
-		Assert.assertEquals(";", JumpStatement_41_Var
-		.getSemi());
 	}
 	
 	@Test

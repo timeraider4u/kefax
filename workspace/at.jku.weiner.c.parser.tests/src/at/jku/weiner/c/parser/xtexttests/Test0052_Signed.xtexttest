@@ -40,8 +40,7 @@ KW_SIGNED3 WHITESPACE KW_INT WHITESPACE ID SKW_SEMI NEWLINE
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		),
 		(ExternalDeclaration
@@ -70,8 +69,7 @@ KW_SIGNED3 WHITESPACE KW_INT WHITESPACE ID SKW_SEMI NEWLINE
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 			
 		),
@@ -101,8 +99,7 @@ KW_SIGNED3 WHITESPACE KW_INT WHITESPACE ID SKW_SEMI NEWLINE
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 			
 		)

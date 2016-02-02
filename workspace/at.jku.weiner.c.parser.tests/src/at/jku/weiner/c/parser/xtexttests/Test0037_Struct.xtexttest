@@ -609,8 +609,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								), // end expression
-								semi++";"
+								) // end expression
 							) // end expression statement
 						), // end statement
 						// printf(..., sizeof(joe.name));
@@ -835,8 +834,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								), // end expression
-								semi++";"
+								) // end expression
 							) // end expression statement
 						), // end statement
 						// printf(..., sizeof(joe));
@@ -1057,8 +1055,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								), // end expression
-								semi++";"
+								) // end expression
 							) // end expression statement
 						), // end statement
 						
@@ -1143,8 +1140,7 @@ SKW_RIGHTBRACE NEWLINE
 											) // end conditional expression
 										) // end assignment expression
 									) // end assignment expression
-								),//end expression
-								semi++";"
+								)//end expression
 							)
 						), // end statement
 						// strcpy(..., ...);
@@ -1312,8 +1308,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								), // end expression
-								semi++";"
+								) // end expression
 							) // end expression statement
 						), // end statement
 						
@@ -1483,8 +1478,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								), // end expression
-								semi++";"
+								) // end expression
 							) // end expression statement
 						), // end statement
 						// printf(..., joe.name);
@@ -1653,8 +1647,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								), // end expression
-								semi++";"
+								) // end expression
 							) // end expression statement
 						), // end statement
 						// printf(..., phil.id);
@@ -1823,8 +1816,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								), // end expression
-								semi++";"
+								) // end expression
 							) // end expression statement
 						), // end statement
 						// printf(..., phil.name);
@@ -1993,8 +1985,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								), // end expression
-								semi++";"
+								) // end expression
 							) // end expression statement
 						), // end statement
 						// return statement
@@ -2057,8 +2048,7 @@ SKW_RIGHTBRACE NEWLINE
 										)
 									)
 								), // end expression
-								return++"return",
-								semi++";"
+								return++"return"
 							) // end jump statement
 						) // end second statement
 					) // end block list

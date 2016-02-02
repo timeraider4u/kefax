@@ -10,11 +10,10 @@ package at.jku.weiner.c.parser.parser;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.ExpressionStatement#getExpression <em>Expression</em>}</li>
- *   <li>{@link at.jku.weiner.c.parser.parser.ExpressionStatement#getSemi <em>Semi</em>}</li>
  * </ul>
+ * </p>
  *
  * @see at.jku.weiner.c.parser.parser.ParserPackage#getExpressionStatement()
  * @model
@@ -47,31 +46,5 @@ public interface ExpressionStatement extends Statement
    * @generated
    */
   void setExpression(Expression value);
-
-  /**
-   * Returns the value of the '<em><b>Semi</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Semi</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Semi</em>' attribute.
-   * @see #setSemi(String)
-   * @see at.jku.weiner.c.parser.parser.ParserPackage#getExpressionStatement_Semi()
-   * @model
-   * @generated
-   */
-  String getSemi();
-
-  /**
-   * Sets the value of the '{@link at.jku.weiner.c.parser.parser.ExpressionStatement#getSemi <em>Semi</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Semi</em>' attribute.
-   * @see #getSemi()
-   * @generated
-   */
-  void setSemi(String value);
 
 } // ExpressionStatement

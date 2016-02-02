@@ -104,8 +104,7 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN KW_STRUCT WHITESPACE
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		),
 		// char do3(STRUCT * s);
@@ -172,8 +171,7 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN KW_STRUCT WHITESPACE
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		),
 		// char do4(STRUCT *);
@@ -236,8 +234,7 @@ KW_CHAR WHITESPACE ID SKW_LEFTPAREN KW_STRUCT WHITESPACE
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		)
 		

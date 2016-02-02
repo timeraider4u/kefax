@@ -28,15 +28,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.AsmStatementImpl#getAsm <em>Asm</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.AsmStatementImpl#getVolatile <em>Volatile</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.AsmStatementImpl#getAsmLine1 <em>Asm Line1</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.AsmStatementImpl#getAsmLines <em>Asm Lines</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.AsmStatementImpl#isLastComma <em>Last Comma</em>}</li>
- *   <li>{@link at.jku.weiner.c.parser.parser.impl.AsmStatementImpl#getSemi <em>Semi</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -121,26 +120,6 @@ public class AsmStatementImpl extends StatementImpl implements AsmStatement
    * @ordered
    */
   protected boolean lastComma = LAST_COMMA_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getSemi() <em>Semi</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getSemi()
-   * @generated
-   * @ordered
-   */
-  protected static final String SEMI_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getSemi() <em>Semi</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getSemi()
-   * @generated
-   * @ordered
-   */
-  protected String semi = SEMI_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -299,29 +278,6 @@ public class AsmStatementImpl extends StatementImpl implements AsmStatement
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getSemi()
-  {
-    return semi;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setSemi(String newSemi)
-  {
-    String oldSemi = semi;
-    semi = newSemi;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.ASM_STATEMENT__SEMI, oldSemi, semi));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -355,8 +311,6 @@ public class AsmStatementImpl extends StatementImpl implements AsmStatement
         return getAsmLines();
       case ParserPackage.ASM_STATEMENT__LAST_COMMA:
         return isLastComma();
-      case ParserPackage.ASM_STATEMENT__SEMI:
-        return getSemi();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -388,9 +342,6 @@ public class AsmStatementImpl extends StatementImpl implements AsmStatement
       case ParserPackage.ASM_STATEMENT__LAST_COMMA:
         setLastComma((Boolean)newValue);
         return;
-      case ParserPackage.ASM_STATEMENT__SEMI:
-        setSemi((String)newValue);
-        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -420,9 +371,6 @@ public class AsmStatementImpl extends StatementImpl implements AsmStatement
       case ParserPackage.ASM_STATEMENT__LAST_COMMA:
         setLastComma(LAST_COMMA_EDEFAULT);
         return;
-      case ParserPackage.ASM_STATEMENT__SEMI:
-        setSemi(SEMI_EDEFAULT);
-        return;
     }
     super.eUnset(featureID);
   }
@@ -447,8 +395,6 @@ public class AsmStatementImpl extends StatementImpl implements AsmStatement
         return asmLines != null && !asmLines.isEmpty();
       case ParserPackage.ASM_STATEMENT__LAST_COMMA:
         return lastComma != LAST_COMMA_EDEFAULT;
-      case ParserPackage.ASM_STATEMENT__SEMI:
-        return SEMI_EDEFAULT == null ? semi != null : !SEMI_EDEFAULT.equals(semi);
     }
     return super.eIsSet(featureID);
   }
@@ -470,8 +416,6 @@ public class AsmStatementImpl extends StatementImpl implements AsmStatement
     result.append(volatile_);
     result.append(", lastComma: ");
     result.append(lastComma);
-    result.append(", semi: ");
-    result.append(semi);
     result.append(')');
     return result.toString();
   }

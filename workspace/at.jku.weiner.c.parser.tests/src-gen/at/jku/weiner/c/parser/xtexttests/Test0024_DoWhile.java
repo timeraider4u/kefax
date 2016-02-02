@@ -768,10 +768,6 @@ public class Test0024_DoWhile {
 		 = (PostfixExpressionSuffixMinusMinus)Suffix_68_list.get(0);
 		Assert.assertNotNull(PostfixExpressionSuffixMinusMinus_69_Var
 		);
-		Assert.assertEquals(";", ExpressionStatement_51_Var
-		.getSemi());
-		Assert.assertEquals(";", IterationStatement_20_Var
-		.getSemi());
 	}
 	
 	@Test

@@ -20,11 +20,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.ExpressionStatementImpl#getExpression <em>Expression</em>}</li>
- *   <li>{@link at.jku.weiner.c.parser.parser.impl.ExpressionStatementImpl#getSemi <em>Semi</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -39,26 +38,6 @@ public class ExpressionStatementImpl extends StatementImpl implements Expression
    * @ordered
    */
   protected Expression expression;
-
-  /**
-   * The default value of the '{@link #getSemi() <em>Semi</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getSemi()
-   * @generated
-   * @ordered
-   */
-  protected static final String SEMI_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getSemi() <em>Semi</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getSemi()
-   * @generated
-   * @ordered
-   */
-  protected String semi = SEMI_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -134,29 +113,6 @@ public class ExpressionStatementImpl extends StatementImpl implements Expression
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getSemi()
-  {
-    return semi;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setSemi(String newSemi)
-  {
-    String oldSemi = semi;
-    semi = newSemi;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.EXPRESSION_STATEMENT__SEMI, oldSemi, semi));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -180,8 +136,6 @@ public class ExpressionStatementImpl extends StatementImpl implements Expression
     {
       case ParserPackage.EXPRESSION_STATEMENT__EXPRESSION:
         return getExpression();
-      case ParserPackage.EXPRESSION_STATEMENT__SEMI:
-        return getSemi();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -198,9 +152,6 @@ public class ExpressionStatementImpl extends StatementImpl implements Expression
     {
       case ParserPackage.EXPRESSION_STATEMENT__EXPRESSION:
         setExpression((Expression)newValue);
-        return;
-      case ParserPackage.EXPRESSION_STATEMENT__SEMI:
-        setSemi((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -219,9 +170,6 @@ public class ExpressionStatementImpl extends StatementImpl implements Expression
       case ParserPackage.EXPRESSION_STATEMENT__EXPRESSION:
         setExpression((Expression)null);
         return;
-      case ParserPackage.EXPRESSION_STATEMENT__SEMI:
-        setSemi(SEMI_EDEFAULT);
-        return;
     }
     super.eUnset(featureID);
   }
@@ -238,27 +186,8 @@ public class ExpressionStatementImpl extends StatementImpl implements Expression
     {
       case ParserPackage.EXPRESSION_STATEMENT__EXPRESSION:
         return expression != null;
-      case ParserPackage.EXPRESSION_STATEMENT__SEMI:
-        return SEMI_EDEFAULT == null ? semi != null : !SEMI_EDEFAULT.equals(semi);
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (semi: ");
-    result.append(semi);
-    result.append(')');
-    return result.toString();
   }
 
 } //ExpressionStatementImpl

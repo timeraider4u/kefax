@@ -818,8 +818,6 @@ public class Test0063_SwitchWithEllipsis {
 		);
 		Assert.assertEquals("0", Constant2_63_Var
 		.getDec());
-		Assert.assertEquals(";", JumpStatement_45_Var
-		.getSemi());
 		//63
 		final Statement Statement_64_Var
 		 = (Statement)Statement_41_list.get(1);
@@ -881,8 +879,6 @@ public class Test0063_SwitchWithEllipsis {
 		);
 		Assert.assertEquals("break", JumpStatement_71_Var
 		.getBreak());
-		Assert.assertEquals(";", JumpStatement_71_Var
-		.getSemi());
 		//71
 		final Statement Statement_72_Var
 		 = (Statement)Statement_41_list.get(2);
@@ -1086,8 +1082,6 @@ public class Test0063_SwitchWithEllipsis {
 		);
 		Assert.assertEquals("2", Constant2_97_Var
 		.getDec());
-		Assert.assertEquals(";", JumpStatement_79_Var
-		.getSemi());
 		//97
 		final Statement Statement_98_Var
 		 = (Statement)Statement_18_list.get(1);
@@ -1247,8 +1241,6 @@ public class Test0063_SwitchWithEllipsis {
 		.getDec());
 		Assert.assertEquals("return", JumpStatement_99_Var
 		.getReturn());
-		Assert.assertEquals(";", JumpStatement_99_Var
-		.getSemi());
 	}
 	
 	@Test

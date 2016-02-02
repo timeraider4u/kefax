@@ -973,8 +973,6 @@ public class Test0025_Switch {
 		);
 		Assert.assertEquals("0", Constant2_80_Var
 		.getDec());
-		Assert.assertEquals(";", JumpStatement_62_Var
-		.getSemi());
 		//80
 		final Statement Statement_81_Var
 		 = (Statement)Statement_41_list.get(1);
@@ -1169,8 +1167,6 @@ public class Test0025_Switch {
 		);
 		Assert.assertEquals("break", JumpStatement_105_Var
 		.getBreak());
-		Assert.assertEquals(";", JumpStatement_105_Var
-		.getSemi());
 		//105
 		final Statement Statement_106_Var
 		 = (Statement)Statement_41_list.get(2);
@@ -1374,8 +1370,6 @@ public class Test0025_Switch {
 		);
 		Assert.assertEquals("2", Constant2_131_Var
 		.getDec());
-		Assert.assertEquals(";", JumpStatement_113_Var
-		.getSemi());
 		//131
 		final Statement Statement_132_Var
 		 = (Statement)Statement_18_list.get(1);
@@ -1535,8 +1529,6 @@ public class Test0025_Switch {
 		.getDec());
 		Assert.assertEquals("return", JumpStatement_133_Var
 		.getReturn());
-		Assert.assertEquals(";", JumpStatement_133_Var
-		.getSemi());
 	}
 	
 	@Test

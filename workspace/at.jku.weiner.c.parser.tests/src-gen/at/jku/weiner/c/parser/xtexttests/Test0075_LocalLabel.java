@@ -415,8 +415,6 @@ public class Test0075_LocalLabel {
 		.getId());
 		Assert.assertEquals("goto", JumpStatement_18_Var
 		.getGoto());
-		Assert.assertEquals(";", JumpStatement_18_Var
-		.getSemi());
 		//21
 		final Statement Statement_22_Var
 		 = (Statement)Statement_16_list.get(1);
@@ -717,8 +715,6 @@ public class Test0075_LocalLabel {
 		);
 		Assert.assertEquals("[\"will never be reached\\n\"]", PrimaryExpression_58_Var
 		.getString().toString());
-		Assert.assertEquals(";", ExpressionStatement_23_Var
-		.getSemi());
 		//58
 		final Statement Statement_59_Var
 		 = (Statement)Statement_16_list.get(2);
@@ -1033,8 +1029,6 @@ public class Test0075_LocalLabel {
 		);
 		Assert.assertEquals("[\"reached target\\n\"]", PrimaryExpression_97_Var
 		.getString().toString());
-		Assert.assertEquals(";", ExpressionStatement_62_Var
-		.getSemi());
 	}
 	
 	@Test

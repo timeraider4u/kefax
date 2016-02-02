@@ -59,8 +59,7 @@ source file="res/Test0008_AddDefine"
 								)
 							)
 						)
-					),
-					semi++";"
+					)
 				)	
 			)
 		),

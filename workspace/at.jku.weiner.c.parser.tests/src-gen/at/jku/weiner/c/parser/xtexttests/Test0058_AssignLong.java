@@ -356,8 +356,6 @@ public class Test0058_AssignLong {
 		);
 		Assert.assertEquals("0x00000000000000ffULL", Constant2_26_Var
 		.getHex());
-		Assert.assertEquals(";", Declaration_2_Var
-		.getSemi());
 	}
 	
 	@Test

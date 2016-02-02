@@ -20,15 +20,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.JumpStatementImpl#getContinue <em>Continue</em>}</li>
- *   <li>{@link at.jku.weiner.c.parser.parser.impl.JumpStatementImpl#getSemi <em>Semi</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.JumpStatementImpl#getBreak <em>Break</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.JumpStatementImpl#getReturn <em>Return</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.JumpStatementImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link at.jku.weiner.c.parser.parser.impl.JumpStatementImpl#getGoto <em>Goto</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -53,26 +52,6 @@ public class JumpStatementImpl extends StatementImpl implements JumpStatement
    * @ordered
    */
   protected String continue_ = CONTINUE_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getSemi() <em>Semi</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getSemi()
-   * @generated
-   * @ordered
-   */
-  protected static final String SEMI_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getSemi() <em>Semi</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getSemi()
-   * @generated
-   * @ordered
-   */
-  protected String semi = SEMI_EDEFAULT;
 
   /**
    * The default value of the '{@link #getBreak() <em>Break</em>}' attribute.
@@ -186,29 +165,6 @@ public class JumpStatementImpl extends StatementImpl implements JumpStatement
     continue_ = newContinue;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.JUMP_STATEMENT__CONTINUE, oldContinue, continue_));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getSemi()
-  {
-    return semi;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setSemi(String newSemi)
-  {
-    String oldSemi = semi;
-    semi = newSemi;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ParserPackage.JUMP_STATEMENT__SEMI, oldSemi, semi));
   }
 
   /**
@@ -356,8 +312,6 @@ public class JumpStatementImpl extends StatementImpl implements JumpStatement
     {
       case ParserPackage.JUMP_STATEMENT__CONTINUE:
         return getContinue();
-      case ParserPackage.JUMP_STATEMENT__SEMI:
-        return getSemi();
       case ParserPackage.JUMP_STATEMENT__BREAK:
         return getBreak();
       case ParserPackage.JUMP_STATEMENT__RETURN:
@@ -382,9 +336,6 @@ public class JumpStatementImpl extends StatementImpl implements JumpStatement
     {
       case ParserPackage.JUMP_STATEMENT__CONTINUE:
         setContinue((String)newValue);
-        return;
-      case ParserPackage.JUMP_STATEMENT__SEMI:
-        setSemi((String)newValue);
         return;
       case ParserPackage.JUMP_STATEMENT__BREAK:
         setBreak((String)newValue);
@@ -415,9 +366,6 @@ public class JumpStatementImpl extends StatementImpl implements JumpStatement
       case ParserPackage.JUMP_STATEMENT__CONTINUE:
         setContinue(CONTINUE_EDEFAULT);
         return;
-      case ParserPackage.JUMP_STATEMENT__SEMI:
-        setSemi(SEMI_EDEFAULT);
-        return;
       case ParserPackage.JUMP_STATEMENT__BREAK:
         setBreak(BREAK_EDEFAULT);
         return;
@@ -446,8 +394,6 @@ public class JumpStatementImpl extends StatementImpl implements JumpStatement
     {
       case ParserPackage.JUMP_STATEMENT__CONTINUE:
         return CONTINUE_EDEFAULT == null ? continue_ != null : !CONTINUE_EDEFAULT.equals(continue_);
-      case ParserPackage.JUMP_STATEMENT__SEMI:
-        return SEMI_EDEFAULT == null ? semi != null : !SEMI_EDEFAULT.equals(semi);
       case ParserPackage.JUMP_STATEMENT__BREAK:
         return BREAK_EDEFAULT == null ? break_ != null : !BREAK_EDEFAULT.equals(break_);
       case ParserPackage.JUMP_STATEMENT__RETURN:
@@ -473,8 +419,6 @@ public class JumpStatementImpl extends StatementImpl implements JumpStatement
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (continue: ");
     result.append(continue_);
-    result.append(", semi: ");
-    result.append(semi);
     result.append(", break: ");
     result.append(break_);
     result.append(", return: ");

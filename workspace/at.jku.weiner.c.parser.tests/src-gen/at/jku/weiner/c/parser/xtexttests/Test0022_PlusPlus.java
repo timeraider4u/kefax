@@ -498,8 +498,6 @@ public class Test0022_PlusPlus {
 		 = (PostfixExpressionSuffixPlusPlus)Suffix_37_list.get(0);
 		Assert.assertNotNull(PostfixExpressionSuffixPlusPlus_38_Var
 		);
-		Assert.assertEquals(";", ExpressionStatement_20_Var
-		.getSemi());
 		//38
 		final Statement Statement_39_Var
 		 = (Statement)Statement_18_list.get(1);
@@ -661,8 +659,6 @@ public class Test0022_PlusPlus {
 		.getId());
 		Assert.assertEquals("++", UnaryExpression_55_Var
 		.getPlusplus());
-		Assert.assertEquals(";", JumpStatement_40_Var
-		.getSemi());
 	}
 	
 	@Test

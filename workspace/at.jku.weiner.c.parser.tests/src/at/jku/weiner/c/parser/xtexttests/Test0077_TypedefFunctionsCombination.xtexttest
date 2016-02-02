@@ -45,8 +45,7 @@ KW_VOID WHITESPACE ID SKW_LEFTPAREN KW_INT WHITESPACE ID SKW_RIGHTPAREN
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		),
 		// void foobar(...) { }
@@ -157,8 +156,7 @@ KW_VOID WHITESPACE ID SKW_LEFTPAREN KW_INT WHITESPACE ID SKW_RIGHTPAREN
 							)
 						)
 					)
-				),
-				semi++";"
+				)
 			)
 		)
 	)

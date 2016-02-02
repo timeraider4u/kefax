@@ -332,8 +332,6 @@ public class Test0047_FunctionDeclsRestrict {
 		);
 		Assert.assertEquals("c", DirectDeclarator_19_Var
 		.getId());
-		Assert.assertEquals(";", Declaration_2_Var
-		.getSemi());
 		//19
 		final ExternalDeclaration ExternalDeclaration_20_Var
 		 = (ExternalDeclaration)External_0_list.get(1);

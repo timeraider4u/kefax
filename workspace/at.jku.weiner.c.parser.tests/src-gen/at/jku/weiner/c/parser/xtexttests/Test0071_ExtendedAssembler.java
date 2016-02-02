@@ -677,8 +677,6 @@ public class Test0071_ExtendedAssembler {
 		);
 		Assert.assertEquals("0", Constant2_27_Var
 		.getDec());
-		Assert.assertEquals(";", Declaration_2_Var
-		.getSemi());
 		//27
 		final ExternalDeclaration ExternalDeclaration_28_Var
 		 = (ExternalDeclaration)External_0_list.get(1);
@@ -746,8 +744,6 @@ public class Test0071_ExtendedAssembler {
 		);
 		Assert.assertEquals("j", DirectDeclarator_36_Var
 		.getId());
-		Assert.assertEquals(";", Declaration_29_Var
-		.getSemi());
 		//36
 		final ExternalDeclaration ExternalDeclaration_37_Var
 		 = (ExternalDeclaration)External_0_list.get(2);
@@ -980,8 +976,6 @@ public class Test0071_ExtendedAssembler {
 		);
 		Assert.assertEquals("i", PrimaryExpression_66_Var
 		.getId());
-		Assert.assertEquals(";", Declaration_38_Var
-		.getSemi());
 		//66
 		final ExternalDeclaration ExternalDeclaration_67_Var
 		 = (ExternalDeclaration)External_0_list.get(3);

@@ -802,8 +802,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								), // end expression
-								semi++";"
+								) // end expression
 							) // end expression statement
 						), // end statement
 						// printf(..., emp->name);
@@ -972,8 +971,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								), // end expression
-								semi++";"
+								) // end expression
 							) // end expression statement
 						) // end statement
 					)
@@ -1379,8 +1377,7 @@ SKW_RIGHTBRACE NEWLINE
 																	)
 																)
 															)
-														), // end expression
-														semi++";"
+														) // end expression
 													) // end expression statement
 												),
 												// return -1;
@@ -1452,8 +1449,7 @@ SKW_RIGHTBRACE NEWLINE
 																)
 															)
 														), // end expression
-														return++"return",
-														semi++";" 
+														return++"return"
 													)
 												) // end statement
 											)
@@ -1583,8 +1579,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								), // end expression
-								semi++";"
+								) // end expression
 							) // end expression statement
 						),
 						// print (&phil);
@@ -1708,8 +1703,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								), // end expression
-								semi++";"
+								) // end expression
 							) // end expression statement
 						),
 						// newEmployee->id = ...;
@@ -1792,8 +1786,7 @@ SKW_RIGHTBRACE NEWLINE
 											) // end conditional expression
 										) // end assignment expression
 									) // end assignment expression
-								),//end expression
-								semi++";"
+								)//end expression
 							)
 						), // end statement
 						// strcpy(..., ...);
@@ -1961,8 +1954,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								), // end expression
-								semi++";"
+								) // end expression
 							) // end expression statement
 						), // end statement
 						// print(newEmployee);
@@ -2076,8 +2068,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								), // end expression
-								semi++";"
+								) // end expression
 							) // end expression statement
 						),
 						// free(newEmployee);
@@ -2191,8 +2182,7 @@ SKW_RIGHTBRACE NEWLINE
 											)
 										)
 									)
-								), // end expression
-								semi++";"
+								) // end expression
 							) // end expression statement
 						),
 						// return statement
@@ -2255,8 +2245,7 @@ SKW_RIGHTBRACE NEWLINE
 										)
 									)
 								), // end expression
-								return++"return",
-								semi++";"
+								return++"return"
 							) // end jump statement
 						) // end second statement
 					) // end block list

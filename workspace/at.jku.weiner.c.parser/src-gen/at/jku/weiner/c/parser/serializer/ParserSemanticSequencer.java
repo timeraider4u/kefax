@@ -485,8 +485,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	 *         (volatile=KW_VOLATILE | volatile=KW_VOLATILE2)? 
 	 *         asmLine1=AsmLine? 
 	 *         asmLines+=AsmLineWithColon* 
-	 *         lastComma?=SKW_COMMA? 
-	 *         semi=SKW_SEMI
+	 *         lastComma?=SKW_COMMA?
 	 *     )
 	 */
 	protected void sequence_AsmStatement(EObject context, AsmStatement semanticObject) {
@@ -610,7 +609,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (specifiers=DeclarationSpecifiers initDeclaratorList+=InitDeclaratorList? semi=SKW_SEMI)
+	 *     (specifiers=DeclarationSpecifiers initDeclaratorList+=InitDeclaratorList?)
 	 */
 	protected void sequence_Declaration(EObject context, Declaration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -746,7 +745,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (expression=Expression? semi=SKW_SEMI)
+	 *     (expression=Expression?)
 	 */
 	protected void sequence_ExpressionStatement(EObject context, ExpressionStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -934,12 +933,7 @@ public class ParserSemanticSequencer extends CommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (
-	 *         (continue=KW_CONTINUE semi=SKW_SEMI) | 
-	 *         (break=KW_BREAK semi=SKW_SEMI) | 
-	 *         (return=KW_RETURN expr=Expression? semi=SKW_SEMI) | 
-	 *         (goto=KW_GOTO expr=UnaryExpression semi=SKW_SEMI)
-	 *     )
+	 *     (continue=KW_CONTINUE | break=KW_BREAK | (return=KW_RETURN expr=Expression?) | (goto=KW_GOTO expr=UnaryExpression))
 	 */
 	protected void sequence_JumpStatement(EObject context, JumpStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

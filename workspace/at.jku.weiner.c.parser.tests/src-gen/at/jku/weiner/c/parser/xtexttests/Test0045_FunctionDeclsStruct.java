@@ -422,8 +422,6 @@ public class Test0045_FunctionDeclsStruct {
 		);
 		Assert.assertEquals("s", DirectDeclarator_26_Var
 		.getId());
-		Assert.assertEquals(";", Declaration_8_Var
-		.getSemi());
 		//26
 		final ExternalDeclaration ExternalDeclaration_27_Var
 		 = (ExternalDeclaration)External_0_list.get(2);
@@ -578,8 +576,6 @@ public class Test0045_FunctionDeclsStruct {
 		);
 		Assert.assertEquals("s", DirectDeclarator_46_Var
 		.getId());
-		Assert.assertEquals(";", Declaration_28_Var
-		.getSemi());
 		//46
 		final ExternalDeclaration ExternalDeclaration_47_Var
 		 = (ExternalDeclaration)External_0_list.get(3);
@@ -726,8 +722,6 @@ public class Test0045_FunctionDeclsStruct {
 		);
 		Assert.assertEquals("[*]", Pointer_65_Var
 		.getStar().toString());
-		Assert.assertEquals(";", Declaration_48_Var
-		.getSemi());
 	}
 	
 	@Test

@@ -1,0 +1,66 @@
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+package at.jku.weiner.c.common
+language common
+//----------------------------------------------------------------------
+source file="res/Test0001_DecimalLiteral.txt"
+//----------------------------------------------------------------------
+lexer-tokens
+DECIMAL_LITERAL
+//----------------------------------------------------------------------
+(Expression
+	expression=
+	(ConditionalExpression
+		expr=
+		(LogicalOrExpression
+			expr+=
+			(LogicalAndExpression
+				expr+=
+				(InclusiveOrExpression
+					expr+=
+					(ExclusiveOrExpression
+						expr+=
+						(AndExpression
+							expr+=
+							(EqualityExpression
+								expr+=
+								(RelationalExpression
+									expr+=
+									(ShiftExpression
+										expr+=
+										(AdditiveExpression
+											expr+=
+											(MultiplicativeExpression
+												expr+=
+												(CastExpression
+													expr=
+													(UnaryExpression
+														expr=
+														(PostfixExpression
+															expr=
+															(PrimaryExpression
+																const++"1"
+															)
+														)
+													)
+												)
+											)
+										)
+									)
+								)
+								
+							)
+						)
+					)
+				)
+			)
+		)
+	)
+)//end expression			
+
+//----------------------------------------------------------------------
+//output file="bin/Test0010_SimpleExpr.c"
+//expected file isSameAsInputFile
+//replacePatterns file="res/Patterns.txt"
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------

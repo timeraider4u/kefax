@@ -11,7 +11,7 @@ Require-Bundle: at.jku.weiner.c.common,
  org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional,
  org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: at.jku.weiner.c.common.tests
+Export-Package: at.jku.weiner.c.common.xtexttests
 Import-Package: org.junit.runners;version="4.5.0",
  org.junit.runners.model;version="4.5.0",
  org.hamcrest.core,
